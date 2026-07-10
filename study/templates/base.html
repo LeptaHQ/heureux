@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}Heureux · Oral de français{% endblock %}</title>
-  <meta name="description" content="Outil de révision par répétition espacée pour l'épreuve orale de français.">
+  <title>{% block title %}Heureux{% endblock %}</title>
+  <meta name="description" content="Fiches en répétition espacée pour l'épreuve de français.">
   <script>
     (function () {
       try {
@@ -23,7 +23,22 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Heureux">
   <link rel="apple-touch-icon" href="{% static 'study/icons/icon-192.png' %}">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇫🇷</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%232563eb'/><text x='50' y='73' font-family='Georgia,%22Book Antiqua%22,Palatino,serif' font-style='italic' font-weight='700' font-size='74' text-anchor='middle' fill='%23c8a23a'>H</text></svg>">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'study/icons/favicon-32.png' %}">
+  {# Social sharing (Open Graph + Twitter) #}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Heureux">
+  <meta property="og:title" content="{% block og_title %}Heureux{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}Fiches en répétition espacée pour l'épreuve de français.{% endblock %}">
+  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+  <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'study/icons/og-image.png' %}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Heureux — logo H doré sur fond bleu">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% block twitter_title %}Heureux{% endblock %}">
+  <meta name="twitter:description" content="Fiches en répétition espacée pour l'épreuve de français.">
+  <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'study/icons/og-image.png' %}">
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>

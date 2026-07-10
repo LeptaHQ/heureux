@@ -1,7 +1,7 @@
 {% load static %}{
-  "name": "Heureux — Oral de français",
+  "name": "Heureux",
   "short_name": "Heureux",
-  "description": "Révision par répétition espacée pour l'épreuve orale de français.",
+  "description": "Fiches en répétition espacée pour l'épreuve de français.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

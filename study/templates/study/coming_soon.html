@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}À venir · Heureux{% endblock %}
+
+{% block content %}
+<div class="page-head">
+  <p class="eyebrow">
+    <a href="{% url 'study:dashboard' %}">Accueil</a>
+    {% if task %} · <a href="{% url 'study:part_detail' part.slug %}">{{ part.short_name }}</a> · {{ task.name }}{% else %} · {{ part.short_name }}{% endif %}
+  </p>
+</div>
+
+<section class="empty empty--soon">
+  <div class="empty__icon">{% if task %}{{ task.emoji }}{% else %}{{ part.emoji }}{% endif %}</div>
+  <h1>{% if task %}{{ task.name }}{% else %}{{ part.name }}{% endif %}</h1>
+  <p class="badge-soon badge-soon--lg">À venir</p>
+  <p class="muted">
+    {% if task %}
+      Cette tâche ({{ part.short_name }} · {{ task.name }}) n'est pas encore disponible. Le contenu arrive bientôt.
+    {% else %}
+      L'épreuve « {{ part.name }} » n'est pas encore disponible. Le contenu arrive bientôt.
+    {% endif %}
+  </p>
+  <div class="hero__actions" style="justify-content:center;">
+    <a class="btn btn--primary" href="{% url 'study:dashboard' %}">Retour à l'accueil</a>
+    {% if task %}<a class="btn btn--ghost" href="{% url 'study:part_detail' part.slug %}">Voir {{ part.short_name }}</a>{% endif %}
+  </div>
+</section>
+{% endblock %}

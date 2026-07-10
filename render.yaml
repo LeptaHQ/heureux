@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: heureux
+    runtime: python
+    plan: free
+    region: oregon
+    healthCheckPath: /
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate --noinput && python manage.py import_content"
+    startCommand: "gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --log-file -"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: "2"
+      # Set these in the Render dashboard (Environment tab):
+      #   DATABASE_URL — your Neon connection string (postgresql://...)
+      - key: DATABASE_URL
+        sync: false
+      - key: ALLOWED_HOSTS
+        sync: false
+      - key: CSRF_TRUSTED_ORIGINS
+        sync: false

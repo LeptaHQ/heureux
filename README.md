@@ -1,4 +1,4 @@
-# EO · Fiches de révision (French oral-exam flashcards)
+# Heureux · Fiches de révision (French oral-exam flashcards)
 
 A personal, single-user spaced-repetition web app for memorising a French
 oral-exam answer bank. It parses the existing corpus — 167 exam prompts that

@@ -1,9 +1,13 @@
 {% extends "base.html" %}
-{% block title %}{{ theme.display_name }} · Réviser{% endblock %}
+{% block title %}{{ theme.display_name }} · Heureux{% endblock %}
 
 {% block content %}
 <div class="page-head">
-  <p class="eyebrow"><a href="{% url 'study:browse' %}">Parcourir</a> · Thème</p>
+  <p class="eyebrow">
+    <a href="{% url 'study:dashboard' %}">Accueil</a>
+    {% if theme.task %} · <a href="{% url 'study:part_detail' theme.task.part.slug %}">{{ theme.task.part.short_name }}</a> · <a href="{% url 'study:task_detail' theme.task.part.slug theme.task.slug %}">{{ theme.task.name }}</a>{% endif %}
+    · <a href="{% url 'study:browse' %}">Parcourir</a>
+  </p>
   <div class="row between">
     <h1 style="margin-bottom:0;">{{ theme.emoji }} {{ theme.display_name }}</h1>
     <a class="btn btn--primary" href="{% url 'study:review' %}?kind=spine&amp;theme={{ theme.slug }}">Réviser ce thème</a>

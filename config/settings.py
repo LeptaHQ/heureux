@@ -8,6 +8,7 @@ environment variables so the same code runs locally and in production.
 from pathlib import Path
 import os
 
+import dj_database_url
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +41,13 @@ DEBUG = env_bool("DEBUG", True)
 ALLOWED_HOSTS = env_list("ALLOWED_HOSTS", "localhost,127.0.0.1,0.0.0.0,[::1]")
 
 CSRF_TRUSTED_ORIGINS = env_list("CSRF_TRUSTED_ORIGINS")
+
+# Render provides the public hostname at runtime — trust it automatically so
+# the app works without manually listing the *.onrender.com domain.
+RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+    CSRF_TRUSTED_ORIGINS.append(f"https://{RENDER_EXTERNAL_HOSTNAME}")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -83,11 +91,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
+# Database — PostgreSQL in production (via DATABASE_URL), SQLite for local dev.
+# Set DATABASE_URL (e.g. postgres://user:pass@host:5432/dbname) in production and
+# Django will use PostgreSQL automatically; without it, a local SQLite file is used.
+_sqlite_path = os.environ.get("DATABASE_PATH", BASE_DIR / "db.sqlite3")
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.environ.get("DATABASE_PATH", BASE_DIR / "db.sqlite3"),
-    }
+    "default": dj_database_url.config(
+        env="DATABASE_URL",
+        default=f"sqlite:///{_sqlite_path}",
+        conn_max_age=int(os.environ.get("DB_CONN_MAX_AGE", "600")),
+        conn_health_checks=True,
+    )
 }
 
 AUTH_PASSWORD_VALIDATORS = [

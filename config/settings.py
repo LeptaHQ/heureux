@@ -56,15 +56,20 @@ if ".onrender.com" not in ALLOWED_HOSTS:
 if "https://*.onrender.com" not in CSRF_TRUSTED_ORIGINS:
     CSRF_TRUSTED_ORIGINS.append("https://*.onrender.com")
 
-# Custom production domain(s). Always trusted so the app works on the public
-# domain regardless of environment configuration; extend via env if needed.
+# Custom production domain(s). Render serves the app on both the apex and the
+# www subdomain (www.heureux.lepta.app is the primary URL), so trust both. Add
+# more via the CUSTOM_DOMAINS env var (comma-separated apex domains).
 CUSTOM_DOMAINS = ["heureux.lepta.app", *env_list("CUSTOM_DOMAINS")]
 for _domain in CUSTOM_DOMAINS:
-    if _domain not in ALLOWED_HOSTS:
-        ALLOWED_HOSTS.append(_domain)
-    _origin = f"https://{_domain}"
-    if _origin not in CSRF_TRUSTED_ORIGINS:
-        CSRF_TRUSTED_ORIGINS.append(_origin)
+    _domain = _domain.strip().lstrip(".")
+    if not _domain:
+        continue
+    for _host in (_domain, f"www.{_domain}"):
+        if _host not in ALLOWED_HOSTS:
+            ALLOWED_HOSTS.append(_host)
+        _origin = f"https://{_host}"
+        if _origin not in CSRF_TRUSTED_ORIGINS:
+            CSRF_TRUSTED_ORIGINS.append(_origin)
 
 INSTALLED_APPS = [
     "django.contrib.admin",

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Expressions · Heureux{% endblock %}
+{% block title %}{% if selected %}{{ selected.name }}{% else %}Expressions &amp; vocabulaire{% endif %} · Heureux{% endblock %}
 
 {% block content %}
 {% if task %}
@@ -8,30 +8,38 @@
   {% url 'study:phrases' as phrases_url %}
 {% endif %}
 {% include "study/_task_nav.html" %}
-<div class="page-head">
-  <p class="eyebrow">{% if task %}{{ task.name }} · maîtrise lexicale{% else %}Maîtrise lexicale{% endif %}</p>
-  <div class="row between">
-    <h1 style="margin-bottom:0;">Expressions &amp; vocabulaire</h1>
-    <a class="btn btn--primary" href="{% url 'study:review' %}?kind=phrase{% if task %}&amp;part={{ part.slug }}&amp;task={{ task.slug }}{% endif %}{% if selected %}&amp;category={{ selected.slug }}{% endif %}">
-      {% if selected %}Réviser toute la catégorie{% else %}Réviser toutes les expressions{% endif %}
-    </a>
-  </div>
-  <p>{{ phrase_count }} expression{{ phrase_count|pluralize }}.</p>
-</div>
 
 {% if selected %}
-<nav class="cat-nav">
-  <a class="chip" href="{{ phrases_url }}">← Catégories</a>
-  {% for category in categories %}
-    <a class="chip {% if selected.id == category.id %}chip--active{% endif %}" href="{{ phrases_url }}?category={{ category.slug }}">{{ category.name }}</a>
-  {% endfor %}
+<nav class="phrase-category-back" aria-label="Retour aux catégories">
+  <a href="{{ phrases_url }}">← Toutes les expressions et tous les sujets</a>
 </nav>
+
+<header class="phrase-category-hero card">
+  <div>
+    <p class="eyebrow">{% if selected.is_functional %}Expression transversale{% else %}Expressions partagées{% endif %}</p>
+    <h1>{{ selected.name }}</h1>
+    <p>{{ selected.learning_description }}</p>
+    <div class="phrase-category-hero__meta">
+      <span><b>{{ phrase_count }}</b> expression{{ phrase_count|pluralize }}</span>
+      <span><b>{{ selected.batch_count }}</b> lot{{ selected.batch_count|pluralize }} de {{ batch_size }} maximum</span>
+    </div>
+  </div>
+  <div class="phrase-category-hero__actions">
+    {% if first_review_batch %}
+      <a class="btn btn--primary" href="{{ first_review_batch.review_url }}">Pratiquer le lot {{ first_review_batch.number }}</a>
+    {% endif %}
+    <a class="btn" href="{% url 'study:review' %}?kind=phrase{% if task %}&amp;part={{ part.slug }}&amp;task={{ task.slug }}{% endif %}&amp;category={{ selected.slug }}">Révision mélangée</a>
+  </div>
+</header>
 
 {% if review_batches %}
 <section class="review-batches" aria-labelledby="phrase-batches-title">
   <div class="review-batches__head">
-    <h2 id="phrase-batches-title">Lots de {{ batch_size }} expressions maximum</h2>
-    <p>Les deux sens d'une expression restent dans le même lot.</p>
+    <div>
+      <p class="eyebrow">Pratiquer</p>
+      <h2 id="phrase-batches-title">Choisir un lot de {{ batch_size }}</h2>
+    </div>
+    <p>Commence par un petit lot. Les cartes de production et de compréhension d'une même expression restent ensemble.</p>
   </div>
   <div class="batch-grid">
     {% for batch in review_batches %}
@@ -48,9 +56,16 @@
 </section>
 {% endif %}
 
+<section class="phrase-catalog" aria-labelledby="phrase-catalog-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Étudier</p>
+      <h2 id="phrase-catalog-title">Voir les expressions en contexte</h2>
+    </div>
+    <p>Chaque fiche donne le sens anglais, un exemple réel et les sujets où la tournure est utile.</p>
+  </div>
 {% for group in grouped %}
-  <section class="phrase-group">
-    <h2 id="{{ group.category.slug }}">{{ group.category.name }}</h2>
+  <div class="phrase-group">
     <div class="grid grid--phrases">
       {% for phrase in group.phrases %}
         <div class="phrase card" id="phrase-{{ phrase.phrase_id }}">
@@ -72,43 +87,128 @@
         </div>
       {% endfor %}
     </div>
-  </section>
+  </div>
 {% empty %}
   <p class="muted">Aucune expression dans cette catégorie.</p>
 {% endfor %}
+</section>
 {% else %}
-<section class="expression-directory">
-  <div class="section-heading">
-    <div>
-      <p class="eyebrow">Outils transversaux</p>
-      <h2>Construire son discours</h2>
+<header class="phrase-library-hero card">
+  <div class="phrase-library-hero__copy">
+    <p class="eyebrow">{% if task %}{{ task.name }} · maîtrise lexicale{% else %}Maîtrise lexicale{% endif %}</p>
+    <h1>Expressions &amp; vocabulaire</h1>
+    <p>Cette page réunit deux outils complémentaires&nbsp;: des tournures réutilisables pour mieux construire tes réponses, puis les decks riches de 50 vocabs extraits de chaque sujet.</p>
+    <div class="phrase-library-hero__actions">
+      {% if first_category %}
+        <a class="btn btn--primary" href="{{ phrases_url }}?category={{ first_category.slug }}">Commencer par les expressions</a>
+      {% endif %}
+      {% if subject_theme_groups %}
+        <a class="btn" href="#vocabulaire-par-sujet">Trouver le vocabulaire d'un sujet</a>
+      {% endif %}
     </div>
   </div>
-  <div class="qlist">
+  <dl class="phrase-library-hero__metrics">
+    <div>
+      <dt>Expressions transversales</dt>
+      <dd>{{ functional_phrase_count }}</dd>
+    </div>
+    <div>
+      <dt>Sujets équipés</dt>
+      <dd>{{ subject_prompt_count }}</dd>
+    </div>
+    <div>
+      <dt>Vocabs uniques</dt>
+      <dd>{{ subject_vocabulary_count }}</dd>
+    </div>
+  </dl>
+</header>
+
+<section class="expression-directory" id="expressions-transversales" aria-labelledby="expressions-transversales-title">
+  <div class="section-heading expression-directory__heading">
+    <div>
+      <p class="eyebrow">Bibliothèque 1 · Réutilisable partout</p>
+      <h2 id="expressions-transversales-title">Construire son discours</h2>
+    </div>
+    <p>Choisis une fonction pour apprendre des tournures qui servent dans de nombreux sujets, puis pratique-les par lots de 10.</p>
+  </div>
+  <div class="expression-category-grid">
     {% for category in functional_categories %}
-      <a class="qrow expression-category" href="{{ phrases_url }}?category={{ category.slug }}">
-        <span class="qrow__num">↗</span>
-        <span class="qrow__text">{{ category.name }}</span>
-        <span class="qrow__meta"><span class="chip">{{ category.phrase_count }} expression{{ category.phrase_count|pluralize }} · {{ category.batch_count }} lot{{ category.batch_count|pluralize }}</span></span>
+      <a class="expression-category-card card" href="{{ phrases_url }}?category={{ category.slug }}">
+        <span class="expression-category-card__icon" aria-hidden="true">“</span>
+        <span class="expression-category-card__copy">
+          <strong>{{ category.name }}</strong>
+          <small>{{ category.learning_description }}</small>
+        </span>
+        <span class="expression-category-card__meta">{{ category.phrase_count }} expression{{ category.phrase_count|pluralize }} · {{ category.batch_count }} lot{{ category.batch_count|pluralize }}</span>
+        <span class="expression-category-card__action">Ouvrir →</span>
       </a>
+    {% empty %}
+      <p class="muted">Aucune expression transversale n'est encore disponible.</p>
     {% endfor %}
+  </div>
+</section>
+
+<section class="subject-vocabulary-directory" id="vocabulaire-par-sujet" aria-labelledby="subject-vocabulary-title">
+  <div class="section-heading subject-vocabulary-directory__heading">
+    <div>
+      <p class="eyebrow">Bibliothèque 2 · 50 vocabs par sujet</p>
+      <h2 id="subject-vocabulary-title">Vocabulaire par sujet</h2>
+    </div>
+    <p>Ouvre un thème, retrouve ton sujet exact, puis lance l'un de ses cinq lots de 10 mots, collocations, idiomes, tournures et phrases modèles.</p>
   </div>
 
-  <div class="section-heading expression-directory__section">
-    <div>
-      <p class="eyebrow">Lexique ciblé</p>
-      <h2>Vocabulaire par thème</h2>
+  {% if subject_theme_groups %}
+    <div class="subject-vocabulary-tools">
+      <label class="subject-vocabulary-search">
+        <span>Rechercher un sujet</span>
+        <input type="search" placeholder="Ex. réseaux sociaux, travail, voyage…" autocomplete="off" data-subject-vocabulary-search>
+      </label>
+      <p role="status" aria-live="polite" data-subject-vocabulary-status>{{ subject_prompt_count }} sujets · {{ subject_response_count }} decks uniques</p>
     </div>
-  </div>
-  <div class="qlist">
-    {% for category in topic_categories %}
-      <a class="qrow expression-category" href="{{ phrases_url }}?category={{ category.slug }}">
-        <span class="qrow__num">Aa</span>
-        <span class="qrow__text">{{ category.name }}</span>
-        <span class="qrow__meta"><span class="chip">{{ category.phrase_count }} expression{{ category.phrase_count|pluralize }} · {{ category.batch_count }} lot{{ category.batch_count|pluralize }}</span></span>
-      </a>
+
+    <div class="subject-theme-list" data-subject-vocabulary-directory>
+    {% for group in subject_theme_groups %}
+      <details class="subject-theme card" data-subject-theme>
+        <summary>
+          <span class="subject-theme__identity">
+            <span class="subject-theme__emoji" aria-hidden="true">{{ group.theme.emoji }}</span>
+            <span>
+              <strong>{{ group.theme.display_name|default:group.theme.name }}</strong>
+              <small>{{ group.prompts|length }} sujets · {{ group.deck_count }} decks uniques</small>
+            </span>
+          </span>
+          <span class="subject-theme__action">Voir les sujets</span>
+          <span class="subject-theme__chevron" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="subject-vocabulary-list">
+          {% for prompt in group.prompts %}
+            <article class="subject-vocabulary-row" data-subject-vocabulary-row>
+              <span class="subject-vocabulary-row__number">P{{ prompt.number }}</span>
+              <div class="subject-vocabulary-row__copy">
+                <h3>{{ prompt.text }}</h3>
+                <p>
+                  {{ prompt.vocabulary_count }} vocabs · {{ prompt.vocabulary_batch_count }} lot{{ prompt.vocabulary_batch_count|pluralize }}
+                  {% if not prompt.is_canonical %}<span class="alias-tag">deck partagé</span>{% endif %}
+                </p>
+              </div>
+              <div class="subject-vocabulary-row__actions">
+                <a class="btn btn--sm btn--primary" href="{% url 'study:review' %}?kind=vocab&amp;response={{ prompt.response_id }}&amp;batch=1">Pratiquer</a>
+                <a class="btn btn--sm" href="{% url 'study:response_detail' prompt.response_id %}?prompt={{ prompt.pk }}#subject-vocabulary">Voir les lots</a>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </details>
     {% endfor %}
-  </div>
+    </div>
+    <div class="empty subject-vocabulary-empty" hidden data-subject-vocabulary-empty>
+      <p>Aucun sujet ne correspond à cette recherche.</p>
+    </div>
+  {% else %}
+    <div class="empty">
+      <p>Les decks de vocabulaire par sujet apparaîtront ici dès qu'ils seront disponibles.</p>
+    </div>
+  {% endif %}
 </section>
 {% endif %}
 {% endblock %}

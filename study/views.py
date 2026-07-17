@@ -95,6 +95,14 @@ MAX_ANNOTATION_BODY_LENGTH = 20000
 ANNOTATION_SOURCE_KEY_RE = re.compile(r"^[A-Za-z0-9:._-]{0,200}$")
 FOCUSED_REVIEW_KINDS = {"revisit", "weak"}
 RECENT_SESSION_GAP = timezone.timedelta(minutes=30)
+FUNCTIONAL_PHRASE_CATEGORY_NAMES = frozenset(
+    {
+        "Structurer et prendre position",
+        "Nuancer et comparer",
+        "Cause, conséquence et évaluation",
+        "Schémas d'argumentation",
+    }
+)
 
 
 def _auth_redirect(request):
@@ -522,6 +530,13 @@ def _task_card(task, now, user):
     if task.available:
         response_stats = deck_stats(_task_cards(task, user, "spine"), now)
         phrase_stats = deck_stats(_task_cards(task, user, "phrase"), now)
+        functional_phrase_stats = deck_stats(
+            _task_cards(task, user, "phrase").filter(
+                phrase__tier=PhraseTier.SHARED,
+                phrase__category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES,
+            ),
+            now,
+        )
         stats = deck_stats(_task_cards(task, user), now)
         counts = queue_module.queue_counts(
             _task_scope(task),
@@ -540,9 +555,20 @@ def _task_card(task, now, user):
             is_active=True,
         ).count()
         phrase_count = _task_phrases(task).count()
+        functional_phrase_count = _task_phrases(task).filter(
+            category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES
+        ).count()
+        subject_vocabulary_count = Phrase.objects.filter(
+            is_active=True,
+            tier=PhraseTier.SUBJECT,
+            source_prompts__is_active=True,
+            source_prompts__theme__is_active=True,
+            source_prompts__theme__task=task,
+        ).distinct().count()
     else:
         response_stats = None
         phrase_stats = None
+        functional_phrase_stats = None
         stats = None
         counts = None
         phrase_counts = None
@@ -550,17 +576,22 @@ def _task_card(task, now, user):
         theme_count = 0
         prompt_count = 0
         phrase_count = 0
+        functional_phrase_count = 0
+        subject_vocabulary_count = 0
     return {
         "task": task,
         "stats": stats,
         "response_stats": response_stats,
         "phrase_stats": phrase_stats,
+        "functional_phrase_stats": functional_phrase_stats,
         "counts": counts,
         "phrase_counts": phrase_counts,
         "revisit_count": revisit_count,
         "theme_count": theme_count,
         "prompt_count": prompt_count,
         "phrase_count": phrase_count,
+        "functional_phrase_count": functional_phrase_count,
+        "subject_vocabulary_count": subject_vocabulary_count,
     }
 
 
@@ -782,27 +813,31 @@ def _grouped_overview(request, area):
             }
         )
     elif area == "expressions":
+        functional_cards = queue_module.scoped_cards(
+            {"kind": "phrase"},
+            user=request.user,
+        ).filter(
+            phrase__tier=PhraseTier.SHARED,
+            phrase__category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES,
+        )
         context.update(
             {
                 "title": "Expressions",
                 "eyebrow": "Précision lexicale",
                 "description": (
-                    "Choisissez une tâche pour retrouver ses expressions, "
-                    "son vocabulaire et ses nuances."
+                    "Choisissez une tâche pour retrouver ses expressions "
+                    "transversales et les 50 vocabs de chaque sujet."
                 ),
                 "phrase_count": Phrase.objects.filter(
                     is_active=True,
                     tier=PhraseTier.SHARED,
-                ).count(),
-                "response_phrase_count": Phrase.objects.filter(
-                    is_active=True,
-                    tier=PhraseTier.RESPONSE,
+                    category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES,
                 ).count(),
                 "subject_phrase_count": Phrase.objects.filter(
                     is_active=True,
                     tier=PhraseTier.SUBJECT,
                 ).count(),
-                "phrase_stats": _phrase_deck_stats(now, request.user),
+                "phrase_stats": deck_stats(functional_cards, now),
                 "phrase_counts": queue_module.queue_counts(
                     {"kind": "phrase"},
                     now,
@@ -3450,6 +3485,25 @@ def phrases(request, part_slug=None, task_slug=None):
             "study/coming_soon.html",
             {"part": task.part, "task": task},
         )
+    functional_names = FUNCTIONAL_PHRASE_CATEGORY_NAMES
+    category_descriptions = {
+        "Structurer et prendre position": (
+            "Reformuler le sujet, annoncer ton avis et guider clairement "
+            "l'examinateur."
+        ),
+        "Nuancer et comparer": (
+            "Éviter les réponses trop absolues et confronter plusieurs "
+            "points de vue."
+        ),
+        "Cause, conséquence et évaluation": (
+            "Expliquer pourquoi, montrer les effets et porter un jugement "
+            "précis."
+        ),
+        "Schémas d'argumentation": (
+            "Construire des arguments complets avec des tournures "
+            "réutilisables."
+        ),
+    }
     category_slug = request.GET.get("category", "").strip()
     selected = None
     all_phrases = (
@@ -3492,6 +3546,11 @@ def phrases(request, part_slug=None, task_slug=None):
         category.batch_count = (
             category.phrase_count + queue_module.PHRASE_BATCH_SIZE - 1
         ) // queue_module.PHRASE_BATCH_SIZE
+        category.is_functional = category.name in functional_names
+        category.learning_description = category_descriptions.get(
+            category.name,
+            "Expressions réutilisables dans plusieurs réponses.",
+        )
 
     phrase_qs = all_phrases.none()
     if category_slug:
@@ -3509,6 +3568,7 @@ def phrases(request, part_slug=None, task_slug=None):
 
     grouped = []
     review_batches = []
+    first_review_batch = None
     if selected:
         grouped.append(
             {
@@ -3520,12 +3580,80 @@ def phrases(request, part_slug=None, task_slug=None):
             {**phrase_scope, "category": selected.slug},
             request.user,
         )
-    functional_names = {
-        "Structurer et prendre position",
-        "Nuancer et comparer",
-        "Cause, conséquence et évaluation",
-        "Schémas d'argumentation",
-    }
+        first_review_batch = next(
+            (batch for batch in review_batches if batch["can_review"]),
+            None,
+        )
+
+    functional_categories = [
+        category
+        for category in categories
+        if category.is_functional
+    ]
+    subject_theme_groups = []
+    subject_prompt_count = 0
+    subject_response_count = 0
+    subject_vocabulary_count = 0
+    if not selected:
+        subject_prompts = (
+            Prompt.objects.filter(
+                is_active=True,
+                response__is_active=True,
+                theme__is_active=True,
+            )
+            .select_related("theme", "family", "response")
+            .annotate(
+                vocabulary_count=Count(
+                    "phrases",
+                    filter=Q(
+                        phrases__is_active=True,
+                        phrases__tier=PhraseTier.SUBJECT,
+                    ),
+                    distinct=True,
+                )
+            )
+            .filter(vocabulary_count__gt=0)
+        )
+        subject_vocabulary = Phrase.objects.filter(
+            is_active=True,
+            tier=PhraseTier.SUBJECT,
+            source_prompts__is_active=True,
+            source_prompts__theme__is_active=True,
+        )
+        if task:
+            subject_prompts = subject_prompts.filter(theme__task=task)
+            subject_vocabulary = subject_vocabulary.filter(
+                source_prompts__theme__task=task
+            )
+        subject_prompts = list(
+            subject_prompts.order_by("theme__order", "number", "pk")
+        )
+        subject_prompt_count = len(subject_prompts)
+        subject_response_ids = set()
+        current_group = None
+        for prompt in subject_prompts:
+            prompt.vocabulary_batch_count = (
+                prompt.vocabulary_count
+                + queue_module.PHRASE_BATCH_SIZE
+                - 1
+            ) // queue_module.PHRASE_BATCH_SIZE
+            subject_response_ids.add(prompt.response_id)
+            if (
+                current_group is None
+                or current_group["theme"].pk != prompt.theme_id
+            ):
+                current_group = {
+                    "theme": prompt.theme,
+                    "prompts": [],
+                    "response_ids": set(),
+                }
+                subject_theme_groups.append(current_group)
+            current_group["prompts"].append(prompt)
+            current_group["response_ids"].add(prompt.response_id)
+        for group in subject_theme_groups:
+            group["deck_count"] = len(group.pop("response_ids"))
+        subject_response_count = len(subject_response_ids)
+        subject_vocabulary_count = subject_vocabulary.distinct().count()
 
     return render(
         request,
@@ -3534,24 +3662,32 @@ def phrases(request, part_slug=None, task_slug=None):
             "part": task.part if task else None,
             "task": task,
             "categories": categories,
-            "functional_categories": [
-                category
-                for category in categories
-                if category.name in functional_names
-            ],
-            "topic_categories": [
-                category
-                for category in categories
-                if category.name not in functional_names
-            ],
+            "functional_categories": functional_categories,
+            "functional_phrase_count": sum(
+                category.phrase_count
+                for category in functional_categories
+            ),
+            "first_category": (
+                functional_categories[0]
+                if functional_categories
+                else None
+            ),
+            "subject_theme_groups": subject_theme_groups,
+            "subject_prompt_count": subject_prompt_count,
+            "subject_response_count": subject_response_count,
+            "subject_vocabulary_count": subject_vocabulary_count,
             "grouped": grouped,
             "review_batches": review_batches,
+            "first_review_batch": first_review_batch,
             "batch_size": queue_module.PHRASE_BATCH_SIZE,
             "selected": selected,
             "phrase_count": (
                 selected.phrase_count
                 if selected
-                else sum(category.phrase_count for category in categories)
+                else sum(
+                    category.phrase_count
+                    for category in functional_categories
+                )
             ),
         },
     )

@@ -28,11 +28,21 @@ class ComprehensionContentTests(SimpleTestCase):
     def test_bundled_tests_are_complete_or_explicitly_unpublished(self):
         tests = content.load_comprehension_tests()
 
-        self.assertEqual([test.slug for test in tests], ["test-1", "test-2"])
-        self.assertEqual(len(tests[0].questions), 36)
-        self.assertTrue(tests[0].is_published)
-        self.assertEqual(len(tests[1].questions), 21)
-        self.assertFalse(tests[1].is_published)
+        self.assertEqual(
+            [test.slug for test in tests],
+            ["test-1", "test-2", "test-3", "test-4", "test-5"],
+        )
+        self.assertEqual(
+            [len(test.questions) for test in tests],
+            [39, 39, 39, 39, 39],
+        )
+        self.assertEqual(
+            [test.is_published for test in tests],
+            [True, True, True, True, True],
+        )
+        self.assertTrue(
+            all(not question.passage_en for question in tests[2].questions)
+        )
         self.assertTrue(
             all(
                 len(question.choices) == 4
@@ -42,20 +52,30 @@ class ComprehensionContentTests(SimpleTestCase):
             )
         )
 
-    def test_parser_uses_bold_answer_when_final_rationale_is_missing(self):
+    def test_missing_passage_translations_require_an_explicit_manifest_opt_in(self):
+        with self.assertRaisesRegex(
+            ValueError,
+            "Q1 has no passage translation",
+        ):
+            content._parse_comprehension_source(
+                content.COMPREHENSION_DIR / "test_03.md",
+                slug="test-3",
+            )
+
+    def test_complete_test_one_includes_its_final_question(self):
         test = content.load_comprehension_tests()[0]
         final_question = test.questions[-1]
 
-        self.assertEqual(final_question.number, 36)
+        self.assertEqual(final_question.number, 39)
         self.assertEqual(
             next(
                 choice.letter
                 for choice in final_question.choices
                 if choice.is_correct
             ),
-            "A",
+            "D",
         )
-        self.assertEqual(final_question.correct_explanation, "")
+        self.assertTrue(final_question.correct_explanation)
 
     def test_parser_rejects_duplicate_choice_letters(self):
         source = (content.COMPREHENSION_DIR / "test_02.md").read_text(
@@ -78,6 +98,34 @@ class ComprehensionContentTests(SimpleTestCase):
 
 
 class ComprehensionImportTests(TestCase):
+    def test_import_publishes_the_complete_group_one_content(self):
+        Command()._import_comprehension_tests(
+            content.load_comprehension_tests()
+        )
+
+        self.assertEqual(
+            list(
+                ComprehensionTest.objects.order_by("number").values_list(
+                    "number",
+                    "is_published",
+                )
+            ),
+            [
+                (1, True),
+                (2, True),
+                (3, True),
+                (4, True),
+                (5, True),
+            ],
+        )
+        self.assertEqual(
+            {
+                test.number: test.questions.filter(is_active=True).count()
+                for test in ComprehensionTest.objects.order_by("number")
+            },
+            {1: 39, 2: 39, 3: 39, 4: 39, 5: 39},
+        )
+
     def test_import_is_idempotent_and_preserves_learner_answers(self):
         tests = content.load_comprehension_tests()
         command = Command()
@@ -106,7 +154,7 @@ class ComprehensionImportTests(TestCase):
                     first,
                     questions=(updated_question, *first.questions[1:]),
                 ),
-                tests[1],
+                *tests[1:],
             ]
         )
 

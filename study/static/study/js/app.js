@@ -93,6 +93,76 @@
     mobileNavQuery.addListener(closeNavAboveMobile);
   }
 
+  /* ---------- Subject vocabulary search ---------- */
+  (function () {
+    var input = document.querySelector("[data-subject-vocabulary-search]");
+    var directory = document.querySelector("[data-subject-vocabulary-directory]");
+    if (!input || !directory) return;
+
+    var groups = Array.from(directory.querySelectorAll("[data-subject-theme]"));
+    var rows = Array.from(directory.querySelectorAll("[data-subject-vocabulary-row]"));
+    var status = document.querySelector("[data-subject-vocabulary-status]");
+    var empty = document.querySelector("[data-subject-vocabulary-empty]");
+    var searching = false;
+
+    function normalized(value) {
+      return value
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
+    }
+
+    function updateDirectory() {
+      var query = normalized(input.value);
+      if (query && !searching) {
+        groups.forEach(function (group) {
+          group.dataset.wasOpen = group.open ? "true" : "false";
+        });
+      }
+
+      var visibleCount = 0;
+      groups.forEach(function (group) {
+        var groupRows = Array.from(
+          group.querySelectorAll("[data-subject-vocabulary-row]")
+        );
+        var groupCount = 0;
+        groupRows.forEach(function (row) {
+          var matches = !query || normalized(row.textContent).includes(query);
+          row.hidden = !matches;
+          if (matches) {
+            groupCount += 1;
+            visibleCount += 1;
+          }
+        });
+        group.hidden = groupCount === 0;
+        if (query && groupCount) group.open = true;
+      });
+
+      if (!query && searching) {
+        groups.forEach(function (group) {
+          group.hidden = false;
+          group.open = group.dataset.wasOpen === "true";
+          delete group.dataset.wasOpen;
+        });
+      }
+      searching = Boolean(query);
+
+      if (status) {
+        if (query) {
+          var plural = visibleCount === 1 ? "" : "s";
+          status.textContent =
+            visibleCount + " sujet" + plural + " trouvé" + plural;
+        } else {
+          status.textContent = rows.length + " sujets";
+        }
+      }
+      if (empty) empty.hidden = visibleCount !== 0;
+    }
+
+    input.addEventListener("input", updateDirectory);
+  })();
+
   document.querySelectorAll("form[data-confirm]").forEach(function (form) {
     form.addEventListener("submit", function (event) {
       if (!window.confirm(form.dataset.confirm)) event.preventDefault();

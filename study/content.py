@@ -301,6 +301,7 @@ def _parse_comprehension_source(
     path: Path,
     *,
     slug: str,
+    allow_missing_passage_translations: bool = False,
 ) -> Tuple[ComprehensionQuestionData, ...]:
     text = path.read_text(encoding="utf-8")
     parts = re.split(
@@ -327,10 +328,14 @@ def _parse_comprehension_source(
             passage,
             flags=re.DOTALL,
         )
-        if not translation_match:
+        if translation_match:
+            passage_fr = _ce_plain_text(passage[:translation_match.start()])
+            passage_en = _ce_plain_text(translation_match.group(1))
+        elif allow_missing_passage_translations:
+            passage_fr = _ce_plain_text(passage)
+            passage_en = ""
+        else:
             raise ValueError(f"{path.name} Q{number} has no passage translation")
-        passage_fr = _ce_plain_text(passage[:translation_match.start()])
-        passage_en = _ce_plain_text(translation_match.group(1))
 
         prompt_match = re.search(
             r"(?m)^\|\s*\*\*Prompt\*\*\s*\|\s*(.*?)\s*\|\s*(.*?)\s*\|\s*$",
@@ -445,7 +450,13 @@ def load_comprehension_tests() -> List[ComprehensionTestData]:
         if Path(source_name).name != source_name:
             raise ValueError(f"Invalid comprehension source path: {source_name!r}")
         path = COMPREHENSION_DIR / source_name
-        questions = _parse_comprehension_source(path, slug=item["slug"])
+        questions = _parse_comprehension_source(
+            path,
+            slug=item["slug"],
+            allow_missing_passage_translations=bool(
+                item.get("allow_missing_passage_translations", False)
+            ),
+        )
         expected_count = int(item.get("expected_question_count", 36))
         is_published = bool(item.get("is_published", False))
         if is_published and len(questions) != expected_count:

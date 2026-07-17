@@ -101,14 +101,19 @@
           </div>
 
           {% if item.question.correct_explanation %}
-            <div class="ce-review-item__explanation">
-              <h3>Explication</h3>
-              <p>{{ item.question.correct_explanation }}</p>
-            </div>
+            <details class="ce-rationales">
+              <summary>Voir l’explication en anglais</summary>
+              <div>
+                <div class="ce-review-item__explanation">
+                  <h3>Explication</h3>
+                  <p>{{ item.question.correct_explanation }}</p>
+                </div>
+              </div>
+            </details>
           {% endif %}
 
           <details class="ce-rationales">
-            <summary>Analyser les autres choix</summary>
+            <summary>Voir les autres explications en anglais</summary>
             <div>
               {% for choice in item.choices %}
                 {% if not choice.is_correct and choice.rationale %}
@@ -124,10 +129,12 @@
           <details class="ce-translation">
             <summary><span aria-hidden="true">EN</span> Voir la traduction anglaise</summary>
             <div class="ce-translation__body">
-              <section>
-                <small>Document</small>
-                <p>{{ item.question.passage_en }}</p>
-              </section>
+              {% if item.question.passage_en %}
+                <section>
+                  <small>Document</small>
+                  <p>{{ item.question.passage_en }}</p>
+                </section>
+              {% endif %}
               <section>
                 <small>Question</small>
                 <p><strong>{{ item.question.prompt_en }}</strong></p>

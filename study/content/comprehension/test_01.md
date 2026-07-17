@@ -1813,3 +1813,202 @@ the potential of the female gamer market.)
 | B | L'appel constant à la violence | The constant appeal to violence |
 | C | L'atténuation des clichés | The softening of stereotypes |
 | D | L'uniformité des scénarios | The uniformity of scenarios |
+
+### **Correct Answer: A -- La quasi-absence d'héroïnes**
+
+"Bien du mal à trouver un personnage principal féminin" (hard to find a female lead) + "il n'y a presque rien d'autre à voir" after Lara Croft = there are almost no female heroines.
+
+### **Why the others are wrong**
+
+**B -- Violence constante.** Violence in games isn't discussed. The focus is on female representation.
+
+**C -- Atténuation des clichés.** The opposite: clichés persist (princesses to save, call-girls). They're not softened.
+
+**D -- Uniformité des scénarios.** Scenario variety isn't the topic. The observation is about missing female protagonists.
+
+---
+
+## **Q37**
+
+### **Passage**
+
+```
+Les technologies de l'information et de la
+communication (TIC) sont de plus en plus utilisées
+et adoptées de façon variable par les établissements
+d'enseignement supérieur à travers le monde. Les TIC
+apparaissent autant comme une prestation en présence
+sur le campus que comme un enseignement ouvert et à
+distance. Les actions de l'UNESCO se concentrent sur
+l'aide aux États membres afin de développer des
+politiques durables dans le domaine des TIC dans
+l'enseignement supérieur. Les plans d'action et les
+investissements positifs en matière de TIC sont
+clairement bénéfiques pour les institutions
+d'enseignement supérieur (IES), même si les TIC
+n'ont pas remplacé les modes d'apprentissage ou
+d'enseignement classiques telles que les salles de
+classe.
+
+(Information and communication technologies (ICT)
+are increasingly used and adopted in varying degrees
+by higher education institutions worldwide. ICT
+appears both as an on-campus service and as open and
+distance learning. UNESCO's actions focus on helping
+member states develop sustainable policies in the
+field of ICT in higher education. Action plans and
+positive investments in ICT are clearly beneficial
+for higher education institutions (HEIs), even
+though ICT has not replaced traditional learning or
+teaching methods such as classrooms.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Pourquoi peut-on dire que l'UNESCO est active dans le domaine des TIC ? | Why can we say UNESCO is active in the ICT field? |
+| **A** | **Parce qu'elle finance les programmes de développement des TIC** | **Because it funds ICT development programs** |
+| B | Parce qu'elle organise des débats entre États membres sur les TIC | Because it organizes debates between member states on ICT |
+| C | Parce qu'elle sensibilise les établissements d'enseignement aux TIC | Because it raises awareness in educational institutions about ICT |
+| D | Parce qu'elle habilite des formateurs à l'utilisation des TIC | Because it certifies trainers in ICT use |
+
+### **Correct Answer: A -- Parce qu'elle finance les programmes de développement des TIC**
+
+"L'aide aux États membres afin de développer des politiques durables" + "les investissements positifs en matière de TIC sont clairement bénéfiques" = UNESCO helps fund and support ICT development programs.
+
+### **Why the others are wrong**
+
+**B -- Organise des débats.** Debates aren't mentioned. UNESCO's role is helping develop policies and investments.
+
+**C -- Sensibilise les établissements.** The text says UNESCO helps States with policies, not raising awareness in schools directly.
+
+**D -- Habilite des formateurs.** Certifying trainers isn't mentioned. The focus is on policy development and investment.
+
+---
+
+## **Q38**
+
+### **Passage**
+
+```
+Travailler avec son mari ou son petit ami, sa sœur
+ou sa mère n'est pas une punition pour tout le
+monde. Pour certains, c'est même la condition du
+bien-être professionnel. Si cette idée évoquait
+jadis une petite entreprise conservatrice, transmise
+de père en fils, aujourd'hui, travailler en famille
+relève de réalités très différentes. Critères
+retenus : confiance, valeurs et goûts communs et
+surtout, besoin de réaliser ses projets plutôt que
+ceux des autres. Depuis toujours, la majorité des
+entreprises en France, toutes tailles confondues,
+sont familiales et de plus en plus de créations sont
+le fait de femmes. Ce sont d'ailleurs des
+entreprises où l'on vit mieux et qui durent plus
+longtemps que les autres. Aujourd'hui, la création
+d'une entreprise est plus souvent motivée par le
+désir d'assurer un travail à ses enfants ou
+d'échapper à des structures jugées déshumanisantes.
+
+(Working with your husband or boyfriend, sister or
+mother isn't a punishment for everyone. For some,
+it's even the condition for professional well-being.
+If this idea once evoked a conservative small
+business, passed from father to son, today, working
+with family reflects very different realities.
+Criteria: trust, shared values and tastes, and above
+all, the need to realize one's own projects rather
+than others'. Most businesses in France, of all
+sizes, have always been family-run, and more and
+more are created by women. These are businesses
+where people live better and that last longer.
+Today, starting a business is more often motivated
+by the desire to ensure employment for one's
+children or to escape structures deemed
+dehumanizing.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Que permet la structure d'entreprise présentée ? | What does the business structure presented allow? |
+| **A** | **De concrétiser des objectifs personnels** | **To achieve personal goals** |
+| B | De fonctionner dans un cadre innovant | To operate in an innovative framework |
+| C | De limiter la répartition des gains | To limit the distribution of profits |
+| D | De renforcer les liens entre les générations | To strengthen intergenerational bonds |
+
+### **Correct Answer: A -- De concrétiser des objectifs personnels**
+
+"Besoin de réaliser ses projets plutôt que ceux des autres" (need to realize one's OWN projects rather than others') = achieving personal goals.
+
+### **Why the others are wrong**
+
+**B -- Cadre innovant.** The text doesn't describe family businesses as innovative in structure. The benefit is personal project realization.
+
+**C -- Limiter la répartition des gains.** Profit distribution isn't discussed.
+
+**D -- Renforcer les liens entre générations.** Intergenerational bonds are implied but aren't presented as the main benefit. The key is personal project fulfillment.
+
+---
+
+## **Q39**
+
+### **Passage**
+
+```
+Le contrôle, en toute matière, aboutit à pervertir
+l'action. Dès qu'une action est soumise à un
+contrôle, le but profond de celui qui agit n'est plus
+l'action, mais la prévision du contrôle, la mise en
+échec des moyens de contrôle. Le contrôle des études
+n'est qu'un cas particulier et une démonstration
+éclatante de cette observation très générale. Le
+diplôme donne à la société un fantôme de garantie,
+et aux diplômés des fantômes de droits. Le diplômé
+passe officiellement pour détenir un savoir : il
+garde toute sa vie ce brevet d'une science
+momentanée. C'est pour accéder au diplôme qu'on a vu
+se substituer à la lecture des auteurs, l'usage des
+résumés, des manuels, des recueils de questions et
+de réponses toutes faites et autres abominations.
+
+(Assessment, in any matter, ends up perverting the
+action. As soon as an action is subject to
+assessment, the deep goal of the one acting is no
+longer the action, but anticipating the assessment,
+defeating the means of control. Academic assessment
+is just a particular case and a striking
+demonstration of this very general observation.
+The diploma gives society a phantom guarantee, and
+graduates phantom rights. The graduate is officially
+deemed to hold knowledge: he keeps for life this
+patent of momentary science. It's to obtain the
+diploma that we've seen the reading of authors
+replaced by summaries, manuals, collections of
+ready-made questions and answers, and other
+abominations.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Que soutient l'auteur de ce texte à propos du contrôle ? | What is the author's argument about control? |
+| A | Il contribue à améliorer les méthodes d'apprentissage | It helps improve learning methods |
+| B | Il est indispensable pour accéder au monde professionnel | It's essential for accessing the professional world |
+| C | Il permet de certifier les compétences réelles d'un candidat | It certifies a candidate's real skills |
+| **D** | **Il perturbe le processus d'acquisition des connaissances** | **It disrupts the knowledge acquisition process** |
+
+### **Correct Answer: D -- Il perturbe le processus d'acquisition des connaissances**
+
+"Le contrôle aboutit à pervertir l'action" (assessment perverts the action) + students substitute real reading with summaries and ready-made answers to pass exams = assessment disrupts genuine learning.
+
+### **Why the others are wrong**
+
+**A -- Améliorer les méthodes.** The opposite: assessment leads to "abominations" like summaries replacing real reading. It degrades methods.
+
+**B -- Indispensable pour le monde professionnel.** The author's argument is AGAINST the value of assessment/diplomas, calling them "phantom guarantees."
+
+**C -- Certifier les compétences réelles.** The author says diplomas certify "une science momentanée" (momentary knowledge) -- a phantom, not real skills.

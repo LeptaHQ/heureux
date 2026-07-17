@@ -100,6 +100,105 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         )
         self.assertTrue(fits, f"{self.page.url}: {overflowing}")
 
+    def test_primary_navigation_is_structured_on_mobile_and_desktop(self):
+        self.page.set_viewport_size({"width": 320, "height": 568})
+        toggle = self.page.get_by_role("button", name="Ouvrir le menu")
+
+        toggle.click()
+
+        navigation = self.page.locator("#primary-navigation")
+        navigation.get_by_text("Apprendre", exact=True).wait_for()
+        navigation.get_by_text("Mes outils", exact=True).wait_for()
+        self.assertEqual(
+            navigation.locator(".nav__primary-link").count(),
+            6,
+        )
+        self.assertEqual(
+            navigation.get_by_role(
+                "link",
+                name="Accueil",
+                exact=True,
+            ).get_attribute("aria-current"),
+            "page",
+        )
+        navigation.get_by_text("Vue d'ensemble", exact=True).wait_for()
+        navigation.get_by_text("Vocabulaire ciblé", exact=True).wait_for()
+        navigation.get_by_text("Notes et surlignages", exact=True).wait_for()
+        navigation.get_by_text("Suivre mes progrès", exact=True).wait_for()
+        self.assert_no_horizontal_overflow()
+
+        self.page.keyboard.press("Escape")
+        navigation.wait_for(state="hidden")
+        self.assertEqual(toggle.get_attribute("aria-expanded"), "false")
+
+        for width in (761, 800, 900, 901, 1024):
+            with self.subTest(width=width):
+                self.page.set_viewport_size({"width": width, "height": 768})
+                navigation.get_by_role(
+                    "link",
+                    name="Expressions",
+                    exact=True,
+                ).wait_for()
+                self.assertFalse(toggle.is_visible())
+                self.assert_no_horizontal_overflow()
+
+    def test_subject_vocabulary_directory_searches_rich_decks(self):
+        first_prompt = self.first.response.prompts.get(is_canonical=True)
+        second_prompt = self.second.response.prompts.get(is_canonical=True)
+        first_prompt.text = "Faut-il voyager pour découvrir le monde ?"
+        first_prompt.save(update_fields=["text"])
+        second_prompt.text = "Les réseaux sociaux rapprochent-ils les jeunes ?"
+        second_prompt.save(update_fields=["text"])
+        first_vocabulary = factories.make_phrase(tier="subject")
+        first_vocabulary.source_prompts.add(first_prompt)
+        second_vocabulary = factories.make_phrase(tier="subject")
+        second_vocabulary.source_prompts.add(second_prompt)
+
+        self.page.goto(
+            self.live_server_url
+            + reverse(
+                "study:task_phrases",
+                args=[self.part.slug, self.task.slug],
+            )
+        )
+
+        self.page.get_by_role(
+            "heading",
+            name="Vocabulaire par sujet",
+            exact=True,
+        ).wait_for()
+        search = self.page.get_by_role(
+            "searchbox",
+            name="Rechercher un sujet",
+        )
+        search.fill("reseaux")
+
+        self.page.get_by_text("1 sujet trouvé", exact=True).wait_for()
+        directory = self.page.locator("[data-subject-vocabulary-directory]")
+        self.assertEqual(
+            directory.locator(
+                "[data-subject-vocabulary-row]:not([hidden])"
+            ).count(),
+            1,
+        )
+        self.page.get_by_text(second_prompt.text, exact=True).wait_for()
+        directory.locator(
+            "[data-subject-vocabulary-row]:not([hidden])"
+        ).get_by_role("link", name="Pratiquer", exact=True).wait_for()
+        self.assert_no_horizontal_overflow()
+
+        search.fill("")
+        self.page.get_by_text("2 sujets", exact=True).wait_for()
+        self.assertEqual(
+            directory.locator(
+                "[data-subject-vocabulary-row]:not([hidden])"
+            ).count(),
+            2,
+        )
+        self.assertIsNone(
+            directory.locator("[data-subject-theme]").get_attribute("open")
+        )
+
     def save_current_prompt_highlight(self):
         prompt = self.page.locator("#card-front .prompt-text")
         prompt.evaluate(
@@ -285,6 +384,43 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
                 kind=AnnotationKind.HIGHLIGHT,
             ).exists()
         )
+
+    def test_selection_toolbar_stays_open_until_outside_click(self):
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        self.page.wait_for_load_state("networkidle")
+        self.select_prompt(start=0, end=12)
+        toolbar = self.page.locator("[data-selection-translate]")
+
+        with self.page.expect_response(
+            lambda response: "/annotations/create/" in response.url
+        ):
+            self.page.locator("[data-highlight-selection]").click()
+        prompt.locator("mark.user-highlight").wait_for()
+        self.assertTrue(toolbar.is_visible())
+
+        self.page.locator("[data-copy-selection]").click()
+        self.assertTrue(toolbar.is_visible())
+
+        self.page.locator("[data-translate-selection]").click()
+        self.page.locator("[data-translation-panel]").wait_for()
+        self.assertTrue(toolbar.is_visible())
+        self.page.locator("[data-translation-close]").click()
+        self.assertTrue(toolbar.is_visible())
+
+        self.page.locator("[data-note-selection]").click()
+        self.page.locator("[data-note-panel]").wait_for()
+        self.assertTrue(toolbar.is_visible())
+        self.page.locator("[data-note-cancel]").click()
+        self.assertTrue(toolbar.is_visible())
+
+        self.page.locator(".review__top").click(position={"x": 4, "y": 4})
+        toolbar.wait_for(state="hidden")
 
     def test_expired_session_does_not_fake_unhighlight_success(self):
         self.page.goto(
@@ -650,6 +786,26 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
+    def test_home_learning_path_cards_stay_compact(self):
+        factories.make_comprehension_test()
+        dashboard_url = self.live_server_url + reverse("study:dashboard")
+
+        self.page.set_viewport_size({"width": 1110, "height": 700})
+        self.page.goto(dashboard_url)
+        desktop_heights = self.page.locator(".learning-path-card").evaluate_all(
+            "cards => cards.map(card => card.getBoundingClientRect().height)"
+        )
+        self.assertTrue(desktop_heights)
+        self.assertLessEqual(max(desktop_heights), 110)
+        self.assert_no_horizontal_overflow()
+
+        self.page.set_viewport_size({"width": 320, "height": 568})
+        mobile_heights = self.page.locator(".learning-path-card").evaluate_all(
+            "cards => cards.map(card => card.getBoundingClientRect().height)"
+        )
+        self.assertLessEqual(max(mobile_heights), 135)
+        self.assert_no_horizontal_overflow()
+
     def test_mobile_comprehension_quiz_correction_and_results(self):
         test = factories.make_comprehension_test(question_count=2)
         self.page.set_viewport_size({"width": 320, "height": 568})
@@ -706,6 +862,12 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
 
         self.page.locator(".ce-study-question-row").first.click()
         self.page.get_by_text("Choix et correction").wait_for()
+        self.assertFalse(
+            self.page.get_by_text("Correct explanation 1.").is_visible()
+        )
+        self.page.get_by_text(
+            "Voir les choix et explications en anglais"
+        ).click()
         self.page.get_by_text("Correct explanation 1.").wait_for()
         self.assert_no_horizontal_overflow()
 
@@ -718,6 +880,12 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.assert_no_horizontal_overflow()
         self.page.locator(".ce-choice", has_text="Choix B français 1").click()
         self.page.get_by_role("heading", name="La bonne réponse était A.").wait_for()
+        self.assertFalse(
+            self.page.get_by_text(
+                "Pourquoi votre choix B ne convient pas"
+            ).is_visible()
+        )
+        self.page.get_by_text("Voir l’explication en anglais").click()
         self.page.get_by_text(
             "Pourquoi votre choix B ne convient pas"
         ).wait_for()

@@ -20,7 +20,6 @@
   <header class="detail-head">
     <p class="eyebrow">{{ test.title }} · Question {{ position }} sur {{ total_questions }}</p>
     <h1 class="detail-prompt">{{ question.prompt_fr }}</h1>
-    {% if question.prompt_en %}<p class="reform">« {{ question.prompt_en }} »</p>{% endif %}
   </header>
 
   <div class="detail-grid">
@@ -28,10 +27,23 @@
       <section class="card section-card">
         <div class="spine-label">Document</div>
         <p class="spine-text ce-study-passage">{{ question.passage_fr }}</p>
-        {% if question.passage_en %}
+        {% if question.prompt_en or question.passage_en %}
           <details class="ce-study-translation">
-            <summary>Voir la traduction anglaise</summary>
-            <p>{{ question.passage_en }}</p>
+            <summary>Voir la question et le document en anglais</summary>
+            <div class="ce-study-translation__body">
+              {% if question.prompt_en %}
+                <section>
+                  <small>Question</small>
+                  <p><strong>{{ question.prompt_en }}</strong></p>
+                </section>
+              {% endif %}
+              {% if question.passage_en %}
+                <section>
+                  <small>Document</small>
+                  <p>{{ question.passage_en }}</p>
+                </section>
+              {% endif %}
+            </div>
           </details>
         {% endif %}
       </section>
@@ -45,16 +57,35 @@
                 <span>{{ choice.letter }}</span>
                 <div>
                   <strong>{{ choice.text_fr }}</strong>
-                  {% if choice.text_en %}<small>{{ choice.text_en }}</small>{% endif %}
                 </div>
                 {% if choice.is_correct %}<b aria-label="Bonne réponse">✓</b>{% endif %}
               </div>
-              {% if choice.rationale %}
-                <p>{{ choice.rationale }}</p>
-              {% endif %}
             </article>
           {% endfor %}
         </div>
+
+        <details class="ce-study-translation">
+          <summary>Voir les choix et explications en anglais</summary>
+          <div class="ce-study-english-choices">
+            {% if question.correct_explanation %}
+              <section class="ce-study-english-explanation">
+                <small>Explication de la bonne réponse</small>
+                <p>{{ question.correct_explanation }}</p>
+              </section>
+            {% endif %}
+            {% for choice in choices %}
+              {% if choice.text_en or choice.rationale %}
+                <article>
+                  <span>{{ choice.letter }}</span>
+                  <div>
+                    {% if choice.text_en %}<strong>{{ choice.text_en }}</strong>{% endif %}
+                    {% if choice.rationale %}<p>{{ choice.rationale }}</p>{% endif %}
+                  </div>
+                </article>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </details>
       </section>
 
       <section class="card section-card ce-study-explanation">
@@ -63,11 +94,6 @@
           <span>{{ correct_choice.letter }}</span>
           <strong>{{ correct_choice.text_fr }}</strong>
         </div>
-        {% if question.correct_explanation %}
-          <p>{{ question.correct_explanation }}</p>
-        {% else %}
-          <p class="muted">Aucune explication supplémentaire n’était fournie dans le document source.</p>
-        {% endif %}
       </section>
     </div>
 

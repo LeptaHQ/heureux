@@ -114,10 +114,7 @@
       return;
     }
     var details = selectionDetails();
-    if (!details) {
-      hideAction();
-      return;
-    }
+    if (!details) return;
     selectedText = details.text;
     selectedRect = details.rect;
     selectionCopyButton.classList.remove("is-copied");
@@ -292,7 +289,6 @@
       ? getTranslator()
       : null;
 
-    hideAction();
     sourceElement.textContent = text;
     resultElement.textContent = "";
     output.classList.add("hidden");
@@ -355,12 +351,23 @@
     if (event.key === "Shift" || event.shiftKey) scheduleSelectionAction(30);
   });
   document.addEventListener("pointerdown", function (event) {
+    var outsideAction = !action.contains(event.target);
+    var outsideTranslation = !panel.contains(event.target);
+    var outsideNote = !notePanel || !notePanel.contains(event.target);
     if (
       !panel.classList.contains("hidden") &&
-      !panel.contains(event.target) &&
-      !action.contains(event.target)
+      outsideTranslation &&
+      outsideAction
     ) {
       closePanel();
+    }
+    if (
+      !action.classList.contains("hidden") &&
+      outsideAction &&
+      outsideTranslation &&
+      outsideNote
+    ) {
+      hideAction();
     }
   });
   window.addEventListener("resize", repositionPanel);
@@ -369,8 +376,6 @@
       closePanel();
     }
   });
-  document.addEventListener("scroll", hideAction, true);
-  window.addEventListener("resize", hideAction);
   window.addEventListener("pagehide", function () {
     if (translatorInstance && typeof translatorInstance.destroy === "function") {
       translatorInstance.destroy();

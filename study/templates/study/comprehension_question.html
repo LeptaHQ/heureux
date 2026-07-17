@@ -128,22 +128,28 @@
         <strong>{{ correct_choice.text_fr }}</strong>
       </div>
 
-      {% if question.correct_explanation %}
-        <div class="ce-correction__explanation">
-          <h3>Explication</h3>
-          <p>{{ question.correct_explanation }}</p>
-        </div>
-      {% endif %}
-
-      {% if not answer.is_correct and selected_choice.rationale %}
-        <div class="ce-selected-rationale">
-          <strong>Pourquoi votre choix {{ selected_letter }} ne convient pas</strong>
-          <p>{{ selected_choice.rationale }}</p>
-        </div>
+      {% if question.correct_explanation or not answer.is_correct and selected_choice.rationale %}
+        <details class="ce-rationales">
+          <summary>Voir l’explication en anglais</summary>
+          <div>
+            {% if question.correct_explanation %}
+              <div class="ce-correction__explanation">
+                <h3>Explication</h3>
+                <p>{{ question.correct_explanation }}</p>
+              </div>
+            {% endif %}
+            {% if not answer.is_correct and selected_choice.rationale %}
+              <div class="ce-selected-rationale">
+                <strong>Pourquoi votre choix {{ selected_letter }} ne convient pas</strong>
+                <p>{{ selected_choice.rationale }}</p>
+              </div>
+            {% endif %}
+          </div>
+        </details>
       {% endif %}
 
       <details class="ce-rationales">
-        <summary>Pourquoi les autres réponses ne conviennent pas</summary>
+        <summary>Voir les autres explications en anglais</summary>
         <div>
           {% for choice in choices %}
             {% if not choice.is_correct and choice.rationale %}
@@ -162,10 +168,12 @@
           Voir la traduction anglaise
         </summary>
         <div class="ce-translation__body">
-          <section>
-            <small>Document</small>
-            <p>{{ question.passage_en }}</p>
-          </section>
+          {% if question.passage_en %}
+            <section>
+              <small>Document</small>
+              <p>{{ question.passage_en }}</p>
+            </section>
+          {% endif %}
           <section>
             <small>Question</small>
             <p><strong>{{ question.prompt_en }}</strong></p>

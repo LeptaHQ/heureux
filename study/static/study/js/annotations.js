@@ -126,15 +126,6 @@
     }
   }
 
-  function clearBrowserSelection() {
-    var selection = window.getSelection();
-    if (selection) selection.removeAllRanges();
-  }
-
-  function hideAction() {
-    action.classList.add("hidden");
-  }
-
   function showToast(message) {
     if (!toast) return;
     window.clearTimeout(toastTimer);
@@ -217,7 +208,6 @@
     rememberSelection();
     if (!currentSelection) return;
     noteSelection = currentSelection;
-    hideAction();
     noteSource.textContent = noteSelection.quote;
     noteBody.value = "";
     noteStatus.textContent = "";
@@ -239,7 +229,6 @@
         noteView.href = data.notes_url;
         noteView.classList.remove("hidden");
         noteSave.disabled = false;
-        clearBrowserSelection();
       })
       .catch(function (error) {
         noteStatus.textContent = error.message;
@@ -470,9 +459,11 @@
           return selectedIds.indexOf(String(item.id)) === -1;
         });
         removeHighlightMarks(selectedIds);
-        clearBrowserSelection();
-        hideAction();
-        updateHighlightButton(null);
+        details.fullyHighlighted = false;
+        details.highlightIds = [];
+        details.highlightRevisions = [];
+        currentSelection = details;
+        updateHighlightButton(details);
         showToast("Surlignage supprimé.");
         highlightButton.disabled = false;
       })
@@ -516,10 +507,12 @@
           );
         });
         highlights.push(item);
-        clearBrowserSelection();
-        hideAction();
         applyHighlight(item);
-        updateHighlightButton(null);
+        details.fullyHighlighted = true;
+        details.highlightIds = [item.id];
+        details.highlightRevisions = [item.revision];
+        currentSelection = details;
+        updateHighlightButton(details);
         showToast("Passage surligné.");
         highlightButton.disabled = false;
       })

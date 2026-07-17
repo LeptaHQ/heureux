@@ -4,8 +4,8 @@
       "slug": "test-1",
       "number": 1,
       "title": "Test 1",
-      "description": "36 questions de compréhension écrite, du repérage simple à l'analyse de textes complexes.",
-      "expected_question_count": 36,
+      "description": "39 questions de compréhension écrite avec corrections détaillées.",
+      "expected_question_count": 39,
       "order": 1,
       "is_published": true,
       "source": "test_01.md"
@@ -14,11 +14,42 @@
       "slug": "test-2",
       "number": 2,
       "title": "Test 2",
-      "description": "Ce test sera disponible dès que les 36 questions auront été intégrées.",
-      "expected_question_count": 36,
+      "description": "39 questions de compréhension écrite avec corrections détaillées.",
+      "expected_question_count": 39,
       "order": 2,
-      "is_published": false,
+      "is_published": true,
       "source": "test_02.md"
+    },
+    {
+      "slug": "test-3",
+      "number": 3,
+      "title": "Test 3",
+      "description": "39 questions de compréhension écrite avec corrections détaillées.",
+      "expected_question_count": 39,
+      "allow_missing_passage_translations": true,
+      "order": 3,
+      "is_published": true,
+      "source": "test_03.md"
+    },
+    {
+      "slug": "test-4",
+      "number": 4,
+      "title": "Test 4",
+      "description": "39 questions de compréhension écrite avec corrections détaillées.",
+      "expected_question_count": 39,
+      "order": 4,
+      "is_published": true,
+      "source": "test_04.md"
+    },
+    {
+      "slug": "test-5",
+      "number": 5,
+      "title": "Test 5",
+      "description": "39 questions de compréhension écrite avec corrections détaillées.",
+      "expected_question_count": 39,
+      "order": 5,
+      "is_published": true,
+      "source": "test_05.md"
     }
   ]
 }

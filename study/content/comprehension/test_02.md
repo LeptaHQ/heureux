@@ -835,3 +835,885 @@ child's play abilities: the more interest shown, the more responsive the toy.)
 | **D** | **Imite à la perfection la voix d'un enfant** | **Perfectly imitates a child's voice** |
 
 ### **Correct Answer: D -- Imite à la perfection la voix d'un enfant**
+
+"D'un naturel confondant" means so natural it's CONFOUNDING -- you can't tell the diffèrence from a real child's voice. "Confondant" means you would CONFUSE it with reality. A robot voice that sounds perfectly like a real child = "imite à la perfection."
+
+### **Why the others are wrong**
+
+**A -- Un timbre qui n'existe pas naturellement.** "Naturel confondant" means the OPPOSITE: the voice sounds so real you think it IS natural. A non-natural timbre would be the opposite quality.
+
+**B -- Se confond avec la voix de l'enfant qui joue.** "Confondant" describes the voice's QUALITY (realistic), not that it physically blends with another voice. It's about convincingness, not audio mixing.
+
+**C -- Enregistre et reproduit les voix entendues.** This describes a recording function. Theo's voice is pre-programmed to sound natural, not a parrot-like recording device.
+
+---
+
+## **Q22**
+
+### **Passage**
+
+```
+Erasmus. Le programme d'échange d'étudiants entre les universités
+européennes a du plomb dans l'aile. Au point qu'en France, près de quatre
+mille bourses n'ont pas trouvé preneur. Ce phénomène n'est pas spécifique
+à la France puisqu'une baisse de dix pour cent aurait été enregistrée
+dans une dizaine de pays. Toutes les études traduisent une absence de
+désir de mobilité chez les jeunes. Parmi les explications avancées, le
+coût, mais surtout une préférence marquée pour les stages en entreprise.
+Voilà le grand concurrent d'Erasmus depuis quelques années: l'attention
+portée à l'insertion professionnelle.
+
+(Erasmus. The European student exchange program is struggling. In France,
+nearly 4000 scholarships went unclaimed. This isn't France-specific --
+a 10% decrease was recorded in about ten countries. All studies show a
+lack of desire for mobility among youth. Among explanations: cost, but
+especially a marked preference for company internships. That's Erasmus's
+big competitor in recent years: focus on professional integration.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Qu'explique le texte au sujet du programme Erasmus? | What does the text explain about Erasmus? |
+| A | Il est financé par des universités publiques | It's funded by public universities |
+| B | Il est remplacé par un autre programme | It's replaced by another program |
+| C | Il facilite l'accès au monde de l'entreprise | It facilitates access to the business world |
+| **D** | **Son succès auprès des étudiants se dégrade** | **Its success among students is declining** |
+
+### **Correct Answer: D -- Son succès auprès des étudiants se dégrade**
+
+"A du plomb dans l'aile" (is struggling -- literally "has lead in its wing"), "quatre mille bourses n'ont pas trouvé preneur" (4000 unclaimed scholarships), "une baisse de dix pour cent" (10% decrease). Every sentence describes DECLINING popularity. "Se dégrade" (is declining) captures this trend.
+
+### **Why the others are wrong**
+
+**A -- Finance par des universités publiques.** Funding sources are never discussed.
+
+**B -- Remplace par un autre programme.** Internships are a COMPETITOR, not a replacement program. Erasmus still exists; students are simply choosing differently.
+
+**C -- Facilite l'accès au monde de l'entreprise.** The business world is Erasmus's COMPETITOR ("stages en entreprise"), not its function. Erasmus is about academic exchange, not professional integration.
+
+## **Q23**
+
+### **Passage**
+
+```
+Savoir opter pour la bonne route n'est pas tout. L'ultime clé pour gagner
+la course de la Route du Rhum, c'est la connaissance de soi et tout
+particulièrement de ses rythmes de sommeil. C'est un des aspects les plus
+méconnus de la voile de compétition, mais c'est sur la faculté de
+récupération que peut se jouer le podium. Ainsi, Alain Gautier reconnaît
+avoir perdu la dernière Route du Rhum parce qu'il n'a pas su, dès les
+premiers jours de la course, gérer correctement ses phases de repos. "À
+la fin, j'ai manqué de lucidité et j'ai commis des erreurs," avoue-t-il
+après sa défaite.
+
+(Choosing the right route isn't everything. The ultimate key to winning
+the Route du Rhum is self-knowledge, especially sleep rhythms. It's one
+of the least known aspects of competitive sailing, but the ability to
+recover determines the podium. Alain Gautier admits losing the last Route
+du Rhum because he couldn't properly manage his rest phases from the
+first days. "In the end, I lacked clarity and made mistakes," he confesses.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Quel conseil donne le journaliste pour gagner? | What advice does the journalist give to win? |
+| A | Connaître ses adversaires | Know your opponents |
+| B | Cultiver sa concentration | Cultivate your concentration |
+| **C** | **Dormir efficacement** | **Sleep efficiently** |
+| D | Ménager ses efforts | Pace your efforts |
+
+### **Correct Answer: C -- Dormir efficacement**
+
+"L'ultime clé... c'est la connaissance de ses rythmes de sommeil" (the ultimate key is knowing your sleep rhythms). "La faculté de récupération" (the ability to recover) determines winning. "Gérer ses phases de repos" (manage rest phases) is the skill. "Dormir efficacement" (sleep efficiently) captures all these sleep-related concepts.
+
+### **Why the others are wrong**
+
+**A -- Connaître ses adversaires.** "La connaissance de soi" (self-knowledge) is about knowing YOURSELF, not opponents.
+
+**B -- Cultiver sa concentration.** Gautier says "j'ai manqué de lucidité" (I lacked clarity), but this was the CONSEQUENCE of poor sleep management, not the root issue.
+
+**D -- Ménager ses efforts.** Physical effort conservation is different from sleep management. The text specifically emphasizes SLEEP rhythms, not physical pacing.
+
+---
+
+## **Q24**
+
+### **Passage**
+
+```
+Le château de la Bussière est une demeure du 17e siècle située dans le
+Loiret. Surnommé le "château des pêcheurs," il possède des collections
+d'objets rares sur la pêche. Sans oublier un superbe parc. Aujourd'hui,
+ce monument est confronté à un fléau: un champignon ronge ses édifices.
+Les propriétaires ont déjà lancé une campagne de restauration, mais le
+champignon s'attaque aussi à d'autres parties du domaine. Les maîtres
+des lieux souhaitent que le bâtiment retrouve son éclat en sollicitant
+les internautes. À partir de 15 euros, les contributeurs pourront
+recevoir des entrées gratuites, l'inscription de leur nom sur une plaque
+dans le château, ou bien encore un dîner avec les propriétaires.
+
+(The Bussière castle is a 17th-century residence in Loiret. Called the
+"fisherman's castle," it holds rare fishing collections and a superb park.
+Today, a fungus plagues the building. Owners launched a restoration
+campaign, but the fungus attacks other parts too. They want the building
+to regain its splendor by soliciting internet users. From 15 euros,
+contributors can receive free entry, their name on a plaque, or dinner
+with the owners.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | À quoi les internautes sont-ils encouragés? | What are internet users encouraged to do? |
+| A | À aider à la rénovation en travaillant au château | To help renovation by working at the castle |
+| B | À entrer en contact avec les occupants du château | To contact the castle's occupants |
+| **C** | **À financer les travaux au château par un don** | **To finance castle work through a donation** |
+| D | À visiter le château, ses jardins et expositions | To visit the castle, gardens, and exhibitions |
+
+### **Correct Answer: C -- À financer les travaux au château par un don**
+
+"En sollicitant les internautes" (by soliciting internet users) with "À partir de 15 euros" (from 15 euros). The rewards (entries, plaque, dinner) are given in exchange for FINANCIAL CONTRIBUTIONS. This is crowdfunding: "financer par un don" (financé through a donation).
+
+### **Why the others are wrong**
+
+**A -- Aider en travaillant au château.** Physical labor is never requested. The ask is for money contributions with rewards in return.
+
+**B -- Entrer en contact avec les occupants.** Dinner with the owners is a REWARD for donating, not the goal of the appeal.
+
+**D -- Visiter le château.** Free entry is a REWARD for contributing, not the purpose of the appeal. The ask is for donations, not visitors.
+
+---
+
+## **Q25**
+
+### **Passage**
+
+```
+Sandrine Mercier et Michel Fonvicin ont le voyage dans la peau. Les deux
+journalistes ont longtemps exploré le monde avant d'écrire un livre
+ensemble. "Ils sont partis vivre ailleurs" est constitué des histoires
+d'une trentaine d'expatriés et d'autant de destins et de trajectoires.
+Les auteurs sont allés chercher des personnages tous très différents, mais
+toujours touchants et sincères, en racontant leurs parcours lointains:
+le rappel du large, les premiers pas, les déceptions, le rapport à la
+France, la découverte des autres... C'est certainement ce qui unit tous
+ces Français du bout du monde par-delà leurs différences et leurs
+expériences: une ouverture d'esprit, une volonté de partager et au final
+une richesse et une joie de vivre communicative.
+
+(Sandrine Mercier and Michel Fonvicin have travel in their blood. The two
+journalists explored the world before writing a book together. "They Left
+to Live Elsewhere" features stories of about thirty expatriates and as
+many destinies and paths. The authors sought very different but always
+touching and sincere characters, telling their distant journeys: the call
+of the open, first steps, disappointments, relationship with France,
+discovering others... What unites these worldwide French people beyond
+their differences: open-mindedness, willingness to share, and a
+communicative joy of living.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Quelle est la particularité de cet ouvrage? | What is this book's special quality? |
+| A | L'originalité des pays visités | The originality of countries visited |
+| B | La description des habitudes quotidiennes | The description of daily habits |
+| **C** | **La diversité des portraits présentés** | **The diversity of portraits presented** |
+| D | Les qualités littéraires des écrivains | The literary qualities of the writers |
+
+### **Correct Answer: C -- La diversité des portraits présentés**
+
+"Des personnages tous très différents" (all very different characters), "une trentaine d'expatriés" (about thirty expatriates), "autant de destins et de trajectoires" (as many destinies and paths). The book's distinction is its VARIETY of profiles. "Diversité des portraits" perfectly captures "personnages tous très différents."
+
+### **Why the others are wrong**
+
+**A -- L'originalité des pays visités.** Countries are not emphasized. The focus is on the PEOPLE and their stories, not the locations.
+
+**B -- La description des habitudes quotidiennes.** Daily routines are not the content. The book covers journeys, émotions, and life trajectories.
+
+**D -- Les qualités littéraires.** The review highlights the CONTENT (diverse, touching stories), not the writing style or literary merit.
+
+---
+
+## **Q26**
+
+### **Passage**
+
+```
+Longtemps délaissées, les algues semblent peu à peu séduire les
+consommateurs. En raison de leur confusion avec les algues vertes qui
+polluent le littoral, ces légumes de mer sont parfois mal considérés.
+Pourtant, si les algues ne font pas encore partie de notre univers
+culturel alimentaire, leur consommation est en progression. "Les
+Occidentaux sont-ils prêts à en faire un produit courant?" questionne le
+docteur Arnaud Cacoul. "Pas sûr. Malgré leurs bienfaits nutritionnels,
+leur consommation restera sans doute limitée," estime ce nutritionniste.
+
+(Long neglected, seaweed seems to gradually attract consumers. Due to
+confusion with the green algae that pollute the coast, these sea
+vegetables are sometimes poorly regarded. Yet, while seaweed isn't yet
+part of our food culture, consumption IS increasing. "Are Westerners
+ready to make it a common product?" asks Dr. Cacoul. "Not sure. Despite
+nutritional benefits, consumption will probably remain limited.")
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Quelle place occupent les algues en France? | What place do seaweed occupy in France? |
+| A | Elles font partie de la gastronomie régionale | They're part of regional gastronomy |
+| **B** | **Les gens en mangent plus que par le passé** | **People eat more than in the past** |
+| C | Les médecins conseillent leur usage en cuisine | Doctors recommend them for cooking |
+| D | Leur culture augmente rapidement sur les côtes | Their farming increases rapidly on coasts |
+
+### **Correct Answer: B -- Les gens en mangent plus que par le passé**
+
+"Leur consommation est en progression" (their consumption is increasing). "Plus que par le passé" (more than in the past) paraphrases "en progression." The trend is upward compared to historical neglect ("longtemps délaissées").
+
+### **Why the others are wrong**
+
+**A -- Partie de la gastronomie régionale.** The text explicitly says algae "ne font pas encore partie de notre univers culturel alimentaire" (not yet part of our food culture).
+
+**C -- Les médecins conseillent leur usage.** Dr. Cacoul acknowledges their "bienfaits nutritionnels" but expresses skepticism ("Pas sur," "restera limitée"). He observes rather than recommends.
+
+**D -- Leur culture augmente rapidement.** Seaweed farming is never discussed. Consumption growth does not imply production growth on French coasts.
+
+---
+
+## **Q27**
+
+### **Passage**
+
+```
+Depuis plusieurs années, Thierry Marc, un grand chef français, intervient
+pour donner des cours de cuisine en prison. Faire découvrir à ce public,
+contraint de vivre en milieu fermé, qu'une profession, quelle qu'elle
+soit, peut être épanouissante, est une tâche qui le passionne et nécessite
+très naturellement une grande énergie. Le désir de rallumer cette lueur
+d'espoir, de montrer qu'il peut y avoir une réinsertion réussie et que
+chacun la porte en lui, est un moteur pour relever ce défi.
+
+(For several years, top French chef Thierry Marc has been giving cooking
+classes in prison. Showing this confined public that any profession can
+be fulfilling is a task that excites him and requires great energy. The
+desire to relight that spark of hope, to show that successful reintegration
+is possible and that everyone carries it within, drives him to take on
+this challenge.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Pourquoi Thierry Marc intervient-il dans les prisons? | Why does Thierry Marc work in prisons? |
+| A | Pour améliorer les méthodes de travail de la cantine | To improve canteen work methods |
+| B | Pour encourager la création des formations professionnelles | To encourage creating professional training programs |
+| **C** | **Pour faire naître l'envie de s'investir dans un métier** | **To create the desire to invest in a profession** |
+| D | Pour sensibiliser le grand public à la réalité de la vie carcérale | To raise public awareness about prison life |
+
+### **Correct Answer: C -- Pour faire naître l'envie de s'investir dans un métier**
+
+"Faire découvrir qu'une profession, quelle qu'elle soit, peut être épanouissante" (showing that any profession can be fulfilling) and "rallumer cette lueur d'espoir" (relight that spark of hope). He aims to inspire inmates to believe in professional fulfillment. "Faire naître l'envie" (create the desire) = "rallumer la lueur d'espoir."
+
+### **Why the others are wrong**
+
+**A -- Améliorer les méthodes de la cantine.** He teaches PRISONERS to inspire them, not to improve the prison kitchen operations. Cooking is the vehicle, not the goal.
+
+**B -- Encourager la création de formations.** He gives classes himself. He is not lobbying for program creation -- he IS the program.
+
+**D -- Sensibiliser le grand public.** His audience is PRISONERS, not the general public. His work happens inside prisons, not in media campaigns.
+
+---
+
+## **Q28**
+
+### **Passage**
+
+```
+L'institution scolaire devra sans cesse être défendue, ne serait-ce que
+parce que la "société civile" n'aura de cesse de vouloir assujettir
+l'école à ses demandes particulières. Il faut sans cesse rappeler que les
+règles de l'école ne sont pas celles de la maison. Car l'enfant n'y est
+plus seulement un enfant, il y est un élève. À l'école, on ne se
+préoccupe plus du confort et de l'affection pour l'enfant. On s'adresse
+à l'intelligence de l'élève. Le rapport maître/élève n'est d'ailleurs
+pas un rapport affectif: on ne demande pas à un professeur d'être
+sympathique. On lui demande d'être exigeant et juste.
+
+(Schools must be constantly defended, because "civil society" will always
+try to subject schools to its particular demands. One must always remember
+that school rules aren't home rules. At school, a child isn't just a child
+but a student. School doesn't concern itself with comfort and affection
+for the child. It addresses the student's intelligence. The teacher-student
+relationship isn't an affective one: we don't ask a teacher to be nice.
+We ask them to be demanding and fair.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Quelle est l'opinion de l'auteur? | What is the author's opinion? |
+| A | L'ambiance de l'école doit être calquée sur le modèle familial | School atmosphere should copy the family model |
+| B | L'autorité du professeur doit être compensée par sa gentillesse | Teacher authority should be offset by kindness |
+| C | L'épanouissement de l'enfant doit primer sur sa réussite | Child fulfillment should take priority over success |
+| **D** | **L'impartialité doit être l'une des qualités principales d'un maître** | **Impartiality must be a teacher's main quality** |
+
+### **Correct Answer: D -- L'impartialité doit être l'une des qualités principales d'un maître**
+
+"On lui demande d'être exigeant et juste" (we ask them to be demanding and FAIR). "Juste" (fair/just) = "impartialité" (impartiality). The author states that fairness, not affection, defines good teaching.
+
+### **Why the others are wrong**
+
+**A -- Calquée sur le modèle familial.** The OPPOSITE is argued: "les règles de l'école ne sont pas celles de la maison" (school rules aren't home rules). School must be DISTINCT from family.
+
+**B -- Compensée par sa gentillesse.** Explicitly contradicted: "on ne demande pas à un professeur d'être sympathique" (we don't ask a teacher to be nice).
+
+**C -- L'épanouissement doit primer.** The author says school addresses "l'intelligence de l'élève," not "le confort et l'affection." Intellectual rigor, not personal fulfillment, is the priority.
+
+---
+
+## **Q29**
+
+### **Passage**
+
+```
+Durant les investigations journalistiques, le recours à la caméra cachée
+est de plus en plus fréquent. Mais souvent, son utilisation n'est aussi
+qu'un cache-misère, un moyen de compenser l'absence d'informations dans
+les reportages, de remplir le vide par des scènes un peu spectaculaires.
+C'est une manière pour certains aussi de faire des économies. Par ailleurs,
+cette pratique pose une autre question: celle du statut de la personne
+filmée à son insu. La filmer en caméra cachée, n'est-ce pas supposer
+qu'elle a quelque chose à se reprocher avant d'avoir commencé à parler?
+
+(During investigations, hidden caméra use is increasingly frequent. But
+often, it's just a cover-up, a way to compensate for lack of information
+in reports, filling the void with somewhat spectacular scènes. It's also
+a way for some to save money. Furthermore, this practice raises the
+question of filming someone without their knowledge -- doesn't it presume
+guilt before the person even speaks?)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Pourquoi les journalistes utilisent-ils des caméras cachées? | Why do journalists use hidden caméras? |
+| A | Pour améliorer la qualité des documentaires | To improve documentary quality |
+| **B** | **Pour dissimuler la pauvreté des contenus** | **To hide the poverty of content** |
+| C | Pour moderniser leurs méthodes de travail | To modernize their work methods |
+| D | Pour saper les gens visés par les enquêtes | To undermine people targeted by investigations |
+
+### **Correct Answer: B -- Pour dissimuler la pauvreté des contenus**
+
+"Un cache-misère, un moyen de compenser l'absence d'informations" (a cover-up, a way to compensate for lack of information). "Remplir le vide par des scènes spectaculaires" (fill the void with spectacular scènes). "Cache-misere" literally means "hiding misery/poverty." "Dissimuler la pauvreté des contenus" directly translates this phrase.
+
+### **Why the others are wrong**
+
+**A -- Améliorer la qualité.** The text argues hidden caméras MASK poor quality. They don't improve content; they disguise its absence.
+
+**C -- Moderniser leurs méthodes.** Modernization is not discussed. The critique is that hidden caméras are a lazy shortcut, not a technological advancement.
+
+**D -- Saper les gens vises.** The presumption-of-guilt concern is raised but presented as an ethical SIDE EFFECT, not as journalists' PURPOSE.
+
+---
+
+## **Q30**
+
+### **Passage**
+
+```
+Trouver un logement dans une ville étudiante est un parcours du combattant
+pour un grand nombre d'inscrits dans l'enseignement supérieur. La barrière
+est parfois infranchissable. Non seulement les loyers sont élevés, mais la
+sélection des candidats par les propriétaires est très dure, souvent basée
+sur le niveau de revenus des garants. Pour lever ce frein, la caution
+locative étudiante (CLE) vient d'être généralisée à l'ensemble du
+territoire national après avoir été expérimentée dans quatre régions
+pendant un an. Avec ce dispositif, c'est l'État qui se porte garant du
+versement des loyers des étudiants en cas de non-paiement.
+
+(Finding housing in a student city is an obstacle course for many in
+higher education. The barrier is sometimes impassable. Not only are rents
+high, but landlord selection of candidates is very tough, often based on
+guarantor income levels. To remove this obstacle, the student rental
+guarantee (CLE) has just been extended nationwide after a one-year trial
+in four regions. With this program, the State guarantees student rent
+payments in case of non-payment.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Quel est le principal obstacle à l'accès au logement des étudiants? | What is the main obstacle to student housing access? |
+| **A** | **La méfiance des propriétaires** | **The distrust of landlords** |
+| B | La rareté des offres de logement | The scarcity of housing offers |
+| C | L'absence d'engagement de l'État | The lack of State commitment |
+| D | Le montant de la caution exigée | The amount of the required deposit |
+
+### **Correct Answer: A -- La méfiance des propriétaires**
+
+"La sélection des candidats par les propriétaires est très dure, souvent basée sur le niveau de revenus des garants" (landlord selection is very tough, based on guarantor income). Landlords DISTRUST students' ability to pay. The State solution (CLE) directly addresses this by BECOMING the guarantor -- proving the obstacle was landlord distrust, not deposit amounts or housing scarcity.
+
+### **Why the others are wrong**
+
+**B -- La rareté des offres.** Housing supply scarcity is not discussed. The problem is qualitative (getting ACCEPTED), not quantitative (finding LISTINGS).
+
+**C -- L'absence d'engagement de l'État.** The State IS engaging -- the CLE program was created and extended nationwide. State absence is the old situation, not the current problem.
+
+**D -- Le montant de la caution exigée.** "Caution" in the CLE context means guarantee/surety (who backs the student), not the security deposit amount. Landlords reject students because their GUARANTORS lack income, not because deposits are too high.
+
+---
+
+## **Q31**
+
+### **Passage**
+
+```
+Après avoir été fermée au public pendant douze ans, la grotte préhistorique
+d'Atlantica, située en Espagne, doit rouvrir ses portes, mais de manière
+expérimentale. Il s'agit d'une expérience réservée à un groupe de cinq
+personnes tirées au hasard parmi les visiteurs du musée du site, qui vont
+pouvoir contempler les peintures rupestres originales. Cette expérience
+se déroulera une fois par semaine pendant huit mois afin de permettre à
+une équipe de scientifiques d'évaluer l'impact des visites sur l'ensemble
+du site et de donner son avis sur une réouverture complète.
+
+(After being closed to the public for 12 years, the prehistoric cave of
+Atlantica in Spain will reopen, but experimentally. Five people selected
+randomly from museum visitors will be able to see the original cave
+paintings. This will happen once a week for eight months so scientists can
+evaluate the impact of visits on the site and advise on a full reopening.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Qu'évoque-t-on dans cet article? | What does this article discuss? |
+| A | L'inauguration d'une exposition temporaire | The inauguration of a temporary exhibition |
+| B | L'inscription d'une œuvre au patrimoine mondial | Registering a work as world héritage |
+| C | L'ouverture au public d'une zone dangereuse | Opening a dangerous area to the public |
+| **D** | **L'accès réglementé à un emplacement protégé** | **Regulated access to a protected site** |
+
+### **Correct Answer: D -- L'accès réglementé à un emplacement protégé**
+
+The cave was CLOSED for 12 years (protected), now reopens with strict controls: 5 random people, once weekly, for scientific évaluation. "Reglemente" (regulated) describes these restrictions. "Emplacement protégé" (protected site) describes a prehistoric cave closed for conservation.
+
+### **Why the others are wrong**
+
+**A -- Inauguration d'une exposition temporaire.** The cave paintings are PERMANENT originals, not a temporary exhibition. And it's a controlled reopening, not an inauguration.
+
+**B -- Inscription au patrimoine mondial.** UNESCO héritage designation is never discussed. The topic is access management.
+
+**C -- Ouverture d'une zone dangereuse.** The cave is not dangerous. It was closed to PROTECT it (the cave from visitors), not to protect visitors from the cave.
+
+---
+
+## **Q32**
+
+### **Passage**
+
+```
+Pas de clash ni de portes qui claquent. À l'issue de la deuxième conférence
+sociale, le gouvernement peut au moins se réjouir de ce résultat. Les
+représentants du patronat et des syndicats n'ont pas applaudi à tout
+rompre l'intervention du premier ministre, mais il n'y avait pas non plus
+eu de fâcherie comme celle qui avait marqué la première conférence. Si
+certains se sont dits déçus par la minceur des annonces que le premier
+ministre a dévoilées ou par les zones de flou qui règnent sur plusieurs
+dossiers brûlants -- les retraites en tête -- personne n'a non plus eu
+vent de colères. Il faut dire que pendant deux jours, ministres et
+conseillers se sont échinés à repousser les points qui fâchent à plus tard.
+
+(No clash or slamming doors. After the second social conference, the
+government can at least be pleased with that. Union and employer reps
+didn't enthusiastically applaud the PM, but there was no falling-out
+either. Some expressed disappointment at the thin announcements or the
+vagueness on hot issues -- pensions first -- but no one heard of anger.
+For two days, ministers and advisors worked hard to push contentious
+points to later.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Quel a été l'aboutissement de la conférence? | What was the conference's outcome? |
+| A | L'affrontement entre partenaires sociaux | Confrontation between social partners |
+| B | L'avancée majeure en termes de fiscalité | Major fiscal progress |
+| C | La proclamation de réformes importantes | Proclamation of important reforms |
+| **D** | **L'absence de prise de décisions effectives** | **The absence of effective decision-making** |
+
+### **Correct Answer: D -- L'absence de prise de décisions effectives**
+
+"La minceur des annonces" (thin announcements), "les zones de flou" (vague areas), and "repousser les points qui fâchent à plus tard" (push contentious points to later). Nothing concrete was decided -- controversial issues were postponed. The conference produced peace (no clash) but no substance.
+
+### **Why the others are wrong**
+
+**A -- L'affrontement.** The opposite: "Pas de clash ni de portes qui claquent" (no clash or slamming doors). Peace was maintained.
+
+**B -- L'avancée majeure en fiscalité.** No fiscal progress. Announcements were "mince" (thin) and issues remained in "zones de flou."
+
+**C -- La proclamation de réformes.** Reforms were précisely what did NOT happen. Contentious issues (pensions) were deferred.
+
+---
+
+## **Q33**
+
+### **Passage**
+
+```
+Des "taxes vertes" ou taxes carbone sont envisagées pour financer des
+énergies non polluantes. Les mécanismes prévus dans le protocole de Kyoto
+concernent notamment un crédit carbone qui représente un volume d'émission
+de gaz à effet de serre (GES) évité et des permis d'émission négociables.
+Le crédit carbone est doté d'une valeur marchande et s'échange entre pays
+industrialisés. Un pays n'arrivant pas à atteindre son objectif de
+réduction des GES pourrait acheter des crédits carbone à un autre qui
+aurait dépassé son objectif. Ce système a été parfois qualifié de "permis
+à polluer," car un pays riche pourrait acheter le droit de polluer à un
+autre ayant réellement réduit ses émissions.
+
+(Green taxes or carbon taxes are considéréd to financé clean energy. Kyoto
+Protocol mechanisms include carbon crédits representing avoided greenhouse
+gas émissions and tradeable émission permits. Carbon crédits have market
+value and are traded between industrialized countries. A country failing
+to meet its GHG reduction target could buy crédits from one that exceeded
+its target. This system has been called a "license to pollute" -- a rich
+country could buy the right to pollute from one that actually reduced
+émissions.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Quel est le paradoxe de la taxe carbone? | What is the carbon tax paradox? |
+| A | Elle concerne uniquement les économies fortes | It only concerns strong économies |
+| B | Elle freine l'utilisation de ressources renouvelables | It slows renewable resource use |
+| **C** | **Elle permet le dépassement des normes édictées** | **It allows exceeding established norms** |
+| D | Elle ralentit le progrès dans les états émergents | It slows progress in emerging states |
+
+### **Correct Answer: C -- Elle permet le dépassement des normes édictées**
+
+The PARADOX: a system designed to REDUCE pollution actually lets rich countries EXCEED norms by buying crédits. "Permis a polluer" (license to pollute) means exceeding norms ("dépassement des normes") is PERMITTED by the system meant to prevent it. That's the contradiction.
+
+### **Why the others are wrong**
+
+**A -- Concerne uniquement les économies fortes.** The text says crédits are traded "entre pays industrialisés" (between industrialized countries), but BOTH buyer and seller are industrialized. The paradox is about the mechanism, not who is affected.
+
+**B -- Freine les ressources renouvelables.** Renewables are never discussed. The paradox is about émission trading, not clean energy development.
+
+**D -- Ralentit le progrès des états émergents.** Emerging states are not mentioned. The criticism targets the system's logic: it allows rich polluters to buy their way out.
+
+---
+
+## **Q34**
+
+### **Passage**
+
+```
+Quel visage Paris pourrait-il prendre en 2100? C'est ce que le collectif
+d'architectes "Et alors" a imaginé au travers de vingt cartes postales
+géantes, exposées à Paris. Ce qui donne un résultat surprenant, parfois
+utopique, parfois réaliste. Ainsi l'idée d'une centrale hydrothermique
+pour chauffer et refroidir tout un quartier, projet de la compagnie
+parisienne du chauffage urbain. Des potagers partagés au pied des
+immeubles en plein centre-ville, cela ressemble plus à un clin d'œil
+malicieux. Le vélo a également la part belle: les architectes imaginent
+des voies rapides sur les toits de Paris, au milieu de toitures
+végétalisées et de jardins.
+
+(What face could Paris have in 2100? The architects' collective "Et alors"
+imagined this through twenty giant postcards exhibited in Paris. Results
+are surprising -- sometimes utopian, sometimes realistic. Thus the idea
+of a hydrothermal plant to heat and cool an entire neighborhood, a project
+by Paris's urban heating company. Shared vegetable gardens at the foot of
+buildings downtown -- that looks more like a mischievous wink. Cycling
+also features prominently: architects imagine fast lanes on Paris rooftops,
+among green roofs and gardens.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Quel projet est présente comme réaliste? | Which project is presented as realistic? |
+| **A** | **L'extension d'un système de climatisation à tout un quartier** | **Extending a climate system to an entire neighborhood** |
+| B | L'installation des parcs sur les toits des bâtiments parisiens | Installing parks on Parisian rooftops |
+| C | La construction de pistes cyclables au sommet des immeubles | Building bike lanes on top of buildings |
+| D | La création de jardins communs pour planter des légumes | Creating shared gardens for growing vegetables |
+
+### **Correct Answer: A -- L'extension d'un système de climatisation à tout un quartier**
+
+The passage categorizes projects as "utopique" or "réaliste." The hydrothermal plant is described factually as a "projet de la compagnie parisienne du chauffage urbain" (project by Paris's urban heating company) -- a real company backing a concrete project. The gardens are "un clin d'œil malicieux" (a mischievous wink = playful/utopian). Bike lanes on rooftops are imaginative. Only the heating/cooling plant has an actual institutional backer.
+
+### **Why the others are wrong**
+
+**B -- Parcs sur les toits.** Rooftop gardens are grouped with bike lanes in the "architects imagine" section -- visionary, not backed by a real company.
+
+**C -- Pistes cyclables au sommet.** "Les architectes imaginent des voies rapides sur les toits" -- explicitly presented as imaginative, not as a concrete project.
+
+**D -- Jardins communs pour légumes.** "Cela ressemble plus à un clin d'œil malicieux" (looks more like a mischievous wink) -- explicitly presented as playful/utopian, not realistic.
+
+---
+
+## **Q35**
+
+### **Passage**
+
+```
+Il faut se rendre à l'évidence: le jour n'est plus l'unité de temps d'un
+journal. Un quotidien papier ne peut pas rivaliser avec la vitesse à
+laquelle les sites, les blogs, les réseaux sociaux, les journaux en ligne,
+les radios et télés, les news des grands serveurs diffusent les nouvelles
+du jour. Aussi, au moment où il est en kiosques, se condamne-t-il à
+apparaître comme "le journal de la veille," perdant progressivement ses
+lecteurs qui, bombardés de scoops tous azimuts, sont déçus de n'y trouver
+que ce qu'ils savent déjà.
+
+(We must face the facts: the day is no longer a newspaper's time unit.
+A paper daily can't compete with the speed of websites, blogs, social
+media, online newspapers, radio, TV, and news servers. So by the time it
+hits newsstands, it's condemned to appear as "yesterday's paper," gradually
+losing readers who, bombarded by scoops from all directions, are
+disappointed to find only what they already know.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Quelle est la position de l'auteur? | What is the author's position? |
+| A | Il conteste la fiabilité des sources d'internet | He contests internet source reliability |
+| B | Il critique la surabondance de l'information | He criticizes information overabundance |
+| **D** | **Il doute de l'intérêt des médias traditionnels** | **He doubts the relevance of traditional media** |
+| C | Il dénonce la médiocrité de la presse écrite | He denounces print press mediocrity |
+
+### **Correct Answer: D -- Il doute de l'intérêt des médias traditionnels**
+
+"Un quotidien papier ne peut pas rivaliser" (a paper daily can't compete), "le journal de la veille" (yesterday's paper), "perdant progressivement ses lecteurs" (gradually losing readers). The author questions whether print newspapers still have a place. "Doute de l'intérêt" (doubts the relevance) captures this existential questioning.
+
+### **Why the others are wrong**
+
+**A -- Conteste la fiabilité d'internet.** The author does NOT criticize internet reliability. Digital media are presented as FASTER and more effective.
+
+**B -- Critique la surabondance de l'information.** "Bombardés de scoops" describes the competitive landscape, not a criticism of too much information.
+
+**C -- Dénonce la médiocrité de la presse écrite.** The problem is TIMING, not quality. Papers are obsolete because of speed, not because they write poorly.
+
+---
+
+## **Q36**
+
+### **Passage**
+
+```
+Un vingt-sixième album de Françoise Hardy. "La pluie sans parapluie" est
+forcément un événement. On sait que le public qui achète encore des
+disques passe volontiers à la caisse, pour montrer sa fidélité, ou
+simplement son envie de vibrer avec cette voix unique et si familière
+avec laquelle elle semble d'ailleurs plus en confiance que jamais. Elle
+module, appuie, interprète, joue avec souplesse de son phrasé, alors que
+les aficionados se contenteraient juste de ce grain unique et révéré.
+C'est un album pour ceux qui ont le temps, ne consomment pas la musique
+en tant qu'application sonore de la vie actuelle. Il faut se retrancher
+pour en saisir la saveur et la goûter. Un disque comme autrefois, avec
+un son soigné et de l'émotion. Mais surtout une élégance comme on n'en
+fait plus!
+
+(A 26th album from Françoise Hardy. "Rain Without an Umbrella" is
+naturally an event. The public still buying albums willingly pays, to
+show loyalty or simply their desire to connect with this unique,
+familiar voice with which she seems more confident than ever. She
+modulates, emphasizes, interprêts, plays flexibly with her phrasing,
+while fans would settle for just that unique, revered grain. It's an
+album for those who have time, who don't consume music as à sonic app
+for modern life. You must withdraw to grasp its flavor and savor it.
+A record like the old days: careful sound and émotion. Above all, an
+élégance like they don't make anymore!)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Quel type de public pourrait s'intéresser à cet album? | What type of audience would be interested? |
+| A | Les acheteurs opposés au téléchargement illégal | Buyers opposed to illégal downloading |
+| **B** | **Les amateurs de subtilité et de raffinement musical** | **Lovers of subtlety and musical refinement** |
+| C | Les admirateurs inconditionnels de l'interprète | Unconditional fans of the performer |
+| D | Les curieux en mal de musique expérimentale | The curious looking for experimental music |
+
+### **Correct Answer: B -- Les amateurs de subtilité et de raffinement musical**
+
+"Pour ceux qui ont le temps," "se retrancher pour en saisir la saveur et la goûter" (withdraw to grasp and savor it), "un son soigné" (careful sound), "une élégance comme on n'en fait plus" (unmatched élégance). Every descriptor points to refined APPRECIATION: subtlety, care, élégance. It's for connoisseurs, not casual listeners.
+
+### **Why the others are wrong**
+
+**A -- Opposes au téléchargement illégal.** Piracy is never mentioned. Buying albums is about desire for the music, not anti-piracy ideology.
+
+**C -- Admirateurs inconditionnels.** The reviewer says fans ("aficionados") "se contenteraient juste de ce grain unique" (would settle for just her voice). But the album offers MORE than that -- it's for those who appreciate musical CRAFT. The target goes beyond devoted fans.
+
+**D -- En mal de musique expérimentale.** "Un disque comme autrefois" (a record like the old days) is the OPPOSITE of experimental. It's deliberately classic and traditional.
+
+---
+
+## **Q37**
+
+### **Passage**
+
+```
+Dans leur nouvelle collection, les éditions Nil invitent des auteurs à se
+livrer à un exercice épistolaire intime en écrivant une lettre pour dire
+l'indicible. Le modèle est celle que Kafka rédigea à l'intention de son
+père et qu'il préféra ranger dans un tiroir tant l'accusation portée était
+peu amène. Avec "L'autre fille," missive adressée à sa sœur aînée, morte
+avant sa naissance, Annie Ernaux inaugure brillamment le concept, fidèle à
+son écriture tranchante et analytique. Rejetant le terme d'autofiction,
+l'écrivain se dit fascinée par la réalité, partant à la recherche d'une
+vérité sur une mort que ses parents lui ont toujours cachée. En demandant
+à des auteurs de se libérer d'un vieux tourment, la collection souhaite
+réhabiliter un genre littéraire oublié.
+
+(In their new collection, Nil éditions invite authors to engage in an
+intimate epistolary exercise: writing a letter to say the unsayable. The
+model is Kafka's letter to his father, which he preferred to keep in a
+drawer given its harsh accusation. With "The Other Girl," a letter to her
+older sister who died before her birth, Annie Ernaux brilliantly launches
+the concept, true to her sharp, analytical writing. Rejecting the term
+"autofiction," she says she's fascinated by reality, seeking truth about
+a death her parents always hid. By asking authors to free themselves from
+an old torment, the collection aims to rehabilitate a forgotten genre.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | À quel résultat la participation conduit-elle Annie Ernaux? | What result does participation lead Annie Ernaux to? |
+| A | À s'acquitter d'un engagement moral | To fulfill a moral obligation |
+| B | À se défaire d'un sentiment de culpabilité | To shed a feeling of guilt |
+| **C** | **À s'affranchir d'une histoire ancienne** | **To free herself from an old story** |
+| D | À se justifier d'une action peu glorieuse | To justify an inglorious action |
+
+### **Correct Answer: C -- A s'affranchir d'une histoire ancienne**
+
+"Se libérer d'un vieux tourment" (free oneself from an old torment). "S'affranchir" (to free oneself) = "se libérer." "Une histoire ancienne" (an old story) = the hidden family history of her sister's death, a "vieux tourment."
+
+### **Why the others are wrong**
+
+**A -- S'acquitter d'un engagement moral.** No moral obligation is mentioned. The motivation is personal liberation, not duty fulfillment.
+
+**B -- Se défaire d'un sentiment de culpabilité.** Guilt is never expressed. She seeks TRUTH about a hidden death, not absolution for wrongdoing.
+
+**D -- Se justifier d'une action peu glorieuse.** No shameful action is discussed. Ernaux is searching for truth, not defending herself.
+
+---
+
+## **Q38**
+
+### **Passage**
+
+```
+Les méfiances à l'égard de la gratuité des transports collectifs demeurent
+fortes. Sans surprise, l'Union des transports publics affiche son
+hostilité. Trop onéreuse, ne facilitant pas le report de la voiture vers
+les transports collectifs, menaçant la qualité de service, la gratuité
+pour tous ne répondrait pas aux objectifs de développement d'un réseau de
+transport. Selon l'UTP, "la gratuité est une fausse bonne idée qui induit
+des déplacements inutiles, encourage l'étalement urbain et prive de
+ressources le système de transport au moment où la clientèle augmente et
+où les recettes fiscales des collectivités diminuent." Elle lui préfère
+le système de tarification spéciale pour les jeunes, les sans-emplois ou
+les familles nombreuses.
+
+(Distrust of free public transport remains strong. Unsurprisingly, the
+Public Transport Union oppose it. Too costly, not facilitating the shift
+from cars, threatening service quality, free-for-all wouldn't meet
+transport development goals. According to UTP, "free transport is a false
+good idea that induces unnecessary trips, encourages urban sprawl, and
+deprives the transport system of resources when ridership is growing and
+local tax revenue is declining." They prefer targeted pricing for youth,
+unemployed, or large families.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Pourquoi la gratuité des transports publics est-elle critiquée? | Why is free public transport criticized? |
+| A | Ce choix creuse les inégalités sociales | This choice deepens social inequalities |
+| B | Ce projet omet des questions de sécurité | This project omits security issues |
+| C | Cette démarche déresponsabilise les usagers | This approach removes user responsibility |
+| **D** | **Cette initiative coûte beaucoup trop cher** | **This initiative costs far too much** |
+
+### **Correct Answer: D -- Cette initiative coûte beaucoup trop cher**
+
+The FIRST criticism listed: "Trop onéreuse" (too costly). "Prive de ressources le système de transport" (deprives the system of resources) when "les recettes fiscales diminuent" (tax revenue decreases). Cost is the primary and most explicit objection.
+
+### **Why the others are wrong**
+
+**A -- Creuse les inégalités sociales.** The UTP actually PROPOSES targeted pricing for disadvantaged groups as an alternative, suggesting concern for equity -- but this is their solution, not a criticism of free transport creating inequality.
+
+**B -- Omet des questions de sécurité.** Security is never mentioned. The criticisms are all financial and operational.
+
+**C -- Deresponsabilise les usagers.** User responsibility is not discussed. "Déplacements inutiles" (unnecessary trips) is about inefficiency, not about user attitudes.
+
+---
+
+## **Q39**
+
+### **Passage**
+
+```
+Depuis l'adolescence, je fréquente assidûment les dictionnaires. Chaque
+fois que je bute sur un mot, que je suis dans le flou culturel, ils
+m'apportent la réponse et ouvrent de nouveaux horizons à ma curiosité en
+me renvoyant souvent à d'autres ouvrages. Je possède une centaine et
+chacun est une bibliothèque à lui seul. Tous sont autant de béquilles
+de ma culture. Par exemple, quand vous cherchez le mot juste, rien de
+tel qu'un dictionnaire des synonymes. On ouvre un dictionnaire pour se
+renseigner sur une question précise, comme on lirait la notice d'un
+produit pharmaceutique destiné à soigner ceci ou cela: un self-service
+de la pensée.
+
+(Since adolescence, I've avidly read dictionaries. Every time I stumble
+on a word or feel culturally lost, they provide answers and open new
+horizons to my curiosity by often directing me to other works. I own
+about a hundred, each a library in itself. All are crutches for my
+culture. When you seek the right word, nothing beats a synonym dictionary.
+You open a dictionary to learn about a specific question, like reading
+medicine instructions: a self-service of thought.)
+```
+
+### **Prompt & Answers**
+
+|  | French | English |
+| --- | --- | --- |
+| **Prompt** | Pourquoi Jean Claude aime-t-il les dictionnaires? | Why does Jean Claude love dictionaries? |
+| **A** | **Pour découvrir de nouvelles références** | **To discover new références** |
+| B | Pour posséder une bibliothèque fournie | To own a well-stocked library |
+| C | Pour s'évader vers des horizons lointains | To escape toward distant horizons |
+| D | Pour trouver des remèdes à ses maux | To find remedies for his ailments |
+
+### **Correct Answer: A -- Pour découvrir de nouvelles références**
+
+"Ouvrent de nouveaux horizons à ma curiosité en me renvoyant souvent à d'autres ouvrages" (open new horizons to my curiosity by directing me to other works). Dictionaries are springboards to MORE knowledge. "Nouvelles références" (new références) = "d'autres ouvrages" (other works) discovered through dictionary entries.
+
+### **Why the others are wrong**
+
+**B -- Posseder une bibliothèque fournie.** Owning 100 dictionaries is a FACT, not his motivation. He loves them for what they PROVIDE, not for what they ARE as objects.
+
+**C -- S'évader vers des horizons lointains.** "Nouveaux horizons" in the text means intellectual DISCOVERY, not escape or travel. "S'evader" implies running away; his use is about expanding knowledge.
+
+**D -- Trouver des remèdes à ses maux.** The pharmaceutical comparison ("comme on lirait la notice") is a METAPHOR for targeted information-seeking. He does not literally use dictionaries as medicine.

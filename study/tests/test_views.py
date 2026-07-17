@@ -21,6 +21,7 @@ from study.models import (
     Card,
     CardState,
     CardType,
+    PhraseCategory,
     Prompt,
     Rating,
     ReviewLog,
@@ -66,11 +67,11 @@ class PWATests(TestCase):
         r = self.client.get("/sw.js")
         self.assertEqual(r.status_code, 200)
         body = r.content.decode()
-        self.assertIn('var CACHE = "heureux-v44"', body)
+        self.assertIn('var CACHE = "heureux-v50"', body)
         self.assertIn("study/css/app.css", body)
-        self.assertIn("?v=39", body)
+        self.assertIn("?v=44", body)
         self.assertIn("study/js/app.js", body)
-        self.assertIn("?v=26", body)
+        self.assertIn("?v=27", body)
         self.assertIn("study/js/translate.js", body)
         self.assertIn("study/js/annotations.js", body)
         self.assertIn("SKIP_WAITING", body)
@@ -129,6 +130,30 @@ class SmokeTests(TestCase):
         self.assertContains(response, "study/js/translate.js")
         self.assertContains(response, "study/js/annotations.js")
         self.assertContains(response, 'rel="noopener noreferrer"')
+
+    def test_primary_navigation_marks_each_personal_area_current(self):
+        destinations = (
+            ("study:dashboard", "study:dashboard"),
+            ("study:expressions_overview", "study:expressions_overview"),
+            ("study:notes_overview", "study:notes_overview"),
+            ("study:stats_overview", "study:stats_overview"),
+        )
+
+        for page_name, navigation_name in destinations:
+            with self.subTest(page=page_name):
+                response = self.client.get(reverse(page_name))
+                self.assertContains(
+                    response,
+                    f'href="{reverse(navigation_name)}" '
+                    'class="nav__primary-link is-active" '
+                    'aria-current="page"',
+                )
+                self.assertEqual(
+                    response.content.decode().count(
+                        'class="nav__primary-link is-active"'
+                    ),
+                    1,
+                )
 
     def test_hierarchy_pages_render(self):
         self.assertEqual(
@@ -282,7 +307,21 @@ class SmokeTests(TestCase):
             "Notes",
             "Stats",
         ):
-            self.assertContains(response, f">{label}</a>")
+            self.assertContains(
+                response,
+                f'<span class="nav__item-label">{label}</span>',
+            )
+        self.assertContains(
+            response,
+            'class="nav__group nav__group--learn" role="group" '
+            'aria-label="Apprendre"',
+        )
+        self.assertContains(
+            response,
+            'class="nav__group nav__group--tools" role="group" '
+            'aria-label="Outils personnels"',
+        )
+        self.assertContains(response, 'class="nav__item-icon"', count=6)
         self.assertNotContains(response, 'class="footer__inner"')
 
     def test_global_pages_do_not_false_highlight_task_navigation(self):
@@ -345,6 +384,52 @@ class TaskOrganizationTests(TestCase):
         )
         self.assertContains(response, "oral-task-only")
         self.assertNotContains(response, "other-task-only")
+
+    def test_expression_directory_uses_rich_subject_vocabulary(self):
+        self.phrase.category.name = "Structurer et prendre position"
+        self.phrase.category.save(update_fields=["name"])
+        prompt = self.response_card.response.prompts.get(is_canonical=True)
+        for lot_order in range(1, 51):
+            subject_phrase = factories.make_phrase(
+                tier="subject",
+                lot_order=lot_order,
+            )
+            subject_phrase.source_prompts.add(prompt)
+        topic_category = PhraseCategory.objects.create(
+            slug="legacy-topic",
+            name="Ancien vocabulaire thématique",
+            content_key="test-category:legacy-topic",
+            order=999,
+        )
+        legacy_phrase = factories.make_phrase(category=topic_category)
+        legacy_phrase.source_prompts.add(prompt)
+
+        response = self.client.get(
+            self._task_url("study:task_phrases")
+        )
+
+        self.assertEqual(response.context["subject_prompt_count"], 1)
+        self.assertEqual(response.context["subject_response_count"], 1)
+        self.assertEqual(response.context["subject_vocabulary_count"], 50)
+        self.assertContains(response, "Vocabulaire par sujet")
+        self.assertContains(response, "50 vocabs")
+        self.assertContains(response, "5 lots")
+        self.assertContains(response, "data-subject-vocabulary-search")
+        self.assertContains(response, prompt.text)
+        self.assertContains(
+            response,
+            reverse(
+                "study:response_detail",
+                args=[prompt.response_id],
+            )
+            + f"?prompt={prompt.pk}#subject-vocabulary",
+        )
+        self.assertContains(
+            response,
+            f"kind=vocab&amp;response={prompt.response_id}&amp;batch=1",
+        )
+        self.assertNotContains(response, "Vocabulaire par thème")
+        self.assertNotContains(response, topic_category.name)
 
     def test_task_search_is_limited_to_its_task(self):
         own = self.client.get(
@@ -585,7 +670,7 @@ class CategoryBatchViewsTests(TestCase):
             [batch["card_count"] for batch in response.context["review_batches"]],
             [20, 12],
         )
-        self.assertContains(response, "Lots de 10 expressions maximum")
+        self.assertContains(response, "Choisir un lot de 10")
         self.assertContains(response, "Lot 02")
         self.assertContains(response, "batch=2")
 

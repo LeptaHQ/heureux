@@ -33,8 +33,8 @@
                   <span>{{ t.task.name }}</span>
                   {% if area == "review" and t.counts.total_due %}
                     <span class="deck__due pill pill--due">{{ t.counts.total_due }}</span>
-                  {% elif area == "expressions" and t.phrase_counts.total_due %}
-                    <span class="deck__due pill pill--due">{{ t.phrase_counts.total_due }}</span>
+                  {% elif area == "expressions" and t.functional_phrase_stats.due %}
+                    <span class="deck__due pill pill--due">{{ t.functional_phrase_stats.due }}</span>
                   {% elif area == "home" and t.stats.due %}
                     <span class="deck__due pill pill--due">{{ t.stats.due }}</span>
                   {% endif %}
@@ -43,16 +43,16 @@
                 {% if area == "review" %}
                   <div class="deck__meta">{{ t.counts.total_due }} à réviser · {{ t.revisit_count }} à revoir</div>
                 {% elif area == "expressions" %}
-                  <div class="deck__meta">{{ t.phrase_count }} expressions · {{ t.phrase_stats.mature }} maîtrisées</div>
+                  <div class="deck__meta">{{ t.functional_phrase_count }} expressions transversales · {{ t.subject_vocabulary_count }} vocabs par sujet</div>
                 {% else %}
                   <div class="deck__meta">{{ t.prompt_count }} sujets · {{ t.response_stats.total }} réponses · {{ t.phrase_count }} expressions</div>
                   <div class="deck__meta">{{ t.stats.seen }}/{{ t.stats.total }} cartes vues · {{ t.stats.mature }} maîtrisée{{ t.stats.mature|pluralize }}</div>
                 {% endif %}
                 <div class="progress">
                   {% if area == "expressions" %}
-                    <span class="bg-mature" style="width: {% widthratio t.phrase_stats.mature t.phrase_stats.total 100 %}%;"></span>
-                    <span class="bg-review" style="width: {% widthratio t.phrase_stats.review_young t.phrase_stats.total 100 %}%;"></span>
-                    <span class="bg-learning" style="width: {% widthratio t.phrase_stats.learning t.phrase_stats.total 100 %}%;"></span>
+                    <span class="bg-mature" style="width: {% widthratio t.functional_phrase_stats.mature t.functional_phrase_stats.total 100 %}%;"></span>
+                    <span class="bg-review" style="width: {% widthratio t.functional_phrase_stats.review_young t.functional_phrase_stats.total 100 %}%;"></span>
+                    <span class="bg-learning" style="width: {% widthratio t.functional_phrase_stats.learning t.functional_phrase_stats.total 100 %}%;"></span>
                   {% else %}
                     <span class="bg-mature" style="width: {% widthratio t.stats.mature t.stats.total 100 %}%;"></span>
                     <span class="bg-review" style="width: {% widthratio t.stats.review_young t.stats.total 100 %}%;"></span>

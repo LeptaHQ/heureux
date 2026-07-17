@@ -37,34 +37,77 @@
   </div>
 </section>
 
-<section class="ce-home-card" aria-labelledby="ce-home-title">
-  <div class="ce-home-card__icon" aria-hidden="true">
-    <svg viewBox="0 0 24 24" focusable="false">
-      <path d="M5 3.5h10.5L19 7v13.5H5z"></path>
-      <path d="M15 3.5V8h4M8.5 12h7M8.5 15.5h5"></path>
-    </svg>
-  </div>
-  <div class="ce-home-card__body">
-    <p class="eyebrow">Compréhension écrite</p>
-    <h2 id="ce-home-title">Lire, comprendre, choisir</h2>
-    {% if comprehension.active_attempt %}
-      <p>Votre {{ comprehension.active_attempt.test.title }} est en cours. Vos réponses sont enregistrées après chaque question.</p>
-    {% elif comprehension.completed_test_count %}
-      <p>{{ comprehension.completed_test_count }} test{{ comprehension.completed_test_count|pluralize }} terminé{{ comprehension.completed_test_count|pluralize }}{% if comprehension.best_percentage is not None %} · meilleur résultat {{ comprehension.best_percentage }} %{% endif %}.</p>
-    {% else %}
-      <p>Entraînez-vous en conditions de quiz, puis analysez chaque réponse avec sa traduction et son explication.</p>
-    {% endif %}
-  </div>
-  <a class="ce-home-card__action" href="{% url 'study:comprehension_overview' %}">
-    {% if comprehension.active_attempt %}Continuer le test{% else %}Voir les tests{% endif %}
-    <span aria-hidden="true">→</span>
-  </a>
-</section>
+<div class="learning-domains">
+  <section class="learning-domain" aria-labelledby="expression-domain-title">
+    <header class="learning-domain__head">
+      <span class="learning-domain__number" aria-hidden="true">01</span>
+      <div>
+        <p class="eyebrow">Produire en français</p>
+        <h2 id="expression-domain-title">Expression</h2>
+        <p>Choisissez l’écrit ou l’oral, puis ouvrez la tâche que vous souhaitez travailler.</p>
+      </div>
+    </header>
 
-<h2 style="margin-top:2rem;">Expression française</h2>
-<p class="muted mt-0">Choisissez l'expression orale ou écrite, puis une tâche à travailler.</p>
+    <div class="learning-path-grid">
+      {% for path in expression_paths %}
+        {% if path.available %}
+          <a class="learning-path-card learning-path-card--available" href="{% url 'study:part_detail' path.part.slug %}">
+        {% else %}
+          <article class="learning-path-card learning-path-card--soon" aria-disabled="true">
+        {% endif %}
+            <header class="learning-path-card__head">
+              <span class="learning-path-card__icon" aria-hidden="true">
+                {% if path.part.slug == "orale" %}
+                  <svg viewBox="0 0 24 24" focusable="false"><rect x="8" y="3" width="8" height="12" rx="4"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"></path></svg>
+                {% else %}
+                  <svg viewBox="0 0 24 24" focusable="false"><path d="m4 20 4.5-1 10-10-3.5-3.5-10 10zM13.8 6.7l3.5 3.5M4 20h16"></path></svg>
+                {% endif %}
+              </span>
+              {% if path.available %}
+                <span class="learning-path-card__status">Disponible</span>
+              {% else %}
+                <span class="learning-path-card__status learning-path-card__status--soon">À venir</span>
+              {% endif %}
+            </header>
+            <div class="learning-path-card__body">
+              <p class="learning-path-card__kicker">Expression</p>
+              <h3>{{ path.part.name|cut:"Expression "|capfirst }}</h3>
+              {% if path.part.slug == "orale" %}
+                <p>Développez votre prise de parole, votre argumentation et votre aisance à l’oral.</p>
+              {% else %}
+                <p>Structurez vos idées et entraînez-vous à produire des textes clairs et précis.</p>
+              {% endif %}
+            </div>
+            {% if path.available %}
+              <div class="learning-path-card__facts">
+                <span><b>{{ path.available_task_count }}</b> tâche{{ path.available_task_count|pluralize }}</span>
+                <span><b>{{ path.prompt_count }}</b> sujets</span>
+                <span><b>{{ path.seen }}/{{ path.total }}</b> cartes vues</span>
+              </div>
+              <span class="learning-path-card__action">
+                Ouvrir l’expression {{ path.part.name|cut:"Expression " }}
+                <span aria-hidden="true">→</span>
+              </span>
+            {% else %}
+              <div class="learning-path-card__pending">Parcours en préparation</div>
+            {% endif %}
+        {% if path.available %}</a>{% else %}</article>{% endif %}
+      {% endfor %}
+    </div>
+  </section>
 
-{% include "study/_task_groups.html" with area="home" %}
+  <section class="learning-domain" aria-labelledby="comprehension-domain-title">
+    <header class="learning-domain__head">
+      <span class="learning-domain__number" aria-hidden="true">02</span>
+      <div>
+        <p class="eyebrow">Comprendre le français</p>
+        <h2 id="comprehension-domain-title">Compréhension</h2>
+        <p>Choisissez l’écrit ou l’oral, puis avancez test après test avec une correction détaillée.</p>
+      </div>
+    </header>
+    {% include "study/_comprehension_paths.html" %}
+  </section>
+</div>
 
 <p class="center muted" style="margin-top:1.6rem;">
   <a href="{% url 'study:stats_overview' %}">Voir la progression détaillée →</a>

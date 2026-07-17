@@ -212,7 +212,11 @@ class AnnotationTests(TestCase):
         )
 
     def test_highlight_creation_is_idempotent_and_restorable(self):
-        payload = {**self.selection, "kind": AnnotationKind.HIGHLIGHT}
+        payload = {
+            **self.selection,
+            "kind": AnnotationKind.HIGHLIGHT,
+            "overlap_ids": "",
+        }
         first = self.client.post(reverse("study:annotation_create"), payload)
         second = self.client.post(reverse("study:annotation_create"), payload)
 
@@ -308,6 +312,165 @@ class AnnotationTests(TestCase):
             "Le passage a été légèrement corrigé.",
         )
         self.assertEqual(annotation.prefix, "Nouveau contexte ")
+
+    def test_partial_overlap_expands_and_merges_the_highlight(self):
+        partial = {
+            **self.selection,
+            "kind": AnnotationKind.HIGHLIGHT,
+            "quote": "nuancer cette",
+            "start_offset": "32",
+            "end_offset": "45",
+        }
+        first = self.client.post(reverse("study:annotation_create"), partial)
+        annotation = Annotation.objects.get()
+        annotation.study_later = True
+        annotation.save(update_fields=["study_later", "updated_at"])
+
+        expanded = self.client.post(
+            reverse("study:annotation_create"),
+            {
+                **self.selection,
+                "kind": AnnotationKind.HIGHLIGHT,
+                "overlap_ids": str(annotation.id),
+            },
+        )
+
+        self.assertEqual(first.status_code, 201)
+        self.assertEqual(expanded.status_code, 200)
+        self.assertEqual(expanded.json()["id"], first.json()["id"])
+        self.assertEqual(expanded.json()["removed_ids"], [])
+        self.assertEqual(
+            expanded.json()["delete_url"],
+            reverse("study:annotation_delete", args=[annotation.id]),
+        )
+        annotation.refresh_from_db()
+        self.assertEqual(annotation.quote, self.selection["quote"])
+        self.assertEqual(annotation.start_offset, 24)
+        self.assertEqual(annotation.end_offset, 58)
+        self.assertTrue(annotation.study_later)
+
+        restored = self.client.get(
+            reverse("study:annotations_for_source"),
+            {"source_path": self.source_path},
+        ).json()["highlights"]
+        self.assertEqual(len(restored), 1)
+        self.assertEqual(
+            restored[0]["delete_url"],
+            reverse("study:annotation_delete", args=[annotation.id]),
+        )
+
+    def test_expanding_across_highlights_merges_them(self):
+        first = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="Il faut",
+            source_path=self.source_path,
+            start_offset=24,
+            end_offset=31,
+        )
+        second = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="nuancer",
+            source_path=self.source_path,
+            start_offset=32,
+            end_offset=39,
+            study_later=True,
+        )
+
+        response = self.client.post(
+            reverse("study:annotation_create"),
+            {
+                **self.selection,
+                "kind": AnnotationKind.HIGHLIGHT,
+                "overlap_ids": f"{first.id},{second.id}",
+            },
+        )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()["id"], second.id)
+        self.assertEqual(response.json()["removed_ids"], [first.id])
+        merged = Annotation.objects.get()
+        self.assertEqual(merged.quote, self.selection["quote"])
+        self.assertTrue(merged.study_later)
+
+    def test_resolved_overlap_ids_override_stale_offsets(self):
+        resolved = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="Passage déplacé",
+            source_path=self.source_path,
+            start_offset=100,
+            end_offset=115,
+        )
+        stale_collision = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="Autre passage déplacé",
+            source_path=self.source_path,
+            start_offset=30,
+            end_offset=42,
+        )
+
+        response = self.client.post(
+            reverse("study:annotation_create"),
+            {
+                **self.selection,
+                "kind": AnnotationKind.HIGHLIGHT,
+                "overlap_ids": str(resolved.id),
+            },
+        )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()["id"], resolved.id)
+        self.assertEqual(response.json()["removed_ids"], [])
+        resolved.refresh_from_db()
+        self.assertEqual(resolved.start_offset, 24)
+        self.assertEqual(resolved.end_offset, 58)
+        self.assertTrue(
+            Annotation.objects.filter(pk=stale_collision.id).exists()
+        )
+
+    def test_resolved_ids_do_not_overwrite_exact_stale_collision(self):
+        resolved = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="Passage déplacé",
+            source_path=self.source_path,
+            start_offset=100,
+            end_offset=115,
+        )
+        stale_collision = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="Autre passage déplacé",
+            source_path=self.source_path,
+            start_offset=24,
+            end_offset=58,
+        )
+
+        response = self.client.post(
+            reverse("study:annotation_create"),
+            {
+                **self.selection,
+                "kind": AnnotationKind.HIGHLIGHT,
+                "overlap_ids": str(resolved.id),
+            },
+        )
+
+        self.assertEqual(response.status_code, 409)
+        self.assertIn("passage en conflit", response.json()["error"])
+        resolved.refresh_from_db()
+        stale_collision.refresh_from_db()
+        self.assertEqual(resolved.start_offset, 100)
+        self.assertEqual(resolved.end_offset, 115)
+        self.assertEqual(stale_collision.quote, "Autre passage déplacé")
 
     def test_annotation_validation_rejects_empty_or_external_selection(self):
         empty = self.client.post(

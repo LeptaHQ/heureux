@@ -14,7 +14,7 @@
 
 <div class="qlist">
   {% for row in rows %}
-    <a class="qrow" href="{% url 'study:response_detail' row.prompt.response_id %}">
+    <a class="qrow" href="{% url 'study:response_detail' row.prompt.response_id %}?prompt={{ row.prompt.pk }}">
       <span class="qrow__num qrow__num--tag">
         <span class="chip chip--theme" style="--chip: {{ row.prompt.theme.color }};">{{ row.prompt.theme.emoji }} P{{ row.prompt.number }}</span>
       </span>

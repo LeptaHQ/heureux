@@ -21,6 +21,7 @@ from study.models import (
     Card,
     CardState,
     CardType,
+    Prompt,
     Rating,
     ReviewLog,
     ReviewSession,
@@ -65,7 +66,11 @@ class PWATests(TestCase):
         r = self.client.get("/sw.js")
         self.assertEqual(r.status_code, 200)
         body = r.content.decode()
-        self.assertIn('var CACHE = "heureux-v40"', body)
+        self.assertIn('var CACHE = "heureux-v42"', body)
+        self.assertIn("study/css/app.css", body)
+        self.assertIn("?v=37", body)
+        self.assertIn("study/js/app.js", body)
+        self.assertIn("?v=26", body)
         self.assertIn("study/js/translate.js", body)
         self.assertIn("study/js/annotations.js", body)
         self.assertIn("SKIP_WAITING", body)
@@ -94,6 +99,7 @@ class SmokeTests(TestCase):
     def test_core_pages_render(self):
         names = [
             "study:dashboard",
+            "study:comprehension_hub",
             "study:review_overview",
             "study:expressions_overview",
             "study:notes_overview",
@@ -182,6 +188,56 @@ class SmokeTests(TestCase):
                     reverse(destination, args=["orale", "tache-3"]),
                 )
                 self.assertIsNone(response.context["content_task"])
+
+    def test_dashboard_groups_four_paths_under_two_domains(self):
+        written = factories.make_part("ecrit", available=False)
+        written.name = "Expression écrite"
+        written.save(update_fields=["name"])
+        factories.make_task(written, "ecrit", available=False)
+        factories.make_comprehension_test()
+
+        response = self.client.get(reverse("study:dashboard"))
+
+        self.assertContains(response, 'class="learning-domain"', count=2)
+        self.assertContains(
+            response,
+            'class="learning-path-card learning-path-card--',
+            count=4,
+        )
+        self.assertContains(response, 'id="expression-domain-title"')
+        self.assertContains(response, 'id="comprehension-domain-title"')
+        self.assertContains(response, ">Écrite</h3>", count=2)
+        self.assertContains(response, ">Orale</h3>", count=2)
+        self.assertContains(
+            response,
+            reverse("study:part_detail", args=["orale"]),
+        )
+        self.assertContains(
+            response,
+            reverse("study:comprehension_overview"),
+        )
+        self.assertNotContains(response, "ce-home-card")
+
+    def test_comprehension_hub_is_the_parent_of_written_and_oral_paths(self):
+        factories.make_comprehension_test()
+
+        response = self.client.get(reverse("study:comprehension_hub"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "<h1>Compréhension</h1>", html=True)
+        self.assertContains(response, ">Écrite</h3>")
+        self.assertContains(response, ">Orale</h3>")
+        self.assertContains(
+            response,
+            reverse("study:comprehension_overview"),
+        )
+        self.assertContains(response, "<b>8</b> groupes", html=True)
+        self.assertContains(response, "Parcours en préparation")
+        self.assertContains(
+            response,
+            f'href="{reverse("study:comprehension_hub")}" '
+            'class="nav__primary-link is-active"',
+        )
 
     def test_primary_navigation_opens_grouped_hubs(self):
         response = self.client.get(
@@ -723,6 +779,173 @@ class CategoryBatchViewsTests(TestCase):
         self.assertIn("Vocabulaire du sujet", state["front_html"])
         self.assertIn("Produisez le mot", state["front_html"])
         self.assertIn("Réponse française", state["back_html"])
+
+
+class ResponsePromptNavigationTests(TestCase):
+    def setUp(self):
+        self.user = factories.make_user("prompt-navigator")
+        self.client.force_login(self.user)
+        self.part = factories.make_part()
+        self.task = factories.make_task(part=self.part)
+        self.first_theme = factories.make_theme(
+            "navigation-premier",
+            order=1,
+            task=self.task,
+        )
+        self.second_theme = factories.make_theme(
+            "navigation-second",
+            order=2,
+            task=self.task,
+        )
+        self.family = factories.make_family("navigation")
+        self.first_response = factories.make_response(
+            theme=self.first_theme,
+            family=self.family,
+        )
+        self.middle_response = factories.make_response(
+            theme=self.first_theme,
+            family=self.family,
+        )
+        self.last_response = factories.make_response(
+            theme=self.first_theme,
+            family=self.family,
+        )
+        self.first_prompt = self._update_prompt(
+            self.first_response,
+            number=1,
+            text="Premier sujet de navigation ?",
+        )
+        self.middle_prompt = self._update_prompt(
+            self.middle_response,
+            number=2,
+            text="Sujet central de navigation ?",
+        )
+        self.last_prompt = self._update_prompt(
+            self.last_response,
+            number=3,
+            text="Dernier sujet de navigation ?",
+        )
+
+    @staticmethod
+    def _update_prompt(response, *, number, text):
+        prompt = response.prompts.get(is_canonical=True)
+        prompt.number = number
+        prompt.text = text
+        prompt.save(update_fields=["number", "text"])
+        return prompt
+
+    @staticmethod
+    def _detail_url(prompt):
+        return (
+            reverse("study:response_detail", args=[prompt.response_id])
+            + f"?prompt={prompt.pk}"
+        )
+
+    def test_previous_and_next_follow_prompt_order_within_theme(self):
+        page = self.client.get(self._detail_url(self.middle_prompt))
+
+        self.assertEqual(page.status_code, 200)
+        self.assertEqual(page.context["selected_prompt"], self.middle_prompt)
+        self.assertEqual(page.context["previous_prompt"], self.first_prompt)
+        self.assertEqual(page.context["next_prompt"], self.last_prompt)
+        self.assertEqual(page.context["prompt_position"], 2)
+        self.assertEqual(page.context["prompt_total"], 3)
+        self.assertContains(
+            page,
+            f'<h1 class="detail-prompt">{self.middle_prompt.text}</h1>',
+            html=True,
+        )
+        self.assertContains(page, self._detail_url(self.first_prompt), count=2)
+        self.assertContains(page, self._detail_url(self.last_prompt), count=2)
+        self.assertContains(page, "Sujet 2 sur 3", count=2)
+
+    def test_navigation_has_correct_first_and_last_boundaries(self):
+        first_page = self.client.get(self._detail_url(self.first_prompt))
+        last_page = self.client.get(self._detail_url(self.last_prompt))
+
+        self.assertIsNone(first_page.context["previous_prompt"])
+        self.assertEqual(first_page.context["next_prompt"], self.middle_prompt)
+        self.assertEqual(
+            last_page.context["previous_prompt"],
+            self.middle_prompt,
+        )
+        self.assertIsNone(last_page.context["next_prompt"])
+
+    def test_alias_prompt_keeps_its_heading_theme_family_and_links(self):
+        alias_family = factories.make_family("navigation-alias")
+        alias = Prompt.objects.create(
+            content_key="test-prompt:navigation-alias",
+            response=self.first_response,
+            theme=self.second_theme,
+            family=alias_family,
+            number=1,
+            text="Sujet équivalent dans le second thème ?",
+            is_canonical=False,
+        )
+        phrase = factories.make_phrase()
+        phrase.source_prompts.add(alias)
+
+        page = self.client.get(self._detail_url(alias))
+
+        self.assertEqual(page.status_code, 200)
+        self.assertEqual(page.context["selected_prompt"], alias)
+        self.assertEqual(page.context["task"], self.task)
+        self.assertEqual(page.context["part"], self.part)
+        self.assertIsNone(page.context["previous_prompt"])
+        self.assertIsNone(page.context["next_prompt"])
+        self.assertEqual(page.context["prompt_position"], 1)
+        self.assertEqual(page.context["prompt_total"], 1)
+        self.assertContains(
+            page,
+            f'<h1 class="detail-prompt">{alias.text}</h1>',
+            html=True,
+        )
+        self.assertContains(page, self.second_theme.display_name)
+        self.assertContains(page, alias_family.name)
+
+        theme_page = self.client.get(
+            reverse("study:theme_detail", args=[self.second_theme.slug])
+        )
+        family_page = self.client.get(
+            reverse(
+                "study:task_family_detail",
+                args=[self.part.slug, self.task.slug, alias_family.slug],
+            )
+        )
+        search_page = self.client.get(
+            reverse("study:search"),
+            {"q": "équivalent"},
+        )
+        phrases_page = self.client.get(
+            reverse("study:phrases"),
+            {"category": phrase.category.slug},
+        )
+        for origin_page in (
+            theme_page,
+            family_page,
+            search_page,
+            phrases_page,
+        ):
+            self.assertContains(origin_page, self._detail_url(alias))
+
+    def test_invalid_or_mismatched_prompt_is_rejected(self):
+        invalid = self.client.get(
+            reverse(
+                "study:response_detail",
+                args=[self.first_response.pk],
+            ),
+            {"prompt": "not-an-id"},
+        )
+        mismatched = self.client.get(
+            reverse(
+                "study:response_detail",
+                args=[self.middle_response.pk],
+            ),
+            {"prompt": self.first_prompt.pk},
+        )
+
+        self.assertEqual(invalid.status_code, 400)
+        self.assertEqual(mismatched.status_code, 400)
 
 
 class ReviewFlowTests(TestCase):

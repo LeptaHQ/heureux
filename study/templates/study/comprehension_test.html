@@ -2,93 +2,91 @@
 {% block title %}{{ test.title }} · Compréhension écrite · Heureux{% endblock %}
 
 {% block content %}
-<div class="ce-shell ce-test-intro">
+<div class="ce-shell ce-study-index">
   <nav class="ce-breadcrumb" aria-label="Fil d’Ariane">
     <a href="{% url 'study:dashboard' %}">Accueil</a>
     <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_hub' %}">Compréhension</a>
+    <span aria-hidden="true">›</span>
     <a href="{% url 'study:comprehension_overview' %}">Compréhension écrite</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_group' test.group_number %}">Groupe {{ test.group_number }}</a>
     <span aria-hidden="true">›</span>
     <span>{{ test.title }}</span>
   </nav>
 
-  <header class="ce-intro-card">
-    <div class="ce-intro-card__number" aria-hidden="true">{{ test.number|stringformat:"02d" }}</div>
-    <div class="ce-intro-card__copy">
-      <p class="eyebrow">Compréhension écrite</p>
+  <header class="ce-study-index__hero">
+    <div class="ce-study-index__copy">
+      <p class="eyebrow">Compréhension écrite · Parcours d’apprentissage</p>
       <h1>{{ test.title }}</h1>
       <p>{{ test.description }}</p>
       {% if not test.is_active or not test.is_published %}
-        <p class="ce-archive-notice">Ce test est actuellement indisponible. Vos résultats précédents restent consultables, mais il n’est plus possible de le commencer ou de le reprendre.</p>
+        <p class="ce-archive-notice">Ce test est actuellement indisponible. Vos résultats précédents restent consultables, mais il n’est plus possible de l’étudier ou de le recommencer.</p>
       {% endif %}
-      <div class="ce-intro-card__facts" aria-label="Format du test">
+      <div class="ce-study-index__facts" aria-label="Contenu du test">
         <span><b>{{ test.active_question_count }}</b> questions</span>
         <span><b>4</b> choix par question</span>
-        <span><b>Sans limite</b> de temps</span>
+        {% if test.best_attempt %}
+          <span><b>{{ test.best_attempt.percentage }} %</b> meilleur score</span>
+        {% else %}
+          <span><b>Sans limite</b> de temps</span>
+        {% endif %}
       </div>
     </div>
-
-    <div class="ce-intro-card__action">
-      {% if not test.is_active or not test.is_published %}
-        <a class="btn" href="{% url 'study:comprehension_overview' %}">Retour aux tests</a>
-      {% elif test.active_attempt %}
-        <div class="ce-resume-state">
-          <span>{{ test.active_answered_count }} sur {{ test.attempt_question_count }} répondues</span>
-          <progress value="{{ test.active_answered_count }}" max="{{ test.attempt_question_count }}"></progress>
-        </div>
-        <form method="post" action="{% url 'study:comprehension_start' test.slug %}">
-          {% csrf_token %}
-          <input type="hidden" name="action" value="continue">
-          <button class="btn btn--primary btn--lg" type="submit">Continuer le test <span aria-hidden="true">→</span></button>
-        </form>
-        <details class="ce-restart">
-          <summary>Recommencer depuis le début</summary>
-          <p>La tentative en cours sera classée comme abandonnée.</p>
-          <form method="post" action="{% url 'study:comprehension_start' test.slug %}">
-            {% csrf_token %}
-            <input type="hidden" name="action" value="restart">
-            <button class="btn" type="submit">Confirmer le redémarrage</button>
-          </form>
-        </details>
+    <aside class="ce-study-index__practice">
+      <p class="spine-label">Mode pratique</p>
+      <p>Répondez sans aide, puis découvrez la correction détaillée après chaque choix.</p>
+      {% if test.is_active and test.is_published %}
+        {% include "study/_comprehension_practice_action.html" %}
+        {% if test.active_attempt %}
+          <details class="ce-restart">
+            <summary>Recommencer depuis le début</summary>
+            <p>La tentative en cours sera classée comme abandonnée.</p>
+            <form method="post" action="{% url 'study:comprehension_start' test.slug %}">
+              {% csrf_token %}
+              <input type="hidden" name="action" value="restart">
+              <button class="btn btn--block" type="submit">Confirmer le redémarrage</button>
+            </form>
+          </details>
+        {% endif %}
       {% else %}
-        <form method="post" action="{% url 'study:comprehension_start' test.slug %}">
-          {% csrf_token %}
-          <input type="hidden" name="action" value="continue">
-          <button class="btn btn--primary btn--lg" type="submit">
-            {% if test.latest_attempt %}Refaire le test{% else %}Commencer le test{% endif %}
-            <span aria-hidden="true">→</span>
-          </button>
-        </form>
-        <small>Votre progression sera sauvegardée automatiquement.</small>
+        <a class="btn btn--block" href="{% url 'study:comprehension_group' test.group_number %}">Retour au groupe</a>
       {% endif %}
-    </div>
+    </aside>
   </header>
 
   {% if test.is_active and test.is_published %}
-  <section class="ce-method" aria-labelledby="ce-method-title">
-    <div class="ce-section-heading">
-      <div>
-        <p class="eyebrow">Déroulement</p>
-        <h2 id="ce-method-title">Une pratique conçue pour apprendre</h2>
+    <section class="ce-study-questions" aria-labelledby="ce-study-questions-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Apprendre avant de pratiquer</p>
+          <h2 id="ce-study-questions-title">Les {{ questions|length }} questions</h2>
+        </div>
+        <p>Ouvrez une question pour étudier le document, les choix et leur explication.</p>
       </div>
-    </div>
-    <div class="ce-method__grid">
-      <article>
-        <span>1</span>
-        <h3>Lisez sans aide</h3>
-        <p>Le texte, la question et les réponses apparaissent d’abord uniquement en français.</p>
-      </article>
-      <article>
-        <span>2</span>
-        <h3>Validez un choix</h3>
-        <p>Une réponse soumise est définitive pour cette tentative, comme dans un vrai quiz.</p>
-      </article>
-      <article>
-        <span>3</span>
-        <h3>Analysez la correction</h3>
-        <p>La traduction et les explications se dévoilent après votre réponse.</p>
-      </article>
-    </div>
-  </section>
+
+      <div class="qlist ce-study-question-list">
+        {% for item in questions %}
+          <a class="qrow ce-study-question-row" href="{% url 'study:comprehension_question_study' test.slug item.question.number %}">
+            <span class="qrow__num">{{ item.question.number }}</span>
+            <span class="qrow__text">
+              <strong>{{ item.question.prompt_fr }}</strong>
+              <small>{{ item.question.passage_fr|truncatechars:115 }}</small>
+            </span>
+            <span class="qrow__meta qrow__meta--state">
+              {% if item.answer %}
+                <span class="ce-study-question-row__state {% if item.answer.is_correct %}is-correct{% else %}is-wrong{% endif %}" title="{% if item.answer.is_correct %}Bonne réponse lors de la dernière pratique{% else %}Réponse à revoir{% endif %}">
+                  {% if item.answer.is_correct %}✓{% else %}×{% endif %}
+                </span>
+              {% endif %}
+              <span class="ce-study-question-row__open">Étudier <span aria-hidden="true">→</span></span>
+            </span>
+          </a>
+        {% empty %}
+          <p class="empty">Aucune question n’est disponible.</p>
+        {% endfor %}
+      </div>
+    </section>
   {% endif %}
 
   {% if attempt_history %}

@@ -1,0 +1,16 @@
+{% if test.is_active and test.is_published %}
+  {% if test.active_attempt %}
+    <div class="ce-practice-progress">
+      <span>{{ test.active_answered_count }} sur {{ test.attempt_question_count }} répondues</span>
+      <progress value="{{ test.active_answered_count }}" max="{{ test.attempt_question_count }}" aria-label="{{ test.active_answered_count }} questions répondues sur {{ test.attempt_question_count }}"></progress>
+    </div>
+  {% endif %}
+  <form method="post" action="{% url 'study:comprehension_start' test.slug %}">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="continue">
+    <button class="btn btn--primary btn--block" type="submit">
+      {% if test.active_attempt %}Continuer la pratique{% elif test.latest_attempt %}Pratiquer à nouveau{% else %}Pratiquer ce test{% endif %}
+      <span aria-hidden="true">→</span>
+    </button>
+  </form>
+{% endif %}

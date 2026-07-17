@@ -6,6 +6,9 @@
   var action = document.querySelector("[data-selection-translate]");
   var noteButton = document.querySelector("[data-note-selection]");
   var highlightButton = document.querySelector("[data-highlight-selection]");
+  var highlightLabel = highlightButton
+    ? highlightButton.querySelector(".selection-translate__label")
+    : null;
   var notePanel = document.querySelector("[data-note-panel]");
   var sourceUrl = document.body.dataset.annotationSourceUrl;
   var createUrl = document.body.dataset.annotationCreateUrl;
@@ -14,6 +17,7 @@
     !action ||
     !noteButton ||
     !highlightButton ||
+    !highlightLabel ||
     !notePanel ||
     !sourceUrl ||
     !createUrl
@@ -82,29 +86,43 @@
     var start = (before.cloneContents().textContent || "").length;
     var end = start + quote.length;
     var pageText = root.textContent || "";
-    var intersectsHighlight = Array.from(
-      root.querySelectorAll("[data-user-highlight]")
-    ).some(function (mark) {
-      try {
-        return range.intersectsNode(mark);
-      } catch (error) {
-        return false;
-      }
-    });
+    var coverage = highlightCoverage(root, start, end);
+    var highlightStart = Math.min(start, coverage.start);
+    var highlightEnd = Math.max(end, coverage.end);
     return {
       quote: quote,
       start: start,
       end: end,
       prefix: pageText.slice(Math.max(0, start - 160), start),
       suffix: pageText.slice(end, end + 160),
-      intersectsHighlight: intersectsHighlight,
+      fullyHighlighted: coverage.fullyHighlighted,
+      highlightIds: coverage.ids,
+      highlight: {
+        quote: pageText.slice(highlightStart, highlightEnd),
+        start: highlightStart,
+        end: highlightEnd,
+        prefix: pageText.slice(Math.max(0, highlightStart - 160), highlightStart),
+        suffix: pageText.slice(highlightEnd, highlightEnd + 160)
+      },
       sourceKey: root.dataset.annotationSourceKey || ""
     };
   }
 
+  function updateHighlightButton(details) {
+    var shouldRemove = Boolean(details && details.fullyHighlighted);
+    highlightLabel.textContent = shouldRemove ? "Unhighlight" : "Highlight";
+    highlightButton.setAttribute(
+      "aria-label",
+      shouldRemove ? "Unhighlight selected text" : "Highlight selected text"
+    );
+  }
+
   function rememberSelection() {
     var details = captureSelection();
-    if (details) currentSelection = details;
+    if (details) {
+      currentSelection = details;
+      updateHighlightButton(details);
+    }
   }
 
   function clearBrowserSelection() {
@@ -127,8 +145,19 @@
   }
 
   function readJson(response) {
+    if (response.redirected) {
+      return Promise.reject(
+        new Error("Votre session a expiré. Reconnectez-vous.")
+      );
+    }
+    var contentType = response.headers.get("Content-Type") || "";
+    if (contentType.indexOf("application/json") === -1) {
+      return Promise.reject(
+        new Error("La réponse du serveur est inattendue.")
+      );
+    }
     return response.json().catch(function () {
-      return {};
+      throw new Error("La réponse du serveur est invalide.");
     }).then(function (data) {
       if (!response.ok) {
         throw new Error(data.error || "L'enregistrement a échoué.");
@@ -138,17 +167,21 @@
   }
 
   function annotationBody(kind, details, body) {
+    var selected = kind === "highlight" ? details.highlight : details;
     var values = new URLSearchParams();
     values.set("kind", kind);
-    values.set("quote", details.quote);
-    values.set("start_offset", details.start);
-    values.set("end_offset", details.end);
-    values.set("prefix", details.prefix);
-    values.set("suffix", details.suffix);
+    values.set("quote", selected.quote);
+    values.set("start_offset", selected.start);
+    values.set("end_offset", selected.end);
+    values.set("prefix", selected.prefix);
+    values.set("suffix", selected.suffix);
     values.set("source_path", sourcePath);
     values.set("source_key", details.sourceKey || "");
     values.set("source_title", document.title);
     values.set("body", body || "");
+    if (kind === "highlight") {
+      values.set("overlap_ids", details.highlightIds.join(","));
+    }
     var taskId = document.body.dataset.annotationTaskId;
     if (taskId) values.set("task_id", taskId);
     return values;
@@ -237,6 +270,44 @@
     return best;
   }
 
+  function highlightCoverage(root, start, end) {
+    var intervals = [];
+    highlights.forEach(function (item) {
+      if (highlightRoot(item) !== root) return;
+      var offsets = bestOffsets(item, root);
+      if (!offsets || offsets.end <= start || offsets.start >= end) return;
+      intervals.push({
+        id: item.id,
+        start: Math.max(start, offsets.start),
+        end: Math.min(end, offsets.end),
+        originalStart: offsets.start,
+        originalEnd: offsets.end
+      });
+    });
+    intervals.sort(function (left, right) {
+      return left.start - right.start || right.end - left.end;
+    });
+
+    var coveredUntil = start;
+    var hasGap = false;
+    var ids = [];
+    intervals.forEach(function (interval) {
+      if (interval.start > coveredUntil) hasGap = true;
+      coveredUntil = Math.max(coveredUntil, interval.end);
+      if (ids.indexOf(interval.id) === -1) ids.push(interval.id);
+    });
+    return {
+      ids: ids,
+      fullyHighlighted: intervals.length > 0 && !hasGap && coveredUntil >= end,
+      start: intervals.reduce(function (minimum, interval) {
+        return Math.min(minimum, interval.originalStart);
+      }, start),
+      end: intervals.reduce(function (maximum, interval) {
+        return Math.max(maximum, interval.originalEnd);
+      }, end)
+    };
+  }
+
   function textSegments(root, start, end) {
     var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     var segments = [];
@@ -321,6 +392,31 @@
     highlights.forEach(applyHighlight);
   }
 
+  function removeHighlightMarks(ids) {
+    var selectedIds = ids.map(String);
+    Array.from(main.querySelectorAll("[data-highlight-id]")).forEach(
+      function (mark) {
+        if (selectedIds.indexOf(mark.dataset.highlightId) === -1) return;
+        var parent = mark.parentNode;
+        if (!parent) return;
+        while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
+        parent.removeChild(mark);
+        parent.normalize();
+      }
+    );
+  }
+
+  function replaceSavedHighlights(items) {
+    removeHighlightMarks(
+      Array.from(main.querySelectorAll("[data-highlight-id]")).map(function (mark) {
+        return mark.dataset.highlightId;
+      })
+    );
+    highlights = items;
+    applySavedHighlights();
+    rememberSelection();
+  }
+
   function fetchHighlights() {
     var url = new URL(sourceUrl, window.location.origin);
     url.searchParams.set("source_path", sourcePath);
@@ -329,43 +425,88 @@
     })
       .then(readJson)
       .then(function (data) {
-        highlights = data.highlights || [];
-        applySavedHighlights();
+        replaceSavedHighlights(data.highlights || []);
       })
       .catch(function () {});
   }
 
-  function saveHighlight() {
+  function deleteHighlight(item) {
+    if (!item.delete_url) {
+      return Promise.reject(new Error("Ce surlignage ne peut pas être supprimé."));
+    }
+    return fetch(item.delete_url, {
+      method: "POST",
+      headers: {
+        "X-CSRFToken": csrfToken(),
+        "X-Requested-With": "fetch"
+      }
+    }).then(readJson);
+  }
+
+  function removeHighlights(details) {
+    var selectedIds = details.highlightIds.map(String);
+    var selectedHighlights = highlights.filter(function (item) {
+      return selectedIds.indexOf(String(item.id)) !== -1;
+    });
+    if (!selectedHighlights.length) return;
+
+    highlightButton.disabled = true;
+    Promise.all(selectedHighlights.map(deleteHighlight))
+      .then(function () {
+        highlights = highlights.filter(function (item) {
+          return selectedIds.indexOf(String(item.id)) === -1;
+        });
+        removeHighlightMarks(selectedIds);
+        clearBrowserSelection();
+        hideAction();
+        updateHighlightButton(null);
+        showToast("Surlignage supprimé.");
+        highlightButton.disabled = false;
+      })
+      .catch(function (error) {
+        showToast(error.message);
+        highlightButton.disabled = false;
+        fetchHighlights();
+      });
+  }
+
+  function toggleHighlight() {
     rememberSelection();
     var details = currentSelection;
     if (!details) return;
-    if (details.intersectsHighlight) {
-      showToast("Ce passage est déjà surligné.");
-      hideAction();
+    if (details.fullyHighlighted) {
+      removeHighlights(details);
       return;
     }
     highlightButton.disabled = true;
     createAnnotation("highlight", details, "")
       .then(function (data) {
+        var selected = details.highlight;
         var item = {
           id: data.id,
-          quote: details.quote,
-          start_offset: details.start,
-          end_offset: details.end,
-          prefix: details.prefix,
-          suffix: details.suffix,
-          source_key: details.sourceKey || ""
+          quote: selected.quote,
+          start_offset: selected.start,
+          end_offset: selected.end,
+          prefix: selected.prefix,
+          suffix: selected.suffix,
+          source_key: details.sourceKey || "",
+          delete_url: data.delete_url
         };
+        var removedIds = (data.removed_ids || []).map(String);
+        var replacedIds = removedIds.concat(String(item.id));
+        removeHighlightMarks(replacedIds);
         highlights = highlights.filter(function (saved) {
-          return saved.id !== item.id;
+          return (
+            saved.id !== item.id &&
+            removedIds.indexOf(String(saved.id)) === -1
+          );
         });
         highlights.push(item);
         clearBrowserSelection();
         hideAction();
         applyHighlight(item);
-        showToast(
-          data.created ? "Passage surligné." : "Ce passage est déjà surligné."
-        );
+        updateHighlightButton(null);
+        showToast("Passage surligné.");
         highlightButton.disabled = false;
       })
       .catch(function (error) {
@@ -469,7 +610,7 @@
   });
   document.addEventListener("pointerup", rememberSelection);
   noteButton.addEventListener("click", openNotePanel);
-  highlightButton.addEventListener("click", saveHighlight);
+  highlightButton.addEventListener("click", toggleHighlight);
   noteSave.addEventListener("click", saveNote);
   noteCloseButtons.forEach(function (button) {
     button.addEventListener("click", closeNotePanel);

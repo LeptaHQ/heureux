@@ -4,7 +4,13 @@
 {% block content %}
 <div class="ce-shell ce-results">
   <nav class="ce-breadcrumb" aria-label="Fil d’Ariane">
-    <a href="{% url 'study:comprehension_overview' %}">Compréhension écrite</a>
+    <a href="{% url 'study:dashboard' %}">Accueil</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_hub' %}">Compréhension</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_overview' %}">Écrite</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_group' group_number %}">Groupe {{ group_number }}</a>
     <span aria-hidden="true">›</span>
     <a href="{% url 'study:comprehension_test' test.slug %}">{{ test.title }}</a>
     <span aria-hidden="true">›</span>
@@ -46,7 +52,7 @@
       {% else %}
         <span class="ce-results-archived">Ce test n’est plus disponible et ne peut pas être recommencé.</span>
       {% endif %}
-      <a class="btn" href="{% url 'study:comprehension_overview' %}">Tous les tests</a>
+      <a class="btn" href="{% url 'study:comprehension_group' group_number %}">Retour au groupe</a>
     </div>
   </header>
 

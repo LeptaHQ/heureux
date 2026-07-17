@@ -7,7 +7,7 @@
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
   <script src="{% static 'study/js/theme-init.js' %}?v=1"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=36">
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=37">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -46,7 +46,7 @@
       </button>
       <nav class="nav__links" id="primary-navigation" aria-label="Navigation principale" data-nav-links>
         <a href="{% url 'study:dashboard' %}" class="nav__primary-link {% if request.resolver_match.url_name == 'dashboard' %}is-active{% endif %}">Accueil</a>
-        <a href="{% url 'study:comprehension_overview' %}" class="nav__primary-link {% if request.resolver_match.url_name == 'comprehension_overview' or request.resolver_match.url_name == 'comprehension_test' or request.resolver_match.url_name == 'comprehension_question' or request.resolver_match.url_name == 'comprehension_results' %}is-active{% endif %}">Compréhension</a>
+        <a href="{% url 'study:comprehension_hub' %}" class="nav__primary-link {% if request.resolver_match.url_name == 'comprehension_hub' or request.resolver_match.url_name == 'comprehension_overview' or request.resolver_match.url_name == 'comprehension_group' or request.resolver_match.url_name == 'comprehension_test' or request.resolver_match.url_name == 'comprehension_question_study' or request.resolver_match.url_name == 'comprehension_question' or request.resolver_match.url_name == 'comprehension_results' %}is-active{% endif %}">Compréhension</a>
         <a href="{% url 'study:review_overview' %}" class="nav__primary-link {% if request.resolver_match.url_name == 'review_overview' or request.resolver_match.url_name == 'review' or request.resolver_match.url_name == 'task_review_hub' or request.resolver_match.url_name == 'revisit_list' or request.resolver_match.url_name == 'task_revisit_list' %}is-active{% endif %}">
           Réviser
           {% if nav_due_total %}<span class="pill pill--due">{{ nav_due_total }}</span>{% endif %}
@@ -200,7 +200,7 @@
 
   <script src="{% static 'study/js/app.js' %}?v=26"></script>
   <script src="{% static 'study/js/translate.js' %}?v=8"></script>
-  <script src="{% static 'study/js/annotations.js' %}?v=4"></script>
+  <script src="{% static 'study/js/annotations.js' %}?v=5"></script>
   {% block scripts %}{% endblock %}
 </body>
 </html>

@@ -588,6 +588,10 @@ def _phrase_deck_stats(now, user=None, task=None):
     return deck_stats(cards, now)
 
 
+COMPREHENSION_GROUP_SIZE = 5
+COMPREHENSION_GROUP_COUNT = 8
+
+
 def _comprehension_test_cards(user, *, published_only=False):
     attempts = (
         ComprehensionAttempt.objects.filter(user=user)
@@ -613,6 +617,7 @@ def _comprehension_test_cards(user, *, published_only=False):
         )
     )
     for test in tests:
+        test.group_number = _comprehension_group_number(test.number)
         test.active_attempt = next(
             (
                 attempt
@@ -647,12 +652,17 @@ def _comprehension_test_cards(user, *, published_only=False):
 
 def _comprehension_summary(user):
     tests = _comprehension_test_cards(user, published_only=True)
+    active_test = next(
+        (test for test in tests if test.active_attempt),
+        None,
+    )
     completed_attempts = [
         attempt
         for test in tests
         for attempt in test.completed_attempts
     ]
     return {
+        "group_count": COMPREHENSION_GROUP_COUNT,
         "test_count": len(tests),
         "completed_test_count": sum(
             bool(test.completed_attempts) for test in tests
@@ -661,6 +671,12 @@ def _comprehension_summary(user):
             (test.active_attempt for test in tests if test.active_attempt),
             None,
         ),
+        "active_answered_count": (
+            active_test.active_answered_count if active_test else 0
+        ),
+        "active_question_count": (
+            active_test.attempt_question_count if active_test else 0
+        ),
         "best_percentage": max(
             (attempt.percentage for attempt in completed_attempts),
             default=None,
@@ -668,15 +684,56 @@ def _comprehension_summary(user):
     }
 
 
+def _home_expression_paths(parts):
+    paths = []
+    for item in parts:
+        available_tasks = [
+            task
+            for task in item["tasks"]
+            if task["task"].available
+        ]
+        paths.append(
+            {
+                **item,
+                "available": bool(item["part"].available and available_tasks),
+                "available_task_count": len(available_tasks),
+                "prompt_count": sum(
+                    task["prompt_count"] for task in available_tasks
+                ),
+                "seen": sum(
+                    task["stats"]["seen"] for task in available_tasks
+                ),
+                "total": sum(
+                    task["stats"]["total"] for task in available_tasks
+                ),
+                "due": sum(
+                    task["stats"]["due"] for task in available_tasks
+                ),
+            }
+        )
+    paths.sort(
+        key=lambda item: (
+            {"ecrit": 0, "ecrite": 0, "orale": 1}.get(
+                item["part"].slug,
+                2,
+            ),
+            item["part"].order,
+        )
+    )
+    return paths
+
+
 def dashboard(request):
     now = timezone.now()
     counts = queue_module.queue_counts(now=now, user=request.user)
     user_cards = queue_module.scoped_cards(user=request.user)
     overall = deck_stats(user_cards, now)
+    parts = _parts_with_task_cards(now, request.user)
 
     context = {
         "counts": counts,
-        "parts": _parts_with_task_cards(now, request.user),
+        "parts": parts,
+        "expression_paths": _home_expression_paths(parts),
         "overall": overall,
         "streak": current_streak(now, user=request.user),
         "weak_count": queue_module.queue_counts(
@@ -786,6 +843,56 @@ def stats_overview(request):
 # Compréhension écrite
 # ---------------------------------------------------------------------------
 
+@require_GET
+def comprehension_hub(request):
+    return render(
+        request,
+        "study/comprehension_hub.html",
+        {"comprehension": _comprehension_summary(request.user)},
+    )
+
+
+def _comprehension_group_number(test_number):
+    return ((test_number - 1) // COMPREHENSION_GROUP_SIZE) + 1
+
+
+def _comprehension_groups(tests):
+    groups = []
+    for number in range(1, COMPREHENSION_GROUP_COUNT + 1):
+        start = ((number - 1) * COMPREHENSION_GROUP_SIZE) + 1
+        end = start + COMPREHENSION_GROUP_SIZE - 1
+        group_tests = [
+            test
+            for test in tests
+            if start <= test.number <= end
+        ]
+        published = [
+            test
+            for test in group_tests
+            if test.is_active and test.is_published
+        ]
+        groups.append(
+            {
+                "number": number,
+                "start": start,
+                "end": end,
+                "tests": group_tests,
+                "available_count": len(published),
+                "completed_count": sum(
+                    bool(test.completed_attempts) for test in group_tests
+                ),
+                "active_attempt": next(
+                    (
+                        test.active_attempt
+                        for test in published
+                        if test.active_attempt
+                    ),
+                    None,
+                ),
+            }
+        )
+    return groups
+
 
 def _comprehension_question_snapshot(
     question,
@@ -803,7 +910,7 @@ def _comprehension_question_snapshot(
             "rationale": choice.rationale,
             "is_correct": choice.is_correct,
         }
-        for choice in question.choices.all()
+        for choice in choices
     ]
     return {
         "id": question.pk,
@@ -939,7 +1046,7 @@ def comprehension_overview(request):
         request,
         "study/comprehension_overview.html",
         {
-            "tests": tests,
+            "groups": _comprehension_groups(tests),
             "published_count": len(published),
             "completed_count": sum(
                 bool(test.completed_attempts) for test in published
@@ -949,6 +1056,31 @@ def comprehension_overview(request):
                 default=None,
             ),
         },
+    )
+
+
+@require_GET
+def comprehension_group_detail(request, group_number):
+    if not 1 <= group_number <= COMPREHENSION_GROUP_COUNT:
+        raise Http404
+
+    tests = _comprehension_test_cards(request.user)
+    group = _comprehension_groups(tests)[group_number - 1]
+    tests_by_number = {
+        test.number: test
+        for test in group["tests"]
+    }
+    group["slots"] = [
+        {
+            "number": number,
+            "test": tests_by_number.get(number),
+        }
+        for number in range(group["start"], group["end"] + 1)
+    ]
+    return render(
+        request,
+        "study/comprehension_group.html",
+        {"group": group},
     )
 
 
@@ -968,12 +1100,111 @@ def comprehension_test_detail(request, test_slug):
     )
     if test is None:
         raise Http404
+    questions = []
+    if test.is_active and test.is_published:
+        question_qs = (
+            test.questions.filter(is_active=True)
+            .prefetch_related(
+                Prefetch(
+                    "choices",
+                    queryset=ComprehensionChoice.objects.filter(
+                        is_active=True,
+                    ),
+                )
+            )
+            .order_by("number")
+        )
+        progress_attempt = test.active_attempt or test.latest_attempt
+        answers = (
+            {
+                answer.question_id: answer
+                for answer in progress_attempt.answers.all()
+            }
+            if progress_attempt
+            else {}
+        )
+        questions = [
+            {
+                "question": question,
+                "answer": answers.get(question.pk),
+            }
+            for question in question_qs
+        ]
     return render(
         request,
         "study/comprehension_test.html",
         {
             "test": test,
+            "questions": questions,
             "attempt_history": test.completed_attempts[:6],
+        },
+    )
+
+
+@require_GET
+def comprehension_question_study(request, test_slug, number):
+    test = next(
+        (
+            item
+            for item in _comprehension_test_cards(
+                request.user,
+                published_only=True,
+            )
+            if item.slug == test_slug
+        ),
+        None,
+    )
+    if test is None:
+        raise Http404
+
+    questions = list(
+        test.questions.filter(is_active=True)
+        .prefetch_related(
+            Prefetch(
+                "choices",
+                queryset=ComprehensionChoice.objects.filter(
+                    is_active=True,
+                ),
+            )
+        )
+        .order_by("number")
+    )
+    try:
+        position = next(
+            index
+            for index, question in enumerate(questions)
+            if question.number == number
+        )
+    except StopIteration as error:
+        raise Http404 from error
+
+    question = questions[position]
+    choices = list(question.choices.all())
+    correct_choice = next(
+        (choice for choice in choices if choice.is_correct),
+        None,
+    )
+    if correct_choice is None:
+        raise Http404
+
+    return render(
+        request,
+        "study/comprehension_question_study.html",
+        {
+            "test": test,
+            "question": question,
+            "choices": choices,
+            "correct_choice": correct_choice,
+            "position": position + 1,
+            "total_questions": len(questions),
+            "previous_question": (
+                questions[position - 1] if position > 0 else None
+            ),
+            "next_question": (
+                questions[position + 1]
+                if position + 1 < len(questions)
+                else None
+            ),
         },
     )
 
@@ -1175,6 +1406,7 @@ def _comprehension_question_context(attempt, question_number, error=""):
     return {
         "attempt": attempt,
         "test": attempt.test,
+        "group_number": _comprehension_group_number(attempt.test.number),
         "question": display_question,
         "question_model": question_model,
         "choices": display_choices,
@@ -1275,7 +1507,7 @@ def comprehension_question(request, test_slug, attempt_id, number):
         else None
     )
     if selected_choice is None:
-        context["answer_error"] = "Choisissez une réponse avant de valider."
+        context["answer_error"] = "Choisissez une réponse."
         return render(
             request,
             "study/comprehension_question.html",
@@ -1361,6 +1593,9 @@ def comprehension_results(request, test_slug, attempt_id):
         {
             "attempt": attempt,
             "test": attempt.test,
+            "group_number": _comprehension_group_number(
+                attempt.test.number,
+            ),
             "review_items": review_items,
             "wrong_count": attempt.total_questions - (attempt.score or 0),
         },
@@ -1684,26 +1919,47 @@ def _annotation_source_key(value):
     return value
 
 
+def _annotation_overlap_ids(value):
+    if value is None:
+        return None
+    if not value:
+        return []
+    parts = value.split(",")
+    if len(parts) > 100:
+        raise ValueError("Too many overlapping highlights.")
+    ids = [int(part) for part in parts]
+    if any(pk <= 0 for pk in ids):
+        raise ValueError("Invalid overlapping highlight.")
+    return list(dict.fromkeys(ids))
+
+
 @require_GET
 def annotations_for_source(request):
     try:
         source_path = _safe_source_path(request.GET.get("source_path"))
     except ValueError:
         return HttpResponseBadRequest("Invalid source path.")
-    highlights = Annotation.objects.filter(
-        user=request.user,
-        kind=AnnotationKind.HIGHLIGHT,
-        source_path=source_path,
-    ).values(
-        "id",
-        "quote",
-        "source_key",
-        "start_offset",
-        "end_offset",
-        "prefix",
-        "suffix",
+    highlights = list(
+        Annotation.objects.filter(
+            user=request.user,
+            kind=AnnotationKind.HIGHLIGHT,
+            source_path=source_path,
+        ).values(
+            "id",
+            "quote",
+            "source_key",
+            "start_offset",
+            "end_offset",
+            "prefix",
+            "suffix",
+        )
     )
-    return JsonResponse({"highlights": list(highlights)})
+    for highlight in highlights:
+        highlight["delete_url"] = reverse(
+            "study:annotation_delete",
+            args=[highlight["id"]],
+        )
+    return JsonResponse({"highlights": highlights})
 
 
 @require_POST
@@ -1732,6 +1988,7 @@ def annotation_create(request):
         task = _annotation_task(request.POST.get("task_id"))
         source_path = _safe_source_path(request.POST.get("source_path"))
         source_key = _annotation_source_key(request.POST.get("source_key"))
+        overlap_ids = _annotation_overlap_ids(request.POST.get("overlap_ids"))
         start_offset = int(request.POST.get("start_offset", ""))
         end_offset = int(request.POST.get("end_offset", ""))
     except (TypeError, ValueError):
@@ -1747,17 +2004,118 @@ def annotation_create(request):
         "suffix": (request.POST.get("suffix") or "")[:160],
         "body": body,
     }
+    removed_ids = []
     try:
         if kind == AnnotationKind.HIGHLIGHT:
-            annotation, created = Annotation.objects.update_or_create(
-                user=request.user,
-                kind=kind,
-                source_path=source_path,
-                source_key=source_key,
-                start_offset=start_offset,
-                end_offset=end_offset,
-                defaults=values,
-            )
+            with transaction.atomic():
+                candidates = Annotation.objects.select_for_update().filter(
+                    user=request.user,
+                    kind=kind,
+                    source_path=source_path,
+                    source_key=source_key,
+                )
+                if overlap_ids is None:
+                    candidates = candidates.filter(
+                        start_offset__lt=end_offset,
+                        end_offset__gt=start_offset,
+                    )
+                    overlapping = list(
+                        candidates.order_by("-updated_at", "-id")
+                    )
+                else:
+                    overlapping = list(
+                        candidates.filter(id__in=overlap_ids).order_by(
+                            "-updated_at",
+                            "-id",
+                        )
+                    )
+                    exact_retry = (
+                        candidates.filter(
+                            start_offset=start_offset,
+                            end_offset=end_offset,
+                        )
+                        .exclude(id__in=overlap_ids)
+                        .first()
+                    )
+                    if exact_retry:
+                        if exact_retry.quote != quote:
+                            return JsonResponse(
+                                {
+                                    "error": (
+                                        "Les surlignages de cette page ont changé. "
+                                        "Supprimez le passage en conflit avant de "
+                                        "réessayer."
+                                    )
+                                },
+                                status=409,
+                            )
+                        overlapping.append(exact_retry)
+                annotation = next(
+                    (
+                        item
+                        for item in overlapping
+                        if item.start_offset == start_offset
+                        and item.end_offset == end_offset
+                    ),
+                    overlapping[0] if overlapping else None,
+                )
+                created = annotation is None
+                if created:
+                    annotation = Annotation(
+                        user=request.user,
+                        kind=kind,
+                        source_path=source_path,
+                        source_key=source_key,
+                        start_offset=start_offset,
+                        end_offset=end_offset,
+                        **values,
+                    )
+                else:
+                    annotation.task = task
+                    annotation.quote = quote
+                    annotation.source_title = values["source_title"]
+                    annotation.prefix = values["prefix"]
+                    annotation.suffix = values["suffix"]
+                    annotation.body = body
+                    annotation.start_offset = start_offset
+                    annotation.end_offset = end_offset
+                    annotation.study_later = any(
+                        item.study_later for item in overlapping
+                    )
+                annotation.full_clean(validate_constraints=False)
+                try:
+                    with transaction.atomic():
+                        annotation.save()
+                except IntegrityError:
+                    concurrent = candidates.filter(
+                        start_offset=start_offset,
+                        end_offset=end_offset,
+                    ).first()
+                    if (
+                        not created
+                        or overlapping
+                        or concurrent is None
+                        or concurrent.quote != quote
+                    ):
+                        return JsonResponse(
+                            {
+                                "error": (
+                                    "Les surlignages de cette page ont changé. "
+                                    "Actualisez la page puis réessayez."
+                                )
+                            },
+                            status=409,
+                        )
+                    annotation = concurrent
+                    created = False
+                removed_ids = [
+                    item.id for item in overlapping if item.id != annotation.id
+                ]
+                if removed_ids:
+                    Annotation.objects.filter(
+                        user=request.user,
+                        id__in=removed_ids,
+                    ).delete()
         else:
             annotation = Annotation(
                 user=request.user,
@@ -1780,6 +2138,11 @@ def annotation_create(request):
         {
             "id": annotation.id,
             "created": created,
+            "removed_ids": removed_ids,
+            "delete_url": reverse(
+                "study:annotation_delete",
+                args=[annotation.id],
+            ),
             "notes_url": (
                 _annotation_tab_url(task, annotation.kind)
                 + "#"
@@ -2818,8 +3181,56 @@ def response_detail(request, pk):
     )
     response_content = effective_response(response, request.user)
     prompts = list(
-        response.prompts.filter(is_active=True).select_related("theme")
+        response.prompts.filter(
+            is_active=True,
+            theme__is_active=True,
+        ).select_related(
+            "theme__task__part",
+            "family",
+        )
     )
+    prompt_id = (request.GET.get("prompt") or "").strip()
+    if prompt_id:
+        if not prompt_id.isdigit():
+            return HttpResponseBadRequest("Invalid prompt.")
+        selected_prompt = next(
+            (prompt for prompt in prompts if prompt.pk == int(prompt_id)),
+            None,
+        )
+        if selected_prompt is None:
+            return HttpResponseBadRequest(
+                "Prompt does not belong to this response."
+            )
+    else:
+        selected_prompt = next(
+            (prompt for prompt in prompts if prompt.is_canonical),
+            prompts[0] if prompts else None,
+        )
+    if selected_prompt is None:
+        return HttpResponseBadRequest("Response has no active prompt.")
+
+    navigation_prompts = Prompt.objects.filter(
+        is_active=True,
+        theme__is_active=True,
+        theme_id=selected_prompt.theme_id,
+    ).select_related("theme")
+    navigation_prompts = list(
+        navigation_prompts.order_by("number", "pk")
+    )
+    prompt_index = next(
+        index
+        for index, prompt in enumerate(navigation_prompts)
+        if prompt.pk == selected_prompt.pk
+    )
+    previous_prompt = (
+        navigation_prompts[prompt_index - 1] if prompt_index > 0 else None
+    )
+    next_prompt = (
+        navigation_prompts[prompt_index + 1]
+        if prompt_index + 1 < len(navigation_prompts)
+        else None
+    )
+
     card = Card.objects.filter(
         user=request.user,
         card_type=CardType.SPINE,
@@ -2871,8 +3282,17 @@ def response_detail(request, pk):
         "study/response_detail.html",
         {
             "response": response,
-            "task": response.theme.task,
-            "part": response.theme.task.part if response.theme.task else None,
+            "selected_prompt": selected_prompt,
+            "previous_prompt": previous_prompt,
+            "next_prompt": next_prompt,
+            "prompt_position": prompt_index + 1,
+            "prompt_total": len(navigation_prompts),
+            "task": selected_prompt.theme.task,
+            "part": (
+                selected_prompt.theme.task.part
+                if selected_prompt.theme.task
+                else None
+            ),
             "response_content": response_content,
             "arguments": response_content.arguments,
             "prompts": prompts,
@@ -3478,7 +3898,11 @@ def export_account(request):
                 "current_question": attempt.current_question,
                 "score": attempt.score,
                 "total_questions": attempt.total_questions,
-                "content_snapshot": attempt.content_snapshot,
+                "content_snapshot": (
+                    attempt.content_snapshot
+                    if attempt.status == ComprehensionAttemptStatus.COMPLETED
+                    else {}
+                ),
                 "started_at": attempt.started_at,
                 "updated_at": attempt.updated_at,
                 "completed_at": attempt.completed_at,

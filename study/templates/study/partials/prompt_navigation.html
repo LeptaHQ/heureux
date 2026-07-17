@@ -1,0 +1,21 @@
+<nav class="prompt-nav{% if bottom %} prompt-nav--bottom{% endif %}" aria-label="Navigation entre les sujets">
+  <div class="prompt-nav__item">
+    {% if previous_prompt %}
+      <a class="prompt-nav__link" href="{% url 'study:response_detail' previous_prompt.response_id %}?prompt={{ previous_prompt.pk }}" rel="prev">
+        <span class="prompt-nav__direction">← Sujet précédent</span>
+        <span class="prompt-nav__label">{{ previous_prompt.theme.display_name }} · P{{ previous_prompt.number }}</span>
+      </a>
+    {% endif %}
+  </div>
+
+  <span class="prompt-nav__position">Sujet {{ prompt_position }} sur {{ prompt_total }}</span>
+
+  <div class="prompt-nav__item prompt-nav__item--next">
+    {% if next_prompt %}
+      <a class="prompt-nav__link prompt-nav__link--next" href="{% url 'study:response_detail' next_prompt.response_id %}?prompt={{ next_prompt.pk }}" rel="next">
+        <span class="prompt-nav__direction">Sujet suivant →</span>
+        <span class="prompt-nav__label">{{ next_prompt.theme.display_name }} · P{{ next_prompt.number }}</span>
+      </a>
+    {% endif %}
+  </div>
+</nav>

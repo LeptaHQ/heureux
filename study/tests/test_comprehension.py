@@ -192,27 +192,48 @@ class ComprehensionFlowTests(TestCase):
             {"choice": choice.pk},
         )
 
-    def test_library_shows_progress_and_keeps_draft_unavailable(self):
+    def test_library_groups_tests_in_fixed_sets_of_five(self):
         attempt = factories.make_comprehension_attempt(
             user=self.user,
             test=self.test,
             answered_questions=1,
         )
 
-        response = self.client.get(reverse("study:comprehension_overview"))
+        overview = self.client.get(reverse("study:comprehension_overview"))
+        group = self.client.get(
+            reverse("study:comprehension_group", args=[1])
+        )
 
-        self.assertContains(response, "Compréhension écrite")
-        self.assertContains(response, "1/3")
-        self.assertContains(response, "Bientôt")
+        self.assertContains(overview, "8 groupes de 5 tests")
         self.assertContains(
-            response,
+            overview,
+            'class="deck card ce-group-card"',
+            count=8,
+        )
+        self.assertContains(
+            overview,
+            reverse("study:comprehension_group", args=[1]),
+        )
+        self.assertEqual(len(group.context["group"]["slots"]), 5)
+        self.assertContains(group, "1/3")
+        self.assertContains(group, "Bientôt")
+        self.assertContains(
+            group,
             reverse("study:comprehension_test", args=[self.test.slug]),
         )
         self.assertNotContains(
-            response,
+            group,
             reverse("study:comprehension_test", args=[self.draft.slug]),
         )
         self.assertEqual(attempt.answers.count(), 1)
+
+    def test_group_outside_the_eight_group_curriculum_is_not_found(self):
+        self.assertEqual(
+            self.client.get(
+                reverse("study:comprehension_group", args=[9])
+            ).status_code,
+            404,
+        )
 
     def test_unpublished_test_cannot_be_opened_or_started(self):
         detail = self.client.get(
@@ -228,6 +249,76 @@ class ComprehensionFlowTests(TestCase):
         self.assertFalse(
             ComprehensionAttempt.objects.filter(test=self.draft).exists()
         )
+
+    def test_test_page_lists_every_question_before_practice(self):
+        response = self.client.get(
+            reverse("study:comprehension_test", args=[self.test.slug])
+        )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Parcours d’apprentissage")
+        self.assertContains(response, "Les 3 questions")
+        self.assertContains(response, "Pratiquer ce test")
+        self.assertContains(
+            response,
+            reverse("study:comprehension_group", args=[1]),
+        )
+        for question in self.test.questions.all():
+            with self.subTest(question=question.number):
+                self.assertContains(response, question.prompt_fr)
+                self.assertContains(
+                    response,
+                    reverse(
+                        "study:comprehension_question_study",
+                        args=[self.test.slug, question.number],
+                    ),
+                )
+
+    def test_study_question_reveals_learning_content_and_practice_action(self):
+        question = self.test.questions.get(number=1)
+        response = self.client.get(
+            reverse(
+                "study:comprehension_question_study",
+                args=[self.test.slug, question.number],
+            )
+        )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, question.passage_fr)
+        self.assertContains(response, question.passage_en)
+        self.assertContains(response, question.prompt_en)
+        self.assertContains(response, question.correct_explanation)
+        self.assertContains(response, "Rationale for B on question 1.")
+        self.assertContains(response, "Bonne réponse")
+        self.assertContains(response, "Pratiquer ce test")
+        self.assertContains(response, "Toutes les questions")
+
+    def test_unpublished_question_cannot_be_studied(self):
+        response = self.client.get(
+            reverse(
+                "study:comprehension_question_study",
+                args=[self.draft.slug, 1],
+            )
+        )
+
+        self.assertEqual(response.status_code, 404)
+
+    def test_quiz_choices_are_immediate_submit_buttons(self):
+        attempt = self.start()
+        response = self.client.get(
+            reverse(
+                "study:comprehension_question",
+                args=[self.test.slug, attempt.pk, 1],
+            )
+        )
+
+        self.assertContains(
+            response,
+            'class="ce-choice" type="submit" name="choice"',
+            count=4,
+        )
+        self.assertContains(response, "validée immédiatement")
+        self.assertNotContains(response, "Valider ma réponse")
 
     def test_start_is_resumable_and_does_not_duplicate_active_attempt(self):
         attempt = self.start()
@@ -296,6 +387,31 @@ class ComprehensionFlowTests(TestCase):
             "Choisissez une réponse",
             status_code=400,
         )
+        self.assertEqual(attempt.answers.count(), 0)
+
+    def test_legacy_attempt_does_not_restore_a_deactivated_choice(self):
+        attempt = factories.make_comprehension_attempt(
+            user=self.user,
+            test=self.test,
+        )
+        question = self.test.questions.get(number=1)
+        removed_choice = question.choices.get(letter="D")
+        removed_choice.is_active = False
+        removed_choice.save(update_fields=["is_active"])
+        url = reverse(
+            "study:comprehension_question",
+            args=[self.test.slug, attempt.pk, 1],
+        )
+
+        response = self.client.get(url)
+        rejected = self.client.post(
+            url,
+            {"choice": removed_choice.pk},
+        )
+
+        self.assertEqual(len(response.context["choices"]), 3)
+        self.assertNotContains(response, removed_choice.text_fr)
+        self.assertEqual(rejected.status_code, 400)
         self.assertEqual(attempt.answers.count(), 0)
 
     def test_future_questions_stay_locked_and_resume_advances(self):
@@ -529,6 +645,9 @@ class ComprehensionFlowTests(TestCase):
         self.test.save(update_fields=["is_active", "is_published"])
 
         overview = self.client.get(reverse("study:comprehension_overview"))
+        group = self.client.get(
+            reverse("study:comprehension_group", args=[1])
+        )
         detail = self.client.get(
             reverse("study:comprehension_test", args=[self.test.slug])
         )
@@ -539,8 +658,9 @@ class ComprehensionFlowTests(TestCase):
             )
         )
 
-        self.assertContains(overview, "Archivé")
-        self.assertContains(overview, "Voir le test archivé")
+        self.assertContains(overview, "Historique disponible")
+        self.assertContains(group, "Archivé")
+        self.assertContains(group, "Voir le test archivé")
         self.assertEqual(detail.status_code, 200)
         self.assertContains(detail, "Vos résultats précédents")
         self.assertEqual(results.status_code, 200)
@@ -556,11 +676,15 @@ class ComprehensionFlowTests(TestCase):
         self.test.save(update_fields=["is_published"])
 
         overview = self.client.get(reverse("study:comprehension_overview"))
+        group = self.client.get(
+            reverse("study:comprehension_group", args=[1])
+        )
 
-        self.assertContains(overview, "Indisponible")
-        self.assertContains(overview, "Voir l’historique")
+        self.assertContains(overview, "Historique disponible")
+        self.assertContains(group, "Indisponible")
+        self.assertContains(group, "Voir l’historique")
         self.assertContains(
-            overview,
+            group,
             reverse("study:comprehension_test", args=[self.test.slug]),
         )
         self.assertTrue(
@@ -594,6 +718,8 @@ class ComprehensionFlowTests(TestCase):
         exported = payload["comprehension_attempts"][0]
         self.assertEqual(exported["test"], self.test.slug)
         self.assertEqual(exported["answers"][0]["selected_choice"], "A")
+        self.assertEqual(exported["content_snapshot"], {})
+        self.assertNotIn("Correct explanation 2.", response.content.decode())
 
     def test_progress_reset_removes_only_the_current_users_attempts(self):
         self.start()

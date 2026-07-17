@@ -1,0 +1,57 @@
+<div class="learning-path-grid">
+  <a class="learning-path-card learning-path-card--available" href="{% url 'study:comprehension_overview' %}">
+    <header class="learning-path-card__head">
+      <span class="learning-path-card__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M5 3.5h10.5L19 7v13.5H5z"></path>
+          <path d="M15 3.5V8h4M8.5 12h7M8.5 15.5h5"></path>
+        </svg>
+      </span>
+      {% if comprehension.active_attempt %}
+        <span class="learning-path-card__status learning-path-card__status--progress">En cours</span>
+      {% elif comprehension.completed_test_count %}
+        <span class="learning-path-card__status learning-path-card__status--done">Pratiqué</span>
+      {% else %}
+        <span class="learning-path-card__status">Disponible</span>
+      {% endif %}
+    </header>
+    <div class="learning-path-card__body">
+      <p class="learning-path-card__kicker">Compréhension</p>
+      <h3>Écrite</h3>
+      <p>Lisez des documents variés, répondez aux questions et analysez chaque correction.</p>
+    </div>
+    <div class="learning-path-card__facts">
+      <span><b>{{ comprehension.group_count }}</b> groupes</span>
+      {% if comprehension.active_attempt %}
+        <span><b>{{ comprehension.active_answered_count }}/{{ comprehension.active_question_count }}</b> répondues</span>
+      {% elif comprehension.best_percentage is not None %}
+        <span><b>{{ comprehension.best_percentage }} %</b> meilleur score</span>
+      {% else %}
+        <span><b>{{ comprehension.test_count }}</b> test{{ comprehension.test_count|pluralize }} disponible{{ comprehension.test_count|pluralize }}</span>
+      {% endif %}
+      <span><b>{{ comprehension.completed_test_count }}</b> terminé{{ comprehension.completed_test_count|pluralize }}</span>
+    </div>
+    <span class="learning-path-card__action">
+      {% if comprehension.active_attempt %}Continuer le test{% else %}Ouvrir la compréhension écrite{% endif %}
+      <span aria-hidden="true">→</span>
+    </span>
+  </a>
+
+  <article class="learning-path-card learning-path-card--soon" aria-disabled="true">
+    <header class="learning-path-card__head">
+      <span class="learning-path-card__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M4 13v-2a8 8 0 0 1 16 0v2"></path>
+          <path d="M4 13h3v7H5a2 2 0 0 1-2-2v-3a2 2 0 0 1 1-2ZM20 13h-3v7h2a2 2 0 0 0 2-2v-3a2 2 0 0 0-1-2Z"></path>
+        </svg>
+      </span>
+      <span class="learning-path-card__status learning-path-card__status--soon">À venir</span>
+    </header>
+    <div class="learning-path-card__body">
+      <p class="learning-path-card__kicker">Compréhension</p>
+      <h3>Orale</h3>
+      <p>Écoutez des situations authentiques et entraînez-vous à identifier les informations essentielles.</p>
+    </div>
+    <div class="learning-path-card__pending">Parcours en préparation</div>
+  </article>
+</div>

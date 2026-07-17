@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ response.prompt|truncatechars:50 }} · Heureux{% endblock %}
+{% block title %}{{ selected_prompt.text|truncatechars:50 }} · Heureux{% endblock %}
 
 {% block content %}
 {% include "study/_task_nav.html" %}
@@ -8,13 +8,15 @@
 <div class="detail-head">
   <p class="eyebrow">
     {% if task %}<a href="{% url 'study:task_browse' part.slug task.slug %}">Sujets &amp; réponses</a> · {% endif %}
-    <a href="{% url 'study:theme_detail' response.theme.slug %}">{{ response.theme.emoji }} {{ response.theme.display_name }}</a>
-    · <a href="{% if task %}{% url 'study:task_family_detail' part.slug task.slug response.family.slug %}{% else %}{% url 'study:family_detail' response.family.slug %}{% endif %}">{{ response.family.name }}</a>
+    <a href="{% url 'study:theme_detail' selected_prompt.theme.slug %}">{{ selected_prompt.theme.emoji }} {{ selected_prompt.theme.display_name }}</a>
+    · <a href="{% if task %}{% url 'study:task_family_detail' part.slug task.slug selected_prompt.family.slug %}{% else %}{% url 'study:family_detail' selected_prompt.family.slug %}{% endif %}">{{ selected_prompt.family.name }}</a>
     {% if response_content.is_personal %} · <span class="chip">Version personnelle</span>{% endif %}
   </p>
-  <h1 class="detail-prompt">{{ response.prompt }}</h1>
+  <h1 class="detail-prompt">{{ selected_prompt.text }}</h1>
   {% if response_content.reformulation %}<p class="reform">« {{ response_content.reformulation }} »</p>{% endif %}
 </div>
+
+{% include "study/partials/prompt_navigation.html" %}
 
 <div class="detail-grid">
   <div class="answer-columns">
@@ -92,7 +94,7 @@
       {% if can_edit_response %}
         <a class="btn btn--block" href="{% url 'study:edit_response' response.id %}">{% if response_content.is_personal %}Modifier ma version{% else %}Personnaliser la réponse{% endif %}</a>
       {% endif %}
-      <a class="btn btn--primary btn--block" href="{% url 'study:review' %}?kind=spine{% if task %}&amp;part={{ part.slug }}&amp;task={{ task.slug }}{% endif %}&amp;theme={{ response.theme.slug }}">Réviser ce thème</a>
+      <a class="btn btn--primary btn--block" href="{% url 'study:review' %}?kind=spine{% if task %}&amp;part={{ part.slug }}&amp;task={{ task.slug }}{% endif %}&amp;theme={{ selected_prompt.theme.slug }}">Réviser ce thème</a>
       {% if vocabulary_review_url %}
         <a class="btn btn--block" href="{{ vocabulary_review_url }}">Pratiquer les vocabs</a>
       {% endif %}
@@ -104,7 +106,12 @@
         <p class="muted mt-0" style="margin-top:0.4rem;">La même réponse couvre&nbsp;:</p>
         <ul class="mini-list">
           {% for p in prompts %}
-            <li><span class="chip chip--theme" style="--chip: {{ p.theme.color }};">{{ p.theme.emoji }} P{{ p.number }}</span> {{ p.text }}</li>
+            <li>
+              <a href="{% url 'study:response_detail' p.response_id %}?prompt={{ p.pk }}">
+                <span class="chip chip--theme" style="--chip: {{ p.theme.color }};">{{ p.theme.emoji }} P{{ p.number }}</span>
+                {{ p.text }}
+              </a>
+            </li>
           {% endfor %}
         </ul>
       </div>
@@ -145,4 +152,6 @@
     {% endif %}
   </aside>
 </div>
+
+{% include "study/partials/prompt_navigation.html" with bottom=True %}
 {% endblock %}

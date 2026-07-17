@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 
+from django.contrib.sessions.models import Session
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.test import override_settings
 from django.urls import reverse
@@ -79,7 +80,24 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             "document.documentElement.scrollWidth <= "
             "document.documentElement.clientWidth + 1"
         )
-        self.assertTrue(fits, self.page.url)
+        overflowing = self.page.locator("body *").evaluate_all(
+            """
+            elements => elements
+              .filter(element => {
+                const rect = element.getBoundingClientRect();
+                return rect.right > document.documentElement.clientWidth + 1 ||
+                  rect.left < -1;
+              })
+              .slice(0, 6)
+              .map(element => ({
+                tag: element.tagName,
+                className: element.className,
+                text: (element.textContent || "").trim().slice(0, 80),
+                right: Math.round(element.getBoundingClientRect().right),
+              }))
+            """
+        )
+        self.assertTrue(fits, f"{self.page.url}: {overflowing}")
 
     def save_current_prompt_highlight(self):
         prompt = self.page.locator("#card-front .prompt-text")
@@ -103,6 +121,46 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         ) as response_info:
             self.page.locator("[data-highlight-selection]").click()
         self.assertIn(response_info.value.status, (200, 201))
+
+    def select_prompt(self, *, start=None, end=None):
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.evaluate(
+            """
+            (element, offsets) => {
+              const range = document.createRange();
+              if (offsets.start === null) {
+                range.selectNodeContents(element);
+              } else {
+                const walker = document.createTreeWalker(
+                  element,
+                  NodeFilter.SHOW_TEXT
+                );
+                const boundary = target => {
+                  let node;
+                  let offset = target;
+                  while ((node = walker.nextNode())) {
+                    if (offset <= node.data.length) return [node, offset];
+                    offset -= node.data.length;
+                  }
+                  throw new Error("Selection offset is outside the prompt.");
+                };
+                const startBoundary = boundary(offsets.start);
+                walker.currentNode = element;
+                const endBoundary = boundary(offsets.end);
+                range.setStart(startBoundary[0], startBoundary[1]);
+                range.setEnd(endBoundary[0], endBoundary[1]);
+              }
+              const selection = window.getSelection();
+              selection.removeAllRanges();
+              selection.addRange(range);
+              document.dispatchEvent(new Event("selectionchange"));
+            }
+            """,
+            {"start": start, "end": end},
+        )
+        self.page.locator("[data-highlight-selection]").wait_for(
+            state="visible"
+        )
 
     def test_mobile_review_highlights_and_final_previous(self):
         for path in (
@@ -154,6 +212,121 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.assertEqual(
             highlights.values("source_key").distinct().count(),
             2,
+        )
+
+    def test_mobile_highlight_expands_then_toggles_off(self):
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        self.page.wait_for_load_state("networkidle")
+        prompt_text = prompt.text_content()
+        highlight_button = self.page.locator("[data-highlight-selection]")
+
+        self.select_prompt(start=0, end=12)
+        with self.page.expect_response(
+            lambda response: "/annotations/create/" in response.url
+        ):
+            highlight_button.click()
+        prompt.locator("mark.user-highlight").wait_for()
+
+        self.select_prompt(start=6, end=len(prompt_text))
+        self.assertEqual(
+            highlight_button.get_attribute("aria-label"),
+            "Highlight selected text",
+        )
+        with self.page.expect_response(
+            lambda response: "/annotations/create/" in response.url
+        ):
+            highlight_button.click()
+        self.page.wait_for_function(
+            """
+            expected => {
+              const marks = document.querySelectorAll(
+                "#card-front .prompt-text mark.user-highlight"
+              );
+              return marks.length === 1 && marks[0].textContent === expected;
+            }
+            """,
+            arg=prompt_text,
+        )
+        highlight = Annotation.objects.get(
+            user=self.user,
+            kind=AnnotationKind.HIGHLIGHT,
+        )
+        self.assertEqual(highlight.quote, prompt_text)
+
+        self.select_prompt()
+        self.assertEqual(
+            highlight_button.get_attribute("aria-label"),
+            "Unhighlight selected text",
+        )
+        with self.page.expect_response(
+            lambda response: (
+                "/annotations/" in response.url
+                and "/delete/" in response.url
+            )
+        ):
+            highlight_button.click()
+        self.page.wait_for_function(
+            """
+            !document.querySelector(
+              "#card-front .prompt-text mark.user-highlight"
+            )
+            """
+        )
+        self.assertFalse(
+            Annotation.objects.filter(
+                user=self.user,
+                kind=AnnotationKind.HIGHLIGHT,
+            ).exists()
+        )
+
+    def test_expired_session_does_not_fake_unhighlight_success(self):
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        self.page.wait_for_load_state("networkidle")
+        self.save_current_prompt_highlight()
+        prompt.locator("mark.user-highlight").wait_for()
+
+        self.select_prompt()
+        highlight_button = self.page.locator("[data-highlight-selection]")
+        self.assertEqual(
+            highlight_button.get_attribute("aria-label"),
+            "Unhighlight selected text",
+        )
+        session_key = next(
+            cookie["value"]
+            for cookie in self.context.cookies()
+            if cookie["name"] == "sessionid"
+        )
+        Session.objects.filter(session_key=session_key).delete()
+
+        with self.page.expect_response(
+            lambda response: (
+                "/annotations/" in response.url
+                and "/delete/" in response.url
+            )
+        ):
+            highlight_button.click()
+        self.page.locator(
+            "[data-annotation-toast]",
+            has_text="Votre session a expiré",
+        ).wait_for()
+        self.assertEqual(prompt.locator("mark.user-highlight").count(), 1)
+        self.assertTrue(
+            Annotation.objects.filter(
+                user=self.user,
+                kind=AnnotationKind.HIGHLIGHT,
+            ).exists()
         )
 
     def test_mobile_review_recovers_a_rotated_presentation_token(self):
@@ -414,23 +587,70 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         test = factories.make_comprehension_test(question_count=2)
         self.page.set_viewport_size({"width": 320, "height": 568})
 
-        self.page.goto(
-            self.live_server_url + reverse("study:comprehension_overview")
+        self.page.goto(self.live_server_url + reverse("study:dashboard"))
+        comprehension_domain = self.page.locator(
+            'section[aria-labelledby="comprehension-domain-title"]'
         )
-        self.page.get_by_role("heading", name="Compréhension écrite").wait_for()
+        comprehension_domain.get_by_role(
+            "heading",
+            name="Compréhension",
+            exact=True,
+        ).wait_for()
+        self.page.get_by_role("button", name="Ouvrir le menu").click()
+        self.page.get_by_role(
+            "link",
+            name="Compréhension",
+            exact=True,
+        ).click()
+        self.page.get_by_role(
+            "heading",
+            name="Compréhension",
+            exact=True,
+        ).wait_for()
         self.assert_no_horizontal_overflow()
-        self.page.get_by_role("link", name="Découvrir le test").click()
 
-        self.page.get_by_role("button", name="Commencer le test").click()
+        self.page.locator(
+            ".learning-path-card--available",
+            has_text="Écrite",
+        ).click()
+        self.page.get_by_role(
+            "heading",
+            name="Compréhension écrite",
+            exact=True,
+        ).wait_for()
+        self.assertEqual(self.page.locator(".ce-group-card").count(), 8)
+        self.assert_no_horizontal_overflow()
+
+        self.page.get_by_role("link", name="Groupe 1").click()
+        self.page.get_by_role(
+            "heading",
+            name="Les 5 tests du groupe 1",
+        ).wait_for()
+        self.assertEqual(self.page.locator(".ce-test-card").count(), 5)
+        self.assert_no_horizontal_overflow()
+
+        self.page.get_by_role("link", name="Découvrir le test").click()
+        self.page.get_by_role("heading", name=test.title).wait_for()
+        self.assertEqual(
+            self.page.locator(".ce-study-question-row").count(),
+            2,
+        )
+        self.assert_no_horizontal_overflow()
+
+        self.page.locator(".ce-study-question-row").first.click()
+        self.page.get_by_text("Choix et correction").wait_for()
+        self.page.get_by_text("Correct explanation 1.").wait_for()
+        self.assert_no_horizontal_overflow()
+
+        self.page.get_by_role("button", name="Pratiquer ce test").click()
         self.page.get_by_role("heading", name="Question 1 sur 2").wait_for()
         self.assertEqual(
             self.page.get_by_text("English passage 1.").count(),
             0,
         )
         self.assert_no_horizontal_overflow()
-
         self.page.locator(".ce-choice", has_text="Choix B français 1").click()
-        self.page.get_by_role("button", name="Valider ma réponse").click()
+        self.page.locator(".ce-choice", has_text="Choix B français 1").click()
         self.page.get_by_role("heading", name="La bonne réponse était A.").wait_for()
         self.page.get_by_text(
             "Pourquoi votre choix B ne convient pas"
@@ -440,8 +660,12 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.assert_no_horizontal_overflow()
 
         self.page.get_by_role("link", name="Question suivante").click()
-        self.page.locator(".ce-choice", has_text="Choix A français 2").click()
-        self.page.get_by_role("button", name="Valider ma réponse").click()
+        correct_choice = self.page.locator(
+            ".ce-choice",
+            has_text="Choix A français 2",
+        )
+        correct_choice.focus()
+        correct_choice.press("Enter")
         self.page.get_by_role("link", name="Voir mes résultats").wait_for()
         self.assert_no_horizontal_overflow()
 

@@ -17,14 +17,29 @@ urlpatterns = [
     path("logout/", views.logout_view, name="logout"),
     path("", views.dashboard, name="dashboard"),
     path(
+        "comprehension/",
+        views.comprehension_hub,
+        name="comprehension_hub",
+    ),
+    path(
         "comprehension-ecrite/",
         views.comprehension_overview,
         name="comprehension_overview",
     ),
     path(
+        "comprehension-ecrite/groupe/<int:group_number>/",
+        views.comprehension_group_detail,
+        name="comprehension_group",
+    ),
+    path(
         "comprehension-ecrite/<slug:test_slug>/",
         views.comprehension_test_detail,
         name="comprehension_test",
+    ),
+    path(
+        "comprehension-ecrite/<slug:test_slug>/question/<int:number>/",
+        views.comprehension_question_study,
+        name="comprehension_question_study",
     ),
     path(
         "comprehension-ecrite/<slug:test_slug>/commencer/",

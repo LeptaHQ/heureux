@@ -4,7 +4,13 @@
 {% block content %}
 <div class="ce-shell ce-quiz">
   <nav class="ce-breadcrumb" aria-label="Fil d’Ariane">
-    <a href="{% url 'study:comprehension_overview' %}">Compréhension écrite</a>
+    <a href="{% url 'study:dashboard' %}">Accueil</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_hub' %}">Compréhension</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_overview' %}">Écrite</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_group' group_number %}">Groupe {{ group_number }}</a>
     <span aria-hidden="true">›</span>
     <a href="{% url 'study:comprehension_test' test.slug %}">{{ test.title }}</a>
     <span aria-hidden="true">›</span>
@@ -83,26 +89,19 @@
       {% else %}
         <form method="post" class="ce-answer-form">
           {% csrf_token %}
-          <fieldset>
-            <legend class="sr-only">{{ question.prompt_fr }}</legend>
-            <div class="ce-choices">
-              {% for choice in choices %}
-                <label class="ce-choice">
-                  <input type="radio" name="choice" value="{{ choice.id }}">
-                  <span class="ce-choice__letter">{{ choice.letter }}</span>
-                  <span class="ce-choice__text">{{ choice.text_fr }}</span>
-                  <span class="ce-choice__radio" aria-hidden="true"></span>
-                </label>
-              {% endfor %}
-            </div>
-          </fieldset>
+          <p class="ce-answer-form__hint">Choisissez une réponse : elle sera validée immédiatement.</p>
+          <div class="ce-choices" role="group" aria-label="{{ question.prompt_fr }}">
+            {% for choice in choices %}
+              <button class="ce-choice" type="submit" name="choice" value="{{ choice.id }}">
+                <span class="ce-choice__letter">{{ choice.letter }}</span>
+                <span class="ce-choice__text">{{ choice.text_fr }}</span>
+                <span class="ce-choice__radio" aria-hidden="true"></span>
+              </button>
+            {% endfor %}
+          </div>
           {% if answer_error %}
             <p class="ce-answer-error" role="alert">{{ answer_error }}</p>
           {% endif %}
-          <button class="btn btn--primary btn--lg ce-submit-answer" type="submit">
-            Valider ma réponse
-            <span aria-hidden="true">→</span>
-          </button>
         </form>
       {% endif %}
     </section>

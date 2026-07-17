@@ -6,14 +6,16 @@
   <nav class="ce-breadcrumb" aria-label="Fil d’Ariane">
     <a href="{% url 'study:dashboard' %}">Accueil</a>
     <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_hub' %}">Compréhension</a>
+    <span aria-hidden="true">›</span>
     <span>Compréhension écrite</span>
   </nav>
 
   <header class="ce-library-hero">
     <div class="ce-library-hero__copy">
-      <p class="eyebrow">CE · Entraînement guidé</p>
+      <p class="eyebrow">CE · 8 groupes de 5 tests</p>
       <h1>Compréhension écrite</h1>
-      <p>Lisez chaque document en français, choisissez votre réponse, puis étudiez la correction détaillée. Votre progression est enregistrée à chaque question.</p>
+      <p>Avancez groupe par groupe, étudiez chaque question, puis entraînez-vous en conditions de quiz avec une correction détaillée.</p>
     </div>
     <div class="ce-library-hero__metrics" aria-label="Progression en compréhension écrite">
       <div>
@@ -34,98 +36,40 @@
   <div class="ce-section-heading">
     <div>
       <p class="eyebrow">Bibliothèque</p>
-      <h2>Choisir un test</h2>
+      <h2>Choisir un groupe</h2>
     </div>
-    <p>Les questions deviennent progressivement plus exigeantes.</p>
+    <p>Chaque groupe réunit cinq tests, comme les thèmes organisent les sujets d’expression orale.</p>
   </div>
 
-  <section class="ce-test-grid" aria-label="Tests de compréhension écrite">
-    {% for test in tests %}
-      <article class="ce-test-card{% if not test.is_active or not test.is_published %} ce-test-card--locked{% endif %}">
-        <header class="ce-test-card__head">
-          <span class="ce-test-card__number">{{ test.number|stringformat:"02d" }}</span>
-          {% if not test.is_active %}
-            <span class="ce-status ce-status--soon">Archivé</span>
-          {% elif not test.is_published and test.user_attempts %}
-            <span class="ce-status ce-status--soon">Indisponible</span>
-          {% elif not test.is_published %}
-            <span class="ce-status ce-status--soon">Bientôt</span>
-          {% elif test.active_attempt %}
-            <span class="ce-status ce-status--progress">En cours</span>
-          {% elif test.latest_attempt %}
-            <span class="ce-status ce-status--done">Terminé</span>
-          {% else %}
-            <span class="ce-status">Nouveau</span>
-          {% endif %}
-        </header>
-
-        <div class="ce-test-card__body">
-          <p class="ce-test-card__kicker">Compréhension écrite</p>
-          <h3>{{ test.title }}</h3>
-          <p>{{ test.description }}</p>
+  <section class="grid grid--decks ce-group-grid" aria-label="Groupes de tests de compréhension écrite">
+    {% for group in groups %}
+      <a class="deck card ce-group-card" style="--deck-color: var(--ce-blue);" href="{% url 'study:comprehension_group' group.number %}">
+        <div class="deck__body">
+          <div class="deck__title">
+            <span class="deck__icon">{{ group.number|stringformat:"02d" }}</span>
+            <span>Groupe {{ group.number }}</span>
+            {% if group.active_attempt %}
+              <span class="deck__due pill pill--due">En cours</span>
+            {% elif group.completed_count %}
+              <span class="deck__due pill">{{ group.completed_count }}/5</span>
+            {% endif %}
+          </div>
+          <div class="deck__meta">Tests {{ group.start|stringformat:"02d" }}–{{ group.end|stringformat:"02d" }} · 5 tests</div>
+          <div class="progress" aria-label="{{ group.completed_count }} tests terminés sur 5">
+            <span class="bg-mature" style="width: {% widthratio group.completed_count 5 100 %}%;"></span>
+          </div>
+          <div class="ce-group-card__foot">
+            {% if group.available_count %}
+              {{ group.available_count }} test{{ group.available_count|pluralize }} disponible{{ group.available_count|pluralize }}
+            {% elif group.completed_count %}
+              Historique disponible
+            {% else %}
+              Contenu en préparation
+            {% endif %}
+            <span aria-hidden="true">→</span>
+          </div>
         </div>
-
-        {% if test.is_active and test.is_published %}
-          <div class="ce-test-card__facts">
-            <span>
-              <b>{{ test.active_question_count }}</b>
-              questions
-            </span>
-            {% if test.active_attempt %}
-              <span>
-                <b>{{ test.active_answered_count }}/{{ test.attempt_question_count }}</b>
-                répondues
-              </span>
-            {% elif test.best_attempt %}
-              <span>
-                <b>{{ test.best_attempt.percentage }} %</b>
-                meilleur score
-              </span>
-            {% else %}
-              <span>
-                <b>4</b>
-                choix par question
-              </span>
-            {% endif %}
-          </div>
-          {% if test.active_attempt %}
-            <progress class="ce-card-progress" value="{{ test.active_answered_count }}" max="{{ test.attempt_question_count }}" aria-label="{{ test.active_answered_count }} questions répondues sur {{ test.attempt_question_count }}"></progress>
-          {% endif %}
-          <a class="ce-test-card__action" href="{% url 'study:comprehension_test' test.slug %}">
-            {% if test.active_attempt %}Continuer{% elif test.latest_attempt %}Voir ou refaire{% else %}Découvrir le test{% endif %}
-            <span aria-hidden="true">→</span>
-          </a>
-        {% elif test.user_attempts %}
-          <div class="ce-test-card__facts">
-            <span>
-              <b>{{ test.completed_attempts|length }}</b>
-              tentative{{ test.completed_attempts|length|pluralize }}
-            </span>
-            {% if test.best_attempt %}
-              <span>
-                <b>{{ test.best_attempt.percentage }} %</b>
-                meilleur score
-              </span>
-            {% else %}
-              <span>
-                <b>—</b>
-                test retiré
-              </span>
-            {% endif %}
-          </div>
-          <a class="ce-test-card__action" href="{% url 'study:comprehension_test' test.slug %}">
-            {% if test.is_active %}Voir l’historique{% else %}Voir le test archivé{% endif %}
-            <span aria-hidden="true">→</span>
-          </a>
-        {% else %}
-          <div class="ce-test-card__pending">
-            <span aria-hidden="true">⌛</span>
-            <span>Contenu en préparation</span>
-          </div>
-        {% endif %}
-      </article>
-    {% empty %}
-      <div class="empty">Aucun test n’est encore disponible.</div>
+      </a>
     {% endfor %}
   </section>
 </div>

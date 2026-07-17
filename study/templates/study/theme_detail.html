@@ -46,7 +46,7 @@
 
 <div class="qlist">
   {% for row in rows %}
-    <a class="qrow" href="{% url 'study:response_detail' row.prompt.response_id %}">
+    <a class="qrow" href="{% url 'study:response_detail' row.prompt.response_id %}?prompt={{ row.prompt.pk }}">
       <span class="qrow__num">{{ row.prompt.number }}</span>
       <span class="qrow__text">
         {{ row.prompt.text }}

@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}Question {{ question.number }} · {{ test.title }} · Heureux{% endblock %}
+
+{% block content %}
+<div class="ce-shell ce-study-detail">
+  <nav class="ce-breadcrumb" aria-label="Fil d’Ariane">
+    <a href="{% url 'study:dashboard' %}">Accueil</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_hub' %}">Compréhension</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_overview' %}">Compréhension écrite</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_group' test.group_number %}">Groupe {{ test.group_number }}</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_test' test.slug %}">{{ test.title }}</a>
+    <span aria-hidden="true">›</span>
+    <span>Question {{ question.number }}</span>
+  </nav>
+
+  <header class="detail-head">
+    <p class="eyebrow">{{ test.title }} · Question {{ position }} sur {{ total_questions }}</p>
+    <h1 class="detail-prompt">{{ question.prompt_fr }}</h1>
+    {% if question.prompt_en %}<p class="reform">« {{ question.prompt_en }} »</p>{% endif %}
+  </header>
+
+  <div class="detail-grid">
+    <div class="answer-columns">
+      <section class="card section-card">
+        <div class="spine-label">Document</div>
+        <p class="spine-text ce-study-passage">{{ question.passage_fr }}</p>
+        {% if question.passage_en %}
+          <details class="ce-study-translation">
+            <summary>Voir la traduction anglaise</summary>
+            <p>{{ question.passage_en }}</p>
+          </details>
+        {% endif %}
+      </section>
+
+      <section class="card section-card">
+        <div class="spine-label">Choix et correction</div>
+        <div class="ce-study-choices">
+          {% for choice in choices %}
+            <article class="ce-study-choice{% if choice.is_correct %} is-correct{% endif %}">
+              <div class="ce-study-choice__answer">
+                <span>{{ choice.letter }}</span>
+                <div>
+                  <strong>{{ choice.text_fr }}</strong>
+                  {% if choice.text_en %}<small>{{ choice.text_en }}</small>{% endif %}
+                </div>
+                {% if choice.is_correct %}<b aria-label="Bonne réponse">✓</b>{% endif %}
+              </div>
+              {% if choice.rationale %}
+                <p>{{ choice.rationale }}</p>
+              {% endif %}
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="card section-card ce-study-explanation">
+        <div class="spine-label">Réponse correcte</div>
+        <div class="ce-study-correct-answer">
+          <span>{{ correct_choice.letter }}</span>
+          <strong>{{ correct_choice.text_fr }}</strong>
+        </div>
+        {% if question.correct_explanation %}
+          <p>{{ question.correct_explanation }}</p>
+        {% else %}
+          <p class="muted">Aucune explication supplémentaire n’était fournie dans le document source.</p>
+        {% endif %}
+      </section>
+    </div>
+
+    <aside class="detail-side">
+      <div class="card section-card">
+        <div class="spine-label">Cette question</div>
+        <dl class="kv">
+          <div><dt>Test</dt><dd>{{ test.number|stringformat:"02d" }}</dd></div>
+          <div><dt>Question</dt><dd>{{ position }}/{{ total_questions }}</dd></div>
+          <div><dt>Choix</dt><dd>{{ choices|length }}</dd></div>
+          <div><dt>Bonne réponse</dt><dd>{{ correct_choice.letter }}</dd></div>
+        </dl>
+        {% include "study/_comprehension_practice_action.html" %}
+        <a class="btn btn--block" href="{% url 'study:comprehension_test' test.slug %}">Toutes les questions</a>
+      </div>
+
+      <div class="card section-card ce-study-tip">
+        <div class="spine-label">Méthode</div>
+        <p>Repérez d’abord l’information précise demandée, éliminez les choix contredits par le document, puis comparez les nuances restantes.</p>
+      </div>
+    </aside>
+  </div>
+
+  <nav class="ce-study-detail__nav" aria-label="Navigation entre les questions">
+    {% if previous_question %}
+      <a class="btn" href="{% url 'study:comprehension_question_study' test.slug previous_question.number %}"><span aria-hidden="true">←</span> Question précédente</a>
+    {% else %}
+      <span></span>
+    {% endif %}
+    {% if next_question %}
+      <a class="btn btn--primary" href="{% url 'study:comprehension_question_study' test.slug next_question.number %}">Question suivante <span aria-hidden="true">→</span></a>
+    {% else %}
+      <a class="btn btn--primary" href="{% url 'study:comprehension_test' test.slug %}">Retour au test <span aria-hidden="true">→</span></a>
+    {% endif %}
+  </nav>
+</div>
+{% endblock %}

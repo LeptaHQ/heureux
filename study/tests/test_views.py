@@ -66,9 +66,9 @@ class PWATests(TestCase):
         r = self.client.get("/sw.js")
         self.assertEqual(r.status_code, 200)
         body = r.content.decode()
-        self.assertIn('var CACHE = "heureux-v43"', body)
+        self.assertIn('var CACHE = "heureux-v44"', body)
         self.assertIn("study/css/app.css", body)
-        self.assertIn("?v=38", body)
+        self.assertIn("?v=39", body)
         self.assertIn("study/js/app.js", body)
         self.assertIn("?v=26", body)
         self.assertIn("study/js/translate.js", body)
@@ -283,7 +283,7 @@ class SmokeTests(TestCase):
             "Stats",
         ):
             self.assertContains(response, f">{label}</a>")
-        self.assertContains(response, 'class="footer__inner"')
+        self.assertNotContains(response, 'class="footer__inner"')
 
     def test_global_pages_do_not_false_highlight_task_navigation(self):
         response = self.client.get(reverse("study:browse"))

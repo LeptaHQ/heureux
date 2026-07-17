@@ -691,7 +691,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.page.get_by_role("link", name="Groupe 1").click()
         self.page.get_by_role(
             "heading",
-            name="Les 5 tests du groupe 1",
+            name="Groupe 01",
         ).wait_for()
         self.assertEqual(self.page.locator(".ce-group-test-row").count(), 5)
         self.assert_no_horizontal_overflow()

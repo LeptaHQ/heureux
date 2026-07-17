@@ -4,21 +4,15 @@
 {% block content %}
 <div class="page-head">
   <h1>Réglages</h1>
-  <p>Gérez votre sécurité, vos données et votre progression.</p>
 </div>
 
 {% if was_reset %}<div class="notice">Progression réinitialisée. Toutes les cartes sont de nouveau « nouvelles » et actives.</div>{% endif %}
 {% if was_unsuspended %}<div class="notice">Cartes réactivées. Elles reviennent dans la file de révision.</div>{% endif %}
 {% if pin_changed %}<div class="notice">Code PIN modifié. Vos autres sessions ont été déconnectées.</div>{% endif %}
 
-<div class="grid grid--2">
-  <section class="card card--pad">
-    <p class="eyebrow">Rythme libre</p>
-    <h2 class="mt-0">Aucun plafond quotidien</h2>
-    <p class="muted">Toutes les nouvelles cartes et toutes les révisions arrivées à échéance restent disponibles. Les lots de 15 organisent le travail sans limiter votre pratique.</p>
-  </section>
+<p class="muted settings-note"><strong>Aucun plafond quotidien.</strong> Toutes les cartes arrivées à échéance restent disponibles.</p>
 
-  <section class="card card--pad">
+<section class="card card--pad settings-section">
     <p class="eyebrow">Sécurité</p>
     <h2 class="mt-0">Modifier le code PIN</h2>
     <p class="muted">Le changement conserve cette session et déconnecte les autres appareils.</p>
@@ -34,8 +28,7 @@
       {% endfor %}
       <button class="btn btn--primary" type="submit">Modifier mon PIN</button>
     </form>
-  </section>
-</div>
+</section>
 
 <div class="grid grid--2 settings-grid">
   <section class="card card--pad">
@@ -58,7 +51,7 @@
   <section class="card card--pad">
     <p class="eyebrow">Vos données</p>
     <h2 class="mt-0">Exporter le profil</h2>
-    <p class="muted">Téléchargez un fichier JSON privé avec vos cartes, révisions, tests de compréhension, notes, highlights et votre session en cours. Aucun secret d'authentification n'y figure.</p>
+    <p class="muted">Téléchargez vos cartes, révisions, tests, notes et surlignages au format JSON, sans données d'authentification.</p>
     <a class="btn" href="{% url 'study:export_account' %}">Télécharger mes données</a>
   </section>
 </div>
@@ -111,8 +104,4 @@
   </form>
 </section>
 
-<section class="card card--pad settings-section">
-  <h2 class="mt-0">À propos</h2>
-  <p class="muted">Répétition espacée (algorithme SM-2, façon Anki). Chaque bonne réponse espace la prochaine révision&nbsp;; un oubli la ramène tôt. La régularité prime sur l'intensité.</p>
-</section>
 {% endblock %}

@@ -109,7 +109,6 @@
     {% if response.has_aliases %}
       <div class="card section-card">
         <div class="spine-label">Sujets équivalents</div>
-        <p class="muted mt-0" style="margin-top:0.4rem;">La même réponse couvre&nbsp;:</p>
         <ul class="mini-list">
           {% for p in prompts %}
             <li>
@@ -126,7 +125,6 @@
     {% if subject_vocabulary %}
       <div class="card section-card">
         <div class="spine-label">Vocabulaire de ce sujet</div>
-        <p class="muted mt-0">{{ vocabulary_count }} mots, collocations, expressions et idiomes, tournures et phrases modèles, organisés en lots de 10.</p>
         <ul class="mini-list">
           {% for phrase in subject_vocabulary %}
             <li><b>{{ phrase.expression }}</b> <span class="muted">— {{ phrase.english_cue }}</span></li>
@@ -143,7 +141,6 @@
     {% if related_phrases %}
       <div class="card section-card">
         <div class="spine-label">Expressions liées</div>
-         <p class="muted mt-0">Vocabulaire propre à cette réponse et expressions réutilisables.</p>
         <ul class="mini-list">
           {% for phrase in related_phrases %}
             <li><b>{{ phrase.expression }}</b> <span class="muted">— {{ phrase.english_cue }}</span></li>

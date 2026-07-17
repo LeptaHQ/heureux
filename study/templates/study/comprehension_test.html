@@ -17,25 +17,19 @@
 
   <header class="ce-study-index__hero">
     <div class="ce-study-index__copy">
-      <p class="eyebrow">Compréhension écrite · Parcours d’apprentissage</p>
+      <p class="eyebrow">Test {{ test.order|stringformat:"02d" }}</p>
       <h1>{{ test.title }}</h1>
-      <p>{{ test.description }}</p>
       {% if not test.is_active or not test.is_published %}
         <p class="ce-archive-notice">Ce test est actuellement indisponible. Vos résultats précédents restent consultables, mais il n’est plus possible de l’étudier ou de le recommencer.</p>
       {% endif %}
       <div class="ce-study-index__facts" aria-label="Contenu du test">
         <span><b>{{ test.active_question_count }}</b> questions</span>
-        <span><b>4</b> choix par question</span>
         {% if test.best_attempt %}
           <span><b>{{ test.best_attempt.percentage }} %</b> meilleur score</span>
-        {% else %}
-          <span><b>Sans limite</b> de temps</span>
         {% endif %}
       </div>
     </div>
     <aside class="ce-study-index__practice">
-      <p class="spine-label">Mode pratique</p>
-      <p>Répondez sans aide, puis découvrez la correction détaillée après chaque choix.</p>
       {% if test.is_active and test.is_published %}
         {% include "study/_comprehension_practice_action.html" %}
         {% if test.active_attempt %}
@@ -58,11 +52,7 @@
   {% if test.is_active and test.is_published %}
     <section class="ce-study-questions" aria-labelledby="ce-study-questions-title">
       <div class="section-heading">
-        <div>
-          <p class="eyebrow">Apprendre avant de pratiquer</p>
-          <h2 id="ce-study-questions-title">Les {{ questions|length }} questions</h2>
-        </div>
-        <p>Ouvrez une question pour étudier le document, les choix et leur explication.</p>
+        <h2 id="ce-study-questions-title">Questions · {{ questions|length }}</h2>
       </div>
 
       <div class="qlist ce-study-question-list">

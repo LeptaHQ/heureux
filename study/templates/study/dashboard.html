@@ -8,9 +8,9 @@
       <p class="eyebrow">Examen de français · répétition espacée</p>
       <h1>Prêt à réviser&nbsp;?</h1>
       {% if counts.total_due %}
-        <p class="hero__lead">Vous avez <b>{{ counts.total_due }}</b> carte{{ counts.total_due|pluralize }} disponible{{ counts.total_due|pluralize }} sans plafond quotidien. Avancez à votre rythme, lot après lot.</p>
+        <p class="hero__lead"><b>{{ counts.total_due }}</b> carte{{ counts.total_due|pluralize }} disponible{{ counts.total_due|pluralize }}.</p>
       {% else %}
-        <p class="hero__lead">Tout est à jour. Explorez vos fiches ou avancez sur de nouvelles cartes à votre rythme.</p>
+        <p class="hero__lead">Tout est à jour.</p>
       {% endif %}
     </div>
     <div class="hero__stats">
@@ -31,20 +31,15 @@
     {% if weak_count %}
       <a class="btn btn--ghost btn--lg" href="{% url 'study:review' %}?kind=weak">Points à renforcer · {{ weak_count }}</a>
     {% endif %}
-    {% if content_task %}
-      <a class="btn btn--ghost btn--lg" href="{% url 'study:task_detail' content_task.part.slug content_task.slug %}">Ouvrir {{ content_task.name }}</a>
-    {% endif %}
   </div>
 </section>
 
 <div class="learning-domains">
   <section class="learning-domain" aria-labelledby="expression-domain-title">
     <header class="learning-domain__head">
-      <span class="learning-domain__number" aria-hidden="true">01</span>
       <div>
         <p class="eyebrow">Produire en français</p>
         <h2 id="expression-domain-title">Expression</h2>
-        <p>Choisissez l’écrit ou l’oral, puis ouvrez la tâche que vous souhaitez travailler.</p>
       </div>
     </header>
 
@@ -63,20 +58,12 @@
                   <svg viewBox="0 0 24 24" focusable="false"><path d="m4 20 4.5-1 10-10-3.5-3.5-10 10zM13.8 6.7l3.5 3.5M4 20h16"></path></svg>
                 {% endif %}
               </span>
-              {% if path.available %}
-                <span class="learning-path-card__status">Disponible</span>
-              {% else %}
+              {% if not path.available %}
                 <span class="learning-path-card__status learning-path-card__status--soon">À venir</span>
               {% endif %}
             </header>
             <div class="learning-path-card__body">
-              <p class="learning-path-card__kicker">Expression</p>
               <h3>{{ path.part.name|cut:"Expression "|capfirst }}</h3>
-              {% if path.part.slug == "orale" %}
-                <p>Développez votre prise de parole, votre argumentation et votre aisance à l’oral.</p>
-              {% else %}
-                <p>Structurez vos idées et entraînez-vous à produire des textes clairs et précis.</p>
-              {% endif %}
             </div>
             {% if path.available %}
               <div class="learning-path-card__facts">
@@ -85,7 +72,7 @@
                 <span><b>{{ path.seen }}/{{ path.total }}</b> cartes vues</span>
               </div>
               <span class="learning-path-card__action">
-                Ouvrir l’expression {{ path.part.name|cut:"Expression " }}
+                Ouvrir
                 <span aria-hidden="true">→</span>
               </span>
             {% else %}
@@ -98,18 +85,13 @@
 
   <section class="learning-domain" aria-labelledby="comprehension-domain-title">
     <header class="learning-domain__head">
-      <span class="learning-domain__number" aria-hidden="true">02</span>
       <div>
         <p class="eyebrow">Comprendre le français</p>
         <h2 id="comprehension-domain-title">Compréhension</h2>
-        <p>Choisissez l’écrit ou l’oral, puis avancez test après test avec une correction détaillée.</p>
       </div>
     </header>
     {% include "study/_comprehension_paths.html" %}
   </section>
 </div>
 
-<p class="center muted" style="margin-top:1.6rem;">
-  <a href="{% url 'study:stats_overview' %}">Voir la progression détaillée →</a>
-</p>
 {% endblock %}

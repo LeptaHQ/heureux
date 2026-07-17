@@ -256,8 +256,7 @@ class ComprehensionFlowTests(TestCase):
         )
 
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Parcours d’apprentissage")
-        self.assertContains(response, "Les 3 questions")
+        self.assertContains(response, "Questions · 3")
         self.assertContains(response, "Pratiquer ce test")
         self.assertContains(
             response,

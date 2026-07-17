@@ -13,9 +13,8 @@
 
   <header class="ce-library-hero">
     <div class="ce-library-hero__copy">
-      <p class="eyebrow">CE · 8 groupes de 5 tests</p>
+      <p class="eyebrow">8 groupes de 5 tests</p>
       <h1>Compréhension écrite</h1>
-      <p>Avancez groupe par groupe, étudiez chaque question, puis entraînez-vous en conditions de quiz avec une correction détaillée.</p>
     </div>
     <div class="ce-library-hero__metrics" aria-label="Progression en compréhension écrite">
       <div>
@@ -34,11 +33,7 @@
   </header>
 
   <div class="ce-section-heading">
-    <div>
-      <p class="eyebrow">Bibliothèque</p>
-      <h2>Choisir un groupe</h2>
-    </div>
-    <p>Chaque groupe réunit cinq tests, comme les thèmes organisent les sujets d’expression orale.</p>
+    <h2>Groupes</h2>
   </div>
 
   <section class="grid grid--decks ce-group-grid" aria-label="Groupes de tests de compréhension écrite">
@@ -54,7 +49,7 @@
               <span class="deck__due pill">{{ group.completed_count }}/5</span>
             {% endif %}
           </div>
-          <div class="deck__meta">Tests {{ group.start|stringformat:"02d" }}–{{ group.end|stringformat:"02d" }} · 5 tests</div>
+          <div class="deck__meta">Tests {{ group.start|stringformat:"02d" }}–{{ group.end|stringformat:"02d" }}</div>
           <div class="progress" aria-label="{{ group.completed_count }} tests terminés sur 5">
             <span class="bg-mature" style="width: {% widthratio group.completed_count 5 100 %}%;"></span>
           </div>

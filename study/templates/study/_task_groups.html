@@ -42,10 +42,8 @@
                 <div class="deck__meta">{{ t.task.subtitle }}</div>
                 {% if area == "review" %}
                   <div class="deck__meta">{{ t.counts.total_due }} à réviser · {{ t.revisit_count }} à revoir</div>
-                  <div class="deck__meta">{{ t.response_stats.total }} réponses · {{ t.phrase_count }} expressions</div>
                 {% elif area == "expressions" %}
-                  <div class="deck__meta">{{ t.phrase_count }} expressions · {{ t.phrase_stats.total }} cartes</div>
-                  <div class="deck__meta">{{ t.phrase_stats.seen }} vues · {{ t.phrase_stats.mature }} maîtrisées</div>
+                  <div class="deck__meta">{{ t.phrase_count }} expressions · {{ t.phrase_stats.mature }} maîtrisées</div>
                 {% else %}
                   <div class="deck__meta">{{ t.prompt_count }} sujets · {{ t.response_stats.total }} réponses · {{ t.phrase_count }} expressions</div>
                   <div class="deck__meta">{{ t.stats.seen }}/{{ t.stats.total }} cartes vues · {{ t.stats.mature }} maîtrisée{{ t.stats.mature|pluralize }}</div>
@@ -61,18 +59,6 @@
                     <span class="bg-learning" style="width: {% widthratio t.stats.learning t.stats.total 100 %}%;"></span>
                   {% endif %}
                 </div>
-                {% if area != "home" %}
-                  <span class="grouped-task-card__action">
-                    {% if area == "review" %}
-                      Organiser mes révisions
-                    {% elif area == "expressions" %}
-                      Explorer les expressions
-                    {% else %}
-                      Voir ma progression
-                    {% endif %}
-                    <span aria-hidden="true">→</span>
-                  </span>
-                {% endif %}
               </div>
             </a>
         {% else %}
@@ -84,9 +70,6 @@
                 <span class="badge-soon">À venir</span>
               </div>
               <div class="deck__meta">{{ t.task.subtitle }}</div>
-              {% if area != "home" %}
-                <div class="grouped-task-card__soon-copy">Ce parcours sera ajouté prochainement.</div>
-              {% endif %}
             </div>
           </a>
         {% endif %}

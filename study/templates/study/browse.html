@@ -4,7 +4,6 @@
 {% block content %}
 {% include "study/_task_nav.html" %}
 <div class="page-head">
-  <p class="eyebrow">{% if task %}{{ task.name }} · contenu argumenté{% else %}Bibliothèque{% endif %}</p>
   <h1>Sujets &amp; réponses</h1>
   <p>{{ prompt_count }} sujets · {{ response_count }} réponses uniques · {{ theme_count }} thèmes.</p>
 </div>
@@ -15,7 +14,6 @@
 
 <div class="section-heading">
   <div>
-    <p class="eyebrow">Première entrée</p>
     <h2>Par thème</h2>
   </div>
   {% if task %}

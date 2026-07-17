@@ -7,12 +7,6 @@
   <div>
     <p class="eyebrow"><a href="{% url 'study:notes_overview' %}">Notes</a>{% if part %} · {{ part.short_name }}{% endif %}</p>
     <h1>{{ scope_title }}</h1>
-    <p>Vos idées personnelles et les passages que vous avez choisis de surligner.</p>
-  </div>
-  <div class="task-hero__numbers" aria-label="Contenu des notes">
-    <span><b>{{ notes|length }}</b> note{{ notes|length|pluralize }}</span>
-    <span><b>{{ highlights|length }}</b> surlignage{{ highlights|length|pluralize }}</span>
-    <span><b>{{ study_count }}</b> à étudier</span>
   </div>
 </header>
 
@@ -68,14 +62,7 @@
   </form>
 </details>
 
-<section class="annotations-section" aria-labelledby="notes-heading">
-  <div class="section-heading">
-    <div>
-      <p class="eyebrow">Vos idées</p>
-      <h2 id="notes-heading">Notes</h2>
-    </div>
-    <span class="pill">{{ notes|length }}</span>
-  </div>
+<section class="annotations-section" aria-label="Notes">
   <div class="annotations-grid">
     {% for note in notes %}
       <article class="card annotation-card annotation-card--note" id="note-{{ note.id }}">
@@ -130,21 +117,13 @@
 </div>
 {% else %}
 <div class="notes-tab-panel" id="highlights-panel" role="tabpanel" aria-labelledby="highlights-tab">
-<section class="annotations-section" aria-labelledby="highlights-heading">
-  <div class="section-heading">
-    <div>
-      <p class="eyebrow">Passages retenus</p>
-      <h2 id="highlights-heading">Surlignages</h2>
-    </div>
-    <span class="pill">{{ highlights|length }}</span>
-  </div>
+<section class="annotations-section" aria-label="Surlignages">
   <div class="highlight-source-groups">
     {% for group in highlight_groups %}
       <section class="highlight-source-group" aria-labelledby="highlights-{{ group.key }}-heading">
         <div class="highlight-source-group__head">
           <div>
             <h3 id="highlights-{{ group.key }}-heading">{{ group.title }}</h3>
-            <p>{{ group.description }}</p>
           </div>
           <span class="pill">{{ group.items|length }}</span>
         </div>

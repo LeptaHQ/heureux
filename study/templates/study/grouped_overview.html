@@ -5,9 +5,7 @@
 <div class="grouped-overview">
 <header class="grouped-overview__head">
   <div>
-    <p class="eyebrow">{{ eyebrow }}</p>
     <h1>{{ title }}</h1>
-    <p>{{ description }}</p>
   </div>
   <div class="grouped-overview__metrics" aria-label="Résumé">
     {% if area == "review" %}
@@ -29,7 +27,6 @@
       <a class="resume-review resume-review--overview weak-review-callout" href="{% url 'study:review' %}?kind=weak">
         <span class="resume-review__icon" aria-hidden="true">↗</span>
         <span>
-          <small>Entraînement ciblé</small>
           <strong>Renforcer {{ weak_count }} carte{{ weak_count|pluralize }} fragile{{ weak_count|pluralize }}</strong>
         </span>
         <span aria-hidden="true">→</span>
@@ -50,16 +47,7 @@
 {% endif %}
 
 <div class="grouped-overview__section-head">
-  <div>
-    <h2>Choisir une tâche</h2>
-    {% if area == "review" %}
-      <p>Sélectionnez une tâche, puis révisez sans plafond ou choisissez un lot.</p>
-    {% elif area == "expressions" %}
-      <p>Étudiez le catalogue partagé par catégorie, ou ouvrez une réponse pour son vocabulaire propre.</p>
-    {% else %}
-      <p>Consultez votre avancement et votre régularité tâche par tâche.</p>
-    {% endif %}
-  </div>
+  <h2>Tâches</h2>
 </div>
 
 {% include "study/_task_groups.html" %}

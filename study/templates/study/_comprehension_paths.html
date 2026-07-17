@@ -11,14 +11,10 @@
         <span class="learning-path-card__status learning-path-card__status--progress">En cours</span>
       {% elif comprehension.completed_test_count %}
         <span class="learning-path-card__status learning-path-card__status--done">Pratiqué</span>
-      {% else %}
-        <span class="learning-path-card__status">Disponible</span>
       {% endif %}
     </header>
     <div class="learning-path-card__body">
-      <p class="learning-path-card__kicker">Compréhension</p>
       <h3>Écrite</h3>
-      <p>Lisez des documents variés, répondez aux questions et analysez chaque correction.</p>
     </div>
     <div class="learning-path-card__facts">
       <span><b>{{ comprehension.group_count }}</b> groupes</span>
@@ -32,7 +28,7 @@
       <span><b>{{ comprehension.completed_test_count }}</b> terminé{{ comprehension.completed_test_count|pluralize }}</span>
     </div>
     <span class="learning-path-card__action">
-      {% if comprehension.active_attempt %}Continuer le test{% else %}Ouvrir la compréhension écrite{% endif %}
+      {% if comprehension.active_attempt %}Continuer{% else %}Ouvrir{% endif %}
       <span aria-hidden="true">→</span>
     </span>
   </a>
@@ -48,9 +44,7 @@
       <span class="learning-path-card__status learning-path-card__status--soon">À venir</span>
     </header>
     <div class="learning-path-card__body">
-      <p class="learning-path-card__kicker">Compréhension</p>
       <h3>Orale</h3>
-      <p>Écoutez des situations authentiques et entraînez-vous à identifier les informations essentielles.</p>
     </div>
     <div class="learning-path-card__pending">Parcours en préparation</div>
   </article>

@@ -6,9 +6,7 @@
 
 <header class="task-hero">
   <div>
-    <p class="eyebrow">Votre espace de travail</p>
     <h1>{{ task.emoji }} {{ task.name }}</h1>
-    <p>{{ task.subtitle }}. Les sujets, réponses, expressions et révisions de cette tâche sont réunis ici.</p>
   </div>
   <div class="task-hero__numbers" aria-label="Contenu de la tâche">
     <span><b>{{ prompt_count }}</b> sujets</span>
@@ -21,33 +19,28 @@
   <article class="task-module">
     <div class="task-module__icon task-module__icon--responses">🗂️</div>
     <div class="task-module__body">
-      <p class="task-module__kicker">Construire ses réponses</p>
       <h2>Sujets &amp; réponses</h2>
-      <p>{{ prompt_count }} sujets organisés en {{ themes|length }} thèmes, avec {{ response_stats.total }} réponses argumentées uniques.</p>
-      <div class="task-module__meta">{{ response_stats.seen }} vues · {{ response_stats.mature }} maîtrisées</div>
+      <div class="task-module__meta">{{ prompt_count }} sujets · {{ response_stats.total }} réponses · {{ response_stats.mature }} maîtrisées</div>
     </div>
-    <a class="task-module__link" href="{% url 'study:task_browse' part.slug task.slug %}" aria-label="Parcourir les sujets et réponses">Explorer <span aria-hidden="true">→</span></a>
+    <a class="task-module__link" href="{% url 'study:task_browse' part.slug task.slug %}" aria-label="Parcourir les sujets et réponses">Ouvrir <span aria-hidden="true">→</span></a>
   </article>
 
   <article class="task-module">
     <div class="task-module__icon task-module__icon--expressions">🗣️</div>
     <div class="task-module__body">
-      <p class="task-module__kicker">Développer son expression</p>
       <h2>Expressions &amp; vocabulaire</h2>
-      <p>{{ phrase_count }} tournures, collocations et nuances tirées directement des réponses.</p>
       <div class="task-module__meta">{{ phrase_category_count }} catégories · {{ phrase_stats.seen }}/{{ phrase_stats.total }} cartes vues</div>
     </div>
-    <a class="task-module__link" href="{% url 'study:task_phrases' part.slug task.slug %}" aria-label="Parcourir les expressions">Explorer <span aria-hidden="true">→</span></a>
+    <a class="task-module__link" href="{% url 'study:task_phrases' part.slug task.slug %}" aria-label="Parcourir les expressions">Ouvrir <span aria-hidden="true">→</span></a>
   </article>
 
   <article class="task-module task-module--review">
     <div class="task-module__icon task-module__icon--review">↻</div>
     <div class="task-module__body">
-      <p class="task-module__kicker">Mémoriser durablement</p>
       <h2>Révision</h2>
-      <p>{{ counts.total_due }} carte{{ counts.total_due|pluralize }} disponible{{ counts.total_due|pluralize }} dans cette tâche, sans plafond quotidien.</p>
+      <div class="task-module__meta">{{ counts.total_due }} carte{{ counts.total_due|pluralize }} disponible{{ counts.total_due|pluralize }}</div>
       <div class="task-module__actions">
-        <a href="{% url 'study:task_review_hub' part.slug task.slug %}">Organiser mes révisions <span aria-hidden="true">→</span></a>
+        <a href="{% url 'study:task_review_hub' part.slug task.slug %}">Ouvrir <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </article>
@@ -56,8 +49,7 @@
 <section class="task-themes">
   <div class="section-heading">
     <div>
-      <p class="eyebrow">Explorer le programme</p>
-      <h2>Les {{ themes|length }} thèmes</h2>
+      <h2>Thèmes · {{ themes|length }}</h2>
     </div>
     <a href="{% url 'study:task_browse' part.slug task.slug %}">Voir tous les sujets →</a>
   </div>

@@ -7,7 +7,7 @@
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
   <script src="{% static 'study/js/theme-init.js' %}?v=1"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=38">
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=39">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -91,21 +91,6 @@
   <main id="main" class="container">
     {% block content %}{% endblock %}
   </main>
-
-  {% if request.resolver_match.url_name != 'review' %}
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__identity">
-        <strong>Heureux</strong>
-        <span>Expression française, maîtrisée durablement.</span>
-      </div>
-      <div class="footer__meta">
-        <span>{{ total_cards }} cartes</span>
-        <a href="{% url 'study:stats_overview' %}">Voir les statistiques</a>
-      </div>
-    </div>
-  </footer>
-  {% endif %}
 
   <div class="selection-translate hidden" role="toolbar" aria-label="Selected text actions" data-selection-translate>
     <button class="selection-translate__button selection-translate__button--copy" type="button" aria-label="Copy selected text" data-copy-selection>

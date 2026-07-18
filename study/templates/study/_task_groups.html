@@ -53,10 +53,12 @@
                     <span class="bg-mature" style="width: {% widthratio t.functional_phrase_stats.mature t.functional_phrase_stats.total 100 %}%;"></span>
                     <span class="bg-review" style="width: {% widthratio t.functional_phrase_stats.review_young t.functional_phrase_stats.total 100 %}%;"></span>
                     <span class="bg-learning" style="width: {% widthratio t.functional_phrase_stats.learning t.functional_phrase_stats.total 100 %}%;"></span>
+                    <span class="bg-started" style="width: {% widthratio t.functional_phrase_stats.started_new t.functional_phrase_stats.total 100 %}%;"></span>
                   {% else %}
                     <span class="bg-mature" style="width: {% widthratio t.stats.mature t.stats.total 100 %}%;"></span>
                     <span class="bg-review" style="width: {% widthratio t.stats.review_young t.stats.total 100 %}%;"></span>
                     <span class="bg-learning" style="width: {% widthratio t.stats.learning t.stats.total 100 %}%;"></span>
+                    <span class="bg-started" style="width: {% widthratio t.stats.started_new t.stats.total 100 %}%;"></span>
                   {% endif %}
                 </div>
               </div>

@@ -264,7 +264,11 @@
                   <span class="subject-vocabulary-row__number">P{{ prompt.number }}</span>
                   <div class="subject-vocabulary-row__copy">
                     <h3>{{ prompt.text }}</h3>
-                    <p>{{ prompt.vocabulary_count }} vocabs · {{ prompt.vocabulary_batch_count }} lots{% if not prompt.is_canonical %} <span class="alias-tag">deck partagé</span>{% endif %}</p>
+                    <p>
+                      {% if prompt.progress_card %}<span class="progress-status progress-status--{{ prompt.progress_card.progress_status }}">{{ prompt.progress_card.progress_label }}</span>{% endif %}
+                      <span>{{ prompt.vocabulary_count }} vocabs · {{ prompt.vocabulary_batch_count }} lots</span>
+                      {% if not prompt.is_canonical %}<span class="alias-tag">deck partagé</span>{% endif %}
+                    </p>
                   </div>
                   <div class="subject-vocabulary-row__actions">
                     <a class="btn btn--sm btn--primary" href="{% url 'study:review' %}?kind=vocab&amp;response={{ prompt.response_id }}&amp;batch=1">Pratiquer</a>
@@ -320,6 +324,7 @@
               <span class="bg-mature" style="width: {% widthratio deck.stats.mature deck.stats.total 100 %}%;"></span>
               <span class="bg-review" style="width: {% widthratio deck.stats.review_young deck.stats.total 100 %}%;"></span>
               <span class="bg-learning" style="width: {% widthratio deck.stats.learning deck.stats.total 100 %}%;"></span>
+              <span class="bg-started" style="width: {% widthratio deck.stats.started_new deck.stats.total 100 %}%;"></span>
             </div>
           </div>
           <div class="comprehension-vocabulary-card__actions">

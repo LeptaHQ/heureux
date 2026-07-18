@@ -294,50 +294,76 @@ def _record_throttled_attempt(
     )
 
 
+def _acquire_throttle_tiers(
+    request,
+    username: str,
+    now,
+    *,
+    ip_purpose: str,
+    pair_purpose: str,
+    account_purpose: str,
+):
+    """Lock the IP, username-pair, and account throttle tiers.
+
+    Returns ``(throttles, locked)`` where ``throttles`` is the
+    ``(ip, pair, account)`` triple (or ``None`` when a tier is locked).
+    """
+    ip_key = login_throttle_key(request, "", purpose=ip_purpose)
+    pair_key = login_throttle_key(request, username, purpose=pair_purpose)
+    account_key = account_throttle_key(username, purpose=account_purpose)
+    ip_throttle, ip_locked = _locked_throttle(ip_key, now)
+    if ip_locked:
+        return None, True
+    pair_throttle, pair_locked = _locked_throttle(pair_key, now)
+    if pair_locked:
+        return None, True
+    account_throttle, account_locked = _locked_throttle(
+        account_key,
+        now,
+        window=ACCOUNT_WINDOW,
+    )
+    if account_locked:
+        return None, True
+    return (ip_throttle, pair_throttle, account_throttle), False
+
+
+def _record_throttle_tier_failure(throttles, now) -> None:
+    """Record one failed attempt across the IP/pair/account throttle tiers."""
+    ip_throttle, pair_throttle, account_throttle = throttles
+    _record_throttled_attempt(ip_throttle, now, limit=IP_ATTEMPT_LIMIT)
+    _record_throttled_attempt(pair_throttle, now)
+    _record_throttled_attempt(
+        account_throttle,
+        now,
+        limit=ACCOUNT_FAILURE_LIMIT,
+        progressive=True,
+    )
+
+
 def authenticate_with_throttle(request, username: str, pin: str):
     """Authenticate under per-address, pair, and account-wide failure caps."""
     now = timezone.now()
     _prune_stale_throttles(now)
-    ip_key = login_throttle_key(request, "", purpose="login-ip")
-    username_key = login_throttle_key(request, username)
-    account_key = account_throttle_key(username)
     with transaction.atomic():
-        ip_throttle, ip_locked = _locked_throttle(ip_key, now)
-        if ip_locked:
-            return None, True
-
-        username_throttle, username_locked = _locked_throttle(
-            username_key,
+        throttles, locked = _acquire_throttle_tiers(
+            request,
+            username,
             now,
+            ip_purpose="login-ip",
+            pair_purpose="login",
+            account_purpose="login",
         )
-        if username_locked:
-            return None, True
-        account_throttle, account_locked = _locked_throttle(
-            account_key,
-            now,
-            window=ACCOUNT_WINDOW,
-        )
-        if account_locked:
+        if locked:
             return None, True
 
         user = authenticate(request, username=username, password=pin)
         if user is not None:
-            username_throttle.delete()
+            _, pair_throttle, account_throttle = throttles
+            pair_throttle.delete()
             account_throttle.delete()
             return user, False
 
-        _record_throttled_attempt(
-            ip_throttle,
-            now,
-            limit=IP_ATTEMPT_LIMIT,
-        )
-        _record_throttled_attempt(username_throttle, now)
-        _record_throttled_attempt(
-            account_throttle,
-            now,
-            limit=ACCOUNT_FAILURE_LIMIT,
-            progressive=True,
-        )
+        _record_throttle_tier_failure(throttles, now)
         return None, False
 
 
@@ -403,22 +429,16 @@ def reset_pin_with_recovery(
     """Consume a recovery code and rotate both the PIN and recovery codes."""
     now = timezone.now()
     _prune_stale_throttles(now)
-    ip_key = login_throttle_key(request, "", purpose="recovery-ip")
-    pair_key = login_throttle_key(request, username, purpose="recovery")
-    account_key = account_throttle_key(username, purpose="recovery")
     with transaction.atomic():
-        ip_throttle, ip_locked = _locked_throttle(ip_key, now)
-        if ip_locked:
-            return None, [], True
-        pair_throttle, pair_locked = _locked_throttle(pair_key, now)
-        if pair_locked:
-            return None, [], True
-        account_throttle, account_locked = _locked_throttle(
-            account_key,
+        throttles, locked = _acquire_throttle_tiers(
+            request,
+            username,
             now,
-            window=ACCOUNT_WINDOW,
+            ip_purpose="recovery-ip",
+            pair_purpose="recovery",
+            account_purpose="recovery",
         )
-        if account_locked:
+        if locked:
             return None, [], True
 
         user = (
@@ -440,24 +460,14 @@ def reset_pin_with_recovery(
                 .first()
             )
         if recovery is None:
-            _record_throttled_attempt(
-                ip_throttle,
-                now,
-                limit=IP_ATTEMPT_LIMIT,
-            )
-            _record_throttled_attempt(pair_throttle, now)
-            _record_throttled_attempt(
-                account_throttle,
-                now,
-                limit=ACCOUNT_FAILURE_LIMIT,
-                progressive=True,
-            )
+            _record_throttle_tier_failure(throttles, now)
             return None, [], False
 
         recovery.used_at = now
         recovery.save(update_fields=["used_at"])
         user.set_password(new_pin)
         user.save(update_fields=["password"])
+        _, pair_throttle, account_throttle = throttles
         pair_throttle.delete()
         account_throttle.delete()
         codes = generate_recovery_codes(user)

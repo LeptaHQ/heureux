@@ -88,110 +88,55 @@
 </details>
 
 <section class="annotations-section" aria-label="Notes">
-  <div class="annotations-grid">
-    {% for note in notes %}
-      <article class="card annotation-card annotation-card--note" id="note-{{ note.id }}">
-        <header class="annotation-card__head">
-          <span class="annotation-card__kind">Note</span>
-          {% if note.study_later %}<span class="annotation-card__study">À étudier</span>{% endif %}
-          <time datetime="{{ note.updated_at|date:'c' }}">{{ note.updated_at|date:"j M Y · H:i" }}</time>
-        </header>
-        {% if note.title %}<h3>{{ note.title }}</h3>{% endif %}
-        {% if note.quote %}<blockquote>{{ note.quote }}</blockquote>{% endif %}
-        {% if note.body %}<p class="annotation-card__body">{{ note.body }}</p>{% endif %}
-        {% if note.source_path %}
-          <a class="annotation-card__source" href="{{ note.source_path }}">↗ {{ note.source_title|default:"Voir la source" }}</a>
-        {% endif %}
-        <footer class="annotation-card__actions">
-          <form method="post" action="{% url 'study:annotation_study_toggle' note.id %}">
-            {% csrf_token %}
-            <input type="hidden" name="next" value="{{ request.get_full_path }}">
-            <input type="hidden" name="study_later" value="{% if note.study_later %}0{% else %}1{% endif %}">
-            <button class="linkbtn" type="submit">{% if note.study_later %}Retirer de l'étude{% else %}À étudier{% endif %}</button>
-          </form>
-          <details>
-            <summary>Modifier</summary>
-            <form method="post" action="{% url 'study:annotation_update' note.id %}">
-              {% csrf_token %}
-              <input type="hidden" name="next" value="{{ request.get_full_path }}">
-              <label>
-                <span>Titre</span>
-                <input type="text" name="title" maxlength="160" value="{{ note.title }}">
-              </label>
-              <label>
-                <span>Note</span>
-                <textarea name="body" rows="4">{{ note.body }}</textarea>
-              </label>
-              <button class="btn btn--primary btn--sm" type="submit">Enregistrer</button>
-            </form>
-          </details>
-          <form method="post" action="{% url 'study:annotation_delete' note.id %}" data-confirm="Supprimer cette note ?">
-            {% csrf_token %}
-            <input type="hidden" name="next" value="{{ request.get_full_path }}">
-            <button class="linkbtn linkbtn--muted" type="submit">Supprimer</button>
-          </form>
-        </footer>
-      </article>
-    {% empty %}
-      <div class="empty annotation-empty">
-        <p>Aucune note ici. Écrivez-en une ou sélectionnez du texte ailleurs dans l'application.</p>
-      </div>
-    {% endfor %}
-  </div>
+  {% if notes %}
+    <div class="notes-date-sections">
+      {% for section in notes_sections %}
+        <section class="notes-date-section" aria-labelledby="notes-{{ section.key }}-heading">
+          <div class="notes-date-section__head">
+            <h2 id="notes-{{ section.key }}-heading">{{ section.title }}</h2>
+            <span class="notes-date-section__count">{{ section.items|length }}</span>
+            <span class="notes-date-section__rule" aria-hidden="true"></span>
+          </div>
+          <div class="annotations-grid">
+            {% for note in section.items %}
+              {% include "study/partials/annotation_card.html" with annotation=note variant="notes" %}
+            {% endfor %}
+          </div>
+        </section>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty annotation-empty">
+      <p>Aucune note ici. Écrivez-en une ou sélectionnez du texte ailleurs dans l'application.</p>
+    </div>
+  {% endif %}
 </section>
 </div>
 {% else %}
 <div class="notes-tab-panel" id="highlights-panel" role="tabpanel" aria-labelledby="highlights-tab">
 <section class="annotations-section" aria-label="Surlignages">
-  <div class="highlight-source-groups">
-    {% for group in highlight_groups %}
-      <section class="highlight-source-group" aria-labelledby="highlights-{{ group.key }}-heading">
-        <div class="highlight-source-group__head">
-          <div>
-            <h3 id="highlights-{{ group.key }}-heading">{{ group.title }}</h3>
+  {% if highlights %}
+    <div class="notes-date-sections">
+      {% for section in highlights_sections %}
+        <section class="notes-date-section" aria-labelledby="highlights-{{ section.key }}-heading">
+          <div class="notes-date-section__head">
+            <h2 id="highlights-{{ section.key }}-heading">{{ section.title }}</h2>
+            <span class="notes-date-section__count">{{ section.items|length }}</span>
+            <span class="notes-date-section__rule" aria-hidden="true"></span>
           </div>
-          <span class="pill">{{ group.items|length }}</span>
-        </div>
-        <div class="annotations-grid">
-          {% for highlight in group.items %}
-            <article class="card annotation-card annotation-card--highlight" id="highlight-{{ highlight.id }}">
-              <header class="annotation-card__head">
-                <span class="annotation-card__kind">Surlignage</span>
-                {% if highlight.study_later %}<span class="annotation-card__study">À étudier</span>{% endif %}
-                <time datetime="{{ highlight.updated_at|date:'c' }}">{{ highlight.updated_at|date:"j M Y · H:i" }}</time>
-              </header>
-              <blockquote><mark>{{ highlight.quote }}</mark></blockquote>
-              {% if highlight.source_path %}
-                <a class="annotation-card__source" href="{{ highlight.source_path }}">↗ {{ highlight.source_title|default:"Voir la source" }}</a>
-              {% endif %}
-              <footer class="annotation-card__actions">
-                <form method="post" action="{% url 'study:annotation_study_toggle' highlight.id %}">
-                  {% csrf_token %}
-                  <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                  <input type="hidden" name="study_later" value="{% if highlight.study_later %}0{% else %}1{% endif %}">
-                  <button class="linkbtn" type="submit">{% if highlight.study_later %}Retirer de l'étude{% else %}À étudier{% endif %}</button>
-                </form>
-                <form method="post" action="{% url 'study:annotation_delete' highlight.id %}" data-confirm="Supprimer ce surlignage ?">
-                  {% csrf_token %}
-                  <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                  <button class="linkbtn linkbtn--muted" type="submit">Supprimer</button>
-                </form>
-              </footer>
-            </article>
-          {% empty %}
-            <div class="empty annotation-empty">
-              <p>Aucun surlignage dans ce groupe.</p>
-            </div>
-          {% endfor %}
-        </div>
-      </section>
-    {% endfor %}
-    {% if not highlights %}
-      <div class="highlight-source-groups__hint">
-        Sélectionnez un passage, puis choisissez l'icône de surlignage.
-      </div>
-    {% endif %}
-  </div>
+          <div class="annotations-grid">
+            {% for highlight in section.items %}
+              {% include "study/partials/annotation_card.html" with annotation=highlight variant="highlights" %}
+            {% endfor %}
+          </div>
+        </section>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="notes-empty-hint">
+      Sélectionnez un passage, puis choisissez l'icône de surlignage.
+    </div>
+  {% endif %}
 </section>
 </div>
 {% endif %}

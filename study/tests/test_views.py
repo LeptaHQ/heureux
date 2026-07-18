@@ -17,6 +17,8 @@ from django.urls import reverse
 from django.utils import timezone
 
 from study import srs, views as study_views
+from study.content import load_sections
+from study.management.commands.import_content import Command
 from study.models import (
     Card,
     CardState,
@@ -67,9 +69,9 @@ class PWATests(TestCase):
         r = self.client.get("/sw.js")
         self.assertEqual(r.status_code, 200)
         body = r.content.decode()
-        self.assertIn('var CACHE = "heureux-v65"', body)
+        self.assertIn('var CACHE = "heureux-v70"', body)
         self.assertIn("study/css/app.css", body)
-        self.assertIn("?v=58", body)
+        self.assertIn("?v=63", body)
         self.assertIn("study/js/app.js", body)
         self.assertIn("?v=29", body)
         self.assertIn("study/js/translate.js", body)
@@ -290,6 +292,37 @@ class SmokeTests(TestCase):
             reverse("study:part_detail", args=["eo"]),
         )
         self.assertIsNone(response.context["content_task"])
+
+    def test_written_expression_opens_three_task_section_cards(self):
+        task_map = Command()._import_sections(load_sections())
+
+        hub = self.client.get(reverse("study:expression"))
+        written = self.client.get(
+            reverse("study:part_detail", args=["ee"])
+        )
+
+        self.assertEqual(task_map["eo/tache-3"].part.slug, "eo")
+        self.assertEqual(task_map["ee/tache-3"].part.slug, "ee")
+        self.assertContains(
+            hub,
+            reverse("study:part_detail", args=["ee"]),
+        )
+        self.assertContains(hub, "3 tâches · contenus en préparation")
+        self.assertEqual(written.status_code, 200)
+        self.assertContains(written, "Tâche 1")
+        self.assertContains(written, "Tâche 2")
+        self.assertContains(written, "Tâche 3")
+        self.assertContains(written, "Rédiger un message clair")
+        self.assertContains(
+            written,
+            "Raconter et expliquer une expérience",
+        )
+        self.assertContains(
+            written,
+            "Comparer des points de vue et argumenter",
+        )
+        self.assertContains(written, "À venir", count=3)
+        self.assertContains(written, "<dd>Préparation</dd>", html=True)
 
     def test_dashboard_presents_four_explicit_daily_activities(self):
         factories.make_comprehension_test()
@@ -990,12 +1023,20 @@ class CategoryBatchViewsTests(TestCase):
     def test_response_sheet_offers_five_ten_card_subject_vocabulary_lots(self):
         response = factories.make_response()
         prompt = response.prompts.first()
+        spine_card = Card.objects.create(
+            user=self.user,
+            card_type=CardType.SPINE,
+            response=response,
+        )
+        vocabulary_cards = []
         for _ in range(50):
             phrase = factories.make_phrase(tier="subject")
             phrase.source_prompts.add(prompt)
-            factories.make_phrase_card(
-                phrase=phrase,
-                user=self.user,
+            vocabulary_cards.append(
+                factories.make_phrase_card(
+                    phrase=phrase,
+                    user=self.user,
+                )
             )
 
         page = self.client.get(
@@ -1037,6 +1078,32 @@ class CategoryBatchViewsTests(TestCase):
         self.assertIn("Vocabulaire du sujet", state["front_html"])
         self.assertIn("Produisez le mot", state["front_html"])
         self.assertIn("Réponse française", state["back_html"])
+        spine_card.refresh_from_db()
+        vocabulary_cards[0].refresh_from_db()
+        self.assertIsNotNone(spine_card.started_at)
+        self.assertIsNotNone(vocabulary_cards[0].started_at)
+
+        in_progress = self.client.get(
+            reverse("study:response_detail", args=[response.pk])
+        )
+        self.assertEqual(
+            in_progress.context["vocabulary_batches"][0]["status"],
+            "in-progress",
+        )
+        self.assertContains(in_progress, "En cours")
+
+        directory = self.client.get(reverse("study:vocabulary"))
+        directory_prompt = next(
+            item
+            for group in directory.context["subject_theme_groups"]
+            for item in group["prompts"]
+            if item.response_id == response.pk
+        )
+        self.assertEqual(directory_prompt.progress_card.pk, spine_card.pk)
+        self.assertEqual(
+            directory_prompt.progress_card.progress_status,
+            "active",
+        )
 
 
 class ResponsePromptNavigationTests(TestCase):
@@ -1221,6 +1288,52 @@ class ReviewFlowTests(TestCase):
         self.assertEqual(r.status_code, 200)
         self.assertFalse(r.json()["done"])
         return r.json()
+
+    def test_presenting_a_response_marks_it_in_progress_before_rating(self):
+        state = self._present(
+            f"?kind=spine&response={self.card.response_id}"
+        )
+
+        self.card.refresh_from_db()
+        self.assertEqual(state["card_id"], self.card.pk)
+        self.assertIsNotNone(self.card.started_at)
+        self.assertEqual(self.card.state, CardState.NEW)
+        self.assertIn("En cours", state["front_html"])
+
+        response_page = self.client.get(
+            reverse(
+                "study:response_detail",
+                args=[self.card.response_id],
+            )
+        )
+        self.assertContains(
+            response_page,
+            '<span class="progress-status progress-status--active">'
+            "En cours</span>",
+            html=True,
+        )
+
+    def test_mature_response_uses_completed_progress_status(self):
+        self.card.state = CardState.REVIEW
+        self.card.interval_days = 21
+        self.card.started_at = timezone.now()
+        self.card.save(
+            update_fields=["state", "interval_days", "started_at"]
+        )
+
+        response_page = self.client.get(
+            reverse(
+                "study:response_detail",
+                args=[self.card.response_id],
+            )
+        )
+
+        self.assertContains(
+            response_page,
+            '<span class="progress-status progress-status--done">'
+            "Maîtrisée</span>",
+            html=True,
+        )
 
     def test_answer_advances_and_logs(self):
         presented = self._present()

@@ -494,6 +494,59 @@ class ComprehensionFlowTests(TestCase):
             404,
         )
 
+    def test_oral_library_groups_tests_in_fixed_sets_of_five(self):
+        oral = factories.make_comprehension_test(
+            number=1,
+            question_count=3,
+            mode=ComprehensionMode.ORALE,
+        )
+        oral_draft = factories.make_comprehension_test(
+            number=2,
+            question_count=2,
+            mode=ComprehensionMode.ORALE,
+            is_published=False,
+        )
+        factories.make_comprehension_attempt(
+            user=self.user,
+            test=oral,
+            answered_questions=1,
+        )
+
+        overview = self.client.get(
+            reverse("study:comprehension_oral_overview")
+        )
+        group = self.client.get(
+            reverse("study:comprehension_oral_group", args=[1])
+        )
+
+        self.assertContains(overview, "2 groupes de 5 tests")
+        self.assertContains(
+            overview,
+            'class="deck card ce-group-card"',
+            count=2,
+        )
+        self.assertContains(
+            overview,
+            reverse("study:comprehension_oral_group", args=[1]),
+        )
+        self.assertEqual(len(group.context["group"]["slots"]), 5)
+        self.assertContains(
+            group,
+            reverse("study:comprehension_oral_test", args=[oral.slug]),
+        )
+        self.assertNotContains(
+            group,
+            reverse("study:comprehension_oral_test", args=[oral_draft.slug]),
+        )
+
+    def test_oral_group_outside_the_curriculum_is_not_found(self):
+        self.assertEqual(
+            self.client.get(
+                reverse("study:comprehension_oral_group", args=[3])
+            ).status_code,
+            404,
+        )
+
     def test_unpublished_test_cannot_be_opened_or_started(self):
         detail = self.client.get(
             reverse("study:comprehension_test", args=[self.draft.slug])
@@ -1104,6 +1157,9 @@ class OralComprehensionFlowTests(TestCase):
         overview = self.client.get(
             reverse("study:comprehension_oral_overview")
         )
+        group = self.client.get(
+            reverse("study:comprehension_oral_group", args=[1])
+        )
         detail = self.client.get(
             reverse(
                 "study:comprehension_oral_test",
@@ -1112,9 +1168,13 @@ class OralComprehensionFlowTests(TestCase):
         )
 
         self.assertEqual(overview.status_code, 200)
-        self.assertContains(overview, "31 questions")
         self.assertContains(
             overview,
+            reverse("study:comprehension_oral_group", args=[1]),
+        )
+        self.assertContains(group, "31 questions")
+        self.assertContains(
+            group,
             reverse(
                 "study:comprehension_oral_test",
                 args=[self.test.slug],
@@ -1123,7 +1183,11 @@ class OralComprehensionFlowTests(TestCase):
         self.assertContains(detail, "Compréhension orale")
         self.assertContains(detail, ">9</span>")
         self.assertContains(detail, ">39</span>")
-        self.assertNotContains(detail, "Groupe 1")
+        self.assertContains(detail, "Groupe 1")
+        self.assertContains(
+            detail,
+            reverse("study:comprehension_oral_group", args=[1]),
+        )
         self.assertEqual(
             self.client.get(
                 reverse(
@@ -1228,15 +1292,23 @@ class OralComprehensionFlowTests(TestCase):
         overview = self.client.get(
             reverse("study:comprehension_oral_overview")
         )
+        group = self.client.get(
+            reverse("study:comprehension_oral_group", args=[1])
+        )
 
         self.assertContains(
             hub,
             reverse("study:comprehension_oral_overview"),
         )
-        self.assertContains(hub, "dans l’historique")
-        self.assertContains(overview, "Archivé")
+        self.assertContains(hub, "1 terminé")
+        self.assertEqual(overview.status_code, 200)
         self.assertContains(
             overview,
+            reverse("study:comprehension_oral_group", args=[1]),
+        )
+        self.assertContains(group, "Archivé")
+        self.assertContains(
+            group,
             reverse(
                 "study:comprehension_oral_test",
                 args=[self.test.slug],

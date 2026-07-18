@@ -111,8 +111,16 @@ class PersonalResponseTests(TestCase):
         )
         self.assertEqual(personal.position, "Ma position personnelle.")
         self.response.refresh_from_db()
+        self.owner_card.refresh_from_db()
+        other_card = Card.objects.get(
+            user=self.other,
+            card_type=CardType.SPINE,
+            response=self.response,
+        )
         self.assertEqual(self.response.prompt, original_prompt)
         self.assertEqual(self.response.position, original_position)
+        self.assertIsNotNone(self.owner_card.started_at)
+        self.assertIsNone(other_card.started_at)
 
     def test_personal_version_is_private_and_used_in_learning_and_review(self):
         self.client.post(self.edit_url, self.payload)
@@ -161,6 +169,7 @@ class PersonalResponseTests(TestCase):
         )
         self.owner_card.refresh_from_db()
         self.assertEqual(self.owner_card.reps, 6)
+        self.assertIsNotNone(self.owner_card.started_at)
 
     def test_editor_is_limited_to_expression_orale_tache_3(self):
         written_part = factories.make_part("ee")

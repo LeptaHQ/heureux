@@ -29,7 +29,10 @@
         <a class="qrow" href="{% url 'study:response_detail' prompt.response_id %}?prompt={{ prompt.pk }}">
           <span class="qrow__num qrow__num--tag"><span class="chip chip--theme" style="--chip: {{ prompt.theme.color }};">{{ prompt.theme.emoji }} P{{ prompt.number }}</span></span>
           <span class="qrow__text">{{ prompt.text }}</span>
-          <span class="qrow__meta"><span class="muted">{{ prompt.family.name }}</span></span>
+          <span class="qrow__meta">
+            <span class="muted">{{ prompt.family.name }}</span>
+            {% if prompt.progress_card %}<span class="progress-status progress-status--{{ prompt.progress_card.progress_status }}">{{ prompt.progress_card.progress_label }}</span>{% endif %}
+          </span>
         </a>
       {% endfor %}
     </div>

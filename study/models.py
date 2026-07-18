@@ -11,8 +11,6 @@ Two layers:
 
 from __future__ import annotations
 
-from datetime import timedelta
-
 from django.conf import settings as django_settings
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -141,14 +139,6 @@ class Response(models.Model):
             is_active=True,
             is_canonical=True,
         ).first()
-
-    @property
-    def alias_prompts(self):
-        """Prompts other than the canonical one."""
-        return self.prompts.filter(
-            is_active=True,
-            is_canonical=False,
-        )
 
     @property
     def has_aliases(self) -> bool:
@@ -712,6 +702,7 @@ class Card(models.Model):
     needs_revisit = models.BooleanField(default=False, db_index=True)
     revisit_added_at = models.DateTimeField(null=True, blank=True)
     suspended = models.BooleanField(default=False)
+    started_at = models.DateTimeField(null=True, blank=True, db_index=True)
     created_at = models.DateTimeField(default=timezone.now)
 
     objects = CardQuerySet.as_manager()
@@ -759,6 +750,26 @@ class Card(models.Model):
         if self.state == CardState.NEW:
             return False
         return self.due is not None and self.due <= timezone.now()
+
+    @property
+    def has_started(self) -> bool:
+        return self.started_at is not None or self.state != CardState.NEW
+
+    @property
+    def progress_status(self) -> str:
+        if self.state == CardState.REVIEW and self.interval_days >= 21:
+            return "done"
+        if self.has_started:
+            return "active"
+        return "new"
+
+    @property
+    def progress_label(self) -> str:
+        return {
+            "done": "Maîtrisée",
+            "active": "En cours",
+            "new": "À commencer",
+        }[self.progress_status]
 
 
 class ReviewSession(models.Model):

@@ -3,7 +3,7 @@
     <span class="flashcard__type">{{ kind_label }}</span>
     <span class="chip chip--theme" style="background: {{ theme.color }};">{{ theme.emoji }} {{ theme.display_name }}</span>
     <span class="chip">{{ family.name|truncatechars:34 }}</span>
-    <span class="chip state-{{ card.state }}">{{ card.get_state_display }}</span>
+    <span class="progress-status progress-status--{{ card.progress_status }}">{{ card.progress_label }}</span>
   </div>
   <p class="prompt-text">{{ prompt }}</p>
   <div class="instruction">
@@ -14,7 +14,7 @@
   <div class="flashcard__head">
     <span class="flashcard__type">{{ kind_label }}</span>
     <span class="chip">{{ category.name|truncatechars:34 }}</span>
-    <span class="chip state-{{ card.state }}">{{ card.get_state_display }}</span>
+    <span class="progress-status progress-status--{{ card.progress_status }}">{{ card.progress_label }}</span>
   </div>
   {% if production %}
     <p class="cue-text">{{ phrase.english_cue }}</p>

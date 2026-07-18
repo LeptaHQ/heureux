@@ -17,7 +17,6 @@ Params:
   test_count  — when set, vocabulary meta becomes "N tests · K entrées" (CE).
   seen, total — expression "cartes vues" (card_kind="expression").
   facts       — comprehension summary dict (card_kind="comprehension").
-  facts_kind  — "ecrite" or "orale"; selects the comprehension meta wording.
   action_label — action text when available (default "Ouvrir").
 {% endcomment %}
 {% if available %}
@@ -40,13 +39,13 @@ Params:
               {{ task_count }} tâche{{ task_count|pluralize }} · {{ prompt_count }} sujets · {{ entry_count }} entrées
             {% endif %}
           {% elif card_kind == "comprehension" %}
-            {% if facts_kind == "orale" %}
-              {% if facts.available_test_count %}{{ facts.available_test_count }} test{{ facts.available_test_count|pluralize }} disponible{{ facts.available_test_count|pluralize }}{% else %}{{ facts.test_count }} test{{ facts.test_count|pluralize }} dans l’historique{% endif %}{% if facts.active_attempt %} · {{ facts.active_answered_count }}/{{ facts.active_question_count }} répondues{% elif facts.best_percentage is not None %} · {{ facts.best_percentage }} % meilleur score{% endif %} · {{ facts.completed_test_count }} terminé{{ facts.completed_test_count|pluralize }}
-            {% else %}
-              {{ facts.group_count }} groupes · {% if facts.active_attempt %}{{ facts.active_answered_count }}/{{ facts.active_question_count }} répondues{% elif facts.best_percentage is not None %}{{ facts.best_percentage }} % meilleur score{% else %}{{ facts.available_test_count }} test{{ facts.available_test_count|pluralize }} disponible{{ facts.available_test_count|pluralize }}{% endif %} · {{ facts.completed_test_count }} terminé{{ facts.completed_test_count|pluralize }}
-            {% endif %}
+            {{ facts.group_count }} groupes · {% if facts.active_attempt %}{{ facts.active_answered_count }}/{{ facts.active_question_count }} répondues{% elif facts.best_percentage is not None %}{{ facts.best_percentage }} % meilleur score{% else %}{{ facts.available_test_count }} test{{ facts.available_test_count|pluralize }} disponible{{ facts.available_test_count|pluralize }}{% endif %} · {{ facts.completed_test_count }} terminé{{ facts.completed_test_count|pluralize }}
           {% else %}
-            {{ task_count }} tâche{{ task_count|pluralize }} · {{ prompt_count }} sujets · {{ seen }}/{{ total }} cartes vues
+            {% if has_content %}
+              {{ task_count }} tâche{{ task_count|pluralize }} · {{ prompt_count }} sujets · {{ seen }}/{{ total }} cartes vues
+            {% else %}
+              {{ task_count }} tâches · contenus en préparation
+            {% endif %}
           {% endif %}
         </small>
       {% else %}

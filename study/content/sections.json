@@ -43,10 +43,38 @@
       "name": "Expression écrite",
       "short_name": "EE",
       "emoji": "✍️",
-      "color": "#8a94a6",
+      "color": "#d3263a",
       "order": 2,
-      "available": false,
-      "tasks": []
+      "available": true,
+      "tasks": [
+        {
+          "slug": "tache-1",
+          "name": "Tâche 1",
+          "subtitle": "Rédiger un message clair",
+          "emoji": "✉️",
+          "color": "#d3263a",
+          "order": 1,
+          "available": false
+        },
+        {
+          "slug": "tache-2",
+          "name": "Tâche 2",
+          "subtitle": "Raconter et expliquer une expérience",
+          "emoji": "📝",
+          "color": "#d3263a",
+          "order": 2,
+          "available": false
+        },
+        {
+          "slug": "tache-3",
+          "name": "Tâche 3",
+          "subtitle": "Comparer des points de vue et argumenter",
+          "emoji": "⚖️",
+          "color": "#d3263a",
+          "order": 3,
+          "available": false
+        }
+      ]
     }
   ]
 }

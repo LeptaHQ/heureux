@@ -68,6 +68,11 @@ urlpatterns = [
         name="comprehension_oral_overview",
     ),
     path(
+        "comprehension/co/groupe/<int:group_number>/",
+        views.comprehension_oral_group_detail,
+        name="comprehension_oral_group",
+    ),
+    path(
         "comprehension/co/<slug:test_slug>/",
         views.comprehension_test_detail,
         {"mode": "orale"},

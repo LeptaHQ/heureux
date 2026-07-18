@@ -272,24 +272,41 @@ def queue_counts(
         user=user,
         include_suspended=True,
     )
-    todays_logs = ReviewLog.objects.filter(
+    todays_log_counts = ReviewLog.objects.filter(
         user=user,
         reviewed_at__gte=start,
         card_id__in=limit_cards.values("pk"),
+    ).aggregate(
+        new_done_today=Count("pk", filter=Q(state_before=CardState.NEW)),
+        reviews_done_today=Count(
+            "pk",
+            filter=Q(
+                state_before__in=[CardState.REVIEW, CardState.RELEARNING]
+            ),
+        ),
     )
-    new_done_today = todays_logs.filter(state_before=CardState.NEW).count()
-    reviews_done_today = todays_logs.filter(
-        state_before__in=[CardState.REVIEW, CardState.RELEARNING]
-    ).count()
+    new_done_today = todays_log_counts["new_done_today"]
+    reviews_done_today = todays_log_counts["reviews_done_today"]
 
-    learning_due = cards.filter(
-        state__in=[CardState.LEARNING, CardState.RELEARNING], due__lte=now
-    ).count()
-    review_due_total = cards.filter(
-        state=CardState.REVIEW, due__lte=now
-    ).count()
-
-    new_total = cards.filter(state=CardState.NEW).count()
+    due_counts = cards.aggregate(
+        learning_due=Count(
+            "pk",
+            distinct=True,
+            filter=Q(
+                state__in=[CardState.LEARNING, CardState.RELEARNING],
+                due__lte=now,
+            ),
+        ),
+        review_due_total=Count(
+            "pk",
+            distinct=True,
+            filter=Q(state=CardState.REVIEW, due__lte=now),
+        ),
+        new_total=Count("pk", distinct=True, filter=Q(state=CardState.NEW)),
+    )
+    learning_due = due_counts["learning_due"]
+    review_due_total = due_counts["review_due_total"]
+    new_total = due_counts["new_total"]
     review_due = review_due_total
     new_available = new_total
 

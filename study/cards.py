@@ -6,8 +6,6 @@ card-detail pages.
 
 from __future__ import annotations
 
-from typing import Optional
-
 from .models import Card, CardType, PhraseTier
 from .personalization import effective_response
 

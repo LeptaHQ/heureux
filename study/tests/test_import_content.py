@@ -103,6 +103,74 @@ class PhraseLotMigrationTests(TestCase):
         self.assertEqual(response_session.current_card_id, response_card.pk)
 
 
+class CardStartedAtMigrationTests(TestCase):
+    def test_backfill_combines_review_session_annotation_and_vocab_activity(self):
+        user = factories.make_user("started-at-backfill")
+        task = factories.make_task()
+        theme = factories.make_theme("started-backfill", task=task)
+
+        reviewed = factories.make_spine_card(user=user, theme=theme)
+        reviewed_at = timezone.now() - timedelta(days=6)
+        ReviewLog.objects.create(
+            user=user,
+            card=reviewed,
+            reviewed_at=reviewed_at,
+            rating=Rating.GOOD,
+            state_before=CardState.NEW,
+            state_after=CardState.LEARNING,
+        )
+
+        annotated = factories.make_spine_card(user=user, theme=theme)
+        annotation_at = timezone.now() - timedelta(days=5)
+        Annotation.objects.create(
+            user=user,
+            task=task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="Passage déjà surligné",
+            source_path=f"/response/{annotated.response_id}/",
+            start_offset=0,
+            end_offset=24,
+            created_at=annotation_at,
+        )
+
+        vocabulary_response = factories.make_response(theme=theme)
+        vocabulary_spine = Card.objects.create(
+            user=user,
+            card_type=CardType.SPINE,
+            response=vocabulary_response,
+        )
+        vocabulary_phrase = factories.make_phrase(tier="subject")
+        vocabulary_phrase.source_prompts.add(
+            vocabulary_response.prompts.get(is_canonical=True)
+        )
+        vocabulary_at = timezone.now() - timedelta(days=4)
+        factories.make_phrase_card(
+            user=user,
+            phrase=vocabulary_phrase,
+            started_at=vocabulary_at,
+        )
+
+        session_card = factories.make_spine_card(user=user, theme=theme)
+        session = ReviewSession.objects.create(
+            user=user,
+            current_card=session_card,
+        )
+
+        migration = importlib.import_module(
+            "study.migrations.0025_card_started_at"
+        )
+        migration.backfill_card_started_at(apps, None)
+
+        reviewed.refresh_from_db()
+        annotated.refresh_from_db()
+        vocabulary_spine.refresh_from_db()
+        session_card.refresh_from_db()
+        self.assertEqual(reviewed.started_at, reviewed_at)
+        self.assertEqual(annotated.started_at, annotation_at)
+        self.assertEqual(vocabulary_spine.started_at, vocabulary_at)
+        self.assertEqual(session_card.started_at, session.updated_at)
+
+
 class NonDestructiveImportTests(TestCase):
     def _response_data(self, response, *, body_hash="b" * 64, body="Updated"):
         prompt = response.prompts.get(is_canonical=True)
@@ -255,12 +323,14 @@ class NonDestructiveImportTests(TestCase):
             reps=3,
             interval_days=4,
             last_reviewed=now - timedelta(days=2),
+            started_at=now - timedelta(days=10),
         )
         Card.objects.filter(pk=source_card.pk).update(
             state=CardState.REVIEW,
             reps=9,
             interval_days=21,
             last_reviewed=now,
+            started_at=now - timedelta(days=3),
         )
         target_card.refresh_from_db()
         source_card.refresh_from_db()
@@ -302,6 +372,10 @@ class NonDestructiveImportTests(TestCase):
         source_response.refresh_from_db()
         self.assertEqual(target_card.reps, 9)
         self.assertEqual(target_card.interval_days, 21)
+        self.assertEqual(
+            target_card.started_at,
+            now - timedelta(days=10),
+        )
         self.assertFalse(source_response.is_active)
 
     def test_phrase_merge_keeps_the_strongest_existing_schedule(self):
@@ -318,7 +392,9 @@ class NonDestructiveImportTests(TestCase):
         target_card = factories.make_phrase_card(
             user=user,
             phrase=target_phrase,
+            started_at=timezone.now() - timedelta(days=10),
         )
+        source_started_at = timezone.now() - timedelta(days=3)
         source_card = factories.make_phrase_card(
             user=user,
             phrase=source_phrase,
@@ -327,6 +403,7 @@ class NonDestructiveImportTests(TestCase):
             interval_days=19,
             last_reviewed=timezone.now(),
             needs_revisit=True,
+            started_at=source_started_at,
         )
 
         Command()._reconcile_phrase_cards()
@@ -336,6 +413,7 @@ class NonDestructiveImportTests(TestCase):
         self.assertEqual(target_card.reps, 8)
         self.assertEqual(target_card.interval_days, 19)
         self.assertTrue(target_card.needs_revisit)
+        self.assertLess(target_card.started_at, source_started_at)
         self.assertEqual(source_card.reps, 8)
 
     def test_local_phrase_keeps_recognition_progress_on_production_card(self):

@@ -20,6 +20,13 @@ Params:
       <span class="deck__icon">{{ icon }}</span>
       <span>{{ name }}</span>
       {% if available %}
+        {% if stats.total and stats.mature == stats.total %}
+          <span class="progress-status progress-status--done">Maîtrisé</span>
+        {% elif stats.seen %}
+          <span class="progress-status progress-status--active">En cours</span>
+        {% else %}
+          <span class="progress-status progress-status--new">À commencer</span>
+        {% endif %}
         {% if due %}<span class="deck__due pill pill--due">{{ due }}</span>{% endif %}
       {% else %}
         <span class="badge-soon">À venir</span>
@@ -31,6 +38,7 @@ Params:
         <span class="bg-mature" style="width: {% widthratio stats.mature stats.total 100 %}%;"></span>
         <span class="bg-review" style="width: {% widthratio stats.review_young stats.total 100 %}%;"></span>
         <span class="bg-learning" style="width: {% widthratio stats.learning stats.total 100 %}%;"></span>
+        <span class="bg-started" style="width: {% widthratio stats.started_new stats.total 100 %}%;"></span>
       </div>
     {% else %}
       <div class="deck__meta">{{ soon_meta }}</div>

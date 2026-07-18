@@ -5,7 +5,7 @@ import json
 from django.test import TestCase
 from django.urls import reverse
 
-from study.models import Annotation, AnnotationKind
+from study.models import Annotation, AnnotationKind, Card, CardType
 
 from . import factories
 
@@ -79,7 +79,7 @@ class AnnotationTests(TestCase):
         self.assertContains(highlights_tab, "Passage important")
         self.assertNotContains(highlights_tab, "Réutiliser cette structure.")
 
-    def test_highlights_are_grouped_by_responses_and_expressions(self):
+    def test_highlights_show_source_origin_and_group_by_date(self):
         response_highlight = Annotation.objects.create(
             user=self.user,
             task=self.task,
@@ -126,20 +126,23 @@ class AnnotationTests(TestCase):
             self.task_notes_url + "&tab=highlights"
         )
 
-        groups = {
-            group["key"]: {item.id for item in group["items"]}
-            for group in response.context["highlight_groups"]
+        origins = {
+            highlight.id: highlight.origin_label
+            for highlight in response.context["highlights"]
         }
-        self.assertEqual(
-            groups["responses"],
-            {response_highlight.id, legacy_response_highlight.id},
-        )
-        self.assertEqual(
-            groups["expressions"],
-            {expression_highlight.id, legacy_expression_highlight.id},
-        )
-        self.assertContains(response, "Sujets &amp; réponses")
-        self.assertContains(response, "Expressions")
+        self.assertEqual(origins[response_highlight.id], "Réponse")
+        self.assertEqual(origins[legacy_response_highlight.id], "Réponse")
+        self.assertEqual(origins[expression_highlight.id], "Expression")
+        self.assertEqual(origins[legacy_expression_highlight.id], "Expression")
+        self.assertContains(response, "Réponse")
+        self.assertContains(response, "Expression")
+
+        section_keys = [
+            section["key"]
+            for section in response.context["highlights_sections"]
+        ]
+        self.assertEqual(section_keys, ["today"])
+        self.assertContains(response, "Aujourd")
 
     def test_freeform_notes_are_categorized_by_task_or_general(self):
         task_url = self.task_notes_url
@@ -231,6 +234,54 @@ class AnnotationTests(TestCase):
             {"source_path": self.source_path},
         )
         self.assertEqual(response.json()["highlights"], [])
+
+    def test_response_highlight_marks_only_its_subject_in_progress(self):
+        theme = factories.make_theme(
+            "highlight-progress",
+            task=self.task,
+        )
+        response = factories.make_response(theme=theme)
+        card = Card.objects.create(
+            user=self.user,
+            card_type=CardType.SPINE,
+            response=response,
+        )
+        other_card = Card.objects.create(
+            user=self.other,
+            card_type=CardType.SPINE,
+            response=response,
+        )
+        source_path = reverse(
+            "study:response_detail",
+            args=[response.pk],
+        )
+
+        created = self.client.post(
+            reverse("study:annotation_create"),
+            {
+                **self.selection,
+                "kind": AnnotationKind.HIGHLIGHT,
+                "source_path": source_path,
+                "source_key": "",
+                "overlap_ids": "",
+            },
+        )
+
+        self.assertEqual(created.status_code, 201)
+        card.refresh_from_db()
+        other_card.refresh_from_db()
+        self.assertIsNotNone(card.started_at)
+        self.assertIsNone(other_card.started_at)
+
+        theme_page = self.client.get(
+            reverse("study:theme_detail", args=[theme.slug])
+        )
+        self.assertContains(
+            theme_page,
+            '<span class="progress-status progress-status--active">'
+            "En cours</span>",
+            html=True,
+        )
 
     def test_dynamic_card_source_keys_prevent_offset_collisions(self):
         first = self.client.post(

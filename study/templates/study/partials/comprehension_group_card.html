@@ -1,0 +1,38 @@
+{% comment %}
+Comprehension group card — a deck card summarising one group of 5 tests on a
+comprehension overview (written or oral). Params:
+  group       — group dict (number, start, end, completed_count,
+                available_count, active_attempt).
+  group_route — named URL of the group-detail page (e.g.
+                "study:comprehension_group").
+  accent      — --deck-color accent (e.g. "var(--ce-blue)").
+{% endcomment %}
+<a class="deck card ce-group-card" style="--deck-color: {{ accent }};" href="{% url group_route group.number %}">
+  <div class="deck__body">
+    <div class="deck__title">
+      <span class="deck__icon">{{ group.number|stringformat:"02d" }}</span>
+      <span>Groupe {{ group.number }}</span>
+      {% if group.available_count and group.completed_count >= group.available_count %}
+        <span class="progress-status progress-status--done">Terminé</span>
+      {% elif group.active_attempt or group.completed_count %}
+        <span class="progress-status progress-status--active">En cours</span>
+      {% else %}
+        <span class="progress-status progress-status--new">À commencer</span>
+      {% endif %}
+    </div>
+    <div class="deck__meta">Tests {{ group.start|stringformat:"02d" }}–{{ group.end|stringformat:"02d" }}</div>
+    <div class="progress" aria-label="{{ group.completed_count }} tests terminés sur 5">
+      <span class="bg-mature" style="width: {% widthratio group.completed_count 5 100 %}%;"></span>
+    </div>
+    <div class="ce-group-card__foot">
+      {% if group.available_count %}
+        {{ group.available_count }} test{{ group.available_count|pluralize }} disponible{{ group.available_count|pluralize }}
+      {% elif group.completed_count %}
+        Historique disponible
+      {% else %}
+        Contenu en préparation
+      {% endif %}
+      <span aria-hidden="true">→</span>
+    </div>
+  </div>
+</a>

@@ -218,7 +218,8 @@ class Command(BaseCommand):
                         "is_active": True,
                     },
                 )
-                task_by_slug[task.slug] = task_obj
+                task_by_slug[f"{part.slug}/{task.slug}"] = task_obj
+                task_by_slug.setdefault(task.slug, task_obj)
                 seen_tasks.add(task_obj.pk)
         Task.objects.exclude(pk__in=seen_tasks).update(is_active=False)
         ExamPart.objects.exclude(pk__in=seen_parts).update(is_active=False)
@@ -642,6 +643,7 @@ class Command(BaseCommand):
             "last_rating",
             "needs_revisit",
             "revisit_added_at",
+            "started_at",
             "suspended",
         )
         changed = []
@@ -667,12 +669,28 @@ class Command(BaseCommand):
                     key=self._card_progress_rank,
                     default=target_card,
                 )
-                if self._card_progress_rank(
+                schedule_improves = self._card_progress_rank(
                     source_card
-                ) <= self._card_progress_rank(target_card):
+                ) > self._card_progress_rank(target_card)
+                started_at = min(
+                    (
+                        card.started_at
+                        for card in [target_card, *candidates]
+                        if card.started_at is not None
+                    ),
+                    default=None,
+                )
+                if (
+                    not schedule_improves
+                    and started_at == target_card.started_at
+                ):
                     continue
-                for field in schedule_fields:
-                    setattr(target_card, field, getattr(source_card, field))
+                if schedule_improves:
+                    for field in schedule_fields:
+                        if field == "started_at":
+                            continue
+                        setattr(target_card, field, getattr(source_card, field))
+                target_card.started_at = started_at
                 changed.append(target_card)
 
         if changed:
@@ -705,6 +723,7 @@ class Command(BaseCommand):
             "last_rating",
             "needs_revisit",
             "revisit_added_at",
+            "started_at",
             "suspended",
         )
         changed = []
@@ -720,12 +739,33 @@ class Command(BaseCommand):
                 target_card = cards_by_key.get(
                     (target_id, source_card.user_id, source_card.card_type)
                 )
-                if target_card is None or self._card_progress_rank(
-                    source_card
-                ) <= self._card_progress_rank(target_card):
+                if target_card is None:
                     continue
-                for field in schedule_fields:
-                    setattr(target_card, field, getattr(source_card, field))
+                schedule_improves = self._card_progress_rank(
+                    source_card
+                ) > self._card_progress_rank(target_card)
+                started_at = min(
+                    (
+                        value
+                        for value in (
+                            target_card.started_at,
+                            source_card.started_at,
+                        )
+                        if value is not None
+                    ),
+                    default=None,
+                )
+                if (
+                    not schedule_improves
+                    and started_at == target_card.started_at
+                ):
+                    continue
+                if schedule_improves:
+                    for field in schedule_fields:
+                        if field == "started_at":
+                            continue
+                        setattr(target_card, field, getattr(source_card, field))
+                target_card.started_at = started_at
                 changed.append(target_card)
         if changed:
             Card.objects.bulk_update(changed, schedule_fields)
@@ -755,6 +795,7 @@ class Command(BaseCommand):
             "last_rating",
             "needs_revisit",
             "revisit_added_at",
+            "started_at",
         )
         changed = []
         for (phrase_id, user_id, card_type), source_card in cards_by_key.items():
@@ -763,12 +804,33 @@ class Command(BaseCommand):
             target_card = cards_by_key.get(
                 (phrase_id, user_id, CardType.PHRASE_PRODUCTION)
             )
-            if target_card is None or self._card_progress_rank(
-                source_card
-            ) <= self._card_progress_rank(target_card):
+            if target_card is None:
                 continue
-            for field in schedule_fields:
-                setattr(target_card, field, getattr(source_card, field))
+            schedule_improves = self._card_progress_rank(
+                source_card
+            ) > self._card_progress_rank(target_card)
+            started_at = min(
+                (
+                    value
+                    for value in (
+                        target_card.started_at,
+                        source_card.started_at,
+                    )
+                    if value is not None
+                ),
+                default=None,
+            )
+            if (
+                not schedule_improves
+                and started_at == target_card.started_at
+            ):
+                continue
+            if schedule_improves:
+                for field in schedule_fields:
+                    if field == "started_at":
+                        continue
+                    setattr(target_card, field, getattr(source_card, field))
+            target_card.started_at = started_at
             changed.append(target_card)
         if changed:
             Card.objects.bulk_update(changed, schedule_fields)

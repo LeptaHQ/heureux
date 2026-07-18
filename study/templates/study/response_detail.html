@@ -86,8 +86,9 @@
     <div class="card section-card response-sidebar-card response-sidebar-card--status">
       <div class="spine-label">Cette carte</div>
       {% if card %}
-        <p class="state-line"><span class="qrow__state bg-{{ card.state }}"></span> <b class="state-{{ card.state }}">{{ card.get_state_display }}</b></p>
+        <p class="state-line"><span class="progress-status progress-status--{{ card.progress_status }}">{{ card.progress_label }}</span></p>
         <dl class="kv">
+          {% if card.started_at %}<div><dt>Commencée</dt><dd>{{ card.started_at|date:"j M Y" }}</dd></div>{% endif %}
           <div><dt>Répétitions</dt><dd>{{ card.reps }}</dd></div>
           <div><dt>Oublis</dt><dd>{{ card.lapses }}</dd></div>
           <div><dt>Intervalle</dt><dd>{{ card.interval_days|floatformat:0 }} j</dd></div>

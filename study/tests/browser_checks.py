@@ -10,6 +10,8 @@ from playwright.sync_api import sync_playwright
 
 from django.utils import timezone
 
+from study.content import load_sections
+from study.management.commands.import_content import Command
 from study.models import (
     Annotation,
     AnnotationKind,
@@ -642,7 +644,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             1,
         )
 
-    def test_mobile_highlights_use_two_source_groups(self):
+    def test_mobile_highlights_group_by_date_with_source_chips(self):
         Annotation.objects.create(
             user=self.user,
             task=self.task,
@@ -701,18 +703,36 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             "true",
         )
 
-        response_group = self.page.locator(
-            '[aria-labelledby="highlights-responses-heading"]'
+        today_section = self.page.locator(
+            '[aria-labelledby="highlights-today-heading"]'
         )
-        expression_group = self.page.locator(
-            '[aria-labelledby="highlights-expressions-heading"]'
-        )
-        response_group.get_by_text(
+        today_section.get_by_text(
             "Passage retenu dans une réponse."
         ).wait_for()
-        expression_group.get_by_text(
+        today_section.get_by_text(
             "Passage retenu dans une expression."
         ).wait_for()
+
+        response_card = self.page.locator(
+            ".annotation-card",
+            has_text="Passage retenu dans une réponse.",
+        )
+        expression_card = self.page.locator(
+            ".annotation-card",
+            has_text="Passage retenu dans une expression.",
+        )
+        self.assertEqual(
+            response_card.locator(".annotation-card__origin")
+            .text_content()
+            .strip(),
+            "Réponse",
+        )
+        self.assertEqual(
+            expression_card.locator(".annotation-card__origin")
+            .text_content()
+            .strip(),
+            "Expression",
+        )
         self.assert_no_horizontal_overflow()
 
     def test_mobile_annotation_search_study_and_weak_drill(self):
@@ -951,6 +971,31 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             "cards => cards.map(card => card.getBoundingClientRect().height)"
         )
         self.assertLessEqual(max(mobile_heights), 320)
+        self.assert_no_horizontal_overflow()
+
+    def test_written_expression_sections_and_notes_tabs_are_centered(self):
+        Command()._import_sections(load_sections())
+        self.page.set_viewport_size({"width": 1200, "height": 800})
+
+        self.page.goto(self.live_server_url + reverse("study:expression"))
+        self.page.locator(
+            ".expression-path--ee",
+            has_text="Expression écrite",
+        ).click()
+        self.page.locator("h1", has_text="Expression écrite").wait_for()
+        self.assertEqual(self.page.locator(".deck--soon").count(), 3)
+        self.assert_no_horizontal_overflow()
+
+        self.page.goto(
+            self.live_server_url + reverse("study:notes_overview")
+        )
+        tabs_box = self.page.locator(".notes-tabs").bounding_box()
+        main_box = self.page.locator("#main").bounding_box()
+        self.assertAlmostEqual(
+            tabs_box["x"] + tabs_box["width"] / 2,
+            main_box["x"] + main_box["width"] / 2,
+            delta=1,
+        )
         self.assert_no_horizontal_overflow()
 
     def test_stats_dashboard_stays_balanced_on_desktop_and_mobile(self):

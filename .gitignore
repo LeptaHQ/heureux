@@ -1,6 +1,28 @@
-# Python
+# Python virtual environments
 .venv/
+*.venv*
 venv/
+env/
+ENV/
+pyvenv/
+virtualenv/
+.virtualenv/
+.venvs/
+venvs/
+.virtualenvs/
+virtualenvs/
+.venv*/
+venv*/
+*-venv*/
+*_venv*/
+env.bak/
+venv.bak/
+.tox/
+.nox/
+.conda/
+__pypackages__/
+
+# Python
 __pycache__/
 *.py[cod]
 *.egg-info/

@@ -47,27 +47,7 @@
 
 <div class="annotations-grid">
   {% for annotation in results %}
-    <article class="card annotation-card {% if annotation.kind == 'highlight' %}annotation-card--highlight{% else %}annotation-card--note{% endif %}" id="annotation-{{ annotation.id }}">
-      <header class="annotation-card__head">
-        <span class="annotation-card__kind">{{ annotation.get_kind_display }}</span>
-        {% if annotation.study_later %}<span class="annotation-card__study">À étudier</span>{% endif %}
-        <time datetime="{{ annotation.updated_at|date:'c' }}">{{ annotation.updated_at|date:"j M Y · H:i" }}</time>
-      </header>
-      {% if annotation.title %}<h3>{{ annotation.title }}</h3>{% endif %}
-      {% if annotation.quote %}<blockquote>{% if annotation.kind == "highlight" %}<mark>{{ annotation.quote }}</mark>{% else %}{{ annotation.quote }}{% endif %}</blockquote>{% endif %}
-      {% if annotation.body %}<p class="annotation-card__body">{{ annotation.body }}</p>{% endif %}
-      <p class="annotation-card__scope">{% if annotation.task %}{{ annotation.task.part.short_name }} · {{ annotation.task.name }}{% else %}Notes générales{% endif %}</p>
-      <footer class="annotation-card__actions">
-        <a class="linkbtn" href="{{ annotation.notes_url }}">Ouvrir</a>
-        {% if annotation.source_path %}<a class="linkbtn" href="{{ annotation.source_path }}">Voir la source</a>{% endif %}
-        <form method="post" action="{% url 'study:annotation_study_toggle' annotation.id %}">
-          {% csrf_token %}
-          <input type="hidden" name="next" value="{{ request.get_full_path }}">
-          <input type="hidden" name="study_later" value="{% if annotation.study_later %}0{% else %}1{% endif %}">
-          <button class="linkbtn" type="submit">{% if annotation.study_later %}Retirer de l'étude{% else %}À étudier{% endif %}</button>
-        </form>
-      </footer>
-    </article>
+    {% include "study/partials/annotation_card.html" with annotation=annotation variant="search" %}
   {% empty %}
     <div class="empty annotation-empty">
       <p>Aucun élément ne correspond à cette recherche.</p>

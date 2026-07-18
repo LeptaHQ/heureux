@@ -752,6 +752,10 @@ class UserProgressIsolationTests(TestCase):
         )
         srs.review(first_card, Rating.GOOD)
         srs.review(second_card, Rating.GOOD)
+        started_at = timezone.now()
+        Card.objects.filter(pk__in=[first_card.pk, second_card.pk]).update(
+            started_at=started_at
+        )
         self.client.force_login(self.first)
 
         self.client.post(
@@ -766,6 +770,8 @@ class UserProgressIsolationTests(TestCase):
         second_card.refresh_from_db()
         self.assertEqual(first_card.state, CardState.NEW)
         self.assertNotEqual(second_card.state, CardState.NEW)
+        self.assertIsNone(first_card.started_at)
+        self.assertEqual(second_card.started_at, started_at)
         self.assertFalse(ReviewLog.objects.filter(user=self.first).exists())
         self.assertTrue(ReviewLog.objects.filter(user=self.second).exists())
 

@@ -11,7 +11,7 @@
   <dl class="area-hero__metrics" aria-label="Contenu du parcours">
     <div><dt>Tâches</dt><dd>{{ tasks|length }}</dd></div>
     <div><dt>Parcours</dt><dd>{{ part.short_name }}</dd></div>
-    <div><dt>Mode</dt><dd>Actif</dd></div>
+    <div><dt>Mode</dt><dd>{% if available_task_count %}Actif{% else %}Préparation{% endif %}</dd></div>
   </dl>
 </header>
 

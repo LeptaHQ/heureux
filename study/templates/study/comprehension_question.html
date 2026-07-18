@@ -11,7 +11,7 @@
     <a href="{% url test.overview_route %}">{{ test.get_mode_display }}</a>
     {% if group_number %}
       <span aria-hidden="true">›</span>
-      <a href="{% url 'study:comprehension_group' group_number %}">Groupe {{ group_number }}</a>
+      <a href="{% url test.group_route group_number %}">Groupe {{ group_number }}</a>
     {% endif %}
     <span aria-hidden="true">›</span>
     <a href="{% url test.detail_route test.slug %}">{{ test.title }}</a>

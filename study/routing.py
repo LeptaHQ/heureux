@@ -2,11 +2,17 @@
 
 from __future__ import annotations
 
+import re
 from urllib.parse import urlencode
 
 from django.urls import reverse
 
 from .models import ComprehensionMode, ComprehensionTest, Prompt, Response, Theme
+
+TACHE_TWO_PROMPT_KEY = re.compile(
+    r"^tache2:(?P<month>[a-z0-9-]+):batch-(?P<batch>\d+):"
+    r"subject-(?P<subject>\d+)$"
+)
 
 
 def _expression_task_args(task) -> list[str]:
@@ -17,6 +23,22 @@ def prompt_detail_url(prompt: Prompt) -> str:
     task = prompt.theme.task
     if task is None:
         raise ValueError("A public prompt must belong to an expression task.")
+    if task.part.slug == "eo" and task.slug == "tache-2":
+        match = TACHE_TWO_PROMPT_KEY.fullmatch(prompt.content_key)
+        if match is None:
+            raise ValueError(
+                "A Tâche 2 subject prompt must use its canonical content key."
+            )
+        return reverse(
+            "study:task_subject_detail",
+            args=[
+                task.part.slug,
+                task.slug,
+                match["month"],
+                int(match["batch"]),
+                int(match["subject"]),
+            ],
+        )
     return reverse(
         "study:response_detail",
         args=[task.part.slug, task.slug, prompt.pk],

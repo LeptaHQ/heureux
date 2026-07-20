@@ -37,8 +37,8 @@ COMPREHENSION_GROUP_COUNTS = {
 }
 
 COMPREHENSION_GROUP_LABELS = {
-    ComprehensionMode.ECRITE: "Lot",
-    ComprehensionMode.ORALE: "Groupe",
+    ComprehensionMode.ECRITE: "Batch",
+    ComprehensionMode.ORALE: "Batch",
 }
 
 

@@ -19,9 +19,11 @@
     {% for item in items %}
       <article class="flashcard annotation-study__card {% if not forloop.first %}hidden{% endif %}" data-study-card data-study-toggle-url="{% url 'study:annotation_study_toggle' item.id %}">
         <div class="annotation-study__front" data-study-front>
-          <p class="eyebrow">{% if item.kind == "highlight" %}Passage surligné{% else %}Note personnelle{% endif %}</p>
+          <p class="eyebrow">{% if item.kind == "highlight" %}Passage surligné{% elif item.quote and item.body %}Texte sélectionné{% else %}Note personnelle{% endif %}</p>
           {% if item.kind == "highlight" %}
             <h2>Quel passage avez-vous retenu&nbsp;?</h2>
+          {% elif item.quote and item.body %}
+            <blockquote class="annotation-study__prompt">{{ item.quote }}</blockquote>
           {% elif item.title %}
             <h2>{{ item.title }}</h2>
           {% else %}
@@ -30,8 +32,14 @@
           <p class="muted">{% if item.source_title %}{{ item.source_title }}{% elif item.task %}{{ item.task.part.short_name }} · {{ item.task.name }}{% else %}Notes générales{% endif %}</p>
         </div>
         <div class="annotation-study__back hidden" data-study-back>
-          {% if item.quote %}<blockquote{% if item.kind == "highlight" %} class="annotation-study__highlight"{% endif %}>{{ item.quote }}</blockquote>{% endif %}
-          {% if item.body %}<p>{{ item.body }}</p>{% endif %}
+          {% if item.kind == "note" and item.quote and item.body %}
+            <p class="eyebrow">Votre note</p>
+            {% if item.title %}<h2>{{ item.title }}</h2>{% endif %}
+            <p>{{ item.body }}</p>
+          {% else %}
+            {% if item.quote %}<blockquote{% if item.kind == "highlight" %} class="annotation-study__highlight"{% endif %}>{{ item.quote }}</blockquote>{% endif %}
+            {% if item.body %}<p>{{ item.body }}</p>{% endif %}
+          {% endif %}
           {% if item.source_path %}<a href="{{ item.source_path }}">Voir la source {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>{% endif %}
         </div>
       </article>

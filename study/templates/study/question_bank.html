@@ -12,7 +12,6 @@
       <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name=task.icon only %}</span>
       <span>{{ question_bank.title }}</span>
     </h1>
-    <p><strong>{{ question_bank.label }}</strong> · {{ question_bank.subtitle }}</p>
   </div>
   <dl class="question-bank-hero__metrics" aria-label="Contenu de la mémoire">
     <div><dt>Catégories</dt><dd>{{ question_bank.category_count }}</dd></div>
@@ -92,6 +91,11 @@
               <ol class="question-bank-questions">
                 {% for question in group.questions %}
                   <li class="{% if question.completed %}is-complete{% endif %}" data-question-bank-question data-question-key="{{ question.content_key }}">
+                    <span class="question-bank-question__number" aria-hidden="true">{{ forloop.counter|stringformat:"02d" }}</span>
+                    <div>
+                      <p>{{ question.text }}</p>
+                      {% if question.note %}<small>{{ question.note }}</small>{% endif %}
+                    </div>
                     <form
                       class="memory-question-check"
                       method="post"
@@ -110,11 +114,6 @@
                         {% include "study/partials/ui_icon.html" with name="check" only %}
                       </button>
                     </form>
-                    <span class="question-bank-question__number" aria-hidden="true">{{ forloop.counter|stringformat:"02d" }}</span>
-                    <div>
-                      <p>{{ question.text }}</p>
-                      {% if question.note %}<small>{{ question.note }}</small>{% endif %}
-                    </div>
                   </li>
                 {% endfor %}
               </ol>

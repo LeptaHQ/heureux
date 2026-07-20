@@ -17,10 +17,8 @@
 
   {% if can_resume_review %}
     <a class="resume-review resume-review--home" href="{% url 'study:review' %}">
-      <span class="resume-review__icon" aria-hidden="true">▶</span>
       <span>
-        <small>Session interrompue · {{ resume_scope_label }}</small>
-        <strong>Reprendre là où je me suis arrêté</strong>
+        <strong>Reprendre là où je me suis arrêté · {{ resume_scope_label }}</strong>
       </span>
       <span aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
     </a>
@@ -35,7 +33,6 @@
 
     <div class="daily-plan__grid">
       <article class="daily-card card daily-card--expression">
-        <span class="daily-card__index">01</span>
         <div>
           <p class="eyebrow">Expression</p>
           <h3>Restituer des réponses</h3>
@@ -46,7 +43,6 @@
       </article>
 
       <article class="daily-card card daily-card--vocabulary">
-        <span class="daily-card__index">02</span>
         <div>
           <p class="eyebrow">Vocabulaire</p>
           <h3>Activer les mots et tournures</h3>
@@ -57,7 +53,6 @@
       </article>
 
       <article class="daily-card card daily-card--comprehension">
-        <span class="daily-card__index">03</span>
         <div>
           <p class="eyebrow">Compréhension</p>
           {% if comprehension.active_attempt %}
@@ -82,7 +77,6 @@
       </article>
 
       <article class="daily-card card daily-card--notes">
-        <span class="daily-card__index">04</span>
         <div>
           <p class="eyebrow">Notes</p>
           <h3>Revoir ce que tu as retenu</h3>

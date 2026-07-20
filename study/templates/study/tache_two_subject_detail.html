@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}Sujet {{ subject.number }} · {{ subject.title }} · {{ task.name }}{% endblock %}
+
+{% block content %}
+{% include "study/_task_nav.html" %}
+
+<article class="tache-two-subject-detail" style="--subject-accent: {{ task.color }};">
+  <a class="subject-page-back" href="{% url 'study:task_subject_batch' part.slug task.slug subject_month.slug subject_batch.number %}">
+    {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
+    {{ subject_month.name }} · Batch {{ subject_batch.number }}
+  </a>
+
+  <header class="tache-two-subject-detail__hero">
+    <p class="eyebrow">{{ subject_month.name }} · Batch {{ subject_batch.number_label }} · Sujet {{ subject.number_label }}</p>
+    <h1>{{ subject.title }}</h1>
+    <p>{{ subject.question_count }} questions préparées</p>
+  </header>
+
+  {% include "study/partials/tache_two_subject_navigation.html" %}
+
+  <div class="detail-grid tache-two-subject-detail__grid">
+    <div class="answer-columns">
+      <section class="tache-two-consigne" aria-labelledby="subject-prompt-title">
+        <span class="tache-two-consigne__icon" aria-hidden="true">
+          {% include "study/partials/ui_icon.html" with name="messages" only %}
+        </span>
+        <div>
+          <h2 id="subject-prompt-title">Consigne</h2>
+          <p>{{ subject.prompt }}</p>
+        </div>
+      </section>
+
+      <section
+        class="tache-two-question-section"
+        aria-labelledby="subject-questions-title"
+        data-annotation-root
+        data-annotation-source-key="tache-two:{{ subject_month.slug }}:batch-{{ subject_batch.number }}:subject-{{ subject.number }}"
+        data-annotation-task-id="{{ task.pk }}">
+        <header>
+          <div>
+            <p class="eyebrow">Préparation orale</p>
+            <h2 id="subject-questions-title">Questions à poser</h2>
+          </div>
+          <span>{{ subject.question_count }} questions</span>
+        </header>
+        <ol class="tache-two-question-list">
+          {% for question in subject_questions %}
+            <li class="tache-two-question" data-tache-two-question>
+              <span class="tache-two-question__number">{{ question.number|stringformat:"02d" }}</span>
+              <p>{{ question.text }}</p>
+            </li>
+          {% endfor %}
+        </ol>
+      </section>
+    </div>
+
+    <aside class="detail-side">
+      <div class="card section-card response-sidebar-card response-sidebar-card--status">
+        <div class="spine-label">Progression du sujet</div>
+        <p class="state-line"><span class="progress-status progress-status--{{ subject_progress.status }}">{{ subject_progress.label }}</span></p>
+        {% if card %}
+          <div class="spine-label">Pratique des questions</div>
+          <dl class="kv">
+            {% if card.response_practice_started_at %}<div><dt>Commencée</dt><dd>{{ card.response_practice_started_at|date:"j M Y" }}</dd></div>{% endif %}
+            <div><dt>Répétitions</dt><dd>{{ card.reps }}</dd></div>
+            <div><dt>Oublis</dt><dd>{{ card.lapses }}</dd></div>
+            <div><dt>Intervalle</dt><dd>{{ card.interval_days|floatformat:0 }} j</dd></div>
+            {% if card.due %}<div><dt>Prochaine</dt><dd>{{ card.due|date:"j M Y" }}</dd></div>{% endif %}
+          </dl>
+        {% else %}
+          <p class="muted">Aucune pratique de ce sujet.</p>
+        {% endif %}
+        <div class="response-sidebar-actions">
+          <a class="btn btn--primary btn--block" href="{{ response_review_url }}">Pratiquer ce sujet</a>
+          <a class="btn btn--block" href="{{ theme_review_url }}">Pratiquer {{ subject_month.name }}</a>
+          {% if vocabulary_review_url %}
+            <a class="btn btn--block" href="{{ vocabulary_review_url }}">Pratiquer les vocabs</a>
+          {% endif %}
+        </div>
+      </div>
+
+      {% if subject_vocabulary %}
+        <div class="card section-card response-sidebar-card" id="subject-vocabulary">
+          <div class="response-batches__head">
+            <div class="spine-label">Vocabulaire de ce sujet</div>
+            <span class="progress-status progress-status--{{ vocabulary_batch_progress.status }}">{{ vocabulary_batch_progress.label }}</span>
+          </div>
+          <p class="muted">{{ vocabulary_count }} vocabs · {{ vocabulary_batch_progress.completed }}/{{ vocabulary_batch_progress.total }} lots terminés</p>
+          <ul class="mini-list response-sidebar-list">
+            {% for phrase in subject_vocabulary %}
+              <li data-annotation-root data-annotation-source-key="phrase:{{ phrase.phrase_id }}:catalog"><b>{{ phrase.expression }}</b> <span class="muted">— {{ phrase.english_cue }}</span></li>
+            {% endfor %}
+          </ul>
+          {% include "study/partials/response_batch_list.html" with batches=vocabulary_batches batch_kind="vocabulary" only %}
+        </div>
+      {% endif %}
+    </aside>
+  </div>
+
+  {% include "study/partials/tache_two_subject_navigation.html" with bottom=True %}
+</article>
+{% endblock %}

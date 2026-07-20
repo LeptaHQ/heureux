@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from .models import Card, CardType, PhraseTier
 from .personalization import effective_response
+from .routing import prompt_detail_url, response_detail_url
 
 
 def scope_from_request(request) -> dict:
@@ -79,14 +80,29 @@ def scope_label(scope: dict) -> str:
             is_active=True,
         ).first()
         if response:
-            deck_name = (
-                "Vocabulaire"
-                if scope.get("kind") == "vocab"
-                else "Expressions"
+            task = response.theme.task
+            tache_two = (
+                task is not None
+                and task.part.slug == "eo"
+                and task.slug == "tache-2"
+            )
+            if scope.get("kind") == "vocab":
+                deck_name = "Vocabulaire"
+            elif tache_two:
+                deck_name = "Questions"
+            elif scope.get("kind") == "spine":
+                deck_name = "Réponse"
+            else:
+                deck_name = "Expressions"
+            subject_number = response.canonical_prompt.number
+            number_label = (
+                f"Sujet {subject_number}"
+                if tache_two
+                else f"P{subject_number}"
             )
             return with_batch(
                 f"{deck_name} · {response.theme.display_name} "
-                f"· P{response.canonical_prompt.number}"
+                f"· {number_label}"
             )
     if scope.get("task"):
         tasks = Task.objects.filter(
@@ -141,6 +157,12 @@ def _spine_payload(card: Card) -> dict:
     response = card.response
     content = effective_response(response, card.user)
     canonical = response.canonical_prompt
+    task = response.theme.task
+    tache_two_subject = (
+        task is not None
+        and task.part.slug == "eo"
+        and task.slug == "tache-2"
+    )
     aliases = [
         prompt
         for prompt in response.prompts.filter(is_active=True)
@@ -149,15 +171,26 @@ def _spine_payload(card: Card) -> dict:
     return {
         "card": card,
         "kind": "spine",
-        "kind_label": "Réponse argumentée",
+        "kind_label": (
+            "Questions d'interaction"
+            if tache_two_subject
+            else "Réponse argumentée"
+        ),
+        "tache_two_subject": tache_two_subject,
         "theme": response.theme,
         "family": response.family,
+        "family_label": (
+            response.family.name.rsplit(" · ", 1)[-1]
+            if tache_two_subject
+            else response.family.name
+        ),
         "prompt": canonical.text if canonical else response.prompt,
         "canonical_prompt": canonical,
         "aliases": aliases,
         "response": response,
         "response_content": content,
         "arguments": content.arguments,
+        "detail_url": response_detail_url(response),
         "annotation_source_key": f"response:{response.content_key}",
     }
 
@@ -167,6 +200,13 @@ def _phrase_payload(card: Card) -> dict:
     production = card.card_type == CardType.PHRASE_PRODUCTION
     subject_vocabulary = phrase.tier == PhraseTier.SUBJECT
     comprehension_vocabulary = phrase.tier == PhraseTier.COMPREHENSION
+    sources = list(
+        phrase.source_prompts.filter(is_active=True).select_related(
+            "theme__task__part"
+        )
+    )
+    for source in sources:
+        source.detail_url = prompt_detail_url(source)
     return {
         "card": card,
         "kind": "phrase",
@@ -190,9 +230,7 @@ def _phrase_payload(card: Card) -> dict:
         "category": phrase.category,
         "example_html": phrase.example_html,
         "cloze_example": phrase.cloze_example,
-        "sources": list(
-            phrase.source_prompts.filter(is_active=True).select_related("theme")
-        ),
+        "sources": sources,
         "question_sources": list(
             phrase.source_questions.filter(
                 is_active=True,

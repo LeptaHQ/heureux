@@ -3,7 +3,7 @@ Comprehension group card — a deck card summarising one group of 5 tests on a
 comprehension overview (written or oral). Params:
   group       — group dict (number, start, end, completed_count,
                 available_count, active_attempt).
-  group_label — visible collection name ("Lot" for CE, "Groupe" for CO).
+  group_label — visible collection name ("Batch" for CE and CO).
   group_route — named URL of the group-detail page (e.g.
                 "study:comprehension_group").
   accent      — --deck-color accent (e.g. "var(--ce-blue)").
@@ -12,7 +12,7 @@ comprehension overview (written or oral). Params:
   <div class="deck__body">
     <div class="deck__title">
       <span class="deck__icon">{{ group.number|stringformat:"02d" }}</span>
-      <span>{{ group_label|default:"Groupe" }} {{ group.number }}</span>
+      <span>{{ group_label|default:"Batch" }} {{ group.number }}</span>
     </div>
     <div class="deck__meta">Tests {{ group.start|stringformat:"02d" }}–{{ group.end|stringformat:"02d" }}</div>
     <div class="deck__progress-cell">

@@ -167,6 +167,7 @@ def task_detail(request, part_slug, task_slug):
         )
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
         memories = content_module.load_question_banks()
+        subject_months = content_module.load_tache_two_subject_months()
         memory_states = _memory_progress(request.user, memories)
         memory_items = [
             {
@@ -184,6 +185,10 @@ def task_detail(request, part_slug, task_slug):
                 "memory_task": True,
                 "memories": memory_items,
                 "memory_count": len(memories),
+                "subject_months": subject_months,
+                "subject_count": sum(
+                    month.subject_count for month in subject_months
+                ),
                 "category_count": sum(
                     memory.category_count for memory in memories
                 ),
@@ -337,6 +342,31 @@ def browse(request, part_slug=None, task_slug=None):
             request,
             "study/coming_soon.html",
             {"part": forced_task.part, "task": forced_task},
+        )
+    if forced_task and (
+        forced_task.part.slug,
+        forced_task.slug,
+    ) == content_module.QUESTION_BANK_TASK:
+        months = content_module.load_tache_two_subject_months()
+        return render(
+            request,
+            "study/tache_two_subjects.html",
+            {
+                "part": forced_task.part,
+                "task": forced_task,
+                "memory_task": True,
+                "subject_months": months,
+                "month_count": len(months),
+                "batch_count": sum(
+                    month.batch_count for month in months
+                ),
+                "subject_count": sum(
+                    month.subject_count for month in months
+                ),
+                "question_count": sum(
+                    month.question_count for month in months
+                ),
+            },
         )
     filters = _scope_filters(request, forced_task)
     scope = filters["scope"]
@@ -544,6 +574,170 @@ def _memory_by_number(memory_number):
     if memory is None:
         raise Http404
     return memory
+
+
+def _tache_two_subject_month(month_slug):
+    month = next(
+        (
+            month
+            for month in content_module.load_tache_two_subject_months()
+            if month.slug == month_slug
+        ),
+        None,
+    )
+    if month is None:
+        raise Http404
+    return month
+
+
+def _tache_two_subject_batch(month, batch_number):
+    batch = next(
+        (
+            batch
+            for batch in month.batches
+            if batch.number == batch_number
+        ),
+        None,
+    )
+    if batch is None:
+        raise Http404
+    return batch
+
+
+def task_subject_batch(request, part_slug, task_slug, month_slug, batch_number):
+    task = _memory_task(part_slug, task_slug)
+    month = _tache_two_subject_month(month_slug)
+    batch = _tache_two_subject_batch(month, batch_number)
+    return render(
+        request,
+        "study/tache_two_subject_batch.html",
+        {
+            "part": task.part,
+            "task": task,
+            "memory_task": True,
+            "subject_month": month,
+            "subject_batch": batch,
+        },
+    )
+
+
+def task_subject_detail(
+    request,
+    part_slug,
+    task_slug,
+    month_slug,
+    batch_number,
+    subject_number,
+):
+    task = _memory_task(part_slug, task_slug)
+    month = _tache_two_subject_month(month_slug)
+    batch = _tache_two_subject_batch(month, batch_number)
+    subject = next(
+        (
+            subject
+            for subject in batch.subjects
+            if subject.number == subject_number
+        ),
+        None,
+    )
+    if subject is None:
+        raise Http404
+
+    response = get_object_or_404(
+        Response.objects.select_related(
+            "theme__task__part",
+            "family",
+        ),
+        content_key=content_module.tache_two_subject_content_key(
+            month.slug,
+            batch.number,
+            subject.number,
+        ),
+        theme__task=task,
+        is_active=True,
+    )
+    selected_prompt = get_object_or_404(
+        Prompt.objects.select_related(
+            "theme__task__part",
+            "family",
+            "response",
+        ),
+        response=response,
+        content_key=response.content_key,
+        is_active=True,
+        is_canonical=True,
+    )
+    subject_progress = subject_progress_by_response(
+        request.user,
+        {response.pk},
+    )[response.pk]
+    card = Card.objects.filter(
+        user=request.user,
+        card_type=CardType.SPINE,
+        response=response,
+    ).first()
+    task_scope = {"part": task.part.slug, "task": task.slug}
+    vocabulary_context = _subject_vocabulary_context(
+        response,
+        task_scope,
+        request.user,
+    )
+    questions = [
+        {
+            "number": index,
+            "text": question.text,
+        }
+        for index, question in enumerate(subject.questions, start=1)
+    ]
+    subject_index = next(
+        index
+        for index, batch_subject in enumerate(batch.subjects)
+        if batch_subject.number == subject.number
+    )
+    return render(
+        request,
+        "study/tache_two_subject_detail.html",
+        {
+            "part": task.part,
+            "task": task,
+            "memory_task": True,
+            "subject_month": month,
+            "subject_batch": batch,
+            "subject": subject,
+            "subject_questions": questions,
+            "previous_subject": (
+                batch.subjects[subject_index - 1]
+                if subject_index > 0
+                else None
+            ),
+            "next_subject": (
+                batch.subjects[subject_index + 1]
+                if subject_index + 1 < len(batch.subjects)
+                else None
+            ),
+            "subject_position": subject_index + 1,
+            "subject_total": len(batch.subjects),
+            "selected_prompt": selected_prompt,
+            "response": response,
+            "card": card,
+            "subject_progress": subject_progress,
+            "response_review_url": review_url(
+                {
+                    **task_scope,
+                    "kind": "spine",
+                    "response": str(response.pk),
+                }
+            ),
+            "theme_review_url": review_url(
+                {
+                    **task_scope,
+                    "kind": "spine",
+                    "theme": response.theme.slug,
+                }
+            ),
+            **vocabulary_context,
+        },
+    )
 
 
 def _memory_sections(memory, completed_keys):
@@ -755,6 +949,61 @@ def family_detail(request, part_slug, task_slug, slug):
     )
 
 
+def _subject_vocabulary_context(response, task_scope, user):
+    subject_vocabulary = list(
+        Phrase.objects.filter(
+            source_prompts__response=response,
+            is_active=True,
+            tier=PhraseTier.SUBJECT,
+        )
+        .distinct()
+        .select_related("category")
+        .order_by("lot_order", "phrase_id")
+    )
+    vocabulary_count = len(subject_vocabulary)
+    vocabulary_batches = _review_batches(
+        {
+            **task_scope,
+            "kind": "vocab",
+            "response": str(response.pk),
+        },
+        user,
+    )
+    vocabulary_batch_progress = summarize_review_batches(
+        vocabulary_batches
+    )
+    vocabulary_lot_labels = {
+        "Mots clés du sujet": "Mots clés",
+        "Collocations du sujet": "Collocations",
+        "Expressions du sujet": "Expressions et idiomes",
+        "Tournures pour l'oral": "Tournures pour l'oral",
+        "Phrases modèles": "Phrases modèles",
+    }
+    for batch in vocabulary_batches:
+        start = (batch["number"] - 1) * queue_module.PHRASE_BATCH_SIZE
+        if start < vocabulary_count:
+            category_name = subject_vocabulary[start].category.name
+            batch["label"] = vocabulary_lot_labels.get(
+                category_name,
+                category_name,
+            )
+    first_vocabulary_batch = next(
+        (batch for batch in vocabulary_batches if batch["can_review"]),
+        vocabulary_batches[0] if vocabulary_batches else None,
+    )
+    return {
+        "subject_vocabulary": subject_vocabulary[:10],
+        "vocabulary_count": vocabulary_count,
+        "vocabulary_batches": vocabulary_batches,
+        "vocabulary_batch_progress": vocabulary_batch_progress,
+        "vocabulary_review_url": (
+            first_vocabulary_batch["review_url"]
+            if first_vocabulary_batch
+            else None
+        ),
+    }
+
+
 def response_detail(request, part_slug, task_slug, prompt_id):
     task = _route_task(part_slug, task_slug)
     selected_prompt = get_object_or_404(
@@ -770,6 +1019,8 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         theme__is_active=True,
         theme__task=task,
     )
+    if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
+        return redirect(prompt_detail_url(selected_prompt))
     response = selected_prompt.response
     response_content = effective_response(response, request.user)
     subject_progress = subject_progress_by_response(
@@ -832,38 +1083,10 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         request.user,
     )
     phrase_batch_progress = summarize_review_batches(phrase_batches)
-    subject_vocabulary = (
-        Phrase.objects.filter(
-            source_prompts__response=response,
-            is_active=True,
-            tier=PhraseTier.SUBJECT,
-        )
-        .distinct()
-        .select_related("category")
-        .order_by("lot_order", "phrase_id")
-    )
-    vocabulary_count = subject_vocabulary.count()
-    vocabulary_batches = _review_batches(
-        {
-            **task_scope,
-            "kind": "vocab",
-            "response": str(response.pk),
-        },
+    vocabulary_context = _subject_vocabulary_context(
+        response,
+        task_scope,
         request.user,
-    )
-    vocabulary_batch_progress = summarize_review_batches(vocabulary_batches)
-    vocabulary_lot_labels = (
-        "Mots clés",
-        "Collocations",
-        "Expressions et idiomes",
-        "Tournures pour l'oral",
-        "Phrases modèles",
-    )
-    for batch, label in zip(vocabulary_batches, vocabulary_lot_labels):
-        batch["label"] = label
-    first_vocabulary_batch = next(
-        (batch for batch in vocabulary_batches if batch["can_review"]),
-        vocabulary_batches[0] if vocabulary_batches else None,
     )
     return render(
         request,
@@ -885,15 +1108,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "related_phrases": related_phrases,
             "phrase_batches": phrase_batches,
             "phrase_batch_progress": phrase_batch_progress,
-            "subject_vocabulary": list(subject_vocabulary[:10]),
-            "vocabulary_count": vocabulary_count,
-            "vocabulary_batches": vocabulary_batches,
-            "vocabulary_batch_progress": vocabulary_batch_progress,
-            "vocabulary_review_url": (
-                first_vocabulary_batch["review_url"]
-                if first_vocabulary_batch
-                else None
-            ),
+            **vocabulary_context,
             "can_edit_response": response.prompts.filter(
                 is_active=True,
                 theme__task__slug="tache-3",

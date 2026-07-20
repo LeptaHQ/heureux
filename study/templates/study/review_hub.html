@@ -18,16 +18,14 @@
 
 {% if can_resume %}
   <a class="resume-review" href="{{ resume_url }}">
-    <span class="resume-review__icon" aria-hidden="true">▶</span>
     <span>
-      <small>Session interrompue</small>
       <strong>Reprendre l’entraînement en cours</strong>
     </span>
     <span aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
   </a>
 {% endif %}
 
-<section class="practice-launcher card" aria-labelledby="all-responses-title">
+<section class="practice-launcher" aria-labelledby="all-responses-title">
   <div>
     <h2 id="all-responses-title">Entraînement mélangé</h2>
     <p>{{ counts.due_reviews }} à revoir · {{ counts.new_available }} nouvelles.</p>
@@ -56,12 +54,12 @@
 </section>
 
 <section class="review-focus-grid" aria-label="Sélections personnelles">
-  <article class="card">
+  <article>
     <h2>Ma liste à revoir</h2>
     <p>{{ revisit_count }} réponse{{ revisit_count|pluralize }} enregistrée{{ revisit_count|pluralize }}.</p>
     <a class="btn" href="{% url 'study:task_revisit_list' part.slug task.slug %}?content=spine">Ouvrir la liste</a>
   </article>
-  <article class="card">
+  <article>
     <h2>Réponses fragiles</h2>
     <p>{{ weak_count }} réponse{{ weak_count|pluralize }} repérée{{ weak_count|pluralize }} par tes révisions.</p>
     <a class="btn{% if weak_count %} btn--primary{% endif %}" href="{{ weak_review_url }}">Entraîner</a>

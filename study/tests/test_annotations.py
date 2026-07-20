@@ -942,6 +942,26 @@ class AnnotationTests(TestCase):
             note.body,
         )
 
+    def test_selected_note_uses_selection_as_front_and_note_as_back(self):
+        Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            quote="séance",
+            body="showing",
+            study_later=True,
+        )
+
+        response = self.client.get(reverse("study:annotation_study"))
+        html = response.content.decode()
+        front = html.split("data-study-front>", 1)[1].split("</div>", 1)[0]
+        back = html.split("data-study-back>", 1)[1].split("</div>", 1)[0]
+
+        self.assertIn("séance", front)
+        self.assertNotIn("showing", front)
+        self.assertIn("showing", back)
+        self.assertNotIn("séance", back)
+
     def test_study_decisions_update_the_queue_without_a_redirect(self):
         note = Annotation.objects.create(
             user=self.user,

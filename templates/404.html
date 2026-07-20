@@ -1,0 +1,36 @@
+{% extends base_template %}
+{% block title %}Page introuvable · Heureux{% endblock %}
+
+{% block content %}
+<section class="not-found-page" aria-labelledby="not-found-title">
+  <div class="not-found-page__visual" aria-hidden="true">
+    <span class="not-found-page__icon">
+      {% include "study/partials/ui_icon.html" with name="compass" only %}
+    </span>
+    <span class="not-found-page__code">404</span>
+  </div>
+
+  <h1 id="not-found-title">Cette page n’existe pas</h1>
+  <p class="not-found-page__lead">
+    L’adresse est incorrecte ou la page a été déplacée.
+  </p>
+
+  <div class="not-found-page__actions">
+    {% if request.user.is_authenticated %}
+      <a class="btn btn--primary" href="{% url 'study:dashboard' %}">
+        {% include "study/partials/ui_icon.html" with name="arrow-left" icon_class="btn__icon" only %}
+        Retour à l’accueil
+      </a>
+      <a class="btn" href="{% url 'study:search' %}">
+        {% include "study/partials/ui_icon.html" with name="search" icon_class="btn__icon" only %}
+        Rechercher
+      </a>
+    {% else %}
+      <a class="btn btn--primary" href="{% url 'study:login' %}">
+        Se connecter
+        {% include "study/partials/ui_icon.html" with name="arrow-right" icon_class="btn__icon" only %}
+      </a>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -10,6 +10,7 @@ from playwright.sync_api import sync_playwright
 
 from django.utils import timezone
 
+from study import content
 from study.content import load_sections
 from study.management.commands.import_content import Command
 from study.models import (
@@ -147,6 +148,28 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
                 self.assertFalse(toggle.is_visible())
                 self.assert_no_horizontal_overflow()
 
+    @override_settings(DEBUG=False)
+    def test_unknown_url_uses_custom_not_found_page(self):
+        self.page.set_viewport_size({"width": 320, "height": 568})
+
+        response = self.page.goto(
+            self.live_server_url + "/chemin-introuvable/"
+        )
+
+        self.assertEqual(response.status, 404)
+        self.page.get_by_role(
+            "heading",
+            name="Cette page n’existe pas",
+        ).wait_for()
+        self.page.locator(
+            '.not-found-page__icon .ui-icon[data-icon="compass"]'
+        ).wait_for()
+        self.page.get_by_role(
+            "link",
+            name="Retour à l’accueil",
+        ).wait_for()
+        self.assert_no_horizontal_overflow()
+
     def test_dynamic_content_icons_load_from_the_svg_sprite(self):
         self.page.goto(
             self.live_server_url
@@ -281,6 +304,10 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         cards_toggle.click()
         self.assertEqual(cards_toggle.get_attribute("aria-pressed"), "true")
         self.assertFalse(table_header.is_visible())
+        self.assertLess(
+            memory_entry.bounding_box()["width"],
+            self.page.locator("main").bounding_box()["width"] * 0.65,
+        )
         table_toggle.click()
         self.assertEqual(table_toggle.get_attribute("aria-pressed"), "true")
         self.assertTrue(table_header.is_visible())
@@ -304,7 +331,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         )
         self.assertEqual(len(set(entry_borders)), 1)
         overview_nav = self.page.locator(".task-nav--memories")
-        self.assertEqual(overview_nav.locator("a").count(), 2)
+        self.assertEqual(overview_nav.locator("a").count(), 3)
         self.assertEqual(
             overview_nav.locator("a.is-active").inner_text(),
             "Vue d'ensemble",
@@ -326,7 +353,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
                     ".gridTemplateColumns.split(' ')"
                 )
             ),
-            2,
+            3,
         )
         self.assert_no_horizontal_overflow()
 
@@ -339,7 +366,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             exact=True,
         ).wait_for()
         task_nav = self.page.locator(".task-nav--memories")
-        self.assertEqual(task_nav.locator("a").count(), 2)
+        self.assertEqual(task_nav.locator("a").count(), 3)
         self.assertEqual(
             task_nav.locator("a.is-active").inner_text(),
             "Mémoires",
@@ -457,7 +484,34 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         )
         self.assertEqual(len(mobile["columns"].split()), 1)
         self.assertTrue(mobile["navScrolls"])
-        self.assertEqual(len(mobile["taskNavColumns"].split()), 2)
+        self.assertEqual(len(mobile["taskNavColumns"].split()), 3)
+        question_layout = self.page.locator(
+            "[data-question-bank-question]"
+        ).first.evaluate(
+            """
+            row => {
+              const number = row.querySelector(
+                '.question-bank-question__number'
+              ).getBoundingClientRect();
+              const text = row.querySelector(':scope > div')
+                .getBoundingClientRect();
+              const checkbox = row.querySelector(
+                '.memory-question-check'
+              ).getBoundingClientRect();
+              return {
+                numberLeft: number.left,
+                textLeft: text.left,
+                textRight: text.right,
+                checkboxLeft: checkbox.left,
+              };
+            }
+            """
+        )
+        self.assertLess(question_layout["numberLeft"], question_layout["textLeft"])
+        self.assertLessEqual(
+            question_layout["textRight"],
+            question_layout["checkboxLeft"],
+        )
         self.assert_no_horizontal_overflow()
 
         self.page.get_by_role(
@@ -480,6 +534,180 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
                 or ""
             )
         )
+        self.assert_no_horizontal_overflow()
+
+    def test_tache_two_subjects_have_practice_and_vocabulary_flow(self):
+        command = Command()
+        task_map = command._import_sections(load_sections())
+        months = content.load_tache_two_subject_months()
+        theme_map = command._import_themes(
+            content.tache_two_themes(months),
+            task_map,
+        )
+        family_map = command._import_families(
+            content.tache_two_families(months)
+        )
+        responses = content.parse_tache_two_responses(months)
+        response_map = command._import_responses(
+            responses,
+            theme_map,
+            family_map,
+        )
+        prompt_index = command._import_prompts(
+            responses,
+            response_map,
+            theme_map,
+            family_map,
+        )
+        command._import_phrases(
+            content.parse_tache_two_subject_vocabulary(responses),
+            prompt_index,
+        )
+        command._sync_cards(response_map, user=self.user)
+        overview_path = reverse(
+            "study:task_detail",
+            args=["eo", "tache-2"],
+        )
+        index_path = reverse(
+            "study:task_browse",
+            args=["eo", "tache-2"],
+        )
+        batch_path = reverse(
+            "study:task_subject_batch",
+            args=["eo", "tache-2", "janvier", 1],
+        )
+        subject_path = reverse(
+            "study:task_subject_detail",
+            args=["eo", "tache-2", "janvier", 1, 1],
+        )
+
+        self.page.set_viewport_size({"width": 1280, "height": 850})
+        self.page.goto(self.live_server_url + overview_path)
+        memory_heading = self.page.get_by_role(
+            "heading",
+            name="Mémoires",
+            exact=True,
+        )
+        subject_heading = self.page.get_by_role(
+            "heading",
+            name="Sujets",
+            exact=True,
+        )
+        memory_heading.wait_for()
+        subject_heading.wait_for()
+        self.assertLess(
+            memory_heading.bounding_box()["y"],
+            subject_heading.bounding_box()["y"],
+        )
+        self.assertEqual(
+            self.page.locator("[data-tache-two-subject-batch]").count(),
+            2,
+        )
+
+        self.page.goto(self.live_server_url + index_path)
+        self.page.get_by_role(
+            "heading",
+            name="Sujets par mois",
+            exact=True,
+        ).wait_for()
+        self.assertEqual(
+            self.page.locator("[data-tache-two-subject-batch]").count(),
+            2,
+        )
+        self.assertEqual(self.page.get_by_role("note").count(), 0)
+        self.assertEqual(self.page.get_by_text("Réflexe Mémoire").count(), 0)
+
+        table_toggle = self.page.get_by_role("button", name="Tableau")
+        table_toggle.click()
+        self.assertEqual(table_toggle.get_attribute("aria-pressed"), "true")
+        self.assertTrue(
+            self.page.locator(
+                ".collection-table-header--subject-batches"
+            ).is_visible()
+        )
+        self.assertEqual(
+            len(
+                self.page.locator(
+                    "[data-tache-two-subject-batch]"
+                ).evaluate(
+                    "element => getComputedStyle(element)"
+                    ".gridTemplateColumns.split(' ')"
+                )
+            ),
+            4,
+        )
+        self.page.locator("[data-tache-two-subject-batch]").first.click()
+        self.page.wait_for_url(self.live_server_url + batch_path)
+        self.page.get_by_role(
+            "heading",
+            name="Janvier · Batch 1",
+            exact=True,
+        ).wait_for()
+        self.assertEqual(
+            self.page.locator("[data-tache-two-subject]").count(),
+            5,
+        )
+        self.assertTrue(
+            self.page.locator(
+                ".collection-table-header--tache-two-subjects"
+            ).is_visible()
+        )
+
+        self.page.set_viewport_size({"width": 320, "height": 700})
+        self.assert_no_horizontal_overflow()
+        self.page.locator("[data-tache-two-subject]").first.click()
+        self.page.wait_for_url(self.live_server_url + subject_path)
+        self.page.get_by_role(
+            "heading",
+            name="Achat d'objets avant un déménagement",
+            exact=True,
+        ).wait_for()
+        self.assertEqual(
+            self.page.locator("[data-tache-two-question]").count(),
+            14,
+        )
+        self.assertEqual(
+            self.page.locator(".tache-two-question__memory").count(),
+            0,
+        )
+        self.page.get_by_text("Progression du sujet", exact=True).wait_for()
+        self.page.get_by_role(
+            "link",
+            name="Pratiquer ce sujet",
+            exact=True,
+        ).wait_for()
+        self.page.get_by_role(
+            "link",
+            name="Pratiquer les vocabs",
+            exact=True,
+        ).wait_for()
+        self.assertEqual(
+            self.page.locator("#subject-vocabulary .response-batch").count(),
+            3,
+        )
+        self.assert_no_horizontal_overflow()
+
+        self.page.get_by_role(
+            "link",
+            name="Pratiquer ce sujet",
+            exact=True,
+        ).click()
+        self.page.get_by_text(
+            "Questions d'interaction",
+            exact=True,
+        ).wait_for()
+        self.assertNotIn("3 arguments", self.page.locator("main").inner_text())
+
+        self.page.goto(self.live_server_url + subject_path)
+        self.page.get_by_role(
+            "link",
+            name="Pratiquer les vocabs",
+            exact=True,
+        ).click()
+        self.page.get_by_text(
+            "Vocabulaire du sujet",
+            exact=True,
+        ).wait_for()
         self.assert_no_horizontal_overflow()
 
     def test_subject_vocabulary_directory_searches_rich_decks(self):
@@ -905,7 +1133,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         panel.get_by_text("Texte collé.", exact=True).wait_for()
         self.assertEqual(note_body.input_value(), "Avant texte collé après")
         self.assertIn(
-            "ui-icons.svg?v=2#icon-clipboard-paste",
+            "ui-icons.svg?v=3#icon-clipboard-paste",
             paste_button.locator("use").get_attribute("href"),
         )
         self.assert_no_horizontal_overflow()
@@ -1818,6 +2046,34 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.page.locator("#card-front .prompt-text").wait_for()
         self.assert_no_horizontal_overflow()
 
+    def test_selected_note_study_card_switches_between_distinct_faces(self):
+        Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            quote="séance",
+            body="showing",
+            study_later=True,
+        )
+        self.page.set_viewport_size({"width": 320, "height": 568})
+        self.page.goto(
+            self.live_server_url + reverse("study:annotation_study")
+        )
+
+        front = self.page.locator("[data-study-front]")
+        back = self.page.locator("[data-study-back]")
+        front.get_by_text("séance", exact=True).wait_for()
+        self.assertFalse(back.get_by_text("showing", exact=True).is_visible())
+
+        self.page.locator("[data-study-reveal]").click()
+
+        back.get_by_text("showing", exact=True).wait_for()
+        self.assertFalse(front.is_visible())
+        self.assertFalse(
+            front.get_by_text("séance", exact=True).is_visible()
+        )
+        self.assert_no_horizontal_overflow()
+
     def test_mobile_expression_lots_and_highlighted_answers(self):
         category = PhraseCategory.objects.create(
             slug="browser-vocab",
@@ -2100,10 +2356,10 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.assertEqual(self.page.locator(".ce-group-card").count(), 8)
         self.assert_no_horizontal_overflow()
 
-        self.page.get_by_role("link", name="Lot 1").click()
+        self.page.get_by_role("link", name="Batch 1").click()
         self.page.get_by_role(
             "heading",
-            name="Lot 01",
+            name="Batch 01",
         ).wait_for()
         self.assertEqual(self.page.locator(".ce-group-test-row").count(), 5)
         self.assert_no_horizontal_overflow()
@@ -2173,6 +2429,6 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.assert_no_horizontal_overflow()
 
         self.page.get_by_role("link", name="Voir mes résultats").click()
-        self.page.get_by_role("heading", name="Revoir les questions").wait_for()
+        self.page.get_by_role("heading", name="Correction détaillée").wait_for()
         self.assertEqual(self.page.locator(".ce-review-item").count(), 2)
         self.assert_no_horizontal_overflow()

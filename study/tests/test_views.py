@@ -74,14 +74,14 @@ class PWATests(TestCase):
         r = self.client.get("/sw.js")
         self.assertEqual(r.status_code, 200)
         body = r.content.decode()
-        self.assertIn('var CACHE = "heureux-v95"', body)
-        self.assertIn("study/css/app.css?v=88", body)
+        self.assertIn('var CACHE = "heureux-v103"', body)
+        self.assertIn("study/css/app.css?v=96", body)
         self.assertIn("study/js/memory-progress.js?v=2", body)
         self.assertIn("study/js/theme-init.js?v=2", body)
         self.assertIn("study/js/app.js?v=34", body)
         self.assertIn("study/js/translate.js?v=12", body)
-        self.assertIn("study/js/annotations.js?v=10", body)
-        self.assertIn("study/icons/ui-icons.svg?v=2", body)
+        self.assertIn("study/js/annotations.js?v=11", body)
+        self.assertIn("study/icons/ui-icons.svg?v=3", body)
         self.assertIn("SKIP_WAITING", body)
         self.assertIn("no-store", r["Cache-Control"])
         self.assertEqual(r["Service-Worker-Allowed"], "/")
@@ -136,11 +136,11 @@ class SmokeTests(TestCase):
 
         self.assertContains(
             response,
-            f"ui-icons.svg?v=2#icon-{part.icon}",
+            f"ui-icons.svg?v=3#icon-{part.icon}",
         )
         self.assertContains(
             response,
-            f"ui-icons.svg?v=2#icon-{task.icon}",
+            f"ui-icons.svg?v=3#icon-{task.icon}",
         )
         self.assertNotContains(response, "emoji")
 
@@ -206,6 +206,8 @@ class SmokeTests(TestCase):
             "/expression/ee/",
             "/comprehension/ce/",
             "/comprehension/co/",
+            "/comprehension/ecrite/groupes/1/",
+            "/comprehension/orale/groupes/1/",
             "/login/",
         )
         for path in legacy_paths:
@@ -447,7 +449,8 @@ class SmokeTests(TestCase):
         response = self.client.get(
             reverse("study:task_detail", args=["eo", "tache-3"])
         )
-        self.assertContains(response, "Sujets &amp; réponses")
+        subjects_url = reverse("study:task_browse", args=["eo", "tache-3"])
+        self.assertContains(response, f'href="{subjects_url}">Sujets</a>')
         self.assertNotContains(response, "Pratiquer les réponses")
         self.assertNotContains(response, 'class="task-modules"')
         self.assertContains(response, "Vocabulaire")

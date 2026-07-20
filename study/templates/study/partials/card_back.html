@@ -1,40 +1,51 @@
 <hr class="divider">
 {% if kind == "spine" %}
   <div class="answer">
-    <div class="spine-block">
-      <div class="spine-label">Reformulation</div>
-      <div class="spine-text">{{ response_content.reformulation }}</div>
-    </div>
-    <div class="spine-block">
-      <div class="spine-label">Position</div>
-      <div class="spine-text">{{ response_content.position }}</div>
-    </div>
-    {% for arg in arguments %}
-      <div class="arg">
-        <div class="arg__idea">{{ forloop.counter }}. {{ arg.idea }}</div>
+    {% if tache_two_subject %}
+      <div class="spine-block">
+        <div class="spine-label">Questions à poser</div>
+        <ol class="flashcard-question-list">
+          {% for arg in arguments %}
+            <li>{{ arg.idea }}</li>
+          {% endfor %}
+        </ol>
       </div>
-    {% endfor %}
-    <div class="spine-block">
-      <div class="spine-label">Nuance</div>
-      <div class="spine-text">{{ response_content.nuance }}</div>
-    </div>
-    <div class="spine-block">
-      <div class="spine-label">Conclusion</div>
-      <div class="spine-text">{{ response_content.conclusion }}</div>
-    </div>
+    {% else %}
+      <div class="spine-block">
+        <div class="spine-label">Reformulation</div>
+        <div class="spine-text">{{ response_content.reformulation }}</div>
+      </div>
+      <div class="spine-block">
+        <div class="spine-label">Position</div>
+        <div class="spine-text">{{ response_content.position }}</div>
+      </div>
+      {% for arg in arguments %}
+        <div class="arg">
+          <div class="arg__idea">{{ forloop.counter }}. {{ arg.idea }}</div>
+        </div>
+      {% endfor %}
+      <div class="spine-block">
+        <div class="spine-label">Nuance</div>
+        <div class="spine-text">{{ response_content.nuance }}</div>
+      </div>
+      <div class="spine-block">
+        <div class="spine-label">Conclusion</div>
+        <div class="spine-text">{{ response_content.conclusion }}</div>
+      </div>
 
-    {% if aliases %}
-      <div class="spine-block" style="margin-top:1rem;">
-        <div class="spine-label">Formulations équivalentes</div>
-        <ul class="muted" style="margin:0.3rem 0 0; padding-left:1.1rem;">
-          {% for a in aliases %}<li><b>{{ a.theme.display_name }} P{{ a.number }}</b> — {{ a.text }}</li>{% endfor %}
-        </ul>
-      </div>
+      {% if aliases %}
+        <div class="spine-block" style="margin-top:1rem;">
+          <div class="spine-label">Formulations équivalentes</div>
+          <ul class="muted" style="margin:0.3rem 0 0; padding-left:1.1rem;">
+            {% for a in aliases %}<li><b>{{ a.theme.display_name }} P{{ a.number }}</b> — {{ a.text }}</li>{% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     {% endif %}
 
     {% if canonical_prompt %}
       <p style="margin-top:1rem;">
-        <a class="chip" href="{% url 'study:response_detail' canonical_prompt.theme.task.part.slug canonical_prompt.theme.task.slug canonical_prompt.pk %}">Ouvrir la fiche {% include "study/partials/ui_icon.html" with name="external-link" only %}</a>
+        <a class="chip" href="{{ detail_url }}">Ouvrir la fiche {% include "study/partials/ui_icon.html" with name="external-link" only %}</a>
       </p>
     {% endif %}
   </div>
@@ -57,7 +68,7 @@
       <div class="phrase__foot">
         <span class="faint">Tiré de :</span>
         {% for s in sources|slice:":6" %}
-          <a class="chip" href="{% url 'study:response_detail' s.theme.task.part.slug s.theme.task.slug s.pk %}">{{ s.theme.display_name }} P{{ s.number }}</a>
+          <a class="chip" href="{{ s.detail_url }}">{{ s.theme.display_name }} · {% if s.theme.task.slug == "tache-2" %}Sujet {{ s.number }}{% else %}P{{ s.number }}{% endif %}</a>
         {% endfor %}
         {% with more=sources|slice:"6:"|length %}{% if more %}<span class="chip chip--more">+{{ more }}</span>{% endif %}{% endwith %}
       </div>

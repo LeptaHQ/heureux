@@ -30,6 +30,24 @@ def service_worker(request):
     return response
 
 
+@never_cache
+def page_not_found(request, exception):
+    base_template = (
+        "base.html"
+        if request.user.is_authenticated
+        else "study/auth_base.html"
+    )
+    return render(
+        request,
+        "404.html",
+        {"base_template": base_template},
+        status=404,
+    )
+
+
+handler404 = page_not_found
+
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("healthz", healthz, name="healthz"),

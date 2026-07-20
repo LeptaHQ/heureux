@@ -365,6 +365,7 @@ def _task_card(task, now, user):
         and (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK
     ):
         banks = content_module.load_question_banks()
+        subject_months = content_module.load_tache_two_subject_months()
         memory_states = _memory_progress(user, banks)
         memory_progress = progress_summary(
             total=sum(
@@ -383,6 +384,9 @@ def _task_card(task, now, user):
         question_bank = {
             "title": f"{len(banks)} mémoire{'s' if len(banks) > 1 else ''}",
             "memory_count": len(banks),
+            "subject_count": sum(
+                month.subject_count for month in subject_months
+            ),
             "category_count": sum(bank.category_count for bank in banks),
             "question_count": sum(bank.question_count for bank in banks),
             "progress": memory_progress,

@@ -13,23 +13,23 @@
       </h1>
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Contenu de la Tâche 2">
+      <div><dt>Sujets</dt><dd>{{ subject_count }}</dd></div>
       <div><dt>Mémoires</dt><dd>{{ memory_count }}</dd></div>
-      <div><dt>Catégories</dt><dd>{{ category_count }}</dd></div>
-      <div><dt>Questions</dt><dd>{{ question_count }}</dd></div>
+      <div><dt>Formulations</dt><dd>{{ question_count }}</dd></div>
     </dl>
   </header>
+
+  {% include "study/partials/collection_view_toggle.html" %}
 
   <section class="memory-library" id="memories" aria-labelledby="memory-library-title">
     <header class="memory-library__head">
       <div>
         <h2 id="memory-library-title">Mémoires</h2>
+        <p>Une banque de formulations stables à mémoriser et à adapter naturellement à chaque situation de la Tâche 2.</p>
       </div>
       <span class="memory-library__count">{{ memory_count }} mémoire{{ memory_count|pluralize }}</span>
     </header>
 
-    {% if memories %}
-      {% include "study/partials/collection_view_toggle.html" %}
-    {% endif %}
     <div class="memory-library__grid collection-table collection-table--memories" data-collection-view="adaptive">
       {% include "study/partials/collection_table_header.html" with variant="memories" column_1="Mémoire" column_2="Progression" column_3="Action" only %}
       {% for item in memories %}
@@ -41,9 +41,7 @@
           aria-label="Ouvrir {{ memory.title }}">
           <span class="memory-entry__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=memory.icon only %}</span>
           <div class="memory-entry__body">
-            <span class="memory-entry__label">{{ memory.label }}</span>
             <h3>{{ memory.title }}</h3>
-            <p>{{ memory.subtitle }}</p>
             <div class="memory-entry__facts">
               <span><b>{{ memory.category_count }}</b> catégories</span>
               <span><b>{{ memory.question_count }}</b> questions</span>
@@ -64,6 +62,45 @@
           </span>
         </a>
         {% endwith %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="memory-library tache-two-overview-subjects" id="subjects" aria-labelledby="subject-library-title">
+    <header class="memory-library__head">
+      <div>
+        <h2 id="subject-library-title">Sujets</h2>
+        <p>Les sujets complets, classés par mois et par batch.</p>
+      </div>
+      <a class="btn btn--small" href="{% url 'study:task_browse' part.slug task.slug %}">
+        Voir tous les sujets
+        {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
+      </a>
+    </header>
+
+    <div class="subject-batch-grid collection-table collection-table--subject-batches" data-collection-view="adaptive">
+      {% include "study/partials/collection_table_header.html" with variant="subject-batches" column_1="Batch" column_2="Mois" column_3="Contenu" column_4="Action" only %}
+      {% for month in subject_months %}
+        {% for batch in month.batches %}
+          <a class="subject-batch-card card" data-collection-item data-tache-two-subject-batch href="{% url 'study:task_subject_batch' part.slug task.slug month.slug batch.number %}">
+            <span class="subject-batch-card__number">
+              {% include "study/partials/ui_icon.html" with name="file-text" only %}
+              <span>Batch {{ batch.number_label }}</span>
+            </span>
+            <span class="subject-batch-card__copy">
+              <strong>{{ month.name }} · Batch {{ batch.number }}</strong>
+              <span>Sujets {{ batch.first_subject_number }}–{{ batch.last_subject_number }}</span>
+            </span>
+            <span class="subject-batch-card__meta">
+              <span><b>{{ batch.subject_count }}</b> sujets</span>
+              <span><b>{{ batch.question_count }}</b> questions</span>
+            </span>
+            <span class="subject-batch-card__action">
+              Ouvrir
+              {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
+            </span>
+          </a>
+        {% endfor %}
       {% endfor %}
     </div>
   </section>

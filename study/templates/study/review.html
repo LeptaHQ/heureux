@@ -70,8 +70,7 @@
     </div>
   </div>
 
-  <div id="done-zone" class="done-state hidden card card--pad">
-    <div class="done-state__icon done-state__icon--celebrate">{% include "study/partials/ui_icon.html" with name="sparkles" only %}</div>
+  <div id="done-zone" class="done-state done-state--plain hidden">
     <h2>Session terminée</h2>
     <div class="session-summary" id="session-summary"></div>
     {% if is_revisit %}

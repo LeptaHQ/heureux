@@ -1,0 +1,316 @@
+{
+  "month": {
+    "number": 1,
+    "slug": "janvier",
+    "name": "Janvier"
+  },
+  "batch": 1,
+  "subjects": [
+    {
+      "number": 1,
+      "title": "Achat d'objets avant un déménagement",
+      "prompt": "Je suis votre ami(e). Je déménage à l'étranger et je ne peux pas emporter toutes mes affaires. Je décide d'en vendre une partie. Vous êtes intéressé(e) et vous me posez des questions sur ce que je vends (objets, meubles, prix, etc.).",
+      "questions": [
+        {
+          "text": "Alors, c'est confirmé — tu pars vraiment à l'étranger ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quels types d'objets as-tu décidé de mettre en vente — des meubles, des appareils électroniques ou un peu de tout ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Est-ce que tu vends aussi de la vaisselle ou des ustensiles de cuisine ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Est-ce que tout est encore en bon état et fonctionne correctement ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Depuis combien de temps as-tu ces meubles ?",
+          "memory_section": 9
+        },
+        "Pour les appareils électroniques, as-tu encore les factures ou les garanties d'origine ?",
+        {
+          "text": "Pour les prix, tu as déjà fixé un montant pour chaque objet ou est-ce que c'est négociable ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Et si j'achète plusieurs articles, est-ce que tu pourrais me faire un prix ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Quand est-ce que je pourrais passer chez toi pour voir les objets ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Pour les récupérer, est-ce que tu proposes une livraison ou faut-il venir les chercher ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Tu as mentionné le canapé — quelles sont ses dimensions exactement ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Pour le paiement, tu préfères un virement bancaire ou des espèces ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Quelle est la date exacte de ton départ ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux te solliciter ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Conseils pour recevoir des amis étrangers",
+      "prompt": "Je suis votre ami(e). Vous allez recevoir des amis étrangers qui ne connaissent pas votre ville. Vous me demandez des conseils pour organiser leur séjour (visites, activités, restaurants, etc.).",
+      "questions": [
+        {
+          "text": "Pour commencer, combien de jours faudrait-il prévoir pour bien découvrir la ville ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Selon toi, quels sont les endroits incontournables pour quelqu'un qui découvre la ville pour la première fois ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Tu conseillerais de commencer par les monuments historiques ou par le centre-ville ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Il y a des musées ou des sites culturels qui valent vraiment la peine ?",
+          "memory_section": 12
+        },
+        {
+          "text": "Pour ces visites, il faut réserver à l'avance ou on peut se décider sur place ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Pour les activités, tu recommandes plutôt quelque chose de culturel, du plein air ou une activité plus touristique ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Il y a des événements spéciaux ou des festivals pendant leur séjour ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Pour les repas, tu aurais une adresse à recommander pour un dîner spécial ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Pour se déplacer, il vaut mieux utiliser les transports en commun ou louer une voiture ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Tu penses qu'un pass touristique serait utile et avantageux pour eux ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Questions sur un mariage",
+      "prompt": "Je suis votre collègue. Je suis allé(e) à un mariage le week-end dernier. Vous me posez des questions pour savoir comment la fête s'est passée (lieu, menu, activités, etc.).",
+      "questions": [
+        {
+          "text": "Alors, comment s'est passé le mariage ce week-end ?",
+          "memory_section": 15
+        },
+        "C'était le mariage de qui exactement — un membre de ta famille ou un ami proche ?",
+        {
+          "text": "Il y avait environ combien d'invités — c'était une grande cérémonie ou quelque chose de plus intime ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Où est-ce que le mariage a eu lieu exactement ?",
+          "memory_section": 4
+        },
+        {
+          "text": "La cérémonie et la réception se sont déroulées au même endroit ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Les mariés avaient choisi quel style de décoration ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Comment était l'ambiance en général — plutôt formelle ou décontractée ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Quel a été le moment le plus émouvant de la cérémonie ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Qu'est-ce qui était prévu au menu — un repas assis ou un buffet ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Quel plat t'a le plus marqué(e) ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Pour la soirée, il y avait un DJ ou un groupe de musique ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Les invités ont beaucoup dansé ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Il y a eu des animations ou des surprises pendant la fête ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Pour finir, quel a été ton moment préféré de toute la journée ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Circuit touristique au Canada",
+      "prompt": "Je suis votre collègue. J'ai participé à un circuit touristique pour découvrir le Canada. Vous voulez faire la même chose l'été prochain. Vous me posez des questions sur le circuit (étapes, durée, prix, etc.).",
+      "questions": [
+        {
+          "text": "Alors, comment s'est passé ton circuit au Canada ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Tu es parti(e) avec quelle agence ou compagnie de voyage ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Tu as fait ce circuit seul(e), en couple ou avec un groupe organisé ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Quelles régions ou quelles villes avez-vous visitées ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Il y avait combien d'étapes au total ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Le circuit a duré combien de temps ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Le rythme était plutôt intensif ou assez équilibré ?",
+          "memory_section": 21
+        },
+        {
+          "text": "Quelles activités avez-vous faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Il y avait des visites guidées ou vous étiez assez libres dans votre programme ?",
+          "memory_section": 11
+        },
+        {
+          "text": "Vous logiez plutôt à l'hôtel, en auberge ou ailleurs ?",
+          "memory_section": 6
+        },
+        {
+          "text": "Comment vous déplaciez-vous entre les différentes étapes ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça t'a coûté approximativement au total ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le tarif comprenait quoi exactement ?",
+          "memory_section": 1
+        },
+        {
+          "text": "L'été est une bonne période pour faire ce circuit ou tu me conseillerais une autre saison ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Pour finir — si tu ne devais me recommander qu'une seule étape, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Garde d'un chien pendant les vacances",
+      "prompt": "Je vis dans votre quartier. Je vais partir une semaine en vacances et je cherche quelqu'un pour garder mon chien pendant mon absence. Vous êtes intéressé(e). Vous me demandez des précisions (dates, rémunération, activités, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour, vous cherchez toujours quelqu'un pour garder votre chien pendant votre absence ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quelles sont les dates exactes de votre absence ?",
+          "memory_section": 2
+        },
+        "Pourriez-vous me présenter votre chien — quelle est sa race et quel âge a-t-il ?",
+        {
+          "text": "Comment est son caractère en général — plutôt calme ou assez énergique ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Est-ce qu'il est sociable avec les gens et les autres animaux ?",
+          "memory_section": 15
+        },
+        {
+          "text": "A-t-il un problème de santé ou besoin de soins particuliers ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Quelle routine faut-il suivre pour ses repas ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Est-ce que toute sa nourriture sera fournie ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Quelle routine faut-il suivre pour ses promenades ?",
+          "memory_section": 20
+        },
+        {
+          "text": "La garde aurait lieu chez vous ou chez moi ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Y a-t-il d'autres habitudes importantes à respecter pour que tout se passe bien ?",
+          "memory_section": 20
+        },
+        {
+          "text": "En cas de problème, qui dois-je contacter — votre vétérinaire ou une autre personne ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Est-ce que vous serez facilement joignable pendant votre séjour ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Parlons de la rémunération — quel montant proposez-vous pour la semaine ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Pour finir, le paiement se ferait-il avant votre départ ou à votre retour ?",
+          "memory_section": 1
+        }
+      ]
+    }
+  ]
+}

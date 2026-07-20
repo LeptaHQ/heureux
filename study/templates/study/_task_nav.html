@@ -16,11 +16,13 @@
   <a class="{% if request.resolver_match.url_name == 'task_detail' %}is-active{% endif %}"
      href="{% url 'study:task_detail' part.slug task.slug %}">Vue d'ensemble</a>
   {% if memory_task %}
+    <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'task_subject_batch' or request.resolver_match.url_name == 'task_subject_detail' %}is-active{% endif %}"
+       href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a>
     <a class="{% if request.resolver_match.url_name == 'task_memory_detail' %}is-active{% endif %}"
        href="{% url 'study:task_detail' part.slug task.slug %}#memories">Mémoires</a>
   {% else %}
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'theme_detail' or request.resolver_match.url_name == 'task_family_detail' or request.resolver_match.url_name == 'response_detail' %}is-active{% endif %}"
-       href="{% url 'study:task_browse' part.slug task.slug %}">Sujets &amp; réponses</a>
+       href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a>
     <a class="{% if request.resolver_match.url_name == 'task_review_hub' %}is-active{% endif %}"
        href="{% url 'study:task_review_hub' part.slug task.slug %}">Pratiquer</a>
   {% endif %}

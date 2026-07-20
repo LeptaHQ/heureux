@@ -5,7 +5,6 @@
 {% include "study/_task_nav.html" %}
 <div class="page-head row between">
   <div>
-    <p class="eyebrow">{% if content == "spine" %}Expression{% elif content == "vocabulary" %}Vocabulaire{% else %}Mémoire active{% endif %}</p>
     <h1>{% if content == "spine" %}Réponses à revoir{% elif content == "vocabulary" %}Vocabulaire à revoir{% else %}Ma liste à revoir{% endif %}</h1>
     <p class="muted mt-0">Les cartes marquées « Revoir » restent ici jusqu'à ce que vous répondiez correctement.</p>
   </div>
@@ -21,10 +20,9 @@
       <section class="revisit-group">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">{{ group.description }}</p>
-            <h2>{{ group.title }}</h2>
+            <h2>{{ group.title }} <span class="revisit-group__count">· {{ group.items|length }}</span></h2>
+            <p class="revisit-group__description">{{ group.description }}</p>
           </div>
-          <span class="pill pill--revisit">{{ group.items|length }}</span>
         </div>
         <div class="qlist revisit-list collection-table collection-table--revisit" data-collection-view="adaptive">
           {% include "study/partials/collection_table_header.html" with variant="revisit" column_1="Carte à revoir" column_2="Action" only %}
@@ -60,7 +58,7 @@
     </button>
   </form>
 {% else %}
-  <div class="done-state card card--pad">
+  <div class="done-state done-state--plain">
     <div class="done-state__icon done-state__icon--success">{% include "study/partials/ui_icon.html" with name="check" only %}</div>
     <h2>Aucune carte à revoir</h2>
     <p>Lorsque vous hésitez sur une carte, choisissez « Revoir » : elle apparaîtra ici.</p>

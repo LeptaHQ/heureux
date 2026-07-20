@@ -28,6 +28,8 @@ COMPREHENSION_DIR = CONTENT_DIR / "comprehension"
 COMPREHENSION_TESTS_PATH = COMPREHENSION_DIR / "tests.json"
 QUESTION_BANK_PATH = CONTENT_DIR / "tache_2" / "master_question_bank.json"
 QUESTION_BANK_DIR = QUESTION_BANK_PATH.parent
+TACHE_TWO_SUBJECTS_DIR = QUESTION_BANK_DIR / "subjects"
+TACHE_TWO_VOCABULARY_DIR = QUESTION_BANK_DIR / "vocabulary"
 QUESTION_BANK_TASK = ("eo", "tache-2")
 
 EXPECTED_PROMPTS = 167
@@ -36,6 +38,7 @@ EXPECTED_FAMILIES = 17
 EXPECTED_PHRASES = 1410
 SUBJECT_VOCABULARY_PER_RESPONSE = 50
 SUBJECT_VOCABULARY_PER_KIND = 10
+TACHE_TWO_VOCABULARY_MIN_PER_RESPONSE = 30
 SUBJECT_VOCABULARY_FIELDS = (
     "id",
     "kind",
@@ -221,6 +224,83 @@ class QuestionBankData:
         if self.number == 1:
             return "question-bank"
         return f"question-bank:memory-{self.number:02d}"
+
+
+@dataclass(frozen=True)
+class TacheTwoSubjectQuestionData:
+    text: str
+    memory_number: Optional[int] = None
+    memory_section: Optional[int] = None
+
+    @property
+    def uses_memory(self) -> bool:
+        return self.memory_number is not None
+
+
+@dataclass(frozen=True)
+class TacheTwoSubjectData:
+    number: int
+    title: str
+    prompt: str
+    questions: Tuple[TacheTwoSubjectQuestionData, ...]
+
+    @property
+    def number_label(self) -> str:
+        return f"{self.number:02d}"
+
+    @property
+    def question_count(self) -> int:
+        return len(self.questions)
+
+    @property
+    def memory_question_count(self) -> int:
+        return sum(question.uses_memory for question in self.questions)
+
+
+@dataclass(frozen=True)
+class TacheTwoSubjectBatchData:
+    number: int
+    subjects: Tuple[TacheTwoSubjectData, ...]
+
+    @property
+    def number_label(self) -> str:
+        return f"{self.number:02d}"
+
+    @property
+    def subject_count(self) -> int:
+        return len(self.subjects)
+
+    @property
+    def question_count(self) -> int:
+        return sum(subject.question_count for subject in self.subjects)
+
+    @property
+    def first_subject_number(self) -> int:
+        return self.subjects[0].number
+
+    @property
+    def last_subject_number(self) -> int:
+        return self.subjects[-1].number
+
+
+@dataclass(frozen=True)
+class TacheTwoSubjectMonthData:
+    number: int
+    slug: str
+    name: str
+    batches: Tuple[TacheTwoSubjectBatchData, ...]
+
+    @property
+    def batch_count(self) -> int:
+        return len(self.batches)
+
+    @property
+    def subject_count(self) -> int:
+        return sum(batch.subject_count for batch in self.batches)
+
+    @property
+    def question_count(self) -> int:
+        return sum(batch.question_count for batch in self.batches)
 
 
 @dataclass(frozen=True)
@@ -516,6 +596,509 @@ def load_question_banks(
             "Tâche 2 memories must be numbered consecutively from 1"
         )
     return banks
+
+
+def load_tache_two_subject_months(
+    directory: Path = TACHE_TWO_SUBJECTS_DIR,
+) -> Tuple[TacheTwoSubjectMonthData, ...]:
+    paths = sorted(directory.glob("*/batch_*.json"), key=_natural_key)
+    if not paths:
+        raise ValueError("Tâche 2 needs at least one subject batch")
+
+    memory_sections = {
+        (memory.number, section.number)
+        for memory in load_question_banks()
+        for section in memory.sections
+    }
+    month_rows = {}
+    month_numbers = {}
+    for path in paths:
+        raw = json.loads(path.read_text(encoding="utf-8"))
+        raw_month = raw.get("month", {})
+        month_number = raw_month.get("number")
+        month_slug = str(raw_month.get("slug", "")).strip()
+        month_name = str(raw_month.get("name", "")).strip()
+        batch_number = raw.get("batch")
+        if not isinstance(month_number, int) or month_number < 1:
+            raise ValueError(f"{path.name} needs a positive month number")
+        if not re.fullmatch(r"[a-z0-9-]+", month_slug):
+            raise ValueError(f"{path.name} has an invalid month slug")
+        if not month_name:
+            raise ValueError(f"{path.name} needs a month name")
+        if not isinstance(batch_number, int) or batch_number < 1:
+            raise ValueError(f"{path.name} needs a positive batch number")
+
+        existing_slug = month_numbers.get(month_number)
+        if existing_slug and existing_slug != month_slug:
+            raise ValueError(
+                f"Month {month_number} is used by both "
+                f"{existing_slug} and {month_slug}"
+            )
+        month_numbers[month_number] = month_slug
+        month_row = month_rows.setdefault(
+            month_slug,
+            {
+                "number": month_number,
+                "name": month_name,
+                "batches": {},
+            },
+        )
+        if (
+            month_row["number"] != month_number
+            or month_row["name"] != month_name
+        ):
+            raise ValueError(f"Inconsistent metadata for month {month_slug}")
+        if batch_number in month_row["batches"]:
+            raise ValueError(
+                f"Duplicate batch {batch_number} for month {month_slug}"
+            )
+
+        subjects: List[TacheTwoSubjectData] = []
+        for raw_subject in raw.get("subjects", []):
+            subject_number = raw_subject.get("number")
+            title = str(raw_subject.get("title", "")).strip()
+            prompt = str(raw_subject.get("prompt", "")).strip()
+            if not isinstance(subject_number, int) or subject_number < 1:
+                raise ValueError(
+                    f"{path.name} contains an invalid subject number"
+                )
+            if not title or not prompt:
+                raise ValueError(
+                    f"Subject {subject_number} needs a title and prompt"
+                )
+
+            questions: List[TacheTwoSubjectQuestionData] = []
+            seen_questions = set()
+            for raw_question in raw_subject.get("questions", []):
+                if isinstance(raw_question, str):
+                    text = raw_question.strip()
+                    memory_number = None
+                    memory_section = None
+                else:
+                    text = str(raw_question.get("text", "")).strip()
+                    memory_section = raw_question.get("memory_section")
+                    memory_number = (
+                        raw_question.get("memory_number", 1)
+                        if memory_section is not None
+                        else None
+                    )
+                if not text or not text.endswith("?"):
+                    raise ValueError(
+                        f"Every item in subject {subject_number} "
+                        "must be a complete question"
+                    )
+                normalized = text.casefold()
+                if normalized in seen_questions:
+                    raise ValueError(
+                        f"Duplicate question in subject {subject_number}: {text}"
+                    )
+                seen_questions.add(normalized)
+                if memory_section is not None:
+                    if (
+                        not isinstance(memory_number, int)
+                        or not isinstance(memory_section, int)
+                        or (memory_number, memory_section)
+                        not in memory_sections
+                    ):
+                        raise ValueError(
+                            f"Invalid Memory reference in subject "
+                            f"{subject_number}: {memory_number}/"
+                            f"{memory_section}"
+                        )
+                questions.append(
+                    TacheTwoSubjectQuestionData(
+                        text=text,
+                        memory_number=memory_number,
+                        memory_section=memory_section,
+                    )
+                )
+            if not questions:
+                raise ValueError(f"Subject {subject_number} has no questions")
+            subjects.append(
+                TacheTwoSubjectData(
+                    number=subject_number,
+                    title=title,
+                    prompt=prompt,
+                    questions=tuple(questions),
+                )
+            )
+
+        if not subjects:
+            raise ValueError(f"{path.name} contains no subjects")
+        subject_numbers = [subject.number for subject in subjects]
+        if subject_numbers != sorted(set(subject_numbers)):
+            raise ValueError(
+                f"Subjects in {path.name} must be unique and ordered"
+            )
+        month_row["batches"][batch_number] = TacheTwoSubjectBatchData(
+            number=batch_number,
+            subjects=tuple(subjects),
+        )
+
+    months: List[TacheTwoSubjectMonthData] = []
+    for month_slug, month_row in sorted(
+        month_rows.items(),
+        key=lambda item: item[1]["number"],
+    ):
+        batches = tuple(
+            month_row["batches"][number]
+            for number in sorted(month_row["batches"])
+        )
+        batch_numbers = [batch.number for batch in batches]
+        if batch_numbers != list(range(1, len(batches) + 1)):
+            raise ValueError(
+                f"Batches for {month_slug} must be consecutive from 1"
+            )
+        subject_numbers = [
+            subject.number
+            for batch in batches
+            for subject in batch.subjects
+        ]
+        if subject_numbers != list(range(1, len(subject_numbers) + 1)):
+            raise ValueError(
+                f"Subjects for {month_slug} must be consecutive from 1"
+            )
+        months.append(
+            TacheTwoSubjectMonthData(
+                number=month_row["number"],
+                slug=month_slug,
+                name=month_row["name"],
+                batches=batches,
+            )
+        )
+
+    actual_month_numbers = [month.number for month in months]
+    if actual_month_numbers != list(range(1, len(months) + 1)):
+        raise ValueError("Tâche 2 months must be consecutive from 1")
+    return tuple(months)
+
+
+def tache_two_subject_content_key(
+    month_slug: str,
+    batch_number: int,
+    subject_number: int,
+) -> str:
+    return (
+        f"tache2:{month_slug}:batch-{batch_number:02d}:"
+        f"subject-{subject_number:02d}"
+    )
+
+
+def tache_two_theme_name(month: TacheTwoSubjectMonthData) -> str:
+    return f"Tâche 2 · {month.name}"
+
+
+def tache_two_family_name(
+    month: TacheTwoSubjectMonthData,
+    batch: TacheTwoSubjectBatchData,
+) -> str:
+    return f"Tâche 2 · {month.name} · Batch {batch.number}"
+
+
+def tache_two_themes(
+    months: Optional[Tuple[TacheTwoSubjectMonthData, ...]] = None,
+) -> List[ThemeData]:
+    months = months or load_tache_two_subject_months()
+    return [
+        ThemeData(
+            slug=f"tache-2-{month.slug}",
+            name=tache_two_theme_name(month),
+            display=month.name,
+            order=100 + month.number,
+            color="#d3263a",
+            icon="messages",
+            task="eo/tache-2",
+        )
+        for month in months
+    ]
+
+
+def tache_two_families(
+    months: Optional[Tuple[TacheTwoSubjectMonthData, ...]] = None,
+) -> List[Tuple[str, int]]:
+    months = months or load_tache_two_subject_months()
+    return [
+        (
+            tache_two_family_name(month, batch),
+            1000 + month.number * 100 + batch.number,
+        )
+        for month in months
+        for batch in month.batches
+    ]
+
+
+def parse_tache_two_responses(
+    months: Optional[Tuple[TacheTwoSubjectMonthData, ...]] = None,
+) -> List[ResponseData]:
+    months = months or load_tache_two_subject_months()
+    responses = []
+    for month in months:
+        theme = tache_two_theme_name(month)
+        for batch in month.batches:
+            family = tache_two_family_name(month, batch)
+            for subject in batch.subjects:
+                content_key = tache_two_subject_content_key(
+                    month.slug,
+                    batch.number,
+                    subject.number,
+                )
+                questions = [question.text for question in subject.questions]
+                body = "\n".join(questions)
+                responses.append(
+                    ResponseData(
+                        content_key=content_key,
+                        body_hash=hashlib.sha256(
+                            body.encode("utf-8")
+                        ).hexdigest(),
+                        theme=theme,
+                        family=family,
+                        prompt=subject.prompt,
+                        reformulation="",
+                        position="",
+                        position_claire="",
+                        nuance="",
+                        conclusion="",
+                        body=body,
+                        body_html=(
+                            "<ol>"
+                            + "".join(
+                                f"<li>{html.escape(question)}</li>"
+                                for question in questions
+                            )
+                            + "</ol>"
+                        ),
+                        arguments=[
+                            ArgumentData(
+                                order=number,
+                                idea=question,
+                                developpement="",
+                                exemple="",
+                                consequence="",
+                            )
+                            for number, question in enumerate(
+                                questions,
+                                start=1,
+                            )
+                        ],
+                        prompts=[
+                            PromptData(
+                                content_key=content_key,
+                                theme=theme,
+                                number=subject.number,
+                                text=subject.prompt,
+                                family=family,
+                                is_canonical=True,
+                            )
+                        ],
+                    )
+                )
+    return responses
+
+
+def parse_tache_two_subject_vocabulary(
+    responses: Optional[List[ResponseData]] = None,
+    directory: Path = TACHE_TWO_VOCABULARY_DIR,
+) -> List[PhraseData]:
+    if responses is None:
+        responses = parse_tache_two_responses()
+    response_by_key = {
+        response.content_key: response
+        for response in responses
+        if response.content_key.startswith("tache2:")
+    }
+    if not response_by_key:
+        return []
+
+    seen_response_keys = set()
+    seen_ids = {}
+    phrases = []
+    paths = sorted(directory.glob("*.json"))
+    if not paths:
+        raise ValueError("No Tâche 2 subject-vocabulary JSON files found")
+
+    base_order = (
+        EXPECTED_PHRASES
+        + EXPECTED_UNIQUE * SUBJECT_VOCABULARY_PER_RESPONSE
+        + (
+            sum(
+                1
+                for _path in COMPREHENSION_VOCABULARY_DIR.glob("*.json")
+            )
+            * COMPREHENSION_VOCABULARY_PER_TEST
+        )
+    )
+    for path in paths:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(payload, dict) or payload.get("version") != 1:
+            raise ValueError(
+                f"{path.name} must use Tâche 2 vocabulary version 1"
+            )
+        subject_rows = payload.get("subjects")
+        if not isinstance(subject_rows, list):
+            raise ValueError(f"{path.name} must contain a subjects list")
+
+        for subject_index, subject_row in enumerate(subject_rows, start=1):
+            location = f"{path.name} subject {subject_index}"
+            if not isinstance(subject_row, dict):
+                raise ValueError(f"{location} must be an object")
+            subject_key = subject_row.get("subject_key")
+            if subject_key not in response_by_key:
+                raise ValueError(
+                    f"{location} references unknown subject {subject_key!r}"
+                )
+            if subject_key in seen_response_keys:
+                raise ValueError(
+                    f"Duplicate Tâche 2 vocabulary for {subject_key!r}"
+                )
+            seen_response_keys.add(subject_key)
+
+            entries = subject_row.get("entries")
+            if not isinstance(entries, list):
+                raise ValueError(f"{location} must contain an entries list")
+            if (
+                len(entries) < TACHE_TWO_VOCABULARY_MIN_PER_RESPONSE
+                or len(entries) % SUBJECT_VOCABULARY_PER_KIND
+            ):
+                raise ValueError(
+                    f"{subject_key} must have at least "
+                    f"{TACHE_TWO_VOCABULARY_MIN_PER_RESPONSE} vocabulary "
+                    f"entries in groups of {SUBJECT_VOCABULARY_PER_KIND}"
+                )
+            actual_kinds = tuple(
+                entry.get("kind") if isinstance(entry, dict) else None
+                for entry in entries
+            )
+            kind_blocks = [
+                actual_kinds[
+                    start : start + SUBJECT_VOCABULARY_PER_KIND
+                ]
+                for start in range(
+                    0,
+                    len(actual_kinds),
+                    SUBJECT_VOCABULARY_PER_KIND,
+                )
+            ]
+            block_kinds = []
+            for block in kind_blocks:
+                if len(set(block)) != 1 or block[0] not in (
+                    SUBJECT_VOCABULARY_KINDS
+                ):
+                    raise ValueError(
+                        f"{subject_key} must group each vocabulary kind "
+                        f"in sets of {SUBJECT_VOCABULARY_PER_KIND}"
+                    )
+                block_kinds.append(block[0])
+            if len(block_kinds) != len(set(block_kinds)):
+                raise ValueError(
+                    f"{subject_key} repeats a vocabulary-kind group"
+                )
+
+            response = response_by_key[subject_key]
+            response_questions = {
+                argument.idea for argument in response.arguments
+            }
+            sources = tuple(
+                (prompt.theme, prompt.number)
+                for prompt in response.prompts
+            )
+            sources_raw = "; ".join(
+                f"{theme} P{number}" for theme, number in sources
+            )
+            seen_targets = set()
+            for entry_index, entry in enumerate(entries, start=1):
+                entry_location = f"{subject_key} entry {entry_index}"
+                if not isinstance(entry, dict):
+                    raise ValueError(f"{entry_location} must be an object")
+                if set(entry) != set(SUBJECT_VOCABULARY_FIELDS):
+                    raise ValueError(
+                        f"{entry_location} fields must be "
+                        f"{SUBJECT_VOCABULARY_FIELDS}"
+                    )
+                values = {}
+                for field_name in SUBJECT_VOCABULARY_FIELDS:
+                    value = entry.get(field_name)
+                    if not isinstance(value, str) or not value.strip():
+                        raise ValueError(
+                            f"{entry_location} has an empty "
+                            f"{field_name!r} field"
+                        )
+                    values[field_name] = value.strip()
+
+                phrase_id = values["id"]
+                phrase_id_key = phrase_id.casefold()
+                if len(phrase_id) > PHRASE_MAX_LENGTHS["id"]:
+                    raise ValueError(
+                        f"{entry_location} id exceeds "
+                        f"{PHRASE_MAX_LENGTHS['id']} characters"
+                    )
+                if phrase_id_key in seen_ids:
+                    raise ValueError(
+                        f"Duplicate Tâche 2 vocabulary id {phrase_id!r} "
+                        f"in {seen_ids[phrase_id_key]} and {entry_location}"
+                    )
+                seen_ids[phrase_id_key] = entry_location
+
+                french = values["french"]
+                english = values["english"]
+                example = values["example"]
+                if len(french) > PHRASE_MAX_LENGTHS["expression"]:
+                    raise ValueError(
+                        f"{entry_location} french target is too long"
+                    )
+                if len(english) > PHRASE_MAX_LENGTHS["english_cue"]:
+                    raise ValueError(
+                        f"{entry_location} english cue is too long"
+                    )
+                target_key = french.casefold()
+                if target_key in seen_targets:
+                    raise ValueError(
+                        f"{subject_key} repeats french target {french!r}"
+                    )
+                seen_targets.add(target_key)
+                if example not in response_questions:
+                    raise ValueError(
+                        f"{entry_location} example must be copied exactly "
+                        "from a prepared response question"
+                    )
+                if example.casefold().count(target_key) != 1:
+                    raise ValueError(
+                        f"{entry_location} example must contain its french "
+                        "target exactly once"
+                    )
+                if (
+                    values["kind"] == "phrase-modele"
+                    and example.casefold() == target_key
+                ):
+                    raise ValueError(
+                        f"{entry_location} phrase model needs a contextual "
+                        "example, not a duplicate target"
+                    )
+
+                phrases.append(
+                    PhraseData(
+                        phrase_id=phrase_id,
+                        tier="subject",
+                        category=SUBJECT_VOCABULARY_CATEGORIES[
+                            values["kind"]
+                        ],
+                        english_cue=english,
+                        expression=french,
+                        anchor=french,
+                        example=example,
+                        note=values["usage"],
+                        sources_raw=sources_raw,
+                        sources=sources,
+                        order=base_order + len(phrases) + 1,
+                    )
+                )
+
+    missing = sorted(set(response_by_key) - seen_response_keys)
+    if missing:
+        raise ValueError(
+            "Missing Tâche 2 subject vocabulary for: "
+            + ", ".join(missing)
+        )
+    return phrases
 
 
 def _ce_plain_text(value: str) -> str:

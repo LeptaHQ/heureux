@@ -1,0 +1,21 @@
+<nav class="prompt-nav{% if bottom %} prompt-nav--bottom{% endif %}" aria-label="Navigation entre les sujets">
+  <div class="prompt-nav__item">
+    {% if previous_subject %}
+      <a class="prompt-nav__link" href="{% url 'study:task_subject_detail' part.slug task.slug subject_month.slug subject_batch.number previous_subject.number %}" rel="prev">
+        <span class="prompt-nav__direction">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Sujet précédent</span>
+        <span class="prompt-nav__label">Sujet {{ previous_subject.number }} · {{ previous_subject.title }}</span>
+      </a>
+    {% endif %}
+  </div>
+
+  <span class="prompt-nav__position">Sujet {{ subject_position }} sur {{ subject_total }}</span>
+
+  <div class="prompt-nav__item prompt-nav__item--next">
+    {% if next_subject %}
+      <a class="prompt-nav__link prompt-nav__link--next" href="{% url 'study:task_subject_detail' part.slug task.slug subject_month.slug subject_batch.number next_subject.number %}" rel="next">
+        <span class="prompt-nav__direction">Sujet suivant {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+        <span class="prompt-nav__label">Sujet {{ next_subject.number }} · {{ next_subject.title }}</span>
+      </a>
+    {% endif %}
+  </div>
+</nav>

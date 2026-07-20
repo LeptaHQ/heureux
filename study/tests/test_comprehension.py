@@ -451,7 +451,7 @@ class ComprehensionFlowTests(TestCase):
             {"choice": choice.pk},
         )
 
-    def test_written_library_lots_tests_in_fixed_sets_of_five(self):
+    def test_written_library_batches_tests_in_fixed_sets_of_five(self):
         attempt = factories.make_comprehension_attempt(
             user=self.user,
             test=self.test,
@@ -463,8 +463,9 @@ class ComprehensionFlowTests(TestCase):
             reverse("study:comprehension_group", args=[1])
         )
 
-        self.assertContains(overview, "8 lots de 5 tests")
-        self.assertContains(overview, "Lot 1")
+        self.assertContains(overview, "8 batches de 5 tests")
+        self.assertContains(overview, "Batch 1")
+        self.assertNotContains(overview, "Lot 1")
         self.assertNotContains(overview, "Groupe 1")
         self.assertContains(
             overview,
@@ -476,8 +477,8 @@ class ComprehensionFlowTests(TestCase):
             reverse("study:comprehension_group", args=[1]),
         )
         self.assertEqual(len(group.context["group"]["slots"]), 5)
-        self.assertEqual(group.context["group_label"], "Lot")
-        self.assertContains(group, "Lot 01")
+        self.assertEqual(group.context["group_label"], "Batch")
+        self.assertContains(group, "Batch 01")
         self.assertContains(group, "1/3")
         self.assertContains(group, "Bientôt")
         self.assertContains(
@@ -537,7 +538,7 @@ class ComprehensionFlowTests(TestCase):
             "done",
         )
 
-    def test_group_outside_the_eight_group_curriculum_is_not_found(self):
+    def test_batch_outside_the_eight_batch_curriculum_is_not_found(self):
         self.assertEqual(
             self.client.get(
                 reverse("study:comprehension_group", args=[9])
@@ -545,7 +546,7 @@ class ComprehensionFlowTests(TestCase):
             404,
         )
 
-    def test_oral_library_groups_tests_in_fixed_sets_of_five(self):
+    def test_oral_library_batches_tests_in_fixed_sets_of_five(self):
         oral = factories.make_comprehension_test(
             number=1,
             question_count=3,
@@ -570,7 +571,7 @@ class ComprehensionFlowTests(TestCase):
             reverse("study:comprehension_oral_group", args=[1])
         )
 
-        self.assertContains(overview, "2 groupes de 5 tests")
+        self.assertContains(overview, "2 batches de 5 tests")
         self.assertContains(
             overview,
             'class="deck card ce-group-card"',
@@ -580,10 +581,11 @@ class ComprehensionFlowTests(TestCase):
             overview,
             reverse("study:comprehension_oral_group", args=[1]),
         )
-        self.assertContains(overview, "Groupe 1")
+        self.assertContains(overview, "Batch 1")
+        self.assertNotContains(overview, "Groupe 1")
         self.assertEqual(len(group.context["group"]["slots"]), 5)
-        self.assertEqual(group.context["group_label"], "Groupe")
-        self.assertContains(group, "Groupe 01")
+        self.assertEqual(group.context["group_label"], "Batch")
+        self.assertContains(group, "Batch 01")
         self.assertContains(
             group,
             reverse("study:comprehension_oral_test", args=[oral.slug]),
@@ -593,7 +595,7 @@ class ComprehensionFlowTests(TestCase):
             reverse("study:comprehension_oral_test", args=[oral_draft.slug]),
         )
 
-    def test_oral_group_outside_the_curriculum_is_not_found(self):
+    def test_oral_batch_outside_the_curriculum_is_not_found(self):
         self.assertEqual(
             self.client.get(
                 reverse("study:comprehension_oral_group", args=[3])
@@ -628,7 +630,8 @@ class ComprehensionFlowTests(TestCase):
             response,
             reverse("study:comprehension_group", args=[1]),
         )
-        self.assertContains(response, "Lot 1")
+        self.assertContains(response, "Batch 1")
+        self.assertNotContains(response, "Lot 1")
         self.assertNotContains(response, "Groupe 1")
         for question in self.test.questions.all():
             with self.subTest(question=question.number):
@@ -1239,7 +1242,7 @@ class OralComprehensionFlowTests(TestCase):
         self.assertContains(detail, "Compréhension orale")
         self.assertContains(detail, ">9</span>")
         self.assertContains(detail, ">39</span>")
-        self.assertContains(detail, "Groupe 1")
+        self.assertContains(detail, "Batch 1")
         self.assertContains(
             detail,
             reverse("study:comprehension_oral_group", args=[1]),

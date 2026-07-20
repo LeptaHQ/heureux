@@ -34,6 +34,10 @@ EXPRESSION_PART_BY_PATH = {
 RESPONSE_SOURCE_PREFIX = "response:"
 PHRASE_SOURCE_PREFIX = "phrase:"
 PHRASE_SOURCE_RE = re.compile(r"^phrase:(?P<phrase_id>[^:]+):")
+TACHE_TWO_SOURCE_RE = re.compile(
+    r"^tache-two:(?P<month>[a-z0-9-]+):batch-(?P<batch>\d+):"
+    r"subject-(?P<subject>\d+)$"
+)
 ANNOTATION_SURFACE_SUFFIXES = (":front", ":back")
 
 
@@ -262,6 +266,7 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
         .filter(
             Q(source_key__startswith=RESPONSE_SOURCE_PREFIX)
             | Q(source_key__startswith=PHRASE_SOURCE_PREFIX)
+            | Q(source_key__startswith="tache-two:")
             | Q(source_path__contains="/sujets/")
         )
         .values("source_path", "source_key")
@@ -327,6 +332,17 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
         content_key = _response_content_key(row["source_key"])
         if content_key in response_by_content_key:
             matched_response_ids.add(response_by_content_key[content_key])
+        tache_two_match = TACHE_TWO_SOURCE_RE.fullmatch(row["source_key"])
+        if tache_two_match:
+            tache_two_content_key = (
+                f"tache2:{tache_two_match['month']}:"
+                f"batch-{int(tache_two_match['batch']):02d}:"
+                f"subject-{int(tache_two_match['subject']):02d}"
+            )
+            if tache_two_content_key in response_by_content_key:
+                matched_response_ids.add(
+                    response_by_content_key[tache_two_content_key]
+                )
         phrase_match = PHRASE_SOURCE_RE.match(row["source_key"])
         if phrase_match:
             matched_response_ids.update(

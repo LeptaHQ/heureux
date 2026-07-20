@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Sujets · {{ task.name }} · Heureux{% endblock %}
+
+{% block content %}
+{% include "study/_task_nav.html" %}
+
+<div class="tache-two-subjects" style="--subject-accent: {{ task.color }};">
+  <header class="memory-overview-hero">
+    <div class="memory-overview-hero__copy">
+      <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
+        <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name="file-text" only %}</span>
+        <span>Sujets par mois</span>
+      </h1>
+    </div>
+    <dl class="memory-overview-hero__metrics" aria-label="Corpus de sujets">
+      <div><dt>Mois</dt><dd>{{ month_count }}</dd></div>
+      <div><dt>Batchs</dt><dd>{{ batch_count }}</dd></div>
+      <div><dt>Sujets</dt><dd>{{ subject_count }}</dd></div>
+    </dl>
+  </header>
+
+  {% if subject_months %}
+    {% include "study/partials/collection_view_toggle.html" %}
+  {% endif %}
+
+  {% for month in subject_months %}
+    <section class="tache-two-month" aria-labelledby="month-{{ month.slug }}">
+      <header class="tache-two-month__head">
+        <div>
+          <span>Mois {{ month.number|stringformat:"02d" }}</span>
+          <h2 id="month-{{ month.slug }}">{{ month.name }}</h2>
+        </div>
+        <p>{{ month.batch_count }} batch{{ month.batch_count|pluralize }} · {{ month.subject_count }} sujets · {{ month.question_count }} questions</p>
+      </header>
+      <div class="subject-batch-grid collection-table collection-table--subject-batches" data-collection-view="adaptive">
+        {% include "study/partials/collection_table_header.html" with variant="subject-batches" column_1="Batch" column_2="Mois" column_3="Contenu" column_4="Action" only %}
+        {% for batch in month.batches %}
+          <a class="subject-batch-card card" data-collection-item data-tache-two-subject-batch href="{% url 'study:task_subject_batch' part.slug task.slug month.slug batch.number %}">
+            <span class="subject-batch-card__number">
+              {% include "study/partials/ui_icon.html" with name="file-text" only %}
+              <span>Batch {{ batch.number_label }}</span>
+            </span>
+            <span class="subject-batch-card__copy">
+              <strong>{{ month.name }} · Batch {{ batch.number }}</strong>
+              <span>Sujets {{ batch.first_subject_number }}–{{ batch.last_subject_number }}</span>
+            </span>
+            <span class="subject-batch-card__meta">
+              <span><b>{{ batch.subject_count }}</b> sujets</span>
+              <span><b>{{ batch.question_count }}</b> questions</span>
+            </span>
+            <span class="subject-batch-card__action">
+              Ouvrir
+              {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
+            </span>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+</div>
+{% endblock %}

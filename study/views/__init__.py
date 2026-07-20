@@ -135,6 +135,8 @@ from .library import (
     task_detail,
     task_memory_detail,
     task_memory_progress,
+    task_subject_batch,
+    task_subject_detail,
     theme_detail,
 )
 
@@ -256,6 +258,8 @@ __all__ = [
     'task_detail',
     'task_memory_detail',
     'task_memory_progress',
+    'task_subject_batch',
+    'task_subject_detail',
     'task_notes',
     'theme_detail',
 ]

@@ -19,6 +19,9 @@ canonical_url_migration = import_module(
 readable_url_migration = import_module(
     "study.migrations.0033_readable_skill_urls"
 )
+batch_url_migration = import_module(
+    "study.migrations.0034_comprehension_batches"
+)
 
 
 class SkillCodeMigrationTests(TestCase):
@@ -299,5 +302,77 @@ class ReadableSkillUrlMigrationTests(TestCase):
         existing.refresh_from_db()
         self.assertFalse(Annotation.objects.filter(pk=old.pk).exists())
         self.assertEqual(existing.source_path, readable_path)
+        self.assertEqual(existing.quote, "Passage personnalisé")
+        self.assertTrue(existing.study_later)
+
+
+class ComprehensionBatchUrlMigrationTests(TestCase):
+    def setUp(self):
+        self.user = factories.make_user("batch-url-migration")
+
+    def test_migration_rewrites_batch_paths_and_nested_next_urls(self):
+        cases = {
+            "/comprehension/ecrite/groupes/1/#tests": (
+                "/comprehension/ecrite/batches/1/#tests"
+            ),
+            "/comprehension/orale/groupes/2/?view=table": (
+                "/comprehension/orale/batches/2/?view=table"
+            ),
+            (
+                "/compte/connexion/"
+                "?next=%2Fcomprehension%2Fecrite%2Fgroupes%2F3%2F"
+            ): (
+                "/compte/connexion/"
+                "?next=%2Fcomprehension%2Fecrite%2Fbatches%2F3%2F"
+            ),
+        }
+        annotations = {
+            source: Annotation.objects.create(
+                user=self.user,
+                kind=AnnotationKind.NOTE,
+                body=f"Stored path {index}",
+                source_path=source,
+            )
+            for index, source in enumerate(cases)
+        }
+
+        batch_url_migration.use_comprehension_batch_urls(apps, None)
+
+        for source, expected in cases.items():
+            with self.subTest(source=source):
+                annotations[source].refresh_from_db()
+                self.assertEqual(annotations[source].source_path, expected)
+
+    def test_migration_merges_highlights_at_the_batch_path(self):
+        group_path = "/comprehension/ecrite/groupes/1/"
+        batch_path = "/comprehension/ecrite/batches/1/"
+        existing = Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="Ancien passage",
+            source_path=batch_path,
+            source_key="comprehension-batch:test",
+            start_offset=4,
+            end_offset=19,
+        )
+        old = Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="Passage personnalisé",
+            source_path=group_path,
+            source_key=existing.source_key,
+            start_offset=4,
+            end_offset=19,
+            study_later=True,
+        )
+        Annotation.objects.filter(pk=existing.pk).update(
+            updated_at=timezone.now() - timedelta(minutes=1)
+        )
+
+        batch_url_migration.use_comprehension_batch_urls(apps, None)
+
+        existing.refresh_from_db()
+        self.assertFalse(Annotation.objects.filter(pk=old.pk).exists())
+        self.assertEqual(existing.source_path, batch_path)
         self.assertEqual(existing.quote, "Passage personnalisé")
         self.assertTrue(existing.study_later)

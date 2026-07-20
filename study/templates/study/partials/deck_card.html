@@ -24,7 +24,7 @@ Params:
     </div>
     {% if available %}
       {% if guide %}
-        <div class="deck__meta">{{ guide_title }} · {{ count_categories }} catégories · {{ count_questions }} questions</div>
+        <div class="deck__meta">{% if count_subjects %}{{ count_subjects }} sujets · {% endif %}{{ guide_title }} · {{ count_categories }} catégories · {{ count_questions }} questions</div>
         <div class="deck__progress-cell deck__progress-cell--guide">
           <span class="deck__progress-copy">{{ guide.progress.completed }}/{{ guide.progress.total }} apprises</span>
           <div class="progress">

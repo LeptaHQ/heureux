@@ -71,13 +71,32 @@ class Command(BaseCommand):
             self.stdout.write("Bundled content unchanged; import skipped.")
             return
 
-        themes = content.load_themes()
+        subject_months = content.load_tache_two_subject_months()
+        themes = [
+            *content.load_themes(),
+            *content.tache_two_themes(subject_months),
+        ]
         sections = content.load_sections()
         question_banks = content.load_question_banks()
         family_map, families = content.parse_families()
-        responses = content.parse_responses()
-        phrases = content.parse_phrases(responses)
-        subject_vocabulary = content.parse_subject_vocabulary(responses)
+        families = [
+            *families,
+            *content.tache_two_families(subject_months),
+        ]
+        standard_responses = content.parse_responses()
+        tache_two_responses = content.parse_tache_two_responses(
+            subject_months
+        )
+        responses = [*standard_responses, *tache_two_responses]
+        phrases = content.parse_phrases(standard_responses)
+        subject_vocabulary = content.parse_subject_vocabulary(
+            standard_responses
+        )
+        tache_two_vocabulary = (
+            content.parse_tache_two_subject_vocabulary(
+                tache_two_responses
+            )
+        )
         comprehension_tests = content.load_comprehension_tests()
         comprehension_vocabulary = content.parse_comprehension_vocabulary(
             comprehension_tests
@@ -85,6 +104,7 @@ class Command(BaseCommand):
         all_phrases = [
             *phrases,
             *subject_vocabulary,
+            *tache_two_vocabulary,
             *(item.phrase for item in comprehension_vocabulary),
         ]
         phrase_id_locations = {}

@@ -702,6 +702,7 @@
       });
       var card = cards[index];
       if (!card) return;
+      card.querySelector("[data-study-front]").classList.remove("hidden");
       card.querySelector("[data-study-back]").classList.add("hidden");
       revealed = false;
       reveal.classList.remove("hidden");
@@ -715,7 +716,9 @@
 
     function showAnswer() {
       if (revealed) return;
-      cards[index].querySelector("[data-study-back]").classList.remove("hidden");
+      var card = cards[index];
+      card.querySelector("[data-study-front]").classList.add("hidden");
+      card.querySelector("[data-study-back]").classList.remove("hidden");
       revealed = true;
       reveal.classList.add("hidden");
       keep.classList.remove("hidden");

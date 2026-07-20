@@ -84,7 +84,7 @@ urlpatterns = [
         name="comprehension_overview",
     ),
     path(
-        "comprehension/ecrite/groupes/<int:group_number>/",
+        "comprehension/ecrite/batches/<int:group_number>/",
         views.comprehension_group_detail,
         name="comprehension_group",
     ),
@@ -145,7 +145,7 @@ urlpatterns = [
         name="comprehension_oral_overview",
     ),
     path(
-        "comprehension/orale/groupes/<int:group_number>/",
+        "comprehension/orale/batches/<int:group_number>/",
         views.comprehension_oral_group_detail,
         name="comprehension_oral_group",
     ),
@@ -289,6 +289,19 @@ urlpatterns = [
         "expression/<expression_part:part_slug>/<slug:task_slug>/sujets/",
         views.browse,
         name="task_browse",
+    ),
+    path(
+        "expression/<expression_part:part_slug>/<slug:task_slug>/"
+        "sujets/<slug:month_slug>/batch-<int:batch_number>/",
+        views.task_subject_batch,
+        name="task_subject_batch",
+    ),
+    path(
+        "expression/<expression_part:part_slug>/<slug:task_slug>/"
+        "sujets/<slug:month_slug>/batch-<int:batch_number>/"
+        "<int:subject_number>/",
+        views.task_subject_detail,
+        name="task_subject_detail",
     ),
     path(
         "expression/<expression_part:part_slug>/<slug:task_slug>/"

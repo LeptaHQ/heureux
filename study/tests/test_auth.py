@@ -85,11 +85,47 @@ class AuthenticationTests(TestCase):
             "/expression/ee/",
             "/comprehension/ce/",
             "/comprehension/co/",
+            "/comprehension/ecrite/groupes/1/",
+            "/comprehension/orale/groupes/1/",
         ):
             with self.subTest(path=path):
                 response = self.client.get(path)
                 self.assertEqual(response.status_code, 404)
                 self.assertNotIn("Location", response)
+
+    @override_settings(DEBUG=False)
+    def test_unknown_route_uses_custom_not_found_page(self):
+        response = self.client.get("/chemin-introuvable/")
+
+        self.assertEqual(response.status_code, 404)
+        self.assertTemplateUsed(response, "404.html")
+        self.assertContains(
+            response,
+            "Cette page n’existe pas",
+            status_code=404,
+        )
+        self.assertContains(
+            response,
+            reverse("study:login"),
+            status_code=404,
+        )
+        self.assertIn("no-store", response["Cache-Control"])
+
+        self.client.force_login(factories.make_user("lost-visitor"))
+        response = self.client.get("/toujours-introuvable/")
+
+        self.assertEqual(response.status_code, 404)
+        self.assertTemplateUsed(response, "404.html")
+        self.assertContains(
+            response,
+            reverse("study:dashboard"),
+            status_code=404,
+        )
+        self.assertContains(
+            response,
+            reverse("study:search"),
+            status_code=404,
+        )
 
     def test_registration_normalizes_username_and_hashes_six_digit_pin(self):
         legacy_card = factories.make_spine_card(
@@ -579,9 +615,14 @@ class AuthenticationTests(TestCase):
 
         call_command("import_content", stdout=StringIO())
 
+        imported_card_count = Card.objects.count()
+        self.assertGreater(imported_card_count, 0)
         self.assertFalse(users_with_study_state().filter(pk=admin.pk).exists())
         self.assertEqual(Card.objects.filter(user=admin).count(), 0)
-        self.assertEqual(Card.objects.filter(user__isnull=True).count(), 8716)
+        self.assertEqual(
+            Card.objects.filter(user__isnull=True).count(),
+            imported_card_count,
+        )
 
         learner = get_user_model().objects.create_user(
             username="learner",
@@ -589,7 +630,10 @@ class AuthenticationTests(TestCase):
         )
         provision_user_study_data(learner)
 
-        self.assertEqual(Card.objects.filter(user=learner).count(), 8716)
+        self.assertEqual(
+            Card.objects.filter(user=learner).count(),
+            imported_card_count,
+        )
         self.assertFalse(
             Card.objects.filter(
                 user=learner,

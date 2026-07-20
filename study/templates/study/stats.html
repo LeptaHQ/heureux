@@ -73,7 +73,7 @@
       </div>
     </header>
     <div class="stats-action-grid">
-      <a class="stats-action card" href="{{ expression_weak_url }}">
+      <a class="stats-action" href="{{ expression_weak_url }}">
         <span class="stats-action__icon stats-action__icon--expression" aria-hidden="true">
           <svg><use href="#nav-icon-expressions"></use></svg>
         </span>
@@ -84,7 +84,7 @@
         </span>
         <span class="stats-action__arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
       </a>
-      <a class="stats-action card" href="{{ vocabulary_weak_url }}">
+      <a class="stats-action" href="{{ vocabulary_weak_url }}">
         <span class="stats-action__icon stats-action__icon--vocabulary" aria-hidden="true">
           <svg><use href="#nav-icon-book"></use></svg>
         </span>
@@ -236,9 +236,6 @@
       {% for session in recent_sessions %}
         <article class="session-card card">
           <header>
-            <span class="session-card__icon" aria-hidden="true">
-              <svg><use href="#nav-icon-review"></use></svg>
-            </span>
             <div class="session-card__title">
               <strong>{{ session.ended_at|date:"j M Y" }}</strong>
               <span>

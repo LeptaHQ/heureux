@@ -18,13 +18,12 @@
     <a class="btn {% if study_count %}btn--primary{% endif %}" href="{% url 'study:annotation_study' %}">Étudier{% if study_count %} · {{ study_count }}{% endif %}</a>
   </div>
 
-  <a class="notes-general card" href="{% url 'study:general_notes' %}">
+  <a class="notes-general" href="{% url 'study:general_notes' %}">
     <span class="notes-general__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="pencil" only %}</span>
-    <span>
+    <span class="notes-general__copy">
       <strong>Notes générales</strong>
-      <span>{{ general_counts.notes }} note{{ general_counts.notes|pluralize }} · {{ general_counts.highlights }} surlignage{{ general_counts.highlights|pluralize }}</span>
+      <small>{{ general_counts.notes }} note{{ general_counts.notes|pluralize }} · {{ general_counts.highlights }} surlignage{{ general_counts.highlights|pluralize }}</small>
     </span>
-    <span aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
   </a>
 
   <div class="grouped-overview__section-head">

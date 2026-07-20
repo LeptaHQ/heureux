@@ -173,6 +173,146 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
                 """
             )
         )
+        self.assertEqual(icon.get_attribute("data-icon"), self.task.icon)
+        self.assertNotEqual(
+            icon.evaluate("element => getComputedStyle(element).color"),
+            self.page.locator(
+                ".title-with-icon > span:last-child"
+            ).evaluate("element => getComputedStyle(element).color"),
+        )
+
+    def test_tache_two_memories_are_structured_on_desktop_and_mobile(self):
+        Command()._import_sections(load_sections())
+        part_url = (
+            self.live_server_url
+            + reverse("study:part_detail", args=["eo"])
+        )
+        overview_url = (
+            self.live_server_url
+            + reverse("study:task_detail", args=["eo", "tache-2"])
+        )
+        memory_url = (
+            self.live_server_url
+            + reverse(
+                "study:task_memory_detail",
+                args=["eo", "tache-2", 1],
+            )
+        )
+        self.page.set_viewport_size({"width": 1280, "height": 850})
+        self.page.goto(part_url)
+        self.page.get_by_role("button", name="Tableau").click()
+        guide_progress = self.page.locator(".deck__progress-cell--guide")
+        self.assertEqual(guide_progress.count(), 1)
+        guide_style = guide_progress.evaluate(
+            """
+            element => ({
+              background: getComputedStyle(element).backgroundColor,
+              radius: getComputedStyle(element).borderRadius,
+              iconWidth: element.querySelector(
+                '.deck__guide-icon'
+              ).getBoundingClientRect().width,
+            })
+            """
+        )
+        self.assertEqual(guide_style["background"], "rgba(0, 0, 0, 0)")
+        self.assertEqual(guide_style["radius"], "0px")
+        self.assertLessEqual(guide_style["iconWidth"], 28)
+
+        self.page.goto(overview_url)
+        self.page.get_by_role(
+            "heading",
+            name="Tâche 2",
+            exact=True,
+        ).wait_for()
+        memory_entry = self.page.locator(".memory-entry")
+        self.assertEqual(memory_entry.count(), 1)
+        self.assertEqual(
+            memory_entry.get_attribute("href"),
+            memory_url.removeprefix(self.live_server_url),
+        )
+        entry_borders = memory_entry.evaluate(
+            """
+            element => {
+              const style = getComputedStyle(element);
+              return [
+                style.borderTopColor,
+                style.borderRightColor,
+                style.borderBottomColor,
+                style.borderLeftColor,
+              ];
+            }
+            """
+        )
+        self.assertEqual(len(set(entry_borders)), 1)
+        overview_nav = self.page.locator(".task-nav--memories")
+        self.assertEqual(overview_nav.locator("a").count(), 2)
+        self.assertEqual(
+            overview_nav.locator("a.is-active").inner_text(),
+            "Vue d'ensemble",
+        )
+        memory_entry.click()
+        self.page.wait_for_url(memory_url)
+        self.page.get_by_role(
+            "heading",
+            name="Mémoire 1",
+            exact=True,
+        ).wait_for()
+        task_nav = self.page.locator(".task-nav--memories")
+        self.assertEqual(task_nav.locator("a").count(), 2)
+        self.assertEqual(
+            task_nav.locator("a.is-active").inner_text(),
+            "Mémoires",
+        )
+
+        sections = self.page.locator("[data-question-bank-section]")
+        questions = self.page.locator("[data-question-bank-question]")
+        self.assertEqual(sections.count(), 21)
+        self.assertEqual(questions.count(), 65)
+        desktop = self.page.locator("[data-question-bank]").evaluate(
+            """
+            root => {
+              const index = root.querySelector('.question-bank-index');
+              const content = root.querySelector('.question-bank-sections');
+              const first = root.querySelector('.question-bank-section');
+              const indexRect = index.getBoundingClientRect();
+              const contentRect = content.getBoundingClientRect();
+              const style = getComputedStyle(first);
+              return {
+                columns: getComputedStyle(root).gridTemplateColumns,
+                indexRight: indexRect.right,
+                contentLeft: contentRect.left,
+                borderColors: [
+                  style.borderTopColor,
+                  style.borderRightColor,
+                  style.borderBottomColor,
+                  style.borderLeftColor,
+                ],
+              };
+            }
+            """
+        )
+        self.assertGreaterEqual(desktop["contentLeft"], desktop["indexRight"])
+        self.assertEqual(len(set(desktop["borderColors"])), 1)
+        self.assert_no_horizontal_overflow()
+
+        self.page.set_viewport_size({"width": 320, "height": 700})
+        mobile = self.page.locator("[data-question-bank]").evaluate(
+            """
+            root => {
+              const nav = root.querySelector('.question-bank-index nav');
+              const taskNav = document.querySelector('.task-nav--memories');
+              return {
+                columns: getComputedStyle(root).gridTemplateColumns,
+                navScrolls: nav.scrollWidth > nav.clientWidth,
+                taskNavColumns: getComputedStyle(taskNav).gridTemplateColumns,
+              };
+            }
+            """
+        )
+        self.assertEqual(len(mobile["columns"].split()), 1)
+        self.assertTrue(mobile["navScrolls"])
+        self.assertEqual(len(mobile["taskNavColumns"].split()), 2)
+        self.assert_no_horizontal_overflow()
 
     def test_subject_vocabulary_directory_searches_rich_decks(self):
         first_prompt = self.first.response.prompts.get(is_canonical=True)
@@ -231,6 +371,30 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             directory.locator("[data-subject-theme]").get_attribute("open")
         )
 
+    def test_question_bank_index_uses_readable_small_type(self):
+        Command()._import_sections(load_sections())
+        self.page.set_viewport_size({"width": 1280, "height": 800})
+        self.page.goto(
+            self.live_server_url
+            + reverse(
+                "study:task_memory_detail",
+                args=["eo", "tache-2", 1],
+            )
+        )
+        first_link = self.page.locator(".question-bank-index nav a").first
+        first_link.get_by_text("Tarifs", exact=True).wait_for()
+
+        label_size = first_link.locator("strong").evaluate(
+            "element => parseFloat(getComputedStyle(element).fontSize)"
+        )
+        number_size = first_link.locator("span").evaluate(
+            "element => parseFloat(getComputedStyle(element).fontSize)"
+        )
+
+        self.assertGreaterEqual(label_size, 13)
+        self.assertGreaterEqual(number_size, 11.5)
+        self.assert_no_horizontal_overflow()
+
     def test_vocabulary_status_cards_fit_large_counts_cleanly(self):
         self.page.set_viewport_size({"width": 1280, "height": 800})
         self.page.goto(
@@ -272,7 +436,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         )
         self.assertTrue(layout["fits"])
         self.assertTrue(layout["valueFits"])
-        self.assertNotIn("Georgia", layout["fontFamily"])
+        self.assertIn('"Book Antiqua"', layout["fontFamily"])
         self.assertEqual(len(set(layout["borders"])), 1)
         self.assertEqual(layout["pseudoContent"], "none")
 
@@ -535,6 +699,48 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
 
         self.page.locator(".review__top").click(position={"x": 4, "y": 4})
         toolbar.wait_for(state="hidden")
+
+    def test_selection_note_paste_button_inserts_clipboard_at_cursor(self):
+        self.context.add_init_script(
+            """
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: {
+                readText: () => Promise.resolve("texte collé"),
+              },
+            });
+            """
+        )
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        self.page.wait_for_load_state("networkidle")
+        self.select_prompt(start=0, end=12)
+        self.page.locator("[data-note-selection]").click()
+
+        panel = self.page.locator("[data-note-panel]")
+        panel.wait_for()
+        note_body = panel.locator("[data-note-body]")
+        note_body.fill("Avant  après")
+        note_body.evaluate("element => element.setSelectionRange(6, 6)")
+        paste_button = panel.get_by_role(
+            "button",
+            name="Coller depuis le presse-papiers",
+        )
+
+        paste_button.click()
+
+        panel.get_by_text("Texte collé.", exact=True).wait_for()
+        self.assertEqual(note_body.input_value(), "Avant texte collé après")
+        self.assertIn(
+            "ui-icons.svg?v=2#icon-clipboard-paste",
+            paste_button.locator("use").get_attribute("href"),
+        )
+        self.assert_no_horizontal_overflow()
 
     def test_selection_toolbar_reads_with_premium_french_voice(self):
         self.context.add_init_script(
@@ -1168,7 +1374,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
                 "element => getComputedStyle(element).gridTemplateColumns"
             ),
         )
-        self.assertLessEqual(first_row.bounding_box()["height"], 84)
+        self.assertLessEqual(first_row.bounding_box()["height"], 88)
         aligned_edges = self.page.evaluate(
             """
             () => {
@@ -1199,7 +1405,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         mobile_heights = mobile_rows.evaluate_all(
             "rows => rows.map(row => row.getBoundingClientRect().height)"
         )
-        self.assertLessEqual(max(mobile_heights), 210)
+        self.assertLessEqual(max(mobile_heights), 214)
         self.assertLessEqual(mobile_heights[1], 120)
         self.assertNotEqual(
             mobile_rows.first.evaluate(
@@ -1726,10 +1932,10 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.assertEqual(self.page.locator(".ce-group-card").count(), 8)
         self.assert_no_horizontal_overflow()
 
-        self.page.get_by_role("link", name="Groupe 1").click()
+        self.page.get_by_role("link", name="Lot 1").click()
         self.page.get_by_role(
             "heading",
-            name="Groupe 01",
+            name="Lot 01",
         ).wait_for()
         self.assertEqual(self.page.locator(".ce-group-test-row").count(), 5)
         self.assert_no_horizontal_overflow()

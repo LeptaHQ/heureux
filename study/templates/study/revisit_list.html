@@ -31,7 +31,7 @@
           {% for item in group.items %}
             <article class="qrow revisit-row" data-collection-item>
               <div class="revisit-row__body">
-                <span class="muted revisit-row__meta">{% if item.icon %}{% include "study/partials/ui_icon.html" with name=item.icon only %}{% endif %}<span>{{ item.meta }}</span></span>
+                <span class="muted revisit-row__meta"{% if item.icon_color %} style="--icon-accent: {{ item.icon_color }};"{% endif %}>{% if item.icon %}{% include "study/partials/ui_icon.html" with name=item.icon only %}{% endif %}<span>{{ item.meta }}</span></span>
                 <a class="revisit-row__title" href="{{ item.url }}">{{ item.title }}</a>
                 {% if item.card.revisit_added_at %}
                   <span class="faint">Ajoutée {{ item.card.revisit_added_at|timesince }} plus tôt</span>

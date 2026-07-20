@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}{{ question_bank.title }} · {{ task.name }}{% endblock %}
+
+{% block content %}
+{% include "study/_task_nav.html" %}
+
+<div class="question-bank-page" style="--question-bank-accent: {{ task.color }};">
+<header class="question-bank-hero">
+  <div class="question-bank-hero__copy">
+    <p class="eyebrow">{{ question_bank.label }} · {{ task.name }}</p>
+    <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
+      <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name=task.icon only %}</span>
+      <span>{{ question_bank.title }}</span>
+    </h1>
+    <p>{{ question_bank.subtitle }}</p>
+  </div>
+  <dl class="question-bank-hero__metrics" aria-label="Contenu de la mémoire">
+    <div><dt>Catégories</dt><dd>{{ question_bank.category_count }}</dd></div>
+    <div><dt>Questions</dt><dd>{{ question_bank.question_count }}</dd></div>
+    <div><dt>Objectif</dt><dd>1 choix</dd></div>
+  </dl>
+</header>
+
+<section class="question-bank-rules card" aria-labelledby="question-bank-rules-title">
+  <div class="question-bank-rules__intro">
+    <span class="question-bank-rules__icon">{% include "study/partials/ui_icon.html" with name="sparkles" only %}</span>
+    <div>
+      <p class="eyebrow">La règle d'or</p>
+      <h2 id="question-bank-rules-title">Une catégorie, une formulation</h2>
+      <p>Construis chaque dialogue avec des questions variées, faciles à rappeler et adaptées au contexte.</p>
+    </div>
+  </div>
+  <ol class="question-bank-rules__list">
+    {% for rule in question_bank.rules %}
+      <li>
+        <span aria-hidden="true">{% include "study/partials/ui_icon.html" with name="check" only %}</span>
+        <strong>{{ rule }}</strong>
+      </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<div class="question-bank-layout" data-question-bank>
+  <aside class="question-bank-index card" aria-labelledby="question-bank-index-title">
+    <div class="question-bank-index__head">
+      <div>
+        <p class="eyebrow">Navigation</p>
+        <h2 id="question-bank-index-title">Les catégories</h2>
+      </div>
+      <span>{{ question_bank.category_count }}</span>
+    </div>
+    <nav aria-label="Catégories de la mémoire">
+      {% for section in question_bank.sections %}
+        <a href="#{{ section.anchor }}">
+          <span>{{ section.number_label }}</span>
+          <strong>{{ section.title }}</strong>
+        </a>
+      {% endfor %}
+    </nav>
+  </aside>
+
+  <div class="question-bank-sections" aria-label="Questions à mémoriser">
+    {% for section in question_bank.sections %}
+      <article
+        class="question-bank-section card"
+        id="{{ section.anchor }}"
+        data-question-bank-section
+        data-annotation-root
+        data-annotation-source-key="{{ question_bank.annotation_key_prefix }}:part-{{ section.number_label }}">
+        <header class="question-bank-section__head">
+          <span class="question-bank-section__number">{{ section.number_label }}</span>
+          <div>
+            <p>Partie {{ section.number }}</p>
+            <h2>{{ section.title }}</h2>
+          </div>
+          <span class="question-bank-section__count">{{ section.question_count }} question{{ section.question_count|pluralize }}</span>
+        </header>
+
+        <div class="question-bank-section__body">
+          {% for group in section.groups %}
+            <section class="question-bank-group">
+              {% if group.title or group.guidance %}
+                <header class="question-bank-group__head">
+                  {% if group.title %}<h3>{{ group.title }}</h3>{% endif %}
+                  {% if group.guidance %}<p>{{ group.guidance }}</p>{% endif %}
+                </header>
+              {% endif %}
+              <ol class="question-bank-questions">
+                {% for question in group.questions %}
+                  <li data-question-bank-question>
+                    <span class="question-bank-question__number" aria-hidden="true">{{ forloop.counter|stringformat:"02d" }}</span>
+                    <div>
+                      <p>{{ question.text }}</p>
+                      {% if question.note %}<small>{{ question.note }}</small>{% endif %}
+                    </div>
+                  </li>
+                {% endfor %}
+              </ol>
+            </section>
+          {% endfor %}
+        </div>
+
+        <a class="question-bank-section__top" href="#question-bank-index-title">Retour au sommaire</a>
+      </article>
+    {% endfor %}
+  </div>
+</div>
+</div>
+{% endblock %}

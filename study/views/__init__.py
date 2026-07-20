@@ -133,6 +133,7 @@ from .library import (
     search,
     stats,
     task_detail,
+    task_memory_detail,
     theme_detail,
 )
 
@@ -252,6 +253,7 @@ __all__ = [
     'settings_view',
     'stats',
     'task_detail',
+    'task_memory_detail',
     'task_notes',
     'theme_detail',
 ]

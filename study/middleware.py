@@ -55,7 +55,7 @@ class SecurityHeadersMiddleware:
         response.setdefault(
             "Permissions-Policy",
             "camera=(), geolocation=(), microphone=(), payment=(), "
-            "usb=(), clipboard-write=(self)",
+            "usb=(), clipboard-read=(self), clipboard-write=(self)",
         )
         return response
 

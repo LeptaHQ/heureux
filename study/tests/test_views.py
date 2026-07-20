@@ -74,13 +74,13 @@ class PWATests(TestCase):
         r = self.client.get("/sw.js")
         self.assertEqual(r.status_code, 200)
         body = r.content.decode()
-        self.assertIn('var CACHE = "heureux-v83"', body)
-        self.assertIn("study/css/app.css?v=77", body)
+        self.assertIn('var CACHE = "heureux-v90"', body)
+        self.assertIn("study/css/app.css?v=84", body)
         self.assertIn("study/js/theme-init.js?v=2", body)
         self.assertIn("study/js/app.js?v=34", body)
         self.assertIn("study/js/translate.js?v=12", body)
-        self.assertIn("study/js/annotations.js?v=8", body)
-        self.assertIn("study/icons/ui-icons.svg?v=1", body)
+        self.assertIn("study/js/annotations.js?v=9", body)
+        self.assertIn("study/icons/ui-icons.svg?v=2", body)
         self.assertIn("SKIP_WAITING", body)
         self.assertIn("no-store", r["Cache-Control"])
         self.assertEqual(r["Service-Worker-Allowed"], "/")
@@ -93,6 +93,7 @@ class PWATests(TestCase):
         self.assertNotIn("'unsafe-inline'", policy.split("script-src", 1)[1].split(";", 1)[0])
         self.assertIn("frame-ancestors 'none'", policy)
         self.assertIn("camera=()", response["Permissions-Policy"])
+        self.assertIn("clipboard-read=(self)", response["Permissions-Policy"])
 
     def test_offline_page(self):
         self.assertEqual(self.client.get("/offline/").status_code, 200)
@@ -134,11 +135,11 @@ class SmokeTests(TestCase):
 
         self.assertContains(
             response,
-            f"ui-icons.svg?v=1#icon-{part.icon}",
+            f"ui-icons.svg?v=2#icon-{part.icon}",
         )
         self.assertContains(
             response,
-            f"ui-icons.svg?v=1#icon-{task.icon}",
+            f"ui-icons.svg?v=2#icon-{task.icon}",
         )
         self.assertNotContains(response, "emoji")
 
@@ -395,7 +396,8 @@ class SmokeTests(TestCase):
             response,
             reverse("study:comprehension_oral_overview"),
         )
-        self.assertContains(response, "8 groupes")
+        self.assertContains(response, "8 lots")
+        self.assertContains(response, "2 groupes")
         self.assertNotContains(response, "Parcours en préparation")
         self.assertContains(
             response,

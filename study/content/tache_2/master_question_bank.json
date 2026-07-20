@@ -1,0 +1,312 @@
+{
+  "number": 1,
+  "title": "Mémoire 1",
+  "label": "Questions réutilisables",
+  "icon": "book-open",
+  "subtitle": "Une banque de formulations stables à mémoriser et à adapter naturellement à chaque situation de la Tâche 2.",
+  "rules": [
+    "Choisis une seule formulation par catégorie pour chaque sujet.",
+    "N'utilise jamais deux formulations de la même catégorie dans le même dialogue."
+  ],
+  "sections": [
+    {
+      "number": 1,
+      "title": "Tarifs",
+      "groups": [
+        {
+          "title": "Abonnement",
+          "guidance": "Pour les activités récurrentes : sport, yoga, centre culturel, cours de langue ou autre adhésion.",
+          "questions": [
+            "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ?",
+            "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+            "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
+            "Est-ce qu'il est possible de suspendre l'abonnement si nécessaire ?"
+          ]
+        },
+        {
+          "title": "Budget ponctuel",
+          "guidance": "Pour une visite, un voyage ou un événement payé une seule fois.",
+          "questions": [
+            "Parlons du budget — combien est-ce que ça coûte approximativement au total ?",
+            "Le tarif comprend quoi exactement ?",
+            "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Horaires",
+      "groups": [
+        {
+          "questions": [
+            "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
+            "À quelle heure ça commence — plutôt le matin ou en fin de journée ?",
+            "Vous êtes ouverts chaque jour de la semaine ?",
+            "Quelle est la durée d'une séance — environ une heure ou plutôt une heure et demie ?",
+            "Il y a combien de séances par semaine — on peut assister à plusieurs ou c'est limité à une seule ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Inscription / niveau",
+      "groups": [
+        {
+          "questions": [
+            "Il faut s'inscrire à l'avance ou on peut venir librement ?",
+            {
+              "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+              "note": "Seulement si une inscription est prévue."
+            },
+            "Il reste encore des places ou c'est déjà complet ?",
+            "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
+            "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Relance / clôture / lieu",
+      "groups": [
+        {
+          "title": "Relance",
+          "guidance": "Pour approfondir un élément au milieu de la conversation.",
+          "questions": [
+            "Tu as mentionné [X] — tu pourrais m'en dire un peu plus ?",
+            "Et [X] dont tu parlais, comment ça se passe exactement ?"
+          ]
+        },
+        {
+          "title": "Clôture",
+          "guidance": "Pour terminer la conversation naturellement.",
+          "questions": [
+            "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
+            "Merci pour toutes ces infos — si j'ai d'autres questions, je peux te solliciter ?",
+            "D'accord, si j'ai encore une question, je peux te recontacter ?"
+          ]
+        },
+        {
+          "title": "Lieu",
+          "questions": [
+            "Ça se passe où exactement — en salle ou en plein air ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Équipement",
+      "groups": [
+        {
+          "questions": [
+            "Qu'est-ce qu'il faut apporter — ou est-ce que tout est fourni sur place ?",
+            "Y a-t-il des vestiaires et des douches disponibles ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Hébergement",
+      "groups": [
+        {
+          "questions": [
+            "Tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
+            "C'est dans quelle gamme de prix pour l'hébergement — plutôt cher ou abordable ?",
+            "Il faut réserver à l'avance ou on peut trouver facilement sur place ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Restauration",
+      "groups": [
+        {
+          "questions": [
+            "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
+            "C'est dans quelle gamme de prix — plutôt cher ou raisonnable ?",
+            "Il faut réserver une table à l'avance ou on peut y aller directement ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Météo / saison",
+      "groups": [
+        {
+          "questions": [
+            "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+            "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+            "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Durée / logistique",
+      "groups": [
+        {
+          "questions": [
+            "Combien de temps faut-il prévoir pour [X] — quelques heures ou toute la journée ?",
+            "Quelle est la distance — c'est à combien de temps d'ici environ ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Contenu / programme",
+      "groups": [
+        {
+          "questions": [
+            "Qu'est-ce qu'on apprend concrètement — c'est plutôt technique, pratique, ou un mélange des deux ?",
+            "Quels types de thèmes sont abordés — [X], [Y] ou un peu de tout ?",
+            "Y a-t-il des sorties pratiques ou tout se fait en salle ?",
+            "La programmation est publiée à l'avance ou on la découvre sur place ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Visites guidées",
+      "groups": [
+        {
+          "questions": [
+            "Proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ?",
+            "Quelle est la durée d'une visite guidée — environ une heure ou plutôt une heure et demie ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Expositions / collections",
+      "groups": [
+        {
+          "questions": [
+            "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+            "Les expositions temporaires sont incluses dans le billet d'entrée ou faut-il payer un supplément ?",
+            "Jusqu'à quand cette exposition sera-t-elle accessible ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Parking / accès",
+      "groups": [
+        {
+          "questions": [
+            "Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
+            "C'est facilement accessible en transports en commun ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "title": "Groupe / participants",
+      "groups": [
+        {
+          "questions": [
+            "Il y a généralement combien de participants — c'est un petit groupe ou une grande classe ?",
+            "Vous proposez des tarifs de groupe ? Nous serons [X] personnes."
+          ]
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "title": "Ambiance / atmosphère",
+      "groups": [
+        {
+          "questions": [
+            "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+            "Les gens sont sympas — c'est facile de s'intégrer ?",
+            "L'ambiance est plutôt calme et conviviale, ou plus animée ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "title": "Services sur place",
+      "groups": [
+        {
+          "questions": [
+            "Y a-t-il une boutique de souvenirs ou une librairie ?",
+            "On peut prendre des photos à l'intérieur ou c'est interdit ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "title": "Précautions / règles",
+      "groups": [
+        {
+          "questions": [
+            "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+            "Est-ce qu'il y a des règles particulières à respecter ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "title": "Critères / priorités",
+      "groups": [
+        {
+          "questions": [
+            "Parmi tous ces aspects, qu'est-ce qui compte le plus pour toi ?",
+            "Tu as des critères indispensables, ou tu restes assez flexible ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "title": "Organisation / contact",
+      "groups": [
+        {
+          "questions": [
+            "Tout est déjà organisé ou il reste encore des détails à régler ?",
+            "S'il y a le moindre souci, à qui faut-il s'adresser ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "title": "Habitudes / routine",
+      "groups": [
+        {
+          "questions": [
+            "Il y a des habitudes importantes à respecter pour que tout se passe bien ?",
+            "Il y a une routine à suivre, ou on peut s'adapter assez librement ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "title": "Rythme / journée type",
+      "groups": [
+        {
+          "questions": [
+            "Comment se déroule une journée type ?",
+            "Comment vont s'organiser les journées sur place ?",
+            "Le rythme est plutôt intensif ou assez équilibré ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

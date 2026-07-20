@@ -62,6 +62,9 @@
       "href",
       href.replace(/#icon-[a-z0-9-]+$/, "#icon-" + name)
     );
+    if (icon.ownerSVGElement) {
+      icon.ownerSVGElement.dataset.icon = name;
+    }
   }
 
   function normalizeSelection(text) {

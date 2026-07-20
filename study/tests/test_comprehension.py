@@ -451,7 +451,7 @@ class ComprehensionFlowTests(TestCase):
             {"choice": choice.pk},
         )
 
-    def test_library_groups_tests_in_fixed_sets_of_five(self):
+    def test_written_library_lots_tests_in_fixed_sets_of_five(self):
         attempt = factories.make_comprehension_attempt(
             user=self.user,
             test=self.test,
@@ -463,7 +463,9 @@ class ComprehensionFlowTests(TestCase):
             reverse("study:comprehension_group", args=[1])
         )
 
-        self.assertContains(overview, "8 groupes de 5 tests")
+        self.assertContains(overview, "8 lots de 5 tests")
+        self.assertContains(overview, "Lot 1")
+        self.assertNotContains(overview, "Groupe 1")
         self.assertContains(
             overview,
             'class="deck card ce-group-card"',
@@ -474,6 +476,8 @@ class ComprehensionFlowTests(TestCase):
             reverse("study:comprehension_group", args=[1]),
         )
         self.assertEqual(len(group.context["group"]["slots"]), 5)
+        self.assertEqual(group.context["group_label"], "Lot")
+        self.assertContains(group, "Lot 01")
         self.assertContains(group, "1/3")
         self.assertContains(group, "Bientôt")
         self.assertContains(
@@ -576,7 +580,10 @@ class ComprehensionFlowTests(TestCase):
             overview,
             reverse("study:comprehension_oral_group", args=[1]),
         )
+        self.assertContains(overview, "Groupe 1")
         self.assertEqual(len(group.context["group"]["slots"]), 5)
+        self.assertEqual(group.context["group_label"], "Groupe")
+        self.assertContains(group, "Groupe 01")
         self.assertContains(
             group,
             reverse("study:comprehension_oral_test", args=[oral.slug]),
@@ -621,6 +628,8 @@ class ComprehensionFlowTests(TestCase):
             response,
             reverse("study:comprehension_group", args=[1]),
         )
+        self.assertContains(response, "Lot 1")
+        self.assertNotContains(response, "Groupe 1")
         for question in self.test.questions.all():
             with self.subTest(question=question.number):
                 self.assertContains(response, question.prompt_fr)

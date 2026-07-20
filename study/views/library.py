@@ -9,6 +9,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
 
+from .. import content as content_module
 from .. import queue as queue_module
 from ..cards import scope_label
 from ..forms import (
@@ -160,6 +161,25 @@ def task_detail(request, part_slug, task_slug):
             request,
             "study/coming_soon.html",
             {"part": task.part, "task": task},
+        )
+    if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
+        memories = content_module.load_question_banks()
+        return render(
+            request,
+            "study/tache_two_overview.html",
+            {
+                "part": task.part,
+                "task": task,
+                "memory_task": True,
+                "memories": memories,
+                "memory_count": len(memories),
+                "category_count": sum(
+                    memory.category_count for memory in memories
+                ),
+                "question_count": sum(
+                    memory.question_count for memory in memories
+                ),
+            },
         )
 
     active_themes = list(Theme.objects.filter(task=task, is_active=True))
@@ -479,6 +499,39 @@ def theme_detail(request, part_slug, task_slug, slug):
             "stats": stats,
             "review_batches": _review_batches(review_scope, request.user),
             "review_url": review_url(review_scope),
+        },
+    )
+
+
+def task_memory_detail(request, part_slug, task_slug, memory_number):
+    task = get_object_or_404(
+        Task.objects.select_related("part"),
+        slug=task_slug,
+        part__slug=part_slug,
+        is_active=True,
+        part__is_active=True,
+        available=True,
+    )
+    if (task.part.slug, task.slug) != content_module.QUESTION_BANK_TASK:
+        raise Http404
+    question_bank = next(
+        (
+            memory
+            for memory in content_module.load_question_banks()
+            if memory.number == memory_number
+        ),
+        None,
+    )
+    if question_bank is None:
+        raise Http404
+    return render(
+        request,
+        "study/question_bank.html",
+        {
+            "part": task.part,
+            "task": task,
+            "memory_task": True,
+            "question_bank": question_bank,
         },
     )
 

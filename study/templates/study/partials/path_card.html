@@ -42,7 +42,7 @@ Params:
               {{ task_count }} tâche{{ task_count|pluralize }} · {{ prompt_count }} sujets · {{ entry_count }} entrées{% if progress %} · {{ progress.completed }}/{{ progress.total }} terminées{% endif %}
             {% endif %}
           {% elif card_kind == "comprehension" %}
-            {{ facts.group_count }} groupes · {% if facts.active_attempt %}{{ facts.active_answered_count }}/{{ facts.active_question_count }} répondues{% elif facts.best_percentage is not None %}{{ facts.best_percentage }} % meilleur score{% else %}{{ facts.available_test_count }} test{{ facts.available_test_count|pluralize }} disponible{{ facts.available_test_count|pluralize }}{% endif %} · {{ facts.completed_test_count }} terminé{{ facts.completed_test_count|pluralize }}
+            {{ facts.group_count }} {% if code == "ce" %}lots{% else %}groupes{% endif %} · {% if facts.active_attempt %}{{ facts.active_answered_count }}/{{ facts.active_question_count }} répondues{% elif facts.best_percentage is not None %}{{ facts.best_percentage }} % meilleur score{% else %}{{ facts.available_test_count }} test{{ facts.available_test_count|pluralize }} disponible{{ facts.available_test_count|pluralize }}{% endif %} · {{ facts.completed_test_count }} terminé{{ facts.completed_test_count|pluralize }}
           {% else %}
             {% if has_content %}
               {{ task_count }} tâche{{ task_count|pluralize }} · {{ prompt_count }} sujets · {{ seen }}/{{ total }} sujets commencés

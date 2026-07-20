@@ -4,14 +4,25 @@
   <span aria-hidden="true">›</span>
   <a href="{% url 'study:part_detail' part.slug %}">{{ part.short_name }}</a>
   <span aria-hidden="true">›</span>
-  <strong>{{ task.name }}</strong>
+  {% if memory_task and question_bank %}
+    <a href="{% url 'study:task_detail' part.slug task.slug %}">{{ task.name }}</a>
+    <span aria-hidden="true">›</span>
+    <strong>{{ question_bank.title }}</strong>
+  {% else %}
+    <strong>{{ task.name }}</strong>
+  {% endif %}
 </div>
-<nav class="task-nav" aria-label="Navigation de {{ task.name }}">
+<nav class="task-nav{% if memory_task %} task-nav--memories{% endif %}" aria-label="Navigation de {{ task.name }}">
   <a class="{% if request.resolver_match.url_name == 'task_detail' %}is-active{% endif %}"
      href="{% url 'study:task_detail' part.slug task.slug %}">Vue d'ensemble</a>
-  <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'theme_detail' or request.resolver_match.url_name == 'task_family_detail' or request.resolver_match.url_name == 'response_detail' %}is-active{% endif %}"
-     href="{% url 'study:task_browse' part.slug task.slug %}">Sujets &amp; réponses</a>
-  <a class="{% if request.resolver_match.url_name == 'task_review_hub' %}is-active{% endif %}"
-     href="{% url 'study:task_review_hub' part.slug task.slug %}">Pratiquer</a>
+  {% if memory_task %}
+    <a class="{% if request.resolver_match.url_name == 'task_memory_detail' %}is-active{% endif %}"
+       href="{% url 'study:task_detail' part.slug task.slug %}#memories">Mémoires</a>
+  {% else %}
+    <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'theme_detail' or request.resolver_match.url_name == 'task_family_detail' or request.resolver_match.url_name == 'response_detail' %}is-active{% endif %}"
+       href="{% url 'study:task_browse' part.slug task.slug %}">Sujets &amp; réponses</a>
+    <a class="{% if request.resolver_match.url_name == 'task_review_hub' %}is-active{% endif %}"
+       href="{% url 'study:task_review_hub' part.slug task.slug %}">Pratiquer</a>
+  {% endif %}
 </nav>
 {% endif %}

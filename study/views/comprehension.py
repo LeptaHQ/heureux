@@ -36,6 +36,11 @@ COMPREHENSION_GROUP_COUNTS = {
     ComprehensionMode.ORALE: 2,
 }
 
+COMPREHENSION_GROUP_LABELS = {
+    ComprehensionMode.ECRITE: "Lot",
+    ComprehensionMode.ORALE: "Groupe",
+}
+
 
 COMPREHENSION_ROUTE_NAMES = {
     ComprehensionMode.ECRITE: {
@@ -66,6 +71,8 @@ def _comprehension_group_count(mode):
 def _prepare_comprehension_test(test):
     routes = COMPREHENSION_ROUTE_NAMES[test.mode]
     test.group_number = _comprehension_group_number(test.number)
+    test.group_label = COMPREHENSION_GROUP_LABELS[test.mode]
+    test.group_label_lower = test.group_label.lower()
     test.overview_route = routes["overview"]
     test.group_route = routes["group"]
     test.detail_route = routes["test"]
@@ -522,6 +529,7 @@ def _comprehension_group_detail_response(request, *, mode, group_number):
             "group": group,
             "overview_route": routes["overview"],
             "mode_label": f"Compréhension {mode.label.lower()}",
+            "group_label": COMPREHENSION_GROUP_LABELS[mode],
         },
     )
 

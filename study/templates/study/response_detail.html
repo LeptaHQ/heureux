@@ -8,7 +8,7 @@
 <div class="detail-head">
   <p class="eyebrow">
     <a href="{% url 'study:task_browse' part.slug task.slug %}">Sujets &amp; réponses</a> ·
-    <a class="link-with-icon" href="{% url 'study:theme_detail' part.slug task.slug selected_prompt.theme.slug %}">{% include "study/partials/ui_icon.html" with name=selected_prompt.theme.icon only %}<span>{{ selected_prompt.theme.display_name }}</span></a>
+    <a class="link-with-icon" style="--icon-accent: {{ selected_prompt.theme.color }};" href="{% url 'study:theme_detail' part.slug task.slug selected_prompt.theme.slug %}">{% include "study/partials/ui_icon.html" with name=selected_prompt.theme.icon only %}<span>{{ selected_prompt.theme.display_name }}</span></a>
     · <a href="{% url 'study:task_family_detail' part.slug task.slug selected_prompt.family.slug %}">{{ selected_prompt.family.name }}</a>
     {% if response_content.is_personal %} · <span class="chip">Version personnelle</span>{% endif %}
   </p>

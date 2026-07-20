@@ -267,7 +267,7 @@
       <div class="subject-theme-list collection-table collection-table--subject-themes" data-collection-view="adaptive" data-subject-vocabulary-directory>
         {% include "study/partials/collection_table_header.html" with variant="subject-themes" column_1="Thème" column_2="Contenu" column_3="Accès" only %}
         {% for group in subject_theme_groups %}
-          <details class="subject-theme card" data-collection-item data-subject-theme>
+          <details class="subject-theme card" style="--theme-accent: {{ group.theme.color }};" data-collection-item data-subject-theme>
             <summary>
               <span class="subject-theme__identity">
                 <span class="subject-theme__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=group.theme.icon only %}</span>

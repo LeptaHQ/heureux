@@ -27,6 +27,7 @@
 
   var noteSource = notePanel.querySelector("[data-note-source]");
   var noteBody = notePanel.querySelector("[data-note-body]");
+  var notePaste = notePanel.querySelector("[data-note-paste]");
   var noteStatus = notePanel.querySelector("[data-note-status]");
   var noteSave = notePanel.querySelector("[data-note-save]");
   var noteView = notePanel.querySelector("[data-note-view]");
@@ -217,6 +218,53 @@
     window.setTimeout(function () {
       noteBody.focus({ preventScroll: true });
     }, 0);
+  }
+
+  function pasteNote() {
+    if (!notePaste || notePaste.disabled) return;
+    if (!navigator.clipboard || !navigator.clipboard.readText) {
+      noteStatus.textContent =
+        "Collage automatique indisponible. Utilisez ⌘V ou Ctrl+V.";
+      noteBody.focus({ preventScroll: true });
+      return;
+    }
+
+    var start = noteBody.selectionStart;
+    var end = noteBody.selectionEnd;
+    notePaste.disabled = true;
+    noteStatus.textContent = "Lecture du presse-papiers…";
+    navigator.clipboard.readText()
+      .then(function (text) {
+        if (!text) {
+          noteStatus.textContent = "Le presse-papiers est vide.";
+          return;
+        }
+        var retainedLength = noteBody.value.length - (end - start);
+        var available = Math.max(noteBody.maxLength - retainedLength, 0);
+        var insertion = text.slice(0, available);
+        if (!insertion) {
+          noteStatus.textContent = "La note a atteint sa longueur maximale.";
+          return;
+        }
+        noteBody.value =
+          noteBody.value.slice(0, start)
+          + insertion
+          + noteBody.value.slice(end);
+        var cursor = start + insertion.length;
+        noteBody.setSelectionRange(cursor, cursor);
+        noteBody.dispatchEvent(new Event("input", { bubbles: true }));
+        noteStatus.textContent = insertion.length < text.length
+          ? "Texte collé jusqu'à la limite de la note."
+          : "Texte collé.";
+      })
+      .catch(function () {
+        noteStatus.textContent =
+          "Impossible d'accéder au presse-papiers. Utilisez ⌘V ou Ctrl+V.";
+      })
+      .then(function () {
+        notePaste.disabled = false;
+        noteBody.focus({ preventScroll: true });
+      });
   }
 
   function saveNote() {
@@ -657,6 +705,7 @@
   });
   document.addEventListener("pointerup", rememberSelection);
   noteButton.addEventListener("click", openNotePanel);
+  if (notePaste) notePaste.addEventListener("click", pasteNote);
   highlightButton.addEventListener("click", toggleHighlight);
   noteSave.addEventListener("click", saveNote);
   noteCloseButtons.forEach(function (button) {

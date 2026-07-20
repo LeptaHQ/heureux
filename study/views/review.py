@@ -693,6 +693,7 @@ def revisit_list(request, part_slug=None, task_slug=None):
                     "kind": "Réponse",
                     "title": canonical.text if canonical else card.response.prompt,
                     "icon": card.response.theme.icon,
+                    "icon_color": card.response.theme.color,
                     "meta": (
                         f"{card.response.theme.display_name} · "
                         f"{card.response.family.name}"

@@ -73,6 +73,7 @@ class Command(BaseCommand):
 
         themes = content.load_themes()
         sections = content.load_sections()
+        question_banks = content.load_question_banks()
         family_map, families = content.parse_families()
         responses = content.parse_responses()
         phrases = content.parse_phrases(responses)
@@ -132,12 +133,16 @@ class Command(BaseCommand):
         self.stdout.write(
             self.style.SUCCESS(
                 "Imported {t} themes, {f} families, {r} responses, "
-                "{p} prompts, {ph} phrases, {ct} comprehension tests, "
+                "{p} prompts, {qm} Tâche 2 memories with {qb} questions, "
+                "{ph} phrases, "
+                "{ct} comprehension tests, "
                 "{cq} comprehension questions, {c} cards.".format(
                     t=Theme.objects.filter(is_active=True).count(),
                     f=Family.objects.filter(is_active=True).count(),
                     r=Response.objects.filter(is_active=True).count(),
                     p=Prompt.objects.filter(is_active=True).count(),
+                    qm=len(question_banks),
+                    qb=sum(bank.question_count for bank in question_banks),
                     ph=Phrase.objects.filter(is_active=True).count(),
                     ct=ComprehensionTest.objects.filter(is_active=True).count(),
                     cq=ComprehensionQuestion.objects.filter(is_active=True).count(),

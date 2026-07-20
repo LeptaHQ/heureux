@@ -1,8 +1,8 @@
-"""Parse the bundled answer bank into structured, importable data.
+"""Parse the bundled study banks into structured, importable data.
 
 Pure functions only — no Django imports — so the parser is easy to test and
-reuse. ``load_content`` returns themes, families, unique responses (with their
-prompt aliases and structured arguments) and phrases.
+reuse. The module owns both the Tâche 3 response corpus and the Tâche 2 master
+question bank.
 """
 
 from __future__ import annotations
@@ -26,6 +26,9 @@ THEMES_PATH = CONTENT_DIR / "themes.json"
 SECTIONS_PATH = CONTENT_DIR / "sections.json"
 COMPREHENSION_DIR = CONTENT_DIR / "comprehension"
 COMPREHENSION_TESTS_PATH = COMPREHENSION_DIR / "tests.json"
+QUESTION_BANK_PATH = CONTENT_DIR / "tache_2" / "master_question_bank.json"
+QUESTION_BANK_DIR = QUESTION_BANK_PATH.parent
+QUESTION_BANK_TASK = ("eo", "tache-2")
 
 EXPECTED_PROMPTS = 167
 EXPECTED_UNIQUE = 130
@@ -144,6 +147,64 @@ class SectionData:
     order: int
     available: bool
     tasks: Tuple[TaskData, ...]
+
+
+@dataclass(frozen=True)
+class QuestionBankQuestionData:
+    text: str
+    note: str = ""
+
+
+@dataclass(frozen=True)
+class QuestionBankGroupData:
+    title: str
+    guidance: str
+    questions: Tuple[QuestionBankQuestionData, ...]
+
+
+@dataclass(frozen=True)
+class QuestionBankSectionData:
+    number: int
+    title: str
+    guidance: str
+    groups: Tuple[QuestionBankGroupData, ...]
+
+    @property
+    def anchor(self) -> str:
+        return f"banque-partie-{self.number}"
+
+    @property
+    def number_label(self) -> str:
+        return f"{self.number:02d}"
+
+    @property
+    def question_count(self) -> int:
+        return sum(len(group.questions) for group in self.groups)
+
+
+@dataclass(frozen=True)
+class QuestionBankData:
+    number: int
+    title: str
+    label: str
+    icon: str
+    subtitle: str
+    rules: Tuple[str, ...]
+    sections: Tuple[QuestionBankSectionData, ...]
+
+    @property
+    def category_count(self) -> int:
+        return len(self.sections)
+
+    @property
+    def question_count(self) -> int:
+        return sum(section.question_count for section in self.sections)
+
+    @property
+    def annotation_key_prefix(self) -> str:
+        if self.number == 1:
+            return "question-bank"
+        return f"question-bank:memory-{self.number:02d}"
 
 
 @dataclass(frozen=True)
@@ -323,6 +384,122 @@ def load_sections() -> List[SectionData]:
         )
     sections.sort(key=lambda s: s.order)
     return sections
+
+
+def load_question_bank(
+    path: Path = QUESTION_BANK_PATH,
+) -> QuestionBankData:
+    raw = json.loads(path.read_text(encoding="utf-8"))
+    memory_number = raw.get("number")
+    title = str(raw.get("title", "")).strip()
+    label = str(raw.get("label", "")).strip()
+    icon = str(raw.get("icon", "")).strip()
+    subtitle = str(raw.get("subtitle", "")).strip()
+    rules = tuple(
+        str(rule).strip()
+        for rule in raw.get("rules", [])
+        if str(rule).strip()
+    )
+    if not isinstance(memory_number, int) or memory_number < 1:
+        raise ValueError("The question bank needs a positive memory number")
+    if not title or not label or not icon or not subtitle:
+        raise ValueError(
+            "The question bank needs a title, label, icon, and subtitle"
+        )
+    if len(rules) < 2:
+        raise ValueError("The question bank needs at least two usage rules")
+
+    sections: List[QuestionBankSectionData] = []
+    seen_questions = set()
+    for raw_section in raw.get("sections", []):
+        number = int(raw_section["number"])
+        section_title = str(raw_section.get("title", "")).strip()
+        if not section_title:
+            raise ValueError(f"Question-bank section {number} has no title")
+
+        groups: List[QuestionBankGroupData] = []
+        for raw_group in raw_section.get("groups", []):
+            questions: List[QuestionBankQuestionData] = []
+            for raw_question in raw_group.get("questions", []):
+                if isinstance(raw_question, str):
+                    text = raw_question.strip()
+                    note = ""
+                else:
+                    text = str(raw_question.get("text", "")).strip()
+                    note = str(raw_question.get("note", "")).strip()
+                if not text:
+                    raise ValueError(
+                        f"Question-bank section {number} contains an empty question"
+                    )
+                normalized = text.casefold()
+                if normalized in seen_questions:
+                    raise ValueError(f"Duplicate question-bank phrase: {text}")
+                seen_questions.add(normalized)
+                questions.append(
+                    QuestionBankQuestionData(text=text, note=note)
+                )
+            if not questions:
+                raise ValueError(
+                    f"Question-bank section {number} contains an empty group"
+                )
+            groups.append(
+                QuestionBankGroupData(
+                    title=str(raw_group.get("title", "")).strip(),
+                    guidance=str(raw_group.get("guidance", "")).strip(),
+                    questions=tuple(questions),
+                )
+            )
+        if not groups:
+            raise ValueError(f"Question-bank section {number} has no groups")
+        sections.append(
+            QuestionBankSectionData(
+                number=number,
+                title=section_title,
+                guidance=str(raw_section.get("guidance", "")).strip(),
+                groups=tuple(groups),
+            )
+        )
+
+    expected_numbers = list(range(1, len(sections) + 1))
+    actual_numbers = [section.number for section in sections]
+    if actual_numbers != expected_numbers:
+        raise ValueError(
+            "Question-bank sections must be ordered consecutively from 1"
+        )
+    if not sections:
+        raise ValueError("The question bank has no sections")
+
+    return QuestionBankData(
+        number=memory_number,
+        title=title,
+        label=label,
+        icon=icon,
+        subtitle=subtitle,
+        rules=rules,
+        sections=tuple(sections),
+    )
+
+
+def load_question_banks(
+    directory: Path = QUESTION_BANK_DIR,
+) -> Tuple[QuestionBankData, ...]:
+    banks = tuple(
+        sorted(
+            (
+                load_question_bank(path)
+                for path in directory.glob("*.json")
+            ),
+            key=lambda bank: bank.number,
+        )
+    )
+    if not banks:
+        raise ValueError("Tâche 2 needs at least one memory")
+    numbers = [bank.number for bank in banks]
+    if numbers != list(range(1, len(banks) + 1)):
+        raise ValueError(
+            "Tâche 2 memories must be numbered consecutively from 1"
+        )
+    return banks
 
 
 def _ce_plain_text(value: str) -> str:

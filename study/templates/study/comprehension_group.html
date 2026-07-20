@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Groupe {{ group.number }} · {{ mode_label }} · Heureux{% endblock %}
+{% block title %}{{ group_label }} {{ group.number }} · {{ mode_label }} · Heureux{% endblock %}
 
 {% block content %}
 <div class="ce-shell ce-group-page">
@@ -10,19 +10,19 @@
     <span aria-hidden="true">›</span>
     <a href="{% url overview_route %}">{{ mode_label }}</a>
     <span aria-hidden="true">›</span>
-    <span>Groupe {{ group.number }}</span>
+    <span>{{ group_label }} {{ group.number }}</span>
   </nav>
 
   <header class="page-head ce-group-page__head">
     <p class="eyebrow">Tests {{ group.start|stringformat:"02d" }}–{{ group.end|stringformat:"02d" }}</p>
-    <h1>Groupe {{ group.number|stringformat:"02d" }}</h1>
+    <h1>{{ group_label }} {{ group.number|stringformat:"02d" }}</h1>
   </header>
 
   {% if group.slots %}
     {% include "study/partials/collection_view_toggle.html" %}
   {% endif %}
 
-  <section class="qlist ce-group-test-list collection-table collection-table--tests" data-collection-view="adaptive" aria-label="Tests du groupe {{ group.number }}">
+  <section class="qlist ce-group-test-list collection-table collection-table--tests" data-collection-view="adaptive" aria-label="Tests du {{ group_label|lower }} {{ group.number }}">
     {% include "study/partials/collection_table_header.html" with variant="tests" column_1="Test" column_2="Détails" column_3="Questions" column_4="Progression" column_5="Action" only %}
     {% for slot in group.slots %}
       {% include "study/partials/comprehension_test_row.html" with slot=slot only %}

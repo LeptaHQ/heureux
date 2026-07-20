@@ -5,6 +5,7 @@ from __future__ import annotations
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
 
+from .. import content as content_module
 from .. import queue as queue_module
 from ..models import (
     CardState,
@@ -326,6 +327,18 @@ def _route_task(part_slug, task_slug):
 
 def _task_card(task, now, user):
     """Build a dashboard/part card for a single task."""
+    question_bank = None
+    if (
+        task.available
+        and (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK
+    ):
+        banks = content_module.load_question_banks()
+        question_bank = {
+            "title": f"{len(banks)} mémoire{'s' if len(banks) > 1 else ''}",
+            "memory_count": len(banks),
+            "category_count": sum(bank.category_count for bank in banks),
+            "question_count": sum(bank.question_count for bank in banks),
+        }
     if task.available:
         response_ids = set(
             Prompt.objects.filter(
@@ -404,4 +417,5 @@ def _task_card(task, now, user):
         "phrase_count": phrase_count,
         "functional_phrase_count": functional_phrase_count,
         "subject_vocabulary_count": subject_vocabulary_count,
+        "question_bank": question_bank,
     }

@@ -18,6 +18,14 @@
     <div class="grid grid--decks">
       {% for t in pitem.tasks %}
         {% if t.task.available %}
+          {% if t.question_bank %}
+            {% url 'study:task_detail' pitem.part.slug t.task.slug as task_url %}
+            {% if area == "home" %}
+              {% include "study/partials/deck_card.html" with url=task_url available=True color=t.task.color icon=t.task.icon name=t.task.name guide=True guide_title=t.question_bank.title count_categories=t.question_bank.category_count count_questions=t.question_bank.question_count only %}
+            {% else %}
+              {% include "study/partials/deck_card.html" with url=task_url available=True color=t.task.color icon=t.task.icon name=t.task.name guide=True guide_title=t.question_bank.title count_categories=t.question_bank.category_count count_questions=t.question_bank.question_count extra_classes="grouped-task-card grouped-task-card--available" only %}
+            {% endif %}
+          {% else %}
           {% if area == "review" %}
             <a class="deck card grouped-task-card grouped-task-card--available" style="--deck-color: {{ t.task.color }};" href="{% url 'study:task_review_hub' pitem.part.slug t.task.slug %}">
           {% elif area == "expressions" %}
@@ -63,6 +71,7 @@
                 </div>
               </div>
             </a>
+          {% endif %}
         {% else %}
           <a class="deck card deck--soon{% if area != 'home' %} grouped-task-card grouped-task-card--soon{% endif %}" href="{% url 'study:task_detail' pitem.part.slug t.task.slug %}">
             <div class="deck__body">

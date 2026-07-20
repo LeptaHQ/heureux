@@ -2240,15 +2240,32 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 }
 .notes-task-card { min-height: 8rem; }
 .notes-hero { margin-bottom: 1rem; }
+.notes-view-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 28rem) minmax(0, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.55rem 0 0.65rem;
+}
 .notes-tabs {
   display: flex;
   gap: 0.2rem;
   max-width: 28rem;
-  margin: 0.55rem auto 0.65rem;
+  margin: 0;
   padding: 0.2rem;
   border: 1px solid var(--border);
   border-radius: 11px;
   background: var(--surface-2);
+}
+.notes-view-controls .notes-tabs {
+  width: 100%;
+  max-width: none;
+  grid-column: 2;
+}
+.notes-view-controls > .collection-view-toolbar {
+  grid-column: 3;
+  justify-self: end;
+  margin: 0;
 }
 .notes-tab {
   flex: 1;
@@ -3255,6 +3272,15 @@ html[data-collection-view-mode="table"]
 }
 
 @media (max-width: 860px) {
+  .notes-view-controls {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .notes-view-controls .notes-tabs {
+    grid-column: 1;
+  }
+  .notes-view-controls > .collection-view-toolbar {
+    grid-column: 2;
+  }
   .collection-view-toolbar {
     justify-content: space-between;
   }
@@ -8809,9 +8835,6 @@ button.ce-choice:focus-visible .ce-choice__radio {
   border-radius: 999px;
   background: var(--bg-soft);
   text-align: center;
-}
-.notes-tabs + .collection-view-toolbar {
-  margin-top: 0.55rem;
 }
 .notes-toolbar {
   display: flex;

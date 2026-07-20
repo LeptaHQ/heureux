@@ -74,8 +74,8 @@ class PWATests(TestCase):
         r = self.client.get("/sw.js")
         self.assertEqual(r.status_code, 200)
         body = r.content.decode()
-        self.assertIn('var CACHE = "heureux-v103"', body)
-        self.assertIn("study/css/app.css?v=96", body)
+        self.assertIn('var CACHE = "heureux-v104"', body)
+        self.assertIn("study/css/app.css?v=97", body)
         self.assertIn("study/js/memory-progress.js?v=2", body)
         self.assertIn("study/js/theme-init.js?v=2", body)
         self.assertIn("study/js/app.js?v=34", body)
@@ -1327,9 +1327,31 @@ class CategoryBatchViewsTests(TestCase):
             card_type=CardType.SPINE,
             response=response,
         )
+        lot_categories = [
+            PhraseCategory.objects.create(
+                slug=f"subject-lot-{index}",
+                name=name,
+                content_key=f"test-category:subject-lot-{index}",
+                order=index,
+            )
+            for index, name in enumerate(
+                (
+                    "Mots clés du sujet",
+                    "Collocations du sujet",
+                    "Expressions du sujet",
+                    "Tournures pour l'oral",
+                    "Phrases modèles",
+                ),
+                start=1,
+            )
+        ]
         vocabulary_cards = []
-        for _ in range(50):
-            phrase = factories.make_phrase(tier="subject")
+        for index in range(50):
+            phrase = factories.make_phrase(
+                category=lot_categories[index // 10],
+                tier="subject",
+                lot_order=index + 1,
+            )
             phrase.source_prompts.add(prompt)
             vocabulary_cards.append(
                 factories.make_phrase_card(

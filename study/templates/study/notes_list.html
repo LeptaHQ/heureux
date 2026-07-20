@@ -49,36 +49,38 @@
   </div>
 </div>
 
-<nav class="notes-tabs" role="tablist" aria-label="Type de contenu">
-  <a
-    class="notes-tab {% if active_tab == 'notes' %}is-active{% endif %}"
-    id="notes-tab"
-    role="tab"
-    aria-selected="{% if active_tab == 'notes' %}true{% else %}false{% endif %}"
-    aria-controls="notes-panel"
-    href="{{ tab_url_prefix }}tab=notes">
-    <span>Notes</span>
-    <span class="notes-tab__count">{{ notes|length }}</span>
-  </a>
-  <a
-    class="notes-tab {% if active_tab == 'highlights' %}is-active{% endif %}"
-    id="highlights-tab"
-    role="tab"
-    aria-selected="{% if active_tab == 'highlights' %}true{% else %}false{% endif %}"
-    aria-controls="highlights-panel"
-    href="{{ tab_url_prefix }}tab=highlights">
-    <span>Surlignages</span>
-    <span class="notes-tab__count">{{ highlights|length }}</span>
-  </a>
-</nav>
+<div class="notes-view-controls">
+  <nav class="notes-tabs" role="tablist" aria-label="Type de contenu">
+    <a
+      class="notes-tab {% if active_tab == 'notes' %}is-active{% endif %}"
+      id="notes-tab"
+      role="tab"
+      aria-selected="{% if active_tab == 'notes' %}true{% else %}false{% endif %}"
+      aria-controls="notes-panel"
+      href="{{ tab_url_prefix }}tab=notes">
+      <span>Notes</span>
+      <span class="notes-tab__count">{{ notes|length }}</span>
+    </a>
+    <a
+      class="notes-tab {% if active_tab == 'highlights' %}is-active{% endif %}"
+      id="highlights-tab"
+      role="tab"
+      aria-selected="{% if active_tab == 'highlights' %}true{% else %}false{% endif %}"
+      aria-controls="highlights-panel"
+      href="{{ tab_url_prefix }}tab=highlights">
+      <span>Surlignages</span>
+      <span class="notes-tab__count">{{ highlights|length }}</span>
+    </a>
+  </nav>
 
-{% if active_tab == "notes" %}
-  {% if notes %}
+  {% if active_tab == "notes" %}
+    {% if notes %}
+      {% include "study/partials/collection_view_toggle.html" %}
+    {% endif %}
+  {% elif highlights %}
     {% include "study/partials/collection_view_toggle.html" %}
   {% endif %}
-{% elif highlights %}
-  {% include "study/partials/collection_view_toggle.html" %}
-{% endif %}
+</div>
 
 {% if active_tab == "notes" %}
 <div class="notes-tab-panel" id="notes-panel" role="tabpanel" aria-labelledby="notes-tab">

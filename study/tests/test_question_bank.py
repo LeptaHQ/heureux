@@ -513,7 +513,7 @@ class QuestionBankViewTests(TestCase):
         missing_batch = self.client.get(
             reverse(
                 "study:task_subject_batch",
-                args=[*route_args, "janvier", 2],
+                args=[*route_args, "janvier", 3],
             )
         )
         missing_subject = self.client.get(
@@ -596,7 +596,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(response, task_url)
         self.assertContains(
             response,
-            "5 sujets · 1 mémoire · 21 catégories · 65 questions",
+            "10 sujets · 1 mémoire · 21 catégories · 65 questions",
         )
         self.assertContains(response, "0/65 apprises")
         self.assertContains(response, "À commencer")

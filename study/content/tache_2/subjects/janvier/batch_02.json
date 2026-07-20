@@ -68,7 +68,7 @@
     },
     {
       "number": 7,
-      "title": "Cours de photographie dans une association",
+      "title": "Cours de photographie dans l'association",
       "prompt": "Je suis votre voisin(e). Je prends des cours de photographie dans l'association du quartier. Vous êtes intéressé(e) et vous me posez des questions sur le cours (prix, horaires, matériel, etc.).",
       "questions": [
         "Bonjour ! Je t'ai croisé(e) l'autre jour avec ton appareil photo — tu prends des cours de photographie à l'association du quartier, c'est bien ça ?",
@@ -136,7 +136,7 @@
     },
     {
       "number": 8,
-      "title": "Activités du centre culturel",
+      "title": "Centre culturel de la ville",
       "prompt": "Je travaille à l'accueil du nouveau centre culturel de votre ville. Vous êtes intéressé(e) et vous me posez des questions sur les activités proposées par le centre (horaires, prix, etc.).",
       "questions": [
         {
@@ -203,7 +203,7 @@
     },
     {
       "number": 9,
-      "title": "Activités touristiques dans la région",
+      "title": "Office de tourisme — activités régionales",
       "prompt": "Je travaille à l'office de tourisme de votre lieu de vacances. Vous me posez des questions sur les activités à faire dans la région (parcs, musées, restaurants, etc.).",
       "questions": [
         "Bonjour ! Je vais rester ici pendant une semaine et je suis particulièrement intéressé(e) par la nature et la culture — que me conseillez-vous ?",
@@ -263,7 +263,7 @@
     },
     {
       "number": 10,
-      "title": "Organisation d'un déménagement",
+      "title": "Aide au déménagement",
       "prompt": "Vous êtes mon ami(e). Vous allez m'aider à déménager dans mon nouveau logement. Vous me posez des questions sur l'organisation de la journée (lieu, date, participants, etc.).",
       "questions": [
         {

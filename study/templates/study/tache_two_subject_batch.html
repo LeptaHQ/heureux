@@ -13,6 +13,7 @@
   <header class="memory-overview-hero">
     <div class="memory-overview-hero__copy">
       <h1>{{ subject_month.name }} · Batch {{ subject_batch.number }}</h1>
+      {% include "study/partials/tache_two_progress.html" with summary=subject_batch unit_label="sujets terminés" only %}
     </div>
     <dl class="memory-overview-hero__metrics tache-two-batch-metrics" aria-label="Contenu du batch">
       <div><dt>Sujets</dt><dd>{{ subject_batch.subject_count }}</dd></div>
@@ -23,15 +24,25 @@
   {% include "study/partials/collection_view_toggle.html" %}
 
   <div class="tache-two-subject-list collection-table collection-table--tache-two-subjects" data-collection-view="adaptive">
-    {% include "study/partials/collection_table_header.html" with variant="tache-two-subjects" column_1="N°" column_2="Sujet" column_3="Consigne" column_4="Questions" column_5="Action" only %}
+    {% include "study/partials/collection_table_header.html" with variant="tache-two-subjects" column_1="N°" column_2="Sujet" column_3="Consigne" column_4="Progression" column_5="Action" only %}
     {% for subject in subject_batch.subjects %}
-      <a class="tache-two-subject-card card" data-collection-item data-tache-two-subject href="{% url 'study:task_subject_detail' part.slug task.slug subject_month.slug subject_batch.number subject.number %}">
+      <a class="tache-two-subject-card tache-two-subject-card--{{ subject.progress.status }} card" data-collection-item data-tache-two-subject href="{% url 'study:task_subject_detail' part.slug task.slug subject_month.slug subject_batch.number subject.number %}">
         <span class="tache-two-subject-card__number">Sujet {{ subject.number_label }}</span>
         <span class="tache-two-subject-card__copy">
           <strong>{{ subject.title }}</strong>
+          <small>{{ subject.question_count }} questions</small>
         </span>
         <span class="tache-two-subject-card__prompt">{{ subject.prompt }}</span>
-        <span class="tache-two-subject-card__count">{{ subject.question_count }} questions</span>
+        <div class="tache-two-subject-card__count">
+          <span class="progress-status progress-status--{{ subject.progress.status }}">{{ subject.progress.label }}</span>
+          {% if subject.vocabulary_progress.total %}
+            <small>{{ subject.vocabulary_progress.completed }}/{{ subject.vocabulary_progress.total }} vocabs terminés</small>
+            <div class="progress" aria-label="{{ subject.vocabulary_progress.completed }} sur {{ subject.vocabulary_progress.total }} vocabs terminés">
+              <span class="bg-mature" style="width: {{ subject.vocabulary_progress.percent }}%;"></span>
+              <span class="bg-started" style="width: {% widthratio subject.vocabulary_started_only subject.vocabulary_progress.total 100 %}%;"></span>
+            </div>
+          {% endif %}
+        </div>
         <span class="tache-two-subject-card__action">
           Ouvrir
           {% include "study/partials/ui_icon.html" with name="arrow-right" only %}

@@ -12,14 +12,14 @@
     <strong>{{ task.name }}</strong>
   {% endif %}
 </div>
-<nav class="task-nav{% if memory_task %} task-nav--memories{% endif %}" aria-label="Navigation de {{ task.name }}">
+<nav class="task-nav{% if memory_task %} task-nav--memories{% endif %}{% if compact %} task-nav--compact{% endif %}" aria-label="Navigation de {{ task.name }}">
   <a class="{% if request.resolver_match.url_name == 'task_detail' %}is-active{% endif %}"
      href="{% url 'study:task_detail' part.slug task.slug %}">Vue d'ensemble</a>
   {% if memory_task %}
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'task_subject_batch' or request.resolver_match.url_name == 'task_subject_detail' %}is-active{% endif %}"
        href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a>
-    <a class="{% if request.resolver_match.url_name == 'task_memory_detail' %}is-active{% endif %}"
-       href="{% url 'study:task_detail' part.slug task.slug %}#memories">Mémoires</a>
+    <a class="{% if request.resolver_match.url_name == 'task_memories' or request.resolver_match.url_name == 'task_memory_detail' %}is-active{% endif %}"
+       href="{% url 'study:task_memories' part.slug task.slug %}">Mémoires</a>
   {% else %}
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'theme_detail' or request.resolver_match.url_name == 'task_family_detail' or request.resolver_match.url_name == 'response_detail' %}is-active{% endif %}"
        href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a>

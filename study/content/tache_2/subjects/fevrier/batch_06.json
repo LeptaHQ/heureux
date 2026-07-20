@@ -1,0 +1,343 @@
+{
+  "month": {
+    "number": 2,
+    "slug": "fevrier",
+    "name": "Février"
+  },
+  "batch": 6,
+  "subjects": [
+    {
+      "number": 26,
+      "title": "Garde d'enfant pendant un week-end",
+      "prompt": "Vous devez garder la fille de 3 ans de votre ami(e) pendant un week-end. Posez des questions sur ses habitudes : alimentation, loisirs, sommeil, etc.",
+      "questions": [
+        {
+          "text": "Salut ! Je vais garder ta fille ce week-end — quels sont ses repas préférés et ce qu'elle mange habituellement ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Y a-t-il des aliments qu'elle ne doit absolument pas manger — allergies ou intolérances ?",
+          "memory_section": 17
+        },
+        {
+          "text": "À quelle heure se couche-t-elle le soir — et fait-elle une sieste dans la journée ?",
+          "memory_section": 2
+        },
+        {
+          "text": "A-t-elle besoin d'un doudou ou d'une routine spéciale pour s'endormir ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Quels sont ses jeux ou activités préférés — elle aime plutôt rester à l'intérieur ou sortir au parc ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Elle aime être seule un moment ou elle préfère rester avec quelqu'un ?"
+        },
+        {
+          "text": "Comment réagit-elle si elle est fatiguée ou contrariée ?"
+        },
+        {
+          "text": "Y a-t-il des signes de maladie ou de stress auxquels je dois faire attention ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Prend-elle des médicaments ou compléments — comment dois-je les lui donner ?",
+          "memory_section": 17
+        },
+        {
+          "text": "En cas d'urgence, quel médecin dois-je contacter — tu seras joignable pendant ton absence ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Y a-t-il des objets ou jouets qu'elle veut toujours avoir avec elle ?",
+          "memory_section": 5
+        },
+        {
+          "text": "A-t-elle des rituels particuliers le matin ou avant le bain ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Tu as mentionné ses habitudes du soir — tu pourrais m'en dire un peu plus sur sa routine avant de dormir ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour qu'elle se sente bien, ce serait lequel ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "title": "Sortie au spectacle entre collègues",
+      "prompt": "Votre collègue vous propose de l'accompagner voir un spectacle. Posez des questions sur le spectacle et sur l'organisation de la sortie.",
+      "questions": [
+        {
+          "text": "Salut ! Merci pour l'invitation — tu pourrais me parler un peu du spectacle ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quel genre de spectacle c'est — théâtre, comédie, concert, danse ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Ça se passe où exactement — dans les locaux ou dans un lieu extérieur ?",
+          "memory_section": 4
+        },
+        {
+          "text": "À quelle heure ça commence — plutôt le soir ou en fin de journée ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Quelle est la durée — environ une heure ou plutôt une heure et demie ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement pour un billet ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Il reste encore des places ou c'est déjà complet ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Il y a généralement combien de participants — c'est une petite salle ou un grand lieu ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Ça s'adresse à quel public — plutôt aux amateurs ou accessible à tout le monde ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Y a-t-il des règles particulières à respecter — photos interdites, tenue vestimentaire ?",
+          "memory_section": 17
+        },
+        {
+          "text": "On peut prendre des photos à l'intérieur ou c'est interdit ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Tu as mentionné ce spectacle — tu pourrais m'en dire un peu plus sur pourquoi tu l'as choisi ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "title": "Activités culturelles de la ville",
+      "prompt": "Vous souhaitez vous informer sur les activités culturelles de la ville et posez des questions à un employé du service culturel.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je m'intéresse aux activités culturelles dans la ville — quelles activités proposez-vous pour les habitants ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Quels types de thèmes sont abordés — sportif, artistique, manuel, musical, ou un peu de tout ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "memory_section": 12
+        },
+        {
+          "text": "Les expositions temporaires sont incluses dans le billet d'entrée ou faut-il payer un supplément ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Jusqu'à quand cette exposition sera-t-elle accessible ?",
+          "memory_section": 12
+        },
+        {
+          "text": "La programmation est publiée à l'avance ou on la découvre sur place ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Il y a combien de séances par semaine — on peut assister à plusieurs ou c'est limité à une seule ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Vous avez mentionné des activités pour rencontrer d'autres habitants — vous pourriez m'en dire un peu plus ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule activité, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 29,
+      "title": "Séjour au Canada en agence de voyages",
+      "prompt": "Vous êtes un(e) client(e) et souhaitez organiser un séjour au Canada. Posez des questions à un(e) employé(e) d'une agence de voyages.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je souhaite organiser un séjour au Canada — quelles destinations recommandez-vous ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Quels types de circuits proposez-vous — culture, nature, aventure, gastronomie ?",
+          "memory_section": 10
+        },
+        {
+          "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Vous connaissez de bons endroits où dormir — hôtels, appartements, auberges ?",
+          "memory_section": 6
+        },
+        {
+          "text": "C'est dans quelle gamme de prix pour l'hébergement — plutôt cher ou abordable ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total par personne ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le tarif comprend quoi exactement — transport, repas, excursions sont inclus ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "title": "Panne de voiture et assistance routière",
+      "prompt": "Votre voiture tombe en panne au Canada. Vous appelez votre compagnie d'assurance pour savoir comment elle peut vous aider.",
+      "questions": [
+        {
+          "text": "Bonjour ! Ma voiture est en panne — pouvez-vous m'expliquer les services inclus dans mon assurance pour ce genre de situation ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Le remorquage est couvert — et jusqu'à quelle distance ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Y a-t-il des garages partenaires où les frais sont pris en charge directement ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Combien de temps prend en général l'intervention après l'appel ?",
+          "memory_section": 9
+        },
+        {
+          "text": "La réparation sur place est-elle possible ou faut-il transporter la voiture dans un garage ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Si la voiture ne peut pas être réparée immédiatement, proposez-vous un véhicule de remplacement ?",
+          "memory_section": 16
+        },
+        {
+          "text": "L'assurance prend-elle en charge le trajet de retour vers mon domicile ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Les frais de taxi ou transport alternatif sont-ils couverts ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Que se passe-t-il si la panne arrive en dehors des heures normales ou pendant la nuit ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il des conditions ou limites pour bénéficier de l'assistance routière ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Y a-t-il des frais supplémentaires selon la distance ou le type de véhicule ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Faut-il fournir des documents avant que l'assistance arrive — lesquels exactement ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Que dois-je faire en attendant l'arrivée de l'assistance pour rester en sécurité ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Vous avez mentionné un numéro d'urgence — vous pourriez m'en dire un peu plus sur comment ça fonctionne ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me donner qu'un seul conseil pour gérer cette situation, ce serait lequel ?",
+          "memory_section": 4
+        }
+      ]
+    }
+  ]
+}

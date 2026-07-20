@@ -74,6 +74,10 @@ def _home_expression_paths(parts):
                     task["stats"]["due"] for task in available_tasks
                 ),
                 "progress": path_progress,
+                "title": {
+                    "ee": "Écrite",
+                    "eo": "Orale",
+                }.get(item["part"].slug, item["part"].name),
             }
         )
     paths.sort(

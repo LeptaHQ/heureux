@@ -1,0 +1,21 @@
+<a
+  class="subject-batch-card subject-batch-card--{{ batch.progress.status }} card"
+  data-collection-item
+  data-tache-two-subject-batch
+  href="{% url 'study:task_subject_batch' part.slug task.slug month.slug batch.number %}">
+  <span class="subject-batch-card__number">
+    {% include "study/partials/ui_icon.html" with name="file-text" only %}
+    <span>Batch {{ batch.number_label }}</span>
+  </span>
+  <span class="subject-batch-card__copy">
+    <strong>{{ month.name }} · Batch {{ batch.number }}</strong>
+    <span>Sujets {{ batch.first_subject_number }}–{{ batch.last_subject_number }} · {{ batch.question_count }} questions</span>
+  </span>
+  <div class="subject-batch-card__meta">
+    {% include "study/partials/tache_two_progress.html" with summary=batch unit_label="sujets terminés" compact=True only %}
+  </div>
+  <span class="subject-batch-card__action">
+    Ouvrir
+    {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
+  </span>
+</a>

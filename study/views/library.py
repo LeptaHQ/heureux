@@ -63,6 +63,7 @@ from .common import (
     _task_cards,
     _task_phrases,
     _task_scope,
+    _tache_two_progress,
     current_streak,
     deck_stats,
     recent_review_sessions,
@@ -119,6 +120,34 @@ def _phrase_deck_stats(now, user=None, task=None):
     return deck_stats(cards, now)
 
 
+def _question_bank_memory_context(user):
+    memories = content_module.load_question_banks()
+    memory_states = _memory_progress(user, memories)
+    memory_items = [
+        {
+            "memory": memory,
+            **memory_states[memory.number],
+        }
+        for memory in memories
+    ]
+    progress = combine_progress(
+        item["progress"] for item in memory_items
+    )
+    return {
+        "memories": memory_items,
+        "memory_count": len(memories),
+        "category_count": sum(memory.category_count for memory in memories),
+        "question_count": sum(memory.question_count for memory in memories),
+        "completed_count": progress.completed,
+        "memory_summary": {
+            "progress": progress,
+            "completed": progress.completed,
+            "total": progress.total,
+            "started_new": max(progress.started - progress.completed, 0),
+        },
+    }
+
+
 def part_detail(request, part_slug):
     part = get_object_or_404(
         ExamPart.objects.filter(is_active=True).prefetch_related(
@@ -166,16 +195,12 @@ def task_detail(request, part_slug, task_slug):
             {"part": task.part, "task": task},
         )
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
-        memories = content_module.load_question_banks()
-        subject_months = content_module.load_tache_two_subject_months()
-        memory_states = _memory_progress(request.user, memories)
-        memory_items = [
-            {
-                "memory": memory,
-                **memory_states[memory.number],
-            }
-            for memory in memories
-        ]
+        memory_context = _question_bank_memory_context(request.user)
+        subject_state = _tache_two_progress(
+            request.user,
+            content_module.load_tache_two_subject_months(),
+        )
+        subject_months = subject_state["months"]
         return render(
             request,
             "study/tache_two_overview.html",
@@ -183,22 +208,14 @@ def task_detail(request, part_slug, task_slug):
                 "part": task.part,
                 "task": task,
                 "memory_task": True,
-                "memories": memory_items,
-                "memory_count": len(memories),
                 "subject_months": subject_months,
-                "subject_count": sum(
-                    month.subject_count for month in subject_months
+                "subject_summary": subject_state,
+                "subject_count": subject_state["total"],
+                "subject_month_count": len(subject_months),
+                "subject_batch_count": sum(
+                    month["batch_count"] for month in subject_months
                 ),
-                "category_count": sum(
-                    memory.category_count for memory in memories
-                ),
-                "question_count": sum(
-                    memory.question_count for memory in memories
-                ),
-                "completed_count": sum(
-                    item["progress"].completed
-                    for item in memory_items
-                ),
+                **memory_context,
             },
         )
 
@@ -347,7 +364,11 @@ def browse(request, part_slug=None, task_slug=None):
         forced_task.part.slug,
         forced_task.slug,
     ) == content_module.QUESTION_BANK_TASK:
-        months = content_module.load_tache_two_subject_months()
+        subject_state = _tache_two_progress(
+            request.user,
+            content_module.load_tache_two_subject_months(),
+        )
+        months = subject_state["months"]
         return render(
             request,
             "study/tache_two_subjects.html",
@@ -356,15 +377,14 @@ def browse(request, part_slug=None, task_slug=None):
                 "task": forced_task,
                 "memory_task": True,
                 "subject_months": months,
+                "subject_summary": subject_state,
                 "month_count": len(months),
                 "batch_count": sum(
-                    month.batch_count for month in months
+                    month["batch_count"] for month in months
                 ),
-                "subject_count": sum(
-                    month.subject_count for month in months
-                ),
+                "subject_count": subject_state["total"],
                 "question_count": sum(
-                    month.question_count for month in months
+                    month["question_count"] for month in months
                 ),
             },
         )
@@ -576,6 +596,20 @@ def _memory_by_number(memory_number):
     return memory
 
 
+def task_memories(request, part_slug, task_slug):
+    task = _memory_task(part_slug, task_slug)
+    return render(
+        request,
+        "study/tache_two_memories.html",
+        {
+            "part": task.part,
+            "task": task,
+            "memory_task": True,
+            **_question_bank_memory_context(request.user),
+        },
+    )
+
+
 def _tache_two_subject_month(month_slug):
     month = next(
         (
@@ -607,7 +641,13 @@ def _tache_two_subject_batch(month, batch_number):
 def task_subject_batch(request, part_slug, task_slug, month_slug, batch_number):
     task = _memory_task(part_slug, task_slug)
     month = _tache_two_subject_month(month_slug)
-    batch = _tache_two_subject_batch(month, batch_number)
+    _tache_two_subject_batch(month, batch_number)
+    month = _tache_two_progress(request.user, (month,))["months"][0]
+    batch = next(
+        batch
+        for batch in month["batches"]
+        if batch["number"] == batch_number
+    )
     return render(
         request,
         "study/tache_two_subject_batch.html",

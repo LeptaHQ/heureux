@@ -249,6 +249,10 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             self.live_server_url
             + reverse("study:task_detail", args=["eo", "tache-2"])
         )
+        memories_url = (
+            self.live_server_url
+            + reverse("study:task_memories", args=["eo", "tache-2"])
+        )
         memory_url = (
             self.live_server_url
             + memory_path
@@ -274,13 +278,111 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.assertLessEqual(guide_style["barHeight"], 10)
         self.assertEqual(
             guide_progress.locator(".deck__progress-copy").inner_text(),
-            "0/65 apprises",
+            "0/65 apprises · 0/45 sujets terminés",
         )
 
         self.page.goto(overview_url)
         self.page.get_by_role(
             "heading",
             name="Tâche 2",
+            exact=True,
+        ).wait_for()
+        overview_panels = self.page.locator(
+            "[data-tache-two-overview-panel]"
+        )
+        self.assertEqual(overview_panels.count(), 2)
+        self.assertEqual(
+            len(
+                self.page.locator(
+                    ".tache-two-overview-grid"
+                ).evaluate(
+                    "element => getComputedStyle(element)"
+                    ".gridTemplateColumns.split(' ')"
+                )
+            ),
+            2,
+        )
+        self.assertEqual(
+            overview_panels.nth(0).get_by_role(
+                "heading",
+                name="Mémoires",
+                exact=True,
+            ).count(),
+            1,
+        )
+        self.assertEqual(
+            overview_panels.nth(1).get_by_role(
+                "heading",
+                name="Sujets",
+                exact=True,
+            ).count(),
+            1,
+        )
+        self.assertEqual(
+            overview_panels.nth(0).get_by_role(
+                "link",
+                name="Voir les mémoires",
+            ).get_attribute("href"),
+            memories_url.removeprefix(self.live_server_url),
+        )
+        self.assertEqual(
+            overview_panels.nth(1).get_by_role(
+                "link",
+                name="Voir les sujets",
+            ).get_attribute("href"),
+            reverse("study:task_browse", args=["eo", "tache-2"]),
+        )
+        panel_footer = overview_panels.nth(0).locator(
+            ".tache-two-overview-panel__footer"
+        )
+        progress_box = panel_footer.locator(
+            ".tache-two-progress-summary"
+        ).bounding_box()
+        action_box = panel_footer.get_by_role(
+            "link",
+            name="Voir les mémoires",
+        ).bounding_box()
+        self.assertLess(
+            abs(
+                (progress_box["y"] + progress_box["height"] / 2)
+                - (action_box["y"] + action_box["height"] / 2)
+            ),
+            12,
+        )
+        overview_nav = self.page.locator(".task-nav--memories")
+        self.assertEqual(overview_nav.locator("a").count(), 3)
+        self.assertEqual(
+            overview_nav.locator("a.is-active").inner_text(),
+            "Vue d'ensemble",
+        )
+        self.assertEqual(
+            self.page.locator("[data-collection-view-toggle]").count(),
+            0,
+        )
+
+        self.page.set_viewport_size({"width": 320, "height": 700})
+        self.assertEqual(
+            len(
+                self.page.locator(
+                    ".tache-two-overview-grid"
+                ).evaluate(
+                    "element => getComputedStyle(element)"
+                    ".gridTemplateColumns.split(' ')"
+                )
+            ),
+            1,
+        )
+        self.assert_no_horizontal_overflow()
+
+        self.page.set_viewport_size({"width": 1280, "height": 850})
+        overview_panels.nth(0).get_by_role(
+            "link",
+            name="Voir les mémoires",
+        ).click()
+        self.page.wait_for_url(memories_url)
+        self.page.get_by_role(
+            "heading",
+            name="Mémoires",
             exact=True,
         ).wait_for()
         table_toggle = self.page.get_by_role("button", name="Tableau")
@@ -330,11 +432,11 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             """
         )
         self.assertEqual(len(set(entry_borders)), 1)
-        overview_nav = self.page.locator(".task-nav--memories")
-        self.assertEqual(overview_nav.locator("a").count(), 3)
+        memory_nav = self.page.locator(".task-nav--memories")
+        self.assertEqual(memory_nav.locator("a").count(), 3)
         self.assertEqual(
-            overview_nav.locator("a.is-active").inner_text(),
-            "Vue d'ensemble",
+            memory_nav.locator("a.is-active").inner_text(),
+            "Mémoires",
         )
         self.page.set_viewport_size({"width": 320, "height": 700})
         self.assertEqual(
@@ -348,7 +450,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         )
         self.assertEqual(
             len(
-                overview_nav.evaluate(
+                memory_nav.evaluate(
                     "element => getComputedStyle(element)"
                     ".gridTemplateColumns.split(' ')"
                 )
@@ -431,7 +533,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             "Comment fonctionnent les tarifs",
             first_checkbox.get_attribute("aria-label"),
         )
-        self.assertEqual(
+        self.assertNotEqual(
             first_checkbox.locator(".ui-icon").evaluate(
                 "element => getComputedStyle(element).color"
             ),
@@ -485,6 +587,32 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.assertEqual(len(mobile["columns"].split()), 1)
         self.assertTrue(mobile["navScrolls"])
         self.assertEqual(len(mobile["taskNavColumns"].split()), 3)
+        checkbox_shape = self.page.get_by_role("checkbox").first.evaluate(
+            """
+            element => {
+              const rect = element.getBoundingClientRect();
+              const visual = getComputedStyle(element, '::before');
+              return {
+                targetWidth: rect.width,
+                targetHeight: rect.height,
+                visualWidth: parseFloat(visual.width),
+                visualHeight: parseFloat(visual.height),
+                visualBorderRadius: visual.borderRadius,
+              };
+            }
+            """
+        )
+        self.assertGreaterEqual(checkbox_shape["targetWidth"], 30)
+        self.assertEqual(
+            checkbox_shape["targetWidth"],
+            checkbox_shape["targetHeight"],
+        )
+        self.assertLessEqual(checkbox_shape["visualWidth"], 14)
+        self.assertEqual(
+            checkbox_shape["visualWidth"],
+            checkbox_shape["visualHeight"],
+        )
+        self.assertEqual(checkbox_shape["visualBorderRadius"], "50%")
         question_layout = self.page.locator(
             "[data-question-bank-question]"
         ).first.evaluate(
@@ -520,17 +648,21 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             exact=True,
         ).click()
         self.page.wait_for_url(overview_url)
-        memory_entry = self.page.locator(".memory-entry")
+        memory_panel = self.page.locator(
+            ".tache-two-overview-panel--memories"
+        )
         self.assertEqual(
-            memory_entry.locator(
-                ".memory-entry__progress-copy > span:last-child"
+            memory_panel.locator(
+                ".tache-two-progress-summary__copy > span:last-child"
             ).inner_text(),
-            "1/65 apprises",
+            "1/65 questions apprises",
         )
         self.assertTrue(
             "progress-status--active"
             in (
-                memory_entry.locator(".progress-status").get_attribute("class")
+                memory_panel.locator(
+                    ".progress-status"
+                ).get_attribute("class")
                 or ""
             )
         )
@@ -596,11 +728,21 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         memory_heading.wait_for()
         subject_heading.wait_for()
         self.assertLess(
-            memory_heading.bounding_box()["y"],
-            subject_heading.bounding_box()["y"],
+            abs(
+                memory_heading.bounding_box()["y"]
+                - subject_heading.bounding_box()["y"]
+            ),
+            2,
         )
         self.assertEqual(
             self.page.locator("[data-tache-two-subject-batch]").count(),
+            0,
+        )
+        self.assertEqual(
+            self.page.locator(
+                ".tache-two-overview-panel "
+                ".tache-two-progress-summary"
+            ).count(),
             2,
         )
 
@@ -612,7 +754,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         ).wait_for()
         self.assertEqual(
             self.page.locator("[data-tache-two-subject-batch]").count(),
-            2,
+            9,
         )
         self.assertEqual(self.page.get_by_role("note").count(), 0)
         self.assertEqual(self.page.get_by_text("Réflexe Mémoire").count(), 0)
@@ -620,21 +762,25 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         table_toggle = self.page.get_by_role("button", name="Tableau")
         table_toggle.click()
         self.assertEqual(table_toggle.get_attribute("aria-pressed"), "true")
+        table_headers = self.page.locator(
+            ".collection-table-header--subject-batches"
+        )
+        self.assertEqual(table_headers.count(), 2)
         self.assertTrue(
-            self.page.locator(
-                ".collection-table-header--subject-batches"
-            ).is_visible()
+            all(
+                table_headers.nth(index).is_visible()
+                for index in range(table_headers.count())
+            )
         )
         self.assertEqual(
-            len(
-                self.page.locator(
-                    "[data-tache-two-subject-batch]"
-                ).evaluate(
-                    "element => getComputedStyle(element)"
-                    ".gridTemplateColumns.split(' ')"
-                )
+            self.page.locator(
+                "[data-tache-two-subject-batch]"
+            ).evaluate_all(
+                "elements => elements.map(element => "
+                "getComputedStyle(element).gridTemplateColumns"
+                ".split(' ').length)"
             ),
-            4,
+            [4] * 9,
         )
         self.page.locator("[data-tache-two-subject-batch]").first.click()
         self.page.wait_for_url(self.live_server_url + batch_path)
@@ -645,6 +791,12 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         ).wait_for()
         self.assertEqual(
             self.page.locator("[data-tache-two-subject]").count(),
+            5,
+        )
+        self.assertEqual(
+            self.page.locator(
+                ".tache-two-subject-card .progress-status--new"
+            ).count(),
             5,
         )
         self.assertTrue(
@@ -2263,7 +2415,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.page.goto(self.live_server_url + reverse("study:expression"))
         self.page.locator(
             ".expression-path--ee",
-            has_text="Expression écrite",
+            has_text="Écrite",
         ).click()
         self.page.locator("h1", has_text="Expression écrite").wait_for()
         self.assertEqual(self.page.locator(".deck--soon").count(), 3)

@@ -74,8 +74,8 @@ class PWATests(TestCase):
         r = self.client.get("/sw.js")
         self.assertEqual(r.status_code, 200)
         body = r.content.decode()
-        self.assertIn('var CACHE = "heureux-v104"', body)
-        self.assertIn("study/css/app.css?v=97", body)
+        self.assertIn('var CACHE = "heureux-v112"', body)
+        self.assertIn("study/css/app.css?v=105", body)
         self.assertIn("study/js/memory-progress.js?v=2", body)
         self.assertIn("study/js/theme-init.js?v=2", body)
         self.assertIn("study/js/app.js?v=34", body)
@@ -326,8 +326,10 @@ class SmokeTests(TestCase):
         factories.make_task(written, "ecrit", available=False)
         response = self.client.get(reverse("study:expression"))
 
-        self.assertContains(response, "Expression orale")
-        self.assertContains(response, "Expression écrite")
+        self.assertContains(response, "<strong>Orale</strong>", html=True)
+        self.assertContains(response, "<strong>Écrite</strong>", html=True)
+        self.assertNotContains(response, "<strong>Expression orale</strong>")
+        self.assertNotContains(response, "<strong>Expression écrite</strong>")
         self.assertContains(response, "À venir")
         self.assertContains(
             response,

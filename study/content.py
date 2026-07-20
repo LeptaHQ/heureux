@@ -915,6 +915,34 @@ def parse_tache_two_subject_vocabulary(
     paths = sorted(directory.glob("*.json"))
     if not paths:
         raise ValueError("No Tâche 2 subject-vocabulary JSON files found")
+    response_order_by_key = {
+        response_key: index
+        for index, response_key in enumerate(response_by_key)
+    }
+    payloads = []
+    for path in paths:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(payload, dict) or payload.get("version") != 1:
+            raise ValueError(
+                f"{path.name} must use Tâche 2 vocabulary version 1"
+            )
+        subject_rows = payload.get("subjects")
+        if not isinstance(subject_rows, list):
+            raise ValueError(f"{path.name} must contain a subjects list")
+        first_response_order = min(
+            (
+                response_order_by_key.get(
+                    row.get("subject_key"),
+                    len(response_order_by_key),
+                )
+                for row in subject_rows
+                if isinstance(row, dict)
+            ),
+            default=len(response_order_by_key),
+        )
+        payloads.append(
+            (first_response_order, path.name, path, subject_rows)
+        )
 
     base_order = (
         EXPECTED_PHRASES
@@ -927,16 +955,7 @@ def parse_tache_two_subject_vocabulary(
             * COMPREHENSION_VOCABULARY_PER_TEST
         )
     )
-    for path in paths:
-        payload = json.loads(path.read_text(encoding="utf-8"))
-        if not isinstance(payload, dict) or payload.get("version") != 1:
-            raise ValueError(
-                f"{path.name} must use Tâche 2 vocabulary version 1"
-            )
-        subject_rows = payload.get("subjects")
-        if not isinstance(subject_rows, list):
-            raise ValueError(f"{path.name} must contain a subjects list")
-
+    for _, _, path, subject_rows in sorted(payloads):
         for subject_index, subject_row in enumerate(subject_rows, start=1):
             location = f"{path.name} subject {subject_index}"
             if not isinstance(subject_row, dict):

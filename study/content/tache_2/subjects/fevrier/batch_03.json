@@ -1,0 +1,288 @@
+{
+  "month": {
+    "number": 2,
+    "slug": "fevrier",
+    "name": "Février"
+  },
+  "batch": 3,
+  "subjects": [
+    {
+      "number": 11,
+      "title": "Agence immobilière",
+      "prompt": "Vous souhaitez louer ou acheter un logement. Vous posez des questions à un agent immobilier sur les options disponibles : prix, localisation, conditions de location/achat, et autres critères.",
+      "questions": [
+        {
+          "text": "Bonjour, je suis à la recherche d'un logement, en location ou à l'achat — qu'est-ce que vous avez de disponible en ce moment ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Je cherche plutôt un T2 ou un T3, meublé ou non — est-ce qu'il y a des options dans cette gamme ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Et ces biens sont dans quelle gamme de prix — plutôt abordables ou plutôt haut de gamme ?",
+          "memory_section": 1
+        },
+        {
+          "text": "En location, le loyer comprend quoi exactement — les charges, l'eau, le chauffage, c'est inclus ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Quels quartiers me conseilleriez-vous — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Et au niveau de l'accès, c'est facilement desservi en transports en commun ou il vaut mieux avoir une voiture ? S'il vaut mieux avoir une voiture, y a-t-il un parking à proximité ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Vous avez mentionné un quartier en particulier — vous pourriez m'en dire un peu plus ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Et les logements en eux-mêmes, ils sont en bon état général ou il y a des travaux à prévoir ?"
+        },
+        {
+          "text": "Pour la location, quelles sont les pièces à fournir pour le dossier — et est-ce qu'il faut un garant ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Et si je m'oriente plutôt vers l'achat, quelles sont les démarches — il faut un apport minimum ?",
+          "memory_section": 1
+        },
+        {
+          "text": "D'ailleurs, le marché est plutôt tendu en ce moment ou on trouve encore des offres intéressantes ?"
+        },
+        {
+          "text": "Sinon, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Et concrètement, comment s'organisent les visites — c'est sur rendez-vous uniquement ?",
+          "memory_section": 11
+        },
+        {
+          "text": "D'accord, si j'ai encore une question, je peux vous recontacter ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Premier jour de travail",
+      "prompt": "Demandez à votre ami comment s'est déroulé son premier jour dans son nouvel emploi : ambiance, tâches effectuées, accueil par les collègues, etc.",
+      "questions": [
+        {
+          "text": "Alors, raconte — comment s'est passé ton premier jour ?",
+          "memory_section": 21
+        },
+        {
+          "text": "Tu avais le trac en arrivant ou tu te sentais plutôt à l'aise ?"
+        },
+        {
+          "text": "Et du coup, comment était l'ambiance — plutôt formelle ou décontractée ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Et tes collègues, ils étaient comment — ils t'ont bien accueilli(e), il y a quelqu'un en particulier qui t'a aidé(e) ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Et justement, ton responsable, tu l'as rencontré — il a l'air comment ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Concrètement, tu as fait quoi de ta journée — c'était plutôt de la formation ou tu as directement commencé à travailler ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus ?",
+          "memory_section": 4
+        },
+        {
+          "text": "D'ailleurs, on t'a fait visiter les locaux — c'était comment, plutôt moderne ou un peu vieillot ?",
+          "memory_section": 11
+        },
+        {
+          "text": "Et le midi, tu as mangé avec des collègues ou c'était chacun de son côté ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Sinon, il y a eu un moment un peu stressant ou dans l'ensemble tout s'est bien enchaîné ?"
+        },
+        {
+          "text": "Avec le recul, c'est ce que tu imaginais ou il y a eu des surprises ?"
+        },
+        {
+          "text": "Parmi tout ça, qu'est-ce qui t'a le plus marqué ?",
+          "memory_section": 18
+        },
+        {
+          "text": "En tout cas, tu as envie d'y retourner demain ou tu appréhendes un peu ?"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Cours de musique",
+      "prompt": "Votre voisine reçoit un professeur de musique et cela vous intéresse. Vous lui posez des questions sur les cours proposés : tarif, type d'instrument, fréquence des cours, niveau requis, etc.",
+      "questions": [
+        {
+          "text": "Bonjour ! J'ai entendu dire que vous preniez des cours de musique à domicile — comment ça se passe, vous êtes contente ?"
+        },
+        {
+          "text": "Quel instrument apprenez-vous — et ça fait combien de temps que vous avez commencé ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Et concrètement, qu'est-ce qu'on apprend — c'est plutôt du solfège et de la théorie, ou on passe directement à l'instrument ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Justement, ça s'adresse à quel niveau — est-ce que quelqu'un qui débute complètement pourrait s'y mettre ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Vous avez cours combien de fois par semaine, et ça dure combien de temps à chaque fois ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Et côté tarifs, comment ça fonctionne — c'est à la séance ou plutôt au mois ?",
+          "memory_section": 1
+        },
+        {
+          "text": "D'ailleurs, il faut acheter son propre instrument ou le professeur en fournit un pour commencer ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Vous avez mentionné une méthode en particulier — vous pourriez m'en dire un peu plus ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Et le professeur en lui-même, il est comment — plutôt patient et pédagogue ?"
+        },
+        {
+          "text": "Au bout de combien de temps on commence à vraiment jouer des morceaux ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Et sinon, il y a des petits concerts ou des présentations en fin d'année ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Vous, personnellement, vous êtes satisfaite de votre progression ?"
+        },
+        {
+          "text": "À votre avis, le professeur accepterait de nouveaux élèves — vous auriez ses coordonnées ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "title": "Voyage à la campagne",
+      "prompt": "Vous envisagez un séjour à la campagne. Demandez à votre ami s'il souhaite vous accompagner et renseignez-vous sur les activités, la durée et l'hébergement.",
+      "questions": [
+        {
+          "text": "Salut ! J'espère que tu vas bien. Dis-moi, est-ce que tu as déjà eu l'occasion de passer du temps à la campagne ? Ce genre d'environnement te plaît ?"
+        },
+        {
+          "text": "Justement, je prévois un petit séjour à la campagne, près d'Accra, pendant les prochaines vacances, et j'aimerais beaucoup que tu m'accompagnes. Ce serait l'occasion de déconnecter un peu et de profiter de la nature. Est-ce que tu serais disponible pour venir avec moi ?"
+        },
+        {
+          "text": "J'ai déjà arrêté les dates : du 18 au 22 mars. Tu serais libre à ce moment-là ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Pour le transport, tu préfères que je m'en occupe ou tu penses pouvoir nous rejoindre directement sur place ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Concernant les activités, j'ai pensé à faire quelques randonnées, organiser un pique-nique, jouer au football et profiter d'autres activités en plein air. Ce programme te tente, ou tu voudrais ajouter quelque chose ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Pour la nourriture, ne t'inquiète pas, j'ai déjà tout prévu. Tu as des allergies ou des restrictions alimentaires particulières, pour que je puisse m'adapter ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Pour l'hébergement, je pensais qu'on pourrait opter pour un petit hôtel ou une auberge. Ce sont des options confortables et abordables. Il faudrait prévoir environ 100 dollars pour le séjour. Est-ce que cela te convient ?",
+          "memory_section": 6
+        },
+        {
+          "text": "Et pour finir, est-ce que tu souhaiterais inviter quelqu'un d'autre ? De mon côté, ma sœur se joindra à nous. Tu ne penses pas que ça rendra l'expérience encore plus agréable et conviviale ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "title": "Arrivée au Canada — Travail",
+      "prompt": "Je suis votre ami(e) et je réside au Canada. Vous venez d'arriver et souhaitez vous renseigner sur le travail. Posez des questions sur les opportunités, le marché de l'emploi, les démarches, les salaires, etc.",
+      "questions": [
+        {
+          "text": "Salut ! Je viens d'arriver au Canada et je voudrais me renseigner sur le travail ici — tu pourrais m'aider ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Comment est l'ambiance en général dans les entreprises canadiennes — plutôt formelle ou décontractée ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Les gens sont sympas — c'est facile de s'intégrer quand on arrive de l'étranger ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Ça s'adresse à quel profil — il faut un niveau de français ou d'anglais particulier ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Si on débute complètement ici, est-ce qu'on risque de se sentir perdu(e) dans les démarches ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Comment se passe la recherche d'emploi — en ligne ou uniquement via le réseau sur place ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Il faut s'inscrire à l'avance sur des plateformes ou on peut postuler librement ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Il reste encore des opportunités dans mon secteur ou c'est déjà très compétitif ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Quels types de contrats sont proposés — temporaires, permanents, à temps partiel ou à temps plein ?"
+        },
+        {
+          "text": "La rémunération comprend quoi exactement — des avantages comme l'assurance santé ou les congés payés sont-ils inclus ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Parlons du salaire — combien peut-on gagner approximativement selon le secteur ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Les impôts et cotisations sont élevés — ça change beaucoup du salaire brut au net ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il des différences importantes entre le marché du travail canadien et celui de mon pays d'origine ?"
+        },
+        {
+          "text": "Tu as mentionné certaines régions ou villes — tu pourrais m'en dire un peu plus sur les endroits où se concentrent les opportunités ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour trouver rapidement un emploi ici, ce serait lequel ?",
+          "memory_section": 4
+        }
+      ]
+    }
+  ]
+}

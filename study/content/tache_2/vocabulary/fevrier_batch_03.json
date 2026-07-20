@@ -1,0 +1,1230 @@
+{
+  "version": 1,
+  "subjects": [
+    {
+      "subject_key": "tache2:fevrier:batch-03:subject-11",
+      "entries": [
+        {
+          "id": "T2F2S11V01",
+          "kind": "mot-cle",
+          "french": "un logement",
+          "english": "a home/dwelling",
+          "example": "Bonjour, je suis à la recherche d'un logement, en location ou à l'achat — qu'est-ce que vous avez de disponible en ce moment ?",
+          "usage": "Nom courant pour désigner un lieu d'habitation, en location ou à l'achat."
+        },
+        {
+          "id": "T2F2S11V02",
+          "kind": "mot-cle",
+          "french": "en location",
+          "english": "renting/for rent",
+          "example": "En location, le loyer comprend quoi exactement — les charges, l'eau, le chauffage, c'est inclus ?",
+          "usage": "Groupe prépositionnel indiquant le statut locatif d'un bien."
+        },
+        {
+          "id": "T2F2S11V03",
+          "kind": "mot-cle",
+          "french": "le loyer",
+          "english": "the rent",
+          "example": "En location, le loyer comprend quoi exactement — les charges, l'eau, le chauffage, c'est inclus ?",
+          "usage": "Nom désignant la somme versée périodiquement pour un logement loué."
+        },
+        {
+          "id": "T2F2S11V04",
+          "kind": "mot-cle",
+          "french": "les charges",
+          "english": "the utility charges",
+          "example": "En location, le loyer comprend quoi exactement — les charges, l'eau, le chauffage, c'est inclus ?",
+          "usage": "Nom pluriel désignant les frais annexes liés au logement (eau, chauffage, etc.)."
+        },
+        {
+          "id": "T2F2S11V05",
+          "kind": "mot-cle",
+          "french": "un quartier",
+          "english": "a neighbourhood",
+          "example": "Vous avez mentionné un quartier en particulier — vous pourriez m'en dire un peu plus ?",
+          "usage": "Nom désignant une zone résidentielle d'une ville."
+        },
+        {
+          "id": "T2F2S11V06",
+          "kind": "mot-cle",
+          "french": "un garant",
+          "english": "a guarantor",
+          "example": "Pour la location, quelles sont les pièces à fournir pour le dossier — et est-ce qu'il faut un garant ?",
+          "usage": "Nom désignant la personne qui se porte caution pour un locataire."
+        },
+        {
+          "id": "T2F2S11V07",
+          "kind": "mot-cle",
+          "french": "le dossier",
+          "english": "the application file",
+          "example": "Pour la location, quelles sont les pièces à fournir pour le dossier — et est-ce qu'il faut un garant ?",
+          "usage": "Nom désignant l'ensemble des documents à fournir pour une demande."
+        },
+        {
+          "id": "T2F2S11V08",
+          "kind": "mot-cle",
+          "french": "un apport minimum",
+          "english": "a minimum down payment",
+          "example": "Et si je m'oriente plutôt vers l'achat, quelles sont les démarches — il faut un apport minimum ?",
+          "usage": "Groupe nominal désignant la somme personnelle exigée pour un achat immobilier."
+        },
+        {
+          "id": "T2F2S11V09",
+          "kind": "mot-cle",
+          "french": "le marché",
+          "english": "the market",
+          "example": "D'ailleurs, le marché est plutôt tendu en ce moment ou on trouve encore des offres intéressantes ?",
+          "usage": "Nom désignant l'ensemble de l'offre et de la demande immobilière."
+        },
+        {
+          "id": "T2F2S11V10",
+          "kind": "mot-cle",
+          "french": "des travaux",
+          "english": "renovation work",
+          "example": "Et les logements en eux-mêmes, ils sont en bon état général ou il y a des travaux à prévoir ?",
+          "usage": "Nom pluriel désignant des rénovations à prévoir dans un logement."
+        },
+        {
+          "id": "T2F2S11V11",
+          "kind": "collocation",
+          "french": "haut de gamme",
+          "english": "high-end/upscale",
+          "example": "Et ces biens sont dans quelle gamme de prix — plutôt abordables ou plutôt haut de gamme ?",
+          "usage": "Locution adjectivale invariable qualifiant un bien de standing élevé."
+        },
+        {
+          "id": "T2F2S11V12",
+          "kind": "collocation",
+          "french": "gamme de prix",
+          "english": "price range",
+          "example": "Et ces biens sont dans quelle gamme de prix — plutôt abordables ou plutôt haut de gamme ?",
+          "usage": "Collocation nominale pour situer un bien selon son coût."
+        },
+        {
+          "id": "T2F2S11V13",
+          "kind": "collocation",
+          "french": "pièces à fournir",
+          "english": "documents to provide",
+          "example": "Pour la location, quelles sont les pièces à fournir pour le dossier — et est-ce qu'il faut un garant ?",
+          "usage": "Collocation administrative désignant les justificatifs requis pour un dossier."
+        },
+        {
+          "id": "T2F2S11V14",
+          "kind": "collocation",
+          "french": "offres intéressantes",
+          "english": "attractive deals",
+          "example": "D'ailleurs, le marché est plutôt tendu en ce moment ou on trouve encore des offres intéressantes ?",
+          "usage": "Association nom + adjectif qualifiant des propositions avantageuses."
+        },
+        {
+          "id": "T2F2S11V15",
+          "kind": "collocation",
+          "french": "précautions particulières",
+          "english": "special precautions",
+          "example": "Sinon, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "usage": "Collocation figée pour désigner des mesures de prudence spécifiques."
+        },
+        {
+          "id": "T2F2S11V16",
+          "kind": "collocation",
+          "french": "choses à éviter",
+          "english": "things to avoid",
+          "example": "Sinon, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "usage": "Tournure nominale figée signalant des comportements ou situations à ne pas reproduire."
+        },
+        {
+          "id": "T2F2S11V17",
+          "kind": "collocation",
+          "french": "sur rendez-vous",
+          "english": "by appointment",
+          "example": "Et concrètement, comment s'organisent les visites — c'est sur rendez-vous uniquement ?",
+          "usage": "Locution prépositionnelle indiquant un mode d'organisation planifié."
+        },
+        {
+          "id": "T2F2S11V18",
+          "kind": "collocation",
+          "french": "en bon état",
+          "english": "in good condition",
+          "example": "Et les logements en eux-mêmes, ils sont en bon état général ou il y a des travaux à prévoir ?",
+          "usage": "Collocation qualifiant l'état satisfaisant d'un bien."
+        },
+        {
+          "id": "T2F2S11V19",
+          "kind": "collocation",
+          "french": "transports en commun",
+          "english": "public transport",
+          "example": "Et au niveau de l'accès, c'est facilement desservi en transports en commun ou il vaut mieux avoir une voiture ? S'il vaut mieux avoir une voiture, y a-t-il un parking à proximité ?",
+          "usage": "Collocation nominale désignant les moyens de déplacement collectifs."
+        },
+        {
+          "id": "T2F2S11V20",
+          "kind": "collocation",
+          "french": "parking à proximité",
+          "english": "nearby parking",
+          "example": "Et au niveau de l'accès, c'est facilement desservi en transports en commun ou il vaut mieux avoir une voiture ? S'il vaut mieux avoir une voiture, y a-t-il un parking à proximité ?",
+          "usage": "Association nom + complément de lieu pour situer un stationnement."
+        },
+        {
+          "id": "T2F2S11V21",
+          "kind": "tournure",
+          "french": "qu'est-ce que vous avez de disponible",
+          "english": "what do you have available",
+          "example": "Bonjour, je suis à la recherche d'un logement, en location ou à l'achat — qu'est-ce que vous avez de disponible en ce moment ?",
+          "usage": "Tournure interrogative directe pour demander l'offre existante."
+        },
+        {
+          "id": "T2F2S11V22",
+          "kind": "tournure",
+          "french": "est-ce qu'il y a des options dans cette gamme",
+          "english": "is there anything available in that range",
+          "example": "Je cherche plutôt un T2 ou un T3, meublé ou non — est-ce qu'il y a des options dans cette gamme ?",
+          "usage": "Structure interrogative avec 'est-ce que' pour vérifier une disponibilité précise."
+        },
+        {
+          "id": "T2F2S11V23",
+          "kind": "tournure",
+          "french": "je cherche plutôt un T2 ou un T3",
+          "english": "I'm rather looking for a two- or three-room flat",
+          "example": "Je cherche plutôt un T2 ou un T3, meublé ou non — est-ce qu'il y a des options dans cette gamme ?",
+          "usage": "Tournure pour exprimer une préférence entre deux options concrètes."
+        },
+        {
+          "id": "T2F2S11V24",
+          "kind": "tournure",
+          "french": "quels quartiers me conseilleriez-vous",
+          "english": "which neighbourhoods would you recommend to me",
+          "example": "Quels quartiers me conseilleriez-vous — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
+          "usage": "Tournure au conditionnel de politesse pour demander un conseil."
+        },
+        {
+          "id": "T2F2S11V25",
+          "kind": "tournure",
+          "french": "c'est plutôt calme et résidentiel ou plus animé",
+          "english": "is it rather quiet and residential, or livelier",
+          "example": "Quels quartiers me conseilleriez-vous — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
+          "usage": "Tournure interrogative alternative pour qualifier un lieu de vie."
+        },
+        {
+          "id": "T2F2S11V26",
+          "kind": "tournure",
+          "french": "vous pourriez m'en dire un peu plus",
+          "english": "could you tell me a bit more about it",
+          "example": "Vous avez mentionné un quartier en particulier — vous pourriez m'en dire un peu plus ?",
+          "usage": "Formule de relance au conditionnel pour approfondir un point mentionné."
+        },
+        {
+          "id": "T2F2S11V27",
+          "kind": "tournure",
+          "french": "quelles sont les démarches",
+          "english": "what are the steps to take",
+          "example": "Et si je m'oriente plutôt vers l'achat, quelles sont les démarches — il faut un apport minimum ?",
+          "usage": "Tournure interrogative pour demander la procédure à suivre."
+        },
+        {
+          "id": "T2F2S11V28",
+          "kind": "tournure",
+          "french": "et si je m'oriente plutôt vers l'achat",
+          "english": "and if I decide to buy instead",
+          "example": "Et si je m'oriente plutôt vers l'achat, quelles sont les démarches — il faut un apport minimum ?",
+          "usage": "Tournure hypothétique pour envisager une autre option que la location."
+        },
+        {
+          "id": "T2F2S11V29",
+          "kind": "tournure",
+          "french": "comment s'organisent les visites",
+          "english": "how are the viewings organised",
+          "example": "Et concrètement, comment s'organisent les visites — c'est sur rendez-vous uniquement ?",
+          "usage": "Tournure interrogative portant sur le déroulement pratique d'une démarche."
+        },
+        {
+          "id": "T2F2S11V30",
+          "kind": "tournure",
+          "french": "je peux vous recontacter",
+          "english": "may I contact you again",
+          "example": "D'accord, si j'ai encore une question, je peux vous recontacter ?",
+          "usage": "Formule de clôture polie pour s'assurer de pouvoir revenir vers son interlocuteur."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:fevrier:batch-03:subject-12",
+      "entries": [
+        {
+          "id": "T2F2S12V01",
+          "kind": "mot-cle",
+          "french": "le trac",
+          "english": "stage fright/nerves",
+          "example": "Tu avais le trac en arrivant ou tu te sentais plutôt à l'aise ?",
+          "usage": "Nom familier désignant l'appréhension ressentie avant une épreuve ou un événement nouveau."
+        },
+        {
+          "id": "T2F2S12V02",
+          "kind": "mot-cle",
+          "french": "l'ambiance",
+          "english": "the atmosphere",
+          "example": "Et du coup, comment était l'ambiance — plutôt formelle ou décontractée ?",
+          "usage": "Nom désignant le climat général régnant dans un lieu ou un groupe."
+        },
+        {
+          "id": "T2F2S12V03",
+          "kind": "mot-cle",
+          "french": "tes collègues",
+          "english": "your colleagues",
+          "example": "Et tes collègues, ils étaient comment — ils t'ont bien accueilli(e), il y a quelqu'un en particulier qui t'a aidé(e) ?",
+          "usage": "Nom pluriel désignant les personnes avec qui l'on travaille."
+        },
+        {
+          "id": "T2F2S12V04",
+          "kind": "mot-cle",
+          "french": "ton responsable",
+          "english": "your manager",
+          "example": "Et justement, ton responsable, tu l'as rencontré — il a l'air comment ?",
+          "usage": "Nom désignant la personne hiérarchiquement en charge d'une équipe."
+        },
+        {
+          "id": "T2F2S12V05",
+          "kind": "mot-cle",
+          "french": "la formation",
+          "english": "the training",
+          "example": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus ?",
+          "usage": "Nom désignant l'apprentissage encadré proposé à un nouvel employé."
+        },
+        {
+          "id": "T2F2S12V06",
+          "kind": "mot-cle",
+          "french": "les locaux",
+          "english": "the premises",
+          "example": "D'ailleurs, on t'a fait visiter les locaux — c'était comment, plutôt moderne ou un peu vieillot ?",
+          "usage": "Nom pluriel désignant les espaces physiques d'une entreprise."
+        },
+        {
+          "id": "T2F2S12V07",
+          "kind": "mot-cle",
+          "french": "un moment",
+          "english": "a moment",
+          "example": "Sinon, il y a eu un moment un peu stressant ou dans l'ensemble tout s'est bien enchaîné ?",
+          "usage": "Nom désignant un instant particulier vécu au cours d'une journée."
+        },
+        {
+          "id": "T2F2S12V08",
+          "kind": "mot-cle",
+          "french": "des surprises",
+          "english": "surprises",
+          "example": "Avec le recul, c'est ce que tu imaginais ou il y a eu des surprises ?",
+          "usage": "Nom pluriel désignant des événements imprévus, positifs ou négatifs."
+        },
+        {
+          "id": "T2F2S12V09",
+          "kind": "mot-cle",
+          "french": "ta journée",
+          "english": "your day",
+          "example": "Concrètement, tu as fait quoi de ta journée — c'était plutôt de la formation ou tu as directement commencé à travailler ?",
+          "usage": "Nom désignant l'ensemble des événements vécus en une journée."
+        },
+        {
+          "id": "T2F2S12V10",
+          "kind": "mot-cle",
+          "french": "le midi",
+          "english": "midday/lunchtime",
+          "example": "Et le midi, tu as mangé avec des collègues ou c'était chacun de son côté ?",
+          "usage": "Nom désignant le moment de la pause déjeuner."
+        },
+        {
+          "id": "T2F2S12V11",
+          "kind": "collocation",
+          "french": "bien accueilli",
+          "english": "warmly welcomed",
+          "example": "Et tes collègues, ils étaient comment — ils t'ont bien accueilli(e), il y a quelqu'un en particulier qui t'a aidé(e) ?",
+          "usage": "Association participe passé + adverbe pour qualifier un accueil chaleureux."
+        },
+        {
+          "id": "T2F2S12V12",
+          "kind": "collocation",
+          "french": "formelle ou décontractée",
+          "english": "formal or casual",
+          "example": "Et du coup, comment était l'ambiance — plutôt formelle ou décontractée ?",
+          "usage": "Paire d'adjectifs antonymes servant à qualifier un registre d'ambiance."
+        },
+        {
+          "id": "T2F2S12V13",
+          "kind": "collocation",
+          "french": "commencé à travailler",
+          "english": "started working",
+          "example": "Concrètement, tu as fait quoi de ta journée — c'était plutôt de la formation ou tu as directement commencé à travailler ?",
+          "usage": "Collocation verbale exprimant le début effectif d'une activité professionnelle."
+        },
+        {
+          "id": "T2F2S12V14",
+          "kind": "collocation",
+          "french": "moderne ou un peu vieillot",
+          "english": "modern or a bit old-fashioned",
+          "example": "D'ailleurs, on t'a fait visiter les locaux — c'était comment, plutôt moderne ou un peu vieillot ?",
+          "usage": "Paire d'adjectifs contrastés pour qualifier des locaux."
+        },
+        {
+          "id": "T2F2S12V15",
+          "kind": "collocation",
+          "french": "chacun de son côté",
+          "english": "each on their own",
+          "example": "Et le midi, tu as mangé avec des collègues ou c'était chacun de son côté ?",
+          "usage": "Locution figée exprimant l'absence de mise en commun d'une activité."
+        },
+        {
+          "id": "T2F2S12V16",
+          "kind": "collocation",
+          "french": "bien enchaîné",
+          "english": "flowed smoothly",
+          "example": "Sinon, il y a eu un moment un peu stressant ou dans l'ensemble tout s'est bien enchaîné ?",
+          "usage": "Collocation verbale qualifiant le déroulement fluide d'une journée."
+        },
+        {
+          "id": "T2F2S12V17",
+          "kind": "collocation",
+          "french": "avec le recul",
+          "english": "in hindsight",
+          "example": "Avec le recul, c'est ce que tu imaginais ou il y a eu des surprises ?",
+          "usage": "Locution adverbiale pour évoquer une réflexion a posteriori."
+        },
+        {
+          "id": "T2F2S12V18",
+          "kind": "collocation",
+          "french": "un peu stressant",
+          "english": "a bit stressful",
+          "example": "Sinon, il y a eu un moment un peu stressant ou dans l'ensemble tout s'est bien enchaîné ?",
+          "usage": "Association nom implicite + adjectif nuancé par 'un peu' pour qualifier un moment difficile."
+        },
+        {
+          "id": "T2F2S12V19",
+          "kind": "collocation",
+          "french": "envie d'y retourner",
+          "english": "keen to go back",
+          "example": "En tout cas, tu as envie d'y retourner demain ou tu appréhendes un peu ?",
+          "usage": "Collocation exprimant le désir de renouveler une expérience."
+        },
+        {
+          "id": "T2F2S12V20",
+          "kind": "collocation",
+          "french": "à l'aise",
+          "english": "at ease/comfortable",
+          "example": "Tu avais le trac en arrivant ou tu te sentais plutôt à l'aise ?",
+          "usage": "Locution adjectivale figée exprimant un sentiment de confort dans une situation."
+        },
+        {
+          "id": "T2F2S12V21",
+          "kind": "tournure",
+          "french": "comment s'est passé ton premier jour",
+          "english": "how did your first day go",
+          "example": "Alors, raconte — comment s'est passé ton premier jour ?",
+          "usage": "Tournure interrogative classique pour demander un compte-rendu d'expérience."
+        },
+        {
+          "id": "T2F2S12V22",
+          "kind": "tournure",
+          "french": "il y a quelqu'un en particulier qui t'a aidé",
+          "english": "was there someone in particular who helped you",
+          "example": "Et tes collègues, ils étaient comment — ils t'ont bien accueilli(e), il y a quelqu'un en particulier qui t'a aidé(e) ?",
+          "usage": "Tournure de relance pour cibler un détail précis dans un récit."
+        },
+        {
+          "id": "T2F2S12V23",
+          "kind": "tournure",
+          "french": "il a l'air comment",
+          "english": "what does he seem like",
+          "example": "Et justement, ton responsable, tu l'as rencontré — il a l'air comment ?",
+          "usage": "Tournure interrogative informelle pour demander une première impression."
+        },
+        {
+          "id": "T2F2S12V24",
+          "kind": "tournure",
+          "french": "tu pourrais m'en dire un peu plus",
+          "english": "could you tell me a bit more about it",
+          "example": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus ?",
+          "usage": "Formule de relance au conditionnel pour approfondir un sujet mentionné."
+        },
+        {
+          "id": "T2F2S12V25",
+          "kind": "tournure",
+          "french": "ils étaient comment",
+          "english": "what were they like",
+          "example": "Et tes collègues, ils étaient comment — ils t'ont bien accueilli(e), il y a quelqu'un en particulier qui t'a aidé(e) ?",
+          "usage": "Tournure interrogative informelle pour demander une description générale."
+        },
+        {
+          "id": "T2F2S12V26",
+          "kind": "tournure",
+          "french": "tu as mangé avec des collègues",
+          "english": "did you eat with colleagues",
+          "example": "Et le midi, tu as mangé avec des collègues ou c'était chacun de son côté ?",
+          "usage": "Tournure au passé composé pour vérifier une habitude sociale au travail."
+        },
+        {
+          "id": "T2F2S12V27",
+          "kind": "tournure",
+          "french": "c'est ce que tu imaginais",
+          "english": "is that what you expected",
+          "example": "Avec le recul, c'est ce que tu imaginais ou il y a eu des surprises ?",
+          "usage": "Tournure comparative pour confronter une attente à la réalité vécue."
+        },
+        {
+          "id": "T2F2S12V28",
+          "kind": "tournure",
+          "french": "qu'est-ce qui t'a le plus marqué",
+          "english": "what struck you the most",
+          "example": "Parmi tout ça, qu'est-ce qui t'a le plus marqué ?",
+          "usage": "Tournure interrogative pour cibler l'élément le plus mémorable d'un vécu."
+        },
+        {
+          "id": "T2F2S12V29",
+          "kind": "tournure",
+          "french": "tu appréhendes un peu",
+          "english": "are you a little apprehensive",
+          "example": "En tout cas, tu as envie d'y retourner demain ou tu appréhendes un peu ?",
+          "usage": "Tournure pour exprimer une légère inquiétude face à l'avenir proche."
+        },
+        {
+          "id": "T2F2S12V30",
+          "kind": "tournure",
+          "french": "on t'a fait visiter",
+          "english": "they showed you around",
+          "example": "D'ailleurs, on t'a fait visiter les locaux — c'était comment, plutôt moderne ou un peu vieillot ?",
+          "usage": "Tournure causative avec 'faire' + infinitif pour évoquer une visite guidée par un tiers."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:fevrier:batch-03:subject-13",
+      "entries": [
+        {
+          "id": "T2F2S13V01",
+          "kind": "mot-cle",
+          "french": "des cours de musique",
+          "english": "music lessons",
+          "example": "Bonjour ! J'ai entendu dire que vous preniez des cours de musique à domicile — comment ça se passe, vous êtes contente ?",
+          "usage": "Nom composé désignant l'enseignement musical suivi régulièrement."
+        },
+        {
+          "id": "T2F2S13V02",
+          "kind": "mot-cle",
+          "french": "quel instrument",
+          "english": "which instrument",
+          "example": "Quel instrument apprenez-vous — et ça fait combien de temps que vous avez commencé ?",
+          "usage": "Groupe interrogatif désignant l'instrument de musique appris."
+        },
+        {
+          "id": "T2F2S13V03",
+          "kind": "mot-cle",
+          "french": "du solfège",
+          "english": "music theory/solfège",
+          "example": "Et concrètement, qu'est-ce qu'on apprend — c'est plutôt du solfège et de la théorie, ou on passe directement à l'instrument ?",
+          "usage": "Nom désignant l'étude théorique du langage musical."
+        },
+        {
+          "id": "T2F2S13V04",
+          "kind": "mot-cle",
+          "french": "une méthode",
+          "english": "a method/approach",
+          "example": "Vous avez mentionné une méthode en particulier — vous pourriez m'en dire un peu plus ?",
+          "usage": "Nom désignant l'approche pédagogique suivie pour enseigner une matière."
+        },
+        {
+          "id": "T2F2S13V05",
+          "kind": "mot-cle",
+          "french": "le professeur",
+          "english": "the teacher",
+          "example": "Et le professeur en lui-même, il est comment — plutôt patient et pédagogue ?",
+          "usage": "Nom désignant la personne qui dispense l'enseignement."
+        },
+        {
+          "id": "T2F2S13V06",
+          "kind": "mot-cle",
+          "french": "côté tarifs",
+          "english": "pricing-wise",
+          "example": "Et côté tarifs, comment ça fonctionne — c'est à la séance ou plutôt au mois ?",
+          "usage": "Groupe nominal informel pour introduire le sujet du tarif."
+        },
+        {
+          "id": "T2F2S13V07",
+          "kind": "mot-cle",
+          "french": "des petits concerts",
+          "english": "small concerts",
+          "example": "Et sinon, il y a des petits concerts ou des présentations en fin d'année ?",
+          "usage": "Groupe nominal désignant de modestes représentations musicales."
+        },
+        {
+          "id": "T2F2S13V08",
+          "kind": "mot-cle",
+          "french": "personnellement",
+          "english": "personally",
+          "example": "Vous, personnellement, vous êtes satisfaite de votre progression ?",
+          "usage": "Adverbe introduisant un avis exprimé à titre individuel."
+        },
+        {
+          "id": "T2F2S13V09",
+          "kind": "mot-cle",
+          "french": "de nouveaux élèves",
+          "english": "new students",
+          "example": "À votre avis, le professeur accepterait de nouveaux élèves — vous auriez ses coordonnées ?",
+          "usage": "Groupe nominal désignant des apprenants qui rejoignent un cours."
+        },
+        {
+          "id": "T2F2S13V10",
+          "kind": "mot-cle",
+          "french": "ses coordonnées",
+          "english": "their contact details",
+          "example": "À votre avis, le professeur accepterait de nouveaux élèves — vous auriez ses coordonnées ?",
+          "usage": "Nom pluriel désignant les informations permettant de joindre quelqu'un."
+        },
+        {
+          "id": "T2F2S13V11",
+          "kind": "collocation",
+          "french": "à domicile",
+          "english": "at home/in-house",
+          "example": "Bonjour ! J'ai entendu dire que vous preniez des cours de musique à domicile — comment ça se passe, vous êtes contente ?",
+          "usage": "Locution adverbiale indiquant que le service est rendu au domicile du client."
+        },
+        {
+          "id": "T2F2S13V12",
+          "kind": "collocation",
+          "french": "à chaque fois",
+          "english": "each time",
+          "example": "Vous avez cours combien de fois par semaine, et ça dure combien de temps à chaque fois ?",
+          "usage": "Locution adverbiale invariable pour indiquer la répétition constante d'une action."
+        },
+        {
+          "id": "T2F2S13V13",
+          "kind": "collocation",
+          "french": "s'y mettre",
+          "english": "to get started with it",
+          "example": "Justement, ça s'adresse à quel niveau — est-ce que quelqu'un qui débute complètement pourrait s'y mettre ?",
+          "usage": "Locution pronominale idiomatique signifiant commencer une activité."
+        },
+        {
+          "id": "T2F2S13V14",
+          "kind": "collocation",
+          "french": "à la séance",
+          "english": "per session",
+          "example": "Et côté tarifs, comment ça fonctionne — c'est à la séance ou plutôt au mois ?",
+          "usage": "Locution prépositionnelle indiquant un mode de facturation ponctuel."
+        },
+        {
+          "id": "T2F2S13V15",
+          "kind": "collocation",
+          "french": "patient et pédagogue",
+          "english": "patient and a good teacher",
+          "example": "Et le professeur en lui-même, il est comment — plutôt patient et pédagogue ?",
+          "usage": "Association de deux adjectifs qualifiant positivement un enseignant."
+        },
+        {
+          "id": "T2F2S13V16",
+          "kind": "collocation",
+          "french": "jouer des morceaux",
+          "english": "to play pieces",
+          "example": "Au bout de combien de temps on commence à vraiment jouer des morceaux ?",
+          "usage": "Collocation verbale désignant l'interprétation musicale d'œuvres."
+        },
+        {
+          "id": "T2F2S13V17",
+          "kind": "collocation",
+          "french": "fin d'année",
+          "english": "end of the year",
+          "example": "Et sinon, il y a des petits concerts ou des présentations en fin d'année ?",
+          "usage": "Locution nominale temporelle désignant la période de clôture annuelle."
+        },
+        {
+          "id": "T2F2S13V18",
+          "kind": "collocation",
+          "french": "à votre avis",
+          "english": "in your opinion",
+          "example": "À votre avis, le professeur accepterait de nouveaux élèves — vous auriez ses coordonnées ?",
+          "usage": "Locution adverbiale pour introduire une opinion sollicitée poliment."
+        },
+        {
+          "id": "T2F2S13V19",
+          "kind": "collocation",
+          "french": "toutes ces infos",
+          "english": "all this information",
+          "example": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "usage": "Groupe nominal informel résumant un ensemble de renseignements reçus."
+        },
+        {
+          "id": "T2F2S13V20",
+          "kind": "collocation",
+          "french": "son propre instrument",
+          "english": "their own instrument",
+          "example": "D'ailleurs, il faut acheter son propre instrument ou le professeur en fournit un pour commencer ?",
+          "usage": "Association possessif renforcé + nom pour insister sur la possession personnelle."
+        },
+        {
+          "id": "T2F2S13V21",
+          "kind": "tournure",
+          "french": "j'ai entendu dire que vous preniez des cours",
+          "english": "I heard that you were taking lessons",
+          "example": "Bonjour ! J'ai entendu dire que vous preniez des cours de musique à domicile — comment ça se passe, vous êtes contente ?",
+          "usage": "Tournure rapportant une information de seconde main avec 'entendre dire que'."
+        },
+        {
+          "id": "T2F2S13V22",
+          "kind": "tournure",
+          "french": "ça fait combien de temps que vous avez commencé",
+          "english": "how long has it been since you started",
+          "example": "Quel instrument apprenez-vous — et ça fait combien de temps que vous avez commencé ?",
+          "usage": "Tournure avec 'ça fait... que' pour interroger sur une durée écoulée."
+        },
+        {
+          "id": "T2F2S13V23",
+          "kind": "tournure",
+          "french": "on passe directement à l'instrument",
+          "english": "you go straight to the instrument",
+          "example": "Et concrètement, qu'est-ce qu'on apprend — c'est plutôt du solfège et de la théorie, ou on passe directement à l'instrument ?",
+          "usage": "Tournure impersonnelle avec 'on' pour décrire une pratique pédagogique."
+        },
+        {
+          "id": "T2F2S13V24",
+          "kind": "tournure",
+          "french": "comment ça fonctionne",
+          "english": "how does that work",
+          "example": "Et côté tarifs, comment ça fonctionne — c'est à la séance ou plutôt au mois ?",
+          "usage": "Tournure interrogative générale pour demander une explication de fonctionnement."
+        },
+        {
+          "id": "T2F2S13V25",
+          "kind": "tournure",
+          "french": "vous avez cours combien de fois par semaine",
+          "english": "how many times a week do you have lessons",
+          "example": "Vous avez cours combien de fois par semaine, et ça dure combien de temps à chaque fois ?",
+          "usage": "Tournure interrogative avec 'avoir' pour situer la fréquence d'une activité."
+        },
+        {
+          "id": "T2F2S13V26",
+          "kind": "tournure",
+          "french": "vous pourriez m'en dire un peu plus",
+          "english": "could you tell me a bit more about it",
+          "example": "Vous avez mentionné une méthode en particulier — vous pourriez m'en dire un peu plus ?",
+          "usage": "Formule de relance au conditionnel pour approfondir un sujet mentionné."
+        },
+        {
+          "id": "T2F2S13V27",
+          "kind": "tournure",
+          "french": "on commence à vraiment jouer",
+          "english": "you really start playing",
+          "example": "Au bout de combien de temps on commence à vraiment jouer des morceaux ?",
+          "usage": "Tournure avec 'commencer à' + infinitif pour marquer le début effectif d'une capacité."
+        },
+        {
+          "id": "T2F2S13V28",
+          "kind": "tournure",
+          "french": "vous êtes satisfaite de votre progression",
+          "english": "are you satisfied with your progress",
+          "example": "Vous, personnellement, vous êtes satisfaite de votre progression ?",
+          "usage": "Tournure avec adjectif + complément introduit par 'de' pour évaluer un ressenti."
+        },
+        {
+          "id": "T2F2S13V29",
+          "kind": "tournure",
+          "french": "ça s'adresse à quel niveau",
+          "english": "who is this aimed at",
+          "example": "Justement, ça s'adresse à quel niveau — est-ce que quelqu'un qui débute complètement pourrait s'y mettre ?",
+          "usage": "Tournure interrogative pour situer le niveau requis d'une activité."
+        },
+        {
+          "id": "T2F2S13V30",
+          "kind": "tournure",
+          "french": "je peux vous solliciter",
+          "english": "may I get in touch with you",
+          "example": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "usage": "Formule de clôture polie pour s'autoriser une future prise de contact."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:fevrier:batch-03:subject-14",
+      "entries": [
+        {
+          "id": "T2F2S14V01",
+          "kind": "mot-cle",
+          "french": "un petit séjour",
+          "english": "a short stay/trip",
+          "example": "Justement, je prévois un petit séjour à la campagne, près d'Accra, pendant les prochaines vacances, et j'aimerais beaucoup que tu m'accompagnes. Ce serait l'occasion de déconnecter un peu et de profiter de la nature. Est-ce que tu serais disponible pour venir avec moi ?",
+          "usage": "Groupe nominal désignant un déplacement temporaire de courte durée."
+        },
+        {
+          "id": "T2F2S14V02",
+          "kind": "mot-cle",
+          "french": "les prochaines vacances",
+          "english": "the upcoming holidays",
+          "example": "Justement, je prévois un petit séjour à la campagne, près d'Accra, pendant les prochaines vacances, et j'aimerais beaucoup que tu m'accompagnes. Ce serait l'occasion de déconnecter un peu et de profiter de la nature. Est-ce que tu serais disponible pour venir avec moi ?",
+          "usage": "Groupe nominal désignant la période de congés à venir."
+        },
+        {
+          "id": "T2F2S14V03",
+          "kind": "mot-cle",
+          "french": "le transport",
+          "english": "the transport",
+          "example": "Pour le transport, tu préfères que je m'en occupe ou tu penses pouvoir nous rejoindre directement sur place ?",
+          "usage": "Nom désignant les moyens utilisés pour se déplacer d'un lieu à un autre."
+        },
+        {
+          "id": "T2F2S14V04",
+          "kind": "mot-cle",
+          "french": "quelques randonnées",
+          "english": "a few hikes",
+          "example": "Concernant les activités, j'ai pensé à faire quelques randonnées, organiser un pique-nique, jouer au football et profiter d'autres activités en plein air. Ce programme te tente, ou tu voudrais ajouter quelque chose ?",
+          "usage": "Groupe nominal désignant un nombre limité de marches sportives en pleine nature."
+        },
+        {
+          "id": "T2F2S14V05",
+          "kind": "mot-cle",
+          "french": "un pique-nique",
+          "english": "a picnic",
+          "example": "Concernant les activités, j'ai pensé à faire quelques randonnées, organiser un pique-nique, jouer au football et profiter d'autres activités en plein air. Ce programme te tente, ou tu voudrais ajouter quelque chose ?",
+          "usage": "Nom composé désignant un repas pris en plein air."
+        },
+        {
+          "id": "T2F2S14V06",
+          "kind": "mot-cle",
+          "french": "des allergies",
+          "english": "allergies",
+          "example": "Pour la nourriture, ne t'inquiète pas, j'ai déjà tout prévu. Tu as des allergies ou des restrictions alimentaires particulières, pour que je puisse m'adapter ?",
+          "usage": "Nom pluriel désignant des réactions à certains aliments ou substances."
+        },
+        {
+          "id": "T2F2S14V07",
+          "kind": "mot-cle",
+          "french": "l'hébergement",
+          "english": "the accommodation",
+          "example": "Pour l'hébergement, je pensais qu'on pourrait opter pour un petit hôtel ou une auberge. Ce sont des options confortables et abordables. Il faudrait prévoir environ 100 dollars pour le séjour. Est-ce que cela te convient ?",
+          "usage": "Nom désignant le lieu où l'on loge pendant un séjour."
+        },
+        {
+          "id": "T2F2S14V08",
+          "kind": "mot-cle",
+          "french": "une auberge",
+          "english": "an inn/hostel",
+          "example": "Pour l'hébergement, je pensais qu'on pourrait opter pour un petit hôtel ou une auberge. Ce sont des options confortables et abordables. Il faudrait prévoir environ 100 dollars pour le séjour. Est-ce que cela te convient ?",
+          "usage": "Nom désignant un établissement d'hébergement simple et convivial."
+        },
+        {
+          "id": "T2F2S14V09",
+          "kind": "mot-cle",
+          "french": "le séjour",
+          "english": "the trip/stay",
+          "example": "Pour l'hébergement, je pensais qu'on pourrait opter pour un petit hôtel ou une auberge. Ce sont des options confortables et abordables. Il faudrait prévoir environ 100 dollars pour le séjour. Est-ce que cela te convient ?",
+          "usage": "Nom désignant la durée passée dans un lieu de villégiature."
+        },
+        {
+          "id": "T2F2S14V10",
+          "kind": "mot-cle",
+          "french": "ma sœur",
+          "english": "my sister",
+          "example": "Et pour finir, est-ce que tu souhaiterais inviter quelqu'un d'autre ? De mon côté, ma sœur se joindra à nous. Tu ne penses pas que ça rendra l'expérience encore plus agréable et conviviale ?",
+          "usage": "Nom désignant la sœur de la personne qui parle."
+        },
+        {
+          "id": "T2F2S14V11",
+          "kind": "collocation",
+          "french": "passer du temps",
+          "english": "to spend time",
+          "example": "Salut ! J'espère que tu vas bien. Dis-moi, est-ce que tu as déjà eu l'occasion de passer du temps à la campagne ? Ce genre d'environnement te plaît ?",
+          "usage": "Collocation verbale courante pour évoquer l'occupation d'une durée."
+        },
+        {
+          "id": "T2F2S14V12",
+          "kind": "collocation",
+          "french": "déconnecter un peu",
+          "english": "to unplug/switch off a little",
+          "example": "Justement, je prévois un petit séjour à la campagne, près d'Accra, pendant les prochaines vacances, et j'aimerais beaucoup que tu m'accompagnes. Ce serait l'occasion de déconnecter un peu et de profiter de la nature. Est-ce que tu serais disponible pour venir avec moi ?",
+          "usage": "Association verbe + adverbe pour évoquer une pause du quotidien."
+        },
+        {
+          "id": "T2F2S14V13",
+          "kind": "collocation",
+          "french": "profiter de la nature",
+          "english": "to enjoy nature",
+          "example": "Justement, je prévois un petit séjour à la campagne, près d'Accra, pendant les prochaines vacances, et j'aimerais beaucoup que tu m'accompagnes. Ce serait l'occasion de déconnecter un peu et de profiter de la nature. Est-ce que tu serais disponible pour venir avec moi ?",
+          "usage": "Collocation verbale figée pour évoquer un contact positif avec l'environnement naturel."
+        },
+        {
+          "id": "T2F2S14V14",
+          "kind": "collocation",
+          "french": "activités en plein air",
+          "english": "outdoor activities",
+          "example": "Concernant les activités, j'ai pensé à faire quelques randonnées, organiser un pique-nique, jouer au football et profiter d'autres activités en plein air. Ce programme te tente, ou tu voudrais ajouter quelque chose ?",
+          "usage": "Collocation nominale désignant des occupations pratiquées à l'extérieur."
+        },
+        {
+          "id": "T2F2S14V15",
+          "kind": "collocation",
+          "french": "restrictions alimentaires",
+          "english": "dietary restrictions",
+          "example": "Pour la nourriture, ne t'inquiète pas, j'ai déjà tout prévu. Tu as des allergies ou des restrictions alimentaires particulières, pour que je puisse m'adapter ?",
+          "usage": "Collocation nominale désignant des limitations imposées par un régime."
+        },
+        {
+          "id": "T2F2S14V16",
+          "kind": "collocation",
+          "french": "options confortables et abordables",
+          "english": "comfortable and affordable options",
+          "example": "Pour l'hébergement, je pensais qu'on pourrait opter pour un petit hôtel ou une auberge. Ce sont des options confortables et abordables. Il faudrait prévoir environ 100 dollars pour le séjour. Est-ce que cela te convient ?",
+          "usage": "Association de deux adjectifs coordonnés qualifiant des choix pratiques."
+        },
+        {
+          "id": "T2F2S14V17",
+          "kind": "collocation",
+          "french": "prévoir environ 100 dollars",
+          "english": "to budget around 100 dollars",
+          "example": "Pour l'hébergement, je pensais qu'on pourrait opter pour un petit hôtel ou une auberge. Ce sont des options confortables et abordables. Il faudrait prévoir environ 100 dollars pour le séjour. Est-ce que cela te convient ?",
+          "usage": "Collocation verbale pour anticiper une dépense approximative."
+        },
+        {
+          "id": "T2F2S14V18",
+          "kind": "collocation",
+          "french": "inviter quelqu'un d'autre",
+          "english": "to invite someone else",
+          "example": "Et pour finir, est-ce que tu souhaiterais inviter quelqu'un d'autre ? De mon côté, ma sœur se joindra à nous. Tu ne penses pas que ça rendra l'expérience encore plus agréable et conviviale ?",
+          "usage": "Collocation verbale pour évoquer l'élargissement d'un groupe."
+        },
+        {
+          "id": "T2F2S14V19",
+          "kind": "collocation",
+          "french": "ce genre d'environnement",
+          "english": "this kind of setting",
+          "example": "Salut ! J'espère que tu vas bien. Dis-moi, est-ce que tu as déjà eu l'occasion de passer du temps à la campagne ? Ce genre d'environnement te plaît ?",
+          "usage": "Groupe nominal figé pour désigner un cadre ou une ambiance particulière."
+        },
+        {
+          "id": "T2F2S14V20",
+          "kind": "collocation",
+          "french": "encore plus agréable et conviviale",
+          "english": "even more pleasant and friendly",
+          "example": "Et pour finir, est-ce que tu souhaiterais inviter quelqu'un d'autre ? De mon côté, ma sœur se joindra à nous. Tu ne penses pas que ça rendra l'expérience encore plus agréable et conviviale ?",
+          "usage": "Association d'adjectifs renforcée par 'encore plus' pour intensifier une qualité."
+        },
+        {
+          "id": "T2F2S14V21",
+          "kind": "tournure",
+          "french": "est-ce que tu as déjà eu l'occasion de",
+          "english": "have you ever had the chance to",
+          "example": "Salut ! J'espère que tu vas bien. Dis-moi, est-ce que tu as déjà eu l'occasion de passer du temps à la campagne ? Ce genre d'environnement te plaît ?",
+          "usage": "Tournure avec 'avoir l'occasion de' pour interroger sur une expérience passée."
+        },
+        {
+          "id": "T2F2S14V22",
+          "kind": "tournure",
+          "french": "j'aimerais beaucoup que tu m'accompagnes",
+          "english": "I would really like you to come with me",
+          "example": "Justement, je prévois un petit séjour à la campagne, près d'Accra, pendant les prochaines vacances, et j'aimerais beaucoup que tu m'accompagnes. Ce serait l'occasion de déconnecter un peu et de profiter de la nature. Est-ce que tu serais disponible pour venir avec moi ?",
+          "usage": "Tournure au subjonctif après 'aimerais que' pour formuler un souhait poli."
+        },
+        {
+          "id": "T2F2S14V23",
+          "kind": "tournure",
+          "french": "est-ce que tu serais disponible pour venir avec moi",
+          "english": "would you be available to come with me",
+          "example": "Justement, je prévois un petit séjour à la campagne, près d'Accra, pendant les prochaines vacances, et j'aimerais beaucoup que tu m'accompagnes. Ce serait l'occasion de déconnecter un peu et de profiter de la nature. Est-ce que tu serais disponible pour venir avec moi ?",
+          "usage": "Tournure au conditionnel pour proposer une invitation avec tact."
+        },
+        {
+          "id": "T2F2S14V24",
+          "kind": "tournure",
+          "french": "tu serais libre à ce moment-là",
+          "english": "would you be free at that time",
+          "example": "J'ai déjà arrêté les dates : du 18 au 22 mars. Tu serais libre à ce moment-là ?",
+          "usage": "Tournure au conditionnel pour vérifier une disponibilité à une date précise."
+        },
+        {
+          "id": "T2F2S14V25",
+          "kind": "tournure",
+          "french": "tu penses pouvoir nous rejoindre directement sur place",
+          "english": "do you think you could join us straight there",
+          "example": "Pour le transport, tu préfères que je m'en occupe ou tu penses pouvoir nous rejoindre directement sur place ?",
+          "usage": "Tournure avec 'penser pouvoir' pour évaluer une possibilité logistique."
+        },
+        {
+          "id": "T2F2S14V26",
+          "kind": "tournure",
+          "french": "ce programme te tente",
+          "english": "does this plan appeal to you",
+          "example": "Concernant les activités, j'ai pensé à faire quelques randonnées, organiser un pique-nique, jouer au football et profiter d'autres activités en plein air. Ce programme te tente, ou tu voudrais ajouter quelque chose ?",
+          "usage": "Tournure interrogative directe pour sonder l'intérêt d'un interlocuteur."
+        },
+        {
+          "id": "T2F2S14V27",
+          "kind": "tournure",
+          "french": "pour que je puisse m'adapter",
+          "english": "so that I can adapt accordingly",
+          "example": "Pour la nourriture, ne t'inquiète pas, j'ai déjà tout prévu. Tu as des allergies ou des restrictions alimentaires particulières, pour que je puisse m'adapter ?",
+          "usage": "Tournure au subjonctif introduite par 'pour que' exprimant un but."
+        },
+        {
+          "id": "T2F2S14V28",
+          "kind": "tournure",
+          "french": "je pensais qu'on pourrait opter pour",
+          "english": "I was thinking we could go for",
+          "example": "Pour l'hébergement, je pensais qu'on pourrait opter pour un petit hôtel ou une auberge. Ce sont des options confortables et abordables. Il faudrait prévoir environ 100 dollars pour le séjour. Est-ce que cela te convient ?",
+          "usage": "Tournure à l'imparfait suivie du conditionnel pour suggérer une option avec prudence."
+        },
+        {
+          "id": "T2F2S14V29",
+          "kind": "tournure",
+          "french": "est-ce que cela te convient",
+          "english": "does that suit you",
+          "example": "Pour l'hébergement, je pensais qu'on pourrait opter pour un petit hôtel ou une auberge. Ce sont des options confortables et abordables. Il faudrait prévoir environ 100 dollars pour le séjour. Est-ce que cela te convient ?",
+          "usage": "Tournure interrogative polie pour valider l'accord d'un interlocuteur."
+        },
+        {
+          "id": "T2F2S14V30",
+          "kind": "tournure",
+          "french": "ne t'inquiète pas, j'ai déjà tout prévu",
+          "english": "don't worry, I've already planned everything",
+          "example": "Pour la nourriture, ne t'inquiète pas, j'ai déjà tout prévu. Tu as des allergies ou des restrictions alimentaires particulières, pour que je puisse m'adapter ?",
+          "usage": "Formule rassurante à l'impératif négatif suivie d'une affirmation au passé composé, pour anticiper une inquiétude de l'interlocuteur."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:fevrier:batch-03:subject-15",
+      "entries": [
+        {
+          "id": "T2F2S15V01",
+          "kind": "mot-cle",
+          "french": "le réseau",
+          "english": "the network",
+          "example": "Comment se passe la recherche d'emploi — en ligne ou uniquement via le réseau sur place ?",
+          "usage": "Nom désignant l'ensemble des contacts professionnels ou personnels mobilisables."
+        },
+        {
+          "id": "T2F2S15V02",
+          "kind": "mot-cle",
+          "french": "des plateformes",
+          "english": "platforms",
+          "example": "Il faut s'inscrire à l'avance sur des plateformes ou on peut postuler librement ?",
+          "usage": "Nom pluriel désignant des sites ou services en ligne dédiés à une activité."
+        },
+        {
+          "id": "T2F2S15V03",
+          "kind": "mot-cle",
+          "french": "mon secteur",
+          "english": "my sector/industry",
+          "example": "Il reste encore des opportunités dans mon secteur ou c'est déjà très compétitif ?",
+          "usage": "Nom désignant le domaine professionnel dans lequel on évolue."
+        },
+        {
+          "id": "T2F2S15V04",
+          "kind": "mot-cle",
+          "french": "types de contrats",
+          "english": "types of contracts",
+          "example": "Quels types de contrats sont proposés — temporaires, permanents, à temps partiel ou à temps plein ?",
+          "usage": "Groupe nominal désignant les différentes catégories d'accords de travail proposés."
+        },
+        {
+          "id": "T2F2S15V05",
+          "kind": "mot-cle",
+          "french": "l'assurance santé",
+          "english": "health insurance",
+          "example": "La rémunération comprend quoi exactement — des avantages comme l'assurance santé ou les congés payés sont-ils inclus ?",
+          "usage": "Nom composé avec article élidé désignant la couverture des frais médicaux."
+        },
+        {
+          "id": "T2F2S15V06",
+          "kind": "mot-cle",
+          "french": "les congés payés",
+          "english": "paid leave",
+          "example": "La rémunération comprend quoi exactement — des avantages comme l'assurance santé ou les congés payés sont-ils inclus ?",
+          "usage": "Nom composé avec article défini désignant les jours d'absence rémunérés accordés au salarié."
+        },
+        {
+          "id": "T2F2S15V07",
+          "kind": "mot-cle",
+          "french": "salaire",
+          "english": "salary/wage",
+          "example": "Les impôts et cotisations sont élevés — ça change beaucoup du salaire brut au net ?",
+          "usage": "Nom désignant la rémunération perçue pour un travail."
+        },
+        {
+          "id": "T2F2S15V08",
+          "kind": "mot-cle",
+          "french": "profil",
+          "english": "profile/candidate profile",
+          "example": "Ça s'adresse à quel profil — il faut un niveau de français ou d'anglais particulier ?",
+          "usage": "Nom désignant le type de candidat recherché pour un poste ou une offre."
+        },
+        {
+          "id": "T2F2S15V09",
+          "kind": "mot-cle",
+          "french": "mon pays d'origine",
+          "english": "my home country",
+          "example": "Y a-t-il des différences importantes entre le marché du travail canadien et celui de mon pays d'origine ?",
+          "usage": "Groupe nominal désignant le pays dont une personne est originaire."
+        },
+        {
+          "id": "T2F2S15V10",
+          "kind": "mot-cle",
+          "french": "certaines régions",
+          "english": "certain regions",
+          "example": "Tu as mentionné certaines régions ou villes — tu pourrais m'en dire un peu plus sur les endroits où se concentrent les opportunités ?",
+          "usage": "Groupe nominal désignant une sélection non précisée de zones géographiques."
+        },
+        {
+          "id": "T2F2S15V11",
+          "kind": "collocation",
+          "french": "facile de s'intégrer",
+          "english": "easy to fit in",
+          "example": "Les gens sont sympas — c'est facile de s'intégrer quand on arrive de l'étranger ?",
+          "usage": "Association adjectif + verbe pronominal pour évoquer une intégration réussie."
+        },
+        {
+          "id": "T2F2S15V12",
+          "kind": "collocation",
+          "french": "niveau de français",
+          "english": "level of French",
+          "example": "Ça s'adresse à quel profil — il faut un niveau de français ou d'anglais particulier ?",
+          "usage": "Collocation nominale désignant le degré de maîtrise d'une langue."
+        },
+        {
+          "id": "T2F2S15V13",
+          "kind": "collocation",
+          "french": "se sentir perdu(e)",
+          "english": "to feel lost",
+          "example": "Si on débute complètement ici, est-ce qu'on risque de se sentir perdu(e) dans les démarches ?",
+          "usage": "Collocation verbale figée exprimant la désorientation face à une situation nouvelle."
+        },
+        {
+          "id": "T2F2S15V14",
+          "kind": "collocation",
+          "french": "postuler librement",
+          "english": "to apply freely",
+          "example": "Il faut s'inscrire à l'avance sur des plateformes ou on peut postuler librement ?",
+          "usage": "Association verbe + adverbe indiquant l'absence de contrainte pour candidater."
+        },
+        {
+          "id": "T2F2S15V15",
+          "kind": "collocation",
+          "french": "très compétitif",
+          "english": "highly competitive",
+          "example": "Il reste encore des opportunités dans mon secteur ou c'est déjà très compétitif ?",
+          "usage": "Association adverbe intensif + adjectif qualifiant un contexte concurrentiel."
+        },
+        {
+          "id": "T2F2S15V16",
+          "kind": "collocation",
+          "french": "à temps partiel ou à temps plein",
+          "english": "part-time or full-time",
+          "example": "Quels types de contrats sont proposés — temporaires, permanents, à temps partiel ou à temps plein ?",
+          "usage": "Paire d'expressions antonymes coordonnées qualifiant la durée d'un contrat de travail."
+        },
+        {
+          "id": "T2F2S15V17",
+          "kind": "collocation",
+          "french": "impôts et cotisations",
+          "english": "taxes and contributions",
+          "example": "Les impôts et cotisations sont élevés — ça change beaucoup du salaire brut au net ?",
+          "usage": "Collocation nominale coordonnée désignant les prélèvements sur salaire."
+        },
+        {
+          "id": "T2F2S15V18",
+          "kind": "collocation",
+          "french": "marché du travail",
+          "english": "job market",
+          "example": "Y a-t-il des différences importantes entre le marché du travail canadien et celui de mon pays d'origine ?",
+          "usage": "Collocation nominale désignant l'ensemble de l'offre et de la demande d'emploi."
+        },
+        {
+          "id": "T2F2S15V19",
+          "kind": "collocation",
+          "french": "trouver rapidement un emploi",
+          "english": "to find a job quickly",
+          "example": "Pour finir — si tu ne devais me donner qu'un seul conseil pour trouver rapidement un emploi ici, ce serait lequel ?",
+          "usage": "Collocation verbale avec adverbe pour insister sur la rapidité d'une démarche."
+        },
+        {
+          "id": "T2F2S15V20",
+          "kind": "collocation",
+          "french": "en ligne",
+          "english": "online",
+          "example": "Comment se passe la recherche d'emploi — en ligne ou uniquement via le réseau sur place ?",
+          "usage": "Locution adverbiale désignant une démarche effectuée par Internet."
+        },
+        {
+          "id": "T2F2S15V21",
+          "kind": "tournure",
+          "french": "je voudrais me renseigner sur",
+          "english": "I would like to find out about",
+          "example": "Salut ! Je viens d'arriver au Canada et je voudrais me renseigner sur le travail ici — tu pourrais m'aider ?",
+          "usage": "Tournure de politesse au conditionnel pour introduire une demande d'information."
+        },
+        {
+          "id": "T2F2S15V22",
+          "kind": "tournure",
+          "french": "comment est l'ambiance en général",
+          "english": "what's the atmosphere generally like",
+          "example": "Comment est l'ambiance en général dans les entreprises canadiennes — plutôt formelle ou décontractée ?",
+          "usage": "Tournure interrogative descriptive pour demander une impression générale."
+        },
+        {
+          "id": "T2F2S15V23",
+          "kind": "tournure",
+          "french": "si on débute complètement ici",
+          "english": "if one is starting here completely from scratch",
+          "example": "Si on débute complètement ici, est-ce qu'on risque de se sentir perdu(e) dans les démarches ?",
+          "usage": "Tournure conditionnelle avec 'si on' pour évoquer une situation de départ sans expérience préalable."
+        },
+        {
+          "id": "T2F2S15V24",
+          "kind": "tournure",
+          "french": "comment se passe la recherche d'emploi",
+          "english": "how does the job search go",
+          "example": "Comment se passe la recherche d'emploi — en ligne ou uniquement via le réseau sur place ?",
+          "usage": "Tournure interrogative pour demander le déroulement concret d'une démarche."
+        },
+        {
+          "id": "T2F2S15V25",
+          "kind": "tournure",
+          "french": "il faut s'inscrire à l'avance",
+          "english": "you have to register in advance",
+          "example": "Il faut s'inscrire à l'avance sur des plateformes ou on peut postuler librement ?",
+          "usage": "Tournure impersonnelle avec 'il faut' pour exprimer une obligation pratique."
+        },
+        {
+          "id": "T2F2S15V26",
+          "kind": "tournure",
+          "french": "il reste encore des opportunités",
+          "english": "are there still opportunities left",
+          "example": "Il reste encore des opportunités dans mon secteur ou c'est déjà très compétitif ?",
+          "usage": "Tournure impersonnelle avec 'il reste' pour vérifier une disponibilité résiduelle."
+        },
+        {
+          "id": "T2F2S15V27",
+          "kind": "tournure",
+          "french": "la rémunération comprend quoi exactement",
+          "english": "what exactly does the compensation include",
+          "example": "La rémunération comprend quoi exactement — des avantages comme l'assurance santé ou les congés payés sont-ils inclus ?",
+          "usage": "Tournure interrogative directe pour demander le détail d'un package salarial."
+        },
+        {
+          "id": "T2F2S15V28",
+          "kind": "tournure",
+          "french": "combien peut-on gagner approximativement",
+          "english": "how much can you earn approximately",
+          "example": "Parlons du salaire — combien peut-on gagner approximativement selon le secteur ?",
+          "usage": "Tournure interrogative avec approximation pour demander un ordre de grandeur financier."
+        },
+        {
+          "id": "T2F2S15V29",
+          "kind": "tournure",
+          "french": "tu pourrais m'en dire un peu plus sur les endroits où se concentrent les opportunités",
+          "english": "could you tell me a bit more about the places where the opportunities are concentrated",
+          "example": "Tu as mentionné certaines régions ou villes — tu pourrais m'en dire un peu plus sur les endroits où se concentrent les opportunités ?",
+          "usage": "Formule de relance étendue combinant politesse et précision géographique."
+        },
+        {
+          "id": "T2F2S15V30",
+          "kind": "tournure",
+          "french": "si tu ne devais me donner qu'un seul conseil",
+          "english": "if you had to give me just one piece of advice",
+          "example": "Pour finir — si tu ne devais me donner qu'un seul conseil pour trouver rapidement un emploi ici, ce serait lequel ?",
+          "usage": "Tournure hypothétique restrictive pour solliciter une recommandation prioritaire."
+        }
+      ]
+    }
+  ]
+}

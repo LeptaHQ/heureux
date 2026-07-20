@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Mémoires · {{ task.name }} · Heureux{% endblock %}
+
+{% block content %}
+{% include "study/_task_nav.html" %}
+
+<div class="memory-overview" style="--memory-accent: {{ task.color }};">
+  <header class="memory-overview-hero">
+    <div class="memory-overview-hero__copy">
+      <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
+        <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name="book-open" only %}</span>
+        <span>Mémoires</span>
+      </h1>
+      <p>Les formulations stables à mémoriser et à adapter naturellement à chaque situation.</p>
+    </div>
+    <dl class="memory-overview-hero__metrics" aria-label="Contenu des mémoires">
+      <div><dt>Mémoires</dt><dd>{{ memory_count }}</dd></div>
+      <div><dt>Catégories</dt><dd>{{ category_count }}</dd></div>
+      <div><dt>Questions</dt><dd>{{ question_count }}</dd></div>
+    </dl>
+  </header>
+
+  <div class="tache-two-directory-toolbar">
+    {% include "study/partials/tache_two_progress.html" with summary=memory_summary unit_label="questions apprises" only %}
+    {% include "study/partials/collection_view_toggle.html" %}
+  </div>
+
+  <section class="memory-library memory-library--standalone" aria-label="Liste des mémoires">
+    {% include "study/partials/tache_two_memory_list.html" with memories=memories part=part task=task only %}
+  </section>
+</div>
+{% endblock %}

@@ -37,6 +37,21 @@
   --warning: #9a6500;
   --warning-soft: #fff3d4;
 
+  --tone-home: #375f9d;
+  --tone-home-soft: #e9f0fb;
+  --tone-comprehension: #2358ad;
+  --tone-comprehension-soft: #eaf1fc;
+  --tone-oral: #287b78;
+  --tone-oral-soft: #e7f4f2;
+  --tone-expression: #c83f59;
+  --tone-expression-soft: #fbedf1;
+  --tone-vocabulary: #237955;
+  --tone-vocabulary-soft: #e8f5ee;
+  --tone-notes: #a86416;
+  --tone-notes-soft: #fff1dd;
+  --tone-stats: #6d4aa3;
+  --tone-stats-soft: #f1ecfa;
+
   --again: #d51f35;
   --hard: #bd2437;
   --good: #173f90;
@@ -89,6 +104,21 @@
   --success-soft: #123727;
   --warning: #f2bd54;
   --warning-soft: #3a2b10;
+
+  --tone-home: #9ab8e4;
+  --tone-home-soft: #172b49;
+  --tone-comprehension: #8fb6ff;
+  --tone-comprehension-soft: #172e53;
+  --tone-oral: #67d2ca;
+  --tone-oral-soft: #123a37;
+  --tone-expression: #ef8ca2;
+  --tone-expression-soft: #3b1d2a;
+  --tone-vocabulary: #72c49d;
+  --tone-vocabulary-soft: #123727;
+  --tone-notes: #e3a568;
+  --tone-notes-soft: #3a2b10;
+  --tone-stats: #b59cda;
+  --tone-stats-soft: #292044;
 
   --again: #ff6676;
   --hard: #ec7180;
@@ -1171,6 +1201,114 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   font-size: 0.78rem;
   font-weight: 700;
 }
+.tache-two-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.tache-two-overview-panel {
+  --overview-panel-accent: var(--primary);
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 1rem;
+  min-width: 0;
+  padding: 1.15rem;
+  border-color: var(--border);
+  background: var(--surface);
+  box-shadow: none;
+}
+.tache-two-overview-panel--subjects {
+  --overview-panel-accent: var(--memory-accent);
+}
+.tache-two-overview-panel__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+.tache-two-overview-panel__icon {
+  width: 2.7rem;
+  height: 2.7rem;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(
+    in srgb,
+    var(--overview-panel-accent) 24%,
+    var(--border)
+  );
+  border-radius: 12px;
+  background: color-mix(
+    in srgb,
+    var(--overview-panel-accent) 10%,
+    var(--surface)
+  );
+  color: var(--overview-panel-accent);
+}
+.tache-two-overview-panel__icon .ui-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.tache-two-overview-panel__head h2 {
+  margin: 0 0 0.15rem;
+  font-size: 1.35rem;
+}
+.tache-two-overview-panel__head p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+.tache-two-overview-panel__facts {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-soft);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.tache-two-overview-panel__facts span + span {
+  padding-left: 0.8rem;
+  border-left: 1px solid var(--border);
+}
+.tache-two-overview-panel__facts b {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.tache-two-overview-panel__footer {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) auto;
+  align-items: end;
+  gap: 1rem;
+}
+.tache-two-overview-panel__footer .tache-two-progress-summary {
+  width: 100%;
+  margin: 0;
+}
+.tache-two-overview-panel__footer .btn {
+  white-space: nowrap;
+}
+.tache-two-directory-toolbar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin: 1rem 0 0.85rem;
+}
+.tache-two-directory-toolbar > .tache-two-progress-summary {
+  flex: 1;
+  margin: 0;
+}
+.tache-two-directory-toolbar > .collection-view-toolbar {
+  flex: none;
+  margin: 0;
+}
+.memory-library--standalone {
+  margin-top: 0;
+}
 .memory-library__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1223,6 +1361,7 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   font-size: 0.76rem;
   font-weight: 700;
 }
+.memory-entry__body h2,
 .memory-entry__body h3 {
   margin: 0.04rem 0 0.16rem;
   font-size: 1.08rem;
@@ -1293,6 +1432,9 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 .tache-two-subject-detail {
   --subject-accent: var(--primary);
 }
+.tache-two-overview-subjects {
+  --subject-accent: var(--memory-accent);
+}
 .subject-page-back {
   display: inline-flex;
   align-items: center;
@@ -1322,13 +1464,14 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   padding-bottom: 0.7rem;
   border-bottom: 1px solid var(--border);
 }
-.tache-two-month__head span {
+.tache-two-month__eyebrow {
   display: block;
   color: var(--subject-accent);
   font-size: 0.82rem;
   font-weight: 750;
 }
-.tache-two-month__head h2 {
+.tache-two-month__head h2,
+.tache-two-month__head h3 {
   margin: 0.08rem 0 0;
   font-size: 1.45rem;
 }
@@ -1337,6 +1480,40 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   color: var(--text-faint);
   font-size: 0.84rem;
   font-weight: 700;
+}
+.tache-two-month__summary {
+  width: min(100%, 18rem);
+  display: grid;
+  justify-items: end;
+  gap: 0.4rem;
+}
+.tache-two-progress-summary {
+  width: min(100%, 19rem);
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.65rem;
+}
+.tache-two-progress-summary--compact {
+  margin-top: 0.45rem;
+}
+.tache-two-progress-summary__copy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.tache-two-progress-summary__copy > span:last-child {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.tache-two-progress-summary .progress {
+  height: 6px;
+}
+.tache-two-month__summary .tache-two-progress-summary {
+  margin-top: 0;
 }
 .subject-batch-grid {
   display: grid;
@@ -1400,14 +1577,13 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 }
 .subject-batch-card__meta {
   grid-area: meta;
-  display: flex;
-  gap: 0.7rem;
+  min-width: 0;
   color: var(--text-soft);
   font-size: 0.84rem;
 }
-.subject-batch-card__meta b {
-  color: var(--text);
-  font-variant-numeric: tabular-nums;
+.subject-batch-card__meta .tache-two-progress-summary {
+  width: 100%;
+  margin-top: 0;
 }
 .subject-batch-card__action,
 .tache-two-subject-card__action {
@@ -1463,7 +1639,15 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   min-width: 0;
 }
 .tache-two-subject-card__copy strong {
+  display: block;
   font-size: 1.02rem;
+}
+.tache-two-subject-card__copy small {
+  display: block;
+  margin-top: 0.12rem;
+  color: var(--text-faint);
+  font-size: 0.78rem;
+  font-weight: 700;
 }
 .tache-two-subject-card__prompt {
   grid-area: prompt;
@@ -1477,24 +1661,44 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 }
 .tache-two-subject-card__count {
   grid-area: count;
+  min-width: 12rem;
+  display: grid;
+  gap: 0.25rem;
   color: var(--text-faint);
   font-size: 0.82rem;
   font-weight: 700;
 }
+.tache-two-subject-card__count small {
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+}
+.tache-two-subject-card__count .progress {
+  width: 100%;
+  height: 5px;
+}
 .tache-two-subject-detail__hero {
-  padding: 0.25rem 0 1rem;
+  padding: 0 0 0.7rem;
   border-bottom: 1px solid var(--border);
+}
+.tache-two-subject-detail__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+.tache-two-subject-detail__meta .subject-page-back {
+  margin: 0;
+}
+.tache-two-subject-detail__meta > span {
+  color: var(--text-faint);
+  font-size: 0.78rem;
+  font-weight: 700;
 }
 .tache-two-subject-detail__hero h1 {
   max-width: 52rem;
-  margin: 0.18rem 0 0.35rem;
-  font-size: clamp(1.8rem, 4vw, 2.35rem);
-}
-.tache-two-subject-detail__hero > p:last-child {
   margin: 0;
-  color: var(--text-faint);
-  font-size: 0.86rem;
-  font-weight: 700;
+  font-size: clamp(1.75rem, 3.5vw, 2.2rem);
 }
 .tache-two-subject-detail__grid {
   margin-top: 1.2rem;
@@ -1879,7 +2083,7 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 }
 .question-bank-questions li {
   display: grid;
-  grid-template-columns: 2rem minmax(0, 1fr) 2.15rem;
+  grid-template-columns: 2rem minmax(0, 1fr) 2rem;
   align-items: start;
   gap: 0.6rem;
   padding: 0.7rem 0.45rem;
@@ -1894,22 +2098,23 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--success) 16%, transparent);
 }
 .memory-question-check {
-  width: 2.15rem;
-  height: 2.15rem;
-  margin: 0;
+  width: 2rem;
+  height: 2rem;
+  margin: 0.12rem 0.15rem 0 0;
   justify-self: end;
 }
 .memory-question-check button {
-  --icon-check-color: transparent;
+  --icon-check-color: color-mix(in srgb, var(--success) 72%, var(--surface));
+  position: relative;
   width: 100%;
   height: 100%;
   display: grid;
   place-items: center;
   padding: 0;
-  border: 1px solid var(--border-strong);
-  border-radius: 10px;
-  background: var(--surface);
-  color: transparent;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: color-mix(in srgb, var(--success) 72%, var(--surface));
   cursor: pointer;
   box-shadow: none;
   transition:
@@ -1919,18 +2124,34 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
     box-shadow 0.16s ease,
     transform 0.16s ease;
 }
+.memory-question-check button::before {
+  content: "";
+  position: absolute;
+  width: 0.85rem;
+  height: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--success) 38%, var(--border-strong));
+  border-radius: 50%;
+  background: var(--surface);
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    box-shadow 0.16s ease;
+}
 .memory-question-check button:hover {
   --icon-check-color: color-mix(in srgb, var(--success) 38%, transparent);
-  border-color: color-mix(in srgb, var(--success) 55%, var(--border));
-  background: color-mix(in srgb, var(--success) 8%, var(--surface));
   color: color-mix(in srgb, var(--success) 38%, transparent);
   transform: none;
 }
+.memory-question-check button:hover::before {
+  border-color: color-mix(in srgb, var(--success) 55%, var(--border));
+  background: color-mix(in srgb, var(--success) 8%, var(--surface));
+}
 .memory-question-check button:focus-visible {
   outline: 0;
-  box-shadow:
-    0 0 0 4px color-mix(in srgb, var(--success) 18%, transparent),
-    0 2px 6px color-mix(in srgb, var(--text) 7%, transparent);
+  box-shadow: none;
+}
+.memory-question-check button:focus-visible::before {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 20%, transparent);
 }
 .memory-question-check button[aria-disabled="true"] {
   cursor: wait;
@@ -1938,18 +2159,25 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   transform: none;
 }
 .memory-question-check .ui-icon {
-  width: 1rem;
-  height: 1rem;
+  position: relative;
+  z-index: 1;
+  width: 0.48rem;
+  height: 0.48rem;
 }
 .question-bank-questions li.is-complete .memory-question-check button {
   --icon-check-color: white;
-  border-color: color-mix(in srgb, var(--success) 70%, var(--border));
-  background: var(--success);
   color: white;
   box-shadow: none;
 }
+.question-bank-questions li.is-complete .memory-question-check button::before {
+  border-color: color-mix(in srgb, var(--success) 70%, var(--border));
+  background: var(--success);
+}
 .question-bank-questions li.is-complete .memory-question-check button:focus-visible {
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--success) 22%, transparent);
+  box-shadow: none;
+}
+.question-bank-questions li.is-complete .memory-question-check button:focus-visible::before {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 24%, transparent);
 }
 .question-bank-questions li.is-complete .question-bank-question__number {
   background: color-mix(in srgb, var(--success) 12%, var(--surface-2));
@@ -1999,6 +2227,9 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 }
 
 @media (max-width: 900px) {
+  .tache-two-overview-grid {
+    grid-template-columns: 1fr;
+  }
   .memory-library__grid {
     grid-template-columns: 1fr;
   }
@@ -2077,6 +2308,35 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
     flex-direction: column;
     gap: 0.35rem;
   }
+  .tache-two-overview-panel {
+    padding: 0.9rem;
+  }
+  .tache-two-overview-panel__facts {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.22rem;
+  }
+  .tache-two-overview-panel__facts span + span {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .tache-two-overview-panel__footer {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+  .tache-two-overview-panel__footer .btn {
+    width: 100%;
+  }
+  .tache-two-directory-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .tache-two-directory-toolbar
+    > .collection-view-toolbar {
+    justify-content: flex-start;
+  }
   .memory-entry {
     grid-template-columns: auto minmax(0, 1fr);
     gap: 0.75rem;
@@ -2147,13 +2407,13 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
     padding: 0.25rem 0.75rem 0.1rem;
   }
   .question-bank-questions li {
-    grid-template-columns: 1.7rem minmax(0, 1fr) 2.05rem;
+    grid-template-columns: 1.7rem minmax(0, 1fr) 2rem;
     gap: 0.5rem;
     padding: 0.65rem 0.35rem;
   }
   .memory-question-check {
-    width: 2.05rem;
-    height: 2.05rem;
+    width: 2rem;
+    height: 2rem;
   }
   .question-bank-question__number {
     width: 1.7rem;
@@ -2169,6 +2429,19 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
     align-items: flex-start;
     flex-direction: column;
     gap: 0.35rem;
+  }
+  .tache-two-subject-detail__meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-bottom: 0.3rem;
+  }
+  .tache-two-month__summary {
+    width: 100%;
+    justify-items: start;
+  }
+  .tache-two-month__summary .tache-two-progress-summary {
+    width: 100%;
   }
   .subject-batch-card {
     grid-template-areas:
@@ -2194,6 +2467,9 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   .tache-two-subject-card__number {
     justify-content: flex-start;
     border-right: 0;
+  }
+  .tache-two-subject-card__count {
+    min-width: 0;
   }
   .tache-two-question {
     grid-template-columns: 2.4rem minmax(0, 1fr);
@@ -2426,10 +2702,10 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   --collection-table-columns: minmax(18rem, 1fr) minmax(14rem, 0.55fr) 8rem;
 }
 .collection-table--subject-batches {
-  --collection-table-columns: 9rem minmax(13rem, 0.8fr) minmax(13rem, 0.7fr) 7rem;
+  --collection-table-columns: 9rem minmax(13rem, 0.8fr) minmax(14rem, 0.75fr) 7rem;
 }
 .collection-table--tache-two-subjects {
-  --collection-table-columns: 5.5rem minmax(12rem, 0.75fr) minmax(18rem, 1.25fr) 8rem 7rem;
+  --collection-table-columns: 5.5rem minmax(12rem, 0.75fr) minmax(18rem, 1.25fr) minmax(12rem, 0.65fr) 7rem;
 }
 [data-collection-view-panel="table"] {
   display: none !important;
@@ -2662,10 +2938,7 @@ html[data-collection-view-mode="table"]
   .collection-table--subject-batches
   > .subject-batch-card
   .subject-batch-card__meta {
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.05rem;
+  align-content: center;
 }
 html[data-collection-view-mode="table"]
   .collection-table--subject-batches
@@ -4630,6 +4903,9 @@ html[data-collection-view-mode="table"]
   border-bottom: 1px solid var(--border);
   overflow-x: auto;
   scrollbar-width: none;
+}
+.task-nav.task-nav--compact {
+  margin-bottom: 0.7rem;
 }
 .task-nav::-webkit-scrollbar { display: none; }
 .task-nav a {
@@ -10248,5 +10524,617 @@ button.ce-choice:focus-visible .ce-choice__radio {
     .prompt-nav__link
   ):hover {
     transform: none;
+  }
+}
+
+/* ---------- Semantic color surfaces ---------- */
+.nav__primary-link[data-nav-tone="home"] {
+  --nav-tone: var(--tone-home);
+  --nav-tone-soft: var(--tone-home-soft);
+}
+.nav__primary-link[data-nav-tone="comprehension"] {
+  --nav-tone: var(--tone-comprehension);
+  --nav-tone-soft: var(--tone-comprehension-soft);
+}
+.nav__primary-link[data-nav-tone="expression"] {
+  --nav-tone: var(--tone-expression);
+  --nav-tone-soft: var(--tone-expression-soft);
+}
+.nav__primary-link[data-nav-tone="vocabulary"] {
+  --nav-tone: var(--tone-vocabulary);
+  --nav-tone-soft: var(--tone-vocabulary-soft);
+}
+.nav__primary-link[data-nav-tone="notes"] {
+  --nav-tone: var(--tone-notes);
+  --nav-tone-soft: var(--tone-notes-soft);
+}
+.nav__primary-link[data-nav-tone="stats"] {
+  --nav-tone: var(--tone-stats);
+  --nav-tone-soft: var(--tone-stats-soft);
+}
+.nav__primary-link:hover {
+  background: color-mix(in srgb, var(--nav-tone-soft, var(--primary-soft)) 72%, var(--surface));
+  color: var(--nav-tone, var(--text));
+}
+.nav__primary-link.is-active {
+  border-color: color-mix(in srgb, var(--nav-tone, var(--primary)) 18%, var(--border));
+  background: var(--nav-tone-soft, var(--primary-soft));
+  color: var(--nav-tone, var(--primary));
+}
+.nav__primary-link.is-active .nav__item-icon {
+  color: var(--nav-tone, var(--primary));
+}
+.nav__search-link:hover,
+.nav__more > summary:hover {
+  background: var(--tone-home-soft);
+  color: var(--tone-home);
+}
+
+:is(
+  .home-hero,
+  .expression-hub > .area-hero,
+  .container > .area-hero,
+  .comprehension-hero,
+  .vocabulary-hero,
+  .memory-overview-hero,
+  .question-bank-hero,
+  .task-hero,
+  .ce-library-hero,
+  .ce-study-index__hero,
+  .ce-results-hero,
+  .stats-hero,
+  .notes-overview > .grouped-overview__head
+) {
+  border: 1px solid color-mix(in srgb, var(--hero-accent) 20%, var(--border));
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--hero-soft) 78%, var(--surface));
+  box-shadow: none;
+}
+.home-hero {
+  --hero-accent: var(--tone-home);
+  --hero-soft: var(--tone-home-soft);
+  padding: 1.05rem 1.15rem;
+}
+.expression-hub > .area-hero,
+.container > .area-hero,
+.memory-overview-hero,
+.question-bank-hero,
+.task-hero {
+  --hero-accent: var(--tone-expression);
+  --hero-soft: var(--tone-expression-soft);
+  padding: 1.05rem 1.15rem;
+}
+.comprehension-hero,
+.ce-library-hero,
+.ce-study-index__hero,
+.ce-results-hero {
+  --hero-accent: var(--tone-comprehension);
+  --hero-soft: var(--tone-comprehension-soft);
+  padding: 1.05rem 1.15rem;
+}
+.vocabulary-hero {
+  --hero-accent: var(--tone-vocabulary);
+  --hero-soft: var(--tone-vocabulary-soft);
+  padding: 1.05rem 1.15rem;
+}
+.stats-hero {
+  --hero-accent: var(--tone-stats);
+  --hero-soft: var(--tone-stats-soft);
+  padding: 1.05rem 1.15rem;
+}
+.notes-overview > .grouped-overview__head {
+  --hero-accent: var(--tone-notes);
+  --hero-soft: var(--tone-notes-soft);
+  padding: 1.05rem 1.15rem;
+}
+
+.progress-status {
+  --progress-status-soft: var(--bg-soft);
+  min-height: 25px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: var(--progress-status-soft);
+}
+.progress-status--new { --progress-status-soft: var(--primary-soft); }
+.progress-status--active { --progress-status-soft: var(--warning-soft); }
+.progress-status--done { --progress-status-soft: var(--success-soft); }
+.collection-view-toggle button[aria-pressed="true"] {
+  border-color: color-mix(in srgb, var(--primary) 28%, var(--border));
+  background: var(--primary-soft);
+}
+
+/* Dashboard */
+.daily-card {
+  border-color: color-mix(in srgb, var(--daily-accent) 22%, var(--border));
+  background: color-mix(in srgb, var(--daily-accent-soft) 78%, var(--surface));
+}
+.daily-card--expression {
+  --daily-accent: var(--tone-expression);
+  --daily-accent-soft: var(--tone-expression-soft);
+}
+.daily-card--vocabulary {
+  --daily-accent: var(--tone-vocabulary);
+  --daily-accent-soft: var(--tone-vocabulary-soft);
+}
+.daily-card--comprehension {
+  --daily-accent: var(--tone-comprehension);
+  --daily-accent-soft: var(--tone-comprehension-soft);
+}
+.daily-card--notes {
+  --daily-accent: var(--tone-notes);
+  --daily-accent-soft: var(--tone-notes-soft);
+}
+.resume-review {
+  padding: 0.85rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--tone-home) 24%, var(--border));
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--tone-home-soft) 72%, var(--surface));
+  color: var(--text);
+}
+.resume-review:hover {
+  background: var(--tone-home-soft);
+  border-color: color-mix(in srgb, var(--tone-home) 38%, var(--border));
+}
+
+/* Hubs, task cards, and collections */
+.expression-path {
+  border-color: color-mix(in srgb, var(--path-accent) 24%, var(--border));
+  background: color-mix(in srgb, var(--path-accent) 8%, var(--surface));
+}
+.expression-path--available:hover {
+  border-color: color-mix(in srgb, var(--path-accent) 42%, var(--border));
+  background: color-mix(in srgb, var(--path-accent) 13%, var(--surface));
+}
+.expression-path__icon {
+  border: 1px solid color-mix(in srgb, var(--path-accent) 22%, var(--border));
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--path-accent) 14%, var(--surface));
+}
+.expression-path--available:hover .expression-path__arrow,
+.expression-path--ee:hover .expression-path__arrow {
+  color: var(--path-accent);
+}
+.expression-path--soon {
+  border-color: var(--border);
+  background: color-mix(in srgb, var(--bg-soft) 46%, var(--surface));
+}
+.expression-path--soon .expression-path__icon {
+  background: color-mix(in srgb, var(--path-accent) 7%, var(--surface));
+}
+.vocabulary-domain {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.vocabulary-domain--comprehension {
+  border-color: color-mix(in srgb, var(--tone-comprehension) 18%, var(--border));
+  background: color-mix(in srgb, var(--tone-comprehension-soft) 48%, var(--bg));
+}
+.vocabulary-domain--expression {
+  border-color: color-mix(in srgb, var(--tone-expression) 18%, var(--border));
+  background: color-mix(in srgb, var(--tone-expression-soft) 48%, var(--bg));
+}
+.vocabulary-status {
+  --status-soft: var(--primary-soft);
+  background: color-mix(in srgb, var(--status-soft) 78%, var(--surface));
+}
+.vocabulary-status--saved { --status-soft: var(--success-soft); }
+.vocabulary-status--weak { --status-soft: var(--warning-soft); }
+.vocabulary-status__icon {
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--status-accent) 13%, var(--surface));
+}
+.deck {
+  background: color-mix(in srgb, var(--deck-color, var(--primary)) 7%, var(--surface));
+}
+.deck:hover {
+  border-color: color-mix(in srgb, var(--deck-color, var(--primary)) 34%, var(--border));
+  background: color-mix(in srgb, var(--deck-color, var(--primary)) 11%, var(--surface));
+}
+.deck:has(.progress-status--active) {
+  background: color-mix(in srgb, var(--warning-soft) 68%, var(--surface));
+}
+.deck:has(.progress-status--done) {
+  background: color-mix(in srgb, var(--success-soft) 68%, var(--surface));
+}
+.deck--soon {
+  background: color-mix(in srgb, var(--bg-soft) 45%, var(--surface));
+}
+.batch-card {
+  background: color-mix(in srgb, var(--primary-soft) 58%, var(--surface));
+}
+.batch-card--unavailable {
+  background: color-mix(in srgb, var(--bg-soft) 45%, var(--surface));
+}
+.memory-learning-summary {
+  background: color-mix(in srgb, var(--primary-soft) 62%, var(--surface));
+}
+.memory-learning-summary--active {
+  background: color-mix(in srgb, var(--warning-soft) 68%, var(--surface));
+}
+.memory-learning-summary--done {
+  background: color-mix(in srgb, var(--success-soft) 68%, var(--surface));
+}
+.question-bank-index {
+  background: color-mix(in srgb, var(--primary-soft) 42%, var(--surface));
+}
+.question-bank-section__head {
+  background: color-mix(in srgb, var(--bank-accent) 9%, var(--surface));
+}
+
+/* Tâche 2 and response study */
+.tache-two-overview-panel--memories {
+  --overview-panel-accent: var(--tone-comprehension);
+  background: color-mix(in srgb, var(--tone-comprehension-soft) 70%, var(--surface));
+}
+.tache-two-overview-panel--subjects {
+  --overview-panel-accent: var(--tone-expression);
+  background: color-mix(in srgb, var(--tone-expression-soft) 72%, var(--surface));
+}
+.memory-entry {
+  background: color-mix(in srgb, var(--primary-soft) 38%, var(--surface));
+}
+.memory-entry:hover {
+  background: color-mix(in srgb, var(--primary-soft) 68%, var(--surface));
+}
+.tache-two-month {
+  --month-accent: var(--tone-expression);
+  --month-soft: var(--tone-expression-soft);
+  --subject-accent: var(--month-accent);
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--month-accent) 18%, var(--border));
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--month-soft) 52%, var(--bg));
+}
+.tache-two-month[data-month-number="2"] {
+  --month-accent: var(--tone-stats);
+  --month-soft: var(--tone-stats-soft);
+}
+.tache-two-month__head {
+  border-color: color-mix(in srgb, var(--month-accent) 22%, var(--border));
+}
+.tache-two-month__eyebrow { color: var(--month-accent); }
+.subject-batch-card {
+  border-color: color-mix(in srgb, var(--month-accent) 18%, var(--border));
+  background: color-mix(in srgb, var(--month-soft) 74%, var(--surface));
+}
+.subject-batch-card:hover {
+  border-color: color-mix(in srgb, var(--month-accent) 38%, var(--border));
+  background: color-mix(in srgb, var(--month-soft) 92%, var(--surface));
+}
+.tache-two-subject-card {
+  border-color: color-mix(in srgb, var(--subject-accent) 20%, var(--border));
+  background: color-mix(in srgb, var(--subject-accent) 7%, var(--surface));
+}
+.tache-two-subject-card:hover {
+  border-color: color-mix(in srgb, var(--subject-accent) 38%, var(--border));
+  background: color-mix(in srgb, var(--subject-accent) 11%, var(--surface));
+}
+.tache-two-consigne {
+  border-color: color-mix(in srgb, var(--subject-accent) 24%, var(--border));
+  background: color-mix(in srgb, var(--subject-accent) 7%, var(--surface));
+}
+.tache-two-question-list {
+  border-color: color-mix(in srgb, var(--subject-accent) 20%, var(--border));
+  background: color-mix(in srgb, var(--subject-accent) 4%, var(--surface));
+}
+.task-deep-links {
+  gap: 0.65rem;
+  border: 0;
+}
+.task-deep-links a {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.task-deep-links a:nth-child(1) {
+  border-color: color-mix(in srgb, var(--tone-vocabulary) 20%, var(--border));
+  background: color-mix(in srgb, var(--tone-vocabulary-soft) 64%, var(--surface));
+}
+.task-deep-links a:nth-child(2) {
+  border-color: color-mix(in srgb, var(--tone-notes) 20%, var(--border));
+  background: color-mix(in srgb, var(--tone-notes-soft) 64%, var(--surface));
+}
+.task-deep-links a:nth-child(3) {
+  border-color: color-mix(in srgb, var(--tone-stats) 20%, var(--border));
+  background: color-mix(in srgb, var(--tone-stats-soft) 64%, var(--surface));
+}
+.practice-launcher {
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--tone-expression) 20%, var(--border));
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--tone-expression-soft) 68%, var(--surface));
+}
+.practice-theme-card {
+  border-color: color-mix(in srgb, var(--theme-accent, var(--primary)) 24%, var(--border));
+  background: color-mix(in srgb, var(--theme-accent, var(--primary)) 7%, var(--surface));
+}
+.practice-theme-card:hover {
+  border-color: color-mix(in srgb, var(--theme-accent, var(--primary)) 42%, var(--border));
+  background: color-mix(in srgb, var(--theme-accent, var(--primary)) 11%, var(--surface));
+}
+.practice-theme-card__icon {
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--theme-accent, var(--primary)) 14%, var(--surface));
+}
+.review-focus-grid {
+  gap: 0.75rem;
+  border: 0;
+}
+.review-focus-grid article {
+  border: 1px solid color-mix(in srgb, var(--tone-notes) 18%, var(--border));
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--tone-notes-soft) 58%, var(--surface));
+}
+.review-focus-grid article + article {
+  border: 1px solid color-mix(in srgb, var(--tone-expression) 18%, var(--border));
+  background: color-mix(in srgb, var(--tone-expression-soft) 58%, var(--surface));
+}
+.flashcard {
+  border-color: color-mix(in srgb, var(--primary) 24%, var(--border));
+  background: color-mix(in srgb, var(--primary-soft) 52%, var(--surface));
+}
+.grade--revisit {
+  background: color-mix(in srgb, var(--accent-soft) 72%, var(--surface));
+}
+.detail-head {
+  padding: 1rem 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--tone-expression) 18%, var(--border));
+  border-radius: 13px;
+  background: color-mix(in srgb, var(--tone-expression-soft) 58%, var(--bg));
+}
+.answer-columns > .section-card {
+  border-color: color-mix(in srgb, var(--primary) 18%, var(--border));
+  background: color-mix(in srgb, var(--primary-soft) 38%, var(--surface));
+}
+.answer-columns > .section-card--introduction,
+.answer-columns > .section-card--arguments {
+  border-color: color-mix(in srgb, var(--tone-expression) 18%, var(--border));
+  background: color-mix(in srgb, var(--tone-expression-soft) 42%, var(--surface));
+}
+.answer-columns > .section-card--nuance {
+  border-color: color-mix(in srgb, var(--tone-notes) 20%, var(--border));
+  background: color-mix(in srgb, var(--tone-notes-soft) 52%, var(--surface));
+}
+.answer-columns > .section-card--conclusion {
+  border-color: color-mix(in srgb, var(--tone-vocabulary) 20%, var(--border));
+  background: color-mix(in srgb, var(--tone-vocabulary-soft) 52%, var(--surface));
+}
+.arg--full {
+  background: color-mix(in srgb, var(--surface) 84%, var(--primary-soft));
+}
+.response-sidebar-card--status {
+  background: color-mix(in srgb, var(--primary-soft) 58%, var(--surface));
+}
+.response-sidebar-card--aliases {
+  background: color-mix(in srgb, var(--tone-stats-soft) 58%, var(--surface));
+}
+.response-sidebar-card--vocabulary {
+  background: color-mix(in srgb, var(--tone-vocabulary-soft) 62%, var(--surface));
+}
+.response-sidebar-card--phrases {
+  background: color-mix(in srgb, var(--tone-notes-soft) 58%, var(--surface));
+}
+
+/* Notes */
+.notes-general {
+  padding: 0.85rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--tone-notes) 22%, var(--border));
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--tone-notes-soft) 68%, var(--surface));
+}
+.notes-general:hover {
+  background: var(--tone-notes-soft);
+}
+.notes-general__icon {
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--tone-notes) 14%, var(--surface));
+}
+.notes-task-card {
+  background: color-mix(in srgb, var(--deck-color, var(--tone-notes)) 7%, var(--surface));
+}
+.notes-tab.is-active {
+  background: var(--tone-notes-soft);
+  color: var(--tone-notes);
+}
+.notes-scope-nav a:hover,
+.notes-scope-nav a.is-active {
+  border-color: var(--tone-notes);
+  background: var(--tone-notes-soft);
+  color: var(--tone-notes);
+}
+.annotation-card {
+  background: color-mix(in srgb, var(--primary-soft) 42%, var(--surface));
+}
+.annotation-card--highlight {
+  background: color-mix(in srgb, var(--success-soft) 58%, var(--surface));
+}
+.annotation-table thead th,
+.annotation-table__group th {
+  background: color-mix(in srgb, var(--tone-notes-soft) 58%, var(--surface));
+}
+
+/* Comprehension quiz and results */
+.ce-question-map {
+  border-color: color-mix(in srgb, var(--ce-blue) 22%, var(--border));
+  background: color-mix(in srgb, var(--ce-blue-soft) 52%, var(--surface));
+}
+.ce-passage-card {
+  background: color-mix(in srgb, var(--ce-blue-soft) 42%, var(--surface));
+}
+.ce-passage-card > header {
+  background: color-mix(in srgb, var(--ce-blue-soft) 72%, var(--surface));
+}
+.ce-answer-card {
+  background: color-mix(in srgb, var(--ce-blue-soft) 28%, var(--surface));
+}
+.co-audio-reader {
+  border-color: color-mix(in srgb, var(--co-teal) 24%, var(--border));
+  background: color-mix(in srgb, var(--co-teal-soft) 72%, var(--surface));
+}
+.ce-choice.is-wrong,
+.ce-results-map__grid .is-wrong {
+  background: color-mix(in srgb, var(--accent-soft) 82%, var(--surface));
+}
+.ce-correction {
+  background: color-mix(in srgb, var(--success-soft) 44%, var(--surface));
+}
+.ce-correction--wrong {
+  background: color-mix(in srgb, var(--accent-soft) 48%, var(--surface));
+}
+.ce-results-hero__score {
+  min-width: 6.5rem;
+  justify-content: center;
+  padding: 0.85rem;
+  border: 0;
+  border-radius: 12px;
+  background: var(--ce-blue);
+  color: var(--primary-ink);
+}
+.ce-results-hero__facts span {
+  padding: 0.22rem 0.5rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg-soft) 70%, var(--surface));
+}
+.ce-results-hero__facts .is-correct { background: var(--success-soft); }
+.ce-results-hero__facts .is-wrong { background: var(--accent-soft); }
+.ce-results-map {
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--ce-blue) 18%, var(--border));
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--ce-blue-soft) 48%, var(--surface));
+}
+.ce-review-item.is-correct {
+  background: color-mix(in srgb, var(--success-soft) 46%, var(--surface));
+}
+.ce-review-item.is-wrong {
+  background: color-mix(in srgb, var(--accent-soft) 48%, var(--surface));
+}
+
+/* Stats */
+.stats-mastery-ring::before {
+  background: color-mix(in srgb, var(--tone-stats-soft) 72%, var(--surface));
+}
+.stats-kpis {
+  gap: 0.75rem;
+  border: 0;
+}
+.stats-kpi {
+  border: 1px solid color-mix(in srgb, var(--stats-kpi-accent) 20%, var(--border));
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--stats-kpi-soft) 72%, var(--surface));
+}
+.stats-kpi:last-child { border-right: 1px solid color-mix(in srgb, var(--stats-kpi-accent) 20%, var(--border)); }
+.stats-kpi__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--stats-kpi-accent) 13%, var(--surface));
+}
+.stats-action-grid {
+  gap: 0.75rem;
+  border: 0;
+}
+.stats-action {
+  border: 1px solid color-mix(in srgb, var(--tone-expression) 18%, var(--border));
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--tone-expression-soft) 62%, var(--surface));
+}
+.stats-action:last-child {
+  border: 1px solid color-mix(in srgb, var(--tone-vocabulary) 18%, var(--border));
+  background: color-mix(in srgb, var(--tone-vocabulary-soft) 62%, var(--surface));
+}
+.stats-action:hover {
+  background: var(--tone-expression-soft);
+}
+.stats-action:last-child:hover {
+  background: var(--tone-vocabulary-soft);
+}
+.stats-action__icon {
+  border-radius: 9px;
+  background: color-mix(in srgb, currentColor 12%, var(--surface));
+}
+.stats-chart-grid > .stats-panel:first-child {
+  background: color-mix(in srgb, var(--tone-comprehension-soft) 48%, var(--surface));
+}
+.stats-chart-grid > .stats-panel:last-child {
+  background: color-mix(in srgb, var(--tone-vocabulary-soft) 48%, var(--surface));
+}
+.stats-panel--heatmap {
+  background: color-mix(in srgb, var(--tone-stats-soft) 48%, var(--surface));
+}
+.stats-theme-list {
+  background: color-mix(in srgb, var(--tone-stats-soft) 32%, var(--surface));
+}
+.stats-theme {
+  background: color-mix(in srgb, var(--theme-accent) 4%, transparent);
+}
+.stats-theme:hover {
+  background: color-mix(in srgb, var(--theme-accent) 10%, var(--surface));
+}
+.session-card {
+  background: color-mix(in srgb, var(--tone-home-soft) 42%, var(--surface));
+}
+
+/* Settings, auth, and search */
+.settings-section:not(.danger-zone) {
+  background: color-mix(in srgb, var(--primary-soft) 56%, var(--surface));
+}
+.settings-grid > .card:first-child {
+  background: color-mix(in srgb, var(--tone-notes-soft) 58%, var(--surface));
+}
+.settings-grid > .card:last-child {
+  background: color-mix(in srgb, var(--tone-vocabulary-soft) 58%, var(--surface));
+}
+.danger-zone {
+  background: color-mix(in srgb, var(--accent-soft) 62%, var(--surface));
+}
+.danger-zone--account {
+  background: color-mix(in srgb, var(--accent-soft) 82%, var(--surface));
+}
+.auth-shell {
+  background: color-mix(in srgb, var(--tone-comprehension-soft) 58%, var(--bg));
+}
+.auth-panel {
+  border-color: color-mix(in srgb, var(--tone-comprehension) 22%, var(--border));
+  background: color-mix(in srgb, var(--tone-comprehension-soft) 58%, var(--surface));
+}
+.recovery-codes li {
+  background: color-mix(in srgb, var(--tone-vocabulary-soft) 52%, var(--surface));
+}
+.search-summary {
+  border-color: color-mix(in srgb, var(--tone-comprehension) 20%, var(--border));
+  background: color-mix(in srgb, var(--tone-comprehension-soft) 58%, var(--surface));
+}
+
+@media (max-width: 860px) {
+  .stats-kpi,
+  .stats-kpi:last-child {
+    border: 1px solid color-mix(in srgb, var(--stats-kpi-accent) 20%, var(--border));
+  }
+}
+
+@media (max-width: 520px) {
+  :is(
+    .home-hero,
+    .expression-hub > .area-hero,
+    .container > .area-hero,
+    .comprehension-hero,
+    .vocabulary-hero,
+    .memory-overview-hero,
+    .question-bank-hero,
+    .task-hero,
+    .ce-library-hero,
+    .ce-study-index__hero,
+    .ce-results-hero,
+    .stats-hero,
+    .notes-overview > .grouped-overview__head
+  ) {
+    padding: 0.9rem;
+  }
+  .tache-two-month { padding: 0.8rem; }
+  .ce-results-hero__score {
+    min-width: 0;
+    padding: 0.7rem 0.85rem;
+    border: 0;
   }
 }

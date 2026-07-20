@@ -2,18 +2,18 @@
 {% block title %}Sujet {{ subject.number }} · {{ subject.title }} · {{ task.name }}{% endblock %}
 
 {% block content %}
-{% include "study/_task_nav.html" %}
+{% include "study/_task_nav.html" with compact=True %}
 
 <article class="tache-two-subject-detail" style="--subject-accent: {{ task.color }};">
-  <a class="subject-page-back" href="{% url 'study:task_subject_batch' part.slug task.slug subject_month.slug subject_batch.number %}">
-    {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
-    {{ subject_month.name }} · Batch {{ subject_batch.number }}
-  </a>
-
   <header class="tache-two-subject-detail__hero">
-    <p class="eyebrow">{{ subject_month.name }} · Batch {{ subject_batch.number_label }} · Sujet {{ subject.number_label }}</p>
+    <div class="tache-two-subject-detail__meta">
+      <a class="subject-page-back" href="{% url 'study:task_subject_batch' part.slug task.slug subject_month.slug subject_batch.number %}">
+        {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
+        {{ subject_month.name }} · Batch {{ subject_batch.number }}
+      </a>
+      <span>Sujet {{ subject.number_label }} · {{ subject.question_count }} questions préparées</span>
+    </div>
     <h1>{{ subject.title }}</h1>
-    <p>{{ subject.question_count }} questions préparées</p>
   </header>
 
   {% include "study/partials/tache_two_subject_navigation.html" %}

@@ -275,6 +275,12 @@ urlpatterns = [
     ),
     path(
         "expression/<expression_part:part_slug>/<slug:task_slug>/"
+        "memoires/",
+        views.task_memories,
+        name="task_memories",
+    ),
+    path(
+        "expression/<expression_part:part_slug>/<slug:task_slug>/"
         "memoires/<int:memory_number>/",
         views.task_memory_detail,
         name="task_memory_detail",

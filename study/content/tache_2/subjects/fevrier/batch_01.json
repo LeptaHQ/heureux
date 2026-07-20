@@ -1,0 +1,337 @@
+{
+  "month": {
+    "number": 2,
+    "slug": "fevrier",
+    "name": "Février"
+  },
+  "batch": 1,
+  "subjects": [
+    {
+      "number": 1,
+      "title": "Aller au cinéma pendant des vacances au Canada",
+      "prompt": "Je suis un(e) ami(e) canadien(ne), je travaille dans un cinéma. Vous êtes en vacances au Canada et vous souhaitez aller voir un film.",
+      "questions": [
+        {
+          "text": "Salut ! Je suis en vacances au Canada et j'aimerais aller voir un film — tu travailles dans un cinéma, tu pourrais me conseiller un peu ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Il y a actuellement beaucoup de films à l'affiche ou plutôt quelques choix seulement ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Quels genres de films sont proposés en ce moment — action, comédie, drame, animation ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Y a-t-il un film que tu recommanderais particulièrement — plutôt pour un public adulte ou adapté aux familles aussi ?",
+          "memory_section": 18
+        },
+        {
+          "text": "À quelle heure ça commence — il y a des séances l'après-midi ou seulement en soirée ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Les séances sont en version originale ou uniquement en version doublée ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement pour un adulte ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le tarif comprend quoi exactement — les lunettes 3D sont incluses si c'est un film en 3D ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Il faut s'inscrire à l'avance ou on peut acheter les billets sur place le jour même ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Il reste encore des places ou les séances sont souvent complètes pendant les vacances ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Est-ce qu'il y a des séances en IMAX ou dans des salles spéciales ?",
+          "memory_section": 16
+        },
+        {
+          "text": "C'est facilement accessible en transports en commun ?",
+          "memory_section": 13
+        },
+        {
+          "text": "On peut prendre des photos à l'intérieur ou c'est interdit — et du popcorn, des boissons sont disponibles sur place ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Vacances au bord de la mer",
+      "prompt": "Je suis un(e) ami(e) canadien(ne) et je viens de passer des vacances formidables au bord de la mer. Vous aimeriez faire la même chose. Vous me posez des questions sur ce séjour (lieu, activités, tarifs, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! Tu revenais de vacances au bord de la mer et tu disais que c'était formidable — j'aimerais faire le même type de séjour, tu pourrais me donner quelques infos ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Tu es parti(e) où exactement — c'était au Canada ou à l'étranger ?",
+          "memory_section": 4
+        },
+        {
+          "text": "C'était plutôt une station balnéaire animée ou un endroit plus calme et authentique ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
+          "memory_section": 9
+        },
+        {
+          "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Tu connais de bons endroits où séjourner — hôtels, chambres d'hôtes, locations ?",
+          "memory_section": 6
+        },
+        {
+          "text": "C'est dans quelle gamme de prix pour l'hébergement — plutôt cher ou abordable ?",
+          "memory_section": 6
+        },
+        {
+          "text": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?",
+          "memory_section": 6
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Tu as mentionné que c'était formidable — tu pourrais m'en dire un peu plus sur ce qui t'a le plus marqué(e) ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Présentation d'un livre pour une revue littéraire",
+      "prompt": "Je suis un(e) ami(e) francophone. Vous devez écrire un article pour présenter un livre dans la revue de votre association littéraire. Vous cherchez des idées. Vous m'interrogez sur mes lectures récentes.",
+      "questions": [
+        {
+          "text": "Salut ! Je dois écrire un article pour la revue de mon association littéraire — comme tu lis beaucoup, tu pourrais répondre à quelques questions sur tes lectures récentes ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Tu as lu quoi dernièrement — un roman, un essai, ou un autre type de livre ?",
+          "memory_section": 10
+        },
+        {
+          "text": "C'est quel titre exactement, et qui en est l'auteur ?",
+          "memory_section": 10
+        },
+        {
+          "text": "C'est un livre récent ou plutôt un classique ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Dans quel genre littéraire ça s'inscrit — roman, biographie, science-fiction ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Qu'est-ce qu'on apprend concrètement — c'est plutôt technique, pratique, ou un mélange des deux ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Il y a un personnage principal marquant ou une idée centrale forte ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Comment est le style de l'auteur — plutôt simple, poétique, ou très descriptif ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Le livre est agréable à lire ou demande-t-il beaucoup de concentration ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
+          "memory_section": 18
+        },
+        {
+          "text": "À quel type de lecteurs ce livre s'adresse-t-il — plutôt aux passionnés de littérature ou accessible à un large public ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Tu as mentionné le thème/le style — tu pourrais m'en dire un peu plus ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Selon toi, qu'est-ce qui pourrait donner envie de lire ce livre dans un article ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Ce livre se prête bien à une présentation courte ou mérite plutôt une analyse approfondie ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Pour finir — tu recommanderais ce livre à quelqu'un ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Participation à un jeu télévisé",
+      "prompt": "Je suis un(e) ami(e). J'ai participé à un jeu organisé par une chaîne de télévision. Vous m'interrogez sur mon expérience (conditions d'inscription, contenus, intérêt, etc.) pour décider si vous voulez participer à ce jeu.",
+      "questions": [
+        {
+          "text": "Salut ! J'ai entendu dire que tu as participé à un jeu organisé par une chaîne de télévision — qu'est-ce qui t'a donné envie de t'inscrire ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Y avait-il des conditions particulières pour participer — tu as dû préparer quelque chose à l'avance ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement, ou c'est gratuit ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Quelle est la durée d'une séance — environ une heure ou plutôt une heure et demie ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Il y a généralement combien de participants — c'est un petit groupe ou une grande classe ?",
+          "memory_section": 14
+        },
+        {
+          "text": "C'est en équipe ou individuellement ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
+          "memory_section": 21
+        },
+        {
+          "text": "Les défis étaient plutôt difficiles ou amusants — il y a eu des moments stressants ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Pour finir, as-tu appris quelque chose de nouveau ou vécu une expérience vraiment marquante ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Transports en commun dans une ville",
+      "prompt": "Je suis un(e) employé(e) de l'agence de transports en commun de la ville. C'est votre première visite. Vous m'interrogez pour savoir comment fonctionnent les transports en commun ici (type de transports, tarifs, horaires).",
+      "questions": [
+        {
+          "text": "Bonjour ! C'est ma première visite dans votre ville et j'aimerais me déplacer en transports en commun — pouvez-vous m'aider ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quels types de transports sont disponibles ici — bus, métro, tramway ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Est-ce que le réseau couvre toute la ville ou seulement certaines zones ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Comment se passe l'achat d'abonnements — en ligne ou uniquement sur place ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le tarif comprend quoi exactement — un ticket est-il valable pour plusieurs types de transport ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Vous êtes ouverts chaque jour de la semaine — les horaires changent-ils le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Il y a des applications pour suivre les transports en temps réel ?",
+          "memory_section": 16
+        },
+        {
+          "text": "C'est facilement accessible depuis les quartiers touristiques ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Vous avez mentionné l'application/l'abonnement — vous pourriez m'en dire un peu plus ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose pour bien utiliser les transports ici, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    }
+  ]
+}

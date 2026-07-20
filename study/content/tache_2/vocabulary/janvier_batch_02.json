@@ -186,15 +186,15 @@
           "french": "ont lieu quel jour exactement",
           "english": "take place on which day exactly",
           "example": "Les séances ont lieu quel jour exactement — et plutôt le matin avant le travail ou en fin de journée ?",
-          "usage": "Tournure interrogative avec antéposition du sujet, utile pour préciser une date."
+          "usage": "Question orale avec le mot interrogatif « quel jour » laissé in situ (sans inversion), le sujet restant à sa place normale avant le verbe ; structure typique du français parlé."
         },
         {
           "id": "T2J1S6V24",
           "kind": "tournure",
           "french": "On peut assister à",
-          "english": "One can attend",
+          "english": "Can we attend",
           "example": "On peut assister à plusieurs séances ou c'est limité à une seule ?",
-          "usage": "Structure impersonnelle avec \"on\" pour parler de la possibilité de participer à un événement."
+          "usage": "Question orale avec « on » pour demander si la participation est possible."
         },
         {
           "id": "T2J1S6V25",
@@ -453,7 +453,7 @@
           "id": "T2J1S7V26",
           "kind": "tournure",
           "french": "Est-ce qu'on peut même",
-          "english": "Can one even",
+          "english": "Can you even",
           "example": "Est-ce qu'on peut même suivre les cours avec un smartphone ?",
           "usage": "Structure interrogative avec \"même\" ajoutant une nuance de surprise ou d'extension."
         },
@@ -681,10 +681,10 @@
         {
           "id": "T2J1S8V24",
           "kind": "tournure",
-          "french": "en ce moment",
-          "english": "at the moment/currently",
+          "french": "Y a-t-il des expositions temporaires",
+          "english": "Are there any temporary exhibitions",
           "example": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
-          "usage": "Locution adverbiale de temps très fréquente pour parler du présent."
+          "usage": "Question avec inversion pour demander si un type d'exposition est actuellement proposé."
         },
         {
           "id": "T2J1S8V25",
@@ -721,10 +721,10 @@
         {
           "id": "T2J1S8V29",
           "kind": "tournure",
-          "french": "en ligne ou uniquement sur place",
-          "english": "online or only in person",
+          "french": "Comment se passe l'inscription",
+          "english": "How does registration work",
           "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il faut s'inscrire à l'avance ou on peut venir librement ?",
-          "usage": "Structure d'alternative pour présenter deux options de démarche."
+          "usage": "Question ouverte avec « comment » pour demander les modalités d'inscription avant de préciser les options."
         },
         {
           "id": "T2J1S8V30",
@@ -732,7 +732,7 @@
           "french": "si vous ne deviez me recommander qu'une seule activité",
           "english": "if you had to recommend just one activity to me",
           "example": "Pour finir — si vous ne deviez me recommander qu'une seule activité, ce serait laquelle ?",
-          "usage": "Tournure hypothétique au registre soutenu (imparfait du subjonctif implicite via \"deviez\") pour clore poliment un échange."
+          "usage": "Tournure hypothétique polie (si + imparfait de l'indicatif, conditionnel présent « ce serait ») pour clore un échange en demandant une priorité absolue."
         }
       ]
     },

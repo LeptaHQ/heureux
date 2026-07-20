@@ -19,90 +19,60 @@
     </dl>
   </header>
 
-  {% include "study/partials/collection_view_toggle.html" %}
-
-  <section class="memory-library" id="memories" aria-labelledby="memory-library-title">
-    <header class="memory-library__head">
-      <div>
-        <h2 id="memory-library-title">Mémoires</h2>
-        <p>Une banque de formulations stables à mémoriser et à adapter naturellement à chaque situation de la Tâche 2.</p>
+  <div class="tache-two-overview-grid">
+    <section
+      class="tache-two-overview-panel tache-two-overview-panel--memories card"
+      data-tache-two-overview-panel
+      aria-labelledby="memory-overview-panel-title">
+      <header class="tache-two-overview-panel__head">
+        <span class="tache-two-overview-panel__icon" aria-hidden="true">
+          {% include "study/partials/ui_icon.html" with name="book-open" only %}
+        </span>
+        <div>
+          <h2 id="memory-overview-panel-title">Mémoires</h2>
+          <p>Les formulations réutilisables à mémoriser et à adapter.</p>
+        </div>
+      </header>
+      <div class="tache-two-overview-panel__facts">
+        <span><b>{{ memory_count }}</b> mémoire{{ memory_count|pluralize }}</span>
+        <span><b>{{ category_count }}</b> catégories</span>
+        <span><b>{{ question_count }}</b> questions</span>
       </div>
-      <span class="memory-library__count">{{ memory_count }} mémoire{{ memory_count|pluralize }}</span>
-    </header>
-
-    <div class="memory-library__grid collection-table collection-table--memories" data-collection-view="adaptive">
-      {% include "study/partials/collection_table_header.html" with variant="memories" column_1="Mémoire" column_2="Progression" column_3="Action" only %}
-      {% for item in memories %}
-        {% with memory=item.memory progress=item.progress %}
-        <a
-          class="memory-entry card memory-entry--{{ progress.status }}"
-          href="{% url 'study:task_memory_detail' part.slug task.slug memory.number %}"
-          data-collection-item
-          aria-label="Ouvrir {{ memory.title }}">
-          <span class="memory-entry__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=memory.icon only %}</span>
-          <div class="memory-entry__body">
-            <h3>{{ memory.title }}</h3>
-            <div class="memory-entry__facts">
-              <span><b>{{ memory.category_count }}</b> catégories</span>
-              <span><b>{{ memory.question_count }}</b> questions</span>
-            </div>
-          </div>
-          <div class="memory-entry__progress">
-            <div class="memory-entry__progress-copy">
-              <span class="progress-status progress-status--{{ progress.status }}">{{ progress.label }}</span>
-              <span>{{ progress.completed }}/{{ progress.total }} apprises</span>
-            </div>
-            <div class="progress" aria-label="{{ progress.percent }} % terminé">
-              <span class="memory-progress-fill memory-progress-fill--{{ progress.status }}" style="width: {{ progress.percent }}%;"></span>
-            </div>
-          </div>
-          <span class="memory-entry__action">
-            Ouvrir
-            {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
-          </span>
+      <footer class="tache-two-overview-panel__footer">
+        {% include "study/partials/tache_two_progress.html" with summary=memory_summary unit_label="questions apprises" compact=True only %}
+        <a class="btn btn--small" href="{% url 'study:task_memories' part.slug task.slug %}">
+          Voir les mémoires
+          {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
         </a>
-        {% endwith %}
-      {% endfor %}
-    </div>
-  </section>
+      </footer>
+    </section>
 
-  <section class="memory-library tache-two-overview-subjects" id="subjects" aria-labelledby="subject-library-title">
-    <header class="memory-library__head">
-      <div>
-        <h2 id="subject-library-title">Sujets</h2>
-        <p>Les sujets complets, classés par mois et par batch.</p>
+    <section
+      class="tache-two-overview-panel tache-two-overview-panel--subjects card"
+      data-tache-two-overview-panel
+      aria-labelledby="subject-overview-panel-title">
+      <header class="tache-two-overview-panel__head">
+        <span class="tache-two-overview-panel__icon" aria-hidden="true">
+          {% include "study/partials/ui_icon.html" with name="file-text" only %}
+        </span>
+        <div>
+          <h2 id="subject-overview-panel-title">Sujets</h2>
+          <p>Les sujets complets, classés par mois et par batch.</p>
+        </div>
+      </header>
+      <div class="tache-two-overview-panel__facts">
+        <span><b>{{ subject_month_count }}</b> mois</span>
+        <span><b>{{ subject_batch_count }}</b> batchs</span>
+        <span><b>{{ subject_count }}</b> sujets</span>
       </div>
-      <a class="btn btn--small" href="{% url 'study:task_browse' part.slug task.slug %}">
-        Voir tous les sujets
-        {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
-      </a>
-    </header>
-
-    <div class="subject-batch-grid collection-table collection-table--subject-batches" data-collection-view="adaptive">
-      {% include "study/partials/collection_table_header.html" with variant="subject-batches" column_1="Batch" column_2="Mois" column_3="Contenu" column_4="Action" only %}
-      {% for month in subject_months %}
-        {% for batch in month.batches %}
-          <a class="subject-batch-card card" data-collection-item data-tache-two-subject-batch href="{% url 'study:task_subject_batch' part.slug task.slug month.slug batch.number %}">
-            <span class="subject-batch-card__number">
-              {% include "study/partials/ui_icon.html" with name="file-text" only %}
-              <span>Batch {{ batch.number_label }}</span>
-            </span>
-            <span class="subject-batch-card__copy">
-              <strong>{{ month.name }} · Batch {{ batch.number }}</strong>
-              <span>Sujets {{ batch.first_subject_number }}–{{ batch.last_subject_number }}</span>
-            </span>
-            <span class="subject-batch-card__meta">
-              <span><b>{{ batch.subject_count }}</b> sujets</span>
-              <span><b>{{ batch.question_count }}</b> questions</span>
-            </span>
-            <span class="subject-batch-card__action">
-              Ouvrir
-              {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
-            </span>
-          </a>
-        {% endfor %}
-      {% endfor %}
-    </div>
-  </section>
+      <footer class="tache-two-overview-panel__footer">
+        {% include "study/partials/tache_two_progress.html" with summary=subject_summary unit_label="sujets terminés" compact=True only %}
+        <a class="btn btn--small" href="{% url 'study:task_browse' part.slug task.slug %}">
+          Voir les sujets
+          {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
+        </a>
+      </footer>
+    </section>
+  </div>
 </div>
 {% endblock %}

@@ -1,0 +1,10 @@
+<div class="tache-two-progress-summary{% if compact %} tache-two-progress-summary--compact{% endif %}">
+  <div class="tache-two-progress-summary__copy">
+    <span class="progress-status progress-status--{{ summary.progress.status }}">{{ summary.progress.label }}</span>
+    <span>{{ summary.completed }}/{{ summary.total }} {{ unit_label }}</span>
+  </div>
+  <div class="progress" aria-label="{{ summary.completed }} sur {{ summary.total }} {{ unit_label }}">
+    <span class="bg-mature" style="width: {% widthratio summary.completed summary.total 100 %}%;"></span>
+    <span class="bg-started" style="width: {% widthratio summary.started_new summary.total 100 %}%;"></span>
+  </div>
+</div>

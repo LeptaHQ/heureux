@@ -1,0 +1,293 @@
+{
+  "month": {
+    "number": 2,
+    "slug": "fevrier",
+    "name": "Février"
+  },
+  "batch": 2,
+  "subjects": [
+    {
+      "number": 6,
+      "title": "Stage de formation au Canada",
+      "prompt": "Je suis votre directeur. Je vais vous envoyer en stage de formation au Canada pendant 15 jours. Vous m'interrogez pour savoir comment vont se passer le stage, l'hébergement, le transport, et les activités pendant votre séjour.",
+      "questions": [
+        {
+          "text": "Pourriez-vous me donner plus de détails sur le stage — quel est l'objectif principal de cette formation ?"
+        },
+        {
+          "text": "Le stage aura lieu dans quelle ville exactement — et dans quel type d'établissement ?"
+        },
+        {
+          "text": "Qui sont les formateurs — ce sont des intervenants internes ou des spécialistes externes ?"
+        },
+        {
+          "text": "Qu'est-ce qu'on apprend concrètement — c'est plutôt technique, pratique, ou un mélange des deux ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Est-ce qu'il y aura d'autres collègues dans le groupe ou je serai le seul à partir ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Est-ce qu'on recevra une attestation ou un certificat à la fin du stage ?"
+        },
+        {
+          "text": "Pour l'hébergement, c'est l'entreprise qui s'en occupe ou je dois réserver moi-même ?",
+          "memory_section": 6
+        },
+        {
+          "text": "Et pour le voyage, c'est l'entreprise qui prend en charge le billet d'avion ?"
+        },
+        {
+          "text": "Et pour les repas, c'est prévu sur le lieu de formation ou on se débrouillera par nous-mêmes ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Quel temps fera-t-il généralement à cette époque — il faut apporter des vêtements particuliers ?",
+          "memory_section": 8
+        },
+        {
+          "text": "En dehors des heures de formation, est-ce qu'il y a des activités prévues pour découvrir la région ?",
+          "memory_section": 10
+        },
+        {
+          "text": "S'il y a le moindre souci, à qui faut-il s'adresser ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Sortir le soir dans le quartier",
+      "prompt": "Je suis votre voisin. Vous êtes nouveau dans le quartier et vous voulez sortir le soir. Vous m'interrogez pour connaître les lieux, les activités, les prix, l'ambiance et les options de divertissement.",
+      "questions": [
+        {
+          "text": "Je suis nouveau dans le quartier et je voudrais sortir le soir. Est-ce que le quartier est animé tous les soirs ou c'est surtout le week-end ?"
+        },
+        {
+          "text": "Quels sont les bons endroits pour sortir le soir ? Incluent-ils des bars, des clubs ou des musées ?"
+        },
+        {
+          "text": "Est-ce qu'il y a des concerts, des spectacles ou des soirées à thème de temps en temps ?"
+        },
+        {
+          "text": "L'ambiance est plutôt calme et conviviale, ou plus animée ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'il y a des happy hours ou des promotions intéressantes dans certains bars ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Pour les repas, vous auriez des adresses à recommander — pour manger un morceau en fin de soirée ?",
+          "memory_section": 7
+        },
+        {
+          "text": "C'est facile de rencontrer du monde — les gens sont plutôt accueillants ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Et pour rentrer tard le soir, il y a des transports de nuit ou c'est mieux de prévoir un taxi ?"
+        },
+        {
+          "text": "Pour les soirées plus calmes, est-ce qu'il y a des cinémas ou des théâtres dans le quartier ?"
+        },
+        {
+          "text": "Est-ce qu'il y a des événements ponctuels à ne pas manquer en ce moment ?"
+        },
+        {
+          "text": "Vous-même, vous avez un endroit préféré à me recommander ?"
+        },
+        {
+          "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Garder un animal de compagnie",
+      "prompt": "Je suis votre ami et je vais partir en vacances. Vous devez me poser des questions pour savoir comment garder mon animal (alimentation, soins, promenades, habitudes).",
+      "questions": [
+        {
+          "text": "Alors, c'est quel type d'animal — un chat, un chien, autre chose ?"
+        },
+        {
+          "text": "Il s'appelle comment et il a quel âge ?"
+        },
+        {
+          "text": "Comment est son caractère — il est plutôt calme ou énergique ? Comment il réagit avec les autres animaux et les inconnus ?"
+        },
+        {
+          "text": "Il mange quoi exactement — et c'est combien de fois par jour ?"
+        },
+        {
+          "text": "Est-ce qu'il a des allergies alimentaires ou des aliments interdits ?"
+        },
+        {
+          "text": "Pour les promenades, c'est combien de temps et à quelle fréquence ? Et il y a un parcours habituel ou je peux le promener où je veux ?",
+          "memory_section": 2
+        },
+        {
+          "text": "La garde se fait chez toi ou tu préfères que je l'emmène chez moi ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Il y a des habitudes importantes à respecter pour que tout se passe bien ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Est-ce qu'il supporte bien la solitude ou il faut éviter de le laisser seul trop longtemps ?"
+        },
+        {
+          "text": "S'il montre des signes de stress ou de maladie, comment je dois réagir ?"
+        },
+        {
+          "text": "En cas d'urgence, qui est son vétérinaire et comment je le contacte ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux te solliciter ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Mariage d'une amie canadienne",
+      "prompt": "Je suis votre ami. Vous êtes invité à une cérémonie de mariage d'une amie canadienne. Vous devez me poser des questions pour connaître le déroulement de la cérémonie, les invités, les cadeaux, et les tenues vestimentaires.",
+      "questions": [
+        {
+          "text": "Alors, la cérémonie de mariage, c'est prévu pour quand exactement ?"
+        },
+        {
+          "text": "À quelle heure ça commence — plutôt le matin ou en fin de journée ?",
+          "memory_section": 2
+        },
+        {
+          "text": "C'est une cérémonie religieuse, civile, ou les deux ?"
+        },
+        {
+          "text": "Et la réception, ça se passe où — en salle ou en plein air ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Comment va se dérouler la journée — il y a un cocktail, un dîner, une soirée dansante ?",
+          "memory_section": 21
+        },
+        {
+          "text": "Il y aura combien d'invités — c'est plutôt une fête intime ou un grand mariage ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Est-ce qu'il y a un code vestimentaire particulier — des couleurs à porter ou à éviter ?"
+        },
+        {
+          "text": "Pour le cadeau, il y a une liste de mariage ou c'est libre choix ?"
+        },
+        {
+          "text": "Tu aurais une idée du budget approprié pour le cadeau ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'il y a des traditions canadiennes spécifiques que je devrais connaître ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Pour les invités qui viennent de l'extérieur, tu aurais des recommandations pour l'hébergement ?",
+          "memory_section": 6
+        },
+        {
+          "text": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?",
+          "memory_section": 6
+        },
+        {
+          "text": "Et pour le transport, comment on se rend au lieu de la cérémonie ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux te solliciter ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Chercher un appartement à louer",
+      "prompt": "Je suis votre ami(e). Vous voulez m'aider à trouver un appartement à louer. Vous devez me poser des questions pour connaître mes besoins : localisation, budget, superficie, type de logement, et autres critères.",
+      "questions": [
+        {
+          "text": "Alors, tu cherches quel type de logement — un studio, un T2, quelque chose de plus grand ?"
+        },
+        {
+          "text": "C'est pour y vivre seul ou avec quelqu'un ?"
+        },
+        {
+          "text": "Tu préfères un appartement meublé ou vide ?"
+        },
+        {
+          "text": "Tu as une idée de la superficie minimum que tu recherches ?"
+        },
+        {
+          "text": "Pour la localisation, tu vises quel quartier — plutôt en centre-ville ou en périphérie ?"
+        },
+        {
+          "text": "Quel budget mensuel tu envisages — charges comprises ou hors charges ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Tu te déplaces comment au quotidien — c'est important d'être bien desservi en transports ?",
+          "memory_section": 13
+        },
+        {
+          "text": "L'état du logement, ça compte — tu accepterais des travaux à faire ou tu veux du prêt-à-vivre ?"
+        },
+        {
+          "text": "Et côté voisinage, tu préfères un quartier calme ou plutôt animé ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Parmi tous ces aspects, qu'est-ce qui compte le plus pour toi ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Tu as un délai — il faut que tu emménages bientôt ou tu peux prendre ton temps ?"
+        },
+        {
+          "text": "Pour le dossier locataire, tu as déjà les garanties nécessaires — caution, garant ?"
+        },
+        {
+          "text": "Tu as déjà commencé à visiter des appartements ou tu pars de zéro ?"
+        },
+        {
+          "text": "Est-ce qu'il y a d'autres critères importants que tu n'as pas encore mentionnés ?",
+          "memory_section": 18
+        },
+        {
+          "text": "D'accord, si j'ai encore une question, je peux te recontacter ?",
+          "memory_section": 4
+        }
+      ]
+    }
+  ]
+}

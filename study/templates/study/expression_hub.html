@@ -25,7 +25,7 @@
     <div class="expression-paths">
       {% for path in paths %}
         {% url 'study:part_detail' path.part.slug as path_url %}
-        {% include "study/partials/path_card.html" with code=path.part.short_name|lower title=path.part.name available=path.available url=path_url task_count=path.task_count prompt_count=path.prompt_count seen=path.seen total=path.total progress=path.progress has_content=path.has_content action_label="Voir les tâches" only %}
+        {% include "study/partials/path_card.html" with code=path.part.short_name|lower title=path.title available=path.available url=path_url task_count=path.task_count prompt_count=path.prompt_count seen=path.seen total=path.total progress=path.progress has_content=path.has_content action_label="Voir les tâches" only %}
       {% endfor %}
     </div>
   </section>

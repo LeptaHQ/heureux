@@ -20,6 +20,7 @@ from study.models import (
     Annotation,
     AnnotationKind,
     Card,
+    CardState,
     CardType,
     MemoryQuestionProgress,
     Phrase,
@@ -77,16 +78,16 @@ class QuestionBankContentTests(TestCase):
         )
         self.assertEqual(load_question_banks(), (bank,))
 
-    def test_january_batches_are_question_only_and_memory_driven(self):
+    def test_monthly_batches_are_question_only_and_memory_driven(self):
         months = load_tache_two_subject_months()
 
-        self.assertEqual(len(months), 1)
+        self.assertEqual(len(months), 2)
         january = months[0]
         self.assertEqual(january.name, "Janvier")
-        self.assertEqual(january.batch_count, 2)
-        self.assertEqual(january.subject_count, 10)
-        self.assertEqual(january.question_count, 144)
-        first_batch, second_batch = january.batches
+        self.assertEqual(january.batch_count, 3)
+        self.assertEqual(january.subject_count, 15)
+        self.assertEqual(january.question_count, 219)
+        first_batch, second_batch, third_batch = january.batches
         self.assertEqual(first_batch.number, 1)
         self.assertEqual(
             [subject.number for subject in first_batch.subjects],
@@ -119,10 +120,70 @@ class QuestionBankContentTests(TestCase):
             ),
             71,
         )
+        self.assertEqual(third_batch.number, 3)
+        self.assertEqual(
+            [subject.number for subject in third_batch.subjects],
+            [11, 12, 13, 14, 15],
+        )
+        self.assertEqual(
+            [subject.question_count for subject in third_batch.subjects],
+            [15, 15, 15, 15, 15],
+        )
+        self.assertEqual(
+            sum(
+                subject.memory_question_count
+                for subject in third_batch.subjects
+            ),
+            75,
+        )
+        february = months[1]
+        self.assertEqual(february.name, "Février")
+        self.assertEqual(february.batch_count, 6)
+        self.assertEqual(february.subject_count, 30)
+        self.assertEqual(february.question_count, 430)
+        self.assertEqual(
+            [
+                [subject.number for subject in batch.subjects]
+                for batch in february.batches
+            ],
+            [
+                [1, 2, 3, 4, 5],
+                [6, 7, 8, 9, 10],
+                [11, 12, 13, 14, 15],
+                [16, 17, 18, 19, 20],
+                [21, 22, 23, 24, 25],
+                [26, 27, 28, 29, 30],
+            ],
+        )
+        self.assertEqual(
+            [
+                [subject.question_count for subject in batch.subjects]
+                for batch in february.batches
+            ],
+            [
+                [15, 15, 15, 14, 14],
+                [14, 14, 13, 14, 15],
+                [14, 13, 14, 8, 15],
+                [15, 13, 15, 15, 15],
+                [15, 15, 15, 15, 15],
+                [15, 15, 15, 15, 15],
+            ],
+        )
+        self.assertEqual(
+            [
+                sum(
+                    subject.memory_question_count
+                    for subject in batch.subjects
+                )
+                for batch in february.batches
+            ],
+            [73, 38, 51, 72, 75, 73],
+        )
         self.assertTrue(
             all(
                 question.text.endswith("?")
-                for batch in january.batches
+                for month in months
+                for batch in month.batches
                 for subject in batch.subjects
                 for question in subject.questions
             )
@@ -135,7 +196,8 @@ class QuestionBankContentTests(TestCase):
                     question.text for question in subject.questions
                 )
             )
-            for batch in january.batches
+            for month in months
+            for batch in month.batches
             for subject in batch.subjects
         )
         self.assertNotIn("Dog sitting", corpus)
@@ -150,16 +212,16 @@ class QuestionBankContentTests(TestCase):
             corpus,
         )
 
-    def test_january_subjects_generate_srs_responses_and_vocabulary(self):
+    def test_subjects_generate_srs_responses_and_vocabulary(self):
         responses = parse_tache_two_responses()
         vocabulary = parse_tache_two_subject_vocabulary(responses)
 
-        self.assertEqual(len(responses), 10)
+        self.assertEqual(len(responses), 45)
         self.assertEqual(
             sum(len(response.arguments) for response in responses),
-            144,
+            649,
         )
-        self.assertEqual(len(vocabulary), 300)
+        self.assertEqual(len(vocabulary), 1350)
         self.assertEqual(
             {phrase.tier for phrase in vocabulary},
             {PhraseTier.SUBJECT},
@@ -221,10 +283,38 @@ class QuestionBankContentTests(TestCase):
                 load_comprehension_tests()
             )
         }
+        vocabulary_orders = [phrase.order for phrase in vocabulary]
+        vocabulary_by_id = {
+            phrase.phrase_id: phrase for phrase in vocabulary
+        }
+        first_vocabulary_order = max(comprehension_orders) + 1
         self.assertTrue(
-            comprehension_orders.isdisjoint(
-                phrase.order for phrase in vocabulary
-            )
+            comprehension_orders.isdisjoint(vocabulary_orders)
+        )
+        self.assertEqual(
+            vocabulary_orders,
+            list(
+                range(
+                    max(comprehension_orders) + 1,
+                    max(comprehension_orders) + len(vocabulary) + 1,
+                )
+            ),
+        )
+        self.assertEqual(
+            vocabulary_by_id["T2J1S1V01"].order,
+            first_vocabulary_order,
+        )
+        self.assertEqual(
+            vocabulary_by_id["T2J1S15V30"].order,
+            first_vocabulary_order + 449,
+        )
+        self.assertEqual(
+            vocabulary_by_id["T2F2S1V01"].order,
+            first_vocabulary_order + 450,
+        )
+        self.assertEqual(
+            vocabulary_by_id["T2F2S30V30"].order,
+            first_vocabulary_order + 1349,
         )
 
 
@@ -254,31 +344,67 @@ class QuestionBankViewTests(TestCase):
         self.assertTemplateUsed(response, "study/tache_two_overview.html")
         self.assertTrue(self.task.available)
         self.assertEqual(response.context["memory_count"], 1)
-        self.assertEqual(response.context["subject_count"], 10)
+        self.assertEqual(response.context["subject_count"], 45)
         self.assertEqual(response.context["category_count"], 21)
         self.assertEqual(response.context["question_count"], 65)
-        self.assertContains(response, 'id="subject-library-title">Sujets</h2>')
-        self.assertContains(response, "Janvier · Batch 1")
-        self.assertContains(response, "Janvier · Batch 2")
-        self.assertLess(
-            response.content.index(b'id="memory-library-title"'),
-            response.content.index(b'id="subject-library-title"'),
+        self.assertContains(
+            response,
+            "data-tache-two-overview-panel",
+            count=2,
+        )
+        self.assertContains(
+            response,
+            'id="memory-overview-panel-title">Mémoires</h2>',
+        )
+        self.assertContains(
+            response,
+            'id="subject-overview-panel-title">Sujets</h2>',
+        )
+        self.assertContains(response, "0/65 questions apprises")
+        self.assertContains(response, "0/45 sujets terminés")
+        self.assertContains(
+            response,
+            reverse(
+                "study:task_memories",
+                args=[self.task.part.slug, self.task.slug],
+            ),
         )
         self.assertContains(
             response,
             reverse(
-                "study:task_subject_batch",
-                args=[self.task.part.slug, self.task.slug, "janvier", 1],
+                "study:task_browse",
+                args=[self.task.part.slug, self.task.slug],
             ),
         )
-        self.assertContains(response, 'id="memory-library-title">Mémoires</h2>')
-        self.assertContains(response, "Mémoire 1")
-        self.assertNotContains(response, "Questions réutilisables")
-        self.assertNotContains(response, "memory-entry__label")
-        self.assertContains(response, 'data-collection-view-toggle')
+        self.assertNotContains(response, "data-collection-view-toggle")
+        self.assertNotContains(response, "data-collection-item")
+        self.assertNotContains(response, "data-tache-two-subject-month")
+        self.assertNotContains(response, "Janvier · Batch 1")
+        self.assertNotContains(response, "memory-entry")
+        self.assertNotContains(response, "data-question-bank-question")
+        self.assertNotContains(response, "Sujets &amp; réponses")
+        self.assertNotContains(response, "Réflexe Mémoire")
+        self.assertNotContains(response, ">Pratiquer</a>")
+
+    def test_memories_have_a_dedicated_tab(self):
+        url = reverse(
+            "study:task_memories",
+            args=[self.task.part.slug, self.task.slug],
+        )
+        response = self.client.get(url)
+
+        self.assertEqual(url, "/expression/orale/tache-2/memoires/")
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "study/tache_two_memories.html")
+        self.assertEqual(response.context["memory_count"], 1)
+        self.assertEqual(response.context["category_count"], 21)
+        self.assertEqual(response.context["question_count"], 65)
+        self.assertContains(response, "<span>Mémoires</span>", html=True)
+        self.assertContains(response, "data-collection-view-toggle")
         self.assertContains(response, 'data-collection-view="adaptive"')
-        self.assertContains(response, 'collection-table-header--memories')
-        self.assertContains(response, 'data-collection-item')
+        self.assertContains(response, "collection-table-header--memories")
+        self.assertContains(response, "data-collection-item", count=1)
+        self.assertContains(response, "Mémoire 1")
         self.assertContains(
             response,
             reverse(
@@ -286,10 +412,18 @@ class QuestionBankViewTests(TestCase):
                 args=[self.task.part.slug, self.task.slug, 1],
             ),
         )
+        self.assertContains(
+            response,
+            '<a class="is-active" href="'
+            + reverse(
+                "study:task_memories",
+                args=[self.task.part.slug, self.task.slug],
+            )
+            + '">Mémoires</a>',
+            html=True,
+        )
         self.assertNotContains(response, "data-question-bank-question")
-        self.assertNotContains(response, "Sujets &amp; réponses")
-        self.assertNotContains(response, "Réflexe Mémoire")
-        self.assertNotContains(response, ">Pratiquer</a>")
+        self.assertNotContains(response, "data-tache-two-subject-month")
 
     def test_subjects_are_grouped_by_month_and_batch(self):
         index_url = reverse(
@@ -303,6 +437,14 @@ class QuestionBankViewTests(TestCase):
         second_batch_url = reverse(
             "study:task_subject_batch",
             args=[self.task.part.slug, self.task.slug, "janvier", 2],
+        )
+        third_batch_url = reverse(
+            "study:task_subject_batch",
+            args=[self.task.part.slug, self.task.slug, "janvier", 3],
+        )
+        february_batch_url = reverse(
+            "study:task_subject_batch",
+            args=[self.task.part.slug, self.task.slug, "fevrier", 6],
         )
         subject_url = reverse(
             "study:task_subject_detail",
@@ -324,21 +466,49 @@ class QuestionBankViewTests(TestCase):
                 6,
             ],
         )
+        third_batch_subject_url = reverse(
+            "study:task_subject_detail",
+            args=[
+                self.task.part.slug,
+                self.task.slug,
+                "janvier",
+                3,
+                11,
+            ],
+        )
+        february_subject_url = reverse(
+            "study:task_subject_detail",
+            args=[
+                self.task.part.slug,
+                self.task.slug,
+                "fevrier",
+                6,
+                26,
+            ],
+        )
 
         index = self.client.get(index_url)
         self.assertEqual(index.status_code, 200)
         self.assertTemplateUsed(index, "study/tache_two_subjects.html")
-        self.assertEqual(index.context["month_count"], 1)
-        self.assertEqual(index.context["batch_count"], 2)
-        self.assertEqual(index.context["subject_count"], 10)
-        self.assertEqual(index.context["question_count"], 144)
+        self.assertEqual(index.context["month_count"], 2)
+        self.assertEqual(index.context["batch_count"], 9)
+        self.assertEqual(index.context["subject_count"], 45)
+        self.assertEqual(index.context["question_count"], 649)
         self.assertNotContains(index, "Réflexe Mémoire")
         self.assertContains(index, "Janvier")
         self.assertContains(index, "Batch 01")
         self.assertContains(index, "Batch 02")
-        self.assertContains(index, "data-tache-two-subject-batch", count=2)
+        self.assertContains(index, "Batch 03")
+        self.assertContains(index, "Février")
+        self.assertContains(index, "Batch 06")
+        self.assertContains(index, "data-tache-two-subject-batch", count=9)
+        self.assertContains(index, "subject-batch-card--new", count=9)
+        self.assertContains(index, "0/15 sujets terminés")
+        self.assertContains(index, "0/30 sujets terminés")
         self.assertContains(index, batch_url)
         self.assertContains(index, second_batch_url)
+        self.assertContains(index, third_batch_url)
+        self.assertContains(index, february_batch_url)
 
         batch = self.client.get(batch_url)
         self.assertEqual(batch.status_code, 200)
@@ -348,6 +518,8 @@ class QuestionBankViewTests(TestCase):
         )
         self.assertContains(batch, "Janvier · Batch 1")
         self.assertContains(batch, "data-tache-two-subject", count=5)
+        self.assertContains(batch, "tache-two-subject-card--new", count=5)
+        self.assertEqual(batch.context["subject_batch"]["progress"].status, "new")
         self.assertContains(batch, subject_url)
 
         subject = self.client.get(subject_url)
@@ -429,6 +601,60 @@ class QuestionBankViewTests(TestCase):
             3,
         )
 
+        third_batch = self.client.get(third_batch_url)
+        self.assertEqual(third_batch.status_code, 200)
+        self.assertContains(third_batch, "Janvier · Batch 3")
+        self.assertContains(
+            third_batch,
+            "data-tache-two-subject",
+            count=5,
+        )
+        self.assertContains(third_batch, third_batch_subject_url)
+
+        third_batch_subject = self.client.get(third_batch_subject_url)
+        self.assertEqual(third_batch_subject.status_code, 200)
+        self.assertContains(
+            third_batch_subject,
+            "Nouveau dans l&#x27;entreprise",
+        )
+        self.assertContains(
+            third_batch_subject,
+            "data-tache-two-question",
+            count=15,
+        )
+        self.assertContains(third_batch_subject, "30 vocabs")
+        self.assertEqual(
+            len(third_batch_subject.context["vocabulary_batches"]),
+            3,
+        )
+
+        february_batch = self.client.get(february_batch_url)
+        self.assertEqual(february_batch.status_code, 200)
+        self.assertContains(february_batch, "Février · Batch 6")
+        self.assertContains(
+            february_batch,
+            "data-tache-two-subject",
+            count=5,
+        )
+        self.assertContains(february_batch, february_subject_url)
+
+        february_subject = self.client.get(february_subject_url)
+        self.assertEqual(february_subject.status_code, 200)
+        self.assertContains(
+            february_subject,
+            "Garde d&#x27;enfant pendant un week-end",
+        )
+        self.assertContains(
+            february_subject,
+            "data-tache-two-question",
+            count=15,
+        )
+        self.assertContains(february_subject, "30 vocabs")
+        self.assertEqual(
+            len(february_subject.context["vocabulary_batches"]),
+            3,
+        )
+
     def test_import_provisions_real_subject_and_vocabulary_cards(self):
         responses = Response.objects.filter(
             content_key__startswith="tache2:",
@@ -441,15 +667,15 @@ class QuestionBankViewTests(TestCase):
             is_active=True,
         ).distinct()
 
-        self.assertEqual(responses.count(), 10)
-        self.assertEqual(vocabulary.count(), 300)
+        self.assertEqual(responses.count(), 45)
+        self.assertEqual(vocabulary.count(), 1350)
         self.assertEqual(
             Card.objects.filter(
                 user=self.user,
                 card_type=CardType.SPINE,
                 response_id__in=response_ids,
             ).count(),
-            10,
+            45,
         )
         self.assertEqual(
             Card.objects.filter(
@@ -457,7 +683,7 @@ class QuestionBankViewTests(TestCase):
                 card_type=CardType.PHRASE_PRODUCTION,
                 phrase__in=vocabulary,
             ).count(),
-            300,
+            1350,
         )
 
         directory = self.client.get(
@@ -471,7 +697,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(
             directory,
             "data-subject-vocabulary-row",
-            count=10,
+            count=45,
         )
 
     def test_existing_subject_highlight_marks_imported_response_in_progress(self):
@@ -497,23 +723,87 @@ class QuestionBankViewTests(TestCase):
         )
 
         subject = self.client.get(subject_url)
+        batch = self.client.get(
+            reverse(
+                "study:task_subject_batch",
+                args=[
+                    self.task.part.slug,
+                    self.task.slug,
+                    "janvier",
+                    1,
+                ],
+            )
+        )
+        directory = self.client.get(
+            reverse(
+                "study:task_browse",
+                args=[self.task.part.slug, self.task.slug],
+            )
+        )
+        overview = self.client.get(
+            reverse(
+                "study:task_detail",
+                args=[self.task.part.slug, self.task.slug],
+            )
+        )
+        task_list = self.client.get(
+            reverse("study:part_detail", args=[self.task.part.slug])
+        )
 
         self.assertEqual(subject.status_code, 200)
         self.assertTrue(subject.context["subject_progress"].has_highlight)
         self.assertEqual(subject.context["subject_progress"].status, "active")
+        self.assertEqual(
+            batch.context["subject_batch"]["subjects"][0]["progress"].status,
+            "active",
+        )
+        self.assertContains(batch, "tache-two-subject-card--active", count=1)
+        january = directory.context["subject_months"][0]
+        self.assertEqual(january["progress"].status, "active")
+        self.assertEqual(january["progress"].started, 1)
+        self.assertEqual(january["batches"][0]["progress"].status, "active")
+        self.assertContains(
+            directory,
+            "subject-batch-card--active",
+            count=1,
+        )
+        self.assertEqual(
+            overview.context["subject_summary"]["progress"].status,
+            "active",
+        )
+        self.assertEqual(
+            overview.context["subject_months"][0]["batches"][0][
+                "progress"
+            ].status,
+            "active",
+        )
+        task_card = next(
+            row
+            for row in task_list.context["tasks"]
+            if row["task"].pk == self.task.pk
+        )
+        self.assertEqual(
+            task_card["question_bank"]["subject_progress"].status,
+            "active",
+        )
+        self.assertEqual(
+            task_card["question_bank"]["progress"].status,
+            "active",
+        )
+        self.assertContains(task_list, "0/45 sujets terminés")
 
     def test_unknown_subject_month_batch_and_number_are_not_found(self):
         route_args = [self.task.part.slug, self.task.slug]
         missing_month = self.client.get(
             reverse(
                 "study:task_subject_batch",
-                args=[*route_args, "fevrier", 1],
+                args=[*route_args, "mars", 1],
             )
         )
         missing_batch = self.client.get(
             reverse(
                 "study:task_subject_batch",
-                args=[*route_args, "janvier", 3],
+                args=[*route_args, "janvier", 4],
             )
         )
         missing_subject = self.client.get(
@@ -578,9 +868,16 @@ class QuestionBankViewTests(TestCase):
                 args=[self.task.part.slug, "tache-3", 1],
             )
         )
+        unrelated_index = self.client.get(
+            reverse(
+                "study:task_memories",
+                args=[self.task.part.slug, "tache-3"],
+            )
+        )
 
         self.assertEqual(missing.status_code, 404)
         self.assertEqual(unrelated.status_code, 404)
+        self.assertEqual(unrelated_index.status_code, 404)
 
     def test_task_card_describes_the_guide_instead_of_empty_responses(self):
         task_url = reverse(
@@ -596,10 +893,21 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(response, task_url)
         self.assertContains(
             response,
-            "10 sujets · 1 mémoire · 21 catégories · 65 questions",
+            "45 sujets · 1 mémoire · 21 catégories · 65 questions",
         )
         self.assertContains(response, "0/65 apprises")
+        self.assertContains(response, "0/45 sujets terminés")
         self.assertContains(response, "À commencer")
+        task_card = next(
+            row
+            for row in response.context["tasks"]
+            if row["task"].pk == self.task.pk
+        )
+        self.assertEqual(task_card["question_bank"]["progress"].total, 110)
+        self.assertEqual(
+            task_card["question_bank"]["subject_progress"].total,
+            45,
+        )
 
     def test_question_progress_can_be_checked_and_unchecked(self):
         bank = load_question_bank()
@@ -770,9 +1078,63 @@ class QuestionBankViewTests(TestCase):
             overview.context["memories"][0]["progress"].status,
             "done",
         )
-        self.assertContains(overview, "65/65 apprises")
+        self.assertContains(overview, "65/65 questions apprises")
         self.assertContains(task_list, "65/65 apprises")
-        self.assertContains(task_list, "Terminé")
+        self.assertContains(task_list, "0/45 sujets terminés")
+        task_card = next(
+            row
+            for row in task_list.context["tasks"]
+            if row["task"].pk == self.task.pk
+        )
+        self.assertEqual(
+            task_card["question_bank"]["memory_progress"].status,
+            "done",
+        )
+        self.assertEqual(
+            task_card["question_bank"]["subject_progress"].status,
+            "new",
+        )
+        self.assertEqual(
+            task_card["question_bank"]["progress"].status,
+            "active",
+        )
+
+        subject_card_ids = (
+            Card.objects.filter(
+                user=self.user,
+                phrase__tier=PhraseTier.SUBJECT,
+                phrase__source_prompts__response__content_key__startswith=(
+                    "tache2:"
+                ),
+            )
+            .values_list("pk", flat=True)
+            .distinct()
+        )
+        Card.objects.filter(pk__in=subject_card_ids).update(
+            state=CardState.LEARNING
+        )
+        completed_task_list = self.client.get(
+            reverse("study:part_detail", args=[self.task.part.slug])
+        )
+        completed_task_card = next(
+            row
+            for row in completed_task_list.context["tasks"]
+            if row["task"].pk == self.task.pk
+        )
+
+        self.assertEqual(
+            completed_task_card["question_bank"]["subject_progress"].status,
+            "done",
+        )
+        self.assertEqual(
+            completed_task_card["question_bank"]["progress"].status,
+            "done",
+        )
+        self.assertEqual(
+            completed_task_card["question_bank"]["progress"].completed,
+            110,
+        )
+        self.assertContains(completed_task_list, "45/45 sujets terminés")
 
     def test_account_export_and_reset_include_memory_progress(self):
         bank = load_question_bank()

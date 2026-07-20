@@ -21,20 +21,20 @@
 <div class="detail-grid">
   <div class="answer-columns" data-annotation-root data-annotation-source-key="response:{{ response.content_key }}">
     {% if response_content.position %}
-      <section class="card section-card">
+      <section class="card section-card section-card--position">
         <div class="spine-label">Position</div>
         <p class="spine-text">{{ response_content.position }}</p>
       </section>
     {% endif %}
 
     {% if response_content.position_claire %}
-      <section class="card section-card">
+      <section class="card section-card section-card--introduction">
         <div class="spine-label">Introduction</div>
         <p class="spine-text">{{ response_content.position_claire }}</p>
       </section>
     {% endif %}
 
-    <section class="card section-card">
+    <section class="card section-card section-card--arguments">
       <div class="spine-label">Arguments développés</div>
       {% for arg in arguments %}
         <article class="arg arg--full">
@@ -67,14 +67,14 @@
     </section>
 
     {% if response_content.nuance %}
-      <section class="card section-card">
+      <section class="card section-card section-card--nuance">
         <div class="spine-label">Nuance</div>
         <p class="spine-text">{{ response_content.nuance }}</p>
       </section>
     {% endif %}
 
     {% if response_content.conclusion %}
-      <section class="card section-card">
+      <section class="card section-card section-card--conclusion">
         <div class="spine-label">Conclusion</div>
         <p class="spine-text">{{ response_content.conclusion }}</p>
       </section>
@@ -112,7 +112,7 @@
     </div>
 
     {% if response.has_aliases %}
-      <div class="card section-card response-sidebar-card" id="subject-vocabulary">
+      <div class="card section-card response-sidebar-card response-sidebar-card--aliases" id="subject-vocabulary">
         <div class="spine-label">Sujets équivalents</div>
         <ul class="mini-list">
           {% for p in prompts %}
@@ -128,7 +128,7 @@
     {% endif %}
 
     {% if subject_vocabulary %}
-      <div class="card section-card response-sidebar-card">
+      <div class="card section-card response-sidebar-card response-sidebar-card--vocabulary">
         <div class="response-batches__head">
           <div class="spine-label">Vocabulaire de ce sujet</div>
           <span class="progress-status progress-status--{{ vocabulary_batch_progress.status }}">{{ vocabulary_batch_progress.label }}</span>
@@ -144,7 +144,7 @@
     {% endif %}
 
     {% if related_phrases %}
-      <div class="card section-card response-sidebar-card">
+      <div class="card section-card response-sidebar-card response-sidebar-card--phrases">
         <div class="response-batches__head">
           <div class="spine-label">Expressions liées</div>
           <span class="progress-status progress-status--{{ phrase_batch_progress.status }}">{{ phrase_batch_progress.label }}</span>

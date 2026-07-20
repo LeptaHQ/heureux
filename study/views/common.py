@@ -14,12 +14,15 @@ from ..models import (
     PhraseTier,
     Prompt,
     Rating,
+    Response,
     ReviewLog,
     Task,
     Theme,
 )
 from ..progress import (
     ProgressSummary,
+    SubjectProgress,
+    combine_progress,
     progress_summary,
     subject_progress_by_response,
     summarize_subject_progress,
@@ -71,6 +74,127 @@ def _memory_progress(user, memories):
             ),
         }
     return states
+
+
+_EMPTY_SUBJECT_PROGRESS = SubjectProgress(
+    status="new",
+    label="À commencer",
+    has_highlight=False,
+    response_practice_started=False,
+    vocabulary_total=0,
+    vocabulary_started=0,
+    vocabulary_completed=0,
+    vocabulary_mastered=0,
+    vocabulary_due=0,
+)
+
+
+def _tache_two_progress(user, months):
+    """Attach material-specific progress to Tâche 2 months and subjects."""
+    months = tuple(months)
+    content_keys = [
+        content_module.tache_two_subject_content_key(
+            month.slug,
+            batch.number,
+            subject.number,
+        )
+        for month in months
+        for batch in month.batches
+        for subject in batch.subjects
+    ]
+    response_id_by_content_key = dict(
+        Response.objects.filter(
+            content_key__in=content_keys,
+            is_active=True,
+        ).values_list("content_key", "pk")
+    )
+    progress_by_response = subject_progress_by_response(
+        user,
+        response_id_by_content_key.values(),
+    )
+    progress_by_content_key = {
+        content_key: progress_by_response[response_id]
+        for content_key, response_id in response_id_by_content_key.items()
+    }
+
+    all_progress = []
+    month_rows = []
+    for month in months:
+        month_progress = []
+        batch_rows = []
+        for batch in month.batches:
+            batch_progress = []
+            subjects = []
+            for subject in batch.subjects:
+                content_key = content_module.tache_two_subject_content_key(
+                    month.slug,
+                    batch.number,
+                    subject.number,
+                )
+                progress = progress_by_content_key.get(
+                    content_key,
+                    _EMPTY_SUBJECT_PROGRESS,
+                )
+                vocabulary_progress = progress.vocabulary_progress
+                batch_progress.append(progress)
+                month_progress.append(progress)
+                all_progress.append(progress)
+                subjects.append(
+                    {
+                        "number": subject.number,
+                        "number_label": subject.number_label,
+                        "title": subject.title,
+                        "prompt": subject.prompt,
+                        "questions": subject.questions,
+                        "question_count": subject.question_count,
+                        "memory_question_count": subject.memory_question_count,
+                        "content_key": content_key,
+                        "response_id": response_id_by_content_key.get(
+                            content_key
+                        ),
+                        "progress": progress,
+                        "vocabulary_progress": vocabulary_progress,
+                        "vocabulary_started_only": max(
+                            vocabulary_progress.started
+                            - vocabulary_progress.completed,
+                            0,
+                        ),
+                    }
+                )
+            batch_summary = summarize_subject_progress(batch_progress)
+            batch_rows.append(
+                {
+                    "number": batch.number,
+                    "number_label": batch.number_label,
+                    "subjects": tuple(subjects),
+                    "subject_count": batch.subject_count,
+                    "question_count": batch.question_count,
+                    "first_subject_number": batch.first_subject_number,
+                    "last_subject_number": batch.last_subject_number,
+                    **batch_summary,
+                }
+            )
+        month_summary = summarize_subject_progress(month_progress)
+        month_rows.append(
+            {
+                "number": month.number,
+                "slug": month.slug,
+                "name": month.name,
+                "batches": tuple(batch_rows),
+                "batch_count": month.batch_count,
+                "subject_count": month.subject_count,
+                "question_count": month.question_count,
+                **month_summary,
+            }
+        )
+
+    summary = summarize_subject_progress(all_progress)
+    return {
+        "months": tuple(month_rows),
+        "progress_by_content_key": progress_by_content_key,
+        "summary": summary,
+        **summary,
+    }
 
 
 def deck_stats(qs, now=None) -> dict:
@@ -360,12 +484,16 @@ def _route_task(part_slug, task_slug):
 def _task_card(task, now, user):
     """Build a dashboard/part card for a single task."""
     question_bank = None
+    subject_state = None
     if (
         task.available
         and (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK
     ):
         banks = content_module.load_question_banks()
-        subject_months = content_module.load_tache_two_subject_months()
+        subject_state = _tache_two_progress(
+            user,
+            content_module.load_tache_two_subject_months(),
+        )
         memory_states = _memory_progress(user, banks)
         memory_progress = progress_summary(
             total=sum(
@@ -381,27 +509,42 @@ def _task_card(task, now, user):
                 for state in memory_states.values()
             ),
         )
+        task_progress = combine_progress(
+            [memory_progress, subject_state["progress"]]
+        )
         question_bank = {
             "title": f"{len(banks)} mémoire{'s' if len(banks) > 1 else ''}",
             "memory_count": len(banks),
-            "subject_count": sum(
-                month.subject_count for month in subject_months
-            ),
+            "subject_count": subject_state["total"],
             "category_count": sum(bank.category_count for bank in banks),
             "question_count": sum(bank.question_count for bank in banks),
-            "progress": memory_progress,
+            "progress": task_progress,
+            "memory_progress": memory_progress,
+            "subject_progress": subject_state["progress"],
+            "active_count": max(
+                task_progress.started - task_progress.completed,
+                0,
+            ),
         }
     if task.available:
-        response_ids = set(
-            Prompt.objects.filter(
-                theme__task=task,
-                theme__is_active=True,
-                is_active=True,
-                response__is_active=True,
-            ).values_list("response_id", flat=True)
-        )
-        response_progress = subject_progress_by_response(user, response_ids)
-        response_stats = summarize_subject_progress(response_progress.values())
+        if subject_state is None:
+            response_ids = set(
+                Prompt.objects.filter(
+                    theme__task=task,
+                    theme__is_active=True,
+                    is_active=True,
+                    response__is_active=True,
+                ).values_list("response_id", flat=True)
+            )
+            response_progress = subject_progress_by_response(
+                user,
+                response_ids,
+            )
+            response_stats = summarize_subject_progress(
+                response_progress.values()
+            )
+        else:
+            response_stats = dict(subject_state["summary"])
         response_stats["due"] = deck_stats(
             _task_cards(task, user, "spine"),
             now,

@@ -9,6 +9,8 @@
   var readButton = document.querySelector("[data-read-selection]");
   var readLabel = document.querySelector("[data-read-selection-label]");
   var translateButton = document.querySelector("[data-translate-selection]");
+  var noteButton = document.querySelector("[data-note-selection]");
+  var highlightButton = document.querySelector("[data-highlight-selection]");
   var panel = document.querySelector("[data-translation-panel]");
   var notePanel = document.querySelector("[data-note-panel]");
   if (
@@ -131,6 +133,17 @@
     action.style.top = Math.round(top) + "px";
   }
 
+  function applySelectionDetails(details) {
+    var selectionChanged = details.text !== selectedText;
+    if (selectionChanged && reading) stopReading();
+    selectedText = details.text;
+    selectedRect = details.rect;
+    selectionCopyButton.classList.remove("is-copied");
+    selectionCopyLabel.textContent = "Copy";
+    if (selectionChanged) resetReadButton();
+    positionAction(details.rect);
+  }
+
   function updateSelectionAction() {
     if (
       !panel.classList.contains("hidden") ||
@@ -140,14 +153,53 @@
     }
     var details = selectionDetails();
     if (!details) return;
-    var selectionChanged = details.text !== selectedText;
-    if (selectionChanged && reading) stopReading();
-    selectedText = details.text;
-    selectedRect = details.rect;
-    selectionCopyButton.classList.remove("is-copied");
-    selectionCopyLabel.textContent = "Copy";
-    if (selectionChanged) resetReadButton();
-    positionAction(details.rect);
+    applySelectionDetails(details);
+  }
+
+  function selectionShortcutButton(key) {
+    if (key === "r") return readButton;
+    if (key === "t") return translateButton;
+    if (key === "n") return noteButton;
+    if (key === "h") return highlightButton;
+    return null;
+  }
+
+  function handleSelectionShortcut(event) {
+    if (
+      event.defaultPrevented ||
+      event.repeat ||
+      event.isComposing ||
+      event.altKey ||
+      event.ctrlKey ||
+      event.metaKey ||
+      event.shiftKey
+    ) {
+      return;
+    }
+    var button = selectionShortcutButton(event.key.toLowerCase());
+    if (!button) return;
+    if (
+      event.target &&
+      event.target.closest &&
+      event.target.closest(
+        "input, textarea, select, button, a, [contenteditable='true']"
+      )
+    ) {
+      return;
+    }
+    if (
+      !panel.classList.contains("hidden") ||
+      (notePanel && !notePanel.classList.contains("hidden"))
+    ) {
+      return;
+    }
+    var details = selectionDetails();
+    if (!details) return;
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    applySelectionDetails(details);
+    if (!button.hidden && !button.disabled) button.click();
   }
 
   function scheduleSelectionAction(delay) {
@@ -255,8 +307,8 @@
     if (!readButton || !frenchSpeech || !frenchSpeech.supported) return;
     var voice = frenchSpeech.preferredVoice();
     readButton.title = voice
-      ? "French voice: " + voice.name
-      : "Read with the best French voice available";
+      ? "French voice: " + voice.name + " · Shortcut: R"
+      : "Read with the best French voice available · Shortcut: R";
   }
 
   function googleTranslateUrl(text) {
@@ -538,6 +590,7 @@
     }
   });
   window.addEventListener("resize", repositionPanel);
+  document.addEventListener("keydown", handleSelectionShortcut, true);
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && reading) stopReading();
     if (event.key === "Escape" && !panel.classList.contains("hidden")) {

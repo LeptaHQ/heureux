@@ -21,7 +21,7 @@
         },
         {
           "text": "À quelle heure se couche-t-elle le soir — et fait-elle une sieste dans la journée ?",
-          "memory_section": 2
+          "memory_section": 20
         },
         {
           "text": "A-t-elle besoin d'un doudou ou d'une routine spéciale pour s'endormir ?",
@@ -212,7 +212,8 @@
       "questions": [
         {
           "text": "Bonjour ! Je souhaite organiser un séjour au Canada — quelles destinations recommandez-vous ?",
-          "memory_section": 10
+          "memory_number": 2,
+          "memory_section": 1
         },
         {
           "text": "Quels types de circuits proposez-vous — culture, nature, aventure, gastronomie ?",
@@ -243,15 +244,15 @@
           "memory_section": 1
         },
         {
-          "text": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?",
-          "memory_section": 3
+          "text": "Faut-il réserver l'hébergement à l'avance ou peut-on encore en trouver facilement sur place ?",
+          "memory_section": 6
         },
         {
           "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total par personne ?",
           "memory_section": 1
         },
         {
-          "text": "Le tarif comprend quoi exactement — transport, repas, excursions sont inclus ?",
+          "text": "Le tarif comprend quoi exactement — le transport, les repas et les excursions sont-ils inclus ?",
           "memory_section": 1
         },
         {

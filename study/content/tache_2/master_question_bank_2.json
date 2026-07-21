@@ -1,0 +1,105 @@
+{
+  "number": 2,
+  "title": "Mémoire 2",
+  "label": "Questions transversales",
+  "icon": "compass",
+  "subtitle": "Une seconde banque de formulations stables à mémoriser et à adapter dans de nombreux sujets de la Tâche 2.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Choix / recommandation",
+      "groups": [
+        {
+          "title": "Explorer les possibilités",
+          "guidance": "Pour une activité, un service, une destination, un produit ou une formule.",
+          "questions": [
+            "Quelles sont les différentes options proposées ?",
+            "Quelles différences y a-t-il entre les options proposées ?"
+          ]
+        },
+        {
+          "title": "Demander conseil",
+          "guidance": "Pour obtenir une recommandation adaptée à ses besoins.",
+          "questions": [
+            "Parmi toutes ces possibilités, laquelle me conseilleriez-vous ?",
+            "Quelle option est la plus populaire en général ?",
+            "Selon vous, quel choix conviendrait le mieux à mes besoins ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Retour d'expérience",
+      "groups": [
+        {
+          "guidance": "Quand l'interlocuteur a déjà vécu l'expérience dont il parle.",
+          "questions": [
+            "Qu'est-ce qui t'a donné envie de tenter cette expérience ?",
+            "Qu'est-ce que tu as le plus apprécié ?",
+            "Y a-t-il quelque chose qui t'a moins plu ?",
+            "Est-ce que l'expérience correspondait à tes attentes ?",
+            "Avec le recul, est-ce que tu referais le même choix ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Déroulement / accompagnement",
+      "groups": [
+        {
+          "title": "Étapes",
+          "questions": [
+            "Comment ça se passe concrètement, du début à la fin ?",
+            "Quelles sont les différentes étapes à suivre ?",
+            "Qu'est-ce qu'il faut faire en premier ?"
+          ]
+        },
+        {
+          "title": "Aide disponible",
+          "questions": [
+            "Est-ce qu'on est accompagné ou faut-il se débrouiller seul ?",
+            "Si on a besoin d'aide, est-ce que quelqu'un est disponible sur place ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Avantages / comparaison",
+      "groups": [
+        {
+          "title": "Peser le pour et le contre",
+          "questions": [
+            "Quels sont les principaux avantages ?",
+            "Y a-t-il aussi des inconvénients à connaître ?",
+            "Qu'est-ce qui est le plus pratique au quotidien ?"
+          ]
+        },
+        {
+          "title": "Comparer",
+          "questions": [
+            "Par rapport à [X], qu'est-ce qui change le plus ?",
+            "Qu'est-ce qui peut être difficile au début ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Souplesse / imprévus",
+      "groups": [
+        {
+          "questions": [
+            "Est-ce qu'on peut adapter [X] selon ses besoins ?",
+            "Peut-on changer d'option en cours de route ?",
+            "Quelles sont les conditions pour modifier ou annuler [X] ?",
+            "En cas de retard ou d'imprévu, comment ça se passe ?",
+            "Y a-t-il une autre solution si [X] n'est pas disponible ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

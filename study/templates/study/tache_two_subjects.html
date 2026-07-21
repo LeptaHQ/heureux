@@ -21,10 +21,17 @@
 
   {% if subject_months %}
     {% include "study/partials/collection_view_toggle.html" %}
-  {% endif %}
 
-  {% for month in subject_months %}
-    {% include "study/partials/tache_two_subject_month.html" with month=month part=part task=task only %}
-  {% endfor %}
+    <div
+      class="tache-two-subject-months"
+      data-collection-view
+      data-collection-view-panel="cards">
+      {% for month in subject_months %}
+        {% include "study/partials/tache_two_subject_month.html" with month=month part=part task=task only %}
+      {% endfor %}
+    </div>
+
+    {% include "study/partials/tache_two_subject_table.html" with subject_months=subject_months part=part task=task only %}
+  {% endif %}
 </div>
 {% endblock %}

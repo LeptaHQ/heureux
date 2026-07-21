@@ -84,6 +84,81 @@
     window.addEventListener("hashchange", scrollActiveAnnotationAnchor);
   })();
 
+  /* ---------- Tâche 2 month sections ---------- */
+  (function () {
+    var toggles = Array.from(
+      document.querySelectorAll("[data-tache-two-month-toggle]")
+    );
+    if (!toggles.length) return;
+
+    function setMonthExpanded(monthKey, expanded, persist) {
+      toggles.forEach(function (toggle) {
+        if (toggle.dataset.tacheTwoMonthKey !== monthKey) return;
+
+        var target = document.getElementById(
+          toggle.getAttribute("aria-controls")
+        );
+        if (!target) return;
+
+        toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+        toggle.setAttribute(
+          "aria-label",
+          (expanded ? "Réduire " : "Afficher ") +
+            toggle.dataset.tacheTwoMonthName
+        );
+        var label = toggle.querySelector(
+          "[data-tache-two-month-toggle-label]"
+        );
+        if (label) label.textContent = expanded ? "Réduire" : "Afficher";
+
+        if (target.tagName === "TBODY") {
+          target.querySelectorAll("[data-tache-two-month-row]").forEach(
+            function (row) {
+              row.hidden = !expanded;
+            }
+          );
+        } else {
+          target.hidden = !expanded;
+        }
+        target.classList.toggle("is-collapsed", !expanded);
+      });
+
+      if (persist) {
+        try {
+          localStorage.setItem(
+            "tacheTwoMonth:" + monthKey,
+            expanded ? "expanded" : "collapsed"
+          );
+        } catch (e) {}
+      }
+    }
+
+    Array.from(
+      new Set(
+        toggles.map(function (toggle) {
+          return toggle.dataset.tacheTwoMonthKey;
+        })
+      )
+    ).forEach(function (monthKey) {
+      var expanded = true;
+      try {
+        expanded =
+          localStorage.getItem("tacheTwoMonth:" + monthKey) !== "collapsed";
+      } catch (e) {}
+      setMonthExpanded(monthKey, expanded, false);
+    });
+
+    toggles.forEach(function (toggle) {
+      toggle.addEventListener("click", function () {
+        setMonthExpanded(
+          toggle.dataset.tacheTwoMonthKey,
+          toggle.getAttribute("aria-expanded") !== "true",
+          true
+        );
+      });
+    });
+  })();
+
   /* ---------- Form dialogs ---------- */
   (function () {
     var dialogs = Array.from(document.querySelectorAll(".form-dialog"));

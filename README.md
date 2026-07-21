@@ -149,13 +149,15 @@ So the normal loop after editing the answer bank is:
 ./.venv/bin/python manage.py import_content
 ```
 
-The identifiers in `study/content/themes.json` and the `id` column in
-`study/content/phrases.tsv` are persistent database identities. Do not change
-them when editing display text. Prompt identity is the theme slug plus prompt
-number, so renumbering a prompt is a content migration rather than a wording
-edit. Response edits keep the same row through that prompt identity; response
-splits copy the prior schedule to the new card, while merges retain the most
-recent schedule.
+The identifiers in `study/content/themes.json`, the `id` column in
+`study/content/phrases.tsv`, and the Tâche 2 vocabulary `id` fields are
+persistent database identities. Do not change them when editing display text.
+Prompt identity is the theme slug plus prompt number, so renumbering a prompt
+is a content migration rather than a wording edit. Response edits keep the same
+row through that prompt identity; response splits copy the prior schedule to
+the new card, while merges retain the most recent schedule. Give a phrase a new
+ID when replacing its learning target so the old card is archived instead of
+transferring an unrelated schedule.
 
 ---
 

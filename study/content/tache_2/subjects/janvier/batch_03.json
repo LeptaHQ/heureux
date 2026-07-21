@@ -183,7 +183,8 @@
         },
         {
           "text": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
-          "memory_section": 1
+          "memory_number": 2,
+          "memory_section": 5
         },
         {
           "text": "Est-ce qu'il est possible de suspendre l'abonnement si nécessaire ?",

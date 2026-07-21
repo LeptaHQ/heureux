@@ -1,15 +1,15 @@
 {
   "month": {
-    "number": 2,
-    "slug": "fevrier",
-    "name": "Février"
+    "number": 3,
+    "slug": "mars",
+    "name": "Mars"
   },
-  "batch": 5,
+  "batch": 3,
   "subjects": [
     {
-      "number": 21,
+      "number": 11,
       "title": "Présentation d'un film",
-      "prompt": "Vous devez écrire un article pour la revue de votre association culturelle francophone. Vous cherchez des idées et interrogez votre ami(e) sur les films qu'il/elle a aimés.",
+      "prompt": "Je suis un(e) ami(e) francophone. Vous devez écrire un article sur un film pour la revue de votre association culturelle francophone. Vous cherchez des idées. Vous m'interrogez sur les films que j'ai aimés (genre, lieu, prix, etc.).",
       "questions": [
         {
           "text": "Salut ! Je dois écrire un article sur un film pour notre revue — tu pourrais m'aider à trouver des idées ?",
@@ -75,9 +75,9 @@
       ]
     },
     {
-      "number": 22,
+      "number": 12,
       "title": "Voyage touristique – Agence de voyages",
-      "prompt": "Vous voulez faire un voyage touristique et entrez dans une agence de voyages. Posez des questions sur les destinations, circuits, tarifs, activités et autres informations utiles.",
+      "prompt": "Je suis un(e) employé(e) dans une agence de voyages. Vous voulez faire un voyage touristique. Vous entrez dans mon agence de voyages. Vous me demandez des informations sur les destinations (circuits touristiques, tarifs, activités, etc.).",
       "questions": [
         {
           "text": "Bonjour ! Je voudrais organiser un voyage touristique — pouvez-vous me donner un aperçu des options disponibles ?",
@@ -143,9 +143,9 @@
       ]
     },
     {
-      "number": 23,
+      "number": 13,
       "title": "Organisation d'une fête entre voisins",
-      "prompt": "Vous souhaitez organiser une fête entre voisins et posez des questions à votre voisin(e) pour obtenir des conseils sur l'organisation.",
+      "prompt": "Je suis votre voisin(e). Vous souhaitez organiser une fête entre voisins. Vous me demandez des conseils pour l'organisation (invités, type de repas, musique, etc.).",
       "questions": [
         {
           "text": "Bonjour ! Je voudrais organiser une petite fête entre voisins — vous pourriez me donner quelques conseils ?",
@@ -210,9 +210,9 @@
       ]
     },
     {
-      "number": 24,
+      "number": 14,
       "title": "Rencontrer de nouvelles personnes – Voisin",
-      "prompt": "Vous venez d'arriver dans la ville et ne connaissez personne. Vous demandez conseil à votre voisin(e) pour rencontrer de nouvelles personnes et vous intégrer.",
+      "prompt": "Je suis votre voisin(e). Vous venez d'arriver dans la ville et vous ne connaissez personne. Vous me demandez conseil pour rencontrer de nouvelles personnes.",
       "questions": [
         {
           "text": "Bonjour ! Je viens d'arriver dans la ville et je ne connais encore personne — vous pourriez me conseiller un peu ?",
@@ -278,9 +278,9 @@
       ]
     },
     {
-      "number": 25,
+      "number": 15,
       "title": "Rythme du travail au Canada – Comparaison",
-      "prompt": "Vous vous intéressez au rythme du travail au Canada. Posez des questions à votre ami(e) sur les horaires de travail et les jours de congé et comparez avec votre pays.",
+      "prompt": "Vous vous intéressez au rythme du travail au Canada. Interrogez-moi sur les horaires de travail et les jours de congé au Canada. Comparez avec la situation dans votre pays.",
       "questions": [
         {
           "text": "Bonjour ! Je m'intéresse au rythme du travail au Canada — tu pourrais m'aider à mieux comprendre ?",

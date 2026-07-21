@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "excursions",
           "english": "excursions",
-          "example": "Le tarif comprend quoi exactement — transport, repas, excursions sont inclus ?",
+          "example": "Le tarif comprend quoi exactement — le transport, les repas et les excursions sont-ils inclus ?",
           "usage": "Nom féminin pluriel désignant les sorties organisées incluses dans un séjour."
         },
         {
@@ -846,18 +846,18 @@
         {
           "id": "T2F2S29V14",
           "kind": "collocation",
-          "french": "réserver à l'avance",
-          "english": "to book in advance",
-          "example": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?",
-          "usage": "Collocation verbe + locution adverbiale pour exprimer une démarche anticipée."
+          "french": "réserver l'hébergement à l'avance",
+          "english": "book accommodation in advance",
+          "example": "Faut-il réserver l'hébergement à l'avance ou peut-on encore en trouver facilement sur place ?",
+          "usage": "Collocation utile pour anticiper la réservation d'un logement."
         },
         {
           "id": "T2F2S29V15",
           "kind": "collocation",
-          "french": "trouver facilement sur place",
-          "english": "to easily find something on-site",
-          "example": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?",
-          "usage": "Verbe + adverbe + locution adverbiale pour exprimer une disponibilité immédiate."
+          "french": "en trouver facilement sur place",
+          "english": "find some easily on-site",
+          "example": "Faut-il réserver l'hébergement à l'avance ou peut-on encore en trouver facilement sur place ?",
+          "usage": "Le pronom « en » reprend l'hébergement déjà mentionné."
         },
         {
           "id": "T2F2S29V16",
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "Le tarif comprend quoi exactement",
           "english": "What exactly does the rate include",
-          "example": "Le tarif comprend quoi exactement — transport, repas, excursions sont inclus ?",
+          "example": "Le tarif comprend quoi exactement — le transport, les repas et les excursions sont-ils inclus ?",
           "usage": "Question avec ordre sujet-verbe-complément interrogatif « quoi », registre semi-formel à l'oral."
         },
         {

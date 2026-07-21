@@ -1,0 +1,85 @@
+<div
+  class="tache-two-batch-table-shell"
+  data-collection-view
+  data-collection-view-panel="table">
+  <table class="tache-two-batch-table">
+    <caption class="sr-only">Batchs de sujets regroupés par mois</caption>
+    <colgroup>
+      <col class="tache-two-batch-table__batch-column">
+      <col class="tache-two-batch-table__subject-column">
+      <col class="tache-two-batch-table__question-column">
+      <col class="tache-two-batch-table__progress-column">
+      <col class="tache-two-batch-table__action-column">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Batch</th>
+        <th scope="col">Sujets</th>
+        <th scope="col">Questions</th>
+        <th scope="col">Progression</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    {% for month in subject_months %}
+      <tbody
+        id="subject-month-table-{{ month.slug }}"
+        data-tache-two-month-group>
+        <tr class="tache-two-batch-table__month-row">
+          <th colspan="5" scope="rowgroup">
+            <button
+              class="tache-two-batch-table__month-toggle"
+              type="button"
+              aria-expanded="true"
+              aria-controls="subject-month-table-{{ month.slug }}"
+              aria-label="Réduire {{ month.name }}"
+              data-tache-two-month-key="{{ month.slug }}"
+              data-tache-two-month-name="{{ month.name }}"
+              data-tache-two-month-toggle>
+              <span class="tache-two-batch-table__month-chevron" aria-hidden="true">
+                {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
+              </span>
+              <span class="tache-two-batch-table__month-copy">
+                <strong>{{ month.name }}</strong>
+                <span>Mois {{ month.number|stringformat:"02d" }} · {{ month.batch_count }} batch{{ month.batch_count|pluralize }} · {{ month.subject_count }} sujets</span>
+              </span>
+              <span class="tache-two-batch-table__month-progress">
+                <span class="progress-status progress-status--{{ month.progress.status }}">{{ month.progress.label }}</span>
+                <span>{{ month.completed }}/{{ month.total }} terminés</span>
+              </span>
+            </button>
+          </th>
+        </tr>
+        {% for batch in month.batches %}
+          <tr class="tache-two-batch-table__row" data-tache-two-month-row>
+            <th scope="row">
+              <a
+                class="tache-two-batch-table__batch-link"
+                data-tache-two-subject-table-link
+                href="{% url 'study:task_subject_batch' part.slug task.slug month.slug batch.number %}">
+                {% include "study/partials/ui_icon.html" with name="file-text" only %}
+                <span>Batch {{ batch.number_label }}</span>
+              </a>
+            </th>
+            <td>
+              <strong>Sujets {{ batch.first_subject_number }}–{{ batch.last_subject_number }}</strong>
+              <span>{{ month.name }}</span>
+            </td>
+            <td class="tache-two-batch-table__question-count">{{ batch.question_count }}</td>
+            <td class="tache-two-batch-table__progress">
+              {% include "study/partials/tache_two_progress.html" with summary=batch unit_label="sujets terminés" compact=True only %}
+            </td>
+            <td>
+              <a
+                class="tache-two-batch-table__action"
+                href="{% url 'study:task_subject_batch' part.slug task.slug month.slug batch.number %}"
+                aria-label="Ouvrir {{ month.name }}, batch {{ batch.number }}">
+                <span>Ouvrir</span>
+                {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    {% endfor %}
+  </table>
+</div>

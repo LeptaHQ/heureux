@@ -1,0 +1,1230 @@
+{
+  "version": 1,
+  "subjects": [
+    {
+      "subject_key": "tache2:avril:batch-02:subject-06",
+      "entries": [
+        {
+          "id": "T2A4S6V01",
+          "kind": "mot-cle",
+          "french": "un séjour",
+          "english": "a trip",
+          "example": "Bonjour ! Je souhaite organiser un séjour au Canada — quelles destinations recommandez-vous ?",
+          "usage": "Nom masculin désignant un voyage avec une durée déterminée."
+        },
+        {
+          "id": "T2A4S6V02",
+          "kind": "mot-cle",
+          "french": "types de circuits",
+          "english": "kinds of tours",
+          "example": "Quels types de circuits proposez-vous — culture, nature, aventure, gastronomie ?",
+          "usage": "Groupe nominal désignant les différentes catégories d'itinéraires proposés."
+        },
+        {
+          "id": "T2A4S6V03",
+          "kind": "mot-cle",
+          "french": "une bonne période",
+          "english": "a good time (of year)",
+          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "usage": "Groupe nominal pour évaluer si un moment convient à un projet de voyage."
+        },
+        {
+          "id": "T2A4S6V04",
+          "kind": "mot-cle",
+          "french": "des vêtements particuliers",
+          "english": "specific clothing",
+          "example": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "usage": "Groupe nominal désignant des habits adaptés à des conditions climatiques précises."
+        },
+        {
+          "id": "T2A4S6V05",
+          "kind": "mot-cle",
+          "french": "l'hébergement",
+          "english": "the accommodation",
+          "example": "C'est dans quelle gamme de prix pour l'hébergement — plutôt cher ou abordable ?",
+          "usage": "Nom masculin désignant le logement prévu pendant un séjour."
+        },
+        {
+          "id": "T2A4S6V06",
+          "kind": "mot-cle",
+          "french": "gamme de prix",
+          "english": "price range",
+          "example": "C'est dans quelle gamme de prix pour l'hébergement — plutôt cher ou abordable ?",
+          "usage": "Groupe nominal courant pour évoquer un niveau de tarifs."
+        },
+        {
+          "id": "T2A4S6V07",
+          "kind": "mot-cle",
+          "french": "excursions",
+          "english": "excursions",
+          "example": "Le tarif comprend quoi exactement — le transport, les repas et les excursions sont-ils inclus ?",
+          "usage": "Nom féminin pluriel désignant les sorties organisées incluses dans un séjour."
+        },
+        {
+          "id": "T2A4S6V08",
+          "kind": "mot-cle",
+          "french": "les étudiants, les seniors ou les familles",
+          "english": "students, seniors, or families",
+          "example": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "usage": "Énumération figée des publics bénéficiant généralement de conditions tarifaires spécifiques."
+        },
+        {
+          "id": "T2A4S6V09",
+          "kind": "mot-cle",
+          "french": "le circuit le plus apprécié",
+          "english": "the most popular tour",
+          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
+          "usage": "Groupe nominal superlatif désignant l'itinéraire préféré des voyageurs."
+        },
+        {
+          "id": "T2A4S6V10",
+          "kind": "mot-cle",
+          "french": "une seule destination",
+          "english": "a single destination",
+          "example": "Pour finir — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
+          "usage": "Groupe nominal restrictif utilisé pour demander une unique recommandation de lieu."
+        },
+        {
+          "id": "T2A4S6V11",
+          "kind": "collocation",
+          "french": "organiser un séjour",
+          "english": "to organise a trip",
+          "example": "Bonjour ! Je souhaite organiser un séjour au Canada — quelles destinations recommandez-vous ?",
+          "usage": "Collocation verbe + nom pour exprimer la planification d'un voyage."
+        },
+        {
+          "id": "T2A4S6V12",
+          "kind": "collocation",
+          "french": "il vaut mieux attendre",
+          "english": "it's better to wait",
+          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "usage": "Expression impersonnelle figée suivie d'un infinitif pour formuler une recommandation prudente."
+        },
+        {
+          "id": "T2A4S6V13",
+          "kind": "collocation",
+          "french": "il y a beaucoup de monde",
+          "english": "there are a lot of people",
+          "example": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
+          "usage": "Expression idiomatique fixe pour indiquer une forte affluence."
+        },
+        {
+          "id": "T2A4S6V14",
+          "kind": "collocation",
+          "french": "réserver l'hébergement à l'avance",
+          "english": "book accommodation in advance",
+          "example": "Faut-il réserver l'hébergement à l'avance ou peut-on encore en trouver facilement sur place ?",
+          "usage": "Collocation utile pour anticiper la réservation d'un logement."
+        },
+        {
+          "id": "T2A4S6V15",
+          "kind": "collocation",
+          "french": "en trouver facilement sur place",
+          "english": "find some easily on-site",
+          "example": "Faut-il réserver l'hébergement à l'avance ou peut-on encore en trouver facilement sur place ?",
+          "usage": "Le pronom « en » reprend l'hébergement déjà mentionné."
+        },
+        {
+          "id": "T2A4S6V16",
+          "kind": "collocation",
+          "french": "au total par personne",
+          "english": "in total per person",
+          "example": "Parlons du budget — combien est-ce que ça coûte approximativement au total par personne ?",
+          "usage": "Locution figée pour préciser qu'un montant global est calculé par individu."
+        },
+        {
+          "id": "T2A4S6V17",
+          "kind": "collocation",
+          "french": "payer en plusieurs fois",
+          "english": "to pay in instalments",
+          "example": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "usage": "Collocation verbe + locution pour exprimer un règlement fractionné."
+        },
+        {
+          "id": "T2A4S6V18",
+          "kind": "collocation",
+          "french": "régler en une seule fois",
+          "english": "to settle in one go",
+          "example": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "usage": "Collocation verbe + locution restrictive pour exprimer un paiement unique."
+        },
+        {
+          "id": "T2A4S6V19",
+          "kind": "collocation",
+          "french": "prévoir des vêtements particuliers",
+          "english": "to bring specific clothing",
+          "example": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "usage": "Collocation verbe + complément pour exprimer une anticipation vestimentaire liée au climat."
+        },
+        {
+          "id": "T2A4S6V20",
+          "kind": "collocation",
+          "french": "de bons endroits où dormir",
+          "english": "good places to stay",
+          "example": "Vous connaissez de bons endroits où dormir — hôtels, appartements, auberges ?",
+          "usage": "Groupe nominal avec relative introduite par « où » pour désigner des lieux d'hébergement recommandés."
+        },
+        {
+          "id": "T2A4S6V21",
+          "kind": "tournure",
+          "french": "quelles destinations recommandez-vous",
+          "english": "which destinations do you recommend",
+          "example": "Bonjour ! Je souhaite organiser un séjour au Canada — quelles destinations recommandez-vous ?",
+          "usage": "Question directe avec inversion « recommandez-vous », registre vouvoiement, adaptée à un professionnel."
+        },
+        {
+          "id": "T2A4S6V22",
+          "kind": "tournure",
+          "french": "Quels types de circuits proposez-vous",
+          "english": "What kinds of tours do you offer",
+          "example": "Quels types de circuits proposez-vous — culture, nature, aventure, gastronomie ?",
+          "usage": "Question avec inversion « proposez-vous » précédée du groupe interrogatif « quels types de »."
+        },
+        {
+          "id": "T2A4S6V23",
+          "kind": "tournure",
+          "french": "Quel temps fait-il généralement à cette époque",
+          "english": "What is the weather generally like at that time",
+          "example": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "usage": "Tournure impersonnelle « il fait » avec inversion, introduite par « quel temps »."
+        },
+        {
+          "id": "T2A4S6V24",
+          "kind": "tournure",
+          "french": "Combien de temps faut-il prévoir pour ce type de séjour",
+          "english": "How much time should be planned for this type of trip",
+          "example": "Combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
+          "usage": "Question impersonnelle avec « faut-il » et groupe interrogatif « combien de temps » antéposé."
+        },
+        {
+          "id": "T2A4S6V25",
+          "kind": "tournure",
+          "french": "Vous connaissez de bons endroits où dormir",
+          "english": "Do you know good places to stay",
+          "example": "Vous connaissez de bons endroits où dormir — hôtels, appartements, auberges ?",
+          "usage": "Question directe simple, registre vouvoiement, suivie d'une relative introduite par « où »."
+        },
+        {
+          "id": "T2A4S6V26",
+          "kind": "tournure",
+          "french": "C'est dans quelle gamme de prix pour l'hébergement",
+          "english": "What is the price range for accommodation",
+          "example": "C'est dans quelle gamme de prix pour l'hébergement — plutôt cher ou abordable ?",
+          "usage": "Tournure orale avec « c'est » sujet et groupe interrogatif « quelle gamme de prix » postposé."
+        },
+        {
+          "id": "T2A4S6V27",
+          "kind": "tournure",
+          "french": "Le tarif comprend quoi exactement",
+          "english": "What exactly does the rate include",
+          "example": "Le tarif comprend quoi exactement — le transport, les repas et les excursions sont-ils inclus ?",
+          "usage": "Question avec ordre sujet-verbe-complément interrogatif « quoi », registre semi-formel à l'oral."
+        },
+        {
+          "id": "T2A4S6V28",
+          "kind": "tournure",
+          "french": "Est-ce qu'il est possible de payer en plusieurs fois",
+          "english": "Is it possible to pay in instalments",
+          "example": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "usage": "Tournure avec « est-ce que » suivie d'un adjectif attribut et d'un complément à l'infinitif."
+        },
+        {
+          "id": "T2A4S6V29",
+          "kind": "tournure",
+          "french": "Vous avez mentionné le circuit le plus apprécié",
+          "english": "You mentioned the most popular tour",
+          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
+          "usage": "Structure de relance au passé composé, registre vouvoiement, pour revenir sur un point déjà cité."
+        },
+        {
+          "id": "T2A4S6V30",
+          "kind": "tournure",
+          "french": "si vous ne deviez me recommander qu'une seule destination",
+          "english": "if you only had to recommend one destination",
+          "example": "Pour finir — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
+          "usage": "Proposition hypothétique avec restriction « ne... que », registre vouvoiement, pour clore l'échange."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:avril:batch-02:subject-07",
+      "entries": [
+        {
+          "id": "T2A4S7V01",
+          "kind": "mot-cle",
+          "french": "pistes cyclables",
+          "english": "bike lanes",
+          "example": "Est-ce que la ville est bien adaptée au vélo — il y a beaucoup de pistes cyclables ?",
+          "usage": "Groupe nominal désignant les voies réservées aux vélos."
+        },
+        {
+          "id": "T2A4S7V02",
+          "kind": "mot-cle",
+          "french": "la circulation",
+          "english": "traffic",
+          "example": "Les pistes cyclables sont-elles sécurisées et bien séparées de la circulation ?",
+          "usage": "Nom féminin désignant le trafic des véhicules."
+        },
+        {
+          "id": "T2A4S7V03",
+          "kind": "mot-cle",
+          "french": "les meilleurs itinéraires",
+          "english": "the best routes",
+          "example": "Quels sont les meilleurs itinéraires pour se déplacer au quotidien ou pour se balader le week-end ?",
+          "usage": "Groupe nominal superlatif désignant les trajets recommandés."
+        },
+        {
+          "id": "T2A4S7V04",
+          "kind": "mot-cle",
+          "french": "des agences",
+          "english": "agencies",
+          "example": "Si je n'ai pas encore de vélo, tu connais des agences où en louer ?",
+          "usage": "Nom féminin pluriel désignant les points de location de vélos."
+        },
+        {
+          "id": "T2A4S7V05",
+          "kind": "mot-cle",
+          "french": "un casque",
+          "english": "a helmet",
+          "example": "Côté matériel, qu'est-ce qu'il faut absolument prévoir — un casque, un antivol et des lumières ?",
+          "usage": "Nom masculin désignant l'équipement de protection de la tête."
+        },
+        {
+          "id": "T2A4S7V06",
+          "kind": "mot-cle",
+          "french": "un antivol",
+          "english": "a bike lock",
+          "example": "Côté matériel, qu'est-ce qu'il faut absolument prévoir — un casque, un antivol et des lumières ?",
+          "usage": "Nom masculin désignant le dispositif contre le vol."
+        },
+        {
+          "id": "T2A4S7V07",
+          "kind": "mot-cle",
+          "french": "des lumières",
+          "english": "lights",
+          "example": "Côté matériel, qu'est-ce qu'il faut absolument prévoir — un casque, un antivol et des lumières ?",
+          "usage": "Nom féminin pluriel désignant l'éclairage du vélo."
+        },
+        {
+          "id": "T2A4S7V08",
+          "kind": "mot-cle",
+          "french": "en libre-service",
+          "english": "self-service",
+          "example": "Est-ce qu'il y a aussi des vélos en libre-service un peu partout dans la ville ?",
+          "usage": "Locution désignant les vélos en accès partagé."
+        },
+        {
+          "id": "T2A4S7V09",
+          "kind": "mot-cle",
+          "french": "la neige",
+          "english": "snow",
+          "example": "En hiver, avec la neige, est-ce qu'on peut continuer à rouler ou c'est trop compliqué ?",
+          "usage": "Nom féminin désignant les conditions hivernales."
+        },
+        {
+          "id": "T2A4S7V10",
+          "kind": "mot-cle",
+          "french": "un seul conseil",
+          "english": "a single piece of advice",
+          "example": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien rouler à Ottawa, ce serait lequel ?",
+          "usage": "Groupe nominal restrictif utilisé pour demander l'essentiel."
+        },
+        {
+          "id": "T2A4S7V11",
+          "kind": "collocation",
+          "french": "me déplacer à vélo",
+          "english": "to get around by bike",
+          "example": "Salut ! Je viens d'arriver à Ottawa et j'aimerais me déplacer à vélo — tu pourrais me donner quelques conseils ?",
+          "usage": "Collocation verbe pronominal + moyen de transport."
+        },
+        {
+          "id": "T2A4S7V12",
+          "kind": "collocation",
+          "french": "bien adaptée au vélo",
+          "english": "well suited to cycling",
+          "example": "Est-ce que la ville est bien adaptée au vélo — il y a beaucoup de pistes cyclables ?",
+          "usage": "Collocation adjectif + complément pour qualifier une ville cyclable."
+        },
+        {
+          "id": "T2A4S7V13",
+          "kind": "collocation",
+          "french": "bien séparées de la circulation",
+          "english": "well separated from traffic",
+          "example": "Les pistes cyclables sont-elles sécurisées et bien séparées de la circulation ?",
+          "usage": "Collocation participe + complément sur la sécurité des pistes."
+        },
+        {
+          "id": "T2A4S7V14",
+          "kind": "collocation",
+          "french": "se déplacer au quotidien",
+          "english": "to get around day to day",
+          "example": "Quels sont les meilleurs itinéraires pour se déplacer au quotidien ou pour se balader le week-end ?",
+          "usage": "Locution verbale pour les déplacements réguliers."
+        },
+        {
+          "id": "T2A4S7V15",
+          "kind": "collocation",
+          "french": "des agences où en louer",
+          "english": "agencies where to rent one",
+          "example": "Si je n'ai pas encore de vélo, tu connais des agences où en louer ?",
+          "usage": "Groupe nominal avec relative « où » et pronom « en »."
+        },
+        {
+          "id": "T2A4S7V16",
+          "kind": "collocation",
+          "french": "à l'heure, à la journée",
+          "english": "by the hour, by the day",
+          "example": "Comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "usage": "Énumération de formules de location dans le temps."
+        },
+        {
+          "id": "T2A4S7V17",
+          "kind": "collocation",
+          "french": "absolument prévoir",
+          "english": "to be sure to bring",
+          "example": "Côté matériel, qu'est-ce qu'il faut absolument prévoir — un casque, un antivol et des lumières ?",
+          "usage": "Collocation adverbe + verbe pour insister sur le nécessaire."
+        },
+        {
+          "id": "T2A4S7V18",
+          "kind": "collocation",
+          "french": "rouler en toute sécurité",
+          "english": "to ride safely",
+          "example": "Comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
+          "usage": "Locution verbale exprimant la conduite prudente."
+        },
+        {
+          "id": "T2A4S7V19",
+          "kind": "collocation",
+          "french": "emporter son vélo",
+          "english": "to take your bike along",
+          "example": "Est-ce qu'on peut emporter son vélo dans le bus ou le train si on est fatigué ?",
+          "usage": "Collocation verbe + nom sur le transport du vélo."
+        },
+        {
+          "id": "T2A4S7V20",
+          "kind": "collocation",
+          "french": "faire réparer ou entretenir son vélo",
+          "english": "to have your bike repaired or serviced",
+          "example": "Où est-ce qu'on peut faire réparer ou entretenir son vélo dans le coin ?",
+          "usage": "Collocation causative « faire + infinitif » sur l'entretien."
+        },
+        {
+          "id": "T2A4S7V21",
+          "kind": "tournure",
+          "french": "Est-ce que la ville est bien adaptée au vélo",
+          "english": "Is the city well suited to cycling",
+          "example": "Est-ce que la ville est bien adaptée au vélo — il y a beaucoup de pistes cyclables ?",
+          "usage": "Question avec « est-ce que » sur le caractère cyclable de la ville."
+        },
+        {
+          "id": "T2A4S7V22",
+          "kind": "tournure",
+          "french": "Les pistes cyclables sont-elles sécurisées",
+          "english": "Are the bike lanes safe",
+          "example": "Les pistes cyclables sont-elles sécurisées et bien séparées de la circulation ?",
+          "usage": "Question avec inversion sur la sécurité des pistes."
+        },
+        {
+          "id": "T2A4S7V23",
+          "kind": "tournure",
+          "french": "Quels sont les meilleurs itinéraires",
+          "english": "What are the best routes",
+          "example": "Quels sont les meilleurs itinéraires pour se déplacer au quotidien ou pour se balader le week-end ?",
+          "usage": "Question avec « quels sont » pour recenser les trajets."
+        },
+        {
+          "id": "T2A4S7V24",
+          "kind": "tournure",
+          "french": "Comment fonctionnent les tarifs de location",
+          "english": "How do the rental rates work",
+          "example": "Comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "usage": "Question ouverte sur la tarification de la location."
+        },
+        {
+          "id": "T2A4S7V25",
+          "kind": "tournure",
+          "french": "Est-ce qu'il y a aussi des vélos en libre-service",
+          "english": "Are there also self-service bikes",
+          "example": "Est-ce qu'il y a aussi des vélos en libre-service un peu partout dans la ville ?",
+          "usage": "Question avec « est-ce qu'il y a » sur les vélos partagés."
+        },
+        {
+          "id": "T2A4S7V26",
+          "kind": "tournure",
+          "french": "Côté matériel, qu'est-ce qu'il faut absolument prévoir",
+          "english": "Equipment-wise, what do you absolutely need to bring",
+          "example": "Côté matériel, qu'est-ce qu'il faut absolument prévoir — un casque, un antivol et des lumières ?",
+          "usage": "Tournure « côté + thème » suivie de « qu'est-ce qu'il faut »."
+        },
+        {
+          "id": "T2A4S7V27",
+          "kind": "tournure",
+          "french": "Est-ce qu'un casque est obligatoire à Ottawa",
+          "english": "Is a helmet mandatory in Ottawa",
+          "example": "Est-ce qu'un casque est obligatoire à Ottawa ou seulement recommandé ?",
+          "usage": "Question avec « est-ce que » sur une obligation locale."
+        },
+        {
+          "id": "T2A4S7V28",
+          "kind": "tournure",
+          "french": "Comment faire pour rouler en toute sécurité",
+          "english": "How to ride safely",
+          "example": "Comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
+          "usage": "Question « comment faire pour » + infinitif pour des conseils."
+        },
+        {
+          "id": "T2A4S7V29",
+          "kind": "tournure",
+          "french": "En hiver, avec la neige, est-ce qu'on peut continuer à rouler",
+          "english": "In winter, with the snow, can you keep riding",
+          "example": "En hiver, avec la neige, est-ce qu'on peut continuer à rouler ou c'est trop compliqué ?",
+          "usage": "Question conditionnée par le contexte hivernal."
+        },
+        {
+          "id": "T2A4S7V30",
+          "kind": "tournure",
+          "french": "Où est-ce qu'on peut faire réparer ou entretenir son vélo",
+          "english": "Where can you get your bike repaired or serviced",
+          "example": "Où est-ce qu'on peut faire réparer ou entretenir son vélo dans le coin ?",
+          "usage": "Question avec « où est-ce qu'on peut » sur l'entretien."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:avril:batch-02:subject-08",
+      "entries": [
+        {
+          "id": "T2A4S8V01",
+          "kind": "mot-cle",
+          "french": "une baby-sitter",
+          "english": "a babysitter",
+          "example": "Salut ! Tu m'as dit que tu cherches une baby-sitter — je connais peut-être quelqu'un, mais pourrais-tu d'abord m'en dire un peu plus ?",
+          "usage": "Nom désignant la personne qui garde les enfants."
+        },
+        {
+          "id": "T2A4S8V02",
+          "kind": "mot-cle",
+          "french": "les tâches",
+          "english": "the tasks",
+          "example": "Quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
+          "usage": "Nom féminin pluriel désignant les missions confiées."
+        },
+        {
+          "id": "T2A4S8V03",
+          "kind": "mot-cle",
+          "french": "les repas",
+          "english": "the meals",
+          "example": "Quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
+          "usage": "Nom masculin pluriel désignant les repas à préparer."
+        },
+        {
+          "id": "T2A4S8V04",
+          "kind": "mot-cle",
+          "french": "aux devoirs",
+          "english": "with homework",
+          "example": "Quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
+          "usage": "Locution désignant l'aide aux devoirs scolaires."
+        },
+        {
+          "id": "T2A4S8V05",
+          "kind": "mot-cle",
+          "french": "du ménage",
+          "english": "housework",
+          "example": "Est-ce qu'il faudrait aussi s'occuper un peu du ménage ou seulement des enfants ?",
+          "usage": "Locution désignant les tâches d'entretien du domicile."
+        },
+        {
+          "id": "T2A4S8V06",
+          "kind": "mot-cle",
+          "french": "un tarif horaire",
+          "english": "an hourly rate",
+          "example": "Côté salaire, tu proposes combien — c'est un tarif horaire ?",
+          "usage": "Groupe nominal désignant la rémunération à l'heure."
+        },
+        {
+          "id": "T2A4S8V07",
+          "kind": "mot-cle",
+          "french": "des références",
+          "english": "references",
+          "example": "Est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
+          "usage": "Nom féminin pluriel désignant les recommandations d'anciens employeurs."
+        },
+        {
+          "id": "T2A4S8V08",
+          "kind": "mot-cle",
+          "french": "un diplôme de premiers secours",
+          "english": "a first-aid certificate",
+          "example": "Est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
+          "usage": "Groupe nominal désignant une qualification en secourisme."
+        },
+        {
+          "id": "T2A4S8V09",
+          "kind": "mot-cle",
+          "french": "des allergies",
+          "english": "allergies",
+          "example": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
+          "usage": "Nom féminin pluriel désignant les réactions à certains aliments."
+        },
+        {
+          "id": "T2A4S8V10",
+          "kind": "mot-cle",
+          "french": "des exigences particulières",
+          "english": "specific requirements",
+          "example": "Est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
+          "usage": "Groupe nominal désignant les attentes précises de l'employeur."
+        },
+        {
+          "id": "T2A4S8V11",
+          "kind": "collocation",
+          "french": "tu cherches une baby-sitter",
+          "english": "you are looking for a babysitter",
+          "example": "Salut ! Tu m'as dit que tu cherches une baby-sitter — je connais peut-être quelqu'un, mais pourrais-tu d'abord m'en dire un peu plus ?",
+          "usage": "Collocation verbe + nom sur la recherche d'une garde."
+        },
+        {
+          "id": "T2A4S8V12",
+          "kind": "collocation",
+          "french": "garder combien d'enfants",
+          "english": "to look after how many children",
+          "example": "C'est pour garder combien d'enfants — et ils ont quel âge ?",
+          "usage": "Collocation verbe + interrogatif sur le nombre d'enfants."
+        },
+        {
+          "id": "T2A4S8V13",
+          "kind": "collocation",
+          "french": "quelqu'un de régulier",
+          "english": "someone regular",
+          "example": "De quoi as-tu besoin exactement — quelqu'un de régulier ou seulement de temps en temps ?",
+          "usage": "Groupe nominal « quelqu'un de + adjectif » sur la régularité."
+        },
+        {
+          "id": "T2A4S8V14",
+          "kind": "collocation",
+          "french": "combien d'heures par semaine",
+          "english": "how many hours a week",
+          "example": "Ça représenterait combien d'heures par semaine environ ?",
+          "usage": "Locution interrogative sur le volume horaire hebdomadaire."
+        },
+        {
+          "id": "T2A4S8V15",
+          "kind": "collocation",
+          "french": "surveiller les enfants",
+          "english": "to watch the children",
+          "example": "Quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
+          "usage": "Collocation verbe + nom sur la surveillance."
+        },
+        {
+          "id": "T2A4S8V16",
+          "kind": "collocation",
+          "french": "préparer les repas",
+          "english": "to prepare the meals",
+          "example": "Quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
+          "usage": "Collocation verbe + nom sur la préparation des repas."
+        },
+        {
+          "id": "T2A4S8V17",
+          "kind": "collocation",
+          "french": "aller les chercher à l'école",
+          "english": "to pick them up from school",
+          "example": "Faut-il aller les chercher à l'école ou les emmener à des activités ?",
+          "usage": "Collocation verbale sur le trajet scolaire."
+        },
+        {
+          "id": "T2A4S8V18",
+          "kind": "collocation",
+          "french": "des habitudes ou des règles importantes",
+          "english": "important habits or rules",
+          "example": "Est-ce qu'il y a des habitudes ou des règles importantes à respecter avec tes enfants ?",
+          "usage": "Groupe nominal sur le cadre à respecter avec les enfants."
+        },
+        {
+          "id": "T2A4S8V19",
+          "kind": "collocation",
+          "french": "des choses à éviter côté alimentation",
+          "english": "things to avoid regarding food",
+          "example": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
+          "usage": "Groupe nominal avec infinitif de but sur l'alimentation."
+        },
+        {
+          "id": "T2A4S8V20",
+          "kind": "collocation",
+          "french": "te joindre pendant ton absence",
+          "english": "to reach you while you're away",
+          "example": "En cas d'urgence, comment est-ce qu'on peut te joindre pendant ton absence ?",
+          "usage": "Collocation verbe + complément sur la joignabilité."
+        },
+        {
+          "id": "T2A4S8V21",
+          "kind": "tournure",
+          "french": "C'est pour garder combien d'enfants",
+          "english": "How many children is it to look after",
+          "example": "C'est pour garder combien d'enfants — et ils ont quel âge ?",
+          "usage": "Tournure orale « c'est pour » + interrogatif."
+        },
+        {
+          "id": "T2A4S8V22",
+          "kind": "tournure",
+          "french": "De quoi as-tu besoin exactement",
+          "english": "What exactly do you need",
+          "example": "De quoi as-tu besoin exactement — quelqu'un de régulier ou seulement de temps en temps ?",
+          "usage": "Question avec « de quoi » sur le besoin précis."
+        },
+        {
+          "id": "T2A4S8V23",
+          "kind": "tournure",
+          "french": "Quels jours et à quels horaires aurais-tu besoin d'elle",
+          "english": "Which days and times would you need her",
+          "example": "Quels jours et à quels horaires aurais-tu besoin d'elle — en journée, le soir ou le week-end ?",
+          "usage": "Question au conditionnel sur les disponibilités attendues."
+        },
+        {
+          "id": "T2A4S8V24",
+          "kind": "tournure",
+          "french": "Quelles seraient les tâches à faire",
+          "english": "What would the tasks be",
+          "example": "Quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
+          "usage": "Question au conditionnel sur les missions à accomplir."
+        },
+        {
+          "id": "T2A4S8V25",
+          "kind": "tournure",
+          "french": "Est-ce qu'il faudrait aussi s'occuper un peu du ménage",
+          "english": "Would you also need to do a bit of housework",
+          "example": "Est-ce qu'il faudrait aussi s'occuper un peu du ménage ou seulement des enfants ?",
+          "usage": "Question au conditionnel avec « il faudrait » sur le ménage."
+        },
+        {
+          "id": "T2A4S8V26",
+          "kind": "tournure",
+          "french": "Côté salaire, tu proposes combien",
+          "english": "Salary-wise, how much are you offering",
+          "example": "Côté salaire, tu proposes combien — c'est un tarif horaire ?",
+          "usage": "Tournure « côté + thème » pour aborder la rémunération."
+        },
+        {
+          "id": "T2A4S8V27",
+          "kind": "tournure",
+          "french": "Est-ce que tu as des exigences particulières",
+          "english": "Do you have any specific requirements",
+          "example": "Est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
+          "usage": "Question avec « est-ce que » sur les attentes."
+        },
+        {
+          "id": "T2A4S8V28",
+          "kind": "tournure",
+          "french": "Y a-t-il des allergies ou des choses à éviter",
+          "english": "Are there allergies or things to avoid",
+          "example": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
+          "usage": "Tournure « y a-t-il » sur les précautions alimentaires."
+        },
+        {
+          "id": "T2A4S8V29",
+          "kind": "tournure",
+          "french": "En cas d'urgence, comment est-ce qu'on peut te joindre",
+          "english": "In an emergency, how can we reach you",
+          "example": "En cas d'urgence, comment est-ce qu'on peut te joindre pendant ton absence ?",
+          "usage": "Tournure « en cas de » suivie d'une question pratique."
+        },
+        {
+          "id": "T2A4S8V30",
+          "kind": "tournure",
+          "french": "Quand aimerais-tu que ça commence",
+          "english": "When would you like it to start",
+          "example": "Quand aimerais-tu que ça commence — c'est assez urgent ?",
+          "usage": "Question au conditionnel avec subjonctif sur la date de début."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:avril:batch-02:subject-09",
+      "entries": [
+        {
+          "id": "T2A4S9V01",
+          "kind": "mot-cle",
+          "french": "les services proposés",
+          "english": "the services offered",
+          "example": "Bonjour ! Je séjourne dans votre hôtel et j'aimerais en savoir plus sur les services proposés — vous pourriez me renseigner ?",
+          "usage": "Groupe nominal désignant les prestations de l'hôtel."
+        },
+        {
+          "id": "T2A4S9V02",
+          "kind": "mot-cle",
+          "french": "le petit-déjeuner",
+          "english": "breakfast",
+          "example": "Quels services sont compris dans le prix de la chambre — le petit-déjeuner est-il inclus ?",
+          "usage": "Nom masculin désignant le premier repas de la journée."
+        },
+        {
+          "id": "T2A4S9V03",
+          "kind": "mot-cle",
+          "french": "un restaurant",
+          "english": "a restaurant",
+          "example": "À quelle heure sont servis le petit-déjeuner et les repas — et y a-t-il un restaurant sur place ?",
+          "usage": "Nom masculin désignant l'espace de restauration de l'hôtel."
+        },
+        {
+          "id": "T2A4S9V04",
+          "kind": "mot-cle",
+          "french": "un service en chambre",
+          "english": "room service",
+          "example": "Y a-t-il un service en chambre — et jusqu'à quelle heure ?",
+          "usage": "Groupe nominal désignant la prestation servie dans la chambre."
+        },
+        {
+          "id": "T2A4S9V05",
+          "kind": "mot-cle",
+          "french": "une piscine",
+          "english": "a swimming pool",
+          "example": "L'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa ?",
+          "usage": "Nom féminin désignant l'équipement de baignade."
+        },
+        {
+          "id": "T2A4S9V06",
+          "kind": "mot-cle",
+          "french": "une connexion Internet",
+          "english": "an internet connection",
+          "example": "Y a-t-il une connexion Internet dans les chambres — c'est gratuit ou payant ?",
+          "usage": "Groupe nominal désignant l'accès au réseau dans les chambres."
+        },
+        {
+          "id": "T2A4S9V07",
+          "kind": "mot-cle",
+          "french": "un parking",
+          "english": "a car park",
+          "example": "Est-ce qu'il y a un parking à l'hôtel — et est-il gratuit pour les clients ?",
+          "usage": "Nom masculin désignant l'espace de stationnement de l'hôtel."
+        },
+        {
+          "id": "T2A4S9V08",
+          "kind": "mot-cle",
+          "french": "mes bagages",
+          "english": "my luggage",
+          "example": "Est-il possible de laisser mes bagages à la réception après le départ ?",
+          "usage": "Nom masculin pluriel désignant les valises du client."
+        },
+        {
+          "id": "T2A4S9V09",
+          "kind": "mot-cle",
+          "french": "une navette",
+          "english": "a shuttle",
+          "example": "Est-ce que l'hôtel propose une navette pour l'aéroport ou le centre-ville ?",
+          "usage": "Nom féminin désignant le transport assuré par l'hôtel."
+        },
+        {
+          "id": "T2A4S9V10",
+          "kind": "mot-cle",
+          "french": "des services payants",
+          "english": "paid services",
+          "example": "Y a-t-il des services payants en supplément dont je devrais connaître les tarifs ?",
+          "usage": "Groupe nominal désignant les prestations facturées en plus."
+        },
+        {
+          "id": "T2A4S9V11",
+          "kind": "collocation",
+          "french": "en savoir plus sur les services",
+          "english": "to find out more about the services",
+          "example": "Bonjour ! Je séjourne dans votre hôtel et j'aimerais en savoir plus sur les services proposés — vous pourriez me renseigner ?",
+          "usage": "Collocation « en savoir plus sur » pour demander des informations."
+        },
+        {
+          "id": "T2A4S9V12",
+          "kind": "collocation",
+          "french": "compris dans le prix de la chambre",
+          "english": "included in the room price",
+          "example": "Quels services sont compris dans le prix de la chambre — le petit-déjeuner est-il inclus ?",
+          "usage": "Collocation participe + complément sur ce qui est inclus."
+        },
+        {
+          "id": "T2A4S9V13",
+          "kind": "collocation",
+          "french": "un service de blanchisserie",
+          "english": "a laundry service",
+          "example": "Proposez-vous un service de blanchisserie ou de repassage ?",
+          "usage": "Groupe nominal désignant la prestation de lavage du linge."
+        },
+        {
+          "id": "T2A4S9V14",
+          "kind": "collocation",
+          "french": "gratuit pour les clients",
+          "english": "free for guests",
+          "example": "Est-ce qu'il y a un parking à l'hôtel — et est-il gratuit pour les clients ?",
+          "usage": "Collocation adjectif + complément sur la gratuité d'un service."
+        },
+        {
+          "id": "T2A4S9V15",
+          "kind": "collocation",
+          "french": "libérer la chambre",
+          "english": "to check out of the room",
+          "example": "À quelle heure faut-il libérer la chambre le jour du départ — et peut-on la garder un peu plus longtemps ?",
+          "usage": "Collocation verbe + nom sur la restitution de la chambre."
+        },
+        {
+          "id": "T2A4S9V16",
+          "kind": "collocation",
+          "french": "le jour du départ",
+          "english": "on the day of departure",
+          "example": "À quelle heure faut-il libérer la chambre le jour du départ — et peut-on la garder un peu plus longtemps ?",
+          "usage": "Groupe nominal temporel désignant la date de départ."
+        },
+        {
+          "id": "T2A4S9V17",
+          "kind": "collocation",
+          "french": "laisser mes bagages à la réception",
+          "english": "to leave my luggage at reception",
+          "example": "Est-il possible de laisser mes bagages à la réception après le départ ?",
+          "usage": "Collocation verbe + complément sur la consigne des bagages."
+        },
+        {
+          "id": "T2A4S9V18",
+          "kind": "collocation",
+          "french": "de bons restaurants dans les environs",
+          "english": "good restaurants nearby",
+          "example": "Pouvez-vous m'indiquer de bons endroits à visiter ou de bons restaurants dans les environs ?",
+          "usage": "Groupe nominal sur les adresses de restauration proches."
+        },
+        {
+          "id": "T2A4S9V19",
+          "kind": "collocation",
+          "french": "en supplément",
+          "english": "as an extra charge",
+          "example": "Y a-t-il des services payants en supplément dont je devrais connaître les tarifs ?",
+          "usage": "Locution figée pour un coût facturé en plus."
+        },
+        {
+          "id": "T2A4S9V20",
+          "kind": "collocation",
+          "french": "en cas de problème dans la chambre",
+          "english": "in case of a problem in the room",
+          "example": "En cas de problème dans la chambre, à qui dois-je m'adresser et à quelle heure ?",
+          "usage": "Locution « en cas de » introduisant une situation à gérer."
+        },
+        {
+          "id": "T2A4S9V21",
+          "kind": "tournure",
+          "french": "Quels services sont compris dans le prix de la chambre",
+          "english": "Which services are included in the room price",
+          "example": "Quels services sont compris dans le prix de la chambre — le petit-déjeuner est-il inclus ?",
+          "usage": "Question avec « quels » sur les prestations incluses."
+        },
+        {
+          "id": "T2A4S9V22",
+          "kind": "tournure",
+          "french": "À quelle heure sont servis le petit-déjeuner et les repas",
+          "english": "What time are breakfast and meals served",
+          "example": "À quelle heure sont servis le petit-déjeuner et les repas — et y a-t-il un restaurant sur place ?",
+          "usage": "Question au passif avec « à quelle heure » sur les horaires de repas."
+        },
+        {
+          "id": "T2A4S9V23",
+          "kind": "tournure",
+          "french": "Y a-t-il un service en chambre",
+          "english": "Is there room service",
+          "example": "Y a-t-il un service en chambre — et jusqu'à quelle heure ?",
+          "usage": "Tournure « y a-t-il » sur l'existence du service en chambre."
+        },
+        {
+          "id": "T2A4S9V24",
+          "kind": "tournure",
+          "french": "L'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa",
+          "english": "Does the hotel have a gym, a pool or a spa",
+          "example": "L'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa ?",
+          "usage": "Question avec inversion « dispose-t-il » sur les installations."
+        },
+        {
+          "id": "T2A4S9V25",
+          "kind": "tournure",
+          "french": "Y a-t-il une connexion Internet dans les chambres",
+          "english": "Is there an internet connection in the rooms",
+          "example": "Y a-t-il une connexion Internet dans les chambres — c'est gratuit ou payant ?",
+          "usage": "Tournure « y a-t-il » sur l'accès à Internet."
+        },
+        {
+          "id": "T2A4S9V26",
+          "kind": "tournure",
+          "french": "Est-ce qu'il y a un parking à l'hôtel",
+          "english": "Is there a car park at the hotel",
+          "example": "Est-ce qu'il y a un parking à l'hôtel — et est-il gratuit pour les clients ?",
+          "usage": "Question avec « est-ce qu'il y a » sur le stationnement."
+        },
+        {
+          "id": "T2A4S9V27",
+          "kind": "tournure",
+          "french": "À quelle heure faut-il libérer la chambre le jour du départ",
+          "english": "What time do you have to check out on the day of departure",
+          "example": "À quelle heure faut-il libérer la chambre le jour du départ — et peut-on la garder un peu plus longtemps ?",
+          "usage": "Question impersonnelle avec « faut-il » sur l'heure de départ."
+        },
+        {
+          "id": "T2A4S9V28",
+          "kind": "tournure",
+          "french": "Est-ce que l'hôtel propose une navette pour l'aéroport",
+          "english": "Does the hotel offer a shuttle to the airport",
+          "example": "Est-ce que l'hôtel propose une navette pour l'aéroport ou le centre-ville ?",
+          "usage": "Question avec « est-ce que » sur le service de navette."
+        },
+        {
+          "id": "T2A4S9V29",
+          "kind": "tournure",
+          "french": "Y a-t-il des services payants en supplément",
+          "english": "Are there paid services at an extra charge",
+          "example": "Y a-t-il des services payants en supplément dont je devrais connaître les tarifs ?",
+          "usage": "Tournure « y a-t-il » sur les prestations facturées en plus."
+        },
+        {
+          "id": "T2A4S9V30",
+          "kind": "tournure",
+          "french": "si vous ne deviez me recommander qu'un seul service de l'hôtel",
+          "english": "if you had to recommend just one hotel service",
+          "example": "Pour finir — si vous ne deviez me recommander qu'un seul service de l'hôtel, ce serait lequel ?",
+          "usage": "Proposition hypothétique restrictive pour clore l'échange."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:avril:batch-02:subject-10",
+      "entries": [
+        {
+          "id": "T2A4S10V01",
+          "kind": "mot-cle",
+          "french": "du covoiturage",
+          "english": "carpooling",
+          "example": "Salut ! Tu m'as dit que tu fais du covoiturage — ça m'intéresse, tu pourrais m'expliquer comment ça marche ?",
+          "usage": "Locution désignant le partage d'un trajet en voiture."
+        },
+        {
+          "id": "T2A4S10V02",
+          "kind": "mot-cle",
+          "french": "ton chemin",
+          "english": "your route",
+          "example": "Tu pars d'où exactement, et est-ce que tu peux passer me prendre quelque part sur ton chemin ?",
+          "usage": "Groupe nominal désignant l'itinéraire habituel du conducteur."
+        },
+        {
+          "id": "T2A4S10V03",
+          "kind": "mot-cle",
+          "french": "des horaires",
+          "english": "the schedule",
+          "example": "Et au niveau des horaires, tu pars à quelle heure le matin et tu rentres quand ?",
+          "usage": "Nom masculin pluriel désignant les heures de départ et de retour."
+        },
+        {
+          "id": "T2A4S10V04",
+          "kind": "mot-cle",
+          "french": "les frais",
+          "english": "the costs",
+          "example": "Comment se répartissent les frais — on partage l'essence et le péage ?",
+          "usage": "Nom masculin pluriel désignant les dépenses partagées."
+        },
+        {
+          "id": "T2A4S10V05",
+          "kind": "mot-cle",
+          "french": "l'essence",
+          "english": "the petrol",
+          "example": "Comment se répartissent les frais — on partage l'essence et le péage ?",
+          "usage": "Nom féminin désignant le carburant dont le coût est partagé."
+        },
+        {
+          "id": "T2A4S10V06",
+          "kind": "mot-cle",
+          "french": "le péage",
+          "english": "the toll",
+          "example": "Comment se répartissent les frais — on partage l'essence et le péage ?",
+          "usage": "Nom masculin désignant les frais d'autoroute."
+        },
+        {
+          "id": "T2A4S10V07",
+          "kind": "mot-cle",
+          "french": "un trajet",
+          "english": "a trip",
+          "example": "Ça reviendrait à combien à peu près pour un trajet ?",
+          "usage": "Nom masculin désignant un déplacement d'un point à un autre."
+        },
+        {
+          "id": "T2A4S10V08",
+          "kind": "mot-cle",
+          "french": "le paiement",
+          "english": "the payment",
+          "example": "Le paiement se fait comment — en liquide à chaque fois ou par une application ?",
+          "usage": "Nom masculin désignant le règlement de la participation."
+        },
+        {
+          "id": "T2A4S10V09",
+          "kind": "mot-cle",
+          "french": "une plateforme de covoiturage",
+          "english": "a carpooling platform",
+          "example": "Est-ce qu'on passe par une plateforme de covoiturage ou c'est un arrangement entre nous ?",
+          "usage": "Groupe nominal désignant le service en ligne de mise en relation."
+        },
+        {
+          "id": "T2A4S10V10",
+          "kind": "mot-cle",
+          "french": "les passagers",
+          "english": "the passengers",
+          "example": "Est-ce que ton assurance couvre les passagers en cas de souci ?",
+          "usage": "Nom masculin pluriel désignant les personnes transportées."
+        },
+        {
+          "id": "T2A4S10V11",
+          "kind": "collocation",
+          "french": "tu fais du covoiturage",
+          "english": "you do carpooling",
+          "example": "Salut ! Tu m'as dit que tu fais du covoiturage — ça m'intéresse, tu pourrais m'expliquer comment ça marche ?",
+          "usage": "Collocation verbe « faire » + nom sur la pratique du covoiturage."
+        },
+        {
+          "id": "T2A4S10V12",
+          "kind": "collocation",
+          "french": "aller au travail",
+          "english": "to go to work",
+          "example": "Quels trajets fais-tu habituellement — c'est surtout pour aller au travail ou aussi pour de plus longs voyages ?",
+          "usage": "Collocation verbe + complément sur le trajet domicile-travail."
+        },
+        {
+          "id": "T2A4S10V13",
+          "kind": "collocation",
+          "french": "passer me prendre",
+          "english": "to pick me up",
+          "example": "Tu pars d'où exactement, et est-ce que tu peux passer me prendre quelque part sur ton chemin ?",
+          "usage": "Collocation verbale sur le fait de récupérer un passager."
+        },
+        {
+          "id": "T2A4S10V14",
+          "kind": "collocation",
+          "french": "tous les jours",
+          "english": "every day",
+          "example": "À quelle fréquence proposes-tu ces trajets — tous les jours ou seulement certains jours ?",
+          "usage": "Locution de fréquence exprimant la régularité quotidienne."
+        },
+        {
+          "id": "T2A4S10V15",
+          "kind": "collocation",
+          "french": "prévenir à l'avance",
+          "english": "to give advance notice",
+          "example": "Si un jour je ne peux pas venir, comment est-ce qu'on s'organise — il faut prévenir à l'avance ?",
+          "usage": "Collocation verbe + locution sur l'anticipation d'une annulation."
+        },
+        {
+          "id": "T2A4S10V16",
+          "kind": "collocation",
+          "french": "se répartissent les frais",
+          "english": "the costs are split",
+          "example": "Comment se répartissent les frais — on partage l'essence et le péage ?",
+          "usage": "Collocation verbe pronominal + sujet sur le partage des dépenses."
+        },
+        {
+          "id": "T2A4S10V17",
+          "kind": "collocation",
+          "french": "on partage l'essence et le péage",
+          "english": "we split the petrol and the toll",
+          "example": "Comment se répartissent les frais — on partage l'essence et le péage ?",
+          "usage": "Collocation verbe + compléments sur le partage des coûts."
+        },
+        {
+          "id": "T2A4S10V18",
+          "kind": "collocation",
+          "french": "en liquide à chaque fois",
+          "english": "in cash each time",
+          "example": "Le paiement se fait comment — en liquide à chaque fois ou par une application ?",
+          "usage": "Locution sur le mode de paiement en espèces."
+        },
+        {
+          "id": "T2A4S10V19",
+          "kind": "collocation",
+          "french": "il reste de la place",
+          "english": "there is room left",
+          "example": "Combien de personnes est-ce que tu prends en général — il reste de la place ?",
+          "usage": "Tournure impersonnelle figée sur la disponibilité de places."
+        },
+        {
+          "id": "T2A4S10V20",
+          "kind": "collocation",
+          "french": "couvre les passagers",
+          "english": "covers the passengers",
+          "example": "Est-ce que ton assurance couvre les passagers en cas de souci ?",
+          "usage": "Collocation verbe + complément sur la couverture d'assurance."
+        },
+        {
+          "id": "T2A4S10V21",
+          "kind": "tournure",
+          "french": "Quels trajets fais-tu habituellement",
+          "english": "Which trips do you usually make",
+          "example": "Quels trajets fais-tu habituellement — c'est surtout pour aller au travail ou aussi pour de plus longs voyages ?",
+          "usage": "Question avec « quels » sur les itinéraires habituels."
+        },
+        {
+          "id": "T2A4S10V22",
+          "kind": "tournure",
+          "french": "Tu pars d'où exactement",
+          "english": "Where exactly do you leave from",
+          "example": "Tu pars d'où exactement, et est-ce que tu peux passer me prendre quelque part sur ton chemin ?",
+          "usage": "Tournure orale avec « d'où » postposé sur le point de départ."
+        },
+        {
+          "id": "T2A4S10V23",
+          "kind": "tournure",
+          "french": "À quelle fréquence proposes-tu ces trajets",
+          "english": "How often do you offer these trips",
+          "example": "À quelle fréquence proposes-tu ces trajets — tous les jours ou seulement certains jours ?",
+          "usage": "Question avec « à quelle fréquence » sur le rythme."
+        },
+        {
+          "id": "T2A4S10V24",
+          "kind": "tournure",
+          "french": "tu pars à quelle heure le matin",
+          "english": "what time do you leave in the morning",
+          "example": "Et au niveau des horaires, tu pars à quelle heure le matin et tu rentres quand ?",
+          "usage": "Tournure orale avec « à quelle heure » postposé sur l'horaire."
+        },
+        {
+          "id": "T2A4S10V25",
+          "kind": "tournure",
+          "french": "comment est-ce qu'on s'organise",
+          "english": "how do we arrange things",
+          "example": "Si un jour je ne peux pas venir, comment est-ce qu'on s'organise — il faut prévenir à l'avance ?",
+          "usage": "Question avec « comment est-ce qu'on » sur l'organisation."
+        },
+        {
+          "id": "T2A4S10V26",
+          "kind": "tournure",
+          "french": "Comment se répartissent les frais",
+          "english": "How are the costs split",
+          "example": "Comment se répartissent les frais — on partage l'essence et le péage ?",
+          "usage": "Question avec « comment » sur le partage des dépenses."
+        },
+        {
+          "id": "T2A4S10V27",
+          "kind": "tournure",
+          "french": "Ça reviendrait à combien à peu près pour un trajet",
+          "english": "About how much would it come to per trip",
+          "example": "Ça reviendrait à combien à peu près pour un trajet ?",
+          "usage": "Question au conditionnel avec « ça reviendrait à combien »."
+        },
+        {
+          "id": "T2A4S10V28",
+          "kind": "tournure",
+          "french": "Le paiement se fait comment",
+          "english": "How is payment made",
+          "example": "Le paiement se fait comment — en liquide à chaque fois ou par une application ?",
+          "usage": "Tournure orale avec « comment » postposé sur le mode de paiement."
+        },
+        {
+          "id": "T2A4S10V29",
+          "kind": "tournure",
+          "french": "Combien de personnes est-ce que tu prends en général",
+          "english": "How many people do you usually take",
+          "example": "Combien de personnes est-ce que tu prends en général — il reste de la place ?",
+          "usage": "Question avec « combien de » sur le nombre de passagers."
+        },
+        {
+          "id": "T2A4S10V30",
+          "kind": "tournure",
+          "french": "Est-ce que ton assurance couvre les passagers",
+          "english": "Does your insurance cover the passengers",
+          "example": "Est-ce que ton assurance couvre les passagers en cas de souci ?",
+          "usage": "Question avec « est-ce que » sur la couverture des passagers."
+        }
+      ]
+    }
+  ]
+}

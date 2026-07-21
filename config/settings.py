@@ -61,6 +61,22 @@ if ".onrender.com" not in ALLOWED_HOSTS:
 if "https://*.onrender.com" not in CSRF_TRUSTED_ORIGINS:
     CSRF_TRUSTED_ORIGINS.append("https://*.onrender.com")
 
+# Vercel provides exact deployment and project hostnames at runtime. Trust each
+# generated hostname without opening the app to every *.vercel.app project.
+for _vercel_host in {
+    os.environ.get("VERCEL_URL"),
+    os.environ.get("VERCEL_BRANCH_URL"),
+    os.environ.get("VERCEL_PROJECT_PRODUCTION_URL"),
+}:
+    if not _vercel_host:
+        continue
+    _vercel_host = _vercel_host.strip()
+    if _vercel_host not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(_vercel_host)
+    _vercel_origin = f"https://{_vercel_host}"
+    if _vercel_origin not in CSRF_TRUSTED_ORIGINS:
+        CSRF_TRUSTED_ORIGINS.append(_vercel_origin)
+
 # Custom production domain(s). Render serves the app on both the apex and the
 # www subdomain (www.heureux.lepta.app is the primary URL), so trust both. Add
 # more via the CUSTOM_DOMAINS env var (comma-separated apex domains).

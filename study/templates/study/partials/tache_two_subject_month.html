@@ -12,13 +12,28 @@
         <h2 id="month-{{ month.slug }}">{{ month.name }}</h2>
       {% endif %}
     </div>
-    <div class="tache-two-month__summary">
-      <p>{{ month.batch_count }} batch{{ month.batch_count|pluralize }} · {{ month.subject_count }} sujets · {{ month.question_count }} questions</p>
-      {% include "study/partials/tache_two_progress.html" with summary=month unit_label="sujets terminés" compact=True only %}
+    <div class="tache-two-month__controls">
+      <div class="tache-two-month__summary">
+        <p>{{ month.batch_count }} batch{{ month.batch_count|pluralize }} · {{ month.subject_count }} sujets · {{ month.question_count }} questions</p>
+        {% include "study/partials/tache_two_progress.html" with summary=month unit_label="sujets terminés" compact=True only %}
+      </div>
+      <button
+        class="tache-two-month__toggle"
+        type="button"
+        aria-expanded="true"
+        aria-controls="{% if overview %}overview-{% endif %}subject-month-cards-{{ month.slug }}"
+        aria-label="Réduire {{ month.name }}"
+        data-tache-two-month-key="{{ month.slug }}"
+        data-tache-two-month-name="{{ month.name }}"
+        data-tache-two-month-toggle>
+        <span data-tache-two-month-toggle-label>Réduire</span>
+        {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
+      </button>
     </div>
   </header>
-  <div class="subject-batch-grid collection-table collection-table--subject-batches" data-collection-view="adaptive">
-    {% include "study/partials/collection_table_header.html" with variant="subject-batches" column_1="Batch" column_2="Mois" column_3="Progression" column_4="Action" only %}
+  <div
+    class="subject-batch-grid"
+    id="{% if overview %}overview-{% endif %}subject-month-cards-{{ month.slug }}">
     {% for batch in month.batches %}
       {% include "study/partials/tache_two_subject_batch_card.html" with month=month batch=batch part=part task=task only %}
     {% endfor %}

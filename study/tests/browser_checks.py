@@ -127,6 +127,25 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             ).get_attribute("aria-current"),
             "page",
         )
+        mobile_active_style = navigation.get_by_role(
+            "link",
+            name="Accueil",
+            exact=True,
+        ).evaluate(
+            """
+            element => {
+              const style = getComputedStyle(element);
+              return {
+                background: style.backgroundColor,
+                borderLeftWidth: style.borderLeftWidth,
+                borderRadius: style.borderRadius,
+              };
+            }
+            """
+        )
+        self.assertEqual(mobile_active_style["background"], "rgba(0, 0, 0, 0)")
+        self.assertEqual(mobile_active_style["borderLeftWidth"], "3px")
+        self.assertEqual(mobile_active_style["borderRadius"], "0px")
         navigation.get_by_text("Vue d'ensemble", exact=True).wait_for()
         navigation.get_by_text("Tous les mots et tournures", exact=True).wait_for()
         navigation.get_by_text("Notes et surlignages", exact=True).wait_for()
@@ -147,6 +166,25 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
                 ).wait_for()
                 self.assertFalse(toggle.is_visible())
                 self.assert_no_horizontal_overflow()
+        desktop_active_style = navigation.get_by_role(
+            "link",
+            name="Accueil",
+            exact=True,
+        ).evaluate(
+            """
+            element => {
+              const style = getComputedStyle(element);
+              return {
+                background: style.backgroundColor,
+                borderBottomWidth: style.borderBottomWidth,
+                borderRadius: style.borderRadius,
+              };
+            }
+            """
+        )
+        self.assertEqual(desktop_active_style["background"], "rgba(0, 0, 0, 0)")
+        self.assertEqual(desktop_active_style["borderBottomWidth"], "2px")
+        self.assertEqual(desktop_active_style["borderRadius"], "0px")
 
     @override_settings(DEBUG=False)
     def test_unknown_url_uses_custom_not_found_page(self):
@@ -210,11 +248,17 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             ),
             "rgba(0, 0, 0, 0)",
         )
-        self.assertNotEqual(
+        self.assertEqual(
             self.page.locator(".task-nav a.is-active").evaluate(
                 "element => getComputedStyle(element).backgroundColor"
             ),
             "rgba(0, 0, 0, 0)",
+        )
+        self.assertEqual(
+            self.page.locator(".task-nav a.is-active").evaluate(
+                "element => getComputedStyle(element).borderBottomWidth"
+            ),
+            "3px",
         )
 
     def test_tache_two_memories_are_structured_on_desktop_and_mobile(self):
@@ -301,7 +345,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.assertLessEqual(guide_style["barHeight"], 10)
         self.assertEqual(
             guide_progress.locator(".deck__progress-copy").inner_text(),
-            "0/65 apprises · 0/45 sujets terminés",
+            "0/90 apprises · 0/70 sujets terminés",
         )
 
         self.page.goto(overview_url)
@@ -342,17 +386,17 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             1,
         )
         self.assertEqual(
-            overview_panels.nth(0).get_by_role(
-                "link",
-                name="Voir les mémoires",
-            ).get_attribute("href"),
+            overview_panels.nth(0).evaluate(
+                "element => element.tagName"
+            ),
+            "A",
+        )
+        self.assertEqual(
+            overview_panels.nth(0).get_attribute("href"),
             memories_url.removeprefix(self.live_server_url),
         )
         self.assertEqual(
-            overview_panels.nth(1).get_by_role(
-                "link",
-                name="Voir les sujets",
-            ).get_attribute("href"),
+            overview_panels.nth(1).get_attribute("href"),
             reverse("study:task_browse", args=["eo", "tache-2"]),
         )
         panel_footer = overview_panels.nth(0).locator(
@@ -361,9 +405,8 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         progress_box = panel_footer.locator(
             ".tache-two-progress-summary"
         ).bounding_box()
-        action_box = panel_footer.get_by_role(
-            "link",
-            name="Voir les mémoires",
+        action_box = panel_footer.locator(
+            ".tache-two-overview-panel__action"
         ).bounding_box()
         self.assertLess(
             abs(
@@ -398,10 +441,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.assert_no_horizontal_overflow()
 
         self.page.set_viewport_size({"width": 1280, "height": 850})
-        overview_panels.nth(0).get_by_role(
-            "link",
-            name="Voir les mémoires",
-        ).click()
+        overview_panels.nth(0).click()
         self.page.wait_for_url(memories_url)
         self.page.get_by_role(
             "heading",
@@ -416,7 +456,8 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.assertEqual(table_toggle.get_attribute("aria-pressed"), "true")
         self.assertTrue(table_header.is_visible())
         memory_entry = self.page.locator(".memory-entry")
-        self.assertEqual(memory_entry.count(), 1)
+        self.assertEqual(memory_entry.count(), 2)
+        memory_entry = memory_entry.first
         self.assertEqual(
             len(
                 memory_entry.evaluate(
@@ -441,7 +482,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             memory_entry.get_attribute("href"),
             memory_url.removeprefix(self.live_server_url),
         )
-        entry_borders = memory_entry.evaluate(
+        entry_borders = self.page.locator(".memory-entry").last.evaluate(
             """
             element => {
               const style = getComputedStyle(element);
@@ -678,7 +719,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             memory_panel.locator(
                 ".tache-two-progress-summary__copy > span:last-child"
             ).inner_text(),
-            "1/65 questions apprises",
+            "1/90 questions apprises",
         )
         self.assertTrue(
             "progress-status--active"
@@ -775,9 +816,16 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             name="Sujets par mois",
             exact=True,
         ).wait_for()
+        directory_metrics = [
+            int(value)
+            for value in self.page.locator(
+                ".memory-overview-hero__metrics dd"
+            ).all_text_contents()
+        ]
+        month_count, batch_count, _ = directory_metrics
         self.assertEqual(
             self.page.locator("[data-tache-two-subject-batch]").count(),
-            9,
+            batch_count,
         )
         self.assertEqual(self.page.get_by_role("note").count(), 0)
         self.assertEqual(self.page.get_by_text("Réflexe Mémoire").count(), 0)
@@ -785,27 +833,69 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         table_toggle = self.page.get_by_role("button", name="Tableau")
         table_toggle.click()
         self.assertEqual(table_toggle.get_attribute("aria-pressed"), "true")
-        table_headers = self.page.locator(
-            ".collection-table-header--subject-batches"
+        table_header = self.page.locator(
+            ".tache-two-batch-table thead"
         )
-        self.assertEqual(table_headers.count(), 2)
-        self.assertTrue(
-            all(
-                table_headers.nth(index).is_visible()
-                for index in range(table_headers.count())
-            )
+        self.assertEqual(table_header.count(), 1)
+        self.assertTrue(table_header.is_visible())
+        month_groups = self.page.locator(
+            "[data-tache-two-month-group]"
         )
         self.assertEqual(
-            self.page.locator(
-                "[data-tache-two-subject-batch]"
-            ).evaluate_all(
-                "elements => elements.map(element => "
-                "getComputedStyle(element).gridTemplateColumns"
-                ".split(' ').length)"
-            ),
-            [4] * 9,
+            month_groups.count(),
+            month_count,
         )
-        self.page.locator("[data-tache-two-subject-batch]").first.click()
+        table_rows = self.page.locator("[data-tache-two-month-row]")
+        self.assertEqual(table_rows.count(), batch_count)
+        self.assertTrue(
+            all(
+                table_rows.nth(index).is_visible()
+                for index in range(table_rows.count())
+            )
+        )
+
+        first_month_toggle = self.page.locator(
+            ".tache-two-batch-table__month-toggle"
+        ).first
+        first_month_rows = month_groups.first.locator(
+            "[data-tache-two-month-row]"
+        )
+        second_month_rows = month_groups.nth(1).locator(
+            "[data-tache-two-month-row]"
+        )
+        first_month_toggle.click()
+        self.assertEqual(
+            first_month_toggle.get_attribute("aria-expanded"),
+            "false",
+        )
+        self.assertTrue(
+            all(
+                first_month_rows.nth(index).is_hidden()
+                for index in range(first_month_rows.count())
+            )
+        )
+        self.assertTrue(
+            all(
+                second_month_rows.nth(index).is_visible()
+                for index in range(second_month_rows.count())
+            )
+        )
+        first_month_toggle.click()
+        self.assertEqual(
+            first_month_toggle.get_attribute("aria-expanded"),
+            "true",
+        )
+
+        table_shell = self.page.locator(".tache-two-batch-table-shell")
+        self.page.set_viewport_size({"width": 320, "height": 700})
+        self.assertTrue(
+            table_shell.evaluate(
+                "element => element.scrollWidth > element.clientWidth"
+            )
+        )
+        self.assert_no_horizontal_overflow()
+        self.page.set_viewport_size({"width": 1280, "height": 850})
+        self.page.locator("[data-tache-two-subject-table-link]").first.click()
         self.page.wait_for_url(self.live_server_url + batch_path)
         self.page.get_by_role(
             "heading",
@@ -1270,6 +1360,115 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
 
         self.page.locator(".review__top").click(position={"x": 4, "y": 4})
         toolbar.wait_for(state="hidden")
+
+    def test_selection_toolbar_keyboard_shortcuts(self):
+        self.context.add_init_script(
+            """
+            (() => {
+              const synthesis = {
+                getVoices: () => [],
+                addEventListener: () => {},
+                cancel: () => {},
+                resume: () => {},
+                speak: utterance => {
+                  window.__shortcutSpokenText = utterance.text;
+                },
+              };
+              class FakeUtterance {
+                constructor(text) {
+                  this.text = text;
+                  this.lang = "";
+                  this.rate = 1;
+                  this.pitch = 1;
+                  this.voice = null;
+                }
+              }
+              Object.defineProperty(window, "speechSynthesis", {
+                configurable: true,
+                value: synthesis,
+              });
+              Object.defineProperty(window, "SpeechSynthesisUtterance", {
+                configurable: true,
+                value: FakeUtterance,
+              });
+            })();
+            """
+        )
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        self.page.wait_for_load_state("networkidle")
+        prompt_text = prompt.text_content()
+        self.page.locator("#reveal").click()
+
+        toolbar = self.page.locator("[data-selection-translate]")
+        shortcuts = {
+            "[data-read-selection]": "R",
+            "[data-translate-selection]": "T",
+            "[data-note-selection]": "N",
+            "[data-highlight-selection]": "H",
+        }
+        for selector, key in shortcuts.items():
+            self.assertEqual(
+                toolbar.locator(selector).get_attribute("aria-keyshortcuts"),
+                key,
+            )
+
+        self.select_prompt(start=0, end=12)
+        selected = self.page.evaluate(
+            "window.getSelection().toString().trim()"
+        )
+        self.page.keyboard.press("r")
+        self.page.wait_for_function(
+            "expected => window.__shortcutSpokenText === expected",
+            arg=selected,
+        )
+        self.page.wait_for_timeout(150)
+        self.assertEqual(prompt.text_content(), prompt_text)
+        self.assertEqual(
+            ReviewLog.objects.filter(user=self.user).count(),
+            0,
+        )
+        self.page.keyboard.press("Escape")
+
+        self.select_prompt(start=0, end=12)
+        with self.page.expect_response(
+            lambda response: reverse("study:annotation_create") in response.url
+        ):
+            self.page.keyboard.press("h")
+        prompt.locator("mark.user-highlight").wait_for()
+
+        self.select_prompt(start=0, end=12)
+        self.page.keyboard.press("n")
+        note_panel = self.page.locator("[data-note-panel]")
+        note_panel.wait_for()
+        note_body = note_panel.locator("[data-note-body]")
+        self.assertTrue(
+            note_body.evaluate(
+                "element => element === document.activeElement"
+            )
+        )
+        self.page.keyboard.press("h")
+        self.assertEqual(note_body.input_value(), "h")
+        self.assertEqual(
+            Annotation.objects.filter(
+                user=self.user,
+                kind=AnnotationKind.HIGHLIGHT,
+            ).count(),
+            1,
+        )
+        self.page.keyboard.press("Escape")
+        self.page.evaluate(
+            "document.activeElement && document.activeElement.blur()"
+        )
+
+        self.select_prompt(start=0, end=12)
+        self.page.keyboard.press("t")
+        self.page.locator("[data-translation-panel]").wait_for()
 
     def test_selection_note_paste_button_inserts_clipboard_at_cursor(self):
         self.context.add_init_script(
@@ -2470,6 +2669,112 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             main_box["x"] + main_box["width"] / 2,
             delta=1,
         )
+        self.assert_no_horizontal_overflow()
+
+    def test_text_and_icon_controls_have_distinct_shapes(self):
+        self.page.set_viewport_size({"width": 1200, "height": 800})
+        self.page.goto(
+            self.live_server_url + reverse("study:notes_overview")
+        )
+
+        compose_metrics = self.page.get_by_role(
+            "button", name="Nouvelle note"
+        ).evaluate(
+            """element => {
+              const style = getComputedStyle(element);
+              return {
+                height: parseFloat(style.height),
+                radius: parseFloat(style.borderTopLeftRadius),
+              };
+            }"""
+        )
+        self.assertGreaterEqual(
+            compose_metrics["radius"], compose_metrics["height"] / 2 - 1
+        )
+
+        search_metrics = self.page.locator(".search-form .btn--icon").evaluate(
+            """element => {
+              const style = getComputedStyle(element);
+              return {
+                width: parseFloat(style.width),
+                height: parseFloat(style.height),
+                radius: style.borderTopLeftRadius,
+                color: style.color,
+                iconColor: getComputedStyle(
+                  element.querySelector('.btn__icon')
+                ).color,
+              };
+            }"""
+        )
+        self.assertAlmostEqual(
+            search_metrics["width"], search_metrics["height"], delta=0.5
+        )
+        self.assertEqual(search_metrics["radius"], "50%")
+        self.assertNotEqual(
+            search_metrics["iconColor"], search_metrics["color"]
+        )
+
+        tab_metrics = self.page.locator(".notes-tab").first.evaluate(
+            """element => {
+              const style = getComputedStyle(element);
+              return {
+                height: parseFloat(style.height),
+                radius: parseFloat(style.borderTopLeftRadius),
+              };
+            }"""
+        )
+        self.assertGreaterEqual(
+            tab_metrics["radius"], tab_metrics["height"] / 2 - 1
+        )
+
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        reveal = self.page.locator("#reveal")
+        reveal_metrics = reveal.evaluate(
+            """element => {
+              const style = getComputedStyle(element);
+              return {
+                height: parseFloat(style.height),
+                radius: parseFloat(style.borderTopLeftRadius),
+              };
+            }"""
+        )
+        self.assertGreaterEqual(
+            reveal_metrics["radius"], reveal_metrics["height"] / 2 - 1
+        )
+        reveal.click()
+        grade_metrics = self.page.locator(".grade").first.evaluate(
+            """element => {
+              const style = getComputedStyle(element);
+              return {
+                height: parseFloat(style.height),
+                radius: parseFloat(style.borderTopLeftRadius),
+              };
+            }"""
+        )
+        self.assertGreaterEqual(
+            grade_metrics["radius"], grade_metrics["height"] / 2 - 1
+        )
+
+        self.page.set_viewport_size({"width": 320, "height": 568})
+        toggle = self.page.get_by_role("button", name="Ouvrir le menu")
+        toggle_metrics = toggle.evaluate(
+            """element => {
+              const style = getComputedStyle(element);
+              return {
+                width: parseFloat(style.width),
+                height: parseFloat(style.height),
+                radius: style.borderTopLeftRadius,
+              };
+            }"""
+        )
+        self.assertAlmostEqual(
+            toggle_metrics["width"], toggle_metrics["height"], delta=0.5
+        )
+        self.assertEqual(toggle_metrics["radius"], "50%")
         self.assert_no_horizontal_overflow()
 
     def test_stats_dashboard_stays_balanced_on_desktop_and_mobile(self):

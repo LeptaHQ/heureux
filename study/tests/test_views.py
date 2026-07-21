@@ -74,12 +74,12 @@ class PWATests(TestCase):
         r = self.client.get("/sw.js")
         self.assertEqual(r.status_code, 200)
         body = r.content.decode()
-        self.assertIn('var CACHE = "heureux-v114"', body)
-        self.assertIn("study/css/app.css?v=107", body)
+        self.assertIn('var CACHE = "heureux-v117"', body)
+        self.assertIn("study/css/app.css?v=110", body)
         self.assertIn("study/js/memory-progress.js?v=2", body)
         self.assertIn("study/js/theme-init.js?v=2", body)
-        self.assertIn("study/js/app.js?v=34", body)
-        self.assertIn("study/js/translate.js?v=12", body)
+        self.assertIn("study/js/app.js?v=35", body)
+        self.assertIn("study/js/translate.js?v=13", body)
         self.assertIn("study/js/annotations.js?v=11", body)
         self.assertIn("study/icons/ui-icons.svg?v=3", body)
         self.assertIn("SKIP_WAITING", body)
@@ -238,6 +238,15 @@ class SmokeTests(TestCase):
         self.assertContains(response, "data-read-selection")
         self.assertContains(response, "data-note-selection")
         self.assertContains(response, "data-highlight-selection")
+        self.assertContains(response, 'aria-keyshortcuts="R"')
+        self.assertContains(response, 'aria-keyshortcuts="T"')
+        self.assertContains(response, 'aria-keyshortcuts="N"')
+        self.assertContains(response, 'aria-keyshortcuts="H"')
+        self.assertContains(
+            response,
+            'class="selection-translate__shortcut"',
+            count=4,
+        )
         self.assertContains(response, "btn__icon-badge--notes")
         self.assertContains(response, "btn__icon-badge--save")
         self.assertContains(response, 'id="translation-panel"')

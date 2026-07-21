@@ -1,0 +1,351 @@
+{
+  "month": {
+    "number": 4,
+    "slug": "avril",
+    "name": "Avril"
+  },
+  "batch": 2,
+  "subjects": [
+    {
+      "number": 6,
+      "title": "Vacances au Canada – Agence de voyages",
+      "prompt": "Je suis agent(e) de voyage. Vous souhaitez partir en vacances au Canada. Vous me demandez des renseignements (tarifs, lieux, type de séjour, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! Je souhaite organiser un séjour au Canada — quelles destinations recommandez-vous ?",
+          "memory_number": 2,
+          "memory_section": 1
+        },
+        {
+          "text": "Quels types de circuits proposez-vous — culture, nature, aventure, gastronomie ?",
+          "memory_section": 10
+        },
+        {
+          "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Vous connaissez de bons endroits où dormir — hôtels, appartements, auberges ?",
+          "memory_section": 6
+        },
+        {
+          "text": "C'est dans quelle gamme de prix pour l'hébergement — plutôt cher ou abordable ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Faut-il réserver l'hébergement à l'avance ou peut-on encore en trouver facilement sur place ?",
+          "memory_section": 6
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total par personne ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le tarif comprend quoi exactement — le transport, les repas et les excursions sont-ils inclus ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Se déplacer à vélo à Ottawa",
+      "prompt": "Je suis un(e) ami(e) et je vis à Ottawa. Vous venez d'arriver dans la ville et vous souhaitez vous déplacer à vélo. Vous me posez des questions sur ce moyen de transport (pistes cyclables, agences de location, matériel, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! Je viens d'arriver à Ottawa et j'aimerais me déplacer à vélo — tu pourrais me donner quelques conseils ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Est-ce que la ville est bien adaptée au vélo — il y a beaucoup de pistes cyclables ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Les pistes cyclables sont-elles sécurisées et bien séparées de la circulation ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Quels sont les meilleurs itinéraires pour se déplacer au quotidien ou pour se balader le week-end ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Si je n'ai pas encore de vélo, tu connais des agences où en louer ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'il y a aussi des vélos en libre-service un peu partout dans la ville ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Côté matériel, qu'est-ce qu'il faut absolument prévoir — un casque, un antivol et des lumières ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Est-ce qu'un casque est obligatoire à Ottawa ou seulement recommandé ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Est-ce qu'on peut emporter son vélo dans le bus ou le train si on est fatigué ?",
+          "memory_section": 13
+        },
+        {
+          "text": "En hiver, avec la neige, est-ce qu'on peut continuer à rouler ou c'est trop compliqué ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Où est-ce qu'on peut faire réparer ou entretenir son vélo dans le coin ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Parmi tous ces itinéraires, lequel tu me recommandes pour commencer en douceur ?",
+          "memory_number": 2,
+          "memory_section": 1
+        },
+        {
+          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien rouler à Ottawa, ce serait lequel ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Recherche d'une baby-sitter – Collègue",
+      "prompt": "Je suis votre collègue de bureau. Je recherche une baby-sitter pour garder mes enfants. Je vous demande si vous connaissez quelqu'un dans votre entourage. Vous me posez des questions sur mes exigences, le salaire, les horaires et les tâches à faire.",
+      "questions": [
+        {
+          "text": "Salut ! Tu m'as dit que tu cherches une baby-sitter — je connais peut-être quelqu'un, mais pourrais-tu d'abord m'en dire un peu plus ?",
+          "memory_section": 19
+        },
+        {
+          "text": "C'est pour garder combien d'enfants — et ils ont quel âge ?",
+          "memory_section": 14
+        },
+        {
+          "text": "De quoi as-tu besoin exactement — quelqu'un de régulier ou seulement de temps en temps ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Quels jours et à quels horaires aurais-tu besoin d'elle — en journée, le soir ou le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Ça représenterait combien d'heures par semaine environ ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Est-ce qu'il faudrait aussi s'occuper un peu du ménage ou seulement des enfants ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Faut-il aller les chercher à l'école ou les emmener à des activités ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Côté salaire, tu proposes combien — c'est un tarif horaire ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Est-ce qu'il y a des habitudes ou des règles importantes à respecter avec tes enfants ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
+          "memory_section": 17
+        },
+        {
+          "text": "En cas d'urgence, comment est-ce qu'on peut te joindre pendant ton absence ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quand aimerais-tu que ça commence — c'est assez urgent ?",
+          "memory_section": 9
+        },
+        {
+          "text": "D'accord — je vais demander autour de moi et je te dis si je connais quelqu'un de sérieux, ça te va ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Services de l'hôtel – Réception",
+      "prompt": "Je suis hôtesse d'hôtel. Vous voulez vous renseigner sur les services disponibles. Posez-moi des questions (tarifs, service, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! Je séjourne dans votre hôtel et j'aimerais en savoir plus sur les services proposés — vous pourriez me renseigner ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quels services sont compris dans le prix de la chambre — le petit-déjeuner est-il inclus ?",
+          "memory_section": 1
+        },
+        {
+          "text": "À quelle heure sont servis le petit-déjeuner et les repas — et y a-t-il un restaurant sur place ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Y a-t-il un service en chambre — et jusqu'à quelle heure ?",
+          "memory_section": 16
+        },
+        {
+          "text": "L'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Y a-t-il une connexion Internet dans les chambres — c'est gratuit ou payant ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Proposez-vous un service de blanchisserie ou de repassage ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Est-ce qu'il y a un parking à l'hôtel — et est-il gratuit pour les clients ?",
+          "memory_section": 13
+        },
+        {
+          "text": "À quelle heure faut-il libérer la chambre le jour du départ — et peut-on la garder un peu plus longtemps ?",
+          "memory_number": 2,
+          "memory_section": 5
+        },
+        {
+          "text": "Est-il possible de laisser mes bagages à la réception après le départ ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Est-ce que l'hôtel propose une navette pour l'aéroport ou le centre-ville ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Pouvez-vous m'indiquer de bons endroits à visiter ou de bons restaurants dans les environs ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Y a-t-il des services payants en supplément dont je devrais connaître les tarifs ?",
+          "memory_section": 1
+        },
+        {
+          "text": "En cas de problème dans la chambre, à qui dois-je m'adresser et à quelle heure ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'un seul service de l'hôtel, ce serait lequel ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Covoiturage entre amis",
+      "prompt": "Je suis votre ami, je fais du covoiturage, vous êtes intéressé. Posez-moi des questions (trajets, tarifs, disponibilité, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! Tu m'as dit que tu fais du covoiturage — ça m'intéresse, tu pourrais m'expliquer comment ça marche ?",
+          "memory_number": 2,
+          "memory_section": 3
+        },
+        {
+          "text": "Quels trajets fais-tu habituellement — c'est surtout pour aller au travail ou aussi pour de plus longs voyages ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Tu pars d'où exactement, et est-ce que tu peux passer me prendre quelque part sur ton chemin ?",
+          "memory_section": 4
+        },
+        {
+          "text": "À quelle fréquence proposes-tu ces trajets — tous les jours ou seulement certains jours ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Et au niveau des horaires, tu pars à quelle heure le matin et tu rentres quand ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Si un jour je ne peux pas venir, comment est-ce qu'on s'organise — il faut prévenir à l'avance ?",
+          "memory_number": 2,
+          "memory_section": 5
+        },
+        {
+          "text": "Comment se répartissent les frais — on partage l'essence et le péage ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Ça reviendrait à combien à peu près pour un trajet ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le paiement se fait comment — en liquide à chaque fois ou par une application ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Combien de personnes est-ce que tu prends en général — il reste de la place ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Est-ce qu'on passe par une plateforme de covoiturage ou c'est un arrangement entre nous ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Est-ce que ton assurance couvre les passagers en cas de souci ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Est-ce qu'on peut discuter et écouter de la musique, ou tu préfères le calme le matin ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Et si tu es absent ou en vacances, tu connais d'autres personnes qui font le même trajet ?",
+          "memory_number": 2,
+          "memory_section": 5
+        },
+        {
+          "text": "Pour finir — qu'est-ce qu'il faut savoir pour que le covoiturage se passe bien avec toi ?",
+          "memory_section": 4
+        }
+      ]
+    }
+  ]
+}

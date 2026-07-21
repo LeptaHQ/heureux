@@ -20,9 +20,10 @@
   </header>
 
   <div class="tache-two-overview-grid">
-    <section
+    <a
       class="tache-two-overview-panel tache-two-overview-panel--memories card"
       data-tache-two-overview-panel
+      href="{% url 'study:task_memories' part.slug task.slug %}"
       aria-labelledby="memory-overview-panel-title">
       <header class="tache-two-overview-panel__head">
         <span class="tache-two-overview-panel__icon" aria-hidden="true">
@@ -40,16 +41,17 @@
       </div>
       <footer class="tache-two-overview-panel__footer">
         {% include "study/partials/tache_two_progress.html" with summary=memory_summary unit_label="questions apprises" compact=True only %}
-        <a class="btn btn--small" href="{% url 'study:task_memories' part.slug task.slug %}">
+        <span class="btn btn--small tache-two-overview-panel__action">
           Voir les mémoires
           {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
-        </a>
+        </span>
       </footer>
-    </section>
+    </a>
 
-    <section
+    <a
       class="tache-two-overview-panel tache-two-overview-panel--subjects card"
       data-tache-two-overview-panel
+      href="{% url 'study:task_browse' part.slug task.slug %}"
       aria-labelledby="subject-overview-panel-title">
       <header class="tache-two-overview-panel__head">
         <span class="tache-two-overview-panel__icon" aria-hidden="true">
@@ -67,12 +69,12 @@
       </div>
       <footer class="tache-two-overview-panel__footer">
         {% include "study/partials/tache_two_progress.html" with summary=subject_summary unit_label="sujets terminés" compact=True only %}
-        <a class="btn btn--small" href="{% url 'study:task_browse' part.slug task.slug %}">
+        <span class="btn btn--small tache-two-overview-panel__action">
           Voir les sujets
           {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
-        </a>
+        </span>
       </footer>
-    </section>
+    </a>
   </div>
 </div>
 {% endblock %}

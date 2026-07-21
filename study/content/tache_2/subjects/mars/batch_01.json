@@ -1,0 +1,352 @@
+{
+  "month": {
+    "number": 3,
+    "slug": "mars",
+    "name": "Mars"
+  },
+  "batch": 1,
+  "subjects": [
+    {
+      "number": 1,
+      "title": "Salle de sport — activités et tarifs",
+      "prompt": "Je suis employé(e) dans une salle de sport, je travaille à l'accueil. Vous allez dans cette salle de sport pour vous renseigner sur les activités proposées, les tarifs, les horaires d'ouverture, etc.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je viens d'emménager dans le quartier et je cherche un club de sport. Pourriez-vous me parler des différentes activités que vous proposez ici ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Est-ce qu'il y a des cours collectifs — yoga, pilates, spinning — ou c'est surtout de la musculation ?",
+          "memory_section": 10
+        },
+        {
+          "text": "À quelle heure commencent les cours collectifs — plutôt le matin ou en fin de journée ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Les cours sont-ils donnés par des professeurs qualifiés ? Et est-ce qu'il y a un coach personnel disponible si j'en ai besoin ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
+          "memory_number": 2,
+          "memory_section": 5
+        },
+        {
+          "text": "Est-ce qu'il est possible de suspendre l'abonnement si nécessaire ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Il faut s'inscrire à l'avance pour les cours ou on peut venir librement ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Pour finir — quelle activité me recommanderiez-vous pour quelqu'un qui veut se remettre en forme et se tonifier ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Conseils pratiques pour s'installer au Canada",
+      "prompt": "Je suis un(e) ami(e) installé(e) au Canada depuis longtemps. Vous venez d'arriver dans ma ville. Vous me demandez des conseils pratiques pour votre installation (logement, démarches administratives, transports, commerces, loisirs, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! Je viens d'arriver au Canada et j'aurais besoin de quelques conseils pratiques pour m'installer — tu pourrais m'aider ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Pour commencer, tu me conseillerais de louer une chambre, un studio ou un appartement ?",
+          "memory_number": 2,
+          "memory_section": 1
+        },
+        {
+          "text": "Quels quartiers me conseillerais-tu — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Pour le logement, c'est dans quelle gamme de prix — plutôt cher ou abordable ?",
+          "memory_section": 6
+        },
+        {
+          "text": "Pour la location, quelles sont les pièces à fournir pour le dossier — et est-ce qu'il faut un garant ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Est-ce qu'il y a des démarches administratives à prévoir — un numéro d'assurance sociale, une carte de santé ou une assurance particulière ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Pour ouvrir un compte bancaire et prendre un forfait téléphonique, quels documents faut-il prévoir ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Quels types de transports sont disponibles ici — bus, métro, tramway ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Pour les courses, tu connais des commerces abordables — supermarchés, marchés ou magasins de quartier ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Quels types d'activités ou clubs sont populaires ici pour se faire des amis ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Les gens sont sympas — c'est facile de s'intégrer quand on arrive de l'étranger ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Et pour les soins de santé, comment trouver un médecin ou une clinique quand on vient d'arriver ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Pour finir — si tu ne devais me recommander qu'une seule chose pour bien m'installer ici, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Choisir une lecture dans la presse canadienne",
+      "prompt": "Je suis un(e) marchand(e) de journaux. Vous voulez lire la presse canadienne. Vous me demandez de choisir une lecture intéressante (thème, prix, niveau de langue, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! J'aimerais découvrir la presse canadienne — pourriez-vous m'aider à choisir une lecture intéressante ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quels types de publications proposez-vous — des quotidiens, des hebdomadaires, des magazines ou un peu de tout ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Quels thèmes sont abordés — actualité, culture, économie, sport ou un peu de tout ?",
+          "memory_section": 10
+        },
+        {
+          "text": "C'est une publication canadienne nationale ou plutôt un journal local ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Y a-t-il un journal ou un magazine que vous recommanderiez particulièrement ?",
+          "memory_number": 2,
+          "memory_section": 1
+        },
+        {
+          "text": "Ça s'adresse à quel public — plutôt aux lecteurs habitués à suivre l'actualité ou accessible à un large public ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Comment est le style des articles — plutôt simple, analytique ou très spécialisé ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Le niveau de langue est-il accessible pour quelqu'un qui apprend encore le français ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Qu'est-ce qu'on apprend concrètement — c'est plutôt informatif, pratique, ou un mélange des deux ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Les articles sont plutôt courts ou faut-il prévoir beaucoup de temps pour les lire ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Et ce journal, c'est dans quelle gamme de prix — plutôt cher ou raisonnable ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce que la version numérique est comprise ou il faut l'acheter séparément ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Vous avez mentionné un quotidien en particulier — vous pourriez m'en dire un peu plus ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Qu'est-ce qui rend cette lecture particulièrement intéressante selon vous ?",
+          "memory_number": 2,
+          "memory_section": 4
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule lecture, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Étudier à l'étranger",
+      "prompt": "Je suis votre enseignant(e) de français. Vous vous interrogez sur la possibilité d'aller étudier à l'étranger. Posez-moi des questions à ce sujet.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je réfléchis à la possibilité d'aller étudier à l'étranger — pourriez-vous me conseiller un peu ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Selon vous, quels sont les principaux avantages de faire une partie de ses études à l'étranger ?",
+          "memory_number": 2,
+          "memory_section": 4
+        },
+        {
+          "text": "Quels pays ou quelles villes me conseilleriez-vous — et selon quels critères devrais-je choisir ?",
+          "memory_number": 2,
+          "memory_section": 1
+        },
+        {
+          "text": "Il vaut mieux partir dans le cadre d'un programme d'échange ou s'inscrire directement dans une université étrangère ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Ça s'adresse à quel profil — faut-il avoir un niveau de langue particulier ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Combien de temps faut-il prévoir — un semestre ou plutôt une année complète ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Comment se déroulent les cours en général — c'est plutôt théorique, pratique, ou un mélange des deux ?",
+          "memory_number": 2,
+          "memory_section": 3
+        },
+        {
+          "text": "Les cours suivis à l'étranger seront-ils reconnus dans mon parcours ici ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Comment se passe l'inscription — en ligne ou uniquement auprès de l'établissement ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Quelles sont les pièces à fournir pour le dossier — relevés de notes, lettre de motivation, preuve de langue ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il des bourses ou des aides financières pour ce type de projet ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Pour l'hébergement, est-ce que l'université s'en occupe ou je dois réserver moi-même ?",
+          "memory_section": 6
+        },
+        {
+          "text": "Est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me donner qu'un seul conseil pour bien préparer ce projet, ce serait lequel ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Achat d'une voiture d'occasion",
+      "prompt": "Je vends ma voiture, j'ai mis une annonce en ligne. Vous souhaitez acheter une voiture. Vous m'avez contacté(e) et nous nous rencontrons pour la première fois. Vous me posez des questions sur la voiture que je vends (âge, état, prix, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! J'ai vu votre annonce en ligne et la voiture m'intéresse — pourriez-vous m'en dire un peu plus ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quel est le modèle exact, et de quelle année est-elle ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Elle a combien de kilomètres au compteur ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Depuis combien de temps avez-vous cette voiture ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Est-ce qu'elle est encore en bon état et fonctionne correctement ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Est-ce qu'elle a déjà eu un accident ou subi des réparations importantes ?",
+          "memory_section": 17
+        },
+        {
+          "text": "L'entretien a été fait régulièrement — avez-vous encore les factures ou le carnet d'entretien ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Le contrôle technique est-il récent, et y a-t-il des frais à prévoir prochainement ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Elle fonctionne à l'essence, au diesel ou à l'électricité — et la consommation est raisonnable ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Pourquoi avez-vous décidé de la mettre en vente ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Pour le prix, vous avez déjà fixé un montant ou est-ce que c'est négociable ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce que je pourrais faire un essai avant de me décider ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le prix comprend quoi exactement — les pneus d'hiver ou d'autres équipements sont-ils inclus ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Pour le paiement, vous préférez un virement bancaire ou un chèque certifié ?",
+          "memory_section": 1
+        },
+        {
+          "text": "D'accord, si j'ai encore une question, je peux vous recontacter ?",
+          "memory_section": 4
+        }
+      ]
+    }
+  ]
+}

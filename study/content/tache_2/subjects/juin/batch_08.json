@@ -1,0 +1,363 @@
+{
+  "month": {
+    "number": 6,
+    "slug": "juin",
+    "name": "Juin"
+  },
+  "batch": 8,
+  "subjects": [
+    {
+      "number": 36,
+      "title": "Association de protection animale",
+      "prompt": "Je suis membre actif(ve) d'une association de protection animale. Je vous invite à nous rejoindre. Vous acceptez mon invitation et vous me posez des questions pour mieux connaître l'association avant de vous engager (activités proposées, public concerné, engagement demandé, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour, merci pour votre invitation — pourriez-vous d'abord me présenter un peu votre association ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Concrètement, quelles sont les principales activités que vous menez auprès des animaux ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Vous vous occupez de quels animaux en particulier — plutôt des chiens et des chats, ou aussi d'autres espèces ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Et l'association s'adresse à quel public — uniquement aux adultes, ou aussi aux familles avec enfants ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Pour devenir membre, faut-il des compétences particulières ou une expérience avec les animaux ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Et si on n'a jamais fait de bénévolat auprès des animaux, y a-t-il une formation prévue au début ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Concrètement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Et sur une séance, combien de temps faut-il prévoir en général ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Où se déroulent les activités — dans un refuge, en extérieur, ou cela varie selon les missions ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Y a-t-il une cotisation à payer pour devenir membre, ou l'engagement est-il entièrement gratuit ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Y a-t-il des précautions à connaître pour la sécurité, avec certains animaux plus craintifs ou agressifs ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Est-ce que l'association organise aussi des événements, comme des journées d'adoption ou des collectes ?",
+          "memory_section": 10
+        },
+        {
+          "text": "En cas de question ou de problème pendant une mission, qui puis-je contacter ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Pour finir — quelle serait la meilleure façon de commencer si je souhaite vous rejoindre dès cette semaine ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 37,
+      "title": "Film vu récemment par un(e) collègue",
+      "prompt": "Je suis votre collègue. Je reviens de voir un film au cinéma. Vous êtes intéressé(e) et vous me posez des questions sur ce film pour savoir si vous avez envie d'aller le voir à votre tour (histoire, acteurs, séances, etc.).",
+      "questions": [
+        {
+          "text": "Alors, tu es allé(e) voir quel film exactement ?",
+          "memory_section": 10
+        },
+        {
+          "text": "C'est quel genre de film — plutôt une comédie, un drame, un film d'action ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Sans tout me raconter, tu peux me dire un peu de quoi ça parle ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Qui sont les acteurs principaux — il y en a que je connaîtrais peut-être ?",
+          "memory_number": 2,
+          "memory_section": 1
+        },
+        {
+          "text": "Le film dure combien de temps environ ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Ça convient à tout le monde, ou c'est plutôt réservé à un public adulte ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Qu'est-ce que tu as le plus aimé dans ce film ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il quelque chose qui t'a déçu(e) ou moins plu ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Il y a des séances plutôt en journée ou en soirée, dans les salles près d'ici ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Ça coûte combien pour une place, à peu près ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Pour finir — tu me le recommandes vraiment, ce film ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "title": "Parcours d'un nouveau collègue venu du Québec",
+      "prompt": "Je suis votre nouveau/nouvelle collègue. J'ai vécu au Québec avant de m'installer ici. Vous êtes intéressé(e) par mon parcours et vous me posez des questions (études, débuts professionnels, expériences à l'étranger, difficultés rencontrées, etc.).",
+      "questions": [
+        {
+          "text": "Bienvenue dans l'équipe ! Avant tout, depuis combien de temps es-tu arrivé(e) dans le pays ?",
+          "memory_section": 4,
+          "memory_number": 3
+        },
+        {
+          "text": "Et tu as vécu combien de temps au Québec avant de venir ici ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Qu'est-ce qui t'a poussé(e) à quitter le Québec pour t'installer ici ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Qu'est-ce que tu as étudié, et où as-tu fait tes études ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Et tes débuts professionnels, c'était plutôt au Québec ou déjà ailleurs ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Le monde du travail est-il très différent ici par rapport à ce que tu as connu là-bas ?",
+          "memory_number": 2,
+          "memory_section": 4
+        },
+        {
+          "text": "Quelles ont été les plus grandes difficultés à ton arrivée — la langue, les démarches, la culture ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Comment as-tu réussi à t'adapter et à surmonter ces difficultés ?",
+          "memory_number": 2,
+          "memory_section": 3
+        },
+        {
+          "text": "Qui t'a aidé(e) à t'installer — de la famille, des amis, ou tu as tout géré seul(e) ?",
+          "memory_section": 5,
+          "memory_number": 3
+        },
+        {
+          "text": "Tu es venu(e) seul(e) ou accompagné(e) par ta famille ?",
+          "memory_section": 5,
+          "memory_number": 3
+        },
+        {
+          "text": "Qu'est-ce qui te manque le plus du Québec ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Et qu'est-ce que tu apprécies le plus dans ta vie ici, en comparaison ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Avec le recul, qu'est-ce qui t'a le plus aidé(e) à bien t'intégrer dans une nouvelle équipe ?",
+          "memory_section": 4,
+          "memory_number": 3
+        },
+        {
+          "text": "Pour quelqu'un qui envisage un parcours similaire, quel conseil lui donnerais-tu ?",
+          "memory_number": 2,
+          "memory_section": 1
+        },
+        {
+          "text": "Pour finir — tu penses rester ici longtemps, ou un nouveau départ n'est pas exclu ?",
+          "memory_section": 4,
+          "memory_number": 3
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "title": "Recherche de logement pour un nouvel arrivant au Québec",
+      "prompt": "Je travaille dans une agence immobilière. Vous venez de vous installer au Québec et vous cherchez un logement. Vous me posez des questions pour connaître les démarches à suivre (procédures, secteurs, types de logement, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour, je viens d'arriver au Québec et je cherche un logement — par où dois-je commencer ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Vous avez des logements disponibles en ce moment, plutôt en location ou aussi à l'achat ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Je cherche un logement pas trop grand pour commencer — vous auriez des studios ou des T2 disponibles ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Quels secteurs de la ville recommanderiez-vous à quelqu'un qui vient d'arriver et ne connaît pas encore la ville ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Ces logements se situent dans quelle gamme de prix en général ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Et le loyer comprend quoi exactement — les charges, le chauffage, l'électricité ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Pour un dossier de location, quels documents faut-il fournir quand on vient d'arriver et qu'on n'a pas encore d'historique ici ?",
+          "memory_section": 1,
+          "memory_number": 3
+        },
+        {
+          "text": "Faut-il obligatoirement un garant, ou existe-t-il d'autres solutions pour les nouveaux arrivants ?",
+          "memory_section": 1,
+          "memory_number": 3
+        },
+        {
+          "text": "Ces quartiers sont-ils bien desservis par les transports en commun ?",
+          "memory_section": 13
+        },
+        {
+          "text": "En général, combien de temps faut-il compter entre la visite d'un logement et la signature du bail ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Comment s'organisent les visites — puis-je en visiter plusieurs le même jour ?",
+          "memory_section": 11
+        },
+        {
+          "text": "Y a-t-il des pièges ou des précautions à connaître pour un nouvel arrivant qui cherche un logement ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Les logements sont-ils meublés, ou faut-il tout acheter en arrivant ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Vous avez mentionné un secteur en particulier — vous pourriez m'en dire un peu plus ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Pour finir — quelle serait la première étape à faire dès aujourd'hui pour avancer rapidement ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 40,
+      "title": "Inscription à la bibliothèque du quartier",
+      "prompt": "Je travaille à la bibliothèque du quartier. Vous souhaitez vous inscrire et vous me posez des questions pour comprendre son fonctionnement (inscription, animations, horaires, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour, je voudrais m'inscrire à la bibliothèque — comment dois-je procéder ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quels documents faut-il apporter pour l'inscription — une pièce d'identité, un justificatif de domicile ?",
+          "memory_section": 1,
+          "memory_number": 3
+        },
+        {
+          "text": "L'inscription est-elle gratuite, ou faut-il payer une cotisation annuelle ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Quels sont les horaires d'ouverture — vous êtes aussi ouverts le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Combien de livres peut-on emprunter à la fois ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Et pendant combien de temps peut-on les garder avant de les rapporter ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Y a-t-il des frais si on rend un document en retard ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Peut-on prolonger un emprunt en ligne, ou faut-il revenir sur place ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Proposez-vous aussi des livres numériques ou des livres audio à emprunter ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Y a-t-il un espace avec des ordinateurs ou un accès Internet sur place ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Organisez-vous des animations, comme des heures du conte ou des ateliers ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Qui anime ces activités — des bibliothécaires ou des intervenants extérieurs ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Y a-t-il un espace calme pour étudier ou travailler sur place ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Si un livre n'est pas disponible ici, est-il possible de le faire venir d'une autre bibliothèque ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Pour finir — quelle serait la meilleure façon de découvrir les nouveautés dès mon inscription ?",
+          "memory_section": 4
+        }
+      ]
+    }
+  ]
+}

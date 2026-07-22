@@ -1,0 +1,351 @@
+{
+  "month": {
+    "number": 10,
+    "slug": "octobre",
+    "name": "Octobre"
+  },
+  "batch": 7,
+  "subjects": [
+    {
+      "number": 31,
+      "title": "Sortie à petit prix – Nouvelle ville",
+      "prompt": "Depuis peu installé(e) dans ma ville, vous voulez sortir sans trop dépenser ; en ami(e), je vous oriente sur les endroits, les activités et les transports, etc.",
+      "questions": [
+        {
+          "text": "Salut ! Je viens d'arriver dans ta ville et j'aimerais organiser une sortie sans trop dépenser — tu aurais des idées à me conseiller ?",
+          "memory_number": 4,
+          "memory_section": 1
+        },
+        {
+          "text": "Côté nature, qu'est-ce que tu recommanderais — des parcs, des sentiers de randonnée ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Et pour les activités culturelles — il y a des musées ou des expositions intéressantes ?",
+          "memory_section": 12
+        },
+        {
+          "text": "Est-ce qu'il y a des musées gratuits ou des jours d'entrée gratuite dans la semaine ?",
+          "memory_number": 4,
+          "memory_section": 2
+        },
+        {
+          "text": "Si on veut faire du sport ou des activités en plein air, il y a quoi comme options ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Qu'est-ce qu'on peut faire de sympa sans rien dépenser dans le coin ?"
+        },
+        {
+          "text": "Est-ce qu'il y a des événements ou des animations gratuits en ce moment ?",
+          "memory_number": 4,
+          "memory_section": 2
+        },
+        {
+          "text": "En général, ces endroits sont faciles d'accès en transports en commun ou il faut une voiture ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Pour les transports, il existe un pass ou des tarifs réduits pour se déplacer moins cher ?",
+          "memory_number": 4,
+          "memory_section": 2
+        },
+        {
+          "text": "Pour manger sans se ruiner, tu connais des adresses pas chères, ou c'est mieux de prévoir un pique-nique ?",
+          "memory_number": 4,
+          "memory_section": 2
+        },
+        {
+          "text": "Et si le temps n'est pas au rendez-vous, tu aurais des idées pour une sortie en intérieur ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Il vaut mieux y aller à quel moment pour éviter la foule ?",
+          "memory_number": 4,
+          "memory_section": 4
+        },
+        {
+          "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 32,
+      "title": "Maison de vacances en bord de mer",
+      "prompt": "Propriétaire d'une maison de vacances au bord de la mer que je mets en location, je réponds, en voisin(e), à votre curiosité : aménagements, emplacement, tarif, etc.",
+      "questions": [
+        {
+          "text": "Bonjour ! Vous m'avez parlé de votre maison à louer en bord de mer — elle est située où exactement ?",
+          "memory_section": 19
+        },
+        {
+          "text": "La plage se trouve à quelle distance — on peut y aller à pied ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Quelle est la superficie de la maison — et combien de chambres y a-t-il ?"
+        },
+        {
+          "text": "Elle peut accueillir combien de personnes confortablement ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Est-ce que la maison est entièrement meublée, et quels équipements sont disponibles sur place ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Y a-t-il aussi un espace extérieur, comme une terrasse ou un jardin ?",
+          "memory_section": 16
+        },
+        {
+          "text": "La maison est disponible pour quelle période — à la semaine, pour quelques mois ou à l'année ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il une durée minimale de location ?",
+          "memory_section": 1,
+          "memory_number": 3
+        },
+        {
+          "text": "Et côté tarifs, combien coûte la location — à la semaine ou au mois ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le tarif comprend quoi exactement — les charges et l'eau sont-elles incluses ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Faut-il verser une caution — et le paiement se fait-il en une seule fois ?",
+          "memory_section": 1,
+          "memory_number": 3
+        },
+        {
+          "text": "Comment est le quartier en général — plutôt calme ou animé ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Y a-t-il des commerces et des restaurants accessibles à pied ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
+          "memory_section": 13
+        },
+        {
+          "text": "D'accord, est-ce que je pourrais visiter la maison avant de m'engager et vous recontacter ensuite ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 33,
+      "title": "Livraison d'un meuble",
+      "prompt": "Vous voulez vous faire livrer un meuble ; depuis la boutique de mobilier où je travaille, je vous renseigne sur le coût, le délai et le mode de transport, etc.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je voudrais commander un meuble et me renseigner sur la livraison — quelles sont les différentes options proposées ?",
+          "memory_number": 2,
+          "memory_section": 1
+        },
+        {
+          "text": "Le prix de la livraison dépend-il de la taille du meuble ou de la distance ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que la livraison coûte approximativement ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le tarif comprend quoi exactement — le transport et la livraison jusque dans la pièce sont-ils inclus ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Quel délai faut-il prévoir entre la commande et la livraison ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Est-ce qu'on peut choisir le jour et un créneau horaire précis ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Proposez-vous aussi des livraisons le soir ou le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Comment puis-je suivre ma commande et savoir à quelle heure le livreur arrivera ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Faut-il vous signaler à l'avance qu'il y a des escaliers ou un ascenseur assez étroit ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Le meuble sera-t-il protégé et emballé pendant le transport ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Est-ce que vos livreurs peuvent aussi monter le meuble sur place, ou est-ce à moi de le faire ?",
+          "memory_section": 10
+        },
+        {
+          "text": "En cas de retard ou d'imprévu, comment ça se passe ?",
+          "memory_number": 2,
+          "memory_section": 5
+        },
+        {
+          "text": "Et si le meuble arrive endommagé, quelles sont les démarches à suivre ?",
+          "memory_number": 2,
+          "memory_section": 3
+        },
+        {
+          "text": "Quelles sont les conditions pour modifier ou annuler la livraison ?",
+          "memory_number": 2,
+          "memory_section": 5
+        },
+        {
+          "text": "S'il y a le moindre souci, à qui faut-il s'adresser ?",
+          "memory_section": 19
+        }
+      ]
+    },
+    {
+      "number": 34,
+      "title": "Passion pour la montagne – En gare",
+      "prompt": "Le train tardant, nous bavardons dans la salle d'attente ; je vous confie ma passion pour la montagne et vous m'en demandez les détails (régions, randonnées, matériel, etc.).",
+      "questions": [
+        {
+          "text": "Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Comment est née votre passion pour la montagne ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Quelles activités pratiquez-vous surtout — la randonnée, l'escalade, le ski ou un peu de tout ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Vous avez une région ou une station préférée ?",
+          "memory_number": 2,
+          "memory_section": 1
+        },
+        {
+          "text": "Vous y allez à quelle fréquence — seulement pendant les vacances ou aussi certains week-ends ?",
+          "memory_section": 2
+        },
+        {
+          "text": "C'est une bonne période pour aller en montagne ou il vaut mieux attendre une autre saison ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Ces activités s'adressent aussi aux débutants ou faut-il déjà avoir de l'expérience ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Faut-il une préparation physique particulière avant de commencer ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Qu'est-ce qu'il faut apporter comme équipement pour une première sortie ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Est-ce qu'on peut louer le matériel sur place ou il vaut mieux avoir le sien ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Vous partez généralement seul(e), avec des amis ou avec un guide ?",
+          "memory_section": 5,
+          "memory_number": 3
+        },
+        {
+          "text": "Qu'est-ce que vous appréciez le plus quand vous êtes en montagne ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'un seul endroit pour débuter, ce serait lequel ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 35,
+      "title": "Retour de voyage – Rencontre en soirée",
+      "prompt": "Nous faisons connaissance lors d'une soirée. Je vous dis que je rentre tout juste d'un séjour et vous m'interrogez à ce sujet (période, lieux visités, impressions, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! Vous me disiez à l'instant que vous rentrez d'un voyage — vous êtes parti(e) où exactement ?"
+        },
+        {
+          "text": "Vous êtes allé(e) dans quelles villes ou quelles régions exactement ?"
+        },
+        {
+          "text": "Combien de temps êtes-vous resté(e) sur place ?"
+        },
+        {
+          "text": "Comment vous déplaciez-vous sur place — en train, en bus ou en voiture ?"
+        },
+        {
+          "text": "Vous conseilleriez plutôt les transports en commun ou faut-il vraiment prévoir une voiture pour visiter les alentours ?"
+        },
+        {
+          "text": "Vous logiez plutôt à l'hôtel, en auberge ou ailleurs ?",
+          "memory_section": 6
+        },
+        {
+          "text": "C'est dans quelle gamme de prix pour l'hébergement — plutôt cher ou abordable ?",
+          "memory_section": 6
+        },
+        {
+          "text": "Quelles activités avez-vous faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Quelles villes ou quels villages méritent vraiment une visite ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Côté cuisine, qu'est-ce que vous avez goûté — il y avait des spécialités locales à essayer ?"
+        },
+        {
+          "text": "Qu'est-ce que vous avez le plus apprécié pendant ce séjour ?"
+        },
+        {
+          "text": "Y a-t-il quelque chose qui vous a moins plu pendant ce séjour ?"
+        },
+        {
+          "text": "Si ce n'est pas indiscret, ça revient à peu près à combien, ce genre de voyage ?"
+        },
+        {
+          "text": "Est-ce que vous recommanderiez cette destination à quelqu'un qui voudrait y aller ?",
+          "memory_number": 4,
+          "memory_section": 5
+        }
+      ]
+    }
+  ]
+}

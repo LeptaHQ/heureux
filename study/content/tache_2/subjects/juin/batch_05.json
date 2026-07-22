@@ -1,0 +1,332 @@
+{
+  "month": {
+    "number": 6,
+    "slug": "juin",
+    "name": "Juin"
+  },
+  "batch": 5,
+  "subjects": [
+    {
+      "number": 21,
+      "title": "Séances de yoga pour les employés",
+      "prompt": "Je suis votre collègue. J'organise des séances de yoga pour les employé(e)s de l'entreprise. Vous êtes intéressé(e) et vous me posez des questions pour obtenir des informations (lieux, horaires, équipements, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! J'ai entendu parler des séances de yoga que tu organises pour l'entreprise. C'est une excellente initiative. Tu fais ça depuis longtemps ou c'est un projet assez récent ?",
+          "memory_section": 19
+        },
+        {
+          "text": "En général, il y a combien de participants ? Beaucoup de personnes se sont déjà inscrites ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Les séances ont lieu quel jour exactement — et plutôt le matin avant le travail ou en fin de journée ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Quelle est la durée d'une séance ? Et il y a combien de séances par semaine ?",
+          "memory_section": 2
+        },
+        {
+          "text": "On peut assister à plusieurs séances ou c'est limité à une seule ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Elles se déroulent où exactement — directement dans l'entreprise ou dans un lieu extérieur ?",
+          "memory_section": 4
+        },
+        "D'accord. Et la salle, elle est suffisamment grande et bien aérée ? Il y a de la lumière naturelle ?",
+        {
+          "text": "Concernant l'équipement, est-ce que l'entreprise fournit le matériel ou chacun doit apporter le sien ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Et pour la tenue, des vêtements de sport classiques suffisent ?",
+          "memory_section": 5
+        },
+        {
+          "text": "À quel public s'adressent les séances — plutôt aux débutants ou aux personnes déjà expérimentées ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Quel type de yoga est proposé — du Hatha, du Vinyasa ou un autre style ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Les séances comprennent aussi des moments de méditation ou seulement des exercices physiques ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Comment se passe l'inscription — il faut s'inscrire à l'avance ou on peut venir librement ? Et c'est gratuit ou il y a une participation financière ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Et pour finir — le professeur propose des adaptations selon le niveau de chacun ? Et pour les personnes qui ont des problèmes de dos, la pratique reste possible ?",
+          "memory_section": 17
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "title": "Cours de photographie dans l'association",
+      "prompt": "Je suis votre voisin(e). Je prends des cours de photographie dans l'association du quartier. Vous êtes intéressé(e) et vous me posez des questions sur le cours (prix, horaires, matériel, etc.).",
+      "questions": [
+        "Bonjour ! Je t'ai croisé(e) l'autre jour avec ton appareil photo — tu prends des cours de photographie à l'association du quartier, c'est bien ça ?",
+        {
+          "text": "Ça fait longtemps que tu suis ces cours ? Tu es satisfait(e) de ta progression jusqu'à présent ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Les cours ont lieu quel jour — plutôt en semaine ou le week-end ? Et c'est compatible avec un emploi du temps professionnel ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Chaque cours dure combien de temps ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Il y a généralement combien de participants par groupe ? Et comment est l'ambiance ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Parlons du coût — combien coûte l'inscription pour la session complète ? Il existe des tarifs réduits pour les habitants du quartier ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Quel type d'appareil est recommandé — un reflex ou un appareil plus simple suffit ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Y a-t-il du matériel fourni par l'association ou chacun doit venir avec son propre équipement ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Est-ce qu'on peut même suivre les cours avec un smartphone ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Pour le traitement des photos, quel logiciel est généralement recommandé ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Qu'est-ce qu'on apprend concrètement — c'est plutôt technique, artistique ou un mélange des deux ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Les cours couvrent les bases ou s'adressent-ils plutôt à un niveau intermédiaire ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Y a-t-il des sorties pratiques pour prendre des photos en extérieur ou tout se fait en salle ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Quels types de thèmes sont abordés — portrait, paysage, photo de rue ou un peu de tout ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Et pour finir — il y a des expositions ou des projets de fin de session pour présenter les photos réalisées ?",
+          "memory_section": 10
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "title": "Centre culturel de la ville",
+      "prompt": "Je travaille à l'accueil du nouveau centre culturel de votre ville. Vous êtes intéressé(e) et vous me posez des questions sur les activités proposées par le centre (horaires, prix, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! J'ai appris récemment l'ouverture de ce nouveau centre culturel — depuis quand est-il ouvert exactement ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Ça se passe où exactement — c'est facilement accessible en transports en commun ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Quels types d'activités proposez-vous — c'est plutôt orienté vers l'art, la culture ou un mélange de plusieurs domaines ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Organisez-vous des cours ou des ateliers réguliers ? Si oui, dans quels domaines précisément ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Proposez-vous également des spectacles — des concerts, des pièces de théâtre ou des projections de films ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "memory_section": 12
+        },
+        {
+          "text": "À quelle heure commencent les cours et les ateliers — plutôt le matin ou en fin de journée ? Et vous êtes ouverts le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Proposez-vous des activités spécifiques pendant les vacances scolaires, notamment pour les enfants ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le tarif comprend quoi exactement — certaines activités sont-elles gratuites ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Il y a généralement combien de participants par atelier — c'est un petit groupe ou une grande classe ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Y a-t-il une boutique de souvenirs ou une librairie sur place ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule activité, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "title": "Office de tourisme — activités régionales",
+      "prompt": "Je travaille à l'office de tourisme de votre lieu de vacances. Vous me posez des questions sur les activités à faire dans la région (parcs, musées, restaurants, etc.).",
+      "questions": [
+        "Bonjour ! Je vais rester ici pendant une semaine et je suis particulièrement intéressé(e) par la nature et la culture — que me conseillez-vous ?",
+        {
+          "text": "Quels sont les plus beaux parcs naturels ou espaces protégés à visiter dans les environs ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Y a-t-il des randonnées que vous recommandez — elles sont accessibles à tous les niveaux ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Existe-t-il des points de vue panoramiques vraiment impressionnants à ne pas manquer ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Quels musées me recommandez-vous en priorité ? Y a-t-il des monuments historiques ou des sites culturels importants ?",
+          "memory_section": 12
+        },
+        {
+          "text": "Conseillez-vous la visite de villages typiques ou pittoresques aux alentours ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ? Dans quelles langues sont-elles disponibles ?",
+          "memory_section": 11
+        },
+        {
+          "text": "Y a-t-il des événements culturels, des festivals ou des marchés locaux cette semaine ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à goûter absolument ? Il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Quelles activités de plein air peut-on pratiquer — vélo, kayak ? Est-il possible de louer du matériel sur place ?",
+          "memory_section": 5
+        },
+        {
+          "text": "La région est-elle animée la nuit ? Et que recommandez-vous de faire le soir ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
+          "memory_section": 13
+        },
+        {
+          "text": "C'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "title": "Aide au déménagement",
+      "prompt": "Vous êtes mon ami(e). Vous allez m'aider à déménager dans mon nouveau logement. Vous me posez des questions sur l'organisation de la journée (lieu, date, participants, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! Alors, c'est confirmé, tu vas bientôt déménager ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Ton nouveau logement, il se situe où exactement ? C'est dans quel quartier ? C'est loin de ton ancien appartement ?",
+          "memory_section": 9
+        },
+        {
+          "text": "As-tu déjà fixé la date de ton déménagement — ce sera en semaine ou le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "À quelle heure aimerais-tu qu'on commence ? Et à ton avis, ça va durer combien de temps — toute la journée ou seulement quelques heures ?",
+          "memory_section": 2
+        },
+        {
+          "text": "À quel étage se trouve ton ancien appartement ? Si ce n'est pas au rez-de-chaussée, y a-t-il un ascenseur ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Et pour le nouveau logement, c'est à quel étage ? L'accès est pratique pour décharger le camion ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Combien de personnes vont venir aider au total ? Tu as déjà demandé à d'autres amis ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Quels meubles et objets faudra-t-il déménager — il y a des éléments particulièrement lourds ou encombrants ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Tu as déjà préparé les cartons ou il faudra aussi t'aider à emballer certaines affaires ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Y a-t-il des objets fragiles qui nécessitent une attention particulière ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Comment allons-nous transporter toutes tes affaires — tu as loué un camion ou une camionnette ? Le véhicule est suffisamment grand pour tout faire en un seul trajet ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Qui va conduire le camion ? Tu as le permis adapté pour ce type de véhicule ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Qu'est-ce qu'il faut apporter comme équipement — des gants, des outils ? Et tu as du matériel de protection comme des couvertures ou du papier bulle ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Tu as prévu à manger et à boire pour tout le monde pendant la journée ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Pour finir — y a-t-il un parking à proximité des deux logements ou il vaut mieux venir en transports en commun ?",
+          "memory_section": 13
+        }
+      ]
+    }
+  ]
+}

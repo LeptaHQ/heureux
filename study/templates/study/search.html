@@ -32,14 +32,26 @@
     <div class="qlist collection-table collection-table--subjects" data-collection-view="adaptive">
       {% include "study/partials/collection_table_header.html" with variant="subjects" column_1="Repère" column_2="Résultat" column_3="Contexte" only %}
       {% for prompt in prompt_results %}
-        <a class="qrow" data-collection-item href="{% url 'study:response_detail' prompt.theme.task.part.slug prompt.theme.task.slug prompt.pk %}">
+        <article
+          class="qrow subject-progress-row subject-progress-row--{{ prompt.subject_progress.status }}"
+          data-collection-item
+          data-subject-progress-row="{{ prompt.response_id }}">
           <span class="qrow__num qrow__num--tag"><span class="chip chip--theme" style="--chip: {{ prompt.theme.color }};">{% include "study/partials/ui_icon.html" with name=prompt.theme.icon only %} P{{ prompt.number }}</span></span>
           <span class="qrow__text">{{ prompt.text }}</span>
           <span class="qrow__meta">
             <span class="muted">{{ prompt.family.name }}</span>
-            <span class="progress-status progress-status--{{ prompt.subject_progress.status }}">{{ prompt.subject_progress.label }}</span>
+            <span
+              class="progress-status progress-status--{{ prompt.subject_progress.status }}"
+              data-subject-progress-status="{{ prompt.response_id }}">{{ prompt.subject_progress.label }}</span>
+            {% include "study/partials/subject_completion_form.html" with response_id=prompt.response_id progress=prompt.subject_progress subject_label=prompt.text part=prompt.theme.task.part task=prompt.theme.task refresh=True %}
           </span>
-        </a>
+          <a
+            class="subject-row-hit-area"
+            href="{% url 'study:response_detail' prompt.theme.task.part.slug prompt.theme.task.slug prompt.pk %}"
+            aria-label="Ouvrir le sujet : {{ prompt.text }}">
+            <span class="sr-only">Ouvrir le sujet</span>
+          </a>
+        </article>
       {% endfor %}
     </div>
   {% endif %}

@@ -218,6 +218,8 @@ def review(
     counts = queue_module.queue_counts(scope, user=request.user)
     next_batch = None
     batch_index_url = None
+    subject_return_url = None
+    vocabulary_lots_url = None
     if scope.get("batch"):
         try:
             current_batch = int(scope["batch"])
@@ -232,6 +234,13 @@ def review(
             None,
         )
         batch_index_url = _batch_index_url(scope)
+        if (
+            scope.get("kind") == "vocab"
+            and scope.get("response")
+            and batch_index_url
+        ):
+            subject_return_url = batch_index_url
+            vocabulary_lots_url = f"{batch_index_url}#subject-vocabulary"
     context = {
         "scope": scope,
         "scope_json": json.dumps(scope),
@@ -242,6 +251,8 @@ def review(
         "is_focused_drill": scope.get("kind") in FOCUSED_REVIEW_KINDS,
         "next_batch": next_batch,
         "batch_index_url": batch_index_url,
+        "subject_return_url": subject_return_url,
+        "vocabulary_lots_url": vocabulary_lots_url,
     }
     return render(request, "study/review.html", context)
 

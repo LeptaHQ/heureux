@@ -1,0 +1,310 @@
+{
+  "month": {
+    "number": 7,
+    "slug": "juillet",
+    "name": "Juillet"
+  },
+  "batch": 1,
+  "subjects": [
+    {
+      "number": 1,
+      "title": "Film vu au cinéma",
+      "prompt": "Je suis votre ami(e) et je sors tout juste d'une séance au cinéma. Curieux/curieuse de savoir si le film vaut le détour, vous m'interrogez sur son thème, ses acteurs principaux et les horaires des séances.",
+      "questions": [
+        {
+          "text": "Alors, tu es allé(e) voir quel film exactement ?",
+          "memory_section": 10
+        },
+        {
+          "text": "C'est quel genre de film — plutôt une comédie, un drame, un film d'action ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Sans tout me raconter, tu peux me dire un peu de quoi ça parle ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Qui sont les acteurs principaux — il y en a que je connaîtrais peut-être ?",
+          "memory_number": 2,
+          "memory_section": 1
+        },
+        {
+          "text": "Le film dure combien de temps environ ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Ça convient à tout le monde, ou c'est plutôt réservé à un public adulte ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Qu'est-ce que tu as le plus aimé dans ce film ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il quelque chose qui t'a déçu(e) ou moins plu ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Il y a des séances plutôt en journée ou en soirée, dans les salles près d'ici ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Ça coûte combien pour une place, à peu près ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Pour finir — tu me le recommandes vraiment, ce film ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Piscine municipale",
+      "prompt": "Je suis votre voisin(e) et j'ai l'habitude d'aller nager au bassin municipal. L'activité vous tente, alors vous m'interrogez sur les équipements du lieu, les horaires d'ouverture et le prix des entrées.",
+      "questions": [
+        {
+          "text": "Bonjour ! Vous m'avez dit que vous alliez souvent nager à la piscine municipale — vous pourriez m'en parler un peu ?"
+        },
+        {
+          "text": "Elle se trouve où exactement, cette piscine — c'est loin d'ici ?"
+        },
+        {
+          "text": "Quels équipements y a-t-il sur place — plusieurs bassins, un espace pour les enfants, un sauna ?"
+        },
+        {
+          "text": "Il y a des vestiaires et des casiers pour ranger ses affaires ?"
+        },
+        {
+          "text": "Le grand bassin fait quelle longueur — il y a des couloirs réservés aux nageurs ?"
+        },
+        {
+          "text": "Quels sont les horaires d'ouverture — c'est ouvert tôt le matin et tard le soir ?"
+        },
+        {
+          "text": "C'est ouvert tous les jours de la semaine — les horaires changent le week-end ?"
+        },
+        {
+          "text": "Y a-t-il des créneaux réservés, par exemple pour les cours ou pour les nageurs réguliers ?"
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — on paie chaque entrée ou il faut prendre un abonnement ?"
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'on peut acheter un carnet de plusieurs entrées pour payer moins cher ?",
+          "memory_number": 4,
+          "memory_section": 2
+        },
+        {
+          "text": "Faut-il un bonnet de bain ou un équipement particulier pour être accepté à l'entrée ?"
+        },
+        {
+          "text": "C'est souvent bondé — à quels moments vaut-il mieux venir pour être tranquille ?"
+        },
+        {
+          "text": "La piscine est facilement accessible en transports en commun ou il vaut mieux venir en voiture ?"
+        },
+        {
+          "text": "Pour finir — vous me la recommandez vraiment, cette piscine ?"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Préparatifs d'un voyage au Canada",
+      "prompt": "Je suis votre ami(e) installé(e) au Canada et vous prévoyez de venir me voir en décembre. Pour bien organiser votre séjour, vous me demandez conseil sur les activités à faire, les vêtements à emporter et le matériel à prévoir.",
+      "questions": [
+        {
+          "text": "Salut ! Je viens te rendre visite au Canada en décembre — tu pourrais me donner quelques conseils pour bien préparer mon voyage ?"
+        },
+        {
+          "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Et s'il fait très froid, quels vêtements chauds tu me recommandes d'emporter ?"
+        },
+        {
+          "text": "Côté équipement, qu'est-ce qu'il faut prévoir — de bonnes chaussures, un manteau d'hiver, des gants ?"
+        },
+        {
+          "text": "Est-ce que je peux acheter ces affaires sur place, ou il vaut mieux tout apporter de chez moi ?"
+        },
+        {
+          "text": "Qu'est-ce qu'on pourra faire ensemble — quelles activités tu me conseilles à cette période ?"
+        },
+        {
+          "text": "Il y a des activités d'hiver typiques à essayer, comme le patin ou la luge ?",
+          "memory_number": 4,
+          "memory_section": 4
+        },
+        {
+          "text": "Est-ce qu'il y a des événements ou des festivals spéciaux au mois de décembre ?"
+        },
+        {
+          "text": "Pour les déplacements, comment on circule quand il neige — les transports fonctionnent normalement ?"
+        },
+        {
+          "text": "Combien de temps tu me conseilles de rester pour bien en profiter ?"
+        },
+        {
+          "text": "Est-ce que j'ai des démarches particulières à prévoir avant de venir, côté papiers ?"
+        },
+        {
+          "text": "Qu'est-ce que je ne devrais surtout pas oublier, quelque chose auquel on ne pense pas toujours ?"
+        },
+        {
+          "text": "Est-ce que je dois prévoir un budget particulier pour les activités sur place ?"
+        },
+        {
+          "text": "Il y a des spécialités locales que je devrais absolument goûter pendant mon séjour ?"
+        },
+        {
+          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien préparer ce voyage, ce serait lequel ?"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Chambre en colocation",
+      "prompt": "Je suis votre ami(e) et je partage un appartement où une chambre se libère. Tenté(e) par cette place, vous m'interrogez sur le montant du loyer, la disposition des pièces et les personnes qui vivent là.",
+      "questions": [
+        {
+          "text": "Salut ! Tu m'as dit qu'une chambre se libérait dans ta colocation — ça m'intéresse, tu peux m'en dire plus ?"
+        },
+        {
+          "text": "Elle se trouve où exactement, cette colocation — c'est bien situé ?"
+        },
+        {
+          "text": "La chambre qui se libère fait quelle taille — elle est meublée ?"
+        },
+        {
+          "text": "Comment est le logement en général — il y a combien de pièces et de chambres ?"
+        },
+        {
+          "text": "Les espaces communs, c'est comment — il y a un grand salon, une cuisine équipée ?"
+        },
+        {
+          "text": "Il y a combien de personnes dans la colocation en ce moment ?"
+        },
+        {
+          "text": "Les autres colocataires, ils sont comment — plutôt calmes, sociables ?"
+        },
+        {
+          "text": "Côté loyer, c'est combien par mois pour la chambre ?"
+        },
+        {
+          "text": "Les charges sont comprises dans le loyer — l'électricité, l'eau, internet ?"
+        },
+        {
+          "text": "Comment ça se passe pour les dépenses communes, les courses et le ménage ?"
+        },
+        {
+          "text": "Il faut verser une caution, et de combien à peu près ?"
+        },
+        {
+          "text": "Est-ce qu'il y a des règles de vie à respecter entre colocataires ?"
+        },
+        {
+          "text": "Le quartier est comment — calme, bien desservi par les transports ?"
+        },
+        {
+          "text": "Est-ce que je pourrais passer visiter avant de me décider ?"
+        },
+        {
+          "text": "Pour finir — à ton avis, je m'entendrais bien avec le reste de la coloc ?"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Découvrir le quartier – Nouveau voisin",
+      "prompt": "Je suis votre voisin(e) et vous venez tout juste d'emménager sans bien connaître les environs. Vous cherchez à mieux cerner le quartier en me questionnant sur les services, les commerces et l'ambiance générale.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je viens d'emménager dans l'immeuble et je ne connais pas encore le quartier — vous pourriez me renseigner un peu ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Comment est le quartier en général — plutôt calme et résidentiel ou animé ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Est-ce que les voisins se connaissent et s'entraident facilement dans l'immeuble ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Pour les enfants, y a-t-il de bonnes écoles et des garderies à proximité ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Ces écoles sont-elles accessibles à pied ou faut-il prévoir un transport ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Côté commerces, y a-t-il des supermarchés, des marchés ou des magasins de quartier pas trop loin ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Pour les courses du quotidien, est-ce que tout est accessible à pied ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Quels sont les loisirs disponibles dans le coin — des parcs, des salles de sport, des bibliothèques ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Y a-t-il des activités ou des clubs pour rencontrer du monde et se faire des amis ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Le quartier est-il bien desservi par les transports en commun ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Y a-t-il un parking ou c'est compliqué de se garer dans le quartier ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Pour les soins, comment trouver un médecin ou une pharmacie quand on vient d'arriver ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
+          "memory_number": 2,
+          "memory_section": 4
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me donner qu'un seul conseil pour bien m'installer ici, ce serait lequel ?",
+          "memory_section": 4
+        }
+      ]
+    }
+  ]
+}

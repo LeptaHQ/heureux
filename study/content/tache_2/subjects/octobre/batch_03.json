@@ -1,0 +1,337 @@
+{
+  "month": {
+    "number": 10,
+    "slug": "octobre",
+    "name": "Octobre"
+  },
+  "batch": 3,
+  "subjects": [
+    {
+      "number": 11,
+      "title": "Film vu au cinéma",
+      "prompt": "Je suis votre ami(e) et j'ai vu un film au cinéma hier. Vous voulez en savoir plus et vous m'interrogez sur le titre, le genre, l'histoire, les acteurs, etc.",
+      "questions": [
+        {
+          "text": "Alors, tu es allé(e) voir quel film exactement ?",
+          "memory_section": 10
+        },
+        {
+          "text": "C'est quel genre de film — plutôt une comédie, un drame, un film d'action ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Sans tout me raconter, tu peux me dire un peu de quoi ça parle ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Qui sont les acteurs principaux — il y en a que je connaîtrais peut-être ?",
+          "memory_number": 2,
+          "memory_section": 1
+        },
+        {
+          "text": "Le film dure combien de temps environ ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Ça convient à tout le monde, ou c'est plutôt réservé à un public adulte ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Qu'est-ce que tu as le plus aimé dans ce film ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il quelque chose qui t'a déçu(e) ou moins plu ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Il y a des séances plutôt en journée ou en soirée, dans les salles près d'ici ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Ça coûte combien pour une place, à peu près ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Pour finir — tu me le recommandes vraiment, ce film ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Retour d'un séjour au Canada – Conseils",
+      "prompt": "Rentrant à peine de deux semaines passées au Canada, je vous en parle en ami(e) ; comme vous y partez bientôt, vous me réclamez des conseils concrets (prix, habitants, repas, climat, transports, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! Tu rentres tout juste de deux semaines au Canada et j'y pars bientôt — tu pourrais me donner quelques conseils pratiques ?"
+        },
+        {
+          "text": "Tu es allé(e) dans quelles villes ou quelles régions exactement ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Les transports en commun, c'est pratique et abordable là-bas ?"
+        },
+        {
+          "text": "Quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça t'a coûté approximativement au total ?",
+          "memory_section": 1
+        },
+        {
+          "text": "La vie est chère là-bas — qu'est-ce qui coûte le plus cher au quotidien ?"
+        },
+        {
+          "text": "Et les habitants, ils sont comment — plutôt accueillants et faciles à aborder ?"
+        },
+        {
+          "text": "Est-ce qu'il y a des différences culturelles ou des habitudes qui pourraient me surprendre ?"
+        },
+        {
+          "text": "Tu logeais plutôt à l'hôtel, en auberge ou ailleurs ?",
+          "memory_section": 6
+        },
+        {
+          "text": "Y avait-il des visites ou des excursions que tu recommanderais particulièrement ?",
+          "memory_number": 2,
+          "memory_section": 1
+        },
+        {
+          "text": "Qu'est-ce que tu as le plus apprécié ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il quelque chose qui t'a moins plu ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Pour finir — si tu ne devais me recommander qu'une seule étape ou activité, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Voyage à la montagne en préparation",
+      "prompt": "Tout juste après avoir bouclé l'organisation d'un séjour à la montagne, je vous en parle ; intrigué(e), vous m'interrogez sur ce projet encore à venir (hébergement, coût, activités, saison, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! J'ai entendu que tu prépares un voyage à la montagne — ça m'intéresse, tu pourrais m'en parler ?"
+        },
+        {
+          "text": "Tu comptes aller où exactement — quelle région ou station de montagne ?"
+        },
+        {
+          "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Combien de temps faut-il prévoir — quelques jours ou toute la semaine ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Quelles activités tu comptes faire — ski, randonnée, autres sports ou plutôt détente ?"
+        },
+        {
+          "text": "Ça s'adresse à quel public — il y a des activités pour les débutants aussi ?"
+        },
+        {
+          "text": "Tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
+          "memory_section": 6
+        },
+        {
+          "text": "C'est dans quelle gamme de prix pour l'hébergement — plutôt cher ou abordable ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?"
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Comment tu comptes t'y rendre — en voiture, en train ?"
+        },
+        {
+          "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "title": "Visite après un petit accident",
+      "prompt": "Victime d'un accident sans gravité, je reçois votre visite : en collègue, vous prenez de mes nouvelles et cherchez à comprendre ce qui s'est produit (moment, endroit, circonstances, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! J'ai appris que tu avais eu un petit accident — j'ai voulu passer prendre de tes nouvelles. Comment tu te sens maintenant ?"
+        },
+        {
+          "text": "Ça s'est passé quand exactement ?"
+        },
+        {
+          "text": "Et c'était où — au travail, dans la rue, chez toi ?"
+        },
+        {
+          "text": "Comment c'est arrivé — tu peux me raconter ce qui s'est passé ?",
+          "memory_number": 5,
+          "memory_section": 1
+        },
+        {
+          "text": "Tu étais seul(e) sur le moment, ou quelqu'un a pu t'aider tout de suite ?"
+        },
+        {
+          "text": "Est-ce que quelqu'un a été prévenu — les secours, un collègue ?"
+        },
+        {
+          "text": "Tu as pu rentrer chez toi ensuite, ou tu as dû aller à l'hôpital ?"
+        },
+        {
+          "text": "Ce n'est rien de trop grave, j'espère — tu vas pouvoir te remettre vite ?",
+          "memory_number": 5,
+          "memory_section": 1
+        },
+        {
+          "text": "Tu as besoin de repos, ou tu peux reprendre le travail bientôt ?"
+        },
+        {
+          "text": "Il y a des choses que tu ne peux plus faire pour l'instant ?"
+        },
+        {
+          "text": "Est-ce que je peux t'aider avec quelque chose — les courses, des démarches ?",
+          "memory_number": 5,
+          "memory_section": 1
+        },
+        {
+          "text": "Tu veux que je prévienne les collègues, ou tu préfères leur en parler toi-même ?"
+        },
+        {
+          "text": "Ça va te retarder dans tes projets ou ton travail ?",
+          "memory_number": 5,
+          "memory_section": 1
+        },
+        {
+          "text": "Il faut que tu fasses attention à quelque chose en particulier maintenant ?"
+        },
+        {
+          "text": "En tout cas, prends soin de toi — n'hésite pas à m'appeler si tu as besoin de quoi que ce soit, d'accord ?",
+          "memory_number": 5,
+          "memory_section": 1
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "title": "Recherche d'appartement – Nouvel arrivant",
+      "prompt": "À peine débarqué(e) au Canada, vous êtes en quête d'un appartement ; vous venez me consulter sur le type de logement, les démarches et les quartiers, etc.",
+      "questions": [
+        {
+          "text": "Bonjour, je viens d'arriver au Québec et je cherche un logement — par où dois-je commencer ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Vous avez des logements disponibles en ce moment, plutôt en location ou aussi à l'achat ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Je cherche un logement pas trop grand pour commencer — vous auriez des studios ou des T2 disponibles ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Quels secteurs de la ville recommanderiez-vous à quelqu'un qui vient d'arriver et ne connaît pas encore la ville ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Ces logements se situent dans quelle gamme de prix en général ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Et le loyer comprend quoi exactement — les charges, le chauffage, l'électricité ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Pour un dossier de location, quels documents faut-il fournir quand on vient d'arriver et qu'on n'a pas encore d'historique ici ?",
+          "memory_section": 1,
+          "memory_number": 3
+        },
+        {
+          "text": "Faut-il obligatoirement un garant, ou existe-t-il d'autres solutions pour les nouveaux arrivants ?",
+          "memory_section": 1,
+          "memory_number": 3
+        },
+        {
+          "text": "Ces quartiers sont-ils bien desservis par les transports en commun ?",
+          "memory_section": 13
+        },
+        {
+          "text": "En général, combien de temps faut-il compter entre la visite d'un logement et la signature du bail ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Comment s'organisent les visites — puis-je en visiter plusieurs le même jour ?",
+          "memory_section": 11
+        },
+        {
+          "text": "Y a-t-il des pièges ou des précautions à connaître pour un nouvel arrivant qui cherche un logement ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Les logements sont-ils meublés, ou faut-il tout acheter en arrivant ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Vous avez mentionné un secteur en particulier — vous pourriez m'en dire un peu plus ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Pour finir — quelle serait la première étape à faire dès aujourd'hui pour avancer rapidement ?",
+          "memory_section": 4
+        }
+      ]
+    }
+  ]
+}

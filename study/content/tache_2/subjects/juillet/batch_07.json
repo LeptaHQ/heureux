@@ -1,0 +1,300 @@
+{
+  "month": {
+    "number": 7,
+    "slug": "juillet",
+    "name": "Juillet"
+  },
+  "batch": 7,
+  "subjects": [
+    {
+      "number": 29,
+      "title": "Transports en commun – Nouveau voisin",
+      "prompt": "Je suis votre voisin(e) et vous venez de vous installer au Canada. Pour vous déplacer, vous m'interrogez sur les transports en commun : comment prendre un abonnement, comment ça marche et quels modes de transport existent.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je viens de m'installer au Canada et je ne connais pas encore les transports en commun — vous pourriez m'expliquer comment ça marche ?"
+        },
+        {
+          "text": "Quels types de transports sont disponibles ici — bus, métro, tramway ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Est-ce que le réseau couvre toute la ville ou seulement certaines zones ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Quel abonnement vous me conseilleriez si je prends les transports tous les jours ?"
+        },
+        {
+          "text": "Où peut-on acheter les tickets ou les abonnements — en ligne, à une borne ou auprès d'un agent ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Un ticket est-il valable pour plusieurs types de transport lors d'un même trajet ?"
+        },
+        {
+          "text": "Quels sont les horaires — les transports fonctionnent tôt le matin et tard le soir ?"
+        },
+        {
+          "text": "Le réseau fonctionne-t-il chaque jour de la semaine — les horaires changent-ils le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il une application pour suivre les transports en temps réel ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Comment ça se passe si on doit changer de ligne plusieurs fois pour un trajet ?"
+        },
+        {
+          "text": "C'est un moyen de transport fiable — les bus et les trains sont plutôt ponctuels ?"
+        },
+        {
+          "text": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Pour finir — quel serait votre meilleur conseil pour bien utiliser les transports au quotidien ?"
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "title": "Vélo électrique à vendre",
+      "prompt": "Je suis votre ami(e) et je me sépare de mon vélo électrique. L'annonce vous intéresse, alors vous me demandez des précisions sur le prix, la couleur, le modèle et l'état de l'appareil.",
+      "questions": [
+        {
+          "text": "Salut ! Tu m'as dit que tu vendais ton vélo électrique — ça m'intéresse, tu peux m'en dire un peu plus ?"
+        },
+        {
+          "text": "C'est quel modèle, et de quelle marque ?"
+        },
+        {
+          "text": "Il a quel âge — tu l'as acheté il y a longtemps ?"
+        },
+        {
+          "text": "Il est de quelle couleur ?"
+        },
+        {
+          "text": "Pourquoi tu as décidé de le vendre ?"
+        },
+        {
+          "text": "Il est en bon état général, ou il y a des petites réparations à prévoir ?"
+        },
+        {
+          "text": "La batterie tient encore bien la charge — elle a quelle autonomie ?"
+        },
+        {
+          "text": "Tu t'en servais souvent, ou il a peu roulé ?"
+        },
+        {
+          "text": "Tu as gardé la facture et les accessoires d'origine ?"
+        },
+        {
+          "text": "Il est vendu avec des accessoires — un chargeur, un antivol, un casque ?"
+        },
+        {
+          "text": "Tu en demandes combien ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Ce prix est négociable, ou c'est un montant fixe ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce que je pourrais l'essayer avant de me décider ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Pour le paiement, tu préférerais un virement, ou autre chose ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Pour finir — tu penses le vendre rapidement, ou j'ai encore un peu de temps pour me décider ?"
+        }
+      ]
+    },
+    {
+      "number": 31,
+      "title": "Ski de fond",
+      "prompt": "Je suis votre ami(e) au Canada et je fais du ski de fond. Tenté(e) d'essayer, vous m'interrogez sur ce sport : le coût, le matériel, la tenue à prévoir et la façon d'apprendre.",
+      "questions": [
+        {
+          "text": "Salut ! Tu m'as dit que tu faisais du ski de fond — ça me tente d'essayer, tu peux m'en parler ?",
+          "memory_number": 4,
+          "memory_section": 1
+        },
+        {
+          "text": "C'est difficile pour un débutant, ou ça s'apprend assez vite ?",
+          "memory_number": 4,
+          "memory_section": 3
+        },
+        {
+          "text": "Il faut prendre des cours au début, ou tu peux me montrer les bases ?",
+          "memory_number": 4,
+          "memory_section": 3
+        },
+        {
+          "text": "Où est-ce qu'on peut pratiquer près d'ici — il y a des pistes adaptées aux débutants ?"
+        },
+        {
+          "text": "De quel équipement on a besoin — skis, bâtons, chaussures spéciales ?"
+        },
+        {
+          "text": "Il vaut mieux acheter le matériel ou on peut le louer pour commencer ?",
+          "memory_number": 4,
+          "memory_section": 3
+        },
+        {
+          "text": "Combien ça coûte à peu près, l'équipement complet ?"
+        },
+        {
+          "text": "Est-ce qu'il faut payer pour accéder aux pistes ?"
+        },
+        {
+          "text": "Comment il faut s'habiller pour ne pas avoir froid tout en restant à l'aise ?"
+        },
+        {
+          "text": "Qu'est-ce qu'il faut prévoir d'autre — des gants, un bonnet, de quoi boire ?"
+        },
+        {
+          "text": "C'est un sport fatigant — il faut une bonne condition physique ?"
+        },
+        {
+          "text": "On peut y aller ensemble la première fois pour se lancer tranquillement ?"
+        },
+        {
+          "text": "Quelle est la meilleure période pour s'y mettre dans la saison ?",
+          "memory_number": 4,
+          "memory_section": 4
+        },
+        {
+          "text": "Il y a des précautions de sécurité à connaître avant de se lancer ?",
+          "memory_number": 4,
+          "memory_section": 3
+        },
+        {
+          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien débuter, ce serait lequel ?"
+        }
+      ]
+    },
+    {
+      "number": 32,
+      "title": "Recevoir ses neveux – idées d'activités",
+      "prompt": "Je suis votre ami(e) et vous vous apprêtez à accueillir vos neveux chez vous. En quête d'idées pour les occuper, vous me demandez conseil sur les activités, les sorties et les jeux.",
+      "questions": [
+        {
+          "text": "Salut ! Je vais bientôt recevoir mes neveux à la maison et j'aimerais bien les occuper — tu aurais des idées d'activités à me conseiller ?"
+        },
+        {
+          "text": "Qu'est-ce qu'on peut faire avec des enfants dans le coin — des parcs, des aires de jeux ?"
+        },
+        {
+          "text": "Tu connais des sorties sympas adaptées aux enfants — un zoo, un musée, un parc d'attractions ?"
+        },
+        {
+          "text": "S'il fait beau, qu'est-ce que tu me conseilles comme activités en plein air ?",
+          "memory_number": 4,
+          "memory_section": 4
+        },
+        {
+          "text": "Et s'il pleut, tu aurais des idées d'activités en intérieur ?",
+          "memory_number": 4,
+          "memory_section": 4
+        },
+        {
+          "text": "Quels jeux de société ou jeux d'intérieur je pourrais prévoir à la maison ?"
+        },
+        {
+          "text": "Il y a des activités gratuites ou pas trop chères pour les occuper ?"
+        },
+        {
+          "text": "Ces sorties, c'est facilement accessible en transports ou il vaut mieux une voiture ?"
+        },
+        {
+          "text": "Il faut réserver à l'avance pour certaines de ces activités ?"
+        },
+        {
+          "text": "Qu'est-ce qui plaît généralement le plus aux enfants, d'après toi ?"
+        },
+        {
+          "text": "Tu aurais des idées de petits plats simples que les enfants aiment bien ?"
+        },
+        {
+          "text": "Comment je peux les occuper tranquillement en fin de journée, avant le coucher ?"
+        },
+        {
+          "text": "Il y a des choses à éviter — des activités trop fatigantes ou risquées ?"
+        },
+        {
+          "text": "Combien de temps à l'avance je devrais organiser tout ça ?"
+        },
+        {
+          "text": "Pour finir — si tu ne devais me recommander qu'une seule sortie à faire avec eux, ce serait laquelle ?"
+        }
+      ]
+    },
+    {
+      "number": 33,
+      "title": "Arrivée au Canada – Accueil à la mairie",
+      "prompt": "Je suis chargé(e) d'accueil à la mairie et vous venez d'arriver au Canada. Pour vous orienter, vous me questionnez sur le logement, les démarches à effectuer et les services proposés par la municipalité.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je viens d'arriver au Canada et j'aurais besoin de quelques renseignements pour m'installer — pouvez-vous m'aider ?",
+          "memory_number": 4,
+          "memory_section": 1
+        },
+        {
+          "text": "Pour commencer, quelles démarches administratives dois-je faire en priorité ?"
+        },
+        {
+          "text": "Quels documents faut-il prévoir pour ces démarches ?"
+        },
+        {
+          "text": "Où puis-je obtenir un numéro d'assurance sociale et une carte de santé ?"
+        },
+        {
+          "text": "Pour trouver un logement, la mairie propose-t-elle des aides ou des informations utiles ?"
+        },
+        {
+          "text": "Vous auriez des conseils sur les quartiers où chercher un logement ?"
+        },
+        {
+          "text": "Quels types de transports en commun sont disponibles dans la ville ?"
+        },
+        {
+          "text": "Comment fonctionnent les tarifs des transports — faut-il un abonnement ou paie-t-on chaque trajet ?"
+        },
+        {
+          "text": "Quels services municipaux sont proposés aux nouveaux arrivants ?"
+        },
+        {
+          "text": "Y a-t-il des cours de français ou des programmes d'accueil pour s'intégrer ?"
+        },
+        {
+          "text": "Pour les courses et le quotidien, où trouver des commerces abordables dans le secteur ?"
+        },
+        {
+          "text": "Comment trouver un médecin ou une clinique quand on vient d'arriver ?"
+        },
+        {
+          "text": "Quelles activités ou associations me conseilleriez-vous pour rencontrer du monde ?"
+        },
+        {
+          "text": "À quel service dois-je m'adresser si j'ai d'autres questions plus tard ?"
+        },
+        {
+          "text": "Pour finir — quel serait votre premier conseil pour bien m'installer ici ?"
+        }
+      ]
+    }
+  ]
+}

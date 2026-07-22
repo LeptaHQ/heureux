@@ -345,7 +345,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.assertLessEqual(guide_style["barHeight"], 10)
         self.assertEqual(
             guide_progress.locator(".deck__progress-copy").inner_text(),
-            "0/90 apprises · 0/94 sujets terminés",
+            "0/140 apprises · 0/233 sujets terminés",
         )
 
         self.page.goto(overview_url)
@@ -456,7 +456,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.assertEqual(table_toggle.get_attribute("aria-pressed"), "true")
         self.assertTrue(table_header.is_visible())
         memory_entry = self.page.locator(".memory-entry")
-        self.assertEqual(memory_entry.count(), 2)
+        self.assertEqual(memory_entry.count(), 4)
         memory_entry = memory_entry.first
         self.assertEqual(
             len(
@@ -732,7 +732,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             memory_panel.locator(
                 ".tache-two-progress-summary__copy > span:last-child"
             ).inner_text(),
-            "1/90 questions apprises",
+            "1/140 questions apprises",
         )
         self.assertTrue(
             "progress-status--active"
@@ -1119,6 +1119,87 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         self.assertGreaterEqual(number_size, 11.5)
         self.assert_no_horizontal_overflow()
 
+    def test_subject_completion_checkbox_is_explicit_on_mobile(self):
+        page_errors = []
+        self.page.on("pageerror", lambda error: page_errors.append(str(error)))
+        response_id = self.first.response_id
+        completion_path = reverse(
+            "study:subject_completion",
+            args=[self.part.slug, self.task.slug, response_id],
+        )
+        self.page.goto(
+            self.live_server_url + response_detail_url(self.first.response)
+        )
+        checkbox = self.page.locator(
+            "[data-subject-completion-form] button"
+        )
+        status = self.page.locator(
+            f'[data-subject-progress-status="{response_id}"]'
+        )
+
+        self.assertEqual(checkbox.get_attribute("aria-checked"), "false")
+        self.assertEqual(
+            checkbox.evaluate(
+                "element => getComputedStyle(element).borderRadius"
+            ),
+            "50%",
+        )
+        self.page.get_by_text("J’ai terminé ce sujet", exact=True).wait_for()
+
+        with self.page.expect_response(
+            lambda response: completion_path in response.url
+        ):
+            checkbox.click()
+        self.assertFalse(
+            page_errors,
+            f"Subject completion JavaScript failed: {page_errors}",
+        )
+        self.page.locator(
+            f'[data-subject-progress-status="{response_id}"]',
+            has_text="Terminé",
+        ).wait_for()
+        self.assertEqual(checkbox.get_attribute("aria-checked"), "true")
+        self.first.refresh_from_db()
+        self.assertIsNotNone(self.first.subject_completed_at)
+
+        self.first.response_practice_started_at = timezone.now()
+        self.first.save(update_fields=["response_practice_started_at"])
+        with self.page.expect_response(
+            lambda response: completion_path in response.url
+        ):
+            checkbox.click()
+        self.page.locator(
+            f'[data-subject-progress-status="{response_id}"]',
+            has_text="En cours",
+        ).wait_for()
+        self.assertEqual(checkbox.get_attribute("aria-checked"), "false")
+        self.first.refresh_from_db()
+        self.assertIsNone(self.first.subject_completed_at)
+        self.assertEqual(status.inner_text(), "En cours")
+        self.assert_no_horizontal_overflow()
+
+        theme_url = self.live_server_url + theme_detail_url(self.theme)
+        self.page.goto(theme_url)
+        row = self.page.locator(
+            f'[data-subject-progress-row="{response_id}"]'
+        )
+        row_checkbox = row.locator(
+            "[data-subject-completion-form] button"
+        )
+        with self.page.expect_navigation(wait_until="networkidle"):
+            row_checkbox.click()
+        self.assertEqual(self.page.url, theme_url)
+        self.assertEqual(row_checkbox.get_attribute("aria-checked"), "true")
+        self.page.get_by_text("1 terminé.", exact=False).wait_for()
+        self.assert_no_horizontal_overflow()
+
+        with self.page.expect_navigation():
+            row.locator(".subject-row-hit-area").click()
+        self.assertEqual(
+            self.page.url,
+            self.live_server_url + response_detail_url(self.first.response),
+        )
+
     def test_vocabulary_status_cards_fit_large_counts_cleanly(self):
         self.page.set_viewport_size({"width": 1280, "height": 800})
         self.page.goto(
@@ -1285,6 +1366,17 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         ).text_content()
         self.save_current_prompt_highlight()
         self.page.locator("#reveal").click()
+        for selector in (
+            ".grade__icon",
+            ".grade__key",
+            ".kbd-hint kbd",
+        ):
+            self.assertEqual(
+                self.page.locator(selector).first.evaluate(
+                    "element => getComputedStyle(element).borderRadius"
+                ),
+                "50%",
+            )
         self.page.locator('[data-action="correct"]').click()
         self.page.wait_for_function(
             """
@@ -1454,6 +1546,15 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
                 configurable: true,
                 value: FakeUtterance,
               });
+              Object.defineProperty(navigator, "clipboard", {
+                configurable: true,
+                value: {
+                  writeText: text => {
+                    window.__shortcutCopiedText = text;
+                    return Promise.resolve();
+                  },
+                },
+              });
             })();
             """
         )
@@ -1470,6 +1571,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
 
         toolbar = self.page.locator("[data-selection-translate]")
         shortcuts = {
+            "[data-copy-selection]": "C",
             "[data-read-selection]": "R",
             "[data-translate-selection]": "T",
             "[data-note-selection]": "N",
@@ -1485,6 +1587,21 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         selected = self.page.evaluate(
             "window.getSelection().toString().trim()"
         )
+        self.page.keyboard.press("c")
+        self.page.wait_for_function(
+            "expected => window.__shortcutCopiedText === expected",
+            arg=selected,
+        )
+        self.assertEqual(
+            self.page.locator("[data-copy-selection-label]").inner_text(),
+            "Copied",
+        )
+        self.assertEqual(
+            ReviewLog.objects.filter(user=self.user).count(),
+            0,
+        )
+
+        self.select_prompt(start=0, end=12)
         self.page.keyboard.press("r")
         self.page.wait_for_function(
             "expected => window.__shortcutSpokenText === expected",
@@ -3193,10 +3310,43 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             name="Batch 01",
         ).wait_for()
         self.assertEqual(self.page.locator(".ce-group-test-row").count(), 5)
+        row_checkbox = self.page.locator(
+            "[data-comprehension-completion-form] button"
+        ).first
+        self.assertEqual(row_checkbox.get_attribute("aria-checked"), "false")
+        checkbox_metrics = row_checkbox.evaluate(
+            """element => {
+              const style = getComputedStyle(element);
+              return {
+                width: parseFloat(style.width),
+                height: parseFloat(style.height),
+                radius: style.borderTopLeftRadius,
+              };
+            }"""
+        )
+        self.assertAlmostEqual(
+            checkbox_metrics["width"],
+            checkbox_metrics["height"],
+            delta=0.5,
+        )
+        self.assertEqual(checkbox_metrics["radius"], "50%")
+        row_checkbox.click()
+        self.page.wait_for_load_state("networkidle")
+        row_checkbox = self.page.locator(
+            "[data-comprehension-completion-form] button"
+        ).first
+        self.assertEqual(row_checkbox.get_attribute("aria-checked"), "true")
         self.assert_no_horizontal_overflow()
 
         self.page.get_by_role("link", name="Découvrir le test").click()
         self.page.get_by_role("heading", name=test.title).wait_for()
+        detail_checkbox = self.page.locator(
+            "[data-comprehension-completion-form] button"
+        )
+        self.assertEqual(detail_checkbox.get_attribute("aria-checked"), "true")
+        detail_checkbox.click()
+        self.page.get_by_text("À commencer", exact=True).wait_for()
+        self.assertEqual(detail_checkbox.get_attribute("aria-checked"), "false")
         self.assertEqual(
             self.page.locator(".ce-study-question-row").count(),
             2,
@@ -3261,5 +3411,46 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
 
         self.page.get_by_role("link", name="Voir mes résultats").click()
         self.page.get_by_role("heading", name="Correction détaillée").wait_for()
+        self.page.get_by_text("Tentative terminée").wait_for()
+        results_checkbox = self.page.locator(
+            "[data-comprehension-completion-form] button"
+        )
+        self.assertEqual(results_checkbox.get_attribute("aria-checked"), "false")
+        results_checkbox.click()
+        self.page.get_by_text("Terminé", exact=True).wait_for()
+        self.assertEqual(results_checkbox.get_attribute("aria-checked"), "true")
         self.assertEqual(self.page.locator(".ce-review-item").count(), 2)
+        self.assert_no_horizontal_overflow()
+
+    def test_mobile_oral_completion_control_uses_the_shared_flow(self):
+        test = factories.make_comprehension_test(
+            question_count=2,
+            mode=ComprehensionMode.ORALE,
+        )
+        self.page.set_viewport_size({"width": 320, "height": 568})
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:comprehension_oral_group", args=[1])
+        )
+
+        checkbox = self.page.locator(
+            "[data-comprehension-completion-form] button"
+        ).first
+        self.assertEqual(checkbox.get_attribute("aria-checked"), "false")
+        checkbox.click()
+        self.page.wait_for_load_state("networkidle")
+        checkbox = self.page.locator(
+            "[data-comprehension-completion-form] button"
+        ).first
+        self.assertEqual(checkbox.get_attribute("aria-checked"), "true")
+        self.assert_no_horizontal_overflow()
+
+        self.page.get_by_role("link", name="Découvrir le test").click()
+        self.page.get_by_role("heading", name=test.title).wait_for()
+        self.assertEqual(
+            self.page.locator(
+                "[data-comprehension-completion-form] button"
+            ).get_attribute("aria-checked"),
+            "true",
+        )
         self.assert_no_horizontal_overflow()

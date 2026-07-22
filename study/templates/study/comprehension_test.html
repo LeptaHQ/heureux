@@ -32,6 +32,7 @@
       </div>
     </div>
     <aside class="ce-study-index__practice">
+      {% include "study/partials/comprehension_progress_control.html" with test=test %}
       {% if test.is_active and test.is_published %}
         {% include "study/_comprehension_practice_action.html" %}
         {% if test.active_attempt %}

@@ -1,0 +1,287 @@
+{
+  "month": {
+    "number": 11,
+    "slug": "novembre",
+    "name": "Novembre"
+  },
+  "batch": 3,
+  "subjects": [
+    {
+      "number": 11,
+      "title": "Premier jour dans un nouvel emploi",
+      "prompt": "Un(e) ami(e) vient de commencer un nouveau travail ; vous lui demandez comment s'est passée sa première journée (ambiance, collègues, tâches, etc.).",
+      "questions": [
+        {
+          "text": "Alors, raconte — comment s'est passé ton premier jour ?",
+          "memory_section": 21
+        },
+        {
+          "text": "Tu avais le trac en arrivant ou tu te sentais plutôt à l'aise ?"
+        },
+        {
+          "text": "Et du coup, comment était l'ambiance — plutôt formelle ou décontractée ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Et tes collègues, ils étaient comment — ils t'ont bien accueilli(e), il y a quelqu'un en particulier qui t'a aidé(e) ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Et justement, ton responsable, tu l'as rencontré — il a l'air comment ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Concrètement, tu as fait quoi de ta journée — c'était plutôt de la formation ou tu as directement commencé à travailler ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus ?",
+          "memory_section": 4
+        },
+        {
+          "text": "D'ailleurs, on t'a fait visiter les locaux — c'était comment, plutôt moderne ou un peu vieillot ?",
+          "memory_section": 11
+        },
+        {
+          "text": "Et le midi, tu as mangé avec des collègues ou c'était chacun de son côté ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Sinon, il y a eu un moment un peu stressant ou dans l'ensemble tout s'est bien enchaîné ?"
+        },
+        {
+          "text": "Avec le recul, c'est ce que tu imaginais ou il y a eu des surprises ?"
+        },
+        {
+          "text": "Parmi tout ça, qu'est-ce qui t'a le plus marqué ?",
+          "memory_section": 18
+        },
+        {
+          "text": "En tout cas, tu as envie d'y retourner demain ou tu appréhendes un peu ?"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Cours de musique à domicile",
+      "prompt": "Un(e) voisin(e) connaît quelqu'un qui donne des cours de musique à domicile ; intéressé(e), vous posez des questions sur ses tarifs, ses disponibilités et son expérience.",
+      "questions": [
+        {
+          "text": "Bonjour ! Vous m'avez dit que vous connaissiez quelqu'un qui donne des cours de musique à domicile — ça m'intéresse, vous pourriez m'en parler ?"
+        },
+        {
+          "text": "Quel instrument enseigne-t-il ou elle, et pour quels niveaux ?"
+        },
+        {
+          "text": "Ça convient à un débutant complet, quand on n'a jamais touché à l'instrument ?"
+        },
+        {
+          "text": "Quelle est son expérience — ça fait longtemps qu'il ou elle enseigne ?"
+        },
+        {
+          "text": "Il ou elle est comment comme professeur — plutôt patient et pédagogue ?",
+          "memory_number": 5,
+          "memory_section": 5
+        },
+        {
+          "text": "Et concrètement, qu'est-ce qu'on apprend — c'est plutôt du solfège et de la théorie, ou on passe directement à l'instrument ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Les cours durent combien de temps, et à quelle fréquence par semaine ?"
+        },
+        {
+          "text": "Quelles sont ses disponibilités — plutôt en semaine, le soir, ou le week-end ?"
+        },
+        {
+          "text": "Est-ce qu'il ou elle se déplace à domicile, ou il faut aller chez lui ou chez elle ?"
+        },
+        {
+          "text": "Côté tarifs, comment ça fonctionne — c'est à la séance ou plutôt au mois ?"
+        },
+        {
+          "text": "Faut-il acheter son propre instrument, ou il ou elle en prête un pour commencer ?"
+        },
+        {
+          "text": "Est-ce qu'il ou elle propose un cours d'essai avant de s'engager ?"
+        },
+        {
+          "text": "Au bout de combien de temps on commence à vraiment jouer des morceaux ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Vous auriez ses coordonnées pour que je le ou la contacte ?",
+          "memory_number": 5,
+          "memory_section": 5
+        },
+        {
+          "text": "À votre avis, ça vaut le coup — vous me le ou la recommandez ?"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Sortie à la campagne entre amis",
+      "prompt": "Vous voulez organiser une sortie à la campagne entre amis et demandez conseil à votre voisin(e) sur le lieu, les activités, le transport, etc.",
+      "questions": [
+        {
+          "text": "Bonjour ! J'aimerais organiser une sortie à la campagne avec des amis — vous connaissez bien la région, vous auriez des conseils ?"
+        },
+        {
+          "text": "Quels endroits vous recommanderiez pour passer une belle journée à la campagne ?"
+        },
+        {
+          "text": "C'est à quelle distance environ, et comment s'y rendre — en voiture ou en transports ?"
+        },
+        {
+          "text": "Qu'est-ce qu'on peut y faire — randonnée, pique-nique, activités en plein air ?"
+        },
+        {
+          "text": "Y a-t-il des sentiers de randonnée accessibles à tous les niveaux ?"
+        },
+        {
+          "text": "C'est adapté pour un groupe, avec des personnes de niveaux différents ?"
+        },
+        {
+          "text": "Faut-il prévoir un équipement particulier — de bonnes chaussures, de quoi se protéger du soleil ?"
+        },
+        {
+          "text": "Est-ce qu'on peut y pique-niquer librement, ou il vaut mieux réserver un coin ?"
+        },
+        {
+          "text": "Y a-t-il des points d'eau, des toilettes ou des commerces sur place ?"
+        },
+        {
+          "text": "À quel moment c'est le plus agréable pour y aller, et pour éviter le monde ?"
+        },
+        {
+          "text": "Est-ce qu'il y a un coût — parking, entrée, location de matériel ?"
+        },
+        {
+          "text": "En cas de mauvais temps, vous auriez une solution de repli à proximité ?"
+        },
+        {
+          "text": "Combien de temps faut-il prévoir pour bien en profiter — une demi-journée, une journée ?"
+        },
+        {
+          "text": "Il y a des choses à éviter ou des précautions à connaître là-bas ?"
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me conseiller qu'un seul endroit, ce serait lequel ?"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "title": "Livraison de courses à domicile",
+      "prompt": "Dans un magasin d'alimentation, vous vous renseignez pour vous faire livrer vos courses (délais, tarifs, mode de livraison, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! Je voudrais faire livrer mes courses à domicile — quelles options de livraison proposez-vous ?"
+        },
+        {
+          "text": "Est-ce qu'il y a un montant minimum de commande pour être livré ?"
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que la livraison coûte approximativement ?",
+          "memory_section": 1
+        },
+        {
+          "text": "La livraison est-elle gratuite à partir d'un certain montant ?"
+        },
+        {
+          "text": "Quel délai faut-il prévoir entre la commande et la livraison ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Est-ce qu'on peut choisir le jour et un créneau horaire précis ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Proposez-vous aussi des livraisons le soir ou le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Comment gérez-vous les produits frais ou surgelés — la chaîne du froid est-elle respectée ?"
+        },
+        {
+          "text": "Comment puis-je suivre ma commande et savoir à quelle heure le livreur arrivera ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Le livreur monte-t-il les courses jusqu'à la porte, même s'il y a des escaliers ?"
+        },
+        {
+          "text": "Comment se passe le paiement — en ligne à la commande ou à la livraison ?"
+        },
+        {
+          "text": "Que se passe-t-il si un produit est manquant ou de mauvaise qualité à l'arrivée ?"
+        },
+        {
+          "text": "En cas de retard ou d'imprévu, comment ça se passe ?",
+          "memory_number": 2,
+          "memory_section": 5
+        },
+        {
+          "text": "Quelles sont les conditions pour modifier ou annuler la commande ?"
+        },
+        {
+          "text": "S'il y a le moindre souci, à qui faut-il s'adresser ?",
+          "memory_section": 19
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "title": "Louer son appartement pour les vacances",
+      "prompt": "Pour arrondir vos fins de mois, vous envisagez de louer votre appartement pendant les vacances ; en agence, vous demandez conseil sur les prix, la durée et le profil des locataires.",
+      "questions": [
+        {
+          "text": "Bonjour ! J'aimerais louer mon appartement pendant les vacances pour gagner un peu plus d'argent — vous pourriez me conseiller ?"
+        },
+        {
+          "text": "Est-ce que mon appartement se prête bien à ce type de location — qu'est-ce qui compte le plus pour les locataires ?"
+        },
+        {
+          "text": "À quel prix je peux espérer le louer, à la nuit ou à la semaine ?"
+        },
+        {
+          "text": "Comment fixe-t-on le bon tarif — ça dépend de la saison et du quartier ?"
+        },
+        {
+          "text": "Quelle durée de location vaut-il mieux privilégier — des courts séjours ou des séjours plus longs ?"
+        },
+        {
+          "text": "Quel type de locataires vaut-il mieux viser — des touristes, des familles, des voyageurs d'affaires ?"
+        },
+        {
+          "text": "Quelles démarches administratives dois-je prévoir pour louer en règle ?"
+        },
+        {
+          "text": "Faut-il une assurance particulière en cas de dégâts ou de problème ?"
+        },
+        {
+          "text": "Comment se passent l'état des lieux et le dépôt de garantie ?"
+        },
+        {
+          "text": "Est-ce que je dois meubler et équiper le logement d'une façon particulière ?"
+        },
+        {
+          "text": "Qui s'occupe du ménage et de la remise des clés entre deux locations ?"
+        },
+        {
+          "text": "Vous proposez un service qui gère tout à ma place, et à quelle commission ?"
+        },
+        {
+          "text": "Comment faites-vous la promotion du logement pour trouver des locataires ?"
+        },
+        {
+          "text": "Quels sont les frais à prévoir de mon côté au total ?"
+        },
+        {
+          "text": "Pour finir — quel serait votre premier conseil pour bien démarrer et éviter les erreurs ?"
+        }
+      ]
+    }
+  ]
+}

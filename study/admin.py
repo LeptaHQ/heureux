@@ -9,6 +9,7 @@ from .models import (
     ComprehensionChoice,
     ComprehensionQuestion,
     ComprehensionTest,
+    ComprehensionTestCompletion,
     Family,
     LoginThrottle,
     Phrase,
@@ -57,6 +58,13 @@ class ComprehensionTestAdmin(admin.ModelAdmin):
     )
     list_filter = ("mode", "is_published", "is_active")
     inlines = [ComprehensionQuestionInline]
+
+
+@admin.register(ComprehensionTestCompletion)
+class ComprehensionTestCompletionAdmin(admin.ModelAdmin):
+    list_display = ("user", "test", "completed_at")
+    list_filter = ("test__mode", "test")
+    readonly_fields = ("completed_at",)
 
 
 @admin.register(ComprehensionQuestion)
@@ -147,6 +155,7 @@ class CardAdmin(admin.ModelAdmin):
         "state",
         "started_at",
         "response_practice_started_at",
+        "subject_completed_at",
         "due",
         "interval_days",
         "ease",

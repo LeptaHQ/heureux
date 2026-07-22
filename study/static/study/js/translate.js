@@ -157,6 +157,7 @@
   }
 
   function selectionShortcutButton(key) {
+    if (key === "c") return selectionCopyButton;
     if (key === "r") return readButton;
     if (key === "t") return translateButton;
     if (key === "n") return noteButton;

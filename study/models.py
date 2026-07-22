@@ -398,6 +398,34 @@ class ComprehensionTest(models.Model):
         return self.questions.filter(is_active=True).count()
 
 
+class ComprehensionTestCompletion(models.Model):
+    """A learner's explicit completion marker for a comprehension test."""
+
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="comprehension_test_completions",
+    )
+    test = models.ForeignKey(
+        ComprehensionTest,
+        on_delete=models.CASCADE,
+        related_name="explicit_completions",
+    )
+    completed_at = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ["completed_at", "id"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "test"],
+                name="unique_comprehension_test_completion",
+            ),
+        ]
+
+    def __str__(self) -> str:
+        return f"{self.user} · {self.test} · completed"
+
+
 class ComprehensionQuestion(models.Model):
     """One bilingual multiple-choice item within a comprehension test."""
 
@@ -732,6 +760,11 @@ class Card(models.Model):
     suspended = models.BooleanField(default=False)
     started_at = models.DateTimeField(null=True, blank=True, db_index=True)
     response_practice_started_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        db_index=True,
+    )
+    subject_completed_at = models.DateTimeField(
         null=True,
         blank=True,
         db_index=True,

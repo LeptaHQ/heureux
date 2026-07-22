@@ -26,7 +26,11 @@
   <div class="tache-two-subject-list collection-table collection-table--tache-two-subjects" data-collection-view="adaptive">
     {% include "study/partials/collection_table_header.html" with variant="tache-two-subjects" column_1="N°" column_2="Sujet" column_3="Consigne" column_4="Progression" column_5="Action" only %}
     {% for subject in subject_batch.subjects %}
-      <a class="tache-two-subject-card tache-two-subject-card--{{ subject.progress.status }} card" data-collection-item data-tache-two-subject href="{% url 'study:task_subject_detail' part.slug task.slug subject_month.slug subject_batch.number subject.number %}">
+      <article
+        class="tache-two-subject-card tache-two-subject-card--{{ subject.progress.status }} subject-progress-row subject-progress-row--{{ subject.progress.status }} card"
+        data-collection-item
+        data-tache-two-subject
+        data-subject-progress-row="{{ subject.response_id }}">
         <span class="tache-two-subject-card__number">Sujet {{ subject.number_label }}</span>
         <span class="tache-two-subject-card__copy">
           <strong>{{ subject.title }}</strong>
@@ -34,7 +38,12 @@
         </span>
         <span class="tache-two-subject-card__prompt">{{ subject.prompt }}</span>
         <div class="tache-two-subject-card__count">
-          <span class="progress-status progress-status--{{ subject.progress.status }}">{{ subject.progress.label }}</span>
+          <div class="subject-card-progress-line">
+            <span
+              class="progress-status progress-status--{{ subject.progress.status }}"
+              data-subject-progress-status="{{ subject.response_id }}">{{ subject.progress.label }}</span>
+            {% include "study/partials/subject_completion_form.html" with response_id=subject.response_id progress=subject.progress subject_label=subject.title part=part task=task refresh=True %}
+          </div>
           {% if subject.vocabulary_progress.total %}
             <small>{{ subject.vocabulary_progress.completed }}/{{ subject.vocabulary_progress.total }} vocabs terminés</small>
             <div class="progress" aria-label="{{ subject.vocabulary_progress.completed }} sur {{ subject.vocabulary_progress.total }} vocabs terminés">
@@ -47,7 +56,13 @@
           Ouvrir
           {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
         </span>
-      </a>
+        <a
+          class="subject-row-hit-area"
+          href="{% url 'study:task_subject_detail' part.slug task.slug subject_month.slug subject_batch.number subject.number %}"
+          aria-label="Ouvrir le sujet {{ subject.number_label }} : {{ subject.title }}">
+          <span class="sr-only">Ouvrir le sujet {{ subject.number_label }}</span>
+        </a>
+      </article>
     {% endfor %}
   </div>
 </div>

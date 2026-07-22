@@ -1,0 +1,89 @@
+{
+  "number": 5,
+  "title": "Mémoire 5",
+  "label": "Questions relationnelles",
+  "icon": "users",
+  "subtitle": "Une cinquième banque de formulations stables à mémoriser et à adapter pour les moments-clés de la Tâche 2 qui engagent la relation à l'autre — prendre des nouvelles, s'adapter, décider, organiser un moment collectif, faire confiance.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Prendre des nouvelles après un coup dur",
+      "groups": [
+        {
+          "guidance": "Quand un proche vient de vivre un accident, une hospitalisation, un deuil ou un imprévu difficile : ouvrir la conversation, écouter, proposer son aide et clore avec soin.",
+          "questions": [
+            "Comment c'est arrivé — tu peux me raconter ce qui s'est passé ?",
+            "Ce n'est rien de trop grave, j'espère — tu vas pouvoir te remettre vite ?",
+            "Est-ce que je peux t'aider avec quelque chose — les courses, des démarches ?",
+            "Ça va te retarder dans tes projets ou ton travail ?",
+            "En tout cas, prends soin de toi — n'hésite pas à m'appeler si tu as besoin de quoi que ce soit, d'accord ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "S'installer, s'adapter, tirer les leçons d'un changement",
+      "groups": [
+        {
+          "guidance": "Pour interroger quelqu'un qui a récemment changé de ville, de pays, de poste ou de vie sur son expérience d'installation, ses obstacles et son évolution.",
+          "questions": [
+            "Comment s'est passée ton adaptation au début — c'était difficile ?",
+            "Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
+            "Combien de temps il t'a fallu pour te sentir vraiment chez toi ?",
+            "Qu'est-ce qui a le plus changé dans ton mode de vie par rapport à avant ?",
+            "Tu penses que tu peux évoluer et apprendre de nouvelles choses là-bas ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Évaluer une proposition avant de s'engager",
+      "groups": [
+        {
+          "guidance": "Quand on vous propose quelque chose qui engage (poste, garde, invitation, mission) : ne pas répondre à chaud, cadrer les modalités, se donner le temps de décider.",
+          "questions": [
+            "Bonjour ! Vous me proposez de garder votre animal pendant vos vacances — avant de vous répondre, j'aimerais bien savoir de quel animal il s'agit ?",
+            "De combien de temps je dispose pour donner ma réponse ?",
+            "Est-ce que je peux avoir tous ces éléments par écrit pour bien réfléchir avant de décider ?",
+            "Est-ce qu'il y a une participation aux frais de mon côté ?",
+            "Comment je peux vous joindre pendant le séjour, en cas de besoin ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Cadrer un événement ou une célébration",
+      "groups": [
+        {
+          "guidance": "Pour préciser les paramètres d'une fête, d'un anniversaire ou d'une réception — à adapter selon que l'on interroge l'organisateur, l'invité d'honneur ou une personne connaissant les usages locaux.",
+          "questions": [
+            "Tu préférerais quel genre de fête — quelque chose d'intime ou une grande soirée ?",
+            "Vous connaissez un bon endroit pour fêter ça — un restaurant, une salle à louer ?",
+            "Qui est invité — seulement les collègues, ou aussi la famille et les amis ?",
+            "Est-ce qu'on doit apporter quelque chose — un plat, une boisson ?",
+            "Il faut prévoir des plats végétariens ou tenir compte d'allergies parmi tes invités ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Faire confiance à une personne recommandée",
+      "groups": [
+        {
+          "guidance": "Pour se renseigner via un tiers avant de faire appel à un professionnel qu'on ne connaît pas : garde d'enfants, professeur particulier, aide à domicile, artisan.",
+          "questions": [
+            "C'est quelqu'un que vous connaissez bien — vous avez déjà fait appel à cette personne ?",
+            "Il ou elle est comment comme professeur — plutôt patient et pédagogue ?",
+            "Elle a des références, ou des personnes qui peuvent la recommander ?",
+            "Est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
+            "Vous auriez ses coordonnées pour que je le ou la contacte ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

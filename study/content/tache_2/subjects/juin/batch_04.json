@@ -1,0 +1,354 @@
+{
+  "month": {
+    "number": 6,
+    "slug": "juin",
+    "name": "Juin"
+  },
+  "batch": 4,
+  "subjects": [
+    {
+      "number": 16,
+      "title": "Chef cuisinier à domicile pour un repas de famille",
+      "prompt": "Je suis chef cuisinier(ère) à domicile. Vous organisez un repas de famille et vous me posez des questions sur mes prestations (menus proposés, matériel nécessaire, tarifs, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour, j'organise un repas de famille et j'aimerais faire appel à vos services — comment cela fonctionne-t-il ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quels types de menus proposez-vous en général ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Pouvez-vous adapter le menu en cas d'allergies ou de régime particulier chez certains invités ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Pour combien de convives pouvez-vous cuisiner au maximum ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Avez-vous besoin d'apporter votre propre matériel, ou vous utilisez la cuisine sur place ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Combien de temps faut-il prévoir, entre la préparation et le service ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Comment se calcule le tarif — par personne, ou un forfait global pour la soirée ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le prix comprend-il les courses et les ingrédients, ou est-ce facturé en plus ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Vous vous occupez aussi du service à table et du nettoyage après le repas ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Proposez-vous aussi des boissons, ou dois-je m'en occuper moi-même ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Combien de temps à l'avance faut-il vous réserver pour un repas comme celui-là ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Peut-on choisir le menu ensemble à l'avance, ou vous proposez directement une sélection ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Faut-il verser des arrhes à la réservation ?",
+          "memory_section": 1,
+          "memory_number": 3
+        },
+        {
+          "text": "Que se passe-t-il si je dois annuler ou reporter la date ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Pour finir — quel menu me conseilleriez-vous pour un repas de famille convivial ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "title": "Covoiturage régulier proposé par un(e) voisin(e)",
+      "prompt": "Je suis votre voisin(e). Je fais régulièrement des trajets en voiture et je vous propose de faire du covoiturage avec moi. Vous me posez des questions pour organiser cela (tarifs, horaires, organisation, etc.).",
+      "questions": [
+        {
+          "text": "Vous m'avez proposé de faire du covoiturage régulièrement — comment cela pourrait s'organiser concrètement ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Vous faites ce trajet pour aller travailler, ou aussi pour d'autres déplacements réguliers ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Vous partez d'où exactement, et pourriez-vous passer me prendre près de chez moi ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Vous partez et rentrez à quelles heures habituellement ?",
+          "memory_section": 2
+        },
+        {
+          "text": "C'est tous les jours de la semaine, ou seulement certains jours ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Comment se répartissent les frais — l'essence, le péage, le stationnement ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Ça reviendrait à combien environ chaque mois, pour moi ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le paiement se fait comment — en argent comptant, ou par virement chaque mois ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Vous prenez généralement combien de passagers, et il resterait de la place pour moi ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Votre assurance couvre-t-elle bien les passagers en cas d'accident ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Si l'un de nous ne peut pas venir un jour, comment on s'organise — il faut prévenir à l'avance ?",
+          "memory_number": 2,
+          "memory_section": 5
+        },
+        {
+          "text": "Et si vous partez en vacances ou êtes absent(e) quelque temps, comment cela se passerait pour moi ?",
+          "memory_number": 2,
+          "memory_section": 5
+        },
+        {
+          "text": "On resterait en contact comment pour organiser les trajets au jour le jour ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Vous préférez qu'on discute pendant le trajet, ou plutôt un moment calme le matin ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Pour finir — que faudrait-il savoir d'autre pour que ce covoiturage se passe bien entre nous ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "title": "Inscription à un cours dans une école de musique",
+      "prompt": "Je travaille à l'accueil d'une école de musique. Vous souhaitez vous inscrire à un cours et vous me posez des questions sur l'école (cours disponibles, horaires, prix, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour, je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quels instruments peut-on apprendre chez vous ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Les cours sont-ils individuels, ou plutôt en petit groupe ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Ça s'adresse à quel niveau — faut-il déjà avoir des bases, ou les débutants sont acceptés ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "memory_section": 5,
+          "memory_number": 3
+        },
+        {
+          "text": "Faut-il apporter son propre instrument, ou l'école peut-elle en fournir un pour commencer ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il des frais supplémentaires, comme les partitions ou le matériel ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'on peut essayer avec un cours d'essai avant de s'engager ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Si je rate un cours, est-il possible de le rattraper à un autre moment ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Comment suivez-vous la progression des élèves — il y a des évaluations régulières ?",
+          "memory_section": 20
+        },
+        {
+          "text": "L'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Pour finir — pour quelqu'un qui débute, quel instrument me conseilleriez-vous ?",
+          "memory_number": 2,
+          "memory_section": 1
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "title": "Club de sport du quartier",
+      "prompt": "Je travaille à l'accueil du club de sport de votre quartier. Vous voulez faire du sport, mais vous ne savez pas quelle activité choisir. Vous me posez des questions sur les activités sportives proposées (horaires, tarifs, équipements, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! Je viens d'emménager dans le quartier et je cherche un club de sport. Pourriez-vous me parler des différentes activités que vous proposez ici ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Est-ce qu'il y a des cours collectifs — yoga, pilates, spinning — ou c'est surtout de la musculation ?",
+          "memory_section": 10
+        },
+        {
+          "text": "À quelle heure commencent les cours collectifs — plutôt le matin ou en fin de journée ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Les cours sont-ils donnés par des professeurs qualifiés ? Et est-ce qu'il y a un coach personnel disponible si j'en ai besoin ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
+          "memory_number": 2,
+          "memory_section": 5
+        },
+        {
+          "text": "Est-ce qu'il est possible de suspendre l'abonnement si nécessaire ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Il faut s'inscrire à l'avance pour les cours ou on peut venir librement ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Pour finir — quelle activité me recommanderiez-vous pour quelqu'un qui veut se remettre en forme et se tonifier ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "title": "Réservation d'une chambre d'hôtel",
+      "prompt": "Je travaille à la réception d'un hôtel. Vous souhaitez réserver une chambre et vous me posez des questions sur l'hôtel (prix, type de chambre, services inclus, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour, je souhaiterais réserver une chambre — comment dois-je procéder ?",
+          "memory_number": 2,
+          "memory_section": 3
+        },
+        {
+          "text": "Quels types de chambres proposez-vous — simple, double, familiale ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Quel est le prix par nuit pour chaque type de chambre ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le petit-déjeuner est-il inclus dans le prix, ou facturé séparément ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le Wi-Fi est-il gratuit dans les chambres ?",
+          "memory_section": 16
+        },
+        {
+          "text": "À quelle heure puis-je arriver, et à quelle heure faut-il libérer la chambre le jour du départ ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Quelle est la politique d'annulation si mes dates changent ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Faut-il verser des arrhes au moment de la réservation ?",
+          "memory_section": 1,
+          "memory_number": 3
+        },
+        {
+          "text": "Est-il possible de demander une chambre avec vue, ou à un étage précis ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Pouvez-vous ajouter un lit supplémentaire si on est accompagné d'un enfant ?",
+          "memory_section": 14
+        },
+        {
+          "text": "L'hôtel dispose-t-il d'un parking, et est-il gratuit pour les clients ?",
+          "memory_section": 16
+        },
+        {
+          "text": "L'hôtel est-il facilement accessible depuis le centre-ville ou l'aéroport ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Proposez-vous d'autres services inclus, comme une salle de sport ou une piscine ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Y a-t-il des conditions particulières pour les animaux de compagnie ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Pour finir — quel type de chambre me recommanderiez-vous pour un séjour confortable ?",
+          "memory_number": 2,
+          "memory_section": 1
+        }
+      ]
+    }
+  ]
+}

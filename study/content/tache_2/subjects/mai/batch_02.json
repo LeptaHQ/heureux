@@ -30,7 +30,8 @@
         },
         {
           "text": "Tu es parti(e) seul(e), avec des proches ou dans le cadre d'un voyage organisé ?",
-          "memory_section": 14
+          "memory_section": 5,
+          "memory_number": 3
         },
         {
           "text": "Comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
@@ -111,7 +112,8 @@
         },
         {
           "text": "Y a-t-il une durée minimale de location ?",
-          "memory_section": 9
+          "memory_section": 1,
+          "memory_number": 3
         },
         {
           "text": "Et côté tarifs, combien coûte la location — à la semaine ou au mois ?",
@@ -123,7 +125,8 @@
         },
         {
           "text": "Faut-il verser une caution — et le paiement se fait-il en une seule fois ?",
-          "memory_section": 1
+          "memory_section": 1,
+          "memory_number": 3
         },
         {
           "text": "Comment est le quartier en général — plutôt calme ou animé ?",
@@ -170,7 +173,8 @@
         },
         {
           "text": "Est-ce qu'il y a un animal à nourrir ou d'autres responsabilités particulières ?",
-          "memory_section": 20
+          "memory_section": 5,
+          "memory_number": 3
         },
         {
           "text": "Faut-il ouvrir les fenêtres, régler le chauffage ou vérifier quelque chose de précis dans l'appartement ?",
@@ -267,7 +271,8 @@
         },
         {
           "text": "Vous partez généralement seul(e), avec des amis ou avec un guide ?",
-          "memory_section": 14
+          "memory_section": 5,
+          "memory_number": 3
         },
         {
           "text": "Qu'est-ce que vous appréciez le plus quand vous êtes en montagne ?",

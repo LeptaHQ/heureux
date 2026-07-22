@@ -1,0 +1,353 @@
+{
+  "month": {
+    "number": 9,
+    "slug": "septembre",
+    "name": "Septembre"
+  },
+  "batch": 3,
+  "subjects": [
+    {
+      "number": 11,
+      "title": "Présentation d'un film",
+      "prompt": "Chargé(e) d'un article de cinéma pour la revue de votre association francophone, vous manquez d'idées ; vous sollicitez donc l'ami(e) francophone que je suis sur les films qui m'ont plu.",
+      "questions": [
+        {
+          "text": "Salut ! Je dois écrire un article sur un film pour notre revue — tu pourrais m'aider à trouver des idées ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quel film as-tu vu récemment et particulièrement aimé — une comédie, un drame, un film de science-fiction ou un documentaire ?",
+          "memory_section": 10
+        },
+        {
+          "text": "C'est quel titre exactement et qui en est le réalisateur ?",
+          "memory_section": 10
+        },
+        {
+          "text": "De quoi parle le film — quel est le thème principal ?",
+          "memory_section": 10
+        },
+        {
+          "text": "C'est un film récent ou plutôt un classique ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Ce film s'adresse-t-il plutôt à un public adulte ou est-il aussi adapté aux familles ?",
+          "memory_section": 3
+        },
+        {
+          "text": "La réalisation est-elle plutôt classique, originale ou spectaculaire ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Où as-tu vu le film — au cinéma, en festival, en ligne ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement pour le voir en salle ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
+          "memory_section": 2,
+          "memory_number": 2
+        },
+        {
+          "text": "Ce film est-il basé sur un livre ou une histoire vraie ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Selon toi, ce film peut-il donner lieu à un débat intéressant pour notre association ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Tu as mentionné le réalisateur — tu pourrais m'en dire un peu plus sur ses autres films ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Pour finir — est-ce que tu pourrais recommander ce film aux lecteurs de notre revue ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Voyage touristique – Agence de voyages",
+      "prompt": "Vous poussez la porte de mon agence de voyages avec l'envie d'un périple touristique ; vous m'interrogez sur les destinations possibles, leurs circuits, leurs activités et leurs tarifs.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je voudrais organiser un voyage touristique — pouvez-vous me donner un aperçu des options disponibles ?",
+          "memory_section": 1,
+          "memory_number": 2
+        },
+        {
+          "text": "Quelles destinations et quels types de circuits proposez-vous — culture, nature, aventure, gastronomie ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
+          "memory_section": 9
+        },
+        {
+          "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement, transport, hébergement et repas inclus ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le tarif comprend quoi exactement — l'assurance, le guide et le transport privé sont-ils inclus ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "memory_section": 6
+        },
+        {
+          "text": "Il reste encore des places ou c'est déjà complet ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Organisation d'une fête entre voisins",
+      "prompt": "L'idée d'une fête de quartier vous séduit ; vous venez chercher, auprès de votre voisin(e), des suggestions concrètes pour la musique, la liste d'invités et le repas.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je voudrais organiser une petite fête entre voisins — vous pourriez me donner quelques conseils ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Il y a généralement combien de participants — c'est un petit groupe ou tout le quartier ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Pour la musique, quel style conviendrait le mieux — plutôt calme au début puis plus dansant ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Quel type de repas est le plus apprécié — buffet, barbecue, plats faits maison ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Quel jour et quel horaire conviendraient le mieux — plutôt en journée ou en soirée ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Combien de temps faut-il prévoir — quelques heures ou toute la journée ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Y a-t-il des activités ou jeux prévus — pour adultes et enfants ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Faut-il prévenir la mairie ou respecter des règles de bruit ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Y a-t-il des choses à éviter — des erreurs courantes pour une première fête entre voisins ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Pour le repas, vaut-il mieux demander à chacun d'apporter quelque chose ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Où pourrait-on organiser la fête — dans la cour, une salle commune ou chez quelqu'un ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Comment gérer les invitations — par message, papier ou bouche-à-oreille ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Avez-vous déjà organisé ce type de fête — comment ça s'est passé exactement ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me donner qu'un seul conseil pour réussir cette fête, ce serait lequel ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "title": "Rencontrer de nouvelles personnes – Voisin",
+      "prompt": "Nouvellement arrivé(e) en ville, vous n'y connaissez encore personne ; vous demandez à votre voisin(e) comment vous y prendre pour rencontrer du monde.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je viens d'arriver dans la ville et je ne connais encore personne — vous pourriez me conseiller un peu ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Comment est le quartier en général — plutôt animé ou calme ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Est-ce que les habitants sont accueillants avec les nouveaux arrivants ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Quels types d'activités ou clubs sont populaires ici pour se faire des amis ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Y a-t-il des lieux conviviaux où les habitants se retrouvent régulièrement — cafés, bibliothèques ou maisons de quartier ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Est-ce que les voisins organisent parfois des activités ou des rencontres dans l'immeuble ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Le bénévolat est-il courant ici — où peut-on trouver des associations qui recherchent des bénévoles ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Existe-t-il des groupes en ligne pour les nouveaux habitants du quartier ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Les activités proposées sont-elles gratuites ou faut-il prévoir un petit budget ?",
+          "memory_section": 1
+        },
+        {
+          "text": "À quelle fréquence ces rencontres sont-elles organisées — chaque semaine ou seulement de temps en temps ?",
+          "memory_section": 2
+        },
+        {
+          "text": "La programmation des événements est publiée à l'avance ou on la découvre sur place ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Y a-t-il des festivals ou événements annuels incontournables pour rencontrer des gens ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Ces lieux et ces activités sont-ils facilement accessibles en transports en commun ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Parmi toutes ces possibilités, laquelle vous semble la plus efficace pour rencontrer rapidement du monde ?",
+          "memory_section": 1,
+          "memory_number": 2
+        },
+        {
+          "text": "Pour finir — quel conseil me donneriez-vous pour me sentir rapidement chez moi ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "title": "Rythme du travail au Canada",
+      "prompt": "Intrigué(e) par la façon de travailler au Canada, vous m'interrogez sur les horaires et les jours de repos, tout en les mettant en regard de ce qui se pratique chez vous.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je m'intéresse au rythme du travail au Canada — tu pourrais m'aider à mieux comprendre ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quelle est la durée habituelle d'une journée de travail — à quelle heure commence-t-on et termine-t-on en général ?",
+          "memory_section": 21
+        },
+        {
+          "text": "Combien d'heures travaille-t-on généralement par semaine au Canada ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Les horaires sont-ils généralement fixes ou flexibles selon les entreprises ?",
+          "memory_section": 5,
+          "memory_number": 2
+        },
+        {
+          "text": "Les Canadiens travaillent aussi le week-end ou c'est plutôt rare ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Combien de jours travaillent-ils par semaine en général ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Combien de jours de congé annuels ont-ils en moyenne — c'est plus ou moins que dans mon pays ?",
+          "memory_section": 4,
+          "memory_number": 2
+        },
+        {
+          "text": "Y a-t-il des jours fériés supplémentaires selon les provinces ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Le télétravail et les horaires hybrides sont-ils courants au Canada ?",
+          "memory_section": 5,
+          "memory_number": 2
+        },
+        {
+          "text": "Le rythme de travail est-il plutôt stressant ou détendu par rapport à mon pays ?",
+          "memory_section": 4,
+          "memory_number": 2
+        },
+        {
+          "text": "Les heures supplémentaires sont-elles fréquentes — sont-elles payées ou récupérées ?",
+          "memory_section": 21
+        },
+        {
+          "text": "Les pauses déjeuner sont-elles longues ou plutôt courtes par rapport à mon pays ?",
+          "memory_section": 2
+        },
+        {
+          "text": "L'équilibre entre vie professionnelle et vie personnelle est-il important dans les entreprises canadiennes ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Y a-t-il d'autres différences dans l'organisation du travail qui pourraient me surprendre ?",
+          "memory_section": 4,
+          "memory_number": 2
+        },
+        {
+          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien s'adapter, ce serait lequel ?",
+          "memory_section": 4
+        }
+      ]
+    }
+  ]
+}

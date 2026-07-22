@@ -342,7 +342,8 @@ class AnnotationTests(TestCase):
         )
         self.assertContains(
             theme_page,
-            '<span class="progress-status progress-status--active">'
+            '<span class="progress-status progress-status--active" '
+            f'data-subject-progress-status="{card.response_id}">'
             "En cours</span>",
             html=True,
         )

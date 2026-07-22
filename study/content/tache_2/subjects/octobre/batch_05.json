@@ -1,0 +1,314 @@
+{
+  "month": {
+    "number": 10,
+    "slug": "octobre",
+    "name": "Octobre"
+  },
+  "batch": 5,
+  "subjects": [
+    {
+      "number": 21,
+      "title": "Surveiller l'appartement d'un ami",
+      "prompt": "M'absentant un moment pour les vacances, je vous confie mon appartement ; en ami(e), vous me demandez toutes les précisions utiles (dates, tâches à faire, consignes, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! Bien sûr, je peux surveiller ton appartement — tu pars à quelles dates exactement ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Tu veux que je passe à quelle fréquence — tous les jours ou seulement quelques fois pendant ton absence ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Qu'est-ce qu'il faudra faire en priorité pendant que tu seras parti(e) ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Est-ce que je dois relever le courrier et récupérer les éventuels colis ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Y a-t-il des plantes à arroser — et si oui, à quelle fréquence ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Est-ce qu'il y a un animal à nourrir ou d'autres responsabilités particulières ?",
+          "memory_section": 5,
+          "memory_number": 3
+        },
+        {
+          "text": "Faut-il ouvrir les fenêtres, régler le chauffage ou vérifier quelque chose de précis dans l'appartement ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Il y a une routine à suivre, ou je peux m'adapter assez librement ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Y a-t-il une alarme ou des consignes de sécurité particulières à respecter ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
+          "memory_section": 19
+        },
+        {
+          "text": "En cas de problème dans l'immeuble, à qui faut-il s'adresser ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Est-ce que tu seras facilement joignable pendant ton séjour ?",
+          "memory_section": 19
+        },
+        {
+          "text": "S'il y a une urgence et que je n'arrive pas à te joindre, qui est-ce que je dois contacter ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Pour finir, comment veux-tu que je te rende les clés à ton retour ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "title": "Vivre au Québec – Expérience d'expatriation",
+      "prompt": "Je suis votre ami(e) et je me suis installé(e) au Québec il y a deux ans. Comme vous songez à vivre à l'étranger, vous m'interrogez sur mon expérience (adaptation, obstacles, changements de mode de vie, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! Ça fait maintenant deux ans que tu vis au Québec — moi qui pense partir vivre à l'étranger, tu pourrais me raconter comment ça s'est passé ?"
+        },
+        {
+          "text": "Qu'est-ce qui t'a donné envie de t'installer là-bas ?"
+        },
+        {
+          "text": "Comment s'est passée ton adaptation au début — c'était difficile ?",
+          "memory_number": 5,
+          "memory_section": 2
+        },
+        {
+          "text": "Le plus dépaysant en arrivant, c'était quoi ?"
+        },
+        {
+          "text": "Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
+          "memory_number": 5,
+          "memory_section": 2
+        },
+        {
+          "text": "Combien de temps il t'a fallu pour te sentir vraiment chez toi ?",
+          "memory_number": 5,
+          "memory_section": 2
+        },
+        {
+          "text": "Est-ce que tu t'es fait des amis facilement ?"
+        },
+        {
+          "text": "Qu'est-ce qui a le plus changé dans ton mode de vie par rapport à avant ?",
+          "memory_number": 5,
+          "memory_section": 2
+        },
+        {
+          "text": "Côté travail, ça a été facile de trouver et de t'intégrer ?"
+        },
+        {
+          "text": "Est-ce que le coût de la vie est très différent de chez nous ?"
+        },
+        {
+          "text": "De ton pays d'origine, qu'est-ce qui te manque le plus ?"
+        },
+        {
+          "text": "Et à l'inverse, qu'est-ce que tu préfères dans ta vie là-bas maintenant ?"
+        },
+        {
+          "text": "Est-ce que tu as des regrets, ou tu referais le même choix ?"
+        },
+        {
+          "text": "Quels conseils tu donnerais à quelqu'un qui veut se lancer comme moi ?"
+        },
+        {
+          "text": "Pour finir — si tu ne devais me dire qu'une seule chose à savoir absolument avant de partir, ce serait laquelle ?"
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "title": "Cours de piano – École de musique",
+      "prompt": "Enseignant(e) de piano dans une école de musique du quartier, je vous renseigne, en voisin(e), sur l'établissement : vous voulez suivre des cours et m'interrogez sur les formules, les prix, les horaires, etc.",
+      "questions": [
+        {
+          "text": "Bonjour, je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quels instruments peut-on apprendre chez vous ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Les cours sont-ils individuels, ou plutôt en petit groupe ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Ça s'adresse à quel niveau — faut-il déjà avoir des bases, ou les débutants sont acceptés ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "memory_section": 5,
+          "memory_number": 3
+        },
+        {
+          "text": "Faut-il apporter son propre instrument, ou l'école peut-elle en fournir un pour commencer ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il des frais supplémentaires, comme les partitions ou le matériel ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'on peut essayer avec un cours d'essai avant de s'engager ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Si je rate un cours, est-il possible de le rattraper à un autre moment ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Comment suivez-vous la progression des élèves — il y a des évaluations régulières ?",
+          "memory_section": 20
+        },
+        {
+          "text": "L'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Pour finir — pour quelqu'un qui débute, quel instrument me conseilleriez-vous ?",
+          "memory_number": 2,
+          "memory_section": 1
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "title": "Séances sportives du quartier",
+      "prompt": "Les séances sportives que j'anime dans une association du quartier vous tentent ; en voisin(e), vous me questionnez sur les conditions, la discipline et les horaires pour venir vous entraîner.",
+      "questions": [
+        {
+          "text": "Bonjour ! Vous m'avez dit que vous animiez des activités sportives dans une association du quartier — j'aimerais m'y mettre, vous pourriez m'en parler ?"
+        },
+        {
+          "text": "Quelles disciplines vous proposez — plutôt du collectif, du fitness, de la course ?"
+        },
+        {
+          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Les séances ont lieu quels jours et à quelle heure ?"
+        },
+        {
+          "text": "Combien de temps dure un entraînement ?"
+        },
+        {
+          "text": "Il y a généralement combien de participants ?"
+        },
+        {
+          "text": "Faut-il un certificat médical ou une condition physique particulière pour participer ?"
+        },
+        {
+          "text": "Y a-t-il une cotisation à l'association, ou on paie à la séance ?"
+        },
+        {
+          "text": "Est-ce qu'on peut essayer une séance avant de s'inscrire ?"
+        },
+        {
+          "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Où est-ce que ça se passe — dans un gymnase, en plein air ?"
+        },
+        {
+          "text": "Comment se passe l'inscription — directement auprès de vous ou à l'association ?"
+        },
+        {
+          "text": "Est-ce que l'ambiance est plutôt conviviale ou compétitive ?"
+        },
+        {
+          "text": "Pour finir — quelle séance me conseilleriez-vous pour bien commencer ?"
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "title": "Hébergement au Québec – Office de tourisme",
+      "prompt": "Vous projetez de découvrir une région du Québec. Vous venez à l'office de tourisme, où je vous renseigne, pour vous informer sur les hébergements possibles (catégories, emplacement, tarifs, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! Je compte découvrir une région du Québec et je cherche où me loger — vous pourriez me renseigner sur les options d'hébergement ?"
+        },
+        {
+          "text": "Quels types d'hébergement trouve-t-on dans la région — hôtels, auberges, chambres d'hôtes, campings ?"
+        },
+        {
+          "text": "Qu'est-ce que vous me conseillez si je voyage avec un budget limité ?"
+        },
+        {
+          "text": "Et pour quelque chose de plus confortable ou de plus authentique ?"
+        },
+        {
+          "text": "Où vaut-il mieux se loger — plutôt en ville, ou à la campagne près des sites ?"
+        },
+        {
+          "text": "Ces hébergements sont-ils bien situés par rapport aux principales attractions ?"
+        },
+        {
+          "text": "Quelle est la gamme de prix en moyenne, selon le type d'hébergement ?"
+        },
+        {
+          "text": "Les tarifs varient-ils beaucoup selon la saison ?"
+        },
+        {
+          "text": "Faut-il réserver longtemps à l'avance, surtout en haute saison ?"
+        },
+        {
+          "text": "Est-ce que le petit-déjeuner ou les repas sont souvent inclus ?"
+        },
+        {
+          "text": "Y a-t-il des hébergements adaptés aux familles, avec cuisine ou plusieurs chambres ?"
+        },
+        {
+          "text": "Est-ce qu'on trouve facilement des logements accessibles sans voiture ?"
+        },
+        {
+          "text": "Vous auriez une brochure ou un site pour comparer et réserver ?"
+        },
+        {
+          "text": "Est-ce qu'il y a des adresses insolites à ne pas manquer — un chalet, un gîte au bord d'un lac ?"
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'un seul type d'hébergement pour découvrir la région, ce serait lequel ?"
+        }
+      ]
+    }
+  ]
+}

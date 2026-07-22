@@ -1,0 +1,359 @@
+{
+  "month": {
+    "number": 11,
+    "slug": "novembre",
+    "name": "Novembre"
+  },
+  "batch": 2,
+  "subjects": [
+    {
+      "number": 6,
+      "title": "Achat d'un appartement",
+      "prompt": "Face à un agent immobilier, une annonce vous intéresse et vous posez des questions sur l'appartement (superficie, prix, quartier, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! Je vous appelle au sujet de l'appartement que j'ai vu dans votre annonce — est-il toujours disponible ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Il se trouve où exactement — et comment est le quartier en général ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Quelle est la superficie de l'appartement — et combien de pièces y a-t-il ?"
+        },
+        {
+          "text": "À quel étage se trouve-t-il — et l'immeuble dispose-t-il d'un ascenseur ?",
+          "memory_section": 13
+        },
+        {
+          "text": "L'appartement est-il en bon état général ou y a-t-il des travaux à prévoir ?",
+          "memory_section": 3,
+          "memory_number": 3
+        },
+        {
+          "text": "Est-il lumineux — et y a-t-il un balcon ou une terrasse ?",
+          "memory_section": 16
+        },
+        {
+          "text": "L'immeuble est-il récent — comment sont les parties communes ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Quel est le prix demandé — est-ce qu'il est négociable ?",
+          "memory_section": 1
+        },
+        {
+          "text": "À combien s'élèvent les charges mensuelles — et qu'est-ce qu'elles comprennent exactement ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il une place de parking, une cave ou un espace de rangement ?",
+          "memory_section": 13
+        },
+        {
+          "text": "C'est facilement accessible en transports en commun ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Y a-t-il des commerces, des écoles et des services à proximité ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Quelle est l'orientation de l'appartement — plutôt exposé au sud, à l'est ou à l'ouest ?"
+        },
+        {
+          "text": "Quels diagnostics et quels documents sont déjà disponibles pour l'achat ?",
+          "memory_number": 2,
+          "memory_section": 3
+        },
+        {
+          "text": "Et concrètement, comment s'organisent les visites — est-ce que je pourrais prendre rendez-vous cette semaine ?",
+          "memory_section": 11
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Activités périscolaires du quartier",
+      "prompt": "Un parent d'élève connaît les activités périscolaires ; vous demandez informations et conseils pour y inscrire vos enfants (types, horaires, tarifs, animateurs, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! Je cherche une activité après l'école pour mes enfants — vous pourriez me parler de ce qui est proposé dans le quartier ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quels types d'activités sont disponibles — sport, musique, arts ou aide aux devoirs ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Ça s'adresse à quels âges — les enfants sont-ils répartis par groupe de niveau ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Quelles différences y a-t-il entre les options proposées ?",
+          "memory_number": 2,
+          "memory_section": 1
+        },
+        {
+          "text": "Ça se passe où exactement — dans l'école ou dans un centre du quartier ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Les activités ont lieu quels jours et à quelle heure après l'école ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Quelle est la durée d'une séance — et il y en a combien par semaine ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Qui encadre les enfants — ce sont des animateurs ou des professeurs qualifiés ?",
+          "memory_section": 5,
+          "memory_number": 3
+        },
+        {
+          "text": "Il y a généralement combien d'enfants par groupe ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Il reste encore des places ou certaines activités sont déjà complètes ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — faut-il payer au mois ou pour toute la session ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il un tarif réduit si j'inscris plusieurs enfants ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Qu'est-ce qu'il faut apporter — ou est-ce que tout le matériel est fourni sur place ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Selon vous, quelle activité conviendrait le mieux à des enfants qui aiment bouger et travailler en groupe ?",
+          "memory_number": 2,
+          "memory_section": 1
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Bénévolat – repas aux sans-abri",
+      "prompt": "Un(e) ami(e) est bénévole dans une association qui distribue des repas aux sans-abri ; vous voulez vous engager et posez des questions (organisation, conditions, emploi du temps, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! Tu m'as parlé de l'association où tu distribues des repas aux sans-abri — tu pourrais m'en dire un peu plus ?",
+          "memory_section": 19
+        },
+        {
+          "text": "L'association aide combien de personnes environ — et dans quels quartiers intervient-elle ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Concrètement, quelles missions sont confiées aux bénévoles au quotidien ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Comment se déroule une distribution, du début à la fin ?",
+          "memory_number": 2,
+          "memory_section": 3
+        },
+        {
+          "text": "Ça a lieu quels jours exactement — plutôt en semaine ou le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "À quelle heure ça commence — et combien d'heures par semaine faut-il prévoir ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Est-ce qu'il faut avoir des compétences particulières ou une expérience préalable pour s'engager ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Et si on n'a jamais fait de bénévolat, est-ce qu'une formation ou un accompagnement est prévu au début ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Comment se passe l'inscription — en ligne ou directement auprès de l'association ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Qu'est-ce qu'il faut apporter — ou est-ce que les gants et le matériel sont fournis sur place ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Est-ce que les frais de transport ou de repas sont pris en charge pour les bénévoles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Comment est l'ambiance entre les bénévoles pendant les distributions ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Y a-t-il aussi des aspects difficiles ou des précautions particulières à connaître ?",
+          "memory_number": 2,
+          "memory_section": 4
+        },
+        {
+          "text": "Qu'est-ce que tu apprécies le plus dans cette expérience ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Pour finir — quel conseil me donnerais-tu pour bien commencer dans l'association ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Nouveau travail d'un ancien collègue",
+      "prompt": "Un(e) ancien(ne) collègue vient de changer d'emploi ; souhaitant en faire autant, vous l'interrogez sur son poste et son entreprise (activités, salaire, collègues, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! Félicitations pour ton nouveau travail — tu pourrais me raconter un peu ce que tu fais ?",
+          "memory_section": 19
+        },
+        {
+          "text": "L'entreprise travaille dans quel secteur — quelles sont ses activités principales ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Quel est ton poste exactement — et quelles sont tes principales responsabilités ?",
+          "memory_section": 4,
+          "memory_number": 3
+        },
+        {
+          "text": "Tu as eu une période d'intégration ou tu as commencé directement dans le vif du sujet ?",
+          "memory_number": 2,
+          "memory_section": 3
+        },
+        {
+          "text": "Comment s'organise le travail au quotidien — plutôt en équipe ou de manière individuelle ?",
+          "memory_section": 21
+        },
+        {
+          "text": "À quelle heure ça commence — il y a des horaires flexibles ou tout le monde suit le même rythme ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Est-ce qu'il y a des possibilités de télétravail ou tout se fait au bureau ?",
+          "memory_section": 21
+        },
+        {
+          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Et tes collègues, ils sont comment — ils t'ont bien accueilli(e) ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Côté salaire, c'est dans quelle gamme pour un poste comme le tien ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Quels sont les avantages dont bénéficient les employés — assurance, congés, primes, ce genre de choses ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Tu sais si l'entreprise recrute en ce moment ou si des postes vont bientôt s'ouvrir ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Quelle expérience ou quelles compétences sont indispensables pour être recruté(e) ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Y a-t-il quelque chose qui te plaît moins dans ce nouveau poste ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Pour finir — avec mon profil, tu me conseillerais de postuler dans cette entreprise ?",
+          "memory_number": 2,
+          "memory_section": 1
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Garde de l'enfant d'un(e) voisin(e)",
+      "prompt": "Un(e) voisin(e) vous demande de garder son enfant le week-end prochain ; vous acceptez et demandez comment vous organiser (horaires, repas, activités, consignes, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! D'accord pour garder votre enfant le week-end prochain — c'est prévu pour quel jour exactement, et quels sont les horaires souhaités ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Pour que je m'organise, quel est le prénom et l'âge de votre enfant ?",
+          "memory_number": 3,
+          "memory_section": 2
+        },
+        {
+          "text": "Concrètement, qu'attendez-vous de moi pendant la garde — quelles seront mes principales responsabilités ?",
+          "memory_section": 5,
+          "memory_number": 3
+        },
+        {
+          "text": "Pour les repas, qu'avez-vous prévu, et à quelles heures faut-il les servir ?",
+          "memory_section": 2,
+          "memory_number": 3
+        },
+        {
+          "text": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
+          "memory_section": 2,
+          "memory_number": 3
+        },
+        {
+          "text": "S'il fait beau et que je sors avec votre enfant, y a-t-il des consignes particulières à respecter — un vêtement à prévoir, une limite de temps, ce genre de chose ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Y a-t-il des règles particulières à respecter pour la télévision, les écrans ou les jeux vidéo ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Si la garde se prolonge le soir, à quelle heure faut-il prévoir le coucher, et y a-t-il une routine particulière ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
+          "memory_section": 5
+        },
+        {
+          "text": "La garde aurait lieu chez vous ou chez moi ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Y a-t-il d'autres habitudes ou règles importantes à respecter avec votre enfant ?",
+          "memory_section": 20
+        },
+        {
+          "text": "En cas de problème, comment puis-je vous joindre, et y a-t-il une autre personne à contacter si vous n'êtes pas disponible ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Pour finir — y a-t-il autre chose d'important que je devrais savoir avant ce week-end ?",
+          "memory_section": 4
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "number": 4,
+  "title": "Mémoire 4",
+  "label": "Questions situationnelles",
+  "icon": "target",
+  "subtitle": "Une quatrième banque de formulations stables à mémoriser et à adapter pour ancrer chaque conversation de la Tâche 2 dans sa situation — ouverture, budget, niveau, moment et avis personnel.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Ouverture — reprise et arrivée",
+      "groups": [
+        {
+          "title": "Reprise d'un propos",
+          "guidance": "Quand l'interlocuteur a évoqué une expérience, une invitation ou un service qu'on veut approfondir dès l'entrée en matière.",
+          "questions": [
+            "Salut ! Tu m'as dit que tu faisais du ski de fond — ça me tente d'essayer, tu peux m'en parler ?",
+            "Salut ! Tu m'as proposé de venir avec toi à un concert — ça me tente bien, tu peux m'en dire plus ?",
+            "Bonjour ! Vous m'avez dit que vous donniez des cours de sport dans un centre social — ça m'intéresse beaucoup, vous pourriez m'en parler ?"
+          ]
+        },
+        {
+          "title": "Arrivée récente",
+          "guidance": "Pour ouvrir une conversation quand on vient de s'installer et qu'on demande des repères.",
+          "questions": [
+            "Salut ! Je viens d'arriver dans ta ville et j'aimerais organiser une sortie sans trop dépenser — tu aurais des idées à me conseiller ?",
+            "Bonjour ! Je viens d'arriver au Canada et j'aurais besoin de quelques renseignements pour m'installer — pouvez-vous m'aider ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Économies et bons plans",
+      "groups": [
+        {
+          "guidance": "Pour orienter une sortie, un séjour ou une inscription vers les options gratuites ou peu coûteuses.",
+          "questions": [
+            "Est-ce qu'il y a des musées gratuits ou des jours d'entrée gratuite dans la semaine ?",
+            "Est-ce qu'il y a des événements ou des animations gratuits en ce moment ?",
+            "Pour les transports, il existe un pass ou des tarifs réduits pour se déplacer moins cher ?",
+            "Pour manger sans se ruiner, tu connais des adresses pas chères, ou c'est mieux de prévoir un pique-nique ?",
+            "Est-ce qu'on peut acheter un carnet de plusieurs entrées pour payer moins cher ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Se lancer — débuter une activité",
+      "groups": [
+        {
+          "guidance": "Pour aborder une activité, un sport ou un atelier quand on part de zéro.",
+          "questions": [
+            "Il faut déjà savoir cuisiner ou c'est ouvert aux débutants ?",
+            "C'est difficile pour un débutant, ou ça s'apprend assez vite ?",
+            "Il faut prendre des cours au début, ou tu peux me montrer les bases ?",
+            "Il vaut mieux acheter le matériel ou on peut le louer pour commencer ?",
+            "Il y a des précautions de sécurité à connaître avant de se lancer ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Adapter selon la saison et le moment",
+      "groups": [
+        {
+          "guidance": "Pour caler ses questions sur la météo, la saison ou l'affluence, et prévoir un plan B.",
+          "questions": [
+            "S'il fait beau, qu'est-ce que tu me conseilles comme activités en plein air ?",
+            "Et s'il pleut, tu aurais des idées d'activités en intérieur ?",
+            "Il vaut mieux y aller à quel moment pour éviter la foule ?",
+            "Quelle est la meilleure période pour s'y mettre dans la saison ?",
+            "Il y a des activités d'hiver typiques à essayer, comme le patin ou la luge ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Avis personnel et recommandation ciblée",
+      "groups": [
+        {
+          "guidance": "Pour solliciter le regard direct de l'interlocuteur — ce qu'il en a pensé, ce qu'il conseille vraiment.",
+          "questions": [
+            "Tu y es déjà allé(e) toi-même — qu'est-ce que tu en as pensé ?",
+            "Le rapport qualité-prix te semble bon, comparé à d'autres endroits ?",
+            "Toi qui connais cet artiste, tu me conseilles vraiment d'y aller ?",
+            "Qu'est-ce que tu as regardé récemment et que tu as vraiment aimé ?",
+            "Est-ce que vous recommanderiez cette destination à quelqu'un qui voudrait y aller ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+{
+  "month": {
+    "number": 10,
+    "slug": "octobre",
+    "name": "Octobre"
+  },
+  "batch": 6,
+  "subjects": [
+    {
+      "number": 26,
+      "title": "Chercher un partenaire de sport",
+      "prompt": "À la recherche d'un(e) partenaire de sport, je vous en parle ; intrigué(e), vous me demandez, entre collègues, de quel sport il s'agit, à quels horaires et pour quel niveau.",
+      "questions": [
+        {
+          "text": "Salut ! Tu cherches un partenaire pour faire du sport — ça m'intéresse peut-être, tu peux m'en dire plus ?"
+        },
+        {
+          "text": "C'est quel sport exactement — plutôt de la course, du tennis, de la musculation ?"
+        },
+        {
+          "text": "Tu en fais depuis longtemps — tu es plutôt débutant ou déjà expérimenté ?"
+        },
+        {
+          "text": "Il faut un certain niveau pour te suivre, ou on peut y aller tranquillement ?"
+        },
+        {
+          "text": "Ça se pratique où — en salle, en extérieur, dans un club ?"
+        },
+        {
+          "text": "Tu t'entraînes quels jours et à quelle heure en général ?"
+        },
+        {
+          "text": "Ça dure combien de temps, une séance ?"
+        },
+        {
+          "text": "À quelle fréquence tu voudrais qu'on se retrouve — une fois par semaine, plus ?"
+        },
+        {
+          "text": "Est-ce qu'il faut du matériel particulier, ou payer un accès quelque part ?"
+        },
+        {
+          "text": "C'est un sport plutôt physique, ou accessible même quand on n'est pas très en forme ?"
+        },
+        {
+          "text": "Est-ce qu'on peut essayer une fois pour voir si ça me convient ?"
+        },
+        {
+          "text": "Tu cherches surtout quelqu'un pour te motiver, ou pour vraiment progresser ?"
+        },
+        {
+          "text": "C'est près d'ici, ou il faut prévoir du transport ?"
+        },
+        {
+          "text": "Il y a des précautions à prendre pour éviter de se blesser ?"
+        },
+        {
+          "text": "Pour finir — qu'est-ce que tu me conseilles pour bien commencer avec toi ?"
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "title": "L'enfant en vacances avec les voisins",
+      "prompt": "Nos enfants étant copains, je propose d'emmener le vôtre en vacances avec nous ; avant de vous prononcer, vous me demandez les détails (dates, destination, activités, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! C'est gentil de proposer d'emmener mon enfant en vacances avec vous — avant de vous donner une réponse, j'aimerais en savoir un peu plus. Vous partez quand exactement ?"
+        },
+        {
+          "text": "Vous partez pour combien de temps ?"
+        },
+        {
+          "text": "Vous allez où — c'est loin, et comment vous comptez y aller ?"
+        },
+        {
+          "text": "Où est-ce que vous logerez — les enfants dormiront comment ?"
+        },
+        {
+          "text": "Qu'est-ce qui est prévu comme activités pour les enfants ?"
+        },
+        {
+          "text": "Ce sont des activités adaptées à son âge, et sans danger ?"
+        },
+        {
+          "text": "Vous serez combien d'adultes pour surveiller les enfants ?"
+        },
+        {
+          "text": "Est-ce qu'il y a d'autres enfants du même âge que le mien ?"
+        },
+        {
+          "text": "Comment ça se passe pour les repas — il y a des choses à prévoir côté alimentation ?"
+        },
+        {
+          "text": "Qu'est-ce que je dois préparer comme affaires pour lui ?"
+        },
+        {
+          "text": "Est-ce qu'il y a une participation aux frais de mon côté ?",
+          "memory_number": 5,
+          "memory_section": 3
+        },
+        {
+          "text": "Comment je peux vous joindre pendant le séjour, en cas de besoin ?",
+          "memory_number": 5,
+          "memory_section": 3
+        },
+        {
+          "text": "Et s'il a le mal du pays ou un petit souci, comment on gère ça ?"
+        },
+        {
+          "text": "Il y a des documents à préparer — une autorisation de sortie, sa carte d'assurance ?"
+        },
+        {
+          "text": "Merci pour tout ça — laissez-moi en discuter avec lui et je vous réponds très vite, d'accord ?"
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "title": "Bénévolat pour l'environnement",
+      "prompt": "Je suis votre voisin(e) et je fais du bénévolat dans une association de protection de l'environnement. Intéressé(e) pour y participer, vous me demandez des précisions (activités, horaires, membres, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! Vous m'avez dit que vous faisiez du bénévolat dans une association qui protège l'environnement — ça m'intéresse, vous pourriez m'en parler ?"
+        },
+        {
+          "text": "Concrètement, quelles sont les principales activités que vous menez ?"
+        },
+        {
+          "text": "Ça consiste en quoi — des nettoyages de nature, des plantations, de la sensibilisation ?"
+        },
+        {
+          "text": "Et l'association s'adresse à quel public — uniquement aux adultes, ou aussi aux familles avec enfants ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Vous êtes nombreux dans l'association — il y a une bonne équipe de bénévoles ?"
+        },
+        {
+          "text": "Pour participer, faut-il des compétences particulières ou de l'expérience ?"
+        },
+        {
+          "text": "Concrètement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Et sur une séance, combien de temps faut-il prévoir en général ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Où se déroulent les activités — en extérieur, ou cela varie selon les missions ?"
+        },
+        {
+          "text": "Y a-t-il une cotisation à payer, ou l'engagement est-il entièrement gratuit ?"
+        },
+        {
+          "text": "Faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Y a-t-il des précautions de sécurité à connaître sur le terrain ?"
+        },
+        {
+          "text": "Est-ce que l'association organise aussi des événements — des campagnes, des collectes ?"
+        },
+        {
+          "text": "En cas de question ou de problème pendant une mission, qui puis-je contacter ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Pour finir — quelle serait la meilleure façon de commencer si je souhaite vous rejoindre dès cette semaine ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 29,
+      "title": "Excursions à la journée",
+      "prompt": "Attiré(e) par les excursions à la journée, vous venez vous renseigner auprès de moi, employé(e) d'une agence qui en est spécialiste (prix, programme, destinations, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! Je m'intéresse à vos excursions à la journée — pouvez-vous me donner un aperçu de ce que vous proposez ?"
+        },
+        {
+          "text": "Quelles destinations proposez-vous pour une sortie à la journée ?"
+        },
+        {
+          "text": "Qu'est-ce qu'on fait sur place — quel est le programme d'une journée type ?"
+        },
+        {
+          "text": "À quelle heure on part et on rentre en général ?"
+        },
+        {
+          "text": "Le transport est-il compris — on part d'où exactement ?"
+        },
+        {
+          "text": "Parlons du budget — combien coûte une excursion à peu près ?"
+        },
+        {
+          "text": "Le tarif comprend quoi exactement — le transport, l'entrée aux sites, le repas ?"
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Il y a un guide qui nous accompagne pendant la journée ?"
+        },
+        {
+          "text": "Ces excursions conviennent-elles aux familles avec enfants ?"
+        },
+        {
+          "text": "Faut-il réserver à l'avance ou il reste encore des places ?"
+        },
+        {
+          "text": "Qu'est-ce qu'il faut prévoir d'emporter — de bonnes chaussures, un repas, de l'eau ?"
+        },
+        {
+          "text": "Que se passe-t-il en cas de mauvais temps — l'excursion est maintenue ou reportée ?"
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule excursion à la journée, ce serait laquelle ?"
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "title": "Visite de musée en famille",
+      "prompt": "Vous préparez une sortie au musée en famille et vous m'interrogez, à la réception, pour tout caler : horaires, expositions, tarifs, etc.",
+      "questions": [
+        {
+          "text": "Bonjour ! J'aimerais organiser une visite du musée en famille — c'est la première fois qu'on vient. Quelles sont les collections principales qu'on peut voir ici ?"
+        },
+        {
+          "text": "Où se trouve exactement le musée — est-il facilement accessible en transports en commun ? Y a-t-il un parking à proximité ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Quels sont vos horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Combien de temps faut-il prévoir pour visiter l'ensemble du musée — quelques heures ou toute la journée ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce que c'est gratuit pour les jeunes enfants ?"
+        },
+        {
+          "text": "Le musée est-il adapté aux enfants — y a-t-il des activités ou des ateliers pour eux ?"
+        },
+        {
+          "text": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "memory_section": 12
+        },
+        {
+          "text": "Les expositions temporaires sont incluses dans le billet d'entrée ou faut-il payer un supplément ? Jusqu'à quand seront-elles accessibles ?",
+          "memory_section": 12
+        },
+        {
+          "text": "Proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ?",
+          "memory_section": 11
+        },
+        {
+          "text": "Il existe un parcours ou un livret spécial pour les enfants ?"
+        },
+        {
+          "text": "Il faut s'inscrire à l'avance pour les visites guidées ou on peut venir librement ?",
+          "memory_section": 3
+        },
+        {
+          "text": "On peut manger ou pique-niquer quelque part sur place ?"
+        },
+        {
+          "text": "Y a-t-il une boutique de souvenirs ou une librairie sur place ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Pour finir — vous recommandez de commencer la visite par un étage ou une section en particulier ?",
+          "memory_section": 4
+        }
+      ]
+    }
+  ]
+}

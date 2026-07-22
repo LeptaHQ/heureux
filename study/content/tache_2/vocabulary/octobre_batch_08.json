@@ -1,0 +1,1230 @@
+{
+  "version": 1,
+  "subjects": [
+    {
+      "subject_key": "tache2:octobre:batch-08:subject-36",
+      "entries": [
+        {
+          "id": "T2O10S36V01",
+          "kind": "mot-cle",
+          "french": "des tarifs réduits",
+          "english": "discounted rates",
+          "example": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "usage": "Groupe nominal désignant les prix diminués pour certains publics."
+        },
+        {
+          "id": "T2O10S36V02",
+          "kind": "mot-cle",
+          "french": "les étudiants, les seniors ou les familles",
+          "english": "students, seniors, or families",
+          "example": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "usage": "Énumération figée des publics bénéficiant généralement de conditions tarifaires spécifiques."
+        },
+        {
+          "id": "T2O10S36V03",
+          "kind": "mot-cle",
+          "french": "un spectacle",
+          "english": "a show",
+          "example": "Salut ! Je dois écrire un article sur un spectacle pour notre revue — tu pourrais m'aider à trouver des idées ?",
+          "usage": "Nom désignant la représentation."
+        },
+        {
+          "id": "T2O10S36V04",
+          "kind": "mot-cle",
+          "french": "du théâtre",
+          "english": "theatre",
+          "example": "Quel spectacle as-tu vu récemment et particulièrement aimé — du théâtre, de la danse, un concert, du cirque ?",
+          "usage": "Nom désignant un type de spectacle."
+        },
+        {
+          "id": "T2O10S36V05",
+          "kind": "mot-cle",
+          "french": "de la danse",
+          "english": "dance",
+          "example": "Quel spectacle as-tu vu récemment et particulièrement aimé — du théâtre, de la danse, un concert, du cirque ?",
+          "usage": "Nom désignant un type de spectacle."
+        },
+        {
+          "id": "T2O10S36V06",
+          "kind": "mot-cle",
+          "french": "l'histoire",
+          "english": "the story",
+          "example": "De quoi ça parlait — quel était le thème ou l'histoire ?",
+          "usage": "Nom désignant l'histoire du spectacle."
+        },
+        {
+          "id": "T2O10S36V07",
+          "kind": "mot-cle",
+          "french": "un public",
+          "english": "an audience",
+          "example": "Ce spectacle s'adresse-t-il plutôt à un public adulte ou est-il aussi adapté aux familles ?",
+          "usage": "Nom désignant le public visé."
+        },
+        {
+          "id": "T2O10S36V08",
+          "kind": "mot-cle",
+          "french": "une représentation unique",
+          "english": "a one-off performance",
+          "example": "Est-ce que c'est encore à l'affiche, ou c'était une représentation unique ?",
+          "usage": "Groupe nominal sur le caractère unique."
+        },
+        {
+          "id": "T2O10S36V09",
+          "kind": "mot-cle",
+          "french": "un concert",
+          "english": "a concert",
+          "example": "Quel spectacle as-tu vu récemment et particulièrement aimé — du théâtre, de la danse, un concert, du cirque ?",
+          "usage": "Nom désignant un type de spectacle."
+        },
+        {
+          "id": "T2O10S36V10",
+          "kind": "mot-cle",
+          "french": "du cirque",
+          "english": "circus",
+          "example": "Quel spectacle as-tu vu récemment et particulièrement aimé — du théâtre, de la danse, un concert, du cirque ?",
+          "usage": "Nom désignant un type de spectacle."
+        },
+        {
+          "id": "T2O10S36V11",
+          "kind": "collocation",
+          "french": "le plus apprécié",
+          "english": "appreciated the most",
+          "example": "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
+          "usage": "Superlatif figé pour désigner ce qui plaît le plus."
+        },
+        {
+          "id": "T2O10S36V12",
+          "kind": "collocation",
+          "french": "moins aimés",
+          "english": "liked the least",
+          "example": "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
+          "usage": "Comparatif d'infériorité appliqué au verbe 'aimer' au participe passé."
+        },
+        {
+          "id": "T2O10S36V13",
+          "kind": "collocation",
+          "french": "écrire un article sur un spectacle",
+          "english": "write an article about a show",
+          "example": "Salut ! Je dois écrire un article sur un spectacle pour notre revue — tu pourrais m'aider à trouver des idées ?",
+          "usage": "Verbe + complément sur la rédaction."
+        },
+        {
+          "id": "T2O10S36V14",
+          "kind": "collocation",
+          "french": "qui se produisait sur scène",
+          "english": "who was performing on stage",
+          "example": "C'était quoi exactement, et qui se produisait sur scène ?",
+          "usage": "Locution verbale sur les artistes."
+        },
+        {
+          "id": "T2O10S36V15",
+          "kind": "collocation",
+          "french": "le thème ou l'histoire",
+          "english": "the theme or the story",
+          "example": "De quoi ça parlait — quel était le thème ou l'histoire ?",
+          "usage": "Groupe nominal sur le contenu."
+        },
+        {
+          "id": "T2O10S36V16",
+          "kind": "collocation",
+          "french": "classique, moderne, ou original",
+          "english": "classic, modern, or original",
+          "example": "C'était plutôt classique, moderne, ou original dans sa mise en scène ?",
+          "usage": "Énumération d'adjectifs sur le style."
+        },
+        {
+          "id": "T2O10S36V17",
+          "kind": "collocation",
+          "french": "encore à l'affiche",
+          "english": "still showing",
+          "example": "Est-ce que c'est encore à l'affiche, ou c'était une représentation unique ?",
+          "usage": "Locution sur la programmation en cours."
+        },
+        {
+          "id": "T2O10S36V18",
+          "kind": "collocation",
+          "french": "du même genre",
+          "english": "of the same kind",
+          "example": "Tu aurais d'autres spectacles du même genre à me conseiller ?",
+          "usage": "Locution sur le genre du spectacle."
+        },
+        {
+          "id": "T2O10S36V19",
+          "kind": "collocation",
+          "french": "aux lecteurs de notre revue",
+          "english": "to our magazine's readers",
+          "example": "Pour finir — est-ce que tu recommanderais ce spectacle aux lecteurs de notre revue ?",
+          "usage": "Groupe nominal désignant le lectorat."
+        },
+        {
+          "id": "T2O10S36V20",
+          "kind": "collocation",
+          "french": "un article intéressant",
+          "english": "an interesting article",
+          "example": "Selon toi, ce spectacle peut-il donner lieu à un article intéressant pour notre association ?",
+          "usage": "Groupe nominal sur la qualité de l'article."
+        },
+        {
+          "id": "T2O10S36V21",
+          "kind": "tournure",
+          "french": "Y a-t-il des tarifs réduits pour les étudiants",
+          "english": "Are there discounts for students",
+          "example": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "usage": "Tournure « y a-t-il » pour vérifier l'existence de réductions."
+        },
+        {
+          "id": "T2O10S36V22",
+          "kind": "tournure",
+          "french": "Quel spectacle as-tu vu récemment et particulièrement aimé",
+          "english": "what show have you seen recently and particularly liked",
+          "example": "Quel spectacle as-tu vu récemment et particulièrement aimé — du théâtre, de la danse, un concert, du cirque ?",
+          "usage": "Question sur le spectacle vu."
+        },
+        {
+          "id": "T2O10S36V23",
+          "kind": "tournure",
+          "french": "C'était quoi exactement, et qui se produisait sur scène",
+          "english": "what was it exactly, and who was performing",
+          "example": "C'était quoi exactement, et qui se produisait sur scène ?",
+          "usage": "Question sur la nature et les artistes."
+        },
+        {
+          "id": "T2O10S36V24",
+          "kind": "tournure",
+          "french": "De quoi ça parlait",
+          "english": "what was it about",
+          "example": "De quoi ça parlait — quel était le thème ou l'histoire ?",
+          "usage": "Question sur le sujet."
+        },
+        {
+          "id": "T2O10S36V25",
+          "kind": "tournure",
+          "french": "Ça se passait où",
+          "english": "where did it take place",
+          "example": "Ça se passait où — dans quelle salle ou quel théâtre ?",
+          "usage": "Question sur le lieu."
+        },
+        {
+          "id": "T2O10S36V26",
+          "kind": "tournure",
+          "french": "Combien de temps dure le spectacle en général",
+          "english": "how long does the show usually last",
+          "example": "Combien de temps dure le spectacle en général ?",
+          "usage": "Question sur la durée."
+        },
+        {
+          "id": "T2O10S36V27",
+          "kind": "tournure",
+          "french": "Est-ce que c'est encore à l'affiche",
+          "english": "is it still showing",
+          "example": "Est-ce que c'est encore à l'affiche, ou c'était une représentation unique ?",
+          "usage": "Question sur la programmation."
+        },
+        {
+          "id": "T2O10S36V28",
+          "kind": "tournure",
+          "french": "Tu aurais d'autres spectacles du même genre à me conseiller",
+          "english": "would you have other similar shows to recommend",
+          "example": "Tu aurais d'autres spectacles du même genre à me conseiller ?",
+          "usage": "Question sur d'autres suggestions."
+        },
+        {
+          "id": "T2O10S36V29",
+          "kind": "tournure",
+          "french": "est-ce que tu recommanderais ce spectacle aux lecteurs de notre revue",
+          "english": "would you recommend this show to our readers",
+          "example": "Pour finir — est-ce que tu recommanderais ce spectacle aux lecteurs de notre revue ?",
+          "usage": "Tournure de clôture."
+        },
+        {
+          "id": "T2O10S36V30",
+          "kind": "tournure",
+          "french": "Ce spectacle s'adresse-t-il plutôt à un public adulte",
+          "english": "is this show aimed at an adult audience",
+          "example": "Ce spectacle s'adresse-t-il plutôt à un public adulte ou est-il aussi adapté aux familles ?",
+          "usage": "Question sur le public."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:octobre:batch-08:subject-37",
+      "entries": [
+        {
+          "id": "T2O10S37V01",
+          "kind": "mot-cle",
+          "french": "le réseau",
+          "english": "the network",
+          "example": "Le réseau couvre bien toute la ville, ou seulement le centre ?",
+          "usage": "Nom désignant le réseau de transport."
+        },
+        {
+          "id": "T2O10S37V02",
+          "kind": "mot-cle",
+          "french": "une carte",
+          "english": "a card",
+          "example": "Comment fonctionnent les tarifs — il vaut mieux une carte, un abonnement, ou payer chaque trajet ?",
+          "usage": "Nom désignant une carte de transport."
+        },
+        {
+          "id": "T2O10S37V03",
+          "kind": "mot-cle",
+          "french": "un abonnement",
+          "english": "a pass/subscription",
+          "example": "Comment fonctionnent les tarifs — il vaut mieux une carte, un abonnement, ou payer chaque trajet ?",
+          "usage": "Nom désignant un titre à durée."
+        },
+        {
+          "id": "T2O10S37V04",
+          "kind": "mot-cle",
+          "french": "les titres de transport",
+          "english": "the transport tickets",
+          "example": "Où est-ce que j'achète les titres de transport — en ligne, à une borne, au guichet ?",
+          "usage": "Groupe nominal désignant les tickets/abonnements."
+        },
+        {
+          "id": "T2O10S37V05",
+          "kind": "mot-cle",
+          "french": "une borne",
+          "english": "a ticket machine",
+          "example": "Où est-ce que j'achète les titres de transport — en ligne, à une borne, au guichet ?",
+          "usage": "Nom désignant le distributeur automatique."
+        },
+        {
+          "id": "T2O10S37V06",
+          "kind": "mot-cle",
+          "french": "des pass touristiques",
+          "english": "tourist passes",
+          "example": "Il y a des tarifs intéressants pour une semaine, ou des pass touristiques ?",
+          "usage": "Groupe nominal désignant les forfaits touristiques."
+        },
+        {
+          "id": "T2O10S37V07",
+          "kind": "mot-cle",
+          "french": "une application",
+          "english": "an app",
+          "example": "Il y a une application pour suivre les horaires et planifier un itinéraire ?",
+          "usage": "Nom désignant l'application de transport."
+        },
+        {
+          "id": "T2O10S37V08",
+          "kind": "mot-cle",
+          "french": "le centre",
+          "english": "the city centre",
+          "example": "Depuis le centre, c'est facile de rejoindre les endroits où je vais travailler ?",
+          "usage": "Nom désignant le centre-ville."
+        },
+        {
+          "id": "T2O10S37V09",
+          "kind": "mot-cle",
+          "french": "des heures de pointe",
+          "english": "rush hours",
+          "example": "Il y a des heures de pointe à éviter parce que c'est bondé ?",
+          "usage": "Groupe nominal désignant les périodes d'affluence."
+        },
+        {
+          "id": "T2O10S37V10",
+          "kind": "mot-cle",
+          "french": "le métro",
+          "english": "the metro",
+          "example": "Le métro, c'est simple à comprendre quand on ne connaît pas ?",
+          "usage": "Nom désignant le métro."
+        },
+        {
+          "id": "T2O10S37V11",
+          "kind": "collocation",
+          "french": "me déplacer en transports",
+          "english": "get around by public transport",
+          "example": "Salut ! Je vais passer une semaine à Montréal pour le boulot et je voudrais me déplacer en transports — toi qui connais bien, tu peux m'expliquer comment ça marche ?",
+          "usage": "Verbe + complément sur les déplacements."
+        },
+        {
+          "id": "T2O10S37V12",
+          "kind": "collocation",
+          "french": "payer chaque trajet",
+          "english": "pay for each trip",
+          "example": "Comment fonctionnent les tarifs — il vaut mieux une carte, un abonnement, ou payer chaque trajet ?",
+          "usage": "Verbe + complément sur le paiement."
+        },
+        {
+          "id": "T2O10S37V13",
+          "kind": "collocation",
+          "french": "au guichet",
+          "english": "at the counter",
+          "example": "Où est-ce que j'achète les titres de transport — en ligne, à une borne, au guichet ?",
+          "usage": "Locution sur le lieu d'achat."
+        },
+        {
+          "id": "T2O10S37V14",
+          "kind": "collocation",
+          "french": "valable pour le métro et le bus",
+          "english": "valid for metro and bus",
+          "example": "Un même ticket est valable pour le métro et le bus ?",
+          "usage": "Locution sur la validité du titre."
+        },
+        {
+          "id": "T2O10S37V15",
+          "kind": "collocation",
+          "french": "les mêmes horaires",
+          "english": "the same schedule",
+          "example": "Est-ce que ça marche aussi le week-end, avec les mêmes horaires ?",
+          "usage": "Groupe nominal sur les horaires."
+        },
+        {
+          "id": "T2O10S37V16",
+          "kind": "collocation",
+          "french": "planifier un itinéraire",
+          "english": "plan a route",
+          "example": "Il y a une application pour suivre les horaires et planifier un itinéraire ?",
+          "usage": "Verbe + complément sur l'itinéraire."
+        },
+        {
+          "id": "T2O10S37V17",
+          "kind": "collocation",
+          "french": "un souci",
+          "english": "a problem",
+          "example": "Si je me trompe de ligne ou que j'ai un souci, à qui je peux demander ?",
+          "usage": "Nom désignant un incident."
+        },
+        {
+          "id": "T2O10S37V18",
+          "kind": "collocation",
+          "french": "rejoindre les endroits",
+          "english": "reach the places",
+          "example": "Depuis le centre, c'est facile de rejoindre les endroits où je vais travailler ?",
+          "usage": "Verbe + complément sur les trajets."
+        },
+        {
+          "id": "T2O10S37V19",
+          "kind": "collocation",
+          "french": "c'est bondé",
+          "english": "it is crowded",
+          "example": "Il y a des heures de pointe à éviter parce que c'est bondé ?",
+          "usage": "Locution sur l'affluence."
+        },
+        {
+          "id": "T2O10S37V20",
+          "kind": "collocation",
+          "french": "me déplacer à Montréal",
+          "english": "get around Montreal",
+          "example": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien me déplacer à Montréal, ce serait lequel ?",
+          "usage": "Verbe + complément sur les déplacements à Montréal."
+        },
+        {
+          "id": "T2O10S37V21",
+          "kind": "tournure",
+          "french": "Quels types de transports il y a là-bas",
+          "english": "what types of transport are there",
+          "example": "Quels types de transports il y a là-bas — métro, bus, tramway ?",
+          "usage": "Question sur les modes de transport."
+        },
+        {
+          "id": "T2O10S37V22",
+          "kind": "tournure",
+          "french": "Le réseau couvre bien toute la ville",
+          "english": "does the network cover the whole city",
+          "example": "Le réseau couvre bien toute la ville, ou seulement le centre ?",
+          "usage": "Question sur la couverture."
+        },
+        {
+          "id": "T2O10S37V23",
+          "kind": "tournure",
+          "french": "Comment fonctionnent les tarifs",
+          "english": "how do the fares work",
+          "example": "Comment fonctionnent les tarifs — il vaut mieux une carte, un abonnement, ou payer chaque trajet ?",
+          "usage": "Question sur les tarifs."
+        },
+        {
+          "id": "T2O10S37V24",
+          "kind": "tournure",
+          "french": "Où est-ce que j'achète les titres de transport",
+          "english": "where do I buy the tickets",
+          "example": "Où est-ce que j'achète les titres de transport — en ligne, à une borne, au guichet ?",
+          "usage": "Question sur l'achat."
+        },
+        {
+          "id": "T2O10S37V25",
+          "kind": "tournure",
+          "french": "Il y a des tarifs intéressants pour une semaine",
+          "english": "are there good deals for a week",
+          "example": "Il y a des tarifs intéressants pour une semaine, ou des pass touristiques ?",
+          "usage": "Question sur les forfaits."
+        },
+        {
+          "id": "T2O10S37V26",
+          "kind": "tournure",
+          "french": "Un même ticket est valable pour le métro et le bus",
+          "english": "is one ticket valid for metro and bus",
+          "example": "Un même ticket est valable pour le métro et le bus ?",
+          "usage": "Question sur la validité."
+        },
+        {
+          "id": "T2O10S37V27",
+          "kind": "tournure",
+          "french": "Les transports fonctionnent jusqu'à quelle heure le soir",
+          "english": "until what time do they run in the evening",
+          "example": "Les transports fonctionnent jusqu'à quelle heure le soir ?",
+          "usage": "Question sur les horaires du soir."
+        },
+        {
+          "id": "T2O10S37V28",
+          "kind": "tournure",
+          "french": "Est-ce que ça marche aussi le week-end",
+          "english": "does it also run on weekends",
+          "example": "Est-ce que ça marche aussi le week-end, avec les mêmes horaires ?",
+          "usage": "Question sur le week-end."
+        },
+        {
+          "id": "T2O10S37V29",
+          "kind": "tournure",
+          "french": "Il y a des heures de pointe à éviter parce que c'est bondé",
+          "english": "are there rush hours to avoid",
+          "example": "Il y a des heures de pointe à éviter parce que c'est bondé ?",
+          "usage": "Question sur l'affluence."
+        },
+        {
+          "id": "T2O10S37V30",
+          "kind": "tournure",
+          "french": "si tu ne devais me donner qu'un seul conseil pour bien me déplacer à Montréal",
+          "english": "if you had to give one tip to get around Montreal",
+          "example": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien me déplacer à Montréal, ce serait lequel ?",
+          "usage": "Tournure de clôture."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:octobre:batch-08:subject-38",
+      "entries": [
+        {
+          "id": "T2O10S38V01",
+          "kind": "mot-cle",
+          "french": "l'école",
+          "english": "the school",
+          "example": "Bonjour ! J'ai entendu parler du jeu que l'école organise pour les étudiants — je voudrais en savoir plus, vous pourriez m'expliquer ?",
+          "usage": "Nom désignant l'école de langues."
+        },
+        {
+          "id": "T2O10S38V02",
+          "kind": "mot-cle",
+          "french": "le principe",
+          "english": "the concept/principle",
+          "example": "En quoi consiste ce jeu exactement — quel est le principe ?",
+          "usage": "Nom désignant l'idée du jeu."
+        },
+        {
+          "id": "T2O10S38V03",
+          "kind": "mot-cle",
+          "french": "les règles",
+          "english": "the rules",
+          "example": "Quelles sont les règles à connaître pour participer ?",
+          "usage": "Nom pluriel désignant les règles du jeu."
+        },
+        {
+          "id": "T2O10S38V04",
+          "kind": "mot-cle",
+          "french": "les niveaux",
+          "english": "the levels",
+          "example": "C'est ouvert à tous les niveaux, ou il faut un certain niveau de français ?",
+          "usage": "Nom pluriel désignant les niveaux."
+        },
+        {
+          "id": "T2O10S38V05",
+          "kind": "mot-cle",
+          "french": "un certain niveau de français",
+          "english": "a certain level of French",
+          "example": "C'est ouvert à tous les niveaux, ou il faut un certain niveau de français ?",
+          "usage": "Groupe nominal sur le niveau requis."
+        },
+        {
+          "id": "T2O10S38V06",
+          "kind": "mot-cle",
+          "french": "des frais de participation",
+          "english": "a participation fee",
+          "example": "Est-ce qu'il y a des frais de participation, ou c'est gratuit ?",
+          "usage": "Groupe nominal sur les frais."
+        },
+        {
+          "id": "T2O10S38V07",
+          "kind": "mot-cle",
+          "french": "des prix",
+          "english": "prizes",
+          "example": "Qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?",
+          "usage": "Nom pluriel désignant les prix à gagner."
+        },
+        {
+          "id": "T2O10S38V08",
+          "kind": "mot-cle",
+          "french": "des récompenses",
+          "english": "rewards",
+          "example": "Qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?",
+          "usage": "Nom pluriel désignant les récompenses."
+        },
+        {
+          "id": "T2O10S38V09",
+          "kind": "mot-cle",
+          "french": "les étudiants",
+          "english": "the students",
+          "example": "Bonjour ! J'ai entendu parler du jeu que l'école organise pour les étudiants — je voudrais en savoir plus, vous pourriez m'expliquer ?",
+          "usage": "Nom pluriel désignant les participants."
+        },
+        {
+          "id": "T2O10S38V10",
+          "kind": "mot-cle",
+          "french": "une journée",
+          "english": "a day",
+          "example": "Quand est-ce que ça se déroule — sur une journée, ou sur plusieurs semaines ?",
+          "usage": "Nom désignant la durée d'une journée."
+        },
+        {
+          "id": "T2O10S38V11",
+          "kind": "collocation",
+          "french": "à connaître pour participer",
+          "english": "to know in order to take part",
+          "example": "Quelles sont les règles à connaître pour participer ?",
+          "usage": "Locution sur les règles à connaître."
+        },
+        {
+          "id": "T2O10S38V12",
+          "kind": "collocation",
+          "french": "individuellement ou en équipe",
+          "english": "individually or in teams",
+          "example": "Ça se joue individuellement ou en équipe ?",
+          "usage": "Alternative sur le format."
+        },
+        {
+          "id": "T2O10S38V13",
+          "kind": "collocation",
+          "french": "ouvert à tous les niveaux",
+          "english": "open to all levels",
+          "example": "C'est ouvert à tous les niveaux, ou il faut un certain niveau de français ?",
+          "usage": "Locution sur l'accessibilité."
+        },
+        {
+          "id": "T2O10S38V14",
+          "kind": "collocation",
+          "french": "sur plusieurs semaines",
+          "english": "over several weeks",
+          "example": "Quand est-ce que ça se déroule — sur une journée, ou sur plusieurs semaines ?",
+          "usage": "Locution sur la durée."
+        },
+        {
+          "id": "T2O10S38V15",
+          "kind": "collocation",
+          "french": "s'inscrire à l'avance",
+          "english": "sign up in advance",
+          "example": "Faut-il s'inscrire à l'avance, et comment ?",
+          "usage": "Verbe + complément sur l'inscription."
+        },
+        {
+          "id": "T2O10S38V16",
+          "kind": "collocation",
+          "french": "progresser en français",
+          "english": "improve in French",
+          "example": "Est-ce que ça aide à progresser en français ?",
+          "usage": "Verbe + complément sur les progrès."
+        },
+        {
+          "id": "T2O10S38V17",
+          "kind": "collocation",
+          "french": "préparer quelque chose à l'avance",
+          "english": "prepare something ahead",
+          "example": "Faut-il préparer quelque chose à l'avance ?",
+          "usage": "Verbe + complément sur la préparation."
+        },
+        {
+          "id": "T2O10S38V18",
+          "kind": "collocation",
+          "french": "juste pour essayer",
+          "english": "just to try",
+          "example": "Est-ce qu'on peut venir juste pour essayer, sans s'engager ?",
+          "usage": "Locution sur l'essai."
+        },
+        {
+          "id": "T2O10S38V19",
+          "kind": "collocation",
+          "french": "sans s'engager",
+          "english": "without committing",
+          "example": "Est-ce qu'on peut venir juste pour essayer, sans s'engager ?",
+          "usage": "Locution sur l'absence d'engagement."
+        },
+        {
+          "id": "T2O10S38V20",
+          "kind": "collocation",
+          "french": "bien m'y préparer",
+          "english": "prepare well for it",
+          "example": "Pour finir — qu'est-ce que vous me conseillez pour bien m'y préparer ?",
+          "usage": "Locution sur la préparation."
+        },
+        {
+          "id": "T2O10S38V21",
+          "kind": "tournure",
+          "french": "En quoi consiste ce jeu exactement",
+          "english": "what exactly does this game involve",
+          "example": "En quoi consiste ce jeu exactement — quel est le principe ?",
+          "usage": "Question sur le principe."
+        },
+        {
+          "id": "T2O10S38V22",
+          "kind": "tournure",
+          "french": "Quelles sont les règles à connaître pour participer",
+          "english": "what are the rules to take part",
+          "example": "Quelles sont les règles à connaître pour participer ?",
+          "usage": "Question sur les règles."
+        },
+        {
+          "id": "T2O10S38V23",
+          "kind": "tournure",
+          "french": "Ça se joue individuellement ou en équipe",
+          "english": "is it played individually or in teams",
+          "example": "Ça se joue individuellement ou en équipe ?",
+          "usage": "Question sur le format."
+        },
+        {
+          "id": "T2O10S38V24",
+          "kind": "tournure",
+          "french": "Quand est-ce que ça se déroule",
+          "english": "when does it take place",
+          "example": "Quand est-ce que ça se déroule — sur une journée, ou sur plusieurs semaines ?",
+          "usage": "Question sur la période."
+        },
+        {
+          "id": "T2O10S38V25",
+          "kind": "tournure",
+          "french": "Où est-ce que ça se passe",
+          "english": "where does it take place",
+          "example": "Où est-ce que ça se passe — dans l'école ou à l'extérieur ?",
+          "usage": "Question sur le lieu."
+        },
+        {
+          "id": "T2O10S38V26",
+          "kind": "tournure",
+          "french": "Faut-il s'inscrire à l'avance",
+          "english": "do you need to sign up in advance",
+          "example": "Faut-il s'inscrire à l'avance, et comment ?",
+          "usage": "Question sur l'inscription."
+        },
+        {
+          "id": "T2O10S38V27",
+          "kind": "tournure",
+          "french": "Qu'est-ce qu'on peut gagner",
+          "english": "what can you win",
+          "example": "Qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?",
+          "usage": "Question sur les gains."
+        },
+        {
+          "id": "T2O10S38V28",
+          "kind": "tournure",
+          "french": "Est-ce que ça aide à progresser en français",
+          "english": "does it help improve your French",
+          "example": "Est-ce que ça aide à progresser en français ?",
+          "usage": "Question sur l'utilité pédagogique."
+        },
+        {
+          "id": "T2O10S38V29",
+          "kind": "tournure",
+          "french": "Combien d'étudiants participent en général",
+          "english": "how many students take part usually",
+          "example": "Combien d'étudiants participent en général ?",
+          "usage": "Question sur l'effectif."
+        },
+        {
+          "id": "T2O10S38V30",
+          "kind": "tournure",
+          "french": "qu'est-ce que vous me conseillez pour bien m'y préparer",
+          "english": "what do you advise to prepare well",
+          "example": "Pour finir — qu'est-ce que vous me conseillez pour bien m'y préparer ?",
+          "usage": "Tournure de clôture."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:octobre:batch-08:subject-39",
+      "entries": [
+        {
+          "id": "T2O10S39V01",
+          "kind": "mot-cle",
+          "french": "ce poste",
+          "english": "this position",
+          "example": "Bonjour, merci beaucoup pour cette proposition de poste à l'étranger — avant de me décider, j'aimerais en savoir davantage. Vous pourriez m'en dire plus sur ce poste ?",
+          "usage": "Groupe nominal désignant le poste proposé."
+        },
+        {
+          "id": "T2O10S39V02",
+          "kind": "mot-cle",
+          "french": "mes missions",
+          "english": "my duties",
+          "example": "En quoi consisteraient exactement mes missions là-bas ?",
+          "usage": "Groupe nominal désignant les tâches du poste."
+        },
+        {
+          "id": "T2O10S39V03",
+          "kind": "mot-cle",
+          "french": "une mission temporaire",
+          "english": "a temporary assignment",
+          "example": "Ce serait pour combien de temps — une mission temporaire ou une affectation longue ?",
+          "usage": "Groupe nominal sur la durée du poste."
+        },
+        {
+          "id": "T2O10S39V04",
+          "kind": "mot-cle",
+          "french": "une affectation longue",
+          "english": "a long posting",
+          "example": "Ce serait pour combien de temps — une mission temporaire ou une affectation longue ?",
+          "usage": "Groupe nominal sur une affectation durable."
+        },
+        {
+          "id": "T2O10S39V05",
+          "kind": "mot-cle",
+          "french": "des avantages",
+          "english": "benefits",
+          "example": "Y a-t-il des avantages liés à l'expatriation — logement, prime, prise en charge du déménagement ?",
+          "usage": "Nom pluriel désignant les avantages."
+        },
+        {
+          "id": "T2O10S39V06",
+          "kind": "mot-cle",
+          "french": "l'expatriation",
+          "english": "expatriation",
+          "example": "Y a-t-il des avantages liés à l'expatriation — logement, prime, prise en charge du déménagement ?",
+          "usage": "Nom désignant le fait de partir travailler à l'étranger."
+        },
+        {
+          "id": "T2O10S39V07",
+          "kind": "mot-cle",
+          "french": "la couverture santé",
+          "english": "health coverage",
+          "example": "Comment ça se passe pour la couverture santé et la protection sociale sur place ?",
+          "usage": "Groupe nominal désignant l'assurance maladie."
+        },
+        {
+          "id": "T2O10S39V08",
+          "kind": "mot-cle",
+          "french": "la protection sociale",
+          "english": "social security",
+          "example": "Comment ça se passe pour la couverture santé et la protection sociale sur place ?",
+          "usage": "Groupe nominal désignant la protection sociale."
+        },
+        {
+          "id": "T2O10S39V09",
+          "kind": "mot-cle",
+          "french": "la langue de travail",
+          "english": "the working language",
+          "example": "Est-ce que la langue de travail sera le français, ou faut-il maîtriser une autre langue ?",
+          "usage": "Groupe nominal sur la langue au travail."
+        },
+        {
+          "id": "T2O10S39V10",
+          "kind": "mot-cle",
+          "french": "les perspectives d'évolution",
+          "english": "career prospects",
+          "example": "Quelles seraient les perspectives d'évolution après cette expérience ?",
+          "usage": "Groupe nominal sur l'évolution possible."
+        },
+        {
+          "id": "T2O10S39V11",
+          "kind": "collocation",
+          "french": "avant de me décider",
+          "english": "before deciding",
+          "example": "Bonjour, merci beaucoup pour cette proposition de poste à l'étranger — avant de me décider, j'aimerais en savoir davantage. Vous pourriez m'en dire plus sur ce poste ?",
+          "usage": "Locution sur le temps de décision."
+        },
+        {
+          "id": "T2O10S39V12",
+          "kind": "collocation",
+          "french": "évoluerait mon salaire",
+          "english": "my salary would change",
+          "example": "Comment évoluerait mon salaire par rapport à mon poste actuel ?",
+          "usage": "Locution verbale sur le salaire."
+        },
+        {
+          "id": "T2O10S39V13",
+          "kind": "collocation",
+          "french": "prise en charge du déménagement",
+          "english": "covering the move",
+          "example": "Y a-t-il des avantages liés à l'expatriation — logement, prime, prise en charge du déménagement ?",
+          "usage": "Groupe nominal sur les frais de déménagement."
+        },
+        {
+          "id": "T2O10S39V14",
+          "kind": "collocation",
+          "french": "les frais de voyage et d'installation",
+          "english": "travel and relocation costs",
+          "example": "Qui prend en charge les frais de voyage et d'installation ?",
+          "usage": "Groupe nominal sur les frais."
+        },
+        {
+          "id": "T2O10S39V15",
+          "kind": "collocation",
+          "french": "sur place",
+          "english": "there / on site",
+          "example": "Comment ça se passe pour la couverture santé et la protection sociale sur place ?",
+          "usage": "Locution sur le lieu."
+        },
+        {
+          "id": "T2O10S39V16",
+          "kind": "collocation",
+          "french": "maîtriser une autre langue",
+          "english": "master another language",
+          "example": "Est-ce que la langue de travail sera le français, ou faut-il maîtriser une autre langue ?",
+          "usage": "Verbe + complément sur la langue."
+        },
+        {
+          "id": "T2O10S39V17",
+          "kind": "collocation",
+          "french": "revenir à mon poste actuel",
+          "english": "return to my current position",
+          "example": "Je pourrais revenir à mon poste actuel si ça ne me convient pas ?",
+          "usage": "Verbe + complément sur le retour."
+        },
+        {
+          "id": "T2O10S39V18",
+          "kind": "collocation",
+          "french": "m'accompagner",
+          "english": "come with me",
+          "example": "Ma famille pourrait-elle m'accompagner, avec un accompagnement prévu ?",
+          "usage": "Locution verbale sur l'accompagnement familial."
+        },
+        {
+          "id": "T2O10S39V19",
+          "kind": "collocation",
+          "french": "donner ma réponse",
+          "english": "give my answer",
+          "example": "De combien de temps je dispose pour donner ma réponse ?",
+          "usage": "Verbe + complément sur la décision."
+        },
+        {
+          "id": "T2O10S39V20",
+          "kind": "collocation",
+          "french": "par écrit",
+          "english": "in writing",
+          "example": "Est-ce que je peux avoir tous ces éléments par écrit pour bien réfléchir avant de décider ?",
+          "usage": "Locution sur la forme écrite."
+        },
+        {
+          "id": "T2O10S39V21",
+          "kind": "tournure",
+          "french": "En quoi consisteraient exactement mes missions là-bas",
+          "english": "what exactly would my duties be there",
+          "example": "En quoi consisteraient exactement mes missions là-bas ?",
+          "usage": "Question sur les missions."
+        },
+        {
+          "id": "T2O10S39V22",
+          "kind": "tournure",
+          "french": "Dans quel pays et quelle ville serais-je basé(e)",
+          "english": "in which country and city would I be based",
+          "example": "Dans quel pays et quelle ville serais-je basé(e) ?",
+          "usage": "Question sur la localisation."
+        },
+        {
+          "id": "T2O10S39V23",
+          "kind": "tournure",
+          "french": "Ce serait pour combien de temps",
+          "english": "how long would it be for",
+          "example": "Ce serait pour combien de temps — une mission temporaire ou une affectation longue ?",
+          "usage": "Question sur la durée."
+        },
+        {
+          "id": "T2O10S39V24",
+          "kind": "tournure",
+          "french": "Comment évoluerait mon salaire par rapport à mon poste actuel",
+          "english": "how would my salary change versus my current job",
+          "example": "Comment évoluerait mon salaire par rapport à mon poste actuel ?",
+          "usage": "Question sur le salaire."
+        },
+        {
+          "id": "T2O10S39V25",
+          "kind": "tournure",
+          "french": "Qui prend en charge les frais de voyage et d'installation",
+          "english": "who covers travel and relocation costs",
+          "example": "Qui prend en charge les frais de voyage et d'installation ?",
+          "usage": "Question sur les frais."
+        },
+        {
+          "id": "T2O10S39V26",
+          "kind": "tournure",
+          "french": "Comment ça se passe pour la couverture santé et la protection sociale sur place",
+          "english": "how does health and social coverage work there",
+          "example": "Comment ça se passe pour la couverture santé et la protection sociale sur place ?",
+          "usage": "Question sur la protection sociale."
+        },
+        {
+          "id": "T2O10S39V27",
+          "kind": "tournure",
+          "french": "À qui serais-je rattaché(e)",
+          "english": "who would I report to",
+          "example": "À qui serais-je rattaché(e), et avec quelle équipe je travaillerais ?",
+          "usage": "Question sur le rattachement."
+        },
+        {
+          "id": "T2O10S39V28",
+          "kind": "tournure",
+          "french": "Quelles seraient les perspectives d'évolution après cette expérience",
+          "english": "what would the prospects be after this",
+          "example": "Quelles seraient les perspectives d'évolution après cette expérience ?",
+          "usage": "Question sur l'évolution."
+        },
+        {
+          "id": "T2O10S39V29",
+          "kind": "tournure",
+          "french": "Ma famille pourrait-elle m'accompagner",
+          "english": "could my family come with me",
+          "example": "Ma famille pourrait-elle m'accompagner, avec un accompagnement prévu ?",
+          "usage": "Question sur la famille."
+        },
+        {
+          "id": "T2O10S39V30",
+          "kind": "tournure",
+          "french": "De combien de temps je dispose pour donner ma réponse",
+          "english": "how long do I have to answer",
+          "example": "De combien de temps je dispose pour donner ma réponse ?",
+          "usage": "Question sur le délai."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:octobre:batch-08:subject-40",
+      "entries": [
+        {
+          "id": "T2O10S40V01",
+          "kind": "mot-cle",
+          "french": "un ciné",
+          "english": "a cinema",
+          "example": "On pourrait aller où — un ciné, un bar, un concert, un resto ?",
+          "usage": "Nom familier désignant le cinéma."
+        },
+        {
+          "id": "T2O10S40V02",
+          "kind": "mot-cle",
+          "french": "un bar",
+          "english": "a bar",
+          "example": "On pourrait aller où — un ciné, un bar, un concert, un resto ?",
+          "usage": "Nom désignant un bar."
+        },
+        {
+          "id": "T2O10S40V03",
+          "kind": "mot-cle",
+          "french": "un concert",
+          "english": "a concert",
+          "example": "On pourrait aller où — un ciné, un bar, un concert, un resto ?",
+          "usage": "Nom désignant un concert."
+        },
+        {
+          "id": "T2O10S40V04",
+          "kind": "mot-cle",
+          "french": "un resto",
+          "english": "a restaurant",
+          "example": "On pourrait aller où — un ciné, un bar, un concert, un resto ?",
+          "usage": "Nom familier désignant un restaurant."
+        },
+        {
+          "id": "T2O10S40V05",
+          "kind": "mot-cle",
+          "french": "des animations",
+          "english": "entertainment/events",
+          "example": "Tu sais s'il y a des événements ou des animations prévus ce soir ?",
+          "usage": "Nom pluriel désignant les animations."
+        },
+        {
+          "id": "T2O10S40V06",
+          "kind": "mot-cle",
+          "french": "des sorties pas chères",
+          "english": "cheap outings",
+          "example": "Ça coûte cher en général, ou on peut trouver des sorties pas chères ?",
+          "usage": "Groupe nominal sur les sorties économiques."
+        },
+        {
+          "id": "T2O10S40V07",
+          "kind": "mot-cle",
+          "french": "une bonne adresse",
+          "english": "a good spot",
+          "example": "Pour manger un morceau, tu connais une bonne adresse pas loin ?",
+          "usage": "Groupe nominal désignant une bonne adresse."
+        },
+        {
+          "id": "T2O10S40V08",
+          "kind": "mot-cle",
+          "french": "une tenue particulière",
+          "english": "a specific dress code",
+          "example": "Il faut prévoir une tenue particulière pour certains endroits ?",
+          "usage": "Groupe nominal sur la tenue."
+        },
+        {
+          "id": "T2O10S40V09",
+          "kind": "mot-cle",
+          "french": "activité en intérieur",
+          "english": "an indoor activity",
+          "example": "Et s'il fait mauvais, tu aurais une idée d'activité en intérieur ?",
+          "usage": "Groupe nominal désignant une activité couverte."
+        },
+        {
+          "id": "T2O10S40V10",
+          "kind": "mot-cle",
+          "french": "une seule sortie",
+          "english": "just one outing",
+          "example": "Pour finir — si tu ne devais choisir qu'une seule sortie pour ce soir, ce serait laquelle ?",
+          "usage": "Groupe nominal sur le choix final."
+        },
+        {
+          "id": "T2O10S40V11",
+          "kind": "collocation",
+          "french": "sortir ce soir",
+          "english": "go out tonight",
+          "example": "Salut ! J'ai envie de sortir ce soir mais je ne sais pas trop quoi faire — tu aurais des idées ?",
+          "usage": "Verbe + complément sur la sortie du soir."
+        },
+        {
+          "id": "T2O10S40V12",
+          "kind": "collocation",
+          "french": "un soir de semaine",
+          "english": "a weeknight",
+          "example": "C'est plutôt calme un soir de semaine, ou il y a de l'ambiance ?",
+          "usage": "Groupe nominal sur le soir de semaine."
+        },
+        {
+          "id": "T2O10S40V13",
+          "kind": "collocation",
+          "french": "de l'ambiance",
+          "english": "a lively vibe",
+          "example": "C'est plutôt calme un soir de semaine, ou il y a de l'ambiance ?",
+          "usage": "Locution sur l'animation."
+        },
+        {
+          "id": "T2O10S40V14",
+          "kind": "collocation",
+          "french": "sans prévoir",
+          "english": "without planning",
+          "example": "Il faut réserver quelque part, ou on peut y aller sans prévoir ?",
+          "usage": "Locution sur l'absence de réservation."
+        },
+        {
+          "id": "T2O10S40V15",
+          "kind": "collocation",
+          "french": "accessible à pied ou en transports",
+          "english": "reachable on foot or by transit",
+          "example": "C'est accessible à pied ou en transports, ou il faut une voiture ?",
+          "usage": "Adjectif + complément sur l'accès."
+        },
+        {
+          "id": "T2O10S40V16",
+          "kind": "collocation",
+          "french": "restent ouverts",
+          "english": "stay open",
+          "example": "Jusqu'à quelle heure les endroits restent ouverts un soir de semaine ?",
+          "usage": "Locution verbale sur les horaires."
+        },
+        {
+          "id": "T2O10S40V17",
+          "kind": "collocation",
+          "french": "manger un morceau",
+          "english": "grab a bite",
+          "example": "Pour manger un morceau, tu connais une bonne adresse pas loin ?",
+          "usage": "Locution familière sur le repas."
+        },
+        {
+          "id": "T2O10S40V18",
+          "kind": "collocation",
+          "french": "tranquille ou plutôt animé",
+          "english": "quiet or lively",
+          "example": "Tu préfères quelque chose de tranquille ou plutôt animé ce soir ?",
+          "usage": "Alternative adjectivale."
+        },
+        {
+          "id": "T2O10S40V19",
+          "kind": "collocation",
+          "french": "d'autres personnes",
+          "english": "other people",
+          "example": "On serait juste nous deux, ou tu veux qu'on invite d'autres personnes ?",
+          "usage": "Groupe nominal désignant d'autres invités."
+        },
+        {
+          "id": "T2O10S40V20",
+          "kind": "collocation",
+          "french": "s'il fait mauvais",
+          "english": "if the weather is bad",
+          "example": "Et s'il fait mauvais, tu aurais une idée d'activité en intérieur ?",
+          "usage": "Locution conditionnelle sur la météo."
+        },
+        {
+          "id": "T2O10S40V21",
+          "kind": "tournure",
+          "french": "Qu'est-ce qu'il y a de sympa à faire un soir dans le coin",
+          "english": "what nice things are there to do in the evening nearby",
+          "example": "Qu'est-ce qu'il y a de sympa à faire un soir dans le coin ?",
+          "usage": "Question sur les options."
+        },
+        {
+          "id": "T2O10S40V22",
+          "kind": "tournure",
+          "french": "On pourrait aller où",
+          "english": "where could we go",
+          "example": "On pourrait aller où — un ciné, un bar, un concert, un resto ?",
+          "usage": "Question sur le lieu."
+        },
+        {
+          "id": "T2O10S40V23",
+          "kind": "tournure",
+          "french": "Tu sais s'il y a des événements ou des animations prévus ce soir",
+          "english": "do you know of any events tonight",
+          "example": "Tu sais s'il y a des événements ou des animations prévus ce soir ?",
+          "usage": "Question sur les événements."
+        },
+        {
+          "id": "T2O10S40V24",
+          "kind": "tournure",
+          "french": "Ça coûte cher en général",
+          "english": "is it expensive usually",
+          "example": "Ça coûte cher en général, ou on peut trouver des sorties pas chères ?",
+          "usage": "Question sur le prix."
+        },
+        {
+          "id": "T2O10S40V25",
+          "kind": "tournure",
+          "french": "Il faut réserver quelque part",
+          "english": "do we need to book somewhere",
+          "example": "Il faut réserver quelque part, ou on peut y aller sans prévoir ?",
+          "usage": "Question sur la réservation."
+        },
+        {
+          "id": "T2O10S40V26",
+          "kind": "tournure",
+          "french": "Jusqu'à quelle heure les endroits restent ouverts un soir de semaine",
+          "english": "until what time do places stay open on a weeknight",
+          "example": "Jusqu'à quelle heure les endroits restent ouverts un soir de semaine ?",
+          "usage": "Question sur les horaires."
+        },
+        {
+          "id": "T2O10S40V27",
+          "kind": "tournure",
+          "french": "Pour manger un morceau, tu connais une bonne adresse pas loin",
+          "english": "do you know a good place to eat nearby",
+          "example": "Pour manger un morceau, tu connais une bonne adresse pas loin ?",
+          "usage": "Question sur les restaurants."
+        },
+        {
+          "id": "T2O10S40V28",
+          "kind": "tournure",
+          "french": "Tu préfères quelque chose de tranquille ou plutôt animé ce soir",
+          "english": "do you prefer something quiet or lively tonight",
+          "example": "Tu préfères quelque chose de tranquille ou plutôt animé ce soir ?",
+          "usage": "Question sur les préférences."
+        },
+        {
+          "id": "T2O10S40V29",
+          "kind": "tournure",
+          "french": "Et s'il fait mauvais, tu aurais une idée d'activité en intérieur",
+          "english": "if the weather is bad, any indoor ideas",
+          "example": "Et s'il fait mauvais, tu aurais une idée d'activité en intérieur ?",
+          "usage": "Question sur le plan B."
+        },
+        {
+          "id": "T2O10S40V30",
+          "kind": "tournure",
+          "french": "si tu ne devais choisir qu'une seule sortie pour ce soir",
+          "english": "if you had to pick just one outing tonight",
+          "example": "Pour finir — si tu ne devais choisir qu'une seule sortie pour ce soir, ce serait laquelle ?",
+          "usage": "Tournure de clôture."
+        }
+      ]
+    }
+  ]
+}

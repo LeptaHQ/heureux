@@ -57,7 +57,7 @@
     <aside class="detail-side">
       <div class="card section-card response-sidebar-card response-sidebar-card--status">
         <div class="spine-label">Progression du sujet</div>
-        <p class="state-line"><span class="progress-status progress-status--{{ subject_progress.status }}">{{ subject_progress.label }}</span></p>
+        {% include "study/partials/subject_progress_control.html" with subject_label=subject.title %}
         {% if card %}
           <div class="spine-label">Pratique des questions</div>
           <dl class="kv">

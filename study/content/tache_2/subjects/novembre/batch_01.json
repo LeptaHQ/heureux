@@ -1,0 +1,304 @@
+{
+  "month": {
+    "number": 11,
+    "slug": "novembre",
+    "name": "Novembre"
+  },
+  "batch": 1,
+  "subjects": [
+    {
+      "number": 1,
+      "title": "Garde du chat d'un(e) ami(e)",
+      "prompt": "Un(e) ami(e) part en vacances et vous confie son chat ; en ami(e), vous posez des questions pour bien vous en occuper (nourriture, litière, habitudes, soins, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! Tu pars en vacances et tu voudrais que je m'occupe de ton chat — avec plaisir, tu m'expliques comment ça se passe ?"
+        },
+        {
+          "text": "Comment s'appelle-t-il, et quel âge a-t-il ?",
+          "memory_number": 3,
+          "memory_section": 2
+        },
+        {
+          "text": "Comment est son caractère — plutôt calme, ou plutôt énergique avec les inconnus ?",
+          "memory_number": 3,
+          "memory_section": 2
+        },
+        {
+          "text": "Que mange-t-il exactement, et à quelle fréquence faut-il le nourrir ?",
+          "memory_number": 3,
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il des aliments interdits ou des allergies à connaître ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Pour la litière, où est-elle placée et à quelle fréquence faut-il la nettoyer ?"
+        },
+        {
+          "text": "Est-ce qu'il sort dehors ou il reste plutôt à l'intérieur ?"
+        },
+        {
+          "text": "Y a-t-il des habitudes particulières à respecter pour que tout se passe bien ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Comment réagit-il en général quand il reste seul un moment ?",
+          "memory_number": 3,
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il des médicaments à donner ou des soins particuliers à prévoir ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Je viens m'en occuper chez toi j'imagine — comment on s'organise pour les clés ?"
+        },
+        {
+          "text": "Sur combien de jours exactement dois-je m'organiser ?",
+          "memory_section": 9
+        },
+        {
+          "text": "En cas d'urgence, qui est son vétérinaire et comment puis-je le joindre ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Si tu n'es pas joignable, y a-t-il une autre personne à contacter en cas de problème ?"
+        },
+        {
+          "text": "Pour finir — tu aurais un dernier conseil pour que tout se passe au mieux pendant ton absence ?"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Anniversaire sur un bateau",
+      "prompt": "Un(e) ami(e) fête son anniversaire sur un bateau ; intéressé(e), vous l'interrogez pour en savoir plus (date, départ, prix, invités, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! J'ai appris que tu organises ton anniversaire sur un bateau — ça a l'air génial, tu peux m'en dire plus ?"
+        },
+        {
+          "text": "C'est prévu pour quel jour, et à quelle heure on commence ?"
+        },
+        {
+          "text": "On part d'où exactement — il y a un point de rendez-vous au port ?"
+        },
+        {
+          "text": "Ça dure combien de temps — on navigue toute la soirée ?"
+        },
+        {
+          "text": "Comment je m'y rends — c'est facile d'accès ou mieux vaut prévoir une voiture ?"
+        },
+        {
+          "text": "Il faut prévoir une tenue particulière — quelque chose de chaud pour le bateau ?"
+        },
+        {
+          "text": "Tu préfères qu'on apporte quelque chose — un cadeau, à boire, à manger ?"
+        },
+        {
+          "text": "Il y a une participation aux frais, ou tu t'occupes de tout ?"
+        },
+        {
+          "text": "Tu comptes inviter combien de personnes environ — ce sera une petite fête ou une grande soirée ?",
+          "memory_section": 14
+        },
+        {
+          "text": "On sera surtout entre qui — des amis, de la famille, des collègues ?"
+        },
+        {
+          "text": "Le bateau peut accueillir combien de personnes — il y a une limite ?"
+        },
+        {
+          "text": "Côté sécurité, il y a ce qu'il faut à bord — des gilets de sauvetage, tout ça ?"
+        },
+        {
+          "text": "Et s'il fait mauvais ce jour-là, c'est maintenu ou tu as une solution de repli ?"
+        },
+        {
+          "text": "Il y aura de la musique ou une animation particulière à bord ?"
+        },
+        {
+          "text": "Pour finir — je te confirme ma présence quand, et il te faut une réponse pour quelle date ?"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Club de marche entre collègues",
+      "prompt": "Un(e) collègue fait partie d'un club de marche et l'idée vous tente ; vous posez des questions sur les lieux, les horaires, le matériel, etc.",
+      "questions": [
+        {
+          "text": "Salut ! J'ai entendu que tu fais partie d'un club de marche — ça m'intéresse, tu pourrais m'en parler un peu ?"
+        },
+        {
+          "text": "Le club marche où en général — plutôt en forêt, en montagne, sur des sentiers balisés ?"
+        },
+        {
+          "text": "Les parcours font quelle distance — c'est plutôt accessible ou vraiment sportif ?"
+        },
+        {
+          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "memory_section": 3
+        },
+        {
+          "text": "On avance à quel rythme — on peut suivre tranquillement ou il faut être bien entraîné ?"
+        },
+        {
+          "text": "Le club se retrouve quels jours et à quelle fréquence — toutes les semaines ?"
+        },
+        {
+          "text": "Une sortie dure combien de temps en général — plutôt une demi-journée, ou toute la journée ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il une cotisation au club, ou on paie à la sortie ?"
+        },
+        {
+          "text": "Qu'est-ce qu'il faut prévoir comme équipement — de bonnes chaussures, des bâtons, un coupe-vent ?"
+        },
+        {
+          "text": "On se retrouve où pour partir — directement sur place ou il faut prévoir du transport ?"
+        },
+        {
+          "text": "Il y a combien de personnes dans le groupe — c'est plutôt convivial ?"
+        },
+        {
+          "text": "Il y a des précautions à prendre pour éviter de se blesser ou de se perdre ?"
+        },
+        {
+          "text": "Est-ce que je peux venir essayer une sortie avant de m'inscrire, et comment je te recontacte ?"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Activités d'un centre culturel",
+      "prompt": "À l'accueil d'un centre culturel, vous vous renseignez sur les activités proposées (public concerné, horaires, types d'activités, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! J'ai appris récemment l'ouverture de ce nouveau centre culturel — depuis quand est-il ouvert exactement ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Ça se passe où exactement — c'est facilement accessible en transports en commun ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Quels types d'activités proposez-vous — c'est plutôt orienté vers l'art, la culture ou un mélange de plusieurs domaines ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Organisez-vous des cours ou des ateliers réguliers ? Si oui, dans quels domaines précisément ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Proposez-vous également des spectacles — des concerts, des pièces de théâtre ou des projections de films ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "memory_section": 12
+        },
+        {
+          "text": "À quelle heure commencent les cours et les ateliers — plutôt le matin ou en fin de journée ? Et vous êtes ouverts le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Proposez-vous des activités spécifiques pendant les vacances scolaires, notamment pour les enfants ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le tarif comprend quoi exactement — certaines activités sont-elles gratuites ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Il y a généralement combien de participants par atelier — c'est un petit groupe ou une grande classe ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Y a-t-il une boutique de souvenirs ou une librairie sur place ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule activité, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Location d'un emplacement de camping",
+      "prompt": "À la réception d'un camping, vous préparez votre séjour en posant des questions sur les emplacements, les services et les tarifs.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je souhaite réserver dans votre camping — vous pourriez d'abord me présenter ce que vous proposez ?"
+        },
+        {
+          "text": "Quels types d'emplacements avez-vous — pour une tente, une caravane, ou plutôt des locations comme un bungalow ou un mobil-home ?"
+        },
+        {
+          "text": "Les emplacements font quelle taille, et sont-ils équipés en électricité ?"
+        },
+        {
+          "text": "Ils sont plutôt ombragés ou en plein soleil ?"
+        },
+        {
+          "text": "Vous avez encore de la disponibilité pour cet été, ou il vaut mieux réserver longtemps à l'avance ?"
+        },
+        {
+          "text": "Côté tarifs, comment ça fonctionne — c'est un prix par nuit, par personne, ou par emplacement ?"
+        },
+        {
+          "text": "Le tarif comprend quoi exactement ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Quels services y a-t-il sur place — des sanitaires, une laverie, une épicerie ?"
+        },
+        {
+          "text": "Est-ce qu'il y a une piscine ou des activités organisées pendant le séjour ?"
+        },
+        {
+          "text": "Y a-t-il un restaurant ou un snack sur le camping, ou faut-il tout prévoir soi-même ?"
+        },
+        {
+          "text": "Est-ce que les animaux sont acceptés sur le camping ?"
+        },
+        {
+          "text": "Quelles sont les règles à respecter — il y a des horaires de silence le soir ?"
+        },
+        {
+          "text": "Comment se passe la réservation — un acompte est-il demandé à l'avance ?"
+        },
+        {
+          "text": "Et en cas d'imprévu, quelles sont vos conditions d'annulation ?"
+        },
+        {
+          "text": "Pour finir — comment se passe l'arrivée sur place, et à partir de quelle heure peut-on s'installer ?"
+        }
+      ]
+    }
+  ]
+}

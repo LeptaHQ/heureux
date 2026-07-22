@@ -1,0 +1,94 @@
+{
+  "number": 3,
+  "title": "Mémoire 3",
+  "label": "Questions d'approfondissement",
+  "icon": "search",
+  "subtitle": "Une troisième banque de formulations stables à mémoriser et à adapter pour approfondir un dossier, un profil, un bien, un parcours ou l'encadrement, dans de nombreux sujets de la Tâche 2.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Dossier, garanties et conditions d'engagement",
+      "groups": [
+        {
+          "title": "Constituer le dossier (location)",
+          "guidance": "Pour louer un logement : ce qu'il faut fournir et garantir avant de signer.",
+          "questions": [
+            "Quels documents faut-il fournir pour constituer le dossier ?",
+            "Faut-il absolument un garant, ou existe-t-il d'autres solutions si on n'en a pas ?",
+            "Faut-il verser une caution ou des arrhes ?",
+            "Y a-t-il une durée ou un engagement minimum ?"
+          ]
+        },
+        {
+          "title": "Pièces à apporter (inscription)",
+          "guidance": "Pour s'inscrire à un service : bibliothèque, cours, activité.",
+          "questions": [
+            "Quels documents faut-il apporter pour l'inscription — une pièce d'identité, un justificatif de domicile ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Profil et besoins (personne ou animal)",
+      "groups": [
+        {
+          "guidance": "Formulations au masculin par défaut : à accorder au genre de la personne ou de l'animal.",
+          "questions": [
+            "Comment s'appelle-t-il, et quel âge a-t-il ?",
+            "Comment est son caractère ?",
+            "Quelles sont ses activités ou ses loisirs préférés ?",
+            "Comment réagit-il en général quand il reste seul un moment ?",
+            "Que mange-t-il exactement, et à quelle fréquence faut-il le nourrir ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "État et historique d'un bien",
+      "groups": [
+        {
+          "guidance": "Pour un bien d'occasion : certaines formulations (accident, carnet d'entretien, contrôle technique) s'adaptent surtout à un véhicule.",
+          "questions": [
+            "Est-ce en bon état général, ou y a-t-il des réparations à prévoir ?",
+            "A-t-il déjà eu un accident ou un problème important ?",
+            "Tu as gardé le carnet d'entretien et les factures ?",
+            "Le contrôle technique est encore valide, ou il faut le refaire bientôt ?",
+            "Pourquoi as-tu décidé de vendre ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Parcours, évolution et projets",
+      "groups": [
+        {
+          "questions": [
+            "Ça fait combien de temps que tu es arrivé(e) ici ?",
+            "Qu'est-ce qui a changé pour toi ?",
+            "Concrètement, quelles sont tes nouvelles tâches au quotidien ?",
+            "Qu'est-ce qui t'a le plus aidé(e) à bien t'intégrer ?",
+            "Quels sont tes projets ou tes objectifs maintenant ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Encadrement, entourage et responsabilités",
+      "groups": [
+        {
+          "questions": [
+            "Est-ce encadré par des professionnels qualifiés ?",
+            "Es-tu venu(e) seul(e), ou accompagné(e) ?",
+            "Qui t'a aidé(e) à t'installer ?",
+            "Qui sera présent — toi uniquement, ou d'autres personnes aussi ?",
+            "Concrètement, qu'attend-on de moi, et quelles seraient mes principales responsabilités ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

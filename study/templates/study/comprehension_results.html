@@ -26,14 +26,15 @@
     </div>
     <div class="ce-results-hero__copy">
       <h1>{{ test.title }}</h1>
-      <p>{% if is_error_practice %}Entraînement ciblé terminé{% else %}Test terminé{% endif %} · <b>{{ attempt.percentage }} %</b></p>
+      <p>{% if is_error_practice %}Entraînement ciblé terminé{% else %}Tentative terminée{% endif %} · <b>{{ attempt.percentage }} %</b></p>
       <div class="ce-results-hero__facts">
         <span class="is-correct"><b>{{ attempt.score }}</b> bonnes réponses</span>
         <span class="is-wrong"><b>{{ wrong_count }}</b> à revoir</span>
-        <span>Terminé le <b>{{ attempt.completed_at|date:"j M Y" }}</b></span>
+        <span>Tentative du <b>{{ attempt.completed_at|date:"j M Y" }}</b></span>
       </div>
     </div>
     <div class="ce-results-hero__actions">
+      {% include "study/partials/comprehension_progress_control.html" with test=test %}
       {% if wrong_count and test.is_active and test.is_published %}
       <form method="post" action="{% url test.start_route test.slug %}">
         {% csrf_token %}

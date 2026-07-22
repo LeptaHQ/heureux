@@ -2420,13 +2420,17 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   background: transparent;
   box-shadow: none;
 }
-.memory-question-check {
+.memory-question-check,
+.subject-completion-check,
+.comprehension-completion-check {
   width: 2rem;
   height: 2rem;
   margin: 0.12rem 0.15rem 0 0;
   justify-self: end;
 }
-.memory-question-check button {
+.memory-question-check button,
+.subject-completion-check button,
+.comprehension-completion-check button {
   --icon-check-color: color-mix(in srgb, var(--success) 72%, var(--surface));
   position: relative;
   width: 100%;
@@ -2447,7 +2451,9 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
     box-shadow 0.16s ease,
     transform 0.16s ease;
 }
-.memory-question-check button::before {
+.memory-question-check button::before,
+.subject-completion-check button::before,
+.comprehension-completion-check button::before {
   content: "";
   position: absolute;
   width: 0.85rem;
@@ -2460,46 +2466,66 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
     border-color 0.16s ease,
     box-shadow 0.16s ease;
 }
-.memory-question-check button:hover {
+.memory-question-check button:hover,
+.subject-completion-check button:hover,
+.comprehension-completion-check button:hover {
   --icon-check-color: color-mix(in srgb, var(--success) 38%, transparent);
   color: color-mix(in srgb, var(--success) 38%, transparent);
   transform: none;
 }
-.memory-question-check button:hover::before {
+.memory-question-check button:hover::before,
+.subject-completion-check button:hover::before,
+.comprehension-completion-check button:hover::before {
   border-color: color-mix(in srgb, var(--success) 55%, var(--border));
   background: color-mix(in srgb, var(--success) 8%, var(--surface));
 }
-.memory-question-check button:focus-visible {
+.memory-question-check button:focus-visible,
+.subject-completion-check button:focus-visible,
+.comprehension-completion-check button:focus-visible {
   outline: 0;
   box-shadow: none;
 }
-.memory-question-check button:focus-visible::before {
+.memory-question-check button:focus-visible::before,
+.subject-completion-check button:focus-visible::before,
+.comprehension-completion-check button:focus-visible::before {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 20%, transparent);
 }
-.memory-question-check button[aria-disabled="true"] {
+.memory-question-check button[aria-disabled="true"],
+.subject-completion-check button:disabled,
+.comprehension-completion-check button:disabled {
   cursor: wait;
   opacity: 0.62;
   transform: none;
 }
-.memory-question-check .ui-icon {
+.memory-question-check .ui-icon,
+.subject-completion-check .ui-icon,
+.comprehension-completion-check .ui-icon {
   position: relative;
   z-index: 1;
   width: 0.48rem;
   height: 0.48rem;
 }
-.question-bank-questions li.is-complete .memory-question-check button {
+.question-bank-questions li.is-complete .memory-question-check button,
+.subject-completion-check.is-complete button,
+.comprehension-completion-check.is-complete button {
   --icon-check-color: white;
   color: white;
   box-shadow: none;
 }
-.question-bank-questions li.is-complete .memory-question-check button::before {
+.question-bank-questions li.is-complete .memory-question-check button::before,
+.subject-completion-check.is-complete button::before,
+.comprehension-completion-check.is-complete button::before {
   border-color: color-mix(in srgb, var(--success) 70%, var(--border));
   background: var(--success);
 }
-.question-bank-questions li.is-complete .memory-question-check button:focus-visible {
+.question-bank-questions li.is-complete .memory-question-check button:focus-visible,
+.subject-completion-check.is-complete button:focus-visible,
+.comprehension-completion-check.is-complete button:focus-visible {
   box-shadow: none;
 }
-.question-bank-questions li.is-complete .memory-question-check button:focus-visible::before {
+.question-bank-questions li.is-complete .memory-question-check button:focus-visible::before,
+.subject-completion-check.is-complete button:focus-visible::before,
+.comprehension-completion-check.is-complete button:focus-visible::before {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 24%, transparent);
 }
 .question-bank-questions li.is-complete .question-bank-question__number {
@@ -3524,6 +3550,7 @@ html[data-collection-view-mode="table"]
   align-content: center;
   justify-items: start;
   gap: 0.3rem;
+  padding-block: 0.55rem;
 }
 html[data-collection-view-mode="table"]
   .collection-table--tests
@@ -6020,7 +6047,7 @@ html[data-collection-view-mode="table"]
 .grade__icon {
   width: 44px;
   height: 44px;
-  border-radius: 13px;
+  border-radius: 50%;
   display: grid;
   place-items: center;
 }
@@ -6052,7 +6079,7 @@ html[data-collection-view-mode="table"]
   width: 28px;
   height: 28px;
   border: 1px solid currentColor;
-  border-radius: 8px;
+  border-radius: 50%;
   display: grid;
   place-items: center;
   font-size: 0.75rem;
@@ -6109,6 +6136,14 @@ kbd {
   border-radius: 5px;
   padding: 0.05rem 0.35rem;
   background: var(--surface-2);
+}
+.kbd-hint kbd {
+  width: 1.2rem;
+  height: 1.2rem;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border-radius: 50%;
 }
 .linkbtn {
   --icon-color: var(--area-accent, var(--primary));
@@ -10858,7 +10893,7 @@ button.ce-choice:focus-visible .ce-choice__radio {
   .grade__icon {
     width: 34px;
     height: 34px;
-    border-radius: 10px;
+    border-radius: 50%;
   }
   .grade__icon svg { width: 19px; height: 19px; }
   .grade__description { font-size: 0.82rem; }
@@ -11791,4 +11826,130 @@ html[data-collection-view-mode="table"]
   }
   .home-hero__metrics div:last-child { padding-right: 0; }
   .home-hero__metrics dd { color: var(--tone-home); }
+}
+
+/* Explicit subject and comprehension completion */
+.subject-completion-check,
+.comprehension-completion-check {
+  flex: 0 0 2rem;
+  margin: 0;
+}
+.subject-progress-control,
+.explicit-completion-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.45rem;
+}
+.subject-progress-control__action,
+.explicit-completion-control__action,
+.subject-card-progress-line {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.subject-progress-control__action,
+.explicit-completion-control__action {
+  color: var(--text-soft);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.subject-progress-control__help,
+.explicit-completion-control__help {
+  margin: 0.35rem 0 0.85rem;
+  color: var(--text-faint);
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+.subject-card-progress-line {
+  justify-content: space-between;
+  gap: 0.55rem;
+}
+.subject-progress-row {
+  position: relative;
+}
+.subject-row-hit-area {
+  position: absolute !important;
+  z-index: 1;
+  inset: 0;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: inherit;
+}
+.subject-progress-row > :not(.subject-row-hit-area) {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+.subject-progress-row .subject-completion-check,
+.subject-progress-row .subject-completion-check * {
+  pointer-events: auto;
+}
+.subject-progress-row.qrow:hover {
+  border-color: var(--card-border-hover);
+  background: var(--surface-2);
+}
+.subject-progress-row:has(.subject-row-hit-area:focus-visible) {
+  outline: 0;
+  box-shadow: var(--card-focus-ring);
+}
+.comprehension-progress-row {
+  position: relative;
+}
+.comprehension-row-hit-area {
+  position: absolute !important;
+  z-index: 1;
+  inset: 0;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: inherit;
+}
+.comprehension-progress-row > :not(.comprehension-row-hit-area) {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+.comprehension-progress-row .comprehension-completion-check,
+.comprehension-progress-row .comprehension-completion-check * {
+  pointer-events: auto;
+}
+.comprehension-progress-row:hover {
+  border-color: color-mix(in srgb, var(--ce-blue) 35%, var(--border));
+}
+.comprehension-progress-row:has(.comprehension-row-hit-area:focus-visible) {
+  outline: 0;
+  box-shadow: var(--card-focus-ring);
+}
+.ce-group-test-row__status-line {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
+.ce-results-hero__actions .explicit-completion-control {
+  width: 100%;
+  margin-top: 0;
+}
+.ce-results-hero__actions .explicit-completion-control__help {
+  width: 100%;
+  margin: -0.15rem 0 0.2rem;
+}
+
+@media (max-width: 520px) {
+  .subject-progress-control,
+  .explicit-completion-control {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .subject-progress-control__action,
+  .explicit-completion-control__action {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .subject-progress-control__help,
+  .explicit-completion-control__help {
+    margin-top: 0.25rem;
+  }
 }

@@ -1,0 +1,365 @@
+{
+  "month": {
+    "number": 6,
+    "slug": "juin",
+    "name": "Juin"
+  },
+  "batch": 3,
+  "subjects": [
+    {
+      "number": 11,
+      "title": "Cadeau d'anniversaire pour la sœur d'un(e) ami(e)",
+      "prompt": "Je suis votre ami(e). Ma sœur fête bientôt son anniversaire. Vous cherchez un cadeau pour elle et vous me posez des questions pour mieux la connaître (goûts, caractère, budget, etc.).",
+      "questions": [
+        {
+          "text": "Ta sœur fête bientôt son anniversaire, et je cherche un cadeau — tu pourrais m'aider à trouver une idée ?",
+          "memory_section": 19
+        },
+        {
+          "text": "C'est exactement quand, son anniversaire ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Elle va avoir quel âge ?",
+          "memory_section": 2,
+          "memory_number": 3
+        },
+        {
+          "text": "Comment est son caractère — plutôt discrète, ou elle aime qu'on lui fasse une surprise ?",
+          "memory_section": 2,
+          "memory_number": 3
+        },
+        {
+          "text": "Quels sont ses loisirs ou ses passions en ce moment ?",
+          "memory_section": 2,
+          "memory_number": 3
+        },
+        {
+          "text": "Elle préfère plutôt les cadeaux utiles, ou les choses plus originales et amusantes ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Elle a un style ou des couleurs qu'elle préfère particulièrement ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Il y a des choses qu'elle a déjà, pour éviter de lui offrir la même chose ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Tu aurais une idée de budget pour un cadeau qui lui ferait vraiment plaisir ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Vous allez fêter ça comment — une petite soirée, un repas en famille ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Elle préfère plutôt recevoir un objet, ou une expérience comme une sortie ou un atelier ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Ce serait plutôt un cadeau de ma part seul(e), ou on pourrait s'associer à plusieurs ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Tu connais un endroit ou un site où je pourrais trouver ce genre de cadeau facilement ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Pour finir — parmi toutes ces idées, laquelle lui ferait le plus plaisir selon toi ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Club de sport fréquenté par un(e) ami(e)",
+      "prompt": "Je suis votre ami(e). Je suis membre d'un club de sport. Vous êtes intéressé(e) et vous me posez des questions sur ce club (activités proposées, coût, ambiance, matériel, etc.).",
+      "questions": [
+        {
+          "text": "Tu m'as dit que tu étais inscrit(e) dans un club de sport — tu pourrais m'en parler un peu ?",
+          "memory_section": 19
+        },
+        {
+          "text": "C'est quel genre d'activité exactement — plutôt individuelle ou en groupe ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Qu'est-ce qui t'a donné envie de t'inscrire là-bas en particulier ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Ça coûte combien environ, l'abonnement ou les séances ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Comment est l'ambiance — les gens sont plutôt sympas et accueillants ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Faut-il apporter son propre matériel, ou tout est fourni sur place ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Les cours ont lieu à quels horaires — ça pourrait s'adapter à mon emploi du temps ?",
+          "memory_section": 2
+        },
+        {
+          "text": "D'après toi, c'est accessible pour quelqu'un qui débute complètement ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Le coach ou l'entraîneur, il est comment — plutôt exigeant ou patient avec les débutants ?",
+          "memory_section": 17
+        },
+        {
+          "text": "On pourrait venir ensemble un jour pour que je découvre avant de m'engager ?",
+          "memory_number": 2,
+          "memory_section": 5
+        },
+        {
+          "text": "Est-ce qu'il y a une séance d'essai gratuite pour les nouveaux ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Si je m'inscris, est-ce qu'il y a un avantage pour toi, comme une réduction de parrainage ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Il y a beaucoup de monde aux cours, ou c'est plutôt en petit groupe ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Toi, avec le recul, tu me le recommandes vraiment ce club ?",
+          "memory_number": 2,
+          "memory_section": 1
+        },
+        {
+          "text": "Pour finir — si je veux m'inscrire, tu pourrais m'accompagner la première fois ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Garde de l'animal d'un(e) voisin(e)",
+      "prompt": "Je suis votre voisin(e). Je vous confie la garde de mon animal pendant quelques jours. Vous me posez des questions pour bien vous en occuper (repas, promenades, habitudes, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour, vous m'avez proposé de garder votre animal quelques jours — pourriez-vous d'abord me dire de quel animal il s'agit ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Comment s'appelle-t-il, et quel âge a-t-il ?",
+          "memory_section": 2,
+          "memory_number": 3
+        },
+        {
+          "text": "Comment est son caractère — plutôt calme, ou plutôt énergique avec les inconnus ?",
+          "memory_section": 2,
+          "memory_number": 3
+        },
+        {
+          "text": "Que mange-t-il exactement, et à quelle fréquence faut-il le nourrir ?",
+          "memory_section": 2,
+          "memory_number": 3
+        },
+        {
+          "text": "Y a-t-il des aliments interdits ou des allergies à connaître ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Pour les promenades, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il des habitudes particulières à respecter pour que tout se passe bien ?",
+          "memory_section": 20
+        },
+        {
+          "text": "La garde se fera chez vous, ou vous préférez que je le prenne chez moi ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Comment s'organisera la remise des clés, si la garde se fait chez vous ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Y a-t-il des médicaments à donner ou des soins particuliers à prévoir ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Comment réagit-il en général quand il reste seul un moment ?",
+          "memory_number": 3,
+          "memory_section": 2
+        },
+        {
+          "text": "En cas d'urgence, qui est son vétérinaire et comment puis-je le joindre ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Sur combien de jours exactement dois-je m'organiser ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Si vous êtes injoignable, y a-t-il une autre personne à contacter en cas de problème ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Pour finir — y a-t-il un dernier conseil pour que tout se passe le mieux possible pendant votre absence ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "title": "Façons dont les Canadiens passent leurs week-ends",
+      "prompt": "Je suis votre ami(e). Je vis au Canada. Vous êtes intéressé(e) par la façon dont les Canadiens passent leurs week-ends et vous me posez des questions (temps libre, sport, sorties, etc.).",
+      "questions": [
+        {
+          "text": "Tu vis au Canada depuis un moment maintenant — comment les gens passent-ils leurs week-ends là-bas en général ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Les activités en plein air sont-elles très populaires, comme la randonnée ou le vélo ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Le sport tient une grande place dans les week-ends, ou c'est plutôt occasionnel ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Les gens sortent-ils beaucoup — au restaurant, au cinéma, dans des bars ?",
+          "memory_section": 10
+        },
+        {
+          "text": "C'est très différent de ce qu'on fait généralement dans mon pays, tu trouves ?",
+          "memory_number": 2,
+          "memory_section": 4
+        },
+        {
+          "text": "Ça change beaucoup selon les saisons, ou les habitudes restent similaires toute l'année ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Les Canadiens organisent-ils leur week-end à l'avance, ou plutôt à la dernière minute ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Les week-ends de repos en famille sont-ils très importants là-bas ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Est-ce courant de partir en excursion d'une journée, comme à la campagne ou au bord de l'eau ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Ce genre d'activités coûte cher en général, ou on peut facilement en profiter sans grand budget ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce que beaucoup de gens travaillent quand même un peu le week-end, ou c'est vraiment réservé au repos ?",
+          "memory_section": 2
+        },
+        {
+          "text": "L'ambiance est plutôt détendue, ou les gens restent très occupés même le week-end ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Y a-t-il des lieux ou des événements incontournables que les gens fréquentent régulièrement ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Et toi personnellement, tu fais quoi la plupart du temps le week-end ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Pour finir — si je voulais passer un week-end « à la canadienne », qu'est-ce que tu me conseillerais de faire ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "title": "Collègue récemment promu(e) à un nouveau poste",
+      "prompt": "Je suis votre collègue. J'ai récemment changé de poste dans l'entreprise. Vous êtes intéressé(e) et vous me posez des questions sur ce nouveau poste (tâches, planning, rémunération, etc.).",
+      "questions": [
+        {
+          "text": "Félicitations pour ton nouveau poste — tu pourrais m'expliquer un peu ce qui a changé pour toi ?",
+          "memory_section": 4,
+          "memory_number": 3
+        },
+        {
+          "text": "Ça fait combien de temps que tu as changé de poste ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Comment ça s'est passé, ce changement — c'était une promotion, ou plutôt un transfert vers un autre service ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Concrètement, quelles sont tes nouvelles tâches au quotidien ?",
+          "memory_section": 4,
+          "memory_number": 3
+        },
+        {
+          "text": "Ton emploi du temps a changé, ou tes horaires restent les mêmes qu'avant ?",
+          "memory_section": 21
+        },
+        {
+          "text": "Tu encadres une équipe maintenant, ou tu travailles surtout seul(e) sur tes nouveaux dossiers ?",
+          "memory_section": 14
+        },
+        {
+          "text": "As-tu eu une formation ou un accompagnement pour prendre ce nouveau poste ?",
+          "memory_number": 2,
+          "memory_section": 3
+        },
+        {
+          "text": "Sans entrer dans les détails, ce nouveau poste s'accompagne-t-il d'une meilleure rémunération ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Qu'est-ce qui te plaît le plus dans tes nouvelles responsabilités ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Et à l'inverse, qu'est-ce qui a été le plus difficile à ce changement ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Comment se passe la relation avec tes nouveaux collègues ou ta nouvelle équipe ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Cette nouvelle fonction correspond-elle à ce que tu recherchais depuis un moment ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Est-ce que quelqu'un t'a accompagné(e) pendant cette transition — par exemple ton ancien responsable, ton nouveau responsable ou quelqu'un d'autre ?",
+          "memory_section": 5,
+          "memory_number": 3
+        },
+        {
+          "text": "Tu conseillerais à d'autres collègues de postuler à ce type de poste en interne ?",
+          "memory_number": 2,
+          "memory_section": 1
+        },
+        {
+          "text": "Pour finir — quels sont tes projets ou tes objectifs maintenant dans ce nouveau rôle ?",
+          "memory_section": 4,
+          "memory_number": 3
+        }
+      ]
+    }
+  ]
+}

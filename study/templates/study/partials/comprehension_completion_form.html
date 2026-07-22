@@ -1,0 +1,23 @@
+<form
+  class="comprehension-completion-check{% if test.explicitly_completed %} is-complete{% endif %}"
+  method="post"
+  action="{% url test.completion_route test.slug %}"
+  data-comprehension-completion-form
+  data-comprehension-test-id="{{ test.pk }}"
+  {% if refresh %}data-comprehension-completion-refresh="true"{% endif %}>
+  {% csrf_token %}
+  <input
+    type="hidden"
+    name="completed"
+    value="{% if test.explicitly_completed %}0{% else %}1{% endif %}"
+    data-comprehension-completed-input>
+  <button
+    type="submit"
+    role="checkbox"
+    data-comprehension-label="{{ test.title }}"
+    aria-checked="{{ test.explicitly_completed|yesno:'true,false' }}"
+    aria-label="{% if test.explicitly_completed %}Marquer ce test comme non terminé : {% else %}Marquer ce test comme terminé : {% endif %}{{ test.title }}"
+    title="{% if test.explicitly_completed %}Test terminé{% else %}Marquer comme terminé{% endif %}">
+    {% include "study/partials/ui_icon.html" with name="check" only %}
+  </button>
+</form>

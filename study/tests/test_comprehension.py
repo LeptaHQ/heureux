@@ -22,6 +22,7 @@ from study.models import (
     ComprehensionMode,
     ComprehensionQuestion,
     ComprehensionTest,
+    ComprehensionTestCompletion,
     Phrase,
     PhraseTier,
 )
@@ -400,6 +401,14 @@ class ComprehensionModelTests(TestCase):
         with self.assertRaises(IntegrityError), transaction.atomic():
             factories.make_comprehension_attempt(user=user, test=test)
 
+    def test_explicit_completion_is_unique_per_user_and_test(self):
+        user = factories.make_user("ce-completion-unique")
+        test = factories.make_comprehension_test()
+        ComprehensionTestCompletion.objects.create(user=user, test=test)
+
+        with self.assertRaises(IntegrityError), transaction.atomic():
+            ComprehensionTestCompletion.objects.create(user=user, test=test)
+
     def test_answer_rejects_a_choice_from_another_question(self):
         user = factories.make_user("ce-validation")
         test = factories.make_comprehension_test()
@@ -529,14 +538,146 @@ class ComprehensionFlowTests(TestCase):
         completed_hub = self.client.get(reverse("study:comprehension_hub"))
         self.assertEqual(
             completed_overview.context["groups"][0]["progress"].status,
-            "done",
+            "active",
         )
         self.assertEqual(
             completed_hub.context["comprehension"]["ecrite"][
                 "progress"
             ].status,
+            "active",
+        )
+        self.assertEqual(completed_overview.context["completed_count"], 0)
+
+        self.client.post(
+            reverse(
+                "study:comprehension_test_completion",
+                args=[self.test.slug],
+            ),
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        explicit_overview = self.client.get(
+            reverse("study:comprehension_overview"),
+        )
+        explicit_hub = self.client.get(reverse("study:comprehension_hub"))
+
+        self.assertEqual(
+            explicit_overview.context["groups"][0]["progress"].status,
             "done",
         )
+        self.assertEqual(
+            explicit_hub.context["comprehension"]["ecrite"][
+                "progress"
+            ].status,
+            "done",
+        )
+        self.assertEqual(explicit_overview.context["completed_count"], 1)
+
+    def test_explicit_completion_is_reversible_and_user_owned(self):
+        completion_url = reverse(
+            "study:comprehension_test_completion",
+            args=[self.test.slug],
+        )
+        initial = self.client.get(
+            reverse("study:comprehension_test", args=[self.test.slug])
+        )
+
+        self.assertEqual(initial.context["test"].progress.status, "new")
+        self.assertContains(initial, "J’ai terminé ce test")
+        self.assertContains(initial, 'aria-checked="false"')
+
+        completed = self.client.post(
+            completion_url,
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(completed.status_code, 200)
+        self.assertTrue(completed.json()["completed"])
+        self.assertEqual(completed.json()["test"]["status"], "done")
+        self.assertTrue(
+            ComprehensionTestCompletion.objects.filter(
+                user=self.user,
+                test=self.test,
+            ).exists()
+        )
+        self.assertFalse(
+            ComprehensionTestCompletion.objects.filter(
+                user=self.other_user,
+                test=self.test,
+            ).exists()
+        )
+
+        cleared = self.client.post(
+            completion_url,
+            {"completed": "0"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(cleared.json()["test"]["status"], "new")
+        self.assertFalse(
+            ComprehensionTestCompletion.objects.filter(
+                user=self.user,
+                test=self.test,
+            ).exists()
+        )
+
+        self.start()
+        self.client.post(
+            completion_url,
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        active = self.client.post(
+            completion_url,
+            {"completed": "0"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(active.json()["test"]["status"], "active")
+
+    def test_completion_rejects_invalid_state_mode_and_foreign_history(self):
+        completion_url = reverse(
+            "study:comprehension_test_completion",
+            args=[self.test.slug],
+        )
+        invalid = self.client.post(
+            completion_url,
+            {"completed": "yes"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        wrong_mode = self.client.post(
+            reverse(
+                "study:comprehension_oral_test_completion",
+                args=[self.test.slug],
+            ),
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        private_test = factories.make_comprehension_test(number=3)
+        private_test.is_active = False
+        private_test.is_published = False
+        private_test.save(update_fields=["is_active", "is_published"])
+        factories.make_comprehension_attempt(
+            user=self.other_user,
+            test=private_test,
+        )
+        foreign_history = self.client.post(
+            reverse(
+                "study:comprehension_test_completion",
+                args=[private_test.slug],
+            ),
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(invalid.status_code, 400)
+        self.assertEqual(
+            invalid.json()["error"],
+            "État de progression invalide.",
+        )
+        self.assertEqual(wrong_mode.status_code, 404)
+        self.assertEqual(foreign_history.status_code, 404)
 
     def test_batch_outside_the_eight_batch_curriculum_is_not_found(self):
         self.assertEqual(
@@ -879,6 +1020,10 @@ class ComprehensionFlowTests(TestCase):
         self.assertContains(results, "sur 3")
         self.assertContains(results, "67")
         self.assertContains(results, "Correction détaillée")
+        self.assertContains(results, "Tentative terminée")
+        self.assertContains(results, "J’ai terminé ce test")
+        self.assertNotContains(results, "Test terminé")
+        self.assertEqual(results.context["test"].progress.status, "active")
 
         retry = self.client.post(
             reverse("study:comprehension_start", args=[self.test.slug]),
@@ -1116,12 +1261,39 @@ class ComprehensionFlowTests(TestCase):
 
         self.assertContains(overview, "Historique disponible")
         self.assertContains(group, "Archivé")
-        self.assertContains(group, "Voir le test archivé")
+        self.assertContains(group, "Voir l’historique")
         self.assertEqual(detail.status_code, 200)
         self.assertContains(detail, "Vos résultats précédents")
         self.assertEqual(results.status_code, 200)
         self.assertNotContains(results, "Refaire ce test")
         self.assertContains(results, "ne peut pas être recommencé")
+
+    def test_archived_completion_without_an_attempt_remains_reachable(self):
+        self.client.post(
+            reverse(
+                "study:comprehension_test_completion",
+                args=[self.test.slug],
+            ),
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        self.test.is_active = False
+        self.test.is_published = False
+        self.test.save(update_fields=["is_active", "is_published"])
+
+        overview = self.client.get(reverse("study:comprehension_overview"))
+        group = self.client.get(
+            reverse("study:comprehension_group", args=[1])
+        )
+        detail = self.client.get(
+            reverse("study:comprehension_test", args=[self.test.slug])
+        )
+
+        self.assertContains(overview, "Historique disponible")
+        self.assertContains(group, self.test.title)
+        self.assertContains(group, 'aria-checked="true"')
+        self.assertEqual(detail.status_code, 200)
+        self.assertEqual(detail.context["test"].progress.status, "done")
 
     def test_unpublished_test_keeps_owned_history_visible(self):
         attempt = self.start()
@@ -1165,6 +1337,14 @@ class ComprehensionFlowTests(TestCase):
     def test_account_export_contains_owned_comprehension_progress(self):
         attempt = self.start()
         self.submit(attempt, 1, "A")
+        own_completion = ComprehensionTestCompletion.objects.create(
+            user=self.user,
+            test=self.test,
+        )
+        ComprehensionTestCompletion.objects.create(
+            user=self.other_user,
+            test=self.test,
+        )
 
         response = self.client.get(reverse("study:export_account"))
         payload = json.loads(response.content)
@@ -1175,11 +1355,30 @@ class ComprehensionFlowTests(TestCase):
         self.assertEqual(exported["test"], self.test.slug)
         self.assertEqual(exported["answers"][0]["selected_choice"], "A")
         self.assertEqual(exported["content_snapshot"], {})
+        self.assertEqual(
+            payload["comprehension_test_completions"],
+            [
+                {
+                    "test": self.test.slug,
+                    "completed_at": own_completion.completed_at.isoformat(
+                        timespec="milliseconds"
+                    ).replace("+00:00", "Z"),
+                }
+            ],
+        )
         self.assertNotIn("Correct explanation 2.", response.content.decode())
 
-    def test_progress_reset_removes_only_the_current_users_attempts(self):
+    def test_progress_reset_removes_only_the_current_users_comprehension_data(self):
         self.start()
         other_attempt = factories.make_comprehension_attempt(
+            user=self.other_user,
+            test=self.test,
+        )
+        ComprehensionTestCompletion.objects.create(
+            user=self.user,
+            test=self.test,
+        )
+        other_completion = ComprehensionTestCompletion.objects.create(
             user=self.other_user,
             test=self.test,
         )
@@ -1198,6 +1397,14 @@ class ComprehensionFlowTests(TestCase):
         )
         self.assertTrue(
             ComprehensionAttempt.objects.filter(pk=other_attempt.pk).exists()
+        )
+        self.assertFalse(
+            ComprehensionTestCompletion.objects.filter(user=self.user).exists()
+        )
+        self.assertTrue(
+            ComprehensionTestCompletion.objects.filter(
+                pk=other_completion.pk
+            ).exists()
         )
 
 
@@ -1359,7 +1566,11 @@ class OralComprehensionFlowTests(TestCase):
             hub,
             reverse("study:comprehension_oral_overview"),
         )
-        self.assertContains(hub, "1 terminé")
+        self.assertContains(hub, "0 terminé")
+        self.assertEqual(
+            hub.context["comprehension"]["orale"]["progress"].status,
+            "active",
+        )
         self.assertEqual(overview.status_code, 200)
         self.assertContains(
             overview,
@@ -1373,3 +1584,31 @@ class OralComprehensionFlowTests(TestCase):
                 args=[self.test.slug],
             ),
         )
+
+    def test_oral_test_uses_the_same_explicit_completion_flow(self):
+        completion = self.client.post(
+            reverse(
+                "study:comprehension_oral_test_completion",
+                args=[self.test.slug],
+            ),
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        hub = self.client.get(reverse("study:comprehension_hub"))
+        group = self.client.get(
+            reverse("study:comprehension_oral_group", args=[1])
+        )
+
+        self.assertEqual(completion.status_code, 200)
+        self.assertEqual(completion.json()["test"]["status"], "done")
+        self.assertTrue(
+            ComprehensionTestCompletion.objects.filter(
+                user=self.user,
+                test=self.test,
+            ).exists()
+        )
+        self.assertEqual(
+            hub.context["comprehension"]["orale"]["progress"].status,
+            "done",
+        )
+        self.assertContains(group, 'aria-checked="true"')

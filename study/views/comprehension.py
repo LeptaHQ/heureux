@@ -9,7 +9,7 @@ from django.contrib.auth import (
 )
 from django.db import transaction
 from django.db.models import Count, Prefetch, Q
-from django.http import Http404, HttpResponseBadRequest
+from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
@@ -23,6 +23,7 @@ from ..models import (
     ComprehensionMode,
     ComprehensionQuestion,
     ComprehensionTest,
+    ComprehensionTestCompletion,
     Phrase,
     PhraseTier,
 )
@@ -51,6 +52,7 @@ COMPREHENSION_ROUTE_NAMES = {
         "start": "study:comprehension_start",
         "question": "study:comprehension_question",
         "results": "study:comprehension_results",
+        "completion": "study:comprehension_test_completion",
     },
     ComprehensionMode.ORALE: {
         "overview": "study:comprehension_oral_overview",
@@ -60,6 +62,7 @@ COMPREHENSION_ROUTE_NAMES = {
         "start": "study:comprehension_oral_start",
         "question": "study:comprehension_oral_question",
         "results": "study:comprehension_oral_results",
+        "completion": "study:comprehension_oral_test_completion",
     },
 }
 
@@ -80,6 +83,7 @@ def _prepare_comprehension_test(test):
     test.start_route = routes["start"]
     test.question_route = routes["question"]
     test.results_route = routes["results"]
+    test.completion_route = routes["completion"]
     test.mode_title = f"Compréhension {test.get_mode_display().lower()}"
     test.source_label = (
         "Document"
@@ -94,6 +98,27 @@ def _prepare_comprehension_test(test):
     return test
 
 
+def _attach_comprehension_test_progress(
+    test,
+    *,
+    explicitly_completed,
+    has_activity,
+):
+    test.explicitly_completed = explicitly_completed
+    test.has_activity = has_activity
+    test.progress = progress_summary(
+        total=1,
+        started=has_activity,
+        completed=explicitly_completed,
+    )
+    test.is_accessible = (
+        (test.is_active and test.is_published)
+        or has_activity
+        or explicitly_completed
+    )
+    return test
+
+
 def _comprehension_test_cards(user, *, mode=None, published_only=False):
     attempts = (
         ComprehensionAttempt.objects.filter(user=user)
@@ -103,7 +128,9 @@ def _comprehension_test_cards(user, *, mode=None, published_only=False):
         .order_by("-started_at", "-pk")
     )
     tests = ComprehensionTest.objects.filter(
-        Q(is_active=True) | Q(attempts__user=user)
+        Q(is_active=True)
+        | Q(attempts__user=user)
+        | Q(explicit_completions__user=user)
     ).distinct()
     if mode:
         tests = tests.filter(mode=mode)
@@ -119,6 +146,12 @@ def _comprehension_test_cards(user, *, mode=None, published_only=False):
         ).prefetch_related(
             Prefetch("attempts", queryset=attempts, to_attr="user_attempts")
         )
+    )
+    explicitly_completed_test_ids = set(
+        ComprehensionTestCompletion.objects.filter(
+            user=user,
+            test_id__in=[test.pk for test in tests],
+        ).values_list("test_id", flat=True)
     )
     for test in tests:
         _prepare_comprehension_test(test)
@@ -151,6 +184,13 @@ def _comprehension_test_cards(user, *, mode=None, published_only=False):
             if test.active_attempt
             else test.active_question_count
         )
+        _attach_comprehension_test_progress(
+            test,
+            explicitly_completed=(
+                test.pk in explicitly_completed_test_ids
+            ),
+            has_activity=bool(test.user_attempts),
+        )
     return tests
 
 
@@ -173,17 +213,21 @@ def _comprehension_mode_summary(tests, *, group_count=0):
         (
             test
             for test in available_tests
-            if not test.completed_attempts
+            if not test.explicitly_completed
         ),
         available_tests[0] if available_tests else None,
     )
-    available_completed_count = sum(
-        bool(test.completed_attempts) for test in available_tests
+    progress_tests = available_tests or tests
+    progress_completed_count = sum(
+        test.explicitly_completed for test in progress_tests
+    )
+    progress_started_count = sum(
+        test.progress.status != "new" for test in progress_tests
     )
     mode_progress = progress_summary(
-        total=len(available_tests),
-        started=available_completed_count + bool(active_test),
-        completed=available_completed_count,
+        total=len(progress_tests),
+        started=progress_started_count,
+        completed=progress_completed_count,
     )
     return {
         "group_count": group_count,
@@ -191,7 +235,7 @@ def _comprehension_mode_summary(tests, *, group_count=0):
         "available_test_count": len(available_tests),
         "path_available": bool(tests),
         "completed_test_count": sum(
-            bool(test.completed_attempts) for test in tests
+            test.explicitly_completed for test in tests
         ),
         "progress": mode_progress,
         "active_attempt": (
@@ -287,7 +331,15 @@ def _comprehension_groups(tests, group_count):
             if test.is_active and test.is_published
         ]
         published_completed_count = sum(
-            bool(test.completed_attempts) for test in published
+            test.explicitly_completed for test in published
+        )
+        published_started_count = sum(
+            test.progress.status != "new" for test in published
+        )
+        history_count = sum(
+            test.has_activity or test.explicitly_completed
+            for test in group_tests
+            if test not in published
         )
         active_attempt = next(
             (
@@ -305,12 +357,13 @@ def _comprehension_groups(tests, group_count):
                 "tests": group_tests,
                 "available_count": len(published),
                 "completed_count": sum(
-                    bool(test.completed_attempts) for test in group_tests
+                    test.explicitly_completed for test in group_tests
                 ),
+                "history_count": history_count,
                 "active_attempt": active_attempt,
                 "progress": progress_summary(
                     total=len(published),
-                    started=published_completed_count + bool(active_attempt),
+                    started=published_started_count,
                     completed=published_completed_count,
                 ),
             }
@@ -475,7 +528,7 @@ def _comprehension_overview_response(request, *, mode, template):
             ),
             "published_count": len(published),
             "completed_count": sum(
-                bool(test.completed_attempts) for test in published
+                test.explicitly_completed for test in published
             ),
             "best_percentage": max(
                 (attempt.percentage for attempt in completed_attempts),
@@ -563,10 +616,7 @@ def comprehension_test_detail(
             item
             for item in _comprehension_test_cards(request.user, mode=mode)
             if item.slug == test_slug
-            and (
-                (item.is_active and item.is_published)
-                or item.user_attempts
-            )
+            and item.is_accessible
         ),
         None,
     )
@@ -611,6 +661,72 @@ def comprehension_test_detail(
             "attempt_history": test.completed_attempts[:6],
         },
     )
+
+
+@require_POST
+def comprehension_test_completion(
+    request,
+    test_slug,
+    mode=ComprehensionMode.ECRITE,
+):
+    test = get_object_or_404(
+        ComprehensionTest,
+        slug=test_slug,
+        mode=mode,
+    )
+    has_activity = ComprehensionAttempt.objects.filter(
+        user=request.user,
+        test=test,
+    ).exists()
+    existing_completion = ComprehensionTestCompletion.objects.filter(
+        user=request.user,
+        test=test,
+    )
+    if (
+        not (test.is_active and test.is_published)
+        and not has_activity
+        and not existing_completion.exists()
+    ):
+        raise Http404
+
+    completed = request.POST.get("completed")
+    if completed not in {"0", "1"}:
+        if request.headers.get("X-Requested-With") == "fetch":
+            return JsonResponse(
+                {"error": "État de progression invalide."},
+                status=400,
+            )
+        return HttpResponseBadRequest("État de progression invalide.")
+
+    if completed == "1":
+        ComprehensionTestCompletion.objects.get_or_create(
+            user=request.user,
+            test=test,
+        )
+        explicitly_completed = True
+    else:
+        existing_completion.delete()
+        explicitly_completed = False
+
+    progress = progress_summary(
+        total=1,
+        started=has_activity,
+        completed=explicitly_completed,
+    )
+    if request.headers.get("X-Requested-With") == "fetch":
+        return JsonResponse(
+            {
+                "test_id": test.pk,
+                "completed": explicitly_completed,
+                "test": {
+                    "status": progress.status,
+                    "label": progress.label,
+                },
+            }
+        )
+
+    _prepare_comprehension_test(test)
+    return redirect(reverse(test.detail_route, args=[test.slug]))
 
 
 @require_GET
@@ -1083,6 +1199,14 @@ def comprehension_results(
         )
     if attempt.status != ComprehensionAttemptStatus.COMPLETED:
         return redirect(_comprehension_test_url(attempt.test))
+    _attach_comprehension_test_progress(
+        attempt.test,
+        explicitly_completed=ComprehensionTestCompletion.objects.filter(
+            user=request.user,
+            test=attempt.test,
+        ).exists(),
+        has_activity=True,
+    )
 
     submitted_answers = list(
         attempt.answers.select_related(

@@ -44,6 +44,7 @@ from ..models import (
     CardState,
     ComprehensionAnswer,
     ComprehensionAttempt,
+    ComprehensionTestCompletion,
     ComprehensionAttemptStatus,
     MemoryQuestionProgress,
     PersonalResponse,
@@ -330,9 +331,11 @@ def reset_progress(request):
             suspended=False,
             started_at=None,
             response_practice_started_at=None,
+            subject_completed_at=None,
         )
         ReviewLog.objects.filter(user=request.user).delete()
         ComprehensionAttempt.objects.filter(user=request.user).delete()
+        ComprehensionTestCompletion.objects.filter(user=request.user).delete()
         MemoryQuestionProgress.objects.filter(user=request.user).delete()
         _save_review_session(session, {}, clear_pass=True)
     return redirect(reverse("study:settings") + "?reset=1")
@@ -372,6 +375,7 @@ def export_account(request):
                 "response_practice_started_at": (
                     card.response_practice_started_at
                 ),
+                "subject_completed_at": card.subject_completed_at,
                 "created_at": card.created_at,
             }
         )
@@ -498,6 +502,17 @@ def export_account(request):
         "annotations": annotations,
         "personal_responses": personal_responses,
         "comprehension_attempts": comprehension_attempts,
+        "comprehension_test_completions": [
+            {
+                "test": completion.test.slug,
+                "completed_at": completion.completed_at,
+            }
+            for completion in ComprehensionTestCompletion.objects.filter(
+                user=request.user
+            )
+            .select_related("test")
+            .order_by("completed_at", "pk")
+        ],
         "memory_question_progress": [
             {
                 "memory_number": item.memory_number,

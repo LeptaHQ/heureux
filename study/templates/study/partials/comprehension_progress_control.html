@@ -1,0 +1,12 @@
+<div
+  class="explicit-completion-control{% if test.explicitly_completed %} is-complete{% endif %}"
+  data-comprehension-progress-control="{{ test.pk }}">
+  <span
+    class="progress-status progress-status--{{ test.progress.status }}"
+    data-comprehension-progress-status="{{ test.pk }}">{{ test.progress.label }}</span>
+  <div class="explicit-completion-control__action">
+    <span>J’ai terminé ce test</span>
+    {% include "study/partials/comprehension_completion_form.html" with test=test %}
+  </div>
+</div>
+<p class="explicit-completion-control__help">Terminer une tentative garde le test « En cours » jusqu’à votre validation.</p>

@@ -1,0 +1,319 @@
+{
+  "month": {
+    "number": 7,
+    "slug": "juillet",
+    "name": "Juillet"
+  },
+  "batch": 8,
+  "subjects": [
+    {
+      "number": 34,
+      "title": "Préparer un entretien d'embauche",
+      "prompt": "Je suis votre ami(e) canadien(ne) et un entretien d'embauche vous attend bientôt dans une entreprise d'ici. Pour mettre toutes les chances de votre côté, vous me demandez conseil sur la tenue, l'attitude à adopter et la durée de l'entretien.",
+      "questions": [
+        {
+          "text": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?"
+        },
+        {
+          "text": "Comment ça se passe généralement, un entretien ici — c'est plutôt formel ou décontracté ?"
+        },
+        {
+          "text": "Combien de temps ça dure en général, ce genre d'entretien ?"
+        },
+        {
+          "text": "Comment je devrais m'habiller — il faut une tenue vraiment formelle ?"
+        },
+        {
+          "text": "Quel comportement adopter pour faire bonne impression ?"
+        },
+        {
+          "text": "Qu'est-ce qu'on me posera surtout comme questions, d'après toi ?"
+        },
+        {
+          "text": "Comment je peux bien présenter mon parcours et mes expériences ?"
+        },
+        {
+          "text": "Est-ce qu'il vaut mieux préparer des questions à poser au recruteur ?"
+        },
+        {
+          "text": "Faut-il apporter des documents, comme mon CV ou des références ?"
+        },
+        {
+          "text": "Il y a des choses à éviter absolument pendant l'entretien ?"
+        },
+        {
+          "text": "Comment gérer le stress si je perds mes moyens sur le moment ?"
+        },
+        {
+          "text": "C'est bien vu d'arriver un peu en avance ?"
+        },
+        {
+          "text": "Qu'est-ce que je devrais savoir sur l'entreprise avant d'y aller ?"
+        },
+        {
+          "text": "Après l'entretien, c'est bien d'envoyer un message de remerciement ?"
+        },
+        {
+          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour réussir cet entretien, ce serait lequel ?"
+        }
+      ]
+    },
+    {
+      "number": 35,
+      "title": "Voyage touristique – Agence de voyages",
+      "prompt": "Je suis employé(e) dans une agence de voyages et vous projetez un voyage touristique. Vous passez me voir pour vous renseigner sur les destinations envisageables : les circuits, les prix et les activités proposées.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je voudrais organiser un voyage touristique — pouvez-vous me donner un aperçu des options disponibles ?",
+          "memory_section": 1,
+          "memory_number": 2
+        },
+        {
+          "text": "Quelles destinations et quels types de circuits proposez-vous — culture, nature, aventure, gastronomie ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
+          "memory_section": 9
+        },
+        {
+          "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement, transport, hébergement et repas inclus ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le tarif comprend quoi exactement — l'assurance, le guide et le transport privé sont-ils inclus ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "memory_section": 6
+        },
+        {
+          "text": "Il reste encore des places ou c'est déjà complet ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 36,
+      "title": "Transports en commun dans une ville",
+      "prompt": "Je travaille pour l'agence des transports en commun de la ville et c'est votre toute première visite. Pour comprendre comment tout fonctionne, vous m'interrogez sur les différents modes de transport, les horaires et les tarifs.",
+      "questions": [
+        {
+          "text": "Bonjour ! C'est ma première visite dans votre ville et j'aimerais me déplacer en transports en commun — pouvez-vous m'aider ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quels types de transports sont disponibles ici — bus, métro, tramway ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Est-ce que le réseau couvre toute la ville ou seulement certaines zones ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Où peut-on acheter les tickets ou les abonnements — en ligne, à une borne ou auprès d'un agent ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le tarif comprend quoi exactement — un ticket est-il valable pour plusieurs types de transport ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Le réseau fonctionne-t-il chaque jour de la semaine — les horaires changent-ils le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il une application pour suivre les transports en temps réel ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Les principaux sites touristiques sont-ils facilement accessibles en transports en commun ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "memory_section": 8
+        },
+        {
+          "text": "L'application permet-elle aussi de planifier un itinéraire ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose pour bien utiliser les transports ici, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 37,
+      "title": "Recherche d'un logement à Toronto",
+      "prompt": "Je suis votre ami(e) et vous cherchez un logement à Toronto. Vous me demandez des conseils utiles pour vos recherches : quel budget prévoir, quelles démarches entreprendre et quels sites consulter.",
+      "questions": [
+        {
+          "text": "Je cherche un appartement à Toronto et je ne sais pas trop par où commencer — tu pourrais m'aider un peu ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Question budget, à quoi dois-je m'attendre pour un studio ou un petit appartement ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Quels documents demande-t-on généralement pour un dossier de location ?",
+          "memory_section": 1,
+          "memory_number": 3
+        },
+        {
+          "text": "Faut-il absolument un garant, ou existe-t-il d'autres solutions si on n'en a pas ?",
+          "memory_section": 1,
+          "memory_number": 3
+        },
+        {
+          "text": "Il vaut mieux commencer à chercher combien de temps à l'avance ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
+          "memory_section": 18
+        },
+        {
+          "text": "D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement pour commencer ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Y a-t-il des quartiers plus pratiques pour les commerces et la vie quotidienne ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Tu as mentionné un quartier en particulier tout à l'heure — tu pourrais m'en dire un peu plus ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien commencer, ce serait lequel ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "title": "Choisir une nouvelle série",
+      "prompt": "Je suis votre ami(e) et vous hésitez à vous lancer dans une nouvelle série sans savoir laquelle. Pour vous décider, vous me questionnez sur le genre, les acteurs et les plateformes où la regarder.",
+      "questions": [
+        {
+          "text": "Salut ! Je voudrais commencer une nouvelle série mais je ne sais pas laquelle choisir — tu aurais des idées à me conseiller ?"
+        },
+        {
+          "text": "Qu'est-ce que tu as regardé récemment et que tu as vraiment aimé ?",
+          "memory_number": 4,
+          "memory_section": 5
+        },
+        {
+          "text": "C'est quel genre — plutôt comédie, thriller, science-fiction, drame ?"
+        },
+        {
+          "text": "De quoi ça parle, sans trop m'en dire pour ne pas gâcher l'histoire ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Qui joue dedans — il y a des acteurs que je connaîtrais peut-être ?",
+          "memory_number": 2,
+          "memory_section": 1
+        },
+        {
+          "text": "Il y a combien de saisons et d'épisodes — c'est vite fini ou ça dure longtemps ?"
+        },
+        {
+          "text": "Les épisodes durent combien de temps chacun ?"
+        },
+        {
+          "text": "C'est une série terminée ou encore en cours de diffusion ?"
+        },
+        {
+          "text": "Sur quelle plateforme on peut la regarder ?"
+        },
+        {
+          "text": "Il faut un abonnement payant ou c'est disponible gratuitement quelque part ?"
+        },
+        {
+          "text": "C'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?"
+        },
+        {
+          "text": "Elle est disponible en version française, ou seulement en version originale sous-titrée ?"
+        },
+        {
+          "text": "C'est le genre de série qu'on regarde tranquillement, ou ça rend vite accro ?"
+        },
+        {
+          "text": "Toi, qu'est-ce que tu en as pensé — tu l'as regardée jusqu'au bout ?"
+        },
+        {
+          "text": "Pour finir — parmi toutes celles-là, laquelle tu me recommandes vraiment de commencer ?"
+        }
+      ]
+    }
+  ]
+}

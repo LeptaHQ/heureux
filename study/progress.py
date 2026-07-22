@@ -128,8 +128,10 @@ def card_unit_progress(cards) -> ProgressSummary:
 class SubjectProgress:
     status: str
     label: str
+    explicitly_completed: bool
     has_highlight: bool
     response_practice_started: bool
+    vocabulary_activity_started: bool
     vocabulary_total: int
     vocabulary_started: int
     vocabulary_completed: int
@@ -189,8 +191,10 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
 
     progress = {
         response_id: {
+            "explicitly_completed": False,
             "has_highlight": False,
             "response_practice_started": False,
+            "vocabulary_activity_started": False,
             "vocabulary_total": 0,
             "vocabulary_started": 0,
             "vocabulary_completed": 0,
@@ -199,19 +203,32 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
         }
         for response_id in response_ids
     }
-    started_response_ids = Card.objects.current_content().filter(
+    response_cards = Card.objects.current_content().filter(
         Q(response_practice_started_at__isnull=False)
+        | Q(subject_completed_at__isnull=False)
         | ~Q(state=CardState.NEW),
         user=user,
         card_type=CardType.SPINE,
         response_id__in=response_ids,
-    ).values_list("response_id", flat=True)
-    for response_id in started_response_ids:
-        progress[response_id]["response_practice_started"] = True
+    ).values(
+        "response_id",
+        "response_practice_started_at",
+        "subject_completed_at",
+        "state",
+    )
+    for card in response_cards:
+        values = progress[card["response_id"]]
+        values["explicitly_completed"] = (
+            card["subject_completed_at"] is not None
+        )
+        values["response_practice_started"] = (
+            card["response_practice_started_at"] is not None
+            or card["state"] != CardState.NEW
+        )
 
     now = timezone.now()
     vocabulary_cards = (
-        Card.objects.active()
+        Card.objects.current_content()
         .filter(
             user=user,
             phrase__tier=PhraseTier.SUBJECT,
@@ -222,6 +239,7 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
             "id",
             "state",
             "started_at",
+            "suspended",
             "interval_days",
             "due",
             "phrase__source_prompts__response_id",
@@ -231,6 +249,10 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
     for card in vocabulary_cards:
         response_id = card["phrase__source_prompts__response_id"]
         values = progress[response_id]
+        if card["started_at"] is not None or card["state"] != CardState.NEW:
+            values["vocabulary_activity_started"] = True
+        if card["suspended"]:
+            continue
         values["vocabulary_total"] += 1
         if (
             card["started_at"] is not None
@@ -356,17 +378,13 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
 
     results = {}
     for response_id, values in progress.items():
-        if (
-            values["vocabulary_total"]
-            and values["vocabulary_completed"]
-            == values["vocabulary_total"]
-        ):
+        if values["explicitly_completed"]:
             status = "done"
             label = "Terminé"
         elif (
             values["has_highlight"]
             or values["response_practice_started"]
-            or values["vocabulary_started"]
+            or values["vocabulary_activity_started"]
         ):
             status = "active"
             label = "En cours"
@@ -393,7 +411,8 @@ def summarize_subject_progress(
     )
     active = sum(item.status == "active" for item in items)
     mature = sum(
-        bool(item.vocabulary_total)
+        item.status == "done"
+        and bool(item.vocabulary_total)
         and item.vocabulary_mastered == item.vocabulary_total
         for item in items
     )

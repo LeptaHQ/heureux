@@ -819,6 +819,7 @@ class UserProgressIsolationTests(TestCase):
         Card.objects.filter(pk__in=[first_card.pk, second_card.pk]).update(
             started_at=started_at,
             response_practice_started_at=started_at,
+            subject_completed_at=started_at,
         )
         self.client.force_login(self.first)
 
@@ -836,11 +837,13 @@ class UserProgressIsolationTests(TestCase):
         self.assertNotEqual(second_card.state, CardState.NEW)
         self.assertIsNone(first_card.started_at)
         self.assertIsNone(first_card.response_practice_started_at)
+        self.assertIsNone(first_card.subject_completed_at)
         self.assertEqual(second_card.started_at, started_at)
         self.assertEqual(
             second_card.response_practice_started_at,
             started_at,
         )
+        self.assertEqual(second_card.subject_completed_at, started_at)
         self.assertFalse(ReviewLog.objects.filter(user=self.first).exists())
         self.assertTrue(ReviewLog.objects.filter(user=self.second).exists())
 

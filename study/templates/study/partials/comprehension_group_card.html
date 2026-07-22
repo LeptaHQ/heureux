@@ -21,8 +21,8 @@ comprehension overview (written or oral). Params:
         <div class="progress" aria-label="{{ group.progress.completed }} tests disponibles terminés sur {{ group.progress.total }}">
           <span class="bg-mature" style="width: {{ group.progress.percent }}%;"></span>
         </div>
-      {% elif group.completed_count %}
-        <span class="deck__progress-copy">{{ group.completed_count }} dans l’historique</span>
+      {% elif group.history_count %}
+        <span class="deck__progress-copy">{{ group.history_count }} dans l’historique</span>
       {% else %}
         <span class="deck__progress-copy">Aucun test disponible</span>
       {% endif %}
@@ -30,7 +30,7 @@ comprehension overview (written or oral). Params:
     <div class="deck__status-cell">
       {% if group.available_count %}
         <span class="progress-status progress-status--{{ group.progress.status }}">{{ group.progress.label }}</span>
-      {% elif group.completed_count %}
+      {% elif group.history_count %}
         <span class="progress-status progress-status--active">En cours</span>
       {% else %}
         <span class="progress-status progress-status--new">À commencer</span>
@@ -39,7 +39,7 @@ comprehension overview (written or oral). Params:
     <div class="ce-group-card__foot">
       {% if group.available_count %}
         {{ group.available_count }} test{{ group.available_count|pluralize }} disponible{{ group.available_count|pluralize }}
-      {% elif group.completed_count %}
+      {% elif group.history_count %}
         Historique disponible
       {% else %}
         Contenu en préparation

@@ -675,6 +675,7 @@ class Command(BaseCommand):
             "revisit_added_at",
             "started_at",
             "response_practice_started_at",
+            "subject_completed_at",
             "suspended",
         )
         changed = []
@@ -719,11 +720,21 @@ class Command(BaseCommand):
                     ),
                     default=None,
                 )
+                subject_completed_at = min(
+                    (
+                        card.subject_completed_at
+                        for card in [target_card, *candidates]
+                        if card.subject_completed_at is not None
+                    ),
+                    default=None,
+                )
                 if (
                     not schedule_improves
                     and started_at == target_card.started_at
                     and response_practice_started_at
                     == target_card.response_practice_started_at
+                    and subject_completed_at
+                    == target_card.subject_completed_at
                 ):
                     continue
                 if schedule_improves:
@@ -731,6 +742,7 @@ class Command(BaseCommand):
                         if field in {
                             "started_at",
                             "response_practice_started_at",
+                            "subject_completed_at",
                         }:
                             continue
                         setattr(target_card, field, getattr(source_card, field))
@@ -738,6 +750,7 @@ class Command(BaseCommand):
                 target_card.response_practice_started_at = (
                     response_practice_started_at
                 )
+                target_card.subject_completed_at = subject_completed_at
                 changed.append(target_card)
 
         if changed:

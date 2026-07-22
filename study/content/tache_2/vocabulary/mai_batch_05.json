@@ -1225,6 +1225,251 @@
           "usage": "Conditionnel de politesse suivi de « conseiller de » + infinitif pour demander un avis."
         }
       ]
+    },
+    {
+      "subject_key": "tache2:mai:batch-05:subject-25",
+      "entries": [
+        {
+          "id": "T2M5S25V01",
+          "kind": "mot-cle",
+          "french": "le week-end prochain",
+          "english": "next weekend",
+          "example": "Bonjour ! D'accord pour garder votre enfant le week-end prochain — c'est prévu pour quel jour exactement, et quels sont les horaires souhaités ?",
+          "usage": "Groupe nominal temporel avec « prochain » pour situer un événement futur proche."
+        },
+        {
+          "id": "T2M5S25V02",
+          "kind": "mot-cle",
+          "french": "le prénom",
+          "english": "the first name",
+          "example": "Pour que je m'organise, quel est le prénom et l'âge de votre enfant ?",
+          "usage": "Nom masculin désignant le nom donné à la naissance, distinct du nom de famille."
+        },
+        {
+          "id": "T2M5S25V03",
+          "kind": "mot-cle",
+          "french": "mes principales responsabilités",
+          "english": "my main responsibilities",
+          "example": "Concrètement, qu'attendez-vous de moi pendant la garde — quelles seront mes principales responsabilités ?",
+          "usage": "Groupe nominal avec possessif « mes » pour désigner les tâches essentielles confiées à quelqu'un."
+        },
+        {
+          "id": "T2M5S25V04",
+          "kind": "mot-cle",
+          "french": "les repas",
+          "english": "the meals",
+          "example": "Pour les repas, qu'avez-vous prévu, et à quelles heures faut-il les servir ?",
+          "usage": "Nom masculin pluriel désignant les repas de la journée, sujet central de cette question."
+        },
+        {
+          "id": "T2M5S25V05",
+          "kind": "mot-cle",
+          "french": "des allergies",
+          "english": "allergies",
+          "example": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
+          "usage": "Nom féminin pluriel désignant les réactions à certains aliments."
+        },
+        {
+          "id": "T2M5S25V06",
+          "kind": "mot-cle",
+          "french": "des consignes particulières",
+          "english": "specific instructions",
+          "example": "S'il fait beau et que je sors avec votre enfant, y a-t-il des consignes particulières à respecter — un vêtement à prévoir, une limite de temps, ce genre de chose ?",
+          "usage": "Groupe nominal pour désigner des règles précises à respecter dans un contexte donné."
+        },
+        {
+          "id": "T2M5S25V07",
+          "kind": "mot-cle",
+          "french": "le coucher",
+          "english": "bedtime",
+          "example": "Si la garde se prolonge le soir, à quelle heure faut-il prévoir le coucher, et y a-t-il une routine particulière ?",
+          "usage": "Nom masculin désignant le moment où l'on va dormir le soir."
+        },
+        {
+          "id": "T2M5S25V08",
+          "kind": "mot-cle",
+          "french": "des soins particuliers",
+          "english": "special care",
+          "example": "Y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
+          "usage": "Groupe nominal pour évoquer une attention médicale ou physique spécifique."
+        },
+        {
+          "id": "T2M5S25V09",
+          "kind": "mot-cle",
+          "french": "le nécessaire",
+          "english": "the necessities / everything needed",
+          "example": "Qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
+          "usage": "Pronom nominalisé introduit par « tout » pour désigner l'ensemble des objets utiles."
+        },
+        {
+          "id": "T2M5S25V10",
+          "kind": "mot-cle",
+          "french": "une autre personne",
+          "english": "another person",
+          "example": "En cas de problème, comment puis-je vous joindre, et y a-t-il une autre personne à contacter si vous n'êtes pas disponible ?",
+          "usage": "Groupe nominal pour désigner un contact alternatif en cas d'absence du premier interlocuteur."
+        },
+        {
+          "id": "T2M5S25V11",
+          "kind": "collocation",
+          "french": "les horaires souhaités",
+          "english": "the desired / preferred times",
+          "example": "Bonjour ! D'accord pour garder votre enfant le week-end prochain — c'est prévu pour quel jour exactement, et quels sont les horaires souhaités ?",
+          "usage": "Groupe nominal avec adjectif « souhaité » pour interroger sur des horaires encore à définir."
+        },
+        {
+          "id": "T2M5S25V12",
+          "kind": "collocation",
+          "french": "pendant la garde",
+          "english": "during the childminding",
+          "example": "Concrètement, qu'attendez-vous de moi pendant la garde — quelles seront mes principales responsabilités ?",
+          "usage": "Locution prépositionnelle temporelle situant une action pendant la durée de la garde."
+        },
+        {
+          "id": "T2M5S25V13",
+          "kind": "collocation",
+          "french": "des choses à éviter côté alimentation",
+          "english": "things to avoid regarding food",
+          "example": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
+          "usage": "Groupe nominal avec infinitif de but sur l'alimentation."
+        },
+        {
+          "id": "T2M5S25V14",
+          "kind": "collocation",
+          "french": "jeux à la maison",
+          "english": "games at home",
+          "example": "Quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
+          "usage": "Groupe nominal pour désigner des activités pratiquées à l'intérieur."
+        },
+        {
+          "id": "T2M5S25V15",
+          "kind": "collocation",
+          "french": "une limite de temps",
+          "english": "a time limit",
+          "example": "S'il fait beau et que je sors avec votre enfant, y a-t-il des consignes particulières à respecter — un vêtement à prévoir, une limite de temps, ce genre de chose ?",
+          "usage": "Groupe nominal pour évoquer une durée maximale à ne pas dépasser."
+        },
+        {
+          "id": "T2M5S25V16",
+          "kind": "collocation",
+          "french": "jeux vidéo",
+          "english": "video games",
+          "example": "Y a-t-il des règles particulières à respecter pour la télévision, les écrans ou les jeux vidéo ?",
+          "usage": "Nom masculin pluriel désignant les jeux électroniques sur écran."
+        },
+        {
+          "id": "T2M5S25V17",
+          "kind": "collocation",
+          "french": "se prolonge le soir",
+          "english": "extends into the evening",
+          "example": "Si la garde se prolonge le soir, à quelle heure faut-il prévoir le coucher, et y a-t-il une routine particulière ?",
+          "usage": "Collocation verbale avec « se prolonger » pour évoquer un allongement de durée."
+        },
+        {
+          "id": "T2M5S25V18",
+          "kind": "collocation",
+          "french": "des médicaments à donner",
+          "english": "medication to give",
+          "example": "Y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
+          "usage": "Groupe nominal avec infinitif de but pour évoquer une responsabilité médicale précise."
+        },
+        {
+          "id": "T2M5S25V19",
+          "kind": "collocation",
+          "french": "aurait lieu chez vous",
+          "english": "would take place at your home",
+          "example": "La garde aurait lieu chez vous ou chez moi ?",
+          "usage": "Le conditionnel sert à confirmer un lieu encore à convenir."
+        },
+        {
+          "id": "T2M5S25V20",
+          "kind": "collocation",
+          "french": "d'autres habitudes",
+          "english": "other habits",
+          "example": "Y a-t-il d'autres habitudes ou règles importantes à respecter avec votre enfant ?",
+          "usage": "Adjectif indéfini « d'autres » pour élargir une question déjà en partie traitée."
+        },
+        {
+          "id": "T2M5S25V21",
+          "kind": "tournure",
+          "french": "qu'attendez-vous de moi pendant la garde",
+          "english": "what do you expect from me during the childminding",
+          "example": "Concrètement, qu'attendez-vous de moi pendant la garde — quelles seront mes principales responsabilités ?",
+          "usage": "Structure avec « attendre de quelqu'un » pour interroger sur des attentes précises."
+        },
+        {
+          "id": "T2M5S25V22",
+          "kind": "tournure",
+          "french": "à quelles heures faut-il les servir",
+          "english": "what times should they be served",
+          "example": "Pour les repas, qu'avez-vous prévu, et à quelles heures faut-il les servir ?",
+          "usage": "Structure impersonnelle « il faut » + pronom « les » reprenant « les repas » pour éviter toute référence genrée à l'enfant."
+        },
+        {
+          "id": "T2M5S25V23",
+          "kind": "tournure",
+          "french": "Y a-t-il des allergies ou des choses à éviter",
+          "english": "Are there allergies or things to avoid",
+          "example": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
+          "usage": "Tournure « y a-t-il » sur les précautions alimentaires."
+        },
+        {
+          "id": "T2M5S25V24",
+          "kind": "tournure",
+          "french": "quelles sont les activités préférées de votre enfant",
+          "english": "what are your child's favourite activities",
+          "example": "Quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
+          "usage": "Structure avec « quelles sont » pour explorer des préférences."
+        },
+        {
+          "id": "T2M5S25V25",
+          "kind": "tournure",
+          "french": "s'il fait beau et que je sors avec votre enfant",
+          "english": "if the weather is nice and I go out with your child",
+          "example": "S'il fait beau et que je sors avec votre enfant, y a-t-il des consignes particulières à respecter — un vêtement à prévoir, une limite de temps, ce genre de chose ?",
+          "usage": "Double proposition conditionnelle introduite par « si » pour poser une hypothèse avant la question principale."
+        },
+        {
+          "id": "T2M5S25V26",
+          "kind": "tournure",
+          "french": "à quelle heure faut-il prévoir le coucher",
+          "english": "what time should bedtime be planned for",
+          "example": "Si la garde se prolonge le soir, à quelle heure faut-il prévoir le coucher, et y a-t-il une routine particulière ?",
+          "usage": "Structure impersonnelle « il faut prévoir » pour interroger sur un horaire à respecter."
+        },
+        {
+          "id": "T2M5S25V27",
+          "kind": "tournure",
+          "french": "est-ce que vous fournissez tout le nécessaire",
+          "english": "do you provide everything needed",
+          "example": "Qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
+          "usage": "Structure avec « est-ce que » pour vérifier discrètement une prise en charge matérielle."
+        },
+        {
+          "id": "T2M5S25V28",
+          "kind": "tournure",
+          "french": "La garde aurait lieu chez vous ou chez moi",
+          "english": "would the care take place at your home or mine",
+          "example": "La garde aurait lieu chez vous ou chez moi ?",
+          "usage": "Alternative polie qui clarifie directement le lieu de garde."
+        },
+        {
+          "id": "T2M5S25V29",
+          "kind": "tournure",
+          "french": "comment puis-je vous joindre",
+          "english": "how can I reach you",
+          "example": "En cas de problème, comment puis-je vous joindre, et y a-t-il une autre personne à contacter si vous n'êtes pas disponible ?",
+          "usage": "Verbe « pouvoir » à la première personne (« puis-je ») pour une question polie sur un moyen de contact."
+        },
+        {
+          "id": "T2M5S25V30",
+          "kind": "tournure",
+          "french": "y a-t-il autre chose d'important que je devrais savoir",
+          "english": "is there anything else important I should know",
+          "example": "Pour finir — y a-t-il autre chose d'important que je devrais savoir avant ce week-end ?",
+          "usage": "Structure impersonnelle « y a-t-il » suivie du conditionnel « je devrais » pour une clôture ouverte."
+        }
+      ]
     }
   ]
 }

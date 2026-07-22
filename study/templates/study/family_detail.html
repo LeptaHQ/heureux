@@ -22,7 +22,10 @@
 <div class="qlist collection-table collection-table--subjects" data-collection-view="adaptive">
   {% include "study/partials/collection_table_header.html" with variant="subjects" column_1="Repère" column_2="Sujet" column_3="Progression" only %}
   {% for row in rows %}
-    <a class="qrow" data-collection-item href="{% url 'study:response_detail' part.slug task.slug row.prompt.pk %}">
+    <article
+      class="qrow subject-progress-row subject-progress-row--{{ row.progress.status }}"
+      data-collection-item
+      data-subject-progress-row="{{ row.prompt.response_id }}">
       <span class="qrow__num qrow__num--tag">
         <span class="chip chip--theme" style="--chip: {{ row.prompt.theme.color }};">{% include "study/partials/ui_icon.html" with name=row.prompt.theme.icon only %} P{{ row.prompt.number }}</span>
       </span>
@@ -31,9 +34,18 @@
         {% if row.is_alias %}<span class="alias-tag" title="Réponse partagée">= {{ row.prompt.response.theme.display_name }} P{{ row.canonical_number }}</span>{% endif %}
       </span>
       <span class="qrow__meta qrow__meta--state">
-        <span class="progress-status progress-status--{{ row.progress.status }}">{{ row.progress.label }}</span>
+        <span
+          class="progress-status progress-status--{{ row.progress.status }}"
+          data-subject-progress-status="{{ row.prompt.response_id }}">{{ row.progress.label }}</span>
+        {% include "study/partials/subject_completion_form.html" with response_id=row.prompt.response_id progress=row.progress subject_label=row.prompt.text part=part task=task refresh=True %}
       </span>
-    </a>
+      <a
+        class="subject-row-hit-area"
+        href="{% url 'study:response_detail' part.slug task.slug row.prompt.pk %}"
+        aria-label="Ouvrir le sujet : {{ row.prompt.text }}">
+        <span class="sr-only">Ouvrir le sujet</span>
+      </a>
+    </article>
   {% endfor %}
 </div>
 {% endblock %}

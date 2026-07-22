@@ -74,13 +74,15 @@ class PWATests(TestCase):
         r = self.client.get("/sw.js")
         self.assertEqual(r.status_code, 200)
         body = r.content.decode()
-        self.assertIn('var CACHE = "heureux-v122"', body)
-        self.assertIn("study/css/app.css?v=114", body)
+        self.assertIn('var CACHE = "heureux-v126"', body)
+        self.assertIn("study/css/app.css?v=117", body)
         self.assertIn("study/js/memory-progress.js?v=2", body)
         self.assertIn("study/js/theme-init.js?v=2", body)
         self.assertIn("study/js/app.js?v=36", body)
-        self.assertIn("study/js/translate.js?v=13", body)
+        self.assertIn("study/js/translate.js?v=14", body)
         self.assertIn("study/js/annotations.js?v=12", body)
+        self.assertIn("study/js/subject-progress.js?v=1", body)
+        self.assertIn("study/js/comprehension-progress.js?v=1", body)
         self.assertIn("study/icons/ui-icons.svg?v=3", body)
         self.assertIn("SKIP_WAITING", body)
         self.assertIn("no-store", r["Cache-Control"])
@@ -280,6 +282,7 @@ class SmokeTests(TestCase):
         self.assertContains(response, "data-read-selection")
         self.assertContains(response, "data-note-selection")
         self.assertContains(response, "data-highlight-selection")
+        self.assertContains(response, 'aria-keyshortcuts="C"')
         self.assertContains(response, 'aria-keyshortcuts="R"')
         self.assertContains(response, 'aria-keyshortcuts="T"')
         self.assertContains(response, 'aria-keyshortcuts="N"')
@@ -287,7 +290,7 @@ class SmokeTests(TestCase):
         self.assertContains(
             response,
             'class="selection-translate__shortcut"',
-            count=4,
+            count=5,
         )
         self.assertContains(response, "btn__icon-badge--notes")
         self.assertContains(response, "btn__icon-badge--save")
@@ -899,7 +902,10 @@ class TaskOrganizationTests(TestCase):
 
         subject_card.state = CardState.REVIEW
         subject_card.started_at = now
-        subject_card.save(update_fields=["state", "started_at"])
+        subject_card.interval_days = 21
+        subject_card.save(
+            update_fields=["state", "started_at", "interval_days"]
+        )
 
         completed_task_vocabulary = self.client.get(
             self._task_url("study:task_phrases"),
@@ -922,7 +928,14 @@ class TaskOrganizationTests(TestCase):
             for item in completed_browse.context["families"]
             if item.pk == prompt.family_id
         )
-        self.assertEqual(completed_family.progress.status, "done")
+        self.assertEqual(completed_family.progress.status, "active")
+        incomplete_theme = next(
+            item
+            for item in completed_browse.context["themes"]
+            if item["theme"].pk == self.theme.pk
+        )
+        self.assertEqual(incomplete_theme["stats"]["mature"], 0)
+        self.assertEqual(incomplete_theme["stats"]["review_young"], 0)
         completed_landing = self.client.get(reverse("study:vocabulary"))
         completed_oral_path = next(
             path
@@ -932,6 +945,162 @@ class TaskOrganizationTests(TestCase):
             if path["short_name"] == "EO"
         )
         self.assertEqual(completed_oral_path["progress"].status, "done")
+
+        self.client.post(
+            reverse(
+                "study:subject_completion",
+                args=[
+                    self.part.slug,
+                    self.task.slug,
+                    self.response_card.response_id,
+                ],
+            ),
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        explicitly_completed_browse = self.client.get(
+            self._task_url("study:task_browse"),
+        )
+        completed_theme = next(
+            item
+            for item in explicitly_completed_browse.context["themes"]
+            if item["theme"].pk == self.theme.pk
+        )
+        self.assertEqual(completed_theme["stats"]["mature"], 1)
+        self.assertEqual(completed_theme["stats"]["review_young"], 0)
+
+    def test_subject_completion_is_explicit_and_reversible(self):
+        response = self.response_card.response
+        prompt = response.prompts.get(is_canonical=True)
+        completion_url = reverse(
+            "study:subject_completion",
+            args=[self.part.slug, self.task.slug, response.pk],
+        )
+
+        initial = self.client.get(response_detail_url(response))
+
+        self.assertEqual(initial.context["subject_progress"].status, "new")
+        self.assertFalse(
+            initial.context["subject_progress"].explicitly_completed
+        )
+        self.assertContains(initial, "J’ai terminé ce sujet")
+        self.assertContains(initial, 'aria-checked="false"')
+
+        completed = self.client.post(
+            completion_url,
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(completed.status_code, 200)
+        self.assertTrue(completed.json()["completed"])
+        self.assertEqual(completed.json()["subject"]["status"], "done")
+        self.response_card.refresh_from_db()
+        self.assertIsNotNone(self.response_card.subject_completed_at)
+
+        theme_page = self.client.get(theme_detail_url(self.theme))
+        family_page = self.client.get(
+            reverse(
+                "study:task_family_detail",
+                args=[self.part.slug, self.task.slug, prompt.family.slug],
+            )
+        )
+        self.assertEqual(theme_page.context["stats"]["completed"], 1)
+        self.assertEqual(family_page.context["family_progress"].status, "done")
+        self.assertContains(theme_page, 'aria-checked="true"')
+
+        cleared = self.client.post(
+            completion_url,
+            {"completed": "0"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(cleared.json()["subject"]["status"], "new")
+        self.response_card.refresh_from_db()
+        self.assertIsNone(self.response_card.subject_completed_at)
+
+        self.response_card.response_practice_started_at = timezone.now()
+        self.response_card.save(
+            update_fields=["response_practice_started_at"]
+        )
+        self.client.post(
+            completion_url,
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        active = self.client.post(
+            completion_url,
+            {"completed": "0"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(active.json()["subject"]["status"], "active")
+
+    def test_suspended_vocabulary_activity_keeps_unchecked_subject_active(self):
+        response = self.response_card.response
+        prompt = response.prompts.get(is_canonical=True)
+        subject_phrase = factories.make_phrase(tier="subject")
+        subject_phrase.source_prompts.add(prompt)
+        factories.make_phrase_card(
+            phrase=subject_phrase,
+            user=self.user,
+            state=CardState.REVIEW,
+            started_at=timezone.now(),
+            suspended=True,
+        )
+        completion_url = reverse(
+            "study:subject_completion",
+            args=[self.part.slug, self.task.slug, response.pk],
+        )
+        self.client.post(
+            completion_url,
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        cleared = self.client.post(
+            completion_url,
+            {"completed": "0"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        detail = self.client.get(response_detail_url(response))
+        progress = detail.context["subject_progress"]
+
+        self.assertEqual(cleared.json()["subject"]["status"], "active")
+        self.assertTrue(progress.vocabulary_activity_started)
+        self.assertEqual(progress.vocabulary_total, 0)
+        self.assertEqual(progress.status, "active")
+
+    def test_subject_completion_rejects_invalid_state_and_task(self):
+        response = self.response_card.response
+        completion_url = reverse(
+            "study:subject_completion",
+            args=[self.part.slug, self.task.slug, response.pk],
+        )
+
+        invalid = self.client.post(
+            completion_url,
+            {"completed": "yes"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        self.assertEqual(invalid.status_code, 400)
+        self.assertEqual(
+            invalid.json()["error"],
+            "État de progression invalide.",
+        )
+
+        other_task = factories.make_task(self.part, "tache-1")
+        mismatched = self.client.post(
+            reverse(
+                "study:subject_completion",
+                args=[self.part.slug, other_task.slug, response.pk],
+            ),
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        self.assertEqual(mismatched.status_code, 404)
+        self.response_card.refresh_from_db()
+        self.assertIsNone(self.response_card.subject_completed_at)
 
     def test_stats_mastery_includes_every_vocabulary_tier(self):
         local_phrase = factories.make_phrase(tier="subject")
@@ -1441,6 +1610,26 @@ class CategoryBatchViewsTests(TestCase):
             count=1,
         )
         self.assertContains(page, "Lot 5 · Phrases modèles · 10 vocabs")
+        final_review = self.client.get(
+            page.context["vocabulary_batches"][-1]["review_url"]
+        )
+        subject_url = response_detail_url(response)
+        self.assertIsNone(final_review.context["next_batch"])
+        self.assertEqual(
+            final_review.context["subject_return_url"],
+            subject_url,
+        )
+        self.assertEqual(
+            final_review.context["vocabulary_lots_url"],
+            f"{subject_url}#subject-vocabulary",
+        )
+        self.assertContains(final_review, "Retour au sujet")
+        self.assertContains(final_review, "Voir les lots")
+        self.assertContains(
+            final_review,
+            f'href="{subject_url}#subject-vocabulary"',
+        )
+        self.assertNotContains(final_review, "Retour à l'accueil")
         state = self.client.get(
             reverse("study:review_next"),
             {
@@ -1495,8 +1684,8 @@ class CategoryBatchViewsTests(TestCase):
         )
 
         completed = self.client.get(response_detail_url(response))
-        self.assertEqual(completed.context["subject_progress"].status, "done")
-        self.assertEqual(completed.context["subject_progress"].label, "Terminé")
+        self.assertEqual(completed.context["subject_progress"].status, "active")
+        self.assertEqual(completed.context["subject_progress"].label, "En cours")
         self.assertEqual(
             [batch["status"] for batch in completed.context["vocabulary_batches"]],
             ["complete"] * 5,
@@ -1714,7 +1903,8 @@ class ReviewFlowTests(TestCase):
         )
         self.assertContains(
             response_page,
-            '<span class="progress-status progress-status--active">'
+            '<span class="progress-status progress-status--active" '
+            f'data-subject-progress-status="{self.card.response_id}">'
             "En cours</span>",
             html=True,
         )
@@ -1760,12 +1950,13 @@ class ReviewFlowTests(TestCase):
 
         self.assertContains(
             response_page,
-            '<span class="progress-status progress-status--active">'
+            '<span class="progress-status progress-status--active" '
+            f'data-subject-progress-status="{self.card.response_id}">'
             "En cours</span>",
             html=True,
         )
 
-    def test_suspended_subject_vocabulary_does_not_block_completion(self):
+    def test_suspended_subject_vocabulary_does_not_block_vocabulary_completion(self):
         prompt = self.card.response.prompts.get(is_canonical=True)
         active_phrase = factories.make_phrase(tier="subject")
         active_phrase.source_prompts.add(prompt)
@@ -1789,7 +1980,7 @@ class ReviewFlowTests(TestCase):
         progress = response_page.context["subject_progress"]
         self.assertEqual(progress.vocabulary_total, 1)
         self.assertEqual(progress.vocabulary_completed, 1)
-        self.assertEqual(progress.status, "done")
+        self.assertEqual(progress.status, "active")
         self.assertEqual(active_card.state, CardState.REVIEW)
 
     def test_answer_advances_and_logs(self):

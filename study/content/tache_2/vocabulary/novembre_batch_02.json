@@ -1,0 +1,1230 @@
+{
+  "version": 1,
+  "subjects": [
+    {
+      "subject_key": "tache2:novembre:batch-02:subject-06",
+      "entries": [
+        {
+          "id": "T2N11S6V01",
+          "kind": "mot-cle",
+          "french": "votre annonce",
+          "english": "your listing / ad",
+          "example": "Bonjour ! Je vous appelle au sujet de l'appartement que j'ai vu dans votre annonce — est-il toujours disponible ?",
+          "usage": "Nom féminin précédé du possessif « votre » pour désigner une offre publiée par l'agent."
+        },
+        {
+          "id": "T2N11S6V02",
+          "kind": "mot-cle",
+          "french": "la superficie",
+          "english": "the floor area / size",
+          "example": "Quelle est la superficie de l'appartement — et combien de pièces y a-t-il ?",
+          "usage": "Nom féminin pour indiquer la surface habitable d'un logement."
+        },
+        {
+          "id": "T2N11S6V03",
+          "kind": "mot-cle",
+          "french": "un ascenseur",
+          "english": "an elevator / lift",
+          "example": "À quel étage se trouve-t-il — et l'immeuble dispose-t-il d'un ascenseur ?",
+          "usage": "Nom masculin désignant l'appareil qui permet de monter dans un immeuble."
+        },
+        {
+          "id": "T2N11S6V04",
+          "kind": "mot-cle",
+          "french": "un balcon",
+          "english": "a balcony",
+          "example": "Est-il lumineux — et y a-t-il un balcon ou une terrasse ?",
+          "usage": "Nom masculin désignant un espace extérieur en saillie sur une façade."
+        },
+        {
+          "id": "T2N11S6V05",
+          "kind": "mot-cle",
+          "french": "les parties communes",
+          "english": "the common areas",
+          "example": "L'immeuble est-il récent — comment sont les parties communes ?",
+          "usage": "Groupe nominal désignant les espaces partagés d'un immeuble (hall, escaliers, etc.)."
+        },
+        {
+          "id": "T2N11S6V06",
+          "kind": "mot-cle",
+          "french": "négociable",
+          "english": "negotiable",
+          "example": "Quel est le prix demandé — est-ce qu'il est négociable ?",
+          "usage": "Adjectif décrivant un prix qui peut encore être discuté."
+        },
+        {
+          "id": "T2N11S6V07",
+          "kind": "mot-cle",
+          "french": "les charges mensuelles",
+          "english": "monthly fees / charges",
+          "example": "À combien s'élèvent les charges mensuelles — et qu'est-ce qu'elles comprennent exactement ?",
+          "usage": "Groupe nominal désignant les frais récurrents liés à la copropriété."
+        },
+        {
+          "id": "T2N11S6V08",
+          "kind": "mot-cle",
+          "french": "un espace de rangement",
+          "english": "a storage space",
+          "example": "Y a-t-il une place de parking, une cave ou un espace de rangement ?",
+          "usage": "Groupe nominal désignant un lieu prévu pour ranger des affaires."
+        },
+        {
+          "id": "T2N11S6V09",
+          "kind": "mot-cle",
+          "french": "transports en commun",
+          "english": "public transport",
+          "example": "C'est facilement accessible en transports en commun ?",
+          "usage": "Moyens de déplacement collectifs dans une ville."
+        },
+        {
+          "id": "T2N11S6V10",
+          "kind": "mot-cle",
+          "french": "diagnostics",
+          "english": "property inspection reports",
+          "example": "Quels diagnostics et quels documents sont déjà disponibles pour l'achat ?",
+          "usage": "Nom masculin pluriel pour désigner les contrôles techniques liés à la vente d'un logement."
+        },
+        {
+          "id": "T2N11S6V11",
+          "kind": "collocation",
+          "french": "toujours disponible",
+          "english": "still available",
+          "example": "Bonjour ! Je vous appelle au sujet de l'appartement que j'ai vu dans votre annonce — est-il toujours disponible ?",
+          "usage": "Collocation adverbe + adjectif pour vérifier qu'une offre n'a pas été retirée."
+        },
+        {
+          "id": "T2N11S6V12",
+          "kind": "collocation",
+          "french": "où exactement",
+          "english": "exactly where",
+          "example": "Il se trouve où exactement — et comment est le quartier en général ?",
+          "usage": "Structure interrogative avec « exactement » pour préciser un lieu."
+        },
+        {
+          "id": "T2N11S6V13",
+          "kind": "collocation",
+          "french": "à quel étage",
+          "english": "on which floor",
+          "example": "À quel étage se trouve-t-il — et l'immeuble dispose-t-il d'un ascenseur ?",
+          "usage": "Structure interrogative avec « à quel » pour situer un logement dans un immeuble."
+        },
+        {
+          "id": "T2N11S6V14",
+          "kind": "collocation",
+          "french": "des travaux à prévoir",
+          "english": "renovations to plan for",
+          "example": "L'appartement est-il en bon état général ou y a-t-il des travaux à prévoir ?",
+          "usage": "Groupe nominal pour évoquer des réparations ou améliorations à venir."
+        },
+        {
+          "id": "T2N11S6V15",
+          "kind": "collocation",
+          "french": "est-il récent",
+          "english": "is it recent / modern",
+          "example": "L'immeuble est-il récent — comment sont les parties communes ?",
+          "usage": "Inversion adjectif + verbe « être » pour interroger sur l'ancienneté d'un bâtiment."
+        },
+        {
+          "id": "T2N11S6V16",
+          "kind": "collocation",
+          "french": "À combien s'élèvent",
+          "english": "how much do ... amount to?",
+          "example": "À combien s'élèvent les charges mensuelles — et qu'est-ce qu'elles comprennent exactement ?",
+          "usage": "Tournure interrogative avec « s'élever à » pour demander un montant."
+        },
+        {
+          "id": "T2N11S6V17",
+          "kind": "collocation",
+          "french": "une cave",
+          "english": "a cellar",
+          "example": "Y a-t-il une place de parking, une cave ou un espace de rangement ?",
+          "usage": "Nom féminin désignant un espace de stockage en sous-sol."
+        },
+        {
+          "id": "T2N11S6V18",
+          "kind": "collocation",
+          "french": "facilement accessible",
+          "english": "easily accessible",
+          "example": "C'est facilement accessible en transports en commun ?",
+          "usage": "Collocation adverbe + adjectif très fréquente pour qualifier un lieu."
+        },
+        {
+          "id": "T2N11S6V19",
+          "kind": "collocation",
+          "french": "à proximité",
+          "english": "nearby",
+          "example": "Y a-t-il des commerces, des écoles et des services à proximité ?",
+          "usage": "Locution adverbiale figée indiquant une faible distance."
+        },
+        {
+          "id": "T2N11S6V20",
+          "kind": "collocation",
+          "french": "prendre rendez-vous",
+          "english": "to make an appointment",
+          "example": "Et concrètement, comment s'organisent les visites — est-ce que je pourrais prendre rendez-vous cette semaine ?",
+          "usage": "Collocation verbe + nom très fréquente pour organiser une visite ou un rendez-vous."
+        },
+        {
+          "id": "T2N11S6V21",
+          "kind": "tournure",
+          "french": "je vous appelle au sujet de",
+          "english": "I'm calling you about",
+          "example": "Bonjour ! Je vous appelle au sujet de l'appartement que j'ai vu dans votre annonce — est-il toujours disponible ?",
+          "usage": "Structure de politesse pour introduire l'objet d'un appel téléphonique."
+        },
+        {
+          "id": "T2N11S6V22",
+          "kind": "tournure",
+          "french": "comment est le quartier en général",
+          "english": "what's the neighbourhood generally like",
+          "example": "Il se trouve où exactement — et comment est le quartier en général ?",
+          "usage": "Structure avec « comment est » pour interroger sur une caractéristique générale."
+        },
+        {
+          "id": "T2N11S6V23",
+          "kind": "tournure",
+          "french": "combien de pièces y a-t-il",
+          "english": "how many rooms are there",
+          "example": "Quelle est la superficie de l'appartement — et combien de pièces y a-t-il ?",
+          "usage": "Structure impersonnelle « y a-t-il » pour quantifier des éléments d'un logement."
+        },
+        {
+          "id": "T2N11S6V24",
+          "kind": "tournure",
+          "french": "y a-t-il des travaux à prévoir",
+          "english": "are there renovations to plan for",
+          "example": "L'appartement est-il en bon état général ou y a-t-il des travaux à prévoir ?",
+          "usage": "Structure impersonnelle « y a-t-il » suivie d'un nom + « à » + infinitif."
+        },
+        {
+          "id": "T2N11S6V25",
+          "kind": "tournure",
+          "french": "y a-t-il un balcon ou une terrasse",
+          "english": "is there a balcony or a terrace",
+          "example": "Est-il lumineux — et y a-t-il un balcon ou une terrasse ?",
+          "usage": "Structure impersonnelle « y a-t-il » pour vérifier la présence d'un équipement."
+        },
+        {
+          "id": "T2N11S6V26",
+          "kind": "tournure",
+          "french": "comment sont les parties communes",
+          "english": "what are the common areas like",
+          "example": "L'immeuble est-il récent — comment sont les parties communes ?",
+          "usage": "Structure avec « comment sont » pour interroger sur l'état de plusieurs éléments."
+        },
+        {
+          "id": "T2N11S6V27",
+          "kind": "tournure",
+          "french": "quel est le prix demandé",
+          "english": "what is the asking price",
+          "example": "Quel est le prix demandé — est-ce qu'il est négociable ?",
+          "usage": "Structure avec « quel est » pour interroger directement sur un montant."
+        },
+        {
+          "id": "T2N11S6V28",
+          "kind": "tournure",
+          "french": "qu'est-ce qu'elles comprennent exactement",
+          "english": "what exactly do they include",
+          "example": "À combien s'élèvent les charges mensuelles — et qu'est-ce qu'elles comprennent exactement ?",
+          "usage": "Pronom « elles » reprenant les charges déjà mentionnées, suivi de « comprendre »."
+        },
+        {
+          "id": "T2N11S6V29",
+          "kind": "tournure",
+          "french": "plutôt exposé au sud, à l'est ou à l'ouest",
+          "english": "facing south, east, or west",
+          "example": "Quelle est l'orientation de l'appartement — plutôt exposé au sud, à l'est ou à l'ouest ?",
+          "usage": "Structure d'alternative avec « plutôt » pour proposer un choix d'orientation."
+        },
+        {
+          "id": "T2N11S6V30",
+          "kind": "tournure",
+          "french": "est-ce que je pourrais prendre rendez-vous cette semaine",
+          "english": "could I make an appointment this week",
+          "example": "Et concrètement, comment s'organisent les visites — est-ce que je pourrais prendre rendez-vous cette semaine ?",
+          "usage": "Conditionnel de politesse « je pourrais » pour formuler une demande prudente."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:novembre:batch-02:subject-07",
+      "entries": [
+        {
+          "id": "T2N11S7V01",
+          "kind": "mot-cle",
+          "french": "après l'école",
+          "english": "after school",
+          "example": "Bonjour ! Je cherche une activité après l'école pour mes enfants — vous pourriez me parler de ce qui est proposé dans le quartier ?",
+          "usage": "Locution prépositionnelle pour situer une activité juste après les cours."
+        },
+        {
+          "id": "T2N11S7V02",
+          "kind": "mot-cle",
+          "french": "aide aux devoirs",
+          "english": "homework help",
+          "example": "Quels types d'activités sont disponibles — sport, musique, arts ou aide aux devoirs ?",
+          "usage": "Groupe nominal désignant un soutien scolaire proposé après les cours."
+        },
+        {
+          "id": "T2N11S7V03",
+          "kind": "mot-cle",
+          "french": "groupe de niveau",
+          "english": "level-based group",
+          "example": "Ça s'adresse à quels âges — les enfants sont-ils répartis par groupe de niveau ?",
+          "usage": "Groupe nominal désignant un regroupement selon l'âge ou la compétence."
+        },
+        {
+          "id": "T2N11S7V04",
+          "kind": "mot-cle",
+          "french": "les activités",
+          "english": "the activities",
+          "example": "Les activités ont lieu quels jours et à quelle heure après l'école ?",
+          "usage": "Nom féminin pluriel désignant l'ensemble des occupations proposées."
+        },
+        {
+          "id": "T2N11S7V05",
+          "kind": "mot-cle",
+          "french": "des animateurs",
+          "english": "activity leaders / instructors",
+          "example": "Qui encadre les enfants — ce sont des animateurs ou des professeurs qualifiés ?",
+          "usage": "Nom masculin pluriel désignant les personnes qui encadrent des enfants dans des activités."
+        },
+        {
+          "id": "T2N11S7V06",
+          "kind": "mot-cle",
+          "french": "par groupe",
+          "english": "per group",
+          "example": "Il y a généralement combien d'enfants par groupe ?",
+          "usage": "Locution prépositionnelle pour indiquer une quantité rapportée à un ensemble."
+        },
+        {
+          "id": "T2N11S7V07",
+          "kind": "mot-cle",
+          "french": "l'inscription",
+          "english": "the registration / enrolment",
+          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "usage": "Nom féminin désignant la démarche administrative pour s'inscrire à une activité."
+        },
+        {
+          "id": "T2N11S7V08",
+          "kind": "mot-cle",
+          "french": "complètes",
+          "english": "full / fully booked",
+          "example": "Il reste encore des places ou certaines activités sont déjà complètes ?",
+          "usage": "Adjectif féminin pluriel indiquant qu'il ne reste plus de places disponibles."
+        },
+        {
+          "id": "T2N11S7V09",
+          "kind": "mot-cle",
+          "french": "la session",
+          "english": "the term / session",
+          "example": "Comment fonctionnent les tarifs — faut-il payer au mois ou pour toute la session ?",
+          "usage": "Nom féminin désignant une période complète d'activités, souvent un trimestre."
+        },
+        {
+          "id": "T2N11S7V10",
+          "kind": "mot-cle",
+          "french": "un tarif réduit",
+          "english": "a discounted rate",
+          "example": "Y a-t-il un tarif réduit si j'inscris plusieurs enfants ?",
+          "usage": "Groupe nominal désignant un prix diminué, souvent sous condition."
+        },
+        {
+          "id": "T2N11S7V11",
+          "kind": "collocation",
+          "french": "ce qui est proposé",
+          "english": "what is on offer",
+          "example": "Bonjour ! Je cherche une activité après l'école pour mes enfants — vous pourriez me parler de ce qui est proposé dans le quartier ?",
+          "usage": "Pronom relatif « ce qui » + voix passive pour désigner une offre."
+        },
+        {
+          "id": "T2N11S7V12",
+          "kind": "collocation",
+          "french": "sport, musique, arts",
+          "english": "sport, music, arts",
+          "example": "Quels types d'activités sont disponibles — sport, musique, arts ou aide aux devoirs ?",
+          "usage": "Énumération de domaines d'activités proposés aux enfants."
+        },
+        {
+          "id": "T2N11S7V13",
+          "kind": "collocation",
+          "french": "répartis par groupe",
+          "english": "divided into groups",
+          "example": "Ça s'adresse à quels âges — les enfants sont-ils répartis par groupe de niveau ?",
+          "usage": "Participe passé « répartis » + complément « par » pour indiquer une organisation en sous-groupes."
+        },
+        {
+          "id": "T2N11S7V14",
+          "kind": "collocation",
+          "french": "entre les options proposées",
+          "english": "between the options on offer",
+          "example": "Quelles différences y a-t-il entre les options proposées ?",
+          "usage": "Locution prépositionnelle pour comparer plusieurs choix disponibles."
+        },
+        {
+          "id": "T2N11S7V15",
+          "kind": "collocation",
+          "french": "dans un centre du quartier",
+          "english": "in a neighbourhood centre",
+          "example": "Ça se passe où exactement — dans l'école ou dans un centre du quartier ?",
+          "usage": "Groupe nominal pour désigner un lieu communautaire local."
+        },
+        {
+          "id": "T2N11S7V16",
+          "kind": "collocation",
+          "french": "quels jours et à quelle heure",
+          "english": "which days and at what time",
+          "example": "Les activités ont lieu quels jours et à quelle heure après l'école ?",
+          "usage": "Coordination de deux compléments interrogatifs de temps."
+        },
+        {
+          "id": "T2N11S7V17",
+          "kind": "collocation",
+          "french": "combien par semaine",
+          "english": "how many per week",
+          "example": "Quelle est la durée d'une séance — et il y en a combien par semaine ?",
+          "usage": "Structure quantifiante avec « combien » + préposition « par » pour une fréquence."
+        },
+        {
+          "id": "T2N11S7V18",
+          "kind": "collocation",
+          "french": "combien d'enfants",
+          "english": "how many children",
+          "example": "Il y a généralement combien d'enfants par groupe ?",
+          "usage": "Structure interrogative avec « combien de » + nom pour quantifier un groupe."
+        },
+        {
+          "id": "T2N11S7V19",
+          "kind": "collocation",
+          "french": "encore des places",
+          "english": "still some spots",
+          "example": "Il reste encore des places ou certaines activités sont déjà complètes ?",
+          "usage": "Collocation adverbe + nom pour vérifier une disponibilité restante."
+        },
+        {
+          "id": "T2N11S7V20",
+          "kind": "collocation",
+          "french": "tout le matériel",
+          "english": "all the equipment",
+          "example": "Qu'est-ce qu'il faut apporter — ou est-ce que tout le matériel est fourni sur place ?",
+          "usage": "Groupe nominal avec « tout » pour désigner l'ensemble des objets nécessaires."
+        },
+        {
+          "id": "T2N11S7V21",
+          "kind": "tournure",
+          "french": "vous pourriez me parler de",
+          "english": "could you tell me about",
+          "example": "Bonjour ! Je cherche une activité après l'école pour mes enfants — vous pourriez me parler de ce qui est proposé dans le quartier ?",
+          "usage": "Conditionnel de politesse suivi de « parler de » pour introduire une demande d'information."
+        },
+        {
+          "id": "T2N11S7V22",
+          "kind": "tournure",
+          "french": "quels types d'activités sont disponibles",
+          "english": "what types of activities are available",
+          "example": "Quels types d'activités sont disponibles — sport, musique, arts ou aide aux devoirs ?",
+          "usage": "Structure interrogative avec « quels types de » pour explorer des catégories."
+        },
+        {
+          "id": "T2N11S7V23",
+          "kind": "tournure",
+          "french": "ça s'adresse à quels âges",
+          "english": "what ages is it aimed at",
+          "example": "Ça s'adresse à quels âges — les enfants sont-ils répartis par groupe de niveau ?",
+          "usage": "Structure avec « s'adresser à » pour interroger sur le public visé."
+        },
+        {
+          "id": "T2N11S7V24",
+          "kind": "tournure",
+          "french": "quelles différences y a-t-il entre les options proposées",
+          "english": "what differences are there between the options on offer",
+          "example": "Quelles différences y a-t-il entre les options proposées ?",
+          "usage": "Structure impersonnelle « y a-t-il » pour comparer plusieurs choix."
+        },
+        {
+          "id": "T2N11S7V25",
+          "kind": "tournure",
+          "french": "ça se passe où exactement",
+          "english": "exactly where does it take place",
+          "example": "Ça se passe où exactement — dans l'école ou dans un centre du quartier ?",
+          "usage": "Structure orale avec « ça se passer » pour interroger sur un lieu."
+        },
+        {
+          "id": "T2N11S7V26",
+          "kind": "tournure",
+          "french": "il y en a combien par semaine",
+          "english": "how many are there per week",
+          "example": "Quelle est la durée d'une séance — et il y en a combien par semaine ?",
+          "usage": "Pronom « en » reprenant un nom déjà mentionné, suivi d'une quantification."
+        },
+        {
+          "id": "T2N11S7V27",
+          "kind": "tournure",
+          "french": "qui encadre les enfants",
+          "english": "who supervises the children",
+          "example": "Qui encadre les enfants — ce sont des animateurs ou des professeurs qualifiés ?",
+          "usage": "Pronom interrogatif « qui » sujet pour interroger sur une responsabilité."
+        },
+        {
+          "id": "T2N11S7V28",
+          "kind": "tournure",
+          "french": "comment se passe l'inscription",
+          "english": "how does registration work",
+          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "usage": "Tournure interrogative pratique pour demander une procédure administrative."
+        },
+        {
+          "id": "T2N11S7V29",
+          "kind": "tournure",
+          "french": "faut-il payer au mois ou pour toute la session",
+          "english": "do you have to pay monthly or for the whole term",
+          "example": "Comment fonctionnent les tarifs — faut-il payer au mois ou pour toute la session ?",
+          "usage": "Inversion avec « faut-il » pour proposer une alternative de paiement."
+        },
+        {
+          "id": "T2N11S7V30",
+          "kind": "tournure",
+          "french": "quelle activité conviendrait le mieux",
+          "english": "which activity would suit best",
+          "example": "Selon vous, quelle activité conviendrait le mieux à des enfants qui aiment bouger et travailler en groupe ?",
+          "usage": "Conditionnel présent du verbe « convenir » pour demander une recommandation adaptée."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:novembre:batch-02:subject-08",
+      "entries": [
+        {
+          "id": "T2N11S8V01",
+          "kind": "mot-cle",
+          "french": "sans-abri",
+          "english": "homeless people",
+          "example": "Salut ! Tu m'as parlé de l'association où tu distribues des repas aux sans-abri — tu pourrais m'en dire un peu plus ?",
+          "usage": "Nom invariable pour désigner les personnes qui n'ont pas de logement stable."
+        },
+        {
+          "id": "T2N11S8V02",
+          "kind": "mot-cle",
+          "french": "l'association",
+          "english": "the association / charity",
+          "example": "L'association aide combien de personnes environ — et dans quels quartiers intervient-elle ?",
+          "usage": "Nom féminin désignant une organisation à but non lucratif."
+        },
+        {
+          "id": "T2N11S8V03",
+          "kind": "mot-cle",
+          "french": "au quotidien",
+          "english": "on a daily basis",
+          "example": "Concrètement, quelles missions sont confiées aux bénévoles au quotidien ?",
+          "usage": "Locution adverbiale figée pour situer une action dans la routine de tous les jours."
+        },
+        {
+          "id": "T2N11S8V04",
+          "kind": "mot-cle",
+          "french": "une distribution",
+          "english": "a distribution (of food)",
+          "example": "Comment se déroule une distribution, du début à la fin ?",
+          "usage": "Nom féminin désignant l'action de donner de la nourriture à des personnes dans le besoin."
+        },
+        {
+          "id": "T2N11S8V05",
+          "kind": "mot-cle",
+          "french": "une expérience préalable",
+          "english": "prior experience",
+          "example": "Est-ce qu'il faut avoir des compétences particulières ou une expérience préalable pour s'engager ?",
+          "usage": "Groupe nominal pour évoquer une expérience acquise avant de s'engager quelque part."
+        },
+        {
+          "id": "T2N11S8V06",
+          "kind": "mot-cle",
+          "french": "une formation",
+          "english": "training",
+          "example": "Et si on n'a jamais fait de bénévolat, est-ce qu'une formation ou un accompagnement est prévu au début ?",
+          "usage": "Nom féminin courant pour désigner l'apprentissage encadré proposé aux nouveaux arrivants."
+        },
+        {
+          "id": "T2N11S8V07",
+          "kind": "mot-cle",
+          "french": "les gants",
+          "english": "gloves",
+          "example": "Qu'est-ce qu'il faut apporter — ou est-ce que les gants et le matériel sont fournis sur place ?",
+          "usage": "Nom masculin pluriel désignant l'équipement de protection des mains."
+        },
+        {
+          "id": "T2N11S8V08",
+          "kind": "mot-cle",
+          "french": "les bénévoles",
+          "english": "the volunteers",
+          "example": "Est-ce que les frais de transport ou de repas sont pris en charge pour les bénévoles ?",
+          "usage": "Nom pluriel désignant les personnes qui donnent de leur temps sans être rémunérées."
+        },
+        {
+          "id": "T2N11S8V09",
+          "kind": "mot-cle",
+          "french": "l'ambiance",
+          "english": "the atmosphere",
+          "example": "Comment est l'ambiance entre les bénévoles pendant les distributions ?",
+          "usage": "Nom féminin désignant le climat général régnant dans un groupe."
+        },
+        {
+          "id": "T2N11S8V10",
+          "kind": "mot-cle",
+          "french": "cette expérience",
+          "english": "this experience",
+          "example": "Qu'est-ce que tu apprécies le plus dans cette expérience ?",
+          "usage": "Groupe nominal avec démonstratif pour désigner le vécu dont on parle."
+        },
+        {
+          "id": "T2N11S8V11",
+          "kind": "collocation",
+          "french": "combien de personnes",
+          "english": "how many people",
+          "example": "L'association aide combien de personnes environ — et dans quels quartiers intervient-elle ?",
+          "usage": "Structure interrogative avec « combien de » + nom pour quantifier un public aidé."
+        },
+        {
+          "id": "T2N11S8V12",
+          "kind": "collocation",
+          "french": "missions sont confiées",
+          "english": "tasks are assigned",
+          "example": "Concrètement, quelles missions sont confiées aux bénévoles au quotidien ?",
+          "usage": "Collocation à la voix passive avec « confier une mission à quelqu'un »."
+        },
+        {
+          "id": "T2N11S8V13",
+          "kind": "collocation",
+          "french": "du début à la fin",
+          "english": "from start to finish",
+          "example": "Comment se déroule une distribution, du début à la fin ?",
+          "usage": "Locution figée pour décrire le déroulement complet d'un événement."
+        },
+        {
+          "id": "T2N11S8V14",
+          "kind": "collocation",
+          "french": "en semaine ou le week-end",
+          "english": "on weekdays or at the weekend",
+          "example": "Ça a lieu quels jours exactement — plutôt en semaine ou le week-end ?",
+          "usage": "Coordination de deux compléments de temps pour situer une fréquence."
+        },
+        {
+          "id": "T2N11S8V15",
+          "kind": "collocation",
+          "french": "compétences particulières",
+          "english": "specific skills",
+          "example": "Est-ce qu'il faut avoir des compétences particulières ou une expérience préalable pour s'engager ?",
+          "usage": "Collocation adjectif + nom pour désigner des aptitudes précises requises."
+        },
+        {
+          "id": "T2N11S8V16",
+          "kind": "collocation",
+          "french": "prévu au début",
+          "english": "planned at the start",
+          "example": "Et si on n'a jamais fait de bénévolat, est-ce qu'une formation ou un accompagnement est prévu au début ?",
+          "usage": "Collocation participe passé + locution temporelle pour évoquer une étape initiale."
+        },
+        {
+          "id": "T2N11S8V17",
+          "kind": "collocation",
+          "french": "directement auprès de",
+          "english": "directly with / through",
+          "example": "Comment se passe l'inscription — en ligne ou directement auprès de l'association ?",
+          "usage": "Locution prépositionnelle pour indiquer un contact sans intermédiaire."
+        },
+        {
+          "id": "T2N11S8V18",
+          "kind": "collocation",
+          "french": "frais de transport",
+          "english": "transport costs",
+          "example": "Est-ce que les frais de transport ou de repas sont pris en charge pour les bénévoles ?",
+          "usage": "Collocation nom + de + nom très courante pour désigner des dépenses de déplacement."
+        },
+        {
+          "id": "T2N11S8V19",
+          "kind": "collocation",
+          "french": "pris en charge",
+          "english": "covered / taken care of",
+          "example": "Est-ce que les frais de transport ou de repas sont pris en charge pour les bénévoles ?",
+          "usage": "Collocation figée employée pour indiquer qu'une dépense est remboursée ou assumée."
+        },
+        {
+          "id": "T2N11S8V20",
+          "kind": "collocation",
+          "french": "des précautions particulières",
+          "english": "special precautions",
+          "example": "Y a-t-il aussi des aspects difficiles ou des précautions particulières à connaître ?",
+          "usage": "Collocation adjectif-nom réutilisable pour aborder les mesures de prudence."
+        },
+        {
+          "id": "T2N11S8V21",
+          "kind": "tournure",
+          "french": "tu pourrais m'en dire un peu plus",
+          "english": "could you tell me a bit more about it",
+          "example": "Salut ! Tu m'as parlé de l'association où tu distribues des repas aux sans-abri — tu pourrais m'en dire un peu plus ?",
+          "usage": "Conditionnel de politesse suivi du pronom « en » pour approfondir un sujet déjà évoqué."
+        },
+        {
+          "id": "T2N11S8V22",
+          "kind": "tournure",
+          "french": "dans quels quartiers intervient-elle",
+          "english": "in which neighbourhoods does it operate",
+          "example": "L'association aide combien de personnes environ — et dans quels quartiers intervient-elle ?",
+          "usage": "Inversion pronom-verbe pour interroger sur la zone d'action d'une association."
+        },
+        {
+          "id": "T2N11S8V23",
+          "kind": "tournure",
+          "french": "comment se déroule une distribution",
+          "english": "how does a distribution unfold",
+          "example": "Comment se déroule une distribution, du début à la fin ?",
+          "usage": "Verbe pronominal « se dérouler » pour interroger sur le déroulement d'un événement."
+        },
+        {
+          "id": "T2N11S8V24",
+          "kind": "tournure",
+          "french": "combien d'heures par semaine faut-il prévoir",
+          "english": "how many hours per week should one plan for",
+          "example": "À quelle heure ça commence — et combien d'heures par semaine faut-il prévoir ?",
+          "usage": "Structure avec « il faut prévoir » pour interroger sur un engagement de temps."
+        },
+        {
+          "id": "T2N11S8V25",
+          "kind": "tournure",
+          "french": "si on n'a jamais fait de bénévolat",
+          "english": "if one has never done volunteer work",
+          "example": "Et si on n'a jamais fait de bénévolat, est-ce qu'une formation ou un accompagnement est prévu au début ?",
+          "usage": "Tournure conditionnelle utile pour évoquer un cas de figure lié à l'inexpérience."
+        },
+        {
+          "id": "T2N11S8V26",
+          "kind": "tournure",
+          "french": "comment se passe l'inscription",
+          "english": "how does registration work",
+          "example": "Comment se passe l'inscription — en ligne ou directement auprès de l'association ?",
+          "usage": "Tournure interrogative pratique pour demander une procédure administrative."
+        },
+        {
+          "id": "T2N11S8V27",
+          "kind": "tournure",
+          "french": "est-ce que les gants et le matériel sont fournis",
+          "english": "are the gloves and equipment provided",
+          "example": "Qu'est-ce qu'il faut apporter — ou est-ce que les gants et le matériel sont fournis sur place ?",
+          "usage": "Voix passive avec « être fourni » pour vérifier la mise à disposition de matériel."
+        },
+        {
+          "id": "T2N11S8V28",
+          "kind": "tournure",
+          "french": "y a-t-il aussi des aspects difficiles",
+          "english": "are there also difficult aspects",
+          "example": "Y a-t-il aussi des aspects difficiles ou des précautions particulières à connaître ?",
+          "usage": "Structure impersonnelle « y a-t-il » pour aborder un sujet sensible avec tact."
+        },
+        {
+          "id": "T2N11S8V29",
+          "kind": "tournure",
+          "french": "qu'est-ce que tu apprécies le plus",
+          "english": "what do you enjoy most",
+          "example": "Qu'est-ce que tu apprécies le plus dans cette expérience ?",
+          "usage": "Structure interrogative avec superlatif « le plus » pour cibler un point positif."
+        },
+        {
+          "id": "T2N11S8V30",
+          "kind": "tournure",
+          "french": "quel conseil me donnerais-tu",
+          "english": "what advice would you give me",
+          "example": "Pour finir — quel conseil me donnerais-tu pour bien commencer dans l'association ?",
+          "usage": "Conditionnel présent pour formuler une demande de conseil personnalisé."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:novembre:batch-02:subject-09",
+      "entries": [
+        {
+          "id": "T2N11S9V01",
+          "kind": "mot-cle",
+          "french": "félicitations",
+          "english": "congratulations",
+          "example": "Salut ! Félicitations pour ton nouveau travail — tu pourrais me raconter un peu ce que tu fais ?",
+          "usage": "Nom féminin pluriel invariable pour féliciter quelqu'un d'un événement heureux."
+        },
+        {
+          "id": "T2N11S9V02",
+          "kind": "mot-cle",
+          "french": "secteur",
+          "english": "industry / sector",
+          "example": "L'entreprise travaille dans quel secteur — quelles sont ses activités principales ?",
+          "usage": "Nom masculin pour désigner le domaine d'activité d'une entreprise."
+        },
+        {
+          "id": "T2N11S9V03",
+          "kind": "mot-cle",
+          "french": "ton poste",
+          "english": "your position / job",
+          "example": "Quel est ton poste exactement — et quelles sont tes principales responsabilités ?",
+          "usage": "Nom masculin précédé du possessif « ton » pour désigner une fonction occupée."
+        },
+        {
+          "id": "T2N11S9V04",
+          "kind": "mot-cle",
+          "french": "une période d'intégration",
+          "english": "an onboarding period",
+          "example": "Tu as eu une période d'intégration ou tu as commencé directement dans le vif du sujet ?",
+          "usage": "Groupe nominal désignant la phase d'adaptation à un nouvel emploi."
+        },
+        {
+          "id": "T2N11S9V05",
+          "kind": "mot-cle",
+          "french": "des horaires flexibles",
+          "english": "flexible hours",
+          "example": "À quelle heure ça commence — il y a des horaires flexibles ou tout le monde suit le même rythme ?",
+          "usage": "Groupe nominal désignant des horaires de travail modulables."
+        },
+        {
+          "id": "T2N11S9V06",
+          "kind": "mot-cle",
+          "french": "télétravail",
+          "english": "remote work",
+          "example": "Est-ce qu'il y a des possibilités de télétravail ou tout se fait au bureau ?",
+          "usage": "Nom composé désignant le travail effectué à distance, hors des locaux de l'entreprise."
+        },
+        {
+          "id": "T2N11S9V07",
+          "kind": "mot-cle",
+          "french": "l'ambiance",
+          "english": "the atmosphere",
+          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "usage": "Nom courant désignant le climat général qui règne dans un lieu ou un groupe."
+        },
+        {
+          "id": "T2N11S9V08",
+          "kind": "mot-cle",
+          "french": "salaire",
+          "english": "salary",
+          "example": "Côté salaire, c'est dans quelle gamme pour un poste comme le tien ?",
+          "usage": "Nom masculin désignant la rémunération perçue pour un travail ; s'utilise souvent après « côté »."
+        },
+        {
+          "id": "T2N11S9V09",
+          "kind": "mot-cle",
+          "french": "primes",
+          "english": "bonuses",
+          "example": "Quels sont les avantages dont bénéficient les employés — assurance, congés, primes, ce genre de choses ?",
+          "usage": "Nom féminin pluriel désignant des sommes versées en plus du salaire de base."
+        },
+        {
+          "id": "T2N11S9V10",
+          "kind": "mot-cle",
+          "french": "indispensables",
+          "english": "essential / indispensable",
+          "example": "Quelle expérience ou quelles compétences sont indispensables pour être recruté(e) ?",
+          "usage": "Adjectif pluriel pour qualifier des compétences absolument nécessaires."
+        },
+        {
+          "id": "T2N11S9V11",
+          "kind": "collocation",
+          "french": "raconter un peu",
+          "english": "tell a bit about",
+          "example": "Salut ! Félicitations pour ton nouveau travail — tu pourrais me raconter un peu ce que tu fais ?",
+          "usage": "Collocation verbe + adverbe pour introduire une demande de récit informel."
+        },
+        {
+          "id": "T2N11S9V12",
+          "kind": "collocation",
+          "french": "ses activités principales",
+          "english": "its main activities",
+          "example": "L'entreprise travaille dans quel secteur — quelles sont ses activités principales ?",
+          "usage": "Groupe nominal avec possessif « ses » pour désigner les domaines d'action essentiels d'une entreprise."
+        },
+        {
+          "id": "T2N11S9V13",
+          "kind": "collocation",
+          "french": "tes principales responsabilités",
+          "english": "your main responsibilities",
+          "example": "Quel est ton poste exactement — et quelles sont tes principales responsabilités ?",
+          "usage": "Groupe nominal avec possessif « tes » pour désigner les tâches essentielles d'un poste."
+        },
+        {
+          "id": "T2N11S9V14",
+          "kind": "collocation",
+          "french": "dans le vif du sujet",
+          "english": "straight into the thick of it",
+          "example": "Tu as eu une période d'intégration ou tu as commencé directement dans le vif du sujet ?",
+          "usage": "Locution figée pour indiquer qu'on commence directement l'essentiel d'une tâche."
+        },
+        {
+          "id": "T2N11S9V15",
+          "kind": "collocation",
+          "french": "de manière individuelle",
+          "english": "individually",
+          "example": "Comment s'organise le travail au quotidien — plutôt en équipe ou de manière individuelle ?",
+          "usage": "Groupe adverbial fixe opposé à « en équipe »."
+        },
+        {
+          "id": "T2N11S9V16",
+          "kind": "collocation",
+          "french": "formelle ou décontractée",
+          "english": "formal or casual",
+          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "usage": "Collocation adjectivale par coordination pour qualifier une ambiance générale."
+        },
+        {
+          "id": "T2N11S9V17",
+          "kind": "collocation",
+          "french": "bien accueilli(e)",
+          "english": "warmly welcomed",
+          "example": "Et tes collègues, ils sont comment — ils t'ont bien accueilli(e) ?",
+          "usage": "Participe passé + adverbe pour évoquer un accueil chaleureux."
+        },
+        {
+          "id": "T2N11S9V18",
+          "kind": "collocation",
+          "french": "un poste comme le tien",
+          "english": "a position like yours",
+          "example": "Côté salaire, c'est dans quelle gamme pour un poste comme le tien ?",
+          "usage": "Pronom possessif « le tien » pour comparer une situation à celle de l'interlocuteur."
+        },
+        {
+          "id": "T2N11S9V19",
+          "kind": "collocation",
+          "french": "recrute en ce moment",
+          "english": "is hiring right now",
+          "example": "Tu sais si l'entreprise recrute en ce moment ou si des postes vont bientôt s'ouvrir ?",
+          "usage": "Collocation verbe + locution temporelle pour interroger sur une actualité de recrutement."
+        },
+        {
+          "id": "T2N11S9V20",
+          "kind": "collocation",
+          "french": "te plaît moins",
+          "english": "you like less",
+          "example": "Y a-t-il quelque chose qui te plaît moins dans ce nouveau poste ?",
+          "usage": "Verbe « plaire » à la forme négative nuancée par « moins » pour interroger sur un aspect négatif."
+        },
+        {
+          "id": "T2N11S9V21",
+          "kind": "tournure",
+          "french": "tu pourrais me raconter un peu ce que tu fais",
+          "english": "could you tell me a bit about what you do",
+          "example": "Salut ! Félicitations pour ton nouveau travail — tu pourrais me raconter un peu ce que tu fais ?",
+          "usage": "Conditionnel de politesse suivi d'une proposition relative pour demander un récit."
+        },
+        {
+          "id": "T2N11S9V22",
+          "kind": "tournure",
+          "french": "quelles sont ses activités principales",
+          "english": "what are its main activities",
+          "example": "L'entreprise travaille dans quel secteur — quelles sont ses activités principales ?",
+          "usage": "Structure interrogative avec « quelles sont » pour explorer les domaines d'une entreprise."
+        },
+        {
+          "id": "T2N11S9V23",
+          "kind": "tournure",
+          "french": "tu as eu une période d'intégration",
+          "english": "did you have an onboarding period",
+          "example": "Tu as eu une période d'intégration ou tu as commencé directement dans le vif du sujet ?",
+          "usage": "Passé composé pour interroger sur une étape déjà vécue."
+        },
+        {
+          "id": "T2N11S9V24",
+          "kind": "tournure",
+          "french": "Comment s'organise le travail au quotidien",
+          "english": "How is the work organized day-to-day",
+          "example": "Comment s'organise le travail au quotidien — plutôt en équipe ou de manière individuelle ?",
+          "usage": "Question soutenue avec inversion du sujet 'le travail' après le verbe pronominal 'organise'."
+        },
+        {
+          "id": "T2N11S9V25",
+          "kind": "tournure",
+          "french": "tout le monde suit le même rythme",
+          "english": "everyone keeps the same schedule",
+          "example": "À quelle heure ça commence — il y a des horaires flexibles ou tout le monde suit le même rythme ?",
+          "usage": "Structure avec « tout le monde » + verbe au singulier pour évoquer une uniformité."
+        },
+        {
+          "id": "T2N11S9V26",
+          "kind": "tournure",
+          "french": "plutôt formelle ou décontractée",
+          "english": "rather formal or casual",
+          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "usage": "Structure figée avec 'plutôt... ou...' pour proposer une alternative de registre."
+        },
+        {
+          "id": "T2N11S9V27",
+          "kind": "tournure",
+          "french": "ils t'ont bien accueilli(e)",
+          "english": "did they make you feel welcome?",
+          "example": "Et tes collègues, ils sont comment — ils t'ont bien accueilli(e) ?",
+          "usage": "Passé composé à la troisième personne du pluriel pour interroger sur l'accueil reçu."
+        },
+        {
+          "id": "T2N11S9V28",
+          "kind": "tournure",
+          "french": "des postes vont bientôt s'ouvrir",
+          "english": "positions will soon open up",
+          "example": "Tu sais si l'entreprise recrute en ce moment ou si des postes vont bientôt s'ouvrir ?",
+          "usage": "Futur proche « aller » + infinitif pronominal pour anticiper un événement futur."
+        },
+        {
+          "id": "T2N11S9V29",
+          "kind": "tournure",
+          "french": "y a-t-il quelque chose qui te plaît moins",
+          "english": "is there anything you like less",
+          "example": "Y a-t-il quelque chose qui te plaît moins dans ce nouveau poste ?",
+          "usage": "Structure avec « moins » pour interroger poliment sur un aspect négatif."
+        },
+        {
+          "id": "T2N11S9V30",
+          "kind": "tournure",
+          "french": "tu me conseillerais de postuler",
+          "english": "would you advise me to apply",
+          "example": "Pour finir — avec mon profil, tu me conseillerais de postuler dans cette entreprise ?",
+          "usage": "Conditionnel de politesse suivi de « conseiller de » + infinitif pour demander un avis."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:novembre:batch-02:subject-10",
+      "entries": [
+        {
+          "id": "T2N11S10V01",
+          "kind": "mot-cle",
+          "french": "le week-end prochain",
+          "english": "next weekend",
+          "example": "Bonjour ! D'accord pour garder votre enfant le week-end prochain — c'est prévu pour quel jour exactement, et quels sont les horaires souhaités ?",
+          "usage": "Groupe nominal temporel avec « prochain » pour situer un événement futur proche."
+        },
+        {
+          "id": "T2N11S10V02",
+          "kind": "mot-cle",
+          "french": "le prénom",
+          "english": "the first name",
+          "example": "Pour que je m'organise, quel est le prénom et l'âge de votre enfant ?",
+          "usage": "Nom masculin désignant le nom donné à la naissance, distinct du nom de famille."
+        },
+        {
+          "id": "T2N11S10V03",
+          "kind": "mot-cle",
+          "french": "mes principales responsabilités",
+          "english": "my main responsibilities",
+          "example": "Concrètement, qu'attendez-vous de moi pendant la garde — quelles seront mes principales responsabilités ?",
+          "usage": "Groupe nominal avec possessif « mes » pour désigner les tâches essentielles confiées à quelqu'un."
+        },
+        {
+          "id": "T2N11S10V04",
+          "kind": "mot-cle",
+          "french": "les repas",
+          "english": "the meals",
+          "example": "Pour les repas, qu'avez-vous prévu, et à quelles heures faut-il les servir ?",
+          "usage": "Nom masculin pluriel désignant les repas de la journée, sujet central de cette question."
+        },
+        {
+          "id": "T2N11S10V05",
+          "kind": "mot-cle",
+          "french": "des allergies",
+          "english": "allergies",
+          "example": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
+          "usage": "Nom féminin pluriel désignant les réactions à certains aliments."
+        },
+        {
+          "id": "T2N11S10V06",
+          "kind": "mot-cle",
+          "french": "des consignes particulières",
+          "english": "specific instructions",
+          "example": "S'il fait beau et que je sors avec votre enfant, y a-t-il des consignes particulières à respecter — un vêtement à prévoir, une limite de temps, ce genre de chose ?",
+          "usage": "Groupe nominal pour désigner des règles précises à respecter dans un contexte donné."
+        },
+        {
+          "id": "T2N11S10V07",
+          "kind": "mot-cle",
+          "french": "le coucher",
+          "english": "bedtime",
+          "example": "Si la garde se prolonge le soir, à quelle heure faut-il prévoir le coucher, et y a-t-il une routine particulière ?",
+          "usage": "Nom masculin désignant le moment où l'on va dormir le soir."
+        },
+        {
+          "id": "T2N11S10V08",
+          "kind": "mot-cle",
+          "french": "des soins particuliers",
+          "english": "special care",
+          "example": "Y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
+          "usage": "Groupe nominal pour évoquer une attention médicale ou physique spécifique."
+        },
+        {
+          "id": "T2N11S10V09",
+          "kind": "mot-cle",
+          "french": "le nécessaire",
+          "english": "the necessities / everything needed",
+          "example": "Qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
+          "usage": "Pronom nominalisé introduit par « tout » pour désigner l'ensemble des objets utiles."
+        },
+        {
+          "id": "T2N11S10V10",
+          "kind": "mot-cle",
+          "french": "une autre personne",
+          "english": "another person",
+          "example": "En cas de problème, comment puis-je vous joindre, et y a-t-il une autre personne à contacter si vous n'êtes pas disponible ?",
+          "usage": "Groupe nominal pour désigner un contact alternatif en cas d'absence du premier interlocuteur."
+        },
+        {
+          "id": "T2N11S10V11",
+          "kind": "collocation",
+          "french": "les horaires souhaités",
+          "english": "the desired / preferred times",
+          "example": "Bonjour ! D'accord pour garder votre enfant le week-end prochain — c'est prévu pour quel jour exactement, et quels sont les horaires souhaités ?",
+          "usage": "Groupe nominal avec adjectif « souhaité » pour interroger sur des horaires encore à définir."
+        },
+        {
+          "id": "T2N11S10V12",
+          "kind": "collocation",
+          "french": "pendant la garde",
+          "english": "during the childminding",
+          "example": "Concrètement, qu'attendez-vous de moi pendant la garde — quelles seront mes principales responsabilités ?",
+          "usage": "Locution prépositionnelle temporelle situant une action pendant la durée de la garde."
+        },
+        {
+          "id": "T2N11S10V13",
+          "kind": "collocation",
+          "french": "des choses à éviter côté alimentation",
+          "english": "things to avoid regarding food",
+          "example": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
+          "usage": "Groupe nominal avec infinitif de but sur l'alimentation."
+        },
+        {
+          "id": "T2N11S10V14",
+          "kind": "collocation",
+          "french": "jeux à la maison",
+          "english": "games at home",
+          "example": "Quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
+          "usage": "Groupe nominal pour désigner des activités pratiquées à l'intérieur."
+        },
+        {
+          "id": "T2N11S10V15",
+          "kind": "collocation",
+          "french": "une limite de temps",
+          "english": "a time limit",
+          "example": "S'il fait beau et que je sors avec votre enfant, y a-t-il des consignes particulières à respecter — un vêtement à prévoir, une limite de temps, ce genre de chose ?",
+          "usage": "Groupe nominal pour évoquer une durée maximale à ne pas dépasser."
+        },
+        {
+          "id": "T2N11S10V16",
+          "kind": "collocation",
+          "french": "jeux vidéo",
+          "english": "video games",
+          "example": "Y a-t-il des règles particulières à respecter pour la télévision, les écrans ou les jeux vidéo ?",
+          "usage": "Nom masculin pluriel désignant les jeux électroniques sur écran."
+        },
+        {
+          "id": "T2N11S10V17",
+          "kind": "collocation",
+          "french": "se prolonge le soir",
+          "english": "extends into the evening",
+          "example": "Si la garde se prolonge le soir, à quelle heure faut-il prévoir le coucher, et y a-t-il une routine particulière ?",
+          "usage": "Collocation verbale avec « se prolonger » pour évoquer un allongement de durée."
+        },
+        {
+          "id": "T2N11S10V18",
+          "kind": "collocation",
+          "french": "des médicaments à donner",
+          "english": "medication to give",
+          "example": "Y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
+          "usage": "Groupe nominal avec infinitif de but pour évoquer une responsabilité médicale précise."
+        },
+        {
+          "id": "T2N11S10V19",
+          "kind": "collocation",
+          "french": "aurait lieu chez vous",
+          "english": "would take place at your home",
+          "example": "La garde aurait lieu chez vous ou chez moi ?",
+          "usage": "Le conditionnel sert à confirmer un lieu encore à convenir."
+        },
+        {
+          "id": "T2N11S10V20",
+          "kind": "collocation",
+          "french": "d'autres habitudes",
+          "english": "other habits",
+          "example": "Y a-t-il d'autres habitudes ou règles importantes à respecter avec votre enfant ?",
+          "usage": "Adjectif indéfini « d'autres » pour élargir une question déjà en partie traitée."
+        },
+        {
+          "id": "T2N11S10V21",
+          "kind": "tournure",
+          "french": "qu'attendez-vous de moi pendant la garde",
+          "english": "what do you expect from me during the childminding",
+          "example": "Concrètement, qu'attendez-vous de moi pendant la garde — quelles seront mes principales responsabilités ?",
+          "usage": "Structure avec « attendre de quelqu'un » pour interroger sur des attentes précises."
+        },
+        {
+          "id": "T2N11S10V22",
+          "kind": "tournure",
+          "french": "à quelles heures faut-il les servir",
+          "english": "what times should they be served",
+          "example": "Pour les repas, qu'avez-vous prévu, et à quelles heures faut-il les servir ?",
+          "usage": "Structure impersonnelle « il faut » + pronom « les » reprenant « les repas » pour éviter toute référence genrée à l'enfant."
+        },
+        {
+          "id": "T2N11S10V23",
+          "kind": "tournure",
+          "french": "Y a-t-il des allergies ou des choses à éviter",
+          "english": "Are there allergies or things to avoid",
+          "example": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
+          "usage": "Tournure « y a-t-il » sur les précautions alimentaires."
+        },
+        {
+          "id": "T2N11S10V24",
+          "kind": "tournure",
+          "french": "quelles sont les activités préférées de votre enfant",
+          "english": "what are your child's favourite activities",
+          "example": "Quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
+          "usage": "Structure avec « quelles sont » pour explorer des préférences."
+        },
+        {
+          "id": "T2N11S10V25",
+          "kind": "tournure",
+          "french": "s'il fait beau et que je sors avec votre enfant",
+          "english": "if the weather is nice and I go out with your child",
+          "example": "S'il fait beau et que je sors avec votre enfant, y a-t-il des consignes particulières à respecter — un vêtement à prévoir, une limite de temps, ce genre de chose ?",
+          "usage": "Double proposition conditionnelle introduite par « si » pour poser une hypothèse avant la question principale."
+        },
+        {
+          "id": "T2N11S10V26",
+          "kind": "tournure",
+          "french": "à quelle heure faut-il prévoir le coucher",
+          "english": "what time should bedtime be planned for",
+          "example": "Si la garde se prolonge le soir, à quelle heure faut-il prévoir le coucher, et y a-t-il une routine particulière ?",
+          "usage": "Structure impersonnelle « il faut prévoir » pour interroger sur un horaire à respecter."
+        },
+        {
+          "id": "T2N11S10V27",
+          "kind": "tournure",
+          "french": "est-ce que vous fournissez tout le nécessaire",
+          "english": "do you provide everything needed",
+          "example": "Qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
+          "usage": "Structure avec « est-ce que » pour vérifier discrètement une prise en charge matérielle."
+        },
+        {
+          "id": "T2N11S10V28",
+          "kind": "tournure",
+          "french": "La garde aurait lieu chez vous ou chez moi",
+          "english": "would the care take place at your home or mine",
+          "example": "La garde aurait lieu chez vous ou chez moi ?",
+          "usage": "Alternative polie qui clarifie directement le lieu de garde."
+        },
+        {
+          "id": "T2N11S10V29",
+          "kind": "tournure",
+          "french": "comment puis-je vous joindre",
+          "english": "how can I reach you",
+          "example": "En cas de problème, comment puis-je vous joindre, et y a-t-il une autre personne à contacter si vous n'êtes pas disponible ?",
+          "usage": "Verbe « pouvoir » à la première personne (« puis-je ») pour une question polie sur un moyen de contact."
+        },
+        {
+          "id": "T2N11S10V30",
+          "kind": "tournure",
+          "french": "y a-t-il autre chose d'important que je devrais savoir",
+          "english": "is there anything else important I should know",
+          "example": "Pour finir — y a-t-il autre chose d'important que je devrais savoir avant ce week-end ?",
+          "usage": "Structure impersonnelle « y a-t-il » suivie du conditionnel « je devrais » pour une clôture ouverte."
+        }
+      ]
+    }
+  ]
+}

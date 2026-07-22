@@ -974,6 +974,62 @@ def task_memory_progress(request, part_slug, task_slug, memory_number):
     )
 
 
+@require_POST
+def subject_completion(request, part_slug, task_slug, response_id):
+    task = _route_task(part_slug, task_slug)
+    route_prompt = (
+        Prompt.objects.select_related("response")
+        .filter(
+            response_id=response_id,
+            response__is_active=True,
+            is_active=True,
+            theme__is_active=True,
+            theme__task=task,
+        )
+        .order_by("-is_canonical", "number", "pk")
+        .first()
+    )
+    if route_prompt is None:
+        raise Http404
+    response = route_prompt.response
+    completed = request.POST.get("completed")
+    if completed not in {"0", "1"}:
+        if request.headers.get("X-Requested-With") == "fetch":
+            return JsonResponse(
+                {"error": "État de progression invalide."},
+                status=400,
+            )
+        return HttpResponseBadRequest("État de progression invalide.")
+
+    card, _created = Card.objects.get_or_create(
+        user=request.user,
+        card_type=CardType.SPINE,
+        response=response,
+    )
+    completed_at = timezone.now() if completed == "1" else None
+    Card.objects.filter(pk=card.pk).update(
+        subject_completed_at=completed_at,
+    )
+    progress = subject_progress_by_response(
+        request.user,
+        {response.pk},
+    )[response.pk]
+
+    if request.headers.get("X-Requested-With") == "fetch":
+        return JsonResponse(
+            {
+                "response_id": response.pk,
+                "completed": progress.explicitly_completed,
+                "subject": {
+                    "status": progress.status,
+                    "label": progress.label,
+                },
+            }
+        )
+
+    return redirect(prompt_detail_url(route_prompt))
+
+
 def family_detail(request, part_slug, task_slug, slug):
     task = _route_task(part_slug, task_slug)
     family = get_object_or_404(

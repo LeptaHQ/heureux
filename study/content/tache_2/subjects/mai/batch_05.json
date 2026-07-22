@@ -100,7 +100,8 @@
         },
         {
           "text": "L'appartement est-il en bon état général ou y a-t-il des travaux à prévoir ?",
-          "memory_section": 17
+          "memory_section": 3,
+          "memory_number": 3
         },
         {
           "text": "Est-il lumineux — et y a-t-il un balcon ou une terrasse ?",
@@ -180,7 +181,8 @@
         },
         {
           "text": "Qui encadre les enfants — ce sont des animateurs ou des professeurs qualifiés ?",
-          "memory_section": 17
+          "memory_section": 5,
+          "memory_number": 3
         },
         {
           "text": "Il y a généralement combien d'enfants par groupe ?",
@@ -298,7 +300,8 @@
         },
         {
           "text": "Quel est ton poste exactement — et quelles sont tes principales responsabilités ?",
-          "memory_section": 10
+          "memory_section": 4,
+          "memory_number": 3
         },
         {
           "text": "Tu as eu une période d'intégration ou tu as commencé directement dans le vif du sujet ?",
@@ -350,6 +353,77 @@
           "text": "Pour finir — avec mon profil, tu me conseillerais de postuler dans cette entreprise ?",
           "memory_number": 2,
           "memory_section": 1
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "title": "Garde d'un enfant le week-end",
+      "prompt": "Je suis votre voisin(e). Vous acceptez de garder mon enfant le week-end prochain et vous me posez des questions pour bien vous organiser (horaires, repas, activités, consignes, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! D'accord pour garder votre enfant le week-end prochain — c'est prévu pour quel jour exactement, et quels sont les horaires souhaités ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Pour que je m'organise, quel est le prénom et l'âge de votre enfant ?",
+          "memory_number": 3,
+          "memory_section": 2
+        },
+        {
+          "text": "Concrètement, qu'attendez-vous de moi pendant la garde — quelles seront mes principales responsabilités ?",
+          "memory_section": 5,
+          "memory_number": 3
+        },
+        {
+          "text": "Pour les repas, qu'avez-vous prévu, et à quelles heures faut-il les servir ?",
+          "memory_section": 2,
+          "memory_number": 3
+        },
+        {
+          "text": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
+          "memory_section": 2,
+          "memory_number": 3
+        },
+        {
+          "text": "S'il fait beau et que je sors avec votre enfant, y a-t-il des consignes particulières à respecter — un vêtement à prévoir, une limite de temps, ce genre de chose ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Y a-t-il des règles particulières à respecter pour la télévision, les écrans ou les jeux vidéo ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Si la garde se prolonge le soir, à quelle heure faut-il prévoir le coucher, et y a-t-il une routine particulière ?",
+          "memory_section": 20
+        },
+        {
+          "text": "Y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
+          "memory_section": 5
+        },
+        {
+          "text": "La garde aurait lieu chez vous ou chez moi ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Y a-t-il d'autres habitudes ou règles importantes à respecter avec votre enfant ?",
+          "memory_section": 20
+        },
+        {
+          "text": "En cas de problème, comment puis-je vous joindre, et y a-t-il une autre personne à contacter si vous n'êtes pas disponible ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Pour finir — y a-t-il autre chose d'important que je devrais savoir avant ce week-end ?",
+          "memory_section": 4
         }
       ]
     }

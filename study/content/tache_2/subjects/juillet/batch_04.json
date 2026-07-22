@@ -1,0 +1,303 @@
+{
+  "month": {
+    "number": 7,
+    "slug": "juillet",
+    "name": "Juillet"
+  },
+  "batch": 4,
+  "subjects": [
+    {
+      "number": 16,
+      "title": "Invitation à un concert",
+      "prompt": "Je suis votre ami(e) et je vous propose de m'accompagner à un concert. La sortie vous tente, alors vous me posez des questions sur le style de musique, le lieu et la date de l'événement.",
+      "questions": [
+        {
+          "text": "Salut ! Tu m'as proposé de venir avec toi à un concert — ça me tente bien, tu peux m'en dire plus ?",
+          "memory_number": 4,
+          "memory_section": 1
+        },
+        {
+          "text": "C'est quel artiste ou quel groupe qui se produit ?"
+        },
+        {
+          "text": "C'est quel genre de musique — plutôt rock, pop, classique, jazz ?"
+        },
+        {
+          "text": "Ça se déroule où — en plein air, dans une salle ?",
+          "memory_section": 4
+        },
+        {
+          "text": "C'est prévu pour quand — quel jour et à quelle heure ça commence ?"
+        },
+        {
+          "text": "Ça dure combien de temps — juste le concert ou il y a une première partie ?"
+        },
+        {
+          "text": "Ça coûte combien, l'entrée ?"
+        },
+        {
+          "text": "Il reste encore des places ou c'est bientôt complet ?"
+        },
+        {
+          "text": "Il faut réserver les billets à l'avance ou on peut les prendre sur place ?"
+        },
+        {
+          "text": "Comment on s'organise pour le transport ou le stationnement sur place ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Si c'est en extérieur, faut-il prévoir quelque chose en cas de mauvais temps ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Y a-t-il une limite d'âge ou des règles particulières à respecter sur place ?",
+          "memory_section": 17
+        },
+        {
+          "text": "On peut manger ou boire quelque chose sur place ?"
+        },
+        {
+          "text": "Toi qui connais cet artiste, tu me conseilles vraiment d'y aller ?",
+          "memory_number": 4,
+          "memory_section": 5
+        },
+        {
+          "text": "Pour finir — je peux te confirmer aujourd'hui si je viens avec toi ?"
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "title": "Atelier de cuisine",
+      "prompt": "Je suis votre ami(e) et je viens de suivre un atelier de cuisine. Envie d'en faire autant, vous me demandez ce qu'il en coûte, à quels horaires ça se déroule et ce qu'on y apprend.",
+      "questions": [
+        {
+          "text": "Salut ! Tu m'as dit que tu avais suivi un atelier de cuisine — ça m'intéresse beaucoup, tu peux m'en parler ?"
+        },
+        {
+          "text": "Ça se passe où exactement — dans une école de cuisine, un restaurant ?"
+        },
+        {
+          "text": "Qu'est-ce qu'on apprend concrètement — un type de cuisine en particulier ?"
+        },
+        {
+          "text": "On cuisine vraiment nous-mêmes ou c'est surtout de la démonstration ?"
+        },
+        {
+          "text": "Il faut déjà savoir cuisiner ou c'est ouvert aux débutants ?",
+          "memory_number": 4,
+          "memory_section": 3
+        },
+        {
+          "text": "Ça dure combien de temps — une séance de quelques heures ou plusieurs cours ?"
+        },
+        {
+          "text": "C'est à quel moment — plutôt en soirée ou le week-end ?"
+        },
+        {
+          "text": "Il y a combien de participants par atelier ?"
+        },
+        {
+          "text": "Combien ça coûte — c'est à la séance ou il y a un forfait ?"
+        },
+        {
+          "text": "Le prix comprend quoi — les ingrédients et le matériel sont fournis ?"
+        },
+        {
+          "text": "Est-ce qu'on repart avec les plats qu'on a préparés ?"
+        },
+        {
+          "text": "Est-ce qu'on mange ensemble à la fin de l'atelier ?"
+        },
+        {
+          "text": "Faut-il apporter quelque chose — un tablier, ses propres ustensiles ?"
+        },
+        {
+          "text": "Comment on s'inscrit — il reste encore des places ?"
+        },
+        {
+          "text": "Pour finir — tu me le recommandes vraiment, cet atelier ?"
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "title": "Restaurant pour un anniversaire – Toronto",
+      "prompt": "Je suis votre collègue et vous venez d'arriver à Toronto. À la recherche d'un lieu pour fêter votre anniversaire, vous me demandez conseil sur les restaurants de la ville : le type de cuisine, les prix et l'ambiance.",
+      "questions": [
+        {
+          "text": "Salut ! Je viens de m'installer à Toronto et je cherche un bon restaurant pour fêter mon anniversaire — tu aurais des idées à me conseiller ?"
+        },
+        {
+          "text": "Quels types de cuisine on trouve dans les restaurants du coin ?"
+        },
+        {
+          "text": "Ça va plutôt dans quelle gamme de prix en général ?",
+          "memory_section": 1
+        },
+        {
+          "text": "L'ambiance est plutôt calme et intime, ou plus animée et festive ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Ces restaurants conviennent pour un groupe, ou plutôt pour de petites tables ?"
+        },
+        {
+          "text": "Il faut réserver à l'avance, surtout pour un week-end ?"
+        },
+        {
+          "text": "Certains proposent un menu spécial pour les anniversaires ?"
+        },
+        {
+          "text": "Ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Y a-t-il un parking à proximité si on vient en voiture ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Il y a des options pour les régimes particuliers ou les allergies ?"
+        },
+        {
+          "text": "Tu as mentionné un restaurant en particulier — tu pourrais m'en dire un peu plus ?"
+        },
+        {
+          "text": "Tu y es déjà allé(e) toi-même — qu'est-ce que tu en as pensé ?",
+          "memory_number": 4,
+          "memory_section": 5
+        },
+        {
+          "text": "Le rapport qualité-prix te semble bon, comparé à d'autres endroits ?",
+          "memory_number": 4,
+          "memory_section": 5
+        },
+        {
+          "text": "Le service y est plutôt rapide, ou plus adapté à une soirée tranquille ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Pour finir — parmi tous ceux que tu connais, lequel tu me recommandes vraiment pour l'occasion ?"
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "title": "Inscription des enfants à l'école",
+      "prompt": "Je suis votre voisin(e) et vous venez tout juste de vous installer à Edmonton. Souhaitant scolariser vos enfants, vous m'interrogez sur les écoles du secteur : où elles se trouvent, comment sont les enseignants et quelles activités y sont proposées.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je viens d'arriver à Edmonton et je souhaite inscrire mes enfants à l'école — vous pourriez me renseigner sur les établissements du quartier ?"
+        },
+        {
+          "text": "Quelles écoles y a-t-il à proximité — et où sont-elles situées exactement ?"
+        },
+        {
+          "text": "Ces écoles sont-elles accessibles à pied ou faut-il prévoir un transport ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Y a-t-il un service de bus scolaire pour les enfants ?"
+        },
+        {
+          "text": "Ces écoles ont-elles bonne réputation — les enseignants sont réputés attentifs ?"
+        },
+        {
+          "text": "Les classes sont-elles plutôt grandes ou à effectif réduit ?"
+        },
+        {
+          "text": "Quelles activités sont proposées aux enfants — sport, musique, arts, aide aux devoirs ?"
+        },
+        {
+          "text": "Y a-t-il des activités après l'école ou une garderie pour s'adapter aux horaires de travail ?"
+        },
+        {
+          "text": "Comment se passe l'inscription — quelles démarches et quels documents faut-il prévoir ?"
+        },
+        {
+          "text": "Y a-t-il une période précise pour inscrire les enfants ou on peut le faire à tout moment ?"
+        },
+        {
+          "text": "Faut-il habiter dans un secteur précis pour être accepté dans une école ?"
+        },
+        {
+          "text": "Les écoles sont-elles publiques et gratuites, ou il y a des frais à prévoir ?"
+        },
+        {
+          "text": "Y a-t-il aussi des écoles françaises ou bilingues dans le secteur ?"
+        },
+        {
+          "text": "À qui je peux m'adresser pour avoir plus d'informations sur les inscriptions ?"
+        },
+        {
+          "text": "Pour finir — quelle école me recommanderiez-vous dans le quartier ?"
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "title": "Transports en commun dans la ville",
+      "prompt": "Je travaille au service des transports en commun de la ville et vous venez d'arriver dans la région. Pour vous repérer, vous me questionnez sur les moyens de transport disponibles, leurs tarifs et leurs horaires.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je viens de m'installer ici et j'aimerais me déplacer en transports en commun — pouvez-vous m'expliquer comment ça marche ?"
+        },
+        {
+          "text": "Quels types de transports sont disponibles ici — bus, métro, tramway ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Est-ce que le réseau couvre toute la ville ou seulement certaines zones ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Où peut-on acheter les tickets ou les abonnements — en ligne, à une borne ou auprès d'un agent ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le tarif comprend quoi exactement — un ticket est-il valable pour plusieurs types de transport ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Le réseau fonctionne-t-il chaque jour de la semaine — les horaires changent-ils le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il une application pour suivre les transports en temps réel ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Les principaux sites touristiques sont-ils facilement accessibles en transports en commun ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "memory_section": 8
+        },
+        {
+          "text": "L'application permet-elle aussi de planifier un itinéraire ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Que faire en cas de problème ou si je me trompe de ligne — à qui puis-je m'adresser ?"
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose pour bien utiliser les transports ici, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    }
+  ]
+}

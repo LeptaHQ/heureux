@@ -7,7 +7,7 @@
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
   <script src="{% static 'study/js/theme-init.js' %}?v=2"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=114">
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=117">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -174,9 +174,10 @@
   </main>
 
   <div class="selection-translate hidden" role="toolbar" aria-label="Selected text actions" data-selection-translate>
-    <button class="selection-translate__button selection-translate__button--copy" type="button" aria-label="Copy selected text" data-copy-selection>
+    <button class="selection-translate__button selection-translate__button--copy" type="button" aria-label="Copy selected text" aria-keyshortcuts="C" title="Copy selected text · Shortcut: C" data-copy-selection>
       <svg data-icon="copy" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="{% static 'study/icons/ui-icons.svg' %}?v=3#icon-copy" data-copy-selection-icon></use></svg>
       <span class="selection-translate__label" aria-live="polite" data-copy-selection-label>Copy</span>
+      <kbd class="selection-translate__shortcut" aria-hidden="true">C</kbd>
     </button>
     <button class="selection-translate__button selection-translate__button--read" type="button" aria-label="Read selected text in French" aria-keyshortcuts="R" aria-pressed="false" title="Read selected text in French · Shortcut: R" data-read-selection>
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -290,14 +291,17 @@
   </section>
 
   <div class="annotation-toast hidden" role="status" aria-live="polite" data-annotation-toast></div>
+  <div class="annotation-toast hidden" role="alert" aria-live="assertive" data-subject-progress-toast data-comprehension-progress-toast></div>
   <div class="pwa-update hidden" role="status" aria-live="polite" data-pwa-update-banner>
     <span>Une nouvelle version de Heureux est prête.</span>
     <button class="btn btn--primary" type="button" data-pwa-update>Mettre à jour</button>
   </div>
 
   <script src="{% static 'study/js/app.js' %}?v=36"></script>
-  <script src="{% static 'study/js/translate.js' %}?v=13"></script>
+  <script src="{% static 'study/js/translate.js' %}?v=14"></script>
   <script src="{% static 'study/js/annotations.js' %}?v=12"></script>
+  <script src="{% static 'study/js/subject-progress.js' %}?v=1"></script>
+  <script src="{% static 'study/js/comprehension-progress.js' %}?v=1"></script>
   {% block scripts %}{% endblock %}
 </body>
 </html>

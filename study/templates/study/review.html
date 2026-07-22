@@ -86,10 +86,14 @@
       {% endif %}
       {% if next_batch %}
         <a class="btn btn--primary" href="{{ next_batch.review_url }}">Passer au lot {{ next_batch.number }} {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
+      {% elif subject_return_url %}
+        <a class="btn btn--primary" href="{{ subject_return_url }}">Retour au sujet</a>
       {% else %}
         <a class="btn btn--primary" href="{% url 'study:dashboard' %}">Retour à l'accueil</a>
       {% endif %}
-      {% if batch_index_url %}
+      {% if vocabulary_lots_url %}
+        <a class="btn" href="{{ vocabulary_lots_url }}">Voir les lots</a>
+      {% elif batch_index_url %}
         <a class="btn" href="{{ batch_index_url }}">Voir tous les lots</a>
       {% else %}
         <a class="btn" href="{% url 'study:revisit_list' %}">Ma liste à revoir</a>

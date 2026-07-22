@@ -67,6 +67,7 @@ from .comprehension import (
     comprehension_results,
     comprehension_start,
     comprehension_test_detail,
+    comprehension_test_completion,
 )
 from .dashboard import (
     _home_expression_paths,
@@ -133,6 +134,7 @@ from .library import (
     response_detail,
     search,
     stats,
+    subject_completion,
     task_detail,
     task_memory_detail,
     task_memories,
@@ -226,6 +228,7 @@ __all__ = [
     'comprehension_results',
     'comprehension_start',
     'comprehension_test_detail',
+    'comprehension_test_completion',
     'current_streak',
     'dashboard',
     'deck_stats',
@@ -258,6 +261,7 @@ __all__ = [
     'search',
     'settings_view',
     'stats',
+    'subject_completion',
     'task_detail',
     'task_memory_detail',
     'task_memories',

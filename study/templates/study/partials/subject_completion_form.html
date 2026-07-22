@@ -1,0 +1,25 @@
+{% if response_id %}
+  <form
+    class="subject-completion-check{% if progress.explicitly_completed %} is-complete{% endif %}"
+    method="post"
+    action="{% url 'study:subject_completion' part.slug task.slug response_id %}"
+    data-subject-completion-form
+    data-subject-response-id="{{ response_id }}"
+    {% if refresh %}data-subject-completion-refresh="true"{% endif %}>
+    {% csrf_token %}
+    <input
+      type="hidden"
+      name="completed"
+      value="{% if progress.explicitly_completed %}0{% else %}1{% endif %}"
+      data-subject-completed-input>
+    <button
+      type="submit"
+      role="checkbox"
+      data-subject-label="{{ subject_label }}"
+      aria-checked="{{ progress.explicitly_completed|yesno:'true,false' }}"
+      aria-label="{% if progress.explicitly_completed %}Marquer ce sujet comme non terminé : {% else %}Marquer ce sujet comme terminé : {% endif %}{{ subject_label }}"
+      title="{% if progress.explicitly_completed %}Sujet terminé{% else %}Marquer comme terminé{% endif %}">
+      {% include "study/partials/ui_icon.html" with name="check" only %}
+    </button>
+  </form>
+{% endif %}

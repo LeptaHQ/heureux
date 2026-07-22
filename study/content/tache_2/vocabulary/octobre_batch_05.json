@@ -1,0 +1,1230 @@
+{
+  "version": 1,
+  "subjects": [
+    {
+      "subject_key": "tache2:octobre:batch-05:subject-21",
+      "entries": [
+        {
+          "id": "T2O10S21V01",
+          "kind": "mot-cle",
+          "french": "surveiller",
+          "english": "to keep an eye on / watch over",
+          "example": "Salut ! Bien sûr, je peux surveiller ton appartement — tu pars à quelles dates exactement ?",
+          "usage": "Verbe très utile pour évoquer une garde temporaire d'un logement."
+        },
+        {
+          "id": "T2O10S21V02",
+          "kind": "mot-cle",
+          "french": "ton absence",
+          "english": "your absence",
+          "example": "Tu veux que je passe à quelle fréquence — tous les jours ou seulement quelques fois pendant ton absence ?",
+          "usage": "Nom féminin précédé du possessif « ton » pour désigner la période où quelqu'un n'est pas là."
+        },
+        {
+          "id": "T2O10S21V03",
+          "kind": "mot-cle",
+          "french": "le courrier",
+          "english": "the mail",
+          "example": "Est-ce que je dois relever le courrier et récupérer les éventuels colis ?",
+          "usage": "Nom masculin désignant les lettres et documents reçus à une adresse."
+        },
+        {
+          "id": "T2O10S21V04",
+          "kind": "mot-cle",
+          "french": "des plantes",
+          "english": "plants",
+          "example": "Y a-t-il des plantes à arroser — et si oui, à quelle fréquence ?",
+          "usage": "Nom féminin pluriel désignant les végétaux d'intérieur à entretenir."
+        },
+        {
+          "id": "T2O10S21V05",
+          "kind": "mot-cle",
+          "french": "un animal",
+          "english": "a pet / animal",
+          "example": "Est-ce qu'il y a un animal à nourrir ou d'autres responsabilités particulières ?",
+          "usage": "Nom masculin générique désignant un animal domestique."
+        },
+        {
+          "id": "T2O10S21V06",
+          "kind": "mot-cle",
+          "french": "un code",
+          "english": "a code",
+          "example": "Comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
+          "usage": "Nom masculin désignant une combinaison numérique pour ouvrir une porte."
+        },
+        {
+          "id": "T2O10S21V07",
+          "kind": "mot-cle",
+          "french": "une alarme",
+          "english": "an alarm",
+          "example": "Y a-t-il une alarme ou des consignes de sécurité particulières à respecter ?",
+          "usage": "Nom féminin désignant un système de sécurité électronique."
+        },
+        {
+          "id": "T2O10S21V08",
+          "kind": "mot-cle",
+          "french": "un voisin",
+          "english": "a neighbour",
+          "example": "Est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
+          "usage": "Nom masculin désignant une personne qui habite à proximité."
+        },
+        {
+          "id": "T2O10S21V09",
+          "kind": "mot-cle",
+          "french": "joignable",
+          "english": "reachable",
+          "example": "Est-ce que tu seras facilement joignable pendant ton séjour ?",
+          "usage": "Adjectif dérivé du verbe « joindre » pour indiquer qu'on peut contacter quelqu'un."
+        },
+        {
+          "id": "T2O10S21V10",
+          "kind": "mot-cle",
+          "french": "à ton retour",
+          "english": "when you get back",
+          "example": "Pour finir, comment veux-tu que je te rende les clés à ton retour ?",
+          "usage": "Locution prépositionnelle pour situer une action après un retour de voyage."
+        },
+        {
+          "id": "T2O10S21V11",
+          "kind": "collocation",
+          "french": "quelles dates exactement",
+          "english": "exactly which dates",
+          "example": "Salut ! Bien sûr, je peux surveiller ton appartement — tu pars à quelles dates exactement ?",
+          "usage": "Structure interrogative avec « quel » pour préciser une période."
+        },
+        {
+          "id": "T2O10S21V12",
+          "kind": "collocation",
+          "french": "en priorité",
+          "english": "as a priority",
+          "example": "Qu'est-ce qu'il faudra faire en priorité pendant que tu seras parti(e) ?",
+          "usage": "Locution adverbiale figée pour hiérarchiser des tâches."
+        },
+        {
+          "id": "T2O10S21V13",
+          "kind": "collocation",
+          "french": "les éventuels colis",
+          "english": "any parcels",
+          "example": "Est-ce que je dois relever le courrier et récupérer les éventuels colis ?",
+          "usage": "Adjectif « éventuel » placé avant le nom pour évoquer une possibilité, pas une certitude."
+        },
+        {
+          "id": "T2O10S21V14",
+          "kind": "collocation",
+          "french": "régler le chauffage",
+          "english": "to adjust the heating",
+          "example": "Faut-il ouvrir les fenêtres, régler le chauffage ou vérifier quelque chose de précis dans l'appartement ?",
+          "usage": "Collocation verbe + nom pour évoquer le réglage d'un appareil domestique."
+        },
+        {
+          "id": "T2O10S21V15",
+          "kind": "collocation",
+          "french": "m'adapter assez librement",
+          "english": "adapt fairly freely",
+          "example": "Il y a une routine à suivre, ou je peux m'adapter assez librement ?",
+          "usage": "Collocation verbe pronominal + adverbe pour indiquer une certaine flexibilité."
+        },
+        {
+          "id": "T2O10S21V16",
+          "kind": "collocation",
+          "french": "un double des clés",
+          "english": "a spare set of keys",
+          "example": "Comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
+          "usage": "Groupe nominal courant pour désigner une copie de clés confiée à quelqu'un."
+        },
+        {
+          "id": "T2O10S21V17",
+          "kind": "collocation",
+          "french": "consignes de sécurité",
+          "english": "safety instructions",
+          "example": "Y a-t-il une alarme ou des consignes de sécurité particulières à respecter ?",
+          "usage": "Collocation nom + préposition très fréquente pour désigner des règles à suivre."
+        },
+        {
+          "id": "T2O10S21V18",
+          "kind": "collocation",
+          "french": "une entreprise de livraison",
+          "english": "a delivery company",
+          "example": "Est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
+          "usage": "Groupe nominal désignant une société qui livre des colis."
+        },
+        {
+          "id": "T2O10S21V19",
+          "kind": "collocation",
+          "french": "en cas de problème",
+          "english": "in case of a problem",
+          "example": "En cas de problème dans l'immeuble, à qui faut-il s'adresser ?",
+          "usage": "Locution prépositionnelle très fréquente pour introduire une situation hypothétique."
+        },
+        {
+          "id": "T2O10S21V20",
+          "kind": "collocation",
+          "french": "je n'arrive pas à te joindre",
+          "english": "I can't manage to reach you",
+          "example": "S'il y a une urgence et que je n'arrive pas à te joindre, qui est-ce que je dois contacter ?",
+          "usage": "Collocation avec « arriver à » + infinitif pour exprimer une capacité, ici niée."
+        },
+        {
+          "id": "T2O10S21V21",
+          "kind": "tournure",
+          "french": "tu veux que je passe à quelle fréquence",
+          "english": "how often would you like me to stop by",
+          "example": "Tu veux que je passe à quelle fréquence — tous les jours ou seulement quelques fois pendant ton absence ?",
+          "usage": "Subjonctif après « vouloir que » pour exprimer un souhait concernant autrui."
+        },
+        {
+          "id": "T2O10S21V22",
+          "kind": "tournure",
+          "french": "qu'est-ce qu'il faudra faire",
+          "english": "what will need to be done",
+          "example": "Qu'est-ce qu'il faudra faire en priorité pendant que tu seras parti(e) ?",
+          "usage": "Futur impersonnel avec « il faudra » pour anticiper des obligations."
+        },
+        {
+          "id": "T2O10S21V23",
+          "kind": "tournure",
+          "french": "est-ce qu'il y a un animal à nourrir",
+          "english": "is there a pet to feed",
+          "example": "Est-ce qu'il y a un animal à nourrir ou d'autres responsabilités particulières ?",
+          "usage": "Structure impersonnelle « est-ce qu'il y a » pour vérifier l'existence de quelque chose."
+        },
+        {
+          "id": "T2O10S21V24",
+          "kind": "tournure",
+          "french": "il y a une routine à suivre",
+          "english": "is there a routine to follow",
+          "example": "Il y a une routine à suivre, ou je peux m'adapter assez librement ?",
+          "usage": "Structure impersonnelle « il y a » suivie d'un nom + « à » + infinitif pour évoquer une obligation."
+        },
+        {
+          "id": "T2O10S21V25",
+          "kind": "tournure",
+          "french": "comment est-ce que j'entre",
+          "english": "how do I get in",
+          "example": "Comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
+          "usage": "Structure orale avec « comment est-ce que » pour interroger sur un moyen d'accès."
+        },
+        {
+          "id": "T2O10S21V26",
+          "kind": "tournure",
+          "french": "quelqu'un d'autre risque de passer",
+          "english": "someone else might come by",
+          "example": "Est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
+          "usage": "Verbe « risquer de » + infinitif pour évoquer une possibilité future."
+        },
+        {
+          "id": "T2O10S21V27",
+          "kind": "tournure",
+          "french": "à qui faut-il s'adresser",
+          "english": "who should one contact",
+          "example": "En cas de problème dans l'immeuble, à qui faut-il s'adresser ?",
+          "usage": "Structure impersonnelle avec « il faut » pour demander un interlocuteur."
+        },
+        {
+          "id": "T2O10S21V28",
+          "kind": "tournure",
+          "french": "tu seras facilement joignable",
+          "english": "you'll be easy to reach",
+          "example": "Est-ce que tu seras facilement joignable pendant ton séjour ?",
+          "usage": "Futur simple pour anticiper une disponibilité pendant une absence."
+        },
+        {
+          "id": "T2O10S21V29",
+          "kind": "tournure",
+          "french": "qui est-ce que je dois contacter",
+          "english": "who should I contact",
+          "example": "S'il y a une urgence et que je n'arrive pas à te joindre, qui est-ce que je dois contacter ?",
+          "usage": "Structure orale avec « qui est-ce que » pour interroger sur un interlocuteur."
+        },
+        {
+          "id": "T2O10S21V30",
+          "kind": "tournure",
+          "french": "comment veux-tu que je te rende les clés",
+          "english": "how would you like me to give you back the keys",
+          "example": "Pour finir, comment veux-tu que je te rende les clés à ton retour ?",
+          "usage": "Subjonctif après « vouloir que » pour organiser une restitution."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:octobre:batch-05:subject-22",
+      "entries": [
+        {
+          "id": "T2O10S22V01",
+          "kind": "mot-cle",
+          "french": "au Québec",
+          "english": "in Quebec",
+          "example": "Salut ! Ça fait maintenant deux ans que tu vis au Québec — moi qui pense partir vivre à l'étranger, tu pourrais me raconter comment ça s'est passé ?",
+          "usage": "Locution désignant la province où l'ami vit."
+        },
+        {
+          "id": "T2O10S22V02",
+          "kind": "mot-cle",
+          "french": "l'étranger",
+          "english": "abroad",
+          "example": "Salut ! Ça fait maintenant deux ans que tu vis au Québec — moi qui pense partir vivre à l'étranger, tu pourrais me raconter comment ça s'est passé ?",
+          "usage": "Nom désignant le fait de vivre hors de son pays."
+        },
+        {
+          "id": "T2O10S22V03",
+          "kind": "mot-cle",
+          "french": "deux ans",
+          "english": "two years",
+          "example": "Salut ! Ça fait maintenant deux ans que tu vis au Québec — moi qui pense partir vivre à l'étranger, tu pourrais me raconter comment ça s'est passé ?",
+          "usage": "Locution sur la durée d'installation."
+        },
+        {
+          "id": "T2O10S22V04",
+          "kind": "mot-cle",
+          "french": "le climat",
+          "english": "the climate",
+          "example": "Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
+          "usage": "Nom désignant le climat local."
+        },
+        {
+          "id": "T2O10S22V05",
+          "kind": "mot-cle",
+          "french": "les principaux obstacles",
+          "english": "the main obstacles",
+          "example": "Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
+          "usage": "Groupe nominal désignant les difficultés."
+        },
+        {
+          "id": "T2O10S22V06",
+          "kind": "mot-cle",
+          "french": "la langue",
+          "english": "the language",
+          "example": "Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
+          "usage": "Nom désignant la barrière linguistique."
+        },
+        {
+          "id": "T2O10S22V07",
+          "kind": "mot-cle",
+          "french": "des amis",
+          "english": "friends",
+          "example": "Est-ce que tu t'es fait des amis facilement ?",
+          "usage": "Nom pluriel désignant les nouvelles relations."
+        },
+        {
+          "id": "T2O10S22V08",
+          "kind": "mot-cle",
+          "french": "le coût de la vie",
+          "english": "the cost of living",
+          "example": "Est-ce que le coût de la vie est très différent de chez nous ?",
+          "usage": "Groupe nominal désignant le niveau des prix."
+        },
+        {
+          "id": "T2O10S22V09",
+          "kind": "mot-cle",
+          "french": "des regrets",
+          "english": "regrets",
+          "example": "Est-ce que tu as des regrets, ou tu referais le même choix ?",
+          "usage": "Nom pluriel désignant les regrets éventuels."
+        },
+        {
+          "id": "T2O10S22V10",
+          "kind": "mot-cle",
+          "french": "le même choix",
+          "english": "the same choice",
+          "example": "Est-ce que tu as des regrets, ou tu referais le même choix ?",
+          "usage": "Groupe nominal sur la décision."
+        },
+        {
+          "id": "T2O10S22V11",
+          "kind": "collocation",
+          "french": "partir vivre à l'étranger",
+          "english": "go live abroad",
+          "example": "Salut ! Ça fait maintenant deux ans que tu vis au Québec — moi qui pense partir vivre à l'étranger, tu pourrais me raconter comment ça s'est passé ?",
+          "usage": "Verbe + complément sur l'expatriation."
+        },
+        {
+          "id": "T2O10S22V12",
+          "kind": "collocation",
+          "french": "au début",
+          "english": "at first",
+          "example": "Comment s'est passée ton adaptation au début — c'était difficile ?",
+          "usage": "Locution temporelle sur les débuts."
+        },
+        {
+          "id": "T2O10S22V13",
+          "kind": "collocation",
+          "french": "te sentir vraiment chez toi",
+          "english": "really feel at home",
+          "example": "Combien de temps il t'a fallu pour te sentir vraiment chez toi ?",
+          "usage": "Locution verbale sur l'intégration."
+        },
+        {
+          "id": "T2O10S22V14",
+          "kind": "collocation",
+          "french": "fait des amis",
+          "english": "made friends",
+          "example": "Est-ce que tu t'es fait des amis facilement ?",
+          "usage": "Verbe + complément sur la sociabilité."
+        },
+        {
+          "id": "T2O10S22V15",
+          "kind": "collocation",
+          "french": "par rapport à avant",
+          "english": "compared to before",
+          "example": "Qu'est-ce qui a le plus changé dans ton mode de vie par rapport à avant ?",
+          "usage": "Locution comparative."
+        },
+        {
+          "id": "T2O10S22V16",
+          "kind": "collocation",
+          "french": "t'intégrer",
+          "english": "integrate",
+          "example": "Côté travail, ça a été facile de trouver et de t'intégrer ?",
+          "usage": "Locution verbale sur l'intégration."
+        },
+        {
+          "id": "T2O10S22V17",
+          "kind": "collocation",
+          "french": "très différent de chez nous",
+          "english": "very different from home",
+          "example": "Est-ce que le coût de la vie est très différent de chez nous ?",
+          "usage": "Locution comparative sur le coût de la vie."
+        },
+        {
+          "id": "T2O10S22V18",
+          "kind": "collocation",
+          "french": "te manque le plus",
+          "english": "you miss the most",
+          "example": "De ton pays d'origine, qu'est-ce qui te manque le plus ?",
+          "usage": "Locution verbale sur le manque."
+        },
+        {
+          "id": "T2O10S22V19",
+          "kind": "collocation",
+          "french": "referais le même choix",
+          "english": "would make the same choice",
+          "example": "Est-ce que tu as des regrets, ou tu referais le même choix ?",
+          "usage": "Locution verbale sur la décision."
+        },
+        {
+          "id": "T2O10S22V20",
+          "kind": "collocation",
+          "french": "se lancer",
+          "english": "take the plunge",
+          "example": "Quels conseils tu donnerais à quelqu'un qui veut se lancer comme moi ?",
+          "usage": "Locution verbale sur le fait de se lancer."
+        },
+        {
+          "id": "T2O10S22V21",
+          "kind": "tournure",
+          "french": "Qu'est-ce qui t'a donné envie de t'installer là-bas",
+          "english": "what made you want to settle there",
+          "example": "Qu'est-ce qui t'a donné envie de t'installer là-bas ?",
+          "usage": "Question sur la motivation."
+        },
+        {
+          "id": "T2O10S22V22",
+          "kind": "tournure",
+          "french": "Comment s'est passée ton adaptation au début",
+          "english": "how did your adaptation go at first",
+          "example": "Comment s'est passée ton adaptation au début — c'était difficile ?",
+          "usage": "Question sur l'adaptation."
+        },
+        {
+          "id": "T2O10S22V23",
+          "kind": "tournure",
+          "french": "Le plus dépaysant en arrivant, c'était quoi",
+          "english": "what was the most disorienting on arrival",
+          "example": "Le plus dépaysant en arrivant, c'était quoi ?",
+          "usage": "Question sur le dépaysement."
+        },
+        {
+          "id": "T2O10S22V24",
+          "kind": "tournure",
+          "french": "Quels ont été les principaux obstacles",
+          "english": "what were the main obstacles",
+          "example": "Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
+          "usage": "Question sur les obstacles."
+        },
+        {
+          "id": "T2O10S22V25",
+          "kind": "tournure",
+          "french": "Combien de temps il t'a fallu pour te sentir vraiment chez toi",
+          "english": "how long did it take to feel at home",
+          "example": "Combien de temps il t'a fallu pour te sentir vraiment chez toi ?",
+          "usage": "Question sur le temps d'adaptation."
+        },
+        {
+          "id": "T2O10S22V26",
+          "kind": "tournure",
+          "french": "Est-ce que tu t'es fait des amis facilement",
+          "english": "did you make friends easily",
+          "example": "Est-ce que tu t'es fait des amis facilement ?",
+          "usage": "Question sur la sociabilité."
+        },
+        {
+          "id": "T2O10S22V27",
+          "kind": "tournure",
+          "french": "Qu'est-ce qui a le plus changé dans ton mode de vie par rapport à avant",
+          "english": "what changed most in your lifestyle",
+          "example": "Qu'est-ce qui a le plus changé dans ton mode de vie par rapport à avant ?",
+          "usage": "Question sur le mode de vie."
+        },
+        {
+          "id": "T2O10S22V28",
+          "kind": "tournure",
+          "french": "Est-ce que le coût de la vie est très différent de chez nous",
+          "english": "is the cost of living very different from home",
+          "example": "Est-ce que le coût de la vie est très différent de chez nous ?",
+          "usage": "Question sur le coût de la vie."
+        },
+        {
+          "id": "T2O10S22V29",
+          "kind": "tournure",
+          "french": "Est-ce que tu as des regrets, ou tu referais le même choix",
+          "english": "do you have regrets, or would you do it again",
+          "example": "Est-ce que tu as des regrets, ou tu referais le même choix ?",
+          "usage": "Question sur les regrets."
+        },
+        {
+          "id": "T2O10S22V30",
+          "kind": "tournure",
+          "french": "si tu ne devais me dire qu'une seule chose à savoir absolument avant de partir",
+          "english": "if you had to tell me just one must-know before leaving",
+          "example": "Pour finir — si tu ne devais me dire qu'une seule chose à savoir absolument avant de partir, ce serait laquelle ?",
+          "usage": "Tournure de clôture."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:octobre:batch-05:subject-23",
+      "entries": [
+        {
+          "id": "T2O10S23V01",
+          "kind": "mot-cle",
+          "french": "votre école de musique",
+          "english": "your music school",
+          "example": "Bonjour, je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
+          "usage": "Groupe nominal possessif désignant l'établissement d'enseignement musical."
+        },
+        {
+          "id": "T2O10S23V02",
+          "kind": "mot-cle",
+          "french": "quels instruments",
+          "english": "which instruments",
+          "example": "Quels instruments peut-on apprendre chez vous ?",
+          "usage": "Groupe interrogatif pour demander l'offre d'instruments enseignés."
+        },
+        {
+          "id": "T2O10S23V03",
+          "kind": "mot-cle",
+          "french": "individuels",
+          "english": "individual",
+          "example": "Les cours sont-ils individuels, ou plutôt en petit groupe ?",
+          "usage": "Adjectif qualifiant des cours donnés à un seul élève à la fois."
+        },
+        {
+          "id": "T2O10S23V04",
+          "kind": "mot-cle",
+          "french": "des bases",
+          "english": "basics/fundamentals",
+          "example": "Ça s'adresse à quel niveau — faut-il déjà avoir des bases, ou les débutants sont acceptés ?",
+          "usage": "Nom pluriel désignant des connaissances préalables déjà acquises."
+        },
+        {
+          "id": "T2O10S23V05",
+          "kind": "mot-cle",
+          "french": "une séance",
+          "english": "a session",
+          "example": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "usage": "Nom féminin désignant une unité de cours."
+        },
+        {
+          "id": "T2O10S23V06",
+          "kind": "mot-cle",
+          "french": "qualifiés",
+          "english": "qualified",
+          "example": "Les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "usage": "Adjectif qualifiant la compétence reconnue d'un enseignant."
+        },
+        {
+          "id": "T2O10S23V07",
+          "kind": "mot-cle",
+          "french": "son propre instrument",
+          "english": "one's own instrument",
+          "example": "Faut-il apporter son propre instrument, ou l'école peut-elle en fournir un pour commencer ?",
+          "usage": "Groupe nominal possessif désignant un instrument personnel apporté par l'élève."
+        },
+        {
+          "id": "T2O10S23V08",
+          "kind": "mot-cle",
+          "french": "forfait mensuel",
+          "english": "monthly package",
+          "example": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
+          "usage": "Groupe nominal désignant un tarif fixe couvrant un mois de cours."
+        },
+        {
+          "id": "T2O10S23V09",
+          "kind": "mot-cle",
+          "french": "des frais supplémentaires",
+          "english": "additional fees",
+          "example": "Y a-t-il des frais supplémentaires, comme les partitions ou le matériel ?",
+          "usage": "Groupe nominal désignant des coûts non compris dans le tarif de base."
+        },
+        {
+          "id": "T2O10S23V10",
+          "kind": "mot-cle",
+          "french": "un cours d'essai",
+          "english": "a trial lesson",
+          "example": "Est-ce qu'on peut essayer avec un cours d'essai avant de s'engager ?",
+          "usage": "Groupe nominal désignant une première séance offerte avant engagement."
+        },
+        {
+          "id": "T2O10S23V11",
+          "kind": "collocation",
+          "french": "m'inscrire à un cours",
+          "english": "to enroll in a class",
+          "example": "Bonjour, je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
+          "usage": "Collocation verbe pronominal + nom pour exprimer une inscription."
+        },
+        {
+          "id": "T2O10S23V12",
+          "kind": "collocation",
+          "french": "peut-on apprendre",
+          "english": "can one learn",
+          "example": "Quels instruments peut-on apprendre chez vous ?",
+          "usage": "Collocation impersonnelle pour interroger sur une offre pédagogique."
+        },
+        {
+          "id": "T2O10S23V13",
+          "kind": "collocation",
+          "french": "en petit groupe",
+          "english": "in a small group",
+          "example": "Les cours sont-ils individuels, ou plutôt en petit groupe ?",
+          "usage": "Collocation prépositionnelle pour qualifier un format de cours à effectif réduit."
+        },
+        {
+          "id": "T2O10S23V14",
+          "kind": "collocation",
+          "french": "les débutants sont acceptés",
+          "english": "beginners are accepted",
+          "example": "Ça s'adresse à quel niveau — faut-il déjà avoir des bases, ou les débutants sont acceptés ?",
+          "usage": "Collocation nom + verbe passif pour vérifier l'accessibilité d'un cours."
+        },
+        {
+          "id": "T2O10S23V15",
+          "kind": "collocation",
+          "french": "dure une séance",
+          "english": "a session lasts",
+          "example": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "usage": "Collocation verbe + sujet pour interroger sur la durée."
+        },
+        {
+          "id": "T2O10S23V16",
+          "kind": "collocation",
+          "french": "rate un cours",
+          "english": "miss a class",
+          "example": "Si je rate un cours, est-il possible de le rattraper à un autre moment ?",
+          "usage": "Collocation verbe + nom pour évoquer une absence ponctuelle."
+        },
+        {
+          "id": "T2O10S23V17",
+          "kind": "collocation",
+          "french": "des petits concerts ou des récitals",
+          "english": "small concerts or recitals",
+          "example": "Organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
+          "usage": "Collocation nom coordonné désignant des événements de restitution pour élèves."
+        },
+        {
+          "id": "T2O10S23V18",
+          "kind": "collocation",
+          "french": "des évaluations régulières",
+          "english": "regular assessments",
+          "example": "Comment suivez-vous la progression des élèves — il y a des évaluations régulières ?",
+          "usage": "Groupe nominal désignant des points d'étape sur la progression d'un élève."
+        },
+        {
+          "id": "T2O10S23V19",
+          "kind": "collocation",
+          "french": "un parking à proximité",
+          "english": "nearby parking",
+          "example": "L'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
+          "usage": "Groupe nominal désignant une place de stationnement proche d'un lieu."
+        },
+        {
+          "id": "T2O10S23V20",
+          "kind": "collocation",
+          "french": "pour quelqu'un qui débute",
+          "english": "for someone who is starting out",
+          "example": "Pour finir — pour quelqu'un qui débute, quel instrument me conseilleriez-vous ?",
+          "usage": "Collocation prépositionnelle pour cibler un public débutant."
+        },
+        {
+          "id": "T2O10S23V21",
+          "kind": "tournure",
+          "french": "les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre",
+          "english": "are the teachers qualified in the instrument I wish to learn",
+          "example": "Les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "usage": "Tournure interrogative avec inversion pour vérifier une compétence pédagogique précise."
+        },
+        {
+          "id": "T2O10S23V22",
+          "kind": "tournure",
+          "french": "l'école peut-elle en fournir un pour commencer",
+          "english": "can the school provide one to start with",
+          "example": "Faut-il apporter son propre instrument, ou l'école peut-elle en fournir un pour commencer ?",
+          "usage": "Tournure interrogative avec inversion pour vérifier une mise à disposition de matériel."
+        },
+        {
+          "id": "T2O10S23V23",
+          "kind": "tournure",
+          "french": "comment fonctionnent les tarifs",
+          "english": "how do the rates work",
+          "example": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
+          "usage": "Tournure interrogative ouverte fréquente pour comprendre une grille tarifaire."
+        },
+        {
+          "id": "T2O10S23V24",
+          "kind": "tournure",
+          "french": "y a-t-il des frais supplémentaires",
+          "english": "are there any additional fees",
+          "example": "Y a-t-il des frais supplémentaires, comme les partitions ou le matériel ?",
+          "usage": "Tournure interrogative avec « y a-t-il » pour vérifier des coûts cachés."
+        },
+        {
+          "id": "T2O10S23V25",
+          "kind": "tournure",
+          "french": "les cours ont lieu à quelle fréquence",
+          "english": "how often do the classes take place",
+          "example": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "usage": "Tournure interrogative avec « à quelle fréquence » postposé pour demander le rythme."
+        },
+        {
+          "id": "T2O10S23V26",
+          "kind": "tournure",
+          "french": "est-il possible de le rattraper à un autre moment",
+          "english": "is it possible to make it up at another time",
+          "example": "Si je rate un cours, est-il possible de le rattraper à un autre moment ?",
+          "usage": "Tournure interrogative impersonnelle pour vérifier un rattrapage."
+        },
+        {
+          "id": "T2O10S23V27",
+          "kind": "tournure",
+          "french": "organisez-vous aussi",
+          "english": "do you also organize",
+          "example": "Organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
+          "usage": "Tournure interrogative avec inversion pour vérifier une offre complémentaire."
+        },
+        {
+          "id": "T2O10S23V28",
+          "kind": "tournure",
+          "french": "comment suivez-vous la progression des élèves",
+          "english": "how do you track students' progress",
+          "example": "Comment suivez-vous la progression des élèves — il y a des évaluations régulières ?",
+          "usage": "Tournure interrogative pour comprendre un suivi pédagogique."
+        },
+        {
+          "id": "T2O10S23V29",
+          "kind": "tournure",
+          "french": "l'école est-elle facilement accessible",
+          "english": "is the school easily accessible",
+          "example": "L'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
+          "usage": "Tournure interrogative avec inversion pour vérifier un accès pratique."
+        },
+        {
+          "id": "T2O10S23V30",
+          "kind": "tournure",
+          "french": "quel instrument me conseilleriez-vous",
+          "english": "which instrument would you recommend to me",
+          "example": "Pour finir — pour quelqu'un qui débute, quel instrument me conseilleriez-vous ?",
+          "usage": "Tournure de clôture au conditionnel pour solliciter un conseil final."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:octobre:batch-05:subject-24",
+      "entries": [
+        {
+          "id": "T2O10S24V01",
+          "kind": "mot-cle",
+          "french": "aux débutants",
+          "english": "to beginners",
+          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
+          "usage": "Groupe prépositionnel désignant les novices."
+        },
+        {
+          "id": "T2O10S24V02",
+          "kind": "mot-cle",
+          "french": "équipement",
+          "english": "equipment",
+          "example": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
+          "usage": "Nom masculin générique désignant le matériel nécessaire à une activité."
+        },
+        {
+          "id": "T2O10S24V03",
+          "kind": "mot-cle",
+          "french": "des activités sportives",
+          "english": "sports activities",
+          "example": "Bonjour ! Vous m'avez dit que vous animiez des activités sportives dans une association du quartier — j'aimerais m'y mettre, vous pourriez m'en parler ?",
+          "usage": "Groupe nominal désignant les activités de sport."
+        },
+        {
+          "id": "T2O10S24V04",
+          "kind": "mot-cle",
+          "french": "du fitness",
+          "english": "fitness",
+          "example": "Quelles disciplines vous proposez — plutôt du collectif, du fitness, de la course ?",
+          "usage": "Nom désignant une discipline sportive."
+        },
+        {
+          "id": "T2O10S24V05",
+          "kind": "mot-cle",
+          "french": "de la course",
+          "english": "running",
+          "example": "Quelles disciplines vous proposez — plutôt du collectif, du fitness, de la course ?",
+          "usage": "Nom désignant la course à pied."
+        },
+        {
+          "id": "T2O10S24V06",
+          "kind": "mot-cle",
+          "french": "un certificat médical",
+          "english": "a medical certificate",
+          "example": "Faut-il un certificat médical ou une condition physique particulière pour participer ?",
+          "usage": "Groupe nominal désignant le justificatif de santé."
+        },
+        {
+          "id": "T2O10S24V07",
+          "kind": "mot-cle",
+          "french": "une cotisation",
+          "english": "a membership fee",
+          "example": "Y a-t-il une cotisation à l'association, ou on paie à la séance ?",
+          "usage": "Nom désignant la somme pour l'association."
+        },
+        {
+          "id": "T2O10S24V08",
+          "kind": "mot-cle",
+          "french": "un entraînement",
+          "english": "a training session",
+          "example": "Combien de temps dure un entraînement ?",
+          "usage": "Nom désignant une séance sportive."
+        },
+        {
+          "id": "T2O10S24V09",
+          "kind": "mot-cle",
+          "french": "un gymnase",
+          "english": "a gym/sports hall",
+          "example": "Où est-ce que ça se passe — dans un gymnase, en plein air ?",
+          "usage": "Nom désignant le lieu couvert."
+        },
+        {
+          "id": "T2O10S24V10",
+          "kind": "mot-cle",
+          "french": "l'ambiance",
+          "english": "the atmosphere",
+          "example": "Est-ce que l'ambiance est plutôt conviviale ou compétitive ?",
+          "usage": "Nom désignant l'atmosphère des séances."
+        },
+        {
+          "id": "T2O10S24V11",
+          "kind": "collocation",
+          "french": "personnes déjà expérimentées",
+          "english": "already experienced people",
+          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
+          "usage": "Collocation nom + adverbe + adjectif pour désigner un public non débutant."
+        },
+        {
+          "id": "T2O10S24V12",
+          "kind": "collocation",
+          "french": "se sentir perdu(e)",
+          "english": "to feel lost",
+          "example": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "usage": "Locution verbale pronominale sur la difficulté."
+        },
+        {
+          "id": "T2O10S24V13",
+          "kind": "collocation",
+          "french": "fourni sur place",
+          "english": "provided on-site",
+          "example": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
+          "usage": "Participe passé suivi d'une locution adverbiale pour indiquer une disponibilité locale."
+        },
+        {
+          "id": "T2O10S24V14",
+          "kind": "collocation",
+          "french": "une condition physique particulière",
+          "english": "a particular fitness level",
+          "example": "Faut-il un certificat médical ou une condition physique particulière pour participer ?",
+          "usage": "Groupe nominal sur la forme requise."
+        },
+        {
+          "id": "T2O10S24V15",
+          "kind": "collocation",
+          "french": "à la séance",
+          "english": "per session",
+          "example": "Y a-t-il une cotisation à l'association, ou on paie à la séance ?",
+          "usage": "Locution sur le mode de paiement."
+        },
+        {
+          "id": "T2O10S24V16",
+          "kind": "collocation",
+          "french": "essayer une séance",
+          "english": "try a session",
+          "example": "Est-ce qu'on peut essayer une séance avant de s'inscrire ?",
+          "usage": "Verbe + complément sur l'essai."
+        },
+        {
+          "id": "T2O10S24V17",
+          "kind": "collocation",
+          "french": "avant de s'inscrire",
+          "english": "before signing up",
+          "example": "Est-ce qu'on peut essayer une séance avant de s'inscrire ?",
+          "usage": "Locution sur l'essai préalable."
+        },
+        {
+          "id": "T2O10S24V18",
+          "kind": "collocation",
+          "french": "en plein air",
+          "english": "outdoors",
+          "example": "Où est-ce que ça se passe — dans un gymnase, en plein air ?",
+          "usage": "Locution sur le lieu des séances."
+        },
+        {
+          "id": "T2O10S24V19",
+          "kind": "collocation",
+          "french": "conviviale ou compétitive",
+          "english": "friendly or competitive",
+          "example": "Est-ce que l'ambiance est plutôt conviviale ou compétitive ?",
+          "usage": "Alternative adjectivale sur l'ambiance."
+        },
+        {
+          "id": "T2O10S24V20",
+          "kind": "collocation",
+          "french": "pour bien commencer",
+          "english": "to get started well",
+          "example": "Pour finir — quelle séance me conseilleriez-vous pour bien commencer ?",
+          "usage": "Locution sur le bon départ."
+        },
+        {
+          "id": "T2O10S24V21",
+          "kind": "tournure",
+          "french": "Ça s'adresse à quel public",
+          "english": "who is it aimed at",
+          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
+          "usage": "Question sur le public visé."
+        },
+        {
+          "id": "T2O10S24V22",
+          "kind": "tournure",
+          "french": "si on débute complètement, est-ce qu'on risque de se sentir perdu(e)",
+          "english": "if one is a complete beginner, might one feel lost",
+          "example": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "usage": "Tournure conditionnelle utile pour exprimer une inquiétude de débutant."
+        },
+        {
+          "id": "T2O10S24V23",
+          "kind": "tournure",
+          "french": "Quelles disciplines vous proposez",
+          "english": "what disciplines do you offer",
+          "example": "Quelles disciplines vous proposez — plutôt du collectif, du fitness, de la course ?",
+          "usage": "Question sur les activités."
+        },
+        {
+          "id": "T2O10S24V24",
+          "kind": "tournure",
+          "french": "Les séances ont lieu quels jours et à quelle heure",
+          "english": "what days and times are the sessions",
+          "example": "Les séances ont lieu quels jours et à quelle heure ?",
+          "usage": "Question sur les créneaux."
+        },
+        {
+          "id": "T2O10S24V25",
+          "kind": "tournure",
+          "french": "Combien de temps dure un entraînement",
+          "english": "how long does a training session last",
+          "example": "Combien de temps dure un entraînement ?",
+          "usage": "Question sur la durée."
+        },
+        {
+          "id": "T2O10S24V26",
+          "kind": "tournure",
+          "french": "Il y a généralement combien de participants",
+          "english": "how many participants usually",
+          "example": "Il y a généralement combien de participants ?",
+          "usage": "Question sur l'effectif."
+        },
+        {
+          "id": "T2O10S24V27",
+          "kind": "tournure",
+          "french": "Faut-il un certificat médical ou une condition physique particulière",
+          "english": "do you need a medical certificate or particular fitness",
+          "example": "Faut-il un certificat médical ou une condition physique particulière pour participer ?",
+          "usage": "Question sur les conditions."
+        },
+        {
+          "id": "T2O10S24V28",
+          "kind": "tournure",
+          "french": "Y a-t-il une cotisation à l'association",
+          "english": "is there a membership fee",
+          "example": "Y a-t-il une cotisation à l'association, ou on paie à la séance ?",
+          "usage": "Question sur le coût."
+        },
+        {
+          "id": "T2O10S24V29",
+          "kind": "tournure",
+          "french": "Comment se passe l'inscription",
+          "english": "how does registration work",
+          "example": "Comment se passe l'inscription — directement auprès de vous ou à l'association ?",
+          "usage": "Question sur l'inscription."
+        },
+        {
+          "id": "T2O10S24V30",
+          "kind": "tournure",
+          "french": "quelle séance me conseilleriez-vous pour bien commencer",
+          "english": "which session would you recommend to start",
+          "example": "Pour finir — quelle séance me conseilleriez-vous pour bien commencer ?",
+          "usage": "Tournure de clôture pour un conseil."
+        }
+      ]
+    },
+    {
+      "subject_key": "tache2:octobre:batch-05:subject-25",
+      "entries": [
+        {
+          "id": "T2O10S25V01",
+          "kind": "mot-cle",
+          "french": "les options d'hébergement",
+          "english": "the accommodation options",
+          "example": "Bonjour ! Je compte découvrir une région du Québec et je cherche où me loger — vous pourriez me renseigner sur les options d'hébergement ?",
+          "usage": "Groupe nominal désignant les possibilités de logement."
+        },
+        {
+          "id": "T2O10S25V02",
+          "kind": "mot-cle",
+          "french": "un budget limité",
+          "english": "a tight budget",
+          "example": "Qu'est-ce que vous me conseillez si je voyage avec un budget limité ?",
+          "usage": "Groupe nominal sur les moyens restreints."
+        },
+        {
+          "id": "T2O10S25V03",
+          "kind": "mot-cle",
+          "french": "une région",
+          "english": "a region",
+          "example": "Bonjour ! Je compte découvrir une région du Québec et je cherche où me loger — vous pourriez me renseigner sur les options d'hébergement ?",
+          "usage": "Nom désignant la région à découvrir."
+        },
+        {
+          "id": "T2O10S25V04",
+          "kind": "mot-cle",
+          "french": "la gamme de prix",
+          "english": "the price range",
+          "example": "Quelle est la gamme de prix en moyenne, selon le type d'hébergement ?",
+          "usage": "Groupe nominal sur les niveaux de tarif."
+        },
+        {
+          "id": "T2O10S25V05",
+          "kind": "mot-cle",
+          "french": "la saison",
+          "english": "the season",
+          "example": "Les tarifs varient-ils beaucoup selon la saison ?",
+          "usage": "Nom désignant la période de l'année."
+        },
+        {
+          "id": "T2O10S25V06",
+          "kind": "mot-cle",
+          "french": "le petit-déjeuner",
+          "english": "breakfast",
+          "example": "Est-ce que le petit-déjeuner ou les repas sont souvent inclus ?",
+          "usage": "Nom désignant le repas du matin."
+        },
+        {
+          "id": "T2O10S25V07",
+          "kind": "mot-cle",
+          "french": "les repas",
+          "english": "meals",
+          "example": "Est-ce que le petit-déjeuner ou les repas sont souvent inclus ?",
+          "usage": "Nom pluriel désignant les repas."
+        },
+        {
+          "id": "T2O10S25V08",
+          "kind": "mot-cle",
+          "french": "un chalet",
+          "english": "a chalet",
+          "example": "Est-ce qu'il y a des adresses insolites à ne pas manquer — un chalet, un gîte au bord d'un lac ?",
+          "usage": "Nom désignant un hébergement de montagne."
+        },
+        {
+          "id": "T2O10S25V09",
+          "kind": "mot-cle",
+          "french": "un gîte",
+          "english": "a guesthouse/gîte",
+          "example": "Est-ce qu'il y a des adresses insolites à ne pas manquer — un chalet, un gîte au bord d'un lac ?",
+          "usage": "Nom désignant un hébergement rural."
+        },
+        {
+          "id": "T2O10S25V10",
+          "kind": "mot-cle",
+          "french": "des logements",
+          "english": "accommodations",
+          "example": "Est-ce qu'on trouve facilement des logements accessibles sans voiture ?",
+          "usage": "Nom pluriel désignant les logements."
+        },
+        {
+          "id": "T2O10S25V11",
+          "kind": "collocation",
+          "french": "découvrir une région du Québec",
+          "english": "discover a region of Quebec",
+          "example": "Bonjour ! Je compte découvrir une région du Québec et je cherche où me loger — vous pourriez me renseigner sur les options d'hébergement ?",
+          "usage": "Verbe + complément sur la découverte."
+        },
+        {
+          "id": "T2O10S25V12",
+          "kind": "collocation",
+          "french": "où me loger",
+          "english": "where to stay",
+          "example": "Bonjour ! Je compte découvrir une région du Québec et je cherche où me loger — vous pourriez me renseigner sur les options d'hébergement ?",
+          "usage": "Locution interrogative sur le logement."
+        },
+        {
+          "id": "T2O10S25V13",
+          "kind": "collocation",
+          "french": "plus authentique",
+          "english": "more authentic",
+          "example": "Et pour quelque chose de plus confortable ou de plus authentique ?",
+          "usage": "Locution adjectivale sur l'authenticité."
+        },
+        {
+          "id": "T2O10S25V14",
+          "kind": "collocation",
+          "french": "bien situés",
+          "english": "well located",
+          "example": "Ces hébergements sont-ils bien situés par rapport aux principales attractions ?",
+          "usage": "Adjectif sur l'emplacement."
+        },
+        {
+          "id": "T2O10S25V15",
+          "kind": "collocation",
+          "french": "selon la saison",
+          "english": "depending on the season",
+          "example": "Les tarifs varient-ils beaucoup selon la saison ?",
+          "usage": "Locution sur la variation saisonnière."
+        },
+        {
+          "id": "T2O10S25V16",
+          "kind": "collocation",
+          "french": "réserver longtemps à l'avance",
+          "english": "book well in advance",
+          "example": "Faut-il réserver longtemps à l'avance, surtout en haute saison ?",
+          "usage": "Verbe + complément sur la réservation."
+        },
+        {
+          "id": "T2O10S25V17",
+          "kind": "collocation",
+          "french": "souvent inclus",
+          "english": "often included",
+          "example": "Est-ce que le petit-déjeuner ou les repas sont souvent inclus ?",
+          "usage": "Locution sur ce qui est compris."
+        },
+        {
+          "id": "T2O10S25V18",
+          "kind": "collocation",
+          "french": "adaptés aux familles",
+          "english": "suitable for families",
+          "example": "Y a-t-il des hébergements adaptés aux familles, avec cuisine ou plusieurs chambres ?",
+          "usage": "Adjectif + complément."
+        },
+        {
+          "id": "T2O10S25V19",
+          "kind": "collocation",
+          "french": "accessibles sans voiture",
+          "english": "accessible without a car",
+          "example": "Est-ce qu'on trouve facilement des logements accessibles sans voiture ?",
+          "usage": "Adjectif + complément sur l'accès."
+        },
+        {
+          "id": "T2O10S25V20",
+          "kind": "collocation",
+          "french": "comparer et réserver",
+          "english": "compare and book",
+          "example": "Vous auriez une brochure ou un site pour comparer et réserver ?",
+          "usage": "Verbes coordonnés sur la démarche."
+        },
+        {
+          "id": "T2O10S25V21",
+          "kind": "tournure",
+          "french": "Quels types d'hébergement trouve-t-on dans la région",
+          "english": "what types of accommodation are there",
+          "example": "Quels types d'hébergement trouve-t-on dans la région — hôtels, auberges, chambres d'hôtes, campings ?",
+          "usage": "Question sur les catégories."
+        },
+        {
+          "id": "T2O10S25V22",
+          "kind": "tournure",
+          "french": "Qu'est-ce que vous me conseillez si je voyage avec un budget limité",
+          "english": "what do you recommend on a tight budget",
+          "example": "Qu'est-ce que vous me conseillez si je voyage avec un budget limité ?",
+          "usage": "Question sur les options économiques."
+        },
+        {
+          "id": "T2O10S25V23",
+          "kind": "tournure",
+          "french": "Où vaut-il mieux se loger",
+          "english": "where is it best to stay",
+          "example": "Où vaut-il mieux se loger — plutôt en ville, ou à la campagne près des sites ?",
+          "usage": "Question sur l'emplacement idéal."
+        },
+        {
+          "id": "T2O10S25V24",
+          "kind": "tournure",
+          "french": "Quelle est la gamme de prix en moyenne",
+          "english": "what is the average price range",
+          "example": "Quelle est la gamme de prix en moyenne, selon le type d'hébergement ?",
+          "usage": "Question sur les prix."
+        },
+        {
+          "id": "T2O10S25V25",
+          "kind": "tournure",
+          "french": "Les tarifs varient-ils beaucoup selon la saison",
+          "english": "do prices vary a lot by season",
+          "example": "Les tarifs varient-ils beaucoup selon la saison ?",
+          "usage": "Question sur la saisonnalité."
+        },
+        {
+          "id": "T2O10S25V26",
+          "kind": "tournure",
+          "french": "Faut-il réserver longtemps à l'avance",
+          "english": "do you need to book far ahead",
+          "example": "Faut-il réserver longtemps à l'avance, surtout en haute saison ?",
+          "usage": "Question sur la réservation."
+        },
+        {
+          "id": "T2O10S25V27",
+          "kind": "tournure",
+          "french": "Y a-t-il des hébergements adaptés aux familles",
+          "english": "are there family-friendly accommodations",
+          "example": "Y a-t-il des hébergements adaptés aux familles, avec cuisine ou plusieurs chambres ?",
+          "usage": "Question sur les familles."
+        },
+        {
+          "id": "T2O10S25V28",
+          "kind": "tournure",
+          "french": "Vous auriez une brochure ou un site pour comparer et réserver",
+          "english": "do you have a brochure or site to compare and book",
+          "example": "Vous auriez une brochure ou un site pour comparer et réserver ?",
+          "usage": "Question sur les outils."
+        },
+        {
+          "id": "T2O10S25V29",
+          "kind": "tournure",
+          "french": "Est-ce qu'il y a des adresses insolites à ne pas manquer",
+          "english": "are there unusual places not to miss",
+          "example": "Est-ce qu'il y a des adresses insolites à ne pas manquer — un chalet, un gîte au bord d'un lac ?",
+          "usage": "Question sur les lieux originaux."
+        },
+        {
+          "id": "T2O10S25V30",
+          "kind": "tournure",
+          "french": "si vous ne deviez me recommander qu'un seul type d'hébergement",
+          "english": "if you had to recommend just one type of accommodation",
+          "example": "Pour finir — si vous ne deviez me recommander qu'un seul type d'hébergement pour découvrir la région, ce serait lequel ?",
+          "usage": "Tournure de clôture."
+        }
+      ]
+    }
+  ]
+}

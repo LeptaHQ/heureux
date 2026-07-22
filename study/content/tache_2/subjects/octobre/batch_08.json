@@ -1,0 +1,277 @@
+{
+  "month": {
+    "number": 10,
+    "slug": "octobre",
+    "name": "Octobre"
+  },
+  "batch": 8,
+  "subjects": [
+    {
+      "number": 36,
+      "title": "Article sur un spectacle",
+      "prompt": "Je suis votre ami(e) francophone. Vous devez préparer un article sur un spectacle pour le bulletin de votre association culturelle et vous cherchez des idées : vous m'interrogez sur les spectacles que j'ai aimés (coût, type, lieu, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! Je dois écrire un article sur un spectacle pour notre revue — tu pourrais m'aider à trouver des idées ?"
+        },
+        {
+          "text": "Quel spectacle as-tu vu récemment et particulièrement aimé — du théâtre, de la danse, un concert, du cirque ?"
+        },
+        {
+          "text": "C'était quoi exactement, et qui se produisait sur scène ?"
+        },
+        {
+          "text": "De quoi ça parlait — quel était le thème ou l'histoire ?"
+        },
+        {
+          "text": "C'était plutôt classique, moderne, ou original dans sa mise en scène ?"
+        },
+        {
+          "text": "Ce spectacle s'adresse-t-il plutôt à un public adulte ou est-il aussi adapté aux familles ?"
+        },
+        {
+          "text": "Ça se passait où — dans quelle salle ou quel théâtre ?"
+        },
+        {
+          "text": "Combien de temps dure le spectacle en général ?"
+        },
+        {
+          "text": "Parlons du budget — combien coûte une place à peu près ?"
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Est-ce que c'est encore à l'affiche, ou c'était une représentation unique ?"
+        },
+        {
+          "text": "Selon toi, ce spectacle peut-il donner lieu à un article intéressant pour notre association ?"
+        },
+        {
+          "text": "Tu aurais d'autres spectacles du même genre à me conseiller ?"
+        },
+        {
+          "text": "Pour finir — est-ce que tu recommanderais ce spectacle aux lecteurs de notre revue ?"
+        }
+      ]
+    },
+    {
+      "number": 37,
+      "title": "Transports en commun à Montréal",
+      "prompt": "Bon connaisseur de Montréal, je vous éclaire : vous y passerez une semaine pour le travail et vous m'interrogez, entre collègues, sur les transports publics (horaires, prix, fonctionnement, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! Je vais passer une semaine à Montréal pour le boulot et je voudrais me déplacer en transports — toi qui connais bien, tu peux m'expliquer comment ça marche ?"
+        },
+        {
+          "text": "Quels types de transports il y a là-bas — métro, bus, tramway ?"
+        },
+        {
+          "text": "Le réseau couvre bien toute la ville, ou seulement le centre ?"
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — il vaut mieux une carte, un abonnement, ou payer chaque trajet ?"
+        },
+        {
+          "text": "Où est-ce que j'achète les titres de transport — en ligne, à une borne, au guichet ?"
+        },
+        {
+          "text": "Il y a des tarifs intéressants pour une semaine, ou des pass touristiques ?"
+        },
+        {
+          "text": "Un même ticket est valable pour le métro et le bus ?"
+        },
+        {
+          "text": "Les transports fonctionnent jusqu'à quelle heure le soir ?"
+        },
+        {
+          "text": "Est-ce que ça marche aussi le week-end, avec les mêmes horaires ?"
+        },
+        {
+          "text": "Il y a une application pour suivre les horaires et planifier un itinéraire ?"
+        },
+        {
+          "text": "Depuis le centre, c'est facile de rejoindre les endroits où je vais travailler ?"
+        },
+        {
+          "text": "Il y a des heures de pointe à éviter parce que c'est bondé ?"
+        },
+        {
+          "text": "Le métro, c'est simple à comprendre quand on ne connaît pas ?"
+        },
+        {
+          "text": "Si je me trompe de ligne ou que j'ai un souci, à qui je peux demander ?"
+        },
+        {
+          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien me déplacer à Montréal, ce serait lequel ?"
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "title": "Jeu organisé par l'école de langues",
+      "prompt": "Notre école de langues lance un jeu pour les étudiants ; vous venez me trouver, votre professeur de français, pour en comprendre l'organisation (règles, prix, modalités, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! J'ai entendu parler du jeu que l'école organise pour les étudiants — je voudrais en savoir plus, vous pourriez m'expliquer ?"
+        },
+        {
+          "text": "En quoi consiste ce jeu exactement — quel est le principe ?"
+        },
+        {
+          "text": "Quelles sont les règles à connaître pour participer ?"
+        },
+        {
+          "text": "Ça se joue individuellement ou en équipe ?"
+        },
+        {
+          "text": "C'est ouvert à tous les niveaux, ou il faut un certain niveau de français ?"
+        },
+        {
+          "text": "Quand est-ce que ça se déroule — sur une journée, ou sur plusieurs semaines ?"
+        },
+        {
+          "text": "Où est-ce que ça se passe — dans l'école ou à l'extérieur ?"
+        },
+        {
+          "text": "Faut-il s'inscrire à l'avance, et comment ?"
+        },
+        {
+          "text": "Est-ce qu'il y a des frais de participation, ou c'est gratuit ?"
+        },
+        {
+          "text": "Qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?"
+        },
+        {
+          "text": "Est-ce que ça aide à progresser en français ?"
+        },
+        {
+          "text": "Combien d'étudiants participent en général ?"
+        },
+        {
+          "text": "Faut-il préparer quelque chose à l'avance ?"
+        },
+        {
+          "text": "Est-ce qu'on peut venir juste pour essayer, sans s'engager ?"
+        },
+        {
+          "text": "Pour finir — qu'est-ce que vous me conseillez pour bien m'y préparer ?"
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "title": "Proposition de poste à l'étranger",
+      "prompt": "L'entreprise vous propose de partir travailler à l'étranger ; avant de trancher, vous m'interrogez, moi votre supérieur(e), sur les contours du poste (missions, salaire, avantages, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour, merci beaucoup pour cette proposition de poste à l'étranger — avant de me décider, j'aimerais en savoir davantage. Vous pourriez m'en dire plus sur ce poste ?"
+        },
+        {
+          "text": "En quoi consisteraient exactement mes missions là-bas ?"
+        },
+        {
+          "text": "Dans quel pays et quelle ville serais-je basé(e) ?"
+        },
+        {
+          "text": "Ce serait pour combien de temps — une mission temporaire ou une affectation longue ?"
+        },
+        {
+          "text": "Comment évoluerait mon salaire par rapport à mon poste actuel ?"
+        },
+        {
+          "text": "Y a-t-il des avantages liés à l'expatriation — logement, prime, prise en charge du déménagement ?"
+        },
+        {
+          "text": "Qui prend en charge les frais de voyage et d'installation ?"
+        },
+        {
+          "text": "Comment ça se passe pour la couverture santé et la protection sociale sur place ?"
+        },
+        {
+          "text": "À qui serais-je rattaché(e), et avec quelle équipe je travaillerais ?"
+        },
+        {
+          "text": "Est-ce que la langue de travail sera le français, ou faut-il maîtriser une autre langue ?"
+        },
+        {
+          "text": "Quelles seraient les perspectives d'évolution après cette expérience ?"
+        },
+        {
+          "text": "Je pourrais revenir à mon poste actuel si ça ne me convient pas ?"
+        },
+        {
+          "text": "Ma famille pourrait-elle m'accompagner, avec un accompagnement prévu ?"
+        },
+        {
+          "text": "De combien de temps je dispose pour donner ma réponse ?",
+          "memory_number": 5,
+          "memory_section": 3
+        },
+        {
+          "text": "Est-ce que je peux avoir tous ces éléments par écrit pour bien réfléchir avant de décider ?",
+          "memory_number": 5,
+          "memory_section": 3
+        }
+      ]
+    },
+    {
+      "number": 40,
+      "title": "Une sortie pour ce soir",
+      "prompt": "Une envie de sortie ce soir, mais aucune idée précise : entre ami(e)s, nous en discutons et vous me questionnez pour arrêter un choix (endroit, transport, prix, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! J'ai envie de sortir ce soir mais je ne sais pas trop quoi faire — tu aurais des idées ?"
+        },
+        {
+          "text": "Qu'est-ce qu'il y a de sympa à faire un soir dans le coin ?"
+        },
+        {
+          "text": "On pourrait aller où — un ciné, un bar, un concert, un resto ?"
+        },
+        {
+          "text": "Tu sais s'il y a des événements ou des animations prévus ce soir ?"
+        },
+        {
+          "text": "C'est plutôt calme un soir de semaine, ou il y a de l'ambiance ?"
+        },
+        {
+          "text": "Ça coûte cher en général, ou on peut trouver des sorties pas chères ?"
+        },
+        {
+          "text": "Il faut réserver quelque part, ou on peut y aller sans prévoir ?"
+        },
+        {
+          "text": "C'est accessible à pied ou en transports, ou il faut une voiture ?"
+        },
+        {
+          "text": "Jusqu'à quelle heure les endroits restent ouverts un soir de semaine ?"
+        },
+        {
+          "text": "Pour manger un morceau, tu connais une bonne adresse pas loin ?"
+        },
+        {
+          "text": "Tu préfères quelque chose de tranquille ou plutôt animé ce soir ?"
+        },
+        {
+          "text": "On serait juste nous deux, ou tu veux qu'on invite d'autres personnes ?"
+        },
+        {
+          "text": "Il faut prévoir une tenue particulière pour certains endroits ?"
+        },
+        {
+          "text": "Et s'il fait mauvais, tu aurais une idée d'activité en intérieur ?"
+        },
+        {
+          "text": "Pour finir — si tu ne devais choisir qu'une seule sortie pour ce soir, ce serait laquelle ?"
+        }
+      ]
+    }
+  ]
+}

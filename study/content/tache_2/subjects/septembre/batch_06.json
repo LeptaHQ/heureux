@@ -1,0 +1,310 @@
+{
+  "month": {
+    "number": 9,
+    "slug": "septembre",
+    "name": "Septembre"
+  },
+  "batch": 6,
+  "subjects": [
+    {
+      "number": 26,
+      "title": "Préparer un entretien d'embauche",
+      "prompt": "En pleine recherche d'emploi, vous préparez un entretien prévu la semaine suivante ; vous me demandez, en ami(e), comment le réussir : tenue, attitude, préparation.",
+      "questions": [
+        {
+          "text": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?"
+        },
+        {
+          "text": "Comment ça se passe généralement, un entretien ici — c'est plutôt formel ou décontracté ?"
+        },
+        {
+          "text": "Combien de temps ça dure en général, ce genre d'entretien ?"
+        },
+        {
+          "text": "Comment je devrais m'habiller — il faut une tenue vraiment formelle ?"
+        },
+        {
+          "text": "Quel comportement adopter pour faire bonne impression ?"
+        },
+        {
+          "text": "Qu'est-ce qu'on me posera surtout comme questions, d'après toi ?"
+        },
+        {
+          "text": "Comment je peux bien présenter mon parcours et mes expériences ?"
+        },
+        {
+          "text": "Est-ce qu'il vaut mieux préparer des questions à poser au recruteur ?"
+        },
+        {
+          "text": "Faut-il apporter des documents, comme mon CV ou des références ?"
+        },
+        {
+          "text": "Il y a des choses à éviter absolument pendant l'entretien ?"
+        },
+        {
+          "text": "Comment gérer le stress si je perds mes moyens sur le moment ?"
+        },
+        {
+          "text": "C'est bien vu d'arriver un peu en avance ?"
+        },
+        {
+          "text": "Qu'est-ce que je devrais savoir sur l'entreprise avant d'y aller ?"
+        },
+        {
+          "text": "Après l'entretien, c'est bien d'envoyer un message de remerciement ?"
+        },
+        {
+          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour réussir cet entretien, ce serait lequel ?"
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "title": "Garder l'animal d'un(e) voisin(e)",
+      "prompt": "Partant en vacances, je cherche quelqu'un pour veiller sur mon animal ; vous m'interrogez, en voisin(e), sur les dates, ses habitudes et les consignes avant de dire oui.",
+      "questions": [
+        {
+          "text": "Bonjour ! Vous me proposez de garder votre animal pendant vos vacances — avant de vous répondre, j'aimerais bien savoir de quel animal il s'agit ?",
+          "memory_number": 5,
+          "memory_section": 3
+        },
+        {
+          "text": "Comment s'appelle-t-il, et quel âge a-t-il ?",
+          "memory_number": 3,
+          "memory_section": 2
+        },
+        {
+          "text": "Comment est son caractère — plutôt calme, ou plutôt énergique avec les inconnus ?",
+          "memory_number": 3,
+          "memory_section": 2
+        },
+        {
+          "text": "Que mange-t-il exactement, et à quelle fréquence faut-il le nourrir ?",
+          "memory_number": 3,
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il des aliments interdits ou des allergies à connaître ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Pour les promenades, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il des habitudes particulières à respecter pour que tout se passe bien ?",
+          "memory_section": 20
+        },
+        {
+          "text": "La garde se fera chez vous, ou vous préférez que je le prenne chez moi ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Comment s'organisera la remise des clés, si la garde se fait chez vous ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Y a-t-il des médicaments à donner ou des soins particuliers à prévoir ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Comment réagit-il en général quand il reste seul un moment ?",
+          "memory_number": 3,
+          "memory_section": 2
+        },
+        {
+          "text": "En cas d'urgence, qui est son vétérinaire et comment puis-je le joindre ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Sur combien de jours exactement dois-je m'organiser ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Si vous êtes injoignable, y a-t-il une autre personne à contacter en cas de problème ?",
+          "memory_section": 19
+        },
+        {
+          "text": "Pour finir — y a-t-il un dernier conseil pour que tout se passe le mieux possible pendant votre absence ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "title": "Week-end à petit budget",
+      "prompt": "Vous préparez une escapade de week-end en dépensant le moins possible ; à l'office de tourisme, je vous suggère des destinations, des activités et des transports adaptés.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je voudrais partir en week-end sans trop dépenser — qu'est-ce que vous me conseilleriez dans la région ?"
+        },
+        {
+          "text": "Quels endroits sympas peut-on visiter gratuitement ou pour pas cher ?"
+        },
+        {
+          "text": "Quels sont les plus beaux parcs naturels ou espaces protégés à visiter dans les environs ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Y a-t-il des randonnées que vous recommandez — elles sont accessibles à tous les niveaux ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Côté musées et sites culturels, y en a-t-il des gratuits, ou avec des jours d'entrée gratuite ?"
+        },
+        {
+          "text": "Y a-t-il des événements, des festivals ou des marchés locaux gratuits ce week-end ?"
+        },
+        {
+          "text": "Pour dormir sans se ruiner, qu'est-ce que vous conseillez — auberge, camping, chambre chez l'habitant ?"
+        },
+        {
+          "text": "Pour les repas, vous auriez des adresses bon marché — des spécialités locales à goûter ?"
+        },
+        {
+          "text": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Il existe des pass ou des tarifs réduits pour visiter plusieurs sites à moindre coût ?"
+        },
+        {
+          "text": "Quelles activités de plein air gratuites peut-on pratiquer dans le coin ?"
+        },
+        {
+          "text": "C'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
+          "memory_section": 8
+        },
+        {
+          "text": "À peu près, quel budget faut-il prévoir pour un week-end ici ?"
+        },
+        {
+          "text": "Vous auriez une brochure ou une carte gratuite avec les bons plans du coin ?"
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose à petit budget, ce serait laquelle ?"
+        }
+      ]
+    },
+    {
+      "number": 29,
+      "title": "Club de sport de la ville",
+      "prompt": "Tenté(e) par une activité physique régulière, vous vous renseignez à l'accueil d'un club sportif municipal ; vous m'interrogez sur les horaires, les cours et les prix pour vous décider.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je viens d'emménager dans le quartier et je cherche un club de sport. Pourriez-vous me parler des différentes activités que vous proposez ici ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Est-ce qu'il y a des cours collectifs — yoga, pilates, spinning — ou c'est surtout de la musculation ?",
+          "memory_section": 10
+        },
+        {
+          "text": "À quelle heure commencent les cours collectifs — plutôt le matin ou en fin de journée ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Les cours sont-ils donnés par des professeurs qualifiés ? Et est-ce qu'il y a un coach personnel disponible si j'en ai besoin ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
+          "memory_number": 2,
+          "memory_section": 5
+        },
+        {
+          "text": "Est-ce qu'il est possible de suspendre l'abonnement si nécessaire ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Il faut s'inscrire à l'avance pour les cours ou on peut venir librement ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Pour finir — quelle activité me recommanderiez-vous pour quelqu'un qui veut se remettre en forme et se tonifier ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "title": "Chambre en colocation – Ami(e)",
+      "prompt": "Vous envisagez de vous installer au Canada et j'occupe une colocation à Toronto que je vous propose de partager ; vous cherchez à savoir si la formule vous conviendrait, côté logement, quartier et vie quotidienne.",
+      "questions": [
+        {
+          "text": "Salut ! Tu m'as dit qu'une chambre se libérait dans ta colocation — ça m'intéresse, tu peux m'en dire plus ?"
+        },
+        {
+          "text": "Elle se trouve où exactement, cette colocation — c'est bien situé ?"
+        },
+        {
+          "text": "La chambre qui se libère fait quelle taille — elle est meublée ?"
+        },
+        {
+          "text": "Comment est le logement en général — il y a combien de pièces et de chambres ?"
+        },
+        {
+          "text": "Les espaces communs, c'est comment — il y a un grand salon, une cuisine équipée ?"
+        },
+        {
+          "text": "Il y a combien de personnes dans la colocation en ce moment ?"
+        },
+        {
+          "text": "Les autres colocataires, ils sont comment — plutôt calmes, sociables ?"
+        },
+        {
+          "text": "Côté loyer, c'est combien par mois pour la chambre ?"
+        },
+        {
+          "text": "Les charges sont comprises dans le loyer — l'électricité, l'eau, internet ?"
+        },
+        {
+          "text": "Comment ça se passe pour les dépenses communes, les courses et le ménage ?"
+        },
+        {
+          "text": "Il faut verser une caution, et de combien à peu près ?"
+        },
+        {
+          "text": "Est-ce qu'il y a des règles de vie à respecter entre colocataires ?"
+        },
+        {
+          "text": "Le quartier est comment — calme, bien desservi par les transports ?"
+        },
+        {
+          "text": "Est-ce que je pourrais passer visiter avant de me décider ?"
+        },
+        {
+          "text": "Pour finir — à ton avis, je m'entendrais bien avec le reste de la coloc ?"
+        }
+      ]
+    }
+  ]
+}

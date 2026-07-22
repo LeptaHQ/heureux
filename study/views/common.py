@@ -79,8 +79,10 @@ def _memory_progress(user, memories):
 _EMPTY_SUBJECT_PROGRESS = SubjectProgress(
     status="new",
     label="À commencer",
+    explicitly_completed=False,
     has_highlight=False,
     response_practice_started=False,
+    vocabulary_activity_started=False,
     vocabulary_total=0,
     vocabulary_started=0,
     vocabulary_completed=0,

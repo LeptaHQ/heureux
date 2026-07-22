@@ -1,0 +1,12 @@
+<div
+  class="subject-progress-control{% if subject_progress.explicitly_completed %} is-complete{% endif %}"
+  data-subject-progress-control="{{ response.pk }}">
+  <span
+    class="progress-status progress-status--{{ subject_progress.status }}"
+    data-subject-progress-status="{{ response.pk }}">{{ subject_progress.label }}</span>
+  <div class="subject-progress-control__action">
+    <span>J’ai terminé ce sujet</span>
+    {% include "study/partials/subject_completion_form.html" with response_id=response.pk progress=subject_progress subject_label=subject_label part=part task=task %}
+  </div>
+</div>
+<p class="subject-progress-control__help">La pratique et le vocabulaire gardent le statut « En cours » jusqu’à votre validation.</p>

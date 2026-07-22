@@ -1,0 +1,287 @@
+{
+  "month": {
+    "number": 10,
+    "slug": "octobre",
+    "name": "Octobre"
+  },
+  "batch": 9,
+  "subjects": [
+    {
+      "number": 41,
+      "title": "Organiser la fête d'un ami",
+      "prompt": "L'anniversaire de votre ami(e) — c'est-à-dire moi — approche, et vous entreprenez de lui préparer une fête ; vous m'interrogez sur mes préférences quant au lieu, au moment, aux convives et à l'atmosphère.",
+      "questions": [
+        {
+          "text": "Salut ! Ton anniversaire approche et j'aimerais t'organiser une petite fête — tu me laisses m'en occuper ?"
+        },
+        {
+          "text": "Tu préférerais quel genre de fête — quelque chose d'intime ou une grande soirée ?",
+          "memory_number": 5,
+          "memory_section": 4
+        },
+        {
+          "text": "Tu voudrais que ça se passe où — chez toi, chez moi, dans un lieu loué, au restaurant ?"
+        },
+        {
+          "text": "Quel jour et à quelle heure ça t'arrangerait ?"
+        },
+        {
+          "text": "Tu veux inviter qui — juste les proches, ou un grand groupe ?"
+        },
+        {
+          "text": "Tu peux me donner la liste des gens à inviter, avec leurs contacts ?"
+        },
+        {
+          "text": "Tu as une ambiance en tête — décontractée, élégante, ou autour d'un thème ?"
+        },
+        {
+          "text": "Côté repas, tu préfères quoi — un buffet, un barbecue, un repas assis ?"
+        },
+        {
+          "text": "Il faut prévoir des plats végétariens ou tenir compte d'allergies parmi tes invités ?",
+          "memory_number": 5,
+          "memory_section": 4
+        },
+        {
+          "text": "Tu as un gâteau préféré, ou je te fais la surprise ?"
+        },
+        {
+          "text": "Pour la musique, tu as un style que tu adores, ou je m'occupe de la playlist ?"
+        },
+        {
+          "text": "Tu voudrais des jeux ou des animations pendant la soirée ?"
+        },
+        {
+          "text": "Tu as un budget en tête pour que je reste dans les clous ?"
+        },
+        {
+          "text": "Est-ce que tu veux que ce soit une surprise pour certains invités ?"
+        },
+        {
+          "text": "Pour finir — qu'est-ce qui te ferait vraiment plaisir pour ce jour-là ?"
+        }
+      ]
+    },
+    {
+      "number": 42,
+      "title": "Étudier au Canada – Projet d'un ami",
+      "prompt": "Je suis votre ami(e) et je souhaite poursuivre mes études au Canada. Vous m'interrogez pour mieux comprendre mon projet (ville, spécialité, objectifs, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! Alors comme ça tu veux continuer tes études au Canada — c'est super, tu peux m'en dire plus sur ton projet ?"
+        },
+        {
+          "text": "Qu'est-ce que tu veux étudier exactement — quelle spécialité ?"
+        },
+        {
+          "text": "Pourquoi le Canada plutôt qu'ailleurs pour ces études ?"
+        },
+        {
+          "text": "Tu as déjà choisi la ville et l'université ?"
+        },
+        {
+          "text": "Pourquoi cette ville en particulier ?"
+        },
+        {
+          "text": "Les cours seront en français ou en anglais ?"
+        },
+        {
+          "text": "Ça dure combien de temps, ce programme ?"
+        },
+        {
+          "text": "Quelles sont les démarches pour s'inscrire et obtenir un visa étudiant ?"
+        },
+        {
+          "text": "C'est cher, les études là-bas — comment tu comptes financer ça ?"
+        },
+        {
+          "text": "Tu vas te loger comment sur place — résidence étudiante, colocation ?"
+        },
+        {
+          "text": "Qu'est-ce que tu espères en retirer — quels sont tes objectifs après ce diplôme ?"
+        },
+        {
+          "text": "Tu penses rester travailler au Canada ensuite, ou revenir ?"
+        },
+        {
+          "text": "C'est quand que ça commence — tu pars bientôt ?"
+        },
+        {
+          "text": "Il y a des choses qui t'inquiètent un peu dans ce projet ?"
+        },
+        {
+          "text": "En tout cas je suis content(e) pour toi — comment je peux t'aider dans tes préparatifs ?"
+        }
+      ]
+    },
+    {
+      "number": 43,
+      "title": "Transporter des objets lourds",
+      "prompt": "Sans véhicule pour déplacer des objets lourds, je vous sollicite ; vous me posez des questions afin de m'aider à tout organiser (nature des objets, distance, date, etc.).",
+      "questions": [
+        {
+          "text": "Salut ! Tu m'as dit que tu avais des affaires lourdes à déplacer sans voiture — raconte, qu'est-ce que je peux faire pour t'aider ?"
+        },
+        {
+          "text": "C'est quoi exactement comme objets — des meubles, des cartons, de l'électroménager ?"
+        },
+        {
+          "text": "Il y a beaucoup de choses, ou juste quelques pièces ?"
+        },
+        {
+          "text": "Les objets sont très lourds ou encombrants — il faudra être plusieurs pour porter ?"
+        },
+        {
+          "text": "Il faut les déplacer d'où à où — c'est loin ?"
+        },
+        {
+          "text": "Il y a des escaliers ou un ascenseur, des deux côtés ?"
+        },
+        {
+          "text": "Tu voudrais faire ça quel jour — tu as une date en tête ?"
+        },
+        {
+          "text": "Ça presse, ou on a un peu de temps pour s'organiser ?"
+        },
+        {
+          "text": "Tu as pensé à louer une camionnette, ou tu comptes sur des amis avec une voiture ?"
+        },
+        {
+          "text": "Je connais quelqu'un qui a un grand coffre — tu veux que je lui demande ?"
+        },
+        {
+          "text": "Il faut prévoir du matériel — des sangles, un diable, des couvertures pour protéger ?"
+        },
+        {
+          "text": "On sera combien pour aider, à ton avis ?"
+        },
+        {
+          "text": "Est-ce qu'il faut faire attention à des objets fragiles en particulier ?"
+        },
+        {
+          "text": "Tu veux que je m'occupe de prévenir d'autres personnes pour donner un coup de main ?"
+        },
+        {
+          "text": "Pour finir — dis-moi juste quand et où, et je m'arrange pour être là, d'accord ?"
+        }
+      ]
+    },
+    {
+      "number": 44,
+      "title": "Garde d'enfants à domicile",
+      "prompt": "Je connais quelqu'un qui garde les enfants à domicile et je peux vous le recommander ; en voisin(e), je réponds à vos questions sur cette personne (prix, disponibilité, compétences, etc.).",
+      "questions": [
+        {
+          "text": "Bonjour ! Vous m'avez dit que vous connaissiez quelqu'un qui garde les enfants à domicile — ça m'intéresse, vous pourriez m'en parler ?"
+        },
+        {
+          "text": "C'est quelqu'un que vous connaissez bien — vous avez déjà fait appel à cette personne ?",
+          "memory_number": 5,
+          "memory_section": 5
+        },
+        {
+          "text": "Quelle est son expérience — ça fait longtemps qu'elle garde des enfants ?"
+        },
+        {
+          "text": "Elle s'occupe d'enfants de quel âge en général ?"
+        },
+        {
+          "text": "Elle est comment avec les enfants — plutôt patiente et attentive ?"
+        },
+        {
+          "text": "Quelles sont ses disponibilités — plutôt en journée, le soir, le week-end ?"
+        },
+        {
+          "text": "Est-ce qu'elle peut venir de façon régulière, ou seulement de temps en temps ?"
+        },
+        {
+          "text": "Elle se déplace à domicile, ou il faut amener les enfants chez elle ?"
+        },
+        {
+          "text": "Côté tarifs, comment ça fonctionne — c'est à l'heure ou au mois ?"
+        },
+        {
+          "text": "Est-ce qu'elle prépare les repas, aide aux devoirs, ou juste la surveillance ?"
+        },
+        {
+          "text": "Elle a des références, ou des personnes qui peuvent la recommander ?",
+          "memory_number": 5,
+          "memory_section": 5
+        },
+        {
+          "text": "Elle sait réagir en cas de problème — elle a des notions de premiers secours ?"
+        },
+        {
+          "text": "Est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
+          "memory_number": 5,
+          "memory_section": 5
+        },
+        {
+          "text": "Vous auriez ses coordonnées pour que je la contacte ?"
+        },
+        {
+          "text": "À votre avis, vous me la recommandez vraiment ?"
+        }
+      ]
+    },
+    {
+      "number": 45,
+      "title": "Week-end de détente – Office de tourisme",
+      "prompt": "En quête d'un week-end reposant, vous sollicitez mes recommandations, moi employé(e) de l'office de tourisme canadien : sorties, lieux à découvrir, déplacements, etc.",
+      "questions": [
+        {
+          "text": "Bonjour ! J'aimerais passer un week-end tranquille pour me détendre — qu'est-ce que vous me conseilleriez dans la région ?"
+        },
+        {
+          "text": "Quels sont les plus beaux parcs naturels ou espaces protégés à visiter dans les environs ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Y a-t-il des endroits calmes, loin de la foule, pour vraiment se ressourcer ?"
+        },
+        {
+          "text": "Existe-t-il des points de vue panoramiques vraiment impressionnants à ne pas manquer ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Vous auriez des idées d'activités relaxantes — une balade, un spa, des thermes ?"
+        },
+        {
+          "text": "Y a-t-il des randonnées que vous recommandez — elles sont accessibles à tous les niveaux ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à goûter absolument ? Il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "memory_section": 7
+        },
+        {
+          "text": "Où me conseillez-vous de loger pour un week-end paisible ?"
+        },
+        {
+          "text": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Une fois sur place, tout est accessible à pied, ou il faut prévoir des trajets ?"
+        },
+        {
+          "text": "C'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Il y a des marchés ou des petits villages sympas à découvrir tranquillement ?"
+        },
+        {
+          "text": "Y a-t-il des événements ce week-end, ou plutôt du calme ?"
+        },
+        {
+          "text": "Quel budget faut-il prévoir à peu près pour un week-end ici ?"
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose, ce serait laquelle ?",
+          "memory_section": 4
+        }
+      ]
+    }
+  ]
+}

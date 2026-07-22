@@ -1,0 +1,316 @@
+{
+  "month": {
+    "number": 7,
+    "slug": "juillet",
+    "name": "Juillet"
+  },
+  "batch": 2,
+  "subjects": [
+    {
+      "number": 6,
+      "title": "Participation à un jeu télévisé",
+      "prompt": "Je suis votre ami(e) et j'ai pris part il y a peu à un jeu télévisé. Intrigué(e), vous voulez tout savoir de l'aventure : comment on s'inscrit, comment ça se déroule et ce que ça apporte.",
+      "questions": [
+        {
+          "text": "Salut ! J'ai entendu dire que tu as participé à un jeu organisé par une chaîne de télévision — qu'est-ce qui t'a donné envie de t'inscrire ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Comment se passe l'inscription — faut-il remplir un formulaire en ligne ou envoyer une vidéo ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Après l'inscription, comment se passe la sélection — faut-il passer un casting ou un entretien ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Y avait-il des conditions particulières pour participer — tu as dû préparer quelque chose à l'avance ?",
+          "memory_section": 3
+        },
+        {
+          "text": "La participation est-elle entièrement gratuite ou certains frais restent-ils à la charge des candidats ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Combien de temps dure le tournage — quelques heures ou toute la journée ?",
+          "memory_section": 2
+        },
+        {
+          "text": "Il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
+          "memory_section": 14
+        },
+        {
+          "text": "C'est en équipe ou individuellement ?",
+          "memory_section": 14
+        },
+        {
+          "text": "Peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
+          "memory_number": 2,
+          "memory_section": 3
+        },
+        {
+          "text": "Les défis étaient plutôt difficiles ou amusants — il y a eu des moments stressants ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Le jeu proposait-il des questions ou des défis particuliers ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Et ça va être diffusé à la télévision — on pourra te voir à l'écran bientôt ?"
+        },
+        {
+          "text": "Pour finir, as-tu appris quelque chose de nouveau ou vécu une expérience vraiment marquante ?",
+          "memory_number": 2,
+          "memory_section": 2
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Choisir un quartier où s'installer",
+      "prompt": "Je suis votre ami(e) et vous réfléchissez à venir vous installer dans ma ville. Pour repérer un quartier qui vous irait, vous m'interrogez sur l'ambiance des lieux, le niveau des loyers et les services de proximité.",
+      "questions": [
+        {
+          "text": "Salut ! J'envisage de venir vivre dans ta ville et je cherche un quartier qui me conviendrait — tu pourrais me conseiller ?"
+        },
+        {
+          "text": "Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
+          "memory_section": 15
+        },
+        {
+          "text": "Côté ambiance, c'est plutôt une ville calme ou très animée ?"
+        },
+        {
+          "text": "Question budget, à quoi dois-je m'attendre pour un studio ou un petit appartement ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
+          "memory_section": 13
+        },
+        {
+          "text": "Pour les services du quotidien — commerces, écoles, santé — quels quartiers sont les mieux équipés ?"
+        },
+        {
+          "text": "Y a-t-il des quartiers plus pratiques pour les commerces et la vie quotidienne ?",
+          "memory_section": 16
+        },
+        {
+          "text": "Y a-t-il des activités ou des clubs pour rencontrer du monde et se faire des amis ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
+          "memory_section": 10
+        },
+        {
+          "text": "Quels documents demande-t-on généralement pour un dossier de location ?",
+          "memory_number": 3,
+          "memory_section": 1
+        },
+        {
+          "text": "Il vaut mieux commencer à chercher combien de temps à l'avance ?",
+          "memory_section": 9
+        },
+        {
+          "text": "Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
+          "memory_section": 18
+        },
+        {
+          "text": "Tu as mentionné un quartier en particulier tout à l'heure — tu pourrais m'en dire un peu plus ?",
+          "memory_section": 4
+        },
+        {
+          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien commencer, ce serait lequel ?",
+          "memory_section": 4
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Cours de sport dans un centre social",
+      "prompt": "Je suis votre voisin(e) et j'anime des cours de sport dans un centre social. L'idée vous séduit, alors vous cherchez à en savoir plus sur les disciplines proposées, les créneaux horaires et le profil des participants.",
+      "questions": [
+        {
+          "text": "Bonjour ! Vous m'avez dit que vous donniez des cours de sport dans un centre social — ça m'intéresse beaucoup, vous pourriez m'en parler ?",
+          "memory_number": 4,
+          "memory_section": 1
+        },
+        {
+          "text": "Quels types de cours proposez-vous — plutôt du fitness, du yoga, des sports collectifs ?"
+        },
+        {
+          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "memory_section": 3
+        },
+        {
+          "text": "Les cours ont lieu quels jours et à quelle heure — plutôt le matin ou en fin de journée ?"
+        },
+        {
+          "text": "Combien de temps dure une séance ?"
+        },
+        {
+          "text": "Il y a généralement combien de participants par cours ?"
+        },
+        {
+          "text": "L'ambiance est comment — les gens viennent surtout pour se dépenser ou aussi pour se rencontrer ?"
+        },
+        {
+          "text": "Comment fonctionnent les tarifs — on paie à la séance ou il faut s'inscrire pour la session ?"
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'on peut essayer avec une séance d'essai avant de s'engager ?"
+        },
+        {
+          "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
+          "memory_section": 5
+        },
+        {
+          "text": "Où se trouve le centre social exactement — c'est facilement accessible ?"
+        },
+        {
+          "text": "Comment se passe l'inscription — directement auprès de vous ou au centre ?"
+        },
+        {
+          "text": "Pour finir — quel cours me conseilleriez-vous pour bien commencer ?"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Location de vélos",
+      "prompt": "Je m'occupe d'un service de location de vélos au Canada. En vacances, vous aimeriez découvrir la ville à vélo et vous vous renseignez sur les modèles proposés, les conditions de location et les tarifs.",
+      "questions": [
+        {
+          "text": "Bonjour ! Je suis en vacances et j'aimerais visiter la ville à vélo — pouvez-vous me présenter vos différentes offres de location ?"
+        },
+        {
+          "text": "Quels modèles de vélos proposez-vous — vélo de ville, VTT, vélo électrique ?"
+        },
+        {
+          "text": "Pour visiter tranquillement la ville, quel modèle me conseilleriez-vous ?"
+        },
+        {
+          "text": "Comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Faut-il verser une caution — et de quel montant à peu près ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Quelles sont les conditions pour louer — faut-il une pièce d'identité ou un âge minimum ?"
+        },
+        {
+          "text": "Est-ce que le casque et l'antivol sont fournis avec le vélo ?"
+        },
+        {
+          "text": "Est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
+          "memory_section": 17
+        },
+        {
+          "text": "Que se passe-t-il en cas de crevaison ou de problème mécanique pendant la location ?"
+        },
+        {
+          "text": "Est-ce qu'on peut rendre le vélo à un autre point de la ville ou faut-il revenir ici ?"
+        },
+        {
+          "text": "Vous fournissez un plan ou des idées d'itinéraires pour découvrir la ville ?"
+        },
+        {
+          "text": "Est-ce qu'il faut réserver à l'avance ou on peut louer directement sur place ?"
+        },
+        {
+          "text": "Jusqu'à quelle heure peut-on rendre le vélo le soir ?"
+        },
+        {
+          "text": "Que se passe-t-il si je rends le vélo en retard ou abîmé ?"
+        },
+        {
+          "text": "Pour finir — si je réserve à l'avance, est-ce que j'obtiens un meilleur tarif ?",
+          "memory_section": 1
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Croisière au Canada",
+      "prompt": "Je travaille dans une agence de voyages et vous rêvez d'une croisière au Canada. Vous venez vous informer sur ce qui est proposé : la durée du parcours, le prix et les activités prévues à bord.",
+      "questions": [
+        {
+          "text": "Bonjour ! J'aimerais faire une croisière au Canada — pouvez-vous me donner un aperçu des offres disponibles ?"
+        },
+        {
+          "text": "Quels itinéraires proposez-vous — quelles régions ou quels ports sont au programme ?"
+        },
+        {
+          "text": "Combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
+          "memory_section": 9
+        },
+        {
+          "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "memory_section": 8
+        },
+        {
+          "text": "Quelles activités sont proposées à bord — spectacles, piscine, restaurants, excursions ?"
+        },
+        {
+          "text": "Les repas sont-ils inclus, et quels types de restauration trouve-t-on à bord ?"
+        },
+        {
+          "text": "Comment sont les cabines — il y a différentes catégories de confort ?"
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total par personne ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Le tarif comprend quoi exactement — les excursions et les activités à bord sont-elles incluses ?"
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "memory_section": 1
+        },
+        {
+          "text": "Faut-il réserver longtemps à l'avance ou peut-on s'y prendre au dernier moment ?"
+        },
+        {
+          "text": "Ces croisières conviennent-elles aux familles — y a-t-il des activités pour tous les âges ?"
+        },
+        {
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule croisière, ce serait laquelle ?"
+        }
+      ]
+    }
+  ]
+}

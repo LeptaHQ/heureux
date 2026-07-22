@@ -350,6 +350,7 @@ class NonDestructiveImportTests(TestCase):
             interval_days=21,
             last_reviewed=now,
             started_at=now - timedelta(days=3),
+            subject_completed_at=now - timedelta(days=1),
         )
         target_card.refresh_from_db()
         source_card.refresh_from_db()
@@ -391,6 +392,10 @@ class NonDestructiveImportTests(TestCase):
         source_response.refresh_from_db()
         self.assertEqual(target_card.reps, 9)
         self.assertEqual(target_card.interval_days, 21)
+        self.assertEqual(
+            target_card.subject_completed_at,
+            now - timedelta(days=1),
+        )
         self.assertEqual(
             target_card.started_at,
             now - timedelta(days=10),

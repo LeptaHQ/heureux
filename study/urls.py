@@ -113,6 +113,12 @@ urlpatterns = [
         name="comprehension_question_study",
     ),
     path(
+        "comprehension/ecrite/tests/<slug:test_slug>/progression/",
+        views.comprehension_test_completion,
+        {"mode": "ecrite"},
+        name="comprehension_test_completion",
+    ),
+    path(
         "comprehension/ecrite/tests/<slug:test_slug>/commencer/",
         views.comprehension_start,
         {"mode": "ecrite"},
@@ -172,6 +178,12 @@ urlpatterns = [
         views.comprehension_question_study,
         {"mode": "orale"},
         name="comprehension_oral_question_study",
+    ),
+    path(
+        "comprehension/orale/tests/<slug:test_slug>/progression/",
+        views.comprehension_test_completion,
+        {"mode": "orale"},
+        name="comprehension_oral_test_completion",
     ),
     path(
         "comprehension/orale/tests/<slug:test_slug>/commencer/",
@@ -300,6 +312,12 @@ urlpatterns = [
         "expression/<expression_part:part_slug>/<slug:task_slug>/sujets/",
         views.browse,
         name="task_browse",
+    ),
+    path(
+        "expression/<expression_part:part_slug>/<slug:task_slug>/"
+        "sujets/progression/<int:response_id>/",
+        views.subject_completion,
+        name="subject_completion",
     ),
     path(
         "expression/<expression_part:part_slug>/<slug:task_slug>/"

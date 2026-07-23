@@ -1,5 +1,7 @@
 <tr
   class="annotation-table__row annotation-table__row--{{ annotation.kind }}"
+  data-annotation-item="{{ annotation.id }}"
+  data-annotation-kind="{{ annotation.kind }}"
   id="{% if variant == 'notes' %}note{% else %}highlight{% endif %}-{{ annotation.id }}">
   <td class="annotation-table__content" data-label="{% if variant == 'notes' %}Note{% else %}Passage{% endif %}">
     {% if annotation.title %}<strong class="annotation-table__title">{{ annotation.title }}</strong>{% endif %}

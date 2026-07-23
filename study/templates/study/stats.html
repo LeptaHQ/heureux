@@ -9,7 +9,7 @@
       <div class="stats-hero__facts" aria-label="Résumé de la progression">
         <span>
           <svg aria-hidden="true"><use href="#nav-icon-stats"></use></svg>
-          {{ total_reviews|floatformat:"0g" }} révision{{ total_reviews|pluralize }}
+          {{ total_activity|floatformat:"0g" }} activité{{ total_activity|pluralize }}
         </span>
         <span>
           <svg aria-hidden="true"><use href="#nav-icon-book"></use></svg>
@@ -43,7 +43,7 @@
       </span>
       <div class="stats-kpi__copy">
         <span class="stats-kpi__label">Aujourd’hui</span>
-        <strong>{{ reviews_today|floatformat:"0g" }} <small>révision{{ reviews_today|pluralize }}</small></strong>
+        <strong>{{ activity_today|floatformat:"0g" }} <small>activité{{ activity_today|pluralize }}</small></strong>
       </div>
     </article>
     <article class="stats-kpi stats-kpi--streak">
@@ -109,17 +109,17 @@
         <header class="stats-panel__head">
           <div>
             <span>30 derniers jours</span>
-            <h3>Révisions effectuées</h3>
+            <h3>Activité quotidienne</h3>
           </div>
-          <p><strong>{{ reviews_30_days|floatformat:"0g" }}</strong><span>au total</span></p>
+          <p><strong>{{ activity_30_days|floatformat:"0g" }}</strong><span>sur 30 jours</span></p>
         </header>
         <div class="stats-bars stats-bars--activity">
           {% for day in daily %}
             <div
               class="stats-bars__col"
               role="img"
-              aria-label="{{ day.date|date:'j M' }} : {{ day.count }} révision{{ day.count|pluralize }}"
-              title="{{ day.date|date:'j M' }} · {{ day.count }} révision{{ day.count|pluralize }}">
+              aria-label="{{ day.date|date:'j M' }} : {{ day.count }} activité{{ day.count|pluralize }}"
+              title="{{ day.date|date:'j M' }} · {{ day.count }} activité{{ day.count|pluralize }}">
               <span class="stats-bars__track">
                 <span class="stats-bars__bar" style="height: {% widthratio day.count max_daily 100 %}%;"></span>
               </span>
@@ -159,22 +159,40 @@
     </div>
   </section>
 
+  <section class="stats-panel stats-panel--breakdown card" aria-labelledby="stats-breakdown-title">
+    <header class="stats-panel__head">
+      <div>
+        <span>Tout l’apprentissage</span>
+        <h2 id="stats-breakdown-title">Répartition de l’activité</h2>
+      </div>
+      <p><strong>{{ total_activity|floatformat:"0g" }}</strong><span>activité{{ total_activity|pluralize }}</span></p>
+    </header>
+    <ul class="stats-breakdown">
+      {% for item in breakdown %}
+        <li class="stats-breakdown__item" data-kind="{{ item.key }}">
+          <span class="stats-breakdown__count">{{ item.count|floatformat:"0g" }}</span>
+          <span class="stats-breakdown__label">{{ item.label }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
   <section class="stats-panel stats-panel--heatmap card" aria-labelledby="stats-consistency-title">
     <header class="stats-panel__head">
       <div>
         <span>90 derniers jours</span>
         <h2 id="stats-consistency-title">Régularité</h2>
       </div>
-      <p><strong>{{ reviews_90_days|floatformat:"0g" }}</strong><span>révisions</span></p>
+      <p><strong>{{ activity_90_days|floatformat:"0g" }}</strong><span>activité{{ activity_90_days|pluralize }}</span></p>
     </header>
-    <div class="stats-heatmap" aria-label="Calendrier des révisions sur 90 jours">
+    <div class="stats-heatmap" aria-label="Calendrier d’activité sur 90 jours">
       {% for cell in heat %}
         <span
           class="stats-heatmap__cell"
           data-level="{{ cell.level }}"
           role="img"
-          aria-label="{{ cell.date|date:'j M' }} : {{ cell.count }} révision{{ cell.count|pluralize }}"
-          title="{{ cell.date|date:'j M' }} · {{ cell.count }} révision{{ cell.count|pluralize }}"></span>
+          aria-label="{{ cell.date|date:'j M' }} : {{ cell.count }} activité{{ cell.count|pluralize }}"
+          title="{{ cell.date|date:'j M' }} · {{ cell.count }} activité{{ cell.count|pluralize }}"></span>
       {% endfor %}
     </div>
     <div class="stats-heatmap__legend" aria-hidden="true">

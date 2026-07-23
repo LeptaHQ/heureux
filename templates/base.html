@@ -7,7 +7,7 @@
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
   <script src="{% static 'study/js/theme-init.js' %}?v=2"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=119">
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=123">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -292,14 +292,39 @@
 
   <div class="annotation-toast hidden" role="status" aria-live="polite" data-annotation-toast></div>
   <div class="annotation-toast hidden" role="alert" aria-live="assertive" data-subject-progress-toast data-comprehension-progress-toast></div>
+
+  <dialog class="form-dialog confirm-dialog" id="app-confirm-dialog" aria-labelledby="app-confirm-title" data-confirm-dialog>
+    <header class="form-dialog__header">
+      <div class="form-dialog__heading">
+        <span class="form-dialog__icon form-dialog__icon--warn" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 4 3 20h18ZM12 10v4M12 17h.01"></path></svg>
+        </span>
+        <div>
+          <p>Confirmation</p>
+          <h2 id="app-confirm-title">Êtes-vous sûr&nbsp;?</h2>
+        </div>
+      </div>
+      <button class="icon-button form-dialog__close" type="button" aria-label="Fermer" title="Fermer" data-dialog-close>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+      </button>
+    </header>
+    <div class="form-dialog__body">
+      <p class="confirm-dialog__message" data-confirm-message></p>
+    </div>
+    <footer class="form-dialog__actions">
+      <button class="btn" type="button" data-dialog-close>Annuler</button>
+      <button class="btn btn--danger" type="button" data-confirm-accept>Confirmer</button>
+    </footer>
+  </dialog>
+
   <div class="pwa-update hidden" role="status" aria-live="polite" data-pwa-update-banner>
     <span>Une nouvelle version de Heureux est prête.</span>
     <button class="btn btn--primary" type="button" data-pwa-update>Mettre à jour</button>
   </div>
 
-  <script src="{% static 'study/js/app.js' %}?v=36"></script>
+  <script src="{% static 'study/js/app.js' %}?v=39"></script>
   <script src="{% static 'study/js/selection-toolbar.js' %}?v=1"></script>
-  <script src="{% static 'study/js/annotations.js' %}?v=12"></script>
+  <script src="{% static 'study/js/annotations.js' %}?v=13"></script>
   <script src="{% static 'study/js/subject-progress.js' %}?v=1"></script>
   <script src="{% static 'study/js/comprehension-progress.js' %}?v=1"></script>
   {% block scripts %}{% endblock %}

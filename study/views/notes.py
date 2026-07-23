@@ -47,6 +47,83 @@ EXPRESSION_PART_BY_PATH = {
     "orale": "eo",
     "ecrite": "ee",
 }
+COMPREHENSION_PATH_PREFIX = "/comprehension/"
+COMPREHENSION_NOTE_MODES = ("ecrite", "orale")
+COMPREHENSION_NOTE_LABELS = {
+    "ecrite": "Compréhension écrite",
+    "orale": "Compréhension orale",
+}
+
+
+def _comprehension_scope_prefix(mode):
+    return f"{COMPREHENSION_PATH_PREFIX}{mode}/"
+
+
+def _scope_annotations(annotations, *, task, aggregate, comprehension):
+    """Restrict a base annotation queryset to a single notes scope.
+
+    ``comprehension`` ("ecrite"/"orale") keeps only task-less notes captured
+    on the matching compréhension pages. Générales (``task is None`` without a
+    comprehension mode) excludes those compréhension notes so the two scopes
+    never overlap. ``aggregate`` (Toutes) keeps everything.
+    """
+    if comprehension:
+        return annotations.filter(
+            task__isnull=True,
+            source_path__startswith=_comprehension_scope_prefix(comprehension),
+        )
+    if aggregate:
+        return annotations
+    annotations = annotations.filter(task=task)
+    if task is None:
+        annotations = annotations.exclude(
+            source_path__startswith=COMPREHENSION_PATH_PREFIX
+        )
+    return annotations
+
+
+def _general_scope_counts(user):
+    """Split task-less notes into general / compréhension écrite / orale."""
+    totals = Annotation.objects.filter(user=user, task__isnull=True).aggregate(
+        total=Count("id"),
+        ecrite=Count(
+            "id",
+            filter=Q(
+                source_path__startswith=_comprehension_scope_prefix("ecrite")
+            ),
+        ),
+        orale=Count(
+            "id",
+            filter=Q(
+                source_path__startswith=_comprehension_scope_prefix("orale")
+            ),
+        ),
+    )
+    ecrite = totals["ecrite"] or 0
+    orale = totals["orale"] or 0
+    total = totals["total"] or 0
+    return {
+        "ecrite": ecrite,
+        "orale": orale,
+        "general": total - ecrite - orale,
+    }
+
+
+def _annotation_scope_key(annotation):
+    """Return the scope-nav bucket key for an annotation.
+
+    Mirrors :func:`_scope_annotations`: task notes map to ``task:<pk>``,
+    compréhension notes to ``ecrite``/``orale``, and everything else to
+    ``general``. Used to keep the scope-nav counts in sync when an item is
+    deleted in place, without a full page reload.
+    """
+    if annotation.task_id is not None:
+        return f"task:{annotation.task_id}"
+    source_path = annotation.source_path or ""
+    for mode in COMPREHENSION_NOTE_MODES:
+        if source_path.startswith(_comprehension_scope_prefix(mode)):
+            return mode
+    return "general"
 
 
 def _annotation_counts(user):
@@ -166,12 +243,16 @@ def _annotation_date_sections(annotations):
     ]
 
 
-def _notes_scope(request, task=None, *, aggregate=False):
+def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
     annotations = Annotation.objects.filter(user=request.user).select_related(
         "task__part"
     )
-    if not aggregate:
-        annotations = annotations.filter(task=task)
+    annotations = _scope_annotations(
+        annotations,
+        task=task,
+        aggregate=aggregate,
+        comprehension=comprehension,
+    )
     query = (request.GET.get("q") or "").strip()
     if query:
         annotations = annotations.filter(
@@ -188,7 +269,7 @@ def _notes_scope(request, task=None, *, aggregate=False):
     study_count = annotations.filter(study_later=True).count()
     filtered = annotations
     if status == "todo":
-        filtered = filtered.filter(completed_at__isnull=True)
+        filtered = filtered.filter(completed_at__isnull=True, study_later=False)
     elif status == "done":
         filtered = filtered.filter(completed_at__isnull=False)
     elif status == "study":
@@ -229,6 +310,7 @@ def _notes_scope(request, task=None, *, aggregate=False):
             _highlight_origin(highlight)
         ]
     counts = _annotation_counts(request.user)
+    general_counts = _general_scope_counts(request.user)
     task_filters = []
     for filter_task in Task.objects.select_related("part").filter(
         Q(is_active=True) | Q(annotations__user=request.user)
@@ -251,14 +333,15 @@ def _notes_scope(request, task=None, *, aggregate=False):
         {
             "part": task.part if task else None,
             "task": task,
+            "comprehension": comprehension,
             "scope_title": (
                 task.name
                 if task
-                else (
-                    "Toutes mes notes"
-                    if aggregate
-                    else "Notes générales"
-                )
+                else COMPREHENSION_NOTE_LABELS[comprehension]
+                if comprehension
+                else "Toutes mes notes"
+                if aggregate
+                else "Notes générales"
             ),
             "notes": notes,
             "highlights": highlights,
@@ -271,7 +354,9 @@ def _notes_scope(request, task=None, *, aggregate=False):
             "query": query,
             "status": status,
             "task_filters": task_filters,
-            "general_count": counts.get(None, {}).get("total", 0),
+            "general_count": general_counts["general"],
+            "ce_count": general_counts["ecrite"],
+            "co_count": general_counts["orale"],
             "tab_url_prefix": tab_url_prefix,
         },
     )
@@ -283,6 +368,12 @@ def task_notes(request, part_slug, task_slug):
 
 def general_notes(request):
     return _notes_scope(request)
+
+
+def comprehension_notes(request, mode):
+    if mode not in COMPREHENSION_NOTE_MODES:
+        raise Http404
+    return _notes_scope(request, comprehension=mode)
 
 
 def _annotation_anchor(annotation):
@@ -359,8 +450,11 @@ def annotation_study(
     part_slug=None,
     task_slug=None,
     general_only=False,
+    comprehension=None,
 ):
     if "scope" in request.GET:
+        raise Http404
+    if comprehension is not None and comprehension not in COMPREHENSION_NOTE_MODES:
         raise Http404
     task = (
         _route_task(part_slug, task_slug)
@@ -373,8 +467,15 @@ def annotation_study(
     ).select_related("task__part")
     if task:
         annotations = annotations.filter(task=task)
+    elif comprehension:
+        annotations = annotations.filter(
+            task__isnull=True,
+            source_path__startswith=_comprehension_scope_prefix(comprehension),
+        )
     elif general_only:
-        annotations = annotations.filter(task__isnull=True)
+        annotations = annotations.filter(task__isnull=True).exclude(
+            source_path__startswith=COMPREHENSION_PATH_PREFIX
+        )
     items = list(annotations.order_by("-updated_at", "-id"))
     return render(
         request,
@@ -386,20 +487,22 @@ def annotation_study(
             "scope_title": (
                 task.name
                 if task
-                else (
-                    "Notes générales"
-                    if general_only
-                    else "Toutes mes notes"
-                )
+                else COMPREHENSION_NOTE_LABELS[comprehension]
+                if comprehension
+                else "Notes générales"
+                if general_only
+                else "Toutes mes notes"
             ),
             "back_url": (
                 _annotation_scope_url(task)
                 if task
-                else (
-                    reverse("study:general_notes")
-                    if general_only
-                    else reverse("study:notes_overview")
+                else reverse(
+                    "study:comprehension_notes", args=[comprehension]
                 )
+                if comprehension
+                else reverse("study:general_notes")
+                if general_only
+                else reverse("study:notes_overview")
             ),
         },
     )
@@ -807,6 +910,7 @@ def annotation_study_toggle(request, pk):
             {
                 "study_later": annotation.study_later,
                 "id": annotation.pk,
+                "kind": annotation.kind,
             }
         )
     return redirect(_annotation_redirect(request, annotation))
@@ -829,6 +933,7 @@ def annotation_complete_toggle(request, pk):
             {
                 "completed": annotation.completed,
                 "id": annotation.pk,
+                "kind": annotation.kind,
             }
         )
     return redirect(_annotation_redirect(request, annotation))
@@ -842,7 +947,14 @@ def annotation_delete(request, pk):
         user=request.user,
     )
     target = _annotation_redirect(request, annotation)
+    payload = {
+        "deleted": True,
+        "id": annotation.pk,
+        "kind": annotation.kind,
+        "was_study": annotation.study_later,
+        "scope": _annotation_scope_key(annotation),
+    }
     annotation.delete()
     if request.headers.get("X-Requested-With") == "fetch":
-        return JsonResponse({"deleted": True})
+        return JsonResponse(payload)
     return redirect(target)

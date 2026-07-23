@@ -696,8 +696,24 @@
     var restart = deck.querySelector("[data-study-restart]");
     var done = deck.querySelector("[data-study-done]");
     var controls = deck.querySelector(".annotation-study__controls");
+    var summary = deck.querySelector("[data-study-summary]");
+    var clearButton = deck.querySelector("[data-study-clear]");
+    var clearLabel = deck.querySelector("[data-study-clear-label]");
+    var knownCountEl = deck.querySelector("[data-study-known-count]");
     var index = 0;
     var revealed = false;
+    // Decisions are held locally until the end of the run so nothing leaves
+    // the « À étudier » pack mid-session; only « Je le connais » cards are
+    // removed, and only when the learner confirms with the end button.
+    var decisions = {};
+
+    function cardId(card) {
+      return card.getAttribute("data-study-id");
+    }
+
+    function pluralize(count) {
+      return count > 1 ? "s" : "";
+    }
 
     function render() {
       cards.forEach(function (card, cardIndex) {
@@ -728,6 +744,49 @@
       learned.classList.remove("hidden");
     }
 
+    function knownCards() {
+      return cards.filter(function (card) {
+        return decisions[cardId(card)] === "known";
+      });
+    }
+
+    function showDone() {
+      cards.forEach(function (card) {
+        card.classList.add("hidden");
+      });
+      controls.classList.add("hidden");
+      done.classList.remove("hidden");
+      progress.textContent =
+        String(cards.length) + " / " + String(cards.length);
+      var known = knownCards().length;
+      if (knownCountEl) knownCountEl.textContent = String(known);
+      if (clearLabel) {
+        clearLabel.textContent =
+          "Retirer " +
+          String(known) +
+          " élément" +
+          pluralize(known) +
+          " connu" +
+          pluralize(known);
+      }
+      if (clearButton) {
+        clearButton.disabled = false;
+        clearButton.classList.toggle("hidden", known === 0);
+      }
+      if (summary) {
+        summary.textContent =
+          known > 0
+            ? "Vous avez marqué " +
+              String(known) +
+              " élément" +
+              pluralize(known) +
+              " comme connu" +
+              pluralize(known) +
+              "."
+            : "Aucun élément marqué « Je le connais » — votre sélection reste inchangée.";
+      }
+    }
+
     function advance() {
       if (!revealed) return;
       if (index < cards.length - 1) {
@@ -735,10 +794,7 @@
         render();
         return;
       }
-      cards[index].classList.add("hidden");
-      controls.classList.add("hidden");
-      done.classList.remove("hidden");
-      progress.textContent = String(cards.length) + " / " + String(cards.length);
+      showDone();
     }
 
     previous.addEventListener("click", function () {
@@ -748,32 +804,81 @@
       }
     });
     reveal.addEventListener("click", showAnswer);
-    keep.addEventListener("click", advance);
+    keep.addEventListener("click", function () {
+      var card = cards[index];
+      if (card) decisions[cardId(card)] = "keep";
+      advance();
+    });
     learned.addEventListener("click", function () {
       var card = cards[index];
-      var formData = new FormData();
-      formData.set("study_later", "0");
-      learned.disabled = true;
-      fetch(card.dataset.studyToggleUrl, {
-        method: "POST",
-        headers: {
-          "X-CSRFToken": csrfToken(),
-          "X-Requested-With": "fetch"
-        },
-        body: formData,
-        credentials: "same-origin"
-      })
-        .then(function (response) {
-          if (!response.ok) throw new Error("Impossible de mettre à jour la note.");
-          learned.disabled = false;
-          advance();
-        })
-        .catch(function (error) {
-          learned.disabled = false;
-          showToast(error.message);
-        });
+      if (card) decisions[cardId(card)] = "known";
+      advance();
     });
+    if (clearButton) {
+      clearButton.addEventListener("click", function () {
+        var toRemove = knownCards();
+        if (!toRemove.length) return;
+        clearButton.disabled = true;
+        if (clearLabel) clearLabel.textContent = "Retrait…";
+        Promise.all(
+          toRemove.map(function (card) {
+            var formData = new FormData();
+            formData.set("study_later", "0");
+            return fetch(card.dataset.studyToggleUrl, {
+              method: "POST",
+              headers: {
+                "X-CSRFToken": csrfToken(),
+                "X-Requested-With": "fetch"
+              },
+              body: formData,
+              credentials: "same-origin"
+            }).then(function (response) {
+              if (!response.ok) {
+                throw new Error("Impossible de mettre à jour la sélection.");
+              }
+            });
+          })
+        )
+          .then(function () {
+            var removedCount = toRemove.length;
+            toRemove.forEach(function (card) {
+              var id = cardId(card);
+              delete decisions[id];
+              cards = cards.filter(function (other) {
+                return other !== card;
+              });
+              if (card.parentNode) card.parentNode.removeChild(card);
+            });
+            clearButton.classList.add("hidden");
+            showToast(
+              String(removedCount) +
+                " élément" +
+                pluralize(removedCount) +
+                " retiré" +
+                pluralize(removedCount) +
+                " de « À étudier »."
+            );
+            if (summary) {
+              summary.textContent =
+                cards.length > 0
+                  ? "Retiré de « À étudier ». Il reste " +
+                    String(cards.length) +
+                    " élément" +
+                    pluralize(cards.length) +
+                    " dans votre sélection."
+                  : "Votre sélection « À étudier » est maintenant vide.";
+            }
+            if (restart) restart.disabled = cards.length === 0;
+          })
+          .catch(function (error) {
+            clearButton.disabled = false;
+            showDone();
+            showToast(error.message);
+          });
+      });
+    }
     restart.addEventListener("click", function () {
+      if (!cards.length) return;
       index = 0;
       render();
     });

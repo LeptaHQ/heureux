@@ -17,12 +17,12 @@
   </div>
   <div class="annotation-study__cards">
     {% for item in items %}
-      <article class="flashcard annotation-study__card {% if not forloop.first %}hidden{% endif %}" data-study-card data-study-toggle-url="{% url 'study:annotation_study_toggle' item.id %}">
+      <article class="flashcard annotation-study__card {% if not forloop.first %}hidden{% endif %}" data-study-card data-study-id="{{ item.id }}" data-study-toggle-url="{% url 'study:annotation_study_toggle' item.id %}">
         <div class="annotation-study__front" data-study-front>
-          <p class="eyebrow">{% if item.kind == "highlight" %}Passage surligné{% elif item.quote and item.body %}Texte sélectionné{% else %}Note personnelle{% endif %}</p>
+          <p class="eyebrow">{% if item.kind == "highlight" %}Passage surligné{% elif item.quote %}Texte sélectionné{% else %}Note personnelle{% endif %}</p>
           {% if item.kind == "highlight" %}
             <h2>Quel passage avez-vous retenu&nbsp;?</h2>
-          {% elif item.quote and item.body %}
+          {% elif item.quote %}
             <blockquote class="annotation-study__prompt">{{ item.quote }}</blockquote>
           {% elif item.title %}
             <h2>{{ item.title }}</h2>
@@ -32,13 +32,16 @@
           <p class="muted">{% if item.source_title %}{{ item.source_title }}{% elif item.task %}{{ item.task.part.short_name }} · {{ item.task.name }}{% else %}Notes générales{% endif %}</p>
         </div>
         <div class="annotation-study__back hidden" data-study-back>
-          {% if item.kind == "note" and item.quote and item.body %}
+          {% if item.kind == "highlight" %}
+            {% if item.quote %}<blockquote class="annotation-study__highlight">{{ item.quote }}</blockquote>{% endif %}
+            {% if item.body %}<p>{{ item.body }}</p>{% endif %}
+          {% elif item.quote %}
             <p class="eyebrow">Votre note</p>
             {% if item.title %}<h2>{{ item.title }}</h2>{% endif %}
-            <p>{{ item.body }}</p>
-          {% else %}
-            {% if item.quote %}<blockquote{% if item.kind == "highlight" %} class="annotation-study__highlight"{% endif %}>{{ item.quote }}</blockquote>{% endif %}
             {% if item.body %}<p>{{ item.body }}</p>{% endif %}
+            {% if not item.title and not item.body %}<p class="muted">Aucune note ajoutée à ce passage.</p>{% endif %}
+          {% else %}
+            {% if item.body %}<p>{{ item.body }}</p>{% else %}<p class="muted">Aucune note enregistrée.</p>{% endif %}
           {% endif %}
           {% if item.source_path %}<a href="{{ item.source_path }}">Voir la source {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>{% endif %}
         </div>
@@ -54,9 +57,13 @@
   <div class="card done-state annotation-study__done hidden" data-study-done>
     <div class="done-state__icon done-state__icon--success">{% include "study/partials/ui_icon.html" with name="check" only %}</div>
     <h2>Parcours terminé</h2>
-    <p>Vous avez pris une décision pour {{ items|length }} élément{{ items|length|pluralize }} de votre sélection personnelle.</p>
+    <p data-study-summary>Vous avez parcouru {{ items|length }} élément{{ items|length|pluralize }} de votre sélection personnelle.</p>
     <div class="row center">
-      <button class="btn btn--primary" type="button" data-study-restart>Recommencer</button>
+      <button class="btn btn--primary hidden" type="button" data-study-clear>
+        <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5 10 17.5 19 6.5"></path></svg>
+        <span data-study-clear-label>Retirer les éléments connus</span>
+      </button>
+      <button class="btn" type="button" data-study-restart>Recommencer</button>
       <a class="btn" href="{{ back_url }}">Retour aux notes</a>
     </div>
   </div>

@@ -19,9 +19,11 @@ from ..forms import (
     PersonalResponseForm,
 )
 from ..models import (
+    Annotation,
     Card,
     CardState,
     CardType,
+    ComprehensionAttempt,
     ComprehensionMode,
     ComprehensionQuestion,
     ComprehensionTest,
@@ -66,7 +68,6 @@ from .helpers import (
     _task_phrases,
     _task_scope,
     _tache_two_progress,
-    current_streak,
     deck_stats,
     recent_review_sessions,
     summarize_review_batches,
@@ -2278,6 +2279,100 @@ def _stats_scope_cards(scope, user):
     ).distinct()
 
 
+def _activity_streak(active_days, today):
+    """Consecutive-day streak (ending today or yesterday) from a set of dates."""
+    if not active_days:
+        return 0
+    cursor = today
+    if cursor not in active_days:
+        cursor = today - timezone.timedelta(days=1)
+        if cursor not in active_days:
+            return 0
+    streak = 0
+    while cursor in active_days:
+        streak += 1
+        cursor -= timezone.timedelta(days=1)
+    return streak
+
+
+def _learning_activity(scope, user, scoped_cards, logs_base, now):
+    """Every learning action, not only flashcard reviews.
+
+    Returns a per-day activity map (last 365 days), the set of active days,
+    an all-time per-type breakdown and the grand total. Comprehension quizzes
+    and mémoires live outside the EO/EE expression scope, so they only count
+    in the global (unscoped) view.
+    """
+    part = scope.get("part")
+    task = scope.get("task")
+    since_year = now - timezone.timedelta(days=365)
+
+    responses = PersonalResponse.objects.filter(user=user)
+    notes = Annotation.objects.filter(user=user)
+    if task:
+        responses = responses.filter(
+            response__theme__task__slug=task,
+            response__theme__task__part__slug=part,
+        )
+        notes = notes.filter(task__slug=task, task__part__slug=part)
+    elif part:
+        responses = responses.filter(response__theme__task__part__slug=part)
+        notes = notes.filter(task__part__slug=part)
+
+    sources = [
+        ("reviews", "Révisions", logs_base, "reviewed_at"),
+        (
+            "subjects",
+            "Sujets terminés",
+            scoped_cards.filter(subject_completed_at__isnull=False),
+            "subject_completed_at",
+        ),
+        ("responses", "Réponses rédigées", responses, "updated_at"),
+        ("notes", "Notes & surlignages", notes, "created_at"),
+    ]
+    if not scope:
+        sources.append(
+            (
+                "comprehension",
+                "Quiz de compréhension",
+                ComprehensionAttempt.objects.filter(
+                    user=user, completed_at__isnull=False
+                ),
+                "completed_at",
+            )
+        )
+        sources.append(
+            (
+                "memories",
+                "Mémoires apprises",
+                MemoryQuestionProgress.objects.filter(user=user),
+                "completed_at",
+            )
+        )
+
+    per_day: dict = {}
+    active_days: set = set()
+    breakdown = []
+    for key, label, qs, field in sources:
+        breakdown.append({"key": key, "label": label, "count": qs.count()})
+        recent = qs.filter(**{f"{field}__gte": since_year}).values_list(
+            field, flat=True
+        )
+        for moment in recent:
+            if moment is None:
+                continue
+            day = timezone.localtime(moment).date()
+            per_day[day] = per_day.get(day, 0) + 1
+            active_days.add(day)
+
+    return {
+        "per_day": per_day,
+        "active_days": active_days,
+        "breakdown": breakdown,
+        "total_activity": sum(item["count"] for item in breakdown),
+    }
+
+
 def stats(request, part_slug=None, task_slug=None):
     now = timezone.now()
     today = timezone.localtime(now).date()
@@ -2303,19 +2398,17 @@ def stats(request, part_slug=None, task_slug=None):
             card_id__in=scoped_history_cards.values("pk")
         )
 
-    since = now - timezone.timedelta(days=90)
-    logs = logs_base.filter(reviewed_at__gte=since)
-    per_day: dict = {}
-    for reviewed_at in logs.values_list("reviewed_at", flat=True):
-        day = timezone.localtime(reviewed_at).date()
-        per_day[day] = per_day.get(day, 0) + 1
+    activity = _learning_activity(
+        scope, request.user, scoped_history_cards, logs_base, now
+    )
+    per_day = activity["per_day"]
 
     daily = []
     for offset in range(29, -1, -1):
         day = today - timezone.timedelta(days=offset)
         daily.append({"date": day, "count": per_day.get(day, 0)})
     max_daily = max((d["count"] for d in daily), default=0) or 1
-    reviews_30_days = sum(d["count"] for d in daily)
+    activity_30_days = sum(d["count"] for d in daily)
 
     heat = []
     for offset in range(89, -1, -1):
@@ -2392,9 +2485,9 @@ def stats(request, part_slug=None, task_slug=None):
     context = {
         "daily": daily,
         "max_daily": max_daily,
-        "reviews_30_days": reviews_30_days,
+        "activity_30_days": activity_30_days,
         "heat": heat,
-        "reviews_90_days": sum(cell["count"] for cell in heat),
+        "activity_90_days": sum(cell["count"] for cell in heat),
         "retention": retention,
         "mature_total": mature_total,
         "forecast": forecast,
@@ -2403,9 +2496,11 @@ def stats(request, part_slug=None, task_slug=None):
         "overall": overall,
         "mastery_percentage": mastery_percentage,
         "themes": themes,
-        "streak": current_streak(now, logs_base, request.user),
+        "streak": _activity_streak(activity["active_days"], today),
         "total_reviews": logs_base.count(),
-        "reviews_today": per_day.get(today, 0),
+        "total_activity": activity["total_activity"],
+        "breakdown": activity["breakdown"],
+        "activity_today": per_day.get(today, 0),
         "recent_sessions": recent_review_sessions(logs_base),
         "expression_weak_count": queue_module.queue_counts(
             {**scope, "kind": "weak", "content": "spine"},

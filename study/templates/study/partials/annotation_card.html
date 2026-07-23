@@ -12,6 +12,8 @@ Parameters:
 <article
   class="card annotation-card annotation-card--{{ annotation.kind }} annotation-card--{{ variant }}"
   data-collection-item
+  data-annotation-item="{{ annotation.id }}"
+  data-annotation-kind="{{ annotation.kind }}"
   id="{{ anchor_prefix }}-{{ annotation.id }}{{ anchor_suffix|default:"" }}"
   {% if anchor_suffix %}data-annotation-anchor="{{ anchor_prefix }}-{{ annotation.id }}"{% endif %}
   {% if variant == "notes" %}data-annotation-edit-source="{{ annotation.id }}" data-annotation-edit-title="{{ annotation.title }}" data-annotation-edit-body="{{ annotation.body }}"{% endif %}

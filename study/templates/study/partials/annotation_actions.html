@@ -17,7 +17,7 @@ Parameters:
     </a>
   {% endif %}
 {% endif %}
-<form method="post" action="{% url 'study:annotation_study_toggle' annotation.id %}">
+<form method="post" action="{% url 'study:annotation_study_toggle' annotation.id %}" data-annotation-action="study" data-annotation-id="{{ annotation.id }}">
   {% csrf_token %}
   <input type="hidden" name="next" value="{{ request.get_full_path }}">
   <input type="hidden" name="study_later" value="{% if annotation.study_later %}0{% else %}1{% endif %}">
@@ -29,7 +29,7 @@ Parameters:
   </button>
 </form>
 {% if variant == "notes" or variant == "highlights" %}
-  <form method="post" action="{% url 'study:annotation_complete_toggle' annotation.id %}">
+  <form method="post" action="{% url 'study:annotation_complete_toggle' annotation.id %}" data-annotation-action="complete" data-annotation-id="{{ annotation.id }}">
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ request.get_full_path }}">
     <input type="hidden" name="completed" value="{% if annotation.completed %}0{% else %}1{% endif %}">
@@ -57,7 +57,7 @@ Parameters:
   </button>
 {% endif %}
 {% if variant == "notes" or variant == "highlights" %}
-  <form method="post" action="{% url 'study:annotation_delete' annotation.id %}" data-confirm="{% if annotation.kind == 'highlight' %}Supprimer ce surlignage ?{% else %}Supprimer cette note ?{% endif %}">
+  <form method="post" action="{% url 'study:annotation_delete' annotation.id %}" data-annotation-action="delete" data-annotation-id="{{ annotation.id }}" data-confirm="{% if annotation.kind == 'highlight' %}Supprimer ce surlignage ?{% else %}Supprimer cette note ?{% endif %}" data-confirm-label="Supprimer" data-confirm-tone="danger">
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ request.get_full_path }}">
     <button class="linkbtn linkbtn--muted annotation-action" type="submit" aria-label="{% if annotation.kind == 'highlight' %}Supprimer le surlignage{% else %}Supprimer la note{% endif %}" title="Supprimer">

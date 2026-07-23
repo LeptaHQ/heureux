@@ -546,6 +546,10 @@ def dashboard(request):
         ),
         "reviews_today": reviews_today,
         "daily_goal": DAILY_REVIEW_GOAL,
+        "daily_goal_remaining": max(
+            DAILY_REVIEW_GOAL - reviews_today,
+            0,
+        ),
         "daily_goal_pct": daily_goal_pct,
         "daily_goal_met": reviews_today >= DAILY_REVIEW_GOAL,
     }

@@ -480,11 +480,86 @@
     input.addEventListener("input", updateDirectory);
   })();
 
-  document.querySelectorAll("form[data-confirm]").forEach(function (form) {
-    form.addEventListener("submit", function (event) {
-      if (!window.confirm(form.dataset.confirm)) event.preventDefault();
-    });
-  });
+  /* ---------- Confirmation dialog ---------- */
+  var openConfirm = function (opts) {
+    opts = opts || {};
+    return Promise.resolve(
+      window.confirm(opts.message || "Confirmer cette action ?")
+    );
+  };
+  (function () {
+    var dialog = document.querySelector("[data-confirm-dialog]");
+    var canUseDialog = dialog && typeof dialog.showModal === "function";
+    var messageEl = dialog && dialog.querySelector("[data-confirm-message]");
+    var acceptBtn = dialog && dialog.querySelector("[data-confirm-accept]");
+
+    if (canUseDialog) {
+      openConfirm = function (opts) {
+        opts = opts || {};
+        return new Promise(function (resolve) {
+          if (messageEl) {
+            messageEl.textContent =
+              opts.message || "Confirmer cette action ?";
+          }
+          if (acceptBtn) {
+            acceptBtn.textContent = opts.label || "Confirmer";
+            acceptBtn.classList.toggle("btn--danger", opts.tone !== "safe");
+          }
+          var settled = false;
+          function cleanup() {
+            if (acceptBtn) acceptBtn.removeEventListener("click", onAccept);
+            dialog.removeEventListener("close", onClose);
+          }
+          function onAccept() {
+            if (settled) return;
+            settled = true;
+            cleanup();
+            if (dialog.open) dialog.close();
+            resolve(true);
+          }
+          function onClose() {
+            if (settled) return;
+            settled = true;
+            cleanup();
+            resolve(false);
+          }
+          if (acceptBtn) acceptBtn.addEventListener("click", onAccept);
+          dialog.addEventListener("close", onClose);
+          dialog._returnFocus = document.activeElement;
+          dialog.showModal();
+          window.requestAnimationFrame(function () {
+            if (acceptBtn) acceptBtn.focus();
+          });
+        });
+      };
+    }
+
+    Array.from(document.querySelectorAll("form[data-confirm]")).forEach(
+      function (form) {
+        if (form.closest("[data-annotation-list]")) return;
+        form.addEventListener("submit", function (event) {
+          if (form.dataset.confirmed === "1") {
+            form.removeAttribute("data-confirmed");
+            return;
+          }
+          event.preventDefault();
+          openConfirm({
+            message: form.dataset.confirm,
+            label: form.dataset.confirmLabel,
+            tone: form.dataset.confirmTone,
+          }).then(function (ok) {
+            if (!ok) return;
+            form.dataset.confirmed = "1";
+            if (typeof form.requestSubmit === "function") {
+              form.requestSubmit();
+            } else {
+              form.submit();
+            }
+          });
+        });
+      }
+    );
+  })();
 
   document.querySelectorAll("[data-auto-submit]").forEach(function (control) {
     control.addEventListener("change", function () {
@@ -497,6 +572,508 @@
       }
     });
   });
+
+  /* ---------- Custom select (accessible listbox) ---------- */
+  (function () {
+    var selects = Array.from(
+      document.querySelectorAll("select[data-custom-select]")
+    );
+    if (!selects.length) return;
+    var uid = 0;
+
+    selects.forEach(function (select) {
+      if (select.dataset.customSelectReady === "1") return;
+      select.dataset.customSelectReady = "1";
+      uid += 1;
+      var base = "custom-select-" + uid;
+      var options = Array.from(select.options);
+
+      var wrapper = document.createElement("div");
+      wrapper.className = "custom-select";
+
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "custom-select__button";
+      button.setAttribute("aria-haspopup", "listbox");
+      button.setAttribute("aria-expanded", "false");
+      button.id = base + "-button";
+      if (select.getAttribute("aria-label")) {
+        button.setAttribute("aria-label", select.getAttribute("aria-label"));
+      } else if (select.labels && select.labels[0]) {
+        button.setAttribute("aria-labelledby", base + "-button");
+      }
+      var valueEl = document.createElement("span");
+      valueEl.className = "custom-select__value";
+      var chevron = document.createElement("span");
+      chevron.className = "custom-select__chevron";
+      chevron.setAttribute("aria-hidden", "true");
+      chevron.innerHTML =
+        '<svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"></path></svg>';
+      button.appendChild(valueEl);
+      button.appendChild(chevron);
+
+      var list = document.createElement("ul");
+      list.className = "custom-select__list";
+      list.setAttribute("role", "listbox");
+      list.id = base + "-list";
+      list.tabIndex = -1;
+      list.hidden = true;
+      button.setAttribute("aria-controls", list.id);
+
+      var optionEls = options.map(function (option, optionIndex) {
+        var item = document.createElement("li");
+        item.className = "custom-select__option";
+        item.setAttribute("role", "option");
+        item.id = base + "-option-" + optionIndex;
+        item.dataset.value = option.value;
+        item.textContent = option.textContent;
+        item.setAttribute(
+          "aria-selected",
+          option.selected ? "true" : "false"
+        );
+        list.appendChild(item);
+        return item;
+      });
+
+      select.classList.add("custom-select__native");
+      select.setAttribute("tabindex", "-1");
+      select.setAttribute("aria-hidden", "true");
+      select.parentNode.insertBefore(wrapper, select);
+      wrapper.appendChild(select);
+      wrapper.appendChild(button);
+      wrapper.appendChild(list);
+
+      var activeIndex = Math.max(0, select.selectedIndex);
+
+      function syncButton() {
+        var selected = options[select.selectedIndex] || options[0];
+        valueEl.textContent = selected ? selected.textContent : "";
+      }
+
+      function setActive(nextIndex) {
+        activeIndex = Math.max(0, Math.min(nextIndex, optionEls.length - 1));
+        optionEls.forEach(function (item, itemIndex) {
+          item.classList.toggle(
+            "is-active",
+            itemIndex === activeIndex
+          );
+        });
+        var current = optionEls[activeIndex];
+        if (current) {
+          list.setAttribute("aria-activedescendant", current.id);
+          current.scrollIntoView({ block: "nearest" });
+        }
+      }
+
+      function openList() {
+        if (!list.hidden) return;
+        list.hidden = false;
+        wrapper.classList.add("is-open");
+        button.setAttribute("aria-expanded", "true");
+        setActive(select.selectedIndex);
+        list.focus();
+      }
+
+      function closeList(focusButton) {
+        if (list.hidden) return;
+        list.hidden = true;
+        wrapper.classList.remove("is-open");
+        button.setAttribute("aria-expanded", "false");
+        if (focusButton) button.focus();
+      }
+
+      function choose(optionIndex) {
+        var option = options[optionIndex];
+        if (!option) return;
+        var changed = select.selectedIndex !== optionIndex;
+        select.selectedIndex = optionIndex;
+        optionEls.forEach(function (item, itemIndex) {
+          item.setAttribute(
+            "aria-selected",
+            itemIndex === optionIndex ? "true" : "false"
+          );
+        });
+        syncButton();
+        closeList(true);
+        if (changed) {
+          select.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+      }
+
+      button.addEventListener("click", function () {
+        if (list.hidden) {
+          openList();
+        } else {
+          closeList(true);
+        }
+      });
+
+      button.addEventListener("keydown", function (event) {
+        if (
+          event.key === "ArrowDown" ||
+          event.key === "ArrowUp" ||
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+          event.preventDefault();
+          openList();
+        }
+      });
+
+      list.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowDown") {
+          event.preventDefault();
+          setActive(activeIndex + 1);
+        } else if (event.key === "ArrowUp") {
+          event.preventDefault();
+          setActive(activeIndex - 1);
+        } else if (event.key === "Home") {
+          event.preventDefault();
+          setActive(0);
+        } else if (event.key === "End") {
+          event.preventDefault();
+          setActive(optionEls.length - 1);
+        } else if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          choose(activeIndex);
+        } else if (event.key === "Escape") {
+          event.preventDefault();
+          closeList(true);
+        } else if (event.key === "Tab") {
+          closeList(false);
+        }
+      });
+
+      optionEls.forEach(function (item, optionIndex) {
+        item.addEventListener("click", function () {
+          choose(optionIndex);
+        });
+        item.addEventListener("mousemove", function () {
+          setActive(optionIndex);
+        });
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!wrapper.contains(event.target)) closeList(false);
+      });
+
+      syncButton();
+    });
+  })();
+
+  /* ---------- In-place note & highlight actions ---------- */
+  (function () {
+    var list = document.querySelector("[data-annotation-list]");
+    if (!list) return;
+
+    var status = list.dataset.status || ""; // "", "todo", "done", "study"
+    var panelKind =
+      list.dataset.activeTab === "highlights" ? "highlights" : "notes";
+    var toast = document.querySelector("[data-annotation-toast]");
+    var toastTimer = null;
+
+    var STUDY_LABEL = { on: "Retirer de l’étude", off: "Ajouter à étudier" };
+    var DONE_LABEL = {
+      on: "Marquer comme à faire",
+      off: "Marquer comme terminé",
+    };
+
+    function flashToast(message) {
+      if (!toast) return;
+      window.clearTimeout(toastTimer);
+      toast.textContent = message;
+      toast.classList.remove("hidden");
+      toastTimer = window.setTimeout(function () {
+        toast.classList.add("hidden");
+      }, 2200);
+    }
+
+    function itemNodes(id) {
+      return Array.from(
+        list.querySelectorAll('[data-annotation-item="' + id + '"]')
+      );
+    }
+
+    function readNumber(el) {
+      var value = parseInt((el.textContent || "").replace(/[^0-9]/g, ""), 10);
+      return isNaN(value) ? 0 : value;
+    }
+
+    function adjustCount(el, delta) {
+      if (!el) return;
+      el.textContent = Math.max(0, readNumber(el) + delta);
+    }
+
+    function heroEl(name) {
+      return document.querySelector('[data-hero-count="' + name + '"]');
+    }
+    function tabCount(name) {
+      return document.querySelector('[data-tab-count="' + name + '"]');
+    }
+    function scopeCount(key) {
+      return document.querySelector('[data-scope-count="' + key + '"]');
+    }
+
+    function bumpHero(name, delta) {
+      var el = heroEl(name);
+      if (!el) return;
+      var next = Math.max(0, readNumber(el) + delta);
+      el.textContent = next;
+      if (name === "notes" || name === "highlights") {
+        var span = el.parentNode;
+        if (!span) return;
+        while (el.nextSibling) span.removeChild(el.nextSibling);
+        var word = name === "notes" ? "note" : "surlignage";
+        span.appendChild(
+          document.createTextNode(" " + word + (next === 1 ? "" : "s"))
+        );
+      }
+    }
+
+    function postForm(form) {
+      return fetch(form.action, {
+        method: "POST",
+        headers: { "X-Requested-With": "fetch" },
+        body: new FormData(form),
+        credentials: "same-origin",
+      }).then(function (response) {
+        if (!response.ok) throw new Error("bad status");
+        return response.json();
+      });
+    }
+
+    function setButtonBusy(form, busy) {
+      var button = form.querySelector("button");
+      if (button) button.disabled = busy;
+    }
+
+    function nativeSubmit(form) {
+      form.dataset.fallback = "1";
+      if (typeof form.requestSubmit === "function") {
+        form.requestSubmit();
+      } else {
+        form.submit();
+      }
+    }
+
+    function recountSection(section, isRow) {
+      if (!section) return;
+      var items = isRow
+        ? section.querySelectorAll("tr.annotation-table__row")
+        : section.querySelectorAll(".annotation-card");
+      if (!items.length) {
+        section.remove();
+        return;
+      }
+      var countEl = section.querySelector(".notes-date-section__count");
+      if (countEl) countEl.textContent = items.length;
+    }
+
+    function refreshEmptyState() {
+      if (list.querySelector("[data-annotation-item]")) return;
+      var panel = list.querySelector(".notes-tab-panel");
+      var section = panel && panel.querySelector(".annotations-section");
+      var cardsView = list.querySelector(
+        "[data-collection-view-panel='cards']"
+      );
+      var tableView = list.querySelector(
+        "[data-collection-view-panel='table']"
+      );
+      if (cardsView) cardsView.remove();
+      if (tableView) tableView.remove();
+      var toolbar = list.querySelector(".collection-view-toolbar");
+      if (toolbar) toolbar.remove();
+      if (section && !section.querySelector(".empty, .notes-empty-hint")) {
+        var empty = document.createElement("div");
+        if (panelKind === "notes") {
+          empty.className = "empty annotation-empty";
+          var paragraph = document.createElement("p");
+          paragraph.textContent =
+            "Aucune note ici. Écrivez-en une ou sélectionnez du texte " +
+            "ailleurs dans l'application.";
+          empty.appendChild(paragraph);
+        } else {
+          empty.className = "notes-empty-hint";
+          empty.textContent =
+            "Sélectionnez un passage, puis choisissez l'icône de surlignage.";
+        }
+        section.appendChild(empty);
+      }
+    }
+
+    function detachItem(id) {
+      itemNodes(id).forEach(function (node) {
+        var isRow = node.tagName === "TR";
+        var section = isRow
+          ? node.closest("tbody")
+          : node.closest(".notes-date-section");
+        node.remove();
+        recountSection(section, isRow);
+      });
+      refreshEmptyState();
+    }
+
+    function removeFromView(id) {
+      detachItem(id);
+      bumpHero(panelKind, -1);
+      adjustCount(tabCount(panelKind), -1);
+    }
+
+    function badgeText(type, annKind) {
+      if (type === "study") return "À étudier";
+      return annKind === "highlight" ? "Terminé" : "Terminée";
+    }
+
+    function syncRowEmpty(statusCell) {
+      var hasBadge = statusCell.querySelector(
+        ".annotation-card__study, .annotation-card__done"
+      );
+      var empty = statusCell.querySelector(".annotation-table__status-empty");
+      if (hasBadge && empty) {
+        empty.remove();
+      } else if (!hasBadge && !empty) {
+        var span = document.createElement("span");
+        span.className = "annotation-table__status-empty";
+        span.setAttribute("aria-label", "Non marqué");
+        span.textContent = "—";
+        statusCell.appendChild(span);
+      }
+    }
+
+    function setBadge(node, type, on, annKind) {
+      var isRow = node.tagName === "TR";
+      var container = isRow
+        ? node.querySelector(".annotation-table__status")
+        : node.querySelector(".annotation-card__head");
+      if (!container) return;
+      var cls =
+        type === "study" ? "annotation-card__study" : "annotation-card__done";
+      var existing = container.querySelector("." + cls);
+      if (on && !existing) {
+        var span = document.createElement("span");
+        span.className = cls;
+        span.textContent = badgeText(type, annKind);
+        if (isRow) {
+          container.appendChild(span);
+        } else {
+          var before =
+            type === "study"
+              ? container.querySelector(".annotation-card__done") ||
+                container.querySelector("time")
+              : container.querySelector("time");
+          container.insertBefore(span, before || null);
+        }
+      } else if (!on && existing) {
+        existing.remove();
+      }
+      if (isRow) syncRowEmpty(container);
+    }
+
+    function updateToggleForm(node, action, active, labels) {
+      var form = node.querySelector(
+        'form[data-annotation-action="' + action + '"]'
+      );
+      if (!form) return;
+      var field = action === "study" ? "study_later" : "completed";
+      var input = form.querySelector('input[name="' + field + '"]');
+      if (input) input.value = active ? "0" : "1";
+      var button = form.querySelector("button");
+      if (button) {
+        var label = active ? labels.on : labels.off;
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+        button.setAttribute("aria-label", label);
+        button.setAttribute("title", label);
+        var sr = button.querySelector(".sr-only");
+        if (sr) sr.textContent = label;
+      }
+    }
+
+    function handleStudy(id, studyLater) {
+      bumpHero("study", studyLater ? 1 : -1);
+      if (
+        (status === "study" && !studyLater) ||
+        (status === "todo" && studyLater)
+      ) {
+        removeFromView(id);
+        return;
+      }
+      itemNodes(id).forEach(function (node) {
+        updateToggleForm(node, "study", studyLater, STUDY_LABEL);
+        setBadge(node, "study", studyLater, node.dataset.annotationKind);
+      });
+    }
+
+    function handleComplete(id, completed) {
+      if (
+        (status === "todo" && completed) ||
+        (status === "done" && !completed)
+      ) {
+        removeFromView(id);
+        return;
+      }
+      itemNodes(id).forEach(function (node) {
+        updateToggleForm(node, "complete", completed, DONE_LABEL);
+        setBadge(node, "done", completed, node.dataset.annotationKind);
+      });
+    }
+
+    function handleDelete(id, data) {
+      detachItem(id);
+      bumpHero(panelKind, -1);
+      adjustCount(tabCount(panelKind), -1);
+      if (data && data.scope) adjustCount(scopeCount(data.scope), -1);
+      if (data && data.was_study) bumpHero("study", -1);
+      flashToast(
+        panelKind === "highlights" ? "Surlignage supprimé." : "Note supprimée."
+      );
+    }
+
+    function runToggle(form, action) {
+      var id = form.dataset.annotationId;
+      setButtonBusy(form, true);
+      postForm(form)
+        .then(function (data) {
+          if (action === "study") {
+            handleStudy(id, !!data.study_later);
+          } else {
+            handleComplete(id, !!data.completed);
+          }
+          setButtonBusy(form, false);
+        })
+        .catch(function () {
+          nativeSubmit(form);
+        });
+    }
+
+    function runDelete(form) {
+      setButtonBusy(form, true);
+      postForm(form)
+        .then(function (data) {
+          handleDelete(form.dataset.annotationId, data);
+        })
+        .catch(function () {
+          nativeSubmit(form);
+        });
+    }
+
+    list.addEventListener("submit", function (event) {
+      var form = event.target.closest("form[data-annotation-action]");
+      if (!form || !list.contains(form)) return;
+      if (form.dataset.fallback === "1") return; // let the browser submit
+      event.preventDefault();
+      if (form.dataset.annotationAction === "delete") {
+        openConfirm({
+          message: form.dataset.confirm,
+          label: form.dataset.confirmLabel,
+          tone: form.dataset.confirmTone,
+        }).then(function (ok) {
+          if (ok) runDelete(form);
+        });
+      } else {
+        runToggle(form, form.dataset.annotationAction);
+      }
+    });
+  })();
 
   /* ---------- Service worker (PWA) ---------- */
   if ("serviceWorker" in navigator) {

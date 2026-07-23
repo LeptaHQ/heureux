@@ -227,6 +227,16 @@ urlpatterns = [
         {"general_only": True},
         name="general_annotation_study",
     ),
+    path(
+        "notes/comprehension/<slug:mode>/",
+        views.comprehension_notes,
+        name="comprehension_notes",
+    ),
+    path(
+        "notes/comprehension/<slug:comprehension>/etudier/",
+        views.annotation_study,
+        name="comprehension_annotation_study",
+    ),
     path("notes/recherche/", views.annotation_search, name="annotation_search"),
     path("notes/etudier/", views.annotation_study, name="annotation_study"),
     path(

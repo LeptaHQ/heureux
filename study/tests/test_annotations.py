@@ -985,7 +985,7 @@ class AnnotationTests(TestCase):
         self.assertEqual(learned.status_code, 200)
         self.assertEqual(
             learned.json(),
-            {"study_later": False, "id": note.pk},
+            {"study_later": False, "id": note.pk, "kind": "note"},
         )
         note.refresh_from_db()
         self.assertFalse(note.study_later)
@@ -1002,6 +1002,47 @@ class AnnotationTests(TestCase):
         self.assertEqual(keep.json()["study_later"], True)
         note.refresh_from_db()
         self.assertTrue(note.study_later)
+
+    def test_delete_on_fetch_returns_scope_metadata(self):
+        note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            body="À retirer de la liste.",
+            study_later=True,
+        )
+        response = self.client.post(
+            reverse("study:annotation_delete", args=[note.pk]),
+            {},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(
+            response.json(),
+            {
+                "deleted": True,
+                "id": note.pk,
+                "kind": "note",
+                "was_study": True,
+                "scope": f"task:{self.task.pk}",
+            },
+        )
+        self.assertFalse(Annotation.objects.filter(pk=note.pk).exists())
+
+    def test_delete_on_fetch_reports_comprehension_scope(self):
+        note = Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+            body="Note de compréhension écrite.",
+            source_path="/comprehension/ecrite/quelque-chose/",
+        )
+        response = self.client.post(
+            reverse("study:annotation_delete", args=[note.pk]),
+            {},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        self.assertEqual(response.json()["scope"], "ecrite")
+        self.assertFalse(response.json()["was_study"])
 
     def test_notes_can_be_marked_complete_and_reverted(self):
         note = Annotation.objects.create(
@@ -1044,7 +1085,9 @@ class AnnotationTests(TestCase):
             HTTP_X_REQUESTED_WITH="fetch",
         )
         self.assertEqual(marked.status_code, 200)
-        self.assertEqual(marked.json(), {"completed": True, "id": note.pk})
+        self.assertEqual(
+            marked.json(), {"completed": True, "id": note.pk, "kind": "note"}
+        )
         note.refresh_from_db()
         self.assertTrue(note.completed)
 
@@ -1113,10 +1156,85 @@ class AnnotationTests(TestCase):
         self.assertEqual(done_only.context["study_count"], 1)
 
         todo_only = self.client.get(self.task_notes_url, {"status": "todo"})
-        self.assertCountEqual(todo_only.context["notes"], [todo, study])
+        self.assertEqual(todo_only.context["notes"], [todo])
 
         study_only = self.client.get(self.task_notes_url, {"status": "study"})
         self.assertEqual(study_only.context["notes"], [study])
+
+    def test_todo_status_excludes_study_later_notes(self):
+        plain = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            body="Sans statut.",
+        )
+        Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            body="À étudier.",
+            study_later=True,
+        )
+        Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            body="Terminée.",
+            completed_at=timezone.now(),
+        )
+        todo_only = self.client.get(self.task_notes_url, {"status": "todo"})
+        self.assertEqual(todo_only.context["notes"], [plain])
+
+    def test_comprehension_notes_are_separated_from_generales(self):
+        general = Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+            body="Note générale.",
+            source_path="/vocabulaire/",
+        )
+        ecrite = Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+            body="Note CE.",
+            source_path="/comprehension/ecrite/tests/t1/tentatives/1/questions/2/",
+        )
+        orale = Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+            body="Note CO.",
+            source_path="/comprehension/orale/tests/t1/tentatives/1/questions/2/",
+        )
+
+        general_page = self.client.get(self.general_notes_url)
+        self.assertEqual(general_page.context["notes"], [general])
+        self.assertEqual(general_page.context["general_count"], 1)
+        self.assertEqual(general_page.context["ce_count"], 1)
+        self.assertEqual(general_page.context["co_count"], 1)
+        self.assertIsNone(general_page.context["comprehension"])
+
+        ce_page = self.client.get(
+            reverse("study:comprehension_notes", args=["ecrite"])
+        )
+        self.assertEqual(ce_page.context["notes"], [ecrite])
+        self.assertEqual(ce_page.context["comprehension"], "ecrite")
+        self.assertEqual(ce_page.context["scope_title"], "Compréhension écrite")
+
+        co_page = self.client.get(
+            reverse("study:comprehension_notes", args=["orale"])
+        )
+        self.assertEqual(co_page.context["notes"], [orale])
+        self.assertEqual(co_page.context["comprehension"], "orale")
+
+        aggregate = self.client.get(reverse("study:notes_overview"))
+        self.assertCountEqual(
+            aggregate.context["notes"], [general, ecrite, orale]
+        )
+
+    def test_comprehension_notes_reject_unknown_mode(self):
+        response = self.client.get(
+            reverse("study:comprehension_notes", args=["invalide"])
+        )
+        self.assertEqual(response.status_code, 404)
 
     def test_status_filter_is_preserved_when_switching_tabs(self):
         response = self.client.get(

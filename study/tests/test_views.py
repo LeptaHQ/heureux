@@ -21,9 +21,14 @@ from study import srs, views as study_views
 from study.content_loader import load_sections
 from study.management.commands.import_content import Command
 from study.models import (
+    Annotation,
+    AnnotationKind,
     Card,
     CardState,
     CardType,
+    ComprehensionAttemptStatus,
+    MemoryQuestionProgress,
+    PersonalResponse,
     PhraseCategory,
     Prompt,
     Rating,
@@ -75,13 +80,13 @@ class PWATests(TestCase):
         r = self.client.get("/sw.js")
         self.assertEqual(r.status_code, 200)
         body = r.content.decode()
-        self.assertIn('var CACHE = "heureux-v129"', body)
-        self.assertIn("study/css/app.css?v=119", body)
+        self.assertIn('var CACHE = "heureux-v133"', body)
+        self.assertIn("study/css/app.css?v=123", body)
         self.assertIn("study/js/memory-progress.js?v=2", body)
         self.assertIn("study/js/theme-init.js?v=2", body)
-        self.assertIn("study/js/app.js?v=36", body)
+        self.assertIn("study/js/app.js?v=39", body)
         self.assertIn("study/js/selection-toolbar.js?v=1", body)
-        self.assertIn("study/js/annotations.js?v=12", body)
+        self.assertIn("study/js/annotations.js?v=13", body)
         self.assertIn("study/js/subject-progress.js?v=1", body)
         self.assertIn("study/js/comprehension-progress.js?v=1", body)
         self.assertIn("study/icons/ui-icons.svg?v=3", body)
@@ -429,6 +434,12 @@ class SmokeTests(TestCase):
 
         response = self.client.get(reverse("study:dashboard"))
 
+        self.assertEqual(response.context["daily_goal_remaining"], 30)
+        self.assertContains(response, 'class="home-today__panel"')
+        self.assertContains(
+            response,
+            "Encore 30 révisions pour atteindre l’objectif.",
+        )
         self.assertContains(response, 'class="daily-card card ', count=4)
         for label in (
             "Restituer des réponses",
@@ -2806,6 +2817,106 @@ class RecentSessionTests(TestCase):
         self.assertEqual(sessions[0]["study_minutes"], 2)
         self.assertEqual(sessions[1]["review_count"], 1)
         self.assertContains(response, "Dernières sessions")
+
+
+class AllLearningStatsTests(TestCase):
+    def setUp(self):
+        self.user = factories.make_user("all-learning")
+        self.other = factories.make_user("all-learning-other")
+        self.client.force_login(self.user)
+
+    def _review(self, *, user=None):
+        card = factories.make_spine_card(user=user or self.user)
+        ReviewLog.objects.create(
+            user=user or self.user,
+            card=card,
+            reviewed_at=timezone.now(),
+            rating=Rating.GOOD,
+            state_before=CardState.REVIEW,
+            state_after=CardState.REVIEW,
+            elapsed_ms=60000,
+        )
+
+    def _note(self, *, user=None, task=None):
+        return Annotation.objects.create(
+            user=user or self.user,
+            task=task,
+            kind=AnnotationKind.NOTE,
+            title="Note",
+            body="Corps",
+            source_path="/lecon/",
+            source_key=f"key-{factories._uid()}",
+            source_title="Leçon",
+        )
+
+    def test_stats_counts_every_learning_type(self):
+        now = timezone.now()
+        self._review()
+        subject_card = factories.make_spine_card(user=self.user)
+        subject_card.subject_completed_at = now
+        subject_card.save(update_fields=["subject_completed_at"])
+        PersonalResponse.objects.create(
+            user=self.user, response=factories.make_response()
+        )
+        self._note()
+        test = factories.make_comprehension_test(question_count=2)
+        factories.make_comprehension_attempt(
+            user=self.user,
+            test=test,
+            status=ComprehensionAttemptStatus.COMPLETED,
+            answered_questions=2,
+        )
+        MemoryQuestionProgress.objects.create(
+            user=self.user, memory_number=1, question_key="q1"
+        )
+        # Another learner's activity must never leak into these totals.
+        self._review(user=self.other)
+        self._note(user=self.other)
+
+        response = self.client.get(reverse("study:stats"))
+        ctx = response.context
+        breakdown = {item["key"]: item["count"] for item in ctx["breakdown"]}
+
+        self.assertEqual(breakdown["reviews"], 1)
+        self.assertEqual(breakdown["subjects"], 1)
+        self.assertEqual(breakdown["responses"], 1)
+        self.assertEqual(breakdown["notes"], 1)
+        self.assertEqual(breakdown["comprehension"], 1)
+        self.assertEqual(breakdown["memories"], 1)
+        self.assertEqual(ctx["total_activity"], 6)
+        self.assertEqual(ctx["total_reviews"], 1)
+        self.assertEqual(ctx["activity_today"], 6)
+        self.assertGreaterEqual(ctx["streak"], 1)
+        self.assertContains(response, "Répartition de l’activité")
+
+    def test_scoped_stats_excludes_out_of_scope_activity(self):
+        part = factories.make_part("eo")
+        task = factories.make_task(part=part, slug="tache-3")
+        theme = factories.make_theme(slug="culture", task=task)
+        response_obj = factories.make_response(theme=theme)
+        PersonalResponse.objects.create(user=self.user, response=response_obj)
+        self._note(task=task)
+        # Comprehension + mémoires have no EO/EE task, so a scoped view drops them.
+        test = factories.make_comprehension_test(question_count=2)
+        factories.make_comprehension_attempt(
+            user=self.user,
+            test=test,
+            status=ComprehensionAttemptStatus.COMPLETED,
+            answered_questions=2,
+        )
+        MemoryQuestionProgress.objects.create(
+            user=self.user, memory_number=1, question_key="q1"
+        )
+
+        response = self.client.get(
+            reverse("study:task_stats", args=["eo", "tache-3"])
+        )
+        keys = {item["key"] for item in response.context["breakdown"]}
+
+        self.assertIn("responses", keys)
+        self.assertIn("notes", keys)
+        self.assertNotIn("comprehension", keys)
+        self.assertNotIn("memories", keys)
 
 
 class SettingsActionTests(TestCase):

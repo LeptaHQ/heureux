@@ -140,6 +140,17 @@ class BrowserTests(StaticLiveServerTestCase):
         )
 
         self.page.set_viewport_size({"width": 1183, "height": 844})
+        self.page.goto(
+            self.live_server_url + reverse("study:dashboard")
+        )
+        spotlight = self.page.locator(".home-spotlight")
+        spotlight.hover()
+        self.assertEqual(
+            spotlight.evaluate(
+                "entry => getComputedStyle(entry).textDecorationLine"
+            ),
+            "none",
+        )
         self.page.goto(self.live_server_url + overview_url)
         self.page.get_by_role("button", name="Tableau").click()
         overview_entries = self.page.locator(
@@ -2801,6 +2812,193 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
+    def test_study_deck_removes_only_known_cards_at_the_end(self):
+        Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+            title="Première",
+            body="Contenu un",
+            study_later=True,
+        )
+        Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+            title="Deuxième",
+            body="Contenu deux",
+            study_later=True,
+        )
+        self.page.goto(
+            self.live_server_url + reverse("study:annotation_study")
+        )
+        self.page.locator("[data-study-card]:not(.hidden)").wait_for()
+
+        # Mark the first card « Je le connais », keep the second.
+        self.page.locator("[data-study-reveal]").click()
+        self.page.locator(
+            "[data-study-card]:not(.hidden) [data-study-back]:not(.hidden)"
+        ).wait_for()
+        self.page.locator("[data-study-learned]").click()
+        self.page.locator("[data-study-reveal]").click()
+        self.page.locator(
+            "[data-study-card]:not(.hidden) [data-study-back]:not(.hidden)"
+        ).wait_for()
+        self.page.locator("[data-study-keep]").click()
+
+        self.page.locator("[data-study-done]:not(.hidden)").wait_for()
+        clear = self.page.locator("[data-study-clear]")
+        clear.wait_for(state="visible")
+        self.assertIn("1", clear.inner_text())
+
+        # Nothing leaves the pack before the learner confirms.
+        self.assertEqual(
+            Annotation.objects.filter(
+                user=self.user, study_later=True
+            ).count(),
+            2,
+        )
+
+        clear.click()
+        self.page.locator("[data-study-clear]").wait_for(state="hidden")
+
+        # Only the « Je le connais » card is removed; the kept one stays.
+        self.assertEqual(
+            Annotation.objects.filter(
+                user=self.user, study_later=True
+            ).count(),
+            1,
+        )
+
+    def test_notes_custom_select_filters_and_custom_confirm_deletes(self):
+        note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            title="À supprimer",
+            body="Contenu supprimable",
+        )
+        notes_url = reverse(
+            "study:task_notes", args=[self.part.slug, self.task.slug]
+        )
+        self.page.goto(self.live_server_url + notes_url)
+
+        # The native status select is replaced by an accessible custom one.
+        self.assertEqual(
+            self.page.locator("#notes-status").get_attribute("aria-hidden"),
+            "true",
+        )
+        trigger = self.page.locator(".custom-select__button")
+        trigger.wait_for(state="visible")
+        trigger.click()
+        self.page.locator(".custom-select__list:not([hidden])").wait_for()
+        self.page.locator(
+            '.custom-select__option[data-value="done"]'
+        ).click()
+        self.page.wait_for_url("**status=done**")
+
+        # Deleting a note now happens in place — no full page reload.
+        self.page.goto(self.live_server_url + notes_url)
+        url_before = self.page.url
+        self.page.locator(
+            f'.annotation-card[data-annotation-item="{note.pk}"]'
+        ).wait_for(state="visible")
+        self.page.locator(
+            'form[action$="/supprimer/"] button[type="submit"]'
+        ).first.click()
+        dialog = self.page.locator("[data-confirm-dialog]")
+        dialog.wait_for(state="visible")
+        self.page.get_by_text("Supprimer cette note ?").wait_for()
+        self.page.locator("[data-confirm-accept]").click()
+        self.page.locator(
+            f'[data-annotation-item="{note.pk}"]'
+        ).first.wait_for(state="detached")
+        self.assertEqual(self.page.url, url_before)
+        self.assertFalse(
+            Annotation.objects.filter(pk=note.pk).exists()
+        )
+
+    def test_notes_actions_apply_in_place(self):
+        note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            title="Note vivante",
+            body="corps",
+        )
+        notes_url = reverse(
+            "study:task_notes", args=[self.part.slug, self.task.slug]
+        )
+        self.page.goto(self.live_server_url + notes_url)
+        url_before = self.page.url
+
+        card = self.page.locator(
+            f'.annotation-card[data-annotation-item="{note.pk}"]'
+        )
+        card.wait_for(state="visible")
+        study_hero = self.page.locator('[data-hero-count="study"]')
+        self.assertEqual(study_hero.inner_text().strip(), "0")
+
+        # "À étudier" toggles in place: badge appears, hero count grows,
+        # and the page never navigates.
+        study_button = card.locator(
+            'form[data-annotation-action="study"] button'
+        )
+        study_button.click()
+        card.locator(".annotation-card__study").wait_for(state="visible")
+        self.assertEqual(self.page.url, url_before)
+        self.assertEqual(study_hero.inner_text().strip(), "1")
+        note.refresh_from_db()
+        self.assertTrue(note.study_later)
+
+        # Toggling back removes the badge and decrements the count.
+        study_button.click()
+        card.locator(".annotation-card__study").wait_for(state="detached")
+        self.assertEqual(study_hero.inner_text().strip(), "0")
+        note.refresh_from_db()
+        self.assertFalse(note.study_later)
+
+        # "Terminé" adds the done badge in place as well.
+        done_button = card.locator(
+            'form[data-annotation-action="complete"] button'
+        )
+        done_button.click()
+        card.locator(".annotation-card__done").wait_for(state="visible")
+        self.assertEqual(self.page.url, url_before)
+        note.refresh_from_db()
+        self.assertTrue(note.completed)
+
+    def test_notes_status_filter_removes_toggled_item_in_place(self):
+        note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            title="À classer",
+            body="corps",
+        )
+        notes_url = reverse(
+            "study:task_notes", args=[self.part.slug, self.task.slug]
+        )
+        self.page.goto(self.live_server_url + notes_url + "?status=todo")
+        url_before = self.page.url
+        card = self.page.locator(
+            f'.annotation-card[data-annotation-item="{note.pk}"]'
+        )
+        card.wait_for(state="visible")
+        tab = self.page.locator('[data-tab-count="notes"]')
+        self.assertEqual(tab.inner_text().strip(), "1")
+
+        # Marking it done drops it from the "À faire" filter, no reload.
+        card.locator(
+            'form[data-annotation-action="complete"] button'
+        ).click()
+        self.page.locator(
+            f'[data-annotation-item="{note.pk}"]'
+        ).first.wait_for(state="detached")
+        self.assertEqual(self.page.url, url_before)
+        self.assertEqual(tab.inner_text().strip(), "0")
+        self.page.locator("#notes-panel .empty").wait_for(state="visible")
+        note.refresh_from_db()
+        self.assertTrue(note.completed)
+
     def test_mobile_expression_lots_and_highlighted_answers(self):
         category = PhraseCategory.objects.create(
             slug="browser-vocab",
@@ -2969,6 +3167,55 @@ class BrowserTests(StaticLiveServerTestCase):
             """
         )
         self.assertEqual(set(card_backgrounds), {surface_color})
+        neutral_home_surfaces = self.page.locator(
+            ".home-spotlight, .home-featured"
+        ).evaluate_all(
+            """
+            elements => elements.map(element => ({
+              backgroundImage: getComputedStyle(element).backgroundImage,
+              borderLeftWidth: getComputedStyle(element).borderLeftWidth,
+            }))
+            """
+        )
+        self.assertTrue(
+            all(
+                item["backgroundImage"] == "none"
+                for item in neutral_home_surfaces
+            ),
+            neutral_home_surfaces,
+        )
+        self.assertEqual(
+            neutral_home_surfaces[-1]["borderLeftWidth"],
+            "0px",
+        )
+        desktop_today_layout = self.page.locator(
+            ".home-today__panel"
+        ).evaluate(
+            """
+            panel => {
+              const featured = panel.querySelector('.home-featured')
+                .getBoundingClientRect();
+              const goal = panel.querySelector('.home-goal')
+                .getBoundingClientRect();
+              return {
+                featuredTop: featured.top,
+                goalTop: goal.top,
+                featuredRight: featured.right,
+                goalLeft: goal.left,
+              };
+            }
+            """
+        )
+        self.assertAlmostEqual(
+            desktop_today_layout["featuredTop"],
+            desktop_today_layout["goalTop"],
+            delta=1,
+        )
+        self.assertAlmostEqual(
+            desktop_today_layout["featuredRight"],
+            desktop_today_layout["goalLeft"],
+            delta=1,
+        )
         self.assert_no_horizontal_overflow()
 
         for width in (1024, 900, 861):
@@ -3036,7 +3283,76 @@ class BrowserTests(StaticLiveServerTestCase):
         mobile_heights = self.page.locator(".daily-card").evaluate_all(
             "cards => cards.map(card => card.getBoundingClientRect().height)"
         )
-        self.assertLessEqual(max(mobile_heights), 320)
+        self.assertLessEqual(max(mobile_heights), 180)
+        mobile_skill_boxes = self.page.locator(".home-skill").evaluate_all(
+            """
+            skills => skills.map(skill => {
+              const box = skill.getBoundingClientRect();
+              return {x: box.x, y: box.y, width: box.width};
+            })
+            """
+        )
+        self.assertGreaterEqual(len(mobile_skill_boxes), 3)
+        self.assertAlmostEqual(
+            mobile_skill_boxes[0]["y"],
+            mobile_skill_boxes[1]["y"],
+            delta=1,
+        )
+        self.assertAlmostEqual(
+            mobile_skill_boxes[0]["x"],
+            mobile_skill_boxes[2]["x"],
+            delta=1,
+        )
+        self.assertGreater(
+            mobile_skill_boxes[2]["y"],
+            mobile_skill_boxes[0]["y"],
+        )
+        self.assertLess(mobile_skill_boxes[0]["width"], 160)
+        secondary_controls = self.page.locator(
+            ".daily-card__secondary"
+        ).evaluate_all(
+            """
+            controls => controls.map(control => {
+              const box = control.getBoundingClientRect();
+              return {
+                width: box.width,
+                height: box.height,
+                labelDisplay: getComputedStyle(
+                  control.querySelector('.daily-card__secondary-label')
+                ).display,
+              };
+            })
+            """
+        )
+        self.assertTrue(secondary_controls)
+        for control in secondary_controls:
+            self.assertAlmostEqual(
+                control["width"],
+                control["height"],
+                delta=1,
+            )
+            self.assertEqual(control["labelDisplay"], "none")
+        mobile_today_layout = self.page.locator(
+            ".home-today__panel"
+        ).evaluate(
+            """
+            panel => {
+              const featured = panel.querySelector('.home-featured')
+                .getBoundingClientRect();
+              const goal = panel.querySelector('.home-goal')
+                .getBoundingClientRect();
+              return {
+                featuredBottom: featured.bottom,
+                goalTop: goal.top,
+              };
+            }
+            """
+        )
+        self.assertAlmostEqual(
+            mobile_today_layout["featuredBottom"],
+            mobile_today_layout["goalTop"],
+            delta=1,
+        )
         self.assert_no_horizontal_overflow()
 
     def test_mobile_active_notes_scope_scrolls_into_view(self):

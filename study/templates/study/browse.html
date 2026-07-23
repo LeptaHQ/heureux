@@ -2,14 +2,14 @@
 {% block title %}Parcourir · Heureux{% endblock %}
 
 {% block content %}
-{% include "study/_task_nav.html" %}
+{% include "study/partials/task_nav.html" %}
 <div class="page-head">
   <h1>Sujets &amp; réponses</h1>
   <p>{{ prompt_count }} sujets · {{ response_count }} réponses uniques · {{ theme_count }} thèmes.</p>
 </div>
 
 {% if not task_locked %}
-{% include "study/_scope_filter.html" %}
+{% include "study/partials/scope_filter.html" %}
 {% endif %}
 
 {% if themes or families %}

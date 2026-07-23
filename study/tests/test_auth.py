@@ -11,7 +11,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 from study import queue, srs
-from study.accounts import (
+from study.account_services import (
     ACCOUNT_FAILURE_LIMIT,
     IP_ATTEMPT_LIMIT,
     STUDY_DATA_LOCK_ID,
@@ -47,7 +47,7 @@ class AuthenticationTests(TestCase):
         mocked_connection = MagicMock(vendor="postgresql")
         mocked_connection.cursor.return_value.__enter__.return_value = cursor
 
-        with patch("study.accounts.connection", mocked_connection):
+        with patch("study.account_services.connection", mocked_connection):
             acquire_study_data_lock()
 
         cursor.execute.assert_called_once_with(

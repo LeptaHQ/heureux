@@ -35,7 +35,7 @@ def page_not_found(request, exception):
     base_template = (
         "base.html"
         if request.user.is_authenticated
-        else "study/auth_base.html"
+        else "study/auth/base.html"
     )
     return render(
         request,

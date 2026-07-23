@@ -11,7 +11,7 @@ from django.db import IntegrityError, transaction
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 
-from study import content
+from study import content_loader as content
 from study.management.commands.import_content import Command
 from study.models import (
     Card,

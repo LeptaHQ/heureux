@@ -486,6 +486,18 @@
     });
   });
 
+  document.querySelectorAll("[data-auto-submit]").forEach(function (control) {
+    control.addEventListener("change", function () {
+      var form = control.form;
+      if (!form) return;
+      if (typeof form.requestSubmit === "function") {
+        form.requestSubmit();
+      } else {
+        form.submit();
+      }
+    });
+  });
+
   /* ---------- Service worker (PWA) ---------- */
   if ("serviceWorker" in navigator) {
     var updateBanner = document.querySelector("[data-pwa-update-banner]");

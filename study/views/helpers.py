@@ -5,7 +5,7 @@ from __future__ import annotations
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
 
-from .. import content as content_module
+from .. import content_loader as content_module
 from .. import queue as queue_module
 from ..models import (
     CardState,

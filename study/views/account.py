@@ -21,7 +21,7 @@ from django.views.decorators.cache import never_cache
 from django.views.decorators.debug import sensitive_post_parameters
 from django.views.decorators.http import require_GET, require_POST
 
-from ..accounts import (
+from ..account_services import (
     authenticate_with_throttle,
     generate_recovery_codes,
     login_throttle_key,

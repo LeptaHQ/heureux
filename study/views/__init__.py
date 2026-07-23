@@ -4,7 +4,7 @@ Re-exports every view and helper so ``study.views.<name>`` keeps working
 after the split from a single module into this package.
 """
 
-from .common import (
+from .helpers import (
     FUNCTIONAL_PHRASE_CATEGORY_NAMES,
     MATURE_DAYS,
     RECENT_SESSION_GAP,
@@ -97,6 +97,7 @@ from .notes import (
     annotation_search,
     annotation_study,
     annotation_study_toggle,
+    annotation_complete_toggle,
     annotation_update,
     annotations_for_source,
     general_notes,
@@ -214,6 +215,7 @@ __all__ = [
     'annotation_search',
     'annotation_study',
     'annotation_study_toggle',
+    'annotation_complete_toggle',
     'annotation_update',
     'annotations_for_source',
     'browse',

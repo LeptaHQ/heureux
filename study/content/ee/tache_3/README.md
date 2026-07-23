@@ -81,4 +81,4 @@ la position ressort du texte.
   exécutées par des agents GPT-5.6 Sol (effort max pour réponses/mémoires).
 - Validation : `validate_responses.py` (comptes de mots, étiquettes, connecteurs),
   `validate_vocab.py` (30/réponse, ids uniques, terme présent dans l'exemple),
-  `validate_memoire.py` (règles du parseur `content.py` : sections consécutives, phrases uniques).
+  `validate_memoire.py` (règles du parseur `content_loader.py` : sections consécutives, phrases uniques).

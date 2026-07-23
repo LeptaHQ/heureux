@@ -12,9 +12,9 @@ from django.urls import reverse
 from django.utils import timezone
 from django.views.decorators.http import require_POST
 
-from .. import content as content_module
+from .. import content_loader as content_module
 from .. import queue as queue_module
-from ..cards import scope_label
+from ..card_presentation import scope_label
 from ..forms import (
     PersonalResponseForm,
 )
@@ -39,7 +39,7 @@ from ..models import (
     Task,
     Theme,
 )
-from ..personalization import effective_response
+from ..response_personalization import effective_response
 from ..progress import (
     card_unit_progress,
     combine_progress,
@@ -55,7 +55,7 @@ from ..routing import (
     vocabulary_url,
 )
 
-from .common import (
+from .helpers import (
     FUNCTIONAL_PHRASE_CATEGORY_NAMES,
     MATURE_DAYS,
     _memory_progress,
@@ -224,7 +224,7 @@ def part_vocabulary(request, part_slug):
 
 def _has_ee_tache_three_content(task):
     return Prompt.objects.filter(
-        content_key__startswith=content_module.EE_TACHE3_CONTENT_PREFIX,
+        content_key__startswith=content_module.EE_TACHE_THREE_CONTENT_PREFIX,
         theme__task=task,
         is_active=True,
         response__is_active=True,
@@ -235,20 +235,20 @@ def _has_ee_tache_three_content(task):
 def _ee_tache_three_sources_by_key():
     return {
         combinaison.content_key: combinaison
-        for month in content_module.load_ee_tache3_months()
+        for month in content_module.load_ee_tache_three_months()
         for combinaison in month.combinaisons
     }
 
 
 def _ee_tache_three_subject_context(user, task):
-    source_months = content_module.load_ee_tache3_months()
+    source_months = content_module.load_ee_tache_three_months()
     source_keys = [
         combinaison.content_key
         for month in source_months
         for combinaison in month.combinaisons
     ]
     theme_names = {
-        content_module.ee_tache3_theme_name(month)
+        content_module.ee_tache_three_theme_name(month)
         for month in source_months
     }
     themes_by_name = {
@@ -285,7 +285,7 @@ def _ee_tache_three_subject_context(user, task):
     months = []
     for source_month in source_months:
         theme = themes_by_name[
-            content_module.ee_tache3_theme_name(source_month)
+            content_module.ee_tache_three_theme_name(source_month)
         ]
         subjects = []
         month_progress = []
@@ -313,7 +313,7 @@ def _ee_tache_three_subject_context(user, task):
                         )
                     ),
                     "vocabulary_count": (
-                        content_module.EE_TACHE3_VOCABULARY_PER_RESPONSE
+                        content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
                     ),
                 }
             )
@@ -330,7 +330,7 @@ def _ee_tache_three_subject_context(user, task):
                 "subject_count": len(subjects),
                 "vocabulary_count": (
                     len(subjects)
-                    * content_module.EE_TACHE3_VOCABULARY_PER_RESPONSE
+                    * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
                 ),
                 "review_url": review_url(
                     {
@@ -351,7 +351,7 @@ def _ee_tache_three_subject_context(user, task):
         "subject_count": len(all_progress),
         "vocabulary_count": (
             len(all_progress)
-            * content_module.EE_TACHE3_VOCABULARY_PER_RESPONSE
+            * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
         ),
         "subject_summary": summary,
     }
@@ -400,7 +400,7 @@ def task_detail(request, part_slug, task_slug):
             },
         )
     if (
-        (task.part.slug, task.slug) == content_module.EE_TACHE3_TASK
+        (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK
         and _has_ee_tache_three_content(task)
     ):
         memory_context = _question_bank_memory_context(
@@ -593,7 +593,7 @@ def browse(request, part_slug=None, task_slug=None):
             forced_task.part.slug,
             forced_task.slug,
         )
-        == content_module.EE_TACHE3_TASK
+        == content_module.EE_TACHE_THREE_TASK
         and _has_ee_tache_three_content(forced_task)
     ):
         return render(
@@ -773,12 +773,12 @@ def theme_detail(request, part_slug, task_slug, slug):
         "task": task.slug,
         "theme": theme.slug,
     }
-    if (task.part.slug, task.slug) == content_module.EE_TACHE3_TASK:
+    if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
         source_month = next(
             (
                 month
-                for month in content_module.load_ee_tache3_months()
-                if content_module.ee_tache3_theme_name(month) == theme.name
+                for month in content_module.load_ee_tache_three_months()
+                if content_module.ee_tache_three_theme_name(month) == theme.name
             ),
             None,
         )
@@ -810,7 +810,7 @@ def theme_detail(request, part_slug, task_slug, slug):
                             )
                         ),
                         "vocabulary_count": (
-                            content_module.EE_TACHE3_VOCABULARY_PER_RESPONSE
+                            content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
                         ),
                     }
                 )
@@ -830,7 +830,7 @@ def theme_detail(request, part_slug, task_slug, slug):
                         "subject_count": len(rows),
                         "vocabulary_count": (
                             len(rows)
-                            * content_module.EE_TACHE3_VOCABULARY_PER_RESPONSE
+                            * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
                         ),
                         **stats,
                     },
@@ -1326,11 +1326,11 @@ def family_detail(request, part_slug, task_slug, slug):
         .order_by("theme__order", "number")
     )
     if (
-        (task.part.slug, task.slug) == content_module.EE_TACHE3_TASK
+        (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK
         and prompts
         and all(
             prompt.content_key.startswith(
-                content_module.EE_TACHE3_CONTENT_PREFIX
+                content_module.EE_TACHE_THREE_CONTENT_PREFIX
             )
             for prompt in prompts
         )
@@ -1520,9 +1520,9 @@ def response_detail(request, part_slug, task_slug, prompt_id):
     )
     ee_response = (
         (task.part.slug, task.slug)
-        == content_module.EE_TACHE3_TASK
+        == content_module.EE_TACHE_THREE_TASK
         and response.content_key.startswith(
-            content_module.EE_TACHE3_CONTENT_PREFIX
+            content_module.EE_TACHE_THREE_CONTENT_PREFIX
         )
     )
     ee_combination_label = ""

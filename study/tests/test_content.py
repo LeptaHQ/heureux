@@ -12,7 +12,7 @@ from unittest.mock import patch
 
 from django.test import SimpleTestCase
 
-from study import content
+from study import content_loader as content
 
 
 class AppCopyTests(SimpleTestCase):

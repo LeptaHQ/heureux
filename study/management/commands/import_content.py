@@ -14,8 +14,8 @@ from pathlib import Path
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 
-from study import content
-from study.accounts import (
+from study import content_loader as content
+from study.account_services import (
     acquire_study_data_lock,
     provision_user_study_data,
     users_with_study_state,
@@ -86,11 +86,11 @@ class Command(BaseCommand):
         self.stdout.write("Bundled content changed; parsing source files...")
         self.stdout.flush()
         subject_months = content.load_tache_two_subject_months()
-        ee_tache3_months = content.load_ee_tache3_months()
+        ee_tache_three_months = content.load_ee_tache_three_months()
         themes = [
             *content.load_themes(),
             *content.tache_two_themes(subject_months),
-            *content.ee_tache3_themes(ee_tache3_months),
+            *content.ee_tache_three_themes(ee_tache_three_months),
         ]
         sections = content.load_sections()
         question_banks = content.load_question_banks()
@@ -98,19 +98,19 @@ class Command(BaseCommand):
         families = [
             *families,
             *content.tache_two_families(subject_months),
-            *content.ee_tache3_families(ee_tache3_months),
+            *content.ee_tache_three_families(ee_tache_three_months),
         ]
         standard_responses = content.parse_responses()
         tache_two_responses = content.parse_tache_two_responses(
             subject_months
         )
-        ee_tache3_responses = content.parse_ee_tache3_responses(
-            ee_tache3_months
+        ee_tache_three_responses = content.parse_ee_tache_three_responses(
+            ee_tache_three_months
         )
         responses = [
             *standard_responses,
             *tache_two_responses,
-            *ee_tache3_responses,
+            *ee_tache_three_responses,
         ]
         phrases = content.parse_phrases(standard_responses)
         subject_vocabulary = content.parse_subject_vocabulary(
@@ -121,8 +121,8 @@ class Command(BaseCommand):
                 tache_two_responses
             )
         )
-        ee_tache3_vocabulary = content.parse_ee_tache3_subject_vocabulary(
-            ee_tache3_responses
+        ee_tache_three_vocabulary = content.parse_ee_tache_three_subject_vocabulary(
+            ee_tache_three_responses
         )
         comprehension_tests = content.load_comprehension_tests()
         comprehension_vocabulary = content.parse_comprehension_vocabulary(
@@ -132,7 +132,7 @@ class Command(BaseCommand):
             *phrases,
             *subject_vocabulary,
             *tache_two_vocabulary,
-            *ee_tache3_vocabulary,
+            *ee_tache_three_vocabulary,
             *(item.phrase for item in comprehension_vocabulary),
         ]
         phrase_id_locations = {}
@@ -221,12 +221,12 @@ class Command(BaseCommand):
         parser_path = Path(content.__file__).resolve()
         files = [
             ("import_content.py", command_path),
-            ("content.py", parser_path),
+            ("content_loader.py", parser_path),
         ]
         study_dir = content.CONTENT_DIR.parent
         files.extend(
             (name, study_dir / name)
-            for name in ("accounts.py", "models.py")
+            for name in ("account_services.py", "models.py")
         )
         files.extend(
             (

@@ -25,7 +25,7 @@ Params:
   <article class="expression-path expression-path--soon expression-path--{{ code }} card{% if card_kind == "vocabulary" %} vocabulary-path-card{% endif %}"{% if card_kind == "vocabulary" %} data-vocabulary-path{% endif %} aria-disabled="true">
 {% endif %}
     <span class="expression-path__icon" aria-hidden="true">
-      {% include "study/_skill_icon.html" with skill_code=code only %}
+      {% include "study/partials/skill_icon.html" with skill_code=code only %}
     </span>
     <span class="expression-path__copy">
       <span class="eyebrow">{{ code|upper }}</span>

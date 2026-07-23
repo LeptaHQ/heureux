@@ -62,9 +62,9 @@ class Task(models.Model):
     @property
     def supports_memoires(self) -> bool:
         """True when this task exposes a "Mémoires" question-bank section."""
-        from . import content
+        from . import content_loader
 
-        return (self.part.slug, self.slug) in content.MEMOIRE_TASKS
+        return (self.part.slug, self.slug) in content_loader.MEMOIRE_TASKS
 
 
 class Theme(models.Model):
@@ -631,6 +631,7 @@ class Annotation(models.Model):
     prefix = models.CharField(max_length=160, blank=True)
     suffix = models.CharField(max_length=160, blank=True)
     study_later = models.BooleanField(default=False, db_index=True)
+    completed_at = models.DateTimeField(null=True, blank=True, db_index=True)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -674,6 +675,10 @@ class Annotation(models.Model):
     def __str__(self) -> str:
         text = self.title or self.body or self.quote
         return f"{self.get_kind_display()}: {text[:60]}"
+
+    @property
+    def completed(self) -> bool:
+        return self.completed_at is not None
 
 
 # --------------------------------------------------------------------------

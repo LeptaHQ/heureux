@@ -1,0 +1,86 @@
+<div
+  class="tache-two-batch-table-shell ee-t3-subject-table-shell"
+  data-collection-view
+  data-collection-view-panel="table"
+  style="--subject-accent: var(--ee-t3-accent);">
+  <table class="tache-two-batch-table tache-two-batch-table--ee">
+    <caption class="sr-only">Sujets regroupés par mois</caption>
+    <colgroup>
+      <col class="tache-two-batch-table__batch-column">
+      <col class="tache-two-batch-table__subject-column">
+      <col class="tache-two-batch-table__progress-column">
+      <col class="tache-two-batch-table__action-column">
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col">Combinaison</th>
+        <th scope="col">Sujet</th>
+        <th scope="col">Progression</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    {% for month in months %}
+      <tbody
+        class="is-collapsed"
+        id="ee-subject-month-table-{{ month.slug }}"
+        data-tache-two-month-group>
+        <tr class="tache-two-batch-table__month-row">
+          <th colspan="4" scope="rowgroup">
+            <button
+              class="tache-two-batch-table__month-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="ee-subject-month-table-{{ month.slug }}"
+              aria-label="Afficher {{ month.name }}"
+              data-tache-two-month-key="ee-tache-three:{{ month.slug }}"
+              data-tache-two-month-name="{{ month.name }}"
+              data-tache-two-month-toggle>
+              <span class="tache-two-batch-table__month-chevron" aria-hidden="true">
+                {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
+              </span>
+              <span class="tache-two-batch-table__month-copy">
+                <strong>{{ month.name }}</strong>
+                <span>Mois {{ month.number_label }} · {{ month.subject_count }} sujets · {{ month.vocabulary_count }} vocabs</span>
+              </span>
+              <span class="tache-two-batch-table__month-progress">
+                <span class="progress-status progress-status--{{ month.progress.status }}">{{ month.progress.label }}</span>
+                <span>{{ month.completed }}/{{ month.total }} terminés</span>
+              </span>
+            </button>
+          </th>
+        </tr>
+        {% for subject in month.subjects %}
+          <tr class="tache-two-batch-table__row" data-tache-two-month-row hidden>
+            <th scope="row">
+              <a
+                class="tache-two-batch-table__batch-link"
+                href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}">
+                {% include "study/partials/ui_icon.html" with name="file-text" only %}
+                <span>Combinaison {{ subject.combination_number }}</span>
+              </a>
+            </th>
+            <td>
+              <a class="ee-t3-subject-table__link" href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}">{{ subject.prompt.text }}</a>
+              <span>{{ subject.document_count }} documents · {{ subject.vocabulary_count }} vocabs</span>
+            </td>
+            <td class="ee-t3-subject-table__progress-cell">
+              <div class="ee-t3-subject-table__progress">
+                <span class="progress-status progress-status--{{ subject.progress.status }}">{{ subject.progress.label }}</span>
+                {% include "study/partials/subject_completion_form.html" with response_id=subject.prompt.response_id progress=subject.progress subject_label=subject.prompt.text part=part task=task refresh=True only %}
+              </div>
+            </td>
+            <td>
+              <a
+                class="tache-two-batch-table__action"
+                href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}"
+                aria-label="Ouvrir {{ subject.combination_label }}">
+                <span>Ouvrir</span>
+                {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    {% endfor %}
+  </table>
+</div>

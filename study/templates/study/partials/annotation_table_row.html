@@ -28,9 +28,9 @@
     </time>
   </td>
   <td class="annotation-table__status" data-label="Statut">
-    {% if annotation.study_later %}
-      <span class="annotation-card__study">À étudier</span>
-    {% else %}
+    {% if annotation.study_later %}<span class="annotation-card__study">À étudier</span>{% endif %}
+    {% if annotation.completed %}<span class="annotation-card__done">{% if annotation.kind == "highlight" %}Terminé{% else %}Terminée{% endif %}</span>{% endif %}
+    {% if not annotation.study_later and not annotation.completed %}
       <span class="annotation-table__status-empty" aria-label="Non marqué">—</span>
     {% endif %}
   </td>

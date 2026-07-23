@@ -10,7 +10,8 @@ from django.core.management import call_command
 from django.test import TestCase
 from django.utils import timezone
 
-from study import content, queue, srs
+from study import content_loader as content
+from study import queue, srs
 from study.management.commands.import_content import Command
 from study.models import (
     Annotation,

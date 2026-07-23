@@ -7,7 +7,7 @@ card-detail pages.
 from __future__ import annotations
 
 from .models import Card, CardType, PhraseTier
-from .personalization import effective_response
+from .response_personalization import effective_response
 from .routing import prompt_detail_url, response_detail_url
 
 
@@ -63,7 +63,7 @@ def scope_label(scope: dict) -> str:
             .first()
         )
         if theme:
-            from . import content as content_module
+            from . import content_loader as content_module
 
             is_ee_month = (
                 theme.task is not None
@@ -71,10 +71,10 @@ def scope_label(scope: dict) -> str:
                     theme.task.part.slug,
                     theme.task.slug,
                 )
-                == content_module.EE_TACHE3_TASK
+                == content_module.EE_TACHE_THREE_TASK
                 and Response.objects.filter(
                     content_key__startswith=(
-                        content_module.EE_TACHE3_CONTENT_PREFIX
+                        content_module.EE_TACHE_THREE_CONTENT_PREFIX
                     ),
                     theme=theme,
                     is_active=True,

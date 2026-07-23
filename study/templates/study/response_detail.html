@@ -2,7 +2,7 @@
 {% block title %}{{ selected_prompt.text|truncatechars:50 }} · Heureux{% endblock %}
 
 {% block content %}
-{% include "study/_task_nav.html" %}
+{% include "study/partials/task_nav.html" %}
 {% if personal_saved %}<div class="notice">Votre version personnelle a été enregistrée et sera utilisée pendant les révisions.</div>{% endif %}
 {% if personal_reset %}<div class="notice">La réponse d'origine est de nouveau utilisée.</div>{% endif %}
 <div class="detail-head">

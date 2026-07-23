@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="ee-t3-page ee-t3-overview">
-  {% include "study/_task_nav.html" %}
+  {% include "study/partials/task_nav.html" %}
 
   <header class="memory-overview-hero">
     <div class="memory-overview-hero__copy">
@@ -29,7 +29,7 @@
     </div>
 
     <div class="ee-t3-overview-collections collection-table collection-table--ee-overview" data-collection-view="adaptive">
-      {% include "study/partials/collection_table_header.html" with variant="ee-overview" column_1="Collection" column_2="Contenu" column_3="Progression" column_4="Action" only %}
+      {% include "study/partials/collection_table_header.html" with variant="ee-overview" column_1="Collection" column_2="Contenu" column_3="Progression" only %}
       <a
         class="ee-t3-overview-entry"
         data-collection-item
@@ -51,7 +51,6 @@
         <div class="ee-t3-overview-entry__progress">
           {% include "study/partials/tache_two_progress.html" with summary=subject_summary unit_label="sujets terminés" compact=True only %}
         </div>
-        <span class="ee-t3-overview-entry__action">Voir les sujets {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
       </a>
 
       <a
@@ -75,7 +74,6 @@
         <div class="ee-t3-overview-entry__progress">
           {% include "study/partials/tache_two_progress.html" with summary=memory_summary unit_label="questions terminées" compact=True only %}
         </div>
-        <span class="ee-t3-overview-entry__action">Voir les mémoires {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
       </a>
     </div>
   </section>

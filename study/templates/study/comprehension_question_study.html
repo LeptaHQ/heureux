@@ -30,7 +30,7 @@
         <div class="spine-label">{{ test.source_label }}</div>
         <p class="spine-text ce-study-passage">{{ question.passage_fr }}</p>
         {% if test.mode == "orale" %}
-          {% include "study/_comprehension_audio_reader.html" with question=question only %}
+          {% include "study/partials/comprehension_audio_reader.html" with question=question only %}
         {% endif %}
         {% if question.prompt_en or question.passage_en %}
           <details class="ce-study-translation">
@@ -111,7 +111,7 @@
           <div><dt>Choix</dt><dd>{{ choices|length }}</dd></div>
           <div><dt>Bonne réponse</dt><dd>{{ correct_choice.letter }}</dd></div>
         </dl>
-        {% include "study/_comprehension_practice_action.html" %}
+        {% include "study/partials/comprehension_practice_action.html" %}
         <a class="btn btn--block" href="{% url test.detail_route test.slug %}">Toutes les questions</a>
       </div>
 

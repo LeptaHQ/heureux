@@ -10,8 +10,8 @@ from playwright.sync_api import sync_playwright
 
 from django.utils import timezone
 
-from study import content
-from study.content import load_sections
+from study import content_loader as content
+from study.content_loader import load_sections
 from study.management.commands.import_content import Command
 from study.models import (
     Annotation,
@@ -34,7 +34,7 @@ from . import factories
 @override_settings(
     PASSWORD_HASHERS=["django.contrib.auth.hashers.MD5PasswordHasher"]
 )
-class MobileBrowserChecks(StaticLiveServerTestCase):
+class BrowserTests(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         cls.previous_async_unsafe = os.environ.get("DJANGO_ALLOW_ASYNC_UNSAFE")
@@ -106,18 +106,18 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         )
         self.assertTrue(fits, f"{self.page.url}: {overflowing}")
 
-    def test_ee_tache_three_month_directory_is_collapsible_and_responsive(self):
+    def _import_ee_tache_three_content(self):
         command = Command()
-        months = content.load_ee_tache3_months()
+        months = content.load_ee_tache_three_months()
         task_by_slug = command._import_sections(load_sections())
         theme_by_name = command._import_themes(
-            content.ee_tache3_themes(months),
+            content.ee_tache_three_themes(months),
             task_by_slug,
         )
         family_by_name = command._import_families(
-            content.ee_tache3_families(months)
+            content.ee_tache_three_families(months)
         )
-        responses = content.parse_ee_tache3_responses(months)
+        responses = content.parse_ee_tache_three_responses(months)
         response_by_key = command._import_responses(
             responses,
             theme_by_name,
@@ -130,6 +130,46 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             family_by_name,
         )
         task = task_by_slug["ee/tache-3"]
+        return months, task
+
+    def test_ee_tache_three_overview_table_has_bounded_hover_content(self):
+        _, task = self._import_ee_tache_three_content()
+        overview_url = reverse(
+            "study:task_detail",
+            args=[task.part.slug, task.slug],
+        )
+
+        self.page.set_viewport_size({"width": 1183, "height": 844})
+        self.page.goto(self.live_server_url + overview_url)
+        self.page.get_by_role("button", name="Tableau").click()
+        overview_entries = self.page.locator(
+            "[data-ee-tache-three-overview-entry]"
+        )
+        overview_entries.first.hover()
+        self.assertEqual(
+            overview_entries.first.evaluate(
+                "entry => getComputedStyle(entry).textDecorationLine"
+            ),
+            "none",
+        )
+        overflowing_cells = overview_entries.evaluate_all(
+            """
+            entries => entries.flatMap(entry =>
+              [...entry.children]
+                .filter(cell => cell.scrollWidth > cell.clientWidth + 1)
+                .map(cell => ({
+                  className: cell.className,
+                  clientWidth: cell.clientWidth,
+                  scrollWidth: cell.scrollWidth,
+                }))
+            )
+            """
+        )
+        self.assertEqual(overflowing_cells, [])
+        self.assert_no_horizontal_overflow()
+
+    def test_ee_tache_three_month_directory_is_collapsible_and_responsive(self):
+        months, task = self._import_ee_tache_three_content()
         overview_url = reverse(
             "study:task_detail",
             args=[task.part.slug, task.slug],
@@ -181,25 +221,24 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             self.page.get_by_text("Par famille de sujets").count(),
             0,
         )
-        january_toggle = self.page.locator(
-            "#subjects-ee-month-toggle-janvier"
+        january_body = self.page.locator(
+            "#ee-subject-month-table-janvier"
+        )
+        january_toggle = january_body.locator(
+            ".tache-two-batch-table__month-toggle"
         )
         self.assertEqual(
             january_toggle.get_attribute("aria-label"),
             "Afficher Janvier",
         )
         january_toggle.click()
-        january_body = self.page.locator(
-            "#subjects-ee-month-subjects-janvier"
-        )
-        january_body.wait_for(state="visible")
         self.assertEqual(
             january_toggle.get_attribute("aria-expanded"),
             "true",
         )
         self.assertEqual(
             january_body.locator(
-                "[data-ee-tache-three-subject-row]"
+                "[data-tache-two-month-row]:visible"
             ).count(),
             len(months[0].combinaisons),
         )
@@ -527,18 +566,13 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         panel_footer = overview_panels.nth(0).locator(
             ".tache-two-overview-panel__footer"
         )
-        progress_box = panel_footer.locator(
-            ".tache-two-progress-summary"
-        ).bounding_box()
-        action_box = panel_footer.locator(
-            ".tache-two-overview-panel__action"
-        ).bounding_box()
-        self.assertLess(
-            abs(
-                (progress_box["y"] + progress_box["height"] / 2)
-                - (action_box["y"] + action_box["height"] / 2)
-            ),
-            12,
+        self.assertEqual(
+            panel_footer.locator(".tache-two-progress-summary").count(),
+            1,
+        )
+        self.assertEqual(
+            panel_footer.locator(".tache-two-overview-panel__action").count(),
+            0,
         )
         overview_nav = self.page.locator(".task-nav--memories")
         self.assertEqual(overview_nav.locator("a").count(), 3)
@@ -2142,7 +2176,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             ".annotation-card",
             has_text="Une note personnelle.",
         ).locator(".annotation-action__icon")
-        self.assertEqual(action_icons.count(), 3)
+        self.assertEqual(action_icons.count(), 4)
 
         self.page.get_by_role("button", name="Tableau").click()
         self.page.locator(
@@ -2164,7 +2198,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             ".annotation-table__row",
             has_text="Une note personnelle.",
         ).locator(".annotation-action__icon")
-        self.assertEqual(action_icons.count(), 3)
+        self.assertEqual(action_icons.count(), 4)
         icon_styles = action_icons.evaluate_all(
             """
             icons => icons.map(icon => {
@@ -2178,7 +2212,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         )
         self.assertEqual(
             len({style["color"] for style in icon_styles}),
-            3,
+            4,
         )
         self.assertTrue(
             all(
@@ -2651,7 +2685,7 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
         )
         note_row.wait_for()
         action_buttons = note_row.locator(".annotation-action")
-        self.assertEqual(action_buttons.count(), 3)
+        self.assertEqual(action_buttons.count(), 4)
         self.assertTrue(
             all(
                 size["width"] <= 38 and size["height"] <= 38
@@ -3167,7 +3201,11 @@ class MobileBrowserChecks(StaticLiveServerTestCase):
             has_text="Écrite",
         ).click()
         self.page.locator("h1", has_text="Expression écrite").wait_for()
-        self.assertEqual(self.page.locator(".deck--soon").count(), 3)
+        self.assertEqual(self.page.locator(".deck--soon").count(), 2)
+        self.assertEqual(
+            self.page.locator(".deck:not(.deck--soon)").count(),
+            1,
+        )
         self.assert_no_horizontal_overflow()
 
         self.page.goto(

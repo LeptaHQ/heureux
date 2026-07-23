@@ -20,6 +20,7 @@ Parameters:
     <span class="annotation-card__kind">{% if annotation.kind == "highlight" %}Surlignage{% else %}Note{% endif %}</span>
     {% if annotation.origin_label %}<span class="annotation-card__origin">{{ annotation.origin_label }}</span>{% endif %}
     {% if annotation.study_later %}<span class="annotation-card__study">À étudier</span>{% endif %}
+    {% if annotation.completed %}<span class="annotation-card__done">{% if annotation.kind == "highlight" %}Terminé{% else %}Terminée{% endif %}</span>{% endif %}
     <time datetime="{{ annotation.created_at|date:'c' }}">{{ annotation.created_at|date:"j M Y · H:i" }}</time>
   </header>
   <div class="annotation-card__content">

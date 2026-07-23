@@ -2,7 +2,7 @@
 {% block title %}Vue d’ensemble · {{ task.name }} · Heureux{% endblock %}
 
 {% block content %}
-{% include "study/_task_nav.html" %}
+{% include "study/partials/task_nav.html" %}
 
 <div class="memory-overview" style="--memory-accent: {{ task.color }};">
   <header class="memory-overview-hero">
@@ -41,10 +41,6 @@
       </div>
       <footer class="tache-two-overview-panel__footer">
         {% include "study/partials/tache_two_progress.html" with summary=memory_summary unit_label="questions apprises" compact=True only %}
-        <span class="btn btn--small tache-two-overview-panel__action">
-          Voir les mémoires
-          {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
-        </span>
       </footer>
     </a>
 
@@ -69,10 +65,6 @@
       </div>
       <footer class="tache-two-overview-panel__footer">
         {% include "study/partials/tache_two_progress.html" with summary=subject_summary unit_label="sujets terminés" compact=True only %}
-        <span class="btn btn--small tache-two-overview-panel__action">
-          Voir les sujets
-          {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
-        </span>
       </footer>
     </a>
   </div>

@@ -15,7 +15,7 @@ from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
-from django.utils.http import url_has_allowed_host_and_scheme
+from django.utils.http import url_has_allowed_host_and_scheme, urlencode
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 
 from ..forms import (
@@ -29,7 +29,7 @@ from ..models import (
 )
 from ..routing import prompt_detail_url
 
-from .common import _route_task
+from .helpers import _route_task
 
 MAX_ANNOTATION_QUOTE_LENGTH = 5000
 
@@ -180,6 +180,19 @@ def _notes_scope(request, task=None, *, aggregate=False):
             | Q(quote__icontains=query)
             | Q(source_title__icontains=query)
         )
+    status = (
+        request.GET.get("status")
+        if request.GET.get("status") in {"todo", "done", "study"}
+        else ""
+    )
+    study_count = annotations.filter(study_later=True).count()
+    filtered = annotations
+    if status == "todo":
+        filtered = filtered.filter(completed_at__isnull=True)
+    elif status == "done":
+        filtered = filtered.filter(completed_at__isnull=False)
+    elif status == "study":
+        filtered = filtered.filter(study_later=True)
     active_tab = (
         request.GET.get("tab")
         if request.GET.get("tab") in {"notes", "highlights"}
@@ -202,12 +215,12 @@ def _notes_scope(request, task=None, *, aggregate=False):
     else:
         form = NoteForm()
     notes = list(
-        annotations.filter(kind=AnnotationKind.NOTE).order_by(
+        filtered.filter(kind=AnnotationKind.NOTE).order_by(
             "-created_at", "-id"
         )
     )
     highlights = list(
-        annotations.filter(kind=AnnotationKind.HIGHLIGHT).order_by(
+        filtered.filter(kind=AnnotationKind.HIGHLIGHT).order_by(
             "-created_at", "-id"
         )
     )
@@ -226,6 +239,12 @@ def _notes_scope(request, task=None, *, aggregate=False):
                 "count": counts.get(filter_task.pk, {}).get("total", 0),
             }
         )
+    preserved = {}
+    if query:
+        preserved["q"] = query
+    if status:
+        preserved["status"] = status
+    tab_url_prefix = "?" + (urlencode(preserved) + "&" if preserved else "")
     return render(
         request,
         "study/notes_list.html",
@@ -246,13 +265,14 @@ def _notes_scope(request, task=None, *, aggregate=False):
             "notes_sections": _annotation_date_sections(notes),
             "highlights_sections": _annotation_date_sections(highlights),
             "active_tab": active_tab,
-            "study_count": annotations.filter(study_later=True).count(),
+            "study_count": study_count,
             "form": form,
             "aggregate": aggregate,
             "query": query,
+            "status": status,
             "task_filters": task_filters,
             "general_count": counts.get(None, {}).get("total", 0),
-            "tab_url_prefix": "?",
+            "tab_url_prefix": tab_url_prefix,
         },
     )
 
@@ -786,6 +806,28 @@ def annotation_study_toggle(request, pk):
         return JsonResponse(
             {
                 "study_later": annotation.study_later,
+                "id": annotation.pk,
+            }
+        )
+    return redirect(_annotation_redirect(request, annotation))
+
+
+@require_POST
+def annotation_complete_toggle(request, pk):
+    annotation = get_object_or_404(
+        Annotation,
+        pk=pk,
+        user=request.user,
+    )
+    value = request.POST.get("completed")
+    if value not in {"0", "1"}:
+        return HttpResponseBadRequest("Invalid completion status.")
+    annotation.completed_at = timezone.now() if value == "1" else None
+    annotation.save(update_fields=["completed_at", "updated_at"])
+    if request.headers.get("X-Requested-With") == "fetch":
+        return JsonResponse(
+            {
+                "completed": annotation.completed,
                 "id": annotation.pk,
             }
         )

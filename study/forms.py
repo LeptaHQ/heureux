@@ -6,7 +6,7 @@ from django import forms
 from django.contrib.auth import get_user_model
 
 from .models import Annotation
-from .personalization import effective_response
+from .response_personalization import effective_response
 
 USERNAME_RE = re.compile(r"^[a-z0-9][a-z0-9._-]{2,29}$")
 PIN_RE = re.compile(r"^\d{6}$")

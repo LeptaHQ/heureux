@@ -14,9 +14,9 @@ from django.urls import reverse
 from django.utils import timezone
 from django.views.decorators.http import require_GET, require_POST
 
-from .. import content as content_module
+from .. import content_loader as content_module
 from .. import queue as queue_module
-from ..cards import card_payload, scope_from_request, scope_label
+from ..card_presentation import card_payload, scope_from_request, scope_label
 from ..models import (
     Card,
     ComprehensionTest,
@@ -37,7 +37,7 @@ from ..routing import (
 )
 from ..srs import review as apply_review, undo_last
 
-from .common import (
+from .helpers import (
     _review_batches,
     _route_task,
     _task_scope,
@@ -420,10 +420,10 @@ def review_hub(request, part_slug, task_slug):
             }
         )
     ee_tache_three = (
-        (part.slug, task.slug) == content_module.EE_TACHE3_TASK
+        (part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK
         and Response.objects.filter(
             content_key__startswith=(
-                content_module.EE_TACHE3_CONTENT_PREFIX
+                content_module.EE_TACHE_THREE_CONTENT_PREFIX
             ),
             theme__task=task,
             is_active=True,

@@ -28,6 +28,19 @@ Parameters:
     <span class="sr-only">{% if annotation.study_later %}Retirer de l’étude{% else %}Ajouter à étudier{% endif %}</span>
   </button>
 </form>
+{% if variant == "notes" or variant == "highlights" %}
+  <form method="post" action="{% url 'study:annotation_complete_toggle' annotation.id %}">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+    <input type="hidden" name="completed" value="{% if annotation.completed %}0{% else %}1{% endif %}">
+    <button class="linkbtn annotation-action" type="submit" aria-label="{% if annotation.completed %}Marquer comme à faire{% else %}Marquer comme terminé{% endif %}" aria-pressed="{% if annotation.completed %}true{% else %}false{% endif %}" title="{% if annotation.completed %}Marquer comme à faire{% else %}Marquer comme terminé{% endif %}">
+      <span class="annotation-action__icon annotation-action__icon--done" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 6.5"></path></svg>
+      </span>
+      <span class="sr-only">{% if annotation.completed %}Marquer comme à faire{% else %}Marquer comme terminé{% endif %}</span>
+    </button>
+  </form>
+{% endif %}
 {% if variant == "notes" %}
   <button
     class="linkbtn annotation-action"

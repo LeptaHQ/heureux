@@ -2,7 +2,7 @@
 {% block title %}Étudier mes notes · Heureux{% endblock %}
 
 {% block content %}
-{% if task %}{% include "study/_task_nav.html" %}{% endif %}
+{% if task %}{% include "study/partials/task_nav.html" %}{% endif %}
 <header class="page-head">
   <p class="eyebrow"><a href="{{ back_url }}">Notes</a> · Rappel actif</p>
   <h1>Étudier · {{ scope_title }}</h1>

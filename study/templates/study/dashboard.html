@@ -9,11 +9,22 @@
       <h1>Que veux-tu travailler aujourd’hui&nbsp;?</h1>
     </div>
     <dl class="home-hero__metrics" aria-label="Résumé de progression">
-      <div><dt>Série</dt><dd>{{ streak }} j</dd></div>
+      <div class="home-hero__metric--streak"><dt>Série</dt><dd>{{ streak }} j</dd></div>
       <div><dt>Cartes vues</dt><dd>{{ overall.seen }}<span class="hero-metric__total">/ {{ overall.total }}</span></dd></div>
       <div><dt>Maîtrisées</dt><dd>{{ overall.mature }}</dd></div>
     </dl>
   </header>
+
+  {% if ee_spotlight %}
+    <a class="home-spotlight" href="{{ ee_spotlight.url }}">
+      <span class="home-spotlight__badge">{% include "study/partials/ui_icon.html" with name="sparkles" only %} Nouveau</span>
+      <span class="home-spotlight__text">
+        <strong>Expression écrite — Tâche&nbsp;3</strong>
+        <span>Comparer des points de vue et argumenter · {{ ee_spotlight.detail }}.</span>
+      </span>
+      <span class="home-spotlight__arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+    </a>
+  {% endif %}
 
   {% if can_resume_review %}
     <a class="resume-review resume-review--home" href="{% url 'study:review' %}">
@@ -22,7 +33,52 @@
       </span>
       <span aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
     </a>
+  {% elif next_action %}
+    <a class="home-featured home-featured--{{ next_action.tone }}" href="{{ next_action.url }}">
+      <span class="home-featured__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=next_action.icon only %}</span>
+      <span class="home-featured__body">
+        <span class="eyebrow">{{ next_action.eyebrow }}</span>
+        <strong class="home-featured__title">{{ next_action.title }}</strong>
+        <span class="home-featured__detail">{{ next_action.detail }}</span>
+      </span>
+      <span class="home-featured__cta">{{ next_action.cta }} <span aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span></span>
+    </a>
   {% endif %}
+
+  <section class="home-goal" aria-label="Objectif de révision du jour">
+    <div class="home-goal__head">
+      <p class="eyebrow">Objectif du jour</p>
+      <p class="home-goal__count"><strong>{{ reviews_today }}</strong>&thinsp;/&thinsp;{{ daily_goal }} révisions</p>
+    </div>
+    <div class="home-goal__track" role="progressbar" aria-valuenow="{{ daily_goal_pct }}" aria-valuemin="0" aria-valuemax="100">
+      <span class="home-goal__fill{% if daily_goal_met %} is-complete{% endif %}" style="width: {{ daily_goal_pct }}%"></span>
+    </div>
+    {% if daily_goal_met %}
+      <p class="home-goal__done">{% include "study/partials/ui_icon.html" with name="check" only %} Objectif atteint. Bravo&nbsp;!</p>
+    {% else %}
+      <p class="home-goal__hint">Encore un petit effort pour tenir ta série.</p>
+    {% endif %}
+  </section>
+
+  <section class="home-skills" aria-labelledby="home-skills-title">
+    <div class="section-heading">
+      <div>
+        <h2 id="home-skills-title">Ta progression</h2>
+      </div>
+    </div>
+    <div class="home-skills__grid">
+      {% for skill in skills %}
+        <a class="home-skill{% if not skill.available %} home-skill--soon{% endif %}{% if skill.is_new %} home-skill--new{% endif %}" href="{{ skill.url }}" style="--ring-pct: {{ skill.percent }}; --ring-accent: {{ skill.accent }};">
+          <span class="home-skill__ring"><span class="home-skill__pct">{{ skill.percent }}<small>%</small></span></span>
+          <span class="home-skill__body">
+            <span class="home-skill__label">{% include "study/partials/ui_icon.html" with name=skill.icon only %} {{ skill.label }}</span>
+            <span class="home-skill__detail">{{ skill.detail }}</span>
+            <span class="home-skill__status home-skill__status--{{ skill.status }}">{{ skill.status_label }}</span>
+          </span>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
 
   <section class="daily-plan" aria-labelledby="daily-plan-title">
     <div class="section-heading">

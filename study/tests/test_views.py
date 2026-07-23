@@ -16,9 +16,9 @@ from django.test import (
 from django.urls import reverse
 from django.utils import timezone
 
-from study import content as content_module
+from study import content_loader as content_module
 from study import srs, views as study_views
-from study.content import load_sections
+from study.content_loader import load_sections
 from study.management.commands.import_content import Command
 from study.models import (
     Card,
@@ -75,12 +75,12 @@ class PWATests(TestCase):
         r = self.client.get("/sw.js")
         self.assertEqual(r.status_code, 200)
         body = r.content.decode()
-        self.assertIn('var CACHE = "heureux-v127"', body)
-        self.assertIn("study/css/app.css?v=118", body)
+        self.assertIn('var CACHE = "heureux-v129"', body)
+        self.assertIn("study/css/app.css?v=119", body)
         self.assertIn("study/js/memory-progress.js?v=2", body)
         self.assertIn("study/js/theme-init.js?v=2", body)
         self.assertIn("study/js/app.js?v=36", body)
-        self.assertIn("study/js/translate.js?v=14", body)
+        self.assertIn("study/js/selection-toolbar.js?v=1", body)
         self.assertIn("study/js/annotations.js?v=12", body)
         self.assertIn("study/js/subject-progress.js?v=1", body)
         self.assertIn("study/js/comprehension-progress.js?v=1", body)
@@ -297,7 +297,7 @@ class SmokeTests(TestCase):
         self.assertContains(response, "btn__icon-badge--save")
         self.assertContains(response, 'id="translation-panel"')
         self.assertContains(response, 'id="selection-note-panel"')
-        self.assertContains(response, "study/js/translate.js")
+        self.assertContains(response, "study/js/selection-toolbar.js")
         self.assertContains(response, "study/js/annotations.js")
         self.assertContains(response, 'rel="noopener noreferrer"')
 
@@ -650,16 +650,16 @@ class EeTacheThreePageTests(TestCase):
     @classmethod
     def setUpTestData(cls):
         command = Command()
-        cls.months = content_module.load_ee_tache3_months()
+        cls.months = content_module.load_ee_tache_three_months()
         task_by_slug = command._import_sections(load_sections())
         theme_by_name = command._import_themes(
-            content_module.ee_tache3_themes(cls.months),
+            content_module.ee_tache_three_themes(cls.months),
             task_by_slug,
         )
         family_by_name = command._import_families(
-            content_module.ee_tache3_families(cls.months)
+            content_module.ee_tache_three_families(cls.months)
         )
-        responses = content_module.parse_ee_tache3_responses(cls.months)
+        responses = content_module.parse_ee_tache_three_responses(cls.months)
         response_by_key = command._import_responses(
             responses,
             theme_by_name,
@@ -730,13 +730,21 @@ class EeTacheThreePageTests(TestCase):
         self.assertContains(
             response,
             'data-tache-two-month-key="ee-tache-three:',
-            count=11,
+            count=22,
         )
         self.assertContains(
             response,
             "data-ee-tache-three-subject-row",
             count=138,
         )
+        self.assertContains(
+            response,
+            "data-tache-two-month-row",
+            count=138,
+        )
+        self.assertContains(response, "tache-two-batch-table--ee")
+        self.assertContains(response, 'data-collection-view-panel="table"')
+        self.assertContains(response, 'data-collection-view-panel="cards"')
         self.assertContains(response, "data-collection-view-toggle")
         self.assertContains(response, "Les mois restent repliés")
 

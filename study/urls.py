@@ -246,6 +246,11 @@ urlpatterns = [
         name="annotation_study_toggle",
     ),
     path(
+        "notes/<int:pk>/terminer/",
+        views.annotation_complete_toggle,
+        name="annotation_complete_toggle",
+    ),
+    path(
         "notes/<int:pk>/supprimer/",
         views.annotation_delete,
         name="annotation_delete",

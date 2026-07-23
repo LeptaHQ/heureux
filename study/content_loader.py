@@ -26,27 +26,27 @@ THEMES_PATH = CONTENT_DIR / "themes.json"
 SECTIONS_PATH = CONTENT_DIR / "sections.json"
 COMPREHENSION_DIR = CONTENT_DIR / "comprehension"
 COMPREHENSION_TESTS_PATH = COMPREHENSION_DIR / "tests.json"
-QUESTION_BANK_PATH = CONTENT_DIR / "tache_2" / "master_question_bank.json"
+QUESTION_BANK_PATH = CONTENT_DIR / "tache_2" / "master_question_bank_1.json"
 QUESTION_BANK_DIR = QUESTION_BANK_PATH.parent
 TACHE_TWO_SUBJECTS_DIR = QUESTION_BANK_DIR / "subjects"
 TACHE_TWO_VOCABULARY_DIR = QUESTION_BANK_DIR / "vocabulary"
 QUESTION_BANK_TASK = ("eo", "tache-2")
 
-EE_TACHE3_TASK = ("ee", "tache-3")
-EE_TACHE3_CONTENT_PREFIX = "ee-tache3:"
-EE_TACHE3_DIR = CONTENT_DIR / "ee" / "tache3"
-EE_TACHE3_RESPONSES_DIR = EE_TACHE3_DIR / "responses"
-EE_TACHE3_SUBJECTS_DIR = EE_TACHE3_DIR / "subjects"
-EE_TACHE3_VOCABULARY_DIR = EE_TACHE3_DIR / "vocabulary"
-EE_TACHE3_MEMOIRES_DIR = EE_TACHE3_DIR / "memoires"
-EE_TACHE3_VOCABULARY_PER_RESPONSE = 30
+EE_TACHE_THREE_TASK = ("ee", "tache-3")
+EE_TACHE_THREE_CONTENT_PREFIX = "ee-tache3:"
+EE_TACHE_THREE_DIR = CONTENT_DIR / "ee" / "tache_3"
+EE_TACHE_THREE_RESPONSES_DIR = EE_TACHE_THREE_DIR / "responses"
+EE_TACHE_THREE_SUBJECTS_DIR = EE_TACHE_THREE_DIR / "subjects"
+EE_TACHE_THREE_VOCABULARY_DIR = EE_TACHE_THREE_DIR / "vocabulary"
+EE_TACHE_THREE_MEMOIRES_DIR = EE_TACHE_THREE_DIR / "memoires"
+EE_TACHE_THREE_VOCABULARY_PER_RESPONSE = 30
 
 # Tasks that expose a "Mémoires" question-bank section, mapped to the
 # directory of memoire JSON files and the key namespace used to isolate
 # per-question progress from other tasks (empty namespace = legacy EO T2).
 MEMOIRE_TASKS = {
     QUESTION_BANK_TASK: (QUESTION_BANK_DIR, ""),
-    EE_TACHE3_TASK: (EE_TACHE3_MEMOIRES_DIR, "ee-tache3"),
+    EE_TACHE_THREE_TASK: (EE_TACHE_THREE_MEMOIRES_DIR, "ee-tache3"),
 }
 
 EXPECTED_PROMPTS = 167
@@ -103,7 +103,7 @@ COMPREHENSION_VOCABULARY_FIELDS = (
     "usage",
     "questions",
 )
-EE_TACHE3_VOCABULARY_FIELDS = (
+EE_TACHE_THREE_VOCABULARY_FIELDS = (
     "id",
     "kind",
     "french",
@@ -111,7 +111,7 @@ EE_TACHE3_VOCABULARY_FIELDS = (
     "example",
     "usage",
 )
-EE_TACHE3_VOCABULARY_KINDS = (
+EE_TACHE_THREE_VOCABULARY_KINDS = (
     "mot-cle",
     "collocation",
     "expression",
@@ -120,7 +120,7 @@ EE_TACHE3_VOCABULARY_KINDS = (
     "verbe-action",
     "reformulation",
 )
-EE_TACHE3_VOCABULARY_CATEGORIES = {
+EE_TACHE_THREE_VOCABULARY_CATEGORIES = {
     "mot-cle": "EE Tâche 3 · Mots clés",
     "collocation": "EE Tâche 3 · Collocations",
     "expression": "EE Tâche 3 · Expressions",
@@ -1193,19 +1193,19 @@ class EeTacheThreeMonth:
     combinaisons: Tuple[EeTacheThreeCombinaison, ...]
 
 
-def ee_tache3_theme_name(month: EeTacheThreeMonth) -> str:
+def ee_tache_three_theme_name(month: EeTacheThreeMonth) -> str:
     return f"EE · Tâche 3 · {month.name}"
 
 
-def ee_tache3_family_name(month: EeTacheThreeMonth) -> str:
+def ee_tache_three_family_name(month: EeTacheThreeMonth) -> str:
     return f"EE Tâche 3 · {month.name}"
 
 
-def _ee_tache3_normalize(text: str) -> str:
+def _ee_tache_three_normalize(text: str) -> str:
     return text.lower().replace("\u2019", "'").replace("\u0153", "oe")
 
 
-def _ee_tache3_parse_essays(md_text: str) -> List[Dict[str, str]]:
+def _ee_tache_three_parse_essays(md_text: str) -> List[Dict[str, str]]:
     """Return ordered per-combinaison essay blocks from a responses/*.md file."""
     text = md_text.replace("\r\n", "\n")
     blocks = re.split(r"(?m)^## Combinaison ", text)
@@ -1246,9 +1246,9 @@ def _ee_tache3_parse_essays(md_text: str) -> List[Dict[str, str]]:
     return essays
 
 
-def load_ee_tache3_months(
-    subjects_dir: Path = EE_TACHE3_SUBJECTS_DIR,
-    responses_dir: Path = EE_TACHE3_RESPONSES_DIR,
+def load_ee_tache_three_months(
+    subjects_dir: Path = EE_TACHE_THREE_SUBJECTS_DIR,
+    responses_dir: Path = EE_TACHE_THREE_RESPONSES_DIR,
 ) -> Tuple[EeTacheThreeMonth, ...]:
     """Load EE Tâche 3 months by zipping subjects, essays and vocab keys.
 
@@ -1271,13 +1271,13 @@ def load_ee_tache3_months(
         if not isinstance(sujets, list) or not sujets:
             raise ValueError(f"{subject_path.name} must contain a sujets list")
 
-        vocab_path = EE_TACHE3_VOCABULARY_DIR / f"{slug}.json"
+        vocab_path = EE_TACHE_THREE_VOCABULARY_DIR / f"{slug}.json"
         vocab = json.loads(vocab_path.read_text(encoding="utf-8"))
         vocab_rows = vocab.get("responses")
         if not isinstance(vocab_rows, list):
             raise ValueError(f"{vocab_path.name} must contain a responses list")
 
-        essays = _ee_tache3_parse_essays(
+        essays = _ee_tache_three_parse_essays(
             (responses_dir / f"{slug}.md").read_text(encoding="utf-8")
         )
 
@@ -1299,7 +1299,7 @@ def load_ee_tache3_months(
                     f"{essay['label']!r})"
                 )
             content_key = vocab_row.get("response_key", "")
-            if not content_key.startswith(EE_TACHE3_CONTENT_PREFIX):
+            if not content_key.startswith(EE_TACHE_THREE_CONTENT_PREFIX):
                 raise ValueError(
                     f"{slug} position {position}: bad response_key "
                     f"{content_key!r}"
@@ -1335,14 +1335,14 @@ def load_ee_tache3_months(
     return tuple(months)
 
 
-def ee_tache3_themes(
+def ee_tache_three_themes(
     months: Optional[Tuple[EeTacheThreeMonth, ...]] = None,
 ) -> List[ThemeData]:
-    months = months or load_ee_tache3_months()
+    months = months or load_ee_tache_three_months()
     return [
         ThemeData(
             slug=f"ee-tache-3-{month.slug}",
-            name=ee_tache3_theme_name(month),
+            name=ee_tache_three_theme_name(month),
             display=month.name,
             order=200 + month.number,
             color="#0f6fc4",
@@ -1353,17 +1353,17 @@ def ee_tache3_themes(
     ]
 
 
-def ee_tache3_families(
+def ee_tache_three_families(
     months: Optional[Tuple[EeTacheThreeMonth, ...]] = None,
 ) -> List[Tuple[str, int]]:
-    months = months or load_ee_tache3_months()
+    months = months or load_ee_tache_three_months()
     return [
-        (ee_tache3_family_name(month), 2000 + month.number)
+        (ee_tache_three_family_name(month), 2000 + month.number)
         for month in months
     ]
 
 
-def _ee_tache3_documents_html(documents: Tuple[str, ...]) -> str:
+def _ee_tache_three_documents_html(documents: Tuple[str, ...]) -> str:
     blocks = []
     for index, doc in enumerate(documents, start=1):
         text = (doc or "").strip()
@@ -1384,14 +1384,14 @@ def _ee_tache3_documents_html(documents: Tuple[str, ...]) -> str:
     return "".join(blocks)
 
 
-def parse_ee_tache3_responses(
+def parse_ee_tache_three_responses(
     months: Optional[Tuple[EeTacheThreeMonth, ...]] = None,
 ) -> List[ResponseData]:
-    months = months or load_ee_tache3_months()
+    months = months or load_ee_tache_three_months()
     responses: List[ResponseData] = []
     for month in months:
-        theme = ee_tache3_theme_name(month)
-        family = ee_tache3_family_name(month)
+        theme = ee_tache_three_theme_name(month)
+        family = ee_tache_three_family_name(month)
         for combinaison in month.combinaisons:
             body_parts = [
                 combinaison.sujet,
@@ -1416,7 +1416,7 @@ def parse_ee_tache3_responses(
                     nuance="",
                     conclusion="",
                     body=body,
-                    body_html=_ee_tache3_documents_html(
+                    body_html=_ee_tache_three_documents_html(
                         (combinaison.document1, combinaison.document2)
                     ),
                     arguments=[],
@@ -1435,16 +1435,16 @@ def parse_ee_tache3_responses(
     return responses
 
 
-def parse_ee_tache3_subject_vocabulary(
+def parse_ee_tache_three_subject_vocabulary(
     responses: Optional[List[ResponseData]] = None,
-    directory: Path = EE_TACHE3_VOCABULARY_DIR,
+    directory: Path = EE_TACHE_THREE_VOCABULARY_DIR,
 ) -> List[PhraseData]:
     if responses is None:
-        responses = parse_ee_tache3_responses()
+        responses = parse_ee_tache_three_responses()
     response_by_key = {
         response.content_key: response
         for response in responses
-        if response.content_key.startswith(EE_TACHE3_CONTENT_PREFIX)
+        if response.content_key.startswith(EE_TACHE_THREE_CONTENT_PREFIX)
     }
     if not response_by_key:
         return []
@@ -1498,10 +1498,10 @@ def parse_ee_tache3_subject_vocabulary(
                 raise ValueError(
                     f"{response_key} must contain an entries list"
                 )
-            if len(entries) != EE_TACHE3_VOCABULARY_PER_RESPONSE:
+            if len(entries) != EE_TACHE_THREE_VOCABULARY_PER_RESPONSE:
                 raise ValueError(
                     f"{response_key} must have "
-                    f"{EE_TACHE3_VOCABULARY_PER_RESPONSE} vocabulary entries"
+                    f"{EE_TACHE_THREE_VOCABULARY_PER_RESPONSE} vocabulary entries"
                 )
 
             response = response_by_key[response_key]
@@ -1516,13 +1516,13 @@ def parse_ee_tache3_subject_vocabulary(
                 location = f"{response_key} entry {entry_index}"
                 if not isinstance(entry, dict):
                     raise ValueError(f"{location} must be an object")
-                if set(entry) != set(EE_TACHE3_VOCABULARY_FIELDS):
+                if set(entry) != set(EE_TACHE_THREE_VOCABULARY_FIELDS):
                     raise ValueError(
                         f"{location} fields must be "
-                        f"{EE_TACHE3_VOCABULARY_FIELDS}"
+                        f"{EE_TACHE_THREE_VOCABULARY_FIELDS}"
                     )
                 values = {}
-                for field_name in EE_TACHE3_VOCABULARY_FIELDS:
+                for field_name in EE_TACHE_THREE_VOCABULARY_FIELDS:
                     value = entry.get(field_name)
                     if not isinstance(value, str) or not value.strip():
                         raise ValueError(
@@ -1530,7 +1530,7 @@ def parse_ee_tache3_subject_vocabulary(
                         )
                     values[field_name] = value.strip()
 
-                if values["kind"] not in EE_TACHE3_VOCABULARY_KINDS:
+                if values["kind"] not in EE_TACHE_THREE_VOCABULARY_KINDS:
                     raise ValueError(
                         f"{location} has an unknown kind {values['kind']!r}"
                     )
@@ -1556,13 +1556,13 @@ def parse_ee_tache3_subject_vocabulary(
                     raise ValueError(f"{location} french target is too long")
                 if len(english) > PHRASE_MAX_LENGTHS["english_cue"]:
                     raise ValueError(f"{location} english cue is too long")
-                target_key = _ee_tache3_normalize(french)
+                target_key = _ee_tache_three_normalize(french)
                 if target_key in seen_targets:
                     raise ValueError(
                         f"{response_key} repeats french target {french!r}"
                     )
                 seen_targets.add(target_key)
-                if target_key not in _ee_tache3_normalize(example):
+                if target_key not in _ee_tache_three_normalize(example):
                     raise ValueError(
                         f"{location} example must contain its french target "
                         f"{french!r}"
@@ -1572,7 +1572,7 @@ def parse_ee_tache3_subject_vocabulary(
                     PhraseData(
                         phrase_id=phrase_id,
                         tier="subject",
-                        category=EE_TACHE3_VOCABULARY_CATEGORIES[
+                        category=EE_TACHE_THREE_VOCABULARY_CATEGORIES[
                             values["kind"]
                         ],
                         english_cue=english,

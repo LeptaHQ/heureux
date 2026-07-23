@@ -7,8 +7,8 @@ from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from study.accounts import provision_user_study_data
-from study.content import (
+from study.account_services import provision_user_study_data
+from study.content_loader import (
     load_question_bank,
     load_question_banks,
     load_comprehension_tests,

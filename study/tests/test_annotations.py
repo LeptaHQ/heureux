@@ -4,6 +4,7 @@ import json
 
 from django.test import TestCase
 from django.urls import reverse
+from django.utils import timezone
 
 from study.models import Annotation, AnnotationKind, Card, CardType, Prompt
 from study.routing import prompt_detail_url, response_detail_url, theme_detail_url
@@ -1001,3 +1002,126 @@ class AnnotationTests(TestCase):
         self.assertEqual(keep.json()["study_later"], True)
         note.refresh_from_db()
         self.assertTrue(note.study_later)
+
+    def test_notes_can_be_marked_complete_and_reverted(self):
+        note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            body="Relire cette tournure.",
+        )
+        self.assertFalse(note.completed)
+
+        done = self.client.post(
+            reverse("study:annotation_complete_toggle", args=[note.id]),
+            {"completed": "1", "next": self.task_notes_url},
+        )
+        self.assertRedirects(done, self.task_notes_url)
+        note.refresh_from_db()
+        self.assertTrue(note.completed)
+        self.assertIsNotNone(note.completed_at)
+        self.assertContains(self.client.get(self.task_notes_url), "Terminée")
+
+        undone = self.client.post(
+            reverse("study:annotation_complete_toggle", args=[note.id]),
+            {"completed": "0", "next": self.task_notes_url},
+        )
+        self.assertRedirects(undone, self.task_notes_url)
+        note.refresh_from_db()
+        self.assertFalse(note.completed)
+        self.assertIsNone(note.completed_at)
+
+    def test_complete_toggle_returns_json_for_fetch(self):
+        note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            body="Décision à clôturer.",
+        )
+        marked = self.client.post(
+            reverse("study:annotation_complete_toggle", args=[note.pk]),
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        self.assertEqual(marked.status_code, 200)
+        self.assertEqual(marked.json(), {"completed": True, "id": note.pk})
+        note.refresh_from_db()
+        self.assertTrue(note.completed)
+
+    def test_complete_toggle_rejects_invalid_value(self):
+        note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            body="Valeur incorrecte.",
+        )
+        response = self.client.post(
+            reverse("study:annotation_complete_toggle", args=[note.pk]),
+            {"completed": "oui"},
+        )
+        self.assertEqual(response.status_code, 400)
+        note.refresh_from_db()
+        self.assertFalse(note.completed)
+
+    def test_complete_toggle_forbidden_for_other_user(self):
+        note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            body="Note privée.",
+        )
+        self.client.force_login(self.other)
+        self.assertEqual(
+            self.client.post(
+                reverse("study:annotation_complete_toggle", args=[note.pk]),
+                {"completed": "1"},
+            ).status_code,
+            404,
+        )
+        note.refresh_from_db()
+        self.assertFalse(note.completed)
+
+    def test_status_filter_limits_the_notes_list(self):
+        done = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            body="Note terminée.",
+            completed_at=timezone.now(),
+        )
+        todo = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            body="Note à faire.",
+        )
+        study = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            body="Note à étudier.",
+            study_later=True,
+        )
+
+        default = self.client.get(self.task_notes_url)
+        self.assertEqual(len(default.context["notes"]), 3)
+        self.assertEqual(default.context["study_count"], 1)
+
+        done_only = self.client.get(self.task_notes_url, {"status": "done"})
+        self.assertEqual(done_only.context["notes"], [done])
+        self.assertEqual(done_only.context["status"], "done")
+        self.assertEqual(done_only.context["study_count"], 1)
+
+        todo_only = self.client.get(self.task_notes_url, {"status": "todo"})
+        self.assertCountEqual(todo_only.context["notes"], [todo, study])
+
+        study_only = self.client.get(self.task_notes_url, {"status": "study"})
+        self.assertEqual(study_only.context["notes"], [study])
+
+    def test_status_filter_is_preserved_when_switching_tabs(self):
+        response = self.client.get(
+            self.task_notes_url, {"status": "done", "q": "note", "tab": "highlights"}
+        )
+        self.assertIn("status=done", response.context["tab_url_prefix"])
+        self.assertIn("q=note", response.context["tab_url_prefix"])
+

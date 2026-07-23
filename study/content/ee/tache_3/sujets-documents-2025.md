@@ -2,7 +2,6 @@
 
 > **Sujets (prompts) et documents sources uniquement — sans réponses ni corrections.**
 >
-> Source : `formation-tcfcanada.com` — pages « sujets-actualites » de chaque mois.
 > Récupéré le 2026-07-22.
 
 **138 sujets** répartis sur 11 mois. *(Février 2025 : aucune page publiée sur la source.)*

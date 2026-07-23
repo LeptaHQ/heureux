@@ -25,6 +25,14 @@
   <form class="search-form" method="get" action="{{ request.path }}">
     <label class="sr-only" for="notes-search">Rechercher dans les notes et surlignages</label>
     <input id="notes-search" class="search-form__input" type="search" name="q" value="{{ query }}" placeholder="Rechercher dans mes notes…">
+    <label class="sr-only" for="notes-status">Filtrer par statut</label>
+    <select id="notes-status" class="search-form__select" name="status" data-auto-submit>
+      <option value="" {% if status == "" %}selected{% endif %}>Tous les statuts</option>
+      <option value="todo" {% if status == "todo" %}selected{% endif %}>À faire</option>
+      <option value="done" {% if status == "done" %}selected{% endif %}>Terminées</option>
+      <option value="study" {% if status == "study" %}selected{% endif %}>À étudier</option>
+    </select>
+    <input type="hidden" name="tab" value="{{ active_tab }}">
     <button class="btn btn--icon" type="submit" aria-label="Rechercher" title="Rechercher">
       <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
     </button>

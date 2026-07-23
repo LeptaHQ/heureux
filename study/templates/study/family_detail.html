@@ -2,7 +2,7 @@
 {% block title %}{{ family.name }} · Heureux{% endblock %}
 
 {% block content %}
-{% include "study/_task_nav.html" %}
+{% include "study/partials/task_nav.html" %}
 <div class="page-head">
   <p class="eyebrow"><a href="{% url 'study:task_browse' part.slug task.slug %}">Sujets &amp; réponses</a> · Famille de sujets</p>
   <div class="row between">

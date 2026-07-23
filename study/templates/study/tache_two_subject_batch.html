@@ -2,7 +2,7 @@
 {% block title %}{{ subject_month.name }} · Batch {{ subject_batch.number }} · {{ task.name }}{% endblock %}
 
 {% block content %}
-{% include "study/_task_nav.html" %}
+{% include "study/partials/task_nav.html" %}
 
 <div class="tache-two-subjects" style="--subject-accent: {{ task.color }};">
   <a class="subject-page-back" href="{% url 'study:task_browse' part.slug task.slug %}">

@@ -2,7 +2,7 @@
 {% block title %}Sujet {{ subject.number }} · {{ subject.title }} · {{ task.name }}{% endblock %}
 
 {% block content %}
-{% include "study/_task_nav.html" with compact=True %}
+{% include "study/partials/task_nav.html" with compact=True %}
 
 <article class="tache-two-subject-detail" style="--subject-accent: {{ task.color }};">
   <header class="tache-two-subject-detail__hero">

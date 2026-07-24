@@ -1,0 +1,816 @@
+{
+  "task": {
+    "part": "ee",
+    "slug": "tache-1"
+  },
+  "categories": [
+    {
+      "slug": "invitations",
+      "label": "Invitations & fêtes",
+      "sujets": [
+        {
+          "slug": "vous-avez-invite-votre-ami-cedric-a",
+          "prompt": "Vous avez invité votre ami Cédric à votre mariage au Château de Chombony et\nil vous a répondu qu’il ne connait pas ce château. Décrivez à votre ami\n(lieu, localisation, transports, etc.).",
+          "versions": [
+            {
+              "body": "Coucou Cédric,\nJe suis ravi que tu puisses assister à mon mariage la semaine prochaine ! Tout d’abord, le Château de Chombony se trouve sur les collines d’Accra, dans un cadre entouré d’arbres ombragés, ce qui rend l’atmosphère très calme et agréable. Il offre aussi de belles vues panoramiques sur la région.\nEnsuite, pour y accéder, il y a des navettes qui le desservent toutes les 30 minutes depuis l’aéroport. Tu peux également prendre un taxi, ce qui est plus rapide. De plus, le château est grand et blanc, donc il est très facile à repérer.\nD’ailleurs, je te conseille d’arriver un peu en avance afin que tu puisses profiter du lieu tranquillement.\nLe seul bémol est qu’il peut y avoir un peu de circulation aux heures de pointe.\nHâte de te voir !\nC"
+            },
+            {
+              "body": "Salut Cédric,\nJ'espère que tu vas bien ! Suite à ta question, le Château de Chombony se trouve à Kumasi - tu te souviens ? C'est la ville où nous avions prévu de partir en vacances il y a trois ans !\nLe château est perché au sommet de l'unique montagne de la ville et offre une vue à couper le souffle. Il est facile à repérer, car c’est un grand bâtiment blanc visible de loin.\nPour y accéder, des navettes partent de l'aéroport les vendredis et samedis entre 8h et 12h. Super pratique !\nSi tu as besoin de plus d'infos ou si tu te perds en route, n'hésite surtout pas à m'appeler.\nHâte de célébrer avec toi !\nCorn"
+            },
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "vous-souhaitez-feter-votre-anniversaire-dans-un",
+          "prompt": "Vous souhaitez fêter votre anniversaire dans un restaurant. Vous invitez vos amis. Vous leur écrivez un courriel pour leur donner toutes les informations nécessaires (lieu, date, menu, prix…) et vous leur demandez une réponse.",
+          "versions": [
+            {
+              "body": "Présentation d’un métier aux élèves"
+            },
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "vous-voulez-organiser-une-fete-ecrivez-un",
+          "prompt": "Vous voulez organiser une fête.\nÉcrivez un message à vos amis pour les inviter et\nde vous aider à l’organiser (lieu, date, thème, etc.).",
+          "versions": [
+            {
+              "body": "Coucou Nan,\nJe t'écris pour t'inviter à une fête surprise que j'organise en l'honneur de ma petite sœur Jo. L'événement se tiendra au restaurant Cornell (juste à côté de l'ancienne bibliothèque) le samedi 3 juin à partir de 18h30.\n\nJ'aurais vraiment besoin de ton aide pour que tout soit parfait ! Je compte notamment sur tes fameuses recettes de glace au chocolat et de gâteau - tu sais combien Jo les adore. Autre faveur : pourrais-tu aussi inviter nos collègues du lycée qui habitent dans ton quartier ? Plus on sera, mieux ce sera !\n\nConfirme-moi ta venue d'ici le week-end. Si jamais tu ne peux pas être là, passe-moi au moins les recettes !\nHâte de te voir,\nCorn"
+            },
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "ecrivez-un-courriel-a-vos-amis-pour",
+          "prompt": "Écrivez un courriel à vos amis pour les inviter à un anniversaire surprise\nde votre meilleur ami.\n(Lieu, date, heure, etc.).",
+          "versions": [
+            {
+              "body": "Coucou Jo et Umbo,\nJ’espère que vous allez bien ! Tout d’abord, je vous écris pour vous informer d’une fête surprise en l’honneur de l’anniversaire d’Adak. Cet événement se déroulera à Medina, au 123 Ag rue, de 15h à 20h le week-end prochain.\nEnsuite, nous avons prévu une belle organisation. Cerise sur le gâteau : j’ai déjà invité DJ Jeff pour animer la soirée ! Nous allons également partager de bons plats et de bonnes boissons dans une ambiance festive.\nDe plus, comme tu sais à quel point Adak aime ta glace au chocolat, est-il possible que tu m’aides à la préparer afin que tout soit parfait ?\nLe seul bémol est que l’organisation demande un peu de coordination entre nous tous.\nSi vous étiez disponibles, ce serait vraiment idéal afin que la fête soit une réussite. J’espère vraiment vous voir tous présents !\nHâte de vous voir !"
+            },
+            {
+              "body": "Coucou les amis,\nJ'espère que vous allez bien ! Je vous invite à la fête d'anniversaire surprise de Jo le samedi 3 avril à 18h30 au restaurant Yale (123 rue Principale, près de la station de métro). Nan et moi avons tout organisé !\nOn va fêter ça autour de bons plats, de musique et de jeux, alors préparez-vous à passer un super moment ! Votre présence compterait énormément pour Jo, vous savez à quel point vous êtes importants pour elle. N'oubliez pas de me confirmer votre venue d'ici le week-end, histoire que tout soit parfait !\nImportant : C'est une surprise, alors motus et bouche cousue ! 🤫\nHâte de vous voir et de faire la fête ensemble,\nCornelius"
+            }
+          ]
+        },
+        {
+          "slug": "invitez-vos-amis-a-celebrer-votre-anniversaire",
+          "prompt": "Invitez vos amis à célébrer votre anniversaire tout en sollicitant leur soutien pour organiser la fête.",
+          "versions": [
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "l-anniversaire-de-votre-ami-approche-a",
+          "prompt": "L’anniversaire de votre ami approche à grands pas et vous avez décidé de lui offrir un voyage comme cadeau. Rédigez un message pour l’informer des préparations que vous avez faites (destination, dates, préparatifs, etc).",
+          "versions": [
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "vous-allez-feter-votre-anniversaire-vos-amis",
+          "prompt": "Vous allez fêter votre anniversaire.\nVos amis vous demandent ce que vous souhaitez comme cadeaux.\nVous voulez des vêtements.\nVous leur écrivez un message pour leur décrire les vêtements que vous aimeriez\nrecevoir.",
+          "versions": [
+            {
+              "body": "Coucou Jo et Nan,\nRavi que vous vouliez m'offrir un cadeau pour mon anniversaire ! Je me suis remis au sport récemment, j'aimerais donc un pull Canada Goose ainsi que des chaussures de running Nike, exactement comme celles de Jo.\nPour les chaussures, du noir, du bleu ou un mélange des deux me convient parfaitement. Quant au pull, il serait mieux en blanc ou en gris. Si vous avez du mal à trouver ces couleurs, je suis totalement ouvert à d'autres options. Concernant la taille, je fais la même que Jo, cela ne devrait donc pas être difficile.\nN'hésitez pas à me contacter si vous avez besoin de plus d'infos. Merci encore pour votre attention !\nC"
+            }
+          ]
+        },
+        {
+          "slug": "vous-terminez-un-sejour-professionnel-dans-un-pays",
+          "prompt": "Vous terminez un séjour professionnel dans un pays étranger et vous souhaitez fêter votre départ. Vous écrivez un courriel à vos collègues pour les inviter au restaurant. Vous décrivez votre projet et vous leur donnez les informations nécessaires (adresse, date, heure, etc.).",
+          "versions": []
+        }
+      ]
+    },
+    {
+      "slug": "sorties",
+      "label": "Sorties & visites",
+      "sujets": [
+        {
+          "slug": "je-cherche-un-endroit-pour-dejeuner-en",
+          "prompt": "Je cherche un endroit pour déjeuner en plein air ce week-end.\nQu’est-ce que tu me proposes ?\nÀ bientôt,\nBarbara\n\nVous répondez à votre amie Barbara en décrivant le lieu\n(parc, jardin, terrasse, etc.).",
+          "versions": [
+            {
+              "body": "Coucou Barbara,\nSuper de te lire ! J’ai exactement ce qu’il te faut : le restaurant Ad, un endroit parfait pour déjeuner en plein air. Il se situe au 123 rue Ebi, près du fleuve Woa, et il est ouvert tous les jours de 8h à 20h.\nL’atmosphère y est très calme, et le restaurant est entouré d’arbres exotiques, sous lesquels on peut manger tranquillement. Les prix sont vraiment abordables.\nCôté cuisine, il propose de délicieuses spécialités de différents pays. Mon plat préféré est le jollof ghanéen. Cerise sur le gâteau : on peut goûter certaines nouveautés gratuitement. Le personnel est très aimable et toujours prêt à aider.\nJe te propose que nous y allions ce week-end, si tu es disponible.\nDis-moi ce que tu en penses !\nBisous,\nC"
+            },
+            {
+              "body": "Coucou Barbara,\nQuelle bonne idée de profiter du beau temps ! Pour déjeuner en plein air ce week-end, je te recommande vivement le parc Westlake, situé au bord du fleuve SLU. C’est un endroit très agréable grâce à sa terrasse ombragée, ses grands parasols et son éclairage chaleureux en fin de journée. La vue sur le fleuve est superbe et l’ambiance musicale, avec des airs traditionnels, rend le moment encore plus relaxant.\nCôté restauration, on y trouve d’excellentes spécialités mexicaines. Je te conseille particulièrement le burrito, et le personnel est très accueillant. Le parc est ouvert tous les jours de 8h à 17h et facilement accessible en bus depuis notre lieu de travail.\nDis-moi si tu veux qu’on y aille ensemble !\nCorn"
+            },
+            {
+              "body": "Coucou Barbara,\nC’est une excellente idée ! Pour ce week-end, je te recommande vivement Gas Works Park. C’est un endroit magnifique qui offre une vue imprenable sur le lac et la skyline de la ville.\nTu pourras t’installer sur la pelouse pour un pique-nique paisible ou te promener le long de l'eau pour profiter de la nature. J’y vais souvent depuis mon installation à Seattle et l’ambiance y est toujours relaxante. Le seul bémol est que le parc est assez fréquenté le samedi, il vaut donc mieux arriver tôt.\nSi tu veux, je peux t’accompagner pour déjeuner !\nÀ bientôt,\nC"
+            }
+          ]
+        },
+        {
+          "slug": "invitez-un-ami-a-passer-une-journee",
+          "prompt": "Invitez un ami à passer une journée avec vous,\nécrivez-lui un email en lui fournissant les informations nécessaires\n(lieu, date, heure, activités).",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nJ’espère que tu vas bien ! Je t’écris pour t’inviter à passer la journée du samedi prochain avec moi. Voici le programme que j'ai imaginé.\nNous commencerons par un petit déjeuner chez moi dès 8 h. Ensuite, nous irons sur la colline de Jato pour profiter de la vue panoramique. À 10 h, nous assisterons à l’atelier littéraire sur L'Aventure de Cléopas à la bibliothèque municipale. Pour le déjeuner, j'ai réservé une table chez Ade pour goûter leurs spécialités locales. Enfin, nous finirons par une promenade relaxante au parc avant de dîner ensemble.\nDis-moi si ce projet te convient ou si tu as d'autres suggestions.\nHâte de te voir !\nC"
+            }
+          ]
+        },
+        {
+          "slug": "la-bibliotheque-de-votre-ville-organise-une",
+          "prompt": "La bibliothèque de votre ville organise une rencontre avec un écrivain.\nÉcrivez un message à votre ami(e) pour l’inviter à cet évènement.",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nJ’espère que tu vas bien ! Super nouvelle : Umbo, l’auteur de ton livre préféré L’Aventure d’Adak, sera dans ma ville le week-end prochain, invité par la bibliothèque municipale.\nLa rencontre se déroulera samedi à 8h30, à la mairie, au 123 rue Pike. Il y aura une discussion autour de son travail d’écrivain, suivie d’une séance de questions. Cerise sur le gâteau : il lancera son nouveau livre, la deuxième partie de L’Aventure d’Adak.\nSi ça t’intéresse, pense à réserver rapidement, car les places sont limitées.\nN’hésite pas à en parler à tes amis qui pourraient être intéressés.\nJ’ai hâte de t’y voir !\nCorn"
+            }
+          ]
+        },
+        {
+          "slug": "l-ete-est-arrive-je-vous-propose",
+          "prompt": "L’été est arrivé ! Je vous propose de faire un pique-nique samedi prochain.\nConnaissez-vous un endroit sympa pour les enfants et les adultes où nous\npouvons tous nous retrouver ? Bisous, à bientôt.\nLéa”\n\nVous acceptez l’invitation de Léa et vous lui proposez un endroit pour\norganiser le pique-nique. Vous décrivez le lieu et expliquez quelles sont\nles activités possibles.",
+          "versions": [
+            {
+              "body": "Coucou Léa,\nGénial, j'accepte avec plaisir ! J'ai justement l'endroit parfait : le parc de Labadi ! C'est un magnifique espace vert perché sur une colline d'Accra, à environ 1 km du théâtre Kotoka.\nL'ambiance : Très cool grâce aux grands arbres ombragés et à la vue panoramique sur toute la ville. Parfait pour se détendre !\nPour les enfants : Aires de jeux avec balançoires et toboggans, espace pour courir et jouer au ballon.\nPour les adultes : Terrains de beach-volley, pétanque, et de belles zones de promenade. On peut aussi profiter du petit restaurant sur place.\nPour tous : Possibilité de faire du vélo, de jouer au frisbee, ou simplement se relaxer à l'ombre !\nLe personnel est super sympa et la sécurité est top. Qu'en penses-tu ?\nHâte de vous voir samedi,\nCorn"
+            }
+          ]
+        },
+        {
+          "slug": "parc-de-loisirs-j-ai-hate-de",
+          "prompt": "Parc de loisirs: « j’ai hâte de passer la journée avec toi demain.\ndis-moi, quelles activités nous pourrons faire ?\nÉcrivez un message pour répondre à votre ami(e).",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nSuper de te lire ! Je suis ravi que nous passions la journée ensemble demain. Comme tu passes beaucoup de temps à l’intérieur, j’ai surtout prévu des activités en plein air.\nLe matin, nous prendrons le petit-déjeuner chez moi — tu sais à quel point tu aimes mon café 😉. Ensuite, à 9h, nous irons visiter le château Zion, situé sur la colline Mt. Sur place, on fera une courte randonnée et on profitera de la belle vue sur la ville.\nPuis, nous passerons par la bibliothèque municipale pour assister à une rencontre avec l’écrivain Umbo, qui présentera son nouveau livre. Le déjeuner est prévu à 14h au restaurant Adak, connu pour ses délicieuses spécialités locales. Enfin, nous ferons une promenade au parc Amazon avant de rentrer vers 18h.\nDis-moi si tu as d’autres idées.\nJ’ai hâte de te voir !\nC"
+            }
+          ]
+        },
+        {
+          "slug": "vous-avez-dine-dans-un-nouveau-restaurant",
+          "prompt": "Vous avez dîné dans un nouveau restaurant.\nÉcrivez un message à votre ami pour lui décrire le restaurant :\nl’ambiance, la décoration, les plats et le service.",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nÇa fait longtemps ! J'ai déjeuné au restaurant d'Adebi et c'était merveilleux. Il se situe au 123 Pike Street dans un cadre ombragé, ce qui rend l'atmosphère très apaisante. D'ailleurs, on peut manger sous les arbres pour profiter de la nature.\nCôté plats, on y propose de délicieuses spécialités de plusieurs régions, y compris d'Afrique et d'Asie. Je te recommande le jollof ghanéen ! Cerise sur le gâteau : on peut goûter des nouveautés gratuitement. Le personnel est chaleureux et le lieu est accessible en transports depuis le centre-ville.\nEn résumé, c'est un super restaurant. Fais-moi signe si tu veux qu'on y aille ensemble !"
+            }
+          ]
+        },
+        {
+          "slug": "ecrivez-un-courriel-a-votre-ami-pour",
+          "prompt": "Écrivez un courriel à votre ami pour l’inviter à passer une journée avec\nvous (lieu, date, activités, etc.).",
+          "versions": [
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "vous-etes-alle-e-dans-un-nouveau-restaurant",
+          "prompt": "Vous êtes allé(e) dans un nouveau restaurant près de chez vous. Vous écrivez un courriel à un(e) ami(e) pour lui décrire vos impressions sur ce nouveau restaurant (décoration, personnel, tarifs, cuisine, etc.).",
+          "versions": []
+        },
+        {
+          "slug": "vous-avez-envie-de-passer-une-journee-avec",
+          "prompt": "Vous avez envie de passer une journée avec votre ami(e). Vous écrivez à votre ami(e). Vous l'invitez et vous décrivez le programme de la journée (heure, lieu du rendez-vous, activités, etc.).",
+          "versions": []
+        },
+        {
+          "slug": "vous-voulez-aller-a-un-festival-de-films",
+          "prompt": "Vous voulez aller à un festival de films dans votre ville. Rédigez un message à un ami pour lui proposer de vous accompagner. Indiquez clairement les détails de l’événement (films, horaires, dates et prix).",
+          "versions": []
+        },
+        {
+          "slug": "parc-de-loisirs-j-ai-hate-de-profiter",
+          "prompt": "Parc de loisirs : J’ai hâte de profiter de cette journée avec toi demain ! Peux-tu me dire quelles activités sont au programme ? Écrivez un message pour répondre à votre ami(e).",
+          "versions": []
+        },
+        {
+          "slug": "vous-souhaitez-assister-a-un-festival-de-cinema",
+          "prompt": "Vous souhaitez assister à un festival de cinéma dans votre ville. Vous écrivez un message à votre ami(e) pour lui proposer de venir avec vous. Vous lui donnez toutes les informations nécessaires sur l’événement (films, dates et horaires, tarifs, etc.).",
+          "versions": []
+        },
+        {
+          "slug": "parc-de-loisirs-j-ai-hate-de-passer",
+          "prompt": "Parc de loisirs : “J’ai hâte de passer la journée avec toi demain. S’il te plaît, dis-moi, quelle activité nous pourrons faire ?” Répondez à votre ami(e) pour lui décrire la sortie (horaires, transport, activités, etc.).",
+          "versions": []
+        },
+        {
+          "slug": "la-bibliotheque-de-votre-quartier-propose-une-rencontre",
+          "prompt": "La bibliothèque de votre quartier propose une rencontre avec un(e) auteur(e). Vous souhaitez y aller avec un(e) ami(e). Vous lui écrivez un message. Vous décrivez l’événement et vous lui proposez de venir avec vous.",
+          "versions": []
+        },
+        {
+          "slug": "un-nouveau-restaurant-vient-d-ouvrir-pres-de",
+          "prompt": "Un nouveau restaurant vient d’ouvrir près de chez vous. Vous écrivez à un(e) ami(e) pour lui proposer d’y aller avec vous. Vous décrivez le restaurant (cuisine, prix, décoration, etc.).",
+          "versions": []
+        }
+      ]
+    },
+    {
+      "slug": "accueil",
+      "label": "Accueillir un invité",
+      "sujets": [
+        {
+          "slug": "votre-ami-e-veut-decouvrir-la-region",
+          "prompt": "Votre ami(e) veut découvrir la région dans laquelle vous habitez.\nÉcrivez lui un message pour lui proposer des sites à visiter.",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nSuper de te lire ! Je suis ravi que tu veuilles découvrir Ksi, car cette région offre de nombreux endroits à visiter.\nTout d’abord, je te conseille de visiter le château Ag, situé sur les collines d’Accra. Il offre de belles vues panoramiques sur la région. Ensuite, le musée du centre-ville est incontournable : il propose des expositions spéciales et des ateliers chaque week-end, et il est facilement accessible en transports en commun.\nDe plus, je te recommande le restaurant d’Adwoa, qui propose de délicieuses spécialités locales. D’ailleurs, tu pourras y goûter de nouveaux plats gratuitement.\nPar ailleurs, tu peux faire une promenade au parc Nan, entouré d’arbres ombragés, afin que tu profites d’un moment de détente.\nLe seul bémol est que certains lieux peuvent être très fréquentés.\nSi tu avais le temps, nous pourrions visiter ces endroits ensemble.\nEn résumé, Ksi est une région merveilleuse !\nHâte de te voir !\nC"
+            },
+            {
+              "body": "Coucou Jo,\nJe suis ravi(e) que tu veuilles découvrir la région ! Seattle est une ville magnifique avec de nombreux endroits à visiter. Je te conseille d’abord le musée d’histoire, situé près du fleuve, qui permet de mieux comprendre les origines de la ville.\nEnsuite, le parc Amazon est idéal pour se détendre grâce à ses arbres exotiques et à son ambiance agréable. Le marché de Pike est également incontournable pour découvrir les spécialités locales.\nEnfin, la montagne Bellevue est parfaite pour faire des randonnées et admirer une belle vue panoramique.\nFais-moi signe quand tu arrives !\nCorn"
+            },
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "redigez-un-message-pour-inviter-votre-ami",
+          "prompt": "Rédigez un message pour inviter votre ami(e) à passer ses vacances dans votre\nville en précisant les lieux et les endroits à visiter.",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nJ’espère que tu vas bien ! Je voudrais vraiment que tu passes tes prochaines vacances avec moi à Ksi, car cette ville offre beaucoup de choses à découvrir.\nTout d’abord, nous pourrions visiter le château d’Ag, situé sur les collines d’Accra, qui offre de belles vues panoramiques sur la région. Ensuite, tu peux assister aux ateliers du musée de Faw le week-end. Le seul bémol est que ce musée soit très fréquenté, donc il vaut mieux y aller tôt.\nDe plus, je te conseille le restaurant d’Adebi, qui propose de délicieuses spécialités locales. D’ailleurs, tu peux y goûter de nouveaux plats gratuitement avant de choisir ton repas.\nEnfin, le parc Aloha est un endroit parfait pour se détendre et faire une promenade.\nJe vis ici depuis plusieurs années, donc je connais très bien les meilleurs endroits. Si tu veux, je peux organiser le programme afin que tu profites au maximum de ton séjour. Et si tu avais le temps, nous pourrions tout visiter ensemble !\nHâte de te voir !"
+            },
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "bonjour-ca-y-est-j-ai-obtenu",
+          "prompt": "Bonjour, ça y est, j’ai obtenu mon visa pour le Canada. Je vais arriver le 3 mars. Est-ce que tu pourras m’aider à trouver un hôtel pour la première semaine ? Merci d’avance pour ton aide.” Matthias. Vous avez trouvé un hôtel pour Matthias. Vous lui écrivez un courriel. Dans ce message vous décrivez l’hôtel et vous lui donnez toutes les informations utiles (situation, tarif…).",
+          "versions": [
+            {
+              "body": "Salut Mat,\nJ’espère que tu vas bien. Je t’écris pour te donner les informations sur l’hôtel que j’ai trouvé pour ta première semaine. L’établissement s’appelle Hôtel Ad. Il est situé au 123, rue Deb, à Kumasi, près du fleuve Bi, dans un cadre très dépaysant. De plus, il est perché sur une colline et offre une belle vue sur la ville.\nDepuis l’aéroport, des navettes le desservent toutes les trois heures, ce qui est très pratique. Cerise sur le gâteau : il est à proximité du cinéma Africain — je sais que tu aimes ça — et il propose aussi de très bonnes spécialités culinaires.\nCôté prix, la chambre coûte 50 $ par nuit, avec une réduction à partir de trois nuits. Le seul bémol est que la réception ferme à 20 h, donc il vaut mieux arriver avant.\nTu peux réserver sur www.adhotel.com ou appeler le +1 93 48 50. Dis-moi si tu veux que je m’en occupe pour toi.\nHâte de te voir !\nCorn"
+            }
+          ]
+        },
+        {
+          "slug": "votre-amie-jeanne-envisage-de-visiter-votre",
+          "prompt": "Votre amie Jeanne envisage de visiter votre pays. Rédigez un message personnalisé lui proposant un itinéraire de visite. Incluez une variété de lieux tels que des villes, sites touristiques et monuments célèbres, en expliquant brièvement l’intérêt de chaque recommandation.",
+          "versions": [
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "vous-avez-recemment-demenage-dans-une-nouvelle",
+          "prompt": "Vous avez récemment déménagé dans une nouvelle ville.\nInvitez votre amie à venir passer les vacances chez vous.",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nÇa fait longtemps ! Je t'invite à passer tes vacances chez moi à Kumasi. J’y vis depuis quelques mois et j’adore cette ville. Voici ce que j'ai imaginé.\nOn pourra visiter le château Osu, perché sur la colline d'Ada, afin d'apprendre l'histoire de la ville et de profiter de vues imprenables sur la région. De plus, nous assisterons aux ateliers hebdomadaires du musée au centre-ville les samedis.\nJ'ai prévu les déjeuners au restaurant d'Adebi, connu pour ses spécialités culinaires. On pourra aussi y goûter des nouveautés gratuitement. Enfin, Kumasi offre de beaux parcs entourés d'arbres ombragés, parfaits pour faire une promenade et se détendre.\nConfirme-moi ta venue d'ici ce week-end. Hâte de te voir !\nC"
+            }
+          ]
+        },
+        {
+          "slug": "ecrivez-un-message-a-votre-ami-e",
+          "prompt": "Écrivez un message à votre ami(e) pour l’inviter à venir passer le week-end\nprochain avec vous en indiquant (activités, lieu, etc.).",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nÇa fait longtemps ! Je t’écris pour t’inviter à passer le week-end prochain avec moi. Je vis ici depuis quelques années, donc je connais de super endroits.\nTout d’abord, nous pourrions visiter le centre-ville et ses cafés. Ensuite, on peut faire une promenade au parc afin que tu profites de la nature. De plus, je te propose de dîner dans un restaurant local avant de rentrer.\nLe seul bémol est qu’il peut y avoir du monde. Si tu veux, on peut tout organiser ensemble !\nHâte de te voir !"
+            }
+          ]
+        },
+        {
+          "slug": "votre-amie-carole-et-sa-famille-prevoient",
+          "prompt": "Votre amie Carole et sa famille prévoient de visiter votre ville\nprochainement. Dans un message, proposez-leur un hôtel où séjourner\n(tarifs, activités, transports, etc.)",
+          "versions": []
+        },
+        {
+          "slug": "invitez-votre-ami-e-a-venir-passer-les",
+          "prompt": "Invitez votre ami(e) à venir passer les vacances chez vous. Dans votre message, décrivez les sites touristiques et les endroits intéressants à découvrir dans votre ville.",
+          "versions": []
+        },
+        {
+          "slug": "envoyez-un-message-a-vos-amis-pour-les",
+          "prompt": "Envoyez un message à vos amis pour les inviter à passer un week-end chez vous et à pratiquer ensemble des activités sportives.",
+          "versions": []
+        },
+        {
+          "slug": "vous-avez-recu-ce-message-de-votre-ami",
+          "prompt": "Vous avez reçu ce message de votre ami Thomas : « Salut ! Je ne connais pas bien la culture et les traditions de ton pays. Peux-tu me parler d’une grande fête célébrée chez toi ? À bientôt ! » Consigne : Répondez-lui en décrivant une fête importante de votre pays.",
+          "versions": []
+        }
+      ]
+    },
+    {
+      "slug": "voyages",
+      "label": "Voyages & vacances",
+      "sujets": [
+        {
+          "slug": "vous-avez-passe-un-week-end-a",
+          "prompt": "Vous avez passé un week-end à la campagne.\nÉcrivez un message à votre ami(e) pour lui décrire ce qui s’est passé.",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nJ’espère que tu vas bien ! Je voulais te raconter mon week-end à Tafo, un charmant village perché sur les collines d’Accra. J’y suis allé avec ma famille pour fêter l’anniversaire de ma sœur, et l’expérience a été vraiment mémorable.\nLe cadre était magnifique : une belle vue panoramique sur la ville, beaucoup d’arbres ombragés et une atmosphère très apaisante. Sur place, nous avons fait plusieurs randonnées et découvert une forêt au pied de la montagne. J’ai même eu la chance d’apercevoir des animaux, notamment des singes, ce qui a rendu le séjour encore plus spécial.\nL’accueil était également excellent : le personnel et les habitants étaient très aimables et nous ont conseillé des activités intéressantes. En résumé, c’était un week-end dépaysant et ressourçant.\nIl faut absolument qu’on y retourne ensemble !\nÀ très bientôt,\nCorn"
+            },
+            {
+              "body": "Coucou Jo,\nSuper de te lire ! J’ai passé le dernier week-end à la campagne de Ksi, située sur les collines d’Ashanti. Cet endroit offrait de belles vues panoramiques sur la région et était entouré d’arbres ombragés, ce qui rendait l’ambiance très agréable.\nEnsuite, les habitants étaient très chaleureux et prêts à nous aider à découvrir la région. Cerise sur le gâteau : Ksi proposait des visites guidées gratuites chaque week-end. Les soirées étaient également animées avec de la musique et de la danse.\nDe plus, j’ai dû prendre une navette puis trois bus pour y accéder, ce qui était le seul bémol.\nLors de notre dernier jour, nous avons fait de bonnes affaires et profité de la musique de rue au marché de producteurs.\nEn résumé, j’ai passé un excellent moment et je te recommande vivement cet endroit !\nDis-moi si tu prévois d’y aller."
+            },
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "votre-ami-cedric-a-accepte-de-garder",
+          "prompt": "Votre ami Cédric a accepté de garder votre maison et jardin pendant vos vacances.\nÉcrivez un message pour lui dire ce qu’il doit faire.",
+          "versions": [
+            {
+              "body": "Coucou Cédric,\nMerci d’avoir accepté de garder ma maison et mon jardin pendant mes vacances.\nTout d’abord, il n’y a pas grand-chose à faire dans la maison. J’essaie d’économiser l’énergie, donc je veille à éteindre la plupart des lumières avant 21 h. Je laisserai également ma chienne Perp à la maison, et sa nourriture se trouve dans les tiroirs marron de la cuisine.\nConcernant le jardin, il est petit et situé derrière la maison, ce qui est très pratique. Les fleurs n’ont pas besoin d’être arrosées quotidiennement : un arrosage deux fois par semaine est suffisant.\nImportant : les clés sont sous la boîte rouge sur la table de la salle à manger. En cas de problème ou de question, n’hésite surtout pas à me contacter.\nMerci encore pour ton aide !\nC"
+            },
+            {
+              "body": "Coucou Cédric,\nMerci infiniment d'avoir accepté de garder ma maison et mon jardin pendant mon absence. Voici quelques consignes importantes.\nTout d’abord, je laisserai les clés dans le boîtier sécurisé à l'entrée. Pour économiser l’énergie, je te prie d'éteindre toutes les lumières après 21 h. Ensuite, j’attends plusieurs colis la semaine prochaine ; pourrais-tu les déposer dans la cuisine ?\nConcernant le jardin, il est assez petit et un arrosage une fois tous les deux jours suffit largement. Au moindre souci, n’hésite pas à me joindre sur mon portable, je resterai joignable.\nMerci encore pour ce précieux coup de main !\nAmicalement,\nC"
+            }
+          ]
+        },
+        {
+          "slug": "vous-voulez-partir-en-week-end-avec",
+          "prompt": "Vous voulez partir en week-end avec vos amis le mois prochain. Vous leur écrivez un message pour décrire votre projet (lieu, transport, activités, etc.).",
+          "versions": [
+            {
+              "body": "Coucou Jo et Nan,\nÇa fait longtemps ! J'aimerais que nous passions un week-end ensemble au Château de Kumasi le mois prochain. Ce château est perché sur une montagne, ce qui offre des vues imprenables sur la région.\nD'abord, on pourra faire une courte randonnée dans la forêt : je sais à quel point vous aimez cela ! Ensuite, les déjeuners sont prévus au restaurant d'Adebi, connu pour ses spécialités locales. Des navettes partent de l'aéroport toutes les 30 minutes pour y accéder. Enfin, nous visiterons le marché de producteurs afin d'acheter des produits bio et de profiter de la musique de rue.\nN'hésitez pas à me dire si vous avez d'autres suggestions. Hâte de vous voir !\nC"
+            },
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "vous-partez-en-vacances-avec-vos-amis",
+          "prompt": "Vous partez en vacances avec vos amis, vous avez trouvé un hôtel.\nVous écrivez un message à vos amis pour décrire cet hôtel\n(localisation, prix, équipements, etc.) et vous leur proposez de réserver\ncet hôtel.",
+          "versions": [
+            {
+              "body": "Coucou Jo et Nan,\nJ’espère que vous allez bien ! J’ai trouvé un excellent hôtel pour nos prochaines vacances.\nTout d’abord, il est situé au 123, rue Ag, sur une colline, ce qui offre de vues imprenables. Ensuite, c’est un hôtel 5 étoiles avec de très bons avis, et on peut y accéder facilement depuis l’aéroport grâce à des navettes toutes les 30 minutes.\nDe plus, les tarifs varient entre 90 $ et 150 $ par nuit et par personne. D’ailleurs, les repas sont inclus et il y a une salle de sport.\nLe seul bémol est qu’il peut être complet. Si vous voulez, nous pourrions le réserver.\nHâte de vous voir !"
+            }
+          ]
+        },
+        {
+          "slug": "ecrivez-un-message-a-votre-ami-e-2",
+          "prompt": "Écrivez un message à votre ami(e) pour lui décrire le programme de vos\nprochaines vacances (lieu, date, activités, etc).",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nJ’espère que tu vas bien ! Je t’écris pour te parler du programme de mes prochaines vacances.\nJe prévois de les passer au château Afa, perché sur la colline Jato, dans la ville de Kumasi. Le château est entouré d’arbres ombragés et offre une magnifique vue panoramique sur la ville. Mon départ est prévu le lundi 3 mai.\nLe programme inclut des randonnées et des promenades en forêt le vendredi et le samedi. Le dimanche sera consacré à l’église, puis je ferai une promenade dans le quartier pour me détendre. Cerise sur le gâteau : une rencontre avec mon écrivain préféré, Os, est prévue à la bibliothèque municipale pendant le séjour. J’ai déjà réservé ma place ! Enfin, le lundi, je participerai à une visite guidée pour découvrir l’histoire de cette belle ville.\nJe rentrerai le mardi 18 mai. Dis-moi si tu es intéressé, j’aimerais beaucoup partir avec toi !\nBisous,\nC"
+            }
+          ]
+        },
+        {
+          "slug": "redigez-un-message-a-votre-ami-cedric-pour",
+          "prompt": "Rédigez un message à votre ami Cédric pour lui fournir des instructions concernant l’entretien de votre maison et de votre jardin pendant votre absence.",
+          "versions": []
+        },
+        {
+          "slug": "vous-avez-decide-d-offrir-un-voyage-a",
+          "prompt": "Vous avez décidé d’offrir un voyage à votre ami pour son anniversaire. Écrivez un message pour lui expliquer ce que vous avez préparé : la destination, les dates et les autres détails du voyage.",
+          "versions": []
+        },
+        {
+          "slug": "salut-je-suis-vraiment-interesse-a-l-idee",
+          "prompt": "« Salut, je suis vraiment intéressé à l’idée de voyager et de découvrir un autre pays. Peux-tu me parler un peu de ton pays et de sa culture ? Marc. » Écrivez un message à votre ami Marc, qui veut voyager et découvrir un autre pays, pour lui parler de votre pays et de sa culture (lieux, sites touristiques, monuments, etc.).",
+          "versions": []
+        },
+        {
+          "slug": "vous-voulez-passer-un-week-end-avec-vos-amis",
+          "prompt": "Vous voulez passer un week-end avec vos amis et faire du sport. Vous leur écrivez une lettre pour proposer ça en citant (date, lieu, programme).",
+          "versions": []
+        },
+        {
+          "slug": "salut-je-suis-d-accord-pour-m-occuper",
+          "prompt": "Salut ! Je suis d’accord pour m’occuper de ta maison et de ton jardin pendant tes vacances. Tu peux m’expliquer ce que je dois faire ? À bientôt, Cédric Consigne de la tâche : Vous répondez à Cédric. Dans votre message, vous décrivez ce qu’il doit faire chez vous pendant votre absence.",
+          "versions": []
+        }
+      ]
+    },
+    {
+      "slug": "ville",
+      "label": "Ville & quartier",
+      "sujets": [
+        {
+          "slug": "je-vais-bientot-vivre-dans-ton-quartier",
+          "prompt": "Je vais bientôt vivre dans ton quartier.\nJe cherche un endroit sympathique pour faire mes courses.\nEst-ce que tu connais un marché intéressant ?\nMerci d’avance et à bientôt !\nBernard\n\nVous répondez à votre ami Bernard.\nDans votre message, vous décrivez un marché de votre quartier\nque vous aimez bien (lieu, horaires, produits, etc.).",
+          "versions": [
+            {
+              "body": "Coucou Ben,\nSuper de te lire ! Je suis ravi que tu viennes bientôt vivre dans mon quartier. Pour faire des courses, il y a deux marchés — les marchés Jo et Umbo — mais Jo est mon préféré. Il est plus grand et propose de bons prix. Il se trouve au 123 rue Pike, à proximité du fleuve Nan, et il est ouvert de 7h à 20h.\nConcernant les produits, tu y trouveras tous les produits essentiels pour la maison, comme des meubles, des produits alimentaires et des ustensiles. Les bus TCAT le desservent, ce qui est très pratique. Cerise sur le gâteau : le marché propose un service de livraison à partir de 35 $ d’achat et accepte les paiements en espèces. Enfin, le personnel est très aimable et toujours prêt à aider.\nJe te le recommande absolument ! Si tu veux plus d’infos, n’hésite pas à me contacter.\nHâte de te voir !\nC"
+            },
+            {
+              "body": "Coucou Ben,\nSuper de te lire ! Je suis ravi d’apprendre que tu vas bientôt habiter dans mon quartier. Pour faire tes courses, je te conseille plusieurs options.\nD’abord, le marché des producteurs, situé rue Pike. Il est ouvert chaque week-end de 6h à 14h et propose de bons prix sur les produits d’épicerie, la viande et le poisson. Fais toutefois attention, car il y a parfois des pickpockets.\nEnsuite, le supermarché Adwoa, mon préféré, est ouvert tous les jours de 8h à 20h. Il est très pratique, le personnel est aimable et efficace, et on y trouve presque tout ce dont on a besoin pour cuisiner et aménager son logement.\nEnfin, le marché Jo est plus petit, mais ouvert toute la journée, ce qui est idéal le soir.\nN’hésite pas à me contacter si tu veux plus d’informations.\nHâte de te voir,\nCorn"
+            },
+            {
+              "body": "Salut Bernard,\nSuper nouvelle que tu emménages dans le quartier ! J'ai exactement ce qu'il te faut : le marché de Pike Place, situé au cœur du centre-ville.\nHoraires : Ouvert tous les jours de 9h à 18h (jusqu'à 17h le dimanche).\nAmbiance : Très animée et conviviale ! Les commerçants sont super sympas et toujours prêts à discuter. L'ambiance est authentique avec des musiciens de rue.\nProduits : Tu y trouveras des fruits et légumes frais et bio, du poisson directement des pêcheurs locaux, du fromage artisanal, du pain, et plein de produits du terroir. Les prix sont raisonnables et la qualité excellente !\nParfait pour faire tes courses hebdomadaires. On pourra y aller ensemble si tu veux !\nÀ très vite,\nCorn"
+            }
+          ]
+        },
+        {
+          "slug": "vous-avez-emmenage-dans-une-nouvelle-ville",
+          "prompt": "Vous avez emménagé dans une nouvelle ville il y a un mois.\nÉcrivez un courriel à votre ami Léo pour lui donner de vos nouvelles.\nParlez-lui de votre appartement, du quartier, de la ville en général,\net des activités que vous faites.",
+          "versions": [
+            {
+              "body": "Coucou Léo,\nÇa fait longtemps ! Je vis à Kumasi depuis un mois et cette ville est vraiment merveilleuse. Elle est assez propre et propose des services essentiels, comme des écoles et des hôpitaux, qui sont bien desservis par les transports en commun.\nCôté logement, j'habite dans un studio au troisième étage d'un grand bâtiment au cœur de la ville. Cela me permet de profiter de vues imprenables sur la skyline. Comme il y a de nombreuses pistes cyclables, je fais du vélo les week-ends pour me détendre et me vider l'esprit.\nLe seul bémol est que je me sens un peu éloigné de mes amis. En résumé, Kumasi est magnifique. Hâte de te la faire découvrir !\nC"
+            }
+          ]
+        },
+        {
+          "slug": "vous-venez-de-vous-installer-dans-une-nouvelle",
+          "prompt": "Vous venez de vous installer dans une nouvelle ville. Vous écrivez un message à un(e) ami(e) pour décrire votre nouvel environnement (quartier, voisins, magasins, etc.)",
+          "versions": []
+        }
+      ]
+    },
+    {
+      "slug": "logement",
+      "label": "Logement & déménagement",
+      "sujets": [
+        {
+          "slug": "vous-avez-consulte-une-annonce-en-ligne",
+          "prompt": "Vous avez consulté une annonce en ligne pour la location d’un appartement.\nÉcrivez un courriel au propriétaire pour demander des informations sur\nl’appartement et le quartier.",
+          "versions": [
+            {
+              "body": "Bonjour,\nJe vous écris concernant l’annonce de location de l’appartement situé au 123 Ag rue. Je suis très intéressé à le louer pour une durée d’au moins 2 ans.\nTout d’abord, pourriez-vous me préciser si le quartier est plutôt calme ou animé, notamment le soir ? Ensuite, j’aimerais savoir s’il y a des services essentiels à proximité, tels que des commerces, des hôpitaux ou des écoles, et s’ils sont accessibles en transports en commun depuis l’appartement.\nDe plus, pourriez-vous m’indiquer le loyer demandé ainsi que les éventuelles charges ? D’ailleurs, l’appartement est-il prêt à être habité ou nécessite-t-il des travaux ? Concernant les installations, y a-t-il un ascenseur et un parking pour les résidents ?\nSi cela était possible, j’aimerais organiser une visite afin que je puisse me projeter dans ce logement.\nJe vous remercie par avance pour votre réponse.\nCordialement,\nC"
+            },
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "ecrivez-un-message-a-votre-ami-e-3",
+          "prompt": "Ecrivez un message à votre ami(e) pour lui faire part de votre programme\nde déménagement vers votre nouveau logement, en demandant son aide\n( date, lieu, programme)",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nJ’espère que tu vas bien !\nDans le cadre de mon nouveau travail, je dois déménager à Accra. Le déménagement est prévu le samedi prochain à 8h30, depuis mon appartement actuel.\nComme j’ai beaucoup d’affaires, j’aurais vraiment besoin de ton aide. Je compte particulièrement sur ta voiture pour transporter mes appareils électroniques et quelques cartons. J’ai déjà loué un camion pour les grosses affaires, comme les meubles.\nSi possible, pourrais-tu venir avec deux autres personnes afin que nous puissions organiser et charger plus rapidement ?\nMerci de me confirmer avant mercredi si tu seras disponible.\nMerci beaucoup,\nC"
+            }
+          ]
+        },
+        {
+          "slug": "vous-allez-demenager-a-nice-en-france",
+          "prompt": "Vous allez déménager à Nice, en France.\nVous écrivez un message sur le site d’une agence immobilière.\nVous donnez les informations nécessaires (superficie, budget, nombre de pièces, etc).",
+          "versions": [
+            {
+              "body": "Madame, Monsieur,\nJe vais déménager au cœur de Nice dans deux mois et je recherche un logement adapté à mes besoins.\nJe suis ouvert à un studio ou à un appartement en colocation, à condition que la salle de bain soit privée. Mon budget est de 400 € à 600 € par mois, charges comprises. Je préférerais un logement situé à proximité des marchés et bien desservi par les transports en commun. Si possible, pourriez-vous privilégier les endroits avec ascenseur et un bon système de chauffage ?\nJe reste à votre disposition si vous avez besoin de plus d'informations.\nJe vous remercie de votre attention.\nCordialement,\nC"
+            }
+          ]
+        },
+        {
+          "slug": "vous-avez-publie-une-annonce-pour-la",
+          "prompt": "Vous avez publié une annonce pour la location de votre appartement à Montréal.\nÉcrivez un courriel pour répondre à une personne intéressée en lui fournissant\ndes informations sur l’appartement (caractéristiques, loyer, quartier, etc.).",
+          "versions": [
+            {
+              "body": "Monsieur, Madame,\nJe vous remercie pour l’intérêt que vous portez à mon appartement situé au 123 Pike Street, à Montréal.\nL’appartement mesure 90 m² et se trouve au dernier étage d’un grand bâtiment, offrant une belle vue panoramique sur la ville. Il comprend une chambre privée et une salle de bain, tandis que la cuisine et la salle à manger sont des espaces communs, entièrement équipés avec des meubles et des ustensiles.\nLe logement est idéalement situé, à proximité d’un supermarché, d’un parc et de deux arrêts de bus, desservant les principaux lieux de la ville.\nLe loyer est de 800 $ par mois, négociable.\nÀ noter que la chambre est destinée à une seule personne. Je suis disponible ce week-end pour une visite.\nN’hésitez pas à me contacter pour toute information complémentaire.\nCordialement,\nC"
+            }
+          ]
+        },
+        {
+          "slug": "vous-voulez-changer-la-decoration-de-votre",
+          "prompt": "Vous voulez changer la décoration de votre appartement\n(meubles, peinture, objets, etc.). Vous écrivez un message à un(e) ami(e).\nVous lui décrivez votre projet et vous lui demandez de vous aider.",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nJ’espère que tu vas bien ! Je voudrais faire quelques changements dans mon appartement le week-end prochain, de 8h à 14h.\nTout d’abord, je prévois de remplacer les meubles par de nouveaux afin de moderniser l’espace. De plus, j’aimerais décorer la chambre avec de belles fleurs et de jolies lumières pour créer une ambiance plus chaleureuse. Côté équipement, il me semble que mon chauffage ne fonctionne pas bien, donc je vais le remplacer. D’ailleurs, la peinture est assez vieille, alors je compte la refaire, et ma salle de bain a aussi besoin de quelques travaux.\nLe seul bémol est que cela demande beaucoup de temps et d’efforts.\nSi tu avais le temps, j’aurais vraiment besoin de ton aide pour que tout soit prêt à temps, surtout pour la peinture !\nHâte de te voir !"
+            }
+          ]
+        },
+        {
+          "slug": "vous-etes-locataire-d-un-appartement-trop",
+          "prompt": "Vous êtes locataire d’un appartement trop grand pour vous.\nÉcrivez une annonce dan un journal pour chercher un colocataire.\nIl faut mentionner ; la superficie, caractère du colocataire, prix, etc).",
+          "versions": [
+            {
+              "body": "🏠 Chambre à louer - Colocation sympa sur la colline Washington\nJe suis locataire d’un appartement devenu trop grand pour moi et je cherche donc un colocataire.\nL’appartement a une superficie de 80 m² et se situe au premier étage avec ascenseur, au 123 rue Pike, sur la colline Washington. Il offre une vue panoramique sur la ville et se trouve dans un quartier calme et verdoyant.\nLa chambre à louer est privée et spacieuse. Les espaces communes à partager sont une cuisine entièrement équipée, une salle à manger et une salle de bain.\nJe recherche une personne calme, respectueuse et conviviale. Un non-fumeur est préférable. La maîtrise du français serait un avantage pour faciliter les échanges au quotidien.\nLe loyer est de 500 dollars par mois, charges comprises.\nLe logement est disponible immédiatement, avec un bail flexible.\nLes visites sont possibles le week-end de 8h à 16h, sur rendez-vous.\nContact :\nC – 123-234-3456"
+            }
+          ]
+        },
+        {
+          "slug": "redigez-un-message-a-un-ami-pour-l",
+          "prompt": "Rédigez un message à un ami pour l’informer de votre déménagement et lui demander son aide, en précisant la date, le lieu et le déroulement du programme.",
+          "versions": []
+        },
+        {
+          "slug": "vous-etes-locataire-d-un-appartement-qui-vous",
+          "prompt": "Vous êtes locataire d’un appartement qui vous semble trop grand. Rédigez une annonce dans un journal pour trouver un colocataire, en indiquant la superficie, le profil recherché et le montant du loyer, entre autres détails.",
+          "versions": []
+        },
+        {
+          "slug": "vous-occupez-un-grand-appartement-et-recherchez-un",
+          "prompt": "Vous occupez un grand appartement et recherchez un colocataire. Racontez la manière dont vous imaginez la colocation et présentez les particularités de votre logement.",
+          "versions": []
+        },
+        {
+          "slug": "redigez-un-courriel-a-votre-ami-francophone-afin",
+          "prompt": "Rédigez un courriel à votre ami francophone afin de solliciter son soutien pour trouver un logement. Pensez à préciser les informations essentielles (genre de logement, budget, date).",
+          "versions": []
+        },
+        {
+          "slug": "vous-avez-trouve-un-appartement-interessant-et-comptez",
+          "prompt": "Vous avez trouvé un appartement intéressant et comptez déménager. Informez un ami par écrit en lui donnant tous les détails essentiels (type de logement, localisation et prix).",
+          "versions": []
+        },
+        {
+          "slug": "vous-venez-de-vous-installer-dans-un-nouveau",
+          "prompt": "Vous venez de vous installer dans un nouveau logement. Vous recherchez un colocataire. Vous écrivez une annonce avec toutes les informations utiles sur le logement (lieu, taille, loyer, etc.) et vous décrivez la personne avec laquelle vous pourriez vivre (caractère, mode de vie, etc.)",
+          "versions": []
+        },
+        {
+          "slug": "vous-allez-demenager-des-amis-ont-accepte-de",
+          "prompt": "Vous allez déménager. Des amis ont accepté de vous aider. Vous leur écrivez un message collectif pour leur expliquer comment le déménagement va se passer (lieux, horaires, durée, trajet, tâches à faire, etc.)",
+          "versions": []
+        },
+        {
+          "slug": "vous-partez-en-voyage-et-vous-laissez-votre",
+          "prompt": "Vous partez en voyage et vous laissez votre appartement à un ami qui veut venir rester\nchez-vous pendant vos vacances. Vous lui envoyez un message pour décrire votre\nappartement (immeuble, logement, accès…).",
+          "versions": []
+        }
+      ]
+    },
+    {
+      "slug": "transport",
+      "label": "Transports & orientation",
+      "sujets": [
+        {
+          "slug": "votre-ami-mehdi-vient-d-emmenager-dans",
+          "prompt": "Votre ami Mehdi vient d’emménager dans votre ville et cherche des renseignements sur les moyens de transport. Écrivez un message en lui donnant les informations nécessaires (types de transport, abonnement, tarif, etc.).",
+          "versions": [
+            {
+              "body": "Coucou Anna,\nSuper de te lire ! Je suis ravi que tu veuilles passer un week-end à Ksi. Pour te déplacer, il existe plusieurs options.\nTout d’abord, tu peux prendre les bus TCAT. C'est l'option la plus économique, et ils desservent les principaux endroits comme les marchés, les parcs et les écoles, de 6h à 2h — très pratique.\nEnsuite, tu peux utiliser les taxis ou le covoiturage via Lime ou Uber. Ces options sont plus rapides et confortables. Le seul bémol est qu’elles coûtent plus cher.\nD’ailleurs, Ksi propose d’excellentes pistes cyclables, ce qui permet de se déplacer facilement à vélo — c’est mon moyen préféré !\nSi tu avais le temps, nous pourrions explorer la ville ensemble afin que tu profites au maximum de ton séjour.\nEn résumé, tu auras plusieurs choix selon ton budget et tes préférences.\nHâte de te voir !"
+            },
+            {
+              "body": "Salut Mehdi !\nBienvenue à Ithaca ! Voici les infos transport :\nBus: Gratuits avec la carte TCAT. Ils desservent toute la ville de 6h à 23h. Sois ponctuel - ils ne t'attendront pas !\nTaxis: Environ 25$ la course, mais rares ici. Réserve avec l'app LocalCab.\nVélo (mon conseil !): Le plus pratique au quotidien. Compte 150$ pour un bon vélo d'occasion. La ville a d'excellentes pistes cyclables. Obligation : lumières et sonnette pour rouler la nuit.\nAstuce: Si tu habites près du campus, le vélo suffit largement !\nAppelle-moi pour plus de détails !\nÀ vite,\nCorn"
+            },
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "je-suis-votre-amie-anna-et-je",
+          "prompt": "Je suis votre amie Anna et je compte passer un weekend dans ta ville.\nDonnez-moi des informations sur les moyens de transport pour explorer la ville.\nRépondez à Anna dans un message.",
+          "versions": [
+            {
+              "body": "Coucou Anna,\nJ'espère que tu vas bien ! Super nouvelle que tu viennes passer le weekend ici ! Voici les meilleurs moyens de te déplacer :\n🚌 Bus : Gratuits avec la carte TCAT et super pratiques ! Ils desservent tous les principaux lieux (parcs, piscines, cinémas) de 8h à 19h. Petit conseil : sois ponctuelle car ils ne t'attendront pas ! En bonus, c'est une bonne occasion de rencontrer des locaux.\n🚕 Taxi : Assez chers et rares à Seattle, mais tu peux les réserver à l'avance via une app. Ils sont fiables et toujours à l'heure si tu as un rendez-vous important.\n🚲 Vélo : Mon option préférée ! Abonne-toi chez Lime pour utiliser leurs vélos électriques. Ils ont d'excellentes promos weekend !\n💡 Mon astuce : Combine bus + vélo pour optimiser tes déplacements !\nN'hésite pas si tu as des questions !\nHâte de te faire découvrir la ville,\nCorn"
+            },
+            {
+              "body": "Coucou Anna,\nSuper de te lire ! Je suis ravi que tu veuilles passer un week-end à Ksi. Pour te déplacer, il existe plusieurs options.\nTout d’abord, tu peux prendre les bus TCAT. Ce sont les moins chers, et ils desservent les principaux endroits comme les marchés, les parcs et les écoles, de 6h à 2h — très pratique.\nEnsuite, tu peux utiliser les taxis ou le covoiturage via Lime ou Uber. De plus, ces options sont plus rapides et confortables. Le seul bémol est qu’elles coûtent plus cher.\nD’ailleurs, Ksi propose d’excellentes pistes cyclables, ce qui permet de se déplacer facilement à vélo — c’est mon moyen préféré !\nSi tu avais le temps, nous pourrions explorer la ville ensemble afin que tu profites au maximum de ton séjour.\nEn résumé, tu auras plusieurs choix selon ton budget et tes préférences.\nHâte de te voir !"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "travail",
+      "label": "Travail & emploi",
+      "sujets": [
+        {
+          "slug": "repondez-au-courriel-de-votre-ami-lucas",
+          "prompt": "Répondez au courriel de votre ami Lucas pour lui donner des informations sur les nouveaux locaux de votre entreprise (lieu, disposition des pièces, équipements, etc.)",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nJ’espère que tu vas bien ! Suite à ton message, je suis ravi de te parler des nouveaux locaux de Themelios. Nous avons récemment emménagé à Faw, au 1233 rue Ode, juste à côté de l’ancien stade. Le quartier est dynamique, avec plusieurs entreprises technologiques, ce qui favorise les échanges entre professionnels.\nLe bâtiment est entouré d’arbres, ce qui crée une ambiance calme et agréable. Chaque employé dispose de son propre bureau, ce qui est très confortable. De plus, nous avons de grandes salles de réunion ainsi que des espaces communs pour nous détendre.\nAutre avantage : il est possible de faire du vélo grâce aux pistes cyclables à proximité. Enfin, une cafétéria africaine est installée sur place, ce que j’apprécie beaucoup.\nEn résumé, c’est un cadre de travail très agréable. N’hésite pas à me contacter si tu souhaites venir le découvrir.\nÀ bientôt,\nCorn"
+            },
+            {
+              "body": "Salut Lucas !\nSuper de te lire ! Oui, mon entreprise a récemment déménagé. Tout d’abord, les nouveaux locaux se trouvent à Garden City, au 123 rue, dans un cadre très agréable entouré d’arbres, ce qui rend l’atmosphère vraiment calme.\nEnsuite, l’entreprise utilise trois grands bâtiments bien organisés. Chaque employé a son propre bureau afin que le travail soit plus confortable, mais nous déjeunons souvent ensemble pour favoriser la collaboration. De plus, il y a plusieurs restaurants à proximité qui proposent différentes spécialités.\nD’ailleurs, le site est très dynamique, car beaucoup d’entreprises technologiques s’y trouvent. Le seul bémol est que l’endroit peut être un peu animé pendant les heures de pointe.\nEn résumé, j’aime beaucoup ces nouveaux locaux et j’ai hâte de te les faire découvrir !\nÀ bientôt,\nC"
+            },
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "vous-avez-trouve-un-nouveau-travail-vous",
+          "prompt": "Vous avez trouvé un nouveau travail.\nVous écrivez à votre amie Francophone pour lui annoncer la bonne nouvelle.\nVous décrivez votre poste, vos collègues et votre lieu de travail.",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nJ’espère que tu vas bien ! Je t’écris pour t’annoncer une excellente nouvelle : j’ai décroché un poste chez Microsoft il y a une semaine en tant qu’ingénieur logiciel.\nTout d’abord, je travaille sur la conception de systèmes de bases de données à grande échelle, ce qui correspond exactement à ce que j’ai étudié à Cornell. Ensuite, mes collègues sont très professionnels et toujours prêts à aider, ce qui rend l’ambiance de travail agréable.\nDe plus, l’entreprise est située au 123 Ag rue, dans un quartier dynamique avec plusieurs entreprises technologiques. D’ailleurs, chaque employé dispose de son propre bureau et Microsoft offre aussi des déjeuners gratuits.\nLe seul bémol est que les locaux soient un peu loin de mon appartement, donc je dois partir de chez moi tôt le matin.\nSi tu avais le temps, j’aimerais beaucoup te faire visiter les locaux afin que tu voies mon nouvel environnement de travail.\nEn résumé, ce travail est du pain bénit !\nHâte de te voir !\nC"
+            },
+            {
+              "body": "Coucou Jo !\nJ'ai une super nouvelle à t'annoncer : j'ai décroché un poste chez Microsoft comme ingénieur logiciel ! Mon rêve se réalise enfin ! Je vais me spécialiser dans la conception et l'optimisation de systèmes de bases de données à grande échelle - exactement ce que j'ai étudié à Cornell.\n\nLe plus génial ? Le salaire est excellent, bien meilleur qu'avant, et en plus il y a des repas gratuits tous les jours ! Cerise sur le gâteau : plusieurs de mes collègues sont francophones, donc je vais pouvoir pratiquer mon français au quotidien.\n\nHâte de te faire visiter les bureaux lors de ta prochaine visite !\nBisous,\nCorn"
+            }
+          ]
+        },
+        {
+          "slug": "ecrivez-un-message-a-votre-ami-e-4",
+          "prompt": "Ecrivez un message à votre ami(e) pour lui raconter votre entretien\nd’embauche (entreprise, salaire, type d’emploi, etc).",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nJ’espère que tu vas bien. Je t’écris pour te raconter mon entretien d’embauche chez Microsoft, que j’ai passé il y a trois jours. J’ai postulé pour un poste d’ingénieur logiciel, avec un salaire proposé de 800 $ par mois, bien meilleur que celui de mon poste actuel.\nL’entretien a eu lieu dans leurs locaux, de 8h à 14h, et comprenait deux épreuves techniques ainsi qu’un entretien comportemental. L’ambiance était très conviviale et les ingénieurs étaient vraiment incroyables. Quand j'étais bloqué, ils m'ont donné de très bons indices.\nCerise sur le gâteau : nous avons partagé un déjeuner gratuit avec l’équipe à midi ! J’ai aussi eu l’occasion de visiter les bureaux et les espaces communs.\nJ’espère avoir de leurs nouvelles dans une semaine.\nBisous,\nC"
+            }
+          ]
+        },
+        {
+          "slug": "salut-tu-as-commence-ton-nouveau-travail",
+          "prompt": "Salut,\n\nTu as commencé ton nouveau travail ! C’est comment ? Tu es content(e) ?\n\nAli\n\nVous répondez à votre ami Ali. Dans votre message,\nvous décrivez votre nouveau travail (lieu, collègues, etc.) et\nvous donnez vos impressions.",
+          "versions": [
+            {
+              "body": "Bonjour Ali,\nSuper de te lire ! J’ai commencé chez Microsoft il y a trois semaines comme ingénieur logiciel, spécialisé dans l’optimisation de systèmes de bases de données à grande échelle — passionnant !\nMes collègues sont géniaux : chaleureux, brillants et super sympas. Cerise sur le gâteau, la moitié sont francophones, donc je peux pratiquer tous les jours.\nLe trajet est assez long, mais j’en profite pour écouter mes podcasts préférés.\nFranchement, c’est une opportunité en or, je me sens vraiment chanceux d’avoir décroché ce poste !\nViens visiter quand tu veux, je te ferai découvrir !\nCorn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ecole",
+      "label": "École & langue",
+      "sujets": [
+        {
+          "slug": "vous-avez-lu-une-annonce-sur-un",
+          "prompt": "Vous avez lu une annonce sur un site internet qui propose d’aider\nceux qui souhaitent apprendre le français en les mettant en contact\navec des partenaires linguistiques. Envoyez un courriel en vous\nprésentant et en expliquant pourquoi vous souhaitez pratiquer le français.",
+          "versions": [
+            {
+              "body": "Madame, Monsieur,\nJe m'appelle Cornelius et je réside actuellement aux États-Unis où je travaille comme ingénieur logiciel chez Microsoft. Étant débutant en français, j'ai été très intéressé par votre annonce concernant les échanges linguistiques.\nDans le cadre de mon travail, je collabore régulièrement avec de nombreux collègues francophones, et j'aimerais améliorer mes compétences linguistiques afin de mieux communiquer avec eux, tant professionnellement que personnellement. Pourriez-vous me mettre en contact avec un partenaire linguistique ?\nCompte tenu de mes obligations professionnelles, je serais disponible uniquement les week-ends, de 8 h à 17 h.\nJe vous remercie par avance de l'attention que vous porterez à ma demande.\nCordialement,\nCornelius"
+            },
+            {
+              "body": "Monsieur, Madame,\nJe me présente : Cornelius, ingénieur logiciel chez Microsoft. J'ai pris connaissance de votre annonce concernant les partenaires linguistiques et cela m’intéresse vivement, car je suis actuellement débutant en français.\nDans le cadre de mes fonctions, je suis amené à collaborer avec des francophones. J’aimerais donc perfectionner ma maîtrise de la langue afin de mieux communiquer sur les plans professionnel et personnel.\nCompte tenu de mes obligations professionnelles, je suis disponible uniquement les week-ends, entre 8 h et 18 h.\nJe vous remercie de l'attention que vous porterez à ma demande.\nCordialement,\nC"
+            }
+          ]
+        },
+        {
+          "slug": "les-professeurs-de-votre-quartier-veulent-organiser",
+          "prompt": "Les professeurs de votre quartier veulent organiser une rencontre avec\nleurs élèves pour les orienter dans le choix de leurs futures professions,\nvous leur écrivez un mail pour leur donner les avantages de votre profession.",
+          "versions": [
+            {
+              "body": "Bonjour,\nJe vous écris dans le cadre de votre initiative d’orientation afin de présenter les avantages de mon métier à vos élèves.\nJe m’appelle C et je travaille comme ingénieur logiciel chez Microsoft. Je suis spécialisé dans la conception et l’optimisation de systèmes de bases de données à grande échelle. Ce métier me permet de collaborer avec des personnes du monde entier, ce qui est très enrichissant sur le plan culturel.\nPar ailleurs, je développe des applications utilisées par plusieurs centaines de personnes dans des secteurs variés tels que la restauration et le transport. Mon travail est intellectuellement stimulant, car il exige logique, rigueur et créativité. Pour réussir dans ce domaine, il est essentiel d’être curieux, motivé et prêt à apprendre en permanence. Une formation en informatique constitue un atout important.\nJ’espère que ces informations aideront vos élèves dans leur réflexion professionnelle.\nCordialement,\nC"
+            }
+          ]
+        },
+        {
+          "slug": "salut-j-ai-entendu-que-ton-ecole",
+          "prompt": "« Salut ! J’ai entendu que ton école de langue est super !\nJ’aimerais m’y inscrire aussi. Peux-tu me dire ce que tu en penses ? »\nRépondez à votre ami qui veut s’inscrire dans votre école de langue.",
+          "versions": [
+            {
+              "body": "Coucou !\nC’est une excellente idée, je ne peux que te la recommander ! Je suis inscrit dans cette école depuis trois mois et j’en suis ravi. Les professeurs sont très pédagogues et les cours sont vraiment interactifs.\nCe que j’apprécie le plus, c’est l’accent mis sur l’expression orale, ce qui m'a aidé à gagner en confiance. Le seul bémol est que les groupes sont parfois un peu nombreux le soir, il vaut donc mieux choisir les séances du matin si tu peux.\nDans l'ensemble, c'est du pain bénit pour progresser rapidement ! N'hésite pas si tu as besoin d'aide pour l'inscription.\nÀ très bientôt,\nC"
+            }
+          ]
+        },
+        {
+          "slug": "salut-comment-ca-va-alors-comment-est",
+          "prompt": "« Salut, Comment ça va ? Alors, comment est la nouvelle université ?\nEst-ce que les étudiants sont sympas ? Comment sont les profs ?\nÀ bientôt. Alex »",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nSuper de te lire ! L'Université Cornell est vraiment incroyable. Le campus est magnifique,  dans un cadre verdoyant afin que les étudiants puissent étudier dans une ambiance agréable.\nLes professeurs sont chaleureux et expérimentés. Ils sont toujours prêts à aider, ce qui encourage les étudiants à rester motivés. Par ailleurs, les étudiants viennent du monde entier, ce qui enrichit l'institution sur les plans social et culturel. De plus, l'université favorise la pratique du sport afin de nous permettre de rester en forme.\nLe seul bémol est que mes cours commencent très tôt le matin ; je dois donc me lever tôt. En résumé, étudier ici est du pain bénit !\nHâte de te faire découvrir les locaux !\nC"
+            }
+          ]
+        },
+        {
+          "slug": "ecrivez-un-message-a-votre-ami-e-5",
+          "prompt": "Écrivez un message à votre ami(e) qui souhaite suivre des cours de langue dans\nvotre école. Donnez les détails spécifiques pour aider votre ami(e) à faire son\nchoix. (lieu, tarifs, types de cours disponibles, etc.).",
+          "versions": [
+            {
+              "body": "Salut Jo,\nSuper de te lire ! Tout d’abord, mon école propose des cours dans plusieurs langues, comme le français et l’espagnol. Les cours ont lieu trois fois par semaine et chaque séance dure environ une heure et demie.\nEnsuite, côté prix, tu peux payer par séance ou choisir un abonnement mensuel. Cerise sur le gâteau : il y a un cours d’essai gratuit afin que tu puisses voir si cela te convient avant de t’engager.\nDe plus, les professeurs sont très chaleureux et expérimentés. D’ailleurs, certains proposent aussi des cours en ligne, ce qui est très pratique si tu habites loin de l’école.\nLe seul bémol est que les cours commencent souvent très tôt le matin. Il est dommage que les cours soient si tôt.\nSi tu avais le temps, nous pourrions y aller ensemble.\nN’hésite pas à me contacter si tu veux plus d’infos !\nCorn"
+            }
+          ]
+        },
+        {
+          "slug": "tu-as-pris-des-cours-au-centre-de",
+          "prompt": "Tu as pris des cours au centre de langues cultures pour tous ? Comment est cette école ?\n\nBises,\nPaul\n\nVous répondez à votre ami Paul. Vous décrivez l'école de langues(salle de cours ,matériel, professeur,.etc)",
+          "versions": []
+        }
+      ]
+    },
+    {
+      "slug": "sport",
+      "label": "Sport & bien-être",
+      "sujets": [
+        {
+          "slug": "salut-j-ai-appris-que-tu-vas",
+          "prompt": "Salut, j’ai appris que tu vas à une salle de sport et qu’elle est magnifique.\nPeux-tu m’en dire plus “.\n\nÉcrivez un message pour répondre à votre ami concernant ce sujet.",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nSuper de te lire ! Oui, je vais dans cette salle de sport depuis trois mois, et elle est vraiment magnifique.\nTout d’abord, elle est située au 123, rue Ag, près du fleuve Nan, ce qui rend l’atmosphère très apaisante. Elle est ouverte tous les jours de 6h à 22h, donc c’est très pratique.\nEnsuite, la salle propose des installations modernes comme des vélos stationnaires et d’autres équipements de qualité. De plus, tu peux choisir entre un abonnement mensuel ou payer par séance. D’ailleurs, tu peux assister à trois séances gratuites avant de t’engager.\nLes coachs sont très professionnels et toujours prêts à aider afin que tu puisses progresser rapidement.\nLe seul bémol est qu’elle est un peu loin de chez moi, mais elle est bien desservie par les bus.\nSi tu veux, tu peux déjà venir essayer une séance. Et si tu avais le temps, nous pourrions y aller ensemble !\nHâte de te voir !"
+            },
+            {
+              "body": "Salut Jo,\nRavi de te lire ! Oui, je vais actuellement à la salle Jeff et je la recommande vivement. Elle se situe rue Ag, à côté du fleuve Ne, ce qui rend l’ambiance très agréable. La salle est ouverte du lundi au vendredi de 6h à 19h, ce qui est très pratique si tu veux faire du sport en soirée.\nElle propose plusieurs formules d’abonnement, allant de 5 à 50 dollars par semaine selon ton budget. Personnellement, j’utilise l’option la moins chère, car j’y vais une fois par semaine, mais il est aussi possible de payer à la séance. Côté équipements, on y trouve des vélos stationnaires, des cordes à sauter et d’autres installations modernes. Le personnel est très aimable et toujours prêt à aider.\nDis-moi si tu veux y aller ensemble !\nÀ bientôt,\nCorn"
+            },
+            {
+              "body": "Salut !\nSuper de te lire ! Oui, cette salle de sport est vraiment magnifique. Tout d’abord, elle est située près du centre-ville, dans un cadre agréable et facile d’accès.\nEnsuite, elle est très bien équipée avec des machines modernes, des vélos stationnaires et même des salles pour les cours collectifs. De plus, l’ambiance est très conviviale et les coachs sont toujours disponibles pour aider. D’ailleurs, ils prennent le temps d’expliquer les exercices afin que chacun puisse progresser correctement.\nLe seul bémol est que la salle peut être un peu fréquentée en soirée. Il est dommage qu’il y ait autant de monde à certaines heures.\nSi tu avais le temps, nous pourrions y aller ensemble pour que tu la découvres par toi-même !\nÀ bientôt,"
+            },
+            {
+              "body": ""
+            },
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "france-television-prepare-un-reportage-sur-le",
+          "prompt": "France Télévision prépare un reportage sur le sport amateur. Et vous, quel sportif êtes-vous ? Envoyez-nous vos témoignages sur francetélévision.fr.",
+          "versions": [
+            {
+              "body": "Bonjour,\nJe m’appelle Corn, j’ai 25 ans et je suis étudiant en informatique à Seattle. Le sport amateur occupe une place essentielle dans mon quotidien.\nJe pratique la course à pied régulièrement depuis trois ans, à raison de quatre séances par semaine. L’année dernière, j’ai également découvert le vélo en montagne, une discipline qui complète parfaitement mon entraînement et me permet de varier les efforts.\nAu-delà de l’aspect physique, le sport m’apporte un véritable équilibre entre mes études exigeantes et ma vie personnelle. Il me permet de rester énergique, concentré et constitue surtout mon meilleur moyen de gérer le stress. Enfin, ces activités m’ont donné l’occasion de rencontrer des personnes formidables et de créer une véritable communauté de passionnés.)\nCordialement,\nCorn"
+            },
+            {
+              "body": "Bonjour,\nTout d’abord, j’ai commencé à faire du vélo il y a environ un an, principalement dans mon quartier. Au début, rouler pendant vingt minutes me paraissait difficile, mais c’est devenu beaucoup plus facile avec le temps.\nEnsuite, cette activité m’a permis de mieux gérer le stress et de vider mon esprit. En roulant dans la forêt et dans des espaces naturels, j’ai la chance de profiter de magnifiques paysages. De plus, il existe une communauté de cyclistes dans mon quartier, ce qui rend l’expérience très motivante.\nLe seul bémol est que je n’ai pas toujours assez de temps pour pratiquer régulièrement. Il est important que je continue à m’organiser afin que je puisse progresser davantage.\nEn résumé, je recommande de faire du vélo à tous ceux qui souhaitent se détendre et rester actifs."
+            }
+          ]
+        },
+        {
+          "slug": "votre-ami-souhaite-commencer-a-faire-du",
+          "prompt": "Votre ami souhaite commencer à faire du sport.\nRédigez un message pour lui recommander une salle de sport située dans votre\nquartier (localisation, tarifs, types d’activités, etc.).",
+          "versions": [
+            {
+              "body": "Salut Jo,\nSuper de te lire ! Tout d’abord, je te recommande Jeff’s Gym, située au 123, rue Ag, dans un cadre agréable entouré d’arbres, ce qui rend l’atmosphère très calme.\nEnsuite, la salle propose plusieurs équipements modernes, comme des vélos stationnaires et des espaces bien équipés pour différents types d’exercices. Côté tarifs, tu peux payer par séance ou choisir un abonnement mensuel. Cerise sur le gâteau : il y a un essai gratuit afin que tu puisses tester avant de t’engager.\nDe plus, le personnel est chaleureux et toujours prêt à aider. D’ailleurs, l’ambiance est très conviviale, ce qui motive à s’entraîner régulièrement.\nLe seul bémol est que la salle est un peu loin de chez toi. Il est dommage qu’elle soit située à environ une heure en bus.\nFais-moi signe si tu veux que nous y allions ensemble !\nÀ bientôt,\nCorn"
+            }
+          ]
+        },
+        {
+          "slug": "vous-souhaitez-faire-du-sport-et-vous",
+          "prompt": "Vous souhaitez faire du sport et vous voulez que votre ami vous accompagne.\nÉcrivez-lui un message pour lui proposer de pratiquer ensemble.",
+          "versions": [
+            {
+              "body": "Coucou Jo,\nJ’espère que tu vas bien ! Je me suis remis sérieusement au sport et j'aimerais que tu m'accompagnes pour une séance hebdomadaire. Je prévois d'aller courir tous les samedis matin, de 7 h à 8 h, au parc du centre-ville.\nCela nous permettrait de décompresser et de vider nos esprits après une longue semaine. N’hésite pas à inviter tes collègues s'ils sont intéressés. Si tu préfères une autre activité, comme le vélo ou la natation, je suis ouvert à tes suggestions !\nFais-moi signe si tu es disponible.\nHâte de te voir,\nC"
+            }
+          ]
+        },
+        {
+          "slug": "salut-je-sais-que-tu-fais-du",
+          "prompt": "« Salut ! Je sais que tu fais du sport depuis le mois dernier.\nÇa m’intéresse beaucoup et j’aimerais bien venir avec toi.\nTu peux m’en dire plus ? A bientôt ! Camille »\n\nVous répondez à votre ami Camille.\nDans votre message, vous décrivez votre activité sportive et vous donnez des informations utiles (lieu, durée, prix, etc.).",
+          "versions": [
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "ecrivez-un-message-dans-le-journal-de",
+          "prompt": "Écrivez un message dans le journal de votre université pour rechercher\nun partenaire avec qui faire du sport.",
+          "versions": [
+            {
+              "body": "🏃 Recherche partenaire de sport\nDans le cadre de mon cursus, je souhaite pratiquer une activité sportive de manière régulière et je suis à la recherche d’un partenaire motivé pour m’accompagner. Je prévois de faire du vélo le vendredi et des randonnées le samedi, tout en restant ouvert à d’autres activités en plein air. À noter que je suis débutant en randonnée, mais très motivé pour progresser dans une ambiance conviviale.\nEn raison de mes engagements universitaires, je suis disponible principalement le week-end.\nJe recherche une personne sérieuse, dynamique et agréable. Un petit plus si vous parlez français !\nSi vous êtes intéressé(e), n’hésitez pas à me contacter à l’adresse suivante : abc@gm.com.\nCordialement,\nC"
+            }
+          ]
+        },
+        {
+          "slug": "ecrivez-un-message-a-votre-ami-pour",
+          "prompt": "Écrivez un message à votre ami pour le convaincre à pratiquer une\nactivité physique.",
+          "versions": [
+            {
+              "body": "Salut,\nJ’espère que tu vas bien. J’ai pensé à toi récemment et je me suis dit qu’une petite activité sportive pourrait te faire du bien.\nFaire du sport a beaucoup d’avantages : cela permet de rester en forme, de mieux dormir et de réduire le stress du quotidien. Personnellement, ça m’aide aussi à être plus concentré et plus détendu.\nSi tu es partant, on pourrait commencer avec des options simples: une balade à vélo les dimanches ou une séance de yoga en ligne. Sinon, la course à pied ou la danse peuvent aussi être de bonnes alternatives si tu préfères quelque chose de plus dynamique.\nJe serais ravi de t’accompagner pour une première séance. Pourquoi pas samedi ?\nDis-moi ce que tu en penses.\nFais-moi signe !\nAmicalement,\n[Ton prénom]"
+            }
+          ]
+        },
+        {
+          "slug": "vous-souhaitez-proposer-a-un-e-ami-e",
+          "prompt": "Vous souhaitez proposer à un(e) ami(e) de faire du sport avec vous. Vous lui écrivez\nun message pour décrire votre projet (type d'activités, lieu, équipement, etc.)",
+          "versions": []
+        },
+        {
+          "slug": "salut-je-sais-que-tu-vas-dans-une",
+          "prompt": "Salut,\nJe sais que tu vas dans une salle de sport. Qu’est-ce que tu penses de cette salle ? Peux-tu\nm’en dire un peu plus ? Je voudrais savoir si elle est bien !\nMerci d’avance !\nJoanna\nVous répondez à votre amie Joanna. Dans votre message, vous décrivez la salle de sport\nque vous fréquentez (activités, horaires, prix, etc.)",
+          "versions": []
+        },
+        {
+          "slug": "vous-cherchez-un-e-partenaire-de-sport-vous",
+          "prompt": "Vous cherchez un(e) partenaire de sport. Vous publiez un message sur le site Internet des\nétudiants de votre école. Vous précisez vos disponibilités.",
+          "versions": []
+        },
+        {
+          "slug": "vous-faites-du-sport-dans-un-club-vous",
+          "prompt": "Vous faites du sport dans un club. Vous venez de remporter une compétition. Vous\nécrivez un courriel à vos amis pour leur raconter cet évènement sportif et annoncer\nvotre réussite sportive.",
+          "versions": []
+        }
+      ]
+    },
+    {
+      "slug": "annonces",
+      "label": "Annonces & réclamations",
+      "sujets": [
+        {
+          "slug": "vous-avez-commande-un-objet-sur-internet",
+          "prompt": "Vous avez commandé un objet sur Internet et après réception du colis, vous constatez que l’objet est cassé. Rédigez un e-mail au service clientèle pour signaler le problème, décrivez le dommage de l’objet et précisez ce que vous attendez comme solution.",
+          "versions": [
+            {
+              "body": "Madame, Monsieur,\nJe me permets de vous contacter suite à la réception de ma commande n°1234, passée le 4 juin 2024. Malheureusement, le téléphone reçu aujourd’hui présente plusieurs problèmes importants.\nTout d’abord, l’écran est fissuré, ce qui rend l’appareil difficilement utilisable. De plus, le chargeur était absent du colis lors de la livraison.\nPar conséquent, je sollicite l’envoi d’un appareil de remplacement en parfait état dans les meilleurs délais. Si ce modèle n’est plus disponible, je souhaiterais obtenir un remboursement intégral.\nJe reste bien entendu à votre disposition pour retourner le produit défectueux selon les modalités que vous voudrez bien m’indiquer.\nDans l'attente de votre réponse, je vous prie d'agréer mes salutations distinguées."
+            },
+            {
+              "body": "Bonjour,\nJe vous écris concernant ma commande (n° XYZ 123) du 2 mai 2026. J’ai constaté plusieurs problèmes avec l’appareil dès sa réception.\nTout d’abord, l’écran était fissuré, ce qui le rend inutilisable. De plus, la batterie se décharge rapidement et ne dure qu’environ une heure après une charge complète. Par ailleurs, les écouteurs étaient absents du colis.\nJe souhaiterais donc un remplacement dans les plus brefs délais. Si ce modèle n’est plus disponible, j’aimerais un remboursement intégral. Je reste également à votre disposition pour vous retourner l’appareil défectueux.\nJe vous remercie de l’attention portée à ma demande.\nCordialement,\nC"
+            },
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "je-cherche-un-velo-en-bon-etat",
+          "prompt": "« Je cherche un vélo en bon état et bon marché.\nContactez- moi par courriel : [email protected]\nVous avez un vélo à vendre.\nVous écrivez un courriel pour décrire votre vélo et proposer un prix.\nVous lui donnez un RDV pour essayer le vélo.",
+          "versions": [
+            {
+              "body": "Bonjour,\nJe vous remercie de l'intérêt que vous portez à mon vélo. C’est un vélo de montagne modèle 2021, en très bon état. Je l’ai utilisé uniquement pendant un été, donc il fonctionne parfaitement et n’a aucun problème.\nEnsuite, ce vélo est idéal pour les pistes cyclables et les terrains variés. De plus, il est léger et facile à utiliser, ce qui le rend adapté à tous les niveaux. D’ailleurs, je l’entretiens régulièrement afin qu’il reste en excellent état.\nLe seul bémol est que je ne dispose pas de voiture, donc l’acheteur devra s’occuper de la livraison.\nJe propose un prix de 500 $, mais je serais ouvert à la négociation. Si vous étiez intéressé, nous pourrions nous rencontrer le samedi entre 11h et 13h sur les pistes cyclables du centre-ville afin que vous puissiez l’essayer.\nN’hésitez pas à me contacter pour plus d’informations.\nCordialement,\nC"
+            },
+            {
+              "body": ""
+            }
+          ]
+        },
+        {
+          "slug": "le-journal-bienvenue-compte-publier-un-article",
+          "prompt": "Le journal ” Bienvenue” compte publier un article qui parle des habitants de\nnotre ville. Écrivez-nous un message qui sera diffusé dans ce numéro.\nVous vous êtes récemment installé dans cette ville, et il vous est demandé\nde vous présenter et décrire ensuite tous vos lieux préférés au sein de cette\nville.",
+          "versions": [
+            {
+              "body": "Monsieur, Madame,\nJe me présente : Cornelius, ingénieur logiciel chez Microsoft. Je vis à Kumasi depuis un an et j'adore découvrir cette ville. Voici mes incontournables.\nTout d'abord, les collines d'Accra sont parfaites pour faire des randonnées et profiter des vues imprenables sur la skyline. Ensuite, le parc au centre-ville permet de se détendre et de faire des pique-niques. De plus, j'apprécie particulièrement fréquenter le restaurant d'Adebi, connu pour ses spécialités culinaires. Enfin, le musée d'histoire est incontournable si l'on préfère les expositions et les ateliers sur l'histoire du Ghana.\nEn résumé, Kumasi est une ville merveilleuse !\nC"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

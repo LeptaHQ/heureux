@@ -80,14 +80,15 @@ class PWATests(TestCase):
         r = self.client.get("/sw.js")
         self.assertEqual(r.status_code, 200)
         body = r.content.decode()
-        self.assertIn('var CACHE = "heureux-v133"', body)
-        self.assertIn("study/css/app.css?v=123", body)
+        self.assertIn('var CACHE = "heureux-v140"', body)
+        self.assertIn("study/css/app.css?v=130", body)
         self.assertIn("study/js/memory-progress.js?v=2", body)
         self.assertIn("study/js/theme-init.js?v=2", body)
         self.assertIn("study/js/app.js?v=39", body)
         self.assertIn("study/js/selection-toolbar.js?v=1", body)
         self.assertIn("study/js/annotations.js?v=13", body)
         self.assertIn("study/js/subject-progress.js?v=1", body)
+        self.assertIn("study/js/writing-sujet-progress.js?v=1", body)
         self.assertIn("study/js/comprehension-progress.js?v=1", body)
         self.assertIn("study/icons/ui-icons.svg?v=3", body)
         self.assertIn("SKIP_WAITING", body)
@@ -416,7 +417,7 @@ class SmokeTests(TestCase):
         self.assertContains(written, "Tâche 1")
         self.assertContains(written, "Tâche 2")
         self.assertContains(written, "Tâche 3")
-        self.assertContains(written, "Rédiger un message clair")
+        self.assertNotContains(written, "Rédiger un message clair")
         self.assertContains(
             written,
             "Raconter et expliquer une expérience",
@@ -426,7 +427,7 @@ class SmokeTests(TestCase):
             written,
             "Comparer des points de vue et argumenter",
         )
-        self.assertContains(written, "À venir", count=2)
+        self.assertContains(written, "À venir", count=1)
         self.assertContains(written, "<dd>Actif</dd>", html=True)
 
     def test_dashboard_presents_four_explicit_daily_activities(self):

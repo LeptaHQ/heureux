@@ -54,7 +54,7 @@
           "icon": "mail",
           "color": "#d3263a",
           "order": 1,
-          "available": false
+          "available": true
         },
         {
           "slug": "tache-2",

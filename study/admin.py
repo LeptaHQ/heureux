@@ -20,6 +20,7 @@ from .models import (
     ReviewSession,
     Settings,
     Theme,
+    WritingSujetCompletion,
 )
 
 
@@ -64,6 +65,13 @@ class ComprehensionTestAdmin(admin.ModelAdmin):
 class ComprehensionTestCompletionAdmin(admin.ModelAdmin):
     list_display = ("user", "test", "completed_at")
     list_filter = ("test__mode", "test")
+    readonly_fields = ("completed_at",)
+
+
+@admin.register(WritingSujetCompletion)
+class WritingSujetCompletionAdmin(admin.ModelAdmin):
+    list_display = ("user", "sujet", "completed_at")
+    list_filter = ("sujet__task", "sujet__category")
     readonly_fields = ("completed_at",)
 
 

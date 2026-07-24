@@ -330,6 +330,24 @@ urlpatterns = [
     ),
     path(
         "expression/<expression_part:part_slug>/<slug:task_slug>/"
+        "sujets/messages/<int:sujet_id>/",
+        views.writing_sujet_detail,
+        name="writing_sujet_detail",
+    ),
+    path(
+        "expression/<expression_part:part_slug>/<slug:task_slug>/"
+        "sujets/messages/<int:sujet_id>/personnaliser/",
+        views.writing_sujet_edit,
+        name="writing_sujet_edit",
+    ),
+    path(
+        "expression/<expression_part:part_slug>/<slug:task_slug>/"
+        "sujets/messages/<int:sujet_id>/progression/",
+        views.writing_sujet_completion,
+        name="writing_sujet_completion",
+    ),
+    path(
+        "expression/<expression_part:part_slug>/<slug:task_slug>/"
         "sujets/progression/<int:response_id>/",
         views.subject_completion,
         name="subject_completion",

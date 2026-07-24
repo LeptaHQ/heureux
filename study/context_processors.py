@@ -33,6 +33,8 @@ EXPRESSION_ROUTES = {
     "task_family_detail",
     "response_detail",
     "edit_response",
+    "writing_sujet_detail",
+    "writing_sujet_edit",
     "task_review_hub",
 }
 VOCABULARY_ROUTES = {

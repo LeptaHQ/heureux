@@ -1,0 +1,23 @@
+<form
+  class="subject-completion-check{% if completed %} is-complete{% endif %}"
+  method="post"
+  action="{% url 'study:writing_sujet_completion' part.slug task.slug sujet.pk %}"
+  data-writing-sujet-completion-form
+  data-writing-sujet-id="{{ sujet.pk }}"
+  {% if refresh %}data-writing-sujet-completion-refresh="true"{% endif %}>
+  {% csrf_token %}
+  <input
+    type="hidden"
+    name="completed"
+    value="{{ completed|yesno:'0,1' }}"
+    data-writing-sujet-completed-input>
+  <button
+    type="submit"
+    role="checkbox"
+    data-writing-sujet-label="{{ subject_label }}"
+    aria-checked="{{ completed|yesno:'true,false' }}"
+    aria-label="{% if completed %}Marquer ce sujet comme non terminé : {% else %}Marquer ce sujet comme terminé : {% endif %}{{ subject_label }}"
+    title="{% if completed %}Sujet terminé{% else %}Marquer comme terminé{% endif %}">
+    {% include "study/partials/ui_icon.html" with name="check" only %}
+  </button>
+</form>

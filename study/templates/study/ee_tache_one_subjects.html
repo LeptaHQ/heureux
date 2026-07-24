@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block title %}Sujets · {{ task.name }} · Heureux{% endblock %}
+
+{% block content %}
+<div class="ee-t1-page">
+  <div class="task-context" style="--task-accent: {{ task.color }};">
+    <a href="{% url 'study:expression' %}">Expression</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:part_detail' part.slug %}">{{ part.short_name }}</a>
+    <span aria-hidden="true">›</span>
+    <strong>{{ task.name }}</strong>
+  </div>
+
+  <header class="memory-overview-hero">
+    <div class="memory-overview-hero__copy">
+      <p class="eyebrow">{{ part.name }} · {{ task.name }}</p>
+      <h1>Messages &amp; courriels</h1>
+      <p>{{ sujet_count }} sujets classés par thème. Chaque sujet ouvre une réponse modèle que vous pouvez personnaliser à votre façon.</p>
+    </div>
+    <dl class="memory-overview-hero__metrics" aria-label="Contenu des sujets">
+      <div><dt>Sujets</dt><dd>{{ sujet_count }}</dd></div>
+      <div><dt>Thèmes</dt><dd>{{ category_count }}</dd></div>
+      <div><dt>Personnalisés</dt><dd>{{ personalized_count }}</dd></div>
+      <div><dt>Terminés</dt><dd>{{ completed_count }}</dd></div>
+    </dl>
+  </header>
+
+  <div class="t1-collection">
+    <div class="t1-collection__toolbar">
+      {% include "study/partials/collection_view_toggle.html" %}
+    </div>
+
+    <div class="t1-themes" data-collection-view-panel="cards">
+      {% for category in categories %}
+      <details class="t1-theme" open>
+        <summary class="t1-theme__head">
+          <span class="t1-theme__chevron" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+          <span class="t1-theme__title">{{ category.label }}</span>
+          <span class="t1-theme__meta">
+            <span class="t1-theme__count">{{ category.count }} sujet{{ category.count|pluralize }}</span>
+            {% if category.personalized_count %}<span class="chip chip--accent">{{ category.personalized_count }} personnalisé{{ category.personalized_count|pluralize }}</span>{% endif %}
+            <span class="progress-status progress-status--{{ category.progress.status }}">{{ category.progress.completed }}/{{ category.progress.total }}</span>
+          </span>
+        </summary>
+        <ul class="t1-list">
+          {% for row in category.sujets %}
+          <li
+            class="t1-row subject-progress-row writing-sujet-progress-row writing-sujet-progress-row--{{ row.progress.status }}{% if row.is_personalized %} is-personalized{% endif %}{% if not row.has_model_response %} is-empty{% endif %}"
+            data-writing-sujet-progress-row="{{ row.sujet.pk }}">
+            <div class="t1-row__link">
+              <span class="t1-row__prompt">{{ row.prompt|truncatechars:160 }}</span>
+              <span class="t1-row__meta">
+                {% if row.is_personalized %}<span class="chip chip--accent">Personnalisé</span>{% endif %}
+                {% if row.has_model_response %}
+                  <span class="t1-row__count">{{ row.version_count }} version{{ row.version_count|pluralize }}</span>
+                {% else %}
+                  <span class="badge-soon">À rédiger</span>
+                {% endif %}
+                <span
+                  class="progress-status progress-status--{{ row.progress.status }}"
+                  data-writing-sujet-progress-status="{{ row.sujet.pk }}">{{ row.progress.label }}</span>
+                {% include "study/partials/writing_sujet_completion_form.html" with sujet=row.sujet completed=row.explicitly_completed subject_label=row.prompt part=part task=task refresh=True %}
+                <span class="t1-row__arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+              </span>
+            </div>
+            <a
+              class="subject-row-hit-area"
+              href="{% url 'study:writing_sujet_detail' part.slug task.slug row.sujet.pk %}"
+              aria-label="Ouvrir le sujet : {{ row.prompt }}">
+              <span class="sr-only">Ouvrir le sujet</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </details>
+      {% endfor %}
+    </div>
+
+    <div class="t1-table-shell" data-collection-view data-collection-view-panel="table">
+      <table class="t1-table">
+        <caption class="sr-only">Tous les sujets classés par thème</caption>
+        <thead>
+          <tr>
+            <th scope="col">Thème</th>
+            <th scope="col">Sujet</th>
+            <th scope="col">Contenu</th>
+            <th scope="col">Progression</th>
+            <th scope="col" class="t1-table__versions-col">Versions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for category in categories %}
+            {% for row in category.sujets %}
+            <tr
+              class="t1-table__row subject-progress-row subject-table-row writing-sujet-progress-row writing-sujet-progress-row--{{ row.progress.status }}{% if row.is_personalized %} is-personalized{% endif %}"
+              data-writing-sujet-progress-row="{{ row.sujet.pk }}">
+              <td class="t1-table__theme">{{ category.label }}</td>
+              <td class="t1-table__subject">
+                <a
+                  class="subject-table-row-link"
+                  href="{% url 'study:writing_sujet_detail' part.slug task.slug row.sujet.pk %}"
+                  aria-label="Ouvrir le sujet : {{ row.prompt }}">{{ row.prompt|truncatechars:150 }}</a>
+              </td>
+              <td>
+                {% if row.is_personalized %}<span class="chip chip--accent">Personnalisé</span>
+                {% elif row.has_model_response %}<span class="progress-status progress-status--new">Réponse modèle</span>
+                {% else %}<span class="badge-soon">À rédiger</span>{% endif %}
+              </td>
+              <td class="t1-table__progress-cell">
+                <div class="t1-table__progress">
+                  <span
+                    class="progress-status progress-status--{{ row.progress.status }}"
+                    data-writing-sujet-progress-status="{{ row.sujet.pk }}">{{ row.progress.label }}</span>
+                  {% include "study/partials/writing_sujet_completion_form.html" with sujet=row.sujet completed=row.explicitly_completed subject_label=row.prompt part=part task=task refresh=True %}
+                </div>
+              </td>
+              <td class="t1-table__versions">{% if row.has_model_response %}{{ row.version_count }}{% else %}—{% endif %}</td>
+            </tr>
+            {% endfor %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

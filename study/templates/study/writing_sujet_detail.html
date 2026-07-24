@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block title %}{{ prompt|truncatechars:50 }} · Heureux{% endblock %}
+
+{% block content %}
+<div class="ee-t1-page ee-t1-detail">
+  <div class="task-context" style="--task-accent: {{ task.color }};">
+    <a href="{% url 'study:expression' %}">Expression</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:part_detail' part.slug %}">{{ part.short_name }}</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:task_browse' part.slug task.slug %}">{{ task.name }}</a>
+    <span aria-hidden="true">›</span>
+    <strong>{{ category_label }}</strong>
+  </div>
+
+  {% if personal_saved %}<div class="notice">Votre version personnelle a été enregistrée.</div>{% endif %}
+  {% if personal_reset %}<div class="notice">La réponse modèle est de nouveau affichée.</div>{% endif %}
+
+  <header class="detail-head">
+    <p class="eyebrow">
+      <a href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a> ·
+      <span>{{ category_label }}</span>
+      {% if has_personal %} · <span class="chip chip--accent">Version personnelle</span>{% endif %}
+    </p>
+    <h1 class="detail-prompt">{{ prompt }}</h1>
+  </header>
+
+  <nav class="prompt-nav" aria-label="Navigation entre les sujets">
+    <div class="prompt-nav__item">
+      {% if previous_sujet %}
+        <a class="prompt-nav__link" href="{% url 'study:writing_sujet_detail' part.slug task.slug previous_sujet.pk %}" rel="prev">
+          <span class="prompt-nav__direction">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Sujet précédent</span>
+          <span class="prompt-nav__label">{{ previous_sujet.prompt|truncatechars:44 }}</span>
+        </a>
+      {% endif %}
+    </div>
+    <span class="prompt-nav__position">Sujet {{ position }} sur {{ total }}</span>
+    <div class="prompt-nav__item prompt-nav__item--next">
+      {% if next_sujet %}
+        <a class="prompt-nav__link prompt-nav__link--next" href="{% url 'study:writing_sujet_detail' part.slug task.slug next_sujet.pk %}" rel="next">
+          <span class="prompt-nav__direction">Sujet suivant {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+          <span class="prompt-nav__label">{{ next_sujet.prompt|truncatechars:44 }}</span>
+        </a>
+      {% endif %}
+    </div>
+  </nav>
+
+  <div class="detail-grid">
+    <div class="answer-columns">
+      {% if has_personal %}
+        <section class="card section-card section-card--personal" aria-labelledby="t1-personal-label">
+          <div class="spine-label" id="t1-personal-label">Ma version <span class="chip chip--accent">Personnelle</span></div>
+          <div class="t1-response__body">{{ personal.body|linebreaks }}</div>
+        </section>
+        {% if model_versions %}
+          <details class="t1-versions">
+            <summary class="t1-versions__summary">Voir la réponse modèle{{ model_versions|length|pluralize }} ({{ model_versions|length }})</summary>
+            <div class="t1-versions__list">
+              {% for version in model_versions %}
+                <section class="card section-card section-card--model">
+                  {% if model_versions|length > 1 %}<div class="spine-label">Version {{ forloop.counter }}</div>{% else %}<div class="spine-label">Réponse modèle</div>{% endif %}
+                  <div class="t1-response__body">{{ version.body|linebreaks }}</div>
+                </section>
+              {% endfor %}
+            </div>
+          </details>
+        {% endif %}
+      {% elif primary_version %}
+        <section class="card section-card section-card--model" aria-labelledby="t1-model-label">
+          <div class="spine-label" id="t1-model-label">Réponse modèle</div>
+          <div class="t1-response__body">{{ primary_version.body|linebreaks }}</div>
+        </section>
+        {% if other_version_count %}
+          <details class="t1-versions">
+            <summary class="t1-versions__summary">Voir mes autres versions ({{ other_version_count }})</summary>
+            <div class="t1-versions__list">
+              {% for version in other_versions %}
+                <section class="card section-card section-card--model">
+                  <div class="spine-label">Version {{ forloop.counter|add:1 }}</div>
+                  <div class="t1-response__body">{{ version.body|linebreaks }}</div>
+                </section>
+              {% endfor %}
+            </div>
+          </details>
+        {% endif %}
+      {% else %}
+        <section class="card section-card section-card--empty">
+          <div class="spine-label">Réponse</div>
+          <p class="muted">Ce sujet n'a pas encore de réponse modèle. Personnalisez-le pour rédiger la vôtre.</p>
+        </section>
+      {% endif %}
+    </div>
+
+    <aside class="detail-side">
+      <div class="card section-card response-sidebar-card response-sidebar-card--status">
+        <div class="spine-label">Progression du sujet</div>
+        <div
+          class="subject-progress-control{% if explicitly_completed %} is-complete{% endif %}"
+          data-writing-sujet-progress-control="{{ sujet.pk }}">
+          <span
+            class="progress-status progress-status--{{ writing_progress.status }}"
+            data-writing-sujet-progress-status="{{ sujet.pk }}">{{ writing_progress.label }}</span>
+          <div class="subject-progress-control__action">
+            <span>J’ai terminé ce sujet</span>
+            {% include "study/partials/writing_sujet_completion_form.html" with sujet=sujet completed=explicitly_completed subject_label=prompt part=part task=task %}
+          </div>
+        </div>
+        <p class="subject-progress-control__help">Personnaliser votre réponse garde le sujet « En cours » jusqu’à votre validation.</p>
+        <dl class="kv">
+          <div><dt>Thème</dt><dd>{{ category_label }}</dd></div>
+          <div><dt>Réponses modèles</dt><dd>{{ model_versions|length }}</dd></div>
+          <div><dt>Personnalisation</dt><dd>{% if has_personal %}Prête{% else %}À faire{% endif %}</dd></div>
+          <div><dt>Position</dt><dd>{{ position }} / {{ total }}</dd></div>
+        </dl>
+        <div class="response-sidebar-actions">
+          <a class="btn btn--primary btn--block" href="{% url 'study:writing_sujet_edit' part.slug task.slug sujet.pk %}">{% if has_personal %}Modifier ma version{% else %}Personnaliser la réponse{% endif %}</a>
+          <a class="btn btn--block" href="{% url 'study:task_browse' part.slug task.slug %}">Tous les sujets</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+{% endblock %}

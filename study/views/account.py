@@ -48,9 +48,11 @@ from ..models import (
     ComprehensionAttemptStatus,
     MemoryQuestionProgress,
     PersonalResponse,
+    PersonalWritingResponse,
     ReviewLog,
     ReviewSession,
     Settings,
+    WritingSujetCompletion,
 )
 
 from .review import (
@@ -336,6 +338,7 @@ def reset_progress(request):
         ReviewLog.objects.filter(user=request.user).delete()
         ComprehensionAttempt.objects.filter(user=request.user).delete()
         ComprehensionTestCompletion.objects.filter(user=request.user).delete()
+        WritingSujetCompletion.objects.filter(user=request.user).delete()
         MemoryQuestionProgress.objects.filter(user=request.user).delete()
         _save_review_session(session, {}, clear_pass=True)
     return redirect(reverse("study:settings") + "?reset=1")
@@ -479,7 +482,7 @@ def export_account(request):
     settings = Settings.load(request.user)
     payload = {
         "format": "heureux-account-export",
-        "version": 3,
+        "version": 4,
         "exported_at": timezone.now(),
         "account": {
             "username": request.user.get_username(),
@@ -501,6 +504,21 @@ def export_account(request):
         "review_logs": review_logs,
         "annotations": annotations,
         "personal_responses": personal_responses,
+        "personal_writing_responses": [
+            {
+                "part": personal.sujet.task.part.slug,
+                "task": personal.sujet.task.slug,
+                "sujet": personal.sujet.slug,
+                "body": personal.body,
+                "created_at": personal.created_at,
+                "updated_at": personal.updated_at,
+            }
+            for personal in PersonalWritingResponse.objects.filter(
+                user=request.user
+            )
+            .select_related("sujet__task__part")
+            .order_by("created_at", "pk")
+        ],
         "comprehension_attempts": comprehension_attempts,
         "comprehension_test_completions": [
             {
@@ -511,6 +529,19 @@ def export_account(request):
                 user=request.user
             )
             .select_related("test")
+            .order_by("completed_at", "pk")
+        ],
+        "writing_sujet_completions": [
+            {
+                "part": completion.sujet.task.part.slug,
+                "task": completion.sujet.task.slug,
+                "sujet": completion.sujet.slug,
+                "completed_at": completion.completed_at,
+            }
+            for completion in WritingSujetCompletion.objects.filter(
+                user=request.user
+            )
+            .select_related("sujet__task__part")
             .order_by("completed_at", "pk")
         ],
         "memory_question_progress": [

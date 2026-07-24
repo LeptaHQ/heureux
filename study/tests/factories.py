@@ -24,6 +24,7 @@ from study.models import (
     Response,
     Task,
     Theme,
+    WritingSujet,
 )
 
 _seq = {"n": 0}
@@ -104,6 +105,37 @@ def make_task(part=None, slug="tache-3", available=True) -> Task:
         defaults={"name": slug.replace("-", " ").title(), "available": available},
     )
     return task
+
+
+def make_writing_sujet(
+    task=None,
+    *,
+    slug=None,
+    category="invitations",
+    category_label="Invitations",
+    prompt=None,
+    versions=("Bonjour, je t'invite à ma fête samedi soir.",),
+    order=None,
+    is_active=True,
+) -> WritingSujet:
+    """Build an EE Tâche 1 message sujet with best-first model versions.
+
+    Pass ``versions=()`` for a topic-only sujet (no model response yet).
+    """
+    if task is None:
+        task = make_task(make_part("ee"), "tache-1")
+    slug = slug or f"sujet-{_uid()}"
+    prompt = prompt or f"Rédigez un message ({slug})."
+    return WritingSujet.objects.create(
+        task=task,
+        category=category,
+        category_label=category_label,
+        slug=slug,
+        order=_uid() if order is None else order,
+        prompt=prompt,
+        versions=[{"body": body} for body in versions],
+        is_active=is_active,
+    )
 
 
 def make_comprehension_test(

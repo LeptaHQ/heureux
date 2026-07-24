@@ -144,6 +144,9 @@ from .library import (
     task_subject_batch,
     task_subject_detail,
     theme_detail,
+    writing_sujet_completion,
+    writing_sujet_detail,
+    writing_sujet_edit,
 )
 
 __all__ = [
@@ -274,4 +277,7 @@ __all__ = [
     'task_subject_detail',
     'task_notes',
     'theme_detail',
+    'writing_sujet_completion',
+    'writing_sujet_detail',
+    'writing_sujet_edit',
 ]

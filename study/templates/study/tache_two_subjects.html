@@ -9,29 +9,126 @@
     <div class="memory-overview-hero__copy">
       <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
         <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name="file-text" only %}</span>
-        <span>Sujets par mois</span>
+        <span>Sujets par thème</span>
       </h1>
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Corpus de sujets">
-      <div><dt>Mois</dt><dd>{{ month_count }}</dd></div>
-      <div><dt>Batchs</dt><dd>{{ batch_count }}</dd></div>
+      <div><dt>Thèmes</dt><dd>{{ theme_count }}</dd></div>
       <div><dt>Sujets</dt><dd>{{ subject_count }}</dd></div>
+      <div><dt>Questions</dt><dd>{{ question_count }}</dd></div>
     </dl>
   </header>
 
-  {% if subject_months %}
-    {% include "study/partials/collection_view_toggle.html" %}
-
-    <div
-      class="tache-two-subject-months"
-      data-collection-view
-      data-collection-view-panel="cards">
-      {% for month in subject_months %}
-        {% include "study/partials/tache_two_subject_month.html" with month=month part=part task=task only %}
-      {% endfor %}
+  {% if subject_themes %}
+    <div class="tache-two-directory-toolbar">
+      {% include "study/partials/tache_two_progress.html" with summary=subject_summary unit_label="sujets terminés" only %}
+      {% include "study/partials/collection_view_toggle.html" %}
     </div>
 
-    {% include "study/partials/tache_two_subject_table.html" with subject_months=subject_months part=part task=task only %}
+    <div class="t1-collection">
+      <div class="t1-themes" data-collection-view-panel="cards">
+        {% for theme in subject_themes %}
+        <details class="t1-theme" id="theme-{{ theme.slug }}" open>
+          <summary class="t1-theme__head">
+            <span class="t1-theme__chevron" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+            <span class="t1-theme__glyph" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=theme.icon only %}</span>
+            <span class="t1-theme__title">{{ theme.name }}</span>
+            <span class="t1-theme__meta">
+              <span class="t1-theme__count">{{ theme.subject_count }} sujet{{ theme.subject_count|pluralize }}</span>
+              <span class="progress-status progress-status--{{ theme.status }}">{{ theme.completed }}/{{ theme.total }}</span>
+            </span>
+          </summary>
+          <ul class="t1-list">
+            {% for subject in theme.subjects %}
+            <li
+              class="t1-row subject-progress-row subject-progress-row--{{ subject.progress.status }} is-status-{{ subject.progress.status }}"
+              data-subject-progress-row="{{ subject.response_id }}">
+              <div class="t1-row__link">
+                <span class="t1-row__prompt">{{ subject.title }}</span>
+                <span class="t1-row__meta">
+                  <span class="t1-row__count">{{ subject.question_count }} question{{ subject.question_count|pluralize }}</span>
+                  <span
+                    class="progress-status progress-status--{{ subject.progress.status }}"
+                    data-subject-progress-status="{{ subject.response_id }}">{{ subject.progress.label }}</span>
+                  {% include "study/partials/subject_completion_form.html" with response_id=subject.response_id progress=subject.progress subject_label=subject.title part=part task=task refresh=True %}
+                  <span class="t1-row__arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+                </span>
+              </div>
+              <a
+                class="subject-row-hit-area"
+                href="{% url 'study:task_subject_detail' part.slug task.slug subject.month_slug subject.batch_number subject.number %}"
+                aria-label="Ouvrir le sujet : {{ subject.title }}">
+                <span class="sr-only">Ouvrir le sujet</span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </details>
+        {% endfor %}
+      </div>
+
+      <div class="t1-table-groups" data-collection-view data-collection-view-panel="table">
+        <div class="t1-table-groups__head" aria-hidden="true">
+          <span>Thème</span>
+          <span>Sujets</span>
+          <span>Progression</span>
+        </div>
+        {% for theme in subject_themes %}
+          <details class="t1-theme t1-table-group" data-t1-table-theme>
+            <summary class="t1-theme__head">
+              <span class="t1-theme__chevron" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+              <span class="t1-theme__glyph" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=theme.icon only %}</span>
+              <span class="t1-theme__title">{{ theme.name }}</span>
+              <span class="t1-theme__meta">
+                <span class="t1-theme__count">{{ theme.subject_count }} sujet{{ theme.subject_count|pluralize }}</span>
+                <span class="progress-status progress-status--{{ theme.status }}">{{ theme.completed }}/{{ theme.total }}</span>
+              </span>
+            </summary>
+            <div class="t1-table-shell">
+              <table class="t1-table t1-table--grouped">
+                <caption class="sr-only">Sujets du thème {{ theme.name }}</caption>
+                <colgroup>
+                  <col class="t1-table__subject-column">
+                  <col class="t1-table__questions-column">
+                  <col class="t1-table__status-column">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">Sujet</th>
+                    <th scope="col" class="t1-table__versions-col">Questions</th>
+                    <th scope="col">Progression</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for subject in theme.subjects %}
+                  <tr
+                    class="t1-table__row subject-progress-row subject-table-row subject-progress-row--{{ subject.progress.status }} is-status-{{ subject.progress.status }}"
+                    data-t1-table-subject
+                    data-subject-progress-row="{{ subject.response_id }}">
+                    <td class="t1-table__subject">
+                      <a
+                        class="subject-table-row-link"
+                        href="{% url 'study:task_subject_detail' part.slug task.slug subject.month_slug subject.batch_number subject.number %}"
+                        aria-label="Ouvrir le sujet : {{ subject.title }}">{{ subject.title }}</a>
+                    </td>
+                    <td class="t1-table__versions t1-table__questions">{{ subject.question_count }}</td>
+                    <td class="t1-table__progress-cell">
+                      <div class="t1-table__progress">
+                        <span
+                          class="progress-status progress-status--{{ subject.progress.status }}"
+                          data-subject-progress-status="{{ subject.response_id }}">{{ subject.progress.label }}</span>
+                        {% include "study/partials/subject_completion_form.html" with response_id=subject.response_id progress=subject.progress subject_label=subject.title part=part task=task refresh=True %}
+                      </div>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </details>
+        {% endfor %}
+      </div>
+    </div>
   {% endif %}
 </div>
 {% endblock %}

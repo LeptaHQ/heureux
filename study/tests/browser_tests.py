@@ -281,6 +281,184 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
+        self.page.set_viewport_size({"width": 1024, "height": 844})
+        self.page.get_by_role("button", name="Tableau").click()
+        january_body = self.page.locator(
+            "#ee-subject-month-table-janvier"
+        )
+        if (
+            january_body.locator(
+                "[data-tache-two-month-row]:visible"
+            ).count()
+            == 0
+        ):
+            january_body.locator(
+                ".tache-two-batch-table__month-toggle"
+            ).click()
+        first_row = january_body.locator(
+            "[data-tache-two-month-row]:visible"
+        ).first
+        detail_path = first_row.locator(
+            ".subject-table-row-link"
+        ).get_attribute("href")
+        completion = first_row.locator(
+            "[data-subject-completion-form] button"
+        )
+        self.assertTrue(
+            completion.evaluate(
+                """
+                button => Boolean(button.form.querySelector(
+                  "input[name='csrfmiddlewaretoken']"
+                ))
+                """
+            )
+        )
+        with self.page.expect_response(
+            lambda response: "/progression/" in response.url
+        ) as completion_response:
+            completion.click()
+        self.assertTrue(completion_response.value.ok)
+        self.page.wait_for_function(
+            """
+            () => document.querySelectorAll(
+              '[data-subject-completion-form] '
+              + 'button[aria-checked="true"]'
+            ).length === 2
+            """
+        )
+        self.assertEqual(self.page.url, self.live_server_url + subjects_url)
+        self.assertEqual(
+            self.page.locator(
+                '[data-subject-completion-form] '
+                'button[aria-checked="true"]'
+            ).count(),
+            2,
+        )
+
+        january_body = self.page.locator(
+            "#ee-subject-month-table-janvier"
+        )
+        if (
+            january_body.locator(
+                "[data-tache-two-month-row]:visible"
+            ).count()
+            == 0
+        ):
+            january_body.locator(
+                ".tache-two-batch-table__month-toggle"
+            ).click()
+        first_row = january_body.locator(
+            "[data-tache-two-month-row]:visible"
+        ).first
+        batch_cell = first_row.locator("th").first.bounding_box()
+        self.page.mouse.click(
+            batch_cell["x"] + batch_cell["width"] / 2,
+            batch_cell["y"] + batch_cell["height"] / 2,
+        )
+        self.page.wait_for_url(self.live_server_url + detail_path)
+
+    def test_ee_tache_one_rows_navigate_without_completion_click_through(self):
+        ee_part = factories.make_part("ee")
+        writing_task = factories.make_task(ee_part, "tache-1")
+        sujet = factories.make_writing_sujet(
+            writing_task,
+            slug="invitation-chateau",
+            category="invitations",
+            category_label="Invitations",
+            prompt="Invitez Cédric au château.",
+            versions=("Bonjour Cédric, venez visiter le château.",),
+        )
+        subjects_path = reverse(
+            "study:task_browse",
+            args=["ee", "tache-1"],
+        )
+        detail_path = reverse(
+            "study:writing_sujet_detail",
+            args=["ee", "tache-1", sujet.pk],
+        )
+
+        self.page.set_viewport_size({"width": 1183, "height": 844})
+        self.page.goto(self.live_server_url + subjects_path)
+        card_row = self.page.locator(
+            f'.t1-row:has(a[href="{detail_path}"])'
+        ).first
+        completion = card_row.locator(
+            "[data-writing-sujet-completion-form] button"
+        )
+        with self.page.expect_response(
+            lambda response: "/progression/" in response.url
+        ) as completion_response:
+            completion.click()
+        self.assertTrue(completion_response.value.ok)
+        self.page.wait_for_function(
+            """
+            () => document.querySelectorAll(
+              '[data-writing-sujet-completion-form] '
+              + 'button[aria-checked="true"]'
+            ).length === 2
+            """
+        )
+        self.assertEqual(self.page.url, self.live_server_url + subjects_path)
+        self.assertEqual(
+            self.page.locator(
+                '[data-writing-sujet-completion-form] '
+                'button[aria-checked="true"]'
+            ).count(),
+            2,
+        )
+
+        card_row = self.page.locator(
+            f'.t1-row:has(a[href="{detail_path}"])'
+        ).first
+        status = card_row.locator(".progress-status").bounding_box()
+        self.page.mouse.click(
+            status["x"] + status["width"] / 2,
+            status["y"] + status["height"] / 2,
+        )
+        self.page.wait_for_url(self.live_server_url + detail_path)
+
+        self.page.goto(self.live_server_url + subjects_path)
+        self.page.get_by_role("button", name="Tableau").click()
+        table_row = self.page.locator(
+            f'tr:has(a.subject-table-row-link[href="{detail_path}"])'
+        )
+        completion = table_row.locator(
+            "[data-writing-sujet-completion-form] button"
+        )
+        with self.page.expect_response(
+            lambda response: "/progression/" in response.url
+        ) as completion_response:
+            completion.click()
+        self.assertTrue(completion_response.value.ok)
+        self.page.wait_for_function(
+            """
+            () => document.querySelectorAll(
+              '[data-writing-sujet-completion-form] '
+              + 'button[aria-checked="true"]'
+            ).length === 0
+            """
+        )
+        self.assertEqual(self.page.url, self.live_server_url + subjects_path)
+        self.assertEqual(
+            self.page.locator(
+                '[data-writing-sujet-completion-form] '
+                'button[aria-checked="true"]'
+            ).count(),
+            0,
+        )
+
+        table_row = self.page.locator(
+            f'tr:has(a.subject-table-row-link[href="{detail_path}"])'
+        )
+        category_cell = table_row.locator(
+            ".t1-table__theme"
+        ).bounding_box()
+        self.page.mouse.click(
+            category_cell["x"] + category_cell["width"] / 2,
+            category_cell["y"] + category_cell["height"] / 2,
+        )
+        self.page.wait_for_url(self.live_server_url + detail_path)
+
     def test_primary_navigation_is_structured_on_mobile_and_desktop(self):
         self.page.set_viewport_size({"width": 320, "height": 568})
         toggle = self.page.get_by_role("button", name="Ouvrir le menu")
@@ -951,10 +1129,6 @@ class BrowserTests(StaticLiveServerTestCase):
             "study:task_browse",
             args=["eo", "tache-2"],
         )
-        batch_path = reverse(
-            "study:task_subject_batch",
-            args=["eo", "tache-2", "janvier", 1],
-        )
         subject_path = reverse(
             "study:task_subject_detail",
             args=["eo", "tache-2", "janvier", 1, 1],
@@ -996,7 +1170,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.goto(self.live_server_url + index_path)
         self.page.get_by_role(
             "heading",
-            name="Sujets par mois",
+            name="Sujets par thème",
             exact=True,
         ).wait_for()
         directory_metrics = [
@@ -1005,119 +1179,81 @@ class BrowserTests(StaticLiveServerTestCase):
                 ".memory-overview-hero__metrics dd"
             ).all_text_contents()
         ]
-        month_count, batch_count, _ = directory_metrics
+        theme_count, subject_count, _ = directory_metrics
+        self.assertEqual(theme_count, 11)
+        self.assertEqual(subject_count, 348)
         self.assertEqual(
-            self.page.locator("[data-tache-two-subject-batch]").count(),
-            batch_count,
-        )
-        card_month_toggles = self.page.locator(
-            ".tache-two-month__toggle"
-        )
-        self.assertTrue(
-            all(
-                card_month_toggles.nth(index).get_attribute(
-                    "aria-expanded"
-                )
-                == "false"
-                for index in range(card_month_toggles.count())
-            )
-        )
-        card_month_grids = self.page.locator(".subject-batch-grid")
-        self.assertTrue(
-            all(
-                card_month_grids.nth(index).is_hidden()
-                for index in range(card_month_grids.count())
-            )
+            self.page.locator(".t1-themes .t1-row__link").count(),
+            subject_count,
         )
         self.assertEqual(self.page.get_by_role("note").count(), 0)
         self.assertEqual(self.page.get_by_text("Réflexe Mémoire").count(), 0)
 
-        table_toggle = self.page.get_by_role("button", name="Tableau")
-        table_toggle.click()
-        self.assertEqual(table_toggle.get_attribute("aria-pressed"), "true")
-        table_header = self.page.locator(
-            ".tache-two-batch-table thead"
-        )
-        self.assertEqual(table_header.count(), 1)
-        self.assertTrue(table_header.is_visible())
-        month_groups = self.page.locator(
-            "[data-tache-two-month-group]"
-        )
-        self.assertEqual(
-            month_groups.count(),
-            month_count,
-        )
-        table_rows = self.page.locator("[data-tache-two-month-row]")
-        self.assertEqual(table_rows.count(), batch_count)
-        self.assertTrue(
-            all(
-                table_rows.nth(index).is_hidden()
-                for index in range(table_rows.count())
-            )
-        )
-
-        first_month_toggle = self.page.locator(
-            ".tache-two-batch-table__month-toggle"
-        ).first
-        first_month_rows = month_groups.first.locator(
-            "[data-tache-two-month-row]"
-        )
-        second_month_rows = month_groups.nth(1).locator(
-            "[data-tache-two-month-row]"
-        )
-        first_month_toggle.click()
-        self.assertEqual(
-            first_month_toggle.get_attribute("aria-expanded"),
-            "true",
-        )
-        self.assertTrue(
-            all(
-                first_month_rows.nth(index).is_visible()
-                for index in range(first_month_rows.count())
-            )
-        )
-        self.assertTrue(
-            all(
-                second_month_rows.nth(index).is_hidden()
-                for index in range(second_month_rows.count())
-            )
-        )
-
-        table_shell = self.page.locator(".tache-two-batch-table-shell")
         self.page.set_viewport_size({"width": 320, "height": 700})
-        self.assertTrue(
-            table_shell.evaluate(
-                "element => element.scrollWidth > element.clientWidth"
-            )
-        )
         self.assert_no_horizontal_overflow()
         self.page.set_viewport_size({"width": 1280, "height": 850})
-        self.page.locator("[data-tache-two-subject-table-link]").first.click()
-        self.page.wait_for_url(self.live_server_url + batch_path)
-        self.page.get_by_role(
-            "heading",
-            name="Janvier · Batch 1",
-            exact=True,
-        ).wait_for()
-        self.assertEqual(
-            self.page.locator("[data-tache-two-subject]").count(),
-            5,
+        self.page.get_by_role("button", name="Tableau").click()
+        table_group = self.page.locator(
+            f'[data-t1-table-theme]:has(a[href="{subject_path}"])'
         )
+        table_group.locator("summary").click()
+        first_row = table_group.locator(
+            f'[data-t1-table-subject]:has(a[href="{subject_path}"])'
+        )
+        completion_gap = first_row.evaluate(
+            """
+            row => {
+              const status = row.querySelector('.progress-status')
+                .getBoundingClientRect();
+              const button = row.querySelector(
+                '[data-subject-completion-form] button'
+              ).getBoundingClientRect();
+              return button.left - status.right;
+            }
+            """
+        )
+        self.assertGreaterEqual(completion_gap, 0)
+        self.assertLessEqual(completion_gap, 8)
+        completion = first_row.locator(
+            "[data-subject-completion-form] button"
+        )
+        with self.page.expect_response(
+            lambda response: "/progression/" in response.url
+        ) as completion_response:
+            completion.click()
+        self.assertTrue(completion_response.value.ok)
+        self.page.wait_for_function(
+            """
+            () => document.querySelectorAll(
+              '[data-subject-completion-form] '
+              + 'button[aria-checked="true"]'
+            ).length === 2
+            """
+        )
+        self.assertEqual(self.page.url, self.live_server_url + index_path)
         self.assertEqual(
             self.page.locator(
-                ".tache-two-subject-card .progress-status--new"
+                '[data-subject-completion-form] '
+                'button[aria-checked="true"]'
             ).count(),
-            5,
-        )
-        self.assertTrue(
-            self.page.locator(
-                ".collection-table-header--tache-two-subjects"
-            ).is_visible()
+            2,
         )
 
-        self.page.set_viewport_size({"width": 320, "height": 700})
-        self.assert_no_horizontal_overflow()
-        self.page.locator("[data-tache-two-subject]").first.click()
+        table_group = self.page.locator(
+            f'[data-t1-table-theme]:has(a[href="{subject_path}"])'
+        )
+        if not table_group.evaluate("group => group.open"):
+            table_group.locator("summary").click()
+        first_row = table_group.locator(
+            f'[data-t1-table-subject]:has(a[href="{subject_path}"])'
+        )
+        questions_cell = first_row.locator(
+            ".t1-table__questions"
+        ).bounding_box()
+        self.page.mouse.click(
+            questions_cell["x"] + questions_cell["width"] / 2,
+            questions_cell["y"] + questions_cell["height"] / 2,
+        )
         self.page.wait_for_url(self.live_server_url + subject_path)
         self.page.get_by_role(
             "heading",
@@ -1170,6 +1306,86 @@ class BrowserTests(StaticLiveServerTestCase):
             "Vocabulaire du sujet",
             exact=True,
         ).wait_for()
+        self.assert_no_horizontal_overflow()
+
+    def test_tache_two_table_groups_subjects_by_theme(self):
+        factories.make_task(self.part, "tache-2")
+        index_url = self.live_server_url + reverse(
+            "study:task_browse",
+            args=["eo", "tache-2"],
+        )
+
+        self.page.set_viewport_size({"width": 1183, "height": 844})
+        self.page.goto(index_url)
+        self.page.get_by_role("heading", name="Sujets par thème").wait_for()
+        self.page.get_by_role("button", name="Tableau").click()
+
+        groups = self.page.locator("[data-t1-table-theme]")
+        self.assertEqual(groups.count(), 11)
+        self.assertEqual(
+            self.page.locator("[data-t1-table-subject]").count(),
+            348,
+        )
+        self.assertEqual(self.page.locator(".t1-table__theme").count(), 0)
+        table_layout = self.page.locator(".t1-table-groups").evaluate(
+            """
+            table => {
+              const groups = table.querySelectorAll('[data-t1-table-theme]');
+              const first = groups[0].getBoundingClientRect();
+              const second = groups[1].getBoundingClientRect();
+              return {
+                borderWidth: parseFloat(getComputedStyle(table).borderTopWidth),
+                firstRadius: parseFloat(
+                  getComputedStyle(groups[0]).borderTopLeftRadius
+                ),
+                rowGap: second.top - first.bottom,
+                headerDisplay: getComputedStyle(
+                  table.querySelector('.t1-table-groups__head')
+                ).display,
+              };
+            }
+            """
+        )
+        self.assertEqual(table_layout["borderWidth"], 1)
+        self.assertEqual(table_layout["firstRadius"], 0)
+        self.assertLessEqual(abs(table_layout["rowGap"]), 1)
+        self.assertEqual(table_layout["headerDisplay"], "grid")
+        self.assertTrue(
+            all(
+                not groups.nth(index).evaluate("group => group.open")
+                for index in range(groups.count())
+            )
+        )
+
+        first_group = groups.first
+        second_group = groups.nth(1)
+        first_group.locator("summary").click()
+        self.assertTrue(first_group.evaluate("group => group.open"))
+        self.assertTrue(
+            first_group.locator("[data-t1-table-subject]").first.is_visible()
+        )
+        self.assertFalse(
+            second_group.locator("[data-t1-table-subject]").first.is_visible()
+        )
+
+        self.page.set_viewport_size({"width": 320, "height": 700})
+        table_shell = first_group.locator(".t1-table-shell")
+        self.assertFalse(
+            table_shell.evaluate(
+                "element => element.scrollWidth > element.clientWidth"
+            )
+        )
+        progress_alignment = first_group.locator(
+            "[data-t1-table-subject]"
+        ).first.locator(
+            ".t1-table__progress"
+        ).evaluate(
+            "cell => getComputedStyle(cell).justifyContent"
+        )
+        self.assertEqual(progress_alignment, "flex-start")
+        self.assertFalse(
+            self.page.locator(".t1-table-groups__head").is_visible()
+        )
         self.assert_no_horizontal_overflow()
 
     def test_subject_vocabulary_directory_searches_rich_decks(self):

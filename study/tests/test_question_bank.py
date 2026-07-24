@@ -2236,55 +2236,39 @@ class QuestionBankViewTests(TestCase):
         index = self.client.get(index_url)
         self.assertEqual(index.status_code, 200)
         self.assertTemplateUsed(index, "study/tache_two_subjects.html")
-        self.assertEqual(index.context["month_count"], 12)
-        self.assertEqual(index.context["batch_count"], 70)
+        self.assertEqual(index.context["theme_count"], 11)
         self.assertEqual(index.context["subject_count"], 348)
         self.assertEqual(index.context["question_count"], 5175)
         self.assertNotContains(index, "Réflexe Mémoire")
-        self.assertContains(index, "Janvier")
-        self.assertContains(index, "Batch 01")
-        self.assertContains(index, "Batch 02")
-        self.assertContains(index, "Batch 03")
-        self.assertContains(index, "Février")
-        self.assertContains(index, "Batch 06")
-        self.assertContains(index, "Mars")
-        self.assertContains(index, "Avril")
-        self.assertContains(index, "Mai")
-        self.assertContains(index, "Juin")
-        self.assertContains(index, "Juillet")
-        self.assertContains(index, "Août")
-        self.assertContains(index, "Septembre")
-        self.assertContains(index, "Octobre")
-        self.assertContains(index, "Novembre")
-        self.assertContains(index, "Décembre")
-        self.assertContains(index, "data-tache-two-subject-batch", count=70)
-        self.assertContains(index, "subject-batch-card--new", count=70)
-        self.assertContains(index, "0/15 sujets terminés")
-        self.assertContains(index, "0/30 sujets terminés")
-        self.assertContains(index, "0/5 sujets terminés")
-        self.assertContains(index, "0/10 sujets terminés")
-        self.assertContains(index, "0/25 sujets terminés")
-        self.assertContains(index, "0/45 sujets terminés")
-        self.assertContains(index, "0/38 sujets terminés")
-        self.assertContains(index, "0/20 sujets terminés")
-        self.assertContains(index, "0/35 sujets terminés")
-        self.assertContains(index, "0/50 sujets terminés")
-        self.assertContains(index, batch_url)
-        self.assertContains(index, second_batch_url)
-        self.assertContains(index, third_batch_url)
-        self.assertContains(index, february_batch_url)
-        self.assertContains(index, march_batch_url)
-        self.assertContains(index, march_second_batch_url)
-        self.assertContains(index, march_third_batch_url)
-        self.assertContains(index, april_batch_url)
-        self.assertContains(index, april_second_batch_url)
-        self.assertContains(index, may_batch_url)
-        self.assertContains(index, june_batch_url)
-        self.assertContains(index, july_batch_url)
-        self.assertContains(index, august_batch_url)
-        self.assertContains(index, september_batch_url)
+        self.assertContains(index, "Sujets par thème")
+        self.assertContains(index, "Voyages &amp; vacances")
+        self.assertContains(index, "Logement &amp; déménagement")
+        self.assertContains(index, "Vie de quartier &amp; entraide")
+        self.assertContains(index, "Sport &amp; plein air")
+        self.assertContains(index, "Arts &amp; loisirs")
+        self.assertContains(index, "Transports &amp; mobilité")
+        self.assertContains(index, "Sorties &amp; spectacles")
+        self.assertContains(index, "École &amp; études")
+        self.assertContains(index, "Travail &amp; emploi")
+        self.assertContains(index, "Fêtes &amp; célébrations")
+        self.assertContains(index, "Arrivée &amp; installation")
+        self.assertNotContains(index, "data-tache-two-subject-batch")
+        self.assertNotContains(index, "Batch 01")
+        self.assertContains(index, "t1-row__link", count=348)
+        self.assertContains(index, "data-t1-table-theme", count=11)
+        self.assertContains(index, "data-t1-table-subject", count=348)
+        self.assertNotContains(index, 'class="t1-table__theme"')
+        self.assertContains(index, subject_url)
+        self.assertContains(index, february_subject_url)
+        self.assertContains(index, march_subject_url)
+        self.assertContains(index, april_subject_url)
+        self.assertContains(index, may_subject_url)
+        self.assertContains(index, june_subject_url)
+        self.assertContains(index, july_subject_url)
+        self.assertContains(index, august_subject_url)
+        self.assertContains(index, september_subject_url)
         for *_, batch_route, subject_route in final_routes:
-            self.assertContains(index, batch_route)
+            self.assertContains(index, subject_route)
             self.assertContains(self.client.get(batch_route), subject_route)
 
         batch = self.client.get(batch_url)
@@ -2812,23 +2796,30 @@ class QuestionBankViewTests(TestCase):
             "active",
         )
         self.assertContains(batch, "tache-two-subject-card--active", count=1)
-        january = directory.context["subject_months"][0]
-        self.assertEqual(january["progress"].status, "active")
-        self.assertEqual(january["progress"].started, 1)
-        self.assertEqual(january["batches"][0]["progress"].status, "active")
-        self.assertContains(
-            directory,
-            "subject-batch-card--active",
-            count=1,
-        )
+        themes_by_slug = {
+            theme["slug"]: theme
+            for theme in directory.context["subject_themes"]
+        }
+        logement = themes_by_slug["logement"]
+        self.assertEqual(logement["progress"].status, "active")
+        self.assertEqual(logement["progress"].started, 1)
+        active_rows = [
+            row
+            for row in logement["subjects"]
+            if row["progress"].status == "active"
+        ]
+        self.assertEqual(len(active_rows), 1)
+        self.assertContains(directory, "is-status-active")
         self.assertEqual(
             overview.context["subject_summary"]["progress"].status,
             "active",
         )
+        overview_themes = {
+            theme["slug"]: theme
+            for theme in overview.context["subject_summary"]["themes"]
+        }
         self.assertEqual(
-            overview.context["subject_months"][0]["batches"][0][
-                "progress"
-            ].status,
+            overview_themes["logement"]["progress"].status,
             "active",
         )
         task_card = next(
@@ -3470,7 +3461,7 @@ class QuestionBankViewTests(TestCase):
 
         exported = self.client.get(reverse("study:export_account")).json()
 
-        self.assertEqual(exported["version"], 3)
+        self.assertEqual(exported["version"], 4)
         self.assertEqual(
             exported["memory_question_progress"][0]["question_key"],
             own_progress.question_key,

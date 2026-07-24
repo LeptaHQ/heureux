@@ -30,6 +30,7 @@ QUESTION_BANK_PATH = CONTENT_DIR / "tache_2" / "master_question_bank_1.json"
 QUESTION_BANK_DIR = QUESTION_BANK_PATH.parent
 TACHE_TWO_SUBJECTS_DIR = QUESTION_BANK_DIR / "subjects"
 TACHE_TWO_VOCABULARY_DIR = QUESTION_BANK_DIR / "vocabulary"
+TACHE_TWO_SUBJECT_THEMES_PATH = TACHE_TWO_SUBJECTS_DIR / "subject_themes.json"
 QUESTION_BANK_TASK = ("eo", "tache-2")
 
 EE_TACHE_THREE_TASK = ("ee", "tache-3")
@@ -40,6 +41,10 @@ EE_TACHE_THREE_SUBJECTS_DIR = EE_TACHE_THREE_DIR / "subjects"
 EE_TACHE_THREE_VOCABULARY_DIR = EE_TACHE_THREE_DIR / "vocabulary"
 EE_TACHE_THREE_MEMOIRES_DIR = EE_TACHE_THREE_DIR / "memoires"
 EE_TACHE_THREE_VOCABULARY_PER_RESPONSE = 30
+
+EE_TACHE_ONE_TASK = ("ee", "tache-1")
+EE_TACHE_ONE_DIR = CONTENT_DIR / "ee" / "tache_1"
+EE_TACHE_ONE_SUJETS_PATH = EE_TACHE_ONE_DIR / "sujets.json"
 
 # Tasks that expose a "Mémoires" question-bank section, mapped to the
 # directory of memoire JSON files and the key namespace used to isolate
@@ -348,6 +353,14 @@ class TacheTwoSubjectMonthData:
     @property
     def question_count(self) -> int:
         return sum(batch.question_count for batch in self.batches)
+
+
+@dataclass(frozen=True)
+class TacheTwoThemeData:
+    slug: str
+    name: str
+    icon: str
+    order: int
 
 
 @dataclass(frozen=True)
@@ -836,46 +849,68 @@ def tache_two_subject_content_key(
     )
 
 
-def tache_two_theme_name(month: TacheTwoSubjectMonthData) -> str:
-    return f"Tâche 2 · {month.name}"
+def load_tache_two_subject_themes(
+    path: Path = TACHE_TWO_SUBJECT_THEMES_PATH,
+) -> Tuple[Tuple[TacheTwoThemeData, ...], Dict[str, str]]:
+    """Load the theme taxonomy and the content_key -> theme-slug mapping."""
+    data = json.loads(path.read_text(encoding="utf-8"))
+    themes = tuple(
+        TacheTwoThemeData(
+            slug=theme["slug"],
+            name=theme["name"],
+            icon=theme.get("icon", "messages"),
+            order=int(theme["order"]),
+        )
+        for theme in data["themes"]
+    )
+    mapping = {
+        str(key): str(value) for key, value in data["subjects"].items()
+    }
+    return themes, mapping
 
 
-def tache_two_family_name(
-    month: TacheTwoSubjectMonthData,
-    batch: TacheTwoSubjectBatchData,
-) -> str:
-    return f"Tâche 2 · {month.name} · Batch {batch.number}"
+def tache_two_category_by_content_key() -> Dict[str, TacheTwoThemeData]:
+    themes, mapping = load_tache_two_subject_themes()
+    by_slug = {theme.slug: theme for theme in themes}
+    return {
+        content_key: by_slug[slug]
+        for content_key, slug in mapping.items()
+    }
+
+
+def tache_two_theme_name(theme: TacheTwoThemeData) -> str:
+    return f"Tâche 2 · {theme.name}"
+
+
+def tache_two_family_name(theme: TacheTwoThemeData) -> str:
+    return f"Tâche 2 · {theme.name}"
 
 
 def tache_two_themes(
     months: Optional[Tuple[TacheTwoSubjectMonthData, ...]] = None,
 ) -> List[ThemeData]:
-    months = months or load_tache_two_subject_months()
+    themes, _ = load_tache_two_subject_themes()
     return [
         ThemeData(
-            slug=f"tache-2-{month.slug}",
-            name=tache_two_theme_name(month),
-            display=month.name,
-            order=100 + month.number,
+            slug=f"tache-2-{theme.slug}",
+            name=tache_two_theme_name(theme),
+            display=theme.name,
+            order=100 + theme.order,
             color="#d3263a",
-            icon="messages",
+            icon=theme.icon,
             task="eo/tache-2",
         )
-        for month in months
+        for theme in themes
     ]
 
 
 def tache_two_families(
     months: Optional[Tuple[TacheTwoSubjectMonthData, ...]] = None,
 ) -> List[Tuple[str, int]]:
-    months = months or load_tache_two_subject_months()
+    themes, _ = load_tache_two_subject_themes()
     return [
-        (
-            tache_two_family_name(month, batch),
-            1000 + month.number * 100 + batch.number,
-        )
-        for month in months
-        for batch in month.batches
+        (tache_two_family_name(theme), 1000 + theme.order)
+        for theme in themes
     ]
 
 
@@ -883,17 +918,27 @@ def parse_tache_two_responses(
     months: Optional[Tuple[TacheTwoSubjectMonthData, ...]] = None,
 ) -> List[ResponseData]:
     months = months or load_tache_two_subject_months()
+    category_by_key = tache_two_category_by_content_key()
     responses = []
+    theme_prompt_numbers: Dict[str, int] = {}
     for month in months:
-        theme = tache_two_theme_name(month)
         for batch in month.batches:
-            family = tache_two_family_name(month, batch)
             for subject in batch.subjects:
                 content_key = tache_two_subject_content_key(
                     month.slug,
                     batch.number,
                     subject.number,
                 )
+                category = category_by_key.get(content_key)
+                if category is None:
+                    raise ValueError(
+                        "Tâche 2 subject "
+                        f"{content_key} has no theme mapping"
+                    )
+                theme = tache_two_theme_name(category)
+                family = tache_two_family_name(category)
+                prompt_number = theme_prompt_numbers.get(theme, 0) + 1
+                theme_prompt_numbers[theme] = prompt_number
                 questions = [question.text for question in subject.questions]
                 body = "\n".join(questions)
                 responses.append(
@@ -936,7 +981,7 @@ def parse_tache_two_responses(
                             PromptData(
                                 content_key=content_key,
                                 theme=theme,
-                                number=subject.number,
+                                number=prompt_number,
                                 text=subject.prompt,
                                 family=family,
                                 is_canonical=True,
@@ -1333,6 +1378,105 @@ def load_ee_tache_three_months(
     if len(numbers) != len(set(numbers)):
         raise ValueError("EE Tâche 3 months must have unique numbers")
     return tuple(months)
+
+
+@dataclass(frozen=True)
+class WritingVersionData:
+    body: str
+
+
+@dataclass(frozen=True)
+class WritingSujetData:
+    category: str
+    category_label: str
+    slug: str
+    order: int
+    prompt: str
+    versions: Tuple[WritingVersionData, ...]
+
+
+@dataclass(frozen=True)
+class WritingCategoryData:
+    slug: str
+    label: str
+    order: int
+    sujets: Tuple[WritingSujetData, ...]
+
+
+def load_ee_tache_one_categories(
+    path: Path = EE_TACHE_ONE_SUJETS_PATH,
+) -> Tuple[WritingCategoryData, ...]:
+    """Load EE Tâche 1 message sujets grouped by theme category.
+
+    The bundled ``sujets.json`` lists ``categories`` (slug + label) each holding
+    ordered ``sujets`` (slug + prompt + best-first ``versions``). Slugs are
+    verified unique across the whole task so they can key stable URLs.
+    """
+    data = json.loads(path.read_text(encoding="utf-8"))
+    categories_raw = data.get("categories")
+    if not isinstance(categories_raw, list) or not categories_raw:
+        raise ValueError("EE Tâche 1 sujets.json must contain a categories list")
+
+    categories: List[WritingCategoryData] = []
+    seen_slugs: set[str] = set()
+    for category_order, category in enumerate(categories_raw, start=1):
+        slug = (category.get("slug") or "").strip()
+        label = (category.get("label") or "").strip()
+        if not slug or not label:
+            raise ValueError("Every EE Tâche 1 category needs a slug and label")
+        sujets_raw = category.get("sujets")
+        if not isinstance(sujets_raw, list) or not sujets_raw:
+            raise ValueError(f"EE Tâche 1 category {slug!r} has no sujets")
+
+        sujets: List[WritingSujetData] = []
+        for sujet in sujets_raw:
+            sujet_slug = (sujet.get("slug") or "").strip()
+            prompt = (sujet.get("prompt") or "").strip()
+            if not sujet_slug or not prompt:
+                raise ValueError(
+                    f"EE Tâche 1 sujet in {slug!r} needs a slug and prompt"
+                )
+            if sujet_slug in seen_slugs:
+                raise ValueError(
+                    f"Duplicate EE Tâche 1 sujet slug {sujet_slug!r}"
+                )
+            seen_slugs.add(sujet_slug)
+            versions = tuple(
+                WritingVersionData(body=body)
+                for version in (sujet.get("versions") or [])
+                if (body := (version.get("body") or "").strip())
+            )
+            sujets.append(
+                WritingSujetData(
+                    category=slug,
+                    category_label=label,
+                    slug=sujet_slug,
+                    order=len(sujets) + 1,
+                    prompt=prompt,
+                    versions=versions,
+                )
+            )
+        categories.append(
+            WritingCategoryData(
+                slug=slug,
+                label=label,
+                order=category_order,
+                sujets=tuple(sujets),
+            )
+        )
+    return tuple(categories)
+
+
+def ee_tache_one_sujets(
+    categories: Optional[Tuple[WritingCategoryData, ...]] = None,
+) -> List[Tuple[int, WritingSujetData]]:
+    """Flatten categories into ``(global_order, sujet)`` pairs, category order."""
+    categories = categories or load_ee_tache_one_categories()
+    ordered: List[Tuple[int, WritingSujetData]] = []
+    for category in categories:
+        for sujet in category.sujets:
+            ordered.append((len(ordered) + 1, sujet))
+    return ordered
 
 
 def ee_tache_three_themes(

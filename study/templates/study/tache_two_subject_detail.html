@@ -7,11 +7,11 @@
 <article class="tache-two-subject-detail" style="--subject-accent: {{ task.color }};">
   <header class="tache-two-subject-detail__hero">
     <div class="tache-two-subject-detail__meta">
-      <a class="subject-page-back" href="{% url 'study:task_subject_batch' part.slug task.slug subject_month.slug subject_batch.number %}">
+      <a class="subject-page-back" href="{% url 'study:task_browse' part.slug task.slug %}#theme-{{ subject_theme_slug }}">
         {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
-        {{ subject_month.name }} · Batch {{ subject_batch.number }}
+        {{ subject_theme_name }}
       </a>
-      <span>Sujet {{ subject.number_label }} · {{ subject.question_count }} questions préparées</span>
+      <span>Sujet {{ subject_position }} sur {{ subject_total }} · {{ subject.question_count }} questions préparées</span>
     </div>
     <h1>{{ subject.title }}</h1>
   </header>
@@ -72,7 +72,7 @@
         {% endif %}
         <div class="response-sidebar-actions">
           <a class="btn btn--primary btn--block" href="{{ response_review_url }}">Pratiquer ce sujet</a>
-          <a class="btn btn--block" href="{{ theme_review_url }}">Pratiquer {{ subject_month.name }}</a>
+          <a class="btn btn--block" href="{{ theme_review_url }}">Pratiquer {{ subject_theme_name }}</a>
           {% if vocabulary_review_url %}
             <a class="btn btn--block" href="{{ vocabulary_review_url }}">Pratiquer les vocabs</a>
           {% endif %}

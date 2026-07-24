@@ -34,12 +34,15 @@ from ..models import (
     PhraseCategory,
     PhraseTier,
     PersonalResponse,
+    PersonalWritingResponse,
     Prompt,
     Rating,
     Response,
     ReviewLog,
     Task,
     Theme,
+    WritingSujet,
+    WritingSujetCompletion,
 )
 from ..response_personalization import effective_response
 from ..progress import (
@@ -68,6 +71,7 @@ from .helpers import (
     _task_phrases,
     _task_scope,
     _tache_two_progress,
+    _tache_two_theme_progress,
     deck_stats,
     recent_review_sessions,
     summarize_review_batches,
@@ -358,6 +362,96 @@ def _ee_tache_three_subject_context(user, task):
     }
 
 
+def _has_ee_tache_one_content(task):
+    return WritingSujet.objects.filter(task=task, is_active=True).exists()
+
+
+def _ee_tache_one_subject_context(user, task):
+    """Group EE Tâche 1 message sujets by theme, best model version first."""
+    sujets = list(
+        WritingSujet.objects.filter(task=task, is_active=True).order_by(
+            "order",
+            "id",
+        )
+    )
+    personalized_ids = set(
+        PersonalWritingResponse.objects.filter(
+            user=user,
+            sujet__in=sujets,
+        ).values_list("sujet_id", flat=True)
+    )
+    completed_ids = set(
+        WritingSujetCompletion.objects.filter(
+            user=user,
+            sujet__in=sujets,
+        ).values_list("sujet_id", flat=True)
+    )
+    categories = []
+    current = None
+    response_count = 0
+    for sujet in sujets:
+        model_versions = sujet.model_versions
+        if model_versions:
+            response_count += 1
+        is_personalized = sujet.pk in personalized_ids
+        explicitly_completed = sujet.pk in completed_ids
+        progress = progress_summary(
+            total=1,
+            started=is_personalized or explicitly_completed,
+            completed=explicitly_completed,
+        )
+        row = {
+            "sujet": sujet,
+            "prompt": sujet.prompt,
+            "version_count": len(model_versions),
+            "has_model_response": bool(model_versions),
+            "is_personalized": is_personalized,
+            "explicitly_completed": explicitly_completed,
+            "progress": progress,
+        }
+        if current is None or current["slug"] != sujet.category:
+            current = {
+                "slug": sujet.category,
+                "label": sujet.category_label,
+                "sujets": [],
+            }
+            categories.append(current)
+        current["sujets"].append(row)
+
+    for category in categories:
+        category["count"] = len(category["sujets"])
+        category["personalized_count"] = sum(
+            row["is_personalized"] for row in category["sujets"]
+        )
+        category["progress"] = progress_summary(
+            total=category["count"],
+            started=sum(row["progress"].started for row in category["sujets"]),
+            completed=sum(
+                row["progress"].completed for row in category["sujets"]
+            ),
+        )
+        category["to_write_count"] = sum(
+            not row["has_model_response"] for row in category["sujets"]
+        )
+
+    total = len(sujets)
+    personalized = len(personalized_ids)
+    completed = len(completed_ids)
+    return {
+        "categories": categories,
+        "category_count": len(categories),
+        "sujet_count": total,
+        "response_count": response_count,
+        "personalized_count": personalized,
+        "completed_count": completed,
+        "subject_progress": progress_summary(
+            total=total,
+            started=len(personalized_ids | completed_ids),
+            completed=completed,
+        ),
+    }
+
+
 def task_detail(request, part_slug, task_slug):
     task = get_object_or_404(
         Task.objects.select_related("part"),
@@ -378,11 +472,7 @@ def task_detail(request, part_slug, task_slug):
             request.user,
             content_module.load_question_banks(),
         )
-        subject_state = _tache_two_progress(
-            request.user,
-            content_module.load_tache_two_subject_months(),
-        )
-        subject_months = subject_state["months"]
+        subject_state = _tache_two_theme_progress(request.user)
         return render(
             request,
             "study/tache_two_overview.html",
@@ -390,13 +480,9 @@ def task_detail(request, part_slug, task_slug):
                 "part": task.part,
                 "task": task,
                 "memory_task": True,
-                "subject_months": subject_months,
                 "subject_summary": subject_state,
                 "subject_count": subject_state["total"],
-                "subject_month_count": len(subject_months),
-                "subject_batch_count": sum(
-                    month["batch_count"] for month in subject_months
-                ),
+                "subject_theme_count": subject_state["theme_count"],
                 **memory_context,
             },
         )
@@ -416,6 +502,20 @@ def task_detail(request, part_slug, task_slug):
                 "task": task,
                 **_ee_tache_three_subject_context(request.user, task),
                 **memory_context,
+            },
+        )
+
+    if (
+        (task.part.slug, task.slug) == content_module.EE_TACHE_ONE_TASK
+        and _has_ee_tache_one_content(task)
+    ):
+        return render(
+            request,
+            "study/ee_tache_one_subjects.html",
+            {
+                "part": task.part,
+                "task": task,
+                **_ee_tache_one_subject_context(request.user, task),
             },
         )
 
@@ -564,11 +664,8 @@ def browse(request, part_slug=None, task_slug=None):
         forced_task.part.slug,
         forced_task.slug,
     ) == content_module.QUESTION_BANK_TASK:
-        subject_state = _tache_two_progress(
-            request.user,
-            content_module.load_tache_two_subject_months(),
-        )
-        months = subject_state["months"]
+        subject_state = _tache_two_theme_progress(request.user)
+        themes = subject_state["themes"]
         return render(
             request,
             "study/tache_two_subjects.html",
@@ -576,15 +673,12 @@ def browse(request, part_slug=None, task_slug=None):
                 "part": forced_task.part,
                 "task": forced_task,
                 "memory_task": True,
-                "subject_months": months,
+                "subject_themes": themes,
                 "subject_summary": subject_state,
-                "month_count": len(months),
-                "batch_count": sum(
-                    month["batch_count"] for month in months
-                ),
+                "theme_count": subject_state["theme_count"],
                 "subject_count": subject_state["total"],
                 "question_count": sum(
-                    month["question_count"] for month in months
+                    theme["question_count"] for theme in themes
                 ),
             },
         )
@@ -604,6 +698,27 @@ def browse(request, part_slug=None, task_slug=None):
                 "part": forced_task.part,
                 "task": forced_task,
                 **_ee_tache_three_subject_context(
+                    request.user,
+                    forced_task,
+                ),
+            },
+        )
+    if (
+        forced_task
+        and (
+            forced_task.part.slug,
+            forced_task.slug,
+        )
+        == content_module.EE_TACHE_ONE_TASK
+        and _has_ee_tache_one_content(forced_task)
+    ):
+        return render(
+            request,
+            "study/ee_tache_one_subjects.html",
+            {
+                "part": forced_task.part,
+                "task": forced_task,
+                **_ee_tache_one_subject_context(
                     request.user,
                     forced_task,
                 ),
@@ -952,6 +1067,58 @@ def _tache_two_subject_batch(month, batch_number):
     return batch
 
 
+def _tache_two_theme_neighbors(month_slug, batch_number, subject_number):
+    """Locate a subject inside its theme.
+
+    Returns ``(theme, position, total, previous, next)`` where the
+    neighbours are dicts carrying the routing fields needed to build a
+    subject-detail URL.
+    """
+    themes, mapping = content_module.load_tache_two_subject_themes()
+    theme_by_slug = {theme.slug: theme for theme in themes}
+    target_key = content_module.tache_two_subject_content_key(
+        month_slug,
+        batch_number,
+        subject_number,
+    )
+    theme_slug = mapping.get(target_key)
+    theme = theme_by_slug.get(theme_slug)
+    ordered = [
+        {
+            "month_slug": month.slug,
+            "batch_number": batch.number,
+            "number": subject.number,
+            "title": subject.title,
+        }
+        for month in content_module.load_tache_two_subject_months()
+        for batch in month.batches
+        for subject in batch.subjects
+        if mapping.get(
+            content_module.tache_two_subject_content_key(
+                month.slug,
+                batch.number,
+                subject.number,
+            )
+        )
+        == theme_slug
+    ]
+    index = next(
+        (
+            position
+            for position, item in enumerate(ordered)
+            if item["month_slug"] == month_slug
+            and item["batch_number"] == batch_number
+            and item["number"] == subject_number
+        ),
+        None,
+    )
+    if index is None:
+        return theme, 0, len(ordered), None, None
+    previous_item = ordered[index - 1] if index > 0 else None
+    next_item = ordered[index + 1] if index + 1 < len(ordered) else None
+    return theme, index + 1, len(ordered), previous_item, next_item
+
+
 def task_subject_batch(request, part_slug, task_slug, month_slug, batch_number):
     task = _memory_task(part_slug, task_slug)
     month = _tache_two_subject_month(month_slug)
@@ -1043,10 +1210,16 @@ def task_subject_detail(
         }
         for index, question in enumerate(subject.questions, start=1)
     ]
-    subject_index = next(
-        index
-        for index, batch_subject in enumerate(batch.subjects)
-        if batch_subject.number == subject.number
+    (
+        subject_theme,
+        subject_position,
+        subject_total,
+        previous_subject,
+        next_subject,
+    ) = _tache_two_theme_neighbors(
+        month.slug,
+        batch.number,
+        subject.number,
     )
     return render(
         request,
@@ -1059,18 +1232,16 @@ def task_subject_detail(
             "subject_batch": batch,
             "subject": subject,
             "subject_questions": questions,
-            "previous_subject": (
-                batch.subjects[subject_index - 1]
-                if subject_index > 0
-                else None
+            "subject_theme_name": (
+                subject_theme.name if subject_theme else ""
             ),
-            "next_subject": (
-                batch.subjects[subject_index + 1]
-                if subject_index + 1 < len(batch.subjects)
-                else None
+            "subject_theme_slug": (
+                subject_theme.slug if subject_theme else ""
             ),
-            "subject_position": subject_index + 1,
-            "subject_total": len(batch.subjects),
+            "previous_subject": previous_subject,
+            "next_subject": next_subject,
+            "subject_position": subject_position,
+            "subject_total": subject_total,
             "selected_prompt": selected_prompt,
             "response": response,
             "card": card,
@@ -1647,6 +1818,180 @@ def edit_response(request, part_slug, task_slug, prompt_id):
             "form": form,
             "argument_fields": argument_fields,
             "has_personal_response": personal is not None,
+        },
+    )
+
+
+def _route_writing_sujet(part_slug, task_slug, sujet_id):
+    task = _route_task(part_slug, task_slug)
+    if (task.part.slug, task.slug) != content_module.EE_TACHE_ONE_TASK:
+        raise Http404
+    sujet = get_object_or_404(
+        WritingSujet.objects.select_related("task__part"),
+        pk=sujet_id,
+        is_active=True,
+        task=task,
+    )
+    return task, sujet
+
+
+def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
+    task, sujet = _route_writing_sujet(part_slug, task_slug, sujet_id)
+    personal = PersonalWritingResponse.objects.filter(
+        user=request.user,
+        sujet=sujet,
+    ).first()
+    explicitly_completed = WritingSujetCompletion.objects.filter(
+        user=request.user,
+        sujet=sujet,
+    ).exists()
+    writing_progress = progress_summary(
+        total=1,
+        started=personal is not None or explicitly_completed,
+        completed=explicitly_completed,
+    )
+    model_versions = sujet.model_versions
+    siblings = list(
+        WritingSujet.objects.filter(
+            task=task,
+            is_active=True,
+            category=sujet.category,
+        ).order_by("order", "id")
+    )
+    index = next(
+        (i for i, item in enumerate(siblings) if item.pk == sujet.pk),
+        0,
+    )
+    return render(
+        request,
+        "study/writing_sujet_detail.html",
+        {
+            "part": task.part,
+            "task": task,
+            "sujet": sujet,
+            "prompt": sujet.prompt,
+            "category_label": sujet.category_label,
+            "personal": personal,
+            "has_personal": personal is not None,
+            "writing_progress": writing_progress,
+            "explicitly_completed": explicitly_completed,
+            "model_versions": model_versions,
+            "primary_version": model_versions[0] if model_versions else None,
+            "other_versions": model_versions[1:],
+            "other_version_count": max(len(model_versions) - 1, 0),
+            "previous_sujet": siblings[index - 1] if index > 0 else None,
+            "next_sujet": (
+                siblings[index + 1]
+                if index + 1 < len(siblings)
+                else None
+            ),
+            "position": index + 1,
+            "total": len(siblings),
+            "personal_saved": request.GET.get("saved") == "1",
+            "personal_reset": request.GET.get("reset") == "1",
+        },
+    )
+
+
+@require_POST
+def writing_sujet_completion(request, part_slug, task_slug, sujet_id):
+    task, sujet = _route_writing_sujet(part_slug, task_slug, sujet_id)
+    completed = request.POST.get("completed")
+    if completed not in {"0", "1"}:
+        if request.headers.get("X-Requested-With") == "fetch":
+            return JsonResponse(
+                {"error": "État de progression invalide."},
+                status=400,
+            )
+        return HttpResponseBadRequest("État de progression invalide.")
+
+    completion = WritingSujetCompletion.objects.filter(
+        user=request.user,
+        sujet=sujet,
+    )
+    if completed == "1":
+        WritingSujetCompletion.objects.get_or_create(
+            user=request.user,
+            sujet=sujet,
+        )
+        explicitly_completed = True
+    else:
+        completion.delete()
+        explicitly_completed = False
+
+    has_personal = PersonalWritingResponse.objects.filter(
+        user=request.user,
+        sujet=sujet,
+    ).exists()
+    progress = progress_summary(
+        total=1,
+        started=has_personal or explicitly_completed,
+        completed=explicitly_completed,
+    )
+    if request.headers.get("X-Requested-With") == "fetch":
+        return JsonResponse(
+            {
+                "sujet_id": sujet.pk,
+                "completed": explicitly_completed,
+                "sujet": {
+                    "status": progress.status,
+                    "label": progress.label,
+                },
+            }
+        )
+
+    return redirect(
+        reverse(
+            "study:writing_sujet_detail",
+            args=[task.part.slug, task.slug, sujet.pk],
+        )
+    )
+
+
+def writing_sujet_edit(request, part_slug, task_slug, sujet_id):
+    task, sujet = _route_writing_sujet(part_slug, task_slug, sujet_id)
+    personal = PersonalWritingResponse.objects.filter(
+        user=request.user,
+        sujet=sujet,
+    ).first()
+    detail_url = reverse(
+        "study:writing_sujet_detail",
+        args=[part_slug, task_slug, sujet.pk],
+    )
+    if request.method == "POST" and request.POST.get("action") == "reset":
+        if personal is not None:
+            personal.delete()
+        return redirect(f"{detail_url}?reset=1")
+
+    body_value = personal.body if personal else ""
+    error = ""
+    if request.method == "POST":
+        body_value = request.POST.get("body") or ""
+        cleaned = body_value.strip()
+        if not cleaned:
+            error = "Votre message ne peut pas être vide."
+        else:
+            PersonalWritingResponse.objects.update_or_create(
+                user=request.user,
+                sujet=sujet,
+                defaults={"body": cleaned},
+            )
+            return redirect(f"{detail_url}?saved=1")
+
+    return render(
+        request,
+        "study/writing_sujet_edit.html",
+        {
+            "part": task.part,
+            "task": task,
+            "sujet": sujet,
+            "prompt": sujet.prompt,
+            "category_label": sujet.category_label,
+            "body_value": body_value,
+            "error": error,
+            "has_personal": personal is not None,
+            "model_versions": sujet.model_versions,
+            "detail_url": detail_url,
         },
     )
 

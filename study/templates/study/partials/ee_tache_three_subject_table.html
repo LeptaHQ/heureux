@@ -50,33 +50,39 @@
           </th>
         </tr>
         {% for subject in month.subjects %}
-          <tr class="tache-two-batch-table__row" data-tache-two-month-row hidden>
+          <tr
+            class="tache-two-batch-table__row subject-progress-row subject-table-row subject-progress-row--{{ subject.progress.status }}"
+            data-tache-two-month-row
+            data-subject-progress-row="{{ subject.prompt.response_id }}"
+            hidden>
             <th scope="row">
-              <a
-                class="tache-two-batch-table__batch-link"
-                href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}">
+              <span class="tache-two-batch-table__batch-link">
                 {% include "study/partials/ui_icon.html" with name="file-text" only %}
                 <span>Combinaison {{ subject.combination_number }}</span>
-              </a>
+              </span>
             </th>
             <td>
-              <a class="ee-t3-subject-table__link" href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}">{{ subject.prompt.text }}</a>
+              <a
+                class="ee-t3-subject-table__link subject-table-row-link"
+                href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}"
+                aria-label="Ouvrir {{ subject.combination_label }} : {{ subject.prompt.text }}">{{ subject.prompt.text }}</a>
               <span>{{ subject.document_count }} documents · {{ subject.vocabulary_count }} vocabs</span>
             </td>
             <td class="ee-t3-subject-table__progress-cell">
               <div class="ee-t3-subject-table__progress">
-                <span class="progress-status progress-status--{{ subject.progress.status }}">{{ subject.progress.label }}</span>
-                {% include "study/partials/subject_completion_form.html" with response_id=subject.prompt.response_id progress=subject.progress subject_label=subject.prompt.text part=part task=task refresh=True only %}
+                <span
+                  class="progress-status progress-status--{{ subject.progress.status }}"
+                  data-subject-progress-status="{{ subject.prompt.response_id }}">{{ subject.progress.label }}</span>
+                {% include "study/partials/subject_completion_form.html" with response_id=subject.prompt.response_id progress=subject.progress subject_label=subject.prompt.text part=part task=task refresh=True %}
               </div>
             </td>
             <td>
-              <a
+              <span
                 class="tache-two-batch-table__action"
-                href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}"
-                aria-label="Ouvrir {{ subject.combination_label }}">
+                aria-hidden="true">
                 <span>Ouvrir</span>
                 {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
-              </a>
+              </span>
             </td>
           </tr>
         {% endfor %}

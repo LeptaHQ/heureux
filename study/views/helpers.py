@@ -10,6 +10,7 @@ from .. import queue as queue_module
 from ..models import (
     CardState,
     MemoryQuestionProgress,
+    PersonalWritingResponse,
     Phrase,
     PhraseTier,
     Prompt,
@@ -18,6 +19,8 @@ from ..models import (
     ReviewLog,
     Task,
     Theme,
+    WritingSujet,
+    WritingSujetCompletion,
 )
 from ..progress import (
     ProgressSummary,
@@ -195,6 +198,122 @@ def _tache_two_progress(user, months):
         "months": tuple(month_rows),
         "progress_by_content_key": progress_by_content_key,
         "summary": summary,
+        **summary,
+    }
+
+
+def _tache_two_progress_by_content_key(user, months):
+    """Return {content_key: SubjectProgress} for every Tâche 2 subject."""
+    content_keys = [
+        content_module.tache_two_subject_content_key(
+            month.slug,
+            batch.number,
+            subject.number,
+        )
+        for month in months
+        for batch in month.batches
+        for subject in batch.subjects
+    ]
+    response_id_by_content_key = dict(
+        Response.objects.filter(
+            content_key__in=content_keys,
+            is_active=True,
+        ).values_list("content_key", "pk")
+    )
+    progress_by_response = subject_progress_by_response(
+        user,
+        response_id_by_content_key.values(),
+    )
+    progress_by_content_key = {
+        content_key: progress_by_response[response_id]
+        for content_key, response_id in response_id_by_content_key.items()
+    }
+    return progress_by_content_key, response_id_by_content_key
+
+
+def _tache_two_theme_progress(user, months=None):
+    """Group Tâche 2 subjects by theme with per-subject progress."""
+    if months is None:
+        months = content_module.load_tache_two_subject_months()
+    months = tuple(months)
+    themes, mapping = content_module.load_tache_two_subject_themes()
+    progress_by_content_key, response_id_by_content_key = (
+        _tache_two_progress_by_content_key(user, months)
+    )
+
+    subjects_by_theme = {theme.slug: [] for theme in themes}
+    all_progress = []
+    for month in months:
+        for batch in month.batches:
+            for subject in batch.subjects:
+                content_key = content_module.tache_two_subject_content_key(
+                    month.slug,
+                    batch.number,
+                    subject.number,
+                )
+                theme_slug = mapping.get(content_key)
+                if theme_slug not in subjects_by_theme:
+                    continue
+                progress = progress_by_content_key.get(
+                    content_key,
+                    _EMPTY_SUBJECT_PROGRESS,
+                )
+                vocabulary_progress = progress.vocabulary_progress
+                all_progress.append(progress)
+                subjects_by_theme[theme_slug].append(
+                    {
+                        "month_slug": month.slug,
+                        "batch_number": batch.number,
+                        "number": subject.number,
+                        "number_label": subject.number_label,
+                        "title": subject.title,
+                        "prompt": subject.prompt,
+                        "questions": subject.questions,
+                        "question_count": subject.question_count,
+                        "memory_question_count": subject.memory_question_count,
+                        "content_key": content_key,
+                        "response_id": response_id_by_content_key.get(
+                            content_key
+                        ),
+                        "progress": progress,
+                        "vocabulary_progress": vocabulary_progress,
+                        "vocabulary_started_only": max(
+                            vocabulary_progress.started
+                            - vocabulary_progress.completed,
+                            0,
+                        ),
+                    }
+                )
+
+    theme_rows = []
+    for theme in sorted(themes, key=lambda item: item.order):
+        subjects = subjects_by_theme[theme.slug]
+        for index, subject in enumerate(subjects, start=1):
+            subject["index"] = index
+        theme_summary = summarize_subject_progress(
+            [subject["progress"] for subject in subjects]
+        )
+        theme_rows.append(
+            {
+                "slug": theme.slug,
+                "name": theme.name,
+                "icon": theme.icon,
+                "order": theme.order,
+                "subjects": tuple(subjects),
+                "subject_count": len(subjects),
+                "question_count": sum(
+                    subject["question_count"] for subject in subjects
+                ),
+                **theme_summary,
+            }
+        )
+
+    summary = summarize_subject_progress(all_progress)
+    return {
+        "themes": tuple(theme_rows),
+        "progress_by_content_key": progress_by_content_key,
+        "summary": summary,
+        "theme_count": len(theme_rows),
         **summary,
     }
 
@@ -483,10 +602,77 @@ def _route_task(part_slug, task_slug):
     )
 
 
+def _ee_tache_one_task_card(task, user):
+    """Deck card for EE Tâche 1 with explicit subject completion."""
+    total = WritingSujet.objects.filter(task=task, is_active=True).count()
+    response_total = (
+        WritingSujet.objects.filter(task=task, is_active=True)
+        .exclude(versions=[])
+        .count()
+    )
+    personalized_ids = set(
+        PersonalWritingResponse.objects.filter(
+            user=user,
+            sujet__task=task,
+            sujet__is_active=True,
+        ).values_list("sujet_id", flat=True)
+    )
+    completed_ids = set(
+        WritingSujetCompletion.objects.filter(
+            user=user,
+            sujet__task=task,
+            sujet__is_active=True,
+        ).values_list("sujet_id", flat=True)
+    )
+    started = len(personalized_ids | completed_ids)
+    completed = len(completed_ids)
+    summary = progress_summary(
+        total=total,
+        started=started,
+        completed=completed,
+    )
+    stats = {
+        "progress": summary,
+        "total": summary.total,
+        "completed": summary.completed,
+        "started_new": max(started - completed, 0),
+        "seen": started,
+        "due": 0,
+    }
+    return {
+        "task": task,
+        "stats": stats,
+        "response_stats": {"total": response_total},
+        "phrase_stats": None,
+        "functional_phrase_stats": None,
+        "counts": None,
+        "phrase_counts": None,
+        "revisit_count": 0,
+        "theme_count": (
+            WritingSujet.objects.filter(task=task, is_active=True)
+            .values("category")
+            .distinct()
+            .count()
+        ),
+        "prompt_count": total,
+        "phrase_count": 0,
+        "functional_phrase_count": 0,
+        "subject_vocabulary_count": 0,
+        "subject_vocabulary_prompt_count": 0,
+        "question_bank": None,
+        "show_phrases": False,
+    }
+
+
 def _task_card(task, now, user):
     """Build a dashboard/part card for a single task."""
     question_bank = None
     subject_state = None
+    if (
+        task.available
+        and (task.part.slug, task.slug) == content_module.EE_TACHE_ONE_TASK
+    ):
+        return _ee_tache_one_task_card(task, user)
     if (
         task.available
         and (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK
@@ -625,4 +811,5 @@ def _task_card(task, now, user):
         "subject_vocabulary_count": subject_vocabulary_count,
         "subject_vocabulary_prompt_count": subject_vocabulary_prompt_count,
         "question_bank": question_bank,
+        "show_phrases": bool(phrase_count),
     }

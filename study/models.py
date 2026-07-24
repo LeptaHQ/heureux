@@ -207,6 +207,115 @@ class PersonalResponse(models.Model):
         ]
 
 
+class WritingSujet(models.Model):
+    """A short-message writing prompt (EE Tâche 1) with model responses.
+
+    Sujets are grouped by theme category. Every model version is kept, best
+    first, inside ``versions``; learners layer their own version on top with a
+    :class:`PersonalWritingResponse` without ever mutating the shared content.
+    """
+
+    task = models.ForeignKey(
+        Task, on_delete=models.CASCADE, related_name="writing_sujets"
+    )
+    category = models.SlugField(max_length=64)
+    category_label = models.CharField(max_length=80)
+    slug = models.SlugField(max_length=80)
+    order = models.PositiveIntegerField(default=0)
+    prompt = models.TextField()
+    versions = models.JSONField(default=list)
+    is_active = models.BooleanField(default=True, db_index=True)
+
+    class Meta:
+        ordering = ["order", "id"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["task", "slug"],
+                name="unique_writing_sujet_slug_per_task",
+            ),
+        ]
+        indexes = [
+            models.Index(fields=["task", "category", "order"]),
+        ]
+
+    def __str__(self) -> str:
+        return f"{self.category}: {self.prompt[:60]}"
+
+    @property
+    def model_versions(self) -> list:
+        """Return the non-empty model responses, best first."""
+        return [
+            version
+            for version in (self.versions or [])
+            if isinstance(version, dict) and (version.get("body") or "").strip()
+        ]
+
+    @property
+    def has_model_response(self) -> bool:
+        return bool(self.model_versions)
+
+
+class PersonalWritingResponse(models.Model):
+    """A learner-owned answer to a WritingSujet; the shared sujet never changes."""
+
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="personal_writing_responses",
+    )
+    sujet = models.ForeignKey(
+        WritingSujet,
+        on_delete=models.CASCADE,
+        related_name="personal_versions",
+    )
+    body = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-updated_at", "-id"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "sujet"],
+                name="unique_user_writing_response",
+            ),
+        ]
+        indexes = [
+            models.Index(fields=["user", "updated_at"]),
+        ]
+
+    def __str__(self) -> str:
+        return f"{self.user_id} · {self.sujet_id}"
+
+
+class WritingSujetCompletion(models.Model):
+    """A learner's explicit completion marker for an EE Tâche 1 sujet."""
+
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="writing_sujet_completions",
+    )
+    sujet = models.ForeignKey(
+        WritingSujet,
+        on_delete=models.CASCADE,
+        related_name="explicit_completions",
+    )
+    completed_at = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ["completed_at", "id"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "sujet"],
+                name="unique_writing_sujet_completion",
+            ),
+        ]
+
+    def __str__(self) -> str:
+        return f"{self.user} · {self.sujet} · completed"
+
+
 class Prompt(models.Model):
     """A prompt as numbered inside a theme; maps onto exactly one Response."""
 

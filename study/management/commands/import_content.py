@@ -38,6 +38,7 @@ from study.models import (
     Settings,
     Task,
     Theme,
+    WritingSujet,
 )
 
 PHRASE_ID_MERGES = {
@@ -93,6 +94,7 @@ class Command(BaseCommand):
             *content.ee_tache_three_themes(ee_tache_three_months),
         ]
         sections = content.load_sections()
+        ee_tache_one_categories = content.load_ee_tache_one_categories()
         question_banks = content.load_question_banks()
         family_map, families = content.parse_families()
         families = [
@@ -154,6 +156,7 @@ class Command(BaseCommand):
         self.stdout.write("Synchronizing shared content rows...")
         self.stdout.flush()
         task_by_slug = self._import_sections(sections)
+        self._import_writing_sujets(ee_tache_one_categories, task_by_slug)
         theme_by_name = self._import_themes(themes, task_by_slug)
         family_by_name = self._import_families(families)
         response_by_key = self._import_responses(
@@ -289,6 +292,37 @@ class Command(BaseCommand):
         Task.objects.exclude(pk__in=seen_tasks).update(is_active=False)
         ExamPart.objects.exclude(pk__in=seen_parts).update(is_active=False)
         return task_by_slug
+
+    def _import_writing_sujets(self, categories, task_by_slug):
+        """Upsert EE Tâche 1 message sujets; learner versions are never touched."""
+        task = task_by_slug.get("ee/tache-1")
+        if task is None:
+            WritingSujet.objects.update(is_active=False)
+            return
+        seen = set()
+        order = 0
+        for category in categories:
+            for sujet in category.sujets:
+                order += 1
+                obj, _ = WritingSujet.objects.update_or_create(
+                    task=task,
+                    slug=sujet.slug,
+                    defaults={
+                        "category": category.slug,
+                        "category_label": category.label,
+                        "order": order,
+                        "prompt": sujet.prompt,
+                        "versions": [
+                            {"body": version.body}
+                            for version in sujet.versions
+                        ],
+                        "is_active": True,
+                    },
+                )
+                seen.add(obj.pk)
+        WritingSujet.objects.filter(task=task).exclude(pk__in=seen).update(
+            is_active=False
+        )
 
     def _import_themes(self, themes, task_by_slug):
         seen = set()

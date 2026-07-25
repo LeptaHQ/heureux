@@ -2396,6 +2396,47 @@ class BrowserTests(StaticLiveServerTestCase):
             ".annotation-card__body",
             has_text="Une note personnelle.",
         ).wait_for()
+        tab_styles = self.page.locator(".notes-tabs").evaluate(
+            """
+            tabs => {
+              const active = tabs.querySelector('.notes-tab.is-active');
+              const inactive = tabs.querySelector(
+                '.notes-tab:not(.is-active)'
+              );
+              const probe = document.createElement('span');
+              probe.style.background = 'var(--primary-soft)';
+              document.body.appendChild(probe);
+              const primarySoft = getComputedStyle(probe).backgroundColor;
+              probe.remove();
+              return {
+                shellBackground: getComputedStyle(tabs).backgroundColor,
+                shellBorder: getComputedStyle(tabs).borderTopWidth,
+                shellRadius: parseFloat(
+                  getComputedStyle(tabs).borderRadius
+                ),
+                activeBackground: getComputedStyle(active).backgroundColor,
+                activeRadius: parseFloat(
+                  getComputedStyle(active).borderRadius
+                ),
+                segmentGap: inactive.getBoundingClientRect().left
+                  - active.getBoundingClientRect().right,
+                primarySoft,
+              };
+            }
+            """
+        )
+        self.assertNotEqual(
+            tab_styles["shellBackground"],
+            "rgba(0, 0, 0, 0)",
+        )
+        self.assertEqual(tab_styles["shellBorder"], "1px")
+        self.assertGreater(tab_styles["shellRadius"], 100)
+        self.assertEqual(
+            tab_styles["activeBackground"],
+            tab_styles["primarySoft"],
+        )
+        self.assertGreater(tab_styles["activeRadius"], 100)
+        self.assertLessEqual(tab_styles["segmentGap"], 4)
         self.assertFalse(
             self.page.locator(".annotation-table--notes").is_visible()
         )
@@ -2516,6 +2557,30 @@ class BrowserTests(StaticLiveServerTestCase):
             highlights_table.locator(".annotation-table__row")
             .first.evaluate("row => getComputedStyle(row).display"),
             "table-row",
+        )
+        table_edge_gap = highlights_table.evaluate(
+            """
+            table => {
+              const shell = table.closest('.annotation-table-shell');
+              return shell.getBoundingClientRect().right
+                - table.getBoundingClientRect().right;
+            }
+            """
+        )
+        self.assertLessEqual(table_edge_gap, 1.5)
+        self.assertEqual(
+            highlights_table.locator(
+                ".annotation-table__actions-heading"
+            ).evaluate("heading => getComputedStyle(heading).textAlign"),
+            "left",
+        )
+        self.assertEqual(
+            highlights_table.locator(
+                ".annotation-table__actions"
+            ).first.evaluate(
+                "actions => getComputedStyle(actions).justifyContent"
+            ),
+            "flex-start",
         )
         self.page.get_by_role("button", name="Cartes").click()
         self.page.locator(

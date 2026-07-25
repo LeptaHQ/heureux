@@ -2919,7 +2919,7 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   margin: 0;
   padding: 0.2rem;
   border: 1px solid var(--border);
-  border-radius: 11px;
+  border-radius: 999px;
   background: var(--surface-2);
 }
 .notes-view-controls .notes-tabs {
@@ -2940,20 +2940,28 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   gap: 0.4rem;
   min-height: 38px;
   padding: 0.35rem 0.55rem;
+  border: 1px solid transparent;
   border-radius: 999px;
+  background: transparent;
   color: var(--text-soft);
   font-size: 0.84rem;
   font-weight: 700;
   text-decoration: none;
+  transition:
+    border-color 0.16s ease,
+    background 0.16s ease,
+    color 0.16s ease;
 }
 .notes-tab:hover {
-  color: var(--text);
+  background: var(--surface);
+  color: var(--primary);
   text-decoration: none;
 }
 .notes-tab.is-active {
-  background: var(--surface);
+  border-color: color-mix(in srgb, var(--primary) 32%, var(--border));
+  background: var(--primary-soft);
   color: var(--primary);
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
 }
 .notes-tab__count {
   min-width: 1.25rem;
@@ -2966,7 +2974,7 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   text-align: center;
 }
 .notes-tab.is-active .notes-tab__count {
-  background: var(--primary-soft);
+  background: var(--surface);
   color: var(--primary);
 }
 .collection-view-toolbar {
@@ -4664,7 +4672,6 @@ html[data-collection-view-mode="table"]
   border-radius: 10px;
   background: var(--surface);
   box-shadow: none;
-  scrollbar-gutter: stable;
 }
 .annotation-table {
   width: 100%;
@@ -4695,7 +4702,6 @@ html[data-collection-view-mode="table"]
 .annotation-table__row td + td {
   border-left: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
 }
-.annotation-table__actions-heading { text-align: right !important; }
 .annotation-table__group th {
   padding: 0.58rem 1rem;
   border-top: 1px solid var(--border);
@@ -4812,7 +4818,7 @@ html[data-collection-view-mode="table"]
 }
 .annotation-card__actions.annotation-table__actions {
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 0.2rem;
   margin: 0;
   padding: 0;
@@ -12288,8 +12294,9 @@ html[data-collection-view-mode="table"]
   background: var(--surface);
 }
 .notes-tab.is-active {
-  background: var(--tone-notes-soft);
-  color: var(--tone-notes);
+  border-color: color-mix(in srgb, var(--primary) 32%, var(--border));
+  background: var(--primary-soft);
+  color: var(--primary);
 }
 .notes-scope-nav a:hover,
 .notes-scope-nav a.is-active {

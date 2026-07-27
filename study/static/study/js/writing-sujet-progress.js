@@ -108,6 +108,13 @@
     });
   }
 
+  document.addEventListener(
+    "heureux:writing-sujet-progress",
+    function (event) {
+      if (event.detail) updatePage(event.detail);
+    }
+  );
+
   document.addEventListener("submit", function (event) {
     var form = event.target.closest(
       "[data-writing-sujet-completion-form]"

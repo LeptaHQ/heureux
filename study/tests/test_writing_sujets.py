@@ -12,6 +12,7 @@ from study.content_loader import (
 )
 from study.management.commands.import_content import Command
 from study.models import (
+    AnnotationKind,
     PersonalWritingResponse,
     WritingSujet,
     WritingSujetCompletion,
@@ -211,6 +212,89 @@ class WritingSujetViewTests(TestCase):
             self.assertContains(page, "Sorties")
             self.assertContains(page, "Invitez Cédric au château.")
             self.assertContains(page, "À rédiger")
+
+    def test_table_groups_subjects_by_theme(self):
+        page = self.client.get(
+            reverse("study:task_browse", args=["ee", "tache-1"])
+        )
+
+        self.assertContains(page, "data-t1-table-theme", count=2)
+        self.assertContains(page, "data-t1-table-subject", count=3)
+        self.assertNotContains(page, 'class="t1-table__theme"')
+        self.assertContains(page, "Sujets du thème Invitations")
+        self.assertContains(page, "Sujets du thème Sorties")
+
+    def test_response_highlight_sets_only_its_sujet_in_progress(self):
+        source_path = self._detail_url(self.multi)
+        source_key = f"writing-sujet:{self.multi.pk}:model-1"
+
+        detail = self.client.get(source_path)
+        self.assertContains(
+            detail,
+            f'data-annotation-source-key="{source_key}"',
+        )
+        created = self.client.post(
+            reverse("study:annotation_create"),
+            {
+                "kind": AnnotationKind.HIGHLIGHT,
+                "quote": "Version A la meilleure.",
+                "start_offset": "0",
+                "end_offset": "24",
+                "prefix": "",
+                "suffix": "",
+                "source_path": source_path,
+                "source_key": source_key,
+                "source_title": "Sujet Tâche 1",
+                "task_id": str(self.task.pk),
+                "overlap_ids": "",
+            },
+        )
+
+        self.assertEqual(created.status_code, 201)
+        self.assertEqual(
+            created.json()["writing_sujet_progress"],
+            {
+                "sujet_id": self.multi.pk,
+                "completed": False,
+                "sujet": {"status": "active", "label": "En cours"},
+            },
+        )
+        browse = self.client.get(
+            reverse("study:task_browse", args=["ee", "tache-1"])
+        )
+        progress_by_sujet = {
+            row["sujet"].pk: row["progress"]
+            for category in browse.context["categories"]
+            for row in category["sujets"]
+        }
+        self.assertEqual(progress_by_sujet[self.multi.pk].status, "active")
+        self.assertEqual(progress_by_sujet[self.single.pk].status, "new")
+        self.assertEqual(browse.context["subject_progress"].started, 1)
+
+        part_page = self.client.get(reverse("study:part_detail", args=["ee"]))
+        task_card = next(
+            item
+            for item in part_page.context["tasks"]
+            if item["task"].pk == self.task.pk
+        )
+        self.assertEqual(task_card["stats"]["seen"], 1)
+        self.assertEqual(task_card["stats"]["started_new"], 1)
+
+        deleted = self.client.post(
+            reverse(
+                "study:annotation_delete",
+                args=[created.json()["id"]],
+            ),
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        self.assertEqual(
+            deleted.json()["writing_sujet_progress"]["sujet"],
+            {"status": "new", "label": "À commencer"},
+        )
+        self.assertEqual(
+            self.client.get(source_path).context["writing_progress"].status,
+            "new",
+        )
 
     def test_detail_shows_best_version_first_with_others_toggle(self):
         page = self.client.get(self._detail_url(self.multi))

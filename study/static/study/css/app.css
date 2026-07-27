@@ -13608,6 +13608,9 @@ html[data-collection-view-mode="table"]
 }
 .t1-table__questions-column { width: 7.5rem; }
 .t1-table__status-column { width: 11.5rem; }
+.t1-table__content-column { width: 10.5rem; }
+.t1-table__writing-status-column { width: 12rem; }
+.t1-table__versions-column { width: 6rem; }
 .t1-table-shell {
   overflow-x: auto;
   border: 1px solid var(--border);
@@ -13664,7 +13667,7 @@ html[data-collection-view-mode="table"]
   gap: 0.45rem;
 }
 .t1-table__versions { text-align: center; color: var(--text-soft); font-variant-numeric: tabular-nums; }
-.ee-t1-page .t1-table { min-width: 62rem; }
+.ee-t1-page .t1-table--writing { min-width: 48rem; }
 @media (max-width: 640px) {
   .t1-table__theme { white-space: normal; }
   .t1-table-groups__head { display: none; }

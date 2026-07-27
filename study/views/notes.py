@@ -26,6 +26,11 @@ from ..models import (
     AnnotationKind,
     Prompt,
     Task,
+    WritingSujet,
+)
+from ..progress import (
+    writing_sujet_id_from_source_key,
+    writing_sujet_progress_by_id,
 )
 from ..routing import prompt_detail_url
 
@@ -545,6 +550,26 @@ def _annotation_source_key(value):
     return value
 
 
+def _writing_sujet_progress_payload(user, source_key):
+    sujet_id = writing_sujet_id_from_source_key(source_key)
+    if sujet_id is None or not WritingSujet.objects.filter(
+        pk=sujet_id,
+        is_active=True,
+    ).exists():
+        return {}
+    progress = writing_sujet_progress_by_id(user, [sujet_id])[sujet_id]
+    return {
+        "writing_sujet_progress": {
+            "sujet_id": sujet_id,
+            "completed": progress.explicitly_completed,
+            "sujet": {
+                "status": progress.status,
+                "label": progress.label,
+            },
+        }
+    }
+
+
 def _annotation_overlap_ids(value):
     if value is None:
         return None
@@ -841,24 +866,29 @@ def annotation_create(request):
             {"error": " ".join(error.messages)},
             status=400,
         )
-    return JsonResponse(
-        {
-            "id": annotation.id,
-            "created": created,
-            "removed_ids": removed_ids,
-            "revision": annotation.updated_at.isoformat(),
-            "delete_url": reverse(
-                "study:annotation_delete",
-                args=[annotation.id],
-            ),
-            "notes_url": (
-                _annotation_tab_url(task, annotation.kind)
-                + "#"
-                + _annotation_anchor(annotation)
-            ),
-        },
-        status=201 if created else 200,
-    )
+    payload = {
+        "id": annotation.id,
+        "created": created,
+        "removed_ids": removed_ids,
+        "revision": annotation.updated_at.isoformat(),
+        "delete_url": reverse(
+            "study:annotation_delete",
+            args=[annotation.id],
+        ),
+        "notes_url": (
+            _annotation_tab_url(task, annotation.kind)
+            + "#"
+            + _annotation_anchor(annotation)
+        ),
+    }
+    if annotation.kind == AnnotationKind.HIGHLIGHT:
+        payload.update(
+            _writing_sujet_progress_payload(
+                request.user,
+                annotation.source_key,
+            )
+        )
+    return JsonResponse(payload, status=201 if created else 200)
 
 
 def _annotation_redirect(request, annotation):
@@ -954,7 +984,13 @@ def annotation_delete(request, pk):
         "was_study": annotation.study_later,
         "scope": _annotation_scope_key(annotation),
     }
+    source_key = annotation.source_key
+    kind = annotation.kind
     annotation.delete()
+    if kind == AnnotationKind.HIGHLIGHT:
+        payload.update(
+            _writing_sujet_progress_payload(request.user, source_key)
+        )
     if request.headers.get("X-Requested-With") == "fetch":
         return JsonResponse(payload)
     return redirect(target)

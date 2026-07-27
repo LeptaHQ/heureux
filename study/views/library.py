@@ -51,6 +51,7 @@ from ..progress import (
     progress_summary,
     subject_progress_by_response,
     summarize_subject_progress,
+    writing_sujet_progress_by_id,
 )
 from ..routing import (
     comprehension_skill,
@@ -374,17 +375,9 @@ def _ee_tache_one_subject_context(user, task):
             "id",
         )
     )
-    personalized_ids = set(
-        PersonalWritingResponse.objects.filter(
-            user=user,
-            sujet__in=sujets,
-        ).values_list("sujet_id", flat=True)
-    )
-    completed_ids = set(
-        WritingSujetCompletion.objects.filter(
-            user=user,
-            sujet__in=sujets,
-        ).values_list("sujet_id", flat=True)
+    progress_by_sujet = writing_sujet_progress_by_id(
+        user,
+        (sujet.pk for sujet in sujets),
     )
     categories = []
     current = None
@@ -393,13 +386,9 @@ def _ee_tache_one_subject_context(user, task):
         model_versions = sujet.model_versions
         if model_versions:
             response_count += 1
-        is_personalized = sujet.pk in personalized_ids
-        explicitly_completed = sujet.pk in completed_ids
-        progress = progress_summary(
-            total=1,
-            started=is_personalized or explicitly_completed,
-            completed=explicitly_completed,
-        )
+        progress = progress_by_sujet[sujet.pk]
+        is_personalized = progress.is_personalized
+        explicitly_completed = progress.explicitly_completed
         row = {
             "sujet": sujet,
             "prompt": sujet.prompt,
@@ -435,8 +424,12 @@ def _ee_tache_one_subject_context(user, task):
         )
 
     total = len(sujets)
-    personalized = len(personalized_ids)
-    completed = len(completed_ids)
+    personalized = sum(
+        progress.is_personalized for progress in progress_by_sujet.values()
+    )
+    completed = sum(
+        progress.explicitly_completed for progress in progress_by_sujet.values()
+    )
     return {
         "categories": categories,
         "category_count": len(categories),
@@ -446,7 +439,9 @@ def _ee_tache_one_subject_context(user, task):
         "completed_count": completed,
         "subject_progress": progress_summary(
             total=total,
-            started=len(personalized_ids | completed_ids),
+            started=sum(
+                progress.started for progress in progress_by_sujet.values()
+            ),
             completed=completed,
         ),
     }
@@ -1841,15 +1836,11 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
         user=request.user,
         sujet=sujet,
     ).first()
-    explicitly_completed = WritingSujetCompletion.objects.filter(
-        user=request.user,
-        sujet=sujet,
-    ).exists()
-    writing_progress = progress_summary(
-        total=1,
-        started=personal is not None or explicitly_completed,
-        completed=explicitly_completed,
-    )
+    writing_progress = writing_sujet_progress_by_id(
+        request.user,
+        [sujet.pk],
+    )[sujet.pk]
+    explicitly_completed = writing_progress.explicitly_completed
     model_versions = sujet.model_versions
     siblings = list(
         WritingSujet.objects.filter(
@@ -1919,15 +1910,10 @@ def writing_sujet_completion(request, part_slug, task_slug, sujet_id):
         completion.delete()
         explicitly_completed = False
 
-    has_personal = PersonalWritingResponse.objects.filter(
-        user=request.user,
-        sujet=sujet,
-    ).exists()
-    progress = progress_summary(
-        total=1,
-        started=has_personal or explicitly_completed,
-        completed=explicitly_completed,
-    )
+    progress = writing_sujet_progress_by_id(
+        request.user,
+        [sujet.pk],
+    )[sujet.pk]
     if request.headers.get("X-Requested-With") == "fetch":
         return JsonResponse(
             {

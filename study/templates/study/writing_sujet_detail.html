@@ -50,7 +50,10 @@
       {% if has_personal %}
         <section class="card section-card section-card--personal" aria-labelledby="t1-personal-label">
           <div class="spine-label" id="t1-personal-label">Ma version <span class="chip chip--accent">Personnelle</span></div>
-          <div class="t1-response__body">{{ personal.body|linebreaks }}</div>
+          <div
+            class="t1-response__body"
+            data-annotation-root
+            data-annotation-source-key="writing-sujet:{{ sujet.pk }}:personal">{{ personal.body|linebreaks }}</div>
         </section>
         {% if model_versions %}
           <details class="t1-versions">
@@ -59,7 +62,10 @@
               {% for version in model_versions %}
                 <section class="card section-card section-card--model">
                   {% if model_versions|length > 1 %}<div class="spine-label">Version {{ forloop.counter }}</div>{% else %}<div class="spine-label">Réponse modèle</div>{% endif %}
-                  <div class="t1-response__body">{{ version.body|linebreaks }}</div>
+                  <div
+                    class="t1-response__body"
+                    data-annotation-root
+                    data-annotation-source-key="writing-sujet:{{ sujet.pk }}:model-{{ forloop.counter }}">{{ version.body|linebreaks }}</div>
                 </section>
               {% endfor %}
             </div>
@@ -68,7 +74,10 @@
       {% elif primary_version %}
         <section class="card section-card section-card--model" aria-labelledby="t1-model-label">
           <div class="spine-label" id="t1-model-label">Réponse modèle</div>
-          <div class="t1-response__body">{{ primary_version.body|linebreaks }}</div>
+          <div
+            class="t1-response__body"
+            data-annotation-root
+            data-annotation-source-key="writing-sujet:{{ sujet.pk }}:model-1">{{ primary_version.body|linebreaks }}</div>
         </section>
         {% if other_version_count %}
           <details class="t1-versions">
@@ -77,7 +86,10 @@
               {% for version in other_versions %}
                 <section class="card section-card section-card--model">
                   <div class="spine-label">Version {{ forloop.counter|add:1 }}</div>
-                  <div class="t1-response__body">{{ version.body|linebreaks }}</div>
+                  <div
+                    class="t1-response__body"
+                    data-annotation-root
+                    data-annotation-source-key="writing-sujet:{{ sujet.pk }}:model-{{ forloop.counter|add:1 }}">{{ version.body|linebreaks }}</div>
                 </section>
               {% endfor %}
             </div>
@@ -105,7 +117,7 @@
             {% include "study/partials/writing_sujet_completion_form.html" with sujet=sujet completed=explicitly_completed subject_label=prompt part=part task=task %}
           </div>
         </div>
-        <p class="subject-progress-control__help">Personnaliser votre réponse garde le sujet « En cours » jusqu’à votre validation.</p>
+        <p class="subject-progress-control__help">Surligner ou personnaliser une réponse garde le sujet « En cours » jusqu’à votre validation.</p>
         <dl class="kv">
           <div><dt>Thème</dt><dd>{{ category_label }}</dd></div>
           <div><dt>Réponses modèles</dt><dd>{{ model_versions|length }}</dd></div>

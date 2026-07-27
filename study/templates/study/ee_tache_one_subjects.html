@@ -76,50 +76,73 @@
       {% endfor %}
     </div>
 
-    <div class="t1-table-shell" data-collection-view data-collection-view-panel="table">
-      <table class="t1-table">
-        <caption class="sr-only">Tous les sujets classés par thème</caption>
-        <thead>
-          <tr>
-            <th scope="col">Thème</th>
-            <th scope="col">Sujet</th>
-            <th scope="col">Contenu</th>
-            <th scope="col">Progression</th>
-            <th scope="col" class="t1-table__versions-col">Versions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for category in categories %}
+    <div class="t1-table-groups" data-collection-view data-collection-view-panel="table">
+      <div class="t1-table-groups__head" aria-hidden="true">
+        <span>Thème</span>
+        <span>Sujets</span>
+        <span>Progression</span>
+      </div>
+      {% for category in categories %}
+        <details class="t1-theme t1-table-group" data-t1-table-theme>
+          <summary class="t1-theme__head">
+            <span class="t1-theme__chevron" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+            <span class="t1-theme__glyph" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="file-text" only %}</span>
+            <span class="t1-theme__title">{{ category.label }}</span>
+            <span class="t1-theme__meta">
+              <span class="t1-theme__count">{{ category.count }} sujet{{ category.count|pluralize }}</span>
+              <span class="progress-status progress-status--{{ category.progress.status }}">{{ category.progress.completed }}/{{ category.progress.total }}</span>
+            </span>
+          </summary>
+          <div class="t1-table-shell">
+            <table class="t1-table t1-table--grouped t1-table--writing">
+              <caption class="sr-only">Sujets du thème {{ category.label }}</caption>
+              <colgroup>
+                <col class="t1-table__subject-column">
+                <col class="t1-table__content-column">
+                <col class="t1-table__writing-status-column">
+                <col class="t1-table__versions-column">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">Sujet</th>
+                  <th scope="col">Contenu</th>
+                  <th scope="col">Progression</th>
+                  <th scope="col" class="t1-table__versions-col">Versions</th>
+                </tr>
+              </thead>
+              <tbody>
             {% for row in category.sujets %}
-            <tr
-              class="t1-table__row subject-progress-row subject-table-row writing-sujet-progress-row writing-sujet-progress-row--{{ row.progress.status }}{% if row.is_personalized %} is-personalized{% endif %}"
-              data-writing-sujet-progress-row="{{ row.sujet.pk }}">
-              <td class="t1-table__theme">{{ category.label }}</td>
-              <td class="t1-table__subject">
-                <a
-                  class="subject-table-row-link"
-                  href="{% url 'study:writing_sujet_detail' part.slug task.slug row.sujet.pk %}"
-                  aria-label="Ouvrir le sujet : {{ row.prompt }}">{{ row.prompt|truncatechars:150 }}</a>
-              </td>
-              <td>
-                {% if row.is_personalized %}<span class="chip chip--accent">Personnalisé</span>
-                {% elif row.has_model_response %}<span class="progress-status progress-status--new">Réponse modèle</span>
-                {% else %}<span class="badge-soon">À rédiger</span>{% endif %}
-              </td>
-              <td class="t1-table__progress-cell">
-                <div class="t1-table__progress">
-                  <span
-                    class="progress-status progress-status--{{ row.progress.status }}"
-                    data-writing-sujet-progress-status="{{ row.sujet.pk }}">{{ row.progress.label }}</span>
-                  {% include "study/partials/writing_sujet_completion_form.html" with sujet=row.sujet completed=row.explicitly_completed subject_label=row.prompt part=part task=task refresh=True %}
-                </div>
-              </td>
-              <td class="t1-table__versions">{% if row.has_model_response %}{{ row.version_count }}{% else %}—{% endif %}</td>
-            </tr>
+              <tr
+                class="t1-table__row subject-progress-row subject-table-row writing-sujet-progress-row writing-sujet-progress-row--{{ row.progress.status }}{% if row.is_personalized %} is-personalized{% endif %}"
+                data-t1-table-subject
+                data-writing-sujet-progress-row="{{ row.sujet.pk }}">
+                <td class="t1-table__subject">
+                  <a
+                    class="subject-table-row-link"
+                    href="{% url 'study:writing_sujet_detail' part.slug task.slug row.sujet.pk %}"
+                    aria-label="Ouvrir le sujet : {{ row.prompt }}">{{ row.prompt|truncatechars:150 }}</a>
+                </td>
+                <td>
+                  {% if row.is_personalized %}<span class="chip chip--accent">Personnalisé</span>
+                  {% elif row.has_model_response %}<span class="progress-status progress-status--new">Réponse modèle</span>
+                  {% else %}<span class="badge-soon">À rédiger</span>{% endif %}
+                </td>
+                <td class="t1-table__progress-cell">
+                  <div class="t1-table__progress">
+                    <span
+                      class="progress-status progress-status--{{ row.progress.status }}"
+                      data-writing-sujet-progress-status="{{ row.sujet.pk }}">{{ row.progress.label }}</span>
+                    {% include "study/partials/writing_sujet_completion_form.html" with sujet=row.sujet completed=row.explicitly_completed subject_label=row.prompt part=part task=task refresh=True %}
+                  </div>
+                </td>
+                <td class="t1-table__versions">{% if row.has_model_response %}{{ row.version_count }}{% else %}—{% endif %}</td>
+              </tr>
             {% endfor %}
-          {% endfor %}
-        </tbody>
-      </table>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      {% endfor %}
     </div>
   </div>
 </div>

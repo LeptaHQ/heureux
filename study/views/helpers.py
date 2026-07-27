@@ -10,7 +10,6 @@ from .. import queue as queue_module
 from ..models import (
     CardState,
     MemoryQuestionProgress,
-    PersonalWritingResponse,
     Phrase,
     PhraseTier,
     Prompt,
@@ -20,7 +19,6 @@ from ..models import (
     Task,
     Theme,
     WritingSujet,
-    WritingSujetCompletion,
 )
 from ..progress import (
     ProgressSummary,
@@ -29,6 +27,7 @@ from ..progress import (
     progress_summary,
     subject_progress_by_response,
     summarize_subject_progress,
+    writing_sujet_progress_by_id,
 )
 from ..routing import review_url
 
@@ -604,28 +603,28 @@ def _route_task(part_slug, task_slug):
 
 def _ee_tache_one_task_card(task, user):
     """Deck card for EE Tâche 1 with explicit subject completion."""
-    total = WritingSujet.objects.filter(task=task, is_active=True).count()
+    sujet_ids = list(
+        WritingSujet.objects.filter(
+            task=task,
+            is_active=True,
+        ).values_list("pk", flat=True)
+    )
+    total = len(sujet_ids)
     response_total = (
         WritingSujet.objects.filter(task=task, is_active=True)
         .exclude(versions=[])
         .count()
     )
-    personalized_ids = set(
-        PersonalWritingResponse.objects.filter(
-            user=user,
-            sujet__task=task,
-            sujet__is_active=True,
-        ).values_list("sujet_id", flat=True)
+    progress_by_sujet = writing_sujet_progress_by_id(
+        user,
+        sujet_ids,
     )
-    completed_ids = set(
-        WritingSujetCompletion.objects.filter(
-            user=user,
-            sujet__task=task,
-            sujet__is_active=True,
-        ).values_list("sujet_id", flat=True)
+    started = sum(
+        progress.started for progress in progress_by_sujet.values()
     )
-    started = len(personalized_ids | completed_ids)
-    completed = len(completed_ids)
+    completed = sum(
+        progress.completed for progress in progress_by_sujet.values()
+    )
     summary = progress_summary(
         total=total,
         started=started,

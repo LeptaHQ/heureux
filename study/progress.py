@@ -16,10 +16,12 @@ from .models import (
     Card,
     CardState,
     CardType,
+    PersonalWritingResponse,
     Phrase,
     PhraseTier,
     Prompt,
     Response,
+    WritingSujetCompletion,
 )
 
 
@@ -37,6 +39,10 @@ PHRASE_SOURCE_RE = re.compile(r"^phrase:(?P<phrase_id>[^:]+):")
 TACHE_TWO_SOURCE_RE = re.compile(
     r"^tache-two:(?P<month>[a-z0-9-]+):batch-(?P<batch>\d+):"
     r"subject-(?P<subject>\d+)$"
+)
+WRITING_SUJET_SOURCE_PREFIX = "writing-sujet:"
+WRITING_SUJET_SOURCE_RE = re.compile(
+    r"^writing-sujet:(?P<sujet_id>\d+):(?:personal|model-\d+)$"
 )
 ANNOTATION_SURFACE_SUFFIXES = (":front", ":back")
 
@@ -79,6 +85,92 @@ def progress_summary(
         completed=completed,
         percent=round(100 * completed / total) if total else 0,
     )
+
+
+@dataclass(frozen=True)
+class WritingSujetProgress:
+    status: str
+    label: str
+    explicitly_completed: bool
+    is_personalized: bool
+    has_highlight: bool
+
+    @property
+    def started(self) -> int:
+        return int(
+            self.explicitly_completed
+            or self.is_personalized
+            or self.has_highlight
+        )
+
+    @property
+    def completed(self) -> int:
+        return int(self.explicitly_completed)
+
+
+def writing_sujet_id_from_source_key(source_key: str) -> int | None:
+    match = WRITING_SUJET_SOURCE_RE.fullmatch(source_key or "")
+    return int(match.group("sujet_id")) if match else None
+
+
+def writing_sujet_progress_by_id(
+    user,
+    sujet_ids,
+) -> dict[int, WritingSujetProgress]:
+    """Calculate EE Tâche 1 progress from direct response activity."""
+    ids = {
+        int(sujet_id)
+        for sujet_id in sujet_ids
+        if str(sujet_id).isdigit() and int(sujet_id) > 0
+    }
+    if not ids:
+        return {}
+
+    personalized_ids = set(
+        PersonalWritingResponse.objects.filter(
+            user=user,
+            sujet_id__in=ids,
+        ).values_list("sujet_id", flat=True)
+    )
+    completed_ids = set(
+        WritingSujetCompletion.objects.filter(
+            user=user,
+            sujet_id__in=ids,
+        ).values_list("sujet_id", flat=True)
+    )
+    highlighted_ids = set()
+    source_keys = Annotation.objects.filter(
+        user=user,
+        kind=AnnotationKind.HIGHLIGHT,
+        source_key__startswith=WRITING_SUJET_SOURCE_PREFIX,
+    ).values_list("source_key", flat=True)
+    for source_key in source_keys:
+        sujet_id = writing_sujet_id_from_source_key(source_key)
+        if sujet_id in ids:
+            highlighted_ids.add(sujet_id)
+
+    results = {}
+    for sujet_id in ids:
+        explicitly_completed = sujet_id in completed_ids
+        is_personalized = sujet_id in personalized_ids
+        has_highlight = sujet_id in highlighted_ids
+        if explicitly_completed:
+            status = "done"
+            label = "Terminé"
+        elif is_personalized or has_highlight:
+            status = "active"
+            label = "En cours"
+        else:
+            status = "new"
+            label = "À commencer"
+        results[sujet_id] = WritingSujetProgress(
+            status=status,
+            label=label,
+            explicitly_completed=explicitly_completed,
+            is_personalized=is_personalized,
+            has_highlight=has_highlight,
+        )
+    return results
 
 
 def combine_progress(

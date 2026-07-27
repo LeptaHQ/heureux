@@ -34,7 +34,10 @@
         {% for version in model_versions %}
           <section class="card section-card section-card--model">
             {% if model_versions|length > 1 %}<div class="spine-label">Version {{ forloop.counter }}</div>{% else %}<div class="spine-label">Réponse modèle</div>{% endif %}
-            <div class="t1-response__body">{{ version.body|linebreaks }}</div>
+            <div
+              class="t1-response__body"
+              data-annotation-root
+              data-annotation-source-key="writing-sujet:{{ sujet.pk }}:model-{{ forloop.counter }}">{{ version.body|linebreaks }}</div>
           </section>
         {% endfor %}
       </div>

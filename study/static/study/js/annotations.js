@@ -161,6 +161,13 @@
     });
   }
 
+  function announceWritingSujetProgress(data) {
+    if (!data || !data.writing_sujet_progress) return;
+    document.dispatchEvent(new CustomEvent("heureux:writing-sujet-progress", {
+      detail: data.writing_sujet_progress
+    }));
+  }
+
   function annotationBody(kind, details, body) {
     var selected = kind === "highlight" ? details.highlight : details;
     var values = new URLSearchParams();
@@ -603,7 +610,10 @@
         "X-CSRFToken": csrfToken(),
         "X-Requested-With": "fetch"
       }
-    }).then(readJson);
+    }).then(readJson).then(function (data) {
+      announceWritingSujetProgress(data);
+      return data;
+    });
   }
 
   function removeHighlights(details) {
@@ -646,6 +656,7 @@
     highlightButton.disabled = true;
     createAnnotation("highlight", details, "")
       .then(function (data) {
+        announceWritingSujetProgress(data);
         var selected = details.highlight;
         var item = {
           id: data.id,

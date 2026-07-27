@@ -419,8 +419,13 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.page.goto(self.live_server_url + subjects_path)
         self.page.get_by_role("button", name="Tableau").click()
-        table_row = self.page.locator(
-            f'tr:has(a.subject-table-row-link[href="{detail_path}"])'
+        table_group = self.page.locator(
+            f'[data-t1-table-theme]:has(a[href="{detail_path}"])'
+        )
+        self.assertFalse(table_group.evaluate("group => group.open"))
+        table_group.locator("summary").click()
+        table_row = table_group.locator(
+            f'[data-t1-table-subject]:has(a.subject-table-row-link[href="{detail_path}"])'
         )
         completion = table_row.locator(
             "[data-writing-sujet-completion-form] button"
@@ -447,17 +452,47 @@ class BrowserTests(StaticLiveServerTestCase):
             0,
         )
 
-        table_row = self.page.locator(
-            f'tr:has(a.subject-table-row-link[href="{detail_path}"])'
+        table_group = self.page.locator(
+            f'[data-t1-table-theme]:has(a[href="{detail_path}"])'
         )
-        category_cell = table_row.locator(
-            ".t1-table__theme"
-        ).bounding_box()
+        if not table_group.evaluate("group => group.open"):
+            table_group.locator("summary").click()
+        table_row = table_group.locator(
+            f'[data-t1-table-subject]:has(a.subject-table-row-link[href="{detail_path}"])'
+        )
+        content_cell = table_row.locator("td").nth(1).bounding_box()
         self.page.mouse.click(
-            category_cell["x"] + category_cell["width"] / 2,
-            category_cell["y"] + category_cell["height"] / 2,
+            content_cell["x"] + content_cell["width"] / 2,
+            content_cell["y"] + content_cell["height"] / 2,
         )
         self.page.wait_for_url(self.live_server_url + detail_path)
+
+        response_body = self.page.locator(
+            f'[data-annotation-source-key="writing-sujet:{sujet.pk}:model-1"]'
+        )
+        response_body.evaluate(
+            """
+            element => {
+              const range = document.createRange();
+              range.selectNodeContents(element);
+              const selection = window.getSelection();
+              selection.removeAllRanges();
+              selection.addRange(range);
+              document.dispatchEvent(new Event("selectionchange"));
+            }
+            """
+        )
+        highlight_button = self.page.locator("[data-highlight-selection]")
+        highlight_button.wait_for(state="visible")
+        with self.page.expect_response(
+            lambda response: reverse("study:annotation_create") in response.url
+        ) as highlight_response:
+            highlight_button.click()
+        self.assertIn(highlight_response.value.status, (200, 201))
+        self.page.locator(
+            f'[data-writing-sujet-progress-status="{sujet.pk}"]',
+            has_text="En cours",
+        ).wait_for()
 
     def test_primary_navigation_is_structured_on_mobile_and_desktop(self):
         self.page.set_viewport_size({"width": 320, "height": 568})

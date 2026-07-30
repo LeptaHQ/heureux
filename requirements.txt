@@ -1,4 +1,5 @@
 Django==5.2.16
+markdown-it-py==4.0.0
 gunicorn==26.0.0
 whitenoise==6.12.0
 python-dotenv==1.2.2

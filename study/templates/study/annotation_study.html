@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load study_markdown %}
 {% block title %}Étudier mes notes · Heureux{% endblock %}
 
 {% block content %}
@@ -34,14 +35,14 @@
         <div class="annotation-study__back hidden" data-study-back>
           {% if item.kind == "highlight" %}
             {% if item.quote %}<blockquote class="annotation-study__highlight">{{ item.quote }}</blockquote>{% endif %}
-            {% if item.body %}<p>{{ item.body }}</p>{% endif %}
+            {% if item.body %}<div class="annotation-study__body annotation-markdown">{{ item.body|markdown }}</div>{% endif %}
           {% elif item.quote %}
             <p class="eyebrow">Votre note</p>
             {% if item.title %}<h2>{{ item.title }}</h2>{% endif %}
-            {% if item.body %}<p>{{ item.body }}</p>{% endif %}
+            {% if item.body %}<div class="annotation-study__body annotation-markdown">{{ item.body|markdown }}</div>{% endif %}
             {% if not item.title and not item.body %}<p class="muted">Aucune note ajoutée à ce passage.</p>{% endif %}
           {% else %}
-            {% if item.body %}<p>{{ item.body }}</p>{% else %}<p class="muted">Aucune note enregistrée.</p>{% endif %}
+            {% if item.body %}<div class="annotation-study__body annotation-markdown">{{ item.body|markdown }}</div>{% else %}<p class="muted">Aucune note enregistrée.</p>{% endif %}
           {% endif %}
           {% if item.source_path %}<a href="{{ item.source_path }}">Voir la source {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>{% endif %}
         </div>

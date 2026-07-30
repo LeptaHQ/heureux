@@ -131,6 +131,65 @@ class AnnotationTests(TestCase):
         )
         self.assertNotContains(highlights_tab, "data-collection-view-toggle")
 
+    def test_note_bodies_render_safe_markdown_everywhere(self):
+        Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            title="Rappel Markdown",
+            body=(
+                "## Structure\n\n"
+                "- **Nuancer** l'idée\n"
+                "- Employer `cependant`\n\n"
+                "[Source](https://example.com)\n\n"
+                "<script>alert('x')</script>\n\n"
+                "[Lien dangereux](javascript:alert(1))"
+            ),
+            study_later=True,
+        )
+
+        notes_page = self.client.get(self.task_notes_url)
+        self.assertContains(notes_page, "<h2>Structure</h2>", count=2, html=True)
+        self.assertContains(
+            notes_page,
+            "<strong>Nuancer</strong>",
+            count=2,
+            html=True,
+        )
+        self.assertContains(notes_page, 'href="https://example.com"', count=2)
+        self.assertNotContains(notes_page, "<script>")
+        self.assertNotContains(notes_page, 'href="javascript:')
+        self.assertContains(notes_page, "&lt;script&gt;alert")
+        self.assertContains(notes_page, "Markdown pris en charge")
+
+        search_page = self.client.get(
+            reverse("study:annotation_search"),
+            {"q": "Nuancer"},
+        )
+        self.assertContains(search_page, "<h2>Structure</h2>", html=True)
+        self.assertContains(
+            search_page,
+            "<strong>Nuancer</strong>",
+            html=True,
+        )
+        self.assertNotContains(search_page, "<script>")
+        self.assertNotContains(search_page, 'href="javascript:')
+
+        study_page = self.client.get(
+            reverse(
+                "study:task_annotation_study",
+                args=[self.part.slug, self.task.slug],
+            )
+        )
+        self.assertContains(study_page, "<h2>Structure</h2>", html=True)
+        self.assertContains(
+            study_page,
+            "<strong>Nuancer</strong>",
+            html=True,
+        )
+        self.assertNotContains(study_page, "<script>")
+        self.assertNotContains(study_page, 'href="javascript:')
+
     def test_highlights_show_source_origin_and_group_by_date(self):
         response_highlight = Annotation.objects.create(
             user=self.user,
@@ -1242,4 +1301,3 @@ class AnnotationTests(TestCase):
         )
         self.assertIn("status=done", response.context["tab_url_prefix"])
         self.assertIn("q=note", response.context["tab_url_prefix"])
-

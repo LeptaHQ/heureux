@@ -7,7 +7,7 @@
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
   <script src="{% static 'study/js/theme-init.js' %}?v=2"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=135">
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=136">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -258,9 +258,9 @@
         <p data-note-source></p>
       </div>
       <div class="selection-note-panel__field">
-        <label for="selection-note-body">Votre note (facultatif)</label>
+        <label for="selection-note-body">Votre note (facultatif · Markdown)</label>
         <div class="selection-note-panel__textarea-wrap">
-          <textarea id="selection-note-body" rows="4" maxlength="20000" placeholder="Ajoutez une explication, un rappel ou une idée…" data-note-body></textarea>
+          <textarea id="selection-note-body" rows="4" maxlength="20000" placeholder="Ajoutez une explication, un rappel ou une idée en Markdown…" data-note-body></textarea>
           <button class="icon-button selection-note-panel__paste" type="button" aria-label="Coller depuis le presse-papiers" title="Coller" aria-describedby="selection-note-status" data-note-paste>
             {% include "study/partials/ui_icon.html" with name="clipboard-paste" only %}
           </button>
@@ -275,11 +275,15 @@
         </span>
         Voir mes notes
       </a>
+      <button class="btn hidden" type="button" data-note-undo>
+        <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h9a6 6 0 1 1-5.2 9M5 7l4-4"></path></svg>
+        <span>Annuler l’enregistrement</span>
+      </button>
       <button class="btn" type="button" data-note-cancel>
         <span class="btn__icon-badge btn__icon-badge--cancel" aria-hidden="true">
           <svg class="btn__icon" viewBox="0 0 24 24"><path d="m8 8 8 8M16 8l-8 8"></path></svg>
         </span>
-        Annuler
+        <span data-note-cancel-label>Annuler</span>
       </button>
       <button class="btn btn--primary" type="button" data-note-save>
         <span class="btn__icon-badge btn__icon-badge--save" aria-hidden="true">
@@ -324,7 +328,7 @@
 
   <script src="{% static 'study/js/app.js' %}?v=39"></script>
   <script src="{% static 'study/js/selection-toolbar.js' %}?v=1"></script>
-  <script src="{% static 'study/js/annotations.js' %}?v=14"></script>
+  <script src="{% static 'study/js/annotations.js' %}?v=15"></script>
   <script src="{% static 'study/js/subject-progress.js' %}?v=1"></script>
   <script src="{% static 'study/js/writing-sujet-progress.js' %}?v=2"></script>
   <script src="{% static 'study/js/comprehension-progress.js' %}?v=1"></script>

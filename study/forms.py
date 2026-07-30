@@ -378,7 +378,10 @@ class NoteForm(forms.ModelForm):
             "body": forms.Textarea(
                 attrs={
                     "rows": 5,
-                    "placeholder": "Écrivez ce que vous voulez retenir…",
+                    "placeholder": (
+                        "Écrivez ce que vous voulez retenir… "
+                        "Markdown pris en charge."
+                    ),
                 }
             ),
         }

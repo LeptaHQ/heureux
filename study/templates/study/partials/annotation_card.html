@@ -9,6 +9,7 @@ Parameters:
   anchor_prefix — "note" | "highlight" | "annotation".
   anchor_suffix — Optional id suffix when a second representation is rendered.
 {% endcomment %}
+{% load study_markdown %}
 <article
   class="card annotation-card annotation-card--{{ annotation.kind }} annotation-card--{{ variant }}"
   data-collection-item
@@ -28,7 +29,7 @@ Parameters:
   <div class="annotation-card__content">
     {% if annotation.title %}<h3>{{ annotation.title }}</h3>{% endif %}
     {% if annotation.quote %}<blockquote>{% if annotation.kind == "highlight" %}<mark>{{ annotation.quote }}</mark>{% else %}{{ annotation.quote }}{% endif %}</blockquote>{% endif %}
-    {% if annotation.body %}<p class="annotation-card__body">{{ annotation.body }}</p>{% endif %}
+    {% if annotation.body %}<div class="annotation-card__body annotation-markdown">{{ annotation.body|markdown }}</div>{% endif %}
   </div>
   {% if variant == "search" %}
     <p class="annotation-card__scope">{% if annotation.task %}{{ annotation.task.part.short_name }} · {{ annotation.task.name }}{% else %}Notes générales{% endif %}</p>

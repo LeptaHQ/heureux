@@ -1,3 +1,4 @@
+{% load study_markdown %}
 <tr
   class="annotation-table__row annotation-table__row--{{ annotation.kind }}"
   data-annotation-item="{{ annotation.id }}"
@@ -10,7 +11,7 @@
         {% if annotation.kind == "highlight" %}<mark>{{ annotation.quote }}</mark>{% else %}{{ annotation.quote }}{% endif %}
       </blockquote>
     {% endif %}
-    {% if annotation.body %}<p class="annotation-table__body">{{ annotation.body }}</p>{% endif %}
+    {% if annotation.body %}<div class="annotation-table__body annotation-markdown">{{ annotation.body|markdown }}</div>{% endif %}
   </td>
   <td class="annotation-table__context" data-label="{% if variant == 'notes' %}Contexte{% else %}Origine{% endif %}">
     <div class="annotation-table__context-meta">

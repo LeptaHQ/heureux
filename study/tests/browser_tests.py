@@ -2127,6 +2127,57 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
+    def test_selection_note_save_can_be_undone_in_the_same_panel(self):
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        self.page.wait_for_load_state("networkidle")
+        self.select_prompt(start=0, end=12)
+        self.page.locator("[data-note-selection]").click()
+
+        panel = self.page.locator("[data-note-panel]")
+        panel.wait_for()
+        note_body = panel.locator("[data-note-body]")
+        note_body.fill("À retenir avec **attention**.")
+        with self.page.expect_response(
+            lambda response: reverse("study:annotation_create") in response.url
+        ) as create_response:
+            panel.locator("[data-note-save]").click()
+        self.assertEqual(create_response.value.status, 201)
+
+        undo = panel.get_by_role(
+            "button",
+            name="Annuler l’enregistrement",
+        )
+        undo.wait_for()
+        self.assertTrue(panel.is_visible())
+        self.assertFalse(panel.locator("[data-note-save]").is_visible())
+        self.assertEqual(
+            panel.locator("[data-note-status]").inner_text(),
+            "Note enregistrée.",
+        )
+        note = Annotation.objects.get(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+        )
+        self.assertEqual(note.body, "À retenir avec **attention**.")
+
+        with self.page.expect_response(
+            lambda response: f"/notes/{note.pk}/supprimer/" in response.url
+        ) as delete_response:
+            undo.click()
+        self.assertTrue(delete_response.value.ok)
+        panel.get_by_text("Enregistrement annulé.", exact=True).wait_for()
+
+        self.assertTrue(panel.locator("[data-note-save]").is_visible())
+        self.assertFalse(panel.locator("[data-note-view]").is_visible())
+        self.assertEqual(note_body.input_value(), "À retenir avec **attention**.")
+        self.assertFalse(Annotation.objects.filter(pk=note.pk).exists())
+
     def test_selection_toolbar_reads_with_premium_french_voice(self):
         self.context.add_init_script(
             """
@@ -2972,7 +3023,7 @@ class BrowserTests(StaticLiveServerTestCase):
             "Note créée dans la fenêtre"
         )
         create_dialog.get_by_label("Votre note").fill(
-            "Première version de la note."
+            "Première version avec **un point important**."
         )
         create_dialog.get_by_role("button", name="Enregistrer").click()
 
@@ -2981,6 +3032,10 @@ class BrowserTests(StaticLiveServerTestCase):
             has_text="Note créée dans la fenêtre",
         )
         note_card.wait_for()
+        note_card.locator(
+            "strong",
+            has_text="un point important",
+        ).wait_for()
         self.assertTrue(self.page.url.split("#")[-1].startswith("note-"))
 
         note_card.get_by_role("button", name="Modifier la note").click()
@@ -2990,6 +3045,10 @@ class BrowserTests(StaticLiveServerTestCase):
             edit_dialog.get_by_label("Titre (facultatif)").input_value(),
             "Note créée dans la fenêtre",
         )
+        self.assertEqual(
+            edit_dialog.get_by_label("Votre note").input_value(),
+            "Première version avec **un point important**.",
+        )
         edit_dialog.get_by_label("Votre note").fill("")
         edit_dialog.get_by_role("button", name="Enregistrer").click()
         edit_dialog.get_by_text(
@@ -2997,12 +3056,16 @@ class BrowserTests(StaticLiveServerTestCase):
         ).wait_for()
         self.assertTrue(edit_dialog.is_visible())
         edit_dialog.get_by_label("Votre note").fill(
-            "Version corrigée depuis la fenêtre."
+            "Version *corrigée* depuis la fenêtre."
         )
         edit_dialog.get_by_role("button", name="Enregistrer").click()
         self.page.locator(
             ".annotation-card__body",
             has_text="Version corrigée depuis la fenêtre.",
+        ).wait_for()
+        self.page.locator(
+            ".annotation-card__body em",
+            has_text="corrigée",
         ).wait_for()
 
         self.page.get_by_role("button", name="Tableau").click()

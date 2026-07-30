@@ -4607,6 +4607,15 @@ html[data-collection-view-mode="table"]
   line-height: 1.5;
   resize: vertical;
 }
+.notes-form-field__hint {
+  color: var(--text-faint);
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+.notes-form-field__hint code {
+  color: var(--text-soft);
+  font-size: 0.94em;
+}
 @media (max-width: 600px) {
   .form-dialog {
     width: calc(100% - 1rem);
@@ -4936,7 +4945,82 @@ html[data-collection-view-mode="table"]
 .annotation-card__body {
   margin: 0.55rem 0;
   overflow-wrap: anywhere;
-  white-space: pre-wrap;
+}
+.annotation-markdown {
+  color: inherit;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.annotation-markdown > :first-child { margin-top: 0; }
+.annotation-markdown > :last-child { margin-bottom: 0; }
+.annotation-markdown p,
+.annotation-markdown ul,
+.annotation-markdown ol,
+.annotation-markdown blockquote,
+.annotation-markdown pre,
+.annotation-markdown table {
+  margin: 0.55em 0;
+}
+.annotation-markdown ul,
+.annotation-markdown ol {
+  padding-left: 1.4em;
+}
+.annotation-markdown li + li { margin-top: 0.2em; }
+.annotation-markdown :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0.75em 0 0.35em;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1em;
+  line-height: 1.3;
+}
+.annotation-markdown h1 { font-size: 1.25em; }
+.annotation-markdown h2 { font-size: 1.15em; }
+.annotation-markdown h3 { font-size: 1.08em; }
+.annotation-markdown blockquote {
+  padding-left: 0.75em;
+  border-left: 3px solid color-mix(in srgb, var(--primary) 52%, var(--border));
+  color: var(--text-soft);
+}
+.annotation-markdown code {
+  padding: 0.08em 0.3em;
+  border-radius: 4px;
+  background: var(--surface-2);
+  font-size: 0.88em;
+}
+.annotation-markdown pre {
+  max-width: 100%;
+  padding: 0.7em;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  text-align: left;
+}
+.annotation-markdown pre code {
+  padding: 0;
+  background: transparent;
+}
+.annotation-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+.annotation-markdown th,
+.annotation-markdown td {
+  padding: 0.35em 0.45em;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+.annotation-markdown a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+.annotation-markdown hr {
+  margin: 0.8em 0;
+  border: 0;
+  border-top: 1px solid var(--border);
 }
 .annotation-card__source {
   display: block;
@@ -5312,6 +5396,14 @@ html[data-collection-view-mode="table"]
 .annotation-study__back p {
   overflow-wrap: anywhere;
   white-space: pre-wrap;
+}
+.annotation-study__body {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: left;
+}
+.annotation-study__back .annotation-markdown p {
+  white-space: normal;
 }
 .annotation-study__controls {
   display: grid;

@@ -7129,6 +7129,11 @@ a.qrow:focus-visible {
 }
 
 /* ---------- Selection translation ---------- */
+#main ::selection {
+  background: color-mix(in srgb, var(--primary) 30%, transparent);
+  color: inherit;
+  text-shadow: none;
+}
 .selection-translate {
   position: fixed;
   z-index: 90;
@@ -7140,10 +7145,11 @@ a.qrow:focus-visible {
   border-radius: 10px;
   background: var(--surface);
   box-shadow: var(--shadow-md);
+  -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
 .selection-translate__button {
-  min-height: 36px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -7157,6 +7163,7 @@ a.qrow:focus-visible {
   font-weight: 700;
   line-height: 1.15;
   cursor: pointer;
+  touch-action: manipulation;
 }
 .selection-translate__button--copy {
   border: 1px solid var(--primary);
@@ -7234,6 +7241,36 @@ a.qrow:focus-visible {
   text-align: center;
   opacity: 0.78;
 }
+html[data-input-mode="pen"] .selection-translate {
+  right: auto;
+  bottom: auto;
+  gap: 0.35rem;
+  padding: 0.3rem;
+  border-radius: 14px;
+  transform: none;
+}
+html[data-input-mode="pen"] .selection-translate__button {
+  width: 48px;
+  height: 48px;
+  min-height: 48px;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+  border-radius: 50%;
+}
+html[data-input-mode="pen"] .selection-translate__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
+}
+html[data-input-mode="pen"] .selection-translate__shortcut { display: none; }
 .translation-panel {
   position: fixed;
   z-index: 95;
@@ -7286,8 +7323,8 @@ a.qrow:focus-visible {
 }
 .translation-panel__close {
   --icon-x-color: var(--area-accent, var(--primary));
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   flex: none;
   border: 1px solid var(--border);
   border-radius: 50%;
@@ -7296,6 +7333,7 @@ a.qrow:focus-visible {
   font: inherit;
   line-height: 1;
   cursor: pointer;
+  touch-action: manipulation;
 }
 .translation-panel__close .ui-icon { width: 17px; height: 17px; }
 .translation-panel__close:hover { color: var(--text); }
@@ -7367,9 +7405,10 @@ a.qrow:focus-visible {
   background: var(--surface-2);
 }
 .translation-panel__actions .btn {
-  min-height: 36px;
+  min-height: 44px;
   padding: 0.4rem 0.65rem;
   font-size: 0.76rem;
+  touch-action: manipulation;
 }
 .selection-note-panel__field {
   display: grid;
@@ -7388,7 +7427,7 @@ a.qrow:focus-visible {
 }
 .selection-note-panel__field textarea {
   width: 100%;
-  padding: 0.65rem 3rem 0.65rem 0.7rem;
+  padding: 0.65rem 3.6rem 0.65rem 0.7rem;
   border: 1px solid var(--border-strong);
   border-radius: 10px;
   background: var(--surface-2);
@@ -7398,14 +7437,19 @@ a.qrow:focus-visible {
   line-height: 1.45;
   resize: vertical;
 }
+.selection-note-panel__field textarea[readonly] {
+  border-color: color-mix(in srgb, var(--success) 42%, var(--border));
+  background: color-mix(in srgb, var(--success-soft) 45%, var(--surface-2));
+}
 .selection-note-panel__paste {
   position: absolute;
-  top: 0.45rem;
-  right: 0.45rem;
-  width: 32px;
-  height: 32px;
+  top: 0.35rem;
+  right: 0.35rem;
+  width: 44px;
+  height: 44px;
   border-radius: 9px;
   background: color-mix(in srgb, var(--surface) 92%, var(--primary-soft));
+  touch-action: manipulation;
 }
 .selection-note-panel__paste:disabled {
   cursor: wait;
@@ -8505,7 +8549,7 @@ a.ce-group-test-row:hover {
 .co-audio-reader__button,
 .co-audio-reader__stop,
 .co-audio-reader__rate {
-  min-height: 36px;
+  min-height: 44px;
   border: 1px solid color-mix(in srgb, var(--ce-blue) 18%, var(--border));
   border-radius: 999px;
   background: var(--surface);
@@ -8518,6 +8562,7 @@ a.ce-group-test-row:hover {
   justify-content: center;
   font: inherit;
   cursor: pointer;
+  touch-action: manipulation;
   transition:
     background 0.16s ease,
     border-color 0.16s ease,
@@ -8535,11 +8580,11 @@ a.ce-group-test-row:hover {
 }
 .co-audio-reader__button.is-active svg { color: currentColor; }
 .co-audio-reader__stop {
-  width: 42px;
-  height: 42px;
-  min-width: 42px;
-  min-height: 42px;
-  flex: 0 0 42px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  flex: 0 0 48px;
   padding: 0;
   border-radius: 50%;
 }
@@ -8569,7 +8614,7 @@ a.ce-group-test-row:hover {
   font-weight: 700;
 }
 .co-audio-reader__rate select {
-  height: 34px;
+  height: 44px;
   min-width: 4.25rem;
   padding: 0 0.55rem;
   border: 0;
@@ -8579,7 +8624,14 @@ a.ce-group-test-row:hover {
   font-size: 0.78rem;
   font-weight: 800;
   cursor: pointer;
+  touch-action: manipulation;
 }
+html[data-input-mode="pen"] .co-audio-reader__button,
+html[data-input-mode="pen"] .co-audio-reader__rate,
+html[data-input-mode="pen"] .co-audio-reader__rate select {
+  min-height: 48px;
+}
+html[data-input-mode="pen"] .co-audio-reader__rate select { height: 48px; }
 .co-audio-reader.is-paused .co-audio-reader__mark {
   background: color-mix(in srgb, var(--warning-soft) 76%, var(--surface));
   color: var(--warning);
@@ -11395,9 +11447,9 @@ button.ce-choice:focus-visible .ce-choice__radio {
     transform: translateX(-50%);
   }
   .selection-translate__button {
-    width: 40px;
-    height: 40px;
-    min-height: 40px;
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
     justify-content: center;
     gap: 0;
     padding: 0;

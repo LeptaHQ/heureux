@@ -13,12 +13,14 @@
   var highlightButton = document.querySelector("[data-highlight-selection]");
   var panel = document.querySelector("[data-translation-panel]");
   var notePanel = document.querySelector("[data-note-panel]");
+  var main = document.getElementById("main");
   if (
     !action ||
     !selectionCopyButton ||
     !selectionCopyLabel ||
     !translateButton ||
-    !panel
+    !panel ||
+    !main
   ) {
     return;
   }
@@ -56,6 +58,7 @@
   var readingChunks = [];
   var readingIndex = 0;
   var readResetTimer = null;
+  var selectionPointerId = null;
 
   function setSpriteIcon(icon, name) {
     if (!icon) return;
@@ -78,9 +81,31 @@
       .trim();
   }
 
+  function penInputActive() {
+    return document.documentElement.dataset.inputMode === "pen";
+  }
+
+  function rememberPenInput(event) {
+    if (event.pointerType === "pen") {
+      document.documentElement.dataset.inputMode = "pen";
+    }
+  }
+
+  function selectablePointerTarget(target) {
+    return Boolean(
+      target &&
+      target.closest &&
+      main.contains(target) &&
+      !target.closest(
+        "button, input, textarea, select, [contenteditable='true'], " +
+        "[data-selection-translate], [data-translation-panel], " +
+        "[data-note-panel]"
+      )
+    );
+  }
+
   function selectionDetails() {
     var selection = window.getSelection();
-    var main = document.getElementById("main");
     if (!selection || selection.isCollapsed || selection.rangeCount === 0 || !main) {
       return null;
     }
@@ -116,7 +141,7 @@
 
   function positionAction(rect) {
     action.classList.remove("hidden");
-    if (mobileActionQuery.matches) {
+    if (mobileActionQuery.matches && !penInputActive()) {
       action.style.left = "";
       action.style.top = "";
       return;
@@ -127,8 +152,9 @@
     var actionRect = action.getBoundingClientRect();
     var left = rect.left + (rect.width - actionRect.width) / 2;
     left = Math.max(8, Math.min(left, window.innerWidth - actionRect.width - 8));
-    var top = rect.top - actionRect.height - 8;
-    if (top < 8) top = rect.bottom + 8;
+    var gap = penInputActive() ? 16 : 8;
+    var top = rect.top - actionRect.height - gap;
+    if (top < 8) top = rect.bottom + gap;
     action.style.left = Math.round(left) + "px";
     action.style.top = Math.round(top) + "px";
   }
@@ -562,18 +588,30 @@
 
   closeButton.addEventListener("click", closePanel);
   document.addEventListener("selectionchange", function () {
-    scheduleSelectionAction(100);
+    if (selectionPointerId === null) scheduleSelectionAction(80);
   });
-  document.addEventListener("pointerup", function () {
-    scheduleSelectionAction(30);
+  document.addEventListener("pointerup", function (event) {
+    rememberPenInput(event);
+    if (event.pointerId === selectionPointerId) selectionPointerId = null;
+    scheduleSelectionAction(event.pointerType === "pen" ? 20 : 30);
+  });
+  document.addEventListener("pointercancel", function (event) {
+    if (event.pointerId === selectionPointerId) selectionPointerId = null;
   });
   document.addEventListener("keyup", function (event) {
     if (event.key === "Shift" || event.shiftKey) scheduleSelectionAction(30);
   });
   document.addEventListener("pointerdown", function (event) {
+    rememberPenInput(event);
     var outsideAction = !action.contains(event.target);
     var outsideTranslation = !panel.contains(event.target);
     var outsideNote = !notePanel || !notePanel.contains(event.target);
+    if (
+      event.isPrimary !== false &&
+      selectablePointerTarget(event.target)
+    ) {
+      selectionPointerId = event.pointerId;
+    }
     if (
       !panel.classList.contains("hidden") &&
       outsideTranslation &&
@@ -590,7 +628,18 @@
       hideAction();
     }
   });
-  window.addEventListener("resize", repositionPanel);
+  window.addEventListener("resize", function () {
+    repositionPanel();
+    if (!action.classList.contains("hidden")) scheduleSelectionAction(0);
+  });
+  window.addEventListener("scroll", function () {
+    if (
+      penInputActive() &&
+      !action.classList.contains("hidden")
+    ) {
+      scheduleSelectionAction(16);
+    }
+  }, { passive: true });
   document.addEventListener("keydown", handleSelectionShortcut, true);
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && reading) stopReading();

@@ -30,12 +30,23 @@
   var notePaste = notePanel.querySelector("[data-note-paste]");
   var noteStatus = notePanel.querySelector("[data-note-status]");
   var noteSave = notePanel.querySelector("[data-note-save]");
-  var noteView = notePanel.querySelector("[data-note-view]");
+  var noteSaveClose = notePanel.querySelector("[data-note-save-close]");
   var noteUndo = notePanel.querySelector("[data-note-undo]");
   var noteCancelLabel = notePanel.querySelector("[data-note-cancel-label]");
   var noteCloseButtons = notePanel.querySelectorAll(
     "[data-note-close], [data-note-cancel]"
   );
+  if (
+    !noteSource ||
+    !noteBody ||
+    !noteStatus ||
+    !noteSave ||
+    !noteSaveClose ||
+    !noteUndo ||
+    !noteCancelLabel
+  ) {
+    return;
+  }
   var toast = document.querySelector("[data-annotation-toast]");
   var sourcePath = window.location.pathname + window.location.search;
   var currentSelection = null;
@@ -212,9 +223,12 @@
     savedNoteDeleteUrl = "";
     noteSave.disabled = false;
     noteSave.classList.remove("hidden");
+    noteSaveClose.disabled = false;
+    noteSaveClose.classList.remove("hidden");
     noteUndo.disabled = false;
     noteUndo.classList.add("hidden");
-    noteView.classList.add("hidden");
+    noteBody.readOnly = false;
+    if (notePaste) notePaste.disabled = false;
     noteCancelLabel.textContent = "Annuler";
   }
 
@@ -287,24 +301,35 @@
       });
   }
 
-  function saveNote() {
-    if (!noteSelection || noteSave.disabled) return;
+  function saveNote(closeAfterSave) {
+    if (!noteSelection || noteSave.disabled || noteSaveClose.disabled) return;
     noteSave.disabled = true;
+    noteSaveClose.disabled = true;
+    noteBody.readOnly = true;
+    if (notePaste) notePaste.disabled = true;
     noteStatus.textContent = "Enregistrement…";
     createAnnotation("note", noteSelection, noteBody.value)
       .then(function (data) {
+        if (closeAfterSave) {
+          closeNotePanel();
+          showToast("Note enregistrée.");
+          return;
+        }
         noteStatus.textContent = "Note enregistrée.";
         savedNoteDeleteUrl = data.delete_url;
-        noteView.href = data.notes_url;
-        noteView.classList.remove("hidden");
         noteSave.disabled = false;
         noteSave.classList.add("hidden");
+        noteSaveClose.disabled = false;
+        noteSaveClose.classList.add("hidden");
         noteUndo.classList.remove("hidden");
         noteCancelLabel.textContent = "Fermer";
       })
       .catch(function (error) {
         noteStatus.textContent = error.message;
         noteSave.disabled = false;
+        noteSaveClose.disabled = false;
+        noteBody.readOnly = false;
+        if (notePaste) notePaste.disabled = false;
       });
   }
 
@@ -970,7 +995,12 @@
   noteButton.addEventListener("click", openNotePanel);
   if (notePaste) notePaste.addEventListener("click", pasteNote);
   highlightButton.addEventListener("click", toggleHighlight);
-  noteSave.addEventListener("click", saveNote);
+  noteSave.addEventListener("click", function () {
+    saveNote(false);
+  });
+  noteSaveClose.addEventListener("click", function () {
+    saveNote(true);
+  });
   noteUndo.addEventListener("click", undoSavedNote);
   noteCloseButtons.forEach(function (button) {
     button.addEventListener("click", closeNotePanel);

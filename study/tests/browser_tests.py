@@ -2125,6 +2125,9 @@ class BrowserTests(StaticLiveServerTestCase):
             "ui-icons.svg?v=3#icon-clipboard-paste",
             paste_button.locator("use").get_attribute("href"),
         )
+        paste_box = paste_button.bounding_box()
+        self.assertGreaterEqual(paste_box["width"], 44)
+        self.assertGreaterEqual(paste_box["height"], 44)
         self.assert_no_horizontal_overflow()
 
     def test_selection_note_save_can_be_undone_in_the_same_panel(self):
@@ -2156,6 +2159,8 @@ class BrowserTests(StaticLiveServerTestCase):
         undo.wait_for()
         self.assertTrue(panel.is_visible())
         self.assertFalse(panel.locator("[data-note-save]").is_visible())
+        self.assertFalse(panel.locator("[data-note-save-close]").is_visible())
+        self.assertEqual(panel.locator("[data-note-view]").count(), 0)
         self.assertEqual(
             panel.locator("[data-note-status]").inner_text(),
             "Note enregistrée.",
@@ -2174,9 +2179,24 @@ class BrowserTests(StaticLiveServerTestCase):
         panel.get_by_text("Enregistrement annulé.", exact=True).wait_for()
 
         self.assertTrue(panel.locator("[data-note-save]").is_visible())
-        self.assertFalse(panel.locator("[data-note-view]").is_visible())
+        self.assertTrue(panel.locator("[data-note-save-close]").is_visible())
         self.assertEqual(note_body.input_value(), "À retenir avec **attention**.")
         self.assertFalse(Annotation.objects.filter(pk=note.pk).exists())
+
+        with self.page.expect_response(
+            lambda response: reverse("study:annotation_create") in response.url
+        ) as save_close_response:
+            panel.locator("[data-note-save-close]").click()
+        self.assertEqual(save_close_response.value.status, 201)
+        panel.wait_for(state="hidden")
+        self.page.get_by_text("Note enregistrée.", exact=True).wait_for()
+        self.assertEqual(
+            Annotation.objects.get(
+                user=self.user,
+                kind=AnnotationKind.NOTE,
+            ).body,
+            "À retenir avec **attention**.",
+        )
 
     def test_selection_toolbar_reads_with_premium_french_voice(self):
         self.context.add_init_script(
@@ -2253,6 +2273,81 @@ class BrowserTests(StaticLiveServerTestCase):
         prompt.wait_for()
         self.page.wait_for_load_state("networkidle")
         self.select_prompt(start=0, end=12)
+        prompt.dispatch_event(
+            "pointerdown",
+            {
+                "pointerId": 41,
+                "pointerType": "pen",
+                "isPrimary": True,
+                "button": 0,
+            },
+        )
+        prompt.dispatch_event(
+            "pointerup",
+            {
+                "pointerId": 41,
+                "pointerType": "pen",
+                "isPrimary": True,
+                "button": 0,
+            },
+        )
+        toolbar = self.page.locator("[data-selection-translate]")
+        toolbar.wait_for()
+        self.assertEqual(
+            self.page.locator("html").get_attribute("data-input-mode"),
+            "pen",
+        )
+        pen_metrics = toolbar.evaluate(
+            """
+            toolbar => {
+              const toolbarRect = toolbar.getBoundingClientRect();
+              const selectionRect = window.getSelection()
+                .getRangeAt(0)
+                .getBoundingClientRect();
+              const targets = [...toolbar.querySelectorAll(
+                'button:not([hidden])'
+              )].map(button => {
+                const rect = button.getBoundingClientRect();
+                return {
+                  width: rect.width,
+                  height: rect.height,
+                  touchAction: getComputedStyle(button).touchAction,
+                };
+              });
+              return {
+                toolbar: {
+                  left: toolbarRect.left,
+                  right: toolbarRect.right,
+                  top: toolbarRect.top,
+                  bottom: toolbarRect.bottom,
+                },
+                selection: {
+                  top: selectionRect.top,
+                  bottom: selectionRect.bottom,
+                },
+                targets,
+              };
+            }
+            """
+        )
+        self.assertGreaterEqual(pen_metrics["toolbar"]["left"], 0)
+        self.assertLessEqual(pen_metrics["toolbar"]["right"], 390)
+        self.assertGreaterEqual(pen_metrics["toolbar"]["top"], 0)
+        self.assertLessEqual(pen_metrics["toolbar"]["bottom"], 844)
+        self.assertTrue(
+            pen_metrics["toolbar"]["bottom"]
+            <= pen_metrics["selection"]["top"] - 10
+            or pen_metrics["toolbar"]["top"]
+            >= pen_metrics["selection"]["bottom"] + 10
+        )
+        self.assertTrue(
+            all(
+                target["width"] >= 48
+                and target["height"] >= 48
+                and target["touchAction"] == "manipulation"
+                for target in pen_metrics["targets"]
+            )
+        )
         selected = self.page.evaluate("window.getSelection().toString().trim()")
         read_button = self.page.locator("[data-read-selection]")
 
@@ -2268,6 +2363,10 @@ class BrowserTests(StaticLiveServerTestCase):
                 "voice": "Audrey Premium",
                 "startedInClick": True,
             },
+        )
+        self.assertEqual(
+            self.page.evaluate("window.getSelection().toString().trim()"),
+            selected,
         )
 
         read_button.click()
@@ -3853,6 +3952,24 @@ class BrowserTests(StaticLiveServerTestCase):
             '[data-co-audio-play][data-co-audio-target="dialogue"]'
         )
         dialogue.wait_for()
+        dialogue.dispatch_event(
+            "pointerdown",
+            {
+                "pointerId": 51,
+                "pointerType": "pen",
+                "isPrimary": True,
+                "button": 0,
+            },
+        )
+        dialogue.dispatch_event(
+            "pointerup",
+            {
+                "pointerId": 51,
+                "pointerType": "pen",
+                "isPrimary": True,
+                "button": 0,
+            },
+        )
         self.assertEqual(
             dialogue.get_attribute("aria-label"),
             "Écouter le dialogue en français",
@@ -3868,13 +3985,18 @@ class BrowserTests(StaticLiveServerTestCase):
               };
             }"""
         )
-        self.assertGreaterEqual(stop_metrics["width"], 42)
+        self.assertGreaterEqual(stop_metrics["width"], 48)
         self.assertAlmostEqual(
             stop_metrics["width"],
             stop_metrics["height"],
             delta=0.5,
         )
         self.assertEqual(stop_metrics["radius"], "50%")
+        self.assertGreaterEqual(dialogue.bounding_box()["height"], 48)
+        self.assertGreaterEqual(
+            self.page.get_by_label("Vitesse de lecture").bounding_box()["height"],
+            48,
+        )
 
         self.assertTrue(dialogue.is_enabled())
         self.assertFalse(stop.is_enabled())

@@ -85,9 +85,12 @@
     return document.documentElement.dataset.inputMode === "pen";
   }
 
-  function rememberPenInput(event) {
+  function rememberPointerInput(event) {
     if (event.pointerType === "pen") {
       document.documentElement.dataset.inputMode = "pen";
+    } else if (event.pointerType === "mouse" || event.pointerType === "touch") {
+      if (event.target && action.contains(event.target)) return;
+      delete document.documentElement.dataset.inputMode;
     }
   }
 
@@ -591,7 +594,7 @@
     if (selectionPointerId === null) scheduleSelectionAction(80);
   });
   document.addEventListener("pointerup", function (event) {
-    rememberPenInput(event);
+    rememberPointerInput(event);
     if (event.pointerId === selectionPointerId) selectionPointerId = null;
     scheduleSelectionAction(event.pointerType === "pen" ? 20 : 30);
   });
@@ -602,7 +605,7 @@
     if (event.key === "Shift" || event.shiftKey) scheduleSelectionAction(30);
   });
   document.addEventListener("pointerdown", function (event) {
-    rememberPenInput(event);
+    rememberPointerInput(event);
     var outsideAction = !action.contains(event.target);
     var outsideTranslation = !panel.contains(event.target);
     var outsideNote = !notePanel || !notePanel.contains(event.target);
@@ -627,6 +630,9 @@
     ) {
       hideAction();
     }
+  });
+  document.addEventListener("pointerover", rememberPointerInput, {
+    passive: true
   });
   window.addEventListener("resize", function () {
     repositionPanel();

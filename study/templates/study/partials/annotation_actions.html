@@ -31,17 +31,6 @@ Parameters:
   </span>
   <span class="sr-only">Lire {% if annotation.kind == "highlight" %}le surlignage{% else %}la note{% endif %}</span>
 </button>
-<a
-  class="linkbtn annotation-action"
-  href="{% url 'study:annotation_study' %}?item={{ annotation.id }}"
-  aria-label="Étudier {% if annotation.kind == 'highlight' %}le surlignage{% else %}la note{% endif %} en flashcard"
-  title="Flashcard"
->
-  <span class="annotation-action__icon annotation-action__icon--flashcard" aria-hidden="true">
-    <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"></rect><path d="M8 9h8M8 13h5"></path></svg>
-  </span>
-  <span class="sr-only">Étudier en flashcard</span>
-</a>
 <form method="post" action="{% url 'study:annotation_study_toggle' annotation.id %}" data-annotation-action="study" data-annotation-id="{{ annotation.id }}">
   {% csrf_token %}
   <input type="hidden" name="next" value="{{ request.get_full_path }}">

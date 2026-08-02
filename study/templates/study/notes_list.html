@@ -46,12 +46,12 @@
         <span>Nouvelle note</span>
       </button>
     {% endif %}
-    <a class="btn btn--primary" href="{{ study_url }}?mode=all">
+    <a class="btn btn--primary" href="{{ flashcard_url }}">
       <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"></rect><path d="M8 9h8M8 13h5"></path></svg>
       <span>Flashcards</span>
     </a>
     {% if study_count %}
-      <a class="btn" href="{{ study_url }}">
+      <a class="btn" href="{{ study_queue_url }}">
         <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-3.75L6 21Z"></path></svg>
         <span>À étudier · {{ study_count }}</span>
       </a>

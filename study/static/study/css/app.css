@@ -79,6 +79,7 @@
   --card-shadow: none;
   --card-shadow-hover: none;
   --card-focus-ring: 0 0 0 4px var(--primary-soft);
+  --pen-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%23fff' fill-opacity='.92'/%3E%3Ccircle cx='8' cy='8' r='4.25' fill='%232f7df4'/%3E%3C/svg%3E") 8 8, crosshair;
   --maxw: 1080px;
 }
 
@@ -4684,15 +4685,15 @@ html[data-collection-view-mode="table"]
 }
 .annotation-table {
   width: 100%;
-  min-width: 1100px;
+  min-width: 1020px;
   border-collapse: collapse;
   table-layout: fixed;
 }
-.annotation-table__col-content { width: 33%; }
-.annotation-table__col-context { width: 18%; }
+.annotation-table__col-content { width: 36%; }
+.annotation-table__col-context { width: 19%; }
 .annotation-table__col-date { width: 10%; }
 .annotation-table__col-status { width: 10%; }
-.annotation-table__col-actions { width: 29%; }
+.annotation-table__col-actions { width: 25%; }
 .annotation-table thead th {
   position: sticky;
   top: 0;
@@ -5088,10 +5089,6 @@ html[data-collection-view-mode="table"]
   background: var(--tone-oral-soft);
   color: var(--tone-oral);
 }
-.annotation-action__icon--flashcard {
-  background: var(--tone-stats-soft);
-  color: var(--tone-stats);
-}
 .annotation-action.is-reading .annotation-action__icon--read {
   background: var(--tone-oral);
   color: var(--primary-ink);
@@ -5360,6 +5357,36 @@ html[data-collection-view-mode="table"]
   color: var(--text-soft);
   font-size: 0.78rem;
   font-weight: 700;
+}
+.annotation-study__order {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.3rem;
+  margin: 0 0 0.7rem;
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.annotation-study__order-option {
+  min-height: 44px;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text-soft);
+  font: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.annotation-study__order-option.is-active {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+.annotation-study__order-option:focus-visible {
+  outline: 0;
+  box-shadow: var(--card-focus-ring);
 }
 .annotation-study__card {
   display: grid;
@@ -7163,6 +7190,18 @@ a.qrow:focus-visible {
   background: color-mix(in srgb, var(--primary) 30%, transparent);
   color: inherit;
   text-shadow: none;
+}
+html[data-input-mode="pen"],
+html[data-input-mode="pen"] body,
+html[data-input-mode="pen"] body * {
+  cursor: var(--pen-cursor);
+}
+html[data-input-mode="pen"] :is(
+  input,
+  textarea,
+  [contenteditable="true"]
+) {
+  cursor: text;
 }
 .selection-translate {
   position: fixed;
@@ -11689,6 +11728,14 @@ button.ce-choice:focus-visible .ce-choice__radio {
   .subject-vocabulary-row__actions .btn { width: 100%; }
   .notes-tools .btn { flex: 1 1 100%; }
   .annotation-study__card { min-height: 300px; }
+  .annotation-study__order {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .annotation-study__order-option {
+    flex: 1 1 120px;
+    min-height: 48px;
+  }
   .annotation-study__controls {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

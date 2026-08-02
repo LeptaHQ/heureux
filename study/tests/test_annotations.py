@@ -95,10 +95,7 @@ class AnnotationTests(TestCase):
             notes_tab,
             "annotation-action__icon--read",
         )
-        self.assertContains(
-            notes_tab,
-            "annotation-action__icon--flashcard",
-        )
+        self.assertNotContains(notes_tab, "annotation-action__icon--flashcard")
         self.assertContains(
             notes_tab,
             "annotation-action__icon--edit",
@@ -1011,63 +1008,78 @@ class AnnotationTests(TestCase):
             note.body,
         )
 
-    def test_every_status_has_item_and_scope_flashcards(self):
+    def test_flashcards_follow_the_current_scope_query_status_and_tab(self):
         new_note = Annotation.objects.create(
             user=self.user,
             task=self.task,
             kind=AnnotationKind.NOTE,
             title="Nouvelle",
-            body="Contenu nouveau.",
+            body="Contenu cible nouveau.",
         )
         done_note = Annotation.objects.create(
             user=self.user,
             task=self.task,
             kind=AnnotationKind.NOTE,
             title="Terminée",
-            body="Contenu terminé.",
+            body="Contenu cible terminé.",
             completed_at=timezone.now(),
+        )
+        unrelated_note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            body="Contenu sans rapport.",
         )
         queued_highlight = Annotation.objects.create(
             user=self.user,
             task=self.task,
             kind=AnnotationKind.HIGHLIGHT,
-            quote="Passage à revoir.",
+            quote="Passage cible à revoir.",
             source_path=self.source_path,
             start_offset=3,
             end_offset=21,
             study_later=True,
         )
-        item_study_url = reverse("study:annotation_study")
+        private_note = Annotation.objects.create(
+            user=self.other,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            body="Contenu cible privé.",
+        )
         task_study_url = reverse(
             "study:task_annotation_study",
             args=[self.part.slug, self.task.slug],
         )
 
-        notes_page = self.client.get(self.task_notes_url)
+        notes_page = self.client.get(
+            self.task_notes_url,
+            {"q": "cible", "status": "todo", "tab": "notes"},
+        )
+        self.assertEqual(
+            notes_page.context["flashcard_url"],
+            (
+                f"{task_study_url}"
+                "?mode=all&tab=notes&q=cible&status=todo"
+            ),
+        )
+        self.assertNotContains(notes_page, "?item=")
         self.assertContains(
             notes_page,
-            f'href="{task_study_url}?mode=all"',
+            f'data-annotation-read="{new_note.pk}"',
+            count=2,
         )
-        for note in (new_note, done_note):
-            with self.subTest(note=note.pk):
-                self.assertContains(
-                    notes_page,
-                    f'href="{item_study_url}?item={note.pk}"',
-                    count=2,
-                )
-                self.assertContains(
-                    notes_page,
-                    f'data-annotation-read="{note.pk}"',
-                    count=2,
-                )
+        self.assertNotContains(notes_page, done_note.body)
 
         highlights_page = self.client.get(
-            self.task_notes_url + "?tab=highlights"
+            self.task_notes_url,
+            {"q": "cible", "status": "study", "tab": "highlights"},
         )
-        self.assertContains(
-            highlights_page,
-            f'href="{item_study_url}?item={queued_highlight.pk}"',
-            count=2,
+        self.assertEqual(
+            highlights_page.context["flashcard_url"],
+            (
+                f"{task_study_url}"
+                "?mode=all&tab=highlights&q=cible&status=study"
+            ),
         )
         self.assertContains(
             highlights_page,
@@ -1075,11 +1087,49 @@ class AnnotationTests(TestCase):
             count=2,
         )
 
-        all_statuses = self.client.get(task_study_url, {"mode": "all"})
-        self.assertEqual(all_statuses.context["study_mode"], "all")
-        self.assertContains(all_statuses, new_note.body)
-        self.assertContains(all_statuses, done_note.body)
-        self.assertContains(all_statuses, queued_highlight.quote)
+        todo_deck = self.client.get(
+            task_study_url,
+            {
+                "mode": "all",
+                "tab": "notes",
+                "q": "cible",
+                "status": "todo",
+            },
+        )
+        self.assertEqual(todo_deck.context["study_mode"], "all")
+        self.assertEqual(
+            todo_deck.context["back_url"],
+            self.task_notes_url + "?tab=notes&q=cible&status=todo",
+        )
+        self.assertContains(todo_deck, new_note.body)
+        self.assertNotContains(todo_deck, done_note.body)
+        self.assertNotContains(todo_deck, unrelated_note.body)
+        self.assertNotContains(todo_deck, queued_highlight.quote)
+        self.assertNotContains(todo_deck, private_note.body)
+
+        done_deck = self.client.get(
+            task_study_url,
+            {
+                "mode": "all",
+                "tab": "notes",
+                "q": "cible",
+                "status": "done",
+            },
+        )
+        self.assertContains(done_deck, done_note.body)
+        self.assertNotContains(done_deck, new_note.body)
+
+        highlight_deck = self.client.get(
+            task_study_url,
+            {
+                "mode": "all",
+                "tab": "highlights",
+                "q": "cible",
+                "status": "study",
+            },
+        )
+        self.assertContains(highlight_deck, queued_highlight.quote)
+        self.assertNotContains(highlight_deck, new_note.body)
 
         queue = self.client.get(task_study_url)
         self.assertEqual(queue.context["study_mode"], "queue")
@@ -1087,15 +1137,11 @@ class AnnotationTests(TestCase):
         self.assertNotContains(queue, done_note.body)
         self.assertContains(queue, queued_highlight.quote)
 
-        single = self.client.get(item_study_url, {"item": new_note.pk})
-        self.assertEqual(single.context["study_mode"], "item")
-        self.assertEqual(single.context["task"], self.task)
-        self.assertContains(single, new_note.body)
-        self.assertNotContains(single, done_note.body)
-
-        self.client.force_login(self.other)
         self.assertEqual(
-            self.client.get(item_study_url, {"item": new_note.pk}).status_code,
+            self.client.get(
+                reverse("study:annotation_study"),
+                {"item": new_note.pk},
+            ).status_code,
             404,
         )
 
@@ -1118,6 +1164,10 @@ class AnnotationTests(TestCase):
         self.assertNotIn("showing", front)
         self.assertIn("showing", back)
         self.assertNotIn("séance", back)
+        self.assertContains(
+            response,
+            'data-study-order="back"',
+        )
 
     def test_study_decisions_update_the_queue_without_a_redirect(self):
         note = Annotation.objects.create(

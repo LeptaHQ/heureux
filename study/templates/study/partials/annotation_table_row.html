@@ -4,14 +4,14 @@
   data-annotation-item="{{ annotation.id }}"
   data-annotation-kind="{{ annotation.kind }}"
   id="{% if variant == 'notes' %}note{% else %}highlight{% endif %}-{{ annotation.id }}">
-  <td class="annotation-table__content" data-label="{% if variant == 'notes' %}Note{% else %}Passage{% endif %}" data-annotation-readable>
+  <td class="annotation-table__content" data-label="{% if variant == 'notes' %}Note{% else %}Passage{% endif %}">
     {% if annotation.title %}<strong class="annotation-table__title">{{ annotation.title }}</strong>{% endif %}
     {% if annotation.quote %}
-      <blockquote class="annotation-table__quote">
+      <blockquote class="annotation-table__quote" data-annotation-readable>
         {% if annotation.kind == "highlight" %}<mark>{{ annotation.quote }}</mark>{% else %}{{ annotation.quote }}{% endif %}
       </blockquote>
     {% endif %}
-    {% if annotation.body %}<div class="annotation-table__body annotation-markdown">{{ annotation.body|markdown }}</div>{% endif %}
+    {% if annotation.body %}<div class="annotation-table__body annotation-markdown"{% if not annotation.quote %} data-annotation-readable{% endif %}>{{ annotation.body|markdown }}</div>{% endif %}
   </td>
   <td class="annotation-table__context" data-label="{% if variant == 'notes' %}Contexte{% else %}Origine{% endif %}">
     <div class="annotation-table__context-meta">

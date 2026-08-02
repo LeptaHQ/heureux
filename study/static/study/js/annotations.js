@@ -909,8 +909,12 @@
     var clearButton = deck.querySelector("[data-study-clear]");
     var clearLabel = deck.querySelector("[data-study-clear-label]");
     var knownCountEl = deck.querySelector("[data-study-known-count]");
+    var orderButtons = Array.from(
+      deck.querySelectorAll("[data-study-order]")
+    );
     var index = 0;
     var revealed = false;
+    var reverseOrder = false;
     // Decisions are held locally until the end of the run so nothing leaves
     // the « À étudier » pack mid-session; only « Je le connais » cards are
     // removed, and only when the learner confirms with the end button.
@@ -924,19 +928,34 @@
       return count > 1 ? "s" : "";
     }
 
+    function showCardFace(card, showAnswerFace) {
+      var showFront = reverseOrder ? showAnswerFace : !showAnswerFace;
+      card
+        .querySelector("[data-study-front]")
+        .classList.toggle("hidden", !showFront);
+      card
+        .querySelector("[data-study-back]")
+        .classList.toggle("hidden", showFront);
+      card.classList.toggle("is-revealed", showAnswerFace);
+    }
+
+    function resetCurrentCard() {
+      var card = cards[index];
+      if (!card) return;
+      showCardFace(card, false);
+      revealed = false;
+      reveal.classList.remove("hidden");
+      keep.classList.add("hidden");
+      learned.classList.add("hidden");
+    }
+
     function render() {
       cards.forEach(function (card, cardIndex) {
         card.classList.toggle("hidden", cardIndex !== index);
       });
       var card = cards[index];
       if (!card) return;
-      card.querySelector("[data-study-front]").classList.remove("hidden");
-      card.querySelector("[data-study-back]").classList.add("hidden");
-      card.classList.remove("is-revealed");
-      revealed = false;
-      reveal.classList.remove("hidden");
-      keep.classList.add("hidden");
-      learned.classList.add("hidden");
+      resetCurrentCard();
       previous.disabled = index === 0;
       controls.classList.remove("hidden");
       done.classList.add("hidden");
@@ -946,9 +965,7 @@
     function showAnswer() {
       if (revealed) return;
       var card = cards[index];
-      card.querySelector("[data-study-front]").classList.add("hidden");
-      card.querySelector("[data-study-back]").classList.remove("hidden");
-      card.classList.add("is-revealed");
+      showCardFace(card, true);
       revealed = true;
       reveal.classList.add("hidden");
       keep.classList.remove("hidden");
@@ -959,13 +976,7 @@
       if (!revealed) return;
       var card = cards[index];
       if (!card) return;
-      card.querySelector("[data-study-front]").classList.remove("hidden");
-      card.querySelector("[data-study-back]").classList.add("hidden");
-      card.classList.remove("is-revealed");
-      revealed = false;
-      reveal.classList.remove("hidden");
-      keep.classList.add("hidden");
-      learned.classList.add("hidden");
+      resetCurrentCard();
     }
 
     function toggleAnswer() {
@@ -1031,6 +1042,17 @@
         index -= 1;
         render();
       }
+    });
+    orderButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        reverseOrder = button.dataset.studyOrder === "back";
+        orderButtons.forEach(function (option) {
+          var active = option === button;
+          option.classList.toggle("is-active", active);
+          option.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+        resetCurrentCard();
+      });
     });
     reveal.addEventListener("click", showAnswer);
     cards.forEach(function (card) {

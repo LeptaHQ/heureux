@@ -2315,6 +2315,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 };
               });
               return {
+                cursor: getComputedStyle(toolbar).cursor,
                 toolbar: {
                   left: toolbarRect.left,
                   right: toolbarRect.right,
@@ -2331,6 +2332,8 @@ class BrowserTests(StaticLiveServerTestCase):
             """
         )
         self.assertGreaterEqual(pen_metrics["toolbar"]["left"], 0)
+        self.assertIn("data:image/svg+xml", pen_metrics["cursor"])
+        self.assertIn("2f7df4", pen_metrics["cursor"].lower())
         self.assertLessEqual(pen_metrics["toolbar"]["right"], 390)
         self.assertGreaterEqual(pen_metrics["toolbar"]["top"], 0)
         self.assertLessEqual(pen_metrics["toolbar"]["bottom"], 844)
@@ -3174,7 +3177,7 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         note_row.wait_for()
         action_buttons = note_row.locator(".annotation-action")
-        self.assertEqual(action_buttons.count(), 6)
+        self.assertEqual(action_buttons.count(), 5)
         self.assertTrue(
             all(
                 44 <= size["width"] <= 46 and 44 <= size["height"] <= 46
@@ -3262,13 +3265,20 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.locator("#card-front .prompt-text").wait_for()
         self.assert_no_horizontal_overflow()
 
-    def test_selected_note_study_card_switches_between_distinct_faces(self):
+    def test_query_flashcards_flip_and_can_start_with_the_note(self):
         note = Annotation.objects.create(
             user=self.user,
             task=self.task,
             kind=AnnotationKind.NOTE,
             quote="séance",
             body="showing",
+        )
+        Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            quote="autre passage",
+            body="unrelated note",
         )
         self.page.set_viewport_size({"width": 320, "height": 568})
         self.page.goto(
@@ -3277,18 +3287,14 @@ class BrowserTests(StaticLiveServerTestCase):
                 "study:task_notes",
                 args=[self.part.slug, self.task.slug],
             )
+            + "?q=showing"
         )
-        note_card = self.page.locator(
-            ".annotation-card",
-            has_text="showing",
-        )
-        note_card.get_by_role(
-            "link",
-            name="Étudier la note en flashcard",
-        ).click()
-        self.page.wait_for_url(f"**?item={note.pk}")
+        self.page.get_by_role("link", name="Flashcards").click()
+        self.page.wait_for_url("**?mode=all&tab=notes&q=showing")
 
         card = self.page.locator("[data-study-card]")
+        self.assertEqual(card.count(), 1)
+        self.assertEqual(card.get_attribute("data-study-id"), str(note.pk))
         front = self.page.locator("[data-study-front]")
         back = self.page.locator("[data-study-back]")
         front.get_by_text("séance", exact=True).wait_for()
@@ -3301,6 +3307,14 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertFalse(
             front.get_by_text("séance", exact=True).is_visible()
         )
+
+        card.click()
+        front.get_by_text("séance", exact=True).wait_for()
+        self.assertFalse(back.is_visible())
+
+        self.page.locator('[data-study-order="back"]').click()
+        back.get_by_text("showing", exact=True).wait_for()
+        self.assertFalse(front.is_visible())
 
         card.click()
         front.get_by_text("séance", exact=True).wait_for()
@@ -3348,11 +3362,12 @@ class BrowserTests(StaticLiveServerTestCase):
             })();
             """
         )
-        Annotation.objects.create(
+        selected_note = Annotation.objects.create(
             user=self.user,
             task=self.task,
             kind=AnnotationKind.NOTE,
             title="Rappel important",
+            quote="Il faut nuancer cette affirmation.",
             body="Employer cependant pour nuancer.",
         )
         Annotation.objects.create(
@@ -3379,12 +3394,15 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertGreaterEqual(note_read.bounding_box()["width"], 44)
         note_read.click()
         self.page.wait_for_function(
-            "() => window.__annotationSpoken.includes('cependant')"
+            "() => window.__annotationSpoken.includes('nuancer cette affirmation')"
         )
-        self.assertIn(
-            "Rappel important",
-            self.page.evaluate("window.__annotationSpoken"),
+        spoken_note = self.page.evaluate("window.__annotationSpoken")
+        self.assertEqual(
+            spoken_note,
+            selected_note.quote,
         )
+        self.assertNotIn("Rappel important", spoken_note)
+        self.assertNotIn("cependant", spoken_note)
         self.assertEqual(note_read.get_attribute("aria-pressed"), "true")
         note_read.click()
         self.assertEqual(note_read.get_attribute("aria-pressed"), "false")

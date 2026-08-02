@@ -9,10 +9,8 @@
   <h1>Étudier · {{ scope_title }}</h1>
   {% if study_mode == "queue" %}
     <p>Révélez les éléments marqués « À étudier » à votre rythme.</p>
-  {% elif study_mode == "item" %}
-    <p>Révisez cet élément sous forme de flashcard.</p>
   {% else %}
-    <p>Révisez toutes vos notes et tous vos surlignages, quel que soit leur statut.</p>
+    <p>Révisez les éléments de votre sélection actuelle.</p>
   {% endif %}
 </header>
 
@@ -25,6 +23,11 @@
     {% else %}
       <span>Appuyez sur la carte pour la retourner</span>
     {% endif %}
+  </div>
+  <div class="annotation-study__order" role="group" aria-label="Face affichée en premier">
+    <span>Commencer par</span>
+    <button class="annotation-study__order-option is-active" type="button" data-study-order="front" aria-pressed="true">Recto</button>
+    <button class="annotation-study__order-option" type="button" data-study-order="back" aria-pressed="false">Note / verso</button>
   </div>
   <div class="annotation-study__cards">
     {% for item in items %}

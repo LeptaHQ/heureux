@@ -264,6 +264,30 @@ def _annotation_date_sections(annotations):
     ]
 
 
+def _filter_annotation_query(annotations, query):
+    if not query:
+        return annotations
+    return annotations.filter(
+        Q(title__icontains=query)
+        | Q(body__icontains=query)
+        | Q(quote__icontains=query)
+        | Q(source_title__icontains=query)
+    )
+
+
+def _filter_annotation_status(annotations, status):
+    if status == "todo":
+        return annotations.filter(
+            completed_at__isnull=True,
+            study_later=False,
+        )
+    if status == "done":
+        return annotations.filter(completed_at__isnull=False)
+    if status == "study":
+        return annotations.filter(study_later=True)
+    return annotations
+
+
 def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
     annotations = Annotation.objects.filter(user=request.user).select_related(
         "task__part"
@@ -275,26 +299,14 @@ def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
         comprehension=comprehension,
     )
     query = (request.GET.get("q") or "").strip()
-    if query:
-        annotations = annotations.filter(
-            Q(title__icontains=query)
-            | Q(body__icontains=query)
-            | Q(quote__icontains=query)
-            | Q(source_title__icontains=query)
-        )
+    annotations = _filter_annotation_query(annotations, query)
     status = (
         request.GET.get("status")
         if request.GET.get("status") in {"todo", "done", "study"}
         else ""
     )
     study_count = annotations.filter(study_later=True).count()
-    filtered = annotations
-    if status == "todo":
-        filtered = filtered.filter(completed_at__isnull=True, study_later=False)
-    elif status == "done":
-        filtered = filtered.filter(completed_at__isnull=False)
-    elif status == "study":
-        filtered = filtered.filter(study_later=True)
+    filtered = _filter_annotation_status(annotations, status)
     active_tab = (
         request.GET.get("tab")
         if request.GET.get("tab") in {"notes", "highlights"}
@@ -348,6 +360,23 @@ def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
     if status:
         preserved["status"] = status
     tab_url_prefix = "?" + (urlencode(preserved) + "&" if preserved else "")
+    flashcard_params = {
+        "mode": "all",
+        "tab": active_tab,
+    }
+    if query:
+        flashcard_params["q"] = query
+    if status:
+        flashcard_params["status"] = status
+    flashcard_url = (
+        _annotation_study_url(
+            task,
+            aggregate=aggregate,
+            comprehension=comprehension,
+        )
+        + "?"
+        + urlencode(flashcard_params)
+    )
     return render(
         request,
         "study/notes_list.html",
@@ -379,7 +408,8 @@ def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
             "ce_count": general_counts["ecrite"],
             "co_count": general_counts["orale"],
             "tab_url_prefix": tab_url_prefix,
-            "study_url": _annotation_study_url(
+            "flashcard_url": flashcard_url,
+            "study_queue_url": _annotation_study_url(
                 task,
                 aggregate=aggregate,
                 comprehension=comprehension,
@@ -431,7 +461,7 @@ def annotation_search(request):
     if kind in AnnotationKind.values:
         annotations = annotations.filter(kind=kind)
     else:
-        kind = ""
+        active_tab = ""
     if study_only:
         annotations = annotations.filter(study_later=True)
     if task_id.isdigit():
@@ -483,78 +513,68 @@ def annotation_study(
     if comprehension is not None and comprehension not in COMPREHENSION_NOTE_MODES:
         raise Http404
     requested_mode = (request.GET.get("mode") or "").strip()
-    raw_item_id = (request.GET.get("item") or "").strip()
-    if requested_mode not in {"", "all"} or (requested_mode and raw_item_id):
+    if requested_mode not in {"", "all"} or "item" in request.GET:
         raise Http404
     task = (
         _route_task(part_slug, task_slug)
         if part_slug is not None and task_slug is not None
         else None
     )
-    single_item = None
-    if raw_item_id:
-        if not raw_item_id.isdigit() or int(raw_item_id) <= 0:
-            raise Http404
-        single_item = get_object_or_404(
-            Annotation.objects.select_related("task__part"),
-            pk=int(raw_item_id),
-            user=request.user,
-        )
-        if task and single_item.task_id != task.pk:
-            raise Http404
-        if comprehension and (
-            single_item.task_id is not None
-            or not (single_item.source_path or "").startswith(
-                _comprehension_scope_prefix(comprehension)
-            )
-        ):
-            raise Http404
-        if general_only and (
-            single_item.task_id is not None
-            or (single_item.source_path or "").startswith(
-                COMPREHENSION_PATH_PREFIX
-            )
-        ):
-            raise Http404
-        if not task and not comprehension and not general_only:
-            if single_item.task_id is not None:
-                task = single_item.task
-            else:
-                source_path = single_item.source_path or ""
-                comprehension = next(
-                    (
-                        mode
-                        for mode in COMPREHENSION_NOTE_MODES
-                        if source_path.startswith(
-                            _comprehension_scope_prefix(mode)
-                        )
-                    ),
-                    None,
-                )
-                general_only = comprehension is None
-
-    study_mode = (
-        "item"
-        if single_item is not None
-        else "all"
-        if requested_mode == "all"
-        else "queue"
-    )
+    study_mode = "all" if requested_mode == "all" else "queue"
     annotations = Annotation.objects.filter(user=request.user).select_related(
         "task__part"
     )
-    if single_item is not None:
-        annotations = annotations.filter(pk=single_item.pk)
+    annotations = _scope_annotations(
+        annotations,
+        task=task,
+        aggregate=not task and not comprehension and not general_only,
+        comprehension=comprehension,
+    )
+    query = ""
+    status = ""
+    active_tab = ""
+    if study_mode == "queue":
+        annotations = annotations.filter(study_later=True)
     else:
-        annotations = _scope_annotations(
-            annotations,
-            task=task,
-            aggregate=not task and not comprehension and not general_only,
-            comprehension=comprehension,
+        query = (request.GET.get("q") or "").strip()
+        status = (
+            request.GET.get("status")
+            if request.GET.get("status") in {"todo", "done", "study"}
+            else ""
         )
-        if study_mode == "queue":
-            annotations = annotations.filter(study_later=True)
+        active_tab = (
+            request.GET.get("tab")
+            if request.GET.get("tab") in {"notes", "highlights"}
+            else "notes"
+        )
+        annotations = _filter_annotation_query(annotations, query)
+        annotations = _filter_annotation_status(annotations, status)
+        annotations = annotations.filter(
+            kind=(
+                AnnotationKind.HIGHLIGHT
+                if active_tab == "highlights"
+                else AnnotationKind.NOTE
+            )
+        )
     items = list(annotations.order_by("-updated_at", "-id"))
+    back_url = (
+        _annotation_scope_url(task)
+        if task
+        else reverse(
+            "study:comprehension_notes", args=[comprehension]
+        )
+        if comprehension
+        else reverse("study:general_notes")
+        if general_only
+        else reverse("study:notes_overview")
+    )
+    if study_mode == "all":
+        back_params = {"tab": active_tab}
+        if query:
+            back_params["q"] = query
+        if status:
+            back_params["status"] = status
+        back_url += "?" + urlencode(back_params)
     return render(
         request,
         "study/annotation_study.html",
@@ -572,17 +592,7 @@ def annotation_study(
                 if general_only
                 else "Toutes mes notes"
             ),
-            "back_url": (
-                _annotation_scope_url(task)
-                if task
-                else reverse(
-                    "study:comprehension_notes", args=[comprehension]
-                )
-                if comprehension
-                else reverse("study:general_notes")
-                if general_only
-                else reverse("study:notes_overview")
-            ),
+            "back_url": back_url,
         },
     )
 

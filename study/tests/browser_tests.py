@@ -2629,7 +2629,7 @@ class BrowserTests(StaticLiveServerTestCase):
             ".annotation-card",
             has_text="Une note personnelle.",
         ).locator(".annotation-action__icon")
-        self.assertEqual(action_icons.count(), 4)
+        self.assertEqual(action_icons.count(), 6)
 
         self.page.get_by_role("button", name="Tableau").click()
         self.page.locator(
@@ -2651,7 +2651,7 @@ class BrowserTests(StaticLiveServerTestCase):
             ".annotation-table__row",
             has_text="Une note personnelle.",
         ).locator(".annotation-action__icon")
-        self.assertEqual(action_icons.count(), 4)
+        self.assertEqual(action_icons.count(), 6)
         icon_styles = action_icons.evaluate_all(
             """
             icons => icons.map(icon => {
@@ -2663,9 +2663,9 @@ class BrowserTests(StaticLiveServerTestCase):
             })
             """
         )
-        self.assertEqual(
+        self.assertGreaterEqual(
             len({style["color"] for style in icon_styles}),
-            4,
+            5,
         )
         self.assertTrue(
             all(
@@ -3174,10 +3174,10 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         note_row.wait_for()
         action_buttons = note_row.locator(".annotation-action")
-        self.assertEqual(action_buttons.count(), 4)
+        self.assertEqual(action_buttons.count(), 6)
         self.assertTrue(
             all(
-                size["width"] <= 38 and size["height"] <= 38
+                44 <= size["width"] <= 46 and 44 <= size["height"] <= 46
                 for size in action_buttons.evaluate_all(
                     """
                     buttons => buttons.map(button => {
@@ -3263,32 +3263,149 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assert_no_horizontal_overflow()
 
     def test_selected_note_study_card_switches_between_distinct_faces(self):
-        Annotation.objects.create(
+        note = Annotation.objects.create(
             user=self.user,
             task=self.task,
             kind=AnnotationKind.NOTE,
             quote="séance",
             body="showing",
-            study_later=True,
         )
         self.page.set_viewport_size({"width": 320, "height": 568})
         self.page.goto(
-            self.live_server_url + reverse("study:annotation_study")
+            self.live_server_url
+            + reverse(
+                "study:task_notes",
+                args=[self.part.slug, self.task.slug],
+            )
         )
+        note_card = self.page.locator(
+            ".annotation-card",
+            has_text="showing",
+        )
+        note_card.get_by_role(
+            "link",
+            name="Étudier la note en flashcard",
+        ).click()
+        self.page.wait_for_url(f"**?item={note.pk}")
 
+        card = self.page.locator("[data-study-card]")
         front = self.page.locator("[data-study-front]")
         back = self.page.locator("[data-study-back]")
         front.get_by_text("séance", exact=True).wait_for()
         self.assertFalse(back.get_by_text("showing", exact=True).is_visible())
 
-        self.page.locator("[data-study-reveal]").click()
+        card.click()
 
         back.get_by_text("showing", exact=True).wait_for()
         self.assertFalse(front.is_visible())
         self.assertFalse(
             front.get_by_text("séance", exact=True).is_visible()
         )
+
+        card.click()
+        front.get_by_text("séance", exact=True).wait_for()
+        self.assertFalse(back.is_visible())
         self.assert_no_horizontal_overflow()
+
+    def test_note_and_highlight_actions_read_the_visible_item(self):
+        self.context.add_init_script(
+            """
+            (() => {
+              window.__annotationSpoken = "";
+              const voices = [{
+                name: "Audrey Premium",
+                voiceURI: "fr-premium",
+                lang: "fr-FR",
+                localService: true,
+                default: true,
+              }];
+              const synthesis = {
+                getVoices: () => voices,
+                addEventListener: () => {},
+                cancel: () => {},
+                resume: () => {},
+                speak: utterance => {
+                  window.__annotationSpoken = utterance.text;
+                },
+              };
+              class FakeUtterance {
+                constructor(text) {
+                  this.text = text;
+                  this.lang = "";
+                  this.rate = 1;
+                  this.pitch = 1;
+                  this.voice = null;
+                }
+              }
+              Object.defineProperty(window, "speechSynthesis", {
+                configurable: true,
+                value: synthesis,
+              });
+              Object.defineProperty(window, "SpeechSynthesisUtterance", {
+                configurable: true,
+                value: FakeUtterance,
+              });
+            })();
+            """
+        )
+        Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            title="Rappel important",
+            body="Employer cependant pour nuancer.",
+        )
+        Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="Cependant, il faut reconnaître cette limite.",
+            source_path=response_detail_url(self.first.response),
+            start_offset=0,
+            end_offset=45,
+        )
+        notes_url = reverse(
+            "study:task_notes",
+            args=[self.part.slug, self.task.slug],
+        )
+
+        self.page.goto(self.live_server_url + notes_url)
+        note_card = self.page.locator(
+            ".annotation-card",
+            has_text="Rappel important",
+        )
+        note_read = note_card.locator("[data-annotation-read]")
+        self.assertEqual(note_read.get_attribute("aria-label"), "Lire la note")
+        self.assertGreaterEqual(note_read.bounding_box()["width"], 44)
+        note_read.click()
+        self.page.wait_for_function(
+            "() => window.__annotationSpoken.includes('cependant')"
+        )
+        self.assertIn(
+            "Rappel important",
+            self.page.evaluate("window.__annotationSpoken"),
+        )
+        self.assertEqual(note_read.get_attribute("aria-pressed"), "true")
+        note_read.click()
+        self.assertEqual(note_read.get_attribute("aria-pressed"), "false")
+
+        self.page.goto(self.live_server_url + notes_url + "?tab=highlights")
+        highlight_card = self.page.locator(
+            ".annotation-card",
+            has_text="Cependant, il faut reconnaître cette limite.",
+        )
+        highlight_read = highlight_card.locator(
+            "[data-annotation-read]"
+        )
+        self.assertEqual(
+            highlight_read.get_attribute("aria-label"),
+            "Lire le surlignage",
+        )
+        highlight_read.click()
+        self.page.wait_for_function(
+            "() => window.__annotationSpoken.includes('reconnaître cette limite')"
+        )
+        self.assertEqual(highlight_read.get_attribute("aria-pressed"), "true")
 
     def test_study_deck_removes_only_known_cards_at_the_end(self):
         Annotation.objects.create(

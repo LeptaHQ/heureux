@@ -55,6 +55,14 @@
   var highlights = [];
   var toastTimer = null;
   var mutationTimer = null;
+  var annotationReadButtons = Array.from(
+    document.querySelectorAll("[data-annotation-read]")
+  );
+  var frenchSpeech = window.HeureuxFrenchSpeech;
+  var activeReadId = "";
+  var annotationReadNumber = 0;
+  var annotationReadChunks = [];
+  var annotationReadIndex = 0;
 
   function csrfToken() {
     var match = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]+)/);
@@ -764,6 +772,127 @@
       });
   }
 
+  function setAnnotationReadState(id, active) {
+    annotationReadButtons.forEach(function (button) {
+      if (button.dataset.annotationRead !== id) return;
+      var label = active
+        ? "Arrêter la lecture"
+        : button.dataset.annotationReadLabel;
+      button.classList.toggle("is-reading", active);
+      button.setAttribute("aria-pressed", active ? "true" : "false");
+      button.setAttribute("aria-label", label);
+      button.setAttribute("title", active ? "Arrêter" : "Lire");
+      var hiddenLabel = button.querySelector(".sr-only");
+      if (hiddenLabel) hiddenLabel.textContent = label;
+    });
+  }
+
+  function stopAnnotationReading(cancelSpeech) {
+    var previousId = activeReadId;
+    var wasReading = Boolean(previousId);
+    activeReadId = "";
+    annotationReadNumber += 1;
+    annotationReadChunks = [];
+    annotationReadIndex = 0;
+    if (
+      wasReading &&
+      cancelSpeech !== false &&
+      frenchSpeech &&
+      frenchSpeech.supported
+    ) {
+      frenchSpeech.synthesis.cancel();
+      frenchSpeech.synthesis.resume();
+    }
+    if (previousId) setAnnotationReadState(previousId, false);
+  }
+
+  function finishAnnotationReading() {
+    var previousId = activeReadId;
+    activeReadId = "";
+    annotationReadChunks = [];
+    annotationReadIndex = 0;
+    if (previousId) setAnnotationReadState(previousId, false);
+  }
+
+  function speakNextAnnotationChunk(readNumber) {
+    if (!activeReadId || readNumber !== annotationReadNumber) return;
+    if (annotationReadIndex >= annotationReadChunks.length) {
+      finishAnnotationReading();
+      return;
+    }
+    var utterance = new frenchSpeech.Utterance(
+      annotationReadChunks[annotationReadIndex]
+    );
+    var voice = frenchSpeech.preferredVoice();
+    utterance.lang = "fr-FR";
+    utterance.rate = 0.92;
+    utterance.pitch = 1;
+    if (voice) utterance.voice = voice;
+    utterance.onend = function () {
+      if (!activeReadId || readNumber !== annotationReadNumber) return;
+      annotationReadIndex += 1;
+      speakNextAnnotationChunk(readNumber);
+    };
+    utterance.onerror = function () {
+      if (readNumber === annotationReadNumber) stopAnnotationReading();
+    };
+    frenchSpeech.synthesis.speak(utterance);
+  }
+
+  function toggleAnnotationReading(button) {
+    var id = button.dataset.annotationRead;
+    if (activeReadId === id) {
+      stopAnnotationReading();
+      return;
+    }
+    var item = button.closest("[data-annotation-item]");
+    var readable = item ? item.querySelector("[data-annotation-readable]") : null;
+    var chunks = readable
+      ? frenchSpeech.chunks(readable.textContent || "")
+      : [];
+    if (!chunks.length) {
+      showToast("Aucun texte à lire.");
+      return;
+    }
+
+    stopAnnotationReading();
+    frenchSpeech.refreshVoices();
+    activeReadId = id;
+    annotationReadChunks = chunks;
+    annotationReadIndex = 0;
+    annotationReadNumber += 1;
+    var readNumber = annotationReadNumber;
+    setAnnotationReadState(id, true);
+    document.dispatchEvent(new CustomEvent("heureux:speech-start", {
+      detail: { source: "annotation-item" }
+    }));
+    frenchSpeech.synthesis.resume();
+    speakNextAnnotationChunk(readNumber);
+  }
+
+  function setupAnnotationReading() {
+    if (!annotationReadButtons.length) return;
+    if (!frenchSpeech || !frenchSpeech.supported) {
+      annotationReadButtons.forEach(function (button) {
+        button.hidden = true;
+      });
+      return;
+    }
+    annotationReadButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        toggleAnnotationReading(button);
+      });
+    });
+    document.addEventListener("heureux:speech-start", function (event) {
+      if (
+        activeReadId &&
+        (!event.detail || event.detail.source !== "annotation-item")
+      ) {
+        stopAnnotationReading(false);
+      }
+    });
+  }
+
   function setupStudyDeck() {
     var deck = document.querySelector("[data-annotation-study]");
     if (!deck) return;
@@ -803,6 +932,7 @@
       if (!card) return;
       card.querySelector("[data-study-front]").classList.remove("hidden");
       card.querySelector("[data-study-back]").classList.add("hidden");
+      card.classList.remove("is-revealed");
       revealed = false;
       reveal.classList.remove("hidden");
       keep.classList.add("hidden");
@@ -818,10 +948,29 @@
       var card = cards[index];
       card.querySelector("[data-study-front]").classList.add("hidden");
       card.querySelector("[data-study-back]").classList.remove("hidden");
+      card.classList.add("is-revealed");
       revealed = true;
       reveal.classList.add("hidden");
       keep.classList.remove("hidden");
       learned.classList.remove("hidden");
+    }
+
+    function hideAnswer() {
+      if (!revealed) return;
+      var card = cards[index];
+      if (!card) return;
+      card.querySelector("[data-study-front]").classList.remove("hidden");
+      card.querySelector("[data-study-back]").classList.add("hidden");
+      card.classList.remove("is-revealed");
+      revealed = false;
+      reveal.classList.remove("hidden");
+      keep.classList.add("hidden");
+      learned.classList.add("hidden");
+    }
+
+    function toggleAnswer() {
+      if (revealed) hideAnswer();
+      else showAnswer();
     }
 
     function knownCards() {
@@ -884,6 +1033,20 @@
       }
     });
     reveal.addEventListener("click", showAnswer);
+    cards.forEach(function (card) {
+      card.addEventListener("click", function (event) {
+        if (
+          event.target.closest(
+            "a, button, input, select, textarea, [contenteditable='true']"
+          )
+        ) {
+          return;
+        }
+        var selection = window.getSelection();
+        if (selection && !selection.isCollapsed) return;
+        toggleAnswer();
+      });
+    });
     keep.addEventListener("click", function () {
       var card = cards[index];
       if (card) decisions[cardId(card)] = "keep";
@@ -969,9 +1132,9 @@
       ) {
         return;
       }
-      if (event.key === " " && !revealed) {
+      if (event.key === " ") {
         event.preventDefault();
-        showAnswer();
+        toggleAnswer();
       } else if (event.key === "ArrowRight" && revealed) {
         advance();
       } else if (event.key === "ArrowLeft" && index > 0) {
@@ -1027,7 +1190,9 @@
   observer.observe(main, { childList: true, subtree: true });
   window.addEventListener("pagehide", function () {
     observer.disconnect();
+    stopAnnotationReading();
   });
+  setupAnnotationReading();
   setupStudyDeck();
   fetchHighlights();
 })();

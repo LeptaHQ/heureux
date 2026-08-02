@@ -180,6 +180,22 @@ def _annotation_tab_url(task, kind):
     return f"{_annotation_scope_url(task)}?tab={tab}"
 
 
+def _annotation_study_url(task=None, *, aggregate=False, comprehension=None):
+    if task:
+        return reverse(
+            "study:task_annotation_study",
+            args=[task.part.slug, task.slug],
+        )
+    if comprehension:
+        return reverse(
+            "study:comprehension_annotation_study",
+            args=[comprehension],
+        )
+    if aggregate:
+        return reverse("study:annotation_study")
+    return reverse("study:general_annotation_study")
+
+
 _HIGHLIGHT_ORIGIN_LABELS = {
     "responses": "Réponse",
     "expressions": "Expression",
@@ -363,6 +379,11 @@ def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
             "ce_count": general_counts["ecrite"],
             "co_count": general_counts["orale"],
             "tab_url_prefix": tab_url_prefix,
+            "study_url": _annotation_study_url(
+                task,
+                aggregate=aggregate,
+                comprehension=comprehension,
+            ),
         },
     )
 
@@ -461,26 +482,78 @@ def annotation_study(
         raise Http404
     if comprehension is not None and comprehension not in COMPREHENSION_NOTE_MODES:
         raise Http404
+    requested_mode = (request.GET.get("mode") or "").strip()
+    raw_item_id = (request.GET.get("item") or "").strip()
+    if requested_mode not in {"", "all"} or (requested_mode and raw_item_id):
+        raise Http404
     task = (
         _route_task(part_slug, task_slug)
         if part_slug is not None and task_slug is not None
         else None
     )
-    annotations = Annotation.objects.filter(
-        user=request.user,
-        study_later=True,
-    ).select_related("task__part")
-    if task:
-        annotations = annotations.filter(task=task)
-    elif comprehension:
-        annotations = annotations.filter(
-            task__isnull=True,
-            source_path__startswith=_comprehension_scope_prefix(comprehension),
+    single_item = None
+    if raw_item_id:
+        if not raw_item_id.isdigit() or int(raw_item_id) <= 0:
+            raise Http404
+        single_item = get_object_or_404(
+            Annotation.objects.select_related("task__part"),
+            pk=int(raw_item_id),
+            user=request.user,
         )
-    elif general_only:
-        annotations = annotations.filter(task__isnull=True).exclude(
-            source_path__startswith=COMPREHENSION_PATH_PREFIX
+        if task and single_item.task_id != task.pk:
+            raise Http404
+        if comprehension and (
+            single_item.task_id is not None
+            or not (single_item.source_path or "").startswith(
+                _comprehension_scope_prefix(comprehension)
+            )
+        ):
+            raise Http404
+        if general_only and (
+            single_item.task_id is not None
+            or (single_item.source_path or "").startswith(
+                COMPREHENSION_PATH_PREFIX
+            )
+        ):
+            raise Http404
+        if not task and not comprehension and not general_only:
+            if single_item.task_id is not None:
+                task = single_item.task
+            else:
+                source_path = single_item.source_path or ""
+                comprehension = next(
+                    (
+                        mode
+                        for mode in COMPREHENSION_NOTE_MODES
+                        if source_path.startswith(
+                            _comprehension_scope_prefix(mode)
+                        )
+                    ),
+                    None,
+                )
+                general_only = comprehension is None
+
+    study_mode = (
+        "item"
+        if single_item is not None
+        else "all"
+        if requested_mode == "all"
+        else "queue"
+    )
+    annotations = Annotation.objects.filter(user=request.user).select_related(
+        "task__part"
+    )
+    if single_item is not None:
+        annotations = annotations.filter(pk=single_item.pk)
+    else:
+        annotations = _scope_annotations(
+            annotations,
+            task=task,
+            aggregate=not task and not comprehension and not general_only,
+            comprehension=comprehension,
         )
+        if study_mode == "queue":
+            annotations = annotations.filter(study_later=True)
     items = list(annotations.order_by("-updated_at", "-id"))
     return render(
         request,
@@ -489,6 +562,7 @@ def annotation_study(
             "part": task.part if task else None,
             "task": task,
             "items": items,
+            "study_mode": study_mode,
             "scope_title": (
                 task.name
                 if task

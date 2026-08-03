@@ -7190,42 +7190,6 @@ a.qrow:focus-visible {
   color: inherit;
   text-shadow: none;
 }
-html[data-pen-hover="true"],
-html[data-pen-hover="true"] body,
-html[data-pen-hover="true"] body * {
-  cursor: none !important;
-}
-.pen-cursor-dot {
-  position: fixed;
-  z-index: 140;
-  top: -30px;
-  left: -30px;
-  width: 15px;
-  height: 15px;
-  border: 2px solid rgba(255, 255, 255, 0.96);
-  border-radius: 50%;
-  background: #2f7df4;
-  box-shadow:
-    0 0 0 1px rgba(23, 63, 144, 0.42),
-    0 2px 8px rgba(23, 63, 144, 0.32);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.82);
-  transition:
-    opacity 0.08s ease,
-    transform 0.08s ease,
-    visibility 0s linear 0.08s;
-}
-.pen-cursor-dot.is-visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -50%) scale(1);
-  transition-delay: 0s;
-}
-.pen-cursor-dot.is-pressed {
-  transform: translate(-50%, -50%) scale(0.72);
-}
 .selection-translate {
   position: fixed;
   z-index: 90;
@@ -7239,6 +7203,16 @@ html[data-pen-hover="true"] body * {
   box-shadow: var(--shadow-md);
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+}
+html[data-input-mode="pen"] .selection-translate {
+  border-color: #2f7df4;
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, #2f7df4 16%, transparent),
+    var(--shadow-md);
+}
+html[data-input-mode="pen"] .selection-translate__button:hover {
+  outline: 3px solid color-mix(in srgb, #2f7df4 30%, transparent);
+  outline-offset: 1px;
 }
 .selection-translate__button {
   min-height: 44px;

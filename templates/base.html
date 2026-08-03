@@ -7,7 +7,7 @@
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
   <script src="{% static 'study/js/theme-init.js' %}?v=2"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=141">
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=142">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -173,8 +173,6 @@
     {% block content %}{% endblock %}
   </main>
 
-  <span class="pen-cursor-dot" aria-hidden="true" data-pen-cursor></span>
-
   <div class="selection-translate hidden" role="toolbar" aria-label="Selected text actions" data-selection-translate>
     <button class="selection-translate__button selection-translate__button--copy" type="button" aria-label="Copy selected text" aria-keyshortcuts="C" title="Copy selected text · Shortcut: C" data-copy-selection>
       <svg data-icon="copy" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="{% static 'study/icons/ui-icons.svg' %}?v=3#icon-copy" data-copy-selection-icon></use></svg>
@@ -327,7 +325,7 @@
   </div>
 
   <script src="{% static 'study/js/app.js' %}?v=40"></script>
-  <script src="{% static 'study/js/selection-toolbar.js' %}?v=4"></script>
+  <script src="{% static 'study/js/selection-toolbar.js' %}?v=5"></script>
   <script src="{% static 'study/js/annotations.js' %}?v=18"></script>
   <script src="{% static 'study/js/subject-progress.js' %}?v=1"></script>
   <script src="{% static 'study/js/writing-sujet-progress.js' %}?v=2"></script>

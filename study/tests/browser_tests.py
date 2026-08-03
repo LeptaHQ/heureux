@@ -2300,8 +2300,6 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         toolbar = self.page.locator("[data-selection-translate]")
         toolbar.wait_for()
-        pen_dot = self.page.locator("[data-pen-cursor]")
-        pen_dot.wait_for(state="visible")
         self.assertEqual(
             self.page.locator("html").get_attribute("data-input-mode"),
             "pen",
@@ -2324,7 +2322,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 };
               });
               return {
-                cursor: getComputedStyle(toolbar).cursor,
+                borderColor: getComputedStyle(toolbar).borderColor,
                 toolbar: {
                   left: toolbarRect.left,
                   right: toolbarRect.right,
@@ -2341,17 +2339,10 @@ class BrowserTests(StaticLiveServerTestCase):
             """
         )
         self.assertGreaterEqual(pen_metrics["toolbar"]["left"], 0)
-        self.assertEqual(pen_metrics["cursor"], "none")
-        pen_dot_box = pen_dot.bounding_box()
-        self.assertAlmostEqual(
-            pen_dot_box["x"] + pen_dot_box["width"] / 2,
-            pen_x,
-            delta=1,
-        )
-        self.assertAlmostEqual(
-            pen_dot_box["y"] + pen_dot_box["height"] / 2,
-            pen_y,
-            delta=1,
+        self.assertEqual(pen_metrics["borderColor"], "rgb(47, 125, 244)")
+        self.assertEqual(
+            self.page.locator("[data-pen-cursor]").count(),
+            0,
         )
         self.assertLessEqual(pen_metrics["toolbar"]["right"], 390)
         self.assertGreaterEqual(pen_metrics["toolbar"]["top"], 0)

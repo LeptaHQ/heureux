@@ -14,6 +14,7 @@
   var panel = document.querySelector("[data-translation-panel]");
   var notePanel = document.querySelector("[data-note-panel]");
   var main = document.getElementById("main");
+  var penCursor = document.querySelector("[data-pen-cursor]");
   if (
     !action ||
     !selectionCopyButton ||
@@ -59,6 +60,9 @@
   var readingIndex = 0;
   var readResetTimer = null;
   var selectionPointerId = null;
+  var penCursorFrame = null;
+  var penCursorX = 0;
+  var penCursorY = 0;
 
   function setSpriteIcon(icon, name) {
     if (!icon) return;
@@ -85,10 +89,32 @@
     return document.documentElement.dataset.inputMode === "pen";
   }
 
+  function hidePenCursor() {
+    delete document.documentElement.dataset.penHover;
+    if (!penCursor) return;
+    penCursor.classList.remove("is-visible", "is-pressed");
+  }
+
+  function positionPenCursor(event) {
+    if (!penCursor) return;
+    penCursorX = event.clientX;
+    penCursorY = event.clientY;
+    penCursor.classList.add("is-visible");
+    if (penCursorFrame !== null) return;
+    penCursorFrame = window.requestAnimationFrame(function () {
+      penCursorFrame = null;
+      penCursor.style.left = Math.round(penCursorX) + "px";
+      penCursor.style.top = Math.round(penCursorY) + "px";
+    });
+  }
+
   function rememberPointerInput(event) {
     if (event.pointerType === "pen") {
       document.documentElement.dataset.inputMode = "pen";
+      document.documentElement.dataset.penHover = "true";
+      positionPenCursor(event);
     } else if (event.pointerType === "mouse" || event.pointerType === "touch") {
+      hidePenCursor();
       if (event.target && action.contains(event.target)) return;
       delete document.documentElement.dataset.inputMode;
     }
@@ -595,10 +621,12 @@
   });
   document.addEventListener("pointerup", function (event) {
     rememberPointerInput(event);
+    if (penCursor) penCursor.classList.remove("is-pressed");
     if (event.pointerId === selectionPointerId) selectionPointerId = null;
     scheduleSelectionAction(event.pointerType === "pen" ? 20 : 30);
   });
   document.addEventListener("pointercancel", function (event) {
+    hidePenCursor();
     if (event.pointerId === selectionPointerId) selectionPointerId = null;
   });
   document.addEventListener("keyup", function (event) {
@@ -606,6 +634,9 @@
   });
   document.addEventListener("pointerdown", function (event) {
     rememberPointerInput(event);
+    if (event.pointerType === "pen" && penCursor) {
+      penCursor.classList.add("is-pressed");
+    }
     var outsideAction = !action.contains(event.target);
     var outsideTranslation = !panel.contains(event.target);
     var outsideNote = !notePanel || !notePanel.contains(event.target);
@@ -633,6 +664,16 @@
   });
   document.addEventListener("pointerover", rememberPointerInput, {
     passive: true
+  });
+  document.addEventListener("pointermove", rememberPointerInput, {
+    passive: true
+  });
+  document.addEventListener("pointerout", function (event) {
+    if (event.pointerType === "pen" && !event.relatedTarget) hidePenCursor();
+  });
+  window.addEventListener("blur", hidePenCursor);
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) hidePenCursor();
   });
   window.addEventListener("resize", function () {
     repositionPanel();

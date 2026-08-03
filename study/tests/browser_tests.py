@@ -2273,6 +2273,9 @@ class BrowserTests(StaticLiveServerTestCase):
         prompt.wait_for()
         self.page.wait_for_load_state("networkidle")
         self.select_prompt(start=0, end=12)
+        prompt_box = prompt.bounding_box()
+        pen_x = prompt_box["x"] + 24
+        pen_y = prompt_box["y"] + 18
         prompt.dispatch_event(
             "pointerdown",
             {
@@ -2280,6 +2283,8 @@ class BrowserTests(StaticLiveServerTestCase):
                 "pointerType": "pen",
                 "isPrimary": True,
                 "button": 0,
+                "clientX": pen_x,
+                "clientY": pen_y,
             },
         )
         prompt.dispatch_event(
@@ -2289,10 +2294,14 @@ class BrowserTests(StaticLiveServerTestCase):
                 "pointerType": "pen",
                 "isPrimary": True,
                 "button": 0,
+                "clientX": pen_x,
+                "clientY": pen_y,
             },
         )
         toolbar = self.page.locator("[data-selection-translate]")
         toolbar.wait_for()
+        pen_dot = self.page.locator("[data-pen-cursor]")
+        pen_dot.wait_for(state="visible")
         self.assertEqual(
             self.page.locator("html").get_attribute("data-input-mode"),
             "pen",
@@ -2332,8 +2341,18 @@ class BrowserTests(StaticLiveServerTestCase):
             """
         )
         self.assertGreaterEqual(pen_metrics["toolbar"]["left"], 0)
-        self.assertIn("data:image/svg+xml", pen_metrics["cursor"])
-        self.assertIn("2f7df4", pen_metrics["cursor"].lower())
+        self.assertEqual(pen_metrics["cursor"], "none")
+        pen_dot_box = pen_dot.bounding_box()
+        self.assertAlmostEqual(
+            pen_dot_box["x"] + pen_dot_box["width"] / 2,
+            pen_x,
+            delta=1,
+        )
+        self.assertAlmostEqual(
+            pen_dot_box["y"] + pen_dot_box["height"] / 2,
+            pen_y,
+            delta=1,
+        )
         self.assertLessEqual(pen_metrics["toolbar"]["right"], 390)
         self.assertGreaterEqual(pen_metrics["toolbar"]["top"], 0)
         self.assertLessEqual(pen_metrics["toolbar"]["bottom"], 844)
@@ -3494,7 +3513,29 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.page.goto(self.live_server_url + notes_url)
 
-        # The native status select is replaced by an accessible custom one.
+        mobile_filters = self.page.locator(".notes-status-filter")
+        self.assertEqual(mobile_filters.count(), 4)
+        self.assertTrue(
+            all(
+                box["height"] >= 44
+                for box in mobile_filters.evaluate_all(
+                    """
+                    filters => filters.map(filter => {
+                      const rect = filter.getBoundingClientRect();
+                      return {height: rect.height};
+                    })
+                    """
+                )
+            )
+        )
+        self.page.locator(
+            '.notes-status-filter[data-status="done"]'
+        ).click()
+        self.page.wait_for_url("**status=done**")
+
+        # Desktop retains the accessible custom listbox.
+        self.page.set_viewport_size({"width": 900, "height": 720})
+        self.page.goto(self.live_server_url + notes_url)
         self.assertEqual(
             self.page.locator("#notes-status").get_attribute("aria-hidden"),
             "true",
@@ -3968,7 +4009,7 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
-    def test_mobile_active_notes_scope_scrolls_into_view(self):
+    def test_mobile_notes_scope_picker_reveals_the_active_scope(self):
         for order, slug in enumerate(
             ("tache-0", "tache-1", "tache-2"),
             start=1,
@@ -3987,42 +4028,53 @@ class BrowserTests(StaticLiveServerTestCase):
                 args=[self.part.slug, self.task.slug],
             )
         )
+        self.assertFalse(self.page.locator(".notes-scope-nav").is_visible())
+        picker = self.page.locator(".notes-mobile-scope")
+        picker.wait_for(state="visible")
+        self.assertIn(
+            "EO · Tache 3",
+            picker.locator("summary").inner_text(),
+        )
+        picker.locator("summary").click()
         self.page.wait_for_function(
             """() => {
-              const nav = document.querySelector('.notes-scope-nav');
-              const active = nav && nav.querySelector('.is-active');
+              const menu = document.querySelector(
+                '.notes-mobile-scope__menu'
+              );
+              const active = menu && menu.querySelector('.is-active');
               if (!active) return false;
-              const navBox = nav.getBoundingClientRect();
+              const menuBox = menu.getBoundingClientRect();
               const activeBox = active.getBoundingClientRect();
-              return nav.scrollLeft > 0 &&
-                activeBox.left >= navBox.left - 1 &&
-                activeBox.right <= navBox.right + 1;
+              return activeBox.top >= menuBox.top - 1 &&
+                activeBox.bottom <= menuBox.bottom + 1;
             }"""
         )
-        scope_layout = self.page.locator(".notes-scope-nav").evaluate(
-            """nav => {
-              const navBox = nav.getBoundingClientRect();
-              const activeBox = nav.querySelector(
+        scope_layout = picker.locator(
+            ".notes-mobile-scope__menu"
+        ).evaluate(
+            """menu => {
+              const menuBox = menu.getBoundingClientRect();
+              const activeBox = menu.querySelector(
                 '.is-active'
               ).getBoundingClientRect();
               return {
-                scrollLeft: nav.scrollLeft,
-                navLeft: navBox.left,
-                navRight: navBox.right,
-                activeLeft: activeBox.left,
-                activeRight: activeBox.right,
+                menuTop: menuBox.top,
+                menuBottom: menuBox.bottom,
+                activeTop: activeBox.top,
+                activeBottom: activeBox.bottom,
+                activeHeight: activeBox.height,
               };
             }"""
         )
-        self.assertGreater(scope_layout["scrollLeft"], 0)
         self.assertGreaterEqual(
-            scope_layout["activeLeft"],
-            scope_layout["navLeft"] - 1,
+            scope_layout["activeTop"],
+            scope_layout["menuTop"] - 1,
         )
         self.assertLessEqual(
-            scope_layout["activeRight"],
-            scope_layout["navRight"] + 1,
+            scope_layout["activeBottom"],
+            scope_layout["menuBottom"] + 1,
         )
+        self.assertGreaterEqual(scope_layout["activeHeight"], 48)
         self.assert_no_horizontal_overflow()
 
     def test_mobile_oral_audio_controls_are_circular_and_operable(self):
@@ -4179,6 +4231,15 @@ class BrowserTests(StaticLiveServerTestCase):
             kind=AnnotationKind.NOTE,
             body="Note utilisée pour vérifier les contrôles mobiles.",
         )
+        Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="Passage utilisé pour vérifier les contrôles mobiles.",
+            source_path="/",
+            start_offset=0,
+            end_offset=53,
+        )
         self.page.set_viewport_size({"width": 1200, "height": 800})
         self.page.goto(
             self.live_server_url + reverse("study:notes_overview")
@@ -4242,6 +4303,7 @@ class BrowserTests(StaticLiveServerTestCase):
             ".notes-toolbar .search-form .btn--icon"
         )
         search_button_box = search_button.bounding_box()
+        self.assertGreaterEqual(search_input_box["width"], 200)
         self.assertLess(search_input_box["x"], search_button_box["x"])
         self.assertAlmostEqual(
             search_input_box["y"] + search_input_box["height"] / 2,
@@ -4275,6 +4337,21 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertAlmostEqual(
             action_boxes[0]["width"], action_boxes[1]["width"], delta=1
         )
+        status_boxes = self.page.locator(
+            ".notes-status-filter"
+        ).evaluate_all(
+            """elements => elements.map(element => {
+              const rect = element.getBoundingClientRect();
+              return {width: rect.width, height: rect.height};
+            })"""
+        )
+        self.assertEqual(len(status_boxes), 4)
+        self.assertTrue(
+            all(
+                box["width"] >= 120 and box["height"] >= 44
+                for box in status_boxes
+            )
+        )
 
         tabs_box = self.page.locator(".notes-tabs").bounding_box()
         view_toolbar_box = self.page.locator(
@@ -4304,6 +4381,30 @@ class BrowserTests(StaticLiveServerTestCase):
                 and item["radius"] == "50%"
                 for item in view_button_metrics
             )
+        )
+        self.assert_no_horizontal_overflow()
+
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:notes_overview")
+            + "?tab=highlights"
+        )
+        self.assertEqual(
+            self.page.locator("#highlights-tab").get_attribute(
+                "aria-selected"
+            ),
+            "true",
+        )
+        highlight_action = self.page.locator(
+            ".notes-toolbar__actions--highlights .btn"
+        )
+        self.assertEqual(highlight_action.count(), 1)
+        self.assertGreaterEqual(highlight_action.bounding_box()["width"], 280)
+        self.assertGreaterEqual(
+            self.page.locator(
+                ".notes-toolbar .search-form__input"
+            ).bounding_box()["width"],
+            200,
         )
         self.assert_no_horizontal_overflow()
 

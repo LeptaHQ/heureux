@@ -1,0 +1,21 @@
+<a class="notes-scope-link {% if aggregate %}is-active{% endif %}" href="{% url 'study:notes_overview' %}">
+  <span class="notes-scope-link__label">Toutes</span>
+</a>
+<a class="notes-scope-link {% if not aggregate and not task and not comprehension %}is-active{% endif %}" href="{% url 'study:general_notes' %}">
+  <span class="notes-scope-link__label">Générales</span>
+  <span class="notes-scope-link__count" data-scope-count="general">{{ general_count }}</span>
+</a>
+<a class="notes-scope-link {% if comprehension == 'ecrite' %}is-active{% endif %}" href="{% url 'study:comprehension_notes' 'ecrite' %}">
+  <span class="notes-scope-link__label">CE · Écrite</span>
+  <span class="notes-scope-link__count" data-scope-count="ecrite">{{ ce_count }}</span>
+</a>
+<a class="notes-scope-link {% if comprehension == 'orale' %}is-active{% endif %}" href="{% url 'study:comprehension_notes' 'orale' %}">
+  <span class="notes-scope-link__label">CO · Orale</span>
+  <span class="notes-scope-link__count" data-scope-count="orale">{{ co_count }}</span>
+</a>
+{% for item in task_filters %}
+  <a class="notes-scope-link {% if task.pk == item.task.pk %}is-active{% endif %}" href="{% url 'study:task_notes' item.task.part.slug item.task.slug %}">
+    <span class="notes-scope-link__label">{{ item.task.part.short_name }} · {{ item.task.name }}</span>
+    <span class="notes-scope-link__count" data-scope-count="task:{{ item.task.pk }}">{{ item.count }}</span>
+  </a>
+{% endfor %}

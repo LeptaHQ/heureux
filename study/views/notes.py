@@ -360,6 +360,27 @@ def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
     if status:
         preserved["status"] = status
     tab_url_prefix = "?" + (urlencode(preserved) + "&" if preserved else "")
+    status_base_params = {"tab": active_tab}
+    if query:
+        status_base_params["q"] = query
+    status_filters = []
+    for value, label in (
+        ("", "Tous"),
+        ("todo", "À faire"),
+        ("done", "Terminées"),
+        ("study", "À étudier"),
+    ):
+        params = dict(status_base_params)
+        if value:
+            params["status"] = value
+        status_filters.append(
+            {
+                "value": value,
+                "label": label,
+                "active": status == value,
+                "url": request.path + "?" + urlencode(params),
+            }
+        )
     flashcard_params = {
         "mode": "all",
         "tab": active_tab,
@@ -408,6 +429,10 @@ def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
             "ce_count": general_counts["ecrite"],
             "co_count": general_counts["orale"],
             "tab_url_prefix": tab_url_prefix,
+            "status_filters": status_filters,
+            "filters_reset_url": (
+                request.path + "?" + urlencode({"tab": active_tab})
+            ),
             "flashcard_url": flashcard_url,
             "study_queue_url": _annotation_study_url(
                 task,

@@ -13,52 +13,6 @@
   </div>
 </header>
 
-<nav class="notes-scope-nav" aria-label="Filtrer les notes">
-  <a class="{% if aggregate %}is-active{% endif %}" href="{% url 'study:notes_overview' %}">Toutes</a>
-  <a class="{% if not aggregate and not task and not comprehension %}is-active{% endif %}" href="{% url 'study:general_notes' %}">Générales <span data-scope-count="general">{{ general_count }}</span></a>
-  <a class="{% if comprehension == 'ecrite' %}is-active{% endif %}" href="{% url 'study:comprehension_notes' 'ecrite' %}">CE · Écrite <span data-scope-count="ecrite">{{ ce_count }}</span></a>
-  <a class="{% if comprehension == 'orale' %}is-active{% endif %}" href="{% url 'study:comprehension_notes' 'orale' %}">CO · Orale <span data-scope-count="orale">{{ co_count }}</span></a>
-  {% for item in task_filters %}
-    <a class="{% if task.pk == item.task.pk %}is-active{% endif %}" href="{% url 'study:task_notes' item.task.part.slug item.task.slug %}">{{ item.task.part.short_name }} · {{ item.task.name }} <span data-scope-count="task:{{ item.task.pk }}">{{ item.count }}</span></a>
-  {% endfor %}
-</nav>
-
-<div class="notes-toolbar">
-  <form class="search-form" method="get" action="{{ request.path }}">
-    <label class="sr-only" for="notes-search">Rechercher dans les notes et surlignages</label>
-    <input id="notes-search" class="search-form__input" type="search" name="q" value="{{ query }}" placeholder="Rechercher dans mes notes…">
-    <label class="sr-only" for="notes-status">Filtrer par statut</label>
-    <select id="notes-status" class="search-form__select" name="status" data-auto-submit data-custom-select>
-      <option value="" {% if status == "" %}selected{% endif %}>Tous les statuts</option>
-      <option value="todo" {% if status == "todo" %}selected{% endif %}>À faire</option>
-      <option value="done" {% if status == "done" %}selected{% endif %}>Terminées</option>
-      <option value="study" {% if status == "study" %}selected{% endif %}>À étudier</option>
-    </select>
-    <input type="hidden" name="tab" value="{{ active_tab }}">
-    <button class="btn btn--icon" type="submit" aria-label="Rechercher" title="Rechercher">
-      <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
-    </button>
-  </form>
-  <div class="notes-toolbar__actions">
-    {% if active_tab == "notes" %}
-      <button class="btn" type="button" aria-haspopup="dialog" aria-controls="note-create-dialog" data-dialog-open="note-create-dialog">
-        <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
-        <span>Nouvelle note</span>
-      </button>
-    {% endif %}
-    <a class="btn btn--primary" href="{{ flashcard_url }}">
-      <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"></rect><path d="M8 9h8M8 13h5"></path></svg>
-      <span>Flashcards</span>
-    </a>
-    {% if study_count %}
-      <a class="btn" href="{{ study_queue_url }}">
-        <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-3.75L6 21Z"></path></svg>
-        <span>À étudier · {{ study_count }}</span>
-      </a>
-    {% endif %}
-  </div>
-</div>
-
 <div class="notes-collection" data-annotation-list data-status="{{ status }}" data-active-tab="{{ active_tab }}">
 <div class="notes-view-controls">
   <nav class="notes-tabs" role="tablist" aria-label="Type de contenu">
@@ -91,6 +45,86 @@
   {% elif highlights %}
     {% include "study/partials/collection_view_toggle.html" %}
   {% endif %}
+</div>
+
+<nav class="notes-scope-nav" aria-label="Filtrer par dossier">
+  {% include "study/partials/notes_scope_links.html" %}
+</nav>
+
+<details class="notes-mobile-scope">
+  <summary>
+    <span class="notes-mobile-scope__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M3.5 7.5h6l2-2h9v13h-17z"></path></svg>
+    </span>
+    <span class="notes-mobile-scope__copy">
+      <span>Dossier</span>
+      <strong>{% if task %}{{ task.part.short_name }} · {{ task.name }}{% else %}{{ scope_title }}{% endif %}</strong>
+    </span>
+    <span class="notes-mobile-scope__chevron" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"></path></svg>
+    </span>
+  </summary>
+  <nav class="notes-mobile-scope__menu" aria-label="Choisir un dossier">
+    {% include "study/partials/notes_scope_links.html" %}
+  </nav>
+</details>
+
+<div class="notes-toolbar">
+  <div class="notes-filter-panel">
+    <form class="search-form notes-filter-form" method="get" action="{{ request.path }}">
+      <div class="notes-search-field">
+        <label class="sr-only" for="notes-search">Rechercher dans les notes et surlignages</label>
+        <input id="notes-search" class="search-form__input" type="search" name="q" value="{{ query }}" placeholder="Rechercher…">
+        <button class="btn btn--icon" type="submit" aria-label="Rechercher" title="Rechercher">
+          <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+        </button>
+      </div>
+      <div class="notes-desktop-status">
+        <label class="sr-only" for="notes-status">Filtrer par statut</label>
+        <select id="notes-status" class="search-form__select" name="status" data-auto-submit data-custom-select>
+          <option value="" {% if status == "" %}selected{% endif %}>Tous les statuts</option>
+          <option value="todo" {% if status == "todo" %}selected{% endif %}>À faire</option>
+          <option value="done" {% if status == "done" %}selected{% endif %}>Terminées</option>
+          <option value="study" {% if status == "study" %}selected{% endif %}>À étudier</option>
+        </select>
+      </div>
+      <input type="hidden" name="tab" value="{{ active_tab }}">
+    </form>
+    <div class="notes-mobile-status">
+      <div class="notes-mobile-status__head">
+        <span>Statut</span>
+        {% if query or status %}<a href="{{ filters_reset_url }}">Réinitialiser</a>{% endif %}
+      </div>
+      <nav class="notes-mobile-status__options" aria-label="Filtrer par statut">
+        {% for option in status_filters %}
+          <a
+            class="notes-status-filter {% if option.active %}is-active{% endif %}"
+            href="{{ option.url }}"
+            data-status="{{ option.value|default:'all' }}"
+            {% if option.active %}aria-current="page"{% endif %}
+          >{{ option.label }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+  </div>
+  <div class="notes-toolbar__actions notes-toolbar__actions--{{ active_tab }}">
+    {% if active_tab == "notes" %}
+      <button class="btn notes-toolbar__action--create" type="button" aria-haspopup="dialog" aria-controls="note-create-dialog" data-dialog-open="note-create-dialog">
+        <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+        <span>Nouvelle note</span>
+      </button>
+    {% endif %}
+    <a class="btn btn--primary notes-toolbar__action--flashcards" href="{{ flashcard_url }}">
+      <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"></rect><path d="M8 9h8M8 13h5"></path></svg>
+      <span>Flashcards</span>
+    </a>
+    {% if study_count %}
+      <a class="btn notes-toolbar__action--study" href="{{ study_queue_url }}">
+        <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-3.75L6 21Z"></path></svg>
+        <span>À étudier · {{ study_count }}</span>
+      </a>
+    {% endif %}
+  </div>
 </div>
 
 {% if active_tab == "notes" %}

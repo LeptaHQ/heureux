@@ -87,18 +87,43 @@
   /* ---------- Active Notes scope ---------- */
   (function () {
     var scopeNav = document.querySelector(".notes-scope-nav");
-    if (!scopeNav) return;
-    var activeScope = scopeNav.querySelector(".is-active");
-    if (!activeScope) return;
+    if (scopeNav) {
+      var activeScope = scopeNav.querySelector(".is-active");
+      if (activeScope) {
+        window.requestAnimationFrame(function () {
+          var navBox = scopeNav.getBoundingClientRect();
+          var activeBox = activeScope.getBoundingClientRect();
+          if (
+            activeBox.left >= navBox.left &&
+            activeBox.right <= navBox.right
+          ) {
+            return;
+          }
 
-    window.requestAnimationFrame(function () {
-      var navBox = scopeNav.getBoundingClientRect();
-      var activeBox = activeScope.getBoundingClientRect();
-      if (activeBox.left >= navBox.left && activeBox.right <= navBox.right) return;
+          var target = scopeNav.scrollLeft + activeBox.left - navBox.left -
+            (navBox.width - activeBox.width) / 2;
+          scopeNav.scrollTo({
+            left: Math.max(0, target),
+            behavior: "auto"
+          });
+        });
+      }
+    }
 
-      var target = scopeNav.scrollLeft + activeBox.left - navBox.left -
-        (navBox.width - activeBox.width) / 2;
-      scopeNav.scrollTo({ left: Math.max(0, target), behavior: "auto" });
+    var mobileScope = document.querySelector(".notes-mobile-scope");
+    if (!mobileScope) return;
+    mobileScope.addEventListener("toggle", function () {
+      if (!mobileScope.open) return;
+      var activeMobileScope = mobileScope.querySelector(
+        ".notes-mobile-scope__menu .is-active"
+      );
+      if (!activeMobileScope) return;
+      window.requestAnimationFrame(function () {
+        activeMobileScope.scrollIntoView({
+          block: "nearest",
+          behavior: "auto"
+        });
+      });
     });
   })();
 

@@ -898,6 +898,7 @@
     if (!deck) return;
     var cards = Array.from(deck.querySelectorAll("[data-study-card]"));
     var progress = deck.querySelector("[data-study-progress]");
+    var progressBar = deck.querySelector("[data-study-progress-bar]");
     var previous = deck.querySelector("[data-study-previous]");
     var reveal = deck.querySelector("[data-study-reveal]");
     var keep = deck.querySelector("[data-study-keep]");
@@ -937,6 +938,13 @@
         .querySelector("[data-study-back]")
         .classList.toggle("hidden", showFront);
       card.classList.toggle("is-revealed", showAnswerFace);
+      var face = showFront ? "Recto" : "Verso";
+      var faceLabel = card.querySelector("[data-study-face-label]");
+      if (faceLabel) faceLabel.textContent = face;
+      card.setAttribute(
+        "aria-label",
+        face + ". Appuyez pour retourner la carte."
+      );
     }
 
     function resetCurrentCard() {
@@ -960,6 +968,10 @@
       controls.classList.remove("hidden");
       done.classList.add("hidden");
       progress.textContent = String(index + 1) + " / " + String(cards.length);
+      if (progressBar) {
+        progressBar.style.width =
+          String(((index + 1) / cards.length) * 100) + "%";
+      }
     }
 
     function showAnswer() {
@@ -998,6 +1010,7 @@
       done.classList.remove("hidden");
       progress.textContent =
         String(cards.length) + " / " + String(cards.length);
+      if (progressBar) progressBar.style.width = "100%";
       var known = knownCards().length;
       if (knownCountEl) knownCountEl.textContent = String(known);
       if (clearLabel) {
@@ -1168,9 +1181,8 @@
   }
 
   action.querySelectorAll("button").forEach(function (button) {
-    button.addEventListener("pointerdown", function (event) {
+    button.addEventListener("pointerdown", function () {
       rememberSelection();
-      event.preventDefault();
     });
   });
   document.addEventListener("selectionchange", function () {

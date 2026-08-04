@@ -2273,94 +2273,6 @@ class BrowserTests(StaticLiveServerTestCase):
         prompt.wait_for()
         self.page.wait_for_load_state("networkidle")
         self.select_prompt(start=0, end=12)
-        prompt_box = prompt.bounding_box()
-        pen_x = prompt_box["x"] + 24
-        pen_y = prompt_box["y"] + 18
-        prompt.dispatch_event(
-            "pointerdown",
-            {
-                "pointerId": 41,
-                "pointerType": "pen",
-                "isPrimary": True,
-                "button": 0,
-                "clientX": pen_x,
-                "clientY": pen_y,
-            },
-        )
-        prompt.dispatch_event(
-            "pointerup",
-            {
-                "pointerId": 41,
-                "pointerType": "pen",
-                "isPrimary": True,
-                "button": 0,
-                "clientX": pen_x,
-                "clientY": pen_y,
-            },
-        )
-        toolbar = self.page.locator("[data-selection-translate]")
-        toolbar.wait_for()
-        self.assertEqual(
-            self.page.locator("html").get_attribute("data-input-mode"),
-            "pen",
-        )
-        pen_metrics = toolbar.evaluate(
-            """
-            toolbar => {
-              const toolbarRect = toolbar.getBoundingClientRect();
-              const selectionRect = window.getSelection()
-                .getRangeAt(0)
-                .getBoundingClientRect();
-              const targets = [...toolbar.querySelectorAll(
-                'button:not([hidden])'
-              )].map(button => {
-                const rect = button.getBoundingClientRect();
-                return {
-                  width: rect.width,
-                  height: rect.height,
-                  touchAction: getComputedStyle(button).touchAction,
-                };
-              });
-              return {
-                borderColor: getComputedStyle(toolbar).borderColor,
-                toolbar: {
-                  left: toolbarRect.left,
-                  right: toolbarRect.right,
-                  top: toolbarRect.top,
-                  bottom: toolbarRect.bottom,
-                },
-                selection: {
-                  top: selectionRect.top,
-                  bottom: selectionRect.bottom,
-                },
-                targets,
-              };
-            }
-            """
-        )
-        self.assertGreaterEqual(pen_metrics["toolbar"]["left"], 0)
-        self.assertEqual(pen_metrics["borderColor"], "rgb(47, 125, 244)")
-        self.assertEqual(
-            self.page.locator("[data-pen-cursor]").count(),
-            0,
-        )
-        self.assertLessEqual(pen_metrics["toolbar"]["right"], 390)
-        self.assertGreaterEqual(pen_metrics["toolbar"]["top"], 0)
-        self.assertLessEqual(pen_metrics["toolbar"]["bottom"], 844)
-        self.assertTrue(
-            pen_metrics["toolbar"]["bottom"]
-            <= pen_metrics["selection"]["top"] - 10
-            or pen_metrics["toolbar"]["top"]
-            >= pen_metrics["selection"]["bottom"] + 10
-        )
-        self.assertTrue(
-            all(
-                target["width"] >= 48
-                and target["height"] >= 48
-                and target["touchAction"] == "manipulation"
-                for target in pen_metrics["targets"]
-            )
-        )
         selected = self.page.evaluate("window.getSelection().toString().trim()")
         read_button = self.page.locator("[data-read-selection]")
 
@@ -2384,6 +2296,313 @@ class BrowserTests(StaticLiveServerTestCase):
 
         read_button.click()
         self.assertEqual(read_button.get_attribute("aria-pressed"), "false")
+
+    def test_pen_approach_keeps_touch_toolbar_stationary(self):
+        self.page.set_viewport_size({"width": 390, "height": 844})
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        self.page.locator("#card-front .prompt-text").wait_for()
+        self.page.wait_for_load_state("networkidle")
+        self.select_prompt()
+
+        metrics = self.page.locator("[data-selection-translate]").evaluate(
+            """
+            async toolbar => {
+              const html = document.documentElement;
+              delete html.dataset.inputMode;
+              const before = toolbar.getBoundingClientRect();
+              toolbar.querySelector('button').dispatchEvent(
+                new PointerEvent('pointerover', {
+                  bubbles: true,
+                  pointerId: 61,
+                  pointerType: 'pen',
+                  isPrimary: true,
+                  clientX: before.left + 24,
+                  clientY: before.top + 24,
+                })
+              );
+              await new Promise(resolve =>
+                requestAnimationFrame(() => requestAnimationFrame(resolve))
+              );
+              const after = toolbar.getBoundingClientRect();
+              const dot = document.querySelector('[data-pen-cursor]');
+              return {
+                inputMode: html.dataset.inputMode || '',
+                leftDelta: Math.abs(after.left - before.left),
+                topDelta: Math.abs(after.top - before.top),
+                widthDelta: Math.abs(after.width - before.width),
+                dotVisible: dot.classList.contains('is-visible'),
+                dotBackground: getComputedStyle(dot).backgroundColor,
+              };
+            }
+            """
+        )
+
+        self.assertEqual(metrics["inputMode"], "")
+        self.assertLessEqual(metrics["leftDelta"], 1)
+        self.assertLessEqual(metrics["topDelta"], 1)
+        self.assertLessEqual(metrics["widthDelta"], 1)
+        self.assertTrue(metrics["dotVisible"])
+        self.assertEqual(metrics["dotBackground"], "rgb(227, 38, 59)")
+
+    def test_pen_pointer_is_red_stable_and_recovers_after_cancel(self):
+        self.page.set_viewport_size({"width": 390, "height": 844})
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        self.page.wait_for_load_state("networkidle")
+        self.select_prompt()
+
+        metrics = prompt.evaluate(
+            """
+            async prompt => {
+              const html = document.documentElement;
+              const toolbar = document.querySelector(
+                '[data-selection-translate]'
+              );
+              const dot = document.querySelector('[data-pen-cursor]');
+              delete html.dataset.inputMode;
+              html.classList.remove('pen-cursor-hidden');
+              dot.classList.remove('is-visible', 'is-pressed');
+              const rootMutations = [];
+              const toolbarMutations = [];
+              const dotMutations = [];
+              const rootObserver = new MutationObserver(records => {
+                rootMutations.push(...records);
+              });
+              const toolbarObserver = new MutationObserver(records => {
+                toolbarMutations.push(...records);
+              });
+              const dotObserver = new MutationObserver(records => {
+                dotMutations.push(...records);
+              });
+              rootObserver.observe(html, {
+                attributes: true,
+                attributeFilter: ['data-input-mode', 'class'],
+              });
+              toolbarObserver.observe(toolbar, {
+                attributes: true,
+                attributeFilter: ['style'],
+              });
+              dotObserver.observe(dot, {
+                attributes: true,
+                attributeFilter: ['style'],
+              });
+
+              for (let index = 0; index < 120; index += 1) {
+                prompt.dispatchEvent(new PointerEvent('pointermove', {
+                  bubbles: true,
+                  pointerId: 71,
+                  pointerType: 'pen',
+                  isPrimary: true,
+                  clientX: 80 + index,
+                  clientY: 180 + (index % 4),
+                }));
+              }
+              await new Promise(resolve =>
+                requestAnimationFrame(() => requestAnimationFrame(resolve))
+              );
+
+              const originalRangeRect = Range.prototype.getBoundingClientRect;
+              const viewport = window.visualViewport;
+              const viewportBottom = viewport
+                ? viewport.offsetTop + viewport.height
+                : window.innerHeight;
+              const highFrequency = {
+                inputModeMutations: rootMutations.filter(
+                  mutation => mutation.attributeName === 'data-input-mode'
+                ).length,
+                cursorClassMutations: rootMutations.filter(
+                  mutation => mutation.attributeName === 'class'
+                ).length,
+                toolbarStyleMutations: toolbarMutations.length,
+                dotStyleMutations: dotMutations.length,
+              };
+              let rangeTop = 300;
+              Range.prototype.getBoundingClientRect = function () {
+                return new DOMRect(40, rangeTop, 310, 20);
+              };
+              window.dispatchEvent(new Event('resize'));
+              await new Promise(resolve =>
+                requestAnimationFrame(() => requestAnimationFrame(resolve))
+              );
+              const primaryToolbarRect = toolbar.getBoundingClientRect();
+              const primaryGap = primaryToolbarRect.top - (rangeTop + 20);
+              const primaryCenterDelta = Math.abs(
+                (primaryToolbarRect.left + primaryToolbarRect.right) / 2 - 195
+              );
+
+              rangeTop = viewportBottom - 34;
+              window.dispatchEvent(new Event('resize'));
+              await new Promise(resolve =>
+                requestAnimationFrame(() => requestAnimationFrame(resolve))
+              );
+              prompt.dispatchEvent(new PointerEvent('pointerdown', {
+                bubbles: true,
+                pointerId: 72,
+                pointerType: 'pen',
+                isPrimary: true,
+                button: 0,
+                clientX: 120,
+                clientY: viewportBottom - 24,
+              }));
+              prompt.dispatchEvent(new PointerEvent('pointercancel', {
+                bubbles: true,
+                pointerId: 72,
+                pointerType: 'pen',
+                isPrimary: true,
+                clientX: 120,
+                clientY: viewportBottom - 24,
+              }));
+              await new Promise(resolve => setTimeout(resolve, 100));
+              prompt.dispatchEvent(new PointerEvent('pointermove', {
+                bubbles: true,
+                pointerId: 71,
+                pointerType: 'pen',
+                isPrimary: true,
+                clientX: 205,
+                clientY: 205,
+              }));
+              await new Promise(resolve => setTimeout(resolve, 400));
+
+              const toolbarRect = toolbar.getBoundingClientRect();
+              const dotStyle = getComputedStyle(dot);
+              const stable = {
+                inputModeMutations: highFrequency.inputModeMutations,
+                cursorClassMutations: highFrequency.cursorClassMutations,
+                toolbarStyleMutations: highFrequency.toolbarStyleMutations,
+                dotStyleMutations: highFrequency.dotStyleMutations,
+                inputMode: html.dataset.inputMode,
+                cursorHidden: html.classList.contains('pen-cursor-hidden'),
+                mainCursor: getComputedStyle(
+                  document.getElementById('main')
+                ).cursor,
+                dotBackground: dotStyle.backgroundColor,
+                dotOpacity: dotStyle.opacity,
+                dotTransform: dot.style.transform,
+                dotPressed: dot.classList.contains('is-pressed'),
+                toolbarBorder: getComputedStyle(toolbar).borderColor,
+                toolbarVisible: !toolbar.classList.contains('hidden'),
+                toolbarBottom: toolbarRect.bottom,
+                selectionTop: viewportBottom - 34,
+                viewportBottom,
+                primaryGap,
+                primaryCenterDelta,
+                targets: [...toolbar.querySelectorAll(
+                  'button:not([hidden])'
+                )].map(button => {
+                  const rect = button.getBoundingClientRect();
+                  return {
+                    width: rect.width,
+                    height: rect.height,
+                    touchAction: getComputedStyle(button).touchAction,
+                  };
+                }),
+              };
+              Range.prototype.getBoundingClientRect = originalRangeRect;
+
+              document.dispatchEvent(new PointerEvent('pointerout', {
+                bubbles: true,
+                pointerId: 71,
+                pointerType: 'pen',
+                isPrimary: true,
+                relatedTarget: null,
+              }));
+              await new Promise(resolve => setTimeout(resolve, 500));
+              stable.cursorReleased =
+                !html.classList.contains('pen-cursor-hidden');
+              stable.dotHidden = !dot.classList.contains('is-visible');
+              rootObserver.disconnect();
+              toolbarObserver.disconnect();
+              dotObserver.disconnect();
+              return stable;
+            }
+            """
+        )
+
+        self.assertEqual(metrics["inputModeMutations"], 1)
+        self.assertEqual(metrics["cursorClassMutations"], 1)
+        self.assertLessEqual(metrics["toolbarStyleMutations"], 2)
+        self.assertLessEqual(metrics["dotStyleMutations"], 2)
+        self.assertEqual(metrics["inputMode"], "pen")
+        self.assertTrue(metrics["cursorHidden"])
+        self.assertEqual(metrics["mainCursor"], "none")
+        self.assertEqual(metrics["dotBackground"], "rgb(227, 38, 59)")
+        self.assertEqual(metrics["dotOpacity"], "1")
+        self.assertIn("translate3d(205px, 205px", metrics["dotTransform"])
+        self.assertFalse(metrics["dotPressed"])
+        self.assertEqual(metrics["toolbarBorder"], "rgb(227, 38, 59)")
+        self.assertTrue(metrics["toolbarVisible"])
+        self.assertGreaterEqual(metrics["primaryGap"], 27)
+        self.assertLessEqual(metrics["primaryGap"], 29)
+        self.assertLessEqual(metrics["primaryCenterDelta"], 1)
+        self.assertLessEqual(
+            metrics["toolbarBottom"],
+            metrics["viewportBottom"] - 8,
+        )
+        self.assertGreaterEqual(
+            metrics["selectionTop"] - metrics["toolbarBottom"],
+            27,
+        )
+        self.assertTrue(
+            all(
+                target["width"] >= 48
+                and target["height"] >= 48
+                and target["touchAction"] == "manipulation"
+                for target in metrics["targets"]
+            )
+        )
+        self.assertTrue(metrics["cursorReleased"])
+        self.assertTrue(metrics["dotHidden"])
+
+    def test_selection_toolbar_hides_after_selection_collapses(self):
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        self.page.wait_for_load_state("networkidle")
+        self.select_prompt()
+
+        hidden = prompt.evaluate(
+            """
+            async prompt => {
+              const rangeRect = window.getSelection()
+                .getRangeAt(0)
+                .getBoundingClientRect();
+              const eventData = {
+                bubbles: true,
+                pointerId: 81,
+                pointerType: 'pen',
+                isPrimary: true,
+                clientX: rangeRect.left + Math.min(20, rangeRect.width / 2),
+                clientY: rangeRect.top + Math.min(10, rangeRect.height / 2),
+              };
+              prompt.dispatchEvent(new PointerEvent('pointerdown', {
+                ...eventData,
+                button: 0,
+              }));
+              window.getSelection().removeAllRanges();
+              document.dispatchEvent(new Event('selectionchange'));
+              prompt.dispatchEvent(new PointerEvent('pointerup', eventData));
+              await new Promise(resolve => setTimeout(resolve, 120));
+              return document.querySelector(
+                '[data-selection-translate]'
+              ).classList.contains('hidden');
+            }
+            """
+        )
+
+        self.assertTrue(hidden)
 
     def test_expired_session_does_not_fake_unhighlight_success(self):
         self.page.goto(
@@ -2642,7 +2861,7 @@ class BrowserTests(StaticLiveServerTestCase):
             ".annotation-card",
             has_text="Une note personnelle.",
         ).locator(".annotation-action__icon")
-        self.assertEqual(action_icons.count(), 6)
+        self.assertEqual(action_icons.count(), 5)
 
         self.page.get_by_role("button", name="Tableau").click()
         self.page.locator(
@@ -2664,7 +2883,7 @@ class BrowserTests(StaticLiveServerTestCase):
             ".annotation-table__row",
             has_text="Une note personnelle.",
         ).locator(".annotation-action__icon")
-        self.assertEqual(action_icons.count(), 6)
+        self.assertEqual(action_icons.count(), 5)
         icon_styles = action_icons.evaluate_all(
             """
             icons => icons.map(icon => {
@@ -3307,12 +3526,62 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(card.get_attribute("data-study-id"), str(note.pk))
         front = self.page.locator("[data-study-front]")
         back = self.page.locator("[data-study-back]")
+        face_label = card.locator("[data-study-face-label]")
+        face_switch = self.page.locator("[data-study-order]")
+        self.assertEqual(face_switch.count(), 2)
+        switch_boxes = face_switch.evaluate_all(
+            """
+            buttons => buttons.map(button => {
+              const rect = button.getBoundingClientRect();
+              return {width: rect.width, height: rect.height};
+            })
+            """
+        )
+        self.assertAlmostEqual(
+            switch_boxes[0]["width"],
+            switch_boxes[1]["width"],
+            delta=1,
+        )
+        self.assertTrue(
+            all(box["height"] >= 44 for box in switch_boxes)
+        )
+        previous_box = self.page.locator(
+            "[data-study-previous]"
+        ).bounding_box()
+        reveal_box = self.page.locator("[data-study-reveal]").bounding_box()
+        self.assertAlmostEqual(previous_box["y"], reveal_box["y"], delta=1)
+        self.assertAlmostEqual(
+            previous_box["height"], reveal_box["height"], delta=1
+        )
+        self.assertGreater(reveal_box["width"], previous_box["width"] * 1.9)
         front.get_by_text("séance", exact=True).wait_for()
+        self.assertEqual(face_label.inner_text(), "Recto")
         self.assertFalse(back.get_by_text("showing", exact=True).is_visible())
 
         card.click()
 
         back.get_by_text("showing", exact=True).wait_for()
+        self.assertEqual(face_label.inner_text(), "Verso")
+        decision_boxes = self.page.locator(
+            "[data-study-previous], [data-study-keep]:not(.hidden), "
+            "[data-study-learned]:not(.hidden)"
+        ).evaluate_all(
+            """
+            buttons => buttons.map(button => {
+              const rect = button.getBoundingClientRect();
+              return {x: rect.x, y: rect.y, width: rect.width, height: rect.height};
+            })
+            """
+        )
+        self.assertEqual(len(decision_boxes), 3)
+        self.assertTrue(
+            all(
+                abs(box["y"] - decision_boxes[0]["y"]) <= 1
+                and abs(box["width"] - decision_boxes[0]["width"]) <= 1
+                and abs(box["height"] - decision_boxes[0]["height"]) <= 1
+                for box in decision_boxes
+            )
+        )
         self.assertFalse(front.is_visible())
         self.assertFalse(
             front.get_by_text("séance", exact=True).is_visible()
@@ -3320,14 +3589,23 @@ class BrowserTests(StaticLiveServerTestCase):
 
         card.click()
         front.get_by_text("séance", exact=True).wait_for()
+        self.assertEqual(face_label.inner_text(), "Recto")
         self.assertFalse(back.is_visible())
 
         self.page.locator('[data-study-order="back"]').click()
+        self.assertEqual(
+            self.page.locator(
+                '[data-study-order="back"]'
+            ).get_attribute("aria-pressed"),
+            "true",
+        )
         back.get_by_text("showing", exact=True).wait_for()
+        self.assertEqual(face_label.inner_text(), "Verso")
         self.assertFalse(front.is_visible())
 
         card.click()
         front.get_by_text("séance", exact=True).wait_for()
+        self.assertEqual(face_label.inner_text(), "Recto")
         self.assertFalse(back.is_visible())
         self.assert_no_horizontal_overflow()
 
@@ -4196,10 +4474,10 @@ class BrowserTests(StaticLiveServerTestCase):
             has_text="Écrite",
         ).click()
         self.page.locator("h1", has_text="Expression écrite").wait_for()
-        self.assertEqual(self.page.locator(".deck--soon").count(), 2)
+        self.assertEqual(self.page.locator(".deck--soon").count(), 1)
         self.assertEqual(
             self.page.locator(".deck:not(.deck--soon)").count(),
-            1,
+            2,
         )
         self.assert_no_horizontal_overflow()
 

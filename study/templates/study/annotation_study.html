@@ -4,34 +4,61 @@
 
 {% block content %}
 {% if task %}{% include "study/partials/task_nav.html" %}{% endif %}
-<header class="page-head">
-  <p class="eyebrow"><a href="{{ back_url }}">Notes</a> · Rappel actif</p>
-  <h1>Étudier · {{ scope_title }}</h1>
-  {% if study_mode == "queue" %}
-    <p>Révélez les éléments marqués « À étudier » à votre rythme.</p>
-  {% else %}
-    <p>Révisez les éléments de votre sélection actuelle.</p>
-  {% endif %}
+<header class="page-head annotation-study-head">
+  <a class="annotation-study-head__back" href="{{ back_url }}">
+    {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
+    Retour aux notes
+  </a>
+  <p class="eyebrow">Rappel actif</p>
+  <h1>Flashcards · {{ scope_title }}</h1>
+  <p>
+    {% if study_mode == "queue" %}
+      Révisez les éléments marqués « À étudier » à votre rythme.
+    {% else %}
+      Révisez les éléments de votre sélection actuelle.
+    {% endif %}
+  </p>
 </header>
 
 {% if items %}
 <section class="annotation-study" data-annotation-study data-study-mode="{{ study_mode }}">
-  <div class="annotation-study__top">
-    <span data-study-progress>1 / {{ items|length }}</span>
-    {% if study_mode == "queue" %}
-      <a href="{% url 'study:annotation_search' %}?study=1">Gérer la sélection</a>
-    {% else %}
-      <span>Appuyez sur la carte pour la retourner</span>
-    {% endif %}
-  </div>
-  <div class="annotation-study__order" role="group" aria-label="Face affichée en premier">
-    <span>Commencer par</span>
-    <button class="annotation-study__order-option is-active" type="button" data-study-order="front" aria-pressed="true">Recto</button>
-    <button class="annotation-study__order-option" type="button" data-study-order="back" aria-pressed="false">Note / verso</button>
+  <div class="annotation-study__toolbar">
+    <div class="annotation-study__progress">
+      <div class="annotation-study__progress-copy">
+        <span>Carte</span>
+        <strong data-study-progress aria-live="polite">1 / {{ items|length }}</strong>
+      </div>
+      <span class="annotation-study__progress-track" aria-hidden="true">
+        <span data-study-progress-bar></span>
+      </span>
+    </div>
+    <div class="annotation-study__toolbar-actions">
+      {% if study_mode == "queue" %}
+        <a class="annotation-study__manage" href="{% url 'study:annotation_search' %}?study=1">Gérer</a>
+      {% endif %}
+      <div class="annotation-study__face-switch" role="group" aria-label="Face affichée en premier">
+        <button class="is-active" type="button" data-study-order="front" aria-pressed="true">Recto</button>
+        <button type="button" data-study-order="back" aria-pressed="false">Verso</button>
+      </div>
+    </div>
   </div>
   <div class="annotation-study__cards">
     {% for item in items %}
-      <article class="flashcard annotation-study__card {% if not forloop.first %}hidden{% endif %}" data-study-card data-study-id="{{ item.id }}" data-study-toggle-url="{% url 'study:annotation_study_toggle' item.id %}">
+      <article
+        class="flashcard annotation-study__card {% if not forloop.first %}hidden{% endif %}"
+        tabindex="0"
+        aria-label="Recto. Appuyez pour retourner la carte."
+        data-study-card
+        data-study-id="{{ item.id }}"
+        data-study-toggle-url="{% url 'study:annotation_study_toggle' item.id %}"
+      >
+        <div class="annotation-study__card-meta">
+          <span class="annotation-study__face-label" data-study-face-label>Recto</span>
+          <span class="annotation-study__flip-hint">
+            Appuyez pour retourner
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h9.5a4.5 4.5 0 0 1 0 9H14"></path><path d="m9 3-4 4 4 4"></path></svg>
+          </span>
+        </div>
         <div class="annotation-study__front" data-study-front>
           <p class="eyebrow">{% if item.kind == "highlight" %}Passage surligné{% elif item.quote %}Texte sélectionné{% else %}Note personnelle{% endif %}</p>
           {% if item.kind == "highlight" %}
@@ -63,16 +90,28 @@
     {% endfor %}
   </div>
   <div class="annotation-study__controls">
-    <button class="btn" type="button" data-study-previous disabled>{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Précédente</button>
-    <button class="btn btn--primary" type="button" data-study-reveal>Afficher</button>
-    <button class="btn hidden" type="button" data-study-keep>À revoir encore</button>
-    <button class="btn btn--primary hidden" type="button" data-study-learned>Je le connais</button>
+    <button class="btn annotation-study__control--previous" type="button" data-study-previous disabled>
+      {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
+      <span class="annotation-study__button-label--full">Précédente</span>
+      <span class="annotation-study__button-label--short">Préc.</span>
+    </button>
+    <button class="btn btn--primary annotation-study__control--reveal" type="button" data-study-reveal>
+      Retourner
+    </button>
+    <button class="btn annotation-study__control--keep hidden" type="button" data-study-keep>
+      <span class="annotation-study__button-label--full">À revoir encore</span>
+      <span class="annotation-study__button-label--short">À revoir</span>
+    </button>
+    <button class="btn annotation-study__control--learned hidden" type="button" data-study-learned>
+      <span class="annotation-study__button-label--full">Je le connais</span>
+      <span class="annotation-study__button-label--short">Je connais</span>
+    </button>
   </div>
   <div class="card done-state annotation-study__done hidden" data-study-done>
     <div class="done-state__icon done-state__icon--success">{% include "study/partials/ui_icon.html" with name="check" only %}</div>
     <h2>Parcours terminé</h2>
     <p data-study-summary>Vous avez parcouru {{ items|length }} élément{{ items|length|pluralize }} de votre sélection personnelle.</p>
-    <div class="row center">
+    <div class="annotation-study__done-actions">
       {% if study_mode == "queue" %}
         <button class="btn btn--primary hidden" type="button" data-study-clear>
           <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5 10 17.5 19 6.5"></path></svg>

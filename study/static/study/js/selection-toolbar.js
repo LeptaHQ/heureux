@@ -11,6 +11,7 @@
   var translateButton = document.querySelector("[data-translate-selection]");
   var noteButton = document.querySelector("[data-note-selection]");
   var highlightButton = document.querySelector("[data-highlight-selection]");
+  var penCursor = document.querySelector("[data-pen-cursor]");
   var panel = document.querySelector("[data-translation-panel]");
   var notePanel = document.querySelector("[data-note-panel]");
   var main = document.getElementById("main");
@@ -59,6 +60,17 @@
   var readingIndex = 0;
   var readResetTimer = null;
   var selectionPointerId = null;
+  var selectionPointerTimer = null;
+  var selectedRange = null;
+  var viewportFrame = null;
+  var penCursorFrame = null;
+  var penCursorHideTimer = null;
+  var penCursorX = 0;
+  var penCursorY = 0;
+  var penHoveredButton = null;
+  var penActionSize = null;
+  var toolbarSelectionPinned = false;
+  var root = document.documentElement;
 
   function setSpriteIcon(icon, name) {
     if (!icon) return;
@@ -82,15 +94,85 @@
   }
 
   function penInputActive() {
-    return document.documentElement.dataset.inputMode === "pen";
+    return root.dataset.inputMode === "pen";
+  }
+
+  function setInputMode(mode) {
+    var currentMode = root.dataset.inputMode || "";
+    var nextMode = mode || "";
+    if (currentMode === nextMode) return;
+    if (nextMode) root.dataset.inputMode = nextMode;
+    else delete root.dataset.inputMode;
+    penActionSize = null;
+    if (!action.classList.contains("hidden")) repositionOpenUi();
+  }
+
+  function drawPenCursor() {
+    penCursorFrame = null;
+    if (!penCursor) return;
+    penCursor.style.transform =
+      "translate3d(" + penCursorX + "px, " + penCursorY + "px, 0) " +
+      "translate3d(-50%, -50%, 0)";
+  }
+
+  function showPenCursor(event) {
+    if (!penCursor || event.pointerType !== "pen") return;
+    penCursorX = event.clientX;
+    penCursorY = event.clientY;
+    window.clearTimeout(penCursorHideTimer);
+    var becomingVisible = !penCursor.classList.contains("is-visible");
+    if (becomingVisible) {
+      if (penCursorFrame) window.cancelAnimationFrame(penCursorFrame);
+      drawPenCursor();
+    } else if (!penCursorFrame) {
+      penCursorFrame = window.requestAnimationFrame(drawPenCursor);
+    }
+    var overAction = event.target && action.contains(event.target);
+    var deferModeChange =
+      event.type === "pointerdown" &&
+      !action.classList.contains("hidden");
+    if (!overAction && !deferModeChange) setInputMode("pen");
+    if (!root.classList.contains("pen-cursor-hidden")) {
+      root.classList.add("pen-cursor-hidden");
+    }
+    if (becomingVisible) penCursor.classList.add("is-visible");
+  }
+
+  function hidePenCursorNow() {
+    window.clearTimeout(penCursorHideTimer);
+    if (penCursorFrame) {
+      window.cancelAnimationFrame(penCursorFrame);
+      penCursorFrame = null;
+    }
+    root.classList.remove("pen-cursor-hidden");
+    if (penCursor) {
+      penCursor.classList.remove("is-visible", "is-pressed");
+    }
+  }
+
+  function schedulePenCursorHide() {
+    window.clearTimeout(penCursorHideTimer);
+    penCursorHideTimer = window.setTimeout(hidePenCursorNow, 450);
   }
 
   function rememberPointerInput(event) {
     if (event.pointerType === "pen") {
-      document.documentElement.dataset.inputMode = "pen";
+      showPenCursor(event);
     } else if (event.pointerType === "mouse" || event.pointerType === "touch") {
+      hidePenCursorNow();
       if (event.target && action.contains(event.target)) return;
-      delete document.documentElement.dataset.inputMode;
+      setInputMode("");
+    }
+  }
+
+  function setPenHoveredButton(button) {
+    if (button === penHoveredButton) return;
+    if (penHoveredButton) {
+      penHoveredButton.classList.remove("is-pen-hovered");
+    }
+    penHoveredButton = button;
+    if (penHoveredButton) {
+      penHoveredButton.classList.add("is-pen-hovered");
     }
   }
 
@@ -134,12 +216,38 @@
     var text = normalizeSelection(range.cloneContents().textContent || "");
     var rect = range.getBoundingClientRect();
     if (!text || (!rect.width && !rect.height)) return null;
-    return { text: text, rect: rect };
+    return { text: text, rect: rect, range: range.cloneRange() };
   }
 
   function hideAction() {
     stopReading();
+    setPenHoveredButton(null);
+    toolbarSelectionPinned = false;
     action.classList.add("hidden");
+  }
+
+  function viewportBounds() {
+    var viewport = window.visualViewport;
+    var left = viewport ? viewport.offsetLeft : 0;
+    var top = viewport ? viewport.offsetTop : 0;
+    var width = viewport ? viewport.width : window.innerWidth;
+    var height = viewport ? viewport.height : window.innerHeight;
+    return {
+      left: left,
+      top: top,
+      right: left + width,
+      bottom: top + height
+    };
+  }
+
+  function currentSelectionRect() {
+    if (selectedRange) {
+      var rect = selectedRange.getBoundingClientRect();
+      if (rect.width || rect.height) {
+        selectedRect = rect;
+      }
+    }
+    return selectedRect;
   }
 
   function positionAction(rect) {
@@ -150,14 +258,39 @@
       return;
     }
 
-    action.style.left = "0";
-    action.style.top = "0";
-    var actionRect = action.getBoundingClientRect();
+    var penMode = penInputActive();
+    var actionRect = penMode && penActionSize
+      ? penActionSize
+      : action.getBoundingClientRect();
+    if (penMode && !penActionSize) {
+      penActionSize = {
+        width: actionRect.width,
+        height: actionRect.height
+      };
+      actionRect = penActionSize;
+    }
+    var bounds = viewportBounds();
+    var inset = 8;
     var left = rect.left + (rect.width - actionRect.width) / 2;
-    left = Math.max(8, Math.min(left, window.innerWidth - actionRect.width - 8));
-    var gap = penInputActive() ? 16 : 8;
-    var top = rect.top - actionRect.height - gap;
-    if (top < 8) top = rect.bottom + gap;
+    var maxLeft = Math.max(
+      bounds.left + inset,
+      bounds.right - actionRect.width - inset
+    );
+    left = Math.max(bounds.left + inset, Math.min(left, maxLeft));
+    var gap = penMode ? 28 : 8;
+    var above = rect.top - actionRect.height - gap;
+    var below = rect.bottom + gap;
+    var minimumTop = bounds.top + inset;
+    var maximumTop = Math.max(
+      minimumTop,
+      bounds.bottom - actionRect.height - inset
+    );
+    var preferred = penMode ? below : above;
+    var alternate = penMode ? above : below;
+    var top = preferred >= minimumTop && preferred <= maximumTop
+      ? preferred
+      : alternate;
+    top = Math.max(minimumTop, Math.min(top, maximumTop));
     action.style.left = Math.round(left) + "px";
     action.style.top = Math.round(top) + "px";
   }
@@ -167,6 +300,7 @@
     if (selectionChanged && reading) stopReading();
     selectedText = details.text;
     selectedRect = details.rect;
+    selectedRange = details.range;
     selectionCopyButton.classList.remove("is-copied");
     selectionCopyLabel.textContent = "Copy";
     if (selectionChanged) resetReadButton();
@@ -181,7 +315,15 @@
       return;
     }
     var details = selectionDetails();
-    if (!details) return;
+    if (!details) {
+      if (
+        !toolbarSelectionPinned &&
+        !action.classList.contains("hidden")
+      ) {
+        hideAction();
+      }
+      return;
+    }
     applySelectionDetails(details);
   }
 
@@ -366,12 +508,23 @@
     panel.style.left = "0";
     panel.style.top = "0";
     var panelRect = panel.getBoundingClientRect();
+    var bounds = viewportBounds();
+    var inset = 12;
     var left = rect.left + (rect.width - panelRect.width) / 2;
-    left = Math.max(12, Math.min(left, window.innerWidth - panelRect.width - 12));
+    var maxLeft = Math.max(
+      bounds.left + inset,
+      bounds.right - panelRect.width - inset
+    );
+    left = Math.max(bounds.left + inset, Math.min(left, maxLeft));
     var top = rect.bottom + 10;
-    if (top + panelRect.height > window.innerHeight - 12) {
-      top = Math.max(12, rect.top - panelRect.height - 10);
+    var maximumTop = Math.max(
+      bounds.top + inset,
+      bounds.bottom - panelRect.height - inset
+    );
+    if (top > maximumTop) {
+      top = rect.top - panelRect.height - 10;
     }
+    top = Math.max(bounds.top + inset, Math.min(top, maximumTop));
     panel.style.left = Math.round(left) + "px";
     panel.style.top = Math.round(top) + "px";
   }
@@ -379,8 +532,55 @@
   function repositionPanel() {
     if (!selectedRect || panel.classList.contains("hidden")) return;
     window.requestAnimationFrame(function () {
-      positionPanel(selectedRect);
+      positionPanel(currentSelectionRect());
     });
+  }
+
+  function repositionOpenUi() {
+    if (viewportFrame) return;
+    viewportFrame = window.requestAnimationFrame(function () {
+      viewportFrame = null;
+      var rect = currentSelectionRect();
+      if (!rect) return;
+      if (!action.classList.contains("hidden")) positionAction(rect);
+      if (!panel.classList.contains("hidden")) positionPanel(rect);
+    });
+  }
+
+  function pointerNearSelection(event) {
+    var selection = window.getSelection();
+    var rect = currentSelectionRect();
+    if (!selection || selection.isCollapsed || !rect) return false;
+    var padding = event.pointerType === "pen" ? 30 : 20;
+    return (
+      event.clientX >= rect.left - padding &&
+      event.clientX <= rect.right + padding &&
+      event.clientY >= rect.top - padding &&
+      event.clientY <= rect.bottom + padding
+    );
+  }
+
+  function armSelectionPointerWatchdog() {
+    window.clearTimeout(selectionPointerTimer);
+    selectionPointerTimer = window.setTimeout(function () {
+      selectionPointerId = null;
+      scheduleSelectionAction(30);
+    }, 2500);
+  }
+
+  function startSelectionPointer(event) {
+    selectionPointerId = event.pointerId;
+    armSelectionPointerWatchdog();
+  }
+
+  function releaseSelectionPointer(event, delay) {
+    if (selectionPointerId !== null && event.pointerId !== selectionPointerId) {
+      return false;
+    }
+    selectionPointerId = null;
+    window.clearTimeout(selectionPointerTimer);
+    scheduleSelectionAction(delay);
+    return true;
   }
 
   function closePanel() {
@@ -495,9 +695,25 @@
     }
   });
 
+  action.addEventListener("pointerover", function (event) {
+    if (event.pointerType !== "pen") return;
+    var button = event.target.closest(".selection-translate__button");
+    if (button && action.contains(button)) setPenHoveredButton(button);
+  });
+  action.addEventListener("pointerout", function (event) {
+    if (event.pointerType !== "pen" || !penHoveredButton) return;
+    if (event.relatedTarget && penHoveredButton.contains(event.relatedTarget)) {
+      return;
+    }
+    setPenHoveredButton(null);
+  });
   action.querySelectorAll("button").forEach(function (button) {
     button.addEventListener("pointerdown", function (event) {
+      toolbarSelectionPinned = true;
       event.preventDefault();
+    });
+    button.addEventListener("click", function () {
+      toolbarSelectionPinned = true;
     });
   });
 
@@ -595,11 +811,20 @@
   });
   document.addEventListener("pointerup", function (event) {
     rememberPointerInput(event);
-    if (event.pointerId === selectionPointerId) selectionPointerId = null;
-    scheduleSelectionAction(event.pointerType === "pen" ? 20 : 30);
+    if (penCursor && event.pointerType === "pen") {
+      penCursor.classList.remove("is-pressed");
+    }
+    releaseSelectionPointer(event, event.pointerType === "pen" ? 20 : 30);
   });
   document.addEventListener("pointercancel", function (event) {
-    if (event.pointerId === selectionPointerId) selectionPointerId = null;
+    releaseSelectionPointer(event, event.pointerType === "pen" ? 30 : 80);
+    if (event.pointerType === "pen") {
+      if (penCursor) penCursor.classList.remove("is-pressed");
+      schedulePenCursorHide();
+    }
+  });
+  document.addEventListener("lostpointercapture", function (event) {
+    releaseSelectionPointer(event, 30);
   });
   document.addEventListener("keyup", function (event) {
     if (event.key === "Shift" || event.shiftKey) scheduleSelectionAction(30);
@@ -609,11 +834,12 @@
     var outsideAction = !action.contains(event.target);
     var outsideTranslation = !panel.contains(event.target);
     var outsideNote = !notePanel || !notePanel.contains(event.target);
+    if (outsideAction) toolbarSelectionPinned = false;
     if (
       event.isPrimary !== false &&
       selectablePointerTarget(event.target)
     ) {
-      selectionPointerId = event.pointerId;
+      startSelectionPointer(event);
     }
     if (
       !panel.classList.contains("hidden") &&
@@ -626,7 +852,8 @@
       !action.classList.contains("hidden") &&
       outsideAction &&
       outsideTranslation &&
-      outsideNote
+      outsideNote &&
+      !pointerNearSelection(event)
     ) {
       hideAction();
     }
@@ -634,18 +861,42 @@
   document.addEventListener("pointerover", rememberPointerInput, {
     passive: true
   });
-  window.addEventListener("resize", function () {
-    repositionPanel();
-    if (!action.classList.contains("hidden")) scheduleSelectionAction(0);
-  });
-  window.addEventListener("scroll", function () {
-    if (
-      penInputActive() &&
-      !action.classList.contains("hidden")
-    ) {
-      scheduleSelectionAction(16);
+  document.addEventListener("pointermove", function (event) {
+    if (event.pointerType === "pen") showPenCursor(event);
+    if (event.pointerId === selectionPointerId) {
+      armSelectionPointerWatchdog();
     }
   }, { passive: true });
+  document.addEventListener("pointerout", function (event) {
+    if (event.pointerType === "pen" && !event.relatedTarget) {
+      schedulePenCursorHide();
+    }
+  }, { passive: true });
+  document.addEventListener("pointerdown", function (event) {
+    if (penCursor && event.pointerType === "pen") {
+      showPenCursor(event);
+      penCursor.classList.add("is-pressed");
+    }
+  }, { passive: true });
+  window.addEventListener("resize", function () {
+    penActionSize = null;
+    repositionOpenUi();
+  });
+  window.addEventListener("scroll", repositionOpenUi, { passive: true });
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", repositionOpenUi);
+    window.visualViewport.addEventListener("scroll", repositionOpenUi, {
+      passive: true
+    });
+  }
+  window.addEventListener("blur", function () {
+    selectionPointerId = null;
+    window.clearTimeout(selectionPointerTimer);
+    hidePenCursorNow();
+  });
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) hidePenCursorNow();
+  });
   document.addEventListener("keydown", handleSelectionShortcut, true);
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && reading) stopReading();
@@ -655,6 +906,7 @@
   });
   window.addEventListener("pagehide", function () {
     stopReading();
+    hidePenCursorNow();
     if (translatorInstance && typeof translatorInstance.destroy === "function") {
       translatorInstance.destroy();
     }

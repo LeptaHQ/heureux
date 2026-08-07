@@ -1622,6 +1622,9 @@
 
   var frontEl = document.getElementById("card-front");
   var backEl = document.getElementById("card-back");
+  var cardEl = app.querySelector("[data-review-card]");
+  var faceLabel = app.querySelector("[data-review-face-label]");
+  var orderButtons = Array.from(app.querySelectorAll("[data-review-order]"));
   var revealBtn = document.getElementById("reveal");
   var gradesEl = document.getElementById("grades");
   var kbdHint = document.getElementById("kbd-hint");
@@ -1651,6 +1654,7 @@
   var currentData = null;
   var currentView = null;
   var viewingPrevious = false;
+  var reverseOrder = false;
 
   function params(extra) {
     var p = new URLSearchParams();
@@ -1685,6 +1689,42 @@
     backEl.dataset.annotationSourceKey = sourceKey + ":back";
   }
 
+  function showCardFace(showAnswerFace) {
+    var showFront = reverseOrder ? showAnswerFace : !showAnswerFace;
+    frontEl.classList.toggle("hidden", !showFront);
+    backEl.classList.toggle("hidden", showFront);
+    cardEl.classList.toggle("is-revealed", showAnswerFace);
+    var face = showFront ? "Recto" : "Verso";
+    if (faceLabel) faceLabel.textContent = face;
+    cardEl.setAttribute(
+      "aria-label",
+      face + ". Appuyez pour retourner la carte."
+    );
+  }
+
+  function updateCardControls() {
+    revealBtn.textContent = "Retourner";
+    if (viewingPrevious) {
+      revealBtn.classList.remove("hidden");
+      gradesEl.classList.add("hidden");
+      kbdHint.innerHTML =
+        "Consultation uniquement · " +
+        "<kbd class=\"kbd-hint__key--wide\">Espace</kbd> · retourner";
+      return;
+    }
+    revealBtn.classList.toggle("hidden", revealed);
+    gradesEl.classList.toggle("hidden", !revealed);
+    kbdHint.innerHTML = revealed
+      ? "<kbd>1</kbd> Revoir &nbsp; <kbd>2</kbd> Correct"
+      : "<kbd class=\"kbd-hint__key--wide\">Espace</kbd> · retourner";
+  }
+
+  function resetCardFace() {
+    revealed = false;
+    showCardFace(false);
+    updateCardControls();
+  }
+
   function readJson(r) {
     return r.json().catch(function () { return {}; }).then(function (data) {
       if (r.status === 401 && data.login_url) {
@@ -1708,6 +1748,7 @@
     presentationToken = "";
     currentData = null;
     viewingPrevious = false;
+    revealed = false;
     if (previousButton) previousButton.disabled = !data.can_previous;
     if (previousButton) previousButton.classList.remove("hidden");
     if (currentButton) currentButton.classList.add("hidden");
@@ -1733,20 +1774,16 @@
     currentData = data;
     currentId = data.card_id;
     presentationToken = data.presentation_token;
-    revealed = false;
+    viewingPrevious = false;
     frontEl.innerHTML = data.front_html;
     backEl.innerHTML = data.back_html;
     setAnnotationRoots(data.annotation_source_key);
-    backEl.classList.add("hidden");
-    revealBtn.classList.remove("hidden");
-    gradesEl.classList.add("hidden");
+    resetCardFace();
     updateCounters(data.counts);
-    kbdHint.innerHTML = "Appuyez sur <kbd>Espace</kbd> pour révéler la réponse";
     if (previousButton) previousButton.disabled = !data.can_previous;
     if (previousButton) previousButton.classList.remove("hidden");
     if (currentButton) currentButton.classList.add("hidden");
     if (previousLabel) previousLabel.classList.add("hidden");
-    viewingPrevious = false;
     startTime = Date.now();
   }
 
@@ -1758,13 +1795,20 @@
   }
 
   function reveal() {
-    if (revealed || viewingPrevious) return;
+    if (revealed || busy || (!currentData && !viewingPrevious)) return;
     revealed = true;
-    backEl.classList.remove("hidden");
-    revealBtn.classList.add("hidden");
-    gradesEl.classList.remove("hidden");
-    kbdHint.innerHTML =
-      "<kbd>1</kbd> Revoir &nbsp; <kbd>2</kbd> Correct";
+    showCardFace(true);
+    updateCardControls();
+  }
+
+  function hideAnswer() {
+    if (!revealed || busy) return;
+    resetCardFace();
+  }
+
+  function toggleAnswer() {
+    if (revealed) hideAnswer();
+    else reveal();
   }
 
   function gradeError(error) {
@@ -1915,16 +1959,15 @@
         frontEl.innerHTML = data.front_html;
         backEl.innerHTML = data.back_html;
         setAnnotationRoots(data.annotation_source_key);
-        backEl.classList.remove("hidden");
-        revealBtn.classList.add("hidden");
-        gradesEl.classList.add("hidden");
+        revealed = false;
+        showCardFace(false);
+        updateCardControls();
         previousButton.classList.add("hidden");
         currentButton.classList.remove("hidden");
         currentButtonLabel.textContent = fromDone
           ? "Retour au résumé"
           : "Retour à la carte actuelle";
         previousLabel.classList.remove("hidden");
-        kbdHint.textContent = "Consultation uniquement · votre carte actuelle est conservée.";
         busy = false;
       })
       .catch(function (error) {
@@ -1951,21 +1994,40 @@
     backEl.innerHTML = currentData.back_html;
     setAnnotationRoots(currentData.annotation_source_key);
     revealed = currentView.revealed;
+    viewingPrevious = false;
     startTime = currentView.startTime + (Date.now() - currentView.pausedAt);
-    backEl.classList.toggle("hidden", !revealed);
-    revealBtn.classList.toggle("hidden", revealed);
-    gradesEl.classList.toggle("hidden", !revealed);
+    showCardFace(revealed);
+    updateCardControls();
     previousButton.classList.remove("hidden");
     currentButton.classList.add("hidden");
     previousLabel.classList.add("hidden");
-    kbdHint.innerHTML = revealed
-      ? "<kbd>1</kbd> Revoir &nbsp; <kbd>2</kbd> Correct"
-      : "Appuyez sur <kbd>Espace</kbd> pour révéler la réponse";
-    viewingPrevious = false;
     currentView = null;
   }
 
-  revealBtn.addEventListener("click", reveal);
+  orderButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      reverseOrder = button.dataset.reviewOrder === "back";
+      orderButtons.forEach(function (option) {
+        var active = option === button;
+        option.classList.toggle("is-active", active);
+        option.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+      if (currentData || viewingPrevious) resetCardFace();
+    });
+  });
+  revealBtn.addEventListener("click", toggleAnswer);
+  cardEl.addEventListener("click", function (event) {
+    if (
+      event.target.closest(
+        "a, button, input, select, textarea, [contenteditable='true']"
+      )
+    ) {
+      return;
+    }
+    var selection = window.getSelection();
+    if (selection && !selection.isCollapsed) return;
+    toggleAnswer();
+  });
   gradesEl.querySelectorAll(".grade").forEach(function (btn) {
     btn.addEventListener("click", function () {
       grade(btn.dataset.action);
@@ -1984,13 +2046,18 @@
     ) {
       return;
     }
+    if (
+      (e.code === "Space" || e.code === "Enter") &&
+      !cardZone.classList.contains("hidden")
+    ) {
+      e.preventDefault();
+      toggleAnswer();
+      return;
+    }
     if (viewingPrevious) {
       return;
     }
-    if (!revealed && (e.code === "Space" || e.code === "Enter")) {
-      e.preventDefault();
-      reveal();
-    } else if (revealed && (e.key === "1" || e.key.toLowerCase() === "r")) {
+    if (revealed && (e.key === "1" || e.key.toLowerCase() === "r")) {
       e.preventDefault();
       grade("revisit");
     } else if (revealed && (e.key === "2" || e.key.toLowerCase() === "c")) {

@@ -32,13 +32,31 @@
   </div>
 
   <div id="card-zone">
-    <article class="flashcard">
-      <div id="card-front"></div>
-      <div id="card-back" class="hidden"></div>
+    <div class="review__study-toolbar">
+      <div class="annotation-study__face-switch" role="group" aria-label="Face affichée en premier">
+        <button class="is-active" type="button" data-review-order="front" aria-pressed="true">Recto</button>
+        <button type="button" data-review-order="back" aria-pressed="false">Verso</button>
+      </div>
+    </div>
+    <article
+      class="flashcard review-flashcard"
+      tabindex="0"
+      aria-label="Recto. Appuyez pour retourner la carte."
+      data-review-card
+    >
+      <div class="annotation-study__card-meta">
+        <span class="annotation-study__face-label" data-review-face-label>Recto</span>
+        <span class="annotation-study__flip-hint">
+          Appuyez pour retourner
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h9.5a4.5 4.5 0 0 1 0 9H14"></path><path d="m9 3-4 4 4 4"></path></svg>
+        </span>
+      </div>
+      <div class="review-flashcard__face" id="card-front"></div>
+      <div class="review-flashcard__face hidden" id="card-back"></div>
     </article>
 
     <div class="controls">
-      <button class="reveal-btn" id="reveal">Afficher la réponse</button>
+      <button class="reveal-btn" id="reveal" type="button">Retourner</button>
       <div class="grades hidden" id="grades">
         <button class="grade grade--revisit" type="button" data-action="revisit" aria-keyshortcuts="1 R">
           <span class="grade__icon" aria-hidden="true">

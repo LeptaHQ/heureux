@@ -20,6 +20,7 @@ from study.models import (
     CardType,
     ComprehensionMode,
     PhraseCategory,
+    PhraseTier,
     PersonalResponse,
     Rating,
     ReviewLog,
@@ -1843,6 +1844,65 @@ class BrowserTests(StaticLiveServerTestCase):
             2,
         )
 
+    def test_vocabulary_flashcards_flip_on_tap_and_reverse(self):
+        phrase = factories.make_phrase(
+            tier=PhraseTier.SUBJECT,
+            lot_order=1,
+        )
+        phrase.source_prompts.add(
+            self.first.response.prompts.get(is_canonical=True)
+        )
+        factories.make_phrase_card(user=self.user, phrase=phrase)
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + f"?kind=vocab&response={self.first.response_id}"
+        )
+
+        card = self.page.locator("[data-review-card]")
+        front = self.page.locator("#card-front")
+        back = self.page.locator("#card-back")
+        face_label = self.page.locator("[data-review-face-label]")
+        front.get_by_text(phrase.english_cue, exact=True).wait_for()
+        self.assertEqual(face_label.inner_text(), "Recto")
+        self.assertTrue(front.is_visible())
+        self.assertFalse(back.is_visible())
+        switches = self.page.locator("[data-review-order]")
+        self.assertEqual(switches.count(), 2)
+
+        card.click(position={"x": 20, "y": 20})
+
+        back.locator(".spine-text", has_text=phrase.expression).wait_for()
+        self.assertEqual(face_label.inner_text(), "Verso")
+        self.assertFalse(front.is_visible())
+        self.page.locator("#grades:not(.hidden)").wait_for()
+
+        card.click(position={"x": 20, "y": 20})
+
+        front.get_by_text(phrase.english_cue, exact=True).wait_for()
+        self.assertEqual(face_label.inner_text(), "Recto")
+        self.page.locator("#reveal:not(.hidden)").wait_for()
+
+        self.page.locator('[data-review-order="back"]').click()
+
+        back.locator(".spine-text", has_text=phrase.expression).wait_for()
+        self.assertEqual(face_label.inner_text(), "Verso")
+        self.assertEqual(
+            self.page.locator('[data-review-order="back"]').get_attribute(
+                "aria-pressed"
+            ),
+            "true",
+        )
+        self.assertTrue(self.page.locator("#grades").is_hidden())
+
+        card.click(position={"x": 20, "y": 20})
+
+        front.get_by_text(phrase.english_cue, exact=True).wait_for()
+        self.assertEqual(face_label.inner_text(), "Recto")
+        self.page.locator('[data-action="correct"]').click()
+        self.page.locator("#done-zone:not(.hidden)").wait_for()
+        self.assert_no_horizontal_overflow()
+
     def test_mobile_highlight_expands_then_toggles_off(self):
         self.page.goto(
             self.live_server_url
@@ -2002,6 +2062,7 @@ class BrowserTests(StaticLiveServerTestCase):
         prompt.wait_for()
         self.page.wait_for_load_state("networkidle")
         prompt_text = prompt.text_content()
+        self.page.locator('[data-review-order="back"]').click()
         self.page.locator("#reveal").click()
 
         toolbar = self.page.locator("[data-selection-translate]")

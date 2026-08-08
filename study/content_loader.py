@@ -914,13 +914,27 @@ def tache_two_families(
     ]
 
 
+@dataclass(frozen=True)
+class _TacheTwoOccurrence:
+    """One Tâche 2 subject as it appears in a given month and batch."""
+
+    content_key: str
+    theme: str
+    family: str
+    number: int
+    prompt: str
+    questions: Tuple[str, ...]
+    body: str
+    body_hash: str
+
+
 def parse_tache_two_responses(
     months: Optional[Tuple[TacheTwoSubjectMonthData, ...]] = None,
 ) -> List[ResponseData]:
     months = months or load_tache_two_subject_months()
     category_by_key = tache_two_category_by_content_key()
-    responses = []
     theme_prompt_numbers: Dict[str, int] = {}
+    occurrences: List[_TacheTwoOccurrence] = []
     for month in months:
         for batch in month.batches:
             for subject in batch.subjects:
@@ -939,57 +953,116 @@ def parse_tache_two_responses(
                 family = tache_two_family_name(category)
                 prompt_number = theme_prompt_numbers.get(theme, 0) + 1
                 theme_prompt_numbers[theme] = prompt_number
-                questions = [question.text for question in subject.questions]
+                questions = tuple(
+                    question.text for question in subject.questions
+                )
                 body = "\n".join(questions)
-                responses.append(
-                    ResponseData(
+                occurrences.append(
+                    _TacheTwoOccurrence(
                         content_key=content_key,
+                        theme=theme,
+                        family=family,
+                        number=prompt_number,
+                        prompt=subject.prompt,
+                        questions=questions,
+                        body=body,
                         body_hash=hashlib.sha256(
                             body.encode("utf-8")
                         ).hexdigest(),
-                        theme=theme,
-                        family=family,
-                        prompt=subject.prompt,
-                        reformulation="",
-                        position="",
-                        position_claire="",
-                        nuance="",
-                        conclusion="",
-                        body=body,
-                        body_html=(
-                            "<ol>"
-                            + "".join(
-                                f"<li>{html.escape(question)}</li>"
-                                for question in questions
-                            )
-                            + "</ol>"
-                        ),
-                        arguments=[
-                            ArgumentData(
-                                order=number,
-                                idea=question,
-                                developpement="",
-                                exemple="",
-                                consequence="",
-                            )
-                            for number, question in enumerate(
-                                questions,
-                                start=1,
-                            )
-                        ],
-                        prompts=[
-                            PromptData(
-                                content_key=content_key,
-                                theme=theme,
-                                number=prompt_number,
-                                text=subject.prompt,
-                                family=family,
-                                is_canonical=True,
-                            )
-                        ],
                     )
                 )
+
+    groups: Dict[str, List[_TacheTwoOccurrence]] = {}
+    for occurrence in occurrences:
+        groups.setdefault(occurrence.body_hash, []).append(occurrence)
+
+    responses = []
+    for occurrence in occurrences:
+        members = groups[occurrence.body_hash]
+        canonical = members[0]
+        if occurrence is not canonical:
+            continue
+        questions = canonical.questions
+        responses.append(
+            ResponseData(
+                content_key=canonical.content_key,
+                body_hash=canonical.body_hash,
+                theme=canonical.theme,
+                family=canonical.family,
+                prompt=canonical.prompt,
+                reformulation="",
+                position="",
+                position_claire="",
+                nuance="",
+                conclusion="",
+                body=canonical.body,
+                body_html=(
+                    "<ol>"
+                    + "".join(
+                        f"<li>{html.escape(question)}</li>"
+                        for question in questions
+                    )
+                    + "</ol>"
+                ),
+                arguments=[
+                    ArgumentData(
+                        order=number,
+                        idea=question,
+                        developpement="",
+                        exemple="",
+                        consequence="",
+                    )
+                    for number, question in enumerate(
+                        questions,
+                        start=1,
+                    )
+                ],
+                prompts=[
+                    PromptData(
+                        content_key=member.content_key,
+                        theme=member.theme,
+                        number=member.number,
+                        text=member.prompt,
+                        family=member.family,
+                        is_canonical=(member is canonical),
+                    )
+                    for member in members
+                ],
+            )
+        )
     return responses
+
+
+def tache_two_response_key_by_subject_key(
+    responses: Optional[List[ResponseData]] = None,
+) -> Dict[str, str]:
+    """Map every Tâche 2 subject key onto the shared response it belongs to."""
+    if responses is None:
+        responses = parse_tache_two_responses()
+    return {
+        prompt.content_key: response.content_key
+        for response in responses
+        if response.content_key.startswith("tache2:")
+        for prompt in response.prompts
+    }
+
+
+def _tache_two_vocabulary_signature(entries) -> Optional[Tuple]:
+    """Comparable view of a vocabulary block, ignoring its phrase ids."""
+    if not isinstance(entries, list):
+        return None
+    return tuple(
+        (
+            entry.get("kind"),
+            entry.get("french"),
+            entry.get("english"),
+            entry.get("example"),
+            entry.get("usage"),
+        )
+        if isinstance(entry, dict)
+        else None
+        for entry in entries
+    )
 
 
 def parse_tache_two_subject_vocabulary(
@@ -1005,8 +1078,11 @@ def parse_tache_two_subject_vocabulary(
     }
     if not response_by_key:
         return []
+    response_key_by_subject_key = tache_two_response_key_by_subject_key(
+        responses
+    )
 
-    seen_response_keys = set()
+    seen_subject_keys = set()
     seen_ids = {}
     phrases = []
     paths = sorted(directory.glob("*.json"))
@@ -1029,7 +1105,7 @@ def parse_tache_two_subject_vocabulary(
         first_response_order = min(
             (
                 response_order_by_key.get(
-                    row.get("subject_key"),
+                    response_key_by_subject_key.get(row.get("subject_key")),
                     len(response_order_by_key),
                 )
                 for row in subject_rows
@@ -1040,6 +1116,13 @@ def parse_tache_two_subject_vocabulary(
         payloads.append(
             (first_response_order, path.name, path, subject_rows)
         )
+
+    entries_by_subject_key = {
+        row.get("subject_key"): row.get("entries")
+        for _, _, _path, subject_rows in payloads
+        for row in subject_rows
+        if isinstance(row, dict)
+    }
 
     base_order = (
         EXPECTED_PHRASES
@@ -1058,15 +1141,29 @@ def parse_tache_two_subject_vocabulary(
             if not isinstance(subject_row, dict):
                 raise ValueError(f"{location} must be an object")
             subject_key = subject_row.get("subject_key")
-            if subject_key not in response_by_key:
+            response_key = response_key_by_subject_key.get(subject_key)
+            if response_key is None:
                 raise ValueError(
                     f"{location} references unknown subject {subject_key!r}"
                 )
-            if subject_key in seen_response_keys:
+            if subject_key in seen_subject_keys:
                 raise ValueError(
                     f"Duplicate Tâche 2 vocabulary for {subject_key!r}"
                 )
-            seen_response_keys.add(subject_key)
+            seen_subject_keys.add(subject_key)
+
+            if response_key != subject_key:
+                # Equivalent subject: it shares the canonical vocabulary.
+                if _tache_two_vocabulary_signature(
+                    subject_row.get("entries")
+                ) != _tache_two_vocabulary_signature(
+                    entries_by_subject_key.get(response_key)
+                ):
+                    raise ValueError(
+                        f"{location} shares its questions with "
+                        f"{response_key!r} but not its vocabulary"
+                    )
+                continue
 
             entries = subject_row.get("entries")
             if not isinstance(entries, list):
@@ -1208,7 +1305,7 @@ def parse_tache_two_subject_vocabulary(
                     )
                 )
 
-    missing = sorted(set(response_by_key) - seen_response_keys)
+    missing = sorted(set(response_key_by_subject_key) - seen_subject_keys)
     if missing:
         raise ValueError(
             "Missing Tâche 2 subject vocabulary for: "

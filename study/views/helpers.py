@@ -93,6 +93,17 @@ _EMPTY_SUBJECT_PROGRESS = SubjectProgress(
 )
 
 
+def _tache_two_response_ids_by_subject_key(content_keys):
+    """Map Tâche 2 subject keys onto the response each one shares."""
+    return dict(
+        Prompt.objects.filter(
+            content_key__in=content_keys,
+            is_active=True,
+            response__is_active=True,
+        ).values_list("content_key", "response_id")
+    )
+
+
 def _tache_two_progress(user, months):
     """Attach material-specific progress to Tâche 2 months and subjects."""
     months = tuple(months)
@@ -106,15 +117,12 @@ def _tache_two_progress(user, months):
         for batch in month.batches
         for subject in batch.subjects
     ]
-    response_id_by_content_key = dict(
-        Response.objects.filter(
-            content_key__in=content_keys,
-            is_active=True,
-        ).values_list("content_key", "pk")
+    response_id_by_content_key = _tache_two_response_ids_by_subject_key(
+        content_keys
     )
     progress_by_response = subject_progress_by_response(
         user,
-        response_id_by_content_key.values(),
+        set(response_id_by_content_key.values()),
     )
     progress_by_content_key = {
         content_key: progress_by_response[response_id]
@@ -213,15 +221,12 @@ def _tache_two_progress_by_content_key(user, months):
         for batch in month.batches
         for subject in batch.subjects
     ]
-    response_id_by_content_key = dict(
-        Response.objects.filter(
-            content_key__in=content_keys,
-            is_active=True,
-        ).values_list("content_key", "pk")
+    response_id_by_content_key = _tache_two_response_ids_by_subject_key(
+        content_keys
     )
     progress_by_response = subject_progress_by_response(
         user,
-        response_id_by_content_key.values(),
+        set(response_id_by_content_key.values()),
     )
     progress_by_content_key = {
         content_key: progress_by_response[response_id]

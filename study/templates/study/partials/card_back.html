@@ -17,6 +17,14 @@
           {% endfor %}
         </ol>
       </div>
+      {% if aliases %}
+        <div class="spine-block" style="margin-top:1rem;">
+          <div class="spine-label">Sujets équivalents</div>
+          <ul class="muted" style="margin:0.3rem 0 0; padding-left:1.1rem;">
+            {% for a in aliases %}<li><b>{{ a.theme.display_name }} · Sujet {{ a.number }}</b> — {{ a.text }}</li>{% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     {% else %}
       <div class="spine-block">
         <div class="spine-label">Reformulation</div>

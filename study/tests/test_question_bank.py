@@ -1,6 +1,10 @@
 from __future__ import annotations
 
+import copy
+import json
+import tempfile
 from io import StringIO
+from pathlib import Path
 
 from django.core.management import call_command
 from django.test import TestCase
@@ -9,6 +13,7 @@ from django.utils import timezone
 
 from study.account_services import provision_user_study_data
 from study.content_loader import (
+    TACHE_TWO_VOCABULARY_DIR,
     load_question_bank,
     load_question_banks,
     load_comprehension_tests,
@@ -16,6 +21,8 @@ from study.content_loader import (
     parse_comprehension_vocabulary,
     parse_tache_two_responses,
     parse_tache_two_subject_vocabulary,
+    tache_two_response_key_by_subject_key,
+    tache_two_subject_content_key,
 )
 from study.models import (
     Annotation,
@@ -26,6 +33,7 @@ from study.models import (
     MemoryQuestionProgress,
     Phrase,
     PhraseTier,
+    Prompt,
     Response,
     Task,
 )
@@ -1268,16 +1276,146 @@ class QuestionBankContentTests(TestCase):
             corpus,
         )
 
+    def test_equivalent_subjects_must_share_their_vocabulary(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            responses = parse_tache_two_responses()
+            shared = next(
+                response
+                for response in responses
+                if len(response.prompts) > 1
+            )
+            canonical_key = shared.content_key
+            alias_key = next(
+                prompt.content_key
+                for prompt in shared.prompts
+                if prompt.content_key != canonical_key
+            )
+            blocks = {}
+            for path in TACHE_TWO_VOCABULARY_DIR.glob("*.json"):
+                payload = json.loads(path.read_text(encoding="utf-8"))
+                for row in payload["subjects"]:
+                    blocks[row["subject_key"]] = row
+            drifted = copy.deepcopy(blocks[alias_key])
+            drifted["entries"][0]["french"] = "une formulation divergente"
+            (root / "vocabulary.json").write_text(
+                json.dumps(
+                    {
+                        "version": 1,
+                        "subjects": [blocks[canonical_key], drifted],
+                    },
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+
+            with self.assertRaises(ValueError) as error:
+                parse_tache_two_subject_vocabulary(
+                    responses,
+                    directory=root,
+                )
+
+        self.assertIn("not its vocabulary", str(error.exception))
+
     def test_subjects_generate_srs_responses_and_vocabulary(self):
+        months = load_tache_two_subject_months()
         responses = parse_tache_two_responses()
         vocabulary = parse_tache_two_subject_vocabulary(responses)
 
-        self.assertEqual(len(responses), 348)
+        subject_keys = [
+            tache_two_subject_content_key(
+                month.slug,
+                batch.number,
+                subject.number,
+            )
+            for month in months
+            for batch in month.batches
+            for subject in batch.subjects
+        ]
+        prompts = [
+            prompt for response in responses for prompt in response.prompts
+        ]
+
+        self.assertEqual(len(subject_keys), 348)
+        self.assertEqual(len(responses), 186)
+        self.assertEqual(len(prompts), len(subject_keys))
+        self.assertEqual(
+            {prompt.content_key for prompt in prompts},
+            set(subject_keys),
+        )
         self.assertEqual(
             sum(len(response.arguments) for response in responses),
-            5175,
+            2764,
         )
-        self.assertEqual(len(vocabulary), 10440)
+        self.assertEqual(len(vocabulary), 5580)
+        for response in responses:
+            canonical = [
+                prompt for prompt in response.prompts if prompt.is_canonical
+            ]
+            self.assertEqual(len(canonical), 1)
+            self.assertEqual(canonical[0].content_key, response.content_key)
+            self.assertEqual(
+                response.body,
+                "\n".join(
+                    argument.idea for argument in response.arguments
+                ),
+            )
+
+        # Subjects that repeat a question set collapse onto one response.
+        subjects_by_key = {
+            tache_two_subject_content_key(
+                month.slug,
+                batch.number,
+                subject.number,
+            ): subject
+            for month in months
+            for batch in month.batches
+            for subject in batch.subjects
+        }
+        response_key_by_subject_key = tache_two_response_key_by_subject_key(
+            responses
+        )
+        self.assertEqual(
+            set(response_key_by_subject_key),
+            set(subject_keys),
+        )
+        grouped_by_questions = {}
+        for subject_key, subject in subjects_by_key.items():
+            signature = tuple(
+                question.text for question in subject.questions
+            )
+            grouped_by_questions.setdefault(signature, set()).add(
+                response_key_by_subject_key[subject_key]
+            )
+        self.assertEqual(len(grouped_by_questions), len(responses))
+        for response_keys in grouped_by_questions.values():
+            self.assertEqual(len(response_keys), 1)
+
+        for (
+            target_month,
+            target_subject,
+            source_month,
+            source_batch,
+            source_subject,
+        ) in FINAL_EXACT_RESPONSE_REUSE:
+            target_batch = (target_subject - 1) // 5 + 1
+            self.assertEqual(
+                response_key_by_subject_key[
+                    tache_two_subject_content_key(
+                        target_month,
+                        target_batch,
+                        target_subject,
+                    )
+                ],
+                response_key_by_subject_key[
+                    tache_two_subject_content_key(
+                        source_month,
+                        source_batch,
+                        source_subject,
+                    )
+                ],
+            )
+
         self.assertEqual(
             {phrase.tier for phrase in vocabulary},
             {PhraseTier.SUBJECT},
@@ -1294,18 +1432,24 @@ class QuestionBankContentTests(TestCase):
                 for prompt in response.prompts
             },
         )
-        questions_by_source = {
-            (prompt.theme, prompt.number): {
+        sources_by_response_key = {
+            response.content_key: tuple(
+                (prompt.theme, prompt.number)
+                for prompt in response.prompts
+            )
+            for response in responses
+        }
+        questions_by_sources = {
+            sources_by_response_key[response.content_key]: {
                 argument.idea for argument in response.arguments
             }
             for response in responses
-            for prompt in response.prompts
         }
         for phrase in vocabulary:
-            self.assertEqual(len(phrase.sources), 1)
+            self.assertIn(phrase.sources, questions_by_sources)
             self.assertIn(
                 phrase.example,
-                questions_by_source[phrase.sources[0]],
+                questions_by_sources[phrase.sources],
             )
             self.assertEqual(
                 phrase.example.casefold().count(
@@ -1313,11 +1457,11 @@ class QuestionBankContentTests(TestCase):
                 ),
                 1,
             )
-        for source in questions_by_source:
+        for sources in questions_by_sources:
             source_phrases = [
                 phrase
                 for phrase in vocabulary
-                if phrase.sources == (source,)
+                if phrase.sources == sources
             ]
             category_counts = {}
             for phrase in source_phrases:
@@ -1333,6 +1477,7 @@ class QuestionBankContentTests(TestCase):
                     "Tournures pour l'oral": 10,
                 },
             )
+
         comprehension_orders = {
             item.phrase.order
             for item in parse_comprehension_vocabulary(
@@ -1340,486 +1485,17 @@ class QuestionBankContentTests(TestCase):
             )
         }
         vocabulary_orders = [phrase.order for phrase in vocabulary]
-        vocabulary_by_id = {
-            phrase.phrase_id: phrase for phrase in vocabulary
-        }
-
-        def phrase_for_slot(prefix, index):
-            base_id = f"{prefix}V{index:02d}"
-            phrase = vocabulary_by_id.get(f"{base_id}R")
-            if phrase is None:
-                phrase = vocabulary_by_id[base_id]
-            return phrase
-
-        for index in range(1, 31):
-            january_phrase = phrase_for_slot("T2J1S13", index)
-            march_phrase = phrase_for_slot("T2M3S1", index)
-            self.assertEqual(
-                (
-                    march_phrase.category,
-                    march_phrase.english_cue,
-                    march_phrase.expression,
-                    march_phrase.example,
-                    march_phrase.note,
-                ),
-                (
-                    january_phrase.category,
-                    january_phrase.english_cue,
-                    january_phrase.expression,
-                    january_phrase.example,
-                    january_phrase.note,
-                ),
-            )
-        for february_subject, march_subject in zip(
-            range(1, 6),
-            range(6, 11),
-            strict=True,
-        ):
-            for index in range(1, 31):
-                february_phrase = phrase_for_slot(
-                    f"T2F2S{february_subject}",
-                    index,
-                )
-                march_phrase = phrase_for_slot(
-                    f"T2M3S{march_subject}",
-                    index,
-                )
-                self.assertEqual(
-                    (
-                        march_phrase.category,
-                        march_phrase.english_cue,
-                        march_phrase.expression,
-                        march_phrase.example,
-                        march_phrase.note,
-                    ),
-                    (
-                        february_phrase.category,
-                        february_phrase.english_cue,
-                        february_phrase.expression,
-                        february_phrase.example,
-                        february_phrase.note,
-                    ),
-                )
-        for february_subject, march_subject in zip(
-            range(21, 26),
-            range(11, 16),
-            strict=True,
-        ):
-            for index in range(1, 31):
-                february_phrase = phrase_for_slot(
-                    f"T2F2S{february_subject}",
-                    index,
-                )
-                march_phrase = phrase_for_slot(
-                    f"T2M3S{march_subject}",
-                    index,
-                )
-                self.assertEqual(
-                    (
-                        march_phrase.category,
-                        march_phrase.english_cue,
-                        march_phrase.expression,
-                        march_phrase.example,
-                        march_phrase.note,
-                    ),
-                    (
-                        february_phrase.category,
-                        february_phrase.english_cue,
-                        february_phrase.expression,
-                        february_phrase.example,
-                        february_phrase.note,
-                    ),
-                )
-        for index in range(1, 31):
-            february_phrase = phrase_for_slot("T2F2S29", index)
-            april_phrase = phrase_for_slot("T2A4S6", index)
-            self.assertEqual(
-                (
-                    april_phrase.category,
-                    april_phrase.english_cue,
-                    april_phrase.expression,
-                    april_phrase.example,
-                    april_phrase.note,
-                ),
-                (
-                    february_phrase.category,
-                    february_phrase.english_cue,
-                    february_phrase.expression,
-                    february_phrase.example,
-                    february_phrase.note,
-                ),
-            )
-        for source_prefix, may_prefix in (
-            ("T2F2S16", "T2M5S1"),
-            ("T2F2S17", "T2M5S2"),
-            ("T2F2S18", "T2M5S3"),
-            ("T2F2S19", "T2M5S4"),
-            ("T2F2S20", "T2M5S5"),
-            ("T2J1S11", "T2M5S11"),
-            ("T2J1S12", "T2M5S12"),
-            ("T2J1S13", "T2M5S13"),
-            ("T2J1S14", "T2M5S14"),
-            ("T2F2S11", "T2M5S16"),
-        ):
-            for index in range(1, 31):
-                source_phrase = phrase_for_slot(source_prefix, index)
-                may_phrase = phrase_for_slot(may_prefix, index)
-                self.assertEqual(
-                    (
-                        may_phrase.category,
-                        may_phrase.english_cue,
-                        may_phrase.expression,
-                        may_phrase.example,
-                        may_phrase.note,
-                    ),
-                    (
-                        source_phrase.category,
-                        source_phrase.english_cue,
-                        source_phrase.expression,
-                        source_phrase.example,
-                        source_phrase.note,
-                    ),
-                )
-        for source_id, may_id in (
-            ("T2A4S8V09", "T2M5S25V05"),
-            ("T2A4S8V19", "T2M5S25V13"),
-            ("T2A4S8V28", "T2M5S25V23"),
-            ("T2J1S5V17", "T2M5S25V19"),
-            ("T2J1S5V28", "T2M5S25V28"),
-        ):
-            source_phrase = vocabulary_by_id[source_id]
-            may_phrase = vocabulary_by_id[may_id]
-            self.assertEqual(
-                (
-                    may_phrase.category,
-                    may_phrase.english_cue,
-                    may_phrase.expression,
-                    may_phrase.example,
-                    may_phrase.note,
-                ),
-                (
-                    source_phrase.category,
-                    source_phrase.english_cue,
-                    source_phrase.expression,
-                    source_phrase.example,
-                    source_phrase.note,
-                ),
-            )
-        for source_prefix, june_prefix in (
-            ("T2M3S12", "T2J6S7"),
-            ("T2M3S10", "T2J6S8"),
-            ("T2J1S13", "T2J6S19"),
-            ("T2J1S6", "T2J6S21"),
-            ("T2J1S7", "T2J6S22"),
-            ("T2J1S8", "T2J6S23"),
-            ("T2J1S9", "T2J6S24"),
-            ("T2J1S10", "T2J6S25"),
-            ("T2F2S26", "T2J6S31"),
-            ("T2F2S27", "T2J6S32"),
-            ("T2F2S28", "T2J6S33"),
-            ("T2F2S29", "T2J6S34"),
-            ("T2F2S30", "T2J6S35"),
-            ("T2J6S1", "T2J6S36"),
-            ("T2J6S2", "T2J6S37"),
-            ("T2J6S3", "T2J6S38"),
-            ("T2J6S4", "T2J6S39"),
-            ("T2J6S5", "T2J6S40"),
-            ("T2A4S1", "T2J6S41"),
-            ("T2A4S2", "T2J6S42"),
-            ("T2A4S3", "T2J6S43"),
-            ("T2A4S4", "T2J6S44"),
-            ("T2A4S5", "T2J6S45"),
-        ):
-            for index in range(1, 31):
-                source_phrase = phrase_for_slot(source_prefix, index)
-                june_phrase = phrase_for_slot(june_prefix, index)
-                self.assertEqual(
-                    (
-                        june_phrase.category,
-                        june_phrase.english_cue,
-                        june_phrase.expression,
-                        june_phrase.example,
-                        june_phrase.note,
-                    ),
-                    (
-                        source_phrase.category,
-                        source_phrase.english_cue,
-                        source_phrase.expression,
-                        source_phrase.example,
-                        source_phrase.note,
-                    ),
-                )
-        for source_prefix, july_prefix in (
-            ("T2J6S2", "T2J7S1"),
-            ("T2A4S3", "T2J7S5"),
-            ("T2M5S1", "T2J7S11"),
-            ("T2M5S2", "T2J7S12"),
-            ("T2F2S18", "T2J7S13"),
-            ("T2F2S19", "T2J7S14"),
-            ("T2F2S20", "T2J7S15"),
-            ("T2J7S16", "T2J7S21"),
-            ("T2J7S17", "T2J7S22"),
-            ("T2J7S18", "T2J7S23"),
-            ("T2J7S19", "T2J7S24"),
-            ("T2J7S20", "T2J7S25"),
-            ("T2J6S18", "T2J7S26"),
-            ("T2A4S7", "T2J7S27"),
-            ("T2J1S15", "T2J7S28"),
-            ("T2M3S12", "T2J7S35"),
-            ("T2M3S10", "T2J7S36"),
-            ("T2J6S9", "T2J7S37"),
-        ):
-            for index in range(1, 31):
-                source_phrase = phrase_for_slot(source_prefix, index)
-                july_phrase = phrase_for_slot(july_prefix, index)
-                self.assertEqual(
-                    (
-                        july_phrase.category,
-                        july_phrase.english_cue,
-                        july_phrase.expression,
-                        july_phrase.example,
-                        july_phrase.note,
-                    ),
-                    (
-                        source_phrase.category,
-                        source_phrase.english_cue,
-                        source_phrase.expression,
-                        source_phrase.example,
-                        source_phrase.note,
-                    ),
-                )
-        for source_prefix, august_prefix in (
-            ("T2J6S1", "T2A8S1"),
-            ("T2J6S2", "T2A8S2"),
-            ("T2J6S3", "T2A8S3"),
-            ("T2J6S4", "T2A8S4"),
-            ("T2J6S5", "T2A8S5"),
-            ("T2M5S7", "T2A8S7"),
-            ("T2M5S10", "T2A8S8"),
-            ("T2M5S9", "T2A8S9"),
-            ("T2M5S6", "T2A8S11"),
-            ("T2M5S7", "T2A8S12"),
-            ("T2M5S8", "T2A8S13"),
-            ("T2M5S9", "T2A8S14"),
-            ("T2M5S10", "T2A8S15"),
-            ("T2J1S11", "T2A8S16"),
-            ("T2J1S12", "T2A8S17"),
-            ("T2J1S13", "T2A8S18"),
-            ("T2J1S14", "T2A8S19"),
-            ("T2M5S15", "T2A8S20"),
-        ):
-            for index in range(1, 31):
-                source_phrase = phrase_for_slot(source_prefix, index)
-                august_phrase = phrase_for_slot(august_prefix, index)
-                self.assertEqual(
-                    (
-                        august_phrase.category,
-                        august_phrase.english_cue,
-                        august_phrase.expression,
-                        august_phrase.example,
-                        august_phrase.note,
-                    ),
-                    (
-                        source_phrase.category,
-                        source_phrase.english_cue,
-                        source_phrase.expression,
-                        source_phrase.example,
-                        source_phrase.note,
-                    ),
-                )
-        for source_prefix, september_prefix in (
-            ("T2J7S4", "T2S9S1"),
-            ("T2F2S26", "T2S9S6"),
-            ("T2F2S27", "T2S9S7"),
-            ("T2F2S28", "T2S9S8"),
-            ("T2F2S29", "T2S9S9"),
-            ("T2F2S30", "T2S9S10"),
-            ("T2M3S11", "T2S9S11"),
-            ("T2M3S12", "T2S9S12"),
-            ("T2M3S13", "T2S9S13"),
-            ("T2M3S14", "T2S9S14"),
-            ("T2F2S25", "T2S9S15"),
-            ("T2F2S12", "T2S9S16"),
-            ("T2J7S34", "T2S9S21"),
-            ("T2J1S13", "T2S9S24"),
-            ("T2J7S4", "T2S9S25"),
-            ("T2J7S34", "T2S9S26"),
-            ("T2J1S13", "T2S9S29"),
-            ("T2J7S4", "T2S9S30"),
-            ("T2S9S3", "T2S9S31"),
-            ("T2S9S4", "T2S9S33"),
-            ("T2S9S22", "T2S9S27"),
-            ("T2S9S23", "T2S9S28"),
-        ):
-            for index in range(1, 31):
-                source_phrase = phrase_for_slot(source_prefix, index)
-                september_phrase = phrase_for_slot(
-                    september_prefix,
-                    index,
-                )
-                self.assertEqual(
-                    (
-                        september_phrase.category,
-                        september_phrase.english_cue,
-                        september_phrase.expression,
-                        september_phrase.example,
-                        september_phrase.note,
-                    ),
-                    (
-                        source_phrase.category,
-                        source_phrase.english_cue,
-                        source_phrase.expression,
-                        source_phrase.example,
-                        source_phrase.note,
-                    ),
-                )
-        for (
-            target_month,
-            target_subject,
-            source_month,
-            _source_batch,
-            source_subject,
-        ) in FINAL_EXACT_RESPONSE_REUSE:
-            source_prefix = (
-                f"T2{VOCABULARY_MONTH_PREFIXES[source_month]}"
-                f"S{source_subject}"
-            )
-            target_prefix = (
-                f"T2{VOCABULARY_MONTH_PREFIXES[target_month]}"
-                f"S{target_subject}"
-            )
-            for index in range(1, 31):
-                source_phrase = phrase_for_slot(source_prefix, index)
-                target_phrase = phrase_for_slot(target_prefix, index)
-                self.assertEqual(
-                    (
-                        target_phrase.category,
-                        target_phrase.english_cue,
-                        target_phrase.expression,
-                        target_phrase.example,
-                        target_phrase.note,
-                    ),
-                    (
-                        source_phrase.category,
-                        source_phrase.english_cue,
-                        source_phrase.expression,
-                        source_phrase.example,
-                        source_phrase.note,
-                    ),
-                )
-        first_vocabulary_order = max(comprehension_orders) + 1
-        self.assertTrue(
-            comprehension_orders.isdisjoint(vocabulary_orders)
-        )
+        self.assertEqual(len(set(vocabulary_orders)), len(vocabulary_orders))
         self.assertEqual(
             vocabulary_orders,
             list(
                 range(
-                    max(comprehension_orders) + 1,
-                    max(comprehension_orders) + len(vocabulary) + 1,
+                    vocabulary_orders[0],
+                    vocabulary_orders[0] + len(vocabulary_orders),
                 )
             ),
         )
-        self.assertEqual(
-            vocabulary_by_id["T2J1S1V01"].order,
-            first_vocabulary_order,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2J1S15V30"].order,
-            first_vocabulary_order + 449,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2F2S1V01"].order,
-            first_vocabulary_order + 450,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2F2S30V30"].order,
-            first_vocabulary_order + 1349,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2M3S1V01"].order,
-            first_vocabulary_order + 1350,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2M3S10V30"].order,
-            first_vocabulary_order + 1649,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2M3S15V30"].order,
-            first_vocabulary_order + 1799,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2A4S1V01"].order,
-            first_vocabulary_order + 1800,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2A4S10V30"].order,
-            first_vocabulary_order + 2099,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2M5S1V01"].order,
-            first_vocabulary_order + 2100,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2M5S25V30"].order,
-            first_vocabulary_order + 2849,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2J6S1V01"].order,
-            first_vocabulary_order + 2850,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2J6S45V30"].order,
-            first_vocabulary_order + 4199,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2J7S1V01"].order,
-            first_vocabulary_order + 4200,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2J7S38V30"].order,
-            first_vocabulary_order + 5339,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2A8S1V01"].order,
-            first_vocabulary_order + 5340,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2A8S20V30"].order,
-            first_vocabulary_order + 5939,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2S9S1V01"].order,
-            first_vocabulary_order + 5940,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2S9S35V30"].order,
-            first_vocabulary_order + 6989,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2O10S1V01"].order,
-            first_vocabulary_order + 6990,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2O10S50V30"].order,
-            first_vocabulary_order + 8489,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2N11S1V01"].order,
-            first_vocabulary_order + 8490,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2N11S15V30"].order,
-            first_vocabulary_order + 8939,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2D12S1V01"].order,
-            first_vocabulary_order + 8940,
-        )
-        self.assertEqual(
-            vocabulary_by_id["T2D12S50V30"].order,
-            first_vocabulary_order + 10439,
-        )
+        self.assertFalse(comprehension_orders & set(vocabulary_orders))
 
 
 class QuestionBankViewTests(TestCase):
@@ -2705,15 +2381,22 @@ class QuestionBankViewTests(TestCase):
             is_active=True,
         ).distinct()
 
-        self.assertEqual(responses.count(), 348)
-        self.assertEqual(vocabulary.count(), 10440)
+        self.assertEqual(responses.count(), 186)
+        self.assertEqual(
+            Prompt.objects.filter(
+                content_key__startswith="tache2:",
+                is_active=True,
+            ).count(),
+            348,
+        )
+        self.assertEqual(vocabulary.count(), 5580)
         self.assertEqual(
             Card.objects.filter(
                 user=self.user,
                 card_type=CardType.SPINE,
                 response_id__in=response_ids,
             ).count(),
-            348,
+            186,
         )
         self.assertEqual(
             Card.objects.filter(
@@ -2721,7 +2404,7 @@ class QuestionBankViewTests(TestCase):
                 card_type=CardType.PHRASE_PRODUCTION,
                 phrase__in=vocabulary,
             ).count(),
-            10440,
+            5580,
         )
 
         directory = self.client.get(
@@ -2736,6 +2419,90 @@ class QuestionBankViewTests(TestCase):
             directory,
             "data-subject-vocabulary-row",
             count=348,
+        )
+        self.assertContains(directory, "348 sujets · 186 decks uniques")
+        self.assertContains(directory, "deck partagé")
+
+    def test_repeated_subjects_share_one_deck_and_list_equivalents(self):
+        shared_url = reverse(
+            "study:task_subject_detail",
+            args=[self.task.part.slug, self.task.slug, "mai", 1, 5],
+        )
+        canonical_url = reverse(
+            "study:task_subject_detail",
+            args=[self.task.part.slug, self.task.slug, "fevrier", 4, 20],
+        )
+
+        shared = self.client.get(shared_url)
+        canonical = self.client.get(canonical_url)
+
+        self.assertEqual(shared.status_code, 200)
+        self.assertEqual(canonical.status_code, 200)
+        self.assertEqual(
+            shared.context["response"].pk,
+            canonical.context["response"].pk,
+        )
+        self.assertEqual(
+            shared.context["response"].content_key,
+            "tache2:fevrier:batch-04:subject-20",
+        )
+        self.assertEqual(
+            shared.context["selected_prompt"].content_key,
+            "tache2:mai:batch-01:subject-05",
+        )
+        self.assertFalse(shared.context["selected_prompt"].is_canonical)
+        self.assertTrue(canonical.context["selected_prompt"].is_canonical)
+        self.assertEqual(
+            [
+                (item["month_slug"], item["number"])
+                for item in shared.context["equivalent_subjects"]
+            ],
+            [("fevrier", 20), ("juillet", 15), ("octobre", 50)],
+        )
+        self.assertEqual(
+            [
+                (item["month_slug"], item["number"])
+                for item in canonical.context["equivalent_subjects"]
+            ],
+            [("mai", 5), ("juillet", 15), ("octobre", 50)],
+        )
+        self.assertContains(shared, "Sujets équivalents")
+        self.assertContains(shared, canonical_url)
+        self.assertEqual(
+            [
+                question["text"]
+                for question in shared.context["subject_questions"]
+            ],
+            [
+                question["text"]
+                for question in canonical.context["subject_questions"]
+            ],
+        )
+
+        completion_url = reverse(
+            "study:subject_completion",
+            args=[
+                self.task.part.slug,
+                self.task.slug,
+                shared.context["response"].pk,
+            ],
+        )
+        completed = self.client.post(
+            completion_url,
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(completed.status_code, 200)
+        self.assertEqual(
+            self.client.get(canonical_url).context[
+                "subject_progress"
+            ].status,
+            "done",
+        )
+        self.assertEqual(
+            self.client.get(shared_url).context["subject_progress"].status,
+            "done",
         )
 
     def test_existing_subject_highlight_marks_imported_response_in_progress(self):

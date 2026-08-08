@@ -95,6 +95,23 @@
         </div>
       </div>
 
+      {% if equivalent_subjects %}
+        <div class="card section-card response-sidebar-card response-sidebar-card--aliases" id="equivalent-subjects">
+          <div class="spine-label">Sujets équivalents</div>
+          <p class="muted">Ces sujets réutilisent exactement les mêmes questions — une seule préparation suffit.</p>
+          <ul class="mini-list">
+            {% for equivalent in equivalent_subjects %}
+              <li>
+                <a href="{{ equivalent.url }}">
+                  <span class="chip">{{ equivalent.month_name }} · Sujet {{ equivalent.number }}</span>
+                  {{ equivalent.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
       {% if subject_vocabulary %}
         <div class="card section-card response-sidebar-card" id="subject-vocabulary">
           <div class="response-batches__head">

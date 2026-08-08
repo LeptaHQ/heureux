@@ -372,6 +372,14 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
             is_active=True,
         ).values_list("content_key", "pk")
     )
+    response_by_prompt_content_key = dict(
+        Prompt.objects.filter(
+            content_key__startswith="tache2:",
+            is_active=True,
+            response_id__in=response_ids,
+            response__is_active=True,
+        ).values_list("content_key", "response_id")
+    )
     highlight_rows = list(
         Annotation.objects.filter(
             user=user,
@@ -453,9 +461,9 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
                 f"batch-{int(tache_two_match['batch']):02d}:"
                 f"subject-{int(tache_two_match['subject']):02d}"
             )
-            if tache_two_content_key in response_by_content_key:
+            if tache_two_content_key in response_by_prompt_content_key:
                 matched_response_ids.add(
-                    response_by_content_key[tache_two_content_key]
+                    response_by_prompt_content_key[tache_two_content_key]
                 )
         phrase_match = PHRASE_SOURCE_RE.match(row["source_key"])
         if phrase_match:

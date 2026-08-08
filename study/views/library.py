@@ -1138,6 +1138,53 @@ def task_subject_batch(request, part_slug, task_slug, month_slug, batch_number):
     )
 
 
+def _tache_two_equivalent_subjects(response, selected_prompt):
+    """List the other subjects that reuse this exact set of questions."""
+    others = [
+        prompt
+        for prompt in response.prompts.filter(is_active=True).select_related(
+            "theme__task__part",
+        )
+        if prompt.pk != selected_prompt.pk
+    ]
+    if not others:
+        return []
+
+    subject_rows = {}
+    for month in content_module.load_tache_two_subject_months():
+        for batch in month.batches:
+            for subject in batch.subjects:
+                subject_rows[
+                    content_module.tache_two_subject_content_key(
+                        month.slug,
+                        batch.number,
+                        subject.number,
+                    )
+                ] = (month, batch, subject)
+
+    equivalents = []
+    for prompt in others:
+        row = subject_rows.get(prompt.content_key)
+        if row is None:
+            continue
+        month, batch, subject = row
+        equivalents.append(
+            {
+                "month_number": month.number,
+                "month_slug": month.slug,
+                "month_name": month.name,
+                "batch_number": batch.number,
+                "number": subject.number,
+                "number_label": subject.number_label,
+                "title": subject.title,
+                "prompt": prompt.text,
+                "url": prompt_detail_url(prompt),
+            }
+        )
+    equivalents.sort(key=lambda item: (item["month_number"], item["number"]))
+    return equivalents
+
+
 def task_subject_detail(
     request,
     part_slug,
@@ -1165,12 +1212,13 @@ def task_subject_detail(
             "theme__task__part",
             "family",
         ),
-        content_key=content_module.tache_two_subject_content_key(
+        prompts__content_key=content_module.tache_two_subject_content_key(
             month.slug,
             batch.number,
             subject.number,
         ),
-        theme__task=task,
+        prompts__is_active=True,
+        prompts__theme__task=task,
         is_active=True,
     )
     selected_prompt = get_object_or_404(
@@ -1180,9 +1228,16 @@ def task_subject_detail(
             "response",
         ),
         response=response,
-        content_key=response.content_key,
+        content_key=content_module.tache_two_subject_content_key(
+            month.slug,
+            batch.number,
+            subject.number,
+        ),
         is_active=True,
-        is_canonical=True,
+    )
+    equivalent_subjects = _tache_two_equivalent_subjects(
+        response,
+        selected_prompt,
     )
     subject_progress = subject_progress_by_response(
         request.user,
@@ -1245,6 +1300,7 @@ def task_subject_detail(
             "subject_position": subject_position,
             "subject_total": subject_total,
             "selected_prompt": selected_prompt,
+            "equivalent_subjects": equivalent_subjects,
             "response": response,
             "card": card,
             "subject_progress": subject_progress,

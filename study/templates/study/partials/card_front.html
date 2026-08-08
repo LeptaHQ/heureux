@@ -8,6 +8,7 @@
   <p class="prompt-text">{{ prompt }}</p>
   <div class="instruction">
     {% if tache_two_subject %}
+      {% if aliases %}<div>{% include "study/partials/ui_icon.html" with name="arrow-left-right" only %} {{ aliases|length }} sujet{{ aliases|length|pluralize }} équivalent{{ aliases|length|pluralize }}</div>{% endif %}
       <div>À voix haute : <b>formulez les questions préparées pour mener l'échange</b>.</div>
     {% else %}
       {% if aliases %}<div>{% include "study/partials/ui_icon.html" with name="arrow-left-right" only %} {{ aliases|length }} formulation{{ aliases|length|pluralize }} équivalente{{ aliases|length|pluralize }}</div>{% endif %}

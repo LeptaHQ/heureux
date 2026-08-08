@@ -112,7 +112,8 @@ class Family(models.Model):
 class Response(models.Model):
     """A single argued answer (the memorizable "spine").
 
-    167 prompts collapse into 130 unique responses; equivalent prompts share
+    167 Tâche 3 prompts collapse into 130 unique responses, and 348 Tâche 2
+    subjects collapse into 186 unique question sets; equivalent prompts share
     one Response and appear as its aliases.
     """
 

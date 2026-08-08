@@ -8,7 +8,7 @@
   </div>
   <div class="task-hero__numbers" aria-label="Résumé des notes">
     <span><b data-hero-count="notes">{{ notes|length }}</b> note{{ notes|length|pluralize }}</span>
-    <span><b data-hero-count="highlights">{{ highlights|length }}</b> surlignage{{ highlights|length|pluralize }}</span>
+    {% if not custom %}<span><b data-hero-count="highlights">{{ highlights|length }}</b> surlignage{{ highlights|length|pluralize }}</span>{% endif %}
     <span><b data-hero-count="study">{{ study_count }}</b> à étudier</span>
   </div>
 </header>
@@ -26,16 +26,18 @@
       <span>Notes</span>
       <span class="notes-tab__count" data-tab-count="notes">{{ notes|length }}</span>
     </a>
-    <a
-      class="notes-tab {% if active_tab == 'highlights' %}is-active{% endif %}"
-      id="highlights-tab"
-      role="tab"
-      aria-selected="{% if active_tab == 'highlights' %}true{% else %}false{% endif %}"
-      aria-controls="highlights-panel"
-      href="{{ tab_url_prefix }}tab=highlights">
-      <span>Surlignages</span>
-      <span class="notes-tab__count" data-tab-count="highlights">{{ highlights|length }}</span>
-    </a>
+    {% if not custom %}
+      <a
+        class="notes-tab {% if active_tab == 'highlights' %}is-active{% endif %}"
+        id="highlights-tab"
+        role="tab"
+        aria-selected="{% if active_tab == 'highlights' %}true{% else %}false{% endif %}"
+        aria-controls="highlights-panel"
+        href="{{ tab_url_prefix }}tab=highlights">
+        <span>Surlignages</span>
+        <span class="notes-tab__count" data-tab-count="highlights">{{ highlights|length }}</span>
+      </a>
+    {% endif %}
   </nav>
 
   {% if active_tab == "notes" %}
@@ -137,7 +139,7 @@
     {% include "study/partials/annotation_table.html" with sections=notes_sections variant="notes" %}
   {% else %}
     <div class="empty annotation-empty">
-      <p>Aucune note ici. Écrivez-en une ou sélectionnez du texte ailleurs dans l'application.</p>
+      <p>{% if custom %}Aucune note personnelle. Utilisez « Nouvelle note » pour en créer une.{% else %}Aucune note ici. Écrivez-en une ou sélectionnez du texte ailleurs dans l'application.{% endif %}</p>
     </div>
   {% endif %}
 </section>

@@ -1609,6 +1609,120 @@
     });
   })();
 
+  /* ---------- Tâche 2 personal question editor ---------- */
+  (function () {
+    var editor = document.querySelector("[data-tache-two-question-editor]");
+    if (!editor) return;
+
+    var list = editor.querySelector("[data-question-list]");
+    var template = editor.querySelector("[data-question-template]");
+    var addButton = editor.querySelector("[data-question-add]");
+    var status = editor.querySelector("[data-question-status]");
+    var form = editor.closest("form");
+    var totalForms = form && form.querySelector("[name$='-TOTAL_FORMS']");
+    var maxQuestions = parseInt(
+      editor.getAttribute("data-max-questions") || "30",
+      10
+    );
+    if (!list || !template || !addButton || !totalForms) return;
+
+    function rows() {
+      return Array.from(list.querySelectorAll("[data-question-form]"));
+    }
+
+    function isDeleted(row) {
+      var field = row.querySelector("[name$='-DELETE']");
+      return Boolean(
+        row.hidden
+        || row.classList.contains("is-deleted")
+        || (field && field.checked)
+      );
+    }
+
+    function activeRows() {
+      return rows().filter(function (row) { return !isDeleted(row); });
+    }
+
+    function refresh() {
+      var active = activeRows();
+      active.forEach(function (row, index) {
+        row.querySelectorAll("[data-question-number]").forEach(
+          function (number) { number.textContent = String(index + 1); }
+        );
+        var removeButton = row.querySelector("[data-question-remove]");
+        if (removeButton) {
+          removeButton.disabled = active.length === 1;
+          removeButton.setAttribute(
+            "aria-label",
+            "Supprimer la question " + String(index + 1)
+          );
+          removeButton.setAttribute(
+            "title",
+            "Supprimer la question " + String(index + 1)
+          );
+          removeButton.setAttribute(
+            "aria-disabled",
+            active.length === 1 ? "true" : "false"
+          );
+        }
+      });
+      addButton.disabled = active.length >= maxQuestions;
+    }
+
+    list.addEventListener("click", function (event) {
+      var target = event.target;
+      var removeButton = target.closest
+        ? target.closest("[data-question-remove]")
+        : null;
+      if (!removeButton || removeButton.disabled) return;
+      var row = removeButton.closest("[data-question-form]");
+      var deleteField = row && row.querySelector("[name$='-DELETE']");
+      if (!row || !deleteField) return;
+      var before = activeRows();
+      var removedIndex = before.indexOf(row);
+      deleteField.checked = true;
+      row.classList.add("is-deleted");
+      row.hidden = true;
+      refresh();
+      var remaining = activeRows();
+      var focusRow = remaining[Math.min(removedIndex, remaining.length - 1)];
+      var focusTarget = focusRow
+        ? focusRow.querySelector("[data-question-remove]")
+        : addButton;
+      if (focusTarget) focusTarget.focus();
+      if (status) {
+        status.textContent =
+          "Question supprimée. "
+          + String(remaining.length)
+          + " question"
+          + (remaining.length > 1 ? "s" : "")
+          + " restante"
+          + (remaining.length > 1 ? "s." : ".");
+      }
+    });
+
+    addButton.addEventListener("click", function () {
+      if (activeRows().length >= maxQuestions) return;
+      var index = parseInt(totalForms.value || "0", 10);
+      list.insertAdjacentHTML(
+        "beforeend",
+        template.innerHTML.replace(/__prefix__/g, String(index))
+      );
+      totalForms.value = String(index + 1);
+      var allRows = rows();
+      var added = allRows[allRows.length - 1];
+      refresh();
+      var question = added && added.querySelector("textarea");
+      if (question) question.focus({ preventScroll: false });
+      if (status) {
+        status.textContent =
+          "Question " + String(activeRows().length) + " ajoutée.";
+      }
+    });
+
+    refresh();
+  })();
+
   /* ---------- Review session ---------- */
   var app = document.getElementById("review-app");
   if (!app) return;
@@ -1709,14 +1823,15 @@
       gradesEl.classList.add("hidden");
       kbdHint.innerHTML =
         "Consultation uniquement · " +
-        "<kbd class=\"kbd-hint__key--wide\">Espace</kbd> · retourner";
+        "<kbd>↑</kbd><kbd>↓</kbd> retourner · " +
+        "<kbd>→</kbd> carte actuelle";
       return;
     }
     revealBtn.classList.toggle("hidden", revealed);
     gradesEl.classList.toggle("hidden", !revealed);
     kbdHint.innerHTML = revealed
-      ? "<kbd>1</kbd> Revoir &nbsp; <kbd>2</kbd> Correct"
-      : "<kbd class=\"kbd-hint__key--wide\">Espace</kbd> · retourner";
+      ? "<kbd>1</kbd> Revoir &nbsp; <kbd>2</kbd>/<kbd>→</kbd> Correct"
+      : "<kbd>↑</kbd><kbd>↓</kbd> retourner";
   }
 
   function resetCardFace() {
@@ -2037,12 +2152,22 @@
   if (currentButton) currentButton.addEventListener("click", returnToCurrent);
 
   document.addEventListener("keydown", function (e) {
+    var shortcutControl = (
+      e.target
+      && e.target.closest
+      && e.target.closest(
+        "[data-review-order], #reveal, .grade, "
+        + "#previous-card, #current-card"
+      )
+    );
+    var directional = e.key.indexOf("Arrow") === 0;
     if (
       e.target &&
       e.target.closest &&
       e.target.closest(
         "input, textarea, select, button, a, [contenteditable='true'], [data-translation-panel], [data-note-panel]"
-      )
+      ) &&
+      !(shortcutControl && directional)
     ) {
       return;
     }
@@ -2052,6 +2177,28 @@
     ) {
       e.preventDefault();
       toggleAnswer();
+      return;
+    }
+    if (
+      (e.key === "ArrowUp" || e.key === "ArrowDown")
+      && !cardZone.classList.contains("hidden")
+    ) {
+      e.preventDefault();
+      toggleAnswer();
+      return;
+    }
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      if (!viewingPrevious) viewPrevious();
+      return;
+    }
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      if (viewingPrevious) {
+        returnToCurrent();
+      } else if (revealed) {
+        grade("correct");
+      }
       return;
     }
     if (viewingPrevious) {

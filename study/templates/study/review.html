@@ -26,7 +26,7 @@
   </div>
   <div class="review__bar"><span id="progress"></span></div>
   <div class="review__history">
-    <button class="linkbtn" id="previous-card" type="button" disabled>{% include "study/partials/ui_icon.html" with name="arrow-left" only %}<span>Carte précédente</span></button>
+    <button class="linkbtn" id="previous-card" type="button" aria-keyshortcuts="ArrowLeft" disabled>{% include "study/partials/ui_icon.html" with name="arrow-left" only %}<span>Carte précédente</span></button>
     <span class="review__history-label hidden" id="previous-card-label">Carte précédente · consultation uniquement</span>
     <button class="linkbtn hidden" id="current-card" type="button"><span id="current-card-label">Retour à la carte actuelle</span>{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</button>
   </div>
@@ -42,6 +42,7 @@
       class="flashcard review-flashcard"
       tabindex="0"
       aria-label="Recto. Appuyez pour retourner la carte."
+      aria-keyshortcuts="ArrowUp ArrowDown Space Enter"
       data-review-card
     >
       <div class="annotation-study__card-meta">
@@ -71,7 +72,7 @@
           </span>
           <span class="grade__key" aria-hidden="true">1</span>
         </button>
-        <button class="grade grade--correct" type="button" data-action="correct" aria-keyshortcuts="2 C">
+        <button class="grade grade--correct" type="button" data-action="correct" aria-keyshortcuts="ArrowRight 2 C">
           <span class="grade__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
               <path d="m5 12 4 4L19 6"></path>

@@ -3,6 +3,8 @@
 
 {% block content %}
 {% include "study/partials/task_nav.html" with compact=True %}
+{% if personal_saved %}<div class="notice">Votre version personnelle a été enregistrée et sera utilisée pendant les révisions.</div>{% endif %}
+{% if personal_reset %}<div class="notice">Les questions d'origine sont de nouveau utilisées.</div>{% endif %}
 
 <article class="tache-two-subject-detail" style="--subject-accent: {{ task.color }};">
   <header class="tache-two-subject-detail__hero">
@@ -11,7 +13,10 @@
         {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
         {{ subject_theme_name }}
       </a>
-      <span>Sujet {{ subject_position }} sur {{ subject_total }} · {{ subject.question_count }} questions préparées</span>
+      <span>
+        Sujet {{ subject_position }} sur {{ subject_total }} · {{ subject_questions|length }} questions préparées
+        {% if response_content.is_personal %} · <span class="chip">Version personnelle</span>{% endif %}
+      </span>
     </div>
     <h1>{{ subject.title }}</h1>
   </header>
@@ -41,13 +46,21 @@
             <p class="eyebrow">Préparation orale</p>
             <h2 id="subject-questions-title">Questions à poser</h2>
           </div>
-          <span>{{ subject.question_count }} questions</span>
+          <span>{{ subject_questions|length }} questions</span>
         </header>
         <ol class="tache-two-question-list">
           {% for question in subject_questions %}
             <li class="tache-two-question" data-tache-two-question>
               <span class="tache-two-question__number">{{ question.number|stringformat:"02d" }}</span>
-              <p>{{ question.text }}</p>
+              <div class="tache-two-question__content">
+                <p>{{ question.text|linebreaksbr }}</p>
+                {% if question.response %}
+                  <div class="tache-two-question__prepared-response">
+                    <span>Réponse préparée</span>
+                    <p>{{ question.response|linebreaksbr }}</p>
+                  </div>
+                {% endif %}
+              </div>
             </li>
           {% endfor %}
         </ol>
@@ -71,6 +84,9 @@
           <p class="muted">Aucune pratique de ce sujet.</p>
         {% endif %}
         <div class="response-sidebar-actions">
+          <a class="btn btn--block" href="{% url 'study:edit_response' part.slug task.slug selected_prompt.pk %}">
+            {% if response_content.is_personal %}Modifier mes questions{% else %}Personnaliser les questions{% endif %}
+          </a>
           <a class="btn btn--primary btn--block" href="{{ response_review_url }}">Pratiquer ce sujet</a>
           <a class="btn btn--block" href="{{ theme_review_url }}">Pratiquer {{ subject_theme_name }}</a>
           {% if vocabulary_review_url %}

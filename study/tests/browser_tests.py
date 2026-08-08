@@ -1323,12 +1323,96 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.page.get_by_role(
             "link",
+            name="Personnaliser les questions",
+            exact=True,
+        ).click()
+        self.page.get_by_role(
+            "heading",
+            name="Modifier mes questions",
+            exact=True,
+        ).wait_for()
+        question_rows = self.page.locator(
+            "[data-question-list] [data-question-form]"
+        )
+        self.assertEqual(question_rows.count(), 14)
+        self.page.set_viewport_size({"width": 320, "height": 700})
+        self.assert_no_horizontal_overflow()
+        control_sizes = self.page.locator(
+            "[data-tache-two-question-editor]"
+        ).evaluate(
+            """
+            editor => {
+              const add = editor.querySelector('[data-question-add]')
+                .getBoundingClientRect();
+              const remove = editor.querySelector('[data-question-remove]')
+                .getBoundingClientRect();
+              return {
+                addHeight: add.height,
+                removeWidth: remove.width,
+                removeHeight: remove.height,
+              };
+            }
+            """
+        )
+        self.assertGreaterEqual(control_sizes["addHeight"], 48)
+        self.assertGreaterEqual(control_sizes["removeWidth"], 48)
+        self.assertGreaterEqual(control_sizes["removeHeight"], 48)
+        question_rows.locator("textarea[name$='-question']").first.fill(
+            "Quel est votre prix pour la table ?"
+        )
+        self.page.get_by_role(
+            "button",
+            name="Ajouter une question",
+            exact=True,
+        ).click()
+        self.assertEqual(question_rows.count(), 15)
+        question_rows.locator("textarea[name$='-question']").last.fill(
+            "Quand puis-je venir chercher les meubles ?"
+        )
+        question_rows.locator("textarea[name$='-response']").last.fill(
+            "Samedi après-midi serait idéal."
+        )
+        self.page.get_by_role(
+            "button",
+            name="Enregistrer mes questions",
+            exact=True,
+        ).click()
+        self.page.wait_for_url(
+            self.live_server_url + subject_path + "?saved=1"
+        )
+        self.assertEqual(
+            self.page.locator("[data-tache-two-question]").count(),
+            15,
+        )
+        self.page.get_by_text(
+            "Quand puis-je venir chercher les meubles ?",
+            exact=True,
+        ).wait_for()
+        self.page.locator(
+            ".tache-two-question__prepared-response",
+            has_text="Samedi après-midi serait idéal.",
+        ).wait_for()
+        self.page.get_by_text("Version personnelle", exact=True).wait_for()
+        self.assert_no_horizontal_overflow()
+        self.page.set_viewport_size({"width": 1280, "height": 850})
+
+        self.page.get_by_role(
+            "link",
             name="Pratiquer ce sujet",
             exact=True,
         ).click()
         self.page.get_by_text(
             "Questions d'interaction",
             exact=True,
+        ).wait_for()
+        self.page.locator("[data-review-card]").click()
+        self.page.get_by_text(
+            "Quand puis-je venir chercher les meubles ?",
+            exact=True,
+        ).wait_for()
+        self.page.locator(
+            ".flashcard-question-list__response",
+            has_text="Samedi après-midi serait idéal.",
         ).wait_for()
         self.assertNotIn("3 arguments", self.page.locator("main").inner_text())
 
@@ -3669,6 +3753,133 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(face_label.inner_text(), "Recto")
         self.assertFalse(back.is_visible())
         self.assert_no_horizontal_overflow()
+
+    def test_personal_notes_are_split_and_flashcards_use_arrow_keys(self):
+        older = Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+            title="Objectif ancien",
+            body="Relire mes expressions.",
+        )
+        newer = Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+            title="Objectif récent",
+            body="Pratiquer dix minutes.",
+        )
+        general = Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+            quote="Expression générale",
+            body="Note rattachée à une source.",
+            source_path="/vocabulaire/",
+        )
+
+        self.page.goto(self.live_server_url + reverse("study:general_notes"))
+        self.page.get_by_text(general.body, exact=True).first.wait_for()
+        self.assertEqual(
+            self.page.get_by_text(newer.body, exact=True).count(),
+            0,
+        )
+        self.page.locator(".notes-mobile-scope summary").click()
+        self.page.get_by_role(
+            "link",
+            name="Personnelles 2",
+            exact=True,
+        ).click()
+        self.page.wait_for_url(
+            self.live_server_url + reverse("study:custom_notes")
+        )
+        self.page.get_by_text(newer.body, exact=True).first.wait_for()
+        self.assertEqual(
+            self.page.get_by_text(general.body, exact=True).count(),
+            0,
+        )
+        self.assertEqual(self.page.locator("#highlights-tab").count(), 0)
+
+        self.page.get_by_role("link", name="Flashcards", exact=True).click()
+        visible_card = self.page.locator("[data-study-card]:not(.hidden)")
+        face_label = visible_card.locator("[data-study-face-label]")
+        self.assertEqual(visible_card.get_attribute("data-study-id"), str(newer.pk))
+        self.assertIn(
+            "ArrowUp",
+            visible_card.get_attribute("aria-keyshortcuts"),
+        )
+
+        self.page.keyboard.press("ArrowDown")
+        self.assertEqual(face_label.inner_text(), "Verso")
+        self.page.keyboard.press("ArrowUp")
+        self.assertEqual(face_label.inner_text(), "Recto")
+        self.page.keyboard.press("ArrowRight")
+        self.assertEqual(
+            visible_card.get_attribute("data-study-id"),
+            str(older.pk),
+        )
+        self.page.keyboard.press("ArrowLeft")
+        self.assertEqual(
+            visible_card.get_attribute("data-study-id"),
+            str(newer.pk),
+        )
+        self.page.locator('[data-study-order="front"]').click()
+        self.page.keyboard.press("ArrowRight")
+        self.assertEqual(
+            visible_card.get_attribute("data-study-id"),
+            str(older.pk),
+        )
+
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        first_prompt = prompt.text_content()
+        shared_card = self.page.locator("[data-review-card]")
+        shared_face = self.page.locator("[data-review-face-label]")
+        self.assertIn(
+            "ArrowDown",
+            shared_card.get_attribute("aria-keyshortcuts"),
+        )
+
+        self.page.locator('[data-review-order="front"]').click()
+        self.page.keyboard.press("ArrowDown")
+        self.assertEqual(shared_face.inner_text(), "Verso")
+        self.page.keyboard.press("ArrowUp")
+        self.assertEqual(shared_face.inner_text(), "Recto")
+        self.page.keyboard.press("ArrowDown")
+        self.page.keyboard.press("ArrowRight")
+        self.page.wait_for_function(
+            """
+            previous => {
+              const prompt = document.querySelector("#card-front .prompt-text");
+              return prompt && prompt.textContent !== previous;
+            }
+            """,
+            arg=first_prompt,
+        )
+        current_prompt = prompt.text_content()
+
+        self.page.keyboard.press("ArrowLeft")
+        self.page.wait_for_function(
+            """
+            expected => {
+              const prompt = document.querySelector("#card-front .prompt-text");
+              return prompt && prompt.textContent === expected;
+            }
+            """,
+            arg=first_prompt,
+        )
+        self.page.keyboard.press("ArrowRight")
+        self.page.wait_for_function(
+            """
+            expected => {
+              const prompt = document.querySelector("#card-front .prompt-text");
+              return prompt && prompt.textContent === expected;
+            }
+            """,
+            arg=current_prompt,
+        )
 
     def test_note_and_highlight_actions_read_the_visible_item(self):
         self.context.add_init_script(

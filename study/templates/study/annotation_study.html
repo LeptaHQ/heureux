@@ -48,6 +48,7 @@
         class="flashcard annotation-study__card {% if not forloop.first %}hidden{% endif %}"
         tabindex="0"
         aria-label="Recto. Appuyez pour retourner la carte."
+        aria-keyshortcuts="ArrowUp ArrowDown Space"
         data-study-card
         data-study-id="{{ item.id }}"
         data-study-toggle-url="{% url 'study:annotation_study_toggle' item.id %}"
@@ -70,7 +71,7 @@
           {% else %}
             <h2>Retrouvez l'idée que vous aviez notée.</h2>
           {% endif %}
-          <p class="muted">{% if item.source_title %}{{ item.source_title }}{% elif item.task %}{{ item.task.part.short_name }} · {{ item.task.name }}{% else %}Notes générales{% endif %}</p>
+          <p class="muted">{% if item.source_title %}{{ item.source_title }}{% else %}{{ item.scope_label }}{% endif %}</p>
         </div>
         <div class="annotation-study__back hidden" data-study-back>
           {% if item.kind == "highlight" %}
@@ -90,7 +91,7 @@
     {% endfor %}
   </div>
   <div class="annotation-study__controls">
-    <button class="btn annotation-study__control--previous" type="button" data-study-previous disabled>
+    <button class="btn annotation-study__control--previous" type="button" data-study-previous aria-keyshortcuts="ArrowLeft" disabled>
       {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
       <span class="annotation-study__button-label--full">Précédente</span>
       <span class="annotation-study__button-label--short">Préc.</span>
@@ -106,6 +107,9 @@
       <span class="annotation-study__button-label--full">Je le connais</span>
       <span class="annotation-study__button-label--short">Je connais</span>
     </button>
+  </div>
+  <div class="kbd-hint annotation-study__keyboard-hint">
+    <kbd>←</kbd> précédente · <kbd>↑</kbd><kbd>↓</kbd> retourner · <kbd>→</kbd> suivante
   </div>
   <div class="card done-state annotation-study__done hidden" data-study-done>
     <div class="done-state__icon done-state__icon--success">{% include "study/partials/ui_icon.html" with name="check" only %}</div>

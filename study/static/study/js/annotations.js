@@ -1040,14 +1040,18 @@
       }
     }
 
-    function advance() {
-      if (!revealed) return;
+    function goNext() {
       if (index < cards.length - 1) {
         index += 1;
         render();
         return;
       }
       showDone();
+    }
+
+    function advance() {
+      if (!revealed) return;
+      goNext();
     }
 
     previous.addEventListener("click", function () {
@@ -1161,8 +1165,17 @@
       render();
     });
     document.addEventListener("keydown", function (event) {
+      var target = event.target;
+      var interactive = target.closest(
+        "input, textarea, select, button, a"
+      );
+      var deckControl = target.closest(
+        "[data-study-previous], [data-study-reveal], "
+        + "[data-study-keep], [data-study-learned], [data-study-order]"
+      );
+      var directional = event.key.indexOf("Arrow") === 0;
       if (
-        event.target.closest("input, textarea, select, button, a") ||
+        (interactive && !(deckControl && directional)) ||
         done.classList.contains("hidden") === false
       ) {
         return;
@@ -1170,9 +1183,17 @@
       if (event.key === " ") {
         event.preventDefault();
         toggleAnswer();
-      } else if (event.key === "ArrowRight" && revealed) {
-        advance();
+      } else if (
+        event.key === "ArrowUp"
+        || event.key === "ArrowDown"
+      ) {
+        event.preventDefault();
+        toggleAnswer();
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        goNext();
       } else if (event.key === "ArrowLeft" && index > 0) {
+        event.preventDefault();
         index -= 1;
         render();
       }

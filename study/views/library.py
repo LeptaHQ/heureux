@@ -17,6 +17,7 @@ from .. import queue as queue_module
 from ..card_presentation import scope_label
 from ..forms import (
     PersonalResponseForm,
+    TacheTwoQuestionFormSet,
 )
 from ..models import (
     Annotation,
@@ -1198,12 +1199,17 @@ def task_subject_detail(
         task_scope,
         request.user,
     )
+    response_content = effective_response(response, request.user)
     questions = [
         {
             "number": index,
-            "text": question.text,
+            "text": argument.idea,
+            "response": argument.developpement,
         }
-        for index, question in enumerate(subject.questions, start=1)
+        for index, argument in enumerate(
+            response_content.arguments,
+            start=1,
+        )
     ]
     (
         subject_theme,
@@ -1227,6 +1233,7 @@ def task_subject_detail(
             "subject_batch": batch,
             "subject": subject,
             "subject_questions": questions,
+            "response_content": response_content,
             "subject_theme_name": (
                 subject_theme.name if subject_theme else ""
             ),
@@ -1255,6 +1262,8 @@ def task_subject_detail(
                     "theme": response.theme.slug,
                 }
             ),
+            "personal_saved": request.GET.get("saved") == "1",
+            "personal_reset": request.GET.get("reset") == "1",
             **vocabulary_context,
         },
     )
@@ -1751,6 +1760,13 @@ def response_detail(request, part_slug, task_slug, prompt_id):
 
 def edit_response(request, part_slug, task_slug, prompt_id):
     task = _route_task(part_slug, task_slug)
+    task_key = (task.part.slug, task.slug)
+    is_tache_two = task_key == content_module.QUESTION_BANK_TASK
+    if not (
+        is_tache_two
+        or task_key == ("eo", "tache-3")
+    ):
+        raise Http404
     selected_prompt = get_object_or_404(
         Prompt.objects.filter(
             pk=prompt_id,
@@ -1758,8 +1774,6 @@ def edit_response(request, part_slug, task_slug, prompt_id):
             response__is_active=True,
             theme__is_active=True,
             theme__task=task,
-            theme__task__slug="tache-3",
-            theme__task__part__slug="eo",
         )
         .select_related(
             "response__theme__task__part",
@@ -1773,10 +1787,74 @@ def edit_response(request, part_slug, task_slug, prompt_id):
         user=request.user,
         response=response,
     ).first()
+    detail_url = prompt_detail_url(selected_prompt)
     if request.method == "POST" and request.POST.get("action") == "reset":
         if personal is not None:
             personal.delete()
-        return redirect(f"{prompt_detail_url(selected_prompt)}?reset=1")
+        return redirect(f"{detail_url}?reset=1")
+
+    if is_tache_two:
+        response_content = effective_response(response, request.user)
+        initial_questions = [
+            {
+                "question": argument.idea,
+                "response": argument.developpement,
+            }
+            for argument in response_content.arguments
+        ]
+        if not initial_questions:
+            initial_questions = [{"question": "", "response": ""}]
+        question_formset = TacheTwoQuestionFormSet(
+            request.POST or None,
+            initial=initial_questions,
+            prefix="questions",
+        )
+        if request.method == "POST" and question_formset.is_valid():
+            arguments = []
+            for question_form in question_formset:
+                if (
+                    not question_form.cleaned_data
+                    or question_form.cleaned_data.get("DELETE")
+                ):
+                    continue
+                arguments.append(
+                    {
+                        "order": len(arguments) + 1,
+                        "idea": question_form.cleaned_data["question"],
+                        "developpement": question_form.cleaned_data[
+                            "response"
+                        ],
+                        "exemple": "",
+                        "consequence": "",
+                    }
+                )
+            PersonalResponse.objects.update_or_create(
+                user=request.user,
+                response=response,
+                defaults={
+                    "reformulation": "",
+                    "position": "",
+                    "position_claire": "",
+                    "arguments": arguments,
+                    "nuance": "",
+                    "conclusion": "",
+                },
+            )
+            return redirect(f"{detail_url}?saved=1")
+        return render(
+            request,
+            "study/response_edit.html",
+            {
+                "response": response,
+                "selected_prompt": selected_prompt,
+                "task": task,
+                "part": task.part,
+                "is_tache_two": True,
+                "question_formset": question_formset,
+                "has_personal_response": personal is not None,
+                "detail_url": detail_url,
+            },
+        )
 
     form = PersonalResponseForm(
         response,
@@ -1789,7 +1867,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
             response=response,
             defaults=form.personal_defaults(),
         )
-        return redirect(f"{prompt_detail_url(selected_prompt)}?saved=1")
+        return redirect(f"{detail_url}?saved=1")
 
     argument_fields = []
     for order in form.argument_orders:
@@ -1813,6 +1891,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
             "form": form,
             "argument_fields": argument_fields,
             "has_personal_response": personal is not None,
+            "detail_url": detail_url,
         },
     )
 

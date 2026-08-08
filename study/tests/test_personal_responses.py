@@ -3,7 +3,8 @@ from __future__ import annotations
 from django.test import TestCase
 from django.urls import reverse
 
-from study.models import Card, CardType, PersonalResponse
+from study import content_loader as content
+from study.models import Argument, Card, CardType, PersonalResponse
 from study.routing import response_detail_url
 
 from . import factories
@@ -193,3 +194,198 @@ class PersonalResponseTests(TestCase):
         )
 
         self.assertEqual(response.status_code, 404)
+
+
+class TacheTwoPersonalResponseTests(TestCase):
+    def setUp(self):
+        self.owner = factories.make_user("tache-two-owner")
+        self.other = factories.make_user("tache-two-other")
+        self.part = factories.make_part("eo")
+        self.task = factories.make_task(self.part, "tache-2")
+        self.theme = factories.make_theme(
+            "tache-two-personal",
+            task=self.task,
+        )
+        month = content.load_tache_two_subject_months()[0]
+        batch = month.batches[0]
+        self.subject = batch.subjects[0]
+        self.detail_url = reverse(
+            "study:task_subject_detail",
+            args=[
+                self.part.slug,
+                self.task.slug,
+                month.slug,
+                batch.number,
+                self.subject.number,
+            ],
+        )
+        content_key = content.tache_two_subject_content_key(
+            month.slug,
+            batch.number,
+            self.subject.number,
+        )
+        self.response = factories.make_response(theme=self.theme)
+        self.response.content_key = content_key
+        self.response.prompt = self.subject.prompt
+        self.response.save(update_fields=["content_key", "prompt"])
+        self.prompt = self.response.prompts.get()
+        self.prompt.content_key = content_key
+        self.prompt.text = self.subject.prompt
+        self.prompt.save(update_fields=["content_key", "text"])
+        self.response.arguments.all().delete()
+        self.original_questions = [
+            question.text for question in self.subject.questions[:2]
+        ]
+        Argument.objects.bulk_create(
+            [
+                Argument(
+                    response=self.response,
+                    order=index,
+                    idea=question,
+                )
+                for index, question in enumerate(
+                    self.original_questions,
+                    start=1,
+                )
+            ]
+        )
+        Card.objects.create(
+            user=self.owner,
+            card_type=CardType.SPINE,
+            response=self.response,
+        )
+        Card.objects.create(
+            user=self.other,
+            card_type=CardType.SPINE,
+            response=self.response,
+        )
+        self.edit_url = reverse(
+            "study:edit_response",
+            args=[self.part.slug, self.task.slug, self.prompt.pk],
+        )
+        self.client.force_login(self.owner)
+
+    def _payload(self):
+        return {
+            "questions-TOTAL_FORMS": "3",
+            "questions-INITIAL_FORMS": "2",
+            "questions-MIN_NUM_FORMS": "1",
+            "questions-MAX_NUM_FORMS": "30",
+            "questions-0-question": "Quel est votre budget personnel ?",
+            "questions-0-response": "Je peux consacrer environ 500 euros.",
+            "questions-1-question": self.original_questions[1],
+            "questions-1-response": "",
+            "questions-1-DELETE": "on",
+            "questions-2-question": "Quand pouvons-nous nous rencontrer ?",
+            "questions-2-response": "Samedi matin me conviendrait.",
+            "action": "save",
+        }
+
+    def test_editor_supports_dynamic_question_and_response_rows(self):
+        editor = self.client.get(self.edit_url)
+
+        self.assertEqual(editor.status_code, 200)
+        self.assertTrue(editor.context["is_tache_two"])
+        self.assertEqual(
+            editor.context["question_formset"].total_form_count(),
+            2,
+        )
+        self.assertContains(editor, "Ajouter une question")
+        self.assertContains(editor, 'name="questions-0-question"')
+        self.assertContains(editor, 'data-question-template')
+        self.assertContains(editor, "Je suis votre ami(e).")
+        self.assertNotContains(editor, 'name="prompt"')
+
+    def test_personal_questions_are_private_and_used_on_cards(self):
+        result = self.client.post(self.edit_url, self._payload())
+
+        self.assertRedirects(
+            result,
+            self.detail_url + "?saved=1",
+            fetch_redirect_response=False,
+        )
+        personal = PersonalResponse.objects.get(
+            user=self.owner,
+            response=self.response,
+        )
+        self.assertEqual(
+            [argument["order"] for argument in personal.arguments],
+            [1, 2],
+        )
+        self.assertEqual(
+            personal.arguments[0]["idea"],
+            "Quel est votre budget personnel ?",
+        )
+        self.assertEqual(
+            personal.arguments[1]["idea"],
+            "Quand pouvons-nous nous rencontrer ?",
+        )
+
+        owner_detail = self.client.get(self.detail_url)
+        owner_review = self.client.get(
+            reverse("study:review_next")
+            + f"?kind=spine&response={self.response.pk}"
+        ).json()
+        self.assertContains(owner_detail, "Version personnelle")
+        self.assertContains(owner_detail, "Quel est votre budget personnel ?")
+        self.assertContains(owner_detail, "Samedi matin me conviendrait.")
+        self.assertEqual(
+            [
+                question["text"]
+                for question in owner_detail.context["subject_questions"]
+            ],
+            [
+                "Quel est votre budget personnel ?",
+                "Quand pouvons-nous nous rencontrer ?",
+            ],
+        )
+        self.assertIn("Quand pouvons-nous nous rencontrer ?", owner_review["back_html"])
+        self.assertIn("Samedi matin me conviendrait.", owner_review["back_html"])
+
+        self.response.refresh_from_db()
+        self.assertEqual(
+            list(
+                self.response.arguments.order_by("order").values_list(
+                    "idea",
+                    flat=True,
+                )
+            ),
+            self.original_questions,
+        )
+
+        self.client.force_login(self.other)
+        other_detail = self.client.get(self.detail_url)
+        self.assertEqual(
+            [
+                question["text"]
+                for question in other_detail.context["subject_questions"]
+            ],
+            self.original_questions,
+        )
+        self.assertNotContains(other_detail, "Quel est votre budget personnel ?")
+
+    def test_reset_restores_the_original_questions(self):
+        self.client.post(self.edit_url, self._payload())
+
+        result = self.client.post(self.edit_url, {"action": "reset"})
+
+        self.assertRedirects(
+            result,
+            self.detail_url + "?reset=1",
+            fetch_redirect_response=False,
+        )
+        self.assertFalse(
+            PersonalResponse.objects.filter(
+                user=self.owner,
+                response=self.response,
+            ).exists()
+        )
+        detail = self.client.get(self.detail_url)
+        self.assertEqual(
+            [
+                question["text"]
+                for question in detail.context["subject_questions"]
+            ],
+            self.original_questions,
+        )
+        self.assertNotContains(detail, "Quel est votre budget personnel ?")

@@ -101,6 +101,7 @@ from .notes import (
     annotation_update,
     annotations_for_source,
     comprehension_notes,
+    custom_notes,
     general_notes,
     notes_overview,
     task_notes,

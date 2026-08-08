@@ -17,7 +17,7 @@
     <div class="annotation-table__context-meta">
       {% if annotation.origin_label %}<span class="annotation-card__origin">{{ annotation.origin_label }}</span>{% endif %}
       <span class="annotation-table__scope">
-        {% if annotation.task %}{{ annotation.task.part.short_name }} · {{ annotation.task.name }}{% else %}Notes générales{% endif %}
+        {{ annotation.scope_label }}
       </span>
     </div>
     {% if annotation.source_path %}

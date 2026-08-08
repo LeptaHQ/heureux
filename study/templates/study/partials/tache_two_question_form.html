@@ -1,0 +1,21 @@
+<fieldset class="response-edit-question{% if question_form.DELETE.value %} is-deleted{% endif %}" data-question-form{% if question_form.DELETE.value %} hidden{% endif %}>
+  <legend class="sr-only">Question <span data-question-number>{{ question_number }}</span></legend>
+  <div class="response-edit-question__head">
+    <strong aria-hidden="true">Question <span data-question-number>{{ question_number }}</span></strong>
+    <button class="btn btn--small response-edit-question__remove" type="button" aria-label="Supprimer cette question" title="Supprimer cette question" data-question-remove>
+      {% include "study/partials/ui_icon.html" with name="x" only %}
+      <span>Supprimer</span>
+    </button>
+  </div>
+  <div class="response-edit-field">
+    {{ question_form.question.label_tag }}
+    {{ question_form.question }}
+    {% for error in question_form.question.errors %}<div class="auth-field__error">{{ error }}</div>{% endfor %}
+  </div>
+  <div class="response-edit-field">
+    {{ question_form.response.label_tag }}
+    {{ question_form.response }}
+    {% for error in question_form.response.errors %}<div class="auth-field__error">{{ error }}</div>{% endfor %}
+  </div>
+  <span class="response-edit-question__delete-input" aria-hidden="true">{{ question_form.DELETE }}</span>
+</fieldset>

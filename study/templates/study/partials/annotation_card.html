@@ -32,7 +32,7 @@ Parameters:
     {% if annotation.body %}<div class="annotation-card__body annotation-markdown"{% if not annotation.quote %} data-annotation-readable{% endif %}>{{ annotation.body|markdown }}</div>{% endif %}
   </div>
   {% if variant == "search" %}
-    <p class="annotation-card__scope">{% if annotation.task %}{{ annotation.task.part.short_name }} · {{ annotation.task.name }}{% else %}Notes générales{% endif %}</p>
+    <p class="annotation-card__scope">{{ annotation.scope_label }}</p>
   {% elif annotation.source_path %}
     <a class="annotation-card__source" href="{{ annotation.source_path }}">{% include "study/partials/ui_icon.html" with name="external-link" only %} {{ annotation.source_title|default:"Voir la source" }}</a>
   {% endif %}

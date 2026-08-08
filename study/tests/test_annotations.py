@@ -28,6 +28,7 @@ class AnnotationTests(TestCase):
             args=[self.part.slug, self.task.slug],
         )
         self.general_notes_url = reverse("study:general_notes")
+        self.custom_notes_url = reverse("study:custom_notes")
         self.selection = {
             "quote": "Il faut nuancer cette affirmation.",
             "start_offset": "24",
@@ -283,7 +284,7 @@ class AnnotationTests(TestCase):
         general_note = Annotation.objects.get(body="Objectif de la semaine.")
         self.assertRedirects(
             response,
-            general_url + f"?tab=notes#note-{general_note.id}",
+            self.custom_notes_url + f"?tab=notes#note-{general_note.id}",
         )
         self.assertIsNone(general_note.task)
 
@@ -1433,6 +1434,79 @@ class AnnotationTests(TestCase):
         aggregate = self.client.get(reverse("study:notes_overview"))
         self.assertCountEqual(
             aggregate.context["notes"], [general, ecrite, orale]
+        )
+
+    def test_personal_notes_are_separated_from_generales_and_flashcards(self):
+        personal = Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+            title="Objectifs",
+            body="Travailler le vocabulaire chaque matin.",
+            study_later=True,
+        )
+        general = Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+            quote="Expression relevée",
+            body="Note liée à une source générale.",
+            source_path="/vocabulaire/",
+        )
+
+        personal_page = self.client.get(self.custom_notes_url)
+        general_page = self.client.get(self.general_notes_url)
+
+        self.assertEqual(personal_page.context["notes"], [personal])
+        self.assertEqual(personal_page.context["highlights"], [])
+        self.assertEqual(personal_page.context["custom_count"], 1)
+        self.assertEqual(personal_page.context["general_count"], 1)
+        self.assertEqual(personal_page.context["scope_title"], "Notes personnelles")
+        self.assertTrue(personal_page.context["custom"])
+        self.assertContains(personal_page, "Personnelles")
+        self.assertNotContains(personal_page, 'id="highlights-tab"')
+        self.assertEqual(general_page.context["notes"], [general])
+        self.assertNotContains(general_page, personal.body)
+
+        study_url = reverse("study:custom_annotation_study")
+        self.assertEqual(
+            personal_page.context["flashcard_url"],
+            study_url + "?mode=all&tab=notes",
+        )
+        deck = self.client.get(
+            study_url,
+            {"mode": "all", "tab": "highlights"},
+        )
+        self.assertEqual(deck.context["items"], [personal])
+        self.assertEqual(deck.context["scope_title"], "Notes personnelles")
+        self.assertContains(deck, personal.body)
+        self.assertNotContains(deck, general.body)
+
+        search = self.client.get(
+            reverse("study:annotation_search"),
+            {"q": "Travailler"},
+        )
+        self.assertEqual(search.context["results"][0].scope_label, "Notes personnelles")
+        self.assertContains(search, "Notes personnelles")
+
+    def test_personal_note_creation_preserves_personal_filters(self):
+        return_url = (
+            self.custom_notes_url
+            + "?q=objectif&status=todo&tab=notes"
+        )
+
+        response = self.client.post(
+            self.custom_notes_url,
+            {
+                "title": "Objectif",
+                "body": "Réviser chaque jour.",
+                "next": return_url,
+            },
+        )
+
+        note = Annotation.objects.get(title="Objectif")
+        self.assertRedirects(
+            response,
+            return_url + f"#note-{note.pk}",
+            fetch_redirect_response=False,
         )
 
     def test_comprehension_notes_reject_unknown_mode(self):

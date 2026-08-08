@@ -363,6 +363,43 @@ class PersonalResponseForm(forms.Form):
         }
 
 
+class TacheTwoQuestionForm(forms.Form):
+    question = forms.CharField(
+        label="Question",
+        max_length=5000,
+        widget=forms.Textarea(
+            attrs={
+                "rows": 3,
+                "placeholder": "Écrivez la question à poser…",
+            }
+        ),
+    )
+    response = forms.CharField(
+        label="Réponse préparée ou notes (facultatif)",
+        max_length=10000,
+        required=False,
+        widget=forms.Textarea(
+            attrs={
+                "rows": 3,
+                "placeholder": (
+                    "Ajoutez une réponse possible, du vocabulaire ou des notes…"
+                ),
+            }
+        ),
+    )
+
+
+TacheTwoQuestionFormSet = forms.formset_factory(
+    TacheTwoQuestionForm,
+    extra=0,
+    can_delete=True,
+    min_num=1,
+    max_num=30,
+    validate_min=True,
+    validate_max=True,
+)
+
+
 class NoteForm(forms.ModelForm):
     class Meta:
         model = Annotation

@@ -5,7 +5,15 @@
         <div class="spine-label">Questions à poser</div>
         <ol class="flashcard-question-list">
           {% for arg in arguments %}
-            <li>{{ arg.idea }}</li>
+            <li>
+              <span>{{ arg.idea|linebreaksbr }}</span>
+              {% if arg.developpement %}
+                <span class="flashcard-question-list__response">
+                  <strong>Réponse préparée</strong>
+                  {{ arg.developpement|linebreaksbr }}
+                </span>
+              {% endif %}
+            </li>
           {% endfor %}
         </ol>
       </div>

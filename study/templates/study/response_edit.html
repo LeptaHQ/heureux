@@ -1,84 +1,125 @@
 {% extends "base.html" %}
-{% block title %}Modifier ma réponse · Heureux{% endblock %}
+{% block title %}{% if is_tache_two %}Modifier mes questions{% else %}Modifier ma réponse{% endif %} · Heureux{% endblock %}
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}
 <div class="page-head response-edit__head">
   <div>
-    <p class="eyebrow">Version personnelle · Expression orale · Tâche 3</p>
-    <h1>Modifier ma réponse</h1>
-    <p>Seule votre réponse change. Le sujet officiel reste toujours intact.</p>
+    <p class="eyebrow">Version personnelle · Expression orale · {% if is_tache_two %}Tâche 2{% else %}Tâche 3{% endif %}</p>
+    <h1>{% if is_tache_two %}Modifier mes questions{% else %}Modifier ma réponse{% endif %}</h1>
+    <p>
+      {% if is_tache_two %}
+        Modifiez, supprimez ou ajoutez vos propres questions. Vous pouvez aussi préparer une réponse ou des notes pour chacune.
+      {% else %}
+        Seule votre réponse change. Le sujet officiel reste toujours intact.
+      {% endif %}
+    </p>
   </div>
-  <a class="btn" href="{% url 'study:response_detail' part.slug task.slug selected_prompt.pk %}">Retour à la fiche</a>
+  <a class="btn" href="{{ detail_url }}">Retour à la fiche</a>
 </div>
 
 <section class="card card--pad response-edit__prompt" aria-labelledby="immutable-prompt">
-  <div class="spine-label" id="immutable-prompt">Sujet non modifiable</div>
+  <div class="spine-label" id="immutable-prompt">{% if is_tache_two %}Consigne officielle{% else %}Sujet non modifiable{% endif %}</div>
   <p class="detail-prompt">{{ response.prompt }}</p>
 </section>
 
 <form method="post" class="response-edit" novalidate>
   {% csrf_token %}
-  {% if form.non_field_errors %}<div class="auth-error">{{ form.non_field_errors|striptags }}</div>{% endif %}
+  {% if is_tache_two %}
+    {{ question_formset.management_form }}
+    {% if question_formset.non_form_errors %}<div class="auth-error">{{ question_formset.non_form_errors|striptags }}</div>{% endif %}
 
-  <section class="card card--pad response-edit__section">
-    <h2 class="mt-0">Introduction et position</h2>
-    {% for field in form %}
-      {% if field.name == "reformulation" or field.name == "position" or field.name == "position_claire" %}
-        <div class="response-edit-field">
-          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-          {{ field }}
-          {% for error in field.errors %}<small class="auth-field__error">{{ error }}</small>{% endfor %}
+    <section
+      class="card card--pad response-edit__section response-edit__section--questions"
+      data-tache-two-question-editor
+      data-max-questions="{{ question_formset.max_num }}"
+    >
+      <div class="response-edit__section-head">
+        <div>
+          <h2 class="mt-0">Questions et réponses préparées</h2>
+          <p class="muted">Au moins une question est requise. Les nouvelles questions sont ajoutées à la fin.</p>
         </div>
-      {% endif %}
-    {% endfor %}
-  </section>
+        <button class="btn btn--primary" type="button" data-question-add>
+          {% include "study/partials/ui_icon.html" with name="pen-line" only %}
+          <span>Ajouter une question</span>
+        </button>
+      </div>
+      <div class="response-edit-questions" data-question-list>
+        {% for question_form in question_formset %}
+          {% include "study/partials/tache_two_question_form.html" with question_number=forloop.counter %}
+        {% endfor %}
+      </div>
+      <p class="sr-only" aria-live="polite" data-question-status></p>
+      <template data-question-template>
+        {% include "study/partials/tache_two_question_form.html" with question_form=question_formset.empty_form question_number="" %}
+      </template>
+    </section>
+  {% else %}
+    {% if form.non_field_errors %}<div class="auth-error">{{ form.non_field_errors|striptags }}</div>{% endif %}
 
-  <section class="card card--pad response-edit__section">
-    <h2 class="mt-0">Arguments développés</h2>
-    <p class="muted">Gardez trois idées distinctes, chacune soutenue par un développement, un exemple concret et une conséquence.</p>
-    <div class="response-edit__arguments">
-      {% for argument in argument_fields %}
-        <fieldset class="response-edit__argument">
-          <legend>Argument {{ argument.order }}</legend>
-          {% for field in argument.fields %}
-            <div class="response-edit-field">
-              <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-              {{ field }}
-              {% for error in field.errors %}<small class="auth-field__error">{{ error }}</small>{% endfor %}
-            </div>
-          {% endfor %}
-        </fieldset>
+    <section class="card card--pad response-edit__section">
+      <h2 class="mt-0">Introduction et position</h2>
+      {% for field in form %}
+        {% if field.name == "reformulation" or field.name == "position" or field.name == "position_claire" %}
+          <div class="response-edit-field">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% for error in field.errors %}<small class="auth-field__error">{{ error }}</small>{% endfor %}
+          </div>
+        {% endif %}
       {% endfor %}
-    </div>
-  </section>
+    </section>
 
-  <section class="card card--pad response-edit__section">
-    <h2 class="mt-0">Nuance et conclusion</h2>
-    {% for field in form %}
-      {% if field.name == "nuance" or field.name == "conclusion" %}
-        <div class="response-edit-field">
-          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-          {{ field }}
-          {% for error in field.errors %}<small class="auth-field__error">{{ error }}</small>{% endfor %}
-        </div>
-      {% endif %}
-    {% endfor %}
-  </section>
+    <section class="card card--pad response-edit__section">
+      <h2 class="mt-0">Arguments développés</h2>
+      <p class="muted">Gardez trois idées distinctes, chacune soutenue par un développement, un exemple concret et une conséquence.</p>
+      <div class="response-edit__arguments">
+        {% for argument in argument_fields %}
+          <fieldset class="response-edit__argument">
+            <legend>Argument {{ argument.order }}</legend>
+            {% for field in argument.fields %}
+              <div class="response-edit-field">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% for error in field.errors %}<small class="auth-field__error">{{ error }}</small>{% endfor %}
+              </div>
+            {% endfor %}
+          </fieldset>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="card card--pad response-edit__section">
+      <h2 class="mt-0">Nuance et conclusion</h2>
+      {% for field in form %}
+        {% if field.name == "nuance" or field.name == "conclusion" %}
+          <div class="response-edit-field">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% for error in field.errors %}<small class="auth-field__error">{{ error }}</small>{% endfor %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </section>
+  {% endif %}
 
   <div class="response-edit__actions">
-    <a class="btn" href="{% url 'study:response_detail' part.slug task.slug selected_prompt.pk %}">Annuler</a>
-    <button class="btn btn--primary" type="submit" name="action" value="save">Enregistrer ma version</button>
+    <a class="btn" href="{{ detail_url }}">Annuler</a>
+    <button class="btn btn--primary" type="submit" name="action" value="save">
+      {% if is_tache_two %}Enregistrer mes questions{% else %}Enregistrer ma version{% endif %}
+    </button>
   </div>
 </form>
 
 {% if has_personal_response %}
   <section class="card card--pad danger-zone response-edit__reset">
-    <h2 class="mt-0">Revenir à la réponse d'origine</h2>
+    <h2 class="mt-0">{% if is_tache_two %}Revenir aux questions d'origine{% else %}Revenir à la réponse d'origine{% endif %}</h2>
     <p class="muted">Supprime uniquement votre version personnelle. Le sujet, votre progression et vos annotations sont conservés.</p>
     <form method="post">
       {% csrf_token %}
-      <button class="btn btn--danger" type="submit" name="action" value="reset">Utiliser de nouveau la version d'origine</button>
+      <button class="btn btn--danger" type="submit" name="action" value="reset">
+        {% if is_tache_two %}Utiliser de nouveau les questions d'origine{% else %}Utiliser de nouveau la version d'origine{% endif %}
+      </button>
     </form>
   </section>
 {% endif %}

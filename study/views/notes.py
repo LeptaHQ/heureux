@@ -58,20 +58,35 @@ COMPREHENSION_NOTE_LABELS = {
     "ecrite": "Compréhension écrite",
     "orale": "Compréhension orale",
 }
+CUSTOM_NOTE_FILTER = Q(
+    kind=AnnotationKind.NOTE,
+    task__isnull=True,
+    quote="",
+    source_path="",
+)
 
 
 def _comprehension_scope_prefix(mode):
     return f"{COMPREHENSION_PATH_PREFIX}{mode}/"
 
 
-def _scope_annotations(annotations, *, task, aggregate, comprehension):
+def _scope_annotations(
+    annotations,
+    *,
+    task,
+    aggregate,
+    comprehension,
+    custom=False,
+):
     """Restrict a base annotation queryset to a single notes scope.
 
-    ``comprehension`` ("ecrite"/"orale") keeps only task-less notes captured
-    on the matching compréhension pages. Générales (``task is None`` without a
-    comprehension mode) excludes those compréhension notes so the two scopes
-    never overlap. ``aggregate`` (Toutes) keeps everything.
+    ``custom`` keeps standalone notes created from the notes screen.
+    ``comprehension`` ("ecrite"/"orale") keeps task-less notes captured on the
+    matching compréhension pages. Générales excludes both groups so these
+    folders never overlap. ``aggregate`` (Toutes) keeps everything.
     """
+    if custom:
+        return annotations.filter(CUSTOM_NOTE_FILTER)
     if comprehension:
         return annotations.filter(
             task__isnull=True,
@@ -83,14 +98,15 @@ def _scope_annotations(annotations, *, task, aggregate, comprehension):
     if task is None:
         annotations = annotations.exclude(
             source_path__startswith=COMPREHENSION_PATH_PREFIX
-        )
+        ).exclude(CUSTOM_NOTE_FILTER)
     return annotations
 
 
 def _general_scope_counts(user):
-    """Split task-less notes into general / compréhension écrite / orale."""
+    """Split task-less items into personal, general, and comprehension scopes."""
     totals = Annotation.objects.filter(user=user, task__isnull=True).aggregate(
         total=Count("id"),
+        custom=Count("id", filter=CUSTOM_NOTE_FILTER),
         ecrite=Count(
             "id",
             filter=Q(
@@ -106,11 +122,13 @@ def _general_scope_counts(user):
     )
     ecrite = totals["ecrite"] or 0
     orale = totals["orale"] or 0
+    custom = totals["custom"] or 0
     total = totals["total"] or 0
     return {
         "ecrite": ecrite,
         "orale": orale,
-        "general": total - ecrite - orale,
+        "custom": custom,
+        "general": total - custom - ecrite - orale,
     }
 
 
@@ -118,17 +136,34 @@ def _annotation_scope_key(annotation):
     """Return the scope-nav bucket key for an annotation.
 
     Mirrors :func:`_scope_annotations`: task notes map to ``task:<pk>``,
-    compréhension notes to ``ecrite``/``orale``, and everything else to
-    ``general``. Used to keep the scope-nav counts in sync when an item is
-    deleted in place, without a full page reload.
+    standalone notes to ``custom``, compréhension notes to
+    ``ecrite``/``orale``, and everything else to ``general``. Used to keep the
+    scope-nav counts in sync when an item is deleted in place.
     """
     if annotation.task_id is not None:
         return f"task:{annotation.task_id}"
+    if (
+        annotation.kind == AnnotationKind.NOTE
+        and not annotation.quote
+        and not annotation.source_path
+    ):
+        return "custom"
     source_path = annotation.source_path or ""
     for mode in COMPREHENSION_NOTE_MODES:
         if source_path.startswith(_comprehension_scope_prefix(mode)):
             return mode
     return "general"
+
+
+def _annotation_scope_label(annotation):
+    if annotation.task_id is not None:
+        return f"{annotation.task.part.short_name} · {annotation.task.name}"
+    return {
+        "custom": "Notes personnelles",
+        "ecrite": COMPREHENSION_NOTE_LABELS["ecrite"],
+        "orale": COMPREHENSION_NOTE_LABELS["orale"],
+        "general": "Notes générales",
+    }[_annotation_scope_key(annotation)]
 
 
 def _annotation_counts(user):
@@ -162,25 +197,33 @@ def notes_overview(request):
     return _notes_scope(request, aggregate=True)
 
 
-def _annotation_scope_url(task=None):
+def _annotation_scope_url(task=None, *, custom=False):
     if task:
         return reverse(
             "study:task_notes",
             args=[task.part.slug, task.slug],
         )
+    if custom:
+        return reverse("study:custom_notes")
     return reverse("study:general_notes")
 
 
-def _annotation_tab_url(task, kind):
+def _annotation_tab_url(task, kind, *, custom=False):
     tab = (
         "highlights"
         if kind == AnnotationKind.HIGHLIGHT
         else "notes"
     )
-    return f"{_annotation_scope_url(task)}?tab={tab}"
+    return f"{_annotation_scope_url(task, custom=custom)}?tab={tab}"
 
 
-def _annotation_study_url(task=None, *, aggregate=False, comprehension=None):
+def _annotation_study_url(
+    task=None,
+    *,
+    aggregate=False,
+    comprehension=None,
+    custom=False,
+):
     if task:
         return reverse(
             "study:task_annotation_study",
@@ -191,6 +234,8 @@ def _annotation_study_url(task=None, *, aggregate=False, comprehension=None):
             "study:comprehension_annotation_study",
             args=[comprehension],
         )
+    if custom:
+        return reverse("study:custom_annotation_study")
     if aggregate:
         return reverse("study:annotation_study")
     return reverse("study:general_annotation_study")
@@ -288,7 +333,14 @@ def _filter_annotation_status(annotations, status):
     return annotations
 
 
-def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
+def _notes_scope(
+    request,
+    task=None,
+    *,
+    aggregate=False,
+    comprehension=None,
+    custom=False,
+):
     annotations = Annotation.objects.filter(user=request.user).select_related(
         "task__part"
     )
@@ -297,6 +349,7 @@ def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
         task=task,
         aggregate=aggregate,
         comprehension=comprehension,
+        custom=custom,
     )
     query = (request.GET.get("q") or "").strip()
     annotations = _filter_annotation_query(annotations, query)
@@ -309,7 +362,8 @@ def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
     filtered = _filter_annotation_status(annotations, status)
     active_tab = (
         request.GET.get("tab")
-        if request.GET.get("tab") in {"notes", "highlights"}
+        if not custom
+        and request.GET.get("tab") in {"notes", "highlights"}
         else "notes"
     )
     if request.method == "POST":
@@ -322,6 +376,11 @@ def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
         form = NoteForm(request.POST, instance=instance)
         if form.is_valid():
             note = form.save()
+            if task is None and not custom:
+                return redirect(
+                    _annotation_scope_url(custom=True)
+                    + f"?tab=notes#note-{note.id}"
+                )
             return redirect(
                 _annotation_redirect(request, note)
                 + f"#note-{note.id}"
@@ -338,6 +397,8 @@ def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
             "-created_at", "-id"
         )
     )
+    for annotation in notes + highlights:
+        annotation.scope_label = _annotation_scope_label(annotation)
     for highlight in highlights:
         highlight.origin_label = _HIGHLIGHT_ORIGIN_LABELS[
             _highlight_origin(highlight)
@@ -394,6 +455,7 @@ def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
             task,
             aggregate=aggregate,
             comprehension=comprehension,
+            custom=custom,
         )
         + "?"
         + urlencode(flashcard_params)
@@ -405,11 +467,14 @@ def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
             "part": task.part if task else None,
             "task": task,
             "comprehension": comprehension,
+            "custom": custom,
             "scope_title": (
                 task.name
                 if task
                 else COMPREHENSION_NOTE_LABELS[comprehension]
                 if comprehension
+                else "Notes personnelles"
+                if custom
                 else "Toutes mes notes"
                 if aggregate
                 else "Notes générales"
@@ -426,6 +491,7 @@ def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
             "status": status,
             "task_filters": task_filters,
             "general_count": general_counts["general"],
+            "custom_count": general_counts["custom"],
             "ce_count": general_counts["ecrite"],
             "co_count": general_counts["orale"],
             "tab_url_prefix": tab_url_prefix,
@@ -438,6 +504,7 @@ def _notes_scope(request, task=None, *, aggregate=False, comprehension=None):
                 task,
                 aggregate=aggregate,
                 comprehension=comprehension,
+                custom=custom,
             ),
         },
     )
@@ -449,6 +516,10 @@ def task_notes(request, part_slug, task_slug):
 
 def general_notes(request):
     return _notes_scope(request)
+
+
+def custom_notes(request):
+    return _notes_scope(request, custom=True)
 
 
 def comprehension_notes(request, mode):
@@ -498,8 +569,13 @@ def annotation_search(request):
     result_count = annotations.count()
     results = list(annotations.order_by("-created_at", "-id")[:100])
     for annotation in results:
+        annotation.scope_label = _annotation_scope_label(annotation)
         annotation.notes_url = (
-            _annotation_tab_url(annotation.task, annotation.kind)
+            _annotation_tab_url(
+                annotation.task,
+                annotation.kind,
+                custom=_annotation_scope_key(annotation) == "custom",
+            )
             + "#"
             + _annotation_anchor(annotation)
         )
@@ -532,6 +608,7 @@ def annotation_study(
     task_slug=None,
     general_only=False,
     comprehension=None,
+    custom_only=False,
 ):
     if "scope" in request.GET:
         raise Http404
@@ -552,8 +629,14 @@ def annotation_study(
     annotations = _scope_annotations(
         annotations,
         task=task,
-        aggregate=not task and not comprehension and not general_only,
+        aggregate=(
+            not task
+            and not comprehension
+            and not general_only
+            and not custom_only
+        ),
         comprehension=comprehension,
+        custom=custom_only,
     )
     query = ""
     status = ""
@@ -569,7 +652,8 @@ def annotation_study(
         )
         active_tab = (
             request.GET.get("tab")
-            if request.GET.get("tab") in {"notes", "highlights"}
+            if not custom_only
+            and request.GET.get("tab") in {"notes", "highlights"}
             else "notes"
         )
         annotations = _filter_annotation_query(annotations, query)
@@ -582,6 +666,8 @@ def annotation_study(
             )
         )
     items = list(annotations.order_by("-updated_at", "-id"))
+    for annotation in items:
+        annotation.scope_label = _annotation_scope_label(annotation)
     back_url = (
         _annotation_scope_url(task)
         if task
@@ -591,6 +677,8 @@ def annotation_study(
         if comprehension
         else reverse("study:general_notes")
         if general_only
+        else reverse("study:custom_notes")
+        if custom_only
         else reverse("study:notes_overview")
     )
     if study_mode == "all":
@@ -613,6 +701,8 @@ def annotation_study(
                 if task
                 else COMPREHENSION_NOTE_LABELS[comprehension]
                 if comprehension
+                else "Notes personnelles"
+                if custom_only
                 else "Notes générales"
                 if general_only
                 else "Toutes mes notes"
@@ -985,7 +1075,11 @@ def annotation_create(request):
             args=[annotation.id],
         ),
         "notes_url": (
-            _annotation_tab_url(task, annotation.kind)
+            _annotation_tab_url(
+                task,
+                annotation.kind,
+                custom=_annotation_scope_key(annotation) == "custom",
+            )
             + "#"
             + _annotation_anchor(annotation)
         ),
@@ -1008,7 +1102,11 @@ def _annotation_redirect(request, annotation):
         require_https=request.is_secure(),
     ):
         return candidate
-    return _annotation_tab_url(annotation.task, annotation.kind)
+    return _annotation_tab_url(
+        annotation.task,
+        annotation.kind,
+        custom=_annotation_scope_key(annotation) == "custom",
+    )
 
 
 @require_POST

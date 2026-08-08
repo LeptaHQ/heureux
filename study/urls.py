@@ -220,6 +220,13 @@ urlpatterns = [
     ),
     # Notes and annotations
     path("notes/", views.notes_overview, name="notes_overview"),
+    path("notes/personnelles/", views.custom_notes, name="custom_notes"),
+    path(
+        "notes/personnelles/etudier/",
+        views.annotation_study,
+        {"custom_only": True},
+        name="custom_annotation_study",
+    ),
     path("notes/generales/", views.general_notes, name="general_notes"),
     path(
         "notes/generales/etudier/",

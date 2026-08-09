@@ -87,6 +87,44 @@
           {% endif %}
           {% if item.source_path %}<a href="{{ item.source_path }}">Voir la source {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>{% endif %}
         </div>
+        <div class="annotation-study__card-actions">
+          <button
+            class="linkbtn annotation-action"
+            type="button"
+            data-study-flag="study_later"
+            data-study-flag-url="{% url 'study:annotation_study_toggle' item.id %}"
+            data-study-flag-on="Retirer de l’étude"
+            data-study-flag-off="Ajouter à étudier"
+            data-study-flag-toast-on="Ajouté à « À étudier »."
+            data-study-flag-toast-off="Retiré de « À étudier »."
+            aria-pressed="{% if item.study_later %}true{% else %}false{% endif %}"
+            aria-label="{% if item.study_later %}Retirer de l’étude{% else %}Ajouter à étudier{% endif %}"
+            title="{% if item.study_later %}Retirer de l’étude{% else %}Ajouter à étudier{% endif %}"
+          >
+            <span class="annotation-action__icon annotation-action__icon--study" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-3.75L6 21Z"></path></svg>
+            </span>
+            <span class="sr-only" data-study-flag-label>{% if item.study_later %}Retirer de l’étude{% else %}Ajouter à étudier{% endif %}</span>
+          </button>
+          <button
+            class="linkbtn annotation-action"
+            type="button"
+            data-study-flag="completed"
+            data-study-flag-url="{% url 'study:annotation_complete_toggle' item.id %}"
+            data-study-flag-on="Marquer comme à faire"
+            data-study-flag-off="Marquer comme terminé"
+            data-study-flag-toast-on="{% if item.kind == 'highlight' %}Surlignage terminé{% else %}Note terminée{% endif %}."
+            data-study-flag-toast-off="{% if item.kind == 'highlight' %}Surlignage à faire{% else %}Note à faire{% endif %}."
+            aria-pressed="{% if item.completed %}true{% else %}false{% endif %}"
+            aria-label="{% if item.completed %}Marquer comme à faire{% else %}Marquer comme terminé{% endif %}"
+            title="{% if item.completed %}Marquer comme à faire{% else %}Marquer comme terminé{% endif %}"
+          >
+            <span class="annotation-action__icon annotation-action__icon--done" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 6.5"></path></svg>
+            </span>
+            <span class="sr-only" data-study-flag-label>{% if item.completed %}Marquer comme à faire{% else %}Marquer comme terminé{% endif %}</span>
+          </button>
+        </div>
       </article>
     {% endfor %}
   </div>

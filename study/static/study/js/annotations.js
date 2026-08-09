@@ -925,6 +925,65 @@
       return card.getAttribute("data-study-id");
     }
 
+    function setFlagState(button, pressed) {
+      var label = pressed
+        ? button.dataset.studyFlagOn
+        : button.dataset.studyFlagOff;
+      button.setAttribute("aria-pressed", pressed ? "true" : "false");
+      button.setAttribute("aria-label", label);
+      button.setAttribute("title", label);
+      var text = button.querySelector("[data-study-flag-label]");
+      if (text) text.textContent = label;
+    }
+
+    function toggleFlag(button) {
+      if (button.disabled) return;
+      var field = button.dataset.studyFlag;
+      var next = button.getAttribute("aria-pressed") !== "true";
+      var formData = new FormData();
+      formData.set(field, next ? "1" : "0");
+      button.disabled = true;
+      fetch(button.dataset.studyFlagUrl, {
+        method: "POST",
+        headers: {
+          "X-CSRFToken": csrfToken(),
+          "X-Requested-With": "fetch"
+        },
+        body: formData,
+        credentials: "same-origin"
+      })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("Impossible de mettre à jour cet élément.");
+          }
+          return response.json();
+        })
+        .then(function (payload) {
+          var pressed = Boolean(payload[field]);
+          setFlagState(button, pressed);
+          showToast(
+            pressed
+              ? button.dataset.studyFlagToastOn
+              : button.dataset.studyFlagToastOff
+          );
+        })
+        .catch(function (error) {
+          showToast(error.message);
+        })
+        .finally(function () {
+          button.disabled = false;
+        });
+    }
+
+    Array.from(deck.querySelectorAll("[data-study-flag]")).forEach(
+      function (button) {
+        button.addEventListener("click", function (event) {
+          event.stopPropagation();
+          toggleFlag(button);
+        });
+      }
+    );
+
     function pluralize(count) {
       return count > 1 ? "s" : "";
     }

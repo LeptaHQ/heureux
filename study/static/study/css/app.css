@@ -5505,7 +5505,7 @@ html[data-collection-view-mode="table"]
 }
 .annotation-study__card {
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
   min-height: 360px;
   padding: 0.85rem clamp(1.2rem, 4vw, 2.2rem) 1.5rem;
   border-color: color-mix(in srgb, var(--primary) 20%, var(--border));
@@ -5572,6 +5572,23 @@ html[data-collection-view-mode="table"]
   grid-row: 2;
   align-self: center;
   text-align: center;
+}
+.annotation-study__card-actions {
+  grid-row: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.6rem;
+}
+.annotation-study__card-actions .annotation-action[aria-pressed="true"]
+  .annotation-action__icon--study {
+  background: var(--warning);
+  color: #fff;
+}
+.annotation-study__card-actions .annotation-action:disabled {
+  opacity: 0.55;
+  cursor: progress;
 }
 .annotation-study__front h2 {
   max-width: 620px;

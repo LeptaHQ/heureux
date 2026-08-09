@@ -1209,6 +1209,43 @@ class AnnotationTests(TestCase):
         note.refresh_from_db()
         self.assertTrue(note.study_later)
 
+    def test_study_cards_expose_done_and_revisit_actions(self):
+        note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            body="Décision à mémoriser.",
+            study_later=True,
+        )
+        study_url = reverse("study:annotation_study_toggle", args=[note.pk])
+        complete_url = reverse(
+            "study:annotation_complete_toggle", args=[note.pk]
+        )
+
+        page = self.client.get(reverse("study:annotation_study"))
+
+        self.assertContains(page, f'data-study-flag-url="{study_url}"')
+        self.assertContains(page, f'data-study-flag-url="{complete_url}"')
+        self.assertContains(page, 'data-study-flag="study_later"')
+        self.assertContains(page, 'data-study-flag="completed"')
+        self.assertContains(page, "Marquer comme terminé")
+        self.assertContains(page, "Retirer de l’étude")
+
+        completed = self.client.post(
+            complete_url,
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(completed.status_code, 200)
+        self.assertEqual(completed.json()["completed"], True)
+        note.refresh_from_db()
+        self.assertTrue(note.completed)
+
+        marked = self.client.get(reverse("study:annotation_study"))
+
+        self.assertContains(marked, "Marquer comme à faire")
+
     def test_delete_on_fetch_returns_scope_metadata(self):
         note = Annotation.objects.create(
             user=self.user,

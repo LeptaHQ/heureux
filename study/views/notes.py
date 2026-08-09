@@ -18,6 +18,7 @@ from django.utils import timezone
 from django.utils.http import url_has_allowed_host_and_scheme, urlencode
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 
+from .. import content_loader as content_module
 from ..forms import (
     NoteForm,
 )
@@ -47,6 +48,12 @@ SUBJECT_SOURCE_PATH_RE = re.compile(
     r"^/expression/(?P<part>orale|ecrite)/"
     r"(?P<task>[-a-zA-Z0-9_]+)/"
     r"sujets/(?P<prompt_id>\d+)/$"
+)
+TACHE_TWO_SUBJECT_PATH_RE = re.compile(
+    r"^/expression/(?P<part>orale|ecrite)/"
+    r"(?P<task>[-a-zA-Z0-9_]+)/"
+    r"sujets/(?P<month>[a-z0-9-]+)/batch-(?P<batch>\d+)/"
+    r"(?P<subject>\d+)/$"
 )
 EXPRESSION_PART_BY_PATH = {
     "orale": "eo",
@@ -798,6 +805,25 @@ def _annotation_overlap_revisions(value):
     return parsed
 
 
+def _annotation_prompt_scope(prompt):
+    canonical = prompt.response.canonical_prompt or prompt
+    canonical_path = prompt_detail_url(canonical)
+    sibling_paths = [
+        prompt_detail_url(sibling)
+        for sibling in prompt.response.prompts.filter(
+            is_active=True,
+            theme__task__isnull=False,
+        ).select_related("theme__task__part")
+    ]
+    source_filter = Q()
+    for sibling_path in sibling_paths:
+        source_filter |= Q(source_path=sibling_path)
+        source_filter |= Q(
+            source_path__startswith=f"{sibling_path}?"
+        )
+    return canonical_path, source_filter
+
+
 def _annotation_source_scope(source_path):
     base_path = source_path.split("?", 1)[0]
     match = SUBJECT_SOURCE_PATH_RE.fullmatch(base_path)
@@ -816,22 +842,28 @@ def _annotation_source_scope(source_path):
             .first()
         )
         if prompt is not None:
-            canonical = prompt.response.canonical_prompt or prompt
-            canonical_path = prompt_detail_url(canonical)
-            sibling_paths = [
-                prompt_detail_url(sibling)
-                for sibling in prompt.response.prompts.filter(
-                    is_active=True,
-                    theme__task__isnull=False,
-                ).select_related("theme__task__part")
-            ]
-            source_filter = Q()
-            for sibling_path in sibling_paths:
-                source_filter |= Q(source_path=sibling_path)
-                source_filter |= Q(
-                    source_path__startswith=f"{sibling_path}?"
-                )
-            return canonical_path, source_filter
+            return _annotation_prompt_scope(prompt)
+    tache_two_match = TACHE_TWO_SUBJECT_PATH_RE.fullmatch(base_path)
+    if tache_two_match:
+        prompt = (
+            Prompt.objects.filter(
+                content_key=content_module.tache_two_subject_content_key(
+                    tache_two_match.group("month"),
+                    int(tache_two_match.group("batch")),
+                    int(tache_two_match.group("subject")),
+                ),
+                is_active=True,
+                response__is_active=True,
+                theme__task__part__slug=EXPRESSION_PART_BY_PATH[
+                    tache_two_match.group("part")
+                ],
+                theme__task__slug=tache_two_match.group("task"),
+            )
+            .select_related("response")
+            .first()
+        )
+        if prompt is not None:
+            return _annotation_prompt_scope(prompt)
     return source_path, Q(source_path=source_path)
 
 

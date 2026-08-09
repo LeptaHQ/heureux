@@ -3,9 +3,12 @@ from __future__ import annotations
 import copy
 import json
 import tempfile
+from datetime import timedelta
+from importlib import import_module
 from io import StringIO
 from pathlib import Path
 
+from django.apps import apps
 from django.core.management import call_command
 from django.test import TestCase
 from django.urls import reverse
@@ -38,6 +41,10 @@ from study.models import (
     Task,
 )
 from study.routing import response_detail_url
+
+annotation_migration = import_module(
+    "study.migrations.0040_shared_tache_two_annotation_keys"
+)
 
 from . import factories
 
@@ -2504,6 +2511,119 @@ class QuestionBankViewTests(TestCase):
             self.client.get(shared_url).context["subject_progress"].status,
             "done",
         )
+
+    def test_equivalent_subjects_share_highlights(self):
+        shared_url = reverse(
+            "study:task_subject_detail",
+            args=[self.task.part.slug, self.task.slug, "mai", 1, 5],
+        )
+        canonical_url = reverse(
+            "study:task_subject_detail",
+            args=[self.task.part.slug, self.task.slug, "fevrier", 4, 20],
+        )
+        created = self.client.post(
+            reverse("study:annotation_create"),
+            {
+                "kind": "highlight",
+                "source_path": shared_url,
+                "source_key": self.client.get(shared_url).context[
+                    "subject_annotation_key"
+                ],
+                "quote": "Quels types",
+                "start_offset": 0,
+                "end_offset": 11,
+            },
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(created.status_code, 201)
+
+        listing = self.client.get(
+            reverse("study:annotations_for_source"),
+            {"source_path": canonical_url},
+        )
+        payload = listing.json()
+
+        self.assertEqual(listing.status_code, 200)
+        self.assertEqual(
+            [item["source_key"] for item in payload["highlights"]],
+            ["tache-two:fevrier:batch-4:subject-20"],
+        )
+        self.assertEqual(
+            self.client.get(canonical_url).context["subject_annotation_key"],
+            "tache-two:fevrier:batch-4:subject-20",
+        )
+        self.assertEqual(
+            self.client.get(shared_url).context["subject_annotation_key"],
+            "tache-two:fevrier:batch-4:subject-20",
+        )
+
+    def test_migration_moves_alias_highlights_onto_the_shared_key(self):
+        shared_url = reverse(
+            "study:task_subject_detail",
+            args=[self.task.part.slug, self.task.slug, "mai", 1, 5],
+        )
+        alias = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            source_path=shared_url,
+            source_key="tache-two:mai:batch-1:subject-5",
+            quote="Quels types",
+            start_offset=0,
+            end_offset=11,
+        )
+
+        annotation_migration.share_tache_two_annotation_keys(apps, None)
+        alias.refresh_from_db()
+
+        self.assertEqual(
+            alias.source_key,
+            "tache-two:fevrier:batch-4:subject-20",
+        )
+
+        annotation_migration.restore_per_subject_annotation_keys(apps, None)
+        alias.refresh_from_db()
+
+        self.assertEqual(alias.source_key, "tache-two:mai:batch-1:subject-5")
+
+    def test_migration_merges_duplicate_highlights_across_equivalents(self):
+        shared_url = reverse(
+            "study:task_subject_detail",
+            args=[self.task.part.slug, self.task.slug, "mai", 1, 5],
+        )
+        survivor = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            source_path=shared_url,
+            source_key="tache-two:fevrier:batch-4:subject-20",
+            quote="Quels types",
+            start_offset=0,
+            end_offset=11,
+        )
+        duplicate = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            source_path=shared_url,
+            source_key="tache-two:mai:batch-1:subject-5",
+            quote="Quels types",
+            body="Note à garder",
+            start_offset=0,
+            end_offset=11,
+            study_later=True,
+        )
+        Annotation.objects.filter(pk=survivor.pk).update(
+            updated_at=timezone.now() - timedelta(minutes=1)
+        )
+
+        annotation_migration.share_tache_two_annotation_keys(apps, None)
+        survivor.refresh_from_db()
+
+        self.assertFalse(Annotation.objects.filter(pk=duplicate.pk).exists())
+        self.assertEqual(survivor.body, "Note à garder")
+        self.assertTrue(survivor.study_later)
 
     def test_existing_subject_highlight_marks_imported_response_in_progress(self):
         subject_url = reverse(

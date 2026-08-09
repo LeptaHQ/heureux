@@ -45,6 +45,7 @@ from ..models import (
     WritingSujet,
     WritingSujetCompletion,
 )
+from .. import routing
 from ..response_personalization import effective_response
 from ..progress import (
     card_unit_progress,
@@ -1138,6 +1139,19 @@ def task_subject_batch(request, part_slug, task_slug, month_slug, batch_number):
     )
 
 
+def tache_two_annotation_source_key(subject_content_key: str) -> str:
+    """Annotation root key for a Tâche 2 subject, shared by equivalents."""
+    match = routing.TACHE_TWO_PROMPT_KEY.fullmatch(subject_content_key)
+    if match is None:
+        raise ValueError(
+            "A Tâche 2 annotation key needs a subject content key."
+        )
+    return (
+        f"tache-two:{match['month']}:batch-{int(match['batch'])}:"
+        f"subject-{int(match['subject'])}"
+    )
+
+
 def _tache_two_equivalent_subjects(response, selected_prompt):
     """List the other subjects that reuse this exact set of questions."""
     others = [
@@ -1239,6 +1253,9 @@ def task_subject_detail(
         response,
         selected_prompt,
     )
+    subject_annotation_key = tache_two_annotation_source_key(
+        response.content_key
+    )
     subject_progress = subject_progress_by_response(
         request.user,
         {response.pk},
@@ -1301,6 +1318,7 @@ def task_subject_detail(
             "subject_total": subject_total,
             "selected_prompt": selected_prompt,
             "equivalent_subjects": equivalent_subjects,
+            "subject_annotation_key": subject_annotation_key,
             "response": response,
             "card": card,
             "subject_progress": subject_progress,

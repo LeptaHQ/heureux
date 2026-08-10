@@ -2081,9 +2081,17 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertTrue(toolbar.is_visible())
 
         self.page.locator("[data-translate-selection]").click()
-        self.page.locator("[data-translation-panel]").wait_for()
+        translation_panel = self.page.locator("[data-translation-panel]")
+        translation_panel.wait_for()
         self.assertTrue(toolbar.is_visible())
-        self.page.locator("[data-translation-close]").click()
+        translation_panel.get_by_role("button", name="Fermer").click()
+        translation_panel.wait_for(state="hidden")
+        self.assertTrue(toolbar.is_visible())
+
+        self.page.locator("[data-translate-selection]").click()
+        translation_panel.wait_for()
+        translation_panel.locator("[data-translation-close]").first.click()
+        translation_panel.wait_for(state="hidden")
         self.assertTrue(toolbar.is_visible())
 
         self.page.locator("[data-note-selection]").click()
@@ -2275,7 +2283,17 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertGreaterEqual(paste_box["height"], 44)
         self.assert_no_horizontal_overflow()
 
-    def test_selection_note_save_can_be_undone_in_the_same_panel(self):
+    def test_selection_note_paste_and_close_saves_the_pasted_note(self):
+        self.context.add_init_script(
+            """
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: {
+                readText: () => Promise.resolve("texte collé"),
+              },
+            });
+            """
+        )
         self.page.goto(
             self.live_server_url
             + reverse("study:review")
@@ -2289,49 +2307,47 @@ class BrowserTests(StaticLiveServerTestCase):
 
         panel = self.page.locator("[data-note-panel]")
         panel.wait_for()
-        note_body = panel.locator("[data-note-body]")
-        note_body.fill("À retenir avec **attention**.")
+        self.assertEqual(panel.locator("[data-note-save]").count(), 0)
+        self.assertEqual(panel.locator("[data-note-undo]").count(), 0)
+        panel.locator("[data-note-body]").fill("Avant ")
+
         with self.page.expect_response(
             lambda response: reverse("study:annotation_create") in response.url
         ) as create_response:
-            panel.locator("[data-note-save]").click()
+            panel.locator("[data-note-paste-close]").click()
+
         self.assertEqual(create_response.value.status, 201)
-
-        undo = panel.get_by_role(
-            "button",
-            name="Annuler l’enregistrement",
-        )
-        undo.wait_for()
-        self.assertTrue(panel.is_visible())
-        self.assertFalse(panel.locator("[data-note-save]").is_visible())
-        self.assertFalse(panel.locator("[data-note-save-close]").is_visible())
-        self.assertEqual(panel.locator("[data-note-view]").count(), 0)
+        panel.wait_for(state="hidden")
+        self.page.get_by_text("Note enregistrée.", exact=True).wait_for()
         self.assertEqual(
-            panel.locator("[data-note-status]").inner_text(),
-            "Note enregistrée.",
+            Annotation.objects.get(
+                user=self.user,
+                kind=AnnotationKind.NOTE,
+            ).body,
+            "Avant texte collé",
         )
-        note = Annotation.objects.get(
-            user=self.user,
-            kind=AnnotationKind.NOTE,
+
+    def test_selection_note_save_and_close_stores_the_note(self):
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
         )
-        self.assertEqual(note.body, "À retenir avec **attention**.")
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        self.page.wait_for_load_state("networkidle")
+        self.select_prompt(start=0, end=12)
+        self.page.locator("[data-note-selection]").click()
 
-        with self.page.expect_response(
-            lambda response: f"/notes/{note.pk}/supprimer/" in response.url
-        ) as delete_response:
-            undo.click()
-        self.assertTrue(delete_response.value.ok)
-        panel.get_by_text("Enregistrement annulé.", exact=True).wait_for()
-
-        self.assertTrue(panel.locator("[data-note-save]").is_visible())
-        self.assertTrue(panel.locator("[data-note-save-close]").is_visible())
-        self.assertEqual(note_body.input_value(), "À retenir avec **attention**.")
-        self.assertFalse(Annotation.objects.filter(pk=note.pk).exists())
+        panel = self.page.locator("[data-note-panel]")
+        panel.wait_for()
+        panel.locator("[data-note-body]").fill("À retenir avec **attention**.")
 
         with self.page.expect_response(
             lambda response: reverse("study:annotation_create") in response.url
         ) as save_close_response:
             panel.locator("[data-note-save-close]").click()
+
         self.assertEqual(save_close_response.value.status, 201)
         panel.wait_for(state="hidden")
         self.page.get_by_text("Note enregistrée.", exact=True).wait_for()

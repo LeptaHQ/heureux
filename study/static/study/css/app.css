@@ -810,6 +810,10 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   background: transparent;
   color: var(--text-soft);
 }
+.btn__icon-badge--paste {
+  background: transparent;
+  color: var(--primary);
+}
 .btn__icon-badge--save {
   background: transparent;
   color: currentColor;

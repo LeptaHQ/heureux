@@ -26,7 +26,9 @@
     return;
   }
 
-  var closeButton = panel.querySelector("[data-translation-close]");
+  var closeButtons = Array.from(
+    panel.querySelectorAll("[data-translation-close]")
+  );
   var sourceElement = panel.querySelector("[data-translation-source]");
   var statusElement = panel.querySelector("[data-translation-status-text]");
   var spinner = panel.querySelector("[data-translation-spinner]");
@@ -805,7 +807,9 @@
       });
   });
 
-  closeButton.addEventListener("click", closePanel);
+  closeButtons.forEach(function (button) {
+    button.addEventListener("click", closePanel);
+  });
   document.addEventListener("selectionchange", function () {
     if (selectionPointerId === null) scheduleSelectionAction(80);
   });

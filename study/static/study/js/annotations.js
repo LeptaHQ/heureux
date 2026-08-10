@@ -29,10 +29,8 @@
   var noteBody = notePanel.querySelector("[data-note-body]");
   var notePaste = notePanel.querySelector("[data-note-paste]");
   var noteStatus = notePanel.querySelector("[data-note-status]");
-  var noteSave = notePanel.querySelector("[data-note-save]");
   var noteSaveClose = notePanel.querySelector("[data-note-save-close]");
-  var noteUndo = notePanel.querySelector("[data-note-undo]");
-  var noteCancelLabel = notePanel.querySelector("[data-note-cancel-label]");
+  var notePasteClose = notePanel.querySelector("[data-note-paste-close]");
   var noteCloseButtons = notePanel.querySelectorAll(
     "[data-note-close], [data-note-cancel]"
   );
@@ -40,10 +38,8 @@
     !noteSource ||
     !noteBody ||
     !noteStatus ||
-    !noteSave ||
     !noteSaveClose ||
-    !noteUndo ||
-    !noteCancelLabel
+    !notePasteClose
   ) {
     return;
   }
@@ -51,7 +47,6 @@
   var sourcePath = window.location.pathname + window.location.search;
   var currentSelection = null;
   var noteSelection = null;
-  var savedNoteDeleteUrl = "";
   var highlights = [];
   var toastTimer = null;
   var mutationTimer = null;
@@ -227,23 +222,17 @@
     }).then(readJson);
   }
 
-  function resetSavedNoteState() {
-    savedNoteDeleteUrl = "";
-    noteSave.disabled = false;
-    noteSave.classList.remove("hidden");
+  function resetNoteFormState() {
     noteSaveClose.disabled = false;
-    noteSaveClose.classList.remove("hidden");
-    noteUndo.disabled = false;
-    noteUndo.classList.add("hidden");
+    notePasteClose.disabled = false;
     noteBody.readOnly = false;
     if (notePaste) notePaste.disabled = false;
-    noteCancelLabel.textContent = "Annuler";
   }
 
   function closeNotePanel() {
     notePanel.classList.add("hidden");
     noteStatus.textContent = "";
-    resetSavedNoteState();
+    resetNoteFormState();
     noteSelection = null;
   }
 
@@ -254,7 +243,7 @@
     noteSource.textContent = noteSelection.quote;
     noteBody.value = "";
     noteStatus.textContent = "";
-    resetSavedNoteState();
+    resetNoteFormState();
     notePanel.classList.remove("hidden");
     notePanel.focus({ preventScroll: true });
     window.setTimeout(function () {
@@ -262,109 +251,94 @@
     }, 0);
   }
 
-  function pasteNote() {
-    if (!notePaste || notePaste.disabled) return;
+  function insertIntoNote(text) {
+    var start = noteBody.selectionStart;
+    var end = noteBody.selectionEnd;
+    var retainedLength = noteBody.value.length - (end - start);
+    var available = Math.max(noteBody.maxLength - retainedLength, 0);
+    var insertion = text.slice(0, available);
+    if (!insertion) return 0;
+    noteBody.value =
+      noteBody.value.slice(0, start)
+      + insertion
+      + noteBody.value.slice(end);
+    var cursor = start + insertion.length;
+    noteBody.setSelectionRange(cursor, cursor);
+    noteBody.dispatchEvent(new Event("input", { bubbles: true }));
+    return insertion.length;
+  }
+
+  // Resolves to true only when clipboard text actually landed in the note,
+  // so « Coller et fermer » never saves an unchanged note by surprise.
+  function readClipboardIntoNote() {
     if (!navigator.clipboard || !navigator.clipboard.readText) {
       noteStatus.textContent =
         "Collage automatique indisponible. Utilisez ⌘V ou Ctrl+V.";
-      noteBody.focus({ preventScroll: true });
-      return;
+      return Promise.resolve(false);
     }
-
-    var start = noteBody.selectionStart;
-    var end = noteBody.selectionEnd;
-    notePaste.disabled = true;
     noteStatus.textContent = "Lecture du presse-papiers…";
-    navigator.clipboard.readText()
+    return navigator.clipboard.readText()
       .then(function (text) {
         if (!text) {
           noteStatus.textContent = "Le presse-papiers est vide.";
-          return;
+          return false;
         }
-        var retainedLength = noteBody.value.length - (end - start);
-        var available = Math.max(noteBody.maxLength - retainedLength, 0);
-        var insertion = text.slice(0, available);
-        if (!insertion) {
+        var inserted = insertIntoNote(text);
+        if (!inserted) {
           noteStatus.textContent = "La note a atteint sa longueur maximale.";
-          return;
+          return false;
         }
-        noteBody.value =
-          noteBody.value.slice(0, start)
-          + insertion
-          + noteBody.value.slice(end);
-        var cursor = start + insertion.length;
-        noteBody.setSelectionRange(cursor, cursor);
-        noteBody.dispatchEvent(new Event("input", { bubbles: true }));
-        noteStatus.textContent = insertion.length < text.length
+        noteStatus.textContent = inserted < text.length
           ? "Texte collé jusqu'à la limite de la note."
           : "Texte collé.";
+        return true;
       })
       .catch(function () {
         noteStatus.textContent =
           "Impossible d'accéder au presse-papiers. Utilisez ⌘V ou Ctrl+V.";
-      })
-      .then(function () {
-        notePaste.disabled = false;
-        noteBody.focus({ preventScroll: true });
+        return false;
       });
   }
 
-  function saveNote(closeAfterSave) {
-    if (!noteSelection || noteSave.disabled || noteSaveClose.disabled) return;
-    noteSave.disabled = true;
+  function pasteNote() {
+    if (!notePaste || notePaste.disabled) return;
+    notePaste.disabled = true;
+    readClipboardIntoNote().then(function () {
+      notePaste.disabled = false;
+      noteBody.focus({ preventScroll: true });
+    });
+  }
+
+  function pasteAndCloseNote() {
+    if (!noteSelection || notePasteClose.disabled) return;
+    notePasteClose.disabled = true;
     noteSaveClose.disabled = true;
+    if (notePaste) notePaste.disabled = true;
+    readClipboardIntoNote().then(function (pasted) {
+      resetNoteFormState();
+      if (!pasted) {
+        noteBody.focus({ preventScroll: true });
+        return;
+      }
+      saveNote();
+    });
+  }
+
+  function saveNote() {
+    if (!noteSelection || noteSaveClose.disabled) return;
+    noteSaveClose.disabled = true;
+    notePasteClose.disabled = true;
     noteBody.readOnly = true;
     if (notePaste) notePaste.disabled = true;
     noteStatus.textContent = "Enregistrement…";
     createAnnotation("note", noteSelection, noteBody.value)
-      .then(function (data) {
-        if (closeAfterSave) {
-          closeNotePanel();
-          showToast("Note enregistrée.");
-          return;
-        }
-        noteStatus.textContent = "Note enregistrée.";
-        savedNoteDeleteUrl = data.delete_url;
-        noteSave.disabled = false;
-        noteSave.classList.add("hidden");
-        noteSaveClose.disabled = false;
-        noteSaveClose.classList.add("hidden");
-        noteUndo.classList.remove("hidden");
-        noteCancelLabel.textContent = "Fermer";
+      .then(function () {
+        closeNotePanel();
+        showToast("Note enregistrée.");
       })
       .catch(function (error) {
+        resetNoteFormState();
         noteStatus.textContent = error.message;
-        noteSave.disabled = false;
-        noteSaveClose.disabled = false;
-        noteBody.readOnly = false;
-        if (notePaste) notePaste.disabled = false;
-      });
-  }
-
-  function undoSavedNote() {
-    if (!savedNoteDeleteUrl || noteUndo.disabled) return;
-    noteUndo.disabled = true;
-    noteStatus.textContent = "Annulation de l’enregistrement…";
-    fetch(savedNoteDeleteUrl, {
-      method: "POST",
-      headers: {
-        "X-CSRFToken": csrfToken(),
-        "X-Requested-With": "fetch"
-      },
-      credentials: "same-origin"
-    })
-      .then(readJson)
-      .then(function (data) {
-        if (!data.deleted) {
-          throw new Error("La note n’a pas pu être supprimée.");
-        }
-        resetSavedNoteState();
-        noteStatus.textContent = "Enregistrement annulé.";
-        noteBody.focus({ preventScroll: true });
-      })
-      .catch(function (error) {
-        noteStatus.textContent = error.message;
-        noteUndo.disabled = false;
       });
   }
 
@@ -1272,13 +1246,10 @@
   noteButton.addEventListener("click", openNotePanel);
   if (notePaste) notePaste.addEventListener("click", pasteNote);
   highlightButton.addEventListener("click", toggleHighlight);
-  noteSave.addEventListener("click", function () {
-    saveNote(false);
-  });
   noteSaveClose.addEventListener("click", function () {
-    saveNote(true);
+    saveNote();
   });
-  noteUndo.addEventListener("click", undoSavedNote);
+  notePasteClose.addEventListener("click", pasteAndCloseNote);
   noteCloseButtons.forEach(function (button) {
     button.addEventListener("click", closeNotePanel);
   });

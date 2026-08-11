@@ -7,7 +7,7 @@
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
   <script src="{% static 'study/js/theme-init.js' %}?v=2"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=147">
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=148">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -243,6 +243,12 @@
         <span data-translation-copy-label>Copy</span>
       </button>
       <a class="btn" href="https://translate.google.com/" target="_blank" rel="noopener noreferrer" data-translation-fallback><span data-translation-fallback-label>Google Translate</span>{% include "study/partials/ui_icon.html" with name="external-link" only %}</a>
+      <button class="btn btn--primary hidden" type="button" data-translation-note>
+        <span class="btn__icon-badge btn__icon-badge--notes" aria-hidden="true">
+          <svg class="btn__icon" viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"></path><path d="M15 3v4h4M9 13h6M12 10v6"></path></svg>
+        </span>
+        <span data-translation-note-label>Add Note</span>
+      </button>
       <button class="btn" type="button" data-translation-close>
         <span class="btn__icon-badge btn__icon-badge--cancel" aria-hidden="true">
           <svg class="btn__icon" viewBox="0 0 24 24"><path d="m8 8 8 8M16 8l-8 8"></path></svg>
@@ -283,17 +289,17 @@
         </span>
         <span>Annuler</span>
       </button>
-      <button class="btn" type="button" data-note-paste-close>
-        <span class="btn__icon-badge btn__icon-badge--paste" aria-hidden="true">
-          {% include "study/partials/ui_icon.html" with name="clipboard-paste" icon_class="btn__icon" only %}
-        </span>
-        <span>Coller et fermer</span>
-      </button>
       <button class="btn btn--primary" type="button" data-note-save-close>
         <span class="btn__icon-badge btn__icon-badge--save" aria-hidden="true">
           <svg class="btn__icon" viewBox="0 0 24 24"><path d="m7 12 3.2 3.2L17.5 8"></path></svg>
         </span>
         <span>Enregistrer et fermer</span>
+      </button>
+      <button class="btn" type="button" data-note-paste-close>
+        <span class="btn__icon-badge btn__icon-badge--paste" aria-hidden="true">
+          {% include "study/partials/ui_icon.html" with name="clipboard-paste" icon_class="btn__icon" only %}
+        </span>
+        <span>Coller et fermer</span>
       </button>
     </footer>
   </section>
@@ -331,8 +337,8 @@
   </div>
 
   <script src="{% static 'study/js/app.js' %}?v=45"></script>
-  <script src="{% static 'study/js/selection-toolbar.js' %}?v=7"></script>
-  <script src="{% static 'study/js/annotations.js' %}?v=23"></script>
+  <script src="{% static 'study/js/selection-toolbar.js' %}?v=8"></script>
+  <script src="{% static 'study/js/annotations.js' %}?v=24"></script>
   <script src="{% static 'study/js/subject-progress.js' %}?v=1"></script>
   <script src="{% static 'study/js/writing-sujet-progress.js' %}?v=2"></script>
   <script src="{% static 'study/js/comprehension-progress.js' %}?v=1"></script>

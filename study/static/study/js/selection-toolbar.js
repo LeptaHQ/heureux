@@ -37,6 +37,10 @@
   var copyButton = panel.querySelector("[data-translation-copy]");
   var copyLabel = panel.querySelector("[data-translation-copy-label]");
   var copyIcon = panel.querySelector("[data-translation-copy-icon]");
+  var translationNoteButton = panel.querySelector("[data-translation-note]");
+  var translationNoteLabel = panel.querySelector(
+    "[data-translation-note-label]"
+  );
   var fallbackLink = panel.querySelector("[data-translation-fallback]");
   var fallbackLabel = panel.querySelector("[data-translation-fallback-label]");
   var mobileActionQuery = window.matchMedia(
@@ -585,12 +589,20 @@
     return true;
   }
 
+  function resetNoteButton() {
+    if (!translationNoteButton) return;
+    translationNoteButton.classList.add("hidden");
+    translationNoteButton.disabled = false;
+    if (translationNoteLabel) translationNoteLabel.textContent = "Add Note";
+  }
+
   function closePanel() {
     requestNumber += 1;
     panel.classList.add("hidden");
     copyButton.classList.add("hidden");
     copyLabel.textContent = "Copy";
     setSpriteIcon(copyIcon, "copy");
+    resetNoteButton();
   }
 
   function showFallback(message) {
@@ -647,8 +659,30 @@
     resultElement.textContent = translation;
     output.classList.remove("hidden");
     copyButton.classList.remove("hidden");
+    if (translationNoteButton && window.HeureuxNotes) {
+      translationNoteButton.classList.remove("hidden");
+      translationNoteButton.disabled = false;
+    }
     setStatus("Translated locally on this device.", false);
     repositionPanel();
+  }
+
+  function saveTranslationNote() {
+    if (!translationNoteButton || translationNoteButton.disabled) return;
+    var quote = sourceElement.textContent;
+    var body = resultElement.textContent;
+    if (!quote || !body || !window.HeureuxNotes) return;
+    translationNoteButton.disabled = true;
+    if (translationNoteLabel) translationNoteLabel.textContent = "Saving…";
+    window.HeureuxNotes.saveSelectionNote(quote, body)
+      .then(function () {
+        closePanel();
+      })
+      .catch(function (error) {
+        setStatus(error.message, false);
+        translationNoteButton.disabled = false;
+        if (translationNoteLabel) translationNoteLabel.textContent = "Add Note";
+      });
   }
 
   function writeClipboard(text) {
@@ -757,6 +791,7 @@
     resultElement.textContent = "";
     output.classList.add("hidden");
     copyButton.classList.add("hidden");
+    resetNoteButton();
     copyLabel.textContent = "Copy";
     setSpriteIcon(copyIcon, "copy");
     fallbackLink.href = googleTranslateUrl(text);
@@ -807,6 +842,9 @@
       });
   });
 
+  if (translationNoteButton) {
+    translationNoteButton.addEventListener("click", saveTranslationNote);
+  }
   closeButtons.forEach(function (button) {
     button.addEventListener("click", closePanel);
   });

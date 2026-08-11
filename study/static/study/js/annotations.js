@@ -1280,4 +1280,23 @@
   setupAnnotationReading();
   setupStudyDeck();
   fetchHighlights();
+
+  // Lets the translation panel turn a translated passage into a note without
+  // duplicating the selection capture logic that lives in this module.
+  window.HeureuxNotes = {
+    saveSelectionNote: function (quote, body) {
+      var details = currentSelection;
+      if (
+        !details
+        || normalizedContext(details.quote) !== normalizedContext(quote)
+      ) {
+        return Promise.reject(
+          new Error("La sélection n’est plus disponible.")
+        );
+      }
+      return createAnnotation("note", details, body).then(function () {
+        showToast("Note enregistrée.");
+      });
+    }
+  };
 })();

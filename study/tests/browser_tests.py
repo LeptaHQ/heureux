@@ -2283,6 +2283,48 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertGreaterEqual(paste_box["height"], 44)
         self.assert_no_horizontal_overflow()
 
+    def test_translation_panel_saves_the_translation_as_a_note(self):
+        self.context.add_init_script(
+            """
+            window.Translator = {
+              create: () => Promise.resolve({
+                translate: (text) => Promise.resolve("EN: " + text),
+              }),
+            };
+            """
+        )
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        self.page.wait_for_load_state("networkidle")
+        quote = prompt.inner_text()[:12]
+        self.select_prompt(start=0, end=12)
+        self.page.locator("[data-translate-selection]").click()
+
+        panel = self.page.locator("[data-translation-panel]")
+        panel.wait_for()
+        note_button = panel.locator("[data-translation-note]")
+        note_button.wait_for()
+
+        with self.page.expect_response(
+            lambda response: reverse("study:annotation_create") in response.url
+        ) as create_response:
+            note_button.click()
+
+        self.assertEqual(create_response.value.status, 201)
+        panel.wait_for(state="hidden")
+        self.page.get_by_text("Note enregistrée.", exact=True).wait_for()
+        note = Annotation.objects.get(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+        )
+        self.assertEqual(note.quote, quote)
+        self.assertEqual(note.body, "EN: " + quote)
+
     def test_selection_note_paste_and_close_saves_the_pasted_note(self):
         self.context.add_init_script(
             """

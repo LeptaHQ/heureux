@@ -7828,18 +7828,59 @@ html[data-input-mode="pen"] .selection-translate__shortcut { display: none; }
 }
 .translation-panel__actions {
   flex: 0 0 auto;
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.45rem;
-  padding: 0.65rem 0.85rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  align-items: stretch;
+  gap: 0.4rem;
+  padding: 0.6rem 0.7rem;
   border-top: 1px solid var(--border);
   background: var(--surface-2);
 }
 .translation-panel__actions .btn {
+  width: 100%;
+  min-width: 0;
   min-height: 44px;
-  padding: 0.4rem 0.65rem;
-  font-size: 0.76rem;
+  height: 100%;
+  gap: 0.4rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 11px;
+  font-size: 0.8rem;
+  line-height: 1.25;
+  text-align: center;
+  text-wrap: balance;
   touch-action: manipulation;
+}
+.translation-panel__actions .btn:hover {
+  background: color-mix(in srgb, var(--primary-soft) 45%, var(--surface));
+}
+.translation-panel__actions .btn--primary:hover {
+  background: color-mix(in srgb, var(--primary) 88%, black);
+}
+.translation-panel__actions .btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+.translation-panel__actions .btn .ui-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  flex: none;
+}
+.translation-panel__actions .btn__icon-badge {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 1.1rem;
+  margin-left: 0;
+}
+.translation-panel__actions .btn__icon-badge .btn__icon {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+/* Keeps a lone trailing action from sitting in a half-width column. */
+.selection-note-panel .translation-panel__actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.selection-note-panel .translation-panel__actions > :last-child:nth-child(3) {
+  grid-column: 1 / -1;
 }
 .selection-note-panel__field {
   display: grid;
@@ -12529,11 +12570,8 @@ button.ce-choice:focus-visible .ce-choice__radio {
     border-radius: 16px;
   }
   .translation-panel__actions {
-    flex-wrap: wrap;
-  }
-  .translation-panel__actions .btn {
-    flex: 1 1 auto;
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+    padding-bottom: calc(0.6rem + env(safe-area-inset-bottom));
   }
   .auth-page { padding: 1.6rem 0; }
   .auth-panel { padding: 1.3rem; }

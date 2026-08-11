@@ -43,7 +43,8 @@
         },
         {
           "text": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
-          "memory_section": 1
+          "memory_number": 10,
+          "memory_section": 3
         },
         {
           "text": "Est-ce qu'il y a possibilité de faire un cours d'essai avant de s'engager ?"
@@ -75,7 +76,8 @@
         },
         {
           "text": "Elle peut accueillir combien de personnes confortablement ?",
-          "memory_section": 14
+          "memory_number": 2,
+          "memory_section": 7
         },
         {
           "text": "Est-ce qu'elle est entièrement meublée, et quels équipements sont disponibles sur place ?"
@@ -88,8 +90,8 @@
         },
         {
           "text": "Y a-t-il une durée minimale de location ?",
-          "memory_number": 3,
-          "memory_section": 1
+          "memory_number": 2,
+          "memory_section": 6
         },
         {
           "text": "Et côté prix, combien ça coûte pour une semaine ou pour tout le séjour ?"
@@ -105,7 +107,8 @@
         },
         {
           "text": "Est-ce qu'il y a des règles particulières à respecter ?",
-          "memory_section": 17
+          "memory_number": 2,
+          "memory_section": 8
         },
         {
           "text": "Y a-t-il un parking, ou est-ce qu'on peut venir facilement en transports en commun ?"
@@ -125,7 +128,7 @@
         },
         {
           "text": "C'est quel type d'association exactement, et quel est son objectif principal ?",
-          "memory_number": 6,
+          "memory_number": 4,
           "memory_section": 2
         },
         {
@@ -133,7 +136,7 @@
         },
         {
           "text": "Concrètement, quelles sont tes missions au quotidien ?",
-          "memory_number": 6,
+          "memory_number": 4,
           "memory_section": 2
         },
         {
@@ -144,12 +147,12 @@
         },
         {
           "text": "Comment tu as commencé à t'impliquer dans cette association ?",
-          "memory_number": 6,
+          "memory_number": 4,
           "memory_section": 2
         },
         {
           "text": "Qu'est-ce que tu trouves le plus gratifiant dans ce que tu fais ?",
-          "memory_number": 6,
+          "memory_number": 4,
           "memory_section": 2
         },
         {
@@ -169,7 +172,7 @@
         },
         {
           "text": "L'association a-t-elle des projets ou de nouvelles initiatives en cours en ce moment ?",
-          "memory_number": 6,
+          "memory_number": 4,
           "memory_section": 2
         },
         {
@@ -184,63 +187,78 @@
       "questions": [
         {
           "text": "Bonjour ! Je suis ravi(e) de faire ta connaissance — c'est mon premier jour aujourd'hui. Tu travailles ici depuis combien de temps ? Tu connais bien l'entreprise ?",
-          "memory_section": 9
+          "memory_number": 4,
+          "memory_section": 4
         },
         {
           "text": "Comment tu trouves l'ambiance de travail en général ? Les gens sont sympas — c'est facile de s'intégrer ?",
-          "memory_section": 15
+          "memory_number": 4,
+          "memory_section": 10
         },
         {
           "text": "Comment s'organise le travail au quotidien — plutôt en équipe ou de manière individuelle ?",
-          "memory_section": 21
+          "memory_number": 4,
+          "memory_section": 4
         },
         {
           "text": "À quelle heure ça commence le matin — il y a des horaires flexibles ou tout le monde doit arriver à la même heure ?",
-          "memory_section": 2
+          "memory_number": 4,
+          "memory_section": 4
         },
         {
           "text": "Combien de temps dure la pause déjeuner — et c'est à midi pile ou ça peut varier ?",
-          "memory_section": 2
+          "memory_number": 4,
+          "memory_section": 4
         },
         {
           "text": "Où est-ce que les gens mangent généralement le midi ? Il y a une cantine d'entreprise — et si oui, comment ça marche ?",
-          "memory_section": 7
+          "memory_number": 4,
+          "memory_section": 9
         },
         {
           "text": "Parlons du budget — les repas à la cantine, c'est dans quelle gamme de prix ? Et la qualité est bonne ?",
-          "memory_section": 1
+          "memory_number": 4,
+          "memory_section": 3
         },
         {
           "text": "Y a-t-il un espace pour réchauffer son repas si on apporte quelque chose ? Et des restaurants sympas dans les environs ?",
-          "memory_section": 16
+          "memory_number": 4,
+          "memory_section": 9
         },
         {
           "text": "Est-ce qu'il y a des réunions régulières d'équipe ? Ça a lieu à quelle fréquence — et ça dure combien de temps généralement ?",
-          "memory_section": 2
+          "memory_number": 4,
+          "memory_section": 4
         },
         {
           "text": "Comment fonctionne la communication interne — on utilise des emails ou une plateforme spécifique ?",
-          "memory_section": 19
+          "memory_number": 4,
+          "memory_section": 13
         },
         {
           "text": "Combien de personnes travaillent dans notre département ? Et qui est notre responsable direct — comment est-il ou elle en tant que manager ?",
-          "memory_section": 14
+          "memory_number": 4,
+          "memory_section": 7
         },
         {
           "text": "Est-ce que tu pourrais me présenter aux autres membres de l'équipe — surtout ceux avec qui je vais travailler étroitement ?",
-          "memory_section": 19
+          "memory_number": 4,
+          "memory_section": 13
         },
         {
           "text": "Est-ce qu'il y a des possibilités de télétravail ou tout se fait au bureau ?",
-          "memory_section": 21
+          "memory_number": 4,
+          "memory_section": 4
         },
         {
           "text": "Quels sont les avantages dont bénéficient les employés — tickets restaurant, mutuelle, ce genre de choses ?",
-          "memory_section": 1
+          "memory_number": 4,
+          "memory_section": 3
         },
         {
           "text": "Pour finir — qu'est-ce que tu me conseillerais pour bien m'intégrer rapidement dans l'équipe ?",
-          "memory_section": 4
+          "memory_number": 4,
+          "memory_section": 13
         }
       ]
     },

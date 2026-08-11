@@ -95,13 +95,13 @@
         },
         {
           "text": "Est-ce qu'il y a une participation aux frais de mon côté ?",
-          "memory_number": 5,
-          "memory_section": 3
+          "memory_number": 3,
+          "memory_section": 11
         },
         {
           "text": "Comment je peux vous joindre pendant le séjour, en cas de besoin ?",
-          "memory_number": 5,
-          "memory_section": 3
+          "memory_number": 3,
+          "memory_section": 11
         },
         {
           "text": "Et s'il a le mal du pays ou un petit souci, comment on gère ça ?"
@@ -130,7 +130,8 @@
         },
         {
           "text": "Et l'association s'adresse à quel public — uniquement aux adultes, ou aussi aux familles avec enfants ?",
-          "memory_section": 14
+          "memory_number": 3,
+          "memory_section": 7
         },
         {
           "text": "Vous êtes nombreux dans l'association — il y a une bonne équipe de bénévoles ?"
@@ -140,11 +141,13 @@
         },
         {
           "text": "Concrètement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
-          "memory_section": 2
+          "memory_number": 3,
+          "memory_section": 4
         },
         {
           "text": "Et sur une séance, combien de temps faut-il prévoir en général ?",
-          "memory_section": 9
+          "memory_number": 3,
+          "memory_section": 4
         },
         {
           "text": "Où se déroulent les activités — en extérieur, ou cela varie selon les missions ?"
@@ -154,7 +157,8 @@
         },
         {
           "text": "Faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
-          "memory_section": 5
+          "memory_number": 3,
+          "memory_section": 8
         },
         {
           "text": "Y a-t-il des précautions de sécurité à connaître sur le terrain ?"
@@ -164,11 +168,13 @@
         },
         {
           "text": "En cas de question ou de problème pendant une mission, qui puis-je contacter ?",
-          "memory_section": 19
+          "memory_number": 3,
+          "memory_section": 13
         },
         {
           "text": "Pour finir — quelle serait la meilleure façon de commencer si je souhaite vous rejoindre dès cette semaine ?",
-          "memory_section": 4
+          "memory_number": 3,
+          "memory_section": 13
         }
       ]
     },
@@ -200,11 +206,13 @@
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_section": 1
+          "memory_number": 7,
+          "memory_section": 3
         },
         {
           "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
-          "memory_section": 1
+          "memory_number": 7,
+          "memory_section": 3
         },
         {
           "text": "Il y a un guide qui nous accompagne pendant la journée ?"
@@ -236,19 +244,23 @@
         },
         {
           "text": "Où se trouve exactement le musée — est-il facilement accessible en transports en commun ? Y a-t-il un parking à proximité ?",
-          "memory_section": 13
+          "memory_number": 9,
+          "memory_section": 5
         },
         {
           "text": "Quels sont vos horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
-          "memory_section": 2
+          "memory_number": 9,
+          "memory_section": 4
         },
         {
           "text": "Combien de temps faut-il prévoir pour visiter l'ensemble du musée — quelques heures ou toute la journée ?",
-          "memory_section": 9
+          "memory_number": 9,
+          "memory_section": 4
         },
         {
           "text": "Parlons du budget — combien est-ce que ça coûte approximativement ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_section": 1
+          "memory_number": 9,
+          "memory_section": 3
         },
         {
           "text": "Est-ce que c'est gratuit pour les jeunes enfants ?"
@@ -258,33 +270,39 @@
         },
         {
           "text": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
-          "memory_section": 12
+          "memory_number": 9,
+          "memory_section": 2
         },
         {
           "text": "Les expositions temporaires sont incluses dans le billet d'entrée ou faut-il payer un supplément ? Jusqu'à quand seront-elles accessibles ?",
-          "memory_section": 12
+          "memory_number": 9,
+          "memory_section": 2
         },
         {
           "text": "Proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ?",
-          "memory_section": 11
+          "memory_number": 9,
+          "memory_section": 2
         },
         {
           "text": "Il existe un parcours ou un livret spécial pour les enfants ?"
         },
         {
           "text": "Il faut s'inscrire à l'avance pour les visites guidées ou on peut venir librement ?",
-          "memory_section": 3
+          "memory_number": 9,
+          "memory_section": 6
         },
         {
           "text": "On peut manger ou pique-niquer quelque part sur place ?"
         },
         {
           "text": "Y a-t-il une boutique de souvenirs ou une librairie sur place ?",
-          "memory_section": 16
+          "memory_number": 9,
+          "memory_section": 9
         },
         {
           "text": "Pour finir — vous recommandez de commencer la visite par un étage ou une section en particulier ?",
-          "memory_section": 4
+          "memory_number": 9,
+          "memory_section": 13
         }
       ]
     }

@@ -74,7 +74,8 @@
         },
         {
           "text": "Et tes collègues, ils sont comment — ils t'ont bien accueilli(e) ?",
-          "memory_section": 14
+          "memory_number": 4,
+          "memory_section": 7
         },
         {
           "text": "Tu t'entends bien avec ton responsable ?"
@@ -102,8 +103,8 @@
         },
         {
           "text": "Tu penses que tu peux évoluer et apprendre de nouvelles choses là-bas ?",
-          "memory_number": 5,
-          "memory_section": 2
+          "memory_number": 4,
+          "memory_section": 10
         },
         {
           "text": "Avec le recul, c'est ce que tu imaginais ou il y a eu des surprises ?"
@@ -227,28 +228,33 @@
         },
         {
           "text": "Vous connaissez un bon endroit pour fêter ça — un restaurant, une salle à louer ?",
-          "memory_number": 5,
-          "memory_section": 4
+          "memory_number": 11,
+          "memory_section": 13
         },
         {
           "text": "Quels types de cuisine trouve-t-on dans les restaurants du coin ?",
-          "memory_section": 10
+          "memory_number": 11,
+          "memory_section": 2
         },
         {
           "text": "Ça va plutôt dans quelle gamme de prix en général ?",
-          "memory_section": 1
-        },
-        {
-          "text": "Ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
-          "memory_section": 14
-        },
-        {
-          "text": "Faut-il réserver à l'avance, surtout pour un week-end ?",
+          "memory_number": 11,
           "memory_section": 3
         },
         {
+          "text": "Ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
+          "memory_number": 11,
+          "memory_section": 7
+        },
+        {
+          "text": "Faut-il réserver à l'avance, surtout pour un week-end ?",
+          "memory_number": 11,
+          "memory_section": 6
+        },
+        {
           "text": "Certains proposent-ils un menu spécial pour les anniversaires ?",
-          "memory_section": 16
+          "memory_number": 11,
+          "memory_section": 9
         },
         {
           "text": "Si je préfère organiser ça à la maison, vous connaissez un traiteur ou un service de livraison ?"
@@ -261,11 +267,13 @@
         },
         {
           "text": "Y a-t-il des options pour les régimes particuliers ou les allergies ?",
-          "memory_section": 17
+          "memory_number": 11,
+          "memory_section": 8
         },
         {
           "text": "Ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
-          "memory_section": 13
+          "memory_number": 11,
+          "memory_section": 5
         },
         {
           "text": "Pour inviter les gens, comment ça se passe ici — on prévient longtemps à l'avance ?"

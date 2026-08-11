@@ -16,8 +16,8 @@
         },
         {
           "text": "Tu préférerais quel genre de fête — quelque chose d'intime ou une grande soirée ?",
-          "memory_number": 5,
-          "memory_section": 4
+          "memory_number": 11,
+          "memory_section": 13
         },
         {
           "text": "Tu voudrais que ça se passe où — chez toi, chez moi, dans un lieu loué, au restaurant ?"
@@ -39,8 +39,8 @@
         },
         {
           "text": "Il faut prévoir des plats végétariens ou tenir compte d'allergies parmi tes invités ?",
-          "memory_number": 5,
-          "memory_section": 4
+          "memory_number": 11,
+          "memory_section": 13
         },
         {
           "text": "Tu as un gâteau préféré, ou je te fais la surprise ?"
@@ -176,8 +176,8 @@
         },
         {
           "text": "C'est quelqu'un que vous connaissez bien — vous avez déjà fait appel à cette personne ?",
-          "memory_number": 5,
-          "memory_section": 5
+          "memory_number": 3,
+          "memory_section": 11
         },
         {
           "text": "Quelle est son expérience — ça fait longtemps qu'elle garde des enfants ?"
@@ -205,16 +205,16 @@
         },
         {
           "text": "Elle a des références, ou des personnes qui peuvent la recommander ?",
-          "memory_number": 5,
-          "memory_section": 5
+          "memory_number": 3,
+          "memory_section": 11
         },
         {
           "text": "Elle sait réagir en cas de problème — elle a des notions de premiers secours ?"
         },
         {
           "text": "Est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
-          "memory_number": 5,
-          "memory_section": 5
+          "memory_number": 3,
+          "memory_section": 11
         },
         {
           "text": "Vous auriez ses coordonnées pour que je la contacte ?"
@@ -234,38 +234,44 @@
         },
         {
           "text": "Quels sont les plus beaux parcs naturels ou espaces protégés à visiter dans les environs ?",
-          "memory_section": 10
+          "memory_number": 7,
+          "memory_section": 2
         },
         {
           "text": "Y a-t-il des endroits calmes, loin de la foule, pour vraiment se ressourcer ?"
         },
         {
           "text": "Existe-t-il des points de vue panoramiques vraiment impressionnants à ne pas manquer ?",
-          "memory_section": 18
+          "memory_number": 7,
+          "memory_section": 11
         },
         {
           "text": "Vous auriez des idées d'activités relaxantes — une balade, un spa, des thermes ?"
         },
         {
           "text": "Y a-t-il des randonnées que vous recommandez — elles sont accessibles à tous les niveaux ?",
-          "memory_section": 10
+          "memory_number": 7,
+          "memory_section": 2
         },
         {
           "text": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à goûter absolument ? Il faut réserver une table à l'avance ou on peut y aller directement ?",
-          "memory_section": 7
+          "memory_number": 7,
+          "memory_section": 9
         },
         {
           "text": "Où me conseillez-vous de loger pour un week-end paisible ?"
         },
         {
           "text": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
-          "memory_section": 13
+          "memory_number": 7,
+          "memory_section": 5
         },
         {
           "text": "Une fois sur place, tout est accessible à pied, ou il faut prévoir des trajets ?"
         },
         {
           "text": "C'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
+          "memory_number": 7,
           "memory_section": 8
         },
         {
@@ -279,7 +285,8 @@
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose, ce serait laquelle ?",
-          "memory_section": 4
+          "memory_number": 7,
+          "memory_section": 13
         }
       ]
     }

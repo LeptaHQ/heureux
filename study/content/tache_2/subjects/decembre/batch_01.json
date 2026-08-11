@@ -13,7 +13,7 @@
       "questions": [
         {
           "text": "Alors, comment va ta vie en général en ce moment ?",
-          "memory_number": 6,
+          "memory_number": 1,
           "memory_section": 1
         },
         {
@@ -27,7 +27,7 @@
         },
         {
           "text": "Qu'est-ce qui a le plus changé dans ta vie depuis la dernière fois qu'on s'est vus ?",
-          "memory_number": 6,
+          "memory_number": 1,
           "memory_section": 1
         },
         {
@@ -35,12 +35,12 @@
         },
         {
           "text": "Tu as de nouveaux projets ou des plans importants pour les prochains mois ?",
-          "memory_number": 6,
+          "memory_number": 1,
           "memory_section": 1
         },
         {
           "text": "Tu arrives à voir pas mal de monde — comment est ta vie sociale là-bas ?",
-          "memory_number": 6,
+          "memory_number": 1,
           "memory_section": 1
         },
         {
@@ -125,66 +125,78 @@
       "questions": [
         {
           "text": "Ta sœur fête bientôt son anniversaire, et je cherche un cadeau — tu pourrais m'aider à trouver une idée ?",
-          "memory_section": 19
+          "memory_number": 11,
+          "memory_section": 13
         },
         {
           "text": "C'est exactement quand, son anniversaire ?",
-          "memory_section": 2
+          "memory_number": 11,
+          "memory_section": 4
         },
         {
           "text": "Elle va avoir quel âge ?",
-          "memory_section": 2,
-          "memory_number": 3
+          "memory_number": 11,
+          "memory_section": 7
         },
         {
           "text": "Comment est son caractère — plutôt discrète, ou elle aime qu'on lui fasse une surprise ?",
-          "memory_section": 2,
-          "memory_number": 3
+          "memory_number": 11,
+          "memory_section": 7
         },
         {
           "text": "Quels sont ses loisirs ou ses passions en ce moment ?",
-          "memory_section": 2,
-          "memory_number": 3
+          "memory_number": 11,
+          "memory_section": 7
         },
         {
           "text": "Elle préfère plutôt les cadeaux utiles, ou les choses plus originales et amusantes ?",
-          "memory_section": 18
+          "memory_number": 11,
+          "memory_section": 11
         },
         {
           "text": "Elle a un style ou des couleurs qu'elle préfère particulièrement ?",
-          "memory_section": 18
+          "memory_number": 11,
+          "memory_section": 11
         },
         {
           "text": "Il y a des choses qu'elle a déjà, pour éviter de lui offrir la même chose ?",
-          "memory_section": 17
+          "memory_number": 11,
+          "memory_section": 8
         },
         {
           "text": "Tu aurais une idée de budget pour un cadeau qui lui ferait vraiment plaisir ?",
-          "memory_section": 1
-        },
-        {
-          "text": "Vous allez fêter ça comment — une petite soirée, un repas en famille ?",
-          "memory_section": 19
-        },
-        {
-          "text": "Elle préfère plutôt recevoir un objet, ou une expérience comme une sortie ou un atelier ?",
-          "memory_section": 18
-        },
-        {
-          "text": "Tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus ?",
-          "memory_section": 4
-        },
-        {
-          "text": "Ce serait plutôt un cadeau de ma part seul(e), ou on pourrait s'associer à plusieurs ?",
+          "memory_number": 11,
           "memory_section": 3
         },
         {
+          "text": "Vous allez fêter ça comment — une petite soirée, un repas en famille ?",
+          "memory_number": 11,
+          "memory_section": 13
+        },
+        {
+          "text": "Elle préfère plutôt recevoir un objet, ou une expérience comme une sortie ou un atelier ?",
+          "memory_number": 11,
+          "memory_section": 11
+        },
+        {
+          "text": "Tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus ?",
+          "memory_number": 11,
+          "memory_section": 13
+        },
+        {
+          "text": "Ce serait plutôt un cadeau de ma part seul(e), ou on pourrait s'associer à plusieurs ?",
+          "memory_number": 11,
+          "memory_section": 6
+        },
+        {
           "text": "Tu connais un endroit ou un site où je pourrais trouver ce genre de cadeau facilement ?",
-          "memory_section": 16
+          "memory_number": 11,
+          "memory_section": 9
         },
         {
           "text": "Pour finir — parmi toutes ces idées, laquelle lui ferait le plus plaisir selon toi ?",
-          "memory_section": 4
+          "memory_number": 11,
+          "memory_section": 13
         }
       ]
     },
@@ -198,20 +210,21 @@
         },
         {
           "text": "Qu'est-ce que tu as regardé récemment et que tu as vraiment aimé ?",
-          "memory_number": 4,
-          "memory_section": 5
+          "memory_number": 9,
+          "memory_section": 11
         },
         {
           "text": "C'est quel genre — plutôt comédie, thriller, science-fiction, drame ?"
         },
         {
           "text": "De quoi ça parle, sans trop m'en dire pour ne pas gâcher l'histoire ?",
-          "memory_section": 10
+          "memory_number": 9,
+          "memory_section": 2
         },
         {
           "text": "Qui joue dedans — il y a des acteurs que je connaîtrais peut-être ?",
-          "memory_number": 2,
-          "memory_section": 1
+          "memory_number": 9,
+          "memory_section": 11
         },
         {
           "text": "Il y a combien de saisons et d'épisodes — c'est vite fini ou ça dure longtemps ?"
@@ -255,13 +268,13 @@
         },
         {
           "text": "Quelles activités aident le plus à rencontrer des gens quand on vient d'arriver ?",
-          "memory_number": 6,
-          "memory_section": 4
+          "memory_number": 1,
+          "memory_section": 10
         },
         {
           "text": "Il y a des associations pour les nouveaux arrivants ou pour les francophones ?",
-          "memory_number": 6,
-          "memory_section": 4
+          "memory_number": 1,
+          "memory_section": 10
         },
         {
           "text": "Tu connais des clubs de sport où on peut facilement faire des rencontres ?"
@@ -289,12 +302,12 @@
         },
         {
           "text": "Quelle erreur faut-il éviter quand on essaie de rencontrer du monde au Canada ?",
-          "memory_number": 6,
-          "memory_section": 4
+          "memory_number": 1,
+          "memory_section": 10
         },
         {
           "text": "D'après toi, quel type d'activité aide le plus à se faire des amis durables ?",
-          "memory_number": 6,
+          "memory_number": 1,
           "memory_section": 1
         },
         {

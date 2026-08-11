@@ -13,66 +13,78 @@
       "questions": [
         {
           "text": "Alors, tu es allé(e) voir quel film exactement ?",
-          "memory_section": 10
+          "memory_number": 9,
+          "memory_section": 2
         },
         {
           "text": "C'est quel genre de film — plutôt une comédie, un drame, un film d'action ?",
-          "memory_section": 10
+          "memory_number": 9,
+          "memory_section": 2
         },
         {
           "text": "Sans tout me raconter, tu peux me dire un peu de quoi ça parle ?",
-          "memory_section": 10
+          "memory_number": 9,
+          "memory_section": 2
         },
         {
           "text": "Qui sont les acteurs principaux — il y en a que je connaîtrais peut-être ?",
-          "memory_number": 2,
-          "memory_section": 1
+          "memory_number": 9,
+          "memory_section": 11
         },
         {
           "text": "Le film dure combien de temps environ ?",
-          "memory_section": 9
+          "memory_number": 9,
+          "memory_section": 4
         },
         {
           "text": "Ça convient à tout le monde, ou c'est plutôt réservé à un public adulte ?",
-          "memory_section": 3
+          "memory_number": 9,
+          "memory_section": 6
         },
         {
           "text": "Qu'est-ce que tu as le plus aimé dans ce film ?",
-          "memory_number": 2,
-          "memory_section": 2
-        },
-        {
-          "text": "Y a-t-il quelque chose qui t'a déçu(e) ou moins plu ?",
-          "memory_number": 2,
-          "memory_section": 2
-        },
-        {
-          "text": "Il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
+          "memory_number": 9,
           "memory_section": 10
         },
         {
-          "text": "Il y a des séances plutôt en journée ou en soirée, dans les salles près d'ici ?",
+          "text": "Y a-t-il quelque chose qui t'a déçu(e) ou moins plu ?",
+          "memory_number": 9,
+          "memory_section": 10
+        },
+        {
+          "text": "Il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
+          "memory_number": 9,
           "memory_section": 2
         },
         {
+          "text": "Il y a des séances plutôt en journée ou en soirée, dans les salles près d'ici ?",
+          "memory_number": 9,
+          "memory_section": 4
+        },
+        {
           "text": "Ça coûte combien pour une place, à peu près ?",
-          "memory_section": 1
+          "memory_number": 9,
+          "memory_section": 3
         },
         {
           "text": "Il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
-          "memory_section": 3
+          "memory_number": 9,
+          "memory_section": 6
         },
         {
           "text": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
-          "memory_section": 13
+          "memory_number": 9,
+          "memory_section": 5
         },
         {
           "text": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
-          "memory_section": 3
+          "memory_number": 9,
+          "memory_section": 6
         },
         {
           "text": "Pour finir — tu me le recommandes vraiment, ce film ?",
-          "memory_section": 4
+          "memory_number": 9,
+          "memory_section": 13
         }
       ]
     },
@@ -110,12 +122,13 @@
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_section": 1
+          "memory_number": 8,
+          "memory_section": 3
         },
         {
           "text": "Est-ce qu'on peut acheter un carnet de plusieurs entrées pour payer moins cher ?",
-          "memory_number": 4,
-          "memory_section": 2
+          "memory_number": 8,
+          "memory_section": 3
         },
         {
           "text": "Faut-il un bonnet de bain ou un équipement particulier pour être accepté à l'entrée ?"
@@ -141,6 +154,7 @@
         },
         {
           "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "memory_number": 7,
           "memory_section": 8
         },
         {
@@ -157,8 +171,8 @@
         },
         {
           "text": "Il y a des activités d'hiver typiques à essayer, comme le patin ou la luge ?",
-          "memory_number": 4,
-          "memory_section": 4
+          "memory_number": 7,
+          "memory_section": 8
         },
         {
           "text": "Est-ce qu'il y a des événements ou des festivals spéciaux au mois de décembre ?"
@@ -245,64 +259,78 @@
       "questions": [
         {
           "text": "Bonjour ! Je viens d'emménager dans l'immeuble et je ne connais pas encore le quartier — vous pourriez me renseigner un peu ?",
-          "memory_section": 19
+          "memory_number": 3,
+          "memory_section": 13
         },
         {
           "text": "Comment est le quartier en général — plutôt calme et résidentiel ou animé ?",
-          "memory_section": 15
+          "memory_number": 3,
+          "memory_section": 10
         },
         {
           "text": "Est-ce que les voisins se connaissent et s'entraident facilement dans l'immeuble ?",
-          "memory_section": 15
+          "memory_number": 3,
+          "memory_section": 10
         },
         {
           "text": "Pour les enfants, y a-t-il de bonnes écoles et des garderies à proximité ?",
-          "memory_section": 10
+          "memory_number": 3,
+          "memory_section": 2
         },
         {
           "text": "Ces écoles sont-elles accessibles à pied ou faut-il prévoir un transport ?",
-          "memory_section": 13
+          "memory_number": 3,
+          "memory_section": 5
         },
         {
           "text": "Côté commerces, y a-t-il des supermarchés, des marchés ou des magasins de quartier pas trop loin ?",
-          "memory_section": 16
+          "memory_number": 3,
+          "memory_section": 9
         },
         {
           "text": "Pour les courses du quotidien, est-ce que tout est accessible à pied ?",
-          "memory_section": 13
+          "memory_number": 3,
+          "memory_section": 5
         },
         {
           "text": "Quels sont les loisirs disponibles dans le coin — des parcs, des salles de sport, des bibliothèques ?",
-          "memory_section": 10
+          "memory_number": 3,
+          "memory_section": 2
         },
         {
           "text": "Y a-t-il des activités ou des clubs pour rencontrer du monde et se faire des amis ?",
-          "memory_section": 10
+          "memory_number": 3,
+          "memory_section": 2
         },
         {
           "text": "Le quartier est-il bien desservi par les transports en commun ?",
-          "memory_section": 13
+          "memory_number": 3,
+          "memory_section": 5
         },
         {
           "text": "Y a-t-il un parking ou c'est compliqué de se garer dans le quartier ?",
-          "memory_section": 13
+          "memory_number": 3,
+          "memory_section": 5
         },
         {
           "text": "Pour les soins, comment trouver un médecin ou une pharmacie quand on vient d'arriver ?",
-          "memory_section": 16
+          "memory_number": 3,
+          "memory_section": 9
         },
         {
           "text": "Y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
-          "memory_section": 17
+          "memory_number": 3,
+          "memory_section": 8
         },
         {
           "text": "Selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
-          "memory_number": 2,
-          "memory_section": 4
+          "memory_number": 3,
+          "memory_section": 11
         },
         {
           "text": "Pour finir — si vous ne deviez me donner qu'un seul conseil pour bien m'installer ici, ce serait lequel ?",
-          "memory_section": 4
+          "memory_number": 3,
+          "memory_section": 13
         }
       ]
     }

@@ -1,0 +1,230 @@
+{
+  "number": 10,
+  "title": "Mémoire 10 · Arts & loisirs",
+  "label": "Arts & loisirs",
+  "icon": "pen-line",
+  "subtitle": "Des questions naturelles pour se renseigner sur un atelier créatif, un cours artistique, une sortie culturelle ou une exposition.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Ouverture — premiers mots quand on se renseigne",
+      "guidance": "Installer la situation dès le début de l’échange.",
+      "groups": [
+        {
+          "title": "Entrer dans l’échange créatif",
+          "guidance": "Questions d’ouverture pour un atelier, un cours ou un lieu culturel.",
+          "questions": [
+            "Bonjour, je cherche une activité artistique pour progresser sans pression — vous pourriez me présenter ce que vous proposez ?",
+            "Je voudrais reprendre une pratique créative après une longue pause : est-ce que je peux vous poser quelques questions ?",
+            "Je m’intéresse à vos ateliers, mais j’hésite encore entre plusieurs formats — par où me conseillez-vous de commencer ?",
+            "Avant de m’inscrire, j’aimerais comprendre l’esprit du lieu : c’est plutôt initiation, perfectionnement ou loisir libre ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Ce qui est proposé",
+      "guidance": "Faire préciser l’offre, le programme ou les services disponibles.",
+      "groups": [
+        {
+          "title": "Explorer les activités disponibles",
+          "guidance": "Faire détailler les cours, ateliers et visites.",
+          "questions": [
+            "Quels ateliers sont ouverts en ce moment : peinture, poterie, photographie ou autre chose ?",
+            "Pour les cours de musique ou de danse, vous proposez plutôt des séances individuelles ou en petit groupe ?",
+            "Est-ce que le musée organise des visites guidées liées à l’exposition actuelle ?",
+            "La bibliothèque a-t-elle un club de lecture régulier ou seulement des rencontres ponctuelles avec des auteurs ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Tarifs, budget et ce qui est compris",
+      "guidance": "Obtenir un prix clair et repérer les éventuels suppléments.",
+      "groups": [
+        {
+          "title": "Clarifier le prix réel",
+          "guidance": "Budget, matériel inclus et réductions possibles.",
+          "questions": [
+            "Combien coûte une séance d’essai pour l’atelier de poterie, et est-ce que l’argile est incluse ?",
+            "Pour un cours de danse au trimestre, il faut prévoir quel budget au total ?",
+            "Le prix de la visite comprend-il l’entrée de l’exposition temporaire et l’audioguide ?",
+            "Y a-t-il un tarif réduit pour les étudiants, les enfants ou les personnes qui s’inscrivent à plusieurs activités ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Horaires, dates et durée",
+      "guidance": "Situer les créneaux, la fréquence et les délais.",
+      "groups": [
+        {
+          "title": "Situer les créneaux",
+          "guidance": "Dates, fréquence et durée des séances.",
+          "questions": [
+            "Les ateliers de peinture ont lieu quels soirs de la semaine, et combien de temps dure une séance ?",
+            "Pour le cours de musique, est-ce qu’on peut choisir un créneau fixe ou est-ce que l’horaire change selon les semaines ?",
+            "L’exposition reste ouverte jusqu’à quelle date, et faut-il réserver pour le week-end ?",
+            "Le stage créatif pour enfants se déroule sur une journée complète ou seulement le matin ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Lieu, accès et organisation pratique",
+      "guidance": "Comprendre où aller et comment s’organiser sur place.",
+      "groups": [
+        {
+          "title": "Venir et se repérer",
+          "guidance": "Adresse, accès, salles et contraintes sur place.",
+          "questions": [
+            "L’atelier se trouve dans quel bâtiment exactement, et y a-t-il un panneau facile à repérer ?",
+            "Si je viens avec du matériel de dessin un peu encombrant, est-ce qu’il y a un espace pour le déposer ?",
+            "Le musée est-il accessible facilement en transport, surtout le soir après une visite guidée ?",
+            "Pour la bibliothèque, l’entrée du club de lecture se fait par l’accueil principal ou par une salle séparée ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Inscription, réservation et documents",
+      "guidance": "Savoir comment réserver, confirmer ou constituer un dossier.",
+      "groups": [
+        {
+          "title": "Réserver sa place",
+          "guidance": "Inscription, dossier et confirmation.",
+          "questions": [
+            "Comment se passe l’inscription : je remplis un formulaire en ligne ou je viens directement à l’accueil ?",
+            "Est-ce qu’il faut verser un acompte pour bloquer une place dans le cours de cuisine ?",
+            "Pour inscrire un enfant au stage créatif, quels renseignements devez-vous avoir avant le premier jour ?",
+            "Après la réservation, est-ce que je reçois une confirmation avec la liste du matériel à apporter ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Profil, besoins et niveau personnel",
+      "guidance": "Donner son contexte pour obtenir une réponse adaptée.",
+      "groups": [
+        {
+          "title": "Adapter à son profil",
+          "guidance": "Niveau, âge et objectifs personnels.",
+          "questions": [
+            "Je suis débutant complet en poterie : est-ce que le cours reste accessible ou faut-il déjà connaître les bases ?",
+            "Pour la danse, vous acceptez les adultes qui n’ont jamais suivi de cours auparavant ?",
+            "Je voudrais apprendre à mieux composer mes photos plutôt qu’à acheter du matériel compliqué : est-ce que ça correspond à votre atelier ?",
+            "Mon enfant aime bricoler mais se décourage vite : le stage est-il assez encadré pour ce type de profil ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Préparation, matériel et règles",
+      "guidance": "Anticiper ce qu’il faut apporter, respecter ou éviter.",
+      "groups": [
+        {
+          "title": "Prévoir ce qu’il faut",
+          "guidance": "Tenue, matériel, règles et consignes.",
+          "questions": [
+            "Faut-il venir avec ses propres pinceaux, ou bien tout le matériel artistique est fourni sur place ?",
+            "Pour le cours de cuisine, est-ce qu’on doit apporter un tablier, des boîtes ou des ingrédients particuliers ?",
+            "Dans l’atelier de poterie, y a-t-il des consignes de sécurité avec le four ou les outils ?",
+            "Pour photographier dans le musée, est-ce que les appareils et les trépieds sont autorisés ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Services complémentaires autour de l’activité",
+      "guidance": "Repérer les options utiles avant, pendant ou après.",
+      "groups": [
+        {
+          "title": "Compléments utiles",
+          "guidance": "Bibliothèque, boutique, prêt de matériel et pauses.",
+          "questions": [
+            "Est-ce qu’on peut emprunter des livres d’art ou des partitions après les ateliers ?",
+            "Avez-vous une boutique où acheter du papier, de la terre ou quelques fournitures de dépannage ?",
+            "Entre deux séances, est-il possible d’accéder à une salle pour s’entraîner ou terminer un projet ?",
+            "Pendant le stage des enfants, est-ce qu’une pause goûter ou un temps calme est prévu ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Ambiance et expérience attendue",
+      "guidance": "Évaluer l’atmosphère, le public et le déroulement réel.",
+      "groups": [
+        {
+          "title": "Sentir l’atmosphère",
+          "guidance": "Public, rythme et relation au groupe.",
+          "questions": [
+            "L’ambiance des ateliers est-elle plutôt conviviale et détendue, ou plus exigeante techniquement ?",
+            "Dans les cours de musique, est-ce qu’on joue parfois devant les autres ou chacun travaille vraiment de son côté ?",
+            "Le club de lecture laisse-t-il la place aux avis personnels, même quand on n’a pas tout compris du livre ?",
+            "Lors de l’exposition des travaux, les participants présentent-ils leurs créations au public ou c’est plus informel ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Conseils, comparaison et recommandation",
+      "guidance": "Demander un avis pratique à quelqu’un qui connaît.",
+      "groups": [
+        {
+          "title": "Choisir la bonne option",
+          "guidance": "Comparer les formules et demander une recommandation.",
+          "questions": [
+            "Entre peinture et poterie, quelle activité conseillez-vous à quelqu’un qui veut surtout se détendre après le travail ?",
+            "Pour progresser rapidement en photographie, vaut-il mieux suivre un atelier court ou un cycle de plusieurs semaines ?",
+            "Si je veux rencontrer du monde, le cours de danse est-il plus adapté qu’un cours individuel de musique ?",
+            "D’après vous, quelle formule donne le meilleur équilibre entre apprentissage technique et plaisir créatif ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Imprévus, changements et annulation",
+      "guidance": "Prévoir les reports, empêchements ou modifications.",
+      "groups": [
+        {
+          "title": "Gérer les empêchements",
+          "guidance": "Absence, report, remboursement ou changement.",
+          "questions": [
+            "Si je manque une séance de peinture, est-ce que je peux la rattraper dans un autre groupe ?",
+            "Que se passe-t-il si un cours de cuisine est annulé faute de participants ?",
+            "Pour une visite guidée déjà réservée, peut-on changer de date sans perdre son billet ?",
+            "Si mon enfant tombe malade pendant le stage créatif, y a-t-il une solution de report ou un remboursement partiel ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Suite de l’échange et suivi",
+      "guidance": "Clore proprement et savoir comment reprendre contact.",
+      "groups": [
+        {
+          "title": "Finaliser et rester en lien",
+          "guidance": "Coordonnées, prochaines étapes et suivi.",
+          "questions": [
+            "À qui puis-je écrire si j’ai une question sur le matériel avant la première séance ?",
+            "Est-ce que vous envoyez le programme des prochains ateliers par courriel ou via une newsletter ?",
+            "Après l’exposition des travaux, peut-on récupérer ses créations tout de suite ou à une date précise ?",
+            "Pour résumer, je réserve la séance d’essai aujourd’hui et je vous confirme ensuite l’inscription complète, c’est bien ça ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

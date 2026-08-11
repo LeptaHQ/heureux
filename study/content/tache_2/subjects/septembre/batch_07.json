@@ -77,7 +77,8 @@
         },
         {
           "text": "Et tes collègues, ils sont comment — ils t'ont bien accueilli(e) ?",
-          "memory_section": 14
+          "memory_number": 4,
+          "memory_section": 7
         },
         {
           "text": "Il y a une bonne ambiance dans l'équipe ?"
@@ -203,6 +204,7 @@
         },
         {
           "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "memory_number": 7,
           "memory_section": 8
         },
         {

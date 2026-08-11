@@ -1,0 +1,230 @@
+{
+  "number": 8,
+  "title": "Mémoire 8 · Sport & plein air",
+  "label": "Sport & plein air",
+  "icon": "sun",
+  "subtitle": "Des questions naturelles pour s'informer sur une activité sportive, une sortie en plein air, un club, un stage ou du matériel.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Ouverture — entrer dans le sujet sportif",
+      "guidance": "Lancer l'échange en expliquant qu'on cherche une activité adaptée.",
+      "groups": [
+        {
+          "title": "Se présenter et cadrer la demande",
+          "guidance": "À utiliser au début d'un échange avec un club, une salle, une piscine ou un organisateur.",
+          "questions": [
+            "Bonjour, je cherche une activité sportive régulière, mais je ne sais pas encore quelle formule choisir — vous pouvez me renseigner ?",
+            "Je voudrais reprendre le sport sans me blesser ni me décourager ; par quoi est-ce que vous conseillez de commencer ?",
+            "Je viens surtout pour me faire une idée de vos activités en plein air — est-ce que vous pouvez m'expliquer le fonctionnement ?",
+            "Avant de m'inscrire, j'aimerais comprendre ce qui conviendrait à mon niveau et à mon emploi du temps."
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Activités proposées et formules sportives",
+      "guidance": "Faire préciser l'offre : salle, club, cours, stages, sorties.",
+      "groups": [
+        {
+          "title": "Découvrir les options disponibles",
+          "guidance": "Quand l'interlocuteur présente plusieurs activités ou niveaux.",
+          "questions": [
+            "Quelles activités proposez-vous en ce moment, entre les cours collectifs, la salle libre et les sorties encadrées ?",
+            "Est-ce qu'il y a des séances pour débutants complets, ou faut-il déjà avoir une certaine pratique ?",
+            "Votre association organise plutôt des entraînements réguliers ou aussi des sorties ponctuelles le week-end ?",
+            "Pour un enfant qui veut essayer plusieurs sports, vous avez une formule découverte ou un stage pendant les vacances ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Tarifs, abonnements et frais annexes",
+      "guidance": "Clarifier le coût réel d'une adhésion ou d'une sortie.",
+      "groups": [
+        {
+          "title": "Parler budget sans rester vague",
+          "guidance": "Utile pour une salle de sport, un club, un stage ou une location de matériel.",
+          "questions": [
+            "Côté tarif, l'abonnement comprend seulement l'accès aux installations ou aussi les cours avec un coach ?",
+            "Si je viens une fois par semaine, est-ce qu'une carte de séances revient moins cher qu'un abonnement annuel ?",
+            "Pour la randonnée ou le ski, il faut prévoir des frais supplémentaires pour le transport, l'assurance ou la location ?",
+            "Est-ce qu'il existe un tarif réduit pour les étudiants, les familles ou les enfants inscrits en stage ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Horaires, fréquence et durée des séances",
+      "guidance": "Situer les créneaux, la durée et les délais d'inscription.",
+      "groups": [
+        {
+          "title": "Organiser son agenda sportif",
+          "guidance": "À poser dès qu'une séance, un cours ou une sortie dépend d'un horaire précis.",
+          "questions": [
+            "Les cours collectifs ont lieu à quels moments de la journée — plutôt tôt le matin, le midi ou en soirée ?",
+            "Une séance dure combien de temps en général, échauffement et retour au calme compris ?",
+            "Pour la piscine, il y a des horaires réservés aux nageurs ou aux familles ?",
+            "Jusqu'à quand peut-on s'inscrire pour la sortie de dimanche, et est-ce qu'il reste encore des places ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Lieu, accès et conditions sur place",
+      "guidance": "Demander où ça se passe et comment s'y rendre concrètement.",
+      "groups": [
+        {
+          "title": "Venir au bon endroit",
+          "guidance": "Pour une salle, un stade, une piscine, un départ de randonnée ou une station de ski.",
+          "questions": [
+            "Le rendez-vous se fait directement au gymnase ou il y a un point de départ séparé pour le groupe ?",
+            "Est-ce que le site est accessible en transport en commun, ou vaut-il mieux venir en voiture ?",
+            "Pour une sortie vélo, vous partez d'où exactement et le parcours revient au même endroit ?",
+            "Sur place, est-ce qu'il y a des vestiaires, des douches et un endroit sûr pour laisser ses affaires ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Inscription, dossier et certificat médical",
+      "guidance": "Lister les documents nécessaires et les étapes administratives.",
+      "groups": [
+        {
+          "title": "Préparer son inscription sportive",
+          "guidance": "Le cœur des échanges avec un club, une association ou un stage pour enfants.",
+          "questions": [
+            "Pour finaliser l'inscription, quels documents faut-il fournir en plus de la fiche d'adhésion ?",
+            "Le certificat médical est-il obligatoire pour toutes les activités ou seulement pour la compétition ?",
+            "Est-ce qu'on peut faire une séance d'essai avant de déposer le dossier complet ?",
+            "Pour inscrire un enfant au stage sportif, vous demandez une autorisation parentale ou une attestation d'assurance ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Niveau, objectifs et contraintes personnelles",
+      "guidance": "Adapter l'activité au profil de la personne qui pose les questions.",
+      "groups": [
+        {
+          "title": "Expliquer son profil sportif",
+          "guidance": "Quand il faut préciser son niveau, sa santé ou ses attentes.",
+          "questions": [
+            "Je n'ai pas fait de sport depuis longtemps : est-ce que ce groupe risque d'être trop intense pour moi ?",
+            "Si mon objectif est surtout de me remettre en forme, quelle activité serait la plus progressive ?",
+            "Est-ce que vos sorties conviennent aussi aux personnes qui ont le vertige ou qui manquent d'endurance ?",
+            "Pour un adolescent déjà assez sportif, quel niveau ou quel créneau recommanderiez-vous ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Équipement, sécurité et règles à respecter",
+      "guidance": "Anticiper le matériel, les consignes et les précautions.",
+      "groups": [
+        {
+          "title": "Être prêt le jour de l'activité",
+          "guidance": "Particulièrement utile pour ski, vélo, randonnée, piscine ou compétition.",
+          "questions": [
+            "Quel équipement faut-il apporter absolument, et qu'est-ce qui peut être prêté ou loué sur place ?",
+            "Pour la sortie en pleine nature, vous recommandez quelles chaussures et quel type de vêtements ?",
+            "Y a-t-il des consignes de sécurité particulières à respecter avant de partir en randonnée ou à vélo ?",
+            "Pour participer à la compétition, le casque, la licence ou un dossard sont-ils obligatoires ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Services autour de l'activité",
+      "guidance": "Repérer les services utiles avant ou après la séance.",
+      "groups": [
+        {
+          "title": "Ce qui facilite l'organisation",
+          "guidance": "À utiliser quand la sortie implique repas, transport, location ou accompagnement.",
+          "questions": [
+            "Est-ce qu'il y a un service de location de matériel si je n'ai pas encore mes propres skis ou mon vélo ?",
+            "Après l'entraînement, est-ce qu'on peut rester boire quelque chose ou manger rapidement sur place ?",
+            "Pour les enfants, prévoyez-vous une prise en charge entre les activités ou les parents doivent-ils rester ?",
+            "En cas de mauvais temps, avez-vous une solution de repli en intérieur ou la séance est simplement annulée ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Ambiance du groupe et intégration",
+      "guidance": "Évaluer l'esprit du club ou de la sortie.",
+      "groups": [
+        {
+          "title": "Se sentir à l'aise avec les autres",
+          "guidance": "Quand l'activité est aussi un moyen de rencontrer du monde.",
+          "questions": [
+            "L'ambiance est plutôt compétitive ou plutôt conviviale pour les nouveaux inscrits ?",
+            "Est-ce que les débutants sont vraiment accompagnés, ou est-ce qu'on se retrouve vite livré à soi-même ?",
+            "Dans les cours collectifs, le coach corrige chacun individuellement ou il anime surtout le groupe ?",
+            "Pour les sorties du week-end, les participants se connaissent déjà tous ou les nouveaux sont facilement intégrés ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Conseil d'expert et choix entre options",
+      "guidance": "Demander une recommandation personnalisée et comparer.",
+      "groups": [
+        {
+          "title": "Choisir la meilleure formule",
+          "guidance": "À utiliser quand plusieurs activités semblent possibles.",
+          "questions": [
+            "Entre la musculation guidée et les cours collectifs, qu'est-ce qui serait le plus adapté pour reprendre doucement ?",
+            "Pour progresser en natation, vaut-il mieux prendre quelques cours particuliers ou rejoindre un groupe régulier ?",
+            "Si vous deviez conseiller une première randonnée dans le secteur, laquelle choisiriez-vous pour éviter une sortie trop difficile ?",
+            "D'après vous, vaut-il mieux acheter son matériel tout de suite ou louer pendant quelques semaines pour tester ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Imprévus, annulation et météo",
+      "guidance": "Prévoir les changements de programme et les empêchements.",
+      "groups": [
+        {
+          "title": "Savoir quoi faire si ça change",
+          "guidance": "Indispensable pour les activités dépendantes de la météo ou d'une réservation.",
+          "questions": [
+            "Si je me blesse ou si je tombe malade, est-ce que je peux reporter mes séances restantes ?",
+            "Pour une activité en extérieur, à partir de quelles conditions météo décidez-vous d'annuler ?",
+            "Si la sortie est annulée par l'organisateur, est-ce qu'on est remboursé ou inscrit automatiquement à une autre date ?",
+            "Que se passe-t-il si j'arrive en retard au départ d'une randonnée ou d'une compétition ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Contact, suivi et prochaine étape",
+      "guidance": "Clore l'échange en organisant la suite.",
+      "groups": [
+        {
+          "title": "Repartir avec une action claire",
+          "guidance": "Idéal pour conclure une conversation de Tâche 2.",
+          "questions": [
+            "Qui dois-je contacter si j'ai une question sur mon dossier ou sur le matériel à apporter ?",
+            "Est-ce que vous envoyez un récapitulatif par mail avec les horaires, l'adresse et la liste d'équipement ?",
+            "Après la séance d'essai, comment est-ce que je confirme mon inscription si je veux continuer ?",
+            "Je résume pour être sûr : je réserve ma place aujourd'hui, j'apporte le certificat médical, et vous me confirmez le groupe par courriel ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

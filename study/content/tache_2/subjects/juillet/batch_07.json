@@ -16,26 +16,31 @@
         },
         {
           "text": "Quels types de transports sont disponibles ici — bus, métro, tramway ?",
-          "memory_section": 10
+          "memory_number": 6,
+          "memory_section": 2
         },
         {
           "text": "Est-ce que le réseau couvre toute la ville ou seulement certaines zones ?",
-          "memory_section": 13
+          "memory_number": 6,
+          "memory_section": 5
         },
         {
           "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
-          "memory_section": 1
+          "memory_number": 6,
+          "memory_section": 3
         },
         {
           "text": "Quel abonnement vous me conseilleriez si je prends les transports tous les jours ?"
         },
         {
           "text": "Où peut-on acheter les tickets ou les abonnements — en ligne, à une borne ou auprès d'un agent ?",
-          "memory_section": 3
+          "memory_number": 6,
+          "memory_section": 6
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_section": 1
+          "memory_number": 6,
+          "memory_section": 3
         },
         {
           "text": "Un ticket est-il valable pour plusieurs types de transport lors d'un même trajet ?"
@@ -45,11 +50,13 @@
         },
         {
           "text": "Le réseau fonctionne-t-il chaque jour de la semaine — les horaires changent-ils le week-end ?",
-          "memory_section": 2
+          "memory_number": 6,
+          "memory_section": 4
         },
         {
           "text": "Y a-t-il une application pour suivre les transports en temps réel ?",
-          "memory_section": 16
+          "memory_number": 6,
+          "memory_section": 9
         },
         {
           "text": "Comment ça se passe si on doit changer de ligne plusieurs fois pour un trajet ?"
@@ -59,6 +66,7 @@
         },
         {
           "text": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "memory_number": 6,
           "memory_section": 8
         },
         {
@@ -103,19 +111,23 @@
         },
         {
           "text": "Tu en demandes combien ?",
-          "memory_section": 1
+          "memory_number": 6,
+          "memory_section": 3
         },
         {
           "text": "Ce prix est négociable, ou c'est un montant fixe ?",
-          "memory_section": 1
+          "memory_number": 6,
+          "memory_section": 3
         },
         {
           "text": "Est-ce que je pourrais l'essayer avant de me décider ?",
-          "memory_section": 1
+          "memory_number": 6,
+          "memory_section": 3
         },
         {
           "text": "Pour le paiement, tu préférerais un virement, ou autre chose ?",
-          "memory_section": 1
+          "memory_number": 6,
+          "memory_section": 3
         },
         {
           "text": "Pour finir — tu penses le vendre rapidement, ou j'ai encore un peu de temps pour me décider ?"
@@ -129,18 +141,18 @@
       "questions": [
         {
           "text": "Salut ! Tu m'as dit que tu faisais du ski de fond — ça me tente d'essayer, tu peux m'en parler ?",
-          "memory_number": 4,
+          "memory_number": 8,
           "memory_section": 1
         },
         {
           "text": "C'est difficile pour un débutant, ou ça s'apprend assez vite ?",
-          "memory_number": 4,
-          "memory_section": 3
+          "memory_number": 8,
+          "memory_section": 6
         },
         {
           "text": "Il faut prendre des cours au début, ou tu peux me montrer les bases ?",
-          "memory_number": 4,
-          "memory_section": 3
+          "memory_number": 8,
+          "memory_section": 6
         },
         {
           "text": "Où est-ce qu'on peut pratiquer près d'ici — il y a des pistes adaptées aux débutants ?"
@@ -150,8 +162,8 @@
         },
         {
           "text": "Il vaut mieux acheter le matériel ou on peut le louer pour commencer ?",
-          "memory_number": 4,
-          "memory_section": 3
+          "memory_number": 8,
+          "memory_section": 6
         },
         {
           "text": "Combien ça coûte à peu près, l'équipement complet ?"
@@ -173,13 +185,13 @@
         },
         {
           "text": "Quelle est la meilleure période pour s'y mettre dans la saison ?",
-          "memory_number": 4,
-          "memory_section": 4
+          "memory_number": 8,
+          "memory_section": 8
         },
         {
           "text": "Il y a des précautions de sécurité à connaître avant de se lancer ?",
-          "memory_number": 4,
-          "memory_section": 3
+          "memory_number": 8,
+          "memory_section": 6
         },
         {
           "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien débuter, ce serait lequel ?"
@@ -202,13 +214,13 @@
         },
         {
           "text": "S'il fait beau, qu'est-ce que tu me conseilles comme activités en plein air ?",
-          "memory_number": 4,
-          "memory_section": 4
+          "memory_number": 3,
+          "memory_section": 8
         },
         {
           "text": "Et s'il pleut, tu aurais des idées d'activités en intérieur ?",
-          "memory_number": 4,
-          "memory_section": 4
+          "memory_number": 3,
+          "memory_section": 8
         },
         {
           "text": "Quels jeux de société ou jeux d'intérieur je pourrais prévoir à la maison ?"
@@ -249,7 +261,7 @@
       "questions": [
         {
           "text": "Bonjour ! Je viens d'arriver au Canada et j'aurais besoin de quelques renseignements pour m'installer — pouvez-vous m'aider ?",
-          "memory_number": 4,
+          "memory_number": 1,
           "memory_section": 1
         },
         {

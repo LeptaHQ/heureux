@@ -1,0 +1,230 @@
+{
+  "number": 9,
+  "title": "Mémoire 9 · Sorties & spectacles",
+  "label": "Sorties & spectacles",
+  "icon": "theater",
+  "subtitle": "Des questions prêtes à l'emploi pour organiser une sortie culturelle, réserver des billets et comprendre la programmation.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Ouverture — proposer ou préparer une sortie",
+      "guidance": "Commencer l'échange en situant le type de sortie recherchée.",
+      "groups": [
+        {
+          "title": "Entrer dans la conversation",
+          "guidance": "À utiliser avec une billetterie, un théâtre, un cinéma, un restaurant ou un ami.",
+          "questions": [
+            "Bonjour, j'aimerais organiser une sortie ce week-end, mais je ne sais pas encore quel spectacle choisir — vous pouvez me conseiller ?",
+            "Je cherche quelque chose de sympa à faire en soirée, plutôt culturel mais pas trop formel ; qu'est-ce que vous proposez ?",
+            "Avant de réserver, j'aurais besoin de comprendre la programmation et les horaires disponibles.",
+            "On vient à plusieurs et les goûts sont assez différents, donc j'aimerais trouver une sortie qui plaise au groupe."
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Programmation et types de spectacles",
+      "guidance": "Faire décrire l'offre : théâtre, concert, cinéma, festival, jeunesse.",
+      "groups": [
+        {
+          "title": "Explorer ce qui est à l'affiche",
+          "guidance": "Quand l'interlocuteur connaît la saison culturelle ou les séances.",
+          "questions": [
+            "Qu'est-ce qui est à l'affiche cette semaine entre théâtre, concerts et séances de cinéma ?",
+            "Le festival propose plutôt des spectacles en plein air, des projections ou des concerts en salle ?",
+            "Est-ce qu'il y a une pièce accessible à quelqu'un qui ne va pas souvent au théâtre ?",
+            "Pour des enfants, vous avez un spectacle vraiment adapté à leur âge, pas seulement présenté comme familial ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Prix, billets et abonnements culturels",
+      "guidance": "Clarifier le budget d'une sortie et les réductions possibles.",
+      "groups": [
+        {
+          "title": "Comprendre les tarifs",
+          "guidance": "Utile pour une billetterie, un abonnement, un festival ou une sortie entre amis.",
+          "questions": [
+            "Les places commencent à quel prix, et qu'est-ce qui explique la différence entre les catégories ?",
+            "Est-ce qu'il y a des tarifs réduits pour les jeunes, les demandeurs d'emploi ou les groupes ?",
+            "L'abonnement culturel donne accès à tous les spectacles ou seulement à une sélection de dates ?",
+            "Si on ajoute le restaurant avant le spectacle, quel budget raisonnable faut-il prévoir par personne ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Horaires, durée et séances disponibles",
+      "guidance": "Situer les heures de début, de fin et les créneaux.",
+      "groups": [
+        {
+          "title": "Caler la sortie dans l'agenda",
+          "guidance": "À poser pour cinéma, théâtre, concert, festival ou soirée.",
+          "questions": [
+            "La séance commence à quelle heure exactement, et il faut arriver combien de temps avant ?",
+            "Le spectacle dure environ combien de temps, avec ou sans entracte ?",
+            "Pour le film, vous avez plusieurs horaires dans la journée ou seulement une séance en soirée ?",
+            "Le concert finit vers quelle heure, parce qu'on doit vérifier les derniers transports pour rentrer ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Lieu, accès et placement dans la salle",
+      "guidance": "Demander où se déroule la sortie et comment sont attribuées les places.",
+      "groups": [
+        {
+          "title": "Arriver et bien s'installer",
+          "guidance": "Pour théâtre, cinéma, festival, restaurant ou salle de concert.",
+          "questions": [
+            "La salle se trouve où précisément, et l'entrée du public est-elle facile à repérer ?",
+            "Est-ce qu'on choisit son siège au moment de la réservation ou le placement est libre ?",
+            "Les places au balcon permettent-elles de bien voir la scène, ou vaut-il mieux être en parterre ?",
+            "Il y a un parking ou un arrêt de métro proche pour éviter d'arriver stressé au dernier moment ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Réservation, billetterie et justificatifs",
+      "guidance": "Lister les étapes pour réserver et récupérer les billets.",
+      "groups": [
+        {
+          "title": "Finaliser la réservation",
+          "guidance": "Le cœur des échanges avec une billetterie ou un organisateur.",
+          "questions": [
+            "Est-ce qu'il faut réserver en ligne obligatoirement ou peut-on acheter les billets sur place ?",
+            "Après le paiement, les billets sont envoyés par mail ou il faut les retirer au guichet ?",
+            "Si je bénéficie d'un tarif réduit, quel justificatif dois-je présenter à l'entrée ?",
+            "Pour un groupe d'amis, est-ce qu'une seule personne peut récupérer toutes les places ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Public, goûts et contraintes du groupe",
+      "guidance": "Adapter la sortie à l'âge, aux envies et aux besoins des participants.",
+      "groups": [
+        {
+          "title": "Préciser ce qui conviendrait",
+          "guidance": "Quand le choix dépend du profil du public.",
+          "questions": [
+            "Nous serons avec deux enfants assez jeunes : est-ce que le spectacle risque d'être trop long pour eux ?",
+            "Si certains ne comprennent pas très bien le français, quel type de sortie serait le plus accessible ?",
+            "Pour une première sortie entre collègues, vous recommanderiez quelque chose de plutôt animé ou plus calme ?",
+            "Est-ce que ce concert convient à quelqu'un qui n'aime pas les salles trop bruyantes ou trop serrées ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Règles, arrivée et choses à prévoir",
+      "guidance": "Anticiper les consignes d'entrée et le déroulement pratique.",
+      "groups": [
+        {
+          "title": "Éviter les mauvaises surprises",
+          "guidance": "À poser avant une séance, un festival, une soirée ou un spectacle pour enfants.",
+          "questions": [
+            "Est-ce qu'il y a des contrôles à l'entrée ou des objets qu'on n'a pas le droit d'apporter ?",
+            "Si on arrive après le début, est-ce qu'on peut encore entrer dans la salle ?",
+            "Pour le festival, faut-il prévoir une tenue particulière, de quoi s'asseoir ou une protection contre la pluie ?",
+            "Les enfants doivent-ils rester accompagnés pendant tout le spectacle, même s'il y a une animation prévue ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Services autour de la sortie",
+      "guidance": "Repérer restauration, vestiaire, bar, accueil et services pratiques.",
+      "groups": [
+        {
+          "title": "Compléter l'expérience",
+          "guidance": "Pour transformer un billet en vraie soirée organisée.",
+          "questions": [
+            "Est-ce qu'il y a un bar ou un espace où l'on peut prendre quelque chose avant la représentation ?",
+            "Le vestiaire est-il inclus dans le billet ou faut-il prévoir de la monnaie ?",
+            "Vous connaissez un restaurant proche où l'on peut dîner sans être trop loin de la salle ?",
+            "Pendant le festival, y a-t-il des stands de restauration ou faut-il sortir du site pour manger ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Ambiance et expérience attendue",
+      "guidance": "Comprendre le ton de la sortie et l'atmosphère du lieu.",
+      "groups": [
+        {
+          "title": "Se projeter dans la soirée",
+          "guidance": "Quand il faut savoir si la sortie correspond à l'humeur du moment.",
+          "questions": [
+            "L'ambiance de la salle est plutôt décontractée ou assez traditionnelle ?",
+            "Le spectacle est plutôt drôle, émouvant, expérimental, ou difficile à classer ?",
+            "Pour une soirée entre amis, est-ce que le public participe beaucoup ou reste plutôt assis à écouter ?",
+            "Le restaurant après la séance accepte-t-il les groupes qui veulent rester discuter un peu tard ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Conseil et choix entre plusieurs sorties",
+      "guidance": "Demander une recommandation argumentée.",
+      "groups": [
+        {
+          "title": "Se faire guider dans le choix",
+          "guidance": "À utiliser quand plusieurs spectacles ou horaires sont possibles.",
+          "questions": [
+            "Entre la pièce de théâtre et le concert, qu'est-ce que vous choisiriez pour une sortie vraiment mémorable ?",
+            "Si on hésite entre deux séances, y en a-t-il une qui attire moins de monde et permet d'être mieux placé ?",
+            "Pour découvrir ce festival pour la première fois, quel événement ne faudrait-il pas manquer ?",
+            "D'après les retours du public, quel spectacle fonctionne le mieux en ce moment ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Annulation, retard et changement de programme",
+      "guidance": "Prévoir les imprévus avant de payer ou de se déplacer.",
+      "groups": [
+        {
+          "title": "Gérer ce qui ne se passe pas comme prévu",
+          "guidance": "Important pour les billets datés, les soirées et les festivals.",
+          "questions": [
+            "Si l'un de nous ne peut finalement pas venir, est-ce que le billet est échangeable ou remboursable ?",
+            "En cas d'annulation du spectacle, comment les spectateurs sont-ils prévenus ?",
+            "Peut-on changer de séance si on s'est trompé d'horaire au moment de la réservation ?",
+            "Si le restaurant prend du retard, est-ce qu'on risque de perdre nos places en arrivant juste avant le début ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Contact, confirmation et suite de la soirée",
+      "guidance": "Conclure avec les informations pratiques et le suivi.",
+      "groups": [
+        {
+          "title": "Terminer avec un plan clair",
+          "guidance": "Idéal pour clore proprement un échange de Tâche 2.",
+          "questions": [
+            "Qui peut-on joindre le jour même si on a un problème avec les billets ou l'accès à la salle ?",
+            "Est-ce que je reçois une confirmation avec l'adresse, l'horaire et les conditions d'entrée ?",
+            "Après la représentation, y a-t-il une rencontre avec les artistes ou une discussion prévue avec le public ?",
+            "Je récapitule : je réserve quatre places côte à côte, j'arrive trente minutes avant, et je présente les billets sur téléphone, c'est bien cela ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

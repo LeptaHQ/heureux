@@ -1,86 +1,227 @@
 {
   "number": 6,
-  "title": "Mémoire 6",
-  "label": "Questions de vie sociale",
-  "icon": "hand-wave",
-  "subtitle": "Vingt-cinq formulations stables pour naviguer la vie sociale : reprendre des nouvelles, explorer l'engagement associatif, découvrir un lieu, s'intégrer en tant que nouvel arrivant et confirmer sa participation.",
+  "title": "Mémoire 6 · Transports & mobilité",
+  "label": "Transports & mobilité",
+  "icon": "arrow-left-right",
+  "subtitle": "Les formulations à réutiliser quand le sujet porte sur les déplacements, les abonnements, les correspondances, les retards ou les solutions de mobilité.",
   "sections": [
     {
       "number": 1,
-      "title": "Prendre des nouvelles — vie, projets et liens sociaux",
+      "title": "Ouverture — expliquer son besoin de déplacement",
+      "guidance": "Entrer dans l'échange en précisant le trajet, la situation et l'objectif.",
       "groups": [
         {
-          "guidance": "Pour reprendre contact après une absence et faire le point sur la vie quotidienne d'un proche, ses changements, ses projets et sa vie sociale. Q5 invite une réflexion générale sur ce qui crée des liens durables — une question de sagesse sociale valable hors de tout contexte d'arrivée précis.",
+          "title": "Présenter son trajet",
+          "guidance": "Pour lancer la discussion avec un guichet, une agence de mobilité ou un loueur.",
           "questions": [
-            "Alors, comment va ta vie en général en ce moment ?",
-            "Qu'est-ce qui a le plus changé dans ta vie depuis la dernière fois qu'on s'est vus ?",
-            "Tu as de nouveaux projets ou des plans importants pour les prochains mois ?",
-            "Tu arrives à voir pas mal de monde — comment est ta vie sociale là-bas ?",
-            "D'après toi, quel type d'activité aide le plus à se faire des amis durables ?"
+            "Bonjour, je dois me déplacer régulièrement dans la région et j'aimerais comprendre les options les plus pratiques — vous pouvez m'aider ?",
+            "Je ne connais pas encore très bien le réseau, donc je voudrais partir sur une solution simple pour mes trajets quotidiens.",
+            "Avant de choisir un abonnement ou un billet, est-ce que vous pouvez me poser les bonnes questions pour cerner mon besoin ?",
+            "Je cherche surtout à éviter les mauvaises surprises pendant mes déplacements — par quoi est-ce qu'on commence ?"
           ]
         }
       ]
     },
     {
       "number": 2,
-      "title": "Vie associative — missions, engagement et impact",
+      "title": "Offres de mobilité et services disponibles",
+      "guidance": "Faire détailler les abonnements, cartes, titres, locations ou services complémentaires.",
       "groups": [
         {
-          "guidance": "Pour explorer le travail bénévole ou salarié d'un ami dans une association : type d'organisation, missions concrètes, raisons de l'engagement, satisfaction et projets en cours.",
+          "title": "Comprendre ce qui est proposé",
+          "guidance": "Quand plusieurs formules de transport sont possibles.",
           "questions": [
-            "C'est quel type d'association exactement, et quel est son objectif principal ?",
-            "Concrètement, quelles sont tes missions au quotidien ?",
-            "Comment tu as commencé à t'impliquer dans cette association ?",
-            "Qu'est-ce que tu trouves le plus gratifiant dans ce que tu fais ?",
-            "L'association a-t-elle des projets ou de nouvelles initiatives en cours en ce moment ?"
+            "Quelles formules vous proposez pour quelqu'un qui prend les transports presque tous les jours ?",
+            "Est-ce qu'il existe une carte qui regroupe bus, tram et train régional, ou il faut acheter des titres séparés ?",
+            "Pour une utilisation ponctuelle, vous conseillez plutôt des tickets à l'unité, un carnet ou une carte rechargeable ?",
+            "Au-delà des transports en commun, est-ce que vous avez aussi des solutions de vélo, de voiture partagée ou de covoiturage ?"
           ]
         }
       ]
     },
     {
       "number": 3,
-      "title": "Découvrir une destination — lieux, quartiers et expériences",
+      "title": "Tarifs, abonnements et réductions",
+      "guidance": "Demander le coût réel et les conditions financières.",
       "groups": [
         {
-          "guidance": "Pour obtenir des recommandations de découverte d'une ville ou d'une destination : sites emblématiques, quartiers vivants, gastronomie locale, endroits confidentiels et impressions personnelles. Q1–Q3 s'utilisent en registre vous (office de tourisme ou professionnel) ; Q4–Q5 s'utilisent en registre tu (guide local, ami ou interlocuteur de confiance).",
+          "title": "Évaluer le budget mobilité",
+          "guidance": "Utile pour comparer abonnement, billets et location.",
           "questions": [
-            "Quels sont les monuments ou lieux emblématiques à ne pas manquer en priorité ?",
-            "Quels quartiers typiques ou animés conseillez-vous de visiter pour se promener et profiter de l'ambiance ?",
-            "Y a-t-il des restaurants que vous recommandez pour découvrir les spécialités locales ?",
-            "Il y a des endroits plus confidentiels que les touristes ratent souvent ?",
-            "Qu'est-ce qui t'a le plus surpris dans ce pays ?"
+            "Quel budget mensuel il faut prévoir pour un abonnement qui couvre mes trajets habituels ?",
+            "Le prix inclut toutes les correspondances, ou certaines zones sont facturées en supplément ?",
+            "Est-ce qu'il y a des réductions pour les étudiants, les demandeurs d'emploi ou les familles ?",
+            "Si je loue un vélo ou une voiture, quels frais peuvent s'ajouter au tarif annoncé ?"
           ]
         }
       ]
     },
     {
       "number": 4,
-      "title": "S'intégrer — rencontres, adaptation et culture locale",
+      "title": "Horaires, fréquence et délais",
+      "guidance": "Préciser les heures de passage, la durée des trajets et les périodes chargées.",
       "groups": [
         {
-          "guidance": "Pour accompagner l'intégration d'un nouvel arrivant : trouver des activités sociales, identifier les associations utiles, éviter les erreurs courantes et comprendre les pratiques culturelles locales. Q1–Q3 s'adressent en registre tu (collègue ou ami) ; Q4–Q5 s'utilisent en registre vous (enquête, entretien ou contexte formel). Q1 porte sur les types d'activités pour rencontrer des gens à l'arrivée ; S1 Q5 porte sur la qualité des liens durables dans une conversation de rattrapage — deux angles distincts qui ne se répètent pas.",
+          "title": "Choisir le bon moment pour partir",
+          "guidance": "Pour éviter les attentes inutiles et organiser son agenda.",
           "questions": [
-            "Quelles activités aident le plus à rencontrer des gens quand on vient d'arriver ?",
-            "Il y a des associations pour les nouveaux arrivants ou pour les francophones ?",
-            "Quelle erreur faut-il éviter quand on essaie de rencontrer du monde au Canada ?",
-            "Quelles habitudes ou quelles coutumes canadiennes vous ont le plus surpris(e) depuis votre arrivée ?",
-            "Comment faites-vous pour rencontrer des gens et vous faire des amis ici ?"
+            "À quelle fréquence passent les bus ou les trams sur cette ligne aux heures de pointe ?",
+            "Pour arriver vers huit heures et demie, à quelle heure est-ce que je devrais partir au plus tard ?",
+            "Les horaires changent beaucoup le soir, le dimanche ou pendant les vacances scolaires ?",
+            "En cas de demande de carte ou d'abonnement, il faut compter combien de temps avant de pouvoir l'utiliser ?"
           ]
         }
       ]
     },
     {
       "number": 5,
-      "title": "Confirmer un séjour ou une sortie — règles, annulation et organisation",
+      "title": "Itinéraires, correspondances et accès",
+      "guidance": "Faire préciser le chemin, les changements et l'accessibilité.",
       "groups": [
         {
-          "guidance": "Pour clarifier les modalités pratiques avant de confirmer une réservation ou une sortie : règles du lieu, conditions d'annulation, logistique d'arrivée, partage des frais et point de rendez-vous. Q1–Q3 s'utilisent en registre vous (réservation professionnelle, camping ou hébergement) ; Q4–Q5 s'utilisent en registre tu (sortie entre amis, club ou activité de groupe).",
+          "title": "Se repérer sur le réseau",
+          "guidance": "Quand le trajet comporte des stations, des quais ou des correspondances.",
           "questions": [
-            "Quelles sont les règles à respecter — il y a des horaires de silence le soir ?",
-            "Et en cas d'imprévu, quelles sont vos conditions d'annulation ?",
-            "Pour finir — comment se passe l'arrivée sur place, et à partir de quelle heure peut-on s'installer ?",
-            "Il y a une participation aux frais, ou tu t'occupes de tout ?",
-            "On se retrouve où pour partir — directement sur place ou il faut prévoir du transport ?"
+            "Quel itinéraire vous me recommandez pour aller là-bas avec le moins de correspondances possible ?",
+            "La correspondance se fait sur le même quai ou il faut sortir de la station et marcher un peu ?",
+            "Si je voyage avec une poussette ou une valise, est-ce que les stations sont accessibles facilement ?",
+            "Vous pouvez m'indiquer l'arrêt le plus proche et le meilleur côté de la rue pour ne pas me tromper ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Cartes, justificatifs et démarches",
+      "guidance": "Lister les pièces nécessaires pour acheter, renouveler ou louer.",
+      "groups": [
+        {
+          "title": "Préparer son dossier transport",
+          "guidance": "Pour les abonnements, le permis, la location ou les cartes nominatives.",
+          "questions": [
+            "Quels documents il faut fournir pour créer une carte de transport à mon nom ?",
+            "Pour louer une voiture, mon permis étranger suffit ou vous demandez une traduction officielle ?",
+            "Est-ce que je peux faire la demande d'abonnement en ligne, ou le passage au guichet est obligatoire ?",
+            "Si ma carte est perdue ou démagnétisée, quelle procédure je dois suivre pour la remplacer ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Situation personnelle et contraintes de trajet",
+      "guidance": "Adapter le conseil au rythme, au profil et aux besoins précis.",
+      "groups": [
+        {
+          "title": "Décrire son usage réel",
+          "guidance": "Quand l'interlocuteur doit choisir entre plusieurs solutions.",
+          "questions": [
+            "Je travaille en horaires décalés : est-ce que cette formule reste adaptée si je rentre tard le soir ?",
+            "Je fais parfois le trajet avec un enfant, donc est-ce qu'il y a des règles particulières pour les accompagnants ?",
+            "Si je me déplace surtout deux ou trois jours par semaine, l'abonnement reste intéressant ou pas vraiment ?",
+            "J'ai besoin d'une solution fiable pour un rendez-vous médical régulier : qu'est-ce que vous me conseilleriez ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Règles, sécurité et préparation du trajet",
+      "guidance": "Vérifier les obligations, les limites et les précautions.",
+      "groups": [
+        {
+          "title": "Éviter les erreurs et les amendes",
+          "guidance": "Pour valider son titre, conduire, stationner ou utiliser un vélo en libre-service.",
+          "questions": [
+            "Est-ce qu'il faut valider le ticket à chaque montée, même quand on fait simplement une correspondance ?",
+            "Pour le vélo en libre-service, quelles sont les règles à respecter pour éviter des frais supplémentaires ?",
+            "En voiture de location, qu'est-ce que je dois vérifier avant de prendre la route ?",
+            "Y a-t-il des zones où le stationnement ou la circulation sont limités à certaines heures ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Services autour du trajet",
+      "guidance": "Repérer parkings, stations, bornes, consignes et points d'information.",
+      "groups": [
+        {
+          "title": "Trouver les services utiles",
+          "guidance": "Pour combiner plusieurs modes de transport sans stress.",
+          "questions": [
+            "Est-ce qu'il y a un parking relais près de la station pour laisser la voiture et continuer en tram ?",
+            "Où se trouvent les bornes pour recharger la carte ou récupérer un vélo en libre-service ?",
+            "À la gare, est-ce qu'il existe une consigne pour déposer une valise entre deux trains ?",
+            "Si j'ai un problème sur le trajet, il y a un point d'accueil ou un agent facilement joignable ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Confort, ambiance et expérience de voyage",
+      "guidance": "Parler de fréquentation, confort, accessibilité et ressenti.",
+      "groups": [
+        {
+          "title": "Savoir à quoi s'attendre",
+          "guidance": "Quand le choix dépend aussi du confort et de la tranquillité.",
+          "questions": [
+            "Cette ligne est souvent bondée, ou on peut généralement voyager dans des conditions correctes ?",
+            "Pour un trajet longue distance en train, est-ce qu'il vaut mieux réserver une place précise ?",
+            "Le covoiturage est-il assez fréquent sur cet axe pour compter dessus régulièrement ?",
+            "Les personnes à mobilité réduite sont-elles bien accompagnées sur ce réseau, notamment en cas de changement ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Comparaison et recommandation",
+      "guidance": "Demander un avis pour choisir entre plusieurs options de mobilité.",
+      "groups": [
+        {
+          "title": "Choisir la solution la plus adaptée",
+          "guidance": "Pour conclure après avoir obtenu les informations principales.",
+          "questions": [
+            "Entre l'abonnement mensuel et les tickets rechargeables, quelle option serait la plus rentable dans mon cas ?",
+            "Vous me conseilleriez plutôt le train ou le covoiturage pour ce trajet longue distance ?",
+            "Si la priorité est la fiabilité, quel mode de transport fonctionne le mieux selon vous ?",
+            "Pour quelqu'un qui débute dans la ville, quelle solution est la plus simple à prendre en main ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Retards, perturbations et imprévus",
+      "guidance": "Anticiper les grèves, annulations, embouteillages et changements de plan.",
+      "groups": [
+        {
+          "title": "Prévoir un plan B",
+          "guidance": "Quand le déplacement doit rester possible malgré un incident.",
+          "questions": [
+            "En cas de grève ou de ligne interrompue, comment est-ce que je suis prévenu rapidement ?",
+            "Si mon train longue distance est très en retard, est-ce que je peux demander un remboursement ou une compensation ?",
+            "Que se passe-t-il si je rends la voiture de location avec du retard à cause d'un embouteillage ?",
+            "S'il n'y a plus de vélo disponible à la station prévue, est-ce que l'application propose une alternative fiable ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Suivi, contacts et confirmation",
+      "guidance": "Finir l'échange en vérifiant les prochaines étapes et les moyens de contact.",
+      "groups": [
+        {
+          "title": "Organiser la suite",
+          "guidance": "Pour repartir avec les bonnes informations et un interlocuteur clair.",
+          "questions": [
+            "Pour confirmer mon abonnement ou ma réservation, est-ce que je reçois un courriel récapitulatif ?",
+            "Quel numéro ou quelle application je dois utiliser si j'ai une urgence pendant le trajet ?",
+            "Est-ce que je peux modifier mon dossier plus tard si mon adresse ou mon trajet habituel change ?",
+            "Donc, si je comprends bien, je crée la carte en ligne aujourd'hui et je l'active au premier passage, c'est bien ça ?"
           ]
         }
       ]

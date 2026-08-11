@@ -1,86 +1,227 @@
 {
   "number": 5,
-  "title": "Mémoire 5",
-  "label": "Questions relationnelles",
-  "icon": "users",
-  "subtitle": "Une cinquième banque de formulations stables à mémoriser et à adapter pour les moments-clés de la Tâche 2 qui engagent la relation à l'autre — prendre des nouvelles, s'adapter, décider, organiser un moment collectif, faire confiance.",
+  "title": "Mémoire 5 · École & études",
+  "label": "École & études",
+  "icon": "graduation-cap",
+  "subtitle": "Les formulations à réutiliser dès qu'un sujet parle d'inscription, de cours, d'examens et de vie scolaire ou universitaire.",
   "sections": [
     {
       "number": 1,
-      "title": "Prendre des nouvelles après un coup dur",
+      "title": "Ouverture — premiers mots dans un cadre d'études",
+      "guidance": "Se présenter comme élève, parent ou étudiant et lancer la demande.",
       "groups": [
         {
-          "guidance": "Quand un proche vient de vivre un accident, une hospitalisation, un deuil ou un imprévu difficile : ouvrir la conversation, écouter, proposer son aide et clore avec soin.",
+          "title": "Introduire sa démarche scolaire",
+          "guidance": "Pour commencer devant un secrétariat, un professeur ou un responsable.",
           "questions": [
-            "Comment c'est arrivé — tu peux me raconter ce qui s'est passé ?",
-            "Ce n'est rien de trop grave, j'espère — tu vas pouvoir te remettre vite ?",
-            "Est-ce que je peux t'aider avec quelque chose — les courses, des démarches ?",
-            "Ça va te retarder dans tes projets ou ton travail ?",
-            "En tout cas, prends soin de toi — n'hésite pas à m'appeler si tu as besoin de quoi que ce soit, d'accord ?"
+            "Bonjour, je souhaite m'inscrire dans votre établissement et j'aurais besoin de renseignements avant de déposer mon dossier.",
+            "Je vous appelle au sujet des cours de langue, parce que je ne sais pas encore quel niveau choisir.",
+            "Je suis parent d'un élève nouvellement arrivé, donc j'aimerais comprendre comment l'école fonctionne.",
+            "Avant de prendre une décision, est-ce que vous pouvez me présenter brièvement votre formation ?"
           ]
         }
       ]
     },
     {
       "number": 2,
-      "title": "S'installer, s'adapter, tirer les leçons d'un changement",
+      "title": "Ce qui est proposé aux élèves et étudiants",
+      "guidance": "Faire décrire les cours, options, sorties, soutien ou services universitaires.",
       "groups": [
         {
-          "guidance": "Pour interroger quelqu'un qui a récemment changé de ville, de pays, de poste ou de vie sur son expérience d'installation, ses obstacles et son évolution.",
+          "title": "Découvrir l'offre pédagogique",
+          "guidance": "Quand l'interlocuteur évoque un programme, un service ou une activité.",
           "questions": [
-            "Comment s'est passée ton adaptation au début — c'était difficile ?",
-            "Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
-            "Combien de temps il t'a fallu pour te sentir vraiment chez toi ?",
-            "Qu'est-ce qui a le plus changé dans ton mode de vie par rapport à avant ?",
-            "Tu penses que tu peux évoluer et apprendre de nouvelles choses là-bas ?"
+            "Quels types de cours sont proposés aux étudiants qui veulent progresser rapidement ?",
+            "Le soutien scolaire concerne seulement les matières principales ou aussi la méthode de travail ?",
+            "Les sorties scolaires font partie du programme obligatoire ou ce sont des activités facultatives ?",
+            "Dans la vie étudiante, quels services sont vraiment utiles quand on arrive pour la première fois ?"
           ]
         }
       ]
     },
     {
       "number": 3,
-      "title": "Évaluer une proposition avant de s'engager",
+      "title": "Frais d'inscription, cantine et matériel",
+      "guidance": "Chiffrer les coûts : scolarité, repas, livres, fournitures, activités.",
       "groups": [
         {
-          "guidance": "Quand on vous propose quelque chose qui engage (poste, garde, invitation, mission) : ne pas répondre à chaud, cadrer les modalités, se donner le temps de décider.",
+          "title": "Prévoir le budget des études",
+          "guidance": "Pour éviter les surprises financières au moment de l'inscription.",
           "questions": [
-            "Bonjour ! Vous me proposez de garder votre animal pendant vos vacances — avant de vous répondre, j'aimerais bien savoir de quel animal il s'agit ?",
-            "De combien de temps je dispose pour donner ma réponse ?",
-            "Est-ce que je peux avoir tous ces éléments par écrit pour bien réfléchir avant de décider ?",
-            "Est-ce qu'il y a une participation aux frais de mon côté ?",
-            "Comment je peux vous joindre pendant le séjour, en cas de besoin ?"
+            "Quels sont les frais d'inscription à prévoir pour l'année complète ?",
+            "Le prix de la cantine se paie au repas, au mois ou au trimestre ?",
+            "Les manuels et le matériel sont fournis par l'établissement ou achetés par les familles ?",
+            "Pour une sortie scolaire, est-ce qu'il existe une aide si le coût est trop élevé ?"
           ]
         }
       ]
     },
     {
       "number": 4,
-      "title": "Cadrer un événement ou une célébration",
+      "title": "Calendrier, emploi du temps et délais",
+      "guidance": "Situer horaires de cours, dates d'inscription, examens et réunions.",
       "groups": [
         {
-          "guidance": "Pour préciser les paramètres d'une fête, d'un anniversaire ou d'une réception — à adapter selon que l'on interroge l'organisateur, l'invité d'honneur ou une personne connaissant les usages locaux.",
+          "title": "Organiser son année scolaire",
+          "guidance": "À utiliser dès qu'il faut planifier des cours ou des démarches.",
           "questions": [
-            "Tu préférerais quel genre de fête — quelque chose d'intime ou une grande soirée ?",
-            "Vous connaissez un bon endroit pour fêter ça — un restaurant, une salle à louer ?",
-            "Qui est invité — seulement les collègues, ou aussi la famille et les amis ?",
-            "Est-ce qu'on doit apporter quelque chose — un plat, une boisson ?",
-            "Il faut prévoir des plats végétariens ou tenir compte d'allergies parmi tes invités ?"
+            "À partir de quelle date les inscriptions sont-elles ouvertes pour la prochaine rentrée ?",
+            "L'emploi du temps est-il fixe toute l'année ou peut-il changer selon les semaines ?",
+            "Les examens ont lieu plutôt en fin de semestre ou tout au long de la formation ?",
+            "La réunion parents-professeurs est prévue en soirée pour que les parents puissent venir ?"
           ]
         }
       ]
     },
     {
       "number": 5,
-      "title": "Faire confiance à une personne recommandée",
+      "title": "Lieu, accès et organisation sur place",
+      "guidance": "Se repérer dans l'école, le campus, la cantine ou les salles de cours.",
       "groups": [
         {
-          "guidance": "Pour se renseigner via un tiers avant de faire appel à un professionnel qu'on ne connaît pas : garde d'enfants, professeur particulier, aide à domicile, artisan.",
+          "title": "Trouver les bons espaces",
+          "guidance": "Quand on ne connaît pas encore les bâtiments ou les trajets.",
           "questions": [
-            "C'est quelqu'un que vous connaissez bien — vous avez déjà fait appel à cette personne ?",
-            "Il ou elle est comment comme professeur — plutôt patient et pédagogue ?",
-            "Elle a des références, ou des personnes qui peuvent la recommander ?",
-            "Est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
-            "Vous auriez ses coordonnées pour que je le ou la contacte ?"
+            "Où se trouve exactement le secrétariat des inscriptions dans le bâtiment ?",
+            "Les cours de langue ont lieu sur le campus principal ou dans une annexe ?",
+            "La cantine est-elle accessible aux étudiants externes ou seulement aux élèves inscrits à l'année ?",
+            "Pour accompagner mon enfant le premier jour, est-ce qu'il y a un point d'accueil à l'entrée ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Dossier d'inscription et justificatifs",
+      "guidance": "Lister les pièces nécessaires et comprendre la procédure administrative.",
+      "groups": [
+        {
+          "title": "Constituer son dossier scolaire",
+          "guidance": "Pour inscription, changement d'établissement, cantine ou examen.",
+          "questions": [
+            "Quels justificatifs faut-il fournir pour finaliser l'inscription ?",
+            "Est-ce que les bulletins de l'année précédente sont obligatoires dans le dossier ?",
+            "Pour s'inscrire à la cantine, faut-il remplir un formulaire séparé ?",
+            "Si mon diplôme vient de l'étranger, comment dois-je le faire reconnaître par votre établissement ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Votre niveau, vos besoins et votre projet",
+      "guidance": "Adapter les réponses au profil : élève, parent, étudiant étranger, candidat à un diplôme.",
+      "groups": [
+        {
+          "title": "Expliquer sa situation d'apprentissage",
+          "guidance": "Quand le niveau ou l'objectif détermine le choix du cours.",
+          "questions": [
+            "Avec mon niveau actuel, est-ce que je dois commencer par un groupe intermédiaire ou avancé ?",
+            "Mon enfant a surtout des difficultés en mathématiques : quel type de soutien serait le plus adapté ?",
+            "Je travaille à côté de mes études, donc existe-t-il un parcours compatible avec un emploi du temps chargé ?",
+            "Si mon objectif est d'obtenir un diplôme reconnu, quelle formation me conseilleriez-vous ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Préparation, règles et matériel à prévoir",
+      "guidance": "Anticiper les fournitures, règlements, devoirs, examens et sorties.",
+      "groups": [
+        {
+          "title": "Venir prêt en classe",
+          "guidance": "À poser avant le début des cours ou une activité particulière.",
+          "questions": [
+            "Y a-t-il une liste précise de fournitures à acheter avant la rentrée ?",
+            "Pour les examens, quelles règles faut-il absolument respecter le jour de l'épreuve ?",
+            "Les devoirs se rendent sur papier ou directement sur une plateforme en ligne ?",
+            "Pour une sortie scolaire, que doivent prévoir les élèves dans leur sac ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Services pratiques autour des études",
+      "guidance": "Repérer bibliothèque, tutorat, restauration, logement, santé et activités.",
+      "groups": [
+        {
+          "title": "Utiliser les ressources de l'établissement",
+          "guidance": "Utile pour améliorer le quotidien scolaire ou étudiant.",
+          "questions": [
+            "La bibliothèque reste-t-elle ouverte après les cours pour travailler au calme ?",
+            "Existe-t-il un tutorat entre étudiants pour préparer les examens ?",
+            "Le service de vie étudiante peut-il aider à trouver un logement ou une activité ?",
+            "Si un élève a un problème de santé pendant la journée, qui doit-on contacter ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Ambiance de classe et vie étudiante",
+      "guidance": "Parler d'intégration, de relations avec les professeurs et de participation.",
+      "groups": [
+        {
+          "title": "S'intégrer dans le groupe",
+          "guidance": "Quand l'environnement humain compte pour réussir ses études.",
+          "questions": [
+            "Comment est l'ambiance dans les groupes de cours, plutôt studieuse ou assez détendue ?",
+            "Les nouveaux élèves sont-ils aidés pour s'intégrer dans la classe ?",
+            "Les professeurs sont-ils facilement disponibles quand on n'a pas compris une leçon ?",
+            "Dans la vie étudiante, y a-t-il des associations qui organisent régulièrement des rencontres ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Le conseil d'un enseignant ou d'un responsable",
+      "guidance": "Demander une recommandation personnalisée et comparer les options.",
+      "groups": [
+        {
+          "title": "Choisir le bon parcours",
+          "guidance": "Pour conclure avec un avis professionnel ou pédagogique.",
+          "questions": [
+            "Selon vous, quelle option conviendrait le mieux à un étudiant qui hésite encore ?",
+            "Pour progresser en français, vaut-il mieux prendre un cours intensif ou avancer plus progressivement ?",
+            "Si vous étiez à la place des parents, quel point vérifieriez-vous avant l'inscription ?",
+            "Pour réussir l'examen, quelle habitude de travail fait vraiment la différence ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Si l'année scolaire ne se passe pas comme prévu",
+      "guidance": "Prévoir absence, changement de groupe, examen raté, sortie annulée ou difficulté scolaire.",
+      "groups": [
+        {
+          "title": "Trouver une solution en cas d'imprévu",
+          "guidance": "Quand une démarche ou un apprentissage peut être perturbé.",
+          "questions": [
+            "Si je manque un cours important, comment puis-je récupérer le contenu ?",
+            "Est-il possible de changer de groupe si le niveau choisi ne me convient pas ?",
+            "Que se passe-t-il si un élève ne peut pas participer à la sortie scolaire ?",
+            "En cas d'échec à l'examen, peut-on se réinscrire rapidement à une autre session ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Garder le contact et suivre sa scolarité",
+      "guidance": "Organiser la suite : secrétariat, professeur, plateforme et rendez-vous.",
+      "groups": [
+        {
+          "title": "Clore l'échange avec une suite claire",
+          "guidance": "Idéal pour finir une Tâche 2 scolaire ou universitaire.",
+          "questions": [
+            "Qui dois-je contacter si j'ai une question après l'inscription ?",
+            "Est-ce que les notes et les absences sont consultables sur une plateforme en ligne ?",
+            "Pour rencontrer un professeur, faut-il prendre rendez-vous ou venir pendant une permanence ?",
+            "Je résume pour vérifier : j'envoie le dossier cette semaine, puis vous confirmez mon inscription par courriel, c'est bien ça ?"
           ]
         }
       ]

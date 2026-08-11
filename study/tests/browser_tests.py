@@ -660,14 +660,14 @@ class BrowserTests(StaticLiveServerTestCase):
             user=self.user,
             task=Task.objects.get(part__slug="eo", slug="tache-2"),
             kind=AnnotationKind.HIGHLIGHT,
-            quote="il",
+            quote="personne",
             source_path=memory_path,
             source_key="question-bank:part-01",
             start_offset=0,
-            end_offset=2,
-            prefix="Ancienne interface · Y a-t-",
+            end_offset=8,
+            prefix="Ancienne interface · je ne connais encore ",
             suffix=(
-                "des tarifs réduits pour les étudiants "
+                " — est-ce que vous pouvez m'orienter "
                 "ancienne interface"
             ),
         )
@@ -676,15 +676,15 @@ class BrowserTests(StaticLiveServerTestCase):
             task=highlight.task,
             kind=AnnotationKind.HIGHLIGHT,
             quote=(
-                "familles ?   03   "
-                "Est-ce qu'on peut essayer"
+                "commencer ?   03   "
+                "C'est la première fois"
             ),
             source_path=memory_path,
             source_key="question-bank:part-01",
             start_offset=0,
-            end_offset=42,
-            prefix="Ancienne interface · les seniors ou les ",
-            suffix=" avant de s'engager ancienne interface",
+            end_offset=41,
+            prefix="Ancienne interface · est-ce qu'il vaut mieux ",
+            suffix=" que je pousse la porte ancienne interface",
         )
         part_url = (
             self.live_server_url
@@ -734,7 +734,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertLessEqual(guide_style["barHeight"], 10)
         self.assertEqual(
             guide_progress.locator(".deck__progress-copy").inner_text(),
-            "0/190 apprises · 0/348 sujets terminés",
+            "0/572 apprises · 0/348 sujets terminés",
         )
 
         self.page.goto(overview_url)
@@ -840,7 +840,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(table_toggle.get_attribute("aria-pressed"), "true")
         self.assertTrue(table_header.is_visible())
         memory_entry = self.page.locator(".memory-entry")
-        self.assertEqual(memory_entry.count(), 6)
+        self.assertEqual(memory_entry.count(), 11)
         memory_entry = memory_entry.first
         self.assertEqual(
             len(
@@ -912,7 +912,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.wait_for_url(memory_url)
         self.page.get_by_role(
             "heading",
-            name="Mémoire 1",
+            name="Mémoire 1 · Arrivée & installation",
             exact=True,
         ).wait_for()
         task_nav = self.page.locator(".task-nav--memories")
@@ -924,15 +924,15 @@ class BrowserTests(StaticLiveServerTestCase):
 
         sections = self.page.locator("[data-question-bank-section]")
         questions = self.page.locator("[data-question-bank-question]")
-        self.assertEqual(sections.count(), 21)
-        self.assertEqual(questions.count(), 65)
+        self.assertEqual(sections.count(), 13)
+        self.assertEqual(questions.count(), 52)
         saved_mark = self.page.locator(
             f'[data-highlight-id="{highlight.pk}"]'
         )
         saved_mark.wait_for()
-        self.assertEqual(saved_mark.inner_text(), "il")
+        self.assertEqual(saved_mark.inner_text(), "personne")
         self.assertIn(
-            "Y a-t-il des tarifs réduits",
+            "je ne connais encore personne",
             saved_mark.locator(
                 "xpath=ancestor::*[@data-question-bank-question]"
             ).inner_text(),
@@ -944,7 +944,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertGreater(spanning_marks.count(), 1)
         spanning_text = " ".join(spanning_marks.all_inner_texts())
         self.assertIn(
-            "familles ? 03 Est-ce qu'on peut essayer",
+            "commencer ? 03 C'est la première fois",
             " ".join(spanning_text.split()),
         )
         structural_marks = self.page.locator(
@@ -991,7 +991,7 @@ class BrowserTests(StaticLiveServerTestCase):
         first_checkbox = first_question.get_by_role("checkbox")
         self.assertEqual(first_checkbox.get_attribute("aria-checked"), "false")
         self.assertIn(
-            "Comment fonctionnent les tarifs",
+            "je viens d'arriver dans la ville",
             first_checkbox.get_attribute("aria-label"),
         )
         self.assertNotEqual(
@@ -1003,7 +1003,7 @@ class BrowserTests(StaticLiveServerTestCase):
         first_checkbox.click()
         self.page.get_by_role(
             "heading",
-            name="1 sur 65 questions apprises",
+            name="1 sur 52 questions apprises",
             exact=True,
         ).wait_for()
         self.assertTrue(
@@ -1027,7 +1027,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(first_checkbox.get_attribute("aria-checked"), "true")
         self.page.get_by_role(
             "heading",
-            name="1 sur 65 questions apprises",
+            name="1 sur 52 questions apprises",
             exact=True,
         ).wait_for()
 
@@ -1116,7 +1116,7 @@ class BrowserTests(StaticLiveServerTestCase):
             memory_panel.locator(
                 ".tache-two-progress-summary__copy > span:last-child"
             ).inner_text(),
-            "1/190 questions apprises",
+            "1/572 questions apprises",
         )
         self.assertTrue(
             "progress-status--active"
@@ -1626,7 +1626,10 @@ class BrowserTests(StaticLiveServerTestCase):
             )
         )
         first_link = self.page.locator(".question-bank-index nav a").first
-        first_link.get_by_text("Tarifs", exact=True).wait_for()
+        first_link.get_by_text(
+            "Ouverture — premiers mots quand on vient d'arriver",
+            exact=True,
+        ).wait_for()
 
         label_size = first_link.locator("strong").evaluate(
             "element => parseFloat(getComputedStyle(element).fontSize)"

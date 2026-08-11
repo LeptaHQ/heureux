@@ -43,13 +43,13 @@
         },
         {
           "text": "Comment faites-vous pour rencontrer des gens et vous faire des amis ici ?",
-          "memory_number": 6,
-          "memory_section": 4
+          "memory_number": 5,
+          "memory_section": 10
         },
         {
           "text": "Quelles habitudes ou quelles coutumes canadiennes vous ont le plus surpris(e) depuis votre arrivée ?",
-          "memory_number": 6,
-          "memory_section": 4
+          "memory_number": 5,
+          "memory_section": 10
         },
         {
           "text": "Est-ce que vous participez à des activités culturelles ou à des associations ?"
@@ -133,7 +133,8 @@
         },
         {
           "text": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
-          "memory_section": 3
+          "memory_number": 10,
+          "memory_section": 6
         },
         {
           "text": "Il y a généralement combien de participants — c'est un petit groupe ou un grand groupe ?"
@@ -177,59 +178,69 @@
         },
         {
           "text": "Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
-          "memory_section": 15
+          "memory_number": 2,
+          "memory_section": 10
         },
         {
           "text": "Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
-          "memory_section": 15
+          "memory_number": 2,
+          "memory_section": 10
         },
         {
           "text": "Question budget, à quoi dois-je m'attendre pour un studio ou un petit appartement ?",
-          "memory_section": 1
+          "memory_number": 2,
+          "memory_section": 3
         },
         {
           "text": "Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
-          "memory_section": 13
+          "memory_number": 2,
+          "memory_section": 5
         },
         {
           "text": "Tu utiliserais quels sites ou applications pour chercher un logement dans ta ville ?"
         },
         {
           "text": "Quels documents demande-t-on généralement pour un dossier de location ?",
-          "memory_section": 1,
-          "memory_number": 3
+          "memory_number": 2,
+          "memory_section": 6
         },
         {
           "text": "Faut-il absolument un garant, ou existe-t-il d'autres solutions si on n'en a pas ?",
-          "memory_number": 3,
-          "memory_section": 1
+          "memory_number": 2,
+          "memory_section": 6
         },
         {
           "text": "Il vaut mieux commencer à chercher combien de temps à l'avance ?",
-          "memory_section": 9
+          "memory_number": 2,
+          "memory_section": 4
         },
         {
           "text": "Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
-          "memory_section": 18
+          "memory_number": 2,
+          "memory_section": 11
         },
         {
           "text": "D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement pour commencer ?",
-          "memory_section": 18
+          "memory_number": 2,
+          "memory_section": 11
         },
         {
           "text": "Y a-t-il des quartiers plus pratiques pour les commerces et la vie quotidienne ?",
-          "memory_section": 16
+          "memory_number": 2,
+          "memory_section": 9
         },
         {
           "text": "Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
-          "memory_section": 17
+          "memory_number": 2,
+          "memory_section": 8
         },
         {
           "text": "Y a-t-il un quartier qui offre une très bonne qualité de vie sans être trop cher — tu me le décris ?"
         },
         {
           "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien commencer, ce serait lequel ?",
-          "memory_section": 4
+          "memory_number": 2,
+          "memory_section": 13
         }
       ]
     },
@@ -261,8 +272,8 @@
         },
         {
           "text": "Qu'est-ce qui t'a le plus surpris dans ce pays ?",
-          "memory_number": 6,
-          "memory_section": 3
+          "memory_number": 7,
+          "memory_section": 2
         },
         {
           "text": "Et au niveau de la nourriture, qu'est-ce qu'il faut absolument goûter ?"

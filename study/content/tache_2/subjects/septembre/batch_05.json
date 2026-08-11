@@ -65,68 +65,78 @@
       "questions": [
         {
           "text": "Bonjour ! Vous me proposez de garder votre animal pendant vos vacances — avant de vous répondre, j'aimerais bien savoir de quel animal il s'agit ?",
-          "memory_number": 5,
-          "memory_section": 3
+          "memory_number": 3,
+          "memory_section": 11
         },
         {
           "text": "Comment s'appelle-t-il, et quel âge a-t-il ?",
           "memory_number": 3,
-          "memory_section": 2
+          "memory_section": 7
         },
         {
           "text": "Comment est son caractère — plutôt calme, ou plutôt énergique avec les inconnus ?",
           "memory_number": 3,
-          "memory_section": 2
+          "memory_section": 7
         },
         {
           "text": "Que mange-t-il exactement, et à quelle fréquence faut-il le nourrir ?",
           "memory_number": 3,
-          "memory_section": 2
+          "memory_section": 7
         },
         {
           "text": "Y a-t-il des aliments interdits ou des allergies à connaître ?",
-          "memory_section": 17
+          "memory_number": 3,
+          "memory_section": 8
         },
         {
           "text": "Pour les promenades, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
-          "memory_section": 2
-        },
-        {
-          "text": "Y a-t-il des habitudes particulières à respecter pour que tout se passe bien ?",
-          "memory_section": 20
-        },
-        {
-          "text": "La garde se fera chez vous, ou vous préférez que je le prenne chez moi ?",
+          "memory_number": 3,
           "memory_section": 4
         },
         {
+          "text": "Y a-t-il des habitudes particulières à respecter pour que tout se passe bien ?",
+          "memory_number": 3,
+          "memory_section": 4
+        },
+        {
+          "text": "La garde se fera chez vous, ou vous préférez que je le prenne chez moi ?",
+          "memory_number": 3,
+          "memory_section": 13
+        },
+        {
           "text": "Comment s'organisera la remise des clés, si la garde se fait chez vous ?",
-          "memory_section": 19
+          "memory_number": 3,
+          "memory_section": 13
         },
         {
           "text": "Y a-t-il des médicaments à donner ou des soins particuliers à prévoir ?",
-          "memory_section": 17
+          "memory_number": 3,
+          "memory_section": 8
         },
         {
           "text": "Comment réagit-il en général quand il reste seul un moment ?",
           "memory_number": 3,
-          "memory_section": 2
+          "memory_section": 7
         },
         {
           "text": "En cas d'urgence, qui est son vétérinaire et comment puis-je le joindre ?",
-          "memory_section": 19
+          "memory_number": 3,
+          "memory_section": 13
         },
         {
           "text": "Sur combien de jours exactement dois-je m'organiser ?",
-          "memory_section": 9
+          "memory_number": 3,
+          "memory_section": 4
         },
         {
           "text": "Si vous êtes injoignable, y a-t-il une autre personne à contacter en cas de problème ?",
-          "memory_section": 19
+          "memory_number": 3,
+          "memory_section": 13
         },
         {
           "text": "Pour finir — y a-t-il un dernier conseil pour que tout se passe le mieux possible pendant votre absence ?",
-          "memory_section": 4
+          "memory_number": 3,
+          "memory_section": 13
         }
       ]
     },
@@ -143,11 +153,13 @@
         },
         {
           "text": "Quels sont les plus beaux parcs naturels ou espaces protégés à visiter dans les environs ?",
-          "memory_section": 10
+          "memory_number": 7,
+          "memory_section": 2
         },
         {
           "text": "Y a-t-il des randonnées que vous recommandez — elles sont accessibles à tous les niveaux ?",
-          "memory_section": 10
+          "memory_number": 7,
+          "memory_section": 2
         },
         {
           "text": "Côté musées et sites culturels, y en a-t-il des gratuits, ou avec des jours d'entrée gratuite ?"
@@ -163,7 +175,8 @@
         },
         {
           "text": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
-          "memory_section": 13
+          "memory_number": 7,
+          "memory_section": 5
         },
         {
           "text": "Il existe des pass ou des tarifs réduits pour visiter plusieurs sites à moindre coût ?"
@@ -173,6 +186,7 @@
         },
         {
           "text": "C'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
+          "memory_number": 7,
           "memory_section": 8
         },
         {
@@ -193,64 +207,78 @@
       "questions": [
         {
           "text": "Bonjour ! Je viens d'emménager dans le quartier et je cherche un club de sport. Pourriez-vous me parler des différentes activités que vous proposez ici ?",
-          "memory_section": 10
+          "memory_number": 8,
+          "memory_section": 2
         },
         {
           "text": "Est-ce qu'il y a des cours collectifs — yoga, pilates, spinning — ou c'est surtout de la musculation ?",
-          "memory_section": 10
+          "memory_number": 8,
+          "memory_section": 2
         },
         {
           "text": "À quelle heure commencent les cours collectifs — plutôt le matin ou en fin de journée ?",
-          "memory_section": 2
+          "memory_number": 8,
+          "memory_section": 4
         },
         {
           "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
-          "memory_section": 3
+          "memory_number": 8,
+          "memory_section": 6
         },
         {
           "text": "Les cours sont-ils donnés par des professeurs qualifiés ? Et est-ce qu'il y a un coach personnel disponible si j'en ai besoin ?",
-          "memory_section": 17
+          "memory_number": 8,
+          "memory_section": 8
         },
         {
           "text": "Quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
-          "memory_section": 2
+          "memory_number": 8,
+          "memory_section": 4
         },
         {
           "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
-          "memory_section": 1
+          "memory_number": 8,
+          "memory_section": 3
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_section": 1
+          "memory_number": 8,
+          "memory_section": 3
         },
         {
           "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
-          "memory_section": 1
+          "memory_number": 8,
+          "memory_section": 3
         },
         {
           "text": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
-          "memory_number": 2,
-          "memory_section": 5
+          "memory_number": 8,
+          "memory_section": 12
         },
         {
           "text": "Est-ce qu'il est possible de suspendre l'abonnement si nécessaire ?",
-          "memory_section": 1
+          "memory_number": 8,
+          "memory_section": 3
         },
         {
           "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
-          "memory_section": 5
+          "memory_number": 8,
+          "memory_section": 8
         },
         {
           "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
-          "memory_section": 3
+          "memory_number": 8,
+          "memory_section": 6
         },
         {
           "text": "Il faut s'inscrire à l'avance pour les cours ou on peut venir librement ?",
-          "memory_section": 3
+          "memory_number": 8,
+          "memory_section": 6
         },
         {
           "text": "Pour finir — quelle activité me recommanderiez-vous pour quelqu'un qui veut se remettre en forme et se tonifier ?",
-          "memory_section": 4
+          "memory_number": 8,
+          "memory_section": 13
         }
       ]
     },

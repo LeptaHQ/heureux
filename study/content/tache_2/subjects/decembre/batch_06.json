@@ -32,7 +32,7 @@
         {
           "text": "Est-ce qu'on doit apporter quelque chose — un plat, une boisson ?",
           "memory_number": 5,
-          "memory_section": 4
+          "memory_section": 13
         },
         {
           "text": "Y a-t-il des activités spécialement prévues pour les enfants ?"
@@ -70,43 +70,51 @@
         },
         {
           "text": "Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
-          "memory_section": 15
-        },
-        {
-          "text": "Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
-          "memory_section": 15
-        },
-        {
-          "text": "Question budget, à quoi dois-je m'attendre pour un studio ou un petit appartement ?",
-          "memory_section": 1
-        },
-        {
-          "text": "Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
-          "memory_section": 17
-        },
-        {
-          "text": "Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
+          "memory_number": 2,
           "memory_section": 10
         },
         {
+          "text": "Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
+          "memory_number": 2,
+          "memory_section": 10
+        },
+        {
+          "text": "Question budget, à quoi dois-je m'attendre pour un studio ou un petit appartement ?",
+          "memory_number": 2,
+          "memory_section": 3
+        },
+        {
+          "text": "Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
+          "memory_number": 2,
+          "memory_section": 8
+        },
+        {
+          "text": "Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
           "text": "Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
-          "memory_section": 18
+          "memory_number": 2,
+          "memory_section": 11
         },
         {
           "text": "Il vaut mieux commencer à chercher combien de temps à l'avance ?",
-          "memory_section": 9
+          "memory_number": 2,
+          "memory_section": 4
         },
         {
           "text": "Quels documents demande-t-on généralement pour un dossier de location ?",
-          "memory_number": 3,
-          "memory_section": 1
+          "memory_number": 2,
+          "memory_section": 6
         },
         {
           "text": "Pour un premier logement, tu viserais plutôt un studio, une colocation ou un petit appartement ?"
         },
         {
           "text": "Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
-          "memory_section": 13
+          "memory_number": 2,
+          "memory_section": 5
         },
         {
           "text": "Côté ambiance, quels quartiers sont plutôt calmes et lesquels sont plus animés ?"
@@ -119,7 +127,8 @@
         },
         {
           "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien commencer, ce serait lequel ?",
-          "memory_section": 4
+          "memory_number": 2,
+          "memory_section": 13
         }
       ]
     },
@@ -130,64 +139,78 @@
       "questions": [
         {
           "text": "Bonjour ! Je viens d'emménager dans le quartier et je cherche un club de sport. Pourriez-vous me parler des différentes activités que vous proposez ici ?",
-          "memory_section": 10
+          "memory_number": 8,
+          "memory_section": 2
         },
         {
           "text": "Est-ce qu'il y a des cours collectifs — yoga, pilates, spinning — ou c'est surtout de la musculation ?",
-          "memory_section": 10
+          "memory_number": 8,
+          "memory_section": 2
         },
         {
           "text": "À quelle heure commencent les cours collectifs — plutôt le matin ou en fin de journée ?",
-          "memory_section": 2
+          "memory_number": 8,
+          "memory_section": 4
         },
         {
           "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
-          "memory_section": 3
+          "memory_number": 8,
+          "memory_section": 6
         },
         {
           "text": "Les cours sont-ils donnés par des professeurs qualifiés ? Et est-ce qu'il y a un coach personnel disponible si j'en ai besoin ?",
-          "memory_section": 17
+          "memory_number": 8,
+          "memory_section": 8
         },
         {
           "text": "Quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
-          "memory_section": 2
+          "memory_number": 8,
+          "memory_section": 4
         },
         {
           "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
-          "memory_section": 1
+          "memory_number": 8,
+          "memory_section": 3
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_section": 1
+          "memory_number": 8,
+          "memory_section": 3
         },
         {
           "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
-          "memory_section": 1
+          "memory_number": 8,
+          "memory_section": 3
         },
         {
           "text": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
-          "memory_number": 2,
-          "memory_section": 5
+          "memory_number": 8,
+          "memory_section": 12
         },
         {
           "text": "Est-ce qu'il est possible de suspendre l'abonnement si nécessaire ?",
-          "memory_section": 1
+          "memory_number": 8,
+          "memory_section": 3
         },
         {
           "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
-          "memory_section": 5
+          "memory_number": 8,
+          "memory_section": 8
         },
         {
           "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
-          "memory_section": 3
+          "memory_number": 8,
+          "memory_section": 6
         },
         {
           "text": "Il faut s'inscrire à l'avance pour les cours ou on peut venir librement ?",
-          "memory_section": 3
+          "memory_number": 8,
+          "memory_section": 6
         },
         {
           "text": "Pour finir — quelle activité me recommanderiez-vous pour quelqu'un qui veut se remettre en forme et se tonifier ?",
-          "memory_section": 4
+          "memory_number": 8,
+          "memory_section": 13
         }
       ]
     },
@@ -198,64 +221,78 @@
       "questions": [
         {
           "text": "Bonjour ! Je voudrais organiser un voyage touristique — pouvez-vous me donner un aperçu des options disponibles ?",
-          "memory_section": 1,
-          "memory_number": 2
+          "memory_number": 7,
+          "memory_section": 11
         },
         {
           "text": "Quelles destinations et quels types de circuits proposez-vous — culture, nature, aventure, gastronomie ?",
-          "memory_section": 10
+          "memory_number": 7,
+          "memory_section": 2
         },
         {
           "text": "Combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
-          "memory_section": 9
+          "memory_number": 7,
+          "memory_section": 4
         },
         {
           "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "memory_number": 7,
           "memory_section": 8
         },
         {
           "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "memory_number": 7,
           "memory_section": 8
         },
         {
           "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
+          "memory_number": 7,
           "memory_section": 8
         },
         {
           "text": "Parlons du budget — combien est-ce que ça coûte approximativement, transport, hébergement et repas inclus ?",
-          "memory_section": 1
+          "memory_number": 7,
+          "memory_section": 3
         },
         {
           "text": "Le tarif comprend quoi exactement — l'assurance, le guide et le transport privé sont-ils inclus ?",
-          "memory_section": 1
+          "memory_number": 7,
+          "memory_section": 3
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_section": 1
+          "memory_number": 7,
+          "memory_section": 3
         },
         {
           "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
-          "memory_section": 1
+          "memory_number": 7,
+          "memory_section": 3
         },
         {
           "text": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
-          "memory_section": 6
+          "memory_number": 7,
+          "memory_section": 9
         },
         {
           "text": "Il reste encore des places ou c'est déjà complet ?",
-          "memory_section": 3
+          "memory_number": 7,
+          "memory_section": 6
         },
         {
           "text": "Est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
-          "memory_section": 3
+          "memory_number": 7,
+          "memory_section": 6
         },
         {
           "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
-          "memory_section": 4
+          "memory_number": 7,
+          "memory_section": 13
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
-          "memory_section": 4
+          "memory_number": 7,
+          "memory_section": 13
         }
       ]
     },
@@ -269,16 +306,18 @@
         },
         {
           "text": "Quels documents faut-il apporter pour l'inscription — une pièce d'identité, un justificatif de domicile ?",
-          "memory_number": 3,
-          "memory_section": 1
+          "memory_number": 10,
+          "memory_section": 6
         },
         {
           "text": "L'inscription est-elle gratuite, ou faut-il payer une cotisation annuelle ?",
-          "memory_section": 1
+          "memory_number": 10,
+          "memory_section": 3
         },
         {
           "text": "Quels sont les horaires d'ouverture — vous êtes aussi ouverts le week-end ?",
-          "memory_section": 2
+          "memory_number": 10,
+          "memory_section": 4
         },
         {
           "text": "Quels types de jeux et de jouets proposez-vous — jeux de société, puzzles, jouets éducatifs, jeux d'extérieur, voire jeux vidéo ?"
@@ -294,7 +333,8 @@
         },
         {
           "text": "Et pendant combien de temps peut-on les garder avant de les rapporter ?",
-          "memory_section": 9
+          "memory_number": 10,
+          "memory_section": 4
         },
         {
           "text": "Y a-t-il des frais si on rend un jeu en retard ?"
@@ -310,11 +350,13 @@
         },
         {
           "text": "Peut-on prolonger un emprunt en ligne, ou faut-il revenir sur place ?",
-          "memory_section": 3
+          "memory_number": 10,
+          "memory_section": 6
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose, ce serait laquelle ?",
-          "memory_section": 4
+          "memory_number": 10,
+          "memory_section": 13
         }
       ]
     }

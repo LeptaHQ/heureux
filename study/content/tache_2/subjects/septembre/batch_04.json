@@ -13,38 +13,46 @@
       "questions": [
         {
           "text": "Alors, raconte — comment s'est passé ton premier jour ?",
-          "memory_section": 21
+          "memory_number": 4,
+          "memory_section": 4
         },
         {
           "text": "Tu avais le trac en arrivant ou tu te sentais plutôt à l'aise ?"
         },
         {
           "text": "Et du coup, comment était l'ambiance — plutôt formelle ou décontractée ?",
-          "memory_section": 15
-        },
-        {
-          "text": "Et tes collègues, ils étaient comment — ils t'ont bien accueilli(e), il y a quelqu'un en particulier qui t'a aidé(e) ?",
-          "memory_section": 14
-        },
-        {
-          "text": "Et justement, ton responsable, tu l'as rencontré — il a l'air comment ?",
-          "memory_section": 14
-        },
-        {
-          "text": "Concrètement, tu as fait quoi de ta journée — c'était plutôt de la formation ou tu as directement commencé à travailler ?",
+          "memory_number": 4,
           "memory_section": 10
         },
         {
+          "text": "Et tes collègues, ils étaient comment — ils t'ont bien accueilli(e), il y a quelqu'un en particulier qui t'a aidé(e) ?",
+          "memory_number": 4,
+          "memory_section": 7
+        },
+        {
+          "text": "Et justement, ton responsable, tu l'as rencontré — il a l'air comment ?",
+          "memory_number": 4,
+          "memory_section": 7
+        },
+        {
+          "text": "Concrètement, tu as fait quoi de ta journée — c'était plutôt de la formation ou tu as directement commencé à travailler ?",
+          "memory_number": 4,
+          "memory_section": 2
+        },
+        {
           "text": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus ?",
-          "memory_section": 4
+          "memory_number": 4,
+          "memory_section": 13
         },
         {
           "text": "D'ailleurs, on t'a fait visiter les locaux — c'était comment, plutôt moderne ou un peu vieillot ?",
-          "memory_section": 11
+          "memory_number": 4,
+          "memory_section": 2
         },
         {
           "text": "Et le midi, tu as mangé avec des collègues ou c'était chacun de son côté ?",
-          "memory_section": 7
+          "memory_number": 4,
+          "memory_section": 9
         },
         {
           "text": "Sinon, il y a eu un moment un peu stressant ou dans l'ensemble tout s'est bien enchaîné ?"
@@ -54,7 +62,8 @@
         },
         {
           "text": "Parmi tout ça, qu'est-ce qui t'a le plus marqué ?",
-          "memory_section": 18
+          "memory_number": 4,
+          "memory_section": 11
         },
         {
           "text": "En tout cas, tu as envie d'y retourner demain ou tu appréhendes un peu ?"
@@ -80,12 +89,13 @@
         },
         {
           "text": "Il ou elle est comment comme professeur — plutôt patient et pédagogue ?",
-          "memory_number": 5,
-          "memory_section": 5
+          "memory_number": 10,
+          "memory_section": 11
         },
         {
           "text": "Et concrètement, qu'est-ce qu'on apprend — c'est plutôt du solfège et de la théorie, ou on passe directement à l'instrument ?",
-          "memory_section": 10
+          "memory_number": 10,
+          "memory_section": 2
         },
         {
           "text": "Les cours durent combien de temps, et à quelle fréquence par semaine ?"
@@ -107,12 +117,13 @@
         },
         {
           "text": "Au bout de combien de temps on commence à vraiment jouer des morceaux ?",
-          "memory_section": 9
+          "memory_number": 10,
+          "memory_section": 4
         },
         {
           "text": "Vous auriez ses coordonnées pour que je le ou la contacte ?",
-          "memory_number": 5,
-          "memory_section": 5
+          "memory_number": 10,
+          "memory_section": 11
         },
         {
           "text": "À votre avis, ça vaut le coup — vous me le ou la recommandez ?"
@@ -184,29 +195,34 @@
         },
         {
           "text": "Parlons du budget — combien est-ce que la livraison coûte approximativement ?",
-          "memory_section": 1
+          "memory_number": 3,
+          "memory_section": 3
         },
         {
           "text": "La livraison est-elle gratuite à partir d'un certain montant ?"
         },
         {
           "text": "Quel délai faut-il prévoir entre la commande et la livraison ?",
-          "memory_section": 9
+          "memory_number": 3,
+          "memory_section": 4
         },
         {
           "text": "Est-ce qu'on peut choisir le jour et un créneau horaire précis ?",
-          "memory_section": 2
+          "memory_number": 3,
+          "memory_section": 4
         },
         {
           "text": "Proposez-vous aussi des livraisons le soir ou le week-end ?",
-          "memory_section": 2
+          "memory_number": 3,
+          "memory_section": 4
         },
         {
           "text": "Comment gérez-vous les produits frais ou surgelés — la chaîne du froid est-elle respectée ?"
         },
         {
           "text": "Comment puis-je suivre ma commande et savoir à quelle heure le livreur arrivera ?",
-          "memory_section": 19
+          "memory_number": 3,
+          "memory_section": 13
         },
         {
           "text": "Le livreur monte-t-il les courses jusqu'à la porte, même s'il y a des escaliers ?"
@@ -219,15 +235,16 @@
         },
         {
           "text": "En cas de retard ou d'imprévu, comment ça se passe ?",
-          "memory_number": 2,
-          "memory_section": 5
+          "memory_number": 3,
+          "memory_section": 12
         },
         {
           "text": "Quelles sont les conditions pour modifier ou annuler la commande ?"
         },
         {
           "text": "S'il y a le moindre souci, à qui faut-il s'adresser ?",
-          "memory_section": 19
+          "memory_number": 3,
+          "memory_section": 13
         }
       ]
     },

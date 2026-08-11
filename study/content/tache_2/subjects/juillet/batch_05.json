@@ -13,7 +13,7 @@
       "questions": [
         {
           "text": "Salut ! Tu m'as proposé de venir avec toi à un concert — ça me tente bien, tu peux m'en dire plus ?",
-          "memory_number": 4,
+          "memory_number": 9,
           "memory_section": 1
         },
         {
@@ -24,7 +24,8 @@
         },
         {
           "text": "Ça se déroule où — en plein air, dans une salle ?",
-          "memory_section": 4
+          "memory_number": 9,
+          "memory_section": 13
         },
         {
           "text": "C'est prévu pour quand — quel jour et à quelle heure ça commence ?"
@@ -43,23 +44,26 @@
         },
         {
           "text": "Comment on s'organise pour le transport ou le stationnement sur place ?",
-          "memory_section": 13
+          "memory_number": 9,
+          "memory_section": 5
         },
         {
           "text": "Si c'est en extérieur, faut-il prévoir quelque chose en cas de mauvais temps ?",
+          "memory_number": 9,
           "memory_section": 8
         },
         {
           "text": "Y a-t-il une limite d'âge ou des règles particulières à respecter sur place ?",
-          "memory_section": 17
+          "memory_number": 9,
+          "memory_section": 8
         },
         {
           "text": "On peut manger ou boire quelque chose sur place ?"
         },
         {
           "text": "Toi qui connais cet artiste, tu me conseilles vraiment d'y aller ?",
-          "memory_number": 4,
-          "memory_section": 5
+          "memory_number": 9,
+          "memory_section": 11
         },
         {
           "text": "Pour finir — je peux te confirmer aujourd'hui si je viens avec toi ?"
@@ -85,8 +89,8 @@
         },
         {
           "text": "Il faut déjà savoir cuisiner ou c'est ouvert aux débutants ?",
-          "memory_number": 4,
-          "memory_section": 3
+          "memory_number": 10,
+          "memory_section": 6
         },
         {
           "text": "Ça dure combien de temps — une séance de quelques heures ou plusieurs cours ?"
@@ -133,11 +137,13 @@
         },
         {
           "text": "Ça va plutôt dans quelle gamme de prix en général ?",
-          "memory_section": 1
+          "memory_number": 11,
+          "memory_section": 3
         },
         {
           "text": "L'ambiance est plutôt calme et intime, ou plus animée et festive ?",
-          "memory_section": 15
+          "memory_number": 11,
+          "memory_section": 10
         },
         {
           "text": "Ces restaurants conviennent pour un groupe, ou plutôt pour de petites tables ?"
@@ -150,11 +156,13 @@
         },
         {
           "text": "Ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
-          "memory_section": 13
+          "memory_number": 11,
+          "memory_section": 5
         },
         {
           "text": "Y a-t-il un parking à proximité si on vient en voiture ?",
-          "memory_section": 16
+          "memory_number": 11,
+          "memory_section": 9
         },
         {
           "text": "Il y a des options pour les régimes particuliers ou les allergies ?"
@@ -164,17 +172,18 @@
         },
         {
           "text": "Tu y es déjà allé(e) toi-même — qu'est-ce que tu en as pensé ?",
-          "memory_number": 4,
-          "memory_section": 5
+          "memory_number": 11,
+          "memory_section": 11
         },
         {
           "text": "Le rapport qualité-prix te semble bon, comparé à d'autres endroits ?",
-          "memory_number": 4,
-          "memory_section": 5
+          "memory_number": 11,
+          "memory_section": 11
         },
         {
           "text": "Le service y est plutôt rapide, ou plus adapté à une soirée tranquille ?",
-          "memory_section": 7
+          "memory_number": 11,
+          "memory_section": 9
         },
         {
           "text": "Pour finir — parmi tous ceux que tu connais, lequel tu me recommandes vraiment pour l'occasion ?"
@@ -194,7 +203,8 @@
         },
         {
           "text": "Ces écoles sont-elles accessibles à pied ou faut-il prévoir un transport ?",
-          "memory_section": 13
+          "memory_number": 5,
+          "memory_section": 5
         },
         {
           "text": "Y a-t-il un service de bus scolaire pour les enfants ?"
@@ -244,58 +254,71 @@
         },
         {
           "text": "Quels types de transports sont disponibles ici — bus, métro, tramway ?",
-          "memory_section": 10
+          "memory_number": 6,
+          "memory_section": 2
         },
         {
           "text": "Est-ce que le réseau couvre toute la ville ou seulement certaines zones ?",
-          "memory_section": 13
+          "memory_number": 6,
+          "memory_section": 5
         },
         {
           "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
-          "memory_section": 1
-        },
-        {
-          "text": "Où peut-on acheter les tickets ou les abonnements — en ligne, à une borne ou auprès d'un agent ?",
+          "memory_number": 6,
           "memory_section": 3
         },
         {
+          "text": "Où peut-on acheter les tickets ou les abonnements — en ligne, à une borne ou auprès d'un agent ?",
+          "memory_number": 6,
+          "memory_section": 6
+        },
+        {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_section": 1
+          "memory_number": 6,
+          "memory_section": 3
         },
         {
           "text": "Le tarif comprend quoi exactement — un ticket est-il valable pour plusieurs types de transport ?",
-          "memory_section": 1
+          "memory_number": 6,
+          "memory_section": 3
         },
         {
           "text": "Quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
-          "memory_section": 2
+          "memory_number": 6,
+          "memory_section": 4
         },
         {
           "text": "Le réseau fonctionne-t-il chaque jour de la semaine — les horaires changent-ils le week-end ?",
-          "memory_section": 2
+          "memory_number": 6,
+          "memory_section": 4
         },
         {
           "text": "Y a-t-il une application pour suivre les transports en temps réel ?",
-          "memory_section": 16
+          "memory_number": 6,
+          "memory_section": 9
         },
         {
           "text": "Les principaux sites touristiques sont-ils facilement accessibles en transports en commun ?",
-          "memory_section": 13
+          "memory_number": 6,
+          "memory_section": 5
         },
         {
           "text": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "memory_number": 6,
           "memory_section": 8
         },
         {
           "text": "L'application permet-elle aussi de planifier un itinéraire ?",
-          "memory_section": 16
+          "memory_number": 6,
+          "memory_section": 9
         },
         {
           "text": "Que faire en cas de problème ou si je me trompe de ligne — à qui puis-je m'adresser ?"
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose pour bien utiliser les transports ici, ce serait laquelle ?",
-          "memory_section": 4
+          "memory_number": 6,
+          "memory_section": 13
         }
       ]
     }

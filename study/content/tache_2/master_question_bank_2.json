@@ -1,102 +1,227 @@
 {
   "number": 2,
-  "title": "Mémoire 2",
-  "label": "Questions transversales",
+  "title": "Mémoire 2 · Logement & déménagement",
+  "label": "Logement & déménagement",
   "icon": "compass",
-  "subtitle": "Une seconde banque de formulations stables à mémoriser et à adapter dans de nombreux sujets de la Tâche 2.",
+  "subtitle": "Les formulations à réutiliser quand un sujet parle de chercher un logement, signer un bail, emménager ou régler un problème d'appartement.",
   "sections": [
     {
       "number": 1,
-      "title": "Choix / recommandation",
+      "title": "Ouverture — expliquer sa recherche de logement",
+      "guidance": "Poser le décor en une phrase : je cherche à me loger ou à préparer mon installation.",
       "groups": [
         {
-          "title": "Explorer les possibilités",
-          "guidance": "Pour une activité, un service, une destination, un produit ou une formule.",
+          "title": "Présenter sa recherche dès le début",
+          "guidance": "À utiliser avec une agence, un propriétaire, un colocataire ou un service logement.",
           "questions": [
-            "Quelles sont les différentes options proposées ?",
-            "Quelles différences y a-t-il entre les options proposées ?"
-          ]
-        },
-        {
-          "title": "Demander conseil",
-          "guidance": "Pour obtenir une recommandation adaptée à ses besoins.",
-          "questions": [
-            "Parmi toutes ces possibilités, laquelle me conseilleriez-vous ?",
-            "Quelle option est la plus populaire en général ?",
-            "Selon vous, quel choix conviendrait le mieux à mes besoins ?"
+            "Bonjour, je cherche un logement dans le secteur — est-ce que vous avez encore des disponibilités ?",
+            "Je prépare mon déménagement pour bientôt, donc j'aimerais comprendre comment ça se passe chez vous.",
+            "C'est la première fois que je passe par une agence ici — vous pouvez m'expliquer la démarche ?",
+            "Avant de visiter, est-ce que vous pouvez me présenter rapidement le type de logement proposé ?"
           ]
         }
       ]
     },
     {
       "number": 2,
-      "title": "Retour d'expérience",
+      "title": "Ce que comprend le logement proposé",
+      "guidance": "Faire décrire le bien, les pièces, les équipements et les services liés au logement.",
       "groups": [
         {
-          "guidance": "Quand l'interlocuteur a déjà vécu l'expérience dont il parle.",
+          "title": "Comprendre l'offre de logement",
+          "guidance": "Quand l'annonce, la visite ou la résidence étudiante manque de détails concrets.",
           "questions": [
-            "Qu'est-ce qui t'a donné envie de tenter cette expérience ?",
-            "Qu'est-ce que tu as le plus apprécié ?",
-            "Y a-t-il quelque chose qui t'a moins plu ?",
-            "Est-ce que l'expérience correspondait à tes attentes ?",
-            "Avec le recul, est-ce que tu referais le même choix ?"
+            "L'appartement fait quelle surface exactement, et comment les pièces sont-elles réparties ?",
+            "Vous avez mentionné un logement meublé — qu'est-ce qui est déjà fourni dans l'appartement ?",
+            "Est-ce que la cuisine est vraiment équipée ou est-ce qu'il faut prévoir du matériel en plus ?",
+            "Dans la résidence, quels services sont inclus pour les locataires au quotidien ?"
           ]
         }
       ]
     },
     {
       "number": 3,
-      "title": "Déroulement / accompagnement",
+      "title": "Loyer, charges et frais à prévoir",
+      "guidance": "Clarifier le budget réel : loyer, dépôt de garantie, charges et frais d'agence.",
       "groups": [
         {
-          "title": "Étapes",
+          "title": "Calculer le coût total",
+          "guidance": "À poser avant de s'engager, surtout si plusieurs frais s'ajoutent au loyer.",
           "questions": [
-            "Comment ça se passe concrètement, du début à la fin ?",
-            "Quelles sont les différentes étapes à suivre ?",
-            "Qu'est-ce qu'il faut faire en premier ?"
-          ]
-        },
-        {
-          "title": "Aide disponible",
-          "questions": [
-            "Est-ce qu'on est accompagné ou faut-il se débrouiller seul ?",
-            "Si on a besoin d'aide, est-ce que quelqu'un est disponible sur place ?"
+            "Le loyer annoncé comprend les charges, ou il faut ajouter un montant chaque mois ?",
+            "À l'entrée dans le logement, quelle somme totale dois-je prévoir avec la caution ?",
+            "Les frais d'agence correspondent à quoi exactement — visite, dossier, rédaction du bail ?",
+            "Est-ce que le chauffage et l'eau sont compris, ou facturés séparément selon la consommation ?"
           ]
         }
       ]
     },
     {
       "number": 4,
-      "title": "Avantages / comparaison",
+      "title": "Visites, disponibilité et dates d'entrée",
+      "guidance": "Situer les créneaux de visite, la durée du bail et le calendrier d'emménagement.",
       "groups": [
         {
-          "title": "Peser le pour et le contre",
+          "title": "Planifier la visite et l'entrée",
+          "guidance": "Utile quand il faut coordonner un rendez-vous, un préavis ou un déménagement.",
           "questions": [
-            "Quels sont les principaux avantages ?",
-            "Y a-t-il aussi des inconvénients à connaître ?",
-            "Qu'est-ce qui est le plus pratique au quotidien ?"
-          ]
-        },
-        {
-          "title": "Comparer",
-          "questions": [
-            "Par rapport à [X], qu'est-ce qui change le plus ?",
-            "Qu'est-ce qui peut être difficile au début ?"
+            "À quels moments est-ce qu'on peut visiter — plutôt en soirée ou le samedi ?",
+            "Le logement est disponible à partir de quelle date si mon dossier est accepté ?",
+            "Combien de temps faut-il généralement entre la visite et la signature du bail ?",
+            "Si je donne mon préavis maintenant, est-ce que le calendrier vous paraît réaliste ?"
           ]
         }
       ]
     },
     {
       "number": 5,
-      "title": "Souplesse / imprévus",
+      "title": "Adresse, quartier et accès au logement",
+      "guidance": "Se repérer autour du logement : transports, stationnement, commerces et distance.",
       "groups": [
         {
+          "title": "Situer le logement dans le quartier",
+          "guidance": "Quand l'adresse ou l'environnement immédiat compte autant que l'appartement lui-même.",
           "questions": [
-            "Est-ce qu'on peut adapter [X] selon ses besoins ?",
-            "Peut-on changer d'option en cours de route ?",
-            "Quelles sont les conditions pour modifier ou annuler [X] ?",
-            "En cas de retard ou d'imprévu, comment ça se passe ?",
-            "Y a-t-il une autre solution si [X] n'est pas disponible ?"
+            "L'immeuble se trouve dans quelle rue, et quel repère permet de le trouver facilement ?",
+            "Depuis la gare ou l'université, il faut compter combien de temps pour arriver ici ?",
+            "Est-ce qu'il y a une place de stationnement ou seulement du parking dans la rue ?",
+            "Le quartier est-il bien desservi le soir, surtout si je rentre tard du travail ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Dossier locatif, bail et garanties",
+      "guidance": "Lister les documents, conditions et engagements nécessaires pour louer.",
+      "groups": [
+        {
+          "title": "Monter un dossier solide",
+          "guidance": "Le cœur des échanges avec une agence, un propriétaire ou une résidence étudiante.",
+          "questions": [
+            "Quels documents faut-il fournir pour que mon dossier de location soit complet ?",
+            "Est-ce qu'un garant est obligatoire, ou une garantie bancaire peut aussi convenir ?",
+            "Le bail est signé pour quelle durée, et quelles sont les conditions pour le quitter ?",
+            "Une fois le dossier envoyé, comment saurai-je s'il manque une pièce importante ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Situation personnelle et besoins de logement",
+      "guidance": "Expliquer son profil pour vérifier si le logement correspond vraiment.",
+      "groups": [
+        {
+          "title": "Adapter la recherche à son profil",
+          "guidance": "Quand l'interlocuteur doit savoir si vous venez seul, en couple, étudiant ou en colocation.",
+          "questions": [
+            "Je suis étudiant avec un budget limité — ce type de logement est-il adapté à mon profil ?",
+            "Si je cherche une colocation calme, quelles règles de vie sont déjà en place ?",
+            "Est-ce que le propriétaire accepte les jeunes actifs qui viennent juste de commencer un emploi ?",
+            "Compte tenu de mes horaires, est-ce qu'un logement en résidence serait plus pratique qu'un studio ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "État des lieux, travaux et règles de l'immeuble",
+      "guidance": "Anticiper les obligations, les réparations et les règles à respecter avant d'emménager.",
+      "groups": [
+        {
+          "title": "Préparer l'entrée dans les lieux",
+          "guidance": "À utiliser quand il faut éviter les mauvaises surprises au moment des clés.",
+          "questions": [
+            "L'état des lieux se fait comment — avec l'agence, le propriétaire ou un document numérique ?",
+            "Y a-t-il des travaux prévus avant mon arrivée, notamment pour la peinture ou l'électricité ?",
+            "Quelles règles de l'immeuble faut-il connaître pour le bruit, les poubelles ou les vélos ?",
+            "Est-ce que je dois souscrire une assurance habitation avant de recevoir les clés ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Confort sur place et services de résidence",
+      "guidance": "Repérer les équipements pratiques : buanderie, local vélo, internet, gardien ou ascenseur.",
+      "groups": [
+        {
+          "title": "Vérifier les services du quotidien",
+          "guidance": "Très utile pour une résidence étudiante, une colocation ou un immeuble avec services partagés.",
+          "questions": [
+            "Est-ce qu'il y a une buanderie dans l'immeuble ou faut-il aller ailleurs ?",
+            "La connexion internet est déjà installée, ou chaque locataire doit prendre son propre abonnement ?",
+            "Y a-t-il un local sécurisé pour les vélos et les cartons pendant le déménagement ?",
+            "En cas de problème urgent dans l'appartement, est-ce qu'un gardien ou un service intervient rapidement ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Ambiance de l'immeuble et voisinage immédiat",
+      "guidance": "Parler de l'atmosphère, des voisins et de la façon de s'intégrer dans le lieu.",
+      "groups": [
+        {
+          "title": "Sentir la vie de l'immeuble",
+          "guidance": "Quand le calme, la convivialité ou la cohabitation peut influencer le choix.",
+          "questions": [
+            "L'immeuble est plutôt calme, ou il y a beaucoup de passages et d'étudiants ?",
+            "Les voisins se connaissent un peu, ou chacun vit vraiment de son côté ?",
+            "Dans cette colocation, comment se passent les repas, le ménage et les espaces communs ?",
+            "D'après les anciens locataires, qu'est-ce qui plaît le plus dans ce logement ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Comparer deux logements et demander un avis",
+      "guidance": "Demander une recommandation entre plusieurs options de location ou d'installation.",
+      "groups": [
+        {
+          "title": "Choisir le logement le plus adapté",
+          "guidance": "À sortir quand deux appartements, quartiers ou formules de bail sont possibles.",
+          "questions": [
+            "Entre ce studio et la chambre en colocation, lequel vous semble le plus simple au quotidien ?",
+            "Quel est le vrai point fort de ce logement par rapport aux autres annonces du quartier ?",
+            "À votre avis, vaut-il mieux privilégier la surface ou la proximité des transports ici ?",
+            "Si vous deviez conseiller un nouveau locataire, quelle option éviterait le plus de complications ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Imprévus de déménagement et changements de plan",
+      "guidance": "Gérer les retards, annulations, refus de dossier ou problèmes à l'entrée.",
+      "groups": [
+        {
+          "title": "Prévoir une solution si ça bloque",
+          "guidance": "Quand la date, le dossier ou l'état du logement peut changer au dernier moment.",
+          "questions": [
+            "Si mon dossier n'est pas retenu, est-ce que vous pouvez me proposer d'autres logements similaires ?",
+            "Et si le déménageur décale la date, peut-on repousser la remise des clés ?",
+            "Que se passe-t-il si je remarque un dégât juste après l'état des lieux d'entrée ?",
+            "Est-il possible de se rétracter si le bail n'est pas encore signé définitivement ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Contacts, suite du dossier et remise des clés",
+      "guidance": "Organiser la suite : interlocuteur, documents à envoyer et prochaine étape concrète.",
+      "groups": [
+        {
+          "title": "Conclure la démarche de location",
+          "guidance": "Idéal pour finir l'échange proprement après une visite ou un rendez-vous d'agence.",
+          "questions": [
+            "À qui dois-je envoyer mon dossier complet après la visite, et sous quel format ?",
+            "Vous préférez me recontacter par téléphone ou par courriel pour la réponse du propriétaire ?",
+            "Quand pourrais-je récupérer les clés si tout est validé cette semaine ?",
+            "Je résume pour être sûr : j'envoie les pièces, vous vérifiez le dossier, puis on fixe la signature ?"
           ]
         }
       ]

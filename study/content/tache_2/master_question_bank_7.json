@@ -1,0 +1,230 @@
+{
+  "number": 7,
+  "title": "Mémoire 7 · Voyages & vacances",
+  "label": "Voyages & vacances",
+  "icon": "globe",
+  "subtitle": "Les formulations à réutiliser quand le sujet porte sur une agence de voyage, un séjour, un hébergement, un vol, des formalités ou des activités de vacances.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Ouverture — présenter son projet de voyage",
+      "guidance": "Lancer l'échange en situant la destination, la durée et l'envie générale.",
+      "groups": [
+        {
+          "title": "Expliquer le type de vacances recherché",
+          "guidance": "Pour commencer avec une agence, un hôtel, un office de tourisme ou un organisateur.",
+          "questions": [
+            "Bonjour, je prépare quelques jours de vacances et j'aimerais être conseillé avant de réserver quoi que ce soit.",
+            "Je cherche un séjour qui soit à la fois dépaysant et assez simple à organiser — vous pouvez m'aider à y voir plus clair ?",
+            "Avant de choisir une destination, est-ce que vous pouvez me dire quelles informations vous avez besoin de connaître ?",
+            "Je voudrais éviter un voyage trop improvisé, donc j'aimerais comprendre les options possibles dès le départ."
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Offres, séjours organisés et hébergements",
+      "guidance": "Faire décrire les formules proposées : agence, hôtel, camping, location, circuit.",
+      "groups": [
+        {
+          "title": "Découvrir les formules de voyage",
+          "guidance": "Quand plusieurs types de séjour sont envisageables.",
+          "questions": [
+            "Quelles formules vous proposez pour un séjour d'une semaine avec hébergement inclus ?",
+            "Est-ce que le séjour organisé comprend les excursions, ou il faut les réserver séparément sur place ?",
+            "Entre l'hôtel, le camping et la location d'appartement, quelles différences concrètes il faut prévoir ?",
+            "Avez-vous des circuits adaptés aux voyageurs qui veulent découvrir plusieurs villes sans tout organiser eux-mêmes ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Budget, suppléments et conditions de paiement",
+      "guidance": "Clarifier le prix total, les acomptes, taxes et options.",
+      "groups": [
+        {
+          "title": "Évaluer le coût du voyage",
+          "guidance": "Indispensable avant toute réservation ou comparaison.",
+          "questions": [
+            "Le prix annoncé correspond au coût total du séjour, ou il y a des taxes et des frais à ajouter ?",
+            "Quel acompte faut-il verser pour bloquer la réservation, et quand le solde doit-il être payé ?",
+            "Les repas, les transferts et les activités sont inclus dans le forfait ou seulement une partie ?",
+            "Si on voyage en famille, est-ce qu'il existe des tarifs réduits pour les enfants ou des chambres communicantes moins chères ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Dates, horaires et durée du séjour",
+      "guidance": "Préciser disponibilités, heures d'arrivée, départs et rythme des journées.",
+      "groups": [
+        {
+          "title": "Caler le calendrier",
+          "guidance": "Pour organiser le voyage sans conflit d'horaires.",
+          "questions": [
+            "Quelles dates sont encore disponibles pour cette destination pendant les vacances scolaires ?",
+            "À quelle heure peut-on arriver à l'hôtel ou au camping, et jusqu'à quelle heure la réception reste ouverte ?",
+            "Le circuit prévoit des départs très tôt le matin, ou le rythme reste plutôt raisonnable ?",
+            "Combien de temps faut-il prévoir entre l'atterrissage et le transfert vers l'hébergement ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Destination, accès et déplacements sur place",
+      "guidance": "Se repérer : climat, distance, transferts, excursions et transports locaux.",
+      "groups": [
+        {
+          "title": "Comprendre la destination",
+          "guidance": "Quand le voyage dépend de la saison et de la facilité d'accès.",
+          "questions": [
+            "Quel est le meilleur moyen de rejoindre l'hébergement depuis l'aéroport ou la gare ?",
+            "À cette période de l'année, le climat est plutôt agréable ou il faut s'attendre à beaucoup de pluie ?",
+            "Les excursions partent directement de l'hôtel, ou il faut se rendre à un point de rendez-vous en ville ?",
+            "Sur place, est-ce qu'on peut se déplacer facilement sans louer de voiture ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Formalités, documents et bagages",
+      "guidance": "Vérifier papiers, visas, assurance, billets et règles de bagages.",
+      "groups": [
+        {
+          "title": "Préparer les documents de voyage",
+          "guidance": "Pour éviter les blocages avant le départ ou à l'aéroport.",
+          "questions": [
+            "Quels documents sont obligatoires pour cette destination : passeport, carte d'identité, visa ou autre formalité ?",
+            "Concernant les bagages en avion, quel poids est inclus et qu'est-ce qui devient payant ?",
+            "Est-ce que l'assurance voyage couvre l'annulation, les soins médicaux et la perte de bagages ?",
+            "Faut-il imprimer les billets et les confirmations, ou les versions numériques suffisent partout ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Profil des voyageurs et besoins particuliers",
+      "guidance": "Adapter le séjour à la famille, au groupe, à l'âge ou au niveau d'autonomie.",
+      "groups": [
+        {
+          "title": "Décrire les voyageurs",
+          "guidance": "Quand les conseils dépendent du groupe et du confort attendu.",
+          "questions": [
+            "Nous voyageons avec deux enfants : est-ce que ce séjour est vraiment adapté à leur rythme ?",
+            "Si une personne du groupe marche difficilement, certaines excursions risquent-elles d'être compliquées ?",
+            "Pour un voyage entre amis, est-ce qu'il vaut mieux réserver plusieurs chambres ou une grande location commune ?",
+            "Je préfère des vacances calmes plutôt qu'un programme trop chargé : quelle formule correspondrait le mieux ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Préparation, règles et conseils pratiques",
+      "guidance": "Anticiper équipement, santé, sécurité et habitudes locales.",
+      "groups": [
+        {
+          "title": "Partir bien préparé",
+          "guidance": "Pour savoir quoi emporter et quelles précautions prendre.",
+          "questions": [
+            "Qu'est-ce qu'il faut absolument mettre dans la valise pour cette destination à cette saison ?",
+            "Y a-t-il des règles locales ou des habitudes culturelles qu'il vaut mieux connaître avant de partir ?",
+            "Faut-il prévoir des vaccins, une ordonnance ou des précautions particulières pour la santé ?",
+            "Pour les activités nautiques ou de randonnée, est-ce que le matériel est fourni ou il faut l'apporter ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Services sur place et vie quotidienne",
+      "guidance": "Repérer restauration, commerces, assistance, wifi et équipements.",
+      "groups": [
+        {
+          "title": "S'organiser pendant le séjour",
+          "guidance": "Utile pour vérifier le confort quotidien de l'hébergement.",
+          "questions": [
+            "Autour de l'hébergement, est-ce qu'on trouve facilement des restaurants, des commerces et une pharmacie ?",
+            "Le petit-déjeuner, le wifi et l'accès à la piscine sont compris dans la réservation ?",
+            "En camping ou en location, est-ce qu'il y a une laverie et une cuisine équipée sur place ?",
+            "Si on a besoin d'aide pendant le séjour, y a-t-il une assistance francophone joignable rapidement ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Ambiance, activités et expérience de vacances",
+      "guidance": "Parler du style du lieu, des animations et de l'équilibre repos/découverte.",
+      "groups": [
+        {
+          "title": "Imaginer le séjour",
+          "guidance": "Pour choisir une destination compatible avec les attentes.",
+          "questions": [
+            "L'ambiance est plutôt familiale et tranquille, ou assez animée le soir ?",
+            "Quelles activités sur place sont vraiment incontournables si on ne reste que quelques jours ?",
+            "Les excursions sont-elles très touristiques, ou permettent-elles de découvrir des endroits plus authentiques ?",
+            "Est-ce qu'il y a assez d'options en cas de mauvais temps pour ne pas perdre une journée entière ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Comparaison et recommandation",
+      "guidance": "Demander un avis expert entre destinations, formules ou hébergements.",
+      "groups": [
+        {
+          "title": "Faire le meilleur choix",
+          "guidance": "Pour transformer les informations en décision concrète.",
+          "questions": [
+            "Entre ces deux destinations, laquelle vous recommanderiez pour un premier voyage sans stress ?",
+            "À votre avis, vaut-il mieux prendre un séjour tout compris ou garder plus de liberté sur place ?",
+            "Quel hébergement offre le meilleur compromis entre confort, emplacement et budget ?",
+            "Si vous deviez choisir pour une famille qui veut se reposer mais aussi visiter, quelle option retiendriez-vous ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Annulation, imprévus et problèmes de voyage",
+      "guidance": "Prévoir retards, bagages perdus, météo, changement de dates ou maladie.",
+      "groups": [
+        {
+          "title": "Anticiper les contretemps",
+          "guidance": "Quand le voyage doit rester sécurisé malgré l'incertitude.",
+          "questions": [
+            "Si le vol est retardé et que nous manquons le transfert, comment la prise en charge s'organise ?",
+            "Quelles sont les conditions d'annulation si l'un des voyageurs tombe malade avant le départ ?",
+            "En cas de bagage perdu à l'arrivée, est-ce que l'agence ou l'assurance nous accompagne dans les démarches ?",
+            "Si la météo empêche une excursion prévue, est-ce qu'elle est reportée, remboursée ou remplacée ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Suivi, contacts et confirmation de réservation",
+      "guidance": "Clore en vérifiant documents, interlocuteur et prochaines étapes.",
+      "groups": [
+        {
+          "title": "Finaliser l'organisation",
+          "guidance": "Pour repartir avec une réservation claire et vérifiable.",
+          "questions": [
+            "Après la réservation, quels documents vais-je recevoir et sous quel délai ?",
+            "Qui dois-je contacter si j'ai une question avant le départ ou un problème pendant le séjour ?",
+            "Est-ce que je peux modifier le nombre de voyageurs ou les dates après confirmation, et jusqu'à quand ?",
+            "Donc, pour récapituler, je réserve aujourd'hui, je règle l'acompte et vous m'envoyez le programme détaillé, c'est bien ça ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

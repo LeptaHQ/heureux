@@ -22,18 +22,21 @@
         },
         {
           "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
-          "memory_section": 3
+          "memory_number": 10,
+          "memory_section": 6
         },
         {
           "text": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
-          "memory_section": 3
+          "memory_number": 10,
+          "memory_section": 6
         },
         {
           "text": "Il y a beaucoup de monde en général, ou c'est plutôt un petit groupe ?"
         },
         {
           "text": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
-          "memory_section": 2
+          "memory_number": 10,
+          "memory_section": 4
         },
         {
           "text": "Ça dure combien de temps — une soirée entière ?"
@@ -46,22 +49,26 @@
         },
         {
           "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
-          "memory_section": 3
+          "memory_number": 10,
+          "memory_section": 6
         },
         {
           "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
-          "memory_section": 1
+          "memory_number": 10,
+          "memory_section": 3
         },
         {
           "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
-          "memory_section": 15
+          "memory_number": 10,
+          "memory_section": 10
         },
         {
           "text": "Est-ce que c'est convivial — on peut y rencontrer du monde facilement ?"
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
-          "memory_section": 4
+          "memory_number": 10,
+          "memory_section": 13
         }
       ]
     },
@@ -84,8 +91,8 @@
         },
         {
           "text": "Qui est invité — seulement les collègues, ou aussi la famille et les amis ?",
-          "memory_number": 5,
-          "memory_section": 4
+          "memory_number": 4,
+          "memory_section": 13
         },
         {
           "text": "On sera nombreux à peu près ?"
@@ -101,8 +108,8 @@
         },
         {
           "text": "Est-ce qu'on doit apporter quelque chose — un plat, une boisson ?",
-          "memory_number": 5,
-          "memory_section": 4
+          "memory_number": 4,
+          "memory_section": 13
         },
         {
           "text": "Pour le cadeau, on fait quelque chose en commun, ou chacun apporte le sien ?"
@@ -152,7 +159,8 @@
         },
         {
           "text": "Faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
-          "memory_section": 5
+          "memory_number": 10,
+          "memory_section": 8
         },
         {
           "text": "Est-ce qu'on repart avec des légumes ou des plantes qu'on a cultivés ?"
@@ -171,7 +179,8 @@
         },
         {
           "text": "Pour finir — quelle serait la meilleure façon de commencer si je souhaite vous rejoindre dès cette semaine ?",
-          "memory_section": 4
+          "memory_number": 10,
+          "memory_section": 13
         }
       ]
     },
@@ -182,50 +191,59 @@
       "questions": [
         {
           "text": "Bonjour, je voudrais m'inscrire à la bibliothèque — comment dois-je procéder ?",
-          "memory_section": 19
+          "memory_number": 10,
+          "memory_section": 13
         },
         {
           "text": "Quels documents faut-il apporter pour l'inscription — une pièce d'identité, un justificatif de domicile ?",
-          "memory_number": 3,
-          "memory_section": 1
+          "memory_number": 10,
+          "memory_section": 6
         },
         {
           "text": "L'inscription est-elle gratuite, ou faut-il payer une cotisation annuelle ?",
-          "memory_section": 1
+          "memory_number": 10,
+          "memory_section": 3
         },
         {
           "text": "Combien de livres peut-on emprunter à la fois ?",
-          "memory_section": 18
+          "memory_number": 10,
+          "memory_section": 11
         },
         {
           "text": "Et pendant combien de temps peut-on les garder avant de les rapporter ?",
-          "memory_section": 9
+          "memory_number": 10,
+          "memory_section": 4
         },
         {
           "text": "Est-ce qu'on peut emprunter d'autres documents — des DVD, des revues, des partitions ?"
         },
         {
           "text": "Y a-t-il des frais si on rend un document en retard ?",
-          "memory_section": 1
+          "memory_number": 10,
+          "memory_section": 3
         },
         {
           "text": "Peut-on prolonger un emprunt en ligne, ou faut-il revenir sur place ?",
-          "memory_section": 3
+          "memory_number": 10,
+          "memory_section": 6
         },
         {
           "text": "Peut-on réserver un livre qui est déjà emprunté par quelqu'un d'autre ?"
         },
         {
           "text": "Si un livre n'est pas disponible ici, est-il possible de le faire venir d'une autre bibliothèque ?",
-          "memory_section": 3
+          "memory_number": 10,
+          "memory_section": 6
         },
         {
           "text": "Quels sont les horaires d'ouverture — vous êtes aussi ouverts le week-end ?",
-          "memory_section": 2
+          "memory_number": 10,
+          "memory_section": 4
         },
         {
           "text": "Proposez-vous aussi des livres numériques ou des livres audio à emprunter ?",
-          "memory_section": 16
+          "memory_number": 10,
+          "memory_section": 9
         },
         {
           "text": "Que se passe-t-il si je perds ou j'abîme un document emprunté ?"
@@ -235,7 +253,8 @@
         },
         {
           "text": "Pour finir — quelle serait la meilleure façon de découvrir les nouveautés dès mon inscription ?",
-          "memory_section": 4
+          "memory_number": 10,
+          "memory_section": 13
         }
       ]
     },
@@ -261,7 +280,8 @@
         },
         {
           "text": "Quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
-          "memory_section": 2
+          "memory_number": 8,
+          "memory_section": 4
         },
         {
           "text": "Les cours sont-ils donnés par des maîtres-nageurs qualifiés ?"
@@ -271,11 +291,13 @@
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_section": 1
+          "memory_number": 8,
+          "memory_section": 3
         },
         {
           "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
-          "memory_section": 1
+          "memory_number": 8,
+          "memory_section": 3
         },
         {
           "text": "Qu'est-ce qu'il faut apporter — maillot, bonnet de bain, lunettes ?"
@@ -285,11 +307,13 @@
         },
         {
           "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
-          "memory_section": 3
+          "memory_number": 8,
+          "memory_section": 6
         },
         {
           "text": "Il faut s'inscrire à l'avance pour les cours ou on peut venir librement ?",
-          "memory_section": 3
+          "memory_number": 8,
+          "memory_section": 6
         },
         {
           "text": "Pour finir — quel cours me conseilleriez-vous pour quelqu'un qui débute vraiment ?"

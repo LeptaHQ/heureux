@@ -1,91 +1,227 @@
 {
   "number": 3,
-  "title": "Mémoire 3",
-  "label": "Questions d'approfondissement",
-  "icon": "search",
-  "subtitle": "Une troisième banque de formulations stables à mémoriser et à adapter pour approfondir un dossier, un profil, un bien, un parcours ou l'encadrement, dans de nombreux sujets de la Tâche 2.",
+  "title": "Mémoire 3 · Vie de quartier & entraide",
+  "label": "Vie de quartier & entraide",
+  "icon": "users",
+  "subtitle": "Les formulations à réutiliser quand un sujet parle de participer à la vie locale, aider ses voisins ou rejoindre une initiative de quartier.",
   "sections": [
     {
       "number": 1,
-      "title": "Dossier, garanties et conditions d'engagement",
+      "title": "Ouverture — entrer en contact dans le quartier",
+      "guidance": "Poser le décor en une phrase : je découvre le quartier et je veux participer ou demander de l'aide.",
       "groups": [
         {
-          "title": "Constituer le dossier (location)",
-          "guidance": "Pour louer un logement : ce qu'il faut fournir et garantir avant de signer.",
+          "title": "Se présenter comme voisin ou bénévole",
+          "guidance": "À utiliser avec une association, une maison de quartier ou un voisin référent.",
           "questions": [
-            "Quels documents faut-il fournir pour constituer le dossier ?",
-            "Faut-il absolument un garant, ou existe-t-il d'autres solutions si on n'en a pas ?",
-            "Faut-il verser une caution ou des arrhes ?",
-            "Y a-t-il une durée ou un engagement minimum ?"
-          ]
-        },
-        {
-          "title": "Pièces à apporter (inscription)",
-          "guidance": "Pour s'inscrire à un service : bibliothèque, cours, activité.",
-          "questions": [
-            "Quels documents faut-il apporter pour l'inscription — une pièce d'identité, un justificatif de domicile ?"
+            "Bonjour, je viens d'arriver dans le quartier et j'aimerais savoir comment participer à la vie locale.",
+            "Je cherche une façon simple de rencontrer des voisins — est-ce que vous pouvez me renseigner ?",
+            "C'est ma première visite à la maison de quartier, vous pouvez m'expliquer ce qu'on y fait ?",
+            "Avant de m'engager, j'aimerais comprendre l'esprit de votre association et les besoins du moment."
           ]
         }
       ]
     },
     {
       "number": 2,
-      "title": "Profil et besoins (personne ou animal)",
+      "title": "Activités, services et initiatives proposées",
+      "guidance": "Faire décrire les actions locales : bénévolat, ateliers, entraide et projets citoyens.",
       "groups": [
         {
-          "guidance": "Formulations au masculin par défaut : à accorder au genre de la personne ou de l'animal.",
+          "title": "Découvrir ce qui existe près de chez soi",
+          "guidance": "Quand on veut comprendre l'offre d'une association ou d'un service de proximité.",
           "questions": [
-            "Comment s'appelle-t-il, et quel âge a-t-il ?",
-            "Comment est son caractère ?",
-            "Quelles sont ses activités ou ses loisirs préférés ?",
-            "Comment réagit-il en général quand il reste seul un moment ?",
-            "Que mange-t-il exactement, et à quelle fréquence faut-il le nourrir ?"
+            "Quelles activités proposez-vous aux habitants du quartier pendant la semaine ?",
+            "Vous avez parlé d'entraide entre voisins — concrètement, quels types de services circulent ?",
+            "Est-ce que la maison de quartier organise aussi des ateliers pour les familles et les enfants ?",
+            "Quels projets citoyens sont en cours en ce moment, par exemple autour du jardin partagé ?"
           ]
         }
       ]
     },
     {
       "number": 3,
-      "title": "État et historique d'un bien",
+      "title": "Cotisations, petits frais et solutions économiques",
+      "guidance": "Clarifier ce qui est gratuit, payant ou accessible grâce à des tarifs solidaires.",
       "groups": [
         {
-          "guidance": "Pour un bien d'occasion : certaines formulations (accident, carnet d'entretien, contrôle technique) s'adaptent surtout à un véhicule.",
+          "title": "Comprendre les coûts de participation",
+          "guidance": "À poser avant d'adhérer, réserver une activité ou proposer un service bénévole.",
           "questions": [
-            "Est-ce en bon état général, ou y a-t-il des réparations à prévoir ?",
-            "A-t-il déjà eu un accident ou un problème important ?",
-            "Tu as gardé le carnet d'entretien et les factures ?",
-            "Le contrôle technique est encore valide, ou il faut le refaire bientôt ?",
-            "Pourquoi as-tu décidé de vendre ?"
+            "L'adhésion à l'association est-elle payante, ou chacun participe librement selon ses moyens ?",
+            "Pour les ateliers du quartier, faut-il prévoir une contribution ou du matériel à acheter ?",
+            "Est-ce qu'il existe un tarif réduit pour les étudiants, les familles ou les personnes sans emploi ?",
+            "Quand on aide un voisin, comment évite-t-on que ça devienne un service payant déguisé ?"
           ]
         }
       ]
     },
     {
       "number": 4,
-      "title": "Parcours, évolution et projets",
+      "title": "Horaires, fréquence et disponibilité des bénévoles",
+      "guidance": "Situer les permanences, les rencontres et le rythme des actions collectives.",
       "groups": [
         {
+          "title": "Savoir quand participer",
+          "guidance": "Utile pour coordonner son emploi du temps avec celui des associations ou des voisins.",
           "questions": [
-            "Ça fait combien de temps que tu es arrivé(e) ici ?",
-            "Qu'est-ce qui a changé pour toi ?",
-            "Concrètement, quelles sont tes nouvelles tâches au quotidien ?",
-            "Qu'est-ce qui t'a le plus aidé(e) à bien t'intégrer ?",
-            "Quels sont tes projets ou tes objectifs maintenant ?"
+            "La permanence de quartier a lieu quels jours, et jusqu'à quelle heure reste-t-elle ouverte ?",
+            "Les réunions de bénévoles se tiennent toutes les semaines ou seulement pour certains projets ?",
+            "Si je travaille en journée, est-ce qu'il y a des actions possibles le soir ou le week-end ?",
+            "Pour la garde d'animaux entre voisins, combien de temps faut-il prévenir à l'avance ?"
           ]
         }
       ]
     },
     {
       "number": 5,
-      "title": "Encadrement, entourage et responsabilités",
+      "title": "Lieux de rencontre et accès aux services locaux",
+      "guidance": "Se repérer : maison de quartier, marché, jardin partagé, locaux associatifs et déplacements.",
       "groups": [
         {
+          "title": "Trouver les points de vie du quartier",
+          "guidance": "Quand on ne sait pas encore où se passent les activités ou les permanences.",
           "questions": [
-            "Est-ce encadré par des professionnels qualifiés ?",
-            "Es-tu venu(e) seul(e), ou accompagné(e) ?",
-            "Qui t'a aidé(e) à t'installer ?",
-            "Qui sera présent — toi uniquement, ou d'autres personnes aussi ?",
-            "Concrètement, qu'attend-on de moi, et quelles seraient mes principales responsabilités ?"
+            "La maison de quartier se trouve où exactement, et quel arrêt est le plus proche ?",
+            "Le marché local est-il accessible à pied depuis la résidence, ou faut-il prendre le bus ?",
+            "Où se situe le jardin partagé, et comment y entre-t-on quand il est fermé ?",
+            "Les permanences d'entraide changent-elles de lieu selon les semaines ou restent-elles ici ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Inscription, adhésion et engagement bénévole",
+      "guidance": "Lister les démarches pour rejoindre une activité ou participer à un réseau d'entraide.",
+      "groups": [
+        {
+          "title": "Passer de l'intérêt à l'action",
+          "guidance": "Le cœur d'un échange avec une association, une plateforme de voisins ou un collectif citoyen.",
+          "questions": [
+            "Comment fait-on pour s'inscrire comme bénévole dans votre association de quartier ?",
+            "Faut-il remplir une fiche d'adhésion avant de participer à une première activité ?",
+            "Pour proposer de garder un enfant ou un animal, y a-t-il une vérification particulière ?",
+            "Une fois inscrit, est-ce qu'on choisit ses missions ou vous les attribuez selon les besoins ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Profil des habitants et besoins d'entraide",
+      "guidance": "Expliquer sa situation pour trouver une action adaptée ou demander un soutien pertinent.",
+      "groups": [
+        {
+          "title": "Dire ce qu'on peut offrir ou recevoir",
+          "guidance": "Quand il faut préciser son âge, ses disponibilités, ses compétences ou ses contraintes familiales.",
+          "questions": [
+            "Si je n'ai jamais fait de bénévolat, est-ce que je peux quand même participer facilement ?",
+            "Je peux aider ponctuellement mais pas chaque semaine — est-ce que ça vous serait utile ?",
+            "Pour une personne âgée isolée, quels services de proximité recommandez-vous en priorité ?",
+            "Compte tenu de mes horaires, quelle forme d'entraide serait la plus réaliste selon vous ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Préparation, matériel et règles de vie collective",
+      "guidance": "Anticiper ce qu'il faut apporter et les règles à respecter dans les actions communes.",
+      "groups": [
+        {
+          "title": "Participer sans gêner l'organisation",
+          "guidance": "Quand l'activité implique des enfants, des animaux, un jardin ou une responsabilité partagée.",
+          "questions": [
+            "Pour aider au jardin partagé, faut-il apporter ses propres gants ou les outils sont fournis ?",
+            "Quelles règles de sécurité appliquez-vous pendant les événements organisés dans la rue ?",
+            "Si je garde l'animal d'un voisin, quelles informations dois-je demander avant de commencer ?",
+            "Y a-t-il une charte à respecter pour les échanges de services entre habitants ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Sur place : accueil, équipements et confort",
+      "guidance": "Repérer les services pratiques disponibles pendant les activités ou les permanences.",
+      "groups": [
+        {
+          "title": "Vérifier les conditions d'accueil",
+          "guidance": "Très utile dans une maison de quartier, un local associatif ou un événement de proximité.",
+          "questions": [
+            "Sur place, est-ce qu'il y a quelqu'un pour accueillir les nouveaux participants ?",
+            "La salle est-elle adaptée aux familles avec poussettes ou aux personnes à mobilité réduite ?",
+            "Pendant les événements du quartier, prévoit-on un point d'eau ou un espace pour se reposer ?",
+            "Est-ce que les enfants peuvent rester dans un coin encadré pendant que les parents participent ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Ambiance locale et intégration entre habitants",
+      "guidance": "Parler de la convivialité, de la confiance et de la façon de créer des liens durables.",
+      "groups": [
+        {
+          "title": "Comprendre l'esprit du quartier",
+          "guidance": "Quand l'objectif est autant de participer que de se sentir reconnu parmi les voisins.",
+          "questions": [
+            "L'ambiance est-elle plutôt familiale, militante, ou simplement conviviale entre habitants ?",
+            "Comment les nouveaux voisins sont-ils intégrés quand ils ne connaissent encore personne ?",
+            "Les initiatives du quartier créent-elles vraiment du lien, ou restent-elles entre habitués ?",
+            "D'après vous, qu'est-ce qui donne envie aux habitants de continuer à s'impliquer ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Conseils et choix entre plusieurs actions",
+      "guidance": "Demander un avis pour choisir une association, un service ou une initiative adaptée.",
+      "groups": [
+        {
+          "title": "Se faire orienter vers la bonne action",
+          "guidance": "À utiliser quand plusieurs possibilités existent et qu'il faut commencer quelque part.",
+          "questions": [
+            "Entre le bénévolat au marché solidaire et l'aide aux devoirs, par quoi commenceriez-vous ?",
+            "Quelle initiative convient le mieux à quelqu'un qui veut aider sans prendre trop de responsabilités ?",
+            "À votre avis, le jardin partagé est-il un bon moyen de rencontrer des voisins rapidement ?",
+            "Si je veux rendre service mais rester flexible, quelle formule me recommanderiez-vous ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Imprévus, absences et plans B solidaires",
+      "guidance": "Gérer les annulations, urgences, remplacements et changements dans l'entraide de proximité.",
+      "groups": [
+        {
+          "title": "Prévoir quand quelqu'un ne peut pas venir",
+          "guidance": "Quand une garde, une permanence ou une action collective dépend de plusieurs personnes.",
+          "questions": [
+            "Si je ne peux pas venir à une permanence, comment dois-je prévenir l'équipe ?",
+            "Pour une garde d'enfant prévue entre voisins, que fait-on si la personne se désiste ?",
+            "En cas de mauvais temps, les activités au jardin partagé sont-elles reportées ou annulées ?",
+            "Si une situation de sécurité devient délicate dans le quartier, qui faut-il appeler en priorité ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Contacts, coordination et suivi des actions",
+      "guidance": "Organiser la suite : référent, groupe de discussion, inscription et récapitulatif final.",
+      "groups": [
+        {
+          "title": "Garder le lien avec le réseau local",
+          "guidance": "Idéal pour clore l'échange et savoir comment rester informé des prochaines initiatives.",
+          "questions": [
+            "Qui est la personne référente si j'ai une question après cette première rencontre ?",
+            "Est-ce qu'il existe un groupe de discussion pour suivre les demandes d'entraide du quartier ?",
+            "Vous envoyez les informations par courriel, par affichage, ou plutôt via les réseaux sociaux ?",
+            "Je récapitule : je remplis la fiche, vous m'ajoutez au groupe, puis je choisis une action ?"
           ]
         }
       ]

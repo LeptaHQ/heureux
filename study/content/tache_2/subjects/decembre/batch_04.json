@@ -22,11 +22,13 @@
         },
         {
           "text": "Comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
-          "memory_section": 1
+          "memory_number": 6,
+          "memory_section": 3
         },
         {
           "text": "Faut-il verser une caution — et de quel montant à peu près ?",
-          "memory_section": 1
+          "memory_number": 6,
+          "memory_section": 3
         },
         {
           "text": "Quelles sont les conditions pour louer — faut-il une pièce d'identité ou un âge minimum ?"
@@ -36,7 +38,8 @@
         },
         {
           "text": "Est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
-          "memory_section": 17
+          "memory_number": 6,
+          "memory_section": 8
         },
         {
           "text": "Que se passe-t-il en cas de crevaison ou de problème mécanique pendant la location ?"
@@ -58,7 +61,8 @@
         },
         {
           "text": "Pour finir — si je réserve à l'avance, est-ce que j'obtiens un meilleur tarif ?",
-          "memory_section": 1
+          "memory_number": 6,
+          "memory_section": 3
         }
       ]
     },
@@ -72,19 +76,23 @@
         },
         {
           "text": "Quels types de transports sont disponibles ici — bus, métro, tramway ?",
-          "memory_section": 10
+          "memory_number": 6,
+          "memory_section": 2
         },
         {
           "text": "Est-ce que le réseau couvre toute la ville ou seulement certaines zones ?",
-          "memory_section": 13
+          "memory_number": 6,
+          "memory_section": 5
         },
         {
           "text": "Y a-t-il une application pour suivre les transports en temps réel ?",
-          "memory_section": 16
+          "memory_number": 6,
+          "memory_section": 9
         },
         {
           "text": "L'application permet-elle aussi de planifier un itinéraire ?",
-          "memory_section": 16
+          "memory_number": 6,
+          "memory_section": 9
         },
         {
           "text": "Pour aller au centre-ville et voir les principaux endroits à visiter, tu me conseillerais quel moyen de transport ?"
@@ -100,7 +108,8 @@
         },
         {
           "text": "Le réseau fonctionne-t-il chaque jour de la semaine — les horaires changent-ils le week-end ?",
-          "memory_section": 2
+          "memory_number": 6,
+          "memory_section": 4
         },
         {
           "text": "Il y a aussi un système de vélos en libre-service, si je veux alterner avec les transports ?"
@@ -144,8 +153,8 @@
         },
         {
           "text": "Il y a des endroits plus confidentiels que les touristes ratent souvent ?",
-          "memory_number": 6,
-          "memory_section": 3
+          "memory_number": 10,
+          "memory_section": 2
         },
         {
           "text": "Selon toi, quelle est la meilleure période de l'année pour la découvrir ?"
@@ -186,7 +195,8 @@
         },
         {
           "text": "Ça se déroule où — en plein air, dans une salle ?",
-          "memory_section": 4
+          "memory_number": 9,
+          "memory_section": 13
         },
         {
           "text": "Quels styles de musique seront au programme ?"
@@ -208,21 +218,24 @@
         },
         {
           "text": "Comment on s'organise pour le transport ou le stationnement sur place ?",
-          "memory_section": 13
+          "memory_number": 9,
+          "memory_section": 5
         },
         {
           "text": "On peut manger ou boire quelque chose sur place ?"
         },
         {
           "text": "Faut-il un billet spécial pour le camping, si on veut rester sur place plusieurs jours ?",
-          "memory_section": 3
+          "memory_number": 9,
+          "memory_section": 6
         },
         {
           "text": "Est-ce que tu cherches aussi des bénévoles si jamais je veux donner un coup de main ?"
         },
         {
           "text": "Y a-t-il une limite d'âge ou des règles particulières à respecter sur place ?",
-          "memory_section": 17
+          "memory_number": 9,
+          "memory_section": 8
         },
         {
           "text": "Pour finir — qu'est-ce que je ne dois surtout pas oublier d'apporter pour profiter du festival ?"
@@ -257,7 +270,7 @@
         },
         {
           "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
-          "memory_number": 1,
+          "memory_number": 11,
           "memory_section": 8
         },
         {

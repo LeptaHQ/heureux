@@ -1,93 +1,227 @@
 {
   "number": 4,
-  "title": "Mémoire 4",
-  "label": "Questions situationnelles",
-  "icon": "target",
-  "subtitle": "Une quatrième banque de formulations stables à mémoriser et à adapter pour ancrer chaque conversation de la Tâche 2 dans sa situation — ouverture, budget, niveau, moment et avis personnel.",
+  "title": "Mémoire 4 · Travail & emploi",
+  "label": "Travail & emploi",
+  "icon": "laptop",
+  "subtitle": "Les formulations à réutiliser dès qu'un sujet parle de recherche d'emploi, de recrutement, de contrat et de vie professionnelle.",
   "sections": [
     {
       "number": 1,
-      "title": "Ouverture — reprise et arrivée",
+      "title": "Ouverture — premiers mots dans un contexte professionnel",
+      "guidance": "Lancer l'échange en situant sa démarche : emploi, stage, entretien ou reconversion.",
       "groups": [
         {
-          "title": "Reprise d'un propos",
-          "guidance": "Quand l'interlocuteur a évoqué une expérience, une invitation ou un service qu'on veut approfondir dès l'entrée en matière.",
+          "title": "Entrer dans la conversation",
+          "guidance": "Pour les premières secondes face à une agence, un recruteur ou un responsable.",
           "questions": [
-            "Salut ! Tu m'as dit que tu faisais du ski de fond — ça me tente d'essayer, tu peux m'en parler ?",
-            "Salut ! Tu m'as proposé de venir avec toi à un concert — ça me tente bien, tu peux m'en dire plus ?",
-            "Bonjour ! Vous m'avez dit que vous donniez des cours de sport dans un centre social — ça m'intéresse beaucoup, vous pourriez m'en parler ?"
-          ]
-        },
-        {
-          "title": "Arrivée récente",
-          "guidance": "Pour ouvrir une conversation quand on vient de s'installer et qu'on demande des repères.",
-          "questions": [
-            "Salut ! Je viens d'arriver dans ta ville et j'aimerais organiser une sortie sans trop dépenser — tu aurais des idées à me conseiller ?",
-            "Bonjour ! Je viens d'arriver au Canada et j'aurais besoin de quelques renseignements pour m'installer — pouvez-vous m'aider ?"
+            "Bonjour, je vous contacte parce que je suis en recherche d'emploi et j'aimerais comprendre ce que vous pouvez me proposer.",
+            "Je viens de repérer votre annonce, mais avant de candidater j'aurais besoin de quelques précisions.",
+            "Je suis actuellement en reconversion, donc je voudrais savoir si mon profil peut quand même correspondre.",
+            "Avant de vous expliquer mon parcours, est-ce que vous pouvez me présenter rapidement le poste ou le service ?"
           ]
         }
       ]
     },
     {
       "number": 2,
-      "title": "Économies et bons plans",
+      "title": "Ce qui est proposé aux candidats ou aux salariés",
+      "guidance": "Faire préciser l'accompagnement, le poste, la mission ou la formation.",
       "groups": [
         {
-          "guidance": "Pour orienter une sortie, un séjour ou une inscription vers les options gratuites ou peu coûteuses.",
+          "title": "Comprendre l'offre professionnelle",
+          "guidance": "Quand l'interlocuteur parle d'une offre, d'un stage ou d'un dispositif d'aide.",
           "questions": [
-            "Est-ce qu'il y a des musées gratuits ou des jours d'entrée gratuite dans la semaine ?",
-            "Est-ce qu'il y a des événements ou des animations gratuits en ce moment ?",
-            "Pour les transports, il existe un pass ou des tarifs réduits pour se déplacer moins cher ?",
-            "Pour manger sans se ruiner, tu connais des adresses pas chères, ou c'est mieux de prévoir un pique-nique ?",
-            "Est-ce qu'on peut acheter un carnet de plusieurs entrées pour payer moins cher ?"
+            "Concrètement, quelles sont les missions principales prévues pour ce poste ?",
+            "L'agence propose seulement des offres, ou aussi un accompagnement pour préparer les candidatures ?",
+            "Pour le stage, est-ce qu'il s'agit surtout d'observation ou est-ce que je participerai vraiment aux projets ?",
+            "La formation professionnelle que vous mentionnez débouche sur quelles possibilités ensuite ?"
           ]
         }
       ]
     },
     {
       "number": 3,
-      "title": "Se lancer — débuter une activité",
+      "title": "Rémunération, frais et aides possibles",
+      "guidance": "Aborder salaire, indemnité, financement de formation et avantages.",
       "groups": [
         {
-          "guidance": "Pour aborder une activité, un sport ou un atelier quand on part de zéro.",
+          "title": "Parler argent sans être maladroit",
+          "guidance": "À utiliser quand le coût ou la rémunération n'est pas clair.",
           "questions": [
-            "Il faut déjà savoir cuisiner ou c'est ouvert aux débutants ?",
-            "C'est difficile pour un débutant, ou ça s'apprend assez vite ?",
-            "Il faut prendre des cours au début, ou tu peux me montrer les bases ?",
-            "Il vaut mieux acheter le matériel ou on peut le louer pour commencer ?",
-            "Il y a des précautions de sécurité à connaître avant de se lancer ?"
+            "Est-ce que vous pouvez m'indiquer la fourchette de salaire prévue pour ce poste ?",
+            "Pour un stage, il y a une gratification ou seulement le remboursement de certains frais ?",
+            "Si je suis une formation, est-ce qu'elle peut être financée par un organisme ou par l'employeur ?",
+            "Les avantages comme les tickets-restaurant ou la mutuelle sont inclus dès le début du contrat ?"
           ]
         }
       ]
     },
     {
       "number": 4,
-      "title": "Adapter selon la saison et le moment",
+      "title": "Horaires, rythme et délais de réponse",
+      "guidance": "Situer les horaires de travail, les dates de recrutement et les temps d'attente.",
       "groups": [
         {
-          "guidance": "Pour caler ses questions sur la météo, la saison ou l'affluence, et prévoir un plan B.",
+          "title": "Organiser son calendrier professionnel",
+          "guidance": "Pour un entretien, une prise de poste, une formation ou des congés.",
           "questions": [
-            "S'il fait beau, qu'est-ce que tu me conseilles comme activités en plein air ?",
-            "Et s'il pleut, tu aurais des idées d'activités en intérieur ?",
-            "Il vaut mieux y aller à quel moment pour éviter la foule ?",
-            "Quelle est la meilleure période pour s'y mettre dans la saison ?",
-            "Il y a des activités d'hiver typiques à essayer, comme le patin ou la luge ?"
+            "Quels sont les horaires habituels dans l'équipe, plutôt fixes ou variables selon les semaines ?",
+            "Après l'entretien, sous quel délai pensez-vous pouvoir donner une réponse aux candidats ?",
+            "La prise de poste est prévue immédiatement ou il y a une période de transition ?",
+            "Pour poser des congés, combien de temps à l'avance faut-il prévenir la hiérarchie ?"
           ]
         }
       ]
     },
     {
       "number": 5,
-      "title": "Avis personnel et recommandation ciblée",
+      "title": "Lieu de travail et modalités pratiques",
+      "guidance": "Se repérer : bureau, agence, télétravail, transports et accès.",
       "groups": [
         {
-          "guidance": "Pour solliciter le regard direct de l'interlocuteur — ce qu'il en a pensé, ce qu'il conseille vraiment.",
+          "title": "Savoir où et comment travailler",
+          "guidance": "Quand l'organisation matérielle influence la décision.",
           "questions": [
-            "Tu y es déjà allé(e) toi-même — qu'est-ce que tu en as pensé ?",
-            "Le rapport qualité-prix te semble bon, comparé à d'autres endroits ?",
-            "Toi qui connais cet artiste, tu me conseilles vraiment d'y aller ?",
-            "Qu'est-ce que tu as regardé récemment et que tu as vraiment aimé ?",
-            "Est-ce que vous recommanderiez cette destination à quelqu'un qui voudrait y aller ?"
+            "Le poste se fait sur un seul site ou il faut se déplacer chez des clients ?",
+            "Comment se rend-on facilement dans vos locaux en transports en commun ?",
+            "Le télétravail est possible combien de jours par semaine, et à partir de quel moment ?",
+            "Pour l'entretien, je dois me présenter à l'accueil principal ou directement au service ressources humaines ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Dossier, candidature et contrat",
+      "guidance": "Lister les documents nécessaires et comprendre les étapes administratives.",
+      "groups": [
+        {
+          "title": "Préparer les pièces demandées",
+          "guidance": "Pour CV, lettre, convention de stage, justificatifs et contrat de travail.",
+          "questions": [
+            "Quels documents faut-il envoyer avec la candidature, en plus du CV ?",
+            "Est-ce qu'une lettre de motivation détaillée est indispensable ou un message court suffit ?",
+            "Pour signer le contrat, quelles pièces administratives dois-je apporter le premier jour ?",
+            "Si mon école doit valider une convention de stage, à qui dois-je l'envoyer dans votre entreprise ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Votre profil, vos contraintes et vos objectifs",
+      "guidance": "Faire adapter la réponse à son expérience, à sa disponibilité ou à son projet.",
+      "groups": [
+        {
+          "title": "Expliquer son parcours",
+          "guidance": "Quand il faut montrer ce qui correspond au poste ou au dispositif.",
+          "questions": [
+            "Avec mon expérience plutôt courte, est-ce que ma candidature reste intéressante pour vous ?",
+            "Je suis disponible seulement à partir du mois prochain : est-ce compatible avec votre calendrier ?",
+            "Comme je change de métier, quelles compétences de mon ancien poste pourraient être valorisées ?",
+            "D'après mon profil, vous me conseilleriez de viser un emploi direct ou d'abord une formation ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Préparation, règles internes et attentes",
+      "guidance": "Anticiper l'entretien, la période d'essai, le matériel et les consignes.",
+      "groups": [
+        {
+          "title": "Arriver prêt et respecter le cadre",
+          "guidance": "À poser avant un entretien, une mission ou une formation.",
+          "questions": [
+            "Comment dois-je me préparer pour l'entretien : plutôt questions techniques ou discussion sur mon parcours ?",
+            "Y a-t-il un code vestimentaire particulier à respecter dans l'entreprise ?",
+            "Pendant la période d'essai, quels critères seront surtout observés par le responsable ?",
+            "Pour travailler à distance, est-ce que le matériel est fourni ou faut-il utiliser son propre ordinateur ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Services et ressources autour du travail",
+      "guidance": "Repérer les appuis : formation, restauration, transport, accompagnement social.",
+      "groups": [
+        {
+          "title": "Identifier les soutiens disponibles",
+          "guidance": "Utile pour s'organiser au quotidien ou sécuriser son parcours.",
+          "questions": [
+            "Est-ce qu'il existe un conseiller référent que je peux revoir pendant ma recherche d'emploi ?",
+            "L'entreprise dispose d'une cantine ou d'une solution pour déjeuner à proximité ?",
+            "Il y a des aides pour le transport quand le lieu de travail est loin du domicile ?",
+            "En cas de difficulté pendant la formation, est-ce qu'un suivi individuel est prévu ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Ambiance, collègues et hiérarchie",
+      "guidance": "Parler du climat de travail, de l'intégration et des relations professionnelles.",
+      "groups": [
+        {
+          "title": "Comprendre la vie d'équipe",
+          "guidance": "Quand l'environnement humain compte autant que le poste.",
+          "questions": [
+            "Comment décririez-vous l'ambiance dans l'équipe au quotidien ?",
+            "Les nouveaux salariés sont-ils accompagnés par un collègue les premières semaines ?",
+            "Le responsable fonctionne plutôt avec beaucoup d'autonomie ou avec un suivi très régulier ?",
+            "En cas de désaccord avec un collègue, quelle est la manière habituelle de régler les choses ici ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Le conseil d'un professionnel",
+      "guidance": "Demander une recommandation, une comparaison ou une priorité.",
+      "groups": [
+        {
+          "title": "Se faire guider dans ses choix",
+          "guidance": "Pour conclure une discussion avec un recruteur, un conseiller ou un responsable.",
+          "questions": [
+            "À votre avis, quel aspect de mon profil devrais-je mettre le plus en avant ?",
+            "Entre une mission courte et un contrat plus stable, qu'est-ce qui serait le plus stratégique dans ma situation ?",
+            "Si vous receviez ma candidature, qu'est-ce qui vous donnerait envie de me rencontrer ?",
+            "Pour réussir dans ce poste, quel conseil donneriez-vous à quelqu'un qui commence ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Si la situation professionnelle change",
+      "guidance": "Prévoir les imprévus : report, refus, rupture, maladie ou organisation familiale.",
+      "groups": [
+        {
+          "title": "Anticiper les solutions de remplacement",
+          "guidance": "Quand un entretien, un contrat ou une mission peut être modifié.",
+          "questions": [
+            "Si je ne peux pas venir à l'entretien le jour prévu, est-ce qu'un autre créneau est envisageable ?",
+            "Que se passe-t-il si la mission ne correspond finalement pas à ce qui était annoncé ?",
+            "En cas de refus, est-ce que je pourrai recevoir un retour pour améliorer ma prochaine candidature ?",
+            "Si ma situation familiale change, peut-on revoir l'organisation du temps de travail ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Garder le contact et suivre sa démarche",
+      "guidance": "Organiser la suite : relance, interlocuteur, dossier et prochain rendez-vous.",
+      "groups": [
+        {
+          "title": "Clore l'échange professionnellement",
+          "guidance": "Idéal pour terminer une Tâche 2 avec une suite claire.",
+          "questions": [
+            "À qui dois-je écrire si j'ai une question après avoir envoyé mon dossier ?",
+            "Est-ce que je peux vous relancer la semaine prochaine si je n'ai pas encore de réponse ?",
+            "Vous préférez recevoir les documents par courriel ou via votre plateforme de recrutement ?",
+            "Pour être sûr d'avoir bien compris, la prochaine étape est l'envoi du CV puis un entretien téléphonique, c'est bien cela ?"
           ]
         }
       ]

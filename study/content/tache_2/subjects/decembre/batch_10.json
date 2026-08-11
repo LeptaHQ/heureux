@@ -16,60 +16,73 @@
         },
         {
           "text": "Tu es parti(e) où exactement — c'était au Canada ou à l'étranger ?",
-          "memory_section": 4
+          "memory_number": 7,
+          "memory_section": 13
         },
         {
           "text": "C'était plutôt une station balnéaire animée ou un endroit plus calme et authentique ?",
-          "memory_section": 15
+          "memory_number": 7,
+          "memory_section": 10
         },
         {
           "text": "Combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
-          "memory_section": 9
+          "memory_number": 7,
+          "memory_section": 4
         },
         {
           "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "memory_number": 7,
           "memory_section": 8
         },
         {
           "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "memory_number": 7,
           "memory_section": 8
         },
         {
           "text": "Tu connais de bons endroits où séjourner — hôtels, chambres d'hôtes, locations ?",
-          "memory_section": 6
+          "memory_number": 7,
+          "memory_section": 9
         },
         {
           "text": "C'est dans quelle gamme de prix pour l'hébergement — plutôt cher ou abordable ?",
-          "memory_section": 6
+          "memory_number": 7,
+          "memory_section": 9
         },
         {
           "text": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?",
-          "memory_section": 6
+          "memory_number": 7,
+          "memory_section": 9
         },
         {
           "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total ?",
-          "memory_section": 1
+          "memory_number": 7,
+          "memory_section": 3
         },
         {
           "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
-          "memory_section": 7
+          "memory_number": 7,
+          "memory_section": 9
         },
         {
           "text": "Il faut réserver une table à l'avance ou on peut y aller directement ?",
-          "memory_section": 7
+          "memory_number": 7,
+          "memory_section": 9
         },
         {
           "text": "Quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
-          "memory_section": 10
-        },
-        {
-          "text": "Tu as mentionné que c'était formidable — tu pourrais m'en dire un peu plus sur ce qui t'a le plus marqué(e) ?",
-          "memory_number": 2,
+          "memory_number": 7,
           "memory_section": 2
         },
         {
+          "text": "Tu as mentionné que c'était formidable — tu pourrais m'en dire un peu plus sur ce qui t'a le plus marqué(e) ?",
+          "memory_number": 7,
+          "memory_section": 10
+        },
+        {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
-          "memory_section": 4
+          "memory_number": 7,
+          "memory_section": 13
         }
       ]
     },
@@ -89,51 +102,63 @@
         },
         {
           "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
-          "memory_section": 3
+          "memory_number": 10,
+          "memory_section": 6
         },
         {
           "text": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
-          "memory_section": 3
+          "memory_number": 10,
+          "memory_section": 6
         },
         {
           "text": "Il y a généralement combien de participants — c'est un petit groupe ou une grande classe ?",
-          "memory_section": 14
+          "memory_number": 10,
+          "memory_section": 7
         },
         {
           "text": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
-          "memory_section": 2
+          "memory_number": 10,
+          "memory_section": 4
         },
         {
           "text": "Quelle est la durée d'une séance — environ une heure ou plutôt une heure et demie ?",
-          "memory_section": 2
+          "memory_number": 10,
+          "memory_section": 4
         },
         {
           "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque cours séparément ?",
-          "memory_section": 1
+          "memory_number": 10,
+          "memory_section": 3
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_section": 1
+          "memory_number": 10,
+          "memory_section": 3
         },
         {
           "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
-          "memory_section": 3
+          "memory_number": 10,
+          "memory_section": 6
         },
         {
           "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
-          "memory_section": 3
+          "memory_number": 10,
+          "memory_section": 6
         },
         {
           "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
-          "memory_section": 1
+          "memory_number": 10,
+          "memory_section": 3
         },
         {
           "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
-          "memory_section": 15
+          "memory_number": 10,
+          "memory_section": 10
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
-          "memory_section": 4
+          "memory_number": 10,
+          "memory_section": 13
         }
       ]
     },
@@ -156,8 +181,8 @@
         },
         {
           "text": "Qui est invité — seulement les collègues, ou aussi la famille et les amis ?",
-          "memory_number": 5,
-          "memory_section": 4
+          "memory_number": 4,
+          "memory_section": 13
         },
         {
           "text": "On sera nombreux à peu près ?"
@@ -173,8 +198,8 @@
         },
         {
           "text": "Est-ce qu'on doit apporter quelque chose — un plat, une boisson ?",
-          "memory_number": 5,
-          "memory_section": 4
+          "memory_number": 4,
+          "memory_section": 13
         },
         {
           "text": "Pour le cadeau, on fait quelque chose en commun, ou chacun apporte le sien ?"
@@ -204,62 +229,72 @@
         {
           "text": "Pour que je m'organise, quel est le prénom et l'âge de votre enfant ?",
           "memory_number": 3,
-          "memory_section": 2
+          "memory_section": 7
         },
         {
           "text": "Concrètement, qu'attendez-vous de moi pendant la garde — quelles seront mes principales responsabilités ?",
-          "memory_section": 5,
-          "memory_number": 3
+          "memory_number": 3,
+          "memory_section": 7
         },
         {
           "text": "Pour les repas, qu'avez-vous prévu, et à quelles heures faut-il les servir ?",
-          "memory_section": 2,
-          "memory_number": 3
+          "memory_number": 3,
+          "memory_section": 7
         },
         {
           "text": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
-          "memory_section": 17
+          "memory_number": 3,
+          "memory_section": 8
         },
         {
           "text": "Quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
-          "memory_section": 2,
-          "memory_number": 3
+          "memory_number": 3,
+          "memory_section": 7
         },
         {
           "text": "S'il fait beau et que je sors avec votre enfant, y a-t-il des consignes particulières à respecter — un vêtement à prévoir, une limite de temps, ce genre de chose ?",
-          "memory_section": 17
+          "memory_number": 3,
+          "memory_section": 8
         },
         {
           "text": "Y a-t-il des règles particulières à respecter pour la télévision, les écrans ou les jeux vidéo ?",
-          "memory_section": 17
+          "memory_number": 3,
+          "memory_section": 8
         },
         {
           "text": "Si la garde se prolonge le soir, à quelle heure faut-il prévoir le coucher, et y a-t-il une routine particulière ?",
-          "memory_section": 20
+          "memory_number": 3,
+          "memory_section": 4
         },
         {
           "text": "Y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
-          "memory_section": 17
+          "memory_number": 3,
+          "memory_section": 8
         },
         {
           "text": "Qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
-          "memory_section": 5
+          "memory_number": 3,
+          "memory_section": 8
         },
         {
           "text": "La garde aurait lieu chez vous ou chez moi ?",
-          "memory_section": 4
+          "memory_number": 3,
+          "memory_section": 13
         },
         {
           "text": "Y a-t-il d'autres habitudes ou règles importantes à respecter avec votre enfant ?",
-          "memory_section": 20
+          "memory_number": 3,
+          "memory_section": 4
         },
         {
           "text": "En cas de problème, comment puis-je vous joindre, et y a-t-il une autre personne à contacter si vous n'êtes pas disponible ?",
-          "memory_section": 19
+          "memory_number": 3,
+          "memory_section": 13
         },
         {
           "text": "Pour finir — y a-t-il autre chose d'important que je devrais savoir avant ce week-end ?",
-          "memory_section": 4
+          "memory_number": 3,
+          "memory_section": 13
         }
       ]
     },
@@ -273,8 +308,8 @@
         },
         {
           "text": "Quels sont les monuments ou lieux emblématiques à ne pas manquer en priorité ?",
-          "memory_number": 6,
-          "memory_section": 3
+          "memory_number": 7,
+          "memory_section": 2
         },
         {
           "text": "Quels musées et sites culturels importants me recommandez-vous en priorité ?"
@@ -287,16 +322,16 @@
         },
         {
           "text": "Quels quartiers typiques ou animés conseillez-vous de visiter pour se promener et profiter de l'ambiance ?",
-          "memory_number": 6,
-          "memory_section": 3
+          "memory_number": 7,
+          "memory_section": 2
         },
         {
           "text": "Y a-t-il des événements culturels, des festivals ou des marchés locaux en ce moment ?"
         },
         {
           "text": "Y a-t-il des restaurants que vous recommandez pour découvrir les spécialités locales ?",
-          "memory_number": 6,
-          "memory_section": 3
+          "memory_number": 7,
+          "memory_section": 2
         },
         {
           "text": "Quelles activités peut-on faire entre amis — par exemple des visites insolites, des ateliers ou des escape games ?"

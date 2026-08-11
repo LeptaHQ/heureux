@@ -40,12 +40,13 @@
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_section": 1
+          "memory_number": 9,
+          "memory_section": 3
         },
         {
           "text": "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
-          "memory_number": 2,
-          "memory_section": 2
+          "memory_number": 9,
+          "memory_section": 10
         },
         {
           "text": "Est-ce que c'est encore à l'affiche, ou c'était une représentation unique ?"
@@ -211,13 +212,13 @@
         },
         {
           "text": "De combien de temps je dispose pour donner ma réponse ?",
-          "memory_number": 5,
-          "memory_section": 3
+          "memory_number": 4,
+          "memory_section": 11
         },
         {
           "text": "Est-ce que je peux avoir tous ces éléments par écrit pour bien réfléchir avant de décider ?",
-          "memory_number": 5,
-          "memory_section": 3
+          "memory_number": 4,
+          "memory_section": 11
         }
       ]
     },

@@ -22,45 +22,54 @@
         },
         {
           "text": "Qu'est-ce qu'on apprend concrètement — c'est plutôt technique, pratique, ou un mélange des deux ?",
-          "memory_section": 10
+          "memory_number": 4,
+          "memory_section": 2
         },
         {
           "text": "Est-ce qu'il y aura d'autres collègues dans le groupe ou je serai le seul à partir ?",
-          "memory_section": 14
+          "memory_number": 4,
+          "memory_section": 7
         },
         {
           "text": "Est-ce qu'on recevra une attestation ou un certificat à la fin du stage ?"
         },
         {
           "text": "Pour l'hébergement, c'est l'entreprise qui s'en occupe ou je dois réserver moi-même ?",
-          "memory_section": 6
+          "memory_number": 4,
+          "memory_section": 9
         },
         {
           "text": "Et pour le voyage, c'est l'entreprise qui prend en charge le billet d'avion ?"
         },
         {
           "text": "Et pour les repas, c'est prévu sur le lieu de formation ou on se débrouillera par nous-mêmes ?",
-          "memory_section": 7
+          "memory_number": 4,
+          "memory_section": 9
         },
         {
           "text": "Est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
-          "memory_section": 17
+          "memory_number": 4,
+          "memory_section": 8
         },
         {
           "text": "Quel temps fera-t-il généralement à cette époque — il faut apporter des vêtements particuliers ?",
+          "memory_number": 4,
           "memory_section": 8
         },
         {
           "text": "En dehors des heures de formation, est-ce qu'il y a des activités prévues pour découvrir la région ?",
-          "memory_section": 10
+          "memory_number": 4,
+          "memory_section": 2
         },
         {
           "text": "S'il y a le moindre souci, à qui faut-il s'adresser ?",
-          "memory_section": 19
+          "memory_number": 4,
+          "memory_section": 13
         },
         {
           "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
-          "memory_section": 4
+          "memory_number": 4,
+          "memory_section": 13
         }
       ]
     },
@@ -80,27 +89,33 @@
         },
         {
           "text": "L'ambiance est plutôt calme et conviviale, ou plus animée ?",
-          "memory_section": 15
+          "memory_number": 9,
+          "memory_section": 10
         },
         {
           "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total ?",
-          "memory_section": 1
+          "memory_number": 9,
+          "memory_section": 3
         },
         {
           "text": "Est-ce qu'il y a des happy hours ou des promotions intéressantes dans certains bars ?",
-          "memory_section": 1
+          "memory_number": 9,
+          "memory_section": 3
         },
         {
           "text": "Pour les repas, vous auriez des adresses à recommander — pour manger un morceau en fin de soirée ?",
-          "memory_section": 7
+          "memory_number": 9,
+          "memory_section": 9
         },
         {
           "text": "C'est facile de rencontrer du monde — les gens sont plutôt accueillants ?",
-          "memory_section": 15
+          "memory_number": 9,
+          "memory_section": 10
         },
         {
           "text": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
-          "memory_section": 17
+          "memory_number": 9,
+          "memory_section": 8
         },
         {
           "text": "Et pour rentrer tard le soir, il y a des transports de nuit ou c'est mieux de prévoir un taxi ?"
@@ -116,7 +131,8 @@
         },
         {
           "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
-          "memory_section": 4
+          "memory_number": 9,
+          "memory_section": 13
         }
       ]
     },
@@ -142,19 +158,23 @@
         },
         {
           "text": "Pour les promenades, c'est combien de temps et à quelle fréquence ? Et il y a un parcours habituel ou je peux le promener où je veux ?",
-          "memory_section": 2
-        },
-        {
-          "text": "La garde se fait chez toi ou tu préfères que je l'emmène chez moi ?",
+          "memory_number": 3,
           "memory_section": 4
         },
         {
+          "text": "La garde se fait chez toi ou tu préfères que je l'emmène chez moi ?",
+          "memory_number": 3,
+          "memory_section": 13
+        },
+        {
           "text": "Il y a des habitudes importantes à respecter pour que tout se passe bien ?",
-          "memory_section": 20
+          "memory_number": 3,
+          "memory_section": 4
         },
         {
           "text": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
-          "memory_section": 17
+          "memory_number": 3,
+          "memory_section": 8
         },
         {
           "text": "Est-ce qu'il supporte bien la solitude ou il faut éviter de le laisser seul trop longtemps ?"
@@ -164,11 +184,13 @@
         },
         {
           "text": "En cas d'urgence, qui est son vétérinaire et comment je le contacte ?",
-          "memory_section": 19
+          "memory_number": 3,
+          "memory_section": 13
         },
         {
           "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux te solliciter ?",
-          "memory_section": 4
+          "memory_number": 3,
+          "memory_section": 13
         }
       ]
     },
@@ -182,22 +204,26 @@
         },
         {
           "text": "À quelle heure ça commence — plutôt le matin ou en fin de journée ?",
-          "memory_section": 2
+          "memory_number": 11,
+          "memory_section": 4
         },
         {
           "text": "C'est une cérémonie religieuse, civile, ou les deux ?"
         },
         {
           "text": "Et la réception, ça se passe où — en salle ou en plein air ?",
-          "memory_section": 4
+          "memory_number": 11,
+          "memory_section": 13
         },
         {
           "text": "Comment va se dérouler la journée — il y a un cocktail, un dîner, une soirée dansante ?",
-          "memory_section": 21
+          "memory_number": 11,
+          "memory_section": 4
         },
         {
           "text": "Il y aura combien d'invités — c'est plutôt une fête intime ou un grand mariage ?",
-          "memory_section": 14
+          "memory_number": 11,
+          "memory_section": 7
         },
         {
           "text": "Est-ce qu'il y a un code vestimentaire particulier — des couleurs à porter ou à éviter ?"
@@ -207,27 +233,33 @@
         },
         {
           "text": "Tu aurais une idée du budget approprié pour le cadeau ?",
-          "memory_section": 1
+          "memory_number": 11,
+          "memory_section": 3
         },
         {
           "text": "Est-ce qu'il y a des traditions canadiennes spécifiques que je devrais connaître ?",
-          "memory_section": 20
+          "memory_number": 11,
+          "memory_section": 4
         },
         {
           "text": "Pour les invités qui viennent de l'extérieur, tu aurais des recommandations pour l'hébergement ?",
-          "memory_section": 6
+          "memory_number": 11,
+          "memory_section": 9
         },
         {
           "text": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?",
-          "memory_section": 6
+          "memory_number": 11,
+          "memory_section": 9
         },
         {
           "text": "Et pour le transport, comment on se rend au lieu de la cérémonie ?",
-          "memory_section": 13
+          "memory_number": 11,
+          "memory_section": 5
         },
         {
           "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux te solliciter ?",
-          "memory_section": 4
+          "memory_number": 11,
+          "memory_section": 13
         }
       ]
     },
@@ -253,22 +285,26 @@
         },
         {
           "text": "Quel budget mensuel tu envisages — charges comprises ou hors charges ?",
-          "memory_section": 1
+          "memory_number": 2,
+          "memory_section": 3
         },
         {
           "text": "Tu te déplaces comment au quotidien — c'est important d'être bien desservi en transports ?",
-          "memory_section": 13
+          "memory_number": 2,
+          "memory_section": 5
         },
         {
           "text": "L'état du logement, ça compte — tu accepterais des travaux à faire ou tu veux du prêt-à-vivre ?"
         },
         {
           "text": "Et côté voisinage, tu préfères un quartier calme ou plutôt animé ?",
-          "memory_section": 15
+          "memory_number": 2,
+          "memory_section": 10
         },
         {
           "text": "Parmi tous ces aspects, qu'est-ce qui compte le plus pour toi ?",
-          "memory_section": 18
+          "memory_number": 2,
+          "memory_section": 11
         },
         {
           "text": "Tu as un délai — il faut que tu emménages bientôt ou tu peux prendre ton temps ?"
@@ -281,11 +317,13 @@
         },
         {
           "text": "Est-ce qu'il y a d'autres critères importants que tu n'as pas encore mentionnés ?",
-          "memory_section": 18
+          "memory_number": 2,
+          "memory_section": 11
         },
         {
           "text": "D'accord, si j'ai encore une question, je peux te recontacter ?",
-          "memory_section": 4
+          "memory_number": 2,
+          "memory_section": 13
         }
       ]
     }

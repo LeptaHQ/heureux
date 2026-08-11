@@ -3,21 +3,21 @@
   "title": "Mémoire 1 · Arrivée & installation",
   "label": "Arrivée & installation",
   "icon": "hand-wave",
-  "subtitle": "Les formulations à réutiliser dès qu'un sujet parle d'arriver quelque part, de s'installer dans une nouvelle ville et de faire ses premières démarches.",
+  "subtitle": "Les formulations tirées des sujets d'arrivée et d'installation, généralisées pour être réutilisables dans n'importe quel sujet de ce thème.",
   "sections": [
     {
       "number": 1,
       "title": "Ouverture — premiers mots quand on vient d'arriver",
-      "guidance": "Poser le décor en une phrase : je suis nouveau ici, j'ai besoin d'être orienté.",
+      "guidance": "Lancer l'échange en une phrase : je viens d'arriver, j'ai besoin d'être orienté.",
       "groups": [
         {
           "title": "Se présenter et lancer l'échange",
           "guidance": "À utiliser dans les toutes premières secondes, avant même la première vraie question.",
           "questions": [
-            "Bonjour, je viens d'arriver dans la ville et je ne connais encore personne — est-ce que vous pouvez m'orienter un peu ?",
-            "Je m'installe ici pour plusieurs mois, donc je pars vraiment de zéro : par quoi est-ce qu'il vaut mieux commencer ?",
-            "C'est la première fois que je pousse la porte de ce bureau — est-ce que je suis au bon endroit pour ce genre de démarche ?",
-            "Avant de vous poser mes questions, est-ce que vous pouvez me dire en deux mots ce que vous proposez aux nouveaux arrivants ?"
+            "Bonjour ! Je viens d'arriver et j'aurais besoin de quelques renseignements pour m'installer — pouvez-vous m'aider ?",
+            "Salut ! Je viens d'arriver dans ta ville et j'aimerais m'organiser sans trop me tromper — tu aurais des conseils à me donner ?",
+            "Bonjour ! Vous m'avez dit que vous accompagniez les nouveaux arrivants — ça m'intéresse beaucoup, vous pourriez m'en parler ?",
+            "Alors, comment va ta vie ici en ce moment — qu'est-ce qui a le plus changé depuis ton arrivée ?"
           ]
         }
       ]
@@ -25,16 +25,16 @@
     {
       "number": 2,
       "title": "Ce qui est proposé aux nouveaux arrivants",
-      "guidance": "Faire décrire l'offre d'accueil : services, ateliers, accompagnement.",
+      "guidance": "Faire décrire l'offre d'accueil : activités, programmation, services du quartier.",
       "groups": [
         {
           "title": "Découvrir l'offre d'accueil",
-          "guidance": "Quand l'interlocuteur représente une mairie, une association d'accueil ou un service d'installation.",
+          "guidance": "Quand l'interlocuteur représente une mairie, une association d'accueil ou un voisin bien informé.",
           "questions": [
-            "Concrètement, qu'est-ce qui est prévu ici pour accompagner quelqu'un qui vient d'arriver ?",
-            "Vous avez parlé d'un accompagnement — vous pourriez me détailler ce que ça comprend exactement ?",
-            "Est-ce qu'il y a des ateliers ou des rencontres organisés spécialement pour les nouveaux arrivants ?",
-            "Parmi tout ce que vous proposez, qu'est-ce qui est le plus utile les premières semaines ?"
+            "Quels types d'activités sont proposés dans le quartier — sport, culture, loisirs, ou un peu de tout ?",
+            "La programmation est publiée à l'avance ou on la découvre sur place ?",
+            "Y a-t-il des événements annuels que les habitants aiment particulièrement ?",
+            "Quels types de clubs ou d'associations sont populaires ici pour se faire des amis ?"
           ]
         }
       ]
@@ -42,16 +42,16 @@
     {
       "number": 3,
       "title": "Ce que coûte une installation",
-      "guidance": "Chiffrer le budget de départ et repérer les aides.",
+      "guidance": "Chiffrer le budget de départ et comprendre ce qui est compris.",
       "groups": [
         {
           "title": "Budget des premières semaines",
-          "guidance": "Utile dès qu'un service, une carte ou une adhésion est évoqué.",
+          "guidance": "Utile dès qu'un service, une carte, un abonnement ou une adhésion est évoqué.",
           "questions": [
-            "Parlons du budget — est-ce que ces démarches ont un coût ou est-ce que c'est gratuit ?",
-            "À peu près, quelle somme faut-il prévoir pour tout mettre en place le premier mois ?",
-            "Est-ce qu'il existe des aides ou des tarifs réduits pour les personnes qui viennent de s'installer ?",
-            "Le tarif que vous m'annoncez comprend quoi exactement — il y a des frais de dossier en plus ?"
+            "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque fois séparément ?",
+            "Le tarif comprend quoi exactement — il y a des frais supplémentaires à prévoir ?",
+            "Ça coûte combien environ, en comptant tout, pour les premières semaines ?",
+            "C'est dans quelle gamme de prix en général — plutôt cher ou abordable ?"
           ]
         }
       ]
@@ -65,10 +65,10 @@
           "title": "Quand venir et combien de temps ça prend",
           "guidance": "À poser dès qu'un rendez-vous, un guichet ou un dossier entre dans la conversation.",
           "questions": [
-            "Vous êtes ouverts quels jours — plutôt en semaine ou aussi le samedi matin ?",
-            "À quelle heure est-ce qu'il vaut mieux venir pour éviter l'affluence ?",
-            "En moyenne, combien de temps il faut compter entre le dépôt du dossier et la réponse ?",
-            "Est-ce qu'on peut tout faire le même jour ou est-ce qu'il faut revenir plusieurs fois ?"
+            "Quand est-ce que je pourrais passer pour faire cette démarche ?",
+            "Vous êtes ouverts aussi le soir ou le week-end ?",
+            "En général, combien de temps faut-il prévoir pour tout mettre en place ?",
+            "Vous ouvrez et vous fermez à quelles heures habituellement ?"
           ]
         }
       ]
@@ -76,16 +76,16 @@
     {
       "number": 5,
       "title": "Trouver son chemin dans une ville inconnue",
-      "guidance": "Se repérer : adresses, quartiers, façon de venir.",
+      "guidance": "Se repérer : accès, transports, distance.",
       "groups": [
         {
           "title": "Se repérer et venir sur place",
           "guidance": "Quand on ne connaît encore ni les rues ni les lignes de transport.",
           "questions": [
-            "C'est où exactement — vous pouvez me donner l'adresse et un point de repère facile à trouver ?",
-            "Comment est-ce qu'on vient jusqu'ici quand on n'a pas encore de voiture ?",
-            "C'est loin du centre — il faut compter combien de minutes à pied ?",
-            "Est-ce qu'il y a un arrêt de bus ou une station juste à côté ?"
+            "Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
+            "C'est facilement accessible en transports en commun ?",
+            "Le réseau couvre toute la ville ou seulement certaines zones ?",
+            "C'est accessible à pied ou faut-il prévoir un transport ?"
           ]
         }
       ]
@@ -93,50 +93,50 @@
     {
       "number": 6,
       "title": "Dossier, papiers et inscriptions",
-      "guidance": "Lister les pièces et l'ordre des démarches administratives.",
+      "guidance": "Lister les pièces à fournir et la façon de s'inscrire.",
       "groups": [
         {
           "title": "Constituer son dossier",
-          "guidance": "Le cœur de beaucoup de sujets d'arrivée : quels papiers, dans quel ordre.",
+          "guidance": "Le cœur de beaucoup de sujets d'arrivée : quels papiers, comment s'inscrire.",
           "questions": [
-            "Qu'est-ce qu'il faut apporter comme documents pour ouvrir le dossier ?",
-            "Est-ce qu'il faut s'inscrire à l'avance ou est-ce qu'on peut se présenter directement ?",
-            "Je n'ai pas encore de justificatif de domicile définitif — est-ce que ça pose un problème ?",
-            "Une fois que le dossier est déposé, quelle est l'étape suivante de mon côté ?"
+            "Il faut s'inscrire à l'avance ou on peut venir librement ?",
+            "Il reste encore des places ou c'est déjà complet ?",
+            "Quelles sont les pièces à fournir pour le dossier — et est-ce qu'il faut un garant ?",
+            "Comment se passe l'inscription — en ligne ou uniquement sur place ?"
           ]
         }
       ]
     },
     {
       "number": 7,
-      "title": "Votre situation, vos besoins du moment",
-      "guidance": "Expliquer sa situation personnelle pour obtenir une réponse adaptée.",
+      "title": "Le public concerné et votre situation",
+      "guidance": "Vérifier à qui ça s'adresse et expliquer sa propre situation.",
       "groups": [
         {
-          "title": "Expliquer son profil",
+          "title": "Public visé et profil personnel",
           "guidance": "À utiliser quand l'interlocuteur a besoin d'en savoir plus pour bien conseiller.",
           "questions": [
-            "Est-ce que ça change quelque chose si je viens seul ou avec toute ma famille ?",
-            "Je suis ici pour le travail et pas pour les études — est-ce que les démarches sont les mêmes ?",
-            "Est-ce que c'est ouvert à tout le monde ou est-ce qu'il faut remplir certaines conditions ?",
-            "Compte tenu de ma situation, qu'est-ce qui me correspondrait le mieux à votre avis ?"
+            "Il y a beaucoup de monde en ce moment ou c'est plutôt calme — familles, jeunes, retraités ?",
+            "Ça s'adresse à quel public — uniquement aux adultes, ou aussi aux familles avec enfants ?",
+            "Est-ce que ça change quelque chose si je viens seul ou accompagné de ma famille ?",
+            "Si on débute complètement, est-ce qu'on risque de se sentir perdu ?"
           ]
         }
       ]
     },
     {
       "number": 8,
-      "title": "Se préparer et connaître les règles",
-      "guidance": "Anticiper le matériel, les précautions et les obligations locales.",
+      "title": "Démarches à prévoir et règles à connaître",
+      "guidance": "Anticiper les documents, les obligations et les usages locaux.",
       "groups": [
         {
           "title": "Ce qu'il faut prévoir et respecter",
-          "guidance": "Quand il y a des règles, des délais obligatoires ou du matériel à prévoir.",
+          "guidance": "Quand il y a des formalités obligatoires, des délais ou des habitudes locales.",
           "questions": [
-            "Est-ce qu'il y a des règles particulières que je devrais connaître dès maintenant ?",
-            "Qu'est-ce que je dois absolument prévoir avant de venir au rendez-vous ?",
-            "Il y a un délai à respecter après l'arrivée pour faire cette démarche ?",
-            "Est-ce qu'il vaut mieux s'y prendre à l'avance ou est-ce que ça se fait facilement sur le moment ?"
+            "Est-ce qu'il y a des démarches administratives à prévoir — un numéro d'assurance sociale, une carte de santé ou une assurance particulière ?",
+            "Pour ouvrir un compte bancaire et prendre un forfait téléphonique, quels documents faut-il prévoir ?",
+            "Est-ce que ça change beaucoup selon les saisons, ou les habitudes restent similaires toute l'année ?",
+            "Y a-t-il une erreur classique à éviter quand on vient de s'installer ?"
           ]
         }
       ]
@@ -144,16 +144,16 @@
     {
       "number": 9,
       "title": "Les services utiles autour de soi",
-      "guidance": "Repérer commerces, hébergement provisoire, restauration et services de proximité.",
+      "guidance": "Repérer commerces, restauration, santé et services de proximité.",
       "groups": [
         {
           "title": "Ce qu'on trouve à proximité",
-          "guidance": "Très utile quand on doit s'organiser au quotidien sans encore connaître le quartier.",
+          "guidance": "Très utile pour s'organiser au quotidien sans encore connaître le quartier.",
           "questions": [
-            "Qu'est-ce qu'on trouve dans le secteur pour les besoins de tous les jours ?",
-            "Est-ce qu'il y a une solution de logement provisoire le temps de s'installer ?",
-            "Où est-ce qu'on peut manger ou faire ses courses simplement dans le quartier ?",
-            "Est-ce qu'il y a un accueil ou un point d'information ouvert en dehors des heures de bureau ?"
+            "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à essayer absolument ?",
+            "Il faut réserver une table à l'avance ou on peut y aller directement ?",
+            "Pour les courses, vous connaissez des commerces abordables — supermarchés, marchés ou magasins de quartier ?",
+            "Et pour les soins de santé, comment trouver un médecin ou une clinique quand on vient d'arriver ?"
           ]
         }
       ]
@@ -161,16 +161,16 @@
     {
       "number": 10,
       "title": "S'intégrer et rencontrer du monde",
-      "guidance": "Parler de l'ambiance locale et des façons de créer des liens.",
+      "guidance": "Parler de l'ambiance locale, de l'adaptation et des façons de créer des liens.",
       "groups": [
         {
-          "title": "Créer des liens rapidement",
+          "title": "Ambiance et intégration",
           "guidance": "Quand la conversation porte sur l'adaptation et le fait de se sentir chez soi.",
           "questions": [
-            "Comment est l'ambiance dans le quartier — est-ce que les gens se parlent facilement ?",
-            "Qu'est-ce que vous conseillez pour rencontrer du monde quand on ne connaît personne ?",
-            "D'après votre expérience, combien de temps faut-il pour vraiment se sentir chez soi ici ?",
-            "Est-ce qu'il y a des habitudes locales qu'il vaut mieux connaître pour ne pas se sentir perdu ?"
+            "Comment est le quartier en général — plutôt calme ou animé ?",
+            "Les gens sont sympas — c'est facile de s'intégrer quand on arrive ?",
+            "Combien de temps il t'a fallu pour te sentir vraiment chez toi ?",
+            "Quelles activités aident le plus à rencontrer des gens quand on vient d'arriver ?"
           ]
         }
       ]
@@ -178,16 +178,16 @@
     {
       "number": 11,
       "title": "Le conseil de quelqu'un qui connaît",
-      "guidance": "Demander une comparaison et une recommandation personnalisée.",
+      "guidance": "Demander une comparaison et une recommandation adaptée à sa situation.",
       "groups": [
         {
           "title": "Comparer et se faire recommander",
-          "guidance": "À sortir quand deux options sont sur la table ou pour conclure un échange.",
+          "guidance": "À sortir quand plusieurs options sont sur la table.",
           "questions": [
-            "Entre les deux possibilités que vous m'avez présentées, laquelle vous me recommanderiez ?",
-            "Quel est le principal avantage de cette solution par rapport à l'autre ?",
-            "Si vous étiez à ma place, vous commenceriez par quoi ?",
-            "Vous avez vu beaucoup de nouveaux arrivants — qu'est-ce qui marche le mieux en général ?"
+            "Pour commencer, tu me conseillerais de louer une chambre, un studio ou un appartement ?",
+            "Parmi toutes ces options, laquelle vous me recommandez vraiment ?",
+            "Y a-t-il d'autres différences dans l'organisation d'ici qui pourraient me surprendre ?",
+            "Selon vous, qu'est-ce qui conviendrait le mieux à quelqu'un qui vient tout juste d'arriver ?"
           ]
         }
       ]
@@ -195,33 +195,33 @@
     {
       "number": 12,
       "title": "Si mon installation ne se passe pas comme prévu",
-      "guidance": "Gérer les imprévus, les reports et les changements de dernière minute.",
+      "guidance": "Gérer les retards, les changements et les engagements.",
       "groups": [
         {
           "title": "Prévoir un plan B",
           "guidance": "Quand un rendez-vous, un dossier ou une date peut bouger.",
           "questions": [
-            "Et si mon arrivée est retardée de quelques semaines, est-ce que tout reste valable ?",
-            "Est-ce qu'on peut décaler le rendez-vous si j'ai un imprévu ?",
-            "Qu'est-ce qui se passe si un document me manque le jour du rendez-vous ?",
-            "Est-ce qu'il est possible d'annuler sans frais si finalement je ne reste pas ici ?"
+            "En cas de retard ou d'imprévu, comment ça se passe ?",
+            "Quelles sont les conditions pour modifier ou annuler si mes plans changent ?",
+            "Une fois inscrit, on s'engage pour toute la période ou on peut rester flexible ?",
+            "Si un jour je ne peux pas venir, il faut prévenir à l'avance ?"
           ]
         }
       ]
     },
     {
       "number": 13,
-      "title": "Garder le contact et suivre son dossier",
-      "guidance": "Organiser la suite : qui contacter, comment, et pour quel suivi.",
+      "title": "Relancer, remercier et garder le contact",
+      "guidance": "Faire préciser un point déjà évoqué, puis clore l'échange proprement.",
       "groups": [
         {
-          "title": "Organiser la suite",
-          "guidance": "Idéal pour clore l'échange proprement en fin de Tâche 2.",
+          "title": "Relance et clôture",
+          "guidance": "Idéal en milieu et en fin de Tâche 2.",
           "questions": [
-            "Qui est-ce que je contacte si j'ai une question une fois rentré chez moi ?",
-            "Vous préférez que je vous rappelle ou que je passe directement sur place ?",
-            "Est-ce que je peux suivre l'avancement de mon dossier en ligne ?",
-            "Je récapitule pour être sûr : je vous envoie les documents cette semaine et vous me recontactez après, c'est bien ça ?"
+            "Et les endroits sympas pour rencontrer des gens dont vous parliez — comment ça se passe exactement ?",
+            "Pour finir — si vous ne deviez me recommander qu'une seule chose pour bien démarrer ici, ce serait laquelle ?",
+            "Merci pour tous ces conseils — si j'ai d'autres questions, je peux vous recontacter ?",
+            "Alors, c'est confirmé — je peux compter sur vous pour la suite de mon installation ?"
           ]
         }
       ]

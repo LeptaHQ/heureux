@@ -3,225 +3,225 @@
   "title": "Mémoire 11 · Fêtes & célébrations",
   "label": "Fêtes & célébrations",
   "icon": "sparkles",
-  "subtitle": "Des questions prêtes à adapter pour organiser un anniversaire, un mariage, une fête collective ou un repas de famille.",
+  "subtitle": "Les formulations tirées des sujets de fêtes et célébrations, généralisées pour préparer, comprendre ou raconter un événement.",
   "sections": [
     {
       "number": 1,
-      "title": "Ouverture — premiers mots quand on se renseigne",
-      "guidance": "Installer la situation dès le début de l’échange.",
+      "title": "Ouverture — parler d'une fête à venir",
+      "guidance": "Entrer dans la conversation en montrant son intérêt pour l'événement ou les préparatifs.",
       "groups": [
         {
-          "title": "Lancer l’organisation",
-          "guidance": "Premiers mots pour préparer une célébration.",
+          "title": "Lancer l'échange autour d'une célébration",
+          "guidance": "À utiliser pour commencer naturellement avec un ami, un voisin ou un prestataire.",
           "questions": [
-            "Bonjour, je prépare une fête et j’aimerais éviter de m’y prendre au dernier moment — est-ce que vous pouvez m’aider à organiser ça ?",
-            "Je voudrais faire quelque chose de chaleureux sans que ce soit trop compliqué : quelles sont les premières décisions à prendre ?",
-            "Nous organisons une célébration familiale, et je cherche surtout une formule fiable — je peux vous expliquer le contexte ?",
-            "Avant de réserver quoi que ce soit, j’aimerais comprendre ce que vous prenez en charge et ce qui reste à notre charge."
+            "Salut ! Tu m'as dit que tu préparais une fête — ça me tente d'aider, tu peux m'en parler ?",
+            "Alors, comment va l'organisation de la fête en ce moment ?",
+            "D'après toi, quel type de fête aide le plus à se faire des amis durables ?",
+            "Tu as de nouveaux projets ou des plans importants pour les prochains mois ?"
           ]
         }
       ]
     },
     {
       "number": 2,
-      "title": "Ce qui est proposé",
-      "guidance": "Faire préciser l’offre, le programme ou les services disponibles.",
+      "title": "Programme, animations et menu",
+      "guidance": "Faire préciser ce qui est prévu pendant la fête ou le repas.",
       "groups": [
         {
-          "title": "Découvrir les formules",
-          "guidance": "Prestations, formats et types d’événements.",
+          "title": "Comprendre le déroulement prévu",
+          "guidance": "Quand on veut connaître les animations, la musique, les activités ou la cuisine.",
           "questions": [
-            "Pour un anniversaire d’adulte, vous proposez plutôt une formule repas assis, buffet ou cocktail ?",
-            "Est-ce que vous avez l’habitude d’accompagner des mariages avec cérémonie, repas et soirée dansante ?",
-            "Pour une fête de quartier, quelles animations fonctionnent bien quand il y a des enfants et des personnes âgées ?",
-            "Lors d’un repas de famille, pouvez-vous prévoir à la fois le traiteur, la décoration et un peu de service ?"
+            "Pour la soirée, il y avait un DJ ou un groupe de musique ?",
+            "Il y a eu des animations ou des surprises pendant la fête ?",
+            "Y a-t-il des activités ou jeux prévus — pour adultes et enfants ?",
+            "Quels types de menus proposez-vous en général ?"
           ]
         }
       ]
     },
     {
       "number": 3,
-      "title": "Tarifs, budget et ce qui est compris",
-      "guidance": "Obtenir un prix clair et repérer les éventuels suppléments.",
+      "title": "Budget, cadeau et frais",
+      "guidance": "Clarifier les dépenses, la participation et ce qui est compris.",
       "groups": [
         {
-          "title": "Maîtriser le budget",
-          "guidance": "Prix, suppléments et conditions financières.",
+          "title": "Parler argent avec tact",
+          "guidance": "Utile pour choisir un cadeau, réserver un service ou organiser une soirée.",
           "questions": [
-            "Quel budget faut-il prévoir pour une salle des fêtes avec une cinquantaine d’invités ?",
-            "Le devis du traiteur inclut-il les boissons, le service et la livraison sur place ?",
-            "Pour la décoration, est-ce qu’il y a un forfait complet ou est-ce que chaque élément se paie séparément ?",
-            "Y a-t-il des frais supplémentaires si la fête se termine après minuit ?"
+            "Parlons du budget — il y a un montant habituel pour ce genre de cadeau ou c'est vraiment selon nos moyens ?",
+            "Tu aurais une idée du budget approprié pour le cadeau ?",
+            "Comment se calcule le tarif — par personne, ou un forfait global pour la soirée ?",
+            "Le prix comprend-il les courses et les ingrédients, ou est-ce facturé en plus ?"
           ]
         }
       ]
     },
     {
       "number": 4,
-      "title": "Horaires, dates et durée",
-      "guidance": "Situer les créneaux, la fréquence et les délais.",
+      "title": "Date, heure et déroulement",
+      "guidance": "Situer le moment de la fête et la durée à prévoir.",
       "groups": [
         {
-          "title": "Choisir une date",
-          "guidance": "Disponibilités, délais et durée.",
+          "title": "Savoir quand arriver",
+          "guidance": "À utiliser pour ne pas se tromper de date, d'heure ou de rythme.",
           "questions": [
-            "La salle est-elle encore disponible le samedi soir, ou faut-il viser un dimanche midi ?",
-            "Pour un mariage, combien de mois à l’avance conseillez-vous de confirmer la réservation ?",
-            "À partir de quelle heure peut-on installer les tables, les fleurs et le matériel de sonorisation ?",
-            "La location couvre-t-elle toute la journée, ou seulement un créneau précis avec état des lieux ?"
+            "Quel jour et quel horaire conviendraient le mieux — plutôt en journée ou en soirée ?",
+            "À quelle heure ça commence — je devrais arriver à l'heure pile ou un peu plus tard ?",
+            "Ça va durer jusqu'à quelle heure environ ? C'est une soirée qui finit tard ?",
+            "Combien de temps faut-il prévoir — quelques heures ou toute la journée ?"
           ]
         }
       ]
     },
     {
       "number": 5,
-      "title": "Lieu, accès et organisation pratique",
-      "guidance": "Comprendre où aller et comment s’organiser sur place.",
+      "title": "Lieu de fête et transport",
+      "guidance": "Vérifier où se passe l'événement et comment les invités s'y rendent.",
       "groups": [
         {
-          "title": "Organiser le lieu",
-          "guidance": "Accès, parking, disposition et contraintes.",
+          "title": "Organiser l'accès au lieu",
+          "guidance": "Quand il faut anticiper voiture, transports, marche ou parking.",
           "questions": [
-            "La salle des fêtes se situe où exactement, et les invités peuvent-ils se garer facilement ?",
-            "Peut-on modifier la disposition des tables pour créer un espace danse après le repas ?",
-            "Pour une fête de quartier, avez-vous besoin d’une autorisation particulière si on occupe une place publique ?",
-            "Est-ce que la cuisine sur place permet au traiteur de réchauffer les plats dans de bonnes conditions ?"
+            "Ça se passe où exactement — chez quelqu'un ou dans un lieu loué ? C'est facilement accessible en transports en commun ?",
+            "Et pour le transport, comment on se rend au lieu de la fête ?",
+            "Le lieu est-il facilement accessible à pied, ou il vaut mieux prévoir une voiture ?",
+            "Pour venir à la fête, il vaut mieux prendre les transports en commun ou il y a un parking à proximité ?"
           ]
         }
       ]
     },
     {
       "number": 6,
-      "title": "Inscription, réservation et documents",
-      "guidance": "Savoir comment réserver, confirmer ou constituer un dossier.",
+      "title": "Réservation et démarches d'organisation",
+      "guidance": "Gérer les réservations, les choix à faire et les acomptes éventuels.",
       "groups": [
         {
-          "title": "Réserver et confirmer",
-          "guidance": "Contrat, invitations et informations à fournir.",
+          "title": "Bloquer les détails pratiques",
+          "guidance": "À poser quand un prestataire, un restaurant ou un lieu doit être réservé.",
           "questions": [
-            "Quelles informations vous faut-il pour établir le contrat de réservation ?",
-            "Doit-on confirmer le nombre d’invités à une date limite avant l’événement ?",
-            "Pouvez-vous nous aider à préparer les invitations, ou faut-il passer par un imprimeur séparé ?",
-            "Pour les cadeaux communs, est-ce que vous conseillez de l’indiquer clairement sur l’invitation ?"
+            "Combien de temps à l'avance faut-il réserver pour une fête comme celle-là ?",
+            "Peut-on choisir le menu ensemble à l'avance, ou vous proposez directement une sélection ?",
+            "Faut-il verser des arrhes à la réservation ?",
+            "Faut-il réserver à l'avance, surtout pour un week-end ?"
           ]
         }
       ]
     },
     {
       "number": 7,
-      "title": "Profil, besoins et niveau personnel",
-      "guidance": "Donner son contexte pour obtenir une réponse adaptée.",
+      "title": "Invités, groupe et besoins",
+      "guidance": "Comprendre le nombre de personnes, le profil des invités et la taille de l'événement.",
       "groups": [
         {
-          "title": "Adapter aux invités",
-          "guidance": "Âges, goûts, régimes et ambiance recherchée.",
+          "title": "Adapter la fête aux invités",
+          "guidance": "Quand l'organisation dépend du nombre de personnes ou de leur relation avec vous.",
           "questions": [
-            "Il y aura des enfants, des grands-parents et des amis : comment créer une ambiance qui convienne à tout le monde ?",
-            "Pour le repas, pouvez-vous prévoir des options végétariennes et des plats sans allergènes courants ?",
-            "La fête doit rester assez élégante sans devenir trop formelle : quel style de décoration irait bien ?",
-            "Si certains invités viennent de loin, est-ce que vous pouvez recommander des hébergements proches ?"
+            "Il y avait environ combien d'invités — c'était une grande cérémonie ou quelque chose de plus intime ?",
+            "Il y aura combien de personnes environ — c'est une petite fête intime ou une grande réception ?",
+            "Est-ce que je vais connaître d'autres invités ou est-ce que je serai la seule nouvelle personne ?",
+            "Ces lieux conviennent-ils pour un groupe, ou plutôt pour de petites tables ?"
           ]
         }
       ]
     },
     {
       "number": 8,
-      "title": "Préparation, matériel et règles",
-      "guidance": "Anticiper ce qu’il faut apporter, respecter ou éviter.",
+      "title": "Coutumes, tenue et règles",
+      "guidance": "Préparer ce qu'il faut apporter, respecter ou éviter pendant une célébration.",
       "groups": [
         {
-          "title": "Préparer la journée",
-          "guidance": "Matériel, règles et consignes.",
+          "title": "Éviter les faux pas",
+          "guidance": "À utiliser avant une fête pour anticiper cadeaux, bruit, repas ou traditions.",
           "questions": [
-            "Qu’est-ce que nous devons apporter nous-mêmes : vaisselle, nappes, bougies ou matériel audio ?",
-            "Y a-t-il des règles particulières concernant la musique, le bruit ou le nettoyage après la soirée ?",
-            "Pour les fêtes traditionnelles et les jours fériés, est-ce que les horaires ou les tarifs changent ?",
-            "Faut-il prévoir une personne responsable sur place pendant toute la durée de l’événement ?"
+            "Est-ce que je dois apporter un cadeau ? Est-ce la coutume ici — et si oui, tu aurais des suggestions ?",
+            "Y a-t-il des coutumes particulières que je devrais connaître ?",
+            "Faut-il prévenir la mairie ou respecter des règles de bruit ?",
+            "Est-ce qu'il faut prévoir des plats végétariens ou tenir compte d'allergies ?"
           ]
         }
       ]
     },
     {
       "number": 9,
-      "title": "Services complémentaires autour de l’activité",
-      "guidance": "Repérer les options utiles avant, pendant ou après.",
+      "title": "Repas, hébergement et services",
+      "guidance": "Parler du confort des invités et des services prévus sur place.",
       "groups": [
         {
-          "title": "Ajouter des services",
-          "guidance": "Animation, cadeaux, décoration et coordination.",
+          "title": "Prévoir le confort de tous",
+          "guidance": "Quand la fête implique un repas, des boissons, un service ou des invités venus de loin.",
           "questions": [
-            "Travaillez-vous avec un animateur ou un DJ capable de s’adapter à différents âges ?",
-            "Pouvez-vous proposer une décoration de table assortie au thème de l’anniversaire ?",
-            "Est-il possible de commander un gâteau personnalisé avec le traiteur ?",
-            "Avez-vous une solution pour installer un coin cadeaux sans gêner la circulation des invités ?"
+            "Qu'est-ce qui était prévu au menu — un repas assis ou un buffet ?",
+            "Pour les invités qui viennent de l'extérieur, tu aurais des recommandations pour l'hébergement ?",
+            "Proposez-vous aussi des boissons, ou dois-je m'en occuper moi-même ?",
+            "Vous vous occupez aussi du service à table et du nettoyage après le repas ?"
           ]
         }
       ]
     },
     {
       "number": 10,
-      "title": "Ambiance et expérience attendue",
-      "guidance": "Évaluer l’atmosphère, le public et le déroulement réel.",
+      "title": "Ambiance et souvenirs de fête",
+      "guidance": "Faire décrire l'atmosphère, le style et l'expérience vécue.",
       "groups": [
         {
-          "title": "Imaginer l’ambiance",
-          "guidance": "Déroulement, convivialité et rythme.",
+          "title": "Raconter l'ambiance",
+          "guidance": "À utiliser avec quelqu'un qui a participé à une fête ou qui en prépare une.",
           "questions": [
-            "Comment se déroule généralement la soirée pour éviter les temps morts entre le repas et l’animation ?",
-            "Pour un mariage, est-ce que vous conseillez un planning très précis ou une organisation plus souple ?",
-            "La fête de quartier peut-elle garder un esprit convivial même si beaucoup de gens ne se connaissent pas ?",
-            "Lors d’un repas de famille, comment faire pour que les enfants aient aussi un moment à eux ?"
+            "Alors, comment s'est passée la fête ce week-end ?",
+            "Comment était l'ambiance en général — plutôt formelle ou décontractée ?",
+            "Les invités ont beaucoup dansé ?",
+            "L'ambiance est plutôt calme et intime, ou plus animée et festive ?"
           ]
         }
       ]
     },
     {
       "number": 11,
-      "title": "Conseils, comparaison et recommandation",
-      "guidance": "Demander un avis pratique à quelqu’un qui connaît.",
+      "title": "Choix, conseils et recommandations",
+      "guidance": "Demander un avis pour choisir un cadeau, un lieu ou une priorité d'organisation.",
       "groups": [
         {
-          "title": "Comparer les choix",
-          "guidance": "Demander l’avis d’un professionnel.",
+          "title": "Décider entre plusieurs options",
+          "guidance": "Quand il faut choisir ce qui conviendra le mieux à l'occasion.",
           "questions": [
-            "Entre buffet et repas servi à table, quelle option marche le mieux pour un anniversaire avec beaucoup d’échanges ?",
-            "Selon votre expérience, vaut-il mieux investir davantage dans l’animation ou dans la décoration ?",
-            "Pour une fête traditionnelle, que conseillez-vous afin de respecter l’esprit de la célébration sans tomber dans le cliché ?",
-            "Si le budget est limité, quels postes peut-on simplifier sans que les invités le ressentent trop ?"
+            "Parmi tous ces préparatifs, de quoi veux-tu que je m'occupe en priorité ?",
+            "Elle préfère plutôt les cadeaux utiles, ou les choses plus originales et amusantes ?",
+            "Le rapport qualité-prix vous semble bon, comparé à d'autres endroits du quartier ?",
+            "Pour finir — parmi tous ceux du quartier, lequel me recommanderiez-vous vraiment pour l'occasion ?"
           ]
         }
       ]
     },
     {
       "number": 12,
-      "title": "Imprévus, changements et annulation",
-      "guidance": "Prévoir les reports, empêchements ou modifications.",
+      "title": "Imprévus, participation et annulation",
+      "guidance": "Prévoir la flexibilité si un invité, une date ou une réservation change.",
       "groups": [
         {
-          "title": "Anticiper les imprévus",
-          "guidance": "Météo, annulation, changements de nombre.",
+          "title": "Gérer les changements",
+          "guidance": "À poser quand la fête dépend de plusieurs personnes ou d'une réservation.",
           "questions": [
-            "Si la météo oblige à déplacer une partie de la fête à l’intérieur, avez-vous un plan de secours ?",
-            "Que se passe-t-il si le nombre d’invités change fortement une semaine avant ?",
-            "En cas d’annulation, quelles sommes restent dues et jusqu’à quelle date peut-on modifier la réservation ?",
-            "Si le traiteur a un problème le jour même, avez-vous une solution de remplacement prévue ?"
+            "Il y a une participation aux frais, ou tu t'occupes de tout ?",
+            "En cas de retard ou d'imprévu le jour de la fête, comment ça se passe ?",
+            "Si un jour je ne peux pas venir à la célébration, comment est-ce qu'on s'organise — il faut prévenir à l'avance ?",
+            "Quelles sont les conditions pour modifier ou annuler la réservation pour la fête ?"
           ]
         }
       ]
     },
     {
       "number": 13,
-      "title": "Suite de l’échange et suivi",
-      "guidance": "Clore proprement et savoir comment reprendre contact.",
+      "title": "Derniers détails et suivi",
+      "guidance": "Demander une précision finale, remercier ou garder le contact après l'échange.",
       "groups": [
         {
-          "title": "Boucler les derniers détails",
-          "guidance": "Contact, calendrier et confirmation finale.",
+          "title": "Conclure l'organisation",
+          "guidance": "Idéal à la fin pour confirmer un lieu, un conseil ou une prochaine étape.",
           "questions": [
-            "Qui sera notre interlocuteur principal la semaine précédant l’événement ?",
-            "Pouvez-vous m’envoyer un récapitulatif avec les horaires, les prestations et le montant restant à payer ?",
-            "Après la fête, combien de temps avons-nous pour récupérer la décoration et les cadeaux oubliés ?",
-            "Donc, si je résume, nous confirmons la salle aujourd’hui, puis le menu et le nombre d’invités le mois prochain, c’est bien cela ?"
+            "Où est-ce que la fête a eu lieu exactement ?",
+            "La cérémonie et la réception se sont déroulées au même endroit ?",
+            "Merci pour toutes ces infos — si j'ai d'autres questions, je peux te solliciter ?",
+            "Pour finir — si vous ne deviez me donner qu'un seul conseil pour réussir cette fête, ce serait lequel ?"
           ]
         }
       ]

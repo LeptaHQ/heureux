@@ -3,225 +3,225 @@
   "title": "Mémoire 6 · Transports & mobilité",
   "label": "Transports & mobilité",
   "icon": "arrow-left-right",
-  "subtitle": "Les formulations à réutiliser quand le sujet porte sur les déplacements, les abonnements, les correspondances, les retards ou les solutions de mobilité.",
+  "subtitle": "Les questions tirées des sujets de transport et de mobilité, généralisées pour parler d'abonnements, d'itinéraires, de location, de covoiturage ou de conduite.",
   "sections": [
     {
       "number": 1,
-      "title": "Ouverture — expliquer son besoin de déplacement",
-      "guidance": "Entrer dans l'échange en précisant le trajet, la situation et l'objectif.",
+      "title": "Ouverture — premiers mots pour se déplacer",
+      "guidance": "Lancer l'échange en disant qu'on veut organiser un trajet ou choisir un moyen de transport.",
       "groups": [
         {
-          "title": "Présenter son trajet",
-          "guidance": "Pour lancer la discussion avec un guichet, une agence de mobilité ou un loueur.",
+          "title": "Présenter son besoin de mobilité",
+          "guidance": "À utiliser au guichet, avec un loueur, un voisin ou quelqu'un qui connaît le réseau.",
           "questions": [
-            "Bonjour, je dois me déplacer régulièrement dans la région et j'aimerais comprendre les options les plus pratiques — vous pouvez m'aider ?",
-            "Je ne connais pas encore très bien le réseau, donc je voudrais partir sur une solution simple pour mes trajets quotidiens.",
-            "Avant de choisir un abonnement ou un billet, est-ce que vous pouvez me poser les bonnes questions pour cerner mon besoin ?",
-            "Je cherche surtout à éviter les mauvaises surprises pendant mes déplacements — par quoi est-ce qu'on commence ?"
+            "Bonjour ! Je viens d'arriver et j'aimerais me déplacer facilement en transports — pouvez-vous m'aider ?",
+            "Salut ! Tu m'as dit que tu te déplaçais souvent à vélo — ça me tente d'essayer, tu peux m'en parler ?",
+            "Vous m'avez proposé de faire du covoiturage régulièrement — comment cela pourrait s'organiser concrètement ?",
+            "Bonjour ! Je voudrais louer un véhicule pour quelques déplacements — pouvez-vous me présenter vos différentes offres ?"
           ]
         }
       ]
     },
     {
       "number": 2,
-      "title": "Offres de mobilité et services disponibles",
-      "guidance": "Faire détailler les abonnements, cartes, titres, locations ou services complémentaires.",
+      "title": "Moyens de transport et solutions proposées",
+      "guidance": "Faire décrire l'offre : réseau, véhicules, vélo, covoiturage ou voiture.",
       "groups": [
         {
-          "title": "Comprendre ce qui est proposé",
-          "guidance": "Quand plusieurs formules de transport sont possibles.",
+          "title": "Découvrir les options disponibles",
+          "guidance": "Quand il faut choisir entre plusieurs façons de se déplacer.",
           "questions": [
-            "Quelles formules vous proposez pour quelqu'un qui prend les transports presque tous les jours ?",
-            "Est-ce qu'il existe une carte qui regroupe bus, tram et train régional, ou il faut acheter des titres séparés ?",
-            "Pour une utilisation ponctuelle, vous conseillez plutôt des tickets à l'unité, un carnet ou une carte rechargeable ?",
-            "Au-delà des transports en commun, est-ce que vous avez aussi des solutions de vélo, de voiture partagée ou de covoiturage ?"
+            "Quels types de transports sont disponibles ici — bus, métro, tramway ?",
+            "Est-ce que la ville est bien adaptée au vélo — il y a beaucoup de pistes cyclables ?",
+            "Quels trajets faites-vous habituellement — c'est surtout pour aller au travail ou aussi pour de plus longs voyages ?",
+            "Quels types de véhicules proposez-vous — citadine, berline, break ou SUV ?"
           ]
         }
       ]
     },
     {
       "number": 3,
-      "title": "Tarifs, abonnements et réductions",
-      "guidance": "Demander le coût réel et les conditions financières.",
+      "title": "Tarifs, abonnements et frais de déplacement",
+      "guidance": "Comprendre ce qu'il faut payer et ce qui est compris dans le prix.",
       "groups": [
         {
-          "title": "Évaluer le budget mobilité",
-          "guidance": "Utile pour comparer abonnement, billets et location.",
+          "title": "Évaluer le budget transport",
+          "guidance": "Utile pour un abonnement, une location, un achat ou un covoiturage.",
           "questions": [
-            "Quel budget mensuel il faut prévoir pour un abonnement qui couvre mes trajets habituels ?",
-            "Le prix inclut toutes les correspondances, ou certaines zones sont facturées en supplément ?",
-            "Est-ce qu'il y a des réductions pour les étudiants, les demandeurs d'emploi ou les familles ?",
-            "Si je loue un vélo ou une voiture, quels frais peuvent s'ajouter au tarif annoncé ?"
+            "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+            "Comment se répartissent les frais — on partage l'essence et le péage ?",
+            "Faut-il verser une caution — et de quel montant à peu près ?",
+            "Y a-t-il des frais supplémentaires selon la distance ou le type de véhicule ?"
           ]
         }
       ]
     },
     {
       "number": 4,
-      "title": "Horaires, fréquence et délais",
-      "guidance": "Préciser les heures de passage, la durée des trajets et les périodes chargées.",
+      "title": "Horaires, fréquence et disponibilité des trajets",
+      "guidance": "Situer les heures de passage, les retours possibles et le temps d'attente.",
       "groups": [
         {
-          "title": "Choisir le bon moment pour partir",
-          "guidance": "Pour éviter les attentes inutiles et organiser son agenda.",
+          "title": "Organiser son emploi du temps",
+          "guidance": "À poser dès qu'un trajet dépend d'horaires précis.",
           "questions": [
-            "À quelle fréquence passent les bus ou les trams sur cette ligne aux heures de pointe ?",
-            "Pour arriver vers huit heures et demie, à quelle heure est-ce que je devrais partir au plus tard ?",
-            "Les horaires changent beaucoup le soir, le dimanche ou pendant les vacances scolaires ?",
-            "En cas de demande de carte ou d'abonnement, il faut compter combien de temps avant de pouvoir l'utiliser ?"
+            "Quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
+            "Le réseau fonctionne-t-il chaque jour de la semaine — les horaires changent-ils le week-end ?",
+            "Combien de temps prend en général l'intervention après l'appel ?",
+            "À quelle fréquence proposez-vous ces trajets — tous les jours ou seulement certains jours ?"
           ]
         }
       ]
     },
     {
       "number": 5,
-      "title": "Itinéraires, correspondances et accès",
-      "guidance": "Faire préciser le chemin, les changements et l'accessibilité.",
+      "title": "Itinéraires, accès et correspondances",
+      "guidance": "Vérifier les zones desservies, la sécurité des trajets et les accès pratiques.",
       "groups": [
         {
-          "title": "Se repérer sur le réseau",
-          "guidance": "Quand le trajet comporte des stations, des quais ou des correspondances.",
+          "title": "Se repérer avant de partir",
+          "guidance": "Quand il faut savoir où passer, où monter ou comment rejoindre le lieu.",
           "questions": [
-            "Quel itinéraire vous me recommandez pour aller là-bas avec le moins de correspondances possible ?",
-            "La correspondance se fait sur le même quai ou il faut sortir de la station et marcher un peu ?",
-            "Si je voyage avec une poussette ou une valise, est-ce que les stations sont accessibles facilement ?",
-            "Vous pouvez m'indiquer l'arrêt le plus proche et le meilleur côté de la rue pour ne pas me tromper ?"
+            "Est-ce que le réseau couvre toute la ville ou seulement certaines zones ?",
+            "Les principaux lieux sont-ils facilement accessibles en transports en commun ?",
+            "Les pistes cyclables sont-elles sécurisées et bien séparées de la circulation ?",
+            "Est-ce qu'on peut emporter son vélo dans le bus ou le train si on est fatigué ?"
           ]
         }
       ]
     },
     {
       "number": 6,
-      "title": "Cartes, justificatifs et démarches",
-      "guidance": "Lister les pièces nécessaires pour acheter, renouveler ou louer.",
+      "title": "Tickets, cartes et démarches de transport",
+      "guidance": "Savoir où acheter, réserver ou préparer les documents nécessaires.",
       "groups": [
         {
-          "title": "Préparer son dossier transport",
-          "guidance": "Pour les abonnements, le permis, la location ou les cartes nominatives.",
+          "title": "Faire les démarches pratiques",
+          "guidance": "Pour les titres, abonnements, locations ou demandes liées au trajet.",
           "questions": [
-            "Quels documents il faut fournir pour créer une carte de transport à mon nom ?",
-            "Pour louer une voiture, mon permis étranger suffit ou vous demandez une traduction officielle ?",
-            "Est-ce que je peux faire la demande d'abonnement en ligne, ou le passage au guichet est obligatoire ?",
-            "Si ma carte est perdue ou démagnétisée, quelle procédure je dois suivre pour la remplacer ?"
+            "Où peut-on acheter les tickets ou les abonnements — en ligne, à une borne ou auprès d'un agent ?",
+            "Faut-il réserver à l'avance ou peut-on trouver facilement sur place ?",
+            "Comment se passe la demande — en ligne ou uniquement auprès d'un agent ?",
+            "Quels documents faut-il préparer — un permis, une pièce d'identité ou une assurance ?"
           ]
         }
       ]
     },
     {
       "number": 7,
-      "title": "Situation personnelle et contraintes de trajet",
-      "guidance": "Adapter le conseil au rythme, au profil et aux besoins précis.",
+      "title": "Profil du conducteur, des passagers et du véhicule",
+      "guidance": "Adapter la solution au nombre de personnes, au niveau et à l'état du véhicule.",
       "groups": [
         {
-          "title": "Décrire son usage réel",
-          "guidance": "Quand l'interlocuteur doit choisir entre plusieurs solutions.",
+          "title": "Décrire sa situation",
+          "guidance": "Quand le choix dépend des passagers, du véhicule ou de l'expérience.",
           "questions": [
-            "Je travaille en horaires décalés : est-ce que cette formule reste adaptée si je rentre tard le soir ?",
-            "Je fais parfois le trajet avec un enfant, donc est-ce qu'il y a des règles particulières pour les accompagnants ?",
-            "Si je me déplace surtout deux ou trois jours par semaine, l'abonnement reste intéressant ou pas vraiment ?",
-            "J'ai besoin d'une solution fiable pour un rendez-vous médical régulier : qu'est-ce que vous me conseilleriez ?"
+            "Combien de personnes est-ce que vous prenez en général — il reste de la place ?",
+            "Elle est en bon état général, ou il y a des petites réparations à prévoir ?",
+            "Le contrôle technique est encore valide, ou il faut le refaire bientôt ?",
+            "D'après vous, c'est accessible pour quelqu'un qui débute complètement ?"
           ]
         }
       ]
     },
     {
       "number": 8,
-      "title": "Règles, sécurité et préparation du trajet",
-      "guidance": "Vérifier les obligations, les limites et les précautions.",
+      "title": "Sécurité, équipement et règles de conduite",
+      "guidance": "Anticiper les précautions, assurances, documents et règles d'utilisation.",
       "groups": [
         {
-          "title": "Éviter les erreurs et les amendes",
-          "guidance": "Pour valider son titre, conduire, stationner ou utiliser un vélo en libre-service.",
+          "title": "Rouler ou voyager en règle",
+          "guidance": "À utiliser avant une location, un trajet à vélo, une panne ou un covoiturage.",
           "questions": [
-            "Est-ce qu'il faut valider le ticket à chaque montée, même quand on fait simplement une correspondance ?",
-            "Pour le vélo en libre-service, quelles sont les règles à respecter pour éviter des frais supplémentaires ?",
-            "En voiture de location, qu'est-ce que je dois vérifier avant de prendre la route ?",
-            "Y a-t-il des zones où le stationnement ou la circulation sont limités à certaines heures ?"
+            "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+            "Que dois-je faire en attendant l'arrivée de l'assistance pour rester en sécurité ?",
+            "Côté matériel, qu'est-ce qu'il faut absolument prévoir — un casque, un antivol et des lumières ?",
+            "Y a-t-il un âge minimum ou une ancienneté de permis exigée pour louer ?"
           ]
         }
       ]
     },
     {
       "number": 9,
-      "title": "Services autour du trajet",
-      "guidance": "Repérer parkings, stations, bornes, consignes et points d'information.",
+      "title": "Services utiles pendant le trajet",
+      "guidance": "Repérer les applications, garages, assistance et solutions de remplacement.",
       "groups": [
         {
-          "title": "Trouver les services utiles",
-          "guidance": "Pour combiner plusieurs modes de transport sans stress.",
+          "title": "Trouver de l'aide sur place",
+          "guidance": "Pour suivre un trajet, réparer, remplacer ou entretenir un véhicule.",
           "questions": [
-            "Est-ce qu'il y a un parking relais près de la station pour laisser la voiture et continuer en tram ?",
-            "Où se trouvent les bornes pour recharger la carte ou récupérer un vélo en libre-service ?",
-            "À la gare, est-ce qu'il existe une consigne pour déposer une valise entre deux trains ?",
-            "Si j'ai un problème sur le trajet, il y a un point d'accueil ou un agent facilement joignable ?"
+            "Y a-t-il une application pour suivre les transports en temps réel ?",
+            "L'application permet-elle aussi de planifier un itinéraire ?",
+            "La réparation sur place est-elle possible ou faut-il transporter le véhicule dans un garage ?",
+            "Si le véhicule ne peut pas être réparé immédiatement, proposez-vous un véhicule de remplacement ?"
           ]
         }
       ]
     },
     {
       "number": 10,
-      "title": "Confort, ambiance et expérience de voyage",
-      "guidance": "Parler de fréquentation, confort, accessibilité et ressenti.",
+      "title": "Ambiance et confort du déplacement",
+      "guidance": "Parler du ressenti pendant le trajet et de la façon de voyager ensemble.",
       "groups": [
         {
-          "title": "Savoir à quoi s'attendre",
-          "guidance": "Quand le choix dépend aussi du confort et de la tranquillité.",
+          "title": "Voyager dans de bonnes conditions",
+          "guidance": "Utile surtout en covoiturage, à vélo ou dans les transports bondés.",
           "questions": [
-            "Cette ligne est souvent bondée, ou on peut généralement voyager dans des conditions correctes ?",
-            "Pour un trajet longue distance en train, est-ce qu'il vaut mieux réserver une place précise ?",
-            "Le covoiturage est-il assez fréquent sur cet axe pour compter dessus régulièrement ?",
-            "Les personnes à mobilité réduite sont-elles bien accompagnées sur ce réseau, notamment en cas de changement ?"
+            "Est-ce qu'on peut discuter et écouter de la musique, ou vous préférez le calme le matin ?",
+            "Vous préférez qu'on discute pendant le trajet, ou plutôt un moment calme le matin ?",
+            "Comment est le trajet en général — plutôt calme ou animé ?",
+            "Salut ! J'ai appris que tu avais récemment fait ce trajet — tu pourrais me raconter un peu ton expérience ?"
           ]
         }
       ]
     },
     {
       "number": 11,
-      "title": "Comparaison et recommandation",
-      "guidance": "Demander un avis pour choisir entre plusieurs options de mobilité.",
+      "title": "Conseils et comparaison entre solutions",
+      "guidance": "Demander un avis pour choisir un véhicule, un itinéraire ou un mode de transport.",
       "groups": [
         {
-          "title": "Choisir la solution la plus adaptée",
-          "guidance": "Pour conclure après avoir obtenu les informations principales.",
+          "title": "Se faire recommander",
+          "guidance": "Quand plusieurs options sont possibles et qu'il faut trancher.",
           "questions": [
-            "Entre l'abonnement mensuel et les tickets rechargeables, quelle option serait la plus rentable dans mon cas ?",
-            "Vous me conseilleriez plutôt le train ou le covoiturage pour ce trajet longue distance ?",
-            "Si la priorité est la fiabilité, quel mode de transport fonctionne le mieux selon vous ?",
-            "Pour quelqu'un qui débute dans la ville, quelle solution est la plus simple à prendre en main ?"
+            "Est-ce que ce véhicule est encore en bon état et fonctionne correctement ?",
+            "Pour un couple avec deux enfants et des bagages, quel modèle me conseilleriez-vous ?",
+            "Parmi tous ces itinéraires, lequel vous me recommandez pour commencer en douceur ?",
+            "Pourquoi avez-vous décidé de vendre ce véhicule ?"
           ]
         }
       ]
     },
     {
       "number": 12,
-      "title": "Retards, perturbations et imprévus",
-      "guidance": "Anticiper les grèves, annulations, embouteillages et changements de plan.",
+      "title": "Retards, absences et changements de trajet",
+      "guidance": "Prévoir les imprévus : retard, dommage, absence, vacances ou annulation.",
       "groups": [
         {
-          "title": "Prévoir un plan B",
-          "guidance": "Quand le déplacement doit rester possible malgré un incident.",
+          "title": "Garder une solution de secours",
+          "guidance": "À poser avant de s'engager dans une location ou un trajet régulier.",
           "questions": [
-            "En cas de grève ou de ligne interrompue, comment est-ce que je suis prévenu rapidement ?",
-            "Si mon train longue distance est très en retard, est-ce que je peux demander un remboursement ou une compensation ?",
-            "Que se passe-t-il si je rends la voiture de location avec du retard à cause d'un embouteillage ?",
-            "S'il n'y a plus de vélo disponible à la station prévue, est-ce que l'application propose une alternative fiable ?"
+            "Que se passe-t-il si je rends le véhicule en retard ou avec un petit dommage ?",
+            "Si un jour je ne peux pas faire le trajet, comment est-ce qu'on s'organise — il faut prévenir à l'avance ?",
+            "Et si vous partez en vacances ou êtes absent quelque temps, comment cela se passerait pour moi ?",
+            "Quelles sont les conditions pour modifier ou annuler le trajet ?"
           ]
         }
       ]
     },
     {
       "number": 13,
-      "title": "Suivi, contacts et confirmation",
-      "guidance": "Finir l'échange en vérifiant les prochaines étapes et les moyens de contact.",
+      "title": "Contact, réservation et suivi du trajet",
+      "guidance": "Clore l'échange en confirmant l'organisation et le moyen de contact.",
       "groups": [
         {
           "title": "Organiser la suite",
-          "guidance": "Pour repartir avec les bonnes informations et un interlocuteur clair.",
+          "guidance": "Idéal pour repartir avec une réservation, un contact ou une marche à suivre claire.",
           "questions": [
-            "Pour confirmer mon abonnement ou ma réservation, est-ce que je reçois un courriel récapitulatif ?",
-            "Quel numéro ou quelle application je dois utiliser si j'ai une urgence pendant le trajet ?",
-            "Est-ce que je peux modifier mon dossier plus tard si mon adresse ou mon trajet habituel change ?",
-            "Donc, si je comprends bien, je crée la carte en ligne aujourd'hui et je l'active au premier passage, c'est bien ça ?"
+            "Comment se passe la location concrètement, de la réservation à la restitution du véhicule ?",
+            "On resterait en contact comment pour organiser les trajets au jour le jour ?",
+            "Si je n'ai pas encore de vélo, vous connaissez des agences où en louer ?",
+            "D'accord, si j'ai encore une question, je peux vous recontacter ?"
           ]
         }
       ]

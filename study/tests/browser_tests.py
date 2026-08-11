@@ -660,14 +660,14 @@ class BrowserTests(StaticLiveServerTestCase):
             user=self.user,
             task=Task.objects.get(part__slug="eo", slug="tache-2"),
             kind=AnnotationKind.HIGHLIGHT,
-            quote="personne",
+            quote="renseignements",
             source_path=memory_path,
             source_key="question-bank:part-01",
             start_offset=0,
-            end_offset=8,
-            prefix="Ancienne interface · je ne connais encore ",
+            end_offset=14,
+            prefix="Ancienne interface · j'aurais besoin de quelques ",
             suffix=(
-                " — est-ce que vous pouvez m'orienter "
+                " pour m'installer — pouvez-vous m'aider "
                 "ancienne interface"
             ),
         )
@@ -676,15 +676,15 @@ class BrowserTests(StaticLiveServerTestCase):
             task=highlight.task,
             kind=AnnotationKind.HIGHLIGHT,
             quote=(
-                "commencer ?   03   "
-                "C'est la première fois"
+                "me donner ?   03   "
+                "Bonjour ! Vous m'avez dit"
             ),
             source_path=memory_path,
             source_key="question-bank:part-01",
             start_offset=0,
-            end_offset=41,
-            prefix="Ancienne interface · est-ce qu'il vaut mieux ",
-            suffix=" que je pousse la porte ancienne interface",
+            end_offset=44,
+            prefix="Ancienne interface · tu aurais des conseils à ",
+            suffix=" que vous accompagniez ancienne interface",
         )
         part_url = (
             self.live_server_url
@@ -930,9 +930,9 @@ class BrowserTests(StaticLiveServerTestCase):
             f'[data-highlight-id="{highlight.pk}"]'
         )
         saved_mark.wait_for()
-        self.assertEqual(saved_mark.inner_text(), "personne")
+        self.assertEqual(saved_mark.inner_text(), "renseignements")
         self.assertIn(
-            "je ne connais encore personne",
+            "quelques renseignements pour m'installer",
             saved_mark.locator(
                 "xpath=ancestor::*[@data-question-bank-question]"
             ).inner_text(),
@@ -944,7 +944,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertGreater(spanning_marks.count(), 1)
         spanning_text = " ".join(spanning_marks.all_inner_texts())
         self.assertIn(
-            "commencer ? 03 C'est la première fois",
+            "me donner ? 03 Bonjour ! Vous m'avez dit",
             " ".join(spanning_text.split()),
         )
         structural_marks = self.page.locator(
@@ -991,7 +991,7 @@ class BrowserTests(StaticLiveServerTestCase):
         first_checkbox = first_question.get_by_role("checkbox")
         self.assertEqual(first_checkbox.get_attribute("aria-checked"), "false")
         self.assertIn(
-            "je viens d'arriver dans la ville",
+            "Je viens d'arriver et j'aurais besoin",
             first_checkbox.get_attribute("aria-label"),
         )
         self.assertNotEqual(

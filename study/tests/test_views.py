@@ -299,7 +299,7 @@ class SmokeTests(TestCase):
             'class="selection-translate__shortcut"',
             count=5,
         )
-        self.assertContains(response, "btn__icon-badge--save")
+        self.assertContains(response, "panel-action--save")
         self.assertContains(response, "data-note-save-close")
         self.assertContains(response, "Enregistrer et fermer")
         self.assertContains(response, "data-note-paste-close")
@@ -309,7 +309,7 @@ class SmokeTests(TestCase):
             response.content.decode().index("data-note-paste-close"),
         )
         self.assertContains(response, "data-translation-note")
-        self.assertContains(response, "Add Note")
+        self.assertContains(response, "Add to note and highlight")
         self.assertNotContains(response, "data-note-save>")
         self.assertNotContains(response, "data-note-undo")
         self.assertNotContains(response, "data-note-view")

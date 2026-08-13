@@ -592,8 +592,11 @@
   function resetNoteButton() {
     if (!translationNoteButton) return;
     translationNoteButton.classList.add("hidden");
+    translationNoteButton.classList.remove("is-busy");
     translationNoteButton.disabled = false;
-    if (translationNoteLabel) translationNoteLabel.textContent = "Add Note";
+    if (translationNoteLabel) {
+      translationNoteLabel.textContent = "Add to note and highlight";
+    }
   }
 
   function closePanel() {
@@ -608,7 +611,9 @@
   function showFallback(message) {
     setStatus(message, false);
     fallbackLabel.textContent = "Continue with Google Translate";
-    fallbackLink.classList.add("btn--primary");
+    fallbackLink.classList.add("is-suggested");
+    fallbackLink.setAttribute("title", "Continue with Google Translate");
+    fallbackLink.setAttribute("aria-label", "Continue with Google Translate");
     repositionPanel();
   }
 
@@ -673,15 +678,19 @@
     var body = resultElement.textContent;
     if (!quote || !body || !window.HeureuxNotes) return;
     translationNoteButton.disabled = true;
+    translationNoteButton.classList.add("is-busy");
     if (translationNoteLabel) translationNoteLabel.textContent = "Saving…";
-    window.HeureuxNotes.saveSelectionNote(quote, body)
+    window.HeureuxNotes.saveSelectionNote(quote, body, true)
       .then(function () {
         closePanel();
       })
       .catch(function (error) {
         setStatus(error.message, false);
         translationNoteButton.disabled = false;
-        if (translationNoteLabel) translationNoteLabel.textContent = "Add Note";
+        translationNoteButton.classList.remove("is-busy");
+        if (translationNoteLabel) {
+          translationNoteLabel.textContent = "Add to note and highlight";
+        }
       });
   }
 
@@ -796,7 +805,9 @@
     setSpriteIcon(copyIcon, "copy");
     fallbackLink.href = googleTranslateUrl(text);
     fallbackLabel.textContent = "Google Translate";
-    fallbackLink.classList.remove("btn--primary");
+    fallbackLink.classList.remove("is-suggested");
+    fallbackLink.setAttribute("title", "Google Translate");
+    fallbackLink.setAttribute("aria-label", "Google Translate");
     positionPanel(rect);
     panel.focus({ preventScroll: true });
 
@@ -831,9 +842,13 @@
     writeClipboard(text)
       .then(function () {
         copyLabel.textContent = "Copied";
+        copyButton.classList.add("is-done");
+        copyButton.setAttribute("title", "Copied");
         setSpriteIcon(copyIcon, "check");
         window.setTimeout(function () {
           copyLabel.textContent = "Copy";
+          copyButton.classList.remove("is-done");
+          copyButton.setAttribute("title", "Copy translation");
           setSpriteIcon(copyIcon, "copy");
         }, 1600);
       })

@@ -80,10 +80,23 @@
       return null;
     }
     var range = selection.getRangeAt(0);
-    var element = selectionElement(range);
     var startRoot = rootForNode(range.startContainer);
     var endRoot = rootForNode(range.endContainer);
-    if (startRoot !== endRoot) return null;
+    if (startRoot !== endRoot) {
+      // A drag or triple-click can spill past the annotation root (browsers
+      // extend the range into the next block). Clamp it back to the root
+      // that anchors the selection instead of discarding it.
+      var anchorRoot = startRoot || endRoot;
+      if (!anchorRoot) return null;
+      range = range.cloneRange();
+      if (startRoot !== anchorRoot) range.setStart(anchorRoot, 0);
+      if (endRoot !== anchorRoot) {
+        range.setEnd(anchorRoot, anchorRoot.childNodes.length);
+      }
+      if (range.collapsed) return null;
+      startRoot = anchorRoot;
+    }
+    var element = selectionElement(range);
     var root = startRoot || main;
     if (
       !element ||
@@ -95,13 +108,17 @@
     ) {
       return null;
     }
-    var quote = range.cloneContents().textContent || "";
-    if (!quote.trim()) return null;
+    var rawQuote = range.cloneContents().textContent || "";
+    if (!rawQuote.trim()) return null;
 
     var before = range.cloneRange();
     before.selectNodeContents(root);
     before.setEnd(range.startContainer, range.startOffset);
-    var start = (before.cloneContents().textContent || "").length;
+    var rawStart = (before.cloneContents().textContent || "").length;
+    // Trailing block boundaries drag in whitespace; keep the quote tight so
+    // the stored offsets match what the reader actually selected.
+    var quote = rawQuote.trim();
+    var start = rawStart + (rawQuote.length - rawQuote.replace(/^\s+/, "").length);
     var end = start + quote.length;
     var pageText = root.textContent || "";
     var coverage = highlightCoverage(root, start, end);
@@ -696,6 +713,41 @@
       });
   }
 
+  function highlightSelection(details) {
+    return createAnnotation("highlight", details, "").then(function (data) {
+      announceWritingSujetProgress(data);
+      var selected = details.highlight;
+      var item = {
+        id: data.id,
+        quote: selected.quote,
+        start_offset: selected.start,
+        end_offset: selected.end,
+        prefix: selected.prefix,
+        suffix: selected.suffix,
+        source_key: details.sourceKey || "",
+        revision: data.revision,
+        delete_url: data.delete_url
+      };
+      var removedIds = (data.removed_ids || []).map(String);
+      var replacedIds = removedIds.concat(String(item.id));
+      removeHighlightMarks(replacedIds);
+      highlights = highlights.filter(function (saved) {
+        return (
+          saved.id !== item.id &&
+          removedIds.indexOf(String(saved.id)) === -1
+        );
+      });
+      highlights.push(item);
+      applyHighlight(item);
+      details.fullyHighlighted = true;
+      details.highlightIds = [item.id];
+      details.highlightRevisions = [item.revision];
+      currentSelection = details;
+      updateHighlightButton(details);
+      return item;
+    });
+  }
+
   function toggleHighlight() {
     rememberSelection();
     var details = currentSelection;
@@ -705,37 +757,8 @@
       return;
     }
     highlightButton.disabled = true;
-    createAnnotation("highlight", details, "")
-      .then(function (data) {
-        announceWritingSujetProgress(data);
-        var selected = details.highlight;
-        var item = {
-          id: data.id,
-          quote: selected.quote,
-          start_offset: selected.start,
-          end_offset: selected.end,
-          prefix: selected.prefix,
-          suffix: selected.suffix,
-          source_key: details.sourceKey || "",
-          revision: data.revision,
-          delete_url: data.delete_url
-        };
-        var removedIds = (data.removed_ids || []).map(String);
-        var replacedIds = removedIds.concat(String(item.id));
-        removeHighlightMarks(replacedIds);
-        highlights = highlights.filter(function (saved) {
-          return (
-            saved.id !== item.id &&
-            removedIds.indexOf(String(saved.id)) === -1
-          );
-        });
-        highlights.push(item);
-        applyHighlight(item);
-        details.fullyHighlighted = true;
-        details.highlightIds = [item.id];
-        details.highlightRevisions = [item.revision];
-        currentSelection = details;
-        updateHighlightButton(details);
+    highlightSelection(details)
+      .then(function () {
         showToast("Passage surligné.");
         highlightButton.disabled = false;
       })
@@ -1284,7 +1307,7 @@
   // Lets the translation panel turn a translated passage into a note without
   // duplicating the selection capture logic that lives in this module.
   window.HeureuxNotes = {
-    saveSelectionNote: function (quote, body) {
+    saveSelectionNote: function (quote, body, alsoHighlight) {
       var details = currentSelection;
       if (
         !details
@@ -1295,7 +1318,18 @@
         );
       }
       return createAnnotation("note", details, body).then(function () {
-        showToast("Note enregistrée.");
+        // The highlight is a bonus: a failure here must not lose the note.
+        if (!alsoHighlight || details.fullyHighlighted) {
+          showToast("Note enregistrée.");
+          return;
+        }
+        return highlightSelection(details)
+          .then(function () {
+            showToast("Note enregistrée et passage surligné.");
+          })
+          .catch(function () {
+            showToast("Note enregistrée. Surlignage impossible.");
+          });
       });
     }
   };

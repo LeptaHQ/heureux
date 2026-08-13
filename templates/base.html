@@ -7,7 +7,7 @@
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
   <script src="{% static 'study/js/theme-init.js' %}?v=2"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=148">
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=149">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -238,22 +238,24 @@
       </div>
     </div>
     <footer class="translation-panel__actions">
-      <button class="btn hidden" type="button" data-translation-copy>
+      <button class="panel-action panel-action--copy hidden" type="button" aria-label="Copy translation" title="Copy translation" data-translation-copy>
         <svg class="ui-icon" data-icon="copy" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="{% static 'study/icons/ui-icons.svg' %}?v=3#icon-copy" data-translation-copy-icon></use></svg>
-        <span data-translation-copy-label>Copy</span>
+        <span class="sr-only" data-translation-copy-label>Copy</span>
       </button>
-      <a class="btn" href="https://translate.google.com/" target="_blank" rel="noopener noreferrer" data-translation-fallback><span data-translation-fallback-label>Google Translate</span>{% include "study/partials/ui_icon.html" with name="external-link" only %}</a>
-      <button class="btn btn--primary hidden" type="button" data-translation-note>
-        <span class="btn__icon-badge btn__icon-badge--notes" aria-hidden="true">
-          <svg class="btn__icon" viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"></path><path d="M15 3v4h4M9 13h6M12 10v6"></path></svg>
-        </span>
-        <span data-translation-note-label>Add Note</span>
+      <a class="panel-action panel-action--external" href="https://translate.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Google Translate" title="Google Translate" data-translation-fallback>
+        {% include "study/partials/ui_icon.html" with name="external-link" only %}
+        <span class="sr-only" data-translation-fallback-label>Google Translate</span>
+      </a>
+      <button class="panel-action panel-action--note hidden" type="button" aria-label="Add to note and highlight" title="Add to note and highlight" data-translation-note>
+        <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M6 3h9l3 3v15H6z"></path>
+          <path d="M15 3v4h4M9 13h6M12 10v6"></path>
+        </svg>
+        <span class="sr-only" data-translation-note-label>Add to note and highlight</span>
       </button>
-      <button class="btn" type="button" data-translation-close>
-        <span class="btn__icon-badge btn__icon-badge--cancel" aria-hidden="true">
-          <svg class="btn__icon" viewBox="0 0 24 24"><path d="m8 8 8 8M16 8l-8 8"></path></svg>
-        </span>
-        <span>Fermer</span>
+      <button class="panel-action panel-action--close" type="button" aria-label="Fermer" title="Fermer" data-translation-close>
+        <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8 8 8 8M16 8l-8 8"></path></svg>
+        <span class="sr-only">Fermer</span>
       </button>
     </footer>
   </section>
@@ -283,23 +285,17 @@
       <p class="selection-note-panel__status" id="selection-note-status" role="status" aria-live="polite" data-note-status></p>
     </div>
     <footer class="translation-panel__actions">
-      <button class="btn" type="button" data-note-cancel>
-        <span class="btn__icon-badge btn__icon-badge--cancel" aria-hidden="true">
-          <svg class="btn__icon" viewBox="0 0 24 24"><path d="m8 8 8 8M16 8l-8 8"></path></svg>
-        </span>
-        <span>Annuler</span>
+      <button class="panel-action panel-action--cancel" type="button" aria-label="Annuler" title="Annuler" data-note-cancel>
+        <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8 8 8 8M16 8l-8 8"></path></svg>
+        <span class="sr-only">Annuler</span>
       </button>
-      <button class="btn btn--primary" type="button" data-note-save-close>
-        <span class="btn__icon-badge btn__icon-badge--save" aria-hidden="true">
-          <svg class="btn__icon" viewBox="0 0 24 24"><path d="m7 12 3.2 3.2L17.5 8"></path></svg>
-        </span>
-        <span>Enregistrer et fermer</span>
+      <button class="panel-action panel-action--save" type="button" aria-label="Enregistrer et fermer" title="Enregistrer et fermer" data-note-save-close>
+        <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m7 12 3.2 3.2L17.5 8"></path></svg>
+        <span class="sr-only">Enregistrer et fermer</span>
       </button>
-      <button class="btn" type="button" data-note-paste-close>
-        <span class="btn__icon-badge btn__icon-badge--paste" aria-hidden="true">
-          {% include "study/partials/ui_icon.html" with name="clipboard-paste" icon_class="btn__icon" only %}
-        </span>
-        <span>Coller et fermer</span>
+      <button class="panel-action panel-action--paste" type="button" aria-label="Coller et fermer" title="Coller et fermer" data-note-paste-close>
+        {% include "study/partials/ui_icon.html" with name="clipboard-paste" only %}
+        <span class="sr-only">Coller et fermer</span>
       </button>
     </footer>
   </section>
@@ -337,8 +333,8 @@
   </div>
 
   <script src="{% static 'study/js/app.js' %}?v=45"></script>
-  <script src="{% static 'study/js/selection-toolbar.js' %}?v=8"></script>
-  <script src="{% static 'study/js/annotations.js' %}?v=24"></script>
+  <script src="{% static 'study/js/selection-toolbar.js' %}?v=9"></script>
+  <script src="{% static 'study/js/annotations.js' %}?v=25"></script>
   <script src="{% static 'study/js/subject-progress.js' %}?v=1"></script>
   <script src="{% static 'study/js/writing-sujet-progress.js' %}?v=2"></script>
   <script src="{% static 'study/js/comprehension-progress.js' %}?v=1"></script>

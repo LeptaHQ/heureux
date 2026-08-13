@@ -2320,13 +2320,20 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.assertEqual(create_response.value.status, 201)
         panel.wait_for(state="hidden")
-        self.page.get_by_text("Note enregistrée.", exact=True).wait_for()
+        self.page.get_by_text(
+            "Note enregistrée et passage surligné.", exact=True
+        ).wait_for()
         note = Annotation.objects.get(
             user=self.user,
             kind=AnnotationKind.NOTE,
         )
         self.assertEqual(note.quote, quote)
         self.assertEqual(note.body, "EN: " + quote)
+        highlight = Annotation.objects.get(
+            user=self.user,
+            kind=AnnotationKind.HIGHLIGHT,
+        )
+        self.assertEqual(highlight.quote, quote)
 
     def test_selection_note_paste_and_close_saves_the_pasted_note(self):
         self.context.add_init_script(
@@ -5286,3 +5293,75 @@ class BrowserTests(StaticLiveServerTestCase):
             "true",
         )
         self.assert_no_horizontal_overflow()
+
+
+    def test_last_question_highlights_in_full_when_selection_spills_out(self):
+        command = Command()
+        task_map = command._import_sections(load_sections())
+        months = content.load_tache_two_subject_months()
+        theme_map = command._import_themes(
+            content.tache_two_themes(months),
+            task_map,
+        )
+        family_map = command._import_families(
+            content.tache_two_families(months)
+        )
+        responses = content.parse_tache_two_responses(months)
+        response_map = command._import_responses(
+            responses,
+            theme_map,
+            family_map,
+        )
+        command._import_prompts(
+            responses,
+            response_map,
+            theme_map,
+            family_map,
+        )
+        command._sync_cards(response_map, user=self.user)
+
+        self.page.set_viewport_size({"width": 1280, "height": 850})
+        self.page.goto(
+            self.live_server_url
+            + reverse(
+                "study:task_subject_detail",
+                args=["eo", "tache-2", "janvier", 1, 1],
+            )
+        )
+        self.page.wait_for_load_state("networkidle")
+
+        target = (
+            self.page.locator("[data-tache-two-question]")
+            .last.locator(".tache-two-question__content p")
+            .first
+        )
+        expected = target.inner_text()
+
+        # Triple-clicking the final question makes the browser end the range
+        # in the sidebar, outside the annotation root.
+        target.click(click_count=3)
+        self.page.wait_for_timeout(300)
+        self.assertNotEqual(
+            self.page.evaluate("() => window.getSelection().toString()"),
+            expected,
+            "the selection is expected to spill past the question",
+        )
+
+        button = self.page.locator("[data-highlight-selection]")
+        self.assertEqual(button.inner_text().strip(), "Highlight")
+        with self.page.expect_response(
+            lambda response: reverse("study:annotation_create") in response.url
+        ) as created:
+            button.click()
+        self.assertEqual(created.value.status, 201)
+
+        self.page.wait_for_timeout(600)
+        self.assertEqual(
+            self.page.locator("[data-user-highlight]").all_inner_texts(),
+            [expected],
+        )
+        highlight = Annotation.objects.get(
+            user=self.user,
+            kind=AnnotationKind.HIGHLIGHT,
+        )
+        self.assertEqual(highlight.quote, expected)

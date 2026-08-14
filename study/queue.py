@@ -17,7 +17,9 @@ from .models import (
     Card,
     CardState,
     CardType,
+    Phrase,
     PhraseTier,
+    Response,
     Rating,
     ReviewLog,
 )
@@ -60,6 +62,28 @@ def batch_size(scope: Optional[dict] = None) -> int:
     if _uses_phrase_batches(scope):
         return PHRASE_BATCH_SIZE
     return RESPONSE_BATCH_SIZE
+
+
+def scoped_count(qs) -> int:
+    """Count a scoped card queryset without materialising every column.
+
+    ``scoped_cards`` combines ``select_related`` with ``distinct``, so a plain
+    ``.count()`` becomes ``COUNT(*) FROM (SELECT DISTINCT <every column>)``.
+    Counting distinct ids instead is several times cheaper.
+    """
+    return narrow(qs).aggregate(_scoped_total=Count("id", distinct=True))[
+        "_scoped_total"
+    ]
+
+
+def narrow(qs):
+    """Drop ``select_related`` columns before aggregating a scoped queryset.
+
+    The joined columns are only needed when rows are rendered. Keeping them in
+    a DISTINCT aggregate makes SQLite build a temporary B-tree over every
+    column of every joined table.
+    """
+    return qs.select_related(None).order_by()
 
 
 def scoped_cards(
@@ -140,27 +164,43 @@ def scoped_cards(
             "phrase__source_prompts__family__slug",
         ),
     }
-    response_scope = Q()
-    phrase_scope = Q()
+    response_lookups = {}
+    phrase_lookups = {}
     has_relation_scope = False
     for key, (response_lookup, phrase_lookup) in relation_filters.items():
         if scope.get(key):
             has_relation_scope = True
-            response_scope &= Q(**{response_lookup: scope[key]})
-            phrase_scope &= Q(**{phrase_lookup: scope[key]})
+            response_lookups[
+                response_lookup.split("__", 1)[1]
+            ] = scope[key]
+            # Strip the leading ``phrase__`` so the condition can be applied
+            # directly to Phrase in a subquery.
+            phrase_lookups[phrase_lookup.split("__", 1)[1]] = scope[key]
     if has_relation_scope:
-        qs = qs.filter(response_scope | phrase_scope)
+        # Resolving the phrase side through a subquery keeps the many-to-many
+        # join off the card table, so SQLite can drive the plan from the few
+        # matching phrases instead of scanning every card the user owns.
+        qs = qs.filter(
+            Q(response_id__in=Response.objects.filter(**response_lookups))
+            | Q(phrase_id__in=Phrase.objects.filter(**phrase_lookups))
+        )
     if scope.get("category"):
         qs = qs.filter(phrase__category__slug=scope["category"])
     if scope.get("response"):
         qs = qs.filter(
             Q(response_id=scope["response"])
-            | Q(phrase__source_prompts__response_id=scope["response"])
+            | Q(
+                phrase_id__in=Phrase.objects.filter(
+                    source_prompts__response_id=scope["response"]
+                )
+            )
         )
     if scope.get("test"):
         qs = qs.filter(
-            phrase__source_questions__test__slug=scope["test"],
-            phrase__source_questions__test__is_active=True,
+            phrase_id__in=Phrase.objects.filter(
+                source_questions__test__slug=scope["test"],
+                source_questions__test__is_active=True,
+            )
         )
     if content == "spine":
         qs = qs.filter(card_type=CardType.SPINE)
@@ -238,7 +278,7 @@ def queue_counts(
     cards = scoped_cards(scope, user=user)
 
     if scope and scope.get("kind") == "revisit":
-        revisit_total = cards.count()
+        revisit_total = scoped_count(cards)
         return {
             "due_reviews": revisit_total,
             "learning_due": 0,
@@ -249,10 +289,11 @@ def queue_counts(
             "new_done_today": 0,
             "reviews_done_today": 0,
             "total_due": revisit_total,
+            "scoped_total": revisit_total,
             "revisit_total": revisit_total,
         }
     if scope and scope.get("kind") == "weak":
-        weak_total = cards.count()
+        weak_total = scoped_count(cards)
         return {
             "due_reviews": weak_total,
             "learning_due": 0,
@@ -263,32 +304,42 @@ def queue_counts(
             "new_done_today": 0,
             "reviews_done_today": 0,
             "total_due": weak_total,
-            "revisit_total": cards.filter(needs_revisit=True).count(),
+            "scoped_total": weak_total,
+            "revisit_total": scoped_count(cards.filter(needs_revisit=True)),
             "weak_total": weak_total,
         }
 
-    limit_cards = scoped_cards(
-        scope,
-        user=user,
-        include_suspended=True,
+    # Today's reviews are a handful of rows, while the scoped card set can be
+    # thousands. Matching the small side first keeps this off the expensive
+    # `card_id IN (<distinct join>)` subquery.
+    todays_reviews = list(
+        ReviewLog.objects.filter(
+            user=user,
+            reviewed_at__gte=start,
+        ).values_list("card_id", "state_before")
     )
-    todays_log_counts = ReviewLog.objects.filter(
-        user=user,
-        reviewed_at__gte=start,
-        card_id__in=limit_cards.values("pk"),
-    ).aggregate(
-        new_done_today=Count("pk", filter=Q(state_before=CardState.NEW)),
-        reviews_done_today=Count(
-            "pk",
-            filter=Q(
-                state_before__in=[CardState.REVIEW, CardState.RELEARNING]
-            ),
-        ),
-    )
-    new_done_today = todays_log_counts["new_done_today"]
-    reviews_done_today = todays_log_counts["reviews_done_today"]
+    new_done_today = 0
+    reviews_done_today = 0
+    if todays_reviews:
+        limit_cards = scoped_cards(
+            scope,
+            user=user,
+            include_suspended=True,
+        )
+        scoped_ids = set(
+            limit_cards.filter(
+                pk__in={card_id for card_id, _ in todays_reviews}
+            ).values_list("pk", flat=True)
+        )
+        for card_id, state_before in todays_reviews:
+            if card_id not in scoped_ids:
+                continue
+            if state_before == CardState.NEW:
+                new_done_today += 1
+            elif state_before in (CardState.REVIEW, CardState.RELEARNING):
+                reviews_done_today += 1
 
-    due_counts = cards.aggregate(
+    due_counts = narrow(cards).aggregate(
         learning_due=Count(
             "pk",
             distinct=True,
@@ -303,7 +354,9 @@ def queue_counts(
             filter=Q(state=CardState.REVIEW, due__lte=now),
         ),
         new_total=Count("pk", distinct=True, filter=Q(state=CardState.NEW)),
+        scoped_total=Count("pk", distinct=True),
     )
+    scoped_total = due_counts["scoped_total"]
     learning_due = due_counts["learning_due"]
     review_due_total = due_counts["review_due_total"]
     new_total = due_counts["new_total"]
@@ -321,10 +374,13 @@ def queue_counts(
         "new_done_today": new_done_today,
         "reviews_done_today": reviews_done_today,
         "total_due": due_reviews + new_available,
-        "revisit_total": scoped_cards(
-            {**(scope or {}), "kind": "revisit"},
-            user=user,
-        ).count(),
+        "scoped_total": scoped_total,
+        "revisit_total": scoped_count(
+            scoped_cards(
+                {**(scope or {}), "kind": "revisit"},
+                user=user,
+            )
+        ),
     }
 
 

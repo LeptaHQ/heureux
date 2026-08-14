@@ -2347,13 +2347,28 @@ def phrases(
     comprehension_vocabulary_paths = []
     comprehension_vocabulary_count = 0
     if not selected and not selected_test and not comprehension_directory:
-        subject_prompts = (
-            Prompt.objects.filter(
-                is_active=True,
-                response__is_active=True,
-                theme__is_active=True,
+        subject_prompt_filters = {
+            "is_active": True,
+            "response__is_active": True,
+            "theme__is_active": True,
+        }
+        subject_vocabulary = Phrase.objects.filter(
+            is_active=True,
+            tier=PhraseTier.SUBJECT,
+            source_prompts__is_active=True,
+            source_prompts__theme__is_active=True,
+        )
+        if task:
+            subject_prompt_filters["theme__task"] = task
+            subject_vocabulary = subject_vocabulary.filter(
+                source_prompts__theme__task=task
             )
-            .select_related("theme__task__part", "family", "response")
+        # Counting on a narrow values() query and attaching the totals in
+        # Python avoids grouping wide select_related rows, which made SQLite
+        # build a temporary B-tree per prompt.
+        subject_vocabulary_counts = dict(
+            Prompt.objects.filter(**subject_prompt_filters)
+            .values_list("pk")
             .annotate(
                 vocabulary_count=Count(
                     "phrases",
@@ -2365,21 +2380,18 @@ def phrases(
                 )
             )
             .filter(vocabulary_count__gt=0)
+            .values_list("pk", "vocabulary_count")
         )
-        subject_vocabulary = Phrase.objects.filter(
-            is_active=True,
-            tier=PhraseTier.SUBJECT,
-            source_prompts__is_active=True,
-            source_prompts__theme__is_active=True,
-        )
-        if task:
-            subject_prompts = subject_prompts.filter(theme__task=task)
-            subject_vocabulary = subject_vocabulary.filter(
-                source_prompts__theme__task=task
-            )
         subject_prompts = list(
-            subject_prompts.order_by("theme__order", "number", "pk")
+            Prompt.objects.filter(
+                **subject_prompt_filters,
+                pk__in=subject_vocabulary_counts,
+            )
+            .select_related("theme__task__part", "family", "response")
+            .order_by("theme__order", "number", "pk")
         )
+        for prompt in subject_prompts:
+            prompt.vocabulary_count = subject_vocabulary_counts[prompt.pk]
         subject_prompt_count = len(subject_prompts)
         subject_response_ids = {
             prompt.response_id for prompt in subject_prompts

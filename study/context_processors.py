@@ -1,7 +1,7 @@
 """Template context shared across the authenticated application shell."""
 
 from .models import ReviewSession, Task
-from .queue import queue_counts, scoped_cards
+from .queue import queue_counts, scoped_cards, scoped_count
 
 
 COMPREHENSION_ROUTES = {
@@ -187,5 +187,5 @@ def study_globals(request):
         "nav_due_total": counts["due_reviews"] + counts["new_available"],
         "nav_counts": counts,
         "nav_revisit_count": counts["revisit_total"],
-        "total_cards": scoped_cards(scope, user=request.user).count(),
+        "total_cards": counts.get("scoped_total", 0),
     }

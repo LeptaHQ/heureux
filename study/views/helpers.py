@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from django.db.models import Count, Q
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
 
@@ -324,23 +325,53 @@ def _tache_two_theme_progress(user, months=None):
 
 def deck_stats(qs, now=None) -> dict:
     now = now or timezone.now()
-    total = qs.count()
-    new = qs.filter(state=CardState.NEW).count()
-    started_new = qs.filter(
-        state=CardState.NEW,
-        started_at__isnull=False,
-    ).count()
-    learning = qs.filter(
-        state__in=[CardState.LEARNING, CardState.RELEARNING]
-    ).count()
-    review = qs.filter(state=CardState.REVIEW).count()
-    mature = qs.filter(
-        state=CardState.REVIEW, interval_days__gte=MATURE_DAYS
-    ).count()
-    due = qs.filter(
-        state__in=[CardState.LEARNING, CardState.RELEARNING, CardState.REVIEW],
-        due__lte=now,
-    ).count()
+    # One conditional aggregate instead of seven COUNTs: the scoped queryset
+    # joins several tables and is DISTINCT, so each extra count was a full
+    # `SELECT COUNT(*) FROM (SELECT DISTINCT <every column>)` scan.
+    counts = queue_module.narrow(qs).aggregate(
+        total=Count("id", distinct=True),
+        new=Count("id", distinct=True, filter=Q(state=CardState.NEW)),
+        started_new=Count(
+            "id",
+            distinct=True,
+            filter=Q(state=CardState.NEW, started_at__isnull=False),
+        ),
+        learning=Count(
+            "id",
+            distinct=True,
+            filter=Q(
+                state__in=[CardState.LEARNING, CardState.RELEARNING]
+            ),
+        ),
+        review=Count("id", distinct=True, filter=Q(state=CardState.REVIEW)),
+        mature=Count(
+            "id",
+            distinct=True,
+            filter=Q(
+                state=CardState.REVIEW,
+                interval_days__gte=MATURE_DAYS,
+            ),
+        ),
+        due=Count(
+            "id",
+            distinct=True,
+            filter=Q(
+                state__in=[
+                    CardState.LEARNING,
+                    CardState.RELEARNING,
+                    CardState.REVIEW,
+                ],
+                due__lte=now,
+            ),
+        ),
+    )
+    total = counts["total"]
+    new = counts["new"]
+    started_new = counts["started_new"]
+    learning = counts["learning"]
+    review = counts["review"]
+    mature = counts["mature"]
+    due = counts["due"]
     seen = total - new + started_new
     return {
         "total": total,
@@ -668,8 +699,14 @@ def _ee_tache_one_task_card(task, user):
     }
 
 
-def _task_card(task, now, user):
-    """Build a dashboard/part card for a single task."""
+def _task_card(task, now, user, *, with_stats=True, with_deck_stats=True):
+    """Build a dashboard/part card for a single task.
+
+    ``with_stats=False`` skips every SRS aggregate for callers that only need
+    the content counts. ``with_deck_stats=False`` keeps the subject progress
+    summary but drops the per-deck vocabulary stats and queue counts, which
+    the dashboard and expression hub never read.
+    """
     question_bank = None
     subject_state = None
     if (
@@ -679,6 +716,7 @@ def _task_card(task, now, user):
         return _ee_tache_one_task_card(task, user)
     if (
         task.available
+        and with_stats
         and (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK
     ):
         banks = content_module.load_question_banks()
@@ -719,48 +757,70 @@ def _task_card(task, now, user):
             ),
         }
     if task.available:
-        if subject_state is None:
-            response_ids = set(
-                Prompt.objects.filter(
-                    theme__task=task,
-                    theme__is_active=True,
-                    is_active=True,
-                    response__is_active=True,
-                ).values_list("response_id", flat=True)
-            )
-            response_progress = subject_progress_by_response(
-                user,
-                response_ids,
-            )
-            response_stats = summarize_subject_progress(
-                response_progress.values()
-            )
+        if not with_stats:
+            response_stats = None
+            phrase_stats = None
+            functional_phrase_stats = None
+            stats = None
+            counts = None
+            phrase_counts = None
+            revisit_count = 0
         else:
-            response_stats = dict(subject_state["summary"])
-        response_stats["due"] = deck_stats(
-            _task_cards(task, user, "spine"),
-            now,
-        )["due"]
-        phrase_stats = deck_stats(_task_cards(task, user, "phrase"), now)
-        functional_phrase_stats = deck_stats(
-            _task_cards(task, user, "phrase").filter(
-                phrase__tier=PhraseTier.SHARED,
-                phrase__category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES,
-            ),
-            now,
-        )
-        stats = response_stats
-        counts = queue_module.queue_counts(
-            _task_scope(task),
-            now,
-            user=user,
-        )
-        phrase_counts = queue_module.queue_counts(
-            {**_task_scope(task), "kind": "phrase"},
-            now,
-            user=user,
-        )
-        revisit_count = _task_cards(task, user, "revisit").count()
+            if subject_state is None:
+                response_ids = set(
+                    Prompt.objects.filter(
+                        theme__task=task,
+                        theme__is_active=True,
+                        is_active=True,
+                        response__is_active=True,
+                    ).values_list("response_id", flat=True)
+                )
+                response_progress = subject_progress_by_response(
+                    user,
+                    response_ids,
+                )
+                response_stats = summarize_subject_progress(
+                    response_progress.values()
+                )
+            else:
+                response_stats = dict(subject_state["summary"])
+            response_stats["due"] = deck_stats(
+                _task_cards(task, user, "spine"),
+                now,
+            )["due"]
+            stats = response_stats
+            if with_deck_stats:
+                phrase_stats = deck_stats(
+                    _task_cards(task, user, "phrase"), now
+                )
+                functional_phrase_stats = deck_stats(
+                    _task_cards(task, user, "phrase").filter(
+                        phrase__tier=PhraseTier.SHARED,
+                        phrase__category__name__in=(
+                            FUNCTIONAL_PHRASE_CATEGORY_NAMES
+                        ),
+                    ),
+                    now,
+                )
+                counts = queue_module.queue_counts(
+                    _task_scope(task),
+                    now,
+                    user=user,
+                )
+                phrase_counts = queue_module.queue_counts(
+                    {**_task_scope(task), "kind": "phrase"},
+                    now,
+                    user=user,
+                )
+                revisit_count = queue_module.scoped_count(
+                    _task_cards(task, user, "revisit")
+                )
+            else:
+                phrase_stats = None
+                functional_phrase_stats = None
+                counts = None
+                phrase_counts = None
+                revisit_count = 0
         theme_count = Theme.objects.filter(task=task, is_active=True).count()
         prompt_count = Prompt.objects.filter(
             theme__task=task,

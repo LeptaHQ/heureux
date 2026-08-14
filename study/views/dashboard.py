@@ -38,12 +38,18 @@ STATUS_LABELS = {
     "done": "Terminé",
 }
 
-def _parts_with_task_cards(now, user):
+def _parts_with_task_cards(now, user, *, with_stats=True, with_deck_stats=True):
     return [
         {
             "part": part,
             "tasks": [
-                _task_card(task, now, user)
+                _task_card(
+                    task,
+                    now,
+                    user,
+                    with_stats=with_stats,
+                    with_deck_stats=with_deck_stats,
+                )
                 for task in part.tasks.all()
             ],
         }
@@ -181,7 +187,8 @@ def _vocabulary_task_items(part_item, user, *, with_progress=True):
 
 
 def _vocabulary_expression_paths(now, user):
-    part_items = _parts_with_task_cards(now, user)
+    # Only the content counts are read below, so skip the SRS aggregates.
+    part_items = _parts_with_task_cards(now, user, with_stats=False)
     path_specs = (
         {
             "title": "Écrite",
@@ -500,7 +507,9 @@ def dashboard(request):
         queue_module.scoped_cards({"content": "vocabulary"}, user=request.user),
         now,
     )
-    parts = _parts_with_task_cards(now, request.user)
+    # Only the aggregated path totals are rendered, so skip the per-deck
+    # vocabulary stats and queue counts for every task.
+    parts = _parts_with_task_cards(now, request.user, with_deck_stats=False)
     expression_paths = _home_expression_paths(parts)
     comprehension = _comprehension_summary(request.user)
     notes_to_study = Annotation.objects.filter(
@@ -558,7 +567,7 @@ def dashboard(request):
 
 def expression_hub(request):
     now = timezone.now()
-    parts = _parts_with_task_cards(now, request.user)
+    parts = _parts_with_task_cards(now, request.user, with_deck_stats=False)
     paths = _home_expression_paths(parts)
     available_paths = [path for path in paths if path["available"]]
     return render(

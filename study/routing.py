@@ -5,6 +5,8 @@ from __future__ import annotations
 import re
 from urllib.parse import urlencode
 
+from django.db.models.signals import post_delete, post_save
+from django.dispatch import receiver
 from django.urls import reverse
 
 from .models import ComprehensionMode, ComprehensionTest, Prompt, Response, Theme
@@ -13,6 +15,27 @@ TACHE_TWO_PROMPT_KEY = re.compile(
     r"^tache2:(?P<month>[a-z0-9-]+):batch-(?P<batch>\d+):"
     r"subject-(?P<subject>\d+)$"
 )
+
+# Slug -> mode is static reference data, but review_url is called once per
+# rendered deck link, which turned a single page into dozens of identical
+# lookups. Cache it and drop the cache whenever a test changes.
+_TEST_MODE_CACHE: dict[str, str] = {}
+
+
+@receiver(post_save, sender=ComprehensionTest)
+@receiver(post_delete, sender=ComprehensionTest)
+def _clear_test_mode_cache(**_kwargs) -> None:
+    _TEST_MODE_CACHE.clear()
+
+
+def _test_mode(slug: str) -> str:
+    mode = _TEST_MODE_CACHE.get(slug)
+    if mode is None:
+        mode = ComprehensionTest.objects.values_list("mode", flat=True).get(
+            slug=slug
+        )
+        _TEST_MODE_CACHE[slug] = mode
+    return mode
 
 
 def _expression_task_args(task) -> list[str]:
@@ -122,13 +145,12 @@ def review_url(scope: dict) -> str:
         if test_slug:
             query["test"] = test_slug
     elif test_slug:
-        test = ComprehensionTest.objects.only("slug", "mode").get(slug=test_slug)
         route = (
             "study:comprehension_vocabulary_review"
-            if test.mode == ComprehensionMode.ECRITE
+            if _test_mode(test_slug) == ComprehensionMode.ECRITE
             else "study:comprehension_oral_vocabulary_review"
         )
-        base = reverse(route, args=[test.slug])
+        base = reverse(route, args=[test_slug])
     else:
         base = reverse("study:review")
 

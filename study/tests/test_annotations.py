@@ -94,7 +94,9 @@ class AnnotationTests(TestCase):
             notes_tab,
             "annotation-action__icon--study",
         )
-        self.assertContains(
+        # Reading is French speech synthesis, so it is offered only for the
+        # selected passage — this note has none.
+        self.assertNotContains(
             notes_tab,
             "annotation-action__icon--read",
         )
@@ -1033,6 +1035,13 @@ class AnnotationTests(TestCase):
             kind=AnnotationKind.NOTE,
             body="Contenu sans rapport.",
         )
+        quoted_note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            quote="Passage cible sélectionné.",
+            body="Contenu cible annoté.",
+        )
         queued_highlight = Annotation.objects.create(
             user=self.user,
             task=self.task,
@@ -1066,9 +1075,13 @@ class AnnotationTests(TestCase):
             ),
         )
         self.assertNotContains(notes_page, "?item=")
-        self.assertContains(
+        self.assertNotContains(
             notes_page,
             f'data-annotation-read="{new_note.pk}"',
+        )
+        self.assertContains(
+            notes_page,
+            f'data-annotation-read="{quoted_note.pk}"',
             count=2,
         )
         self.assertNotContains(notes_page, done_note.body)

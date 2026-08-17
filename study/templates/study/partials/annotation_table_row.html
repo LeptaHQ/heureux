@@ -11,7 +11,7 @@
         {% if annotation.kind == "highlight" %}<mark>{{ annotation.quote }}</mark>{% else %}{{ annotation.quote }}{% endif %}
       </blockquote>
     {% endif %}
-    {% if annotation.body %}<div class="annotation-table__body annotation-markdown"{% if not annotation.quote %} data-annotation-readable{% endif %}>{{ annotation.body|markdown }}</div>{% endif %}
+    {% if annotation.body %}<div class="annotation-table__body annotation-markdown">{{ annotation.body|markdown }}</div>{% endif %}
   </td>
   <td class="annotation-table__context" data-label="{% if variant == 'notes' %}Contexte{% else %}Origine{% endif %}">
     <div class="annotation-table__context-meta">

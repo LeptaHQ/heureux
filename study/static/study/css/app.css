@@ -5090,6 +5090,9 @@ html[data-collection-view-mode="table"]
 .annotation-action {
   width: 44px;
   height: 44px;
+  /* Never let a crowded action row squeeze a tap target below 44px. */
+  min-width: 44px;
+  flex: 0 0 44px;
   display: inline-grid;
   padding: 0;
   place-items: center;

@@ -3137,7 +3137,8 @@ class BrowserTests(StaticLiveServerTestCase):
             ".annotation-card",
             has_text="Une note personnelle.",
         ).locator(".annotation-action__icon")
-        self.assertEqual(action_icons.count(), 5)
+        # No selected passage on this note, so no read control.
+        self.assertEqual(action_icons.count(), 4)
 
         self.page.get_by_role("button", name="Tableau").click()
         self.page.locator(
@@ -3159,7 +3160,8 @@ class BrowserTests(StaticLiveServerTestCase):
             ".annotation-table__row",
             has_text="Une note personnelle.",
         ).locator(".annotation-action__icon")
-        self.assertEqual(action_icons.count(), 5)
+        # No selected passage on this note, so no read control.
+        self.assertEqual(action_icons.count(), 4)
         icon_styles = action_icons.evaluate_all(
             """
             icons => icons.map(icon => {
@@ -3173,7 +3175,7 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertGreaterEqual(
             len({style["color"] for style in icon_styles}),
-            5,
+            4,
         )
         self.assertTrue(
             all(
@@ -3682,7 +3684,8 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         note_row.wait_for()
         action_buttons = note_row.locator(".annotation-action")
-        self.assertEqual(action_buttons.count(), 5)
+        # No selected passage on this note, so no read control.
+        self.assertEqual(action_buttons.count(), 4)
         self.assertTrue(
             all(
                 44 <= size["width"] <= 46 and 44 <= size["height"] <= 46
@@ -4096,7 +4099,9 @@ class BrowserTests(StaticLiveServerTestCase):
             has_text="Rappel important",
         )
         note_read = note_card.locator("[data-annotation-read]")
-        self.assertEqual(note_read.get_attribute("aria-label"), "Lire la note")
+        self.assertEqual(
+            note_read.get_attribute("aria-label"), "Lire le passage"
+        )
         self.assertGreaterEqual(note_read.bounding_box()["width"], 44)
         note_read.click()
         self.page.wait_for_function(
@@ -4123,13 +4128,30 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertEqual(
             highlight_read.get_attribute("aria-label"),
-            "Lire le surlignage",
+            "Lire le passage",
         )
         highlight_read.click()
         self.page.wait_for_function(
             "() => window.__annotationSpoken.includes('reconnaître cette limite')"
         )
         self.assertEqual(highlight_read.get_attribute("aria-pressed"), "true")
+
+        # A free-standing note has no French passage, so nothing to read.
+        Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            title="Note libre",
+            body="A reminder written in my own words.",
+        )
+        self.page.goto(self.live_server_url + notes_url)
+        free_note = self.page.locator(
+            ".annotation-card",
+            has_text="Note libre",
+        )
+        self.assertEqual(
+            free_note.locator("[data-annotation-read]").count(), 0
+        )
 
     def test_study_deck_removes_only_known_cards_at_the_end(self):
         Annotation.objects.create(
@@ -5506,6 +5528,78 @@ class BrowserTests(StaticLiveServerTestCase):
             ).is_hidden()
         )
 
+    def test_study_deck_reads_the_selected_passage_of_a_note(self):
+        self.context.add_init_script(
+            """
+            (() => {
+              window.__annotationSpoken = "";
+              const voices = [{
+                name: "Audrey Premium",
+                voiceURI: "fr-premium",
+                lang: "fr-FR",
+                localService: true,
+                default: true,
+              }];
+              const synthesis = {
+                getVoices: () => voices,
+                addEventListener: () => {},
+                cancel: () => {},
+                resume: () => {},
+                speak: utterance => {
+                  window.__annotationSpoken = utterance.text;
+                },
+              };
+              class FakeUtterance {
+                constructor(text) {
+                  this.text = text;
+                  this.lang = "";
+                  this.rate = 1;
+                  this.pitch = 1;
+                  this.voice = null;
+                }
+              }
+              Object.defineProperty(window, "speechSynthesis", {
+                configurable: true,
+                value: synthesis,
+              });
+              Object.defineProperty(window, "SpeechSynthesisUtterance", {
+                configurable: true,
+                value: FakeUtterance,
+              });
+            })();
+            """
+        )
+        note = Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+            quote="Je tiens à souligner ce point.",
+            title="À réutiliser",
+            body="Handy opener for giving an opinion.",
+            study_later=True,
+        )
+        self.page.goto(
+            self.live_server_url + reverse("study:annotation_study")
+        )
+        card = self.page.locator(
+            '[data-study-card][data-study-id="%d"]' % note.pk
+        )
+        card.wait_for()
+        read = card.locator("[data-annotation-read]")
+        self.assertEqual(read.count(), 1)
+        self.assertEqual(read.get_attribute("aria-label"), "Lire le passage")
+
+        read.click()
+        self.page.wait_for_function(
+            "() => window.__annotationSpoken"
+            " && window.__annotationSpoken.length > 0"
+        )
+
+        spoken = self.page.evaluate("window.__annotationSpoken")
+        # Only the French passage is spoken — never the English note.
+        self.assertIn("Je tiens à souligner ce point", spoken)
+        self.assertNotIn("Handy opener", spoken)
+        self.assertNotIn("À réutiliser", spoken)
+
     def test_study_deck_cards_can_be_read_aloud_and_deleted(self):
         self.context.add_init_script(
             """
@@ -5568,8 +5662,7 @@ class BrowserTests(StaticLiveServerTestCase):
         progress = self.page.locator("[data-study-progress]")
         self.assertEqual(progress.inner_text(), "1 / 2")
 
-        # Notes are the learner's own words, so they carry no read control;
-        # only surlignages of French source text do.
+        # A note with no selected passage has nothing French to read aloud.
         note_card = self.page.locator(
             '[data-study-card]:not([data-study-id="%d"])' % highlight.pk
         )

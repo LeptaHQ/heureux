@@ -29,7 +29,7 @@ Parameters:
   <div class="annotation-card__content">
     {% if annotation.title %}<h3>{{ annotation.title }}</h3>{% endif %}
     {% if annotation.quote %}<blockquote data-annotation-readable>{% if annotation.kind == "highlight" %}<mark>{{ annotation.quote }}</mark>{% else %}{{ annotation.quote }}{% endif %}</blockquote>{% endif %}
-    {% if annotation.body %}<div class="annotation-card__body annotation-markdown"{% if not annotation.quote %} data-annotation-readable{% endif %}>{{ annotation.body|markdown }}</div>{% endif %}
+    {% if annotation.body %}<div class="annotation-card__body annotation-markdown">{{ annotation.body|markdown }}</div>{% endif %}
   </div>
   {% if variant == "search" %}
     <p class="annotation-card__scope">{{ annotation.scope_label }}</p>

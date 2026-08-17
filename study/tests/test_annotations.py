@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import json
+from unittest import mock
 
-from django.test import TestCase
+from django.core.cache import cache
+from django.test import TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 
@@ -1563,3 +1565,55 @@ class AnnotationTests(TestCase):
         )
         self.assertIn("status=done", response.context["tab_url_prefix"])
         self.assertIn("q=note", response.context["tab_url_prefix"])
+
+
+class TranslateSelectionTests(TestCase):
+    def setUp(self):
+        self.user = factories.make_user("translate-owner")
+        self.client.force_login(self.user)
+        self.url = reverse("study:translate_selection")
+        cache.clear()
+
+    def test_translation_is_unavailable_until_an_endpoint_is_configured(self):
+        with override_settings(TRANSLATION_API_URL=""):
+            response = self.client.post(self.url, {"text": "Bonjour"})
+        self.assertEqual(response.status_code, 503)
+        self.assertEqual(response.json()["error"], "not_configured")
+
+    def test_translation_rejects_empty_and_oversized_text(self):
+        with override_settings(TRANSLATION_API_URL="http://translate.test/translate"):
+            empty = self.client.post(self.url, {"text": "   "})
+            oversized = self.client.post(self.url, {"text": "a" * 2001})
+        self.assertEqual(empty.status_code, 400)
+        self.assertEqual(oversized.status_code, 413)
+
+    def test_translation_proxies_the_configured_endpoint_and_caches_it(self):
+        calls = []
+
+        class FakeResponse:
+            def read(self):
+                return json.dumps({"translatedText": "Hello"}).encode("utf-8")
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                return False
+
+        def fake_urlopen(request, timeout=None):
+            calls.append(json.loads(request.data.decode("utf-8")))
+            return FakeResponse()
+
+        with override_settings(
+            TRANSLATION_API_URL="http://translate.test/translate",
+            TRANSLATION_API_KEY="secret",
+        ), mock.patch("study.views.notes.urllib.request.urlopen", fake_urlopen):
+            first = self.client.post(self.url, {"text": "Bonjour"})
+            second = self.client.post(self.url, {"text": "Bonjour"})
+
+        self.assertEqual(first.json()["translation"], "Hello")
+        self.assertTrue(second.json()["cached"])
+        self.assertEqual(len(calls), 1)
+        self.assertEqual(calls[0]["source"], "fr")
+        self.assertEqual(calls[0]["target"], "en")
+        self.assertEqual(calls[0]["api_key"], "secret")

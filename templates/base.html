@@ -7,7 +7,7 @@
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
   <script src="{% static 'study/js/theme-init.js' %}?v=2"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=149">
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=150">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -215,7 +215,7 @@
     </button>
   </div>
 
-  <section class="translation-panel hidden" id="translation-panel" role="dialog" aria-labelledby="translation-panel-title" tabindex="-1" data-translation-panel>
+  <section class="translation-panel hidden" id="translation-panel" role="dialog" aria-labelledby="translation-panel-title" tabindex="-1" data-translation-panel data-translation-endpoint="{% url 'study:translate_selection' %}">
     <header class="translation-panel__header">
       <div>
         <span class="translation-panel__eyebrow">Français → English</span>
@@ -332,9 +332,9 @@
     <button class="btn btn--primary" type="button" data-pwa-update>Mettre à jour</button>
   </div>
 
-  <script src="{% static 'study/js/app.js' %}?v=45"></script>
-  <script src="{% static 'study/js/selection-toolbar.js' %}?v=9"></script>
-  <script src="{% static 'study/js/annotations.js' %}?v=25"></script>
+  <script src="{% static 'study/js/app.js' %}?v=46"></script>
+  <script src="{% static 'study/js/selection-toolbar.js' %}?v=10"></script>
+  <script src="{% static 'study/js/annotations.js' %}?v=26"></script>
   <script src="{% static 'study/js/subject-progress.js' %}?v=1"></script>
   <script src="{% static 'study/js/writing-sujet-progress.js' %}?v=2"></script>
   <script src="{% static 'study/js/comprehension-progress.js' %}?v=1"></script>

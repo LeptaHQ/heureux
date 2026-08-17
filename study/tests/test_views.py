@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+import re
 import threading
 from datetime import timedelta
 from unittest.mock import patch
 
+from django.conf import settings
 from django.test import (
     Client,
     TestCase,
@@ -80,20 +82,41 @@ class PWATests(TestCase):
         r = self.client.get("/sw.js")
         self.assertEqual(r.status_code, 200)
         body = r.content.decode()
-        self.assertIn('var CACHE = "heureux-v160"', body)
-        self.assertIn("study/css/app.css?v=146", body)
-        self.assertIn("study/js/memory-progress.js?v=2", body)
-        self.assertIn("study/js/theme-init.js?v=2", body)
-        self.assertIn("study/js/app.js?v=45", body)
-        self.assertIn("study/js/selection-toolbar.js?v=6", body)
-        self.assertIn("study/js/annotations.js?v=22", body)
-        self.assertIn("study/js/subject-progress.js?v=1", body)
-        self.assertIn("study/js/writing-sujet-progress.js?v=2", body)
-        self.assertIn("study/js/comprehension-progress.js?v=1", body)
-        self.assertIn("study/icons/ui-icons.svg?v=3", body)
+        self.assertRegex(body, r'var CACHE = "heureux-v\d+"')
+        for asset in (
+            "study/css/app.css",
+            "study/js/memory-progress.js",
+            "study/js/theme-init.js",
+            "study/js/app.js",
+            "study/js/selection-toolbar.js",
+            "study/js/annotations.js",
+            "study/js/subject-progress.js",
+            "study/js/writing-sujet-progress.js",
+            "study/js/comprehension-progress.js",
+            "study/icons/ui-icons.svg",
+        ):
+            self.assertRegex(body, re.escape(asset) + r"\?v=\d+")
         self.assertIn("SKIP_WAITING", body)
         self.assertIn("no-store", r["Cache-Control"])
         self.assertEqual(r["Service-Worker-Allowed"], "/")
+
+    def test_service_worker_precache_matches_the_page_asset_versions(self):
+        """The offline shell must never pin stale ?v= numbers."""
+
+        def versions(path):
+            source = (settings.BASE_DIR / "templates" / path).read_text()
+            return dict(
+                re.findall(r"static '([^']+)' %\}\?v=(\d+)", source)
+            )
+
+        page = versions("base.html")
+        shell = versions("sw.js")
+        mismatched = {
+            asset: (version, page[asset])
+            for asset, version in shell.items()
+            if asset in page and version != page[asset]
+        }
+        self.assertEqual(mismatched, {})
 
     def test_security_headers_block_inline_scripts_and_sensitive_capabilities(self):
         response = self.client.get(reverse("study:login"))

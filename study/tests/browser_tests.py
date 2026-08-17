@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import json
 import os
+from unittest import mock
 
 from django.contrib.sessions.models import Session
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -2335,6 +2337,67 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertEqual(highlight.quote, quote)
 
+    def test_translation_falls_back_to_google_without_an_on_device_engine(self):
+        self.context.add_init_script("delete window.Translator;")
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        self.page.wait_for_load_state("networkidle")
+        self.select_prompt(start=0, end=12)
+        self.page.locator("[data-translate-selection]").click()
+
+        panel = self.page.locator("[data-translation-panel]")
+        panel.wait_for()
+        fallback = panel.locator("[data-translation-fallback]")
+        panel.get_by_text(
+            "On-device translation isn't available in this browser.",
+            exact=True,
+        ).wait_for()
+        self.assertIn("is-suggested", fallback.get_attribute("class"))
+        self.assertEqual(
+            fallback.locator("[data-translation-fallback-label]").inner_text(),
+            "Open Google Translate",
+        )
+        self.assertIn("translate.google.com", fallback.get_attribute("href"))
+
+    def test_translation_uses_the_server_when_the_device_cannot_translate(self):
+        class FakeResponse:
+            def read(self):
+                return json.dumps({"translatedText": "Hello there"}).encode("utf-8")
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                return False
+
+        self.context.add_init_script("delete window.Translator;")
+        with override_settings(
+            TRANSLATION_API_URL="http://translate.test/translate"
+        ), mock.patch(
+            "study.views.notes.urllib.request.urlopen",
+            lambda request, timeout=None: FakeResponse(),
+        ):
+            self.page.goto(
+                self.live_server_url
+                + reverse("study:review")
+                + "?kind=spine&reset=1"
+            )
+            prompt = self.page.locator("#card-front .prompt-text")
+            prompt.wait_for()
+            self.page.wait_for_load_state("networkidle")
+            self.select_prompt(start=0, end=12)
+            self.page.locator("[data-translate-selection]").click()
+
+            panel = self.page.locator("[data-translation-panel]")
+            panel.wait_for()
+            panel.get_by_text("Hello there", exact=True).wait_for()
+            panel.get_by_text("Translated on the server.", exact=True).wait_for()
+
     def test_selection_note_paste_and_close_saves_the_pasted_note(self):
         self.context.add_init_script(
             """
@@ -3813,7 +3876,9 @@ class BrowserTests(StaticLiveServerTestCase):
             front.get_by_text("séance", exact=True).is_visible()
         )
 
-        card.click()
+        # Click the answer text itself: the middle of the card is occupied by
+        # the card action buttons, which must never flip the card.
+        back.get_by_text("showing", exact=True).click()
         front.get_by_text("séance", exact=True).wait_for()
         self.assertEqual(face_label.inner_text(), "Recto")
         self.assertFalse(back.is_visible())
@@ -3829,7 +3894,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(face_label.inner_text(), "Verso")
         self.assertFalse(front.is_visible())
 
-        card.click()
+        back.get_by_text("showing", exact=True).click()
         front.get_by_text("séance", exact=True).wait_for()
         self.assertEqual(face_label.inner_text(), "Recto")
         self.assertFalse(back.is_visible())
@@ -5489,11 +5554,10 @@ class BrowserTests(StaticLiveServerTestCase):
             body="Contenu un",
             study_later=True,
         )
-        Annotation.objects.create(
+        highlight = Annotation.objects.create(
             user=self.user,
-            kind=AnnotationKind.NOTE,
-            title="Deuxième",
-            body="Contenu deux",
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="Contenu deux",
             study_later=True,
         )
         self.page.goto(
@@ -5504,7 +5568,22 @@ class BrowserTests(StaticLiveServerTestCase):
         progress = self.page.locator("[data-study-progress]")
         self.assertEqual(progress.inner_text(), "1 / 2")
 
-        visible_id = card.get_attribute("data-study-id")
+        # Notes are the learner's own words, so they carry no read control;
+        # only surlignages of French source text do.
+        note_card = self.page.locator(
+            '[data-study-card]:not([data-study-id="%d"])' % highlight.pk
+        )
+        self.assertEqual(
+            note_card.locator("[data-annotation-read]").count(), 0
+        )
+
+        highlight_card = self.page.locator(
+            '[data-study-card][data-study-id="%d"]' % highlight.pk
+        )
+        if highlight_card.is_hidden():
+            self.page.locator("[data-study-next]").click()
+        card = highlight_card
+        visible_id = str(highlight.pk)
         read = card.locator("[data-annotation-read]")
         read.click()
         self.page.wait_for_function(

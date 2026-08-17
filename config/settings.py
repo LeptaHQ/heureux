@@ -179,6 +179,14 @@ STORAGES = {
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGIN_URL = "/compte/connexion/"
 
+# Server-side translation fallback for browsers without the on-device
+# Translator API (every mobile browser today). Disabled unless a
+# LibreTranslate-compatible endpoint is configured, so no selected text
+# ever leaves this server by default.
+TRANSLATION_API_URL = os.environ.get("TRANSLATION_API_URL", "").strip()
+TRANSLATION_API_KEY = os.environ.get("TRANSLATION_API_KEY", "").strip()
+TRANSLATION_TIMEOUT = float(os.environ.get("TRANSLATION_TIMEOUT", "8"))
+
 _csp_directives = [
     "default-src 'self'",
     "base-uri 'self'",

@@ -610,10 +610,11 @@
 
   function showFallback(message) {
     setStatus(message, false);
-    fallbackLabel.textContent = "Continue with Google Translate";
+    fallbackLabel.textContent = "Open Google Translate";
+    fallbackLabel.classList.remove("sr-only");
     fallbackLink.classList.add("is-suggested");
-    fallbackLink.setAttribute("title", "Continue with Google Translate");
-    fallbackLink.setAttribute("aria-label", "Continue with Google Translate");
+    fallbackLink.setAttribute("title", "Open Google Translate");
+    fallbackLink.setAttribute("aria-label", "Open Google Translate");
     repositionPanel();
   }
 
@@ -660,7 +661,53 @@
     return translatorPromise;
   }
 
-  function showTranslation(translation) {
+  function csrfToken() {
+    var match = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]+)/);
+    return match ? decodeURIComponent(match[1]) : "";
+  }
+
+  function remoteTranslate(text) {
+    var endpoint = panel.dataset.translationEndpoint;
+    if (!endpoint) return Promise.reject(new Error("no endpoint"));
+    var body = new FormData();
+    body.set("text", text);
+    return fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "X-CSRFToken": csrfToken(),
+        "X-Requested-With": "fetch"
+      },
+      body: body,
+      credentials: "same-origin"
+    })
+      .then(function (response) {
+        if (!response.ok) throw new Error("translation unavailable");
+        return response.json();
+      })
+      .then(function (payload) {
+        var translation = (payload && payload.translation) || "";
+        if (!translation) throw new Error("translation unavailable");
+        return translation;
+      });
+  }
+
+  var MOBILE_FALLBACK_MESSAGE =
+    "On-device translation isn't available in this browser.";
+
+  function translateOnServer(text, requestId, fallbackMessage) {
+    setStatus("Translating…", true);
+    remoteTranslate(text)
+      .then(function (translation) {
+        if (requestId !== requestNumber) return;
+        showTranslation(translation, "Translated on the server.");
+      })
+      .catch(function () {
+        if (requestId !== requestNumber) return;
+        showFallback(fallbackMessage);
+      });
+  }
+
+  function showTranslation(translation, status) {
     resultElement.textContent = translation;
     output.classList.remove("hidden");
     copyButton.classList.remove("hidden");
@@ -668,7 +715,7 @@
       translationNoteButton.classList.remove("hidden");
       translationNoteButton.disabled = false;
     }
-    setStatus("Translated locally on this device.", false);
+    setStatus(status || "Translated locally on this device.", false);
     repositionPanel();
   }
 
@@ -805,6 +852,7 @@
     setSpriteIcon(copyIcon, "copy");
     fallbackLink.href = googleTranslateUrl(text);
     fallbackLabel.textContent = "Google Translate";
+    fallbackLabel.classList.add("sr-only");
     fallbackLink.classList.remove("is-suggested");
     fallbackLink.setAttribute("title", "Google Translate");
     fallbackLink.setAttribute("aria-label", "Google Translate");
@@ -816,7 +864,7 @@
       return;
     }
     if (!localTranslation) {
-      showFallback("Local translation is not available on this device.");
+      translateOnServer(text, currentRequest, MOBILE_FALLBACK_MESSAGE);
       return;
     }
 
@@ -827,11 +875,11 @@
       })
       .then(function (translation) {
         if (currentRequest !== requestNumber) return;
-        showTranslation(translation);
+        showTranslation(translation, "Translated locally on this device.");
       })
       .catch(function () {
         if (currentRequest !== requestNumber) return;
-        showFallback("Local translation could not start on this device.");
+        translateOnServer(text, currentRequest, MOBILE_FALLBACK_MESSAGE);
       });
   });
 

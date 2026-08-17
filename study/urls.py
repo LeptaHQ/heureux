@@ -272,6 +272,11 @@ urlpatterns = [
         views.annotation_delete,
         name="annotation_delete",
     ),
+    path(
+        "traduire/",
+        views.translate_selection,
+        name="translate_selection",
+    ),
     # Global study tools
     path("recherche/", views.search, name="search"),
     path("progression/", views.stats, name="stats"),

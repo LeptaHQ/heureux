@@ -2,11 +2,15 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
+import urllib.request
 from datetime import timedelta
 from urllib.parse import parse_qs, urlsplit
 
+from django.conf import settings
+from django.core.cache import cache
 from django.core.exceptions import ValidationError
 from django.db import transaction
 from django.db.utils import IntegrityError
@@ -1233,3 +1237,70 @@ def annotation_delete(request, pk):
     if request.headers.get("X-Requested-With") == "fetch":
         return JsonResponse(payload)
     return redirect(target)
+
+
+TRANSLATION_MAX_LENGTH = 2000
+
+
+@require_POST
+def translate_selection(request):
+    """Translate a selected passage server-side.
+
+    Browsers only ship the on-device Translator API on desktop, so mobile
+    needs a server round trip. Nothing is sent anywhere unless an operator
+    configures ``TRANSLATION_API_URL`` with a LibreTranslate-compatible
+    endpoint (self-hosted by default).
+    """
+    endpoint = getattr(settings, "TRANSLATION_API_URL", "")
+    if not endpoint:
+        return JsonResponse(
+            {"error": "not_configured"},
+            status=503,
+        )
+
+    text = (request.POST.get("text") or "").strip()
+    if not text:
+        return HttpResponseBadRequest("Aucun texte à traduire.")
+    if len(text) > TRANSLATION_MAX_LENGTH:
+        return JsonResponse({"error": "too_long"}, status=413)
+
+    cache_key = "translation:fr:en:" + hashlib.sha256(
+        text.encode("utf-8")
+    ).hexdigest()
+    cached = cache.get(cache_key)
+    if cached is not None:
+        return JsonResponse({"translation": cached, "cached": True})
+
+    payload = {
+        "q": text,
+        "source": "fr",
+        "target": "en",
+        "format": "text",
+    }
+    api_key = getattr(settings, "TRANSLATION_API_KEY", "")
+    if api_key:
+        payload["api_key"] = api_key
+    api_request = urllib.request.Request(
+        endpoint,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(
+            api_request,
+            timeout=getattr(settings, "TRANSLATION_TIMEOUT", 8),
+        ) as api_response:
+            body = json.loads(api_response.read().decode("utf-8"))
+    except Exception:  # pragma: no cover - network failure paths
+        return JsonResponse({"error": "upstream"}, status=502)
+
+    translation = (body or {}).get("translatedText") or ""
+    if isinstance(translation, list):
+        translation = translation[0] if translation else ""
+    translation = str(translation).strip()
+    if not translation:
+        return JsonResponse({"error": "empty"}, status=502)
+
+    cache.set(cache_key, translation, 60 * 60 * 24 * 30)
+    return JsonResponse({"translation": translation})

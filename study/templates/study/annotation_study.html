@@ -87,23 +87,25 @@
           {% else %}
             {% if item.body %}<div class="annotation-study__body annotation-markdown">{{ item.body|markdown }}</div>{% else %}<p class="muted">Aucune note enregistrée.</p>{% endif %}
           {% endif %}
-          {% if item.source_path %}<a href="{{ item.source_path }}" target="_blank" rel="noopener">Voir la source {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>{% endif %}
+          {% if item.source_path %}<a class="annotation-study__source" href="{{ item.source_path }}" target="_blank" rel="noopener">Voir la source {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>{% endif %}
         </div>
         <div class="annotation-study__card-actions">
+          {% if item.kind == "highlight" %}
           <button
             class="linkbtn annotation-action"
             type="button"
-            aria-label="Lire {% if item.kind == 'highlight' %}le surlignage{% else %}la note{% endif %}"
+            aria-label="Lire le surlignage"
             aria-pressed="false"
             title="Lire"
             data-annotation-read="{{ item.id }}"
-            data-annotation-read-label="Lire {% if item.kind == 'highlight' %}le surlignage{% else %}la note{% endif %}"
+            data-annotation-read-label="Lire le surlignage"
           >
             <span class="annotation-action__icon annotation-action__icon--read" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6l-5 4z"></path><path d="M16 9.2a4 4 0 0 1 0 5.6M18.5 6.8a7.4 7.4 0 0 1 0 10.4"></path></svg>
             </span>
-            <span class="sr-only">Lire {% if item.kind == "highlight" %}le surlignage{% else %}la note{% endif %}</span>
+            <span class="sr-only">Lire le surlignage</span>
           </button>
+          {% endif %}
           <button
             class="linkbtn annotation-action"
             type="button"

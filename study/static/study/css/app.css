@@ -5626,6 +5626,19 @@ html[data-collection-view-mode="table"]
 .annotation-study__back .muted {
   font-weight: 600;
 }
+.annotation-study__source {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.annotation-study__source .ui-icon {
+  width: 1em;
+  height: 1em;
+}
 .annotation-study__back blockquote {
   margin: 0 auto 1rem;
   padding: 1rem;

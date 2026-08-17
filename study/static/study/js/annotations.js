@@ -897,9 +897,11 @@
     var progress = deck.querySelector("[data-study-progress]");
     var progressBar = deck.querySelector("[data-study-progress-bar]");
     var previous = deck.querySelector("[data-study-previous]");
+    var next = deck.querySelector("[data-study-next]");
     var reveal = deck.querySelector("[data-study-reveal]");
     var keep = deck.querySelector("[data-study-keep]");
     var learned = deck.querySelector("[data-study-learned]");
+    var grade = deck.querySelector("[data-study-grade]");
     var restart = deck.querySelector("[data-study-restart]");
     var done = deck.querySelector("[data-study-done]");
     var controls = deck.querySelector(".annotation-study__controls");
@@ -917,6 +919,34 @@
     // the « À étudier » pack mid-session; only « Je le connais » cards are
     // removed, and only when the learner confirms with the end button.
     var decisions = {};
+    // Swipe navigation: dragging the card left/right moves through the deck.
+    var SWIPE_MIN = 55;
+    var swipe = null;
+    var swipeConsumedClick = false;
+
+    function hasTextSelection() {
+      var selection = window.getSelection();
+      return Boolean(selection && !selection.isCollapsed);
+    }
+
+    function clearSwipeTransform(card) {
+      if (!card) return;
+      card.classList.remove("annotation-study__card--swiping");
+      card.classList.remove("annotation-study__card--settle");
+      card.style.transform = "";
+      card.style.opacity = "";
+    }
+
+    function settleCard(card) {
+      if (!card) return;
+      card.classList.remove("annotation-study__card--swiping");
+      card.classList.add("annotation-study__card--settle");
+      card.style.transform = "";
+      card.style.opacity = "";
+      window.setTimeout(function () {
+        card.classList.remove("annotation-study__card--settle");
+      }, 200);
+    }
 
     function cardId(card) {
       return card.getAttribute("data-study-id");
@@ -1008,7 +1038,7 @@
       if (!card) return;
       showCardFace(card, false);
       revealed = false;
-      reveal.classList.remove("hidden");
+      if (grade) grade.classList.add("hidden");
       keep.classList.add("hidden");
       learned.classList.add("hidden");
     }
@@ -1019,6 +1049,7 @@
       });
       var card = cards[index];
       if (!card) return;
+      clearSwipeTransform(card);
       resetCurrentCard();
       previous.disabled = index === 0;
       controls.classList.remove("hidden");
@@ -1035,7 +1066,7 @@
       var card = cards[index];
       showCardFace(card, true);
       revealed = true;
-      reveal.classList.add("hidden");
+      if (grade) grade.classList.remove("hidden");
       keep.classList.remove("hidden");
       learned.classList.remove("hidden");
     }
@@ -1063,6 +1094,7 @@
         card.classList.add("hidden");
       });
       controls.classList.add("hidden");
+      if (grade) grade.classList.add("hidden");
       done.classList.remove("hidden");
       progress.textContent =
         String(cards.length) + " / " + String(cards.length);
@@ -1110,12 +1142,81 @@
       goNext();
     }
 
-    previous.addEventListener("click", function () {
+    function goPrevious() {
       if (index > 0) {
         index -= 1;
         render();
       }
-    });
+    }
+
+    previous.addEventListener("click", goPrevious);
+    if (next) next.addEventListener("click", goNext);
+
+    var cardsWrap = deck.querySelector(".annotation-study__cards");
+    if (cardsWrap) {
+      cardsWrap.addEventListener("pointerdown", function (event) {
+        if (!event.isPrimary) return;
+        if (
+          event.target.closest(
+            "a, button, input, select, textarea, [contenteditable='true']"
+          )
+        ) {
+          return;
+        }
+        swipe = {
+          id: event.pointerId,
+          x: event.clientX,
+          y: event.clientY,
+          card: cards[index],
+          axis: null
+        };
+      });
+      cardsWrap.addEventListener("pointermove", function (event) {
+        if (!swipe || event.pointerId !== swipe.id || !swipe.card) return;
+        var dx = event.clientX - swipe.x;
+        var dy = event.clientY - swipe.y;
+        if (!swipe.axis) {
+          if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
+          // A vertical drag is a page scroll, never a deck gesture.
+          swipe.axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+          if (swipe.axis === "x") {
+            swipe.card.classList.add("annotation-study__card--swiping");
+          }
+        }
+        if (swipe.axis !== "x" || hasTextSelection()) return;
+        swipe.card.style.transform =
+          "translateX(" + String(dx) + "px) rotate("
+          + String(dx / 45) + "deg)";
+        swipe.card.style.opacity = String(
+          Math.max(0.5, 1 - Math.abs(dx) / 420)
+        );
+      });
+      var finishSwipe = function (event) {
+        if (!swipe || event.pointerId !== swipe.id) return;
+        var card = swipe.card;
+        var dx = event.clientX - swipe.x;
+        var axis = swipe.axis;
+        swipe = null;
+        if (!card) return;
+        settleCard(card);
+        if (
+          axis === "x"
+          && Math.abs(dx) >= SWIPE_MIN
+          && !hasTextSelection()
+        ) {
+          // Suppress the click that follows the drag so the card does not
+          // also flip while it is being navigated away from.
+          swipeConsumedClick = true;
+          if (dx < 0) goNext();
+          else goPrevious();
+        }
+      };
+      cardsWrap.addEventListener("pointerup", finishSwipe);
+      cardsWrap.addEventListener("pointercancel", function () {
+        if (swipe && swipe.card) settleCard(swipe.card);
+        swipe = null;
+      });
+    }
     orderButtons.forEach(function (button) {
       button.addEventListener("click", function () {
         reverseOrder = button.dataset.studyOrder === "back";
@@ -1127,9 +1228,13 @@
         resetCurrentCard();
       });
     });
-    reveal.addEventListener("click", showAnswer);
+    reveal.addEventListener("click", toggleAnswer);
     cards.forEach(function (card) {
       card.addEventListener("click", function (event) {
+        if (swipeConsumedClick) {
+          swipeConsumedClick = false;
+          return;
+        }
         if (
           event.target.closest(
             "a, button, input, select, textarea, [contenteditable='true']"
@@ -1226,7 +1331,7 @@
         "input, textarea, select, button, a"
       );
       var deckControl = target.closest(
-        "[data-study-previous], [data-study-reveal], "
+        "[data-study-previous], [data-study-next], [data-study-reveal], "
         + "[data-study-keep], [data-study-learned], [data-study-order]"
       );
       var directional = event.key.indexOf("Arrow") === 0;

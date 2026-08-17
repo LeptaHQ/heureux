@@ -128,26 +128,34 @@
       </article>
     {% endfor %}
   </div>
+  <div class="annotation-study__grade hidden" data-study-grade>
+    <button class="btn annotation-study__control--keep" type="button" data-study-keep>
+      <span class="annotation-study__button-label--full">À revoir encore</span>
+      <span class="annotation-study__button-label--short">À revoir</span>
+    </button>
+    <button class="btn annotation-study__control--learned" type="button" data-study-learned>
+      <span class="annotation-study__button-label--full">Je le connais</span>
+      <span class="annotation-study__button-label--short">Je connais</span>
+    </button>
+  </div>
   <div class="annotation-study__controls">
     <button class="btn annotation-study__control--previous" type="button" data-study-previous aria-keyshortcuts="ArrowLeft" disabled>
       {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
       <span class="annotation-study__button-label--full">Précédente</span>
       <span class="annotation-study__button-label--short">Préc.</span>
     </button>
-    <button class="btn btn--primary annotation-study__control--reveal" type="button" data-study-reveal>
+    <button class="btn btn--primary annotation-study__control--reveal" type="button" data-study-reveal aria-keyshortcuts="Space">
       Retourner
     </button>
-    <button class="btn annotation-study__control--keep hidden" type="button" data-study-keep>
-      <span class="annotation-study__button-label--full">À revoir encore</span>
-      <span class="annotation-study__button-label--short">À revoir</span>
-    </button>
-    <button class="btn annotation-study__control--learned hidden" type="button" data-study-learned>
-      <span class="annotation-study__button-label--full">Je le connais</span>
-      <span class="annotation-study__button-label--short">Je connais</span>
+    <button class="btn annotation-study__control--next" type="button" data-study-next aria-keyshortcuts="ArrowRight">
+      <span class="annotation-study__button-label--full">Suivante</span>
+      <span class="annotation-study__button-label--short">Suiv.</span>
+      {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
     </button>
   </div>
   <div class="kbd-hint annotation-study__keyboard-hint">
     <kbd>←</kbd> précédente · <kbd>↑</kbd><kbd>↓</kbd> retourner · <kbd>→</kbd> suivante
+    <span class="annotation-study__swipe-hint">· glissez la carte pour naviguer</span>
   </div>
   <div class="card done-state annotation-study__done hidden" data-study-done>
     <div class="done-state__icon done-state__icon--success">{% include "study/partials/ui_icon.html" with name="check" only %}</div>

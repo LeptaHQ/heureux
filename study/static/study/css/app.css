@@ -5644,6 +5644,18 @@ html[data-collection-view-mode="table"]
 .annotation-study__back .annotation-markdown p {
   white-space: normal;
 }
+.annotation-study__grade {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+}
+.annotation-study__grade .btn {
+  min-width: 0;
+  min-height: 52px;
+  justify-content: center;
+  border-radius: 13px;
+}
 .annotation-study__controls {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -5656,7 +5668,6 @@ html[data-collection-view-mode="table"]
   justify-content: center;
   border-radius: 13px;
 }
-.annotation-study__control--reveal { grid-column: span 2; }
 .annotation-study__control--keep {
   border-color: color-mix(in srgb, var(--warning) 35%, var(--border));
   background: var(--warning-soft);
@@ -5669,6 +5680,19 @@ html[data-collection-view-mode="table"]
 }
 .annotation-study__control--learned:hover {
   background: color-mix(in srgb, var(--success) 88%, #000);
+}
+.annotation-study__card {
+  touch-action: pan-y;
+}
+.annotation-study__card--swiping {
+  transition: none;
+  will-change: transform;
+}
+.annotation-study__card--settle {
+  transition: transform 160ms ease-out, opacity 160ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .annotation-study__card--settle { transition: none; }
 }
 .annotation-study__button-label--short { display: none; }
 .annotation-study__done {
@@ -12496,6 +12520,8 @@ button.ce-choice:focus-visible .ce-choice__radio {
   }
   .annotation-study__flip-hint { font-size: 0.68rem; }
   .annotation-study__controls { gap: 0.38rem; }
+  .annotation-study__grade { gap: 0.38rem; }
+  .annotation-study__grade .btn,
   .annotation-study__controls .btn {
     min-height: 52px;
     gap: 0.25rem;

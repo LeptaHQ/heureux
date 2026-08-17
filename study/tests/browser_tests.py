@@ -3762,11 +3762,19 @@ class BrowserTests(StaticLiveServerTestCase):
             "[data-study-previous]"
         ).bounding_box()
         reveal_box = self.page.locator("[data-study-reveal]").bounding_box()
+        next_box = self.page.locator("[data-study-next]").bounding_box()
         self.assertAlmostEqual(previous_box["y"], reveal_box["y"], delta=1)
+        self.assertAlmostEqual(next_box["y"], reveal_box["y"], delta=1)
         self.assertAlmostEqual(
             previous_box["height"], reveal_box["height"], delta=1
         )
-        self.assertGreater(reveal_box["width"], previous_box["width"] * 1.9)
+        self.assertAlmostEqual(
+            previous_box["width"], reveal_box["width"], delta=1
+        )
+        self.assertAlmostEqual(
+            next_box["width"], reveal_box["width"], delta=1
+        )
+        self.assertGreater(next_box["x"], reveal_box["x"])
         front.get_by_text("séance", exact=True).wait_for()
         self.assertEqual(face_label.inner_text(), "Recto")
         self.assertFalse(back.get_by_text("showing", exact=True).is_visible())
@@ -3776,7 +3784,7 @@ class BrowserTests(StaticLiveServerTestCase):
         back.get_by_text("showing", exact=True).wait_for()
         self.assertEqual(face_label.inner_text(), "Verso")
         decision_boxes = self.page.locator(
-            "[data-study-previous], [data-study-keep]:not(.hidden), "
+            "[data-study-keep]:not(.hidden), "
             "[data-study-learned]:not(.hidden)"
         ).evaluate_all(
             """
@@ -3786,7 +3794,7 @@ class BrowserTests(StaticLiveServerTestCase):
             })
             """
         )
-        self.assertEqual(len(decision_boxes), 3)
+        self.assertEqual(len(decision_boxes), 2)
         self.assertTrue(
             all(
                 abs(box["y"] - decision_boxes[0]["y"]) <= 1
@@ -3794,6 +3802,11 @@ class BrowserTests(StaticLiveServerTestCase):
                 and abs(box["height"] - decision_boxes[0]["height"]) <= 1
                 for box in decision_boxes
             )
+        )
+        # The navigation row stays put below the grading row.
+        self.assertLess(
+            decision_boxes[0]["y"],
+            self.page.locator("[data-study-previous]").bounding_box()["y"],
         )
         self.assertFalse(front.is_visible())
         self.assertFalse(
@@ -5365,3 +5378,70 @@ class BrowserTests(StaticLiveServerTestCase):
             kind=AnnotationKind.HIGHLIGHT,
         )
         self.assertEqual(highlight.quote, expected)
+
+    def test_study_deck_navigates_with_next_button_and_swipe(self):
+        for index in range(3):
+            Annotation.objects.create(
+                user=self.user,
+                task=self.task,
+                kind=AnnotationKind.NOTE,
+                quote="recto %d" % index,
+                body="verso %d" % index,
+                study_later=True,
+            )
+        self.page.goto(
+            self.live_server_url + reverse("study:annotation_study")
+        )
+        progress = self.page.locator("[data-study-progress]")
+        self.page.locator("[data-study-card]:not(.hidden)").wait_for()
+        self.assertEqual(progress.inner_text(), "1 / 3")
+        self.assertTrue(
+            self.page.locator("[data-study-previous]").is_disabled()
+        )
+
+        # « Suivante » moves on without grading the card.
+        self.page.locator("[data-study-next]").click()
+        self.assertEqual(progress.inner_text(), "2 / 3")
+        self.page.locator("[data-study-previous]").click()
+        self.assertEqual(progress.inner_text(), "1 / 3")
+
+        # « Retourner » flips both ways.
+        reveal = self.page.locator("[data-study-reveal]")
+        back = self.page.locator(
+            "[data-study-card]:not(.hidden) [data-study-back]"
+        )
+        reveal.click()
+        back.wait_for()
+        self.assertFalse(self.page.locator("[data-study-grade]").is_hidden())
+        reveal.click()
+        self.page.wait_for_selector(
+            "[data-study-card]:not(.hidden) [data-study-back].hidden"
+        )
+        self.assertTrue(self.page.locator("[data-study-grade]").is_hidden())
+
+        box = self.page.locator("[data-study-card]:not(.hidden)").bounding_box()
+        middle_y = box["y"] + box["height"] / 2
+
+        def swipe(from_x, to_x):
+            self.page.mouse.move(from_x, middle_y)
+            self.page.mouse.down()
+            for step in range(1, 6):
+                self.page.mouse.move(
+                    from_x + (to_x - from_x) * step / 5,
+                    middle_y,
+                )
+            self.page.mouse.up()
+            self.page.wait_for_timeout(250)
+
+        centre = box["x"] + box["width"] / 2
+        swipe(centre + 90, centre - 90)
+        self.assertEqual(progress.inner_text(), "2 / 3")
+        swipe(centre - 90, centre + 90)
+        self.assertEqual(progress.inner_text(), "1 / 3")
+
+        # A swipe must not also flip the card.
+        self.assertTrue(
+            self.page.locator(
+                "[data-study-card]:not(.hidden) [data-study-back]"
+            ).is_hidden()
+        )

@@ -899,9 +899,6 @@
     var previous = deck.querySelector("[data-study-previous]");
     var next = deck.querySelector("[data-study-next]");
     var reveal = deck.querySelector("[data-study-reveal]");
-    var keep = deck.querySelector("[data-study-keep]");
-    var learned = deck.querySelector("[data-study-learned]");
-    var grade = deck.querySelector("[data-study-grade]");
     var restart = deck.querySelector("[data-study-restart]");
     var done = deck.querySelector("[data-study-done]");
     var controls = deck.querySelector(".annotation-study__controls");
@@ -915,10 +912,9 @@
     var index = 0;
     var revealed = false;
     var reverseOrder = false;
-    // Decisions are held locally until the end of the run so nothing leaves
-    // the « À étudier » pack mid-session; only « Je le connais » cards are
-    // removed, and only when the learner confirms with the end button.
-    var decisions = {};
+    // Nothing leaves the « À étudier » pack mid-session: the end-of-run
+    // button removes the cards the learner ticked off with the card's own
+    // « Marquer comme terminé » control.
     // Swipe navigation: dragging the card left/right moves through the deck.
     var SWIPE_MIN = 55;
     var swipe = null;
@@ -946,10 +942,6 @@
       window.setTimeout(function () {
         card.classList.remove("annotation-study__card--settle");
       }, 200);
-    }
-
-    function cardId(card) {
-      return card.getAttribute("data-study-id");
     }
 
     function setFlagState(button, pressed) {
@@ -1011,6 +1003,68 @@
       }
     );
 
+    function removeCard(card) {
+      var wasLast = index >= cards.length - 1;
+      cards = cards.filter(function (other) {
+        return other !== card;
+      });
+      if (card.parentNode) card.parentNode.removeChild(card);
+      if (!cards.length) {
+        showDone();
+        if (restart) restart.disabled = true;
+        return;
+      }
+      if (index >= cards.length) index = cards.length - 1;
+      else if (wasLast) index = cards.length - 1;
+      render();
+    }
+
+    function deleteCard(button) {
+      var card = button.closest("[data-study-card]");
+      if (!card || button.disabled) return;
+      var ask = window.HeureuxConfirm
+        ? window.HeureuxConfirm({
+            message: button.dataset.studyDeleteConfirm,
+            label: "Supprimer",
+            tone: "danger"
+          })
+        : Promise.resolve(
+            window.confirm(button.dataset.studyDeleteConfirm)
+          );
+      ask.then(function (ok) {
+        if (!ok) return;
+        button.disabled = true;
+        fetch(button.dataset.studyDeleteUrl, {
+          method: "POST",
+          headers: {
+            "X-CSRFToken": csrfToken(),
+            "X-Requested-With": "fetch"
+          },
+          credentials: "same-origin"
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error("Impossible de supprimer cet élément.");
+            }
+            removeCard(card);
+            showToast("Élément supprimé.");
+          })
+          .catch(function (error) {
+            button.disabled = false;
+            showToast(error.message);
+          });
+      });
+    }
+
+    Array.from(deck.querySelectorAll("[data-study-delete]")).forEach(
+      function (button) {
+        button.addEventListener("click", function (event) {
+          event.stopPropagation();
+          deleteCard(button);
+        });
+      }
+    );
+
     function pluralize(count) {
       return count > 1 ? "s" : "";
     }
@@ -1038,9 +1092,6 @@
       if (!card) return;
       showCardFace(card, false);
       revealed = false;
-      if (grade) grade.classList.add("hidden");
-      keep.classList.add("hidden");
-      learned.classList.add("hidden");
     }
 
     function render() {
@@ -1066,9 +1117,6 @@
       var card = cards[index];
       showCardFace(card, true);
       revealed = true;
-      if (grade) grade.classList.remove("hidden");
-      keep.classList.remove("hidden");
-      learned.classList.remove("hidden");
     }
 
     function hideAnswer() {
@@ -1085,7 +1133,10 @@
 
     function knownCards() {
       return cards.filter(function (card) {
-        return decisions[cardId(card)] === "known";
+        var toggle = card.querySelector('[data-study-flag="completed"]');
+        return Boolean(
+          toggle && toggle.getAttribute("aria-pressed") === "true"
+        );
       });
     }
 
@@ -1094,7 +1145,6 @@
         card.classList.add("hidden");
       });
       controls.classList.add("hidden");
-      if (grade) grade.classList.add("hidden");
       done.classList.remove("hidden");
       progress.textContent =
         String(cards.length) + " / " + String(cards.length);
@@ -1135,11 +1185,6 @@
         return;
       }
       showDone();
-    }
-
-    function advance() {
-      if (!revealed) return;
-      goNext();
     }
 
     function goPrevious() {
@@ -1247,16 +1292,6 @@
         toggleAnswer();
       });
     });
-    keep.addEventListener("click", function () {
-      var card = cards[index];
-      if (card) decisions[cardId(card)] = "keep";
-      advance();
-    });
-    learned.addEventListener("click", function () {
-      var card = cards[index];
-      if (card) decisions[cardId(card)] = "known";
-      advance();
-    });
     if (clearButton) {
       clearButton.addEventListener("click", function () {
         var toRemove = knownCards();
@@ -1285,8 +1320,6 @@
           .then(function () {
             var removedCount = toRemove.length;
             toRemove.forEach(function (card) {
-              var id = cardId(card);
-              delete decisions[id];
               cards = cards.filter(function (other) {
                 return other !== card;
               });
@@ -1332,7 +1365,7 @@
       );
       var deckControl = target.closest(
         "[data-study-previous], [data-study-next], [data-study-reveal], "
-        + "[data-study-keep], [data-study-learned], [data-study-order]"
+        + "[data-study-order]"
       );
       var directional = event.key.indexOf("Arrow") === 0;
       if (

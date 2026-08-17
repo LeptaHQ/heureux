@@ -1329,6 +1329,10 @@
     };
   })();
   window.HeureuxFrenchSpeech = frenchSpeech;
+  // Exposed so other bundles reuse the styled dialog instead of window.confirm.
+  window.HeureuxConfirm = function (opts) {
+    return openConfirm(opts);
+  };
 
   /* ---------- CO French audio ---------- */
   (function () {

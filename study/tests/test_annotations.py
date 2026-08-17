@@ -1179,8 +1179,13 @@ class AnnotationTests(TestCase):
             study_later=True,
         )
         page = self.client.get(reverse("study:annotation_study"))
-        self.assertContains(page, "Je le connais")
-        self.assertContains(page, "À revoir encore")
+        # The deck only ever exposes Précédente / Retourner / Suivante;
+        # grading happens with the per-card actions.
+        self.assertContains(page, "data-study-previous")
+        self.assertContains(page, "data-study-reveal")
+        self.assertContains(page, "data-study-next")
+        self.assertNotContains(page, "Je le connais")
+        self.assertNotContains(page, "À revoir encore")
 
         learned = self.client.post(
             reverse("study:annotation_study_toggle", args=[note.pk]),

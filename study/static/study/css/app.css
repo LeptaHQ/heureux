@@ -5614,12 +5614,17 @@ html[data-collection-view-mode="table"]
 }
 .annotation-study__back {
   font-family: var(--font-serif);
-  font-size: clamp(1.05rem, 3vw, 1.25rem);
-  line-height: 1.65;
+  font-size: clamp(1.3rem, 4vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.45;
 }
 .annotation-study__back h2 {
   margin: 0.5rem auto 0.8rem;
-  font-size: clamp(1.25rem, 3.5vw, 1.65rem);
+  font-size: clamp(1.45rem, 4.4vw, 2rem);
+}
+.annotation-study__back .eyebrow,
+.annotation-study__back .muted {
+  font-weight: 600;
 }
 .annotation-study__back blockquote {
   margin: 0 auto 1rem;

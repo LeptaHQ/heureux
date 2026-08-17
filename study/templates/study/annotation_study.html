@@ -50,9 +50,11 @@
         aria-label="Recto. Appuyez pour retourner la carte."
         aria-keyshortcuts="ArrowUp ArrowDown Space"
         data-study-card
+        data-annotation-item
         data-study-id="{{ item.id }}"
         data-study-toggle-url="{% url 'study:annotation_study_toggle' item.id %}"
       >
+        <span class="sr-only" data-annotation-readable>{% if item.quote %}{{ item.quote }}. {% endif %}{% if item.title %}{{ item.title }}. {% endif %}{{ item.body }}</span>
         <div class="annotation-study__card-meta">
           <span class="annotation-study__face-label" data-study-face-label>Recto</span>
           <span class="annotation-study__flip-hint">
@@ -85,9 +87,23 @@
           {% else %}
             {% if item.body %}<div class="annotation-study__body annotation-markdown">{{ item.body|markdown }}</div>{% else %}<p class="muted">Aucune note enregistrée.</p>{% endif %}
           {% endif %}
-          {% if item.source_path %}<a href="{{ item.source_path }}">Voir la source {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>{% endif %}
+          {% if item.source_path %}<a href="{{ item.source_path }}" target="_blank" rel="noopener">Voir la source {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>{% endif %}
         </div>
         <div class="annotation-study__card-actions">
+          <button
+            class="linkbtn annotation-action"
+            type="button"
+            aria-label="Lire {% if item.kind == 'highlight' %}le surlignage{% else %}la note{% endif %}"
+            aria-pressed="false"
+            title="Lire"
+            data-annotation-read="{{ item.id }}"
+            data-annotation-read-label="Lire {% if item.kind == 'highlight' %}le surlignage{% else %}la note{% endif %}"
+          >
+            <span class="annotation-action__icon annotation-action__icon--read" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6l-5 4z"></path><path d="M16 9.2a4 4 0 0 1 0 5.6M18.5 6.8a7.4 7.4 0 0 1 0 10.4"></path></svg>
+            </span>
+            <span class="sr-only">Lire {% if item.kind == "highlight" %}le surlignage{% else %}la note{% endif %}</span>
+          </button>
           <button
             class="linkbtn annotation-action"
             type="button"
@@ -124,19 +140,23 @@
             </span>
             <span class="sr-only" data-study-flag-label>{% if item.completed %}Marquer comme à faire{% else %}Marquer comme terminé{% endif %}</span>
           </button>
+          <button
+            class="linkbtn linkbtn--muted annotation-action"
+            type="button"
+            data-study-delete
+            data-study-delete-url="{% url 'study:annotation_delete' item.id %}"
+            data-study-delete-confirm="{% if item.kind == 'highlight' %}Supprimer ce surlignage ?{% else %}Supprimer cette note ?{% endif %}"
+            aria-label="{% if item.kind == 'highlight' %}Supprimer le surlignage{% else %}Supprimer la note{% endif %}"
+            title="Supprimer"
+          >
+            <span class="annotation-action__icon annotation-action__icon--delete" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"></path></svg>
+            </span>
+            <span class="sr-only">{% if item.kind == "highlight" %}Supprimer le surlignage{% else %}Supprimer la note{% endif %}</span>
+          </button>
         </div>
       </article>
     {% endfor %}
-  </div>
-  <div class="annotation-study__grade hidden" data-study-grade>
-    <button class="btn annotation-study__control--keep" type="button" data-study-keep>
-      <span class="annotation-study__button-label--full">À revoir encore</span>
-      <span class="annotation-study__button-label--short">À revoir</span>
-    </button>
-    <button class="btn annotation-study__control--learned" type="button" data-study-learned>
-      <span class="annotation-study__button-label--full">Je le connais</span>
-      <span class="annotation-study__button-label--short">Je connais</span>
-    </button>
   </div>
   <div class="annotation-study__controls">
     <button class="btn annotation-study__control--previous" type="button" data-study-previous aria-keyshortcuts="ArrowLeft" disabled>

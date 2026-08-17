@@ -3690,7 +3690,7 @@ class BrowserTests(StaticLiveServerTestCase):
             self.page.locator(
                 "[data-study-card]:not(.hidden) [data-study-back]:not(.hidden)"
             ).wait_for()
-            self.page.locator("[data-study-keep]").click()
+            self.page.locator("[data-study-next]").click()
         self.page.locator("[data-study-done]:not(.hidden)").wait_for()
         self.assert_no_horizontal_overflow()
 
@@ -3783,9 +3783,10 @@ class BrowserTests(StaticLiveServerTestCase):
 
         back.get_by_text("showing", exact=True).wait_for()
         self.assertEqual(face_label.inner_text(), "Verso")
-        decision_boxes = self.page.locator(
-            "[data-study-keep]:not(.hidden), "
-            "[data-study-learned]:not(.hidden)"
+        # Revealing the answer never changes the control row: the deck only
+        # ever offers Précédente / Retourner / Suivante.
+        control_boxes = self.page.locator(
+            ".annotation-study__controls .btn"
         ).evaluate_all(
             """
             buttons => buttons.map(button => {
@@ -3794,19 +3795,18 @@ class BrowserTests(StaticLiveServerTestCase):
             })
             """
         )
-        self.assertEqual(len(decision_boxes), 2)
+        self.assertEqual(len(control_boxes), 3)
         self.assertTrue(
             all(
-                abs(box["y"] - decision_boxes[0]["y"]) <= 1
-                and abs(box["width"] - decision_boxes[0]["width"]) <= 1
-                and abs(box["height"] - decision_boxes[0]["height"]) <= 1
-                for box in decision_boxes
+                abs(box["y"] - control_boxes[0]["y"]) <= 1
+                and abs(box["width"] - control_boxes[0]["width"]) <= 1
+                and abs(box["height"] - control_boxes[0]["height"]) <= 1
+                for box in control_boxes
             )
         )
-        # The navigation row stays put below the grading row.
-        self.assertLess(
-            decision_boxes[0]["y"],
-            self.page.locator("[data-study-previous]").bounding_box()["y"],
+        self.assertEqual(self.page.locator("[data-study-keep]").count(), 0)
+        self.assertEqual(
+            self.page.locator("[data-study-learned]").count(), 0
         )
         self.assertFalse(front.is_visible())
         self.assertFalse(
@@ -4086,17 +4086,16 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.page.locator("[data-study-card]:not(.hidden)").wait_for()
 
-        # Mark the first card « Je le connais », keep the second.
-        self.page.locator("[data-study-reveal]").click()
-        self.page.locator(
-            "[data-study-card]:not(.hidden) [data-study-back]:not(.hidden)"
-        ).wait_for()
-        self.page.locator("[data-study-learned]").click()
-        self.page.locator("[data-study-reveal]").click()
-        self.page.locator(
-            "[data-study-card]:not(.hidden) [data-study-back]:not(.hidden)"
-        ).wait_for()
-        self.page.locator("[data-study-keep]").click()
+        # Tick the first card off as « terminé », leave the second alone.
+        with self.page.expect_response(
+            lambda response: "/terminer/" in response.url
+        ):
+            self.page.locator(
+                "[data-study-card]:not(.hidden) "
+                '[data-study-flag="completed"]'
+            ).click()
+        self.page.locator("[data-study-next]").click()
+        self.page.locator("[data-study-next]").click()
 
         self.page.locator("[data-study-done]:not(.hidden)").wait_for()
         clear = self.page.locator("[data-study-clear]")
@@ -5412,12 +5411,8 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         reveal.click()
         back.wait_for()
-        self.assertFalse(self.page.locator("[data-study-grade]").is_hidden())
         reveal.click()
-        self.page.wait_for_selector(
-            "[data-study-card]:not(.hidden) [data-study-back].hidden"
-        )
-        self.assertTrue(self.page.locator("[data-study-grade]").is_hidden())
+        back.wait_for(state="hidden")
 
         box = self.page.locator("[data-study-card]:not(.hidden)").bounding_box()
         middle_y = box["y"] + box["height"] / 2
@@ -5444,4 +5439,94 @@ class BrowserTests(StaticLiveServerTestCase):
             self.page.locator(
                 "[data-study-card]:not(.hidden) [data-study-back]"
             ).is_hidden()
+        )
+
+    def test_study_deck_cards_can_be_read_aloud_and_deleted(self):
+        self.context.add_init_script(
+            """
+            (() => {
+              window.__annotationSpoken = "";
+              const voices = [{
+                name: "Audrey Premium",
+                voiceURI: "fr-premium",
+                lang: "fr-FR",
+                localService: true,
+                default: true,
+              }];
+              const synthesis = {
+                getVoices: () => voices,
+                addEventListener: () => {},
+                cancel: () => {},
+                resume: () => {},
+                speak: utterance => {
+                  window.__annotationSpoken = utterance.text;
+                },
+              };
+              class FakeUtterance {
+                constructor(text) {
+                  this.text = text;
+                  this.lang = "";
+                  this.rate = 1;
+                  this.pitch = 1;
+                  this.voice = null;
+                }
+              }
+              Object.defineProperty(window, "speechSynthesis", {
+                configurable: true,
+                value: synthesis,
+              });
+              Object.defineProperty(window, "SpeechSynthesisUtterance", {
+                configurable: true,
+                value: FakeUtterance,
+              });
+            })();
+            """
+        )
+        Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+            title="Première",
+            body="Contenu un",
+            study_later=True,
+        )
+        Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+            title="Deuxième",
+            body="Contenu deux",
+            study_later=True,
+        )
+        self.page.goto(
+            self.live_server_url + reverse("study:annotation_study")
+        )
+        card = self.page.locator("[data-study-card]:not(.hidden)")
+        card.wait_for()
+        progress = self.page.locator("[data-study-progress]")
+        self.assertEqual(progress.inner_text(), "1 / 2")
+
+        visible_id = card.get_attribute("data-study-id")
+        read = card.locator("[data-annotation-read]")
+        read.click()
+        self.page.wait_for_function(
+            "() => window.__annotationSpoken"
+            " && window.__annotationSpoken.length > 0"
+        )
+        self.assertIn(
+            self.page.evaluate("window.__annotationSpoken").strip(". "),
+            card.locator("[data-annotation-readable]").inner_text(),
+        )
+        self.assertEqual(read.get_attribute("aria-pressed"), "true")
+
+        with self.page.expect_response(
+            lambda response: "/supprimer/" in response.url
+        ):
+            card.locator("[data-study-delete]").click()
+            self.page.locator("[data-confirm-accept]").click()
+
+        self.page.wait_for_function(
+            "() => document.querySelectorAll('[data-study-card]').length === 1"
+        )
+        self.assertEqual(progress.inner_text(), "1 / 1")
+        self.assertFalse(
+            Annotation.objects.filter(pk=int(visible_id)).exists()
         )

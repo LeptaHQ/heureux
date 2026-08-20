@@ -17,8 +17,10 @@ Parameters:
     </a>
   {% endif %}
 {% endif %}
-{# Reading is French text-to-speech, so it only ever applies to the passage
-   you selected — never to the note you wrote about it. #}
+{% comment %}
+Reading is French text-to-speech, so it only ever applies to the passage you
+selected — never to the note you wrote about it.
+{% endcomment %}
 {% if annotation.quote %}
 <button
   class="linkbtn annotation-action"

@@ -1065,6 +1065,52 @@
       }
     );
 
+    function refreshCard(payload) {
+      var card = deck.querySelector(
+        '[data-study-card][data-study-id="' + payload.id + '"]'
+      );
+      if (!card) return false;
+      card.dataset.annotationEditTitle = payload.title || "";
+      card.dataset.annotationEditBody = payload.body || "";
+      var back = card.querySelector("[data-study-back]");
+      if (back) {
+        var heading = back.querySelector("h2");
+        if (payload.title) {
+          if (!heading) {
+            heading = document.createElement("h2");
+            var eyebrow = back.querySelector(".eyebrow");
+            if (eyebrow && eyebrow.nextSibling) {
+              back.insertBefore(heading, eyebrow.nextSibling);
+            } else {
+              back.insertBefore(heading, back.firstChild);
+            }
+          }
+          heading.textContent = payload.title;
+        } else if (heading) {
+          heading.remove();
+        }
+        var body = back.querySelector(".annotation-study__body");
+        if (payload.body_html) {
+          if (!body) {
+            body = document.createElement("div");
+            body.className = "annotation-study__body annotation-markdown";
+            var source = back.querySelector(".annotation-study__source");
+            if (source) back.insertBefore(body, source);
+            else back.appendChild(body);
+          }
+          body.innerHTML = payload.body_html;
+        } else if (body) {
+          body.remove();
+        }
+      }
+      showToast("Note mise à jour.");
+      return true;
+    }
+
+    document.addEventListener("heureux:annotation-updated", function (event) {
+      if (refreshCard(event.detail)) event.preventDefault();
+    });
+
     function pluralize(count) {
       return count > 1 ? "s" : "";
     }

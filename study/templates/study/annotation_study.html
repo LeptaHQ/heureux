@@ -53,6 +53,7 @@
         data-annotation-item
         data-study-id="{{ item.id }}"
         data-study-toggle-url="{% url 'study:annotation_study_toggle' item.id %}"
+        {% if item.kind != "highlight" %}data-annotation-edit-source="{{ item.id }}" data-annotation-edit-title="{{ item.title }}" data-annotation-edit-body="{{ item.body }}"{% endif %}
       >
         {% if item.quote %}<span class="sr-only" data-annotation-readable>{{ item.quote }}</span>{% endif %}
         <div class="annotation-study__card-meta">
@@ -142,6 +143,21 @@
             </span>
             <span class="sr-only" data-study-flag-label>{% if item.completed %}Marquer comme à faire{% else %}Marquer comme terminé{% endif %}</span>
           </button>
+          {% if item.kind != "highlight" %}
+          <button
+            class="linkbtn annotation-action"
+            type="button"
+            aria-label="Modifier la note"
+            title="Modifier"
+            data-annotation-edit="{{ item.id }}"
+            data-annotation-update-url="{% url 'study:annotation_update' item.id %}"
+          >
+            <span class="annotation-action__icon annotation-action__icon--edit" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16Z"></path><path d="m13.5 6.5 4 4"></path></svg>
+            </span>
+            <span class="sr-only">Modifier la note</span>
+          </button>
+          {% endif %}
           <button
             class="linkbtn linkbtn--muted annotation-action"
             type="button"
@@ -195,6 +211,7 @@
     </div>
   </div>
 </section>
+{% include "study/partials/annotation_edit_dialog.html" %}
 {% else %}
   <div class="empty">
     {% if study_mode == "queue" %}

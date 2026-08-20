@@ -329,6 +329,19 @@
             if (!result.payload.redirect_url) {
               throw new Error("La réponse d’enregistrement est incomplète.");
             }
+            // Let an in-page view (the study deck) refresh just this card so
+            // a save never reloads away from the learner's place in the queue.
+            var handled = document.dispatchEvent(
+              new CustomEvent("heureux:annotation-updated", {
+                cancelable: true,
+                detail: result.payload
+              })
+            ) === false;
+            if (handled) {
+              closeDialog(editDialog);
+              submitButton.disabled = false;
+              return;
+            }
             var target = new URL(
               result.payload.redirect_url,
               window.location.origin

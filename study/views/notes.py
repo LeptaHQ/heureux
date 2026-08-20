@@ -38,6 +38,7 @@ from ..progress import (
     writing_sujet_progress_by_id,
 )
 from ..routing import prompt_detail_url
+from ..templatetags.study_markdown import render_markdown
 
 from .helpers import _route_task
 
@@ -1162,7 +1163,17 @@ def annotation_update(request, pk):
     form.save()
     redirect_url = _annotation_redirect(request, annotation) + f"#note-{pk}"
     if request.headers.get("X-Requested-With") == "fetch":
-        return JsonResponse({"redirect_url": redirect_url})
+        # The rendered body lets callers such as the study deck refresh a
+        # single card instead of reloading and losing their place.
+        return JsonResponse(
+            {
+                "redirect_url": redirect_url,
+                "id": annotation.pk,
+                "title": annotation.title,
+                "body": annotation.body,
+                "body_html": render_markdown(annotation.body),
+            }
+        )
     return redirect(redirect_url)
 
 

@@ -100,6 +100,9 @@ class AnnotationTests(TestCase):
             notes_tab,
             "annotation-action__icon--read",
         )
+        # Template comments must never leak into the rendered page.
+        self.assertNotContains(notes_tab, "{#")
+        self.assertNotContains(notes_tab, "text-to-speech")
         self.assertNotContains(notes_tab, "annotation-action__icon--flashcard")
         self.assertContains(
             notes_tab,

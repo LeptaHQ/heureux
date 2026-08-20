@@ -5528,6 +5528,62 @@ class BrowserTests(StaticLiveServerTestCase):
             ).is_hidden()
         )
 
+    def test_study_deck_edits_a_note_without_losing_your_place(self):
+        first = Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+            quote="Premier passage.",
+            title="Titre initial",
+            body="Contenu initial.",
+            study_later=True,
+        )
+        Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.NOTE,
+            quote="Second passage.",
+            body="Contenu second.",
+            study_later=True,
+        )
+        self.page.goto(
+            self.live_server_url + reverse("study:annotation_study")
+        )
+        card = self.page.locator(
+            '[data-study-card][data-study-id="%d"]' % first.pk
+        )
+        card.wait_for(state="attached")
+        progress = self.page.locator("[data-study-progress]")
+        if card.is_hidden():
+            self.page.locator("[data-study-next]").click()
+        card.wait_for()
+        position = progress.inner_text()
+
+        card.locator("[data-annotation-edit]").click()
+        dialog = self.page.locator("#note-edit-dialog")
+        dialog.wait_for()
+        title_input = dialog.locator("[data-annotation-edit-title]")
+        body_input = dialog.locator("[data-annotation-edit-body]")
+        self.assertEqual(title_input.input_value(), "Titre initial")
+        self.assertEqual(body_input.input_value(), "Contenu initial.")
+
+        title_input.fill("Titre révisé")
+        body_input.fill("Contenu **révisé**.")
+        with self.page.expect_response(
+            lambda response: "/modifier/" in response.url
+        ):
+            dialog.get_by_role("button", name="Enregistrer").click()
+
+        dialog.wait_for(state="hidden")
+        self.page.locator("[data-study-reveal]").click()
+        card.locator(
+            ".annotation-study__body strong", has_text="révisé"
+        ).wait_for()
+        card.get_by_text("Titre révisé", exact=True).wait_for()
+        # The deck never reloads, so the queue position is preserved.
+        self.assertEqual(progress.inner_text(), position)
+        first.refresh_from_db()
+        self.assertEqual(first.title, "Titre révisé")
+        self.assertEqual(first.body, "Contenu **révisé**.")
+
     def test_study_deck_reads_the_selected_passage_of_a_note(self):
         self.context.add_init_script(
             """

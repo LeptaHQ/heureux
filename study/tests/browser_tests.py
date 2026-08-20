@@ -739,12 +739,37 @@ class BrowserTests(StaticLiveServerTestCase):
             "0/572 apprises · 0/348 sujets terminés",
         )
 
+        self.context.add_init_script(
+            """
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: {
+                writeText: text => {
+                  window.__aiPracticePromptCopied = text;
+                  return Promise.resolve();
+                },
+              },
+            });
+            """
+        )
         self.page.goto(overview_url)
         self.page.get_by_role(
             "heading",
             name="Tâche 2",
             exact=True,
         ).wait_for()
+        prompt_button = self.page.get_by_role(
+            "button",
+            name="Copy AI Practice Prompt",
+            exact=True,
+        )
+        self.assertEqual(prompt_button.inner_text(), "AI Practice Prompt")
+        prompt_button.click()
+        self.page.get_by_text("Copied!", exact=True).wait_for()
+        self.assertEqual(
+            self.page.evaluate("window.__aiPracticePromptCopied"),
+            content.load_ai_examiner_prompt(),
+        )
         overview_panels = self.page.locator(
             "[data-tache-two-overview-panel]"
         )
@@ -1172,6 +1197,19 @@ class BrowserTests(StaticLiveServerTestCase):
             args=["eo", "tache-2", "janvier", 1, 1],
         )
 
+        self.context.add_init_script(
+            """
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: {
+                writeText: text => {
+                  window.__subjectPromptCopied = text;
+                  return Promise.resolve();
+                },
+              },
+            });
+            """
+        )
         self.page.set_viewport_size({"width": 1280, "height": 850})
         self.page.goto(self.live_server_url + overview_path)
         memory_heading = self.page.get_by_role(
@@ -1226,6 +1264,23 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertEqual(self.page.get_by_role("note").count(), 0)
         self.assertEqual(self.page.get_by_text("Réflexe Mémoire").count(), 0)
+        prompt_payload = json.loads(
+            self.page.locator("#tache-two-theme-prompts").text_content()
+        )
+        card_copy = self.page.locator(
+            '[data-collection-view-panel="cards"] [data-prompt-copy]'
+        ).first
+        card_prompt_key = card_copy.get_attribute("data-prompt-copy-key")
+        card_copy.click()
+        self.page.wait_for_function(
+            "expected => window.__subjectPromptCopied === expected",
+            arg=prompt_payload[card_prompt_key],
+        )
+        self.assertEqual(
+            self.page.evaluate("window.__subjectPromptCopied"),
+            prompt_payload[card_prompt_key],
+        )
+        self.assertEqual(self.page.url, self.live_server_url + index_path)
 
         self.page.set_viewport_size({"width": 320, "height": 700})
         self.assert_no_horizontal_overflow()
@@ -1238,6 +1293,15 @@ class BrowserTests(StaticLiveServerTestCase):
         first_row = table_group.locator(
             f'[data-t1-table-subject]:has(a[href="{subject_path}"])'
         )
+        table_copy = first_row.locator("[data-prompt-copy]")
+        table_prompt_key = table_copy.get_attribute("data-prompt-copy-key")
+        self.page.evaluate("window.__subjectPromptCopied = null")
+        table_copy.click()
+        self.page.wait_for_function(
+            "expected => window.__subjectPromptCopied === expected",
+            arg=prompt_payload[table_prompt_key],
+        )
+        self.assertEqual(self.page.url, self.live_server_url + index_path)
         completion_gap = first_row.evaluate(
             """
             row => {
@@ -1321,7 +1385,26 @@ class BrowserTests(StaticLiveServerTestCase):
             self.page.locator("#subject-vocabulary .response-batch").count(),
             3,
         )
+        detail_prompt = json.loads(
+            self.page.locator("#tache-two-subject-prompt").text_content()
+        )
+        self.page.evaluate("window.__subjectPromptCopied = null")
+        self.page.locator(".tache-two-consigne [data-prompt-copy]").click()
+        self.page.wait_for_function(
+            "expected => window.__subjectPromptCopied === expected",
+            arg=detail_prompt,
+        )
+        self.assertEqual(
+            self.page.evaluate("window.__subjectPromptCopied"),
+            detail_prompt,
+        )
+        self.page.get_by_text(
+            "Consigne copiée dans le presse-papiers.",
+            exact=True,
+        ).wait_for()
+        self.page.set_viewport_size({"width": 320, "height": 700})
         self.assert_no_horizontal_overflow()
+        self.page.set_viewport_size({"width": 1280, "height": 850})
 
         self.page.get_by_role(
             "link",

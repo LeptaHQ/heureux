@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}{{ subject_month.name }} · Batch {{ subject_batch.number }} · {{ task.name }}{% endblock %}
 
 {% block content %}
@@ -36,7 +37,10 @@
           <strong>{{ subject.title }}</strong>
           <small>{{ subject.question_count }} questions</small>
         </span>
-        <span class="tache-two-subject-card__prompt">{{ subject.prompt }}</span>
+        <span class="tache-two-subject-card__prompt">
+          <span class="tache-two-subject-card__prompt-text">{{ subject.prompt }}</span>
+          {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="tache-two-batch-prompts" prompt_key=subject.content_key label="Copier la consigne" subject_label=subject.title label_hidden=True only %}
+        </span>
         <div class="tache-two-subject-card__count">
           <div class="subject-card-progress-line">
             <span
@@ -66,4 +70,10 @@
     {% endfor %}
   </div>
 </div>
+{{ subject_prompt_map|json_script:"tache-two-batch-prompts" }}
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'study/js/prompt-copy.js' %}?v=1"></script>
 {% endblock %}

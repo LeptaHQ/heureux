@@ -480,6 +480,7 @@ def task_detail(request, part_slug, task_slug):
                 "subject_summary": subject_state,
                 "subject_count": subject_state["total"],
                 "subject_theme_count": subject_state["theme_count"],
+                "ai_practice_prompt": content_module.load_ai_examiner_prompt(),
                 **memory_context,
             },
         )
@@ -663,6 +664,11 @@ def browse(request, part_slug=None, task_slug=None):
     ) == content_module.QUESTION_BANK_TASK:
         subject_state = _tache_two_theme_progress(request.user)
         themes = subject_state["themes"]
+        subject_prompt_map = {
+            subject["content_key"]: subject["prompt"]
+            for theme in themes
+            for subject in theme["subjects"]
+        }
         return render(
             request,
             "study/tache_two_subjects.html",
@@ -671,6 +677,7 @@ def browse(request, part_slug=None, task_slug=None):
                 "task": forced_task,
                 "memory_task": True,
                 "subject_themes": themes,
+                "subject_prompt_map": subject_prompt_map,
                 "subject_summary": subject_state,
                 "theme_count": subject_state["theme_count"],
                 "subject_count": subject_state["total"],
@@ -1126,6 +1133,10 @@ def task_subject_batch(request, part_slug, task_slug, month_slug, batch_number):
         for batch in month["batches"]
         if batch["number"] == batch_number
     )
+    subject_prompt_map = {
+        subject["content_key"]: subject["prompt"]
+        for subject in batch["subjects"]
+    }
     return render(
         request,
         "study/tache_two_subject_batch.html",
@@ -1135,6 +1146,7 @@ def task_subject_batch(request, part_slug, task_slug, month_slug, batch_number):
             "memory_task": True,
             "subject_month": month,
             "subject_batch": batch,
+            "subject_prompt_map": subject_prompt_map,
         },
     )
 

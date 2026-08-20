@@ -1,0 +1,22 @@
+<button
+  class="{{ button_class }}"
+  type="button"
+  data-prompt-copy
+  data-prompt-copy-source="{{ source_id }}"
+  {% if prompt_key %}data-prompt-copy-key="{{ prompt_key }}"{% endif %}
+  data-prompt-copy-success-label="{{ success_label|default:'Copié !' }}"
+  data-prompt-copy-error-label="{{ error_label|default:'Échec' }}"
+  data-prompt-copy-toast-message="{{ toast_message|default:'Consigne copiée dans le presse-papiers.' }}"
+  data-prompt-copy-error-message="{{ error_message|default:'Impossible de copier la consigne.' }}"
+  {% if status_id %}data-prompt-copy-status="{{ status_id }}" aria-describedby="{{ status_id }}"{% endif %}
+  {% if subject_label %}
+    aria-label="Copier la consigne : {{ subject_label }}"
+    title="Copier la consigne : {{ subject_label }}"
+  {% else %}
+    aria-label="{{ aria_label|default:label }}"
+    title="{{ aria_label|default:label }}"
+  {% endif %}
+>
+  {% include "study/partials/ui_icon.html" with name="copy" icon_class="btn__icon" %}
+  <span{% if label_hidden %} class="sr-only"{% endif %} data-prompt-copy-label>{{ label }}</span>
+</button>

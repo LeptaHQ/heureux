@@ -28,6 +28,7 @@ COMPREHENSION_DIR = CONTENT_DIR / "comprehension"
 COMPREHENSION_TESTS_PATH = COMPREHENSION_DIR / "tests.json"
 QUESTION_BANK_PATH = CONTENT_DIR / "tache_2" / "master_question_bank_1.json"
 QUESTION_BANK_DIR = QUESTION_BANK_PATH.parent
+AI_EXAMINER_PROMPT_PATH = QUESTION_BANK_DIR / "ai_examiner_prompt.md"
 TACHE_TWO_SUBJECTS_DIR = QUESTION_BANK_DIR / "subjects"
 TACHE_TWO_VOCABULARY_DIR = QUESTION_BANK_DIR / "vocabulary"
 TACHE_TWO_SUBJECT_THEMES_PATH = TACHE_TWO_SUBJECTS_DIR / "subject_themes.json"
@@ -540,6 +541,25 @@ def load_sections() -> List[SectionData]:
         )
     sections.sort(key=lambda s: s.order)
     return sections
+
+
+def load_ai_examiner_prompt(path: Path = AI_EXAMINER_PROMPT_PATH) -> str:
+    """Extract the copy-ready master prompt from its Markdown guide."""
+    text = path.read_text(encoding="utf-8").replace("\r\n", "\n")
+    heading = "## Master prompt"
+    _, found_heading, prompt_section = text.partition(heading)
+    if not found_heading:
+        raise ValueError(f"{path.name} is missing its Master prompt section")
+
+    _, found_fence, fenced_content = prompt_section.partition("```text\n")
+    if not found_fence:
+        raise ValueError(f"{path.name} is missing its Master prompt text fence")
+
+    prompt, found_closing_fence, _ = fenced_content.partition("\n```")
+    prompt = prompt.strip()
+    if not found_closing_fence or not prompt:
+        raise ValueError(f"{path.name} has an incomplete Master prompt")
+    return prompt
 
 
 def load_question_bank(

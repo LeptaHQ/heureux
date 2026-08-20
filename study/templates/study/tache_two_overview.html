@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Vue d’ensemble · {{ task.name }} · Heureux{% endblock %}
 
 {% block content %}
@@ -11,6 +12,15 @@
         <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name=task.icon only %}</span>
         <span>{{ task.name }}</span>
       </h1>
+      <div class="memory-overview-hero__actions">
+        {% include "study/partials/prompt_copy_button.html" with button_class="btn tache-two-ai-prompt-button" source_id="ai-practice-prompt-content" label="AI Practice Prompt" success_label="Copied!" error_label="Copy failed" toast_message="AI Practice Prompt copied to your clipboard." error_message="Could not copy the AI Practice Prompt." status_id="ai-practice-prompt-status" aria_label="Copy AI Practice Prompt" only %}
+        <span
+          class="sr-only"
+          id="ai-practice-prompt-status"
+          role="status"
+          aria-live="polite"
+          data-ai-practice-prompt-status></span>
+      </div>
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Contenu de la Tâche 2">
       <div><dt>Sujets</dt><dd>{{ subject_count }}</dd></div>
@@ -68,4 +78,10 @@
     </a>
   </div>
 </div>
+{{ ai_practice_prompt|json_script:"ai-practice-prompt-content" }}
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'study/js/prompt-copy.js' %}?v=1"></script>
 {% endblock %}

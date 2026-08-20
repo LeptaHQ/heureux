@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Sujets · {{ task.name }} · Heureux{% endblock %}
 
 {% block content %}
@@ -46,6 +47,7 @@
               <div class="t1-row__link">
                 <span class="t1-row__prompt">{{ subject.title }}</span>
                 <span class="t1-row__meta">
+                  {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="tache-two-theme-prompts" prompt_key=subject.content_key label="Copier la consigne" subject_label=subject.title label_hidden=True only %}
                   <span class="t1-row__count">{{ subject.question_count }} question{{ subject.question_count|pluralize }}</span>
                   <span
                     class="progress-status progress-status--{{ subject.progress.status }}"
@@ -106,10 +108,13 @@
                     data-t1-table-subject
                     data-subject-progress-row="{{ subject.response_id }}">
                     <td class="t1-table__subject">
-                      <a
-                        class="subject-table-row-link"
-                        href="{% url 'study:task_subject_detail' part.slug task.slug subject.month_slug subject.batch_number subject.number %}"
-                        aria-label="Ouvrir le sujet : {{ subject.title }}">{{ subject.title }}</a>
+                      <div class="t1-table__subject-copy">
+                        <a
+                          class="subject-table-row-link"
+                          href="{% url 'study:task_subject_detail' part.slug task.slug subject.month_slug subject.batch_number subject.number %}"
+                          aria-label="Ouvrir le sujet : {{ subject.title }}">{{ subject.title }}</a>
+                        {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="tache-two-theme-prompts" prompt_key=subject.content_key label="Copier la consigne" subject_label=subject.title label_hidden=True only %}
+                      </div>
                     </td>
                     <td class="t1-table__versions t1-table__questions">{{ subject.question_count }}</td>
                     <td class="t1-table__progress-cell">
@@ -131,4 +136,10 @@
     </div>
   {% endif %}
 </div>
+{{ subject_prompt_map|json_script:"tache-two-theme-prompts" }}
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'study/js/prompt-copy.js' %}?v=1"></script>
 {% endblock %}

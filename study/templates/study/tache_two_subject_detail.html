@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Sujet {{ subject.number }} · {{ subject.title }} · {{ task.name }}{% endblock %}
 
 {% block content %}
@@ -30,7 +31,10 @@
           {% include "study/partials/ui_icon.html" with name="messages" only %}
         </span>
         <div>
-          <h2 id="subject-prompt-title">Consigne</h2>
+          <div class="tache-two-consigne__heading">
+            <h2 id="subject-prompt-title">Consigne</h2>
+            {% include "study/partials/prompt_copy_button.html" with button_class="btn btn--sm prompt-copy-button tache-two-consigne__copy" source_id="tache-two-subject-prompt" label="Copier" success_label="Copiée !" subject_label=subject.title only %}
+          </div>
           <p>{{ subject.prompt }}</p>
         </div>
       </section>
@@ -132,4 +136,10 @@
 
   {% include "study/partials/tache_two_subject_navigation.html" with bottom=True %}
 </article>
+{{ subject.prompt|json_script:"tache-two-subject-prompt" }}
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'study/js/prompt-copy.js' %}?v=1"></script>
 {% endblock %}

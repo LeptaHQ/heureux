@@ -16,8 +16,10 @@ from django.utils import timezone
 
 from study.account_services import provision_user_study_data
 from study.content_loader import (
+    AI_EXAMINER_PROMPT_PATH,
     TACHE_TWO_SUBJECT_THEMES_PATH,
     TACHE_TWO_VOCABULARY_DIR,
+    load_ai_examiner_prompt,
     load_question_bank,
     load_question_banks,
     load_comprehension_tests,
@@ -142,6 +144,23 @@ class QuestionBankContentTests(TestCase):
         (10, "Arts & loisirs", "pen-line"),
         (11, "Fêtes & célébrations", "sparkles"),
     ]
+
+    def test_ai_examiner_prompt_loader_extracts_only_the_master_prompt(self):
+        prompt = load_ai_examiner_prompt()
+
+        self.assertTrue(AI_EXAMINER_PROMPT_PATH.exists())
+        self.assertTrue(prompt.startswith("You are a strict but fair simulator"))
+        self.assertIn("scenario: WAIT_FOR_MY_SUBJECT (default)", prompt)
+        self.assertNotIn("## Register guide", prompt)
+        self.assertNotIn("```text", prompt)
+
+    def test_ai_examiner_prompt_loader_rejects_a_missing_master_block(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "prompt.md"
+            path.write_text("# Incomplete guide", encoding="utf-8")
+
+            with self.assertRaisesMessage(ValueError, "Master prompt section"):
+                load_ai_examiner_prompt(path)
 
     def test_every_subject_theme_has_its_own_memoire(self):
         banks = load_question_banks()
@@ -1183,6 +1202,16 @@ class QuestionBankViewTests(TestCase):
         self.assertEqual(response.context["subject_count"], 348)
         self.assertEqual(response.context["category_count"], 143)
         self.assertEqual(response.context["question_count"], 572)
+        self.assertEqual(
+            response.context["ai_practice_prompt"],
+            load_ai_examiner_prompt(),
+        )
+        self.assertContains(response, "AI Practice Prompt")
+        self.assertContains(
+            response,
+            'data-prompt-copy-source="ai-practice-prompt-content"',
+        )
+        self.assertContains(response, 'id="ai-practice-prompt-content"')
         self.assertContains(
             response,
             "data-tache-two-overview-panel",
@@ -1533,11 +1562,23 @@ class QuestionBankViewTests(TestCase):
         ]
 
         index = self.client.get(index_url)
+        first_subject_key = tache_two_subject_content_key("janvier", 1, 1)
         self.assertEqual(index.status_code, 200)
         self.assertTemplateUsed(index, "study/tache_two_subjects.html")
         self.assertEqual(index.context["theme_count"], 11)
         self.assertEqual(index.context["subject_count"], 348)
         self.assertEqual(index.context["question_count"], 5175)
+        self.assertEqual(len(index.context["subject_prompt_map"]), 348)
+        self.assertContains(
+            index,
+            'data-prompt-copy-source="tache-two-theme-prompts"',
+            count=696,
+        )
+        self.assertContains(
+            index,
+            f'data-prompt-copy-key="{first_subject_key}"',
+            count=2,
+        )
         self.assertNotContains(index, "Réflexe Mémoire")
         self.assertContains(index, "Sujets par thème")
         self.assertContains(index, "Voyages &amp; vacances")
@@ -1579,6 +1620,16 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(batch, "Janvier · Batch 1")
         self.assertContains(batch, "data-tache-two-subject", count=5)
         self.assertContains(batch, "tache-two-subject-card--new", count=5)
+        self.assertContains(
+            batch,
+            'data-prompt-copy-source="tache-two-batch-prompts"',
+            count=5,
+        )
+        self.assertEqual(len(batch.context["subject_prompt_map"]), 5)
+        self.assertEqual(
+            batch.context["subject_prompt_map"][first_subject_key],
+            batch.context["subject_batch"]["subjects"][0]["prompt"],
+        )
         self.assertEqual(batch.context["subject_batch"]["progress"].status, "new")
         self.assertContains(batch, subject_url)
 
@@ -1599,6 +1650,11 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(subject, "Pratiquer ce sujet")
         self.assertContains(subject, "Pratiquer les vocabs")
         self.assertContains(subject, "30 vocabs")
+        self.assertContains(
+            subject,
+            'data-prompt-copy-source="tache-two-subject-prompt"',
+            count=1,
+        )
         self.assertEqual(len(subject.context["vocabulary_batches"]), 3)
         self.assertTrue(
             all(

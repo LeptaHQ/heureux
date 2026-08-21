@@ -151,6 +151,28 @@ class QuestionBankContentTests(TestCase):
         self.assertTrue(AI_EXAMINER_PROMPT_PATH.exists())
         self.assertTrue(prompt.startswith("You are a strict but fair simulator"))
         self.assertIn("scenario: WAIT_FOR_MY_SUBJECT (default)", prompt)
+        self.assertIn(
+            "CANDIDATE = QUESTIONER AND CONVERSATION LEADER.",
+            prompt,
+        )
+        self.assertIn(
+            "A normal AI role-play turn contains ZERO interrogative sentences",
+            prompt,
+        )
+        self.assertIn("[STOP ASKING]", prompt)
+        self.assertIn("[ANSWER ONLY]", prompt)
+        self.assertIn(
+            "Every sentence in your reply must directly answer my current",
+            prompt,
+        )
+        self.assertNotIn(
+            "ask a brief, role-natural return question",
+            prompt,
+        )
+        self.assertNotIn(
+            "occasionally mention a detail that invites a genuine follow-up",
+            prompt,
+        )
         self.assertNotIn("## Register guide", prompt)
         self.assertNotIn("```text", prompt)
 

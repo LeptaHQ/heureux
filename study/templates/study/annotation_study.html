@@ -21,8 +21,8 @@
 </header>
 
 {% if items %}
-<section class="annotation-study" data-annotation-study data-study-mode="{{ study_mode }}">
-  <div class="annotation-study__toolbar">
+<section class="annotation-study flashcard-deck" data-annotation-study data-flashcard-deck data-study-mode="{{ study_mode }}">
+  <div class="annotation-study__toolbar flashcard-deck__toolbar">
     <div class="annotation-study__progress">
       <div class="annotation-study__progress-copy">
         <span>Carte</span>
@@ -36,53 +36,45 @@
       {% if study_mode == "queue" %}
         <a class="annotation-study__manage" href="{% url 'study:annotation_search' %}?study=1">Gérer</a>
       {% endif %}
-      <div class="annotation-study__face-switch" role="group" aria-label="Face affichée en premier">
-        <button class="is-active" type="button" data-study-order="front" aria-pressed="true">Recto</button>
-        <button type="button" data-study-order="back" aria-pressed="false">Verso</button>
-      </div>
+      {% include "study/partials/flashcard_face_switch.html" %}
     </div>
   </div>
-  <div class="annotation-study__cards">
+  <div class="annotation-study__cards flashcard-deck__cards">
     {% for item in items %}
       <article
-        class="flashcard annotation-study__card {% if not forloop.first %}hidden{% endif %}"
+        class="flashcard flashcard-deck__card annotation-study__card {% if not forloop.first %}hidden{% endif %}"
         tabindex="0"
         aria-label="Recto. Appuyez pour retourner la carte."
-        aria-keyshortcuts="ArrowUp ArrowDown Space"
+        aria-keyshortcuts="ArrowUp ArrowDown Space Enter"
         data-study-card
+        data-flashcard-card
+        data-read-aloud-scope
         data-annotation-item
         data-study-id="{{ item.id }}"
         data-study-toggle-url="{% url 'study:annotation_study_toggle' item.id %}"
         {% if item.kind != "highlight" %}data-annotation-edit-source="{{ item.id }}" data-annotation-edit-title="{{ item.title }}" data-annotation-edit-body="{{ item.body }}"{% endif %}
       >
-        {% if item.quote %}<span class="sr-only" data-annotation-readable>{{ item.quote }}</span>{% endif %}
-        <div class="annotation-study__card-meta">
-          <span class="annotation-study__face-label" data-study-face-label>Recto</span>
-          <span class="annotation-study__flip-hint">
-            Appuyez pour retourner
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h9.5a4.5 4.5 0 0 1 0 9H14"></path><path d="m9 3-4 4 4 4"></path></svg>
-          </span>
-        </div>
-        <div class="annotation-study__front" data-study-front>
+        {% include "study/partials/flashcard_meta.html" with read_aloud=True read_key=item.id read_label="Lire cette face" only %}
+        <div class="flashcard-deck__face annotation-study__front" data-flashcard-front data-study-front>
           <p class="eyebrow">{% if item.kind == "highlight" %}Passage surligné{% elif item.quote %}Texte sélectionné{% else %}Note personnelle{% endif %}</p>
           {% if item.kind == "highlight" %}
             <h2>Quel passage avez-vous retenu&nbsp;?</h2>
           {% elif item.quote %}
-            <blockquote class="annotation-study__prompt">{{ item.quote }}</blockquote>
+            <blockquote class="annotation-study__prompt" data-read-aloud-text lang="fr">{{ item.quote }}</blockquote>
           {% elif item.title %}
-            <h2>{{ item.title }}</h2>
+            <h2 data-read-aloud-text lang="fr">{{ item.title }}</h2>
           {% else %}
             <h2>Retrouvez l'idée que vous aviez notée.</h2>
           {% endif %}
           <p class="muted">{% if item.source_title %}{{ item.source_title }}{% else %}{{ item.scope_label }}{% endif %}</p>
         </div>
-        <div class="annotation-study__back hidden" data-study-back>
+        <div class="flashcard-deck__face annotation-study__back hidden" data-flashcard-back data-study-back>
           {% if item.kind == "highlight" %}
-            {% if item.quote %}<blockquote class="annotation-study__highlight">{{ item.quote }}</blockquote>{% endif %}
+            {% if item.quote %}<blockquote class="annotation-study__highlight" data-read-aloud-text lang="fr">{{ item.quote }}</blockquote>{% endif %}
             {% if item.body %}<div class="annotation-study__body annotation-markdown">{{ item.body|markdown }}</div>{% endif %}
           {% elif item.quote %}
             <p class="eyebrow">Votre note</p>
-            {% if item.title %}<h2>{{ item.title }}</h2>{% endif %}
+            {% if item.title %}<h2 data-read-aloud-text lang="fr">{{ item.title }}</h2>{% endif %}
             {% if item.body %}<div class="annotation-study__body annotation-markdown">{{ item.body|markdown }}</div>{% endif %}
             {% if not item.title and not item.body %}<p class="muted">Aucune note ajoutée à ce passage.</p>{% endif %}
           {% else %}
@@ -90,23 +82,7 @@
           {% endif %}
           {% if item.source_path %}<a class="annotation-study__source" href="{{ item.source_path }}" target="_blank" rel="noopener">Voir la source {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>{% endif %}
         </div>
-        <div class="annotation-study__card-actions">
-          {% if item.quote %}
-          <button
-            class="linkbtn annotation-action"
-            type="button"
-            aria-label="Lire le passage"
-            aria-pressed="false"
-            title="Lire le passage"
-            data-annotation-read="{{ item.id }}"
-            data-annotation-read-label="Lire le passage"
-          >
-            <span class="annotation-action__icon annotation-action__icon--read" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6l-5 4z"></path><path d="M16 9.2a4 4 0 0 1 0 5.6M18.5 6.8a7.4 7.4 0 0 1 0 10.4"></path></svg>
-            </span>
-            <span class="sr-only">Lire le passage</span>
-          </button>
-          {% endif %}
+        <div class="annotation-study__card-actions flashcard-deck__actions">
           <button
             class="linkbtn annotation-action"
             type="button"
@@ -176,22 +152,22 @@
       </article>
     {% endfor %}
   </div>
-  <div class="annotation-study__controls">
-    <button class="btn annotation-study__control--previous" type="button" data-study-previous aria-keyshortcuts="ArrowLeft" disabled>
+  <div class="annotation-study__controls flashcard-deck__controls">
+    <button class="btn annotation-study__control--previous" type="button" data-study-previous data-flashcard-control aria-keyshortcuts="ArrowLeft" disabled>
       {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
       <span class="annotation-study__button-label--full">Précédente</span>
       <span class="annotation-study__button-label--short">Préc.</span>
     </button>
-    <button class="btn btn--primary annotation-study__control--reveal" type="button" data-study-reveal aria-keyshortcuts="Space">
-      Retourner
+    <button class="btn btn--primary annotation-study__control--reveal" type="button" data-study-reveal data-flashcard-flip data-flashcard-control aria-keyshortcuts="Space Enter">
+      <span data-flashcard-flip-label>Retourner</span>
     </button>
-    <button class="btn annotation-study__control--next" type="button" data-study-next aria-keyshortcuts="ArrowRight">
+    <button class="btn annotation-study__control--next" type="button" data-study-next data-flashcard-control aria-keyshortcuts="ArrowRight">
       <span class="annotation-study__button-label--full">Suivante</span>
       <span class="annotation-study__button-label--short">Suiv.</span>
       {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
     </button>
   </div>
-  <div class="kbd-hint annotation-study__keyboard-hint">
+  <div class="kbd-hint flashcard-deck__keyboard-hint annotation-study__keyboard-hint">
     <kbd>←</kbd> précédente · <kbd>↑</kbd><kbd>↓</kbd> retourner · <kbd>→</kbd> suivante
     <span class="annotation-study__swipe-hint">· glissez la carte pour naviguer</span>
   </div>

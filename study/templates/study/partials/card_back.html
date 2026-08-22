@@ -1,5 +1,5 @@
 {% if kind == "spine" %}
-  <div class="answer">
+  <div class="answer" data-read-aloud-text lang="fr">
     {% if tache_two_subject %}
       <div class="spine-block">
         <div class="spine-label">Questions à poser</div>
@@ -69,7 +69,7 @@
     {% if production %}
       <div class="spine-block">
         <div class="spine-label">{% if subject_vocabulary or theme_vocabulary or comprehension_vocabulary %}Réponse française{% else %}Expression{% endif %}</div>
-        <div class="spine-text serif">{{ phrase.expression }}</div>
+        <div class="spine-text serif" data-read-aloud-text lang="fr">{{ phrase.expression }}</div>
       </div>
     {% else %}
       <div class="spine-block">
@@ -77,7 +77,7 @@
         <div class="spine-text">{{ phrase.english_cue }}</div>
       </div>
     {% endif %}
-    <div class="example-box">{{ example_html|safe }}</div>
+    <div class="example-box" data-read-aloud-text lang="fr">{{ example_html|safe }}</div>
     {% if phrase.note %}<p class="phrase__note">{{ phrase.note }}</p>{% endif %}
     {% if sources and not theme_vocabulary %}
       <div class="phrase__foot">

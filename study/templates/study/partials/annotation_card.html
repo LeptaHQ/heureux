@@ -15,6 +15,7 @@ Parameters:
   data-collection-item
   data-annotation-item="{{ annotation.id }}"
   data-annotation-kind="{{ annotation.kind }}"
+  data-read-aloud-scope
   id="{{ anchor_prefix }}-{{ annotation.id }}{{ anchor_suffix|default:"" }}"
   {% if anchor_suffix %}data-annotation-anchor="{{ anchor_prefix }}-{{ annotation.id }}"{% endif %}
   {% if variant == "notes" %}data-annotation-edit-source="{{ annotation.id }}" data-annotation-edit-title="{{ annotation.title }}" data-annotation-edit-body="{{ annotation.body }}"{% endif %}
@@ -27,9 +28,47 @@ Parameters:
     <time datetime="{{ annotation.created_at|date:'c' }}">{{ annotation.created_at|date:"j M Y · H:i" }}</time>
   </header>
   <div class="annotation-card__content">
-    {% if annotation.title %}<h3>{{ annotation.title }}</h3>{% endif %}
-    {% if annotation.quote %}<blockquote data-annotation-readable>{% if annotation.kind == "highlight" %}<mark>{{ annotation.quote }}</mark>{% else %}{{ annotation.quote }}{% endif %}</blockquote>{% endif %}
-    {% if annotation.body %}<div class="annotation-card__body annotation-markdown">{{ annotation.body|markdown }}</div>{% endif %}
+    {% if annotation.title %}
+      <h3
+        {% if variant != "search" %}
+          data-recall-cell="french"
+          data-recall-entry="annotation-french-{{ annotation.id }}"
+        {% endif %}
+      ><span
+        data-read-aloud-text
+        lang="fr"
+        {% if variant != "search" %}
+          class="recall-content"
+          data-recall-content
+        {% endif %}
+      >{{ annotation.title }}</span></h3>
+    {% endif %}
+    {% if annotation.quote %}
+      <blockquote
+        data-read-aloud-text
+        lang="fr"
+        {% if variant != "search" %}
+          data-recall-cell="french"
+          data-recall-entry="annotation-french-{{ annotation.id }}"
+        {% endif %}
+      ><span
+        {% if variant != "search" %}
+          class="recall-content"
+          data-recall-content
+        {% endif %}
+      >{% if annotation.kind == "highlight" %}<mark>{{ annotation.quote }}</mark>{% else %}{{ annotation.quote }}{% endif %}</span></blockquote>
+    {% endif %}
+    {% if annotation.body %}
+      {% if variant != "search" %}
+        <div
+          class="annotation-card__body"
+          data-recall-cell="english"
+          data-recall-entry="annotation-english-{{ annotation.id }}"
+        ><div class="annotation-markdown recall-content" data-recall-content>{{ annotation.body|markdown }}</div></div>
+      {% else %}
+        <div class="annotation-card__body annotation-markdown">{{ annotation.body|markdown }}</div>
+      {% endif %}
+    {% endif %}
   </div>
   {% if variant == "search" %}
     <p class="annotation-card__scope">{{ annotation.scope_label }}</p>

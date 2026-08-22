@@ -68,10 +68,10 @@
       <div class="grid grid--phrases collection-table collection-table--phrases" data-collection-view="adaptive">
         {% include "study/partials/collection_table_header.html" with variant="phrases" column_1="Expression" column_2="Sens" column_3="Exemple en contexte" only %}
         {% for phrase in group.phrases %}
-          <article class="phrase card" data-collection-item id="phrase-{{ phrase.phrase_id }}">
-            <div class="phrase__expr">{{ phrase.expression }}</div>
+          <article class="phrase card" data-collection-item data-read-aloud-scope id="phrase-{{ phrase.phrase_id }}">
+            <div class="phrase__expr"><span data-read-aloud-text lang="fr">{{ phrase.expression }}</span>{% include "study/partials/read_aloud_button.html" with key=phrase.phrase_id label="Lire le français" extra_class="phrase-read-aloud" compact="true" only %}</div>
             <div class="phrase__cue">{{ phrase.english_cue }}</div>
-            <p class="phrase__ex">{{ phrase.example_html|safe }}</p>
+            <p class="phrase__ex" data-read-aloud-text lang="fr">{{ phrase.example_html|safe }}</p>
             {% if phrase.note %}<p class="phrase__note">{{ phrase.note }}</p>{% endif %}
             {% with prompts=phrase.source_prompts.all %}
               {% if prompts %}

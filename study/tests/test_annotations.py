@@ -47,6 +47,7 @@ class AnnotationTests(TestCase):
             user=self.user,
             task=self.task,
             kind=AnnotationKind.NOTE,
+            title="Structure à réutiliser",
             body="Réutiliser cette structure.",
         )
         highlight = Annotation.objects.create(
@@ -80,6 +81,14 @@ class AnnotationTests(TestCase):
             notes_tab,
             'data-collection-view-option="table"',
         )
+        self.assertContains(notes_tab, "data-notes-recall", count=1)
+        self.assertContains(notes_tab, 'data-recall-column="english"', count=1)
+        self.assertContains(
+            notes_tab,
+            "data-note-dialog-paste-close",
+            count=1,
+        )
+        self.assertContains(notes_tab, "Coller et fermer")
         self.assertContains(notes_tab, 'scope="col">Note</th>')
         self.assertContains(notes_tab, f'id="note-{note.id}"', count=1)
         self.assertContains(notes_tab, f'id="note-{note.id}-card"', count=1)
@@ -94,11 +103,10 @@ class AnnotationTests(TestCase):
             notes_tab,
             "annotation-action__icon--study",
         )
-        # Reading is French speech synthesis, so it is offered only for the
-        # selected passage — this note has none.
-        self.assertNotContains(
+        # The optional title is French and can be read aloud.
+        self.assertContains(
             notes_tab,
-            "annotation-action__icon--read",
+            "read-aloud-action__icon",
         )
         # Template comments must never leak into the rendered page.
         self.assertNotContains(notes_tab, "{#")
@@ -134,15 +142,51 @@ class AnnotationTests(TestCase):
         )
         self.assertContains(highlights_tab, "Passage important")
         self.assertNotContains(highlights_tab, "Réutiliser cette structure.")
+        self.assertContains(highlights_tab, "data-notes-recall", count=1)
 
     def test_empty_notes_and_highlights_hide_the_view_toggle(self):
         notes_tab = self.client.get(self.task_notes_url)
         self.assertNotContains(notes_tab, "data-collection-view-toggle")
+        self.assertNotContains(notes_tab, "data-notes-recall")
 
         highlights_tab = self.client.get(
             self.task_notes_url + "?tab=highlights"
         )
         self.assertNotContains(highlights_tab, "data-collection-view-toggle")
+        self.assertNotContains(highlights_tab, "data-notes-recall")
+
+    def test_notes_recall_fields_follow_the_content_language(self):
+        note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            title="Titre facultatif",
+            quote="Passage capturé en français.",
+            body="The written note is in English.",
+        )
+
+        response = self.client.get(self.task_notes_url)
+
+        self.assertContains(response, 'data-recall-column="french"', count=1)
+        self.assertContains(response, 'data-recall-column="english"', count=1)
+        # The card and table each group the French title and passage together.
+        self.assertContains(
+            response,
+            f'data-recall-entry="annotation-french-{note.id}"',
+            count=4,
+        )
+        # Only the written note belongs to the English recall field.
+        self.assertContains(
+            response,
+            f'data-recall-entry="annotation-english-{note.id}"',
+            count=2,
+        )
+
+        search = self.client.get(
+            reverse("study:annotation_search"),
+            {"q": "written note"},
+        )
+        self.assertNotContains(search, "data-recall-cell")
 
     def test_note_bodies_render_safe_markdown_everywhere(self):
         Annotation.objects.create(
@@ -1078,13 +1122,14 @@ class AnnotationTests(TestCase):
             ),
         )
         self.assertNotContains(notes_page, "?item=")
-        self.assertNotContains(
+        self.assertContains(
             notes_page,
-            f'data-annotation-read="{new_note.pk}"',
+            f'data-read-aloud-key="{new_note.pk}"',
+            count=2,
         )
         self.assertContains(
             notes_page,
-            f'data-annotation-read="{quoted_note.pk}"',
+            f'data-read-aloud-key="{quoted_note.pk}"',
             count=2,
         )
         self.assertNotContains(notes_page, done_note.body)
@@ -1102,7 +1147,7 @@ class AnnotationTests(TestCase):
         )
         self.assertContains(
             highlights_page,
-            f'data-annotation-read="{queued_highlight.pk}"',
+            f'data-read-aloud-key="{queued_highlight.pk}"',
             count=2,
         )
 
@@ -1185,8 +1230,11 @@ class AnnotationTests(TestCase):
         self.assertNotIn("séance", back)
         self.assertContains(
             response,
-            'data-study-order="back"',
+            'data-flashcard-order="back"',
         )
+        self.assertContains(response, "data-flashcard-deck")
+        self.assertContains(response, "data-flashcard-card")
+        self.assertContains(response, "data-read-aloud")
 
     def test_study_decisions_update_the_queue_without_a_redirect(self):
         note = Annotation.objects.create(

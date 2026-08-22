@@ -329,6 +329,12 @@ urlpatterns = [
         name="tache_two_theme_vocabulary_detail",
     ),
     path(
+        "expression/orale/tache-2/vocabulaire-par-theme/"
+        "<slug:theme_slug>/fiches/<int:phrase_pk>/progression/",
+        views.tache_two_theme_vocabulary_progress,
+        name="tache_two_theme_vocabulary_progress",
+    ),
+    path(
         "expression/<expression_part:part_slug>/<slug:task_slug>/"
         "memoires/",
         views.task_memories,

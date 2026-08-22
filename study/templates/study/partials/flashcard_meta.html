@@ -1,0 +1,15 @@
+<div class="flashcard-deck__card-meta">
+  <span class="flashcard-deck__face-label" data-flashcard-face-label>Recto</span>
+  <span class="flashcard-deck__meta-actions">
+    {% if read_aloud %}
+      {% include "study/partials/read_aloud_button.html" with key=read_key label=read_label|default:"Lire cette face" extra_class="flashcard-deck__read-aloud" compact="true" only %}
+    {% endif %}
+    <span class="flashcard-deck__flip-hint">
+      Appuyez pour retourner
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 7h9.5a4.5 4.5 0 0 1 0 9H14"></path>
+        <path d="m9 3-4 4 4 4"></path>
+      </svg>
+    </span>
+  </span>
+</div>

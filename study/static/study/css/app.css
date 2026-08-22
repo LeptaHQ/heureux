@@ -957,14 +957,19 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   background: currentColor;
   content: "";
 }
-.progress-status--new { --progress-status-color: var(--primary); }
+.progress-status--new {
+  --progress-status-color: var(--primary);
+  --progress-status-symbol: "\25CB";
+}
 .progress-status--active {
   --batch-accent: var(--warning);
   --progress-status-color: var(--warning);
+  --progress-status-symbol: "\25D0";
 }
 .progress-status--done {
   --batch-accent: var(--success);
   --progress-status-color: var(--success);
+  --progress-status-symbol: "\2713";
 }
 .hero__actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.9rem; }
 .learning-hub {
@@ -2574,6 +2579,7 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   box-shadow: none;
 }
 .memory-question-check,
+.theme-vocabulary-learn-check,
 .subject-completion-check,
 .comprehension-completion-check {
   width: 2rem;
@@ -2582,6 +2588,7 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   justify-self: end;
 }
 .memory-question-check button,
+.theme-vocabulary-learn-check button,
 .subject-completion-check button,
 .comprehension-completion-check button {
   --icon-check-color: color-mix(in srgb, var(--success) 72%, var(--surface));
@@ -2605,6 +2612,7 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
     transform 0.16s ease;
 }
 .memory-question-check button::before,
+.theme-vocabulary-learn-check button::before,
 .subject-completion-check button::before,
 .comprehension-completion-check button::before {
   content: "";
@@ -2620,6 +2628,7 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
     box-shadow 0.16s ease;
 }
 .memory-question-check button:hover,
+.theme-vocabulary-learn-check button:hover,
 .subject-completion-check button:hover,
 .comprehension-completion-check button:hover {
   --icon-check-color: color-mix(in srgb, var(--success) 38%, transparent);
@@ -2627,23 +2636,27 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   transform: none;
 }
 .memory-question-check button:hover::before,
+.theme-vocabulary-learn-check button:hover::before,
 .subject-completion-check button:hover::before,
 .comprehension-completion-check button:hover::before {
   border-color: color-mix(in srgb, var(--success) 55%, var(--border));
   background: color-mix(in srgb, var(--success) 8%, var(--surface));
 }
 .memory-question-check button:focus-visible,
+.theme-vocabulary-learn-check button:focus-visible,
 .subject-completion-check button:focus-visible,
 .comprehension-completion-check button:focus-visible {
   outline: 0;
   box-shadow: none;
 }
 .memory-question-check button:focus-visible::before,
+.theme-vocabulary-learn-check button:focus-visible::before,
 .subject-completion-check button:focus-visible::before,
 .comprehension-completion-check button:focus-visible::before {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 20%, transparent);
 }
 .memory-question-check button[aria-disabled="true"],
+.theme-vocabulary-learn-check button:disabled,
 .subject-completion-check button:disabled,
 .comprehension-completion-check button:disabled {
   cursor: wait;
@@ -2651,6 +2664,7 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   transform: none;
 }
 .memory-question-check .ui-icon,
+.theme-vocabulary-learn-check .ui-icon,
 .subject-completion-check .ui-icon,
 .comprehension-completion-check .ui-icon {
   position: relative;
@@ -2659,6 +2673,7 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   height: 0.48rem;
 }
 .question-bank-questions li.is-complete .memory-question-check button,
+.theme-vocabulary-phrase.is-learned .theme-vocabulary-learn-check button,
 .subject-completion-check.is-complete button,
 .comprehension-completion-check.is-complete button {
   --icon-check-color: white;
@@ -2666,17 +2681,26 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   box-shadow: none;
 }
 .question-bank-questions li.is-complete .memory-question-check button::before,
+.theme-vocabulary-phrase.is-learned
+  .theme-vocabulary-learn-check
+  button::before,
 .subject-completion-check.is-complete button::before,
 .comprehension-completion-check.is-complete button::before {
   border-color: color-mix(in srgb, var(--success) 70%, var(--border));
   background: var(--success);
 }
 .question-bank-questions li.is-complete .memory-question-check button:focus-visible,
+.theme-vocabulary-phrase.is-learned
+  .theme-vocabulary-learn-check
+  button:focus-visible,
 .subject-completion-check.is-complete button:focus-visible,
 .comprehension-completion-check.is-complete button:focus-visible {
   box-shadow: none;
 }
 .question-bank-questions li.is-complete .memory-question-check button:focus-visible::before,
+.theme-vocabulary-phrase.is-learned
+  .theme-vocabulary-learn-check
+  button:focus-visible::before,
 .subject-completion-check.is-complete button:focus-visible::before,
 .comprehension-completion-check.is-complete button:focus-visible::before {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 24%, transparent);
@@ -3055,6 +3079,10 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   grid-column: 3;
   justify-self: end;
   margin: 0;
+}
+.notes-view-controls > .notes-recall {
+  grid-column: 1;
+  justify-self: start;
 }
 .notes-tab {
   flex: 1;
@@ -4124,6 +4152,13 @@ html[data-collection-view-mode="table"]
   .notes-view-controls > .collection-view-toolbar {
     grid-column: 2;
   }
+  .notes-view-controls > .notes-recall {
+    width: 100%;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: center;
+    justify-self: stretch;
+  }
   .collection-view-toolbar {
     justify-content: space-between;
   }
@@ -4717,6 +4752,29 @@ html[data-collection-view-mode="table"]
   border-top: 1px solid var(--border);
   background: var(--surface-2);
 }
+.form-dialog__paste-status {
+  min-height: 1.25em;
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.78rem;
+}
+.form-dialog__paste-status.is-error {
+  color: var(--danger);
+}
+.form-dialog__paste-close {
+  flex: 0 0 42px;
+  border-color: color-mix(in srgb, #7c3aed 32%, var(--border));
+  background: color-mix(in srgb, #7c3aed 10%, var(--surface));
+  color: #7c3aed;
+}
+.form-dialog__paste-close:hover {
+  border-color: color-mix(in srgb, #7c3aed 48%, var(--border));
+  background: color-mix(in srgb, #7c3aed 16%, var(--surface));
+}
+.form-dialog__paste-close:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
 .notes-form-field {
   display: grid;
   gap: 0.3rem;
@@ -4768,6 +4826,9 @@ html[data-collection-view-mode="table"]
   }
   .form-dialog__actions .btn {
     flex: 1;
+  }
+  .form-dialog__actions .form-dialog__paste-close {
+    flex: 0 0 42px;
   }
 }
 .annotations-section { margin-top: 1.8rem; }
@@ -5223,6 +5284,65 @@ html[data-collection-view-mode="table"]
   background: var(--tone-oral-soft);
   color: var(--tone-oral);
 }
+.read-aloud-action__icon {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--tone-oral-soft);
+  color: var(--tone-oral);
+}
+.read-aloud-action__icon svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.9;
+}
+.annotation-action .read-aloud-action__icon {
+  width: 36px;
+  height: 36px;
+}
+.read-aloud-action.is-reading .read-aloud-action__icon {
+  background: var(--tone-oral);
+  color: var(--primary-ink);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tone-oral) 14%, transparent);
+}
+.read-aloud-action.is-reading .read-aloud-action__icon svg {
+  animation: selection-read-pulse 1.1s ease-in-out infinite;
+}
+.read-aloud-action:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+.flashcard-deck__read-aloud,
+.phrase-read-aloud {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+}
+.flashcard-deck__read-aloud {
+  width: 36px;
+  height: 36px;
+}
+.flashcard-deck__read-aloud .read-aloud-action__icon {
+  width: 32px;
+  height: 32px;
+}
+.phrase-read-aloud {
+  width: 32px;
+  height: 32px;
+  margin: -0.3rem -0.35rem -0.3rem 0;
+}
+.phrase-read-aloud .read-aloud-action__icon {
+  width: 30px;
+  height: 30px;
+}
 .annotation-action.is-reading .annotation-action__icon--read {
   background: var(--tone-oral);
   color: var(--primary-ink);
@@ -5577,7 +5697,7 @@ html[data-collection-view-mode="table"]
   background: var(--primary-soft);
   text-decoration: none;
 }
-.annotation-study__face-switch {
+.flashcard-deck__face-switch {
   width: 190px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -5587,7 +5707,7 @@ html[data-collection-view-mode="table"]
   border-radius: 12px;
   background: var(--surface-2);
 }
-.annotation-study__face-switch button {
+.flashcard-deck__face-switch button {
   min-height: 38px;
   padding: 0.35rem 0.7rem;
   border: 0;
@@ -5600,12 +5720,12 @@ html[data-collection-view-mode="table"]
   cursor: pointer;
   touch-action: manipulation;
 }
-.annotation-study__face-switch button.is-active {
+.flashcard-deck__face-switch button.is-active {
   background: var(--surface);
   color: var(--primary);
   box-shadow: var(--shadow-sm);
 }
-.annotation-study__face-switch button:focus-visible {
+.flashcard-deck__face-switch button:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 1px;
 }
@@ -5633,7 +5753,7 @@ html[data-collection-view-mode="table"]
   box-shadow: var(--card-focus-ring);
 }
 .annotation-study__card:active { transform: scale(0.997); }
-.annotation-study__card-meta {
+.flashcard-deck__card-meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -5643,18 +5763,19 @@ html[data-collection-view-mode="table"]
   font-size: 0.72rem;
   font-weight: 700;
 }
-.annotation-study__face-label {
+.flashcard-deck__face-label {
   padding: 0.2rem 0.5rem;
   border-radius: 999px;
   background: var(--primary-soft);
   color: var(--primary);
 }
-.annotation-study__flip-hint {
+.flashcard-deck__meta-actions,
+.flashcard-deck__flip-hint {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
 }
-.annotation-study__flip-hint svg {
+.flashcard-deck__flip-hint svg {
   width: 15px;
   height: 15px;
   fill: none;
@@ -5801,18 +5922,18 @@ html[data-collection-view-mode="table"]
 .annotation-study__control--learned:hover {
   background: color-mix(in srgb, var(--success) 88%, #000);
 }
-.annotation-study__card {
+.flashcard-deck__card {
   touch-action: pan-y;
 }
-.annotation-study__card--swiping {
+.flashcard-deck__card--swiping {
   transition: none;
   will-change: transform;
 }
-.annotation-study__card--settle {
+.flashcard-deck__card--settle {
   transition: transform 160ms ease-out, opacity 160ms ease-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .annotation-study__card--settle { transition: none; }
+  .flashcard-deck__card--settle { transition: none; }
 }
 .annotation-study__button-label--short { display: none; }
 .annotation-study__done {
@@ -6448,6 +6569,10 @@ html[data-collection-view-mode="table"]
   justify-content: flex-end;
   margin-bottom: 0.7rem;
 }
+.flashcard-deck__study-toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
 
 .flashcard {
   background: var(--surface);
@@ -6465,7 +6590,7 @@ html[data-collection-view-mode="table"]
   min-height: 360px;
   padding: 0.85rem clamp(1.2rem, 4vw, 2.2rem) 1.5rem;
   cursor: pointer;
-  touch-action: manipulation;
+  touch-action: pan-y;
   -webkit-tap-highlight-color: transparent;
 }
 .review-flashcard:hover {
@@ -7034,7 +7159,16 @@ a.qrow:focus-visible {
   padding: 1rem 1.15rem;
   box-shadow: none;
 }
-.phrase__expr { font-family: var(--font-serif); font-size: 1.12rem; font-weight: 500; }
+.phrase__expr {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.55rem;
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  font-weight: 500;
+}
+.phrase__expr > :first-child { min-width: 0; }
 .phrase__cue { color: var(--text-soft); font-size: 0.9rem; margin-top: 0.15rem; }
 .phrase__ex { margin-top: 0.6rem; font-family: var(--font-serif); color: var(--text); }
 .phrase__ex mark { background: color-mix(in srgb, var(--accent) 32%, transparent); border-radius: 4px; padding: 0 0.12em; }
@@ -12633,17 +12767,17 @@ button.ce-choice:focus-visible .ce-choice__radio {
   .annotation-study__toolbar-actions {
     justify-content: space-between;
   }
-  .annotation-study__face-switch {
+  .flashcard-deck__face-switch {
     width: auto;
     min-width: 0;
     flex: 1;
   }
-  .annotation-study__face-switch button { min-height: 44px; }
+  .flashcard-deck__face-switch button { min-height: 44px; }
   .annotation-study__card {
     min-height: 300px;
     padding: 0.7rem 0.9rem 1.15rem;
   }
-  .annotation-study__flip-hint { font-size: 0.68rem; }
+  .flashcard-deck__flip-hint { font-size: 0.68rem; }
   .annotation-study__controls { gap: 0.38rem; }
   .annotation-study__grade { gap: 0.38rem; }
   .annotation-study__grade .btn,
@@ -13311,26 +13445,25 @@ html[data-collection-view-mode="table"]
 .theme-vocabulary-catalog__tools .collection-view-toolbar {
   margin: 0;
 }
-.theme-vocabulary-recall {
+.recall-controls {
   display: inline-flex;
   align-items: center;
   gap: 0.42rem;
-  padding-right: 0.7rem;
-  border-right: 1px solid var(--border);
 }
-.theme-vocabulary-recall[hidden] {
+.recall-controls[hidden],
+.recall-controls__options button[hidden] {
   display: none;
 }
-.theme-vocabulary-recall__label {
+.recall-controls__label {
   color: var(--text-faint);
   font-size: 0.76rem;
   font-weight: 700;
 }
-.theme-vocabulary-recall__options {
+.recall-controls__options {
   display: inline-flex;
   gap: 0.25rem;
 }
-.theme-vocabulary-recall__options button {
+.recall-controls__options button {
   min-height: 34px;
   padding: 0 0.65rem;
   border: 1px solid var(--border);
@@ -13342,44 +13475,41 @@ html[data-collection-view-mode="table"]
   font-size: 0.78rem;
   font-weight: 700;
 }
-.theme-vocabulary-recall__options button:hover {
+.recall-controls__options button:hover {
   border-color: var(--border-strong);
   color: var(--text);
 }
-.theme-vocabulary-recall__options button[aria-pressed="true"] {
+.recall-controls__options button[aria-pressed="true"] {
   border-color: color-mix(in srgb, var(--primary) 32%, var(--border));
   background: var(--primary-soft);
   color: var(--primary);
 }
-.theme-vocabulary-recall__options button:focus-visible {
+.recall-controls__options button:focus-visible {
   outline: 0;
   box-shadow: var(--card-focus-ring);
 }
-html:not([data-collection-view-mode="table"]) .theme-vocabulary-recall {
-  display: none;
+.theme-vocabulary-recall {
+  padding-right: 0.7rem;
+  border-right: 1px solid var(--border);
 }
-.theme-vocabulary-recall__content {
+[data-recall-content] {
   transition: opacity 0.16s ease;
 }
-html[data-collection-view-mode="table"]
-  [data-recall-column="french"]
-  [data-theme-vocabulary-recall-cell="french"]:not(.is-revealed),
-html[data-collection-view-mode="table"]
-  [data-recall-column="meaning"]
-  [data-theme-vocabulary-recall-cell="meaning"]:not(.is-revealed) {
+span[data-recall-content] {
+  display: inline-block;
+  max-width: 100%;
+}
+[data-recall-catalog][data-recall-column]
+  .is-recall-target:not(.is-revealed) {
   cursor: pointer;
   user-select: none;
 }
-html[data-collection-view-mode="table"]
-  [data-recall-column="french"]
-  [data-theme-vocabulary-recall-cell="french"]:not(.is-revealed)
-  .theme-vocabulary-recall__content,
-html[data-collection-view-mode="table"]
-  [data-recall-column="meaning"]
-  [data-theme-vocabulary-recall-cell="meaning"]:not(.is-revealed)
-  .theme-vocabulary-recall__content {
+[data-recall-catalog][data-recall-column]
+  .is-recall-target:not(.is-revealed)
+  [data-recall-content] {
   filter: blur(5px);
   opacity: 0.7;
+  pointer-events: none;
 }
 .is-recall-target:hover {
   background: color-mix(in srgb, var(--primary-soft) 42%, var(--surface));
@@ -13435,7 +13565,21 @@ html[data-collection-view-mode="table"]
   white-space: nowrap;
 }
 .theme-vocabulary-phrase {
+  position: relative;
+  padding-right: 3.35rem;
   border-top: 3px solid color-mix(in srgb, var(--theme-vocabulary-accent, var(--primary)) 58%, transparent);
+}
+.theme-vocabulary-learn-check {
+  position: absolute;
+  z-index: 2;
+  top: 0.55rem;
+  right: 0.55rem;
+  margin: 0;
+}
+html[data-collection-view-mode="table"]
+  .theme-vocabulary-phrase
+  .phrase__ex {
+  padding-right: 3.5rem;
 }
 @media (max-width: 640px) {
   .theme-vocabulary-catalog__tools {
@@ -14989,6 +15133,10 @@ html[data-collection-view-mode="table"]
 @media (max-width: 640px) {
   .t1-table__theme { white-space: normal; }
   .t1-table-groups__head { display: none; }
+  .t1-table-shell,
+  .tache-two-batch-table-shell {
+    overflow-x: hidden;
+  }
   .tache-two-subjects .t1-table {
     width: 100%;
     min-width: 0;
@@ -14999,21 +15147,197 @@ html[data-collection-view-mode="table"]
     padding-inline: 0.65rem;
   }
   .tache-two-subjects .t1-table th:nth-child(2),
-  .tache-two-subjects .t1-table td:nth-child(2) {
-    width: 3.8rem;
-  }
+  .tache-two-subjects .t1-table td:nth-child(2),
   .tache-two-subjects .t1-table__questions-column {
-    width: 3.8rem;
+    display: none;
   }
   .tache-two-subjects .t1-table th:nth-child(3),
   .tache-two-subjects .t1-table td:nth-child(3) {
-    width: 10.5rem;
+    width: 5rem;
   }
   .tache-two-subjects .t1-table__status-column {
-    width: 10.5rem;
+    width: 5rem;
+  }
+  .tache-two-subjects .t1-table th:nth-child(3),
+  .ee-t1-page .t1-table--writing th:nth-child(3) {
+    font-size: 0;
+  }
+  .tache-two-subjects .t1-table th:nth-child(3)::after,
+  .ee-t1-page .t1-table--writing th:nth-child(3)::after {
+    content: "État";
+    font-size: 0.72rem;
   }
   .tache-two-subjects .t1-table__subject {
     overflow-wrap: anywhere;
+  }
+  .tache-two-subjects .t1-table__subject-copy {
+    align-items: flex-start;
+  }
+  .t1-table__progress {
+    width: 100%;
+    justify-content: flex-end;
+    gap: 0.15rem;
+  }
+  .ee-t1-page .t1-table--writing {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+  }
+  .ee-t1-page .t1-table--writing th:nth-child(2),
+  .ee-t1-page .t1-table--writing td:nth-child(2),
+  .ee-t1-page .t1-table--writing th:nth-child(4),
+  .ee-t1-page .t1-table--writing td:nth-child(4),
+  .ee-t1-page .t1-table__content-column,
+  .ee-t1-page .t1-table__versions-column {
+    display: none;
+  }
+  .ee-t1-page .t1-table--writing th:nth-child(3),
+  .ee-t1-page .t1-table--writing td:nth-child(3),
+  .ee-t1-page .t1-table__writing-status-column {
+    width: 5rem;
+  }
+  .t1-table [data-subject-progress-status],
+  .t1-table [data-writing-sujet-progress-status],
+  .tache-two-batch-table [data-subject-progress-status],
+  html[data-collection-view-mode="table"]
+    [data-collection-view]
+    [data-subject-progress-status],
+  html[data-collection-view-mode="table"]
+    [data-collection-view]
+    [data-writing-sujet-progress-status],
+  html[data-collection-view-mode="table"]
+    [data-collection-view]
+    [data-comprehension-progress-status],
+  .tache-two-batch-table__month-progress .progress-status,
+  .tache-two-batch-table__progress .progress-status {
+    width: 1.75rem;
+    height: 1.75rem;
+    display: inline-flex;
+    justify-content: center;
+    gap: 0;
+    overflow: hidden;
+    padding: 0;
+    border-radius: 50%;
+    background: color-mix(
+      in srgb,
+      var(--progress-status-color) 12%,
+      var(--surface)
+    );
+    color: var(--progress-status-color);
+    font-size: 0;
+    box-shadow:
+      inset 0 0 0 1px color-mix(
+        in srgb,
+        var(--progress-status-color) 28%,
+        transparent
+      ),
+      0 0 0 3px color-mix(
+        in srgb,
+        var(--progress-status-color) 7%,
+        transparent
+      );
+  }
+  .t1-table [data-subject-progress-status]::before,
+  .t1-table [data-writing-sujet-progress-status]::before,
+  .tache-two-batch-table [data-subject-progress-status]::before,
+  html[data-collection-view-mode="table"]
+    [data-collection-view]
+    [data-subject-progress-status]::before,
+  html[data-collection-view-mode="table"]
+    [data-collection-view]
+    [data-writing-sujet-progress-status]::before,
+  html[data-collection-view-mode="table"]
+    [data-collection-view]
+    [data-comprehension-progress-status]::before,
+  .tache-two-batch-table__month-progress .progress-status::before,
+  .tache-two-batch-table__progress .progress-status::before {
+    width: 0.78rem;
+    height: 0.78rem;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    content: var(--progress-status-symbol);
+    font-size: 0.78rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .tache-two-batch-table {
+    min-width: 0;
+  }
+  .tache-two-batch-table:not(.tache-two-batch-table--ee)
+    :is(
+      col:nth-child(3),
+      col:nth-child(5),
+      thead th:nth-child(3),
+      thead th:nth-child(5),
+      .tache-two-batch-table__row > *:nth-child(3),
+      .tache-two-batch-table__row > *:nth-child(5)
+    ) {
+    display: none;
+  }
+  .tache-two-batch-table:not(.tache-two-batch-table--ee)
+    .tache-two-batch-table__batch-column {
+    width: 26%;
+  }
+  .tache-two-batch-table:not(.tache-two-batch-table--ee)
+    .tache-two-batch-table__subject-column {
+    width: 31%;
+  }
+  .tache-two-batch-table:not(.tache-two-batch-table--ee)
+    .tache-two-batch-table__progress-column {
+    width: 43%;
+  }
+  .tache-two-batch-table--ee
+    :is(
+      col:nth-child(1),
+      col:nth-child(4),
+      thead th:nth-child(1),
+      thead th:nth-child(4),
+      .tache-two-batch-table__row > *:nth-child(1),
+      .tache-two-batch-table__row > *:nth-child(4)
+    ) {
+    display: none;
+  }
+  .tache-two-batch-table--ee .tache-two-batch-table__subject-column {
+    width: auto;
+  }
+  .tache-two-batch-table--ee .tache-two-batch-table__progress-column {
+    width: 5rem;
+  }
+  .tache-two-batch-table--ee thead th:nth-child(3) {
+    font-size: 0;
+  }
+  .tache-two-batch-table--ee thead th:nth-child(3)::after {
+    content: "État";
+    font-size: 0.72rem;
+  }
+  .tache-two-batch-table__month-toggle {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.5rem;
+    padding: 0.7rem;
+  }
+  .tache-two-batch-table__month-copy > span {
+    font-size: 0.68rem;
+  }
+  .tache-two-batch-table__month-progress {
+    gap: 0.4rem;
+    font-size: 0.7rem;
+  }
+  .tache-two-batch-table__row > th,
+  .tache-two-batch-table__row > td {
+    height: auto;
+    min-height: 68px;
+    padding: 0.65rem;
+  }
+  .tache-two-batch-table__progress .tache-two-progress-summary__copy {
+    justify-content: flex-end;
+  }
+  .tache-two-batch-table__progress
+    .tache-two-progress-summary__unit,
+  .mobile-table-detail {
+    display: none;
   }
   .t1-table-group > .t1-theme__head {
     grid-template-columns: 1rem 1.85rem minmax(0, 1fr);

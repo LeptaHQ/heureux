@@ -20,6 +20,7 @@ from .models import (
     ReviewSession,
     Settings,
     Theme,
+    ThemeVocabularyProgress,
     WritingSujetCompletion,
 )
 
@@ -72,6 +73,13 @@ class ComprehensionTestCompletionAdmin(admin.ModelAdmin):
 class WritingSujetCompletionAdmin(admin.ModelAdmin):
     list_display = ("user", "sujet", "completed_at")
     list_filter = ("sujet__task", "sujet__category")
+    readonly_fields = ("completed_at",)
+
+
+@admin.register(ThemeVocabularyProgress)
+class ThemeVocabularyProgressAdmin(admin.ModelAdmin):
+    list_display = ("user", "phrase", "completed_at")
+    list_filter = ("phrase__category",)
     readonly_fields = ("completed_at",)
 
 

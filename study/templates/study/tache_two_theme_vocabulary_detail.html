@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}{{ theme_data.name }} · Vocabulaire par thème · Heureux{% endblock %}
 
 {% block content %}
@@ -21,6 +22,7 @@
       <span><b>{{ phrase_count }}</b> fiches</span>
       <span><b>{{ review_batches|length }}</b> parcours guidés</span>
       <span><b>{{ summary.completed }}/{{ summary.total }}</b> lots terminés</span>
+      <span><b data-theme-vocabulary-learned-count>{{ learned_summary.completed }}</b>/{{ learned_summary.total }} fiches apprises</span>
     </div>
   </div>
   <div class="phrase-category-hero__actions">
@@ -47,23 +49,53 @@
 </section>
 {% endif %}
 
-<section class="phrase-catalog theme-vocabulary-catalog" style="--theme-vocabulary-accent: {{ theme.color }};" aria-labelledby="theme-vocabulary-catalog-title" data-theme-vocabulary-recall-catalog>
+<section
+  class="phrase-catalog theme-vocabulary-catalog"
+  id="theme-vocabulary-recall-catalog"
+  style="--theme-vocabulary-accent: {{ theme.color }};"
+  aria-labelledby="theme-vocabulary-catalog-title"
+  data-theme-vocabulary-recall-catalog
+  data-recall-catalog
+  data-theme-vocabulary-progress
+>
   <div class="section-heading">
     <div>
       <p class="eyebrow">Répertoire complet</p>
       <h2 id="theme-vocabulary-catalog-title">Voir les fiches en contexte</h2>
     </div>
     <div class="theme-vocabulary-catalog__tools">
-      <div class="theme-vocabulary-recall" data-theme-vocabulary-recall hidden>
-        <span class="theme-vocabulary-recall__label">Flouter</span>
-        <div class="theme-vocabulary-recall__options" role="group" aria-label="Colonne à flouter">
-          <button type="button" data-theme-vocabulary-recall-column="french" aria-pressed="false" aria-label="Flouter la colonne Français">Français</button>
-          <button type="button" data-theme-vocabulary-recall-column="meaning" aria-pressed="false" aria-label="Flouter la colonne Sens">Sens</button>
+      <div
+        class="recall-controls theme-vocabulary-recall"
+        data-theme-vocabulary-recall
+        data-recall-controls="theme-vocabulary-recall-catalog"
+        hidden
+      >
+        <span class="recall-controls__label">Flouter</span>
+        <div class="recall-controls__options" role="group" aria-label="Contenu à flouter">
+          <button
+            type="button"
+            data-theme-vocabulary-recall-column="french"
+            data-recall-column="french"
+            data-recall-label="le français"
+            aria-pressed="false"
+          >Français</button>
+          <button
+            type="button"
+            data-theme-vocabulary-recall-column="meaning"
+            data-recall-column="meaning"
+            data-recall-label="le sens"
+            aria-pressed="false"
+          >Sens</button>
         </div>
       </div>
       {% include "study/partials/collection_view_toggle.html" %}
     </div>
   </div>
+  <p
+    class="memory-progress-error hidden"
+    role="alert"
+    data-theme-vocabulary-progress-error
+  ></p>
 
   {% for phrase_section in phrase_sections %}
     <section class="phrase-group theme-vocabulary-group" aria-labelledby="theme-vocabulary-group-{{ forloop.counter }}">
@@ -78,10 +110,52 @@
       <div class="grid grid--phrases collection-table collection-table--phrases" data-collection-view="adaptive">
         {% include "study/partials/collection_table_header.html" with variant="phrases" column_1="Français" column_2="Sens" column_3="Exemple en contexte" only %}
         {% for phrase in phrase_section.phrases %}
-          <article class="phrase card theme-vocabulary-phrase" data-collection-item id="phrase-{{ phrase.phrase_id }}">
-            <div class="phrase__expr" data-theme-vocabulary-recall-cell="french"><span class="theme-vocabulary-recall__content">{{ phrase.expression }}</span></div>
-            <div class="phrase__cue" data-theme-vocabulary-recall-cell="meaning"><span class="theme-vocabulary-recall__content">{{ phrase.english_cue }}</span></div>
-            <p class="phrase__ex">{{ phrase.example_html|safe }}</p>
+          <article
+            class="phrase card theme-vocabulary-phrase{% if phrase.is_explicitly_learned %} is-learned{% endif %}"
+            data-collection-item
+            data-theme-vocabulary-phrase
+            data-read-aloud-scope
+            id="phrase-{{ phrase.phrase_id }}"
+          >
+            <form
+              class="theme-vocabulary-learn-check"
+              method="post"
+              action="{% url 'study:tache_two_theme_vocabulary_progress' theme_data.slug phrase.pk %}"
+              data-theme-vocabulary-progress-form
+            >
+              {% csrf_token %}
+              <input
+                type="hidden"
+                name="completed"
+                value="{% if phrase.is_explicitly_learned %}0{% else %}1{% endif %}"
+                data-theme-vocabulary-completed-input
+              >
+              <button
+                type="submit"
+                role="checkbox"
+                data-phrase-text="{{ phrase.expression }}"
+                aria-checked="{{ phrase.is_explicitly_learned|yesno:'true,false' }}"
+                aria-label="{% if phrase.is_explicitly_learned %}Marquer comme non apprise : {% else %}Marquer comme apprise : {% endif %}{{ phrase.expression }}"
+                title="{% if phrase.is_explicitly_learned %}Fiche apprise{% else %}Marquer comme apprise{% endif %}"
+              >
+                {% include "study/partials/ui_icon.html" with name="check" only %}
+              </button>
+            </form>
+            <div class="phrase__expr">
+              <span
+                data-theme-vocabulary-recall-cell="french"
+                data-recall-cell="french"
+                data-recall-entry="theme-vocabulary-french-{{ phrase.phrase_id }}"
+              ><span class="recall-content theme-vocabulary-recall__content" data-recall-content data-read-aloud-text lang="fr">{{ phrase.expression }}</span></span>
+              {% include "study/partials/read_aloud_button.html" with key=phrase.phrase_id label="Lire le français" extra_class="phrase-read-aloud" compact="true" only %}
+            </div>
+            <div
+              class="phrase__cue"
+              data-theme-vocabulary-recall-cell="meaning"
+              data-recall-cell="meaning"
+              data-recall-entry="theme-vocabulary-meaning-{{ phrase.phrase_id }}"
+            ><span class="recall-content theme-vocabulary-recall__content" data-recall-content>{{ phrase.english_cue }}</span></div>
+            <p class="phrase__ex" data-read-aloud-text lang="fr">{{ phrase.example_html|safe }}</p>
             {% if phrase.note %}<p class="phrase__note">{{ phrase.note }}</p>{% endif %}
           </article>
         {% empty %}
@@ -91,4 +165,9 @@
     </section>
   {% endfor %}
 </section>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'study/js/theme-vocabulary-progress.js' %}?v=2"></script>
 {% endblock %}

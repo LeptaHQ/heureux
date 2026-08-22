@@ -1,0 +1,20 @@
+<button
+  class="linkbtn read-aloud-action{% if extra_class %} {{ extra_class }}{% endif %}"
+  type="button"
+  aria-label="{{ label|default:'Lire à voix haute' }}"
+  aria-pressed="false"
+  title="{{ label|default:'Lire à voix haute' }}"
+  data-read-aloud
+  data-read-aloud-label="{{ label|default:'Lire à voix haute' }}"
+  {% if key %}data-read-aloud-key="{{ key }}"{% endif %}
+  {% if target %}data-read-aloud-target="{{ target }}"{% endif %}
+  data-flashcard-control
+>
+  <span class="read-aloud-action__icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24">
+      <path d="M4 10v4h4l5 4V6l-5 4z"></path>
+      <path d="M16 9.2a4 4 0 0 1 0 5.6M18.5 6.8a7.4 7.4 0 0 1 0 10.4"></path>
+    </svg>
+  </span>
+  <span class="{% if compact %}sr-only{% endif %}" data-read-aloud-button-label>{{ label|default:"Lire à voix haute" }}</span>
+</button>

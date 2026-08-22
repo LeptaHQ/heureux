@@ -52,6 +52,7 @@ from ..models import (
     ReviewLog,
     ReviewSession,
     Settings,
+    ThemeVocabularyProgress,
     WritingSujetCompletion,
 )
 
@@ -340,6 +341,7 @@ def reset_progress(request):
         ComprehensionTestCompletion.objects.filter(user=request.user).delete()
         WritingSujetCompletion.objects.filter(user=request.user).delete()
         MemoryQuestionProgress.objects.filter(user=request.user).delete()
+        ThemeVocabularyProgress.objects.filter(user=request.user).delete()
         _save_review_session(session, {}, clear_pass=True)
     return redirect(reverse("study:settings") + "?reset=1")
 
@@ -482,7 +484,7 @@ def export_account(request):
     settings = Settings.load(request.user)
     payload = {
         "format": "heureux-account-export",
-        "version": 4,
+        "version": 5,
         "exported_at": timezone.now(),
         "account": {
             "username": request.user.get_username(),
@@ -553,6 +555,17 @@ def export_account(request):
             for item in MemoryQuestionProgress.objects.filter(
                 user=request.user
             ).order_by("memory_number", "completed_at", "pk")
+        ],
+        "theme_vocabulary_progress": [
+            {
+                "phrase_id": item.phrase.phrase_id,
+                "completed_at": item.completed_at,
+            }
+            for item in ThemeVocabularyProgress.objects.filter(
+                user=request.user
+            )
+            .select_related("phrase")
+            .order_by("completed_at", "pk")
         ],
     }
     response = JsonResponse(

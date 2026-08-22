@@ -42,6 +42,7 @@ from ..models import (
     ReviewLog,
     Task,
     Theme,
+    ThemeVocabularyProgress,
     WritingSujet,
     WritingSujetCompletion,
 )
@@ -1245,6 +1246,14 @@ def tache_two_theme_vocabulary_detail(request, theme_slug):
         .select_related("category")
         .order_by("order", "pk")
     )
+    learned_phrase_ids = set(
+        ThemeVocabularyProgress.objects.filter(
+            user=request.user,
+            phrase_id__in=[phrase.pk for phrase in phrases],
+        ).values_list("phrase_id", flat=True)
+    )
+    for phrase in phrases:
+        phrase.is_explicitly_learned = phrase.pk in learned_phrase_ids
     phrases_by_category = {
         section["category"]: [] for section in THEME_VOCABULARY_SECTIONS
     }
@@ -1276,6 +1285,11 @@ def tache_two_theme_vocabulary_detail(request, theme_slug):
             "theme": theme,
             "theme_data": theme_data,
             "phrase_count": len(phrases),
+            "learned_summary": progress_summary(
+                total=len(phrases),
+                started=len(learned_phrase_ids),
+                completed=len(learned_phrase_ids),
+            ),
             "phrase_sections": phrase_sections,
             "review_batches": batches,
             "summary": _theme_vocabulary_batch_summary(batches),
@@ -1284,6 +1298,64 @@ def tache_two_theme_vocabulary_detail(request, theme_slug):
             ),
             "mixed_review_url": review_url(scope),
         },
+    )
+
+
+@require_POST
+def tache_two_theme_vocabulary_progress(request, theme_slug, phrase_pk):
+    task = _route_task("eo", "tache-2")
+    theme = get_object_or_404(
+        Theme,
+        task=task,
+        slug=f"tache-2-{theme_slug}",
+        is_active=True,
+    )
+    phrase = get_object_or_404(
+        _tache_two_theme_vocabulary_phrases(task, theme),
+        pk=phrase_pk,
+    )
+    completed = request.POST.get("completed")
+    if completed not in {"0", "1"}:
+        message = "État d’apprentissage invalide."
+        if request.headers.get("X-Requested-With") == "fetch":
+            return JsonResponse({"error": message}, status=400)
+        return HttpResponseBadRequest(message)
+
+    if completed == "1":
+        ThemeVocabularyProgress.objects.get_or_create(
+            user=request.user,
+            phrase=phrase,
+        )
+    else:
+        ThemeVocabularyProgress.objects.filter(
+            user=request.user,
+            phrase=phrase,
+        ).delete()
+
+    phrase_ids = _tache_two_theme_vocabulary_phrases(
+        task,
+        theme,
+    ).values_list("pk", flat=True)
+    total = phrase_ids.count()
+    learned = ThemeVocabularyProgress.objects.filter(
+        user=request.user,
+        phrase_id__in=phrase_ids,
+    ).count()
+    if request.headers.get("X-Requested-With") == "fetch":
+        return JsonResponse(
+            {
+                "completed": completed == "1",
+                "phrase_id": phrase.phrase_id,
+                "learned": learned,
+                "total": total,
+            }
+        )
+    return redirect(
+        reverse(
+            "study:tache_two_theme_vocabulary_detail",
+            args=[theme_slug],
+        )
+        + f"#phrase-{phrase.phrase_id}"
     )
 
 

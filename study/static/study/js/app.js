@@ -84,130 +84,199 @@
     window.addEventListener("hashchange", scrollActiveAnnotationAnchor);
   })();
 
-  /* ---------- Theme vocabulary table recall ---------- */
+  /* ---------- Vocabulary recall ---------- */
   (function () {
-    var controls = document.querySelector("[data-theme-vocabulary-recall]");
-    var catalog = document.querySelector(
-      "[data-theme-vocabulary-recall-catalog]"
+    var controls = document.querySelector("[data-recall-controls]");
+    if (!controls) return;
+
+    var catalog = document.getElementById(
+      controls.getAttribute("data-recall-controls")
     );
-    if (!controls || !catalog) return;
+    if (!catalog) return;
 
     var buttons = Array.from(
-      controls.querySelectorAll("[data-theme-vocabulary-recall-column]")
+      controls.querySelectorAll("[data-recall-column]")
     );
-    var cells = Array.from(
-      catalog.querySelectorAll("[data-theme-vocabulary-recall-cell]")
-    );
-    var labels = {
-      french: "français",
-      meaning: "sens",
-    };
+    var interactiveSelector =
+      "a, button, input, select, textarea, [contenteditable='true']";
     var activeColumn = "";
 
-    function isTableView() {
-      return root.getAttribute("data-collection-view-mode") === "table";
+    function currentCells() {
+      return Array.from(catalog.querySelectorAll("[data-recall-cell]"));
     }
 
-    function cellText(cell) {
-      var content = cell.querySelector(".theme-vocabulary-recall__content");
-      return content ? content.textContent.trim() : cell.textContent.trim();
+    function cellColumn(cell) {
+      return cell.dataset.recallCell || "";
+    }
+
+    function buttonForColumn(column) {
+      return (
+        buttons.find(function (button) {
+          return button.dataset.recallColumn === column;
+        }) || null
+      );
+    }
+
+    function columnLabel(column) {
+      var button = buttonForColumn(column);
+      return button ? button.dataset.recallLabel : "le contenu";
+    }
+
+    function entryCells(cell) {
+      var entry = cell.dataset.recallEntry;
+      if (!entry) return [cell];
+      return currentCells().filter(function (candidate) {
+        return candidate.dataset.recallEntry === entry;
+      });
+    }
+
+    function entryText(cell) {
+      var values = [];
+      entryCells(cell).forEach(function (candidate) {
+        var content = candidate.querySelector("[data-recall-content]");
+        var value = (content || candidate).textContent.trim();
+        if (value && !values.includes(value)) values.push(value);
+      });
+      var value = values.join(" — ");
+      return value.length > 180 ? value.slice(0, 177) + "…" : value;
+    }
+
+    function setContentHidden(cell, hidden) {
+      var content = cell.querySelector("[data-recall-content]");
+      if (!content) return;
+      content.toggleAttribute("inert", hidden);
+      if (hidden) {
+        content.setAttribute("aria-hidden", "true");
+      } else {
+        content.removeAttribute("aria-hidden");
+      }
     }
 
     function syncCell(cell) {
-      var column = cell.dataset.themeVocabularyRecallCell;
-      var interactive = isTableView() && column === activeColumn;
+      var column = cellColumn(cell);
+      var interactive = column === activeColumn;
+      var revealed =
+        interactive &&
+        entryCells(cell).some(function (candidate) {
+          return candidate.classList.contains("is-revealed");
+        });
+
       cell.classList.toggle("is-recall-target", interactive);
+      cell.classList.toggle("is-revealed", revealed);
       if (!interactive) {
         cell.removeAttribute("role");
         cell.removeAttribute("tabindex");
         cell.removeAttribute("aria-pressed");
         cell.removeAttribute("aria-label");
         cell.removeAttribute("title");
+        setContentHidden(cell, false);
         return;
       }
 
-      var revealed = cell.classList.contains("is-revealed");
-      var label = labels[column];
       cell.setAttribute("role", "button");
       cell.setAttribute("tabindex", "0");
       cell.setAttribute("aria-pressed", revealed ? "true" : "false");
       cell.setAttribute(
         "aria-label",
         revealed
-          ? "Masquer le " + label + " : " + cellText(cell)
-          : "Révéler le " + label + " de cette fiche"
+          ? "Masquer " + columnLabel(column) + " : " + entryText(cell)
+          : "Révéler " + columnLabel(column) + " de cette fiche"
       );
       cell.setAttribute(
         "title",
         revealed ? "Cliquer pour masquer" : "Cliquer pour révéler"
       );
+      setContentHidden(cell, !revealed);
     }
 
     function syncRecallMode() {
+      var cells = currentCells();
+      var availableColumns = new Set(
+        cells.map(function (cell) {
+          return cellColumn(cell);
+        })
+      );
+
+      if (activeColumn && !availableColumns.has(activeColumn)) {
+        activeColumn = "";
+      }
       if (activeColumn) {
         catalog.setAttribute("data-recall-column", activeColumn);
       } else {
         catalog.removeAttribute("data-recall-column");
       }
+
       buttons.forEach(function (button) {
-        var column = button.dataset.themeVocabularyRecallColumn;
-        var active = column === activeColumn;
-        var columnLabel = column === "french" ? "Français" : "Sens";
+        var column = button.dataset.recallColumn;
+        var available = availableColumns.has(column);
+        var active = available && column === activeColumn;
+        button.hidden = !available;
         button.setAttribute("aria-pressed", active ? "true" : "false");
         button.setAttribute(
           "aria-label",
           active
-            ? "Afficher toute la colonne " + columnLabel
-            : "Flouter la colonne " + columnLabel
+            ? "Afficher tous les éléments " + button.textContent.trim()
+            : "Flouter tous les éléments " + button.textContent.trim()
         );
       });
+      controls.hidden = !buttons.some(function (button) {
+        return !button.hidden;
+      });
       cells.forEach(syncCell);
+      if (window.HeureuxReadAloud) {
+        window.HeureuxReadAloud.refresh(catalog);
+      }
     }
 
     function setRecallColumn(column) {
       activeColumn = column === activeColumn ? "" : column;
-      cells.forEach(function (cell) {
+      currentCells().forEach(function (cell) {
         cell.classList.remove("is-revealed");
       });
       syncRecallMode();
     }
 
+    function hasInteractiveOrigin(target, cell) {
+      if (!target || !target.closest) return false;
+      var control = target.closest(interactiveSelector);
+      return Boolean(control && control !== cell && cell.contains(control));
+    }
+
     function toggleCell(cell) {
-      if (
-        !isTableView()
-        || cell.dataset.themeVocabularyRecallCell !== activeColumn
-      ) {
-        return;
-      }
-      cell.classList.toggle("is-revealed");
-      syncCell(cell);
+      if (cellColumn(cell) !== activeColumn) return;
+      var reveal = !cell.classList.contains("is-revealed");
+      entryCells(cell).forEach(function (candidate) {
+        candidate.classList.toggle("is-revealed", reveal);
+      });
+      syncRecallMode();
     }
 
     buttons.forEach(function (button) {
       button.addEventListener("click", function () {
-        setRecallColumn(button.dataset.themeVocabularyRecallColumn);
+        setRecallColumn(button.dataset.recallColumn);
       });
     });
     catalog.addEventListener("click", function (event) {
-      var cell = event.target.closest("[data-theme-vocabulary-recall-cell]");
+      var cell = event.target.closest("[data-recall-cell]");
       if (!cell || !catalog.contains(cell)) return;
+      if (hasInteractiveOrigin(event.target, cell)) return;
       var selection = window.getSelection();
       if (selection && !selection.isCollapsed) return;
       toggleCell(cell);
     });
     catalog.addEventListener("keydown", function (event) {
       if (event.key !== "Enter" && event.key !== " ") return;
-      var cell = event.target.closest("[data-theme-vocabulary-recall-cell]");
+      var cell = event.target.closest("[data-recall-cell]");
       if (!cell || !catalog.contains(cell)) return;
+      if (hasInteractiveOrigin(event.target, cell)) return;
       event.preventDefault();
       toggleCell(cell);
     });
 
-    controls.hidden = false;
     syncRecallMode();
-    new MutationObserver(syncRecallMode).observe(root, {
-      attributes: true,
-      attributeFilter: ["data-collection-view-mode"],
+    new MutationObserver(syncRecallMode).observe(catalog, {
+      childList: true,
+      subtree: true,
     });
   })();
 
@@ -384,6 +453,134 @@
         }
       });
     });
+
+    var createDialog = document.getElementById("note-create-dialog");
+    var createForm = createDialog
+      ? createDialog.querySelector(".form-dialog__form")
+      : null;
+    var createBody = createForm
+      ? createForm.querySelector("textarea[name='body']")
+      : null;
+    var createSubmit = createForm
+      ? createForm.querySelector("button[type='submit']")
+      : null;
+    var createPasteClose = createForm
+      ? createForm.querySelector("[data-note-dialog-paste-close]")
+      : null;
+    var createPasteStatus = createForm
+      ? createForm.querySelector("[data-note-dialog-paste-status]")
+      : null;
+    var createPasteOperation = 0;
+
+    function setCreatePasteStatus(message, isError) {
+      if (!createPasteStatus) return;
+      createPasteStatus.textContent = message || "";
+      createPasteStatus.hidden = !message;
+      createPasteStatus.classList.toggle("is-error", Boolean(isError));
+    }
+
+    function insertIntoCreateBody(text) {
+      var start = createBody.selectionStart;
+      var end = createBody.selectionEnd;
+      var retainedLength = createBody.value.length - (end - start);
+      var available =
+        createBody.maxLength >= 0
+          ? Math.max(createBody.maxLength - retainedLength, 0)
+          : text.length;
+      var insertion = text.slice(0, available);
+      if (!insertion) return 0;
+      createBody.value =
+        createBody.value.slice(0, start)
+        + insertion
+        + createBody.value.slice(end);
+      var cursor = start + insertion.length;
+      createBody.setSelectionRange(cursor, cursor);
+      createBody.dispatchEvent(new Event("input", { bubbles: true }));
+      return insertion.length;
+    }
+
+    function resetCreatePasteState() {
+      createPasteOperation += 1;
+      createPasteClose.disabled = false;
+      createSubmit.disabled = false;
+      setCreatePasteStatus("", false);
+    }
+
+    if (
+      createForm &&
+      createBody &&
+      createSubmit &&
+      createPasteClose &&
+      createPasteStatus
+    ) {
+      createDialog.addEventListener("close", resetCreatePasteState);
+      createPasteClose.addEventListener("click", function () {
+        if (createPasteClose.disabled) return;
+        if (!navigator.clipboard || !navigator.clipboard.readText) {
+          setCreatePasteStatus(
+            "Collage automatique indisponible. Utilisez ⌘V ou Ctrl+V.",
+            true
+          );
+          createBody.focus({ preventScroll: true });
+          return;
+        }
+
+        var operation = ++createPasteOperation;
+        createPasteClose.disabled = true;
+        createSubmit.disabled = true;
+        setCreatePasteStatus("Lecture du presse-papiers…", false);
+        Promise.resolve()
+          .then(function () {
+            return navigator.clipboard.readText();
+          })
+          .then(function (text) {
+            if (
+              !createDialog.open ||
+              operation !== createPasteOperation
+            ) {
+              return;
+            }
+            if (!text) {
+              throw new Error("Le presse-papiers est vide.");
+            }
+            var inserted = insertIntoCreateBody(text);
+            if (!inserted) {
+              throw new Error(
+                "La note a atteint sa longueur maximale."
+              );
+            }
+            setCreatePasteStatus(
+              inserted < text.length
+                ? "Texte collé jusqu’à la limite. Enregistrement…"
+                : "Texte collé. Enregistrement…",
+              false
+            );
+            createForm.requestSubmit(createSubmit);
+          })
+          .catch(function (error) {
+            if (
+              !createDialog.open ||
+              operation !== createPasteOperation
+            ) {
+              return;
+            }
+            createPasteClose.disabled = false;
+            createSubmit.disabled = false;
+            var knownMessages = [
+              "Le presse-papiers est vide.",
+              "La note a atteint sa longueur maximale.",
+            ];
+            setCreatePasteStatus(
+              error && knownMessages.includes(error.message)
+                ? error.message
+                : "Impossible d’accéder au presse-papiers. "
+                  + "Utilisez ⌘V ou Ctrl+V.",
+              true
+            );
+            createBody.focus({ preventScroll: true });
+          });
+      });
+    }
 
     var editDialog = document.getElementById("note-edit-dialog");
     var editForm = editDialog
@@ -1325,150 +1522,7 @@
     if (isIOS()) { installBtn.hidden = false; }
   })();
 
-  /* ---------- Shared French speech ---------- */
-  var frenchSpeech = (function () {
-    var synthesis = window.speechSynthesis;
-    var Utterance = window.SpeechSynthesisUtterance;
-    var frenchVoices = [];
-    var feminineVoiceNames = [
-      "amelie",
-      "audrey",
-      "aurelie",
-      "caroline",
-      "celine",
-      "charlotte",
-      "chloe",
-      "claire",
-      "denise",
-      "elise",
-      "eloise",
-      "francoise",
-      "hortense",
-      "julie",
-      "lea",
-      "manon",
-      "marie",
-      "sandrine",
-      "sylvie",
-      "valerie",
-      "virginie",
-      "vivienne"
-    ];
-    var qualityVoiceNames = [
-      "premium",
-      "enhanced",
-      "neural",
-      "natural",
-      "wavenet"
-    ];
-
-    function normalizedVoiceName(voice) {
-      return ((voice && voice.name) || "")
-        .concat(" ", (voice && voice.voiceURI) || "")
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase();
-    }
-
-    function isFeminineVoice(voice) {
-      var name = normalizedVoiceName(voice);
-      return feminineVoiceNames.some(function (candidate) {
-        return name.indexOf(candidate) !== -1;
-      });
-    }
-
-    function refreshVoices() {
-      if (!synthesis) {
-        frenchVoices = [];
-        return;
-      }
-      frenchVoices = synthesis.getVoices().filter(function (voice) {
-        return /^fr(?:[-_]|$)/i.test(voice.lang || "");
-      });
-    }
-
-    function voiceScore(voice) {
-      var language = (voice.lang || "").replace("_", "-").toLowerCase();
-      var name = normalizedVoiceName(voice);
-      var value = language === "fr-fr" ? 100 : 50;
-      if (isFeminineVoice(voice)) value += 1000;
-      else if (name.indexOf("google") !== -1) value += 500;
-      qualityVoiceNames.forEach(function (quality, index) {
-        if (name.indexOf(quality) !== -1) {
-          value += 450 - (index * 40);
-        }
-      });
-      if (voice.localService) value += 10;
-      if (voice.default) value += 1;
-      return value;
-    }
-
-    function preferredVoice() {
-      return frenchVoices.slice().sort(function (first, second) {
-        return voiceScore(second) - voiceScore(first);
-      })[0] || null;
-    }
-
-    function splitLongSegment(segment) {
-      var chunks = [];
-      var remainder = segment.trim();
-      while (remainder.length > 220) {
-        var splitAt = remainder.lastIndexOf(", ", 220);
-        if (splitAt < 120) splitAt = remainder.lastIndexOf("; ", 220);
-        if (splitAt < 120) splitAt = remainder.lastIndexOf(" ", 220);
-        if (splitAt < 1) splitAt = 220;
-        chunks.push(remainder.slice(0, splitAt + 1).trim());
-        remainder = remainder.slice(splitAt + 1).trim();
-      }
-      if (remainder) chunks.push(remainder);
-      return chunks;
-    }
-
-    function chunks(text) {
-      var normalized = text
-        .replace(/\u00a0/g, " ")
-        .replace(/^\s*--\s*/, "")
-        .replace(/\s+--\s+/g, ". ")
-        .replace(/\s+/g, " ")
-        .trim();
-      if (!normalized) return [];
-
-      var sentences;
-      if (typeof Intl !== "undefined" && Intl.Segmenter) {
-        var segmenter = new Intl.Segmenter("fr", { granularity: "sentence" });
-        sentences = Array.from(segmenter.segment(normalized)).map(
-          function (part) { return part.segment.trim(); }
-        );
-      } else {
-        sentences = normalized.match(/[^.!?…]+(?:[.!?…]+|$)/g) || [normalized];
-      }
-
-      return sentences.reduce(function (parts, sentence) {
-        return parts.concat(splitLongSegment(sentence));
-      }, []).filter(Boolean);
-    }
-
-    var supported = Boolean(synthesis && Utterance);
-    if (supported) {
-      refreshVoices();
-      if (synthesis.addEventListener) {
-        synthesis.addEventListener("voiceschanged", refreshVoices);
-      } else {
-        synthesis.onvoiceschanged = refreshVoices;
-      }
-    }
-
-    return {
-      synthesis: synthesis,
-      Utterance: Utterance,
-      supported: supported,
-      refreshVoices: refreshVoices,
-      preferredVoice: preferredVoice,
-      isFeminineVoice: isFeminineVoice,
-      chunks: chunks
-    };
-  })();
-  window.HeureuxFrenchSpeech = frenchSpeech;
+  var frenchSpeech = window.HeureuxFrenchSpeech;
   // Exposed so other bundles reuse the styled dialog instead of window.confirm.
   window.HeureuxConfirm = function (opts) {
     return openConfirm(opts);
@@ -1881,8 +1935,6 @@
   var frontEl = document.getElementById("card-front");
   var backEl = document.getElementById("card-back");
   var cardEl = app.querySelector("[data-review-card]");
-  var faceLabel = app.querySelector("[data-review-face-label]");
-  var orderButtons = Array.from(app.querySelectorAll("[data-review-order]"));
   var revealBtn = document.getElementById("reveal");
   var gradesEl = document.getElementById("grades");
   var kbdHint = document.getElementById("kbd-hint");
@@ -1912,7 +1964,7 @@
   var currentData = null;
   var currentView = null;
   var viewingPrevious = false;
-  var reverseOrder = false;
+  var interaction = null;
 
   function params(extra) {
     var p = new URLSearchParams();
@@ -1947,21 +1999,7 @@
     backEl.dataset.annotationSourceKey = sourceKey + ":back";
   }
 
-  function showCardFace(showAnswerFace) {
-    var showFront = reverseOrder ? showAnswerFace : !showAnswerFace;
-    frontEl.classList.toggle("hidden", !showFront);
-    backEl.classList.toggle("hidden", showFront);
-    cardEl.classList.toggle("is-revealed", showAnswerFace);
-    var face = showFront ? "Recto" : "Verso";
-    if (faceLabel) faceLabel.textContent = face;
-    cardEl.setAttribute(
-      "aria-label",
-      face + ". Appuyez pour retourner la carte."
-    );
-  }
-
   function updateCardControls() {
-    revealBtn.textContent = "Retourner";
     if (viewingPrevious) {
       revealBtn.classList.remove("hidden");
       gradesEl.classList.add("hidden");
@@ -1979,9 +2017,7 @@
   }
 
   function resetCardFace() {
-    revealed = false;
-    showCardFace(false);
-    updateCardControls();
+    interaction.reset();
   }
 
   function readJson(r) {
@@ -2008,6 +2044,7 @@
     currentData = null;
     viewingPrevious = false;
     revealed = false;
+    if (window.HeureuxReadAloud) window.HeureuxReadAloud.stop();
     if (previousButton) previousButton.disabled = !data.can_previous;
     if (previousButton) previousButton.classList.remove("hidden");
     if (currentButton) currentButton.classList.add("hidden");
@@ -2055,19 +2092,7 @@
 
   function reveal() {
     if (revealed || busy || (!currentData && !viewingPrevious)) return;
-    revealed = true;
-    showCardFace(true);
-    updateCardControls();
-  }
-
-  function hideAnswer() {
-    if (!revealed || busy) return;
-    resetCardFace();
-  }
-
-  function toggleAnswer() {
-    if (revealed) hideAnswer();
-    else reveal();
+    interaction.reveal();
   }
 
   function gradeError(error) {
@@ -2218,9 +2243,7 @@
         frontEl.innerHTML = data.front_html;
         backEl.innerHTML = data.back_html;
         setAnnotationRoots(data.annotation_source_key);
-        revealed = false;
-        showCardFace(false);
-        updateCardControls();
+        interaction.reset();
         previousButton.classList.add("hidden");
         currentButton.classList.remove("hidden");
         currentButtonLabel.textContent = fromDone
@@ -2240,6 +2263,7 @@
     if (currentView.done) {
       cardZone.classList.add("hidden");
       doneZone.classList.remove("hidden");
+      if (window.HeureuxReadAloud) window.HeureuxReadAloud.stop();
       previousButton.classList.remove("hidden");
       currentButton.classList.add("hidden");
       currentButtonLabel.textContent = "Retour à la carte actuelle";
@@ -2252,40 +2276,63 @@
     frontEl.innerHTML = currentData.front_html;
     backEl.innerHTML = currentData.back_html;
     setAnnotationRoots(currentData.annotation_source_key);
-    revealed = currentView.revealed;
     viewingPrevious = false;
     startTime = currentView.startTime + (Date.now() - currentView.pausedAt);
-    showCardFace(revealed);
-    updateCardControls();
+    interaction.setRevealed(currentView.revealed);
     previousButton.classList.remove("hidden");
     currentButton.classList.add("hidden");
     previousLabel.classList.add("hidden");
     currentView = null;
   }
 
-  orderButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      reverseOrder = button.dataset.reviewOrder === "back";
-      orderButtons.forEach(function (option) {
-        var active = option === button;
-        option.classList.toggle("is-active", active);
-        option.setAttribute("aria-pressed", active ? "true" : "false");
-      });
-      if (currentData || viewingPrevious) resetCardFace();
-    });
-  });
-  revealBtn.addEventListener("click", toggleAnswer);
-  cardEl.addEventListener("click", function (event) {
-    if (
-      event.target.closest(
-        "a, button, input, select, textarea, [contenteditable='true']"
-      )
-    ) {
-      return;
+  if (!window.HeureuxFlashcards) return;
+  interaction = window.HeureuxFlashcards.create({
+    root: app,
+    getCard: function () { return cardEl; },
+    isEnabled: function (action) {
+      if (busy) return false;
+      var cardVisible = !cardZone.classList.contains("hidden");
+      if (action === "flip" || action === "swipe") return cardVisible;
+      if (action === "left") {
+        return (
+          !viewingPrevious &&
+          Boolean(previousButton) &&
+          !previousButton.disabled
+        );
+      }
+      if (action === "right") {
+        return cardVisible && (viewingPrevious || revealed);
+      }
+      if (action === "swipe-left") return cardVisible;
+      if (action === "swipe-right") {
+        return (
+          cardVisible &&
+          !viewingPrevious &&
+          Boolean(previousButton) &&
+          !previousButton.disabled
+        );
+      }
+      return cardVisible;
+    },
+    onFaceChange: function (state) {
+      revealed = state.revealed;
+      updateCardControls();
+    },
+    onLeft: function () {
+      if (!viewingPrevious) viewPrevious();
+    },
+    onRight: function () {
+      if (viewingPrevious) returnToCurrent();
+      else if (revealed) grade("correct");
+    },
+    onSwipeLeft: function () {
+      if (viewingPrevious) returnToCurrent();
+      else if (revealed) grade("correct");
+      else reveal();
+    },
+    onSwipeRight: function () {
+      if (!viewingPrevious) viewPrevious();
     }
-    var selection = window.getSelection();
-    if (selection && !selection.isCollapsed) return;
-    toggleAnswer();
   });
   gradesEl.querySelectorAll(".grade").forEach(function (btn) {
     btn.addEventListener("click", function () {
@@ -2296,53 +2343,13 @@
   if (currentButton) currentButton.addEventListener("click", returnToCurrent);
 
   document.addEventListener("keydown", function (e) {
-    var shortcutControl = (
-      e.target
-      && e.target.closest
-      && e.target.closest(
-        "[data-review-order], #reveal, .grade, "
-        + "#previous-card, #current-card"
-      )
-    );
-    var directional = e.key.indexOf("Arrow") === 0;
     if (
       e.target &&
       e.target.closest &&
       e.target.closest(
         "input, textarea, select, button, a, [contenteditable='true'], [data-translation-panel], [data-note-panel]"
-      ) &&
-      !(shortcutControl && directional)
+      )
     ) {
-      return;
-    }
-    if (
-      (e.code === "Space" || e.code === "Enter") &&
-      !cardZone.classList.contains("hidden")
-    ) {
-      e.preventDefault();
-      toggleAnswer();
-      return;
-    }
-    if (
-      (e.key === "ArrowUp" || e.key === "ArrowDown")
-      && !cardZone.classList.contains("hidden")
-    ) {
-      e.preventDefault();
-      toggleAnswer();
-      return;
-    }
-    if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      if (!viewingPrevious) viewPrevious();
-      return;
-    }
-    if (e.key === "ArrowRight") {
-      e.preventDefault();
-      if (viewingPrevious) {
-        returnToCurrent();
-      } else if (revealed) {
-        grade("correct");
-      }
       return;
     }
     if (viewingPrevious) {

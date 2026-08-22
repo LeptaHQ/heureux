@@ -47,6 +47,7 @@ from study.models import (
     Prompt,
     Response,
     Task,
+    ThemeVocabularyProgress,
 )
 from study.routing import response_detail_url
 
@@ -1364,8 +1365,10 @@ class QuestionBankViewTests(TestCase):
             response,
             'id="subject-overview-panel-title">Sujets</h2>',
         )
-        self.assertContains(response, "0/33 lots terminés")
-        self.assertContains(response, "0/348 sujets terminés")
+        self.assertContains(response, "0/33")
+        self.assertContains(response, "lots terminés")
+        self.assertContains(response, "0/348")
+        self.assertContains(response, "sujets terminés")
         self.assertContains(
             response,
             reverse("study:tache_two_theme_vocabulary"),
@@ -2657,12 +2660,32 @@ class QuestionBankViewTests(TestCase):
             [batch["title"] for batch in response.context["review_batches"]],
             ["Mots clés", "Expressions utiles", "Fragments de phrase"],
         )
-        self.assertContains(response, "theme-vocabulary-phrase", count=45)
+        self.assertContains(
+            response,
+            "class=\"phrase card theme-vocabulary-phrase",
+            count=45,
+        )
+        self.assertContains(
+            response,
+            "data-theme-vocabulary-progress-form",
+            count=45,
+        )
+        self.assertContains(response, "data-read-aloud-key=", count=45)
+        self.assertContains(response, 'role="checkbox"', count=45)
+        learned_summary = response.context["learned_summary"]
+        self.assertEqual(learned_summary.completed, 0)
+        self.assertEqual(learned_summary.total, 45)
         self.assertContains(response, "Mots clés")
         self.assertContains(response, "Expressions utiles")
         self.assertContains(response, "Fragments de phrase")
         self.assertContains(response, "Lot 01 · Mots clés")
         self.assertContains(response, "data-theme-vocabulary-recall")
+        self.assertContains(
+            response,
+            'data-recall-controls="theme-vocabulary-recall-catalog"',
+            count=1,
+        )
+        self.assertContains(response, "data-recall-catalog", count=1)
         self.assertContains(
             response,
             'data-theme-vocabulary-recall-column="french"',
@@ -2683,9 +2706,136 @@ class QuestionBankViewTests(TestCase):
             'data-theme-vocabulary-recall-cell="meaning"',
             count=45,
         )
+        self.assertContains(
+            response,
+            'data-recall-cell="french"',
+            count=45,
+        )
+        self.assertContains(
+            response,
+            'data-recall-cell="meaning"',
+            count=45,
+        )
         self.assertNotContains(response, "Repères pour les noms")
         self.assertNotContains(response, "Registre :")
         self.assertNotContains(response, "Mémoires")
+
+    def test_theme_vocabulary_learned_marker_is_visual_only(self):
+        detail_url = reverse(
+            "study:tache_two_theme_vocabulary_detail",
+            args=["logement"],
+        )
+        detail = self.client.get(detail_url)
+        phrase = detail.context["phrase_sections"][0]["phrases"][0]
+        card = Card.objects.get(
+            user=self.user,
+            phrase=phrase,
+            card_type=CardType.PHRASE_PRODUCTION,
+        )
+        progress_url = reverse(
+            "study:tache_two_theme_vocabulary_progress",
+            args=["logement", phrase.pk],
+        )
+
+        marked = self.client.post(
+            progress_url,
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(marked.status_code, 200)
+        self.assertEqual(
+            marked.json(),
+            {
+                "completed": True,
+                "phrase_id": phrase.phrase_id,
+                "learned": 1,
+                "total": 45,
+            },
+        )
+        self.assertTrue(
+            ThemeVocabularyProgress.objects.filter(
+                user=self.user,
+                phrase=phrase,
+            ).exists()
+        )
+        card.refresh_from_db()
+        self.assertEqual(card.state, CardState.NEW)
+        refreshed = self.client.get(detail_url)
+        self.assertContains(
+            refreshed,
+            f'id="phrase-{phrase.phrase_id}"',
+        )
+        self.assertContains(refreshed, 'aria-checked="true"', count=1)
+        learned_summary = refreshed.context["learned_summary"]
+        self.assertEqual(learned_summary.completed, 1)
+        self.assertEqual(learned_summary.total, 45)
+
+        # Explicit values make retries idempotent.
+        self.client.post(
+            progress_url,
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        self.assertEqual(
+            ThemeVocabularyProgress.objects.filter(
+                user=self.user,
+                phrase=phrase,
+            ).count(),
+            1,
+        )
+
+        unmarked = self.client.post(progress_url, {"completed": "0"})
+        self.assertEqual(
+            unmarked.url,
+            detail_url + f"#phrase-{phrase.phrase_id}",
+        )
+        self.assertFalse(
+            ThemeVocabularyProgress.objects.filter(
+                user=self.user,
+                phrase=phrase,
+            ).exists()
+        )
+
+    def test_theme_vocabulary_progress_validates_value_and_theme(self):
+        logement = self.client.get(
+            reverse(
+                "study:tache_two_theme_vocabulary_detail",
+                args=["logement"],
+            )
+        )
+        logement_phrase = logement.context["phrase_sections"][0]["phrases"][0]
+        wrong_theme = self.client.get(
+            reverse(
+                "study:tache_two_theme_vocabulary_detail",
+                args=["travail"],
+            )
+        )
+        travail_phrase = wrong_theme.context["phrase_sections"][0]["phrases"][0]
+
+        invalid = self.client.post(
+            reverse(
+                "study:tache_two_theme_vocabulary_progress",
+                args=["logement", logement_phrase.pk],
+            ),
+            {"completed": "oui"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        unrelated = self.client.post(
+            reverse(
+                "study:tache_two_theme_vocabulary_progress",
+                args=["logement", travail_phrase.pk],
+            ),
+            {"completed": "1"},
+        )
+
+        self.assertEqual(invalid.status_code, 400)
+        self.assertEqual(
+            invalid.json(),
+            {"error": "État d’apprentissage invalide."},
+        )
+        self.assertEqual(unrelated.status_code, 404)
+        self.assertFalse(ThemeVocabularyProgress.objects.exists())
 
     def test_theme_vocabulary_review_keeps_its_theme_and_returns_to_it(self):
         detail_url = reverse(
@@ -2913,6 +3063,15 @@ class QuestionBankViewTests(TestCase):
             memory_number=bank.number,
             question_key=bank.question_keys[1],
         )
+        phrase = Phrase.objects.filter(tier=PhraseTier.THEME).first()
+        own_theme_progress = ThemeVocabularyProgress.objects.create(
+            user=self.user,
+            phrase=phrase,
+        )
+        other_theme_progress = ThemeVocabularyProgress.objects.create(
+            user=other_user,
+            phrase=phrase,
+        )
         response = Response.objects.filter(
             content_key__startswith="tache2:"
         ).first()
@@ -2933,12 +3092,17 @@ class QuestionBankViewTests(TestCase):
 
         exported = self.client.get(reverse("study:export_account")).json()
 
-        self.assertEqual(exported["version"], 4)
+        self.assertEqual(exported["version"], 5)
         self.assertEqual(
             exported["memory_question_progress"][0]["question_key"],
             own_progress.question_key,
         )
         self.assertEqual(len(exported["memory_question_progress"]), 1)
+        self.assertEqual(
+            exported["theme_vocabulary_progress"][0]["phrase_id"],
+            phrase.phrase_id,
+        )
+        self.assertEqual(len(exported["theme_vocabulary_progress"]), 1)
         exported_card = next(
             card
             for card in exported["cards"]
@@ -2960,6 +3124,16 @@ class QuestionBankViewTests(TestCase):
         )
         self.assertTrue(
             MemoryQuestionProgress.objects.filter(pk=other_progress.pk).exists()
+        )
+        self.assertFalse(
+            ThemeVocabularyProgress.objects.filter(
+                pk=own_theme_progress.pk
+            ).exists()
+        )
+        self.assertTrue(
+            ThemeVocabularyProgress.objects.filter(
+                pk=other_theme_progress.pk
+            ).exists()
         )
         own_card.refresh_from_db()
         other_card.refresh_from_db()

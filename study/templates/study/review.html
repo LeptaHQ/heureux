@@ -3,7 +3,8 @@
 
 {% block content %}
 <div id="review-app"
-     class="review"
+     class="review flashcard-deck"
+     data-flashcard-deck
      data-next-url="{% url 'study:review_next' %}"
      data-previous-url="{% url 'study:review_previous' %}"
      data-answer-url="{% url 'study:review_answer' %}"
@@ -26,40 +27,33 @@
   </div>
   <div class="review__bar"><span id="progress"></span></div>
   <div class="review__history">
-    <button class="linkbtn" id="previous-card" type="button" aria-keyshortcuts="ArrowLeft" disabled>{% include "study/partials/ui_icon.html" with name="arrow-left" only %}<span>Carte précédente</span></button>
+    <button class="linkbtn" id="previous-card" type="button" aria-keyshortcuts="ArrowLeft" data-flashcard-control disabled>{% include "study/partials/ui_icon.html" with name="arrow-left" only %}<span>Carte précédente</span></button>
     <span class="review__history-label hidden" id="previous-card-label">Carte précédente · consultation uniquement</span>
-    <button class="linkbtn hidden" id="current-card" type="button"><span id="current-card-label">Retour à la carte actuelle</span>{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</button>
+    <button class="linkbtn hidden" id="current-card" type="button" data-flashcard-control><span id="current-card-label">Retour à la carte actuelle</span>{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</button>
   </div>
 
   <div id="card-zone">
-    <div class="review__study-toolbar">
-      <div class="annotation-study__face-switch" role="group" aria-label="Face affichée en premier">
-        <button class="is-active" type="button" data-review-order="front" aria-pressed="true">Recto</button>
-        <button type="button" data-review-order="back" aria-pressed="false">Verso</button>
-      </div>
+    <div class="review__study-toolbar flashcard-deck__study-toolbar">
+      {% include "study/partials/flashcard_face_switch.html" %}
     </div>
     <article
-      class="flashcard review-flashcard"
+      class="flashcard flashcard-deck__card review-flashcard"
       tabindex="0"
       aria-label="Recto. Appuyez pour retourner la carte."
       aria-keyshortcuts="ArrowUp ArrowDown Space Enter"
       data-review-card
+      data-flashcard-card
+      data-read-aloud-scope
     >
-      <div class="annotation-study__card-meta">
-        <span class="annotation-study__face-label" data-review-face-label>Recto</span>
-        <span class="annotation-study__flip-hint">
-          Appuyez pour retourner
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h9.5a4.5 4.5 0 0 1 0 9H14"></path><path d="m9 3-4 4 4 4"></path></svg>
-        </span>
-      </div>
-      <div class="review-flashcard__face" id="card-front"></div>
-      <div class="review-flashcard__face hidden" id="card-back"></div>
+      {% include "study/partials/flashcard_meta.html" with read_aloud=True read_key="review-card" read_label="Lire cette face" only %}
+      <div class="flashcard-deck__face review-flashcard__face" id="card-front" data-flashcard-front></div>
+      <div class="flashcard-deck__face review-flashcard__face hidden" id="card-back" data-flashcard-back></div>
     </article>
 
-    <div class="controls">
-      <button class="reveal-btn" id="reveal" type="button">Retourner</button>
+    <div class="controls flashcard-deck__controls">
+      <button class="reveal-btn" id="reveal" type="button" data-flashcard-flip data-flashcard-control><span data-flashcard-flip-label>Retourner</span></button>
       <div class="grades hidden" id="grades">
-        <button class="grade grade--revisit" type="button" data-action="revisit" aria-keyshortcuts="1 R">
+        <button class="grade grade--revisit" type="button" data-action="revisit" data-flashcard-control aria-keyshortcuts="1 R">
           <span class="grade__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
               <path d="M3 12a9 9 0 1 0 3-6.7"></path>
@@ -72,7 +66,7 @@
           </span>
           <span class="grade__key" aria-hidden="true">1</span>
         </button>
-        <button class="grade grade--correct" type="button" data-action="correct" aria-keyshortcuts="ArrowRight 2 C">
+        <button class="grade grade--correct" type="button" data-action="correct" data-flashcard-control aria-keyshortcuts="ArrowRight 2 C">
           <span class="grade__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
               <path d="m5 12 4 4L19 6"></path>

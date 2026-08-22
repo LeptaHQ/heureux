@@ -891,6 +891,86 @@ class BrowserTests(StaticLiveServerTestCase):
             self.page.locator(".theme-vocabulary-phrase").count(),
             45,
         )
+        learned_forms = self.page.locator(
+            "[data-theme-vocabulary-progress-form]"
+        )
+        self.assertEqual(learned_forms.count(), 45)
+        first_learned_button = learned_forms.first.locator("button")
+        self.assertEqual(
+            first_learned_button.get_attribute("aria-checked"),
+            "false",
+        )
+        self.assertEqual(
+            self.page.locator(".theme-vocabulary-phrase [data-read-aloud]")
+            .count(),
+            45,
+        )
+        self.assertTrue(
+            self.page.locator(
+                ".theme-vocabulary-phrase [data-read-aloud]"
+            ).first.is_enabled()
+        )
+        with self.page.expect_response(
+            lambda response: "/progression/" in response.url
+        ) as learned_response:
+            first_learned_button.click()
+        self.assertTrue(learned_response.value.ok)
+        self.page.wait_for_function(
+            """
+            () => document.querySelector(
+              '[data-theme-vocabulary-progress-form] button'
+            )?.getAttribute('aria-checked') === 'true'
+            """
+        )
+        self.assertTrue(
+            self.page.locator(".theme-vocabulary-phrase").first.evaluate(
+                "card => card.classList.contains('is-learned')"
+            )
+        )
+        self.assertEqual(
+            self.page.locator(
+                "[data-theme-vocabulary-learned-count]"
+            ).inner_text(),
+            "1",
+        )
+        self.page.evaluate(
+            """
+            () => {
+              const originalFetch = window.fetch.bind(window);
+              window.__themeProgressActive = 0;
+              window.__themeProgressMaxActive = 0;
+              window.fetch = (input, init) => {
+                const url = typeof input === "string" ? input : input.url;
+                if (!url.includes("/progression/")) {
+                  return originalFetch(input, init);
+                }
+                window.__themeProgressActive += 1;
+                window.__themeProgressMaxActive = Math.max(
+                  window.__themeProgressMaxActive,
+                  window.__themeProgressActive
+                );
+                return new Promise(resolve => setTimeout(resolve, 80))
+                  .then(() => originalFetch(input, init))
+                  .finally(() => {
+                    window.__themeProgressActive -= 1;
+                  });
+              };
+            }
+            """
+        )
+        learned_forms.nth(1).locator("button").click()
+        learned_forms.nth(2).locator("button").click()
+        self.page.wait_for_function(
+            """
+            () => document.querySelector(
+              '[data-theme-vocabulary-learned-count]'
+            )?.textContent.trim() === '3'
+            """
+        )
+        self.assertEqual(
+            self.page.evaluate("window.__themeProgressMaxActive"),
+            1,
+        )
         detail_table_toggle = self.page.get_by_role("button", name="Tableau")
         detail_cards_toggle = self.page.get_by_role("button", name="Cartes")
         self.assertEqual(
@@ -930,6 +1010,13 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(french_recall.get_attribute("aria-pressed"), "true")
         self.assertEqual(first_french.get_attribute("role"), "button")
         self.assertEqual(first_french.get_attribute("aria-pressed"), "false")
+        first_phrase_read = first_french.locator("xpath=..").locator(
+            "[data-read-aloud]"
+        )
+        self.assertTrue(first_phrase_read.is_enabled())
+        first_phrase_read.click()
+        self.assertEqual(first_french.get_attribute("aria-pressed"), "false")
+        first_phrase_read.click()
         self.assertNotEqual(
             first_french_content.evaluate(
                 "element => getComputedStyle(element).filter"
@@ -938,6 +1025,7 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         first_french.click()
         self.assertEqual(first_french.get_attribute("aria-pressed"), "true")
+        self.assertTrue(first_phrase_read.is_enabled())
         self.assertEqual(
             first_french_content.evaluate(
                 "element => getComputedStyle(element).filter"
@@ -973,8 +1061,24 @@ class BrowserTests(StaticLiveServerTestCase):
             ),
             "cards",
         )
-        self.assertFalse(recall_controls.is_visible())
-        self.assertIsNone(first_meaning.get_attribute("role"))
+        self.assertTrue(recall_controls.is_visible())
+        self.assertEqual(first_meaning.get_attribute("role"), "button")
+        self.assertEqual(
+            first_meaning_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        meaning_recall.click()
+        meaning_recall.click()
+        self.assertEqual(first_meaning.get_attribute("aria-pressed"), "false")
+        self.assertNotEqual(
+            first_meaning_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        first_meaning.click()
         self.assertEqual(
             first_meaning_content.evaluate(
                 "element => getComputedStyle(element).filter"
@@ -1462,7 +1566,40 @@ class BrowserTests(StaticLiveServerTestCase):
         ).evaluate(
             "cell => getComputedStyle(cell).justifyContent"
         )
-        self.assertEqual(progress_alignment, "flex-start")
+        self.assertEqual(progress_alignment, "flex-end")
+        first_mobile_row = first_group.locator(
+            "[data-t1-table-subject]"
+        ).first
+        self.assertFalse(
+            first_mobile_row.locator(".t1-table__questions").is_visible()
+        )
+        mobile_cells = first_mobile_row.evaluate(
+            """
+            row => {
+              const subject = row.querySelector('.t1-table__subject')
+                .getBoundingClientRect();
+              const status = row.querySelector(
+                '[data-subject-progress-status]'
+              );
+              const box = status.getBoundingClientRect();
+              const style = getComputedStyle(status);
+              return {
+                subjectWidth: subject.width,
+                statusWidth: box.width,
+                statusHeight: box.height,
+                statusFontSize: style.fontSize,
+                statusRadius: style.borderRadius,
+                statusGlyph: getComputedStyle(status, '::before').content,
+              };
+            }
+            """
+        )
+        self.assertGreater(mobile_cells["subjectWidth"], 180)
+        self.assertAlmostEqual(mobile_cells["statusWidth"], 28, delta=1)
+        self.assertAlmostEqual(mobile_cells["statusHeight"], 28, delta=1)
+        self.assertEqual(mobile_cells["statusFontSize"], "0px")
+        self.assertEqual(mobile_cells["statusRadius"], "50%")
+        self.assertIn("○", mobile_cells["statusGlyph"])
         self.assertFalse(
             self.page.locator(".t1-table-groups__head").is_visible()
         )
@@ -1926,12 +2063,12 @@ class BrowserTests(StaticLiveServerTestCase):
         card = self.page.locator("[data-review-card]")
         front = self.page.locator("#card-front")
         back = self.page.locator("#card-back")
-        face_label = self.page.locator("[data-review-face-label]")
+        face_label = self.page.locator("[data-flashcard-face-label]")
         front.get_by_text(phrase.english_cue, exact=True).wait_for()
         self.assertEqual(face_label.inner_text(), "Recto")
         self.assertTrue(front.is_visible())
         self.assertFalse(back.is_visible())
-        switches = self.page.locator("[data-review-order]")
+        switches = self.page.locator("[data-flashcard-order]")
         self.assertEqual(switches.count(), 2)
 
         card.click(position={"x": 20, "y": 20})
@@ -1947,12 +2084,12 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(face_label.inner_text(), "Recto")
         self.page.locator("#reveal:not(.hidden)").wait_for()
 
-        self.page.locator('[data-review-order="back"]').click()
+        self.page.locator('[data-flashcard-order="back"]').click()
 
         back.locator(".spine-text", has_text=phrase.expression).wait_for()
         self.assertEqual(face_label.inner_text(), "Verso")
         self.assertEqual(
-            self.page.locator('[data-review-order="back"]').get_attribute(
+            self.page.locator('[data-flashcard-order="back"]').get_attribute(
                 "aria-pressed"
             ),
             "true",
@@ -1965,6 +2102,75 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(face_label.inner_text(), "Recto")
         self.page.locator('[data-action="correct"]').click()
         self.page.locator("#done-zone:not(.hidden)").wait_for()
+        self.assert_no_horizontal_overflow()
+
+    def test_shared_review_deck_swipes_reveal_grade_and_visit_history(self):
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        first_prompt = prompt.inner_text()
+        card = self.page.locator("[data-review-card]")
+        self.assertEqual(
+            card.evaluate("element => getComputedStyle(element).touchAction"),
+            "pan-y",
+        )
+
+        def swipe(direction):
+            box = card.bounding_box()
+            centre_x = box["x"] + box["width"] / 2
+            centre_y = box["y"] + box["height"] / 2
+            distance = min(100, box["width"] / 3)
+            start_x = centre_x + (distance if direction == "left" else -distance)
+            end_x = centre_x + (-distance if direction == "left" else distance)
+            self.page.mouse.move(start_x, centre_y)
+            self.page.mouse.down()
+            for step in range(1, 6):
+                self.page.mouse.move(
+                    start_x + (end_x - start_x) * step / 5,
+                    centre_y,
+                )
+            self.page.mouse.up()
+            self.page.wait_for_timeout(220)
+
+        swipe("left")
+        self.page.locator("#card-back:not(.hidden)").wait_for()
+        self.page.locator("#grades:not(.hidden)").wait_for()
+
+        with self.page.expect_response(
+            lambda response: reverse("study:review_answer") in response.url
+        ) as answer_response:
+            swipe("left")
+        self.assertTrue(answer_response.value.ok)
+        self.page.wait_for_function(
+            """
+            previous => {
+              const prompt = document.querySelector("#card-front .prompt-text");
+              return prompt && prompt.textContent.trim() !== previous;
+            }
+            """,
+            arg=first_prompt,
+        )
+        current_prompt = prompt.inner_text()
+        self.assertEqual(
+            ReviewLog.objects.filter(user=self.user).latest("id").rating,
+            Rating.GOOD,
+        )
+
+        with self.page.expect_response(
+            lambda response: reverse("study:review_previous") in response.url
+        ) as previous_response:
+            swipe("right")
+        self.assertTrue(previous_response.value.ok)
+        self.page.locator("#previous-card-label:not(.hidden)").wait_for()
+        self.assertEqual(prompt.inner_text(), first_prompt)
+
+        swipe("left")
+        self.page.locator("#previous-card-label").wait_for(state="hidden")
+        self.assertEqual(prompt.inner_text(), current_prompt)
         self.assert_no_horizontal_overflow()
 
     def test_mobile_highlight_expands_then_toggles_off(self):
@@ -2134,7 +2340,7 @@ class BrowserTests(StaticLiveServerTestCase):
         prompt.wait_for()
         self.page.wait_for_load_state("networkidle")
         prompt_text = prompt.text_content()
-        self.page.locator('[data-review-order="back"]').click()
+        self.page.locator('[data-flashcard-order="back"]').click()
         self.page.locator("#reveal").click()
 
         toolbar = self.page.locator("[data-selection-translate]")
@@ -2523,6 +2729,11 @@ class BrowserTests(StaticLiveServerTestCase):
         prompt = self.page.locator("#card-front .prompt-text")
         prompt.wait_for()
         self.page.wait_for_load_state("networkidle")
+        card_read = self.page.locator("[data-review-card] [data-read-aloud]")
+        card_read.click()
+        self.page.wait_for_function("() => Boolean(window.__spokenFrench)")
+        self.assertEqual(card_read.get_attribute("aria-pressed"), "true")
+        self.page.evaluate("window.__spokenFrench = null")
         self.select_prompt(start=0, end=12)
         selected = self.page.evaluate("window.getSelection().toString().trim()")
         read_button = self.page.locator("[data-read-selection]")
@@ -2540,6 +2751,11 @@ class BrowserTests(StaticLiveServerTestCase):
                 "startedInClick": True,
             },
         )
+        self.assertGreaterEqual(
+            self.page.evaluate("window.__speechCancelCount || 0"),
+            1,
+        )
+        self.assertEqual(card_read.get_attribute("aria-pressed"), "false")
         self.assertEqual(
             self.page.evaluate("window.getSelection().toString().trim()"),
             selected,
@@ -3659,8 +3875,8 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         note_row.wait_for()
         action_buttons = note_row.locator(".annotation-action")
-        # No selected passage on this note, so no read control.
-        self.assertEqual(action_buttons.count(), 4)
+        # A free-standing note reads its optional French title.
+        self.assertEqual(action_buttons.count(), 5)
         self.assertTrue(
             all(
                 44 <= size["width"] <= 46 and 44 <= size["height"] <= 46
@@ -3780,8 +3996,8 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(card.get_attribute("data-study-id"), str(note.pk))
         front = self.page.locator("[data-study-front]")
         back = self.page.locator("[data-study-back]")
-        face_label = card.locator("[data-study-face-label]")
-        face_switch = self.page.locator("[data-study-order]")
+        face_label = card.locator("[data-flashcard-face-label]")
+        face_switch = self.page.locator("[data-flashcard-order]")
         self.assertEqual(face_switch.count(), 2)
         switch_boxes = face_switch.evaluate_all(
             """
@@ -3861,10 +4077,10 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(face_label.inner_text(), "Recto")
         self.assertFalse(back.is_visible())
 
-        self.page.locator('[data-study-order="back"]').click()
+        self.page.locator('[data-flashcard-order="back"]').click()
         self.assertEqual(
             self.page.locator(
-                '[data-study-order="back"]'
+                '[data-flashcard-order="back"]'
             ).get_attribute("aria-pressed"),
             "true",
         )
@@ -3923,7 +4139,7 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.page.get_by_role("link", name="Flashcards", exact=True).click()
         visible_card = self.page.locator("[data-study-card]:not(.hidden)")
-        face_label = visible_card.locator("[data-study-face-label]")
+        face_label = visible_card.locator("[data-flashcard-face-label]")
         self.assertEqual(visible_card.get_attribute("data-study-id"), str(newer.pk))
         self.assertIn(
             "ArrowUp",
@@ -3944,7 +4160,7 @@ class BrowserTests(StaticLiveServerTestCase):
             visible_card.get_attribute("data-study-id"),
             str(newer.pk),
         )
-        self.page.locator('[data-study-order="front"]').click()
+        self.page.locator('[data-flashcard-order="front"]').click()
         self.page.keyboard.press("ArrowRight")
         self.assertEqual(
             visible_card.get_attribute("data-study-id"),
@@ -3960,13 +4176,13 @@ class BrowserTests(StaticLiveServerTestCase):
         prompt.wait_for()
         first_prompt = prompt.text_content()
         shared_card = self.page.locator("[data-review-card]")
-        shared_face = self.page.locator("[data-review-face-label]")
+        shared_face = self.page.locator("[data-flashcard-face-label]")
         self.assertIn(
             "ArrowDown",
             shared_card.get_attribute("aria-keyshortcuts"),
         )
 
-        self.page.locator('[data-review-order="front"]').click()
+        self.page.locator('[data-flashcard-order="front"]').click()
         self.page.keyboard.press("ArrowDown")
         self.assertEqual(shared_face.inner_text(), "Verso")
         self.page.keyboard.press("ArrowUp")
@@ -4073,9 +4289,9 @@ class BrowserTests(StaticLiveServerTestCase):
             ".annotation-card",
             has_text="Rappel important",
         )
-        note_read = note_card.locator("[data-annotation-read]")
+        note_read = note_card.locator("[data-read-aloud]")
         self.assertEqual(
-            note_read.get_attribute("aria-label"), "Lire le passage"
+            note_read.get_attribute("aria-label"), "Lire le français"
         )
         self.assertGreaterEqual(note_read.bounding_box()["width"], 44)
         note_read.click()
@@ -4085,9 +4301,9 @@ class BrowserTests(StaticLiveServerTestCase):
         spoken_note = self.page.evaluate("window.__annotationSpoken")
         self.assertEqual(
             spoken_note,
-            selected_note.quote,
+            f"{selected_note.title} — {selected_note.quote}",
         )
-        self.assertNotIn("Rappel important", spoken_note)
+        self.assertIn("Rappel important", spoken_note)
         self.assertNotIn("cependant", spoken_note)
         self.assertEqual(note_read.get_attribute("aria-pressed"), "true")
         note_read.click()
@@ -4099,11 +4315,11 @@ class BrowserTests(StaticLiveServerTestCase):
             has_text="Cependant, il faut reconnaître cette limite.",
         )
         highlight_read = highlight_card.locator(
-            "[data-annotation-read]"
+            "[data-read-aloud]"
         )
         self.assertEqual(
             highlight_read.get_attribute("aria-label"),
-            "Lire le passage",
+            "Lire le français",
         )
         highlight_read.click()
         self.page.wait_for_function(
@@ -4111,7 +4327,7 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertEqual(highlight_read.get_attribute("aria-pressed"), "true")
 
-        # A free-standing note has no French passage, so nothing to read.
+        # A free-standing note can read its optional French title.
         Annotation.objects.create(
             user=self.user,
             task=self.task,
@@ -4125,7 +4341,7 @@ class BrowserTests(StaticLiveServerTestCase):
             has_text="Note libre",
         )
         self.assertEqual(
-            free_note.locator("[data-annotation-read]").count(), 0
+            free_note.locator("[data-read-aloud]").count(), 1
         )
 
     def test_study_deck_removes_only_known_cards_at_the_end(self):
@@ -4251,6 +4467,246 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(self.page.url, url_before)
         self.assertFalse(
             Annotation.objects.filter(pk=note.pk).exists()
+        )
+        self.page.locator("[data-notes-recall]").wait_for(state="hidden")
+
+    def test_notes_recall_matches_language_in_cards_and_table(self):
+        note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            title="Titre facultatif",
+            quote="Passage capturé en français.",
+            body="The written note is in English.",
+        )
+        Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="Un surlignage français.",
+        )
+        notes_url = reverse(
+            "study:task_notes", args=[self.part.slug, self.task.slug]
+        )
+        self.page.goto(self.live_server_url + notes_url)
+
+        controls = self.page.locator("[data-notes-recall]")
+        french_button = controls.locator('[data-recall-column="french"]')
+        english_button = controls.locator('[data-recall-column="english"]')
+        card = self.page.locator(
+            '[data-collection-view-panel="cards"] '
+            f'[data-annotation-item="{note.pk}"]'
+        )
+        french_cells = card.locator('[data-recall-cell="french"]')
+        french_content = french_cells.locator("[data-recall-content]")
+        english_cell = card.locator('[data-recall-cell="english"]')
+        english_content = english_cell.locator("[data-recall-content]")
+
+        self.assertTrue(controls.is_visible())
+        self.assertTrue(french_button.is_visible())
+        self.assertTrue(english_button.is_visible())
+        self.assertEqual(french_cells.count(), 2)
+
+        french_button.click()
+        self.assertTrue(
+            all(
+                value != "none"
+                for value in french_content.evaluate_all(
+                    "elements => elements.map(element => "
+                    "getComputedStyle(element).filter)"
+                )
+            )
+        )
+        french_cells.first.click()
+        self.assertTrue(
+            all(
+                value == "none"
+                for value in french_content.evaluate_all(
+                    "elements => elements.map(element => "
+                    "getComputedStyle(element).filter)"
+                )
+            )
+        )
+
+        english_button.click()
+        self.assertEqual(french_button.get_attribute("aria-pressed"), "false")
+        self.assertNotEqual(
+            english_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        english_cell.focus()
+        self.page.keyboard.press("Space")
+        self.assertEqual(
+            english_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+
+        self.page.get_by_role("button", name="Tableau").click()
+        table_row = self.page.locator(
+            '[data-collection-view-panel="table"] '
+            f'[data-annotation-item="{note.pk}"]'
+        )
+        table_english = table_row.locator('[data-recall-cell="english"]')
+        table_english_content = table_english.locator("[data-recall-content]")
+        table_row.wait_for(state="visible")
+        self.assertEqual(
+            table_english_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+
+        english_button.click()
+        english_button.click()
+        self.assertNotEqual(
+            table_english_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        table_english.click()
+        self.assertEqual(
+            english_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        self.page.get_by_role("button", name="Cartes").click()
+        self.assert_no_horizontal_overflow()
+
+        self.page.goto(self.live_server_url + notes_url + "?tab=highlights")
+        controls = self.page.locator("[data-notes-recall]")
+        self.assertTrue(
+            controls.locator('[data-recall-column="french"]').is_visible()
+        )
+        self.assertFalse(
+            controls.locator('[data-recall-column="english"]').is_visible()
+        )
+
+    def test_new_note_paste_and_close_saves_clipboard_in_body(self):
+        self.context.add_init_script(
+            """
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: {
+                readText: () => Promise.resolve(
+                  "Clipboard text for **Votre note**."
+                ),
+              },
+            });
+            """
+        )
+        notes_url = reverse(
+            "study:task_notes", args=[self.part.slug, self.task.slug]
+        )
+        self.page.goto(self.live_server_url + notes_url)
+        self.page.get_by_role("button", name="Nouvelle note").click()
+
+        dialog = self.page.locator("#note-create-dialog")
+        dialog.wait_for(state="visible")
+        dialog.get_by_label("Titre (facultatif)").fill("Titre français")
+        paste_close = dialog.get_by_role(
+            "button",
+            name="Coller et fermer",
+            exact=True,
+        )
+        self.assertIn(
+            "ui-icons.svg?v=3#icon-clipboard-paste",
+            paste_close.locator("use").get_attribute("href"),
+        )
+        paste_close.click()
+
+        note_card = self.page.locator(
+            ".annotation-card",
+            has_text="Clipboard text for Votre note.",
+        )
+        note_card.wait_for(state="visible")
+        self.assertEqual(
+            Annotation.objects.get(
+                user=self.user,
+                title="Titre français",
+            ).body,
+            "Clipboard text for **Votre note**.",
+        )
+        self.assertFalse(dialog.is_visible())
+        self.assert_no_horizontal_overflow()
+
+    def test_new_note_ignores_clipboard_read_from_closed_dialog(self):
+        self.context.add_init_script(
+            """
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: {
+                readText: () => new Promise(resolve => {
+                  window.__clipboardResolvers =
+                    window.__clipboardResolvers || [];
+                  window.__clipboardResolvers.push(resolve);
+                }),
+              },
+            });
+            """
+        )
+        notes_url = reverse(
+            "study:task_notes", args=[self.part.slug, self.task.slug]
+        )
+        self.page.goto(self.live_server_url + notes_url)
+        self.page.get_by_role("button", name="Nouvelle note").click()
+
+        dialog = self.page.locator("#note-create-dialog")
+        dialog.wait_for(state="visible")
+        dialog.get_by_label("Titre (facultatif)").fill("Ancienne session")
+        dialog.get_by_role(
+            "button",
+            name="Coller et fermer",
+            exact=True,
+        ).click()
+        self.page.wait_for_function(
+            "() => (window.__clipboardResolvers || []).length === 1"
+        )
+        dialog.get_by_role("button", name="Annuler", exact=True).click()
+        dialog.wait_for(state="hidden")
+
+        self.page.get_by_role("button", name="Nouvelle note").click()
+        dialog.wait_for(state="visible")
+        dialog.get_by_label("Titre (facultatif)").fill("Nouvelle session")
+        note_body = dialog.get_by_label("Votre note")
+        note_body.fill("")
+        self.page.evaluate(
+            "window.__clipboardResolvers[0]('Texte devenu obsolète.')"
+        )
+        self.page.wait_for_timeout(100)
+
+        self.assertTrue(dialog.is_visible())
+        self.assertEqual(note_body.input_value(), "")
+        self.assertFalse(
+            Annotation.objects.filter(user=self.user).exists()
+        )
+
+        dialog.get_by_role(
+            "button",
+            name="Coller et fermer",
+            exact=True,
+        ).click()
+        self.page.wait_for_function(
+            "() => window.__clipboardResolvers.length === 2"
+        )
+        self.page.evaluate(
+            "window.__clipboardResolvers[1]('Texte de la nouvelle session.')"
+        )
+        self.page.locator(
+            ".annotation-card",
+            has_text="Texte de la nouvelle session.",
+        ).wait_for()
+        self.assertEqual(
+            Annotation.objects.get(
+                user=self.user,
+                title="Nouvelle session",
+            ).body,
+            "Texte de la nouvelle session.",
         )
 
     def test_notes_actions_apply_in_place(self):
@@ -5615,9 +6071,9 @@ class BrowserTests(StaticLiveServerTestCase):
             '[data-study-card][data-study-id="%d"]' % note.pk
         )
         card.wait_for()
-        read = card.locator("[data-annotation-read]")
+        read = card.locator("[data-read-aloud]")
         self.assertEqual(read.count(), 1)
-        self.assertEqual(read.get_attribute("aria-label"), "Lire le passage")
+        self.assertEqual(read.get_attribute("aria-label"), "Lire cette face")
 
         read.click()
         self.page.wait_for_function(
@@ -5693,12 +6149,12 @@ class BrowserTests(StaticLiveServerTestCase):
         progress = self.page.locator("[data-study-progress]")
         self.assertEqual(progress.inner_text(), "1 / 2")
 
-        # A note with no selected passage has nothing French to read aloud.
+        # A note with no selected passage can still read its French title.
         note_card = self.page.locator(
             '[data-study-card]:not([data-study-id="%d"])' % highlight.pk
         )
         self.assertEqual(
-            note_card.locator("[data-annotation-read]").count(), 0
+            note_card.locator("[data-read-aloud]").count(), 1
         )
 
         highlight_card = self.page.locator(
@@ -5708,7 +6164,8 @@ class BrowserTests(StaticLiveServerTestCase):
             self.page.locator("[data-study-next]").click()
         card = highlight_card
         visible_id = str(highlight.pk)
-        read = card.locator("[data-annotation-read]")
+        self.page.locator("[data-study-reveal]").click()
+        read = card.locator("[data-read-aloud]")
         read.click()
         self.page.wait_for_function(
             "() => window.__annotationSpoken"
@@ -5716,7 +6173,7 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertIn(
             self.page.evaluate("window.__annotationSpoken").strip(". "),
-            card.locator("[data-annotation-readable]").inner_text(),
+            card.locator("[data-read-aloud-text]").inner_text(),
         )
         self.assertEqual(read.get_attribute("aria-pressed"), "true")
 

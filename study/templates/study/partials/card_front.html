@@ -5,7 +5,7 @@
     <span class="chip">{{ family_label|truncatechars:34 }}</span>
     <span class="progress-status progress-status--{{ subject_progress.status }}">{{ subject_progress.label }}</span>
   </div>
-  <p class="prompt-text">{{ prompt }}</p>
+  <p class="prompt-text" data-read-aloud-text lang="fr">{{ prompt }}</p>
   <div class="instruction">
     {% if tache_two_subject %}
       {% if aliases %}<div>{% include "study/partials/ui_icon.html" with name="arrow-left-right" only %} {{ aliases|length }} sujet{{ aliases|length|pluralize }} équivalent{{ aliases|length|pluralize }}</div>{% endif %}
@@ -25,7 +25,7 @@
     <p class="cue-text">{{ phrase.english_cue }}</p>
     <p class="cue-hint">{% if subject_vocabulary or theme_vocabulary or comprehension_vocabulary %}Produisez le mot, la tournure ou la phrase française{% else %}Produisez l'expression française{% endif %}, puis complétez :<br>« {{ cloze_example }} »</p>
   {% else %}
-    <p class="cue-text serif">{{ phrase.expression }}</p>
+    <p class="cue-text serif" data-read-aloud-text lang="fr">{{ phrase.expression }}</p>
     <p class="cue-hint">Que signifie cette expression, et quand l'employer ?</p>
   {% endif %}
 {% endif %}

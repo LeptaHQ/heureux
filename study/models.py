@@ -481,6 +481,34 @@ class MemoryQuestionProgress(models.Model):
         )
 
 
+class ThemeVocabularyProgress(models.Model):
+    """A theme-vocabulary phrase explicitly marked as learned."""
+
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="theme_vocabulary_progress",
+    )
+    phrase = models.ForeignKey(
+        Phrase,
+        on_delete=models.CASCADE,
+        related_name="explicit_learning_progress",
+    )
+    completed_at = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ["completed_at", "id"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "phrase"],
+                name="unique_theme_vocabulary_progress",
+            ),
+        ]
+
+    def __str__(self) -> str:
+        return f"{self.user} · {self.phrase.phrase_id} · learned"
+
+
 class ComprehensionMode(models.TextChoices):
     ECRITE = "ecrite", "Écrite"
     ORALE = "orale", "Orale"

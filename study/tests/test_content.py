@@ -30,6 +30,9 @@ class AppCopyTests(SimpleTestCase):
             ".txt",
         }
         forbidden = ("T" + "CF", "T" + "EF")
+        exam_specific_sources = {
+            project_root / "study/content/tache_2/ai_examiner_prompt.md",
+        }
         pattern = re.compile(
             r"\b(?:" + "|".join(re.escape(item) for item in forbidden) + r")\b",
             re.IGNORECASE,
@@ -38,7 +41,10 @@ class AppCopyTests(SimpleTestCase):
 
         for root in roots:
             for path in root.rglob("*"):
-                if path.suffix.lower() not in suffixes:
+                if (
+                    path.suffix.lower() not in suffixes
+                    or path in exam_specific_sources
+                ):
                     continue
                 text = path.read_text(encoding="utf-8")
                 if match := pattern.search(text):

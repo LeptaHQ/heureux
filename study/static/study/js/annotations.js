@@ -50,14 +50,6 @@
   var highlights = [];
   var toastTimer = null;
   var mutationTimer = null;
-  var annotationReadButtons = Array.from(
-    document.querySelectorAll("[data-annotation-read]")
-  );
-  var frenchSpeech = window.HeureuxFrenchSpeech;
-  var activeReadId = "";
-  var annotationReadNumber = 0;
-  var annotationReadChunks = [];
-  var annotationReadIndex = 0;
 
   function csrfToken() {
     var match = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]+)/);
@@ -769,127 +761,6 @@
       });
   }
 
-  function setAnnotationReadState(id, active) {
-    annotationReadButtons.forEach(function (button) {
-      if (button.dataset.annotationRead !== id) return;
-      var label = active
-        ? "Arrêter la lecture"
-        : button.dataset.annotationReadLabel;
-      button.classList.toggle("is-reading", active);
-      button.setAttribute("aria-pressed", active ? "true" : "false");
-      button.setAttribute("aria-label", label);
-      button.setAttribute("title", active ? "Arrêter" : "Lire");
-      var hiddenLabel = button.querySelector(".sr-only");
-      if (hiddenLabel) hiddenLabel.textContent = label;
-    });
-  }
-
-  function stopAnnotationReading(cancelSpeech) {
-    var previousId = activeReadId;
-    var wasReading = Boolean(previousId);
-    activeReadId = "";
-    annotationReadNumber += 1;
-    annotationReadChunks = [];
-    annotationReadIndex = 0;
-    if (
-      wasReading &&
-      cancelSpeech !== false &&
-      frenchSpeech &&
-      frenchSpeech.supported
-    ) {
-      frenchSpeech.synthesis.cancel();
-      frenchSpeech.synthesis.resume();
-    }
-    if (previousId) setAnnotationReadState(previousId, false);
-  }
-
-  function finishAnnotationReading() {
-    var previousId = activeReadId;
-    activeReadId = "";
-    annotationReadChunks = [];
-    annotationReadIndex = 0;
-    if (previousId) setAnnotationReadState(previousId, false);
-  }
-
-  function speakNextAnnotationChunk(readNumber) {
-    if (!activeReadId || readNumber !== annotationReadNumber) return;
-    if (annotationReadIndex >= annotationReadChunks.length) {
-      finishAnnotationReading();
-      return;
-    }
-    var utterance = new frenchSpeech.Utterance(
-      annotationReadChunks[annotationReadIndex]
-    );
-    var voice = frenchSpeech.preferredVoice();
-    utterance.lang = "fr-FR";
-    utterance.rate = 0.92;
-    utterance.pitch = 1;
-    if (voice) utterance.voice = voice;
-    utterance.onend = function () {
-      if (!activeReadId || readNumber !== annotationReadNumber) return;
-      annotationReadIndex += 1;
-      speakNextAnnotationChunk(readNumber);
-    };
-    utterance.onerror = function () {
-      if (readNumber === annotationReadNumber) stopAnnotationReading();
-    };
-    frenchSpeech.synthesis.speak(utterance);
-  }
-
-  function toggleAnnotationReading(button) {
-    var id = button.dataset.annotationRead;
-    if (activeReadId === id) {
-      stopAnnotationReading();
-      return;
-    }
-    var item = button.closest("[data-annotation-item]");
-    var readable = item ? item.querySelector("[data-annotation-readable]") : null;
-    var chunks = readable
-      ? frenchSpeech.chunks(readable.textContent || "")
-      : [];
-    if (!chunks.length) {
-      showToast("Aucun texte à lire.");
-      return;
-    }
-
-    stopAnnotationReading();
-    frenchSpeech.refreshVoices();
-    activeReadId = id;
-    annotationReadChunks = chunks;
-    annotationReadIndex = 0;
-    annotationReadNumber += 1;
-    var readNumber = annotationReadNumber;
-    setAnnotationReadState(id, true);
-    document.dispatchEvent(new CustomEvent("heureux:speech-start", {
-      detail: { source: "annotation-item" }
-    }));
-    frenchSpeech.synthesis.resume();
-    speakNextAnnotationChunk(readNumber);
-  }
-
-  function setupAnnotationReading() {
-    if (!annotationReadButtons.length) return;
-    if (!frenchSpeech || !frenchSpeech.supported) {
-      annotationReadButtons.forEach(function (button) {
-        button.hidden = true;
-      });
-      return;
-    }
-    annotationReadButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        toggleAnnotationReading(button);
-      });
-    });
-    document.addEventListener("heureux:speech-start", function (event) {
-      if (
-        activeReadId &&
-        (!event.detail || event.detail.source !== "annotation-item")
-      ) {
-        stopAnnotationReading(false);
-      }
-    });
-  }
-
   function setupStudyDeck() {
     var deck = document.querySelector("[data-annotation-study]");
     if (!deck) return;
@@ -898,7 +769,6 @@
     var progressBar = deck.querySelector("[data-study-progress-bar]");
     var previous = deck.querySelector("[data-study-previous]");
     var next = deck.querySelector("[data-study-next]");
-    var reveal = deck.querySelector("[data-study-reveal]");
     var restart = deck.querySelector("[data-study-restart]");
     var done = deck.querySelector("[data-study-done]");
     var controls = deck.querySelector(".annotation-study__controls");
@@ -906,44 +776,11 @@
     var clearButton = deck.querySelector("[data-study-clear]");
     var clearLabel = deck.querySelector("[data-study-clear-label]");
     var knownCountEl = deck.querySelector("[data-study-known-count]");
-    var orderButtons = Array.from(
-      deck.querySelectorAll("[data-study-order]")
-    );
     var index = 0;
-    var revealed = false;
-    var reverseOrder = false;
+    var interaction = null;
     // Nothing leaves the « À étudier » pack mid-session: the end-of-run
     // button removes the cards the learner ticked off with the card's own
     // « Marquer comme terminé » control.
-    // Swipe navigation: dragging the card left/right moves through the deck.
-    var SWIPE_MIN = 55;
-    var swipe = null;
-    var swipeConsumedClick = false;
-
-    function hasTextSelection() {
-      var selection = window.getSelection();
-      return Boolean(selection && !selection.isCollapsed);
-    }
-
-    function clearSwipeTransform(card) {
-      if (!card) return;
-      card.classList.remove("annotation-study__card--swiping");
-      card.classList.remove("annotation-study__card--settle");
-      card.style.transform = "";
-      card.style.opacity = "";
-    }
-
-    function settleCard(card) {
-      if (!card) return;
-      card.classList.remove("annotation-study__card--swiping");
-      card.classList.add("annotation-study__card--settle");
-      card.style.transform = "";
-      card.style.opacity = "";
-      window.setTimeout(function () {
-        card.classList.remove("annotation-study__card--settle");
-      }, 200);
-    }
-
     function setFlagState(button, pressed) {
       var label = pressed
         ? button.dataset.studyFlagOn
@@ -1078,6 +915,8 @@
         if (payload.title) {
           if (!heading) {
             heading = document.createElement("h2");
+            heading.dataset.readAloudText = "";
+            heading.lang = "fr";
             var eyebrow = back.querySelector(".eyebrow");
             if (eyebrow && eyebrow.nextSibling) {
               back.insertBefore(heading, eyebrow.nextSibling);
@@ -1103,6 +942,9 @@
           body.remove();
         }
       }
+      if (window.HeureuxReadAloud) {
+        window.HeureuxReadAloud.refresh(card);
+      }
       showToast("Note mise à jour.");
       return true;
     }
@@ -1115,39 +957,13 @@
       return count > 1 ? "s" : "";
     }
 
-    function showCardFace(card, showAnswerFace) {
-      var showFront = reverseOrder ? showAnswerFace : !showAnswerFace;
-      card
-        .querySelector("[data-study-front]")
-        .classList.toggle("hidden", !showFront);
-      card
-        .querySelector("[data-study-back]")
-        .classList.toggle("hidden", showFront);
-      card.classList.toggle("is-revealed", showAnswerFace);
-      var face = showFront ? "Recto" : "Verso";
-      var faceLabel = card.querySelector("[data-study-face-label]");
-      if (faceLabel) faceLabel.textContent = face;
-      card.setAttribute(
-        "aria-label",
-        face + ". Appuyez pour retourner la carte."
-      );
-    }
-
-    function resetCurrentCard() {
-      var card = cards[index];
-      if (!card) return;
-      showCardFace(card, false);
-      revealed = false;
-    }
-
     function render() {
       cards.forEach(function (card, cardIndex) {
         card.classList.toggle("hidden", cardIndex !== index);
       });
       var card = cards[index];
       if (!card) return;
-      clearSwipeTransform(card);
-      resetCurrentCard();
+      interaction.reset();
       previous.disabled = index === 0;
       controls.classList.remove("hidden");
       done.classList.add("hidden");
@@ -1156,25 +972,6 @@
         progressBar.style.width =
           String(((index + 1) / cards.length) * 100) + "%";
       }
-    }
-
-    function showAnswer() {
-      if (revealed) return;
-      var card = cards[index];
-      showCardFace(card, true);
-      revealed = true;
-    }
-
-    function hideAnswer() {
-      if (!revealed) return;
-      var card = cards[index];
-      if (!card) return;
-      resetCurrentCard();
-    }
-
-    function toggleAnswer() {
-      if (revealed) hideAnswer();
-      else showAnswer();
     }
 
     function knownCards() {
@@ -1192,6 +989,7 @@
       });
       controls.classList.add("hidden");
       done.classList.remove("hidden");
+      if (window.HeureuxReadAloud) window.HeureuxReadAloud.stop();
       progress.textContent =
         String(cards.length) + " / " + String(cards.length);
       if (progressBar) progressBar.style.width = "100%";
@@ -1240,104 +1038,25 @@
       }
     }
 
+    if (!window.HeureuxFlashcards) return;
+    interaction = window.HeureuxFlashcards.create({
+      root: deck,
+      getCard: function () { return cards[index] || null; },
+      isEnabled: function (action) {
+        if (!done.classList.contains("hidden")) return false;
+        if (action === "left" || action === "swipe-right") {
+          return index > 0;
+        }
+        return cards.length > 0;
+      },
+      onLeft: goPrevious,
+      onRight: goNext,
+      onSwipeLeft: goNext,
+      onSwipeRight: goPrevious
+    });
+
     previous.addEventListener("click", goPrevious);
     if (next) next.addEventListener("click", goNext);
-
-    var cardsWrap = deck.querySelector(".annotation-study__cards");
-    if (cardsWrap) {
-      cardsWrap.addEventListener("pointerdown", function (event) {
-        if (!event.isPrimary) return;
-        if (
-          event.target.closest(
-            "a, button, input, select, textarea, [contenteditable='true']"
-          )
-        ) {
-          return;
-        }
-        swipe = {
-          id: event.pointerId,
-          x: event.clientX,
-          y: event.clientY,
-          card: cards[index],
-          axis: null
-        };
-      });
-      cardsWrap.addEventListener("pointermove", function (event) {
-        if (!swipe || event.pointerId !== swipe.id || !swipe.card) return;
-        var dx = event.clientX - swipe.x;
-        var dy = event.clientY - swipe.y;
-        if (!swipe.axis) {
-          if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
-          // A vertical drag is a page scroll, never a deck gesture.
-          swipe.axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
-          if (swipe.axis === "x") {
-            swipe.card.classList.add("annotation-study__card--swiping");
-          }
-        }
-        if (swipe.axis !== "x" || hasTextSelection()) return;
-        swipe.card.style.transform =
-          "translateX(" + String(dx) + "px) rotate("
-          + String(dx / 45) + "deg)";
-        swipe.card.style.opacity = String(
-          Math.max(0.5, 1 - Math.abs(dx) / 420)
-        );
-      });
-      var finishSwipe = function (event) {
-        if (!swipe || event.pointerId !== swipe.id) return;
-        var card = swipe.card;
-        var dx = event.clientX - swipe.x;
-        var axis = swipe.axis;
-        swipe = null;
-        if (!card) return;
-        settleCard(card);
-        if (
-          axis === "x"
-          && Math.abs(dx) >= SWIPE_MIN
-          && !hasTextSelection()
-        ) {
-          // Suppress the click that follows the drag so the card does not
-          // also flip while it is being navigated away from.
-          swipeConsumedClick = true;
-          if (dx < 0) goNext();
-          else goPrevious();
-        }
-      };
-      cardsWrap.addEventListener("pointerup", finishSwipe);
-      cardsWrap.addEventListener("pointercancel", function () {
-        if (swipe && swipe.card) settleCard(swipe.card);
-        swipe = null;
-      });
-    }
-    orderButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        reverseOrder = button.dataset.studyOrder === "back";
-        orderButtons.forEach(function (option) {
-          var active = option === button;
-          option.classList.toggle("is-active", active);
-          option.setAttribute("aria-pressed", active ? "true" : "false");
-        });
-        resetCurrentCard();
-      });
-    });
-    reveal.addEventListener("click", toggleAnswer);
-    cards.forEach(function (card) {
-      card.addEventListener("click", function (event) {
-        if (swipeConsumedClick) {
-          swipeConsumedClick = false;
-          return;
-        }
-        if (
-          event.target.closest(
-            "a, button, input, select, textarea, [contenteditable='true']"
-          )
-        ) {
-          return;
-        }
-        var selection = window.getSelection();
-        if (selection && !selection.isCollapsed) return;
-        toggleAnswer();
-      });
-    });
     if (clearButton) {
       clearButton.addEventListener("click", function () {
         var toRemove = knownCards();
@@ -1404,40 +1123,6 @@
       index = 0;
       render();
     });
-    document.addEventListener("keydown", function (event) {
-      var target = event.target;
-      var interactive = target.closest(
-        "input, textarea, select, button, a"
-      );
-      var deckControl = target.closest(
-        "[data-study-previous], [data-study-next], [data-study-reveal], "
-        + "[data-study-order]"
-      );
-      var directional = event.key.indexOf("Arrow") === 0;
-      if (
-        (interactive && !(deckControl && directional)) ||
-        done.classList.contains("hidden") === false
-      ) {
-        return;
-      }
-      if (event.key === " ") {
-        event.preventDefault();
-        toggleAnswer();
-      } else if (
-        event.key === "ArrowUp"
-        || event.key === "ArrowDown"
-      ) {
-        event.preventDefault();
-        toggleAnswer();
-      } else if (event.key === "ArrowRight") {
-        event.preventDefault();
-        goNext();
-      } else if (event.key === "ArrowLeft" && index > 0) {
-        event.preventDefault();
-        index -= 1;
-        render();
-      }
-    });
     render();
   }
 
@@ -1482,9 +1167,7 @@
   observer.observe(main, { childList: true, subtree: true });
   window.addEventListener("pagehide", function () {
     observer.disconnect();
-    stopAnnotationReading();
   });
-  setupAnnotationReading();
   setupStudyDeck();
   fetchHighlights();
 

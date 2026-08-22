@@ -3,15 +3,32 @@
   class="annotation-table__row annotation-table__row--{{ annotation.kind }}"
   data-annotation-item="{{ annotation.id }}"
   data-annotation-kind="{{ annotation.kind }}"
+  data-read-aloud-scope
   id="{% if variant == 'notes' %}note{% else %}highlight{% endif %}-{{ annotation.id }}">
   <td class="annotation-table__content" data-label="{% if variant == 'notes' %}Note{% else %}Passage{% endif %}">
-    {% if annotation.title %}<strong class="annotation-table__title">{{ annotation.title }}</strong>{% endif %}
-    {% if annotation.quote %}
-      <blockquote class="annotation-table__quote" data-annotation-readable>
-        {% if annotation.kind == "highlight" %}<mark>{{ annotation.quote }}</mark>{% else %}{{ annotation.quote }}{% endif %}
-      </blockquote>
+    {% if annotation.title %}
+      <strong
+        class="annotation-table__title"
+        data-recall-cell="french"
+        data-recall-entry="annotation-french-{{ annotation.id }}"
+      ><span class="recall-content" data-recall-content data-read-aloud-text lang="fr">{{ annotation.title }}</span></strong>
     {% endif %}
-    {% if annotation.body %}<div class="annotation-table__body annotation-markdown">{{ annotation.body|markdown }}</div>{% endif %}
+    {% if annotation.quote %}
+      <blockquote
+        class="annotation-table__quote"
+        data-read-aloud-text
+        lang="fr"
+        data-recall-cell="french"
+        data-recall-entry="annotation-french-{{ annotation.id }}"
+      ><span class="recall-content" data-recall-content>{% if annotation.kind == "highlight" %}<mark>{{ annotation.quote }}</mark>{% else %}{{ annotation.quote }}{% endif %}</span></blockquote>
+    {% endif %}
+    {% if annotation.body %}
+      <div
+        class="annotation-table__body"
+        data-recall-cell="english"
+        data-recall-entry="annotation-english-{{ annotation.id }}"
+      ><div class="annotation-markdown recall-content" data-recall-content>{{ annotation.body|markdown }}</div></div>
+    {% endif %}
   </td>
   <td class="annotation-table__context" data-label="{% if variant == 'notes' %}Contexte{% else %}Origine{% endif %}">
     <div class="annotation-table__context-meta">

@@ -68,7 +68,7 @@
   <div class="answer">
     {% if production %}
       <div class="spine-block">
-        <div class="spine-label">{% if subject_vocabulary or comprehension_vocabulary %}Réponse française{% else %}Expression{% endif %}</div>
+        <div class="spine-label">{% if subject_vocabulary or theme_vocabulary or comprehension_vocabulary %}Réponse française{% else %}Expression{% endif %}</div>
         <div class="spine-text serif">{{ phrase.expression }}</div>
       </div>
     {% else %}
@@ -79,7 +79,7 @@
     {% endif %}
     <div class="example-box">{{ example_html|safe }}</div>
     {% if phrase.note %}<p class="phrase__note">{{ phrase.note }}</p>{% endif %}
-    {% if sources %}
+    {% if sources and not theme_vocabulary %}
       <div class="phrase__foot">
         <span class="faint">Tiré de :</span>
         {% for s in sources|slice:":6" %}

@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "theme": "travail",
+  "name": "Travail & emploi",
+  "entries": [
+    {
+      "id": "tramc01",
+      "kind": "mot-cle",
+      "french": "un entretien d'embauche (m.)",
+      "anchor": "un entretien d'embauche",
+      "english": "a job interview",
+      "example": "Comment se préparer au mieux avant un entretien d'embauche important ?",
+      "usage": "Groupe nominal désignant la rencontre entre un candidat et un employeur potentiel."
+    },
+    {
+      "id": "tramc02",
+      "kind": "mot-cle",
+      "french": "un CV (m.)",
+      "anchor": "un CV",
+      "english": "a resumé/CV",
+      "example": "Faut-il adapter un CV aux standards nord-américains avant de postuler ?",
+      "usage": "Abréviation désignant le document résumant le parcours professionnel."
+    },
+    {
+      "id": "tramc03",
+      "kind": "mot-cle",
+      "french": "un contrat à durée déterminée (m.)",
+      "anchor": "un contrat à durée déterminée",
+      "english": "a fixed-term contract",
+      "example": "Avez-vous commencé par un contrat à durée déterminée avant d'être embauché durablement ?",
+      "usage": "Groupe nominal désignant un emploi limité dans le temps."
+    },
+    {
+      "id": "tramc04",
+      "kind": "mot-cle",
+      "french": "un poste à temps partiel (m.)",
+      "anchor": "un poste à temps partiel",
+      "english": "a part-time position",
+      "example": "Cherchiez-vous plutôt un poste à temps partiel ou à temps plein ?",
+      "usage": "Groupe nominal désignant un emploi impliquant moins d'heures qu'un temps plein."
+    },
+    {
+      "id": "tramc05",
+      "kind": "mot-cle",
+      "french": "un collègue (m.)",
+      "anchor": "un collègue",
+      "english": "a colleague",
+      "example": "Vous arrive-t-il de demander conseil à un collègue plus expérimenté ?",
+      "usage": "Nom masculin désignant une personne travaillant dans la même entreprise. Au féminin : une collègue."
+    },
+    {
+      "id": "tramc06",
+      "kind": "mot-cle",
+      "french": "une promotion (f.)",
+      "anchor": "une promotion",
+      "english": "a promotion",
+      "example": "Avez-vous déjà obtenu une promotion depuis votre arrivée dans l'entreprise ?",
+      "usage": "Nom féminin désignant une progression hiérarchique dans un emploi."
+    },
+    {
+      "id": "tramc07",
+      "kind": "mot-cle",
+      "french": "le salaire (m.)",
+      "anchor": "le salaire",
+      "english": "a salary",
+      "example": "Le salaire proposé correspondait-il à vos attentes de départ ?",
+      "usage": "Nom masculin désignant la rémunération versée pour un travail."
+    },
+    {
+      "id": "tramc08",
+      "kind": "mot-cle",
+      "french": "des avantages sociaux (m. pl.)",
+      "anchor": "des avantages sociaux",
+      "english": "employee benefits",
+      "example": "L'entreprise offre-t-elle des avantages sociaux intéressants comme l'assurance santé ?",
+      "usage": "Groupe nominal désignant les bénéfices non salariaux offerts par un employeur."
+    },
+    {
+      "id": "tramc09",
+      "kind": "mot-cle",
+      "french": "le télétravail (m.)",
+      "anchor": "le télétravail",
+      "english": "remote work",
+      "example": "Le télétravail est-il possible plusieurs jours par semaine dans votre poste ?",
+      "usage": "Nom masculin désignant le travail effectué à distance du bureau."
+    },
+    {
+      "id": "tramc10",
+      "kind": "mot-cle",
+      "french": "un supérieur hiérarchique (m.)",
+      "anchor": "un supérieur hiérarchique",
+      "english": "a superior / manager",
+      "example": "Est-il facile de discuter ouvertement avec un supérieur hiérarchique exigeant ?",
+      "usage": "Groupe nominal désignant la personne responsable de diriger une équipe."
+    },
+    {
+      "id": "tramc11",
+      "kind": "mot-cle",
+      "french": "un préavis de démission (m.)",
+      "anchor": "un préavis de démission",
+      "english": "a notice period for resignation",
+      "example": "Faut-il respecter un préavis de démission avant de quitter ce poste ?",
+      "usage": "Groupe nominal désignant le délai légal avant de quitter un poste."
+    },
+    {
+      "id": "tramc12",
+      "kind": "mot-cle",
+      "french": "une reconversion professionnelle (f.)",
+      "anchor": "une reconversion professionnelle",
+      "english": "a career change",
+      "example": "Qu'est-ce qui vous a poussé à envisager une reconversion professionnelle ?",
+      "usage": "Groupe nominal désignant un changement complet de domaine d'activité."
+    },
+    {
+      "id": "tramc13",
+      "kind": "mot-cle",
+      "french": "un employeur (m.)",
+      "anchor": "un employeur",
+      "english": "an employer",
+      "example": "Un employeur flexible sur les horaires facilite-t-il l'équilibre de vie ?",
+      "usage": "Nom désignant la personne ou l'entreprise qui emploie du personnel."
+    },
+    {
+      "id": "tramc14",
+      "kind": "mot-cle",
+      "french": "la charge de travail (f.)",
+      "anchor": "la charge de travail",
+      "english": "a workload",
+      "example": "Trouvez-vous que la charge de travail a augmenté ces derniers mois ?",
+      "usage": "Groupe nominal désignant la quantité de travail à accomplir."
+    },
+    {
+      "id": "tramc15",
+      "kind": "mot-cle",
+      "french": "un syndicat (m.)",
+      "anchor": "un syndicat",
+      "english": "a union",
+      "example": "Existe-t-il un syndicat actif dans votre secteur d'activité ?",
+      "usage": "Nom masculin désignant une organisation défendant les droits des travailleurs."
+    },
+    {
+      "id": "traeu01",
+      "kind": "expression-utile",
+      "french": "décrocher un emploi",
+      "anchor": "décrocher un emploi",
+      "english": "to land a job",
+      "example": "Combien de temps a-t-il fallu pour décrocher un emploi dans votre domaine ?",
+      "usage": "Expression courante signifiant obtenir un poste après une recherche."
+    },
+    {
+      "id": "traeu02",
+      "kind": "expression-utile",
+      "french": "faire ses preuves",
+      "anchor": "faire vos preuves",
+      "english": "to prove oneself",
+      "example": "Avez-vous dû faire vos preuves avant d'obtenir plus de responsabilités ?",
+      "usage": "Expression pour évoquer la démonstration de ses compétences au travail."
+    },
+    {
+      "id": "traeu03",
+      "kind": "expression-utile",
+      "french": "gravir les échelons",
+      "anchor": "gravir les échelons",
+      "english": "to climb the ladder",
+      "example": "Est-il facile de gravir les échelons dans votre entreprise ?",
+      "usage": "Expression imagée signifiant progresser hiérarchiquement."
+    },
+    {
+      "id": "traeu04",
+      "kind": "expression-utile",
+      "french": "jongler entre plusieurs tâches",
+      "anchor": "jongler entre plusieurs tâches",
+      "english": "to juggle multiple tasks",
+      "example": "Devez-vous souvent jongler entre plusieurs tâches en même temps ?",
+      "usage": "Expression imagée pour parler de la gestion simultanée de responsabilités variées."
+    },
+    {
+      "id": "traeu05",
+      "kind": "expression-utile",
+      "french": "trouver un équilibre entre vie professionnelle et vie privée",
+      "anchor": "trouver un équilibre entre vie professionnelle et vie privée",
+      "english": "to find work-life balance",
+      "example": "Arrivez-vous à trouver un équilibre entre vie professionnelle et vie privée ?",
+      "usage": "Expression pour évoquer la conciliation entre travail et vie personnelle."
+    },
+    {
+      "id": "traeu06",
+      "kind": "expression-utile",
+      "french": "être sous pression",
+      "anchor": "sous pression",
+      "english": "to be under pressure",
+      "example": "Vous sentez-vous souvent sous pression avant une échéance importante ?",
+      "usage": "Expression pour décrire un état de stress lié aux exigences professionnelles."
+    },
+    {
+      "id": "traeu07",
+      "kind": "expression-utile",
+      "french": "négocier son salaire",
+      "anchor": "négocier votre salaire",
+      "english": "to negotiate one's salary",
+      "example": "Avez-vous osé négocier votre salaire lors de l'entretien d'embauche ?",
+      "usage": "Expression verbale pour désigner une discussion sur la rémunération."
+    },
+    {
+      "id": "traeu08",
+      "kind": "expression-utile",
+      "french": "s'investir dans son travail",
+      "anchor": "investissez pleinement dans votre travail",
+      "english": "to be invested in one's work",
+      "example": "Diriez-vous que vous vous investissez pleinement dans votre travail actuel ?",
+      "usage": "Expression pour évoquer l'engagement personnel envers ses fonctions."
+    },
+    {
+      "id": "traeu09",
+      "kind": "expression-utile",
+      "french": "changer de voie",
+      "anchor": "changer de voie",
+      "english": "to change career paths",
+      "example": "Qu'est-ce qui vous a poussé à changer de voie professionnelle ?",
+      "usage": "Expression imagée signifiant s'orienter vers un nouveau domaine."
+    },
+    {
+      "id": "traeu10",
+      "kind": "expression-utile",
+      "french": "avoir le pied à l'étrier",
+      "anchor": "avoir le pied à l'étrier",
+      "english": "to get a foot in the door",
+      "example": "Ce premier stage vous a-t-il permis d'avoir le pied à l'étrier ?",
+      "usage": "Expression imagée signifiant obtenir une première opportunité favorable."
+    },
+    {
+      "id": "traeu11",
+      "kind": "expression-utile",
+      "french": "être débordé",
+      "anchor": "être débordé",
+      "english": "to be overwhelmed / swamped",
+      "example": "Vous arrive-t-il d'être débordé en période de forte activité ?",
+      "usage": "Expression pour décrire une surcharge temporaire de travail."
+    },
+    {
+      "id": "traeu12",
+      "kind": "expression-utile",
+      "french": "faire du réseautage",
+      "anchor": "du réseautage",
+      "english": "to network",
+      "example": "Faites-vous régulièrement du réseautage pour élargir vos opportunités ?",
+      "usage": "Expression désignant la construction de contacts professionnels utiles."
+    },
+    {
+      "id": "traeu13",
+      "kind": "expression-utile",
+      "french": "prendre du recul",
+      "anchor": "prendre du recul",
+      "english": "to step back / gain perspective",
+      "example": "Arrivez-vous à prendre du recul face aux imprévus au travail ?",
+      "usage": "Expression pour évoquer la capacité à relativiser une situation professionnelle."
+    },
+    {
+      "id": "traeu14",
+      "kind": "expression-utile",
+      "french": "poser sa candidature",
+      "anchor": "poser votre candidature",
+      "english": "to apply for a job",
+      "example": "Combien de fois avez-vous dû poser votre candidature avant d'être retenu ?",
+      "usage": "Expression verbale pour désigner le dépôt officiel d'une demande d'emploi."
+    },
+    {
+      "id": "traeu15",
+      "kind": "expression-utile",
+      "french": "développer ses compétences",
+      "anchor": "développer vos compétences",
+      "english": "to develop one's skills",
+      "example": "L'entreprise vous aide-t-elle à développer vos compétences régulièrement ?",
+      "usage": "Expression pour évoquer le développement progressif de nouvelles capacités professionnelles."
+    },
+    {
+      "id": "trafr01",
+      "kind": "fragment",
+      "french": "Concrètement, en quoi consiste…",
+      "anchor": "en quoi consiste",
+      "english": "Specifically, what does… involve",
+      "example": "Concrètement, en quoi consiste votre poste au quotidien ?",
+      "usage": "Amorce pour demander une description concrète d'une fonction."
+    },
+    {
+      "id": "trafr02",
+      "kind": "fragment",
+      "french": "Si je comprends bien, ce poste implique…",
+      "anchor": "si je comprends bien, ce poste implique",
+      "english": "If I understand correctly, this position involves…",
+      "example": "Si je comprends bien, ce poste implique beaucoup de déplacements ?",
+      "usage": "Amorce pour reformuler et vérifier les exigences d'un emploi."
+    },
+    {
+      "id": "trafr03",
+      "kind": "fragment",
+      "french": "Qu'est-ce qui vous a motivé à postuler pour…",
+      "anchor": "qu'est-ce qui vous a motivé à postuler pour",
+      "english": "What motivated you to apply for…",
+      "example": "Qu'est-ce qui vous a motivé à postuler pour ce poste en particulier ?",
+      "usage": "Amorce pour explorer les motivations professionnelles."
+    },
+    {
+      "id": "trafr04",
+      "kind": "fragment",
+      "french": "Pourriez-vous préciser les responsabilités liées à…",
+      "anchor": "pourriez-vous préciser les responsabilités liées à",
+      "english": "Could you clarify the responsibilities related to…",
+      "example": "Pourriez-vous préciser les responsabilités liées à votre nouveau rôle ?",
+      "usage": "Amorce polie pour demander un détail précis sur des tâches."
+    },
+    {
+      "id": "trafr05",
+      "kind": "fragment",
+      "french": "Diriez-vous que le plus gratifiant, c'est…",
+      "anchor": "diriez-vous que le plus gratifiant, c'est",
+      "english": "Would you say the most rewarding part is…",
+      "example": "Diriez-vous que le plus gratifiant, c'est le contact avec les clients ?",
+      "usage": "Amorce pour faire hiérarchiser les aspects positifs d'un emploi."
+    },
+    {
+      "id": "trafr06",
+      "kind": "fragment",
+      "french": "En comparaison avec votre poste précédent…",
+      "anchor": "en comparaison avec votre poste précédent",
+      "english": "Compared to your previous position…",
+      "example": "En comparaison avec votre poste précédent, ce travail est-il plus exigeant ?",
+      "usage": "Amorce pour comparer deux expériences professionnelles."
+    },
+    {
+      "id": "trafr07",
+      "kind": "fragment",
+      "french": "Est-ce que vous pourriez revenir sur les étapes de…",
+      "anchor": "est-ce que vous pourriez revenir sur les étapes de",
+      "english": "Could you go back over the steps of…",
+      "example": "Est-ce que vous pourriez revenir sur les étapes de votre reconversion professionnelle ?",
+      "usage": "Amorce pour demander de développer un parcours déjà évoqué."
+    },
+    {
+      "id": "trafr08",
+      "kind": "fragment",
+      "french": "Autrement dit, sans cette formation, vous…",
+      "anchor": "autrement dit, sans cette formation, vous",
+      "english": "In other words, without that training, you…",
+      "example": "Autrement dit, sans cette formation, vous n'auriez pas obtenu ce poste ?",
+      "usage": "Amorce pour reformuler une conséquence logique."
+    },
+    {
+      "id": "trafr09",
+      "kind": "fragment",
+      "french": "Par rapport à ce que vous imaginiez, ce métier…",
+      "anchor": "par rapport à ce que vous imaginiez, ce métier",
+      "english": "Compared to what you imagined, this job…",
+      "example": "Par rapport à ce que vous imaginiez, ce métier est-il conforme à vos attentes ?",
+      "usage": "Amorce pour comparer les attentes initiales à la réalité professionnelle."
+    },
+    {
+      "id": "trafr10",
+      "kind": "fragment",
+      "french": "Pour resituer, depuis combien de temps occupez-vous…",
+      "anchor": "pour resituer, depuis combien de temps occupez-vous",
+      "english": "To set the context, how long have you held…",
+      "example": "Pour resituer, depuis combien de temps occupez-vous ce poste ?",
+      "usage": "Amorce pour recontextualiser une expérience professionnelle."
+    },
+    {
+      "id": "trafr11",
+      "kind": "fragment",
+      "french": "Vous voulez dire que malgré la charge de travail, vous…",
+      "anchor": "vous voulez dire que malgré la charge de travail, vous",
+      "english": "You mean that despite the workload, you…",
+      "example": "Vous voulez dire que malgré la charge de travail, vous restez motivé ?",
+      "usage": "Amorce pour vérifier une interprétation malgré une contrainte professionnelle."
+    },
+    {
+      "id": "trafr12",
+      "kind": "fragment",
+      "french": "Pour clore ce point, recommanderiez-vous ce métier à…",
+      "anchor": "pour clore ce point, recommanderiez-vous ce métier à",
+      "english": "To close this point, would you recommend this job to…",
+      "example": "Pour clore ce point, recommanderiez-vous ce métier à un jeune diplômé ?",
+      "usage": "Amorce pour conclure un échange sur une expérience professionnelle."
+    },
+    {
+      "id": "trafr13",
+      "kind": "fragment",
+      "french": "Comment faites-vous pour…",
+      "anchor": "comment faites-vous pour",
+      "english": "How do you manage to…",
+      "example": "Comment faites-vous pour gérer la pression au travail ?",
+      "usage": "Amorce pour interroger la méthode employée pour gérer une contrainte professionnelle."
+    },
+    {
+      "id": "trafr14",
+      "kind": "fragment",
+      "french": "Juste pour bien comprendre, ce supérieur dont vous parlez…",
+      "anchor": "juste pour bien comprendre, ce supérieur dont vous parlez",
+      "english": "Just to make sure I understand, the manager you mention…",
+      "example": "Juste pour bien comprendre, ce supérieur dont vous parlez supervise toute l'équipe ?",
+      "usage": "Amorce pour clarifier un détail relatif à une personne mentionnée."
+    },
+    {
+      "id": "trafr15",
+      "kind": "fragment",
+      "french": "Et si on vous proposait une promotion, comment…",
+      "anchor": "et si on vous proposait une promotion demain, comment",
+      "english": "And if you were offered a promotion, how…",
+      "example": "Et si on vous proposait une promotion demain, comment réagiriez-vous ?",
+      "usage": "Amorce hypothétique pour explorer un scénario de carrière."
+    }
+  ]
+}

@@ -24,33 +24,33 @@
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Contenu de la Tâche 2">
       <div><dt>Sujets</dt><dd>{{ subject_count }}</dd></div>
-      <div><dt>Mémoires</dt><dd>{{ memory_count }}</dd></div>
-      <div><dt>Formulations</dt><dd>{{ question_count }}</dd></div>
+      <div><dt>Thèmes</dt><dd>{{ theme_vocabulary.theme_count }}</dd></div>
+      <div><dt>Fiches de vocabulaire</dt><dd>{{ theme_vocabulary.phrase_count }}</dd></div>
     </dl>
   </header>
 
   <div class="tache-two-overview-grid">
     <a
-      class="tache-two-overview-panel tache-two-overview-panel--memories card"
+      class="tache-two-overview-panel tache-two-overview-panel--theme-vocabulary card"
       data-tache-two-overview-panel
-      href="{% url 'study:task_memories' part.slug task.slug %}"
-      aria-labelledby="memory-overview-panel-title">
+      href="{{ theme_vocabulary.url }}"
+      aria-labelledby="theme-vocabulary-overview-panel-title">
       <header class="tache-two-overview-panel__head">
         <span class="tache-two-overview-panel__icon" aria-hidden="true">
-          {% include "study/partials/ui_icon.html" with name="book-open" only %}
+          {% include "study/partials/ui_icon.html" with name="sparkles" only %}
         </span>
         <div>
-          <h2 id="memory-overview-panel-title">Mémoires</h2>
-          <p>Les formulations réutilisables à mémoriser et à adapter.</p>
+          <h2 id="theme-vocabulary-overview-panel-title">Vocabulaire par thème</h2>
+          <p>Des mots, expressions et fragments pour construire vos questions.</p>
         </div>
       </header>
       <div class="tache-two-overview-panel__facts">
-        <span><b>{{ memory_count }}</b> mémoire{{ memory_count|pluralize }}</span>
-        <span><b>{{ category_count }}</b> catégories</span>
-        <span><b>{{ question_count }}</b> questions</span>
+        <span><b>{{ theme_vocabulary.theme_count }}</b> thèmes</span>
+        <span><b>{{ theme_vocabulary.phrase_count }}</b> fiches</span>
+        <span><b>{{ theme_vocabulary.batch_count }}</b> lots</span>
       </div>
       <footer class="tache-two-overview-panel__footer">
-        {% include "study/partials/tache_two_progress.html" with summary=memory_summary unit_label="questions apprises" compact=True only %}
+        {% include "study/partials/tache_two_progress.html" with summary=theme_vocabulary.summary unit_label="lots terminés" compact=True only %}
       </footer>
     </a>
 

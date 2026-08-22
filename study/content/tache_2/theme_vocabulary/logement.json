@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "theme": "logement",
+  "name": "Logement & déménagement",
+  "entries": [
+    {
+      "id": "logmc01",
+      "kind": "mot-cle",
+      "french": "un bail (m.)",
+      "anchor": "un bail",
+      "english": "a lease",
+      "example": "Avez-vous dû signer un bail d'un an minimum pour ce logement ?",
+      "usage": "Nom masculin désignant le contrat de location d'un logement."
+    },
+    {
+      "id": "logmc02",
+      "kind": "mot-cle",
+      "french": "un dépôt de garantie (m.)",
+      "anchor": "un dépôt de garantie",
+      "english": "a security deposit",
+      "example": "Le propriétaire a-t-il demandé un dépôt de garantie avant la remise des clés ?",
+      "usage": "Nom masculin désignant la somme versée pour couvrir d'éventuels dommages."
+    },
+    {
+      "id": "logmc03",
+      "kind": "mot-cle",
+      "french": "un déménagement (m.)",
+      "anchor": "un déménagement",
+      "english": "a move",
+      "example": "Un déménagement précipité a-t-il compliqué votre installation dans ce nouveau logement ?",
+      "usage": "Nom masculin désignant le fait de changer de lieu de résidence."
+    },
+    {
+      "id": "logmc04",
+      "kind": "mot-cle",
+      "french": "un colocataire (m.)",
+      "anchor": "un colocataire",
+      "english": "a roommate",
+      "example": "Partagez-vous ce logement avec un colocataire ou vivez-vous seul ?",
+      "usage": "Nom masculin désignant une personne avec qui l'on partage un logement. Au féminin : une colocataire."
+    },
+    {
+      "id": "logmc05",
+      "kind": "mot-cle",
+      "french": "les charges (f. pl.)",
+      "anchor": "les charges",
+      "english": "utilities / condo fees",
+      "example": "Est-ce que les charges sont incluses dans le montant du loyer ?",
+      "usage": "Nom féminin pluriel désignant les frais annexes liés au logement (eau, électricité, entretien)."
+    },
+    {
+      "id": "logmc06",
+      "kind": "mot-cle",
+      "french": "un état des lieux (m.)",
+      "anchor": "un état des lieux",
+      "english": "a move-in/move-out inspection",
+      "example": "Avez-vous fait un état des lieux détaillé en entrant dans l'appartement ?",
+      "usage": "Nom masculin désignant l'inspection décrivant l'état d'un logement à l'entrée ou à la sortie."
+    },
+    {
+      "id": "logmc07",
+      "kind": "mot-cle",
+      "french": "le propriétaire (m.)",
+      "anchor": "le propriétaire",
+      "english": "a landlord",
+      "example": "Comment se sont passées vos premières discussions avec le propriétaire ?",
+      "usage": "Nom masculin désignant la personne qui possède et loue le logement. Au féminin : la propriétaire."
+    },
+    {
+      "id": "logmc08",
+      "kind": "mot-cle",
+      "french": "une hausse de loyer (f.)",
+      "anchor": "une hausse de loyer",
+      "english": "a rent increase",
+      "example": "Avez-vous déjà subi une hausse de loyer depuis votre emménagement ?",
+      "usage": "Nom féminin désignant une augmentation du montant à payer chaque mois."
+    },
+    {
+      "id": "logmc09",
+      "kind": "mot-cle",
+      "french": "aménager un espace",
+      "anchor": "aménager un espace",
+      "english": "to set up a space",
+      "example": "Combien de temps a-t-il fallu pour aménager un espace de travail chez vous ?",
+      "usage": "Expression verbale pour parler de l'organisation d'un lieu de vie."
+    },
+    {
+      "id": "logmc10",
+      "kind": "mot-cle",
+      "french": "un quartier résidentiel (m.)",
+      "anchor": "un quartier résidentiel",
+      "english": "a residential neighborhood",
+      "example": "Préférez-vous vivre dans un quartier résidentiel calme ou plus près du centre-ville ?",
+      "usage": "Groupe nominal désignant une zone principalement composée de logements."
+    },
+    {
+      "id": "logmc11",
+      "kind": "mot-cle",
+      "french": "des cartons de déménagement (m. pl.)",
+      "anchor": "des cartons de déménagement",
+      "english": "moving boxes",
+      "example": "Avez-vous rempli des cartons de déménagement pour chaque pièce de l'appartement ?",
+      "usage": "Nom masculin pluriel désignant les boîtes utilisées pour transporter ses affaires."
+    },
+    {
+      "id": "logmc12",
+      "kind": "mot-cle",
+      "french": "un studio (m.)",
+      "anchor": "un studio",
+      "english": "a studio apartment",
+      "example": "Avez-vous commencé par louer un studio avant de chercher plus grand ?",
+      "usage": "Nom masculin désignant un petit logement d'une seule pièce principale."
+    },
+    {
+      "id": "logmc13",
+      "kind": "mot-cle",
+      "french": "un immeuble (m.)",
+      "anchor": "un immeuble",
+      "english": "a building",
+      "example": "Un immeuble récent propose-t-il plus de commodités qu'un bâtiment plus ancien ?",
+      "usage": "Nom masculin désignant un bâtiment comportant plusieurs logements."
+    },
+    {
+      "id": "logmc14",
+      "kind": "mot-cle",
+      "french": "le voisinage (m.)",
+      "anchor": "le voisinage",
+      "english": "the neighborhood / neighbors",
+      "example": "Comment décririez-vous le voisinage autour de votre nouveau logement ?",
+      "usage": "Nom masculin désignant les alentours immédiats ou les personnes qui y vivent."
+    },
+    {
+      "id": "logmc15",
+      "kind": "mot-cle",
+      "french": "une hypothèque (f.)",
+      "anchor": "une hypothèque",
+      "english": "a mortgage",
+      "example": "Avez-vous contracté une hypothèque pour acheter ce logement ?",
+      "usage": "Nom féminin désignant la garantie prise sur un bien immobilier pour sécuriser un prêt, et non le prêt lui-même."
+    },
+    {
+      "id": "logeu01",
+      "kind": "expression-utile",
+      "french": "se sentir à l'étroit",
+      "anchor": "vous sentir à l'étroit",
+      "english": "to feel cramped",
+      "example": "Avez-vous fini par vous sentir à l'étroit dans ce petit appartement ?",
+      "usage": "Expression pour dire qu'un espace manque de place."
+    },
+    {
+      "id": "logeu02",
+      "kind": "expression-utile",
+      "french": "faire le tour du propriétaire",
+      "anchor": "fait le tour du propriétaire",
+      "english": "to take a tour of the place",
+      "example": "Avez-vous fait le tour du propriétaire avant de signer le bail ?",
+      "usage": "Expression figée signifiant visiter l'ensemble des pièces d'un logement, sans que cela nécessite obligatoirement la présence du propriétaire."
+    },
+    {
+      "id": "logeu03",
+      "kind": "expression-utile",
+      "french": "emménager dans les temps",
+      "anchor": "emménager dans les temps",
+      "english": "to move in on time",
+      "example": "Avez-vous réussi à emménager dans les temps malgré les travaux en cours ?",
+      "usage": "Expression pour indiquer qu'un déménagement respecte l'échéance prévue."
+    },
+    {
+      "id": "logeu04",
+      "kind": "expression-utile",
+      "french": "faire les cartons",
+      "anchor": "faire les cartons",
+      "english": "to pack up one's boxes",
+      "example": "Combien de jours a-t-il fallu pour faire les cartons avant le grand départ ?",
+      "usage": "Expression courante signifiant emballer ses affaires en vue d'un déménagement."
+    },
+    {
+      "id": "logeu05",
+      "kind": "expression-utile",
+      "french": "avoir un coup de cœur",
+      "anchor": "eu un coup de cœur",
+      "english": "to fall in love (with a place)",
+      "example": "Avez-vous eu un coup de cœur immédiat pour ce logement ?",
+      "usage": "Expression pour exprimer un attachement spontané et fort envers un lieu."
+    },
+    {
+      "id": "logeu06",
+      "kind": "expression-utile",
+      "french": "respecter son budget",
+      "anchor": "respecter votre budget",
+      "english": "to stay within one's budget",
+      "example": "Est-ce que ce loyer permet de respecter votre budget chaque mois ?",
+      "usage": "Expression pour dire qu'une dépense correspond aux moyens financiers disponibles."
+    },
+    {
+      "id": "logeu07",
+      "kind": "expression-utile",
+      "french": "négocier le loyer",
+      "anchor": "négocier le loyer",
+      "english": "to negotiate the rent",
+      "example": "Avez-vous essayé de négocier le loyer avant de signer le bail ?",
+      "usage": "Expression verbale pour désigner une discussion visant à réduire un prix."
+    },
+    {
+      "id": "logeu08",
+      "kind": "expression-utile",
+      "french": "prendre en charge les formalités",
+      "anchor": "pris en charge les formalités",
+      "english": "to handle the paperwork",
+      "example": "Qui a pris en charge les formalités liées au changement d'adresse ?",
+      "usage": "Expression pour parler de la prise en charge des démarches administratives d'un déménagement."
+    },
+    {
+      "id": "logeu09",
+      "kind": "expression-utile",
+      "french": "vivre au rythme du quartier",
+      "anchor": "vivez au rythme du quartier",
+      "english": "to live at the neighborhood's pace",
+      "example": "Diriez-vous que vous vivez au rythme du quartier depuis votre emménagement ?",
+      "usage": "Expression imagée pour évoquer une bonne intégration dans un lieu de vie."
+    },
+    {
+      "id": "logeu10",
+      "kind": "expression-utile",
+      "french": "faire des travaux",
+      "anchor": "faire des travaux",
+      "english": "to do renovations",
+      "example": "Avez-vous dû faire des travaux avant de pouvoir emménager ?",
+      "usage": "Expression courante pour désigner des rénovations effectuées dans un logement."
+    },
+    {
+      "id": "logeu11",
+      "kind": "expression-utile",
+      "french": "changer d'adresse",
+      "anchor": "changer d'adresse",
+      "english": "to change address",
+      "example": "Combien de fois avez-vous dû changer d'adresse en cinq ans ?",
+      "usage": "Expression pour parler du fait de déménager vers un nouveau domicile."
+    },
+    {
+      "id": "logeu12",
+      "kind": "expression-utile",
+      "french": "trouver ses repères",
+      "anchor": "trouvé vos repères",
+      "english": "to get one's bearings (in a new home)",
+      "example": "Au bout de combien de temps avez-vous trouvé vos repères dans ce nouveau logement ?",
+      "usage": "Expression pour évoquer l'adaptation progressive à un nouvel espace de vie."
+    },
+    {
+      "id": "logeu13",
+      "kind": "expression-utile",
+      "french": "poser ses valises",
+      "anchor": "poser vos valises",
+      "english": "to settle down",
+      "example": "Vous sentez-vous enfin prêt à poser vos valises dans ce quartier ?",
+      "usage": "Expression imagée signifiant s'installer durablement quelque part."
+    },
+    {
+      "id": "logeu14",
+      "kind": "expression-utile",
+      "french": "chercher sur le marché locatif",
+      "anchor": "cherchez sur le marché locatif",
+      "english": "to search the rental market",
+      "example": "Est-ce que vous cherchez sur le marché locatif depuis longtemps un logement adapté ?",
+      "usage": "Expression pour désigner la recherche active d'un logement à louer."
+    },
+    {
+      "id": "logeu15",
+      "kind": "expression-utile",
+      "french": "respecter le règlement de l'immeuble",
+      "anchor": "respecter le règlement de l'immeuble",
+      "english": "to follow the building rules",
+      "example": "Faut-il respecter le règlement de l'immeuble concernant le bruit après 22 heures ?",
+      "usage": "Expression pour évoquer les règles communes imposées aux résidents."
+    },
+    {
+      "id": "logfr01",
+      "kind": "fragment",
+      "french": "Concrètement, comment s'est déroulée…",
+      "anchor": "comment s'est déroulée",
+      "english": "Specifically, how did… go",
+      "example": "Concrètement, comment s'est déroulée la recherche de cet appartement ?",
+      "usage": "Amorce pour demander le déroulement concret d'une étape du logement."
+    },
+    {
+      "id": "logfr02",
+      "kind": "fragment",
+      "french": "Si je comprends bien, le loyer comprend…",
+      "anchor": "si je comprends bien, le loyer comprend",
+      "english": "If I understand correctly, the rent includes…",
+      "example": "Si je comprends bien, le loyer comprend déjà les charges d'électricité ?",
+      "usage": "Amorce pour reformuler et vérifier une information sur le loyer."
+    },
+    {
+      "id": "logfr03",
+      "kind": "fragment",
+      "french": "Qu'est-ce qui vous a convaincu de choisir…",
+      "anchor": "qu'est-ce qui vous a convaincu de choisir",
+      "english": "What convinced you to choose…",
+      "example": "Qu'est-ce qui vous a convaincu de choisir ce quartier plutôt qu'un autre ?",
+      "usage": "Amorce pour explorer les raisons d'un choix de logement."
+    },
+    {
+      "id": "logfr04",
+      "kind": "fragment",
+      "french": "Pourriez-vous détailler ce que comprend…",
+      "anchor": "pourriez-vous détailler ce que comprend",
+      "english": "Could you detail what… includes",
+      "example": "Pourriez-vous détailler ce que comprend l'état des lieux d'entrée ?",
+      "usage": "Amorce polie pour demander des précisions sur une procédure."
+    },
+    {
+      "id": "logfr05",
+      "kind": "fragment",
+      "french": "Diriez-vous que le principal avantage, c'est…",
+      "anchor": "diriez-vous que le principal avantage, c'est",
+      "english": "Would you say the main advantage is…",
+      "example": "Diriez-vous que le principal avantage, c'est la proximité des transports ?",
+      "usage": "Amorce pour faire hiérarchiser les avantages d'un logement."
+    },
+    {
+      "id": "logfr06",
+      "kind": "fragment",
+      "french": "En comparaison avec votre ancien logement…",
+      "anchor": "en comparaison avec votre ancien logement",
+      "english": "Compared with your previous home…",
+      "example": "En comparaison avec votre ancien logement, celui-ci est-il plus spacieux ?",
+      "usage": "Amorce pour établir une comparaison entre deux logements."
+    },
+    {
+      "id": "logfr07",
+      "kind": "fragment",
+      "french": "Est-ce que vous pourriez revenir sur les démarches liées à…",
+      "anchor": "est-ce que vous pourriez revenir sur les démarches liées à",
+      "english": "Could you go back over the steps related to…",
+      "example": "Est-ce que vous pourriez revenir sur les démarches liées à la signature du bail ?",
+      "usage": "Amorce pour demander de développer une étape administrative précédemment évoquée."
+    },
+    {
+      "id": "logfr08",
+      "kind": "fragment",
+      "french": "Autrement dit, sans cette hausse de loyer, vous…",
+      "anchor": "autrement dit, sans cette hausse de loyer, vous",
+      "english": "In other words, without that rent increase, you…",
+      "example": "Autrement dit, sans cette hausse de loyer, vous seriez resté plus longtemps ?",
+      "usage": "Amorce pour reformuler une conséquence et la faire confirmer."
+    },
+    {
+      "id": "logfr09",
+      "kind": "fragment",
+      "french": "Par rapport à vos attentes initiales, ce logement…",
+      "anchor": "par rapport à vos attentes initiales, ce logement",
+      "english": "Compared to your initial expectations, this home…",
+      "example": "Par rapport à vos attentes initiales, ce logement correspond-il vraiment à vos besoins ?",
+      "usage": "Amorce pour comparer les attentes de départ à la réalité du logement."
+    },
+    {
+      "id": "logfr10",
+      "kind": "fragment",
+      "french": "Pour resituer, combien de pièces compte…",
+      "anchor": "pour resituer, combien de pièces compte",
+      "english": "To set the context, how many rooms does… have",
+      "example": "Pour resituer, combien de pièces compte exactement cet appartement ?",
+      "usage": "Amorce pour recontextualiser avant de poursuivre l'échange."
+    },
+    {
+      "id": "logfr11",
+      "kind": "fragment",
+      "french": "Vous voulez dire que malgré les travaux, vous…",
+      "anchor": "vous voulez dire que malgré les travaux, vous",
+      "english": "You mean that despite the renovations, you…",
+      "example": "Vous voulez dire que malgré les travaux, vous avez pu emménager à temps ?",
+      "usage": "Amorce pour vérifier une interprétation malgré une contrainte évoquée."
+    },
+    {
+      "id": "logfr12",
+      "kind": "fragment",
+      "french": "Pour clore ce point, feriez-vous le même choix concernant…",
+      "anchor": "pour clore ce point, feriez-vous le même choix concernant",
+      "english": "To close this point, would you make the same choice regarding…",
+      "example": "Pour clore ce point, feriez-vous le même choix concernant ce quartier ?",
+      "usage": "Amorce pour conclure en demandant une synthèse rétrospective."
+    },
+    {
+      "id": "logfr13",
+      "kind": "fragment",
+      "french": "Comment avez-vous fait pour…",
+      "anchor": "comment avez-vous fait pour",
+      "english": "How did you manage to…",
+      "example": "Comment avez-vous fait pour financer le dépôt de garantie de ce logement ?",
+      "usage": "Amorce pour demander la méthode utilisée pour financer une dépense liée au logement."
+    },
+    {
+      "id": "logfr14",
+      "kind": "fragment",
+      "french": "Juste pour bien comprendre, le colocataire dont vous parlez…",
+      "anchor": "juste pour bien comprendre, le colocataire dont vous parlez",
+      "english": "Just to make sure I understand, the roommate you mention…",
+      "example": "Juste pour bien comprendre, le colocataire dont vous parlez partage bien toutes les charges ?",
+      "usage": "Amorce pour clarifier un détail relatif à la colocation."
+    },
+    {
+      "id": "logfr15",
+      "kind": "fragment",
+      "french": "Et si le propriétaire refusait, comment…",
+      "anchor": "et si le propriétaire refusait, comment",
+      "english": "And if the landlord refused, how…",
+      "example": "Et si le propriétaire refusait, comment réagiriez-vous ?",
+      "usage": "Amorce hypothétique pour explorer un scénario alternatif lié au logement."
+    }
+  ]
+}

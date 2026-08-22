@@ -719,37 +719,44 @@ def _task_card(task, now, user, *, with_stats=True, with_deck_stats=True):
         and with_stats
         and (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK
     ):
-        banks = content_module.load_question_banks()
         subject_state = _tache_two_progress(
             user,
             content_module.load_tache_two_subject_months(),
         )
-        memory_states = _memory_progress(user, banks)
-        memory_progress = progress_summary(
-            total=sum(
-                state["progress"].total
-                for state in memory_states.values()
-            ),
-            started=sum(
-                state["progress"].started
-                for state in memory_states.values()
-            ),
-            completed=sum(
-                state["progress"].completed
-                for state in memory_states.values()
-            ),
+        vocabulary_batches = _review_batches(
+            {
+                **_task_scope(task),
+                "kind": "theme_vocab",
+            },
+            user,
         )
+        vocabulary_progress = summarize_review_batches(vocabulary_batches)
         task_progress = combine_progress(
-            [memory_progress, subject_state["progress"]]
+            [vocabulary_progress, subject_state["progress"]]
+        )
+        vocabulary_count = (
+            Phrase.objects.filter(
+                is_active=True,
+                tier=PhraseTier.THEME,
+                source_prompts__is_active=True,
+                source_prompts__theme__is_active=True,
+                source_prompts__theme__task=task,
+            )
+            .distinct()
+            .count()
+        )
+        vocabulary_theme_count = len(
+            content_module.load_tache_two_subject_themes()[0]
         )
         question_bank = {
-            "title": f"{len(banks)} mémoire{'s' if len(banks) > 1 else ''}",
-            "memory_count": len(banks),
+            "title": "Vocabulaire par thème",
+            "theme_vocabulary": True,
+            "theme_count": vocabulary_theme_count,
+            "vocabulary_count": vocabulary_count,
+            "batch_count": len(vocabulary_batches),
             "subject_count": subject_state["total"],
-            "category_count": sum(bank.category_count for bank in banks),
-            "question_count": sum(bank.question_count for bank in banks),
             "progress": task_progress,
-            "memory_progress": memory_progress,
+            "vocabulary_progress": vocabulary_progress,
             "subject_progress": subject_state["progress"],
             "active_count": max(
                 task_progress.started - task_progress.completed,

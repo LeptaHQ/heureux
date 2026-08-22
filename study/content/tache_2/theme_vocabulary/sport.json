@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "theme": "sport",
+  "name": "Sport & plein air",
+  "entries": [
+    {
+      "id": "spomc01",
+      "kind": "mot-cle",
+      "french": "un entraînement (m.)",
+      "anchor": "un entraînement",
+      "english": "a training session",
+      "example": "Combien de fois par semaine suivez-vous un entraînement ?",
+      "usage": "Nom masculin désignant une séance de préparation physique régulière."
+    },
+    {
+      "id": "spomc02",
+      "kind": "mot-cle",
+      "french": "une équipe (f.)",
+      "anchor": "une équipe",
+      "english": "a team",
+      "example": "Faites-vous partie d'une équipe locale depuis longtemps ?",
+      "usage": "Nom féminin désignant un groupe de personnes pratiquant un sport ensemble."
+    },
+    {
+      "id": "spomc03",
+      "kind": "mot-cle",
+      "french": "un sentier de randonnée (m.)",
+      "anchor": "un sentier de randonnée",
+      "english": "a hiking trail",
+      "example": "Existe-t-il un sentier de randonnée accessible directement depuis chez vous ?",
+      "usage": "Groupe nominal désignant un chemin balisé destiné à la marche en nature."
+    },
+    {
+      "id": "spomc04",
+      "kind": "mot-cle",
+      "french": "un abonnement au gym (m.)",
+      "anchor": "un abonnement au gym",
+      "english": "a gym membership",
+      "example": "Avez-vous pris un abonnement au gym pour rester actif l'hiver ?",
+      "usage": "Groupe nominal désignant un accès régulier à une salle de sport."
+    },
+    {
+      "id": "spomc05",
+      "kind": "mot-cle",
+      "french": "une compétition (f.)",
+      "anchor": "une compétition",
+      "english": "a competition",
+      "example": "Avez-vous déjà participé à une compétition amateur dans votre discipline ?",
+      "usage": "Nom féminin désignant un événement sportif opposant plusieurs concurrents."
+    },
+    {
+      "id": "spomc06",
+      "kind": "mot-cle",
+      "french": "un équipement sportif (m.)",
+      "anchor": "un équipement sportif",
+      "english": "sports equipment",
+      "example": "Faut-il investir dans un équipement sportif coûteux pour débuter ce sport ?",
+      "usage": "Groupe nominal désignant le matériel nécessaire à la pratique d'une activité."
+    },
+    {
+      "id": "spomc07",
+      "kind": "mot-cle",
+      "french": "une blessure (f.)",
+      "anchor": "une blessure",
+      "english": "an injury",
+      "example": "Avez-vous déjà dû arrêter le sport à cause d'une blessure ?",
+      "usage": "Nom féminin désignant un dommage physique lié à la pratique sportive."
+    },
+    {
+      "id": "spomc08",
+      "kind": "mot-cle",
+      "french": "un entraîneur (m.)",
+      "anchor": "un entraîneur",
+      "english": "a coach",
+      "example": "Un entraîneur expérimenté adapte-t-il le programme à chaque athlète ?",
+      "usage": "Nom désignant la personne qui encadre et forme des sportifs."
+    },
+    {
+      "id": "spomc09",
+      "kind": "mot-cle",
+      "french": "un club sportif (m.)",
+      "anchor": "un club sportif",
+      "english": "a sports club",
+      "example": "Depuis combien de temps êtes-vous membre d'un club sportif dans votre ville ?",
+      "usage": "Groupe nominal désignant une organisation dédiée à la pratique d'un sport."
+    },
+    {
+      "id": "spomc10",
+      "kind": "mot-cle",
+      "french": "une randonnée en montagne (f.)",
+      "anchor": "une randonnée en montagne",
+      "english": "a mountain hike",
+      "example": "Avez-vous déjà fait une randonnée en montagne sur plusieurs jours ?",
+      "usage": "Groupe nominal désignant une longue marche en terrain montagneux."
+    },
+    {
+      "id": "spomc11",
+      "kind": "mot-cle",
+      "french": "l'endurance (f.)",
+      "anchor": "l'endurance",
+      "english": "endurance",
+      "example": "Comment améliore-t-on l'endurance avant une grande course ?",
+      "usage": "Nom féminin désignant la capacité à soutenir un effort physique prolongé."
+    },
+    {
+      "id": "spomc12",
+      "kind": "mot-cle",
+      "french": "une piscine municipale (f.)",
+      "anchor": "une piscine municipale",
+      "english": "a public pool",
+      "example": "Fréquentez-vous souvent une piscine municipale près de chez vous ?",
+      "usage": "Groupe nominal désignant un bassin de natation géré par la ville."
+    },
+    {
+      "id": "spomc13",
+      "kind": "mot-cle",
+      "french": "un match (m.)",
+      "anchor": "un match",
+      "english": "a game/match",
+      "example": "Avez-vous assisté à un match récemment avec des amis ?",
+      "usage": "Nom masculin désignant une rencontre sportive entre deux équipes ou adversaires."
+    },
+    {
+      "id": "spomc14",
+      "kind": "mot-cle",
+      "french": "un parc national (m.)",
+      "anchor": "un parc national",
+      "english": "a national park",
+      "example": "Avez-vous déjà visité un parc national pour une randonnée en famille ?",
+      "usage": "Groupe nominal désignant un espace naturel protégé ouvert aux visiteurs."
+    },
+    {
+      "id": "spomc15",
+      "kind": "mot-cle",
+      "french": "une saison sportive (f.)",
+      "anchor": "une saison sportive",
+      "english": "a sports season",
+      "example": "Comment se déroule en général une saison sportive dans votre discipline ?",
+      "usage": "Groupe nominal désignant la période durant laquelle un sport est pratiqué en compétition."
+    },
+    {
+      "id": "spoeu01",
+      "kind": "expression-utile",
+      "french": "se dépenser physiquement",
+      "anchor": "vous dépenser physiquement",
+      "english": "to get physical exercise",
+      "example": "Aimez-vous vous dépenser physiquement plusieurs fois par semaine ?",
+      "usage": "Expression pour évoquer une activité sportive régulière et intense."
+    },
+    {
+      "id": "spoeu02",
+      "kind": "expression-utile",
+      "french": "reprendre le sport",
+      "anchor": "reprendre le sport",
+      "english": "to get back into sports",
+      "example": "Qu'est-ce qui vous a motivé à reprendre le sport après une pause ?",
+      "usage": "Expression pour désigner le retour à une pratique sportive interrompue."
+    },
+    {
+      "id": "spoeu03",
+      "kind": "expression-utile",
+      "french": "se surpasser",
+      "anchor": "vous surpasser",
+      "english": "to push oneself / exceed one's limits",
+      "example": "Cette compétition vous a-t-elle permis de vous surpasser ?",
+      "usage": "Expression pour évoquer un effort au-delà de ses capacités habituelles."
+    },
+    {
+      "id": "spoeu04",
+      "kind": "expression-utile",
+      "french": "profiter du grand air",
+      "anchor": "profiter du grand air",
+      "english": "to enjoy the outdoors",
+      "example": "Aimez-vous profiter du grand air chaque week-end, peu importe la saison ?",
+      "usage": "Expression pour évoquer le plaisir d'être en plein air."
+    },
+    {
+      "id": "spoeu05",
+      "kind": "expression-utile",
+      "french": "tenir la distance",
+      "anchor": "tenir la distance",
+      "english": "to go the distance",
+      "example": "Avez-vous réussi à tenir la distance jusqu'à la fin du marathon ?",
+      "usage": "Expression imagée signifiant terminer un effort physique prolongé."
+    },
+    {
+      "id": "spoeu06",
+      "kind": "expression-utile",
+      "french": "interrompre sa pratique sportive",
+      "anchor": "interrompre votre pratique sportive",
+      "english": "to stop practicing a sport temporarily",
+      "example": "Avez-vous déjà dû interrompre votre pratique sportive à cause d'une blessure ?",
+      "usage": "Expression pour désigner l'arrêt temporaire d'une activité sportive, souvent pour raison médicale."
+    },
+    {
+      "id": "spoeu07",
+      "kind": "expression-utile",
+      "french": "garder la forme",
+      "anchor": "garder la forme",
+      "english": "to stay in shape",
+      "example": "Que faites-vous pour garder la forme pendant l'hiver ?",
+      "usage": "Expression courante pour évoquer le maintien d'une bonne condition physique."
+    },
+    {
+      "id": "spoeu08",
+      "kind": "expression-utile",
+      "french": "relever un défi sportif",
+      "anchor": "relever un défi sportif",
+      "english": "to take on a sports challenge",
+      "example": "Aimeriez-vous relever un défi sportif plus exigeant l'an prochain ?",
+      "usage": "Expression pour désigner l'acceptation d'un objectif physique ambitieux."
+    },
+    {
+      "id": "spoeu09",
+      "kind": "expression-utile",
+      "french": "se remettre d'une blessure",
+      "anchor": "vous remettre d'une blessure",
+      "english": "to recover from an injury",
+      "example": "Combien de temps a-t-il fallu pour vous remettre d'une blessure au genou ?",
+      "usage": "Expression pour évoquer la période de guérison après un incident sportif."
+    },
+    {
+      "id": "spoeu10",
+      "kind": "expression-utile",
+      "french": "battre son record personnel",
+      "anchor": "battre votre record personnel",
+      "english": "to beat one's personal record",
+      "example": "Avez-vous réussi à battre votre record personnel lors de cette course ?",
+      "usage": "Expression pour désigner l'amélioration de sa meilleure performance antérieure."
+    },
+    {
+      "id": "spoeu11",
+      "kind": "expression-utile",
+      "french": "s'entraîner en plein air",
+      "anchor": "vous entraîner en plein air",
+      "english": "to train outdoors",
+      "example": "Préférez-vous vous entraîner en plein air plutôt qu'en salle ?",
+      "usage": "Expression pour évoquer une pratique sportive réalisée à l'extérieur."
+    },
+    {
+      "id": "spoeu12",
+      "kind": "expression-utile",
+      "french": "rejoindre une équipe",
+      "anchor": "rejoindre une équipe",
+      "english": "to join a team",
+      "example": "Qu'est-ce qui vous a poussé à rejoindre une équipe locale ?",
+      "usage": "Expression pour désigner l'intégration dans un groupe sportif."
+    },
+    {
+      "id": "spoeu13",
+      "kind": "expression-utile",
+      "french": "évacuer le stress",
+      "anchor": "évacuer le stress",
+      "english": "to relieve stress",
+      "example": "Le sport vous aide-t-il à évacuer le stress après une journée chargée ?",
+      "usage": "Expression pour évoquer les bienfaits psychologiques de l'activité physique."
+    },
+    {
+      "id": "spoeu14",
+      "kind": "expression-utile",
+      "french": "suivre un programme d'entraînement",
+      "anchor": "un programme d'entraînement",
+      "english": "to follow a training program",
+      "example": "Suivez-vous un programme d'entraînement précis avant la compétition ?",
+      "usage": "Expression pour désigner l'organisation méthodique de la pratique sportive."
+    },
+    {
+      "id": "spoeu15",
+      "kind": "expression-utile",
+      "french": "encourager les joueurs",
+      "anchor": "encourager les joueurs",
+      "english": "to cheer on the players",
+      "example": "Aimez-vous encourager les joueurs depuis les gradins pendant un match ?",
+      "usage": "Expression pour évoquer le soutien apporté aux athlètes durant une rencontre."
+    },
+    {
+      "id": "spofr01",
+      "kind": "fragment",
+      "french": "Concrètement, comment se passe…",
+      "anchor": "comment se passe",
+      "english": "Specifically, how does… go",
+      "example": "Concrètement, comment se passe un entraînement typique dans votre club ?",
+      "usage": "Amorce pour demander le déroulement concret d'une activité sportive."
+    },
+    {
+      "id": "spofr02",
+      "kind": "fragment",
+      "french": "Si je comprends bien, cette discipline demande…",
+      "anchor": "si je comprends bien, cette discipline demande",
+      "english": "If I understand correctly, this discipline requires…",
+      "example": "Si je comprends bien, cette discipline demande beaucoup d'endurance ?",
+      "usage": "Amorce pour reformuler et vérifier les exigences d'un sport."
+    },
+    {
+      "id": "spofr03",
+      "kind": "fragment",
+      "french": "Qu'est-ce qui vous a attiré vers…",
+      "anchor": "qu'est-ce qui vous a attiré vers",
+      "english": "What attracted you to…",
+      "example": "Qu'est-ce qui vous a attiré vers ce sport plutôt qu'un autre ?",
+      "usage": "Amorce pour explorer les motivations d'un choix sportif."
+    },
+    {
+      "id": "spofr04",
+      "kind": "fragment",
+      "french": "Pourriez-vous décrire les sensations pendant…",
+      "anchor": "pourriez-vous décrire les sensations pendant",
+      "english": "Could you describe the feelings during…",
+      "example": "Pourriez-vous décrire les sensations pendant une compétition importante ?",
+      "usage": "Amorce polie pour demander une description ressentie d'une expérience."
+    },
+    {
+      "id": "spofr05",
+      "kind": "fragment",
+      "french": "Diriez-vous que le plus exigeant, c'est…",
+      "anchor": "diriez-vous que le plus exigeant, c'est",
+      "english": "Would you say the most demanding part is…",
+      "example": "Diriez-vous que le plus exigeant, c'est la discipline mentale ?",
+      "usage": "Amorce pour faire hiérarchiser les difficultés d'une pratique sportive."
+    },
+    {
+      "id": "spofr06",
+      "kind": "fragment",
+      "french": "En comparaison avec d'autres sports, celui-ci…",
+      "anchor": "en comparaison avec d'autres sports, celui-ci",
+      "english": "Compared to other sports, this one…",
+      "example": "En comparaison avec d'autres sports, celui-ci demande-t-il plus de technique ?",
+      "usage": "Amorce pour comparer deux disciplines sportives."
+    },
+    {
+      "id": "spofr07",
+      "kind": "fragment",
+      "french": "Est-ce que vous pourriez revenir sur la préparation avant…",
+      "anchor": "est-ce que vous pourriez revenir sur la préparation avant",
+      "english": "Could you go back over the preparation before…",
+      "example": "Est-ce que vous pourriez revenir sur la préparation avant une grande course ?",
+      "usage": "Amorce pour demander de développer un point déjà mentionné."
+    },
+    {
+      "id": "spofr08",
+      "kind": "fragment",
+      "french": "Autrement dit, sans cet entraîneur, vous…",
+      "anchor": "autrement dit, sans cet entraîneur, vous",
+      "english": "In other words, without that coach, you…",
+      "example": "Autrement dit, sans cet entraîneur, vous n'auriez pas progressé aussi vite ?",
+      "usage": "Amorce pour reformuler une conséquence logique."
+    },
+    {
+      "id": "spofr09",
+      "kind": "fragment",
+      "french": "Par rapport à ce que vous pensiez, ce club…",
+      "anchor": "par rapport à ce que vous pensiez, ce club",
+      "english": "Compared to what you thought, this club…",
+      "example": "Par rapport à ce que vous pensiez, ce club correspond-il à vos attentes ?",
+      "usage": "Amorce pour comparer une attente à la réalité d'une organisation sportive."
+    },
+    {
+      "id": "spofr10",
+      "kind": "fragment",
+      "french": "Pour resituer, depuis quel âge pratiquez-vous…",
+      "anchor": "pour resituer, depuis quel âge pratiquez-vous",
+      "english": "To set the context, since what age have you practiced…",
+      "example": "Pour resituer, depuis quel âge pratiquez-vous ce sport ?",
+      "usage": "Amorce pour recontextualiser une pratique sportive."
+    },
+    {
+      "id": "spofr11",
+      "kind": "fragment",
+      "french": "Vous voulez dire que malgré la blessure, vous…",
+      "anchor": "vous voulez dire que malgré la blessure, vous",
+      "english": "You mean that despite the injury, you…",
+      "example": "Vous voulez dire que malgré la blessure, vous avez continué à vous entraîner ?",
+      "usage": "Amorce pour vérifier une interprétation malgré une contrainte physique."
+    },
+    {
+      "id": "spofr12",
+      "kind": "fragment",
+      "french": "Pour clore ce point, conseilleriez-vous ce sport à…",
+      "anchor": "pour clore ce point, conseilleriez-vous ce sport à",
+      "english": "To close this point, would you recommend this sport to…",
+      "example": "Pour clore ce point, conseilleriez-vous ce sport à un débutant complet ?",
+      "usage": "Amorce pour conclure un échange sur une pratique sportive."
+    },
+    {
+      "id": "spofr13",
+      "kind": "fragment",
+      "french": "Comment parvenez-vous à…",
+      "anchor": "comment parvenez-vous à",
+      "english": "How do you manage to…",
+      "example": "Comment parvenez-vous à gérer la pression avant un match ?",
+      "usage": "Amorce pour demander la méthode utilisée pour gérer une pression sportive."
+    },
+    {
+      "id": "spofr14",
+      "kind": "fragment",
+      "french": "Juste pour bien comprendre, cet entraîneur dont vous parlez…",
+      "anchor": "juste pour bien comprendre, cet entraîneur dont vous parlez",
+      "english": "Just to make sure I understand, the coach you mention…",
+      "example": "Juste pour bien comprendre, cet entraîneur dont vous parlez suit bien toute l'équipe ?",
+      "usage": "Amorce pour clarifier un détail relatif à une personne mentionnée."
+    },
+    {
+      "id": "spofr15",
+      "kind": "fragment",
+      "french": "Et si vous vous blessiez avant la compétition, comment…",
+      "anchor": "et si vous vous blessiez avant la compétition, comment",
+      "english": "And if you got injured before the competition, how…",
+      "example": "Et si vous vous blessiez avant la compétition, comment réagiriez-vous ?",
+      "usage": "Amorce hypothétique pour explorer un scénario sportif imprévu."
+    }
+  ]
+}

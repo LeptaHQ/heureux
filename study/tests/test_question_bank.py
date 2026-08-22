@@ -18,6 +18,10 @@ from study.account_services import provision_user_study_data
 from study.content_loader import (
     AI_EXAMINER_PROMPT_PATH,
     TACHE_TWO_SUBJECT_THEMES_PATH,
+    TACHE_TWO_THEME_VOCABULARY_CATEGORIES,
+    TACHE_TWO_THEME_VOCABULARY_DIR,
+    TACHE_TWO_THEME_VOCABULARY_PER_KIND,
+    TACHE_TWO_THEME_VOCABULARY_PER_THEME,
     TACHE_TWO_VOCABULARY_DIR,
     load_ai_examiner_prompt,
     load_question_bank,
@@ -27,6 +31,7 @@ from study.content_loader import (
     parse_comprehension_vocabulary,
     parse_tache_two_responses,
     parse_tache_two_subject_vocabulary,
+    parse_tache_two_theme_vocabulary,
     tache_two_response_key_by_subject_key,
     tache_two_subject_content_key,
 )
@@ -1194,6 +1199,115 @@ class QuestionBankContentTests(TestCase):
         )
         self.assertFalse(comprehension_orders & set(vocabulary_orders))
 
+    def test_theme_vocabulary_covers_every_theme_with_three_equal_sections(self):
+        phrases = parse_tache_two_theme_vocabulary()
+
+        self.assertEqual(len(phrases), 11 * TACHE_TWO_THEME_VOCABULARY_PER_THEME)
+        self.assertEqual(len({phrase.phrase_id for phrase in phrases}), len(phrases))
+        self.assertEqual(
+            len({phrase.expression.casefold() for phrase in phrases}),
+            len(phrases),
+        )
+        self.assertTrue(all(phrase.tier == PhraseTier.THEME for phrase in phrases))
+        expected_categories = tuple(
+            category
+            for category in TACHE_TWO_THEME_VOCABULARY_CATEGORIES.values()
+            for _ in range(TACHE_TWO_THEME_VOCABULARY_PER_KIND)
+        )
+        for start in range(0, len(phrases), TACHE_TWO_THEME_VOCABULARY_PER_THEME):
+            theme_phrases = phrases[
+                start : start + TACHE_TWO_THEME_VOCABULARY_PER_THEME
+            ]
+            self.assertEqual(
+                tuple(phrase.category for phrase in theme_phrases),
+                expected_categories,
+            )
+            self.assertEqual(len({phrase.expression.casefold() for phrase in theme_phrases}), 45)
+            for phrase in theme_phrases:
+                self.assertEqual(
+                    phrase.example.casefold().count(phrase.anchor.casefold()),
+                    1,
+                )
+
+    def test_theme_vocabulary_rejects_an_example_without_its_anchor(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            directory = Path(temp_dir)
+            for source in TACHE_TWO_THEME_VOCABULARY_DIR.glob("*.json"):
+                payload = json.loads(source.read_text(encoding="utf-8"))
+                if source.name == "arrivee.json":
+                    payload["entries"][0]["example"] = (
+                        "Phrase volontairement invalide sans cible attendue."
+                    )
+                (directory / source.name).write_text(
+                    json.dumps(payload, ensure_ascii=False),
+                    encoding="utf-8",
+                )
+
+            with self.assertRaisesRegex(
+                ValueError,
+                "example must contain its anchor exactly once",
+            ):
+                parse_tache_two_theme_vocabulary(directory=directory)
+
+    def test_theme_vocabulary_rejects_duplicate_targets_across_themes(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            directory = Path(temp_dir)
+            arrival_payload = json.loads(
+                (TACHE_TWO_THEME_VOCABULARY_DIR / "arrivee.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            duplicate_target = arrival_payload["entries"][15]["french"]
+            for source in TACHE_TWO_THEME_VOCABULARY_DIR.glob("*.json"):
+                payload = json.loads(source.read_text(encoding="utf-8"))
+                if source.name == "logement.json":
+                    payload["entries"][15]["french"] = duplicate_target
+                (directory / source.name).write_text(
+                    json.dumps(payload, ensure_ascii=False),
+                    encoding="utf-8",
+                )
+
+            with self.assertRaisesRegex(
+                ValueError,
+                "Duplicate Tâche 2 theme-vocabulary target",
+            ):
+                parse_tache_two_theme_vocabulary(directory=directory)
+
+    def test_theme_vocabulary_requires_noun_articles_and_gender_markers(self):
+        invalid_targets = (
+            (
+                "un logement temporaire",
+                "noun must include an article and a gender/number marker",
+            ),
+            (
+                "un logement temporaire (m./f.)",
+                "noun must include an article and a gender/number marker",
+            ),
+            (
+                "un logement temporaire (f.)",
+                "article and gender/number marker do not agree",
+            ),
+        )
+        for french, expected_error in invalid_targets:
+            with self.subTest(french=french):
+                with tempfile.TemporaryDirectory() as temp_dir:
+                    directory = Path(temp_dir)
+                    for source in TACHE_TWO_THEME_VOCABULARY_DIR.glob(
+                        "*.json"
+                    ):
+                        payload = json.loads(
+                            source.read_text(encoding="utf-8")
+                        )
+                        if source.name == "arrivee.json":
+                            payload["entries"][1]["french"] = french
+                        (directory / source.name).write_text(
+                            json.dumps(payload, ensure_ascii=False),
+                            encoding="utf-8",
+                        )
+
+                    with self.assertRaisesRegex(ValueError, expected_error):
+                        parse_tache_two_theme_vocabulary(directory=directory)
+
 
 class QuestionBankViewTests(TestCase):
     @classmethod
@@ -1209,7 +1323,7 @@ class QuestionBankViewTests(TestCase):
     def setUp(self):
         self.client.force_login(self.user)
 
-    def test_tache_two_opens_a_memory_overview(self):
+    def test_tache_two_overview_features_theme_vocabulary(self):
         response = self.client.get(
             reverse(
                 "study:task_detail",
@@ -1220,10 +1334,10 @@ class QuestionBankViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "study/tache_two_overview.html")
         self.assertTrue(self.task.available)
-        self.assertEqual(response.context["memory_count"], 11)
         self.assertEqual(response.context["subject_count"], 348)
-        self.assertEqual(response.context["category_count"], 143)
-        self.assertEqual(response.context["question_count"], 572)
+        self.assertEqual(response.context["theme_vocabulary"]["theme_count"], 11)
+        self.assertEqual(response.context["theme_vocabulary"]["phrase_count"], 495)
+        self.assertEqual(response.context["theme_vocabulary"]["batch_count"], 33)
         self.assertEqual(
             response.context["ai_practice_prompt"],
             load_ai_examiner_prompt(),
@@ -1241,20 +1355,20 @@ class QuestionBankViewTests(TestCase):
         )
         self.assertContains(
             response,
-            'id="memory-overview-panel-title">Mémoires</h2>',
+            (
+                'id="theme-vocabulary-overview-panel-title">'
+                "Vocabulaire par thème</h2>"
+            ),
         )
         self.assertContains(
             response,
             'id="subject-overview-panel-title">Sujets</h2>',
         )
-        self.assertContains(response, "0/572 questions apprises")
+        self.assertContains(response, "0/33 lots terminés")
         self.assertContains(response, "0/348 sujets terminés")
         self.assertContains(
             response,
-            reverse(
-                "study:task_memories",
-                args=[self.task.part.slug, self.task.slug],
-            ),
+            reverse("study:tache_two_theme_vocabulary"),
         )
         self.assertContains(
             response,
@@ -1267,53 +1381,53 @@ class QuestionBankViewTests(TestCase):
         self.assertNotContains(response, "data-collection-item")
         self.assertNotContains(response, "data-tache-two-subject-month")
         self.assertNotContains(response, "Janvier · Batch 1")
+        self.assertNotContains(response, "Mémoires")
         self.assertNotContains(response, "memory-entry")
         self.assertNotContains(response, "data-question-bank-question")
         self.assertNotContains(response, "Sujets &amp; réponses")
         self.assertNotContains(response, "Réflexe Mémoire")
         self.assertNotContains(response, ">Pratiquer</a>")
 
-    def test_memories_have_a_dedicated_tab(self):
-        url = reverse(
-            "study:task_memories",
-            args=[self.task.part.slug, self.task.slug],
-        )
+    def test_theme_vocabulary_has_a_dedicated_directory(self):
+        url = reverse("study:tache_two_theme_vocabulary")
         response = self.client.get(url)
 
-        self.assertEqual(url, "/expression/orale/tache-2/memoires/")
+        self.assertEqual(
+            url,
+            "/expression/orale/tache-2/vocabulaire-par-theme/",
+        )
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "study/tache_two_memories.html")
-        self.assertEqual(response.context["memory_count"], 11)
-        self.assertEqual(response.context["category_count"], 143)
-        self.assertEqual(response.context["question_count"], 572)
-        self.assertContains(response, "<span>Mémoires</span>", html=True)
+        self.assertTemplateUsed(
+            response,
+            "study/tache_two_theme_vocabulary.html",
+        )
+        self.assertEqual(response.context["theme_count"], 11)
+        self.assertEqual(response.context["phrase_count"], 495)
+        self.assertEqual(response.context["batch_count"], 33)
+        self.assertEqual(response.context["active_nav_area"], "expression")
+        self.assertEqual(response.context["content_task"], self.task)
+        self.assertContains(response, "<span>Vocabulaire par thème</span>", html=True)
         self.assertContains(response, "data-collection-view-toggle")
         self.assertContains(response, 'data-collection-view="adaptive"')
         self.assertContains(response, "collection-table-header--memories")
         self.assertContains(response, "data-collection-item", count=11)
-        for memory_number in range(1, 12):
-            self.assertContains(response, f"Mémoire {memory_number}")
+        for item in response.context["themes"]:
+            self.assertEqual(item["phrase_count"], 45)
+            self.assertEqual(item["word_count"], 15)
+            self.assertEqual(item["expression_count"], 15)
+            self.assertEqual(item["fragment_count"], 15)
+            self.assertEqual(item["batch_count"], 3)
             self.assertContains(
                 response,
-                reverse(
-                    "study:task_memory_detail",
-                    args=[
-                        self.task.part.slug,
-                        self.task.slug,
-                        memory_number,
-                    ],
-                ),
+                item["url"],
             )
         self.assertContains(response, "Arrivée &amp; installation")
         self.assertContains(response, "Fêtes &amp; célébrations")
         self.assertContains(
             response,
             '<a class="is-active" href="'
-            + reverse(
-                "study:task_memories",
-                args=[self.task.part.slug, self.task.slug],
-            )
-            + '">Mémoires</a>',
+            + reverse("study:tache_two_theme_vocabulary")
+            + '">Vocabulaire par thème</a>',
             html=True,
         )
         self.assertNotContains(response, "data-question-bank-question")
@@ -2081,6 +2195,11 @@ class QuestionBankViewTests(TestCase):
             source_prompts__response_id__in=response_ids,
             is_active=True,
         ).distinct()
+        theme_vocabulary = Phrase.objects.filter(
+            tier=PhraseTier.THEME,
+            source_prompts__response_id__in=response_ids,
+            is_active=True,
+        ).distinct()
 
         self.assertEqual(responses.count(), 186)
         self.assertEqual(
@@ -2091,6 +2210,7 @@ class QuestionBankViewTests(TestCase):
             348,
         )
         self.assertEqual(vocabulary.count(), 5580)
+        self.assertEqual(theme_vocabulary.count(), 495)
         self.assertEqual(
             Card.objects.filter(
                 user=self.user,
@@ -2106,6 +2226,21 @@ class QuestionBankViewTests(TestCase):
                 phrase__in=vocabulary,
             ).count(),
             5580,
+        )
+        self.assertEqual(
+            Card.objects.filter(
+                user=self.user,
+                card_type=CardType.PHRASE_PRODUCTION,
+                phrase__in=theme_vocabulary,
+            ).count(),
+            495,
+        )
+        self.assertFalse(
+            Card.objects.filter(
+                user=self.user,
+                card_type=CardType.PHRASE_RECOGNITION,
+                phrase__in=theme_vocabulary,
+            ).exists()
         )
 
         directory = self.client.get(
@@ -2492,50 +2627,98 @@ class QuestionBankViewTests(TestCase):
         self.assertEqual(missing_batch.status_code, 404)
         self.assertEqual(missing_subject.status_code, 404)
 
-    def test_memory_detail_opens_the_annotation_ready_master_bank(self):
+    def test_theme_vocabulary_detail_groups_contextual_entries(self):
         response = self.client.get(
             reverse(
-                "study:task_memory_detail",
-                args=[self.task.part.slug, self.task.slug, 1],
+                "study:tache_two_theme_vocabulary_detail",
+                args=["logement"],
             )
         )
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "study/question_bank.html")
-        self.assertEqual(response.context["question_bank"].question_count, 52)
-        self.assertContains(response, "Mémoire 1")
-        self.assertContains(response, "Arrivée &amp; installation")
-        self.assertNotContains(response, "Questions réutilisables")
-        self.assertNotContains(response, "La règle d'or")
-        self.assertNotContains(response, "question-bank-rules")
-        self.assertNotContains(
+        self.assertTemplateUsed(
             response,
-            "Deux formulations maximum par sujet.",
+            "study/tache_two_theme_vocabulary_detail.html",
         )
-        self.assertContains(response, "data-question-bank-section", count=13)
-        self.assertContains(response, "data-question-bank-question", count=52)
-        self.assertContains(response, "data-memory-progress-form", count=52)
-        self.assertContains(
-            response,
-            "<span data-memory-completed>0</span> sur 52 questions apprises",
-            html=True,
+        self.assertEqual(response.context["theme_data"].slug, "logement")
+        self.assertEqual(response.context["phrase_count"], 45)
+        self.assertEqual(
+            [len(section["phrases"]) for section in response.context["phrase_sections"]],
+            [15, 15, 15],
         )
-        self.assertContains(
-            response,
-            'data-annotation-source-key="question-bank:part-01"',
+        self.assertEqual(len(response.context["review_batches"]), 3)
+        self.assertEqual(
+            [batch["title"] for batch in response.context["review_batches"]],
+            ["Mots clés", "Expressions utiles", "Fragments de phrase"],
         )
-        self.assertContains(
-            response,
-            f'data-annotation-task-id="{self.task.pk}"',
-        )
-        self.assertNotContains(response, "Sujets &amp; réponses")
-        self.assertNotContains(response, ">Pratiquer</a>")
+        self.assertContains(response, "theme-vocabulary-phrase", count=45)
+        self.assertContains(response, "Mots clés")
+        self.assertContains(response, "Expressions utiles")
+        self.assertContains(response, "Fragments de phrase")
+        self.assertContains(response, "Lot 01 · Mots clés")
+        self.assertNotContains(response, "Mémoires")
 
-    def test_unknown_or_unrelated_memory_is_not_found(self):
-        missing = self.client.get(
+    def test_theme_vocabulary_review_keeps_its_theme_and_returns_to_it(self):
+        detail_url = reverse(
+            "study:tache_two_theme_vocabulary_detail",
+            args=["logement"],
+        )
+        detail = self.client.get(detail_url)
+        review = self.client.get(
+            detail.context["review_batches"][0]["review_url"]
+        )
+        state = self.client.get(reverse("study:review_next")).json()
+
+        self.assertEqual(review.status_code, 200)
+        self.assertEqual(review.context["scope"]["kind"], "theme_vocab")
+        self.assertEqual(review.context["active_nav_area"], "expression")
+        self.assertEqual(
+            review.context["scope"]["theme"],
+            "tache-2-logement",
+        )
+        self.assertEqual(review.context["batch_index_url"], detail_url)
+        self.assertIn("Vocabulaire du thème", state["front_html"])
+        self.assertIn("Réponse française", state["back_html"])
+
+    def test_mixed_theme_vocabulary_review_returns_to_its_theme(self):
+        detail_url = reverse(
+            "study:tache_two_theme_vocabulary_detail",
+            args=["logement"],
+        )
+        detail = self.client.get(detail_url)
+        theme = self.task.themes.get(slug="tache-2-logement")
+        Card.objects.filter(
+            user=self.user,
+            phrase__tier=PhraseTier.THEME,
+            phrase__source_prompts__theme=theme,
+        ).update(
+            state=CardState.REVIEW,
+            due=timezone.now() + timedelta(days=30),
+        )
+
+        review = self.client.get(detail.context["mixed_review_url"])
+
+        self.assertEqual(review.context["collection_return_url"], detail_url)
+        self.assertContains(review, f'href="{detail_url}"')
+        self.assertContains(review, "Retour au vocabulaire par thème")
+
+    def test_legacy_memory_urls_redirect_and_unknown_theme_is_not_found(self):
+        legacy_index = self.client.get(
+            reverse(
+                "study:task_memories",
+                args=[self.task.part.slug, self.task.slug],
+            )
+        )
+        legacy_detail = self.client.get(
             reverse(
                 "study:task_memory_detail",
                 args=[self.task.part.slug, self.task.slug, 12],
+            )
+        )
+        missing_theme = self.client.get(
+            reverse(
+                "study:tache_two_theme_vocabulary_detail",
+                args=["theme-inconnu"],
             )
         )
         unrelated = self.client.get(
@@ -2551,129 +2734,34 @@ class QuestionBankViewTests(TestCase):
             )
         )
 
-        self.assertEqual(missing.status_code, 404)
+        self.assertRedirects(
+            legacy_index,
+            reverse("study:tache_two_theme_vocabulary"),
+        )
+        self.assertRedirects(
+            legacy_detail,
+            reverse("study:tache_two_theme_vocabulary"),
+        )
+        self.assertEqual(missing_theme.status_code, 404)
         self.assertEqual(unrelated.status_code, 404)
         self.assertEqual(unrelated_index.status_code, 404)
 
-    def test_memoire_two_detail_and_progress_are_tracked_separately(self):
-        memoire = load_question_banks()[1]
-        detail = self.client.get(
-            reverse(
-                "study:task_memory_detail",
-                args=[self.task.part.slug, self.task.slug, 2],
-            )
-        )
+    def test_every_theme_vocabulary_detail_is_available(self):
+        index = self.client.get(reverse("study:tache_two_theme_vocabulary"))
 
-        self.assertEqual(detail.status_code, 200)
-        self.assertTemplateUsed(detail, "study/question_bank.html")
-        self.assertEqual(detail.context["question_bank"].number, 2)
-        self.assertEqual(detail.context["question_bank"].question_count, 52)
-        self.assertContains(detail, "Mémoire 2")
-        self.assertContains(detail, "Logement &amp; déménagement")
-        self.assertContains(detail, "data-question-bank-section", count=13)
-        self.assertContains(detail, "data-question-bank-question", count=52)
-        self.assertContains(
-            detail,
-            "<span data-memory-completed>0</span> sur 52 questions apprises",
-            html=True,
-        )
-        self.assertContains(
-            detail,
-            'data-annotation-source-key="question-bank:memory-02:part-01"',
-        )
-
-        checked = self.client.post(
-            reverse(
-                "study:task_memory_progress",
-                args=[self.task.part.slug, self.task.slug, 2],
-            ),
-            {"question_key": memoire.question_keys[0], "completed": "1"},
-            HTTP_X_REQUESTED_WITH="fetch",
-        )
-        self.assertEqual(checked.status_code, 200)
-        self.assertEqual(checked.json()["memory"]["total"], 52)
-        self.assertEqual(checked.json()["memory"]["completed"], 1)
-        self.assertTrue(
-            MemoryQuestionProgress.objects.filter(
-                user=self.user,
-                memory_number=2,
-                question_key=memoire.question_keys[0],
-            ).exists()
-        )
-        # Every other theme mémoire is untouched by a Mémoire 2 check.
-        self.assertFalse(
-            MemoryQuestionProgress.objects.filter(user=self.user)
-            .exclude(memory_number=2)
-            .exists()
-        )
-
-    def test_every_theme_memoire_detail_is_available(self):
-        expected_labels = {
-            1: "Arrivée &amp; installation",
-            2: "Logement &amp; déménagement",
-            3: "Vie de quartier &amp; entraide",
-            4: "Travail &amp; emploi",
-            5: "École &amp; études",
-            6: "Transports &amp; mobilité",
-            7: "Voyages &amp; vacances",
-            8: "Sport &amp; plein air",
-            9: "Sorties &amp; spectacles",
-            10: "Arts &amp; loisirs",
-            11: "Fêtes &amp; célébrations",
-        }
-        banks = load_question_banks()
-
-        for memory_number, label in expected_labels.items():
-            memoire = banks[memory_number - 1]
-            detail = self.client.get(
-                reverse(
-                    "study:task_memory_detail",
-                    args=[
-                        self.task.part.slug,
-                        self.task.slug,
-                        memory_number,
-                    ],
-                )
-            )
+        for item in index.context["themes"]:
+            detail = self.client.get(item["url"])
 
             self.assertEqual(detail.status_code, 200)
-            self.assertEqual(detail.context["question_bank"], memoire)
-            self.assertContains(detail, f"Mémoire {memory_number}")
-            self.assertContains(detail, label)
-            self.assertContains(
-                detail,
-                "data-question-bank-section",
-                count=13,
+            self.assertEqual(detail.context["theme_data"], item["data"])
+            self.assertEqual(detail.context["phrase_count"], 45)
+            self.assertEqual(
+                [len(section["phrases"]) for section in detail.context["phrase_sections"]],
+                [15, 15, 15],
             )
-            self.assertContains(
-                detail,
-                "data-question-bank-question",
-                count=52,
-            )
-            self.assertContains(
-                detail,
-                "data-memory-progress-form",
-                count=52,
-            )
-            self.assertContains(
-                detail,
-                (
-                    '<span data-memory-completed>0</span> '
-                    "sur 52 questions apprises"
-                ),
-                html=True,
-            )
-            self.assertContains(
-                detail,
-                (
-                    'data-annotation-source-key="question-bank:memory-'
-                    f'{memory_number:02d}:part-01"'
-                    if memory_number > 1
-                    else 'data-annotation-source-key="question-bank:part-01"'
-                ),
-            )
+            self.assertEqual(len(detail.context["review_batches"]), 3)
 
-    def test_task_card_describes_the_guide_instead_of_empty_responses(self):
+    def test_task_card_describes_subjects_and_theme_vocabulary(self):
         task_url = reverse(
             "study:task_detail",
             args=[self.task.part.slug, self.task.slug],
@@ -2687,9 +2775,9 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(response, task_url)
         self.assertContains(
             response,
-            "348 sujets · 11 mémoires · 143 catégories · 572 questions",
+            "348 sujets · 11 thèmes · 495 fiches de vocabulaire",
         )
-        self.assertContains(response, "0/572 apprises")
+        self.assertContains(response, "0/33 lots terminés")
         self.assertContains(response, "0/348 sujets terminés")
         self.assertContains(response, "À commencer")
         task_card = next(
@@ -2697,68 +2785,74 @@ class QuestionBankViewTests(TestCase):
             for row in response.context["tasks"]
             if row["task"].pk == self.task.pk
         )
-        self.assertEqual(task_card["question_bank"]["progress"].total, 920)
+        self.assertEqual(task_card["question_bank"]["progress"].total, 381)
+        self.assertEqual(
+            task_card["question_bank"]["vocabulary_progress"].total,
+            33,
+        )
         self.assertEqual(
             task_card["question_bank"]["subject_progress"].total,
             348,
         )
 
-    def test_question_progress_can_be_checked_and_unchecked(self):
-        bank = load_question_bank()
-        question_key = bank.question_keys[0]
-        url = reverse(
-            "study:task_memory_progress",
-            args=[self.task.part.slug, self.task.slug, bank.number],
+    def test_theme_vocabulary_progress_rolls_up_to_every_entry_point(self):
+        theme = self.task.themes.get(slug="tache-2-logement")
+        first_lot_phrase_ids = list(
+            Phrase.objects.filter(
+                tier=PhraseTier.THEME,
+                source_prompts__theme=theme,
+            )
+            .order_by("lot_order")
+            .values_list("pk", flat=True)[:15]
         )
+        Card.objects.filter(
+            user=self.user,
+            phrase_id__in=first_lot_phrase_ids,
+            card_type=CardType.PHRASE_PRODUCTION,
+        ).update(state=CardState.LEARNING)
 
-        checked = self.client.post(
-            url,
-            {"question_key": question_key, "completed": "1"},
-            HTTP_X_REQUESTED_WITH="fetch",
+        detail = self.client.get(
+            reverse(
+                "study:tache_two_theme_vocabulary_detail",
+                args=["logement"],
+            )
         )
-
-        self.assertEqual(checked.status_code, 200)
-        self.assertEqual(
-            checked.json()["memory"],
-            {
-                "completed": 1,
-                "total": 52,
-                "percent": 2,
-                "status": "active",
-                "label": "En cours",
-            },
+        directory = self.client.get(
+            reverse("study:tache_two_theme_vocabulary")
         )
-        self.assertEqual(checked.json()["section"]["completed"], 1)
-        self.assertTrue(
-            MemoryQuestionProgress.objects.filter(
-                user=self.user,
-                memory_number=bank.number,
-                question_key=question_key,
-            ).exists()
+        overview = self.client.get(
+            reverse(
+                "study:task_detail",
+                args=[self.task.part.slug, self.task.slug],
+            )
         )
         task_list = self.client.get(
             reverse("study:part_detail", args=[self.task.part.slug])
         )
-        self.assertContains(task_list, "1/572 apprises")
-        self.assertContains(task_list, "En cours")
-
-        unchecked = self.client.post(
-            url,
-            {"question_key": question_key, "completed": "0"},
-            HTTP_X_REQUESTED_WITH="fetch",
+        directory_item = next(
+            item
+            for item in directory.context["themes"]
+            if item["data"].slug == "logement"
+        )
+        task_card = next(
+            item
+            for item in task_list.context["tasks"]
+            if item["task"].pk == self.task.pk
         )
 
-        self.assertEqual(unchecked.status_code, 200)
-        self.assertFalse(unchecked.json()["completed"])
-        self.assertEqual(unchecked.json()["memory"]["completed"], 0)
-        self.assertFalse(
-            MemoryQuestionProgress.objects.filter(
-                user=self.user,
-                question_key=question_key,
-            ).exists()
+        self.assertEqual(detail.context["summary"]["completed"], 1)
+        self.assertEqual(directory_item["summary"]["completed"], 1)
+        self.assertEqual(
+            overview.context["theme_vocabulary"]["summary"]["completed"],
+            1,
         )
+        self.assertEqual(
+            task_card["question_bank"]["vocabulary_progress"].completed,
+            1,
+        )
+        self.assertContains(task_list, "1/33 lots terminés")
 
-    def test_question_progress_has_a_native_form_fallback(self):
+    def test_legacy_memory_progress_post_does_not_create_progress(self):
         bank = load_question_bank()
         response = self.client.post(
             reverse(
@@ -2773,198 +2867,9 @@ class QuestionBankViewTests(TestCase):
 
         self.assertRedirects(
             response,
-            reverse(
-                "study:task_memory_detail",
-                args=[self.task.part.slug, self.task.slug, bank.number],
-            )
-            + f"#{bank.sections[0].anchor}",
-            fetch_redirect_response=False,
-        )
-
-    def test_question_progress_is_idempotent_and_private(self):
-        bank = load_question_bank()
-        question_key = bank.question_keys[0]
-        url = reverse(
-            "study:task_memory_progress",
-            args=[self.task.part.slug, self.task.slug, bank.number],
-        )
-        other_user = factories.make_user("other-memory-learner")
-
-        for _ in range(2):
-            response = self.client.post(
-                url,
-                {"question_key": question_key, "completed": "1"},
-                HTTP_X_REQUESTED_WITH="fetch",
-            )
-            self.assertEqual(response.status_code, 200)
-
-        self.assertEqual(
-            MemoryQuestionProgress.objects.filter(
-                memory_number=bank.number,
-                question_key=question_key,
-            ).count(),
-            1,
-        )
-        self.client.force_login(other_user)
-        detail = self.client.get(
-            reverse(
-                "study:task_memory_detail",
-                args=[self.task.part.slug, self.task.slug, bank.number],
-            )
-        )
-        self.assertEqual(detail.context["memory_progress"].completed, 0)
-        self.assertContains(detail, 'aria-checked="false"', count=52)
-
-    def test_unknown_question_progress_is_rejected(self):
-        response = self.client.post(
-            reverse(
-                "study:task_memory_progress",
-                args=[self.task.part.slug, self.task.slug, 1],
-            ),
-            {"question_key": "memory:1:question:unknown", "completed": "1"},
-            HTTP_X_REQUESTED_WITH="fetch",
-        )
-
-        self.assertEqual(response.status_code, 400)
-        self.assertEqual(
-            response.json()["error"],
-            "Cette question ne fait pas partie de la mémoire.",
+            reverse("study:tache_two_theme_vocabulary"),
         )
         self.assertFalse(MemoryQuestionProgress.objects.exists())
-
-    def test_progress_rolls_up_to_memory_and_task_cards(self):
-        bank = load_question_bank()
-        MemoryQuestionProgress.objects.bulk_create(
-            [
-                MemoryQuestionProgress(
-                    user=self.user,
-                    memory_number=memoire.number,
-                    question_key=key,
-                )
-                for memoire in load_question_banks()
-                for key in memoire.question_keys
-            ]
-        )
-
-        detail = self.client.get(
-            reverse(
-                "study:task_memory_detail",
-                args=[self.task.part.slug, self.task.slug, bank.number],
-            )
-        )
-        overview = self.client.get(
-            reverse(
-                "study:task_detail",
-                args=[self.task.part.slug, self.task.slug],
-            )
-        )
-        task_list = self.client.get(
-            reverse("study:part_detail", args=[self.task.part.slug])
-        )
-
-        self.assertEqual(detail.context["memory_progress"].status, "done")
-        self.assertContains(detail, 'aria-checked="true"', count=52)
-        self.assertContains(
-            detail,
-            "<span data-memory-completed>52</span> sur 52 questions apprises",
-            html=True,
-        )
-        self.assertEqual(
-            overview.context["memories"][0]["progress"].status,
-            "done",
-        )
-        self.assertContains(overview, "572/572 questions apprises")
-        self.assertContains(task_list, "572/572 apprises")
-        self.assertContains(task_list, "0/348 sujets terminés")
-        task_card = next(
-            row
-            for row in task_list.context["tasks"]
-            if row["task"].pk == self.task.pk
-        )
-        self.assertEqual(
-            task_card["question_bank"]["memory_progress"].status,
-            "done",
-        )
-        self.assertEqual(
-            task_card["question_bank"]["subject_progress"].status,
-            "new",
-        )
-        self.assertEqual(
-            task_card["question_bank"]["progress"].status,
-            "active",
-        )
-
-        subject_card_ids = (
-            Card.objects.filter(
-                user=self.user,
-                phrase__tier=PhraseTier.SUBJECT,
-                phrase__source_prompts__response__content_key__startswith=(
-                    "tache2:"
-                ),
-            )
-            .values_list("pk", flat=True)
-            .distinct()
-        )
-        Card.objects.filter(pk__in=subject_card_ids).update(
-            state=CardState.LEARNING
-        )
-        vocabulary_completed_task_list = self.client.get(
-            reverse("study:part_detail", args=[self.task.part.slug])
-        )
-        vocabulary_completed_task_card = next(
-            row
-            for row in vocabulary_completed_task_list.context["tasks"]
-            if row["task"].pk == self.task.pk
-        )
-
-        self.assertEqual(
-            vocabulary_completed_task_card["question_bank"][
-                "subject_progress"
-            ].status,
-            "active",
-        )
-        self.assertEqual(
-            vocabulary_completed_task_card["question_bank"]["progress"].status,
-            "active",
-        )
-        self.assertEqual(
-            vocabulary_completed_task_card["question_bank"][
-                "progress"
-            ].completed,
-            572,
-        )
-        self.assertContains(
-            vocabulary_completed_task_list,
-            "0/348 sujets terminés",
-        )
-
-        Card.objects.filter(
-            user=self.user,
-            card_type=CardType.SPINE,
-            response__content_key__startswith="tache2:",
-        ).update(subject_completed_at=timezone.now())
-        completed_task_list = self.client.get(
-            reverse("study:part_detail", args=[self.task.part.slug])
-        )
-        completed_task_card = next(
-            row
-            for row in completed_task_list.context["tasks"]
-            if row["task"].pk == self.task.pk
-        )
-
-        self.assertEqual(
-            completed_task_card["question_bank"]["subject_progress"].status,
-            "done",
-        )
-        self.assertEqual(
-            completed_task_card["question_bank"]["progress"].status,
-            "done",
-        )
-        self.assertEqual(
-            completed_task_card["question_bank"]["progress"].completed,
-            920,
-        )
-        self.assertContains(completed_task_list, "348/348 sujets terminés")
 
     def test_account_export_and_reset_include_manual_progress(self):
         bank = load_question_bank()

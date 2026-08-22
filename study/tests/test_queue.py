@@ -262,6 +262,54 @@ class QueueCountsTests(TestCase):
             ).filter(pk=local_production.pk).exists()
         )
 
+    def test_theme_vocabulary_uses_production_cards_in_lots_of_fifteen(self):
+        task = make_task(part=make_part("eo"), slug="tache-2")
+        theme = make_theme(slug="tache-2-logement", task=task)
+        response = make_spine_card(theme=theme).response
+        theme_cards = []
+        for lot_order in range(1, 17):
+            phrase = make_phrase(
+                tier=PhraseTier.THEME,
+                lot_order=lot_order,
+            )
+            phrase.source_prompts.add(response.prompts.first())
+            theme_cards.append(make_phrase_card(phrase=phrase))
+        recognition = make_phrase_card(
+            phrase=theme_cards[0].phrase,
+            card_type=CardType.PHRASE_RECOGNITION,
+        )
+        subject = make_phrase(tier=PhraseTier.SUBJECT, lot_order=2)
+        subject.source_prompts.add(response.prompts.first())
+        subject_card = make_phrase_card(phrase=subject)
+        theme_cards[0].needs_revisit = True
+        theme_cards[0].save(update_fields=["needs_revisit"])
+        subject_card.needs_revisit = True
+        subject_card.save(update_fields=["needs_revisit"])
+
+        scope = {
+            "kind": "theme_vocab",
+            "part": "eo",
+            "task": "tache-2",
+            "theme": theme.slug,
+            "batch": "1",
+        }
+        deck_ids = set(
+            q.scoped_cards(scope).values_list("pk", flat=True)
+        )
+
+        self.assertEqual(q.batch_size(scope), 15)
+        self.assertEqual(deck_ids, {card.pk for card in theme_cards[:15]})
+        self.assertNotIn(recognition.pk, deck_ids)
+        self.assertNotIn(subject_card.pk, deck_ids)
+        self.assertEqual(q.queue_counts(scope)["revisit_total"], 1)
+        self.assertFalse(
+            q.scoped_cards(
+                {"kind": "vocab", "response": str(response.pk)}
+            )
+            .filter(pk__in=[card.pk for card in theme_cards])
+            .exists()
+        )
+
     def test_comprehension_vocabulary_only_enters_its_test_deck(self):
         first_test = make_comprehension_test(number=1, question_count=1)
         second_test = make_comprehension_test(number=2, question_count=1)
@@ -296,6 +344,8 @@ class QueueCountsTests(TestCase):
             phrase=local_phrase,
             card_type=CardType.PHRASE_RECOGNITION,
         )
+        theme_phrase = make_phrase(tier=PhraseTier.THEME)
+        theme_production = make_phrase_card(phrase=theme_phrase)
 
         self.assertEqual(
             set(
@@ -321,6 +371,13 @@ class QueueCountsTests(TestCase):
         )
         self.assertNotIn(
             local_recognition.pk,
+            q.scoped_cards({"content": "vocabulary"}).values_list(
+                "pk",
+                flat=True,
+            ),
+        )
+        self.assertNotIn(
+            theme_production.pk,
             q.scoped_cards({"content": "vocabulary"}).values_list(
                 "pk",
                 flat=True,

@@ -73,6 +73,14 @@ def _review_card_payload(card, user):
 
 def _batch_index_url(scope: dict) -> str | None:
     """Return the category/theme page that owns a batch scope."""
+    if scope.get("kind") == "theme_vocab":
+        theme_slug = scope.get("theme", "")
+        if theme_slug.startswith("tache-2-"):
+            return reverse(
+                "study:tache_two_theme_vocabulary_detail",
+                args=[theme_slug.removeprefix("tache-2-")],
+            )
+        return reverse("study:tache_two_theme_vocabulary")
     if scope.get("response"):
         response = get_object_or_404(Response, pk=scope["response"])
         return response_detail_url(response)
@@ -221,6 +229,9 @@ def review(
     batch_index_url = None
     subject_return_url = None
     vocabulary_lots_url = None
+    collection_return_url = None
+    if scope.get("kind") == "theme_vocab":
+        collection_return_url = _batch_index_url(scope)
     if scope.get("batch"):
         try:
             current_batch = int(scope["batch"])
@@ -254,6 +265,7 @@ def review(
         "batch_index_url": batch_index_url,
         "subject_return_url": subject_return_url,
         "vocabulary_lots_url": vocabulary_lots_url,
+        "collection_return_url": collection_return_url,
     }
     return render(request, "study/review.html", context)
 

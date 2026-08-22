@@ -27,6 +27,8 @@ from .models import (
 
 RESPONSE_BATCH_SIZE = 15
 PHRASE_BATCH_SIZE = 10
+THEME_VOCABULARY_BATCH_SIZE = 15
+THEME_VOCABULARY_CONTENT = "theme_vocabulary"
 WEAK_LOOKBACK_DAYS = 30
 
 
@@ -49,8 +51,8 @@ def batch_ordering(scope: Optional[dict] = None) -> tuple[str, ...]:
 def _uses_phrase_batches(scope: Optional[dict]) -> bool:
     scope = scope or {}
     return bool(
-        scope.get("kind") in {"phrase", "vocab"}
-        or scope.get("content") == "vocabulary"
+        scope.get("kind") in {"phrase", "vocab", "theme_vocab"}
+        or scope.get("content") in {"vocabulary", THEME_VOCABULARY_CONTENT}
         or scope.get("category")
         or scope.get("response")
         or scope.get("test")
@@ -59,6 +61,12 @@ def _uses_phrase_batches(scope: Optional[dict]) -> bool:
 
 def batch_size(scope: Optional[dict] = None) -> int:
     """Return the number of review units in one stable lot."""
+    scope = scope or {}
+    if (
+        scope.get("kind") == "theme_vocab"
+        or scope.get("content") == THEME_VOCABULARY_CONTENT
+    ):
+        return THEME_VOCABULARY_BATCH_SIZE
     if _uses_phrase_batches(scope):
         return PHRASE_BATCH_SIZE
     return RESPONSE_BATCH_SIZE
@@ -121,6 +129,11 @@ def scoped_cards(
                 PhraseTier.SUBJECT,
                 PhraseTier.COMPREHENSION,
             ],
+        )
+    elif kind == "theme_vocab":
+        qs = qs.filter(
+            card_type=CardType.PHRASE_PRODUCTION,
+            phrase__tier=PhraseTier.THEME,
         )
     elif kind == "revisit":
         qs = qs.filter(needs_revisit=True)
@@ -211,6 +224,11 @@ def scoped_cards(
                 CardType.PHRASE_RECOGNITION,
             ]
         )
+    elif content == THEME_VOCABULARY_CONTENT:
+        qs = qs.filter(
+            card_type=CardType.PHRASE_PRODUCTION,
+            phrase__tier=PhraseTier.THEME,
+        )
 
     shared_or_spine = Q(phrase__isnull=True) | Q(
         phrase__tier=PhraseTier.SHARED
@@ -219,6 +237,7 @@ def scoped_cards(
         phrase__tier__in=[
             PhraseTier.RESPONSE,
             PhraseTier.SUBJECT,
+            PhraseTier.THEME,
             PhraseTier.COMPREHENSION,
         ],
         card_type=CardType.PHRASE_PRODUCTION,
@@ -227,12 +246,14 @@ def scoped_cards(
         phrase__tier=PhraseTier.RESPONSE,
         card_type=CardType.PHRASE_PRODUCTION,
     )
-    if kind == "vocab":
+    if kind in {"vocab", "theme_vocab"}:
         pass
     elif scope.get("response") and kind == "phrase":
         qs = qs.filter(response_expression)
     elif content == "vocabulary":
-        qs = qs.filter(shared_or_spine | local_production)
+        qs = qs.filter(shared_or_spine | local_production).exclude(
+            phrase__tier=PhraseTier.THEME
+        )
     elif scope.get("response") or kind in {"revisit", "weak"}:
         qs = qs.filter(shared_or_spine | local_production)
     else:
@@ -364,6 +385,10 @@ def queue_counts(
     new_available = new_total
 
     due_reviews = learning_due + review_due
+    revisit_scope = {**(scope or {}), "kind": "revisit"}
+    if (scope or {}).get("kind") == "theme_vocab":
+        revisit_scope["content"] = THEME_VOCABULARY_CONTENT
+
     return {
         "due_reviews": due_reviews,
         "learning_due": learning_due,
@@ -377,7 +402,7 @@ def queue_counts(
         "scoped_total": scoped_total,
         "revisit_total": scoped_count(
             scoped_cards(
-                {**(scope or {}), "kind": "revisit"},
+                revisit_scope,
                 user=user,
             )
         ),

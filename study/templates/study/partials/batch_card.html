@@ -9,7 +9,7 @@ Params:
 {% endcomment %}
 <a class="batch-card batch-card--{{ batch.status }}" data-collection-item{% if batch.can_review %} href="{{ batch.review_url }}"{% else %} aria-disabled="true"{% endif %}>
   <span class="batch-card__top">
-    <span class="batch-card__number">Lot {{ batch.number|stringformat:"02d" }}</span>
+    <span class="batch-card__number">Lot {{ batch.number|stringformat:"02d" }}{% if batch.title %} · {{ batch.title }}{% endif %}</span>
     <span class="batch-card__status">{% if batch.status == "complete" %}<span aria-hidden="true">{% include "study/partials/ui_icon.html" with name="check" only %}</span>{% elif batch.status == "in-progress" %}<span aria-hidden="true">{% include "study/partials/ui_icon.html" with name="circle-dot" only %}</span>{% endif %}<span>{{ batch.status_label }}</span></span>
   </span>
   <strong>{{ item_noun|default:"Cartes" }} {{ batch.start }}–{{ batch.end }}</strong>

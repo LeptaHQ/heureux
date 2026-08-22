@@ -12,10 +12,15 @@
     <strong>{{ task.name }}</strong>
   {% endif %}
 </div>
-<nav class="task-nav{% if memory_task %} task-nav--memories{% endif %}{% if part.slug == 'ee' and task.slug == 'tache-3' %} task-nav--ee-t3{% endif %}{% if compact %} task-nav--compact{% endif %}" style="--task-accent: {{ task.color }};" aria-label="Navigation de {{ task.name }}">
+<nav class="task-nav{% if memory_task or part.slug == 'eo' and task.slug == 'tache-2' %} task-nav--memories{% endif %}{% if part.slug == 'ee' and task.slug == 'tache-3' %} task-nav--ee-t3{% endif %}{% if compact %} task-nav--compact{% endif %}" style="--task-accent: {{ task.color }};" aria-label="Navigation de {{ task.name }}">
   <a class="{% if request.resolver_match.url_name == 'task_detail' %}is-active{% endif %}"
      href="{% url 'study:task_detail' part.slug task.slug %}">Vue d'ensemble</a>
-  {% if memory_task %}
+  {% if part.slug == 'eo' and task.slug == 'tache-2' %}
+    <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'task_subject_batch' or request.resolver_match.url_name == 'task_subject_detail' %}is-active{% endif %}"
+       href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a>
+    <a class="{% if request.resolver_match.url_name == 'tache_two_theme_vocabulary' or request.resolver_match.url_name == 'tache_two_theme_vocabulary_detail' %}is-active{% endif %}"
+       href="{% url 'study:tache_two_theme_vocabulary' %}">Vocabulaire par thème</a>
+  {% elif memory_task %}
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'task_subject_batch' or request.resolver_match.url_name == 'task_subject_detail' %}is-active{% endif %}"
        href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a>
     <a class="{% if request.resolver_match.url_name == 'task_memories' or request.resolver_match.url_name == 'task_memory_detail' %}is-active{% endif %}"

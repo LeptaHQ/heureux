@@ -160,6 +160,54 @@ def _question_bank_memory_context(user, memories):
     }
 
 
+def _tache_two_theme_vocabulary_scope(theme=None):
+    scope = {
+        "kind": "theme_vocab",
+        "part": "eo",
+        "task": "tache-2",
+    }
+    if theme is not None:
+        scope["theme"] = theme.slug
+    return scope
+
+
+def _theme_vocabulary_batch_summary(batches):
+    progress = summarize_review_batches(batches)
+    return {
+        "progress": progress,
+        "completed": progress.completed,
+        "total": progress.total,
+        "started_new": max(progress.started - progress.completed, 0),
+    }
+
+
+def _tache_two_theme_vocabulary_overview_context(user, task):
+    scope = _tache_two_theme_vocabulary_scope()
+    batches = _review_batches(scope, user)
+    phrase_count = (
+        Phrase.objects.filter(
+            tier=PhraseTier.THEME,
+            is_active=True,
+            source_prompts__is_active=True,
+            source_prompts__theme__task=task,
+        )
+        .distinct()
+        .count()
+    )
+    next_batch = next(
+        (batch for batch in batches if batch["is_next"]),
+        None,
+    )
+    return {
+        "theme_count": len(content_module.load_tache_two_subject_themes()[0]),
+        "phrase_count": phrase_count,
+        "batch_count": len(batches),
+        "summary": _theme_vocabulary_batch_summary(batches),
+        "url": reverse("study:tache_two_theme_vocabulary"),
+        "review_url": next_batch["review_url"] if next_batch else "",
+    }
+
+
 def part_detail(request, part_slug):
     part = get_object_or_404(
         ExamPart.objects.filter(is_active=True).prefetch_related(
@@ -465,9 +513,9 @@ def task_detail(request, part_slug, task_slug):
             {"part": task.part, "task": task},
         )
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
-        memory_context = _question_bank_memory_context(
+        theme_vocabulary = _tache_two_theme_vocabulary_overview_context(
             request.user,
-            content_module.load_question_banks(),
+            task,
         )
         subject_state = _tache_two_theme_progress(request.user)
         return render(
@@ -476,12 +524,11 @@ def task_detail(request, part_slug, task_slug):
             {
                 "part": task.part,
                 "task": task,
-                "memory_task": True,
                 "subject_summary": subject_state,
                 "subject_count": subject_state["total"],
                 "subject_theme_count": subject_state["theme_count"],
+                "theme_vocabulary": theme_vocabulary,
                 "ai_practice_prompt": content_module.load_ai_examiner_prompt(),
-                **memory_context,
             },
         )
     if (
@@ -675,7 +722,6 @@ def browse(request, part_slug=None, task_slug=None):
             {
                 "part": forced_task.part,
                 "task": forced_task,
-                "memory_task": True,
                 "subject_themes": themes,
                 "subject_prompt_map": subject_prompt_map,
                 "subject_summary": subject_state,
@@ -1027,6 +1073,8 @@ def _memory_by_number(memories, memory_number):
 
 def task_memories(request, part_slug, task_slug):
     task = _memoire_task(part_slug, task_slug)
+    if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
+        return redirect("study:tache_two_theme_vocabulary")
     memories = _load_task_memoires(task)
     return render(
         request,
@@ -1039,6 +1087,202 @@ def task_memories(request, part_slug, task_slug):
                 == content_module.QUESTION_BANK_TASK
             ),
             **_question_bank_memory_context(request.user, memories),
+        },
+    )
+
+
+THEME_VOCABULARY_SECTIONS = (
+    {
+        "category": "Thème · Mots clés",
+        "title": "Mots clés",
+        "description": (
+            "Le vocabulaire concret pour comprendre la situation et nommer "
+            "précisément ce dont vous avez besoin."
+        ),
+        "icon": "book-open",
+    },
+    {
+        "category": "Thème · Expressions utiles",
+        "title": "Expressions utiles",
+        "description": (
+            "Des tournures naturelles pour demander des détails, "
+            "comparer les options et préciser vos critères."
+        ),
+        "icon": "messages",
+    },
+    {
+        "category": "Thème · Fragments de phrase",
+        "title": "Fragments de phrase",
+        "description": (
+            "Des débuts et morceaux de questions réutilisables pour relancer, "
+            "clarifier et garder l’échange fluide."
+        ),
+        "icon": "sparkles",
+    },
+)
+
+
+def _tache_two_theme_vocabulary_phrases(task, theme=None):
+    phrases = Phrase.objects.filter(
+        tier=PhraseTier.THEME,
+        is_active=True,
+        source_prompts__is_active=True,
+        source_prompts__theme__task=task,
+    )
+    if theme is not None:
+        phrases = phrases.filter(source_prompts__theme=theme)
+    return phrases.distinct()
+
+
+def tache_two_theme_vocabulary(request):
+    task = _route_task("eo", "tache-2")
+    taxonomy, _subject_mapping = (
+        content_module.load_tache_two_subject_themes()
+    )
+    theme_slugs = [f"tache-2-{item.slug}" for item in taxonomy]
+    theme_models = Theme.objects.filter(
+        task=task,
+        is_active=True,
+        slug__in=theme_slugs,
+    ).in_bulk(field_name="slug")
+    phrase_counts = {
+        (row["source_prompts__theme__slug"], row["category__name"]): (
+            row["total"]
+        )
+        for row in _tache_two_theme_vocabulary_phrases(task)
+        .order_by()
+        .values("source_prompts__theme__slug", "category__name")
+        .annotate(total=Count("pk", distinct=True))
+    }
+
+    themes = []
+    for theme_data in taxonomy:
+        theme = theme_models.get(f"tache-2-{theme_data.slug}")
+        if theme is None:
+            continue
+        scope = _tache_two_theme_vocabulary_scope(theme)
+        batches = _review_batches(scope, request.user)
+        next_batch = next(
+            (batch for batch in batches if batch["is_next"]),
+            None,
+        )
+        counts = {
+            section["category"]: phrase_counts.get(
+                (theme.slug, section["category"]),
+                0,
+            )
+            for section in THEME_VOCABULARY_SECTIONS
+        }
+        themes.append(
+            {
+                "data": theme_data,
+                "theme": theme,
+                "phrase_count": sum(counts.values()),
+                "word_count": counts["Thème · Mots clés"],
+                "expression_count": counts[
+                    "Thème · Expressions utiles"
+                ],
+                "fragment_count": counts[
+                    "Thème · Fragments de phrase"
+                ],
+                "batch_count": len(batches),
+                "summary": _theme_vocabulary_batch_summary(batches),
+                "url": reverse(
+                    "study:tache_two_theme_vocabulary_detail",
+                    args=[theme_data.slug],
+                ),
+                "review_url": (
+                    next_batch["review_url"] if next_batch else ""
+                ),
+            }
+        )
+
+    scope = _tache_two_theme_vocabulary_scope()
+    batches = _review_batches(scope, request.user)
+    next_batch = next(
+        (batch for batch in batches if batch["is_next"]),
+        None,
+    )
+    return render(
+        request,
+        "study/tache_two_theme_vocabulary.html",
+        {
+            "part": task.part,
+            "task": task,
+            "section": "theme-vocabulary",
+            "themes": themes,
+            "theme_count": len(themes),
+            "phrase_count": sum(item["phrase_count"] for item in themes),
+            "batch_count": len(batches),
+            "summary": _theme_vocabulary_batch_summary(batches),
+            "review_url": (
+                next_batch["review_url"] if next_batch else ""
+            ),
+            "mixed_review_url": review_url(scope),
+        },
+    )
+
+
+def tache_two_theme_vocabulary_detail(request, theme_slug):
+    task = _route_task("eo", "tache-2")
+    taxonomy, _subject_mapping = (
+        content_module.load_tache_two_subject_themes()
+    )
+    theme_data = next(
+        (item for item in taxonomy if item.slug == theme_slug),
+        None,
+    )
+    if theme_data is None:
+        raise Http404
+    theme = get_object_or_404(
+        Theme,
+        task=task,
+        slug=f"tache-2-{theme_slug}",
+        is_active=True,
+    )
+    phrases = list(
+        _tache_two_theme_vocabulary_phrases(task, theme)
+        .select_related("category")
+        .order_by("order", "pk")
+    )
+    phrases_by_category = {
+        section["category"]: [] for section in THEME_VOCABULARY_SECTIONS
+    }
+    for phrase in phrases:
+        phrases_by_category.setdefault(phrase.category.name, []).append(phrase)
+    phrase_sections = [
+        {
+            **section,
+            "phrases": phrases_by_category[section["category"]],
+        }
+        for section in THEME_VOCABULARY_SECTIONS
+    ]
+
+    scope = _tache_two_theme_vocabulary_scope(theme)
+    batches = _review_batches(scope, request.user)
+    for batch, section in zip(batches, THEME_VOCABULARY_SECTIONS):
+        batch["title"] = section["title"]
+    next_batch = next(
+        (batch for batch in batches if batch["is_next"]),
+        None,
+    )
+    return render(
+        request,
+        "study/tache_two_theme_vocabulary_detail.html",
+        {
+            "part": task.part,
+            "task": task,
+            "section": "theme-vocabulary",
+            "theme": theme,
+            "theme_data": theme_data,
+            "phrase_count": len(phrases),
+            "phrase_sections": phrase_sections,
+            "review_batches": batches,
+            "summary": _theme_vocabulary_batch_summary(batches),
+            "review_url": (
+                next_batch["review_url"] if next_batch else ""
+            ),
+            "mixed_review_url": review_url(scope),
         },
     )
 
@@ -1143,7 +1387,6 @@ def task_subject_batch(request, part_slug, task_slug, month_slug, batch_number):
         {
             "part": task.part,
             "task": task,
-            "memory_task": True,
             "subject_month": month,
             "subject_batch": batch,
             "subject_prompt_map": subject_prompt_map,
@@ -1312,7 +1555,6 @@ def task_subject_detail(
         {
             "part": task.part,
             "task": task,
-            "memory_task": True,
             "subject_month": month,
             "subject_batch": batch,
             "subject": subject,
@@ -1402,6 +1644,8 @@ def _memory_progress_error(request, message):
 
 def task_memory_detail(request, part_slug, task_slug, memory_number):
     task = _memoire_task(part_slug, task_slug)
+    if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
+        return redirect("study:tache_two_theme_vocabulary")
     memories = _load_task_memoires(task)
     question_bank = _memory_by_number(memories, memory_number)
     memory_state = _memory_progress(
@@ -1431,6 +1675,8 @@ def task_memory_detail(request, part_slug, task_slug, memory_number):
 @require_POST
 def task_memory_progress(request, part_slug, task_slug, memory_number):
     task = _memoire_task(part_slug, task_slug)
+    if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
+        return redirect("study:tache_two_theme_vocabulary")
     memories = _load_task_memoires(task)
     memory = _memory_by_number(memories, memory_number)
     question_key = request.POST.get("question_key", "").strip()

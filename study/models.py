@@ -61,10 +61,14 @@ class Task(models.Model):
 
     @property
     def supports_memoires(self) -> bool:
-        """True when this task exposes a "Mémoires" question-bank section."""
+        """True when this task exposes a user-facing Mémoires section."""
         from . import content_loader
 
-        return (self.part.slug, self.slug) in content_loader.MEMOIRE_TASKS
+        task_key = (self.part.slug, self.slug)
+        return (
+            task_key in content_loader.MEMOIRE_TASKS
+            and task_key != content_loader.QUESTION_BANK_TASK
+        )
 
 
 class Theme(models.Model):
@@ -368,6 +372,7 @@ class PhraseTier(models.TextChoices):
     SHARED = "shared", "Shared catalog"
     RESPONSE = "response", "Response vocabulary"
     SUBJECT = "subject", "Subject vocabulary"
+    THEME = "theme", "Theme vocabulary"
     COMPREHENSION = "comprehension", "Comprehension vocabulary"
 
 

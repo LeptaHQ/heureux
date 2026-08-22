@@ -16,7 +16,14 @@ def scope_from_request(request) -> dict:
     data = request.POST if request.method == "POST" else request.GET
     scope = {}
     kind = data.get("kind")
-    if kind in {"spine", "phrase", "vocab", "revisit", "weak"}:
+    if kind in {
+        "spine",
+        "phrase",
+        "vocab",
+        "theme_vocab",
+        "revisit",
+        "weak",
+    }:
         scope["kind"] = kind
     content = data.get("content")
     if content in {"spine", "vocabulary"}:
@@ -81,6 +88,10 @@ def scope_label(scope: dict) -> str:
                 ).exists()
             )
             scope_name = "Mois" if is_ee_month else "Thème"
+            if scope.get("kind") == "theme_vocab":
+                return with_batch(
+                    f"Vocabulaire par thème · {theme.display_name}"
+                )
             return with_batch(
                 f"{scope_name} · {theme.display_name}"
             )
@@ -128,6 +139,8 @@ def scope_label(scope: dict) -> str:
                 f"{deck_name} · {response.theme.display_name} "
                 f"· {number_label}"
             )
+    if scope.get("kind") == "theme_vocab":
+        return with_batch("Vocabulaire par thème")
     if scope.get("task"):
         tasks = Task.objects.filter(
             slug=scope["task"],
@@ -223,6 +236,7 @@ def _phrase_payload(card: Card) -> dict:
     phrase = card.phrase
     production = card.card_type == CardType.PHRASE_PRODUCTION
     subject_vocabulary = phrase.tier == PhraseTier.SUBJECT
+    theme_vocabulary = phrase.tier == PhraseTier.THEME
     comprehension_vocabulary = phrase.tier == PhraseTier.COMPREHENSION
     sources = list(
         phrase.source_prompts.filter(is_active=True).select_related(
@@ -236,17 +250,22 @@ def _phrase_payload(card: Card) -> dict:
         "kind": "phrase",
         "production": production,
         "subject_vocabulary": subject_vocabulary,
+        "theme_vocabulary": theme_vocabulary,
         "comprehension_vocabulary": comprehension_vocabulary,
         "kind_label": (
             "Vocabulaire du sujet"
             if subject_vocabulary
             else (
-                "Vocabulaire de compréhension"
-                if comprehension_vocabulary
+                "Vocabulaire du thème"
+                if theme_vocabulary
                 else (
-                    "Expression · production"
-                    if production
-                    else "Expression · sens"
+                    "Vocabulaire de compréhension"
+                    if comprehension_vocabulary
+                    else (
+                        "Expression · production"
+                        if production
+                        else "Expression · sens"
+                    )
                 )
             )
         ),

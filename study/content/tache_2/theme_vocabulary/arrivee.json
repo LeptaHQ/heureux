@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "theme": "arrivee",
+  "name": "Arrivée & installation",
+  "entries": [
+    {
+      "id": "arrmc01",
+      "kind": "mot-cle",
+      "french": "s'installer",
+      "anchor": "au moment de vous installer",
+      "english": "to settle in",
+      "example": "Qu'est-ce qui a été le plus difficile au moment de vous installer ?",
+      "usage": "Verbe pronominal pour parler du fait de s'établir dans un nouvel endroit."
+    },
+    {
+      "id": "arrmc02",
+      "kind": "mot-cle",
+      "french": "un logement temporaire (m.)",
+      "anchor": "un logement temporaire",
+      "english": "temporary housing",
+      "example": "Avez-vous d'abord trouvé un logement temporaire avant de signer un bail ?",
+      "usage": "Nom masculin désignant un hébergement de courte durée en attendant mieux."
+    },
+    {
+      "id": "arrmc03",
+      "kind": "mot-cle",
+      "french": "les démarches administratives (f. pl.)",
+      "anchor": "les démarches administratives",
+      "english": "administrative procedures",
+      "example": "Quelles sont les démarches administratives les plus urgentes à faire en arrivant ?",
+      "usage": "Expression désignant l'ensemble des formalités officielles à accomplir."
+    },
+    {
+      "id": "arrmc04",
+      "kind": "mot-cle",
+      "french": "un numéro d'assurance sociale (m.)",
+      "anchor": "un numéro d'assurance sociale",
+      "english": "a social insurance number",
+      "example": "Faut-il attendre longtemps pour obtenir un numéro d'assurance sociale ?",
+      "usage": "Nom masculin désignant l'identifiant officiel requis pour travailler au Canada."
+    },
+    {
+      "id": "arrmc05",
+      "kind": "mot-cle",
+      "french": "ouvrir un compte bancaire",
+      "anchor": "ouvrir un compte bancaire",
+      "english": "to open a bank account",
+      "example": "Est-ce compliqué d'ouvrir un compte bancaire sans historique de crédit local ?",
+      "usage": "Expression verbale pour désigner la création d'un compte auprès d'une banque."
+    },
+    {
+      "id": "arrmc06",
+      "kind": "mot-cle",
+      "french": "une carte de résident permanent (f.)",
+      "anchor": "une carte de résident permanent",
+      "english": "a permanent resident card",
+      "example": "Combien de temps faut-il pour recevoir une carte de résident permanent au Canada ?",
+      "usage": "Nom féminin désignant le document officiel attestant le statut de résident permanent au Canada."
+    },
+    {
+      "id": "arrmc07",
+      "kind": "mot-cle",
+      "french": "s'adapter",
+      "anchor": "vous adapter",
+      "english": "to adapt",
+      "example": "Diriez-vous qu'il est facile de vous adapter au climat dès la première année ?",
+      "usage": "Verbe pronominal pour évoquer l'ajustement à un nouvel environnement."
+    },
+    {
+      "id": "arrmc08",
+      "kind": "mot-cle",
+      "french": "le choc culturel (m.)",
+      "anchor": "le choc culturel",
+      "english": "culture shock",
+      "example": "Le choc culturel a-t-il été difficile à surmonter durant vos premiers mois ?",
+      "usage": "Nom masculin désignant le sentiment de déstabilisation face à une culture différente."
+    },
+    {
+      "id": "arrmc09",
+      "kind": "mot-cle",
+      "french": "une communauté d'accueil (f.)",
+      "anchor": "une communauté d'accueil",
+      "english": "a host community",
+      "example": "Y a-t-il une communauté d'accueil qui aide les nouveaux arrivants dans le quartier ?",
+      "usage": "Groupe nominal désignant un réseau local qui soutient les nouveaux venus."
+    },
+    {
+      "id": "arrmc10",
+      "kind": "mot-cle",
+      "french": "un parrainage (m.)",
+      "anchor": "un parrainage",
+      "english": "sponsorship",
+      "example": "Votre venue s'est-elle faite dans le cadre d'un parrainage familial ?",
+      "usage": "Nom masculin désignant le soutien officiel d'une personne ou d'un organisme pour l'immigration."
+    },
+    {
+      "id": "arrmc11",
+      "kind": "mot-cle",
+      "french": "les formalités douanières (f. pl.)",
+      "anchor": "les formalités douanières",
+      "english": "customs formalities",
+      "example": "Les formalités douanières à l'aéroport ont-elles pris beaucoup de temps ?",
+      "usage": "Expression désignant les contrôles et documents exigés au passage de la frontière."
+    },
+    {
+      "id": "arrmc12",
+      "kind": "mot-cle",
+      "french": "un permis de travail (m.)",
+      "anchor": "un permis de travail",
+      "english": "a work permit",
+      "example": "Aviez-vous déjà un permis de travail avant votre arrivée au pays ?",
+      "usage": "Nom masculin désignant l'autorisation légale d'exercer un emploi."
+    },
+    {
+      "id": "arrmc13",
+      "kind": "mot-cle",
+      "french": "s'orienter",
+      "anchor": "vous orienter",
+      "english": "to find one's bearings",
+      "example": "Qu'est-ce qui vous a aidé à vous orienter dans une ville que vous ne connaissiez pas ?",
+      "usage": "Verbe pronominal pour parler du fait de se repérer dans un nouvel environnement."
+    },
+    {
+      "id": "arrmc14",
+      "kind": "mot-cle",
+      "french": "un accueil chaleureux (m.)",
+      "anchor": "un accueil chaleureux",
+      "english": "a warm welcome",
+      "example": "Avez-vous reçu un accueil chaleureux de la part de vos nouveaux voisins ?",
+      "usage": "Groupe nominal pour qualifier une réception bienveillante à l'arrivée."
+    },
+    {
+      "id": "arrmc15",
+      "kind": "mot-cle",
+      "french": "une adresse permanente (f.)",
+      "anchor": "une adresse permanente",
+      "english": "a permanent address",
+      "example": "Combien de temps a-t-il fallu avant d'avoir une adresse permanente ?",
+      "usage": "Nom féminin désignant le lieu de résidence fixe, par opposition à un logement provisoire."
+    },
+    {
+      "id": "arreu01",
+      "kind": "expression-utile",
+      "french": "prendre ses marques",
+      "anchor": "prendre ses marques",
+      "english": "to find one's footing",
+      "example": "Combien de temps faut-il en général pour prendre ses marques dans une nouvelle ville ?",
+      "usage": "Expression figée signifiant s'habituer progressivement à un nouvel environnement."
+    },
+    {
+      "id": "arreu02",
+      "kind": "expression-utile",
+      "french": "se sentir chez soi",
+      "anchor": "vous sentir chez vous",
+      "english": "to feel at home",
+      "example": "Au bout de combien de mois avez-vous commencé à vous sentir chez vous ici ?",
+      "usage": "Expression pour exprimer un sentiment de confort et d'appartenance à un lieu."
+    },
+    {
+      "id": "arreu03",
+      "kind": "expression-utile",
+      "french": "faire face à l'inconnu",
+      "anchor": "faire face à l'inconnu",
+      "english": "to deal with the unknown",
+      "example": "Comment avez-vous géré le stress de faire face à l'inconnu en arrivant seul ?",
+      "usage": "Expression pour évoquer la gestion d'une situation nouvelle et incertaine."
+    },
+    {
+      "id": "arreu04",
+      "kind": "expression-utile",
+      "french": "ne pouvoir compter que sur soi-même",
+      "anchor": "ne pouvoir compter que sur vous-même",
+      "english": "to be able to rely only on oneself",
+      "example": "Avez-vous eu l'impression de ne pouvoir compter que sur vous-même pendant les premières semaines ?",
+      "usage": "Expression pour décrire une situation où l'on doit se débrouiller sans aide extérieure."
+    },
+    {
+      "id": "arreu05",
+      "kind": "expression-utile",
+      "french": "avoir le mal du pays",
+      "anchor": "avoir le mal du pays",
+      "english": "to feel homesick",
+      "example": "Est-ce qu'il vous arrive encore d'avoir le mal du pays de temps en temps ?",
+      "usage": "Expression figée pour parler de la nostalgie envers son pays d'origine."
+    },
+    {
+      "id": "arreu06",
+      "kind": "expression-utile",
+      "french": "tisser des liens",
+      "anchor": "tisser des liens",
+      "english": "to build connections",
+      "example": "Qu'est-ce qui vous a aidé à tisser des liens avec la population locale ?",
+      "usage": "Expression imagée signifiant créer des relations sociales durables."
+    },
+    {
+      "id": "arreu07",
+      "kind": "expression-utile",
+      "french": "gagner en autonomie",
+      "anchor": "gagne rapidement en autonomie",
+      "english": "to gain independence",
+      "example": "Diriez-vous qu'on gagne rapidement en autonomie une fois les premières démarches faites ?",
+      "usage": "Expression pour parler de l'acquisition progressive d'indépendance."
+    },
+    {
+      "id": "arreu08",
+      "kind": "expression-utile",
+      "french": "se heurter à des obstacles",
+      "anchor": "heurté à des obstacles",
+      "english": "to run into obstacles",
+      "example": "Vous êtes-vous heurté à des obstacles administratifs particuliers au début ?",
+      "usage": "Expression pour évoquer des difficultés rencontrées en cours de route."
+    },
+    {
+      "id": "arreu09",
+      "kind": "expression-utile",
+      "french": "remplir un dossier",
+      "anchor": "remplir un dossier",
+      "english": "to fill out an application file",
+      "example": "Faut-il remplir un dossier complet avant même d'arriver sur le territoire ?",
+      "usage": "Expression verbale pour désigner la constitution d'un ensemble de documents administratifs."
+    },
+    {
+      "id": "arreu10",
+      "kind": "expression-utile",
+      "french": "s'y retrouver",
+      "anchor": "s'y retrouver",
+      "english": "to make sense of things / find one's way",
+      "example": "Est-ce facile de s'y retrouver parmi toutes les démarches à faire en arrivant ?",
+      "usage": "Expression familière pour dire qu'on comprend et gère bien une situation complexe."
+    },
+    {
+      "id": "arreu11",
+      "kind": "expression-utile",
+      "french": "être en règle",
+      "anchor": "être en règle",
+      "english": "to be in compliance / have proper paperwork",
+      "example": "Combien de temps a-t-il fallu pour être en règle avec toutes les autorités ?",
+      "usage": "Expression pour dire que l'on respecte les obligations légales et administratives."
+    },
+    {
+      "id": "arreu12",
+      "kind": "expression-utile",
+      "french": "partir de zéro",
+      "anchor": "partir de zéro",
+      "english": "to start from scratch",
+      "example": "Avez-vous eu l'impression de partir de zéro en arrivant dans ce nouveau pays ?",
+      "usage": "Expression pour décrire le fait de tout recommencer sans acquis préalable."
+    },
+    {
+      "id": "arreu13",
+      "kind": "expression-utile",
+      "french": "donner un coup de main",
+      "anchor": "donné un coup de main",
+      "english": "to lend a hand",
+      "example": "Quelqu'un vous a-t-il donné un coup de main pour les premières démarches ?",
+      "usage": "Expression courante pour signifier apporter une aide ponctuelle."
+    },
+    {
+      "id": "arreu14",
+      "kind": "expression-utile",
+      "french": "se familiariser avec",
+      "anchor": "se familiariser avec",
+      "english": "to become familiar with",
+      "example": "Combien de temps faut-il pour se familiariser avec le système de santé local ?",
+      "usage": "Expression verbale pour parler de l'apprentissage progressif d'un nouveau système."
+    },
+    {
+      "id": "arreu15",
+      "kind": "expression-utile",
+      "french": "surmonter les difficultés",
+      "anchor": "surmonter les difficultés",
+      "english": "to overcome difficulties",
+      "example": "Qu'est-ce qui vous a permis de surmonter les difficultés des premiers mois ?",
+      "usage": "Expression pour évoquer la capacité à dépasser des obstacles rencontrés."
+    },
+    {
+      "id": "arrfr01",
+      "kind": "fragment",
+      "french": "Concrètement, qu'est-ce qui a été le plus dur…",
+      "anchor": "qu'est-ce qui a été le plus dur",
+      "english": "Specifically, what was hardest…",
+      "example": "Concrètement, qu'est-ce qui a été le plus dur à gérer durant les deux premières semaines ?",
+      "usage": "Amorce pour demander une précision concrète sur une difficulté vécue."
+    },
+    {
+      "id": "arrfr02",
+      "kind": "fragment",
+      "french": "Et avant d'arriver, aviez-vous déjà…",
+      "anchor": "aviez-vous déjà",
+      "english": "And before arriving, had you already…",
+      "example": "Et avant d'arriver, aviez-vous déjà trouvé un logement ou cherchiez-vous sur place ?",
+      "usage": "Amorce pour vérifier une préparation antérieure à l'arrivée."
+    },
+    {
+      "id": "arrfr03",
+      "kind": "fragment",
+      "french": "Si je comprends bien, vous avez dû…",
+      "anchor": "si je comprends bien, vous avez dû",
+      "english": "If I understand correctly, you had to…",
+      "example": "Si je comprends bien, vous avez dû tout organiser seul dès votre arrivée ?",
+      "usage": "Amorce pour reformuler et confirmer sa compréhension du parcours de l'interlocuteur."
+    },
+    {
+      "id": "arrfr04",
+      "kind": "fragment",
+      "french": "Diriez-vous que le plus stressant, c'était…",
+      "anchor": "diriez-vous que le plus stressant, c'était",
+      "english": "Would you say the most stressful part was…",
+      "example": "Diriez-vous que le plus stressant, c'était plutôt les papiers ou le logement ?",
+      "usage": "Amorce pour inviter l'interlocuteur à hiérarchiser des difficultés."
+    },
+    {
+      "id": "arrfr05",
+      "kind": "fragment",
+      "french": "Pourriez-vous préciser à quel moment…",
+      "anchor": "pourriez-vous préciser à quel moment",
+      "english": "Could you clarify at what point…",
+      "example": "Pourriez-vous préciser à quel moment vous avez enfin obtenu votre numéro d'assurance sociale ?",
+      "usage": "Amorce polie pour demander un repère temporel précis."
+    },
+    {
+      "id": "arrfr06",
+      "kind": "fragment",
+      "french": "Qu'est-ce qui vous aurait aidé si…",
+      "anchor": "qu'est-ce qui vous aurait aidé si",
+      "english": "What would have helped you if…",
+      "example": "Qu'est-ce qui vous aurait aidé si quelqu'un vous avait accompagné dès le premier jour ?",
+      "usage": "Amorce hypothétique pour explorer un scénario alternatif."
+    },
+    {
+      "id": "arrfr07",
+      "kind": "fragment",
+      "french": "En revanche, ce qui a été plus simple, c'est…",
+      "anchor": "ce qui a été plus simple, c'est",
+      "english": "On the other hand, what was easier is…",
+      "example": "En revanche, ce qui a été plus simple, c'est l'ouverture du compte bancaire, non ?",
+      "usage": "Amorce pour introduire un contraste avec un point positif."
+    },
+    {
+      "id": "arrfr08",
+      "kind": "fragment",
+      "french": "Est-ce que vous pourriez revenir sur…",
+      "anchor": "est-ce que vous pourriez revenir sur",
+      "english": "Could you go back over…",
+      "example": "Est-ce que vous pourriez revenir sur les étapes exactes du parrainage familial ?",
+      "usage": "Amorce pour demander de développer un point déjà mentionné."
+    },
+    {
+      "id": "arrfr09",
+      "kind": "fragment",
+      "french": "Autrement dit, sans ce parrainage, vous…",
+      "anchor": "autrement dit, sans ce parrainage, vous",
+      "english": "In other words, without that sponsorship, you…",
+      "example": "Autrement dit, sans ce parrainage, vous n'auriez pas pu vous installer aussi vite ?",
+      "usage": "Amorce pour reformuler une conséquence logique et la faire confirmer."
+    },
+    {
+      "id": "arrfr10",
+      "kind": "fragment",
+      "french": "Par rapport à ce que vous imaginiez, l'arrivée…",
+      "anchor": "par rapport à ce que vous imaginiez, l'arrivée",
+      "english": "Compared to what you imagined, the arrival…",
+      "example": "Par rapport à ce que vous imaginiez, l'arrivée a-t-elle été plus facile ou plus difficile ?",
+      "usage": "Amorce pour comparer les attentes initiales à la réalité vécue."
+    },
+    {
+      "id": "arrfr11",
+      "kind": "fragment",
+      "french": "Pour resituer le contexte, à quel âge…",
+      "anchor": "pour resituer le contexte, à quel âge",
+      "english": "To set the context, at what age…",
+      "example": "Pour resituer le contexte, à quel âge avez-vous quitté votre pays d'origine ?",
+      "usage": "Amorce pour recontextualiser une expérience avant d'aller plus loin."
+    },
+    {
+      "id": "arrfr12",
+      "kind": "fragment",
+      "french": "Vous voulez dire que malgré les démarches…",
+      "anchor": "vous voulez dire que malgré les démarches",
+      "english": "You mean that despite the paperwork…",
+      "example": "Vous voulez dire que malgré les démarches compliquées, tout s'est bien passé au final ?",
+      "usage": "Amorce pour vérifier une interprétation malgré une difficulté évoquée."
+    },
+    {
+      "id": "arrfr13",
+      "kind": "fragment",
+      "french": "Pour clore ce point, retiendriez-vous surtout…",
+      "anchor": "pour clore ce point, retiendriez-vous surtout",
+      "english": "To close this point, would you mainly remember…",
+      "example": "Pour clore ce point, retiendriez-vous surtout un bon ou un mauvais souvenir de cette arrivée ?",
+      "usage": "Amorce pour conclure un échange en demandant une synthèse personnelle."
+    },
+    {
+      "id": "arrfr14",
+      "kind": "fragment",
+      "french": "Avec le recul, que feriez-vous différemment si…",
+      "anchor": "avec le recul, que feriez-vous différemment si",
+      "english": "Looking back, what would you do differently if…",
+      "example": "Avec le recul, que feriez-vous différemment si vous deviez vous installer de nouveau à l'étranger ?",
+      "usage": "Amorce pour demander un bilan rétrospectif sur l'installation à l'étranger."
+    },
+    {
+      "id": "arrfr15",
+      "kind": "fragment",
+      "french": "Juste pour bien comprendre, l'accueil chaleureux dont vous parlez…",
+      "anchor": "juste pour bien comprendre, l'accueil chaleureux dont vous parlez",
+      "english": "Just to make sure I understand, the warm welcome you mention…",
+      "example": "Juste pour bien comprendre, l'accueil chaleureux dont vous parlez venait plutôt des voisins ou de la famille ?",
+      "usage": "Amorce pour demander une clarification précise sur un détail mentionné."
+    }
+  ]
+}

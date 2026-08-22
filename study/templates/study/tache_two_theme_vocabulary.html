@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Vocabulaire par thème · {{ task.name }} · Heureux{% endblock %}
+
+{% block content %}
+{% include "study/partials/task_nav.html" %}
+
+<div class="memory-overview theme-vocabulary-directory" style="--memory-accent: {{ task.color }};">
+  <header class="memory-overview-hero">
+    <div class="memory-overview-hero__copy">
+      <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
+        <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name="sparkles" only %}</span>
+        <span>Vocabulaire par thème</span>
+      </h1>
+      <p>Préparez les mots, expressions et fragments qui vous permettent de poser des questions précises et de relancer naturellement votre interlocuteur.</p>
+      <div class="memory-overview-hero__actions">
+        {% if review_url %}<a class="btn btn--primary" href="{{ review_url }}">Continuer le prochain lot</a>{% endif %}
+        {% if phrase_count %}<a class="btn" href="{{ mixed_review_url }}">Révision mélangée</a>{% endif %}
+      </div>
+    </div>
+    <dl class="memory-overview-hero__metrics" aria-label="Contenu du vocabulaire par thème">
+      <div><dt>Thèmes</dt><dd>{{ theme_count }}</dd></div>
+      <div><dt>Fiches</dt><dd>{{ phrase_count }}</dd></div>
+      <div><dt>Lots guidés</dt><dd>{{ batch_count }}</dd></div>
+    </dl>
+  </header>
+
+  <div class="tache-two-directory-toolbar">
+    {% include "study/partials/tache_two_progress.html" with summary=summary unit_label="lots terminés" only %}
+    {% include "study/partials/collection_view_toggle.html" %}
+  </div>
+
+  <section class="memory-library memory-library--standalone" aria-labelledby="theme-vocabulary-list-title">
+    <div class="memory-library__head">
+      <div>
+        <p class="eyebrow">Choisissez une situation</p>
+        <h2 id="theme-vocabulary-list-title">Les 11 thèmes de la Tâche 2</h2>
+        <p>Chaque thème propose trois parcours complémentaires : les mots clés, les expressions utiles et les fragments de questions.</p>
+      </div>
+    </div>
+    <div class="memory-library__grid collection-table collection-table--memories collection-table--theme-vocabulary" data-collection-view="adaptive">
+      {% include "study/partials/collection_table_header.html" with variant="memories" column_1="Thème" column_2="Progression" column_3="Action" only %}
+      {% for item in themes %}
+        {% with progress=item.summary.progress %}
+        <a
+          class="memory-entry theme-vocabulary-entry card memory-entry--{{ progress.status }}"
+          href="{{ item.url }}"
+          data-collection-item
+          aria-label="Ouvrir le vocabulaire du thème {{ item.data.name }}">
+          <span class="memory-entry__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=item.data.icon only %}</span>
+          <div class="memory-entry__body">
+            <h2>{{ item.data.name }}</h2>
+            <div class="memory-entry__facts">
+              <span><b>{{ item.word_count }}</b> mots</span>
+              <span><b>{{ item.expression_count }}</b> expressions</span>
+              <span><b>{{ item.fragment_count }}</b> fragments</span>
+            </div>
+          </div>
+          <div class="memory-entry__progress">
+            <div class="memory-entry__progress-copy">
+              <span class="progress-status progress-status--{{ progress.status }}">{{ progress.label }}</span>
+              <span>{{ progress.completed }}/{{ progress.total }} lots terminés</span>
+            </div>
+            <div class="progress" aria-label="{{ progress.percent }} % terminé">
+              <span class="memory-progress-fill memory-progress-fill--{{ progress.status }}" style="width: {{ progress.percent }}%;"></span>
+            </div>
+          </div>
+          <span class="memory-entry__action">
+            Ouvrir
+            {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
+          </span>
+        </a>
+        {% endwith %}
+      {% empty %}
+        <div class="empty"><p>Le vocabulaire par thème n’est pas encore disponible.</p></div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+{% endblock %}

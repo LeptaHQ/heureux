@@ -31,6 +31,7 @@ QUESTION_BANK_DIR = QUESTION_BANK_PATH.parent
 AI_EXAMINER_PROMPT_PATH = QUESTION_BANK_DIR / "ai_examiner_prompt.md"
 TACHE_TWO_SUBJECTS_DIR = QUESTION_BANK_DIR / "subjects"
 TACHE_TWO_VOCABULARY_DIR = QUESTION_BANK_DIR / "vocabulary"
+TACHE_TWO_THEME_VOCABULARY_DIR = QUESTION_BANK_DIR / "theme_vocabulary"
 TACHE_TWO_SUBJECT_THEMES_PATH = TACHE_TWO_SUBJECTS_DIR / "subject_themes.json"
 QUESTION_BANK_TASK = ("eo", "tache-2")
 
@@ -47,9 +48,9 @@ EE_TACHE_ONE_TASK = ("ee", "tache-1")
 EE_TACHE_ONE_DIR = CONTENT_DIR / "ee" / "tache_1"
 EE_TACHE_ONE_SUJETS_PATH = EE_TACHE_ONE_DIR / "sujets.json"
 
-# Tasks that expose a "Mémoires" question-bank section, mapped to the
-# directory of memoire JSON files and the key namespace used to isolate
-# per-question progress from other tasks (empty namespace = legacy EO T2).
+# Memory-backed tasks mapped to their JSON directory and progress-key namespace.
+# EO T2 remains here for its subject source bank and legacy URL redirects; only
+# EE T3 still exposes the bank as a user-facing Mémoires section.
 MEMOIRE_TASKS = {
     QUESTION_BANK_TASK: (QUESTION_BANK_DIR, ""),
     EE_TACHE_THREE_TASK: (EE_TACHE_THREE_MEMOIRES_DIR, "ee-tache3"),
@@ -62,6 +63,38 @@ EXPECTED_PHRASES = 1410
 SUBJECT_VOCABULARY_PER_RESPONSE = 50
 SUBJECT_VOCABULARY_PER_KIND = 10
 TACHE_TWO_VOCABULARY_MIN_PER_RESPONSE = 30
+TACHE_TWO_THEME_VOCABULARY_PER_THEME = 45
+TACHE_TWO_THEME_VOCABULARY_PER_KIND = 15
+TACHE_TWO_THEME_VOCABULARY_FIELDS = (
+    "id",
+    "kind",
+    "french",
+    "anchor",
+    "english",
+    "example",
+    "usage",
+)
+TACHE_TWO_THEME_VOCABULARY_KINDS = (
+    "mot-cle",
+    "expression-utile",
+    "fragment",
+)
+TACHE_TWO_THEME_VOCABULARY_CATEGORIES = {
+    "mot-cle": "Thème · Mots clés",
+    "expression-utile": "Thème · Expressions utiles",
+    "fragment": "Thème · Fragments de phrase",
+}
+TACHE_TWO_THEME_NOUN_SUFFIX_RE = re.compile(
+    r" \((?P<gender>[mf])\.(?P<plural> pl\.)?\)$"
+)
+TACHE_TWO_THEME_NOUN_ARTICLE_RE = re.compile(
+    r"^(?:(?P<article>un|une|le|la|les|des)\s+|(?P<elided>l['’]))",
+    re.IGNORECASE,
+)
+TACHE_TWO_THEME_INFINITIVE_RE = re.compile(
+    r"^(?:s['’]|se\s+)?[\wÀ-ÿ-]+(?:er|ir|re)\b",
+    re.IGNORECASE,
+)
 SUBJECT_VOCABULARY_FIELDS = (
     "id",
     "kind",
@@ -1331,6 +1364,229 @@ def parse_tache_two_subject_vocabulary(
             "Missing Tâche 2 subject vocabulary for: "
             + ", ".join(missing)
         )
+    return phrases
+
+
+def parse_tache_two_theme_vocabulary(
+    responses: Optional[List[ResponseData]] = None,
+    directory: Path = TACHE_TWO_THEME_VOCABULARY_DIR,
+) -> List[PhraseData]:
+    """Validate and parse the reusable vocabulary for every Tâche 2 theme."""
+    if responses is None:
+        responses = parse_tache_two_responses()
+
+    themes, subject_theme_by_key = load_tache_two_subject_themes()
+    theme_by_slug = {theme.slug: theme for theme in themes}
+    source_by_theme = {}
+    for response in responses:
+        theme_slug = subject_theme_by_key.get(response.content_key)
+        if theme_slug is None or not response.prompts:
+            continue
+        prompt = response.prompts[0]
+        source_by_theme.setdefault(
+            theme_slug,
+            (prompt.theme, prompt.number),
+        )
+    missing_sources = sorted(set(theme_by_slug) - set(source_by_theme))
+    if missing_sources:
+        raise ValueError(
+            "No representative Tâche 2 subject found for themes: "
+            + ", ".join(missing_sources)
+        )
+
+    paths = sorted(directory.glob("*.json"))
+    expected_file_names = {f"{theme.slug}.json" for theme in themes}
+    actual_file_names = {path.name for path in paths}
+    if actual_file_names != expected_file_names:
+        missing = sorted(expected_file_names - actual_file_names)
+        unexpected = sorted(actual_file_names - expected_file_names)
+        details = []
+        if missing:
+            details.append("missing " + ", ".join(missing))
+        if unexpected:
+            details.append("unexpected " + ", ".join(unexpected))
+        raise ValueError(
+            "Tâche 2 theme-vocabulary files do not match the theme taxonomy: "
+            + "; ".join(details)
+        )
+
+    payload_by_theme = {}
+    for path in paths:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(payload, dict):
+            raise ValueError(f"{path.name} must contain a JSON object")
+        if set(payload) != {"version", "theme", "name", "entries"}:
+            raise ValueError(
+                f"{path.name} must contain version, theme, name, and entries"
+            )
+        if payload["version"] != 1:
+            raise ValueError(
+                f"{path.name} must use Tâche 2 theme-vocabulary version 1"
+            )
+        theme_slug = payload["theme"]
+        theme = theme_by_slug.get(theme_slug)
+        if theme is None or path.name != f"{theme_slug}.json":
+            raise ValueError(f"{path.name} has an invalid theme slug")
+        if payload["name"] != theme.name:
+            raise ValueError(
+                f"{path.name} must use the theme name {theme.name!r}"
+            )
+        payload_by_theme[theme_slug] = payload
+
+    seen_ids = {}
+    seen_targets = {}
+    phrases = []
+    base_order = 800_000
+    expected_kinds = tuple(
+        kind
+        for kind in TACHE_TWO_THEME_VOCABULARY_KINDS
+        for _ in range(TACHE_TWO_THEME_VOCABULARY_PER_KIND)
+    )
+    for theme in themes:
+        entries = payload_by_theme[theme.slug]["entries"]
+        if not isinstance(entries, list):
+            raise ValueError(f"{theme.slug}.json must contain an entries list")
+        if len(entries) != TACHE_TWO_THEME_VOCABULARY_PER_THEME:
+            raise ValueError(
+                f"{theme.slug}.json must contain exactly "
+                f"{TACHE_TWO_THEME_VOCABULARY_PER_THEME} entries"
+            )
+        actual_kinds = tuple(
+            entry.get("kind") if isinstance(entry, dict) else None
+            for entry in entries
+        )
+        if actual_kinds != expected_kinds:
+            raise ValueError(
+                f"{theme.slug}.json must group exactly "
+                f"{TACHE_TWO_THEME_VOCABULARY_PER_KIND} entries for each "
+                "kind in the documented order"
+            )
+
+        source = source_by_theme[theme.slug]
+        sources_raw = f"{source[0]} P{source[1]}"
+        for entry_index, entry in enumerate(entries, start=1):
+            location = f"{theme.slug}.json entry {entry_index}"
+            if not isinstance(entry, dict):
+                raise ValueError(f"{location} must be an object")
+            if set(entry) != set(TACHE_TWO_THEME_VOCABULARY_FIELDS):
+                raise ValueError(
+                    f"{location} fields must be "
+                    f"{TACHE_TWO_THEME_VOCABULARY_FIELDS}"
+                )
+            values = {}
+            for field_name in TACHE_TWO_THEME_VOCABULARY_FIELDS:
+                value = entry.get(field_name)
+                if not isinstance(value, str) or not value.strip():
+                    raise ValueError(
+                        f"{location} has an empty {field_name!r} field"
+                    )
+                values[field_name] = value.strip()
+
+            phrase_id = values["id"]
+            phrase_id_key = phrase_id.casefold()
+            if len(phrase_id) > PHRASE_MAX_LENGTHS["id"]:
+                raise ValueError(
+                    f"{location} id exceeds "
+                    f"{PHRASE_MAX_LENGTHS['id']} characters"
+                )
+            if phrase_id_key in seen_ids:
+                raise ValueError(
+                    f"Duplicate Tâche 2 theme-vocabulary id {phrase_id!r} "
+                    f"in {seen_ids[phrase_id_key]} and {location}"
+                )
+            seen_ids[phrase_id_key] = location
+
+            french = values["french"]
+            anchor = values["anchor"]
+            english = values["english"]
+            example = values["example"]
+            if len(french) > PHRASE_MAX_LENGTHS["expression"]:
+                raise ValueError(f"{location} french target is too long")
+            if len(anchor) > PHRASE_MAX_LENGTHS["anchor"]:
+                raise ValueError(f"{location} anchor is too long")
+            if len(english) > PHRASE_MAX_LENGTHS["english_cue"]:
+                raise ValueError(f"{location} english cue is too long")
+            target_key = french.casefold()
+            if target_key in seen_targets:
+                raise ValueError(
+                    f"Duplicate Tâche 2 theme-vocabulary target {french!r} "
+                    f"in {seen_targets[target_key]} and {location}"
+                )
+            seen_targets[target_key] = location
+            anchor_key = anchor.casefold()
+            noun_match = TACHE_TWO_THEME_NOUN_SUFFIX_RE.search(french)
+            if values["kind"] == "mot-cle":
+                if noun_match:
+                    noun_target = french[: noun_match.start()]
+                    if anchor != noun_target:
+                        raise ValueError(
+                            f"{location} noun anchor must exactly match the "
+                            "article and noun without its gender marker"
+                        )
+                    article_match = TACHE_TWO_THEME_NOUN_ARTICLE_RE.match(
+                        noun_target
+                    )
+                    if article_match is None:
+                        raise ValueError(
+                            f"{location} noun must begin with an article"
+                        )
+                    article = (
+                        article_match.group("article") or "l'"
+                    ).casefold()
+                    gender = noun_match.group("gender")
+                    plural = bool(noun_match.group("plural"))
+                    if (
+                        article in {"un", "le"} and (gender != "m" or plural)
+                        or article in {"une", "la"}
+                        and (gender != "f" or plural)
+                        or article in {"les", "des"} and not plural
+                        or article == "l'" and plural
+                    ):
+                        raise ValueError(
+                            f"{location} article and gender/number marker "
+                            "do not agree"
+                        )
+                elif not TACHE_TWO_THEME_INFINITIVE_RE.match(french):
+                    raise ValueError(
+                        f"{location} noun must include an article and a "
+                        "gender/number marker"
+                    )
+            elif noun_match:
+                raise ValueError(
+                    f"{location} gender/number markers are reserved for "
+                    "mot-cle noun entries"
+                )
+            if example.casefold().count(anchor_key) != 1:
+                raise ValueError(
+                    f"{location} example must contain its anchor exactly once"
+                )
+            if not example.endswith("?"):
+                raise ValueError(
+                    f"{location} example must be a direct question ending in ?"
+                )
+            if example.casefold() == anchor_key:
+                raise ValueError(
+                    f"{location} needs a contextual example, not a duplicate "
+                    "anchor"
+                )
+
+            phrases.append(
+                PhraseData(
+                    phrase_id=phrase_id,
+                    tier="theme",
+                    category=TACHE_TWO_THEME_VOCABULARY_CATEGORIES[
+                        values["kind"]
+                    ],
+                    english_cue=english,
+                    expression=french,
+                    anchor=anchor,
+                    example=example,
+                    note=values["usage"],
+                    sources_raw=sources_raw,
+                    sources=(source,),
+                    order=base_order + len(phrases) + 1,
+                )
+            )
     return phrases
 
 

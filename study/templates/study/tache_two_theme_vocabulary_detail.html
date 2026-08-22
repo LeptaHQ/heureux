@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}{{ theme_data.name }} · Vocabulaire par thème · Heureux{% endblock %}
+
+{% block content %}
+{% include "study/partials/task_nav.html" %}
+
+<nav class="phrase-category-back" aria-label="Retour au vocabulaire par thème">
+  <a href="{% url 'study:tache_two_theme_vocabulary' %}">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Tous les thèmes</a>
+</nav>
+
+<header class="phrase-category-hero theme-vocabulary-hero card" style="--theme-vocabulary-accent: {{ theme.color }};">
+  <div>
+    <p class="eyebrow">Vocabulaire par thème</p>
+    <h1 class="title-with-icon" style="--icon-accent: {{ theme.color }};">
+      <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name=theme_data.icon only %}</span>
+      <span>{{ theme_data.name }}</span>
+    </h1>
+    <p>Apprenez les éléments utiles, puis combinez-les pour mener une interaction souple plutôt que réciter une liste de questions.</p>
+    <p class="theme-vocabulary-notation"><b>Repères pour les noms :</b> article + genre ; <span>m.</span> masculin, <span>f.</span> féminin, <span>pl.</span> pluriel.</p>
+    <p class="theme-vocabulary-notation"><b>Registre :</b> les exemples utilisent <i>vous</i> par défaut. Passez à <i>tu</i> et adaptez les possessifs lorsque la consigne met en scène un ami ou un proche.</p>
+    <div class="phrase-category-hero__meta">
+      <span class="progress-status progress-status--{{ summary.progress.status }}">{{ summary.progress.label }}</span>
+      <span><b>{{ phrase_count }}</b> fiches</span>
+      <span><b>{{ review_batches|length }}</b> parcours guidés</span>
+      <span><b>{{ summary.completed }}/{{ summary.total }}</b> lots terminés</span>
+    </div>
+  </div>
+  <div class="phrase-category-hero__actions">
+    {% if review_url %}<a class="btn btn--primary" href="{{ review_url }}">Pratiquer le prochain lot</a>{% endif %}
+    {% if phrase_count %}<a class="btn" href="{{ mixed_review_url }}">Mélanger les {{ phrase_count }} fiches</a>{% endif %}
+  </div>
+</header>
+
+{% if review_batches %}
+<section class="review-batches" aria-labelledby="theme-vocabulary-batches-title">
+  <div class="review-batches__head">
+    <div>
+      <p class="eyebrow">Progression guidée</p>
+      <h2 id="theme-vocabulary-batches-title">Trois parcours complémentaires</h2>
+    </div>
+    <p>Commencez par les mots, passez aux expressions, puis entraînez-vous à produire des fragments de questions.</p>
+  </div>
+  <div class="batch-grid collection-table collection-table--batches" data-collection-view="adaptive">
+    {% include "study/partials/collection_table_header.html" with variant="batches" column_1="Lot et statut" column_2="Fiches" column_3="Activité" only %}
+    {% for batch in review_batches %}
+      {% include "study/partials/batch_card.html" with batch=batch item_noun="Fiches" only %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<section class="phrase-catalog theme-vocabulary-catalog" style="--theme-vocabulary-accent: {{ theme.color }};" aria-labelledby="theme-vocabulary-catalog-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Répertoire complet</p>
+      <h2 id="theme-vocabulary-catalog-title">Voir les fiches en contexte</h2>
+    </div>
+    {% include "study/partials/collection_view_toggle.html" %}
+  </div>
+
+  {% for phrase_section in phrase_sections %}
+    <section class="phrase-group theme-vocabulary-group" aria-labelledby="theme-vocabulary-group-{{ forloop.counter }}">
+      <header class="theme-vocabulary-group__head">
+        <span class="theme-vocabulary-group__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=phrase_section.icon only %}</span>
+        <div>
+          <h3 id="theme-vocabulary-group-{{ forloop.counter }}">{{ phrase_section.title }}</h3>
+          <p>{{ phrase_section.description }}</p>
+        </div>
+        <span class="theme-vocabulary-group__count">{{ phrase_section.phrases|length }} fiches</span>
+      </header>
+      <div class="grid grid--phrases collection-table collection-table--phrases" data-collection-view="adaptive">
+        {% include "study/partials/collection_table_header.html" with variant="phrases" column_1="Français" column_2="Sens" column_3="Exemple en contexte" only %}
+        {% for phrase in phrase_section.phrases %}
+          <article class="phrase card theme-vocabulary-phrase" data-collection-item id="phrase-{{ phrase.phrase_id }}">
+            <div class="phrase__expr">{{ phrase.expression }}</div>
+            <div class="phrase__cue">{{ phrase.english_cue }}</div>
+            <p class="phrase__ex">{{ phrase.example_html|safe }}</p>
+            {% if phrase.note %}<p class="phrase__note">{{ phrase.note }}</p>{% endif %}
+          </article>
+        {% empty %}
+          <div class="empty"><p>Aucune fiche n’est disponible dans cette section.</p></div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+</section>
+{% endblock %}

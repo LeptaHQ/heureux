@@ -572,11 +572,12 @@ class NonDestructiveImportTests(TestCase):
         self.assertFalse(imported_new.is_active)
         self.assertEqual(card.reps, 6)
 
-    def test_card_sync_creates_only_production_for_subject_vocabulary(self):
+    def test_card_sync_creates_only_production_for_local_vocabulary(self):
         user = factories.make_user("subject-card-sync")
         response = factories.make_response()
         shared = factories.make_phrase(tier="shared")
         subject = factories.make_phrase(tier="subject")
+        theme = factories.make_phrase(tier="theme")
 
         Command()._sync_cards(
             {response.content_key: response},
@@ -605,6 +606,15 @@ class NonDestructiveImportTests(TestCase):
         self.assertEqual(
             list(
                 Card.objects.filter(user=user, phrase=subject).values_list(
+                    "card_type",
+                    flat=True,
+                )
+            ),
+            [CardType.PHRASE_PRODUCTION],
+        )
+        self.assertEqual(
+            list(
+                Card.objects.filter(user=user, phrase=theme).values_list(
                     "card_type",
                     flat=True,
                 )

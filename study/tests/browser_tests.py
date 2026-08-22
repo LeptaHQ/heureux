@@ -92,19 +92,29 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         overflowing = self.page.locator("body *").evaluate_all(
             """
-            elements => elements
-              .filter(element => {
+            elements => {
+              const viewportWidth = document.documentElement.clientWidth;
+              return elements
+              .map(element => {
                 const rect = element.getBoundingClientRect();
-                return rect.right > document.documentElement.clientWidth + 1 ||
-                  rect.left < -1;
+                return {
+                  tag: element.tagName,
+                  className: element.className,
+                  text: (element.textContent || "").trim().slice(0, 80),
+                  left: Math.round(rect.left),
+                  right: Math.round(rect.right),
+                  width: Math.round(rect.width),
+                  overflow: Math.max(
+                    rect.right - viewportWidth,
+                    -rect.left,
+                    0
+                  ),
+                };
               })
-              .slice(0, 6)
-              .map(element => ({
-                tag: element.tagName,
-                className: element.className,
-                text: (element.textContent || "").trim().slice(0, 80),
-                right: Math.round(element.getBoundingClientRect().right),
-              }))
+              .filter(item => item.overflow > 1)
+              .sort((left, right) => right.overflow - left.overflow)
+              .slice(0, 6);
+            }
             """
         )
         self.assertTrue(fits, f"{self.page.url}: {overflowing}")
@@ -134,6 +144,36 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         task = task_by_slug["ee/tache-3"]
         return months, task
+
+    def _import_eo_tache_two_content(self):
+        command = Command()
+        task_by_slug = command._import_sections(load_sections())
+        months = content.load_tache_two_subject_months()
+        theme_by_name = command._import_themes(
+            content.tache_two_themes(months),
+            task_by_slug,
+        )
+        family_by_name = command._import_families(
+            content.tache_two_families(months)
+        )
+        responses = content.parse_tache_two_responses(months)
+        response_by_key = command._import_responses(
+            responses,
+            theme_by_name,
+            family_by_name,
+        )
+        prompt_index = command._import_prompts(
+            responses,
+            response_by_key,
+            theme_by_name,
+            family_by_name,
+        )
+        command._import_phrases(
+            content.parse_tache_two_theme_vocabulary(responses),
+            prompt_index,
+        )
+        command._sync_cards(response_by_key, user=self.user)
+        return task_by_slug["eo/tache-2"]
 
     def test_ee_tache_three_overview_table_has_bounded_hover_content(self):
         _, task = self._import_ee_tache_three_content()
@@ -652,91 +692,28 @@ class BrowserTests(StaticLiveServerTestCase):
             "3px",
         )
 
-    def test_tache_two_memories_are_structured_on_desktop_and_mobile(self):
-        Command()._import_sections(load_sections())
-        memory_path = reverse(
-            "study:task_memory_detail",
-            args=["eo", "tache-2", 1],
+    def test_tache_two_theme_vocabulary_is_structured_on_desktop_and_mobile(
+        self,
+    ):
+        self._import_eo_tache_two_content()
+        part_path = reverse("study:part_detail", args=["eo"])
+        overview_path = reverse("study:task_detail", args=["eo", "tache-2"])
+        directory_path = reverse("study:tache_two_theme_vocabulary")
+        subjects_path = reverse("study:task_browse", args=["eo", "tache-2"])
+        expected_detail_path = reverse(
+            "study:tache_two_theme_vocabulary_detail",
+            args=["arrivee"],
         )
-        highlight = Annotation.objects.create(
-            user=self.user,
-            task=Task.objects.get(part__slug="eo", slug="tache-2"),
-            kind=AnnotationKind.HIGHLIGHT,
-            quote="renseignements",
-            source_path=memory_path,
-            source_key="question-bank:part-01",
-            start_offset=0,
-            end_offset=14,
-            prefix="Ancienne interface · j'aurais besoin de quelques ",
-            suffix=(
-                " pour m'installer — pouvez-vous m'aider "
-                "ancienne interface"
-            ),
-        )
-        spanning_highlight = Annotation.objects.create(
-            user=self.user,
-            task=highlight.task,
-            kind=AnnotationKind.HIGHLIGHT,
-            quote=(
-                "me donner ?   03   "
-                "Bonjour ! Vous m'avez dit"
-            ),
-            source_path=memory_path,
-            source_key="question-bank:part-01",
-            start_offset=0,
-            end_offset=44,
-            prefix="Ancienne interface · tu aurais des conseils à ",
-            suffix=" que vous accompagniez ancienne interface",
-        )
-        part_url = (
-            self.live_server_url
-            + reverse("study:part_detail", args=["eo"])
-        )
-        overview_url = (
-            self.live_server_url
-            + reverse("study:task_detail", args=["eo", "tache-2"])
-        )
-        memories_url = (
-            self.live_server_url
-            + reverse("study:task_memories", args=["eo", "tache-2"])
-        )
-        memory_url = (
-            self.live_server_url
-            + memory_path
-        )
+
         self.page.set_viewport_size({"width": 1280, "height": 850})
-        self.page.goto(part_url)
-        self.page.get_by_role("button", name="Tableau").click()
-        guide_progress = self.page.locator(".deck__progress-cell--guide")
-        guide_row = self.page.locator(
-            ".deck:has(.deck__progress-cell--guide)"
-        )
-        self.assertEqual(guide_progress.count(), 1)
-        self.assertNotEqual(
-            guide_row.evaluate(
-                "element => getComputedStyle(element).backgroundColor"
-            ),
-            self.page.locator(".collection-table--decks").evaluate(
-                "element => getComputedStyle(element).backgroundColor"
-            ),
-        )
-        guide_style = guide_progress.evaluate(
-            """
-            element => ({
-              background: getComputedStyle(element).backgroundColor,
-              radius: getComputedStyle(element).borderRadius,
-              barHeight: element.querySelector(
-                '.progress'
-              ).getBoundingClientRect().height,
-            })
-            """
-        )
-        self.assertEqual(guide_style["background"], "rgba(0, 0, 0, 0)")
-        self.assertEqual(guide_style["radius"], "0px")
-        self.assertLessEqual(guide_style["barHeight"], 10)
+        self.page.goto(self.live_server_url + part_path)
+        task_card = self.page.locator(
+            f'.deck[href="{overview_path}"]'
+        ).first
+        task_card.wait_for()
         self.assertEqual(
-            guide_progress.locator(".deck__progress-copy").inner_text(),
-            "0/572 apprises · 0/348 sujets terminés",
+            task_card.locator(".deck__progress-copy").inner_text(),
+            "0/33 lots terminés · 0/348 sujets terminés",
         )
 
         self.context.add_init_script(
@@ -752,7 +729,7 @@ class BrowserTests(StaticLiveServerTestCase):
             });
             """
         )
-        self.page.goto(overview_url)
+        self.page.goto(self.live_server_url + overview_path)
         self.page.get_by_role(
             "heading",
             name="Tâche 2",
@@ -776,9 +753,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(overview_panels.count(), 2)
         self.assertEqual(
             len(
-                self.page.locator(
-                    ".tache-two-overview-grid"
-                ).evaluate(
+                self.page.locator(".tache-two-overview-grid").evaluate(
                     "element => getComputedStyle(element)"
                     ".gridTemplateColumns.split(' ')"
                 )
@@ -788,7 +763,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(
             overview_panels.nth(0).get_by_role(
                 "heading",
-                name="Mémoires",
+                name="Vocabulaire par thème",
                 exact=True,
             ).count(),
             1,
@@ -802,31 +777,14 @@ class BrowserTests(StaticLiveServerTestCase):
             1,
         )
         self.assertEqual(
-            overview_panels.nth(0).evaluate(
-                "element => element.tagName"
-            ),
-            "A",
-        )
-        self.assertEqual(
             overview_panels.nth(0).get_attribute("href"),
-            memories_url.removeprefix(self.live_server_url),
+            directory_path,
         )
         self.assertEqual(
             overview_panels.nth(1).get_attribute("href"),
-            reverse("study:task_browse", args=["eo", "tache-2"]),
+            subjects_path,
         )
-        panel_footer = overview_panels.nth(0).locator(
-            ".tache-two-overview-panel__footer"
-        )
-        self.assertEqual(
-            panel_footer.locator(".tache-two-progress-summary").count(),
-            1,
-        )
-        self.assertEqual(
-            panel_footer.locator(".tache-two-overview-panel__action").count(),
-            0,
-        )
-        overview_nav = self.page.locator(".task-nav--memories")
+        overview_nav = self.page.locator(".task-nav")
         self.assertEqual(overview_nav.locator("a").count(), 3)
         self.assertEqual(
             overview_nav.locator("a.is-active").inner_text(),
@@ -840,9 +798,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.set_viewport_size({"width": 320, "height": 700})
         self.assertEqual(
             len(
-                self.page.locator(
-                    ".tache-two-overview-grid"
-                ).evaluate(
+                self.page.locator(".tache-two-overview-grid").evaluate(
                     "element => getComputedStyle(element)"
                     ".gridTemplateColumns.split(' ')"
                 )
@@ -853,307 +809,157 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.page.set_viewport_size({"width": 1280, "height": 850})
         overview_panels.nth(0).click()
-        self.page.wait_for_url(memories_url)
+        self.page.wait_for_url(self.live_server_url + directory_path)
         self.page.get_by_role(
             "heading",
-            name="Mémoires",
+            name="Vocabulaire par thème",
             exact=True,
         ).wait_for()
-        table_toggle = self.page.get_by_role("button", name="Tableau")
-        cards_toggle = self.page.get_by_role("button", name="Cartes")
-        table_header = self.page.locator(
-            ".collection-table-header--memories"
-        )
-        self.assertEqual(table_toggle.get_attribute("aria-pressed"), "true")
-        self.assertTrue(table_header.is_visible())
-        memory_entry = self.page.locator(".memory-entry")
-        self.assertEqual(memory_entry.count(), 11)
-        memory_entry = memory_entry.first
         self.assertEqual(
-            len(
-                memory_entry.evaluate(
-                    "element => getComputedStyle(element)"
-                    ".gridTemplateColumns.split(' ')"
-                )
-            ),
-            3,
+            [int(value) for value in self.page.locator(
+                ".memory-overview-hero__metrics dd"
+            ).all_text_contents()],
+            [11, 495, 33],
         )
-        cards_toggle.click()
+        directory_nav = self.page.locator(".task-nav")
+        self.assertEqual(directory_nav.locator("a").count(), 3)
+        self.assertEqual(
+            directory_nav.locator("a.is-active").inner_text(),
+            "Vocabulaire par thème",
+        )
+        cards_toggle = self.page.get_by_role("button", name="Cartes")
+        table_toggle = self.page.get_by_role("button", name="Tableau")
+        table_header = self.page.locator(".collection-table-header--memories")
         self.assertEqual(cards_toggle.get_attribute("aria-pressed"), "true")
-        self.assertFalse(table_header.is_visible())
+        self.assertEqual(
+            self.page.locator("html").get_attribute(
+                "data-collection-view-mode"
+            ),
+            "cards",
+        )
+        theme_entries = self.page.locator(".theme-vocabulary-entry.memory-entry")
+        self.assertEqual(theme_entries.count(), 11)
+        first_theme_entry = theme_entries.first
         self.assertLess(
-            memory_entry.bounding_box()["width"],
+            first_theme_entry.bounding_box()["width"],
             self.page.locator("main").bounding_box()["width"] * 0.65,
         )
+        self.assertEqual(
+            first_theme_entry.get_attribute("href"),
+            expected_detail_path,
+        )
+        self.assert_no_horizontal_overflow()
+
         table_toggle.click()
         self.assertEqual(table_toggle.get_attribute("aria-pressed"), "true")
+        self.assertEqual(
+            self.page.locator("html").get_attribute(
+                "data-collection-view-mode"
+            ),
+            "table",
+        )
         self.assertTrue(table_header.is_visible())
-        self.assertLessEqual(memory_entry.bounding_box()["height"], 155)
-        self.assertEqual(
-            memory_entry.get_attribute("href"),
-            memory_url.removeprefix(self.live_server_url),
-        )
-        entry_borders = self.page.locator(".memory-entry").last.evaluate(
-            """
-            element => {
-              const style = getComputedStyle(element);
-              return [
-                style.borderTopColor,
-                style.borderRightColor,
-                style.borderBottomColor,
-                style.borderLeftColor,
-              ];
-            }
-            """
-        )
-        self.assertEqual(len(set(entry_borders)), 1)
-        memory_nav = self.page.locator(".task-nav--memories")
-        self.assertEqual(memory_nav.locator("a").count(), 3)
-        self.assertEqual(
-            memory_nav.locator("a.is-active").inner_text(),
-            "Mémoires",
-        )
+        self.assertLessEqual(first_theme_entry.bounding_box()["height"], 170)
+        self.assert_no_horizontal_overflow()
+
         self.page.set_viewport_size({"width": 320, "height": 700})
-        self.assertEqual(
-            len(
-                memory_entry.evaluate(
-                    "element => getComputedStyle(element)"
-                    ".gridTemplateColumns.split(' ')"
-                )
-            ),
-            2,
-        )
-        self.assertEqual(
-            len(
-                memory_nav.evaluate(
-                    "element => getComputedStyle(element)"
-                    ".gridTemplateColumns.split(' ')"
-                )
-            ),
-            3,
-        )
+        self.assertEqual(theme_entries.count(), 11)
         self.assert_no_horizontal_overflow()
 
         self.page.set_viewport_size({"width": 1280, "height": 850})
-        memory_entry.click()
-        self.page.wait_for_url(memory_url)
-        self.page.get_by_role(
-            "heading",
-            name="Mémoire 1 · Arrivée & installation",
-            exact=True,
-        ).wait_for()
-        task_nav = self.page.locator(".task-nav--memories")
-        self.assertEqual(task_nav.locator("a").count(), 3)
+        first_theme_title = first_theme_entry.locator("h2").inner_text()
+        first_theme_entry.click()
+        self.page.wait_for_url(self.live_server_url + expected_detail_path)
+        self.page.get_by_role("heading", name=first_theme_title).wait_for()
+        detail_nav = self.page.locator(".task-nav")
+        self.assertEqual(detail_nav.locator("a").count(), 3)
         self.assertEqual(
-            task_nav.locator("a.is-active").inner_text(),
-            "Mémoires",
+            detail_nav.locator("a.is-active").inner_text(),
+            "Vocabulaire par thème",
         )
-
-        sections = self.page.locator("[data-question-bank-section]")
-        questions = self.page.locator("[data-question-bank-question]")
-        self.assertEqual(sections.count(), 13)
-        self.assertEqual(questions.count(), 52)
-        saved_mark = self.page.locator(
-            f'[data-highlight-id="{highlight.pk}"]'
-        )
-        saved_mark.wait_for()
-        self.assertEqual(saved_mark.inner_text(), "renseignements")
-        self.assertIn(
-            "quelques renseignements pour m'installer",
-            saved_mark.locator(
-                "xpath=ancestor::*[@data-question-bank-question]"
-            ).inner_text(),
-        )
-        spanning_marks = self.page.locator(
-            f'[data-highlight-id="{spanning_highlight.pk}"]'
-        )
-        spanning_marks.first.wait_for()
-        self.assertGreater(spanning_marks.count(), 1)
-        spanning_text = " ".join(spanning_marks.all_inner_texts())
-        self.assertIn(
-            "me donner ? 03 Bonjour ! Vous m'avez dit",
-            " ".join(spanning_text.split()),
-        )
-        structural_marks = self.page.locator(
-            ".question-bank-questions > mark.user-highlight, "
-            "[data-question-bank-question] > mark.user-highlight"
-        )
-        self.assertEqual(structural_marks.count(), 0)
+        self.assertEqual(self.page.locator(".batch-card").count(), 3)
         self.assertEqual(
-            questions.nth(1).locator(":scope > *").count(),
+            self.page.locator(".theme-vocabulary-group").count(),
             3,
         )
         self.assertEqual(
-            questions.nth(2).locator(":scope > *").count(),
-            3,
+            self.page.locator(".theme-vocabulary-group__count")
+            .all_text_contents(),
+            ["15 fiches", "15 fiches", "15 fiches"],
         )
-        desktop = self.page.locator("[data-question-bank]").evaluate(
-            """
-            root => {
-              const index = root.querySelector('.question-bank-index');
-              const content = root.querySelector('.question-bank-sections');
-              const first = root.querySelector('.question-bank-section');
-              const indexRect = index.getBoundingClientRect();
-              const contentRect = content.getBoundingClientRect();
-              const style = getComputedStyle(first);
-              return {
-                columns: getComputedStyle(root).gridTemplateColumns,
-                indexRight: indexRect.right,
-                contentLeft: contentRect.left,
-                borderColors: [
-                  style.borderTopColor,
-                  style.borderRightColor,
-                  style.borderBottomColor,
-                  style.borderLeftColor,
-                ],
-              };
-            }
-            """
+        self.assertEqual(
+            self.page.locator(".theme-vocabulary-phrase").count(),
+            45,
         )
-        self.assertGreaterEqual(desktop["contentLeft"], desktop["indexRight"])
-        self.assertEqual(len(set(desktop["borderColors"])), 1)
+        detail_table_toggle = self.page.get_by_role("button", name="Tableau")
+        detail_cards_toggle = self.page.get_by_role("button", name="Cartes")
+        self.assertEqual(
+            detail_table_toggle.get_attribute("aria-pressed"),
+            "true",
+        )
+        self.assertTrue(
+            self.page.locator(
+                ".theme-vocabulary-catalog [data-collection-table-header]"
+            ).first.is_visible()
+        )
         self.assert_no_horizontal_overflow()
 
-        first_question = questions.first
-        first_checkbox = first_question.get_by_role("checkbox")
-        self.assertEqual(first_checkbox.get_attribute("aria-checked"), "false")
-        self.assertIn(
-            "Je viens d'arriver et j'aurais besoin",
-            first_checkbox.get_attribute("aria-label"),
-        )
-        self.assertNotEqual(
-            first_checkbox.locator(".ui-icon").evaluate(
-                "element => getComputedStyle(element).color"
+        detail_cards_toggle.click()
+        self.assertEqual(
+            self.page.locator("html").get_attribute(
+                "data-collection-view-mode"
             ),
-            "rgba(0, 0, 0, 0)",
+            "cards",
         )
-        first_checkbox.click()
-        self.page.get_by_role(
-            "heading",
-            name="1 sur 52 questions apprises",
-            exact=True,
-        ).wait_for()
-        self.assertTrue(
-            first_checkbox.evaluate(
-                "element => document.activeElement === element"
-            )
-        )
-        self.assertEqual(first_checkbox.get_attribute("aria-checked"), "true")
-        self.assertEqual(
-            first_checkbox.locator(".ui-icon").evaluate(
-                "element => getComputedStyle(element).color"
-            ),
-            "rgb(255, 255, 255)",
-        )
-        self.assertTrue(
-            "is-complete"
-            in (first_question.get_attribute("class") or "")
-        )
-        self.page.reload()
-        first_checkbox = self.page.get_by_role("checkbox").first
-        self.assertEqual(first_checkbox.get_attribute("aria-checked"), "true")
-        self.page.get_by_role(
-            "heading",
-            name="1 sur 52 questions apprises",
-            exact=True,
-        ).wait_for()
-
-        self.page.set_viewport_size({"width": 320, "height": 700})
-        mobile = self.page.locator("[data-question-bank]").evaluate(
-            """
-            root => {
-              const nav = root.querySelector('.question-bank-index nav');
-              const taskNav = document.querySelector('.task-nav--memories');
-              return {
-                columns: getComputedStyle(root).gridTemplateColumns,
-                navScrolls: nav.scrollWidth > nav.clientWidth,
-                taskNavColumns: getComputedStyle(taskNav).gridTemplateColumns,
-              };
-            }
-            """
-        )
-        self.assertEqual(len(mobile["columns"].split()), 1)
-        self.assertTrue(mobile["navScrolls"])
-        self.assertEqual(len(mobile["taskNavColumns"].split()), 3)
-        checkbox_shape = self.page.get_by_role("checkbox").first.evaluate(
-            """
-            element => {
-              const rect = element.getBoundingClientRect();
-              const visual = getComputedStyle(element, '::before');
-              return {
-                targetWidth: rect.width,
-                targetHeight: rect.height,
-                visualWidth: parseFloat(visual.width),
-                visualHeight: parseFloat(visual.height),
-                visualBorderRadius: visual.borderRadius,
-              };
-            }
-            """
-        )
-        self.assertGreaterEqual(checkbox_shape["targetWidth"], 30)
-        self.assertEqual(
-            checkbox_shape["targetWidth"],
-            checkbox_shape["targetHeight"],
-        )
-        self.assertLessEqual(checkbox_shape["visualWidth"], 14)
-        self.assertEqual(
-            checkbox_shape["visualWidth"],
-            checkbox_shape["visualHeight"],
-        )
-        self.assertEqual(checkbox_shape["visualBorderRadius"], "50%")
-        question_layout = self.page.locator(
-            "[data-question-bank-question]"
+        desktop_phrase_layout = self.page.locator(
+            ".theme-vocabulary-group"
         ).first.evaluate(
             """
-            row => {
-              const number = row.querySelector(
-                '.question-bank-question__number'
-              ).getBoundingClientRect();
-              const text = row.querySelector(':scope > div')
-                .getBoundingClientRect();
-              const checkbox = row.querySelector(
-                '.memory-question-check'
-              ).getBoundingClientRect();
+            group => {
+              const [first, second] = [...group.querySelectorAll(
+                '.theme-vocabulary-phrase'
+              )]
+                .slice(0, 2)
+                .map(card => card.getBoundingClientRect());
               return {
-                numberLeft: number.left,
-                textLeft: text.left,
-                textRight: text.right,
-                checkboxLeft: checkbox.left,
+                sameRow: Math.abs(first.top - second.top) < 4,
+                secondRight: second.right,
               };
             }
             """
         )
-        self.assertLess(question_layout["numberLeft"], question_layout["textLeft"])
+        self.assertTrue(desktop_phrase_layout["sameRow"])
+        main_box = self.page.locator("main").bounding_box()
         self.assertLessEqual(
-            question_layout["textRight"],
-            question_layout["checkboxLeft"],
+            desktop_phrase_layout["secondRight"],
+            main_box["x"] + main_box["width"] + 1,
         )
         self.assert_no_horizontal_overflow()
 
-        self.page.get_by_role(
-            "link",
-            name="Vue d'ensemble",
-            exact=True,
-        ).click()
-        self.page.wait_for_url(overview_url)
-        memory_panel = self.page.locator(
-            ".tache-two-overview-panel--memories"
+        self.page.set_viewport_size({"width": 320, "height": 700})
+        mobile_phrase_layout = self.page.locator(
+            ".theme-vocabulary-group"
+        ).first.evaluate(
+            """
+            group => {
+              const [first, second] = [...group.querySelectorAll(
+                '.theme-vocabulary-phrase'
+              )]
+                .slice(0, 2)
+                .map(card => card.getBoundingClientRect());
+              return {
+                stacked: second.top > first.bottom + 4,
+              };
+            }
+            """
         )
-        self.assertEqual(
-            memory_panel.locator(
-                ".tache-two-progress-summary__copy > span:last-child"
-            ).inner_text(),
-            "1/572 questions apprises",
-        )
-        self.assertTrue(
-            "progress-status--active"
-            in (
-                memory_panel.locator(
-                    ".progress-status"
-                ).get_attribute("class")
-                or ""
-            )
-        )
+        self.assertTrue(mobile_phrase_layout["stacked"])
+        self.assert_no_horizontal_overflow()
+
+        self.page.set_viewport_size({"width": 1280, "height": 850})
+        self.page.get_by_role("link", name="Tous les thèmes").click()
+        self.page.wait_for_url(self.live_server_url + directory_path)
+        self.assertEqual(cards_toggle.get_attribute("aria-pressed"), "true")
         self.assert_no_horizontal_overflow()
 
     def test_tache_two_subjects_have_practice_and_vocabulary_flow(self):
@@ -1212,9 +1018,9 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.page.set_viewport_size({"width": 1280, "height": 850})
         self.page.goto(self.live_server_url + overview_path)
-        memory_heading = self.page.get_by_role(
+        theme_vocabulary_heading = self.page.get_by_role(
             "heading",
-            name="Mémoires",
+            name="Vocabulaire par thème",
             exact=True,
         )
         subject_heading = self.page.get_by_role(
@@ -1222,11 +1028,11 @@ class BrowserTests(StaticLiveServerTestCase):
             name="Sujets",
             exact=True,
         )
-        memory_heading.wait_for()
+        theme_vocabulary_heading.wait_for()
         subject_heading.wait_for()
         self.assertLess(
             abs(
-                memory_heading.bounding_box()["y"]
+                theme_vocabulary_heading.bounding_box()["y"]
                 - subject_heading.bounding_box()["y"]
             ),
             2,
@@ -1263,7 +1069,6 @@ class BrowserTests(StaticLiveServerTestCase):
             subject_count,
         )
         self.assertEqual(self.page.get_by_role("note").count(), 0)
-        self.assertEqual(self.page.get_by_text("Réflexe Mémoire").count(), 0)
         prompt_payload = json.loads(
             self.page.locator("#tache-two-theme-prompts").text_content()
         )
@@ -1700,31 +1505,48 @@ class BrowserTests(StaticLiveServerTestCase):
             directory.locator("[data-subject-theme]").get_attribute("open")
         )
 
-    def test_question_bank_index_uses_readable_small_type(self):
-        Command()._import_sections(load_sections())
+    def test_theme_vocabulary_group_heads_use_readable_small_type(self):
+        self._import_eo_tache_two_content()
         self.page.set_viewport_size({"width": 1280, "height": 800})
         self.page.goto(
             self.live_server_url
             + reverse(
-                "study:task_memory_detail",
-                args=["eo", "tache-2", 1],
+                "study:tache_two_theme_vocabulary_detail",
+                args=["arrivee"],
             )
         )
-        first_link = self.page.locator(".question-bank-index nav a").first
-        first_link.get_by_text(
-            "Ouverture — premiers mots quand on vient d'arriver",
-            exact=True,
-        ).wait_for()
+        group_head = self.page.locator(".theme-vocabulary-group__head").first
+        group_head.wait_for()
 
-        label_size = first_link.locator("strong").evaluate(
-            "element => parseFloat(getComputedStyle(element).fontSize)"
-        )
-        number_size = first_link.locator("span").evaluate(
-            "element => parseFloat(getComputedStyle(element).fontSize)"
+        typography = group_head.evaluate(
+            """
+            element => {
+              const title = element.querySelector('h3');
+              const description = element.querySelector('p');
+              const count = element.querySelector(
+                '.theme-vocabulary-group__count'
+              );
+              return {
+                titleSize: parseFloat(getComputedStyle(title).fontSize),
+                descriptionSize: parseFloat(
+                  getComputedStyle(description).fontSize
+                ),
+                descriptionLineHeight: parseFloat(
+                  getComputedStyle(description).lineHeight
+                ),
+                countSize: parseFloat(getComputedStyle(count).fontSize),
+              };
+            }
+            """
         )
 
-        self.assertGreaterEqual(label_size, 13)
-        self.assertGreaterEqual(number_size, 11.5)
+        self.assertGreaterEqual(typography["titleSize"], 16)
+        self.assertGreaterEqual(typography["descriptionSize"], 13)
+        self.assertGreaterEqual(
+            typography["descriptionLineHeight"],
+            typography["descriptionSize"] * 1.3,
+        )
+        self.assertGreaterEqual(typography["countSize"], 12)
         self.assert_no_horizontal_overflow()
 
     def test_subject_completion_checkbox_is_explicit_on_mobile(self):

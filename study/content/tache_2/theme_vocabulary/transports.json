@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "theme": "transports",
+  "name": "Transports & mobilité",
+  "entries": [
+    {
+      "id": "trnmc01",
+      "kind": "mot-cle",
+      "french": "un abonnement mensuel (m.)",
+      "anchor": "un abonnement mensuel",
+      "english": "a monthly pass",
+      "example": "Avez-vous pris un abonnement mensuel pour les transports en commun ?",
+      "usage": "Groupe nominal désignant un titre de transport valable un mois."
+    },
+    {
+      "id": "trnmc02",
+      "kind": "mot-cle",
+      "french": "un embouteillage (m.)",
+      "anchor": "un embouteillage",
+      "english": "a traffic jam",
+      "example": "Un embouteillage retarde-t-il souvent votre trajet le matin ?",
+      "usage": "Nom masculin désignant un encombrement de circulation routière."
+    },
+    {
+      "id": "trnmc03",
+      "kind": "mot-cle",
+      "french": "une piste cyclable (f.)",
+      "anchor": "une piste cyclable",
+      "english": "a bike lane",
+      "example": "Y a-t-il une piste cyclable qui relie votre quartier au centre-ville ?",
+      "usage": "Groupe nominal désignant une voie réservée aux vélos."
+    },
+    {
+      "id": "trnmc04",
+      "kind": "mot-cle",
+      "french": "le covoiturage (m.)",
+      "anchor": "le covoiturage",
+      "english": "carpooling",
+      "example": "Le covoiturage est-il une option pratique pour réduire vos frais de déplacement ?",
+      "usage": "Nom masculin désignant le partage d'un même véhicule entre plusieurs passagers."
+    },
+    {
+      "id": "trnmc05",
+      "kind": "mot-cle",
+      "french": "l'arrêt de bus (m.)",
+      "anchor": "l'arrêt de bus",
+      "english": "a bus stop",
+      "example": "Combien de temps faut-il pour marcher jusqu'à l'arrêt de bus le plus proche ?",
+      "usage": "Groupe nominal désignant le lieu où les usagers montent et descendent du bus."
+    },
+    {
+      "id": "trnmc06",
+      "kind": "mot-cle",
+      "french": "une correspondance (f.)",
+      "anchor": "une correspondance",
+      "english": "a transfer / connection",
+      "example": "Faut-il prendre une correspondance pour arriver jusqu'au centre-ville ?",
+      "usage": "Nom féminin désignant le changement d'un moyen de transport à un autre."
+    },
+    {
+      "id": "trnmc07",
+      "kind": "mot-cle",
+      "french": "un permis de conduire (m.)",
+      "anchor": "un permis de conduire",
+      "english": "a driver's license",
+      "example": "Est-il difficile d'obtenir un permis de conduire dans cette province ?",
+      "usage": "Groupe nominal désignant l'autorisation officielle de conduire un véhicule."
+    },
+    {
+      "id": "trnmc08",
+      "kind": "mot-cle",
+      "french": "le réseau de métro (m.)",
+      "anchor": "le réseau de métro",
+      "english": "the subway network",
+      "example": "Le réseau de métro couvre-t-il bien l'ensemble de la ville ?",
+      "usage": "Groupe nominal désignant l'ensemble des lignes de métro d'une ville."
+    },
+    {
+      "id": "trnmc09",
+      "kind": "mot-cle",
+      "french": "un vélo en libre-service (m.)",
+      "anchor": "un vélo en libre-service",
+      "english": "a bike-share bike",
+      "example": "Avez-vous déjà utilisé un vélo en libre-service pour vos déplacements ?",
+      "usage": "Groupe nominal désignant un vélo public disponible en location courte durée."
+    },
+    {
+      "id": "trnmc10",
+      "kind": "mot-cle",
+      "french": "une navette (f.)",
+      "anchor": "une navette",
+      "english": "a shuttle",
+      "example": "Existe-t-il une navette gratuite entre l'aéroport et le centre-ville ?",
+      "usage": "Nom féminin désignant un véhicule effectuant des trajets courts et réguliers."
+    },
+    {
+      "id": "trnmc11",
+      "kind": "mot-cle",
+      "french": "le stationnement (m.)",
+      "anchor": "le stationnement",
+      "english": "parking",
+      "example": "Le stationnement est-il difficile à trouver près de chez vous ?",
+      "usage": "Nom masculin désignant l'action ou le lieu où l'on gare un véhicule."
+    },
+    {
+      "id": "trnmc12",
+      "kind": "mot-cle",
+      "french": "un trajet quotidien (m.)",
+      "anchor": "un trajet quotidien",
+      "english": "a daily commute",
+      "example": "Un trajet quotidien trop long peut-il affecter la qualité de vie ?",
+      "usage": "Groupe nominal désignant le déplacement effectué chaque jour."
+    },
+    {
+      "id": "trnmc13",
+      "kind": "mot-cle",
+      "french": "les heures de pointe (f. pl.)",
+      "anchor": "les heures de pointe",
+      "english": "rush hour",
+      "example": "Évitez-vous de vous déplacer pendant les heures de pointe ?",
+      "usage": "Groupe nominal désignant les périodes de forte affluence dans les transports."
+    },
+    {
+      "id": "trnmc14",
+      "kind": "mot-cle",
+      "french": "une voiture électrique (f.)",
+      "anchor": "une voiture électrique",
+      "english": "an electric car",
+      "example": "Envisagez-vous d'acheter une voiture électrique prochainement ?",
+      "usage": "Groupe nominal désignant un véhicule fonctionnant à l'électricité."
+    },
+    {
+      "id": "trnmc15",
+      "kind": "mot-cle",
+      "french": "un retard (m.)",
+      "anchor": "un retard",
+      "english": "a delay",
+      "example": "Avez-vous déjà subi un retard important pendant un trajet en train ?",
+      "usage": "Nom masculin désignant un décalage par rapport à l'horaire prévu."
+    },
+    {
+      "id": "trneu01",
+      "kind": "expression-utile",
+      "french": "prendre les transports en commun",
+      "anchor": "prendre les transports en commun",
+      "english": "to take public transit",
+      "example": "Préférez-vous prendre les transports en commun plutôt que la voiture ?",
+      "usage": "Expression courante pour désigner l'utilisation du réseau de transport public."
+    },
+    {
+      "id": "trneu02",
+      "kind": "expression-utile",
+      "french": "être coincé dans les bouchons",
+      "anchor": "être coincé dans les bouchons",
+      "english": "to be stuck in traffic",
+      "example": "Vous arrive-t-il d'être coincé dans les bouchons tous les matins ?",
+      "usage": "Expression pour décrire une immobilisation dans un embouteillage."
+    },
+    {
+      "id": "trneu03",
+      "kind": "expression-utile",
+      "french": "rater sa correspondance",
+      "anchor": "ratez votre correspondance",
+      "english": "to miss one's connection",
+      "example": "Que faites-vous quand vous ratez votre correspondance de justesse ?",
+      "usage": "Expression pour désigner le fait de manquer un changement de transport."
+    },
+    {
+      "id": "trneu04",
+      "kind": "expression-utile",
+      "french": "gagner du temps sur le trajet",
+      "anchor": "gagner du temps sur le trajet",
+      "english": "to save time on the commute",
+      "example": "Le vélo vous permet-il de gagner du temps sur le trajet ?",
+      "usage": "Expression pour parler de l'efficacité d'un moyen de transport."
+    },
+    {
+      "id": "trneu05",
+      "kind": "expression-utile",
+      "french": "faire le plein",
+      "anchor": "faire le plein",
+      "english": "to fill up the tank",
+      "example": "À quelle fréquence devez-vous faire le plein pour vos déplacements ?",
+      "usage": "Expression courante désignant le fait de remplir le réservoir d'essence."
+    },
+    {
+      "id": "trneu06",
+      "kind": "expression-utile",
+      "french": "se déplacer à pied",
+      "anchor": "vous déplacer à pied",
+      "english": "to get around on foot",
+      "example": "Préférez-vous vous déplacer à pied quand la distance le permet ?",
+      "usage": "Expression pour désigner un déplacement effectué sans véhicule."
+    },
+    {
+      "id": "trneu07",
+      "kind": "expression-utile",
+      "french": "réduire son empreinte carbone",
+      "anchor": "réduire votre empreinte carbone",
+      "english": "to reduce one's carbon footprint",
+      "example": "Choisissez-vous le vélo pour réduire votre empreinte carbone ?",
+      "usage": "Expression pour évoquer la diminution de l'impact environnemental des déplacements."
+    },
+    {
+      "id": "trneu08",
+      "kind": "expression-utile",
+      "french": "avoir des retards fréquents",
+      "anchor": "a-t-il des retards fréquents",
+      "english": "to have frequent delays",
+      "example": "Ce réseau de transport a-t-il des retards fréquents aux heures de pointe ?",
+      "usage": "Expression pour évoquer des retards répétés dans le fonctionnement d'un réseau de transport."
+    },
+    {
+      "id": "trneu09",
+      "kind": "expression-utile",
+      "french": "opter pour le covoiturage",
+      "anchor": "opter pour le covoiturage",
+      "english": "to opt for carpooling",
+      "example": "Pourquoi avez-vous décidé d'opter pour le covoiturage cette année ?",
+      "usage": "Expression pour parler du choix de partager un trajet en voiture."
+    },
+    {
+      "id": "trneu10",
+      "kind": "expression-utile",
+      "french": "être bloqué par la neige",
+      "anchor": "être bloqué par la neige",
+      "english": "to be stranded because of snow",
+      "example": "Vous est-il déjà arrivé d'être bloqué par la neige sur l'autoroute ?",
+      "usage": "Expression pour évoquer un déplacement empêché par des conditions hivernales."
+    },
+    {
+      "id": "trneu11",
+      "kind": "expression-utile",
+      "french": "planifier son itinéraire",
+      "anchor": "planifier votre itinéraire",
+      "english": "to plan one's route",
+      "example": "Utilisez-vous une application pour planifier votre itinéraire chaque jour ?",
+      "usage": "Expression pour désigner la préparation à l'avance d'un trajet."
+    },
+    {
+      "id": "trneu12",
+      "kind": "expression-utile",
+      "french": "économiser sur les frais de transport",
+      "anchor": "économiser sur les frais de transport",
+      "english": "to save on transportation costs",
+      "example": "Cet abonnement vous permet-il vraiment d'économiser sur les frais de transport ?",
+      "usage": "Expression pour évoquer une réduction des dépenses liées aux déplacements."
+    },
+    {
+      "id": "trneu13",
+      "kind": "expression-utile",
+      "french": "circuler librement",
+      "anchor": "circuler librement",
+      "english": "to move around freely",
+      "example": "Est-il facile de circuler librement dans cette ville sans voiture ?",
+      "usage": "Expression pour évoquer l'aisance des déplacements dans un lieu donné."
+    },
+    {
+      "id": "trneu14",
+      "kind": "expression-utile",
+      "french": "s'adapter aux horaires du bus",
+      "anchor": "vous adapter aux horaires du bus",
+      "english": "to adapt to the bus schedule",
+      "example": "Devez-vous souvent vous adapter aux horaires du bus pour organiser votre journée ?",
+      "usage": "Expression pour évoquer une contrainte liée à la fréquence d'un transport."
+    },
+    {
+      "id": "trneu15",
+      "kind": "expression-utile",
+      "french": "prendre le volant",
+      "anchor": "prendre le volant",
+      "english": "to get behind the wheel / drive",
+      "example": "Préférez-vous prendre le volant vous-même plutôt que d'utiliser les transports ?",
+      "usage": "Expression imagée signifiant conduire soi-même un véhicule."
+    },
+    {
+      "id": "trnfr01",
+      "kind": "fragment",
+      "french": "Concrètement, combien de temps prend…",
+      "anchor": "combien de temps prend",
+      "english": "Specifically, how long does… take",
+      "example": "Concrètement, combien de temps prend le trajet jusqu'au centre-ville ?",
+      "usage": "Amorce pour demander une durée concrète de déplacement."
+    },
+    {
+      "id": "trnfr02",
+      "kind": "fragment",
+      "french": "Si je comprends bien, ce trajet nécessite…",
+      "anchor": "si je comprends bien, ce trajet nécessite",
+      "english": "If I understand correctly, this trip requires…",
+      "example": "Si je comprends bien, ce trajet nécessite au moins une correspondance ?",
+      "usage": "Amorce pour reformuler et vérifier les détails d'un trajet."
+    },
+    {
+      "id": "trnfr03",
+      "kind": "fragment",
+      "french": "Qu'est-ce qui vous a fait choisir…",
+      "anchor": "qu'est-ce qui vous a fait choisir",
+      "english": "What made you choose…",
+      "example": "Qu'est-ce qui vous a fait choisir le vélo plutôt que la voiture ?",
+      "usage": "Amorce pour explorer les raisons d'un choix de transport."
+    },
+    {
+      "id": "trnfr04",
+      "kind": "fragment",
+      "french": "Pourriez-vous préciser les horaires de…",
+      "anchor": "pourriez-vous préciser les horaires de",
+      "english": "Could you clarify the schedule for…",
+      "example": "Pourriez-vous préciser les horaires de cette navette gratuite ?",
+      "usage": "Amorce polie pour demander une précision horaire."
+    },
+    {
+      "id": "trnfr05",
+      "kind": "fragment",
+      "french": "Diriez-vous que la principale contrainte, ce sont…",
+      "anchor": "diriez-vous que la principale contrainte, ce sont",
+      "english": "Would you say the main constraint is…",
+      "example": "Diriez-vous que la principale contrainte, ce sont les heures de pointe ?",
+      "usage": "Amorce pour faire hiérarchiser une contrainte de déplacement."
+    },
+    {
+      "id": "trnfr06",
+      "kind": "fragment",
+      "french": "En comparaison avec la voiture, les transports en commun…",
+      "anchor": "en comparaison avec la voiture, les transports en commun",
+      "english": "Compared to the car, public transit…",
+      "example": "En comparaison avec la voiture, les transports en commun sont-ils plus rapides ici ?",
+      "usage": "Amorce pour comparer deux moyens de transport."
+    },
+    {
+      "id": "trnfr07",
+      "kind": "fragment",
+      "french": "Est-ce que vous pourriez revenir sur le fonctionnement de…",
+      "anchor": "est-ce que vous pourriez revenir sur le fonctionnement de",
+      "english": "Could you go back over how… works",
+      "example": "Est-ce que vous pourriez revenir sur le fonctionnement de l'abonnement mensuel ?",
+      "usage": "Amorce pour demander de développer un point déjà évoqué."
+    },
+    {
+      "id": "trnfr08",
+      "kind": "fragment",
+      "french": "Autrement dit, sans cette piste cyclable, vous…",
+      "anchor": "autrement dit, sans cette piste cyclable, vous",
+      "english": "In other words, without that bike lane, you…",
+      "example": "Autrement dit, sans cette piste cyclable, vous prendriez la voiture tous les jours ?",
+      "usage": "Amorce pour reformuler une conséquence logique."
+    },
+    {
+      "id": "trnfr09",
+      "kind": "fragment",
+      "french": "Par rapport à ce que vous pensiez, ce réseau…",
+      "anchor": "par rapport à ce que vous pensiez, ce réseau",
+      "english": "Compared to what you thought, this network…",
+      "example": "Par rapport à ce que vous pensiez, ce réseau de métro est-il pratique ?",
+      "usage": "Amorce pour comparer une attente à la réalité d'un service de transport."
+    },
+    {
+      "id": "trnfr10",
+      "kind": "fragment",
+      "french": "Pour resituer, à quelle distance se trouve…",
+      "anchor": "pour resituer, à quelle distance se trouve",
+      "english": "To set the context, how far is…",
+      "example": "Pour resituer, à quelle distance se trouve l'arrêt de bus le plus proche ?",
+      "usage": "Amorce pour recontextualiser un trajet avant de poursuivre l'échange."
+    },
+    {
+      "id": "trnfr11",
+      "kind": "fragment",
+      "french": "Vous voulez dire que malgré le retard, vous…",
+      "anchor": "vous voulez dire que malgré le retard, vous",
+      "english": "You mean that despite the delay, you…",
+      "example": "Vous voulez dire que malgré le retard, vous êtes arrivé à l'heure au final ?",
+      "usage": "Amorce pour vérifier une interprétation malgré une contrainte de transport."
+    },
+    {
+      "id": "trnfr12",
+      "kind": "fragment",
+      "french": "Pour clore ce point, recommanderiez-vous ce mode de transport à…",
+      "anchor": "pour clore ce point, recommanderiez-vous ce mode de transport à",
+      "english": "To close this point, would you recommend this mode of transport to…",
+      "example": "Pour clore ce point, recommanderiez-vous ce mode de transport à un nouvel arrivant ?",
+      "usage": "Amorce pour conclure un échange sur un moyen de déplacement."
+    },
+    {
+      "id": "trnfr13",
+      "kind": "fragment",
+      "french": "Quelle stratégie utilisez-vous pour…",
+      "anchor": "quelle stratégie utilisez-vous pour",
+      "english": "What strategy do you use to…",
+      "example": "Quelle stratégie utilisez-vous pour éviter les heures de pointe ?",
+      "usage": "Amorce pour demander la tactique adoptée face à une contrainte de déplacement."
+    },
+    {
+      "id": "trnfr14",
+      "kind": "fragment",
+      "french": "Juste pour bien comprendre, cette navette dont vous parlez…",
+      "anchor": "juste pour bien comprendre, cette navette dont vous parlez",
+      "english": "Just to make sure I understand, the shuttle you mention…",
+      "example": "Juste pour bien comprendre, cette navette dont vous parlez circule bien tous les jours ?",
+      "usage": "Amorce pour clarifier un détail relatif à un service mentionné."
+    },
+    {
+      "id": "trnfr15",
+      "kind": "fragment",
+      "french": "Et si les transports étaient en grève, comment…",
+      "anchor": "et si les transports étaient en grève demain, comment",
+      "english": "And if transit were on strike, how…",
+      "example": "Et si les transports étaient en grève demain, comment feriez-vous pour vous déplacer ?",
+      "usage": "Amorce hypothétique pour explorer un scénario de perturbation."
+    }
+  ]
+}

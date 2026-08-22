@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "theme": "ecole-etudes",
+  "name": "École & études",
+  "entries": [
+    {
+      "id": "ecomc01",
+      "kind": "mot-cle",
+      "french": "un cursus (m.)",
+      "anchor": "un cursus",
+      "english": "a course of study",
+      "example": "Avez-vous choisi un cursus en lien avec votre projet professionnel ?",
+      "usage": "Nom masculin désignant l'ensemble des études suivies dans un domaine."
+    },
+    {
+      "id": "ecomc02",
+      "kind": "mot-cle",
+      "french": "une bourse d'études (f.)",
+      "anchor": "une bourse d'études",
+      "english": "a scholarship",
+      "example": "Avez-vous bénéficié d'une bourse d'études pour financer votre formation ?",
+      "usage": "Groupe nominal désignant une aide financière accordée à un étudiant."
+    },
+    {
+      "id": "ecomc03",
+      "kind": "mot-cle",
+      "french": "un diplôme (m.)",
+      "anchor": "un diplôme",
+      "english": "a diploma / degree",
+      "example": "Combien de temps faut-il pour obtenir un diplôme dans ce domaine ?",
+      "usage": "Nom masculin désignant le titre officiel sanctionnant une formation."
+    },
+    {
+      "id": "ecomc04",
+      "kind": "mot-cle",
+      "french": "un stage (m.)",
+      "anchor": "un stage",
+      "english": "an internship",
+      "example": "Avez-vous effectué un stage obligatoire pendant votre formation ?",
+      "usage": "Nom masculin désignant une période de travail pratique en entreprise."
+    },
+    {
+      "id": "ecomc05",
+      "kind": "mot-cle",
+      "french": "un professeur (m.)",
+      "anchor": "un professeur",
+      "english": "a professor / teacher",
+      "example": "Aviez-vous un professeur qui vous a particulièrement marqué ?",
+      "usage": "Nom désignant la personne chargée d'enseigner une matière."
+    },
+    {
+      "id": "ecomc06",
+      "kind": "mot-cle",
+      "french": "l'examen final (m.)",
+      "anchor": "l'examen final",
+      "english": "a final exam",
+      "example": "Comment avez-vous préparé l'examen final de ce semestre ?",
+      "usage": "Groupe nominal désignant l'évaluation clôturant un cours ou une année."
+    },
+    {
+      "id": "ecomc07",
+      "kind": "mot-cle",
+      "french": "une salle de classe (f.)",
+      "anchor": "une salle de classe",
+      "english": "a classroom",
+      "example": "Combien d'élèves compte en moyenne une salle de classe dans votre école ?",
+      "usage": "Groupe nominal désignant l'espace où se déroulent les cours."
+    },
+    {
+      "id": "ecomc08",
+      "kind": "mot-cle",
+      "french": "un travail de groupe (m.)",
+      "anchor": "un travail de groupe",
+      "english": "group work",
+      "example": "Aimez-vous les projets qui impliquent un travail de groupe ?",
+      "usage": "Groupe nominal désignant une activité réalisée collectivement par plusieurs étudiants."
+    },
+    {
+      "id": "ecomc09",
+      "kind": "mot-cle",
+      "french": "un échange étudiant (m.)",
+      "anchor": "un échange étudiant",
+      "english": "a student exchange",
+      "example": "Avez-vous participé à un échange étudiant à l'étranger ?",
+      "usage": "Groupe nominal désignant un séjour d'études réalisé dans un autre pays."
+    },
+    {
+      "id": "ecomc10",
+      "kind": "mot-cle",
+      "french": "les frais de scolarité (m. pl.)",
+      "anchor": "les frais de scolarité",
+      "english": "tuition fees",
+      "example": "Les frais de scolarité ont-ils beaucoup augmenté ces dernières années ?",
+      "usage": "Groupe nominal désignant le coût à payer pour suivre une formation."
+    },
+    {
+      "id": "ecomc11",
+      "kind": "mot-cle",
+      "french": "un tuteur (m.)",
+      "anchor": "un tuteur",
+      "english": "a tutor",
+      "example": "Avez-vous eu recours à un tuteur pour vous aider en mathématiques ?",
+      "usage": "Nom désignant une personne qui accompagne un élève dans ses apprentissages."
+    },
+    {
+      "id": "ecomc12",
+      "kind": "mot-cle",
+      "french": "une salle d'étude (f.)",
+      "anchor": "une salle d'étude",
+      "english": "a study room",
+      "example": "Y a-t-il une salle d'étude ouverte tard le soir sur le campus ?",
+      "usage": "Groupe nominal désignant un espace réservé au travail personnel."
+    },
+    {
+      "id": "ecomc13",
+      "kind": "mot-cle",
+      "french": "un mémoire (m.)",
+      "anchor": "un mémoire",
+      "english": "a thesis",
+      "example": "Faut-il rédiger un mémoire pour valider cette dernière année d'études ?",
+      "usage": "Nom masculin désignant un travail de recherche rédigé en fin de cursus."
+    },
+    {
+      "id": "ecomc14",
+      "kind": "mot-cle",
+      "french": "l'échec scolaire (m.)",
+      "anchor": "l'échec scolaire",
+      "english": "academic failure",
+      "example": "Comment l'école accompagne-t-elle les élèves en difficulté pour éviter l'échec scolaire ?",
+      "usage": "Groupe nominal désignant l'incapacité à réussir un parcours scolaire."
+    },
+    {
+      "id": "ecomc15",
+      "kind": "mot-cle",
+      "french": "une matière obligatoire (f.)",
+      "anchor": "une matière obligatoire",
+      "english": "a required subject",
+      "example": "Est-ce qu'une matière obligatoire vous a particulièrement marqué durant vos études ?",
+      "usage": "Groupe nominal désignant un cours que tous les élèves doivent suivre."
+    },
+    {
+      "id": "ecoeu01",
+      "kind": "expression-utile",
+      "french": "réussir ses études",
+      "anchor": "réussir vos études",
+      "english": "to succeed in one's studies",
+      "example": "Qu'est-ce qui vous a permis de réussir vos études malgré les obstacles ?",
+      "usage": "Expression pour évoquer l'obtention de bons résultats académiques."
+    },
+    {
+      "id": "ecoeu02",
+      "kind": "expression-utile",
+      "french": "redoubler une année",
+      "anchor": "redoubler une année",
+      "english": "to repeat a school year",
+      "example": "Avez-vous déjà dû redoubler une année à cause de mauvais résultats ?",
+      "usage": "Expression pour désigner le fait de refaire un niveau scolaire."
+    },
+    {
+      "id": "ecoeu03",
+      "kind": "expression-utile",
+      "french": "décrocher un diplôme",
+      "anchor": "décrocher ce diplôme",
+      "english": "to earn a degree",
+      "example": "Combien d'années a-t-il fallu pour décrocher ce diplôme ?",
+      "usage": "Expression courante signifiant obtenir un titre académique."
+    },
+    {
+      "id": "ecoeu04",
+      "kind": "expression-utile",
+      "french": "bachoter pour un examen",
+      "anchor": "bachoter pour un examen",
+      "english": "to cram for an exam",
+      "example": "Avez-vous l'habitude de bachoter pour un examen la veille au soir ?",
+      "usage": "Expression familière signifiant réviser intensivement à la dernière minute."
+    },
+    {
+      "id": "ecoeu05",
+      "kind": "expression-utile",
+      "french": "prendre du retard",
+      "anchor": "prendre du retard",
+      "english": "to fall behind",
+      "example": "Est-il facile de prendre du retard quand on manque plusieurs cours ?",
+      "usage": "Expression pour évoquer un décalage négatif dans un programme d'études."
+    },
+    {
+      "id": "ecoeu06",
+      "kind": "expression-utile",
+      "french": "suivre un cursus exigeant",
+      "anchor": "suivez un cursus exigeant",
+      "english": "to follow a demanding program",
+      "example": "Diriez-vous que vous suivez un cursus exigeant cette année ?",
+      "usage": "Expression pour qualifier un programme d'études particulièrement difficile."
+    },
+    {
+      "id": "ecoeu07",
+      "kind": "expression-utile",
+      "french": "faire ses devoirs",
+      "anchor": "faire vos devoirs",
+      "english": "to do one's homework",
+      "example": "Combien de temps passez-vous chaque soir à faire vos devoirs ?",
+      "usage": "Expression courante désignant le travail scolaire effectué à la maison."
+    },
+    {
+      "id": "ecoeu08",
+      "kind": "expression-utile",
+      "french": "obtenir une mention",
+      "anchor": "obtenir une mention",
+      "english": "to earn honors / a distinction",
+      "example": "Est-il difficile d'obtenir une mention dans cette filière exigeante ?",
+      "usage": "Expression pour désigner une distinction académique obtenue grâce à d'excellents résultats."
+    },
+    {
+      "id": "ecoeu09",
+      "kind": "expression-utile",
+      "french": "s'inscrire à une formation",
+      "anchor": "vous inscrire à cette formation",
+      "english": "to enroll in a program",
+      "example": "Pourquoi avez-vous décidé de vous inscrire à cette formation en particulier ?",
+      "usage": "Expression verbale pour désigner l'inscription officielle à un programme d'études."
+    },
+    {
+      "id": "ecoeu10",
+      "kind": "expression-utile",
+      "french": "avoir une charge de travail lourde",
+      "anchor": "une charge de travail lourde",
+      "english": "to have a heavy workload",
+      "example": "Avez-vous souvent une charge de travail lourde pendant le semestre ?",
+      "usage": "Expression pour évoquer un volume important de travail académique."
+    },
+    {
+      "id": "ecoeu11",
+      "kind": "expression-utile",
+      "french": "combler ses lacunes",
+      "anchor": "combler vos lacunes",
+      "english": "to fill gaps in knowledge",
+      "example": "Quelles méthodes utilisez-vous pour combler vos lacunes en grammaire ?",
+      "usage": "Expression pour évoquer le travail visant à corriger des faiblesses précises."
+    },
+    {
+      "id": "ecoeu12",
+      "kind": "expression-utile",
+      "french": "passer un oral",
+      "anchor": "passer un oral",
+      "english": "to take an oral exam",
+      "example": "Étiez-vous stressé avant de passer un oral important ?",
+      "usage": "Expression pour désigner une évaluation orale devant un jury ou un enseignant."
+    },
+    {
+      "id": "ecoeu13",
+      "kind": "expression-utile",
+      "french": "financer ses études",
+      "anchor": "financer vos études",
+      "english": "to finance one's studies",
+      "example": "Comment avez-vous réussi à financer vos études sans vous endetter ?",
+      "usage": "Expression pour évoquer les moyens utilisés pour payer une formation."
+    },
+    {
+      "id": "ecoeu14",
+      "kind": "expression-utile",
+      "french": "concilier études et travail",
+      "anchor": "concilier études et travail",
+      "english": "to balance studies and work",
+      "example": "Est-il difficile de concilier études et travail à temps partiel ?",
+      "usage": "Expression pour évoquer la gestion simultanée de deux engagements importants."
+    },
+    {
+      "id": "ecoeu15",
+      "kind": "expression-utile",
+      "french": "réussir son semestre",
+      "anchor": "réussir votre semestre",
+      "english": "to pass/succeed in one's semester",
+      "example": "Qu'est-ce qu'il faut faire exactement pour réussir votre semestre dans ce programme ?",
+      "usage": "Expression pour désigner la réussite globale des évaluations d'un semestre d'études."
+    },
+    {
+      "id": "ecofr01",
+      "kind": "fragment",
+      "french": "Concrètement, comment se déroule…",
+      "anchor": "comment se déroule",
+      "english": "Specifically, how does… take place",
+      "example": "Concrètement, comment se déroule une journée typique de cours ?",
+      "usage": "Amorce pour demander le déroulement concret d'une activité scolaire."
+    },
+    {
+      "id": "ecofr02",
+      "kind": "fragment",
+      "french": "Si je comprends bien, ce programme exige…",
+      "anchor": "si je comprends bien, ce programme exige",
+      "english": "If I understand correctly, this program requires…",
+      "example": "Si je comprends bien, ce programme exige beaucoup de travail personnel ?",
+      "usage": "Amorce pour reformuler et vérifier les exigences d'un cursus."
+    },
+    {
+      "id": "ecofr03",
+      "kind": "fragment",
+      "french": "Qu'est-ce qui vous a décidé à choisir…",
+      "anchor": "qu'est-ce qui vous a décidé à choisir",
+      "english": "What made you decide to choose…",
+      "example": "Qu'est-ce qui vous a décidé à choisir cette matière en particulier ?",
+      "usage": "Amorce pour explorer les motivations d'un choix académique."
+    },
+    {
+      "id": "ecofr04",
+      "kind": "fragment",
+      "french": "Pourriez-vous préciser les critères d'évaluation de…",
+      "anchor": "pourriez-vous préciser les critères d'évaluation de",
+      "english": "Could you clarify the evaluation criteria for…",
+      "example": "Pourriez-vous préciser les critères d'évaluation de ce mémoire ?",
+      "usage": "Amorce polie pour demander des précisions sur une évaluation."
+    },
+    {
+      "id": "ecofr05",
+      "kind": "fragment",
+      "french": "Diriez-vous que le plus formateur, c'était…",
+      "anchor": "diriez-vous que le plus formateur, c'était",
+      "english": "Would you say the most formative part was…",
+      "example": "Diriez-vous que le plus formateur, c'était le stage en entreprise ?",
+      "usage": "Amorce pour faire hiérarchiser des expériences éducatives."
+    },
+    {
+      "id": "ecofr06",
+      "kind": "fragment",
+      "french": "En comparaison avec le secondaire, les études supérieures…",
+      "anchor": "en comparaison avec le secondaire, les études supérieures",
+      "english": "Compared to high school, higher education…",
+      "example": "En comparaison avec le secondaire, les études supérieures demandent-elles plus d'autonomie ?",
+      "usage": "Amorce pour comparer deux niveaux d'enseignement."
+    },
+    {
+      "id": "ecofr07",
+      "kind": "fragment",
+      "french": "Est-ce que vous pourriez revenir sur le contenu de…",
+      "anchor": "est-ce que vous pourriez revenir sur le contenu de",
+      "english": "Could you go back over the content of…",
+      "example": "Est-ce que vous pourriez revenir sur le contenu de ce cours obligatoire ?",
+      "usage": "Amorce pour demander de développer un point déjà mentionné."
+    },
+    {
+      "id": "ecofr08",
+      "kind": "fragment",
+      "french": "Autrement dit, sans cette bourse, vous…",
+      "anchor": "autrement dit, sans cette bourse, vous",
+      "english": "In other words, without that scholarship, you…",
+      "example": "Autrement dit, sans cette bourse, vous n'auriez pas pu poursuivre vos études ?",
+      "usage": "Amorce pour reformuler une conséquence logique."
+    },
+    {
+      "id": "ecofr09",
+      "kind": "fragment",
+      "french": "Par rapport à ce que vous imaginiez, cette formation…",
+      "anchor": "par rapport à ce que vous imaginiez, cette formation",
+      "english": "Compared to what you imagined, this program…",
+      "example": "Par rapport à ce que vous imaginiez, cette formation correspond-elle à vos attentes ?",
+      "usage": "Amorce pour comparer les attentes initiales à la réalité vécue."
+    },
+    {
+      "id": "ecofr10",
+      "kind": "fragment",
+      "french": "Pour resituer, en quelle année avez-vous commencé…",
+      "anchor": "pour resituer, en quelle année avez-vous commencé",
+      "english": "To set the context, what year did you start…",
+      "example": "Pour resituer, en quelle année avez-vous commencé ce cursus ?",
+      "usage": "Amorce pour recontextualiser un parcours académique."
+    },
+    {
+      "id": "ecofr11",
+      "kind": "fragment",
+      "french": "Vous voulez dire que malgré l'échec initial, vous…",
+      "anchor": "vous voulez dire que malgré l'échec initial, vous",
+      "english": "You mean that despite the initial failure, you…",
+      "example": "Vous voulez dire que malgré l'échec initial, vous avez persévéré ?",
+      "usage": "Amorce pour vérifier une interprétation malgré une difficulté académique."
+    },
+    {
+      "id": "ecofr12",
+      "kind": "fragment",
+      "french": "Pour clore ce point, conseilleriez-vous cette filière à…",
+      "anchor": "pour clore ce point, conseilleriez-vous cette filière à",
+      "english": "To close this point, would you recommend this program to…",
+      "example": "Pour clore ce point, conseilleriez-vous cette filière à un futur étudiant ?",
+      "usage": "Amorce pour conclure un échange sur un parcours d'études."
+    },
+    {
+      "id": "ecofr13",
+      "kind": "fragment",
+      "french": "Comment vous organisez-vous pour…",
+      "anchor": "comment vous organisez-vous pour",
+      "english": "How do you organize yourself to…",
+      "example": "Comment vous organisez-vous pour réviser efficacement avant les examens ?",
+      "usage": "Amorce pour demander la méthode d'organisation adoptée pour les études."
+    },
+    {
+      "id": "ecofr14",
+      "kind": "fragment",
+      "french": "Juste pour bien comprendre, ce tuteur dont vous parlez…",
+      "anchor": "juste pour bien comprendre, ce tuteur dont vous parlez",
+      "english": "Just to make sure I understand, the tutor you mention…",
+      "example": "Juste pour bien comprendre, ce tuteur dont vous parlez vous aide bien chaque semaine ?",
+      "usage": "Amorce pour clarifier un détail relatif à une personne mentionnée."
+    },
+    {
+      "id": "ecofr15",
+      "kind": "fragment",
+      "french": "Et si vous deviez recommencer, changeriez-vous…",
+      "anchor": "et si vous deviez recommencer, changeriez-vous",
+      "english": "And if you had to start over, would you change…",
+      "example": "Et si vous deviez recommencer, changeriez-vous de filière ?",
+      "usage": "Amorce hypothétique pour explorer un scénario alternatif d'études."
+    }
+  ]
+}

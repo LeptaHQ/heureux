@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "theme": "arts-loisirs",
+  "name": "Arts & loisirs",
+  "entries": [
+    {
+      "id": "artmc01",
+      "kind": "mot-cle",
+      "french": "un atelier créatif (m.)",
+      "anchor": "un atelier créatif",
+      "english": "a creative workshop",
+      "example": "Participez-vous régulièrement à un atelier créatif ?",
+      "usage": "Groupe nominal désignant une activité pratique d'apprentissage artistique."
+    },
+    {
+      "id": "artmc02",
+      "kind": "mot-cle",
+      "french": "une exposition (f.)",
+      "anchor": "une exposition",
+      "english": "an exhibition",
+      "example": "Avez-vous visité une exposition intéressante récemment ?",
+      "usage": "Nom féminin désignant la présentation publique d'œuvres artistiques."
+    },
+    {
+      "id": "artmc03",
+      "kind": "mot-cle",
+      "french": "un passe-temps (m.)",
+      "anchor": "un passe-temps",
+      "english": "a hobby",
+      "example": "Avez-vous un passe-temps que vous pratiquez régulièrement après le travail ?",
+      "usage": "Nom masculin désignant une activité de loisir pratiquée régulièrement."
+    },
+    {
+      "id": "artmc04",
+      "kind": "mot-cle",
+      "french": "un cours de peinture (m.)",
+      "anchor": "un cours de peinture",
+      "english": "a painting class",
+      "example": "Avez-vous suivi un cours de peinture pour débutants ?",
+      "usage": "Groupe nominal désignant un enseignement structuré autour d'une pratique artistique."
+    },
+    {
+      "id": "artmc05",
+      "kind": "mot-cle",
+      "french": "une galerie d'art (f.)",
+      "anchor": "une galerie d'art",
+      "english": "an art gallery",
+      "example": "Existe-t-il une galerie d'art que vous aimez visiter régulièrement ?",
+      "usage": "Groupe nominal désignant un lieu d'exposition et de vente d'œuvres d'art."
+    },
+    {
+      "id": "artmc06",
+      "kind": "mot-cle",
+      "french": "un instrument de musique (m.)",
+      "anchor": "un instrument de musique",
+      "english": "a musical instrument",
+      "example": "Jouez-vous d'un instrument de musique depuis l'enfance ?",
+      "usage": "Groupe nominal désignant un objet utilisé pour produire des sons musicaux."
+    },
+    {
+      "id": "artmc07",
+      "kind": "mot-cle",
+      "french": "le matériel artistique (m.)",
+      "anchor": "le matériel artistique",
+      "english": "art supplies",
+      "example": "Où achetez-vous habituellement le matériel artistique nécessaire à vos projets ?",
+      "usage": "Groupe nominal désignant l'ensemble des fournitures nécessaires à une pratique créative."
+    },
+    {
+      "id": "artmc08",
+      "kind": "mot-cle",
+      "french": "une bibliothèque de quartier (f.)",
+      "anchor": "une bibliothèque de quartier",
+      "english": "a neighborhood library",
+      "example": "Fréquentez-vous une bibliothèque de quartier pour emprunter des livres ?",
+      "usage": "Groupe nominal désignant un lieu public de prêt de livres proche des habitants."
+    },
+    {
+      "id": "artmc09",
+      "kind": "mot-cle",
+      "french": "un club de lecture (m.)",
+      "anchor": "un club de lecture",
+      "english": "a book club",
+      "example": "Faites-vous partie d'un club de lecture depuis longtemps ?",
+      "usage": "Groupe nominal désignant un groupe qui se réunit pour discuter de lectures communes."
+    },
+    {
+      "id": "artmc10",
+      "kind": "mot-cle",
+      "french": "une œuvre (f.)",
+      "anchor": "une œuvre",
+      "english": "an artwork",
+      "example": "Y a-t-il une œuvre qui vous plaît particulièrement dans ce musée ?",
+      "usage": "Nom féminin désignant une création artistique achevée."
+    },
+    {
+      "id": "artmc11",
+      "kind": "mot-cle",
+      "french": "un talent artistique (m.)",
+      "anchor": "un talent artistique",
+      "english": "an artistic talent",
+      "example": "Diriez-vous que vous avez un talent artistique particulier ?",
+      "usage": "Groupe nominal désignant une aptitude naturelle pour une discipline créative."
+    },
+    {
+      "id": "artmc12",
+      "kind": "mot-cle",
+      "french": "un studio de danse (m.)",
+      "anchor": "un studio de danse",
+      "english": "a dance studio",
+      "example": "Y a-t-il un studio de danse accessible aux débutants près de chez vous ?",
+      "usage": "Groupe nominal désignant un lieu dédié à la pratique de la danse."
+    },
+    {
+      "id": "artmc13",
+      "kind": "mot-cle",
+      "french": "une technique artistique (f.)",
+      "anchor": "une technique artistique",
+      "english": "an artistic technique",
+      "example": "Avez-vous mis longtemps à maîtriser une technique artistique en particulier ?",
+      "usage": "Groupe nominal désignant une méthode utilisée dans une pratique créative."
+    },
+    {
+      "id": "artmc14",
+      "kind": "mot-cle",
+      "french": "un objet fait main (m.)",
+      "anchor": "un objet fait main",
+      "english": "a handmade object",
+      "example": "Avez-vous déjà offert un objet fait main à quelqu'un ?",
+      "usage": "Groupe nominal désignant une création fabriquée artisanalement."
+    },
+    {
+      "id": "artmc15",
+      "kind": "mot-cle",
+      "french": "une pause créative (f.)",
+      "anchor": "une pause créative",
+      "english": "a creative break",
+      "example": "Prenez-vous parfois une pause créative pendant votre journée de travail ?",
+      "usage": "Groupe nominal désignant un moment consacré à une activité artistique."
+    },
+    {
+      "id": "arteu01",
+      "kind": "expression-utile",
+      "french": "s'adonner à un loisir",
+      "anchor": "vous adonner à un loisir",
+      "english": "to devote oneself to / engage in a hobby",
+      "example": "Aimez-vous vous adonner à un loisir chaque week-end ?",
+      "usage": "Expression pour désigner la pratique régulière d'une activité de détente."
+    },
+    {
+      "id": "arteu02",
+      "kind": "expression-utile",
+      "french": "exprimer sa créativité",
+      "anchor": "exprimer votre créativité",
+      "english": "to express one's creativity",
+      "example": "Comment aimez-vous exprimer votre créativité au quotidien ?",
+      "usage": "Expression pour évoquer la manifestation personnelle d'un talent artistique."
+    },
+    {
+      "id": "arteu03",
+      "kind": "expression-utile",
+      "french": "se ressourcer par l'art",
+      "anchor": "vous ressourcez par l'art",
+      "english": "to recharge through art",
+      "example": "Diriez-vous que vous vous ressourcez par l'art après une semaine chargée ?",
+      "usage": "Expression pour évoquer les bienfaits relaxants d'une pratique artistique."
+    },
+    {
+      "id": "arteu04",
+      "kind": "expression-utile",
+      "french": "manier le pinceau",
+      "anchor": "manier le pinceau",
+      "english": "to wield the paintbrush",
+      "example": "Depuis combien d'années savez-vous manier le pinceau avec autant d'aisance ?",
+      "usage": "Expression imagée signifiant pratiquer la peinture avec habileté."
+    },
+    {
+      "id": "arteu05",
+      "kind": "expression-utile",
+      "french": "affiner sa technique",
+      "anchor": "affiner votre technique",
+      "english": "to refine one's technique",
+      "example": "Comment faites-vous pour affiner votre technique au fil des années ?",
+      "usage": "Expression pour évoquer l'amélioration progressive d'une compétence artistique."
+    },
+    {
+      "id": "arteu06",
+      "kind": "expression-utile",
+      "french": "partager sa passion",
+      "anchor": "partager sa passion",
+      "english": "to share one's passion",
+      "example": "Est-ce facile de partager sa passion pour l'art avec des proches moins intéressés ?",
+      "usage": "Expression pour évoquer la transmission d'un enthousiasme artistique à autrui."
+    },
+    {
+      "id": "arteu07",
+      "kind": "expression-utile",
+      "french": "s'inscrire à un atelier",
+      "anchor": "vous inscrire à un atelier",
+      "english": "to sign up for a workshop",
+      "example": "Envisagez-vous de vous inscrire à un atelier de céramique cette année ?",
+      "usage": "Expression verbale pour désigner l'inscription à une activité créative."
+    },
+    {
+      "id": "arteu08",
+      "kind": "expression-utile",
+      "french": "exposer ses créations",
+      "anchor": "exposer vos créations",
+      "english": "to display one's creations",
+      "example": "Avez-vous déjà eu l'occasion d'exposer vos créations en public ?",
+      "usage": "Expression pour évoquer la présentation d'œuvres personnelles au public."
+    },
+    {
+      "id": "arteu09",
+      "kind": "expression-utile",
+      "french": "s'évader par la lecture",
+      "anchor": "vous évader par la lecture",
+      "english": "to escape through reading",
+      "example": "Aimez-vous vous évader par la lecture après une longue journée ?",
+      "usage": "Expression imagée signifiant se détendre grâce à un livre."
+    },
+    {
+      "id": "arteu10",
+      "kind": "expression-utile",
+      "french": "développer sa fibre artistique",
+      "anchor": "développé votre fibre artistique",
+      "english": "to develop one's artistic side",
+      "example": "Comment avez-vous développé votre fibre artistique depuis l'enfance ?",
+      "usage": "Expression imagée signifiant cultiver une sensibilité créative."
+    },
+    {
+      "id": "arteu11",
+      "kind": "expression-utile",
+      "french": "consacrer du temps à un loisir",
+      "anchor": "consacrer du temps à un loisir",
+      "english": "to devote time to a hobby",
+      "example": "Arrivez-vous à consacrer du temps à un loisir malgré un emploi du temps chargé ?",
+      "usage": "Expression pour évoquer l'engagement de temps libre dans une activité."
+    },
+    {
+      "id": "arteu12",
+      "kind": "expression-utile",
+      "french": "se perfectionner dans un domaine",
+      "anchor": "vous perfectionner dans un domaine",
+      "english": "to improve in a field",
+      "example": "Suivez-vous des cours pour vous perfectionner dans un domaine artistique précis ?",
+      "usage": "Expression pour évoquer la progression continue dans une pratique choisie."
+    },
+    {
+      "id": "arteu13",
+      "kind": "expression-utile",
+      "french": "trouver l'inspiration",
+      "anchor": "trouvez-vous l'inspiration",
+      "english": "to find inspiration",
+      "example": "Où trouvez-vous l'inspiration pour vos projets créatifs ?",
+      "usage": "Expression pour évoquer la source d'idées d'une démarche artistique."
+    },
+    {
+      "id": "arteu14",
+      "kind": "expression-utile",
+      "french": "bricoler à la maison",
+      "anchor": "bricoler à la maison",
+      "english": "to do DIY or crafts at home",
+      "example": "Aimez-vous bricoler à la maison pendant votre temps libre ?",
+      "usage": "Expression courante pour désigner des activités manuelles pratiquées chez soi."
+    },
+    {
+      "id": "arteu15",
+      "kind": "expression-utile",
+      "french": "assouvir sa curiosité artistique",
+      "anchor": "assouvir votre curiosité artistique",
+      "english": "to satisfy one's artistic curiosity",
+      "example": "Ce cours vous permet-il d'assouvir votre curiosité artistique ?",
+      "usage": "Expression pour évoquer la satisfaction d'un intérêt créatif particulier."
+    },
+    {
+      "id": "artfr01",
+      "kind": "fragment",
+      "french": "Pour commencer, que fait-on concrètement pendant…",
+      "anchor": "pour commencer, que fait-on concrètement pendant",
+      "english": "To begin, what exactly happens during…",
+      "example": "Pour commencer, que fait-on concrètement pendant cet atelier de poterie ?",
+      "usage": "Amorce pour demander une description concrète du déroulement d'une activité créative."
+    },
+    {
+      "id": "artfr02",
+      "kind": "fragment",
+      "french": "Si je comprends bien, ce cours permet…",
+      "anchor": "si je comprends bien, ce cours permet",
+      "english": "If I understand correctly, this class allows…",
+      "example": "Si je comprends bien, ce cours permet de progresser même sans expérience ?",
+      "usage": "Amorce pour reformuler et vérifier le contenu d'un cours."
+    },
+    {
+      "id": "artfr03",
+      "kind": "fragment",
+      "french": "Qu'est-ce qui vous a donné envie de pratiquer…",
+      "anchor": "qu'est-ce qui vous a donné envie de pratiquer",
+      "english": "What made you want to practice…",
+      "example": "Qu'est-ce qui vous a donné envie de pratiquer cette activité créative ?",
+      "usage": "Amorce pour explorer les motivations d'un loisir artistique."
+    },
+    {
+      "id": "artfr04",
+      "kind": "fragment",
+      "french": "Pourriez-vous décrire le processus de création de…",
+      "anchor": "pourriez-vous décrire le processus de création de",
+      "english": "Could you describe the creative process behind…",
+      "example": "Pourriez-vous décrire le processus de création de cette œuvre ?",
+      "usage": "Amorce polie pour demander une description détaillée d'une démarche artistique."
+    },
+    {
+      "id": "artfr05",
+      "kind": "fragment",
+      "french": "Diriez-vous que le plus satisfaisant, c'est…",
+      "anchor": "diriez-vous que le plus satisfaisant, c'est",
+      "english": "Would you say the most satisfying part is…",
+      "example": "Diriez-vous que le plus satisfaisant, c'est de voir l'œuvre terminée ?",
+      "usage": "Amorce pour faire hiérarchiser les aspects gratifiants d'un loisir."
+    },
+    {
+      "id": "artfr06",
+      "kind": "fragment",
+      "french": "En comparaison avec d'autres activités, celle-ci…",
+      "anchor": "en comparaison avec d'autres activités, celle-ci",
+      "english": "Compared to other activities, this one…",
+      "example": "En comparaison avec d'autres activités, celle-ci demande-t-elle plus de patience ?",
+      "usage": "Amorce pour comparer deux loisirs entre eux."
+    },
+    {
+      "id": "artfr07",
+      "kind": "fragment",
+      "french": "Pourriez-vous m'expliquer les différentes étapes de…",
+      "anchor": "pourriez-vous m'expliquer les différentes étapes de",
+      "english": "Could you explain the different steps of…",
+      "example": "Pourriez-vous m'expliquer les différentes étapes de cette technique artistique ?",
+      "usage": "Amorce pour demander de détailler les étapes d'un procédé artistique."
+    },
+    {
+      "id": "artfr08",
+      "kind": "fragment",
+      "french": "Autrement dit, sans ce club de lecture, vous…",
+      "anchor": "autrement dit, sans ce club de lecture, vous",
+      "english": "In other words, without that book club, you…",
+      "example": "Autrement dit, sans ce club de lecture, vous liriez moins régulièrement ?",
+      "usage": "Amorce pour reformuler une conséquence logique."
+    },
+    {
+      "id": "artfr09",
+      "kind": "fragment",
+      "french": "Par rapport à ce que vous imaginiez, cette pratique…",
+      "anchor": "par rapport à ce que vous imaginiez, cette pratique",
+      "english": "Compared to what you imagined, this practice…",
+      "example": "Par rapport à ce que vous imaginiez, cette pratique demande-t-elle plus de rigueur ?",
+      "usage": "Amorce pour comparer les attentes initiales à la réalité d'un loisir."
+    },
+    {
+      "id": "artfr10",
+      "kind": "fragment",
+      "french": "Pour resituer, depuis quand pratiquez-vous…",
+      "anchor": "pour resituer, depuis quand pratiquez-vous",
+      "english": "To set the context, since when have you been practicing…",
+      "example": "Pour resituer, depuis quand pratiquez-vous cette activité créative ?",
+      "usage": "Amorce pour recontextualiser un loisir avant de poursuivre l'échange."
+    },
+    {
+      "id": "artfr11",
+      "kind": "fragment",
+      "french": "Vous voulez dire que malgré le manque de temps, vous…",
+      "anchor": "vous voulez dire que malgré le manque de temps, vous",
+      "english": "You mean that despite the lack of time, you…",
+      "example": "Vous voulez dire que malgré le manque de temps, vous continuez à peindre chaque semaine ?",
+      "usage": "Amorce pour vérifier une interprétation malgré une contrainte de temps."
+    },
+    {
+      "id": "artfr12",
+      "kind": "fragment",
+      "french": "Pour clore ce point, conseilleriez-vous ce loisir à…",
+      "anchor": "pour clore ce point, conseilleriez-vous ce loisir à",
+      "english": "To close this point, would you recommend this hobby to…",
+      "example": "Pour clore ce point, conseilleriez-vous ce loisir à quelqu'un de très occupé ?",
+      "usage": "Amorce pour conclure un échange sur une activité créative."
+    },
+    {
+      "id": "artfr13",
+      "kind": "fragment",
+      "french": "Où allez-vous chercher…",
+      "anchor": "où allez-vous chercher",
+      "english": "Where do you look for…",
+      "example": "Où allez-vous chercher l'inspiration pour vos projets créatifs ?",
+      "usage": "Amorce pour demander la source d'inspiration d'une pratique artistique."
+    },
+    {
+      "id": "artfr14",
+      "kind": "fragment",
+      "french": "Juste pour bien comprendre, cet atelier dont vous parlez…",
+      "anchor": "juste pour bien comprendre, cet atelier dont vous parlez",
+      "english": "Just to make sure I understand, the workshop you mention…",
+      "example": "Juste pour bien comprendre, cet atelier dont vous parlez a bien lieu chaque semaine ?",
+      "usage": "Amorce pour clarifier un détail relatif à une activité mentionnée."
+    },
+    {
+      "id": "artfr15",
+      "kind": "fragment",
+      "french": "Et si vous manquiez d'inspiration, comment…",
+      "anchor": "et si vous manquiez d'inspiration un jour, comment",
+      "english": "And if you lacked inspiration, how…",
+      "example": "Et si vous manquiez d'inspiration un jour, comment feriez-vous pour la retrouver ?",
+      "usage": "Amorce hypothétique pour explorer un scénario créatif difficile."
+    }
+  ]
+}

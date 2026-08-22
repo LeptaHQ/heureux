@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "theme": "fetes",
+  "name": "Fêtes & célébrations",
+  "entries": [
+    {
+      "id": "fetmc01",
+      "kind": "mot-cle",
+      "french": "une célébration (f.)",
+      "anchor": "une célébration",
+      "english": "a celebration",
+      "example": "Organisez-vous une célébration particulière chaque année en famille ?",
+      "usage": "Nom féminin désignant un événement marquant une occasion particulière."
+    },
+    {
+      "id": "fetmc02",
+      "kind": "mot-cle",
+      "french": "un cadeau (m.)",
+      "anchor": "un cadeau",
+      "english": "a gift",
+      "example": "Offrez-vous toujours un cadeau original pour les anniversaires ?",
+      "usage": "Nom masculin désignant un objet offert à l'occasion d'une fête."
+    },
+    {
+      "id": "fetmc03",
+      "kind": "mot-cle",
+      "french": "une tradition familiale (f.)",
+      "anchor": "une tradition familiale",
+      "english": "a family tradition",
+      "example": "Avez-vous une tradition familiale que vous respectez chaque année ?",
+      "usage": "Groupe nominal désignant une pratique transmise de génération en génération."
+    },
+    {
+      "id": "fetmc04",
+      "kind": "mot-cle",
+      "french": "un décor de fête (m.)",
+      "anchor": "un décor de fête",
+      "english": "festive decor",
+      "example": "Préparez-vous un décor de fête particulier pour cette occasion ?",
+      "usage": "Groupe nominal désignant les éléments décoratifs installés pour un événement."
+    },
+    {
+      "id": "fetmc05",
+      "kind": "mot-cle",
+      "french": "un repas de famille (m.)",
+      "anchor": "un repas de famille",
+      "english": "a family meal",
+      "example": "Comment se déroule en général un repas de famille chez vous ?",
+      "usage": "Groupe nominal désignant un repas rassemblant plusieurs membres d'une même famille."
+    },
+    {
+      "id": "fetmc06",
+      "kind": "mot-cle",
+      "french": "un jour férié (m.)",
+      "anchor": "un jour férié",
+      "english": "a public holiday",
+      "example": "Un jour férié est-il célébré de la même façon partout dans le pays ?",
+      "usage": "Groupe nominal désignant une journée chômée reconnue officiellement."
+    },
+    {
+      "id": "fetmc07",
+      "kind": "mot-cle",
+      "french": "une invitation (f.)",
+      "anchor": "une invitation",
+      "english": "an invitation",
+      "example": "Avez-vous reçu une invitation pour la fête de quartier cette année ?",
+      "usage": "Nom féminin désignant une proposition adressée pour participer à un événement."
+    },
+    {
+      "id": "fetmc08",
+      "kind": "mot-cle",
+      "french": "un feu d'artifice (m.)",
+      "anchor": "un feu d'artifice",
+      "english": "a fireworks display",
+      "example": "Assistez-vous chaque année à un feu d'artifice pour célébrer l'occasion ?",
+      "usage": "Groupe nominal désignant un spectacle pyrotechnique organisé lors d'une fête."
+    },
+    {
+      "id": "fetmc09",
+      "kind": "mot-cle",
+      "french": "un costume (m.)",
+      "anchor": "un costume",
+      "english": "a costume",
+      "example": "Portez-vous un costume particulier pour cette célébration ?",
+      "usage": "Nom masculin désignant une tenue spéciale portée à l'occasion d'une fête."
+    },
+    {
+      "id": "fetmc10",
+      "kind": "mot-cle",
+      "french": "une coutume locale (f.)",
+      "anchor": "une coutume locale",
+      "english": "a local custom",
+      "example": "Existe-t-il une coutume locale propre à cette période de l'année ?",
+      "usage": "Groupe nominal désignant une pratique typique d'une région ou d'une communauté."
+    },
+    {
+      "id": "fetmc11",
+      "kind": "mot-cle",
+      "french": "un anniversaire de mariage (m.)",
+      "anchor": "un anniversaire de mariage",
+      "english": "a wedding anniversary",
+      "example": "Comment célébrez-vous en général un anniversaire de mariage important ?",
+      "usage": "Groupe nominal désignant la commémoration annuelle d'une union."
+    },
+    {
+      "id": "fetmc12",
+      "kind": "mot-cle",
+      "french": "des décorations lumineuses (f. pl.)",
+      "anchor": "des décorations lumineuses",
+      "english": "festive lights",
+      "example": "Installez-vous des décorations lumineuses à l'extérieur de la maison ?",
+      "usage": "Groupe nominal désignant les lumières installées pour créer une ambiance festive."
+    },
+    {
+      "id": "fetmc13",
+      "kind": "mot-cle",
+      "french": "un rassemblement familial (m.)",
+      "anchor": "un rassemblement familial",
+      "english": "a family gathering",
+      "example": "Combien de personnes participent en général à un rassemblement familial chez vous ?",
+      "usage": "Groupe nominal désignant la réunion de plusieurs membres d'une même famille."
+    },
+    {
+      "id": "fetmc14",
+      "kind": "mot-cle",
+      "french": "une recette traditionnelle (f.)",
+      "anchor": "une recette traditionnelle",
+      "english": "a traditional recipe",
+      "example": "Préparez-vous une recette traditionnelle particulière pour cette fête ?",
+      "usage": "Groupe nominal désignant un plat transmis selon une coutume culinaire ancienne."
+    },
+    {
+      "id": "fetmc15",
+      "kind": "mot-cle",
+      "french": "le calendrier des fêtes (m.)",
+      "anchor": "le calendrier des fêtes",
+      "english": "the holiday calendar",
+      "example": "Le calendrier des fêtes est-il chargé pour vous à cette période de l'année ?",
+      "usage": "Groupe nominal désignant l'ensemble des fêtes et jours spéciaux célébrés au fil de l'année."
+    },
+    {
+      "id": "feteu01",
+      "kind": "expression-utile",
+      "french": "fêter comme il se doit",
+      "anchor": "fêter comme il se doit",
+      "english": "to celebrate properly",
+      "example": "Comment comptez-vous fêter comme il se doit cette occasion particulière ?",
+      "usage": "Expression idiomatique signifiant célébrer un événement de façon appropriée et mémorable."
+    },
+    {
+      "id": "feteu02",
+      "kind": "expression-utile",
+      "french": "perpétuer une tradition",
+      "anchor": "perpétuer une tradition",
+      "english": "to carry on a tradition",
+      "example": "Tenez-vous à perpétuer une tradition transmise par vos grands-parents ?",
+      "usage": "Expression pour évoquer la continuité d'une coutume familiale."
+    },
+    {
+      "id": "feteu03",
+      "kind": "expression-utile",
+      "french": "réunir toute la famille",
+      "anchor": "réunir toute la famille",
+      "english": "to gather the whole family",
+      "example": "Arrivez-vous à réunir toute la famille pour cette occasion chaque année ?",
+      "usage": "Expression pour désigner le rassemblement de plusieurs générations."
+    },
+    {
+      "id": "feteu04",
+      "kind": "expression-utile",
+      "french": "marquer le coup",
+      "anchor": "marquer le coup",
+      "english": "to mark the occasion",
+      "example": "Comment aimez-vous marquer le coup pour un anniversaire important ?",
+      "usage": "Expression imagée signifiant souligner une occasion par un geste particulier."
+    },
+    {
+      "id": "feteu05",
+      "kind": "expression-utile",
+      "french": "préparer les festivités",
+      "anchor": "préparer les festivités",
+      "english": "to prepare the festivities",
+      "example": "Qui s'occupe en général de préparer les festivités chez vous ?",
+      "usage": "Expression pour évoquer l'organisation d'une célébration."
+    },
+    {
+      "id": "feteu06",
+      "kind": "expression-utile",
+      "french": "trinquer à la santé de quelqu'un",
+      "anchor": "trinquer à la santé de quelqu'un",
+      "english": "to toast to someone's health",
+      "example": "Aimez-vous trinquer à la santé de quelqu'un lors des grandes occasions ?",
+      "usage": "Expression figée signifiant lever son verre en l'honneur d'une personne."
+    },
+    {
+      "id": "feteu07",
+      "kind": "expression-utile",
+      "french": "battre son plein",
+      "anchor": "bat-elle son plein",
+      "english": "to be in full swing",
+      "example": "À quelle heure la fête bat-elle son plein en général chez vous ?",
+      "usage": "Expression imagée signifiant qu'un événement atteint son point culminant."
+    },
+    {
+      "id": "feteu08",
+      "kind": "expression-utile",
+      "french": "faire des folies",
+      "anchor": "faire des folies",
+      "english": "to splurge / go all out",
+      "example": "Avez-vous tendance à faire des folies pour les fêtes de fin d'année ?",
+      "usage": "Expression courante signifiant dépenser sans compter pour une occasion spéciale."
+    },
+    {
+      "id": "feteu09",
+      "kind": "expression-utile",
+      "french": "célébrer en grande pompe",
+      "anchor": "célébrer en grande pompe",
+      "english": "to celebrate lavishly",
+      "example": "Préférez-vous célébrer en grande pompe ou plutôt dans l'intimité ?",
+      "usage": "Expression pour évoquer une célébration particulièrement fastueuse."
+    },
+    {
+      "id": "feteu10",
+      "kind": "expression-utile",
+      "french": "présenter ses vœux",
+      "anchor": "présenter vos vœux",
+      "english": "to extend one's wishes",
+      "example": "À qui aimez-vous présenter vos vœux en priorité pour le Nouvel An ?",
+      "usage": "Expression pour désigner le fait d'exprimer ses souhaits de bonheur à quelqu'un, notamment au Nouvel An."
+    },
+    {
+      "id": "feteu11",
+      "kind": "expression-utile",
+      "french": "décorer la maison",
+      "anchor": "décorer la maison",
+      "english": "to decorate the house",
+      "example": "Combien de temps passez-vous à décorer la maison avant cette fête ?",
+      "usage": "Expression pour évoquer la préparation visuelle d'un lieu pour une occasion."
+    },
+    {
+      "id": "feteu12",
+      "kind": "expression-utile",
+      "french": "partager un moment convivial",
+      "anchor": "partager un moment convivial",
+      "english": "to share a friendly moment",
+      "example": "Cette fête permet-elle de partager un moment convivial entre voisins ?",
+      "usage": "Expression pour évoquer un instant chaleureux vécu collectivement."
+    },
+    {
+      "id": "feteu13",
+      "kind": "expression-utile",
+      "french": "respecter les coutumes",
+      "anchor": "respecter les coutumes",
+      "english": "to observe customs",
+      "example": "Tenez-vous à respecter les coutumes propres à cette célébration ?",
+      "usage": "Expression pour évoquer l'attachement à des pratiques traditionnelles."
+    },
+    {
+      "id": "feteu14",
+      "kind": "expression-utile",
+      "french": "organiser une surprise",
+      "anchor": "organiser une surprise",
+      "english": "to plan a surprise",
+      "example": "Avez-vous déjà réussi à organiser une surprise pour un anniversaire ?",
+      "usage": "Expression pour désigner la préparation discrète d'un événement inattendu."
+    },
+    {
+      "id": "feteu15",
+      "kind": "expression-utile",
+      "french": "clôturer les célébrations",
+      "anchor": "clôturer les célébrations",
+      "english": "to wrap up the celebrations",
+      "example": "Comment aimez-vous clôturer les célébrations en fin de soirée ?",
+      "usage": "Expression pour évoquer la conclusion d'un événement festif."
+    },
+    {
+      "id": "fetfr01",
+      "kind": "fragment",
+      "french": "Concrètement, comment se prépare…",
+      "anchor": "comment se prépare",
+      "english": "Specifically, how is… prepared",
+      "example": "Concrètement, comment se prépare cette fête chaque année chez vous ?",
+      "usage": "Amorce pour demander l'organisation concrète d'une célébration."
+    },
+    {
+      "id": "fetfr02",
+      "kind": "fragment",
+      "french": "Si je comprends bien, cette tradition remonte…",
+      "anchor": "si je comprends bien, cette tradition remonte",
+      "english": "If I understand correctly, this tradition dates back…",
+      "example": "Si je comprends bien, cette tradition remonte à plusieurs générations ?",
+      "usage": "Amorce pour reformuler et vérifier l'origine d'une coutume."
+    },
+    {
+      "id": "fetfr03",
+      "kind": "fragment",
+      "french": "Qu'est-ce qui vous plaît le plus dans…",
+      "anchor": "qu'est-ce qui vous plaît le plus dans",
+      "english": "What do you enjoy most about…",
+      "example": "Qu'est-ce qui vous plaît le plus dans cette célébration en particulier ?",
+      "usage": "Amorce pour explorer les aspects appréciés d'une fête."
+    },
+    {
+      "id": "fetfr04",
+      "kind": "fragment",
+      "french": "Pourriez-vous décrire l'ambiance pendant…",
+      "anchor": "pourriez-vous décrire l'ambiance pendant",
+      "english": "Could you describe the atmosphere during…",
+      "example": "Pourriez-vous décrire l'ambiance pendant ce rassemblement familial ?",
+      "usage": "Amorce polie pour demander une description sensorielle d'un événement."
+    },
+    {
+      "id": "fetfr05",
+      "kind": "fragment",
+      "french": "Diriez-vous que le moment le plus attendu, c'est…",
+      "anchor": "diriez-vous que le moment le plus attendu, c'est",
+      "english": "Would you say the most anticipated moment is…",
+      "example": "Diriez-vous que le moment le plus attendu, c'est l'échange des cadeaux ?",
+      "usage": "Amorce pour faire hiérarchiser les temps forts d'une fête."
+    },
+    {
+      "id": "fetfr06",
+      "kind": "fragment",
+      "french": "En comparaison avec les autres années, cette fête…",
+      "anchor": "en comparaison avec les autres années, cette fête",
+      "english": "Compared to other years, this celebration…",
+      "example": "En comparaison avec les autres années, cette fête était-elle plus animée ?",
+      "usage": "Amorce pour comparer deux éditions d'une même célébration."
+    },
+    {
+      "id": "fetfr07",
+      "kind": "fragment",
+      "french": "Est-ce que vous pourriez revenir sur l'origine de…",
+      "anchor": "est-ce que vous pourriez revenir sur l'origine de",
+      "english": "Could you go back over the origin of…",
+      "example": "Est-ce que vous pourriez revenir sur l'origine de cette coutume locale ?",
+      "usage": "Amorce pour demander de développer un point déjà mentionné."
+    },
+    {
+      "id": "fetfr08",
+      "kind": "fragment",
+      "french": "Autrement dit, sans cette tradition, votre famille…",
+      "anchor": "autrement dit, sans cette tradition, votre famille",
+      "english": "In other words, without this tradition, your family…",
+      "example": "Autrement dit, sans cette tradition, votre famille se réunirait moins souvent ?",
+      "usage": "Amorce pour reformuler une conséquence logique."
+    },
+    {
+      "id": "fetfr09",
+      "kind": "fragment",
+      "french": "Par rapport à ce que vous imaginiez, cette célébration…",
+      "anchor": "par rapport à ce que vous imaginiez, cette célébration",
+      "english": "Compared to what you imagined, this celebration…",
+      "example": "Par rapport à ce que vous imaginiez, cette célébration a-t-elle tenu ses promesses ?",
+      "usage": "Amorce pour comparer les attentes initiales à la réalité d'une fête."
+    },
+    {
+      "id": "fetfr10",
+      "kind": "fragment",
+      "french": "Pour resituer, depuis quand célébrez-vous…",
+      "anchor": "pour resituer, depuis quand célébrez-vous",
+      "english": "To set the context, since when have you celebrated…",
+      "example": "Pour resituer, depuis quand célébrez-vous cette occasion en famille ?",
+      "usage": "Amorce pour recontextualiser une célébration avant de poursuivre l'échange."
+    },
+    {
+      "id": "fetfr11",
+      "kind": "fragment",
+      "french": "Vous voulez dire que malgré la distance, vous…",
+      "anchor": "vous voulez dire que malgré la distance, vous",
+      "english": "You mean that despite the distance, you…",
+      "example": "Vous voulez dire que malgré la distance, vous réunissez toute la famille chaque année ?",
+      "usage": "Amorce pour vérifier une interprétation malgré une contrainte géographique."
+    },
+    {
+      "id": "fetfr12",
+      "kind": "fragment",
+      "french": "Pour clore ce point, quel conseil donneriez-vous pour…",
+      "anchor": "pour clore ce point, quel conseil donneriez-vous pour",
+      "english": "To close this point, what advice would you give for…",
+      "example": "Pour clore ce point, quel conseil donneriez-vous pour réussir cette célébration ?",
+      "usage": "Amorce pour conclure un échange en demandant une recommandation."
+    },
+    {
+      "id": "fetfr13",
+      "kind": "fragment",
+      "french": "Comment vous y prenez-vous pour…",
+      "anchor": "comment vous y prenez-vous pour",
+      "english": "How do you go about…",
+      "example": "Comment vous y prenez-vous pour organiser le repas de famille ?",
+      "usage": "Amorce pour demander la méthode utilisée pour préparer un moment festif."
+    },
+    {
+      "id": "fetfr14",
+      "kind": "fragment",
+      "french": "Juste pour bien comprendre, cette tradition dont vous parlez…",
+      "anchor": "juste pour bien comprendre, cette tradition dont vous parlez",
+      "english": "Just to make sure I understand, the tradition you mention…",
+      "example": "Juste pour bien comprendre, cette tradition dont vous parlez se déroule bien chaque année ?",
+      "usage": "Amorce pour clarifier un détail relatif à une coutume mentionnée."
+    },
+    {
+      "id": "fetfr15",
+      "kind": "fragment",
+      "french": "Et si un imprévu venait perturber la fête, comment…",
+      "anchor": "et si un imprévu venait perturber la fête, comment",
+      "english": "And if something unexpected disrupted the celebration, how…",
+      "example": "Et si un imprévu venait perturber la fête, comment réagiriez-vous sur le moment ?",
+      "usage": "Amorce hypothétique pour explorer un scénario festif imprévu."
+    }
+  ]
+}

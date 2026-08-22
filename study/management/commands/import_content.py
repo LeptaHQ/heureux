@@ -123,6 +123,11 @@ class Command(BaseCommand):
                 tache_two_responses
             )
         )
+        tache_two_theme_vocabulary = (
+            content.parse_tache_two_theme_vocabulary(
+                tache_two_responses
+            )
+        )
         ee_tache_three_vocabulary = content.parse_ee_tache_three_subject_vocabulary(
             ee_tache_three_responses
         )
@@ -134,6 +139,7 @@ class Command(BaseCommand):
             *phrases,
             *subject_vocabulary,
             *tache_two_vocabulary,
+            *tache_two_theme_vocabulary,
             *ee_tache_three_vocabulary,
             *(item.phrase for item in comprehension_vocabulary),
         ]

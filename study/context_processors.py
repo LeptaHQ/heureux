@@ -27,6 +27,8 @@ EXPRESSION_ROUTES = {
     "task_browse",
     "task_memories",
     "task_memory_detail",
+    "tache_two_theme_vocabulary",
+    "tache_two_theme_vocabulary_detail",
     "task_subject_batch",
     "task_subject_detail",
     "theme_detail",
@@ -78,6 +80,12 @@ def _explicit_task(request):
     kwargs = match.kwargs if match else {}
     part_slug = kwargs.get("part_slug")
     task_slug = kwargs.get("task_slug")
+    if match and match.url_name in {
+        "tache_two_theme_vocabulary",
+        "tache_two_theme_vocabulary_detail",
+    }:
+        part_slug = "eo"
+        task_slug = "tache-2"
 
     data = request.POST if request.method == "POST" else request.GET
     part_slug = part_slug or (data.get("part") or "").strip()
@@ -152,7 +160,10 @@ def _active_nav_area(request):
             "comprehension_oral_vocabulary_review",
         }:
             return "vocabulary"
-        if scope["kind"] == "spine" or scope["content"] == "spine":
+        if (
+            scope["kind"] in {"spine", "theme_vocab"}
+            or scope["content"] == "spine"
+        ):
             return "expression"
         return "vocabulary"
     return ""

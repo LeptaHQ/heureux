@@ -878,6 +878,28 @@ class BrowserTests(StaticLiveServerTestCase):
             "Vocabulaire par thème",
         )
         self.assertEqual(self.page.locator(".batch-card").count(), 3)
+        batch_layout = self.page.locator(".batch-card").evaluate_all(
+            """
+            cards => cards.map(card => {
+              const cardBox = card.getBoundingClientRect();
+              const statusBox = card.querySelector(
+                '.batch-card__status'
+              ).getBoundingClientRect();
+              return {
+                width: cardBox.width,
+                statusContained:
+                  statusBox.left >= cardBox.left
+                  && statusBox.right <= cardBox.right,
+              };
+            })
+            """
+        )
+        self.assertTrue(
+            all(item["width"] > 250 for item in batch_layout)
+        )
+        self.assertTrue(
+            all(item["statusContained"] for item in batch_layout)
+        )
         self.assertEqual(
             self.page.locator(".theme-vocabulary-group").count(),
             3,

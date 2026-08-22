@@ -6353,7 +6353,8 @@ html[data-collection-view-mode="table"]
 }
 .batch-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 190px));
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
   gap: 0.55rem;
 }
 .batch-card {
@@ -6387,11 +6388,14 @@ html[data-collection-view-mode="table"]
 .batch-card[aria-disabled="true"] { cursor: default; }
 .batch-card__top {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 0.4rem;
 }
 .batch-card__number {
+  min-width: 0;
+  flex: 1 1 9rem;
   color: var(--primary);
   font-size: 0.80rem;
   font-weight: 700;
@@ -6400,8 +6404,10 @@ html[data-collection-view-mode="table"]
 }
 .batch-card__status {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
   gap: 0.28rem;
+  max-width: 100%;
   color: var(--text-faint);
   font-size: 0.78rem;
   font-weight: 700;

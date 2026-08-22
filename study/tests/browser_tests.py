@@ -904,12 +904,82 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
+        recall_controls = self.page.locator(
+            "[data-theme-vocabulary-recall]"
+        )
+        french_recall = self.page.locator(
+            '[data-theme-vocabulary-recall-column="french"]'
+        )
+        meaning_recall = self.page.locator(
+            '[data-theme-vocabulary-recall-column="meaning"]'
+        )
+        first_french = self.page.locator(
+            '[data-theme-vocabulary-recall-cell="french"]'
+        ).first
+        first_meaning = self.page.locator(
+            '[data-theme-vocabulary-recall-cell="meaning"]'
+        ).first
+        first_french_content = first_french.locator(
+            ".theme-vocabulary-recall__content"
+        )
+        first_meaning_content = first_meaning.locator(
+            ".theme-vocabulary-recall__content"
+        )
+        self.assertTrue(recall_controls.is_visible())
+        french_recall.click()
+        self.assertEqual(french_recall.get_attribute("aria-pressed"), "true")
+        self.assertEqual(first_french.get_attribute("role"), "button")
+        self.assertEqual(first_french.get_attribute("aria-pressed"), "false")
+        self.assertNotEqual(
+            first_french_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        first_french.click()
+        self.assertEqual(first_french.get_attribute("aria-pressed"), "true")
+        self.assertEqual(
+            first_french_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+
+        meaning_recall.click()
+        self.assertEqual(french_recall.get_attribute("aria-pressed"), "false")
+        self.assertEqual(meaning_recall.get_attribute("aria-pressed"), "true")
+        self.assertIsNone(first_french.get_attribute("role"))
+        self.assertEqual(first_meaning.get_attribute("aria-pressed"), "false")
+        self.assertNotEqual(
+            first_meaning_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        first_meaning.focus()
+        self.page.keyboard.press("Enter")
+        self.assertEqual(first_meaning.get_attribute("aria-pressed"), "true")
+        self.assertEqual(
+            first_meaning_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+
         detail_cards_toggle.click()
         self.assertEqual(
             self.page.locator("html").get_attribute(
                 "data-collection-view-mode"
             ),
             "cards",
+        )
+        self.assertFalse(recall_controls.is_visible())
+        self.assertIsNone(first_meaning.get_attribute("role"))
+        self.assertEqual(
+            first_meaning_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
         )
         desktop_phrase_layout = self.page.locator(
             ".theme-vocabulary-group"

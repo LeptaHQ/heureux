@@ -84,6 +84,133 @@
     window.addEventListener("hashchange", scrollActiveAnnotationAnchor);
   })();
 
+  /* ---------- Theme vocabulary table recall ---------- */
+  (function () {
+    var controls = document.querySelector("[data-theme-vocabulary-recall]");
+    var catalog = document.querySelector(
+      "[data-theme-vocabulary-recall-catalog]"
+    );
+    if (!controls || !catalog) return;
+
+    var buttons = Array.from(
+      controls.querySelectorAll("[data-theme-vocabulary-recall-column]")
+    );
+    var cells = Array.from(
+      catalog.querySelectorAll("[data-theme-vocabulary-recall-cell]")
+    );
+    var labels = {
+      french: "français",
+      meaning: "sens",
+    };
+    var activeColumn = "";
+
+    function isTableView() {
+      return root.getAttribute("data-collection-view-mode") === "table";
+    }
+
+    function cellText(cell) {
+      var content = cell.querySelector(".theme-vocabulary-recall__content");
+      return content ? content.textContent.trim() : cell.textContent.trim();
+    }
+
+    function syncCell(cell) {
+      var column = cell.dataset.themeVocabularyRecallCell;
+      var interactive = isTableView() && column === activeColumn;
+      cell.classList.toggle("is-recall-target", interactive);
+      if (!interactive) {
+        cell.removeAttribute("role");
+        cell.removeAttribute("tabindex");
+        cell.removeAttribute("aria-pressed");
+        cell.removeAttribute("aria-label");
+        cell.removeAttribute("title");
+        return;
+      }
+
+      var revealed = cell.classList.contains("is-revealed");
+      var label = labels[column];
+      cell.setAttribute("role", "button");
+      cell.setAttribute("tabindex", "0");
+      cell.setAttribute("aria-pressed", revealed ? "true" : "false");
+      cell.setAttribute(
+        "aria-label",
+        revealed
+          ? "Masquer le " + label + " : " + cellText(cell)
+          : "Révéler le " + label + " de cette fiche"
+      );
+      cell.setAttribute(
+        "title",
+        revealed ? "Cliquer pour masquer" : "Cliquer pour révéler"
+      );
+    }
+
+    function syncRecallMode() {
+      if (activeColumn) {
+        catalog.setAttribute("data-recall-column", activeColumn);
+      } else {
+        catalog.removeAttribute("data-recall-column");
+      }
+      buttons.forEach(function (button) {
+        var column = button.dataset.themeVocabularyRecallColumn;
+        var active = column === activeColumn;
+        var columnLabel = column === "french" ? "Français" : "Sens";
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+        button.setAttribute(
+          "aria-label",
+          active
+            ? "Afficher toute la colonne " + columnLabel
+            : "Flouter la colonne " + columnLabel
+        );
+      });
+      cells.forEach(syncCell);
+    }
+
+    function setRecallColumn(column) {
+      activeColumn = column === activeColumn ? "" : column;
+      cells.forEach(function (cell) {
+        cell.classList.remove("is-revealed");
+      });
+      syncRecallMode();
+    }
+
+    function toggleCell(cell) {
+      if (
+        !isTableView()
+        || cell.dataset.themeVocabularyRecallCell !== activeColumn
+      ) {
+        return;
+      }
+      cell.classList.toggle("is-revealed");
+      syncCell(cell);
+    }
+
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        setRecallColumn(button.dataset.themeVocabularyRecallColumn);
+      });
+    });
+    catalog.addEventListener("click", function (event) {
+      var cell = event.target.closest("[data-theme-vocabulary-recall-cell]");
+      if (!cell || !catalog.contains(cell)) return;
+      var selection = window.getSelection();
+      if (selection && !selection.isCollapsed) return;
+      toggleCell(cell);
+    });
+    catalog.addEventListener("keydown", function (event) {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      var cell = event.target.closest("[data-theme-vocabulary-recall-cell]");
+      if (!cell || !catalog.contains(cell)) return;
+      event.preventDefault();
+      toggleCell(cell);
+    });
+
+    controls.hidden = false;
+    syncRecallMode();
+    new MutationObserver(syncRecallMode).observe(root, {
+      attributes: true,
+      attributeFilter: ["data-collection-view-mode"],
+    });
+  })();
+
   /* ---------- Active Notes scope ---------- */
   (function () {
     var scopeNav = document.querySelector(".notes-scope-nav");

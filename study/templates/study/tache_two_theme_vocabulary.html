@@ -29,14 +29,7 @@
     {% include "study/partials/collection_view_toggle.html" %}
   </div>
 
-  <section class="memory-library memory-library--standalone" aria-labelledby="theme-vocabulary-list-title">
-    <div class="memory-library__head">
-      <div>
-        <p class="eyebrow">Choisissez une situation</p>
-        <h2 id="theme-vocabulary-list-title">Les 11 thèmes de la Tâche 2</h2>
-        <p>Chaque thème propose trois parcours complémentaires : les mots clés, les expressions utiles et les fragments de questions.</p>
-      </div>
-    </div>
+  <section class="memory-library memory-library--standalone" aria-label="Thèmes de la Tâche 2">
     <div class="memory-library__grid collection-table collection-table--memories collection-table--theme-vocabulary" data-collection-view="adaptive">
       {% include "study/partials/collection_table_header.html" with variant="memories" column_1="Thème" column_2="Progression" column_3="Action" only %}
       {% for item in themes %}

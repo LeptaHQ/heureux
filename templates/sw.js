@@ -2,9 +2,9 @@
 var CACHE = "heureux-v163";
 var SHELL = [
   "{% url 'offline' %}",
-  "{% static 'study/css/app.css' %}?v=154",
+  "{% static 'study/css/app.css' %}?v=155",
   "{% static 'study/js/theme-init.js' %}?v=2",
-  "{% static 'study/js/app.js' %}?v=47",
+  "{% static 'study/js/app.js' %}?v=48",
   "{% static 'study/js/selection-toolbar.js' %}?v=10",
   "{% static 'study/js/annotations.js' %}?v=27",
   "{% static 'study/js/subject-progress.js' %}?v=1",

@@ -16,8 +16,6 @@
       <span>{{ theme_data.name }}</span>
     </h1>
     <p>Apprenez les éléments utiles, puis combinez-les pour mener une interaction souple plutôt que réciter une liste de questions.</p>
-    <p class="theme-vocabulary-notation"><b>Repères pour les noms :</b> article + genre ; <span>m.</span> masculin, <span>f.</span> féminin, <span>pl.</span> pluriel.</p>
-    <p class="theme-vocabulary-notation"><b>Registre :</b> les exemples utilisent <i>vous</i> par défaut. Passez à <i>tu</i> et adaptez les possessifs lorsque la consigne met en scène un ami ou un proche.</p>
     <div class="phrase-category-hero__meta">
       <span class="progress-status progress-status--{{ summary.progress.status }}">{{ summary.progress.label }}</span>
       <span><b>{{ phrase_count }}</b> fiches</span>
@@ -49,13 +47,22 @@
 </section>
 {% endif %}
 
-<section class="phrase-catalog theme-vocabulary-catalog" style="--theme-vocabulary-accent: {{ theme.color }};" aria-labelledby="theme-vocabulary-catalog-title">
+<section class="phrase-catalog theme-vocabulary-catalog" style="--theme-vocabulary-accent: {{ theme.color }};" aria-labelledby="theme-vocabulary-catalog-title" data-theme-vocabulary-recall-catalog>
   <div class="section-heading">
     <div>
       <p class="eyebrow">Répertoire complet</p>
       <h2 id="theme-vocabulary-catalog-title">Voir les fiches en contexte</h2>
     </div>
-    {% include "study/partials/collection_view_toggle.html" %}
+    <div class="theme-vocabulary-catalog__tools">
+      <div class="theme-vocabulary-recall" data-theme-vocabulary-recall hidden>
+        <span class="theme-vocabulary-recall__label">Flouter</span>
+        <div class="theme-vocabulary-recall__options" role="group" aria-label="Colonne à flouter">
+          <button type="button" data-theme-vocabulary-recall-column="french" aria-pressed="false" aria-label="Flouter la colonne Français">Français</button>
+          <button type="button" data-theme-vocabulary-recall-column="meaning" aria-pressed="false" aria-label="Flouter la colonne Sens">Sens</button>
+        </div>
+      </div>
+      {% include "study/partials/collection_view_toggle.html" %}
+    </div>
   </div>
 
   {% for phrase_section in phrase_sections %}
@@ -72,8 +79,8 @@
         {% include "study/partials/collection_table_header.html" with variant="phrases" column_1="Français" column_2="Sens" column_3="Exemple en contexte" only %}
         {% for phrase in phrase_section.phrases %}
           <article class="phrase card theme-vocabulary-phrase" data-collection-item id="phrase-{{ phrase.phrase_id }}">
-            <div class="phrase__expr">{{ phrase.expression }}</div>
-            <div class="phrase__cue">{{ phrase.english_cue }}</div>
+            <div class="phrase__expr" data-theme-vocabulary-recall-cell="french"><span class="theme-vocabulary-recall__content">{{ phrase.expression }}</span></div>
+            <div class="phrase__cue" data-theme-vocabulary-recall-cell="meaning"><span class="theme-vocabulary-recall__content">{{ phrase.english_cue }}</span></div>
             <p class="phrase__ex">{{ phrase.example_html|safe }}</p>
             {% if phrase.note %}<p class="phrase__note">{{ phrase.note }}</p>{% endif %}
           </article>

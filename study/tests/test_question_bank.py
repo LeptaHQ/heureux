@@ -1411,6 +1411,12 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(response, 'data-collection-view="adaptive"')
         self.assertContains(response, "collection-table-header--memories")
         self.assertContains(response, "data-collection-item", count=11)
+        self.assertNotContains(response, "Choisissez une situation")
+        self.assertNotContains(response, "Les 11 thèmes de la Tâche 2")
+        self.assertNotContains(
+            response,
+            "Chaque thème propose trois parcours complémentaires",
+        )
         for item in response.context["themes"]:
             self.assertEqual(item["phrase_count"], 45)
             self.assertEqual(item["word_count"], 15)
@@ -2656,6 +2662,29 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(response, "Expressions utiles")
         self.assertContains(response, "Fragments de phrase")
         self.assertContains(response, "Lot 01 · Mots clés")
+        self.assertContains(response, "data-theme-vocabulary-recall")
+        self.assertContains(
+            response,
+            'data-theme-vocabulary-recall-column="french"',
+            count=1,
+        )
+        self.assertContains(
+            response,
+            'data-theme-vocabulary-recall-column="meaning"',
+            count=1,
+        )
+        self.assertContains(
+            response,
+            'data-theme-vocabulary-recall-cell="french"',
+            count=45,
+        )
+        self.assertContains(
+            response,
+            'data-theme-vocabulary-recall-cell="meaning"',
+            count=45,
+        )
+        self.assertNotContains(response, "Repères pour les noms")
+        self.assertNotContains(response, "Registre :")
         self.assertNotContains(response, "Mémoires")
 
     def test_theme_vocabulary_review_keeps_its_theme_and_returns_to_it(self):

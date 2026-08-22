@@ -1808,6 +1808,13 @@ class QuestionBankViewTests(TestCase):
             )
         )
         self.assertEqual(len(subject.context["subject_vocabulary"]), 10)
+        self.assertContains(
+            subject,
+            'data-recall-controls="tache-two-subject-vocabulary-recall-catalog"',
+            count=1,
+        )
+        self.assertContains(subject, 'data-recall-cell="french"', count=10)
+        self.assertContains(subject, 'data-recall-cell="meaning"', count=10)
         self.assertEqual(
             response_detail_url(subject.context["response"]),
             subject_url,

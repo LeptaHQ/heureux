@@ -4899,6 +4899,48 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertTrue(
             all(item["pseudoContent"] == "none" for item in lot_layouts)
         )
+
+        subject_controls = self.page.locator(
+            '[data-recall-controls="response-subject-vocabulary-recall-catalog"]'
+        )
+        related_controls = self.page.locator(
+            '[data-recall-controls="response-related-vocabulary-recall-catalog"]'
+        )
+        subject_controls.wait_for()
+        related_controls.wait_for()
+        subject_french = self.page.locator(
+            '#response-subject-vocabulary-recall-catalog '
+            '[data-recall-cell="french"]'
+        ).first
+        subject_french_content = subject_french.locator(
+            "[data-recall-content]"
+        )
+        related_french_content = self.page.locator(
+            '#response-related-vocabulary-recall-catalog '
+            '[data-recall-cell="french"] [data-recall-content]'
+        ).first
+        subject_controls.locator(
+            '[data-recall-column="french"]'
+        ).click()
+        self.assertNotEqual(
+            subject_french_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        self.assertEqual(
+            related_french_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        subject_french.click()
+        self.assertEqual(
+            subject_french_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
         self.assert_no_horizontal_overflow()
 
         category_url = reverse(
@@ -4917,6 +4959,69 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(
             self.page.locator(".phrase__ex mark").count(),
             len(shared_phrases),
+        )
+
+        recall_controls = self.page.locator(
+            '[data-recall-controls="vocabulary-recall-catalog"]'
+        )
+        recall_controls.wait_for()
+        cards_button = self.page.locator(
+            '[data-collection-view-option="cards"]'
+        )
+        table_button = self.page.locator(
+            '[data-collection-view-option="table"]'
+        )
+        cards_button.click()
+        french_cell = self.page.locator(
+            '#vocabulary-recall-catalog [data-recall-cell="french"]'
+        ).first
+        french_content = french_cell.locator("[data-recall-content]")
+        recall_controls.locator('[data-recall-column="french"]').click()
+        self.assertNotEqual(
+            french_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        table_button.click()
+        self.assertNotEqual(
+            french_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        french_cell.click()
+        self.assertEqual(
+            french_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        cards_button.click()
+        self.assertEqual(
+            french_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+
+        recall_controls.locator('[data-recall-column="meaning"]').click()
+        meaning_cell = self.page.locator(
+            '#vocabulary-recall-catalog [data-recall-cell="meaning"]'
+        ).first
+        meaning_content = meaning_cell.locator("[data-recall-content]")
+        self.assertNotEqual(
+            meaning_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        meaning_cell.press("Enter")
+        self.assertEqual(
+            meaning_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
         )
         self.assert_no_horizontal_overflow()
 

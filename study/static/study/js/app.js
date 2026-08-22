@@ -86,13 +86,11 @@
 
   /* ---------- Vocabulary recall ---------- */
   (function () {
-    var controls = document.querySelector("[data-recall-controls]");
-    if (!controls) return;
-
-    var catalog = document.getElementById(
-      controls.getAttribute("data-recall-controls")
-    );
-    if (!catalog) return;
+    function setupRecall(controls) {
+      var catalog = document.getElementById(
+        controls.getAttribute("data-recall-controls")
+      );
+      if (!catalog) return;
 
     var buttons = Array.from(
       controls.querySelectorAll("[data-recall-column]")
@@ -273,11 +271,16 @@
       toggleCell(cell);
     });
 
-    syncRecallMode();
-    new MutationObserver(syncRecallMode).observe(catalog, {
-      childList: true,
-      subtree: true,
-    });
+      syncRecallMode();
+      new MutationObserver(syncRecallMode).observe(catalog, {
+        childList: true,
+        subtree: true,
+      });
+    }
+
+    document
+      .querySelectorAll("[data-recall-controls]")
+      .forEach(setupRecall);
   })();
 
   /* ---------- Active Notes scope ---------- */

@@ -57,13 +57,31 @@
   {% endif %}
 
   {% if phrase_results %}
-    <h2 class="search-section-heading">Expressions <span>{{ phrase_result_count }}</span></h2>
-    <div class="grid grid--phrases collection-table collection-table--phrases" data-collection-view="adaptive">
+    <div class="search-vocabulary-heading">
+      <h2 class="search-section-heading">Expressions <span>{{ phrase_result_count }}</span></h2>
+      {% include "study/partials/vocabulary_recall_controls.html" with catalog_id="search-vocabulary-recall-catalog" only %}
+    </div>
+    <div
+      class="grid grid--phrases collection-table collection-table--phrases"
+      id="search-vocabulary-recall-catalog"
+      data-collection-view="adaptive"
+      data-recall-catalog
+    >
       {% include "study/partials/collection_table_header.html" with variant="phrases" column_1="Expression" column_2="Sens" column_3="Exemple" only %}
       {% for phrase in phrase_results %}
-        <div class="phrase card" data-collection-item>
-          <div class="phrase__expr">{{ phrase.expression }}</div>
-          <div class="phrase__cue">{{ phrase.english_cue }}</div>
+        <div class="phrase card" data-collection-item data-read-aloud-scope>
+          <div class="phrase__expr">
+            <span
+              data-recall-cell="french"
+              data-recall-entry="search-vocabulary-french-{{ phrase.phrase_id }}"
+            ><span data-recall-content data-read-aloud-text lang="fr">{{ phrase.expression }}</span></span>
+            {% include "study/partials/read_aloud_button.html" with key=phrase.phrase_id label="Lire le français" extra_class="phrase-read-aloud" compact="true" only %}
+          </div>
+          <div
+            class="phrase__cue"
+            data-recall-cell="meaning"
+            data-recall-entry="search-vocabulary-meaning-{{ phrase.phrase_id }}"
+          ><span data-recall-content>{{ phrase.english_cue }}</span></div>
           <p class="phrase__ex">{{ phrase.example_html|safe }}</p>
         </div>
       {% endfor %}

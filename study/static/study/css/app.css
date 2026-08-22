@@ -7258,6 +7258,11 @@ a.qrow:focus-visible {
   font-size: 0.79rem;
   overflow-wrap: anywhere;
 }
+.response-sidebar-card .vocabulary-recall {
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 0.65rem;
+}
 .response-batches {
   margin-top: 0.95rem;
   padding-top: 0.85rem;
@@ -9150,6 +9155,17 @@ a.ce-group-test-row:hover {
   font-size: 0.76rem;
   font-weight: 700;
   line-height: 1;
+}
+.search-vocabulary-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.8rem 0 0.8rem;
+}
+.search-vocabulary-heading .search-section-heading {
+  margin: 0;
 }
 .ce-history__list > a:last-child { border-bottom: 0; }
 .ce-history__list > a:hover {
@@ -13493,6 +13509,9 @@ html[data-collection-view-mode="table"]
 .recall-controls__options button:focus-visible {
   outline: 0;
   box-shadow: var(--card-focus-ring);
+}
+.phrase-catalog > .section-heading .vocabulary-recall {
+  flex: none;
 }
 .theme-vocabulary-recall {
   padding-right: 0.7rem;

@@ -261,6 +261,20 @@ class SmokeTests(TestCase):
         self.assertContains(response, test.title)
         self.assertNotContains(response, 'id="expression-vocabulary"')
 
+        detail = self.client.get(
+            reverse(
+                "study:comprehension_test_vocabulary",
+                args=[test.slug],
+            )
+        )
+        self.assertContains(
+            detail,
+            'data-recall-controls="vocabulary-recall-catalog"',
+            count=1,
+        )
+        self.assertContains(detail, 'data-recall-cell="french"', count=1)
+        self.assertContains(detail, 'data-recall-cell="meaning"', count=1)
+
     def test_removed_legacy_paths_return_404(self):
         legacy_paths = (
             "/browse/",
@@ -994,6 +1008,13 @@ class TaskOrganizationTests(TestCase):
         )
         self.assertEqual(own.context["result_count"], 1)
         self.assertEqual(other.context["result_count"], 0)
+        self.assertContains(
+            own,
+            'data-recall-controls="search-vocabulary-recall-catalog"',
+            count=1,
+        )
+        self.assertContains(own, 'data-recall-cell="french"', count=1)
+        self.assertContains(own, 'data-recall-cell="meaning"', count=1)
 
     def test_search_summarizes_broad_matches_instead_of_rendering_a_wall(self):
         prompt = self.response_card.response.prompts.get(is_canonical=True)
@@ -1549,6 +1570,13 @@ class CategoryBatchViewsTests(TestCase):
         self.assertContains(response, "Choisir un lot de 10")
         self.assertContains(response, "Lot 02")
         self.assertContains(response, "batch=2")
+        self.assertContains(
+            response,
+            'data-recall-controls="vocabulary-recall-catalog"',
+            count=1,
+        )
+        self.assertContains(response, 'data-recall-cell="french"', count=16)
+        self.assertContains(response, 'data-recall-cell="meaning"', count=16)
 
     def test_shared_category_does_not_mix_in_response_vocabulary(self):
         local_phrase = factories.make_phrase(
@@ -1754,6 +1782,13 @@ class CategoryBatchViewsTests(TestCase):
         )
         self.assertContains(page, "Lot 1 · 10 expressions")
         self.assertContains(page, "Lot 2 · 6 expressions")
+        self.assertContains(
+            page,
+            'data-recall-controls="response-related-vocabulary-recall-catalog"',
+            count=1,
+        )
+        self.assertContains(page, 'data-recall-cell="french"', count=16)
+        self.assertContains(page, 'data-recall-cell="meaning"', count=16)
 
     def test_linked_expression_study_does_not_start_its_responses(self):
         response = factories.make_response()
@@ -1851,6 +1886,13 @@ class CategoryBatchViewsTests(TestCase):
             [10, 10, 10, 10, 10],
         )
         self.assertContains(page, "Pratiquer les vocabs")
+        self.assertContains(
+            page,
+            'data-recall-controls="response-subject-vocabulary-recall-catalog"',
+            count=1,
+        )
+        self.assertContains(page, 'data-recall-cell="french"', count=10)
+        self.assertContains(page, 'data-recall-cell="meaning"', count=10)
         self.assertContains(
             page,
             f"kind=vocab&amp;response={response.pk}&amp;batch=1",

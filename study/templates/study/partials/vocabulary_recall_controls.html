@@ -1,0 +1,22 @@
+<div
+  class="recall-controls vocabulary-recall{% if extra_class %} {{ extra_class }}{% endif %}"
+  data-vocabulary-recall
+  data-recall-controls="{{ catalog_id }}"
+  hidden
+>
+  <span class="recall-controls__label">Flouter</span>
+  <div class="recall-controls__options" role="group" aria-label="Contenu du vocabulaire à flouter">
+    <button
+      type="button"
+      data-recall-column="french"
+      data-recall-label="le français"
+      aria-pressed="false"
+    >Français</button>
+    <button
+      type="button"
+      data-recall-column="meaning"
+      data-recall-label="le sens"
+      aria-pressed="false"
+    >Sens</button>
+  </div>
+</div>

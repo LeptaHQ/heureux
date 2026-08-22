@@ -1,0 +1,12 @@
+<li data-annotation-root data-annotation-source-key="phrase:{{ phrase.phrase_id }}:catalog">
+  <b
+    data-recall-cell="french"
+    data-recall-entry="{{ recall_prefix }}-french-{{ phrase.phrase_id }}"
+  ><span data-recall-content>{{ phrase.expression }}</span></b>
+  <span class="muted">—
+    <span
+      data-recall-cell="meaning"
+      data-recall-entry="{{ recall_prefix }}-meaning-{{ phrase.phrase_id }}"
+    ><span data-recall-content>{{ phrase.english_cue }}</span></span>
+  </span>
+</li>

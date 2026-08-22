@@ -161,9 +161,14 @@
           <span class="progress-status progress-status--{{ vocabulary_batch_progress.status }}">{{ vocabulary_batch_progress.label }}</span>
         </div>
         <p class="muted">{{ vocabulary_batch_progress.completed }}/{{ vocabulary_batch_progress.total }} lots terminés</p>
-        <ul class="mini-list response-sidebar-list">
+        {% include "study/partials/vocabulary_recall_controls.html" with catalog_id="response-subject-vocabulary-recall-catalog" only %}
+        <ul
+          class="mini-list response-sidebar-list"
+          id="response-subject-vocabulary-recall-catalog"
+          data-recall-catalog
+        >
           {% for phrase in subject_vocabulary %}
-            <li data-annotation-root data-annotation-source-key="phrase:{{ phrase.phrase_id }}:catalog"><b>{{ phrase.expression }}</b> <span class="muted">— {{ phrase.english_cue }}</span></li>
+            {% include "study/partials/vocabulary_recall_list_item.html" with phrase=phrase recall_prefix="response-subject-vocabulary" only %}
           {% endfor %}
         </ul>
         {% include "study/partials/response_batch_list.html" with batches=vocabulary_batches batch_kind="vocabulary" only %}
@@ -177,9 +182,14 @@
           <span class="progress-status progress-status--{{ phrase_batch_progress.status }}">{{ phrase_batch_progress.label }}</span>
         </div>
         <p class="muted">{{ phrase_batch_progress.completed }}/{{ phrase_batch_progress.total }} lots terminés</p>
-        <ul class="mini-list response-sidebar-list">
+        {% include "study/partials/vocabulary_recall_controls.html" with catalog_id="response-related-vocabulary-recall-catalog" only %}
+        <ul
+          class="mini-list response-sidebar-list"
+          id="response-related-vocabulary-recall-catalog"
+          data-recall-catalog
+        >
           {% for phrase in related_phrases %}
-            <li data-annotation-root data-annotation-source-key="phrase:{{ phrase.phrase_id }}:catalog"><b>{{ phrase.expression }}</b> <span class="muted">— {{ phrase.english_cue }}</span></li>
+            {% include "study/partials/vocabulary_recall_list_item.html" with phrase=phrase recall_prefix="response-related-vocabulary" only %}
           {% endfor %}
         </ul>
         {% include "study/partials/response_batch_list.html" with batches=phrase_batches batch_kind="expressions" only %}

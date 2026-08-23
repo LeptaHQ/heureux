@@ -1,0 +1,547 @@
+{
+  "version": 1,
+  "theme": "economie",
+  "name": "Économie",
+  "entries": [
+    {
+      "id": "t3ecn01",
+      "kind": "notion-cle",
+      "french": "le chômage (m.)",
+      "anchor": "le chômage",
+      "english": "unemployment",
+      "example": "Le chômage touche davantage les jeunes sans qualification et les personnes occupant des emplois précaires.",
+      "usage": "Nom masculin — pluriel : des chômages (forme rare dans ce sens). Désigne la situation des personnes privées d'emploi malgré leur capacité à travailler ; s'emploie avec « taux de chômage », « chômage structurel », « assurance chômage » et nourrit les arguments sur l'emploi."
+    },
+    {
+      "id": "t3ecn02",
+      "kind": "notion-cle",
+      "french": "le salaire minimum (m.)",
+      "anchor": "le salaire minimum",
+      "english": "minimum wage",
+      "example": "Revaloriser le salaire minimum est souvent présenté comme un levier pour réduire les inégalités salariales entre les catégories de revenus.",
+      "usage": "Nom masculin — pluriel : des salaires minimums. Désigne le seuil légal de rémunération ; on dit « relever », « revaloriser » ou « indexer le salaire minimum ». Le terme officiel français est « le SMIC »."
+    },
+    {
+      "id": "t3ecn03",
+      "kind": "notion-cle",
+      "french": "le pouvoir d'achat (m.)",
+      "anchor": "le pouvoir d'achat",
+      "english": "purchasing power",
+      "example": "La hausse des prix de l'énergie a sérieusement entamé le pouvoir d'achat des ménages à revenus modestes ces dernières années.",
+      "usage": "Nom masculin — pluriel : des pouvoirs d'achat (forme rare dans ce sens). Mesure la quantité de biens et services accessible avec un revenu ; collocations : « préserver », « défendre », « éroder le pouvoir d'achat »."
+    },
+    {
+      "id": "t3ecn04",
+      "kind": "notion-cle",
+      "french": "l'inflation (f.)",
+      "anchor": "l'inflation",
+      "english": "inflation",
+      "example": "L'inflation persistante réduit mécaniquement la valeur réelle des salaires lorsque ceux-ci ne sont pas indexés sur la hausse des prix.",
+      "usage": "Nom féminin — pluriel : des inflations (forme rare dans ce sens). Désigne la hausse générale et durable des prix ; on parle de « taux d'inflation », « inflation sous-jacente », « maîtriser » ou « juguler l'inflation »."
+    },
+    {
+      "id": "t3ecn05",
+      "kind": "notion-cle",
+      "french": "les inégalités (f. pl.)",
+      "anchor": "les inégalités",
+      "english": "inequalities",
+      "example": "Les inégalités de revenus ont tendance à s'accroître lorsqu'une économie se développe sans politiques redistributives suffisamment efficaces.",
+      "usage": "Nom féminin pluriel — singulier : une inégalité. Désigne des écarts injustes ou marqués entre groupes ; collocations : « réduire », « creuser », « corriger les inégalités de revenus, de chances ou territoriales »."
+    },
+    {
+      "id": "t3ecn06",
+      "kind": "notion-cle",
+      "french": "la fiscalité (f.)",
+      "anchor": "la fiscalité",
+      "english": "taxation; the tax system",
+      "example": "La fiscalité progressive permet en théorie de redistribuer les richesses des ménages les mieux lotis vers les catégories les plus défavorisées.",
+      "usage": "Nom féminin — pluriel : des fiscalités (forme rare, en comparaison de systèmes). Désigne l'ensemble des règles et prélèvements liés à l'impôt ; collocations : « réformer », « alléger », « alourdir la fiscalité »."
+    },
+    {
+      "id": "t3ecn07",
+      "kind": "notion-cle",
+      "french": "les dépenses publiques (f. pl.)",
+      "anchor": "les dépenses publiques",
+      "english": "public spending",
+      "example": "Réduire les dépenses publiques sans compromettre les services essentiels reste un défi majeur pour tout gouvernement confronté à un déficit budgétaire.",
+      "usage": "Nom féminin pluriel — singulier : une dépense publique. Désigne les sorties d'argent de l'État et des collectivités ; s'emploie avec « maîtriser », « réduire », « financer les dépenses publiques »."
+    },
+    {
+      "id": "t3ecn08",
+      "kind": "notion-cle",
+      "french": "la protection sociale (f.)",
+      "anchor": "la protection sociale",
+      "english": "social protection; welfare system",
+      "example": "La protection sociale, lorsqu'elle est robuste, limite les effets des crises économiques sur les populations les plus vulnérables de la société.",
+      "usage": "Nom féminin — pluriel : des protections sociales (forme rare dans ce sens). Désigne l'ensemble des mécanismes qui couvrent les risques sociaux ; collocations : « financer », « renforcer », « préserver la protection sociale »."
+    },
+    {
+      "id": "t3ecn09",
+      "kind": "notion-cle",
+      "french": "l'entrepreneuriat (m.)",
+      "anchor": "l'entrepreneuriat",
+      "english": "entrepreneurship",
+      "example": "Encourager l'entrepreneuriat dans les quartiers défavorisés peut contribuer à la création d'emplois locaux durables et à la revitalisation économique des territoires.",
+      "usage": "Nom masculin — pluriel : des entrepreneuriats (forme rare, en comparaison de cultures économiques). Désigne l'activité de création et de développement d'entreprises ; collocations : « encourager », « soutenir », « développer l'entrepreneuriat »."
+    },
+    {
+      "id": "t3ecn10",
+      "kind": "notion-cle",
+      "french": "la mondialisation (f.)",
+      "anchor": "la mondialisation",
+      "english": "globalization",
+      "example": "La mondialisation a profondément modifié les chaînes de production en favorisant les délocalisations vers les pays où les coûts sont les plus bas.",
+      "usage": "Nom féminin — pluriel : des mondialisations (forme rare, en comparaison historique). Désigne l'intensification des échanges à l'échelle mondiale ; collocations : « effets de la mondialisation », « mondialisation financière », « faire face à la mondialisation »."
+    },
+    {
+      "id": "t3ecn11",
+      "kind": "notion-cle",
+      "french": "la productivité (f.)",
+      "anchor": "la productivité",
+      "english": "productivity",
+      "example": "La productivité du travail dépend non seulement des outils disponibles, mais aussi de la qualité de la formation et de l'organisation interne des équipes.",
+      "usage": "Nom féminin — pluriel : des productivités (forme rare, en comparaison sectorielle). Mesure le rapport entre production et moyens utilisés ; collocations : « gains de productivité », « améliorer », « mesurer la productivité »."
+    },
+    {
+      "id": "t3ecn12",
+      "kind": "notion-cle",
+      "french": "l'automatisation (f.)",
+      "anchor": "l'automatisation",
+      "english": "automation",
+      "example": "L'automatisation des tâches répétitives soulève des questions importantes sur la reconversion des travailleurs dont les métiers sont directement menacés.",
+      "usage": "Nom féminin — pluriel : des automatisations. Désigne le remplacement ou l'assistance de tâches humaines par des procédés automatiques ; collocations : « automatisation des tâches », « faire face à l'automatisation »."
+    },
+    {
+      "id": "t3ecn13",
+      "kind": "notion-cle",
+      "french": "le coût du logement (m.)",
+      "anchor": "le coût du logement",
+      "english": "housing cost",
+      "example": "Dans les grandes métropoles, le coût du logement absorbe désormais une part croissante du budget des ménages à revenus moyens.",
+      "usage": "Nom masculin — pluriel : des coûts du logement. Désigne la charge financière liée au loyer, au crédit ou aux frais d'habitation ; collocations : « supporter », « alléger », « réduire le coût du logement »."
+    },
+    {
+      "id": "t3ecn14",
+      "kind": "notion-cle",
+      "french": "les conditions de travail (f. pl.)",
+      "anchor": "les conditions de travail",
+      "english": "working conditions",
+      "example": "Améliorer les conditions de travail est un enjeu à la fois social et économique, car elles influent directement sur la motivation et l'efficacité des salariés.",
+      "usage": "Nom féminin pluriel — singulier : une condition de travail. Désigne l'ensemble des aspects matériels, horaires, contractuels et humains de l'activité salariée ; collocations : « améliorer », « dégrader », « négocier les conditions de travail »."
+    },
+    {
+      "id": "t3ecn15",
+      "kind": "notion-cle",
+      "french": "la transition économique (f.)",
+      "anchor": "la transition économique",
+      "english": "economic transition",
+      "example": "Accompagner la transition économique suppose des investissements massifs dans la formation et la reconversion des travailleurs des secteurs les plus touchés.",
+      "usage": "Nom féminin — pluriel : des transitions économiques. Désigne une transformation structurelle du modèle productif ; collocations : « accompagner », « financer », « réussir la transition économique », souvent avec les dimensions écologique et numérique."
+    },
+    {
+      "id": "t3ecv01",
+      "kind": "verbe-collocation",
+      "french": "réduire le chômage",
+      "anchor": "réduire le chômage",
+      "english": "to reduce unemployment",
+      "example": "Toute politique économique sérieuse devrait chercher à réduire le chômage structurel qui affecte durablement les régions industrielles en déclin.",
+      "usage": "Verbe — infinitif : réduire ; construction : transitif direct (réduire + COD). Registre soutenu ; s'emploie pour une action publique visant à faire baisser un phénomène négatif. Avec « chômage », il suppose des mesures durables plutôt qu'un simple effet conjoncturel."
+    },
+    {
+      "id": "t3ecv02",
+      "kind": "verbe-collocation",
+      "french": "augmenter les salaires",
+      "anchor": "augmenter les salaires",
+      "english": "to raise wages",
+      "example": "Certains économistes affirment qu'augmenter les salaires dans les secteurs les moins rémunérés stimule la consommation intérieure et soutient l'activité.",
+      "usage": "Verbe — infinitif : augmenter ; construction : transitif direct (augmenter + COD). Registre neutre à soutenu ; « augmenter les salaires » insiste sur la hausse nominale, tandis que « revaloriser » ajoute l'idée de correction ou de reconnaissance."
+    },
+    {
+      "id": "t3ecv03",
+      "kind": "verbe-collocation",
+      "french": "éroder le pouvoir d'achat",
+      "anchor": "éroder le pouvoir d'achat",
+      "english": "to erode purchasing power",
+      "example": "Une hausse prolongée des prix sans revalorisation salariale finit par éroder le pouvoir d'achat des travailleurs les moins bien rémunérés.",
+      "usage": "Verbe — infinitif : éroder ; construction : transitif direct (éroder + COD). Registre soutenu ; métaphore d'une usure progressive, utile pour montrer que l'inflation ou les charges diminuent lentement la capacité d'achat."
+    },
+    {
+      "id": "t3ecv04",
+      "kind": "verbe-collocation",
+      "french": "maîtriser l'inflation",
+      "anchor": "maîtriser l'inflation",
+      "english": "to bring inflation under control",
+      "example": "Les banques centrales disposent d'instruments monétaires pour tenter de maîtriser l'inflation sans compromettre la reprise économique en cours.",
+      "usage": "Verbe — infinitif : maîtriser ; construction : transitif direct (maîtriser + COD). Registre soutenu ; indique un contrôle volontaire par la politique monétaire ou budgétaire. Plus mesuré que « supprimer », car l'inflation n'est pas toujours éliminée."
+    },
+    {
+      "id": "t3ecv05",
+      "kind": "verbe-collocation",
+      "french": "creuser les inégalités",
+      "anchor": "creuser les inégalités",
+      "english": "to widen inequalities",
+      "example": "Des réformes fiscales favorisant principalement les revenus les plus élevés risquent de creuser les inégalités déjà considérables entre les différentes couches sociales.",
+      "usage": "Verbe — infinitif : creuser ; construction : transitif direct (creuser + COD). Registre soutenu ; métaphore d'un écart qui s'approfondit. S'emploie pour une crise, une réforme ou une politique qui accroît les différences sociales."
+    },
+    {
+      "id": "t3ecv06",
+      "kind": "verbe-collocation",
+      "french": "alléger la fiscalité",
+      "anchor": "alléger la fiscalité",
+      "english": "to reduce the tax burden",
+      "example": "Alléger la fiscalité des petites entreprises peut encourager l'investissement et la création d'emplois dans les territoires les plus fragilisés.",
+      "usage": "Verbe — infinitif : alléger ; construction : transitif direct (alléger + COD). Registre soutenu ; suggère une réduction partielle de la charge fiscale. À distinguer de « supprimer », qui serait total, et de « simplifier », qui vise la lisibilité."
+    },
+    {
+      "id": "t3ecv07",
+      "kind": "verbe-collocation",
+      "french": "financer les dépenses publiques",
+      "anchor": "financer les dépenses publiques",
+      "english": "to fund public spending",
+      "example": "La question de savoir comment financer les dépenses publiques sans alourdir la dette reste au cœur de tout débat budgétaire sérieux.",
+      "usage": "Verbe — infinitif : financer ; construction : transitif direct (financer + COD), souvent avec « par ». Registre soutenu ; introduit la source des ressources publiques : impôt, emprunt, cotisations ou réallocation budgétaire."
+    },
+    {
+      "id": "t3ecv08",
+      "kind": "verbe-collocation",
+      "french": "renforcer la protection sociale",
+      "anchor": "renforcer la protection sociale",
+      "english": "to strengthen social protection",
+      "example": "Face à l'essor des contrats précaires, renforcer la protection sociale des travailleurs indépendants devient une priorité politique difficile à reporter.",
+      "usage": "Verbe — infinitif : renforcer ; construction : transitif direct (renforcer + COD). Registre soutenu ; évoque la consolidation ou l'extension d'un dispositif existant, sans présumer qu'il faille le reconstruire entièrement."
+    },
+    {
+      "id": "t3ecv09",
+      "kind": "verbe-collocation",
+      "french": "créer son entreprise",
+      "anchor": "créer son entreprise",
+      "english": "to start one's own business",
+      "example": "Vouloir créer son entreprise est une ambition légitime, mais cela exige une préparation rigoureuse et une connaissance solide du marché visé.",
+      "usage": "Verbe — infinitif : créer ; construction : transitif direct avec déterminant possessif (créer son/leur entreprise). Registre courant à soutenu ; met l'accent sur l'initiative individuelle et la préparation du projet entrepreneurial."
+    },
+    {
+      "id": "t3ecv10",
+      "kind": "verbe-collocation",
+      "french": "s'ouvrir aux échanges internationaux",
+      "anchor": "s'ouvrir aux échanges internationaux",
+      "english": "to open up to international trade",
+      "example": "Pour les petites économies, s'ouvrir aux échanges internationaux peut stimuler la croissance tout en exposant les producteurs locaux à une concurrence accrue.",
+      "usage": "Verbe — infinitif : s'ouvrir ; construction : pronominal, suivi de « à » (s'ouvrir à + nom). Registre soutenu ; décrit une intégration progressive aux échanges mondiaux, avec un équilibre à discuter entre croissance et exposition à la concurrence."
+    },
+    {
+      "id": "t3ecv11",
+      "kind": "verbe-collocation",
+      "french": "améliorer la productivité",
+      "anchor": "améliorer la productivité",
+      "english": "to improve productivity",
+      "example": "Investir dans la formation continue est l'un des moyens les plus durables pour améliorer la productivité des salariés sans recourir à une pression excessive.",
+      "usage": "Verbe — infinitif : améliorer ; construction : transitif direct (améliorer + COD). Registre soutenu ; convient aux politiques de formation, d'organisation ou d'innovation qui visent des gains mesurables sans réduire la qualité du travail."
+    },
+    {
+      "id": "t3ecv12",
+      "kind": "verbe-collocation",
+      "french": "automatiser les tâches répétitives",
+      "anchor": "automatiser les tâches répétitives",
+      "english": "to automate repetitive tasks",
+      "example": "Automatiser les tâches répétitives permet aux entreprises de réduire certains coûts de production, mais soulève des questions sur la préservation des emplois concernés.",
+      "usage": "Verbe — infinitif : automatiser ; construction : transitif direct (automatiser + COD). Registre soutenu ; désigne le recours à des procédés automatiques ou numériques pour exécuter des tâches, avec un enjeu social de reconversion."
+    },
+    {
+      "id": "t3ecv13",
+      "kind": "verbe-collocation",
+      "french": "accéder au logement",
+      "anchor": "accéder au logement",
+      "english": "to access housing",
+      "example": "Pour les ménages à revenus modestes, accéder au logement dans les zones tendues est de plus en plus difficile en raison d'une offre insuffisante.",
+      "usage": "Verbe — infinitif : accéder ; construction : transitif indirect avec « à » (accéder à + nom). Registre soutenu ; « accéder au logement » met l'accent sur l'entrée effective dans un logement plutôt que sur la seule recherche."
+    },
+    {
+      "id": "t3ecv14",
+      "kind": "verbe-collocation",
+      "french": "négocier les conditions de travail",
+      "anchor": "négocier les conditions de travail",
+      "english": "to negotiate working conditions",
+      "example": "Le dialogue social permet aux partenaires sociaux de négocier les conditions de travail dans un cadre légal défini par les conventions collectives.",
+      "usage": "Verbe — infinitif : négocier ; construction : transitif direct (négocier + COD). Registre soutenu ; implique une discussion encadrée entre partenaires sociaux et débouche idéalement sur un accord collectif ou une amélioration concrète."
+    },
+    {
+      "id": "t3ecv15",
+      "kind": "verbe-collocation",
+      "french": "accompagner la reconversion professionnelle",
+      "anchor": "accompagner la reconversion professionnelle",
+      "english": "to support professional retraining",
+      "example": "L'État peut jouer un rôle décisif pour accompagner la reconversion professionnelle des travailleurs dont les métiers sont menacés par l'automatisation.",
+      "usage": "Verbe — infinitif : accompagner ; construction : transitif direct (accompagner + COD). Registre soutenu ; suggère un suivi progressif, humain et institutionnel, plus large qu'une aide financière ponctuelle."
+    },
+    {
+      "id": "t3eci01",
+      "kind": "expression-idiomatique",
+      "french": "joindre les deux bouts",
+      "anchor": "joindre les deux bouts",
+      "english": "to make ends meet",
+      "example": "Face à la hausse du coût de la vie, de nombreux ménages déclarent avoir du mal à joindre les deux bouts en fin de mois.",
+      "usage": "Expression idiomatique invariable. Registre courant. Syntaxe : 'avoir du mal à joindre les deux bouts' ou 'ne plus arriver à joindre les deux bouts'. Généralement à la forme négative ou restrictive. S'emploie pour des individus ou des ménages, pas pour des entreprises. Expression très naturelle à l'oral."
+    },
+    {
+      "id": "t3eci02",
+      "kind": "expression-idiomatique",
+      "french": "tirer les salaires vers le bas",
+      "anchor": "tirer les salaires vers le bas",
+      "english": "to put downward pressure on wages; to drive wages down",
+      "example": "La concurrence des pays à bas coûts de production peut tirer les salaires vers le bas dans les secteurs industriels les plus exposés.",
+      "usage": "Expression verbale idiomatique. Infinitif : 'tirer'. Construction : 'tirer + objet direct + vers le bas'. Registre soutenu. Synonyme : 'exercer une pression à la baisse sur les salaires'. Peut s'employer pour d'autres objets : 'tirer les prix vers le bas'. Connotation négative marquée."
+    },
+    {
+      "id": "t3eci03",
+      "kind": "expression-idiomatique",
+      "french": "faire tourner l'économie",
+      "anchor": "faire tourner l'économie",
+      "english": "to keep the economy going; to drive economic activity",
+      "example": "La consommation des ménages est souvent présentée comme le principal moteur qui permet de faire tourner l'économie en période de ralentissement.",
+      "usage": "Expression verbale idiomatique. Registre courant à soutenu. Construction causative : 'faire + infinitif + objet direct'. Synonymes : 'soutenir l'activité économique', 'stimuler l'économie'. Peut s'employer à la forme interrogative ou négative. Convient à l'oral et à l'écrit."
+    },
+    {
+      "id": "t3eci04",
+      "kind": "expression-idiomatique",
+      "french": "mettre la clé sous la porte",
+      "anchor": "mettre la clé sous la porte",
+      "english": "to shut up shop; to go out of business",
+      "example": "Sans soutien financier adapté, de nombreuses petites entreprises risquent de mettre la clé sous la porte en cas de crise économique prolongée.",
+      "usage": "Expression idiomatique invariable. Registre courant. Sujet typique : une entreprise, un commerçant, une structure économique. Synonymes : 'fermer boutique', 'cesser son activité'. Ne s'applique pas à une personne dans un sens abstrait. Convient à l'oral comme à l'écrit."
+    },
+    {
+      "id": "t3eci05",
+      "kind": "expression-idiomatique",
+      "french": "se serrer la ceinture",
+      "anchor": "se serrer la ceinture",
+      "english": "to tighten one's belt; to cut back on spending",
+      "example": "Quand l'inflation augmente plus vite que les salaires, les ménages n'ont souvent d'autre choix que de se serrer la ceinture sur les dépenses non essentielles.",
+      "usage": "Expression idiomatique pronominale. Registre courant. Synonymes : 'faire des économies', 'réduire ses dépenses', 'se restreindre'. S'emploie pour des individus, des ménages ou, par extension, pour des gouvernements. Convient à l'oral et à l'écrit courant."
+    },
+    {
+      "id": "t3eci06",
+      "kind": "expression-idiomatique",
+      "french": "peser sur le marché de l'emploi",
+      "anchor": "peser sur le marché de l'emploi",
+      "english": "to weigh on the job market; to put pressure on the labor market",
+      "example": "L'arrivée de nouvelles technologies peut peser sur le marché de l'emploi en réduisant le besoin de main-d'œuvre dans certains secteurs.",
+      "usage": "Expression verbale idiomatique. Infinitif : 'peser'. Construction : 'peser sur + nom'. Registre soutenu. Synonymes : 'exercer une pression sur', 'affecter négativement'. S'emploie aussi pour d'autres objets économiques : 'peser sur les prix', 'peser sur la croissance'. Toujours connotation négative."
+    },
+    {
+      "id": "t3eci07",
+      "kind": "expression-idiomatique",
+      "french": "avoir le vent en poupe",
+      "anchor": "le vent en poupe",
+      "english": "to be on the rise; to be flourishing",
+      "example": "Le secteur des énergies renouvelables a le vent en poupe depuis que les politiques climatiques ont renforcé les incitations à investir dans ce domaine.",
+      "usage": "Expression idiomatique. Registre courant à soutenu. Origine nautique : 'en poupe' = vent favorable dans le dos du navire. Sujet typique : un secteur, une entreprise, une activité. Synonymes : 'être en plein essor', 'connaître une forte croissance', 'prospérer'. Emploi positif uniquement."
+    },
+    {
+      "id": "t3eci08",
+      "kind": "expression-idiomatique",
+      "french": "prendre le virage numérique",
+      "anchor": "le virage numérique",
+      "english": "to make the digital shift; to embrace digital transformation",
+      "example": "Les petites et moyennes entreprises qui tardent à prendre le virage numérique risquent de perdre en compétitivité face aux acteurs déjà bien établis en ligne.",
+      "usage": "Expression idiomatique. Registre courant à soutenu. Construction : 'prendre le virage + adjectif'. Synonymes : 'se numériser', 'opérer sa transformation numérique'. Par extension : 'prendre le virage écologique/énergétique'. Implique une adaptation stratégique nécessaire et parfois difficile."
+    },
+    {
+      "id": "t3eci09",
+      "kind": "expression-idiomatique",
+      "french": "perdre son emploi du jour au lendemain",
+      "anchor": "du jour au lendemain",
+      "english": "to lose one's job overnight; to be abruptly made redundant",
+      "example": "L'automatisation peut conduire certains travailleurs à perdre leur emploi du jour au lendemain, sans avoir eu le temps d'anticiper ni de se reconvertir.",
+      "usage": "Expression idiomatique adverbiale. Registre courant. 'Du jour au lendemain' exprime la soudaineté et l'absence d'anticipation. Construction : 'verbe + du jour au lendemain'. S'emploie aussi : 'tout changer du jour au lendemain', 'fermer du jour au lendemain'. Fréquent à l'oral et dans la presse."
+    },
+    {
+      "id": "t3eci10",
+      "kind": "expression-idiomatique",
+      "french": "profiter des fruits de la croissance",
+      "anchor": "profiter des fruits de la croissance",
+      "english": "to benefit from the fruits of economic growth",
+      "example": "Une société juste est celle dans laquelle toutes les catégories sociales peuvent profiter des fruits de la croissance, et non pas seulement les plus aisées.",
+      "usage": "Expression idiomatique. Registre soutenu. Construction : 'profiter des fruits de + la croissance/la reprise'. Synonymes : 'bénéficier des retombées de la croissance'. Fréquent dans les discours politiques et économiques pour évoquer la question de la redistribution des richesses."
+    },
+    {
+      "id": "t3eci11",
+      "kind": "expression-idiomatique",
+      "french": "se heurter au plafond de verre",
+      "anchor": "plafond de verre",
+      "english": "to hit the glass ceiling",
+      "example": "Dans de nombreuses grandes entreprises, le plafond de verre limite encore l'accès de certains profils aux postes de direction.",
+      "usage": "Expression idiomatique. Registre courant à soutenu. 'Le plafond de verre' désigne les obstacles invisibles qui freinent l'avancement professionnel des femmes et des minorités. Constructions : 'briser/rompre/dépasser le plafond de verre', 'se heurter au plafond de verre'. Usage économique et sociologique."
+    },
+    {
+      "id": "t3eci12",
+      "kind": "expression-idiomatique",
+      "french": "constituer un filet de sécurité",
+      "anchor": "filet de sécurité",
+      "english": "to constitute a safety net",
+      "example": "Les aides sociales forment un filet de sécurité indispensable pour les personnes qui traversent une période de vulnérabilité économique ou de perte d'emploi.",
+      "usage": "Expression idiomatique. Registre soutenu. Le 'filet de sécurité' désigne l'ensemble des mécanismes de protection sociale qui évitent la chute dans la précarité. Constructions : 'constituer', 'renforcer', 'affaiblir', 'mettre en place' le filet de sécurité. Métaphore acrobatique."
+    },
+    {
+      "id": "t3eci13",
+      "kind": "expression-idiomatique",
+      "french": "avoir pignon sur rue",
+      "anchor": "pignon sur rue",
+      "english": "to be a well-established, reputable business",
+      "example": "Une boutique artisanale qui a pignon sur rue depuis plusieurs générations représente un patrimoine économique local qu'il convient de préserver.",
+      "usage": "Expression idiomatique invariable. Registre courant à soutenu. Signifie être établi durablement dans un lieu et y jouir d'une bonne réputation. Sujet typique : un commerçant, un artisan, une entreprise locale. Emploi toujours positif. Origine : la façade sur rue signalait autrefois la réussite d'un artisan."
+    },
+    {
+      "id": "t3eci14",
+      "kind": "expression-idiomatique",
+      "french": "creuser le fossé entre riches et pauvres",
+      "anchor": "creuser le fossé entre riches et pauvres",
+      "english": "to widen the gap between rich and poor",
+      "example": "Les politiques d'austérité peuvent contribuer à creuser le fossé entre riches et pauvres lorsqu'elles réduisent les services dont dépendent les ménages modestes.",
+      "usage": "Expression idiomatique. Registre soutenu. Construction : 'creuser le fossé entre + les deux pôles'. Synonymes : 'accentuer les écarts de revenus', 'approfondir les inégalités'. Métaphore géographique d'un fossé qui se creuse. Sujet typique : une politique, une crise, une réforme économique."
+    },
+    {
+      "id": "t3eci15",
+      "kind": "expression-idiomatique",
+      "french": "travailler au noir",
+      "anchor": "travailler au noir",
+      "english": "to work illegally; to work off the books",
+      "example": "Travailler au noir prive l'État de recettes fiscales importantes et laisse le salarié sans aucune protection sociale en cas d'accident ou de maladie.",
+      "usage": "Expression idiomatique. Registre courant. Synonymes : 'travail non déclaré', 'économie souterraine/informelle'. Constructions : 'travailler au noir', 'faire travailler quelqu'un au noir', 'emploi au noir'. Emploi oral et écrit. Distinct de 'l'économie grise' (partiellement légale) et de 'la fraude fiscale' (terme juridique)."
+    },
+    {
+      "id": "t3ecc01",
+      "kind": "construction-argumentative",
+      "french": "[indicateur] témoigne de [réalité]",
+      "anchor": "témoigne de",
+      "english": "evidence-by-indicator frame",
+      "example": "Le recul du pouvoir d'achat des ménages témoigne de l'inadaptation des politiques salariales aux réalités économiques actuelles.",
+      "usage": "Construction argumentative — preuve par indicateur : le sujet nominal est relié à une réalité par « témoigne de + nom ». Sert à interpréter un chiffre, une tendance ou un recul économique sans se limiter au constat."
+    },
+    {
+      "id": "t3ecc02",
+      "kind": "construction-argumentative",
+      "french": "Ce sont [groupe] qui subissent le plus [effet négatif]",
+      "anchor": "Ce sont les ménages les plus modestes qui",
+      "english": "distributive emphasis frame",
+      "example": "Ce sont les ménages les plus modestes qui subissent le plus durement les effets de l'inflation lorsque les prix alimentaires augmentent.",
+      "usage": "Construction argumentative — focalisation distributive : le clivage « ce sont … qui » met en avant le groupe le plus touché. Sert à analyser qui supporte les effets d'une crise, d'une taxe ou d'une réforme."
+    },
+    {
+      "id": "t3ecc03",
+      "kind": "construction-argumentative",
+      "french": "Si l'on veut [objectif], il faut accepter [contrainte]",
+      "anchor": "Si l'on veut",
+      "english": "goal–constraint trade-off frame",
+      "example": "Si l'on veut réduire le déficit public sans sacrifier les services essentiels, il faut accepter de revoir la structure des dépenses de manière rigoureuse.",
+      "usage": "Construction argumentative — arbitrage objectif/contrainte : la subordonnée en « si » pose l'objectif et « il faut accepter de + infinitif » introduit le coût ou l'effort nécessaire. Utile pour nuancer une proposition."
+    },
+    {
+      "id": "t3ecc04",
+      "kind": "construction-argumentative",
+      "french": "C'est précisément parce que [cause] que [conséquence]",
+      "anchor": "C'est précisément parce que",
+      "english": "emphatic causal frame",
+      "example": "C'est précisément parce que le marché ne régule pas spontanément les inégalités que l'intervention de l'État reste indispensable dans une économie sociale.",
+      "usage": "Construction argumentative — causalité emphatique : « c'est précisément parce que … que … » encadre la cause et renforce la conséquence. Sert à retourner un argument adverse ou à justifier l'intervention publique."
+    },
+    {
+      "id": "t3ecc05",
+      "kind": "construction-argumentative",
+      "french": "Par rapport à [référence], [sujet] présente [différence]",
+      "anchor": "Par rapport à",
+      "english": "comparative reference frame",
+      "example": "Par rapport à la situation d'il y a trente ans, le coût du logement a augmenté bien plus vite que les revenus salariaux dans la plupart des grandes agglomérations.",
+      "usage": "Construction argumentative — comparaison de référence : « par rapport à + nom » situe une évolution face à une période, un pays ou un secteur. Plus neutre que « contrairement à », utile pour contextualiser un écart."
+    },
+    {
+      "id": "t3ecc06",
+      "kind": "construction-argumentative",
+      "french": "Certes [concession], mais il n'en reste pas moins que [thèse]",
+      "anchor": "Certes",
+      "english": "concessive rebuttal frame",
+      "example": "Certes, la mondialisation a favorisé la croissance économique dans de nombreux pays, mais il n'en reste pas moins que ses bénéfices sont inégalement répartis.",
+      "usage": "Construction argumentative — concession/réfutation : « certes » concède un fait, puis « mais il n'en reste pas moins que » réaffirme la thèse. Montre que l'on intègre l'objection avant de la dépasser."
+    },
+    {
+      "id": "t3ecc07",
+      "kind": "construction-argumentative",
+      "french": "Il appartient à l'État de [action publique]",
+      "anchor": "Il appartient à l'État de",
+      "english": "public responsibility frame",
+      "example": "Il appartient à l'État de mettre en place des mécanismes de redistribution lorsque les inégalités de revenus atteignent un niveau socialement insoutenable.",
+      "usage": "Construction argumentative — responsabilité publique : « il appartient à + acteur + de + infinitif » attribue une mission légitime. Sert à défendre le rôle de l'État dans la redistribution, la régulation ou la protection."
+    },
+    {
+      "id": "t3ecc08",
+      "kind": "construction-argumentative",
+      "french": "La question n'est pas de savoir si [prémisse] mais comment [stratégie]",
+      "anchor": "La question n'est pas de savoir si",
+      "english": "debate reframing frame",
+      "example": "La question n'est pas de savoir si l'automatisation va transformer le marché du travail, mais comment préparer les travailleurs à cette transition inévitable.",
+      "usage": "Construction argumentative — recadrage du débat : « la question n'est pas de savoir si … mais comment … » accepte une prémisse et déplace l'argument vers les moyens. Utile pour passer d'une opposition stérile à une stratégie."
+    },
+    {
+      "id": "t3ecc09",
+      "kind": "construction-argumentative",
+      "french": "La hausse de [facteur] entraîne mécaniquement [conséquence]",
+      "anchor": "entraîne mécaniquement",
+      "english": "causal cascade frame",
+      "example": "La hausse du coût de l'énergie entraîne mécaniquement une augmentation des prix de production, qui se répercute ensuite sur les prix à la consommation.",
+      "usage": "Construction argumentative — causalité économique : « entraîne mécaniquement + nom » présente une conséquence quasi automatique. À employer avec prudence pour expliquer un enchaînement de coûts, de prix ou de revenus."
+    },
+    {
+      "id": "t3ecc10",
+      "kind": "construction-argumentative",
+      "french": "À l'inverse de [sujet A], [sujet B] présente [caractéristique opposée]",
+      "anchor": "À l'inverse de",
+      "english": "contrasting comparison frame",
+      "example": "À l'inverse de la grande distribution, les petites entreprises artisanales ne peuvent pas toujours absorber la hausse des coûts sans la répercuter sur leurs prix.",
+      "usage": "Construction argumentative — opposition comparative : « à l'inverse de + nom » oppose deux acteurs ou secteurs sur une même dimension. Sert à faire ressortir une contrainte spécifique ou une différence de capacité."
+    },
+    {
+      "id": "t3ecc11",
+      "kind": "construction-argumentative",
+      "french": "Même si [concession hypothétique], il demeure que [thèse]",
+      "anchor": "Même si",
+      "english": "hypothetical concession frame",
+      "example": "Même si certains secteurs ont bénéficié de la libéralisation des échanges, il demeure que les travailleurs peu qualifiés en ont souvent supporté les coûts les plus lourds.",
+      "usage": "Construction argumentative — concession hypothétique : « même si + indicatif » reconnaît une limite ou une exception, puis « il demeure que » maintient la thèse principale. Registre soutenu et nuancé."
+    },
+    {
+      "id": "t3ecc12",
+      "kind": "construction-argumentative",
+      "french": "Une politique efficace doit conjuguer [A] et [B]",
+      "anchor": "Une politique efficace doit conjuguer",
+      "english": "balanced policy frame",
+      "example": "Une politique efficace doit conjuguer soutien à l'emploi et maîtrise des dépenses publiques pour être à la fois socialement juste et économiquement viable.",
+      "usage": "Construction argumentative — recommandation équilibrée : « doit conjuguer A et B » associe deux impératifs au lieu de les opposer. Utile pour proposer une politique économique à la fois sociale et viable."
+    },
+    {
+      "id": "t3ecc13",
+      "kind": "construction-argumentative",
+      "french": "[groupe] est davantage exposé à [risque] que [autre groupe]",
+      "anchor": "est davantage exposé à",
+      "english": "differential vulnerability frame",
+      "example": "Le travailleur précaire est davantage exposé à une perte de revenus lors des ralentissements économiques que son homologue titulaire d'un contrat stable.",
+      "usage": "Construction argumentative — vulnérabilité comparée : « être davantage exposé à + nom que » compare le niveau de risque entre groupes. Sert à montrer les effets inégaux d'une crise, d'un contrat ou d'une politique."
+    },
+    {
+      "id": "t3ecc14",
+      "kind": "construction-argumentative",
+      "french": "Le débat ne porte pas seulement sur [X] mais aussi sur [Y]",
+      "anchor": "Le débat ne porte pas seulement sur",
+      "english": "issue-broadening frame",
+      "example": "Le débat ne porte pas seulement sur le montant du salaire minimum, mais aussi sur les conditions dans lesquelles les bas salaires sont exercés au quotidien.",
+      "usage": "Construction argumentative — élargissement du problème : « ne porte pas seulement sur … mais aussi sur … » ajoute une dimension souvent oubliée. Utile en transition pour complexifier un débat économique."
+    },
+    {
+      "id": "t3ecc15",
+      "kind": "construction-argumentative",
+      "french": "C'est en [gérondif] que l'on peut espérer [résultat]",
+      "anchor": "C'est en",
+      "english": "instrumental emphasis frame",
+      "example": "C'est en investissant massivement dans la formation professionnelle que l'on peut espérer réduire le chômage structurel à long terme.",
+      "usage": "Construction argumentative — moyen mis en relief : « c'est en + participe présent que » présente l'action comme condition du résultat. Convient à une conclusion qui transforme le diagnostic en recommandation."
+    }
+  ]
+}

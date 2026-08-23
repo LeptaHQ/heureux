@@ -309,11 +309,11 @@ def _question_bank_memory_context(user, memories):
     }
 
 
-def _tache_two_theme_vocabulary_scope(theme=None):
+def _theme_vocabulary_scope(task, theme=None):
     scope = {
         "kind": "theme_vocab",
-        "part": "eo",
-        "task": "tache-2",
+        "part": task.part.slug,
+        "task": task.slug,
     }
     if theme is not None:
         scope["theme"] = theme.slug
@@ -331,7 +331,7 @@ def _theme_vocabulary_batch_summary(batches):
 
 
 def _tache_two_theme_vocabulary_overview_context(user, task):
-    scope = _tache_two_theme_vocabulary_scope()
+    scope = _theme_vocabulary_scope(task)
     batches = _review_batches(scope, user)
     phrase_count = (
         Phrase.objects.filter(
@@ -749,24 +749,16 @@ def task_detail(request, part_slug, task_slug):
         "vocabulary_entry_count": phrase_count + subject_vocabulary_count,
     }
     if is_eo_tache_three:
-        vocabulary_context = _task_subject_vocabulary_context(
-            task,
-            request.user,
-            progress_by_response=response_progress,
+        vocabulary_context = (
+            _eo_tache_three_theme_vocabulary_context(
+                request.user,
+                task,
+            )
         )
-        context.update(vocabulary_context)
-        context["vocabulary_entry_count"] = (
-            phrase_count + vocabulary_context["subject_vocabulary_count"]
-        )
-        vocabulary_progress = vocabulary_context["vocabulary_deck_summary"]
-        context["vocabulary_overview_summary"] = {
-            "progress": vocabulary_progress,
-            "completed": vocabulary_progress.completed,
-            "started_new": (
-                vocabulary_progress.started - vocabulary_progress.completed
-            ),
-            "total": vocabulary_progress.total,
-        }
+        context["vocabulary_theme_count"] = vocabulary_context["theme_count"]
+        context["vocabulary_entry_count"] = vocabulary_context["phrase_count"]
+        context["vocabulary_batch_count"] = vocabulary_context["batch_count"]
+        context["vocabulary_overview_summary"] = vocabulary_context["summary"]
         context["subject_summary"] = response_stats
         return render(
             request,
@@ -1256,7 +1248,7 @@ def task_memories(request, part_slug, task_slug):
     )
 
 
-THEME_VOCABULARY_SECTIONS = (
+TACHE_TWO_THEME_VOCABULARY_SECTIONS = (
     {
         "category": "Thème · Mots clés",
         "title": "Mots clés",
@@ -1286,8 +1278,51 @@ THEME_VOCABULARY_SECTIONS = (
     },
 )
 
+EO_TACHE_THREE_THEME_VOCABULARY_SECTIONS = (
+    {
+        "category": "EO Tâche 3 · Notions clés",
+        "title": "Notions clés",
+        "short_title": "notions",
+        "description": (
+            "Le lexique précis pour nommer les enjeux, les acteurs et les "
+            "réalités propres à ce thème."
+        ),
+        "icon": "book-open",
+    },
+    {
+        "category": "EO Tâche 3 · Verbes et collocations",
+        "title": "Verbes et collocations",
+        "short_title": "verbes",
+        "description": (
+            "Des verbes avec leurs constructions et des associations "
+            "naturelles pour développer vos arguments."
+        ),
+        "icon": "pen-line",
+    },
+    {
+        "category": "EO Tâche 3 · Expressions et locutions",
+        "title": "Expressions et locutions",
+        "short_title": "expressions",
+        "description": (
+            "Des formulations idiomatiques et nuancées pour gagner en "
+            "précision sans sonner récité."
+        ),
+        "icon": "messages",
+    },
+    {
+        "category": "EO Tâche 3 · Constructions argumentatives",
+        "title": "Constructions argumentatives",
+        "short_title": "constructions",
+        "description": (
+            "Des cadres thématiques pour concéder, opposer, expliquer et "
+            "tirer une conclusion à l’oral."
+        ),
+        "icon": "sparkles",
+    },
+)
 
-def _tache_two_theme_vocabulary_phrases(task, theme=None):
+
+def _theme_vocabulary_phrases(task, theme=None):
     phrases = Phrase.objects.filter(
         tier=PhraseTier.THEME,
         is_active=True,
@@ -1314,7 +1349,7 @@ def tache_two_theme_vocabulary(request):
         (row["source_prompts__theme__slug"], row["category__name"]): (
             row["total"]
         )
-        for row in _tache_two_theme_vocabulary_phrases(task)
+        for row in _theme_vocabulary_phrases(task)
         .order_by()
         .values("source_prompts__theme__slug", "category__name")
         .annotate(total=Count("pk", distinct=True))
@@ -1325,7 +1360,7 @@ def tache_two_theme_vocabulary(request):
         theme = theme_models.get(f"tache-2-{theme_data.slug}")
         if theme is None:
             continue
-        scope = _tache_two_theme_vocabulary_scope(theme)
+        scope = _theme_vocabulary_scope(task, theme)
         batches = _review_batches(scope, request.user)
         next_batch = next(
             (batch for batch in batches if batch["is_next"]),
@@ -1336,7 +1371,7 @@ def tache_two_theme_vocabulary(request):
                 (theme.slug, section["category"]),
                 0,
             )
-            for section in THEME_VOCABULARY_SECTIONS
+            for section in TACHE_TWO_THEME_VOCABULARY_SECTIONS
         }
         themes.append(
             {
@@ -1362,7 +1397,7 @@ def tache_two_theme_vocabulary(request):
             }
         )
 
-    scope = _tache_two_theme_vocabulary_scope()
+    scope = _theme_vocabulary_scope(task)
     batches = _review_batches(scope, request.user)
     next_batch = next(
         (batch for batch in batches if batch["is_next"]),
@@ -1388,6 +1423,104 @@ def tache_two_theme_vocabulary(request):
     )
 
 
+def _theme_vocabulary_detail_context(
+    request,
+    *,
+    task,
+    theme,
+    theme_data,
+    sections,
+    section,
+    directory_url,
+    back_label,
+    vocabulary_label,
+    hero_description,
+    pathways_title,
+    pathways_description,
+):
+    phrases = list(
+        _theme_vocabulary_phrases(task, theme)
+        .select_related("category")
+        .order_by("order", "pk")
+    )
+    learned_phrase_ids = set(
+        ThemeVocabularyProgress.objects.filter(
+            user=request.user,
+            phrase_id__in=[phrase.pk for phrase in phrases],
+        ).values_list("phrase_id", flat=True)
+    )
+    for phrase in phrases:
+        phrase.is_explicitly_learned = phrase.pk in learned_phrase_ids
+        if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
+            phrase.progress_url = reverse(
+                "study:tache_two_theme_vocabulary_progress",
+                args=[theme_data.slug, phrase.pk],
+            )
+        else:
+            phrase.progress_url = reverse(
+                "study:theme_vocabulary_progress",
+                args=[
+                    task.part.slug,
+                    task.slug,
+                    theme.slug,
+                    phrase.pk,
+                ],
+            )
+    phrases_by_category = {
+        section_data["category"]: [] for section_data in sections
+    }
+    for phrase in phrases:
+        phrases_by_category.setdefault(phrase.category.name, []).append(phrase)
+    phrase_sections = [
+        {
+            **section_data,
+            "phrases": phrases_by_category[section_data["category"]],
+        }
+        for section_data in sections
+    ]
+
+    scope = _theme_vocabulary_scope(task, theme)
+    batches = _review_batches(scope, request.user)
+    for batch, section_data in zip(batches, sections):
+        batch["title"] = section_data["title"]
+    next_batch = next(
+        (batch for batch in batches if batch["is_next"]),
+        None,
+    )
+    return {
+        "part": task.part,
+        "task": task,
+        "section": section,
+        "theme": theme,
+        "theme_data": theme_data,
+        "theme_title": (
+            theme_data.name
+            if hasattr(theme_data, "name")
+            and (task.part.slug, task.slug)
+            == content_module.QUESTION_BANK_TASK
+            else theme.display_name
+        ),
+        "theme_icon": theme_data.icon,
+        "directory_url": directory_url,
+        "back_label": back_label,
+        "vocabulary_label": vocabulary_label,
+        "hero_description": hero_description,
+        "pathways_title": pathways_title,
+        "pathways_description": pathways_description,
+        "phrase_count": len(phrases),
+        "learned_summary": progress_summary(
+            total=len(phrases),
+            started=len(learned_phrase_ids),
+            completed=len(learned_phrase_ids),
+        ),
+        "phrase_sections": phrase_sections,
+        "review_batches": batches,
+        "summary": _theme_vocabulary_batch_summary(batches),
+        "review_url": next_batch["review_url"] if next_batch else "",
+        "mixed_review_url": review_url(scope),
+    }
+
+
 def tache_two_theme_vocabulary_detail(request, theme_slug):
     task = _route_task("eo", "tache-2")
     taxonomy, _subject_mapping = (
@@ -1405,79 +1538,41 @@ def tache_two_theme_vocabulary_detail(request, theme_slug):
         slug=f"tache-2-{theme_slug}",
         is_active=True,
     )
-    phrases = list(
-        _tache_two_theme_vocabulary_phrases(task, theme)
-        .select_related("category")
-        .order_by("order", "pk")
-    )
-    learned_phrase_ids = set(
-        ThemeVocabularyProgress.objects.filter(
-            user=request.user,
-            phrase_id__in=[phrase.pk for phrase in phrases],
-        ).values_list("phrase_id", flat=True)
-    )
-    for phrase in phrases:
-        phrase.is_explicitly_learned = phrase.pk in learned_phrase_ids
-    phrases_by_category = {
-        section["category"]: [] for section in THEME_VOCABULARY_SECTIONS
-    }
-    for phrase in phrases:
-        phrases_by_category.setdefault(phrase.category.name, []).append(phrase)
-    phrase_sections = [
-        {
-            **section,
-            "phrases": phrases_by_category[section["category"]],
-        }
-        for section in THEME_VOCABULARY_SECTIONS
-    ]
-
-    scope = _tache_two_theme_vocabulary_scope(theme)
-    batches = _review_batches(scope, request.user)
-    for batch, section in zip(batches, THEME_VOCABULARY_SECTIONS):
-        batch["title"] = section["title"]
-    next_batch = next(
-        (batch for batch in batches if batch["is_next"]),
-        None,
-    )
     return render(
         request,
-        "study/tache_two_theme_vocabulary_detail.html",
-        {
-            "part": task.part,
-            "task": task,
-            "section": "theme-vocabulary",
-            "theme": theme,
-            "theme_data": theme_data,
-            "phrase_count": len(phrases),
-            "learned_summary": progress_summary(
-                total=len(phrases),
-                started=len(learned_phrase_ids),
-                completed=len(learned_phrase_ids),
+        "study/theme_vocabulary_detail.html",
+        _theme_vocabulary_detail_context(
+            request,
+            task=task,
+            theme=theme,
+            theme_data=theme_data,
+            sections=TACHE_TWO_THEME_VOCABULARY_SECTIONS,
+            section="theme-vocabulary",
+            directory_url=reverse("study:tache_two_theme_vocabulary"),
+            back_label="Tous les thèmes",
+            vocabulary_label="Vocabulaire par thème",
+            hero_description=(
+                "Apprenez les éléments utiles, puis combinez-les pour mener "
+                "une interaction souple plutôt que réciter une liste de "
+                "questions."
             ),
-            "phrase_sections": phrase_sections,
-            "review_batches": batches,
-            "summary": _theme_vocabulary_batch_summary(batches),
-            "review_url": (
-                next_batch["review_url"] if next_batch else ""
+            pathways_title="Trois parcours complémentaires",
+            pathways_description=(
+                "Commencez par les mots, passez aux expressions, puis "
+                "entraînez-vous à produire des fragments de questions."
             ),
-            "mixed_review_url": review_url(scope),
-        },
+        ),
     )
 
 
-@require_POST
-def tache_two_theme_vocabulary_progress(request, theme_slug, phrase_pk):
-    task = _route_task("eo", "tache-2")
-    theme = get_object_or_404(
-        Theme,
-        task=task,
-        slug=f"tache-2-{theme_slug}",
-        is_active=True,
-    )
-    phrase = get_object_or_404(
-        _tache_two_theme_vocabulary_phrases(task, theme),
-        pk=phrase_pk,
-    )
+def _update_theme_vocabulary_progress(
+    request,
+    *,
+    task,
+    theme,
+    phrase,
+    return_url,
+):
     completed = request.POST.get("completed")
     if completed not in {"0", "1"}:
         message = "État d’apprentissage invalide."
@@ -1496,7 +1591,7 @@ def tache_two_theme_vocabulary_progress(request, theme_slug, phrase_pk):
             phrase=phrase,
         ).delete()
 
-    phrase_ids = _tache_two_theme_vocabulary_phrases(
+    phrase_ids = _theme_vocabulary_phrases(
         task,
         theme,
     ).values_list("pk", flat=True)
@@ -1514,12 +1609,206 @@ def tache_two_theme_vocabulary_progress(request, theme_slug, phrase_pk):
                 "total": total,
             }
         )
-    return redirect(
-        reverse(
+    return redirect(return_url + f"#phrase-{phrase.phrase_id}")
+
+
+@require_POST
+def tache_two_theme_vocabulary_progress(request, theme_slug, phrase_pk):
+    task = _route_task("eo", "tache-2")
+    theme = get_object_or_404(
+        Theme,
+        task=task,
+        slug=f"tache-2-{theme_slug}",
+        is_active=True,
+    )
+    phrase = get_object_or_404(
+        _theme_vocabulary_phrases(task, theme),
+        pk=phrase_pk,
+    )
+    return _update_theme_vocabulary_progress(
+        request,
+        task=task,
+        theme=theme,
+        phrase=phrase,
+        return_url=reverse(
             "study:tache_two_theme_vocabulary_detail",
             args=[theme_slug],
+        ),
+    )
+
+
+@require_POST
+def theme_vocabulary_progress(
+    request,
+    part_slug,
+    task_slug,
+    vocabulary_theme_slug,
+    phrase_pk,
+):
+    task = _route_task(part_slug, task_slug)
+    if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
+        raise Http404
+    theme = get_object_or_404(
+        Theme,
+        task=task,
+        slug=vocabulary_theme_slug,
+        is_active=True,
+    )
+    phrase = get_object_or_404(
+        _theme_vocabulary_phrases(task, theme),
+        pk=phrase_pk,
+    )
+    return _update_theme_vocabulary_progress(
+        request,
+        task=task,
+        theme=theme,
+        phrase=phrase,
+        return_url=reverse(
+            "study:task_vocabulary_theme",
+            args=[task.part.slug, task.slug, theme.slug],
+        ),
+    )
+
+
+def _eo_tache_three_theme_data():
+    return tuple(
+        theme
+        for theme in content_module.load_themes()
+        if theme.task == "/".join(content_module.EO_TACHE_THREE_TASK)
+    )
+
+
+def _eo_tache_three_theme_vocabulary_context(user, task):
+    taxonomy = _eo_tache_three_theme_data()
+    theme_models = Theme.objects.filter(
+        task=task,
+        is_active=True,
+        slug__in=[item.slug for item in taxonomy],
+    ).in_bulk(field_name="slug")
+    phrase_counts = {
+        (row["source_prompts__theme__slug"], row["category__name"]): (
+            row["total"]
         )
-        + f"#phrase-{phrase.phrase_id}"
+        for row in _theme_vocabulary_phrases(task)
+        .order_by()
+        .values("source_prompts__theme__slug", "category__name")
+        .annotate(total=Count("pk", distinct=True))
+    }
+
+    themes = []
+    for theme_data in taxonomy:
+        theme = theme_models.get(theme_data.slug)
+        if theme is None:
+            continue
+        section_counts = [
+            {
+                **section_data,
+                "count": phrase_counts.get(
+                    (theme.slug, section_data["category"]),
+                    0,
+                ),
+            }
+            for section_data in EO_TACHE_THREE_THEME_VOCABULARY_SECTIONS
+        ]
+        scope = _theme_vocabulary_scope(task, theme)
+        batches = _review_batches(scope, user)
+        next_batch = next(
+            (batch for batch in batches if batch["is_next"]),
+            None,
+        )
+        themes.append(
+            {
+                "data": theme_data,
+                "theme": theme,
+                "phrase_count": sum(
+                    section_data["count"]
+                    for section_data in section_counts
+                ),
+                "section_counts": section_counts,
+                "batch_count": len(batches),
+                "summary": _theme_vocabulary_batch_summary(batches),
+                "url": reverse(
+                    "study:task_vocabulary_theme",
+                    args=[task.part.slug, task.slug, theme.slug],
+                ),
+                "review_url": (
+                    next_batch["review_url"] if next_batch else ""
+                ),
+            }
+        )
+
+    scope = _theme_vocabulary_scope(task)
+    batches = _review_batches(scope, user)
+    next_batch = next(
+        (batch for batch in batches if batch["is_next"]),
+        None,
+    )
+    return {
+        "themes": themes,
+        "theme_count": len(themes),
+        "phrase_count": sum(item["phrase_count"] for item in themes),
+        "batch_count": len(batches),
+        "summary": _theme_vocabulary_batch_summary(batches),
+        "review_url": next_batch["review_url"] if next_batch else "",
+        "mixed_review_url": review_url(scope),
+    }
+
+
+def _eo_tache_three_theme_vocabulary_directory(request, task):
+    return render(
+        request,
+        "study/task_vocabulary.html",
+        {
+            "part": task.part,
+            "task": task,
+            "section": "vocabulary",
+            **_eo_tache_three_theme_vocabulary_context(
+                request.user,
+                task,
+            ),
+        },
+    )
+
+
+def _eo_tache_three_theme_vocabulary_detail(request, task, theme):
+    theme_data = next(
+        (
+            item
+            for item in _eo_tache_three_theme_data()
+            if item.slug == theme.slug
+        ),
+        None,
+    )
+    if theme_data is None:
+        raise Http404
+    return render(
+        request,
+        "study/theme_vocabulary_detail.html",
+        _theme_vocabulary_detail_context(
+            request,
+            task=task,
+            theme=theme,
+            theme_data=theme_data,
+            sections=EO_TACHE_THREE_THEME_VOCABULARY_SECTIONS,
+            section="vocabulary",
+            directory_url=reverse(
+                "study:task_phrases",
+                args=[task.part.slug, task.slug],
+            ),
+            back_label="Tous les thèmes",
+            vocabulary_label="Vocabulaire",
+            hero_description=(
+                "Appropriez-vous un lexique transversal à tout le thème : "
+                "des notions précises, des associations naturelles et des "
+                "constructions prêtes à porter votre argumentation."
+            ),
+            pathways_title="Quatre parcours complémentaires",
+            pathways_description=(
+                "Passez des notions aux verbes, enrichissez votre expression "
+                "avec des locutions, puis assemblez le tout dans des "
+                "constructions argumentatives."
+            ),
+        ),
     )
 
 
@@ -2722,6 +3011,20 @@ def phrases(
         if vocabulary_theme_slug
         else None
     )
+    if (
+        task
+        and (task.part.slug, task.slug)
+        == content_module.EO_TACHE_THREE_TASK
+        and category_slug is None
+        and test_slug is None
+    ):
+        if vocabulary_theme is not None:
+            return _eo_tache_three_theme_vocabulary_detail(
+                request,
+                task,
+                vocabulary_theme,
+            )
+        return _eo_tache_three_theme_vocabulary_directory(request, task)
     functional_names = FUNCTIONAL_PHRASE_CATEGORY_NAMES
     category_descriptions = {
         "Structurer et prendre position": (

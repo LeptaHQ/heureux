@@ -89,8 +89,18 @@ def scope_label(scope: dict) -> str:
             )
             scope_name = "Mois" if is_ee_month else "Thème"
             if scope.get("kind") == "theme_vocab":
+                vocabulary_name = (
+                    "Vocabulaire par thème"
+                    if theme.task is not None
+                    and (
+                        theme.task.part.slug,
+                        theme.task.slug,
+                    )
+                    == content_module.QUESTION_BANK_TASK
+                    else "Vocabulaire"
+                )
                 return with_batch(
-                    f"Vocabulaire par thème · {theme.display_name}"
+                    f"{vocabulary_name} · {theme.display_name}"
                 )
             if scope.get("kind") == "vocab":
                 return with_batch(f"Vocabulaire · {theme.display_name}")
@@ -142,7 +152,18 @@ def scope_label(scope: dict) -> str:
                 f"· {number_label}"
             )
     if scope.get("kind") == "theme_vocab":
-        return with_batch("Vocabulaire par thème")
+        from . import content_loader as content_module
+
+        vocabulary_name = (
+            "Vocabulaire par thème"
+            if (
+                scope.get("part"),
+                scope.get("task"),
+            )
+            == content_module.QUESTION_BANK_TASK
+            else "Vocabulaire"
+        )
+        return with_batch(vocabulary_name)
     if scope.get("task"):
         tasks = Task.objects.filter(
             slug=scope["task"],

@@ -1,0 +1,547 @@
+{
+  "version": 1,
+  "theme": "famille",
+  "name": "Famille",
+  "entries": [
+    {
+      "id": "t3fan01",
+      "kind": "notion-cle",
+      "french": "la garde partagée (f.)",
+      "anchor": "la garde partagée",
+      "english": "shared custody / alternating residence",
+      "example": "Dès la séparation officialisée, la garde partagée s'impose comme solution de référence, mais elle exige des deux parents une coordination quotidienne sans faille.",
+      "usage": "Nom féminin — pluriel : des gardes partagées. Désigne l'hébergement alterné des enfants après une séparation ; utile pour discuter des droits parentaux, de la coparentalité et de l'intérêt de l'enfant."
+    },
+    {
+      "id": "t3fan02",
+      "kind": "notion-cle",
+      "french": "le congé parental (m.)",
+      "anchor": "le congé parental",
+      "english": "parental leave",
+      "example": "En France, le congé parental est encore peu pris par les pères, ce qui reproduit un déséquilibre dans la répartition des tâches domestiques.",
+      "usage": "Nom masculin — pluriel : des congés parentaux. Période accordée à un parent pour s'occuper d'un enfant ; à distinguer des congés de maternité et de paternité, et centrale dans les débats sur l'égalité professionnelle."
+    },
+    {
+      "id": "t3fan03",
+      "kind": "notion-cle",
+      "french": "la cellule familiale (f.)",
+      "anchor": "la cellule familiale",
+      "english": "the family unit",
+      "example": "Qu'elle soit monoparentale, recomposée ou traditionnelle, la cellule familiale reste l'espace premier de socialisation de l'enfant.",
+      "usage": "Nom féminin — pluriel : des cellules familiales. Terme sociologique neutre pour désigner le noyau de relations au foyer ; il permet d'inclure familles monoparentales, recomposées ou plus traditionnelles sans jugement."
+    },
+    {
+      "id": "t3fan04",
+      "kind": "notion-cle",
+      "french": "la famille recomposée (f.)",
+      "anchor": "la famille recomposée",
+      "english": "blended / stepfamily",
+      "example": "Dans la famille recomposée, la gestion des relations entre beau-parent et enfants d'un premier lit exige beaucoup de patience et une clarté des rôles de chacun.",
+      "usage": "Nom féminin — pluriel : des familles recomposées. Désigne un foyer où au moins un adulte vit avec un enfant né d'une union précédente ; notion clé pour traiter les beaux-parents, les rôles et l'adaptation affective."
+    },
+    {
+      "id": "t3fan05",
+      "kind": "notion-cle",
+      "french": "l'autorité parentale (f.)",
+      "anchor": "l'autorité parentale",
+      "english": "parental authority / parental rights",
+      "example": "L'autorité parentale est exercée conjointement par les deux parents, même après un divorce, sauf décision contraire du juge aux affaires familiales.",
+      "usage": "Nom féminin — pluriel : des autorités parentales. Notion juridique qui regroupe droits et devoirs des parents envers l'enfant ; le pluriel sert surtout dans une comparaison de régimes ou de situations."
+    },
+    {
+      "id": "t3fan06",
+      "kind": "notion-cle",
+      "french": "la solidarité intergénérationnelle (f.)",
+      "anchor": "la solidarité intergénérationnelle",
+      "english": "intergenerational solidarity",
+      "example": "La solidarité intergénérationnelle se manifeste aussi bien dans la garde des petits-enfants par les grands-parents que dans le soutien des adultes envers leurs parents vieillissants.",
+      "usage": "Nom féminin — pluriel : des solidarités intergénérationnelles. Couvre les aides affectives, matérielles et financières entre générations ; forte valeur argumentative pour relier famille, vieillissement et protection sociale."
+    },
+    {
+      "id": "t3fan07",
+      "kind": "notion-cle",
+      "french": "la dépendance des aînés (f.)",
+      "anchor": "la dépendance des aînés",
+      "english": "dependency of elderly relatives",
+      "example": "Face à la dépendance des aînés, de nombreuses familles sont contraintes de choisir entre maintien à domicile et placement en établissement spécialisé.",
+      "usage": "Nom féminin — pluriel : des dépendances des aînés. Désigne la perte d'autonomie des personnes âgées ; le pluriel est rare dans ce sens, mais la notion éclaire les débats sur les aidants, le domicile et les établissements."
+    },
+    {
+      "id": "t3fan08",
+      "kind": "notion-cle",
+      "french": "la transmission des valeurs (f.)",
+      "anchor": "la transmission des valeurs",
+      "english": "passing on values / value transmission",
+      "example": "La transmission des valeurs au sein de la famille reste l'un des piliers de l'éducation, même si l'école et les pairs jouent un rôle de plus en plus grand.",
+      "usage": "Nom féminin — pluriel : des transmissions de valeurs. Processus par lequel la famille fait passer des repères moraux, culturels ou civiques ; à nuancer avec l'influence de l'école, des pairs et des médias."
+    },
+    {
+      "id": "t3fan09",
+      "kind": "notion-cle",
+      "french": "l'autonomisation des jeunes adultes (f.)",
+      "anchor": "l'autonomisation des jeunes adultes",
+      "english": "young adults gaining independence / emancipation",
+      "example": "L'autonomisation des jeunes adultes est souvent retardée par la précarité de l'emploi et la cherté du logement dans les grandes villes.",
+      "usage": "Nom féminin — pluriel : des autonomisations des jeunes adultes. Désigne le passage progressif vers l'indépendance résidentielle, financière et affective ; le pluriel est rare, on parle souvent de processus d'autonomisation."
+    },
+    {
+      "id": "t3fan10",
+      "kind": "notion-cle",
+      "french": "le conflit de générations (m.)",
+      "anchor": "le conflit de générations",
+      "english": "generational conflict",
+      "example": "Le conflit de générations naît souvent d'écarts de valeurs entre parents et enfants adultes qui partagent le même toit, rendant le dialogue d'autant plus nécessaire.",
+      "usage": "Nom masculin — pluriel : des conflits de générations. Désaccord profond entre groupes d'âge autour des valeurs, de l'autorité ou des modes de vie ; plus fort qu'une simple dispute ponctuelle."
+    },
+    {
+      "id": "t3fan11",
+      "kind": "notion-cle",
+      "french": "la politique familiale (f.)",
+      "anchor": "la politique familiale",
+      "english": "family policy",
+      "example": "La politique familiale française, avec ses allocations et ses structures d'accueil, est souvent citée comme modèle en matière de conciliation vie professionnelle-vie privée.",
+      "usage": "Nom féminin — pluriel : des politiques familiales. Ensemble des mesures publiques destinées à soutenir les familles : allocations, congés, crèches, fiscalité ou logement ; très utile en comparaison internationale."
+    },
+    {
+      "id": "t3fan12",
+      "kind": "notion-cle",
+      "french": "le partage des tâches domestiques (m.)",
+      "anchor": "le partage des tâches domestiques",
+      "english": "sharing of household chores",
+      "example": "Le partage des tâches domestiques reste souvent inégal dans les couples, car les routines héritées pèsent parfois davantage que les principes proclamés.",
+      "usage": "Nom masculin — pluriel : des partages des tâches domestiques. Désigne la répartition du travail ménager et éducatif au foyer ; le pluriel sert surtout à comparer différents arrangements familiaux."
+    },
+    {
+      "id": "t3fan13",
+      "kind": "notion-cle",
+      "french": "le lien fraternel (m.)",
+      "anchor": "le lien fraternel",
+      "english": "sibling bond",
+      "example": "Le lien fraternel est souvent négligé dans les analyses familiales, alors qu'il peut constituer un soutien décisif à l'âge adulte.",
+      "usage": "Nom masculin — pluriel : des liens fraternels. Relation entre frères et sœurs, faite de solidarité, de rivalité et de mémoire commune ; à distinguer de la fraternité civique ou religieuse."
+    },
+    {
+      "id": "t3fan14",
+      "kind": "notion-cle",
+      "french": "la parentalité positive (f.)",
+      "anchor": "la parentalité positive",
+      "english": "positive parenting",
+      "example": "La parentalité positive préconise d'encadrer l'enfant avec bienveillance et fermeté, sans recours à la punition corporelle ni à l'humiliation.",
+      "usage": "Nom féminin — pluriel : des parentalités positives. Approche éducative fondée sur bienveillance, cadre et respect de l'enfant ; le pluriel est rare, on parle souvent de pratiques de parentalité positive."
+    },
+    {
+      "id": "t3fan15",
+      "kind": "notion-cle",
+      "french": "la démographie familiale (f.)",
+      "anchor": "la démographie familiale",
+      "english": "family demographics / household demography",
+      "example": "La démographie familiale française témoigne d'une hausse des ménages monoparentaux et d'une baisse de la taille moyenne des foyers.",
+      "usage": "Nom féminin — pluriel : des démographies familiales. Étude des structures et évolutions des foyers ; le pluriel est rare, mais utile pour comparer des pays, des périodes ou des milieux sociaux."
+    },
+    {
+      "id": "t3fav01",
+      "kind": "verbe-collocation",
+      "french": "élever",
+      "anchor": "élever",
+      "english": "to raise / bring up (a child)",
+      "example": "Élever un enfant seul est un défi considérable, surtout quand les ressources financières et le soutien du réseau familial font défaut.",
+      "usage": "Verbe — infinitif : élever ; construction : transitif direct (élever qqn). Registre courant à soutenu ; s'emploie pour la prise en charge éducative durable d'un enfant, avec des compléments comme « seul », « dans le respect » ou « avec fermeté »."
+    },
+    {
+      "id": "t3fav02",
+      "kind": "verbe-collocation",
+      "french": "concilier",
+      "anchor": "concilier",
+      "english": "to balance / reconcile (work and family life)",
+      "example": "Concilier vie professionnelle et vie familiale reste l'un des défis majeurs pour les parents actifs, en particulier en l'absence de modes de garde accessibles.",
+      "usage": "Verbe — infinitif : concilier ; construction : transitif direct double (concilier qqch et qqch). Registre courant à soutenu ; très fréquent pour articuler vie professionnelle, vie familiale, horaires et modes de garde."
+    },
+    {
+      "id": "t3fav03",
+      "kind": "verbe-collocation",
+      "french": "transmettre",
+      "anchor": "transmettre",
+      "english": "to pass on / transmit (values, heritage)",
+      "example": "Les grands-parents jouent un rôle irremplaçable pour transmettre la mémoire familiale et les savoir-faire qui risqueraient autrement de disparaître.",
+      "usage": "Verbe — infinitif : transmettre ; construction : transitif direct avec destinataire en « à » (transmettre qqch à qqn). Registre courant à soutenu ; insiste sur le passage de valeurs, d'une langue ou d'une mémoire familiale."
+    },
+    {
+      "id": "t3fav04",
+      "kind": "verbe-collocation",
+      "french": "s'émanciper",
+      "anchor": "s'émanciper",
+      "english": "to become independent / emancipate oneself",
+      "example": "Pour s'émanciper vraiment, un jeune adulte doit non seulement quitter le foyer parental mais aussi assumer seul ses responsabilités financières et affectives.",
+      "usage": "Verbe — infinitif : s'émanciper ; construction : pronominal, souvent suivi de « de » (s'émanciper de qqch/qqn). Registre courant à soutenu ; implique une autonomie progressive plutôt qu'un simple départ du foyer."
+    },
+    {
+      "id": "t3fav05",
+      "kind": "verbe-collocation",
+      "french": "épauler",
+      "anchor": "épauler",
+      "english": "to support / back up",
+      "example": "Épauler un proche fragilisé au quotidien pèse souvent sur une seule personne, faute d'un véritable relais collectif.",
+      "usage": "Verbe — infinitif : épauler ; construction : transitif direct (épauler qqn). Registre courant ; insiste sur le soutien concret et moral apporté à un proche, sans la nuance de contrôle que porte « encadrer »."
+    },
+    {
+      "id": "t3fav06",
+      "kind": "verbe-collocation",
+      "french": "inculquer",
+      "anchor": "inculquer",
+      "english": "to instil / teach (values, habits)",
+      "example": "Les parents ont la responsabilité d'inculquer à leurs enfants le respect de l'autre avant même que l'école ne prenne le relais.",
+      "usage": "Verbe — infinitif : inculquer ; construction : transitif direct avec destinataire en « à » (inculquer qqch à qqn). Registre soutenu ; souvent associé aux valeurs, aux principes et au sens des responsabilités transmis aux enfants."
+    },
+    {
+      "id": "t3fav07",
+      "kind": "verbe-collocation",
+      "french": "se réconcilier",
+      "anchor": "se réconcilier",
+      "english": "to reconcile / make up (within the family)",
+      "example": "Après des années de brouille, les deux frères ont fini par se réconcilier lors du décès de leur père, rappelant que les liens du sang résistent souvent aux conflits.",
+      "usage": "Verbe — infinitif : se réconcilier ; construction : pronominal, suivi de « avec » (se réconcilier avec qqn). Registre courant ; suppose une démarche de rapprochement après une brouille familiale, plus réciproque que « pardonner »."
+    },
+    {
+      "id": "t3fav08",
+      "kind": "verbe-collocation",
+      "french": "cohabiter",
+      "anchor": "cohabiter",
+      "english": "to cohabit / live together under one roof",
+      "example": "Cohabiter avec ses parents adultes est parfois présenté comme un échec, alors que cela peut refléter un choix économique rationnel ou une solidarité familiale réelle.",
+      "usage": "Verbe — infinitif : cohabiter ; construction : intransitif ou transitif indirect avec « avec » (cohabiter avec qqn). Registre courant à soutenu ; désigne le fait de vivre sous le même toit sans présumer l'harmonie ni le conflit."
+    },
+    {
+      "id": "t3fav09",
+      "kind": "verbe-collocation",
+      "french": "déléguer",
+      "anchor": "déléguer",
+      "english": "to delegate (childcare, responsibilities)",
+      "example": "Faire appel à une assistante maternelle, c'est déléguer une partie de l'éducation quotidienne, ce qui soulève des questions sur le rôle premier des parents.",
+      "usage": "Verbe — infinitif : déléguer ; construction : transitif direct avec destinataire facultatif (déléguer qqch à qqn). Registre courant à soutenu ; dans la famille, porte sur la garde, les soins ou une part de l'autorité éducative."
+    },
+    {
+      "id": "t3fav10",
+      "kind": "verbe-collocation",
+      "french": "rompre",
+      "anchor": "rompre",
+      "english": "to break up / separate (a couple)",
+      "example": "Quand un couple décide de rompre, les enfants sont directement affectés, quelle que soit la qualité de la coparentalité mise en place ensuite.",
+      "usage": "Verbe — infinitif : rompre ; construction : intransitif pour un couple ou transitif indirect avec « avec » (rompre avec qqn/qqch). Registre courant à soutenu ; à employer pour une séparation conjugale ou une coupure familiale."
+    },
+    {
+      "id": "t3fav11",
+      "kind": "verbe-collocation",
+      "french": "veiller sur",
+      "anchor": "veiller sur",
+      "english": "to watch over / look after",
+      "example": "Veiller sur un parent âgé tout en élevant ses propres enfants impose une charge que les pouvoirs publics reconnaissent encore mal.",
+      "usage": "Verbe — infinitif : veiller ; construction : transitif indirect avec « sur » (veiller sur qqn). Registre courant à soutenu ; exprime une attention protectrice et durable, plus affective que la simple surveillance."
+    },
+    {
+      "id": "t3fav12",
+      "kind": "verbe-collocation",
+      "french": "bénéficier",
+      "anchor": "bénéficier",
+      "english": "to benefit from (parental support, social benefits)",
+      "example": "Les familles monoparentales peuvent bénéficier d'allocations spécifiques, mais ces aides restent souvent insuffisantes face aux réalités du quotidien.",
+      "usage": "Verbe — infinitif : bénéficier ; construction : transitif indirect avec « de » (bénéficier de qqch). Registre courant à soutenu ; utile pour parler d'aides, de droits, de congés ou d'un soutien familial reçu."
+    },
+    {
+      "id": "t3fav13",
+      "kind": "verbe-collocation",
+      "french": "nouer",
+      "anchor": "nouer",
+      "english": "to form / build (bonds, ties)",
+      "example": "La crèche permet à l'enfant de nouer ses premières relations sociales en dehors du cercle familial, une étape décisive pour son développement.",
+      "usage": "Verbe — infinitif : nouer ; construction : transitif direct (nouer qqch). Registre courant à soutenu ; collocations fréquentes : nouer des liens, une relation, une complicité, avec l'idée de réciprocité."
+    },
+    {
+      "id": "t3fav14",
+      "kind": "verbe-collocation",
+      "french": "s'investir",
+      "anchor": "s'investir",
+      "english": "to invest oneself / get involved (in parenting)",
+      "example": "Pour s'investir pleinement dans l'éducation de ses enfants, un père doit pouvoir bénéficier d'un congé parental suffisamment long et correctement rémunéré.",
+      "usage": "Verbe — infinitif : s'investir ; construction : pronominal, suivi de « dans » (s'investir dans qqch). Registre courant à soutenu ; marque un engagement durable dans l'éducation, les soins ou la vie du foyer."
+    },
+    {
+      "id": "t3fav15",
+      "kind": "verbe-collocation",
+      "french": "fragiliser",
+      "anchor": "fragiliser",
+      "english": "to weaken / undermine (family stability)",
+      "example": "La précarité économique peut fragiliser l'équilibre familial en générant tensions, absences et difficultés à assurer les besoins fondamentaux des enfants.",
+      "usage": "Verbe — infinitif : fragiliser ; construction : transitif direct (fragiliser qqch/qqn). Registre courant à soutenu ; décrit ce qui affaiblit un lien, un équilibre ou la confiance au sein de la famille."
+    },
+    {
+      "id": "t3fai01",
+      "kind": "expression-idiomatique",
+      "french": "serrer les rangs",
+      "anchor": "serrer les rangs",
+      "english": "to close ranks / pull together as a family",
+      "example": "Face à la maladie du père, toute la famille a décidé de serrer les rangs pour l'accompagner sans le laisser seul.",
+      "usage": "Expression verbale idiomatique ; registre courant. Construction : serrer les rangs (sans complément, sujet collectif) ou serrer les rangs autour de qqn. Évoque la solidarité face à une épreuve ; image militaire transposée au contexte familial."
+    },
+    {
+      "id": "t3fai02",
+      "kind": "expression-idiomatique",
+      "french": "couper le cordon (ombilical)",
+      "anchor": "couper le cordon",
+      "english": "to cut the umbilical cord / break away from parents",
+      "example": "À 28 ans, il lui était encore difficile de couper le cordon et d'assumer seul les grandes décisions de sa vie.",
+      "usage": "Expression verbale idiomatique ; registre courant à familier. Construction : couper le cordon (ombilical) (COD direct). Désigne le difficile passage à l'autonomie ; peut s'appliquer au jeune adulte comme au parent qui « ne lâche pas »."
+    },
+    {
+      "id": "t3fai03",
+      "kind": "expression-idiomatique",
+      "french": "avoir le sens de la famille",
+      "anchor": "avoir le sens de la famille",
+      "english": "to have strong family values / to be family-oriented",
+      "example": "Avoir le sens de la famille ne signifie pas se soumettre à ses injonctions, mais contribuer activement à son équilibre et à sa cohésion.",
+      "usage": "Expression verbale idiomatique ; registre courant à soutenu. Construction : avoir le sens de la famille (sans article devant « famille »). Décrit une valeur personnelle ; peut être valorisé ou critiqué comme forme de repli communautaire."
+    },
+    {
+      "id": "t3fai04",
+      "kind": "expression-idiomatique",
+      "french": "laver son linge sale en famille",
+      "anchor": "laver son linge sale en famille",
+      "english": "to keep family problems within the family",
+      "example": "Certains pensent qu'il vaut mieux laver son linge sale en famille, mais cette attitude peut empêcher de chercher une aide professionnelle pourtant nécessaire.",
+      "usage": "Expression verbale proverbiale ; registre courant à familier. Construction : laver son linge sale en famille (COD figé « son linge sale »). Traduit la volonté de ne pas exposer les conflits à l'extérieur ; souvent nuancée dans un argument critique."
+    },
+    {
+      "id": "t3fai05",
+      "kind": "expression-idiomatique",
+      "french": "les liens du sang",
+      "anchor": "les liens du sang",
+      "english": "blood ties / bonds of kinship",
+      "example": "Les liens du sang créent souvent une solidarité durable, mais ils ne suffisent pas toujours à maintenir une relation saine si le respect mutuel fait défaut.",
+      "usage": "Expression nominale idiomatique ; registre courant à soutenu. Toujours au pluriel : les liens du sang. Évoque la parenté biologique ; permet de nuancer entre solidarité naturelle et relation construite par choix."
+    },
+    {
+      "id": "t3fai06",
+      "kind": "expression-idiomatique",
+      "french": "mettre la main à la pâte",
+      "anchor": "mettre la main à la pâte",
+      "english": "to pitch in / do one's share at home",
+      "example": "Pour que le partage des tâches soit réel, chaque membre de la famille doit mettre la main à la pâte, y compris les enfants dès le plus jeune âge.",
+      "usage": "Expression verbale idiomatique ; registre familier à courant. Construction : mettre la main à la pâte (sans complément d'objet). Très naturelle à l'oral pour illustrer l'implication concrète dans les tâches domestiques."
+    },
+    {
+      "id": "t3fai07",
+      "kind": "expression-idiomatique",
+      "french": "tenir la famille à bout de bras",
+      "anchor": "tenir la famille à bout de bras",
+      "english": "to keep the family going single-handedly",
+      "example": "Après le licenciement de son mari, c'est à elle qu'il revint de tenir la famille à bout de bras pendant deux longues années, en cumulant deux emplois.",
+      "usage": "Expression verbale idiomatique ; registre courant. Construction : tenir qqch/qqn à bout de bras (COD direct). Souligne un effort considérable et souvent solitaire ; forte valeur argumentative pour évoquer le sacrifice parental ou conjugal."
+    },
+    {
+      "id": "t3fai08",
+      "kind": "expression-idiomatique",
+      "french": "élever dans la ouate",
+      "anchor": "élever dans la ouate",
+      "english": "to raise in cotton wool / overprotect a child",
+      "example": "Vouloir élever dans la ouate ses enfants peut sembler bienveillant, mais cela les prive des expériences nécessaires pour développer leur résilience.",
+      "usage": "Expression verbale idiomatique ; registre courant. Construction : élever qqn dans la ouate (COD + locution prépositionnelle figée). Critique d'une surprotection parentale ; utile pour nuancer le débat sur le bien-être et l'autonomie de l'enfant."
+    },
+    {
+      "id": "t3fai09",
+      "kind": "expression-idiomatique",
+      "french": "passer le flambeau",
+      "anchor": "passer le flambeau",
+      "english": "to pass the torch / hand over to the next generation",
+      "example": "Les grands-parents doivent savoir passer le flambeau à leurs enfants tout en restant disponibles comme ressource et comme mémoire vivante de la famille.",
+      "usage": "Expression verbale idiomatique ; registre courant à soutenu. Construction : passer le flambeau à qqn (à + datif). Évoque la transmission intergénérationnelle de manière positive et volontaire."
+    },
+    {
+      "id": "t3fai10",
+      "kind": "expression-idiomatique",
+      "french": "trouver son équilibre",
+      "anchor": "trouver son équilibre",
+      "english": "to find one's balance (between work and family)",
+      "example": "Beaucoup de parents en témoignent : trouver son équilibre entre ambitions professionnelles et présence auprès des enfants ne se fait pas du jour au lendemain.",
+      "usage": "Expression verbale idiomatique ; registre courant. Construction : trouver son équilibre (entre qqch et qqch). L'adjectif possessif « son » implique que cet équilibre est propre à chaque individu ; utile pour nuancer les généralisations."
+    },
+    {
+      "id": "t3fai11",
+      "kind": "expression-idiomatique",
+      "french": "faire passer la famille avant tout",
+      "anchor": "faire passer la famille avant tout",
+      "english": "to put family first above everything else",
+      "example": "Il a refusé une promotion qui l'aurait obligé à s'expatrier, décidant de faire passer la famille avant tout, quitte à freiner temporairement sa carrière.",
+      "usage": "Expression verbale idiomatique ; registre courant. Construction : faire passer qqch avant tout (ou avant qqch). Traduit un choix de priorité explicite ; utile pour introduire un argument sur les sacrifices liés à la vie familiale."
+    },
+    {
+      "id": "t3fai12",
+      "kind": "expression-idiomatique",
+      "french": "rompre avec le modèle familial",
+      "anchor": "rompre avec le modèle familial",
+      "english": "to break with the traditional family model",
+      "example": "Certains jeunes adultes font le choix de rompre avec le modèle familial dans lequel ils ont grandi, en préférant une vie sans enfants ou hors mariage.",
+      "usage": "Expression verbale idiomatique ; registre courant à soutenu. Construction : rompre avec qqch (avec + COI). « Le modèle familial » est souvent laissé implicitement traditionnel ; préciser si nécessaire pour plus de clarté argumentative."
+    },
+    {
+      "id": "t3fai13",
+      "kind": "expression-idiomatique",
+      "french": "vivre sous le même toit",
+      "anchor": "vivre sous le même toit",
+      "english": "to live under the same roof",
+      "example": "Vivre sous le même toit peut renforcer les liens familiaux, à condition que chacun dispose d'un espace personnel suffisant pour préserver son intimité.",
+      "usage": "Expression verbale idiomatique ; registre courant. Construction : vivre sous le même toit (avec qqn). Idiome neutre permettant de désigner la cohabitation sans en présupposer le caractère positif ou négatif."
+    },
+    {
+      "id": "t3fai14",
+      "kind": "expression-idiomatique",
+      "french": "porter la famille sur ses épaules",
+      "anchor": "porter la famille sur ses épaules",
+      "english": "to carry the whole family on one's shoulders",
+      "example": "En tant qu'aîné(e), il n'est pas rare qu'un enfant se sente obligé de porter la famille sur ses épaules, surtout lorsque les parents font face à des difficultés.",
+      "usage": "Expression verbale idiomatique ; registre courant. Construction : porter qqch sur ses épaules (COD + locution figée). Métaphore du fardeau ; utile pour illustrer la pression exercée sur certains membres, notamment dans les familles monoparentales ou précaires."
+    },
+    {
+      "id": "t3fai15",
+      "kind": "expression-idiomatique",
+      "french": "rentrer dans le rang",
+      "anchor": "rentrer dans le rang",
+      "english": "to conform to family expectations / fall into line",
+      "example": "Après quelques années d'expérimentation, certains jeunes adultes finissent par rentrer dans le rang et adopter le schéma familial de leurs parents.",
+      "usage": "Expression verbale idiomatique ; registre courant. Construction : rentrer dans le rang (sans complément). Connotation légèrement péjorative d'une conformité subie ; utile pour discuter des pressions sociales et familiales sur les choix de vie."
+    },
+    {
+      "id": "t3fac01",
+      "kind": "construction-argumentative",
+      "french": "Si … paraît favorable aux familles sur le papier, … peut rester insuffisant dans les faits",
+      "anchor": "sur le papier",
+      "english": "concessive contrast frame",
+      "example": "Si le congé parental paraît favorable aux familles sur le papier, il peut rester insuffisant dans les faits lorsqu'il est trop peu rémunéré pour les foyers modestes.",
+      "usage": "Construction argumentative — concession adversative : « Si … sur le papier, … dans les faits » oppose une promesse affichée à ses effets concrets ; elle sert à nuancer une mesure familiale sans la rejeter totalement."
+    },
+    {
+      "id": "t3fac02",
+      "kind": "construction-argumentative",
+      "french": "C'est précisément parce que … que … se reproduit au sein de la famille",
+      "anchor": "C'est précisément parce que",
+      "english": "causal emphasis frame",
+      "example": "C'est précisément parce que les pères prennent moins souvent le congé parental que la charge domestique se reproduit au sein de la famille.",
+      "usage": "Construction argumentative — mise en relief causale : « C'est précisément parce que … que … » isole la cause avant la conséquence ; elle rend visible un mécanisme familial souvent présenté comme naturel."
+    },
+    {
+      "id": "t3fac03",
+      "kind": "construction-argumentative",
+      "french": "Plus … transforme la cellule familiale, plus … doit adapter son soutien",
+      "anchor": "transforme la cellule familiale",
+      "english": "proportional consequence frame",
+      "example": "Plus la diversité des parcours conjugaux transforme la cellule familiale, plus l'école et les services sociaux doivent adapter leur soutien aux enfants.",
+      "usage": "Construction argumentative — conséquence proportionnelle : « Plus …, plus … » lie l'intensité d'un changement familial à l'ampleur de la réponse nécessaire ; le parallélisme renforce la progression logique."
+    },
+    {
+      "id": "t3fac04",
+      "kind": "construction-argumentative",
+      "french": "La question n'est pas tant de savoir … que de garantir … à chaque enfant",
+      "anchor": "La question n'est pas tant de savoir",
+      "english": "question-reframing frame",
+      "example": "La question n'est pas tant de savoir si une famille recomposée imite le modèle traditionnel que de garantir à chaque enfant des repères affectifs stables.",
+      "usage": "Construction argumentative — recentrage de la question : « La question n'est pas tant de savoir … que de … » déplace le débat d'un jugement de modèle vers un critère concret, ici l'intérêt de l'enfant."
+    },
+    {
+      "id": "t3fac05",
+      "kind": "construction-argumentative",
+      "french": "Même si … soutient la famille, … peut aussi créer une charge invisible",
+      "anchor": "Même si",
+      "english": "even-if concession frame",
+      "example": "Même si la solidarité intergénérationnelle soutient la famille, elle peut aussi créer une charge invisible pour l'aidant qui renonce à son propre équilibre.",
+      "usage": "Construction argumentative — concession avec « même si » : « Même si » admet un fait positif avant d'introduire une limite ; la logique évite l'opposition brutale et ouvre une nuance critique."
+    },
+    {
+      "id": "t3fac06",
+      "kind": "construction-argumentative",
+      "french": "Loin de …, … appelle au contraire … pour les proches",
+      "anchor": "Loin de",
+      "english": "far-from rebuttal frame",
+      "example": "Loin de relever d'un simple choix privé, la dépendance des aînés appelle au contraire une organisation collective pour soulager les proches.",
+      "usage": "Construction argumentative — réfutation par « loin de » : « Loin de + infinitif » écarte une lecture réductrice avant de formuler la thèse inverse ; elle transforme un problème familial en enjeu collectif."
+    },
+    {
+      "id": "t3fac07",
+      "kind": "construction-argumentative",
+      "french": "À mesure que … devient plus difficile, … se transforme en solution familiale",
+      "anchor": "À mesure que",
+      "english": "as-process progression frame",
+      "example": "À mesure que l'autonomie financière devient plus difficile, la cohabitation avec les parents se transforme en solution familiale plutôt qu'en signe d'échec.",
+      "usage": "Construction argumentative — progression avec « à mesure que » : « À mesure que + indicatif » présente une évolution graduelle et sa conséquence ; elle convient aux transformations familiales liées au temps."
+    },
+    {
+      "id": "t3fac08",
+      "kind": "construction-argumentative",
+      "french": "… ne peut être juste qu'à condition que … dans le foyer",
+      "anchor": "qu'à condition que",
+      "english": "necessary-condition frame",
+      "example": "Le partage des tâches domestiques ne peut être juste qu'à condition que chaque parent dispose du même temps réel pour s'occuper du foyer.",
+      "usage": "Construction argumentative — condition nécessaire : « ne … que + à condition que + subjonctif » fixe le préalable logique d'une conclusion ; elle évite de réduire l'équité familiale à la bonne volonté."
+    },
+    {
+      "id": "t3fac09",
+      "kind": "construction-argumentative",
+      "french": "On peut … sans pour autant … dans l'éducation familiale",
+      "anchor": "sans pour autant",
+      "english": "nuanced permission frame",
+      "example": "On peut défendre la transmission des valeurs sans pour autant transformer l'éducation familiale en reproduction automatique des choix des parents.",
+      "usage": "Construction argumentative — nuance « on peut … sans … » : « On peut + infinitif » valide une intention, puis « sans pour autant + infinitif » en fixe la limite ; très utile pour éviter les faux dilemmes."
+    },
+    {
+      "id": "t3fac10",
+      "kind": "construction-argumentative",
+      "french": "Si … peut enrichir la vie familiale, cela exige de …",
+      "anchor": "cela exige",
+      "english": "concession-demands frame",
+      "example": "Si la famille recomposée peut enrichir la vie familiale, cela exige des adultes une parole claire sur les places et les limites de chacun.",
+      "usage": "Construction argumentative — concession suivie d'exigence : « Si … peut …, cela exige … » reconnaît un avantage avant de nommer la condition pratique ; la structure combat l'idéalisation naïve."
+    },
+    {
+      "id": "t3fac11",
+      "kind": "construction-argumentative",
+      "french": "Le conflit … au sein de la famille n'est pas seulement … ; il peut aussi …",
+      "anchor": "il peut aussi",
+      "english": "revaluation frame",
+      "example": "Le conflit de générations au sein de la famille n'est pas seulement une menace pour l'harmonie domestique ; il peut aussi obliger parents et enfants à formuler leurs valeurs.",
+      "usage": "Construction argumentative — réévaluation « n'est pas … ; il peut aussi … » : la première proposition refuse une lecture unique, la seconde ajoute une interprétation constructive ; elle nuance un conflit familial."
+    },
+    {
+      "id": "t3fac12",
+      "kind": "construction-argumentative",
+      "french": "Alors que … familiale évolue rapidement, … tarde à reconnaître …",
+      "anchor": "Alors que",
+      "english": "whereas contrast frame",
+      "example": "Alors que la démographie familiale évolue rapidement, la politique du logement tarde à reconnaître la diversité des foyers.",
+      "usage": "Construction argumentative — contraste avec « alors que » : « Alors que + indicatif » expose un fait établi, puis la principale signale un décalage ; elle oppose évolution familiale et réponse institutionnelle."
+    },
+    {
+      "id": "t3fac13",
+      "kind": "construction-argumentative",
+      "french": "L'autorité … ne se décrète pas : elle se construit par …",
+      "anchor": "ne se décrète pas",
+      "english": "definition-through-opposition frame",
+      "example": "L'autorité parentale ne se décrète pas : elle se construit par des règles cohérentes et par une écoute régulière des enfants.",
+      "usage": "Construction argumentative — définition par opposition : « L'autorité … ne se décrète pas : elle se construit par … » refuse une conception autoritaire et définit la notion par un processus ; la formule donne du relief à une thèse éducative."
+    },
+    {
+      "id": "t3fac14",
+      "kind": "construction-argumentative",
+      "french": "Bien que … puisse fragiliser les liens familiaux, … peut aussi les renforcer",
+      "anchor": "Bien que",
+      "english": "although concession frame",
+      "example": "Bien que l'arrivée d'un demi-frère puisse fragiliser les liens familiaux, elle peut aussi les renforcer lorsque les adultes donnent à chacun une place reconnue.",
+      "usage": "Construction argumentative — concession avec « bien que » : « Bien que + subjonctif » introduit un obstacle reconnu, puis la principale ouvre une issue positive ; elle articule tension et dépassement."
+    },
+    {
+      "id": "t3fac15",
+      "kind": "construction-argumentative",
+      "french": "La parentalité … ne saurait se réduire à … : elle engage aussi …",
+      "anchor": "ne saurait se réduire à",
+      "english": "anti-reduction frame",
+      "example": "La parentalité positive ne saurait se réduire à une mode éducative : elle engage aussi une réflexion sur l'autorité, la confiance et la dignité de l'enfant.",
+      "usage": "Construction argumentative — refus de réduction : « ne saurait se réduire à … : … engage aussi … » écarte une caricature avant d'élargir l'enjeu ; la tournure soutenue renforce l'autorité du propos."
+    }
+  ]
+}

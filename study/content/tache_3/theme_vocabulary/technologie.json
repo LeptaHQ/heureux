@@ -1,0 +1,547 @@
+{
+  "version": 1,
+  "theme": "technologie",
+  "name": "Technologie",
+  "entries": [
+    {
+      "id": "t3ten01",
+      "kind": "notion-cle",
+      "french": "la transformation numérique (f.)",
+      "anchor": "la transformation numérique",
+      "english": "digital transformation",
+      "example": "La transformation numérique oblige les organisations à repenser leurs méthodes de travail plutôt qu'à simplement remplacer le papier par des écrans.",
+      "usage": "Nom féminin — pluriel : des transformations numériques. Désigne l'intégration profonde des outils numériques dans les pratiques d'une organisation ou d'une société. Sert à discuter des changements de méthode, de formation et de gouvernance, au-delà d'une simple informatisation."
+    },
+    {
+      "id": "t3ten02",
+      "kind": "notion-cle",
+      "french": "l'intelligence artificielle (f.)",
+      "anchor": "l'intelligence artificielle",
+      "english": "artificial intelligence (AI)",
+      "example": "L'intelligence artificielle peut aider à décider plus vite, mais elle exige un contrôle humain lorsque ses choix touchent des droits essentiels.",
+      "usage": "Nom féminin — pluriel : des intelligences artificielles. Désigne un ensemble de systèmes capables d'imiter certaines opérations cognitives, comme classer, prédire ou générer. La forme plurielle s'emploie pour comparer plusieurs approches ; en débat, éviter de réduire la notion aux robots."
+    },
+    {
+      "id": "t3ten03",
+      "kind": "notion-cle",
+      "french": "l'objet connecté (m.)",
+      "anchor": "l'objet connecté",
+      "english": "connected device / IoT object",
+      "example": "L'objet connecté promet plus de confort au quotidien, mais il multiplie aussi les points d'entrée pour la collecte de nos données personnelles.",
+      "usage": "Nom masculin — pluriel : des objets connectés. Désigne un appareil relié à Internet capable d'échanger des données (montre, enceinte, capteur domestique). Central dans les débats sur la vie privée et la sécurité numérique. Collocations : déployer / sécuriser / pirater un objet connecté."
+    },
+    {
+      "id": "t3ten04",
+      "kind": "notion-cle",
+      "french": "les données personnelles (f. pl.)",
+      "anchor": "les données personnelles",
+      "english": "personal data",
+      "example": "Les données personnelles ne devraient pas être traitées comme une simple matière première, car elles révèlent des aspects intimes de la vie des individus.",
+      "usage": "Nom féminin pluriel — singulier : une/la donnée personnelle. Désigne les informations qui identifient directement ou indirectement une personne. Le pluriel est le plus courant ; collocations utiles : collecter, traiter, protéger, anonymiser les données personnelles."
+    },
+    {
+      "id": "t3ten05",
+      "kind": "notion-cle",
+      "french": "la cybersécurité (f.)",
+      "anchor": "la cybersécurité",
+      "english": "cybersecurity",
+      "example": "Sans investissement sérieux dans la cybersécurité, les infrastructures critiques restent exposées aux attaques informatiques et aux fuites de données.",
+      "usage": "Nom féminin — pluriel : des cybersécurités (forme rare dans ce sens). Désigne l'ensemble des mesures destinées à protéger les systèmes, les réseaux et les données contre les menaces numériques. Le terme convient aux débats sur la résilience, la souveraineté et la confiance."
+    },
+    {
+      "id": "t3ten06",
+      "kind": "notion-cle",
+      "french": "l'algorithme (m.)",
+      "anchor": "l'algorithme",
+      "english": "algorithm",
+      "example": "L'algorithme qui recommande les contenus peut renforcer des préférences déjà installées et limiter l'exposition à des opinions différentes.",
+      "usage": "Nom masculin — pluriel : des algorithmes. Désigne une suite d'instructions permettant de traiter des données et de produire un résultat. Dans l'argumentation numérique, le mot sert à interroger la transparence, les biais et la responsabilité des systèmes automatisés."
+    },
+    {
+      "id": "t3ten07",
+      "kind": "notion-cle",
+      "french": "la désinformation (f.)",
+      "anchor": "la désinformation",
+      "english": "misinformation / disinformation",
+      "example": "La désinformation gagne en efficacité lorsque les plateformes privilégient les contenus qui provoquent une réaction immédiate plutôt qu'une réflexion critique.",
+      "usage": "Nom féminin — pluriel : des désinformations (forme rare dans ce sens). Désigne la diffusion intentionnelle de fausses informations pour tromper ou orienter l'opinion. À distinguer de la mésinformation, qui peut être involontaire ; utile pour analyser le rôle des réseaux sociaux."
+    },
+    {
+      "id": "t3ten08",
+      "kind": "notion-cle",
+      "french": "la fracture numérique (f.)",
+      "anchor": "la fracture numérique",
+      "english": "digital divide",
+      "example": "La fracture numérique révèle que l'accès aux outils ne suffit pas si les citoyens ne disposent pas aussi des compétences nécessaires pour les utiliser.",
+      "usage": "Nom féminin — pluriel : des fractures numériques. Désigne les inégalités d'accès, d'équipement, de compétence ou d'usage liées au numérique. Sert à relier la technologie aux questions sociales, éducatives et territoriales."
+    },
+    {
+      "id": "t3ten09",
+      "kind": "notion-cle",
+      "french": "le télétravail (m.)",
+      "anchor": "le télétravail",
+      "english": "remote work / teleworking",
+      "example": "Le télétravail peut améliorer l'équilibre de vie, mais il oblige aussi les entreprises à préserver le lien collectif et le droit à la déconnexion.",
+      "usage": "Nom masculin — pluriel : des télétravails (forme rare dans ce sens). Désigne l'exercice d'une activité professionnelle à distance au moyen d'outils numériques. Le mot permet de discuter flexibilité, isolement, gestion d'équipe et frontières entre vie privée et vie professionnelle."
+    },
+    {
+      "id": "t3ten10",
+      "kind": "notion-cle",
+      "french": "l'obsolescence programmée (f.)",
+      "anchor": "l'obsolescence programmée",
+      "english": "planned obsolescence",
+      "example": "L'obsolescence programmée alimente une consommation rapide des appareils et rend plus difficile une politique sérieuse de sobriété numérique.",
+      "usage": "Nom féminin — pluriel : des obsolescences programmées (forme rare dans ce sens). Désigne la limitation volontaire ou organisée de la durée de vie d'un produit. Expression utile pour critiquer le gaspillage, les déchets électroniques et la responsabilité des fabricants."
+    },
+    {
+      "id": "t3ten11",
+      "kind": "notion-cle",
+      "french": "la surveillance numérique (f.)",
+      "anchor": "la surveillance numérique",
+      "english": "digital surveillance",
+      "example": "La surveillance numérique devient problématique lorsqu'elle transforme chaque geste en donnée exploitable sans consentement clair des citoyens.",
+      "usage": "Nom féminin — pluriel : des surveillances numériques. Désigne le suivi automatisé ou connecté des comportements par des États, des entreprises ou des dispositifs techniques. À associer aux débats sur la vie privée, le consentement et les garde-fous démocratiques."
+    },
+    {
+      "id": "t3ten12",
+      "kind": "notion-cle",
+      "french": "les services en ligne (m. pl.)",
+      "anchor": "les services en ligne",
+      "english": "online services",
+      "example": "Les services en ligne simplifient de nombreuses démarches, mais ils peuvent exclure ceux qui maîtrisent mal les outils numériques.",
+      "usage": "Nom masculin pluriel — singulier : un/le service en ligne. Désigne les prestations accessibles par Internet, qu'elles soient administratives, commerciales ou culturelles. Le pluriel est fréquent pour évoquer un ensemble de plateformes et discuter accessibilité, dépendance ou souveraineté."
+    },
+    {
+      "id": "t3ten13",
+      "kind": "notion-cle",
+      "french": "le contrôle humain (m.)",
+      "anchor": "le contrôle humain",
+      "english": "human oversight / human control",
+      "example": "Le contrôle humain des décisions automatisées reste nécessaire dès qu'un algorithme peut affecter l'accès à un emploi, à un crédit ou à un droit.",
+      "usage": "Nom masculin — pluriel : des contrôles humains. Désigne la possibilité pour une personne de superviser, corriger ou refuser une décision automatisée. Notion centrale pour articuler efficacité technologique, responsabilité juridique et confiance des usagers."
+    },
+    {
+      "id": "t3ten14",
+      "kind": "notion-cle",
+      "french": "le temps d'écran (m.)",
+      "anchor": "le temps d'écran",
+      "english": "screen time",
+      "example": "Le temps d'écran des enfants doit être accompagné par les adultes, car la durée seule ne dit pas toujours la qualité des usages numériques.",
+      "usage": "Nom masculin — pluriel : des temps d'écran (forme rare dans ce sens). Désigne la durée passée devant un écran, surtout connecté. Sert à débattre de santé, d'éducation, d'attention et de pratiques familiales sans réduire la question à une simple quantité d'heures."
+    },
+    {
+      "id": "t3ten15",
+      "kind": "notion-cle",
+      "french": "l'innovation technologique (f.)",
+      "anchor": "l'innovation technologique",
+      "english": "technological innovation",
+      "example": "L'innovation technologique n'a de valeur sociale que si elle répond à des besoins réels et respecte les limites éthiques et environnementales.",
+      "usage": "Nom féminin — pluriel : des innovations technologiques. Désigne l'introduction de procédés, outils ou services nouveaux fondés sur la technique. Dans un débat, le terme gagne à être nuancé par les idées d'utilité, d'impact social et de responsabilité."
+    },
+    {
+      "id": "t3tev01",
+      "kind": "verbe-collocation",
+      "french": "numériser",
+      "anchor": "numériser",
+      "english": "to digitise / to convert to digital format",
+      "example": "Les administrations publiques ont été contraintes de numériser l'ensemble de leurs procédures pour répondre aux attentes des citoyens connectés.",
+      "usage": "Verbe — infinitif : numériser ; construction : transitif direct (numériser + COD). Registre neutre à soutenu ; s'emploie pour des documents, archives ou procédures convertis en format numérique. À préférer à « digitaliser » dans un français soigné."
+    },
+    {
+      "id": "t3tev02",
+      "kind": "verbe-collocation",
+      "french": "automatiser",
+      "anchor": "automatiser",
+      "english": "to automate",
+      "example": "Automatiser certaines tâches administratives permet de réduire les erreurs humaines et de libérer les agents pour des missions plus complexes.",
+      "usage": "Verbe — infinitif : automatiser ; construction : transitif direct (automatiser + COD). Registre neutre à soutenu ; souvent suivi d'un complément de but avec « pour » ou « afin de ». Le verbe insiste sur le remplacement d'une opération répétitive par un procédé technique."
+    },
+    {
+      "id": "t3tev03",
+      "kind": "verbe-collocation",
+      "french": "collecter",
+      "anchor": "collecter",
+      "english": "to collect (data)",
+      "example": "Autoriser les entreprises à collecter des données sur les comportements d'achat à une échelle que la plupart des consommateurs ne soupçonnent pas soulève des questions fondamentales de consentement.",
+      "usage": "Verbe — infinitif : collecter ; construction : transitif direct (collecter + COD). Registre neutre à soutenu ; très fréquent avec « des données » ou « des informations ». Dans un débat numérique, le verbe appelle souvent les notions de consentement, de finalité et de proportionnalité."
+    },
+    {
+      "id": "t3tev04",
+      "kind": "verbe-collocation",
+      "french": "réguler",
+      "anchor": "réguler",
+      "english": "to regulate",
+      "example": "Réguler les géants du numérique est devenu une priorité politique dans de nombreuses démocraties, afin de limiter leur pouvoir de marché.",
+      "usage": "Verbe — infinitif : réguler ; construction : transitif direct (réguler + COD). Registre soutenu, courant dans les discours juridiques, politiques et économiques. Il insiste sur l'établissement d'un cadre durable, davantage que sur la simple résolution ponctuelle d'un problème."
+    },
+    {
+      "id": "t3tev05",
+      "kind": "verbe-collocation",
+      "french": "surveiller",
+      "anchor": "surveiller",
+      "english": "to monitor / to surveil",
+      "example": "Certains gouvernements utilisent des technologies avancées pour surveiller leurs citoyens au nom de la sécurité nationale.",
+      "usage": "Verbe — infinitif : surveiller ; construction : transitif direct (surveiller + COD). Registre neutre à soutenu ; connotation souvent critique quand le COD désigne des personnes ou des communications. Le verbe sert à interroger la sécurité, la vie privée et les limites du contrôle technique."
+    },
+    {
+      "id": "t3tev06",
+      "kind": "verbe-collocation",
+      "french": "désinformer",
+      "anchor": "désinformer",
+      "english": "to spread disinformation / to misinform",
+      "example": "Les campagnes organisées pour désinformer l'opinion publique exploitent la rapidité des réseaux sociaux et la crédulité des utilisateurs.",
+      "usage": "Verbe — infinitif : désinformer ; construction : transitif direct (désinformer + COD). Registre soutenu, fréquent dans les contextes journalistiques et politiques. Il implique une intention de tromper, contrairement à une erreur ou à une information simplement mal vérifiée."
+    },
+    {
+      "id": "t3tev07",
+      "kind": "verbe-collocation",
+      "french": "innover",
+      "anchor": "innover",
+      "english": "to innovate",
+      "example": "Pour rester compétitives, les entreprises technologiques doivent innover en permanence, même quand cela implique de prendre des risques importants.",
+      "usage": "Verbe — infinitif : innover ; construction : intransitif, souvent avec « dans », « en matière de » ou « sur ». Registre neutre à soutenu ; le verbe valorise la nouveauté, mais gagne à être accompagné d'un complément qui précise le domaine, le rythme ou la finalité de l'innovation."
+    },
+    {
+      "id": "t3tev08",
+      "kind": "verbe-collocation",
+      "french": "protéger",
+      "anchor": "protéger",
+      "english": "to protect (data, privacy)",
+      "example": "Protéger les données des utilisateurs n'est pas seulement une obligation légale, c'est aussi un enjeu de confiance fondamental pour toute plateforme numérique.",
+      "usage": "Verbe — infinitif : protéger ; construction : transitif direct, souvent suivi de « contre » ou « de ». Registre neutre à soutenu ; très utile avec « les données », « la vie privée » ou « les utilisateurs ». Il donne une orientation normative aux arguments sur la confiance numérique."
+    },
+    {
+      "id": "t3tev09",
+      "kind": "verbe-collocation",
+      "french": "dépendre",
+      "anchor": "dépendre",
+      "english": "to depend on (technology)",
+      "example": "Laisser une société dépendre entièrement de quelques plateformes privées pour son infrastructure numérique l'expose à des risques considérables de panne ou de censure.",
+      "usage": "Verbe — infinitif : dépendre ; construction : transitif indirect avec « de » (dépendre de + nom ou infinitif). Registre neutre ; exprime une relation de nécessité ou de vulnérabilité. Dans le domaine technologique, il permet de critiquer une dépendance aux plateformes, aux infrastructures ou aux fournisseurs."
+    },
+    {
+      "id": "t3tev10",
+      "kind": "verbe-collocation",
+      "french": "former",
+      "anchor": "former",
+      "english": "to train / to educate (in digital skills)",
+      "example": "Former les travailleurs aux outils numériques est une condition indispensable pour réduire la fracture numérique dans le monde professionnel.",
+      "usage": "Verbe — infinitif : former ; construction : transitif direct, avec complément de domaine introduit par « à ». Registre neutre à soutenu ; s'emploie pour des personnes que l'on prépare à utiliser des outils ou à adopter des pratiques numériques. Il appuie les arguments sur l'inclusion et l'adaptation professionnelle."
+    },
+    {
+      "id": "t3tev11",
+      "kind": "verbe-collocation",
+      "french": "cibler",
+      "anchor": "cibler",
+      "english": "to target (users, audiences)",
+      "example": "Les plateformes publicitaires sont capables de cibler des utilisateurs avec une précision qui rend difficile toute régulation efficace du contenu commercial.",
+      "usage": "Verbe — infinitif : cibler ; construction : transitif direct (cibler + COD). Registre neutre à soutenu ; courant en publicité, politique et analyse de données. Le verbe souligne la précision d'un dispositif et peut prendre une nuance critique lorsqu'il touche des publics vulnérables."
+    },
+    {
+      "id": "t3tev12",
+      "kind": "verbe-collocation",
+      "french": "accélérer",
+      "anchor": "accélérer",
+      "english": "to accelerate (digital change, adoption)",
+      "example": "La crise sanitaire a montré qu'il était possible d'accélérer l'adoption des outils numériques dans des secteurs traditionnellement réfractaires au changement.",
+      "usage": "Verbe — infinitif : accélérer ; construction : transitif direct (accélérer + COD), avec emploi intransitif possible. Registre neutre à soutenu ; exprime l'intensification d'un processus. Dans un argument, il sert à montrer que la technologie modifie le rythme des transformations sociales."
+    },
+    {
+      "id": "t3tev13",
+      "kind": "verbe-collocation",
+      "french": "encadrer",
+      "anchor": "encadrer",
+      "english": "to regulate / to provide a framework for",
+      "example": "Encadrer l'utilisation des algorithmes de reconnaissance faciale est devenu une nécessité juridique et éthique dans les États démocratiques.",
+      "usage": "Verbe — infinitif : encadrer ; construction : transitif direct (encadrer + COD). Registre soutenu, propre aux discours juridiques et institutionnels. Il insiste sur la fixation de règles, de limites ou de procédures, plutôt que sur une interdiction pure et simple."
+    },
+    {
+      "id": "t3tev14",
+      "kind": "verbe-collocation",
+      "french": "connecter",
+      "anchor": "connecter",
+      "english": "to connect (devices, people)",
+      "example": "Connecter les zones rurales au haut débit reste un défi majeur pour réduire les inégalités numériques sur le territoire national.",
+      "usage": "Verbe — infinitif : connecter ; construction : transitif direct, souvent suivi de « à » (connecter quelqu'un ou quelque chose à un réseau). Registre neutre ; existe aussi sous la forme pronominale « se connecter à ». Utile pour parler d'infrastructures, d'accès et d'inégalités territoriales."
+    },
+    {
+      "id": "t3tev15",
+      "kind": "verbe-collocation",
+      "french": "traiter",
+      "anchor": "traiter",
+      "english": "to process (data)",
+      "example": "Traiter automatiquement des millions de données personnelles sans consentement explicite constitue une violation grave du droit à la vie privée.",
+      "usage": "Verbe — infinitif : traiter ; construction : transitif direct (traiter + COD). Registre neutre à soutenu ; dans le droit des données, il désigne toute opération appliquée à des informations personnelles. À distinguer d'« analyser », qui suppose davantage une interprétation."
+    },
+    {
+      "id": "t3tei01",
+      "kind": "expression-idiomatique",
+      "french": "être à la pointe de la technologie",
+      "anchor": "à la pointe de la technologie",
+      "english": "to be at the cutting edge of technology",
+      "example": "Les entreprises qui se veulent à la pointe de la technologie doivent aussi accepter que l'innovation peut produire des effets imprévus sur la société.",
+      "usage": "Expression figée d'usage courant à soutenu ; la syntaxe associe « être » ou « se vouloir » à « à la pointe de la technologie ». Elle valorise un acteur très avancé techniquement, mais peut aussi servir à interroger la course à l'innovation."
+    },
+    {
+      "id": "t3tei02",
+      "kind": "expression-idiomatique",
+      "french": "sur la Toile",
+      "anchor": "sur la Toile",
+      "english": "on the web",
+      "example": "Les rumeurs qui circulent sur la Toile obligent chacun à vérifier l'origine des informations avant de les partager.",
+      "usage": "Expression imagée et lexicalisée d'usage courant : « la Toile » désigne Internet comme un réseau. S'emploie avec des verbes de circulation ou de publication, comme « circuler sur la Toile ». Elle donne un cadrage concret aux arguments sur l'information, les rumeurs et la visibilité."
+    },
+    {
+      "id": "t3tei03",
+      "kind": "expression-idiomatique",
+      "french": "tirer la sonnette d'alarme",
+      "anchor": "tirer la sonnette d'alarme",
+      "english": "to sound the alarm / to raise the alarm",
+      "example": "Il est impératif de tirer la sonnette d'alarme face à la vitesse à laquelle les données personnelles sont collectées sans véritable consentement des utilisateurs.",
+      "usage": "Expression idiomatique d'usage courant à journalistique ; syntaxe fixe : sujet + « tirer la sonnette d'alarme » + complément de cause ou de thème. Elle marque l'urgence et l'avertissement, utiles pour introduire une alerte sur la collecte de données ou les risques technologiques."
+    },
+    {
+      "id": "t3tei04",
+      "kind": "expression-idiomatique",
+      "french": "un outil à double tranchant",
+      "anchor": "un outil à double tranchant",
+      "english": "double-edged tool",
+      "example": "L'intelligence artificielle est un outil à double tranchant : elle peut améliorer les diagnostics médicaux autant qu'elle peut renforcer des biais discriminatoires.",
+      "usage": "Expression imagée d'usage courant à soutenu ; syntaxe fixe : « un outil à double tranchant » ou, plus largement, nom + « à double tranchant ». Elle signale qu'une technologie produit à la fois bénéfices et risques, utile pour une concession."
+    },
+    {
+      "id": "t3tei05",
+      "kind": "expression-idiomatique",
+      "french": "prendre du recul",
+      "anchor": "prendre du recul",
+      "english": "to step back / to take a broader perspective",
+      "example": "Avant d'adopter une nouvelle technologie, il est utile de prendre du recul pour évaluer ses effets à long terme sur les habitudes sociales.",
+      "usage": "Expression idiomatique d'usage courant ; syntaxe : « prendre du recul », souvent suivi de « face à » ou de « pour + infinitif ». Elle appelle une distance critique et permet de nuancer un enthousiasme technologique avant d'évaluer les effets sociaux ou éthiques."
+    },
+    {
+      "id": "t3tei06",
+      "kind": "expression-idiomatique",
+      "french": "à portée de clic",
+      "anchor": "à portée de clic",
+      "english": "just a click away / instantly accessible online",
+      "example": "Les services administratifs sont désormais accessibles à portée de clic, ce qui réduit les délais mais suppose une connexion et des compétences numériques minimales.",
+      "usage": "Expression imagée d'usage courant, légèrement familière à neutre ; syntaxe : « être » ou « rendre » quelque chose « à portée de clic ». Elle valorise l'accès immédiat en ligne, tout en permettant de rappeler les limites liées à la connexion et aux compétences."
+    },
+    {
+      "id": "t3tei07",
+      "kind": "expression-idiomatique",
+      "french": "laisser des traces numériques",
+      "anchor": "laisser des traces numériques",
+      "english": "to leave a digital footprint / to leave digital traces",
+      "example": "Chaque action sur Internet peut laisser des traces numériques qui seront exploitées à des fins commerciales ou judiciaires.",
+      "usage": "Expression lexicalisée d'usage courant à soutenu ; syntaxe : sujet + « laisser des traces numériques », avec complément possible sur la destination ou l'exploitation. Elle rend visible la persistance des activités en ligne et soutient les arguments sur la vie privée."
+    },
+    {
+      "id": "t3tei08",
+      "kind": "expression-idiomatique",
+      "french": "être dépassé par les événements",
+      "anchor": "être dépassé par les événements",
+      "english": "to be overtaken by events / to be overwhelmed by developments",
+      "example": "Le législateur risque d'être dépassé par les événements si les textes de loi ne s'adaptent pas au rythme des avancées technologiques.",
+      "usage": "Expression idiomatique d'usage neutre à soutenu ; syntaxe : sujet humain ou institutionnel + « être dépassé par les événements ». Elle exprime l'incapacité à suivre un changement trop rapide et sert à critiquer le retard du droit face aux innovations."
+    },
+    {
+      "id": "t3tei09",
+      "kind": "expression-idiomatique",
+      "french": "sans garde-fou",
+      "anchor": "sans garde-fou",
+      "english": "without safeguards / unchecked",
+      "example": "Un système d'intelligence artificielle déployé sans garde-fou constitue un risque majeur pour les droits fondamentaux des personnes concernées.",
+      "usage": "Expression figée d'usage soutenu ; syntaxe : groupe nominal ou participe passé + « sans garde-fou », avec pluriel possible « sans garde-fous ». Elle signale l'absence de mécanismes de protection et renforce une critique éthique ou juridique de la technologie."
+    },
+    {
+      "id": "t3tei10",
+      "kind": "expression-idiomatique",
+      "french": "la course en avant",
+      "anchor": "course en avant",
+      "english": "the headlong rush / an uncontrolled race forward",
+      "example": "La course en avant vers des technologies toujours plus puissantes ne devrait pas dispenser les acteurs du secteur de répondre de leurs choix devant la société.",
+      "usage": "Expression imagée d'usage soutenu, souvent péjorative ; syntaxe : « la course en avant » suivie d'un complément comme « vers » ou « technologique ». Elle critique une accélération sans recul et aide à dénoncer une logique d'innovation incontrôlée."
+    },
+    {
+      "id": "t3tei11",
+      "kind": "expression-idiomatique",
+      "french": "mettre en péril",
+      "anchor": "mettre en péril",
+      "english": "to endanger / to jeopardise",
+      "example": "Une utilisation non encadrée des données biométriques risque de mettre en péril des droits fondamentaux reconnus dans les textes constitutionnels.",
+      "usage": "Expression verbale figée d'usage soutenu ; syntaxe : sujet + « mettre en péril » + COD. Plus solennelle que « mettre en danger », elle convient aux arguments sur les droits, la sécurité ou la démocratie menacés par un usage technologique."
+    },
+    {
+      "id": "t3tei12",
+      "kind": "expression-idiomatique",
+      "french": "faire fi de",
+      "anchor": "faire fi de",
+      "english": "to disregard / to ignore (sth) entirely",
+      "example": "Toute entreprise qui choisit de faire fi des risques éthiques liés au déploiement d'un algorithme de recrutement finit par automatiser des discriminations préexistantes.",
+      "usage": "Expression verbale figée d'usage soutenu à littéraire ; syntaxe : sujet + « faire fi de » + groupe nominal. Elle marque un mépris délibéré pour une règle, une alerte ou un risque, et donne une force critique à l'argumentation."
+    },
+    {
+      "id": "t3tei13",
+      "kind": "expression-idiomatique",
+      "french": "en temps réel",
+      "anchor": "en temps réel",
+      "english": "in real time",
+      "example": "Les plateformes de diffusion vidéo peuvent ajuster leurs recommandations en temps réel, en analysant les réactions de l'utilisateur au fil de sa navigation.",
+      "usage": "Expression adverbiale figée d'usage neutre ; syntaxe : verbe d'action ou de traitement + « en temps réel ». Elle insiste sur l'instantanéité d'un processus numérique et sert à discuter réactivité, surveillance ou personnalisation automatisée."
+    },
+    {
+      "id": "t3tei14",
+      "kind": "expression-idiomatique",
+      "french": "prendre le dessus sur",
+      "anchor": "prendre le dessus sur",
+      "english": "to take over / to prevail over",
+      "example": "Si la logique commerciale finit par prendre le dessus sur les impératifs éthiques, les utilisateurs se retrouvent réduits à de simples sources de données.",
+      "usage": "Expression verbale figée d'usage courant à soutenu ; syntaxe : sujet abstrait ou humain + « prendre le dessus sur » + complément. Elle indique qu'une logique l'emporte sur une autre et permet de formuler un renversement critique dans un débat technologique."
+    },
+    {
+      "id": "t3tei15",
+      "kind": "expression-idiomatique",
+      "french": "à l'ère du numérique",
+      "anchor": "à l'ère du numérique",
+      "english": "in the digital age / in the era of digital technology",
+      "example": "À l'ère du numérique, la frontière entre information vérifiée et rumeur non étayée est devenue particulièrement difficile à maintenir pour le grand public.",
+      "usage": "Expression prépositionnelle figée d'usage courant à soutenu ; syntaxe : « à l'ère du numérique » en tête de phrase ou de proposition. Elle pose un cadre temporel large et donne de la portée aux arguments sur l'information, l'éducation ou la vie privée."
+    },
+    {
+      "id": "t3tec01",
+      "kind": "construction-argumentative",
+      "french": "Il convient de distinguer… de…",
+      "anchor": "Il convient de distinguer",
+      "english": "It is important to distinguish … from …",
+      "example": "Il convient de distinguer la collecte de données anonymisées, indispensable à la recherche, de la collecte de données personnelles à des fins commerciales sans consentement.",
+      "usage": "Construction argumentative — distinction conceptuelle : formule impersonnelle suivie de deux groupes nominaux reliés par « de ». Elle sert à séparer des réalités proches, comme données anonymisées et données personnelles, afin d'éviter les généralisations dans un débat technologique."
+    },
+    {
+      "id": "t3tec02",
+      "kind": "construction-argumentative",
+      "french": "On peut certes reconnaître que…, mais il n'en reste pas moins que…",
+      "anchor": "On peut certes reconnaître que",
+      "english": "One can admittedly acknowledge that …, yet it remains true that …",
+      "example": "On peut certes reconnaître que l'automatisation crée de nouveaux emplois dans certains secteurs, mais il n'en reste pas moins que les gains sont très inégalement répartis.",
+      "usage": "Construction argumentative — concession/réfutation : le premier membre introduit une concession avec « certes », puis « mais il n'en reste pas moins que » réaffirme la thèse. Utile pour reconnaître un bénéfice technologique tout en soulignant ses limites."
+    },
+    {
+      "id": "t3tec03",
+      "kind": "construction-argumentative",
+      "french": "Sous couvert de …, on …",
+      "anchor": "Sous couvert de",
+      "english": "under the guise of … frame",
+      "example": "Sous couvert de personnalisation, on habitue les internautes à céder toujours plus de données sans consentement réellement éclairé.",
+      "usage": "Construction argumentative — dévoilement critique : « Sous couvert de … » énonce un motif affiché, puis « on … » révèle l'effet réel, souvent contestable. Sert à démasquer un discours de façade et à introduire une objection. Registre soutenu."
+    },
+    {
+      "id": "t3tec04",
+      "kind": "construction-argumentative",
+      "french": "À mesure que… on observe que…",
+      "anchor": "À mesure que",
+      "english": "As … (progresses / increases), one observes that …",
+      "example": "À mesure que les capacités de traitement de l'intelligence artificielle progressent, on observe que les questions d'éthique et de responsabilité prennent une importance croissante.",
+      "usage": "Construction argumentative — corrélation évolutive : « À mesure que » introduit une subordonnée de progression, suivie d'une principale qui constate un effet. Elle relie deux tendances, par exemple puissance technique et responsabilité éthique."
+    },
+    {
+      "id": "t3tec05",
+      "kind": "construction-argumentative",
+      "french": "Il serait hasardeux de conclure que…",
+      "anchor": "Il serait hasardeux de conclure que",
+      "english": "It would be rash to conclude that …",
+      "example": "Il serait hasardeux de conclure que l'essor de la désinformation en ligne est irréversible, car des mécanismes de vérification collaborative émergent progressivement.",
+      "usage": "Construction argumentative — prudence épistémique : l'impersonnel conditionnel « Il serait hasardeux de conclure que » annonce une réserve face à une généralisation. Elle permet de nuancer une prévision sur les effets d'une technologie sans l'écarter entièrement."
+    },
+    {
+      "id": "t3tec06",
+      "kind": "construction-argumentative",
+      "french": "Si d'un côté…, de l'autre…",
+      "anchor": "Si d'un côté",
+      "english": "If on the one hand …, on the other hand …",
+      "example": "Si d'un côté le télétravail offre une flexibilité appréciable aux salariés, de l'autre il peut fragiliser les collectifs de travail et accentuer l'isolement professionnel.",
+      "usage": "Construction argumentative — mise en balance : « Si d'un côté » ouvre un premier membre, puis « de l'autre » introduit le contrepoint. Elle organise avantages et limites d'un même phénomène technologique dans une phrase claire."
+    },
+    {
+      "id": "t3tec07",
+      "kind": "construction-argumentative",
+      "french": "Rien ne permet d'affirmer avec certitude que…",
+      "anchor": "Rien ne permet d'affirmer avec certitude que",
+      "english": "Nothing allows us to state with certainty that …",
+      "example": "Rien ne permet d'affirmer avec certitude que le développement de l'intelligence artificielle se fera dans le respect des droits fondamentaux sans une régulation internationale contraignante.",
+      "usage": "Construction argumentative — incertitude raisonnée : la tournure négative « Rien ne permet d'affirmer avec certitude que » précède une proposition complétive. Elle évite l'affirmation absolue et souligne la nécessité de garanties ou de preuves."
+    },
+    {
+      "id": "t3tec08",
+      "kind": "construction-argumentative",
+      "french": "Ce n'est qu'en… que l'on peut…",
+      "anchor": "Ce n'est qu'en",
+      "english": "It is only by … that one can …",
+      "example": "Ce n'est qu'en imposant une transparence totale sur le fonctionnement des algorithmes que l'on peut espérer rétablir la confiance des utilisateurs envers les plateformes numériques.",
+      "usage": "Construction argumentative — condition nécessaire : « Ce n'est qu'en » introduit un gérondif ou un groupe prépositionnel, puis « que » met en relief la conséquence. Elle sert à formuler une recommandation forte en matière de régulation ou de confiance numérique."
+    },
+    {
+      "id": "t3tec09",
+      "kind": "construction-argumentative",
+      "french": "Plus… plus…",
+      "anchor": "plus les risques de détournement",
+      "english": "The more … the more …",
+      "example": "Plus les données personnelles sont collectées à grande échelle, plus les risques de détournement et de profilage abusif augmentent proportionnellement.",
+      "usage": "Construction argumentative — proportion corrélative : la structure « Plus…, plus… » associe deux propositions dont l'intensité augmente ensemble. Elle convient pour montrer qu'une collecte ou une automatisation accrue amplifie aussi les risques."
+    },
+    {
+      "id": "t3tec10",
+      "kind": "construction-argumentative",
+      "french": "Au nom de… on risque de…",
+      "anchor": "Au nom de",
+      "english": "In the name of … one risks …",
+      "example": "Au nom de l'efficacité économique, on risque de négliger les coûts sociaux réels de l'automatisation, notamment pour les catégories les plus vulnérables.",
+      "usage": "Construction argumentative — critique d'un principe invoqué : « Au nom de » introduit une valeur affichée, puis « on risque de » annonce une conséquence indésirable. Elle permet de contester l'efficacité ou la sécurité sans caricaturer l'argument adverse."
+    },
+    {
+      "id": "t3tec11",
+      "kind": "construction-argumentative",
+      "french": "Force est de constater que…",
+      "anchor": "Force est de constater que",
+      "english": "One cannot help but observe that … / It must be acknowledged that …",
+      "example": "Force est de constater que les engagements volontaires des grandes plateformes technologiques en matière de protection des données personnelles n'ont pas suffi à enrayer les abus.",
+      "usage": "Construction argumentative — constat contraint : « Force est de constater que » précède une proposition à l'indicatif et présente un fait difficile à nier. Elle introduit un bilan critique avant une proposition de régulation ou de réforme."
+    },
+    {
+      "id": "t3tec12",
+      "kind": "construction-argumentative",
+      "french": "Tout dépend de la manière dont …",
+      "anchor": "Tout dépend de la manière dont",
+      "english": "it all depends on how … frame",
+      "example": "Tout dépend de la manière dont ces algorithmes sont conçus : un même outil peut réduire les inégalités ou, au contraire, les amplifier.",
+      "usage": "Construction argumentative — nuance conditionnelle : refuse un jugement tranché sur une technologie et déplace le débat vers ses conditions d'usage. Distingue l'outil de l'usage qu'on en fait. Registre courant à soutenu."
+    },
+    {
+      "id": "t3tec13",
+      "kind": "construction-argumentative",
+      "french": "En l'absence de… il serait difficile de…",
+      "anchor": "En l'absence de",
+      "english": "In the absence of … it would be difficult to …",
+      "example": "En l'absence de règles contraignantes, il serait difficile de garantir que les technologies de surveillance respectent les droits fondamentaux des personnes concernées.",
+      "usage": "Construction argumentative — condition manquante : « En l'absence de » introduit un groupe nominal, puis le conditionnel « il serait difficile de » expose la conséquence. Elle montre qu'une règle ou une garantie est nécessaire pour encadrer une technologie."
+    },
+    {
+      "id": "t3tec14",
+      "kind": "construction-argumentative",
+      "french": "Comparé à…, le recours à… présente l'avantage de…",
+      "anchor": "Comparé à",
+      "english": "Compared to …, resorting to … has the advantage of …",
+      "example": "Comparé à une décision prise par un seul opérateur humain, le recours à un algorithme supervisé présente l'avantage de traiter un volume de données incomparablement plus important en un temps réduit.",
+      "usage": "Construction argumentative — comparaison évaluative : « Comparé à » introduit le terme de référence, puis « présente l'avantage de » formule le bénéfice relatif. Elle permet de défendre un outil numérique sans prétendre qu'il est supérieur en tout point."
+    },
+    {
+      "id": "t3tec15",
+      "kind": "construction-argumentative",
+      "french": "C'est là que réside le véritable enjeu…",
+      "anchor": "C'est là que réside le véritable enjeu",
+      "english": "That is where the real issue / challenge lies …",
+      "example": "C'est là que réside le véritable enjeu de la transition numérique : non pas dans la vitesse de déploiement des outils, mais dans la capacité des sociétés à en maîtriser les effets.",
+      "usage": "Construction argumentative — focalisation conclusive : « C'est là que réside le véritable enjeu » met en relief le cœur du problème, souvent après deux-points. Elle sert à déplacer la discussion de la performance technique vers la maîtrise sociale et éthique."
+    }
+  ]
+}

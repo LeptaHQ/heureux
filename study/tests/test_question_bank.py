@@ -10,6 +10,7 @@ from pathlib import Path
 
 from django.apps import apps
 from django.core.management import call_command
+from django.db.models import Count
 from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
@@ -17,6 +18,10 @@ from django.utils import timezone
 from study.account_services import provision_user_study_data
 from study.content_loader import (
     AI_EXAMINER_PROMPT_PATH,
+    EO_TACHE_THREE_THEME_VOCABULARY_CATEGORIES,
+    EO_TACHE_THREE_THEME_VOCABULARY_DIR,
+    EO_TACHE_THREE_THEME_VOCABULARY_PER_KIND,
+    EO_TACHE_THREE_THEME_VOCABULARY_PER_THEME,
     TACHE_TWO_SUBJECT_THEMES_PATH,
     TACHE_TWO_THEME_VOCABULARY_CATEGORIES,
     TACHE_TWO_THEME_VOCABULARY_DIR,
@@ -29,6 +34,7 @@ from study.content_loader import (
     load_comprehension_tests,
     load_tache_two_subject_months,
     parse_comprehension_vocabulary,
+    parse_eo_tache_three_theme_vocabulary,
     parse_tache_two_responses,
     parse_tache_two_subject_vocabulary,
     parse_tache_two_theme_vocabulary,
@@ -1308,6 +1314,314 @@ class QuestionBankContentTests(TestCase):
 
                     with self.assertRaisesRegex(ValueError, expected_error):
                         parse_tache_two_theme_vocabulary(directory=directory)
+
+
+class EoTacheThreeThemeVocabularyParserTests(TestCase):
+    def test_corpus_covers_every_theme_with_four_complete_lexical_sections(self):
+        phrases = parse_eo_tache_three_theme_vocabulary()
+
+        self.assertEqual(
+            len(phrases),
+            7 * EO_TACHE_THREE_THEME_VOCABULARY_PER_THEME,
+        )
+        self.assertEqual(len({phrase.phrase_id for phrase in phrases}), 420)
+        self.assertEqual(
+            len({phrase.expression.casefold() for phrase in phrases}),
+            420,
+        )
+        self.assertTrue(
+            all(phrase.tier == PhraseTier.THEME for phrase in phrases)
+        )
+        expected_categories = tuple(
+            category
+            for category in EO_TACHE_THREE_THEME_VOCABULARY_CATEGORIES.values()
+            for _ in range(EO_TACHE_THREE_THEME_VOCABULARY_PER_KIND)
+        )
+        for start in range(
+            0,
+            len(phrases),
+            EO_TACHE_THREE_THEME_VOCABULARY_PER_THEME,
+        ):
+            theme_phrases = phrases[
+                start : start + EO_TACHE_THREE_THEME_VOCABULARY_PER_THEME
+            ]
+            self.assertEqual(
+                tuple(phrase.category for phrase in theme_phrases),
+                expected_categories,
+            )
+            self.assertEqual(
+                len(
+                    {
+                        phrase.expression.casefold()
+                        for phrase in theme_phrases
+                    }
+                ),
+                60,
+            )
+            self.assertTrue(
+                all(len(phrase.sources) == 1 for phrase in theme_phrases)
+            )
+            for phrase in theme_phrases:
+                self.assertEqual(
+                    phrase.example.casefold().count(
+                        phrase.anchor.casefold()
+                    ),
+                    1,
+                )
+                self.assertFalse(phrase.example.endswith("?"))
+
+    def test_corpus_rejects_duplicate_targets_across_themes(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            directory = Path(temp_dir)
+            duplicate = json.loads(
+                (
+                    EO_TACHE_THREE_THEME_VOCABULARY_DIR / "culture.json"
+                ).read_text(encoding="utf-8")
+            )["entries"][0]["french"]
+            for source in EO_TACHE_THREE_THEME_VOCABULARY_DIR.glob("*.json"):
+                payload = json.loads(source.read_text(encoding="utf-8"))
+                if source.name == "economie.json":
+                    payload["entries"][0]["french"] = duplicate
+                (directory / source.name).write_text(
+                    json.dumps(payload, ensure_ascii=False),
+                    encoding="utf-8",
+                )
+
+            with self.assertRaisesRegex(
+                ValueError,
+                "Duplicate EO Tâche 3 theme-vocabulary target",
+            ):
+                parse_eo_tache_three_theme_vocabulary(directory=directory)
+
+    def test_corpus_requires_infinitive_and_governed_verb_construction(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            directory = Path(temp_dir)
+            for source in EO_TACHE_THREE_THEME_VOCABULARY_DIR.glob("*.json"):
+                payload = json.loads(source.read_text(encoding="utf-8"))
+                if source.name == "culture.json":
+                    payload["entries"][15]["usage"] = "Verbe courant."
+                (directory / source.name).write_text(
+                    json.dumps(payload, ensure_ascii=False),
+                    encoding="utf-8",
+                )
+
+            with self.assertRaisesRegex(
+                ValueError,
+                "must state the infinitive and governed construction",
+            ):
+                parse_eo_tache_three_theme_vocabulary(directory=directory)
+
+
+class EoTacheThreeThemeVocabularyViewTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command("import_content", stdout=StringIO())
+        cls.user = factories.make_user("tache-three-theme-vocabulary")
+        provision_user_study_data(cls.user)
+        cls.task = Task.objects.select_related("part").get(
+            part__slug="eo",
+            slug="tache-3",
+        )
+
+    def setUp(self):
+        self.client.force_login(self.user)
+
+    def _directory_url(self):
+        return reverse(
+            "study:task_phrases",
+            args=[self.task.part.slug, self.task.slug],
+        )
+
+    def _theme_url(self, theme):
+        return reverse(
+            "study:task_vocabulary_theme",
+            args=[self.task.part.slug, self.task.slug, theme.slug],
+        )
+
+    def test_import_adds_theme_banks_without_replacing_subject_decks(self):
+        theme_phrases = Phrase.objects.filter(
+            tier=PhraseTier.THEME,
+            source_prompts__theme__task=self.task,
+            is_active=True,
+        ).distinct()
+        subject_phrases = Phrase.objects.filter(
+            tier=PhraseTier.SUBJECT,
+            source_prompts__theme__task=self.task,
+            is_active=True,
+        ).distinct()
+
+        self.assertEqual(theme_phrases.count(), 420)
+        self.assertEqual(subject_phrases.count(), 6_500)
+        self.assertEqual(
+            list(
+                theme_phrases.order_by()
+                .values("source_prompts__theme_id")
+                .annotate(total=Count("pk", distinct=True))
+                .order_by("source_prompts__theme__order")
+                .values_list("total", flat=True)
+            ),
+            [60] * 7,
+        )
+        self.assertEqual(
+            Card.objects.filter(
+                user=self.user,
+                phrase__in=theme_phrases,
+                card_type=CardType.PHRASE_PRODUCTION,
+            ).count(),
+            420,
+        )
+        self.assertFalse(
+            Card.objects.filter(
+                user=self.user,
+                phrase__in=theme_phrases,
+                card_type=CardType.PHRASE_RECOGNITION,
+            ).exists()
+        )
+
+    def test_directory_presents_seven_complete_themes(self):
+        response = self.client.get(self._directory_url())
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "study/task_vocabulary.html")
+        self.assertEqual(response.context["theme_count"], 7)
+        self.assertEqual(response.context["phrase_count"], 420)
+        self.assertEqual(response.context["batch_count"], 28)
+        self.assertEqual(len(response.context["themes"]), 7)
+        for item in response.context["themes"]:
+            self.assertEqual(item["phrase_count"], 60)
+            self.assertEqual(item["batch_count"], 4)
+            self.assertEqual(
+                [section["count"] for section in item["section_counts"]],
+                [15, 15, 15, 15],
+            )
+            self.assertContains(response, item["url"])
+        self.assertContains(response, "15</b> notions", count=7)
+        self.assertContains(response, "15</b> constructions", count=7)
+        self.assertNotContains(response, "Choisir un sujet")
+        self.assertNotContains(response, "decks uniques")
+
+    def test_theme_page_reuses_the_complete_learning_catalog(self):
+        theme = self.task.themes.get(slug="culture")
+        response = self.client.get(self._theme_url(theme))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "study/theme_vocabulary_detail.html")
+        self.assertEqual(response.context["phrase_count"], 60)
+        self.assertEqual(
+            [
+                len(section["phrases"])
+                for section in response.context["phrase_sections"]
+            ],
+            [15, 15, 15, 15],
+        )
+        self.assertEqual(len(response.context["review_batches"]), 4)
+        self.assertContains(
+            response,
+            "data-theme-vocabulary-progress-form",
+            count=60,
+        )
+        self.assertContains(response, "data-read-aloud-key=", count=60)
+        self.assertContains(response, 'data-recall-column="french"')
+        self.assertContains(response, 'data-recall-column="meaning"')
+        self.assertContains(response, "Quatre parcours complémentaires")
+        self.assertNotContains(response, "Choisir un sujet")
+
+    def test_theme_progress_is_local_and_persistent(self):
+        culture = self.task.themes.get(slug="culture")
+        famille = self.task.themes.get(slug="famille")
+        phrase = (
+            Phrase.objects.filter(
+                tier=PhraseTier.THEME,
+                source_prompts__theme=culture,
+            )
+            .order_by("order")
+            .first()
+        )
+        unrelated = (
+            Phrase.objects.filter(
+                tier=PhraseTier.THEME,
+                source_prompts__theme=famille,
+            )
+            .order_by("order")
+            .first()
+        )
+        progress_url = reverse(
+            "study:theme_vocabulary_progress",
+            args=[
+                self.task.part.slug,
+                self.task.slug,
+                culture.slug,
+                phrase.pk,
+            ],
+        )
+
+        completed = self.client.post(
+            progress_url,
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(completed.status_code, 200)
+        self.assertEqual(
+            completed.json(),
+            {
+                "completed": True,
+                "phrase_id": phrase.phrase_id,
+                "learned": 1,
+                "total": 60,
+            },
+        )
+        self.assertTrue(
+            ThemeVocabularyProgress.objects.filter(
+                user=self.user,
+                phrase=phrase,
+            ).exists()
+        )
+        self.assertEqual(
+            self.client.post(
+                reverse(
+                    "study:theme_vocabulary_progress",
+                    args=[
+                        self.task.part.slug,
+                        self.task.slug,
+                        culture.slug,
+                        unrelated.pk,
+                    ],
+                ),
+                {"completed": "1"},
+            ).status_code,
+            404,
+        )
+
+    def test_guided_and_mixed_reviews_return_to_tache_three_vocabulary(self):
+        theme = self.task.themes.get(slug="culture")
+        detail_url = self._theme_url(theme)
+        detail = self.client.get(detail_url)
+
+        guided = self.client.get(
+            detail.context["review_batches"][0]["review_url"]
+        )
+        self.assertEqual(guided.context["batch_index_url"], detail_url)
+        self.assertEqual(guided.context["collection_return_url"], detail_url)
+        self.assertEqual(
+            guided.context["scope_label"],
+            "Vocabulaire · Culture · Lot 1",
+        )
+
+        mixed = self.client.get(detail.context["mixed_review_url"])
+        self.assertEqual(mixed.context["collection_return_url"], detail_url)
+        self.assertEqual(
+            mixed.context["scope_label"],
+            "Vocabulaire · Culture",
+        )
+
+        directory = self.client.get(self._directory_url())
+        all_themes = self.client.get(directory.context["mixed_review_url"])
+        self.assertEqual(
+            all_themes.context["collection_return_url"],
+            self._directory_url(),
+        )
+        self.assertEqual(all_themes.context["scope_label"], "Vocabulaire")
 
 
 class QuestionBankViewTests(TestCase):
@@ -2650,7 +2964,7 @@ class QuestionBankViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(
             response,
-            "study/tache_two_theme_vocabulary_detail.html",
+            "study/theme_vocabulary_detail.html",
         )
         self.assertEqual(response.context["theme_data"].slug, "logement")
         self.assertEqual(response.context["phrase_count"], 45)

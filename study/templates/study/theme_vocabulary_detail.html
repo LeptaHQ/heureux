@@ -1,22 +1,21 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}{{ theme_data.name }} · Vocabulaire par thème · Heureux{% endblock %}
+{% block title %}{{ theme_title }} · {{ vocabulary_label }} · Heureux{% endblock %}
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}
 
-<nav class="phrase-category-back" aria-label="Retour au vocabulaire par thème">
-  <a href="{% url 'study:tache_two_theme_vocabulary' %}">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Tous les thèmes</a>
+<nav class="phrase-category-back" aria-label="Retour au vocabulaire">
+  <a href="{{ directory_url }}">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} {{ back_label }}</a>
 </nav>
 
 <header class="phrase-category-hero theme-vocabulary-hero card" style="--theme-vocabulary-accent: {{ theme.color }};">
   <div>
-    <p class="eyebrow">Vocabulaire par thème</p>
     <h1 class="title-with-icon" style="--icon-accent: {{ theme.color }};">
-      <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name=theme_data.icon only %}</span>
-      <span>{{ theme_data.name }}</span>
+      <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name=theme_icon only %}</span>
+      <span>{{ theme_title }}</span>
     </h1>
-    <p>Apprenez les éléments utiles, puis combinez-les pour mener une interaction souple plutôt que réciter une liste de questions.</p>
+    <p>{{ hero_description }}</p>
     <div class="phrase-category-hero__meta">
       <span class="progress-status progress-status--{{ summary.progress.status }}">{{ summary.progress.label }}</span>
       <span><b>{{ phrase_count }}</b> fiches</span>
@@ -35,10 +34,9 @@
 <section class="review-batches" aria-labelledby="theme-vocabulary-batches-title">
   <div class="review-batches__head">
     <div>
-      <p class="eyebrow">Progression guidée</p>
-      <h2 id="theme-vocabulary-batches-title">Trois parcours complémentaires</h2>
+      <h2 id="theme-vocabulary-batches-title">{{ pathways_title }}</h2>
     </div>
-    <p>Commencez par les mots, passez aux expressions, puis entraînez-vous à produire des fragments de questions.</p>
+    <p>{{ pathways_description }}</p>
   </div>
   <div class="batch-grid collection-table collection-table--batches" data-collection-view="adaptive">
     {% include "study/partials/collection_table_header.html" with variant="batches" column_1="Lot et statut" column_2="Fiches" column_3="Activité" only %}
@@ -60,7 +58,6 @@
 >
   <div class="section-heading">
     <div>
-      <p class="eyebrow">Répertoire complet</p>
       <h2 id="theme-vocabulary-catalog-title">Voir les fiches en contexte</h2>
     </div>
     <div class="theme-vocabulary-catalog__tools">
@@ -120,7 +117,7 @@
             <form
               class="theme-vocabulary-learn-check"
               method="post"
-              action="{% url 'study:tache_two_theme_vocabulary_progress' theme_data.slug phrase.pk %}"
+              action="{{ phrase.progress_url }}"
               data-theme-vocabulary-progress-form
             >
               {% csrf_token %}

@@ -6351,8 +6351,18 @@ html[data-collection-view-mode="table"]
 .task-vocabulary-theme-entry .memory-entry__icon {
   color: var(--theme-accent);
 }
-.task-vocabulary-theme-entry .memory-entry__facts {
-  flex-wrap: wrap;
+.task-vocabulary-theme-entry__lexicon {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.28rem 0.9rem;
+  width: min(100%, 19rem);
+}
+.task-vocabulary-theme-entry__lexicon span {
+  min-width: 0;
+  white-space: nowrap;
+}
+.task-vocabulary-theme-entry__lexicon span + span::before {
+  display: none;
 }
 .task-vocabulary-theme-page {
   display: grid;

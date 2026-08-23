@@ -75,10 +75,42 @@ def _batch_index_url(scope: dict) -> str | None:
     """Return the category/theme page that owns a batch scope."""
     if scope.get("kind") == "theme_vocab":
         theme_slug = scope.get("theme", "")
-        if theme_slug.startswith("tache-2-"):
+        if theme_slug:
+            theme_query = Theme.objects.select_related("task__part").filter(
+                slug=theme_slug,
+                task__isnull=False,
+                is_active=True,
+            )
+            if scope.get("part"):
+                theme_query = theme_query.filter(
+                    task__part__slug=scope["part"]
+                )
+            if scope.get("task"):
+                theme_query = theme_query.filter(task__slug=scope["task"])
+            theme = get_object_or_404(theme_query)
+            task_key = (theme.task.part.slug, theme.task.slug)
+            if task_key == content_module.QUESTION_BANK_TASK:
+                return reverse(
+                    "study:tache_two_theme_vocabulary_detail",
+                    args=[theme.slug.removeprefix("tache-2-")],
+                )
             return reverse(
-                "study:tache_two_theme_vocabulary_detail",
-                args=[theme_slug.removeprefix("tache-2-")],
+                "study:task_vocabulary_theme",
+                args=[
+                    theme.task.part.slug,
+                    theme.task.slug,
+                    theme.slug,
+                ],
+            )
+        if (
+            scope.get("part"),
+            scope.get("task"),
+        ) == content_module.QUESTION_BANK_TASK:
+            return reverse("study:tache_two_theme_vocabulary")
+        if scope.get("part") and scope.get("task"):
+            return reverse(
+                "study:task_phrases",
+                args=[scope["part"], scope["task"]],
             )
         return reverse("study:tache_two_theme_vocabulary")
     if scope.get("response"):

@@ -1,0 +1,547 @@
+{
+  "version": 1,
+  "theme": "sante",
+  "name": "Santé",
+  "entries": [
+    {
+      "id": "t3san01",
+      "kind": "notion-cle",
+      "french": "la prévention (f.)",
+      "anchor": "la prévention",
+      "english": "prevention",
+      "example": "La prévention reste le moyen le plus efficace pour réduire les maladies chroniques à long terme.",
+      "usage": "Nom féminin — pluriel : des préventions. Désigne l'ensemble des mesures destinées à éviter une maladie ou un risque ; s'emploie avec campagne, politique ou stratégie de prévention dans un registre courant à soutenu."
+    },
+    {
+      "id": "t3san02",
+      "kind": "notion-cle",
+      "french": "l'accès aux soins (m.)",
+      "anchor": "l'accès aux soins",
+      "english": "access to healthcare",
+      "example": "Garantir l'accès aux soins pour tous est indispensable afin de réduire les fractures sociales et territoriales.",
+      "usage": "Nom masculin — pluriel : des accès aux soins. Désigne la possibilité réelle de consulter, d'être traité et remboursé ; collocations : garantir, améliorer, faciliter, restreindre l'accès aux soins."
+    },
+    {
+      "id": "t3san03",
+      "kind": "notion-cle",
+      "french": "la santé mentale (f.)",
+      "anchor": "la santé mentale",
+      "english": "mental health",
+      "example": "La santé mentale des jeunes mérite d'être traitée comme un enjeu public et non comme un simple problème privé.",
+      "usage": "Nom féminin — pluriel : des santés mentales (forme rare dans ce sens). Désigne l'équilibre psychique et social d'une personne ; collocations : préserver, fragiliser, prendre en charge la santé mentale."
+    },
+    {
+      "id": "t3san04",
+      "kind": "notion-cle",
+      "french": "les inégalités de santé (f. pl.)",
+      "anchor": "les inégalités de santé",
+      "english": "health inequalities",
+      "example": "Réduire les inégalités de santé entre les territoires doit rester une priorité des politiques publiques.",
+      "usage": "Nom féminin pluriel — singulier : une inégalité de santé. Désigne les écarts injustes d'état de santé ou d'accès aux soins ; collocations : réduire, creuser, combattre les inégalités de santé."
+    },
+    {
+      "id": "t3san05",
+      "kind": "notion-cle",
+      "french": "le mode de vie (m.)",
+      "anchor": "le mode de vie",
+      "english": "lifestyle",
+      "example": "Le mode de vie d'une population influence fortement l'apparition des maladies évitables.",
+      "usage": "Nom masculin — pluriel : des modes de vie. Désigne l'ensemble des habitudes quotidiennes, comme alimentation, sommeil ou activité physique ; collocations : sain, sédentaire, équilibré."
+    },
+    {
+      "id": "t3san06",
+      "kind": "notion-cle",
+      "french": "le vieillissement (m.)",
+      "anchor": "le vieillissement",
+      "english": "ageing; the ageing process",
+      "example": "Le vieillissement de la population oblige le système de santé à repenser la prévention et la dépendance.",
+      "usage": "Nom masculin — pluriel : des vieillissements (forme rare dans ce sens). Désigne le processus d'avancée en âge ; collocations : vieillissement démographique, actif, en bonne santé, de la population."
+    },
+    {
+      "id": "t3san07",
+      "kind": "notion-cle",
+      "french": "l'addiction (f.)",
+      "anchor": "l'addiction",
+      "english": "addiction; dependency",
+      "example": "L'addiction aux écrans montre que la santé publique doit aussi traiter les dépendances comportementales.",
+      "usage": "Nom féminin — pluriel : des addictions. Désigne une dépendance à une substance ou à un comportement ; collocations : addiction au tabac, aux écrans, prévenir ou traiter une addiction."
+    },
+    {
+      "id": "t3san08",
+      "kind": "notion-cle",
+      "french": "le handicap (m.)",
+      "anchor": "le handicap",
+      "english": "disability",
+      "example": "Reconnaître le handicap dans toute sa diversité suppose d'adapter les espaces, l'école et le travail.",
+      "usage": "Nom masculin — pluriel : des handicaps. Désigne une limitation durable liée à l'interaction entre une déficience et un environnement ; formule recommandée : personne en situation de handicap."
+    },
+    {
+      "id": "t3san09",
+      "kind": "notion-cle",
+      "french": "la maladie chronique (f.)",
+      "anchor": "la maladie chronique",
+      "english": "chronic illness",
+      "example": "La maladie chronique impose souvent un accompagnement durable plutôt qu’une réponse médicale ponctuelle.",
+      "usage": "Nom féminin — pluriel : des maladies chroniques. Désigne une affection durable nécessitant un suivi régulier ; collocations : vivre avec, prévenir, stabiliser, prendre en charge une maladie chronique."
+    },
+    {
+      "id": "t3san10",
+      "kind": "notion-cle",
+      "french": "le personnel soignant (m.)",
+      "anchor": "le personnel soignant",
+      "english": "healthcare staff; medical workers",
+      "example": "Valoriser le personnel soignant est nécessaire pour maintenir la qualité et la continuité des soins.",
+      "usage": "Nom masculin — pluriel : des personnels soignants. Désigne collectivement les professionnels qui prennent soin des patients ; collocations : former, soutenir, protéger, revaloriser le personnel soignant."
+    },
+    {
+      "id": "t3san11",
+      "kind": "notion-cle",
+      "french": "le financement de la santé (m.)",
+      "anchor": "le financement de la santé",
+      "english": "health system funding",
+      "example": "Le financement de la santé suscite un débat essentiel entre solidarité nationale et maîtrise des dépenses.",
+      "usage": "Nom masculin — pluriel : des financements de la santé. Désigne les ressources affectées aux soins, à la prévention et aux infrastructures ; collocations : assurer, réformer, sécuriser, diversifier."
+    },
+    {
+      "id": "t3san12",
+      "kind": "notion-cle",
+      "french": "la nutrition (f.)",
+      "anchor": "la nutrition",
+      "english": "nutrition",
+      "example": "La nutrition joue un rôle central dans la prévention des maladies liées au mode de vie.",
+      "usage": "Nom féminin — pluriel : des nutritions (forme rare dans ce sens). Désigne la manière dont l'alimentation contribue à l'équilibre du corps ; collocations : éducation à la nutrition, qualité nutritionnelle."
+    },
+    {
+      "id": "t3san13",
+      "kind": "notion-cle",
+      "french": "la santé au travail (f.)",
+      "anchor": "la santé au travail",
+      "english": "workplace health; occupational health",
+      "example": "La santé au travail ne peut pas être sacrifiée au nom de la productivité immédiate.",
+      "usage": "Nom féminin — pluriel : des santés au travail (forme rare dans ce sens). Désigne la prévention des risques professionnels et le bien-être des salariés ; collocations : améliorer, protéger, dégrader."
+    },
+    {
+      "id": "t3san14",
+      "kind": "notion-cle",
+      "french": "la responsabilité collective (f.)",
+      "anchor": "la responsabilité collective",
+      "english": "collective responsibility",
+      "example": "La responsabilité collective rappelle que la santé dépend aussi des choix politiques et sociaux.",
+      "usage": "Nom féminin — pluriel : des responsabilités collectives. Désigne l'obligation partagée d'agir pour le bien commun ; utile pour opposer solidarité sanitaire et logique strictement individuelle."
+    },
+    {
+      "id": "t3san15",
+      "kind": "notion-cle",
+      "french": "l'activité physique (f.)",
+      "anchor": "l'activité physique",
+      "english": "physical activity",
+      "example": "L'activité physique régulière favorise l'autonomie et réduit la dépendance aux soins curatifs.",
+      "usage": "Nom féminin — pluriel : des activités physiques. Désigne tout mouvement corporel bénéfique pour la santé ; collocations : pratiquer, encourager, reprendre, promouvoir l'activité physique."
+    },
+    {
+      "id": "t3sav01",
+      "kind": "verbe-collocation",
+      "french": "prévenir",
+      "anchor": "prévenir",
+      "english": "to prevent (illness, risk)",
+      "example": "Il est possible de prévenir de nombreuses maladies grâce à des mesures simples d'hygiène de vie.",
+      "usage": "Verbe — infinitif : prévenir ; construction : transitif direct (prévenir une maladie, un risque). Registre courant à soutenu ; insiste sur l'action menée avant l'apparition du problème. Participe passé : prévenu."
+    },
+    {
+      "id": "t3sav02",
+      "kind": "verbe-collocation",
+      "french": "se soigner",
+      "anchor": "se soigner",
+      "english": "to seek treatment; to look after oneself",
+      "example": "Tout le monde devrait avoir les moyens de se soigner sans craindre les difficultés financières.",
+      "usage": "Verbe — infinitif : se soigner ; construction : pronominal sans complément direct, avec compléments de moyen ou de manière. Registre courant ; signifie recevoir des soins ou prendre soin de sa santé."
+    },
+    {
+      "id": "t3sav03",
+      "kind": "verbe-collocation",
+      "french": "financer",
+      "anchor": "financer",
+      "english": "to fund; to finance",
+      "example": "L'État doit financer les services de santé publique pour garantir un accès équitable aux soins.",
+      "usage": "Verbe — infinitif : financer ; construction : transitif direct (financer un service, un traitement, un programme). Registre courant à soutenu ; souvent employé avec un sujet institutionnel."
+    },
+    {
+      "id": "t3sav04",
+      "kind": "verbe-collocation",
+      "french": "sensibiliser",
+      "anchor": "sensibiliser",
+      "english": "to raise awareness",
+      "example": "Les campagnes de santé publique cherchent à sensibiliser la population aux dangers de la sédentarité.",
+      "usage": "Verbe — infinitif : sensibiliser ; construction : transitif direct suivi de « à » (sensibiliser quelqu'un à un risque). Registre courant à soutenu ; fréquent dans les campagnes de prévention."
+    },
+    {
+      "id": "t3sav05",
+      "kind": "verbe-collocation",
+      "french": "lutter contre",
+      "anchor": "lutter contre",
+      "english": "to fight against; to combat",
+      "example": "Il appartient à toute la société de lutter contre les inégalités qui nuisent à la santé des plus vulnérables.",
+      "usage": "Verbe — infinitif : lutter ; construction : transitif indirect avec « contre » (lutter contre une maladie, une inégalité). Registre courant à soutenu ; suppose une action durable et collective."
+    },
+    {
+      "id": "t3sav06",
+      "kind": "verbe-collocation",
+      "french": "accompagner",
+      "anchor": "accompagner",
+      "english": "to support; to accompany (a patient/process)",
+      "example": "Les équipes médicales doivent accompagner les patients atteints de maladies chroniques tout au long de leur parcours.",
+      "usage": "Verbe — infinitif : accompagner ; construction : transitif direct, souvent suivi de « dans » ou « tout au long de ». Registre courant à soutenu ; souligne un soutien humain, médical ou social."
+    },
+    {
+      "id": "t3sav07",
+      "kind": "verbe-collocation",
+      "french": "dépister",
+      "anchor": "dépister",
+      "english": "to screen (for illness); to detect",
+      "example": "Dépister tôt certaines maladies permet d'augmenter considérablement les chances de guérison.",
+      "usage": "Verbe — infinitif : dépister ; construction : transitif direct (dépister une maladie, un risque). Registre médical courant ; renvoie à une détection précoce avant l'aggravation."
+    },
+    {
+      "id": "t3sav08",
+      "kind": "verbe-collocation",
+      "french": "réformer",
+      "anchor": "réformer",
+      "english": "to reform",
+      "example": "Il est urgent de réformer le système de santé pour qu'il réponde mieux aux besoins actuels de la société.",
+      "usage": "Verbe — infinitif : réformer ; construction : transitif direct (réformer un système, une politique). Registre courant à soutenu ; indique une transformation organisée des règles ou institutions."
+    },
+    {
+      "id": "t3sav09",
+      "kind": "verbe-collocation",
+      "french": "prendre en charge",
+      "anchor": "prend en charge",
+      "english": "to cover; to take care of (costs or patients)",
+      "example": "La Sécurité sociale prend en charge une grande partie des dépenses médicales des assurés.",
+      "usage": "Verbe — infinitif : prendre en charge ; construction : locution verbale transitive directe (prendre un patient ou un coût en charge). Registre courant à soutenu ; désigne l'aide médicale, sociale ou financière."
+    },
+    {
+      "id": "t3sav10",
+      "kind": "verbe-collocation",
+      "french": "adopter",
+      "anchor": "adopter",
+      "english": "to adopt (habits, policies)",
+      "example": "Adopter de bonnes habitudes alimentaires dès l'enfance réduit le risque de maladies à l'âge adulte.",
+      "usage": "Verbe — infinitif : adopter ; construction : transitif direct (adopter une habitude, une mesure). Registre courant ; utile pour évoquer des comportements de santé choisis ou encouragés."
+    },
+    {
+      "id": "t3sav11",
+      "kind": "verbe-collocation",
+      "french": "épuiser",
+      "anchor": "épuiser",
+      "english": "to exhaust; to wear out",
+      "example": "Les conditions de travail difficiles risquent d'épuiser le personnel soignant et d'aggraver la crise hospitalière.",
+      "usage": "Verbe — infinitif : épuiser ; construction : transitif direct, avec emploi pronominal possible (épuiser quelqu'un, s'épuiser). Registre courant ; exprime l'usure physique ou morale."
+    },
+    {
+      "id": "t3sav12",
+      "kind": "verbe-collocation",
+      "french": "renforcer",
+      "anchor": "renforcer",
+      "english": "to strengthen; to reinforce",
+      "example": "Il faut renforcer les structures de soins dans les zones rurales pour lutter contre les déserts médicaux.",
+      "usage": "Verbe — infinitif : renforcer ; construction : transitif direct (renforcer un dispositif, une équipe, une politique). Registre courant à soutenu ; indique une augmentation de moyens ou d'efficacité."
+    },
+    {
+      "id": "t3sav13",
+      "kind": "verbe-collocation",
+      "french": "investir dans",
+      "anchor": "investir dans",
+      "english": "to invest in",
+      "example": "Les gouvernements doivent investir dans la recherche médicale pour faire face aux défis sanitaires de demain.",
+      "usage": "Verbe — infinitif : investir ; construction : transitif indirect avec « dans » (investir dans la recherche, la prévention). Registre courant à soutenu ; valorise une dépense pensée comme durable."
+    },
+    {
+      "id": "t3sav14",
+      "kind": "verbe-collocation",
+      "french": "soulager",
+      "anchor": "soulager",
+      "english": "to relieve / ease (pain)",
+      "example": "Les soins palliatifs cherchent moins à guérir qu'à soulager la douleur et à préserver la dignité des patients en fin de vie.",
+      "usage": "Verbe — infinitif : soulager ; construction : transitif direct (soulager qqn ou qqch, comme la douleur). Registre courant. Renvoie à l'atténuation d'une souffrance ou d'une charge, sans nécessairement traiter la cause."
+    },
+    {
+      "id": "t3sav15",
+      "kind": "verbe-collocation",
+      "french": "vieillir",
+      "anchor": "vieillir",
+      "english": "to age; to grow old",
+      "example": "La médecine préventive aide les citoyens à vieillir dans de meilleures conditions de santé et d'autonomie.",
+      "usage": "Verbe — infinitif : vieillir ; construction : intransitif, souvent suivi d'un complément de manière ou de condition. Registre courant ; en santé publique, se lie à autonomie, dépendance et prévention."
+    },
+    {
+      "id": "t3sai01",
+      "kind": "expression-idiomatique",
+      "french": "avoir accès aux soins",
+      "anchor": "accès aux soins",
+      "english": "to have access to healthcare",
+      "example": "Dans certaines régions, il est difficile d'avoir accès aux soins faute de médecins disponibles.",
+      "usage": "Expression verbale figée : avoir accès aux soins. S'emploie avec un sujet humain ou collectif ; registre courant à soutenu, utile pour poser l'exigence d'égalité sanitaire."
+    },
+    {
+      "id": "t3sai02",
+      "kind": "expression-idiomatique",
+      "french": "en bonne santé",
+      "anchor": "en bonne santé",
+      "english": "in good health",
+      "example": "Encourager les enfants à être actifs, c'est leur donner les outils pour rester en bonne santé toute leur vie.",
+      "usage": "Expression adjectivale lexicalisée et invariable : en bonne santé. Fonctionne comme attribut après être, rester ou vieillir ; registre courant, utile pour formuler un objectif de prévention."
+    },
+    {
+      "id": "t3sai03",
+      "kind": "expression-idiomatique",
+      "french": "prendre soin de sa santé",
+      "anchor": "prendre soin de leur santé",
+      "english": "to take care of one's health",
+      "example": "Il est important d'apprendre aux adolescents à prendre soin de leur santé avant que des problèmes n'apparaissent.",
+      "usage": "Expression verbale figée : prendre soin de sa santé. Le possessif varie selon le sujet ; registre courant, valorise l'autonomie sans culpabiliser les malades."
+    },
+    {
+      "id": "t3sai04",
+      "kind": "expression-idiomatique",
+      "french": "à long terme",
+      "anchor": "à long terme",
+      "english": "in the long run; over the long term",
+      "example": "Les mesures de prévention ne produisent leurs effets qu'à long terme, ce qui en rend l'évaluation difficile.",
+      "usage": "Expression adverbiale figée et invariable : à long terme. Sert à opposer effets immédiats et résultats durables ; registre courant à soutenu, très utile pour défendre la prévention."
+    },
+    {
+      "id": "t3sai05",
+      "kind": "expression-idiomatique",
+      "french": "un désert médical",
+      "anchor": "désert médical",
+      "english": "a healthcare desert; an underserved area",
+      "example": "Les habitants d'un désert médical sont souvent contraints de parcourir de longues distances pour consulter un médecin.",
+      "usage": "Expression métaphorique lexicalisée : un désert médical. Groupe nominal masculin, pluriel des déserts médicaux ; registre médiatique et politique, illustre les inégalités territoriales d'accès aux soins."
+    },
+    {
+      "id": "t3sai06",
+      "kind": "expression-idiomatique",
+      "french": "mettre sa santé en danger",
+      "anchor": "mettre notre santé en danger",
+      "english": "to endanger one's health",
+      "example": "Certains comportements quotidiens peuvent mettre notre santé en danger sans que nous en soyons conscients.",
+      "usage": "Expression verbale semi-figée : mettre sa santé en danger. Le possessif varie avec le sujet ; registre courant à soutenu, utile pour évoquer des comportements ou conditions nocifs sans dramatisation excessive."
+    },
+    {
+      "id": "t3sai07",
+      "kind": "expression-idiomatique",
+      "french": "faire de la prévention",
+      "anchor": "font de la prévention",
+      "english": "to carry out prevention work",
+      "example": "Les médecins scolaires jouent un rôle essentiel lorsqu'ils font de la prévention auprès des jeunes.",
+      "usage": "Expression verbale lexicalisée : faire de la prévention. L'article partitif « de la » est fixe ; registre courant, désigne des actions concrètes d'information, de dépistage ou d'éducation sanitaire."
+    },
+    {
+      "id": "t3sai08",
+      "kind": "expression-idiomatique",
+      "french": "briser le tabou",
+      "anchor": "briser le tabou",
+      "english": "to break the taboo",
+      "example": "Les campagnes de sensibilisation ont contribué à briser le tabou autour de la santé mentale dans les entreprises.",
+      "usage": "Expression métaphorique figée : briser le tabou. Se construit avec « autour de » ou « sur » ; registre courant à soutenu, efficace pour parler de santé mentale, d'addictions ou de sujets stigmatisés."
+    },
+    {
+      "id": "t3sai09",
+      "kind": "expression-idiomatique",
+      "french": "l'espérance de vie",
+      "anchor": "espérance de vie",
+      "english": "life expectancy",
+      "example": "Les progrès médicaux ont largement contribué à l'augmentation de l'espérance de vie au cours du siècle dernier.",
+      "usage": "Expression nominale figée : l'espérance de vie. Groupe féminin singulier ; registre soutenu, utile pour discuter des progrès médicaux, des inégalités sociales et du vieillissement."
+    },
+    {
+      "id": "t3sai10",
+      "kind": "expression-idiomatique",
+      "french": "le tout-curatif",
+      "anchor": "tout-curatif",
+      "english": "the curative-only approach; over-reliance on cure rather than prevention",
+      "example": "Critiquer le tout-curatif, c'est plaider pour un système de santé plus axé sur la prévention.",
+      "usage": "Expression nominale lexicalisée : le tout-curatif. Formation sur le modèle « le tout-… » ; registre soutenu, sert à critiquer un système centré sur le soin au détriment de la prévention."
+    },
+    {
+      "id": "t3sai11",
+      "kind": "expression-idiomatique",
+      "french": "être à bout de souffle",
+      "anchor": "est à bout de souffle",
+      "english": "to be at breaking point; exhausted (lit. out of breath)",
+      "example": "Le système hospitalier est à bout de souffle après des années de sous-financement et de crise sanitaire.",
+      "usage": "Expression métaphorique figée : être à bout de souffle. Registre courant, parfois expressif ; décrit une institution ou un groupe épuisé, surtout dans un argument sur l'hôpital."
+    },
+    {
+      "id": "t3sai12",
+      "kind": "expression-idiomatique",
+      "french": "au détriment de la santé",
+      "anchor": "détriment de la santé",
+      "english": "at the expense of health",
+      "example": "On ne devrait jamais accepter des conditions de travail dégradantes au détriment de la santé des salariés.",
+      "usage": "Expression prépositionnelle figée : au détriment de la santé. Se construit avec un nom après « de » ; registre courant à soutenu, signale un arbitrage défavorable au bien-être physique ou mental."
+    },
+    {
+      "id": "t3sai13",
+      "kind": "expression-idiomatique",
+      "french": "un suivi médical régulier",
+      "anchor": "suivi médical régulier",
+      "english": "regular medical monitoring; regular check-ups",
+      "example": "Un suivi médical régulier est particulièrement crucial pour les personnes atteintes de maladies chroniques.",
+      "usage": "Expression nominale lexicalisée : un suivi médical régulier. Groupe masculin, pluriel des suivis médicaux réguliers ; registre courant à soutenu, utile pour parler de prévention secondaire."
+    },
+    {
+      "id": "t3sai14",
+      "kind": "expression-idiomatique",
+      "french": "prendre en main sa santé",
+      "anchor": "prendre en main sa santé",
+      "english": "to take one's health in hand; to take charge of one's health",
+      "example": "L'éducation à la santé doit encourager chacun à prendre en main sa santé dès le plus jeune âge.",
+      "usage": "Expression verbale imagée : prendre en main sa santé. Le possessif varie avec le sujet ; registre courant, valorise la capacité d'agir sans nier le rôle des institutions."
+    },
+    {
+      "id": "t3sai15",
+      "kind": "expression-idiomatique",
+      "french": "les comportements à risque",
+      "anchor": "comportements à risque",
+      "english": "risky behaviours; risk behaviours",
+      "example": "La prévention des comportements à risque chez les adolescents passe avant tout par l'information et l'éducation.",
+      "usage": "Expression nominale lexicalisée : les comportements à risque. Groupe masculin pluriel, singulier possible un comportement à risque ; registre courant à soutenu, désigne des pratiques qui exposent à un danger sanitaire."
+    },
+    {
+      "id": "t3sac01",
+      "kind": "construction-argumentative",
+      "french": "Si l'on veut réduire [risque], il est indispensable de [action préventive].",
+      "anchor": "il est indispensable",
+      "english": "conditional + strong evaluative frame",
+      "example": "Si l'on veut réduire le nombre de maladies chroniques, il est indispensable d'investir davantage dans la prévention.",
+      "usage": "Construction argumentative — condition et prescription : « Si l'on veut… » pose l'objectif, puis « il est indispensable de » impose une action à l'infinitif. Sert à relier prévention et réduction du risque."
+    },
+    {
+      "id": "t3sac02",
+      "kind": "construction-argumentative",
+      "french": "Les données montrent que [fait], ce qui prouve que [conclusion].",
+      "anchor": "Les données montrent que",
+      "english": "evidence-to-conclusion frame",
+      "example": "Les données montrent que les inégalités de santé se creusent, ce qui prouve que les politiques actuelles sont insuffisantes.",
+      "usage": "Construction argumentative — preuve et conclusion : « Les données montrent que » introduit un constat, puis « ce qui prouve que » en tire une conséquence. À employer sans chiffres inventés."
+    },
+    {
+      "id": "t3sac03",
+      "kind": "construction-argumentative",
+      "french": "Certes, [concession], mais [réfutation plus forte].",
+      "anchor": "Certes",
+      "english": "concessive rebuttal frame",
+      "example": "Certes, la liberté individuelle doit être respectée, mais l'État a le devoir d'agir pour protéger la santé de tous.",
+      "usage": "Construction argumentative — concession et réfutation : « Certes » admet un argument adverse, puis « mais » introduit une objection plus forte. Utile pour nuancer sans perdre sa position."
+    },
+    {
+      "id": "t3sac04",
+      "kind": "construction-argumentative",
+      "french": "C'est précisément parce que [cause] qu'il faut [action].",
+      "anchor": "C'est précisément parce que",
+      "english": "emphatic causal prescription",
+      "example": "C'est précisément parce que les déserts médicaux se multiplient qu'il faut revoir la répartition du personnel soignant sur le territoire.",
+      "usage": "Construction argumentative — cause renforcée et mesure : le présentatif « c'est… que » met la cause en relief et conduit à une obligation avec « il faut ». Sert à justifier une réforme sanitaire."
+    },
+    {
+      "id": "t3sac05",
+      "kind": "construction-argumentative",
+      "french": "Prévenir coûte moins cher que [traiter / guérir].",
+      "anchor": "coûte moins cher que",
+      "english": "economic prevention comparison",
+      "example": "Prévenir les maladies cardiovasculaires coûte moins cher que les traiter une fois déclarées.",
+      "usage": "Construction argumentative — comparaison économique : « coûter moins cher que » compare prévention et traitement. Elle soutient un argument de santé publique sans dépendre de chiffres précis."
+    },
+    {
+      "id": "t3sac06",
+      "kind": "construction-argumentative",
+      "french": "Il ne s'agit pas seulement de [X], mais aussi de [Y].",
+      "anchor": "Il ne s'agit pas seulement",
+      "english": "not only—but also expansion",
+      "example": "Il ne s'agit pas seulement de soigner les malades, mais aussi de créer les conditions qui permettent à chacun de rester en bonne santé.",
+      "usage": "Construction argumentative — élargissement du débat : « Il ne s'agit pas seulement de…, mais aussi de… » ajoute un second enjeu plus large. La syntaxe exige deux compléments parallèles."
+    },
+    {
+      "id": "t3sac07",
+      "kind": "construction-argumentative",
+      "french": "D'un côté [position A] ; de l'autre, [position B] — c'est pourquoi [synthèse].",
+      "anchor": "D'un côté",
+      "english": "balanced synthesis frame",
+      "example": "D'un côté, la santé relève de choix personnels ; de l'autre, les conditions sociales l'influencent fortement — c'est pourquoi une approche collective est nécessaire.",
+      "usage": "Construction argumentative — mise en balance et synthèse : « D'un côté… ; de l'autre… » oppose deux dimensions, puis « c'est pourquoi » formule une conclusion équilibrée."
+    },
+    {
+      "id": "t3sac08",
+      "kind": "construction-argumentative",
+      "french": "On peut se demander dans quelle mesure [X] contribue réellement à [Y].",
+      "anchor": "dans quelle mesure",
+      "english": "nuanced scope question",
+      "example": "On peut se demander dans quelle mesure les campagnes de sensibilisation contribuent réellement à changer les comportements à risque.",
+      "usage": "Construction argumentative — problématisation nuancée : « On peut se demander dans quelle mesure » introduit une interrogation indirecte. Sert à examiner l'efficacité réelle d'une mesure sans la rejeter."
+    },
+    {
+      "id": "t3sac09",
+      "kind": "construction-argumentative",
+      "french": "Il serait réducteur de limiter [sujet] à [aspect unique].",
+      "anchor": "Il serait réducteur",
+      "english": "reductive-view rebuttal",
+      "example": "Il serait réducteur de limiter la santé mentale à un simple problème individuel, car elle est aussi le reflet de conditions sociales.",
+      "usage": "Construction argumentative — réfutation d'une vision partielle : « Il serait réducteur de » évalue négativement une simplification, puis « car » ouvre une explication plus complète."
+    },
+    {
+      "id": "t3sac10",
+      "kind": "construction-argumentative",
+      "french": "La question n'est pas tant de savoir si [X], mais comment [Y].",
+      "anchor": "La question n'est pas tant",
+      "english": "debate reframing frame",
+      "example": "La question n'est pas tant de savoir si l'État doit financer la santé, mais comment le faire de façon juste et durable.",
+      "usage": "Construction argumentative — déplacement du débat : « La question n'est pas tant de savoir si…, mais comment… » écarte le faux dilemme et recentre l'argument sur les modalités."
+    },
+    {
+      "id": "t3sac11",
+      "kind": "construction-argumentative",
+      "french": "Le fait que [situation] montre à quel point [enjeu] est urgent.",
+      "anchor": "montre à quel point",
+      "english": "urgency-from-fact frame",
+      "example": "Le fait que de nombreux médecins exercent dans des zones déjà bien dotées montre à quel point la question des déserts médicaux est urgente.",
+      "usage": "Construction argumentative — constat et urgence : « Le fait que » introduit une situation, puis « montre à quel point » transforme ce constat en priorité politique ou sociale."
+    },
+    {
+      "id": "t3sac12",
+      "kind": "construction-argumentative",
+      "french": "Sans [condition préalable], il est illusoire d'espérer [objectif].",
+      "anchor": "il est illusoire d'espérer",
+      "english": "prerequisite warning frame",
+      "example": "Sans un financement suffisant du système de santé, il est illusoire d'espérer réduire durablement les inégalités de santé.",
+      "usage": "Construction argumentative — condition préalable et avertissement : « Sans » pose un manque, puis « il est illusoire d'espérer » montre que l'objectif devient irréaliste."
+    },
+    {
+      "id": "t3sac13",
+      "kind": "construction-argumentative",
+      "french": "À force de [négliger X], on risque de [conséquence grave].",
+      "anchor": "À force de",
+      "english": "cumulative-risk warning",
+      "example": "À force de négliger la santé mentale des soignants, on risque d'aggraver encore la pénurie de personnel dans les hôpitaux.",
+      "usage": "Construction argumentative — accumulation et conséquence : « À force de » indique une répétition ou une négligence prolongée, puis « on risque de » annonce une conséquence grave."
+    },
+    {
+      "id": "t3sac14",
+      "kind": "construction-argumentative",
+      "french": "Il convient de distinguer [X] et [Y] pour mieux comprendre [enjeu].",
+      "anchor": "Il convient de distinguer",
+      "english": "conceptual distinction frame",
+      "example": "Il convient de distinguer prévention et traitement pour mieux comprendre comment améliorer l'efficacité du système de santé.",
+      "usage": "Construction argumentative — clarification conceptuelle : « Il convient de distinguer » sépare deux notions avant d'expliquer un enjeu. Utile pour éviter les confusions entre prévention, soin et financement."
+    },
+    {
+      "id": "t3sac15",
+      "kind": "construction-argumentative",
+      "french": "En définitive, [enjeu de santé] est une responsabilité partagée entre [acteur 1] et [acteur 2].",
+      "anchor": "En définitive",
+      "english": "shared-responsibility conclusion",
+      "example": "En définitive, la promotion d'une activité physique régulière est une responsabilité partagée entre l'État, les collectivités et les individus.",
+      "usage": "Construction argumentative — conclusion équilibrée : « En définitive » marque la clôture, puis « responsabilité partagée » répartit l'obligation entre plusieurs acteurs sans simplifier le débat."
+    }
+  ]
+}

@@ -1,0 +1,547 @@
+{
+  "version": 1,
+  "theme": "environnement",
+  "name": "Environnement",
+  "entries": [
+    {
+      "id": "t3enn01",
+      "kind": "notion-cle",
+      "french": "le réchauffement climatique (m.)",
+      "anchor": "le réchauffement climatique",
+      "english": "global warming",
+      "example": "Le réchauffement climatique entraîne une multiplication des événements météorologiques extrêmes dans de nombreuses régions du monde.",
+      "usage": "Nom masculin — pluriel : des réchauffements climatiques. Désigne l'augmentation durable des températures liée aux activités humaines ; collocations utiles : accélérer, limiter, atténuer le réchauffement climatique."
+    },
+    {
+      "id": "t3enn02",
+      "kind": "notion-cle",
+      "french": "la biodiversité (f.)",
+      "anchor": "la biodiversité",
+      "english": "biodiversity",
+      "example": "La protection de la biodiversité est indissociable de celle des écosystèmes qui permettent à toutes les espèces de coexister.",
+      "usage": "Nom féminin — pluriel : des biodiversités. Désigne la diversité du vivant à l'échelle d'un milieu ou d'une planète ; collocations : préserver, restaurer, menacer la biodiversité."
+    },
+    {
+      "id": "t3enn03",
+      "kind": "notion-cle",
+      "french": "les ressources naturelles (f. pl.)",
+      "anchor": "les ressources naturelles",
+      "english": "natural resources",
+      "example": "Les ressources naturelles doivent être gérées avec prudence, car leur surexploitation fragilise à la fois l'économie et les écosystèmes.",
+      "usage": "Nom féminin pluriel — singulier : une ressource naturelle. Désigne les matières, l'eau, les sols ou l'énergie fournis par la nature ; utile pour discuter d'épuisement, de partage et de gestion durable."
+    },
+    {
+      "id": "t3enn04",
+      "kind": "notion-cle",
+      "french": "la pollution atmosphérique (f.)",
+      "anchor": "la pollution atmosphérique",
+      "english": "air pollution",
+      "example": "La pollution atmosphérique dans les grandes agglomérations est responsable de nombreux problèmes de santé respiratoire.",
+      "usage": "Nom féminin — pluriel : des pollutions atmosphériques. Désigne la présence de polluants dans l'air ; collocations : réduire, mesurer, subir la pollution atmosphérique."
+    },
+    {
+      "id": "t3enn05",
+      "kind": "notion-cle",
+      "french": "l'économie circulaire (f.)",
+      "anchor": "l'économie circulaire",
+      "english": "circular economy",
+      "example": "L'économie circulaire propose de remplacer le modèle « produire, consommer, jeter » par des cycles où les matières sont constamment réutilisées.",
+      "usage": "Nom féminin — pluriel : des économies circulaires. Modèle qui vise à limiter l'extraction et les déchets par la réutilisation, la réparation et le recyclage ; s'oppose à l'économie linéaire."
+    },
+    {
+      "id": "t3enn06",
+      "kind": "notion-cle",
+      "french": "la transition énergétique (f.)",
+      "anchor": "la transition énergétique",
+      "english": "energy transition",
+      "example": "La transition énergétique implique non seulement de changer les sources d'énergie, mais aussi de repenser nos modes de consommation.",
+      "usage": "Nom féminin — pluriel : des transitions énergétiques. Désigne le passage vers des sources et usages d'énergie moins polluants ; collocations : accélérer, financer, réussir la transition énergétique."
+    },
+    {
+      "id": "t3enn07",
+      "kind": "notion-cle",
+      "french": "les déchets ménagers (m. pl.)",
+      "anchor": "les déchets ménagers",
+      "english": "household waste",
+      "example": "Les déchets ménagers diminuent lorsque les collectivités facilitent le compostage, le tri sélectif et l'achat en vrac.",
+      "usage": "Nom masculin pluriel — singulier : un déchet ménager. Désigne les déchets produits par les foyers ; collocations : réduire, trier, collecter les déchets ménagers."
+    },
+    {
+      "id": "t3enn08",
+      "kind": "notion-cle",
+      "french": "la mobilité durable (f.)",
+      "anchor": "la mobilité durable",
+      "english": "sustainable mobility",
+      "example": "La mobilité durable regroupe tous les modes de déplacement qui réduisent les émissions de gaz à effet de serre et l'usage de la voiture individuelle.",
+      "usage": "Nom féminin — pluriel : des mobilités durables. Désigne des modes de déplacement sobres et moins polluants ; utile pour parler de vélo, de covoiturage et de transports collectifs."
+    },
+    {
+      "id": "t3enn09",
+      "kind": "notion-cle",
+      "french": "l'empreinte carbone (f.)",
+      "anchor": "l'empreinte carbone",
+      "english": "carbon footprint",
+      "example": "L'empreinte carbone d'un ménage peut diminuer grâce à des choix sobres, mais elle dépend aussi de l'offre de transport et d'énergie disponible.",
+      "usage": "Nom féminin — pluriel : des empreintes carbone. Désigne la quantité de gaz à effet de serre associée à une activité, un produit ou un mode de vie ; collocations : calculer, réduire, compenser l'empreinte carbone."
+    },
+    {
+      "id": "t3enn10",
+      "kind": "notion-cle",
+      "french": "l'agriculture biologique (f.)",
+      "anchor": "l'agriculture biologique",
+      "english": "organic farming",
+      "example": "L'agriculture biologique évite l'usage de pesticides de synthèse et cherche à préserver la qualité des sols sur le long terme.",
+      "usage": "Nom féminin — pluriel : des agricultures biologiques. Désigne un mode de production limitant les intrants de synthèse et valorisant les équilibres naturels ; souvent opposée à l'agriculture intensive."
+    },
+    {
+      "id": "t3enn11",
+      "kind": "notion-cle",
+      "french": "la consommation responsable (f.)",
+      "anchor": "la consommation responsable",
+      "english": "responsible consumption",
+      "example": "La consommation responsable suppose de choisir des produits dont la fabrication respecte à la fois les travailleurs et l'environnement.",
+      "usage": "Nom féminin — pluriel : des consommations responsables. Désigne des choix d'achat attentifs aux impacts sociaux et écologiques ; collocations : encourager, adopter, promouvoir la consommation responsable."
+    },
+    {
+      "id": "t3enn12",
+      "kind": "notion-cle",
+      "french": "la justice environnementale (f.)",
+      "anchor": "la justice environnementale",
+      "english": "environmental justice",
+      "example": "La justice environnementale exige que les populations les plus exposées aux nuisances écologiques soient entendues dans les décisions politiques.",
+      "usage": "Nom féminin — pluriel : des justices environnementales (forme rare dans ce sens). Concept qui relie protection de l'environnement et équité sociale ; utile pour dénoncer une exposition inégale aux nuisances."
+    },
+    {
+      "id": "t3enn13",
+      "kind": "notion-cle",
+      "french": "la politique environnementale (f.)",
+      "anchor": "la politique environnementale",
+      "english": "environmental policy",
+      "example": "La politique environnementale devient crédible lorsqu'elle associe réglementation contraignante, incitations fiscales et investissements dans les infrastructures vertes.",
+      "usage": "Nom féminin — pluriel : des politiques environnementales. Désigne l'ensemble des décisions publiques en matière d'écologie ; collocations : élaborer, durcir, évaluer la politique environnementale."
+    },
+    {
+      "id": "t3enn14",
+      "kind": "notion-cle",
+      "french": "la responsabilité des entreprises (f.)",
+      "anchor": "la responsabilité des entreprises",
+      "english": "corporate responsibility",
+      "example": "La responsabilité des entreprises ne se limite pas aux obligations légales ; elle inclut aussi des engagements volontaires envers l'environnement.",
+      "usage": "Nom féminin — pluriel : des responsabilités des entreprises. Désigne l'obligation juridique ou morale des sociétés face à leurs impacts écologiques ; s'emploie souvent avec « sociale et environnementale »."
+    },
+    {
+      "id": "t3enn15",
+      "kind": "notion-cle",
+      "french": "l'adaptation climatique (f.)",
+      "anchor": "l'adaptation climatique",
+      "english": "climate adaptation",
+      "example": "L'adaptation climatique consiste à modifier nos infrastructures et nos pratiques pour faire face aux effets du changement climatique déjà engagés.",
+      "usage": "Nom féminin — pluriel : des adaptations climatiques. Désigne les mesures prises pour limiter les dommages dus aux effets déjà présents ou attendus du climat ; à distinguer de l'atténuation."
+    },
+    {
+      "id": "t3env01",
+      "kind": "verbe-collocation",
+      "french": "réduire ses émissions",
+      "anchor": "réduire ses émissions",
+      "english": "to cut one's emissions",
+      "example": "Pour réduire ses émissions de gaz à effet de serre, une entreprise peut investir dans des processus de production moins énergivores.",
+      "usage": "Verbe — infinitif : réduire ; construction : transitif direct (réduire + COD). Collocation centrale pour quantifier l'effort climatique ; registre courant, technique et politique."
+    },
+    {
+      "id": "t3env02",
+      "kind": "verbe-collocation",
+      "french": "préserver les écosystèmes",
+      "anchor": "préserver les écosystèmes",
+      "english": "to protect ecosystems",
+      "example": "Préserver les écosystèmes côtiers, c'est aussi protéger les populations qui dépendent de la pêche pour vivre.",
+      "usage": "Verbe — infinitif : préserver ; construction : transitif direct (préserver + COD). Verbe valorisant qui insiste sur la protection durable des milieux ; registre soutenu et courant."
+    },
+    {
+      "id": "t3env03",
+      "kind": "verbe-collocation",
+      "french": "trier ses déchets",
+      "anchor": "trier ses déchets",
+      "english": "to sort one's waste",
+      "example": "Trier ses déchets correctement permet d'améliorer les taux de recyclage et de réduire la quantité de déchets enfouis.",
+      "usage": "Verbe — infinitif : trier ; construction : transitif direct (trier + COD). Formulation quotidienne liée au tri sélectif ; utile pour parler de responsabilité individuelle sans dramatiser."
+    },
+    {
+      "id": "t3env04",
+      "kind": "verbe-collocation",
+      "french": "lutter contre le changement climatique",
+      "anchor": "lutter contre le changement climatique",
+      "english": "to fight climate change",
+      "example": "Lutter contre le changement climatique requiert une mobilisation simultanée des gouvernements, des entreprises et des citoyens.",
+      "usage": "Verbe — infinitif : lutter ; construction : intransitif suivi de « contre » + nom. Tour fréquent dans les discours publics ; donne à l'action climatique une valeur collective et volontariste."
+    },
+    {
+      "id": "t3env05",
+      "kind": "verbe-collocation",
+      "french": "adopter un mode de vie durable",
+      "anchor": "adopter un mode de vie durable",
+      "english": "to adopt a sustainable lifestyle",
+      "example": "Adopter un mode de vie durable ne signifie pas renoncer à tout confort, mais choisir des habitudes qui réduisent son impact sur l'environnement.",
+      "usage": "Verbe — infinitif : adopter ; construction : transitif direct (adopter + COD). Collocation courante pour présenter un changement d'habitudes ; nuance positive, compatible avec un ton modéré."
+    },
+    {
+      "id": "t3env06",
+      "kind": "verbe-collocation",
+      "french": "investir dans les énergies renouvelables",
+      "anchor": "investir dans les énergies renouvelables",
+      "english": "to invest in renewable energy",
+      "example": "Investir dans les énergies renouvelables est présenté comme un levier à la fois économique et écologique par de nombreux experts.",
+      "usage": "Verbe — infinitif : investir ; construction : transitif indirect avec « dans » + nom. Tour économique et politique ; met l'accent sur l'engagement financier à long terme."
+    },
+    {
+      "id": "t3env07",
+      "kind": "verbe-collocation",
+      "french": "favoriser les transports en commun",
+      "anchor": "favoriser les transports en commun",
+      "english": "to promote public transport",
+      "example": "Favoriser les transports en commun dans les politiques urbaines contribue à réduire la congestion et les émissions polluantes.",
+      "usage": "Verbe — infinitif : favoriser ; construction : transitif direct (favoriser + COD). Verbe institutionnel pour défendre une orientation publique sans imposer directement une obligation."
+    },
+    {
+      "id": "t3env08",
+      "kind": "verbe-collocation",
+      "french": "repenser l'aménagement urbain",
+      "anchor": "repenser l'aménagement urbain",
+      "english": "to rethink urban planning",
+      "example": "Repenser l'aménagement urbain pour laisser plus de place aux espaces verts est une priorité dans les villes confrontées aux vagues de chaleur.",
+      "usage": "Verbe — infinitif : repenser ; construction : transitif direct (repenser + COD). Verbe de réforme profonde ; registre urbanistique et politique, plus ambitieux que simplement améliorer."
+    },
+    {
+      "id": "t3env09",
+      "kind": "verbe-collocation",
+      "french": "sensibiliser le grand public",
+      "anchor": "sensibiliser le grand public",
+      "english": "to raise public awareness",
+      "example": "Sensibiliser le grand public aux enjeux de la biodiversité passe par des campagnes claires et des exemples concrets du quotidien.",
+      "usage": "Verbe — infinitif : sensibiliser ; construction : transitif direct (sensibiliser + COD), souvent suivi de « à » + nom. Verbe pédagogique pour expliquer la formation de l'opinion écologique."
+    },
+    {
+      "id": "t3env10",
+      "kind": "verbe-collocation",
+      "french": "mettre en place une réglementation",
+      "anchor": "mettre en place une réglementation",
+      "english": "to implement a regulation",
+      "example": "Mettre en place une réglementation sur les emballages plastiques est une étape indispensable vers une économie plus circulaire.",
+      "usage": "Verbe — infinitif : mettre ; construction : locution verbale transitive directe (mettre en place + COD). Formule administrative pour annoncer une règle ou un dispositif concret."
+    },
+    {
+      "id": "t3env11",
+      "kind": "verbe-collocation",
+      "french": "compenser son empreinte carbone",
+      "anchor": "compenser son empreinte carbone",
+      "english": "to offset one's carbon footprint",
+      "example": "Compenser son empreinte carbone via des projets de reboisement ne dispense pas d'agir en priorité sur la réduction des émissions à la source.",
+      "usage": "Verbe — infinitif : compenser ; construction : transitif direct (compenser + COD). Terme technique souvent discuté ; il permet de distinguer compensation et réduction effective."
+    },
+    {
+      "id": "t3env12",
+      "kind": "verbe-collocation",
+      "french": "consommer local",
+      "anchor": "consommer local",
+      "english": "to consume locally produced goods",
+      "example": "Consommer local réduit les distances de transport et soutient les producteurs de la région, mais ne garantit pas à lui seul une démarche écologique.",
+      "usage": "Verbe — infinitif : consommer ; construction : intransitif avec adverbe invariable « local ». Formulation courante et militante ; elle valorise la proximité sans garantir à elle seule l'impact écologique."
+    },
+    {
+      "id": "t3env13",
+      "kind": "verbe-collocation",
+      "french": "atteindre les objectifs climatiques",
+      "anchor": "atteindre les objectifs climatiques",
+      "english": "to meet climate targets",
+      "example": "Atteindre les objectifs climatiques fixés par les accords internationaux nécessite des politiques nationales cohérentes et des investissements massifs.",
+      "usage": "Verbe — infinitif : atteindre ; construction : transitif direct (atteindre + COD). Collocation politique et diplomatique pour évaluer des engagements climatiques annoncés."
+    },
+    {
+      "id": "t3env14",
+      "kind": "verbe-collocation",
+      "french": "réduire la dépendance aux énergies fossiles",
+      "anchor": "réduire la dépendance aux énergies fossiles",
+      "english": "to reduce dependence on fossil fuels",
+      "example": "Réduire la dépendance aux énergies fossiles est présenté comme un impératif à la fois climatique et stratégique par les gouvernements européens.",
+      "usage": "Verbe — infinitif : réduire ; construction : transitif direct (réduire + COD) avec complément en « à ». Formulation stratégique qui relie climat, souveraineté énergétique et économie."
+    },
+    {
+      "id": "t3env15",
+      "kind": "verbe-collocation",
+      "french": "engager sa responsabilité",
+      "anchor": "engager sa responsabilité",
+      "english": "to commit to one's responsibility",
+      "example": "Pour engager sa responsabilité de façon crédible, une entreprise doit dépasser les simples déclarations d'intention et agir concrètement sur ses émissions.",
+      "usage": "Verbe — infinitif : engager ; construction : transitif direct (engager + COD). Tour juridique et éthique ; distinct de « s'engager à », il souligne l'exposition à une obligation ou à une faute."
+    },
+    {
+      "id": "t3eni01",
+      "kind": "expression-idiomatique",
+      "french": "jeter l'éponge",
+      "anchor": "jeter l'éponge",
+      "english": "to throw in the towel (give up)",
+      "example": "Face à l'ampleur des défis climatiques, certains militent pour ne jamais jeter l'éponge, même quand les résultats tardent à venir.",
+      "usage": "Expression verbale figurée, de registre courant à soutenu. Syntaxe : sujet + jeter l'éponge, sans complément d'objet. Sert à refuser l'abandon face aux défis écologiques."
+    },
+    {
+      "id": "t3eni02",
+      "kind": "expression-idiomatique",
+      "french": "aller dans le mur",
+      "anchor": "aller dans le mur",
+      "english": "to be heading for disaster",
+      "example": "À refuser toute contrainte écologique au nom de la croissance immédiate, nos sociétés finissent par aller dans le mur, faute d'avoir anticipé les limites planétaires.",
+      "usage": "Expression imagée, familière à courante. Employée surtout à l'infinitif ou au présent (« on va dans le mur ») pour dénoncer une trajectoire menant à l'échec. Forte valeur d'alerte dans un raisonnement ; à réserver à un registre oral engagé."
+    },
+    {
+      "id": "t3eni03",
+      "kind": "expression-idiomatique",
+      "french": "mettre la charrue avant les bœufs",
+      "anchor": "mettre la charrue avant les bœufs",
+      "english": "to put the cart before the horse",
+      "example": "Interdire les voitures thermiques sans développer les transports en commun, c'est mettre la charrue avant les bœufs.",
+      "usage": "Expression proverbiale, de registre courant. Syntaxe : sujet + mettre la charrue avant les bœufs. Sert à critiquer une politique environnementale qui impose des contraintes avant les conditions nécessaires."
+    },
+    {
+      "id": "t3eni04",
+      "kind": "expression-idiomatique",
+      "french": "une goutte d'eau dans l'océan",
+      "anchor": "une goutte d'eau dans l'océan",
+      "english": "a drop in the ocean",
+      "example": "Les gestes individuels sont utiles, mais beaucoup d'experts les jugent comme une goutte d'eau dans l'océan face à l'échelle des émissions industrielles.",
+      "usage": "Expression nominale figurée, de registre courant. Syntaxe : c'est une goutte d'eau dans l'océan ou être une goutte d'eau dans l'océan. Souligne l'insuffisance d'une action isolée face à un problème écologique massif."
+    },
+    {
+      "id": "t3eni05",
+      "kind": "expression-idiomatique",
+      "french": "prendre le taureau par les cornes",
+      "anchor": "prendre le taureau par les cornes",
+      "english": "to take the bull by the horns",
+      "example": "Les gouvernements doivent prendre le taureau par les cornes en matière de transition énergétique plutôt que de multiplier les demi-mesures.",
+      "usage": "Expression verbale figurée, de registre courant à soutenu. Syntaxe : sujet + prendre le taureau par les cornes. Valorise une action politique décisive face à l'urgence environnementale."
+    },
+    {
+      "id": "t3eni06",
+      "kind": "expression-idiomatique",
+      "french": "scier la branche sur laquelle on est assis",
+      "anchor": "scier la branche sur laquelle on est assis",
+      "english": "to saw off the branch one is sitting on",
+      "example": "Détruire les forêts pour des cultures intensives, c'est scier la branche sur laquelle on est assis, car ces mêmes forêts régulent le climat dont dépend l'agriculture.",
+      "usage": "Expression verbale figurée, de registre courant à soutenu. Syntaxe : c'est scier la branche sur laquelle on est assis. Illustre l'autodestruction liée à l'exploitation non durable des ressources."
+    },
+    {
+      "id": "t3eni07",
+      "kind": "expression-idiomatique",
+      "french": "faire la politique de l'autruche",
+      "anchor": "faire la politique de l'autruche",
+      "english": "to bury one's head in the sand",
+      "example": "Ignorer les données scientifiques sur le dérèglement climatique, c'est faire la politique de l'autruche face à une réalité incontournable.",
+      "usage": "Expression verbale figurée, de registre courant à journalistique. Syntaxe : faire la politique de l'autruche face à + nom. Dénonce le refus de voir un risque écologique pourtant établi."
+    },
+    {
+      "id": "t3eni08",
+      "kind": "expression-idiomatique",
+      "french": "chacun doit balayer devant sa porte",
+      "anchor": "chacun doit balayer devant sa porte",
+      "english": "everyone should put their own house in order",
+      "example": "Dans les négociations climatiques, les pays développés rappellent que chacun doit balayer devant sa porte avant de demander des efforts aux pays émergents.",
+      "usage": "Expression proverbiale, de registre courant. Syntaxe : chacun doit balayer devant sa porte, souvent avec un sujet collectif. Rappelle la part de responsabilité de chaque acteur dans l'effort écologique."
+    },
+    {
+      "id": "t3eni09",
+      "kind": "expression-idiomatique",
+      "french": "payer les pots cassés",
+      "anchor": "les pots cassés",
+      "english": "to pay the price for the damage",
+      "example": "Ce sont souvent les populations les plus pauvres qui paient les pots cassés d'une pollution industrielle dont elles ne sont pas responsables.",
+      "usage": "Expression verbale figurée, de registre courant. Syntaxe : sujet + payer les pots cassés de + cause. Sert à montrer que les plus vulnérables subissent souvent les dégâts environnementaux."
+    },
+    {
+      "id": "t3eni10",
+      "kind": "expression-idiomatique",
+      "french": "mettre tous ses œufs dans le même panier",
+      "anchor": "mettre tous ses œufs dans le même panier",
+      "english": "to put all one's eggs in one basket",
+      "example": "Miser uniquement sur l'énergie nucléaire pour décarboner le mix énergétique, c'est mettre tous ses œufs dans le même panier.",
+      "usage": "Expression verbale figurée, de registre courant. Syntaxe : sujet + mettre tous ses œufs dans le même panier. Met en garde contre une stratégie énergétique trop dépendante d'une seule solution."
+    },
+    {
+      "id": "t3eni11",
+      "kind": "expression-idiomatique",
+      "french": "l'arbre qui cache la forêt",
+      "anchor": "l'arbre qui cache la forêt",
+      "english": "not seeing the wood for the trees",
+      "example": "Célébrer quelques initiatives vertes d'entreprises très polluantes, c'est se laisser tromper par l'arbre qui cache la forêt.",
+      "usage": "Expression nominale figurée, de registre courant à soutenu. Syntaxe : c'est l'arbre qui cache la forêt ou ne voir que l'arbre qui cache la forêt. Dénonce un détail positif qui masque un bilan écologique défavorable."
+    },
+    {
+      "id": "t3eni12",
+      "kind": "expression-idiomatique",
+      "french": "le bout du tunnel",
+      "anchor": "le bout du tunnel",
+      "english": "the light at the end of the tunnel",
+      "example": "Malgré les obstacles, les progrès des énergies solaires laissent entrevoir le bout du tunnel pour la décarbonation du secteur électrique.",
+      "usage": "Expression nominale figurée, de registre courant et journalistique. Syntaxe : voir ou entrevoir le bout du tunnel. Introduit une perspective d'espoir après une période difficile de transition."
+    },
+    {
+      "id": "t3eni13",
+      "kind": "expression-idiomatique",
+      "french": "à double tranchant",
+      "anchor": "à double tranchant",
+      "english": "double-edged",
+      "example": "La croissance du tourisme vert est à double tranchant : elle sensibilise à la nature, mais elle peut aussi dégrader les sites qu'elle prétend valoriser.",
+      "usage": "Expression adjectivale figurée, invariable, de registre courant à soutenu. Syntaxe : être à double tranchant ou une mesure à double tranchant. Sert à analyser les effets ambivalents d'une solution verte."
+    },
+    {
+      "id": "t3eni14",
+      "kind": "expression-idiomatique",
+      "french": "ne pas être la panacée",
+      "anchor": "la panacée",
+      "english": "not to be a cure-all",
+      "example": "Le recyclage est utile, mais il ne doit pas être présenté comme la panacée : il reste moins efficace que la réduction à la source.",
+      "usage": "Expression verbale figurée, de registre soutenu à courant. Syntaxe : ne pas être la panacée, avec sujet nominal. Nuance une solution écologique présentée comme miraculeuse."
+    },
+    {
+      "id": "t3eni15",
+      "kind": "expression-idiomatique",
+      "french": "mettre le doigt dans l'engrenage",
+      "anchor": "mettre le doigt dans l'engrenage",
+      "english": "to get caught up in a process that is hard to stop",
+      "example": "En autorisant de nouveaux forages pétroliers, l'État risque de mettre le doigt dans l'engrenage d'une dépendance prolongée aux énergies fossiles.",
+      "usage": "Expression verbale figurée, de registre courant à soutenu. Syntaxe : sujet + mettre le doigt dans l'engrenage de + nom. Souligne le risque d'entrer dans une dépendance écologique ou énergétique difficile à arrêter."
+    },
+    {
+      "id": "t3enc01",
+      "kind": "construction-argumentative",
+      "french": "Il est urgent de … si l'on veut éviter …",
+      "anchor": "Il est urgent de",
+      "english": "It is urgent to … if we want to avoid …",
+      "example": "Il est urgent de réformer la fiscalité sur les carburants si l'on veut éviter de reproduire les mêmes schémas de dépendance aux énergies fossiles.",
+      "usage": "Construction argumentative — urgence/prévention : « Il est urgent de » + infinitif, puis « si l'on veut éviter » + infinitif ou nom. Sert à présenter une mesure environnementale prioritaire et sa justification."
+    },
+    {
+      "id": "t3enc02",
+      "kind": "construction-argumentative",
+      "french": "Les données montrent que … ce qui confirme …",
+      "anchor": "Les données montrent que",
+      "english": "The data show that … which confirms …",
+      "example": "Les données montrent que les émissions mondiales ont encore augmenté l'an dernier, ce qui confirme l'insuffisance des engagements pris jusqu'ici.",
+      "usage": "Construction argumentative — preuve empirique : « Les données montrent que » introduit un constat, puis « ce qui confirme » en tire une conclusion. Utile pour appuyer un argument climatique sans chiffres fragiles."
+    },
+    {
+      "id": "t3enc03",
+      "kind": "construction-argumentative",
+      "french": "C'est précisément parce que … que …",
+      "anchor": "C'est précisément parce que",
+      "english": "It is precisely because … that …",
+      "example": "C'est précisément parce que les effets du changement climatique sont inégalement répartis que la justice environnementale doit être au cœur des politiques publiques.",
+      "usage": "Construction argumentative — cause emphatique : « C'est précisément parce que » + proposition, puis « que » + conséquence. Renforce le lien entre injustice environnementale et réponse politique."
+    },
+    {
+      "id": "t3enc04",
+      "kind": "construction-argumentative",
+      "french": "Si … continue à …, alors …",
+      "anchor": "continue à croître",
+      "english": "If … continues to …, then …",
+      "example": "Si la consommation de viande rouge continue à croître au rythme actuel, alors la pression sur les terres agricoles et les émissions de méthane ne pourront qu'augmenter.",
+      "usage": "Construction argumentative — scénario conditionnel : « Si » + sujet + « continue à » + infinitif, puis « alors » + conséquence. Sert à formuler une mise en garde sur l'aggravation d'une pression écologique."
+    },
+    {
+      "id": "t3enc05",
+      "kind": "construction-argumentative",
+      "french": "D'un côté … ; de l'autre …",
+      "anchor": "D'un côté",
+      "english": "On one hand … ; on the other …",
+      "example": "D'un côté, l'agriculture intensive permet de produire à bas coût pour nourrir une population mondiale croissante ; de l'autre, elle épuise les sols et fragilise la biodiversité.",
+      "usage": "Construction argumentative — balance concessive : « D'un côté » présente un avantage, « de l'autre » expose le coût écologique. Utile pour préparer une prise de position nuancée."
+    },
+    {
+      "id": "t3enc06",
+      "kind": "construction-argumentative",
+      "french": "La responsabilité en incombe d'abord à …, mais … ne peut pas non plus …",
+      "anchor": "La responsabilité en incombe",
+      "english": "The responsibility lies primarily with …, but … cannot either …",
+      "example": "La responsabilité en incombe d'abord aux États, mais l'individu ne peut pas non plus s'exonérer de ses propres choix de consommation.",
+      "usage": "Construction argumentative — responsabilité partagée : « La responsabilité en incombe d'abord à » + acteur, puis « mais » + autre acteur + négation. Répartit les devoirs sans effacer la hiérarchie des pouvoirs."
+    },
+    {
+      "id": "t3enc07",
+      "kind": "construction-argumentative",
+      "french": "Pour atteindre … il faut à la fois … et …",
+      "anchor": "il faut à la fois",
+      "english": "To reach … one must both … and …",
+      "example": "Pour atteindre les objectifs de neutralité carbone, il faut à la fois réduire les émissions industrielles et transformer les habitudes de consommation des ménages.",
+      "usage": "Construction argumentative — objectif et moyens : « Pour atteindre » + nom d'objectif, puis « il faut à la fois » + deux leviers. Montre qu'une transition environnementale exige des actions coordonnées."
+    },
+    {
+      "id": "t3enc08",
+      "kind": "construction-argumentative",
+      "french": "Sans … il est difficile d'imaginer que …",
+      "anchor": "il est difficile d'imaginer",
+      "english": "Without … it is hard to imagine that …",
+      "example": "Sans une réforme profonde du financement public de la recherche verte, il est difficile d'imaginer que les innovations nécessaires émergeront dans les délais requis.",
+      "usage": "Construction argumentative — condition nécessaire : « Sans » + nom, puis « il est difficile d'imaginer que » + proposition. Met en évidence un prérequis structurel de la transition écologique."
+    },
+    {
+      "id": "t3enc09",
+      "kind": "construction-argumentative",
+      "french": "Il ne suffit pas de … ; encore faut-il …",
+      "anchor": "Il ne suffit pas de",
+      "english": "It is not enough to … ; one must also …",
+      "example": "Il ne suffit pas de recycler davantage ; encore faut-il concevoir des produits dont les matériaux peuvent réellement être valorisés en fin de vie.",
+      "usage": "Construction argumentative — dépassement d'une mesure partielle : « Il ne suffit pas de » + infinitif, puis « encore faut-il » + infinitif. Sert à exiger une condition supplémentaire dans une politique écologique."
+    },
+    {
+      "id": "t3enc10",
+      "kind": "construction-argumentative",
+      "french": "On ne peut pas opposer … et … : les deux sont …",
+      "anchor": "On ne peut pas opposer",
+      "english": "One cannot set … against … : both are …",
+      "example": "On ne peut pas opposer développement économique et protection de l'environnement : les deux sont interdépendants dans un modèle de croissance durable.",
+      "usage": "Construction argumentative — réfutation d'une fausse opposition : « On ne peut pas opposer » + deux noms, puis « les deux sont » + adjectif. Relie développement et protection de l'environnement."
+    },
+    {
+      "id": "t3enc11",
+      "kind": "construction-argumentative",
+      "french": "Ce n'est pas tant … que …",
+      "anchor": "Ce n'est pas tant",
+      "english": "It is not so much … as …",
+      "example": "Ce n'est pas tant le manque de technologies vertes qui bloque la transition que l'absence de volonté politique pour les déployer à grande échelle.",
+      "usage": "Construction argumentative — recentrage : « Ce n'est pas tant » + cause apparente, puis « que » + cause déterminante. Déplace l'analyse vers le vrai blocage de la transition."
+    },
+    {
+      "id": "t3enc12",
+      "kind": "construction-argumentative",
+      "french": "Si l'on veut … il convient de distinguer …",
+      "anchor": "il convient de distinguer",
+      "english": "If we want to … it is appropriate to distinguish …",
+      "example": "Si l'on veut évaluer honnêtement les politiques de décarbonation, il convient de distinguer les engagements annoncés des résultats effectivement mesurés.",
+      "usage": "Construction argumentative — distinction analytique : « Si l'on veut » + infinitif, puis « il convient de distinguer » + deux éléments. Aide à comparer annonces et résultats environnementaux."
+    },
+    {
+      "id": "t3enc13",
+      "kind": "construction-argumentative",
+      "french": "L'enjeu n'est plus de savoir si … mais de décider comment …",
+      "anchor": "L'enjeu n'est plus de savoir si",
+      "english": "The issue is no longer whether … but how …",
+      "example": "L'enjeu n'est plus de savoir si le changement climatique est réel, mais de décider comment répartir équitablement les efforts entre pays riches et pays en développement.",
+      "usage": "Construction argumentative — dépassement du débat : « L'enjeu n'est plus de savoir si » + proposition, puis « mais de décider comment » + infinitif. Oriente la discussion climatique vers l'action."
+    },
+    {
+      "id": "t3enc14",
+      "kind": "construction-argumentative",
+      "french": "Certes … mais cela ne saurait justifier …",
+      "anchor": "ne saurait justifier",
+      "english": "Admittedly … but that cannot justify …",
+      "example": "Certes, la transition énergétique a un coût à court terme, mais cela ne saurait justifier de reporter indéfiniment les investissements nécessaires.",
+      "usage": "Construction argumentative — concession/réfutation : « Certes » admet une difficulté, puis « mais cela ne saurait justifier » + infinitif ou nom. Refuse que le coût serve d'excuse à l'inaction écologique."
+    },
+    {
+      "id": "t3enc15",
+      "kind": "construction-argumentative",
+      "french": "À l'échelle individuelle … ; à l'échelle collective …",
+      "anchor": "À l'échelle individuelle",
+      "english": "At the individual level … ; at the collective level …",
+      "example": "À l'échelle individuelle, réduire sa consommation de viande est un geste accessible ; à l'échelle collective, seule une politique agricole réformée peut transformer durablement les systèmes alimentaires.",
+      "usage": "Construction argumentative — changement d'échelle : « À l'échelle individuelle » oppose ou complète « à l'échelle collective ». Articule gestes personnels et transformations systémiques."
+    }
+  ]
+}

@@ -32,16 +32,16 @@
         </span>
         <div>
           <h2 id="eo-t3-vocabulary-choice-title">Vocabulaire</h2>
-          <p>Les mots et tournures de chaque réponse, rangés sous les grands thèmes de la tâche.</p>
+          <p>Des collections thématiques pour nommer les enjeux, choisir des tournures naturelles et construire votre argumentation.</p>
         </div>
       </header>
       <div class="task-choice-card__facts">
-        <span><b>{{ subject_theme_groups|length }}</b> thèmes</span>
-        <span><b>{{ subject_response_count }}</b> decks</span>
-        <span><b>{{ vocabulary_entry_count }}</b> entrées</span>
+        <span><b>{{ vocabulary_theme_count }}</b> thèmes</span>
+        <span><b>{{ vocabulary_entry_count }}</b> fiches</span>
+        <span><b>{{ vocabulary_batch_count }}</b> lots guidés</span>
       </div>
       <footer class="task-choice-card__footer">
-        {% include "study/partials/tache_two_progress.html" with summary=vocabulary_overview_summary unit_label="decks terminés" compact=True only %}
+        {% include "study/partials/tache_two_progress.html" with summary=vocabulary_overview_summary unit_label="lots terminés" compact=True only %}
         <span class="task-choice-card__action">Ouvrir {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
       </footer>
     </a>

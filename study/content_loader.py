@@ -35,6 +35,9 @@ TACHE_TWO_THEME_VOCABULARY_DIR = QUESTION_BANK_DIR / "theme_vocabulary"
 TACHE_TWO_SUBJECT_THEMES_PATH = TACHE_TWO_SUBJECTS_DIR / "subject_themes.json"
 QUESTION_BANK_TASK = ("eo", "tache-2")
 EO_TACHE_THREE_TASK = ("eo", "tache-3")
+EO_TACHE_THREE_THEME_VOCABULARY_DIR = (
+    CONTENT_DIR / "tache_3" / "theme_vocabulary"
+)
 
 EE_TACHE_THREE_TASK = ("ee", "tache-3")
 EE_TACHE_THREE_CONTENT_PREFIX = "ee-tache3:"
@@ -95,6 +98,38 @@ TACHE_TWO_THEME_NOUN_ARTICLE_RE = re.compile(
 TACHE_TWO_THEME_INFINITIVE_RE = re.compile(
     r"^(?:s['’]|se\s+)?[\wÀ-ÿ-]+(?:er|ir|re)\b",
     re.IGNORECASE,
+)
+EO_TACHE_THREE_THEME_VOCABULARY_PER_THEME = 60
+EO_TACHE_THREE_THEME_VOCABULARY_PER_KIND = 15
+EO_TACHE_THREE_THEME_VOCABULARY_FIELDS = (
+    "id",
+    "kind",
+    "french",
+    "anchor",
+    "english",
+    "example",
+    "usage",
+)
+EO_TACHE_THREE_THEME_VOCABULARY_KINDS = (
+    "notion-cle",
+    "verbe-collocation",
+    "expression-idiomatique",
+    "construction-argumentative",
+)
+EO_TACHE_THREE_THEME_VOCABULARY_CATEGORIES = {
+    "notion-cle": "EO Tâche 3 · Notions clés",
+    "verbe-collocation": "EO Tâche 3 · Verbes et collocations",
+    "expression-idiomatique": "EO Tâche 3 · Expressions et locutions",
+    "construction-argumentative": (
+        "EO Tâche 3 · Constructions argumentatives"
+    ),
+}
+EO_TACHE_THREE_NOTION_USAGE_RE = re.compile(
+    r"^Nom (?P<gender>masculin|féminin)(?P<plural> pluriel)? "
+    r"— (?P<form>pluriel|singulier) : .+\.",
+)
+EO_TACHE_THREE_VERB_USAGE_RE = re.compile(
+    r"^Verbe — infinitif : .+ ; construction : .+\.",
 )
 SUBJECT_VOCABULARY_FIELDS = (
     "id",
@@ -1583,6 +1618,292 @@ def parse_tache_two_theme_vocabulary(
                     anchor=anchor,
                     example=example,
                     note=values["usage"],
+                    sources_raw=sources_raw,
+                    sources=(source,),
+                    order=base_order + len(phrases) + 1,
+                )
+            )
+    return phrases
+
+
+def parse_eo_tache_three_theme_vocabulary(
+    responses: Optional[List[ResponseData]] = None,
+    directory: Path = EO_TACHE_THREE_THEME_VOCABULARY_DIR,
+) -> List[PhraseData]:
+    """Validate and parse the argumentative vocabulary for EO Tâche 3."""
+    if responses is None:
+        responses = parse_responses()
+
+    themes = tuple(
+        theme
+        for theme in load_themes()
+        if theme.task == "/".join(EO_TACHE_THREE_TASK)
+    )
+    theme_by_slug = {theme.slug: theme for theme in themes}
+    theme_by_name = {theme.name: theme for theme in themes}
+    source_by_theme = {}
+    for response in responses:
+        for prompt in response.prompts:
+            theme = theme_by_name.get(prompt.theme)
+            if theme is not None:
+                source_by_theme.setdefault(
+                    theme.slug,
+                    (prompt.theme, prompt.number),
+                )
+    missing_sources = sorted(set(theme_by_slug) - set(source_by_theme))
+    if missing_sources:
+        raise ValueError(
+            "No representative EO Tâche 3 subject found for themes: "
+            + ", ".join(missing_sources)
+        )
+
+    paths = sorted(directory.glob("*.json"))
+    expected_file_names = {f"{theme.slug}.json" for theme in themes}
+    actual_file_names = {path.name for path in paths}
+    if actual_file_names != expected_file_names:
+        missing = sorted(expected_file_names - actual_file_names)
+        unexpected = sorted(actual_file_names - expected_file_names)
+        details = []
+        if missing:
+            details.append("missing " + ", ".join(missing))
+        if unexpected:
+            details.append("unexpected " + ", ".join(unexpected))
+        raise ValueError(
+            "EO Tâche 3 theme-vocabulary files do not match the theme "
+            "taxonomy: " + "; ".join(details)
+        )
+
+    payload_by_theme = {}
+    for path in paths:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(payload, dict):
+            raise ValueError(f"{path.name} must contain a JSON object")
+        if set(payload) != {"version", "theme", "name", "entries"}:
+            raise ValueError(
+                f"{path.name} must contain version, theme, name, and entries"
+            )
+        if payload["version"] != 1:
+            raise ValueError(
+                f"{path.name} must use EO Tâche 3 theme-vocabulary version 1"
+            )
+        theme_slug = payload["theme"]
+        theme = theme_by_slug.get(theme_slug)
+        if theme is None or path.name != f"{theme_slug}.json":
+            raise ValueError(f"{path.name} has an invalid theme slug")
+        if payload["name"] != theme.display:
+            raise ValueError(
+                f"{path.name} must use the theme name {theme.display!r}"
+            )
+        payload_by_theme[theme_slug] = payload
+
+    theme_id_codes = {
+        "culture": "cu",
+        "famille": "fa",
+        "education": "ed",
+        "sante": "sa",
+        "technologie": "te",
+        "environnement": "en",
+        "economie": "ec",
+    }
+    kind_id_codes = {
+        "notion-cle": "n",
+        "verbe-collocation": "v",
+        "expression-idiomatique": "i",
+        "construction-argumentative": "c",
+    }
+    expected_kinds = tuple(
+        kind
+        for kind in EO_TACHE_THREE_THEME_VOCABULARY_KINDS
+        for _ in range(EO_TACHE_THREE_THEME_VOCABULARY_PER_KIND)
+    )
+    seen_ids = {}
+    seen_targets = {}
+    phrases = []
+    base_order = 850_000
+    for theme in themes:
+        entries = payload_by_theme[theme.slug]["entries"]
+        if not isinstance(entries, list):
+            raise ValueError(f"{theme.slug}.json must contain an entries list")
+        if len(entries) != EO_TACHE_THREE_THEME_VOCABULARY_PER_THEME:
+            raise ValueError(
+                f"{theme.slug}.json must contain exactly "
+                f"{EO_TACHE_THREE_THEME_VOCABULARY_PER_THEME} entries"
+            )
+        actual_kinds = tuple(
+            entry.get("kind") if isinstance(entry, dict) else None
+            for entry in entries
+        )
+        if actual_kinds != expected_kinds:
+            raise ValueError(
+                f"{theme.slug}.json must group exactly "
+                f"{EO_TACHE_THREE_THEME_VOCABULARY_PER_KIND} entries for "
+                "each kind in the documented order"
+            )
+
+        source = source_by_theme[theme.slug]
+        sources_raw = f"{source[0]} P{source[1]}"
+        kind_positions = {
+            kind: 0 for kind in EO_TACHE_THREE_THEME_VOCABULARY_KINDS
+        }
+        for entry_index, entry in enumerate(entries, start=1):
+            location = f"{theme.slug}.json entry {entry_index}"
+            if not isinstance(entry, dict):
+                raise ValueError(f"{location} must be an object")
+            if set(entry) != set(EO_TACHE_THREE_THEME_VOCABULARY_FIELDS):
+                raise ValueError(
+                    f"{location} fields must be "
+                    f"{EO_TACHE_THREE_THEME_VOCABULARY_FIELDS}"
+                )
+            values = {}
+            for field_name in EO_TACHE_THREE_THEME_VOCABULARY_FIELDS:
+                value = entry.get(field_name)
+                if not isinstance(value, str) or not value.strip():
+                    raise ValueError(
+                        f"{location} has an empty {field_name!r} field"
+                    )
+                values[field_name] = value.strip()
+
+            kind = values["kind"]
+            kind_positions[kind] += 1
+            expected_id = (
+                f"t3{theme_id_codes[theme.slug]}{kind_id_codes[kind]}"
+                f"{kind_positions[kind]:02d}"
+            )
+            phrase_id = values["id"]
+            if phrase_id != expected_id:
+                raise ValueError(
+                    f"{location} must use the id {expected_id!r}"
+                )
+            phrase_id_key = phrase_id.casefold()
+            if len(phrase_id) > PHRASE_MAX_LENGTHS["id"]:
+                raise ValueError(
+                    f"{location} id exceeds "
+                    f"{PHRASE_MAX_LENGTHS['id']} characters"
+                )
+            if phrase_id_key in seen_ids:
+                raise ValueError(
+                    f"Duplicate EO Tâche 3 theme-vocabulary id "
+                    f"{phrase_id!r} in {seen_ids[phrase_id_key]} and "
+                    f"{location}"
+                )
+            seen_ids[phrase_id_key] = location
+
+            french = values["french"]
+            anchor = values["anchor"]
+            english = values["english"]
+            example = values["example"]
+            usage = values["usage"]
+            if len(french) > PHRASE_MAX_LENGTHS["expression"]:
+                raise ValueError(f"{location} french target is too long")
+            if len(anchor) > PHRASE_MAX_LENGTHS["anchor"]:
+                raise ValueError(f"{location} anchor is too long")
+            if len(english) > PHRASE_MAX_LENGTHS["english_cue"]:
+                raise ValueError(f"{location} english cue is too long")
+            target_key = french.casefold()
+            if target_key in seen_targets:
+                raise ValueError(
+                    f"Duplicate EO Tâche 3 theme-vocabulary target "
+                    f"{french!r} in {seen_targets[target_key]} and "
+                    f"{location}"
+                )
+            seen_targets[target_key] = location
+
+            noun_match = TACHE_TWO_THEME_NOUN_SUFFIX_RE.search(french)
+            if kind == "notion-cle":
+                if noun_match is None:
+                    raise ValueError(
+                        f"{location} notion must include a gender/number "
+                        "marker"
+                    )
+                noun_target = french[: noun_match.start()]
+                if anchor != noun_target:
+                    raise ValueError(
+                        f"{location} notion anchor must exactly match the "
+                        "article and noun without its gender marker"
+                    )
+                article_match = TACHE_TWO_THEME_NOUN_ARTICLE_RE.match(
+                    noun_target
+                )
+                if article_match is None:
+                    raise ValueError(
+                        f"{location} notion must begin with an article"
+                    )
+                article = (
+                    article_match.group("article") or "l'"
+                ).casefold()
+                gender = noun_match.group("gender")
+                plural = bool(noun_match.group("plural"))
+                if (
+                    article in {"un", "le"} and (gender != "m" or plural)
+                    or article in {"une", "la"} and (gender != "f" or plural)
+                    or article in {"les", "des"} and not plural
+                    or article == "l'" and plural
+                ):
+                    raise ValueError(
+                        f"{location} article and gender/number marker do not "
+                        "agree"
+                    )
+                usage_match = EO_TACHE_THREE_NOTION_USAGE_RE.match(usage)
+                expected_usage_gender = (
+                    "masculin" if gender == "m" else "féminin"
+                )
+                expected_form = "singulier" if plural else "pluriel"
+                if (
+                    usage_match is None
+                    or usage_match.group("gender") != expected_usage_gender
+                    or bool(usage_match.group("plural")) != plural
+                    or usage_match.group("form") != expected_form
+                ):
+                    raise ValueError(
+                        f"{location} usage must state the notion's gender and "
+                        f"{expected_form} form"
+                    )
+            elif noun_match is not None:
+                raise ValueError(
+                    f"{location} gender/number markers are reserved for "
+                    "notion-cle entries"
+                )
+            elif kind == "verbe-collocation":
+                if EO_TACHE_THREE_VERB_USAGE_RE.match(usage) is None:
+                    raise ValueError(
+                        f"{location} usage must state the infinitive and "
+                        "governed construction"
+                    )
+            elif kind == "expression-idiomatique":
+                if not usage.startswith("Expression "):
+                    raise ValueError(
+                        f"{location} usage must identify the expression"
+                    )
+            elif not usage.startswith("Construction argumentative — "):
+                raise ValueError(
+                    f"{location} usage must identify the argumentative "
+                    "construction"
+                )
+
+            if example.casefold().count(anchor.casefold()) != 1:
+                raise ValueError(
+                    f"{location} example must contain its anchor exactly once"
+                )
+            if not example.endswith((".", "!", "…")):
+                raise ValueError(
+                    f"{location} example must be an argumentative statement"
+                )
+            if example.casefold() == anchor.casefold():
+                raise ValueError(
+                    f"{location} needs a contextual example, not a duplicate "
+                    "anchor"
+                )
+
+            phrases.append(
+                PhraseData(
+                    phrase_id=phrase_id,
+                    tier="theme",
+                    category=EO_TACHE_THREE_THEME_VOCABULARY_CATEGORIES[kind],
+                    english_cue=english,
+                    expression=french,
+                    anchor=anchor,
+                    example=example,
+                    note=usage,
                     sources_raw=sources_raw,
                     sources=(source,),
                     order=base_order + len(phrases) + 1,

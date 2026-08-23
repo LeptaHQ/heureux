@@ -1,0 +1,547 @@
+{
+  "version": 1,
+  "theme": "culture",
+  "name": "Culture",
+  "entries": [
+    {
+      "id": "t3cun01",
+      "kind": "notion-cle",
+      "french": "le patrimoine culturel (m.)",
+      "anchor": "le patrimoine culturel",
+      "english": "cultural heritage",
+      "example": "Préserver le patrimoine culturel d'une région, c'est garantir aux générations futures un accès à leur histoire et à leur mémoire collective.",
+      "usage": "Nom masculin — pluriel : des patrimoines culturels. Désigne l'ensemble des biens matériels et immatériels hérités du passé : monuments, traditions, savoir-faire. Collocations fréquentes : préserver / valoriser / transmettre le patrimoine culturel. Central dans les débats sur le financement public de la culture."
+    },
+    {
+      "id": "t3cun02",
+      "kind": "notion-cle",
+      "french": "les pratiques culturelles (f. pl.)",
+      "anchor": "les pratiques culturelles",
+      "english": "cultural practices",
+      "example": "Les pratiques culturelles des jeunes ont profondément évolué avec la démocratisation des plateformes numériques de streaming.",
+      "usage": "Nom féminin pluriel — singulier : une pratique culturelle. Recouvre l'ensemble des activités liées à la consommation et à la production culturelles : lecture, cinéma, musique, visites de musées. Utile pour comparer les comportements culturels selon les générations ou les classes sociales."
+    },
+    {
+      "id": "t3cun03",
+      "kind": "notion-cle",
+      "french": "un enjeu culturel (m.)",
+      "anchor": "un enjeu culturel",
+      "english": "a cultural stake / cultural issue",
+      "example": "La disparition progressive des langues régionales représente un enjeu culturel majeur que les politiques publiques ne peuvent pas ignorer.",
+      "usage": "Nom masculin — pluriel : des enjeux culturels. Désigne ce qui est en jeu dans un débat touchant à la culture : identité, cohésion sociale, diversité. Registre soutenu, fréquent à l'oral argumentatif. À distinguer de 'problème' : l'enjeu implique une valeur à défendre ou un risque à éviter."
+    },
+    {
+      "id": "t3cun04",
+      "kind": "notion-cle",
+      "french": "l'identité culturelle (f.)",
+      "anchor": "l'identité culturelle",
+      "english": "cultural identity",
+      "example": "Pour de nombreux immigrés de la deuxième génération, affirmer l'identité culturelle d'origine tout en s'intégrant dans la société d'accueil représente un défi quotidien.",
+      "usage": "Nom féminin — pluriel : des identités culturelles. Ensemble des références, valeurs et appartenances qui définissent un individu ou un groupe sur le plan culturel. Opposable à identité nationale. Collocations : affirmer / construire / préserver son identité culturelle."
+    },
+    {
+      "id": "t3cun05",
+      "kind": "notion-cle",
+      "french": "la diversité culturelle (f.)",
+      "anchor": "la diversité culturelle",
+      "english": "cultural diversity",
+      "example": "La Convention de l'UNESCO de 2005 reconnaît la diversité culturelle comme un patrimoine commun de l'humanité qu'il convient de protéger face à l'uniformisation mondiale.",
+      "usage": "Nom féminin — pluriel : des diversités culturelles (forme rare dans ce sens). Coexistence de cultures différentes au sein d'un même espace ou dans le monde. S'emploie surtout au singulier dans le discours institutionnel ; utile pour opposer pluralité des expressions et uniformisation liée à la mondialisation."
+    },
+    {
+      "id": "t3cun06",
+      "kind": "notion-cle",
+      "french": "la transmission culturelle (f.)",
+      "anchor": "la transmission culturelle",
+      "english": "cultural transmission",
+      "example": "L'école joue un rôle irremplaçable dans la transmission culturelle, en donnant à tous les enfants, quelle que soit leur origine, accès aux grandes œuvres de la littérature et des arts.",
+      "usage": "Nom féminin — pluriel : des transmissions culturelles. Processus par lequel une culture, des valeurs ou des savoir-faire sont transmis d'une génération à l'autre, ou d'un groupe à un individu. Agents de transmission : famille, école, institutions culturelles. Central dans les débats sur l'éducation artistique."
+    },
+    {
+      "id": "t3cun07",
+      "kind": "notion-cle",
+      "french": "une industrie culturelle (f.)",
+      "anchor": "une industrie culturelle",
+      "english": "a cultural industry",
+      "example": "Soutenir une industrie culturelle comme le cinéma indépendant, c'est faire le choix de valoriser des œuvres qui ne seraient jamais financées par le seul marché.",
+      "usage": "Nom féminin — pluriel : des industries culturelles. Secteurs économiques produisant et distribuant des biens et services culturels à grande échelle : audiovisuel, jeux vidéo, édition, musique. Souvent associées aux politiques d'exception culturelle. Registre économique et politique."
+    },
+    {
+      "id": "t3cun08",
+      "kind": "notion-cle",
+      "french": "l'exception culturelle (f.)",
+      "anchor": "l'exception culturelle",
+      "english": "cultural exception (policy principle)",
+      "example": "La France défend l'exception culturelle au sein des négociations commerciales internationales en refusant de traiter les œuvres d'art comme de simples marchandises.",
+      "usage": "Nom féminin — pluriel : des exceptions culturelles (forme rare dans ce sens). Principe politique selon lequel les biens et services culturels ne doivent pas être soumis aux seules règles du marché libre. Sert à défendre des quotas, des subventions ou des protections face aux accords commerciaux."
+    },
+    {
+      "id": "t3cun09",
+      "kind": "notion-cle",
+      "french": "un musée (m.)",
+      "anchor": "un musée",
+      "english": "a museum",
+      "example": "Rendre un musée accessible gratuitement le premier dimanche du mois est une mesure concrète pour démocratiser l'accès à la culture.",
+      "usage": "Nom masculin — pluriel : des musées. Institution chargée de conserver, d'étudier et de présenter au public des collections d'œuvres d'art ou de documents historiques. Collocations : fréquenter / visiter un musée ; la politique des musées ; musée national / municipal / en ligne."
+    },
+    {
+      "id": "t3cun10",
+      "kind": "notion-cle",
+      "french": "la démocratisation culturelle (f.)",
+      "anchor": "la démocratisation culturelle",
+      "english": "cultural democratization",
+      "example": "Malgré des décennies de politique publique, la démocratisation culturelle reste inachevée, car les milieux défavorisés fréquentent encore très peu les théâtres et les opéras.",
+      "usage": "Nom féminin — pluriel : des démocratisations culturelles (forme rare dans ce sens). Politique visant à rendre les œuvres et pratiques culturelles accessibles à tous, quels que soient le milieu social ou le territoire. À distinguer de la démocratie culturelle, qui valorise les cultures populaires."
+    },
+    {
+      "id": "t3cun11",
+      "kind": "notion-cle",
+      "french": "la mondialisation culturelle (f.)",
+      "anchor": "la mondialisation culturelle",
+      "english": "cultural globalization",
+      "example": "La mondialisation culturelle, portée par Internet et les grandes plateformes numériques, favorise une certaine uniformisation des goûts au détriment des expressions locales.",
+      "usage": "Nom féminin — pluriel : des mondialisations culturelles (forme rare dans ce sens). Processus de diffusion internationale des contenus, des goûts et des références culturelles. Sert à analyser l'ouverture des publics, mais aussi les risques d'uniformisation et de domination de quelques plateformes."
+    },
+    {
+      "id": "t3cun12",
+      "kind": "notion-cle",
+      "french": "le financement public de la culture (m.)",
+      "anchor": "le financement public de la culture",
+      "english": "public funding for culture",
+      "example": "Réduire le financement public de la culture reviendrait à abandonner les créateurs les plus fragiles et à concentrer la production artistique dans les seules mains du marché.",
+      "usage": "Nom masculin — pluriel : des financements publics de la culture (forme rare dans ce sens). Ensemble des aides, subventions et mécanismes de l'État ou des collectivités qui soutiennent la création et la diffusion. Argument central pour débattre de l'égalité d'accès, des critères d'attribution et de l'indépendance artistique."
+    },
+    {
+      "id": "t3cun13",
+      "kind": "notion-cle",
+      "french": "une langue régionale (f.)",
+      "anchor": "une langue régionale",
+      "english": "a regional language",
+      "example": "Intégrer une langue régionale dans les programmes scolaires est une façon concrète de reconnaître la pluralité des identités qui composent la nation.",
+      "usage": "Nom féminin — pluriel : des langues régionales. Langue parlée dans une région particulière d'un pays, distincte de la langue officielle nationale. Exemples en France : breton, alsacien, occitan, basque. Enjeux : reconnaissance institutionnelle, transmission intergénérationnelle, vitalité culturelle."
+    },
+    {
+      "id": "t3cun14",
+      "kind": "notion-cle",
+      "french": "la création artistique (f.)",
+      "anchor": "la création artistique",
+      "english": "artistic creation",
+      "example": "La liberté est une condition indispensable de la création artistique, car toute censure durable finit par affaiblir l'imagination collective d'une société démocratique.",
+      "usage": "Nom féminin — pluriel : des créations artistiques. Processus et résultat de la production d'une œuvre d'art, littéraire ou musicale. Collocations : soutenir / encourager / financer la création artistique ; liberté de création. Registre artistique, culturel, politique."
+    },
+    {
+      "id": "t3cun15",
+      "kind": "notion-cle",
+      "french": "la lecture (f.)",
+      "anchor": "la lecture",
+      "english": "reading",
+      "example": "Favoriser la lecture dès le plus jeune âge, c'est non seulement développer les compétences linguistiques, mais aussi ouvrir les enfants à d'autres façons de voir le monde.",
+      "usage": "Nom féminin — pluriel : des lectures (lectures = plusieurs actes de lire ou interprétations). Pratique culturelle consistant à lire des textes écrits ; aussi synonyme d'interprétation d'une œuvre. Collocations : promouvoir la lecture, la lecture publique, un club de lecture. Enjeux : maîtrise de la langue, accès à la culture."
+    },
+    {
+      "id": "t3cuv01",
+      "kind": "verbe-collocation",
+      "french": "valoriser le patrimoine",
+      "anchor": "valoriser le patrimoine",
+      "english": "to promote / enhance heritage",
+      "example": "Les collectivités territoriales ont la responsabilité de valoriser le patrimoine local afin d'attirer des visiteurs et de renforcer le sentiment d'appartenance des habitants.",
+      "usage": "Verbe — infinitif : valoriser ; construction : valoriser quelque chose (complément d'objet direct), souvent suivi de auprès de quelqu'un ou pour quelqu'un. Registre institutionnel et soutenu. À distinguer de 'préserver' (conserver) : valoriser insiste sur la mise en valeur et la promotion active."
+    },
+    {
+      "id": "t3cuv02",
+      "kind": "verbe-collocation",
+      "french": "transmettre un savoir-faire",
+      "anchor": "transmettre un savoir-faire",
+      "english": "to pass on a skill / know-how",
+      "example": "Les artisans d'art ont du mal à transmettre un savoir-faire ancestral dans un contexte économique qui privilégie la production industrielle à grande échelle.",
+      "usage": "Verbe — infinitif : transmettre ; construction : transmettre quelque chose à quelqu'un. Transitif direct. Le complément indirect introduit par à désigne le destinataire. Registre courant à soutenu. Collocations : transmettre une tradition, un héritage, des valeurs. Central dans les débats sur l'éducation et la culture."
+    },
+    {
+      "id": "t3cuv03",
+      "kind": "verbe-collocation",
+      "french": "accéder à la culture",
+      "anchor": "accéder à la culture",
+      "english": "to access culture / to have access to culture",
+      "example": "Dans les zones rurales, il est souvent difficile d'accéder à la culture faute d'équipements culturels de proximité et de transports adaptés.",
+      "usage": "Verbe — infinitif : accéder ; construction : accéder à quelque chose (préposition à obligatoire). Registre courant à soutenu. Souvent utilisé dans les débats sur l'égalité culturelle et la politique d'accessibilité. Collocations : accéder à l'art, aux œuvres, aux équipements culturels."
+    },
+    {
+      "id": "t3cuv04",
+      "kind": "verbe-collocation",
+      "french": "financer la création",
+      "anchor": "financer la création",
+      "english": "to fund / finance creative work",
+      "example": "Il appartient à l'État de financer la création dans ses formes les plus exigeantes, celles que le marché seul ne peut pas soutenir.",
+      "usage": "Verbe — infinitif : financer ; construction : financer quelque chose (complément d'objet direct). Transitif. Collocations : financer la création artistique, un projet culturel, la diffusion d'une œuvre. Registre politique et économique. Implique une responsabilité institutionnelle, souvent sujet de débat budgétaire."
+    },
+    {
+      "id": "t3cuv05",
+      "kind": "verbe-collocation",
+      "french": "préserver la diversité linguistique",
+      "anchor": "préserver la diversité linguistique",
+      "english": "to preserve linguistic diversity",
+      "example": "Les politiques éducatives doivent préserver la diversité linguistique en accordant une place officielle aux langues minoritaires dans les programmes scolaires.",
+      "usage": "Verbe — infinitif : préserver ; construction : préserver quelque chose (complément d'objet direct). Registre institutionnel et soutenu. Implique une action protectrice contre une menace (uniformisation, disparition). À articuler avec : langue régionale, patrimoine immatériel, UNESCO."
+    },
+    {
+      "id": "t3cuv06",
+      "kind": "verbe-collocation",
+      "french": "démocratiser l'accès aux œuvres",
+      "anchor": "démocratiser l'accès aux œuvres",
+      "english": "to democratize access to artworks",
+      "example": "La numérisation des collections des grands musées a permis de démocratiser l'accès aux œuvres pour des publics qui ne pourraient jamais se déplacer à Paris ou à New York.",
+      "usage": "Verbe — infinitif : démocratiser ; construction : démocratiser quelque chose (complément d'objet direct). Registre sociologique et politique. Le sujet est souvent une institution publique ou une politique. À distinguer de 'rendre gratuit' : démocratiser inclut la médiation, la sensibilisation et la suppression des barrières sociales."
+    },
+    {
+      "id": "t3cuv07",
+      "kind": "verbe-collocation",
+      "french": "s'approprier une culture",
+      "anchor": "s'approprier une culture",
+      "english": "to appropriate / make one's own a culture",
+      "example": "S'approprier une culture étrangère ne signifie pas la trahir ; cela peut au contraire être une façon de l'enrichir et de la faire vivre autrement.",
+      "usage": "Verbe — infinitif : s'approprier ; construction : s'approprier quelque chose (pronominal, complément d'objet direct). Registre courant à soutenu. Implique un processus actif d'intégration et de transformation. À nuancer avec 'appropriation culturelle' (débat contemporain sur l'emprunt abusif)."
+    },
+    {
+      "id": "t3cuv08",
+      "kind": "verbe-collocation",
+      "french": "soutenir la création indépendante",
+      "anchor": "soutenir la création indépendante",
+      "english": "to support independent creative work",
+      "example": "Soutenir la création indépendante, c'est faire le pari que les œuvres les plus originales ne viennent pas toujours des grandes structures commerciales.",
+      "usage": "Verbe — infinitif : soutenir ; construction : soutenir quelque chose / quelqu'un (transitif direct). Registre politique et culturel. Le sujet désigne souvent une institution publique, une collectivité ou un mécène. Collocations : soutenir un artiste, un projet, une compagnie de théâtre."
+    },
+    {
+      "id": "t3cuv09",
+      "kind": "verbe-collocation",
+      "french": "diffuser une œuvre",
+      "anchor": "diffuser une œuvre",
+      "english": "to distribute / broadcast a work",
+      "example": "Diffuser une œuvre dans les médiathèques de quartier, c'est la faire exister au-delà des cercles parisiens et des réseaux habituels de consommation culturelle.",
+      "usage": "Verbe — infinitif : diffuser ; construction : diffuser quelque chose (complément d'objet direct), éventuellement suivi de auprès de quelqu'un ou sur une plateforme. Registre courant à professionnel. Couvre à la fois la distribution physique et la diffusion numérique. Collocations : diffuser un film, un livre, de la musique."
+    },
+    {
+      "id": "t3cuv10",
+      "kind": "verbe-collocation",
+      "french": "remettre en question l'héritage culturel",
+      "anchor": "remettre en question l'héritage culturel",
+      "english": "to call cultural heritage into question",
+      "example": "Remettre en question l'héritage culturel d'une société n'est pas le détruire : c'est souvent la condition d'un renouvellement créatif et d'un dialogue intergénérationnel sincère.",
+      "usage": "Verbe — infinitif : remettre en question ; construction : remettre quelque chose en question (locution verbale, séparable). Registre soutenu et argumentatif. Implique un examen critique, pas nécessairement un rejet. Collocations : remettre en question les canons esthétiques, la mémoire collective, les récits nationaux."
+    },
+    {
+      "id": "t3cuv11",
+      "kind": "verbe-collocation",
+      "french": "promouvoir les langues minoritaires",
+      "anchor": "promouvoir les langues minoritaires",
+      "english": "to promote minority languages",
+      "example": "Promouvoir les langues minoritaires à travers l'enseignement bilingue est une décision politique courageuse qui reconnaît la richesse de la pluralité identitaire d'une nation.",
+      "usage": "Verbe — infinitif : promouvoir ; construction : promouvoir quelque chose (complément d'objet direct). Registre institutionnel et soutenu. Conjugaison irrégulière : il promeut, nous promouvons. À distinguer de 'préserver' : promouvoir implique une action active de visibilité et de diffusion."
+    },
+    {
+      "id": "t3cuv12",
+      "kind": "verbe-collocation",
+      "french": "enrichir le débat culturel",
+      "anchor": "enrichir le débat culturel",
+      "english": "to enrich cultural debate",
+      "example": "Inviter des artistes étrangers dans les grandes institutions françaises permet d'enrichir le débat culturel en y introduisant des perspectives que les productions nationales n'explorent pas toujours.",
+      "usage": "Verbe — infinitif : enrichir ; construction : enrichir quelque chose (complément d'objet direct). Registre soutenu. Indique un apport qualitatif. Collocations : enrichir la langue, la réflexion, le paysage artistique. Utile pour argumenter en faveur de l'ouverture culturelle et de la diversité des points de vue."
+    },
+    {
+      "id": "t3cuv13",
+      "kind": "verbe-collocation",
+      "french": "résister à l'uniformisation culturelle",
+      "anchor": "résister à l'uniformisation culturelle",
+      "english": "to resist cultural uniformization",
+      "example": "Pour résister à l'uniformisation culturelle imposée par les grandes plateformes numériques, il faut des politiques volontaristes qui favorisent la production locale.",
+      "usage": "Verbe — infinitif : résister ; construction : résister à quelque chose (préposition à obligatoire). Registre argumentatif et politique. Implique un effort conscient et actif contre une tendance dominante. Collocations : résister à la mondialisation, à l'homogénéisation, à l'américanisation culturelle."
+    },
+    {
+      "id": "t3cuv14",
+      "kind": "verbe-collocation",
+      "french": "encourager la lecture chez les jeunes",
+      "anchor": "encourager la lecture chez les jeunes",
+      "english": "to encourage reading among young people",
+      "example": "La mise en place d'ateliers littéraires en dehors des heures de classe est un bon moyen d'encourager la lecture chez les jeunes qui n'ont pas une culture du livre à la maison.",
+      "usage": "Verbe — infinitif : encourager ; construction : encourager quelque chose chez quelqu'un (préposition chez pour désigner un groupe). Registre éducatif et culturel. Collocations : encourager la pratique artistique, la création, l'engagement culturel. Peut aussi se construire avec à + infinitif : encourager quelqu'un à lire."
+    },
+    {
+      "id": "t3cuv15",
+      "kind": "verbe-collocation",
+      "french": "mettre en valeur les traditions locales",
+      "anchor": "mettre en valeur les traditions locales",
+      "english": "to highlight / showcase local traditions",
+      "example": "Les festivals régionaux représentent une excellente occasion de mettre en valeur les traditions locales tout en les rendant accessibles à un public plus large.",
+      "usage": "Verbe — infinitif : mettre en valeur ; construction : mettre quelque chose en valeur (locution verbale, complément entre mettre et en valeur). Registre courant à soutenu. Synonymes partiels : valoriser, promouvoir. Insiste sur la mise en lumière et la reconnaissance publique d'un bien culturel ou d'une pratique."
+    },
+    {
+      "id": "t3cui01",
+      "kind": "expression-idiomatique",
+      "french": "avoir la culture dans le sang",
+      "anchor": "avoir la culture dans le sang",
+      "english": "to have culture in one's blood / to be a natural cultural enthusiast",
+      "example": "Certains artisans semblent avoir la culture dans le sang, tant leur engagement pour la préservation des traditions locales est naturel et profondément enraciné.",
+      "usage": "Expression idiomatique familière à courante. Registre oral et expressif, à utiliser avec modération à l'oral soutenu. Signifie : être porté naturellement et profondément vers les pratiques culturelles. Syntaxe : avoir quelque chose dans le sang. Variante plus neutre à l'oral argumentatif : 'être profondément attaché à la culture'."
+    },
+    {
+      "id": "t3cui02",
+      "kind": "expression-idiomatique",
+      "french": "faire table rase du passé culturel",
+      "anchor": "faire table rase du passé culturel",
+      "english": "to make a clean sweep of cultural heritage",
+      "example": "Vouloir moderniser les institutions ne devrait jamais signifier faire table rase du passé culturel ; l'innovation la plus solide s'appuie toujours sur une mémoire vivante.",
+      "usage": "Expression idiomatique soutenue, issue du latin tabula rasa (tableau effacé). Registre argumentatif et critique. Signifie : rejeter entièrement et délibérément tout ce qui appartient au passé. Syntaxe : faire table rase de quelque chose. Souvent utilisée pour critiquer une rupture radicale avec la tradition."
+    },
+    {
+      "id": "t3cui03",
+      "kind": "expression-idiomatique",
+      "french": "entre deux cultures",
+      "anchor": "entre deux cultures",
+      "english": "between two cultures",
+      "example": "Les enfants de la deuxième génération grandissent souvent entre deux cultures, ce qui peut être source de richesse identitaire autant que de tensions intérieures difficiles à résoudre.",
+      "usage": "Expression idiomatique courante. Registre courant à soutenu, fréquent dans les débats sur l'identité et l'immigration. Décrit la position d'une personne partagée entre deux appartenances culturelles différentes, sans être entièrement assignée à l'une ni à l'autre. Peut se construire avec : vivre, grandir, se trouver entre deux cultures."
+    },
+    {
+      "id": "t3cui04",
+      "kind": "expression-idiomatique",
+      "french": "nourrir l'imaginaire collectif",
+      "anchor": "nourrir l'imaginaire collectif",
+      "english": "to feed / nurture the collective imagination",
+      "example": "Les grandes œuvres littéraires ont toujours eu pour fonction de nourrir l'imaginaire collectif en proposant des figures, des mythes et des récits qui traversent les générations.",
+      "usage": "Expression idiomatique soutenue. Registre littéraire et culturel. Signifie : contribuer à enrichir les représentations partagées, les références communes d'une société. 'Imaginaire' est ici un nom masculin (l'imaginaire = ensemble des images et représentations d'un groupe). Syntaxe : nourrir quelque chose (transitif direct)."
+    },
+    {
+      "id": "t3cui05",
+      "kind": "expression-idiomatique",
+      "french": "un vide culturel",
+      "anchor": "un vide culturel",
+      "english": "a cultural void / cultural emptiness",
+      "example": "Fermer des bibliothèques de quartier pour des raisons budgétaires crée un vide culturel dans des territoires qui n'ont souvent aucune autre offre accessible à proximité.",
+      "usage": "Expression idiomatique courante à soutenue. Registre argumentatif. Désigne l'absence d'une offre culturelle suffisante dans un espace géographique ou social donné. Connotation négative et souvent mobilisée pour justifier une intervention publique. Collocations : créer / combler / laisser un vide culturel."
+    },
+    {
+      "id": "t3cui06",
+      "kind": "expression-idiomatique",
+      "french": "la culture pour tous",
+      "anchor": "la culture pour tous",
+      "english": "culture for everyone / culture for all",
+      "example": "André Malraux a porté l'idéal de la culture pour tous en créant les maisons de la culture, mais cet idéal est encore loin d'être pleinement réalisé dans les faits.",
+      "usage": "Expression idiomatique institutionnelle et politique. Registre courant à soutenu. Slogan historique des politiques culturelles françaises depuis Malraux. Désigne l'ambition de rendre les grandes œuvres accessibles à l'ensemble de la population, sans distinction de classe ou d'origine. Souvent confrontée à la réalité des inégalités culturelles persistantes."
+    },
+    {
+      "id": "t3cui07",
+      "kind": "expression-idiomatique",
+      "french": "porter atteinte à la liberté de création",
+      "anchor": "porter atteinte à la liberté de création",
+      "english": "to infringe on freedom of artistic creation",
+      "example": "Toute forme de censure, même exercée sous couvert de protection de l'ordre moral, finit inévitablement par porter atteinte à la liberté de création et à appauvrir le paysage artistique.",
+      "usage": "Expression idiomatique juridique et politique. Registre soutenu et formel. Signifie : nuire à, violer ou compromettre un droit. Syntaxe : porter atteinte à quelque chose. Peut s'appliquer à d'autres droits : porter atteinte à la dignité, à la propriété intellectuelle. Fréquent dans les débats sur la censure, la régulation des contenus et la protection des artistes."
+    },
+    {
+      "id": "t3cui08",
+      "kind": "expression-idiomatique",
+      "french": "tisser des liens entre les cultures",
+      "anchor": "tisser des liens entre les cultures",
+      "english": "to weave ties / build bridges between cultures",
+      "example": "Les échanges culturels internationaux permettent de tisser des liens entre les cultures en créant des espaces de dialogue fondés sur la curiosité mutuelle plutôt que sur la méfiance.",
+      "usage": "Expression idiomatique soutenue, à registre littéraire et argumentatif. Image du tissage : création d'un lien solide et progressif. Syntaxe : tisser des liens entre des entités (groupes, nations, cultures). Synonymes partiels : créer des ponts, favoriser le dialogue. Utile pour argumenter en faveur de la coopération culturelle internationale."
+    },
+    {
+      "id": "t3cui09",
+      "kind": "expression-idiomatique",
+      "french": "à contre-courant des modes",
+      "anchor": "à contre-courant des modes",
+      "english": "against the prevailing trends / bucking the trends",
+      "example": "Certains éditeurs continuent, à contre-courant des modes, de défendre une littérature exigeante qui privilégie la profondeur sur la rentabilité immédiate.",
+      "usage": "Expression idiomatique courante à soutenue. Registre argumentatif et expressif. Signifie : en opposition délibérée avec les tendances dominantes du moment. Syntaxe : aller / avancer / agir à contre-courant de quelque chose. Connotation généralement positive : courage, indépendance d'esprit, résistance aux pressions commerciales."
+    },
+    {
+      "id": "t3cui10",
+      "kind": "expression-idiomatique",
+      "french": "faire rayonner la culture française",
+      "anchor": "faire rayonner la culture française",
+      "english": "to make French culture shine / to project French culture internationally",
+      "example": "La diplomatie culturelle française cherche à faire rayonner la culture française à l'étranger non pas par orgueil national, mais pour contribuer à un dialogue entre les civilisations.",
+      "usage": "Expression idiomatique soutenue et institutionnelle. Registre politique et diplomatique. L'image du rayonnement, c'est-à-dire d'une influence qui se diffuse, est typique du discours sur le prestige culturel et la diplomatie d'influence. Syntaxe : faire rayonner quelque chose. Collocations : rayonnement culturel, rayonnement de la langue française."
+    },
+    {
+      "id": "t3cui11",
+      "kind": "expression-idiomatique",
+      "french": "un héritage vivant",
+      "anchor": "un héritage vivant",
+      "english": "a living heritage",
+      "example": "La gastronomie française est un héritage vivant qui continue d'évoluer au contact des cuisines du monde entier tout en conservant ses techniques et ses saveurs identitaires.",
+      "usage": "Expression idiomatique soutenue. Registre culturel et patrimonial. Paradoxe productif : un héritage n'est pas figé mais se renouvelle au contact du présent. Oppose implicitement 'patrimoine mort' (musée, archive) et patrimoine pratiqué, transmis, transformé. Utile pour argumenter contre le conservatisme culturel excessif."
+    },
+    {
+      "id": "t3cui12",
+      "kind": "expression-idiomatique",
+      "french": "prendre ses distances avec la culture dominante",
+      "anchor": "prendre ses distances avec la culture dominante",
+      "english": "to distance oneself from the dominant culture",
+      "example": "Cet artiste a délibérément choisi de prendre ses distances avec la culture dominante pour mieux explorer les références propres à son quartier et à son parcours.",
+      "usage": "Expression idiomatique courante à soutenue. Registre sociologique et artistique. Signifie : adopter une posture critique ou d'éloignement délibéré vis-à-vis d'une culture perçue comme hégémonique. Syntaxe : prendre ses distances avec quelque chose. Utile dans les débats sur les cultures alternatives, les sous-cultures et les identités marginales."
+    },
+    {
+      "id": "t3cui13",
+      "kind": "expression-idiomatique",
+      "french": "être en prise directe avec son époque",
+      "anchor": "en prise directe avec son époque",
+      "english": "to be directly engaged with / in tune with one's era",
+      "example": "Un artiste qui est en prise directe avec son époque ne se contente pas de divertir : il interroge les contradictions et les tensions qui traversent la société contemporaine.",
+      "usage": "Expression idiomatique soutenue, registre critique et intellectuel. Image mécanique (prise = contact engagé). Signifie : être étroitement connecté aux réalités, aux débats et aux transformations de son temps. Syntaxe : être en prise directe avec quelque chose. À opposer à : être en décalage avec son époque, être déconnecté."
+    },
+    {
+      "id": "t3cui14",
+      "kind": "expression-idiomatique",
+      "french": "mettre en scène la mémoire collective",
+      "anchor": "mettre en scène la mémoire collective",
+      "english": "to stage / bring to life collective memory",
+      "example": "Le théâtre a toujours eu la capacité de mettre en scène la mémoire collective en transformant des événements historiques en expériences émotionnelles accessibles à tous.",
+      "usage": "Expression idiomatique soutenue, registre artistique et culturel. Au sens propre : porter sur scène. Au sens figuré : représenter, rendre visible et tangible. Syntaxe : mettre quelque chose en scène (locution verbale). Collocations : mettre en scène un conflit, une époque, des figures historiques. Très utile pour parler du rôle social des arts du spectacle."
+    },
+    {
+      "id": "t3cui15",
+      "kind": "expression-idiomatique",
+      "french": "avoir accès à une offre culturelle diversifiée",
+      "anchor": "avoir accès à une offre culturelle diversifiée",
+      "english": "to have access to a diverse cultural offering",
+      "example": "Tous les citoyens devraient avoir accès à une offre culturelle diversifiée, mais aujourd'hui cela reste un privilège lié à la proximité des grandes métropoles.",
+      "usage": "Expression idiomatique courante à soutenue. Registre des politiques culturelles et de la sociologie. 'Offre culturelle' désigne l'ensemble des activités, équipements et contenus culturels disponibles dans un territoire. Syntaxe : avoir accès à quelque chose. Utile pour argumenter sur les inégalités territoriales et la démocratisation culturelle."
+    },
+    {
+      "id": "t3cuc01",
+      "kind": "construction-argumentative",
+      "french": "Ce n'est pas tant [X] qui pose problème que [Y], car [raison culturelle].",
+      "anchor": "Ce n'est pas tant",
+      "english": "hierarchizing correction frame (not so much X as Y)",
+      "example": "Ce n'est pas tant le manque de financement public de la culture qui pose problème que l'inégale répartition des aides entre Paris et les régions, car cette concentration territoriale creuse les inégalités d'accès.",
+      "usage": "Construction argumentative — correction hiérarchisante : la tournure « ce n'est pas tant … que … » oppose deux diagnostics et déplace l'attention vers la cause jugée décisive. Elle sert à nuancer un problème culturel, par exemple le financement ou l'accès, au lieu d'adopter une explication trop simple."
+    },
+    {
+      "id": "t3cuc02",
+      "kind": "construction-argumentative",
+      "french": "Si [condition culturelle], alors [conséquence], à condition toutefois que [nuance].",
+      "anchor": "à condition toutefois que",
+      "english": "qualified conditional frame",
+      "example": "Si la numérisation des œuvres favorise effectivement la démocratisation culturelle, alors elle mérite d'être encouragée, à condition toutefois que les auteurs et les artistes soient équitablement rémunérés pour la diffusion de leur travail.",
+      "usage": "Construction argumentative — condition nuancée : « si … alors …, à condition que … » combine une hypothèse à l'indicatif avec une réserve introduite par « à condition que » et le subjonctif. Elle permet d'accepter une politique culturelle tout en posant une exigence éthique ou pratique."
+    },
+    {
+      "id": "t3cuc03",
+      "kind": "construction-argumentative",
+      "french": "Certes, [argument adverse lié à la culture], mais il faut également reconnaître que [contre-argument].",
+      "anchor": "il faut également reconnaître que",
+      "english": "concession-rebuttal frame",
+      "example": "Certes, la mondialisation culturelle a permis à des œuvres étrangères de circuler librement et d'enrichir les goûts du public, mais il faut également reconnaître que cette circulation favorise massivement les productions anglophones au détriment des cultures minoritaires.",
+      "usage": "Construction argumentative — concession/réfutation : « certes …, mais … » concède d'abord une part de vérité à l'argument adverse, puis introduit le contre-argument principal. Elle est utile pour traiter la mondialisation culturelle sans caricaturer les bénéfices de l'échange."
+    },
+    {
+      "id": "t3cuc04",
+      "kind": "construction-argumentative",
+      "french": "La question n'est pas de savoir si [faux dilemme culturel], mais plutôt comment [vrai enjeu].",
+      "anchor": "La question n'est pas de savoir si",
+      "english": "problem-reframing frame",
+      "example": "La question n'est pas de savoir si l'État doit financer la culture, mais plutôt comment il peut le faire de manière plus équitable et en touchant les populations les plus éloignées des pratiques culturelles institutionnelles.",
+      "usage": "Construction argumentative — reformulation du problème : « la question n'est pas de savoir si …, mais plutôt comment … » écarte un faux dilemme et transforme une opposition binaire en enjeu de modalités. Elle convient aux débats sur l'action publique culturelle."
+    },
+    {
+      "id": "t3cuc05",
+      "kind": "construction-argumentative",
+      "french": "C'est précisément parce que [cause culturelle] que [conséquence logique nécessaire].",
+      "anchor": "C'est précisément parce que",
+      "english": "emphatic causal frame",
+      "example": "C'est précisément parce que la transmission culturelle est menacée dans les familles les plus fragilisées que l'école doit jouer un rôle de premier plan dans l'éducation artistique et littéraire de tous les enfants.",
+      "usage": "Construction argumentative — causalité emphatique : « c'est précisément parce que … que … » met la cause en relief par une structure clivée. Elle donne à la conclusion une nécessité logique et sert à justifier une intervention culturelle à partir d'un constat d'inégalité ou de fragilité."
+    },
+    {
+      "id": "t3cuc06",
+      "kind": "construction-argumentative",
+      "french": "Contrairement à ce que l'on pourrait croire, [réalité culturelle contre-intuitive].",
+      "anchor": "Contrairement à ce que l'on pourrait croire",
+      "english": "myth-busting / counter-intuitive frame",
+      "example": "Contrairement à ce que l'on pourrait croire, les visites virtuelles ne condamnent pas la fréquentation des musées ; elles peuvent au contraire éveiller la curiosité et donner envie de découvrir les œuvres sur place.",
+      "usage": "Construction argumentative — réfutation d'une idée reçue : « contrairement à ce que l'on pourrait croire » introduit une proposition qui contredit une intuition commune. Elle permet de surprendre l'auditoire et de défendre une analyse plus fine des effets du numérique sur les pratiques culturelles."
+    },
+    {
+      "id": "t3cuc07",
+      "kind": "construction-argumentative",
+      "french": "Pour peu que [condition minimale culturelle], [bénéfice culturel se réalise].",
+      "anchor": "Pour peu que",
+      "english": "minimal-condition frame",
+      "example": "Pour peu que les politiques locales investissent dans des médiathèques de qualité, l'accès à la lecture et à la culture numérique peut se transformer en véritable levier d'ascension sociale pour les populations défavorisées.",
+      "usage": "Construction argumentative — condition minimale : « pour peu que » se construit avec le subjonctif et signale qu'une condition limitée suffit à produire un effet notable. Elle donne une orientation optimiste et pragmatique aux propositions sur l'accès à la culture."
+    },
+    {
+      "id": "t3cuc08",
+      "kind": "construction-argumentative",
+      "french": "Il serait réducteur de limiter [notion culturelle] à [définition étroite], car elle englobe aussi [dimension plus large].",
+      "anchor": "Il serait réducteur de limiter",
+      "english": "definitional broadening frame",
+      "example": "Il serait réducteur de limiter la culture à la fréquentation des institutions patrimoniales, car elle englobe aussi les pratiques numériques, les cultures populaires et les formes d'expression issues des marges.",
+      "usage": "Construction argumentative — élargissement définitionnel : « il serait réducteur de limiter … à … » critique une définition trop étroite, puis ouvre vers une conception plus inclusive. Elle est efficace pour montrer que la culture dépasse les seules institutions patrimoniales."
+    },
+    {
+      "id": "t3cuc09",
+      "kind": "construction-argumentative",
+      "french": "D'un côté, [argument pro-patrimoine/tradition] ; de l'autre, [argument pro-modernité/innovation].",
+      "anchor": "D'un côté,",
+      "english": "two-sided balancing frame",
+      "example": "D'un côté, préserver les techniques artisanales traditionnelles garantit la survie d'un patrimoine matériel irremplaçable ; de l'autre, intégrer des méthodes de production contemporaines permet aux artisans de vivre de leur métier et d'atteindre un marché plus large.",
+      "usage": "Construction argumentative — mise en balance : « d'un côté … ; de l'autre … » présente deux arguments légitimes dans une structure parallèle. Elle prépare une synthèse en évitant de trancher trop vite entre protection du patrimoine et innovation culturelle."
+    },
+    {
+      "id": "t3cuc10",
+      "kind": "construction-argumentative",
+      "french": "En définitive, ce qui est en jeu, c'est la capacité de [société/institution] à [verbe culturel] tout en [verbe de préservation].",
+      "anchor": "ce qui est en jeu, c'est",
+      "english": "synthesizing conclusion frame",
+      "example": "En définitive, ce qui est en jeu, c'est la capacité de nos sociétés à s'ouvrir à la diversité culturelle mondiale tout en préservant les expressions locales qui donnent à chaque communauté son sens de l'appartenance et de la continuité.",
+      "usage": "Construction argumentative — conclusion synthétique : « en définitive, ce qui est en jeu, c'est … » résume le cœur du débat par un groupe nominal ou une proposition infinitive. Elle donne du poids à la conclusion et reformule l'enjeu culturel en termes de capacité collective."
+    },
+    {
+      "id": "t3cuc11",
+      "kind": "construction-argumentative",
+      "french": "On ne peut pas réduire [phénomène culturel] à [cause unique], car [pluralité de facteurs].",
+      "anchor": "On ne peut pas réduire",
+      "english": "multi-cause complication frame",
+      "example": "On ne peut pas réduire le désintérêt des jeunes pour la lecture à la seule concurrence des écrans, car des facteurs socioéconomiques, familiaux et scolaires jouent un rôle tout aussi déterminant dans l'éloignement des pratiques littéraires.",
+      "usage": "Construction argumentative — complexification causale : « on ne peut pas réduire … à …, car … » refuse l'explication unique et introduit une pluralité de facteurs. Elle renforce la crédibilité de l'analyse, notamment sur les pratiques culturelles des jeunes."
+    },
+    {
+      "id": "t3cuc12",
+      "kind": "construction-argumentative",
+      "french": "C'est là que réside la tension fondamentale entre [valeur culturelle A] et [valeur culturelle B].",
+      "anchor": "C'est là que réside la tension fondamentale entre",
+      "english": "dialectical tension frame",
+      "example": "C'est là que réside la tension fondamentale entre la liberté de création artistique et la responsabilité sociale des artistes vis-à-vis des publics les plus vulnérables.",
+      "usage": "Construction argumentative — formulation d'une tension dialectique : « c'est là que réside la tension fondamentale entre … et … » nomme l'opposition centrale du raisonnement. Elle sert à montrer que deux valeurs culturelles légitimes doivent être conciliées plutôt qu'opposées mécaniquement."
+    },
+    {
+      "id": "t3cuc13",
+      "kind": "construction-argumentative",
+      "french": "À mesure que [évolution culturelle], [conséquence qui s'amplifie progressivement].",
+      "anchor": "À mesure que",
+      "english": "correlative progression frame",
+      "example": "À mesure que les plateformes numériques monopolisent la diffusion culturelle, la capacité des États à réguler la diversité des contenus et à protéger les créateurs locaux se réduit de façon inquiétante.",
+      "usage": "Construction argumentative — progression corrélative : « à mesure que » introduit une évolution graduelle et la conséquence qui s'amplifie avec elle. Elle convient pour analyser les effets progressifs de la numérisation, de la mondialisation ou de la concentration culturelle."
+    },
+    {
+      "id": "t3cuc14",
+      "kind": "construction-argumentative",
+      "french": "Plutôt que de [mesure culturelle insuffisante], il conviendrait de [mesure culturelle plus ambitieuse].",
+      "anchor": "il conviendrait de",
+      "english": "prescriptive substitution frame",
+      "example": "Plutôt que de se contenter de rendre les musées gratuits un dimanche par mois, il conviendrait de repenser entièrement la médiation culturelle pour que les publics éloignés se sentent réellement accueillis et concernés par ces institutions.",
+      "usage": "Construction argumentative — substitution prescriptive : « plutôt que de …, il conviendrait de … » oppose une mesure jugée insuffisante à une solution plus ambitieuse. Le conditionnel de convenance atténue l'injonction tout en donnant une orientation claire au débat culturel."
+    },
+    {
+      "id": "t3cuc15",
+      "kind": "construction-argumentative",
+      "french": "Si l'on admet que [prémisse culturelle partagée], force est de constater que [conclusion qui en découle].",
+      "anchor": "force est de constater que",
+      "english": "concessive deduction frame",
+      "example": "Si l'on admet que la diversité culturelle est une richesse pour l'ensemble de l'humanité, force est de constater que les politiques commerciales qui favorisent l'uniformisation des contenus numériques lui font gravement tort.",
+      "usage": "Construction argumentative — déduction concessive : « si l'on admet que …, force est de constater que … » part d'une prémisse partagée et en tire une conclusion difficile à refuser. Elle combine accord apparent et pression logique dans les débats sur la diversité culturelle."
+    }
+  ]
+}

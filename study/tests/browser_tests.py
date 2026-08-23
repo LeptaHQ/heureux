@@ -1626,26 +1626,32 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
-    def test_subject_vocabulary_directory_searches_rich_decks(self):
+    def test_tache_three_theme_vocabulary_is_complete_and_responsive(self):
         self.page.set_viewport_size({"width": 1120, "height": 760})
-        first_prompt = self.first.response.prompts.get(is_canonical=True)
-        second_prompt = self.second.response.prompts.get(is_canonical=True)
-        first_prompt.text = "Faut-il voyager pour découvrir le monde ?"
-        first_prompt.save(update_fields=["text"])
-        second_prompt.text = "Les réseaux sociaux rapprochent-ils les jeunes ?"
-        second_prompt.save(update_fields=["text"])
-        first_vocabulary = factories.make_phrase(tier="subject")
-        first_vocabulary.source_prompts.add(first_prompt)
-        factories.make_phrase_card(
-            phrase=first_vocabulary,
-            user=self.user,
-        )
-        second_vocabulary = factories.make_phrase(tier="subject")
-        second_vocabulary.source_prompts.add(second_prompt)
-        factories.make_phrase_card(
-            phrase=second_vocabulary,
-            user=self.user,
-        )
+        prompt = self.first.response.prompts.get(is_canonical=True)
+        lot_order = 0
+        for category_order, category_name in enumerate(
+            content.EO_TACHE_THREE_THEME_VOCABULARY_CATEGORIES.values(),
+            start=1,
+        ):
+            category = PhraseCategory.objects.create(
+                slug=f"browser-t3-theme-{category_order}",
+                name=category_name,
+                content_key=f"browser:t3-theme-{category_order}",
+                order=category_order,
+            )
+            for _ in range(15):
+                lot_order += 1
+                phrase = factories.make_phrase(
+                    category=category,
+                    tier=PhraseTier.THEME,
+                    lot_order=lot_order,
+                )
+                phrase.source_prompts.add(prompt)
+                factories.make_phrase_card(
+                    phrase=phrase,
+                    user=self.user,
+                )
 
         task_overview_url = reverse(
             "study:task_detail",
@@ -1682,6 +1688,20 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertLessEqual(summary_layout["heroGap"], 24)
         self.assertTrue(summary_layout["sharesRow"])
+        self.assertEqual(
+            [
+                int(value)
+                for value in self.page.locator(
+                    ".memory-overview-hero__metrics dd"
+                ).all_text_contents()
+            ],
+            [1, 60, 4],
+        )
+        self.assertEqual(
+            self.page.locator(".task-vocabulary-theme-entry").count(),
+            1,
+        )
+        self.assert_no_horizontal_overflow()
 
         self.page.get_by_role(
             "link",
@@ -1701,42 +1721,79 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.page.get_by_role(
             "heading",
-            name="Choisir un sujet",
+            name="Quatre parcours complémentaires",
             exact=True,
         ).wait_for()
-        search = self.page.get_by_role(
-            "searchbox",
-            name=f"Rechercher dans {self.theme.display_name}",
-        )
-        search.fill("reseaux")
-
-        self.page.get_by_text("1 sujet trouvé", exact=True).wait_for()
-        directory = self.page.locator("[data-subject-vocabulary-directory]")
         self.assertEqual(
-            directory.locator(
-                "[data-subject-vocabulary-row]:not([hidden])"
-            ).count(),
-            1,
+            self.page.locator(".batch-card").count(),
+            4,
         )
-        self.page.get_by_text(second_prompt.text, exact=True).wait_for()
-        directory.locator(
-            "[data-subject-vocabulary-row]:not([hidden])"
-        ).get_by_role("link", name="Pratiquer", exact=True).wait_for()
+        self.assertEqual(
+            self.page.locator(".theme-vocabulary-group").count(),
+            4,
+        )
+        self.assertEqual(
+            self.page.locator(
+                ".theme-vocabulary-group__count"
+            ).all_text_contents(),
+            ["15 fiches"] * 4,
+        )
+        self.assertEqual(
+            self.page.locator(".theme-vocabulary-phrase").count(),
+            60,
+        )
+
+        first_progress = self.page.locator(
+            "[data-theme-vocabulary-progress-form]"
+        ).first
+        with self.page.expect_response(
+            lambda response: "/progression/" in response.url
+        ) as progress_response:
+            first_progress.locator("button").click()
+        self.assertTrue(progress_response.value.ok)
+        self.assertEqual(
+            first_progress.locator("button").get_attribute("aria-checked"),
+            "true",
+        )
+
+        table_toggle = self.page.get_by_role("button", name="Tableau")
+        cards_toggle = self.page.get_by_role("button", name="Cartes")
+        table_toggle.click()
+        self.assertEqual(table_toggle.get_attribute("aria-pressed"), "true")
+        self.assertTrue(
+            self.page.locator(
+                ".theme-vocabulary-catalog "
+                "[data-collection-table-header]"
+            ).first.is_visible()
+        )
+        french_recall = self.page.locator(
+            '[data-theme-vocabulary-recall-column="french"]'
+        )
+        first_french_content = self.page.locator(
+            '[data-theme-vocabulary-recall-cell="french"] '
+            ".theme-vocabulary-recall__content"
+        ).first
+        french_recall.click()
+        self.assertNotEqual(
+            first_french_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        cards_toggle.click()
+        self.assertEqual(cards_toggle.get_attribute("aria-pressed"), "true")
+        self.assertNotEqual(
+            first_french_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+
+        self.page.set_viewport_size({"width": 320, "height": 700})
+        table_toggle.click()
+        self.assertEqual(table_toggle.get_attribute("aria-pressed"), "true")
+        self.assertTrue(french_recall.is_visible())
         self.assert_no_horizontal_overflow()
-
-        search.fill("")
-        self.page.locator(
-            "[data-subject-vocabulary-status]"
-        ).get_by_text("2 sujets", exact=True).wait_for()
-        self.assertEqual(
-            directory.locator(
-                "[data-subject-vocabulary-row]:not([hidden])"
-            ).count(),
-            2,
-        )
-        self.assertIsNone(
-            directory.locator("[data-subject-theme]").get_attribute("open")
-        )
 
     def test_theme_vocabulary_group_heads_use_readable_small_type(self):
         self._import_eo_tache_two_content()

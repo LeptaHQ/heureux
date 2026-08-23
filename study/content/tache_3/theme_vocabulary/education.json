@@ -1,0 +1,547 @@
+{
+  "version": 1,
+  "theme": "education",
+  "name": "Éducation",
+  "entries": [
+    {
+      "id": "t3edn01",
+      "kind": "notion-cle",
+      "french": "l'égalité des chances (f.)",
+      "anchor": "l'égalité des chances",
+      "english": "equal opportunity",
+      "example": "Sans l'égalité des chances, les inégalités scolaires se reproduisent de génération en génération.",
+      "usage": "Nom féminin — pluriel : des égalités des chances (forme rare dans ce sens). Notion de justice scolaire selon laquelle l'origine sociale, le genre ou le territoire ne devraient pas déterminer la réussite ; collocations : garantir, renforcer, défendre l'égalité des chances."
+    },
+    {
+      "id": "t3edn02",
+      "kind": "notion-cle",
+      "french": "le système scolaire (m.)",
+      "anchor": "le système scolaire",
+      "english": "school system",
+      "example": "Le système scolaire français est souvent critiqué pour son caractère trop sélectif dès le plus jeune âge.",
+      "usage": "Nom masculin — pluriel : des systèmes scolaires. Désigne l'ensemble des institutions, niveaux et règles d'enseignement d'un pays ; utile pour comparer des modèles ou critiquer leur sélectivité."
+    },
+    {
+      "id": "t3edn03",
+      "kind": "notion-cle",
+      "french": "la pédagogie différenciée (f.)",
+      "anchor": "la pédagogie différenciée",
+      "english": "differentiated teaching",
+      "example": "La pédagogie différenciée permet à chaque élève de progresser selon son propre rythme d'apprentissage.",
+      "usage": "Nom féminin — pluriel : des pédagogies différenciées. Méthode qui adapte supports, rythmes ou tâches aux besoins des élèves ; collocations : mettre en place, pratiquer, défendre la pédagogie différenciée."
+    },
+    {
+      "id": "t3edn04",
+      "kind": "notion-cle",
+      "french": "l'évaluation formative (f.)",
+      "anchor": "l'évaluation formative",
+      "english": "formative assessment",
+      "example": "L'évaluation formative vise à guider les progrès de l'élève plutôt qu'à sanctionner ses lacunes.",
+      "usage": "Nom féminin — pluriel : des évaluations formatives. Évaluation destinée à guider les progrès plutôt qu'à classer ; s'oppose à l'évaluation sommative et sert à justifier un accompagnement continu."
+    },
+    {
+      "id": "t3edn05",
+      "kind": "notion-cle",
+      "french": "l'échec scolaire (m.)",
+      "anchor": "l'échec scolaire",
+      "english": "academic failure",
+      "example": "L'échec scolaire n'est pas une fatalité si l'on intervient tôt avec un accompagnement ciblé.",
+      "usage": "Nom masculin — pluriel : des échecs scolaires. Désigne la difficulté durable à atteindre les apprentissages attendus ; forte valeur argumentative dans les débats sur la prévention, le soutien et l'orientation."
+    },
+    {
+      "id": "t3edn06",
+      "kind": "notion-cle",
+      "french": "l'inclusion scolaire (f.)",
+      "anchor": "l'inclusion scolaire",
+      "english": "school inclusion",
+      "example": "L'inclusion scolaire des élèves en situation de handicap reste un défi majeur pour de nombreux établissements.",
+      "usage": "Nom féminin — pluriel : des inclusions scolaires (forme rare dans ce sens). Principe visant la participation effective de tous les élèves en classe ordinaire ; collocations : favoriser, garantir, financer l'inclusion scolaire."
+    },
+    {
+      "id": "t3edn07",
+      "kind": "notion-cle",
+      "french": "l'apprentissage numérique (m.)",
+      "anchor": "l'apprentissage numérique",
+      "english": "digital learning",
+      "example": "L'apprentissage numérique a transformé la relation au savoir, rendant les ressources accessibles à tout moment.",
+      "usage": "Nom masculin — pluriel : des apprentissages numériques. Recouvre les plateformes, ressources en ligne et outils interactifs ; permet d'argumenter sur l'autonomie, l'accès aux savoirs et la fracture numérique."
+    },
+    {
+      "id": "t3edn08",
+      "kind": "notion-cle",
+      "french": "la discipline scolaire (f.)",
+      "anchor": "la discipline scolaire",
+      "english": "classroom discipline",
+      "example": "La discipline scolaire ne saurait reposer uniquement sur la sanction : elle doit aussi valoriser le respect mutuel.",
+      "usage": "Nom féminin — pluriel : des disciplines scolaires. Dans le sens comportemental, désigne le respect des règles en classe ; à distinguer des matières enseignées, appelées elles aussi disciplines scolaires."
+    },
+    {
+      "id": "t3edn09",
+      "kind": "notion-cle",
+      "french": "la pensée critique (f.)",
+      "anchor": "la pensée critique",
+      "english": "critical thinking",
+      "example": "Développer la pensée critique chez les élèves est aujourd'hui reconnu comme une priorité pédagogique fondamentale.",
+      "usage": "Nom féminin — pluriel : des pensées critiques (forme rare dans ce sens). Désigne l'aptitude à examiner l'information, les sources et les raisonnements ; collocations : développer, former, exercer la pensée critique."
+    },
+    {
+      "id": "t3edn10",
+      "kind": "notion-cle",
+      "french": "la formation professionnelle (f.)",
+      "anchor": "la formation professionnelle",
+      "english": "vocational training",
+      "example": "La formation professionnelle constitue une voie d'excellence trop souvent dévalorisée par rapport aux filières générales.",
+      "usage": "Nom féminin — pluriel : des formations professionnelles. Désigne l'acquisition de compétences liées à un métier ; utile pour défendre les filières techniques, l'alternance et la reconversion."
+    },
+    {
+      "id": "t3edn11",
+      "kind": "notion-cle",
+      "french": "l'enseignement supérieur (m.)",
+      "anchor": "l'enseignement supérieur",
+      "english": "higher education",
+      "example": "L'accès à l'enseignement supérieur demeure inégal selon l'origine sociale et géographique des étudiants.",
+      "usage": "Nom masculin — pluriel : des enseignements supérieurs (forme rare dans ce sens). Niveau d'études après le baccalauréat, incluant universités, écoles et formations spécialisées ; souvent associé à l'accès, à la sélection et au financement."
+    },
+    {
+      "id": "t3edn12",
+      "kind": "notion-cle",
+      "french": "la formation tout au long de la vie (f.)",
+      "anchor": "la formation tout au long de la vie",
+      "english": "lifelong learning",
+      "example": "La formation tout au long de la vie répond aux mutations rapides du marché du travail et aux exigences de reconversion.",
+      "usage": "Nom féminin — pluriel : des formations tout au long de la vie. Locution de politique éducative désignant l'apprentissage continu des adultes ; sert à argumenter sur la reconversion et l'adaptation aux métiers."
+    },
+    {
+      "id": "t3edn13",
+      "kind": "notion-cle",
+      "french": "le rôle de l'enseignant (m.)",
+      "anchor": "le rôle de l'enseignant",
+      "english": "teacher's role",
+      "example": "Le rôle de l'enseignant évolue vers celui d'un facilitateur qui accompagne l'élève dans la construction de son savoir.",
+      "usage": "Nom masculin — pluriel : des rôles de l'enseignant. Désigne les fonctions de transmission, d'accompagnement et de médiation du professeur ; permet de discuter l'évolution du métier."
+    },
+    {
+      "id": "t3edn14",
+      "kind": "notion-cle",
+      "french": "la relation famille-école (f.)",
+      "anchor": "la relation famille-école",
+      "english": "family-school relationship",
+      "example": "La relation famille-école constructive favorise l'implication parentale et améliore les résultats des élèves.",
+      "usage": "Nom féminin — pluriel : des relations famille-école. Désigne les échanges entre parents et institution scolaire autour du suivi de l'enfant ; notion utile pour défendre la coopération éducative."
+    },
+    {
+      "id": "t3edn15",
+      "kind": "notion-cle",
+      "french": "l'inégalité éducative (f.)",
+      "anchor": "l'inégalité éducative",
+      "english": "educational inequality",
+      "example": "L'inégalité éducative se creuse lorsque les ressources scolaires sont réparties de façon disproportionnée selon les territoires.",
+      "usage": "Nom féminin — pluriel : des inégalités éducatives. Désigne les écarts d'accès, de ressources ou de réussite entre élèves ; terme central pour analyser les effets sociaux et territoriaux de l'école."
+    },
+    {
+      "id": "t3edv01",
+      "kind": "verbe-collocation",
+      "french": "favoriser",
+      "anchor": "favoriser",
+      "english": "to foster / to promote",
+      "example": "Des politiques ambitieuses peuvent favoriser l'égalité des chances en redistribuant les ressources pédagogiques.",
+      "usage": "Verbe — infinitif : favoriser ; construction : transitif direct (favoriser + COD). Registre standard à soutenu ; exprime une action qui crée des conditions favorables à la réussite, à l'inclusion ou à l'égalité scolaires."
+    },
+    {
+      "id": "t3edv02",
+      "kind": "verbe-collocation",
+      "french": "scolariser",
+      "anchor": "scolariser",
+      "english": "to enrol in school",
+      "example": "Il est indispensable de scolariser tous les enfants, y compris ceux en situation de handicap, dans les classes ordinaires.",
+      "usage": "Verbe — infinitif : scolariser ; construction : transitif direct (scolariser + COD). Registre institutionnel ; désigne l'inscription et la prise en charge d'un enfant par l'école, surtout dans les débats sur l'accès universel ou l'inclusion."
+    },
+    {
+      "id": "t3edv03",
+      "kind": "verbe-collocation",
+      "french": "évaluer",
+      "anchor": "évaluer",
+      "english": "to assess / to evaluate",
+      "example": "Savoir évaluer les progrès d'un élève sans le décourager est l'une des compétences clés de tout enseignant.",
+      "usage": "Verbe — infinitif : évaluer ; construction : transitif direct (évaluer + COD). Registre pédagogique ; porte sur les compétences, les progrès ou un dispositif, et demande souvent de distinguer mesure, classement et accompagnement."
+    },
+    {
+      "id": "t3edv04",
+      "kind": "verbe-collocation",
+      "french": "remédier à",
+      "anchor": "remédier à",
+      "english": "to remedy / to address",
+      "example": "Les enseignants cherchent à remédier à l'échec scolaire en proposant des activités de soutien personnalisées.",
+      "usage": "Verbe — infinitif : remédier ; construction : transitif indirect avec « à » (remédier à + nom). Registre soutenu ; introduit une réponse à une lacune, un retard ou une inégalité scolaire sans réduire l'élève à son échec."
+    },
+    {
+      "id": "t3edv05",
+      "kind": "verbe-collocation",
+      "french": "éveiller",
+      "anchor": "éveiller",
+      "english": "to awaken / spark (curiosity)",
+      "example": "Une bonne pédagogie ne se contente pas d'évaluer : elle cherche d'abord à éveiller la curiosité et le goût d'apprendre.",
+      "usage": "Verbe — infinitif : éveiller ; construction : transitif direct (éveiller qqch chez qqn). Registre soutenu. Se dit surtout d'une disposition intérieure — curiosité, intérêt, vocation — que l'enseignant fait naître chez l'élève."
+    },
+    {
+      "id": "t3edv06",
+      "kind": "verbe-collocation",
+      "french": "intégrer",
+      "anchor": "intégrer",
+      "english": "to integrate / to include",
+      "example": "Pour réussir à intégrer les outils numériques en classe, les enseignants doivent bénéficier d'une formation adéquate.",
+      "usage": "Verbe — infinitif : intégrer ; construction : transitif direct (intégrer + COD, souvent dans + GN). Registre standard ; s'applique à un élève, un outil ou une compétence que l'on insère dans une classe, un programme ou une pratique."
+    },
+    {
+      "id": "t3edv07",
+      "kind": "verbe-collocation",
+      "french": "sanctionner",
+      "anchor": "sanctionner",
+      "english": "to sanction / to penalise",
+      "example": "Sanctionner un comportement perturbateur doit toujours s'accompagner d'une explication claire sur les règles de vie collective.",
+      "usage": "Verbe — infinitif : sanctionner ; construction : transitif direct (sanctionner + COD). Registre institutionnel ; désigne une réponse à un manquement au règlement, à équilibrer avec l'explication, la réparation et l'éducation à la responsabilité."
+    },
+    {
+      "id": "t3edv08",
+      "kind": "verbe-collocation",
+      "french": "se former",
+      "anchor": "se former",
+      "english": "to train oneself / to upskill",
+      "example": "Dans un monde en constante évolution, chacun est appelé à se former tout au long de sa vie professionnelle.",
+      "usage": "Verbe — infinitif : se former ; construction : pronominal, intransitif ou suivi de « à » (se former à + nom/infinitif). Registre standard ; met l'accent sur l'autonomie de l'apprenant et la formation continue des enseignants ou des adultes."
+    },
+    {
+      "id": "t3edv09",
+      "kind": "verbe-collocation",
+      "french": "orienter",
+      "anchor": "orienter",
+      "english": "to guide into / to channel towards",
+      "example": "Orienter un élève vers la voie professionnelle ne devrait jamais être perçu comme une sanction pour l'échec.",
+      "usage": "Verbe — infinitif : orienter ; construction : transitif direct avec complément en « vers » (orienter qqn vers + nom). Registre institutionnel ; sert à parler des choix de filière, sans transformer l'orientation en tri social."
+    },
+    {
+      "id": "t3edv10",
+      "kind": "verbe-collocation",
+      "french": "valoriser",
+      "anchor": "valoriser",
+      "english": "to valorise / to give value to",
+      "example": "Il est urgent de valoriser la formation professionnelle aux yeux des familles et des employeurs.",
+      "usage": "Verbe — infinitif : valoriser ; construction : transitif direct (valoriser + COD). Registre standard à soutenu ; consiste à reconnaître la valeur d'une filière, d'une compétence ou d'un parcours souvent sous-estimé."
+    },
+    {
+      "id": "t3edv11",
+      "kind": "verbe-collocation",
+      "french": "creuser",
+      "anchor": "creuser",
+      "english": "to widen / to deepen (a gap)",
+      "example": "Le manque d'équipements informatiques tend à creuser les inégalités éducatives entre établissements bien dotés et ceux qui manquent de ressources.",
+      "usage": "Verbe — infinitif : creuser ; construction : transitif direct (creuser + COD abstrait). Sens figuré courant ; signifie aggraver un écart, une fracture ou des inégalités entre élèves, établissements ou territoires."
+    },
+    {
+      "id": "t3edv12",
+      "kind": "verbe-collocation",
+      "french": "stimuler",
+      "anchor": "stimuler",
+      "english": "to stimulate / to encourage",
+      "example": "Des méthodes actives cherchent à stimuler la curiosité intellectuelle bien plus efficacement que les cours magistraux.",
+      "usage": "Verbe — infinitif : stimuler ; construction : transitif direct (stimuler + COD). Registre standard à soutenu ; s'emploie avec la curiosité, la motivation, l'esprit critique ou l'engagement des élèves."
+    },
+    {
+      "id": "t3edv13",
+      "kind": "verbe-collocation",
+      "french": "responsabiliser",
+      "anchor": "responsabiliser",
+      "english": "to foster responsibility in",
+      "example": "La pédagogie par projets vise à responsabiliser les élèves en les plaçant au cœur de leurs propres apprentissages.",
+      "usage": "Verbe — infinitif : responsabiliser ; construction : transitif direct (responsabiliser + COD). Registre pédagogique ; souligne le passage d'un élève passif à un acteur capable de choisir, coopérer et assumer ses apprentissages."
+    },
+    {
+      "id": "t3edv14",
+      "kind": "verbe-collocation",
+      "french": "réduire",
+      "anchor": "réduire",
+      "english": "to reduce / to narrow",
+      "example": "Les politiques de discrimination positive cherchent à réduire les inégalités éducatives entre territoires favorisés et défavorisés.",
+      "usage": "Verbe — infinitif : réduire ; construction : transitif direct (réduire + COD). Registre standard à institutionnel ; vise la diminution d'un écart, d'une inégalité ou d'un taux d'abandon grâce à des mesures éducatives ciblées."
+    },
+    {
+      "id": "t3edv15",
+      "kind": "verbe-collocation",
+      "french": "instruire",
+      "anchor": "instruire",
+      "english": "to educate / instruct",
+      "example": "Instruire ne consiste pas seulement à transmettre des connaissances : il s'agit de former des citoyens capables de juger par eux-mêmes.",
+      "usage": "Verbe — infinitif : instruire ; construction : transitif direct (instruire qqn). Registre soutenu, parfois institutionnel. Insiste sur la mission de transmission des savoirs, distincte de l'éducation morale ou comportementale."
+    },
+    {
+      "id": "t3edi01",
+      "kind": "expression-idiomatique",
+      "french": "passer entre les mailles du filet",
+      "anchor": "passer entre les mailles du filet",
+      "english": "to fall through the cracks (of the system)",
+      "example": "Certains élèves en grande difficulté arrivent à passer entre les mailles du filet malgré les dispositifs de soutien existants.",
+      "usage": "Expression verbale figurée ; registre standard à familier ; désigne le fait d'échapper, involontairement, à un système de détection ou d'aide scolaire ; conjuguer le verbe selon le contexte."
+    },
+    {
+      "id": "t3edi02",
+      "kind": "expression-idiomatique",
+      "french": "avoir le niveau",
+      "anchor": "avoir le niveau",
+      "english": "to be up to the standard / to make the grade",
+      "example": "La question n'est pas seulement d'avoir le niveau requis à l'entrée des grandes écoles, mais de le maintenir durablement.",
+      "usage": "Expression verbale figée ; registre standard ; souvent utilisée avec le verbe avoir au présent ou à l'infinitif ; complément possible : le niveau requis, le niveau attendu."
+    },
+    {
+      "id": "t3edi03",
+      "kind": "expression-idiomatique",
+      "french": "mettre la barre haute",
+      "anchor": "mettre la barre haute",
+      "english": "to set the bar high",
+      "example": "En matière d'égalité des chances, le législateur devrait mettre la barre haute plutôt que de se contenter de mesures symboliques.",
+      "usage": "Expression verbale figurée ; registre standard à soutenu ; désigne le fait de fixer des exigences ambitieuses ; peut se conjuguer à tous les temps ; souvent en contraste avec « mettre la barre basse »."
+    },
+    {
+      "id": "t3edi04",
+      "kind": "expression-idiomatique",
+      "french": "être à la traîne",
+      "anchor": "être à la traîne",
+      "english": "to lag behind",
+      "example": "Sur la question de l'inclusion numérique, certains établissements ruraux semblent condamnés à être à la traîne par rapport aux grandes métropoles.",
+      "usage": "Expression adjectivale figée avec être ; registre standard à journalistique ; désigne un retard relatif par rapport à un standard ou à d'autres acteurs ; invariable."
+    },
+    {
+      "id": "t3edi05",
+      "kind": "expression-idiomatique",
+      "french": "faire la pluie et le beau temps",
+      "anchor": "faire la pluie et le beau temps",
+      "english": "to call the shots / to have all the say",
+      "example": "Dans certains établissements, ce sont encore les traditions institutionnelles qui semblent faire la pluie et le beau temps, freinant toute innovation pédagogique.",
+      "usage": "Expression verbale figurée ; registre standard à familier ; désigne une autorité dominante qui détermine seule les décisions ; s'emploie souvent avec une nuance critique."
+    },
+    {
+      "id": "t3edi06",
+      "kind": "expression-idiomatique",
+      "french": "apprendre sur le tas",
+      "anchor": "apprendre sur le tas",
+      "english": "to learn on the job",
+      "example": "Beaucoup d'enseignants débutants doivent apprendre sur le tas faute d'une formation initiale suffisamment pratique.",
+      "usage": "Expression verbale familière ; désigne l'apprentissage par l'expérience directe sans formation formelle préalable ; registre standard à familier ; à utiliser dans un contexte de formation professionnelle ou de débuts de carrière."
+    },
+    {
+      "id": "t3edi07",
+      "kind": "expression-idiomatique",
+      "french": "décrocher son diplôme",
+      "anchor": "décrocher son diplôme",
+      "english": "to earn one's degree / to get one's qualification",
+      "example": "Décrocher son diplôme dans un contexte d'enseignement à distance demande une discipline personnelle considérable.",
+      "usage": "Expression verbale figée (décrocher + possessif + diplôme) ; registre standard à familier ; synonyme imagé de « obtenir son diplôme » ; conjuguer le verbe selon le contexte."
+    },
+    {
+      "id": "t3edi08",
+      "kind": "expression-idiomatique",
+      "french": "mettre le pied à l'étrier",
+      "anchor": "mettre le pied à l'étrier",
+      "english": "to give sb a leg up / help sb start out",
+      "example": "En offrant des stages aux jeunes des quartiers populaires, l'école peut leur mettre le pied à l'étrier et compenser l'absence de réseau familial.",
+      "usage": "Expression figée, d'usage courant à soutenu. Signifie « aider quelqu'un à débuter » dans une activité ou une carrière ; se construit avec un complément d'attribution (mettre le pied à l'étrier à qqn). Valorise le rôle d'accompagnement de l'institution dans un raisonnement."
+    },
+    {
+      "id": "t3edi09",
+      "kind": "expression-idiomatique",
+      "french": "tirer son épingle du jeu",
+      "anchor": "tirer son épingle du jeu",
+      "english": "to come out on top despite the odds",
+      "example": "Grâce à un encadrement adapté, un élève défavorisé peut tout à fait tirer son épingle du jeu et accéder aux meilleures filières de l'enseignement supérieur.",
+      "usage": "Expression verbale figurée ; registre standard à soutenu ; désigne la capacité à réussir dans une situation difficile ou concurrentielle ; conjuguer le verbe et accorder le possessif."
+    },
+    {
+      "id": "t3edi10",
+      "kind": "expression-idiomatique",
+      "french": "remettre à niveau",
+      "anchor": "remettre à niveau",
+      "english": "to bring up to standard / to remediate",
+      "example": "Les stages intensifs ont pour objectif de remettre à niveau les étudiants avant la rentrée universitaire.",
+      "usage": "Expression verbale figée (remettre à niveau + GN ou GN + à niveau) ; registre standard ; désigne une action de correction ou de consolidation des acquis ; s'emploie dans les contextes de soutien scolaire et de formation continue."
+    },
+    {
+      "id": "t3edi11",
+      "kind": "expression-idiomatique",
+      "french": "avoir l'esprit d'équipe",
+      "anchor": "avoir l'esprit d'équipe",
+      "english": "to have team spirit",
+      "example": "La pédagogie coopérative vise précisément à développer chez les élèves la capacité à avoir l'esprit d'équipe.",
+      "usage": "Expression nominale figée introduite par avoir ; registre standard ; désigne la disposition à collaborer et à partager les responsabilités ; compléments possibles : un esprit d'équipe fort, solide."
+    },
+    {
+      "id": "t3edi12",
+      "kind": "expression-idiomatique",
+      "french": "laisser sur le bord du chemin",
+      "anchor": "laisser sur le bord du chemin",
+      "english": "to leave behind / to abandon",
+      "example": "Un système éducatif juste ne devrait jamais laisser sur le bord du chemin les élèves les plus vulnérables.",
+      "usage": "Expression verbale figurée (laisser + GN + sur le bord du chemin) ; registre standard à soutenu ; désigne l'exclusion progressive ou involontaire d'un individu du système ; à valeur critique."
+    },
+    {
+      "id": "t3edi13",
+      "kind": "expression-idiomatique",
+      "french": "faire ses preuves",
+      "anchor": "faire ses preuves",
+      "english": "to prove oneself",
+      "example": "Pour faire ses preuves, une méthode pédagogique doit démontrer son efficacité sur le long terme, ce qu'a réussi l'apprentissage par le jeu dès la maternelle.",
+      "usage": "Expression verbale figée (faire + possessif + preuves) ; registre standard ; désigne la démonstration concrète d'une efficacité ou d'une compétence ; conjuguer le verbe et accorder le possessif."
+    },
+    {
+      "id": "t3edi14",
+      "kind": "expression-idiomatique",
+      "french": "en décalage avec",
+      "anchor": "en décalage avec",
+      "english": "out of step with / at odds with",
+      "example": "Les programmes officiels sont parfois perçus comme en décalage avec les réalités du marché du travail contemporain.",
+      "usage": "Expression prépositionnelle figée (être ou paraître en décalage avec + GN). Registre standard à soutenu ; exprime une inadéquation entre programmes, pratiques scolaires ou attentes du marché du travail ; utile pour formuler une critique nuancée."
+    },
+    {
+      "id": "t3edi15",
+      "kind": "expression-idiomatique",
+      "french": "ouvrir des portes",
+      "anchor": "ouvrir des portes",
+      "english": "to open doors / to create opportunities",
+      "example": "Un diplôme de grande école peut encore aujourd'hui ouvrir des portes inaccessibles aux autres filières du supérieur.",
+      "usage": "Expression verbale figurée (ouvrir des portes à + GN ou sans complément) ; registre standard ; désigne le fait de créer des opportunités professionnelles ou sociales ; peut se conjuguer à tous les temps."
+    },
+    {
+      "id": "t3edc01",
+      "kind": "construction-argumentative",
+      "french": "Ce qu'on entend par … dans le contexte éducatif, c'est …",
+      "anchor": "ce qu'on entend par",
+      "english": "Defining a key educational concept",
+      "example": "Ce qu'on entend par inclusion scolaire, dans le contexte éducatif, c'est bien plus qu'une simple présence physique : c'est une participation active et reconnue de chaque élève.",
+      "usage": "Construction argumentative — définition thématique : « Ce qu'on entend par …, c'est … » annonce une clarification et place le débat éducatif sur un sens précis ; la seconde proposition reformule ou élargit la notion."
+    },
+    {
+      "id": "t3edc02",
+      "kind": "construction-argumentative",
+      "french": "Si l'on compare … à …, on constate que …",
+      "anchor": "si l'on compare",
+      "english": "Comparing two educational models or systems",
+      "example": "Si l'on compare le modèle finlandais au modèle français, on constate que l'autonomie accordée aux enseignants joue un rôle déterminant dans les résultats obtenus.",
+      "usage": "Construction argumentative — comparaison raisonnée : « Si l'on compare … à … » introduit deux modèles éducatifs, puis « on constate que … » formule une différence observée de manière nuancée."
+    },
+    {
+      "id": "t3edc03",
+      "kind": "construction-argumentative",
+      "french": "Certes … mais il ne faut pas oublier que …",
+      "anchor": "mais il ne faut pas oublier que",
+      "english": "Conceding a point while reaffirming a key argument",
+      "example": "Certes le numérique offre un accès sans précédent aux ressources, mais il ne faut pas oublier que la fracture numérique aggrave les inégalités éducatives pour les familles les moins équipées.",
+      "usage": "Construction argumentative — concession/réfutation : « Certes …, mais … » accorde un avantage au numérique ou à une réforme, puis réaffirme la limite éducative décisive ; le verbe qui suit doit porter la thèse."
+    },
+    {
+      "id": "t3edc04",
+      "kind": "construction-argumentative",
+      "french": "L'une des causes profondes de … réside dans …",
+      "anchor": "l'une des causes profondes de",
+      "english": "Identifying a root cause of an educational problem",
+      "example": "L'une des causes profondes de l'échec scolaire réside dans l'absence de dialogue constructif entre la famille et l'école.",
+      "usage": "Construction argumentative — causalité structurelle : « L'une des causes profondes de … réside dans … » relie un problème scolaire à un facteur de fond ; le groupe nominal après « dans » doit être précis et explicatif."
+    },
+    {
+      "id": "t3edc05",
+      "kind": "construction-argumentative",
+      "french": "Il en résulte que … ce qui pose la question de …",
+      "anchor": "il en résulte que",
+      "english": "Drawing a consequence and raising a related question",
+      "example": "Il en résulte que les élèves issus de milieux défavorisés accèdent moins souvent à l'enseignement supérieur, ce qui pose la question de la légitimité du mérite scolaire comme seul critère de sélection.",
+      "usage": "Construction argumentative — conséquence/problématisation : « Il en résulte que … » tire une conséquence d'un constat éducatif, puis « ce qui pose la question de … » ouvre un enjeu éthique ou politique."
+    },
+    {
+      "id": "t3edc06",
+      "kind": "construction-argumentative",
+      "french": "Pour lutter contre …, il convient de …",
+      "anchor": "pour lutter contre",
+      "english": "Proposing a policy response to an educational challenge",
+      "example": "Pour lutter contre les inégalités éducatives, il convient d'investir massivement dans les zones d'éducation prioritaires et de revaloriser le métier d'enseignant.",
+      "usage": "Construction argumentative — proposition normative : « Pour lutter contre …, il convient de … » associe un problème scolaire à une mesure recommandée ; l'infinitif après « de » formule l'action publique ou pédagogique."
+    },
+    {
+      "id": "t3edc07",
+      "kind": "construction-argumentative",
+      "french": "À l'aune de … on peut mesurer …",
+      "anchor": "À l'aune des",
+      "english": "Evaluating educational outcomes against a specific benchmark",
+      "example": "À l'aune des résultats PISA, on peut mesurer l'ampleur des défis qui restent à relever pour améliorer le système scolaire français.",
+      "usage": "Construction argumentative — évaluation par critère : « À l'aune de … » introduit un repère d'analyse, puis « on peut mesurer … » évalue un résultat scolaire avec prudence et sans surenchère."
+    },
+    {
+      "id": "t3edc08",
+      "kind": "construction-argumentative",
+      "french": "Le vrai enjeu n'est pas … mais bien …",
+      "anchor": "Le vrai enjeu n'est pas",
+      "english": "Reframing the educational debate around the real issue",
+      "example": "Le vrai enjeu n'est pas le nombre d'heures de cours dispensées mais bien la qualité de la relation pédagogique entre l'enseignant et ses élèves.",
+      "usage": "Construction argumentative — recadrage du débat : « Le vrai enjeu n'est pas … mais bien … » oppose un faux problème éducatif à la question centrale ; les deux groupes nominaux doivent être clairement contrastés."
+    },
+    {
+      "id": "t3edc09",
+      "kind": "construction-argumentative",
+      "french": "On ne peut pas dissocier … de …",
+      "anchor": "on ne peut pas dissocier",
+      "english": "Asserting the inseparability of two educational factors",
+      "example": "On ne peut pas dissocier la qualité de l'enseignement de la formation continue des enseignants tout au long de leur carrière.",
+      "usage": "Construction argumentative — interdépendance : « On ne peut pas dissocier … de … » affirme que deux facteurs éducatifs se comprennent ensemble ; la construction négative renforce une thèse de manière nette."
+    },
+    {
+      "id": "t3edc10",
+      "kind": "construction-argumentative",
+      "french": "Force est de constater que … malgré …",
+      "anchor": "force est de constater que",
+      "english": "Acknowledging an educational reality despite efforts or expectations",
+      "example": "Force est de constater que les inégalités éducatives persistent malgré des décennies de réformes et de dispositifs d'accompagnement.",
+      "usage": "Construction argumentative — constat concessif : « Force est de constater que … malgré … » admet une réalité scolaire persistante malgré des efforts ; la suite peut enchaîner sur les causes ou les solutions."
+    },
+    {
+      "id": "t3edc11",
+      "kind": "construction-argumentative",
+      "french": "Là où … échoue, … offre une alternative …",
+      "anchor": "Là où",
+      "english": "Contrasting a failing approach with a viable alternative",
+      "example": "Là où l'enseignement traditionnel échoue à maintenir la motivation des élèves décrocheurs, la pédagogie par projets offre une alternative engageante et concrète.",
+      "usage": "Construction argumentative — contraste solutionnel : « Là où … échoue, … offre une alternative … » oppose une méthode en difficulté à une réponse pédagogique plus adaptée ; la virgule marque le basculement."
+    },
+    {
+      "id": "t3edc12",
+      "kind": "construction-argumentative",
+      "french": "La question qui se pose est celle de savoir si …",
+      "anchor": "la question qui se pose est celle de savoir si",
+      "english": "Raising a central educational policy question",
+      "example": "La question qui se pose est celle de savoir si la sélection à l'entrée de l'université est compatible avec les principes d'égalité des chances.",
+      "usage": "Construction argumentative — problématisation indirecte : « La question qui se pose est celle de savoir si … » transforme un débat éducatif en interrogation raisonnée sans poser de question directe."
+    },
+    {
+      "id": "t3edc13",
+      "kind": "construction-argumentative",
+      "french": "Si l'on admet que …, alors …",
+      "anchor": "Si l'on admet que",
+      "english": "if we grant that …, then … frame",
+      "example": "Si l'on admet que la réussite ne se réduit pas aux résultats scolaires, alors il faut évaluer aussi la coopération, l'autonomie et la créativité des élèves.",
+      "usage": "Construction argumentative — déduction conditionnelle : « Si l'on admet que … » pose une prémisse acceptée, « alors … » en tire la conséquence logique. Utile pour bâtir un raisonnement rigoureux et engager l'auditeur à suivre l'enchaînement. Registre soutenu."
+    },
+    {
+      "id": "t3edc14",
+      "kind": "construction-argumentative",
+      "french": "Il serait réducteur de … sans tenir compte de …",
+      "anchor": "il serait réducteur de",
+      "english": "Warning against oversimplification in educational debate",
+      "example": "Il serait réducteur de n'évaluer la réussite scolaire qu'à travers les seules notes sans tenir compte des compétences transversales acquises.",
+      "usage": "Construction argumentative — mise en garde contre la simplification : « Il serait réducteur de … sans tenir compte de … » critique une analyse trop étroite de la réussite scolaire et ajoute un facteur oublié."
+    },
+    {
+      "id": "t3edc15",
+      "kind": "construction-argumentative",
+      "french": "En définitive, la réussite éducative dépend avant tout de …",
+      "anchor": "en définitive, la réussite éducative dépend avant tout de",
+      "english": "Concluding by identifying the primary condition for educational success",
+      "example": "En définitive, la réussite éducative dépend avant tout de la capacité du système à reconnaître et valoriser la diversité des intelligences et des parcours.",
+      "usage": "Construction argumentative — conclusion hiérarchisante : « En définitive, … dépend avant tout de … » synthétise la thèse finale et place le facteur décisif au premier plan sans nier les autres."
+    }
+  ]
+}

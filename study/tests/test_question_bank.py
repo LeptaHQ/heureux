@@ -2259,21 +2259,17 @@ class QuestionBankViewTests(TestCase):
             ).exists()
         )
 
-        directory = self.client.get(
+        legacy_directory = self.client.get(
             reverse(
                 "study:task_phrases",
                 args=[self.task.part.slug, self.task.slug],
             )
         )
-        self.assertEqual(directory.status_code, 200)
-        self.assertContains(directory, "Vocabulaire par sujet")
-        self.assertContains(
-            directory,
-            "data-subject-vocabulary-row",
-            count=348,
+        self.assertRedirects(
+            legacy_directory,
+            reverse("study:tache_two_theme_vocabulary"),
+            fetch_redirect_response=False,
         )
-        self.assertContains(directory, "348 sujets · 186 decks uniques")
-        self.assertContains(directory, "deck partagé")
 
     def test_repeated_subjects_share_one_deck_and_list_equivalents(self):
         shared_url = reverse(

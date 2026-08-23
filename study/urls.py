@@ -425,6 +425,12 @@ urlpatterns = [
     ),
     path(
         "expression/<expression_part:part_slug>/<slug:task_slug>/"
+        "vocabulaire/themes/<slug:vocabulary_theme_slug>/",
+        views.phrases,
+        name="task_vocabulary_theme",
+    ),
+    path(
+        "expression/<expression_part:part_slug>/<slug:task_slug>/"
         "vocabulaire/categories/<slug:category_slug>/",
         views.phrases,
         name="task_vocabulary_category",

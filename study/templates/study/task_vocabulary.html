@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block title %}Vocabulaire · {{ task.name }} · Heureux{% endblock %}
+
+{% block content %}
+{% include "study/partials/task_nav.html" %}
+
+<div class="memory-overview theme-vocabulary-directory task-vocabulary-directory" style="--memory-accent: {{ task.color }};">
+  <header class="memory-overview-hero">
+    <div class="memory-overview-hero__copy">
+      <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
+        <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name="sparkles" only %}</span>
+        <span>Vocabulaire</span>
+      </h1>
+      <p>Travaillez le vocabulaire propre aux sujets, thème par thème, puis consolidez les tournures qui servent dans toutes vos réponses.</p>
+      <div class="memory-overview-hero__actions">
+        {% if vocabulary_counts.total_due %}<a class="btn btn--primary" href="{{ vocabulary_review_url }}">Continuer la révision</a>{% endif %}
+      </div>
+    </div>
+    <dl class="memory-overview-hero__metrics" aria-label="Contenu du vocabulaire">
+      <div><dt>Thèmes</dt><dd>{{ subject_theme_groups|length }}</dd></div>
+      <div><dt>Decks</dt><dd>{{ subject_response_count }}</dd></div>
+      <div><dt>Entrées uniques</dt><dd>{{ subject_vocabulary_count|add:functional_phrase_count }}</dd></div>
+    </dl>
+  </header>
+
+  <div class="tache-two-directory-toolbar task-vocabulary-directory__toolbar">
+    {% include "study/partials/tache_two_progress.html" with summary=vocabulary_directory_summary unit_label="decks terminés" only %}
+    {% if subject_theme_groups or functional_categories %}
+      {% include "study/partials/collection_view_toggle.html" %}
+    {% endif %}
+  </div>
+
+  <section class="memory-library memory-library--standalone task-vocabulary-themes" aria-labelledby="task-vocabulary-themes-title">
+    <div class="section-heading">
+      <div>
+        <h2 id="task-vocabulary-themes-title">Choisir un thème</h2>
+        <p>Chaque thème rassemble les decks des sujets qui lui sont associés.</p>
+      </div>
+    </div>
+    <div class="memory-library__grid collection-table collection-table--memories collection-table--task-vocabulary" data-collection-view="adaptive">
+      {% include "study/partials/collection_table_header.html" with variant="memories" column_1="Thème" column_2="Progression" column_3="Action" only %}
+      {% for group in subject_theme_groups %}
+        {% with progress=group.progress %}
+        <a
+          class="memory-entry task-vocabulary-theme-entry card memory-entry--{{ progress.status }}"
+          href="{{ group.url }}"
+          style="--theme-accent: {{ group.theme.color }};"
+          data-collection-item
+          aria-label="Ouvrir le vocabulaire du thème {{ group.theme.display_name }}">
+          <span class="memory-entry__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=group.theme.icon only %}</span>
+          <div class="memory-entry__body">
+            <h3>{{ group.theme.display_name }}</h3>
+            <div class="memory-entry__facts">
+              <span><b>{{ group.prompts|length }}</b> sujets</span>
+              <span><b>{{ group.deck_count }}</b> decks</span>
+              <span><b>{{ group.phrase_count }}</b> entrées</span>
+            </div>
+          </div>
+          <div class="memory-entry__progress">
+            <div class="memory-entry__progress-copy">
+              <span class="progress-status progress-status--{{ progress.status }}">{{ progress.label }}</span>
+              <span>{{ progress.completed }}/{{ progress.total }} terminés</span>
+            </div>
+            <div class="progress" aria-label="{{ progress.percent }} % terminé">
+              <span class="memory-progress-fill memory-progress-fill--{{ progress.status }}" style="width: {{ progress.percent }}%;"></span>
+            </div>
+          </div>
+          <span class="memory-entry__action">
+            Ouvrir
+            {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
+          </span>
+        </a>
+        {% endwith %}
+      {% empty %}
+        <div class="empty">
+          <p>Le vocabulaire apparaîtra ici dès que les decks de cette tâche seront disponibles.</p>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% if functional_categories %}
+  <section class="expression-directory area-section task-vocabulary-functions" aria-labelledby="task-vocabulary-functions-title">
+    <div class="section-heading">
+      <div>
+        <h2 id="task-vocabulary-functions-title">Tournures transversales</h2>
+        <p>Structurez, nuancez et reliez vos idées avec des expressions réutilisables dans plusieurs thèmes.</p>
+      </div>
+    </div>
+    <div class="expression-category-grid collection-table collection-table--categories" data-collection-view="adaptive">
+      {% include "study/partials/collection_table_header.html" with variant="categories" column_1="Catégorie" column_2="Contenu" column_3="Accès" only %}
+      {% for category in functional_categories %}
+        <a class="expression-category-card card" data-collection-item href="{{ category.url }}">
+          <span class="expression-category-card__icon" aria-hidden="true">“</span>
+          <span class="expression-category-card__copy">
+            <strong>{{ category.name }}</strong>
+            <small>{{ category.learning_description }}</small>
+          </span>
+          <span class="expression-category-card__meta">
+            <span class="progress-status progress-status--{{ category.progress.status }}">{{ category.progress.label }}</span>
+            <span>{{ category.phrase_count }} expressions · {{ category.completed_batch_count }}/{{ category.progress.total }} lots terminés</span>
+          </span>
+          <span class="expression-category-card__action"><span class="table-action-label">Ouvrir</span> <span aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span></span>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+</div>
+{% endblock %}

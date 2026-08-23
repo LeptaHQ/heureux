@@ -92,6 +92,8 @@ def scope_label(scope: dict) -> str:
                 return with_batch(
                     f"Vocabulaire par thème · {theme.display_name}"
                 )
+            if scope.get("kind") == "vocab":
+                return with_batch(f"Vocabulaire · {theme.display_name}")
             return with_batch(
                 f"{scope_name} · {theme.display_name}"
             )

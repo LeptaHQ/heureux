@@ -548,7 +548,7 @@ class BrowserTests(StaticLiveServerTestCase):
         navigation.get_by_text("Mes outils", exact=True).wait_for()
         self.assertEqual(
             navigation.locator(".nav__primary-link").count(),
-            6,
+            5,
         )
         self.assertEqual(
             navigation.get_by_role(
@@ -576,9 +576,8 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertEqual(mobile_active_style["background"], "rgba(0, 0, 0, 0)")
         self.assertEqual(mobile_active_style["borderLeftWidth"], "3px")
-        self.assertEqual(mobile_active_style["borderRadius"], "0px")
+        self.assertEqual(mobile_active_style["borderRadius"], "0px"        )
         navigation.get_by_text("Vue d'ensemble", exact=True).wait_for()
-        navigation.get_by_text("Tous les mots et tournures", exact=True).wait_for()
         navigation.get_by_text("Notes et surlignages", exact=True).wait_for()
         navigation.get_by_text("Suivre mes progrès", exact=True).wait_for()
         self.assert_no_horizontal_overflow()
@@ -592,7 +591,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 self.page.set_viewport_size({"width": width, "height": 768})
                 navigation.get_by_role(
                     "link",
-                    name="Vocabulaire",
+                    name="Notes",
                     exact=True,
                 ).wait_for()
                 self.assertFalse(toggle.is_visible())
@@ -1648,63 +1647,66 @@ class BrowserTests(StaticLiveServerTestCase):
             user=self.user,
         )
 
-        self.page.goto(
-            self.live_server_url + reverse("study:vocabulary")
+        task_overview_url = reverse(
+            "study:task_detail",
+            args=[self.part.slug, self.task.slug],
         )
-        self.page.locator(
-            "a[data-vocabulary-path].expression-path--eo"
-        ).click()
-        self.page.wait_for_url(
-            self.live_server_url
-            + reverse("study:part_vocabulary", args=[self.part.slug])
-        )
-        self.page.get_by_role(
-            "heading",
-            name=f"Vocabulaire · {self.part.name}",
-            exact=True,
-        ).wait_for()
-        self.assert_no_horizontal_overflow()
-        self.page.locator(
-            ".deck",
-            has_text=self.task.name,
-        ).click()
+        self.page.goto(self.live_server_url + task_overview_url)
+        self.page.locator('[data-task-choice="vocabulary"]').click()
         self.page.wait_for_url(
             self.live_server_url
             + reverse(
                 "study:task_phrases",
                 args=[self.part.slug, self.task.slug],
             )
-            + "#vocabulaire-par-sujet"
         )
         summary_layout = self.page.evaluate(
             """() => {
               const hero = document.querySelector(
-                '.vocabulary-hub > .vocabulary-hero'
+                '.memory-overview > .memory-overview-hero'
               ).getBoundingClientRect();
-              const statuses = document.querySelector(
-                '.vocabulary-summary-row > .vocabulary-status-grid'
+              const progress = document.querySelector(
+                '.task-vocabulary-directory__toolbar > '
+                + '.tache-two-progress-summary'
               ).getBoundingClientRect();
               const toolbar = document.querySelector(
-                '.vocabulary-summary-row > .collection-view-toolbar'
+                '.task-vocabulary-directory__toolbar > '
+                + '.collection-view-toolbar'
               ).getBoundingClientRect();
               return {
-                heroGap: statuses.top - hero.bottom,
-                sharesRow: toolbar.top < statuses.bottom &&
-                  toolbar.bottom > statuses.top,
+                heroGap: progress.top - hero.bottom,
+                sharesRow: toolbar.top < progress.bottom &&
+                  toolbar.bottom > progress.top,
               };
             }"""
         )
-        self.assertLessEqual(summary_layout["heroGap"], 16)
+        self.assertLessEqual(summary_layout["heroGap"], 24)
         self.assertTrue(summary_layout["sharesRow"])
 
         self.page.get_by_role(
+            "link",
+            name=f"Ouvrir le vocabulaire du thème {self.theme.display_name}",
+            exact=True,
+        ).click()
+        self.page.wait_for_url(
+            self.live_server_url
+            + reverse(
+                "study:task_vocabulary_theme",
+                args=[
+                    self.part.slug,
+                    self.task.slug,
+                    self.theme.slug,
+                ],
+            )
+        )
+        self.page.get_by_role(
             "heading",
-            name="Vocabulaire par sujet",
+            name="Choisir un sujet",
             exact=True,
         ).wait_for()
         search = self.page.get_by_role(
             "searchbox",
-            name="Rechercher un sujet",
+            name=f"Rechercher dans {self.theme.display_name}",
         )
         search.fill("reseaux")
 
@@ -1723,7 +1725,9 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assert_no_horizontal_overflow()
 
         search.fill("")
-        self.page.get_by_text("2 sujets", exact=True).wait_for()
+        self.page.locator(
+            "[data-subject-vocabulary-status]"
+        ).get_by_text("2 sujets", exact=True).wait_for()
         self.assertEqual(
             directory.locator(
                 "[data-subject-vocabulary-row]:not([hidden])"
@@ -1858,84 +1862,6 @@ class BrowserTests(StaticLiveServerTestCase):
             self.page.url,
             self.live_server_url + response_detail_url(self.first.response),
         )
-
-    def test_vocabulary_status_cards_fit_large_counts_cleanly(self):
-        self.page.set_viewport_size({"width": 1280, "height": 800})
-        self.page.goto(
-            self.live_server_url + reverse("study:vocabulary")
-        )
-        cards = self.page.locator(".vocabulary-status")
-        self.assertEqual(cards.count(), 3)
-        self.assertEqual(
-            cards.locator(".vocabulary-status__icon").count(),
-            3,
-        )
-
-        first = cards.first
-        first.locator(".vocabulary-status__value").evaluate(
-            "(element) => { element.textContent = '8\\u202f346'; }"
-        )
-        layout = first.evaluate(
-            """
-            card => {
-              const value = card.querySelector('.vocabulary-status__value');
-              const copy = card.querySelector('.vocabulary-status__copy');
-              const valueRect = value.getBoundingClientRect();
-              const copyRect = copy.getBoundingClientRect();
-              const style = getComputedStyle(card);
-              return {
-                fits: card.scrollWidth <= card.clientWidth + 1,
-                valueFits: valueRect.right <= copyRect.right + 1,
-                fontFamily: getComputedStyle(value).fontFamily,
-                borders: [
-                  style.borderTopColor,
-                  style.borderRightColor,
-                  style.borderBottomColor,
-                  style.borderLeftColor,
-                ],
-                pseudoContent: getComputedStyle(card, '::before').content,
-              };
-            }
-            """
-        )
-        self.assertTrue(layout["fits"])
-        self.assertTrue(layout["valueFits"])
-        self.assertIn('"Book Antiqua"', layout["fontFamily"])
-        self.assertEqual(len(set(layout["borders"])), 1)
-        self.assertEqual(layout["pseudoContent"], "none")
-
-        path_cards = self.page.locator("[data-vocabulary-path]")
-        self.assertEqual(path_cards.count(), 4)
-        path_heights = path_cards.evaluate_all(
-            "cards => cards.map(card => card.getBoundingClientRect().height)"
-        )
-        self.assertLessEqual(max(path_heights), 130)
-        self.assertLessEqual(max(path_heights) - min(path_heights), 1)
-        comprehension_grid = self.page.locator(
-            ".vocabulary-domain--comprehension .expression-paths"
-        ).bounding_box()
-        expression_heading = self.page.locator(
-            ".vocabulary-domain--expression .vocabulary-domain__heading"
-        ).bounding_box()
-        self.assertLessEqual(
-            expression_heading["y"]
-            - (comprehension_grid["y"] + comprehension_grid["height"]),
-            64,
-        )
-
-        self.page.set_viewport_size({"width": 320, "height": 700})
-        self.assert_no_horizontal_overflow()
-        mobile_value_fits = first.evaluate(
-            """
-            card => {
-              const value = card.querySelector('.vocabulary-status__value');
-              const copy = card.querySelector('.vocabulary-status__copy');
-              return value.getBoundingClientRect().right <=
-                copy.getBoundingClientRect().right + 1;
-            }
-            """
-        )
-        self.assertTrue(mobile_value_fits)
 
     def save_current_prompt_highlight(self):
         prompt = self.page.locator("#card-front .prompt-text")
@@ -3507,13 +3433,13 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.page.set_viewport_size({"width": 1200, "height": 800})
         task_url = self.live_server_url + reverse(
-            "study:task_detail",
+            "study:task_browse",
             args=[self.part.slug, self.task.slug],
         )
         self.page.goto(task_url)
 
         collection = self.page.locator(
-            ".task-themes [data-collection-view='adaptive']"
+            ".grid--decks[data-collection-view='adaptive']"
         )
         collection.locator("[data-collection-item]").first.wait_for()
         self.assertEqual(
@@ -4943,9 +4869,15 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
+        for phrase in shared_phrases:
+            phrase.source_prompts.add(prompt)
         category_url = reverse(
-            "study:vocabulary_category",
-            args=[category.slug],
+            "study:task_vocabulary_category",
+            args=[
+                prompt.theme.task.part.slug,
+                prompt.theme.task.slug,
+                category.slug,
+            ],
         )
         self.page.goto(self.live_server_url + category_url)
         self.page.get_by_role(
@@ -5070,7 +5002,8 @@ class BrowserTests(StaticLiveServerTestCase):
         label_colors = self.page.locator(".daily-card .eyebrow").evaluate_all(
             "labels => labels.map(label => getComputedStyle(label).color)"
         )
-        self.assertEqual(len(set(label_colors)), 4)
+        self.assertEqual(len(label_colors), 3)
+        self.assertEqual(len(set(label_colors)), len(label_colors))
         card_backgrounds = self.page.locator(".daily-card").evaluate_all(
             "cards => cards.map(card => getComputedStyle(card).backgroundColor)"
         )
@@ -5212,20 +5145,11 @@ class BrowserTests(StaticLiveServerTestCase):
             })
             """
         )
-        self.assertGreaterEqual(len(mobile_skill_boxes), 3)
+        self.assertEqual(len(mobile_skill_boxes), 2)
         self.assertAlmostEqual(
             mobile_skill_boxes[0]["y"],
             mobile_skill_boxes[1]["y"],
             delta=1,
-        )
-        self.assertAlmostEqual(
-            mobile_skill_boxes[0]["x"],
-            mobile_skill_boxes[2]["x"],
-            delta=1,
-        )
-        self.assertGreater(
-            mobile_skill_boxes[2]["y"],
-            mobile_skill_boxes[0]["y"],
         )
         self.assertLess(mobile_skill_boxes[0]["width"], 160)
         secondary_controls = self.page.locator(

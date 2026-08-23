@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}{{ vocabulary_theme.display_name }} · Vocabulaire · {{ task.name }} · Heureux{% endblock %}
+
+{% block content %}
+{% include "study/partials/task_nav.html" %}
+
+<nav class="phrase-category-back" aria-label="Retour au vocabulaire">
+  <a href="{% url 'study:task_phrases' part.slug task.slug %}">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Tous les thèmes</a>
+</nav>
+
+<div class="task-vocabulary-theme-page" style="--theme-vocabulary-accent: {{ vocabulary_theme.color }};">
+  <header class="phrase-category-hero theme-vocabulary-hero card">
+    <div>
+      <h1 class="title-with-icon" style="--icon-accent: {{ vocabulary_theme.color }};">
+        <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name=vocabulary_theme.icon only %}</span>
+        <span>{{ vocabulary_theme.display_name }}</span>
+      </h1>
+      <p>Retrouvez le vocabulaire dans le contexte précis de chaque sujet, puis entraînez-vous deck par deck ou sur tout le thème.</p>
+      <div class="phrase-category-hero__meta">
+        <span class="progress-status progress-status--{{ vocabulary_deck_summary.status }}">{{ vocabulary_deck_summary.label }}</span>
+        <span><b>{{ subject_prompt_count }}</b> sujets</span>
+        <span><b>{{ subject_response_count }}</b> decks uniques</span>
+        <span><b>{{ subject_vocabulary_count }}</b> entrées</span>
+        <span><b>{{ vocabulary_deck_summary.completed }}/{{ vocabulary_deck_summary.total }}</b> decks terminés</span>
+      </div>
+    </div>
+    <div class="phrase-category-hero__actions">
+      {% if subject_vocabulary_count %}
+        <a class="btn btn--primary" href="{{ vocabulary_review_url }}">Réviser ce thème</a>
+      {% endif %}
+    </div>
+  </header>
+
+  <section class="task-vocabulary-theme-subjects" aria-labelledby="theme-subject-decks-title">
+    <div class="section-heading task-vocabulary-theme-subjects__heading">
+      <div>
+        <h2 id="theme-subject-decks-title">Choisir un sujet</h2>
+        <p>Les sujets équivalents partagent le même deck : votre progression reste synchronisée.</p>
+      </div>
+      {% if subject_prompt_count %}{% include "study/partials/collection_view_toggle.html" %}{% endif %}
+    </div>
+
+    {% if vocabulary_theme_group %}
+      <div class="subject-vocabulary-tools">
+        <label class="subject-vocabulary-search">
+          <span>Rechercher dans {{ vocabulary_theme.display_name }}</span>
+          <input type="search" placeholder="Saisissez un mot du sujet…" autocomplete="off" data-subject-vocabulary-search>
+        </label>
+        <p role="status" aria-live="polite" data-subject-vocabulary-status>{{ subject_prompt_count }} sujets · {{ subject_response_count }} decks uniques</p>
+      </div>
+
+      <div
+        class="subject-vocabulary-theme-directory collection-table collection-table--subject-vocabulary-decks"
+        data-collection-view="adaptive"
+        data-subject-vocabulary-directory>
+        {% include "study/partials/collection_table_header.html" with variant="subject-vocabulary-decks" column_1="Sujet" column_2="Progression" column_3="Actions" only %}
+        <div class="task-vocabulary-deck-list" data-subject-theme>
+          {% for prompt in vocabulary_theme_group.prompts %}
+            <article class="task-vocabulary-deck card" data-collection-item data-subject-vocabulary-row>
+              <div class="task-vocabulary-deck__identity">
+                <span class="subject-vocabulary-row__number">P{{ prompt.number }}</span>
+                <h3>{{ prompt.text }}</h3>
+              </div>
+              <div class="task-vocabulary-deck__progress">
+                <p>
+                  <span class="progress-status progress-status--{{ prompt.vocabulary_progress.status }}">{{ prompt.vocabulary_progress.label }}</span>
+                  <span>{{ prompt.vocabulary_progress.completed }}/{{ prompt.vocabulary_progress.total }} mots et tournures terminés · {{ prompt.vocabulary_batch_count }} lots</span>
+                  {% if not prompt.is_canonical %}<span class="alias-tag">deck partagé</span>{% endif %}
+                </p>
+              </div>
+              <div class="task-vocabulary-deck__actions">
+                <a class="btn btn--sm btn--primary" href="{{ prompt.review_url }}">Pratiquer</a>
+                <a class="btn btn--sm" href="{{ prompt.detail_url }}#subject-vocabulary">Voir les lots</a>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="empty subject-vocabulary-empty" hidden data-subject-vocabulary-empty>
+        <p>Aucun sujet ne correspond à cette recherche.</p>
+      </div>
+    {% else %}
+      <div class="empty">
+        <p>Aucun deck de vocabulaire n’est encore disponible pour ce thème.</p>
+      </div>
+    {% endif %}
+  </section>
+</div>
+{% endblock %}

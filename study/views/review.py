@@ -104,6 +104,15 @@ def _batch_index_url(scope: dict) -> str | None:
             slug=scope["theme"],
             task__isnull=False,
         )
+        if scope.get("kind") == "vocab":
+            return reverse(
+                "study:task_vocabulary_theme",
+                args=[
+                    theme.task.part.slug,
+                    theme.task.slug,
+                    theme.slug,
+                ],
+            )
         return theme_detail_url(theme)
     return None
 
@@ -230,8 +239,16 @@ def review(
     subject_return_url = None
     vocabulary_lots_url = None
     collection_return_url = None
-    if scope.get("kind") == "theme_vocab":
+    collection_return_label = ""
+    if scope.get("kind") == "theme_vocab" or (
+        scope.get("kind") == "vocab" and scope.get("theme")
+    ):
         collection_return_url = _batch_index_url(scope)
+        collection_return_label = (
+            "Retour au vocabulaire par thème"
+            if scope.get("kind") == "theme_vocab"
+            else "Retour au vocabulaire"
+        )
     if scope.get("batch"):
         try:
             current_batch = int(scope["batch"])
@@ -266,6 +283,7 @@ def review(
         "subject_return_url": subject_return_url,
         "vocabulary_lots_url": vocabulary_lots_url,
         "collection_return_url": collection_return_url,
+        "collection_return_label": collection_return_label,
     }
     return render(request, "study/review.html", context)
 
@@ -713,7 +731,7 @@ def revisit_list(request, part_slug=None, task_slug=None):
         )
         .prefetch_related(
             "response__prompts",
-            "phrase__source_prompts__theme",
+            "phrase__source_prompts__theme__task__part",
             "phrase__source_questions__test",
         )
         .order_by("revisit_added_at", "id")
@@ -747,7 +765,7 @@ def revisit_list(request, part_slug=None, task_slug=None):
                     comprehension_vocabulary_url(test=source_question.test)
                     + f"#phrase-{phrase.phrase_id}"
                     if source_question
-                    else reverse("study:vocabulary")
+                    else reverse("study:comprehension_hub")
                 )
             elif phrase.tier == PhraseTier.SUBJECT:
                 source_prompt = next(
@@ -758,15 +776,25 @@ def revisit_list(request, part_slug=None, task_slug=None):
                     prompt_detail_url(source_prompt)
                     + "#subject-vocabulary"
                     if source_prompt
-                    else reverse("study:vocabulary")
+                    else reverse("study:expression")
                 )
             else:
+                source_prompt = next(
+                    iter(phrase.source_prompts.all()),
+                    None,
+                )
                 item_url = (
                     reverse(
-                        "study:vocabulary_category",
-                        args=[phrase.category.slug],
+                        "study:task_vocabulary_category",
+                        args=[
+                            source_prompt.theme.task.part.slug,
+                            source_prompt.theme.task.slug,
+                            phrase.category.slug,
+                        ],
                     )
                     + f"#phrase-{phrase.phrase_id}"
+                    if source_prompt
+                    else reverse("study:expression")
                 )
             items.append(
                 {

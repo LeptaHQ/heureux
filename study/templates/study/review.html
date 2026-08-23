@@ -102,7 +102,7 @@
       {% elif subject_return_url %}
         <a class="btn btn--primary" href="{{ subject_return_url }}">Retour au sujet</a>
       {% elif collection_return_url %}
-        <a class="btn btn--primary" href="{{ collection_return_url }}">Retour au vocabulaire par thème</a>
+        <a class="btn btn--primary" href="{{ collection_return_url }}">{{ collection_return_label }}</a>
       {% else %}
         <a class="btn btn--primary" href="{% url 'study:dashboard' %}">Retour à l'accueil</a>
       {% endif %}

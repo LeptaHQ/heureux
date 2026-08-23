@@ -115,21 +115,6 @@
         </div>
       </article>
 
-      <article class="daily-card card daily-card--vocabulary">
-        <div class="daily-card__head">
-          <span class="daily-card__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="messages" only %}</span>
-          <div>
-            <p class="eyebrow">Vocabulaire</p>
-            <h3>Activer les mots et tournures</h3>
-          </div>
-        </div>
-        <p class="daily-card__summary">{{ vocabulary_counts.due_reviews }} à revoir · {{ vocabulary_counts.new_available }} nouvelles cartes.</p>
-        <div class="daily-card__actions">
-          <a class="btn btn--primary" href="{% url 'study:vocabulary' %}">Choisir un deck</a>
-          <a class="daily-card__secondary" aria-label="Renforcer mes points faibles" href="{% url 'study:review' %}?kind=weak&amp;content=vocabulary"><span class="daily-card__secondary-label">Renforcer mes points faibles</span> {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
-        </div>
-      </article>
-
       <article class="daily-card card daily-card--comprehension">
         <div class="daily-card__head">
           <span class="daily-card__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="book-open" only %}</span>

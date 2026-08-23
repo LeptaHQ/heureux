@@ -125,7 +125,7 @@ def vocabulary_url(*, task=None, category=None) -> str:
         return reverse("study:task_phrases", args=_expression_task_args(task))
     if category is not None:
         return reverse("study:vocabulary_category", args=[category.slug])
-    return reverse("study:vocabulary")
+    return reverse("study:dashboard")
 
 
 def review_url(scope: dict) -> str:

@@ -51,6 +51,7 @@
       </div>
       <footer class="tache-two-overview-panel__footer">
         {% include "study/partials/tache_two_progress.html" with summary=theme_vocabulary.summary unit_label="lots terminés" compact=True only %}
+        <span class="tache-two-overview-panel__action">Ouvrir {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
       </footer>
     </a>
 
@@ -74,6 +75,7 @@
       </div>
       <footer class="tache-two-overview-panel__footer">
         {% include "study/partials/tache_two_progress.html" with summary=subject_summary unit_label="sujets terminés" compact=True only %}
+        <span class="tache-two-overview-panel__action">Ouvrir {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
       </footer>
     </a>
   </div>

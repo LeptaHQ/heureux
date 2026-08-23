@@ -119,203 +119,35 @@
 </section>
 
 {% else %}
-{% if task %}
-<nav class="phrase-category-back" aria-label="Retour au vocabulaire">
-  <a href="{% url 'study:part_vocabulary' part.slug %}">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Vocabulaire {{ part.short_name }}</a>
+{% if comprehension_directory %}
+<nav class="phrase-category-back" aria-label="Retour à la compréhension">
+  {% if comprehension_mode == "orale" %}
+    <a href="{% url 'study:comprehension_oral_overview' %}">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Compréhension orale</a>
+  {% else %}
+    <a href="{% url 'study:comprehension_overview' %}">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Compréhension écrite</a>
+  {% endif %}
 </nav>
 {% endif %}
 <div class="vocabulary-hub">
   <header class="area-hero vocabulary-hero">
     <div class="area-hero__copy">
-      <h1>Vocabulaire</h1>
-      <p>Mots, expressions et phrases modèles.</p>
-      {% if task %}
-        <div class="active-filter">
-          <span>Filtre actif · {{ part.short_name }} · {{ task.name }}</span>
-          <a href="{% url 'study:part_vocabulary' part.slug %}">Changer de tâche</a>
-        </div>
-      {% elif comprehension_directory %}
-        <div class="active-filter">
-          <span>Filtre actif · Compréhension · {{ comprehension_skill_code|upper }}</span>
-          <a href="{% url 'study:vocabulary' %}">Effacer</a>
-        </div>
+      {% if comprehension_directory %}
+        <p class="eyebrow">Compréhension · {{ comprehension_skill_code|upper }}</p>
+        <h1>Vocabulaire des tests</h1>
+        <p>Les mots et reformulations reliés aux questions de chaque test.</p>
       {% endif %}
     </div>
     <dl class="area-hero__metrics" aria-label="Bibliothèque de vocabulaire">
-      <div><dt>Expression</dt><dd>{{ subject_vocabulary_count|add:functional_phrase_count }}</dd></div>
-      <div><dt>Compréhension</dt><dd>{{ comprehension_vocabulary_count }}</dd></div>
-      <div><dt>Cartes maîtrisées</dt><dd>{{ vocabulary_stats.mature }}<span class="hero-metric__total">/ {{ vocabulary_stats.total }}</span></dd></div>
+      {% if comprehension_directory %}
+        <div><dt>Tests</dt><dd>{{ comprehension_decks|length }}</dd></div>
+        <div><dt>Entrées</dt><dd>{{ comprehension_vocabulary_count }}</dd></div>
+        <div><dt>Lots</dt><dd>{{ comprehension_batch_count }}</dd></div>
+      {% endif %}
     </dl>
   </header>
 
-  <div class="vocabulary-summary-row">
-  <section class="vocabulary-status-grid" aria-label="Votre vocabulaire à travailler">
-    <a class="vocabulary-status vocabulary-status--due card" href="{% url 'study:review' %}?content=vocabulary">
-      <span class="vocabulary-status__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-12h-7V2Z"></path></svg>
-      </span>
-      <span class="vocabulary-status__copy">
-        <span class="vocabulary-status__value">{{ vocabulary_counts.total_due|floatformat:"0g" }}</span>
-        <strong>Disponibles maintenant</strong>
-        <small>{{ vocabulary_counts.due_reviews|floatformat:"0g" }} à revoir · {{ vocabulary_counts.new_available|floatformat:"0g" }} nouvelles</small>
-      </span>
-      <span class="vocabulary-status__arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"></path></svg>
-      </span>
-    </a>
-    <a class="vocabulary-status vocabulary-status--saved card" href="{% url 'study:revisit_list' %}?content=vocabulary">
-      <span class="vocabulary-status__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M6.5 3.5h11v17L12 17l-5.5 3.5v-17Z"></path></svg>
-      </span>
-      <span class="vocabulary-status__copy">
-        <span class="vocabulary-status__value">{{ vocabulary_revisit_count|floatformat:"0g" }}</span>
-        <strong>Marquées à revoir</strong>
-      </span>
-      <span class="vocabulary-status__arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"></path></svg>
-      </span>
-    </a>
-    <a class="vocabulary-status vocabulary-status--weak card" href="{% url 'study:review' %}?kind=weak&amp;content=vocabulary">
-      <span class="vocabulary-status__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><circle cx="12" cy="12" r="3"></circle></svg>
-      </span>
-      <span class="vocabulary-status__copy">
-        <span class="vocabulary-status__value">{{ vocabulary_weak_count|floatformat:"0g" }}</span>
-        <strong>Points à renforcer</strong>
-      </span>
-      <span class="vocabulary-status__arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"></path></svg>
-      </span>
-    </a>
-  </section>
-
-  {% if task %}
-    {% if functional_categories or subject_theme_groups %}
-      {% include "study/partials/collection_view_toggle.html" %}
-    {% endif %}
-  {% elif comprehension_directory and comprehension_decks %}
+  {% if comprehension_directory and comprehension_decks %}
     {% include "study/partials/collection_view_toggle.html" %}
-  {% endif %}
-  </div>
-
-  {% if vocabulary_landing %}
-  <section class="vocabulary-domain vocabulary-domain--comprehension area-section" data-vocabulary-domain aria-labelledby="comprehension-paths-title">
-    <div class="section-heading vocabulary-domain__heading">
-      <div>
-        <h2 id="comprehension-paths-title">Compréhension</h2>
-      </div>
-    </div>
-    <div class="expression-paths">
-      {% for path in comprehension_vocabulary_paths %}
-        {% include "study/partials/vocabulary_skill_card.html" with skill_code=path.code skill_title=path.title skill_available=path.available skill_url=path.url skill_test_count=path.test_count skill_entry_count=path.entry_count skill_progress=path.progress only %}
-      {% endfor %}
-    </div>
-  </section>
-
-  <section class="vocabulary-domain vocabulary-domain--expression area-section" data-vocabulary-domain aria-labelledby="expression-paths-title">
-    <div class="section-heading vocabulary-domain__heading">
-      <div>
-        <h2 id="expression-paths-title">Expression</h2>
-      </div>
-    </div>
-    <div class="expression-paths">
-      {% for path in expression_vocabulary_paths %}
-        {% include "study/partials/vocabulary_skill_card.html" with skill_code=path.short_name|lower skill_title=path.title skill_available=path.available skill_url=path.url skill_task_count=path.task_count skill_prompt_count=path.prompt_count skill_entry_count=path.vocabulary_count skill_progress=path.progress only %}
-      {% endfor %}
-    </div>
-  </section>
-  {% endif %}
-
-  {% if task %}
-  <section class="expression-directory area-section" id="expression-vocabulary" aria-labelledby="expression-vocabulary-title">
-    <div class="section-heading expression-directory__heading">
-      <div>
-        <h2 id="expression-vocabulary-title">Construire et enrichir ses réponses</h2>
-      </div>
-      <p>Commence par les tournures réutilisables, puis ouvre le deck riche de 50 vocabs du sujet que tu prépares.</p>
-    </div>
-
-    <div class="expression-category-grid collection-table collection-table--categories" data-collection-view="adaptive">
-      {% include "study/partials/collection_table_header.html" with variant="categories" column_1="Catégorie" column_2="Contenu" column_3="Accès" only %}
-      {% for category in functional_categories %}
-        <a class="expression-category-card card" data-collection-item href="{{ category.url }}">
-          <span class="expression-category-card__icon" aria-hidden="true">“</span>
-          <span class="expression-category-card__copy">
-            <strong>{{ category.name }}</strong>
-            <small>{{ category.learning_description }}</small>
-          </span>
-          <span class="expression-category-card__meta">
-            <span class="progress-status progress-status--{{ category.progress.status }}">{{ category.progress.label }}</span>
-            <span>{{ category.phrase_count }} expressions · {{ category.completed_batch_count }}/{{ category.progress.total }} lots terminés</span>
-          </span>
-          <span class="expression-category-card__action"><span class="table-action-label">Ouvrir</span> <span aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span></span>
-        </a>
-      {% empty %}
-        <p class="muted">Aucune expression transversale n’est encore disponible.</p>
-      {% endfor %}
-    </div>
-  </section>
-
-  <section class="subject-vocabulary-directory area-section" id="vocabulaire-par-sujet" aria-labelledby="subject-vocabulary-title">
-    <div class="section-heading subject-vocabulary-directory__heading">
-      <div>
-        <h2 id="subject-vocabulary-title">Vocabulaire par sujet</h2>
-      </div>
-    </div>
-
-    {% if subject_theme_groups %}
-      <div class="subject-vocabulary-tools">
-        <label class="subject-vocabulary-search">
-          <span>Rechercher un sujet</span>
-          <input type="search" placeholder="Ex. réseaux sociaux, travail, voyage…" autocomplete="off" data-subject-vocabulary-search>
-        </label>
-        <p role="status" aria-live="polite" data-subject-vocabulary-status>{{ subject_prompt_count }} sujets · {{ subject_response_count }} decks uniques</p>
-      </div>
-
-      <div class="subject-theme-list collection-table collection-table--subject-themes" data-collection-view="adaptive" data-subject-vocabulary-directory>
-        {% include "study/partials/collection_table_header.html" with variant="subject-themes" column_1="Thème" column_2="Contenu" column_3="Accès" only %}
-        {% for group in subject_theme_groups %}
-          <details class="subject-theme card" style="--theme-accent: {{ group.theme.color }};" data-collection-item data-subject-theme>
-            <summary>
-              <span class="subject-theme__identity">
-                <span class="subject-theme__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=group.theme.icon only %}</span>
-                <strong>{{ group.theme.display_name|default:group.theme.name }}</strong>
-              </span>
-              <span class="subject-theme__stats">
-                <span class="progress-status progress-status--{{ group.progress.status }}">{{ group.progress.label }}</span>
-                <span>{{ group.prompts|length }} sujets · {{ group.progress.completed }}/{{ group.progress.total }} decks terminés</span>
-              </span>
-              <span class="subject-theme__action">Voir les sujets <span class="subject-theme__chevron" aria-hidden="true">⌄</span></span>
-            </summary>
-            <div class="subject-vocabulary-list">
-              {% for prompt in group.prompts %}
-                <article class="subject-vocabulary-row" data-subject-vocabulary-row>
-                  <span class="subject-vocabulary-row__number">P{{ prompt.number }}</span>
-                  <div class="subject-vocabulary-row__copy">
-                    <h3>{{ prompt.text }}</h3>
-                    <p>
-                      <span class="progress-status progress-status--{{ prompt.vocabulary_progress.status }}">{{ prompt.vocabulary_progress.label }}</span>
-                      <span>{{ prompt.vocabulary_progress.completed }}/{{ prompt.vocabulary_progress.total }} vocabs terminés · {{ prompt.vocabulary_batch_count }} lots</span>
-                      {% if not prompt.is_canonical %}<span class="alias-tag">deck partagé</span>{% endif %}
-                    </p>
-                  </div>
-                  <div class="subject-vocabulary-row__actions">
-                    <a class="btn btn--sm btn--primary" href="{{ prompt.review_url }}">Pratiquer</a>
-                    <a class="btn btn--sm" href="{{ prompt.detail_url }}#subject-vocabulary">Voir les lots</a>
-                  </div>
-                </article>
-              {% endfor %}
-            </div>
-          </details>
-        {% endfor %}
-      </div>
-      <div class="empty subject-vocabulary-empty" hidden data-subject-vocabulary-empty>
-        <p>Aucun sujet ne correspond à cette recherche.</p>
-      </div>
-    {% else %}
-      <div class="empty"><p>Aucun deck de sujet ne correspond à ce filtre.</p></div>
-    {% endif %}
-  </section>
   {% endif %}
 
   {% if comprehension_directory %}

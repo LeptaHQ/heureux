@@ -1322,13 +1322,15 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   font-size: 0.78rem;
   font-weight: 700;
 }
-.tache-two-overview-grid {
+.tache-two-overview-grid,
+.task-choice-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   margin-top: 1.5rem;
 }
-.tache-two-overview-panel {
+.tache-two-overview-panel,
+.task-choice-card {
   --overview-panel-accent: var(--primary);
   display: grid;
   grid-template-rows: auto auto auto;
@@ -1342,7 +1344,8 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   text-decoration: none;
   transition: border-color 0.16s ease, box-shadow 0.16s ease;
 }
-.tache-two-overview-panel:hover {
+.tache-two-overview-panel:hover,
+.task-choice-card:hover {
   border-color: color-mix(
     in srgb,
     var(--overview-panel-accent) 28%,
@@ -1353,7 +1356,8 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   text-decoration: none;
   transform: none;
 }
-.tache-two-overview-panel:focus-visible {
+.tache-two-overview-panel:focus-visible,
+.task-choice-card:focus-visible {
   outline: 0;
   box-shadow: 0 0 0 4px color-mix(
     in srgb,
@@ -1361,15 +1365,18 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
     transparent
   );
 }
-.tache-two-overview-panel--subjects {
+.tache-two-overview-panel--subjects,
+.task-choice-card--subjects {
   --overview-panel-accent: var(--memory-accent);
 }
-.tache-two-overview-panel__head {
+.tache-two-overview-panel__head,
+.task-choice-card__head {
   display: flex;
   align-items: flex-start;
   gap: 0.8rem;
 }
-.tache-two-overview-panel__icon {
+.tache-two-overview-panel__icon,
+.task-choice-card__icon {
   width: 2.7rem;
   height: 2.7rem;
   flex: none;
@@ -1388,21 +1395,25 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   );
   color: var(--overview-panel-accent);
 }
-.tache-two-overview-panel__icon .ui-icon {
+.tache-two-overview-panel__icon .ui-icon,
+.task-choice-card__icon .ui-icon {
   width: 1.25rem;
   height: 1.25rem;
 }
-.tache-two-overview-panel__head h2 {
+.tache-two-overview-panel__head h2,
+.task-choice-card__head h2 {
   margin: 0 0 0.15rem;
   font-size: 1.35rem;
 }
-.tache-two-overview-panel__head p {
+.tache-two-overview-panel__head p,
+.task-choice-card__head p {
   margin: 0;
   color: var(--text-soft);
   font-size: 0.86rem;
   line-height: 1.45;
 }
-.tache-two-overview-panel__facts {
+.tache-two-overview-panel__facts,
+.task-choice-card__facts {
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -1413,35 +1424,53 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   font-size: 0.8rem;
   font-weight: 700;
 }
-.tache-two-overview-panel__facts span + span {
+.tache-two-overview-panel__facts span + span,
+.task-choice-card__facts span + span {
   padding-left: 0.8rem;
   border-left: 1px solid var(--border);
 }
-.tache-two-overview-panel__facts b {
+.tache-two-overview-panel__facts b,
+.task-choice-card__facts b {
   color: var(--text);
   font-variant-numeric: tabular-nums;
 }
-.tache-two-overview-panel__footer {
+.tache-two-overview-panel__footer,
+.task-choice-card__footer {
   display: grid;
   grid-template-columns: minmax(12rem, 1fr) auto;
   align-items: end;
   gap: 1rem;
 }
-.tache-two-overview-panel__footer .tache-two-progress-summary {
+.tache-two-overview-panel__footer .tache-two-progress-summary,
+.task-choice-card__footer .tache-two-progress-summary {
   width: 100%;
   margin: 0;
 }
-.tache-two-overview-panel__footer .btn {
+.tache-two-overview-panel__footer .btn,
+.task-choice-card__footer .btn {
   white-space: nowrap;
 }
-.tache-two-overview-panel__action {
+.tache-two-overview-panel__action,
+.task-choice-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--overview-panel-accent);
+  font-size: 0.82rem;
+  font-weight: 800;
   pointer-events: none;
 }
-.tache-two-overview-panel__action .ui-icon {
+.tache-two-overview-panel__action .ui-icon,
+.task-choice-card__action .ui-icon {
+  width: 1rem;
+  height: 1rem;
   transition: transform 0.16s ease;
 }
 .tache-two-overview-panel:hover
   .tache-two-overview-panel__action
+  .ui-icon,
+.task-choice-card:hover
+  .task-choice-card__action
   .ui-icon {
   transform: translateX(2px);
 }
@@ -2753,7 +2782,8 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 }
 
 @media (max-width: 900px) {
-  .tache-two-overview-grid {
+  .tache-two-overview-grid,
+  .task-choice-grid {
     grid-template-columns: 1fr;
   }
   .memory-library__grid {
@@ -2838,24 +2868,29 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
     flex-direction: column;
     gap: 0.35rem;
   }
-  .tache-two-overview-panel {
+  .tache-two-overview-panel,
+  .task-choice-card {
     padding: 0.9rem;
   }
-  .tache-two-overview-panel__facts {
+  .tache-two-overview-panel__facts,
+  .task-choice-card__facts {
     align-items: flex-start;
     flex-direction: column;
     gap: 0.22rem;
   }
-  .tache-two-overview-panel__facts span + span {
+  .tache-two-overview-panel__facts span + span,
+  .task-choice-card__facts span + span {
     padding-left: 0;
     border-left: 0;
   }
-  .tache-two-overview-panel__footer {
+  .tache-two-overview-panel__footer,
+  .task-choice-card__footer {
     grid-template-columns: 1fr;
     align-items: stretch;
     gap: 0.8rem;
   }
-  .tache-two-overview-panel__footer .btn {
+  .tache-two-overview-panel__footer .btn,
+  .task-choice-card__footer .btn {
     width: 100%;
   }
   .tache-two-directory-toolbar {
@@ -6055,19 +6090,8 @@ html[data-collection-view-mode="table"]
   position: relative;
   scroll-margin-top: 88px;
 }
-.vocabulary-domain {
-  position: relative;
-  scroll-margin-top: 88px;
-}
-.vocabulary-hub > .vocabulary-domain + .vocabulary-domain {
-  margin-top: 0;
-  padding-top: 1.5rem;
-  border-top: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
-}
-.vocabulary-domain__heading h2 { letter-spacing: -0.025em; }
 .expression-directory__heading > p,
 .subject-vocabulary-directory__heading > p,
-.vocabulary-domain__heading > p,
 .phrase-catalog .section-heading > p {
   max-width: 62ch;
   margin: 0;
@@ -6295,6 +6319,206 @@ html[data-collection-view-mode="table"]
   gap: 0.4rem;
 }
 .subject-vocabulary-empty { padding-block: 1.4rem; }
+
+.task-vocabulary-directory {
+  display: grid;
+  gap: 1.35rem;
+}
+.eo-t3-overview .memory-overview-hero {
+  display: grid;
+}
+.task-vocabulary-directory .task-vocabulary-directory__toolbar,
+.task-vocabulary-directory .memory-library--standalone,
+.task-vocabulary-directory .area-section {
+  margin: 0;
+}
+.task-vocabulary-themes .section-heading,
+.task-vocabulary-functions .section-heading {
+  align-items: end;
+}
+.task-vocabulary-themes .section-heading p,
+.task-vocabulary-functions .section-heading p,
+.task-vocabulary-theme-subjects__heading p {
+  max-width: 68ch;
+  margin: 0.2rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+.task-vocabulary-theme-entry {
+  --theme-accent: var(--memory-accent);
+}
+.task-vocabulary-theme-entry .memory-entry__icon {
+  color: var(--theme-accent);
+}
+.task-vocabulary-theme-entry .memory-entry__facts {
+  flex-wrap: wrap;
+}
+.task-vocabulary-theme-page {
+  display: grid;
+  gap: 1.5rem;
+}
+.task-vocabulary-theme-subjects {
+  display: grid;
+  gap: 0.9rem;
+}
+.task-vocabulary-theme-subjects__heading {
+  align-items: end;
+}
+.task-vocabulary-theme-subjects__heading .collection-view-toolbar {
+  flex: none;
+  margin: 0;
+}
+.subject-vocabulary-theme-directory {
+  --collection-table-columns: minmax(20rem, 1fr) minmax(14rem, 0.48fr) 13rem;
+}
+.task-vocabulary-deck-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+.task-vocabulary-deck {
+  display: grid;
+  grid-template-areas:
+    "identity identity"
+    "progress actions";
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.8rem 1rem;
+  min-width: 0;
+  padding: 0.9rem;
+  box-shadow: none;
+}
+.task-vocabulary-deck:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--theme-vocabulary-accent) 26%,
+    var(--border)
+  );
+  transform: none;
+}
+.task-vocabulary-deck__identity {
+  grid-area: identity;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  min-width: 0;
+}
+.task-vocabulary-deck__identity h3 {
+  margin: 0.1rem 0 0;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.task-vocabulary-deck__progress {
+  grid-area: progress;
+  min-width: 0;
+}
+.task-vocabulary-deck__progress p {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  color: var(--text-faint);
+  font-size: 0.74rem;
+}
+.task-vocabulary-deck__actions {
+  grid-area: actions;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
+html[data-collection-view-mode="table"]
+  .collection-table--subject-vocabulary-decks
+  > .task-vocabulary-deck-list {
+  display: contents;
+}
+html[data-collection-view-mode="table"]
+  .collection-table--subject-vocabulary-decks
+  .task-vocabulary-deck {
+  grid-template-areas: "identity progress actions";
+  grid-template-columns: var(--collection-table-columns);
+  gap: 0;
+  padding: 0;
+  border-radius: 0;
+}
+html[data-collection-view-mode="table"]
+  .collection-table--subject-vocabulary-decks
+  .task-vocabulary-deck
+  > * {
+  min-width: 0;
+  align-self: stretch;
+  padding: 0.78rem 1rem;
+}
+html[data-collection-view-mode="table"]
+  .collection-table--subject-vocabulary-decks
+  .task-vocabulary-deck
+  > * + * {
+  border-left: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
+}
+
+@media (max-width: 900px) {
+  .task-vocabulary-deck-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .task-vocabulary-theme-subjects__heading {
+    align-items: stretch;
+  }
+  .task-vocabulary-theme-subjects__heading .collection-view-toolbar {
+    justify-content: flex-end;
+  }
+  html[data-collection-view-mode="table"]
+    .collection-table--subject-vocabulary-decks
+    .task-vocabulary-deck {
+    grid-template-areas:
+      "identity actions"
+      "progress progress";
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  html[data-collection-view-mode="table"]
+    .collection-table--subject-vocabulary-decks
+    .task-vocabulary-deck__progress {
+    border-top: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .task-vocabulary-deck {
+    grid-template-areas:
+      "identity"
+      "progress"
+      "actions";
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .task-vocabulary-deck__actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .task-vocabulary-deck__actions .btn {
+    width: 100%;
+  }
+  html[data-collection-view-mode="table"]
+    .collection-table--subject-vocabulary-decks
+    .task-vocabulary-deck {
+    grid-template-areas:
+      "identity"
+      "progress"
+      "actions";
+    grid-template-columns: minmax(0, 1fr);
+  }
+  html[data-collection-view-mode="table"]
+    .collection-table--subject-vocabulary-decks
+    .task-vocabulary-deck
+    > * + * {
+    border-top: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
+    border-left: 0;
+  }
+}
 .phrase-category-back { margin-bottom: 0.75rem; }
 .phrase-category-back a {
   color: var(--text-soft);
@@ -10148,20 +10372,6 @@ button.ce-choice:focus-visible .ce-choice__radio {
 .vocabulary-hub { display: grid; gap: var(--space-5); }
 .vocabulary-hub { gap: var(--space-3); }
 .vocabulary-hub > .area-section { margin-top: 0; }
-.vocabulary-summary-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: var(--space-3);
-}
-.vocabulary-summary-row > .vocabulary-status-grid,
-.vocabulary-summary-row > .collection-view-toolbar { margin: 0; }
-@media (max-width: 900px) {
-  .vocabulary-summary-row { grid-template-columns: 1fr; }
-  .vocabulary-summary-row > .collection-view-toolbar {
-    justify-content: flex-end;
-  }
-}
 .area-section { margin-top: var(--space-6); }
 .area-hero,
 .home-hero {
@@ -10237,7 +10447,7 @@ button.ce-choice:focus-visible .ce-choice__radio {
 }
 .daily-plan__grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
 }
 .daily-card {
@@ -10579,7 +10789,7 @@ button.ce-choice:focus-visible .ce-choice__radio {
 .home-section-link svg { width: 0.82rem; height: 0.82rem; }
 .home-skills__grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
 }
 .home-skill {
@@ -10843,26 +11053,6 @@ button.ce-choice:focus-visible .ce-choice__radio {
   border: 0;
   background: transparent;
 }
-.vocabulary-path-card {
-  grid-template-columns: 50px minmax(0, 1fr) auto;
-  gap: 0.8rem;
-  min-height: 130px;
-  padding: 0.9rem 1rem;
-}
-.vocabulary-domain .expression-paths { gap: 0.8rem; }
-.vocabulary-path-card .expression-path__icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 0;
-}
-.vocabulary-path-card .expression-path__icon svg {
-  width: 25px;
-  height: 25px;
-}
-.vocabulary-path-card .expression-path__copy strong { font-size: 1.08rem; }
-.vocabulary-path-card .expression-path__action { align-self: center; }
-.vocabulary-path-card.expression-path--soon { box-shadow: none; }
-
 .task-deep-links {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -10950,121 +11140,6 @@ button.ce-choice:focus-visible .ce-choice__radio {
   font-weight: 650;
 }
 .active-filter a { font-weight: 750; }
-.vocabulary-status-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.9rem;
-  margin-top: 1.25rem;
-}
-.vocabulary-status {
-  --status-accent: var(--primary);
-  --card-accent: var(--status-accent);
-  display: grid;
-  grid-template-columns: 28px minmax(0, 1fr) 20px;
-  align-items: center;
-  gap: 0.95rem;
-  min-height: 82px;
-  padding: 0.75rem 0.9rem;
-  overflow: hidden;
-  border-color: color-mix(in srgb, var(--card-border) 80%, var(--status-accent) 20%);
-  border-radius: var(--card-radius);
-  background: var(--surface);
-  color: var(--text);
-  box-shadow: none;
-  transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    box-shadow 160ms ease;
-}
-.vocabulary-status--saved { --status-accent: var(--success); }
-.vocabulary-status--weak { --status-accent: var(--warning); }
-.vocabulary-status:hover {
-  transform: none;
-  border-color: color-mix(in srgb, var(--status-accent) 38%, var(--border));
-  box-shadow: none;
-  text-decoration: none;
-}
-.vocabulary-status:focus-visible {
-  border-color: var(--status-accent);
-  outline: 0;
-  box-shadow:
-    0 0 0 4px color-mix(in srgb, var(--status-accent) 15%, transparent);
-}
-.vocabulary-status__icon,
-.vocabulary-status__arrow {
-  display: grid;
-  place-items: center;
-  color: var(--status-accent);
-}
-.vocabulary-status__icon {
-  width: 28px;
-  height: 28px;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-}
-.vocabulary-status__icon svg {
-  width: 22px;
-  height: 22px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.vocabulary-status__copy {
-  display: grid;
-  min-width: 0;
-  align-content: center;
-}
-.vocabulary-status__value {
-  color: var(--status-accent);
-  font-family: var(--font-serif);
-  font-size: clamp(1.3rem, 2vw, 1.55rem);
-  font-variant-numeric: lining-nums tabular-nums;
-  font-weight: 780;
-  letter-spacing: -0.045em;
-  line-height: 1;
-  white-space: nowrap;
-}
-.vocabulary-status strong {
-  display: block;
-  margin-top: 0.2rem;
-  font-size: 0.9rem;
-  line-height: 1.25;
-}
-.vocabulary-status small {
-  display: block;
-  margin-top: 0.22rem;
-  color: var(--text-faint);
-  font-size: 0.82rem;
-  line-height: 1.4;
-}
-.vocabulary-status__arrow {
-  width: 20px;
-  height: 20px;
-  border-radius: 0;
-  background: transparent;
-  color: var(--text-faint);
-  transition:
-    color 160ms ease,
-    background 160ms ease,
-    transform 160ms ease;
-}
-.vocabulary-status__arrow svg {
-  width: 17px;
-  height: 17px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.vocabulary-status:hover .vocabulary-status__arrow {
-  transform: translateX(2px);
-  background: transparent;
-  color: var(--status-accent);
-}
 .comprehension-vocabulary-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -11973,6 +12048,12 @@ button.ce-choice:focus-visible .ce-choice__radio {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+  .ce-library-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
   .ce-library-hero__metrics div {
     min-height: 0;
     padding: 0.45rem 0.35rem;
@@ -12300,7 +12381,6 @@ button.ce-choice:focus-visible .ce-choice__radio {
   .review-focus-grid,
   .comprehension-vocabulary-grid,
   .stats-action-grid { grid-template-columns: 1fr; }
-  .vocabulary-status-grid { grid-template-columns: 1fr; }
   .task-deep-links { grid-template-columns: 1fr; }
   .task-deep-links a {
     border-right: 0;
@@ -12715,14 +12795,6 @@ button.ce-choice:focus-visible .ce-choice__radio {
   .expression-path__action { grid-column: 2; justify-self: start; }
   .practice-launcher .btn { width: 100%; }
   .practice-theme-card { padding: 0.8rem; }
-  .vocabulary-status {
-    grid-template-columns: 28px minmax(0, 1fr) 20px;
-    gap: 0.8rem;
-    min-height: 82px;
-    padding: 0.9rem;
-  }
-  .vocabulary-status__icon { width: 28px; height: 28px; }
-  .vocabulary-status__arrow { width: 20px; height: 20px; }
   .comprehension-vocabulary-card__actions {
     display: grid;
     grid-template-columns: 1fr;
@@ -12736,7 +12808,6 @@ button.ce-choice:focus-visible .ce-choice__radio {
   .phrase-category-hero__actions .btn { width: 100%; }
   .expression-directory__heading,
   .subject-vocabulary-directory__heading,
-  .vocabulary-domain__heading,
   .phrase-catalog .section-heading {
     align-items: flex-start;
     flex-direction: column;
@@ -13022,7 +13093,6 @@ button.ce-choice:focus-visible .ce-choice__radio {
     .expression-category-card,
     .batch-card[href],
     a.qrow,
-    .vocabulary-status,
     .resume-review,
     .prompt-nav__link
   ):hover {
@@ -13357,32 +13427,6 @@ html[data-collection-view-mode="table"]
 .expression-path--soon .expression-path__icon {
   background: transparent;
 }
-.vocabulary-domain {
-  padding: 1rem;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-}
-.vocabulary-hub > .vocabulary-domain + .vocabulary-domain {
-  padding-top: 1.25rem;
-}
-.vocabulary-domain--comprehension {
-  border-color: var(--border);
-  background: transparent;
-}
-.vocabulary-domain--expression {
-  border-color: var(--border);
-  background: transparent;
-}
-.vocabulary-status {
-  --status-soft: var(--primary-soft);
-  background: var(--surface);
-}
-.vocabulary-status--saved { --status-soft: var(--success-soft); }
-.vocabulary-status--weak { --status-soft: var(--warning-soft); }
-.vocabulary-status__icon {
-  border-radius: 0;
-  background: transparent;
-}
 .deck {
   background: var(--surface);
 }
@@ -13430,7 +13474,15 @@ html[data-collection-view-mode="table"]
   --overview-panel-accent: var(--tone-stats);
   background: var(--surface);
 }
+.task-choice-card--vocabulary {
+  --overview-panel-accent: var(--tone-stats);
+  background: var(--surface);
+}
 .tache-two-overview-panel--subjects {
+  --overview-panel-accent: var(--tone-expression);
+  background: var(--surface);
+}
+.task-choice-card--subjects {
   --overview-panel-accent: var(--tone-expression);
   background: var(--surface);
 }
@@ -14674,6 +14726,10 @@ html[data-collection-view-mode="table"]
 }
 
 @media (max-width: 620px) {
+  .task-nav--eo-t3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem;
+  }
   .task-nav--ee-t3 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0.35rem;

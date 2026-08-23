@@ -1,7 +1,5 @@
 {% comment %}
-Skill / parcours path card. Single source of truth for the expression-path card
-used by the Expression hub (parcours) and the Vocabulary hub (via
-partials/vocabulary_skill_card.html).
+Skill / parcours path card shared by the Expression and Comprehension hubs.
 Params:
   code        — short code, lowercase (drives the modifier class + icon); shown
                 uppercased as the eyebrow (e.g. "eo" -> "EO").
@@ -9,20 +7,16 @@ Params:
   available   — bool; an <a> link when true, a disabled <article> when false.
   url         — href when available.
   query       — optional query string appended as "?{{ query }}".
-  card_kind   — "expression" (default), "vocabulary" or "comprehension".
-                Vocabulary adds the vocabulary-path-card class +
-                data-vocabulary-path hook and the "entrées" meta wording.
+  card_kind   — "expression" (default) or "comprehension".
   task_count, prompt_count — counts for the meta line.
-  entry_count — vocabulary entries (card_kind="vocabulary").
-  test_count  — when set, vocabulary meta becomes "N tests · K entrées" (CE).
   seen, total — expression "cartes vues" (card_kind="expression").
   facts       — comprehension summary dict (card_kind="comprehension").
   action_label — action text when available (default "Ouvrir").
 {% endcomment %}
 {% if available %}
-  <a class="expression-path expression-path--available expression-path--{{ code }} card{% if card_kind == "vocabulary" %} vocabulary-path-card{% endif %}"{% if card_kind == "vocabulary" %} data-vocabulary-path{% endif %} href="{{ url }}{% if query %}?{{ query }}{% endif %}">
+  <a class="expression-path expression-path--available expression-path--{{ code }} card" href="{{ url }}{% if query %}?{{ query }}{% endif %}">
 {% else %}
-  <article class="expression-path expression-path--soon expression-path--{{ code }} card{% if card_kind == "vocabulary" %} vocabulary-path-card{% endif %}"{% if card_kind == "vocabulary" %} data-vocabulary-path{% endif %} aria-disabled="true">
+  <article class="expression-path expression-path--soon expression-path--{{ code }} card" aria-disabled="true">
 {% endif %}
     <span class="expression-path__icon" aria-hidden="true">
       {% include "study/partials/skill_icon.html" with skill_code=code only %}
@@ -35,13 +29,7 @@ Params:
       {% endif %}
       {% if available %}
         <small>
-          {% if card_kind == "vocabulary" %}
-            {% if test_count %}
-              {{ test_count }} test{{ test_count|pluralize }} · {{ entry_count }} entrées{% if progress %} · {{ progress.completed }}/{{ progress.total }} terminées{% endif %}
-            {% else %}
-              {{ task_count }} tâche{{ task_count|pluralize }} · {{ prompt_count }} sujets · {{ entry_count }} entrées{% if progress %} · {{ progress.completed }}/{{ progress.total }} terminées{% endif %}
-            {% endif %}
-          {% elif card_kind == "comprehension" %}
+          {% if card_kind == "comprehension" %}
             {{ facts.group_count }} {% if code == "ce" %}lots{% else %}groupes{% endif %} · {% if facts.active_attempt %}{{ facts.active_answered_count }}/{{ facts.active_question_count }} répondues{% elif facts.best_percentage is not None %}{{ facts.best_percentage }} % meilleur score{% else %}{{ facts.available_test_count }} test{{ facts.available_test_count|pluralize }} disponible{{ facts.available_test_count|pluralize }}{% endif %} · {{ facts.completed_test_count }} terminé{{ facts.completed_test_count|pluralize }}
           {% else %}
             {% if has_content %}
@@ -52,7 +40,7 @@ Params:
           {% endif %}
         </small>
       {% else %}
-        <small>{% if card_kind == "vocabulary" %}Vocabulaire en préparation{% else %}Parcours en préparation{% endif %}</small>
+        <small>Parcours en préparation</small>
       {% endif %}
     </span>
     <span class="expression-path__action">

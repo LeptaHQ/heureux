@@ -65,7 +65,7 @@
     {% if content == "spine" %}
       <a class="btn btn--primary" href="{% if task %}{% url 'study:task_review' part.slug task.slug %}?kind=spine{% elif part %}{% url 'study:part_review' part.slug %}?kind=spine{% else %}{% url 'study:review' %}?kind=spine{% endif %}">Pratiquer les réponses</a>
     {% else %}
-      <a class="btn btn--primary" href="{% url 'study:vocabulary' %}">Choisir un deck de vocabulaire</a>
+      <a class="btn btn--primary" href="{% if task %}{% url 'study:task_phrases' part.slug task.slug %}{% else %}{% url 'study:review' %}?content=vocabulary{% endif %}">{% if task %}Retour au vocabulaire de la tâche{% else %}Pratiquer le vocabulaire disponible{% endif %}</a>
     {% endif %}
   </div>
 {% endif %}

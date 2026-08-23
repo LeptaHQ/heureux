@@ -19,6 +19,10 @@ COMPREHENSION_ROUTES = {
     "comprehension_oral_start",
     "comprehension_oral_question",
     "comprehension_oral_results",
+    "comprehension_vocabulary",
+    "comprehension_test_vocabulary",
+    "comprehension_oral_vocabulary",
+    "comprehension_oral_test_vocabulary",
 }
 EXPRESSION_ROUTES = {
     "expression",
@@ -38,16 +42,9 @@ EXPRESSION_ROUTES = {
     "writing_sujet_detail",
     "writing_sujet_edit",
     "task_review_hub",
-}
-VOCABULARY_ROUTES = {
-    "vocabulary",
-    "vocabulary_category",
     "task_phrases",
+    "task_vocabulary_theme",
     "task_vocabulary_category",
-    "comprehension_vocabulary",
-    "comprehension_test_vocabulary",
-    "comprehension_oral_vocabulary",
-    "comprehension_oral_test_vocabulary",
 }
 NOTES_ROUTES = {
     "notes_overview",
@@ -119,8 +116,6 @@ def _active_nav_area(request):
         return "comprehension"
     if route_name in EXPRESSION_ROUTES:
         return "expression"
-    if route_name in VOCABULARY_ROUTES:
-        return "vocabulary"
     if route_name in NOTES_ROUTES:
         return "notes"
     if route_name in STATS_ROUTES:
@@ -159,13 +154,20 @@ def _active_nav_area(request):
             "comprehension_vocabulary_review",
             "comprehension_oral_vocabulary_review",
         }:
-            return "vocabulary"
+            return "comprehension"
+        if route_name in {
+            "part_review",
+            "task_review",
+            "part_revisit_list",
+            "task_revisit_list",
+        }:
+            return "expression"
         if (
             scope["kind"] in {"spine", "theme_vocab"}
             or scope["content"] == "spine"
         ):
             return "expression"
-        return "vocabulary"
+        return ""
     return ""
 
 

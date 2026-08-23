@@ -7,7 +7,7 @@
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
   <script src="{% static 'study/js/theme-init.js' %}?v=2"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=161">
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=165">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -106,13 +106,6 @@
 
         <div class="nav__group nav__group--tools" role="group" aria-label="Outils personnels">
           <span class="nav__section-label" aria-hidden="true">Mes outils</span>
-          <a href="{% url 'study:vocabulary' %}" class="nav__primary-link{% if active_nav_area == 'vocabulary' %} is-active{% endif %}"{% if active_nav_area == 'vocabulary' %} aria-current="page"{% endif %} data-nav-tone="vocabulary">
-            <span class="nav__item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#nav-icon-expressions"></use></svg></span>
-            <span class="nav__item-copy">
-              <span class="nav__item-label">Vocabulaire</span>
-              <small aria-hidden="true">Tous les mots et tournures</small>
-            </span>
-          </a>
           <a href="{% url 'study:notes_overview' %}" class="nav__primary-link{% if active_nav_area == 'notes' %} is-active{% endif %}"{% if active_nav_area == 'notes' %} aria-current="page"{% endif %} data-nav-tone="notes">
             <span class="nav__item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#nav-icon-notes"></use></svg></span>
             <span class="nav__item-copy">

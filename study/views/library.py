@@ -80,11 +80,6 @@ from .helpers import (
     recent_review_sessions,
     summarize_review_batches,
 )
-from .dashboard import (
-    _vocabulary_expression_paths,
-    _vocabulary_task_items,
-)
-
 def _subject_stats_for_themes(themes, user, now=None):
     now = now or timezone.now()
     response_ids_by_theme = {theme.pk: set() for theme in themes}
@@ -123,6 +118,159 @@ def _subject_stats_for_themes(themes, user, now=None):
         summary["due"] = len(theme_response_ids & due_response_ids)
         stats[theme_id] = summary
     return stats, progress, due_response_ids
+
+
+def _vocabulary_deck_progress(progress_items):
+    items = list(progress_items)
+    return progress_summary(
+        total=len(items),
+        started=sum(item.vocabulary_activity_started for item in items),
+        completed=sum(
+            bool(item.vocabulary_total)
+            and item.vocabulary_completed == item.vocabulary_total
+            for item in items
+        ),
+    )
+
+
+def _task_subject_vocabulary_context(
+    task,
+    user,
+    theme=None,
+    progress_by_response=None,
+):
+    prompt_filters = {
+        "is_active": True,
+        "response__is_active": True,
+        "theme__is_active": True,
+        "theme__task": task,
+    }
+    subject_vocabulary = Phrase.objects.filter(
+        is_active=True,
+        tier=PhraseTier.SUBJECT,
+        source_prompts__is_active=True,
+        source_prompts__theme__is_active=True,
+        source_prompts__theme__task=task,
+    )
+    if theme is not None:
+        prompt_filters["theme"] = theme
+        subject_vocabulary = subject_vocabulary.filter(
+            source_prompts__theme=theme,
+        )
+
+    vocabulary_counts = dict(
+        Prompt.objects.filter(**prompt_filters)
+        .values_list("pk")
+        .annotate(
+            vocabulary_count=Count(
+                "phrases",
+                filter=Q(
+                    phrases__is_active=True,
+                    phrases__tier=PhraseTier.SUBJECT,
+                ),
+                distinct=True,
+            )
+        )
+        .filter(vocabulary_count__gt=0)
+        .values_list("pk", "vocabulary_count")
+    )
+    prompts = list(
+        Prompt.objects.filter(
+            **prompt_filters,
+            pk__in=vocabulary_counts,
+        )
+        .select_related("theme__task__part", "family", "response")
+        .order_by("theme__order", "number", "pk")
+    )
+    for prompt in prompts:
+        prompt.vocabulary_count = vocabulary_counts[prompt.pk]
+
+    response_ids = {prompt.response_id for prompt in prompts}
+    if progress_by_response is None:
+        progress_by_response = subject_progress_by_response(user, response_ids)
+    else:
+        progress_by_response = {
+            response_id: progress_by_response[response_id]
+            for response_id in response_ids
+        }
+    phrase_counts_by_theme = dict(
+        subject_vocabulary.order_by()
+        .values("source_prompts__theme_id")
+        .annotate(total=Count("pk", distinct=True))
+        .values_list("source_prompts__theme_id", "total")
+    )
+    groups = []
+    current_group = None
+    for prompt in prompts:
+        prompt.detail_url = prompt_detail_url(prompt)
+        prompt.review_url = review_url(
+            {
+                "part": task.part.slug,
+                "task": task.slug,
+                "kind": "vocab",
+                "response": str(prompt.response_id),
+                "batch": "1",
+            }
+        )
+        prompt.vocabulary_batch_count = (
+            prompt.vocabulary_count + queue_module.PHRASE_BATCH_SIZE - 1
+        ) // queue_module.PHRASE_BATCH_SIZE
+        prompt.subject_progress = progress_by_response[prompt.response_id]
+        prompt.vocabulary_progress = prompt.subject_progress.vocabulary_progress
+        if current_group is None or current_group["theme"].pk != prompt.theme_id:
+            current_group = {
+                "theme": prompt.theme,
+                "prompts": [],
+                "response_ids": set(),
+            }
+            groups.append(current_group)
+        current_group["prompts"].append(prompt)
+        current_group["response_ids"].add(prompt.response_id)
+
+    for group in groups:
+        group_response_ids = group.pop("response_ids")
+        group_progress = [
+            progress_by_response[response_id]
+            for response_id in group_response_ids
+        ]
+        group["deck_count"] = len(group_response_ids)
+        group["phrase_count"] = phrase_counts_by_theme.get(
+            group["theme"].pk,
+            0,
+        )
+        group["progress"] = _vocabulary_deck_progress(group_progress)
+        group["url"] = reverse(
+            "study:task_vocabulary_theme",
+            args=[task.part.slug, task.slug, group["theme"].slug],
+        )
+        group["review_url"] = review_url(
+            {
+                **_task_scope(task),
+                "kind": "vocab",
+                "theme": group["theme"].slug,
+            }
+        )
+
+    vocabulary_deck_summary = _vocabulary_deck_progress(
+        progress_by_response.values()
+    )
+    return {
+        "subject_theme_groups": groups,
+        "subject_prompt_count": len(prompts),
+        "subject_response_count": len(response_ids),
+        "subject_vocabulary_count": subject_vocabulary.distinct().count(),
+        "vocabulary_deck_summary": vocabulary_deck_summary,
+        "vocabulary_directory_summary": {
+            "progress": vocabulary_deck_summary,
+            "completed": vocabulary_deck_summary.completed,
+            "total": vocabulary_deck_summary.total,
+            "started_new": max(
+                vocabulary_deck_summary.started
+                - vocabulary_deck_summary.completed,
+                0,
+            ),
+        },
+    }
 
 
 def _phrase_deck_stats(now, user=None, task=None):
@@ -241,41 +389,10 @@ def part_detail(request, part_slug):
 
 
 def part_vocabulary(request, part_slug):
-    part = get_object_or_404(
-        ExamPart.objects.filter(is_active=True).prefetch_related(
-            Prefetch("tasks", queryset=Task.objects.filter(is_active=True))
-        ),
-        slug=part_slug,
-    )
-    task_items = [
-        _task_card(task, timezone.now(), request.user)
-        for task in part.tasks.all()
-    ]
-    vocabulary_tasks = _vocabulary_task_items(
-        {"part": part, "tasks": task_items},
-        request.user,
-    )
-    if not part.available or not vocabulary_tasks:
-        return render(
-            request,
-            "study/coming_soon.html",
-            {"part": part, "task": None},
-        )
-    return render(
-        request,
-        "study/vocabulary_part.html",
-        {
-            "part": part,
-            "tasks": vocabulary_tasks,
-            "subject_count": sum(
-                item["vocabulary_prompt_count"]
-                for item in vocabulary_tasks
-            ),
-            "entry_count": sum(
-                item["vocabulary_count"]
-                for item in vocabulary_tasks
-            ),
-        },
+    part = get_object_or_404(ExamPart, slug=part_slug, is_active=True)
+    return redirect(
+        "study:part_detail",
+        part_slug=part.slug,
     )
 
 
@@ -586,6 +703,27 @@ def task_detail(request, part_slug, task_slug):
     scope = _task_scope(task)
     response_stats = summarize_subject_progress(response_progress.values())
     response_stats["due"] = len(due_response_ids)
+    task_phrases = _task_phrases(task).filter(
+        category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES,
+    )
+    phrase_count = task_phrases.count()
+    is_eo_tache_three = (
+        task.part.slug,
+        task.slug,
+    ) == content_module.EO_TACHE_THREE_TASK
+    subject_vocabulary_count = 0
+    if not is_eo_tache_three:
+        subject_vocabulary_count = (
+            Phrase.objects.filter(
+                is_active=True,
+                tier=PhraseTier.SUBJECT,
+                source_prompts__is_active=True,
+                source_prompts__theme__is_active=True,
+                source_prompts__theme__task=task,
+            )
+            .distinct()
+            .count()
+        )
     phrase_stats = _phrase_deck_stats(now, request.user, task)
     context = {
         "part": task.part,
@@ -603,12 +741,38 @@ def task_detail(request, part_slug, task_slug):
             theme__task=task,
             is_active=True,
         ).count(),
-        "phrase_count": _task_phrases(task).count(),
-        "phrase_category_count": _task_phrases(task)
+        "phrase_count": phrase_count,
+        "phrase_category_count": task_phrases
         .values("category_id")
         .distinct()
         .count(),
+        "vocabulary_entry_count": phrase_count + subject_vocabulary_count,
     }
+    if is_eo_tache_three:
+        vocabulary_context = _task_subject_vocabulary_context(
+            task,
+            request.user,
+            progress_by_response=response_progress,
+        )
+        context.update(vocabulary_context)
+        context["vocabulary_entry_count"] = (
+            phrase_count + vocabulary_context["subject_vocabulary_count"]
+        )
+        vocabulary_progress = vocabulary_context["vocabulary_deck_summary"]
+        context["vocabulary_overview_summary"] = {
+            "progress": vocabulary_progress,
+            "completed": vocabulary_progress.completed,
+            "started_new": (
+                vocabulary_progress.started - vocabulary_progress.completed
+            ),
+            "total": vocabulary_progress.total,
+        }
+        context["subject_summary"] = response_stats
+        return render(
+            request,
+            "study/eo_tache_three_overview.html",
+            context,
+        )
     return render(request, "study/task_detail.html", context)
 
 
@@ -2470,6 +2634,7 @@ def phrases(
     part_slug=None,
     task_slug=None,
     category_slug=None,
+    vocabulary_theme_slug=None,
     comprehension_mode=None,
     test_slug=None,
 ):
@@ -2484,10 +2649,49 @@ def phrases(
         ComprehensionMode.ORALE,
     }:
         raise Http404
-    if comprehension_mode and (task_slug or category_slug):
+    if comprehension_mode and (
+        task_slug or category_slug or vocabulary_theme_slug
+    ):
         raise Http404
     if test_slug and not comprehension_mode:
         raise Http404
+    if not any(
+        (
+            part_slug,
+            category_slug,
+            vocabulary_theme_slug,
+            comprehension_mode,
+            test_slug,
+        )
+    ):
+        return redirect("study:dashboard")
+    if category_slug and not task_slug:
+        category = get_object_or_404(
+            PhraseCategory,
+            slug=category_slug,
+            is_active=True,
+        )
+        source_prompt = (
+            Prompt.objects.filter(
+                is_active=True,
+                theme__is_active=True,
+                theme__task__is_active=True,
+                phrases__is_active=True,
+                phrases__tier=PhraseTier.SHARED,
+                phrases__category=category,
+            )
+            .select_related("theme__task__part")
+            .order_by("theme__task__part__order", "theme__task__order", "pk")
+            .first()
+        )
+        if source_prompt is None:
+            return redirect("study:dashboard")
+        return redirect(
+            vocabulary_url(
+                task=source_prompt.theme.task,
+                category=category,
+            )
+        )
     task = (
         _route_task(part_slug, task_slug)
         if part_slug and task_slug
@@ -2499,6 +2703,25 @@ def phrases(
             "study/coming_soon.html",
             {"part": task.part, "task": task},
         )
+    if task and (
+        task.part.slug,
+        task.slug,
+    ) == content_module.QUESTION_BANK_TASK:
+        return redirect("study:tache_two_theme_vocabulary")
+    if vocabulary_theme_slug and task is None:
+        raise Http404
+    if vocabulary_theme_slug and category_slug:
+        raise Http404
+    vocabulary_theme = (
+        get_object_or_404(
+            Theme,
+            task=task,
+            slug=vocabulary_theme_slug,
+            is_active=True,
+        )
+        if vocabulary_theme_slug
+        else None
+    )
     functional_names = FUNCTIONAL_PHRASE_CATEGORY_NAMES
     category_descriptions = {
         "Structurer et prendre position": (
@@ -2663,126 +2886,33 @@ def phrases(
         else None
     )
     comprehension_directory = comprehension_mode is not None
-    vocabulary_landing = not (
-        selected
-        or selected_test
-        or task
-        or comprehension_directory
-    )
-    subject_theme_groups = []
-    subject_prompt_count = 0
-    subject_response_count = 0
-    subject_vocabulary_count = 0
+    subject_context = {
+        "subject_theme_groups": [],
+        "subject_prompt_count": 0,
+        "subject_response_count": 0,
+        "subject_vocabulary_count": 0,
+        "vocabulary_deck_summary": progress_summary(
+            total=0,
+            started=0,
+            completed=0,
+        ),
+    }
     comprehension_decks = []
-    comprehension_vocabulary_paths = []
     comprehension_vocabulary_count = 0
-    if not selected and not selected_test and not comprehension_directory:
-        subject_prompt_filters = {
-            "is_active": True,
-            "response__is_active": True,
-            "theme__is_active": True,
-        }
-        subject_vocabulary = Phrase.objects.filter(
-            is_active=True,
-            tier=PhraseTier.SUBJECT,
-            source_prompts__is_active=True,
-            source_prompts__theme__is_active=True,
-        )
-        if task:
-            subject_prompt_filters["theme__task"] = task
-            subject_vocabulary = subject_vocabulary.filter(
-                source_prompts__theme__task=task
-            )
-        # Counting on a narrow values() query and attaching the totals in
-        # Python avoids grouping wide select_related rows, which made SQLite
-        # build a temporary B-tree per prompt.
-        subject_vocabulary_counts = dict(
-            Prompt.objects.filter(**subject_prompt_filters)
-            .values_list("pk")
-            .annotate(
-                vocabulary_count=Count(
-                    "phrases",
-                    filter=Q(
-                        phrases__is_active=True,
-                        phrases__tier=PhraseTier.SUBJECT,
-                    ),
-                    distinct=True,
-                )
-            )
-            .filter(vocabulary_count__gt=0)
-            .values_list("pk", "vocabulary_count")
-        )
-        subject_prompts = list(
-            Prompt.objects.filter(
-                **subject_prompt_filters,
-                pk__in=subject_vocabulary_counts,
-            )
-            .select_related("theme__task__part", "family", "response")
-            .order_by("theme__order", "number", "pk")
-        )
-        for prompt in subject_prompts:
-            prompt.vocabulary_count = subject_vocabulary_counts[prompt.pk]
-        subject_prompt_count = len(subject_prompts)
-        subject_response_ids = {
-            prompt.response_id for prompt in subject_prompts
-        }
-        subject_progress = subject_progress_by_response(
+    comprehension_batch_count = 0
+    if (
+        task
+        and not selected
+        and not selected_test
+        and not comprehension_directory
+    ):
+        subject_context = _task_subject_vocabulary_context(
+            task,
             request.user,
-            subject_response_ids,
+            vocabulary_theme,
         )
-        current_group = None
-        for prompt in subject_prompts:
-            prompt.detail_url = prompt_detail_url(prompt)
-            prompt.review_url = review_url(
-                {
-                    "part": prompt.theme.task.part.slug,
-                    "task": prompt.theme.task.slug,
-                    "kind": "vocab",
-                    "response": str(prompt.response_id),
-                    "batch": "1",
-                }
-            )
-            prompt.vocabulary_batch_count = (
-                prompt.vocabulary_count
-                + queue_module.PHRASE_BATCH_SIZE
-                - 1
-            ) // queue_module.PHRASE_BATCH_SIZE
-            prompt.subject_progress = subject_progress[prompt.response_id]
-            prompt.vocabulary_progress = (
-                prompt.subject_progress.vocabulary_progress
-            )
-            if (
-                current_group is None
-                or current_group["theme"].pk != prompt.theme_id
-            ):
-                current_group = {
-                    "theme": prompt.theme,
-                    "prompts": [],
-                    "response_ids": set(),
-                    "response_progress": {},
-                }
-                subject_theme_groups.append(current_group)
-            current_group["prompts"].append(prompt)
-            current_group["response_ids"].add(prompt.response_id)
-            current_group["response_progress"][prompt.response_id] = (
-                prompt.vocabulary_progress
-            )
-        for group in subject_theme_groups:
-            group["deck_count"] = len(group.pop("response_ids"))
-            response_progress = list(group.pop("response_progress").values())
-            group["progress"] = progress_summary(
-                total=len(response_progress),
-                started=sum(
-                    item.status != "new" for item in response_progress
-                ),
-                completed=sum(
-                    item.status == "done" for item in response_progress
-                ),
-            )
-        subject_response_count = len(subject_response_ids)
-        subject_vocabulary_count = subject_vocabulary.distinct().count()
 
-    if vocabulary_landing or comprehension_directory:
+    if comprehension_directory:
         tests = (
             ComprehensionTest.objects.filter(
                 is_active=True,
@@ -2834,56 +2964,65 @@ def phrases(
                 }
             )
             comprehension_vocabulary_count += test.vocabulary_count
-        if vocabulary_landing:
-            for mode, code, title in (
-                (ComprehensionMode.ECRITE, "ce", "Écrite"),
-                (ComprehensionMode.ORALE, "co", "Orale"),
-            ):
-                mode_decks = [
-                    deck
-                    for deck in comprehension_decks
-                    if deck["test"].mode == mode
-                ]
-                mode_progress = combine_progress(
-                    deck["progress"] for deck in mode_decks
-                )
-                comprehension_vocabulary_paths.append(
-                    {
-                        "code": code,
-                        "title": title,
-                        "available": bool(mode_decks),
-                        "url": comprehension_vocabulary_url(mode=mode),
-                        "test_count": len(mode_decks),
-                        "entry_count": sum(
-                            deck["vocabulary_count"] for deck in mode_decks
-                        ),
-                        "progress": mode_progress,
-                    }
-                )
-
-    expression_vocabulary_paths = (
-        _vocabulary_expression_paths(timezone.now(), request.user)
-        if vocabulary_landing
-        else []
-    )
-
-    vocabulary_scope = {"content": "vocabulary"}
-    vocabulary_cards = queue_module.scoped_cards(
-        vocabulary_scope,
-        user=request.user,
-    )
-    vocabulary_counts = queue_module.queue_counts(
-        vocabulary_scope,
-        user=request.user,
-    )
-    vocabulary_revisit_count = queue_module.scoped_cards(
-        {"kind": "revisit", "content": "vocabulary"},
-        user=request.user,
-    ).count()
-    vocabulary_weak_count = queue_module.queue_counts(
-        {"kind": "weak", "content": "vocabulary"},
-        user=request.user,
-    )["weak_total"]
+            comprehension_batch_count += len(batches)
+    vocabulary_stats = None
+    vocabulary_counts = None
+    vocabulary_revisit_count = 0
+    vocabulary_weak_count = 0
+    vocabulary_review_url = ""
+    vocabulary_revisit_url = ""
+    vocabulary_weak_url = ""
+    if task:
+        vocabulary_scope = {
+            **_task_scope(task),
+            "content": "vocabulary",
+        }
+        if not selected:
+            vocabulary_scope = {
+                **_task_scope(task),
+                "kind": "vocab",
+            }
+            if vocabulary_theme:
+                vocabulary_scope["theme"] = vocabulary_theme.slug
+        vocabulary_cards = queue_module.scoped_cards(
+            vocabulary_scope,
+            user=request.user,
+        )
+        vocabulary_stats = deck_stats(vocabulary_cards, timezone.now())
+        vocabulary_counts = queue_module.queue_counts(
+            vocabulary_scope,
+            user=request.user,
+        )
+        vocabulary_revisit_count = queue_module.scoped_cards(
+            {
+                **_task_scope(task),
+                "kind": "revisit",
+                "content": "vocabulary",
+            },
+            user=request.user,
+        ).count()
+        vocabulary_weak_count = queue_module.queue_counts(
+            {
+                **_task_scope(task),
+                "kind": "weak",
+                "content": "vocabulary",
+            },
+            user=request.user,
+        )["weak_total"]
+        vocabulary_review_url = review_url(vocabulary_scope)
+        vocabulary_revisit_url = (
+            reverse(
+                "study:task_revisit_list",
+                args=[task.part.slug, task.slug],
+            )
+            + "?content=vocabulary"
+        )
+        vocabulary_weak_url = review_url(
+            {
+                **vocabulary_scope,
+                "kind": "weak",
+            }
+        )
     selected_review_url = ""
     if selected_test:
         selected_review_url = review_url(
@@ -2899,15 +3038,21 @@ def phrases(
         else vocabulary_url(task=task)
     )
 
+    template_name = "study/phrases.html"
+    if task and not selected:
+        template_name = (
+            "study/task_vocabulary_theme.html"
+            if vocabulary_theme
+            else "study/task_vocabulary.html"
+        )
     return render(
         request,
-        "study/phrases.html",
+        template_name,
         {
             "part": task.part if task else None,
             "task": task,
             "categories": categories,
             "functional_categories": functional_categories,
-            "vocabulary_landing": vocabulary_landing,
             "comprehension_directory": comprehension_directory,
             "comprehension_mode": comprehension_mode,
             "comprehension_skill_code": (
@@ -2915,8 +3060,6 @@ def phrases(
                 if comprehension_mode
                 else ""
             ),
-            "expression_vocabulary_paths": expression_vocabulary_paths,
-            "comprehension_vocabulary_paths": comprehension_vocabulary_paths,
             "functional_phrase_count": sum(
                 category.phrase_count
                 for category in functional_categories
@@ -2926,21 +3069,26 @@ def phrases(
                 if functional_categories
                 else None
             ),
-            "subject_theme_groups": subject_theme_groups,
-            "subject_prompt_count": subject_prompt_count,
-            "subject_response_count": subject_response_count,
-            "subject_vocabulary_count": subject_vocabulary_count,
+            **subject_context,
+            "vocabulary_theme": vocabulary_theme,
+            "vocabulary_theme_group": (
+                subject_context["subject_theme_groups"][0]
+                if vocabulary_theme
+                and subject_context["subject_theme_groups"]
+                else None
+            ),
             "comprehension_decks": comprehension_decks,
             "comprehension_vocabulary_count": (
                 comprehension_vocabulary_count
             ),
-            "vocabulary_stats": deck_stats(
-                vocabulary_cards,
-                timezone.now(),
-            ),
+            "comprehension_batch_count": comprehension_batch_count,
+            "vocabulary_stats": vocabulary_stats,
             "vocabulary_counts": vocabulary_counts,
             "vocabulary_revisit_count": vocabulary_revisit_count,
             "vocabulary_weak_count": vocabulary_weak_count,
+            "vocabulary_review_url": vocabulary_review_url,
+            "vocabulary_revisit_url": vocabulary_revisit_url,
+            "vocabulary_weak_url": vocabulary_weak_url,
             "grouped": grouped,
             "review_batches": review_batches,
             "collection_progress": collection_progress,

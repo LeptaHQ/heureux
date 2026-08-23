@@ -72,7 +72,6 @@ from .comprehension import (
 from .dashboard import (
     _home_expression_paths,
     _parts_with_task_cards,
-    _vocabulary_expression_paths,
     dashboard,
     expression_hub,
 )
@@ -218,7 +217,6 @@ __all__ = [
     '_task_cards',
     '_task_phrases',
     '_task_scope',
-    '_vocabulary_expression_paths',
     'annotation_create',
     'annotation_delete',
     'translate_selection',

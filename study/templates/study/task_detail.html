@@ -21,7 +21,7 @@
 <nav class="task-deep-links" aria-label="Outils associés à {{ task.name }}">
   <a href="{% url 'study:task_phrases' part.slug task.slug %}">
     <span>Vocabulaire</span>
-    <small>Expressions et 50 vocabs par sujet</small>
+    <small>{{ vocabulary_entry_count }} entrées · {{ phrase_category_count }} catégories</small>
   </a>
   <a href="{% url 'study:task_notes' part.slug task.slug %}">
     <span>Notes</span>

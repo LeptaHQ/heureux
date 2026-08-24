@@ -190,6 +190,7 @@
         consumeClick = false;
         return;
       }
+      if (event.target.closest("[data-flashcard-ignore-toggle]")) return;
       if (interactiveTarget(event.target) || hasTextSelection()) return;
       toggle();
     });
@@ -199,6 +200,7 @@
       if (
         !event.isPrimary ||
         targetCard !== card() ||
+        event.target.closest("[data-flashcard-ignore-toggle]") ||
         interactiveTarget(event.target) ||
         !allowed("swipe")
       ) {
@@ -244,6 +246,13 @@
 
     function keydown(event) {
       var target = event.target;
+      if (
+        target
+        && target.closest
+        && target.closest("[data-flashcard-ignore-toggle]")
+      ) {
+        return;
+      }
       var interactive = interactiveTarget(target);
       var control = target && target.closest
         ? target.closest("[data-flashcard-control]")

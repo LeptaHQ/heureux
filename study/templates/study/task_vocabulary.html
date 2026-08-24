@@ -1,10 +1,15 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Vocabulaire · {{ task.name }} · Heureux{% endblock %}
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}
 
-<div class="memory-overview theme-vocabulary-directory task-vocabulary-directory" style="--memory-accent: {{ task.color }};">
+<div
+  class="memory-overview theme-vocabulary-directory task-vocabulary-directory"
+  style="--memory-accent: {{ task.color }};"
+  data-theme-vocabulary-directory
+>
   <header class="memory-overview-hero">
     <div class="memory-overview-hero__copy">
       <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
@@ -36,6 +41,9 @@
         <p>Les quatre lots de chaque thème forment un parcours complet : nommer l’enjeu, choisir le verbe juste, enrichir l’expression, puis construire l’argument.</p>
       </div>
     </div>
+    {% if themes %}
+      {% include "study/partials/theme_vocabulary_directory_filters.html" %}
+    {% endif %}
     <div class="memory-library__grid collection-table collection-table--memories collection-table--task-vocabulary" data-collection-view="adaptive">
       {% include "study/partials/collection_table_header.html" with variant="memories" column_1="Thème" column_2="Progression" column_3="Action" only %}
       {% for item in themes %}
@@ -45,6 +53,8 @@
           href="{{ item.url }}"
           style="--theme-accent: {{ item.theme.color }};"
           data-collection-item
+          data-theme-vocabulary-directory-item
+          data-theme-vocabulary-status="{{ progress.status }}"
           aria-label="Ouvrir le vocabulaire du thème {{ item.theme.display_name }}">
           <span class="memory-entry__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=item.theme.icon only %}</span>
           <div class="memory-entry__body">
@@ -76,6 +86,15 @@
         </div>
       {% endfor %}
     </div>
+    <div class="empty theme-vocabulary-filter-empty hidden" data-theme-vocabulary-directory-empty>
+      <p>Aucun thème ne correspond à ce statut.</p>
+      <button class="linkbtn" type="button" data-theme-vocabulary-directory-reset>Afficher tous les thèmes</button>
+    </div>
   </section>
 </div>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'study/js/theme-vocabulary-progress.js' %}?v=4"></script>
 {% endblock %}

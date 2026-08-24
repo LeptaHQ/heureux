@@ -1487,6 +1487,10 @@ class EoTacheThreeThemeVocabularyViewTests(TestCase):
         self.assertEqual(response.context["phrase_count"], 420)
         self.assertEqual(response.context["batch_count"], 28)
         self.assertEqual(len(response.context["themes"]), 7)
+        self.assertEqual(
+            response.context["theme_status_counts"],
+            {"all": 7, "new": 7, "active": 0, "done": 0},
+        )
         for item in response.context["themes"]:
             self.assertEqual(item["phrase_count"], 60)
             self.assertEqual(item["batch_count"], 4)
@@ -1497,6 +1501,11 @@ class EoTacheThreeThemeVocabularyViewTests(TestCase):
             self.assertContains(response, item["url"])
         self.assertContains(response, "15</b> notions", count=7)
         self.assertContains(response, "15</b> constructions", count=7)
+        self.assertContains(
+            response,
+            'data-theme-vocabulary-directory-filter="',
+            count=4,
+        )
         self.assertNotContains(response, "Choisir un sujet")
         self.assertNotContains(response, "decks uniques")
 
@@ -1521,6 +1530,19 @@ class EoTacheThreeThemeVocabularyViewTests(TestCase):
             count=60,
         )
         self.assertContains(response, "data-read-aloud-key=", count=60)
+        self.assertContains(response, "data-flashcard-card", count=60)
+        self.assertContains(
+            response,
+            'data-theme-vocabulary-status-filter="all"',
+        )
+        self.assertContains(
+            response,
+            'data-theme-vocabulary-status-filter="learning"',
+        )
+        self.assertContains(
+            response,
+            'data-theme-vocabulary-status-filter="learned"',
+        )
         self.assertContains(response, 'data-recall-column="french"')
         self.assertContains(response, 'data-recall-column="meaning"')
         self.assertContains(response, "Quatre parcours complémentaires")
@@ -2997,6 +3019,25 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(response, "Fragments de phrase")
         self.assertContains(response, "Lot 01 · Mots clés")
         self.assertContains(response, "data-theme-vocabulary-recall")
+        self.assertContains(
+            response,
+            'data-theme-vocabulary-status-filter="all"',
+            count=1,
+        )
+        self.assertContains(
+            response,
+            'data-theme-vocabulary-status-filter="learning"',
+            count=1,
+        )
+        self.assertContains(
+            response,
+            'data-theme-vocabulary-status-filter="learned"',
+            count=1,
+        )
+        self.assertContains(response, "data-flashcard-card", count=45)
+        self.assertContains(response, "data-theme-vocabulary-deck-progress")
+        self.assertContains(response, "data-theme-vocabulary-previous")
+        self.assertContains(response, "data-theme-vocabulary-next")
         self.assertContains(
             response,
             'data-recall-controls="theme-vocabulary-recall-catalog"',

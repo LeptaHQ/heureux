@@ -330,6 +330,13 @@ def _theme_vocabulary_batch_summary(batches):
     }
 
 
+def _theme_vocabulary_status_counts(themes):
+    counts = {"all": len(themes), "new": 0, "active": 0, "done": 0}
+    for item in themes:
+        counts[item["summary"]["progress"].status] += 1
+    return counts
+
+
 def _tache_two_theme_vocabulary_overview_context(user, task):
     scope = _theme_vocabulary_scope(task)
     batches = _review_batches(scope, user)
@@ -1415,6 +1422,7 @@ def tache_two_theme_vocabulary(request):
             "phrase_count": sum(item["phrase_count"] for item in themes),
             "batch_count": len(batches),
             "summary": _theme_vocabulary_batch_summary(batches),
+            "theme_status_counts": _theme_vocabulary_status_counts(themes),
             "review_url": (
                 next_batch["review_url"] if next_batch else ""
             ),
@@ -1513,6 +1521,7 @@ def _theme_vocabulary_detail_context(
             started=len(learned_phrase_ids),
             completed=len(learned_phrase_ids),
         ),
+        "unlearned_count": len(phrases) - len(learned_phrase_ids),
         "phrase_sections": phrase_sections,
         "review_batches": batches,
         "summary": _theme_vocabulary_batch_summary(batches),
@@ -1749,6 +1758,7 @@ def _eo_tache_three_theme_vocabulary_context(user, task):
         "phrase_count": sum(item["phrase_count"] for item in themes),
         "batch_count": len(batches),
         "summary": _theme_vocabulary_batch_summary(batches),
+        "theme_status_counts": _theme_vocabulary_status_counts(themes),
         "review_url": next_batch["review_url"] if next_batch else "",
         "mixed_review_url": review_url(scope),
     }

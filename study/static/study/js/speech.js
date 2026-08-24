@@ -156,7 +156,15 @@
   }
 
   function sourceIsVisible(source) {
-    return !source.closest(".hidden, [hidden], [aria-hidden='true'], [inert]");
+    var hiddenSelector = ".hidden, [hidden], [aria-hidden='true'], [inert]";
+    var hiddenAncestor = source.parentElement
+      ? source.parentElement.closest(hiddenSelector)
+      : null;
+    if (hiddenAncestor || source.matches(".hidden, [hidden]")) return false;
+    if (source.matches("[aria-hidden='true'], [inert]")) {
+      return source.matches("[data-recall-content]");
+    }
+    return true;
   }
 
   function textFor(button) {

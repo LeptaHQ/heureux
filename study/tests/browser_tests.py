@@ -1031,9 +1031,9 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(french_recall.get_attribute("aria-pressed"), "true")
         self.assertEqual(first_french.get_attribute("role"), "button")
         self.assertEqual(first_french.get_attribute("aria-pressed"), "false")
-        first_phrase_read = first_french.locator("xpath=..").locator(
-            "[data-read-aloud]"
-        )
+        first_phrase_read = self.page.locator(
+            ".theme-vocabulary-phrase [data-read-aloud]"
+        ).first
         self.assertTrue(first_phrase_read.is_enabled())
         first_phrase_read.click()
         self.assertEqual(first_french.get_attribute("aria-pressed"), "false")
@@ -1082,6 +1082,10 @@ class BrowserTests(StaticLiveServerTestCase):
             ),
             "cards",
         )
+        self.page.locator(
+            "[data-theme-vocabulary-deck] [data-flashcard-flip]"
+        ).click()
+        self.assertTrue(first_meaning.is_visible())
         self.assertTrue(recall_controls.is_visible())
         self.assertEqual(first_meaning.get_attribute("role"), "button")
         self.assertEqual(
@@ -1090,6 +1094,32 @@ class BrowserTests(StaticLiveServerTestCase):
             ),
             "none",
         )
+        visible_example = self.page.locator(
+            ".theme-vocabulary-phrase:not("
+            ".theme-vocabulary-card--inactive) "
+            "[data-flashcard-back] .phrase__ex"
+        ).inner_text()
+        self.page.evaluate(
+            """
+            () => {
+              window.__themeVocabularySpoken = [];
+              window.speechSynthesis.cancel = () => {};
+              window.speechSynthesis.resume = () => {};
+              window.speechSynthesis.speak = utterance => {
+                window.__themeVocabularySpoken.push(utterance.text);
+              };
+            }
+            """
+        )
+        first_phrase_read.click()
+        self.page.wait_for_function(
+            "() => window.__themeVocabularySpoken.length > 0"
+        )
+        self.assertEqual(
+            self.page.evaluate("window.__themeVocabularySpoken.join(' ')"),
+            visible_example,
+        )
+        first_phrase_read.click()
         meaning_recall.click()
         meaning_recall.click()
         self.assertEqual(first_meaning.get_attribute("aria-pressed"), "false")
@@ -1100,55 +1130,60 @@ class BrowserTests(StaticLiveServerTestCase):
             "none",
         )
         first_meaning.click()
+        self.assertTrue(
+            self.page.locator(
+                ".theme-vocabulary-phrase:not("
+                ".theme-vocabulary-card--inactive) [data-flashcard-back]"
+            ).is_visible()
+        )
         self.assertEqual(
             first_meaning_content.evaluate(
                 "element => getComputedStyle(element).filter"
             ),
             "none",
         )
-        desktop_phrase_layout = self.page.locator(
-            ".theme-vocabulary-group"
-        ).first.evaluate(
+        visible_cards = self.page.locator(
+            ".theme-vocabulary-phrase"
+        ).evaluate_all(
             """
-            group => {
-              const [first, second] = [...group.querySelectorAll(
-                '.theme-vocabulary-phrase'
-              )]
-                .slice(0, 2)
-                .map(card => card.getBoundingClientRect());
-              return {
-                sameRow: Math.abs(first.top - second.top) < 4,
-                secondRight: second.right,
-              };
-            }
+            cards => cards.filter(card => (
+              getComputedStyle(card).display !== 'none'
+              && card.getClientRects().length
+            )).length
             """
         )
-        self.assertTrue(desktop_phrase_layout["sameRow"])
+        self.assertEqual(visible_cards, 1)
+        active_card_box = self.page.locator(
+            ".theme-vocabulary-phrase:not("
+            ".theme-vocabulary-card--inactive)"
+        ).bounding_box()
         main_box = self.page.locator("main").bounding_box()
         self.assertLessEqual(
-            desktop_phrase_layout["secondRight"],
+            active_card_box["x"] + active_card_box["width"],
             main_box["x"] + main_box["width"] + 1,
         )
         self.assert_no_horizontal_overflow()
 
         self.page.set_viewport_size({"width": 320, "height": 700})
-        mobile_phrase_layout = self.page.locator(
-            ".theme-vocabulary-group"
-        ).first.evaluate(
-            """
-            group => {
-              const [first, second] = [...group.querySelectorAll(
-                '.theme-vocabulary-phrase'
-              )]
-                .slice(0, 2)
-                .map(card => card.getBoundingClientRect());
-              return {
-                stacked: second.top > first.bottom + 4,
-              };
-            }
-            """
+        self.assertEqual(
+            self.page.locator(".theme-vocabulary-phrase").evaluate_all(
+                """
+                cards => cards.filter(card => (
+                  getComputedStyle(card).display !== 'none'
+                  && card.getClientRects().length
+                )).length
+                """
+            ),
+            1,
         )
-        self.assertTrue(mobile_phrase_layout["stacked"])
+        self.assertTrue(
+            self.page.locator(
+                "[data-theme-vocabulary-previous]"
+            ).is_visible()
+        )
+        self.assertTrue(
+            self.page.locator("[data-theme-vocabulary-next]").is_visible()
+        )
         self.assert_no_horizontal_overflow()
 
         self.page.set_viewport_size({"width": 1280, "height": 850})
@@ -1701,6 +1736,24 @@ class BrowserTests(StaticLiveServerTestCase):
             self.page.locator(".task-vocabulary-theme-entry").count(),
             1,
         )
+        active_filter = self.page.locator(
+            '[data-theme-vocabulary-directory-filter="active"]'
+        )
+        active_filter.click()
+        self.assertTrue(
+            self.page.locator(
+                "[data-theme-vocabulary-directory-empty]"
+            ).is_visible()
+        )
+        self.assertFalse(
+            self.page.locator(".task-vocabulary-theme-entry").is_visible()
+        )
+        self.page.locator(
+            '[data-theme-vocabulary-directory-filter="all"]'
+        ).click()
+        self.assertTrue(
+            self.page.locator(".task-vocabulary-theme-entry").is_visible()
+        )
         self.assert_no_horizontal_overflow()
 
         self.page.get_by_role(
@@ -1755,6 +1808,85 @@ class BrowserTests(StaticLiveServerTestCase):
             first_progress.locator("button").get_attribute("aria-checked"),
             "true",
         )
+        self.assertEqual(
+            self.page.locator(
+                '[data-theme-vocabulary-filter-count="learned"]'
+            ).inner_text(),
+            "1",
+        )
+        self.assertEqual(
+            self.page.locator(
+                '[data-theme-vocabulary-filter-count="learning"]'
+            ).inner_text(),
+            "59",
+        )
+
+        learned_filter = self.page.locator(
+            '[data-theme-vocabulary-status-filter="learned"]'
+        )
+        learned_filter.click()
+        self.assertEqual(
+            self.page.locator(
+                "[data-theme-vocabulary-filter-result]"
+            ).inner_text(),
+            "1 fiche affichée",
+        )
+        self.assertEqual(
+            self.page.locator(
+                ".theme-vocabulary-phrase:not("
+                ".theme-vocabulary-filtered-out)"
+            ).count(),
+            1,
+        )
+        self.assertEqual(
+            self.page.locator(
+                "[data-theme-vocabulary-deck-progress]"
+            ).inner_text(),
+            "1 / 1",
+        )
+        self.assertTrue(
+            self.page.locator("[data-theme-vocabulary-next]").is_disabled()
+        )
+
+        self.page.locator(
+            '[data-theme-vocabulary-status-filter="all"]'
+        ).click()
+        active_card = self.page.locator(
+            ".theme-vocabulary-phrase:not("
+            ".theme-vocabulary-card--inactive)"
+        )
+        first_card_id = active_card.get_attribute("id")
+        active_card.focus()
+        self.page.keyboard.press("ArrowDown")
+        self.assertTrue(
+            active_card.locator("[data-flashcard-back]").is_visible()
+        )
+        self.assertTrue(
+            active_card.locator("[data-read-aloud]").is_visible()
+        )
+        self.page.keyboard.press("ArrowUp")
+        self.assertTrue(
+            active_card.locator("[data-flashcard-front]").is_visible()
+        )
+        self.page.keyboard.press("ArrowRight")
+        self.assertNotEqual(active_card.get_attribute("id"), first_card_id)
+        self.page.keyboard.press("ArrowLeft")
+        self.assertEqual(active_card.get_attribute("id"), first_card_id)
+
+        card_box = active_card.bounding_box()
+        swipe_y = card_box["y"] + card_box["height"] * 0.65
+        swipe_start = card_box["x"] + card_box["width"] - 20
+        swipe_end = card_box["x"] + 20
+        self.page.mouse.move(swipe_start, swipe_y)
+        self.page.mouse.down()
+        for step in range(1, 6):
+            self.page.mouse.move(
+                swipe_start + ((swipe_end - swipe_start) * step / 5),
+                swipe_y,
+            )
+        self.page.mouse.up()
+        self.page.wait_for_timeout(220)
+        self.assertNotEqual(active_card.get_attribute("id"), first_card_id)
 
         table_toggle = self.page.get_by_role("button", name="Tableau")
         cards_toggle = self.page.get_by_role("button", name="Cartes")

@@ -1,0 +1,24 @@
+<form
+  class="theme-vocabulary-learn-check"
+  method="post"
+  action="{{ phrase.progress_url }}"
+  data-theme-vocabulary-progress-form
+>
+  {% csrf_token %}
+  <input
+    type="hidden"
+    name="completed"
+    value="{% if phrase.is_explicitly_learned %}0{% else %}1{% endif %}"
+    data-theme-vocabulary-completed-input
+  >
+  <button
+    type="submit"
+    role="checkbox"
+    data-phrase-text="{{ phrase.expression }}"
+    aria-checked="{{ phrase.is_explicitly_learned|yesno:'true,false' }}"
+    aria-label="{% if phrase.is_explicitly_learned %}Marquer comme non apprise : {% else %}Marquer comme apprise : {% endif %}{{ phrase.expression }}"
+    title="{% if phrase.is_explicitly_learned %}Fiche apprise{% else %}Marquer comme apprise{% endif %}"
+  >
+    {% include "study/partials/ui_icon.html" with name="check" only %}
+  </button>
+</form>

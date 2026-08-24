@@ -1,0 +1,54 @@
+<div
+  class="theme-vocabulary-status-bar theme-vocabulary-status-bar--directory"
+  data-theme-vocabulary-directory-filters
+>
+  <div class="theme-vocabulary-status-bar__heading">
+    <span>Statut</span>
+    <p>Affinez les collections selon votre progression.</p>
+  </div>
+  <div
+    class="theme-vocabulary-status-options"
+    role="group"
+    aria-label="Filtrer les thèmes par statut"
+  >
+    <button
+      class="is-active"
+      type="button"
+      data-theme-vocabulary-directory-filter="all"
+      aria-pressed="true"
+    >
+      Tous
+      <span>{{ theme_status_counts.all }}</span>
+    </button>
+    <button
+      type="button"
+      data-theme-vocabulary-directory-filter="new"
+      aria-pressed="false"
+    >
+      À commencer
+      <span>{{ theme_status_counts.new }}</span>
+    </button>
+    <button
+      type="button"
+      data-theme-vocabulary-directory-filter="active"
+      aria-pressed="false"
+    >
+      En cours
+      <span>{{ theme_status_counts.active }}</span>
+    </button>
+    <button
+      type="button"
+      data-theme-vocabulary-directory-filter="done"
+      aria-pressed="false"
+    >
+      Terminés
+      <span>{{ theme_status_counts.done }}</span>
+    </button>
+  </div>
+  <p
+    class="theme-vocabulary-status-bar__result"
+    role="status"
+    aria-live="polite"
+    data-theme-vocabulary-directory-result
+  >{{ theme_status_counts.all }} thèmes affichés</p>
+</div>

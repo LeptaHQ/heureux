@@ -177,6 +177,23 @@ class QuestionBankContentTests(TestCase):
             "Every sentence in your reply must directly answer my current",
             prompt,
         )
+        self.assertIn(
+            "Throughout the entire session, never ask me a question.",
+            prompt,
+        )
+        self.assertIn("WRITTEN DELIVERY IS MANDATORY:", prompt)
+        self.assertIn("6. COMPLETE STRENGTHS INVENTORY", prompt)
+        self.assertIn("7. COMPLETE ERROR INVENTORY", prompt)
+        self.assertIn(
+            "Include EVERY identifiable error or meaningful weakness",
+            prompt,
+        )
+        self.assertIn(
+            "continue automatically in",
+            prompt,
+        )
+        self.assertNotIn("Identify at least three specific strengths", prompt)
+        self.assertNotIn("Prioritise errors that recur or affect clarity", prompt)
         self.assertNotIn(
             "ask a brief, role-natural return question",
             prompt,

@@ -246,7 +246,7 @@
           "memory_section": 2
         },
         {
-          "text": "Pour finir, je voudrais savoir si tu recommanderais ce livre sans hésiter à nos lecteurs.",
+          "text": "Pour finir, est-ce que tu recommanderais ce livre sans hésiter à nos lecteurs ?",
           "memory_number": 10,
           "memory_section": 13
         }
@@ -258,7 +258,7 @@
       "prompt": "Votre ami(e) a participé à un jeu télévisé. Comme vous pensez y participer aussi, vous lui posez des questions sur l’inscription, le déroulement et l’intérêt de cette expérience.",
       "questions": [
         {
-          "text": "Salut ! J'ai appris que tu avais participé à un jeu télévisé, et comme l'idée me traverse aussi l'esprit, j'aimerais bien savoir comment ça se passe en vrai.",
+          "text": "Salut ! J'ai appris que tu avais participé à un jeu télévisé, et comme l'idée me traverse aussi l'esprit, tu pourrais me dire comment ça se passe en vrai ?",
           "memory_number": 10,
           "memory_section": 10
         },
@@ -323,7 +323,7 @@
           "memory_section": 13
         },
         {
-          "text": "Pour finir, je voudrais savoir si cette expérience t'a donné envie de recommencer ou si une seule participation suffit.",
+          "text": "Pour finir, est-ce que cette expérience t'a donné envie de recommencer ou si une seule participation suffit ?",
           "memory_number": 10,
           "memory_section": 10
         }

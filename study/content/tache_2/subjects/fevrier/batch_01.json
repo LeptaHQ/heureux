@@ -246,7 +246,7 @@
           "memory_section": 2
         },
         {
-          "text": "Pour finir, je voudrais savoir si tu le recommanderais franchement à nos lecteurs.",
+          "text": "Pour finir, est-ce que tu le recommanderais franchement à nos lecteurs ?",
           "memory_number": 10,
           "memory_section": 13
         }
@@ -258,7 +258,7 @@
       "prompt": "Je suis un(e) ami(e). J'ai participé à un jeu organisé par une chaîne de télévision. Vous m'interrogez sur mon expérience (conditions d'inscription, contenus, intérêt, etc.) pour décider si vous voulez participer à ce jeu.",
       "questions": [
         {
-          "text": "Salut ! On m'a dit que tu avais participé à un jeu télévisé, et comme ça me tente un peu, j'aimerais comprendre comment l'aventure se passe vraiment.",
+          "text": "Salut ! On m'a dit que tu avais participé à un jeu télévisé, et comme ça me tente un peu, tu pourrais m'expliquer comment l'aventure se passe vraiment ?",
           "memory_number": 10,
           "memory_section": 10
         },
@@ -323,7 +323,7 @@
           "memory_section": 13
         },
         {
-          "text": "Pour finir, je voudrais savoir si tu garderais surtout un bon souvenir de cette expérience.",
+          "text": "Pour finir, est-ce que tu garderais surtout un bon souvenir de cette expérience ?",
           "memory_number": 10,
           "memory_section": 10
         }

@@ -92,7 +92,7 @@
       "prompt": "Je suis votre collègue. Je suis inscrit(e) à des cours de danse dans une association. Vous êtes intéressé(e), et vous me posez des questions sur ces cours (styles de danse, lieu, horaires, etc.).",
       "questions": [
         {
-          "text": "Salut ! Tu suis des cours de danse dans une association, non ? J'aimerais bien essayer moi aussi, alors raconte-moi un peu comment ça se passe."
+          "text": "Salut ! Tu suis des cours de danse dans une association, non ? J'aimerais bien essayer moi aussi, alors tu peux me raconter un peu comment ça se passe ?"
         },
         {
           "text": "Quel style de danse pratiquez-vous le plus là-bas ?"
@@ -156,7 +156,7 @@
           "memory_section": 10
         },
         {
-          "text": "Pour finir, je voudrais savoir si tu penses que ce cours serait un bon choix pour commencer sans stress.",
+          "text": "Pour finir, est-ce que tu penses que ce cours serait un bon choix pour commencer sans stress ?",
           "memory_number": 10,
           "memory_section": 13
         }

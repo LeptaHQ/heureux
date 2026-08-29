@@ -94,7 +94,7 @@
       "prompt": "Je suis votre voisin(e). Je participe régulièrement à des sorties culturelles organisées par la mairie de notre ville. Vous êtes intéressé(e). Vous me posez des questions sur ces sorties (lieux, dates, activités, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! Vous participez régulièrement aux sorties culturelles de la mairie, non ? J'aimerais bien en savoir plus avant d'essayer moi aussi.",
+          "text": "Bonjour ! Vous participez régulièrement aux sorties culturelles de la mairie, non ? J'aimerais bien en savoir plus avant d'essayer moi aussi — vous pourriez m'en parler ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -164,7 +164,7 @@
           "memory_section": 10
         },
         {
-          "text": "Pour finir, je voudrais savoir laquelle vous me conseilleriez pour commencer.",
+          "text": "Pour finir, laquelle vous me conseilleriez pour commencer ?",
           "memory_number": 10,
           "memory_section": 13
         }

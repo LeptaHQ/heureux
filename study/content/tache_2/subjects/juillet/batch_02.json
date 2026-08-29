@@ -12,7 +12,7 @@
       "prompt": "Je suis votre ami(e) et j'ai pris part il y a peu à un jeu télévisé. Intrigué(e), vous voulez tout savoir de l'aventure : comment on s'inscrit, comment ça se déroule et ce que ça apporte.",
       "questions": [
         {
-          "text": "Salut ! Tu as vraiment participé à un jeu télévisé ? Ça m'intrigue énormément, surtout que j'ai déjà pensé à m'inscrire un jour.",
+          "text": "Salut ! Tu as vraiment participé à un jeu télévisé ? Ça m'intrigue énormément, surtout que j'ai déjà pensé à m'inscrire un jour — tu peux me raconter ?",
           "memory_number": 10,
           "memory_section": 10
         },
@@ -80,7 +80,7 @@
           "text": "Et après coup, qu'est-ce que tu retires de cette expérience ?"
         },
         {
-          "text": "Pour finir, je voudrais savoir si tu me conseillerais de tenter ma chance moi aussi.",
+          "text": "Pour finir, est-ce que tu me conseillerais de tenter ma chance moi aussi ?",
           "memory_number": 10,
           "memory_section": 10
         }

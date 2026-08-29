@@ -76,7 +76,7 @@
       "prompt": "Je suis votre ami(e) et je viens de suivre un atelier de cuisine. Envie d'en faire autant, vous me demandez ce qu'il en coûte, à quels horaires ça se déroule et ce qu'on y apprend.",
       "questions": [
         {
-          "text": "Salut ! Tu as fait un atelier de cuisine récemment, non ? Ça m'intéresse beaucoup, alors dis-moi comment ça s'est passé."
+          "text": "Salut ! Tu as fait un atelier de cuisine récemment, non ? Ça m'intéresse beaucoup — tu peux me dire comment ça s'est passé ?"
         },
         {
           "text": "Qu'est-ce qu'on apprend pendant l'atelier, exactement ?"
@@ -120,7 +120,7 @@
           "text": "Comment se passe l'inscription, et faut-il réserver longtemps à l'avance ?"
         },
         {
-          "text": "Pour finir, je voudrais savoir si cet atelier vaut vraiment le coup pour progresser et passer un bon moment."
+          "text": "Pour finir, est-ce que cet atelier vaut vraiment le coup pour progresser et passer un bon moment ?"
         }
       ]
     },

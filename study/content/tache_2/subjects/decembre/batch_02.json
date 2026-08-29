@@ -87,7 +87,7 @@
         {
           "memory_number": null,
           "memory_section": null,
-          "text": "Bonjour ! Je vous ai vu revenir avec votre appareil photo l'autre jour ; vous suivez bien les cours de photo de l'association du quartier ? Ça me tente aussi."
+          "text": "Bonjour ! Je vous ai vu revenir avec votre appareil photo l'autre jour — vous suivez bien les cours de photo de l'association du quartier ? Ça me tente aussi, vous pourriez m'en dire plus ?"
         },
         {
           "text": "Qu'est-ce qu'on apprend au début : surtout les réglages de base ou aussi le regard artistique ?",
@@ -160,7 +160,7 @@
           "memory_section": 2
         },
         {
-          "text": "Pour finir, je voudrais savoir s'il y a une exposition ou une présentation des photos en fin de session.",
+          "text": "Pour finir, est-ce qu'il y a une exposition ou une présentation des photos en fin de session ?",
           "memory_number": 10,
           "memory_section": 2
         }
@@ -242,7 +242,7 @@
           "memory_section": 9
         },
         {
-          "text": "Pour finir, je voudrais savoir quelle activité vous me recommanderiez pour découvrir le centre une première fois.",
+          "text": "Pour finir, quelle activité vous me recommanderiez pour découvrir le centre une première fois ?",
           "memory_number": 10,
           "memory_section": 13
         }

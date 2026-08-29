@@ -12,7 +12,7 @@
       "prompt": "Membre d'un club de jeux de société, je vous en parle ; la chose vous tente et vous m'interrogez, en collègue, sur le lieu, le prix, les horaires, l'ambiance, etc.",
       "questions": [
         {
-          "text": "Salut ! Tu fais partie d'un club de jeux de société, non ? Ça m'intéresse vraiment, alors dis-moi comment ça se passe."
+          "text": "Salut ! Tu fais partie d'un club de jeux de société, non ? Ça m'intéresse vraiment — tu peux me dire comment ça se passe ?"
         },
         {
           "text": "Vous jouez à quels types de jeux en général ?"
@@ -66,7 +66,7 @@
           "text": "Est-ce facile d'y rencontrer des gens quand on vient seul(e) ?"
         },
         {
-          "text": "Pour finir, je voudrais savoir quelle soirée ou quel type de jeu tu me conseillerais pour commencer.",
+          "text": "Pour finir, quelle soirée ou quel type de jeu tu me conseillerais pour commencer ?",
           "memory_number": 10,
           "memory_section": 13
         }
@@ -134,7 +134,7 @@
       "prompt": "Des activités de jardinage que j'anime dans le quartier vous attirent ; en voisin(e), je réponds à vos questions sur le coût, l'organisation et ce qu'on y fait, etc.",
       "questions": [
         {
-          "text": "Bonjour ! Vous animez des activités de jardinage dans le quartier, c'est bien ça ? Ça me plairait beaucoup d'y participer."
+          "text": "Bonjour ! Vous animez des activités de jardinage dans le quartier, c'est bien ça ? Ça me plairait beaucoup d'y participer, vous pourriez m'en dire plus ?"
         },
         {
           "text": "Concrètement, qu'est-ce que vous faites pendant ces séances ?"
@@ -178,7 +178,7 @@
           "text": "Comment se passe l'inscription si je veux venir dès la prochaine séance ?"
         },
         {
-          "text": "Pour finir, je voudrais savoir quelle serait la meilleure façon de commencer quand on n'a pas beaucoup d'expérience.",
+          "text": "Pour finir, quelle serait la meilleure façon de commencer quand on n'a pas beaucoup d'expérience ?",
           "memory_number": 10,
           "memory_section": 13
         }
@@ -252,7 +252,7 @@
           "text": "Les enfants peuvent-ils eux aussi avoir une carte ?"
         },
         {
-          "text": "Pour finir, je voudrais savoir comment repérer facilement les nouveautés une fois inscrit(e).",
+          "text": "Pour finir, comment repérer facilement les nouveautés une fois inscrit(e) ?",
           "memory_number": 10,
           "memory_section": 13
         }

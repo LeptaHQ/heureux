@@ -154,7 +154,7 @@
       "prompt": "Enseignant(e) de piano dans une école de musique du quartier, je vous renseigne, en voisin(e), sur l'établissement : vous voulez suivre des cours et m'interrogez sur les formules, les prix, les horaires, etc.",
       "questions": [
         {
-          "text": "Bonjour ! Comme vous enseignez le piano dans l'école de musique du quartier, je voulais justement vous demander comment sont organisés les cours pour quelqu'un qui hésite à se lancer.",
+          "text": "Bonjour ! Comme vous enseignez le piano dans l'école de musique du quartier, vous pourriez me dire comment sont organisés les cours pour quelqu'un qui hésite à se lancer ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -224,7 +224,7 @@
           "memory_section": 5
         },
         {
-          "text": "Pour finir, je voudrais savoir si le piano est un bon choix pour débuter la musique dans votre école.",
+          "text": "Pour finir, est-ce que le piano est un bon choix pour débuter la musique dans votre école ?",
           "memory_number": 10,
           "memory_section": 11
         }

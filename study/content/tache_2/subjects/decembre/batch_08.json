@@ -68,7 +68,7 @@
       "prompt": "Je travaille dans une librairie qui organise un jeu ouvert au public. Vous me posez des questions sur ce jeu (modalités d’inscription, contenu, intérêt, etc.) afin de décider si vous souhaitez y participer.",
       "questions": [
         {
-          "text": "Bonjour ! J'ai vu l'affiche du jeu organisé par votre librairie, et avant de me décider j'aimerais comprendre exactement en quoi il consiste."
+          "text": "Bonjour ! J'ai vu l'affiche du jeu organisé par votre librairie, et avant de me décider vous pourriez m'expliquer exactement en quoi il consiste ?"
         },
         {
           "text": "Quel type de jeu est-ce : un quiz littéraire, une chasse au trésor, des énigmes autour des livres ?"
@@ -110,7 +110,7 @@
           "text": "Qu'est-ce qui rend ce jeu amusant, selon vous, même pour quelqu'un qui vient juste pour découvrir la librairie ?"
         },
         {
-          "text": "Pour finir, je voudrais savoir quelle est la meilleure raison de s'inscrire cette année."
+          "text": "Pour finir, quelle est la meilleure raison de s'inscrire cette année ?"
         }
       ]
     },
@@ -164,7 +164,7 @@
           "text": "Qu'est-ce que tu aimes le plus dans cette activité au quotidien ?"
         },
         {
-          "text": "Pour finir, je voudrais savoir par quoi tu me conseillerais de commencer si je veux me lancer moi aussi."
+          "text": "Pour finir, par quoi tu me conseillerais de commencer si je veux me lancer moi aussi ?"
         }
       ]
     },

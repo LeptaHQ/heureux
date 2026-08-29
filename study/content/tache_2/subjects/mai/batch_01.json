@@ -244,7 +244,7 @@
       "prompt": "Je suis votre ami(e) et je participe chaque semaine à des cours de théâtre. Vous souhaitez vous inscrire vous aussi, et vous me posez des questions pour en savoir plus sur ces cours (organisation, prix, horaires, etc.).",
       "questions": [
         {
-          "text": "Salut ! Tu suis des cours de théâtre chaque semaine, c'est bien ça ? J'aimerais peut-être m'inscrire moi aussi, alors raconte-moi un peu.",
+          "text": "Salut ! Tu suis des cours de théâtre chaque semaine, c'est bien ça ? J'aimerais peut-être m'inscrire moi aussi, alors tu peux me raconter un peu ?",
           "memory_number": 10,
           "memory_section": 4
         },
@@ -314,7 +314,7 @@
           "memory_section": 10
         },
         {
-          "text": "Pour finir, je voudrais savoir si tu me recommanderais ce cours pour débuter en confiance.",
+          "text": "Pour finir, est-ce que tu me recommanderais ce cours pour débuter en confiance ?",
           "memory_number": 10,
           "memory_section": 13
         }

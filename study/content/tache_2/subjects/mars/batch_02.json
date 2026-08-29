@@ -176,7 +176,7 @@
       "prompt": "Je suis un(e) ami(e) francophone. Vous devez écrire un article pour présenter un livre dans la revue de votre association littéraire. Vous cherchez des idées. Vous m'interrogez sur mes lectures récentes.",
       "questions": [
         {
-          "text": "Salut ! Je dois bientôt écrire une présentation de livre pour une revue littéraire, alors j'aimerais m'inspirer d'une lecture récente que tu as vraiment aimée.",
+          "text": "Salut ! Je dois bientôt écrire une présentation de livre pour une revue littéraire — tu aurais une lecture récente que tu as vraiment aimée, pour m'inspirer ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -246,7 +246,7 @@
           "memory_section": 2
         },
         {
-          "text": "Pour finir, je voudrais savoir si tu le recommanderais sans hésiter à des lecteurs curieux.",
+          "text": "Pour finir, est-ce que tu le recommanderais sans hésiter à des lecteurs curieux ?",
           "memory_number": 10,
           "memory_section": 13
         }
@@ -258,7 +258,7 @@
       "prompt": "Je suis un(e) ami(e). J'ai participé à un jeu organisé par une chaîne de télévision. Vous m'interrogez sur mon expérience (conditions d'inscription, contenus, intérêt, etc.) pour décider si vous voulez participer à ce jeu.",
       "questions": [
         {
-          "text": "Salut ! J'ai entendu parler de ta participation à un jeu télévisé, et franchement ça m'intrigue beaucoup. J'aimerais bien savoir comment ça s'est passé.",
+          "text": "Salut ! J'ai entendu parler de ta participation à un jeu télévisé, et franchement ça m'intrigue beaucoup. Est-ce que tu pourrais me dire comment ça s'est passé ?",
           "memory_number": 10,
           "memory_section": 10
         },
@@ -323,7 +323,7 @@
           "memory_section": 13
         },
         {
-          "text": "Pour finir, je voudrais savoir si cette aventure t'a donné envie de recommencer un jour.",
+          "text": "Pour finir, est-ce que cette aventure t'a donné envie de recommencer un jour ?",
           "memory_number": 10,
           "memory_section": 10
         }

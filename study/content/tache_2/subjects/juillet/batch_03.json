@@ -244,7 +244,7 @@
       "prompt": "Je suis votre ami(e) et je pratique le théâtre toutes les semaines. Vous aimeriez vous y mettre aussi et vous me questionnez sur le prix, les horaires et la façon dont c'est organisé.",
       "questions": [
         {
-          "text": "Salut ! Tu fais du théâtre toutes les semaines, non ? J'y pense depuis quelque temps et j'aimerais savoir si ce cours pourrait me convenir.",
+          "text": "Salut ! Tu fais du théâtre toutes les semaines, non ? J'y pense depuis quelque temps — tu penses que ce cours pourrait me convenir ?",
           "memory_number": 10,
           "memory_section": 4
         },
@@ -314,7 +314,7 @@
           "memory_section": 10
         },
         {
-          "text": "Pour finir, je voudrais savoir si tu trouves que c'est un bon cours pour se lancer sans pression.",
+          "text": "Pour finir, est-ce que tu trouves que c'est un bon cours pour se lancer sans pression ?",
           "memory_number": 10,
           "memory_section": 13
         }

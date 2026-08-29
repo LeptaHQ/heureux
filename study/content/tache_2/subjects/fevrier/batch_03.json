@@ -149,66 +149,66 @@
       "prompt": "Votre voisine reçoit un professeur de musique et cela vous intéresse. Vous lui posez des questions sur les cours proposés : tarif, type d'instrument, fréquence des cours, niveau requis, etc.",
       "questions": [
         {
-          "text": "Bonjour ! J'entends parfois votre professeur de musique chez vous, et ça me donne envie d'apprendre moi aussi. Comment se passent vos cours ?"
+          "text": "Bonjour ! J'ai entendu dire que vous preniez des cours de musique à domicile — comment ça se passe, vous êtes contente ?"
         },
         {
-          "text": "Quel instrument apprenez-vous en ce moment ?",
+          "text": "Quel instrument apprenez-vous — et ça fait combien de temps que vous avez commencé ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Au début des cours, travaille-t-on surtout le solfège ou joue-t-on rapidement de l'instrument ?",
+          "text": "Et concrètement, qu'est-ce qu'on apprend — c'est plutôt du solfège et de la théorie, ou on passe directement à l'instrument ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Est-ce qu'un débutant complet peut commencer sans problème ?",
+          "text": "Justement, ça s'adresse à quel niveau — est-ce que quelqu'un qui débute complètement pourrait s'y mettre ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Les leçons ont lieu combien de fois par semaine ?",
+          "text": "Vous avez cours combien de fois par semaine, et ça dure combien de temps à chaque fois ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Et chaque séance dure combien de temps ?",
+          "text": "Et côté tarifs, comment ça fonctionne — c'est à la séance ou plutôt au mois ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Autre point important : comment fonctionnent les tarifs, à la séance ou au mois ?",
+          "text": "D'ailleurs, il faut acheter son propre instrument ou le professeur en fournit un pour commencer ?",
           "memory_number": 10,
           "memory_section": 8
         },
         {
-          "text": "Faut-il acheter son propre instrument dès le départ ?",
+          "text": "Vous avez mentionné une méthode en particulier — vous pourriez m'en dire un peu plus ?",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "D'ailleurs, le professeur prête-t-il quelque chose pour commencer ?"
+          "text": "Et le professeur en lui-même, il est comment — plutôt patient et pédagogue ?"
         },
         {
-          "text": "Comment est-il comme enseignant : plutôt patient et pédagogue ?",
+          "text": "Au bout de combien de temps on commence à vraiment jouer des morceaux ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Au bout de combien de temps commence-t-on à jouer de vrais morceaux ?",
+          "text": "Et sinon, il y a des petits concerts ou des présentations en fin d'année ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Y a-t-il des petits concerts ou des présentations en fin d'année ?"
+          "text": "Vous, personnellement, vous êtes satisfaite de votre progression ?"
         },
         {
-          "text": "Vous, personnellement, êtes-vous content(e) de votre progression ?",
+          "text": "À votre avis, le professeur accepterait de nouveaux élèves — vous auriez ses coordonnées ?",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "Pour finir, est-ce que vous pensez que ce professeur accepterait encore de nouveaux élèves ?",
+          "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
           "memory_number": 10,
           "memory_section": 13
         }

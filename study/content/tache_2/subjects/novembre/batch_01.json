@@ -82,7 +82,7 @@
       "prompt": "Un(e) ami(e) fête son anniversaire sur un bateau ; intéressé(e), vous l'interrogez pour en savoir plus (date, départ, prix, invités, etc.).",
       "questions": [
         {
-          "text": "Salut ! J'ai appris que tu organises ton anniversaire sur un bateau — ça a l'air génial et original, tu peux m'en dire plus ?"
+          "text": "Salut ! J'ai appris que tu organises ton anniversaire sur un bateau — ça a l'air génial, tu peux m'en dire plus ?"
         },
         {
           "text": "C'est prévu pour quel jour, et à quelle heure on commence ?"
@@ -91,13 +91,21 @@
           "text": "On part d'où exactement — il y a un point de rendez-vous au port ?"
         },
         {
-          "text": "Une autre chose m'intéresse : ça dure combien de temps — on navigue toute la soirée ?"
+          "text": "Ça dure combien de temps — on navigue toute la soirée ?"
         },
         {
           "text": "Comment je m'y rends — c'est facile d'accès ou mieux vaut prévoir une voiture ?"
         },
         {
-          "text": "Le bateau peut accueillir combien de personnes — il y a une limite ?"
+          "text": "Il faut prévoir une tenue particulière — quelque chose de chaud pour le bateau ?"
+        },
+        {
+          "text": "Tu préfères qu'on apporte quelque chose — un cadeau, à boire, à manger ?"
+        },
+        {
+          "text": "Il y a une participation aux frais, ou tu t'occupes de tout ?",
+          "memory_number": 11,
+          "memory_section": 12
         },
         {
           "text": "Tu comptes inviter combien de personnes environ — ce sera une petite fête ou une grande soirée ?",
@@ -108,18 +116,10 @@
           "text": "On sera surtout entre qui — des amis, de la famille, des collègues ?"
         },
         {
-          "text": "Autre point important : il y a une participation aux frais, ou tu t'occupes de tout ?",
-          "memory_number": 11,
-          "memory_section": 12
+          "text": "Le bateau peut accueillir combien de personnes — il y a une limite ?"
         },
         {
-          "text": "Il faut prévoir une tenue particulière — quelque chose de chaud pour le bateau ?"
-        },
-        {
-          "text": "Tu préfères qu'on apporte quelque chose — un cadeau, à boire, à manger ?"
-        },
-        {
-          "text": "D'ailleurs, côté sécurité, il y a ce qu'il faut à bord — des gilets de sauvetage, tout ça ?"
+          "text": "Côté sécurité, il y a ce qu'il faut à bord — des gilets de sauvetage, tout ça ?"
         },
         {
           "text": "Et s'il fait mauvais ce jour-là, c'est maintenu ou tu as une solution de repli ?"
@@ -200,77 +200,77 @@
       "prompt": "À l'accueil d'un centre culturel, vous vous renseignez sur les activités proposées (public concerné, horaires, types d'activités, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! Je ne connais pas encore bien votre centre culturel, mais j'aimerais le découvrir. Qu'est-ce que vous proposez en ce moment ?",
+          "text": "Bonjour ! J'ai appris récemment l'ouverture de ce nouveau centre culturel — depuis quand est-il ouvert exactement ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Y trouve-t-on plutôt des ateliers, des spectacles, des expositions, ou un mélange de tout cela ?",
+          "text": "Ça se passe où exactement — c'est facilement accessible en transports en commun ?",
           "memory_number": 10,
           "memory_section": 5
         },
         {
-          "text": "En ce moment, quelle activité attire le plus le public ?",
+          "text": "Quels types d'activités proposez-vous — c'est plutôt orienté vers l'art, la culture ou un mélange de plusieurs domaines ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Le centre accueille-t-il aussi des concerts, des projections ou des rencontres littéraires ?",
+          "text": "Organisez-vous des cours ou des ateliers réguliers ? Si oui, dans quels domaines précisément ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Ça se passe où exactement, et est-ce facile d'y venir en transports ?",
+          "text": "Proposez-vous également des spectacles — des concerts, des pièces de théâtre ou des projections de films ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Quels sont les horaires d'ouverture du centre ?",
+          "text": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Et pour les ateliers, les créneaux sont-ils plutôt en journée, en soirée ou le week-end ?",
+          "text": "À quelle heure commencent les cours et les ateliers — plutôt le matin ou en fin de journée ? Et vous êtes ouverts le week-end ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "D'ailleurs, comment fonctionnent les tarifs : faut-il payer activité par activité ou existe-t-il une carte ?",
+          "text": "Proposez-vous des activités spécifiques pendant les vacances scolaires, notamment pour les enfants ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Certaines activités sont-elles gratuites ?",
+          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Y a-t-il des réductions pour les étudiants, les familles ou les aînés ?",
+          "text": "Le tarif comprend quoi exactement — certaines activités sont-elles gratuites ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Autre point important : faut-il s'inscrire à l'avance pour participer aux ateliers ?",
+          "text": "Il y a généralement combien de participants par atelier — c'est un petit groupe ou une grande classe ?",
           "memory_number": 10,
           "memory_section": 7
         },
         {
-          "text": "Proposez-vous aussi des activités pendant les vacances scolaires, notamment pour les enfants ?",
+          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "memory_number": 10,
           "memory_section": 10
         },
         {
-          "text": "Combien de participants compte généralement un atelier ?",
+          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il faut s'inscrire à l'avance ou on peut venir librement ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Sur un autre sujet, comment décririez-vous l'ambiance du centre ?",
+          "text": "Y a-t-il une boutique de souvenirs ou une librairie sur place ?",
           "memory_number": 10,
           "memory_section": 9
         },
         {
-          "text": "Pour finir, quelle activité vous me conseilleriez pour découvrir le lieu une première fois ?",
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule activité, ce serait laquelle ?",
           "memory_number": 10,
           "memory_section": 13
         }

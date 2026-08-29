@@ -12,64 +12,53 @@
       "prompt": "Je suis votre ami(e) francophone. Vous devez préparer un article sur un spectacle pour le bulletin de votre association culturelle et vous cherchez des idées : vous m'interrogez sur les spectacles que j'ai aimés (coût, type, lieu, etc.).",
       "questions": [
         {
-          "text": "Salut ! J'ai lu un article sur un spectacle qui a l'air génial — tu en as entendu parler ?",
-          "memory_number": 9,
-          "memory_section": 13
+          "text": "Salut ! Je dois écrire un article sur un spectacle pour notre revue — tu pourrais m'aider à trouver des idées ?"
         },
         {
-          "text": "C'est quel genre de spectacle — théâtre, danse, concert ?",
-          "memory_number": 9,
-          "memory_section": 2
+          "text": "Quel spectacle as-tu vu récemment et particulièrement aimé — du théâtre, de la danse, un concert, du cirque ?"
         },
         {
-          "text": "Une autre chose m'intéresse : de quoi ça parle exactement, d'après ce que tu sais ?",
-          "memory_number": 9,
-          "memory_section": 2
+          "text": "C'était quoi exactement, et qui se produisait sur scène ?"
         },
         {
-          "text": "Ça se joue où et pendant combien de temps ?",
-          "memory_number": 9,
-          "memory_section": 5
+          "text": "De quoi ça parlait — quel était le thème ou l'histoire ?"
         },
         {
-          "text": "Il reste encore des dates, ou c'est presque fini ?",
-          "memory_number": 9,
-          "memory_section": 4
+          "text": "C'était plutôt classique, moderne, ou original dans sa mise en scène ?"
         },
         {
-          "text": "Justement, à ce propos, les places coûtent combien à peu près ?",
-          "memory_number": 9,
-          "memory_section": 3
+          "text": "Ce spectacle s'adresse-t-il plutôt à un public adulte ou est-il aussi adapté aux familles ?"
         },
         {
-          "text": "Il y a des réductions pour les étudiants ou les groupes ?",
+          "text": "Ça se passait où — dans quelle salle ou quel théâtre ?"
+        },
+        {
+          "text": "Combien de temps dure le spectacle en général ?"
+        },
+        {
+          "text": "Parlons du budget — combien coûte une place à peu près ?"
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
           "memory_number": 9,
           "memory_section": 3
         },
         {
-          "text": "Faut-il réserver longtemps à l'avance pour avoir de bonnes places ?",
+          "text": "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
           "memory_number": 9,
-          "memory_section": 9
+          "memory_section": 10
         },
         {
-          "text": "Autre point important : ça dure combien de temps, le spectacle ?",
-          "memory_number": 9,
-          "memory_section": 4
+          "text": "Est-ce que c'est encore à l'affiche, ou c'était une représentation unique ?"
         },
         {
-          "text": "C'est adapté à tout le monde, ou c'est plutôt pour un public particulier ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Selon toi, ce spectacle peut-il donner lieu à un article intéressant pour notre association ?"
         },
         {
-          "text": "D'ailleurs, tu penses que ça vaut vraiment le coup, d'après les critiques que tu as lues ?",
-          "memory_number": 9,
-          "memory_section": 11
+          "text": "Tu aurais d'autres spectacles du même genre à me conseiller ?"
         },
         {
-          "text": "Pour finir, je crois que ça me tente bien — ça te dirait qu'on y aille ensemble ?",
-          "memory_number": 9,
-          "memory_section": 13
+          "text": "Pour finir — est-ce que tu recommanderais ce spectacle aux lecteurs de notre revue ?"
         }
       ]
     },
@@ -79,64 +68,49 @@
       "prompt": "Bon connaisseur de Montréal, je vous éclaire : vous y passerez une semaine pour le travail et vous m'interrogez, entre collègues, sur les transports publics (horaires, prix, fonctionnement, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! Je vais bientôt me rendre à Montréal et j'aimerais comprendre comment fonctionnent les transports en commun là-bas — vous pourriez m'expliquer ?",
-          "memory_number": 6,
-          "memory_section": 13
+          "text": "Salut ! Je vais passer une semaine à Montréal pour le boulot et je voudrais me déplacer en transports — toi qui connais bien, tu peux m'expliquer comment ça marche ?"
         },
         {
-          "text": "Quels moyens de transport sont disponibles — métro, bus, train ?",
-          "memory_number": 6,
-          "memory_section": 2
+          "text": "Quels types de transports il y a là-bas — métro, bus, tramway ?"
         },
         {
-          "text": "Une autre chose m'intéresse : le réseau couvre bien toute la ville ?",
-          "memory_number": 6,
-          "memory_section": 5
+          "text": "Le réseau couvre bien toute la ville, ou seulement le centre ?"
         },
         {
-          "text": "Comment fonctionnent les tarifs — un abonnement ou des tickets à l'unité ?",
-          "memory_number": 6,
-          "memory_section": 3
+          "text": "Comment fonctionnent les tarifs — il vaut mieux une carte, un abonnement, ou payer chaque trajet ?"
         },
         {
-          "text": "Où peut-on acheter les titres de transport ?",
-          "memory_number": 6,
-          "memory_section": 6
+          "text": "Où est-ce que j'achète les titres de transport — en ligne, à une borne, au guichet ?"
         },
         {
-          "text": "Justement, à ce propos, y a-t-il des tarifs réduits pour les touristes ou les étudiants ?",
-          "memory_number": 6,
-          "memory_section": 3
+          "text": "Il y a des tarifs intéressants pour une semaine, ou des pass touristiques ?"
         },
         {
-          "text": "Un même titre est-il valable pour le métro et le bus ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Un même ticket est valable pour le métro et le bus ?"
         },
         {
-          "text": "Quels sont les horaires de fonctionnement du métro ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Les transports fonctionnent jusqu'à quelle heure le soir ?"
         },
         {
-          "text": "Autre point important : est-ce qu'il y a une application pour s'orienter facilement dans le réseau ?",
-          "memory_number": 6,
-          "memory_section": 9
+          "text": "Est-ce que ça marche aussi le week-end, avec les mêmes horaires ?"
         },
         {
-          "text": "Le réseau est-il fiable, avec peu de retards ?",
-          "memory_number": 6,
-          "memory_section": 8
+          "text": "Il y a une application pour suivre les horaires et planifier un itinéraire ?"
         },
         {
-          "text": "D'ailleurs, y a-t-il des zones à éviter aux heures de pointe ?",
-          "memory_number": 6,
-          "memory_section": 8
+          "text": "Depuis le centre, c'est facile de rejoindre les endroits où je vais travailler ?"
         },
         {
-          "text": "Pour finir, je crois que je vais m'en sortir facilement — vous auriez un dernier conseil pour bien circuler à Montréal ?",
-          "memory_number": 6,
-          "memory_section": 13
+          "text": "Il y a des heures de pointe à éviter parce que c'est bondé ?"
+        },
+        {
+          "text": "Le métro, c'est simple à comprendre quand on ne connaît pas ?"
+        },
+        {
+          "text": "Si je me trompe de ligne ou que j'ai un souci, à qui je peux demander ?"
+        },
+        {
+          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien me déplacer à Montréal, ce serait lequel ?"
         }
       ]
     },
@@ -146,64 +120,49 @@
       "prompt": "Notre école de langues lance un jeu pour les étudiants ; vous venez me trouver, votre professeur de français, pour en comprendre l'organisation (règles, prix, modalités, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! J'ai vu qu'un jeu était organisé par l'école de langues — vous pourriez m'expliquer de quoi il s'agit ?",
-          "memory_number": 5,
-          "memory_section": 13
+          "text": "Bonjour ! J'ai entendu parler du jeu que l'école organise pour les étudiants — je voudrais en savoir plus, vous pourriez m'expliquer ?"
         },
         {
-          "text": "C'est quel genre de jeu exactement ?",
-          "memory_number": 5,
-          "memory_section": 2
+          "text": "En quoi consiste ce jeu exactement — quel est le principe ?"
         },
         {
-          "text": "Une autre chose m'intéresse : ça se déroule quand et où ?",
-          "memory_number": 5,
-          "memory_section": 4
+          "text": "Quelles sont les règles à connaître pour participer ?"
         },
         {
-          "text": "Combien de temps ça dure ?",
-          "memory_number": 5,
-          "memory_section": 4
+          "text": "Ça se joue individuellement ou en équipe ?"
         },
         {
-          "text": "Il faut s'inscrire à l'avance pour participer ?",
-          "memory_number": 5,
-          "memory_section": 9
+          "text": "C'est ouvert à tous les niveaux, ou il faut un certain niveau de français ?"
         },
         {
-          "text": "Justement, à ce propos, c'est ouvert à tous les niveaux, ou seulement à certains élèves ?",
-          "memory_number": 5,
-          "memory_section": 8
+          "text": "Quand est-ce que ça se déroule — sur une journée, ou sur plusieurs semaines ?"
         },
         {
-          "text": "Ça se joue seul ou en équipe ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Où est-ce que ça se passe — dans l'école ou à l'extérieur ?"
         },
         {
-          "text": "Y a-t-il un prix à gagner pour les participants ?",
-          "memory_number": 5,
-          "memory_section": 11
+          "text": "Faut-il s'inscrire à l'avance, et comment ?"
         },
         {
-          "text": "Autre point important : faut-il payer quelque chose pour participer ?",
-          "memory_number": 5,
-          "memory_section": 3
+          "text": "Est-ce qu'il y a des frais de participation, ou c'est gratuit ?"
         },
         {
-          "text": "Ça permet de pratiquer quelles compétences — la grammaire, le vocabulaire, l'oral ?",
-          "memory_number": 5,
-          "memory_section": 2
+          "text": "Qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?"
         },
         {
-          "text": "D'ailleurs, vous pensez que ça peut vraiment aider à progresser en langue ?",
-          "memory_number": 5,
-          "memory_section": 11
+          "text": "Est-ce que ça aide à progresser en français ?"
         },
         {
-          "text": "Pour finir, je crois que ça me tente bien — comment je peux m'inscrire ?",
-          "memory_number": 5,
-          "memory_section": 13
+          "text": "Combien d'étudiants participent en général ?"
+        },
+        {
+          "text": "Faut-il préparer quelque chose à l'avance ?"
+        },
+        {
+          "text": "Est-ce qu'on peut venir juste pour essayer, sans s'engager ?"
+        },
+        {
+          "text": "Pour finir — qu'est-ce que vous me conseillez pour bien m'y préparer ?"
         }
       ]
     },
@@ -213,64 +172,53 @@
       "prompt": "L'entreprise vous propose de partir travailler à l'étranger ; avant de trancher, vous m'interrogez, moi votre supérieur(e), sur les contours du poste (missions, salaire, avantages, etc.).",
       "questions": [
         {
-          "text": "Salut ! On m'a proposé un poste à l'étranger et j'aimerais ton avis — tu pourrais m'aider à y réfléchir ?",
-          "memory_number": 4,
-          "memory_section": 13
+          "text": "Bonjour, merci beaucoup pour cette proposition de poste à l'étranger — avant de me décider, j'aimerais en savoir davantage. Vous pourriez m'en dire plus sur ce poste ?"
         },
         {
-          "text": "C'est dans quel pays exactement ?",
-          "memory_number": 4,
-          "memory_section": 2
+          "text": "En quoi consisteraient exactement mes missions là-bas ?"
         },
         {
-          "text": "Une autre chose m'intéresse : c'est quel type de poste — proche de ce que je fais actuellement ?",
+          "text": "Dans quel pays et quelle ville serais-je basé(e) ?"
+        },
+        {
+          "text": "Ce serait pour combien de temps — une mission temporaire ou une affectation longue ?"
+        },
+        {
+          "text": "Comment évoluerait mon salaire par rapport à mon poste actuel ?"
+        },
+        {
+          "text": "Y a-t-il des avantages liés à l'expatriation — logement, prime, prise en charge du déménagement ?"
+        },
+        {
+          "text": "Qui prend en charge les frais de voyage et d'installation ?"
+        },
+        {
+          "text": "Comment ça se passe pour la couverture santé et la protection sociale sur place ?"
+        },
+        {
+          "text": "À qui serais-je rattaché(e), et avec quelle équipe je travaillerais ?"
+        },
+        {
+          "text": "Est-ce que la langue de travail sera le français, ou faut-il maîtriser une autre langue ?"
+        },
+        {
+          "text": "Quelles seraient les perspectives d'évolution après cette expérience ?"
+        },
+        {
+          "text": "Je pourrais revenir à mon poste actuel si ça ne me convient pas ?"
+        },
+        {
+          "text": "Ma famille pourrait-elle m'accompagner, avec un accompagnement prévu ?"
+        },
+        {
+          "text": "De combien de temps je dispose pour donner ma réponse ?",
           "memory_number": 4,
           "memory_section": 11
         },
         {
-          "text": "Les conditions sont intéressantes — le salaire, les avantages ?",
-          "memory_number": 4,
-          "memory_section": 3
-        },
-        {
-          "text": "Ça implique de déménager complètement là-bas, ou c'est temporaire ?",
-          "memory_number": null,
-          "memory_section": null
-        },
-        {
-          "text": "Justement, à ce propos, combien de temps durerait ce contrat ?",
-          "memory_number": 4,
-          "memory_section": 4
-        },
-        {
-          "text": "L'entreprise aide pour le logement ou les démarches d'installation ?",
-          "memory_number": null,
-          "memory_section": null
-        },
-        {
-          "text": "Il faut parler la langue du pays couramment pour ce poste ?",
-          "memory_number": null,
-          "memory_section": null
-        },
-        {
-          "text": "Autre point important : quelles sont mes perspectives d'évolution si j'accepte ce poste ?",
+          "text": "Est-ce que je peux avoir tous ces éléments par écrit pour bien réfléchir avant de décider ?",
           "memory_number": 4,
           "memory_section": 11
-        },
-        {
-          "text": "Est-ce que je pourrais revenir facilement si ça ne me convient pas ?",
-          "memory_number": null,
-          "memory_section": null
-        },
-        {
-          "text": "D'ailleurs, à ton avis, qu'est-ce qui pourrait être le plus difficile dans cette expérience ?",
-          "memory_number": null,
-          "memory_section": null
-        },
-        {
-          "text": "Pour finir, je crois que je vais bien y réfléchir — à ta place, tu accepterais ?",
-          "memory_number": 4,
-          "memory_section": 13
         }
       ]
     },
@@ -280,54 +228,49 @@
       "prompt": "Une envie de sortie ce soir, mais aucune idée précise : entre ami(e)s, nous en discutons et vous me questionnez pour arrêter un choix (endroit, transport, prix, etc.).",
       "questions": [
         {
-          "text": "Salut ! On pourrait sortir ce soir, tu aurais des idées ?",
-          "memory_number": 9,
-          "memory_section": 13
+          "text": "Salut ! J'ai envie de sortir ce soir mais je ne sais pas trop quoi faire — tu aurais des idées ?"
         },
         {
-          "text": "Qu'est-ce que tu as envie de faire — cinéma, restaurant, autre chose ?",
-          "memory_number": 9,
-          "memory_section": 2
+          "text": "Qu'est-ce qu'il y a de sympa à faire un soir dans le coin ?"
         },
         {
-          "text": "Une autre chose m'intéresse : il y a un film ou un spectacle qui te tente en particulier ?",
-          "memory_number": 9,
-          "memory_section": 2
+          "text": "On pourrait aller où — un ciné, un bar, un concert, un resto ?"
         },
         {
-          "text": "On y va à quelle heure — il faut réserver avant ?",
-          "memory_number": 9,
-          "memory_section": 9
+          "text": "Tu sais s'il y a des événements ou des animations prévus ce soir ?"
         },
         {
-          "text": "Justement, à ce propos, ça coûte combien à peu près pour la soirée ?",
-          "memory_number": 9,
-          "memory_section": 3
+          "text": "C'est plutôt calme un soir de semaine, ou il y a de l'ambiance ?"
         },
         {
-          "text": "On se retrouve où et comment on y va ?",
-          "memory_number": 9,
-          "memory_section": 5
+          "text": "Ça coûte cher en général, ou on peut trouver des sorties pas chères ?"
         },
         {
-          "text": "Autre point important : tu préfères qu'on mange avant ou après la sortie ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Il faut réserver quelque part, ou on peut y aller sans prévoir ?"
         },
         {
-          "text": "Il y a d'autres personnes qui pourraient se joindre à nous ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "C'est accessible à pied ou en transports, ou il faut une voiture ?"
         },
         {
-          "text": "D'ailleurs, on rentre à quelle heure à peu près, tu penses ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Jusqu'à quelle heure les endroits restent ouverts un soir de semaine ?"
         },
         {
-          "text": "Pour finir, je crois que ça va être une bonne soirée — on se met d'accord sur l'heure et l'endroit maintenant ?",
-          "memory_number": 9,
-          "memory_section": 13
+          "text": "Pour manger un morceau, tu connais une bonne adresse pas loin ?"
+        },
+        {
+          "text": "Tu préfères quelque chose de tranquille ou plutôt animé ce soir ?"
+        },
+        {
+          "text": "On serait juste nous deux, ou tu veux qu'on invite d'autres personnes ?"
+        },
+        {
+          "text": "Il faut prévoir une tenue particulière pour certains endroits ?"
+        },
+        {
+          "text": "Et s'il fait mauvais, tu aurais une idée d'activité en intérieur ?"
+        },
+        {
+          "text": "Pour finir — si tu ne devais choisir qu'une seule sortie pour ce soir, ce serait laquelle ?"
         }
       ]
     }

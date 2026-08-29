@@ -12,7 +12,7 @@
       "prompt": "L'anniversaire de votre ami(e) — c'est-à-dire moi — approche, et vous entreprenez de lui préparer une fête ; vous m'interrogez sur mes préférences quant au lieu, au moment, aux convives et à l'atmosphère.",
       "questions": [
         {
-          "text": "Salut ! Ton anniversaire approche et j'aimerais t'organiser une petite fête en secret — dis-moi au moins ce que tu aimerais pour cette occasion ?"
+          "text": "Salut ! Ton anniversaire approche et j'aimerais t'organiser une petite fête — tu me laisses m'en occuper ?"
         },
         {
           "text": "Tu préférerais quel genre de fête — quelque chose d'intime ou une grande soirée ?",
@@ -26,21 +26,13 @@
           "text": "Quel jour et à quelle heure ça t'arrangerait ?"
         },
         {
-          "text": "Une autre chose m'intéresse : tu veux inviter qui — juste les proches, ou un grand groupe ?"
+          "text": "Tu veux inviter qui — juste les proches, ou un grand groupe ?"
         },
         {
           "text": "Tu peux me donner la liste des gens à inviter, avec leurs contacts ?"
         },
         {
-          "text": "Est-ce que tu veux que ce soit une surprise pour certains invités ?"
-        },
-        {
-          "text": "Tu as un budget en tête pour que je reste dans les clous ?",
-          "memory_number": 11,
-          "memory_section": 3
-        },
-        {
-          "text": "Autre point important : tu as une ambiance en tête — décontractée, élégante, ou autour d'un thème ?"
+          "text": "Tu as une ambiance en tête — décontractée, élégante, ou autour d'un thème ?"
         },
         {
           "text": "Côté repas, tu préfères quoi — un buffet, un barbecue, un repas assis ?"
@@ -51,13 +43,19 @@
           "memory_section": 13
         },
         {
-          "text": "D'ailleurs, tu as un gâteau préféré, ou je te fais la surprise ?"
+          "text": "Tu as un gâteau préféré, ou je te fais la surprise ?"
         },
         {
           "text": "Pour la musique, tu as un style que tu adores, ou je m'occupe de la playlist ?"
         },
         {
           "text": "Tu voudrais des jeux ou des animations pendant la soirée ?"
+        },
+        {
+          "text": "Tu as un budget en tête pour que je reste dans les clous ?"
+        },
+        {
+          "text": "Est-ce que tu veux que ce soit une surprise pour certains invités ?"
         },
         {
           "text": "Pour finir — qu'est-ce qui te ferait vraiment plaisir pour ce jour-là ?"

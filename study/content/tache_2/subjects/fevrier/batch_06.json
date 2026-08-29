@@ -172,77 +172,77 @@
       "prompt": "Vous souhaitez vous informer sur les activités culturelles de la ville et posez des questions à un employé du service culturel.",
       "questions": [
         {
-          "text": "Bonjour ! J'aimerais profiter un peu plus de ce que la ville propose côté culture ; vous pourriez m'expliquer par quoi commencer ?",
+          "text": "Bonjour ! Je m'intéresse aux activités culturelles dans la ville — quelles activités proposez-vous pour les habitants ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Quels types d'activités culturelles proposez-vous en ce moment : expositions, musées, ateliers, spectacles ?",
+          "text": "Quels types de thèmes sont abordés — sportif, artistique, manuel, musical, ou un peu de tout ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Y a-t-il une exposition ou un événement particulièrement intéressant ces jours-ci ?",
+          "text": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "La programmation est-elle annoncée à l'avance ?",
+          "text": "Les expositions temporaires sont incluses dans le billet d'entrée ou faut-il payer un supplément ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Ces activités ont-elles lieu surtout au centre-ville ou un peu partout dans la ville ?",
+          "text": "Jusqu'à quand cette exposition sera-t-elle accessible ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Quels sont les horaires habituels des musées et des ateliers ?",
+          "text": "La programmation est publiée à l'avance ou on la découvre sur place ?",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "Et à quelle fréquence organisez-vous de nouvelles activités ?",
+          "text": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Autre point important : comment fonctionnent les tarifs, à l'entrée, à l'activité ou avec un abonnement ?",
+          "text": "Il y a combien de séances par semaine — on peut assister à plusieurs ou c'est limité à une seule ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Certaines activités sont-elles gratuites ?",
+          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Y a-t-il des réductions pour les étudiants, les familles ou les aînés ?",
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Comment se passe l'inscription pour les ateliers ?",
+          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Faut-il réserver à l'avance ou peut-on venir librement selon les activités ?",
+          "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "D'ailleurs, faut-il apporter du matériel pour certains ateliers, ou tout est fourni ?",
+          "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
           "memory_number": 10,
           "memory_section": 8
         },
         {
-          "text": "Existe-t-il des activités qui permettent aussi de rencontrer d'autres habitants ?",
+          "text": "Vous avez mentionné des activités pour rencontrer d'autres habitants — vous pourriez m'en dire un peu plus ?",
           "memory_number": 10,
           "memory_section": 7
         },
         {
-          "text": "Pour finir, quelle activité vous me recommanderiez pour découvrir l'offre culturelle de la ville ?",
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule activité, ce serait laquelle ?",
           "memory_number": 10,
           "memory_section": 13
         }

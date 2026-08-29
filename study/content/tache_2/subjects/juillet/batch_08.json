@@ -12,79 +12,49 @@
       "prompt": "Je suis votre ami(e) canadien(ne) et un entretien d'embauche vous attend bientôt dans une entreprise d'ici. Pour mettre toutes les chances de votre côté, vous me demandez conseil sur la tenue, l'attitude à adopter et la durée de l'entretien.",
       "questions": [
         {
-          "text": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?"
         },
         {
-          "text": "Comment ça se passe généralement, un entretien ici — c'est plutôt formel ou décontracté ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Comment ça se passe généralement, un entretien ici — c'est plutôt formel ou décontracté ?"
         },
         {
-          "text": "Une autre chose m'intéresse : combien de temps ça dure en général, ce genre d'entretien ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Combien de temps ça dure en général, ce genre d'entretien ?"
         },
         {
-          "text": "Comment je devrais m'habiller — il faut une tenue vraiment formelle ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Comment je devrais m'habiller — il faut une tenue vraiment formelle ?"
         },
         {
-          "text": "Quel comportement adopter pour faire bonne impression ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Quel comportement adopter pour faire bonne impression ?"
         },
         {
-          "text": "Justement, à ce propos, qu'est-ce qu'on me posera surtout comme questions, d'après toi ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Qu'est-ce qu'on me posera surtout comme questions, d'après toi ?"
         },
         {
-          "text": "Comment je peux bien présenter mon parcours et mes expériences ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Comment je peux bien présenter mon parcours et mes expériences ?"
         },
         {
-          "text": "Est-ce qu'il vaut mieux préparer des questions à poser au recruteur ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Est-ce qu'il vaut mieux préparer des questions à poser au recruteur ?"
         },
         {
-          "text": "Faut-il apporter des documents, comme mon CV ou des références ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Faut-il apporter des documents, comme mon CV ou des références ?"
         },
         {
-          "text": "Autre point important : il y a des choses à éviter absolument pendant l'entretien ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Il y a des choses à éviter absolument pendant l'entretien ?"
         },
         {
-          "text": "Comment gérer le stress si je perds mes moyens sur le moment ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Comment gérer le stress si je perds mes moyens sur le moment ?"
         },
         {
-          "text": "C'est bien vu d'arriver un peu en avance ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "C'est bien vu d'arriver un peu en avance ?"
         },
         {
-          "text": "D'ailleurs, qu'est-ce que je devrais savoir sur l'entreprise avant d'y aller ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Qu'est-ce que je devrais savoir sur l'entreprise avant d'y aller ?"
         },
         {
-          "text": "Après l'entretien, c'est bien d'envoyer un message de remerciement ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Après l'entretien, c'est bien d'envoyer un message de remerciement ?"
         },
         {
-          "text": "Pour finir, je vais tout noter — si tu ne devais me donner qu'un seul conseil pour réussir cet entretien, ce serait lequel ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour réussir cet entretien, ce serait lequel ?"
         }
       ]
     },
@@ -104,7 +74,7 @@
           "memory_section": 2
         },
         {
-          "text": "Une autre chose m'intéresse : combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
+          "text": "Combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
           "memory_number": 7,
           "memory_section": 4
         },
@@ -119,7 +89,7 @@
           "memory_section": 8
         },
         {
-          "text": "Justement, à ce propos, il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
+          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -139,7 +109,7 @@
           "memory_section": 3
         },
         {
-          "text": "Autre point important : est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
           "memory_number": 7,
           "memory_section": 3
         },
@@ -154,7 +124,7 @@
           "memory_section": 6
         },
         {
-          "text": "D'ailleurs, est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
+          "text": "Est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
           "memory_number": 7,
           "memory_section": 6
         },
@@ -164,7 +134,7 @@
           "memory_section": 13
         },
         {
-          "text": "Pour finir, je crois que je vais me décider — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
           "memory_number": 7,
           "memory_section": 13
         }
@@ -186,7 +156,7 @@
           "memory_section": 2
         },
         {
-          "text": "Une autre chose m'intéresse : est-ce que le réseau couvre toute la ville ou seulement certaines zones ?",
+          "text": "Est-ce que le réseau couvre toute la ville ou seulement certaines zones ?",
           "memory_number": 6,
           "memory_section": 5
         },
@@ -201,7 +171,7 @@
           "memory_section": 6
         },
         {
-          "text": "Justement, à ce propos, y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -221,7 +191,7 @@
           "memory_section": 4
         },
         {
-          "text": "Autre point important : y a-t-il une application pour suivre les transports en temps réel ?",
+          "text": "Y a-t-il une application pour suivre les transports en temps réel ?",
           "memory_number": 6,
           "memory_section": 9
         },
@@ -241,7 +211,7 @@
           "memory_section": 9
         },
         {
-          "text": "Pour finir, je crois que j'ai tout ce qu'il me faut — si vous ne deviez me recommander qu'une seule chose pour bien utiliser les transports ici, ce serait laquelle ?",
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose pour bien utiliser les transports ici, ce serait laquelle ?",
           "memory_number": 6,
           "memory_section": 13
         }
@@ -335,9 +305,7 @@
       "prompt": "Je suis votre ami(e) et vous hésitez à vous lancer dans une nouvelle série sans savoir laquelle. Pour vous décider, vous me questionnez sur le genre, les acteurs et les plateformes où la regarder.",
       "questions": [
         {
-          "text": "Salut ! Je voudrais commencer une nouvelle série mais je ne sais pas laquelle choisir — tu aurais des idées à me conseiller ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Salut ! Je voudrais commencer une nouvelle série mais je ne sais pas laquelle choisir — tu aurais des idées à me conseiller ?"
         },
         {
           "text": "Qu'est-ce que tu as regardé récemment et que tu as vraiment aimé ?",
@@ -345,9 +313,7 @@
           "memory_section": 11
         },
         {
-          "text": "Une autre chose m'intéresse : c'est quel genre — plutôt comédie, thriller, science-fiction, drame ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "C'est quel genre — plutôt comédie, thriller, science-fiction, drame ?"
         },
         {
           "text": "De quoi ça parle, sans trop m'en dire pour ne pas gâcher l'histoire ?",
@@ -360,49 +326,34 @@
           "memory_section": 11
         },
         {
-          "text": "Justement, à ce propos, il y a combien de saisons et d'épisodes — c'est vite fini ou ça dure longtemps ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Il y a combien de saisons et d'épisodes — c'est vite fini ou ça dure longtemps ?"
         },
         {
-          "text": "Les épisodes durent combien de temps chacun ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Les épisodes durent combien de temps chacun ?"
         },
         {
-          "text": "C'est une série terminée ou encore en cours de diffusion ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "C'est une série terminée ou encore en cours de diffusion ?"
         },
         {
-          "text": "Sur quelle plateforme on peut la regarder ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Sur quelle plateforme on peut la regarder ?"
         },
         {
-          "text": "Autre point important : il faut un abonnement payant ou c'est disponible gratuitement quelque part ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Il faut un abonnement payant ou c'est disponible gratuitement quelque part ?"
         },
         {
-          "text": "C'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "C'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?"
         },
         {
-          "text": "Elle est disponible en version française, ou seulement en version originale sous-titrée ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Elle est disponible en version française, ou seulement en version originale sous-titrée ?"
         },
         {
-          "text": "D'ailleurs, toi, qu'est-ce que tu en as pensé — tu l'as regardée jusqu'au bout ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "C'est le genre de série qu'on regarde tranquillement, ou ça rend vite accro ?"
         },
         {
-          "text": "Pour finir, je crois que je vais me laisser tenter — parmi toutes celles-là, laquelle tu me recommandes vraiment de commencer ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Toi, qu'est-ce que tu en as pensé — tu l'as regardée jusqu'au bout ?"
+        },
+        {
+          "text": "Pour finir — parmi toutes celles-là, laquelle tu me recommandes vraiment de commencer ?"
         }
       ]
     }

@@ -22,7 +22,7 @@
           "memory_section": 2
         },
         {
-          "text": "Une autre chose m'intéresse : et pour les activités culturelles — il y a des musées ou des expositions intéressantes ?",
+          "text": "Et pour les activités culturelles — il y a des musées ou des expositions intéressantes ?",
           "memory_number": 9,
           "memory_section": 2
         },
@@ -37,9 +37,7 @@
           "memory_section": 2
         },
         {
-          "text": "Justement, à ce propos, qu'est-ce qu'on peut faire de sympa sans rien dépenser dans le coin ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Qu'est-ce qu'on peut faire de sympa sans rien dépenser dans le coin ?"
         },
         {
           "text": "Est-ce qu'il y a des événements ou des animations gratuits en ce moment ?",
@@ -57,7 +55,7 @@
           "memory_section": 3
         },
         {
-          "text": "Autre point important : pour manger sans se ruiner, tu connais des adresses pas chères, ou c'est mieux de prévoir un pique-nique ?",
+          "text": "Pour manger sans se ruiner, tu connais des adresses pas chères, ou c'est mieux de prévoir un pique-nique ?",
           "memory_number": 9,
           "memory_section": 3
         },
@@ -72,7 +70,7 @@
           "memory_section": 8
         },
         {
-          "text": "D'ailleurs, il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
           "memory_number": 9,
           "memory_section": 6
         },
@@ -82,7 +80,7 @@
           "memory_section": 3
         },
         {
-          "text": "Pour finir, je vais essayer de tout caser dans une seule journée — tu penses que c'est jouable ?",
+          "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
           "memory_number": 9,
           "memory_section": 13
         }
@@ -266,7 +264,7 @@
           "memory_section": 10
         },
         {
-          "text": "Une autre chose m'intéresse : quelles activités pratiquez-vous surtout — la randonnée, l'escalade, le ski ou un peu de tout ?",
+          "text": "Quelles activités pratiquez-vous surtout — la randonnée, l'escalade, le ski ou un peu de tout ?",
           "memory_number": 8,
           "memory_section": 2
         },
@@ -281,7 +279,7 @@
           "memory_section": 4
         },
         {
-          "text": "Justement, à ce propos, c'est une bonne période pour aller en montagne ou il vaut mieux attendre une autre saison ?",
+          "text": "C'est une bonne période pour aller en montagne ou il vaut mieux attendre une autre saison ?",
           "memory_number": 8,
           "memory_section": 8
         },
@@ -296,7 +294,7 @@
           "memory_section": 6
         },
         {
-          "text": "Autre point important : faut-il une préparation physique particulière avant de commencer ?",
+          "text": "Faut-il une préparation physique particulière avant de commencer ?",
           "memory_number": 8,
           "memory_section": 8
         },
@@ -311,7 +309,7 @@
           "memory_section": 8
         },
         {
-          "text": "D'ailleurs, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "text": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
           "memory_number": 8,
           "memory_section": 8
         },
@@ -326,7 +324,7 @@
           "memory_section": 10
         },
         {
-          "text": "Pour finir, je crois que vous venez de me convaincre d'essayer — vous m'accompagneriez la première fois ?",
+          "text": "Pour finir — si vous ne deviez me recommander qu'un seul endroit pour débuter, ce serait lequel ?",
           "memory_number": 8,
           "memory_section": 13
         }
@@ -338,32 +336,22 @@
       "prompt": "Nous faisons connaissance lors d'une soirée. Je rentre tout juste d'un voyage et vous m'interrogez sur ce séjour : sa durée, les lieux visités et mes impressions.",
       "questions": [
         {
-          "text": "Bonjour ! Vous me disiez à l'instant que vous rentrez d'un voyage — vous êtes parti(e) où exactement ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Bonjour ! Vous me disiez à l'instant que vous rentrez d'un voyage — vous êtes parti(e) où exactement ?"
         },
         {
-          "text": "Vous êtes allé(e) dans quelles villes ou quelles régions exactement ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Vous êtes allé(e) dans quelles villes ou quelles régions exactement ?"
         },
         {
-          "text": "Une autre chose m'intéresse : combien de temps êtes-vous resté(e) sur place ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Combien de temps êtes-vous resté(e) sur place ?"
         },
         {
-          "text": "Comment vous déplaciez-vous sur place — en train, en bus ou en voiture ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Comment vous déplaciez-vous sur place — en train, en bus ou en voiture ?"
         },
         {
-          "text": "Vous conseilleriez plutôt les transports en commun ou faut-il vraiment prévoir une voiture pour visiter les alentours ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Vous conseilleriez plutôt les transports en commun ou faut-il vraiment prévoir une voiture pour visiter les alentours ?"
         },
         {
-          "text": "Justement, à ce propos, vous logiez plutôt à l'hôtel, en auberge ou ailleurs ?",
+          "text": "Vous logiez plutôt à l'hôtel, en auberge ou ailleurs ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -383,32 +371,24 @@
           "memory_section": 2
         },
         {
-          "text": "Autre point important : quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
+          "text": "Quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
           "memory_number": 7,
           "memory_section": 8
         },
         {
-          "text": "Côté cuisine, qu'est-ce que vous avez goûté — il y avait des spécialités locales à essayer ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Côté cuisine, qu'est-ce que vous avez goûté — il y avait des spécialités locales à essayer ?"
         },
         {
-          "text": "Qu'est-ce que vous avez le plus apprécié pendant ce séjour ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Qu'est-ce que vous avez le plus apprécié pendant ce séjour ?"
         },
         {
-          "text": "D'ailleurs, y a-t-il quelque chose qui vous a moins plu pendant ce séjour ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Y a-t-il quelque chose qui vous a moins plu pendant ce séjour ?"
         },
         {
-          "text": "Si ce n'est pas indiscret, ça revient à peu près à combien, ce genre de voyage ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Si ce n'est pas indiscret, ça revient à peu près à combien, ce genre de voyage ?"
         },
         {
-          "text": "Pour finir, je crois que ce séjour m'a donné envie — vous recommanderiez vraiment cette destination ?",
+          "text": "Est-ce que vous recommanderiez cette destination à quelqu'un qui voudrait y aller ?",
           "memory_number": 7,
           "memory_section": 11
         }

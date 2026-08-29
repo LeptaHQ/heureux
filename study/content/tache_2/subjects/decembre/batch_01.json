@@ -124,7 +124,7 @@
       "prompt": "Je suis votre ami(e). Je vous invite à l'anniversaire de ma sœur. Vous me posez des questions sur elle pour savoir quel cadeau lui offrir (goûts, activités, personnalité, etc.).",
       "questions": [
         {
-          "text": "Tu m'invites à l'anniversaire de ta sœur, c'est adorable, mais je ne la connais pas très bien — tu pourrais m'aider à trouver un cadeau qui lui plairait ?",
+          "text": "Ta sœur fête bientôt son anniversaire, et je cherche un cadeau — tu pourrais m'aider à trouver une idée ?",
           "memory_number": 11,
           "memory_section": 13
         },
@@ -144,7 +144,7 @@
           "memory_section": 7
         },
         {
-          "text": "Une autre chose m'intéresse : quels sont ses loisirs ou ses passions en ce moment ?",
+          "text": "Quels sont ses loisirs ou ses passions en ce moment ?",
           "memory_number": 11,
           "memory_section": 7
         },
@@ -164,7 +164,7 @@
           "memory_section": 8
         },
         {
-          "text": "Autre point important : tu aurais une idée de budget pour un cadeau qui lui ferait vraiment plaisir ?",
+          "text": "Tu aurais une idée de budget pour un cadeau qui lui ferait vraiment plaisir ?",
           "memory_number": 11,
           "memory_section": 3
         },
@@ -179,7 +179,7 @@
           "memory_section": 11
         },
         {
-          "text": "D'ailleurs, tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus ?",
+          "text": "Tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus ?",
           "memory_number": 11,
           "memory_section": 13
         },

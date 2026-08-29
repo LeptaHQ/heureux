@@ -152,23 +152,25 @@
       "prompt": "Je suis votre collègue. Je suis allé(e) à un mariage le week-end dernier. Vous me posez des questions pour savoir comment la fête s'est passée (lieu, menu, activités, etc.).",
       "questions": [
         {
-          "text": "Alors, ce mariage ce week-end, raconte-moi — comment ça s'est passé ?",
+          "text": "Alors, comment s'est passé le mariage ce week-end ?",
           "memory_number": 11,
           "memory_section": 10
         },
-        {
-          "text": "C'était le mariage de qui exactement — un membre de ta famille ou un ami proche ?"
-        },
+        "C'était le mariage de qui exactement — un membre de ta famille ou un ami proche ?",
         {
           "text": "Il y avait environ combien d'invités — c'était une grande cérémonie ou quelque chose de plus intime ?",
           "memory_number": 11,
           "memory_section": 7
         },
         {
-          "text": "Où est-ce que le mariage a eu lieu exactement ?"
+          "text": "Où est-ce que le mariage a eu lieu exactement ?",
+          "memory_number": 11,
+          "memory_section": 13
         },
         {
-          "text": "Une autre chose m'intéresse : la cérémonie et la réception se sont déroulées au même endroit ?"
+          "text": "La cérémonie et la réception se sont déroulées au même endroit ?",
+          "memory_number": 11,
+          "memory_section": 13
         },
         {
           "text": "Les mariés avaient choisi quel style de décoration ?",
@@ -181,15 +183,22 @@
           "memory_section": 10
         },
         {
+          "text": "Quel a été le moment le plus émouvant de la cérémonie ?",
+          "memory_number": 11,
+          "memory_section": 13
+        },
+        {
           "text": "Qu'est-ce qui était prévu au menu — un repas assis ou un buffet ?",
           "memory_number": 11,
           "memory_section": 9
         },
         {
-          "text": "Quel plat t'a le plus marqué(e) ?"
+          "text": "Quel plat t'a le plus marqué(e) ?",
+          "memory_number": 11,
+          "memory_section": 13
         },
         {
-          "text": "D'ailleurs, pour la soirée, il y avait un DJ ou un groupe de musique ?",
+          "text": "Pour la soirée, il y avait un DJ ou un groupe de musique ?",
           "memory_number": 11,
           "memory_section": 2
         },
@@ -202,9 +211,6 @@
           "text": "Il y a eu des animations ou des surprises pendant la fête ?",
           "memory_number": 11,
           "memory_section": 2
-        },
-        {
-          "text": "Quel a été le moment le plus émouvant de la cérémonie ?"
         },
         {
           "text": "Pour finir, quel a été ton moment préféré de toute la journée ?",

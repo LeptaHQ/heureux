@@ -176,7 +176,7 @@
       "prompt": "L'idée d'une fête de quartier vous séduit ; vous venez chercher, auprès de votre voisin(e), des suggestions concrètes pour la musique, la liste d'invités et le repas.",
       "questions": [
         {
-          "text": "Bonjour ! L'idée d'une petite fête de quartier me plaît beaucoup, mais je ne sais pas trop par où commencer — vous auriez des suggestions concrètes ?",
+          "text": "Bonjour ! Je voudrais organiser une petite fête entre voisins — vous pourriez me donner quelques conseils ?",
           "memory_number": 11,
           "memory_section": 13
         },
@@ -186,32 +186,7 @@
           "memory_section": 7
         },
         {
-          "text": "Quel jour et quel horaire conviendraient le mieux — plutôt en journée ou en soirée ?",
-          "memory_number": 11,
-          "memory_section": 4
-        },
-        {
-          "text": "Une autre chose m'intéresse : combien de temps faut-il prévoir — quelques heures ou toute la journée ?",
-          "memory_number": 11,
-          "memory_section": 4
-        },
-        {
-          "text": "Où pourrait-on organiser la fête — dans la cour, une salle commune ou chez quelqu'un ?",
-          "memory_number": 11,
-          "memory_section": 5
-        },
-        {
-          "text": "Quel type de repas est le plus apprécié — buffet, barbecue, plats faits maison ?",
-          "memory_number": 11,
-          "memory_section": 9
-        },
-        {
-          "text": "Pour le repas, vaut-il mieux demander à chacun d'apporter quelque chose ?",
-          "memory_number": 11,
-          "memory_section": 9
-        },
-        {
-          "text": "Autre point important : comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "memory_number": 11,
           "memory_section": 10
         },
@@ -221,17 +196,27 @@
           "memory_section": 10
         },
         {
+          "text": "Quel type de repas est le plus apprécié — buffet, barbecue, plats faits maison ?",
+          "memory_number": 11,
+          "memory_section": 9
+        },
+        {
+          "text": "Quel jour et quel horaire conviendraient le mieux — plutôt en journée ou en soirée ?",
+          "memory_number": 11,
+          "memory_section": 4
+        },
+        {
+          "text": "Combien de temps faut-il prévoir — quelques heures ou toute la journée ?",
+          "memory_number": 11,
+          "memory_section": 4
+        },
+        {
           "text": "Y a-t-il des activités ou jeux prévus — pour adultes et enfants ?",
           "memory_number": 11,
           "memory_section": 2
         },
         {
-          "text": "Comment gérer les invitations — par message, papier ou bouche-à-oreille ?",
-          "memory_number": 11,
-          "memory_section": 13
-        },
-        {
-          "text": "D'ailleurs, faut-il prévenir la mairie ou respecter des règles de bruit ?",
+          "text": "Faut-il prévenir la mairie ou respecter des règles de bruit ?",
           "memory_number": 11,
           "memory_section": 8
         },
@@ -239,6 +224,21 @@
           "text": "Y a-t-il des choses à éviter — des erreurs courantes pour une première fête entre voisins ?",
           "memory_number": 11,
           "memory_section": 8
+        },
+        {
+          "text": "Pour le repas, vaut-il mieux demander à chacun d'apporter quelque chose ?",
+          "memory_number": 11,
+          "memory_section": 9
+        },
+        {
+          "text": "Où pourrait-on organiser la fête — dans la cour, une salle commune ou chez quelqu'un ?",
+          "memory_number": 11,
+          "memory_section": 13
+        },
+        {
+          "text": "Comment gérer les invitations — par message, papier ou bouche-à-oreille ?",
+          "memory_number": 11,
+          "memory_section": 13
         },
         {
           "text": "Avez-vous déjà organisé ce type de fête — comment ça s'est passé exactement ?",

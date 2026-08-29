@@ -176,77 +176,77 @@
       "prompt": "Je suis un(e) ami(e) francophone. Vous devez écrire un article pour présenter un livre dans la revue de votre association littéraire. Vous cherchez des idées. Vous m'interrogez sur mes lectures récentes.",
       "questions": [
         {
-          "text": "Salut ! Je dois bientôt écrire une présentation de livre pour une revue littéraire — tu aurais une lecture récente que tu as vraiment aimée, pour m'inspirer ?",
+          "text": "Salut ! Je dois écrire un article pour la revue de mon association littéraire — comme tu lis beaucoup, tu pourrais répondre à quelques questions sur tes lectures récentes ?",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "Quel livre t'a le plus marqué(e) ces derniers temps ?",
+          "text": "Tu as lu quoi dernièrement — un roman, un essai, ou un autre type de livre ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Quel en est le titre exact, et qui l'a écrit ?",
+          "text": "C'est quel titre exactement, et qui en est l'auteur ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "C'est une nouveauté ou un livre déjà connu ?",
+          "text": "C'est un livre récent ou plutôt un classique ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Dans quel genre littéraire il se classe ?",
+          "text": "Dans quel genre littéraire ça s'inscrit — roman, biographie, science-fiction ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Tu pourrais me résumer l'intrigue sans révéler la fin ?",
+          "text": "De quoi parle le livre — tu pourrais résumer l'histoire ou l'idée principale sans tout dévoiler ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Y a-t-il un personnage ou une idée forte qui ressort particulièrement ?",
+          "text": "Il y a un personnage principal marquant ou une idée centrale forte ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "D'ailleurs, comment trouves-tu le style de l'auteur ?",
+          "text": "Comment est le style de l'auteur — plutôt simple, poétique, ou très descriptif ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Le livre se lit-il facilement ou demande-t-il beaucoup d'attention ?",
+          "text": "Le livre est agréable à lire ou demande-t-il beaucoup de concentration ?",
           "memory_number": 10,
           "memory_section": 11
         },
         {
-          "text": "Qu'est-ce que tu as le plus apprécié dans cette lecture ?",
+          "text": "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
           "memory_number": 10,
           "memory_section": 10
         },
         {
-          "text": "Et y a-t-il un point qui t'a moins convaincu(e) ?",
+          "text": "Ce livre s'adresse-t-il plutôt aux passionnés de littérature ou est-il accessible à un large public ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Autre point important : à quel public tu conseillerais ce livre ?",
+          "text": "Tu as mentionné un point intéressant — tu pourrais m'en dire un peu plus ?",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "Selon toi, quel aspect donnerait envie de le lire dans une courte présentation ?",
+          "text": "Selon toi, qu'est-ce qui pourrait donner envie de lire ce livre dans un article ?",
           "memory_number": 10,
           "memory_section": 11
         },
         {
-          "text": "Tu as dit quelque chose d'intéressant sur ce livre ; tu pourrais préciser ?",
+          "text": "Ce livre se prête bien à une présentation courte ou mérite plutôt une analyse approfondie ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Pour finir, est-ce que tu le recommanderais sans hésiter à des lecteurs curieux ?",
+          "text": "Pour finir — tu recommanderais ce livre à quelqu'un ?",
           "memory_number": 10,
           "memory_section": 13
         }
@@ -258,72 +258,72 @@
       "prompt": "Je suis un(e) ami(e). J'ai participé à un jeu organisé par une chaîne de télévision. Vous m'interrogez sur mon expérience (conditions d'inscription, contenus, intérêt, etc.) pour décider si vous voulez participer à ce jeu.",
       "questions": [
         {
-          "text": "Salut ! J'ai entendu parler de ta participation à un jeu télévisé, et franchement ça m'intrigue beaucoup. Est-ce que tu pourrais me dire comment ça s'est passé ?",
+          "text": "Salut ! J'ai entendu dire que tu as participé à un jeu organisé par une chaîne de télévision — qu'est-ce qui t'a donné envie de t'inscrire ?",
           "memory_number": 10,
           "memory_section": 10
         },
         {
-          "text": "Qu'est-ce qui t'a donné envie de t'inscrire ?",
+          "text": "Comment se passe l'inscription — faut-il remplir un formulaire en ligne ou envoyer une vidéo ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Comment se fait l'inscription au départ ?",
+          "text": "Après l'inscription, comment se passe la sélection — faut-il passer un casting ou un entretien ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Y a-t-il ensuite une sélection ou un casting ?",
+          "text": "Y avait-il des conditions particulières pour participer — tu as dû préparer quelque chose à l'avance ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Faut-il remplir certaines conditions pour participer ?",
+          "text": "La participation est-elle entièrement gratuite ou certains frais restent-ils à la charge des candidats ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Le jour du tournage, combien de temps faut-il prévoir ?",
+          "text": "Combien de temps dure le tournage — quelques heures ou toute la journée ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Il y avait beaucoup de candidats sur place ?",
+          "text": "Il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
           "memory_number": 10,
           "memory_section": 7
         },
         {
-          "text": "D'ailleurs, le jeu se jouait-il seul(e) ou en équipe ?",
+          "text": "C'est en équipe ou individuellement ?",
           "memory_number": 10,
           "memory_section": 7
         },
         {
-          "text": "Tu pourrais me décrire le déroulement de l'émission du début à la fin ?",
+          "text": "Peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "Quel type d'épreuves y avait-il ?",
+          "text": "Les défis étaient plutôt difficiles ou amusants — il y a eu des moments stressants ?",
           "memory_number": 10,
           "memory_section": 10
         },
         {
-          "text": "Autre point important : est-ce que la participation est entièrement gratuite ?",
+          "text": "Le jeu proposait-il des questions ou des défis particuliers ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Quels gains peut-on espérer ?",
+          "text": "Peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Qu'est-ce qui t'a le plus marqué(e) pendant cette expérience ?",
+          "text": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus ?",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "Pour finir, est-ce que cette aventure t'a donné envie de recommencer un jour ?",
+          "text": "Pour finir, as-tu appris quelque chose de nouveau ou vécu une expérience vraiment marquante ?",
           "memory_number": 10,
           "memory_section": 10
         }

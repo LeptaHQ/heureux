@@ -94,77 +94,77 @@
       "prompt": "Je suis votre voisin(e). Je participe souvent à des sorties culturelles de la mairie. Vous êtes intéressé(e). Vous me posez des questions (lieux, dates, activités, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! Comme vous participez souvent aux sorties culturelles de la mairie, est-ce que vous pourriez me dire ce qui vaut vraiment le détour avant que je me lance ?",
+          "text": "Bonjour ! J'ai appris que vous participez souvent aux sorties culturelles organisées par la mairie — ça m'intéresse, vous pourriez m'en parler ?",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "Quel type de sorties est proposé le plus souvent : musées, spectacles, expositions ou visites guidées ?",
+          "text": "Quel genre de sorties propose la mairie — des visites de musées, des expositions, des spectacles ou des concerts ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "En ce moment, y a-t-il une sortie particulièrement intéressante à ne pas manquer ?",
+          "text": "Quels types de thèmes sont abordés — le patrimoine, l'art, la musique, ou un peu de tout ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Ces activités ont-elles lieu uniquement dans la ville ou aussi à l'extérieur ?",
+          "text": "Ces sorties ont lieu où en général — dans la ville même ou aussi dans les environs ?",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "À quelle fréquence la mairie en organise-t-elle ?",
+          "text": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Les départs se font plutôt en semaine, le soir, ou le week-end ?",
+          "text": "À quelle fréquence sont-elles organisées — chaque semaine ou seulement de temps en temps ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "La programmation est-elle annoncée suffisamment tôt pour réserver sa place ?",
+          "text": "La programmation est publiée à l'avance ou on la découvre au dernier moment ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Autre point important : comment fonctionnent les tarifs, est-ce gratuit ou payant selon la sortie ?",
+          "text": "Comment fonctionnent les tarifs — c'est gratuit pour les habitants ou il faut payer chaque sortie ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Y a-t-il des réductions pour certaines catégories de participants ?",
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Comment se passe l'inscription, concrètement ?",
+          "text": "Comment se passe l'inscription — en ligne ou directement auprès de la mairie ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Faut-il réserver très en avance ou trouve-t-on encore facilement des places ?",
+          "text": "Faut-il s'inscrire longtemps à l'avance ou il reste souvent des places ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "D'ailleurs, quand la sortie est plus loin, le transport est-il organisé par la mairie ?",
+          "text": "Est-ce que le transport est prévu ou faut-il se rendre sur place par ses propres moyens ?",
           "memory_number": 10,
           "memory_section": 5
         },
         {
-          "text": "Ces sorties conviennent-elles aussi à quelqu'un qui vient surtout pour découvrir et apprendre ?",
+          "text": "Ces sorties conviennent-elles aussi aux familles avec enfants ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Qu'est-ce que vous aimez le plus dans ces sorties par rapport à une visite individuelle ?",
+          "text": "Qu'est-ce que vous appréciez le plus dans ces sorties ?",
           "memory_number": 10,
           "memory_section": 10
         },
         {
-          "text": "Pour finir, laquelle vous me conseilleriez pour une première participation ?",
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule sortie, ce serait laquelle ?",
           "memory_number": 10,
           "memory_section": 13
         }

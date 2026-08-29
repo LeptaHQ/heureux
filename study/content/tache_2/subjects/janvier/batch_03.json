@@ -94,7 +94,7 @@
       "prompt": "Je suis votre ami(e) et je vous invite à une fête. Vous venez d'emménager au Québec et c'est la première fois que vous participez à une fête ici. Vous me posez des questions sur cet événement (horaires, cadeaux à apporter, tenue vestimentaire, etc.).",
       "questions": [
         {
-          "text": "Salut ! Merci pour l'invitation — c'est vraiment gentil de ta part, surtout que je viens tout juste d'emménager ici. C'est pour quelle occasion exactement ?",
+          "text": "Salut ! Merci pour l'invitation — c'est vraiment gentil de ta part. C'est pour quelle occasion exactement — un anniversaire ou une pendaison de crémaillère ?",
           "memory_number": 11,
           "memory_section": 13
         },
@@ -109,24 +109,9 @@
           "memory_section": 4
         },
         {
-          "text": "Une autre chose m'intéresse : ça va durer jusqu'à quelle heure environ ? C'est une soirée qui finit tard ?",
+          "text": "Ça va durer jusqu'à quelle heure environ ? C'est une soirée qui finit tard ?",
           "memory_number": 11,
           "memory_section": 4
-        },
-        {
-          "text": "Est-ce que je dois apporter un cadeau ? Est-ce la coutume ici au Québec — et si oui, tu aurais des suggestions ?",
-          "memory_number": 11,
-          "memory_section": 8
-        },
-        {
-          "text": "Parlons du budget — il y a un montant habituel pour ce genre de cadeau ou c'est vraiment selon nos moyens ?",
-          "memory_number": 11,
-          "memory_section": 3
-        },
-        {
-          "text": "Justement, à ce propos, est-ce que je peux apporter quelque chose à manger ou à boire plutôt qu'un cadeau ?",
-          "memory_number": 11,
-          "memory_section": 9
         },
         {
           "text": "Ça se passe où exactement — chez quelqu'un ou dans un lieu loué ? C'est facilement accessible en transports en commun ?",
@@ -139,7 +124,7 @@
           "memory_section": 7
         },
         {
-          "text": "Autre point important : est-ce que je vais connaître d'autres invités ou est-ce que je serai la seule nouvelle personne ?",
+          "text": "Est-ce que je vais connaître d'autres invités ou est-ce que je serai la seule nouvelle personne ?",
           "memory_number": 11,
           "memory_section": 7
         },
@@ -149,12 +134,27 @@
           "memory_section": 10
         },
         {
+          "text": "Est-ce que je dois apporter un cadeau ? Est-ce la coutume ici au Québec — et si oui, tu aurais des suggestions ?",
+          "memory_number": 11,
+          "memory_section": 8
+        },
+        {
+          "text": "Parlons du budget — il y a un montant habituel pour ce genre de cadeau ou c'est vraiment selon nos moyens ?",
+          "memory_number": 11,
+          "memory_section": 3
+        },
+        {
+          "text": "Est-ce que je peux apporter quelque chose à manger ou à boire plutôt qu'un cadeau ?",
+          "memory_number": 11,
+          "memory_section": 9
+        },
+        {
           "text": "Comment se passe la nourriture — c'est un buffet, un repas assis ou un cocktail ? Il y aura de l'alcool ?",
           "memory_number": 11,
           "memory_section": 9
         },
         {
-          "text": "D'ailleurs, y aura-t-il de la musique et de la danse ? Les gens seront sympas — ce sera facile de s'intégrer ?",
+          "text": "Y aura-t-il de la musique et de la danse ? Les gens seront sympas — ce sera facile de s'intégrer ?",
           "memory_number": 11,
           "memory_section": 10
         },
@@ -164,7 +164,7 @@
           "memory_section": 8
         },
         {
-          "text": "Merci pour toutes ces infos — je pense que je suis prêt(e) maintenant, si j'ai d'autres questions, je peux te solliciter ?",
+          "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux te solliciter ?",
           "memory_number": 11,
           "memory_section": 13
         }

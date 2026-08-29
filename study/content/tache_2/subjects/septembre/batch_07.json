@@ -12,59 +12,49 @@
       "prompt": "Mon médecin étant en congé, je vous réponds depuis son secrétariat ; vous cherchez à en savoir plus sur son remplaçant : son nom, ses horaires et la durée de son intervention.",
       "questions": [
         {
-          "text": "Bonjour ! J'ai appris qu'un médecin remplaçant intervenait au secrétariat — vous pourriez m'expliquer comment ça fonctionne ?",
-          "memory_number": 3,
-          "memory_section": 13
+          "text": "Bonjour ! J'appelle au sujet de mon médecin de famille — j'ai appris qu'il était absent. C'est bien un(e) autre médecin qui le remplace en ce moment ?"
         },
         {
-          "text": "Ce remplacement va durer combien de temps ?",
-          "memory_number": 3,
-          "memory_section": 4
+          "text": "Comment s'appelle le médecin remplaçant ?"
         },
         {
-          "text": "Une autre chose m'intéresse : pourquoi le médecin habituel est-il absent ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Jusqu'à quand mon médecin habituel est-il absent — le remplacement dure combien de temps ?"
         },
         {
-          "text": "Est-ce que je peux prendre rendez-vous avec le remplaçant de la même façon qu'avant ?",
-          "memory_number": 3,
-          "memory_section": 9
+          "text": "Quels sont les horaires de consultation du remplaçant ?"
         },
         {
-          "text": "Justement, à ce propos, les horaires de consultation restent les mêmes ?",
-          "memory_number": 3,
-          "memory_section": 4
+          "text": "Il ou elle consulte tous les jours, y compris en fin de journée ou le week-end ?"
         },
         {
-          "text": "Est-ce qu'il consulte tous les jours de la semaine ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Est-ce que je peux prendre rendez-vous avec lui ou elle dès maintenant ?"
         },
         {
-          "text": "Autre point important : comment prendre rendez-vous — par téléphone ou en ligne ?",
-          "memory_number": 3,
-          "memory_section": 9
+          "text": "Comment prend-on rendez-vous — par téléphone ou en ligne ?"
         },
         {
-          "text": "Est-ce que mon dossier médical sera bien transmis à ce remplaçant ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Quel est le délai pour obtenir un rendez-vous en ce moment ?"
         },
         {
-          "text": "D'ailleurs, en cas d'urgence, qui puis-je contacter en attendant le retour du médecin habituel ?",
-          "memory_number": 3,
-          "memory_section": 13
+          "text": "Le cabinet reste-t-il au même endroit, ou les consultations ont lieu ailleurs ?"
         },
         {
-          "text": "Est-ce que les tarifs des consultations restent les mêmes ?",
-          "memory_number": 3,
-          "memory_section": 3
+          "text": "Est-ce que le remplaçant a accès à mon dossier médical et à mes antécédents ?"
         },
         {
-          "text": "Pour finir, je crois que je vais prendre rendez-vous avec lui — vous pouvez me donner un créneau cette semaine ?",
-          "memory_number": 3,
-          "memory_section": 13
+          "text": "Faut-il apporter des documents particuliers pour la première consultation ?"
+        },
+        {
+          "text": "Il ou elle peut renouveler mes ordonnances habituelles ?"
+        },
+        {
+          "text": "Les tarifs de consultation restent-ils les mêmes que d'habitude ?"
+        },
+        {
+          "text": "En cas d'urgence pendant l'absence de mon médecin, qui dois-je contacter ?"
+        },
+        {
+          "text": "Merci pour ces informations — si j'ai d'autres questions, je peux vous rappeler ?"
         }
       ]
     },
@@ -74,59 +64,51 @@
       "prompt": "Je viens de décrocher un poste dans une société de la région de Toronto ; curieux/curieuse, vous me questionnez sur ce nouvel emploi — les collègues, les locaux, les avantages, les activités.",
       "questions": [
         {
-          "text": "Salut ! J'ai appris que tu avais un nouvel emploi à Toronto — tu peux m'en dire plus ?",
+          "text": "Salut ! J'ai appris que tu venais d'être embauché(e) dans une entreprise près de Toronto — félicitations ! Ça se passe comment ?"
+        },
+        {
+          "text": "C'est quel type d'entreprise, et tu y fais quoi exactement ?"
+        },
+        {
+          "text": "Tu as déjà commencé, ou tu attaques bientôt ?"
+        },
+        {
+          "text": "Tu as dû déménager à Toronto pour ce poste, ou tu peux faire du télétravail ?"
+        },
+        {
+          "text": "Et tes collègues, ils sont comment — ils t'ont bien accueilli(e) ?",
           "memory_number": 4,
-          "memory_section": 13
+          "memory_section": 7
         },
         {
-          "text": "C'est quel genre de poste ?",
-          "memory_number": 4,
-          "memory_section": 2
+          "text": "Il y a une bonne ambiance dans l'équipe ?"
         },
         {
-          "text": "Une autre chose m'intéresse : tu as dû déménager pour ce travail ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Comment sont les locaux — c'est grand, moderne, bien situé ?"
         },
         {
-          "text": "Comment ça se passe pour t'installer là-bas ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Le trajet jusqu'au bureau, c'est pratique depuis chez toi ?"
         },
         {
-          "text": "Justement, à ce propos, les conditions sont bonnes — le salaire, les horaires ?",
-          "memory_number": 4,
-          "memory_section": 3
+          "text": "Tu travailles combien d'heures par semaine, et les horaires sont souples ?"
         },
         {
-          "text": "Comment se passe l'intégration dans la nouvelle équipe ?",
-          "memory_number": 4,
-          "memory_section": 11
+          "text": "Il y a des avantages intéressants — assurance, primes, jours de congé, tickets resto ?"
         },
         {
-          "text": "Autre point important : c'est loin de chez toi, tu dois faire beaucoup de trajet ?",
-          "memory_number": 4,
-          "memory_section": 5
+          "text": "L'entreprise organise des activités ou des sorties pour souder les équipes ?"
         },
         {
-          "text": "Tu es content de ce changement, jusqu'à présent ?",
-          "memory_number": 4,
-          "memory_section": 11
+          "text": "Tu as eu droit à une formation ou un accompagnement pour bien démarrer ?"
         },
         {
-          "text": "D'ailleurs, il y a de bonnes perspectives d'évolution dans cette entreprise ?",
-          "memory_number": 4,
-          "memory_section": 11
+          "text": "Qu'est-ce qui te plaît le plus dans ce nouveau poste pour l'instant ?"
         },
         {
-          "text": "Tu comptes rester longtemps à Toronto, ou c'est temporaire ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Tu penses pouvoir évoluer et apprendre beaucoup là-bas ?"
         },
         {
-          "text": "Pour finir, je crois que je suis content pour toi — tu reviens nous voir bientôt ?",
-          "memory_number": 4,
-          "memory_section": 13
+          "text": "En tout cas, tu es content(e) de ce nouveau départ ?"
         }
       ]
     },
@@ -136,59 +118,49 @@
       "prompt": "Blogueur/blogueuse de longue date, je vous éclaire : vous préparez un blog pour votre futur voyage au Canada et vous m'interrogez sur les rubriques, la cadence de publication et le type de contenus.",
       "questions": [
         {
-          "text": "Salut ! Tu m'as dit que tu voulais créer un blog de voyage — tu pourrais m'en dire un peu plus ?",
-          "memory_number": 7,
-          "memory_section": 13
+          "text": "Salut ! Je vais bientôt voyager et j'aimerais créer un blog pour raconter tout ça — toi qui en tiens un, tu pourrais me conseiller ?"
         },
         {
-          "text": "Ça parlerait de quoi exactement — tes voyages personnels, des conseils pratiques ?",
-          "memory_number": 7,
-          "memory_section": 11
+          "text": "Par où on commence quand on n'y connaît rien ?"
         },
         {
-          "text": "Une autre chose m'intéresse : tu comptes publier quel genre de contenu — des articles, des photos, des vidéos ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Quelle plateforme tu me conseilles pour créer facilement un blog ?"
         },
         {
-          "text": "Quelle plateforme tu comptes utiliser pour créer ce blog ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "C'est gratuit, ou il faut payer pour un nom de domaine et l'hébergement ?"
         },
         {
-          "text": "Justement, à ce propos, ça coûte cher à mettre en place, ce genre de site ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Comment on choisit un bon nom de blog, accrocheur et facile à retenir ?"
         },
         {
-          "text": "À quelle fréquence tu penses publier de nouveaux articles ?",
-          "memory_number": 7,
-          "memory_section": 4
+          "text": "Quelles rubriques je devrais prévoir pour un blog de voyage ?"
         },
         {
-          "text": "Autre point important : comment tu comptes faire connaître ton blog ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Quels types de contenus marchent le mieux — des récits, des photos, des conseils pratiques, des vidéos ?"
         },
         {
-          "text": "Tu penses en tirer un revenu un jour, ou c'est juste pour le plaisir ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "À quel rythme il vaut mieux publier pour garder les lecteurs sans se surcharger ?"
         },
         {
-          "text": "D'ailleurs, combien de temps ça te prend pour préparer un article ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Comment on écrit un article intéressant — tu as des astuces pour capter l'attention ?"
         },
         {
-          "text": "Tu as déjà une idée du premier voyage dont tu vas parler ?",
-          "memory_number": 7,
-          "memory_section": 11
+          "text": "Pour les photos, tu as des conseils — quel matériel, comment les retoucher ?"
         },
         {
-          "text": "Pour finir, je crois que c'est un beau projet — tu me préviendras quand ce sera en ligne ?",
-          "memory_number": 7,
-          "memory_section": 13
+          "text": "Comment faire connaître le blog pour que les gens le trouvent et le partagent ?"
+        },
+        {
+          "text": "Est-ce qu'on peut gagner un peu d'argent avec un blog de voyage ?"
+        },
+        {
+          "text": "Comment tu trouves le temps d'écrire quand tu es en plein voyage ?"
+        },
+        {
+          "text": "Il y a des erreurs de débutant à éviter absolument ?"
+        },
+        {
+          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien me lancer, ce serait lequel ?"
         }
       ]
     },
@@ -198,59 +170,51 @@
       "prompt": "Pour l'anniversaire de votre conjoint(e), vous imaginez un voyage au Canada ; en ami(e), je vous aiguille sur les idées, le budget et la destination.",
       "questions": [
         {
-          "text": "Salut ! Je prépare un voyage d'anniversaire au Canada et j'aimerais tes conseils — tu pourrais m'aider ?",
-          "memory_number": 7,
-          "memory_section": 12
+          "text": "Salut ! Je voudrais organiser un voyage au Canada pour fêter l'anniversaire de mon conjoint ou ma conjointe — toi qui connais, tu aurais des idées ?"
         },
         {
-          "text": "Tu penses que c'est une bonne destination pour fêter un anniversaire ?",
-          "memory_number": 7,
-          "memory_section": 11
+          "text": "Quelles destinations tu me conseillerais pour une occasion spéciale comme ça ?"
         },
         {
-          "text": "Une autre chose m'intéresse : quelle période de l'année tu me conseilles pour ce genre de voyage ?",
+          "text": "C'est quoi la meilleure période pour y aller — question météo et affluence ?"
+        },
+        {
+          "text": "Combien de temps il vaut mieux prévoir pour bien en profiter ?"
+        },
+        {
+          "text": "Côté budget, à peu près combien ça peut coûter pour deux ?"
+        },
+        {
+          "text": "Comment trouver des vols pas trop chers — tu as des astuces ?"
+        },
+        {
+          "text": "Pour se loger, tu conseilles plutôt l'hôtel, un appartement, ou autre chose ?"
+        },
+        {
+          "text": "Qu'est-ce qu'il ne faut absolument pas manquer là-bas ?"
+        },
+        {
+          "text": "Tu aurais une idée romantique ou originale pour marquer le coup le jour de l'anniversaire ?"
+        },
+        {
+          "text": "Quelles activités on peut faire à deux — nature, ville, gastronomie ?"
+        },
+        {
+          "text": "Il faut des papiers particuliers pour voyager au Canada — visa, autorisation ?"
+        },
+        {
+          "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
           "memory_number": 7,
           "memory_section": 8
         },
         {
-          "text": "Combien de temps il faudrait prévoir pour bien en profiter ?",
-          "memory_number": 7,
-          "memory_section": 4
+          "text": "Comment on se déplace sur place — voiture de location, train ?"
         },
         {
-          "text": "Justement, à ce propos, quelles villes ou régions tu me conseilles de visiter ?",
-          "memory_number": 7,
-          "memory_section": 11
+          "text": "Tu as des adresses ou des bons plans à me recommander ?"
         },
         {
-          "text": "Où est-ce qu'on pourrait loger pour un séjour un peu spécial ?",
-          "memory_number": 7,
-          "memory_section": 9
-        },
-        {
-          "text": "Autre point important : ça coûterait combien à peu près pour un voyage comme celui-là ?",
-          "memory_number": 7,
-          "memory_section": 3
-        },
-        {
-          "text": "Il y a des activités spéciales à prévoir pour marquer l'occasion ?",
-          "memory_number": 7,
-          "memory_section": 11
-        },
-        {
-          "text": "D'ailleurs, tu connais de bons restaurants pour fêter ça sur place ?",
-          "memory_number": null,
-          "memory_section": null
-        },
-        {
-          "text": "Il faut réserver longtemps à l'avance pour ce genre de voyage ?",
-          "memory_number": 7,
-          "memory_section": 9
-        },
-        {
-          "text": "Pour finir, je crois que ça va être un très beau voyage — tu aurais un dernier conseil à me donner ?",
-          "memory_number": 7,
-          "memory_section": 13
+          "text": "Pour finir — si tu ne devais me conseiller qu'une seule chose pour que ce soit inoubliable, ce serait laquelle ?"
         }
       ]
     },

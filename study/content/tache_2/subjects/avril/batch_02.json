@@ -12,7 +12,7 @@
       "prompt": "Je suis agent(e) de voyage. Vous souhaitez partir en vacances au Canada. Vous me demandez des renseignements (tarifs, lieux, type de séjour, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! Je souhaite organiser un séjour au Canada pour mes prochaines vacances — quelles destinations me conseilleriez-vous ?",
+          "text": "Bonjour ! Je souhaite organiser un séjour au Canada — quelles destinations recommandez-vous ?",
           "memory_number": 7,
           "memory_section": 11
         },
@@ -22,7 +22,7 @@
           "memory_section": 2
         },
         {
-          "text": "Une autre chose m'intéresse : c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -37,7 +37,7 @@
           "memory_section": 8
         },
         {
-          "text": "Justement, à ce propos, combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
+          "text": "Combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
           "memory_number": 7,
           "memory_section": 4
         },
@@ -57,7 +57,7 @@
           "memory_section": 9
         },
         {
-          "text": "Autre point important : parlons du budget — combien est-ce que ça coûte approximativement au total par personne ?",
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total par personne ?",
           "memory_number": 7,
           "memory_section": 3
         },
@@ -72,7 +72,7 @@
           "memory_section": 3
         },
         {
-          "text": "D'ailleurs, est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
           "memory_number": 7,
           "memory_section": 3
         },
@@ -82,7 +82,7 @@
           "memory_section": 11
         },
         {
-          "text": "Pour finir, je crois avoir toutes les informations — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
           "memory_number": 7,
           "memory_section": 13
         }
@@ -104,7 +104,7 @@
           "memory_section": 2
         },
         {
-          "text": "Une autre chose m'intéresse : les pistes cyclables sont-elles sécurisées et bien séparées de la circulation ?",
+          "text": "Les pistes cyclables sont-elles sécurisées et bien séparées de la circulation ?",
           "memory_number": 6,
           "memory_section": 5
         },
@@ -119,7 +119,7 @@
           "memory_section": 13
         },
         {
-          "text": "Justement, à ce propos, comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "text": "Comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -139,7 +139,7 @@
           "memory_section": 8
         },
         {
-          "text": "Autre point important : comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
+          "text": "Comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
           "memory_number": 6,
           "memory_section": 8
         },
@@ -154,7 +154,7 @@
           "memory_section": 8
         },
         {
-          "text": "D'ailleurs, où est-ce qu'on peut faire réparer ou entretenir son vélo dans le coin ?",
+          "text": "Où est-ce qu'on peut faire réparer ou entretenir son vélo dans le coin ?",
           "memory_number": 6,
           "memory_section": 9
         },
@@ -164,7 +164,7 @@
           "memory_section": 11
         },
         {
-          "text": "Pour finir, je crois que je vais m'y mettre — si tu ne devais me donner qu'un seul conseil pour bien rouler à Ottawa, ce serait lequel ?",
+          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien rouler à Ottawa, ce serait lequel ?",
           "memory_number": 6,
           "memory_section": 13
         }
@@ -186,7 +186,7 @@
           "memory_section": 7
         },
         {
-          "text": "Une autre chose m'intéresse : de quoi as-tu besoin exactement — quelqu'un de régulier ou seulement de temps en temps ?",
+          "text": "De quoi as-tu besoin exactement — quelqu'un de régulier ou seulement de temps en temps ?",
           "memory_number": 3,
           "memory_section": 11
         },
@@ -201,7 +201,7 @@
           "memory_section": 4
         },
         {
-          "text": "Justement, à ce propos, quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
+          "text": "Quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
           "memory_number": 3,
           "memory_section": 2
         },
@@ -221,7 +221,7 @@
           "memory_section": 3
         },
         {
-          "text": "Autre point important : est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
+          "text": "Est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
           "memory_number": 3,
           "memory_section": 8
         },
@@ -236,7 +236,7 @@
           "memory_section": 8
         },
         {
-          "text": "D'ailleurs, en cas d'urgence, comment est-ce qu'on peut te joindre pendant ton absence ?",
+          "text": "En cas d'urgence, comment est-ce qu'on peut te joindre pendant ton absence ?",
           "memory_number": 3,
           "memory_section": 13
         },
@@ -246,7 +246,7 @@
           "memory_section": 4
         },
         {
-          "text": "D'accord, je vais demander autour de moi et je te dis si je connais quelqu'un de sérieux, ça te va ?",
+          "text": "D'accord — je vais demander autour de moi et je te dis si je connais quelqu'un de sérieux, ça te va ?",
           "memory_number": 3,
           "memory_section": 13
         }
@@ -268,7 +268,7 @@
           "memory_section": 3
         },
         {
-          "text": "Une autre chose m'intéresse : à quelle heure sont servis le petit-déjeuner et les repas — et y a-t-il un restaurant sur place ?",
+          "text": "À quelle heure sont servis le petit-déjeuner et les repas — et y a-t-il un restaurant sur place ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -283,7 +283,7 @@
           "memory_section": 9
         },
         {
-          "text": "Justement, à ce propos, y a-t-il une connexion Internet dans les chambres — c'est gratuit ou payant ?",
+          "text": "Y a-t-il une connexion Internet dans les chambres — c'est gratuit ou payant ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -303,7 +303,7 @@
           "memory_section": 12
         },
         {
-          "text": "Autre point important : est-il possible de laisser mes bagages à la réception après le départ ?",
+          "text": "Est-il possible de laisser mes bagages à la réception après le départ ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -318,7 +318,7 @@
           "memory_section": 9
         },
         {
-          "text": "D'ailleurs, y a-t-il des services payants en supplément dont je devrais connaître les tarifs ?",
+          "text": "Y a-t-il des services payants en supplément dont je devrais connaître les tarifs ?",
           "memory_number": 7,
           "memory_section": 3
         },
@@ -328,7 +328,7 @@
           "memory_section": 13
         },
         {
-          "text": "Pour finir, je crois que j'ai fait le tour — si vous ne deviez me recommander qu'un seul service de l'hôtel, ce serait lequel ?",
+          "text": "Pour finir — si vous ne deviez me recommander qu'un seul service de l'hôtel, ce serait lequel ?",
           "memory_number": 7,
           "memory_section": 13
         }
@@ -350,7 +350,7 @@
           "memory_section": 2
         },
         {
-          "text": "Une autre chose m'intéresse : tu pars d'où exactement, et est-ce que tu peux passer me prendre quelque part sur ton chemin ?",
+          "text": "Tu pars d'où exactement, et est-ce que tu peux passer me prendre quelque part sur ton chemin ?",
           "memory_number": 6,
           "memory_section": 13
         },
@@ -365,7 +365,7 @@
           "memory_section": 4
         },
         {
-          "text": "Justement, à ce propos, si un jour je ne peux pas venir, comment est-ce qu'on s'organise — il faut prévenir à l'avance ?",
+          "text": "Si un jour je ne peux pas venir, comment est-ce qu'on s'organise — il faut prévenir à l'avance ?",
           "memory_number": 6,
           "memory_section": 12
         },
@@ -385,7 +385,7 @@
           "memory_section": 3
         },
         {
-          "text": "Autre point important : combien de personnes est-ce que tu prends en général — il reste de la place ?",
+          "text": "Combien de personnes est-ce que tu prends en général — il reste de la place ?",
           "memory_number": 6,
           "memory_section": 7
         },
@@ -400,12 +400,17 @@
           "memory_section": 8
         },
         {
-          "text": "D'ailleurs, et si tu es absent ou en vacances, tu connais d'autres personnes qui font le même trajet ?",
+          "text": "Est-ce qu'on peut discuter et écouter de la musique, ou tu préfères le calme le matin ?",
+          "memory_number": 6,
+          "memory_section": 10
+        },
+        {
+          "text": "Et si tu es absent ou en vacances, tu connais d'autres personnes qui font le même trajet ?",
           "memory_number": 6,
           "memory_section": 12
         },
         {
-          "text": "Pour finir, je crois que ça me convient parfaitement — qu'est-ce qu'il faut savoir pour que le covoiturage se passe bien avec toi ?",
+          "text": "Pour finir — qu'est-ce qu'il faut savoir pour que le covoiturage se passe bien avec toi ?",
           "memory_number": 6,
           "memory_section": 13
         }

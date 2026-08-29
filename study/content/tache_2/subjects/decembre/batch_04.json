@@ -134,51 +134,51 @@
       "prompt": "Je suis un ami francophone. Il vous est demandé d'écrire un article sur une ville pour un magazine culturel. Vous cherchez des idées. Vous m'interrogez sur les villes que j'aime (activités, architecture, transports, etc.).",
       "questions": [
         {
-          "text": "Salut ! On m'a demandé d'écrire un article sur une ville pour un magazine culturel, et j'aimerais partir d'une ville que tu aimes vraiment. Tu peux m'aider ?"
+          "text": "Salut ! On m'a demandé d'écrire un article sur une ville pour un magazine culturel — tu pourrais m'aider à trouver de bonnes idées ?"
         },
         {
-          "text": "Quelle ville te vient tout de suite à l'esprit, et qu'est-ce qui t'y attache autant ?"
+          "text": "Quelle ville tu aimes le plus, et pourquoi ?"
         },
         {
-          "text": "Si je dois la présenter dans mon article, quel quartier faudrait-il décrire en premier ?"
+          "text": "Qu'est-ce qui la rend intéressante sur le plan architectural — bâtiments historiques, style particulier, monuments ?"
         },
         {
-          "text": "Qu'est-ce qui rend cette ville intéressante sur le plan architectural ou patrimonial ?"
+          "text": "Qu'est-ce qu'on peut y faire de vraiment intéressant — plutôt des activités culturelles, de la nature, ou une vraie vie nocturne ?"
         },
         {
-          "text": "Et côté culture, qu'est-ce qu'on peut y faire de marquant : musées, concerts, librairies, festivals ?"
+          "text": "Les transports y sont faciles et efficaces, ou c'est une ville où on passe beaucoup de temps à se déplacer ?"
         },
         {
-          "text": "Y a-t-il un lieu moins connu des touristes qui résume pourtant très bien l'esprit de la ville ?"
+          "text": "S'il fallait explorer un quartier en priorité, tu me conseillerais lequel ?"
         },
         {
-          "text": "D'ailleurs, pour se déplacer sur place, les transports sont-ils simples et agréables à utiliser ?",
+          "text": "Il y a des endroits plus confidentiels que les touristes ratent souvent ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Faut-il prévoir beaucoup de temps pour vraiment profiter de la ville sans courir partout ?"
+          "text": "Selon toi, quelle est la meilleure période de l'année pour la découvrir ?"
         },
         {
-          "text": "Si quelqu'un y va pour un court séjour, quelle ambiance trouvera-t-il : une ville calme, festive, créative ?"
+          "text": "La cuisine locale, elle est comment — il y a des spécialités à goûter absolument ?"
         },
         {
-          "text": "Autre point important : est-ce une ville qu'on peut apprécier même avec un budget raisonnable ?"
+          "text": "Les habitants sont plutôt accueillants avec les visiteurs ?"
         },
         {
-          "text": "Quelle est, selon toi, la meilleure période pour la découvrir ?"
+          "text": "Si on a un budget serré, on peut quand même bien profiter de la ville ?"
         },
         {
-          "text": "Et au niveau de la vie quotidienne, les habitants sont-ils plutôt accueillants avec les visiteurs ?"
+          "text": "S'il fallait choisir un lieu ou une activité qui résume vraiment cette ville, ce serait quoi ?"
         },
         {
-          "text": "Y a-t-il une spécialité culinaire ou un café emblématique qui donnerait de la couleur à mon article ?"
+          "text": "C'est une ville où on peut se promener seul(e) assez facilement et en sécurité ?"
         },
         {
-          "text": "Sur un autre sujet, si je devais résumer cette ville par une seule activité ou un seul lieu, lequel choisirais-tu ?"
+          "text": "Il faut combien de temps pour vraiment découvrir la ville sans tout faire en vitesse ?"
         },
         {
-          "text": "Pour finir, quelle ville tu me recommanderais si je veux écrire un article à la fois vivant et original ?"
+          "text": "Pour finir — s'il y a une seule ville que tu me recommanderais pour cet article, ce serait laquelle ?"
         }
       ]
     },
@@ -248,7 +248,7 @@
       "prompt": "Je suis votre professeur de français. Vous allez passer le prochain Nouvel an au Canada. Vous vous demandez comment les Canadiens célèbrent cette fête. Vous me posez des questions pour vous faire une idée (lieux, activités, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! Je vais passer le prochain Nouvel An au Canada pour la première fois et j'aimerais comprendre comment on le célèbre ici — pourriez-vous m'en parler ?"
+          "text": "Bonjour ! Je vais passer le prochain Nouvel An au Canada et j'aimerais mieux comprendre comment on le célèbre — pourriez-vous m'en parler ?"
         },
         {
           "text": "De manière générale, comment les Canadiens fêtent-ils le réveillon du 31 décembre ?"
@@ -257,18 +257,7 @@
           "text": "Quels sont les lieux les plus populaires pour passer la soirée — centre-ville, événements en plein air, bars, restaurants ?"
         },
         {
-          "text": "Une autre chose m'intéresse : y a-t-il habituellement de grands événements publics ou des feux d'artifice ?"
-        },
-        {
-          "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
-          "memory_number": 11,
-          "memory_section": 8
-        },
-        {
-          "text": "Si on est invité à une fête privée pour le réveillon, qu'est-ce qu'il faut savoir — tenue, cadeaux, horaires habituels ?"
-        },
-        {
-          "text": "Autre point important : y a-t-il des plats ou des habitudes culinaires typiques pour cette soirée ?"
+          "text": "Y a-t-il habituellement de grands événements publics ou des feux d'artifice ?"
         },
         {
           "text": "À quel moment de la soirée l'ambiance est-elle la plus forte en général ?"
@@ -277,7 +266,21 @@
           "text": "Les familles et les jeunes célèbrent-ils cette fête de la même façon, ou pas vraiment ?"
         },
         {
-          "text": "D'ailleurs, le 1er janvier est-il un jour férié au Canada, et que font généralement les gens ce jour-là ?"
+          "text": "Y a-t-il des plats ou des habitudes culinaires typiques pour cette soirée ?"
+        },
+        {
+          "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "memory_number": 11,
+          "memory_section": 8
+        },
+        {
+          "text": "Le 1er janvier est-il un jour férié au Canada, et que font généralement les gens ce jour-là ?"
+        },
+        {
+          "text": "Y a-t-il aussi des activités ou des festivals d'hiver autour du Nouvel An ?"
+        },
+        {
+          "text": "Est-ce qu'il y a des traditions canadiennes spécifiques que je devrais connaître ?"
         },
         {
           "text": "Est-ce que la manière de célébrer au Québec est différente du reste du Canada ?"
@@ -286,10 +289,7 @@
           "text": "Y a-t-il des régions du Canada où les festivités du Nouvel An sont particulièrement réputées ?"
         },
         {
-          "text": "Sur un autre sujet, y a-t-il aussi des activités ou des festivals d'hiver autour du Nouvel An ?"
-        },
-        {
-          "text": "Est-ce qu'il y a des traditions canadiennes spécifiques que je devrais connaître ?"
+          "text": "Si on est invité à une fête privée pour le réveillon, qu'est-ce qu'il faut savoir — tenue, cadeaux, horaires habituels ?"
         },
         {
           "text": "Pour finir — s'il y a une seule chose à ne pas manquer le 31 décembre au Canada, ce serait laquelle ?"

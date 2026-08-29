@@ -12,7 +12,7 @@
       "prompt": "Je suis chef cuisinier(ère) à domicile. Vous organisez un repas de famille et vous me posez des questions sur mes prestations (menus proposés, matériel nécessaire, tarifs, etc.).",
       "questions": [
         {
-          "text": "Bonjour, j'organise un repas de famille chez moi et j'aimerais faire appel à un chef à domicile — comment se passe une prestation avec vous ?",
+          "text": "Bonjour, j'organise un repas de famille et j'aimerais faire appel à vos services — comment cela fonctionne-t-il ?",
           "memory_number": 11,
           "memory_section": 13
         },
@@ -22,19 +22,14 @@
           "memory_section": 2
         },
         {
-          "text": "Pour combien de convives pouvez-vous cuisiner au maximum ?",
-          "memory_number": 11,
-          "memory_section": 7
-        },
-        {
           "text": "Pouvez-vous adapter le menu en cas d'allergies ou de régime particulier chez certains invités ?",
           "memory_number": 11,
           "memory_section": 8
         },
         {
-          "text": "Une autre chose m'intéresse : peut-on choisir le menu ensemble à l'avance, ou vous proposez directement une sélection ?",
+          "text": "Pour combien de convives pouvez-vous cuisiner au maximum ?",
           "memory_number": 11,
-          "memory_section": 6
+          "memory_section": 7
         },
         {
           "text": "Avez-vous besoin d'apporter votre propre matériel, ou vous utilisez la cuisine sur place ?",
@@ -47,7 +42,7 @@
           "memory_section": 4
         },
         {
-          "text": "Autre point important : comment se calcule le tarif — par personne, ou un forfait global pour la soirée ?",
+          "text": "Comment se calcule le tarif — par personne, ou un forfait global pour la soirée ?",
           "memory_number": 11,
           "memory_section": 3
         },
@@ -67,7 +62,12 @@
           "memory_section": 9
         },
         {
-          "text": "D'ailleurs, combien de temps à l'avance faut-il vous réserver pour un repas comme celui-là ?",
+          "text": "Combien de temps à l'avance faut-il vous réserver pour un repas comme celui-là ?",
+          "memory_number": 11,
+          "memory_section": 6
+        },
+        {
+          "text": "Peut-on choisir le menu ensemble à l'avance, ou vous proposez directement une sélection ?",
           "memory_number": 11,
           "memory_section": 6
         },
@@ -176,7 +176,7 @@
       "prompt": "Je travaille à l'accueil d'une école de musique. Vous souhaitez vous inscrire à un cours et vous me posez des questions sur l'école (cours disponibles, horaires, prix, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! J'aimerais prendre des cours dans votre école de musique, mais j'hésite encore sur la formule. Vous pourriez me guider ?",
+          "text": "Bonjour, je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -186,67 +186,67 @@
           "memory_section": 2
         },
         {
-          "text": "Les cours sont-ils individuels ou en petit groupe ?",
+          "text": "Les cours sont-ils individuels, ou plutôt en petit groupe ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Est-ce qu'un débutant complet est accepté ?",
+          "text": "Ça s'adresse à quel niveau — faut-il déjà avoir des bases, ou les débutants sont acceptés ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Comment déterminez-vous le niveau de départ de l'élève ?",
+          "text": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Les cours ont lieu à quelle fréquence ?",
+          "text": "Les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
           "memory_number": 10,
           "memory_section": 7
         },
         {
-          "text": "Et chaque séance dure combien de temps ?",
+          "text": "Faut-il apporter son propre instrument, ou l'école peut-elle en fournir un pour commencer ?",
           "memory_number": 10,
           "memory_section": 8
         },
         {
-          "text": "Les professeurs sont-ils spécialisés selon l'instrument ?",
+          "text": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Autre point important : faut-il posséder son propre instrument dès le départ ?",
+          "text": "Y a-t-il des frais supplémentaires, comme les partitions ou le matériel ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "L'école peut-elle prêter ou louer un instrument pour commencer ?",
+          "text": "Est-ce qu'on peut essayer avec un cours d'essai avant de s'engager ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "D'ailleurs, comment fonctionnent les tarifs ?",
+          "text": "Si je rate un cours, est-il possible de le rattraper à un autre moment ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Y a-t-il des frais supplémentaires pour les partitions ou le matériel ?",
+          "text": "Organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Peut-on faire un cours d'essai avant de s'inscrire ?",
+          "text": "Comment suivez-vous la progression des élèves — il y a des évaluations régulières ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Comment se passe l'inscription, et si on manque un cours, peut-on le rattraper ?",
+          "text": "L'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
           "memory_number": 10,
           "memory_section": 5
         },
         {
-          "text": "Pour finir, quel instrument vous me conseilleriez si je veux commencer sans difficulté ?",
+          "text": "Pour finir — pour quelqu'un qui débute, quel instrument me conseilleriez-vous ?",
           "memory_number": 10,
           "memory_section": 11
         }

@@ -12,57 +12,77 @@
       "prompt": "Je suis recruteur/recruteuse dans une entreprise. Vous avez un entretien d'embauche prévu chez nous et vous me posez des questions pour bien vous y préparer (heure, durée, déroulement, etc.).",
       "questions": [
         {
-          "text": "Salut ! Je vais bientôt passer un entretien d'embauche et j'aimerais bien tes conseils pour bien me préparer — tu pourrais m'aider ?",
+          "text": "Bonjour, merci pour cette invitation à l'entretien — pourriez-vous d'abord me confirmer la date et l'heure exactes ?",
           "memory_number": 4,
           "memory_section": 13
         },
         {
-          "text": "C'est pour quel type de poste exactement ?",
+          "text": "Et combien de temps dois-je prévoir pour cet entretien ?",
+          "memory_number": 4,
+          "memory_section": 4
+        },
+        {
+          "text": "Ça se passe dans vos locaux, ou l'entretien aura lieu en visioconférence ?",
+          "memory_number": 4,
+          "memory_section": 13
+        },
+        {
+          "text": "Qui sera présent lors de l'entretien — vous seul(e), ou d'autres membres de l'équipe aussi ?",
+          "memory_number": 4,
+          "memory_section": 7
+        },
+        {
+          "text": "Quel est le déroulement prévu — plutôt une discussion générale, ou y a-t-il des tests à passer ?",
           "memory_number": 4,
           "memory_section": 2
         },
         {
-          "text": "Une autre chose m'intéresse : comment je devrais me présenter au début de l'entretien ?",
+          "text": "Faut-il préparer une présentation, ou apporter des documents particuliers ?",
           "memory_number": 4,
-          "memory_section": 11
+          "memory_section": 6
         },
         {
-          "text": "Quelles questions on me posera probablement pendant l'entretien ?",
-          "memory_number": 4,
-          "memory_section": 11
-        },
-        {
-          "text": "Justement, à ce propos, comment je devrais répondre si on me demande mes points faibles ?",
-          "memory_number": 4,
-          "memory_section": 11
-        },
-        {
-          "text": "Faut-il que je me renseigne sur l'entreprise avant d'y aller ?",
+          "text": "Y a-t-il une tenue vestimentaire particulière à respecter ?",
           "memory_number": 4,
           "memory_section": 8
         },
         {
-          "text": "Autre point important : comment je devrais m'habiller pour cet entretien ?",
+          "text": "Sur quels aspects du poste allez-vous surtout m'interroger ?",
           "memory_number": 4,
-          "memory_section": 8
+          "memory_section": 2
         },
         {
-          "text": "Quels documents je devrais apporter avec moi ?",
+          "text": "Comment puis-je me rendre sur place, et y a-t-il un parking disponible ?",
           "memory_number": 4,
-          "memory_section": 8
+          "memory_section": 5
         },
         {
-          "text": "D'ailleurs, est-ce que je dois préparer des questions à poser à la fin de l'entretien ?",
+          "text": "Si j'ai un empêchement de dernière minute, qui dois-je contacter pour reporter l'entretien ?",
           "memory_number": 4,
-          "memory_section": 11
+          "memory_section": 13
         },
         {
-          "text": "Comment je peux gérer mon stress avant et pendant l'entretien ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "Après l'entretien, y a-t-il d'autres étapes prévues dans le processus de recrutement ?",
+          "memory_number": 4,
+          "memory_section": 6
         },
         {
-          "text": "Pour finir, je crois que je vais bien me préparer — tu aurais un dernier conseil à me donner avant le grand jour ?",
+          "text": "Sous combien de temps puis-je espérer une réponse ?",
+          "memory_number": 4,
+          "memory_section": 4
+        },
+        {
+          "text": "Le poste propose-t-il des conditions salariales fixes, ou cela reste-t-il à discuter lors de l'entretien ?",
+          "memory_number": 4,
+          "memory_section": 3
+        },
+        {
+          "text": "Vous avez mentionné plusieurs étapes — vous pourriez m'en dire un peu plus ?",
+          "memory_number": 4,
+          "memory_section": 13
+        },
+        {
+          "text": "Pour finir — auriez-vous un conseil pour bien me préparer d'ici là ?",
           "memory_number": 4,
           "memory_section": 13
         }
@@ -84,7 +104,7 @@
           "memory_section": 2
         },
         {
-          "text": "Une autre chose m'intéresse : combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
+          "text": "Combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
           "memory_number": 7,
           "memory_section": 4
         },
@@ -99,7 +119,7 @@
           "memory_section": 8
         },
         {
-          "text": "Justement, à ce propos, il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
+          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -119,7 +139,7 @@
           "memory_section": 3
         },
         {
-          "text": "Autre point important : est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
           "memory_number": 7,
           "memory_section": 3
         },
@@ -134,7 +154,7 @@
           "memory_section": 6
         },
         {
-          "text": "D'ailleurs, est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
+          "text": "Est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
           "memory_number": 7,
           "memory_section": 6
         },
@@ -144,7 +164,7 @@
           "memory_section": 13
         },
         {
-          "text": "Pour finir, je crois que je vais me décider — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
           "memory_number": 7,
           "memory_section": 13
         }
@@ -166,7 +186,7 @@
           "memory_section": 2
         },
         {
-          "text": "Une autre chose m'intéresse : est-ce que le réseau couvre toute la ville ou seulement certaines zones ?",
+          "text": "Est-ce que le réseau couvre toute la ville ou seulement certaines zones ?",
           "memory_number": 6,
           "memory_section": 5
         },
@@ -181,7 +201,7 @@
           "memory_section": 6
         },
         {
-          "text": "Justement, à ce propos, y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -201,7 +221,7 @@
           "memory_section": 4
         },
         {
-          "text": "Autre point important : y a-t-il une application pour suivre les transports en temps réel ?",
+          "text": "Y a-t-il une application pour suivre les transports en temps réel ?",
           "memory_number": 6,
           "memory_section": 9
         },
@@ -221,7 +241,7 @@
           "memory_section": 9
         },
         {
-          "text": "Pour finir, je crois que j'ai tout ce qu'il me faut — si vous ne deviez me recommander qu'une seule chose pour bien utiliser les transports ici, ce serait laquelle ?",
+          "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose pour bien utiliser les transports ici, ce serait laquelle ?",
           "memory_number": 6,
           "memory_section": 13
         }
@@ -315,54 +335,79 @@
       "prompt": "Je suis votre ami(e). Vous avez déjà un billet de cinéma mais vous ne savez pas encore quel film choisir. Vous me posez des questions pour vous aider à décider (genre, durée, acteurs, etc.).",
       "questions": [
         {
-          "text": "Salut ! J'ai déjà un billet en main pour un film, mais je ne sais pas encore lequel choisir — tu aurais des idées à me conseiller ?",
-          "memory_number": 9,
-          "memory_section": 13
-        },
-        {
-          "text": "Qu'est-ce qu'il y a comme films à l'affiche en ce moment ?",
+          "text": "J'ai un billet de cinéma mais je ne sais pas encore quel film choisir — tu as une idée des films à l'affiche en ce moment ?",
           "memory_number": 9,
           "memory_section": 2
         },
         {
-          "text": "Une autre chose m'intéresse : tu as vu quelque chose récemment que tu as bien aimé ?",
+          "text": "Il y a plutôt beaucoup de choix, ou seulement quelques films intéressants ?",
+          "memory_number": 9,
+          "memory_section": 2
+        },
+        {
+          "text": "Quels genres sont proposés — plutôt des comédies, des films d'action, des drames ?",
+          "memory_number": 9,
+          "memory_section": 2
+        },
+        {
+          "text": "Il y en a un qui est particulièrement bien noté ou qui fait parler de lui en ce moment ?",
           "memory_number": 9,
           "memory_section": 11
         },
         {
-          "text": "C'est quel genre — comédie, action, drame ?",
-          "memory_number": null,
-          "memory_section": null
-        },
-        {
-          "text": "Justement, à ce propos, de quoi ça parle, sans trop m'en dire pour ne pas gâcher l'histoire ?",
-          "memory_number": 9,
-          "memory_section": 2
-        },
-        {
-          "text": "Ça dure combien de temps ?",
-          "memory_number": null,
-          "memory_section": null
-        },
-        {
-          "text": "Autre point important : il y a plusieurs séances dans la journée, ou seulement à certaines heures ?",
+          "text": "Il dure combien de temps environ ?",
           "memory_number": 9,
           "memory_section": 4
         },
         {
-          "text": "C'est adapté pour tout le monde, ou c'est plutôt pour un public particulier ?",
-          "memory_number": null,
-          "memory_section": null
+          "text": "De quoi ça parle, sans trop m'en dire pour ne pas gâcher l'histoire ?",
+          "memory_number": 9,
+          "memory_section": 2
         },
         {
-          "text": "D'ailleurs, tu penses que ça vaut vraiment le coup, d'après les critiques que tu as lues ?",
+          "text": "Qui joue dedans — il y a des acteurs que je connaîtrais peut-être ?",
           "memory_number": 9,
           "memory_section": 11
         },
         {
-          "text": "Pour finir, je crois que je vais me décider — tu me conseilles lequel en particulier ?",
+          "text": "C'est plutôt un film pour tout le monde, ou plus adapté à un public particulier ?",
           "memory_number": 9,
-          "memory_section": 13
+          "memory_section": 6
+        },
+        {
+          "text": "Il est proposé en version originale ou seulement en version doublée ?",
+          "memory_number": 9,
+          "memory_section": 2
+        },
+        {
+          "text": "Mon billet est valable pour n'importe quelle séance, ou seulement à certains horaires ?",
+          "memory_number": 9,
+          "memory_section": 4
+        },
+        {
+          "text": "Il faut réserver ma place à l'avance malgré tout, ou je peux arriver au dernier moment ?",
+          "memory_number": 9,
+          "memory_section": 6
+        },
+        {
+          "text": "Toi, si tu l'as déjà vu, qu'est-ce que tu en as pensé ?",
+          "memory_number": 9,
+          "memory_section": 10
+        },
+        {
+          "text": "Les salles proposent-elles aussi des collations, ou je dois les acheter avant d'entrer ?",
+          "memory_number": 9,
+          "memory_section": 9
+        },
+        {
+          "text": "La salle est facilement accessible, ou je dois prévoir du temps pour m'y rendre ?",
+          "memory_number": 9,
+          "memory_section": 5
+        },
+        {
+          "text": "Pour finir — parmi tous ces films, lequel tu me recommandes vraiment pour aujourd'hui ?",
+          "memory_number": 9,
+          "memory_section": 11
         }
       ]
     }

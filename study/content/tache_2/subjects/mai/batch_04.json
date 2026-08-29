@@ -331,10 +331,7 @@
       "prompt": "Je suis votre ami(e). J'organise ma fête d'anniversaire. Vous voulez m'aider. Vous me posez des questions sur la préparation de la fête (repas, décoration, invités, etc.).",
       "questions": [
         {
-          "text": "Salut ! C'est super que tu me laisses t'aider à préparer ton anniversaire — tu as déjà une idée du genre de fête que tu veux ?"
-        },
-        {
-          "text": "Tu as déjà choisi la date et l'heure ?",
+          "text": "Salut ! Je veux bien t'aider à préparer ton anniversaire — tu as déjà choisi la date et l'heure ?",
           "memory_number": 11,
           "memory_section": 4
         },
@@ -349,14 +346,9 @@
           "memory_section": 7
         },
         {
-          "text": "Une autre chose m'intéresse : la liste des invités est déjà prête ou tu veux que je t'aide à la compléter ?",
+          "text": "La liste des invités est déjà prête ou tu veux que je t'aide à la compléter ?",
           "memory_number": 11,
           "memory_section": 13
-        },
-        {
-          "text": "Parlons du budget — combien est-ce que tu veux dépenser approximativement au total ?",
-          "memory_number": 11,
-          "memory_section": 3
         },
         {
           "text": "Tu veux une ambiance particulière — plutôt décontractée, élégante ou autour d'un thème ?",
@@ -369,7 +361,7 @@
           "memory_section": 2
         },
         {
-          "text": "Autre point important : quel type de repas as-tu prévu — un buffet, un barbecue ou un repas assis ?",
+          "text": "Quel type de repas as-tu prévu — un buffet, un barbecue ou un repas assis ?",
           "memory_number": 11,
           "memory_section": 9
         },
@@ -384,7 +376,7 @@
           "memory_section": 13
         },
         {
-          "text": "D'ailleurs, qu'est-ce que tu veux proposer comme boissons — avec et sans alcool ?",
+          "text": "Qu'est-ce que tu veux proposer comme boissons — avec et sans alcool ?",
           "memory_number": 11,
           "memory_section": 9
         },
@@ -397,6 +389,16 @@
           "text": "Tu veux organiser des jeux ou des activités pendant la soirée ?",
           "memory_number": 11,
           "memory_section": 2
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que tu veux dépenser approximativement au total ?",
+          "memory_number": 11,
+          "memory_section": 3
+        },
+        {
+          "text": "Tu as pensé à prendre des photos ou à confier ça à quelqu'un pendant la soirée ?",
+          "memory_number": 11,
+          "memory_section": 13
         },
         {
           "text": "Parmi tous ces préparatifs, de quoi veux-tu que je m'occupe en priorité ?",

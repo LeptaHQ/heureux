@@ -244,77 +244,77 @@
       "prompt": "Votre ami(e) prend des cours de théâtre chaque semaine. Vous voulez vous inscrire et posez des questions sur les tarifs, horaires, organisation, contenu, etc.",
       "questions": [
         {
-          "text": "Salut ! Tu fais du théâtre chaque semaine, c'est bien ça ? Ça m'intéresse vraiment, tu peux me dire comment se passent les cours ?",
+          "text": "Salut ! J'ai entendu dire que tu suis des cours de théâtre chaque semaine — tu pourrais m'en parler un peu ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Qu'est-ce qu'on travaille concrètement pendant les séances : improvisation, voix, texte, mise en scène ?",
+          "text": "Qu'est-ce qu'on apprend concrètement — improvisation, texte, mise en scène, ou un mélange des deux ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Est-ce qu'il y a parfois des exercices sur scène ou tout se fait en salle de répétition ?",
+          "text": "Y a-t-il des sorties pratiques ou tout se fait en salle ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Le cours est-il ouvert aux débutants qui n'ont jamais fait de théâtre ?",
+          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Il y a beaucoup de participants dans le groupe ?",
+          "text": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Les cours ont lieu quels jours ?",
+          "text": "Il y a généralement combien de participants — c'est un petit groupe ou une grande classe ?",
           "memory_number": 10,
           "memory_section": 7
         },
         {
-          "text": "Et chaque séance dure combien de temps ?",
+          "text": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "D'ailleurs, comment fonctionnent les tarifs : abonnement, trimestre, paiement à la séance ?",
+          "text": "Quelle est la durée d'une séance — environ une heure ou plutôt une heure et demie ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Y a-t-il des réductions pour certains publics ?",
+          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque cours séparément ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Autre point important : comment se passe l'inscription, et faut-il réserver longtemps à l'avance ?",
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Peut-on assister à une séance d'essai avant de s'engager ?",
+          "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Faut-il apporter quelque chose de particulier pour commencer ?",
+          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Comment est l'ambiance du groupe, plutôt détendue ou exigeante ?",
+          "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Y a-t-il un spectacle de fin d'année ou une représentation devant le public ?",
+          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "memory_number": 10,
           "memory_section": 10
         },
         {
-          "text": "Pour finir, est-ce que tu me conseillerais ce cours pour débuter sans être intimidé(e) ?",
+          "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
           "memory_number": 10,
           "memory_section": 13
         }

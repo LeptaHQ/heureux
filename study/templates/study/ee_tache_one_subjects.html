@@ -66,6 +66,8 @@
             <a
               class="subject-row-hit-area"
               href="{% url 'study:writing_sujet_detail' part.slug task.slug row.sujet.pk %}"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Ouvrir le sujet : {{ row.prompt }}">
               <span class="sr-only">Ouvrir le sujet</span>
             </a>
@@ -120,6 +122,8 @@
                   <a
                     class="subject-table-row-link"
                     href="{% url 'study:writing_sujet_detail' part.slug task.slug row.sujet.pk %}"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label="Ouvrir le sujet : {{ row.prompt }}">{{ row.prompt|truncatechars:150 }}</a>
                 </td>
                 <td>

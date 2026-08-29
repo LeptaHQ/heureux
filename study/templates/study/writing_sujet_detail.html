@@ -28,7 +28,7 @@
   <nav class="prompt-nav" aria-label="Navigation entre les sujets">
     <div class="prompt-nav__item">
       {% if previous_sujet %}
-        <a class="prompt-nav__link" href="{% url 'study:writing_sujet_detail' part.slug task.slug previous_sujet.pk %}" rel="prev">
+        <a class="prompt-nav__link" href="{% url 'study:writing_sujet_detail' part.slug task.slug previous_sujet.pk %}" target="_blank" rel="prev noopener noreferrer">
           <span class="prompt-nav__direction">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Sujet précédent</span>
           <span class="prompt-nav__label">{{ previous_sujet.prompt|truncatechars:44 }}</span>
         </a>
@@ -37,7 +37,7 @@
     <span class="prompt-nav__position">Sujet {{ position }} sur {{ total }}</span>
     <div class="prompt-nav__item prompt-nav__item--next">
       {% if next_sujet %}
-        <a class="prompt-nav__link prompt-nav__link--next" href="{% url 'study:writing_sujet_detail' part.slug task.slug next_sujet.pk %}" rel="next">
+        <a class="prompt-nav__link prompt-nav__link--next" href="{% url 'study:writing_sujet_detail' part.slug task.slug next_sujet.pk %}" target="_blank" rel="next noopener noreferrer">
           <span class="prompt-nav__direction">Sujet suivant {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
           <span class="prompt-nav__label">{{ next_sujet.prompt|truncatechars:44 }}</span>
         </a>

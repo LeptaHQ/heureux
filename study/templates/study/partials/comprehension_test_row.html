@@ -61,6 +61,8 @@ by the written and oral comprehension pages.
       <a
         class="comprehension-row-hit-area"
         href="{% url test.detail_route test.slug %}"
+        target="_blank"
+        rel="noopener noreferrer"
         aria-label="{% if test.is_active and test.is_published %}{% if test.active_attempt %}Continuer{% elif test.latest_attempt %}Voir ou refaire{% else %}Découvrir le test{% endif %}{% elif test.user_attempts %}Voir l’historique{% else %}Voir le test archivé{% endif %} {{ slot.number }} : {{ test.title }}">
         <span class="sr-only">Ouvrir le test {{ slot.number }}</span>
       </a>

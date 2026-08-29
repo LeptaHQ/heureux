@@ -340,14 +340,9 @@
       "prompt": "Je suis votre voisin(e). Vous cherchez un restaurant dans le quartier pour fêter votre anniversaire. Vous me posez des questions pour faire votre choix (cuisine, prix, ambiance, etc.).",
       "questions": [
         {
-          "text": "Bonjour, je cherche un restaurant dans le quartier pour fêter mon anniversaire — vous auriez des idées à me conseiller ?",
+          "text": "Bonjour ! Mon anniversaire approche et je cherche un bon restaurant dans le quartier pour le fêter — vous auriez des idées à me conseiller ?",
           "memory_number": 11,
           "memory_section": 13
-        },
-        {
-          "text": "Quels types de cuisine trouve-t-on dans les restaurants du coin ?",
-          "memory_number": 11,
-          "memory_section": 2
         },
         {
           "text": "Ça va plutôt dans quelle gamme de prix en général ?",
@@ -355,7 +350,12 @@
           "memory_section": 3
         },
         {
-          "text": "L'ambiance est plutôt calme et intime, ou plus animée et festive ?",
+          "text": "Quels types de cuisine trouve-t-on dans les restaurants du coin ?",
+          "memory_number": 11,
+          "memory_section": 2
+        },
+        {
+          "text": "Une autre chose m'intéresse : l'ambiance est plutôt calme et intime, ou plus animée et festive ?",
           "memory_number": 11,
           "memory_section": 10
         },
@@ -375,7 +375,7 @@
           "memory_section": 9
         },
         {
-          "text": "Ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
+          "text": "Autre point important : ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
           "memory_number": 11,
           "memory_section": 5
         },
@@ -390,7 +390,7 @@
           "memory_section": 8
         },
         {
-          "text": "Vous avez mentionné un restaurant en particulier — vous pourriez m'en dire un peu plus ?",
+          "text": "D'ailleurs, vous avez mentionné un restaurant en particulier — vous pourriez m'en dire un peu plus ?",
           "memory_number": 11,
           "memory_section": 13
         },
@@ -403,11 +403,6 @@
           "text": "Le rapport qualité-prix vous semble bon, comparé à d'autres endroits du quartier ?",
           "memory_number": 11,
           "memory_section": 11
-        },
-        {
-          "text": "Le service y est plutôt rapide, ou plus adapté à une soirée tranquille ?",
-          "memory_number": 11,
-          "memory_section": 9
         },
         {
           "text": "Pour finir — parmi tous ceux du quartier, lequel me recommanderiez-vous vraiment pour l'occasion ?",

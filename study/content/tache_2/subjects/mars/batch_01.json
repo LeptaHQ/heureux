@@ -176,77 +176,77 @@
       "prompt": "Je suis un(e) marchand(e) de journaux. Vous voulez lire la presse canadienne. Vous me demandez de choisir une lecture intéressante (thème, prix, niveau de langue, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! J'aimerais découvrir la presse canadienne — pourriez-vous m'aider à choisir une lecture intéressante ?",
+          "text": "Bonjour ! J'aimerais commencer à lire la presse canadienne, mais je ne sais pas trop quel journal choisir. Vous pourriez m'orienter ?",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "Quels types de publications proposez-vous — des quotidiens, des hebdomadaires, des magazines ou un peu de tout ?",
+          "text": "Vous proposez surtout des quotidiens, des hebdomadaires ou des magazines ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Quels thèmes sont abordés — actualité, culture, économie, sport ou un peu de tout ?",
+          "text": "Quels thèmes sont le plus souvent traités dans la presse canadienne que vous vendez ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "C'est une publication canadienne nationale ou plutôt un journal local ?",
+          "text": "Si je veux quelque chose d'intéressant sans être trop difficile, quel titre me conseilleriez-vous en priorité ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Y a-t-il un journal ou un magazine que vous recommanderiez particulièrement ?",
+          "text": "Ce journal est-il plutôt national ou local ?",
           "memory_number": 10,
           "memory_section": 11
         },
         {
-          "text": "Ça s'adresse à quel public — plutôt aux lecteurs habitués à suivre l'actualité ou accessible à un large public ?",
+          "text": "Autre point important : à quel type de lecteur s'adresse-t-il ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Comment est le style des articles — plutôt simple, analytique ou très spécialisé ?",
+          "text": "Le niveau de langue est-il accessible pour quelqu'un qui améliore encore son français ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Le niveau de langue est-il accessible pour quelqu'un qui apprend encore le français ?",
+          "text": "Comment décririez-vous le style des articles : direct, analytique, très spécialisé ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Qu'est-ce qu'on apprend concrètement — c'est plutôt informatif, pratique, ou un mélange des deux ?",
+          "text": "Les articles sont-ils assez courts pour une lecture quotidienne rapide ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Les articles sont plutôt courts ou faut-il prévoir beaucoup de temps pour les lire ?",
+          "text": "D'ailleurs, quel prix faut-il prévoir pour ce journal ou ce magazine ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Et ce journal, c'est dans quelle gamme de prix — plutôt cher ou raisonnable ?",
+          "text": "Existe-t-il une version numérique, et est-elle comprise dans le prix ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Est-ce que la version numérique est comprise ou il faut l'acheter séparément ?",
+          "text": "Y a-t-il un numéro ou une rubrique culture particulièrement intéressante en ce moment ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Vous avez mentionné un quotidien en particulier — vous pourriez m'en dire un peu plus ?",
+          "text": "Vous avez mentionné un titre précis ; vous pourriez m'en dire un peu plus ?",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "Qu'est-ce qui rend cette lecture particulièrement intéressante selon vous ?",
+          "text": "Qu'est-ce qui rend cette lecture intéressante selon vous, par rapport aux autres ?",
           "memory_number": 10,
           "memory_section": 11
         },
         {
-          "text": "Pour finir — si vous ne deviez me recommander qu'une seule lecture, ce serait laquelle ?",
+          "text": "Pour finir, je voudrais savoir quelle lecture vous me recommanderiez pour commencer dès aujourd'hui.",
           "memory_number": 10,
           "memory_section": 13
         }

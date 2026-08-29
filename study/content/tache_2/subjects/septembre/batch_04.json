@@ -76,57 +76,57 @@
       "prompt": "Un professeur de musique intervient à domicile dans mon entourage ; l'idée vous tente, alors vous m'interrogez, en voisin(e), sur ses tarifs, ses créneaux libres et son parcours.",
       "questions": [
         {
-          "text": "Bonjour ! Vous m'avez dit que vous connaissiez quelqu'un qui donne des cours de musique à domicile — ça m'intéresse, vous pourriez m'en parler ?"
+          "text": "Bonjour ! Vous m'avez parlé d'un professeur qui donne des cours de musique à domicile, et cette formule m'intéresse beaucoup. Vous pouvez m'en dire plus ?"
         },
         {
-          "text": "Quel instrument enseigne-t-il ou elle, et pour quels niveaux ?"
+          "text": "Quel instrument enseigne-t-il ou elle ?"
         },
         {
-          "text": "Ça convient à un débutant complet, quand on n'a jamais touché à l'instrument ?"
+          "text": "Est-ce que ce professeur accepte aussi les débutants complets ?"
         },
         {
-          "text": "Quelle est son expérience — ça fait longtemps qu'il ou elle enseigne ?"
+          "text": "Quelle expérience a-t-il ou elle dans l'enseignement ?"
         },
         {
-          "text": "Il ou elle est comment comme professeur — plutôt patient et pédagogue ?",
+          "text": "Comment est-il ou elle comme professeur, d'après vous ?",
           "memory_number": 10,
           "memory_section": 11
         },
         {
-          "text": "Et concrètement, qu'est-ce qu'on apprend — c'est plutôt du solfège et de la théorie, ou on passe directement à l'instrument ?",
+          "text": "Au début, travaille-t-on surtout le solfège ou joue-t-on rapidement de l'instrument ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Les cours durent combien de temps, et à quelle fréquence par semaine ?"
+          "text": "Les leçons durent combien de temps ?"
         },
         {
-          "text": "Quelles sont ses disponibilités — plutôt en semaine, le soir, ou le week-end ?"
+          "text": "Et à quelle fréquence ont-elles lieu ?"
         },
         {
-          "text": "Est-ce qu'il ou elle se déplace à domicile, ou il faut aller chez lui ou chez elle ?"
+          "text": "Autre point important : quelles sont ses disponibilités, plutôt en semaine, le soir ou le week-end ?"
         },
         {
-          "text": "Côté tarifs, comment ça fonctionne — c'est à la séance ou plutôt au mois ?"
+          "text": "Le professeur se déplace-t-il à domicile, ou faut-il aller chez lui ou chez elle ?"
         },
         {
-          "text": "Faut-il acheter son propre instrument, ou il ou elle en prête un pour commencer ?"
+          "text": "D'ailleurs, comment fonctionnent les tarifs ?"
         },
         {
-          "text": "Est-ce qu'il ou elle propose un cours d'essai avant de s'engager ?"
+          "text": "Faut-il avoir son propre instrument pour commencer ?"
         },
         {
-          "text": "Au bout de combien de temps on commence à vraiment jouer des morceaux ?",
+          "text": "Propose-t-il ou elle un cours d'essai ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Vous auriez ses coordonnées pour que je le ou la contacte ?",
+          "text": "Au bout de combien de temps peut-on jouer quelques morceaux simples ?",
           "memory_number": 10,
           "memory_section": 11
         },
         {
-          "text": "À votre avis, ça vaut le coup — vous me le ou la recommandez ?"
+          "text": "Pour finir, je voudrais savoir si vous pourriez me donner ses coordonnées pour que je le ou la contacte."
         }
       ]
     },

@@ -200,7 +200,13 @@
       "prompt": "Je suis votre ami. Vous êtes invité à une cérémonie de mariage d'une amie canadienne. Vous devez me poser des questions pour connaître le déroulement de la cérémonie, les invités, les cadeaux, et les tenues vestimentaires.",
       "questions": [
         {
+          "text": "On m'a annoncé que ton amie canadienne se marie et que je suis invité(e) — je suis ravi(e), mais je ne connais pas encore le déroulement, tu peux m'expliquer ?"
+        },
+        {
           "text": "Alors, la cérémonie de mariage, c'est prévu pour quand exactement ?"
+        },
+        {
+          "text": "C'est une cérémonie religieuse, civile, ou les deux ?"
         },
         {
           "text": "À quelle heure ça commence — plutôt le matin ou en fin de journée ?",
@@ -208,12 +214,7 @@
           "memory_section": 4
         },
         {
-          "text": "C'est une cérémonie religieuse, civile, ou les deux ?"
-        },
-        {
-          "text": "Et la réception, ça se passe où — en salle ou en plein air ?",
-          "memory_number": 11,
-          "memory_section": 13
+          "text": "Une autre chose m'intéresse : et la réception, ça se passe où — en salle ou en plein air ?"
         },
         {
           "text": "Comment va se dérouler la journée — il y a un cocktail, un dîner, une soirée dansante ?",
@@ -229,7 +230,7 @@
           "text": "Est-ce qu'il y a un code vestimentaire particulier — des couleurs à porter ou à éviter ?"
         },
         {
-          "text": "Pour le cadeau, il y a une liste de mariage ou c'est libre choix ?"
+          "text": "Autre point important : pour le cadeau, il y a une liste de mariage ou c'est libre choix ?"
         },
         {
           "text": "Tu aurais une idée du budget approprié pour le cadeau ?",
@@ -237,24 +238,19 @@
           "memory_section": 3
         },
         {
-          "text": "Est-ce qu'il y a des traditions canadiennes spécifiques que je devrais connaître ?",
+          "text": "D'ailleurs, est-ce qu'il y a des traditions canadiennes spécifiques que je devrais connaître ?",
           "memory_number": 11,
           "memory_section": 4
-        },
-        {
-          "text": "Pour les invités qui viennent de l'extérieur, tu aurais des recommandations pour l'hébergement ?",
-          "memory_number": 11,
-          "memory_section": 9
-        },
-        {
-          "text": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?",
-          "memory_number": 11,
-          "memory_section": 9
         },
         {
           "text": "Et pour le transport, comment on se rend au lieu de la cérémonie ?",
           "memory_number": 11,
           "memory_section": 5
+        },
+        {
+          "text": "Pour les invités qui viennent de l'extérieur, tu aurais des recommandations pour l'hébergement ?",
+          "memory_number": 11,
+          "memory_section": 9
         },
         {
           "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux te solliciter ?",

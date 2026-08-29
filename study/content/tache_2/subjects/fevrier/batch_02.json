@@ -269,37 +269,37 @@
       "prompt": "Je suis votre ami(e). Vous voulez m'aider à trouver un appartement à louer. Vous devez me poser des questions pour connaître mes besoins : localisation, budget, superficie, type de logement, et autres critères.",
       "questions": [
         {
-          "text": "Alors, tu cherches quel type de logement — un studio, un T2, quelque chose de plus grand ?"
+          "text": "Bon, je vais t'aider. Dis-moi d'abord ce qu'il te faut. Alors, tu cherches quel type de logement — un studio, un T2, quelque chose de plus grand ?"
         },
         {
           "text": "C'est pour y vivre seul ou avec quelqu'un ?"
         },
         {
-          "text": "Tu préfères un appartement meublé ou vide ?"
+          "text": "Pour l'ameublement, ça change beaucoup la facture de départ. Tu préfères un appartement meublé ou vide ?"
         },
         {
           "text": "Tu as une idée de la superficie minimum que tu recherches ?"
         },
         {
-          "text": "Pour la localisation, tu vises quel quartier — plutôt en centre-ville ou en périphérie ?"
+          "text": "Certaines annonces cachent de vrais chantiers. L'état du logement, ça compte — tu accepterais des travaux à faire ou tu veux du prêt-à-vivre ?"
         },
         {
-          "text": "Quel budget mensuel tu envisages — charges comprises ou hors charges ?",
+          "text": "Voyons maintenant où tu veux poser tes valises. Pour la localisation, tu vises quel quartier — plutôt en centre-ville ou en périphérie ?"
+        },
+        {
+          "text": "L'environnement immédiat compte aussi beaucoup. Et côté voisinage, tu préfères un quartier calme ou plutôt animé ?",
           "memory_number": 2,
-          "memory_section": 3
+          "memory_section": 10
         },
         {
-          "text": "Tu te déplaces comment au quotidien — c'est important d'être bien desservi en transports ?",
+          "text": "Un mot sur tes trajets. Tu te déplaces comment au quotidien — c'est important d'être bien desservi en transports ?",
           "memory_number": 2,
           "memory_section": 5
         },
         {
-          "text": "L'état du logement, ça compte — tu accepterais des travaux à faire ou tu veux du prêt-à-vivre ?"
-        },
-        {
-          "text": "Et côté voisinage, tu préfères un quartier calme ou plutôt animé ?",
+          "text": "On arrive au point le plus concret. Quel budget mensuel tu envisages — charges comprises ou hors charges ?",
           "memory_number": 2,
-          "memory_section": 10
+          "memory_section": 3
         },
         {
           "text": "Parmi tous ces aspects, qu'est-ce qui compte le plus pour toi ?",
@@ -307,16 +307,16 @@
           "memory_section": 11
         },
         {
-          "text": "Tu as un délai — il faut que tu emménages bientôt ou tu peux prendre ton temps ?"
+          "text": "Parlons du calendrier. Tu as un délai — il faut que tu emménages bientôt ou tu peux prendre ton temps ?"
         },
         {
-          "text": "Pour le dossier locataire, tu as déjà les garanties nécessaires — caution, garant ?"
+          "text": "Les propriétaires sont très exigeants en ce moment. Pour le dossier locataire, tu as déjà les garanties nécessaires — caution, garant ?"
         },
         {
           "text": "Tu as déjà commencé à visiter des appartements ou tu pars de zéro ?"
         },
         {
-          "text": "Est-ce qu'il y a d'autres critères importants que tu n'as pas encore mentionnés ?",
+          "text": "Je note tout ça de mon côté. Est-ce qu'il y a d'autres critères importants que tu n'as pas encore mentionnés ?",
           "memory_number": 2,
           "memory_section": 11
         },

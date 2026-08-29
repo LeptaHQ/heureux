@@ -989,7 +989,7 @@
           "kind": "mot-cle",
           "french": "un studio",
           "english": "a studio apartment",
-          "example": "Alors, tu cherches quel type de logement — un studio, un T2, quelque chose de plus grand ?",
+          "example": "Bon, je vais t'aider. Dis-moi d'abord ce qu'il te faut. Alors, tu cherches quel type de logement — un studio, un T2, quelque chose de plus grand ?",
           "usage": "Terme immobilier courant désignant un petit logement d'une seule pièce principale."
         },
         {
@@ -997,7 +997,7 @@
           "kind": "mot-cle",
           "french": "un appartement meublé",
           "english": "a furnished apartment",
-          "example": "Tu préfères un appartement meublé ou vide ?",
+          "example": "Pour l'ameublement, ça change beaucoup la facture de départ. Tu préfères un appartement meublé ou vide ?",
           "usage": "Collocation adjectif-nom désignant un logement équipé de meubles."
         },
         {
@@ -1013,7 +1013,7 @@
           "kind": "mot-cle",
           "french": "en périphérie",
           "english": "on the outskirts",
-          "example": "Pour la localisation, tu vises quel quartier — plutôt en centre-ville ou en périphérie ?",
+          "example": "Voyons maintenant où tu veux poser tes valises. Pour la localisation, tu vises quel quartier — plutôt en centre-ville ou en périphérie ?",
           "usage": "Locution géographique opposée au centre-ville, désignant les quartiers plus éloignés."
         },
         {
@@ -1021,7 +1021,7 @@
           "kind": "mot-cle",
           "french": "budget mensuel",
           "english": "monthly budget",
-          "example": "Quel budget mensuel tu envisages — charges comprises ou hors charges ?",
+          "example": "On arrive au point le plus concret. Quel budget mensuel tu envisages — charges comprises ou hors charges ?",
           "usage": "Nom composé financier désignant la somme allouée chaque mois à un poste de dépense."
         },
         {
@@ -1029,7 +1029,7 @@
           "kind": "mot-cle",
           "french": "quotidien",
           "english": "everyday life",
-          "example": "Tu te déplaces comment au quotidien — c'est important d'être bien desservi en transports ?",
+          "example": "Un mot sur tes trajets. Tu te déplaces comment au quotidien — c'est important d'être bien desservi en transports ?",
           "usage": "Nom courant désignant les déplacements et habitudes de la vie de tous les jours."
         },
         {
@@ -1037,7 +1037,7 @@
           "kind": "mot-cle",
           "french": "des travaux",
           "english": "renovation work",
-          "example": "L'état du logement, ça compte — tu accepterais des travaux à faire ou tu veux du prêt-à-vivre ?",
+          "example": "Certaines annonces cachent de vrais chantiers. L'état du logement, ça compte — tu accepterais des travaux à faire ou tu veux du prêt-à-vivre ?",
           "usage": "Nom courant désignant des rénovations à réaliser dans un logement."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "voisinage",
           "english": "neighbourhood",
-          "example": "Et côté voisinage, tu préfères un quartier calme ou plutôt animé ?",
+          "example": "L'environnement immédiat compte aussi beaucoup. Et côté voisinage, tu préfères un quartier calme ou plutôt animé ?",
           "usage": "Nom courant désignant l'environnement social immédiat d'un logement."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "un délai",
           "english": "a deadline/timeframe",
-          "example": "Tu as un délai — il faut que tu emménages bientôt ou tu peux prendre ton temps ?",
+          "example": "Parlons du calendrier. Tu as un délai — il faut que tu emménages bientôt ou tu peux prendre ton temps ?",
           "usage": "Nom courant désignant une contrainte temporelle à respecter pour une démarche."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "mot-cle",
           "french": "le dossier locataire",
           "english": "the tenant application file",
-          "example": "Pour le dossier locataire, tu as déjà les garanties nécessaires — caution, garant ?",
+          "example": "Les propriétaires sont très exigeants en ce moment. Pour le dossier locataire, tu as déjà les garanties nécessaires — caution, garant ?",
           "usage": "Nom composé spécifique à la location, désignant l'ensemble des pièces justificatives requises."
         },
         {
@@ -1069,7 +1069,7 @@
           "kind": "collocation",
           "french": "quelque chose de plus grand",
           "english": "something bigger",
-          "example": "Alors, tu cherches quel type de logement — un studio, un T2, quelque chose de plus grand ?",
+          "example": "Bon, je vais t'aider. Dis-moi d'abord ce qu'il te faut. Alors, tu cherches quel type de logement — un studio, un T2, quelque chose de plus grand ?",
           "usage": "Structure comparative courante pour envisager une option de taille supérieure."
         },
         {
@@ -1085,7 +1085,7 @@
           "kind": "collocation",
           "french": "en centre-ville",
           "english": "downtown/in the city centre",
-          "example": "Pour la localisation, tu vises quel quartier — plutôt en centre-ville ou en périphérie ?",
+          "example": "Voyons maintenant où tu veux poser tes valises. Pour la localisation, tu vises quel quartier — plutôt en centre-ville ou en périphérie ?",
           "usage": "Locution géographique courante opposée à la périphérie."
         },
         {
@@ -1093,7 +1093,7 @@
           "kind": "collocation",
           "french": "charges comprises",
           "english": "utilities included",
-          "example": "Quel budget mensuel tu envisages — charges comprises ou hors charges ?",
+          "example": "On arrive au point le plus concret. Quel budget mensuel tu envisages — charges comprises ou hors charges ?",
           "usage": "Collocation figée du domaine locatif indiquant que les charges sont incluses dans le loyer."
         },
         {
@@ -1101,7 +1101,7 @@
           "kind": "collocation",
           "french": "bien desservi",
           "english": "well served/connected",
-          "example": "Tu te déplaces comment au quotidien — c'est important d'être bien desservi en transports ?",
+          "example": "Un mot sur tes trajets. Tu te déplaces comment au quotidien — c'est important d'être bien desservi en transports ?",
           "usage": "Collocation adjectivale courante pour qualifier l'accès aux transports en commun."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "prêt-à-vivre",
           "english": "move-in ready",
-          "example": "L'état du logement, ça compte — tu accepterais des travaux à faire ou tu veux du prêt-à-vivre ?",
+          "example": "Certaines annonces cachent de vrais chantiers. L'état du logement, ça compte — tu accepterais des travaux à faire ou tu veux du prêt-à-vivre ?",
           "usage": "Adjectif composé désignant un logement ne nécessitant aucuns travaux avant l'emménagement."
         },
         {
@@ -1117,7 +1117,7 @@
           "kind": "collocation",
           "french": "quartier calme",
           "english": "a quiet neighbourhood",
-          "example": "Et côté voisinage, tu préfères un quartier calme ou plutôt animé ?",
+          "example": "L'environnement immédiat compte aussi beaucoup. Et côté voisinage, tu préfères un quartier calme ou plutôt animé ?",
           "usage": "Collocation adjectif-nom très courante pour qualifier une zone résidentielle paisible."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "prendre ton temps",
           "english": "to take your time",
-          "example": "Tu as un délai — il faut que tu emménages bientôt ou tu peux prendre ton temps ?",
+          "example": "Parlons du calendrier. Tu as un délai — il faut que tu emménages bientôt ou tu peux prendre ton temps ?",
           "usage": "Collocation verbale courante pour indiquer l'absence d'urgence dans une démarche."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "les garanties nécessaires",
           "english": "the necessary guarantees",
-          "example": "Pour le dossier locataire, tu as déjà les garanties nécessaires — caution, garant ?",
+          "example": "Les propriétaires sont très exigeants en ce moment. Pour le dossier locataire, tu as déjà les garanties nécessaires — caution, garant ?",
           "usage": "Collocation adjectif-nom du domaine locatif désignant les justificatifs exigés par un bailleur."
         },
         {
@@ -1141,7 +1141,7 @@
           "kind": "collocation",
           "french": "hors charges",
           "english": "excluding utilities/charges",
-          "example": "Quel budget mensuel tu envisages — charges comprises ou hors charges ?",
+          "example": "On arrive au point le plus concret. Quel budget mensuel tu envisages — charges comprises ou hors charges ?",
           "usage": "Locution utilisée pour un loyer ou un budget qui n'inclut pas les charges."
         },
         {
@@ -1157,7 +1157,7 @@
           "kind": "tournure",
           "french": "que tu n'as pas encore mentionnés",
           "english": "that you haven't mentioned yet",
-          "example": "Est-ce qu'il y a d'autres critères importants que tu n'as pas encore mentionnés ?",
+          "example": "Je note tout ça de mon côté. Est-ce qu'il y a d'autres critères importants que tu n'as pas encore mentionnés ?",
           "usage": "Structure relative réutilisable pour relancer sur des éléments oubliés."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "tu cherches quel type de logement",
           "english": "what type of housing are you looking for",
-          "example": "Alors, tu cherches quel type de logement — un studio, un T2, quelque chose de plus grand ?",
+          "example": "Bon, je vais t'aider. Dis-moi d'abord ce qu'il te faut. Alors, tu cherches quel type de logement — un studio, un T2, quelque chose de plus grand ?",
           "usage": "Amorce interrogative directe pour ouvrir une discussion sur des critères de recherche."
         },
         {
@@ -1181,7 +1181,7 @@
           "kind": "tournure",
           "french": "tu vises quel quartier",
           "english": "which neighbourhood are you aiming for",
-          "example": "Pour la localisation, tu vises quel quartier — plutôt en centre-ville ou en périphérie ?",
+          "example": "Voyons maintenant où tu veux poser tes valises. Pour la localisation, tu vises quel quartier — plutôt en centre-ville ou en périphérie ?",
           "usage": "Structure réutilisable pour interroger sur une préférence de localisation."
         },
         {
@@ -1189,7 +1189,7 @@
           "kind": "tournure",
           "french": "Tu te déplaces comment",
           "english": "How do you get around",
-          "example": "Tu te déplaces comment au quotidien — c'est important d'être bien desservi en transports ?",
+          "example": "Un mot sur tes trajets. Tu te déplaces comment au quotidien — c'est important d'être bien desservi en transports ?",
           "usage": "Amorce interrogative courante pour aborder les habitudes de transport."
         },
         {
@@ -1197,7 +1197,7 @@
           "kind": "tournure",
           "french": "L'état du logement, ça compte",
           "english": "the condition of the property, does it matter",
-          "example": "L'état du logement, ça compte — tu accepterais des travaux à faire ou tu veux du prêt-à-vivre ?",
+          "example": "Certaines annonces cachent de vrais chantiers. L'état du logement, ça compte — tu accepterais des travaux à faire ou tu veux du prêt-à-vivre ?",
           "usage": "Structure évaluative réutilisable pour vérifier l'importance d'un critère."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "il faut que tu emménages bientôt",
           "english": "you need to move in soon",
-          "example": "Tu as un délai — il faut que tu emménages bientôt ou tu peux prendre ton temps ?",
+          "example": "Parlons du calendrier. Tu as un délai — il faut que tu emménages bientôt ou tu peux prendre ton temps ?",
           "usage": "Structure avec 'il faut que' + subjonctif pour exprimer une contrainte temporelle."
         },
         {
@@ -1213,7 +1213,7 @@
           "kind": "tournure",
           "french": "tu as déjà",
           "english": "do you already have",
-          "example": "Pour le dossier locataire, tu as déjà les garanties nécessaires — caution, garant ?",
+          "example": "Les propriétaires sont très exigeants en ce moment. Pour le dossier locataire, tu as déjà les garanties nécessaires — caution, garant ?",
           "usage": "Amorce interrogative courante pour vérifier l'état d'avancement d'une démarche."
         },
         {

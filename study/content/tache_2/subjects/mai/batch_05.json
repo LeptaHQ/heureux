@@ -104,7 +104,7 @@
           "memory_section": 10
         },
         {
-          "text": "Quelle est la superficie de l'appartement — et combien de pièces y a-t-il ?"
+          "text": "L'annonce reste assez vague sur certains points. Quelle est la superficie de l'appartement — et combien de pièces y a-t-il ?"
         },
         {
           "text": "À quel étage se trouve-t-il — et l'immeuble dispose-t-il d'un ascenseur ?",
@@ -112,37 +112,30 @@
           "memory_section": 5
         },
         {
-          "text": "L'appartement est-il en bon état général ou y a-t-il des travaux à prévoir ?",
+          "text": "La luminosité compte énormément pour moi. Est-il lumineux — et y a-t-il un balcon ou une terrasse ?",
+          "memory_number": 2,
+          "memory_section": 9
+        },
+        {
+          "text": "D'ailleurs, tout dépend sans doute de l'exposition. Quelle est l'orientation de l'appartement — plutôt exposé au sud, à l'est ou à l'ouest ?"
+        },
+        {
+          "text": "Je voudrais éviter les mauvaises surprises après l'achat. L'appartement est-il en bon état général ou y a-t-il des travaux à prévoir ?",
           "memory_number": 2,
           "memory_section": 7
         },
         {
-          "text": "Est-il lumineux — et y a-t-il un balcon ou une terrasse ?",
+          "text": "Le bâtiment compte autant que l'appartement lui-même. L'immeuble est-il récent — comment sont les parties communes ?",
           "memory_number": 2,
           "memory_section": 9
         },
         {
-          "text": "L'immeuble est-il récent — comment sont les parties communes ?",
-          "memory_number": 2,
-          "memory_section": 9
-        },
-        {
-          "text": "Quel est le prix demandé — est-ce qu'il est négociable ?",
-          "memory_number": 2,
-          "memory_section": 3
-        },
-        {
-          "text": "À combien s'élèvent les charges mensuelles — et qu'est-ce qu'elles comprennent exactement ?",
-          "memory_number": 2,
-          "memory_section": 3
-        },
-        {
-          "text": "Y a-t-il une place de parking, une cave ou un espace de rangement ?",
+          "text": "Il me faudrait aussi de la place pour ranger. Y a-t-il une place de parking, une cave ou un espace de rangement ?",
           "memory_number": 2,
           "memory_section": 5
         },
         {
-          "text": "C'est facilement accessible en transports en commun ?",
+          "text": "Je n'ai pas de voiture au quotidien. C'est facilement accessible en transports en commun ?",
           "memory_number": 2,
           "memory_section": 5
         },
@@ -152,10 +145,17 @@
           "memory_section": 9
         },
         {
-          "text": "Quelle est l'orientation de l'appartement — plutôt exposé au sud, à l'est ou à l'ouest ?"
+          "text": "Venons-en au point essentiel. Quel est le prix demandé — est-ce qu'il est négociable ?",
+          "memory_number": 2,
+          "memory_section": 3
         },
         {
-          "text": "Quels diagnostics et quels documents sont déjà disponibles pour l'achat ?",
+          "text": "Au-delà du prix d'achat, il y a le coût mensuel. À combien s'élèvent les charges mensuelles — et qu'est-ce qu'elles comprennent exactement ?",
+          "memory_number": 2,
+          "memory_section": 3
+        },
+        {
+          "text": "Pour ce qui est du dossier technique, j'aimerais faire le point. Quels diagnostics et quels documents sont déjà disponibles pour l'achat ?",
           "memory_number": 2,
           "memory_section": 13
         },

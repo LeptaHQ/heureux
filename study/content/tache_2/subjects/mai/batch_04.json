@@ -99,12 +99,30 @@
           "memory_section": 2
         },
         {
-          "text": "Je cherche plutôt un T2 ou un T3, meublé ou non — est-ce qu'il y a des options dans cette gamme ?",
+          "text": "J'ai des critères assez précis. Je cherche plutôt un T2 ou un T3, meublé ou non — est-ce qu'il y a des options dans cette gamme ?",
           "memory_number": 2,
           "memory_section": 11
         },
         {
-          "text": "Et ces biens sont dans quelle gamme de prix — plutôt abordables ou plutôt haut de gamme ?",
+          "text": "Je ne veux pas me lancer dans un chantier. Et les logements en eux-mêmes, ils sont en bon état général ou il y a des travaux à prévoir ?"
+        },
+        {
+          "text": "En ce qui concerne l'emplacement, je débute totalement dans cette ville. Quels quartiers me conseilleriez-vous — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
+          "memory_number": 2,
+          "memory_section": 10
+        },
+        {
+          "text": "Vous avez mentionné un quartier en particulier — vous pourriez m'en dire un peu plus ?",
+          "memory_number": 2,
+          "memory_section": 13
+        },
+        {
+          "text": "Et au niveau de l'accès, c'est facilement desservi en transports en commun ou il vaut mieux avoir une voiture ? S'il vaut mieux avoir une voiture, y a-t-il un parking à proximité ?",
+          "memory_number": 2,
+          "memory_section": 5
+        },
+        {
+          "text": "Venons-en aux chiffres. Et ces biens sont dans quelle gamme de prix — plutôt abordables ou plutôt haut de gamme ?",
           "memory_number": 2,
           "memory_section": 3
         },
@@ -114,25 +132,10 @@
           "memory_section": 3
         },
         {
-          "text": "Quels quartiers me conseilleriez-vous — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
-          "memory_number": 2,
-          "memory_section": 10
+          "text": "J'aimerais aussi savoir si je dois me dépêcher. D'ailleurs, le marché est plutôt tendu en ce moment ou on trouve encore des offres intéressantes ?"
         },
         {
-          "text": "Et au niveau de l'accès, c'est facilement desservi en transports en commun ou il vaut mieux avoir une voiture ? S'il vaut mieux avoir une voiture, y a-t-il un parking à proximité ?",
-          "memory_number": 2,
-          "memory_section": 5
-        },
-        {
-          "text": "Vous avez mentionné un quartier en particulier — vous pourriez m'en dire un peu plus ?",
-          "memory_number": 2,
-          "memory_section": 13
-        },
-        {
-          "text": "Et les logements en eux-mêmes, ils sont en bon état général ou il y a des travaux à prévoir ?"
-        },
-        {
-          "text": "Pour la location, quelles sont les pièces à fournir pour le dossier — et est-ce qu'il faut un garant ?",
+          "text": "Passons aux démarches administratives. Pour la location, quelles sont les pièces à fournir pour le dossier — et est-ce qu'il faut un garant ?",
           "memory_number": 2,
           "memory_section": 6
         },
@@ -142,10 +145,7 @@
           "memory_section": 3
         },
         {
-          "text": "D'ailleurs, le marché est plutôt tendu en ce moment ou on trouve encore des offres intéressantes ?"
-        },
-        {
-          "text": "Sinon, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "text": "Comme je suis novice, je préfère être prévenu(e). Sinon, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
           "memory_number": 2,
           "memory_section": 8
         },

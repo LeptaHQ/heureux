@@ -253,17 +253,37 @@
       "prompt": "Je suis votre ami(e). J'habite à Toronto. Vous cherchez un appartement là-bas et vous me posez des questions pour avoir des conseils sur le quartier où vous installer (prix, démarches, sites utiles, etc.).",
       "questions": [
         {
-          "text": "Je cherche un appartement à Toronto et je ne sais pas trop par où commencer — tu pourrais m'aider un peu ?",
+          "text": "Salut ! Ça se précise pour mon installation là-bas et je suis un peu perdu(e). Je cherche un appartement à Toronto et je ne sais pas trop par où commencer — tu pourrais m'aider un peu ?",
           "memory_number": 2,
           "memory_section": 13
         },
         {
-          "text": "Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
+          "text": "Il y a une question que je dois trancher en premier. D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement pour commencer ?",
+          "memory_number": 2,
+          "memory_section": 11
+        },
+        {
+          "text": "Tes conseils valent de l'or pour moi. Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
           "memory_number": 2,
           "memory_section": 10
         },
         {
-          "text": "Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
+          "text": "Tu as mentionné un quartier en particulier tout à l'heure — tu pourrais m'en dire un peu plus ?",
+          "memory_number": 2,
+          "memory_section": 13
+        },
+        {
+          "text": "J'aimerais pouvoir tout faire à pied ou presque. Y a-t-il des quartiers plus pratiques pour les commerces et la vie quotidienne ?",
+          "memory_number": 2,
+          "memory_section": 9
+        },
+        {
+          "text": "Le trajet jusqu'au travail sera décisif. Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
+          "memory_number": 2,
+          "memory_section": 5
+        },
+        {
+          "text": "Autant que je sache aussi ce qu'il faut fuir. Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
           "memory_number": 2,
           "memory_section": 10
         },
@@ -273,17 +293,22 @@
           "memory_section": 3
         },
         {
-          "text": "Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
+          "text": "On m'a dit que les bonnes affaires partaient en quelques heures. Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
           "memory_number": 2,
-          "memory_section": 5
+          "memory_section": 11
         },
         {
-          "text": "Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
+          "text": "Il vaut mieux commencer à chercher combien de temps à l'avance ?",
+          "memory_number": 2,
+          "memory_section": 4
+        },
+        {
+          "text": "Concrètement, je commence mes recherches ce week-end. Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
           "memory_number": 2,
           "memory_section": 2
         },
         {
-          "text": "Quels documents demande-t-on généralement pour un dossier de location ?",
+          "text": "Côté paperasse, je préfère ne rien oublier. Quels documents demande-t-on généralement pour un dossier de location ?",
           "memory_number": 2,
           "memory_section": 6
         },
@@ -293,34 +318,9 @@
           "memory_section": 6
         },
         {
-          "text": "Il vaut mieux commencer à chercher combien de temps à l'avance ?",
-          "memory_number": 2,
-          "memory_section": 4
-        },
-        {
-          "text": "Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
-          "memory_number": 2,
-          "memory_section": 11
-        },
-        {
-          "text": "D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement pour commencer ?",
-          "memory_number": 2,
-          "memory_section": 11
-        },
-        {
-          "text": "Y a-t-il des quartiers plus pratiques pour les commerces et la vie quotidienne ?",
-          "memory_number": 2,
-          "memory_section": 9
-        },
-        {
-          "text": "Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
+          "text": "Dernier point, et pas des moindres. Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
           "memory_number": 2,
           "memory_section": 8
-        },
-        {
-          "text": "Tu as mentionné un quartier en particulier tout à l'heure — tu pourrais m'en dire un peu plus ?",
-          "memory_number": 2,
-          "memory_section": 13
         },
         {
           "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien commencer, ce serait lequel ?",

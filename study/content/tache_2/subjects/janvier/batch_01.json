@@ -12,12 +12,17 @@
       "prompt": "Je suis votre ami(e). Je déménage à l'étranger et je ne peux pas emporter toutes mes affaires. Je décide d'en vendre une partie. Vous êtes intéressé(e) et vous me posez des questions sur ce que je vends (objets, meubles, prix, etc.).",
       "questions": [
         {
-          "text": "Alors, c'est confirmé — tu pars vraiment à l'étranger ?",
+          "text": "Salut ! J'ai appris que tu revendais une partie de tes affaires avant de partir. Alors, c'est confirmé — tu pars vraiment à l'étranger ?",
           "memory_number": 2,
           "memory_section": 13
         },
         {
-          "text": "Quels types d'objets as-tu décidé de mettre en vente — des meubles, des appareils électroniques ou un peu de tout ?",
+          "text": "Ça change tout pour s'organiser. Quelle est la date exacte de ton départ ?",
+          "memory_number": 2,
+          "memory_section": 4
+        },
+        {
+          "text": "Entrons dans le vif du sujet. Quels types d'objets as-tu décidé de mettre en vente — des meubles, des appareils électroniques ou un peu de tout ?",
           "memory_number": 2,
           "memory_section": 2
         },
@@ -27,18 +32,23 @@
           "memory_section": 2
         },
         {
+          "text": "L'ancienneté compte pas mal pour moi. Depuis combien de temps as-tu ces meubles ?",
+          "memory_number": 2,
+          "memory_section": 4
+        },
+        {
           "text": "Est-ce que tout est encore en bon état et fonctionne correctement ?",
           "memory_number": 2,
           "memory_section": 11
         },
+        "Ce genre de justificatif compte beaucoup pour moi. Pour les appareils électroniques, as-tu encore les factures ou les garanties d'origine ?",
         {
-          "text": "Depuis combien de temps as-tu ces meubles ?",
+          "text": "Tu as mentionné le canapé — quelles sont ses dimensions exactement ?",
           "memory_number": 2,
-          "memory_section": 4
+          "memory_section": 13
         },
-        "Pour les appareils électroniques, as-tu encore les factures ou les garanties d'origine ?",
         {
-          "text": "Pour les prix, tu as déjà fixé un montant pour chaque objet ou est-ce que c'est négociable ?",
+          "text": "Parlons chiffres maintenant. Pour les prix, tu as déjà fixé un montant pour chaque objet ou est-ce que c'est négociable ?",
           "memory_number": 2,
           "memory_section": 3
         },
@@ -48,27 +58,17 @@
           "memory_section": 3
         },
         {
-          "text": "Quand est-ce que je pourrais passer chez toi pour voir les objets ?",
-          "memory_number": 2,
-          "memory_section": 4
-        },
-        {
-          "text": "Pour les récupérer, est-ce que tu proposes une livraison ou faut-il venir les chercher ?",
-          "memory_number": 2,
-          "memory_section": 4
-        },
-        {
-          "text": "Tu as mentionné le canapé — quelles sont ses dimensions exactement ?",
-          "memory_number": 2,
-          "memory_section": 13
-        },
-        {
-          "text": "Pour le paiement, tu préfères un virement bancaire ou des espèces ?",
+          "text": "Pour ce qui est du règlement, dis-moi ce qui t'arrange. Pour le paiement, tu préfères un virement bancaire ou des espèces ?",
           "memory_number": 2,
           "memory_section": 3
         },
         {
-          "text": "Quelle est la date exacte de ton départ ?",
+          "text": "J'aimerais vraiment voir tout ça de mes propres yeux. Quand est-ce que je pourrais passer chez toi pour voir les objets ?",
+          "memory_number": 2,
+          "memory_section": 4
+        },
+        {
+          "text": "Certains meubles doivent être plutôt encombrants. Pour les récupérer, est-ce que tu proposes une livraison ou faut-il venir les chercher ?",
           "memory_number": 2,
           "memory_section": 4
         },

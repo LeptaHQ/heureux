@@ -253,7 +253,7 @@
           "kind": "mot-cle",
           "french": "le cadre",
           "english": "the setting",
-          "example": "Le cadre autour de la maison est comment — plutôt calme, à la campagne, près d'un lac ou proche du centre ?",
+          "example": "Ça tombe bien, on cherchait justement quelque chose pour cet été. Le cadre autour de la maison est comment — plutôt calme, à la campagne, près d'un lac ou proche du centre ?",
           "usage": "Nom masculin pour décrire l'environnement général d'un logement.",
           "id": "T2D12S42V01"
         },
@@ -261,7 +261,7 @@
           "kind": "mot-cle",
           "french": "la superficie",
           "english": "the floor area",
-          "example": "Quelle est la superficie de la maison — et combien de pièces ou de chambres y a-t-il ?",
+          "example": "Parlons un peu de l'intérieur. Quelle est la superficie de la maison — et combien de pièces ou de chambres y a-t-il ?",
           "usage": "Nom féminin employé pour indiquer la taille d'un bien immobilier.",
           "id": "T2D12S42V02"
         },
@@ -269,7 +269,7 @@
           "kind": "mot-cle",
           "french": "entièrement meublée",
           "english": "fully furnished",
-          "example": "Est-ce qu'elle est entièrement meublée, et quels équipements sont disponibles sur place ?",
+          "example": "Comme on part en vacances, on voyage léger. Est-ce qu'elle est entièrement meublée, et quels équipements sont disponibles sur place ?",
           "usage": "Groupe adjectival décrivant un logement déjà équipé de meubles.",
           "id": "T2D12S42V03"
         },
@@ -285,7 +285,7 @@
           "kind": "mot-cle",
           "french": "une semaine",
           "english": "a week",
-          "example": "Et côté prix, combien ça coûte pour une semaine ou pour tout le séjour ?",
+          "example": "J'en arrive au nerf de la guerre. Et côté prix, combien ça coûte pour une semaine ou pour tout le séjour ?",
           "usage": "Nom féminin utile pour parler d'une durée de location.",
           "id": "T2D12S42V05"
         },
@@ -309,7 +309,7 @@
           "kind": "mot-cle",
           "french": "des commodités",
           "english": "local amenities",
-          "example": "Est-ce qu'il y a des commodités à proximité — supermarchés, restaurants, pharmacie ?",
+          "example": "On aime bien pouvoir tout faire sans reprendre la voiture. Est-ce qu'il y a des commodités à proximité — supermarchés, restaurants, pharmacie ?",
           "usage": "Nom pluriel pour parler des services utiles à proximité.",
           "id": "T2D12S42V08"
         },
@@ -317,7 +317,7 @@
           "kind": "mot-cle",
           "french": "un parking",
           "english": "a parking area",
-          "example": "Y a-t-il un parking, ou est-ce qu'on peut venir facilement en transports en commun ?",
+          "example": "Pour le trajet, on hésite encore. Y a-t-il un parking, ou est-ce qu'on peut venir facilement en transports en commun ?",
           "usage": "Nom masculin désignant un espace de stationnement disponible.",
           "id": "T2D12S42V09"
         },
@@ -325,7 +325,7 @@
           "kind": "mot-cle",
           "french": "des photos",
           "english": "photos",
-          "example": "Est-ce que tu aurais des photos à m'envoyer pour que je me fasse une idée avant de me décider ?",
+          "example": "Il ne me manque plus grand-chose pour me projeter. Est-ce que tu aurais des photos à m'envoyer pour que je me fasse une idée avant de me décider ?",
           "usage": "Nom pluriel utile pour demander une présentation visuelle d'un logement.",
           "id": "T2D12S42V10"
         },
@@ -333,7 +333,7 @@
           "kind": "collocation",
           "french": "près d'un lac",
           "english": "near a lake",
-          "example": "Le cadre autour de la maison est comment — plutôt calme, à la campagne, près d'un lac ou proche du centre ?",
+          "example": "Ça tombe bien, on cherchait justement quelque chose pour cet été. Le cadre autour de la maison est comment — plutôt calme, à la campagne, près d'un lac ou proche du centre ?",
           "usage": "Groupe prépositionnel pour situer un lieu dans un environnement naturel.",
           "id": "T2D12S42V11"
         },
@@ -341,7 +341,7 @@
           "kind": "collocation",
           "french": "combien de pièces",
           "english": "how many rooms",
-          "example": "Quelle est la superficie de la maison — et combien de pièces ou de chambres y a-t-il ?",
+          "example": "Parlons un peu de l'intérieur. Quelle est la superficie de la maison — et combien de pièces ou de chambres y a-t-il ?",
           "usage": "Structure interrogative avec « combien de » pour quantifier un logement.",
           "id": "T2D12S42V12"
         },
@@ -357,7 +357,7 @@
           "kind": "collocation",
           "french": "tout le séjour",
           "english": "the whole stay",
-          "example": "Et côté prix, combien ça coûte pour une semaine ou pour tout le séjour ?",
+          "example": "J'en arrive au nerf de la guerre. Et côté prix, combien ça coûte pour une semaine ou pour tout le séjour ?",
           "usage": "Groupe nominal pour parler du prix global d'une location.",
           "id": "T2D12S42V14"
         },
@@ -381,7 +381,7 @@
           "kind": "collocation",
           "french": "à proximité",
           "english": "nearby",
-          "example": "Est-ce qu'il y a des commodités à proximité — supermarchés, restaurants, pharmacie ?",
+          "example": "On aime bien pouvoir tout faire sans reprendre la voiture. Est-ce qu'il y a des commodités à proximité — supermarchés, restaurants, pharmacie ?",
           "usage": "Locution adverbiale très fréquente pour signaler la proximité.",
           "id": "T2D12S42V17"
         },
@@ -390,14 +390,14 @@
           "kind": "collocation",
           "french": "des règles particulières",
           "english": "specific rules",
-          "example": "Est-ce qu'il y a des règles particulières à respecter ?",
+          "example": "Comme c'est chez toi, je préfère être clair dès le départ. Est-ce qu'il y a des règles particulières à respecter ?",
           "usage": "Collocation adjectif-nom pour évoquer des consignes propres à un contexte."
         },
         {
           "kind": "collocation",
           "french": "en transports en commun",
           "english": "by public transport",
-          "example": "Y a-t-il un parking, ou est-ce qu'on peut venir facilement en transports en commun ?",
+          "example": "Pour le trajet, on hésite encore. Y a-t-il un parking, ou est-ce qu'on peut venir facilement en transports en commun ?",
           "usage": "Groupe prépositionnel courant pour parler d'accessibilité.",
           "id": "T2D12S42V19"
         },
@@ -405,7 +405,7 @@
           "kind": "collocation",
           "french": "je me fasse une idée",
           "english": "to get a sense of it",
-          "example": "Est-ce que tu aurais des photos à m'envoyer pour que je me fasse une idée avant de me décider ?",
+          "example": "Il ne me manque plus grand-chose pour me projeter. Est-ce que tu aurais des photos à m'envoyer pour que je me fasse une idée avant de me décider ?",
           "usage": "Locution verbale pour exprimer une première impression avant de décider.",
           "id": "T2D12S42V20"
         },
@@ -421,7 +421,7 @@
           "kind": "tournure",
           "french": "Le cadre autour de la maison est comment",
           "english": "what is the setting around the house like",
-          "example": "Le cadre autour de la maison est comment — plutôt calme, à la campagne, près d'un lac ou proche du centre ?",
+          "example": "Ça tombe bien, on cherchait justement quelque chose pour cet été. Le cadre autour de la maison est comment — plutôt calme, à la campagne, près d'un lac ou proche du centre ?",
           "usage": "Question orale naturelle pour décrire un environnement.",
           "id": "T2D12S42V22"
         },
@@ -429,7 +429,7 @@
           "kind": "tournure",
           "french": "Quelle est la superficie de la maison",
           "english": "what is the size of the house",
-          "example": "Quelle est la superficie de la maison — et combien de pièces ou de chambres y a-t-il ?",
+          "example": "Parlons un peu de l'intérieur. Quelle est la superficie de la maison — et combien de pièces ou de chambres y a-t-il ?",
           "usage": "Tournure simple pour demander les dimensions d'un logement.",
           "id": "T2D12S42V23"
         },
@@ -445,7 +445,7 @@
           "kind": "tournure",
           "french": "Elle est disponible à quelles dates pendant l'été",
           "english": "on which dates is it available during the summer",
-          "example": "Elle est disponible à quelles dates pendant l'été ?",
+          "example": "Reste à caler nos congés avec les tiens. Elle est disponible à quelles dates pendant l'été ?",
           "usage": "Question directe pour vérifier une disponibilité saisonnière.",
           "id": "T2D12S42V25"
         },
@@ -453,7 +453,7 @@
           "kind": "tournure",
           "french": "Et côté prix, combien ça coûte pour une semaine ou pour tout le séjour",
           "english": "and price-wise, how much does it cost for a week or for the whole stay",
-          "example": "Et côté prix, combien ça coûte pour une semaine ou pour tout le séjour ?",
+          "example": "J'en arrive au nerf de la guerre. Et côté prix, combien ça coûte pour une semaine ou pour tout le séjour ?",
           "usage": "Tournure orale pratique pour demander un tarif détaillé.",
           "id": "T2D12S42V26"
         },
@@ -477,7 +477,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'il y a des commodités à proximité",
           "english": "are there amenities nearby",
-          "example": "Est-ce qu'il y a des commodités à proximité — supermarchés, restaurants, pharmacie ?",
+          "example": "On aime bien pouvoir tout faire sans reprendre la voiture. Est-ce qu'il y a des commodités à proximité — supermarchés, restaurants, pharmacie ?",
           "usage": "Question avec « est-ce qu'il y a » sur les services environnants.",
           "id": "T2D12S42V29"
         },
@@ -485,7 +485,7 @@
           "kind": "tournure",
           "french": "Est-ce que tu aurais des photos à m'envoyer",
           "english": "would you have some photos to send me",
-          "example": "Est-ce que tu aurais des photos à m'envoyer pour que je me fasse une idée avant de me décider ?",
+          "example": "Il ne me manque plus grand-chose pour me projeter. Est-ce que tu aurais des photos à m'envoyer pour que je me fasse une idée avant de me décider ?",
           "usage": "Tournure familière et polie pour demander des visuels.",
           "id": "T2D12S42V30"
         }

@@ -507,7 +507,7 @@
           "kind": "mot-cle",
           "french": "des meubles",
           "english": "furniture",
-          "example": "C'est quoi exactement comme objets — des meubles, des cartons, de l'électroménager ?",
+          "example": "Commençons par le contenu. C'est quoi exactement comme objets — des meubles, des cartons, de l'électroménager ?",
           "usage": "Nom pluriel désignant des meubles."
         },
         {
@@ -515,7 +515,7 @@
           "kind": "mot-cle",
           "french": "des cartons",
           "english": "boxes",
-          "example": "C'est quoi exactement comme objets — des meubles, des cartons, de l'électroménager ?",
+          "example": "Commençons par le contenu. C'est quoi exactement comme objets — des meubles, des cartons, de l'électroménager ?",
           "usage": "Nom pluriel désignant des cartons."
         },
         {
@@ -523,7 +523,7 @@
           "kind": "mot-cle",
           "french": "de l'électroménager",
           "english": "appliances",
-          "example": "C'est quoi exactement comme objets — des meubles, des cartons, de l'électroménager ?",
+          "example": "Commençons par le contenu. C'est quoi exactement comme objets — des meubles, des cartons, de l'électroménager ?",
           "usage": "Groupe nominal désignant l'électroménager."
         },
         {
@@ -531,7 +531,7 @@
           "kind": "mot-cle",
           "french": "des escaliers",
           "english": "stairs",
-          "example": "Il y a des escaliers ou un ascenseur, des deux côtés ?",
+          "example": "Les accès, c'est souvent le pire. Il y a des escaliers ou un ascenseur, des deux côtés ?",
           "usage": "Nom pluriel désignant les escaliers."
         },
         {
@@ -539,7 +539,7 @@
           "kind": "mot-cle",
           "french": "un ascenseur",
           "english": "a lift/elevator",
-          "example": "Il y a des escaliers ou un ascenseur, des deux côtés ?",
+          "example": "Les accès, c'est souvent le pire. Il y a des escaliers ou un ascenseur, des deux côtés ?",
           "usage": "Nom désignant l'ascenseur."
         },
         {
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "une camionnette",
           "english": "a van",
-          "example": "Tu as pensé à louer une camionnette, ou tu comptes sur des amis avec une voiture ?",
+          "example": "Reste la question du véhicule. Tu as pensé à louer une camionnette, ou tu comptes sur des amis avec une voiture ?",
           "usage": "Nom désignant le véhicule utilitaire."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "des sangles",
           "english": "straps",
-          "example": "Il faut prévoir du matériel — des sangles, un diable, des couvertures pour protéger ?",
+          "example": "Pour bien faire, il vaut mieux s'équiper. Il faut prévoir du matériel — des sangles, un diable, des couvertures pour protéger ?",
           "usage": "Nom pluriel désignant les sangles de transport."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "un diable",
           "english": "a hand truck",
-          "example": "Il faut prévoir du matériel — des sangles, un diable, des couvertures pour protéger ?",
+          "example": "Pour bien faire, il vaut mieux s'équiper. Il faut prévoir du matériel — des sangles, un diable, des couvertures pour protéger ?",
           "usage": "Nom désignant le chariot de manutention."
         },
         {
@@ -587,7 +587,7 @@
           "kind": "collocation",
           "french": "très lourds ou encombrants",
           "english": "very heavy or bulky",
-          "example": "Les objets sont très lourds ou encombrants — il faudra être plusieurs pour porter ?",
+          "example": "Le poids va tout changer pour l'organisation. Les objets sont très lourds ou encombrants — il faudra être plusieurs pour porter ?",
           "usage": "Adjectifs coordonnés sur les objets."
         },
         {
@@ -595,7 +595,7 @@
           "kind": "collocation",
           "french": "être plusieurs pour porter",
           "english": "need several people to carry",
-          "example": "Les objets sont très lourds ou encombrants — il faudra être plusieurs pour porter ?",
+          "example": "Le poids va tout changer pour l'organisation. Les objets sont très lourds ou encombrants — il faudra être plusieurs pour porter ?",
           "usage": "Locution verbale sur la manutention."
         },
         {
@@ -603,7 +603,7 @@
           "kind": "collocation",
           "french": "d'où à où",
           "english": "from where to where",
-          "example": "Il faut les déplacer d'où à où — c'est loin ?",
+          "example": "Voyons le trajet maintenant. Il faut les déplacer d'où à où — c'est loin ?",
           "usage": "Locution interrogative sur le trajet."
         },
         {
@@ -611,7 +611,7 @@
           "kind": "collocation",
           "french": "une date en tête",
           "english": "a date in mind",
-          "example": "Tu voudrais faire ça quel jour — tu as une date en tête ?",
+          "example": "Il faut qu'on cale ça dans nos agendas. Tu voudrais faire ça quel jour — tu as une date en tête ?",
           "usage": "Locution sur la date envisagée."
         },
         {
@@ -619,7 +619,7 @@
           "kind": "collocation",
           "french": "louer une camionnette",
           "english": "rent a van",
-          "example": "Tu as pensé à louer une camionnette, ou tu comptes sur des amis avec une voiture ?",
+          "example": "Reste la question du véhicule. Tu as pensé à louer une camionnette, ou tu comptes sur des amis avec une voiture ?",
           "usage": "Verbe + complément sur la location."
         },
         {
@@ -627,7 +627,7 @@
           "kind": "collocation",
           "french": "des amis avec une voiture",
           "english": "friends with a car",
-          "example": "Tu as pensé à louer une camionnette, ou tu comptes sur des amis avec une voiture ?",
+          "example": "Reste la question du véhicule. Tu as pensé à louer une camionnette, ou tu comptes sur des amis avec une voiture ?",
           "usage": "Groupe nominal sur l'entraide."
         },
         {
@@ -635,7 +635,7 @@
           "kind": "collocation",
           "french": "des couvertures pour protéger",
           "english": "blankets to protect",
-          "example": "Il faut prévoir du matériel — des sangles, un diable, des couvertures pour protéger ?",
+          "example": "Pour bien faire, il vaut mieux s'équiper. Il faut prévoir du matériel — des sangles, un diable, des couvertures pour protéger ?",
           "usage": "Groupe nominal sur la protection."
         },
         {
@@ -643,7 +643,7 @@
           "kind": "collocation",
           "french": "donner un coup de main",
           "english": "lend a hand",
-          "example": "Tu veux que je m'occupe de prévenir d'autres personnes pour donner un coup de main ?",
+          "example": "De mon côté, je peux passer quelques coups de fil. Tu veux que je m'occupe de prévenir d'autres personnes pour donner un coup de main ?",
           "usage": "Locution familière sur l'aide."
         },
         {
@@ -659,7 +659,7 @@
           "kind": "tournure",
           "french": "C'est quoi exactement comme objets",
           "english": "what exactly are the items",
-          "example": "C'est quoi exactement comme objets — des meubles, des cartons, de l'électroménager ?",
+          "example": "Commençons par le contenu. C'est quoi exactement comme objets — des meubles, des cartons, de l'électroménager ?",
           "usage": "Question sur la nature des objets."
         },
         {
@@ -675,7 +675,7 @@
           "kind": "tournure",
           "french": "Les objets sont très lourds ou encombrants",
           "english": "are the items very heavy or bulky",
-          "example": "Les objets sont très lourds ou encombrants — il faudra être plusieurs pour porter ?",
+          "example": "Le poids va tout changer pour l'organisation. Les objets sont très lourds ou encombrants — il faudra être plusieurs pour porter ?",
           "usage": "Question sur le poids."
         },
         {
@@ -683,7 +683,7 @@
           "kind": "tournure",
           "french": "Il faut les déplacer d'où à où",
           "english": "where do they need to be moved from and to",
-          "example": "Il faut les déplacer d'où à où — c'est loin ?",
+          "example": "Voyons le trajet maintenant. Il faut les déplacer d'où à où — c'est loin ?",
           "usage": "Question sur le trajet."
         },
         {
@@ -691,7 +691,7 @@
           "kind": "tournure",
           "french": "Il y a des escaliers ou un ascenseur, des deux côtés",
           "english": "are there stairs or a lift on both sides",
-          "example": "Il y a des escaliers ou un ascenseur, des deux côtés ?",
+          "example": "Les accès, c'est souvent le pire. Il y a des escaliers ou un ascenseur, des deux côtés ?",
           "usage": "Question sur l'accès."
         },
         {
@@ -699,7 +699,7 @@
           "kind": "tournure",
           "french": "Tu voudrais faire ça quel jour",
           "english": "what day would you want to do it",
-          "example": "Tu voudrais faire ça quel jour — tu as une date en tête ?",
+          "example": "Il faut qu'on cale ça dans nos agendas. Tu voudrais faire ça quel jour — tu as une date en tête ?",
           "usage": "Question sur la date."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "Tu as pensé à louer une camionnette",
           "english": "have you thought about renting a van",
-          "example": "Tu as pensé à louer une camionnette, ou tu comptes sur des amis avec une voiture ?",
+          "example": "Reste la question du véhicule. Tu as pensé à louer une camionnette, ou tu comptes sur des amis avec une voiture ?",
           "usage": "Question sur le véhicule."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "Il faut prévoir du matériel",
           "english": "do we need to bring equipment",
-          "example": "Il faut prévoir du matériel — des sangles, un diable, des couvertures pour protéger ?",
+          "example": "Pour bien faire, il vaut mieux s'équiper. Il faut prévoir du matériel — des sangles, un diable, des couvertures pour protéger ?",
           "usage": "Question sur le matériel."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "On sera combien pour aider",
           "english": "how many of us will help",
-          "example": "On sera combien pour aider, à ton avis ?",
+          "example": "Ça dépendra aussi du nombre de bras disponibles. On sera combien pour aider, à ton avis ?",
           "usage": "Question sur le nombre d'aidants."
         },
         {
@@ -731,7 +731,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'il faut faire attention à des objets fragiles en particulier",
           "english": "are there fragile items to be careful with",
-          "example": "Est-ce qu'il faut faire attention à des objets fragiles en particulier ?",
+          "example": "Il y a peut-être des choses délicates dans le lot. Est-ce qu'il faut faire attention à des objets fragiles en particulier ?",
           "usage": "Question sur les objets fragiles."
         }
       ]

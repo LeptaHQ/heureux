@@ -989,7 +989,7 @@
           "kind": "mot-cle",
           "french": "la chambre",
           "english": "the room",
-          "example": "La chambre qui se libère fait quelle taille — elle est meublée ?",
+          "example": "Parlons d'abord de la pièce elle-même. La chambre qui se libère fait quelle taille — elle est meublée ?",
           "usage": "Nom désignant la pièce à louer."
         },
         {
@@ -997,7 +997,7 @@
           "kind": "mot-cle",
           "french": "le logement",
           "english": "the accommodation",
-          "example": "Comment est le logement en général — il y a combien de pièces et de chambres ?",
+          "example": "Ensuite, j'aimerais visualiser l'ensemble. Comment est le logement en général — il y a combien de pièces et de chambres ?",
           "usage": "Nom désignant l'habitation."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "une caution",
           "english": "a deposit",
-          "example": "Il faut verser une caution, et de combien à peu près ?",
+          "example": "Il faut aussi que je prévoie une avance. Il faut verser une caution, et de combien à peu près ?",
           "usage": "Nom désignant la somme de garantie."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "le quartier",
           "english": "the neighborhood",
-          "example": "Le quartier est comment — calme, bien desservi par les transports ?",
+          "example": "Le cadre autour compte autant que l'appartement pour moi. Le quartier est comment — calme, bien desservi par les transports ?",
           "usage": "Nom désignant la zone d'habitation."
         },
         {
@@ -1069,7 +1069,7 @@
           "kind": "collocation",
           "french": "elle est meublée",
           "english": "it is furnished",
-          "example": "La chambre qui se libère fait quelle taille — elle est meublée ?",
+          "example": "Parlons d'abord de la pièce elle-même. La chambre qui se libère fait quelle taille — elle est meublée ?",
           "usage": "Locution attribut sur l'ameublement."
         },
         {
@@ -1077,7 +1077,7 @@
           "kind": "collocation",
           "french": "combien de pièces et de chambres",
           "english": "how many rooms and bedrooms",
-          "example": "Comment est le logement en général — il y a combien de pièces et de chambres ?",
+          "example": "Ensuite, j'aimerais visualiser l'ensemble. Comment est le logement en général — il y a combien de pièces et de chambres ?",
           "usage": "Locution interrogative sur la taille."
         },
         {
@@ -1101,7 +1101,7 @@
           "kind": "collocation",
           "french": "les dépenses communes",
           "english": "the shared expenses",
-          "example": "Comment ça se passe pour les dépenses communes, les courses et le ménage ?",
+          "example": "Sur le plan pratique, tout se joue là. Comment ça se passe pour les dépenses communes, les courses et le ménage ?",
           "usage": "Locution nominale pour les frais partagés."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "verser une caution",
           "english": "to pay a deposit",
-          "example": "Il faut verser une caution, et de combien à peu près ?",
+          "example": "Il faut aussi que je prévoie une avance. Il faut verser une caution, et de combien à peu près ?",
           "usage": "Verbe + complément sur la garantie."
         },
         {
@@ -1117,7 +1117,7 @@
           "kind": "collocation",
           "french": "des règles de vie",
           "english": "house rules",
-          "example": "Est-ce qu'il y a des règles de vie à respecter entre colocataires ?",
+          "example": "Vivre à plusieurs demande un minimum de cadre. Est-ce qu'il y a des règles de vie à respecter entre colocataires ?",
           "usage": "Locution nominale pour les règles communes."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "desservi par les transports",
           "english": "served by public transport",
-          "example": "Le quartier est comment — calme, bien desservi par les transports ?",
+          "example": "Le cadre autour compte autant que l'appartement pour moi. Le quartier est comment — calme, bien desservi par les transports ?",
           "usage": "Participe + complément sur l'accès."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "passer visiter",
           "english": "to come by and visit",
-          "example": "Est-ce que je pourrais passer visiter avant de me décider ?",
+          "example": "Tout cela me paraît très correct. Est-ce que je pourrais passer visiter avant de me décider ?",
           "usage": "Locution verbale pour une visite."
         },
         {
@@ -1141,7 +1141,7 @@
           "kind": "collocation",
           "french": "à vivre dans l'appartement",
           "english": "living in the flat",
-          "example": "Vous êtes combien à vivre dans l'appartement en ce moment ?",
+          "example": "Ce sont surtout les personnes qui feront la différence. Vous êtes combien à vivre dans l'appartement en ce moment ?",
           "usage": "Locution verbale sur le nombre d'occupants."
         },
         {
@@ -1165,7 +1165,7 @@
           "kind": "tournure",
           "french": "fait quelle taille",
           "english": "what size is it",
-          "example": "La chambre qui se libère fait quelle taille — elle est meublée ?",
+          "example": "Parlons d'abord de la pièce elle-même. La chambre qui se libère fait quelle taille — elle est meublée ?",
           "usage": "Question orale sur les dimensions."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "Comment est le logement en général",
           "english": "what is the accommodation like overall",
-          "example": "Comment est le logement en général — il y a combien de pièces et de chambres ?",
+          "example": "Ensuite, j'aimerais visualiser l'ensemble. Comment est le logement en général — il y a combien de pièces et de chambres ?",
           "usage": "Question sur l'aspect global."
         },
         {
@@ -1197,7 +1197,7 @@
           "kind": "tournure",
           "french": "Comment ça se passe pour les dépenses communes",
           "english": "how it works for shared expenses",
-          "example": "Comment ça se passe pour les dépenses communes, les courses et le ménage ?",
+          "example": "Sur le plan pratique, tout se joue là. Comment ça se passe pour les dépenses communes, les courses et le ménage ?",
           "usage": "Question sur l'organisation des frais."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "je pourrais passer visiter avant de me décider",
           "english": "could I come visit before deciding",
-          "example": "Est-ce que je pourrais passer visiter avant de me décider ?",
+          "example": "Tout cela me paraît très correct. Est-ce que je pourrais passer visiter avant de me décider ?",
           "usage": "Tournure pour proposer une visite."
         },
         {

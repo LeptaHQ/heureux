@@ -744,7 +744,7 @@
           "kind": "mot-cle",
           "french": "quels quartiers",
           "english": "which neighborhoods",
-          "example": "Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
+          "example": "Toi qui connais la ville mieux que personne, oriente-moi. Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
           "usage": "Groupe interrogatif pour demander des zones résidentielles précises."
         },
         {
@@ -768,7 +768,7 @@
           "kind": "mot-cle",
           "french": "en métro",
           "english": "by subway",
-          "example": "Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
+          "example": "Je compte me déplacer uniquement en transports en commun. Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
           "usage": "Locution adverbiale de moyen de transport souterrain."
         },
         {
@@ -776,7 +776,7 @@
           "kind": "mot-cle",
           "french": "un dossier de location",
           "english": "a rental application file",
-          "example": "Quels documents demande-t-on généralement pour un dossier de location ?",
+          "example": "Pour ce qui est du dossier, je veux m'y prendre correctement. Quels documents demande-t-on généralement pour un dossier de location ?",
           "usage": "Groupe nominal désignant l'ensemble des documents requis pour louer un logement."
         },
         {
@@ -800,7 +800,7 @@
           "kind": "mot-cle",
           "french": "le marché",
           "english": "the market",
-          "example": "Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
+          "example": "J'ai peur d'arriver trop tard sur les bonnes annonces. Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
           "usage": "Nom masculin désignant ici l'offre et la demande de logements dans une ville."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "un appartement",
           "english": "an apartment",
-          "example": "Je cherche un appartement dans ta ville et je ne sais pas trop par où commencer — tu pourrais m'aider ?",
+          "example": "Salut ! Ça y est, ma décision est prise, je viens m'installer près de chez toi. Je cherche un appartement dans ta ville et je ne sais pas trop par où commencer — tu pourrais m'aider ?",
           "usage": "Nom courant pour désigner le logement recherché."
         },
         {
@@ -824,7 +824,7 @@
           "kind": "collocation",
           "french": "vivre seul(e)",
           "english": "to live alone",
-          "example": "D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement pour commencer ?",
+          "example": "Première grande décision à prendre. D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement pour commencer ?",
           "usage": "Collocation verbe + adjectif pour évoquer un mode de vie indépendant."
         },
         {
@@ -832,7 +832,7 @@
           "kind": "collocation",
           "french": "la vie quotidienne",
           "english": "daily life",
-          "example": "Y a-t-il des quartiers plus pratiques pour les commerces et la vie quotidienne ?",
+          "example": "Au quotidien, j'aimerais avoir l'essentiel à côté. Y a-t-il des quartiers plus pratiques pour les commerces et la vie quotidienne ?",
           "usage": "Collocation adjectif + nom pour désigner les habitudes de tous les jours."
         },
         {
@@ -840,7 +840,7 @@
           "kind": "collocation",
           "french": "certaines annonces",
           "english": "certain listings/ads",
-          "example": "Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
+          "example": "Une dernière chose qui m'inquiète un peu. Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
           "usage": "Collocation adjectif indéfini + nom pour désigner des offres de logement particulières."
         },
         {
@@ -856,7 +856,7 @@
           "kind": "collocation",
           "french": "sites ou applications",
           "english": "sites or apps",
-          "example": "Tu utiliserais quels sites ou applications pour chercher un logement dans ta ville ?",
+          "example": "Passons à la recherche elle-même. Tu utiliserais quels sites ou applications pour chercher un logement dans ta ville ?",
           "usage": "Collocation nominale pour parler des outils de recherche immobilière."
         },
         {
@@ -864,7 +864,7 @@
           "kind": "collocation",
           "french": "chercher un logement",
           "english": "look for housing",
-          "example": "Tu utiliserais quels sites ou applications pour chercher un logement dans ta ville ?",
+          "example": "Passons à la recherche elle-même. Tu utiliserais quels sites ou applications pour chercher un logement dans ta ville ?",
           "usage": "Collocation verbale très fréquente dans le contexte immobilier."
         },
         {
@@ -872,7 +872,7 @@
           "kind": "collocation",
           "french": "par où commencer",
           "english": "where to start",
-          "example": "Je cherche un appartement dans ta ville et je ne sais pas trop par où commencer — tu pourrais m'aider ?",
+          "example": "Salut ! Ça y est, ma décision est prise, je viens m'installer près de chez toi. Je cherche un appartement dans ta ville et je ne sais pas trop par où commencer — tu pourrais m'aider ?",
           "usage": "Expression utile quand on ne sait pas quelle première démarche faire."
         },
         {
@@ -880,7 +880,7 @@
           "kind": "collocation",
           "french": "faciles d'accès en métro",
           "english": "easy to reach by subway",
-          "example": "Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
+          "example": "Je compte me déplacer uniquement en transports en commun. Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
           "usage": "Collocation pour évaluer l’accessibilité d’un quartier sans voiture."
         },
         {
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "partager un appartement",
           "english": "share an apartment",
-          "example": "D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement pour commencer ?",
+          "example": "Première grande décision à prendre. D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement pour commencer ?",
           "usage": "Collocation verbale pour parler de la colocation."
         },
         {
@@ -904,7 +904,7 @@
           "kind": "tournure",
           "french": "tu pourrais m'aider",
           "english": "could you help me",
-          "example": "Je cherche un appartement dans ta ville et je ne sais pas trop par où commencer — tu pourrais m'aider ?",
+          "example": "Salut ! Ça y est, ma décision est prise, je viens m'installer près de chez toi. Je cherche un appartement dans ta ville et je ne sais pas trop par où commencer — tu pourrais m'aider ?",
           "usage": "Formule orale pour demander un coup de main à un ami."
         },
         {
@@ -912,7 +912,7 @@
           "kind": "tournure",
           "french": "Ces quartiers sont-ils faciles d'accès en métro ou en bus",
           "english": "are these neighborhoods easy to reach by subway or bus",
-          "example": "Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
+          "example": "Je compte me déplacer uniquement en transports en commun. Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
           "usage": "Question utile pour vérifier l’accès en transports."
         },
         {
@@ -920,7 +920,7 @@
           "kind": "tournure",
           "french": "Tu utiliserais quels sites ou applications pour chercher un logement dans ta ville",
           "english": "which sites or apps would you use to look for housing in your city",
-          "example": "Tu utiliserais quels sites ou applications pour chercher un logement dans ta ville ?",
+          "example": "Passons à la recherche elle-même. Tu utiliserais quels sites ou applications pour chercher un logement dans ta ville ?",
           "usage": "Question pratique sur les ressources de recherche."
         },
         {
@@ -944,7 +944,7 @@
           "kind": "tournure",
           "french": "Le marché est-il très compétitif en ce moment",
           "english": "is the market very competitive right now",
-          "example": "Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
+          "example": "J'ai peur d'arriver trop tard sur les bonnes annonces. Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
           "usage": "Question directe sur l’état actuel du marché locatif."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement",
           "english": "in your opinion, is it better to live alone or share an apartment",
-          "example": "D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement pour commencer ?",
+          "example": "Première grande décision à prendre. D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement pour commencer ?",
           "usage": "Question comparative pour évaluer deux options de logement."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des quartiers plus pratiques pour les commerces et la vie quotidienne",
           "english": "are there neighborhoods more practical for shops and daily life",
-          "example": "Y a-t-il des quartiers plus pratiques pour les commerces et la vie quotidienne ?",
+          "example": "Au quotidien, j'aimerais avoir l'essentiel à côté. Y a-t-il des quartiers plus pratiques pour les commerces et la vie quotidienne ?",
           "usage": "Question utile pour cibler les quartiers les plus pratiques."
         },
         {
@@ -968,7 +968,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des pièges à éviter avec certains propriétaires",
           "english": "are there traps to avoid with certain landlords",
-          "example": "Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
+          "example": "Une dernière chose qui m'inquiète un peu. Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
           "usage": "Question de prévention pour éviter les mauvaises annonces."
         },
         {

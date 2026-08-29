@@ -102,7 +102,7 @@
           "memory_section": 4
         },
         {
-          "text": "Quelle est la superficie de la maison — et combien de chambres y a-t-il ?"
+          "text": "Venons-en à la maison elle-même. Quelle est la superficie de la maison — et combien de chambres y a-t-il ?"
         },
         {
           "text": "Elle peut accueillir combien de personnes confortablement ?",
@@ -110,7 +110,7 @@
           "memory_section": 7
         },
         {
-          "text": "Est-ce que la maison est entièrement meublée, et quels équipements sont disponibles sur place ?",
+          "text": "Nous viendrions les mains dans les poches. Est-ce que la maison est entièrement meublée, et quels équipements sont disponibles sur place ?",
           "memory_number": 2,
           "memory_section": 8
         },
@@ -120,32 +120,7 @@
           "memory_section": 9
         },
         {
-          "text": "La maison est disponible pour quelle période — à la semaine, pour quelques mois ou à l'année ?",
-          "memory_number": 2,
-          "memory_section": 4
-        },
-        {
-          "text": "Y a-t-il une durée minimale de location ?",
-          "memory_number": 2,
-          "memory_section": 6
-        },
-        {
-          "text": "Et côté tarifs, combien coûte la location — à la semaine ou au mois ?",
-          "memory_number": 2,
-          "memory_section": 3
-        },
-        {
-          "text": "Le tarif comprend quoi exactement — les charges et l'eau sont-elles incluses ?",
-          "memory_number": 2,
-          "memory_section": 3
-        },
-        {
-          "text": "Faut-il verser une caution — et le paiement se fait-il en une seule fois ?",
-          "memory_number": 2,
-          "memory_section": 6
-        },
-        {
-          "text": "Comment est le quartier en général — plutôt calme ou animé ?",
+          "text": "En ce qui concerne les alentours, j'aimerais me faire une idée. Comment est le quartier en général — plutôt calme ou animé ?",
           "memory_number": 2,
           "memory_section": 10
         },
@@ -155,9 +130,34 @@
           "memory_section": 9
         },
         {
-          "text": "Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
+          "text": "Pour le trajet, nous hésitons encore. Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
           "memory_number": 2,
           "memory_section": 5
+        },
+        {
+          "text": "Parlons maintenant du calendrier. La maison est disponible pour quelle période — à la semaine, pour quelques mois ou à l'année ?",
+          "memory_number": 2,
+          "memory_section": 4
+        },
+        {
+          "text": "Y a-t-il une durée minimale de location ?",
+          "memory_number": 2,
+          "memory_section": 6
+        },
+        {
+          "text": "J'en viens à la question du budget. Et côté tarifs, combien coûte la location — à la semaine ou au mois ?",
+          "memory_number": 2,
+          "memory_section": 3
+        },
+        {
+          "text": "Le tarif comprend quoi exactement — les charges et l'eau sont-elles incluses ?",
+          "memory_number": 2,
+          "memory_section": 3
+        },
+        {
+          "text": "Une précision sur les modalités de règlement. Faut-il verser une caution — et le paiement se fait-il en une seule fois ?",
+          "memory_number": 2,
+          "memory_section": 6
         },
         {
           "text": "D'accord, est-ce que je pourrais visiter la maison avant de m'engager et vous recontacter ensuite ?",
@@ -177,6 +177,21 @@
           "memory_section": 11
         },
         {
+          "text": "J'aimerais d'abord me situer dans le temps. Quel délai faut-il prévoir entre la commande et la livraison ?",
+          "memory_number": 2,
+          "memory_section": 4
+        },
+        {
+          "text": "Est-ce qu'on peut choisir le jour et un créneau horaire précis ?",
+          "memory_number": 2,
+          "memory_section": 4
+        },
+        {
+          "text": "Je travaille en journée, donc mes disponibilités sont limitées. Proposez-vous aussi des livraisons le soir ou le week-end ?",
+          "memory_number": 2,
+          "memory_section": 4
+        },
+        {
           "text": "Le prix de la livraison dépend-il de la taille du meuble ou de la distance ?",
           "memory_number": 2,
           "memory_section": 3
@@ -187,32 +202,12 @@
           "memory_section": 3
         },
         {
-          "text": "Le tarif comprend quoi exactement — le transport et la livraison jusque dans la pièce sont-ils inclus ?",
+          "text": "Je voudrais surtout éviter les frais cachés. Le tarif comprend quoi exactement — le transport et la livraison jusque dans la pièce sont-ils inclus ?",
           "memory_number": 2,
           "memory_section": 3
         },
         {
-          "text": "Quel délai faut-il prévoir entre la commande et la livraison ?",
-          "memory_number": 2,
-          "memory_section": 4
-        },
-        {
-          "text": "Est-ce qu'on peut choisir le jour et un créneau horaire précis ?",
-          "memory_number": 2,
-          "memory_section": 4
-        },
-        {
-          "text": "Proposez-vous aussi des livraisons le soir ou le week-end ?",
-          "memory_number": 2,
-          "memory_section": 4
-        },
-        {
-          "text": "Comment puis-je suivre ma commande et savoir à quelle heure le livreur arrivera ?",
-          "memory_number": 2,
-          "memory_section": 13
-        },
-        {
-          "text": "Faut-il vous signaler à l'avance qu'il y a des escaliers ou un ascenseur assez étroit ?",
+          "text": "Il y a une contrainte d'accès chez moi. Faut-il vous signaler à l'avance qu'il y a des escaliers ou un ascenseur assez étroit ?",
           "memory_number": 2,
           "memory_section": 8
         },
@@ -222,12 +217,17 @@
           "memory_section": 8
         },
         {
-          "text": "Est-ce que vos livreurs peuvent aussi monter le meuble sur place, ou est-ce à moi de le faire ?",
+          "text": "Je ne suis pas très habile de mes mains. Est-ce que vos livreurs peuvent aussi monter le meuble sur place, ou est-ce à moi de le faire ?",
           "memory_number": 2,
           "memory_section": 2
         },
         {
-          "text": "En cas de retard ou d'imprévu, comment ça se passe ?",
+          "text": "Le jour J, j'aimerais pouvoir m'organiser. Comment puis-je suivre ma commande et savoir à quelle heure le livreur arrivera ?",
+          "memory_number": 2,
+          "memory_section": 13
+        },
+        {
+          "text": "Envisageons aussi le pire des scénarios. En cas de retard ou d'imprévu, comment ça se passe ?",
           "memory_number": 2,
           "memory_section": 12
         },
@@ -242,7 +242,7 @@
           "memory_section": 12
         },
         {
-          "text": "S'il y a le moindre souci, à qui faut-il s'adresser ?",
+          "text": "Dernier point, pour être tranquille. S'il y a le moindre souci, à qui faut-il s'adresser ?",
           "memory_number": 2,
           "memory_section": 13
         }

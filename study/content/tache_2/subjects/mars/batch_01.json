@@ -104,7 +104,7 @@
           "memory_section": 11
         },
         {
-          "text": "Quels quartiers me conseillerais-tu — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
+          "text": "Une fois le type de logement choisi, reste à savoir où. Quels quartiers me conseillerais-tu — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
           "memory_number": 1,
           "memory_section": 10
         },
@@ -119,17 +119,22 @@
           "memory_section": 6
         },
         {
-          "text": "Est-ce qu'il y a des démarches administratives à prévoir — un numéro d'assurance sociale, une carte de santé ou une assurance particulière ?",
+          "text": "Passons à l'administratif, c'est ce qui me fait le plus peur. Est-ce qu'il y a des démarches administratives à prévoir — un numéro d'assurance sociale, une carte de santé ou une assurance particulière ?",
           "memory_number": 1,
           "memory_section": 8
         },
         {
-          "text": "Pour ouvrir un compte bancaire et prendre un forfait téléphonique, quels documents faut-il prévoir ?",
+          "text": "Il y a aussi tout ce qu'il faut mettre en place pour vivre normalement. Pour ouvrir un compte bancaire et prendre un forfait téléphonique, quels documents faut-il prévoir ?",
           "memory_number": 1,
           "memory_section": 8
         },
         {
-          "text": "Quels types de transports sont disponibles ici — bus, métro, tramway ?",
+          "text": "Et pour les soins de santé, comment trouver un médecin ou une clinique quand on vient d'arriver ?",
+          "memory_number": 1,
+          "memory_section": 9
+        },
+        {
+          "text": "Côté déplacements maintenant. Quels types de transports sont disponibles ici — bus, métro, tramway ?",
           "memory_number": 1,
           "memory_section": 2
         },
@@ -139,12 +144,12 @@
           "memory_section": 3
         },
         {
-          "text": "Pour les courses, tu connais des commerces abordables — supermarchés, marchés ou magasins de quartier ?",
+          "text": "Côté portefeuille, j'aimerais m'y retrouver. Pour les courses, tu connais des commerces abordables — supermarchés, marchés ou magasins de quartier ?",
           "memory_number": 1,
           "memory_section": 9
         },
         {
-          "text": "Quels types d'activités ou clubs sont populaires ici pour se faire des amis ?",
+          "text": "Le plus dur, ce sera sans doute de créer des liens. Quels types d'activités ou clubs sont populaires ici pour se faire des amis ?",
           "memory_number": 1,
           "memory_section": 2
         },
@@ -154,14 +159,9 @@
           "memory_section": 6
         },
         {
-          "text": "Les gens sont sympas — c'est facile de s'intégrer quand on arrive de l'étranger ?",
+          "text": "Ce qui me rassurerait le plus, c'est l'accueil. Les gens sont sympas — c'est facile de s'intégrer quand on arrive de l'étranger ?",
           "memory_number": 1,
           "memory_section": 10
-        },
-        {
-          "text": "Et pour les soins de santé, comment trouver un médecin ou une clinique quand on vient d'arriver ?",
-          "memory_number": 1,
-          "memory_section": 9
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule chose pour bien m'installer ici, ce serait laquelle ?",

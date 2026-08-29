@@ -997,7 +997,7 @@
           "kind": "mot-cle",
           "french": "les locataires",
           "english": "the tenants",
-          "example": "Est-ce que mon appartement se prête bien à ce type de location — qu'est-ce qui compte le plus pour les locataires ?",
+          "example": "J'aimerais d'abord savoir si le jeu en vaut la chandelle. Est-ce que mon appartement se prête bien à ce type de location — qu'est-ce qui compte le plus pour les locataires ?",
           "usage": "Nom pluriel désignant les personnes qui louent."
         },
         {
@@ -1021,7 +1021,7 @@
           "kind": "mot-cle",
           "french": "des séjours plus longs",
           "english": "longer stays",
-          "example": "Quelle durée de location vaut-il mieux privilégier — des courts séjours ou des séjours plus longs ?",
+          "example": "La question de la durée me semble décisive. Quelle durée de location vaut-il mieux privilégier — des courts séjours ou des séjours plus longs ?",
           "usage": "Groupe nominal désignant des locations de longue durée."
         },
         {
@@ -1029,7 +1029,7 @@
           "kind": "mot-cle",
           "french": "des courts séjours",
           "english": "short stays",
-          "example": "Quelle durée de location vaut-il mieux privilégier — des courts séjours ou des séjours plus longs ?",
+          "example": "La question de la durée me semble décisive. Quelle durée de location vaut-il mieux privilégier — des courts séjours ou des séjours plus longs ?",
           "usage": "Groupe nominal désignant des locations de courte durée."
         },
         {
@@ -1037,7 +1037,7 @@
           "kind": "mot-cle",
           "french": "les frais",
           "english": "the costs",
-          "example": "Quels sont les frais à prévoir de mon côté au total ?",
+          "example": "Faisons le total, alors. Quels sont les frais à prévoir de mon côté au total ?",
           "usage": "Nom pluriel désignant les dépenses à prévoir."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "une assurance particulière",
           "english": "special insurance",
-          "example": "Faut-il une assurance particulière en cas de dégâts ou de problème ?",
+          "example": "Le risque me préoccupe un peu. Faut-il une assurance particulière en cas de dégâts ou de problème ?",
           "usage": "Groupe nominal désignant une couverture dédiée."
         },
         {
@@ -1085,7 +1085,7 @@
           "kind": "collocation",
           "french": "se prête bien à ce type de location",
           "english": "is well suited to this kind of rental",
-          "example": "Est-ce que mon appartement se prête bien à ce type de location — qu'est-ce qui compte le plus pour les locataires ?",
+          "example": "J'aimerais d'abord savoir si le jeu en vaut la chandelle. Est-ce que mon appartement se prête bien à ce type de location — qu'est-ce qui compte le plus pour les locataires ?",
           "usage": "Locution verbale sur l'adéquation du bien."
         },
         {
@@ -1093,7 +1093,7 @@
           "kind": "collocation",
           "french": "à la nuit ou à la semaine",
           "english": "per night or per week",
-          "example": "À quel prix je peux espérer le louer, à la nuit ou à la semaine ?",
+          "example": "Venons-en à l'argent. À quel prix je peux espérer le louer, à la nuit ou à la semaine ?",
           "usage": "Alternative sur l'unité de tarification."
         },
         {
@@ -1101,7 +1101,7 @@
           "kind": "collocation",
           "french": "vaut-il mieux privilégier",
           "english": "is it better to favour",
-          "example": "Quelle durée de location vaut-il mieux privilégier — des courts séjours ou des séjours plus longs ?",
+          "example": "La question de la durée me semble décisive. Quelle durée de location vaut-il mieux privilégier — des courts séjours ou des séjours plus longs ?",
           "usage": "Locution verbale pour peser une option."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "en cas de dégâts",
           "english": "in case of damage",
-          "example": "Faut-il une assurance particulière en cas de dégâts ou de problème ?",
+          "example": "Le risque me préoccupe un peu. Faut-il une assurance particulière en cas de dégâts ou de problème ?",
           "usage": "Locution sur un sinistre éventuel."
         },
         {
@@ -1117,7 +1117,7 @@
           "kind": "collocation",
           "french": "meubler et équiper le logement",
           "english": "furnish and equip the flat",
-          "example": "Est-ce que je dois meubler et équiper le logement d'une façon particulière ?",
+          "example": "Pour ce qui est de l'aménagement, j'ai encore des doutes. Est-ce que je dois meubler et équiper le logement d'une façon particulière ?",
           "usage": "Verbe + complément sur l'aménagement."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "la remise des clés",
           "english": "the key handover",
-          "example": "Qui s'occupe du ménage et de la remise des clés entre deux locations ?",
+          "example": "Entre deux réservations, il y a tout un travail à faire. Qui s'occupe du ménage et de la remise des clés entre deux locations ?",
           "usage": "Groupe nominal sur la remise des clés."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "gère tout à ma place",
           "english": "handles everything for me",
-          "example": "Vous proposez un service qui gère tout à ma place, et à quelle commission ?",
+          "example": "Je n'ai pas forcément le temps de m'occuper de tout. Vous proposez un service qui gère tout à ma place, et à quelle commission ?",
           "usage": "Locution verbale sur la gestion déléguée."
         },
         {
@@ -1157,7 +1157,7 @@
           "kind": "tournure",
           "french": "À quel prix je peux espérer le louer",
           "english": "what price can I hope to rent it for",
-          "example": "À quel prix je peux espérer le louer, à la nuit ou à la semaine ?",
+          "example": "Venons-en à l'argent. À quel prix je peux espérer le louer, à la nuit ou à la semaine ?",
           "usage": "Question sur le prix de location."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "Quel type de locataires vaut-il mieux viser",
           "english": "what kind of tenants is it best to target",
-          "example": "Quel type de locataires vaut-il mieux viser — des touristes, des familles, des voyageurs d'affaires ?",
+          "example": "Autant viser le bon public dès le départ. Quel type de locataires vaut-il mieux viser — des touristes, des familles, des voyageurs d'affaires ?",
           "usage": "Question sur le profil des locataires."
         },
         {
@@ -1181,7 +1181,7 @@
           "kind": "tournure",
           "french": "Quelles démarches administratives dois-je prévoir",
           "english": "what administrative steps should I plan",
-          "example": "Quelles démarches administratives dois-je prévoir pour louer en règle ?",
+          "example": "Je veux évidemment rester dans les clous. Quelles démarches administratives dois-je prévoir pour louer en règle ?",
           "usage": "Question sur les formalités."
         },
         {
@@ -1189,7 +1189,7 @@
           "kind": "tournure",
           "french": "Faut-il une assurance particulière",
           "english": "is special insurance needed",
-          "example": "Faut-il une assurance particulière en cas de dégâts ou de problème ?",
+          "example": "Le risque me préoccupe un peu. Faut-il une assurance particulière en cas de dégâts ou de problème ?",
           "usage": "Question sur l'assurance."
         },
         {
@@ -1197,7 +1197,7 @@
           "kind": "tournure",
           "french": "Est-ce que je dois meubler et équiper le logement",
           "english": "do I need to furnish and equip the flat",
-          "example": "Est-ce que je dois meubler et équiper le logement d'une façon particulière ?",
+          "example": "Pour ce qui est de l'aménagement, j'ai encore des doutes. Est-ce que je dois meubler et équiper le logement d'une façon particulière ?",
           "usage": "Question sur l'aménagement."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "Vous proposez un service qui gère tout à ma place",
           "english": "do you offer a service that handles everything for me",
-          "example": "Vous proposez un service qui gère tout à ma place, et à quelle commission ?",
+          "example": "Je n'ai pas forcément le temps de m'occuper de tout. Vous proposez un service qui gère tout à ma place, et à quelle commission ?",
           "usage": "Question sur la gestion déléguée."
         },
         {
@@ -1213,7 +1213,7 @@
           "kind": "tournure",
           "french": "Comment faites-vous la promotion du logement",
           "english": "how do you advertise the property",
-          "example": "Comment faites-vous la promotion du logement pour trouver des locataires ?",
+          "example": "Une fois le bien prêt, encore faut-il le faire connaître. Comment faites-vous la promotion du logement pour trouver des locataires ?",
           "usage": "Question sur la mise en avant du bien."
         },
         {

@@ -278,7 +278,7 @@
           "kind": "mot-cle",
           "french": "un numéro d'assurance sociale",
           "english": "a social insurance number",
-          "example": "Est-ce qu'il y a des démarches administratives à prévoir — un numéro d'assurance sociale, une carte de santé ou une assurance particulière ?",
+          "example": "Passons à l'administratif, c'est ce qui me fait le plus peur. Est-ce qu'il y a des démarches administratives à prévoir — un numéro d'assurance sociale, une carte de santé ou une assurance particulière ?",
           "usage": "Groupe nominal désignant l'identifiant officiel requis pour travailler et recevoir certaines prestations au Canada."
         },
         {
@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "une carte de santé",
           "english": "a health card",
-          "example": "Est-ce qu'il y a des démarches administratives à prévoir — un numéro d'assurance sociale, une carte de santé ou une assurance particulière ?",
+          "example": "Passons à l'administratif, c'est ce qui me fait le plus peur. Est-ce qu'il y a des démarches administratives à prévoir — un numéro d'assurance sociale, une carte de santé ou une assurance particulière ?",
           "usage": "Groupe nominal désignant le document donnant accès aux soins médicaux couverts."
         },
         {
@@ -294,7 +294,7 @@
           "kind": "mot-cle",
           "french": "un compte bancaire",
           "english": "a bank account",
-          "example": "Pour ouvrir un compte bancaire et prendre un forfait téléphonique, quels documents faut-il prévoir ?",
+          "example": "Il y a aussi tout ce qu'il faut mettre en place pour vivre normalement. Pour ouvrir un compte bancaire et prendre un forfait téléphonique, quels documents faut-il prévoir ?",
           "usage": "Groupe nominal désignant le compte ouvert auprès d'une banque pour gérer son argent."
         },
         {
@@ -302,7 +302,7 @@
           "kind": "mot-cle",
           "french": "un forfait téléphonique",
           "english": "a phone plan",
-          "example": "Pour ouvrir un compte bancaire et prendre un forfait téléphonique, quels documents faut-il prévoir ?",
+          "example": "Il y a aussi tout ce qu'il faut mettre en place pour vivre normalement. Pour ouvrir un compte bancaire et prendre un forfait téléphonique, quels documents faut-il prévoir ?",
           "usage": "Groupe nominal désignant l'abonnement incluant appels, textos et données mobiles."
         },
         {
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "métro",
           "english": "the subway/metro",
-          "example": "Quels types de transports sont disponibles ici — bus, métro, tramway ?",
+          "example": "Côté déplacements maintenant. Quels types de transports sont disponibles ici — bus, métro, tramway ?",
           "usage": "Nom courant désignant un moyen de transport souterrain urbain."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "magasins de quartier",
           "english": "neighbourhood stores",
-          "example": "Pour les courses, tu connais des commerces abordables — supermarchés, marchés ou magasins de quartier ?",
+          "example": "Côté portefeuille, j'aimerais m'y retrouver. Pour les courses, tu connais des commerces abordables — supermarchés, marchés ou magasins de quartier ?",
           "usage": "Groupe nominal désignant les commerces de proximité au sein d'un quartier."
         },
         {
@@ -350,7 +350,7 @@
           "kind": "collocation",
           "french": "calme et résidentiel",
           "english": "quiet and residential",
-          "example": "Quels quartiers me conseillerais-tu — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
+          "example": "Une fois le type de logement choisi, reste à savoir où. Quels quartiers me conseillerais-tu — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
           "usage": "Association de deux adjectifs pour qualifier un quartier paisible et habité."
         },
         {
@@ -382,7 +382,7 @@
           "kind": "collocation",
           "french": "commerces abordables",
           "english": "affordable shops",
-          "example": "Pour les courses, tu connais des commerces abordables — supermarchés, marchés ou magasins de quartier ?",
+          "example": "Côté portefeuille, j'aimerais m'y retrouver. Pour les courses, tu connais des commerces abordables — supermarchés, marchés ou magasins de quartier ?",
           "usage": "Association nom + adjectif pour qualifier des commerces aux prix raisonnables."
         },
         {
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "se faire des amis",
           "english": "to make friends",
-          "example": "Quels types d'activités ou clubs sont populaires ici pour se faire des amis ?",
+          "example": "Le plus dur, ce sera sans doute de créer des liens. Quels types d'activités ou clubs sont populaires ici pour se faire des amis ?",
           "usage": "Locution verbale figée pour désigner la création de nouvelles amitiés."
         },
         {
@@ -398,7 +398,7 @@
           "kind": "collocation",
           "french": "les gens sont sympas",
           "english": "people are nice",
-          "example": "Les gens sont sympas — c'est facile de s'intégrer quand on arrive de l'étranger ?",
+          "example": "Ce qui me rassurerait le plus, c'est l'accueil. Les gens sont sympas — c'est facile de s'intégrer quand on arrive de l'étranger ?",
           "usage": "Formule courante pour évoquer l'accueil chaleureux d'une population."
         },
         {
@@ -422,7 +422,7 @@
           "kind": "tournure",
           "french": "quels quartiers me conseillerais-tu",
           "english": "which neighbourhoods would you recommend to me",
-          "example": "Quels quartiers me conseillerais-tu — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
+          "example": "Une fois le type de logement choisi, reste à savoir où. Quels quartiers me conseillerais-tu — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
           "usage": "Question au conditionnel avec inversion, registre tutoiement."
         },
         {
@@ -430,7 +430,7 @@
           "kind": "tournure",
           "french": "c'est plutôt calme et résidentiel ou plus animé",
           "english": "is it rather quiet and residential, or livelier",
-          "example": "Quels quartiers me conseillerais-tu — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
+          "example": "Une fois le type de logement choisi, reste à savoir où. Quels quartiers me conseillerais-tu — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
           "usage": "Tournure interrogative alternative pour qualifier un lieu de vie."
         },
         {
@@ -454,7 +454,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'il y a des démarches administratives à prévoir",
           "english": "Are there administrative steps to plan for",
-          "example": "Est-ce qu'il y a des démarches administratives à prévoir — un numéro d'assurance sociale, une carte de santé ou une assurance particulière ?",
+          "example": "Passons à l'administratif, c'est ce qui me fait le plus peur. Est-ce qu'il y a des démarches administratives à prévoir — un numéro d'assurance sociale, une carte de santé ou une assurance particulière ?",
           "usage": "Structure avec 'est-ce que' pour interroger sur des formalités à venir."
         },
         {
@@ -462,7 +462,7 @@
           "kind": "tournure",
           "french": "quels documents faut-il prévoir",
           "english": "what documents should be prepared",
-          "example": "Pour ouvrir un compte bancaire et prendre un forfait téléphonique, quels documents faut-il prévoir ?",
+          "example": "Il y a aussi tout ce qu'il faut mettre en place pour vivre normalement. Pour ouvrir un compte bancaire et prendre un forfait téléphonique, quels documents faut-il prévoir ?",
           "usage": "Tournure impersonnelle avec 'il faut' pour demander une liste de pièces."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "Quels types de transports sont disponibles ici",
           "english": "what types of transport are available here",
-          "example": "Quels types de transports sont disponibles ici — bus, métro, tramway ?",
+          "example": "Côté déplacements maintenant. Quels types de transports sont disponibles ici — bus, métro, tramway ?",
           "usage": "Question avec ordre sujet-verbe standard, sans inversion."
         },
         {

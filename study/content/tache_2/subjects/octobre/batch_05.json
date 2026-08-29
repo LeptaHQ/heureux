@@ -97,7 +97,7 @@
           "text": "Salut ! Ça fait maintenant deux ans que tu vis au Québec — moi qui pense partir vivre à l'étranger, tu pourrais me raconter comment ça s'est passé ?"
         },
         {
-          "text": "Qu'est-ce qui t'a donné envie de t'installer là-bas ?"
+          "text": "Reprenons depuis le début. Qu'est-ce qui t'a donné envie de t'installer là-bas ?"
         },
         {
           "text": "Comment s'est passée ton adaptation au début — c'était difficile ?",
@@ -105,43 +105,43 @@
           "memory_section": 10
         },
         {
-          "text": "Le plus dépaysant en arrivant, c'était quoi ?"
+          "text": "Il y a toujours un choc au départ. Le plus dépaysant en arrivant, c'était quoi ?"
         },
         {
-          "text": "Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
+          "text": "Concrètement, il a bien dû y avoir des galères. Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
           "memory_number": 1,
           "memory_section": 10
         },
         {
-          "text": "Combien de temps il t'a fallu pour te sentir vraiment chez toi ?",
+          "text": "Un autre gros morceau, l'emploi. Côté travail, ça a été facile de trouver et de t'intégrer ?"
+        },
+        {
+          "text": "Côté budget, j'aimerais me faire une idée. Est-ce que le coût de la vie est très différent de chez nous ?"
+        },
+        {
+          "text": "Sur le plan des relations, ça a dû demander du temps. Est-ce que tu t'es fait des amis facilement ?"
+        },
+        {
+          "text": "On ne se sent pas chez soi du jour au lendemain. Combien de temps il t'a fallu pour te sentir vraiment chez toi ?",
           "memory_number": 1,
           "memory_section": 10
         },
         {
-          "text": "Est-ce que tu t'es fait des amis facilement ?"
-        },
-        {
-          "text": "Qu'est-ce qui a le plus changé dans ton mode de vie par rapport à avant ?",
+          "text": "Avec le recul, tu dois voir de vraies différences. Qu'est-ce qui a le plus changé dans ton mode de vie par rapport à avant ?",
           "memory_number": 1,
           "memory_section": 10
         },
         {
-          "text": "Côté travail, ça a été facile de trouver et de t'intégrer ?"
-        },
-        {
-          "text": "Est-ce que le coût de la vie est très différent de chez nous ?"
-        },
-        {
-          "text": "De ton pays d'origine, qu'est-ce qui te manque le plus ?"
+          "text": "Il y a forcément un revers à la médaille. De ton pays d'origine, qu'est-ce qui te manque le plus ?"
         },
         {
           "text": "Et à l'inverse, qu'est-ce que tu préfères dans ta vie là-bas maintenant ?"
         },
         {
-          "text": "Est-ce que tu as des regrets, ou tu referais le même choix ?"
+          "text": "Soyons francs deux minutes. Est-ce que tu as des regrets, ou tu referais le même choix ?"
         },
         {
-          "text": "Quels conseils tu donnerais à quelqu'un qui veut se lancer comme moi ?"
+          "text": "Moi, je suis à deux doigts de sauter le pas. Quels conseils tu donnerais à quelqu'un qui veut se lancer comme moi ?"
         },
         {
           "text": "Pour finir — si tu ne devais me dire qu'une seule chose à savoir absolument avant de partir, ce serait laquelle ?"

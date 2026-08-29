@@ -744,7 +744,7 @@
           "kind": "mot-cle",
           "french": "un appartement",
           "english": "an apartment",
-          "example": "Je cherche un appartement à Toronto et je ne sais pas trop par où commencer — tu pourrais m'aider un peu ?",
+          "example": "Salut ! Ça se précise pour mon installation là-bas et je suis un peu perdu(e). Je cherche un appartement à Toronto et je ne sais pas trop par où commencer — tu pourrais m'aider un peu ?",
           "usage": "Nom masculin désignant un logement composé de plusieurs pièces au sein d'un immeuble."
         },
         {
@@ -752,7 +752,7 @@
           "kind": "mot-cle",
           "french": "quels quartiers",
           "english": "which neighborhoods",
-          "example": "Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
+          "example": "Tes conseils valent de l'or pour moi. Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
           "usage": "Groupe interrogatif pour demander des zones résidentielles précises."
         },
         {
@@ -760,7 +760,7 @@
           "kind": "mot-cle",
           "french": "à éviter",
           "english": "to avoid",
-          "example": "Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
+          "example": "Autant que je sache aussi ce qu'il faut fuir. Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
           "usage": "Locution infinitive pour signaler un choix déconseillé."
         },
         {
@@ -776,7 +776,7 @@
           "kind": "mot-cle",
           "french": "en métro",
           "english": "by subway",
-          "example": "Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
+          "example": "Le trajet jusqu'au travail sera décisif. Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
           "usage": "Locution adverbiale de moyen de transport souterrain."
         },
         {
@@ -784,7 +784,7 @@
           "kind": "mot-cle",
           "french": "applications",
           "english": "apps",
-          "example": "Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
+          "example": "Concrètement, je commence mes recherches ce week-end. Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
           "usage": "Nom pluriel désignant des logiciels utilisés notamment sur smartphone."
         },
         {
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "un dossier de location",
           "english": "a rental application file",
-          "example": "Quels documents demande-t-on généralement pour un dossier de location ?",
+          "example": "Côté paperasse, je préfère ne rien oublier. Quels documents demande-t-on généralement pour un dossier de location ?",
           "usage": "Groupe nominal désignant l'ensemble des documents requis pour louer un logement."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "le marché",
           "english": "the market",
-          "example": "Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
+          "example": "On m'a dit que les bonnes affaires partaient en quelques heures. Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
           "usage": "Nom masculin désignant ici l'offre et la demande de logements dans une ville."
         },
         {
@@ -824,7 +824,7 @@
           "kind": "collocation",
           "french": "par où commencer",
           "english": "where to start",
-          "example": "Je cherche un appartement à Toronto et je ne sais pas trop par où commencer — tu pourrais m'aider un peu ?",
+          "example": "Salut ! Ça se précise pour mon installation là-bas et je suis un peu perdu(e). Je cherche un appartement à Toronto et je ne sais pas trop par où commencer — tu pourrais m'aider un peu ?",
           "usage": "Collocation interrogative très utile pour demander une première étape."
         },
         {
@@ -832,7 +832,7 @@
           "kind": "collocation",
           "french": "calmes et abordables",
           "english": "quiet and affordable",
-          "example": "Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
+          "example": "Tes conseils valent de l'or pour moi. Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
           "usage": "Collocation de deux adjectifs coordonnés pour qualifier un quartier recherché."
         },
         {
@@ -840,7 +840,7 @@
           "kind": "collocation",
           "french": "trop chers",
           "english": "too expensive",
-          "example": "Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
+          "example": "Autant que je sache aussi ce qu'il faut fuir. Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
           "usage": "Collocation adverbe + adjectif pour signaler un coût excessif."
         },
         {
@@ -856,7 +856,7 @@
           "kind": "collocation",
           "french": "faciles d'accès",
           "english": "easy to access",
-          "example": "Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
+          "example": "Le trajet jusqu'au travail sera décisif. Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
           "usage": "Collocation adjectif + complément pour qualifier la desserte d'un lieu."
         },
         {
@@ -864,7 +864,7 @@
           "kind": "collocation",
           "french": "vivre seul(e)",
           "english": "to live alone",
-          "example": "D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement pour commencer ?",
+          "example": "Il y a une question que je dois trancher en premier. D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement pour commencer ?",
           "usage": "Collocation verbe + adjectif pour évoquer un mode de vie indépendant."
         },
         {
@@ -872,7 +872,7 @@
           "kind": "collocation",
           "french": "la vie quotidienne",
           "english": "daily life",
-          "example": "Y a-t-il des quartiers plus pratiques pour les commerces et la vie quotidienne ?",
+          "example": "J'aimerais pouvoir tout faire à pied ou presque. Y a-t-il des quartiers plus pratiques pour les commerces et la vie quotidienne ?",
           "usage": "Collocation adjectif + nom pour désigner les habitudes de tous les jours."
         },
         {
@@ -880,7 +880,7 @@
           "kind": "collocation",
           "french": "certaines annonces",
           "english": "certain listings/ads",
-          "example": "Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
+          "example": "Dernier point, et pas des moindres. Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
           "usage": "Collocation adjectif indéfini + nom pour désigner des offres de logement particulières."
         },
         {
@@ -904,7 +904,7 @@
           "kind": "tournure",
           "french": "tu utiliserais quels sites",
           "english": "which sites would you use",
-          "example": "Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
+          "example": "Concrètement, je commence mes recherches ce week-end. Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
           "usage": "Tournure interrogative au conditionnel pour solliciter une recommandation pratique."
         },
         {
@@ -912,7 +912,7 @@
           "kind": "tournure",
           "french": "quels documents demande-t-on généralement",
           "english": "what documents are usually requested",
-          "example": "Quels documents demande-t-on généralement pour un dossier de location ?",
+          "example": "Côté paperasse, je préfère ne rien oublier. Quels documents demande-t-on généralement pour un dossier de location ?",
           "usage": "Tournure interrogative impersonnelle avec « on » pour demander une pratique courante."
         },
         {
@@ -936,7 +936,7 @@
           "kind": "tournure",
           "french": "le marché est-il très compétitif",
           "english": "is the market very competitive",
-          "example": "Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
+          "example": "On m'a dit que les bonnes affaires partaient en quelques heures. Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
           "usage": "Tournure interrogative pour évaluer la difficulté d'une recherche."
         },
         {
@@ -944,7 +944,7 @@
           "kind": "tournure",
           "french": "vaut-il mieux vivre seul(e) ou partager",
           "english": "is it better to live alone or share",
-          "example": "D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement pour commencer ?",
+          "example": "Il y a une question que je dois trancher en premier. D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement pour commencer ?",
           "usage": "Tournure alternative pour comparer deux options de logement."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "y a-t-il des quartiers plus pratiques",
           "english": "are there more convenient neighborhoods",
-          "example": "Y a-t-il des quartiers plus pratiques pour les commerces et la vie quotidienne ?",
+          "example": "J'aimerais pouvoir tout faire à pied ou presque. Y a-t-il des quartiers plus pratiques pour les commerces et la vie quotidienne ?",
           "usage": "Tournure interrogative pour comparer des zones selon leur commodité."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "y a-t-il des pièges à éviter",
           "english": "are there pitfalls to avoid",
-          "example": "Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
+          "example": "Dernier point, et pas des moindres. Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
           "usage": "Tournure interrogative pour anticiper des risques dans une démarche."
         },
         {

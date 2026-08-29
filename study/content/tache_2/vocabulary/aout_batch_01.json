@@ -752,7 +752,7 @@
           "kind": "mot-cle",
           "french": "à l'achat",
           "english": "for purchase",
-          "example": "Vous avez des logements disponibles en ce moment, plutôt en location ou aussi à l'achat ?",
+          "example": "Commençons par ce que vous avez en portefeuille. Vous avez des logements disponibles en ce moment, plutôt en location ou aussi à l'achat ?",
           "usage": "Locution prépositionnelle opposée à la location."
         },
         {
@@ -768,7 +768,7 @@
           "kind": "mot-cle",
           "french": "quels secteurs",
           "english": "which areas/districts",
-          "example": "Quels secteurs de la ville recommanderiez-vous à quelqu'un qui vient d'arriver et ne connaît pas encore la ville ?",
+          "example": "En ce qui concerne le quartier, j'ai vraiment besoin d'être guidé(e). Quels secteurs de la ville recommanderiez-vous à quelqu'un qui vient d'arriver et ne connaît pas encore la ville ?",
           "usage": "Groupe interrogatif pour demander des zones géographiques précises."
         },
         {
@@ -776,7 +776,7 @@
           "kind": "mot-cle",
           "french": "gamme de prix",
           "english": "price range",
-          "example": "Ces logements se situent dans quelle gamme de prix en général ?",
+          "example": "Passons au budget. Ces logements se situent dans quelle gamme de prix en général ?",
           "usage": "Groupe nominal désignant l'intervalle de coût d'un bien."
         },
         {
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "un dossier de location",
           "english": "a rental application file",
-          "example": "Pour un dossier de location, quels documents faut-il fournir quand on vient d'arriver et qu'on n'a pas encore d'historique ici ?",
+          "example": "Pour ce qui est des démarches, je pars vraiment de zéro ici. Pour un dossier de location, quels documents faut-il fournir quand on vient d'arriver et qu'on n'a pas encore d'historique ici ?",
           "usage": "Groupe nominal désignant l'ensemble des documents requis pour louer un logement."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "transports en commun",
           "english": "public transportation",
-          "example": "Ces quartiers sont-ils bien desservis par les transports en commun ?",
+          "example": "Je n'aurai pas de voiture au début. Ces quartiers sont-ils bien desservis par les transports en commun ?",
           "usage": "Groupe nominal désignant les moyens de transport collectifs."
         },
         {
@@ -832,7 +832,7 @@
           "kind": "collocation",
           "french": "en location",
           "english": "for rent / renting",
-          "example": "Vous avez des logements disponibles en ce moment, plutôt en location ou aussi à l'achat ?",
+          "example": "Commençons par ce que vous avez en portefeuille. Vous avez des logements disponibles en ce moment, plutôt en location ou aussi à l'achat ?",
           "usage": "Locution prépositionnelle opposée à l'achat."
         },
         {
@@ -848,7 +848,7 @@
           "kind": "collocation",
           "french": "ne connaît pas encore",
           "english": "doesn't know yet",
-          "example": "Quels secteurs de la ville recommanderiez-vous à quelqu'un qui vient d'arriver et ne connaît pas encore la ville ?",
+          "example": "En ce qui concerne le quartier, j'ai vraiment besoin d'être guidé(e). Quels secteurs de la ville recommanderiez-vous à quelqu'un qui vient d'arriver et ne connaît pas encore la ville ?",
           "usage": "Collocation négative avec « encore » pour indiquer un manque de familiarité."
         },
         {
@@ -856,7 +856,7 @@
           "kind": "collocation",
           "french": "se situent dans quelle gamme",
           "english": "fall within which range",
-          "example": "Ces logements se situent dans quelle gamme de prix en général ?",
+          "example": "Passons au budget. Ces logements se situent dans quelle gamme de prix en général ?",
           "usage": "Collocation verbe pronominal + interrogatif pour situer un prix."
         },
         {
@@ -864,7 +864,7 @@
           "kind": "collocation",
           "french": "s'organisent les visites",
           "english": "the viewings are organized",
-          "example": "Comment s'organisent les visites — puis-je en visiter plusieurs le même jour ?",
+          "example": "Concrètement, j'aimerais grouper mes rendez-vous. Comment s'organisent les visites — puis-je en visiter plusieurs le même jour ?",
           "usage": "Collocation verbe pronominal + nom pour décrire le déroulement pratique des visites."
         },
         {
@@ -872,7 +872,7 @@
           "kind": "collocation",
           "french": "un nouvel arrivant qui cherche",
           "english": "a newcomer who is looking for",
-          "example": "Y a-t-il des pièges ou des précautions à connaître pour un nouvel arrivant qui cherche un logement ?",
+          "example": "Avant d'aller plus loin, j'aimerais éviter les mauvaises surprises. Y a-t-il des pièges ou des précautions à connaître pour un nouvel arrivant qui cherche un logement ?",
           "usage": "Collocation nom + proposition relative désignant une personne récemment installée."
         },
         {
@@ -880,7 +880,7 @@
           "kind": "collocation",
           "french": "tout acheter",
           "english": "buy everything",
-          "example": "Les logements sont-ils meublés, ou faut-il tout acheter en arrivant ?",
+          "example": "Il y a un détail pratique à régler avant l'emménagement. Les logements sont-ils meublés, ou faut-il tout acheter en arrivant ?",
           "usage": "Collocation adverbe + verbe pour évoquer un équipement complet à prévoir."
         },
         {
@@ -912,7 +912,7 @@
           "kind": "tournure",
           "french": "quels documents faut-il fournir",
           "english": "what documents need to be provided",
-          "example": "Pour un dossier de location, quels documents faut-il fournir quand on vient d'arriver et qu'on n'a pas encore d'historique ici ?",
+          "example": "Pour ce qui est des démarches, je pars vraiment de zéro ici. Pour un dossier de location, quels documents faut-il fournir quand on vient d'arriver et qu'on n'a pas encore d'historique ici ?",
           "usage": "Tournure interrogative impersonnelle pour lister des pièces administratives."
         },
         {
@@ -928,7 +928,7 @@
           "kind": "tournure",
           "french": "ces quartiers sont-ils bien desservis",
           "english": "are these neighborhoods well served",
-          "example": "Ces quartiers sont-ils bien desservis par les transports en commun ?",
+          "example": "Je n'aurai pas de voiture au début. Ces quartiers sont-ils bien desservis par les transports en commun ?",
           "usage": "Tournure interrogative pour évaluer l'accès aux transports d'un secteur."
         },
         {
@@ -944,7 +944,7 @@
           "kind": "tournure",
           "french": "puis-je en visiter plusieurs le même jour",
           "english": "can I visit several on the same day",
-          "example": "Comment s'organisent les visites — puis-je en visiter plusieurs le même jour ?",
+          "example": "Concrètement, j'aimerais grouper mes rendez-vous. Comment s'organisent les visites — puis-je en visiter plusieurs le même jour ?",
           "usage": "Tournure interrogative avec « puis-je » pour organiser une logistique de visites."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "y a-t-il des pièges ou des précautions à connaître",
           "english": "are there pitfalls or precautions to be aware of",
-          "example": "Y a-t-il des pièges ou des précautions à connaître pour un nouvel arrivant qui cherche un logement ?",
+          "example": "Avant d'aller plus loin, j'aimerais éviter les mauvaises surprises. Y a-t-il des pièges ou des précautions à connaître pour un nouvel arrivant qui cherche un logement ?",
           "usage": "Tournure interrogative pour anticiper des risques dans une démarche."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "faut-il tout acheter en arrivant",
           "english": "do I need to buy everything upon arrival",
-          "example": "Les logements sont-ils meublés, ou faut-il tout acheter en arrivant ?",
+          "example": "Il y a un détail pratique à régler avant l'emménagement. Les logements sont-ils meublés, ou faut-il tout acheter en arrivant ?",
           "usage": "Tournure interrogative impersonnelle sur l'équipement d'un logement non meublé."
         },
         {

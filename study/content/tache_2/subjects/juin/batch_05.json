@@ -333,7 +333,7 @@
           "memory_section": 4
         },
         {
-          "text": "As-tu déjà fixé la date de ton déménagement — ce sera en semaine ou le week-end ?",
+          "text": "Il faut que je bloque ça dans mon agenda. As-tu déjà fixé la date de ton déménagement — ce sera en semaine ou le week-end ?",
           "memory_number": 2,
           "memory_section": 4
         },
@@ -343,7 +343,27 @@
           "memory_section": 4
         },
         {
-          "text": "À quel étage se trouve ton ancien appartement ? Si ce n'est pas au rez-de-chaussée, y a-t-il un ascenseur ?",
+          "text": "Je veux savoir sur quelle équipe on peut compter. Combien de personnes vont venir aider au total ? Tu as déjà demandé à d'autres amis ?",
+          "memory_number": 2,
+          "memory_section": 7
+        },
+        {
+          "text": "Voyons maintenant ce qu'il y aura à porter. Quels meubles et objets faudra-t-il déménager — il y a des éléments particulièrement lourds ou encombrants ?",
+          "memory_number": 2,
+          "memory_section": 2
+        },
+        {
+          "text": "Il vaut mieux anticiper la casse. Y a-t-il des objets fragiles qui nécessitent une attention particulière ?",
+          "memory_number": 2,
+          "memory_section": 8
+        },
+        {
+          "text": "Tu as déjà préparé les cartons ou il faudra aussi t'aider à emballer certaines affaires ?",
+          "memory_number": 2,
+          "memory_section": 13
+        },
+        {
+          "text": "Parlons des accès, c'est souvent là que ça coince. À quel étage se trouve ton ancien appartement ? Si ce n'est pas au rez-de-chaussée, y a-t-il un ascenseur ?",
           "memory_number": 2,
           "memory_section": 5
         },
@@ -353,27 +373,7 @@
           "memory_section": 5
         },
         {
-          "text": "Combien de personnes vont venir aider au total ? Tu as déjà demandé à d'autres amis ?",
-          "memory_number": 2,
-          "memory_section": 7
-        },
-        {
-          "text": "Quels meubles et objets faudra-t-il déménager — il y a des éléments particulièrement lourds ou encombrants ?",
-          "memory_number": 2,
-          "memory_section": 2
-        },
-        {
-          "text": "Tu as déjà préparé les cartons ou il faudra aussi t'aider à emballer certaines affaires ?",
-          "memory_number": 2,
-          "memory_section": 13
-        },
-        {
-          "text": "Y a-t-il des objets fragiles qui nécessitent une attention particulière ?",
-          "memory_number": 2,
-          "memory_section": 8
-        },
-        {
-          "text": "Comment allons-nous transporter toutes tes affaires — tu as loué un camion ou une camionnette ? Le véhicule est suffisamment grand pour tout faire en un seul trajet ?",
+          "text": "Reste le plus gros morceau, le transport. Comment allons-nous transporter toutes tes affaires — tu as loué un camion ou une camionnette ? Le véhicule est suffisamment grand pour tout faire en un seul trajet ?",
           "memory_number": 2,
           "memory_section": 4
         },
@@ -383,12 +383,12 @@
           "memory_section": 8
         },
         {
-          "text": "Qu'est-ce qu'il faut apporter comme équipement — des gants, des outils ? Et tu as du matériel de protection comme des couvertures ou du papier bulle ?",
+          "text": "Dis-moi aussi quoi mettre dans mon sac. Qu'est-ce qu'il faut apporter comme équipement — des gants, des outils ? Et tu as du matériel de protection comme des couvertures ou du papier bulle ?",
           "memory_number": 2,
           "memory_section": 8
         },
         {
-          "text": "Tu as prévu à manger et à boire pour tout le monde pendant la journée ?",
+          "text": "On aura besoin de recharger les batteries en cours de route. Tu as prévu à manger et à boire pour tout le monde pendant la journée ?",
           "memory_number": 2,
           "memory_section": 9
         },

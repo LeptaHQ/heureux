@@ -270,7 +270,7 @@
           "kind": "mot-cle",
           "french": "la superficie",
           "english": "the floor area / size",
-          "example": "Quelle est la superficie de la maison — et combien de chambres y a-t-il ?",
+          "example": "Venons-en à la maison elle-même. Quelle est la superficie de la maison — et combien de chambres y a-t-il ?",
           "usage": "Nom féminin pour indiquer la surface habitable d'un logement."
         },
         {
@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "meublée",
           "english": "furnished",
-          "example": "Est-ce que la maison est entièrement meublée, et quels équipements sont disponibles sur place ?",
+          "example": "Nous viendrions les mains dans les poches. Est-ce que la maison est entièrement meublée, et quels équipements sont disponibles sur place ?",
           "usage": "Adjectif féminin décrivant un logement équipé de meubles."
         },
         {
@@ -302,7 +302,7 @@
           "kind": "mot-cle",
           "french": "à l'année",
           "english": "year-round / by the year",
-          "example": "La maison est disponible pour quelle période — à la semaine, pour quelques mois ou à l'année ?",
+          "example": "Parlons maintenant du calendrier. La maison est disponible pour quelle période — à la semaine, pour quelques mois ou à l'année ?",
           "usage": "Locution prépositionnelle pour indiquer une location de longue durée."
         },
         {
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "la location",
           "english": "the rental",
-          "example": "Et côté tarifs, combien coûte la location — à la semaine ou au mois ?",
+          "example": "J'en viens à la question du budget. Et côté tarifs, combien coûte la location — à la semaine ou au mois ?",
           "usage": "Nom féminin désignant l'action de louer un logement ou son résultat."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "le quartier",
           "english": "the neighbourhood",
-          "example": "Comment est le quartier en général — plutôt calme ou animé ?",
+          "example": "En ce qui concerne les alentours, j'aimerais me faire une idée. Comment est le quartier en général — plutôt calme ou animé ?",
           "usage": "Nom masculin très courant pour désigner une zone résidentielle."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "un parking",
           "english": "a car park",
-          "example": "Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
+          "example": "Pour le trajet, nous hésitons encore. Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
           "usage": "Nom masculin désignant un espace de stationnement à proximité d'un lieu."
         },
         {
@@ -350,7 +350,7 @@
           "kind": "collocation",
           "french": "combien de chambres",
           "english": "how many bedrooms",
-          "example": "Quelle est la superficie de la maison — et combien de chambres y a-t-il ?",
+          "example": "Venons-en à la maison elle-même. Quelle est la superficie de la maison — et combien de chambres y a-t-il ?",
           "usage": "Structure interrogative avec « combien de » + nom pour quantifier."
         },
         {
@@ -366,7 +366,7 @@
           "kind": "collocation",
           "french": "à la semaine",
           "english": "by the week",
-          "example": "La maison est disponible pour quelle période — à la semaine, pour quelques mois ou à l'année ?",
+          "example": "Parlons maintenant du calendrier. La maison est disponible pour quelle période — à la semaine, pour quelques mois ou à l'année ?",
           "usage": "Locution prépositionnelle pour indiquer une périodicité de location."
         },
         {
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "verser une caution",
           "english": "to pay a deposit",
-          "example": "Faut-il verser une caution — et le paiement se fait-il en une seule fois ?",
+          "example": "Une précision sur les modalités de règlement. Faut-il verser une caution — et le paiement se fait-il en une seule fois ?",
           "usage": "Collocation verbe + nom très fréquente pour évoquer une garantie financière."
         },
         {
@@ -398,7 +398,7 @@
           "kind": "collocation",
           "french": "calme ou animé",
           "english": "quiet or lively",
-          "example": "Comment est le quartier en général — plutôt calme ou animé ?",
+          "example": "En ce qui concerne les alentours, j'aimerais me faire une idée. Comment est le quartier en général — plutôt calme ou animé ?",
           "usage": "Collocation adjectivale par coordination pour caractériser un lieu ou un quartier."
         },
         {
@@ -406,7 +406,7 @@
           "kind": "collocation",
           "french": "à proximité",
           "english": "nearby",
-          "example": "Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
+          "example": "Pour le trajet, nous hésitons encore. Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
           "usage": "Locution adverbiale figée indiquant une faible distance."
         },
         {
@@ -430,7 +430,7 @@
           "kind": "tournure",
           "french": "est-ce que la maison est entièrement meublée",
           "english": "is the house fully furnished",
-          "example": "Est-ce que la maison est entièrement meublée, et quels équipements sont disponibles sur place ?",
+          "example": "Nous viendrions les mains dans les poches. Est-ce que la maison est entièrement meublée, et quels équipements sont disponibles sur place ?",
           "usage": "Structure avec « est-ce que » pour poser une question fermée sans présupposer la réponse."
         },
         {
@@ -446,7 +446,7 @@
           "kind": "tournure",
           "french": "combien coûte la location",
           "english": "how much does the rental cost",
-          "example": "Et côté tarifs, combien coûte la location — à la semaine ou au mois ?",
+          "example": "J'en viens à la question du budget. Et côté tarifs, combien coûte la location — à la semaine ou au mois ?",
           "usage": "Structure interrogative directe avec « combien coûte » pour demander un prix."
         },
         {
@@ -462,7 +462,7 @@
           "kind": "tournure",
           "french": "le paiement se fait-il en une seule fois",
           "english": "is payment made all at once",
-          "example": "Faut-il verser une caution — et le paiement se fait-il en une seule fois ?",
+          "example": "Une précision sur les modalités de règlement. Faut-il verser une caution — et le paiement se fait-il en une seule fois ?",
           "usage": "Inversion sujet-verbe pour poser une question formelle sur les modalités de paiement."
         },
         {
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "il vaut mieux venir en transports en commun",
           "english": "it's better to come by public transport",
-          "example": "Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
+          "example": "Pour le trajet, nous hésitons encore. Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
           "usage": "Tournure impersonnelle avec « il vaut mieux » pour recommander un mode de déplacement."
         },
         {
@@ -515,7 +515,7 @@
           "kind": "mot-cle",
           "french": "le transport",
           "english": "the transport / shipping",
-          "example": "Le tarif comprend quoi exactement — le transport et la livraison jusque dans la pièce sont-ils inclus ?",
+          "example": "Je voudrais surtout éviter les frais cachés. Le tarif comprend quoi exactement — le transport et la livraison jusque dans la pièce sont-ils inclus ?",
           "usage": "Nom masculin désignant l'acheminement d'un bien d'un lieu à un autre."
         },
         {
@@ -523,7 +523,7 @@
           "kind": "mot-cle",
           "french": "Quel délai",
           "english": "what lead time",
-          "example": "Quel délai faut-il prévoir entre la commande et la livraison ?",
+          "example": "J'aimerais d'abord me situer dans le temps. Quel délai faut-il prévoir entre la commande et la livraison ?",
           "usage": "Nom masculin précédé de « quel » pour interroger sur le temps à prévoir avant une action."
         },
         {
@@ -539,7 +539,7 @@
           "kind": "mot-cle",
           "french": "le livreur",
           "english": "the delivery person",
-          "example": "Comment puis-je suivre ma commande et savoir à quelle heure le livreur arrivera ?",
+          "example": "Le jour J, j'aimerais pouvoir m'organiser. Comment puis-je suivre ma commande et savoir à quelle heure le livreur arrivera ?",
           "usage": "Nom masculin désignant la personne qui apporte un colis ou un meuble."
         },
         {
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "un ascenseur",
           "english": "an elevator / lift",
-          "example": "Faut-il vous signaler à l'avance qu'il y a des escaliers ou un ascenseur assez étroit ?",
+          "example": "Il y a une contrainte d'accès chez moi. Faut-il vous signaler à l'avance qu'il y a des escaliers ou un ascenseur assez étroit ?",
           "usage": "Nom masculin désignant l'appareil qui permet de monter dans un immeuble."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "le moindre souci",
           "english": "the slightest problem",
-          "example": "S'il y a le moindre souci, à qui faut-il s'adresser ?",
+          "example": "Dernier point, pour être tranquille. S'il y a le moindre souci, à qui faut-il s'adresser ?",
           "usage": "Expression figée pour désigner un problème même mineur, souvent utilisée pour rassurer sur le suivi."
         },
         {
@@ -603,7 +603,7 @@
           "kind": "collocation",
           "french": "entre la commande et la livraison",
           "english": "between the order and the delivery",
-          "example": "Quel délai faut-il prévoir entre la commande et la livraison ?",
+          "example": "J'aimerais d'abord me situer dans le temps. Quel délai faut-il prévoir entre la commande et la livraison ?",
           "usage": "Structure prépositionnelle pour situer un délai entre deux événements."
         },
         {
@@ -611,7 +611,7 @@
           "kind": "collocation",
           "french": "le soir ou le week-end",
           "english": "in the evening or on the weekend",
-          "example": "Proposez-vous aussi des livraisons le soir ou le week-end ?",
+          "example": "Je travaille en journée, donc mes disponibilités sont limitées. Proposez-vous aussi des livraisons le soir ou le week-end ?",
           "usage": "Coordination de deux compléments de temps pour proposer des créneaux."
         },
         {
@@ -619,7 +619,7 @@
           "kind": "collocation",
           "french": "à l'avance",
           "english": "in advance",
-          "example": "Faut-il vous signaler à l'avance qu'il y a des escaliers ou un ascenseur assez étroit ?",
+          "example": "Il y a une contrainte d'accès chez moi. Faut-il vous signaler à l'avance qu'il y a des escaliers ou un ascenseur assez étroit ?",
           "usage": "Locution adverbiale figée pour indiquer une anticipation."
         },
         {
@@ -635,7 +635,7 @@
           "kind": "collocation",
           "french": "monter le meuble",
           "english": "to bring up / assemble the furniture",
-          "example": "Est-ce que vos livreurs peuvent aussi monter le meuble sur place, ou est-ce à moi de le faire ?",
+          "example": "Je ne suis pas très habile de mes mains. Est-ce que vos livreurs peuvent aussi monter le meuble sur place, ou est-ce à moi de le faire ?",
           "usage": "Collocation verbe + nom pour évoquer l'installation d'un meuble chez le client."
         },
         {
@@ -675,7 +675,7 @@
           "kind": "tournure",
           "french": "le tarif comprend quoi exactement",
           "english": "what exactly does the rate include",
-          "example": "Le tarif comprend quoi exactement — le transport et la livraison jusque dans la pièce sont-ils inclus ?",
+          "example": "Je voudrais surtout éviter les frais cachés. Le tarif comprend quoi exactement — le transport et la livraison jusque dans la pièce sont-ils inclus ?",
           "usage": "Structure orale avec « quoi » postposé pour interroger sur le contenu d'un tarif."
         },
         {
@@ -691,7 +691,7 @@
           "kind": "tournure",
           "french": "comment puis-je suivre ma commande",
           "english": "how can I track my order",
-          "example": "Comment puis-je suivre ma commande et savoir à quelle heure le livreur arrivera ?",
+          "example": "Le jour J, j'aimerais pouvoir m'organiser. Comment puis-je suivre ma commande et savoir à quelle heure le livreur arrivera ?",
           "usage": "Verbe « pouvoir » à la première personne du singulier (« puis-je ») pour une question polie."
         },
         {
@@ -699,7 +699,7 @@
           "kind": "tournure",
           "french": "faut-il vous signaler à l'avance",
           "english": "should I let you know in advance",
-          "example": "Faut-il vous signaler à l'avance qu'il y a des escaliers ou un ascenseur assez étroit ?",
+          "example": "Il y a une contrainte d'accès chez moi. Faut-il vous signaler à l'avance qu'il y a des escaliers ou un ascenseur assez étroit ?",
           "usage": "Inversion avec « faut-il » pour poser une question formelle sur une obligation."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "est-ce à moi de le faire",
           "english": "is it up to me to do it",
-          "example": "Est-ce que vos livreurs peuvent aussi monter le meuble sur place, ou est-ce à moi de le faire ?",
+          "example": "Je ne suis pas très habile de mes mains. Est-ce que vos livreurs peuvent aussi monter le meuble sur place, ou est-ce à moi de le faire ?",
           "usage": "Structure avec « être à » + pronom pour interroger sur une responsabilité."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "en cas de retard ou d'imprévu",
           "english": "in case of delay or an unexpected event",
-          "example": "En cas de retard ou d'imprévu, comment ça se passe ?",
+          "example": "Envisageons aussi le pire des scénarios. En cas de retard ou d'imprévu, comment ça se passe ?",
           "usage": "Locution prépositionnelle pour introduire une situation imprévue."
         },
         {
@@ -731,7 +731,7 @@
           "kind": "tournure",
           "french": "à qui faut-il s'adresser",
           "english": "who should one contact",
-          "example": "S'il y a le moindre souci, à qui faut-il s'adresser ?",
+          "example": "Dernier point, pour être tranquille. S'il y a le moindre souci, à qui faut-il s'adresser ?",
           "usage": "Tournure impersonnelle très utile pour demander l'interlocuteur compétent en cas de problème."
         }
       ]

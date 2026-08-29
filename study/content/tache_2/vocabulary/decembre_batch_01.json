@@ -9,7 +9,7 @@
           "kind": "mot-cle",
           "french": "ta vie en général",
           "english": "your life in general",
-          "example": "Alors, comment va ta vie en général en ce moment ?",
+          "example": "Salut ! Ça fait vraiment trop longtemps qu'on ne s'est pas parlé. Alors, comment va ta vie en général en ce moment ?",
           "usage": "Groupe nominal possessif pour parler de la situation personnelle dans son ensemble."
         },
         {
@@ -17,7 +17,7 @@
           "kind": "mot-cle",
           "french": "ton temps libre",
           "english": "your free time",
-          "example": "Qu'est-ce que tu fais pendant ton temps libre là-bas ?",
+          "example": "Parle-moi un peu de ton quotidien maintenant. Qu'est-ce que tu fais pendant ton temps libre là-bas ?",
           "usage": "Groupe nominal pour désigner les moments disponibles hors obligations."
         },
         {
@@ -25,7 +25,7 @@
           "kind": "mot-cle",
           "french": "ta famille",
           "english": "your family",
-          "example": "Et ta famille, comment va-t-elle ?",
+          "example": "Donne-moi aussi des nouvelles des tiens. Et ta famille, comment va-t-elle ?",
           "usage": "Groupe nominal possessif utilisé pour évoquer les proches."
         },
         {
@@ -33,7 +33,7 @@
           "kind": "mot-cle",
           "french": "Le travail",
           "english": "work",
-          "example": "Le travail, ça se passe bien pour toi en ce moment ?",
+          "example": "Côté professionnel, j'aimerais savoir où tu en es. Le travail, ça se passe bien pour toi en ce moment ?",
           "usage": "Nom masculin employé ici comme thème de conversation sur la vie professionnelle."
         },
         {
@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "au Canada",
           "english": "in Canada",
-          "example": "Tu habites où maintenant exactement au Canada ?",
+          "example": "J'ai un peu perdu le fil depuis ton départ. Tu habites où maintenant exactement au Canada ?",
           "usage": "Groupe prépositionnel pour situer quelqu’un dans un pays."
         },
         {
@@ -49,7 +49,7 @@
           "kind": "mot-cle",
           "french": "de nouveaux projets",
           "english": "new plans/projects",
-          "example": "Tu as de nouveaux projets ou des plans importants pour les prochains mois ?",
+          "example": "Regardons un peu devant nous. Tu as de nouveaux projets ou des plans importants pour les prochains mois ?",
           "usage": "Groupe nominal introduit par « de » pour évoquer des intentions à venir."
         },
         {
@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "ta vie sociale",
           "english": "your social life",
-          "example": "Tu arrives à voir pas mal de monde — comment est ta vie sociale là-bas ?",
+          "example": "J'imagine que tu as fini par te créer un cercle là-bas. Tu arrives à voir pas mal de monde — comment est ta vie sociale là-bas ?",
           "usage": "Groupe nominal possessif pour parler des relations et des sorties."
         },
         {
@@ -65,7 +65,7 @@
           "kind": "mot-cle",
           "french": "santé et moral",
           "english": "health and morale",
-          "example": "Et côté santé et moral, tu te sens bien ?",
+          "example": "Le plus important, ça reste quand même toi. Et côté santé et moral, tu te sens bien ?",
           "usage": "Coordination nominale pour aborder le bien-être physique et mental."
         },
         {
@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "voyagé un peu récemment",
           "english": "travelled a bit recently",
-          "example": "Tu as voyagé un peu récemment, au Canada ou ailleurs ?",
+          "example": "Tu as dû en profiter pour bouger. Tu as voyagé un peu récemment, au Canada ou ailleurs ?",
           "usage": "Groupe verbal au passé composé pour parler de déplacements récents."
         },
         {
@@ -89,7 +89,7 @@
           "kind": "collocation",
           "french": "comment va ta vie",
           "english": "how your life is going",
-          "example": "Alors, comment va ta vie en général en ce moment ?",
+          "example": "Salut ! Ça fait vraiment trop longtemps qu'on ne s'est pas parlé. Alors, comment va ta vie en général en ce moment ?",
           "usage": "Suite figée fréquente pour demander des nouvelles de façon naturelle."
         },
         {
@@ -97,7 +97,7 @@
           "kind": "collocation",
           "french": "pendant ton temps libre",
           "english": "during your free time",
-          "example": "Qu'est-ce que tu fais pendant ton temps libre là-bas ?",
+          "example": "Parle-moi un peu de ton quotidien maintenant. Qu'est-ce que tu fais pendant ton temps libre là-bas ?",
           "usage": "Groupe prépositionnel servant à situer une activité dans les loisirs."
         },
         {
@@ -105,7 +105,7 @@
           "kind": "collocation",
           "french": "ça se passe bien",
           "english": "it is going well",
-          "example": "Le travail, ça se passe bien pour toi en ce moment ?",
+          "example": "Côté professionnel, j'aimerais savoir où tu en es. Le travail, ça se passe bien pour toi en ce moment ?",
           "usage": "Expression orale courante pour demander si une situation évolue positivement."
         },
         {
@@ -113,7 +113,7 @@
           "kind": "collocation",
           "french": "depuis la dernière fois",
           "english": "since the last time",
-          "example": "Qu'est-ce qui a le plus changé dans ta vie depuis la dernière fois qu'on s'est vus ?",
+          "example": "Avec le recul, tu dois voir les choses autrement. Qu'est-ce qui a le plus changé dans ta vie depuis la dernière fois qu'on s'est vus ?",
           "usage": "Locution temporelle pour comparer avec une rencontre précédente."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "habites où maintenant",
           "english": "live where now",
-          "example": "Tu habites où maintenant exactement au Canada ?",
+          "example": "J'ai un peu perdu le fil depuis ton départ. Tu habites où maintenant exactement au Canada ?",
           "usage": "Suite orale typique avec l’interrogatif laissé en fin d’énoncé."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "des plans importants",
           "english": "important plans",
-          "example": "Tu as de nouveaux projets ou des plans importants pour les prochains mois ?",
+          "example": "Regardons un peu devant nous. Tu as de nouveaux projets ou des plans importants pour les prochains mois ?",
           "usage": "Groupe nominal pour parler de projets concrets à venir."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "voir pas mal de monde",
           "english": "see quite a lot of people",
-          "example": "Tu arrives à voir pas mal de monde — comment est ta vie sociale là-bas ?",
+          "example": "J'imagine que tu as fini par te créer un cercle là-bas. Tu arrives à voir pas mal de monde — comment est ta vie sociale là-bas ?",
           "usage": "Expression verbale familière pour évoquer des contacts sociaux nombreux."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "te sens bien",
           "english": "feel well",
-          "example": "Et côté santé et moral, tu te sens bien ?",
+          "example": "Le plus important, ça reste quand même toi. Et côté santé et moral, tu te sens bien ?",
           "usage": "Suite verbale pronominale utilisée pour parler de son état général."
         },
         {
@@ -161,7 +161,7 @@
           "kind": "collocation",
           "french": "le pratiquer souvent",
           "english": "practise it often",
-          "example": "Et ton français, tu as l'occasion de le pratiquer souvent là-bas ?",
+          "example": "Il y a une chose que je me demande depuis le début. Et ton français, tu as l'occasion de le pratiquer souvent là-bas ?",
           "usage": "Collocation verbe + pronom pour parler d’un usage régulier d’une langue."
         },
         {
@@ -169,7 +169,7 @@
           "kind": "tournure",
           "french": "comment va ta vie en général en ce moment",
           "english": "how is your life in general right now",
-          "example": "Alors, comment va ta vie en général en ce moment ?",
+          "example": "Salut ! Ça fait vraiment trop longtemps qu'on ne s'est pas parlé. Alors, comment va ta vie en général en ce moment ?",
           "usage": "Question ouverte informelle pour prendre des nouvelles globales."
         },
         {
@@ -177,7 +177,7 @@
           "kind": "tournure",
           "french": "qu'est-ce que tu fais pendant ton temps libre",
           "english": "what do you do in your free time",
-          "example": "Qu'est-ce que tu fais pendant ton temps libre là-bas ?",
+          "example": "Parle-moi un peu de ton quotidien maintenant. Qu'est-ce que tu fais pendant ton temps libre là-bas ?",
           "usage": "Question en « qu’est-ce que » pour demander des loisirs de façon naturelle."
         },
         {
@@ -185,7 +185,7 @@
           "kind": "tournure",
           "french": "Et ta famille, comment va-t-elle",
           "english": "and your family, how is it doing",
-          "example": "Et ta famille, comment va-t-elle ?",
+          "example": "Donne-moi aussi des nouvelles des tiens. Et ta famille, comment va-t-elle ?",
           "usage": "Question avec reprise thématique pour enchaîner sur la famille."
         },
         {
@@ -193,7 +193,7 @@
           "kind": "tournure",
           "french": "qu'est-ce qui a le plus changé dans ta vie",
           "english": "what has changed the most in your life",
-          "example": "Qu'est-ce qui a le plus changé dans ta vie depuis la dernière fois qu'on s'est vus ?",
+          "example": "Avec le recul, tu dois voir les choses autrement. Qu'est-ce qui a le plus changé dans ta vie depuis la dernière fois qu'on s'est vus ?",
           "usage": "Question au passé composé avec superlatif pour faire un bilan."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "tu as de nouveaux projets ou des plans importants",
           "english": "do you have new projects or important plans",
-          "example": "Tu as de nouveaux projets ou des plans importants pour les prochains mois ?",
+          "example": "Regardons un peu devant nous. Tu as de nouveaux projets ou des plans importants pour les prochains mois ?",
           "usage": "Question alternative informelle pour sonder les intentions futures."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "tournure",
           "french": "comment est ta vie sociale là-bas",
           "english": "how is your social life there",
-          "example": "Tu arrives à voir pas mal de monde — comment est ta vie sociale là-bas ?",
+          "example": "J'imagine que tu as fini par te créer un cercle là-bas. Tu arrives à voir pas mal de monde — comment est ta vie sociale là-bas ?",
           "usage": "Question descriptive pour parler des relations dans un nouveau lieu."
         },
         {
@@ -233,7 +233,7 @@
           "kind": "tournure",
           "french": "tu as l'occasion de le pratiquer souvent là-bas",
           "english": "do you get the chance to practise it often there",
-          "example": "Et ton français, tu as l'occasion de le pratiquer souvent là-bas ?",
+          "example": "Il y a une chose que je me demande depuis le début. Et ton français, tu as l'occasion de le pratiquer souvent là-bas ?",
           "usage": "Question informelle sur la fréquence d’une pratique linguistique."
         },
         {
@@ -241,7 +241,7 @@
           "kind": "tournure",
           "french": "On pourra se revoir quand, à ton avis",
           "english": "when will we be able to see each other again, in your opinion",
-          "example": "On pourra se revoir quand, à ton avis ?",
+          "example": "Bon, il faudrait vraiment qu'on se retrouve. On pourra se revoir quand, à ton avis ?",
           "usage": "Question de clôture au futur proche pour envisager une prochaine rencontre."
         }
       ]
@@ -989,7 +989,7 @@
           "kind": "mot-cle",
           "french": "les nouveaux arrivants",
           "english": "newcomers",
-          "example": "Les Canadiens sont-ils accueillants avec les nouveaux arrivants ?",
+          "example": "Je viens juste d'arriver et je ne connais encore personne ici. Les Canadiens sont-ils accueillants avec les nouveaux arrivants ?",
           "usage": "Groupe nominal pluriel désignant les personnes récemment installées dans un pays."
         },
         {
@@ -997,7 +997,7 @@
           "kind": "mot-cle",
           "french": "activités",
           "english": "activities",
-          "example": "Quelles activités aident le plus à rencontrer des gens quand on vient d'arriver ?",
+          "example": "Concrètement, je ne sais pas trop par où commencer. Quelles activités aident le plus à rencontrer des gens quand on vient d'arriver ?",
           "usage": "Nom pluriel servant à parler de loisirs ou d’occupations sociales."
         },
         {
@@ -1005,7 +1005,7 @@
           "kind": "mot-cle",
           "french": "des associations",
           "english": "associations",
-          "example": "Il y a des associations pour les nouveaux arrivants ou pour les francophones ?",
+          "example": "Du côté des structures officielles maintenant. Il y a des associations pour les nouveaux arrivants ou pour les francophones ?",
           "usage": "Nom pluriel désignant des groupes organisés autour d’un intérêt commun."
         },
         {
@@ -1013,7 +1013,7 @@
           "kind": "mot-cle",
           "french": "des clubs de sport",
           "english": "sports clubs",
-          "example": "Tu connais des clubs de sport où on peut facilement faire des rencontres ?",
+          "example": "Je bouge pas mal et j'aimerais joindre l'utile à l'agréable. Tu connais des clubs de sport où on peut facilement faire des rencontres ?",
           "usage": "Groupe nominal pour désigner des lieux où l’on pratique une activité physique en groupe."
         },
         {
@@ -1029,7 +1029,7 @@
           "kind": "mot-cle",
           "french": "Le bénévolat",
           "english": "volunteering",
-          "example": "Le bénévolat, c'est une bonne façon de rencontrer du monde ici ?",
+          "example": "On m'a dit que donner de son temps ouvrait beaucoup de portes ici. Le bénévolat, c'est une bonne façon de rencontrer du monde ici ?",
           "usage": "Nom masculin désignant une activité faite gratuitement pour aider."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "les plus conviviaux",
           "english": "the friendliest",
-          "example": "Quels quartiers ou quels endroits sont les plus conviviaux pour sortir et parler avec des gens ?",
+          "example": "En ce qui concerne les lieux, j'aimerais savoir où traîner. Quels quartiers ou quels endroits sont les plus conviviaux pour sortir et parler avec des gens ?",
           "usage": "Superlatif adjectival utilisé pour qualifier les lieux les plus chaleureux."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "des groupes en ligne",
           "english": "online groups",
-          "example": "Tu connais des applis ou des groupes en ligne utiles pour les nouveaux arrivants ?",
+          "example": "Aujourd'hui, tout passe aussi par le numérique. Tu connais des applis ou des groupes en ligne utiles pour les nouveaux arrivants ?",
           "usage": "Groupe nominal désignant des communautés qui échangent sur Internet."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "mot-cle",
           "french": "de vrais amis",
           "english": "real friends",
-          "example": "Toi, tu as mis combien de temps à te faire de vrais amis ici ?",
+          "example": "Ton propre parcours m'intéresse aussi. Toi, tu as mis combien de temps à te faire de vrais amis ici ?",
           "usage": "Groupe nominal pour évoquer des relations solides et sincères."
         },
         {
@@ -1069,7 +1069,7 @@
           "kind": "collocation",
           "french": "rencontrer des gens",
           "english": "meet people",
-          "example": "Quelles activités aident le plus à rencontrer des gens quand on vient d'arriver ?",
+          "example": "Concrètement, je ne sais pas trop par où commencer. Quelles activités aident le plus à rencontrer des gens quand on vient d'arriver ?",
           "usage": "Collocation verbale très fréquente pour parler de socialisation."
         },
         {
@@ -1077,7 +1077,7 @@
           "kind": "collocation",
           "french": "faire des rencontres",
           "english": "make connections / meet people",
-          "example": "Tu connais des clubs de sport où on peut facilement faire des rencontres ?",
+          "example": "Je bouge pas mal et j'aimerais joindre l'utile à l'agréable. Tu connais des clubs de sport où on peut facilement faire des rencontres ?",
           "usage": "Expression verbale courante pour parler de nouveaux contacts."
         },
         {
@@ -1085,7 +1085,7 @@
           "kind": "collocation",
           "french": "rencontrer du monde",
           "english": "meet people",
-          "example": "Le bénévolat, c'est une bonne façon de rencontrer du monde ici ?",
+          "example": "On m'a dit que donner de son temps ouvrait beaucoup de portes ici. Le bénévolat, c'est une bonne façon de rencontrer du monde ici ?",
           "usage": "Expression familière pour parler du fait d’élargir son cercle social."
         },
         {
@@ -1093,7 +1093,7 @@
           "kind": "collocation",
           "french": "parler avec des gens",
           "english": "talk with people",
-          "example": "Quels quartiers ou quels endroits sont les plus conviviaux pour sortir et parler avec des gens ?",
+          "example": "En ce qui concerne les lieux, j'aimerais savoir où traîner. Quels quartiers ou quels endroits sont les plus conviviaux pour sortir et parler avec des gens ?",
           "usage": "Suite verbale simple pour évoquer un échange social direct."
         },
         {
@@ -1101,7 +1101,7 @@
           "kind": "collocation",
           "french": "te faire de vrais amis",
           "english": "make real friends",
-          "example": "Toi, tu as mis combien de temps à te faire de vrais amis ici ?",
+          "example": "Ton propre parcours m'intéresse aussi. Toi, tu as mis combien de temps à te faire de vrais amis ici ?",
           "usage": "Expression pronominale pour parler de liens amicaux durables."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "parlent français",
           "english": "speak French",
-          "example": "C'est facile de trouver des gens qui parlent français ?",
+          "example": "Mon anglais est encore hésitant. C'est facile de trouver des gens qui parlent français ?",
           "usage": "Suite verbale servant à identifier une compétence linguistique."
         },
         {
@@ -1117,7 +1117,7 @@
           "kind": "collocation",
           "french": "au Canada",
           "english": "in Canada",
-          "example": "Quelle erreur faut-il éviter quand on essaie de rencontrer du monde au Canada ?",
+          "example": "J'aimerais éviter les faux pas culturels. Quelle erreur faut-il éviter quand on essaie de rencontrer du monde au Canada ?",
           "usage": "Groupe prépositionnel pour situer une action dans un pays précis."
         },
         {
@@ -1149,7 +1149,7 @@
           "kind": "tournure",
           "french": "Les Canadiens sont-ils accueillants",
           "english": "are Canadians welcoming",
-          "example": "Les Canadiens sont-ils accueillants avec les nouveaux arrivants ?",
+          "example": "Je viens juste d'arriver et je ne connais encore personne ici. Les Canadiens sont-ils accueillants avec les nouveaux arrivants ?",
           "usage": "Question avec inversion pour demander une appréciation générale."
         },
         {
@@ -1157,7 +1157,7 @@
           "kind": "tournure",
           "french": "quand on vient d'arriver",
           "english": "when you have just arrived",
-          "example": "Quelles activités aident le plus à rencontrer des gens quand on vient d'arriver ?",
+          "example": "Concrètement, je ne sais pas trop par où commencer. Quelles activités aident le plus à rencontrer des gens quand on vient d'arriver ?",
           "usage": "Subordonnée temporelle pour situer une situation juste après l’installation."
         },
         {
@@ -1165,7 +1165,7 @@
           "kind": "tournure",
           "french": "il y a des associations pour les nouveaux arrivants",
           "english": "are there associations for newcomers",
-          "example": "Il y a des associations pour les nouveaux arrivants ou pour les francophones ?",
+          "example": "Du côté des structures officielles maintenant. Il y a des associations pour les nouveaux arrivants ou pour les francophones ?",
           "usage": "Question avec « il y a » pour demander l’existence d’une ressource."
         },
         {
@@ -1181,7 +1181,7 @@
           "kind": "tournure",
           "french": "c'est une bonne façon de rencontrer du monde ici",
           "english": "is that a good way to meet people here",
-          "example": "Le bénévolat, c'est une bonne façon de rencontrer du monde ici ?",
+          "example": "On m'a dit que donner de son temps ouvrait beaucoup de portes ici. Le bénévolat, c'est une bonne façon de rencontrer du monde ici ?",
           "usage": "Question évaluative pour juger l’efficacité d’une démarche sociale."
         },
         {
@@ -1197,7 +1197,7 @@
           "kind": "tournure",
           "french": "quels endroits sont les plus conviviaux",
           "english": "which places are the friendliest",
-          "example": "Quels quartiers ou quels endroits sont les plus conviviaux pour sortir et parler avec des gens ?",
+          "example": "En ce qui concerne les lieux, j'aimerais savoir où traîner. Quels quartiers ou quels endroits sont les plus conviviaux pour sortir et parler avec des gens ?",
           "usage": "Question avec superlatif pour demander les meilleurs lieux de rencontre."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "tu as mis combien de temps",
           "english": "how long did it take you",
-          "example": "Toi, tu as mis combien de temps à te faire de vrais amis ici ?",
+          "example": "Ton propre parcours m'intéresse aussi. Toi, tu as mis combien de temps à te faire de vrais amis ici ?",
           "usage": "Question orale fréquente pour demander une durée d’expérience."
         },
         {
@@ -1213,7 +1213,7 @@
           "kind": "tournure",
           "french": "quelle erreur faut-il éviter",
           "english": "what mistake should be avoided",
-          "example": "Quelle erreur faut-il éviter quand on essaie de rencontrer du monde au Canada ?",
+          "example": "J'aimerais éviter les faux pas culturels. Quelle erreur faut-il éviter quand on essaie de rencontrer du monde au Canada ?",
           "usage": "Question avec tournure impersonnelle pour demander un conseil pratique."
         },
         {

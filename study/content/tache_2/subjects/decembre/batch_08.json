@@ -174,12 +174,30 @@
       "prompt": "Je suis un(e) ami(e) francophone. Vous souhaitez vous installer dans ma ville, et vous me demandez des conseils pour trouver un logement (démarches, quartier, budget, etc.).",
       "questions": [
         {
-          "text": "Je cherche un appartement dans ta ville et je ne sais pas trop par où commencer — tu pourrais m'aider ?"
+          "text": "Salut ! Ça y est, ma décision est prise, je viens m'installer près de chez toi. Je cherche un appartement dans ta ville et je ne sais pas trop par où commencer — tu pourrais m'aider ?"
         },
         {
-          "text": "Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
+          "text": "Première grande décision à prendre. D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement pour commencer ?",
+          "memory_number": 2,
+          "memory_section": 11
+        },
+        {
+          "text": "Toi qui connais la ville mieux que personne, oriente-moi. Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
           "memory_number": 2,
           "memory_section": 10
+        },
+        {
+          "text": "Y a-t-il un quartier qui offre une très bonne qualité de vie sans être trop cher — tu me le décris ?"
+        },
+        {
+          "text": "Au quotidien, j'aimerais avoir l'essentiel à côté. Y a-t-il des quartiers plus pratiques pour les commerces et la vie quotidienne ?",
+          "memory_number": 2,
+          "memory_section": 9
+        },
+        {
+          "text": "Je compte me déplacer uniquement en transports en commun. Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
+          "memory_number": 2,
+          "memory_section": 5
         },
         {
           "text": "Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
@@ -192,15 +210,20 @@
           "memory_section": 3
         },
         {
-          "text": "Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
+          "text": "J'ai peur d'arriver trop tard sur les bonnes annonces. Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
           "memory_number": 2,
-          "memory_section": 5
+          "memory_section": 11
         },
         {
-          "text": "Tu utiliserais quels sites ou applications pour chercher un logement dans ta ville ?"
+          "text": "Il vaut mieux commencer à chercher combien de temps à l'avance ?",
+          "memory_number": 2,
+          "memory_section": 4
         },
         {
-          "text": "Quels documents demande-t-on généralement pour un dossier de location ?",
+          "text": "Passons à la recherche elle-même. Tu utiliserais quels sites ou applications pour chercher un logement dans ta ville ?"
+        },
+        {
+          "text": "Pour ce qui est du dossier, je veux m'y prendre correctement. Quels documents demande-t-on généralement pour un dossier de location ?",
           "memory_number": 2,
           "memory_section": 6
         },
@@ -210,32 +233,9 @@
           "memory_section": 6
         },
         {
-          "text": "Il vaut mieux commencer à chercher combien de temps à l'avance ?",
-          "memory_number": 2,
-          "memory_section": 4
-        },
-        {
-          "text": "Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
-          "memory_number": 2,
-          "memory_section": 11
-        },
-        {
-          "text": "D'après toi, vaut-il mieux vivre seul(e) ou partager un appartement pour commencer ?",
-          "memory_number": 2,
-          "memory_section": 11
-        },
-        {
-          "text": "Y a-t-il des quartiers plus pratiques pour les commerces et la vie quotidienne ?",
-          "memory_number": 2,
-          "memory_section": 9
-        },
-        {
-          "text": "Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
+          "text": "Une dernière chose qui m'inquiète un peu. Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
           "memory_number": 2,
           "memory_section": 8
-        },
-        {
-          "text": "Y a-t-il un quartier qui offre une très bonne qualité de vie sans être trop cher — tu me le décris ?"
         },
         {
           "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien commencer, ce serait lequel ?",

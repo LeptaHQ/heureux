@@ -303,7 +303,7 @@
           "memory_section": 13
         },
         {
-          "text": "Vous avez des logements disponibles en ce moment, plutôt en location ou aussi à l'achat ?",
+          "text": "Commençons par ce que vous avez en portefeuille. Vous avez des logements disponibles en ce moment, plutôt en location ou aussi à l'achat ?",
           "memory_number": 2,
           "memory_section": 2
         },
@@ -313,12 +313,27 @@
           "memory_section": 11
         },
         {
-          "text": "Quels secteurs de la ville recommanderiez-vous à quelqu'un qui vient d'arriver et ne connaît pas encore la ville ?",
+          "text": "Il y a un détail pratique à régler avant l'emménagement. Les logements sont-ils meublés, ou faut-il tout acheter en arrivant ?",
+          "memory_number": 2,
+          "memory_section": 9
+        },
+        {
+          "text": "En ce qui concerne le quartier, j'ai vraiment besoin d'être guidé(e). Quels secteurs de la ville recommanderiez-vous à quelqu'un qui vient d'arriver et ne connaît pas encore la ville ?",
           "memory_number": 2,
           "memory_section": 10
         },
         {
-          "text": "Ces logements se situent dans quelle gamme de prix en général ?",
+          "text": "Vous avez mentionné un secteur en particulier — vous pourriez m'en dire un peu plus ?",
+          "memory_number": 2,
+          "memory_section": 13
+        },
+        {
+          "text": "Je n'aurai pas de voiture au début. Ces quartiers sont-ils bien desservis par les transports en commun ?",
+          "memory_number": 2,
+          "memory_section": 5
+        },
+        {
+          "text": "Passons au budget. Ces logements se situent dans quelle gamme de prix en général ?",
           "memory_number": 2,
           "memory_section": 3
         },
@@ -328,7 +343,7 @@
           "memory_section": 3
         },
         {
-          "text": "Pour un dossier de location, quels documents faut-il fournir quand on vient d'arriver et qu'on n'a pas encore d'historique ici ?",
+          "text": "Pour ce qui est des démarches, je pars vraiment de zéro ici. Pour un dossier de location, quels documents faut-il fournir quand on vient d'arriver et qu'on n'a pas encore d'historique ici ?",
           "memory_number": 2,
           "memory_section": 6
         },
@@ -338,9 +353,9 @@
           "memory_section": 6
         },
         {
-          "text": "Ces quartiers sont-ils bien desservis par les transports en commun ?",
+          "text": "Concrètement, j'aimerais grouper mes rendez-vous. Comment s'organisent les visites — puis-je en visiter plusieurs le même jour ?",
           "memory_number": 2,
-          "memory_section": 5
+          "memory_section": 2
         },
         {
           "text": "En général, combien de temps faut-il compter entre la visite d'un logement et la signature du bail ?",
@@ -348,24 +363,9 @@
           "memory_section": 4
         },
         {
-          "text": "Comment s'organisent les visites — puis-je en visiter plusieurs le même jour ?",
-          "memory_number": 2,
-          "memory_section": 2
-        },
-        {
-          "text": "Y a-t-il des pièges ou des précautions à connaître pour un nouvel arrivant qui cherche un logement ?",
+          "text": "Avant d'aller plus loin, j'aimerais éviter les mauvaises surprises. Y a-t-il des pièges ou des précautions à connaître pour un nouvel arrivant qui cherche un logement ?",
           "memory_number": 2,
           "memory_section": 8
-        },
-        {
-          "text": "Les logements sont-ils meublés, ou faut-il tout acheter en arrivant ?",
-          "memory_number": 2,
-          "memory_section": 9
-        },
-        {
-          "text": "Vous avez mentionné un secteur en particulier — vous pourriez m'en dire un peu plus ?",
-          "memory_number": 2,
-          "memory_section": 13
         },
         {
           "text": "Pour finir — quelle serait la première étape à faire dès aujourd'hui pour avancer rapidement ?",

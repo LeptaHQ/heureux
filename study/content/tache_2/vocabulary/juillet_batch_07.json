@@ -997,7 +997,7 @@
           "kind": "mot-cle",
           "french": "un numéro d'assurance sociale",
           "english": "a social insurance number",
-          "example": "Où puis-je obtenir un numéro d'assurance sociale et une carte de santé ?",
+          "example": "On m'a parlé de deux documents indispensables ici. Où puis-je obtenir un numéro d'assurance sociale et une carte de santé ?",
           "usage": "Groupe nominal pour l'identifiant administratif."
         },
         {
@@ -1005,7 +1005,7 @@
           "kind": "mot-cle",
           "french": "une carte de santé",
           "english": "a health card",
-          "example": "Où puis-je obtenir un numéro d'assurance sociale et une carte de santé ?",
+          "example": "On m'a parlé de deux documents indispensables ici. Où puis-je obtenir un numéro d'assurance sociale et une carte de santé ?",
           "usage": "Groupe nominal pour la carte d'assurance maladie."
         },
         {
@@ -1013,7 +1013,7 @@
           "kind": "mot-cle",
           "french": "un logement",
           "english": "housing",
-          "example": "Pour trouver un logement, la mairie propose-t-elle des aides ou des informations utiles ?",
+          "example": "Ma priorité absolue reste de me loger. Pour trouver un logement, la mairie propose-t-elle des aides ou des informations utiles ?",
           "usage": "Nom désignant l'habitation à trouver."
         },
         {
@@ -1029,7 +1029,7 @@
           "kind": "mot-cle",
           "french": "des cours de français",
           "english": "French classes",
-          "example": "Y a-t-il des cours de français ou des programmes d'accueil pour s'intégrer ?",
+          "example": "Mon français est correct, mais je veux vraiment progresser. Y a-t-il des cours de français ou des programmes d'accueil pour s'intégrer ?",
           "usage": "Groupe nominal pour l'apprentissage du français."
         },
         {
@@ -1037,7 +1037,7 @@
           "kind": "mot-cle",
           "french": "des programmes d'accueil",
           "english": "welcome programs",
-          "example": "Y a-t-il des cours de français ou des programmes d'accueil pour s'intégrer ?",
+          "example": "Mon français est correct, mais je veux vraiment progresser. Y a-t-il des cours de français ou des programmes d'accueil pour s'intégrer ?",
           "usage": "Groupe nominal pour les dispositifs d'intégration."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "des commerces abordables",
           "english": "affordable shops",
-          "example": "Pour les courses et le quotidien, où trouver des commerces abordables dans le secteur ?",
+          "example": "Il faut aussi que je m'équipe pour les premiers jours. Pour les courses et le quotidien, où trouver des commerces abordables dans le secteur ?",
           "usage": "Groupe nominal pour des magasins bon marché."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "un médecin",
           "english": "a doctor",
-          "example": "Comment trouver un médecin ou une clinique quand on vient d'arriver ?",
+          "example": "Tant que nous parlons de santé, il y a un point qui m'inquiète. Comment trouver un médecin ou une clinique quand on vient d'arriver ?",
           "usage": "Nom désignant un professionnel de santé."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "mot-cle",
           "french": "une clinique",
           "english": "a clinic",
-          "example": "Comment trouver un médecin ou une clinique quand on vient d'arriver ?",
+          "example": "Tant que nous parlons de santé, il y a un point qui m'inquiète. Comment trouver un médecin ou une clinique quand on vient d'arriver ?",
           "usage": "Nom désignant un établissement de soins."
         },
         {
@@ -1093,7 +1093,7 @@
           "kind": "collocation",
           "french": "trouver un logement",
           "english": "find housing",
-          "example": "Pour trouver un logement, la mairie propose-t-elle des aides ou des informations utiles ?",
+          "example": "Ma priorité absolue reste de me loger. Pour trouver un logement, la mairie propose-t-elle des aides ou des informations utiles ?",
           "usage": "Verbe + complément sur la recherche de logement."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "proposés aux nouveaux arrivants",
           "english": "offered to newcomers",
-          "example": "Quels services municipaux sont proposés aux nouveaux arrivants ?",
+          "example": "Revenons aux services de la municipalité. Quels services municipaux sont proposés aux nouveaux arrivants ?",
           "usage": "Participe + complément sur les services."
         },
         {
@@ -1117,7 +1117,7 @@
           "kind": "collocation",
           "french": "pour s'intégrer",
           "english": "to integrate",
-          "example": "Y a-t-il des cours de français ou des programmes d'accueil pour s'intégrer ?",
+          "example": "Mon français est correct, mais je veux vraiment progresser. Y a-t-il des cours de français ou des programmes d'accueil pour s'intégrer ?",
           "usage": "Locution verbale sur l'intégration."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "trouver un médecin",
           "english": "find a doctor",
-          "example": "Comment trouver un médecin ou une clinique quand on vient d'arriver ?",
+          "example": "Tant que nous parlons de santé, il y a un point qui m'inquiète. Comment trouver un médecin ou une clinique quand on vient d'arriver ?",
           "usage": "Verbe + complément sur l'accès aux soins."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "rencontrer du monde",
           "english": "meet people",
-          "example": "Quelles activités ou associations me conseilleriez-vous pour rencontrer du monde ?",
+          "example": "Enfin, il y a le côté humain. Quelles activités ou associations me conseilleriez-vous pour rencontrer du monde ?",
           "usage": "Locution verbale sur la sociabilité."
         },
         {
@@ -1141,7 +1141,7 @@
           "kind": "collocation",
           "french": "d'autres questions plus tard",
           "english": "other questions later",
-          "example": "À quel service dois-je m'adresser si j'ai d'autres questions plus tard ?",
+          "example": "J'aurai sûrement d'autres interrogations une fois installé(e). À quel service dois-je m'adresser si j'ai d'autres questions plus tard ?",
           "usage": "Locution nominale sur le suivi."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "Où puis-je obtenir un numéro d'assurance sociale",
           "english": "where I can get a social insurance number",
-          "example": "Où puis-je obtenir un numéro d'assurance sociale et une carte de santé ?",
+          "example": "On m'a parlé de deux documents indispensables ici. Où puis-je obtenir un numéro d'assurance sociale et une carte de santé ?",
           "usage": "Question sur une démarche précise."
         },
         {
@@ -1181,7 +1181,7 @@
           "kind": "tournure",
           "french": "la mairie propose-t-elle des aides",
           "english": "does city hall offer any help",
-          "example": "Pour trouver un logement, la mairie propose-t-elle des aides ou des informations utiles ?",
+          "example": "Ma priorité absolue reste de me loger. Pour trouver un logement, la mairie propose-t-elle des aides ou des informations utiles ?",
           "usage": "Question sur les aides disponibles."
         },
         {
@@ -1197,7 +1197,7 @@
           "kind": "tournure",
           "french": "Quels services municipaux sont proposés aux nouveaux arrivants",
           "english": "what municipal services are offered to newcomers",
-          "example": "Quels services municipaux sont proposés aux nouveaux arrivants ?",
+          "example": "Revenons aux services de la municipalité. Quels services municipaux sont proposés aux nouveaux arrivants ?",
           "usage": "Question sur les services."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "où trouver des commerces abordables dans le secteur",
           "english": "where to find affordable shops in the area",
-          "example": "Pour les courses et le quotidien, où trouver des commerces abordables dans le secteur ?",
+          "example": "Il faut aussi que je m'équipe pour les premiers jours. Pour les courses et le quotidien, où trouver des commerces abordables dans le secteur ?",
           "usage": "Question sur les commerces."
         },
         {
@@ -1213,7 +1213,7 @@
           "kind": "tournure",
           "french": "À quel service dois-je m'adresser",
           "english": "which department I should contact",
-          "example": "À quel service dois-je m'adresser si j'ai d'autres questions plus tard ?",
+          "example": "J'aurai sûrement d'autres interrogations une fois installé(e). À quel service dois-je m'adresser si j'ai d'autres questions plus tard ?",
           "usage": "Question sur le bon interlocuteur."
         },
         {

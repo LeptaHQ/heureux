@@ -254,7 +254,7 @@
           "kind": "mot-cle",
           "french": "quels quartiers",
           "english": "which neighborhoods",
-          "example": "Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
+          "example": "Entrons dans le détail des secteurs. Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
           "usage": "Groupe interrogatif pour demander des zones résidentielles précises."
         },
         {
@@ -262,7 +262,7 @@
           "kind": "mot-cle",
           "french": "à éviter",
           "english": "to avoid",
-          "example": "Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
+          "example": "Autant savoir aussi où ne pas chercher. Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
           "usage": "Locution infinitive pour signaler un choix déconseillé."
         },
         {
@@ -278,7 +278,7 @@
           "kind": "mot-cle",
           "french": "en métro",
           "english": "by subway",
-          "example": "Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
+          "example": "Les transports comptent énormément pour moi. Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
           "usage": "Locution adverbiale de moyen de transport souterrain."
         },
         {
@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "applications",
           "english": "apps",
-          "example": "Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
+          "example": "Passons à la recherche concrète. Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
           "usage": "Nom pluriel désignant des logiciels utilisés notamment sur smartphone."
         },
         {
@@ -294,7 +294,7 @@
           "kind": "mot-cle",
           "french": "un dossier de location",
           "english": "a rental application file",
-          "example": "Quels documents demande-t-on généralement pour un dossier de location ?",
+          "example": "Il me faudra sûrement des papiers particuliers. Quels documents demande-t-on généralement pour un dossier de location ?",
           "usage": "Groupe nominal désignant l'ensemble des documents requis pour louer un logement."
         },
         {
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "le marché",
           "english": "the market",
-          "example": "Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
+          "example": "J'aimerais savoir à quel rythme il faut réagir. Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
           "usage": "Nom masculin désignant ici l'offre et la demande de logements dans une ville."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "un premier logement",
           "english": "a first home",
-          "example": "Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
+          "example": "Autant savoir aussi où ne pas chercher. Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
           "usage": "Groupe nominal pour un logement de départ."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "un logement là-bas",
           "english": "housing over there",
-          "example": "Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
+          "example": "Passons à la recherche concrète. Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
           "usage": "Groupe nominal pour un logement dans la ville visée."
         },
         {
@@ -334,7 +334,7 @@
           "kind": "collocation",
           "french": "calmes et abordables",
           "english": "quiet and affordable",
-          "example": "Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
+          "example": "Entrons dans le détail des secteurs. Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
           "usage": "Collocation de deux adjectifs coordonnés pour qualifier un quartier recherché."
         },
         {
@@ -342,7 +342,7 @@
           "kind": "collocation",
           "french": "trop chers",
           "english": "too expensive",
-          "example": "Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
+          "example": "Autant savoir aussi où ne pas chercher. Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
           "usage": "Collocation adverbe + adjectif pour signaler un coût excessif."
         },
         {
@@ -358,7 +358,7 @@
           "kind": "collocation",
           "french": "faciles d'accès",
           "english": "easy to access",
-          "example": "Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
+          "example": "Les transports comptent énormément pour moi. Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
           "usage": "Collocation adjectif + complément pour qualifier la desserte d'un lieu."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "se faire des amis",
           "english": "to make friends",
-          "example": "Y a-t-il des activités ou des clubs pour rencontrer du monde et se faire des amis ?",
+          "example": "Je ne connais absolument personne sur place. Y a-t-il des activités ou des clubs pour rencontrer du monde et se faire des amis ?",
           "usage": "Locution verbale pour exprimer la création de liens amicaux."
         },
         {
@@ -406,7 +406,7 @@
           "kind": "collocation",
           "french": "rencontrer du monde",
           "english": "meet people",
-          "example": "Y a-t-il des activités ou des clubs pour rencontrer du monde et se faire des amis ?",
+          "example": "Je ne connais absolument personne sur place. Y a-t-il des activités ou des clubs pour rencontrer du monde et se faire des amis ?",
           "usage": "Locution verbale sur la sociabilité."
         },
         {
@@ -422,7 +422,7 @@
           "kind": "tournure",
           "french": "tu utiliserais quels sites",
           "english": "which sites would you use",
-          "example": "Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
+          "example": "Passons à la recherche concrète. Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
           "usage": "Tournure interrogative au conditionnel pour solliciter une recommandation pratique."
         },
         {
@@ -430,7 +430,7 @@
           "kind": "tournure",
           "french": "quels documents demande-t-on généralement",
           "english": "what documents are usually requested",
-          "example": "Quels documents demande-t-on généralement pour un dossier de location ?",
+          "example": "Il me faudra sûrement des papiers particuliers. Quels documents demande-t-on généralement pour un dossier de location ?",
           "usage": "Tournure interrogative impersonnelle avec « on » pour demander une pratique courante."
         },
         {
@@ -446,7 +446,7 @@
           "kind": "tournure",
           "french": "le marché est-il très compétitif",
           "english": "is the market very competitive",
-          "example": "Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
+          "example": "J'aimerais savoir à quel rythme il faut réagir. Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
           "usage": "Tournure interrogative pour évaluer la difficulté d'une recherche."
         },
         {
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "Quels quartiers me conseillerais-tu",
           "english": "which neighborhoods would you recommend",
-          "example": "Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
+          "example": "Entrons dans le détail des secteurs. Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
           "usage": "Question orale pour un conseil."
         },
         {
@@ -486,7 +486,7 @@
           "kind": "tournure",
           "french": "quels quartiers sont les mieux équipés",
           "english": "which neighborhoods are best equipped",
-          "example": "Pour les services du quotidien — commerces, écoles, santé — quels quartiers sont les mieux équipés ?",
+          "example": "Ce qui me préoccupe surtout, c'est la vie de tous les jours. Pour les services du quotidien — commerces, écoles, santé — quels quartiers sont les mieux équipés ?",
           "usage": "Question sur les services de proximité."
         }
       ]

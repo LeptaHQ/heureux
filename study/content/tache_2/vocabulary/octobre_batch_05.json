@@ -278,7 +278,7 @@
           "kind": "mot-cle",
           "french": "le climat",
           "english": "the climate",
-          "example": "Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
+          "example": "Concrètement, il a bien dû y avoir des galères. Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
           "usage": "Nom désignant le climat local."
         },
         {
@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "les principaux obstacles",
           "english": "the main obstacles",
-          "example": "Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
+          "example": "Concrètement, il a bien dû y avoir des galères. Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
           "usage": "Groupe nominal désignant les difficultés."
         },
         {
@@ -294,7 +294,7 @@
           "kind": "mot-cle",
           "french": "la langue",
           "english": "the language",
-          "example": "Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
+          "example": "Concrètement, il a bien dû y avoir des galères. Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
           "usage": "Nom désignant la barrière linguistique."
         },
         {
@@ -302,7 +302,7 @@
           "kind": "mot-cle",
           "french": "des amis",
           "english": "friends",
-          "example": "Est-ce que tu t'es fait des amis facilement ?",
+          "example": "Sur le plan des relations, ça a dû demander du temps. Est-ce que tu t'es fait des amis facilement ?",
           "usage": "Nom pluriel désignant les nouvelles relations."
         },
         {
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "le coût de la vie",
           "english": "the cost of living",
-          "example": "Est-ce que le coût de la vie est très différent de chez nous ?",
+          "example": "Côté budget, j'aimerais me faire une idée. Est-ce que le coût de la vie est très différent de chez nous ?",
           "usage": "Groupe nominal désignant le niveau des prix."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "des regrets",
           "english": "regrets",
-          "example": "Est-ce que tu as des regrets, ou tu referais le même choix ?",
+          "example": "Soyons francs deux minutes. Est-ce que tu as des regrets, ou tu referais le même choix ?",
           "usage": "Nom pluriel désignant les regrets éventuels."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "le même choix",
           "english": "the same choice",
-          "example": "Est-ce que tu as des regrets, ou tu referais le même choix ?",
+          "example": "Soyons francs deux minutes. Est-ce que tu as des regrets, ou tu referais le même choix ?",
           "usage": "Groupe nominal sur la décision."
         },
         {
@@ -350,7 +350,7 @@
           "kind": "collocation",
           "french": "te sentir vraiment chez toi",
           "english": "really feel at home",
-          "example": "Combien de temps il t'a fallu pour te sentir vraiment chez toi ?",
+          "example": "On ne se sent pas chez soi du jour au lendemain. Combien de temps il t'a fallu pour te sentir vraiment chez toi ?",
           "usage": "Locution verbale sur l'intégration."
         },
         {
@@ -358,7 +358,7 @@
           "kind": "collocation",
           "french": "fait des amis",
           "english": "made friends",
-          "example": "Est-ce que tu t'es fait des amis facilement ?",
+          "example": "Sur le plan des relations, ça a dû demander du temps. Est-ce que tu t'es fait des amis facilement ?",
           "usage": "Verbe + complément sur la sociabilité."
         },
         {
@@ -366,7 +366,7 @@
           "kind": "collocation",
           "french": "par rapport à avant",
           "english": "compared to before",
-          "example": "Qu'est-ce qui a le plus changé dans ton mode de vie par rapport à avant ?",
+          "example": "Avec le recul, tu dois voir de vraies différences. Qu'est-ce qui a le plus changé dans ton mode de vie par rapport à avant ?",
           "usage": "Locution comparative."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "t'intégrer",
           "english": "integrate",
-          "example": "Côté travail, ça a été facile de trouver et de t'intégrer ?",
+          "example": "Un autre gros morceau, l'emploi. Côté travail, ça a été facile de trouver et de t'intégrer ?",
           "usage": "Locution verbale sur l'intégration."
         },
         {
@@ -382,7 +382,7 @@
           "kind": "collocation",
           "french": "très différent de chez nous",
           "english": "very different from home",
-          "example": "Est-ce que le coût de la vie est très différent de chez nous ?",
+          "example": "Côté budget, j'aimerais me faire une idée. Est-ce que le coût de la vie est très différent de chez nous ?",
           "usage": "Locution comparative sur le coût de la vie."
         },
         {
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "te manque le plus",
           "english": "you miss the most",
-          "example": "De ton pays d'origine, qu'est-ce qui te manque le plus ?",
+          "example": "Il y a forcément un revers à la médaille. De ton pays d'origine, qu'est-ce qui te manque le plus ?",
           "usage": "Locution verbale sur le manque."
         },
         {
@@ -398,7 +398,7 @@
           "kind": "collocation",
           "french": "referais le même choix",
           "english": "would make the same choice",
-          "example": "Est-ce que tu as des regrets, ou tu referais le même choix ?",
+          "example": "Soyons francs deux minutes. Est-ce que tu as des regrets, ou tu referais le même choix ?",
           "usage": "Locution verbale sur la décision."
         },
         {
@@ -406,7 +406,7 @@
           "kind": "collocation",
           "french": "se lancer",
           "english": "take the plunge",
-          "example": "Quels conseils tu donnerais à quelqu'un qui veut se lancer comme moi ?",
+          "example": "Moi, je suis à deux doigts de sauter le pas. Quels conseils tu donnerais à quelqu'un qui veut se lancer comme moi ?",
           "usage": "Locution verbale sur le fait de se lancer."
         },
         {
@@ -414,7 +414,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce qui t'a donné envie de t'installer là-bas",
           "english": "what made you want to settle there",
-          "example": "Qu'est-ce qui t'a donné envie de t'installer là-bas ?",
+          "example": "Reprenons depuis le début. Qu'est-ce qui t'a donné envie de t'installer là-bas ?",
           "usage": "Question sur la motivation."
         },
         {
@@ -430,7 +430,7 @@
           "kind": "tournure",
           "french": "Le plus dépaysant en arrivant, c'était quoi",
           "english": "what was the most disorienting on arrival",
-          "example": "Le plus dépaysant en arrivant, c'était quoi ?",
+          "example": "Il y a toujours un choc au départ. Le plus dépaysant en arrivant, c'était quoi ?",
           "usage": "Question sur le dépaysement."
         },
         {
@@ -438,7 +438,7 @@
           "kind": "tournure",
           "french": "Quels ont été les principaux obstacles",
           "english": "what were the main obstacles",
-          "example": "Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
+          "example": "Concrètement, il a bien dû y avoir des galères. Quels ont été les principaux obstacles — les démarches, la langue, le climat ?",
           "usage": "Question sur les obstacles."
         },
         {
@@ -446,7 +446,7 @@
           "kind": "tournure",
           "french": "Combien de temps il t'a fallu pour te sentir vraiment chez toi",
           "english": "how long did it take to feel at home",
-          "example": "Combien de temps il t'a fallu pour te sentir vraiment chez toi ?",
+          "example": "On ne se sent pas chez soi du jour au lendemain. Combien de temps il t'a fallu pour te sentir vraiment chez toi ?",
           "usage": "Question sur le temps d'adaptation."
         },
         {
@@ -454,7 +454,7 @@
           "kind": "tournure",
           "french": "Est-ce que tu t'es fait des amis facilement",
           "english": "did you make friends easily",
-          "example": "Est-ce que tu t'es fait des amis facilement ?",
+          "example": "Sur le plan des relations, ça a dû demander du temps. Est-ce que tu t'es fait des amis facilement ?",
           "usage": "Question sur la sociabilité."
         },
         {
@@ -462,7 +462,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce qui a le plus changé dans ton mode de vie par rapport à avant",
           "english": "what changed most in your lifestyle",
-          "example": "Qu'est-ce qui a le plus changé dans ton mode de vie par rapport à avant ?",
+          "example": "Avec le recul, tu dois voir de vraies différences. Qu'est-ce qui a le plus changé dans ton mode de vie par rapport à avant ?",
           "usage": "Question sur le mode de vie."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "Est-ce que le coût de la vie est très différent de chez nous",
           "english": "is the cost of living very different from home",
-          "example": "Est-ce que le coût de la vie est très différent de chez nous ?",
+          "example": "Côté budget, j'aimerais me faire une idée. Est-ce que le coût de la vie est très différent de chez nous ?",
           "usage": "Question sur le coût de la vie."
         },
         {
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "Est-ce que tu as des regrets, ou tu referais le même choix",
           "english": "do you have regrets, or would you do it again",
-          "example": "Est-ce que tu as des regrets, ou tu referais le même choix ?",
+          "example": "Soyons francs deux minutes. Est-ce que tu as des regrets, ou tu referais le même choix ?",
           "usage": "Question sur les regrets."
         },
         {

@@ -18,19 +18,28 @@
           "text": "Elle se trouve où exactement, cette colocation — c'est bien situé ?"
         },
         {
-          "text": "La chambre qui se libère fait quelle taille — elle est meublée ?"
+          "text": "Avant même de parler de l'appartement, l'environnement compte pour moi. Le quartier est comment — calme, bien desservi par les transports ?"
         },
         {
-          "text": "Comment est le logement en général — il y a combien de pièces et de chambres ?"
+          "text": "Concrètement, c'est cette pièce qui m'intéresse le plus. La chambre qui se libère fait quelle taille — elle est meublée ?"
+        },
+        {
+          "text": "Parle-moi maintenant du reste de l'appartement. Comment est le logement en général — il y a combien de pièces et de chambres ?"
         },
         {
           "text": "Les espaces communs, c'est comment — il y a un grand salon, une cuisine équipée ?"
         },
         {
-          "text": "Il y a combien de personnes dans la colocation en ce moment ?"
+          "text": "Le plus important en coloc, ça reste quand même les gens. Il y a combien de personnes dans la colocation en ce moment ?"
         },
         {
           "text": "Les autres colocataires, ils sont comment — plutôt calmes, sociables ?"
+        },
+        {
+          "text": "Pour bien vivre ensemble, il faut des repères clairs. Est-ce qu'il y a des règles de vie à respecter entre colocataires ?"
+        },
+        {
+          "text": "Au quotidien, l'organisation compte beaucoup. Comment ça se passe pour les dépenses communes, les courses et le ménage ?"
         },
         {
           "text": "Côté loyer, c'est combien par mois pour la chambre ?"
@@ -39,19 +48,10 @@
           "text": "Les charges sont comprises dans le loyer — l'électricité, l'eau, internet ?"
         },
         {
-          "text": "Comment ça se passe pour les dépenses communes, les courses et le ménage ?"
+          "text": "Il me faut aussi prévoir la somme de départ. Il faut verser une caution, et de combien à peu près ?"
         },
         {
-          "text": "Il faut verser une caution, et de combien à peu près ?"
-        },
-        {
-          "text": "Est-ce qu'il y a des règles de vie à respecter entre colocataires ?"
-        },
-        {
-          "text": "Le quartier est comment — calme, bien desservi par les transports ?"
-        },
-        {
-          "text": "Est-ce que je pourrais passer visiter avant de me décider ?"
+          "text": "Franchement, ça me donne très envie. Est-ce que je pourrais passer visiter avant de me décider ?"
         },
         {
           "text": "Pour finir — à ton avis, je m'entendrais bien avec le reste de la coloc ?"

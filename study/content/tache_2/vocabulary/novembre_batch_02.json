@@ -17,7 +17,7 @@
           "kind": "mot-cle",
           "french": "la superficie",
           "english": "the floor area / size",
-          "example": "Quelle est la superficie de l'appartement — et combien de pièces y a-t-il ?",
+          "example": "L'annonce reste assez vague sur certains points. Quelle est la superficie de l'appartement — et combien de pièces y a-t-il ?",
           "usage": "Nom féminin pour indiquer la surface habitable d'un logement."
         },
         {
@@ -33,7 +33,7 @@
           "kind": "mot-cle",
           "french": "un balcon",
           "english": "a balcony",
-          "example": "Est-il lumineux — et y a-t-il un balcon ou une terrasse ?",
+          "example": "La luminosité compte énormément pour moi. Est-il lumineux — et y a-t-il un balcon ou une terrasse ?",
           "usage": "Nom masculin désignant un espace extérieur en saillie sur une façade."
         },
         {
@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "les parties communes",
           "english": "the common areas",
-          "example": "L'immeuble est-il récent — comment sont les parties communes ?",
+          "example": "Le bâtiment compte autant que l'appartement lui-même. L'immeuble est-il récent — comment sont les parties communes ?",
           "usage": "Groupe nominal désignant les espaces partagés d'un immeuble (hall, escaliers, etc.)."
         },
         {
@@ -49,7 +49,7 @@
           "kind": "mot-cle",
           "french": "négociable",
           "english": "negotiable",
-          "example": "Quel est le prix demandé — est-ce qu'il est négociable ?",
+          "example": "Venons-en au point essentiel. Quel est le prix demandé — est-ce qu'il est négociable ?",
           "usage": "Adjectif décrivant un prix qui peut encore être discuté."
         },
         {
@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "les charges mensuelles",
           "english": "monthly fees / charges",
-          "example": "À combien s'élèvent les charges mensuelles — et qu'est-ce qu'elles comprennent exactement ?",
+          "example": "Au-delà du prix d'achat, il y a le coût mensuel. À combien s'élèvent les charges mensuelles — et qu'est-ce qu'elles comprennent exactement ?",
           "usage": "Groupe nominal désignant les frais récurrents liés à la copropriété."
         },
         {
@@ -65,7 +65,7 @@
           "kind": "mot-cle",
           "french": "un espace de rangement",
           "english": "a storage space",
-          "example": "Y a-t-il une place de parking, une cave ou un espace de rangement ?",
+          "example": "Il me faudrait aussi de la place pour ranger. Y a-t-il une place de parking, une cave ou un espace de rangement ?",
           "usage": "Groupe nominal désignant un lieu prévu pour ranger des affaires."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "transports en commun",
           "english": "public transport",
-          "example": "C'est facilement accessible en transports en commun ?",
+          "example": "Je n'ai pas de voiture au quotidien. C'est facilement accessible en transports en commun ?",
           "usage": "Moyens de déplacement collectifs dans une ville."
         },
         {
@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "diagnostics",
           "english": "property inspection reports",
-          "example": "Quels diagnostics et quels documents sont déjà disponibles pour l'achat ?",
+          "example": "Pour ce qui est du dossier technique, j'aimerais faire le point. Quels diagnostics et quels documents sont déjà disponibles pour l'achat ?",
           "usage": "Nom masculin pluriel pour désigner les contrôles techniques liés à la vente d'un logement."
         },
         {
@@ -113,7 +113,7 @@
           "kind": "collocation",
           "french": "des travaux à prévoir",
           "english": "renovations to plan for",
-          "example": "L'appartement est-il en bon état général ou y a-t-il des travaux à prévoir ?",
+          "example": "Je voudrais éviter les mauvaises surprises après l'achat. L'appartement est-il en bon état général ou y a-t-il des travaux à prévoir ?",
           "usage": "Groupe nominal pour évoquer des réparations ou améliorations à venir."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "est-il récent",
           "english": "is it recent / modern",
-          "example": "L'immeuble est-il récent — comment sont les parties communes ?",
+          "example": "Le bâtiment compte autant que l'appartement lui-même. L'immeuble est-il récent — comment sont les parties communes ?",
           "usage": "Inversion adjectif + verbe « être » pour interroger sur l'ancienneté d'un bâtiment."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "À combien s'élèvent",
           "english": "how much do ... amount to?",
-          "example": "À combien s'élèvent les charges mensuelles — et qu'est-ce qu'elles comprennent exactement ?",
+          "example": "Au-delà du prix d'achat, il y a le coût mensuel. À combien s'élèvent les charges mensuelles — et qu'est-ce qu'elles comprennent exactement ?",
           "usage": "Tournure interrogative avec « s'élever à » pour demander un montant."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "une cave",
           "english": "a cellar",
-          "example": "Y a-t-il une place de parking, une cave ou un espace de rangement ?",
+          "example": "Il me faudrait aussi de la place pour ranger. Y a-t-il une place de parking, une cave ou un espace de rangement ?",
           "usage": "Nom féminin désignant un espace de stockage en sous-sol."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "facilement accessible",
           "english": "easily accessible",
-          "example": "C'est facilement accessible en transports en commun ?",
+          "example": "Je n'ai pas de voiture au quotidien. C'est facilement accessible en transports en commun ?",
           "usage": "Collocation adverbe + adjectif très fréquente pour qualifier un lieu."
         },
         {
@@ -185,7 +185,7 @@
           "kind": "tournure",
           "french": "combien de pièces y a-t-il",
           "english": "how many rooms are there",
-          "example": "Quelle est la superficie de l'appartement — et combien de pièces y a-t-il ?",
+          "example": "L'annonce reste assez vague sur certains points. Quelle est la superficie de l'appartement — et combien de pièces y a-t-il ?",
           "usage": "Structure impersonnelle « y a-t-il » pour quantifier des éléments d'un logement."
         },
         {
@@ -193,7 +193,7 @@
           "kind": "tournure",
           "french": "y a-t-il des travaux à prévoir",
           "english": "are there renovations to plan for",
-          "example": "L'appartement est-il en bon état général ou y a-t-il des travaux à prévoir ?",
+          "example": "Je voudrais éviter les mauvaises surprises après l'achat. L'appartement est-il en bon état général ou y a-t-il des travaux à prévoir ?",
           "usage": "Structure impersonnelle « y a-t-il » suivie d'un nom + « à » + infinitif."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "y a-t-il un balcon ou une terrasse",
           "english": "is there a balcony or a terrace",
-          "example": "Est-il lumineux — et y a-t-il un balcon ou une terrasse ?",
+          "example": "La luminosité compte énormément pour moi. Est-il lumineux — et y a-t-il un balcon ou une terrasse ?",
           "usage": "Structure impersonnelle « y a-t-il » pour vérifier la présence d'un équipement."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "tournure",
           "french": "comment sont les parties communes",
           "english": "what are the common areas like",
-          "example": "L'immeuble est-il récent — comment sont les parties communes ?",
+          "example": "Le bâtiment compte autant que l'appartement lui-même. L'immeuble est-il récent — comment sont les parties communes ?",
           "usage": "Structure avec « comment sont » pour interroger sur l'état de plusieurs éléments."
         },
         {
@@ -217,7 +217,7 @@
           "kind": "tournure",
           "french": "quel est le prix demandé",
           "english": "what is the asking price",
-          "example": "Quel est le prix demandé — est-ce qu'il est négociable ?",
+          "example": "Venons-en au point essentiel. Quel est le prix demandé — est-ce qu'il est négociable ?",
           "usage": "Structure avec « quel est » pour interroger directement sur un montant."
         },
         {
@@ -225,7 +225,7 @@
           "kind": "tournure",
           "french": "qu'est-ce qu'elles comprennent exactement",
           "english": "what exactly do they include",
-          "example": "À combien s'élèvent les charges mensuelles — et qu'est-ce qu'elles comprennent exactement ?",
+          "example": "Au-delà du prix d'achat, il y a le coût mensuel. À combien s'élèvent les charges mensuelles — et qu'est-ce qu'elles comprennent exactement ?",
           "usage": "Pronom « elles » reprenant les charges déjà mentionnées, suivi de « comprendre »."
         },
         {
@@ -233,7 +233,7 @@
           "kind": "tournure",
           "french": "plutôt exposé au sud, à l'est ou à l'ouest",
           "english": "facing south, east, or west",
-          "example": "Quelle est l'orientation de l'appartement — plutôt exposé au sud, à l'est ou à l'ouest ?",
+          "example": "D'ailleurs, tout dépend sans doute de l'exposition. Quelle est l'orientation de l'appartement — plutôt exposé au sud, à l'est ou à l'ouest ?",
           "usage": "Structure d'alternative avec « plutôt » pour proposer un choix d'orientation."
         },
         {

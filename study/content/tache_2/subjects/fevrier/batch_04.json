@@ -331,32 +331,27 @@
           "memory_section": 13
         },
         {
-          "text": "Comment est le quartier en général — plutôt calme ou animé ?",
+          "text": "Je découvre à peine le coin. Comment est le quartier en général — plutôt calme ou animé ?",
           "memory_number": 1,
           "memory_section": 10
         },
         {
-          "text": "Les gens sont sympas — c'est facile de s'intégrer quand on arrive ?",
-          "memory_number": 1,
-          "memory_section": 10
-        },
-        {
-          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme — familles, jeunes, retraités ?",
+          "text": "J'essaie de me faire une idée du voisinage. Il y a beaucoup de monde en ce moment ou c'est plutôt calme — familles, jeunes, retraités ?",
           "memory_number": 1,
           "memory_section": 7
         },
         {
-          "text": "Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
+          "text": "Ce qui compte le plus pour moi, c'est l'ambiance humaine. Les gens sont sympas — c'est facile de s'intégrer quand on arrive ?",
+          "memory_number": 1,
+          "memory_section": 10
+        },
+        {
+          "text": "Nous avons une voiture, mais je ne sais pas si c'est bien pratique ici. Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
           "memory_number": 1,
           "memory_section": 5
         },
         {
-          "text": "C'est facilement accessible en transports en commun ?",
-          "memory_number": 1,
-          "memory_section": 5
-        },
-        {
-          "text": "Quels types de thèmes sont abordés dans les activités du quartier — sport, culture, loisirs, ou un peu de tout ?",
+          "text": "Vous parliez d'activités tout à l'heure, ça m'intéresse beaucoup. Quels types de thèmes sont abordés dans les activités du quartier — sport, culture, loisirs, ou un peu de tout ?",
           "memory_number": 1,
           "memory_section": 2
         },
@@ -366,7 +361,7 @@
           "memory_section": 2
         },
         {
-          "text": "Il faut s'inscrire à l'avance pour les clubs ou ateliers ou on peut venir librement ?",
+          "text": "J'aimerais bien me lancer dans quelque chose dès la rentrée. Il faut s'inscrire à l'avance pour les clubs ou ateliers ou on peut venir librement ?",
           "memory_number": 1,
           "memory_section": 6
         },
@@ -376,7 +371,12 @@
           "memory_section": 6
         },
         {
-          "text": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "text": "Ces rencontres se tiennent sûrement quelque part dans le secteur. C'est facilement accessible en transports en commun ?",
+          "memory_number": 1,
+          "memory_section": 5
+        },
+        {
+          "text": "Changeons de sujet et parlons cuisine. Pour les repas, vous auriez des adresses à recommander — des spécialités locales à essayer absolument ?",
           "memory_number": 1,
           "memory_section": 9
         },
@@ -386,7 +386,7 @@
           "memory_section": 9
         },
         {
-          "text": "Y a-t-il des festivals ou événements annuels que les habitants aiment particulièrement ?",
+          "text": "Il paraît que le coin a aussi ses traditions. Y a-t-il des festivals ou événements annuels que les habitants aiment particulièrement ?",
           "memory_number": 1,
           "memory_section": 2
         },

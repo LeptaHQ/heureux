@@ -69,10 +69,16 @@
           "text": "Salut ! Tu m'as dit que tu louais ta maison pendant les vacances d'été — elle se trouve où exactement ?"
         },
         {
-          "text": "Le cadre autour de la maison est comment — plutôt calme, à la campagne, près d'un lac ou proche du centre ?"
+          "text": "Ça tombe bien, on cherchait justement quelque chose pour cet été. Le cadre autour de la maison est comment — plutôt calme, à la campagne, près d'un lac ou proche du centre ?"
         },
         {
-          "text": "Quelle est la superficie de la maison — et combien de pièces ou de chambres y a-t-il ?"
+          "text": "On aime bien pouvoir tout faire sans reprendre la voiture. Est-ce qu'il y a des commodités à proximité — supermarchés, restaurants, pharmacie ?"
+        },
+        {
+          "text": "Pour le trajet, on hésite encore. Y a-t-il un parking, ou est-ce qu'on peut venir facilement en transports en commun ?"
+        },
+        {
+          "text": "Parlons un peu de l'intérieur. Quelle est la superficie de la maison — et combien de pièces ou de chambres y a-t-il ?"
         },
         {
           "text": "Elle peut accueillir combien de personnes confortablement ?",
@@ -80,13 +86,13 @@
           "memory_section": 7
         },
         {
-          "text": "Est-ce qu'elle est entièrement meublée, et quels équipements sont disponibles sur place ?"
+          "text": "Comme on part en vacances, on voyage léger. Est-ce qu'elle est entièrement meublée, et quels équipements sont disponibles sur place ?"
         },
         {
           "text": "Y a-t-il aussi un espace extérieur, comme une terrasse, un jardin ou un barbecue ?"
         },
         {
-          "text": "Elle est disponible à quelles dates pendant l'été ?"
+          "text": "Reste à caler nos congés avec les tiens. Elle est disponible à quelles dates pendant l'été ?"
         },
         {
           "text": "Y a-t-il une durée minimale de location ?",
@@ -94,7 +100,7 @@
           "memory_section": 6
         },
         {
-          "text": "Et côté prix, combien ça coûte pour une semaine ou pour tout le séjour ?"
+          "text": "J'en arrive au nerf de la guerre. Et côté prix, combien ça coûte pour une semaine ou pour tout le séjour ?"
         },
         {
           "text": "Le tarif comprend quoi exactement — les charges, l'eau et l'électricité sont incluses ?"
@@ -103,18 +109,12 @@
           "text": "Faut-il verser une caution, et comment se fait le paiement ?"
         },
         {
-          "text": "Est-ce qu'il y a des commodités à proximité — supermarchés, restaurants, pharmacie ?"
-        },
-        {
-          "text": "Est-ce qu'il y a des règles particulières à respecter ?",
+          "text": "Comme c'est chez toi, je préfère être clair dès le départ. Est-ce qu'il y a des règles particulières à respecter ?",
           "memory_number": 2,
           "memory_section": 8
         },
         {
-          "text": "Y a-t-il un parking, ou est-ce qu'on peut venir facilement en transports en commun ?"
-        },
-        {
-          "text": "Est-ce que tu aurais des photos à m'envoyer pour que je me fasse une idée avant de me décider ?"
+          "text": "Il ne me manque plus grand-chose pour me projeter. Est-ce que tu aurais des photos à m'envoyer pour que je me fasse une idée avant de me décider ?"
         }
       ]
     },

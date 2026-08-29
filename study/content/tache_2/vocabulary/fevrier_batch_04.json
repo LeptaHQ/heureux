@@ -997,7 +997,7 @@
           "kind": "mot-cle",
           "french": "le quartier",
           "english": "the neighbourhood",
-          "example": "Comment est le quartier en général — plutôt calme ou animé ?",
+          "example": "Je découvre à peine le coin. Comment est le quartier en général — plutôt calme ou animé ?",
           "usage": "Nom masculin très courant pour désigner une zone résidentielle."
         },
         {
@@ -1005,7 +1005,7 @@
           "kind": "mot-cle",
           "french": "un parking",
           "english": "a car park",
-          "example": "Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
+          "example": "Nous avons une voiture, mais je ne sais pas si c'est bien pratique ici. Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
           "usage": "Nom masculin désignant un espace de stationnement à proximité d'un lieu."
         },
         {
@@ -1013,7 +1013,7 @@
           "kind": "mot-cle",
           "french": "transports en commun",
           "english": "public transport",
-          "example": "Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
+          "example": "Nous avons une voiture, mais je ne sais pas si c'est bien pratique ici. Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
           "usage": "Groupe nominal désignant l'ensemble des moyens de déplacement collectifs."
         },
         {
@@ -1021,7 +1021,7 @@
           "kind": "mot-cle",
           "french": "ateliers",
           "english": "workshops",
-          "example": "Il faut s'inscrire à l'avance pour les clubs ou ateliers ou on peut venir librement ?",
+          "example": "J'aimerais bien me lancer dans quelque chose dès la rentrée. Il faut s'inscrire à l'avance pour les clubs ou ateliers ou on peut venir librement ?",
           "usage": "Nom pluriel désignant des activités pratiques encadrées proposées aux habitants."
         },
         {
@@ -1029,7 +1029,7 @@
           "kind": "mot-cle",
           "french": "des festivals",
           "english": "festivals",
-          "example": "Y a-t-il des festivals ou événements annuels que les habitants aiment particulièrement ?",
+          "example": "Il paraît que le coin a aussi ses traditions. Y a-t-il des festivals ou événements annuels que les habitants aiment particulièrement ?",
           "usage": "Nom pluriel désignant des événements culturels organisés périodiquement."
         },
         {
@@ -1037,7 +1037,7 @@
           "kind": "mot-cle",
           "french": "les habitants",
           "english": "the residents",
-          "example": "Y a-t-il des festivals ou événements annuels que les habitants aiment particulièrement ?",
+          "example": "Il paraît que le coin a aussi ses traditions. Y a-t-il des festivals ou événements annuels que les habitants aiment particulièrement ?",
           "usage": "Nom pluriel désignant les personnes vivant dans un quartier ou une ville."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "des spécialités locales",
           "english": "local specialities",
-          "example": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "example": "Changeons de sujet et parlons cuisine. Pour les repas, vous auriez des adresses à recommander — des spécialités locales à essayer absolument ?",
           "usage": "Groupe nominal désignant des plats typiques d'une région."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "mot-cle",
           "french": "événements annuels",
           "english": "annual events",
-          "example": "Y a-t-il des festivals ou événements annuels que les habitants aiment particulièrement ?",
+          "example": "Il paraît que le coin a aussi ses traditions. Y a-t-il des festivals ou événements annuels que les habitants aiment particulièrement ?",
           "usage": "Groupe nominal désignant des manifestations qui reviennent chaque année."
         },
         {
@@ -1077,7 +1077,7 @@
           "kind": "collocation",
           "french": "calme ou animé",
           "english": "quiet or lively",
-          "example": "Comment est le quartier en général — plutôt calme ou animé ?",
+          "example": "Je découvre à peine le coin. Comment est le quartier en général — plutôt calme ou animé ?",
           "usage": "Collocation adjectivale par coordination pour caractériser un lieu ou un quartier."
         },
         {
@@ -1085,7 +1085,7 @@
           "kind": "collocation",
           "french": "un peu de tout",
           "english": "a bit of everything",
-          "example": "Quels types de thèmes sont abordés dans les activités du quartier — sport, culture, loisirs, ou un peu de tout ?",
+          "example": "Vous parliez d'activités tout à l'heure, ça m'intéresse beaucoup. Quels types de thèmes sont abordés dans les activités du quartier — sport, culture, loisirs, ou un peu de tout ?",
           "usage": "Expression figée très courante pour indiquer une offre variée sans détail précis."
         },
         {
@@ -1093,7 +1093,7 @@
           "kind": "collocation",
           "french": "facilement accessible",
           "english": "easily accessible",
-          "example": "C'est facilement accessible en transports en commun ?",
+          "example": "Ces rencontres se tiennent sûrement quelque part dans le secteur. C'est facilement accessible en transports en commun ?",
           "usage": "Collocation adverbe + adjectif très fréquente pour qualifier un lieu."
         },
         {
@@ -1101,7 +1101,7 @@
           "kind": "collocation",
           "french": "thèmes sont abordés",
           "english": "topics are covered",
-          "example": "Quels types de thèmes sont abordés dans les activités du quartier — sport, culture, loisirs, ou un peu de tout ?",
+          "example": "Vous parliez d'activités tout à l'heure, ça m'intéresse beaucoup. Quels types de thèmes sont abordés dans les activités du quartier — sport, culture, loisirs, ou un peu de tout ?",
           "usage": "Collocation verbale à la voix passive pour interroger le contenu d'un programme."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "essayer absolument",
           "english": "definitely try",
-          "example": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "example": "Changeons de sujet et parlons cuisine. Pour les repas, vous auriez des adresses à recommander — des spécialités locales à essayer absolument ?",
           "usage": "Collocation adverbiale emphatique pour insister sur une recommandation forte."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "adresses à recommander",
           "english": "addresses to recommend",
-          "example": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "example": "Changeons de sujet et parlons cuisine. Pour les repas, vous auriez des adresses à recommander — des spécialités locales à essayer absolument ?",
           "usage": "Collocation nom + à + infinitif pour demander des suggestions de lieux."
         },
         {
@@ -1157,7 +1157,7 @@
           "kind": "tournure",
           "french": "c'est facile de s'intégrer quand on arrive",
           "english": "is it easy to fit in when you arrive",
-          "example": "Les gens sont sympas — c'est facile de s'intégrer quand on arrive ?",
+          "example": "Ce qui compte le plus pour moi, c'est l'ambiance humaine. Les gens sont sympas — c'est facile de s'intégrer quand on arrive ?",
           "usage": "Tournure descriptive très réutilisable pour interroger sur l'accueil social d'un lieu."
         },
         {
@@ -1165,7 +1165,7 @@
           "kind": "tournure",
           "french": "il y a beaucoup de monde en ce moment ou c'est plutôt calme",
           "english": "are there a lot of people right now or is it rather quiet",
-          "example": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme — familles, jeunes, retraités ?",
+          "example": "J'essaie de me faire une idée du voisinage. Il y a beaucoup de monde en ce moment ou c'est plutôt calme — familles, jeunes, retraités ?",
           "usage": "Tournure d'alternative très transférable pour interroger sur l'affluence d'un lieu."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "il vaut mieux venir en transports en commun",
           "english": "it's better to come by public transport",
-          "example": "Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
+          "example": "Nous avons une voiture, mais je ne sais pas si c'est bien pratique ici. Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
           "usage": "Tournure impersonnelle avec « il vaut mieux » pour recommander un mode de déplacement."
         },
         {
@@ -1189,7 +1189,7 @@
           "kind": "tournure",
           "french": "il faut s'inscrire à l'avance pour les clubs ou ateliers ou on peut venir librement",
           "english": "do you need to register in advance for the clubs or workshops or can you just show up",
-          "example": "Il faut s'inscrire à l'avance pour les clubs ou ateliers ou on peut venir librement ?",
+          "example": "J'aimerais bien me lancer dans quelque chose dès la rentrée. Il faut s'inscrire à l'avance pour les clubs ou ateliers ou on peut venir librement ?",
           "usage": "Tournure d'alternative détaillée pour comparer deux modes d'inscription à des activités."
         },
         {

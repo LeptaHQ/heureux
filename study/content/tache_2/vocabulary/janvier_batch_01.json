@@ -9,7 +9,7 @@
           "kind": "mot-cle",
           "french": "des meubles",
           "english": "furniture",
-          "example": "Quels types d'objets as-tu décidé de mettre en vente — des meubles, des appareils électroniques ou un peu de tout ?",
+          "example": "Entrons dans le vif du sujet. Quels types d'objets as-tu décidé de mettre en vente — des meubles, des appareils électroniques ou un peu de tout ?",
           "usage": "Nom pluriel courant pour les objets d'ameublement."
         },
         {
@@ -17,7 +17,7 @@
           "kind": "mot-cle",
           "french": "des appareils électroniques",
           "english": "electronic devices",
-          "example": "Quels types d'objets as-tu décidé de mettre en vente — des meubles, des appareils électroniques ou un peu de tout ?",
+          "example": "Entrons dans le vif du sujet. Quels types d'objets as-tu décidé de mettre en vente — des meubles, des appareils électroniques ou un peu de tout ?",
           "usage": "Catégorie utile pour distinguer les appareils des meubles."
         },
         {
@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "les factures",
           "english": "receipts",
-          "example": "Pour les appareils électroniques, as-tu encore les factures ou les garanties d'origine ?",
+          "example": "Ce genre de justificatif compte beaucoup pour moi. Pour les appareils électroniques, as-tu encore les factures ou les garanties d'origine ?",
           "usage": "Documents qui prouvent l'achat et sa date."
         },
         {
@@ -49,7 +49,7 @@
           "kind": "mot-cle",
           "french": "les garanties d'origine",
           "english": "original warranties",
-          "example": "Pour les appareils électroniques, as-tu encore les factures ou les garanties d'origine ?",
+          "example": "Ce genre de justificatif compte beaucoup pour moi. Pour les appareils électroniques, as-tu encore les factures ou les garanties d'origine ?",
           "usage": "À demander pour vérifier si les appareils restent couverts."
         },
         {
@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "une livraison",
           "english": "a delivery",
-          "example": "Pour les récupérer, est-ce que tu proposes une livraison ou faut-il venir les chercher ?",
+          "example": "Certains meubles doivent être plutôt encombrants. Pour les récupérer, est-ce que tu proposes une livraison ou faut-il venir les chercher ?",
           "usage": "Option pratique pour recevoir un objet encombrant."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "un virement bancaire",
           "english": "a bank transfer",
-          "example": "Pour le paiement, tu préfères un virement bancaire ou des espèces ?",
+          "example": "Pour ce qui est du règlement, dis-moi ce qui t'arrange. Pour le paiement, tu préfères un virement bancaire ou des espèces ?",
           "usage": "Moyen de paiement électronique entre comptes bancaires."
         },
         {
@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "des espèces",
           "english": "cash",
-          "example": "Pour le paiement, tu préfères un virement bancaire ou des espèces ?",
+          "example": "Pour ce qui est du règlement, dis-moi ce qui t'arrange. Pour le paiement, tu préfères un virement bancaire ou des espèces ?",
           "usage": "Forme neutre et usuelle pour parler d'un paiement en argent comptant."
         },
         {
@@ -89,7 +89,7 @@
           "kind": "collocation",
           "french": "mettre en vente",
           "english": "put up for sale",
-          "example": "Quels types d'objets as-tu décidé de mettre en vente — des meubles, des appareils électroniques ou un peu de tout ?",
+          "example": "Entrons dans le vif du sujet. Quels types d'objets as-tu décidé de mettre en vente — des meubles, des appareils électroniques ou un peu de tout ?",
           "usage": "Collocation standard pour proposer un objet à l'achat."
         },
         {
@@ -113,7 +113,7 @@
           "kind": "collocation",
           "french": "as déjà fixé un montant",
           "english": "have already set an amount",
-          "example": "Pour les prix, tu as déjà fixé un montant pour chaque objet ou est-ce que c'est négociable ?",
+          "example": "Parlons chiffres maintenant. Pour les prix, tu as déjà fixé un montant pour chaque objet ou est-ce que c'est négociable ?",
           "usage": "Le passé composé situe la décision du vendeur avant l'échange."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "un peu de tout",
           "english": "a bit of everything",
-          "example": "Quels types d'objets as-tu décidé de mettre en vente — des meubles, des appareils électroniques ou un peu de tout ?",
+          "example": "Entrons dans le vif du sujet. Quels types d'objets as-tu décidé de mettre en vente — des meubles, des appareils électroniques ou un peu de tout ?",
           "usage": "Expression courante pour indiquer une sélection variée sans tout détailler."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "passer chez toi",
           "english": "come by your place",
-          "example": "Quand est-ce que je pourrais passer chez toi pour voir les objets ?",
+          "example": "J'aimerais vraiment voir tout ça de mes propres yeux. Quand est-ce que je pourrais passer chez toi pour voir les objets ?",
           "usage": "Tour informel pour proposer une visite au domicile d'un ami."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "voir les objets",
           "english": "see the items",
-          "example": "Quand est-ce que je pourrais passer chez toi pour voir les objets ?",
+          "example": "J'aimerais vraiment voir tout ça de mes propres yeux. Quand est-ce que je pourrais passer chez toi pour voir les objets ?",
           "usage": "Associe naturellement la visite à l'inspection avant l'achat."
         },
         {
@@ -153,7 +153,7 @@
           "kind": "collocation",
           "french": "proposes une livraison",
           "english": "offer delivery",
-          "example": "Pour les récupérer, est-ce que tu proposes une livraison ou faut-il venir les chercher ?",
+          "example": "Certains meubles doivent être plutôt encombrants. Pour les récupérer, est-ce que tu proposes une livraison ou faut-il venir les chercher ?",
           "usage": "Demande directement si le vendeur peut assurer le transport."
         },
         {
@@ -161,7 +161,7 @@
           "kind": "collocation",
           "french": "venir les chercher",
           "english": "come and pick them up",
-          "example": "Pour les récupérer, est-ce que tu proposes une livraison ou faut-il venir les chercher ?",
+          "example": "Certains meubles doivent être plutôt encombrants. Pour les récupérer, est-ce que tu proposes une livraison ou faut-il venir les chercher ?",
           "usage": "Le pronom « les » reprend les objets à récupérer."
         },
         {
@@ -169,7 +169,7 @@
           "kind": "tournure",
           "french": "Quels types d'objets",
           "english": "what types of items",
-          "example": "Quels types d'objets as-tu décidé de mettre en vente — des meubles, des appareils électroniques ou un peu de tout ?",
+          "example": "Entrons dans le vif du sujet. Quels types d'objets as-tu décidé de mettre en vente — des meubles, des appareils électroniques ou un peu de tout ?",
           "usage": "Amorce une question ouverte sur les catégories disponibles."
         },
         {
@@ -177,7 +177,7 @@
           "kind": "tournure",
           "french": "as-tu décidé de",
           "english": "did you decide to",
-          "example": "Quels types d'objets as-tu décidé de mettre en vente — des meubles, des appareils électroniques ou un peu de tout ?",
+          "example": "Entrons dans le vif du sujet. Quels types d'objets as-tu décidé de mettre en vente — des meubles, des appareils électroniques ou un peu de tout ?",
           "usage": "Inversion au passé composé pour interroger sur une décision."
         },
         {
@@ -193,7 +193,7 @@
           "kind": "tournure",
           "french": "Depuis combien de temps",
           "english": "for how long",
-          "example": "Depuis combien de temps as-tu ces meubles ?",
+          "example": "L'ancienneté compte pas mal pour moi. Depuis combien de temps as-tu ces meubles ?",
           "usage": "Interroge sur une durée qui se prolonge jusqu'au présent."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "as-tu encore",
           "english": "do you still have",
-          "example": "Pour les appareils électroniques, as-tu encore les factures ou les garanties d'origine ?",
+          "example": "Ce genre de justificatif compte beaucoup pour moi. Pour les appareils électroniques, as-tu encore les factures ou les garanties d'origine ?",
           "usage": "Inversion concise pour vérifier qu'un élément a été conservé."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "tournure",
           "french": "est-ce que c'est négociable",
           "english": "is it negotiable",
-          "example": "Pour les prix, tu as déjà fixé un montant pour chaque objet ou est-ce que c'est négociable ?",
+          "example": "Parlons chiffres maintenant. Pour les prix, tu as déjà fixé un montant pour chaque objet ou est-ce que c'est négociable ?",
           "usage": "Question orale directe sur la possibilité de discuter le prix."
         },
         {
@@ -225,7 +225,7 @@
           "kind": "tournure",
           "french": "Quand est-ce que je pourrais",
           "english": "when could I",
-          "example": "Quand est-ce que je pourrais passer chez toi pour voir les objets ?",
+          "example": "J'aimerais vraiment voir tout ça de mes propres yeux. Quand est-ce que je pourrais passer chez toi pour voir les objets ?",
           "usage": "Le conditionnel rend la demande de rendez-vous plus souple."
         },
         {
@@ -233,7 +233,7 @@
           "kind": "tournure",
           "french": "faut-il venir les chercher",
           "english": "must they be picked up",
-          "example": "Pour les récupérer, est-ce que tu proposes une livraison ou faut-il venir les chercher ?",
+          "example": "Certains meubles doivent être plutôt encombrants. Pour les récupérer, est-ce que tu proposes une livraison ou faut-il venir les chercher ?",
           "usage": "Inversion impersonnelle pour demander si l'enlèvement est obligatoire."
         },
         {
@@ -241,7 +241,7 @@
           "kind": "tournure",
           "french": "Quelle est la date exacte de",
           "english": "what is the exact date of",
-          "example": "Quelle est la date exacte de ton départ ?",
+          "example": "Ça change tout pour s'organiser. Quelle est la date exacte de ton départ ?",
           "usage": "Structure précise pour demander un repère de calendrier."
         }
       ]

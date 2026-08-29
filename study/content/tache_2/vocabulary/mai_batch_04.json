@@ -294,7 +294,7 @@
           "kind": "mot-cle",
           "french": "un garant",
           "english": "a guarantor",
-          "example": "Pour la location, quelles sont les pièces à fournir pour le dossier — et est-ce qu'il faut un garant ?",
+          "example": "Passons aux démarches administratives. Pour la location, quelles sont les pièces à fournir pour le dossier — et est-ce qu'il faut un garant ?",
           "usage": "Nom désignant la personne qui se porte caution pour un locataire."
         },
         {
@@ -302,7 +302,7 @@
           "kind": "mot-cle",
           "french": "le dossier",
           "english": "the application file",
-          "example": "Pour la location, quelles sont les pièces à fournir pour le dossier — et est-ce qu'il faut un garant ?",
+          "example": "Passons aux démarches administratives. Pour la location, quelles sont les pièces à fournir pour le dossier — et est-ce qu'il faut un garant ?",
           "usage": "Nom désignant l'ensemble des documents à fournir pour une demande."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "le marché",
           "english": "the market",
-          "example": "D'ailleurs, le marché est plutôt tendu en ce moment ou on trouve encore des offres intéressantes ?",
+          "example": "J'aimerais aussi savoir si je dois me dépêcher. D'ailleurs, le marché est plutôt tendu en ce moment ou on trouve encore des offres intéressantes ?",
           "usage": "Nom désignant l'ensemble de l'offre et de la demande immobilière."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "des travaux",
           "english": "renovation work",
-          "example": "Et les logements en eux-mêmes, ils sont en bon état général ou il y a des travaux à prévoir ?",
+          "example": "Je ne veux pas me lancer dans un chantier. Et les logements en eux-mêmes, ils sont en bon état général ou il y a des travaux à prévoir ?",
           "usage": "Nom pluriel désignant des rénovations à prévoir dans un logement."
         },
         {
@@ -334,7 +334,7 @@
           "kind": "collocation",
           "french": "haut de gamme",
           "english": "high-end/upscale",
-          "example": "Et ces biens sont dans quelle gamme de prix — plutôt abordables ou plutôt haut de gamme ?",
+          "example": "Venons-en aux chiffres. Et ces biens sont dans quelle gamme de prix — plutôt abordables ou plutôt haut de gamme ?",
           "usage": "Locution adjectivale invariable qualifiant un bien de standing élevé."
         },
         {
@@ -342,7 +342,7 @@
           "kind": "collocation",
           "french": "gamme de prix",
           "english": "price range",
-          "example": "Et ces biens sont dans quelle gamme de prix — plutôt abordables ou plutôt haut de gamme ?",
+          "example": "Venons-en aux chiffres. Et ces biens sont dans quelle gamme de prix — plutôt abordables ou plutôt haut de gamme ?",
           "usage": "Collocation nominale pour situer un bien selon son coût."
         },
         {
@@ -350,7 +350,7 @@
           "kind": "collocation",
           "french": "pièces à fournir",
           "english": "documents to provide",
-          "example": "Pour la location, quelles sont les pièces à fournir pour le dossier — et est-ce qu'il faut un garant ?",
+          "example": "Passons aux démarches administratives. Pour la location, quelles sont les pièces à fournir pour le dossier — et est-ce qu'il faut un garant ?",
           "usage": "Collocation administrative désignant les justificatifs requis pour un dossier."
         },
         {
@@ -358,7 +358,7 @@
           "kind": "collocation",
           "french": "offres intéressantes",
           "english": "attractive deals",
-          "example": "D'ailleurs, le marché est plutôt tendu en ce moment ou on trouve encore des offres intéressantes ?",
+          "example": "J'aimerais aussi savoir si je dois me dépêcher. D'ailleurs, le marché est plutôt tendu en ce moment ou on trouve encore des offres intéressantes ?",
           "usage": "Association nom + adjectif qualifiant des propositions avantageuses."
         },
         {
@@ -366,7 +366,7 @@
           "kind": "collocation",
           "french": "précautions particulières",
           "english": "special precautions",
-          "example": "Sinon, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "example": "Comme je suis novice, je préfère être prévenu(e). Sinon, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
           "usage": "Collocation figée pour désigner des mesures de prudence spécifiques."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "choses à éviter",
           "english": "things to avoid",
-          "example": "Sinon, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "example": "Comme je suis novice, je préfère être prévenu(e). Sinon, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
           "usage": "Tournure nominale figée signalant des comportements ou situations à ne pas reproduire."
         },
         {
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "en bon état",
           "english": "in good condition",
-          "example": "Et les logements en eux-mêmes, ils sont en bon état général ou il y a des travaux à prévoir ?",
+          "example": "Je ne veux pas me lancer dans un chantier. Et les logements en eux-mêmes, ils sont en bon état général ou il y a des travaux à prévoir ?",
           "usage": "Collocation qualifiant l'état satisfaisant d'un bien."
         },
         {
@@ -422,7 +422,7 @@
           "kind": "tournure",
           "french": "est-ce qu'il y a des options dans cette gamme",
           "english": "is there anything available in that range",
-          "example": "Je cherche plutôt un T2 ou un T3, meublé ou non — est-ce qu'il y a des options dans cette gamme ?",
+          "example": "J'ai des critères assez précis. Je cherche plutôt un T2 ou un T3, meublé ou non — est-ce qu'il y a des options dans cette gamme ?",
           "usage": "Structure interrogative avec 'est-ce que' pour vérifier une disponibilité précise."
         },
         {
@@ -430,7 +430,7 @@
           "kind": "tournure",
           "french": "je cherche plutôt un T2 ou un T3",
           "english": "I'm rather looking for a two- or three-room flat",
-          "example": "Je cherche plutôt un T2 ou un T3, meublé ou non — est-ce qu'il y a des options dans cette gamme ?",
+          "example": "J'ai des critères assez précis. Je cherche plutôt un T2 ou un T3, meublé ou non — est-ce qu'il y a des options dans cette gamme ?",
           "usage": "Tournure pour exprimer une préférence entre deux options concrètes."
         },
         {
@@ -438,7 +438,7 @@
           "kind": "tournure",
           "french": "quels quartiers me conseilleriez-vous",
           "english": "which neighbourhoods would you recommend to me",
-          "example": "Quels quartiers me conseilleriez-vous — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
+          "example": "En ce qui concerne l'emplacement, je débute totalement dans cette ville. Quels quartiers me conseilleriez-vous — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
           "usage": "Tournure au conditionnel de politesse pour demander un conseil."
         },
         {
@@ -446,7 +446,7 @@
           "kind": "tournure",
           "french": "c'est plutôt calme et résidentiel ou plus animé",
           "english": "is it rather quiet and residential, or livelier",
-          "example": "Quels quartiers me conseilleriez-vous — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
+          "example": "En ce qui concerne l'emplacement, je débute totalement dans cette ville. Quels quartiers me conseilleriez-vous — et côté ambiance, c'est plutôt calme et résidentiel ou plus animé ?",
           "usage": "Tournure interrogative alternative pour qualifier un lieu de vie."
         },
         {

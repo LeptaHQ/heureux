@@ -69,9 +69,23 @@
           "text": "Salut ! J'aimerais louer un logement dans ta ville et je ne sais pas trop par où commencer — tu pourrais me conseiller ?"
         },
         {
-          "text": "Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
+          "text": "Je pars vraiment de zéro là-bas. Pour un premier logement, tu viserais plutôt un studio, une colocation ou un petit appartement ?"
+        },
+        {
+          "text": "Tu connais la ville par cœur, autant en profiter. Quels quartiers me conseillerais-tu, plutôt calmes et abordables pour commencer ?",
           "memory_number": 2,
           "memory_section": 10
+        },
+        {
+          "text": "Côté ambiance, quels quartiers sont plutôt calmes et lesquels sont plus animés ?"
+        },
+        {
+          "text": "Je fonctionne beaucoup à pied pour les courses. Pour les services du quotidien — commerces, écoles, santé — quels quartiers sont les mieux équipés ?"
+        },
+        {
+          "text": "Pour les trajets de tous les jours, c'est important pour moi. Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
+          "memory_number": 2,
+          "memory_section": 5
         },
         {
           "text": "Et à l'inverse, y a-t-il des quartiers à éviter, ou trop chers pour un premier logement ?",
@@ -84,19 +98,14 @@
           "memory_section": 3
         },
         {
-          "text": "Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
-          "memory_number": 2,
-          "memory_section": 8
-        },
-        {
-          "text": "Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
-          "memory_number": 2,
-          "memory_section": 2
-        },
-        {
-          "text": "Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
+          "text": "Il paraît que ça part très vite dans les grandes villes. Le marché est-il très compétitif en ce moment, ou on trouve encore facilement ?",
           "memory_number": 2,
           "memory_section": 11
+        },
+        {
+          "text": "Passons à la méthode de recherche. Tu utiliserais quels sites ou applications pour chercher un logement là-bas ?",
+          "memory_number": 2,
+          "memory_section": 2
         },
         {
           "text": "Il vaut mieux commencer à chercher combien de temps à l'avance ?",
@@ -104,26 +113,17 @@
           "memory_section": 4
         },
         {
-          "text": "Quels documents demande-t-on généralement pour un dossier de location ?",
+          "text": "Pour ce qui est des démarches, je veux avoir tout sous la main. Quels documents demande-t-on généralement pour un dossier de location ?",
           "memory_number": 2,
           "memory_section": 6
         },
         {
-          "text": "Pour un premier logement, tu viserais plutôt un studio, une colocation ou un petit appartement ?"
-        },
-        {
-          "text": "Ces quartiers sont-ils faciles d'accès en métro ou en bus, si je n'ai pas de voiture ?",
+          "text": "J'ai un peu peur de me faire avoir, honnêtement. Y a-t-il des pièges à éviter avec certains propriétaires ou certaines annonces ?",
           "memory_number": 2,
-          "memory_section": 5
+          "memory_section": 8
         },
         {
-          "text": "Côté ambiance, quels quartiers sont plutôt calmes et lesquels sont plus animés ?"
-        },
-        {
-          "text": "Pour les services du quotidien — commerces, écoles, santé — quels quartiers sont les mieux équipés ?"
-        },
-        {
-          "text": "Il y a des choses à vérifier absolument avant de signer un bail ?"
+          "text": "Avant de m'engager pour un an, autant être prudent(e). Il y a des choses à vérifier absolument avant de signer un bail ?"
         },
         {
           "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien commencer, ce serait lequel ?",

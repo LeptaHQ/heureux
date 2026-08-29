@@ -12,79 +12,74 @@
       "prompt": "Je suis votre ami(e). J'ai dîné dans un nouveau restaurant à Ottawa. Vous souhaitez y aller. Vous me posez des questions sur ce nouveau restaurant (menu, prix, appréciation, etc.).",
       "questions": [
         {
-          "text": "Salut ! Tu m'as parlé du nouveau restaurant où tu as dîné à Ottawa — tu pourrais m'en dire un peu plus ?",
+          "text": "Salut ! Tu m'as parlé d'un nouveau restaurant à Ottawa — ça m'intéresse, tu peux m'en dire un peu plus ?",
           "memory_number": 9,
           "memory_section": 13
         },
         {
-          "text": "Il se trouve où exactement — c'est facilement accessible en transports en commun ?",
-          "memory_number": 9,
-          "memory_section": 5
-        },
-        {
-          "text": "Quel type de cuisine est proposé — canadienne, internationale ou un mélange des deux ?",
+          "text": "C'est quel type de cuisine — italienne, asiatique, locale ?",
           "memory_number": 9,
           "memory_section": 2
         },
         {
-          "text": "Quelles sont les différentes options sur le menu ?",
+          "text": "Une autre chose m'intéresse : il se trouve où exactement — c'est facile d'accès ?",
+          "memory_number": 9,
+          "memory_section": 5
+        },
+        {
+          "text": "L'ambiance est comment — plutôt calme et romantique, ou animée ?",
           "memory_number": 9,
           "memory_section": 11
         },
         {
-          "text": "Parmi tous les plats, lequel me conseillerais-tu ?",
-          "memory_number": 9,
-          "memory_section": 11
-        },
-        {
-          "text": "Il y a aussi des options végétariennes ou des plats adaptés aux personnes allergiques ?",
-          "memory_number": 9,
-          "memory_section": 8
-        },
-        {
-          "text": "Et les plats, tu les as trouvés comment — ils étaient bons et les portions étaient généreuses ?",
-          "memory_number": 9,
-          "memory_section": 9
-        },
-        {
-          "text": "Comment est l'ambiance en général — plutôt calme et conviviale, ou plus animée ?",
-          "memory_number": 9,
-          "memory_section": 10
-        },
-        {
-          "text": "Et le service, tu l'as trouvé rapide et accueillant ?",
-          "memory_number": 9,
-          "memory_section": 10
-        },
-        {
-          "text": "C'est dans quelle gamme de prix — plutôt cher ou raisonnable ?",
+          "text": "C'est plutôt cher, ou abordable pour un dîner entre amis ?",
           "memory_number": 9,
           "memory_section": 3
         },
         {
-          "text": "Tu trouves que le rapport qualité-prix est bon ?",
+          "text": "Justement, à ce propos, tu te souviens de ce que tu as mangé — c'était bon ?",
           "memory_number": 9,
           "memory_section": 11
         },
         {
-          "text": "Il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "text": "Il y a un plat en particulier que tu me conseillerais d'essayer ?",
+          "memory_number": 9,
+          "memory_section": 11
+        },
+        {
+          "text": "C'est un endroit adapté pour un groupe, ou plutôt pour un dîner en petit comité ?",
+          "memory_number": null,
+          "memory_section": null
+        },
+        {
+          "text": "Faut-il réserver à l'avance, ou on peut y aller sans réservation ?",
           "memory_number": 9,
           "memory_section": 9
         },
         {
-          "text": "Le restaurant est ouvert quels jours — et jusqu'à quelle heure le soir ?",
+          "text": "Autre point important : il y a beaucoup de monde en général, ou c'est plutôt tranquille ?",
+          "memory_number": 9,
+          "memory_section": 8
+        },
+        {
+          "text": "Est-ce qu'il y a un parking à proximité, ou c'est accessible en transports ?",
+          "memory_number": 9,
+          "memory_section": 5
+        },
+        {
+          "text": "Ils proposent des options pour les végétariens ou les allergies alimentaires ?",
+          "memory_number": null,
+          "memory_section": null
+        },
+        {
+          "text": "D'ailleurs, quels sont les horaires d'ouverture ?",
           "memory_number": 9,
           "memory_section": 4
         },
         {
-          "text": "Qu'est-ce que tu as le plus apprécié — et y a-t-il quelque chose qui t'a moins plu ?",
+          "text": "Pour finir, je crois que je vais y aller très vite — tu voudrais m'accompagner la prochaine fois ?",
           "memory_number": 9,
-          "memory_section": 10
-        },
-        {
-          "text": "Avec le recul, est-ce que tu y retournerais et tu me le recommanderais vraiment ?",
-          "memory_number": 9,
-          "memory_section": 10
+          "memory_section": 13
         }
       ]
     },
@@ -182,7 +177,7 @@
           "memory_section": 2
         },
         {
-          "text": "Ça s'adresse à quels âges — les enfants sont-ils répartis par groupe de niveau ?",
+          "text": "Une autre chose m'intéresse : ça s'adresse à quels âges — les enfants sont-ils répartis par groupe de niveau ?",
           "memory_number": 5,
           "memory_section": 6
         },
@@ -197,7 +192,7 @@
           "memory_section": 13
         },
         {
-          "text": "Les activités ont lieu quels jours et à quelle heure après l'école ?",
+          "text": "Justement, à ce propos, les activités ont lieu quels jours et à quelle heure après l'école ?",
           "memory_number": 5,
           "memory_section": 4
         },
@@ -217,7 +212,7 @@
           "memory_section": 7
         },
         {
-          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "text": "Autre point important : comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "memory_number": 5,
           "memory_section": 6
         },
@@ -232,7 +227,7 @@
           "memory_section": 3
         },
         {
-          "text": "Y a-t-il un tarif réduit si j'inscris plusieurs enfants ?",
+          "text": "D'ailleurs, y a-t-il un tarif réduit si j'inscris plusieurs enfants ?",
           "memory_number": 5,
           "memory_section": 3
         },
@@ -242,7 +237,7 @@
           "memory_section": 8
         },
         {
-          "text": "Selon vous, quelle activité conviendrait le mieux à des enfants qui aiment bouger et travailler en groupe ?",
+          "text": "Pour finir, selon vous, quelle activité conviendrait le mieux à des enfants qui aiment bouger et travailler en groupe ?",
           "memory_number": 5,
           "memory_section": 11
         }
@@ -264,7 +259,7 @@
           "memory_section": 6
         },
         {
-          "text": "Concrètement, quelles missions sont confiées aux bénévoles au quotidien ?",
+          "text": "Une autre chose m'intéresse : concrètement, quelles missions sont confiées aux bénévoles au quotidien ?",
           "memory_number": 3,
           "memory_section": 2
         },
@@ -279,7 +274,7 @@
           "memory_section": 4
         },
         {
-          "text": "À quelle heure ça commence — et combien d'heures par semaine faut-il prévoir ?",
+          "text": "Justement, à ce propos, à quelle heure ça commence — et combien d'heures par semaine faut-il prévoir ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -299,7 +294,7 @@
           "memory_section": 6
         },
         {
-          "text": "Qu'est-ce qu'il faut apporter — ou est-ce que les gants et le matériel sont fournis sur place ?",
+          "text": "Autre point important : qu'est-ce qu'il faut apporter — ou est-ce que les gants et le matériel sont fournis sur place ?",
           "memory_number": 3,
           "memory_section": 8
         },
@@ -314,7 +309,7 @@
           "memory_section": 10
         },
         {
-          "text": "Y a-t-il aussi des aspects difficiles ou des précautions particulières à connaître ?",
+          "text": "D'ailleurs, y a-t-il aussi des aspects difficiles ou des précautions particulières à connaître ?",
           "memory_number": 3,
           "memory_section": 11
         },
@@ -324,7 +319,7 @@
           "memory_section": 10
         },
         {
-          "text": "Pour finir — quel conseil me donnerais-tu pour bien commencer dans l'association ?",
+          "text": "Pour finir, je crois que je suis prêt(e) à me lancer — quel conseil me donnerais-tu pour bien commencer dans l'association ?",
           "memory_number": 3,
           "memory_section": 13
         }
@@ -336,79 +331,64 @@
       "prompt": "Je suis votre ancien(ne) collègue. Je viens de commencer un nouveau travail. Vous souhaitez changer d'emploi. Vous me posez des questions pour avoir des informations sur mon travail et mon entreprise (activités, salaire, collègues, etc.).",
       "questions": [
         {
-          "text": "Salut ! Félicitations pour ton nouveau travail — tu pourrais me raconter un peu ce que tu fais ?",
+          "text": "Salut ! J'ai appris qu'un ancien collègue avait changé de travail — tu peux m'en dire plus ?",
           "memory_number": 4,
           "memory_section": 13
         },
         {
-          "text": "L'entreprise travaille dans quel secteur — quelles sont ses activités principales ?",
+          "text": "Il travaille dans quelle entreprise maintenant ?",
           "memory_number": 4,
           "memory_section": 2
         },
         {
-          "text": "Quel est ton poste exactement — et quelles sont tes principales responsabilités ?",
-          "memory_number": 4,
-          "memory_section": 7
-        },
-        {
-          "text": "Tu as eu une période d'intégration ou tu as commencé directement dans le vif du sujet ?",
-          "memory_number": 4,
-          "memory_section": 13
-        },
-        {
-          "text": "Comment s'organise le travail au quotidien — plutôt en équipe ou de manière individuelle ?",
-          "memory_number": 4,
-          "memory_section": 4
-        },
-        {
-          "text": "À quelle heure ça commence — il y a des horaires flexibles ou tout le monde suit le même rythme ?",
-          "memory_number": 4,
-          "memory_section": 4
-        },
-        {
-          "text": "Est-ce qu'il y a des possibilités de télétravail ou tout se fait au bureau ?",
-          "memory_number": 4,
-          "memory_section": 4
-        },
-        {
-          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
-          "memory_number": 4,
-          "memory_section": 10
-        },
-        {
-          "text": "Et tes collègues, ils sont comment — ils t'ont bien accueilli(e) ?",
-          "memory_number": 4,
-          "memory_section": 7
-        },
-        {
-          "text": "Côté salaire, c'est dans quelle gamme pour un poste comme le tien ?",
-          "memory_number": 4,
-          "memory_section": 3
-        },
-        {
-          "text": "Quels sont les avantages dont bénéficient les employés — assurance, congés, primes, ce genre de choses ?",
-          "memory_number": 4,
-          "memory_section": 3
-        },
-        {
-          "text": "Tu sais si l'entreprise recrute en ce moment ou si des postes vont bientôt s'ouvrir ?",
-          "memory_number": 4,
-          "memory_section": 6
-        },
-        {
-          "text": "Quelle expérience ou quelles compétences sont indispensables pour être recruté(e) ?",
-          "memory_number": 4,
-          "memory_section": 6
-        },
-        {
-          "text": "Y a-t-il quelque chose qui te plaît moins dans ce nouveau poste ?",
-          "memory_number": 4,
-          "memory_section": 10
-        },
-        {
-          "text": "Pour finir — avec mon profil, tu me conseillerais de postuler dans cette entreprise ?",
+          "text": "Une autre chose m'intéresse : c'est quel genre de poste — proche de ce qu'il faisait avant, ou complètement différent ?",
           "memory_number": 4,
           "memory_section": 11
+        },
+        {
+          "text": "Pourquoi il a décidé de changer, tu sais ?",
+          "memory_number": 4,
+          "memory_section": 11
+        },
+        {
+          "text": "Il est content de ce nouveau poste, d'après ce que tu sais ?",
+          "memory_number": 4,
+          "memory_section": 11
+        },
+        {
+          "text": "Justement, à ce propos, les conditions sont meilleures — le salaire, les horaires ?",
+          "memory_number": 4,
+          "memory_section": 3
+        },
+        {
+          "text": "C'est loin de chez lui — il doit faire beaucoup de trajet ?",
+          "memory_number": 4,
+          "memory_section": 5
+        },
+        {
+          "text": "Il a dû déménager pour ce nouveau travail, ou c'est resté dans la même ville ?",
+          "memory_number": null,
+          "memory_section": null
+        },
+        {
+          "text": "Autre point important : comment se passe son intégration dans cette nouvelle équipe ?",
+          "memory_number": 4,
+          "memory_section": 11
+        },
+        {
+          "text": "Il a des perspectives d'évolution intéressantes dans cette entreprise ?",
+          "memory_number": 4,
+          "memory_section": 11
+        },
+        {
+          "text": "D'ailleurs, tu penses qu'on pourrait aller le voir un de ces jours, pour qu'il nous raconte ça de vive voix ?",
+          "memory_number": null,
+          "memory_section": null
+        },
+        {
+          "text": "Pour finir, je crois que je suis vraiment content pour lui — tu as ses coordonnées pour que je le félicite ?",
+          "memory_number": 4,
+          "memory_section": 13
         }
       ]
     },
@@ -428,7 +408,7 @@
           "memory_section": 7
         },
         {
-          "text": "Concrètement, qu'attendez-vous de moi pendant la garde — quelles seront mes principales responsabilités ?",
+          "text": "Une autre chose m'intéresse : concrètement, qu'attendez-vous de moi pendant la garde — quelles seront mes principales responsabilités ?",
           "memory_number": 3,
           "memory_section": 7
         },
@@ -443,7 +423,7 @@
           "memory_section": 8
         },
         {
-          "text": "Quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
+          "text": "Justement, à ce propos, quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
           "memory_number": 3,
           "memory_section": 7
         },
@@ -463,7 +443,7 @@
           "memory_section": 4
         },
         {
-          "text": "Y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
+          "text": "Autre point important : y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
           "memory_number": 3,
           "memory_section": 8
         },
@@ -478,7 +458,7 @@
           "memory_section": 13
         },
         {
-          "text": "Y a-t-il d'autres habitudes ou règles importantes à respecter avec votre enfant ?",
+          "text": "D'ailleurs, y a-t-il d'autres habitudes ou règles importantes à respecter avec votre enfant ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -488,7 +468,7 @@
           "memory_section": 13
         },
         {
-          "text": "Pour finir — y a-t-il autre chose d'important que je devrais savoir avant ce week-end ?",
+          "text": "Pour finir, je crois que j'ai bien tout noté — y a-t-il autre chose d'important que je devrais savoir avant ce week-end ?",
           "memory_number": 3,
           "memory_section": 13
         }

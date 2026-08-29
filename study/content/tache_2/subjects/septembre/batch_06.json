@@ -12,49 +12,79 @@
       "prompt": "En pleine recherche d'emploi, vous préparez un entretien prévu la semaine suivante ; vous me demandez, en ami(e), comment le réussir : tenue, attitude, préparation.",
       "questions": [
         {
-          "text": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?"
+          "text": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Comment ça se passe généralement, un entretien ici — c'est plutôt formel ou décontracté ?"
+          "text": "Comment ça se passe généralement, un entretien ici — c'est plutôt formel ou décontracté ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Combien de temps ça dure en général, ce genre d'entretien ?"
+          "text": "Une autre chose m'intéresse : combien de temps ça dure en général, ce genre d'entretien ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Comment je devrais m'habiller — il faut une tenue vraiment formelle ?"
+          "text": "Comment je devrais m'habiller — il faut une tenue vraiment formelle ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Quel comportement adopter pour faire bonne impression ?"
+          "text": "Quel comportement adopter pour faire bonne impression ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Qu'est-ce qu'on me posera surtout comme questions, d'après toi ?"
+          "text": "Justement, à ce propos, qu'est-ce qu'on me posera surtout comme questions, d'après toi ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Comment je peux bien présenter mon parcours et mes expériences ?"
+          "text": "Comment je peux bien présenter mon parcours et mes expériences ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Est-ce qu'il vaut mieux préparer des questions à poser au recruteur ?"
+          "text": "Est-ce qu'il vaut mieux préparer des questions à poser au recruteur ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Faut-il apporter des documents, comme mon CV ou des références ?"
+          "text": "Faut-il apporter des documents, comme mon CV ou des références ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Il y a des choses à éviter absolument pendant l'entretien ?"
+          "text": "Autre point important : il y a des choses à éviter absolument pendant l'entretien ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Comment gérer le stress si je perds mes moyens sur le moment ?"
+          "text": "Comment gérer le stress si je perds mes moyens sur le moment ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "C'est bien vu d'arriver un peu en avance ?"
+          "text": "C'est bien vu d'arriver un peu en avance ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Qu'est-ce que je devrais savoir sur l'entreprise avant d'y aller ?"
+          "text": "D'ailleurs, qu'est-ce que je devrais savoir sur l'entreprise avant d'y aller ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Après l'entretien, c'est bien d'envoyer un message de remerciement ?"
+          "text": "Après l'entretien, c'est bien d'envoyer un message de remerciement ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour réussir cet entretien, ce serait lequel ?"
+          "text": "Pour finir, je vais tout noter — si tu ne devais me donner qu'un seul conseil pour réussir cet entretien, ce serait lequel ?",
+          "memory_number": null,
+          "memory_section": null
         }
       ]
     },
@@ -74,7 +104,7 @@
           "memory_section": 7
         },
         {
-          "text": "Comment est son caractère — plutôt calme, ou plutôt énergique avec les inconnus ?",
+          "text": "Une autre chose m'intéresse : comment est son caractère — plutôt calme, ou plutôt énergique avec les inconnus ?",
           "memory_number": 3,
           "memory_section": 7
         },
@@ -89,7 +119,7 @@
           "memory_section": 8
         },
         {
-          "text": "Pour les promenades, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
+          "text": "Justement, à ce propos, pour les promenades, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -109,7 +139,7 @@
           "memory_section": 13
         },
         {
-          "text": "Y a-t-il des médicaments à donner ou des soins particuliers à prévoir ?",
+          "text": "Autre point important : y a-t-il des médicaments à donner ou des soins particuliers à prévoir ?",
           "memory_number": 3,
           "memory_section": 8
         },
@@ -124,7 +154,7 @@
           "memory_section": 13
         },
         {
-          "text": "Sur combien de jours exactement dois-je m'organiser ?",
+          "text": "D'ailleurs, sur combien de jours exactement dois-je m'organiser ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -134,7 +164,7 @@
           "memory_section": 13
         },
         {
-          "text": "Pour finir — y a-t-il un dernier conseil pour que tout se passe le mieux possible pendant votre absence ?",
+          "text": "Pour finir, je crois que je suis prêt(e) — y a-t-il un dernier conseil pour que tout se passe le mieux possible pendant votre absence ?",
           "memory_number": 3,
           "memory_section": 13
         }
@@ -146,13 +176,17 @@
       "prompt": "Vous préparez une escapade de week-end en dépensant le moins possible ; à l'office de tourisme, je vous suggère des destinations, des activités et des transports adaptés.",
       "questions": [
         {
-          "text": "Bonjour ! Je voudrais partir en week-end sans trop dépenser — qu'est-ce que vous me conseilleriez dans la région ?"
+          "text": "Bonjour ! Je voudrais partir en week-end sans trop dépenser — qu'est-ce que vous me conseilleriez dans la région ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Quels endroits sympas peut-on visiter gratuitement ou pour pas cher ?"
+          "text": "Quels endroits sympas peut-on visiter gratuitement ou pour pas cher ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Quels sont les plus beaux parcs naturels ou espaces protégés à visiter dans les environs ?",
+          "text": "Une autre chose m'intéresse : quels sont les plus beaux parcs naturels ou espaces protégés à visiter dans les environs ?",
           "memory_number": 7,
           "memory_section": 2
         },
@@ -162,16 +196,24 @@
           "memory_section": 2
         },
         {
-          "text": "Côté musées et sites culturels, y en a-t-il des gratuits, ou avec des jours d'entrée gratuite ?"
+          "text": "Côté musées et sites culturels, y en a-t-il des gratuits, ou avec des jours d'entrée gratuite ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Y a-t-il des événements, des festivals ou des marchés locaux gratuits ce week-end ?"
+          "text": "Justement, à ce propos, y a-t-il des événements, des festivals ou des marchés locaux gratuits ce week-end ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Pour dormir sans se ruiner, qu'est-ce que vous conseillez — auberge, camping, chambre chez l'habitant ?"
+          "text": "Pour dormir sans se ruiner, qu'est-ce que vous conseillez — auberge, camping, chambre chez l'habitant ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Pour les repas, vous auriez des adresses bon marché — des spécialités locales à goûter ?"
+          "text": "Pour les repas, vous auriez des adresses bon marché — des spécialités locales à goûter ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
           "text": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
@@ -179,10 +221,14 @@
           "memory_section": 5
         },
         {
-          "text": "Il existe des pass ou des tarifs réduits pour visiter plusieurs sites à moindre coût ?"
+          "text": "Autre point important : il existe des pass ou des tarifs réduits pour visiter plusieurs sites à moindre coût ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Quelles activités de plein air gratuites peut-on pratiquer dans le coin ?"
+          "text": "Quelles activités de plein air gratuites peut-on pratiquer dans le coin ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
           "text": "C'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
@@ -190,13 +236,19 @@
           "memory_section": 8
         },
         {
-          "text": "À peu près, quel budget faut-il prévoir pour un week-end ici ?"
+          "text": "D'ailleurs, à peu près, quel budget faut-il prévoir pour un week-end ici ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Vous auriez une brochure ou une carte gratuite avec les bons plans du coin ?"
+          "text": "Vous auriez une brochure ou une carte gratuite avec les bons plans du coin ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose à petit budget, ce serait laquelle ?"
+          "text": "Pour finir, je crois que j'ai de quoi bien m'organiser — si vous ne deviez me recommander qu'une seule chose à petit budget, ce serait laquelle ?",
+          "memory_number": null,
+          "memory_section": null
         }
       ]
     },
@@ -216,7 +268,7 @@
           "memory_section": 2
         },
         {
-          "text": "À quelle heure commencent les cours collectifs — plutôt le matin ou en fin de journée ?",
+          "text": "Une autre chose m'intéresse : à quelle heure commencent les cours collectifs — plutôt le matin ou en fin de journée ?",
           "memory_number": 8,
           "memory_section": 4
         },
@@ -231,7 +283,7 @@
           "memory_section": 8
         },
         {
-          "text": "Quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "text": "Justement, à ce propos, quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
           "memory_number": 8,
           "memory_section": 4
         },
@@ -251,7 +303,7 @@
           "memory_section": 3
         },
         {
-          "text": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
+          "text": "Autre point important : une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
           "memory_number": 8,
           "memory_section": 12
         },
@@ -271,12 +323,7 @@
           "memory_section": 6
         },
         {
-          "text": "Il faut s'inscrire à l'avance pour les cours ou on peut venir librement ?",
-          "memory_number": 8,
-          "memory_section": 6
-        },
-        {
-          "text": "Pour finir — quelle activité me recommanderiez-vous pour quelqu'un qui veut se remettre en forme et se tonifier ?",
+          "text": "Pour finir, je crois que ça me convient — quelle activité me recommanderiez-vous pour quelqu'un qui veut se remettre en forme et se tonifier ?",
           "memory_number": 8,
           "memory_section": 13
         }

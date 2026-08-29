@@ -22,7 +22,7 @@
           "memory_section": 2
         },
         {
-          "text": "Sans tout me raconter, tu peux me dire un peu de quoi ça parle ?",
+          "text": "Une autre chose m'intéresse : sans tout me raconter, tu peux me dire un peu de quoi ça parle ?",
           "memory_number": 9,
           "memory_section": 2
         },
@@ -37,7 +37,7 @@
           "memory_section": 4
         },
         {
-          "text": "Ça convient à tout le monde, ou c'est plutôt réservé à un public adulte ?",
+          "text": "Justement, à ce propos, ça convient à tout le monde, ou c'est plutôt réservé à un public adulte ?",
           "memory_number": 9,
           "memory_section": 6
         },
@@ -57,7 +57,7 @@
           "memory_section": 2
         },
         {
-          "text": "Il y a des séances plutôt en journée ou en soirée, dans les salles près d'ici ?",
+          "text": "Autre point important : il y a des séances plutôt en journée ou en soirée, dans les salles près d'ici ?",
           "memory_number": 9,
           "memory_section": 4
         },
@@ -72,7 +72,7 @@
           "memory_section": 6
         },
         {
-          "text": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
+          "text": "D'ailleurs, le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
           "memory_number": 9,
           "memory_section": 5
         },
@@ -82,7 +82,7 @@
           "memory_section": 6
         },
         {
-          "text": "Pour finir — tu me le recommandes vraiment, ce film ?",
+          "text": "Pour finir, je crois que tu m'as convaincu(e) — tu me le recommandes vraiment, ce film ?",
           "memory_number": 9,
           "memory_section": 13
         }
@@ -94,34 +94,52 @@
       "prompt": "Je suis votre voisin(e) et j'ai l'habitude d'aller nager au bassin municipal. L'activité vous tente, alors vous m'interrogez sur les équipements du lieu, les horaires d'ouverture et le prix des entrées.",
       "questions": [
         {
-          "text": "Bonjour ! Vous m'avez dit que vous alliez souvent nager à la piscine municipale — vous pourriez m'en parler un peu ?"
+          "text": "Bonjour ! Vous m'avez dit que vous alliez souvent nager à la piscine municipale — vous pourriez m'en parler un peu ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Elle se trouve où exactement, cette piscine — c'est loin d'ici ?"
+          "text": "Elle se trouve où exactement, cette piscine — c'est loin d'ici ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Quels équipements y a-t-il sur place — plusieurs bassins, un espace pour les enfants, un sauna ?"
+          "text": "Une autre chose m'intéresse : quels équipements y a-t-il sur place — plusieurs bassins, un espace pour les enfants, un sauna ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Il y a des vestiaires et des casiers pour ranger ses affaires ?"
+          "text": "Il y a des vestiaires et des casiers pour ranger ses affaires ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Le grand bassin fait quelle longueur — il y a des couloirs réservés aux nageurs ?"
+          "text": "Le grand bassin fait quelle longueur — il y a des couloirs réservés aux nageurs ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Quels sont les horaires d'ouverture — c'est ouvert tôt le matin et tard le soir ?"
+          "text": "Justement, à ce propos, quels sont les horaires d'ouverture — c'est ouvert tôt le matin et tard le soir ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "C'est ouvert tous les jours de la semaine — les horaires changent le week-end ?"
+          "text": "C'est ouvert tous les jours de la semaine — les horaires changent le week-end ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Y a-t-il des créneaux réservés, par exemple pour les cours ou pour les nageurs réguliers ?"
+          "text": "Y a-t-il des créneaux réservés, par exemple pour les cours ou pour les nageurs réguliers ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Comment fonctionnent les tarifs — on paie chaque entrée ou il faut prendre un abonnement ?"
+          "text": "Comment fonctionnent les tarifs — on paie chaque entrée ou il faut prendre un abonnement ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "text": "Autre point important : y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
           "memory_number": 8,
           "memory_section": 3
         },
@@ -131,16 +149,24 @@
           "memory_section": 3
         },
         {
-          "text": "Faut-il un bonnet de bain ou un équipement particulier pour être accepté à l'entrée ?"
+          "text": "Faut-il un bonnet de bain ou un équipement particulier pour être accepté à l'entrée ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "C'est souvent bondé — à quels moments vaut-il mieux venir pour être tranquille ?"
+          "text": "D'ailleurs, c'est souvent bondé — à quels moments vaut-il mieux venir pour être tranquille ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "La piscine est facilement accessible en transports en commun ou il vaut mieux venir en voiture ?"
+          "text": "La piscine est facilement accessible en transports en commun ou il vaut mieux venir en voiture ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Pour finir — vous me la recommandez vraiment, cette piscine ?"
+          "text": "Pour finir, je crois que ça me tente — vous me la recommandez vraiment, cette piscine ?",
+          "memory_number": null,
+          "memory_section": null
         }
       ]
     },
@@ -150,7 +176,9 @@
       "prompt": "Je suis votre ami(e) installé(e) au Canada et vous prévoyez de venir me voir en décembre. Pour bien organiser votre séjour, vous me demandez conseil sur les activités à faire, les vêtements à emporter et le matériel à prévoir.",
       "questions": [
         {
-          "text": "Salut ! Je viens te rendre visite au Canada en décembre — tu pourrais me donner quelques conseils pour bien préparer mon voyage ?"
+          "text": "Salut ! Je viens te rendre visite au Canada en décembre — tu pourrais me donner quelques conseils pour bien préparer mon voyage ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
           "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
@@ -158,16 +186,24 @@
           "memory_section": 8
         },
         {
-          "text": "Et s'il fait très froid, quels vêtements chauds tu me recommandes d'emporter ?"
+          "text": "Une autre chose m'intéresse : et s'il fait très froid, quels vêtements chauds tu me recommandes d'emporter ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Côté équipement, qu'est-ce qu'il faut prévoir — de bonnes chaussures, un manteau d'hiver, des gants ?"
+          "text": "Côté équipement, qu'est-ce qu'il faut prévoir — de bonnes chaussures, un manteau d'hiver, des gants ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Est-ce que je peux acheter ces affaires sur place, ou il vaut mieux tout apporter de chez moi ?"
+          "text": "Est-ce que je peux acheter ces affaires sur place, ou il vaut mieux tout apporter de chez moi ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Qu'est-ce qu'on pourra faire ensemble — quelles activités tu me conseilles à cette période ?"
+          "text": "Justement, à ce propos, qu'est-ce qu'on pourra faire ensemble — quelles activités tu me conseilles à cette période ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
           "text": "Il y a des activités d'hiver typiques à essayer, comme le patin ou la luge ?",
@@ -175,28 +211,44 @@
           "memory_section": 8
         },
         {
-          "text": "Est-ce qu'il y a des événements ou des festivals spéciaux au mois de décembre ?"
+          "text": "Est-ce qu'il y a des événements ou des festivals spéciaux au mois de décembre ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Pour les déplacements, comment on circule quand il neige — les transports fonctionnent normalement ?"
+          "text": "Pour les déplacements, comment on circule quand il neige — les transports fonctionnent normalement ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Combien de temps tu me conseilles de rester pour bien en profiter ?"
+          "text": "Autre point important : combien de temps tu me conseilles de rester pour bien en profiter ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Est-ce que j'ai des démarches particulières à prévoir avant de venir, côté papiers ?"
+          "text": "Est-ce que j'ai des démarches particulières à prévoir avant de venir, côté papiers ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Qu'est-ce que je ne devrais surtout pas oublier, quelque chose auquel on ne pense pas toujours ?"
+          "text": "Qu'est-ce que je ne devrais surtout pas oublier, quelque chose auquel on ne pense pas toujours ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Est-ce que je dois prévoir un budget particulier pour les activités sur place ?"
+          "text": "D'ailleurs, est-ce que je dois prévoir un budget particulier pour les activités sur place ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Il y a des spécialités locales que je devrais absolument goûter pendant mon séjour ?"
+          "text": "Il y a des spécialités locales que je devrais absolument goûter pendant mon séjour ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien préparer ce voyage, ce serait lequel ?"
+          "text": "Pour finir, je crois que je vais bien m'organiser — si tu ne devais me donner qu'un seul conseil pour bien préparer ce voyage, ce serait lequel ?",
+          "memory_number": null,
+          "memory_section": null
         }
       ]
     },
@@ -268,7 +320,7 @@
           "memory_section": 10
         },
         {
-          "text": "Est-ce que les voisins se connaissent et s'entraident facilement dans l'immeuble ?",
+          "text": "Une autre chose m'intéresse : est-ce que les voisins se connaissent et s'entraident facilement dans l'immeuble ?",
           "memory_number": 3,
           "memory_section": 10
         },
@@ -283,7 +335,7 @@
           "memory_section": 5
         },
         {
-          "text": "Côté commerces, y a-t-il des supermarchés, des marchés ou des magasins de quartier pas trop loin ?",
+          "text": "Justement, à ce propos, côté commerces, y a-t-il des supermarchés, des marchés ou des magasins de quartier pas trop loin ?",
           "memory_number": 3,
           "memory_section": 9
         },
@@ -303,7 +355,7 @@
           "memory_section": 2
         },
         {
-          "text": "Le quartier est-il bien desservi par les transports en commun ?",
+          "text": "Autre point important : le quartier est-il bien desservi par les transports en commun ?",
           "memory_number": 3,
           "memory_section": 5
         },
@@ -318,7 +370,7 @@
           "memory_section": 9
         },
         {
-          "text": "Y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
+          "text": "D'ailleurs, y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
           "memory_number": 3,
           "memory_section": 8
         },
@@ -328,7 +380,7 @@
           "memory_section": 11
         },
         {
-          "text": "Pour finir — si vous ne deviez me donner qu'un seul conseil pour bien m'installer ici, ce serait lequel ?",
+          "text": "Pour finir, je crois que je vais bien m'y plaire — si vous ne deviez me donner qu'un seul conseil pour bien m'installer ici, ce serait lequel ?",
           "memory_number": 3,
           "memory_section": 13
         }

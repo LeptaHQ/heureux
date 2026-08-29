@@ -22,7 +22,7 @@
           "memory_section": 2
         },
         {
-          "text": "Sans tout me raconter, tu peux me dire un peu de quoi ça parle ?",
+          "text": "Une autre chose m'intéresse : sans tout me raconter, tu peux me dire un peu de quoi ça parle ?",
           "memory_number": 9,
           "memory_section": 2
         },
@@ -37,7 +37,7 @@
           "memory_section": 4
         },
         {
-          "text": "Ça convient à tout le monde, ou c'est plutôt réservé à un public adulte ?",
+          "text": "Justement, à ce propos, ça convient à tout le monde, ou c'est plutôt réservé à un public adulte ?",
           "memory_number": 9,
           "memory_section": 6
         },
@@ -57,7 +57,7 @@
           "memory_section": 2
         },
         {
-          "text": "Il y a des séances plutôt en journée ou en soirée, dans les salles près d'ici ?",
+          "text": "Autre point important : il y a des séances plutôt en journée ou en soirée, dans les salles près d'ici ?",
           "memory_number": 9,
           "memory_section": 4
         },
@@ -72,7 +72,7 @@
           "memory_section": 6
         },
         {
-          "text": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
+          "text": "D'ailleurs, le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
           "memory_number": 9,
           "memory_section": 5
         },
@@ -82,7 +82,7 @@
           "memory_section": 6
         },
         {
-          "text": "Pour finir — tu me le recommandes vraiment, ce film ?",
+          "text": "Pour finir, je crois que tu m'as convaincu(e) — tu me le recommandes vraiment, ce film ?",
           "memory_number": 9,
           "memory_section": 13
         }
@@ -94,67 +94,72 @@
       "prompt": "Rentrant à peine de deux semaines passées au Canada, je vous en parle en ami(e) ; comme vous y partez bientôt, vous me réclamez des conseils concrets (prix, habitants, repas, climat, transports, etc.).",
       "questions": [
         {
-          "text": "Salut ! Tu rentres tout juste de deux semaines au Canada et j'y pars bientôt — tu pourrais me donner quelques conseils pratiques ?"
-        },
-        {
-          "text": "Tu es allé(e) dans quelles villes ou quelles régions exactement ?",
+          "text": "Salut ! Tu reviens tout juste d'un séjour au Canada — tu pourrais me donner quelques conseils pour mon prochain voyage là-bas ?",
           "memory_number": 7,
-          "memory_section": 2
+          "memory_section": 12
         },
         {
-          "text": "Comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
+          "text": "Tu es resté combien de temps sur place ?",
           "memory_number": 7,
-          "memory_section": 5
+          "memory_section": 4
         },
         {
-          "text": "Les transports en commun, c'est pratique et abordable là-bas ?"
-        },
-        {
-          "text": "Quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
-          "memory_number": 7,
-          "memory_section": 8
-        },
-        {
-          "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
-          "memory_number": 7,
-          "memory_section": 9
-        },
-        {
-          "text": "Parlons du budget — combien est-ce que ça t'a coûté approximativement au total ?",
-          "memory_number": 7,
-          "memory_section": 3
-        },
-        {
-          "text": "La vie est chère là-bas — qu'est-ce qui coûte le plus cher au quotidien ?"
-        },
-        {
-          "text": "Et les habitants, ils sont comment — plutôt accueillants et faciles à aborder ?"
-        },
-        {
-          "text": "Est-ce qu'il y a des différences culturelles ou des habitudes qui pourraient me surprendre ?"
-        },
-        {
-          "text": "Tu logeais plutôt à l'hôtel, en auberge ou ailleurs ?",
-          "memory_number": 7,
-          "memory_section": 9
-        },
-        {
-          "text": "Y avait-il des visites ou des excursions que tu recommanderais particulièrement ?",
+          "text": "Une autre chose m'intéresse : tu as visité quelles villes ou quelles régions ?",
           "memory_number": 7,
           "memory_section": 11
         },
         {
-          "text": "Qu'est-ce que tu as le plus apprécié ?",
+          "text": "Quel temps il faisait pendant ton séjour — il faut prévoir des vêtements particuliers ?",
           "memory_number": 7,
-          "memory_section": 10
+          "memory_section": 8
         },
         {
-          "text": "Y a-t-il quelque chose qui t'a moins plu ?",
+          "text": "Qu'est-ce que tu as préféré pendant ce voyage ?",
           "memory_number": 7,
-          "memory_section": 10
+          "memory_section": 11
         },
         {
-          "text": "Pour finir — si tu ne devais me recommander qu'une seule étape ou activité, ce serait laquelle ?",
+          "text": "Justement, à ce propos, où est-ce que tu as logé — un hôtel, un Airbnb ?",
+          "memory_number": 7,
+          "memory_section": 9
+        },
+        {
+          "text": "Comment tu t'es déplacé sur place — en voiture de location, en transports en commun ?",
+          "memory_number": 7,
+          "memory_section": 5
+        },
+        {
+          "text": "Ça t'a coûté combien à peu près pour tout le séjour ?",
+          "memory_number": 7,
+          "memory_section": 3
+        },
+        {
+          "text": "Est-ce qu'il y a des endroits que tu recommandes particulièrement de visiter ?",
+          "memory_number": 7,
+          "memory_section": 11
+        },
+        {
+          "text": "Autre point important : et à l'inverse, il y a des choses que tu déconseillerais ?",
+          "memory_number": null,
+          "memory_section": null
+        },
+        {
+          "text": "Y a-t-il des spécialités locales que tu as goûtées et que tu recommandes ?",
+          "memory_number": null,
+          "memory_section": null
+        },
+        {
+          "text": "Est-ce que la langue a posé problème, ou tout le monde parle français là où tu étais ?",
+          "memory_number": null,
+          "memory_section": null
+        },
+        {
+          "text": "D'ailleurs, est-ce qu'il y a des démarches particulières à prévoir avant de partir, côté papiers ?",
+          "memory_number": null,
+          "memory_section": null
+        },
+        {
+          "text": "Pour finir, je crois que je vais suivre tes conseils — si tu ne devais me recommander qu'un seul endroit, ce serait lequel ?",
           "memory_number": 7,
           "memory_section": 13
         }
@@ -166,65 +171,67 @@
       "prompt": "Tout juste après avoir bouclé l'organisation d'un séjour à la montagne, je vous en parle ; intrigué(e), vous m'interrogez sur ce projet encore à venir (hébergement, coût, activités, saison, etc.).",
       "questions": [
         {
-          "text": "Salut ! J'ai entendu que tu prépares un voyage à la montagne — ça m'intéresse, tu pourrais m'en parler ?"
+          "text": "Salut ! Je prépare un voyage à la montagne et j'aimerais bien tes conseils — tu es déjà allé dans ce genre d'endroit ?",
+          "memory_number": 7,
+          "memory_section": 12
         },
         {
-          "text": "Tu comptes aller où exactement — quelle région ou station de montagne ?"
-        },
-        {
-          "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "text": "Quelle période de l'année tu me conseilles pour ce genre de voyage ?",
           "memory_number": 7,
           "memory_section": 8
         },
         {
-          "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "text": "Une autre chose m'intéresse : quel temps il fait généralement là-haut à cette saison ?",
           "memory_number": 7,
           "memory_section": 8
         },
         {
-          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
+          "text": "Qu'est-ce qu'il faut prévoir comme vêtements et équipement ?",
           "memory_number": 7,
           "memory_section": 8
         },
         {
-          "text": "Combien de temps faut-il prévoir — quelques jours ou toute la semaine ?",
+          "text": "Quelles activités on peut faire sur place — randonnée, ski, autre chose ?",
           "memory_number": 7,
-          "memory_section": 4
+          "memory_section": 11
         },
         {
-          "text": "Quelles activités tu comptes faire — ski, randonnée, autres sports ou plutôt détente ?"
+          "text": "Justement, à ce propos, est-ce qu'il faut être en bonne forme physique pour ce genre de séjour ?",
+          "memory_number": null,
+          "memory_section": null
         },
         {
-          "text": "Ça s'adresse à quel public — il y a des activités pour les débutants aussi ?"
-        },
-        {
-          "text": "Tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
+          "text": "Où est-ce qu'on peut loger là-bas — un chalet, un hôtel ?",
           "memory_number": 7,
           "memory_section": 9
         },
         {
-          "text": "C'est dans quelle gamme de prix pour l'hébergement — plutôt cher ou abordable ?",
+          "text": "Ça coûte combien à peu près pour un séjour d'une semaine ?",
           "memory_number": 7,
           "memory_section": 3
         },
         {
-          "text": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?"
-        },
-        {
-          "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total ?",
+          "text": "Autre point important : comment on se déplace une fois sur place, sans voiture c'est possible ?",
           "memory_number": 7,
-          "memory_section": 3
+          "memory_section": 5
         },
         {
-          "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "text": "Il y a des précautions particulières à prendre en montagne ?",
+          "memory_number": 7,
+          "memory_section": 8
+        },
+        {
+          "text": "D'ailleurs, tu connais de bons endroits pour manger sur place ?",
+          "memory_number": null,
+          "memory_section": null
+        },
+        {
+          "text": "Est-ce qu'il faut réserver longtemps à l'avance à cette période ?",
           "memory_number": 7,
           "memory_section": 9
         },
         {
-          "text": "Comment tu comptes t'y rendre — en voiture, en train ?"
-        },
-        {
-          "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
+          "text": "Pour finir, je crois que ça va être un beau voyage — tu aurais un dernier conseil à me donner avant que je parte ?",
           "memory_number": 7,
           "memory_section": 13
         }
@@ -236,59 +243,64 @@
       "prompt": "Victime d'un accident sans gravité, je reçois votre visite : en collègue, vous prenez de mes nouvelles et cherchez à comprendre ce qui s'est produit (moment, endroit, circonstances, etc.).",
       "questions": [
         {
-          "text": "Salut ! J'ai appris que tu avais eu un petit accident — j'ai voulu passer prendre de tes nouvelles. Comment tu te sens maintenant ?"
-        },
-        {
-          "text": "Ça s'est passé quand exactement ?"
-        },
-        {
-          "text": "Et c'était où — au travail, dans la rue, chez toi ?"
-        },
-        {
-          "text": "Comment c'est arrivé — tu peux me raconter ce qui s'est passé ?",
+          "text": "Bonjour ! J'ai appris que vous aviez eu un petit accident, je passais pour prendre de vos nouvelles — comment ça va ?",
           "memory_number": 3,
-          "memory_section": 1
+          "memory_section": 13
         },
         {
-          "text": "Tu étais seul(e) sur le moment, ou quelqu'un a pu t'aider tout de suite ?"
-        },
-        {
-          "text": "Est-ce que quelqu'un a été prévenu — les secours, un collègue ?"
-        },
-        {
-          "text": "Tu as pu rentrer chez toi ensuite, ou tu as dû aller à l'hôpital ?"
-        },
-        {
-          "text": "Ce n'est rien de trop grave, j'espère — tu vas pouvoir te remettre vite ?",
+          "text": "Qu'est-ce qui s'est passé exactement ?",
           "memory_number": 3,
-          "memory_section": 1
+          "memory_section": 11
         },
         {
-          "text": "Tu as besoin de repos, ou tu peux reprendre le travail bientôt ?"
-        },
-        {
-          "text": "Il y a des choses que tu ne peux plus faire pour l'instant ?"
-        },
-        {
-          "text": "Est-ce que je peux t'aider avec quelque chose — les courses, des démarches ?",
+          "text": "Une autre chose m'intéresse : vous avez été blessé, ou plus de peur que de mal ?",
           "memory_number": 3,
-          "memory_section": 1
+          "memory_section": 11
         },
         {
-          "text": "Tu veux que je prévienne les collègues, ou tu préfères leur en parler toi-même ?"
-        },
-        {
-          "text": "Ça va te retarder dans tes projets ou ton travail ?",
+          "text": "Vous avez consulté un médecin depuis ?",
           "memory_number": 3,
-          "memory_section": 1
+          "memory_section": 9
         },
         {
-          "text": "Il faut que tu fasses attention à quelque chose en particulier maintenant ?"
-        },
-        {
-          "text": "En tout cas, prends soin de toi — n'hésite pas à m'appeler si tu as besoin de quoi que ce soit, d'accord ?",
+          "text": "Il vous faut du repos, ou vous pouvez continuer vos activités normalement ?",
           "memory_number": 3,
-          "memory_section": 1
+          "memory_section": 11
+        },
+        {
+          "text": "Justement, à ce propos, est-ce que je peux vous aider pour quoi que ce soit en attendant que ça aille mieux ?",
+          "memory_number": 3,
+          "memory_section": 13
+        },
+        {
+          "text": "Est-ce que vous avez besoin que je fasse quelques courses pour vous ?",
+          "memory_number": 3,
+          "memory_section": 13
+        },
+        {
+          "text": "Vos proches sont au courant, ils peuvent passer vous voir ?",
+          "memory_number": null,
+          "memory_section": null
+        },
+        {
+          "text": "Autre point important : ça s'est passé où exactement, chez vous ou ailleurs dans le quartier ?",
+          "memory_number": null,
+          "memory_section": null
+        },
+        {
+          "text": "Vous pensez que ça va prendre combien de temps avant d'aller mieux ?",
+          "memory_number": 3,
+          "memory_section": 11
+        },
+        {
+          "text": "D'ailleurs, y a-t-il des démarches à faire, une déclaration ou une assurance à contacter ?",
+          "memory_number": null,
+          "memory_section": null
+        },
+        {
+          "text": "Pour finir, je suis vraiment content de voir que ça va — n'hésitez pas à m'appeler si vous avez besoin de quoi que ce soit, d'accord ?",
+          "memory_number": 3,
+          "memory_section": 13
         }
       ]
     },

@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "des compétences",
           "english": "skills",
-          "example": "Pour devenir membre, faut-il des compétences particulières ou une expérience avec les animaux ?",
+          "example": "Côté niveau, pour devenir membre, faut-il des compétences particulières ou une expérience avec les animaux ?",
           "usage": "Nom pluriel désignant les capacités requises pour une activité."
         },
         {
@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "les disponibilités",
           "english": "availability",
-          "example": "Concrètement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
+          "example": "Côté engagement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
           "usage": "Nom pluriel désignant les moments où l'on est libre pour une activité."
         },
         {
@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "une cotisation",
           "english": "a membership fee",
-          "example": "Y a-t-il une cotisation à payer pour devenir membre, ou l'engagement est-il entièrement gratuit ?",
+          "example": "En ce qui concerne le budget, y a-t-il une cotisation à payer pour devenir membre, ou l'engagement est-il entièrement gratuit ?",
           "usage": "Nom féminin désignant une somme versée régulièrement pour appartenir à une organisation."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "devenir membre",
           "english": "to become a member",
-          "example": "Pour devenir membre, faut-il des compétences particulières ou une expérience avec les animaux ?",
+          "example": "Côté niveau, pour devenir membre, faut-il des compétences particulières ou une expérience avec les animaux ?",
           "usage": "Collocation verbe + nom pour l'adhésion à une organisation."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "fourni sur place",
           "english": "provided on site",
-          "example": "Faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
+          "example": "Pour ce qui est de l'équipement, faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
           "usage": "Collocation participe passé + locution adverbiale pour indiquer une mise à disposition locale."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "journées d'adoption",
           "english": "adoption days",
-          "example": "Est-ce que l'association organise aussi des événements, comme des journées d'adoption ou des collectes ?",
+          "example": "Côté programmation, est-ce que l'association organise aussi des événements, comme des journées d'adoption ou des collectes ?",
           "usage": "Collocation nom + complément pour désigner un événement où des animaux sont proposés à l'adoption."
         },
         {
@@ -177,7 +177,7 @@
           "kind": "tournure",
           "french": "à quelle fréquence",
           "english": "how often",
-          "example": "Concrètement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
+          "example": "Côté engagement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
           "usage": "Tournure interrogative standard pour demander la régularité d'une action."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "y a-t-il une cotisation à payer",
           "english": "is there a fee to pay",
-          "example": "Y a-t-il une cotisation à payer pour devenir membre, ou l'engagement est-il entièrement gratuit ?",
+          "example": "En ce qui concerne le budget, y a-t-il une cotisation à payer pour devenir membre, ou l'engagement est-il entièrement gratuit ?",
           "usage": "Tournure interrogative standard pour vérifier l'existence d'un coût."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "tournure",
           "french": "faut-il apporter du matériel particulier",
           "english": "do I need to bring special equipment",
-          "example": "Faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
+          "example": "Pour ce qui est de l'équipement, faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
           "usage": "Tournure interrogative impersonnelle pour vérifier le matériel nécessaire."
         },
         {
@@ -225,7 +225,7 @@
           "kind": "tournure",
           "french": "est-ce que l'association organise aussi",
           "english": "does the association also organize",
-          "example": "Est-ce que l'association organise aussi des événements, comme des journées d'adoption ou des collectes ?",
+          "example": "Côté programmation, est-ce que l'association organise aussi des événements, comme des journées d'adoption ou des collectes ?",
           "usage": "Tournure interrogative avec « est-ce que » pour vérifier une activité supplémentaire."
         },
         {
@@ -254,7 +254,7 @@
           "kind": "mot-cle",
           "french": "quel film",
           "english": "which film",
-          "example": "Alors, tu es allé(e) voir quel film exactement ?",
+          "example": "Alors, raconte-moi cette séance de cinéma — tu es allé(e) voir quel film exactement ?",
           "usage": "Groupe interrogatif pour demander le titre ou le type de film vu."
         },
         {
@@ -302,7 +302,7 @@
           "kind": "mot-cle",
           "french": "aimé",
           "english": "liked",
-          "example": "Qu'est-ce que tu as le plus aimé dans ce film ?",
+          "example": "Côté impressions, qu'est-ce que tu as le plus aimé dans ce film ?",
           "usage": "Participe passé du verbe « aimer » au passé composé, ici encadré par l'adverbe « le plus »."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "version originale",
           "english": "original version (subtitled)",
-          "example": "Il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
+          "example": "Côté pratique, il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
           "usage": "Groupe nominal désignant une version non doublée d'un film."
         },
         {
@@ -334,7 +334,7 @@
           "kind": "collocation",
           "french": "tu es allé(e) voir",
           "english": "you went to see",
-          "example": "Alors, tu es allé(e) voir quel film exactement ?",
+          "example": "Alors, raconte-moi cette séance de cinéma — tu es allé(e) voir quel film exactement ?",
           "usage": "Collocation verbe de mouvement + infinitif pour évoquer une sortie récente."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "ça coûte combien",
           "english": "how much does it cost",
-          "example": "Ça coûte combien pour une place, à peu près ?",
+          "example": "En ce qui concerne le prix, ça coûte combien pour une place, à peu près ?",
           "usage": "Collocation très courante pour demander un prix à l'oral."
         },
         {
@@ -382,7 +382,7 @@
           "kind": "collocation",
           "french": "réserver à l'avance",
           "english": "to book in advance",
-          "example": "Il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
+          "example": "À ce propos, il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
           "usage": "Collocation verbe + locution adverbiale pour anticiper un achat."
         },
         {
@@ -398,7 +398,7 @@
           "kind": "collocation",
           "french": "beaucoup de monde",
           "english": "a lot of people",
-          "example": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "example": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
           "usage": "Collocation très fréquente pour évoquer une affluence importante."
         },
         {
@@ -422,7 +422,7 @@
           "kind": "tournure",
           "french": "qu'est-ce que tu as le plus aimé",
           "english": "what did you like the most",
-          "example": "Qu'est-ce que tu as le plus aimé dans ce film ?",
+          "example": "Côté impressions, qu'est-ce que tu as le plus aimé dans ce film ?",
           "usage": "Tournure interrogative standard pour demander un avis positif détaillé."
         },
         {
@@ -438,7 +438,7 @@
           "kind": "tournure",
           "french": "il passe en version originale",
           "english": "it's shown in the original version",
-          "example": "Il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
+          "example": "Côté pratique, il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
           "usage": "Tournure pour demander le format de diffusion d'un film."
         },
         {
@@ -454,7 +454,7 @@
           "kind": "tournure",
           "french": "ça coûte combien pour une place",
           "english": "how much does a ticket cost",
-          "example": "Ça coûte combien pour une place, à peu près ?",
+          "example": "En ce qui concerne le prix, ça coûte combien pour une place, à peu près ?",
           "usage": "Tournure interrogative complète pour demander un tarif précis."
         },
         {
@@ -462,7 +462,7 @@
           "kind": "tournure",
           "french": "il vaut mieux réserver à l'avance",
           "english": "it's better to book in advance",
-          "example": "Il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
+          "example": "À ce propos, il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
           "usage": "Tournure avec « il vaut mieux » pour suggérer une précaution utile."
         },
         {
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "il y avait beaucoup de monde dans la salle",
           "english": "there were a lot of people in the room",
-          "example": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "example": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
           "usage": "Tournure descriptive à l'imparfait pour évoquer l'affluence lors d'une sortie passée."
         },
         {
@@ -523,7 +523,7 @@
           "kind": "mot-cle",
           "french": "tes études",
           "english": "your studies",
-          "example": "Qu'est-ce que tu as étudié, et où as-tu fait tes études ?",
+          "example": "Revenons un peu en arrière : qu'est-ce que tu as étudié, et où as-tu fait tes études ?",
           "usage": "Nom pluriel désignant un parcours scolaire ou universitaire."
         },
         {
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "les démarches",
           "english": "the administrative procedures",
-          "example": "Quelles ont été les plus grandes difficultés à ton arrivée — la langue, les démarches, la culture ?",
+          "example": "En ce qui concerne les points délicats, quelles ont été les plus grandes difficultés à ton arrivée — la langue, les démarches, la culture ?",
           "usage": "Nom pluriel désignant les formalités à accomplir, notamment pour s'installer."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "accompagné(e)",
           "english": "accompanied",
-          "example": "Tu es venu(e) seul(e) ou accompagné(e) par ta famille ?",
+          "example": "Sur le plan personnel, tu es venu(e) seul(e) ou accompagné(e) par ta famille ?",
           "usage": "Participe passé employé comme adjectif pour indiquer la présence de quelqu'un."
         },
         {
@@ -603,7 +603,7 @@
           "kind": "collocation",
           "french": "fait tes études",
           "english": "did your studies",
-          "example": "Qu'est-ce que tu as étudié, et où as-tu fait tes études ?",
+          "example": "Revenons un peu en arrière : qu'est-ce que tu as étudié, et où as-tu fait tes études ?",
           "usage": "Collocation verbe + nom pour évoquer un parcours académique."
         },
         {
@@ -619,7 +619,7 @@
           "kind": "collocation",
           "french": "te manque le plus",
           "english": "you miss the most",
-          "example": "Qu'est-ce qui te manque le plus du Québec ?",
+          "example": "Pour ce qui est de ton ressenti, qu'est-ce qui te manque le plus du Québec ?",
           "usage": "Collocation verbe « manquer » + superlatif pour exprimer la nostalgie."
         },
         {
@@ -643,7 +643,7 @@
           "kind": "collocation",
           "french": "un parcours similaire",
           "english": "a similar path/journey",
-          "example": "Pour quelqu'un qui envisage un parcours similaire, quel conseil lui donnerais-tu ?",
+          "example": "Côté conseils, pour quelqu'un qui envisage un parcours similaire, quel conseil lui donnerais-tu ?",
           "usage": "Groupe nominal pour désigner une expérience de vie comparable."
         },
         {
@@ -667,7 +667,7 @@
           "kind": "tournure",
           "french": "quelles ont été les plus grandes difficultés",
           "english": "what were the biggest difficulties",
-          "example": "Quelles ont été les plus grandes difficultés à ton arrivée — la langue, les démarches, la culture ?",
+          "example": "En ce qui concerne les points délicats, quelles ont été les plus grandes difficultés à ton arrivée — la langue, les démarches, la culture ?",
           "usage": "Tournure interrogative au passé composé pour faire un bilan des obstacles rencontrés."
         },
         {
@@ -691,7 +691,7 @@
           "kind": "tournure",
           "french": "tu es venu(e) seul(e) ou accompagné(e)",
           "english": "did you come alone or accompanied",
-          "example": "Tu es venu(e) seul(e) ou accompagné(e) par ta famille ?",
+          "example": "Sur le plan personnel, tu es venu(e) seul(e) ou accompagné(e) par ta famille ?",
           "usage": "Tournure alternative pour proposer deux options de réponse."
         },
         {
@@ -699,7 +699,7 @@
           "kind": "tournure",
           "french": "qu'est-ce qui te manque le plus",
           "english": "what do you miss the most",
-          "example": "Qu'est-ce qui te manque le plus du Québec ?",
+          "example": "Pour ce qui est de ton ressenti, qu'est-ce qui te manque le plus du Québec ?",
           "usage": "Tournure interrogative standard pour exprimer une nostalgie précise."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "quel conseil lui donnerais-tu",
           "english": "what advice would you give them",
-          "example": "Pour quelqu'un qui envisage un parcours similaire, quel conseil lui donnerais-tu ?",
+          "example": "Côté conseils, pour quelqu'un qui envisage un parcours similaire, quel conseil lui donnerais-tu ?",
           "usage": "Tournure au conditionnel pour solliciter un conseil hypothétique destiné à un tiers."
         },
         {
@@ -989,7 +989,7 @@
           "kind": "mot-cle",
           "french": "m'inscrire",
           "english": "to register / to sign up",
-          "example": "Bonjour, je voudrais m'inscrire à la bibliothèque — comment dois-je procéder ?",
+          "example": "Bonjour ! Je viens d'emménager dans le quartier et je voudrais m'inscrire à la bibliothèque — comment dois-je procéder ?",
           "usage": "Verbe pronominal à l'infinitif pour exprimer la démarche d'adhésion."
         },
         {
@@ -1021,7 +1021,7 @@
           "kind": "mot-cle",
           "french": "emprunter",
           "english": "to borrow",
-          "example": "Combien de livres peut-on emprunter à la fois ?",
+          "example": "Concrètement, combien de livres peut-on emprunter à la fois ?",
           "usage": "Verbe du premier groupe désignant l'action de prendre un document temporairement."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "livres numériques",
           "english": "digital books / e-books",
-          "example": "Proposez-vous aussi des livres numériques ou des livres audio à emprunter ?",
+          "example": "En ce qui concerne le prêt, proposez-vous aussi des livres numériques ou des livres audio à emprunter ?",
           "usage": "Groupe nominal désignant des ouvrages consultables sous forme électronique."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "mot-cle",
           "french": "un accès Internet",
           "english": "internet access",
-          "example": "Y a-t-il un espace avec des ordinateurs ou un accès Internet sur place ?",
+          "example": "Côté services, y a-t-il un espace avec des ordinateurs ou un accès Internet sur place ?",
           "usage": "Groupe nominal désignant la possibilité de se connecter en ligne."
         },
         {
@@ -1069,7 +1069,7 @@
           "kind": "collocation",
           "french": "comment dois-je procéder",
           "english": "how should I proceed",
-          "example": "Bonjour, je voudrais m'inscrire à la bibliothèque — comment dois-je procéder ?",
+          "example": "Bonjour ! Je viens d'emménager dans le quartier et je voudrais m'inscrire à la bibliothèque — comment dois-je procéder ?",
           "usage": "Collocation interrogative très utile pour demander la marche à suivre."
         },
         {
@@ -1101,7 +1101,7 @@
           "kind": "collocation",
           "french": "à la fois",
           "english": "at once / at a time",
-          "example": "Combien de livres peut-on emprunter à la fois ?",
+          "example": "Concrètement, combien de livres peut-on emprunter à la fois ?",
           "usage": "Locution adverbiale pour indiquer une quantité simultanée."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "heures du conte",
           "english": "storytime sessions",
-          "example": "Organisez-vous des animations, comme des heures du conte ou des ateliers ?",
+          "example": "Et côté vie culturelle, organisez-vous des animations, comme des heures du conte ou des ateliers ?",
           "usage": "Collocation nom composée désignant une animation de lecture pour enfants."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "le faire venir",
           "english": "to have it brought / sent over",
-          "example": "Si un livre n'est pas disponible ici, est-il possible de le faire venir d'une autre bibliothèque ?",
+          "example": "D'ailleurs, si un livre n'est pas disponible ici, est-il possible de le faire venir d'une autre bibliothèque ?",
           "usage": "Collocation verbe causatif + pronom pour évoquer un transfert de document."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "proposez-vous aussi des livres numériques",
           "english": "do you also offer digital books",
-          "example": "Proposez-vous aussi des livres numériques ou des livres audio à emprunter ?",
+          "example": "En ce qui concerne le prêt, proposez-vous aussi des livres numériques ou des livres audio à emprunter ?",
           "usage": "Tournure interrogative polie pour vérifier une offre de service supplémentaire."
         },
         {
@@ -1181,7 +1181,7 @@
           "kind": "tournure",
           "french": "y a-t-il un espace avec des ordinateurs",
           "english": "is there a space with computers",
-          "example": "Y a-t-il un espace avec des ordinateurs ou un accès Internet sur place ?",
+          "example": "Côté services, y a-t-il un espace avec des ordinateurs ou un accès Internet sur place ?",
           "usage": "Tournure interrogative pour vérifier la présence d'un équipement."
         },
         {
@@ -1189,7 +1189,7 @@
           "kind": "tournure",
           "french": "organisez-vous des animations",
           "english": "do you organize activities/events",
-          "example": "Organisez-vous des animations, comme des heures du conte ou des ateliers ?",
+          "example": "Et côté vie culturelle, organisez-vous des animations, comme des heures du conte ou des ateliers ?",
           "usage": "Tournure interrogative polie pour vérifier une offre culturelle."
         },
         {
@@ -1213,7 +1213,7 @@
           "kind": "tournure",
           "french": "est-il possible de le faire venir",
           "english": "is it possible to have it brought over",
-          "example": "Si un livre n'est pas disponible ici, est-il possible de le faire venir d'une autre bibliothèque ?",
+          "example": "D'ailleurs, si un livre n'est pas disponible ici, est-il possible de le faire venir d'une autre bibliothèque ?",
           "usage": "Tournure interrogative impersonnelle pour demander un service de transfert entre établissements."
         },
         {

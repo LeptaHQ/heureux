@@ -9,7 +9,7 @@
           "kind": "mot-cle",
           "french": "votre école de musique",
           "english": "your music school",
-          "example": "Bonjour, je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
+          "example": "Bonjour ! J'aimerais enfin me mettre à la musique et je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
           "usage": "Groupe nominal possessif désignant l'établissement d'enseignement musical."
         },
         {
@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "une séance",
           "english": "a session",
-          "example": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "example": "Côté organisation, les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
           "usage": "Nom féminin désignant une unité de cours."
         },
         {
@@ -49,7 +49,7 @@
           "kind": "mot-cle",
           "french": "qualifiés",
           "english": "qualified",
-          "example": "Les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "example": "En ce qui concerne l'encadrement, les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
           "usage": "Adjectif qualifiant la compétence reconnue d'un enseignant."
         },
         {
@@ -65,7 +65,7 @@
           "kind": "mot-cle",
           "french": "forfait mensuel",
           "english": "monthly package",
-          "example": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
           "usage": "Groupe nominal désignant un tarif fixe couvrant un mois de cours."
         },
         {
@@ -89,7 +89,7 @@
           "kind": "collocation",
           "french": "m'inscrire à un cours",
           "english": "to enroll in a class",
-          "example": "Bonjour, je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
+          "example": "Bonjour ! J'aimerais enfin me mettre à la musique et je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
           "usage": "Collocation verbe pronominal + nom pour exprimer une inscription."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "dure une séance",
           "english": "a session lasts",
-          "example": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "example": "Côté organisation, les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
           "usage": "Collocation verbe + sujet pour interroger sur la durée."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "des petits concerts ou des récitals",
           "english": "small concerts or recitals",
-          "example": "Organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
+          "example": "Question programme, organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
           "usage": "Collocation nom coordonné désignant des événements de restitution pour élèves."
         },
         {
@@ -153,7 +153,7 @@
           "kind": "collocation",
           "french": "un parking à proximité",
           "english": "nearby parking",
-          "example": "L'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
+          "example": "Côté transport, l'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
           "usage": "Groupe nominal désignant une place de stationnement proche d'un lieu."
         },
         {
@@ -169,7 +169,7 @@
           "kind": "tournure",
           "french": "les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre",
           "english": "are the teachers qualified in the instrument I wish to learn",
-          "example": "Les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "example": "En ce qui concerne l'encadrement, les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
           "usage": "Tournure interrogative avec inversion pour vérifier une compétence pédagogique précise."
         },
         {
@@ -185,7 +185,7 @@
           "kind": "tournure",
           "french": "comment fonctionnent les tarifs",
           "english": "how do the rates work",
-          "example": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
           "usage": "Tournure interrogative ouverte fréquente pour comprendre une grille tarifaire."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "les cours ont lieu à quelle fréquence",
           "english": "how often do the classes take place",
-          "example": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "example": "Côté organisation, les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
           "usage": "Tournure interrogative avec « à quelle fréquence » postposé pour demander le rythme."
         },
         {
@@ -217,7 +217,7 @@
           "kind": "tournure",
           "french": "organisez-vous aussi",
           "english": "do you also organize",
-          "example": "Organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
+          "example": "Question programme, organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
           "usage": "Tournure interrogative avec inversion pour vérifier une offre complémentaire."
         },
         {
@@ -233,7 +233,7 @@
           "kind": "tournure",
           "french": "l'école est-elle facilement accessible",
           "english": "is the school easily accessible",
-          "example": "L'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
+          "example": "Côté transport, l'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
           "usage": "Tournure interrogative avec inversion pour vérifier un accès pratique."
         },
         {
@@ -278,7 +278,7 @@
           "kind": "mot-cle",
           "french": "des agences",
           "english": "agencies",
-          "example": "Si je n'ai pas encore de vélo, tu connais des agences où en louer ?",
+          "example": "En ce qui concerne la location, si je n'ai pas encore de vélo, tu connais des agences où en louer ?",
           "usage": "Nom féminin pluriel désignant les points de location de vélos."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "la neige",
           "english": "snow",
-          "example": "En hiver, avec la neige, est-ce qu'on peut continuer à rouler ou c'est trop compliqué ?",
+          "example": "Pour ce qui est de la météo, en hiver, avec la neige, est-ce qu'on peut continuer à rouler ou c'est trop compliqué ?",
           "usage": "Nom féminin désignant les conditions hivernales."
         },
         {
@@ -366,7 +366,7 @@
           "kind": "collocation",
           "french": "des agences où en louer",
           "english": "agencies where to rent one",
-          "example": "Si je n'ai pas encore de vélo, tu connais des agences où en louer ?",
+          "example": "En ce qui concerne la location, si je n'ai pas encore de vélo, tu connais des agences où en louer ?",
           "usage": "Groupe nominal avec relative « où » et pronom « en »."
         },
         {
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "rouler en toute sécurité",
           "english": "to ride safely",
-          "example": "Comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
+          "example": "Côté précautions, comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
           "usage": "Locution verbale exprimant la conduite prudente."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "Comment faire pour rouler en toute sécurité",
           "english": "How to ride safely",
-          "example": "Comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
+          "example": "Côté précautions, comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
           "usage": "Question « comment faire pour » + infinitif pour des conseils."
         },
         {
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "En hiver, avec la neige, est-ce qu'on peut continuer à rouler",
           "english": "In winter, with the snow, can you keep riding",
-          "example": "En hiver, avec la neige, est-ce qu'on peut continuer à rouler ou c'est trop compliqué ?",
+          "example": "Pour ce qui est de la météo, en hiver, avec la neige, est-ce qu'on peut continuer à rouler ou c'est trop compliqué ?",
           "usage": "Question conditionnée par le contexte hivernal."
         },
         {
@@ -499,7 +499,7 @@
           "kind": "mot-cle",
           "french": "des endroits sympas",
           "english": "nice places",
-          "example": "Je cherche des idées pour occuper mon week-end — tu connais des endroits sympas dans le coin ?",
+          "example": "Salut ! Je cherche des idées pour occuper mon week-end — tu connais des endroits sympas dans le coin ?",
           "usage": "Groupe nominal familier pour désigner des lieux agréables à visiter."
         },
         {
@@ -523,7 +523,7 @@
           "kind": "mot-cle",
           "french": "des animations",
           "english": "events/activities",
-          "example": "Est-ce qu'il y a des événements ou des animations prévus ce week-end en particulier ?",
+          "example": "Côté programmation, est-ce qu'il y a des événements ou des animations prévus ce week-end en particulier ?",
           "usage": "Nom désignant des activités organisées pour divertir un public."
         },
         {
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "une voiture",
           "english": "a car",
-          "example": "En général, ces endroits sont faciles d'accès en transports en commun ou il faut une voiture ?",
+          "example": "Et en général, ces endroits sont faciles d'accès en transports en commun ou il faut une voiture ?",
           "usage": "Nom courant désignant le moyen de transport individuel motorisé."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "un plan entre amis",
           "english": "a plan among friends",
-          "example": "C'est adapté si on y va en couple ou c'est plutôt un plan entre amis ?",
+          "example": "Autre point important : c'est adapté si on y va en couple ou c'est plutôt un plan entre amis ?",
           "usage": "Groupe nominal familier désignant une sortie organisée entre amis."
         },
         {
@@ -579,7 +579,7 @@
           "kind": "collocation",
           "french": "occuper mon week-end",
           "english": "to fill/spend my weekend",
-          "example": "Je cherche des idées pour occuper mon week-end — tu connais des endroits sympas dans le coin ?",
+          "example": "Salut ! Je cherche des idées pour occuper mon week-end — tu connais des endroits sympas dans le coin ?",
           "usage": "Association verbe + nom pour décrire la façon de meubler son temps libre."
         },
         {
@@ -603,7 +603,7 @@
           "kind": "collocation",
           "french": "faciles d'accès",
           "english": "easy to access",
-          "example": "En général, ces endroits sont faciles d'accès en transports en commun ou il faut une voiture ?",
+          "example": "Et en général, ces endroits sont faciles d'accès en transports en commun ou il faut une voiture ?",
           "usage": "Association adjectif + nom pour décrire la facilité d'accès à un lieu."
         },
         {
@@ -611,7 +611,7 @@
           "kind": "collocation",
           "french": "en transports en commun",
           "english": "by public transport",
-          "example": "En général, ces endroits sont faciles d'accès en transports en commun ou il faut une voiture ?",
+          "example": "Et en général, ces endroits sont faciles d'accès en transports en commun ou il faut une voiture ?",
           "usage": "Locution prépositionnelle fixe pour désigner les moyens de transport collectifs."
         },
         {
@@ -659,7 +659,7 @@
           "kind": "tournure",
           "french": "tu connais des endroits sympas dans le coin",
           "english": "do you know any nice places around here",
-          "example": "Je cherche des idées pour occuper mon week-end — tu connais des endroits sympas dans le coin ?",
+          "example": "Salut ! Je cherche des idées pour occuper mon week-end — tu connais des endroits sympas dans le coin ?",
           "usage": "Question orale à l'ordre habituel sujet-verbe, sans inversion, registre tutoiement."
         },
         {
@@ -683,7 +683,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'il y a des événements ou des animations prévus ce week-end en particulier",
           "english": "Are there any events or activities planned this particular weekend",
-          "example": "Est-ce qu'il y a des événements ou des animations prévus ce week-end en particulier ?",
+          "example": "Côté programmation, est-ce qu'il y a des événements ou des animations prévus ce week-end en particulier ?",
           "usage": "Structure avec 'est-ce que' pour poser une question fermée avec alternative, sans inversion."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "C'est adapté si on y va en couple ou c'est plutôt un plan entre amis",
           "english": "Is it suitable as a couple or is it more of a plan among friends",
-          "example": "C'est adapté si on y va en couple ou c'est plutôt un plan entre amis ?",
+          "example": "Autre point important : c'est adapté si on y va en couple ou c'est plutôt un plan entre amis ?",
           "usage": "Question orale à l'ordre habituel sujet-verbe, avec 'ou' introduisant une alternative."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "Il faut s'inscrire à l'avance ou on peut venir librement",
           "english": "Do you need to register in advance or can you just come freely",
-          "example": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "example": "En ce qui concerne la réservation, il faut s'inscrire à l'avance ou on peut venir librement ?",
           "usage": "Tournure impersonnelle avec 'il faut' exprimant une nécessité, sans inversion."
         },
         {

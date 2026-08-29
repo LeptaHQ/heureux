@@ -25,7 +25,31 @@
           "memory_section": 5
         },
         {
-          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "text": "Tant que j'y pense, quels sont les horaires — les transports fonctionnent tôt le matin et tard le soir ?"
+        },
+        {
+          "text": "Le réseau fonctionne-t-il chaque jour de la semaine — les horaires changent-ils le week-end ?",
+          "memory_number": 6,
+          "memory_section": 4
+        },
+        {
+          "text": "En ce qui concerne les déplacements, y a-t-il une application pour suivre les transports en temps réel ?",
+          "memory_number": 6,
+          "memory_section": 9
+        },
+        {
+          "text": "Comment ça se passe si on doit changer de ligne plusieurs fois pour un trajet ?"
+        },
+        {
+          "text": "Et globalement, c'est un moyen de transport fiable — les bus et les trains sont plutôt ponctuels ?"
+        },
+        {
+          "text": "Côté conseils, y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "memory_number": 6,
+          "memory_section": 8
+        },
+        {
+          "text": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -44,30 +68,6 @@
         },
         {
           "text": "Un ticket est-il valable pour plusieurs types de transport lors d'un même trajet ?"
-        },
-        {
-          "text": "Quels sont les horaires — les transports fonctionnent tôt le matin et tard le soir ?"
-        },
-        {
-          "text": "Le réseau fonctionne-t-il chaque jour de la semaine — les horaires changent-ils le week-end ?",
-          "memory_number": 6,
-          "memory_section": 4
-        },
-        {
-          "text": "Y a-t-il une application pour suivre les transports en temps réel ?",
-          "memory_number": 6,
-          "memory_section": 9
-        },
-        {
-          "text": "Comment ça se passe si on doit changer de ligne plusieurs fois pour un trajet ?"
-        },
-        {
-          "text": "C'est un moyen de transport fiable — les bus et les trains sont plutôt ponctuels ?"
-        },
-        {
-          "text": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
-          "memory_number": 6,
-          "memory_section": 8
         },
         {
           "text": "Pour finir — quel serait votre meilleur conseil pour bien utiliser les transports au quotidien ?"
@@ -92,25 +92,25 @@
           "text": "Il est de quelle couleur ?"
         },
         {
-          "text": "Pourquoi tu as décidé de le vendre ?"
-        },
-        {
-          "text": "Il est en bon état général, ou il y a des petites réparations à prévoir ?"
-        },
-        {
-          "text": "La batterie tient encore bien la charge — elle a quelle autonomie ?"
+          "text": "Ensuite, pourquoi tu as décidé de le vendre ?"
         },
         {
           "text": "Tu t'en servais souvent, ou il a peu roulé ?"
         },
         {
-          "text": "Tu as gardé la facture et les accessoires d'origine ?"
+          "text": "Il est en bon état général, ou il y a des petites réparations à prévoir ?"
+        },
+        {
+          "text": "Autre point important : la batterie tient encore bien la charge — elle a quelle autonomie ?"
+        },
+        {
+          "text": "J'ai encore une question : tu as gardé la facture et les accessoires d'origine ?"
         },
         {
           "text": "Il est vendu avec des accessoires — un chargeur, un antivol, un casque ?"
         },
         {
-          "text": "Tu en demandes combien ?",
+          "text": "En ce qui concerne le prix, tu en demandes combien ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -120,7 +120,7 @@
           "memory_section": 3
         },
         {
-          "text": "Est-ce que je pourrais l'essayer avant de me décider ?",
+          "text": "Il me reste un point à éclaircir : est-ce que je pourrais l'essayer avant de me décider ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -150,38 +150,7 @@
           "memory_section": 6
         },
         {
-          "text": "Il faut prendre des cours au début, ou tu peux me montrer les bases ?",
-          "memory_number": 8,
-          "memory_section": 6
-        },
-        {
-          "text": "Où est-ce qu'on peut pratiquer près d'ici — il y a des pistes adaptées aux débutants ?"
-        },
-        {
-          "text": "De quel équipement on a besoin — skis, bâtons, chaussures spéciales ?"
-        },
-        {
-          "text": "Il vaut mieux acheter le matériel ou on peut le louer pour commencer ?",
-          "memory_number": 8,
-          "memory_section": 6
-        },
-        {
-          "text": "Combien ça coûte à peu près, l'équipement complet ?"
-        },
-        {
-          "text": "Est-ce qu'il faut payer pour accéder aux pistes ?"
-        },
-        {
-          "text": "Comment il faut s'habiller pour ne pas avoir froid tout en restant à l'aise ?"
-        },
-        {
-          "text": "Qu'est-ce qu'il faut prévoir d'autre — des gants, un bonnet, de quoi boire ?"
-        },
-        {
-          "text": "C'est un sport fatigant — il faut une bonne condition physique ?"
-        },
-        {
-          "text": "On peut y aller ensemble la première fois pour se lancer tranquillement ?"
+          "text": "Deuxième point : c'est un sport fatigant — il faut une bonne condition physique ?"
         },
         {
           "text": "Quelle est la meilleure période pour s'y mettre dans la saison ?",
@@ -189,7 +158,38 @@
           "memory_section": 8
         },
         {
-          "text": "Il y a des précautions de sécurité à connaître avant de se lancer ?",
+          "text": "Et concrètement, où est-ce qu'on peut pratiquer près d'ici — il y a des pistes adaptées aux débutants ?"
+        },
+        {
+          "text": "Il faut prendre des cours au début, ou tu peux me montrer les bases ?",
+          "memory_number": 8,
+          "memory_section": 6
+        },
+        {
+          "text": "On peut y aller ensemble la première fois pour se lancer tranquillement ?"
+        },
+        {
+          "text": "Côté matériel, de quel équipement on a besoin — skis, bâtons, chaussures spéciales ?"
+        },
+        {
+          "text": "Il vaut mieux acheter le matériel ou on peut le louer pour commencer ?",
+          "memory_number": 8,
+          "memory_section": 6
+        },
+        {
+          "text": "En ce qui concerne la tenue, comment il faut s'habiller pour ne pas avoir froid tout en restant à l'aise ?"
+        },
+        {
+          "text": "Qu'est-ce qu'il faut prévoir d'autre — des gants, un bonnet, de quoi boire ?"
+        },
+        {
+          "text": "Et combien ça coûte à peu près, l'équipement complet ?"
+        },
+        {
+          "text": "Est-ce qu'il faut payer pour accéder aux pistes ?"
+        },
+        {
+          "text": "Une chose encore : il y a des précautions de sécurité à connaître avant de se lancer ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -213,6 +213,9 @@
           "text": "Tu connais des sorties sympas adaptées aux enfants — un zoo, un musée, un parc d'attractions ?"
         },
         {
+          "text": "Justement, qu'est-ce qui plaît généralement le plus aux enfants, d'après toi ?"
+        },
+        {
           "text": "S'il fait beau, qu'est-ce que tu me conseilles comme activités en plein air ?",
           "memory_number": 3,
           "memory_section": 8
@@ -223,10 +226,16 @@
           "memory_section": 8
         },
         {
-          "text": "Quels jeux de société ou jeux d'intérieur je pourrais prévoir à la maison ?"
+          "text": "Pour ce qui est des loisirs, quels jeux de société ou jeux d'intérieur je pourrais prévoir à la maison ?"
         },
         {
-          "text": "Il y a des activités gratuites ou pas trop chères pour les occuper ?"
+          "text": "Côté repas, tu aurais des idées de petits plats simples que les enfants aiment bien ?"
+        },
+        {
+          "text": "Comment je peux les occuper tranquillement en fin de journée, avant le coucher ?"
+        },
+        {
+          "text": "En ce qui concerne le budget, il y a des activités gratuites ou pas trop chères pour les occuper ?"
         },
         {
           "text": "Ces sorties, c'est facilement accessible en transports ou il vaut mieux une voiture ?"
@@ -235,16 +244,7 @@
           "text": "Il faut réserver à l'avance pour certaines de ces activités ?"
         },
         {
-          "text": "Qu'est-ce qui plaît généralement le plus aux enfants, d'après toi ?"
-        },
-        {
-          "text": "Tu aurais des idées de petits plats simples que les enfants aiment bien ?"
-        },
-        {
-          "text": "Comment je peux les occuper tranquillement en fin de journée, avant le coucher ?"
-        },
-        {
-          "text": "Il y a des choses à éviter — des activités trop fatigantes ou risquées ?"
+          "text": "Pour ce qui est des conseils, il y a des choses à éviter — des activités trop fatigantes ou risquées ?"
         },
         {
           "text": "Combien de temps à l'avance je devrais organiser tout ça ?"

@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "la formation",
           "english": "the training",
-          "example": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus ?",
+          "example": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus : ça va durer plusieurs jours ?",
           "usage": "Nom désignant l'apprentissage encadré proposé à un nouvel employé."
         },
         {
@@ -169,7 +169,7 @@
           "kind": "tournure",
           "french": "comment s'est passé ton premier jour",
           "english": "how did your first day go",
-          "example": "Alors, raconte — comment s'est passé ton premier jour ?",
+          "example": "Salut ! Alors, raconte — comment s'est passé ton premier jour ?",
           "usage": "Tournure interrogative classique pour demander un compte-rendu d'expérience."
         },
         {
@@ -193,7 +193,7 @@
           "kind": "tournure",
           "french": "tu pourrais m'en dire un peu plus",
           "english": "could you tell me a bit more about it",
-          "example": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus ?",
+          "example": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus : ça va durer plusieurs jours ?",
           "usage": "Formule de relance au conditionnel pour approfondir un sujet mentionné."
         },
         {
@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "ses disponibilités",
           "english": "their availability",
-          "example": "Quelles sont ses disponibilités — plutôt en semaine, le soir, ou le week-end ?",
+          "example": "Et quelles sont ses disponibilités — plutôt en semaine, le soir, ou le week-end ?",
           "usage": "Nom pluriel désignant les créneaux libres."
         },
         {
@@ -302,7 +302,7 @@
           "kind": "mot-cle",
           "french": "ses coordonnées",
           "english": "their contact details",
-          "example": "Vous auriez ses coordonnées pour que je le ou la contacte ?",
+          "example": "Du coup, vous auriez ses coordonnées pour que je le ou la contacte ?",
           "usage": "Nom pluriel désignant les coordonnées de contact."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "des morceaux",
           "english": "pieces (of music)",
-          "example": "Au bout de combien de temps on commence à vraiment jouer des morceaux ?",
+          "example": "Question durée, au bout de combien de temps on commence à vraiment jouer des morceaux ?",
           "usage": "Nom pluriel désignant les morceaux à jouer."
         },
         {
@@ -334,7 +334,7 @@
           "kind": "collocation",
           "french": "jouer des morceaux",
           "english": "to play pieces",
-          "example": "Au bout de combien de temps on commence à vraiment jouer des morceaux ?",
+          "example": "Question durée, au bout de combien de temps on commence à vraiment jouer des morceaux ?",
           "usage": "Collocation verbale désignant l'interprétation musicale d'œuvres."
         },
         {
@@ -358,7 +358,7 @@
           "kind": "collocation",
           "french": "patient et pédagogue",
           "english": "patient and good at teaching",
-          "example": "Il ou elle est comment comme professeur — plutôt patient et pédagogue ?",
+          "example": "En ce qui concerne l'encadrement, il ou elle est comment comme professeur — plutôt patient et pédagogue ?",
           "usage": "Adjectifs coordonnés pour qualifier un professeur."
         },
         {
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "acheter son propre instrument",
           "english": "buy your own instrument",
-          "example": "Faut-il acheter son propre instrument, ou il ou elle en prête un pour commencer ?",
+          "example": "Dans un autre registre, faut-il acheter son propre instrument, ou il ou elle en prête un pour commencer ?",
           "usage": "Verbe + complément sur l'achat de l'instrument."
         },
         {
@@ -422,7 +422,7 @@
           "kind": "tournure",
           "french": "on commence à vraiment jouer",
           "english": "you really start playing",
-          "example": "Au bout de combien de temps on commence à vraiment jouer des morceaux ?",
+          "example": "Question durée, au bout de combien de temps on commence à vraiment jouer des morceaux ?",
           "usage": "Tournure avec 'commencer à' + infinitif pour marquer le début effectif d'une capacité."
         },
         {
@@ -462,7 +462,7 @@
           "kind": "tournure",
           "french": "Quelles sont ses disponibilités",
           "english": "what is their availability",
-          "example": "Quelles sont ses disponibilités — plutôt en semaine, le soir, ou le week-end ?",
+          "example": "Et quelles sont ses disponibilités — plutôt en semaine, le soir, ou le week-end ?",
           "usage": "Question sur les créneaux disponibles."
         },
         {
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "Vous auriez ses coordonnées",
           "english": "would you have their contact details",
-          "example": "Vous auriez ses coordonnées pour que je le ou la contacte ?",
+          "example": "Du coup, vous auriez ses coordonnées pour que je le ou la contacte ?",
           "usage": "Question pour obtenir un contact."
         },
         {
@@ -531,7 +531,7 @@
           "kind": "mot-cle",
           "french": "un équipement particulier",
           "english": "special equipment",
-          "example": "Faut-il prévoir un équipement particulier — de bonnes chaussures, de quoi se protéger du soleil ?",
+          "example": "Question matériel, faut-il prévoir un équipement particulier — de bonnes chaussures, de quoi se protéger du soleil ?",
           "usage": "Groupe nominal désignant le matériel à prévoir."
         },
         {
@@ -539,7 +539,7 @@
           "kind": "mot-cle",
           "french": "de bonnes chaussures",
           "english": "good shoes",
-          "example": "Faut-il prévoir un équipement particulier — de bonnes chaussures, de quoi se protéger du soleil ?",
+          "example": "Question matériel, faut-il prévoir un équipement particulier — de bonnes chaussures, de quoi se protéger du soleil ?",
           "usage": "Groupe nominal désignant des chaussures adaptées."
         },
         {
@@ -555,7 +555,7 @@
           "kind": "mot-cle",
           "french": "un coût",
           "english": "a cost",
-          "example": "Est-ce qu'il y a un coût — parking, entrée, location de matériel ?",
+          "example": "En ce qui concerne le budget, est-ce qu'il y a un coût — parking, entrée, location de matériel ?",
           "usage": "Nom désignant les frais éventuels."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "des précautions",
           "english": "precautions",
-          "example": "Il y a des choses à éviter ou des précautions à connaître là-bas ?",
+          "example": "Question sécurité, il y a des choses à éviter ou des précautions à connaître là-bas ?",
           "usage": "Nom pluriel désignant les précautions à connaître."
         },
         {
@@ -611,7 +611,7 @@
           "kind": "collocation",
           "french": "se protéger du soleil",
           "english": "protect yourself from the sun",
-          "example": "Faut-il prévoir un équipement particulier — de bonnes chaussures, de quoi se protéger du soleil ?",
+          "example": "Question matériel, faut-il prévoir un équipement particulier — de bonnes chaussures, de quoi se protéger du soleil ?",
           "usage": "Verbe pronominal + complément sur la protection."
         },
         {
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "à éviter",
           "english": "to avoid",
-          "example": "Il y a des choses à éviter ou des précautions à connaître là-bas ?",
+          "example": "Question sécurité, il y a des choses à éviter ou des précautions à connaître là-bas ?",
           "usage": "Locution sur ce qu'il ne faut pas faire."
         },
         {
@@ -683,7 +683,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce qu'on peut y faire",
           "english": "what can you do there",
-          "example": "Qu'est-ce qu'on peut y faire — randonnée, pique-nique, activités en plein air ?",
+          "example": "Et concrètement, qu'est-ce qu'on peut y faire — randonnée, pique-nique, activités en plein air ?",
           "usage": "Question sur les activités."
         },
         {
@@ -691,7 +691,7 @@
           "kind": "tournure",
           "french": "C'est adapté pour un groupe",
           "english": "is it suitable for a group",
-          "example": "C'est adapté pour un groupe, avec des personnes de niveaux différents ?",
+          "example": "En ce qui concerne les participants, c'est adapté pour un groupe, avec des personnes de niveaux différents ?",
           "usage": "Question sur l'adaptation au groupe."
         },
         {
@@ -744,7 +744,7 @@
           "kind": "mot-cle",
           "french": "Quel délai",
           "english": "what lead time",
-          "example": "Quel délai faut-il prévoir entre la commande et la livraison ?",
+          "example": "Côté dates, quel délai faut-il prévoir entre la commande et la livraison ?",
           "usage": "Nom masculin précédé de « quel » pour interroger sur le temps à prévoir avant une action."
         },
         {
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "les produits frais",
           "english": "fresh products",
-          "example": "Comment gérez-vous les produits frais ou surgelés — la chaîne du froid est-elle respectée ?",
+          "example": "J'ai encore une question : comment gérez-vous les produits frais ou surgelés — la chaîne du froid est-elle respectée ?",
           "usage": "Groupe nominal désignant les denrées périssables."
         },
         {
@@ -800,7 +800,7 @@
           "kind": "mot-cle",
           "french": "la chaîne du froid",
           "english": "the cold chain",
-          "example": "Comment gérez-vous les produits frais ou surgelés — la chaîne du froid est-elle respectée ?",
+          "example": "J'ai encore une question : comment gérez-vous les produits frais ou surgelés — la chaîne du froid est-elle respectée ?",
           "usage": "Groupe nominal désignant le maintien au froid."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "un produit",
           "english": "an item",
-          "example": "Que se passe-t-il si un produit est manquant ou de mauvaise qualité à l'arrivée ?",
+          "example": "En ce qui concerne l'organisation, que se passe-t-il si un produit est manquant ou de mauvaise qualité à l'arrivée ?",
           "usage": "Nom désignant un article de la commande."
         },
         {
@@ -832,7 +832,7 @@
           "kind": "collocation",
           "french": "entre la commande et la livraison",
           "english": "between the order and the delivery",
-          "example": "Quel délai faut-il prévoir entre la commande et la livraison ?",
+          "example": "Côté dates, quel délai faut-il prévoir entre la commande et la livraison ?",
           "usage": "Structure prépositionnelle pour situer un délai entre deux événements."
         },
         {
@@ -872,7 +872,7 @@
           "kind": "collocation",
           "french": "jusqu'à la porte",
           "english": "up to the door",
-          "example": "Le livreur monte-t-il les courses jusqu'à la porte, même s'il y a des escaliers ?",
+          "example": "Côté pratique, le livreur monte-t-il les courses jusqu'à la porte, même s'il y a des escaliers ?",
           "usage": "Locution désignant la remise à la porte du domicile."
         },
         {
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "manquant ou de mauvaise qualité",
           "english": "missing or of poor quality",
-          "example": "Que se passe-t-il si un produit est manquant ou de mauvaise qualité à l'arrivée ?",
+          "example": "En ce qui concerne l'organisation, que se passe-t-il si un produit est manquant ou de mauvaise qualité à l'arrivée ?",
           "usage": "Adjectifs coordonnés sur un produit défectueux."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "Quel délai faut-il prévoir entre la commande et la livraison",
           "english": "what lead time between order and delivery",
-          "example": "Quel délai faut-il prévoir entre la commande et la livraison ?",
+          "example": "Côté dates, quel délai faut-il prévoir entre la commande et la livraison ?",
           "usage": "Question sur les délais."
         },
         {
@@ -976,7 +976,7 @@
           "kind": "tournure",
           "french": "la chaîne du froid est-elle respectée",
           "english": "is the cold chain maintained",
-          "example": "Comment gérez-vous les produits frais ou surgelés — la chaîne du froid est-elle respectée ?",
+          "example": "J'ai encore une question : comment gérez-vous les produits frais ou surgelés — la chaîne du froid est-elle respectée ?",
           "usage": "Question sur la conservation au froid."
         }
       ]

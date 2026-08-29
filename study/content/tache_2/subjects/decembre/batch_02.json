@@ -22,7 +22,22 @@
           "memory_section": 7
         },
         {
-          "text": "Les séances ont lieu quel jour exactement — et plutôt le matin avant le travail ou en fin de journée ?",
+          "text": "Question niveau, à quel public s'adressent les séances — plutôt aux débutants ou aux personnes déjà expérimentées ?",
+          "memory_number": 8,
+          "memory_section": 6
+        },
+        {
+          "text": "Quel type de yoga est proposé — du Hatha, du Vinyasa ou un autre style ?",
+          "memory_number": 8,
+          "memory_section": 2
+        },
+        {
+          "text": "Les séances comprennent aussi des moments de méditation ou seulement des exercices physiques ?",
+          "memory_number": 8,
+          "memory_section": 2
+        },
+        {
+          "text": "Côté organisation, les séances ont lieu quel jour exactement — et plutôt le matin avant le travail ou en fin de journée ?",
           "memory_number": 8,
           "memory_section": 4
         },
@@ -53,22 +68,7 @@
           "memory_section": 8
         },
         {
-          "text": "À quel public s'adressent les séances — plutôt aux débutants ou aux personnes déjà expérimentées ?",
-          "memory_number": 8,
-          "memory_section": 6
-        },
-        {
-          "text": "Quel type de yoga est proposé — du Hatha, du Vinyasa ou un autre style ?",
-          "memory_number": 8,
-          "memory_section": 2
-        },
-        {
-          "text": "Les séances comprennent aussi des moments de méditation ou seulement des exercices physiques ?",
-          "memory_number": 8,
-          "memory_section": 2
-        },
-        {
-          "text": "Comment se passe l'inscription — il faut s'inscrire à l'avance ou on peut venir librement ? Et c'est gratuit ou il y a une participation financière ?",
+          "text": "Côté tarifs, comment se passe l'inscription — il faut s'inscrire à l'avance ou on peut venir librement ? Et c'est gratuit ou il y a une participation financière ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -91,7 +91,32 @@
           "memory_section": 4
         },
         {
-          "text": "Les cours ont lieu quel jour — plutôt en semaine ou le week-end ? Et c'est compatible avec un emploi du temps professionnel ?",
+          "text": "J'en profite pour vous demander : qu'est-ce qu'on apprend concrètement — c'est plutôt technique, artistique ou un mélange des deux ?",
+          "memory_number": 10,
+          "memory_section": 2
+        },
+        {
+          "text": "Les cours couvrent les bases ou s'adressent-ils plutôt à un niveau intermédiaire ?",
+          "memory_number": 10,
+          "memory_section": 6
+        },
+        {
+          "text": "Quels types de thèmes sont abordés — portrait, paysage, photo de rue ou un peu de tout ?",
+          "memory_number": 10,
+          "memory_section": 2
+        },
+        {
+          "text": "En ce qui concerne l'endroit, y a-t-il des sorties pratiques pour prendre des photos en extérieur ou tout se fait en salle ?",
+          "memory_number": 10,
+          "memory_section": 2
+        },
+        {
+          "text": "Il y a généralement combien de participants par groupe ? Et comment est l'ambiance ?",
+          "memory_number": 10,
+          "memory_section": 7
+        },
+        {
+          "text": "Côté organisation, les cours ont lieu quel jour — plutôt en semaine ou le week-end ? Et c'est compatible avec un emploi du temps professionnel ?",
           "memory_number": 10,
           "memory_section": 4
         },
@@ -101,22 +126,7 @@
           "memory_section": 4
         },
         {
-          "text": "Il y a généralement combien de participants par groupe ? Et comment est l'ambiance ?",
-          "memory_number": 10,
-          "memory_section": 7
-        },
-        {
-          "text": "Parlons du coût — combien coûte l'inscription pour la session complète ? Il existe des tarifs réduits pour les habitants du quartier ?",
-          "memory_number": 10,
-          "memory_section": 3
-        },
-        {
-          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
-          "memory_number": 10,
-          "memory_section": 3
-        },
-        {
-          "text": "Quel type d'appareil est recommandé — un reflex ou un appareil plus simple suffit ?",
+          "text": "En ce qui concerne le matériel, quel type d'appareil est recommandé — un reflex ou un appareil plus simple suffit ?",
           "memory_number": 10,
           "memory_section": 8
         },
@@ -131,29 +141,19 @@
           "memory_section": 8
         },
         {
-          "text": "Pour le traitement des photos, quel logiciel est généralement recommandé ?",
+          "text": "Il me reste un point à éclaircir : pour le traitement des photos, quel logiciel est généralement recommandé ?",
           "memory_number": 10,
           "memory_section": 8
         },
         {
-          "text": "Qu'est-ce qu'on apprend concrètement — c'est plutôt technique, artistique ou un mélange des deux ?",
+          "text": "Parlons du coût — combien coûte l'inscription pour la session complète ? Il existe des tarifs réduits pour les habitants du quartier ?",
           "memory_number": 10,
-          "memory_section": 2
+          "memory_section": 3
         },
         {
-          "text": "Les cours couvrent les bases ou s'adressent-ils plutôt à un niveau intermédiaire ?",
+          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
           "memory_number": 10,
-          "memory_section": 6
-        },
-        {
-          "text": "Y a-t-il des sorties pratiques pour prendre des photos en extérieur ou tout se fait en salle ?",
-          "memory_number": 10,
-          "memory_section": 2
-        },
-        {
-          "text": "Quels types de thèmes sont abordés — portrait, paysage, photo de rue ou un peu de tout ?",
-          "memory_number": 10,
-          "memory_section": 2
+          "memory_section": 3
         },
         {
           "text": "Et pour finir — il y a des expositions ou des projets de fin de session pour présenter les photos réalisées ?",
@@ -193,29 +193,14 @@
           "memory_section": 2
         },
         {
-          "text": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "text": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "À quelle heure commencent les cours et les ateliers — plutôt le matin ou en fin de journée ? Et vous êtes ouverts le week-end ?",
-          "memory_number": 10,
-          "memory_section": 4
-        },
-        {
-          "text": "Proposez-vous des activités spécifiques pendant les vacances scolaires, notamment pour les enfants ?",
+          "text": "Pour ce qui est des services, proposez-vous des activités spécifiques pendant les vacances scolaires, notamment pour les enfants ?",
           "memory_number": 10,
           "memory_section": 2
-        },
-        {
-          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_number": 10,
-          "memory_section": 3
-        },
-        {
-          "text": "Le tarif comprend quoi exactement — certaines activités sont-elles gratuites ?",
-          "memory_number": 10,
-          "memory_section": 3
         },
         {
           "text": "Il y a généralement combien de participants par atelier — c'est un petit groupe ou une grande classe ?",
@@ -228,9 +213,24 @@
           "memory_section": 10
         },
         {
-          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "text": "Côté horaires, à quelle heure commencent les cours et les ateliers — plutôt le matin ou en fin de journée ? Et vous êtes ouverts le week-end ?",
+          "memory_number": 10,
+          "memory_section": 4
+        },
+        {
+          "text": "En ce qui concerne la réservation, comment se passe l'inscription — en ligne ou uniquement sur place ? Il faut s'inscrire à l'avance ou on peut venir librement ?",
           "memory_number": 10,
           "memory_section": 6
+        },
+        {
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_number": 10,
+          "memory_section": 3
+        },
+        {
+          "text": "Le tarif comprend quoi exactement — certaines activités sont-elles gratuites ?",
+          "memory_number": 10,
+          "memory_section": 3
         },
         {
           "text": "Y a-t-il une boutique de souvenirs ou une librairie sur place ?",
@@ -266,12 +266,12 @@
           "memory_section": 11
         },
         {
-          "text": "Quels musées me recommandez-vous en priorité ? Y a-t-il des monuments historiques ou des sites culturels importants ?",
+          "text": "Côté découvertes, conseillez-vous la visite de villages typiques ou pittoresques aux alentours ?",
           "memory_number": 7,
           "memory_section": 2
         },
         {
-          "text": "Conseillez-vous la visite de villages typiques ou pittoresques aux alentours ?",
+          "text": "Quels musées me recommandez-vous en priorité ? Y a-t-il des monuments historiques ou des sites culturels importants ?",
           "memory_number": 7,
           "memory_section": 2
         },
@@ -281,17 +281,12 @@
           "memory_section": 2
         },
         {
-          "text": "Y a-t-il des événements culturels, des festivals ou des marchés locaux cette semaine ?",
+          "text": "Question programme, y a-t-il des événements culturels, des festivals ou des marchés locaux cette semaine ?",
           "memory_number": 7,
           "memory_section": 2
         },
         {
-          "text": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à goûter absolument ? Il faut réserver une table à l'avance ou on peut y aller directement ?",
-          "memory_number": 7,
-          "memory_section": 9
-        },
-        {
-          "text": "Quelles activités de plein air peut-on pratiquer — vélo, kayak ? Est-il possible de louer du matériel sur place ?",
+          "text": "Et quelles activités de plein air peut-on pratiquer — vélo, kayak ? Est-il possible de louer du matériel sur place ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -301,14 +296,19 @@
           "memory_section": 2
         },
         {
-          "text": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
+          "text": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à goûter absolument ? Il faut réserver une table à l'avance ou on peut y aller directement ?",
           "memory_number": 7,
-          "memory_section": 5
+          "memory_section": 9
         },
         {
-          "text": "C'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
+          "text": "Et côté saison, c'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
           "memory_number": 7,
           "memory_section": 8
+        },
+        {
+          "text": "Pour ce qui est du trajet, est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
+          "memory_number": 7,
+          "memory_section": 5
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose, ce serait laquelle ?",

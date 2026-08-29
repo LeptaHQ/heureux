@@ -12,7 +12,7 @@
       "prompt": "Je suis à l'accueil d'une école de musique où vous aimeriez suivre des cours. Vous vous renseignez sur ce que propose l'établissement : les cours, les tarifs, les horaires et les instruments enseignés.",
       "questions": [
         {
-          "text": "Bonjour, je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
+          "text": "Bonjour ! J'aimerais enfin me mettre à la musique et je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -32,29 +32,29 @@
           "memory_section": 6
         },
         {
-          "text": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "text": "En ce qui concerne l'encadrement, les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "memory_number": 10,
+          "memory_section": 7
+        },
+        {
+          "text": "Comment suivez-vous la progression des élèves — il y a des évaluations régulières ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "text": "Question programme, organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
           "memory_number": 10,
-          "memory_section": 7
+          "memory_section": 2
+        },
+        {
+          "text": "Côté organisation, les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "memory_number": 10,
+          "memory_section": 4
         },
         {
           "text": "Faut-il apporter son propre instrument, ou l'école peut-elle en fournir un pour commencer ?",
           "memory_number": 10,
           "memory_section": 8
-        },
-        {
-          "text": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
-          "memory_number": 10,
-          "memory_section": 3
-        },
-        {
-          "text": "Y a-t-il des frais supplémentaires, comme les partitions ou le matériel ?",
-          "memory_number": 10,
-          "memory_section": 3
         },
         {
           "text": "Est-ce qu'on peut essayer avec un cours d'essai avant de s'engager ?",
@@ -67,17 +67,17 @@
           "memory_section": 6
         },
         {
-          "text": "Organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
           "memory_number": 10,
-          "memory_section": 2
+          "memory_section": 3
         },
         {
-          "text": "Comment suivez-vous la progression des élèves — il y a des évaluations régulières ?",
+          "text": "Y a-t-il des frais supplémentaires, comme les partitions ou le matériel ?",
           "memory_number": 10,
-          "memory_section": 4
+          "memory_section": 3
         },
         {
-          "text": "L'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
+          "text": "Côté transport, l'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
           "memory_number": 10,
           "memory_section": 5
         },
@@ -114,7 +114,37 @@
           "memory_section": 2
         },
         {
-          "text": "Si je n'ai pas encore de vélo, tu connais des agences où en louer ?",
+          "text": "Côté précautions, comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
+          "memory_number": 6,
+          "memory_section": 8
+        },
+        {
+          "text": "Est-ce qu'un casque est obligatoire à Ottawa ou seulement recommandé ?",
+          "memory_number": 6,
+          "memory_section": 8
+        },
+        {
+          "text": "Côté matériel, qu'est-ce qu'il faut absolument prévoir — un casque, un antivol et des lumières ?",
+          "memory_number": 6,
+          "memory_section": 8
+        },
+        {
+          "text": "Est-ce qu'on peut emporter son vélo dans le bus ou le train si on est fatigué ?",
+          "memory_number": 6,
+          "memory_section": 5
+        },
+        {
+          "text": "Pour ce qui est de la météo, en hiver, avec la neige, est-ce qu'on peut continuer à rouler ou c'est trop compliqué ?",
+          "memory_number": 6,
+          "memory_section": 8
+        },
+        {
+          "text": "Où est-ce qu'on peut faire réparer ou entretenir son vélo dans le coin ?",
+          "memory_number": 6,
+          "memory_section": 9
+        },
+        {
+          "text": "En ce qui concerne la location, si je n'ai pas encore de vélo, tu connais des agences où en louer ?",
           "memory_number": 6,
           "memory_section": 13
         },
@@ -127,36 +157,6 @@
           "text": "Est-ce qu'il y a aussi des vélos en libre-service un peu partout dans la ville ?",
           "memory_number": 6,
           "memory_section": 2
-        },
-        {
-          "text": "Côté matériel, qu'est-ce qu'il faut absolument prévoir — un casque, un antivol et des lumières ?",
-          "memory_number": 6,
-          "memory_section": 8
-        },
-        {
-          "text": "Est-ce qu'un casque est obligatoire à Ottawa ou seulement recommandé ?",
-          "memory_number": 6,
-          "memory_section": 8
-        },
-        {
-          "text": "Comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
-          "memory_number": 6,
-          "memory_section": 8
-        },
-        {
-          "text": "Est-ce qu'on peut emporter son vélo dans le bus ou le train si on est fatigué ?",
-          "memory_number": 6,
-          "memory_section": 5
-        },
-        {
-          "text": "En hiver, avec la neige, est-ce qu'on peut continuer à rouler ou c'est trop compliqué ?",
-          "memory_number": 6,
-          "memory_section": 8
-        },
-        {
-          "text": "Où est-ce qu'on peut faire réparer ou entretenir son vélo dans le coin ?",
-          "memory_number": 6,
-          "memory_section": 9
         },
         {
           "text": "Parmi tous ces itinéraires, lequel tu me recommandes pour commencer en douceur ?",
@@ -176,7 +176,7 @@
       "prompt": "Je suis votre ami(e) et vous avez envie de partir vous ressourcer le temps d'un week-end. Vous me sollicitez pour des idées : où aller, quoi y faire et comment vous y rendre.",
       "questions": [
         {
-          "text": "Je cherche des idées pour occuper mon week-end — tu connais des endroits sympas dans le coin ?",
+          "text": "Salut ! Je cherche des idées pour occuper mon week-end — tu connais des endroits sympas dans le coin ?",
           "memory_number": 7,
           "memory_section": 2
         },
@@ -191,34 +191,14 @@
           "memory_section": 2
         },
         {
-          "text": "Est-ce qu'il y a des événements ou des animations prévus ce week-end en particulier ?",
-          "memory_number": 7,
-          "memory_section": 2
-        },
-        {
           "text": "Si on veut faire du sport ou des activités en plein air, il y a quoi comme options ?",
           "memory_number": 7,
           "memory_section": 2
         },
         {
-          "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "text": "Côté programmation, est-ce qu'il y a des événements ou des animations prévus ce week-end en particulier ?",
           "memory_number": 7,
-          "memory_section": 9
-        },
-        {
-          "text": "Parlons du budget — combien est-ce que ça coûte approximativement ?",
-          "memory_number": 7,
-          "memory_section": 3
-        },
-        {
-          "text": "En général, ces endroits sont faciles d'accès en transports en commun ou il faut une voiture ?",
-          "memory_number": 7,
-          "memory_section": 5
-        },
-        {
-          "text": "Il y a beaucoup de monde le week-end ou c'est plutôt calme ?",
-          "memory_number": 7,
-          "memory_section": 8
+          "memory_section": 2
         },
         {
           "text": "Et si le temps n'est pas au rendez-vous, tu aurais des idées pour une sortie en intérieur ?",
@@ -226,14 +206,9 @@
           "memory_section": 2
         },
         {
-          "text": "C'est adapté si on y va en couple ou c'est plutôt un plan entre amis ?",
+          "text": "Autre point important : c'est adapté si on y va en couple ou c'est plutôt un plan entre amis ?",
           "memory_number": 7,
           "memory_section": 7
-        },
-        {
-          "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
-          "memory_number": 7,
-          "memory_section": 6
         },
         {
           "text": "Toi personnellement, tu fais quoi le week-end en général ?",
@@ -244,6 +219,31 @@
           "text": "Il y a un endroit que tu n'as pas encore mentionné et qui vaut vraiment le détour ?",
           "memory_number": 7,
           "memory_section": 11
+        },
+        {
+          "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "memory_number": 7,
+          "memory_section": 9
+        },
+        {
+          "text": "Et en général, ces endroits sont faciles d'accès en transports en commun ou il faut une voiture ?",
+          "memory_number": 7,
+          "memory_section": 5
+        },
+        {
+          "text": "Il y a beaucoup de monde le week-end ou c'est plutôt calme ?",
+          "memory_number": 7,
+          "memory_section": 8
+        },
+        {
+          "text": "En ce qui concerne la réservation, il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "memory_number": 7,
+          "memory_section": 6
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement ?",
+          "memory_number": 7,
+          "memory_section": 3
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",

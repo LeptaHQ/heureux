@@ -12,7 +12,7 @@
       "prompt": "Je suis votre ami(e) et je sors tout juste d'une séance au cinéma. Curieux/curieuse de savoir si le film vaut le détour, vous m'interrogez sur son thème, ses acteurs principaux et les horaires des séances.",
       "questions": [
         {
-          "text": "Alors, tu es allé(e) voir quel film exactement ?",
+          "text": "Alors, raconte-moi cette séance de cinéma — tu es allé(e) voir quel film exactement ?",
           "memory_number": 9,
           "memory_section": 2
         },
@@ -42,7 +42,7 @@
           "memory_section": 6
         },
         {
-          "text": "Qu'est-ce que tu as le plus aimé dans ce film ?",
+          "text": "Côté impressions, qu'est-ce que tu as le plus aimé dans ce film ?",
           "memory_number": 9,
           "memory_section": 10
         },
@@ -52,7 +52,12 @@
           "memory_section": 10
         },
         {
-          "text": "Il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
+          "text": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "memory_number": 9,
+          "memory_section": 6
+        },
+        {
+          "text": "Côté pratique, il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
           "memory_number": 9,
           "memory_section": 2
         },
@@ -62,12 +67,12 @@
           "memory_section": 4
         },
         {
-          "text": "Ça coûte combien pour une place, à peu près ?",
+          "text": "En ce qui concerne le prix, ça coûte combien pour une place, à peu près ?",
           "memory_number": 9,
           "memory_section": 3
         },
         {
-          "text": "Il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
+          "text": "À ce propos, il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
           "memory_number": 9,
           "memory_section": 6
         },
@@ -75,11 +80,6 @@
           "text": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
           "memory_number": 9,
           "memory_section": 5
-        },
-        {
-          "text": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
-          "memory_number": 9,
-          "memory_section": 6
         },
         {
           "text": "Pour finir — tu me le recommandes vraiment, ce film ?",
@@ -100,6 +100,9 @@
           "text": "Elle se trouve où exactement, cette piscine — c'est loin d'ici ?"
         },
         {
+          "text": "Justement, la piscine est facilement accessible en transports en commun ou il vaut mieux venir en voiture ?"
+        },
+        {
           "text": "Quels équipements y a-t-il sur place — plusieurs bassins, un espace pour les enfants, un sauna ?"
         },
         {
@@ -118,7 +121,10 @@
           "text": "Y a-t-il des créneaux réservés, par exemple pour les cours ou pour les nageurs réguliers ?"
         },
         {
-          "text": "Comment fonctionnent les tarifs — on paie chaque entrée ou il faut prendre un abonnement ?"
+          "text": "Il y a un autre point qui m'intéresse : c'est souvent bondé — à quels moments vaut-il mieux venir pour être tranquille ?"
+        },
+        {
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — on paie chaque entrée ou il faut prendre un abonnement ?"
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
@@ -131,13 +137,7 @@
           "memory_section": 3
         },
         {
-          "text": "Faut-il un bonnet de bain ou un équipement particulier pour être accepté à l'entrée ?"
-        },
-        {
-          "text": "C'est souvent bondé — à quels moments vaut-il mieux venir pour être tranquille ?"
-        },
-        {
-          "text": "La piscine est facilement accessible en transports en commun ou il vaut mieux venir en voiture ?"
+          "text": "En ce qui concerne le matériel, faut-il un bonnet de bain ou un équipement particulier pour être accepté à l'entrée ?"
         },
         {
           "text": "Pour finir — vous me la recommandez vraiment, cette piscine ?"
@@ -167,7 +167,7 @@
           "text": "Est-ce que je peux acheter ces affaires sur place, ou il vaut mieux tout apporter de chez moi ?"
         },
         {
-          "text": "Qu'est-ce qu'on pourra faire ensemble — quelles activités tu me conseilles à cette période ?"
+          "text": "Et concrètement, qu'est-ce qu'on pourra faire ensemble — quelles activités tu me conseilles à cette période ?"
         },
         {
           "text": "Il y a des activités d'hiver typiques à essayer, comme le patin ou la luge ?",
@@ -175,7 +175,10 @@
           "memory_section": 8
         },
         {
-          "text": "Est-ce qu'il y a des événements ou des festivals spéciaux au mois de décembre ?"
+          "text": "En ce qui concerne la programmation, est-ce qu'il y a des événements ou des festivals spéciaux au mois de décembre ?"
+        },
+        {
+          "text": "Côté cuisine, il y a des spécialités locales que je devrais absolument goûter pendant mon séjour ?"
         },
         {
           "text": "Pour les déplacements, comment on circule quand il neige — les transports fonctionnent normalement ?"
@@ -184,16 +187,13 @@
           "text": "Combien de temps tu me conseilles de rester pour bien en profiter ?"
         },
         {
-          "text": "Est-ce que j'ai des démarches particulières à prévoir avant de venir, côté papiers ?"
-        },
-        {
-          "text": "Qu'est-ce que je ne devrais surtout pas oublier, quelque chose auquel on ne pense pas toujours ?"
+          "text": "Côté dossier, est-ce que j'ai des démarches particulières à prévoir avant de venir, côté papiers ?"
         },
         {
           "text": "Est-ce que je dois prévoir un budget particulier pour les activités sur place ?"
         },
         {
-          "text": "Il y a des spécialités locales que je devrais absolument goûter pendant mon séjour ?"
+          "text": "Qu'est-ce que je ne devrais surtout pas oublier, quelque chose auquel on ne pense pas toujours ?"
         },
         {
           "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien préparer ce voyage, ce serait lequel ?"
@@ -273,14 +273,19 @@
           "memory_section": 10
         },
         {
-          "text": "Pour les enfants, y a-t-il de bonnes écoles et des garderies à proximité ?",
+          "text": "Côté conditions, y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
+          "memory_number": 3,
+          "memory_section": 8
+        },
+        {
+          "text": "En ce qui concerne les activités, quels sont les loisirs disponibles dans le coin — des parcs, des salles de sport, des bibliothèques ?",
           "memory_number": 3,
           "memory_section": 2
         },
         {
-          "text": "Ces écoles sont-elles accessibles à pied ou faut-il prévoir un transport ?",
+          "text": "Y a-t-il des activités ou des clubs pour rencontrer du monde et se faire des amis ?",
           "memory_number": 3,
-          "memory_section": 5
+          "memory_section": 2
         },
         {
           "text": "Côté commerces, y a-t-il des supermarchés, des marchés ou des magasins de quartier pas trop loin ?",
@@ -293,17 +298,17 @@
           "memory_section": 5
         },
         {
-          "text": "Quels sont les loisirs disponibles dans le coin — des parcs, des salles de sport, des bibliothèques ?",
+          "text": "Pour les enfants, y a-t-il de bonnes écoles et des garderies à proximité ?",
           "memory_number": 3,
           "memory_section": 2
         },
         {
-          "text": "Y a-t-il des activités ou des clubs pour rencontrer du monde et se faire des amis ?",
+          "text": "Ces écoles sont-elles accessibles à pied ou faut-il prévoir un transport ?",
           "memory_number": 3,
-          "memory_section": 2
+          "memory_section": 5
         },
         {
-          "text": "Le quartier est-il bien desservi par les transports en commun ?",
+          "text": "Et côté déplacements, le quartier est-il bien desservi par les transports en commun ?",
           "memory_number": 3,
           "memory_section": 5
         },
@@ -318,12 +323,7 @@
           "memory_section": 9
         },
         {
-          "text": "Y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
-          "memory_number": 3,
-          "memory_section": 8
-        },
-        {
-          "text": "Selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
+          "text": "Pour ce qui est du lieu, selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
           "memory_number": 3,
           "memory_section": 11
         },

@@ -9,7 +9,7 @@
           "kind": "mot-cle",
           "french": "quel film",
           "english": "which film",
-          "example": "Alors, tu es allé(e) voir quel film exactement ?",
+          "example": "Alors, raconte-moi cette séance de cinéma — tu es allé(e) voir quel film exactement ?",
           "usage": "Groupe interrogatif pour demander le titre ou le type de film vu."
         },
         {
@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "aimé",
           "english": "liked",
-          "example": "Qu'est-ce que tu as le plus aimé dans ce film ?",
+          "example": "Côté impressions, qu'est-ce que tu as le plus aimé dans ce film ?",
           "usage": "Participe passé du verbe « aimer » au passé composé, ici encadré par l'adverbe « le plus »."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "version originale",
           "english": "original version (subtitled)",
-          "example": "Il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
+          "example": "Côté pratique, il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
           "usage": "Groupe nominal désignant une version non doublée d'un film."
         },
         {
@@ -89,7 +89,7 @@
           "kind": "collocation",
           "french": "tu es allé(e) voir",
           "english": "you went to see",
-          "example": "Alors, tu es allé(e) voir quel film exactement ?",
+          "example": "Alors, raconte-moi cette séance de cinéma — tu es allé(e) voir quel film exactement ?",
           "usage": "Collocation verbe de mouvement + infinitif pour évoquer une sortie récente."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "ça coûte combien",
           "english": "how much does it cost",
-          "example": "Ça coûte combien pour une place, à peu près ?",
+          "example": "En ce qui concerne le prix, ça coûte combien pour une place, à peu près ?",
           "usage": "Collocation très courante pour demander un prix à l'oral."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "réserver à l'avance",
           "english": "to book in advance",
-          "example": "Il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
+          "example": "À ce propos, il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
           "usage": "Collocation verbe + locution adverbiale pour anticiper un achat."
         },
         {
@@ -153,7 +153,7 @@
           "kind": "collocation",
           "french": "beaucoup de monde",
           "english": "a lot of people",
-          "example": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "example": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
           "usage": "Collocation très fréquente pour évoquer une affluence importante."
         },
         {
@@ -177,7 +177,7 @@
           "kind": "tournure",
           "french": "qu'est-ce que tu as le plus aimé",
           "english": "what did you like the most",
-          "example": "Qu'est-ce que tu as le plus aimé dans ce film ?",
+          "example": "Côté impressions, qu'est-ce que tu as le plus aimé dans ce film ?",
           "usage": "Tournure interrogative standard pour demander un avis positif détaillé."
         },
         {
@@ -193,7 +193,7 @@
           "kind": "tournure",
           "french": "il passe en version originale",
           "english": "it's shown in the original version",
-          "example": "Il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
+          "example": "Côté pratique, il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
           "usage": "Tournure pour demander le format de diffusion d'un film."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "tournure",
           "french": "ça coûte combien pour une place",
           "english": "how much does a ticket cost",
-          "example": "Ça coûte combien pour une place, à peu près ?",
+          "example": "En ce qui concerne le prix, ça coûte combien pour une place, à peu près ?",
           "usage": "Tournure interrogative complète pour demander un tarif précis."
         },
         {
@@ -217,7 +217,7 @@
           "kind": "tournure",
           "french": "il vaut mieux réserver à l'avance",
           "english": "it's better to book in advance",
-          "example": "Il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
+          "example": "À ce propos, il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
           "usage": "Tournure avec « il vaut mieux » pour suggérer une précaution utile."
         },
         {
@@ -233,7 +233,7 @@
           "kind": "tournure",
           "french": "il y avait beaucoup de monde dans la salle",
           "english": "there were a lot of people in the room",
-          "example": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "example": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
           "usage": "Tournure descriptive à l'imparfait pour évoquer l'affluence lors d'une sortie passée."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "un abonnement",
           "english": "a pass",
-          "example": "Comment fonctionnent les tarifs — on paie chaque entrée ou il faut prendre un abonnement ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — on paie chaque entrée ou il faut prendre un abonnement ?",
           "usage": "Nom désignant une formule payée à l'avance pour un accès régulier."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "un bonnet de bain",
           "english": "a swim cap",
-          "example": "Faut-il un bonnet de bain ou un équipement particulier pour être accepté à l'entrée ?",
+          "example": "En ce qui concerne le matériel, faut-il un bonnet de bain ou un équipement particulier pour être accepté à l'entrée ?",
           "usage": "Groupe nominal désignant l'accessoire de natation."
         },
         {
@@ -406,7 +406,7 @@
           "kind": "collocation",
           "french": "accessible en transports en commun",
           "english": "accessible by public transport",
-          "example": "La piscine est facilement accessible en transports en commun ou il vaut mieux venir en voiture ?",
+          "example": "Justement, la piscine est facilement accessible en transports en commun ou il vaut mieux venir en voiture ?",
           "usage": "Adjectif + complément sur l'accès."
         },
         {
@@ -462,7 +462,7 @@
           "kind": "tournure",
           "french": "Comment fonctionnent les tarifs",
           "english": "how do the rates work",
-          "example": "Comment fonctionnent les tarifs — on paie chaque entrée ou il faut prendre un abonnement ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — on paie chaque entrée ou il faut prendre un abonnement ?",
           "usage": "Question courante sur la tarification."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "à quels moments vaut-il mieux venir",
           "english": "at what times is it best to come",
-          "example": "C'est souvent bondé — à quels moments vaut-il mieux venir pour être tranquille ?",
+          "example": "Il y a un autre point qui m'intéresse : c'est souvent bondé — à quels moments vaut-il mieux venir pour être tranquille ?",
           "usage": "Tournure pour demander le meilleur moment."
         },
         {
@@ -486,7 +486,7 @@
           "kind": "tournure",
           "french": "il vaut mieux venir en voiture",
           "english": "it is better to come by car",
-          "example": "La piscine est facilement accessible en transports en commun ou il vaut mieux venir en voiture ?",
+          "example": "Justement, la piscine est facilement accessible en transports en commun ou il vaut mieux venir en voiture ?",
           "usage": "Tournure pour évaluer une option pratique."
         }
       ]
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "des festivals spéciaux",
           "english": "special festivals",
-          "example": "Est-ce qu'il y a des événements ou des festivals spéciaux au mois de décembre ?",
+          "example": "En ce qui concerne la programmation, est-ce qu'il y a des événements ou des festivals spéciaux au mois de décembre ?",
           "usage": "Groupe nominal pour des événements particuliers."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "des spécialités locales",
           "english": "local specialties",
-          "example": "Il y a des spécialités locales que je devrais absolument goûter pendant mon séjour ?",
+          "example": "Côté cuisine, il y a des spécialités locales que je devrais absolument goûter pendant mon séjour ?",
           "usage": "Groupe nominal pour les plats typiques."
         },
         {
@@ -643,7 +643,7 @@
           "kind": "collocation",
           "french": "goûter pendant mon séjour",
           "english": "to taste during my stay",
-          "example": "Il y a des spécialités locales que je devrais absolument goûter pendant mon séjour ?",
+          "example": "Côté cuisine, il y a des spécialités locales que je devrais absolument goûter pendant mon séjour ?",
           "usage": "Verbe + complément sur la découverte culinaire."
         },
         {
@@ -699,7 +699,7 @@
           "kind": "tournure",
           "french": "quelles activités tu me conseilles à cette période",
           "english": "what activities you suggest at that time",
-          "example": "Qu'est-ce qu'on pourra faire ensemble — quelles activités tu me conseilles à cette période ?",
+          "example": "Et concrètement, qu'est-ce qu'on pourra faire ensemble — quelles activités tu me conseilles à cette période ?",
           "usage": "Question sur les loisirs de saison."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'il y a des événements ou des festivals spéciaux",
           "english": "are there special events or festivals",
-          "example": "Est-ce qu'il y a des événements ou des festivals spéciaux au mois de décembre ?",
+          "example": "En ce qui concerne la programmation, est-ce qu'il y a des événements ou des festivals spéciaux au mois de décembre ?",
           "usage": "Question sur l'animation locale."
         },
         {
@@ -1037,7 +1037,7 @@
           "kind": "mot-cle",
           "french": "les loisirs",
           "english": "leisure activities",
-          "example": "Quels sont les loisirs disponibles dans le coin — des parcs, des salles de sport, des bibliothèques ?",
+          "example": "En ce qui concerne les activités, quels sont les loisirs disponibles dans le coin — des parcs, des salles de sport, des bibliothèques ?",
           "usage": "Nom masculin pluriel désignant les activités de détente."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "les transports en commun",
           "english": "public transport",
-          "example": "Le quartier est-il bien desservi par les transports en commun ?",
+          "example": "Et côté déplacements, le quartier est-il bien desservi par les transports en commun ?",
           "usage": "Groupe nominal désignant les moyens de transport collectifs."
         },
         {
@@ -1117,7 +1117,7 @@
           "kind": "collocation",
           "french": "bien desservi par les transports en commun",
           "english": "well served by public transport",
-          "example": "Le quartier est-il bien desservi par les transports en commun ?",
+          "example": "Et côté déplacements, le quartier est-il bien desservi par les transports en commun ?",
           "usage": "Collocation pour évaluer la qualité de la desserte."
         },
         {
@@ -1141,7 +1141,7 @@
           "kind": "collocation",
           "french": "des règles à respecter entre voisins",
           "english": "rules to follow between neighbours",
-          "example": "Y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
+          "example": "Côté conditions, y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
           "usage": "Groupe nominal avec infinitif de but sur la vie collective."
         },
         {
@@ -1181,7 +1181,7 @@
           "kind": "tournure",
           "french": "Quels sont les loisirs disponibles dans le coin",
           "english": "What leisure options are available nearby",
-          "example": "Quels sont les loisirs disponibles dans le coin — des parcs, des salles de sport, des bibliothèques ?",
+          "example": "En ce qui concerne les activités, quels sont les loisirs disponibles dans le coin — des parcs, des salles de sport, des bibliothèques ?",
           "usage": "Question avec « quels sont » pour recenser les loisirs."
         },
         {
@@ -1189,7 +1189,7 @@
           "kind": "tournure",
           "french": "Le quartier est-il bien desservi",
           "english": "Is the neighbourhood well served",
-          "example": "Le quartier est-il bien desservi par les transports en commun ?",
+          "example": "Et côté déplacements, le quartier est-il bien desservi par les transports en commun ?",
           "usage": "Question avec inversion sur la qualité de la desserte."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "qu'est-ce qui est le plus pratique",
           "english": "what is the most convenient",
-          "example": "Selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
+          "example": "Pour ce qui est du lieu, selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
           "usage": "Tournure superlative pour dégager l'avantage principal."
         },
         {
@@ -1213,7 +1213,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des choses à savoir sur la vie de l'immeuble",
           "english": "Is there anything to know about life in the building",
-          "example": "Y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
+          "example": "Côté conditions, y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
           "usage": "Tournure « y a-t-il des choses à » + infinitif."
         },
         {

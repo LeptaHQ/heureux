@@ -27,12 +27,17 @@
           "memory_section": 7
         },
         {
+          "text": "Côté programmation, est-ce que l'association organise aussi des événements, comme des journées d'adoption ou des collectes ?",
+          "memory_number": 3,
+          "memory_section": 2
+        },
+        {
           "text": "Et l'association s'adresse à quel public — uniquement aux adultes, ou aussi aux familles avec enfants ?",
           "memory_number": 3,
           "memory_section": 7
         },
         {
-          "text": "Pour devenir membre, faut-il des compétences particulières ou une expérience avec les animaux ?",
+          "text": "Côté niveau, pour devenir membre, faut-il des compétences particulières ou une expérience avec les animaux ?",
           "memory_number": 3,
           "memory_section": 6
         },
@@ -42,7 +47,7 @@
           "memory_section": 6
         },
         {
-          "text": "Concrètement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
+          "text": "Côté engagement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -57,12 +62,7 @@
           "memory_section": 13
         },
         {
-          "text": "Y a-t-il une cotisation à payer pour devenir membre, ou l'engagement est-il entièrement gratuit ?",
-          "memory_number": 3,
-          "memory_section": 3
-        },
-        {
-          "text": "Faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
+          "text": "Pour ce qui est de l'équipement, faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
           "memory_number": 3,
           "memory_section": 8
         },
@@ -72,9 +72,9 @@
           "memory_section": 8
         },
         {
-          "text": "Est-ce que l'association organise aussi des événements, comme des journées d'adoption ou des collectes ?",
+          "text": "En ce qui concerne le budget, y a-t-il une cotisation à payer pour devenir membre, ou l'engagement est-il entièrement gratuit ?",
           "memory_number": 3,
-          "memory_section": 2
+          "memory_section": 3
         },
         {
           "text": "En cas de question ou de problème pendant une mission, qui puis-je contacter ?",
@@ -94,7 +94,7 @@
       "prompt": "Je suis un(e) collègue et je sors du cinéma où je viens de voir un film. Pour décider si vous irez le voir, vous me questionnez sur son thème, ses acteurs principaux et les horaires des séances.",
       "questions": [
         {
-          "text": "Alors, tu es allé(e) voir quel film exactement ?",
+          "text": "Alors, raconte-moi cette séance de cinéma — tu es allé(e) voir quel film exactement ?",
           "memory_number": 9,
           "memory_section": 2
         },
@@ -124,7 +124,7 @@
           "memory_section": 6
         },
         {
-          "text": "Qu'est-ce que tu as le plus aimé dans ce film ?",
+          "text": "Côté impressions, qu'est-ce que tu as le plus aimé dans ce film ?",
           "memory_number": 9,
           "memory_section": 10
         },
@@ -134,7 +134,12 @@
           "memory_section": 10
         },
         {
-          "text": "Il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
+          "text": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "memory_number": 9,
+          "memory_section": 6
+        },
+        {
+          "text": "Côté pratique, il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
           "memory_number": 9,
           "memory_section": 2
         },
@@ -144,12 +149,12 @@
           "memory_section": 4
         },
         {
-          "text": "Ça coûte combien pour une place, à peu près ?",
+          "text": "En ce qui concerne le prix, ça coûte combien pour une place, à peu près ?",
           "memory_number": 9,
           "memory_section": 3
         },
         {
-          "text": "Il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
+          "text": "À ce propos, il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
           "memory_number": 9,
           "memory_section": 6
         },
@@ -157,11 +162,6 @@
           "text": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
           "memory_number": 9,
           "memory_section": 5
-        },
-        {
-          "text": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
-          "memory_number": 9,
-          "memory_section": 6
         },
         {
           "text": "Pour finir — tu me le recommandes vraiment, ce film ?",
@@ -191,7 +191,17 @@
           "memory_section": 10
         },
         {
-          "text": "Qu'est-ce que tu as étudié, et où as-tu fait tes études ?",
+          "text": "Sur le plan personnel, tu es venu(e) seul(e) ou accompagné(e) par ta famille ?",
+          "memory_number": 4,
+          "memory_section": 7
+        },
+        {
+          "text": "Qui t'a aidé(e) à t'installer — de la famille, des amis, ou tu as tout géré seul(e) ?",
+          "memory_number": 4,
+          "memory_section": 7
+        },
+        {
+          "text": "Revenons un peu en arrière : qu'est-ce que tu as étudié, et où as-tu fait tes études ?",
           "memory_number": 4,
           "memory_section": 2
         },
@@ -206,7 +216,7 @@
           "memory_section": 11
         },
         {
-          "text": "Quelles ont été les plus grandes difficultés à ton arrivée — la langue, les démarches, la culture ?",
+          "text": "En ce qui concerne les points délicats, quelles ont été les plus grandes difficultés à ton arrivée — la langue, les démarches, la culture ?",
           "memory_number": 4,
           "memory_section": 10
         },
@@ -216,17 +226,12 @@
           "memory_section": 13
         },
         {
-          "text": "Qui t'a aidé(e) à t'installer — de la famille, des amis, ou tu as tout géré seul(e) ?",
+          "text": "Avec le recul, qu'est-ce qui t'a le plus aidé(e) à bien t'intégrer dans une nouvelle équipe ?",
           "memory_number": 4,
           "memory_section": 7
         },
         {
-          "text": "Tu es venu(e) seul(e) ou accompagné(e) par ta famille ?",
-          "memory_number": 4,
-          "memory_section": 7
-        },
-        {
-          "text": "Qu'est-ce qui te manque le plus du Québec ?",
+          "text": "Pour ce qui est de ton ressenti, qu'est-ce qui te manque le plus du Québec ?",
           "memory_number": 4,
           "memory_section": 10
         },
@@ -236,12 +241,7 @@
           "memory_section": 10
         },
         {
-          "text": "Avec le recul, qu'est-ce qui t'a le plus aidé(e) à bien t'intégrer dans une nouvelle équipe ?",
-          "memory_number": 4,
-          "memory_section": 7
-        },
-        {
-          "text": "Pour quelqu'un qui envisage un parcours similaire, quel conseil lui donnerais-tu ?",
+          "text": "Côté conseils, pour quelqu'un qui envisage un parcours similaire, quel conseil lui donnerais-tu ?",
           "memory_number": 4,
           "memory_section": 11
         },
@@ -340,7 +340,7 @@
       "prompt": "Vous passez à la bibliothèque où je travaille pour devenir adhérent(e). Cherchant à comprendre comment tout marche, vous m'interrogez sur les modalités d'inscription, l'agenda culturel et les heures d'accueil.",
       "questions": [
         {
-          "text": "Bonjour, je voudrais m'inscrire à la bibliothèque — comment dois-je procéder ?",
+          "text": "Bonjour ! Je viens d'emménager dans le quartier et je voudrais m'inscrire à la bibliothèque — comment dois-je procéder ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -360,7 +360,7 @@
           "memory_section": 4
         },
         {
-          "text": "Combien de livres peut-on emprunter à la fois ?",
+          "text": "Concrètement, combien de livres peut-on emprunter à la fois ?",
           "memory_number": 10,
           "memory_section": 11
         },
@@ -370,27 +370,32 @@
           "memory_section": 4
         },
         {
-          "text": "Y a-t-il des frais si on rend un document en retard ?",
-          "memory_number": 10,
-          "memory_section": 3
-        },
-        {
           "text": "Peut-on prolonger un emprunt en ligne, ou faut-il revenir sur place ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Proposez-vous aussi des livres numériques ou des livres audio à emprunter ?",
+          "text": "Y a-t-il des frais si on rend un document en retard ?",
+          "memory_number": 10,
+          "memory_section": 3
+        },
+        {
+          "text": "En ce qui concerne le prêt, proposez-vous aussi des livres numériques ou des livres audio à emprunter ?",
           "memory_number": 10,
           "memory_section": 9
         },
         {
-          "text": "Y a-t-il un espace avec des ordinateurs ou un accès Internet sur place ?",
+          "text": "Côté services, y a-t-il un espace avec des ordinateurs ou un accès Internet sur place ?",
           "memory_number": 10,
           "memory_section": 9
         },
         {
-          "text": "Organisez-vous des animations, comme des heures du conte ou des ateliers ?",
+          "text": "Y a-t-il un espace calme pour étudier ou travailler sur place ?",
+          "memory_number": 10,
+          "memory_section": 9
+        },
+        {
+          "text": "Et côté vie culturelle, organisez-vous des animations, comme des heures du conte ou des ateliers ?",
           "memory_number": 10,
           "memory_section": 2
         },
@@ -400,12 +405,7 @@
           "memory_section": 8
         },
         {
-          "text": "Y a-t-il un espace calme pour étudier ou travailler sur place ?",
-          "memory_number": 10,
-          "memory_section": 9
-        },
-        {
-          "text": "Si un livre n'est pas disponible ici, est-il possible de le faire venir d'une autre bibliothèque ?",
+          "text": "D'ailleurs, si un livre n'est pas disponible ici, est-il possible de le faire venir d'une autre bibliothèque ?",
           "memory_number": 10,
           "memory_section": 6
         },

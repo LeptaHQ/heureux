@@ -12,14 +12,9 @@
       "prompt": "Je tiens l'accueil d'un bureau d'information sur la vie associative. Désireux/désireuse de vous engager comme bénévole près de chez vous, vous m'interrogez sur les types d'associations, les activités possibles, le public visé et les horaires.",
       "questions": [
         {
-          "text": "Bonjour, je m'intéresse au bénévolat dans le quartier — quels types d'associations proposez-vous ici ?",
+          "text": "Bonjour ! Je m'intéresse au bénévolat dans le quartier et j'aimerais donner un peu de mon temps — quels types d'associations proposez-vous ici ?",
           "memory_number": 3,
           "memory_section": 2
-        },
-        {
-          "text": "Vous avez mentionné l'accompagnement scolaire — vous pourriez m'en dire un peu plus ?",
-          "memory_number": 3,
-          "memory_section": 13
         },
         {
           "text": "Concrètement, quelles missions sont confiées aux bénévoles au quotidien ?",
@@ -27,9 +22,14 @@
           "memory_section": 2
         },
         {
-          "text": "Ces associations s'adressent à quel public — des enfants, des personnes âgées, des familles ?",
+          "text": "Question niveau, ces associations s'adressent à quel public — des enfants, des personnes âgées, des familles ?",
           "memory_number": 3,
           "memory_section": 6
+        },
+        {
+          "text": "Vous avez mentionné l'accompagnement scolaire — vous pourriez m'en dire un peu plus : ça se passe dans les écoles du quartier ?",
+          "memory_number": 3,
+          "memory_section": 13
         },
         {
           "text": "Est-ce qu'il faut avoir des compétences particulières ou une expérience préalable pour s'engager ?",
@@ -42,7 +42,12 @@
           "memory_section": 6
         },
         {
-          "text": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
+          "text": "J'en profite pour vous demander : comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "memory_number": 3,
+          "memory_section": 10
+        },
+        {
+          "text": "Côté planning, ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -57,28 +62,23 @@
           "memory_section": 4
         },
         {
-          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
-          "memory_number": 3,
-          "memory_section": 10
-        },
-        {
-          "text": "Est-ce que les frais de transport ou de repas sont pris en charge pour les bénévoles ?",
-          "memory_number": 3,
-          "memory_section": 3
-        },
-        "Est-ce qu'on reçoit un certificat ou une lettre de recommandation à la fin de la mission ?",
-        {
           "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
           "memory_number": 3,
           "memory_section": 6
         },
+        {
+          "text": "Sur le plan financier, est-ce que les frais de transport ou de repas sont pris en charge pour les bénévoles ?",
+          "memory_number": 3,
+          "memory_section": 3
+        },
+        "Est-ce qu'on reçoit un certificat ou une lettre de recommandation à la fin de la mission ?",
         {
           "text": "S'il y a le moindre souci, à qui faut-il s'adresser ?",
           "memory_number": 3,
           "memory_section": 13
         },
         {
-          "text": "D'accord, si j'ai encore une question, je peux vous recontacter ?",
+          "text": "D'accord, tout est clair — je vais choisir l'association qui me correspond le mieux et me lancer. Si j'ai encore une question, je peux vous recontacter ?",
           "memory_number": 3,
           "memory_section": 13
         }
@@ -105,24 +105,29 @@
           "memory_section": 2
         },
         {
+          "text": "Vous avez mentionné le programme — vous suivez un manuel précis ou vous l'adaptez aux besoins de chacun ?",
+          "memory_number": 5,
+          "memory_section": 13
+        },
+        {
           "text": "Justement, ça s'adresse à quel niveau — plutôt aux débutants ou aux personnes déjà expérimentées ?",
           "memory_number": 5,
           "memory_section": 6
         },
         {
-          "text": "Il y a combien de séances par semaine, et quelle est la durée d'une séance — environ une heure ou plutôt une heure et demie ?",
+          "text": "Et sinon, comment évaluez-vous la progression de vos élèves — il y a des bilans réguliers ?",
           "memory_number": 5,
           "memory_section": 4
         },
         {
-          "text": "Et côté tarifs, comment ça fonctionne — c'est à la séance ou sous forme de forfait mensuel ?",
+          "text": "Dans le même esprit, est-ce que vous préparez aussi vos élèves à des examens officiels de français ?",
           "memory_number": 5,
-          "memory_section": 3
+          "memory_section": 2
         },
         {
-          "text": "D'ailleurs, est-ce qu'on peut essayer avant de s'engager — il y a un premier cours d'essai ?",
+          "text": "Côté organisation, il y a combien de séances par semaine, et quelle est la durée d'une séance — environ une heure ou plutôt une heure et demie ?",
           "memory_number": 5,
-          "memory_section": 3
+          "memory_section": 4
         },
         {
           "text": "Ça se passe où exactement — chez vous, à domicile, ou c'est possible aussi en ligne ?",
@@ -135,22 +140,17 @@
           "memory_section": 8
         },
         {
-          "text": "Vous avez mentionné le programme — vous pourriez m'en dire un peu plus ?",
+          "text": "Et côté tarifs, comment ça fonctionne — c'est à la séance ou sous forme de forfait mensuel ?",
           "memory_number": 5,
-          "memory_section": 13
+          "memory_section": 3
         },
         {
-          "text": "Et sinon, comment évaluez-vous la progression de vos élèves — il y a des bilans réguliers ?",
+          "text": "D'ailleurs, est-ce qu'on peut essayer avant de s'engager — il y a un premier cours d'essai ?",
           "memory_number": 5,
-          "memory_section": 4
+          "memory_section": 3
         },
         {
-          "text": "D'ailleurs, est-ce que vous préparez aussi vos élèves à des examens officiels de français ?",
-          "memory_number": 5,
-          "memory_section": 2
-        },
-        {
-          "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "text": "Merci pour toutes ces infos, votre approche me convient et j'aimerais commencer dès que possible — si j'ai d'autres questions, je peux vous solliciter ?",
           "memory_number": 5,
           "memory_section": 13
         }
@@ -170,6 +170,26 @@
           "text": "Tu es allé(e) où exactement — quelle région ou station de montagne ?",
           "memory_number": 7,
           "memory_section": 13
+        },
+        {
+          "text": "Et concrètement, quelles activités as-tu faites — ski, randonnée, autres sports ou plutôt détente ?",
+          "memory_number": 7,
+          "memory_section": 2
+        },
+        {
+          "text": "Et dans la continuité, ça s'adresse à quel public — il y avait des activités pour les débutants aussi ?",
+          "memory_number": 7,
+          "memory_section": 6
+        },
+        {
+          "text": "Tu as mentionné ton moment préféré — tu pourrais m'en dire un peu plus : qu'est-ce qui t'a marqué(e) ?",
+          "memory_number": 7,
+          "memory_section": 13
+        },
+        {
+          "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "memory_number": 7,
+          "memory_section": 9
         },
         {
           "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
@@ -192,17 +212,7 @@
           "memory_section": 4
         },
         {
-          "text": "Quelles activités as-tu faites — ski, randonnée, autres sports ou plutôt détente ?",
-          "memory_number": 7,
-          "memory_section": 2
-        },
-        {
-          "text": "Ça s'adresse à quel public — il y avait des activités pour les débutants aussi ?",
-          "memory_number": 7,
-          "memory_section": 6
-        },
-        {
-          "text": "Tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
+          "text": "En ce qui concerne l'hébergement, tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -212,7 +222,7 @@
           "memory_section": 3
         },
         {
-          "text": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?",
+          "text": "Puisqu'on en parle, il faut réserver à l'avance ou on peut trouver facilement sur place ?",
           "memory_number": 7,
           "memory_section": 6
         },
@@ -220,16 +230,6 @@
           "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total ?",
           "memory_number": 7,
           "memory_section": 3
-        },
-        {
-          "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
-          "memory_number": 7,
-          "memory_section": 9
-        },
-        {
-          "text": "Tu as mentionné ton moment préféré — tu pourrais m'en dire un peu plus ?",
-          "memory_number": 7,
-          "memory_section": 13
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
@@ -269,12 +269,17 @@
           "memory_section": 6
         },
         {
-          "text": "Il y a généralement combien de participants — c'est un petit groupe ou une grande classe ?",
+          "text": "Pour ce qui est des personnes présentes, il y a généralement combien de participants — c'est un petit groupe ou une grande classe ?",
           "memory_number": 10,
           "memory_section": 7
         },
         {
-          "text": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
+          "text": "Passons maintenant à un autre point : comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "memory_number": 10,
+          "memory_section": 10
+        },
+        {
+          "text": "Côté horaires, ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
           "memory_number": 10,
           "memory_section": 4
         },
@@ -284,22 +289,12 @@
           "memory_section": 4
         },
         {
-          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque cours séparément ?",
-          "memory_number": 10,
-          "memory_section": 3
-        },
-        {
-          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_number": 10,
-          "memory_section": 3
-        },
-        {
           "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "text": "Côté réservation, comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "memory_number": 10,
           "memory_section": 6
         },
@@ -309,9 +304,14 @@
           "memory_section": 3
         },
         {
-          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque cours séparément ?",
           "memory_number": 10,
-          "memory_section": 10
+          "memory_section": 3
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_number": 10,
+          "memory_section": 3
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",

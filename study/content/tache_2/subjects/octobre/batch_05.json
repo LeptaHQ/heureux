@@ -22,7 +22,17 @@
           "memory_section": 4
         },
         {
-          "text": "Qu'est-ce qu'il faudra faire en priorité pendant que tu seras parti(e) ?",
+          "text": "Côté accès, comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
+          "memory_number": 3,
+          "memory_section": 13
+        },
+        {
+          "text": "Y a-t-il une alarme ou des consignes de sécurité particulières à respecter ?",
+          "memory_number": 3,
+          "memory_section": 8
+        },
+        {
+          "text": "Et concrètement, qu'est-ce qu'il faudra faire en priorité pendant que tu seras parti(e) ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -52,27 +62,17 @@
           "memory_section": 4
         },
         {
-          "text": "Comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
+          "text": "Pour ce qui est de la sécurité, est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
           "memory_number": 3,
           "memory_section": 13
         },
         {
-          "text": "Y a-t-il une alarme ou des consignes de sécurité particulières à respecter ?",
-          "memory_number": 3,
-          "memory_section": 8
-        },
-        {
-          "text": "Est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
+          "text": "Côté imprévus, en cas de problème dans l'immeuble, à qui faut-il s'adresser ?",
           "memory_number": 3,
           "memory_section": 13
         },
         {
-          "text": "En cas de problème dans l'immeuble, à qui faut-il s'adresser ?",
-          "memory_number": 3,
-          "memory_section": 13
-        },
-        {
-          "text": "Est-ce que tu seras facilement joignable pendant ton séjour ?",
+          "text": "Côté contact, est-ce que tu seras facilement joignable pendant ton séjour ?",
           "memory_number": 3,
           "memory_section": 13
         },
@@ -154,7 +154,7 @@
       "prompt": "Enseignant(e) de piano dans une école de musique du quartier, je vous renseigne, en voisin(e), sur l'établissement : vous voulez suivre des cours et m'interrogez sur les formules, les prix, les horaires, etc.",
       "questions": [
         {
-          "text": "Bonjour, je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
+          "text": "Bonjour ! J'aimerais enfin me mettre à la musique et je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -174,29 +174,29 @@
           "memory_section": 6
         },
         {
-          "text": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "text": "En ce qui concerne l'encadrement, les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "memory_number": 10,
+          "memory_section": 7
+        },
+        {
+          "text": "Comment suivez-vous la progression des élèves — il y a des évaluations régulières ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "text": "Question programme, organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
           "memory_number": 10,
-          "memory_section": 7
+          "memory_section": 2
+        },
+        {
+          "text": "Côté organisation, les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "memory_number": 10,
+          "memory_section": 4
         },
         {
           "text": "Faut-il apporter son propre instrument, ou l'école peut-elle en fournir un pour commencer ?",
           "memory_number": 10,
           "memory_section": 8
-        },
-        {
-          "text": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
-          "memory_number": 10,
-          "memory_section": 3
-        },
-        {
-          "text": "Y a-t-il des frais supplémentaires, comme les partitions ou le matériel ?",
-          "memory_number": 10,
-          "memory_section": 3
         },
         {
           "text": "Est-ce qu'on peut essayer avec un cours d'essai avant de s'engager ?",
@@ -209,17 +209,17 @@
           "memory_section": 6
         },
         {
-          "text": "Organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
           "memory_number": 10,
-          "memory_section": 2
+          "memory_section": 3
         },
         {
-          "text": "Comment suivez-vous la progression des élèves — il y a des évaluations régulières ?",
+          "text": "Y a-t-il des frais supplémentaires, comme les partitions ou le matériel ?",
           "memory_number": 10,
-          "memory_section": 4
+          "memory_section": 3
         },
         {
-          "text": "L'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
+          "text": "Côté transport, l'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
           "memory_number": 10,
           "memory_section": 5
         },
@@ -242,6 +242,9 @@
           "text": "Quelles disciplines vous proposez — plutôt du collectif, du fitness, de la course ?"
         },
         {
+          "text": "Question organisation, où est-ce que ça se passe — dans un gymnase, en plein air ?"
+        },
+        {
           "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
           "memory_number": 8,
           "memory_section": 6
@@ -261,10 +264,13 @@
           "text": "Il y a généralement combien de participants ?"
         },
         {
-          "text": "Faut-il un certificat médical ou une condition physique particulière pour participer ?"
+          "text": "Ensuite, est-ce que l'ambiance est plutôt conviviale ou compétitive ?"
         },
         {
-          "text": "Y a-t-il une cotisation à l'association, ou on paie à la séance ?"
+          "text": "Côté santé, faut-il un certificat médical ou une condition physique particulière pour participer ?"
+        },
+        {
+          "text": "En ce qui concerne le budget, y a-t-il une cotisation à l'association, ou on paie à la séance ?"
         },
         {
           "text": "Est-ce qu'on peut essayer une séance avant de s'inscrire ?"
@@ -275,13 +281,7 @@
           "memory_section": 8
         },
         {
-          "text": "Où est-ce que ça se passe — dans un gymnase, en plein air ?"
-        },
-        {
-          "text": "Comment se passe l'inscription — directement auprès de vous ou à l'association ?"
-        },
-        {
-          "text": "Est-ce que l'ambiance est plutôt conviviale ou compétitive ?"
+          "text": "Question réservation, comment se passe l'inscription — directement auprès de vous ou à l'association ?"
         },
         {
           "text": "Pour finir — quelle séance me conseilleriez-vous pour bien commencer ?"
@@ -300,40 +300,40 @@
           "text": "Quels types d'hébergement trouve-t-on dans la région — hôtels, auberges, chambres d'hôtes, campings ?"
         },
         {
+          "text": "Côté hébergement, où vaut-il mieux se loger — plutôt en ville, ou à la campagne près des sites ?"
+        },
+        {
+          "text": "Ces hébergements sont-ils bien situés par rapport aux principales attractions ?"
+        },
+        {
+          "text": "Pour ce qui est du logement, y a-t-il des hébergements adaptés aux familles, avec cuisine ou plusieurs chambres ?"
+        },
+        {
+          "text": "Est-ce qu'il y a des adresses insolites à ne pas manquer — un chalet, un gîte au bord d'un lac ?"
+        },
+        {
+          "text": "Est-ce qu'on trouve facilement des logements accessibles sans voiture ?"
+        },
+        {
           "text": "Qu'est-ce que vous me conseillez si je voyage avec un budget limité ?"
         },
         {
           "text": "Et pour quelque chose de plus confortable ou de plus authentique ?"
         },
         {
-          "text": "Où vaut-il mieux se loger — plutôt en ville, ou à la campagne près des sites ?"
-        },
-        {
-          "text": "Ces hébergements sont-ils bien situés par rapport aux principales attractions ?"
-        },
-        {
-          "text": "Quelle est la gamme de prix en moyenne, selon le type d'hébergement ?"
+          "text": "En ce qui concerne le budget, quelle est la gamme de prix en moyenne, selon le type d'hébergement ?"
         },
         {
           "text": "Les tarifs varient-ils beaucoup selon la saison ?"
         },
         {
-          "text": "Faut-il réserver longtemps à l'avance, surtout en haute saison ?"
-        },
-        {
           "text": "Est-ce que le petit-déjeuner ou les repas sont souvent inclus ?"
         },
         {
-          "text": "Y a-t-il des hébergements adaptés aux familles, avec cuisine ou plusieurs chambres ?"
+          "text": "Pour ce qui est de la météo, faut-il réserver longtemps à l'avance, surtout en haute saison ?"
         },
         {
-          "text": "Est-ce qu'on trouve facilement des logements accessibles sans voiture ?"
-        },
-        {
-          "text": "Vous auriez une brochure ou un site pour comparer et réserver ?"
-        },
-        {
-          "text": "Est-ce qu'il y a des adresses insolites à ne pas manquer — un chalet, un gîte au bord d'un lac ?"
+          "text": "Et pour finir de m'organiser, vous auriez une brochure ou un site pour comparer et réserver ?"
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'un seul type d'hébergement pour découvrir la région, ce serait lequel ?"

@@ -12,7 +12,7 @@
       "prompt": "Vous devez garder la fille de 3 ans de votre ami(e) pendant un week-end. Posez des questions sur ses habitudes : alimentation, loisirs, sommeil, etc.",
       "questions": [
         {
-          "text": "Salut ! Je vais garder ta fille ce week-end — quels sont ses repas préférés et ce qu'elle mange habituellement ?",
+          "text": "Salut ! Je vais garder ta fille ce week-end — tu peux me dire quels sont ses repas préférés et ce qu'elle mange habituellement ?",
           "memory_number": 3,
           "memory_section": 9
         },
@@ -22,7 +22,28 @@
           "memory_section": 8
         },
         {
-          "text": "À quelle heure se couche-t-elle le soir — et fait-elle une sieste dans la journée ?",
+          "text": "Côté loisirs, quels sont ses jeux ou activités préférés — elle aime plutôt rester à l'intérieur ou sortir au parc ?",
+          "memory_number": 3,
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il des objets ou jouets qu'elle veut toujours avoir avec elle ?",
+          "memory_number": 3,
+          "memory_section": 8
+        },
+        {
+          "text": "Avant que j'oublie, elle aime être seule un moment ou elle préfère rester avec quelqu'un ?"
+        },
+        {
+          "text": "Comment réagit-elle si elle est fatiguée ou contrariée ?"
+        },
+        {
+          "text": "A-t-elle des rituels particuliers le matin ou avant le bain ?",
+          "memory_number": 3,
+          "memory_section": 4
+        },
+        {
+          "text": "Côté sommeil, à quelle heure se couche-t-elle le soir — et fait-elle une sieste dans la journée ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -32,20 +53,9 @@
           "memory_section": 4
         },
         {
-          "text": "Quels sont ses jeux ou activités préférés — elle aime plutôt rester à l'intérieur ou sortir au parc ?",
+          "text": "Tu as mentionné ses habitudes du soir — tu pourrais m'en dire un peu plus sur sa routine avant de dormir ?",
           "memory_number": 3,
-          "memory_section": 2
-        },
-        {
-          "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
-          "memory_number": 3,
-          "memory_section": 8
-        },
-        {
-          "text": "Elle aime être seule un moment ou elle préfère rester avec quelqu'un ?"
-        },
-        {
-          "text": "Comment réagit-elle si elle est fatiguée ou contrariée ?"
+          "memory_section": 4
         },
         {
           "text": "Y a-t-il des signes de maladie ou de stress auxquels je dois faire attention ?",
@@ -63,19 +73,9 @@
           "memory_section": 13
         },
         {
-          "text": "Y a-t-il des objets ou jouets qu'elle veut toujours avoir avec elle ?",
+          "text": "En ce qui concerne le matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
           "memory_number": 3,
           "memory_section": 8
-        },
-        {
-          "text": "A-t-elle des rituels particuliers le matin ou avant le bain ?",
-          "memory_number": 3,
-          "memory_section": 4
-        },
-        {
-          "text": "Tu as mentionné ses habitudes du soir — tu pourrais m'en dire un peu plus sur sa routine avant de dormir ?",
-          "memory_number": 3,
-          "memory_section": 4
         },
         {
           "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour qu'elle se sente bien, ce serait lequel ?",
@@ -100,6 +100,16 @@
           "memory_section": 2
         },
         {
+          "text": "Tu as mentionné ce spectacle — tu pourrais m'en dire un peu plus sur pourquoi tu l'as choisi ?",
+          "memory_number": 9,
+          "memory_section": 11
+        },
+        {
+          "text": "Côté niveau, ça s'adresse à quel public — plutôt aux amateurs ou accessible à tout le monde ?",
+          "memory_number": 9,
+          "memory_section": 6
+        },
+        {
           "text": "Ça se passe où exactement — dans les locaux ou dans un lieu extérieur ?",
           "memory_number": 9,
           "memory_section": 13
@@ -115,14 +125,9 @@
           "memory_section": 4
         },
         {
-          "text": "Parlons du budget — combien est-ce que ça coûte approximativement pour un billet ?",
+          "text": "Côté groupe, il y a généralement combien de participants — c'est une petite salle ou un grand lieu ?",
           "memory_number": 9,
-          "memory_section": 3
-        },
-        {
-          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_number": 9,
-          "memory_section": 3
+          "memory_section": 7
         },
         {
           "text": "Il reste encore des places ou c'est déjà complet ?",
@@ -130,22 +135,12 @@
           "memory_section": 6
         },
         {
-          "text": "Y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
+          "text": "Côté accès, y a-t-il un parking à proximité ou il vaut mieux venir en transports en commun ?",
           "memory_number": 9,
           "memory_section": 5
         },
         {
-          "text": "Il y a généralement combien de participants — c'est une petite salle ou un grand lieu ?",
-          "memory_number": 9,
-          "memory_section": 7
-        },
-        {
-          "text": "Ça s'adresse à quel public — plutôt aux amateurs ou accessible à tout le monde ?",
-          "memory_number": 9,
-          "memory_section": 6
-        },
-        {
-          "text": "Y a-t-il des règles particulières à respecter — photos interdites, tenue vestimentaire ?",
+          "text": "Question matériel, y a-t-il des règles particulières à respecter — photos interdites, tenue vestimentaire ?",
           "memory_number": 9,
           "memory_section": 8
         },
@@ -155,9 +150,14 @@
           "memory_section": 9
         },
         {
-          "text": "Tu as mentionné ce spectacle — tu pourrais m'en dire un peu plus sur pourquoi tu l'as choisi ?",
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement pour un billet ?",
           "memory_number": 9,
-          "memory_section": 11
+          "memory_section": 3
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_number": 9,
+          "memory_section": 3
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
@@ -172,7 +172,7 @@
       "prompt": "Vous souhaitez vous informer sur les activités culturelles de la ville et posez des questions à un employé du service culturel.",
       "questions": [
         {
-          "text": "Bonjour ! Je m'intéresse aux activités culturelles dans la ville — quelles activités proposez-vous pour les habitants ?",
+          "text": "Bonjour ! Je viens de m'installer dans la ville et je m'intéresse aux activités culturelles — quelles activités proposez-vous pour les habitants ?",
           "memory_number": 10,
           "memory_section": 2
         },
@@ -182,22 +182,7 @@
           "memory_section": 2
         },
         {
-          "text": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
-          "memory_number": 10,
-          "memory_section": 2
-        },
-        {
-          "text": "Les expositions temporaires sont incluses dans le billet d'entrée ou faut-il payer un supplément ?",
-          "memory_number": 10,
-          "memory_section": 3
-        },
-        {
-          "text": "Jusqu'à quand cette exposition sera-t-elle accessible ?",
-          "memory_number": 10,
-          "memory_section": 2
-        },
-        {
-          "text": "La programmation est publiée à l'avance ou on la découvre sur place ?",
+          "text": "Deuxième point : la programmation est publiée à l'avance ou on la découvre sur place ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -212,17 +197,27 @@
           "memory_section": 4
         },
         {
-          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ?",
+          "text": "Question programme, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "memory_number": 10,
+          "memory_section": 2
+        },
+        {
+          "text": "Les expositions temporaires sont incluses dans le billet d'entrée ou faut-il payer un supplément ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "text": "Jusqu'à quand cette exposition sera-t-elle accessible ?",
           "memory_number": 10,
-          "memory_section": 3
+          "memory_section": 2
         },
         {
-          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "text": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
+          "memory_number": 10,
+          "memory_section": 8
+        },
+        {
+          "text": "D'ailleurs, comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "memory_number": 10,
           "memory_section": 6
         },
@@ -232,12 +227,17 @@
           "memory_section": 6
         },
         {
-          "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ?",
           "memory_number": 10,
-          "memory_section": 8
+          "memory_section": 3
         },
         {
-          "text": "Vous avez mentionné des activités pour rencontrer d'autres habitants — vous pourriez m'en dire un peu plus ?",
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_number": 10,
+          "memory_section": 3
+        },
+        {
+          "text": "Vous avez mentionné des activités pour rencontrer d'autres habitants — vous pourriez m'en dire un peu plus : comment est-ce qu'on s'y joint ?",
           "memory_number": 10,
           "memory_section": 7
         },
@@ -264,7 +264,17 @@
           "memory_section": 2
         },
         {
-          "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
+          "memory_number": 7,
+          "memory_section": 11
+        },
+        {
+          "text": "Côté durée, combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
+          "memory_number": 7,
+          "memory_section": 4
+        },
+        {
+          "text": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -279,12 +289,7 @@
           "memory_section": 8
         },
         {
-          "text": "Combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
-          "memory_number": 7,
-          "memory_section": 4
-        },
-        {
-          "text": "Vous connaissez de bons endroits où dormir — hôtels, appartements, auberges ?",
+          "text": "Côté hébergement, vous connaissez de bons endroits où dormir — hôtels, appartements, auberges ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -314,14 +319,9 @@
           "memory_section": 3
         },
         {
-          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "text": "En ce qui concerne le prix, est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
           "memory_number": 7,
           "memory_section": 3
-        },
-        {
-          "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
-          "memory_number": 7,
-          "memory_section": 11
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
@@ -341,14 +341,14 @@
           "memory_section": 9
         },
         {
-          "text": "Le remorquage est couvert — et jusqu'à quelle distance ?",
+          "text": "D'abord, que dois-je faire en attendant l'arrivée de l'assistance pour rester en sécurité ?",
           "memory_number": 6,
           "memory_section": 8
         },
         {
-          "text": "Y a-t-il des garages partenaires où les frais sont pris en charge directement ?",
+          "text": "Le remorquage est couvert — et jusqu'à quelle distance ?",
           "memory_number": 6,
-          "memory_section": 9
+          "memory_section": 8
         },
         {
           "text": "Combien de temps prend en général l'intervention après l'appel ?",
@@ -361,7 +361,12 @@
           "memory_section": 9
         },
         {
-          "text": "Si la voiture ne peut pas être réparée immédiatement, proposez-vous un véhicule de remplacement ?",
+          "text": "Y a-t-il des garages partenaires où les frais sont pris en charge directement ?",
+          "memory_number": 6,
+          "memory_section": 9
+        },
+        {
+          "text": "Question transport, si la voiture ne peut pas être réparée immédiatement, proposez-vous un véhicule de remplacement ?",
           "memory_number": 6,
           "memory_section": 9
         },
@@ -381,22 +386,17 @@
           "memory_section": 4
         },
         {
-          "text": "Y a-t-il des conditions ou limites pour bénéficier de l'assistance routière ?",
+          "text": "En ce qui concerne les règles, y a-t-il des conditions ou limites pour bénéficier de l'assistance routière ?",
           "memory_number": 6,
           "memory_section": 8
         },
         {
-          "text": "Y a-t-il des frais supplémentaires selon la distance ou le type de véhicule ?",
+          "text": "Côté budget, y a-t-il des frais supplémentaires selon la distance ou le type de véhicule ?",
           "memory_number": 6,
           "memory_section": 3
         },
         {
-          "text": "Faut-il fournir des documents avant que l'assistance arrive — lesquels exactement ?",
-          "memory_number": 6,
-          "memory_section": 8
-        },
-        {
-          "text": "Que dois-je faire en attendant l'arrivée de l'assistance pour rester en sécurité ?",
+          "text": "Côté affaires à prévoir, faut-il fournir des documents avant que l'assistance arrive — lesquels exactement ?",
           "memory_number": 6,
           "memory_section": 8
         },

@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "débutants",
           "english": "beginners",
-          "example": "À quel public s'adressent les séances — plutôt aux débutants ou aux personnes déjà expérimentées ?",
+          "example": "Question niveau, à quel public s'adressent les séances — plutôt aux débutants ou aux personnes déjà expérimentées ?",
           "usage": "Nom pluriel désignant les personnes qui commencent une activité."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "l'inscription",
           "english": "the registration/sign-up",
-          "example": "Comment se passe l'inscription — il faut s'inscrire à l'avance ou on peut venir librement ? Et c'est gratuit ou il y a une participation financière ?",
+          "example": "Côté tarifs, comment se passe l'inscription — il faut s'inscrire à l'avance ou on peut venir librement ? Et c'est gratuit ou il y a une participation financière ?",
           "usage": "Nom féminin désignant la démarche administrative pour participer à une activité."
         },
         {
@@ -97,7 +97,7 @@
           "kind": "collocation",
           "french": "avant le travail",
           "english": "before work",
-          "example": "Les séances ont lieu quel jour exactement — et plutôt le matin avant le travail ou en fin de journée ?",
+          "example": "Côté organisation, les séances ont lieu quel jour exactement — et plutôt le matin avant le travail ou en fin de journée ?",
           "usage": "Groupe prépositionnel courant pour situer un moment dans la journée par rapport au travail."
         },
         {
@@ -105,7 +105,7 @@
           "kind": "collocation",
           "french": "en fin de journée",
           "english": "at the end of the day",
-          "example": "Les séances ont lieu quel jour exactement — et plutôt le matin avant le travail ou en fin de journée ?",
+          "example": "Côté organisation, les séances ont lieu quel jour exactement — et plutôt le matin avant le travail ou en fin de journée ?",
           "usage": "Expression de temps très fréquente à l'oral pour désigner la fin d'après-midi ou le soir."
         },
         {
@@ -161,7 +161,7 @@
           "kind": "collocation",
           "french": "participation financière",
           "english": "financial contribution/fee",
-          "example": "Comment se passe l'inscription — il faut s'inscrire à l'avance ou on peut venir librement ? Et c'est gratuit ou il y a une participation financière ?",
+          "example": "Côté tarifs, comment se passe l'inscription — il faut s'inscrire à l'avance ou on peut venir librement ? Et c'est gratuit ou il y a une participation financière ?",
           "usage": "Groupe nominal désignant une somme d'argent demandée en contrepartie d'un service."
         },
         {
@@ -185,7 +185,7 @@
           "kind": "tournure",
           "french": "ont lieu quel jour exactement",
           "english": "take place on which day exactly",
-          "example": "Les séances ont lieu quel jour exactement — et plutôt le matin avant le travail ou en fin de journée ?",
+          "example": "Côté organisation, les séances ont lieu quel jour exactement — et plutôt le matin avant le travail ou en fin de journée ?",
           "usage": "Question orale avec le mot interrogatif « quel jour » laissé in situ (sans inversion), le sujet restant à sa place normale avant le verbe ; structure typique du français parlé."
         },
         {
@@ -225,7 +225,7 @@
           "kind": "tournure",
           "french": "il faut s'inscrire à l'avance",
           "english": "you have to register in advance",
-          "example": "Comment se passe l'inscription — il faut s'inscrire à l'avance ou on peut venir librement ? Et c'est gratuit ou il y a une participation financière ?",
+          "example": "Côté tarifs, comment se passe l'inscription — il faut s'inscrire à l'avance ou on peut venir librement ? Et c'est gratuit ou il y a une participation financière ?",
           "usage": "Tournure impersonnelle avec \"il faut\" exprimant une nécessité ou obligation."
         },
         {
@@ -233,7 +233,7 @@
           "kind": "tournure",
           "french": "c'est gratuit ou",
           "english": "is it free or",
-          "example": "Comment se passe l'inscription — il faut s'inscrire à l'avance ou on peut venir librement ? Et c'est gratuit ou il y a une participation financière ?",
+          "example": "Côté tarifs, comment se passe l'inscription — il faut s'inscrire à l'avance ou on peut venir librement ? Et c'est gratuit ou il y a une participation financière ?",
           "usage": "Structure interrogative simple pour proposer une alternative sur le prix."
         },
         {
@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "un reflex",
           "english": "a DSLR camera",
-          "example": "Quel type d'appareil est recommandé — un reflex ou un appareil plus simple suffit ?",
+          "example": "En ce qui concerne le matériel, quel type d'appareil est recommandé — un reflex ou un appareil plus simple suffit ?",
           "usage": "Nom masculin désignant un type d'appareil photo professionnel à visée réflexe."
         },
         {
@@ -302,7 +302,7 @@
           "kind": "mot-cle",
           "french": "logiciel",
           "english": "software program",
-          "example": "Pour le traitement des photos, quel logiciel est généralement recommandé ?",
+          "example": "Il me reste un point à éclaircir : pour le traitement des photos, quel logiciel est généralement recommandé ?",
           "usage": "Nom masculin désignant un programme informatique, ici pour retoucher des photos."
         },
         {
@@ -334,7 +334,7 @@
           "kind": "collocation",
           "french": "emploi du temps professionnel",
           "english": "professional/work schedule",
-          "example": "Les cours ont lieu quel jour — plutôt en semaine ou le week-end ? Et c'est compatible avec un emploi du temps professionnel ?",
+          "example": "Côté organisation, les cours ont lieu quel jour — plutôt en semaine ou le week-end ? Et c'est compatible avec un emploi du temps professionnel ?",
           "usage": "Groupe nominal désignant l'organisation du temps liée à l'activité professionnelle."
         },
         {
@@ -366,7 +366,7 @@
           "kind": "collocation",
           "french": "prendre des photos",
           "english": "to take photos/pictures",
-          "example": "Y a-t-il des sorties pratiques pour prendre des photos en extérieur ou tout se fait en salle ?",
+          "example": "En ce qui concerne l'endroit, y a-t-il des sorties pratiques pour prendre des photos en extérieur ou tout se fait en salle ?",
           "usage": "Collocation verbale de base et très fréquente autour de la photographie."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "tout se fait en salle",
           "english": "everything is done indoors",
-          "example": "Y a-t-il des sorties pratiques pour prendre des photos en extérieur ou tout se fait en salle ?",
+          "example": "En ce qui concerne l'endroit, y a-t-il des sorties pratiques pour prendre des photos en extérieur ou tout se fait en salle ?",
           "usage": "Structure impersonnelle avec \"se faire\" pour décrire un lieu de pratique."
         },
         {
@@ -462,7 +462,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce qu'on apprend concrètement",
           "english": "What do you actually/concretely learn",
-          "example": "Qu'est-ce qu'on apprend concrètement — c'est plutôt technique, artistique ou un mélange des deux ?",
+          "example": "J'en profite pour vous demander : qu'est-ce qu'on apprend concrètement — c'est plutôt technique, artistique ou un mélange des deux ?",
           "usage": "Tournure interrogative avec \"qu'est-ce que\" pour demander un contenu précis."
         },
         {
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des sorties pratiques pour",
           "english": "Are there practical outings for",
-          "example": "Y a-t-il des sorties pratiques pour prendre des photos en extérieur ou tout se fait en salle ?",
+          "example": "En ce qui concerne l'endroit, y a-t-il des sorties pratiques pour prendre des photos en extérieur ou tout se fait en salle ?",
           "usage": "Tournure interrogative avec inversion pour demander l'existence d'activités concrètes."
         },
         {
@@ -531,7 +531,7 @@
           "kind": "mot-cle",
           "french": "les vacances scolaires",
           "english": "school holidays",
-          "example": "Proposez-vous des activités spécifiques pendant les vacances scolaires, notamment pour les enfants ?",
+          "example": "Pour ce qui est des services, proposez-vous des activités spécifiques pendant les vacances scolaires, notamment pour les enfants ?",
           "usage": "Groupe nominal figé désignant les périodes de congé du calendrier scolaire."
         },
         {
@@ -539,7 +539,7 @@
           "kind": "mot-cle",
           "french": "un abonnement",
           "english": "a subscription/membership",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
           "usage": "Nom masculin désignant un contrat donnant un accès régulier à un service."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "l'inscription",
           "english": "the registration",
-          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "example": "En ce qui concerne la réservation, comment se passe l'inscription — en ligne ou uniquement sur place ? Il faut s'inscrire à l'avance ou on peut venir librement ?",
           "usage": "Nom féminin désignant la démarche pour s'inscrire à une activité."
         },
         {
@@ -603,7 +603,7 @@
           "kind": "collocation",
           "french": "expositions temporaires",
           "english": "temporary exhibitions",
-          "example": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "usage": "Groupe nominal désignant des présentations limitées dans le temps, par opposition au fonds permanent."
         },
         {
@@ -611,7 +611,7 @@
           "kind": "collocation",
           "french": "collection permanente",
           "english": "permanent collection",
-          "example": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "usage": "Groupe nominal désignant l'ensemble des œuvres exposées en continu dans un lieu culturel."
         },
         {
@@ -619,7 +619,7 @@
           "kind": "collocation",
           "french": "en fin de journée",
           "english": "at the end of the day",
-          "example": "À quelle heure commencent les cours et les ateliers — plutôt le matin ou en fin de journée ? Et vous êtes ouverts le week-end ?",
+          "example": "Côté horaires, à quelle heure commencent les cours et les ateliers — plutôt le matin ou en fin de journée ? Et vous êtes ouverts le week-end ?",
           "usage": "Expression de temps courante pour désigner la fin d'après-midi ou le soir."
         },
         {
@@ -627,7 +627,7 @@
           "kind": "collocation",
           "french": "tarifs réduits",
           "english": "reduced rates",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
           "usage": "Groupe nominal désignant des prix diminués pour certains publics comme les étudiants ou seniors."
         },
         {
@@ -683,7 +683,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des expositions temporaires",
           "english": "Are there any temporary exhibitions",
-          "example": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "usage": "Question avec inversion pour demander si un type d'exposition est actuellement proposé."
         },
         {
@@ -691,7 +691,7 @@
           "kind": "tournure",
           "french": "À quelle heure commencent",
           "english": "At what time do ... start",
-          "example": "À quelle heure commencent les cours et les ateliers — plutôt le matin ou en fin de journée ? Et vous êtes ouverts le week-end ?",
+          "example": "Côté horaires, à quelle heure commencent les cours et les ateliers — plutôt le matin ou en fin de journée ? Et vous êtes ouverts le week-end ?",
           "usage": "Tournure interrogative introduite par un groupe prépositionnel en tête de phrase."
         },
         {
@@ -699,7 +699,7 @@
           "kind": "tournure",
           "french": "Comment fonctionnent les tarifs",
           "english": "How do the rates/pricing work",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
           "usage": "Tournure interrogative avec \"comment\" pour demander une explication de fonctionnement."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "Comment se passe l'inscription",
           "english": "How does registration work",
-          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "example": "En ce qui concerne la réservation, comment se passe l'inscription — en ligne ou uniquement sur place ? Il faut s'inscrire à l'avance ou on peut venir librement ?",
           "usage": "Question ouverte avec « comment » pour demander les modalités d'inscription avant de préciser les options."
         },
         {
@@ -768,7 +768,7 @@
           "kind": "mot-cle",
           "french": "des festivals",
           "english": "festivals",
-          "example": "Y a-t-il des événements culturels, des festivals ou des marchés locaux cette semaine ?",
+          "example": "Question programme, y a-t-il des événements culturels, des festivals ou des marchés locaux cette semaine ?",
           "usage": "Nom pluriel désignant des événements culturels ou artistiques organisés périodiquement."
         },
         {
@@ -784,7 +784,7 @@
           "kind": "mot-cle",
           "french": "kayak",
           "english": "kayak/kayaking",
-          "example": "Quelles activités de plein air peut-on pratiquer — vélo, kayak ? Est-il possible de louer du matériel sur place ?",
+          "example": "Et quelles activités de plein air peut-on pratiquer — vélo, kayak ? Est-il possible de louer du matériel sur place ?",
           "usage": "Nom masculin désignant à la fois l'embarcation et l'activité nautique associée."
         },
         {
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "une voiture",
           "english": "a car",
-          "example": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
+          "example": "Pour ce qui est du trajet, est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
           "usage": "Nom féminin désignant le véhicule de transport individuel le plus courant."
         },
         {
@@ -800,7 +800,7 @@
           "kind": "mot-cle",
           "french": "une autre saison",
           "english": "another season",
-          "example": "C'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
+          "example": "Et côté saison, c'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
           "usage": "Nom féminin désignant l'une des quatre périodes de l'année, ici au sens touristique."
         },
         {
@@ -856,7 +856,7 @@
           "kind": "collocation",
           "french": "villages typiques",
           "english": "typical/quaint villages",
-          "example": "Conseillez-vous la visite de villages typiques ou pittoresques aux alentours ?",
+          "example": "Côté découvertes, conseillez-vous la visite de villages typiques ou pittoresques aux alentours ?",
           "usage": "Groupe nominal désignant des localités représentatives du charme régional."
         },
         {
@@ -872,7 +872,7 @@
           "kind": "collocation",
           "french": "marchés locaux",
           "english": "local markets",
-          "example": "Y a-t-il des événements culturels, des festivals ou des marchés locaux cette semaine ?",
+          "example": "Question programme, y a-t-il des événements culturels, des festivals ou des marchés locaux cette semaine ?",
           "usage": "Groupe nominal désignant des marchés proposant des produits de la région."
         },
         {
@@ -880,7 +880,7 @@
           "kind": "collocation",
           "french": "activités de plein air",
           "english": "outdoor activities",
-          "example": "Quelles activités de plein air peut-on pratiquer — vélo, kayak ? Est-il possible de louer du matériel sur place ?",
+          "example": "Et quelles activités de plein air peut-on pratiquer — vélo, kayak ? Est-il possible de louer du matériel sur place ?",
           "usage": "Groupe nominal désignant des loisirs pratiqués en extérieur."
         },
         {
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "louer du matériel",
           "english": "to rent equipment",
-          "example": "Quelles activités de plein air peut-on pratiquer — vélo, kayak ? Est-il possible de louer du matériel sur place ?",
+          "example": "Et quelles activités de plein air peut-on pratiquer — vélo, kayak ? Est-il possible de louer du matériel sur place ?",
           "usage": "Collocation verbale courante pour parler de la location d'objets pour une activité."
         },
         {
@@ -896,7 +896,7 @@
           "kind": "collocation",
           "french": "se déplacer en transports en commun",
           "english": "to get around by public transport",
-          "example": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
+          "example": "Pour ce qui est du trajet, est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
           "usage": "Collocation verbale décrivant un mode de déplacement urbain courant."
         },
         {
@@ -928,7 +928,7 @@
           "kind": "tournure",
           "french": "Conseillez-vous la visite de",
           "english": "Would you recommend visiting",
-          "example": "Conseillez-vous la visite de villages typiques ou pittoresques aux alentours ?",
+          "example": "Côté découvertes, conseillez-vous la visite de villages typiques ou pittoresques aux alentours ?",
           "usage": "Tournure interrogative avec inversion, vouvoiement, pour demander un avis touristique."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "Est-il possible de louer",
           "english": "Is it possible to rent",
-          "example": "Quelles activités de plein air peut-on pratiquer — vélo, kayak ? Est-il possible de louer du matériel sur place ?",
+          "example": "Et quelles activités de plein air peut-on pratiquer — vélo, kayak ? Est-il possible de louer du matériel sur place ?",
           "usage": "Tournure interrogative avec inversion et registre soutenu."
         },
         {
@@ -968,7 +968,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'il est facile de",
           "english": "Is it easy to",
-          "example": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
+          "example": "Pour ce qui est du trajet, est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
           "usage": "Tournure interrogative standard avec \"est-ce que\" pour évaluer une difficulté."
         },
         {

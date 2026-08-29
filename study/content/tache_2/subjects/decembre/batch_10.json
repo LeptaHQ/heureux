@@ -25,7 +25,17 @@
           "memory_section": 10
         },
         {
-          "text": "Combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
+          "text": "Il y a un autre point qui m'intéresse : quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
+          "memory_number": 7,
+          "memory_section": 2
+        },
+        {
+          "text": "Tu as mentionné que c'était formidable — tu pourrais m'en dire un peu plus sur ce qui t'a le plus marqué(e) ?",
+          "memory_number": 7,
+          "memory_section": 10
+        },
+        {
+          "text": "Côté organisation, combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
           "memory_number": 7,
           "memory_section": 4
         },
@@ -40,7 +50,7 @@
           "memory_section": 8
         },
         {
-          "text": "Tu connais de bons endroits où séjourner — hôtels, chambres d'hôtes, locations ?",
+          "text": "Question hébergement, tu connais de bons endroits où séjourner — hôtels, chambres d'hôtes, locations ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -50,14 +60,9 @@
           "memory_section": 9
         },
         {
-          "text": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?",
+          "text": "Dans le même esprit, il faut réserver à l'avance ou on peut trouver facilement sur place ?",
           "memory_number": 7,
           "memory_section": 9
-        },
-        {
-          "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total ?",
-          "memory_number": 7,
-          "memory_section": 3
         },
         {
           "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
@@ -70,14 +75,9 @@
           "memory_section": 9
         },
         {
-          "text": "Quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total ?",
           "memory_number": 7,
-          "memory_section": 2
-        },
-        {
-          "text": "Tu as mentionné que c'était formidable — tu pourrais m'en dire un peu plus sur ce qui t'a le plus marqué(e) ?",
-          "memory_number": 7,
-          "memory_section": 10
+          "memory_section": 3
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
@@ -98,9 +98,6 @@
           "text": "C'est quel style de danse — contemporaine, salsa, hip-hop, classique ?"
         },
         {
-          "text": "Les cours se passent dans quel type de salle — un studio de danse dédié, une salle polyvalente ?"
-        },
-        {
           "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
           "memory_number": 10,
           "memory_section": 6
@@ -111,12 +108,20 @@
           "memory_section": 6
         },
         {
-          "text": "Il y a généralement combien de participants — c'est un petit groupe ou une grande classe ?",
+          "text": "Pour ce qui est des personnes présentes, il y a généralement combien de participants — c'est un petit groupe ou une grande classe ?",
           "memory_number": 10,
           "memory_section": 7
         },
         {
-          "text": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
+          "text": "Passons maintenant à un autre point : comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "memory_number": 10,
+          "memory_section": 10
+        },
+        {
+          "text": "Les cours se passent dans quel type de salle — un studio de danse dédié, une salle polyvalente ?"
+        },
+        {
+          "text": "Côté horaires, ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
           "memory_number": 10,
           "memory_section": 4
         },
@@ -126,22 +131,12 @@
           "memory_section": 4
         },
         {
-          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque cours séparément ?",
-          "memory_number": 10,
-          "memory_section": 3
-        },
-        {
-          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_number": 10,
-          "memory_section": 3
-        },
-        {
           "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "text": "À ce propos, comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "memory_number": 10,
           "memory_section": 6
         },
@@ -151,9 +146,14 @@
           "memory_section": 3
         },
         {
-          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque cours séparément ?",
           "memory_number": 10,
-          "memory_section": 10
+          "memory_section": 3
+        },
+        {
+          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_number": 10,
+          "memory_section": 3
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
@@ -188,13 +188,13 @@
           "text": "On sera nombreux à peu près ?"
         },
         {
-          "text": "Comment ça va se dérouler — il y a un programme, des discours, un repas ?"
+          "text": "Côté organisation, comment ça va se dérouler — il y a un programme, des discours, un repas ?"
         },
         {
           "text": "Il y a un thème ou une tenue particulière à prévoir ?"
         },
         {
-          "text": "Qu'est-ce qui est prévu côté repas — un buffet, un traiteur ?"
+          "text": "Et qu'est-ce qui est prévu côté repas — un buffet, un traiteur ?"
         },
         {
           "text": "Est-ce qu'on doit apporter quelque chose — un plat, une boisson ?",
@@ -202,16 +202,16 @@
           "memory_section": 13
         },
         {
-          "text": "Pour le cadeau, on fait quelque chose en commun, ou chacun apporte le sien ?"
+          "text": "Justement, pour le cadeau, on fait quelque chose en commun, ou chacun apporte le sien ?"
+        },
+        {
+          "text": "Côté déplacements, comment on s'y rend — c'est accessible en transports, il y a un parking ?"
+        },
+        {
+          "text": "Pour ce qui est des dates, est-ce qu'il faut confirmer sa présence, et jusqu'à quand ?"
         },
         {
           "text": "Tu veux un coup de main pour organiser quoi que ce soit ?"
-        },
-        {
-          "text": "Comment on s'y rend — c'est accessible en transports, il y a un parking ?"
-        },
-        {
-          "text": "Est-ce qu'il faut confirmer sa présence, et jusqu'à quand ?"
         },
         {
           "text": "En tout cas je serai là avec plaisir — tu veux que je m'occupe de quelque chose en particulier ?"
@@ -232,22 +232,17 @@
           "memory_section": 7
         },
         {
+          "text": "D'abord, la garde aurait lieu chez vous ou chez moi ?",
+          "memory_number": 3,
+          "memory_section": 13
+        },
+        {
           "text": "Concrètement, qu'attendez-vous de moi pendant la garde — quelles seront mes principales responsabilités ?",
           "memory_number": 3,
           "memory_section": 7
         },
         {
-          "text": "Pour les repas, qu'avez-vous prévu, et à quelles heures faut-il les servir ?",
-          "memory_number": 3,
-          "memory_section": 7
-        },
-        {
-          "text": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
-          "memory_number": 3,
-          "memory_section": 8
-        },
-        {
-          "text": "Quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
+          "text": "Pour ce qui est des loisirs, quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
           "memory_number": 3,
           "memory_section": 7
         },
@@ -262,24 +257,29 @@
           "memory_section": 8
         },
         {
+          "text": "Et pour les repas, qu'avez-vous prévu, et à quelles heures faut-il les servir ?",
+          "memory_number": 3,
+          "memory_section": 7
+        },
+        {
+          "text": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
+          "memory_number": 3,
+          "memory_section": 8
+        },
+        {
+          "text": "Côté santé, y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
+          "memory_number": 3,
+          "memory_section": 8
+        },
+        {
           "text": "Si la garde se prolonge le soir, à quelle heure faut-il prévoir le coucher, et y a-t-il une routine particulière ?",
           "memory_number": 3,
           "memory_section": 4
         },
         {
-          "text": "Y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
+          "text": "Question lieu, qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
           "memory_number": 3,
           "memory_section": 8
-        },
-        {
-          "text": "Qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
-          "memory_number": 3,
-          "memory_section": 8
-        },
-        {
-          "text": "La garde aurait lieu chez vous ou chez moi ?",
-          "memory_number": 3,
-          "memory_section": 13
         },
         {
           "text": "Y a-t-il d'autres habitudes ou règles importantes à respecter avec votre enfant ?",
@@ -292,7 +292,7 @@
           "memory_section": 13
         },
         {
-          "text": "Pour finir — y a-t-il autre chose d'important que je devrais savoir avant ce week-end ?",
+          "text": "Pour finir — y a-t-il autre chose d'important que je devrais savoir avant le jour J ?",
           "memory_number": 3,
           "memory_section": 13
         }
@@ -315,18 +315,18 @@
           "text": "Quels musées et sites culturels importants me recommandez-vous en priorité ?"
         },
         {
-          "text": "Proposez-vous des visites guidées, et si oui, dans quelles langues et à quel tarif ?"
-        },
-        {
-          "text": "Y a-t-il des circuits en bateau ou en bus touristique pour découvrir la ville plus facilement ?"
-        },
-        {
-          "text": "Quels quartiers typiques ou animés conseillez-vous de visiter pour se promener et profiter de l'ambiance ?",
+          "text": "Autre chose : quels quartiers typiques ou animés conseillez-vous de visiter pour se promener et profiter de l'ambiance ?",
           "memory_number": 7,
           "memory_section": 2
         },
         {
+          "text": "En ce qui concerne les découvertes sur place, quelles activités peut-on faire entre amis — par exemple des visites insolites, des ateliers ou des escape games ?"
+        },
+        {
           "text": "Y a-t-il des événements culturels, des festivals ou des marchés locaux en ce moment ?"
+        },
+        {
+          "text": "Que recommandez-vous de faire en soirée — la ville est-elle animée après le dîner ?"
         },
         {
           "text": "Y a-t-il des restaurants que vous recommandez pour découvrir les spécialités locales ?",
@@ -334,22 +334,22 @@
           "memory_section": 2
         },
         {
-          "text": "Quelles activités peut-on faire entre amis — par exemple des visites insolites, des ateliers ou des escape games ?"
+          "text": "Côté accompagnement, proposez-vous des visites guidées, et si oui, dans quelles langues et à quel tarif ?"
         },
         {
-          "text": "Que recommandez-vous de faire en soirée — la ville est-elle animée après le dîner ?"
+          "text": "Y a-t-il des circuits en bateau ou en bus touristique pour découvrir la ville plus facilement ?"
         },
         {
           "text": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux prendre un pass ou louer des vélos ?"
         },
         {
-          "text": "Y a-t-il des pass touristiques ou des tarifs combinés pour plusieurs musées et attractions ?"
+          "text": "En ce qui concerne le budget, y a-t-il des pass touristiques ou des tarifs combinés pour plusieurs musées et attractions ?"
         },
         {
           "text": "Quels sont les horaires habituels des principaux musées et attractions — certains jours sont-ils plus pratiques ?"
         },
         {
-          "text": "Faut-il réserver certaines visites ou activités à l'avance, surtout pour les plus demandées ?"
+          "text": "Puisqu'on en parle, faut-il réserver certaines visites ou activités à l'avance, surtout pour les plus demandées ?"
         },
         {
           "text": "Pour finir — si vous ne deviez nous recommander qu'une seule chose, ce serait laquelle ?"

@@ -9,7 +9,7 @@
           "kind": "mot-cle",
           "french": "quel film",
           "english": "which film",
-          "example": "Alors, tu es allé(e) voir quel film exactement ?",
+          "example": "Alors, raconte-moi cette séance de cinéma — tu es allé(e) voir quel film exactement ?",
           "usage": "Groupe interrogatif pour demander le titre ou le type de film vu."
         },
         {
@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "aimé",
           "english": "liked",
-          "example": "Qu'est-ce que tu as le plus aimé dans ce film ?",
+          "example": "Côté impressions, qu'est-ce que tu as le plus aimé dans ce film ?",
           "usage": "Participe passé du verbe « aimer » au passé composé, ici encadré par l'adverbe « le plus »."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "version originale",
           "english": "original version (subtitled)",
-          "example": "Il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
+          "example": "Côté pratique, il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
           "usage": "Groupe nominal désignant une version non doublée d'un film."
         },
         {
@@ -89,7 +89,7 @@
           "kind": "collocation",
           "french": "tu es allé(e) voir",
           "english": "you went to see",
-          "example": "Alors, tu es allé(e) voir quel film exactement ?",
+          "example": "Alors, raconte-moi cette séance de cinéma — tu es allé(e) voir quel film exactement ?",
           "usage": "Collocation verbe de mouvement + infinitif pour évoquer une sortie récente."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "ça coûte combien",
           "english": "how much does it cost",
-          "example": "Ça coûte combien pour une place, à peu près ?",
+          "example": "En ce qui concerne le prix, ça coûte combien pour une place, à peu près ?",
           "usage": "Collocation très courante pour demander un prix à l'oral."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "réserver à l'avance",
           "english": "to book in advance",
-          "example": "Il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
+          "example": "À ce propos, il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
           "usage": "Collocation verbe + locution adverbiale pour anticiper un achat."
         },
         {
@@ -153,7 +153,7 @@
           "kind": "collocation",
           "french": "beaucoup de monde",
           "english": "a lot of people",
-          "example": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "example": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
           "usage": "Collocation très fréquente pour évoquer une affluence importante."
         },
         {
@@ -177,7 +177,7 @@
           "kind": "tournure",
           "french": "qu'est-ce que tu as le plus aimé",
           "english": "what did you like the most",
-          "example": "Qu'est-ce que tu as le plus aimé dans ce film ?",
+          "example": "Côté impressions, qu'est-ce que tu as le plus aimé dans ce film ?",
           "usage": "Tournure interrogative standard pour demander un avis positif détaillé."
         },
         {
@@ -193,7 +193,7 @@
           "kind": "tournure",
           "french": "il passe en version originale",
           "english": "it's shown in the original version",
-          "example": "Il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
+          "example": "Côté pratique, il passe en version originale ou seulement en version doublée dans les salles près d'ici ?",
           "usage": "Tournure pour demander le format de diffusion d'un film."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "tournure",
           "french": "ça coûte combien pour une place",
           "english": "how much does a ticket cost",
-          "example": "Ça coûte combien pour une place, à peu près ?",
+          "example": "En ce qui concerne le prix, ça coûte combien pour une place, à peu près ?",
           "usage": "Tournure interrogative complète pour demander un tarif précis."
         },
         {
@@ -217,7 +217,7 @@
           "kind": "tournure",
           "french": "il vaut mieux réserver à l'avance",
           "english": "it's better to book in advance",
-          "example": "Il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
+          "example": "À ce propos, il vaut mieux réserver à l'avance, ou on peut acheter les billets sur place le jour même ?",
           "usage": "Tournure avec « il vaut mieux » pour suggérer une précaution utile."
         },
         {
@@ -233,7 +233,7 @@
           "kind": "tournure",
           "french": "il y avait beaucoup de monde dans la salle",
           "english": "there were a lot of people in the room",
-          "example": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "example": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
           "usage": "Tournure descriptive à l'imparfait pour évoquer l'affluence lors d'une sortie passée."
         },
         {
@@ -262,7 +262,7 @@
           "kind": "mot-cle",
           "french": "les différentes étapes",
           "english": "the different legs (of a trip)",
-          "example": "Comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
+          "example": "Côté déplacements, comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
           "usage": "Nom féminin pluriel désignant les parties d'un itinéraire."
         },
         {
@@ -270,7 +270,7 @@
           "kind": "mot-cle",
           "french": "des vêtements particuliers",
           "english": "special clothing",
-          "example": "Quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
+          "example": "Côté météo, quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
           "usage": "Groupe nominal pour évoquer une tenue adaptée à un climat ou une activité."
         },
         {
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "des excursions",
           "english": "day trips / excursions",
-          "example": "Y avait-il des visites ou des excursions que tu recommanderais particulièrement ?",
+          "example": "En ce qui concerne les découvertes sur place, y avait-il des visites ou des excursions que tu recommanderais particulièrement ?",
           "usage": "Nom féminin pluriel désignant des sorties organisées de courte durée."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "les habitants",
           "english": "the locals",
-          "example": "Et les habitants, ils sont comment — plutôt accueillants et faciles à aborder ?",
+          "example": "Autre chose : les habitants, ils sont comment — plutôt accueillants et faciles à aborder ?",
           "usage": "Nom pluriel désignant les gens du pays."
         },
         {
@@ -342,7 +342,7 @@
           "kind": "collocation",
           "french": "en train, en bus ou en voiture",
           "english": "by train, bus, or car",
-          "example": "Comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
+          "example": "Côté déplacements, comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
           "usage": "Énumération de moyens de transport introduits par « en »."
         },
         {
@@ -350,7 +350,7 @@
           "kind": "collocation",
           "french": "il fallait prévoir",
           "english": "you had to plan for",
-          "example": "Quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
+          "example": "Côté météo, quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
           "usage": "Collocation à l'imparfait pour évoquer une nécessité dans un récit passé."
         },
         {
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "faciles à aborder",
           "english": "easy to approach",
-          "example": "Et les habitants, ils sont comment — plutôt accueillants et faciles à aborder ?",
+          "example": "Autre chose : les habitants, ils sont comment — plutôt accueillants et faciles à aborder ?",
           "usage": "Adjectif + complément sur l'accessibilité des gens."
         },
         {
@@ -414,7 +414,7 @@
           "kind": "tournure",
           "french": "comment te déplaçais-tu",
           "english": "how were you getting around",
-          "example": "Comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
+          "example": "Côté déplacements, comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
           "usage": "Imparfait d'habitude pour interroger sur un moyen de transport pendant un voyage passé."
         },
         {
@@ -438,7 +438,7 @@
           "kind": "tournure",
           "french": "que tu recommanderais particulièrement",
           "english": "that you would especially recommend",
-          "example": "Y avait-il des visites ou des excursions que tu recommanderais particulièrement ?",
+          "example": "En ce qui concerne les découvertes sur place, y avait-il des visites ou des excursions que tu recommanderais particulièrement ?",
           "usage": "Conditionnel présent pour formuler une recommandation nuancée."
         },
         {
@@ -507,7 +507,7 @@
           "kind": "mot-cle",
           "french": "les débutants",
           "english": "beginners",
-          "example": "Ça s'adresse à quel public — il y a des activités pour les débutants aussi ?",
+          "example": "Justement, ça s'adresse à quel public — il y a des activités pour les débutants aussi ?",
           "usage": "Nom pluriel désignant les personnes qui débutent."
         },
         {
@@ -523,7 +523,7 @@
           "kind": "mot-cle",
           "french": "détente",
           "english": "relaxation",
-          "example": "Quelles activités tu comptes faire — ski, randonnée, autres sports ou plutôt détente ?",
+          "example": "Et concrètement, quelles activités tu comptes faire — ski, randonnée, autres sports ou plutôt détente ?",
           "usage": "Nom désignant le repos."
         },
         {
@@ -531,7 +531,7 @@
           "kind": "mot-cle",
           "french": "campings",
           "english": "campsites",
-          "example": "Tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
+          "example": "Question hébergement, tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
           "usage": "Nom pluriel désignant les campings."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "chambres d'hôtes",
           "english": "guesthouses / bed and breakfasts",
-          "example": "Tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
+          "example": "Question hébergement, tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
           "usage": "Nom composé désignant un type d'hébergement chez l'habitant."
         },
         {
@@ -587,7 +587,7 @@
           "kind": "collocation",
           "french": "t'y rendre",
           "english": "get there",
-          "example": "Comment tu comptes t'y rendre — en voiture, en train ?",
+          "example": "Côté trajet, comment tu comptes t'y rendre — en voiture, en train ?",
           "usage": "Locution verbale sur le trajet à faire."
         },
         {
@@ -603,7 +603,7 @@
           "kind": "collocation",
           "french": "en voiture, en train",
           "english": "by car, by train",
-          "example": "Comment tu comptes t'y rendre — en voiture, en train ?",
+          "example": "Côté trajet, comment tu comptes t'y rendre — en voiture, en train ?",
           "usage": "Alternative sur le transport."
         },
         {
@@ -611,7 +611,7 @@
           "kind": "collocation",
           "french": "des activités pour les débutants",
           "english": "activities for beginners",
-          "example": "Ça s'adresse à quel public — il y a des activités pour les débutants aussi ?",
+          "example": "Justement, ça s'adresse à quel public — il y a des activités pour les débutants aussi ?",
           "usage": "Groupe nominal sur les débutants."
         },
         {
@@ -659,7 +659,7 @@
           "kind": "tournure",
           "french": "Quelles activités tu comptes faire",
           "english": "what activities do you plan to do",
-          "example": "Quelles activités tu comptes faire — ski, randonnée, autres sports ou plutôt détente ?",
+          "example": "Et concrètement, quelles activités tu comptes faire — ski, randonnée, autres sports ou plutôt détente ?",
           "usage": "Question sur les activités prévues (futur)."
         },
         {
@@ -667,7 +667,7 @@
           "kind": "tournure",
           "french": "Comment tu comptes t'y rendre",
           "english": "how do you plan to get there",
-          "example": "Comment tu comptes t'y rendre — en voiture, en train ?",
+          "example": "Côté trajet, comment tu comptes t'y rendre — en voiture, en train ?",
           "usage": "Question sur le moyen de transport (futur)."
         },
         {
@@ -683,7 +683,7 @@
           "kind": "tournure",
           "french": "Tu connais de bons endroits où dormir",
           "english": "do you know good places to stay",
-          "example": "Tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
+          "example": "Question hébergement, tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
           "usage": "Question sur l'hébergement."
         },
         {
@@ -691,7 +691,7 @@
           "kind": "tournure",
           "french": "Ça s'adresse à quel public",
           "english": "who is it aimed at",
-          "example": "Ça s'adresse à quel public — il y a des activités pour les débutants aussi ?",
+          "example": "Justement, ça s'adresse à quel public — il y a des activités pour les débutants aussi ?",
           "usage": "Question sur le public."
         },
         {
@@ -784,7 +784,7 @@
           "kind": "mot-cle",
           "french": "les courses",
           "english": "the grocery shopping",
-          "example": "Est-ce que je peux t'aider avec quelque chose — les courses, des démarches ?",
+          "example": "Et surtout, est-ce que je peux t'aider avec quelque chose — les courses, des démarches ?",
           "usage": "Nom pluriel désignant les achats du quotidien."
         },
         {
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "des démarches",
           "english": "errands/paperwork",
-          "example": "Est-ce que je peux t'aider avec quelque chose — les courses, des démarches ?",
+          "example": "Et surtout, est-ce que je peux t'aider avec quelque chose — les courses, des démarches ?",
           "usage": "Nom pluriel désignant les formalités à faire."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "quelque chose en particulier",
           "english": "anything in particular",
-          "example": "Il faut que tu fasses attention à quelque chose en particulier maintenant ?",
+          "example": "J'en profite pour te demander : il faut que tu fasses attention à quelque chose en particulier maintenant ?",
           "usage": "Locution désignant un point précis."
         },
         {
@@ -832,7 +832,7 @@
           "kind": "collocation",
           "french": "ce qui s'est passé",
           "english": "what happened",
-          "example": "Comment c'est arrivé — tu peux me raconter ce qui s'est passé ?",
+          "example": "Et concrètement, comment c'est arrivé — tu peux me raconter ce qui s'est passé ?",
           "usage": "Locution nominale résumant l'événement."
         },
         {
@@ -864,7 +864,7 @@
           "kind": "collocation",
           "french": "rien de trop grave",
           "english": "nothing too serious",
-          "example": "Ce n'est rien de trop grave, j'espère — tu vas pouvoir te remettre vite ?",
+          "example": "Dis-moi, ce n'est rien de trop grave, j'espère — tu vas pouvoir te remettre vite ?",
           "usage": "Locution rassurante sur la gravité."
         },
         {
@@ -920,7 +920,7 @@
           "kind": "tournure",
           "french": "Comment c'est arrivé",
           "english": "how did it happen",
-          "example": "Comment c'est arrivé — tu peux me raconter ce qui s'est passé ?",
+          "example": "Et concrètement, comment c'est arrivé — tu peux me raconter ce qui s'est passé ?",
           "usage": "Question sur les circonstances."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "Il y a des choses que tu ne peux plus faire",
           "english": "are there things you can no longer do",
-          "example": "Il y a des choses que tu ne peux plus faire pour l'instant ?",
+          "example": "Et puis, il y a des choses que tu ne peux plus faire pour l'instant ?",
           "usage": "Question sur les limitations actuelles."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "Est-ce que je peux t'aider avec quelque chose",
           "english": "can I help you with something",
-          "example": "Est-ce que je peux t'aider avec quelque chose — les courses, des démarches ?",
+          "example": "Et surtout, est-ce que je peux t'aider avec quelque chose — les courses, des démarches ?",
           "usage": "Proposition d'aide."
         },
         {
@@ -976,7 +976,7 @@
           "kind": "tournure",
           "french": "Il faut que tu fasses attention à quelque chose en particulier",
           "english": "do you need to be careful about anything in particular",
-          "example": "Il faut que tu fasses attention à quelque chose en particulier maintenant ?",
+          "example": "J'en profite pour te demander : il faut que tu fasses attention à quelque chose en particulier maintenant ?",
           "usage": "Question sur les précautions."
         }
       ]

@@ -72,19 +72,31 @@
       "prompt": "Je suis votre ami(e). Je dois poster un paquet mais je ne peux pas y aller. Je vous demande de l'aide. Vous me posez des questions pour décider si vous pouvez me rendre ce service (délai, volume, durée, etc.).",
       "questions": [
         {
-          "text": "Tu dois poster quoi exactement, et le paquet est gros comment ?"
+          "text": "Salut ! Avant de te dire si je peux passer à la poste pour toi, tu dois poster quoi exactement, et le paquet est gros comment ?"
         },
         {
           "text": "Il pèse à peu près combien ?"
         },
         {
-          "text": "Tu veux l'envoyer à quelle adresse exactement, et dans quel pays ?"
+          "text": "Avant que j'oublie, il y a quelque chose de fragile ou de réglementé à l'intérieur ?"
         },
         {
-          "text": "C'est urgent au point de devoir partir aujourd'hui, ou ça peut attendre un peu plus tard dans la semaine ?"
+          "text": "Il faut garder le colis au chaud ou à l'abri ? Il y a des conditions de transport particulières ?"
+        },
+        {
+          "text": "D'ailleurs, le colis est déjà bien fermé et l'étiquette est déjà prête ?"
+        },
+        {
+          "text": "Je dois l'adresser au nom de qui exactement ?"
+        },
+        {
+          "text": "Côté destination, tu veux l'envoyer à quelle adresse exactement, et dans quel pays ?"
         },
         {
           "text": "Au plus tard, le paquet doit arriver quand ?"
+        },
+        {
+          "text": "C'est urgent au point de devoir partir aujourd'hui, ou ça peut attendre un peu plus tard dans la semaine ?"
         },
         {
           "text": "Tu préfères que je passe par La Poste ou par un autre service de livraison ?"
@@ -93,25 +105,13 @@
           "text": "Tu veux un envoi standard, express, suivi ou assuré ?"
         },
         {
-          "text": "Il faut garder le colis au chaud ou à l'abri ? Il y a des conditions de transport particulières ?"
-        },
-        {
-          "text": "Le colis est déjà bien fermé et l'étiquette est déjà prête ?"
-        },
-        {
-          "text": "Il y a quelque chose de fragile ou de réglementé à l'intérieur ?"
-        },
-        {
-          "text": "Tu veux que je prévoie combien d'argent pour les frais d'envoi ?"
-        },
-        {
-          "text": "Je dois l'adresser au nom de qui exactement ?"
+          "text": "En ce qui concerne le budget, tu veux que je prévoie combien d'argent pour les frais d'envoi ?"
         },
         {
           "text": "Il y a des consignes particulières à transmettre au destinataire ?"
         },
         {
-          "text": "S'il y a un problème au guichet, tu veux que je fasse quoi ?"
+          "text": "En cas de souci, s'il y a un problème au guichet, tu veux que je fasse quoi ?"
         },
         {
           "text": "Après, je peux te laisser le reçu où ? Et tu me rembourseras les frais d'envoi comment ?"
@@ -124,7 +124,7 @@
       "prompt": "Je suis votre ami(e). Je vous invite à l'anniversaire de ma sœur. Vous me posez des questions sur elle pour savoir quel cadeau lui offrir (goûts, activités, personnalité, etc.).",
       "questions": [
         {
-          "text": "Ta sœur fête bientôt son anniversaire, et je cherche un cadeau — tu pourrais m'aider à trouver une idée ?",
+          "text": "Salut ! Merci de m'inviter — ta sœur fête bientôt son anniversaire, et je cherche un cadeau, tu pourrais m'aider à trouver une idée ?",
           "memory_number": 11,
           "memory_section": 13
         },
@@ -149,12 +149,22 @@
           "memory_section": 7
         },
         {
-          "text": "Elle préfère plutôt les cadeaux utiles, ou les choses plus originales et amusantes ?",
+          "text": "Tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus : c'est un loisir qu'elle pratique souvent ?",
+          "memory_number": 11,
+          "memory_section": 13
+        },
+        {
+          "text": "Pendant que j'y pense, elle a un style ou des couleurs qu'elle préfère particulièrement ?",
           "memory_number": 11,
           "memory_section": 11
         },
         {
-          "text": "Elle a un style ou des couleurs qu'elle préfère particulièrement ?",
+          "text": "Pour ce qui est du cadeau lui-même, elle préfère plutôt les cadeaux utiles, ou les choses plus originales et amusantes ?",
+          "memory_number": 11,
+          "memory_section": 11
+        },
+        {
+          "text": "Elle préfère plutôt recevoir un objet, ou une expérience comme une sortie ou un atelier ?",
           "memory_number": 11,
           "memory_section": 11
         },
@@ -164,24 +174,9 @@
           "memory_section": 8
         },
         {
-          "text": "Tu aurais une idée de budget pour un cadeau qui lui ferait vraiment plaisir ?",
+          "text": "Côté prix, tu aurais une idée de budget pour un cadeau qui lui ferait vraiment plaisir ?",
           "memory_number": 11,
           "memory_section": 3
-        },
-        {
-          "text": "Vous allez fêter ça comment — une petite soirée, un repas en famille ?",
-          "memory_number": 11,
-          "memory_section": 13
-        },
-        {
-          "text": "Elle préfère plutôt recevoir un objet, ou une expérience comme une sortie ou un atelier ?",
-          "memory_number": 11,
-          "memory_section": 11
-        },
-        {
-          "text": "Tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus ?",
-          "memory_number": 11,
-          "memory_section": 13
         },
         {
           "text": "Ce serait plutôt un cadeau de ma part seul(e), ou on pourrait s'associer à plusieurs ?",
@@ -189,9 +184,14 @@
           "memory_section": 6
         },
         {
-          "text": "Tu connais un endroit ou un site où je pourrais trouver ce genre de cadeau facilement ?",
+          "text": "D'ailleurs, tu connais un endroit ou un site où je pourrais trouver ce genre de cadeau facilement ?",
           "memory_number": 11,
           "memory_section": 9
+        },
+        {
+          "text": "Et vous allez fêter ça comment — une petite soirée, un repas en famille ?",
+          "memory_number": 11,
+          "memory_section": 13
         },
         {
           "text": "Pour finir — parmi toutes ces idées, laquelle lui ferait le plus plaisir selon toi ?",
@@ -227,6 +227,15 @@
           "memory_section": 11
         },
         {
+          "text": "Tant que j'y pense, il faut attendre longtemps avant que ça devienne vraiment intéressant, ou on accroche dès le début ?"
+        },
+        {
+          "text": "Qu'est-ce qui la rend différente des autres séries du même genre ?"
+        },
+        {
+          "text": "Et puis, c'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?"
+        },
+        {
           "text": "Il y a combien de saisons et d'épisodes — c'est vite fini ou ça dure longtemps ?"
         },
         {
@@ -236,22 +245,13 @@
           "text": "C'est une série terminée ou encore en cours de diffusion ?"
         },
         {
-          "text": "C'est diffusé sur quelle chaîne, et quel jour à quelle heure ?"
+          "text": "Côté pratique, c'est diffusé sur quelle chaîne, et quel jour à quelle heure ?"
         },
         {
           "text": "Si je rate un épisode à la télé, je peux le revoir où après ?"
         },
         {
-          "text": "C'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?"
-        },
-        {
-          "text": "Elle est disponible en version française, ou il faut la regarder en version originale sous-titrée ?"
-        },
-        {
-          "text": "Il faut attendre longtemps avant que ça devienne vraiment intéressant, ou on accroche dès le début ?"
-        },
-        {
-          "text": "Qu'est-ce qui la rend différente des autres séries du même genre ?"
+          "text": "Côté langue, elle est disponible en version française, ou il faut la regarder en version originale sous-titrée ?"
         },
         {
           "text": "Pour finir — si je ne dois en commencer qu'une seule, laquelle tu me recommandes vraiment ?"

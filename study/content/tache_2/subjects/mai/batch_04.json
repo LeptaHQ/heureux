@@ -12,7 +12,7 @@
       "prompt": "Nous sommes collègues. Vous souhaitez partir en week-end et je vous conseille de visiter une ville que je connais bien. Vous me posez des questions sur cette ville (hébergements, restaurants, lieux à visiter, etc.).",
       "questions": [
         {
-          "text": "Tu m'as conseillé de visiter cette ville pour le week-end — qu'est-ce qui te plaît le plus là-bas ?",
+          "text": "Salut ! Tu m'as conseillé de visiter cette ville pour le week-end — ça me tente bien, qu'est-ce qui te plaît le plus là-bas ?",
           "memory_number": 7,
           "memory_section": 10
         },
@@ -32,7 +32,7 @@
           "memory_section": 11
         },
         {
-          "text": "Il y a des musées, des monuments ou des sites culturels qui valent vraiment la peine ?",
+          "text": "Côté visites, il y a des musées, des monuments ou des sites culturels qui valent vraiment la peine ?",
           "memory_number": 7,
           "memory_section": 2
         },
@@ -42,12 +42,17 @@
           "memory_section": 2
         },
         {
-          "text": "Il y a des événements spéciaux ou des animations pendant le week-end ?",
+          "text": "Pour ce qui est du programme, il y a des événements spéciaux ou des animations pendant le week-end ?",
           "memory_number": 7,
           "memory_section": 2
         },
         {
-          "text": "Tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, auberges ?",
+          "text": "Côté météo, c'est une bonne période pour y aller — quel temps fait-il généralement à cette époque ?",
+          "memory_number": 7,
+          "memory_section": 8
+        },
+        {
+          "text": "Côté hébergement, tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, auberges ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -70,11 +75,6 @@
           "text": "Une fois sur place, il vaut mieux utiliser les transports en commun ou tout peut se faire à pied ?",
           "memory_number": 7,
           "memory_section": 5
-        },
-        {
-          "text": "C'est une bonne période pour y aller — quel temps fait-il généralement à cette époque ?",
-          "memory_number": 7,
-          "memory_section": 8
         },
         {
           "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total pour un week-end ?",
@@ -182,12 +182,42 @@
           "memory_section": 11
         },
         {
+          "text": "Autre chose : le parcours est comment — plutôt plat ou avec beaucoup de montées ?",
+          "memory_number": 8,
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il des points d'eau et une assistance médicale tout au long du parcours ?",
+          "memory_number": 8,
+          "memory_section": 9
+        },
+        {
           "text": "Ça s'adresse aussi aux débutants ou faut-il déjà avoir de l'expérience ?",
           "memory_number": 8,
           "memory_section": 6
         },
         {
-          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "text": "Question durée, combien de temps faut-il prévoir pour bien se préparer avant la course ?",
+          "memory_number": 8,
+          "memory_section": 4
+        },
+        {
+          "text": "Est-ce qu'un programme d'entraînement ou un accompagnement est proposé aux participants ?",
+          "memory_number": 8,
+          "memory_section": 13
+        },
+        {
+          "text": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement le jour de la course ?",
+          "memory_number": 8,
+          "memory_section": 8
+        },
+        {
+          "text": "Côté conditions, est-ce qu'il y a des règles particulières à respecter ?",
+          "memory_number": 8,
+          "memory_section": 8
+        },
+        {
+          "text": "Passons aux formalités : comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -205,36 +235,6 @@
           "text": "Le tarif comprend quoi exactement — le dossard, le chronométrage et un ravitaillement ?",
           "memory_number": 8,
           "memory_section": 3
-        },
-        {
-          "text": "Combien de temps faut-il prévoir pour bien se préparer avant la course ?",
-          "memory_number": 8,
-          "memory_section": 4
-        },
-        {
-          "text": "Est-ce qu'un programme d'entraînement ou un accompagnement est proposé aux participants ?",
-          "memory_number": 8,
-          "memory_section": 13
-        },
-        {
-          "text": "Qu'est-ce qu'il faut apporter comme équipement le jour de la course ?",
-          "memory_number": 8,
-          "memory_section": 8
-        },
-        {
-          "text": "Le parcours est comment — plutôt plat ou avec beaucoup de montées ?",
-          "memory_number": 8,
-          "memory_section": 2
-        },
-        {
-          "text": "Y a-t-il des points d'eau et une assistance médicale tout au long du parcours ?",
-          "memory_number": 8,
-          "memory_section": 9
-        },
-        {
-          "text": "Est-ce qu'il y a des règles particulières à respecter ?",
-          "memory_number": 8,
-          "memory_section": 8
         },
         {
           "text": "Pour finir — quelle distance me conseilleriez-vous pour une première participation ?",
@@ -269,12 +269,12 @@
           "memory_section": 2
         },
         {
-          "text": "Quelles activités peut-on faire sur place — plutôt culturelles, sportives ou un mélange des deux ?",
+          "text": "Et concrètement, quelles activités peut-on faire sur place — plutôt culturelles, sportives ou un mélange des deux ?",
           "memory_number": 7,
           "memory_section": 2
         },
         {
-          "text": "Y a-t-il des visites guidées ou des excursions intéressantes dans les environs ?",
+          "text": "Côté découvertes, y a-t-il des visites guidées ou des excursions intéressantes dans les environs ?",
           "memory_number": 7,
           "memory_section": 2
         },
@@ -299,7 +299,7 @@
           "memory_section": 4
         },
         {
-          "text": "Tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
+          "text": "Question hébergement, tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -309,7 +309,7 @@
           "memory_section": 9
         },
         {
-          "text": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
+          "text": "Pour ce qui est du trajet, est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
           "memory_number": 7,
           "memory_section": 5
         },
@@ -346,7 +346,7 @@
           "memory_section": 7
         },
         {
-          "text": "La liste des invités est déjà prête ou tu veux que je t'aide à la compléter ?",
+          "text": "En ce qui concerne les participants, la liste des invités est déjà prête ou tu veux que je t'aide à la compléter ?",
           "memory_number": 11,
           "memory_section": 13
         },
@@ -356,12 +356,12 @@
           "memory_section": 10
         },
         {
-          "text": "Tu as déjà une idée pour la décoration — des couleurs ou un style précis ?",
+          "text": "Et puis, tu as déjà une idée pour la décoration — des couleurs ou un style précis ?",
           "memory_number": 11,
           "memory_section": 2
         },
         {
-          "text": "Quel type de repas as-tu prévu — un buffet, un barbecue ou un repas assis ?",
+          "text": "En ce qui concerne la table, quel type de repas as-tu prévu — un buffet, un barbecue ou un repas assis ?",
           "memory_number": 11,
           "memory_section": 9
         },
@@ -386,9 +386,14 @@
           "memory_section": 13
         },
         {
-          "text": "Tu veux organiser des jeux ou des activités pendant la soirée ?",
+          "text": "Pour ce qui est des loisirs, tu veux organiser des jeux ou des activités pendant la soirée ?",
           "memory_number": 11,
           "memory_section": 2
+        },
+        {
+          "text": "Justement, tu as pensé à prendre des photos ou à confier ça à quelqu'un pendant la soirée ?",
+          "memory_number": 11,
+          "memory_section": 13
         },
         {
           "text": "Parlons du budget — combien est-ce que tu veux dépenser approximativement au total ?",
@@ -396,12 +401,7 @@
           "memory_section": 3
         },
         {
-          "text": "Tu as pensé à prendre des photos ou à confier ça à quelqu'un pendant la soirée ?",
-          "memory_number": 11,
-          "memory_section": 13
-        },
-        {
-          "text": "Parmi tous ces préparatifs, de quoi veux-tu que je m'occupe en priorité ?",
+          "text": "Pour finir — parmi tous ces préparatifs, de quoi veux-tu que je m'occupe en priorité ?",
           "memory_number": 11,
           "memory_section": 11
         }

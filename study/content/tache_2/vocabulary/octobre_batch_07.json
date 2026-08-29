@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "une sortie en intérieur",
           "english": "an indoor outing",
-          "example": "Et si le temps n'est pas au rendez-vous, tu aurais des idées pour une sortie en intérieur ?",
+          "example": "Ensuite, si le temps n'est pas au rendez-vous, tu aurais des idées pour une sortie en intérieur ?",
           "usage": "Groupe nominal désignant une activité de loisir pratiquée à l'abri."
         },
         {
@@ -113,7 +113,7 @@
           "kind": "collocation",
           "french": "sans rien dépenser",
           "english": "without spending anything",
-          "example": "Qu'est-ce qu'on peut faire de sympa sans rien dépenser dans le coin ?",
+          "example": "Plus largement, qu'est-ce qu'on peut faire de sympa sans rien dépenser dans le coin ?",
           "usage": "Locution adverbiale sur la gratuité."
         },
         {
@@ -153,7 +153,7 @@
           "kind": "collocation",
           "french": "s'inscrire à l'avance",
           "english": "to register in advance",
-          "example": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "example": "En ce qui concerne la réservation, il faut s'inscrire à l'avance ou on peut venir librement ?",
           "usage": "Verbe pronominal + locution adverbiale pour exprimer une démarche anticipée."
         },
         {
@@ -161,7 +161,7 @@
           "kind": "collocation",
           "french": "venir librement",
           "english": "to come without booking",
-          "example": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "example": "En ce qui concerne la réservation, il faut s'inscrire à l'avance ou on peut venir librement ?",
           "usage": "Verbe à l'infinitif + adverbe pour exprimer une participation sans contrainte d'inscription."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce qu'on peut faire de sympa sans rien dépenser",
           "english": "what nice things can you do without spending anything",
-          "example": "Qu'est-ce qu'on peut faire de sympa sans rien dépenser dans le coin ?",
+          "example": "Plus largement, qu'est-ce qu'on peut faire de sympa sans rien dépenser dans le coin ?",
           "usage": "Question sur les activités gratuites."
         },
         {
@@ -225,7 +225,7 @@
           "kind": "tournure",
           "french": "il faut s'inscrire à l'avance ou on peut venir librement",
           "english": "do you need to register in advance or can you just show up",
-          "example": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "example": "En ce qui concerne la réservation, il faut s'inscrire à l'avance ou on peut venir librement ?",
           "usage": "Tournure d'alternative typique à l'oral pour comparer deux options d'organisation."
         },
         {
@@ -744,7 +744,7 @@
           "kind": "mot-cle",
           "french": "passionné(e)",
           "english": "passionate (about)",
-          "example": "Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
+          "example": "Quelle coïncidence de se croiser ici, en gare ! Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
           "usage": "Adjectif dérivé de « passion » pour exprimer un fort intérêt pour une activité."
         },
         {
@@ -784,7 +784,7 @@
           "kind": "mot-cle",
           "french": "aux débutants",
           "english": "to beginners",
-          "example": "Ces activités s'adressent aussi aux débutants ou faut-il déjà avoir de l'expérience ?",
+          "example": "Pour ce qui est du niveau, ces activités s'adressent aussi aux débutants ou faut-il déjà avoir de l'expérience ?",
           "usage": "Nom masculin pluriel précédé de « aux » pour désigner les personnes qui commencent une activité."
         },
         {
@@ -800,7 +800,7 @@
           "kind": "mot-cle",
           "french": "équipement",
           "english": "equipment / gear",
-          "example": "Qu'est-ce qu'il faut apporter comme équipement pour une première sortie ?",
+          "example": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement pour une première sortie ?",
           "usage": "Nom masculin désignant le matériel nécessaire à une activité."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "un guide",
           "english": "a guide",
-          "example": "Vous partez généralement seul(e), avec des amis ou avec un guide ?",
+          "example": "Autre point important : vous partez généralement seul(e), avec des amis ou avec un guide ?",
           "usage": "Nom masculin désignant une personne qui accompagne une sortie en montagne."
         },
         {
@@ -824,7 +824,7 @@
           "kind": "collocation",
           "french": "depuis longtemps",
           "english": "for a long time",
-          "example": "Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
+          "example": "Quelle coïncidence de se croiser ici, en gare ! Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
           "usage": "Locution adverbiale avec « depuis » pour indiquer la durée d'une pratique."
         },
         {
@@ -848,7 +848,7 @@
           "kind": "collocation",
           "french": "attendre une autre saison",
           "english": "wait for another season",
-          "example": "C'est une bonne période pour aller en montagne ou il vaut mieux attendre une autre saison ?",
+          "example": "En ce moment, c'est une bonne période pour aller en montagne ou il vaut mieux attendre une autre saison ?",
           "usage": "Collocation verbe + nom pour évoquer un report dans le temps."
         },
         {
@@ -864,7 +864,7 @@
           "kind": "collocation",
           "french": "avoir de l'expérience",
           "english": "to have experience",
-          "example": "Ces activités s'adressent aussi aux débutants ou faut-il déjà avoir de l'expérience ?",
+          "example": "Pour ce qui est du niveau, ces activités s'adressent aussi aux débutants ou faut-il déjà avoir de l'expérience ?",
           "usage": "Collocation verbe + nom très fréquente pour évoquer un niveau de pratique."
         },
         {
@@ -872,7 +872,7 @@
           "kind": "collocation",
           "french": "une première sortie",
           "english": "a first outing",
-          "example": "Qu'est-ce qu'il faut apporter comme équipement pour une première sortie ?",
+          "example": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement pour une première sortie ?",
           "usage": "Groupe nominal désignant la première fois que l'on pratique une activité."
         },
         {
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "des précautions particulières",
           "english": "special precautions",
-          "example": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "example": "Côté sécurité, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
           "usage": "Collocation adjectif-nom réutilisable pour aborder les mesures de prudence."
         },
         {
@@ -920,7 +920,7 @@
           "kind": "tournure",
           "french": "il vaut mieux attendre une autre saison",
           "english": "it's better to wait for another season",
-          "example": "C'est une bonne période pour aller en montagne ou il vaut mieux attendre une autre saison ?",
+          "example": "En ce moment, c'est une bonne période pour aller en montagne ou il vaut mieux attendre une autre saison ?",
           "usage": "Tournure impersonnelle avec « il vaut mieux » pour recommander une alternative."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des précautions particulières à prendre",
           "english": "Are there any special precautions to take",
-          "example": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "example": "Côté sécurité, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
           "usage": "Structure figée très fréquente en Tâche 2 pour aborder les questions de sécurité."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "vous partez généralement seul(e)",
           "english": "do you generally go alone",
-          "example": "Vous partez généralement seul(e), avec des amis ou avec un guide ?",
+          "example": "Autre point important : vous partez généralement seul(e), avec des amis ou avec un guide ?",
           "usage": "Structure avec adverbe « généralement » pour interroger sur une habitude."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "des vêtements particuliers",
           "english": "special clothing",
-          "example": "Quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
+          "example": "Côté météo, quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
           "usage": "Groupe nominal pour évoquer une tenue adaptée à un climat ou une activité."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "mot-cle",
           "french": "cette destination",
           "english": "this destination",
-          "example": "Est-ce que vous recommanderiez cette destination à quelqu'un qui voudrait y aller ?",
+          "example": "Pour finir — est-ce que vous recommanderiez cette destination à quelqu'un qui voudrait y aller ?",
           "usage": "Groupe nominal désignant le lieu visité."
         },
         {
@@ -1101,7 +1101,7 @@
           "kind": "collocation",
           "french": "en pleine nature",
           "english": "in the great outdoors",
-          "example": "Quelles activités avez-vous faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
+          "example": "Et concrètement, quelles activités avez-vous faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
           "usage": "Expression idiomatique pour des activités loin des zones urbaines."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "il fallait prévoir",
           "english": "you had to plan for",
-          "example": "Quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
+          "example": "Côté météo, quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
           "usage": "Collocation à l'imparfait pour évoquer une nécessité dans un récit passé."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "le plus apprécié",
           "english": "most enjoyed",
-          "example": "Qu'est-ce que vous avez le plus apprécié pendant ce séjour ?",
+          "example": "Pour ce qui est de votre ressenti, qu'est-ce que vous avez le plus apprécié pendant ce séjour ?",
           "usage": "Superlatif sur ce qui a été le plus apprécié."
         },
         {
@@ -1141,7 +1141,7 @@
           "kind": "collocation",
           "french": "ce genre de voyage",
           "english": "this kind of trip",
-          "example": "Si ce n'est pas indiscret, ça revient à peu près à combien, ce genre de voyage ?",
+          "example": "Il y a un autre point qui m'intéresse : si ce n'est pas indiscret, ça revient à peu près à combien, ce genre de voyage ?",
           "usage": "Locution nominale pour un type de voyage."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "Comment vous déplaciez-vous sur place",
           "english": "how did you get around there",
-          "example": "Comment vous déplaciez-vous sur place — en train, en bus ou en voiture ?",
+          "example": "Côté déplacements, comment vous déplaciez-vous sur place — en train, en bus ou en voiture ?",
           "usage": "Question sur les déplacements."
         },
         {
@@ -1197,7 +1197,7 @@
           "kind": "tournure",
           "french": "Quelles activités avez-vous faites",
           "english": "what activities did you do",
-          "example": "Quelles activités avez-vous faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
+          "example": "Et concrètement, quelles activités avez-vous faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
           "usage": "L'accord de « faites » suit le complément féminin pluriel antéposé."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce que vous avez le plus apprécié",
           "english": "what did you most enjoy",
-          "example": "Qu'est-ce que vous avez le plus apprécié pendant ce séjour ?",
+          "example": "Pour ce qui est de votre ressenti, qu'est-ce que vous avez le plus apprécié pendant ce séjour ?",
           "usage": "Question sur le point fort du séjour."
         },
         {
@@ -1221,7 +1221,7 @@
           "kind": "tournure",
           "french": "Est-ce que vous recommanderiez cette destination",
           "english": "would you recommend this destination",
-          "example": "Est-ce que vous recommanderiez cette destination à quelqu'un qui voudrait y aller ?",
+          "example": "Pour finir — est-ce que vous recommanderiez cette destination à quelqu'un qui voudrait y aller ?",
           "usage": "Question de clôture sur la recommandation."
         }
       ]

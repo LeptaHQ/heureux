@@ -22,6 +22,11 @@
           "memory_section": 2
         },
         {
+          "text": "Si on veut faire du sport ou des activités en plein air, il y a quoi comme options ?",
+          "memory_number": 9,
+          "memory_section": 2
+        },
+        {
           "text": "Et pour les activités culturelles — il y a des musées ou des expositions intéressantes ?",
           "memory_number": 9,
           "memory_section": 2
@@ -32,17 +37,27 @@
           "memory_section": 3
         },
         {
-          "text": "Si on veut faire du sport ou des activités en plein air, il y a quoi comme options ?",
-          "memory_number": 9,
-          "memory_section": 2
-        },
-        {
-          "text": "Qu'est-ce qu'on peut faire de sympa sans rien dépenser dans le coin ?"
+          "text": "Plus largement, qu'est-ce qu'on peut faire de sympa sans rien dépenser dans le coin ?"
         },
         {
           "text": "Est-ce qu'il y a des événements ou des animations gratuits en ce moment ?",
           "memory_number": 9,
           "memory_section": 3
+        },
+        {
+          "text": "Ensuite, si le temps n'est pas au rendez-vous, tu aurais des idées pour une sortie en intérieur ?",
+          "memory_number": 9,
+          "memory_section": 2
+        },
+        {
+          "text": "Il vaut mieux y aller à quel moment pour éviter la foule ?",
+          "memory_number": 9,
+          "memory_section": 8
+        },
+        {
+          "text": "En ce qui concerne la réservation, il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "memory_number": 9,
+          "memory_section": 6
         },
         {
           "text": "En général, ces endroits sont faciles d'accès en transports en commun ou il faut une voiture ?",
@@ -58,21 +73,6 @@
           "text": "Pour manger sans se ruiner, tu connais des adresses pas chères, ou c'est mieux de prévoir un pique-nique ?",
           "memory_number": 9,
           "memory_section": 3
-        },
-        {
-          "text": "Et si le temps n'est pas au rendez-vous, tu aurais des idées pour une sortie en intérieur ?",
-          "memory_number": 9,
-          "memory_section": 2
-        },
-        {
-          "text": "Il vaut mieux y aller à quel moment pour éviter la foule ?",
-          "memory_number": 9,
-          "memory_section": 8
-        },
-        {
-          "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
-          "memory_number": 9,
-          "memory_section": 6
         },
         {
           "text": "Parlons du budget — combien est-ce que ça coûte approximativement ?",
@@ -254,7 +254,7 @@
       "prompt": "Le train tardant, nous bavardons dans la salle d'attente ; je vous confie ma passion pour la montagne et vous m'en demandez les détails (régions, randonnées, matériel, etc.).",
       "questions": [
         {
-          "text": "Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
+          "text": "Quelle coïncidence de se croiser ici, en gare ! Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
           "memory_number": 8,
           "memory_section": 13
         },
@@ -274,12 +274,17 @@
           "memory_section": 11
         },
         {
+          "text": "Autre point important : vous partez généralement seul(e), avec des amis ou avec un guide ?",
+          "memory_number": 8,
+          "memory_section": 7
+        },
+        {
           "text": "Vous y allez à quelle fréquence — seulement pendant les vacances ou aussi certains week-ends ?",
           "memory_number": 8,
           "memory_section": 4
         },
         {
-          "text": "C'est une bonne période pour aller en montagne ou il vaut mieux attendre une autre saison ?",
+          "text": "En ce moment, c'est une bonne période pour aller en montagne ou il vaut mieux attendre une autre saison ?",
           "memory_number": 8,
           "memory_section": 8
         },
@@ -289,7 +294,7 @@
           "memory_section": 8
         },
         {
-          "text": "Ces activités s'adressent aussi aux débutants ou faut-il déjà avoir de l'expérience ?",
+          "text": "Pour ce qui est du niveau, ces activités s'adressent aussi aux débutants ou faut-il déjà avoir de l'expérience ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -299,7 +304,7 @@
           "memory_section": 8
         },
         {
-          "text": "Qu'est-ce qu'il faut apporter comme équipement pour une première sortie ?",
+          "text": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement pour une première sortie ?",
           "memory_number": 8,
           "memory_section": 8
         },
@@ -309,14 +314,9 @@
           "memory_section": 8
         },
         {
-          "text": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "text": "Côté sécurité, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
           "memory_number": 8,
           "memory_section": 8
-        },
-        {
-          "text": "Vous partez généralement seul(e), avec des amis ou avec un guide ?",
-          "memory_number": 8,
-          "memory_section": 7
         },
         {
           "text": "Qu'est-ce que vous appréciez le plus quand vous êtes en montagne ?",
@@ -345,7 +345,31 @@
           "text": "Combien de temps êtes-vous resté(e) sur place ?"
         },
         {
-          "text": "Comment vous déplaciez-vous sur place — en train, en bus ou en voiture ?"
+          "text": "Et concrètement, quelles activités avez-vous faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
+          "memory_number": 7,
+          "memory_section": 2
+        },
+        {
+          "text": "Quelles villes ou quels villages méritent vraiment une visite ?",
+          "memory_number": 7,
+          "memory_section": 2
+        },
+        {
+          "text": "Côté cuisine, qu'est-ce que vous avez goûté — il y avait des spécialités locales à essayer ?"
+        },
+        {
+          "text": "Pour ce qui est de votre ressenti, qu'est-ce que vous avez le plus apprécié pendant ce séjour ?"
+        },
+        {
+          "text": "Y a-t-il quelque chose qui vous a moins plu pendant ce séjour ?"
+        },
+        {
+          "text": "Côté météo, quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
+          "memory_number": 7,
+          "memory_section": 8
+        },
+        {
+          "text": "Côté déplacements, comment vous déplaciez-vous sur place — en train, en bus ou en voiture ?"
         },
         {
           "text": "Vous conseilleriez plutôt les transports en commun ou faut-il vraiment prévoir une voiture pour visiter les alentours ?"
@@ -361,34 +385,10 @@
           "memory_section": 9
         },
         {
-          "text": "Quelles activités avez-vous faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
-          "memory_number": 7,
-          "memory_section": 2
+          "text": "Il y a un autre point qui m'intéresse : si ce n'est pas indiscret, ça revient à peu près à combien, ce genre de voyage ?"
         },
         {
-          "text": "Quelles villes ou quels villages méritent vraiment une visite ?",
-          "memory_number": 7,
-          "memory_section": 2
-        },
-        {
-          "text": "Quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
-          "memory_number": 7,
-          "memory_section": 8
-        },
-        {
-          "text": "Côté cuisine, qu'est-ce que vous avez goûté — il y avait des spécialités locales à essayer ?"
-        },
-        {
-          "text": "Qu'est-ce que vous avez le plus apprécié pendant ce séjour ?"
-        },
-        {
-          "text": "Y a-t-il quelque chose qui vous a moins plu pendant ce séjour ?"
-        },
-        {
-          "text": "Si ce n'est pas indiscret, ça revient à peu près à combien, ce genre de voyage ?"
-        },
-        {
-          "text": "Est-ce que vous recommanderiez cette destination à quelqu'un qui voudrait y aller ?",
+          "text": "Pour finir — est-ce que vous recommanderiez cette destination à quelqu'un qui voudrait y aller ?",
           "memory_number": 7,
           "memory_section": 11
         }

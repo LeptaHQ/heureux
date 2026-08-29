@@ -9,7 +9,7 @@
           "kind": "mot-cle",
           "french": "un club de randonnée",
           "english": "a hiking club",
-          "example": "Tu es membre d'un club de randonnée — tu pourrais m'en dire un peu plus ?",
+          "example": "Salut ! Tu m'as dit que tu es membre d'un club de randonnée — ça me tente bien, tu pourrais m'en dire un peu plus ?",
           "usage": "Groupe nominal désignant une association organisant des sorties de randonnée."
         },
         {
@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "combien de participants",
           "english": "how many participants",
-          "example": "Vous êtes généralement combien de participants lors d'une sortie ?",
+          "example": "Pour ce qui est des personnes présentes, vous êtes généralement combien de participants lors d'une sortie ?",
           "usage": "Groupe interrogatif pour demander la taille d'un groupe."
         },
         {
@@ -65,7 +65,7 @@
           "kind": "mot-cle",
           "french": "un équipement particulier",
           "english": "special equipment",
-          "example": "Faut-il un équipement particulier, ou de bonnes chaussures suffisent pour commencer ?",
+          "example": "Côté matériel, faut-il un équipement particulier, ou de bonnes chaussures suffisent pour commencer ?",
           "usage": "Groupe nominal désignant du matériel spécifique requis pour une activité."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "une cotisation",
           "english": "a membership fee",
-          "example": "Y a-t-il une cotisation à payer pour faire partie du club ?",
+          "example": "En ce qui concerne le budget, y a-t-il une cotisation à payer pour faire partie du club ?",
           "usage": "Nom féminin désignant une somme versée pour appartenir à une association."
         },
         {
@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "un guide",
           "english": "a guide",
-          "example": "Les sorties sont-elles encadrées par un guide, ou chacun s'organise de son côté ?",
+          "example": "Pour ce qui est du déroulement, les sorties sont-elles encadrées par un guide, ou chacun s'organise de son côté ?",
           "usage": "Nom masculin désignant une personne encadrant un groupe lors d'une activité."
         },
         {
@@ -89,7 +89,7 @@
           "kind": "collocation",
           "french": "m'en dire un peu plus",
           "english": "to tell me a bit more about it",
-          "example": "Tu es membre d'un club de randonnée — tu pourrais m'en dire un peu plus ?",
+          "example": "Salut ! Tu m'as dit que tu es membre d'un club de randonnée — ça me tente bien, tu pourrais m'en dire un peu plus ?",
           "usage": "Collocation verbale informelle pour demander un développement, registre tutoiement."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "lors d'une sortie",
           "english": "during an outing",
-          "example": "Vous êtes généralement combien de participants lors d'une sortie ?",
+          "example": "Pour ce qui est des personnes présentes, vous êtes généralement combien de participants lors d'une sortie ?",
           "usage": "Locution prépositionnelle pour situer une information dans le cadre d'une activité."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "rejoindre une sortie",
           "english": "to join an outing",
-          "example": "Comment fait-on pour s'inscrire ou rejoindre une sortie la première fois ?",
+          "example": "Côté réservation, comment fait-on pour s'inscrire ou rejoindre une sortie la première fois ?",
           "usage": "Collocation verbe + nom pour évoquer une participation ponctuelle."
         },
         {
@@ -185,7 +185,7 @@
           "kind": "tournure",
           "french": "de bonnes chaussures suffisent pour commencer",
           "english": "good shoes are enough to get started",
-          "example": "Faut-il un équipement particulier, ou de bonnes chaussures suffisent pour commencer ?",
+          "example": "Côté matériel, faut-il un équipement particulier, ou de bonnes chaussures suffisent pour commencer ?",
           "usage": "Tournure affirmative pour évaluer un niveau d'équipement minimal."
         },
         {
@@ -193,7 +193,7 @@
           "kind": "tournure",
           "french": "faire partie du club",
           "english": "to be part of the club",
-          "example": "Y a-t-il une cotisation à payer pour faire partie du club ?",
+          "example": "En ce qui concerne le budget, y a-t-il une cotisation à payer pour faire partie du club ?",
           "usage": "Tournure verbale pour évoquer une appartenance associative."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "chacun s'organise de son côté",
           "english": "everyone organizes on their own",
-          "example": "Les sorties sont-elles encadrées par un guide, ou chacun s'organise de son côté ?",
+          "example": "Pour ce qui est du déroulement, les sorties sont-elles encadrées par un guide, ou chacun s'organise de son côté ?",
           "usage": "Tournure pronominale pour décrire une absence d'encadrement centralisé."
         },
         {
@@ -225,7 +225,7 @@
           "kind": "tournure",
           "french": "comment fait-on pour s'inscrire",
           "english": "how does one go about signing up",
-          "example": "Comment fait-on pour s'inscrire ou rejoindre une sortie la première fois ?",
+          "example": "Côté réservation, comment fait-on pour s'inscrire ou rejoindre une sortie la première fois ?",
           "usage": "Tournure interrogative impersonnelle pour demander une démarche pratique."
         },
         {
@@ -254,7 +254,7 @@
           "kind": "mot-cle",
           "french": "un séjour linguistique",
           "english": "a language-immersion trip",
-          "example": "Ton enfant a fait un séjour linguistique à l'étranger — tu pourrais m'en dire un peu plus ?",
+          "example": "Salut ! Tu m'as dit que ton enfant a fait un séjour linguistique à l'étranger — j'y pense pour le mien, tu pourrais m'en dire un peu plus ?",
           "usage": "Groupe nominal désignant un séjour organisé pour apprendre une langue étrangère."
         },
         {
@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "une famille d'accueil",
           "english": "a host family",
-          "example": "Il ou elle logeait dans une famille d'accueil, ou plutôt dans un internat avec le groupe ?",
+          "example": "Côté hébergement, il ou elle logeait dans une famille d'accueil, ou plutôt dans un internat avec le groupe ?",
           "usage": "Groupe nominal désignant la famille qui héberge un élève à l'étranger."
         },
         {
@@ -302,7 +302,7 @@
           "kind": "mot-cle",
           "french": "en comptant tout",
           "english": "counting everything",
-          "example": "Ça a coûté combien environ, en comptant tout ?",
+          "example": "Côté budget, ça a coûté combien environ, en comptant tout ?",
           "usage": "Locution adverbiale pour indiquer un coût total incluant tous les frais."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "des accompagnateurs",
           "english": "chaperones/group leaders",
-          "example": "Comment était encadré le séjour — il y avait des accompagnateurs sur place en permanence ?",
+          "example": "Pour ce qui est du niveau, comment était encadré le séjour — il y avait des accompagnateurs sur place en permanence ?",
           "usage": "Nom pluriel désignant les adultes responsables encadrant un groupe de jeunes."
         },
         {
@@ -334,7 +334,7 @@
           "kind": "collocation",
           "french": "m'en dire un peu plus",
           "english": "to tell me a bit more about it",
-          "example": "Ton enfant a fait un séjour linguistique à l'étranger — tu pourrais m'en dire un peu plus ?",
+          "example": "Salut ! Tu m'as dit que ton enfant a fait un séjour linguistique à l'étranger — j'y pense pour le mien, tu pourrais m'en dire un peu plus ?",
           "usage": "Collocation verbale informelle pour demander un développement, registre tutoiement."
         },
         {
@@ -366,7 +366,7 @@
           "kind": "collocation",
           "french": "dans un internat",
           "english": "in a boarding school",
-          "example": "Il ou elle logeait dans une famille d'accueil, ou plutôt dans un internat avec le groupe ?",
+          "example": "Côté hébergement, il ou elle logeait dans une famille d'accueil, ou plutôt dans un internat avec le groupe ?",
           "usage": "Collocation prépositionnelle pour désigner un hébergement collectif encadré."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "ce programme en particulier",
           "english": "this particular program",
-          "example": "Comment avez-vous choisi ce programme en particulier — par une agence, une école ?",
+          "example": "Côté organisation, comment as-tu choisi ce programme en particulier — par une agence, une école ?",
           "usage": "Collocation démonstrative pour insister sur un choix précis parmi d'autres options."
         },
         {
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "une autorisation parentale",
           "english": "parental consent",
-          "example": "Quels documents faut-il préparer — un passeport, une autorisation parentale ?",
+          "example": "Côté démarches, quels documents faut-il préparer — un passeport, une autorisation parentale ?",
           "usage": "Groupe nominal désignant un document signé par un parent ou tuteur."
         },
         {
@@ -422,7 +422,7 @@
           "kind": "tournure",
           "french": "ça a coûté combien environ",
           "english": "how much did it cost approximately",
-          "example": "Ça a coûté combien environ, en comptant tout ?",
+          "example": "Côté budget, ça a coûté combien environ, en comptant tout ?",
           "usage": "Tournure interrogative au passé composé pour estimer un coût global."
         },
         {
@@ -438,7 +438,7 @@
           "kind": "tournure",
           "french": "comment était encadré le séjour",
           "english": "how was the trip supervised",
-          "example": "Comment était encadré le séjour — il y avait des accompagnateurs sur place en permanence ?",
+          "example": "Pour ce qui est du niveau, comment était encadré le séjour — il y avait des accompagnateurs sur place en permanence ?",
           "usage": "Tournure interrogative au passif imparfait pour vérifier un encadrement."
         },
         {
@@ -452,9 +452,9 @@
         {
           "id": "T2J6S27V26",
           "kind": "tournure",
-          "french": "comment avez-vous choisi ce programme en particulier",
+          "french": "comment as-tu choisi ce programme en particulier",
           "english": "how did you choose this particular program",
-          "example": "Comment avez-vous choisi ce programme en particulier — par une agence, une école ?",
+          "example": "Côté organisation, comment as-tu choisi ce programme en particulier — par une agence, une école ?",
           "usage": "Tournure interrogative au passé composé pour comprendre une démarche de sélection."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "quels documents faut-il préparer",
           "english": "what documents need to be prepared",
-          "example": "Quels documents faut-il préparer — un passeport, une autorisation parentale ?",
+          "example": "Côté démarches, quels documents faut-il préparer — un passeport, une autorisation parentale ?",
           "usage": "Tournure interrogative impersonnelle pour anticiper des démarches administratives."
         },
         {
@@ -499,7 +499,7 @@
           "kind": "mot-cle",
           "french": "ta voiture",
           "english": "your car",
-          "example": "Tu m'as dit que tu vendais ta voiture — tu pourrais m'en dire un peu plus ?",
+          "example": "Salut ! Tu m'as dit que tu vendais ta voiture — justement, je cherche à en changer : tu pourrais m'en dire un peu plus ?",
           "usage": "Groupe nominal possessif désignant le véhicule mis en vente, registre tutoiement."
         },
         {
@@ -523,7 +523,7 @@
           "kind": "mot-cle",
           "french": "la vendre",
           "english": "to sell it",
-          "example": "Pourquoi tu as décidé de la vendre ?",
+          "example": "Ensuite, pourquoi tu as décidé de la vendre ?",
           "usage": "Verbe + pronom complément désignant l'action de céder un bien."
         },
         {
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "le carnet d'entretien",
           "english": "the maintenance logbook",
-          "example": "Tu as gardé le carnet d'entretien et les factures ?",
+          "example": "Il y a un autre point qui m'intéresse : tu as gardé le carnet d'entretien et les factures ?",
           "usage": "Groupe nominal désignant le document répertoriant les interventions effectuées sur un véhicule."
         },
         {
@@ -579,7 +579,7 @@
           "kind": "collocation",
           "french": "m'en dire un peu plus",
           "english": "to tell me a bit more about it",
-          "example": "Tu m'as dit que tu vendais ta voiture — tu pourrais m'en dire un peu plus ?",
+          "example": "Salut ! Tu m'as dit que tu vendais ta voiture — justement, je cherche à en changer : tu pourrais m'en dire un peu plus ?",
           "usage": "Collocation verbale informelle pour demander un développement, registre tutoiement."
         },
         {
@@ -603,7 +603,7 @@
           "kind": "collocation",
           "french": "pourquoi tu as décidé de",
           "english": "why did you decide to",
-          "example": "Pourquoi tu as décidé de la vendre ?",
+          "example": "Ensuite, pourquoi tu as décidé de la vendre ?",
           "usage": "Collocation interrogative au passé composé pour interroger sur une motivation, registre tutoiement."
         },
         {
@@ -627,7 +627,7 @@
           "kind": "collocation",
           "french": "avant de me décider",
           "english": "before I make up my mind",
-          "example": "Est-ce que je pourrais l'essayer avant de me décider ?",
+          "example": "Une chose encore : est-ce que je pourrais l'essayer avant de me décider ?",
           "usage": "Locution prépositionnelle + verbe pronominal pour évoquer une période de réflexion."
         },
         {
@@ -643,7 +643,7 @@
           "kind": "collocation",
           "french": "un virement",
           "english": "a bank transfer",
-          "example": "Pour le paiement, tu préférerais un virement, ou autre chose ?",
+          "example": "Dernier point pratique : pour le paiement, tu préférerais un virement, ou autre chose ?",
           "usage": "Nom masculin désignant un moyen de paiement électronique entre comptes."
         },
         {
@@ -667,7 +667,7 @@
           "kind": "tournure",
           "french": "tu as gardé le carnet d'entretien et les factures",
           "english": "did you keep the maintenance logbook and the invoices",
-          "example": "Tu as gardé le carnet d'entretien et les factures ?",
+          "example": "Il y a un autre point qui m'intéresse : tu as gardé le carnet d'entretien et les factures ?",
           "usage": "Tournure interrogative au passé composé, registre tutoiement."
         },
         {
@@ -691,7 +691,7 @@
           "kind": "tournure",
           "french": "tu en demandes combien",
           "english": "how much are you asking for it",
-          "example": "Tu en demandes combien ?",
+          "example": "En ce qui concerne le prix, tu en demandes combien ?",
           "usage": "Tournure interrogative directe pour demander un prix, registre tutoiement."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "est-ce que je pourrais l'essayer",
           "english": "could I try it out",
-          "example": "Est-ce que je pourrais l'essayer avant de me décider ?",
+          "example": "Une chose encore : est-ce que je pourrais l'essayer avant de me décider ?",
           "usage": "Tournure au conditionnel avec « est-ce que » pour demander un essai avant achat."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "pour le paiement, tu préférerais",
           "english": "for payment, would you prefer",
-          "example": "Pour le paiement, tu préférerais un virement, ou autre chose ?",
+          "example": "Dernier point pratique : pour le paiement, tu préférerais un virement, ou autre chose ?",
           "usage": "Tournure au conditionnel pour demander un mode de règlement, registre tutoiement."
         },
         {
@@ -744,7 +744,7 @@
           "kind": "mot-cle",
           "french": "des billets",
           "english": "tickets",
-          "example": "Tu m'as dit que tu avais des billets pour un festival de musique mais que tu ne peux pas y aller — tu peux m'en dire plus ?",
+          "example": "Salut ! Tu m'as dit que tu avais des billets pour un festival de musique mais que tu ne peux pas y aller — ça pourrait bien m'intéresser, tu peux m'en dire plus ?",
           "usage": "Nom pluriel désignant des titres d'accès à un événement."
         },
         {
@@ -784,7 +784,7 @@
           "kind": "mot-cle",
           "french": "y aller finalement",
           "english": "go there after all",
-          "example": "Pourquoi tu ne peux plus y aller finalement ?",
+          "example": "Et puis, pourquoi tu ne peux plus y aller finalement ?",
           "usage": "Locution verbale pour évoquer un changement de décision."
         },
         {
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "me les céder",
           "english": "to give/sell them to me",
-          "example": "Tu en demandes combien pour me les céder ?",
+          "example": "Côté prix, tu en demandes combien pour me les céder ?",
           "usage": "Groupe verbal + pronoms pour évoquer une cession de billets."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "transférables",
           "english": "transferable",
-          "example": "Les billets sont-ils transférables à mon nom, ou c'est directement utilisable ?",
+          "example": "Côté inscription, les billets sont-ils transférables à mon nom, ou c'est directement utilisable ?",
           "usage": "Adjectif qualifiant un billet pouvant être mis au nom d'une autre personne."
         },
         {
@@ -824,7 +824,7 @@
           "kind": "collocation",
           "french": "m'en dire plus",
           "english": "to tell me more about it",
-          "example": "Tu m'as dit que tu avais des billets pour un festival de musique mais que tu ne peux pas y aller — tu peux m'en dire plus ?",
+          "example": "Salut ! Tu m'as dit que tu avais des billets pour un festival de musique mais que tu ne peux pas y aller — ça pourrait bien m'intéresser, tu peux m'en dire plus ?",
           "usage": "Collocation verbale informelle pour demander un développement, registre tutoiement."
         },
         {
@@ -864,7 +864,7 @@
           "kind": "collocation",
           "french": "le stationnement sur place",
           "english": "on-site parking",
-          "example": "Comment on s'organise pour le transport ou le stationnement sur place ?",
+          "example": "En ce qui concerne l'accès, comment on s'organise pour le transport ou le stationnement sur place ?",
           "usage": "Collocation nom + locution pour désigner une disponibilité de parking."
         },
         {
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "des règles particulières",
           "english": "special rules",
-          "example": "Y a-t-il une limite d'âge ou des règles particulières à respecter sur place ?",
+          "example": "Pour ce qui est des conditions, y a-t-il une limite d'âge ou des règles particulières à respecter sur place ?",
           "usage": "Groupe nominal désignant des consignes spécifiques à respecter."
         },
         {
@@ -904,7 +904,7 @@
           "kind": "tournure",
           "french": "pourquoi tu ne peux plus y aller finalement",
           "english": "why can't you go anymore after all",
-          "example": "Pourquoi tu ne peux plus y aller finalement ?",
+          "example": "Et puis, pourquoi tu ne peux plus y aller finalement ?",
           "usage": "Tournure interrogative pour comprendre un changement de situation, registre tutoiement."
         },
         {
@@ -912,7 +912,7 @@
           "kind": "tournure",
           "french": "tu en demandes combien pour me les céder",
           "english": "how much are you asking to give them to me",
-          "example": "Tu en demandes combien pour me les céder ?",
+          "example": "Côté prix, tu en demandes combien pour me les céder ?",
           "usage": "Tournure interrogative directe pour négocier un prix, registre tutoiement."
         },
         {
@@ -928,7 +928,7 @@
           "kind": "tournure",
           "french": "c'est directement utilisable",
           "english": "it's directly usable",
-          "example": "Les billets sont-ils transférables à mon nom, ou c'est directement utilisable ?",
+          "example": "Côté inscription, les billets sont-ils transférables à mon nom, ou c'est directement utilisable ?",
           "usage": "Tournure affirmative pour vérifier l'absence de démarche administrative supplémentaire."
         },
         {
@@ -944,7 +944,7 @@
           "kind": "tournure",
           "french": "comment on s'organise pour le transport",
           "english": "how do we organize ourselves for transportation",
-          "example": "Comment on s'organise pour le transport ou le stationnement sur place ?",
+          "example": "En ce qui concerne l'accès, comment on s'organise pour le transport ou le stationnement sur place ?",
           "usage": "Tournure interrogative informelle pour clarifier une logistique pratique."
         },
         {
@@ -968,7 +968,7 @@
           "kind": "tournure",
           "french": "y a-t-il une limite d'âge",
           "english": "is there an age limit",
-          "example": "Y a-t-il une limite d'âge ou des règles particulières à respecter sur place ?",
+          "example": "Pour ce qui est des conditions, y a-t-il une limite d'âge ou des règles particulières à respecter sur place ?",
           "usage": "Tournure interrogative avec « y a-t-il » pour vérifier une restriction d'accès."
         },
         {
@@ -1005,7 +1005,7 @@
           "kind": "mot-cle",
           "french": "gamme de prix",
           "english": "price range",
-          "example": "Ça va plutôt dans quelle gamme de prix en général ?",
+          "example": "Côté budget, ça va plutôt dans quelle gamme de prix en général ?",
           "usage": "Groupe nominal désignant une fourchette tarifaire."
         },
         {
@@ -1021,7 +1021,7 @@
           "kind": "mot-cle",
           "french": "un groupe",
           "english": "a group",
-          "example": "Ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
+          "example": "Pour ce qui est des repas, ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
           "usage": "Nom masculin désignant un ensemble de plusieurs convives."
         },
         {
@@ -1029,7 +1029,7 @@
           "kind": "mot-cle",
           "french": "réserver à l'avance",
           "english": "to book in advance",
-          "example": "Faut-il réserver à l'avance, surtout pour un week-end ?",
+          "example": "En ce qui concerne l'organisation, faut-il réserver à l'avance, surtout pour un week-end ?",
           "usage": "Groupe verbal pour anticiper une réservation."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "une voiture",
           "english": "a car",
-          "example": "Ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
+          "example": "Et pour s'y rendre, ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
           "usage": "Nom féminin désignant un moyen de transport individuel motorisé."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "mot-cle",
           "french": "les régimes particuliers",
           "english": "special diets",
-          "example": "Y a-t-il des options pour les régimes particuliers ou les allergies ?",
+          "example": "En ce qui concerne la nourriture, y a-t-il des options pour les régimes particuliers ou les allergies ?",
           "usage": "Groupe nominal désignant des contraintes alimentaires spécifiques."
         },
         {
@@ -1085,7 +1085,7 @@
           "kind": "collocation",
           "french": "en général",
           "english": "in general",
-          "example": "Ça va plutôt dans quelle gamme de prix en général ?",
+          "example": "Côté budget, ça va plutôt dans quelle gamme de prix en général ?",
           "usage": "Locution adverbiale pour demander une information globale."
         },
         {
@@ -1101,7 +1101,7 @@
           "kind": "collocation",
           "french": "de petites tables",
           "english": "small tables",
-          "example": "Ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
+          "example": "Pour ce qui est des repas, ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
           "usage": "Groupe nominal désignant un agencement pour peu de convives."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "m'en dire un peu plus",
           "english": "to tell me a bit more about it",
-          "example": "Vous avez mentionné un restaurant en particulier — vous pourriez m'en dire un peu plus ?",
+          "example": "Vous avez mentionné un restaurant en particulier — vous pourriez m'en dire un peu plus : il conviendrait pour une dizaine de personnes ?",
           "usage": "Collocation verbale polie pour demander un développement, registre vouvoiement."
         },
         {
@@ -1149,7 +1149,7 @@
           "kind": "tournure",
           "french": "faut-il réserver à l'avance",
           "english": "should one book in advance",
-          "example": "Faut-il réserver à l'avance, surtout pour un week-end ?",
+          "example": "En ce qui concerne l'organisation, faut-il réserver à l'avance, surtout pour un week-end ?",
           "usage": "Tournure interrogative impersonnelle pour vérifier une nécessité de réservation."
         },
         {
@@ -1165,7 +1165,7 @@
           "kind": "tournure",
           "french": "il vaut mieux prévoir une voiture",
           "english": "it's better to plan for a car",
-          "example": "Ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
+          "example": "Et pour s'y rendre, ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
           "usage": "Tournure impersonnelle pour recommander un moyen de transport."
         },
         {
@@ -1181,7 +1181,7 @@
           "kind": "tournure",
           "french": "y a-t-il des options pour les régimes particuliers",
           "english": "are there options for special diets",
-          "example": "Y a-t-il des options pour les régimes particuliers ou les allergies ?",
+          "example": "En ce qui concerne la nourriture, y a-t-il des options pour les régimes particuliers ou les allergies ?",
           "usage": "Tournure interrogative avec « y a-t-il » pour vérifier une adaptation alimentaire."
         },
         {
@@ -1189,7 +1189,7 @@
           "kind": "tournure",
           "french": "vous avez mentionné un restaurant en particulier",
           "english": "you mentioned a particular restaurant",
-          "example": "Vous avez mentionné un restaurant en particulier — vous pourriez m'en dire un peu plus ?",
+          "example": "Vous avez mentionné un restaurant en particulier — vous pourriez m'en dire un peu plus : il conviendrait pour une dizaine de personnes ?",
           "usage": "Tournure affirmative pour relancer sur un élément déjà évoqué, registre vouvoiement."
         },
         {

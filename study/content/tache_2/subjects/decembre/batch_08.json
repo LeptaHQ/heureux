@@ -12,7 +12,7 @@
       "prompt": "Dans le cadre de vos cours de français, vous réalisez une enquête sur les activités d’un jeune étudiant issu d’un pays francophone. Je joue le rôle de cet étudiant et vous celui de l’enquêteur. Vous me posez des questions (quoi, où, quand, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! Pour commencer, de quel pays francophone venez-vous ?"
+          "text": "Bonjour ! Je réalise une enquête pour mon cours de français et vous avez accepté d'y répondre — pour commencer, de quel pays francophone venez-vous ?"
         },
         {
           "text": "Et depuis combien de temps êtes-vous au Canada ?"
@@ -30,13 +30,13 @@
           "text": "Et en soirée, à quelle heure rentrez-vous habituellement ?"
         },
         {
-          "text": "Comment vous déplacez-vous au quotidien — à pied, en bus, en métro, à vélo ou autrement ?"
+          "text": "Côté déplacements, comment vous déplacez-vous au quotidien — à pied, en bus, en métro, à vélo ou autrement ?"
         },
         {
           "text": "Pour les repas, vous mangez plutôt à la cafétéria, chez vous, ou au restaurant ?"
         },
         {
-          "text": "Qu'est-ce que vous aimez faire pendant votre temps libre — du sport, de la musique, de la lecture, les réseaux sociaux ?"
+          "text": "Autre chose : qu'est-ce que vous aimez faire pendant votre temps libre — du sport, de la musique, de la lecture, les réseaux sociaux ?"
         },
         {
           "text": "Est-ce que vous avez un petit travail à côté de vos études ?"
@@ -47,7 +47,7 @@
           "memory_section": 10
         },
         {
-          "text": "Quelles habitudes ou quelles coutumes canadiennes vous ont le plus surpris(e) depuis votre arrivée ?",
+          "text": "Une dernière chose me vient à l'esprit : quelles habitudes ou quelles coutumes canadiennes vous ont le plus surpris(e) depuis votre arrivée ?",
           "memory_number": 5,
           "memory_section": 10
         },
@@ -55,7 +55,7 @@
           "text": "Est-ce que vous participez à des activités culturelles ou à des associations ?"
         },
         {
-          "text": "Après vos études, quels sont vos projets ?"
+          "text": "Et pour la suite, après vos études, quels sont vos projets ?"
         },
         {
           "text": "Pour finir — si vous deviez décrire votre semaine idéale ici en tant qu'étudiant, à quoi ressemblerait-elle ?"
@@ -74,19 +74,13 @@
           "text": "Quel type de jeu est-ce — un quiz, une chasse au trésor, un défi littéraire ou autre chose ?"
         },
         {
+          "text": "Question conditions, quelles sont les règles principales, et peut-on les consulter avant de décider ?"
+        },
+        {
           "text": "Qui peut participer — c'est ouvert à tous les âges ou y a-t-il un âge minimum ?"
         },
         {
-          "text": "Faut-il s'inscrire à l'avance, et comment ?"
-        },
-        {
-          "text": "Est-ce que la participation est gratuite ou y a-t-il des frais ?"
-        },
-        {
-          "text": "Quand est-ce que cela a lieu exactement, et combien de temps cela dure-t-il ?"
-        },
-        {
-          "text": "Où est-ce que ça se passe — uniquement dans la librairie ou aussi à l'extérieur ?"
+          "text": "En ce qui concerne l'encadrement, quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?"
         },
         {
           "text": "Peut-on participer en équipe, ou seulement individuellement ?"
@@ -95,13 +89,19 @@
           "text": "Combien de participants acceptez-vous au maximum ?"
         },
         {
-          "text": "Quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?"
+          "text": "Côté calendrier, quand est-ce que cela a lieu exactement, et combien de temps cela dure-t-il ?"
         },
         {
-          "text": "Quelles sont les règles principales, et peut-on les consulter avant de décider ?"
+          "text": "Où est-ce que ça se passe — uniquement dans la librairie ou aussi à l'extérieur ?"
         },
         {
-          "text": "Qu'est-ce qu'on peut gagner — y a-t-il des prix ou des cadeaux ?"
+          "text": "En ce qui concerne la participation, faut-il s'inscrire à l'avance, et comment ?"
+        },
+        {
+          "text": "Est-ce que la participation est gratuite ou y a-t-il des frais ?"
+        },
+        {
+          "text": "Côté récompenses, qu'est-ce qu'on peut gagner — y a-t-il des prix ou des cadeaux ?"
         },
         {
           "text": "Comment déterminez-vous le gagnant à la fin ?"
@@ -126,9 +126,6 @@
           "text": "C'est quel type d'activité exactement — tu fais du théâtre, de la danse, de la musique ou autre chose ?"
         },
         {
-          "text": "Les séances se passent où — dans un studio, une salle polyvalente, en extérieur ?"
-        },
-        {
           "text": "Ça s'adresse à quel niveau — plutôt aux débutants ou aux personnes déjà expérimentées ?"
         },
         {
@@ -137,31 +134,34 @@
           "memory_section": 6
         },
         {
-          "text": "Il y a généralement combien de participants — c'est un petit groupe ou un grand groupe ?"
+          "text": "Pour ce qui est des personnes présentes, il y a généralement combien de participants — c'est un petit groupe ou un grand groupe ?"
         },
         {
-          "text": "Ça a lieu quels jours, et plutôt à quelle heure ?"
+          "text": "Avant que j'oublie, toi, qu'est-ce que tu aimes le plus dans cette activité — tu en es content(e) ?"
+        },
+        {
+          "text": "Les séances se passent où — dans un studio, une salle polyvalente, en extérieur ?"
+        },
+        {
+          "text": "Côté horaires, ça a lieu quels jours, et plutôt à quelle heure ?"
         },
         {
           "text": "Quelle est la durée d'une séance — environ une heure ou plutôt plus ?"
         },
         {
-          "text": "Comment fonctionnent les tarifs — faut-il payer à la séance ou s'inscrire pour toute la session ?"
+          "text": "Est-ce qu'il y a des spectacles, des concerts ou des présentations à la fin de l'année ?"
         },
         {
-          "text": "Qu'est-ce qu'il faut apporter — du matériel, une tenue particulière, ou est-ce que tout est fourni ?"
-        },
-        {
-          "text": "Comment se passe l'inscription — en ligne, sur place, ou directement auprès du professeur ?"
+          "text": "Côté affaires à prévoir, qu'est-ce qu'il faut apporter — du matériel, une tenue particulière, ou est-ce que tout est fourni ?"
         },
         {
           "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une séance d'essai ?"
         },
         {
-          "text": "Est-ce qu'il y a des spectacles, des concerts ou des présentations à la fin de l'année ?"
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il payer à la séance ou s'inscrire pour toute la session ?"
         },
         {
-          "text": "Toi, qu'est-ce que tu aimes le plus dans cette activité — tu en es content(e) ?"
+          "text": "Comment se passe l'inscription — en ligne, sur place, ou directement auprès du professeur ?"
         },
         {
           "text": "Pour finir — tu me conseillerais de commencer par quoi, si je veux me lancer moi aussi ?"
@@ -259,19 +259,16 @@
           "text": "Parmi tous ces pays, lequel a été ton préféré, et pourquoi ?"
         },
         {
-          "text": "Dans ce pays-là, qu'est-ce qu'on peut faire comme activités intéressantes ?"
+          "text": "Et concrètement, dans ce pays-là, qu'est-ce qu'on peut faire comme activités intéressantes ?"
         },
         {
-          "text": "Le climat y est comment, et quelle est la meilleure période pour y aller ?"
+          "text": "Question lieu, quels endroits sont vraiment incontournables sur place ?"
         },
         {
-          "text": "Côté budget, il faut prévoir combien à peu près pour le vol et l'hébergement ?"
+          "text": "Et à l'inverse, tu connais un lieu moins touristique qui vaut vraiment le détour ?"
         },
         {
-          "text": "Pour un francophone, c'est facile de voyager là-bas ou il vaut mieux parler une autre langue ?"
-        },
-        {
-          "text": "Qu'est-ce qui t'a le plus surpris dans ce pays ?",
+          "text": "Ensuite, qu'est-ce qui t'a le plus surpris dans ce pays ?",
           "memory_number": 7,
           "memory_section": 2
         },
@@ -279,19 +276,22 @@
           "text": "Et au niveau de la nourriture, qu'est-ce qu'il faut absolument goûter ?"
         },
         {
-          "text": "Il y a des questions de sécurité ou des précautions particulières à connaître ?"
-        },
-        {
-          "text": "Quels endroits sont vraiment incontournables sur place ?"
-        },
-        {
-          "text": "Et à l'inverse, tu connais un lieu moins touristique qui vaut vraiment le détour ?"
+          "text": "Côté météo, le climat y est comment, et quelle est la meilleure période pour y aller ?"
         },
         {
           "text": "Pour bien profiter du voyage, il vaut mieux partir combien de temps ?"
         },
         {
           "text": "Tu conseillerais d'y aller seul(e), avec des amis ou avec un voyage organisé ?"
+        },
+        {
+          "text": "Pour un francophone, c'est facile de voyager là-bas ou il vaut mieux parler une autre langue ?"
+        },
+        {
+          "text": "Une chose encore : il y a des questions de sécurité ou des précautions particulières à connaître ?"
+        },
+        {
+          "text": "Côté budget, il faut prévoir combien à peu près pour le vol et l'hébergement ?"
         },
         {
           "text": "Pour finir — si j'aime surtout la nature, la culture ou l'aventure, quelle destination me recommanderais-tu, et dans quel pays retournerais-tu tout de suite ?"

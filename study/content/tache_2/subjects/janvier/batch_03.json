@@ -22,12 +22,37 @@
           "memory_section": 10
         },
         {
+          "text": "Justement, combien de personnes travaillent dans notre département ? Et qui est notre responsable direct — comment est-il ou elle en tant que manager ?",
+          "memory_number": 4,
+          "memory_section": 7
+        },
+        {
           "text": "Comment s'organise le travail au quotidien — plutôt en équipe ou de manière individuelle ?",
           "memory_number": 4,
           "memory_section": 4
         },
         {
-          "text": "À quelle heure ça commence le matin — il y a des horaires flexibles ou tout le monde doit arriver à la même heure ?",
+          "text": "Puisqu'on en parle, est-ce qu'il y a des réunions régulières d'équipe ? Ça a lieu à quelle fréquence — et ça dure combien de temps généralement ?",
+          "memory_number": 4,
+          "memory_section": 4
+        },
+        {
+          "text": "Comment fonctionne la communication interne — on utilise des emails ou une plateforme spécifique ?",
+          "memory_number": 4,
+          "memory_section": 13
+        },
+        {
+          "text": "Question invités, est-ce que tu pourrais me présenter aux autres membres de l'équipe — surtout ceux avec qui je vais travailler étroitement ?",
+          "memory_number": 4,
+          "memory_section": 13
+        },
+        {
+          "text": "Et concrètement, à quelle heure ça commence le matin — il y a des horaires flexibles ou tout le monde doit arriver à la même heure ?",
+          "memory_number": 4,
+          "memory_section": 4
+        },
+        {
+          "text": "Est-ce qu'il y a des possibilités de télétravail ou tout se fait au bureau ?",
           "memory_number": 4,
           "memory_section": 4
         },
@@ -52,32 +77,7 @@
           "memory_section": 9
         },
         {
-          "text": "Est-ce qu'il y a des réunions régulières d'équipe ? Ça a lieu à quelle fréquence — et ça dure combien de temps généralement ?",
-          "memory_number": 4,
-          "memory_section": 4
-        },
-        {
-          "text": "Comment fonctionne la communication interne — on utilise des emails ou une plateforme spécifique ?",
-          "memory_number": 4,
-          "memory_section": 13
-        },
-        {
-          "text": "Combien de personnes travaillent dans notre département ? Et qui est notre responsable direct — comment est-il ou elle en tant que manager ?",
-          "memory_number": 4,
-          "memory_section": 7
-        },
-        {
-          "text": "Est-ce que tu pourrais me présenter aux autres membres de l'équipe — surtout ceux avec qui je vais travailler étroitement ?",
-          "memory_number": 4,
-          "memory_section": 13
-        },
-        {
-          "text": "Est-ce qu'il y a des possibilités de télétravail ou tout se fait au bureau ?",
-          "memory_number": 4,
-          "memory_section": 4
-        },
-        {
-          "text": "Quels sont les avantages dont bénéficient les employés — tickets restaurant, mutuelle, ce genre de choses ?",
+          "text": "Toujours sur ce point, quels sont les avantages dont bénéficient les employés — tickets restaurant, mutuelle, ce genre de choses ?",
           "memory_number": 4,
           "memory_section": 3
         },
@@ -114,7 +114,7 @@
           "memory_section": 4
         },
         {
-          "text": "Ça se passe où exactement — chez quelqu'un ou dans un lieu loué ? C'est facilement accessible en transports en commun ?",
+          "text": "Côté lieu, ça se passe où exactement — chez quelqu'un ou dans un lieu loué ? C'est facilement accessible en transports en commun ?",
           "memory_number": 11,
           "memory_section": 5
         },
@@ -124,9 +124,24 @@
           "memory_section": 7
         },
         {
-          "text": "Est-ce que je vais connaître d'autres invités ou est-ce que je serai la seule nouvelle personne ?",
+          "text": "Dans le même esprit, est-ce que je vais connaître d'autres invités ou est-ce que je serai la seule nouvelle personne ?",
           "memory_number": 11,
           "memory_section": 7
+        },
+        {
+          "text": "Y aura-t-il de la musique et de la danse ? Les gens seront sympas — ce sera facile de s'intégrer ?",
+          "memory_number": 11,
+          "memory_section": 10
+        },
+        {
+          "text": "En ce qui concerne les repas, comment se passe la nourriture — c'est un buffet, un repas assis ou un cocktail ? Il y aura de l'alcool ?",
+          "memory_number": 11,
+          "memory_section": 9
+        },
+        {
+          "text": "Est-ce que je peux apporter quelque chose à manger ou à boire plutôt qu'un cadeau ?",
+          "memory_number": 11,
+          "memory_section": 9
         },
         {
           "text": "Concernant la tenue — c'est plutôt formel ou décontracté ? Il y a un thème ou un code couleur particulier ?",
@@ -134,7 +149,7 @@
           "memory_section": 10
         },
         {
-          "text": "Est-ce que je dois apporter un cadeau ? Est-ce la coutume ici au Québec — et si oui, tu aurais des suggestions ?",
+          "text": "Passons maintenant à un autre point : est-ce que je dois apporter un cadeau ? Est-ce la coutume ici au Québec — et si oui, tu aurais des suggestions ?",
           "memory_number": 11,
           "memory_section": 8
         },
@@ -144,27 +159,12 @@
           "memory_section": 3
         },
         {
-          "text": "Est-ce que je peux apporter quelque chose à manger ou à boire plutôt qu'un cadeau ?",
-          "memory_number": 11,
-          "memory_section": 9
-        },
-        {
-          "text": "Comment se passe la nourriture — c'est un buffet, un repas assis ou un cocktail ? Il y aura de l'alcool ?",
-          "memory_number": 11,
-          "memory_section": 9
-        },
-        {
-          "text": "Y aura-t-il de la musique et de la danse ? Les gens seront sympas — ce sera facile de s'intégrer ?",
-          "memory_number": 11,
-          "memory_section": 10
-        },
-        {
           "text": "C'est la première fête à laquelle je participe au Québec — j'appréhende un peu ! Y a-t-il des coutumes particulières que je devrais connaître ?",
           "memory_number": 11,
           "memory_section": 8
         },
         {
-          "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux te solliciter ?",
+          "text": "Merci pour toutes ces infos, je me sens beaucoup plus à l'aise à l'idée de cette première fête ici — et si j'ai d'autres questions avant le jour J, je peux te solliciter ?",
           "memory_number": 11,
           "memory_section": 13
         }
@@ -186,12 +186,7 @@
           "memory_section": 2
         },
         {
-          "text": "À quelle heure commencent les cours collectifs — plutôt le matin ou en fin de journée ?",
-          "memory_number": 8,
-          "memory_section": 4
-        },
-        {
-          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -201,12 +196,22 @@
           "memory_section": 8
         },
         {
-          "text": "Quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "text": "À quelle heure commencent les cours collectifs — plutôt le matin ou en fin de journée ?",
           "memory_number": 8,
           "memory_section": 4
         },
         {
-          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
+          "text": "Et plus largement, quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "memory_number": 8,
+          "memory_section": 4
+        },
+        {
+          "text": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
+          "memory_number": 8,
+          "memory_section": 8
+        },
+        {
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
           "memory_number": 8,
           "memory_section": 3
         },
@@ -216,7 +221,7 @@
           "memory_section": 3
         },
         {
-          "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
+          "text": "Sur un autre point, est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
           "memory_number": 8,
           "memory_section": 3
         },
@@ -231,12 +236,7 @@
           "memory_section": 3
         },
         {
-          "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
-          "memory_number": 8,
-          "memory_section": 8
-        },
-        {
-          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
+          "text": "Question réservation, comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -263,37 +263,7 @@
           "memory_section": 2
         },
         {
-          "text": "Où se trouve exactement le musée — est-il facilement accessible en transports en commun ? Y a-t-il un parking à proximité ?",
-          "memory_number": 9,
-          "memory_section": 5
-        },
-        {
-          "text": "Quels sont vos horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
-          "memory_number": 9,
-          "memory_section": 4
-        },
-        {
-          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ? On voudrait éviter la foule — quel moment nous conseillez-vous ?",
-          "memory_number": 9,
-          "memory_section": 8
-        },
-        {
-          "text": "Combien de temps faut-il prévoir pour visiter l'ensemble du musée — quelques heures ou toute la journée ?",
-          "memory_number": 9,
-          "memory_section": 4
-        },
-        {
-          "text": "Parlons du budget — combien est-ce que ça coûte approximativement ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_number": 9,
-          "memory_section": 3
-        },
-        {
-          "text": "Nous serons cinq ou six personnes — proposez-vous des tarifs de groupe ?",
-          "memory_number": 9,
-          "memory_section": 7
-        },
-        {
-          "text": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "text": "Et dans la continuité, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "memory_number": 9,
           "memory_section": 2
         },
@@ -303,7 +273,17 @@
           "memory_section": 2
         },
         {
-          "text": "Proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ?",
+          "text": "Combien de temps faut-il prévoir pour visiter l'ensemble du musée — quelques heures ou toute la journée ?",
+          "memory_number": 9,
+          "memory_section": 4
+        },
+        {
+          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ? On voudrait éviter la foule — quel moment nous conseillez-vous ?",
+          "memory_number": 9,
+          "memory_section": 8
+        },
+        {
+          "text": "Côté budget, proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ?",
           "memory_number": 9,
           "memory_section": 2
         },
@@ -318,9 +298,29 @@
           "memory_section": 6
         },
         {
-          "text": "Y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
+          "text": "Question budget, y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
           "memory_number": 9,
           "memory_section": 9
+        },
+        {
+          "text": "Passons aux aspects pratiques : quels sont vos horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "memory_number": 9,
+          "memory_section": 4
+        },
+        {
+          "text": "Où se trouve exactement le musée — est-il facilement accessible en transports en commun ? Y a-t-il un parking à proximité ?",
+          "memory_number": 9,
+          "memory_section": 5
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "memory_number": 9,
+          "memory_section": 3
+        },
+        {
+          "text": "Nous serons cinq ou six personnes — proposez-vous des tarifs de groupe ?",
+          "memory_number": 9,
+          "memory_section": 7
         },
         {
           "text": "Y a-t-il une boutique de souvenirs ou une librairie sur place ?",
@@ -340,7 +340,7 @@
       "prompt": "Je suis votre ami(e) et vous désirez avoir des informations sur des endroits où passer le week-end. Vous me posez des questions.",
       "questions": [
         {
-          "text": "Je cherche des idées pour occuper mon week-end — tu connais des endroits sympas dans le coin ?",
+          "text": "Salut ! Je cherche des idées pour occuper mon week-end — tu connais des endroits sympas dans le coin ?",
           "memory_number": 7,
           "memory_section": 2
         },
@@ -355,34 +355,14 @@
           "memory_section": 2
         },
         {
-          "text": "Est-ce qu'il y a des événements ou des animations prévus ce week-end en particulier ?",
-          "memory_number": 7,
-          "memory_section": 2
-        },
-        {
           "text": "Si on veut faire du sport ou des activités en plein air, il y a quoi comme options ?",
           "memory_number": 7,
           "memory_section": 2
         },
         {
-          "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "text": "Côté programmation, est-ce qu'il y a des événements ou des animations prévus ce week-end en particulier ?",
           "memory_number": 7,
-          "memory_section": 9
-        },
-        {
-          "text": "Parlons du budget — combien est-ce que ça coûte approximativement ?",
-          "memory_number": 7,
-          "memory_section": 3
-        },
-        {
-          "text": "En général, ces endroits sont faciles d'accès en transports en commun ou il faut une voiture ?",
-          "memory_number": 7,
-          "memory_section": 5
-        },
-        {
-          "text": "Il y a beaucoup de monde le week-end ou c'est plutôt calme ?",
-          "memory_number": 7,
-          "memory_section": 8
+          "memory_section": 2
         },
         {
           "text": "Et si le temps n'est pas au rendez-vous, tu aurais des idées pour une sortie en intérieur ?",
@@ -390,14 +370,9 @@
           "memory_section": 2
         },
         {
-          "text": "C'est adapté si on y va en couple ou c'est plutôt un plan entre amis ?",
+          "text": "Autre point important : c'est adapté si on y va en couple ou c'est plutôt un plan entre amis ?",
           "memory_number": 7,
           "memory_section": 7
-        },
-        {
-          "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
-          "memory_number": 7,
-          "memory_section": 6
         },
         {
           "text": "Toi personnellement, tu fais quoi le week-end en général ?",
@@ -408,6 +383,31 @@
           "text": "Il y a un endroit que tu n'as pas encore mentionné et qui vaut vraiment le détour ?",
           "memory_number": 7,
           "memory_section": 11
+        },
+        {
+          "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "memory_number": 7,
+          "memory_section": 9
+        },
+        {
+          "text": "Et en général, ces endroits sont faciles d'accès en transports en commun ou il faut une voiture ?",
+          "memory_number": 7,
+          "memory_section": 5
+        },
+        {
+          "text": "Il y a beaucoup de monde le week-end ou c'est plutôt calme ?",
+          "memory_number": 7,
+          "memory_section": 8
+        },
+        {
+          "text": "En ce qui concerne la réservation, il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "memory_number": 7,
+          "memory_section": 6
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement ?",
+          "memory_number": 7,
+          "memory_section": 3
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",

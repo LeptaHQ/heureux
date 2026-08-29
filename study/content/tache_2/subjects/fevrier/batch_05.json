@@ -37,17 +37,37 @@
           "memory_section": 2
         },
         {
+          "text": "Autre chose : ce film est-il basé sur un livre ou une histoire vraie ?",
+          "memory_number": 9,
+          "memory_section": 2
+        },
+        {
+          "text": "Côté mise en scène, la réalisation est-elle plutôt classique, originale ou spectaculaire ?",
+          "memory_number": 9,
+          "memory_section": 2
+        },
+        {
           "text": "Ce film s'adresse-t-il plutôt à un public adulte ou est-il aussi adapté aux familles ?",
           "memory_number": 9,
           "memory_section": 6
         },
         {
-          "text": "La réalisation est-elle plutôt classique, originale ou spectaculaire ?",
+          "text": "Pour ce qui est de ton ressenti, qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
           "memory_number": 9,
-          "memory_section": 2
+          "memory_section": 10
         },
         {
-          "text": "Où as-tu vu le film — au cinéma, en festival, en ligne ?",
+          "text": "Selon toi, ce film peut-il donner lieu à un débat intéressant pour notre association ?",
+          "memory_number": 9,
+          "memory_section": 13
+        },
+        {
+          "text": "Tu as mentionné le réalisateur — tu pourrais m'en dire un peu plus sur ses autres films ?",
+          "memory_number": 9,
+          "memory_section": 13
+        },
+        {
+          "text": "Pour ce qui est du programme, où as-tu vu le film — au cinéma, en festival, en ligne ?",
           "memory_number": 9,
           "memory_section": 13
         },
@@ -60,26 +80,6 @@
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
           "memory_number": 9,
           "memory_section": 3
-        },
-        {
-          "text": "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
-          "memory_number": 9,
-          "memory_section": 10
-        },
-        {
-          "text": "Ce film est-il basé sur un livre ou une histoire vraie ?",
-          "memory_number": 9,
-          "memory_section": 2
-        },
-        {
-          "text": "Selon toi, ce film peut-il donner lieu à un débat intéressant pour notre association ?",
-          "memory_number": 9,
-          "memory_section": 13
-        },
-        {
-          "text": "Tu as mentionné le réalisateur — tu pourrais m'en dire un peu plus sur ses autres films ?",
-          "memory_number": 9,
-          "memory_section": 13
         },
         {
           "text": "Pour finir — est-ce que tu pourrais recommander ce film aux lecteurs de notre revue ?",
@@ -104,12 +104,22 @@
           "memory_section": 2
         },
         {
-          "text": "Combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
+          "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
+          "memory_number": 7,
+          "memory_section": 13
+        },
+        {
+          "text": "Pour ce qui est de la durée, combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
           "memory_number": 7,
           "memory_section": 4
         },
         {
-          "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "text": "Pendant que j'y pense, est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
+          "memory_number": 7,
+          "memory_section": 6
+        },
+        {
+          "text": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -122,6 +132,16 @@
           "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
           "memory_number": 7,
           "memory_section": 8
+        },
+        {
+          "text": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "memory_number": 7,
+          "memory_section": 9
+        },
+        {
+          "text": "Il reste encore des places ou c'est déjà complet ?",
+          "memory_number": 7,
+          "memory_section": 6
         },
         {
           "text": "Parlons du budget — combien est-ce que ça coûte approximativement, transport, hébergement et repas inclus ?",
@@ -144,26 +164,6 @@
           "memory_section": 3
         },
         {
-          "text": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
-          "memory_number": 7,
-          "memory_section": 9
-        },
-        {
-          "text": "Il reste encore des places ou c'est déjà complet ?",
-          "memory_number": 7,
-          "memory_section": 6
-        },
-        {
-          "text": "Est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
-          "memory_number": 7,
-          "memory_section": 6
-        },
-        {
-          "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
-          "memory_number": 7,
-          "memory_section": 13
-        },
-        {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
           "memory_number": 7,
           "memory_section": 13
@@ -181,24 +181,9 @@
           "memory_section": 13
         },
         {
-          "text": "Il y a généralement combien de participants — c'est un petit groupe ou tout le quartier ?",
+          "text": "Pour commencer par le lieu, où pourrait-on organiser la fête — dans la cour, une salle commune ou chez quelqu'un ?",
           "memory_number": 11,
-          "memory_section": 7
-        },
-        {
-          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
-          "memory_number": 11,
-          "memory_section": 10
-        },
-        {
-          "text": "Pour la musique, quel style conviendrait le mieux — plutôt calme au début puis plus dansant ?",
-          "memory_number": 11,
-          "memory_section": 10
-        },
-        {
-          "text": "Quel type de repas est le plus apprécié — buffet, barbecue, plats faits maison ?",
-          "memory_number": 11,
-          "memory_section": 9
+          "memory_section": 13
         },
         {
           "text": "Quel jour et quel horaire conviendraient le mieux — plutôt en journée ou en soirée ?",
@@ -211,12 +196,42 @@
           "memory_section": 4
         },
         {
+          "text": "Il y a généralement combien de participants — c'est un petit groupe ou tout le quartier ?",
+          "memory_number": 11,
+          "memory_section": 7
+        },
+        {
+          "text": "Côté organisation, comment gérer les invitations — par message, papier ou bouche-à-oreille ?",
+          "memory_number": 11,
+          "memory_section": 13
+        },
+        {
+          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "memory_number": 11,
+          "memory_section": 10
+        },
+        {
+          "text": "Passons à la table : quel type de repas est le plus apprécié — buffet, barbecue, plats faits maison ?",
+          "memory_number": 11,
+          "memory_section": 9
+        },
+        {
+          "text": "Pour le repas, vaut-il mieux demander à chacun d'apporter quelque chose ?",
+          "memory_number": 11,
+          "memory_section": 9
+        },
+        {
+          "text": "Pour la musique, quel style conviendrait le mieux — plutôt calme au début puis plus dansant ?",
+          "memory_number": 11,
+          "memory_section": 10
+        },
+        {
           "text": "Y a-t-il des activités ou jeux prévus — pour adultes et enfants ?",
           "memory_number": 11,
           "memory_section": 2
         },
         {
-          "text": "Faut-il prévenir la mairie ou respecter des règles de bruit ?",
+          "text": "Question conditions, faut-il prévenir la mairie ou respecter des règles de bruit ?",
           "memory_number": 11,
           "memory_section": 8
         },
@@ -226,22 +241,7 @@
           "memory_section": 8
         },
         {
-          "text": "Pour le repas, vaut-il mieux demander à chacun d'apporter quelque chose ?",
-          "memory_number": 11,
-          "memory_section": 9
-        },
-        {
-          "text": "Où pourrait-on organiser la fête — dans la cour, une salle commune ou chez quelqu'un ?",
-          "memory_number": 11,
-          "memory_section": 13
-        },
-        {
-          "text": "Comment gérer les invitations — par message, papier ou bouche-à-oreille ?",
-          "memory_number": 11,
-          "memory_section": 13
-        },
-        {
-          "text": "Avez-vous déjà organisé ce type de fête — comment ça s'est passé exactement ?",
+          "text": "Pour ce qui est du déroulement, avez-vous déjà organisé ce type de fête — comment ça s'est passé exactement ?",
           "memory_number": 11,
           "memory_section": 13
         },
@@ -273,7 +273,7 @@
           "memory_section": 10
         },
         {
-          "text": "Quels types d'activités ou clubs sont populaires ici pour se faire des amis ?",
+          "text": "Concrètement, quels types d'activités ou clubs sont populaires ici pour se faire des amis ?",
           "memory_number": 3,
           "memory_section": 2
         },
@@ -283,12 +283,12 @@
           "memory_section": 13
         },
         {
-          "text": "Est-ce que les voisins organisent parfois des activités ou des rencontres dans l'immeuble ?",
+          "text": "Pour ce qui est du déroulement, est-ce que les voisins organisent parfois des activités ou des rencontres dans l'immeuble ?",
           "memory_number": 3,
           "memory_section": 2
         },
         {
-          "text": "Le bénévolat est-il courant ici — où peut-on trouver des associations qui recherchent des bénévoles ?",
+          "text": "Et puis, le bénévolat est-il courant ici — où peut-on trouver des associations qui recherchent des bénévoles ?",
           "memory_number": 3,
           "memory_section": 2
         },
@@ -298,9 +298,9 @@
           "memory_section": 9
         },
         {
-          "text": "Les activités proposées sont-elles gratuites ou faut-il prévoir un petit budget ?",
+          "text": "Et côté agenda, y a-t-il des festivals ou événements annuels incontournables pour rencontrer des gens ?",
           "memory_number": 3,
-          "memory_section": 3
+          "memory_section": 2
         },
         {
           "text": "À quelle fréquence ces rencontres sont-elles organisées — chaque semaine ou seulement de temps en temps ?",
@@ -313,14 +313,14 @@
           "memory_section": 2
         },
         {
-          "text": "Y a-t-il des festivals ou événements annuels incontournables pour rencontrer des gens ?",
-          "memory_number": 3,
-          "memory_section": 2
-        },
-        {
-          "text": "Ces lieux et ces activités sont-ils facilement accessibles en transports en commun ?",
+          "text": "Côté déplacements, ces lieux et ces activités sont-ils facilement accessibles en transports en commun ?",
           "memory_number": 3,
           "memory_section": 5
+        },
+        {
+          "text": "En ce qui concerne le budget, les activités proposées sont-elles gratuites ou faut-il prévoir un petit budget ?",
+          "memory_number": 3,
+          "memory_section": 3
         },
         {
           "text": "Parmi toutes ces possibilités, laquelle vous semble la plus efficace pour rencontrer rapidement du monde ?",
@@ -355,6 +355,11 @@
           "memory_section": 4
         },
         {
+          "text": "À ce propos, combien de jours travaillent-ils par semaine en général ?",
+          "memory_number": 4,
+          "memory_section": 4
+        },
+        {
           "text": "Les horaires sont-ils généralement fixes ou flexibles selon les entreprises ?",
           "memory_number": 4,
           "memory_section": 12
@@ -365,12 +370,22 @@
           "memory_section": 4
         },
         {
-          "text": "Combien de jours travaillent-ils par semaine en général ?",
+          "text": "J'en profite pour te demander : le télétravail et les horaires hybrides sont-ils courants au Canada ?",
+          "memory_number": 4,
+          "memory_section": 12
+        },
+        {
+          "text": "Les heures supplémentaires sont-elles fréquentes — sont-elles payées ou récupérées ?",
           "memory_number": 4,
           "memory_section": 4
         },
         {
-          "text": "Combien de jours de congé annuels ont-ils en moyenne — c'est plus ou moins que dans mon pays ?",
+          "text": "Côté repas, les pauses déjeuner sont-elles longues ou plutôt courtes par rapport à mon pays ?",
+          "memory_number": 4,
+          "memory_section": 4
+        },
+        {
+          "text": "Et côté repos, combien de jours de congé annuels ont-ils en moyenne — c'est plus ou moins que dans mon pays ?",
           "memory_number": 4,
           "memory_section": 11
         },
@@ -380,27 +395,12 @@
           "memory_section": 4
         },
         {
-          "text": "Le télétravail et les horaires hybrides sont-ils courants au Canada ?",
-          "memory_number": 4,
-          "memory_section": 12
-        },
-        {
           "text": "Le rythme de travail est-il plutôt stressant ou détendu par rapport à mon pays ?",
           "memory_number": 4,
           "memory_section": 11
         },
         {
-          "text": "Les heures supplémentaires sont-elles fréquentes — sont-elles payées ou récupérées ?",
-          "memory_number": 4,
-          "memory_section": 4
-        },
-        {
-          "text": "Les pauses déjeuner sont-elles longues ou plutôt courtes par rapport à mon pays ?",
-          "memory_number": 4,
-          "memory_section": 4
-        },
-        {
-          "text": "L'équilibre entre vie professionnelle et vie personnelle est-il important dans les entreprises canadiennes ?",
+          "text": "Une dernière chose me vient à l'esprit : l'équilibre entre vie professionnelle et vie personnelle est-il important dans les entreprises canadiennes ?",
           "memory_number": 4,
           "memory_section": 4
         },

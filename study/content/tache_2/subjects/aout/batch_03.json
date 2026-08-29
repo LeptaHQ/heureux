@@ -37,19 +37,29 @@
           "memory_section": 7
         },
         {
-          "text": "Comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
-          "memory_number": 7,
-          "memory_section": 5
-        },
-        {
-          "text": "Quelles activités as-tu faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
+          "text": "Et concrètement, quelles activités as-tu faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
           "memory_number": 7,
           "memory_section": 2
         },
         {
-          "text": "Y avait-il des visites ou des excursions que tu recommanderais particulièrement ?",
+          "text": "En ce qui concerne les découvertes sur place, y avait-il des visites ou des excursions que tu recommanderais particulièrement ?",
           "memory_number": 7,
           "memory_section": 11
+        },
+        {
+          "text": "Sur le fond, qu'est-ce que tu as le plus apprécié ?",
+          "memory_number": 7,
+          "memory_section": 10
+        },
+        {
+          "text": "Y a-t-il quelque chose qui t'a moins plu ?",
+          "memory_number": 7,
+          "memory_section": 10
+        },
+        {
+          "text": "Côté déplacements, comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
+          "memory_number": 7,
+          "memory_section": 5
         },
         {
           "text": "Tu logeais plutôt à l'hôtel, en auberge ou ailleurs ?",
@@ -62,24 +72,14 @@
           "memory_section": 9
         },
         {
-          "text": "Parlons du budget — combien est-ce que ça t'a coûté approximativement au total ?",
-          "memory_number": 7,
-          "memory_section": 3
-        },
-        {
-          "text": "Quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
+          "text": "Pour ce qui est de la météo, quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
           "memory_number": 7,
           "memory_section": 8
         },
         {
-          "text": "Qu'est-ce que tu as le plus apprécié ?",
+          "text": "Parlons du budget — combien est-ce que ça t'a coûté approximativement au total ?",
           "memory_number": 7,
-          "memory_section": 10
-        },
-        {
-          "text": "Y a-t-il quelque chose qui t'a moins plu ?",
-          "memory_number": 7,
-          "memory_section": 10
+          "memory_section": 3
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule étape ou activité, ce serait laquelle ?",
@@ -184,7 +184,17 @@
           "memory_section": 4
         },
         {
-          "text": "Qu'est-ce qu'il faudra faire en priorité pendant que tu seras parti(e) ?",
+          "text": "Côté accès, comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
+          "memory_number": 3,
+          "memory_section": 13
+        },
+        {
+          "text": "Y a-t-il une alarme ou des consignes de sécurité particulières à respecter ?",
+          "memory_number": 3,
+          "memory_section": 8
+        },
+        {
+          "text": "Et concrètement, qu'est-ce qu'il faudra faire en priorité pendant que tu seras parti(e) ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -214,27 +224,17 @@
           "memory_section": 4
         },
         {
-          "text": "Comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
+          "text": "Pour ce qui est de la sécurité, est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
           "memory_number": 3,
           "memory_section": 13
         },
         {
-          "text": "Y a-t-il une alarme ou des consignes de sécurité particulières à respecter ?",
-          "memory_number": 3,
-          "memory_section": 8
-        },
-        {
-          "text": "Est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
+          "text": "Côté imprévus, en cas de problème dans l'immeuble, à qui faut-il s'adresser ?",
           "memory_number": 3,
           "memory_section": 13
         },
         {
-          "text": "En cas de problème dans l'immeuble, à qui faut-il s'adresser ?",
-          "memory_number": 3,
-          "memory_section": 13
-        },
-        {
-          "text": "Est-ce que tu seras facilement joignable pendant ton séjour ?",
+          "text": "Côté contact, est-ce que tu seras facilement joignable pendant ton séjour ?",
           "memory_number": 3,
           "memory_section": 13
         },
@@ -256,7 +256,7 @@
       "prompt": "Une conversation s'engage entre nous dans une gare où nous venons de nous croiser. Intrigué(e) par ma passion pour la montagne, vous m'interrogez pour en apprendre davantage.",
       "questions": [
         {
-          "text": "Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
+          "text": "Quelle coïncidence de se croiser ici, en gare ! Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
           "memory_number": 8,
           "memory_section": 13
         },
@@ -276,12 +276,17 @@
           "memory_section": 11
         },
         {
+          "text": "Autre point important : vous partez généralement seul(e), avec des amis ou avec un guide ?",
+          "memory_number": 8,
+          "memory_section": 7
+        },
+        {
           "text": "Vous y allez à quelle fréquence — seulement pendant les vacances ou aussi certains week-ends ?",
           "memory_number": 8,
           "memory_section": 4
         },
         {
-          "text": "C'est une bonne période pour aller en montagne ou il vaut mieux attendre une autre saison ?",
+          "text": "En ce moment, c'est une bonne période pour aller en montagne ou il vaut mieux attendre une autre saison ?",
           "memory_number": 8,
           "memory_section": 8
         },
@@ -291,7 +296,7 @@
           "memory_section": 8
         },
         {
-          "text": "Ces activités s'adressent aussi aux débutants ou faut-il déjà avoir de l'expérience ?",
+          "text": "Pour ce qui est du niveau, ces activités s'adressent aussi aux débutants ou faut-il déjà avoir de l'expérience ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -301,7 +306,7 @@
           "memory_section": 8
         },
         {
-          "text": "Qu'est-ce qu'il faut apporter comme équipement pour une première sortie ?",
+          "text": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement pour une première sortie ?",
           "memory_number": 8,
           "memory_section": 8
         },
@@ -311,14 +316,9 @@
           "memory_section": 8
         },
         {
-          "text": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "text": "Côté sécurité, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
           "memory_number": 8,
           "memory_section": 8
-        },
-        {
-          "text": "Vous partez généralement seul(e), avec des amis ou avec un guide ?",
-          "memory_number": 8,
-          "memory_section": 7
         },
         {
           "text": "Qu'est-ce que vous appréciez le plus quand vous êtes en montagne ?",

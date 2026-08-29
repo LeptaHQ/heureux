@@ -254,7 +254,7 @@
           "kind": "mot-cle",
           "french": "le paquet",
           "english": "the package",
-          "example": "Tu dois poster quoi exactement, et le paquet est gros comment ?",
+          "example": "Salut ! Avant de te dire si je peux passer à la poste pour toi, tu dois poster quoi exactement, et le paquet est gros comment ?",
           "usage": "Nom masculin désignant l’objet à envoyer par la poste."
         },
         {
@@ -270,7 +270,7 @@
           "kind": "mot-cle",
           "french": "quelle adresse",
           "english": "which address",
-          "example": "Tu veux l'envoyer à quelle adresse exactement, et dans quel pays ?",
+          "example": "Côté destination, tu veux l'envoyer à quelle adresse exactement, et dans quel pays ?",
           "usage": "Groupe interrogatif servant à demander la destination précise."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "quelque chose de fragile",
           "english": "something fragile",
-          "example": "Il y a quelque chose de fragile ou de réglementé à l'intérieur ?",
+          "example": "Avant que j'oublie, il y a quelque chose de fragile ou de réglementé à l'intérieur ?",
           "usage": "Groupe nominal indéfini pour signaler un contenu délicat."
         },
         {
@@ -334,7 +334,7 @@
           "kind": "collocation",
           "french": "poster quoi exactement",
           "english": "post what exactly",
-          "example": "Tu dois poster quoi exactement, et le paquet est gros comment ?",
+          "example": "Salut ! Avant de te dire si je peux passer à la poste pour toi, tu dois poster quoi exactement, et le paquet est gros comment ?",
           "usage": "Suite verbale interrogative pour demander le contenu précis d’un service."
         },
         {
@@ -342,7 +342,7 @@
           "kind": "collocation",
           "french": "dans quel pays",
           "english": "to which country",
-          "example": "Tu veux l'envoyer à quelle adresse exactement, et dans quel pays ?",
+          "example": "Côté destination, tu veux l'envoyer à quelle adresse exactement, et dans quel pays ?",
           "usage": "Groupe interrogatif servant à préciser la destination internationale."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "bien fermé",
           "english": "properly sealed",
-          "example": "Le colis est déjà bien fermé et l'étiquette est déjà prête ?",
+          "example": "D'ailleurs, le colis est déjà bien fermé et l'étiquette est déjà prête ?",
           "usage": "Collocation adjectivale pour vérifier qu’un colis est correctement fermé."
         },
         {
@@ -382,7 +382,7 @@
           "kind": "collocation",
           "french": "à l'intérieur",
           "english": "inside",
-          "example": "Il y a quelque chose de fragile ou de réglementé à l'intérieur ?",
+          "example": "Avant que j'oublie, il y a quelque chose de fragile ou de réglementé à l'intérieur ?",
           "usage": "Locution prépositionnelle pour situer le contenu dans le colis."
         },
         {
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "les frais d'envoi",
           "english": "shipping costs",
-          "example": "Tu veux que je prévoie combien d'argent pour les frais d'envoi ?",
+          "example": "En ce qui concerne le budget, tu veux que je prévoie combien d'argent pour les frais d'envoi ?",
           "usage": "Groupe nominal pour parler du montant à payer pour l’expédition."
         },
         {
@@ -406,7 +406,7 @@
           "kind": "collocation",
           "french": "un problème au guichet",
           "english": "a problem at the counter",
-          "example": "S'il y a un problème au guichet, tu veux que je fasse quoi ?",
+          "example": "En cas de souci, s'il y a un problème au guichet, tu veux que je fasse quoi ?",
           "usage": "Groupe nominal pour évoquer une difficulté au point de service postal."
         },
         {
@@ -422,7 +422,7 @@
           "kind": "tournure",
           "french": "tu veux l'envoyer à quelle adresse exactement",
           "english": "what exact address do you want to send it to",
-          "example": "Tu veux l'envoyer à quelle adresse exactement, et dans quel pays ?",
+          "example": "Côté destination, tu veux l'envoyer à quelle adresse exactement, et dans quel pays ?",
           "usage": "Question directe avec l’interrogatif laissé en fin de phrase."
         },
         {
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "s'il y a un problème au guichet",
           "english": "if there is a problem at the counter",
-          "example": "S'il y a un problème au guichet, tu veux que je fasse quoi ?",
+          "example": "En cas de souci, s'il y a un problème au guichet, tu veux que je fasse quoi ?",
           "usage": "Subordonnée hypothétique utilisée pour anticiper une difficulté pratique."
         },
         {
@@ -499,7 +499,7 @@
           "kind": "mot-cle",
           "french": "un cadeau",
           "english": "a gift",
-          "example": "Ta sœur fête bientôt son anniversaire, et je cherche un cadeau — tu pourrais m'aider à trouver une idée ?",
+          "example": "Salut ! Merci de m'inviter — ta sœur fête bientôt son anniversaire, et je cherche un cadeau, tu pourrais m'aider à trouver une idée ?",
           "usage": "Nom masculin désignant un objet offert pour faire plaisir à quelqu'un."
         },
         {
@@ -539,7 +539,7 @@
           "kind": "mot-cle",
           "french": "originales et amusantes",
           "english": "original and fun",
-          "example": "Elle préfère plutôt les cadeaux utiles, ou les choses plus originales et amusantes ?",
+          "example": "Pour ce qui est du cadeau lui-même, elle préfère plutôt les cadeaux utiles, ou les choses plus originales et amusantes ?",
           "usage": "Groupe adjectival coordonné pour qualifier des idées créatives."
         },
         {
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "des couleurs",
           "english": "colors",
-          "example": "Elle a un style ou des couleurs qu'elle préfère particulièrement ?",
+          "example": "Pendant que j'y pense, elle a un style ou des couleurs qu'elle préfère particulièrement ?",
           "usage": "Nom pluriel désignant des teintes appréciées par une personne."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "une idée de budget",
           "english": "a budget estimate",
-          "example": "Tu aurais une idée de budget pour un cadeau qui lui ferait vraiment plaisir ?",
+          "example": "Côté prix, tu aurais une idée de budget pour un cadeau qui lui ferait vraiment plaisir ?",
           "usage": "Groupe nominal désignant une fourchette de prix envisagée."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "en famille",
           "english": "as a family / with family",
-          "example": "Vous allez fêter ça comment — une petite soirée, un repas en famille ?",
+          "example": "Et vous allez fêter ça comment — une petite soirée, un repas en famille ?",
           "usage": "Locution adverbiale désignant une activité partagée avec les proches."
         },
         {
@@ -579,7 +579,7 @@
           "kind": "collocation",
           "french": "trouver une idée",
           "english": "to find an idea",
-          "example": "Ta sœur fête bientôt son anniversaire, et je cherche un cadeau — tu pourrais m'aider à trouver une idée ?",
+          "example": "Salut ! Merci de m'inviter — ta sœur fête bientôt son anniversaire, et je cherche un cadeau, tu pourrais m'aider à trouver une idée ?",
           "usage": "Collocation verbe + nom pour exprimer la recherche d'une inspiration."
         },
         {
@@ -627,7 +627,7 @@
           "kind": "collocation",
           "french": "en particulier",
           "english": "in particular",
-          "example": "Tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus ?",
+          "example": "Tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus : c'est un loisir qu'elle pratique souvent ?",
           "usage": "Locution adverbiale pour insister sur un élément précis parmi d'autres."
         },
         {
@@ -643,7 +643,7 @@
           "kind": "collocation",
           "french": "ce genre de cadeau",
           "english": "this kind of gift",
-          "example": "Tu connais un endroit ou un site où je pourrais trouver ce genre de cadeau facilement ?",
+          "example": "D'ailleurs, tu connais un endroit ou un site où je pourrais trouver ce genre de cadeau facilement ?",
           "usage": "Collocation démonstrative pour désigner une catégorie de présent."
         },
         {
@@ -659,7 +659,7 @@
           "kind": "tournure",
           "french": "elle préfère plutôt les cadeaux utiles",
           "english": "she rather prefers useful gifts",
-          "example": "Elle préfère plutôt les cadeaux utiles, ou les choses plus originales et amusantes ?",
+          "example": "Pour ce qui est du cadeau lui-même, elle préfère plutôt les cadeaux utiles, ou les choses plus originales et amusantes ?",
           "usage": "Tournure alternative pour comparer deux types de préférences."
         },
         {
@@ -667,7 +667,7 @@
           "kind": "tournure",
           "french": "elle a un style ou des couleurs qu'elle préfère",
           "english": "does she have a style or colors she prefers",
-          "example": "Elle a un style ou des couleurs qu'elle préfère particulièrement ?",
+          "example": "Pendant que j'y pense, elle a un style ou des couleurs qu'elle préfère particulièrement ?",
           "usage": "Tournure interrogative pour cerner des goûts esthétiques précis."
         },
         {
@@ -683,7 +683,7 @@
           "kind": "tournure",
           "french": "tu aurais une idée de budget",
           "english": "would you have a budget in mind",
-          "example": "Tu aurais une idée de budget pour un cadeau qui lui ferait vraiment plaisir ?",
+          "example": "Côté prix, tu aurais une idée de budget pour un cadeau qui lui ferait vraiment plaisir ?",
           "usage": "Tournure au conditionnel pour demander poliment une estimation chiffrée."
         },
         {
@@ -691,7 +691,7 @@
           "kind": "tournure",
           "french": "vous allez fêter ça comment",
           "english": "how are you going to celebrate it",
-          "example": "Vous allez fêter ça comment — une petite soirée, un repas en famille ?",
+          "example": "Et vous allez fêter ça comment — une petite soirée, un repas en famille ?",
           "usage": "Tournure interrogative informelle pour se renseigner sur l'organisation d'une fête."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "tu pourrais m'en dire un peu plus",
           "english": "could you tell me a bit more about it",
-          "example": "Tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus ?",
+          "example": "Tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus : c'est un loisir qu'elle pratique souvent ?",
           "usage": "Tournure informelle au conditionnel pour demander un développement à un(e) ami(e)."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "tu connais un endroit ou un site",
           "english": "do you know a place or a website",
-          "example": "Tu connais un endroit ou un site où je pourrais trouver ce genre de cadeau facilement ?",
+          "example": "D'ailleurs, tu connais un endroit ou un site où je pourrais trouver ce genre de cadeau facilement ?",
           "usage": "Tournure interrogative pour solliciter une recommandation pratique."
         },
         {
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "quelle chaîne",
           "english": "which channel",
-          "example": "C'est diffusé sur quelle chaîne, et quel jour à quelle heure ?",
+          "example": "Côté pratique, c'est diffusé sur quelle chaîne, et quel jour à quelle heure ?",
           "usage": "Groupe interrogatif servant à demander le diffuseur télévisé."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "un public particulier",
           "english": "a specific audience",
-          "example": "C'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?",
+          "example": "Et puis, c'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?",
           "usage": "Groupe nominal pour un public ciblé."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "version française",
           "english": "French version",
-          "example": "Elle est disponible en version française, ou il faut la regarder en version originale sous-titrée ?",
+          "example": "Côté langue, elle est disponible en version française, ou il faut la regarder en version originale sous-titrée ?",
           "usage": "Groupe nominal désignant la version diffusée en français."
         },
         {
@@ -864,7 +864,7 @@
           "kind": "collocation",
           "french": "à quelle heure",
           "english": "at what time",
-          "example": "C'est diffusé sur quelle chaîne, et quel jour à quelle heure ?",
+          "example": "Côté pratique, c'est diffusé sur quelle chaîne, et quel jour à quelle heure ?",
           "usage": "Groupe interrogatif très courant pour demander un horaire précis."
         },
         {
@@ -880,7 +880,7 @@
           "kind": "collocation",
           "french": "version originale sous-titrée",
           "english": "original version with subtitles",
-          "example": "Elle est disponible en version française, ou il faut la regarder en version originale sous-titrée ?",
+          "example": "Côté langue, elle est disponible en version française, ou il faut la regarder en version originale sous-titrée ?",
           "usage": "Groupe nominal désignant une diffusion en langue originale accompagnée de sous-titres."
         },
         {
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "accroche dès le début",
           "english": "hooks you from the start",
-          "example": "Il faut attendre longtemps avant que ça devienne vraiment intéressant, ou on accroche dès le début ?",
+          "example": "Tant que j'y pense, il faut attendre longtemps avant que ça devienne vraiment intéressant, ou on accroche dès le début ?",
           "usage": "Collocation verbale familière pour dire qu’une série devient immédiatement prenante."
         },
         {
@@ -920,7 +920,7 @@
           "kind": "tournure",
           "french": "c'est diffusé sur quelle chaîne",
           "english": "what channel is it broadcast on",
-          "example": "C'est diffusé sur quelle chaîne, et quel jour à quelle heure ?",
+          "example": "Côté pratique, c'est diffusé sur quelle chaîne, et quel jour à quelle heure ?",
           "usage": "Question passive courante pour identifier le canal de diffusion."
         },
         {
@@ -936,7 +936,7 @@
           "kind": "tournure",
           "french": "c'est plutôt une série pour tout le monde",
           "english": "it is more a series for everyone",
-          "example": "C'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?",
+          "example": "Et puis, c'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?",
           "usage": "Tournure descriptive pour évaluer l’accessibilité d’une série à différents publics."
         },
         {
@@ -944,7 +944,7 @@
           "kind": "tournure",
           "french": "il faut la regarder en version originale sous-titrée",
           "english": "you have to watch it in the original subtitled version",
-          "example": "Elle est disponible en version française, ou il faut la regarder en version originale sous-titrée ?",
+          "example": "Côté langue, elle est disponible en version française, ou il faut la regarder en version originale sous-titrée ?",
           "usage": "Tournure impersonnelle pour demander si un format de visionnage est nécessaire."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "ça devienne vraiment intéressant",
           "english": "it becomes really interesting",
-          "example": "Il faut attendre longtemps avant que ça devienne vraiment intéressant, ou on accroche dès le début ?",
+          "example": "Tant que j'y pense, il faut attendre longtemps avant que ça devienne vraiment intéressant, ou on accroche dès le début ?",
           "usage": "Subordonnée avec subjonctif pour parler du moment où une série prend de l’intérêt."
         },
         {

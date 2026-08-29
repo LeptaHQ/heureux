@@ -17,7 +17,7 @@
           "kind": "mot-cle",
           "french": "un club",
           "english": "a club",
-          "example": "Ça se pratique où — en salle, en extérieur, dans un club ?",
+          "example": "Côté lieu, ça se pratique où — en salle, en extérieur, dans un club ?",
           "usage": "Nom désignant un lieu de pratique."
         },
         {
@@ -33,7 +33,7 @@
           "kind": "mot-cle",
           "french": "du matériel particulier",
           "english": "special equipment",
-          "example": "Est-ce qu'il faut du matériel particulier, ou payer un accès quelque part ?",
+          "example": "Côté tarifs, est-ce qu'il faut du matériel particulier, ou payer un accès quelque part ?",
           "usage": "Groupe nominal sur l'équipement."
         },
         {
@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "un accès",
           "english": "an access fee/pass",
-          "example": "Est-ce qu'il faut du matériel particulier, ou payer un accès quelque part ?",
+          "example": "Côté tarifs, est-ce qu'il faut du matériel particulier, ou payer un accès quelque part ?",
           "usage": "Nom désignant l'accès payant à un lieu."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "en forme",
           "english": "in shape",
-          "example": "C'est un sport plutôt physique, ou accessible même quand on n'est pas très en forme ?",
+          "example": "Autre point important : c'est un sport plutôt physique, ou accessible même quand on n'est pas très en forme ?",
           "usage": "Locution sur la condition physique."
         },
         {
@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "un sport plutôt physique",
           "english": "a rather physical sport",
-          "example": "C'est un sport plutôt physique, ou accessible même quand on n'est pas très en forme ?",
+          "example": "Autre point important : c'est un sport plutôt physique, ou accessible même quand on n'est pas très en forme ?",
           "usage": "Groupe nominal sur l'intensité."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "te motiver",
           "english": "motivate you",
-          "example": "Tu cherches surtout quelqu'un pour te motiver, ou pour vraiment progresser ?",
+          "example": "Pour ce qui est du niveau, tu cherches surtout quelqu'un pour te motiver, ou pour vraiment progresser ?",
           "usage": "Locution verbale sur la motivation."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "vraiment progresser",
           "english": "really improve",
-          "example": "Tu cherches surtout quelqu'un pour te motiver, ou pour vraiment progresser ?",
+          "example": "Pour ce qui est du niveau, tu cherches surtout quelqu'un pour te motiver, ou pour vraiment progresser ?",
           "usage": "Locution verbale sur les progrès."
         },
         {
@@ -193,7 +193,7 @@
           "kind": "tournure",
           "french": "Ça se pratique où",
           "english": "where is it practised",
-          "example": "Ça se pratique où — en salle, en extérieur, dans un club ?",
+          "example": "Côté lieu, ça se pratique où — en salle, en extérieur, dans un club ?",
           "usage": "Question sur le lieu."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "Tu t'entraînes quels jours et à quelle heure",
           "english": "what days and times do you train",
-          "example": "Tu t'entraînes quels jours et à quelle heure en général ?",
+          "example": "Et tu t'entraînes quels jours et à quelle heure en général ?",
           "usage": "Question sur les créneaux."
         },
         {
@@ -270,7 +270,7 @@
           "kind": "mot-cle",
           "french": "son âge",
           "english": "their age",
-          "example": "Ce sont des activités adaptées à son âge, et sans danger ?",
+          "example": "Et dans la continuité, ce sont des activités adaptées à son âge, et sans danger ?",
           "usage": "Groupe nominal sur l'âge de l'enfant."
         },
         {
@@ -302,7 +302,7 @@
           "kind": "mot-cle",
           "french": "une participation aux frais",
           "english": "a contribution to the costs",
-          "example": "Est-ce qu'il y a une participation aux frais de mon côté ?",
+          "example": "En ce qui concerne le budget, est-ce qu'il y a une participation aux frais de mon côté ?",
           "usage": "Groupe nominal sur le partage des frais."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "une autorisation de sortie",
           "english": "a travel authorisation",
-          "example": "Il y a des documents à préparer — une autorisation de sortie, sa carte d'assurance ?",
+          "example": "Question démarches, il y a des documents à préparer — une autorisation de sortie, sa carte d'assurance ?",
           "usage": "Groupe nominal désignant le document requis."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "sa carte d'assurance",
           "english": "their insurance card",
-          "example": "Il y a des documents à préparer — une autorisation de sortie, sa carte d'assurance ?",
+          "example": "Question démarches, il y a des documents à préparer — une autorisation de sortie, sa carte d'assurance ?",
           "usage": "Groupe nominal désignant le justificatif d'assurance."
         },
         {
@@ -350,7 +350,7 @@
           "kind": "collocation",
           "french": "adaptées à son âge",
           "english": "suited to their age",
-          "example": "Ce sont des activités adaptées à son âge, et sans danger ?",
+          "example": "Et dans la continuité, ce sont des activités adaptées à son âge, et sans danger ?",
           "usage": "Participe + complément sur l'adaptation."
         },
         {
@@ -358,7 +358,7 @@
           "kind": "collocation",
           "french": "sans danger",
           "english": "safe",
-          "example": "Ce sont des activités adaptées à son âge, et sans danger ?",
+          "example": "Et dans la continuité, ce sont des activités adaptées à son âge, et sans danger ?",
           "usage": "Locution sur l'absence de risque."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "du même âge",
           "english": "the same age",
-          "example": "Est-ce qu'il y a d'autres enfants du même âge que le mien ?",
+          "example": "Il y a un autre point qui m'intéresse : est-ce qu'il y a d'autres enfants du même âge que le mien ?",
           "usage": "Locution sur la tranche d'âge."
         },
         {
@@ -462,7 +462,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'il y a d'autres enfants du même âge que le mien",
           "english": "are there other children the same age as mine",
-          "example": "Est-ce qu'il y a d'autres enfants du même âge que le mien ?",
+          "example": "Il y a un autre point qui m'intéresse : est-ce qu'il y a d'autres enfants du même âge que le mien ?",
           "usage": "Question sur les autres enfants."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce que je dois préparer comme affaires pour lui",
           "english": "what should I pack for him",
-          "example": "Qu'est-ce que je dois préparer comme affaires pour lui ?",
+          "example": "Côté préparatifs, qu'est-ce que je dois préparer comme affaires pour lui ?",
           "usage": "Question sur les préparatifs."
         },
         {
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'il y a une participation aux frais de mon côté",
           "english": "is there a cost contribution on my side",
-          "example": "Est-ce qu'il y a une participation aux frais de mon côté ?",
+          "example": "En ce qui concerne le budget, est-ce qu'il y a une participation aux frais de mon côté ?",
           "usage": "Question sur les frais."
         },
         {
@@ -507,7 +507,7 @@
           "kind": "mot-cle",
           "french": "les disponibilités",
           "english": "availability",
-          "example": "Concrètement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
+          "example": "Côté engagement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
           "usage": "Nom pluriel désignant les moments où l'on est libre pour une activité."
         },
         {
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "une bonne équipe de bénévoles",
           "english": "a good team of volunteers",
-          "example": "Vous êtes nombreux dans l'association — il y a une bonne équipe de bénévoles ?",
+          "example": "En ce qui concerne les participants, vous êtes nombreux dans l'association — il y a une bonne équipe de bénévoles ?",
           "usage": "Groupe nominal désignant le collectif."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "des campagnes",
           "english": "campaigns",
-          "example": "Est-ce que l'association organise aussi des événements — des campagnes, des collectes ?",
+          "example": "Pour ce qui est du programme, est-ce que l'association organise aussi des événements — des campagnes, des collectes ?",
           "usage": "Nom pluriel désignant des actions organisées."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "des collectes",
           "english": "collection drives",
-          "example": "Est-ce que l'association organise aussi des événements — des campagnes, des collectes ?",
+          "example": "Pour ce qui est du programme, est-ce que l'association organise aussi des événements — des campagnes, des collectes ?",
           "usage": "Nom pluriel désignant des collectes."
         },
         {
@@ -587,7 +587,7 @@
           "kind": "collocation",
           "french": "fourni sur place",
           "english": "provided on site",
-          "example": "Faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
+          "example": "Côté affaires à prévoir, faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
           "usage": "Collocation participe passé + locution adverbiale pour indiquer une mise à disposition locale."
         },
         {
@@ -627,7 +627,7 @@
           "kind": "collocation",
           "french": "une bonne équipe",
           "english": "a good team",
-          "example": "Vous êtes nombreux dans l'association — il y a une bonne équipe de bénévoles ?",
+          "example": "En ce qui concerne les participants, vous êtes nombreux dans l'association — il y a une bonne équipe de bénévoles ?",
           "usage": "Groupe nominal sur le collectif."
         },
         {
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "organise aussi des événements",
           "english": "also organises events",
-          "example": "Est-ce que l'association organise aussi des événements — des campagnes, des collectes ?",
+          "example": "Pour ce qui est du programme, est-ce que l'association organise aussi des événements — des campagnes, des collectes ?",
           "usage": "Verbe + complément sur les événements."
         },
         {
@@ -659,7 +659,7 @@
           "kind": "tournure",
           "french": "à quelle fréquence",
           "english": "how often",
-          "example": "Concrètement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
+          "example": "Côté engagement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
           "usage": "Tournure interrogative standard pour demander la régularité d'une action."
         },
         {
@@ -675,7 +675,7 @@
           "kind": "tournure",
           "french": "faut-il apporter du matériel particulier",
           "english": "do I need to bring special equipment",
-          "example": "Faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
+          "example": "Côté affaires à prévoir, faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
           "usage": "Tournure interrogative impersonnelle pour vérifier le matériel nécessaire."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "Vous êtes nombreux dans l'association",
           "english": "are there many of you in the association",
-          "example": "Vous êtes nombreux dans l'association — il y a une bonne équipe de bénévoles ?",
+          "example": "En ce qui concerne les participants, vous êtes nombreux dans l'association — il y a une bonne équipe de bénévoles ?",
           "usage": "Question sur le nombre de membres."
         },
         {
@@ -784,7 +784,7 @@
           "kind": "mot-cle",
           "french": "le transport",
           "english": "transport",
-          "example": "Le transport est-il compris — on part d'où exactement ?",
+          "example": "En ce qui concerne les déplacements, le transport est-il compris — on part d'où exactement ?",
           "usage": "Nom désignant le déplacement."
         },
         {
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "un guide",
           "english": "a guide",
-          "example": "Il y a un guide qui nous accompagne pendant la journée ?",
+          "example": "Côté participants, il y a un guide qui nous accompagne pendant la journée ?",
           "usage": "Nom désignant l'accompagnateur."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "de l'eau",
           "english": "water",
-          "example": "Qu'est-ce qu'il faut prévoir d'emporter — de bonnes chaussures, un repas, de l'eau ?",
+          "example": "Côté préparatifs, qu'est-ce qu'il faut prévoir d'emporter — de bonnes chaussures, un repas, de l'eau ?",
           "usage": "Nom désignant l'eau à emporter."
         },
         {
@@ -856,7 +856,7 @@
           "kind": "collocation",
           "french": "de bonnes chaussures",
           "english": "good shoes",
-          "example": "Qu'est-ce qu'il faut prévoir d'emporter — de bonnes chaussures, un repas, de l'eau ?",
+          "example": "Côté préparatifs, qu'est-ce qu'il faut prévoir d'emporter — de bonnes chaussures, un repas, de l'eau ?",
           "usage": "Groupe nominal sur l'équipement."
         },
         {
@@ -864,7 +864,7 @@
           "kind": "collocation",
           "french": "maintenue ou reportée",
           "english": "maintained or postponed",
-          "example": "Que se passe-t-il en cas de mauvais temps — l'excursion est maintenue ou reportée ?",
+          "example": "Côté organisation, que se passe-t-il en cas de mauvais temps — l'excursion est maintenue ou reportée ?",
           "usage": "Alternative sur la météo."
         },
         {
@@ -944,7 +944,7 @@
           "kind": "tournure",
           "french": "Le transport est-il compris",
           "english": "is transport included",
-          "example": "Le transport est-il compris — on part d'où exactement ?",
+          "example": "En ce qui concerne les déplacements, le transport est-il compris — on part d'où exactement ?",
           "usage": "Question sur le transport."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "Il y a un guide qui nous accompagne pendant la journée",
           "english": "is there a guide with us during the day",
-          "example": "Il y a un guide qui nous accompagne pendant la journée ?",
+          "example": "Côté participants, il y a un guide qui nous accompagne pendant la journée ?",
           "usage": "Question sur l'accompagnement."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce qu'il faut prévoir d'emporter",
           "english": "what should you bring",
-          "example": "Qu'est-ce qu'il faut prévoir d'emporter — de bonnes chaussures, un repas, de l'eau ?",
+          "example": "Côté préparatifs, qu'est-ce qu'il faut prévoir d'emporter — de bonnes chaussures, un repas, de l'eau ?",
           "usage": "Question sur les affaires à prévoir."
         },
         {
@@ -997,7 +997,7 @@
           "kind": "mot-cle",
           "french": "vos horaires d'ouverture",
           "english": "your opening hours",
-          "example": "Quels sont vos horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "example": "Passons aux aspects pratiques : quels sont vos horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
           "usage": "Groupe nominal indiquant les plages horaires d'accès à un établissement."
         },
         {
@@ -1005,7 +1005,7 @@
           "kind": "mot-cle",
           "french": "la collection permanente",
           "english": "the permanent collection",
-          "example": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "usage": "Groupe nominal opposé à 'les expositions temporaires'."
         },
         {
@@ -1013,7 +1013,7 @@
           "kind": "mot-cle",
           "french": "des expositions temporaires",
           "english": "temporary exhibitions",
-          "example": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "usage": "Groupe nominal opposé à « collection permanente » pour désigner des expositions limitées dans le temps."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "des ateliers",
           "english": "workshops",
-          "example": "Le musée est-il adapté aux enfants — y a-t-il des activités ou des ateliers pour eux ?",
+          "example": "Pour ce qui est des visites, le musée est-il adapté aux enfants — y a-t-il des activités ou des ateliers pour eux ?",
           "usage": "Nom pluriel désignant des activités pour enfants."
         },
         {
@@ -1077,7 +1077,7 @@
           "kind": "collocation",
           "french": "y compris le week-end",
           "english": "including the weekend",
-          "example": "Quels sont vos horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "example": "Passons aux aspects pratiques : quels sont vos horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
           "usage": "Locution figée pour préciser qu'une règle s'applique aussi le week-end."
         },
         {
@@ -1085,7 +1085,7 @@
           "kind": "collocation",
           "french": "expositions temporaires",
           "english": "temporary exhibitions",
-          "example": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "usage": "Groupe nominal désignant des présentations limitées dans le temps, par opposition au fonds permanent."
         },
         {
@@ -1093,7 +1093,7 @@
           "kind": "collocation",
           "french": "collection permanente",
           "english": "permanent collection",
-          "example": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "usage": "Groupe nominal désignant l'ensemble des œuvres exposées en continu dans un lieu culturel."
         },
         {
@@ -1101,7 +1101,7 @@
           "kind": "collocation",
           "french": "en ce moment",
           "english": "at the moment/currently",
-          "example": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "usage": "Locution adverbiale fixe pour situer une action dans le présent."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "en plus de",
           "english": "in addition to",
-          "example": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "usage": "Locution prépositionnelle figée introduisant un complément qui s'ajoute à autre chose."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "inclus dans le tarif",
           "english": "included in the price",
-          "example": "Proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ?",
+          "example": "En ce qui concerne l'accompagnement, proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ?",
           "usage": "Association participe passé + groupe prépositionnel pour préciser le contenu d'un prix."
         },
         {
@@ -1157,7 +1157,7 @@
           "kind": "tournure",
           "french": "Quels sont vos horaires d'ouverture",
           "english": "What are your opening hours",
-          "example": "Quels sont vos horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "example": "Passons aux aspects pratiques : quels sont vos horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
           "usage": "Question soutenue avec inversion du sujet 'vos horaires d'ouverture' après le verbe 'sont'."
         },
         {
@@ -1181,7 +1181,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des expositions temporaires",
           "english": "Are there any temporary exhibitions",
-          "example": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "usage": "Question avec inversion pour demander si un type d'exposition est actuellement proposé."
         },
         {
@@ -1197,7 +1197,7 @@
           "kind": "tournure",
           "french": "Proposez-vous des visites guidées",
           "english": "Do you offer guided tours",
-          "example": "Proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ?",
+          "example": "En ce qui concerne l'accompagnement, proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ?",
           "usage": "Question avec inversion du sujet 'vous' relié au verbe par un trait d'union, registre vouvoiement."
         },
         {
@@ -1221,7 +1221,7 @@
           "kind": "tournure",
           "french": "Le musée est-il adapté aux enfants",
           "english": "is the museum child-friendly",
-          "example": "Le musée est-il adapté aux enfants — y a-t-il des activités ou des ateliers pour eux ?",
+          "example": "Pour ce qui est des visites, le musée est-il adapté aux enfants — y a-t-il des activités ou des ateliers pour eux ?",
           "usage": "Question sur l'adaptation aux enfants."
         }
       ]

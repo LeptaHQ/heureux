@@ -21,13 +21,19 @@
           "text": "Jusqu'à quand mon médecin habituel est-il absent — le remplacement dure combien de temps ?"
         },
         {
+          "text": "Pour ce qui est des documents, est-ce que le remplaçant a accès à mon dossier médical et à mes antécédents ?"
+        },
+        {
           "text": "Quels sont les horaires de consultation du remplaçant ?"
         },
         {
           "text": "Il ou elle consulte tous les jours, y compris en fin de journée ou le week-end ?"
         },
         {
-          "text": "Est-ce que je peux prendre rendez-vous avec lui ou elle dès maintenant ?"
+          "text": "Question lieu, le cabinet reste-t-il au même endroit, ou les consultations ont lieu ailleurs ?"
+        },
+        {
+          "text": "Et est-ce que je peux prendre rendez-vous avec lui ou elle dès maintenant ?"
         },
         {
           "text": "Comment prend-on rendez-vous — par téléphone ou en ligne ?"
@@ -36,25 +42,19 @@
           "text": "Quel est le délai pour obtenir un rendez-vous en ce moment ?"
         },
         {
-          "text": "Le cabinet reste-t-il au même endroit, ou les consultations ont lieu ailleurs ?"
-        },
-        {
-          "text": "Est-ce que le remplaçant a accès à mon dossier médical et à mes antécédents ?"
+          "text": "J'en profite pour vous demander : il ou elle peut renouveler mes ordonnances habituelles ?"
         },
         {
           "text": "Faut-il apporter des documents particuliers pour la première consultation ?"
         },
         {
-          "text": "Il ou elle peut renouveler mes ordonnances habituelles ?"
-        },
-        {
-          "text": "Les tarifs de consultation restent-ils les mêmes que d'habitude ?"
+          "text": "En ce qui concerne le budget, les tarifs de consultation restent-ils les mêmes que d'habitude ?"
         },
         {
           "text": "En cas d'urgence pendant l'absence de mon médecin, qui dois-je contacter ?"
         },
         {
-          "text": "Merci pour ces informations — si j'ai d'autres questions, je peux vous rappeler ?"
+          "text": "Merci pour ces informations, je vais prendre rendez-vous avec le remplaçant alors — et si j'ai d'autres questions, je peux vous rappeler ?"
         }
       ]
     },
@@ -84,22 +84,22 @@
           "text": "Il y a une bonne ambiance dans l'équipe ?"
         },
         {
-          "text": "Comment sont les locaux — c'est grand, moderne, bien situé ?"
+          "text": "Tant que j'y pense, comment sont les locaux — c'est grand, moderne, bien situé ?"
         },
         {
-          "text": "Le trajet jusqu'au bureau, c'est pratique depuis chez toi ?"
+          "text": "Et à ton arrivée, tu as eu droit à une formation ou un accompagnement pour bien démarrer ?"
         },
         {
-          "text": "Tu travailles combien d'heures par semaine, et les horaires sont souples ?"
+          "text": "Côté rythme, tu travailles combien d'heures par semaine, et les horaires sont souples ?"
         },
         {
-          "text": "Il y a des avantages intéressants — assurance, primes, jours de congé, tickets resto ?"
+          "text": "En ce qui concerne la réservation, il y a des avantages intéressants — assurance, primes, jours de congé, tickets resto ?"
         },
         {
           "text": "L'entreprise organise des activités ou des sorties pour souder les équipes ?"
         },
         {
-          "text": "Tu as eu droit à une formation ou un accompagnement pour bien démarrer ?"
+          "text": "Côté transport, le trajet jusqu'au bureau, c'est pratique depuis chez toi ?"
         },
         {
           "text": "Qu'est-ce qui te plaît le plus dans ce nouveau poste pour l'instant ?"
@@ -127,10 +127,7 @@
           "text": "Quelle plateforme tu me conseilles pour créer facilement un blog ?"
         },
         {
-          "text": "C'est gratuit, ou il faut payer pour un nom de domaine et l'hébergement ?"
-        },
-        {
-          "text": "Comment on choisit un bon nom de blog, accrocheur et facile à retenir ?"
+          "text": "J'en profite pour te demander : comment on choisit un bon nom de blog, accrocheur et facile à retenir ?"
         },
         {
           "text": "Quelles rubriques je devrais prévoir pour un blog de voyage ?"
@@ -139,13 +136,13 @@
           "text": "Quels types de contenus marchent le mieux — des récits, des photos, des conseils pratiques, des vidéos ?"
         },
         {
+          "text": "Côté conseils, comment on écrit un article intéressant — tu as des astuces pour capter l'attention ?"
+        },
+        {
+          "text": "Et pour les photos, tu as des conseils — quel matériel, comment les retoucher ?"
+        },
+        {
           "text": "À quel rythme il vaut mieux publier pour garder les lecteurs sans se surcharger ?"
-        },
-        {
-          "text": "Comment on écrit un article intéressant — tu as des astuces pour capter l'attention ?"
-        },
-        {
-          "text": "Pour les photos, tu as des conseils — quel matériel, comment les retoucher ?"
         },
         {
           "text": "Comment faire connaître le blog pour que les gens le trouvent et le partagent ?"
@@ -157,7 +154,10 @@
           "text": "Comment tu trouves le temps d'écrire quand tu es en plein voyage ?"
         },
         {
-          "text": "Il y a des erreurs de débutant à éviter absolument ?"
+          "text": "Question niveau, il y a des erreurs de débutant à éviter absolument ?"
+        },
+        {
+          "text": "En ce qui concerne le budget, c'est gratuit, ou il faut payer pour un nom de domaine et l'hébergement ?"
         },
         {
           "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien me lancer, ce serait lequel ?"
@@ -176,31 +176,16 @@
           "text": "Quelles destinations tu me conseillerais pour une occasion spéciale comme ça ?"
         },
         {
-          "text": "C'est quoi la meilleure période pour y aller — question météo et affluence ?"
-        },
-        {
-          "text": "Combien de temps il vaut mieux prévoir pour bien en profiter ?"
-        },
-        {
-          "text": "Côté budget, à peu près combien ça peut coûter pour deux ?"
-        },
-        {
-          "text": "Comment trouver des vols pas trop chers — tu as des astuces ?"
-        },
-        {
-          "text": "Pour se loger, tu conseilles plutôt l'hôtel, un appartement, ou autre chose ?"
+          "text": "Deuxième point : tu aurais une idée romantique ou originale pour marquer le coup le jour de l'anniversaire ?"
         },
         {
           "text": "Qu'est-ce qu'il ne faut absolument pas manquer là-bas ?"
         },
         {
-          "text": "Tu aurais une idée romantique ou originale pour marquer le coup le jour de l'anniversaire ?"
+          "text": "Ensuite, quelles activités on peut faire à deux — nature, ville, gastronomie ?"
         },
         {
-          "text": "Quelles activités on peut faire à deux — nature, ville, gastronomie ?"
-        },
-        {
-          "text": "Il faut des papiers particuliers pour voyager au Canada — visa, autorisation ?"
+          "text": "C'est quoi la meilleure période pour y aller — question météo et affluence ?"
         },
         {
           "text": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
@@ -208,7 +193,22 @@
           "memory_section": 8
         },
         {
+          "text": "Combien de temps il vaut mieux prévoir pour bien en profiter ?"
+        },
+        {
           "text": "Comment on se déplace sur place — voiture de location, train ?"
+        },
+        {
+          "text": "Question démarches, il faut des papiers particuliers pour voyager au Canada — visa, autorisation ?"
+        },
+        {
+          "text": "Et pour se loger, tu conseilles plutôt l'hôtel, un appartement, ou autre chose ?"
+        },
+        {
+          "text": "Comment trouver des vols pas trop chers — tu as des astuces ?"
+        },
+        {
+          "text": "Côté budget, à peu près combien ça peut coûter pour deux ?"
         },
         {
           "text": "Tu as des adresses ou des bons plans à me recommander ?"

@@ -21,10 +21,7 @@
           "text": "Combien de temps ça dure en général, ce genre d'entretien ?"
         },
         {
-          "text": "Comment je devrais m'habiller — il faut une tenue vraiment formelle ?"
-        },
-        {
-          "text": "Quel comportement adopter pour faire bonne impression ?"
+          "text": "Tant que j'y pense, qu'est-ce que je devrais savoir sur l'entreprise avant d'y aller ?"
         },
         {
           "text": "Qu'est-ce qu'on me posera surtout comme questions, d'après toi ?"
@@ -36,22 +33,25 @@
           "text": "Est-ce qu'il vaut mieux préparer des questions à poser au recruteur ?"
         },
         {
-          "text": "Faut-il apporter des documents, comme mon CV ou des références ?"
+          "text": "Côté attitude, quel comportement adopter pour faire bonne impression ?"
         },
         {
-          "text": "Il y a des choses à éviter absolument pendant l'entretien ?"
-        },
-        {
-          "text": "Comment gérer le stress si je perds mes moyens sur le moment ?"
+          "text": "Comment je devrais m'habiller — il faut une tenue vraiment formelle ?"
         },
         {
           "text": "C'est bien vu d'arriver un peu en avance ?"
         },
         {
-          "text": "Qu'est-ce que je devrais savoir sur l'entreprise avant d'y aller ?"
+          "text": "En ce qui concerne le matériel, faut-il apporter des documents, comme mon CV ou des références ?"
         },
         {
-          "text": "Après l'entretien, c'est bien d'envoyer un message de remerciement ?"
+          "text": "Il y a des choses à éviter absolument pendant l'entretien ?"
+        },
+        {
+          "text": "Une autre chose m'inquiète un peu : comment gérer le stress si je perds mes moyens sur le moment ?"
+        },
+        {
+          "text": "Pour ce qui est du contact, après l'entretien, c'est bien d'envoyer un message de remerciement ?"
         },
         {
           "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour réussir cet entretien, ce serait lequel ?"
@@ -79,7 +79,22 @@
           "memory_section": 7
         },
         {
-          "text": "Que mange-t-il exactement, et à quelle fréquence faut-il le nourrir ?",
+          "text": "D'abord, sur combien de jours exactement dois-je m'organiser ?",
+          "memory_number": 3,
+          "memory_section": 4
+        },
+        {
+          "text": "Avant que j'oublie, la garde se fera chez vous, ou vous préférez que je le prenne chez moi ?",
+          "memory_number": 3,
+          "memory_section": 13
+        },
+        {
+          "text": "Comment s'organisera la remise des clés, si la garde se fait chez vous ?",
+          "memory_number": 3,
+          "memory_section": 13
+        },
+        {
+          "text": "Côté repas, que mange-t-il exactement, et à quelle fréquence faut-il le nourrir ?",
           "memory_number": 3,
           "memory_section": 7
         },
@@ -99,14 +114,9 @@
           "memory_section": 4
         },
         {
-          "text": "La garde se fera chez vous, ou vous préférez que je le prenne chez moi ?",
+          "text": "Pendant que j'y pense, comment réagit-il en général quand il reste seul un moment ?",
           "memory_number": 3,
-          "memory_section": 13
-        },
-        {
-          "text": "Comment s'organisera la remise des clés, si la garde se fait chez vous ?",
-          "memory_number": 3,
-          "memory_section": 13
+          "memory_section": 7
         },
         {
           "text": "Y a-t-il des médicaments à donner ou des soins particuliers à prévoir ?",
@@ -114,19 +124,9 @@
           "memory_section": 8
         },
         {
-          "text": "Comment réagit-il en général quand il reste seul un moment ?",
-          "memory_number": 3,
-          "memory_section": 7
-        },
-        {
-          "text": "En cas d'urgence, qui est son vétérinaire et comment puis-je le joindre ?",
+          "text": "Côté imprévus, en cas d'urgence, qui est son vétérinaire et comment puis-je le joindre ?",
           "memory_number": 3,
           "memory_section": 13
-        },
-        {
-          "text": "Sur combien de jours exactement dois-je m'organiser ?",
-          "memory_number": 3,
-          "memory_section": 4
         },
         {
           "text": "Si vous êtes injoignable, y a-t-il une autre personne à contacter en cas de problème ?",
@@ -162,10 +162,18 @@
           "memory_section": 2
         },
         {
+          "text": "Côté lieu, quelles activités de plein air gratuites peut-on pratiquer dans le coin ?"
+        },
+        {
           "text": "Côté musées et sites culturels, y en a-t-il des gratuits, ou avec des jours d'entrée gratuite ?"
         },
         {
-          "text": "Y a-t-il des événements, des festivals ou des marchés locaux gratuits ce week-end ?"
+          "text": "Pour ce qui est du programme, y a-t-il des événements, des festivals ou des marchés locaux gratuits ce week-end ?"
+        },
+        {
+          "text": "Et côté saison, c'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
+          "memory_number": 7,
+          "memory_section": 8
         },
         {
           "text": "Pour dormir sans se ruiner, qu'est-ce que vous conseillez — auberge, camping, chambre chez l'habitant ?"
@@ -179,15 +187,7 @@
           "memory_section": 5
         },
         {
-          "text": "Il existe des pass ou des tarifs réduits pour visiter plusieurs sites à moindre coût ?"
-        },
-        {
-          "text": "Quelles activités de plein air gratuites peut-on pratiquer dans le coin ?"
-        },
-        {
-          "text": "C'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
-          "memory_number": 7,
-          "memory_section": 8
+          "text": "Pour ce qui est du budget, il existe des pass ou des tarifs réduits pour visiter plusieurs sites à moindre coût ?"
         },
         {
           "text": "À peu près, quel budget faut-il prévoir pour un week-end ici ?"
@@ -216,12 +216,7 @@
           "memory_section": 2
         },
         {
-          "text": "À quelle heure commencent les cours collectifs — plutôt le matin ou en fin de journée ?",
-          "memory_number": 8,
-          "memory_section": 4
-        },
-        {
-          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -231,12 +226,22 @@
           "memory_section": 8
         },
         {
-          "text": "Quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "text": "À quelle heure commencent les cours collectifs — plutôt le matin ou en fin de journée ?",
           "memory_number": 8,
           "memory_section": 4
         },
         {
-          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
+          "text": "Et plus largement, quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "memory_number": 8,
+          "memory_section": 4
+        },
+        {
+          "text": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
+          "memory_number": 8,
+          "memory_section": 8
+        },
+        {
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
           "memory_number": 8,
           "memory_section": 3
         },
@@ -246,7 +251,7 @@
           "memory_section": 3
         },
         {
-          "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
+          "text": "Sur un autre point, est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
           "memory_number": 8,
           "memory_section": 3
         },
@@ -261,12 +266,7 @@
           "memory_section": 3
         },
         {
-          "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
-          "memory_number": 8,
-          "memory_section": 8
-        },
-        {
-          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
+          "text": "Question réservation, comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
           "memory_number": 8,
           "memory_section": 6
         },

@@ -27,12 +27,17 @@
           "memory_section": 8
         },
         {
+          "text": "Question repas, peut-on choisir le menu ensemble à l'avance, ou vous proposez directement une sélection ?",
+          "memory_number": 11,
+          "memory_section": 6
+        },
+        {
           "text": "Pour combien de convives pouvez-vous cuisiner au maximum ?",
           "memory_number": 11,
           "memory_section": 7
         },
         {
-          "text": "Avez-vous besoin d'apporter votre propre matériel, ou vous utilisez la cuisine sur place ?",
+          "text": "Côté pratique, avez-vous besoin d'apporter votre propre matériel, ou vous utilisez la cuisine sur place ?",
           "memory_number": 11,
           "memory_section": 8
         },
@@ -42,17 +47,7 @@
           "memory_section": 4
         },
         {
-          "text": "Comment se calcule le tarif — par personne, ou un forfait global pour la soirée ?",
-          "memory_number": 11,
-          "memory_section": 3
-        },
-        {
-          "text": "Le prix comprend-il les courses et les ingrédients, ou est-ce facturé en plus ?",
-          "memory_number": 11,
-          "memory_section": 3
-        },
-        {
-          "text": "Vous vous occupez aussi du service à table et du nettoyage après le repas ?",
+          "text": "En ce qui concerne la nourriture, vous vous occupez aussi du service à table et du nettoyage après le repas ?",
           "memory_number": 11,
           "memory_section": 9
         },
@@ -62,17 +57,22 @@
           "memory_section": 9
         },
         {
-          "text": "Combien de temps à l'avance faut-il vous réserver pour un repas comme celui-là ?",
+          "text": "En ce qui concerne le budget, comment se calcule le tarif — par personne, ou un forfait global pour la soirée ?",
           "memory_number": 11,
-          "memory_section": 6
+          "memory_section": 3
         },
         {
-          "text": "Peut-on choisir le menu ensemble à l'avance, ou vous proposez directement une sélection ?",
+          "text": "Le prix comprend-il les courses et les ingrédients, ou est-ce facturé en plus ?",
           "memory_number": 11,
-          "memory_section": 6
+          "memory_section": 3
         },
         {
           "text": "Faut-il verser des arrhes à la réservation ?",
+          "memory_number": 11,
+          "memory_section": 6
+        },
+        {
+          "text": "Côté cuisine, combien de temps à l'avance faut-il vous réserver pour un repas comme celui-là ?",
           "memory_number": 11,
           "memory_section": 6
         },
@@ -94,7 +94,7 @@
       "prompt": "Je suis votre voisin(e). Je fais régulièrement des trajets en voiture et je vous propose de faire du covoiturage avec moi. Vous me posez des questions pour organiser cela (tarifs, horaires, organisation, etc.).",
       "questions": [
         {
-          "text": "Vous m'avez proposé de faire du covoiturage régulièrement — comment cela pourrait s'organiser concrètement ?",
+          "text": "Bonjour ! C'est gentil d'avoir pensé à moi — vous m'avez proposé de faire du covoiturage régulièrement, alors comment cela pourrait s'organiser concrètement ?",
           "memory_number": 6,
           "memory_section": 13
         },
@@ -119,32 +119,12 @@
           "memory_section": 4
         },
         {
-          "text": "Comment se répartissent les frais — l'essence, le péage, le stationnement ?",
-          "memory_number": 6,
-          "memory_section": 3
-        },
-        {
-          "text": "Ça reviendrait à combien environ chaque mois, pour moi ?",
-          "memory_number": 6,
-          "memory_section": 3
-        },
-        {
-          "text": "Le paiement se fait comment — en argent comptant, ou par virement chaque mois ?",
-          "memory_number": 6,
-          "memory_section": 3
-        },
-        {
-          "text": "Vous prenez généralement combien de passagers, et il resterait de la place pour moi ?",
+          "text": "Dans un autre registre, vous prenez généralement combien de passagers, et il resterait de la place pour moi ?",
           "memory_number": 6,
           "memory_section": 7
         },
         {
-          "text": "Votre assurance couvre-t-elle bien les passagers en cas d'accident ?",
-          "memory_number": 6,
-          "memory_section": 8
-        },
-        {
-          "text": "Si l'un de nous ne peut pas venir un jour, comment on s'organise — il faut prévenir à l'avance ?",
+          "text": "En ce qui concerne le suivi, si l'un de nous ne peut pas venir un jour, comment on s'organise — il faut prévenir à l'avance ?",
           "memory_number": 6,
           "memory_section": 12
         },
@@ -159,7 +139,27 @@
           "memory_section": 13
         },
         {
-          "text": "Vous préférez qu'on discute pendant le trajet, ou plutôt un moment calme le matin ?",
+          "text": "En ce qui concerne le budget, comment se répartissent les frais — l'essence, le péage, le stationnement ?",
+          "memory_number": 6,
+          "memory_section": 3
+        },
+        {
+          "text": "Ça reviendrait à combien environ chaque mois, pour moi ?",
+          "memory_number": 6,
+          "memory_section": 3
+        },
+        {
+          "text": "Le paiement se fait comment — en argent comptant, ou par virement chaque mois ?",
+          "memory_number": 6,
+          "memory_section": 3
+        },
+        {
+          "text": "En ce qui concerne la couverture, votre assurance couvre-t-elle bien les passagers en cas d'accident ?",
+          "memory_number": 6,
+          "memory_section": 8
+        },
+        {
+          "text": "Question transport, vous préférez qu'on discute pendant le trajet, ou plutôt un moment calme le matin ?",
           "memory_number": 6,
           "memory_section": 10
         },
@@ -176,7 +176,7 @@
       "prompt": "Je travaille à l'accueil d'une école de musique. Vous souhaitez vous inscrire à un cours et vous me posez des questions sur l'école (cours disponibles, horaires, prix, etc.).",
       "questions": [
         {
-          "text": "Bonjour, je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
+          "text": "Bonjour ! J'aimerais enfin me mettre à la musique et je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -196,29 +196,29 @@
           "memory_section": 6
         },
         {
-          "text": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "text": "En ce qui concerne l'encadrement, les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "memory_number": 10,
+          "memory_section": 7
+        },
+        {
+          "text": "Comment suivez-vous la progression des élèves — il y a des évaluations régulières ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "text": "Question programme, organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
           "memory_number": 10,
-          "memory_section": 7
+          "memory_section": 2
+        },
+        {
+          "text": "Côté organisation, les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "memory_number": 10,
+          "memory_section": 4
         },
         {
           "text": "Faut-il apporter son propre instrument, ou l'école peut-elle en fournir un pour commencer ?",
           "memory_number": 10,
           "memory_section": 8
-        },
-        {
-          "text": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
-          "memory_number": 10,
-          "memory_section": 3
-        },
-        {
-          "text": "Y a-t-il des frais supplémentaires, comme les partitions ou le matériel ?",
-          "memory_number": 10,
-          "memory_section": 3
         },
         {
           "text": "Est-ce qu'on peut essayer avec un cours d'essai avant de s'engager ?",
@@ -231,17 +231,17 @@
           "memory_section": 6
         },
         {
-          "text": "Organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
           "memory_number": 10,
-          "memory_section": 2
+          "memory_section": 3
         },
         {
-          "text": "Comment suivez-vous la progression des élèves — il y a des évaluations régulières ?",
+          "text": "Y a-t-il des frais supplémentaires, comme les partitions ou le matériel ?",
           "memory_number": 10,
-          "memory_section": 4
+          "memory_section": 3
         },
         {
-          "text": "L'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
+          "text": "Côté transport, l'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
           "memory_number": 10,
           "memory_section": 5
         },
@@ -268,12 +268,7 @@
           "memory_section": 2
         },
         {
-          "text": "À quelle heure commencent les cours collectifs — plutôt le matin ou en fin de journée ?",
-          "memory_number": 8,
-          "memory_section": 4
-        },
-        {
-          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -283,12 +278,22 @@
           "memory_section": 8
         },
         {
-          "text": "Quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "text": "À quelle heure commencent les cours collectifs — plutôt le matin ou en fin de journée ?",
           "memory_number": 8,
           "memory_section": 4
         },
         {
-          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
+          "text": "Et plus largement, quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "memory_number": 8,
+          "memory_section": 4
+        },
+        {
+          "text": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
+          "memory_number": 8,
+          "memory_section": 8
+        },
+        {
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
           "memory_number": 8,
           "memory_section": 3
         },
@@ -298,7 +303,7 @@
           "memory_section": 3
         },
         {
-          "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
+          "text": "Sur un autre point, est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
           "memory_number": 8,
           "memory_section": 3
         },
@@ -313,12 +318,7 @@
           "memory_section": 3
         },
         {
-          "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
-          "memory_number": 8,
-          "memory_section": 8
-        },
-        {
-          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
+          "text": "Question réservation, comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -340,7 +340,7 @@
       "prompt": "Je travaille à la réception d'un hôtel. Vous souhaitez réserver une chambre et vous me posez des questions sur l'hôtel (prix, type de chambre, services inclus, etc.).",
       "questions": [
         {
-          "text": "Bonjour, je souhaiterais réserver une chambre — comment dois-je procéder ?",
+          "text": "Bonjour ! Je prévois de passer quelques nuits dans votre ville et je souhaiterais réserver une chambre — comment dois-je procéder ?",
           "memory_number": 7,
           "memory_section": 13
         },
@@ -350,37 +350,7 @@
           "memory_section": 2
         },
         {
-          "text": "Quel est le prix par nuit pour chaque type de chambre ?",
-          "memory_number": 7,
-          "memory_section": 3
-        },
-        {
-          "text": "Le petit-déjeuner est-il inclus dans le prix, ou facturé séparément ?",
-          "memory_number": 7,
-          "memory_section": 3
-        },
-        {
-          "text": "Le Wi-Fi est-il gratuit dans les chambres ?",
-          "memory_number": 7,
-          "memory_section": 9
-        },
-        {
-          "text": "À quelle heure puis-je arriver, et à quelle heure faut-il libérer la chambre le jour du départ ?",
-          "memory_number": 7,
-          "memory_section": 4
-        },
-        {
-          "text": "Quelle est la politique d'annulation si mes dates changent ?",
-          "memory_number": 7,
-          "memory_section": 8
-        },
-        {
-          "text": "Faut-il verser des arrhes au moment de la réservation ?",
-          "memory_number": 7,
-          "memory_section": 6
-        },
-        {
-          "text": "Est-il possible de demander une chambre avec vue, ou à un étage précis ?",
+          "text": "Question hébergement, est-il possible de demander une chambre avec vue, ou à un étage précis ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -388,6 +358,16 @@
           "text": "Pouvez-vous ajouter un lit supplémentaire si on est accompagné d'un enfant ?",
           "memory_number": 7,
           "memory_section": 7
+        },
+        {
+          "text": "J'ai encore une question : proposez-vous d'autres services inclus, comme une salle de sport ou une piscine ?",
+          "memory_number": 7,
+          "memory_section": 9
+        },
+        {
+          "text": "Le Wi-Fi est-il gratuit dans les chambres ?",
+          "memory_number": 7,
+          "memory_section": 9
         },
         {
           "text": "L'hôtel dispose-t-il d'un parking, et est-il gratuit pour les clients ?",
@@ -400,14 +380,34 @@
           "memory_section": 5
         },
         {
-          "text": "Proposez-vous d'autres services inclus, comme une salle de sport ou une piscine ?",
-          "memory_number": 7,
-          "memory_section": 9
-        },
-        {
-          "text": "Y a-t-il des conditions particulières pour les animaux de compagnie ?",
+          "text": "En ce qui concerne les règles, y a-t-il des conditions particulières pour les animaux de compagnie ?",
           "memory_number": 7,
           "memory_section": 8
+        },
+        {
+          "text": "Côté horaires, à quelle heure puis-je arriver, et à quelle heure faut-il libérer la chambre le jour du départ ?",
+          "memory_number": 7,
+          "memory_section": 4
+        },
+        {
+          "text": "En ce qui concerne le budget, quel est le prix par nuit pour chaque type de chambre ?",
+          "memory_number": 7,
+          "memory_section": 3
+        },
+        {
+          "text": "Le petit-déjeuner est-il inclus dans le prix, ou facturé séparément ?",
+          "memory_number": 7,
+          "memory_section": 3
+        },
+        {
+          "text": "Quelle est la politique d'annulation si mes dates changent ?",
+          "memory_number": 7,
+          "memory_section": 8
+        },
+        {
+          "text": "Faut-il verser des arrhes au moment de la réservation ?",
+          "memory_number": 7,
+          "memory_section": 6
         },
         {
           "text": "Pour finir — quel type de chambre me recommanderiez-vous pour un séjour confortable ?",

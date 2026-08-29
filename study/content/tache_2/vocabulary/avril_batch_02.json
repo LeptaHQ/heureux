@@ -25,7 +25,7 @@
           "kind": "mot-cle",
           "french": "une bonne période",
           "english": "a good time (of year)",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "usage": "Groupe nominal pour évaluer si un moment convient à un projet de voyage."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "le circuit le plus apprécié",
           "english": "the most popular tour",
-          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
+          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
           "usage": "Groupe nominal superlatif désignant l'itinéraire préféré des voyageurs."
         },
         {
@@ -97,7 +97,7 @@
           "kind": "collocation",
           "french": "il vaut mieux attendre",
           "english": "it's better to wait",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "usage": "Expression impersonnelle figée suivie d'un infinitif pour formuler une recommandation prudente."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "payer en plusieurs fois",
           "english": "to pay in instalments",
-          "example": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "example": "En ce qui concerne le prix, est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
           "usage": "Collocation verbe + locution pour exprimer un règlement fractionné."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "régler en une seule fois",
           "english": "to settle in one go",
-          "example": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "example": "En ce qui concerne le prix, est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
           "usage": "Collocation verbe + locution restrictive pour exprimer un paiement unique."
         },
         {
@@ -161,7 +161,7 @@
           "kind": "collocation",
           "french": "de bons endroits où dormir",
           "english": "good places to stay",
-          "example": "Vous connaissez de bons endroits où dormir — hôtels, appartements, auberges ?",
+          "example": "Côté hébergement, vous connaissez de bons endroits où dormir — hôtels, appartements, auberges ?",
           "usage": "Groupe nominal avec relative introduite par « où » pour désigner des lieux d'hébergement recommandés."
         },
         {
@@ -193,7 +193,7 @@
           "kind": "tournure",
           "french": "Combien de temps faut-il prévoir pour ce type de séjour",
           "english": "How much time should be planned for this type of trip",
-          "example": "Combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
+          "example": "Côté durée, combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
           "usage": "Question impersonnelle avec « faut-il » et groupe interrogatif « combien de temps » antéposé."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "Vous connaissez de bons endroits où dormir",
           "english": "Do you know good places to stay",
-          "example": "Vous connaissez de bons endroits où dormir — hôtels, appartements, auberges ?",
+          "example": "Côté hébergement, vous connaissez de bons endroits où dormir — hôtels, appartements, auberges ?",
           "usage": "Question directe simple, registre vouvoiement, suivie d'une relative introduite par « où »."
         },
         {
@@ -225,7 +225,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'il est possible de payer en plusieurs fois",
           "english": "Is it possible to pay in instalments",
-          "example": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "example": "En ce qui concerne le prix, est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
           "usage": "Tournure avec « est-ce que » suivie d'un adjectif attribut et d'un complément à l'infinitif."
         },
         {
@@ -233,7 +233,7 @@
           "kind": "tournure",
           "french": "Vous avez mentionné le circuit le plus apprécié",
           "english": "You mentioned the most popular tour",
-          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
+          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
           "usage": "Structure de relance au passé composé, registre vouvoiement, pour revenir sur un point déjà cité."
         },
         {
@@ -278,7 +278,7 @@
           "kind": "mot-cle",
           "french": "des agences",
           "english": "agencies",
-          "example": "Si je n'ai pas encore de vélo, tu connais des agences où en louer ?",
+          "example": "En ce qui concerne la location, si je n'ai pas encore de vélo, tu connais des agences où en louer ?",
           "usage": "Nom féminin pluriel désignant les points de location de vélos."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "la neige",
           "english": "snow",
-          "example": "En hiver, avec la neige, est-ce qu'on peut continuer à rouler ou c'est trop compliqué ?",
+          "example": "Pour ce qui est de la météo, en hiver, avec la neige, est-ce qu'on peut continuer à rouler ou c'est trop compliqué ?",
           "usage": "Nom féminin désignant les conditions hivernales."
         },
         {
@@ -366,7 +366,7 @@
           "kind": "collocation",
           "french": "des agences où en louer",
           "english": "agencies where to rent one",
-          "example": "Si je n'ai pas encore de vélo, tu connais des agences où en louer ?",
+          "example": "En ce qui concerne la location, si je n'ai pas encore de vélo, tu connais des agences où en louer ?",
           "usage": "Groupe nominal avec relative « où » et pronom « en »."
         },
         {
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "rouler en toute sécurité",
           "english": "to ride safely",
-          "example": "Comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
+          "example": "Côté précautions, comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
           "usage": "Locution verbale exprimant la conduite prudente."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "Comment faire pour rouler en toute sécurité",
           "english": "How to ride safely",
-          "example": "Comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
+          "example": "Côté précautions, comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
           "usage": "Question « comment faire pour » + infinitif pour des conseils."
         },
         {
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "En hiver, avec la neige, est-ce qu'on peut continuer à rouler",
           "english": "In winter, with the snow, can you keep riding",
-          "example": "En hiver, avec la neige, est-ce qu'on peut continuer à rouler ou c'est trop compliqué ?",
+          "example": "Pour ce qui est de la météo, en hiver, avec la neige, est-ce qu'on peut continuer à rouler ou c'est trop compliqué ?",
           "usage": "Question conditionnée par le contexte hivernal."
         },
         {
@@ -507,7 +507,7 @@
           "kind": "mot-cle",
           "french": "les tâches",
           "english": "the tasks",
-          "example": "Quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
+          "example": "Concrètement, quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
           "usage": "Nom féminin pluriel désignant les missions confiées."
         },
         {
@@ -515,7 +515,7 @@
           "kind": "mot-cle",
           "french": "les repas",
           "english": "the meals",
-          "example": "Quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
+          "example": "Concrètement, quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
           "usage": "Nom masculin pluriel désignant les repas à préparer."
         },
         {
@@ -523,7 +523,7 @@
           "kind": "mot-cle",
           "french": "aux devoirs",
           "english": "with homework",
-          "example": "Quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
+          "example": "Concrètement, quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
           "usage": "Locution désignant l'aide aux devoirs scolaires."
         },
         {
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "des références",
           "english": "references",
-          "example": "Est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
+          "example": "En ce qui concerne les règles, est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
           "usage": "Nom féminin pluriel désignant les recommandations d'anciens employeurs."
         },
         {
@@ -555,7 +555,7 @@
           "kind": "mot-cle",
           "french": "un diplôme de premiers secours",
           "english": "a first-aid certificate",
-          "example": "Est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
+          "example": "En ce qui concerne les règles, est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
           "usage": "Groupe nominal désignant une qualification en secourisme."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "des exigences particulières",
           "english": "specific requirements",
-          "example": "Est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
+          "example": "En ce qui concerne les règles, est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
           "usage": "Groupe nominal désignant les attentes précises de l'employeur."
         },
         {
@@ -611,7 +611,7 @@
           "kind": "collocation",
           "french": "surveiller les enfants",
           "english": "to watch the children",
-          "example": "Quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
+          "example": "Concrètement, quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
           "usage": "Collocation verbe + nom sur la surveillance."
         },
         {
@@ -619,7 +619,7 @@
           "kind": "collocation",
           "french": "préparer les repas",
           "english": "to prepare the meals",
-          "example": "Quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
+          "example": "Concrètement, quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
           "usage": "Collocation verbe + nom sur la préparation des repas."
         },
         {
@@ -635,7 +635,7 @@
           "kind": "collocation",
           "french": "des habitudes ou des règles importantes",
           "english": "important habits or rules",
-          "example": "Est-ce qu'il y a des habitudes ou des règles importantes à respecter avec tes enfants ?",
+          "example": "Pour ce qui est des conditions, est-ce qu'il y a des habitudes ou des règles importantes à respecter avec tes enfants ?",
           "usage": "Groupe nominal sur le cadre à respecter avec les enfants."
         },
         {
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "te joindre pendant ton absence",
           "english": "to reach you while you're away",
-          "example": "En cas d'urgence, comment est-ce qu'on peut te joindre pendant ton absence ?",
+          "example": "Pour ce qui est des imprévus, en cas d'urgence, comment est-ce qu'on peut te joindre pendant ton absence ?",
           "usage": "Collocation verbe + complément sur la joignabilité."
         },
         {
@@ -683,7 +683,7 @@
           "kind": "tournure",
           "french": "Quelles seraient les tâches à faire",
           "english": "What would the tasks be",
-          "example": "Quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
+          "example": "Concrètement, quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
           "usage": "Question au conditionnel sur les missions à accomplir."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "Est-ce que tu as des exigences particulières",
           "english": "Do you have any specific requirements",
-          "example": "Est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
+          "example": "En ce qui concerne les règles, est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
           "usage": "Question avec « est-ce que » sur les attentes."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "En cas d'urgence, comment est-ce qu'on peut te joindre",
           "english": "In an emergency, how can we reach you",
-          "example": "En cas d'urgence, comment est-ce qu'on peut te joindre pendant ton absence ?",
+          "example": "Pour ce qui est des imprévus, en cas d'urgence, comment est-ce qu'on peut te joindre pendant ton absence ?",
           "usage": "Tournure « en cas de » suivie d'une question pratique."
         },
         {
@@ -776,7 +776,7 @@
           "kind": "mot-cle",
           "french": "une piscine",
           "english": "a swimming pool",
-          "example": "L'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa ?",
+          "example": "En ce qui concerne l'hébergement, l'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa ?",
           "usage": "Nom féminin désignant l'équipement de baignade."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "une navette",
           "english": "a shuttle",
-          "example": "Est-ce que l'hôtel propose une navette pour l'aéroport ou le centre-ville ?",
+          "example": "Côté transport, est-ce que l'hôtel propose une navette pour l'aéroport ou le centre-ville ?",
           "usage": "Nom féminin désignant le transport assuré par l'hôtel."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "des services payants",
           "english": "paid services",
-          "example": "Y a-t-il des services payants en supplément dont je devrais connaître les tarifs ?",
+          "example": "En ce qui concerne le budget, y a-t-il des services payants en supplément dont je devrais connaître les tarifs ?",
           "usage": "Groupe nominal désignant les prestations facturées en plus."
         },
         {
@@ -840,7 +840,7 @@
           "kind": "collocation",
           "french": "un service de blanchisserie",
           "english": "a laundry service",
-          "example": "Proposez-vous un service de blanchisserie ou de repassage ?",
+          "example": "Et puis, proposez-vous un service de blanchisserie ou de repassage ?",
           "usage": "Groupe nominal désignant la prestation de lavage du linge."
         },
         {
@@ -856,7 +856,7 @@
           "kind": "collocation",
           "french": "libérer la chambre",
           "english": "to check out of the room",
-          "example": "À quelle heure faut-il libérer la chambre le jour du départ — et peut-on la garder un peu plus longtemps ?",
+          "example": "Côté horaires, à quelle heure faut-il libérer la chambre le jour du départ — et peut-on la garder un peu plus longtemps ?",
           "usage": "Collocation verbe + nom sur la restitution de la chambre."
         },
         {
@@ -864,7 +864,7 @@
           "kind": "collocation",
           "french": "le jour du départ",
           "english": "on the day of departure",
-          "example": "À quelle heure faut-il libérer la chambre le jour du départ — et peut-on la garder un peu plus longtemps ?",
+          "example": "Côté horaires, à quelle heure faut-il libérer la chambre le jour du départ — et peut-on la garder un peu plus longtemps ?",
           "usage": "Groupe nominal temporel désignant la date de départ."
         },
         {
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "en supplément",
           "english": "as an extra charge",
-          "example": "Y a-t-il des services payants en supplément dont je devrais connaître les tarifs ?",
+          "example": "En ce qui concerne le budget, y a-t-il des services payants en supplément dont je devrais connaître les tarifs ?",
           "usage": "Locution figée pour un coût facturé en plus."
         },
         {
@@ -928,7 +928,7 @@
           "kind": "tournure",
           "french": "L'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa",
           "english": "Does the hotel have a gym, a pool or a spa",
-          "example": "L'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa ?",
+          "example": "En ce qui concerne l'hébergement, l'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa ?",
           "usage": "Question avec inversion « dispose-t-il » sur les installations."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "À quelle heure faut-il libérer la chambre le jour du départ",
           "english": "What time do you have to check out on the day of departure",
-          "example": "À quelle heure faut-il libérer la chambre le jour du départ — et peut-on la garder un peu plus longtemps ?",
+          "example": "Côté horaires, à quelle heure faut-il libérer la chambre le jour du départ — et peut-on la garder un peu plus longtemps ?",
           "usage": "Question impersonnelle avec « faut-il » sur l'heure de départ."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "Est-ce que l'hôtel propose une navette pour l'aéroport",
           "english": "Does the hotel offer a shuttle to the airport",
-          "example": "Est-ce que l'hôtel propose une navette pour l'aéroport ou le centre-ville ?",
+          "example": "Côté transport, est-ce que l'hôtel propose une navette pour l'aéroport ou le centre-ville ?",
           "usage": "Question avec « est-ce que » sur le service de navette."
         },
         {
@@ -968,7 +968,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des services payants en supplément",
           "english": "Are there paid services at an extra charge",
-          "example": "Y a-t-il des services payants en supplément dont je devrais connaître les tarifs ?",
+          "example": "En ce qui concerne le budget, y a-t-il des services payants en supplément dont je devrais connaître les tarifs ?",
           "usage": "Tournure « y a-t-il » sur les prestations facturées en plus."
         },
         {
@@ -1013,7 +1013,7 @@
           "kind": "mot-cle",
           "french": "les frais",
           "english": "the costs",
-          "example": "Comment se répartissent les frais — on partage l'essence et le péage ?",
+          "example": "En ce qui concerne le budget, comment se répartissent les frais — on partage l'essence et le péage ?",
           "usage": "Nom masculin pluriel désignant les dépenses partagées."
         },
         {
@@ -1021,7 +1021,7 @@
           "kind": "mot-cle",
           "french": "l'essence",
           "english": "the petrol",
-          "example": "Comment se répartissent les frais — on partage l'essence et le péage ?",
+          "example": "En ce qui concerne le budget, comment se répartissent les frais — on partage l'essence et le péage ?",
           "usage": "Nom féminin désignant le carburant dont le coût est partagé."
         },
         {
@@ -1029,7 +1029,7 @@
           "kind": "mot-cle",
           "french": "le péage",
           "english": "the toll",
-          "example": "Comment se répartissent les frais — on partage l'essence et le péage ?",
+          "example": "En ce qui concerne le budget, comment se répartissent les frais — on partage l'essence et le péage ?",
           "usage": "Nom masculin désignant les frais d'autoroute."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "mot-cle",
           "french": "les passagers",
           "english": "the passengers",
-          "example": "Est-ce que ton assurance couvre les passagers en cas de souci ?",
+          "example": "Pour ce qui est des imprévus, est-ce que ton assurance couvre les passagers en cas de souci ?",
           "usage": "Nom masculin pluriel désignant les personnes transportées."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "se répartissent les frais",
           "english": "the costs are split",
-          "example": "Comment se répartissent les frais — on partage l'essence et le péage ?",
+          "example": "En ce qui concerne le budget, comment se répartissent les frais — on partage l'essence et le péage ?",
           "usage": "Collocation verbe pronominal + sujet sur le partage des dépenses."
         },
         {
@@ -1117,7 +1117,7 @@
           "kind": "collocation",
           "french": "on partage l'essence et le péage",
           "english": "we split the petrol and the toll",
-          "example": "Comment se répartissent les frais — on partage l'essence et le péage ?",
+          "example": "En ce qui concerne le budget, comment se répartissent les frais — on partage l'essence et le péage ?",
           "usage": "Collocation verbe + compléments sur le partage des coûts."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "il reste de la place",
           "english": "there is room left",
-          "example": "Combien de personnes est-ce que tu prends en général — il reste de la place ?",
+          "example": "Côté groupe, combien de personnes est-ce que tu prends en général — il reste de la place ?",
           "usage": "Tournure impersonnelle figée sur la disponibilité de places."
         },
         {
@@ -1141,7 +1141,7 @@
           "kind": "collocation",
           "french": "couvre les passagers",
           "english": "covers the passengers",
-          "example": "Est-ce que ton assurance couvre les passagers en cas de souci ?",
+          "example": "Pour ce qui est des imprévus, est-ce que ton assurance couvre les passagers en cas de souci ?",
           "usage": "Collocation verbe + complément sur la couverture d'assurance."
         },
         {
@@ -1189,7 +1189,7 @@
           "kind": "tournure",
           "french": "Comment se répartissent les frais",
           "english": "How are the costs split",
-          "example": "Comment se répartissent les frais — on partage l'essence et le péage ?",
+          "example": "En ce qui concerne le budget, comment se répartissent les frais — on partage l'essence et le péage ?",
           "usage": "Question avec « comment » sur le partage des dépenses."
         },
         {
@@ -1213,7 +1213,7 @@
           "kind": "tournure",
           "french": "Combien de personnes est-ce que tu prends en général",
           "english": "How many people do you usually take",
-          "example": "Combien de personnes est-ce que tu prends en général — il reste de la place ?",
+          "example": "Côté groupe, combien de personnes est-ce que tu prends en général — il reste de la place ?",
           "usage": "Question avec « combien de » sur le nombre de passagers."
         },
         {
@@ -1221,7 +1221,7 @@
           "kind": "tournure",
           "french": "Est-ce que ton assurance couvre les passagers",
           "english": "Does your insurance cover the passengers",
-          "example": "Est-ce que ton assurance couvre les passagers en cas de souci ?",
+          "example": "Pour ce qui est des imprévus, est-ce que ton assurance couvre les passagers en cas de souci ?",
           "usage": "Question avec « est-ce que » sur la couverture des passagers."
         }
       ]

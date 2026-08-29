@@ -21,28 +21,31 @@
           "text": "Vous enseignez à quels niveaux — est-ce que les grands débutants sont les bienvenus ?"
         },
         {
+          "text": "Dans le même esprit, quels styles de guitare enseignez-vous — classique, folk, rock, jazz, flamenco ?"
+        },
+        {
+          "text": "Quelle méthode utilisez-vous — plutôt lecture, pratique, accompagnement de chansons, ou un mélange ?"
+        },
+        {
+          "text": "Question durée, au bout de combien de temps peut-on commencer à jouer de vrais morceaux ?"
+        },
+        {
+          "text": "Comment suivez-vous la progression de vos élèves — avez-vous des étapes ou des objectifs précis ?"
+        },
+        {
           "text": "Un cours dure combien de temps en général ?"
         },
         {
           "text": "Vous conseillez quelle fréquence pour progresser régulièrement ?"
         },
         {
-          "text": "Les cours ont lieu où exactement — chez vous, chez l'élève, ou dans un studio ?"
-        },
-        {
-          "text": "Quels styles de guitare enseignez-vous — classique, folk, rock, jazz, flamenco ?"
-        },
-        {
-          "text": "Quelle méthode utilisez-vous — plutôt lecture, pratique, accompagnement de chansons, ou un mélange ?"
+          "text": "Côté organisation, les cours ont lieu où exactement — chez vous, chez l'élève, ou dans un studio ?"
         },
         {
           "text": "Faut-il avoir sa propre guitare dès le début, ou pouvez-vous en prêter une pour les premières séances ?"
         },
         {
-          "text": "Au bout de combien de temps peut-on commencer à jouer de vrais morceaux ?"
-        },
-        {
-          "text": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
           "memory_number": 10,
           "memory_section": 3
         },
@@ -50,10 +53,7 @@
           "text": "Est-ce qu'il y a possibilité de faire un cours d'essai avant de s'engager ?"
         },
         {
-          "text": "Comment suivez-vous la progression de vos élèves — avez-vous des étapes ou des objectifs précis ?"
-        },
-        {
-          "text": "Est-ce que vous auriez éventuellement d'autres élèves ou anciens élèves que je pourrais contacter pour avoir un retour ?"
+          "text": "En ce qui concerne le suivi, est-ce que vous auriez éventuellement d'autres élèves ou anciens élèves que je pourrais contacter pour avoir un retour ?"
         },
         {
           "text": "Pour finir — comment fixe-t-on le premier rendez-vous, et qu'est-ce que je dois apporter pour la première leçon ?"
@@ -135,20 +135,23 @@
           "text": "Elle aide qui en priorité ?"
         },
         {
+          "text": "Deuxième point : comment tu as commencé à t'impliquer dans cette association ?",
+          "memory_number": 4,
+          "memory_section": 2
+        },
+        {
           "text": "Concrètement, quelles sont tes missions au quotidien ?",
           "memory_number": 4,
           "memory_section": 2
         },
         {
-          "text": "Tu y consacres combien d'heures par semaine en général ?"
+          "text": "Côté organisation, tu y consacres combien d'heures par semaine en général ?"
         },
         {
           "text": "C'est un travail salarié, du bénévolat, ou un mélange des deux ?"
         },
         {
-          "text": "Comment tu as commencé à t'impliquer dans cette association ?",
-          "memory_number": 4,
-          "memory_section": 2
+          "text": "Autre point important : quelles compétences faut-il pour faire ce genre d'activité ?"
         },
         {
           "text": "Qu'est-ce que tu trouves le plus gratifiant dans ce que tu fais ?",
@@ -159,21 +162,18 @@
           "text": "Et à l'inverse, qu'est-ce qui est le plus difficile ?"
         },
         {
-          "text": "Quelles compétences faut-il pour faire ce genre d'activité ?"
-        },
-        {
           "text": "Tu as l'impression que l'association a un impact concret sur les personnes qu'elle aide ?"
         },
         {
           "text": "Tu te sens bien accompagné(e) et soutenu(e) dans l'association ?"
         },
         {
-          "text": "Tu te vois continuer encore longtemps dans cette association ?"
-        },
-        {
-          "text": "L'association a-t-elle des projets ou de nouvelles initiatives en cours en ce moment ?",
+          "text": "Et dans la continuité, l'association a-t-elle des projets ou de nouvelles initiatives en cours en ce moment ?",
           "memory_number": 4,
           "memory_section": 2
+        },
+        {
+          "text": "Tu te vois continuer encore longtemps dans cette association ?"
         },
         {
           "text": "Pour finir — si tu devais me décrire une journée ou une semaine type dans l'association, ça ressemblerait à quoi ?"
@@ -196,12 +196,37 @@
           "memory_section": 10
         },
         {
+          "text": "Justement, combien de personnes travaillent dans notre département ? Et qui est notre responsable direct — comment est-il ou elle en tant que manager ?",
+          "memory_number": 4,
+          "memory_section": 7
+        },
+        {
           "text": "Comment s'organise le travail au quotidien — plutôt en équipe ou de manière individuelle ?",
           "memory_number": 4,
           "memory_section": 4
         },
         {
-          "text": "À quelle heure ça commence le matin — il y a des horaires flexibles ou tout le monde doit arriver à la même heure ?",
+          "text": "Puisqu'on en parle, est-ce qu'il y a des réunions régulières d'équipe ? Ça a lieu à quelle fréquence — et ça dure combien de temps généralement ?",
+          "memory_number": 4,
+          "memory_section": 4
+        },
+        {
+          "text": "Comment fonctionne la communication interne — on utilise des emails ou une plateforme spécifique ?",
+          "memory_number": 4,
+          "memory_section": 13
+        },
+        {
+          "text": "Question invités, est-ce que tu pourrais me présenter aux autres membres de l'équipe — surtout ceux avec qui je vais travailler étroitement ?",
+          "memory_number": 4,
+          "memory_section": 13
+        },
+        {
+          "text": "Et concrètement, à quelle heure ça commence le matin — il y a des horaires flexibles ou tout le monde doit arriver à la même heure ?",
+          "memory_number": 4,
+          "memory_section": 4
+        },
+        {
+          "text": "Est-ce qu'il y a des possibilités de télétravail ou tout se fait au bureau ?",
           "memory_number": 4,
           "memory_section": 4
         },
@@ -226,32 +251,7 @@
           "memory_section": 9
         },
         {
-          "text": "Est-ce qu'il y a des réunions régulières d'équipe ? Ça a lieu à quelle fréquence — et ça dure combien de temps généralement ?",
-          "memory_number": 4,
-          "memory_section": 4
-        },
-        {
-          "text": "Comment fonctionne la communication interne — on utilise des emails ou une plateforme spécifique ?",
-          "memory_number": 4,
-          "memory_section": 13
-        },
-        {
-          "text": "Combien de personnes travaillent dans notre département ? Et qui est notre responsable direct — comment est-il ou elle en tant que manager ?",
-          "memory_number": 4,
-          "memory_section": 7
-        },
-        {
-          "text": "Est-ce que tu pourrais me présenter aux autres membres de l'équipe — surtout ceux avec qui je vais travailler étroitement ?",
-          "memory_number": 4,
-          "memory_section": 13
-        },
-        {
-          "text": "Est-ce qu'il y a des possibilités de télétravail ou tout se fait au bureau ?",
-          "memory_number": 4,
-          "memory_section": 4
-        },
-        {
-          "text": "Quels sont les avantages dont bénéficient les employés — tickets restaurant, mutuelle, ce genre de choses ?",
+          "text": "Toujours sur ce point, quels sont les avantages dont bénéficient les employés — tickets restaurant, mutuelle, ce genre de choses ?",
           "memory_number": 4,
           "memory_section": 3
         },
@@ -277,16 +277,7 @@
           "text": "Ces formations s'adressent-elles uniquement aux adultes, ou y a-t-il des conditions d'âge particulières ?"
         },
         {
-          "text": "Est-ce que les cours conviennent à quelqu'un qui travaille à temps plein ?"
-        },
-        {
-          "text": "Proposez-vous des cours en soirée ou le week-end ?"
-        },
-        {
-          "text": "Les cours se suivent-ils par semestre, et combien de temps dure un semestre ?"
-        },
-        {
-          "text": "Est-ce qu'il y a des dates limites d'inscription à respecter ?"
+          "text": "À quel niveau ça s'adresse — et y a-t-il un test de placement au départ ?"
         },
         {
           "text": "Comment sont organisés les cours — en groupes, en présentiel, en ligne ou en formule hybride ?"
@@ -295,16 +286,25 @@
           "text": "Est-ce qu'il existe aussi des cours particuliers ou du tutorat individuel ?"
         },
         {
-          "text": "À quel niveau ça s'adresse — et y a-t-il un test de placement au départ ?"
+          "text": "Question niveau, qui sont les enseignants — sont-ils diplômés et expérimentés ?"
         },
         {
-          "text": "Ces cours donnent-ils des crédits universitaires, ou s'agit-il plutôt de formation continue sans crédits ?"
+          "text": "Côté emploi du temps, est-ce que les cours conviennent à quelqu'un qui travaille à temps plein ?"
         },
         {
-          "text": "Qui sont les enseignants — sont-ils diplômés et expérimentés ?"
+          "text": "Proposez-vous des cours en soirée ou le week-end ?"
+        },
+        {
+          "text": "Les cours se suivent-ils par semestre, et combien de temps dure un semestre ?"
+        },
+        {
+          "text": "En ce qui concerne la reconnaissance, ces cours donnent-ils des crédits universitaires, ou s'agit-il plutôt de formation continue sans crédits ?"
         },
         {
           "text": "Comment fonctionnent les tarifs — c'est par cours, par semestre ou sous forme de forfait ?"
+        },
+        {
+          "text": "Question calendrier, est-ce qu'il y a des dates limites d'inscription à respecter ?"
         },
         {
           "text": "Qu'est-ce qu'il faut faire concrètement pour s'inscrire ?"

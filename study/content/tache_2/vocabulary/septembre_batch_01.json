@@ -262,7 +262,7 @@
           "kind": "mot-cle",
           "french": "ce nouveau travail",
           "english": "this new job",
-          "example": "Alors, ce nouveau travail — ça se passe bien depuis que tu as commencé ?",
+          "example": "Salut ! Ça fait un moment qu'on ne s'est pas parlé ! Alors, ce nouveau travail — ça se passe bien depuis que tu as commencé ?",
           "usage": "Groupe nominal désignant le poste récemment obtenu."
         },
         {
@@ -278,7 +278,7 @@
           "kind": "mot-cle",
           "french": "les horaires",
           "english": "the working hours",
-          "example": "Tu travailles combien d'heures par semaine, et les horaires sont fixes ou variables ?",
+          "example": "Et côté rythme, tu travailles combien d'heures par semaine, et les horaires sont fixes ou variables ?",
           "usage": "Nom pluriel désignant les heures de travail."
         },
         {
@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "le trajet",
           "english": "the commute",
-          "example": "Le trajet entre chez toi et le travail, c'est long ?",
+          "example": "Question transport, le trajet entre chez toi et le travail, c'est long ?",
           "usage": "Nom désignant le déplacement domicile-travail."
         },
         {
@@ -294,7 +294,7 @@
           "kind": "mot-cle",
           "french": "une période de formation",
           "english": "a training period",
-          "example": "Tu as eu une période de formation au début, ou tu as tout de suite été autonome ?",
+          "example": "Autre chose : tu as eu une période de formation au début, ou tu as tout de suite été autonome ?",
           "usage": "Groupe nominal désignant une phase d'apprentissage."
         },
         {
@@ -302,7 +302,7 @@
           "kind": "mot-cle",
           "french": "un poste stable",
           "english": "a permanent position",
-          "example": "C'est un poste stable, ou plutôt un contrat pour une durée limitée ?",
+          "example": "Et puis, c'est un poste stable, ou plutôt un contrat pour une durée limitée ?",
           "usage": "Groupe nominal désignant un emploi durable."
         },
         {
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "des avantages",
           "english": "perks",
-          "example": "Il y a des avantages sympas — tickets resto, télétravail, primes ?",
+          "example": "Côté réservation, il y a des avantages sympas — tickets resto, télétravail, primes ?",
           "usage": "Nom pluriel désignant les à-côtés d'un emploi."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "tickets resto",
           "english": "meal vouchers",
-          "example": "Il y a des avantages sympas — tickets resto, télétravail, primes ?",
+          "example": "Côté réservation, il y a des avantages sympas — tickets resto, télétravail, primes ?",
           "usage": "Nom composé familier désignant les titres-restaurant."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "un contrat",
           "english": "a contract",
-          "example": "C'est un poste stable, ou plutôt un contrat pour une durée limitée ?",
+          "example": "Et puis, c'est un poste stable, ou plutôt un contrat pour une durée limitée ?",
           "usage": "Nom désignant l'engagement de travail."
         },
         {
@@ -350,7 +350,7 @@
           "kind": "collocation",
           "french": "ça se passe bien",
           "english": "it's going well",
-          "example": "Alors, ce nouveau travail — ça se passe bien depuis que tu as commencé ?",
+          "example": "Salut ! Ça fait un moment qu'on ne s'est pas parlé ! Alors, ce nouveau travail — ça se passe bien depuis que tu as commencé ?",
           "usage": "Locution verbale pour évoquer un bon déroulement."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "fixes ou variables",
           "english": "fixed or variable",
-          "example": "Tu travailles combien d'heures par semaine, et les horaires sont fixes ou variables ?",
+          "example": "Et côté rythme, tu travailles combien d'heures par semaine, et les horaires sont fixes ou variables ?",
           "usage": "Alternative adjectivale pour qualifier des horaires."
         },
         {
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "une durée limitée",
           "english": "a limited duration",
-          "example": "C'est un poste stable, ou plutôt un contrat pour une durée limitée ?",
+          "example": "Et puis, c'est un poste stable, ou plutôt un contrat pour une durée limitée ?",
           "usage": "Locution nominale sur un contrat temporaire."
         },
         {
@@ -446,7 +446,7 @@
           "kind": "tournure",
           "french": "Tu travailles combien d'heures par semaine",
           "english": "how many hours a week do you work",
-          "example": "Tu travailles combien d'heures par semaine, et les horaires sont fixes ou variables ?",
+          "example": "Et côté rythme, tu travailles combien d'heures par semaine, et les horaires sont fixes ou variables ?",
           "usage": "Question sur le temps de travail."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "Tu as eu une période de formation au début",
           "english": "did you have a training period at the start",
-          "example": "Tu as eu une période de formation au début, ou tu as tout de suite été autonome ?",
+          "example": "Autre chose : tu as eu une période de formation au début, ou tu as tout de suite été autonome ?",
           "usage": "Question sur la formation initiale."
         },
         {
@@ -539,7 +539,7 @@
           "kind": "mot-cle",
           "french": "le cabinet",
           "english": "the practice/office",
-          "example": "Le cabinet reste-t-il au même endroit, ou les consultations ont lieu ailleurs ?",
+          "example": "Question lieu, le cabinet reste-t-il au même endroit, ou les consultations ont lieu ailleurs ?",
           "usage": "Nom désignant le lieu de consultation."
         },
         {
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "mon dossier médical",
           "english": "my medical file",
-          "example": "Est-ce que le remplaçant a accès à mon dossier médical et à mes antécédents ?",
+          "example": "Pour ce qui est des documents, est-ce que le remplaçant a accès à mon dossier médical et à mes antécédents ?",
           "usage": "Groupe nominal désignant le dossier de santé."
         },
         {
@@ -555,7 +555,7 @@
           "kind": "mot-cle",
           "french": "mes antécédents",
           "english": "my medical history",
-          "example": "Est-ce que le remplaçant a accès à mon dossier médical et à mes antécédents ?",
+          "example": "Pour ce qui est des documents, est-ce que le remplaçant a accès à mon dossier médical et à mes antécédents ?",
           "usage": "Nom pluriel désignant les antécédents de santé."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "les tarifs de consultation",
           "english": "the consultation fees",
-          "example": "Les tarifs de consultation restent-ils les mêmes que d'habitude ?",
+          "example": "En ce qui concerne le budget, les tarifs de consultation restent-ils les mêmes que d'habitude ?",
           "usage": "Groupe nominal désignant le prix des consultations."
         },
         {
@@ -587,7 +587,7 @@
           "kind": "collocation",
           "french": "prendre rendez-vous",
           "english": "to make an appointment",
-          "example": "Est-ce que je peux prendre rendez-vous avec lui ou elle dès maintenant ?",
+          "example": "Et est-ce que je peux prendre rendez-vous avec lui ou elle dès maintenant ?",
           "usage": "Verbe + complément sur la prise de rendez-vous."
         },
         {
@@ -611,7 +611,7 @@
           "kind": "collocation",
           "french": "a accès à",
           "english": "has access to",
-          "example": "Est-ce que le remplaçant a accès à mon dossier médical et à mes antécédents ?",
+          "example": "Pour ce qui est des documents, est-ce que le remplaçant a accès à mon dossier médical et à mes antécédents ?",
           "usage": "Locution verbale sur la disponibilité d'informations."
         },
         {
@@ -627,7 +627,7 @@
           "kind": "collocation",
           "french": "renouveler mes ordonnances",
           "english": "renew my prescriptions",
-          "example": "Il ou elle peut renouveler mes ordonnances habituelles ?",
+          "example": "J'en profite pour vous demander : il ou elle peut renouveler mes ordonnances habituelles ?",
           "usage": "Verbe + complément sur le renouvellement d'ordonnances."
         },
         {
@@ -635,7 +635,7 @@
           "kind": "collocation",
           "french": "restent-ils les mêmes",
           "english": "do they stay the same",
-          "example": "Les tarifs de consultation restent-ils les mêmes que d'habitude ?",
+          "example": "En ce qui concerne le budget, les tarifs de consultation restent-ils les mêmes que d'habitude ?",
           "usage": "Locution verbale pour interroger sur une continuité."
         },
         {
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "si j'ai d'autres questions",
           "english": "if I have other questions",
-          "example": "Merci pour ces informations — si j'ai d'autres questions, je peux vous rappeler ?",
+          "example": "Merci pour ces informations, je vais prendre rendez-vous avec le remplaçant alors — et si j'ai d'autres questions, je peux vous rappeler ?",
           "usage": "Locution conditionnelle pour un suivi."
         },
         {
@@ -691,7 +691,7 @@
           "kind": "tournure",
           "french": "Est-ce que je peux prendre rendez-vous avec lui ou elle dès maintenant",
           "english": "can I make an appointment with them right away",
-          "example": "Est-ce que je peux prendre rendez-vous avec lui ou elle dès maintenant ?",
+          "example": "Et est-ce que je peux prendre rendez-vous avec lui ou elle dès maintenant ?",
           "usage": "Question sur la disponibilité immédiate."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "Le cabinet reste-t-il au même endroit",
           "english": "is the practice still at the same place",
-          "example": "Le cabinet reste-t-il au même endroit, ou les consultations ont lieu ailleurs ?",
+          "example": "Question lieu, le cabinet reste-t-il au même endroit, ou les consultations ont lieu ailleurs ?",
           "usage": "Question sur le lieu de consultation."
         },
         {
@@ -731,7 +731,7 @@
           "kind": "tournure",
           "french": "si j'ai d'autres questions, je peux vous rappeler",
           "english": "if I have other questions, can I call you back",
-          "example": "Merci pour ces informations — si j'ai d'autres questions, je peux vous rappeler ?",
+          "example": "Merci pour ces informations, je vais prendre rendez-vous avec le remplaçant alors — et si j'ai d'autres questions, je peux vous rappeler ?",
           "usage": "Tournure de clôture polie."
         }
       ]
@@ -752,7 +752,7 @@
           "kind": "mot-cle",
           "french": "des astuces",
           "english": "tips",
-          "example": "Comment on écrit un article intéressant — tu as des astuces pour capter l'attention ?",
+          "example": "Côté conseils, comment on écrit un article intéressant — tu as des astuces pour capter l'attention ?",
           "usage": "Nom pluriel désignant des conseils pratiques."
         },
         {
@@ -760,7 +760,7 @@
           "kind": "mot-cle",
           "french": "un nom de domaine",
           "english": "a domain name",
-          "example": "C'est gratuit, ou il faut payer pour un nom de domaine et l'hébergement ?",
+          "example": "En ce qui concerne le budget, c'est gratuit, ou il faut payer pour un nom de domaine et l'hébergement ?",
           "usage": "Groupe nominal désignant l'adresse du site."
         },
         {
@@ -768,7 +768,7 @@
           "kind": "mot-cle",
           "french": "l'hébergement",
           "english": "the web hosting",
-          "example": "C'est gratuit, ou il faut payer pour un nom de domaine et l'hébergement ?",
+          "example": "En ce qui concerne le budget, c'est gratuit, ou il faut payer pour un nom de domaine et l'hébergement ?",
           "usage": "Nom désignant le service qui héberge le site."
         },
         {
@@ -776,7 +776,7 @@
           "kind": "mot-cle",
           "french": "un bon nom de blog",
           "english": "a good blog name",
-          "example": "Comment on choisit un bon nom de blog, accrocheur et facile à retenir ?",
+          "example": "J'en profite pour te demander : comment on choisit un bon nom de blog, accrocheur et facile à retenir ?",
           "usage": "Groupe nominal désignant un titre de blog réussi."
         },
         {
@@ -800,7 +800,7 @@
           "kind": "mot-cle",
           "french": "un article",
           "english": "a post/article",
-          "example": "Comment on écrit un article intéressant — tu as des astuces pour capter l'attention ?",
+          "example": "Côté conseils, comment on écrit un article intéressant — tu as des astuces pour capter l'attention ?",
           "usage": "Nom désignant une publication de blog."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "des erreurs de débutant",
           "english": "beginner mistakes",
-          "example": "Il y a des erreurs de débutant à éviter absolument ?",
+          "example": "Question niveau, il y a des erreurs de débutant à éviter absolument ?",
           "usage": "Groupe nominal désignant les fautes à éviter au début."
         },
         {
@@ -840,7 +840,7 @@
           "kind": "collocation",
           "french": "accrocheur et facile à retenir",
           "english": "catchy and easy to remember",
-          "example": "Comment on choisit un bon nom de blog, accrocheur et facile à retenir ?",
+          "example": "J'en profite pour te demander : comment on choisit un bon nom de blog, accrocheur et facile à retenir ?",
           "usage": "Adjectifs coordonnés pour qualifier un nom."
         },
         {
@@ -864,7 +864,7 @@
           "kind": "collocation",
           "french": "capter l'attention",
           "english": "grab attention",
-          "example": "Comment on écrit un article intéressant — tu as des astuces pour capter l'attention ?",
+          "example": "Côté conseils, comment on écrit un article intéressant — tu as des astuces pour capter l'attention ?",
           "usage": "Verbe + complément sur l'accroche."
         },
         {
@@ -872,7 +872,7 @@
           "kind": "collocation",
           "french": "les retoucher",
           "english": "edit them (photos)",
-          "example": "Pour les photos, tu as des conseils — quel matériel, comment les retoucher ?",
+          "example": "Et pour les photos, tu as des conseils — quel matériel, comment les retoucher ?",
           "usage": "Verbe pronominalisé sur la retouche de photos."
         },
         {
@@ -896,7 +896,7 @@
           "kind": "collocation",
           "french": "à éviter absolument",
           "english": "to avoid at all costs",
-          "example": "Il y a des erreurs de débutant à éviter absolument ?",
+          "example": "Question niveau, il y a des erreurs de débutant à éviter absolument ?",
           "usage": "Locution sur les erreurs à ne pas commettre."
         },
         {
@@ -920,7 +920,7 @@
           "kind": "tournure",
           "french": "C'est gratuit, ou il faut payer",
           "english": "is it free, or do you have to pay",
-          "example": "C'est gratuit, ou il faut payer pour un nom de domaine et l'hébergement ?",
+          "example": "En ce qui concerne le budget, c'est gratuit, ou il faut payer pour un nom de domaine et l'hébergement ?",
           "usage": "Question sur le coût."
         },
         {
@@ -928,7 +928,7 @@
           "kind": "tournure",
           "french": "Comment on choisit un bon nom de blog",
           "english": "how do you choose a good blog name",
-          "example": "Comment on choisit un bon nom de blog, accrocheur et facile à retenir ?",
+          "example": "J'en profite pour te demander : comment on choisit un bon nom de blog, accrocheur et facile à retenir ?",
           "usage": "Question sur le choix du nom."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "tu as des astuces pour capter l'attention",
           "english": "do you have tips to grab attention",
-          "example": "Comment on écrit un article intéressant — tu as des astuces pour capter l'attention ?",
+          "example": "Côté conseils, comment on écrit un article intéressant — tu as des astuces pour capter l'attention ?",
           "usage": "Question sur les techniques d'écriture."
         },
         {
@@ -997,7 +997,7 @@
           "kind": "mot-cle",
           "french": "gamme de prix",
           "english": "price range",
-          "example": "Ça va plutôt dans quelle gamme de prix en général ?",
+          "example": "Côté budget, ça va plutôt dans quelle gamme de prix en général ?",
           "usage": "Groupe nominal désignant une fourchette tarifaire."
         },
         {
@@ -1005,7 +1005,7 @@
           "kind": "mot-cle",
           "french": "un groupe",
           "english": "a group",
-          "example": "Ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
+          "example": "Question repas, ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
           "usage": "Nom masculin désignant un ensemble de plusieurs convives."
         },
         {
@@ -1013,7 +1013,7 @@
           "kind": "mot-cle",
           "french": "réserver à l'avance",
           "english": "to book in advance",
-          "example": "Faut-il réserver à l'avance, surtout pour un week-end ?",
+          "example": "En ce qui concerne l'organisation, faut-il réserver à l'avance, surtout pour un week-end ?",
           "usage": "Groupe verbal pour anticiper une réservation."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "un traiteur",
           "english": "a caterer",
-          "example": "Si je préfère organiser ça à la maison, vous connaissez un traiteur ou un service de livraison ?",
+          "example": "Et si je préfère organiser ça à la maison, vous connaissez un traiteur ou un service de livraison ?",
           "usage": "Nom désignant le professionnel qui fournit les repas."
         },
         {
@@ -1077,7 +1077,7 @@
           "kind": "collocation",
           "french": "en général",
           "english": "in general",
-          "example": "Ça va plutôt dans quelle gamme de prix en général ?",
+          "example": "Côté budget, ça va plutôt dans quelle gamme de prix en général ?",
           "usage": "Locution adverbiale pour demander une information globale."
         },
         {
@@ -1085,7 +1085,7 @@
           "kind": "collocation",
           "french": "de petites tables",
           "english": "small tables",
-          "example": "Ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
+          "example": "Question repas, ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
           "usage": "Groupe nominal désignant un agencement pour peu de convives."
         },
         {
@@ -1117,7 +1117,7 @@
           "kind": "collocation",
           "french": "organiser ça à la maison",
           "english": "organize it at home",
-          "example": "Si je préfère organiser ça à la maison, vous connaissez un traiteur ou un service de livraison ?",
+          "example": "Et si je préfère organiser ça à la maison, vous connaissez un traiteur ou un service de livraison ?",
           "usage": "Verbe + complément sur une fête à domicile."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "un service de livraison",
           "english": "a delivery service",
-          "example": "Si je préfère organiser ça à la maison, vous connaissez un traiteur ou un service de livraison ?",
+          "example": "Et si je préfère organiser ça à la maison, vous connaissez un traiteur ou un service de livraison ?",
           "usage": "Groupe nominal désignant la livraison de repas."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "prévient longtemps à l'avance",
           "english": "gives notice well in advance",
-          "example": "Pour inviter les gens, comment ça se passe ici — on prévient longtemps à l'avance ?",
+          "example": "Question organisation, pour inviter les gens, comment ça se passe ici — on prévient longtemps à l'avance ?",
           "usage": "Locution verbale sur le délai d'invitation."
         },
         {
@@ -1149,7 +1149,7 @@
           "kind": "tournure",
           "french": "faut-il réserver à l'avance",
           "english": "should one book in advance",
-          "example": "Faut-il réserver à l'avance, surtout pour un week-end ?",
+          "example": "En ce qui concerne l'organisation, faut-il réserver à l'avance, surtout pour un week-end ?",
           "usage": "Tournure interrogative impersonnelle pour vérifier une nécessité de réservation."
         },
         {
@@ -1197,7 +1197,7 @@
           "kind": "tournure",
           "french": "vous connaissez un traiteur ou un service de livraison",
           "english": "do you know a caterer or a delivery service",
-          "example": "Si je préfère organiser ça à la maison, vous connaissez un traiteur ou un service de livraison ?",
+          "example": "Et si je préfère organiser ça à la maison, vous connaissez un traiteur ou un service de livraison ?",
           "usage": "Question sur la restauration à domicile."
         },
         {
@@ -1221,7 +1221,7 @@
           "kind": "tournure",
           "french": "Pour inviter les gens, comment ça se passe ici",
           "english": "how do invitations work here",
-          "example": "Pour inviter les gens, comment ça se passe ici — on prévient longtemps à l'avance ?",
+          "example": "Question organisation, pour inviter les gens, comment ça se passe ici — on prévient longtemps à l'avance ?",
           "usage": "Question sur les usages d'invitation."
         }
       ]

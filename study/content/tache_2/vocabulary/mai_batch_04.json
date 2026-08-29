@@ -9,7 +9,7 @@
           "kind": "mot-cle",
           "french": "le week-end",
           "english": "the weekend",
-          "example": "Tu m'as conseillé de visiter cette ville pour le week-end — qu'est-ce qui te plaît le plus là-bas ?",
+          "example": "Salut ! Tu m'as conseillé de visiter cette ville pour le week-end — ça me tente bien, qu'est-ce qui te plaît le plus là-bas ?",
           "usage": "Groupe nominal pour situer un court séjour entre la fin de semaine et le dimanche."
         },
         {
@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "des animations",
           "english": "activities / entertainment",
-          "example": "Il y a des événements spéciaux ou des animations pendant le week-end ?",
+          "example": "Pour ce qui est du programme, il y a des événements spéciaux ou des animations pendant le week-end ?",
           "usage": "Nom féminin pluriel désignant des activités organisées pour divertir le public."
         },
         {
@@ -49,7 +49,7 @@
           "kind": "mot-cle",
           "french": "chambres d'hôtes",
           "english": "guesthouses / B&Bs",
-          "example": "Tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, auberges ?",
+          "example": "Côté hébergement, tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, auberges ?",
           "usage": "Nom féminin pluriel désignant un hébergement chez l'habitant."
         },
         {
@@ -89,7 +89,7 @@
           "kind": "collocation",
           "french": "conseillé de visiter",
           "english": "recommended visiting",
-          "example": "Tu m'as conseillé de visiter cette ville pour le week-end — qu'est-ce qui te plaît le plus là-bas ?",
+          "example": "Salut ! Tu m'as conseillé de visiter cette ville pour le week-end — ça me tente bien, qu'est-ce qui te plaît le plus là-bas ?",
           "usage": "Collocation verbe + infinitif introduite par « conseiller de » pour rapporter une suggestion reçue."
         },
         {
@@ -105,7 +105,7 @@
           "kind": "collocation",
           "french": "valent vraiment la peine",
           "english": "are really worth it",
-          "example": "Il y a des musées, des monuments ou des sites culturels qui valent vraiment la peine ?",
+          "example": "Côté visites, il y a des musées, des monuments ou des sites culturels qui valent vraiment la peine ?",
           "usage": "Collocation figée avec « valoir la peine » pour souligner l'intérêt de quelque chose."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "événements spéciaux",
           "english": "special events",
-          "example": "Il y a des événements spéciaux ou des animations pendant le week-end ?",
+          "example": "Pour ce qui est du programme, il y a des événements spéciaux ou des animations pendant le week-end ?",
           "usage": "Collocation adjectif-nom pour désigner des occasions ponctuelles et notables."
         },
         {
@@ -161,7 +161,7 @@
           "kind": "collocation",
           "french": "une bonne période",
           "english": "a good time (of year)",
-          "example": "C'est une bonne période pour y aller — quel temps fait-il généralement à cette époque ?",
+          "example": "Côté météo, c'est une bonne période pour y aller — quel temps fait-il généralement à cette époque ?",
           "usage": "Groupe nominal pour évoquer un moment favorable pour une activité."
         },
         {
@@ -169,7 +169,7 @@
           "kind": "tournure",
           "french": "qu'est-ce qui te plaît le plus là-bas",
           "english": "what do you like most about it there",
-          "example": "Tu m'as conseillé de visiter cette ville pour le week-end — qu'est-ce qui te plaît le plus là-bas ?",
+          "example": "Salut ! Tu m'as conseillé de visiter cette ville pour le week-end — ça me tente bien, qu'est-ce qui te plaît le plus là-bas ?",
           "usage": "Structure interrogative avec superlatif « le plus » pour cibler une préférence."
         },
         {
@@ -217,7 +217,7 @@
           "kind": "tournure",
           "french": "quel temps fait-il généralement à cette époque",
           "english": "what's the weather usually like at that time",
-          "example": "C'est une bonne période pour y aller — quel temps fait-il généralement à cette époque ?",
+          "example": "Côté météo, c'est une bonne période pour y aller — quel temps fait-il généralement à cette époque ?",
           "usage": "Structure classique pour interroger sur un climat habituel."
         },
         {
@@ -523,7 +523,7 @@
           "kind": "mot-cle",
           "french": "l'inscription",
           "english": "the registration / enrolment",
-          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "example": "Passons aux formalités : comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "usage": "Nom féminin désignant la démarche administrative pour s'inscrire à une activité."
         },
         {
@@ -539,7 +539,7 @@
           "kind": "mot-cle",
           "french": "se préparer",
           "english": "to get ready / train",
-          "example": "Combien de temps faut-il prévoir pour bien se préparer avant la course ?",
+          "example": "Question durée, combien de temps faut-il prévoir pour bien se préparer avant la course ?",
           "usage": "Verbe pronominal désignant l'entraînement avant un effort physique."
         },
         {
@@ -555,7 +555,7 @@
           "kind": "mot-cle",
           "french": "le parcours",
           "english": "the course / route",
-          "example": "Le parcours est comment — plutôt plat ou avec beaucoup de montées ?",
+          "example": "Autre chose : le parcours est comment — plutôt plat ou avec beaucoup de montées ?",
           "usage": "Nom masculin désignant l'itinéraire suivi pendant une course."
         },
         {
@@ -595,7 +595,7 @@
           "kind": "collocation",
           "french": "uniquement sur place",
           "english": "only on site",
-          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "example": "Passons aux formalités : comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "usage": "Collocation adverbiale restrictive pour situer une démarche dans un lieu unique."
         },
         {
@@ -619,7 +619,7 @@
           "kind": "collocation",
           "french": "avant la course",
           "english": "before the race",
-          "example": "Combien de temps faut-il prévoir pour bien se préparer avant la course ?",
+          "example": "Question durée, combien de temps faut-il prévoir pour bien se préparer avant la course ?",
           "usage": "Locution prépositionnelle pour situer une action dans le temps par rapport à un événement."
         },
         {
@@ -627,7 +627,7 @@
           "kind": "collocation",
           "french": "le jour de la course",
           "english": "on race day",
-          "example": "Qu'est-ce qu'il faut apporter comme équipement le jour de la course ?",
+          "example": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement le jour de la course ?",
           "usage": "Groupe nominal temporel pour situer une action précisément le jour J."
         },
         {
@@ -635,7 +635,7 @@
           "kind": "collocation",
           "french": "beaucoup de montées",
           "english": "a lot of climbs",
-          "example": "Le parcours est comment — plutôt plat ou avec beaucoup de montées ?",
+          "example": "Autre chose : le parcours est comment — plutôt plat ou avec beaucoup de montées ?",
           "usage": "Quantificateur « beaucoup de » + nom pluriel pour décrire un parcours vallonné."
         },
         {
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "des règles particulières",
           "english": "specific rules",
-          "example": "Est-ce qu'il y a des règles particulières à respecter ?",
+          "example": "Côté conditions, est-ce qu'il y a des règles particulières à respecter ?",
           "usage": "Collocation adjectif-nom pour évoquer des consignes propres à un contexte."
         },
         {
@@ -683,7 +683,7 @@
           "kind": "tournure",
           "french": "comment se passe l'inscription",
           "english": "how does registration work",
-          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "example": "Passons aux formalités : comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "usage": "Tournure interrogative pratique pour demander une procédure administrative."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "qu'est-ce qu'il faut apporter comme équipement",
           "english": "what equipment should one bring",
-          "example": "Qu'est-ce qu'il faut apporter comme équipement le jour de la course ?",
+          "example": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement le jour de la course ?",
           "usage": "Structure avec « comme » pour préciser une catégorie d'objets à apporter."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "est-ce qu'il y a des règles particulières à respecter",
           "english": "are there specific rules to follow",
-          "example": "Est-ce qu'il y a des règles particulières à respecter ?",
+          "example": "Côté conditions, est-ce qu'il y a des règles particulières à respecter ?",
           "usage": "Structure avec « est-ce qu'il y a » pour vérifier l'existence de consignes."
         },
         {
@@ -768,7 +768,7 @@
           "kind": "mot-cle",
           "french": "des visites guidées",
           "english": "guided tours",
-          "example": "Y a-t-il des visites guidées ou des excursions intéressantes dans les environs ?",
+          "example": "Côté découvertes, y a-t-il des visites guidées ou des excursions intéressantes dans les environs ?",
           "usage": "Groupe nominal désignant des visites encadrées par un professionnel."
         },
         {
@@ -800,7 +800,7 @@
           "kind": "mot-cle",
           "french": "chambres d'hôtes",
           "english": "guesthouses / bed and breakfasts",
-          "example": "Tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
+          "example": "Question hébergement, tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
           "usage": "Nom composé désignant un type d'hébergement chez l'habitant."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "une voiture",
           "english": "a car",
-          "example": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
+          "example": "Pour ce qui est du trajet, est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
           "usage": "Nom féminin désignant le véhicule de transport individuel le plus courant."
         },
         {
@@ -848,7 +848,7 @@
           "kind": "collocation",
           "french": "un mélange des deux",
           "english": "a mix of both",
-          "example": "Quelles activités peut-on faire sur place — plutôt culturelles, sportives ou un mélange des deux ?",
+          "example": "Et concrètement, quelles activités peut-on faire sur place — plutôt culturelles, sportives ou un mélange des deux ?",
           "usage": "Collocation nominale figée pour indiquer une combinaison de deux éléments proposés."
         },
         {
@@ -856,7 +856,7 @@
           "kind": "collocation",
           "french": "dans les environs",
           "english": "in the surrounding area",
-          "example": "Y a-t-il des visites guidées ou des excursions intéressantes dans les environs ?",
+          "example": "Côté découvertes, y a-t-il des visites guidées ou des excursions intéressantes dans les environs ?",
           "usage": "Locution prépositionnelle pour situer un lieu à proximité d'un endroit de référence."
         },
         {
@@ -880,7 +880,7 @@
           "kind": "collocation",
           "french": "bons endroits",
           "english": "good places",
-          "example": "Tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
+          "example": "Question hébergement, tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
           "usage": "Collocation adjectif + nom très productive pour recommander des lieux."
         },
         {
@@ -896,7 +896,7 @@
           "kind": "collocation",
           "french": "se déplacer en transports en commun",
           "english": "to get around by public transport",
-          "example": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
+          "example": "Pour ce qui est du trajet, est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
           "usage": "Collocation verbale décrivant un mode de déplacement urbain courant."
         },
         {
@@ -920,7 +920,7 @@
           "kind": "tournure",
           "french": "quelles activités peut-on faire sur place",
           "english": "what activities can one do there",
-          "example": "Quelles activités peut-on faire sur place — plutôt culturelles, sportives ou un mélange des deux ?",
+          "example": "Et concrètement, quelles activités peut-on faire sur place — plutôt culturelles, sportives ou un mélange des deux ?",
           "usage": "Structure avec pronom « on » pour interroger sur des possibilités générales."
         },
         {
@@ -1005,7 +1005,7 @@
           "kind": "mot-cle",
           "french": "la liste des invités",
           "english": "the guest list",
-          "example": "La liste des invités est déjà prête ou tu veux que je t'aide à la compléter ?",
+          "example": "En ce qui concerne les participants, la liste des invités est déjà prête ou tu veux que je t'aide à la compléter ?",
           "usage": "Groupe nominal désignant l'ensemble des personnes invitées à un événement."
         },
         {
@@ -1021,7 +1021,7 @@
           "kind": "mot-cle",
           "french": "la décoration",
           "english": "the decorations",
-          "example": "Tu as déjà une idée pour la décoration — des couleurs ou un style précis ?",
+          "example": "Et puis, tu as déjà une idée pour la décoration — des couleurs ou un style précis ?",
           "usage": "Nom féminin désignant l'ensemble des éléments visuels d'une fête."
         },
         {
@@ -1029,7 +1029,7 @@
           "kind": "mot-cle",
           "french": "un buffet",
           "english": "a buffet",
-          "example": "Quel type de repas as-tu prévu — un buffet, un barbecue ou un repas assis ?",
+          "example": "En ce qui concerne la table, quel type de repas as-tu prévu — un buffet, un barbecue ou un repas assis ?",
           "usage": "Nom masculin désignant un repas où les convives se servent eux-mêmes."
         },
         {
@@ -1093,7 +1093,7 @@
           "kind": "collocation",
           "french": "un repas assis",
           "english": "a sit-down meal",
-          "example": "Quel type de repas as-tu prévu — un buffet, un barbecue ou un repas assis ?",
+          "example": "En ce qui concerne la table, quel type de repas as-tu prévu — un buffet, un barbecue ou un repas assis ?",
           "usage": "Collocation nom + adjectif participe pour désigner un repas servi à table."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "des jeux ou des activités",
           "english": "games or activities",
-          "example": "Tu veux organiser des jeux ou des activités pendant la soirée ?",
+          "example": "Pour ce qui est des loisirs, tu veux organiser des jeux ou des activités pendant la soirée ?",
           "usage": "Coordination de deux noms pour évoquer des animations possibles."
         },
         {
@@ -1141,7 +1141,7 @@
           "kind": "collocation",
           "french": "confier ça à quelqu'un",
           "english": "to entrust that to someone",
-          "example": "Tu as pensé à prendre des photos ou à confier ça à quelqu'un pendant la soirée ?",
+          "example": "Justement, tu as pensé à prendre des photos ou à confier ça à quelqu'un pendant la soirée ?",
           "usage": "Collocation verbale avec « confier à » pour déléguer une tâche."
         },
         {
@@ -1165,7 +1165,7 @@
           "kind": "tournure",
           "french": "tu veux que je t'aide à la compléter",
           "english": "would you like me to help you finish it",
-          "example": "La liste des invités est déjà prête ou tu veux que je t'aide à la compléter ?",
+          "example": "En ce qui concerne les participants, la liste des invités est déjà prête ou tu veux que je t'aide à la compléter ?",
           "usage": "Subjonctif après « vouloir que » pour proposer son aide."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "tu as déjà une idée pour la décoration",
           "english": "do you already have an idea for the decorations",
-          "example": "Tu as déjà une idée pour la décoration — des couleurs ou un style précis ?",
+          "example": "Et puis, tu as déjà une idée pour la décoration — des couleurs ou un style précis ?",
           "usage": "Passé composé avec « déjà » pour vérifier l'avancement d'une préparation."
         },
         {
@@ -1197,7 +1197,7 @@
           "kind": "tournure",
           "french": "tu veux organiser des jeux",
           "english": "do you want to organize games",
-          "example": "Tu veux organiser des jeux ou des activités pendant la soirée ?",
+          "example": "Pour ce qui est des loisirs, tu veux organiser des jeux ou des activités pendant la soirée ?",
           "usage": "Structure simple avec « vouloir » + infinitif pour interroger sur une intention."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "tu as pensé à prendre des photos",
           "english": "have you thought about taking photos",
-          "example": "Tu as pensé à prendre des photos ou à confier ça à quelqu'un pendant la soirée ?",
+          "example": "Justement, tu as pensé à prendre des photos ou à confier ça à quelqu'un pendant la soirée ?",
           "usage": "Passé composé avec « penser à » pour vérifier une anticipation."
         },
         {
@@ -1213,7 +1213,7 @@
           "kind": "tournure",
           "french": "de quoi veux-tu que je m'occupe",
           "english": "what would you like me to take care of",
-          "example": "Parmi tous ces préparatifs, de quoi veux-tu que je m'occupe en priorité ?",
+          "example": "Pour finir — parmi tous ces préparatifs, de quoi veux-tu que je m'occupe en priorité ?",
           "usage": "Subjonctif après « vouloir que » avec inversion pour une question polie."
         },
         {
@@ -1221,7 +1221,7 @@
           "kind": "tournure",
           "french": "parmi tous ces préparatifs",
           "english": "among all these preparations",
-          "example": "Parmi tous ces préparatifs, de quoi veux-tu que je m'occupe en priorité ?",
+          "example": "Pour finir — parmi tous ces préparatifs, de quoi veux-tu que je m'occupe en priorité ?",
           "usage": "Locution prépositionnelle « parmi » pour introduire un ensemble d'éléments déjà évoqués."
         }
       ]

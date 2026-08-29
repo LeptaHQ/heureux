@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "la formation",
           "english": "the training",
-          "example": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus ?",
+          "example": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus : ça va durer plusieurs jours ?",
           "usage": "Nom désignant l'apprentissage encadré proposé à un nouvel employé."
         },
         {
@@ -414,7 +414,7 @@
           "kind": "tournure",
           "french": "comment s'est passé ton premier jour",
           "english": "how did your first day go",
-          "example": "Alors, raconte — comment s'est passé ton premier jour ?",
+          "example": "Salut ! Alors, raconte — comment s'est passé ton premier jour ?",
           "usage": "Tournure interrogative classique pour demander un compte-rendu d'expérience."
         },
         {
@@ -438,7 +438,7 @@
           "kind": "tournure",
           "french": "tu pourrais m'en dire un peu plus",
           "english": "could you tell me a bit more about it",
-          "example": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus ?",
+          "example": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus : ça va durer plusieurs jours ?",
           "usage": "Formule de relance au conditionnel pour approfondir un sujet mentionné."
         },
         {
@@ -523,7 +523,7 @@
           "kind": "mot-cle",
           "french": "une méthode",
           "english": "a method/approach",
-          "example": "Vous avez mentionné une méthode en particulier — vous pourriez m'en dire un peu plus ?",
+          "example": "Vous avez mentionné une méthode en particulier — vous pourriez m'en dire un peu plus : elle vous convient bien ?",
           "usage": "Nom désignant l'approche pédagogique suivie pour enseigner une matière."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "de nouveaux élèves",
           "english": "new students",
-          "example": "À votre avis, le professeur accepterait de nouveaux élèves — vous auriez ses coordonnées ?",
+          "example": "Côté niveau, à votre avis, le professeur accepterait de nouveaux élèves — vous auriez ses coordonnées ?",
           "usage": "Groupe nominal désignant des apprenants qui rejoignent un cours."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "ses coordonnées",
           "english": "their contact details",
-          "example": "À votre avis, le professeur accepterait de nouveaux élèves — vous auriez ses coordonnées ?",
+          "example": "Côté niveau, à votre avis, le professeur accepterait de nouveaux élèves — vous auriez ses coordonnées ?",
           "usage": "Nom pluriel désignant les informations permettant de joindre quelqu'un."
         },
         {
@@ -635,7 +635,7 @@
           "kind": "collocation",
           "french": "à votre avis",
           "english": "in your opinion",
-          "example": "À votre avis, le professeur accepterait de nouveaux élèves — vous auriez ses coordonnées ?",
+          "example": "Côté niveau, à votre avis, le professeur accepterait de nouveaux élèves — vous auriez ses coordonnées ?",
           "usage": "Locution adverbiale pour introduire une opinion sollicitée poliment."
         },
         {
@@ -643,7 +643,7 @@
           "kind": "collocation",
           "french": "toutes ces infos",
           "english": "all this information",
-          "example": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "example": "Merci pour toutes ces infos, je vais en parler chez moi et sans doute me lancer — et si un point reste flou, je peux vous solliciter ?",
           "usage": "Groupe nominal informel résumant un ensemble de renseignements reçus."
         },
         {
@@ -699,7 +699,7 @@
           "kind": "tournure",
           "french": "vous pourriez m'en dire un peu plus",
           "english": "could you tell me a bit more about it",
-          "example": "Vous avez mentionné une méthode en particulier — vous pourriez m'en dire un peu plus ?",
+          "example": "Vous avez mentionné une méthode en particulier — vous pourriez m'en dire un peu plus : elle vous convient bien ?",
           "usage": "Formule de relance au conditionnel pour approfondir un sujet mentionné."
         },
         {
@@ -731,7 +731,7 @@
           "kind": "tournure",
           "french": "je peux vous solliciter",
           "english": "may I get in touch with you",
-          "example": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "example": "Merci pour toutes ces infos, je vais en parler chez moi et sans doute me lancer — et si un point reste flou, je peux vous solliciter ?",
           "usage": "Formule de clôture polie pour s'autoriser une future prise de contact."
         }
       ]
@@ -824,7 +824,7 @@
           "kind": "collocation",
           "french": "passer du temps",
           "english": "to spend time",
-          "example": "Salut ! J'espère que tu vas bien. Dis-moi, est-ce que tu as déjà eu l'occasion de passer du temps à la campagne ? Ce genre d'environnement te plaît ?",
+          "example": "Salut ! Dis-moi, est-ce que tu as déjà eu l'occasion de passer du temps à la campagne, loin de la ville et du bruit ? Ce genre d'environnement te plaît ?",
           "usage": "Collocation verbale courante pour évoquer l'occupation d'une durée."
         },
         {
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "ce genre d'environnement",
           "english": "this kind of setting",
-          "example": "Salut ! J'espère que tu vas bien. Dis-moi, est-ce que tu as déjà eu l'occasion de passer du temps à la campagne ? Ce genre d'environnement te plaît ?",
+          "example": "Salut ! Dis-moi, est-ce que tu as déjà eu l'occasion de passer du temps à la campagne, loin de la ville et du bruit ? Ce genre d'environnement te plaît ?",
           "usage": "Groupe nominal figé pour désigner un cadre ou une ambiance particulière."
         },
         {
@@ -904,7 +904,7 @@
           "kind": "tournure",
           "french": "est-ce que tu as déjà eu l'occasion de",
           "english": "have you ever had the chance to",
-          "example": "Salut ! J'espère que tu vas bien. Dis-moi, est-ce que tu as déjà eu l'occasion de passer du temps à la campagne ? Ce genre d'environnement te plaît ?",
+          "example": "Salut ! Dis-moi, est-ce que tu as déjà eu l'occasion de passer du temps à la campagne, loin de la ville et du bruit ? Ce genre d'environnement te plaît ?",
           "usage": "Tournure avec 'avoir l'occasion de' pour interroger sur une expérience passée."
         },
         {
@@ -989,7 +989,7 @@
           "kind": "mot-cle",
           "french": "le réseau",
           "english": "the network",
-          "example": "Comment se passe la recherche d'emploi — en ligne ou uniquement via le réseau sur place ?",
+          "example": "Pour commencer par le concret : comment se passe la recherche d'emploi — en ligne ou uniquement via le réseau sur place ?",
           "usage": "Nom désignant l'ensemble des contacts professionnels ou personnels mobilisables."
         },
         {
@@ -1013,7 +1013,7 @@
           "kind": "mot-cle",
           "french": "types de contrats",
           "english": "types of contracts",
-          "example": "Quels types de contrats sont proposés — temporaires, permanents, à temps partiel ou à temps plein ?",
+          "example": "Autre point important : quels types de contrats sont proposés — temporaires, permanents, à temps partiel ou à temps plein ?",
           "usage": "Groupe nominal désignant les différentes catégories d'accords de travail proposés."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "profil",
           "english": "profile/candidate profile",
-          "example": "Ça s'adresse à quel profil — il faut un niveau de français ou d'anglais particulier ?",
+          "example": "En ce qui concerne l'encadrement, ça s'adresse à quel profil — il faut un niveau de français ou d'anglais particulier ?",
           "usage": "Nom désignant le type de candidat recherché pour un poste ou une offre."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "mon pays d'origine",
           "english": "my home country",
-          "example": "Y a-t-il des différences importantes entre le marché du travail canadien et celui de mon pays d'origine ?",
+          "example": "Dernier point pratique : y a-t-il des différences importantes entre le marché du travail canadien et celui de mon pays d'origine ?",
           "usage": "Groupe nominal désignant le pays dont une personne est originaire."
         },
         {
@@ -1077,7 +1077,7 @@
           "kind": "collocation",
           "french": "niveau de français",
           "english": "level of French",
-          "example": "Ça s'adresse à quel profil — il faut un niveau de français ou d'anglais particulier ?",
+          "example": "En ce qui concerne l'encadrement, ça s'adresse à quel profil — il faut un niveau de français ou d'anglais particulier ?",
           "usage": "Collocation nominale désignant le degré de maîtrise d'une langue."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "à temps partiel ou à temps plein",
           "english": "part-time or full-time",
-          "example": "Quels types de contrats sont proposés — temporaires, permanents, à temps partiel ou à temps plein ?",
+          "example": "Autre point important : quels types de contrats sont proposés — temporaires, permanents, à temps partiel ou à temps plein ?",
           "usage": "Paire d'expressions antonymes coordonnées qualifiant la durée d'un contrat de travail."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "marché du travail",
           "english": "job market",
-          "example": "Y a-t-il des différences importantes entre le marché du travail canadien et celui de mon pays d'origine ?",
+          "example": "Dernier point pratique : y a-t-il des différences importantes entre le marché du travail canadien et celui de mon pays d'origine ?",
           "usage": "Collocation nominale désignant l'ensemble de l'offre et de la demande d'emploi."
         },
         {
@@ -1141,7 +1141,7 @@
           "kind": "collocation",
           "french": "en ligne",
           "english": "online",
-          "example": "Comment se passe la recherche d'emploi — en ligne ou uniquement via le réseau sur place ?",
+          "example": "Pour commencer par le concret : comment se passe la recherche d'emploi — en ligne ou uniquement via le réseau sur place ?",
           "usage": "Locution adverbiale désignant une démarche effectuée par Internet."
         },
         {
@@ -1157,7 +1157,7 @@
           "kind": "tournure",
           "french": "comment est l'ambiance en général",
           "english": "what's the atmosphere generally like",
-          "example": "Comment est l'ambiance en général dans les entreprises canadiennes — plutôt formelle ou décontractée ?",
+          "example": "Il y a un autre point qui m'intéresse : comment est l'ambiance en général dans les entreprises canadiennes — plutôt formelle ou décontractée ?",
           "usage": "Tournure interrogative descriptive pour demander une impression générale."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "comment se passe la recherche d'emploi",
           "english": "how does the job search go",
-          "example": "Comment se passe la recherche d'emploi — en ligne ou uniquement via le réseau sur place ?",
+          "example": "Pour commencer par le concret : comment se passe la recherche d'emploi — en ligne ou uniquement via le réseau sur place ?",
           "usage": "Tournure interrogative pour demander le déroulement concret d'une démarche."
         },
         {

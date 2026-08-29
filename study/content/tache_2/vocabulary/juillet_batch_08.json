@@ -49,7 +49,7 @@
           "kind": "mot-cle",
           "french": "l'entreprise",
           "english": "the company",
-          "example": "Qu'est-ce que je devrais savoir sur l'entreprise avant d'y aller ?",
+          "example": "Tant que j'y pense, qu'est-ce que je devrais savoir sur l'entreprise avant d'y aller ?",
           "usage": "Nom désignant la société qui recrute."
         },
         {
@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "mon CV",
           "english": "my resume",
-          "example": "Faut-il apporter des documents, comme mon CV ou des références ?",
+          "example": "En ce qui concerne le matériel, faut-il apporter des documents, comme mon CV ou des références ?",
           "usage": "Groupe nominal pour le curriculum vitae."
         },
         {
@@ -65,7 +65,7 @@
           "kind": "mot-cle",
           "french": "des références",
           "english": "references",
-          "example": "Faut-il apporter des documents, comme mon CV ou des références ?",
+          "example": "En ce qui concerne le matériel, faut-il apporter des documents, comme mon CV ou des références ?",
           "usage": "Nom pluriel pour les recommandations."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "le stress",
           "english": "the stress",
-          "example": "Comment gérer le stress si je perds mes moyens sur le moment ?",
+          "example": "Une autre chose m'inquiète un peu : comment gérer le stress si je perds mes moyens sur le moment ?",
           "usage": "Nom désignant la tension ressentie."
         },
         {
@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "un message de remerciement",
           "english": "a thank-you message",
-          "example": "Après l'entretien, c'est bien d'envoyer un message de remerciement ?",
+          "example": "Pour ce qui est du contact, après l'entretien, c'est bien d'envoyer un message de remerciement ?",
           "usage": "Groupe nominal pour le mot de remerciement."
         },
         {
@@ -105,7 +105,7 @@
           "kind": "collocation",
           "french": "faire bonne impression",
           "english": "make a good impression",
-          "example": "Quel comportement adopter pour faire bonne impression ?",
+          "example": "Côté attitude, quel comportement adopter pour faire bonne impression ?",
           "usage": "Locution verbale figée sur l'image donnée."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "apporter des documents",
           "english": "bring documents",
-          "example": "Faut-il apporter des documents, comme mon CV ou des références ?",
+          "example": "En ce qui concerne le matériel, faut-il apporter des documents, comme mon CV ou des références ?",
           "usage": "Verbe + complément sur les pièces à amener."
         },
         {
@@ -153,7 +153,7 @@
           "kind": "collocation",
           "french": "envoyer un message de remerciement",
           "english": "send a thank-you message",
-          "example": "Après l'entretien, c'est bien d'envoyer un message de remerciement ?",
+          "example": "Pour ce qui est du contact, après l'entretien, c'est bien d'envoyer un message de remerciement ?",
           "usage": "Verbe + complément sur le suivi."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "Quel comportement adopter pour faire bonne impression",
           "english": "what behavior to adopt to make a good impression",
-          "example": "Quel comportement adopter pour faire bonne impression ?",
+          "example": "Côté attitude, quel comportement adopter pour faire bonne impression ?",
           "usage": "Question sur l'attitude."
         },
         {
@@ -225,7 +225,7 @@
           "kind": "tournure",
           "french": "Comment gérer le stress si je perds mes moyens",
           "english": "how to manage stress if I freeze up",
-          "example": "Comment gérer le stress si je perds mes moyens sur le moment ?",
+          "example": "Une autre chose m'inquiète un peu : comment gérer le stress si je perds mes moyens sur le moment ?",
           "usage": "Question sur la gestion du stress."
         },
         {
@@ -233,7 +233,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce que je devrais savoir sur l'entreprise",
           "english": "what I should know about the company",
-          "example": "Qu'est-ce que je devrais savoir sur l'entreprise avant d'y aller ?",
+          "example": "Tant que j'y pense, qu'est-ce que je devrais savoir sur l'entreprise avant d'y aller ?",
           "usage": "Question sur la préparation en amont."
         },
         {
@@ -262,7 +262,7 @@
           "kind": "mot-cle",
           "french": "une semaine",
           "english": "a week",
-          "example": "Combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
+          "example": "Pour ce qui est de la durée, combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
           "usage": "Nom courant pour désigner une unité de temps de sept jours."
         },
         {
@@ -270,7 +270,7 @@
           "kind": "mot-cle",
           "french": "une autre saison",
           "english": "another season",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "usage": "Groupe nominal pour évoquer une période de l'année différente."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "une condition physique particulière",
           "english": "a particular fitness level",
-          "example": "Est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
+          "example": "Pendant que j'y pense, est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
           "usage": "Niveau de forme éventuellement nécessaire pour suivre un circuit."
         },
         {
@@ -366,7 +366,7 @@
           "kind": "collocation",
           "french": "s'y prendre au dernier moment",
           "english": "to leave it until the last minute",
-          "example": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "example": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
           "usage": "Expression courante pour évoquer une réservation tardive."
         },
         {
@@ -382,7 +382,7 @@
           "kind": "collocation",
           "french": "conviennent aux familles",
           "english": "are suitable for families",
-          "example": "Est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
+          "example": "Pendant que j'y pense, est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
           "usage": "Association verbale pour vérifier qu'une offre convient aux familles."
         },
         {
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "le circuit le plus apprécié",
           "english": "the most popular tour",
-          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
+          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
           "usage": "Superlatif appliqué à un nom pour désigner l'option la plus prisée."
         },
         {
@@ -430,7 +430,7 @@
           "kind": "tournure",
           "french": "Combien de temps faut-il prévoir",
           "english": "How much time should be planned",
-          "example": "Combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
+          "example": "Pour ce qui est de la durée, combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
           "usage": "Tournure impersonnelle avec 'il faut' pour interroger sur une durée nécessaire."
         },
         {
@@ -438,7 +438,7 @@
           "kind": "tournure",
           "french": "il vaut mieux attendre",
           "english": "it is better to wait",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "usage": "Tournure impersonnelle avec 'il vaut mieux' pour exprimer une recommandation."
         },
         {
@@ -454,7 +454,7 @@
           "kind": "tournure",
           "french": "Faut-il réserver le circuit longtemps à l'avance",
           "english": "Should the tour be booked well in advance",
-          "example": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "example": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
           "usage": "Inversion avec « faut-il » pour vérifier le délai de réservation."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "Est-ce que ces circuits conviennent aux familles",
           "english": "Are these tours suitable for families",
-          "example": "Est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
+          "example": "Pendant que j'y pense, est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
           "usage": "Question avec « est-ce que » pour vérifier si une formule convient aux familles."
         },
         {
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "vous pourriez m'en dire un peu plus",
           "english": "could you tell me a bit more",
-          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
+          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
           "usage": "Conditionnel de politesse suivi du pronom 'en' pour relancer sur un sujet, registre vouvoiement."
         },
         {
@@ -523,7 +523,7 @@
           "kind": "mot-cle",
           "french": "chaque trajet",
           "english": "each trip",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "usage": "Unité de paiement possible, opposée à un abonnement global."
         },
         {
@@ -555,7 +555,7 @@
           "kind": "mot-cle",
           "french": "un abonnement",
           "english": "a pass/subscription",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "usage": "Nom central désignant la formule d'accès régulier aux transports."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "les principaux sites touristiques",
           "english": "the main tourist attractions",
-          "example": "Les principaux sites touristiques sont-ils facilement accessibles en transports en commun ?",
+          "example": "En ce qui concerne les visites, les principaux sites touristiques sont-ils facilement accessibles en transports en commun ?",
           "usage": "Lieux que les visiteurs souhaitent rejoindre dans une ville."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "les foules",
           "english": "the crowds",
-          "example": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "example": "Pour ce qui est des conseils, y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
           "usage": "Désigne une forte affluence à éviter à certaines heures."
         },
         {
@@ -595,7 +595,7 @@
           "kind": "collocation",
           "french": "souscrire à un abonnement",
           "english": "subscribe to a pass",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "usage": "Collocation formelle pour parler d'un engagement tarifaire régulier."
         },
         {
@@ -603,7 +603,7 @@
           "kind": "collocation",
           "french": "payer chaque trajet séparément",
           "english": "pay for each trip separately",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "usage": "S'oppose à la formule de l'abonnement."
         },
         {
@@ -627,7 +627,7 @@
           "kind": "collocation",
           "french": "fonctionnent tôt le matin",
           "english": "run early in the morning",
-          "example": "Quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
+          "example": "J'ai encore une question : quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
           "usage": "Décrit une amplitude horaire étendue en début de journée."
         },
         {
@@ -635,7 +635,7 @@
           "kind": "collocation",
           "french": "suivre les transports en temps réel",
           "english": "track transport in real time",
-          "example": "Y a-t-il une application pour suivre les transports en temps réel ?",
+          "example": "En ce qui concerne les déplacements, y a-t-il une application pour suivre les transports en temps réel ?",
           "usage": "Collocation liée à l'usage d'une application de suivi."
         },
         {
@@ -643,7 +643,7 @@
           "kind": "collocation",
           "french": "éviter les foules",
           "english": "avoid the crowds",
-          "example": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "example": "Pour ce qui est des conseils, y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
           "usage": "Objectif pratique lié aux périodes de forte affluence."
         },
         {
@@ -683,7 +683,7 @@
           "kind": "tournure",
           "french": "Comment fonctionnent les tarifs",
           "english": "how do the rates work",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "usage": "Tournure standard pour interroger sur un système de prix."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "Quels sont les horaires de ces moyens de transport",
           "english": "what are the hours of these means of transport",
-          "example": "Quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
+          "example": "J'ai encore une question : quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
           "usage": "Structure interrogative formelle avec « quels sont »."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des périodes où c'est très bondé",
           "english": "are there times when it's very crowded",
-          "example": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "example": "Pour ce qui est des conseils, y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
           "usage": "Inversion avec proposition relative introduite par « où »."
         },
         {
@@ -1037,7 +1037,7 @@
           "kind": "mot-cle",
           "french": "un public particulier",
           "english": "a specific audience",
-          "example": "C'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?",
+          "example": "Puisqu'on en parle, c'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?",
           "usage": "Groupe nominal pour un public ciblé."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "le genre de série",
           "english": "the kind of series",
-          "example": "C'est le genre de série qu'on regarde tranquillement, ou ça rend vite accro ?",
+          "example": "Avant que j'oublie, c'est le genre de série qu'on regarde tranquillement, ou ça rend vite accro ?",
           "usage": "Groupe nominal pour le style de série."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "mot-cle",
           "french": "une série pour tout le monde",
           "english": "a series for everyone",
-          "example": "C'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?",
+          "example": "Puisqu'on en parle, c'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?",
           "usage": "Groupe nominal pour une série grand public."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "la regarder",
           "english": "watch it",
-          "example": "Sur quelle plateforme on peut la regarder ?",
+          "example": "Côté pratique, sur quelle plateforme on peut la regarder ?",
           "usage": "Locution verbale sur le visionnage."
         },
         {
@@ -1141,7 +1141,7 @@
           "kind": "collocation",
           "french": "en version française",
           "english": "in the French version",
-          "example": "Elle est disponible en version française, ou seulement en version originale sous-titrée ?",
+          "example": "Pour ce qui est de la langue, elle est disponible en version française, ou seulement en version originale sous-titrée ?",
           "usage": "Locution sur la langue de diffusion."
         },
         {
@@ -1189,7 +1189,7 @@
           "kind": "tournure",
           "french": "Sur quelle plateforme on peut la regarder",
           "english": "on what platform you can watch it",
-          "example": "Sur quelle plateforme on peut la regarder ?",
+          "example": "Côté pratique, sur quelle plateforme on peut la regarder ?",
           "usage": "Question sur la plateforme."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "Elle est disponible en version française",
           "english": "is it available in French",
-          "example": "Elle est disponible en version française, ou seulement en version originale sous-titrée ?",
+          "example": "Pour ce qui est de la langue, elle est disponible en version française, ou seulement en version originale sous-titrée ?",
           "usage": "Question sur la langue."
         },
         {
@@ -1213,7 +1213,7 @@
           "kind": "tournure",
           "french": "qu'est-ce que tu en as pensé",
           "english": "what you thought of it",
-          "example": "Toi, qu'est-ce que tu en as pensé — tu l'as regardée jusqu'au bout ?",
+          "example": "Dernier point pratique : toi, qu'est-ce que tu en as pensé — tu l'as regardée jusqu'au bout ?",
           "usage": "Question pour recueillir un avis."
         },
         {

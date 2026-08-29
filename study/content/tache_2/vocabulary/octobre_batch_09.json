@@ -33,7 +33,7 @@
           "kind": "mot-cle",
           "french": "les proches",
           "english": "close ones",
-          "example": "Tu veux inviter qui — juste les proches, ou un grand groupe ?",
+          "example": "En ce qui concerne les participants, tu veux inviter qui — juste les proches, ou un grand groupe ?",
           "usage": "Nom pluriel désignant la famille et les amis proches."
         },
         {
@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "une surprise",
           "english": "a surprise",
-          "example": "Est-ce que tu veux que ce soit une surprise pour certains invités ?",
+          "example": "Avant de lancer les invitations, est-ce que tu veux que ce soit une surprise pour certains invités ?",
           "usage": "Nom désignant l'effet de surprise."
         },
         {
@@ -97,7 +97,7 @@
           "kind": "collocation",
           "french": "un grand groupe",
           "english": "a big group",
-          "example": "Tu veux inviter qui — juste les proches, ou un grand groupe ?",
+          "example": "En ce qui concerne les participants, tu veux inviter qui — juste les proches, ou un grand groupe ?",
           "usage": "Groupe nominal sur le nombre d'invités."
         },
         {
@@ -113,7 +113,7 @@
           "kind": "collocation",
           "french": "autour d'un thème",
           "english": "around a theme",
-          "example": "Tu as une ambiance en tête — décontractée, élégante, ou autour d'un thème ?",
+          "example": "Sur un autre point, tu as une ambiance en tête — décontractée, élégante, ou autour d'un thème ?",
           "usage": "Locution sur le thème de la fête."
         },
         {
@@ -153,7 +153,7 @@
           "kind": "collocation",
           "french": "dans les clous",
           "english": "within budget",
-          "example": "Tu as un budget en tête pour que je reste dans les clous ?",
+          "example": "Côté tarifs, tu as un budget en tête pour que je reste dans les clous ?",
           "usage": "Locution familière sur le respect du budget."
         },
         {
@@ -193,7 +193,7 @@
           "kind": "tournure",
           "french": "Tu veux inviter qui",
           "english": "who do you want to invite",
-          "example": "Tu veux inviter qui — juste les proches, ou un grand groupe ?",
+          "example": "En ce qui concerne les participants, tu veux inviter qui — juste les proches, ou un grand groupe ?",
           "usage": "Question sur les invités."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "Tu as une ambiance en tête",
           "english": "do you have a vibe in mind",
-          "example": "Tu as une ambiance en tête — décontractée, élégante, ou autour d'un thème ?",
+          "example": "Sur un autre point, tu as une ambiance en tête — décontractée, élégante, ou autour d'un thème ?",
           "usage": "Question sur l'ambiance."
         },
         {
@@ -233,7 +233,7 @@
           "kind": "tournure",
           "french": "Est-ce que tu veux que ce soit une surprise pour certains invités",
           "english": "do you want it to be a surprise for some guests",
-          "example": "Est-ce que tu veux que ce soit une surprise pour certains invités ?",
+          "example": "Avant de lancer les invitations, est-ce que tu veux que ce soit une surprise pour certains invités ?",
           "usage": "Question sur la surprise."
         },
         {
@@ -270,7 +270,7 @@
           "kind": "mot-cle",
           "french": "les cours",
           "english": "the classes",
-          "example": "Les cours seront en français ou en anglais ?",
+          "example": "Et les cours seront en français ou en anglais ?",
           "usage": "Nom pluriel désignant les cours."
         },
         {
@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "les démarches",
           "english": "the procedures",
-          "example": "Quelles sont les démarches pour s'inscrire et obtenir un visa étudiant ?",
+          "example": "Côté administratif, quelles sont les démarches pour s'inscrire et obtenir un visa étudiant ?",
           "usage": "Nom pluriel désignant les formalités."
         },
         {
@@ -294,7 +294,7 @@
           "kind": "mot-cle",
           "french": "un visa étudiant",
           "english": "a student visa",
-          "example": "Quelles sont les démarches pour s'inscrire et obtenir un visa étudiant ?",
+          "example": "Côté administratif, quelles sont les démarches pour s'inscrire et obtenir un visa étudiant ?",
           "usage": "Groupe nominal désignant le titre de séjour étudiant."
         },
         {
@@ -302,7 +302,7 @@
           "kind": "mot-cle",
           "french": "résidence étudiante",
           "english": "student residence",
-          "example": "Tu vas te loger comment sur place — résidence étudiante, colocation ?",
+          "example": "Et tu vas te loger comment sur place — résidence étudiante, colocation ?",
           "usage": "Groupe nominal désignant un logement étudiant."
         },
         {
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "colocation",
           "english": "house-share",
-          "example": "Tu vas te loger comment sur place — résidence étudiante, colocation ?",
+          "example": "Et tu vas te loger comment sur place — résidence étudiante, colocation ?",
           "usage": "Nom désignant la colocation."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "ce diplôme",
           "english": "this degree",
-          "example": "Qu'est-ce que tu espères en retirer — quels sont tes objectifs après ce diplôme ?",
+          "example": "Il me reste un point à éclaircir : qu'est-ce que tu espères en retirer — quels sont tes objectifs après ce diplôme ?",
           "usage": "Groupe nominal désignant le diplôme visé."
         },
         {
@@ -350,7 +350,7 @@
           "kind": "collocation",
           "french": "en français ou en anglais",
           "english": "in French or in English",
-          "example": "Les cours seront en français ou en anglais ?",
+          "example": "Et les cours seront en français ou en anglais ?",
           "usage": "Alternative sur la langue."
         },
         {
@@ -358,7 +358,7 @@
           "kind": "collocation",
           "french": "obtenir un visa étudiant",
           "english": "get a student visa",
-          "example": "Quelles sont les démarches pour s'inscrire et obtenir un visa étudiant ?",
+          "example": "Côté administratif, quelles sont les démarches pour s'inscrire et obtenir un visa étudiant ?",
           "usage": "Verbe + complément sur le visa."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "te loger",
           "english": "find housing",
-          "example": "Tu vas te loger comment sur place — résidence étudiante, colocation ?",
+          "example": "Et tu vas te loger comment sur place — résidence étudiante, colocation ?",
           "usage": "Locution verbale sur le logement."
         },
         {
@@ -382,7 +382,7 @@
           "kind": "collocation",
           "french": "en retirer",
           "english": "get out of it",
-          "example": "Qu'est-ce que tu espères en retirer — quels sont tes objectifs après ce diplôme ?",
+          "example": "Il me reste un point à éclaircir : qu'est-ce que tu espères en retirer — quels sont tes objectifs après ce diplôme ?",
           "usage": "Locution verbale sur le bénéfice."
         },
         {
@@ -398,7 +398,7 @@
           "kind": "collocation",
           "french": "dans ce projet",
           "english": "in this plan",
-          "example": "Il y a des choses qui t'inquiètent un peu dans ce projet ?",
+          "example": "Une chose encore : il y a des choses qui t'inquiètent un peu dans ce projet ?",
           "usage": "Locution sur le projet."
         },
         {
@@ -446,7 +446,7 @@
           "kind": "tournure",
           "french": "Les cours seront en français ou en anglais",
           "english": "will classes be in French or English",
-          "example": "Les cours seront en français ou en anglais ?",
+          "example": "Et les cours seront en français ou en anglais ?",
           "usage": "Question sur la langue."
         },
         {
@@ -454,7 +454,7 @@
           "kind": "tournure",
           "french": "Quelles sont les démarches pour s'inscrire et obtenir un visa étudiant",
           "english": "what are the steps to enrol and get a student visa",
-          "example": "Quelles sont les démarches pour s'inscrire et obtenir un visa étudiant ?",
+          "example": "Côté administratif, quelles sont les démarches pour s'inscrire et obtenir un visa étudiant ?",
           "usage": "Question sur les démarches."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce que tu espères en retirer",
           "english": "what do you hope to get out of it",
-          "example": "Qu'est-ce que tu espères en retirer — quels sont tes objectifs après ce diplôme ?",
+          "example": "Il me reste un point à éclaircir : qu'est-ce que tu espères en retirer — quels sont tes objectifs après ce diplôme ?",
           "usage": "Question sur les objectifs."
         },
         {
@@ -486,7 +486,7 @@
           "kind": "tournure",
           "french": "Il y a des choses qui t'inquiètent un peu dans ce projet",
           "english": "is there anything worrying you about this plan",
-          "example": "Il y a des choses qui t'inquiètent un peu dans ce projet ?",
+          "example": "Une chose encore : il y a des choses qui t'inquiètent un peu dans ce projet ?",
           "usage": "Question sur les inquiétudes."
         }
       ]
@@ -760,7 +760,7 @@
           "kind": "mot-cle",
           "french": "ses disponibilités",
           "english": "their availability",
-          "example": "Quelles sont ses disponibilités — plutôt en journée, le soir, le week-end ?",
+          "example": "Et quelles sont ses disponibilités — plutôt en journée, le soir, le week-end ?",
           "usage": "Nom pluriel sur les créneaux libres."
         },
         {
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "des notions de premiers secours",
           "english": "first-aid knowledge",
-          "example": "Elle sait réagir en cas de problème — elle a des notions de premiers secours ?",
+          "example": "Pour ce qui est des imprévus, elle sait réagir en cas de problème — elle a des notions de premiers secours ?",
           "usage": "Groupe nominal désignant les bases de secourisme."
         },
         {
@@ -800,7 +800,7 @@
           "kind": "mot-cle",
           "french": "ses coordonnées",
           "english": "their contact details",
-          "example": "Vous auriez ses coordonnées pour que je la contacte ?",
+          "example": "Du coup, vous auriez ses coordonnées pour que je la contacte ?",
           "usage": "Nom pluriel désignant les coordonnées."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "une première fois",
           "english": "a first time",
-          "example": "Est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
+          "example": "Dernier point pratique : est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
           "usage": "Groupe nominal sur la première rencontre."
         },
         {
@@ -832,7 +832,7 @@
           "kind": "collocation",
           "french": "patiente et attentive",
           "english": "patient and attentive",
-          "example": "Elle est comment avec les enfants — plutôt patiente et attentive ?",
+          "example": "Justement, elle est comment avec les enfants — plutôt patiente et attentive ?",
           "usage": "Adjectifs coordonnés sur le caractère."
         },
         {
@@ -880,7 +880,7 @@
           "kind": "collocation",
           "french": "réagir en cas de problème",
           "english": "react in case of a problem",
-          "example": "Elle sait réagir en cas de problème — elle a des notions de premiers secours ?",
+          "example": "Pour ce qui est des imprévus, elle sait réagir en cas de problème — elle a des notions de premiers secours ?",
           "usage": "Verbe + complément sur la réaction."
         },
         {
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "si le courant passe",
           "english": "if you hit it off",
-          "example": "Est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
+          "example": "Dernier point pratique : est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
           "usage": "Locution familière sur l'entente."
         },
         {
@@ -928,7 +928,7 @@
           "kind": "tournure",
           "french": "Elle est comment avec les enfants",
           "english": "what is she like with children",
-          "example": "Elle est comment avec les enfants — plutôt patiente et attentive ?",
+          "example": "Justement, elle est comment avec les enfants — plutôt patiente et attentive ?",
           "usage": "Question sur le caractère."
         },
         {
@@ -936,7 +936,7 @@
           "kind": "tournure",
           "french": "Quelles sont ses disponibilités",
           "english": "what is her availability",
-          "example": "Quelles sont ses disponibilités — plutôt en journée, le soir, le week-end ?",
+          "example": "Et quelles sont ses disponibilités — plutôt en journée, le soir, le week-end ?",
           "usage": "Question sur les créneaux."
         },
         {
@@ -968,7 +968,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'on peut la rencontrer une première fois",
           "english": "can we meet her a first time",
-          "example": "Est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
+          "example": "Dernier point pratique : est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
           "usage": "Question sur la rencontre."
         },
         {
@@ -976,7 +976,7 @@
           "kind": "tournure",
           "french": "Vous auriez ses coordonnées pour que je la contacte",
           "english": "would you have her contact details",
-          "example": "Vous auriez ses coordonnées pour que je la contacte ?",
+          "example": "Du coup, vous auriez ses coordonnées pour que je la contacte ?",
           "usage": "Question pour obtenir un contact."
         }
       ]
@@ -1037,7 +1037,7 @@
           "kind": "mot-cle",
           "french": "activités relaxantes",
           "english": "relaxing activities",
-          "example": "Vous auriez des idées d'activités relaxantes — une balade, un spa, des thermes ?",
+          "example": "Pour ce qui est des visites, vous auriez des idées d'activités relaxantes — une balade, un spa, des thermes ?",
           "usage": "Groupe nominal sur les loisirs détente."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "un spa",
           "english": "a spa",
-          "example": "Vous auriez des idées d'activités relaxantes — une balade, un spa, des thermes ?",
+          "example": "Pour ce qui est des visites, vous auriez des idées d'activités relaxantes — une balade, un spa, des thermes ?",
           "usage": "Nom désignant un spa."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "des thermes",
           "english": "thermal baths",
-          "example": "Vous auriez des idées d'activités relaxantes — une balade, un spa, des thermes ?",
+          "example": "Pour ce qui est des visites, vous auriez des idées d'activités relaxantes — une balade, un spa, des thermes ?",
           "usage": "Nom pluriel désignant des bains thermaux."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "mot-cle",
           "french": "des marchés",
           "english": "markets",
-          "example": "Il y a des marchés ou des petits villages sympas à découvrir tranquillement ?",
+          "example": "Côté visites, il y a des marchés ou des petits villages sympas à découvrir tranquillement ?",
           "usage": "Nom pluriel désignant les marchés locaux."
         },
         {
@@ -1117,7 +1117,7 @@
           "kind": "collocation",
           "french": "loin de la foule",
           "english": "away from the crowds",
-          "example": "Y a-t-il des endroits calmes, loin de la foule, pour vraiment se ressourcer ?",
+          "example": "D'abord, y a-t-il des endroits calmes, loin de la foule, pour vraiment se ressourcer ?",
           "usage": "Locution sur le calme."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "se ressourcer",
           "english": "recharge",
-          "example": "Y a-t-il des endroits calmes, loin de la foule, pour vraiment se ressourcer ?",
+          "example": "D'abord, y a-t-il des endroits calmes, loin de la foule, pour vraiment se ressourcer ?",
           "usage": "Locution verbale pronominale sur le repos."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "un week-end paisible",
           "english": "a peaceful weekend",
-          "example": "Où me conseillez-vous de loger pour un week-end paisible ?",
+          "example": "Côté hébergement, où me conseillez-vous de loger pour un week-end paisible ?",
           "usage": "Groupe nominal sur le calme."
         },
         {
@@ -1189,7 +1189,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des endroits calmes, loin de la foule",
           "english": "are there quiet places, away from the crowds",
-          "example": "Y a-t-il des endroits calmes, loin de la foule, pour vraiment se ressourcer ?",
+          "example": "D'abord, y a-t-il des endroits calmes, loin de la foule, pour vraiment se ressourcer ?",
           "usage": "Question sur les lieux calmes."
         },
         {
@@ -1197,7 +1197,7 @@
           "kind": "tournure",
           "french": "Vous auriez des idées d'activités relaxantes",
           "english": "would you have ideas for relaxing activities",
-          "example": "Vous auriez des idées d'activités relaxantes — une balade, un spa, des thermes ?",
+          "example": "Pour ce qui est des visites, vous auriez des idées d'activités relaxantes — une balade, un spa, des thermes ?",
           "usage": "Question sur les activités détente."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "Où me conseillez-vous de loger pour un week-end paisible",
           "english": "where do you advise staying for a peaceful weekend",
-          "example": "Où me conseillez-vous de loger pour un week-end paisible ?",
+          "example": "Côté hébergement, où me conseillez-vous de loger pour un week-end paisible ?",
           "usage": "Question sur l'hébergement."
         },
         {
@@ -1213,7 +1213,7 @@
           "kind": "tournure",
           "french": "Il y a des marchés ou des petits villages sympas à découvrir tranquillement",
           "english": "are there markets or nice villages to explore at leisure",
-          "example": "Il y a des marchés ou des petits villages sympas à découvrir tranquillement ?",
+          "example": "Côté visites, il y a des marchés ou des petits villages sympas à découvrir tranquillement ?",
           "usage": "Question sur les découvertes."
         },
         {
@@ -1221,7 +1221,7 @@
           "kind": "tournure",
           "french": "Quel budget faut-il prévoir à peu près pour un week-end ici",
           "english": "what budget should you plan for a weekend here",
-          "example": "Quel budget faut-il prévoir à peu près pour un week-end ici ?",
+          "example": "En ce qui concerne le prix, quel budget faut-il prévoir à peu près pour un week-end ici ?",
           "usage": "Question sur le budget."
         }
       ]

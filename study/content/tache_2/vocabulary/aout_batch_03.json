@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "les différentes étapes",
           "english": "the different legs (of a trip)",
-          "example": "Comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
+          "example": "Côté déplacements, comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
           "usage": "Nom féminin pluriel désignant les parties d'un itinéraire."
         },
         {
@@ -49,7 +49,7 @@
           "kind": "mot-cle",
           "french": "des excursions",
           "english": "day trips / excursions",
-          "example": "Y avait-il des visites ou des excursions que tu recommanderais particulièrement ?",
+          "example": "En ce qui concerne les découvertes sur place, y avait-il des visites ou des excursions que tu recommanderais particulièrement ?",
           "usage": "Nom féminin pluriel désignant des sorties organisées de courte durée."
         },
         {
@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "des vêtements particuliers",
           "english": "special clothing",
-          "example": "Quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
+          "example": "Pour ce qui est de la météo, quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
           "usage": "Groupe nominal pour évoquer une tenue adaptée à un climat ou une activité."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "en train, en bus ou en voiture",
           "english": "by train, bus, or car",
-          "example": "Comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
+          "example": "Côté déplacements, comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
           "usage": "Énumération de moyens de transport introduits par « en »."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "un mélange des deux",
           "english": "a mix of both",
-          "example": "Quelles activités as-tu faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
+          "example": "Et concrètement, quelles activités as-tu faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
           "usage": "Collocation nominale figée pour indiquer une combinaison de deux éléments proposés."
         },
         {
@@ -161,7 +161,7 @@
           "kind": "collocation",
           "french": "il fallait prévoir",
           "english": "you had to plan for",
-          "example": "Quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
+          "example": "Pour ce qui est de la météo, quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
           "usage": "Collocation à l'imparfait pour évoquer une nécessité dans un récit passé."
         },
         {
@@ -177,7 +177,7 @@
           "kind": "tournure",
           "french": "comment te déplaçais-tu",
           "english": "how were you getting around",
-          "example": "Comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
+          "example": "Côté déplacements, comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
           "usage": "Imparfait d'habitude pour interroger sur un moyen de transport pendant un voyage passé."
         },
         {
@@ -185,7 +185,7 @@
           "kind": "tournure",
           "french": "quelles activités as-tu faites",
           "english": "what activities did you do",
-          "example": "Quelles activités as-tu faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
+          "example": "Et concrètement, quelles activités as-tu faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
           "usage": "Structure avec passé composé pour faire un bilan d'activités."
         },
         {
@@ -193,7 +193,7 @@
           "kind": "tournure",
           "french": "que tu recommanderais particulièrement",
           "english": "that you would especially recommend",
-          "example": "Y avait-il des visites ou des excursions que tu recommanderais particulièrement ?",
+          "example": "En ce qui concerne les découvertes sur place, y avait-il des visites ou des excursions que tu recommanderais particulièrement ?",
           "usage": "Conditionnel présent pour formuler une recommandation nuancée."
         },
         {
@@ -217,7 +217,7 @@
           "kind": "tournure",
           "french": "qu'est-ce que tu as le plus apprécié",
           "english": "what did you like most",
-          "example": "Qu'est-ce que tu as le plus apprécié ?",
+          "example": "Sur le fond, qu'est-ce que tu as le plus apprécié ?",
           "usage": "Structure interrogative avec superlatif « le plus » pour cibler un point positif."
         },
         {
@@ -539,7 +539,7 @@
           "kind": "mot-cle",
           "french": "un code",
           "english": "a code",
-          "example": "Comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
+          "example": "Côté accès, comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
           "usage": "Nom masculin désignant une combinaison numérique pour ouvrir une porte."
         },
         {
@@ -555,7 +555,7 @@
           "kind": "mot-cle",
           "french": "un voisin",
           "english": "a neighbour",
-          "example": "Est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
+          "example": "Pour ce qui est de la sécurité, est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
           "usage": "Nom masculin désignant une personne qui habite à proximité."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "joignable",
           "english": "reachable",
-          "example": "Est-ce que tu seras facilement joignable pendant ton séjour ?",
+          "example": "Côté contact, est-ce que tu seras facilement joignable pendant ton séjour ?",
           "usage": "Adjectif dérivé du verbe « joindre » pour indiquer qu'on peut contacter quelqu'un."
         },
         {
@@ -587,7 +587,7 @@
           "kind": "collocation",
           "french": "en priorité",
           "english": "as a priority",
-          "example": "Qu'est-ce qu'il faudra faire en priorité pendant que tu seras parti(e) ?",
+          "example": "Et concrètement, qu'est-ce qu'il faudra faire en priorité pendant que tu seras parti(e) ?",
           "usage": "Locution adverbiale figée pour hiérarchiser des tâches."
         },
         {
@@ -619,7 +619,7 @@
           "kind": "collocation",
           "french": "un double des clés",
           "english": "a spare set of keys",
-          "example": "Comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
+          "example": "Côté accès, comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
           "usage": "Groupe nominal courant pour désigner une copie de clés confiée à quelqu'un."
         },
         {
@@ -635,7 +635,7 @@
           "kind": "collocation",
           "french": "une entreprise de livraison",
           "english": "a delivery company",
-          "example": "Est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
+          "example": "Pour ce qui est de la sécurité, est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
           "usage": "Groupe nominal désignant une société qui livre des colis."
         },
         {
@@ -643,7 +643,7 @@
           "kind": "collocation",
           "french": "en cas de problème",
           "english": "in case of a problem",
-          "example": "En cas de problème dans l'immeuble, à qui faut-il s'adresser ?",
+          "example": "Côté imprévus, en cas de problème dans l'immeuble, à qui faut-il s'adresser ?",
           "usage": "Locution prépositionnelle très fréquente pour introduire une situation hypothétique."
         },
         {
@@ -667,7 +667,7 @@
           "kind": "tournure",
           "french": "qu'est-ce qu'il faudra faire",
           "english": "what will need to be done",
-          "example": "Qu'est-ce qu'il faudra faire en priorité pendant que tu seras parti(e) ?",
+          "example": "Et concrètement, qu'est-ce qu'il faudra faire en priorité pendant que tu seras parti(e) ?",
           "usage": "Futur impersonnel avec « il faudra » pour anticiper des obligations."
         },
         {
@@ -691,7 +691,7 @@
           "kind": "tournure",
           "french": "comment est-ce que j'entre",
           "english": "how do I get in",
-          "example": "Comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
+          "example": "Côté accès, comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
           "usage": "Structure orale avec « comment est-ce que » pour interroger sur un moyen d'accès."
         },
         {
@@ -699,7 +699,7 @@
           "kind": "tournure",
           "french": "quelqu'un d'autre risque de passer",
           "english": "someone else might come by",
-          "example": "Est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
+          "example": "Pour ce qui est de la sécurité, est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
           "usage": "Verbe « risquer de » + infinitif pour évoquer une possibilité future."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "à qui faut-il s'adresser",
           "english": "who should one contact",
-          "example": "En cas de problème dans l'immeuble, à qui faut-il s'adresser ?",
+          "example": "Côté imprévus, en cas de problème dans l'immeuble, à qui faut-il s'adresser ?",
           "usage": "Structure impersonnelle avec « il faut » pour demander un interlocuteur."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "tu seras facilement joignable",
           "english": "you'll be easy to reach",
-          "example": "Est-ce que tu seras facilement joignable pendant ton séjour ?",
+          "example": "Côté contact, est-ce que tu seras facilement joignable pendant ton séjour ?",
           "usage": "Futur simple pour anticiper une disponibilité pendant une absence."
         },
         {
@@ -744,7 +744,7 @@
           "kind": "mot-cle",
           "french": "passionné(e)",
           "english": "passionate (about)",
-          "example": "Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
+          "example": "Quelle coïncidence de se croiser ici, en gare ! Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
           "usage": "Adjectif dérivé de « passion » pour exprimer un fort intérêt pour une activité."
         },
         {
@@ -784,7 +784,7 @@
           "kind": "mot-cle",
           "french": "aux débutants",
           "english": "to beginners",
-          "example": "Ces activités s'adressent aussi aux débutants ou faut-il déjà avoir de l'expérience ?",
+          "example": "Pour ce qui est du niveau, ces activités s'adressent aussi aux débutants ou faut-il déjà avoir de l'expérience ?",
           "usage": "Nom masculin pluriel précédé de « aux » pour désigner les personnes qui commencent une activité."
         },
         {
@@ -800,7 +800,7 @@
           "kind": "mot-cle",
           "french": "équipement",
           "english": "equipment / gear",
-          "example": "Qu'est-ce qu'il faut apporter comme équipement pour une première sortie ?",
+          "example": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement pour une première sortie ?",
           "usage": "Nom masculin désignant le matériel nécessaire à une activité."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "un guide",
           "english": "a guide",
-          "example": "Vous partez généralement seul(e), avec des amis ou avec un guide ?",
+          "example": "Autre point important : vous partez généralement seul(e), avec des amis ou avec un guide ?",
           "usage": "Nom masculin désignant une personne qui accompagne une sortie en montagne."
         },
         {
@@ -824,7 +824,7 @@
           "kind": "collocation",
           "french": "depuis longtemps",
           "english": "for a long time",
-          "example": "Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
+          "example": "Quelle coïncidence de se croiser ici, en gare ! Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
           "usage": "Locution adverbiale avec « depuis » pour indiquer la durée d'une pratique."
         },
         {
@@ -848,7 +848,7 @@
           "kind": "collocation",
           "french": "attendre une autre saison",
           "english": "wait for another season",
-          "example": "C'est une bonne période pour aller en montagne ou il vaut mieux attendre une autre saison ?",
+          "example": "En ce moment, c'est une bonne période pour aller en montagne ou il vaut mieux attendre une autre saison ?",
           "usage": "Collocation verbe + nom pour évoquer un report dans le temps."
         },
         {
@@ -864,7 +864,7 @@
           "kind": "collocation",
           "french": "avoir de l'expérience",
           "english": "to have experience",
-          "example": "Ces activités s'adressent aussi aux débutants ou faut-il déjà avoir de l'expérience ?",
+          "example": "Pour ce qui est du niveau, ces activités s'adressent aussi aux débutants ou faut-il déjà avoir de l'expérience ?",
           "usage": "Collocation verbe + nom très fréquente pour évoquer un niveau de pratique."
         },
         {
@@ -872,7 +872,7 @@
           "kind": "collocation",
           "french": "une première sortie",
           "english": "a first outing",
-          "example": "Qu'est-ce qu'il faut apporter comme équipement pour une première sortie ?",
+          "example": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement pour une première sortie ?",
           "usage": "Groupe nominal désignant la première fois que l'on pratique une activité."
         },
         {
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "des précautions particulières",
           "english": "special precautions",
-          "example": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "example": "Côté sécurité, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
           "usage": "Collocation adjectif-nom réutilisable pour aborder les mesures de prudence."
         },
         {
@@ -920,7 +920,7 @@
           "kind": "tournure",
           "french": "il vaut mieux attendre une autre saison",
           "english": "it's better to wait for another season",
-          "example": "C'est une bonne période pour aller en montagne ou il vaut mieux attendre une autre saison ?",
+          "example": "En ce moment, c'est une bonne période pour aller en montagne ou il vaut mieux attendre une autre saison ?",
           "usage": "Tournure impersonnelle avec « il vaut mieux » pour recommander une alternative."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des précautions particulières à prendre",
           "english": "Are there any special precautions to take",
-          "example": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "example": "Côté sécurité, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
           "usage": "Structure figée très fréquente en Tâche 2 pour aborder les questions de sécurité."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "vous partez généralement seul(e)",
           "english": "do you generally go alone",
-          "example": "Vous partez généralement seul(e), avec des amis ou avec un guide ?",
+          "example": "Autre point important : vous partez généralement seul(e), avec des amis ou avec un guide ?",
           "usage": "Structure avec adverbe « généralement » pour interroger sur une habitude."
         },
         {

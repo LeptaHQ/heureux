@@ -12,7 +12,7 @@
       "prompt": "Je suis votre directeur. Je vais vous envoyer en stage de formation au Canada pendant 15 jours. Vous m'interrogez pour savoir comment vont se passer le stage, l'hébergement, le transport, et les activités pendant votre séjour.",
       "questions": [
         {
-          "text": "Pourriez-vous me donner plus de détails sur le stage — quel est l'objectif principal de cette formation ?"
+          "text": "Bonjour ! Merci de penser à moi pour ce départ au Canada — pourriez-vous me donner plus de détails sur le stage, quel est l'objectif principal de cette formation ?"
         },
         {
           "text": "Le stage aura lieu dans quelle ville exactement — et dans quel type d'établissement ?"
@@ -26,12 +26,17 @@
           "memory_section": 2
         },
         {
-          "text": "Est-ce qu'il y aura d'autres collègues dans le groupe ou je serai le seul à partir ?",
+          "text": "Pour ce qui est des personnes présentes, est-ce qu'il y aura d'autres collègues dans le groupe ou je serai le seul à partir ?",
           "memory_number": 4,
           "memory_section": 7
         },
         {
           "text": "Est-ce qu'on recevra une attestation ou un certificat à la fin du stage ?"
+        },
+        {
+          "text": "J'en profite pour vous demander : en dehors des heures de formation, est-ce qu'il y a des activités prévues pour découvrir la région ?",
+          "memory_number": 4,
+          "memory_section": 2
         },
         {
           "text": "Pour l'hébergement, c'est l'entreprise qui s'en occupe ou je dois réserver moi-même ?",
@@ -47,7 +52,7 @@
           "memory_section": 9
         },
         {
-          "text": "Est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
+          "text": "Pour ce qui est des documents, est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
           "memory_number": 4,
           "memory_section": 8
         },
@@ -57,17 +62,12 @@
           "memory_section": 8
         },
         {
-          "text": "En dehors des heures de formation, est-ce qu'il y a des activités prévues pour découvrir la région ?",
-          "memory_number": 4,
-          "memory_section": 2
-        },
-        {
-          "text": "S'il y a le moindre souci, à qui faut-il s'adresser ?",
+          "text": "Et s'il y a le moindre souci, à qui faut-il s'adresser ?",
           "memory_number": 4,
           "memory_section": 13
         },
         {
-          "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "text": "Merci pour toutes ces infos, je vais pouvoir préparer ce stage sereinement — et s'il me manque un détail avant le départ, je peux vous solliciter ?",
           "memory_number": 4,
           "memory_section": 13
         }
@@ -79,7 +79,7 @@
       "prompt": "Je suis votre voisin. Vous êtes nouveau dans le quartier et vous voulez sortir le soir. Vous m'interrogez pour connaître les lieux, les activités, les prix, l'ambiance et les options de divertissement.",
       "questions": [
         {
-          "text": "Je suis nouveau dans le quartier et je voudrais sortir le soir. Est-ce que le quartier est animé tous les soirs ou c'est surtout le week-end ?"
+          "text": "Bonjour ! Je suis nouveau dans le quartier et je voudrais sortir le soir. Est-ce que le quartier est animé tous les soirs ou c'est surtout le week-end ?"
         },
         {
           "text": "Quels sont les bons endroits pour sortir le soir ? Incluent-ils des bars, des clubs ou des musées ?"
@@ -88,40 +88,17 @@
           "text": "Est-ce qu'il y a des concerts, des spectacles ou des soirées à thème de temps en temps ?"
         },
         {
+          "text": "Toujours sur ce point, pour les soirées plus calmes, est-ce qu'il y a des cinémas ou des théâtres dans le quartier ?"
+        },
+        {
           "text": "L'ambiance est plutôt calme et conviviale, ou plus animée ?",
           "memory_number": 9,
           "memory_section": 10
         },
         {
-          "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total ?",
-          "memory_number": 9,
-          "memory_section": 3
-        },
-        {
-          "text": "Est-ce qu'il y a des happy hours ou des promotions intéressantes dans certains bars ?",
-          "memory_number": 9,
-          "memory_section": 3
-        },
-        {
-          "text": "Pour les repas, vous auriez des adresses à recommander — pour manger un morceau en fin de soirée ?",
-          "memory_number": 9,
-          "memory_section": 9
-        },
-        {
-          "text": "C'est facile de rencontrer du monde — les gens sont plutôt accueillants ?",
+          "text": "Et puis, c'est facile de rencontrer du monde — les gens sont plutôt accueillants ?",
           "memory_number": 9,
           "memory_section": 10
-        },
-        {
-          "text": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
-          "memory_number": 9,
-          "memory_section": 8
-        },
-        {
-          "text": "Et pour rentrer tard le soir, il y a des transports de nuit ou c'est mieux de prévoir un taxi ?"
-        },
-        {
-          "text": "Pour les soirées plus calmes, est-ce qu'il y a des cinémas ou des théâtres dans le quartier ?"
         },
         {
           "text": "Est-ce qu'il y a des événements ponctuels à ne pas manquer en ce moment ?"
@@ -130,7 +107,30 @@
           "text": "Vous-même, vous avez un endroit préféré à me recommander ?"
         },
         {
-          "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "text": "Pour les repas, vous auriez des adresses à recommander — pour manger un morceau en fin de soirée ?",
+          "memory_number": 9,
+          "memory_section": 9
+        },
+        {
+          "text": "Est-ce qu'il y a des happy hours ou des promotions intéressantes dans certains bars ?",
+          "memory_number": 9,
+          "memory_section": 3
+        },
+        {
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total ?",
+          "memory_number": 9,
+          "memory_section": 3
+        },
+        {
+          "text": "Question sécurité, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "memory_number": 9,
+          "memory_section": 8
+        },
+        {
+          "text": "Et pour rentrer tard le soir, il y a des transports de nuit ou c'est mieux de prévoir un taxi ?"
+        },
+        {
+          "text": "Merci pour toutes ces infos, je vais tester deux ou trois de ces adresses dès ce week-end — et si j'ai d'autres questions sur le quartier, je peux frapper à votre porte ?",
           "memory_number": 9,
           "memory_section": 13
         }
@@ -142,7 +142,7 @@
       "prompt": "Je suis votre ami et je vais partir en vacances. Vous devez me poser des questions pour savoir comment garder mon animal (alimentation, soins, promenades, habitudes).",
       "questions": [
         {
-          "text": "Alors, c'est quel type d'animal — un chat, un chien, autre chose ?"
+          "text": "Salut ! Bien sûr, je peux m'occuper de ton animal pendant tes vacances. Alors, c'est quel type d'animal — un chat, un chien, autre chose ?"
         },
         {
           "text": "Il s'appelle comment et il a quel âge ?"
@@ -151,7 +151,12 @@
           "text": "Comment est son caractère — il est plutôt calme ou énergique ? Comment il réagit avec les autres animaux et les inconnus ?"
         },
         {
-          "text": "Il mange quoi exactement — et c'est combien de fois par jour ?"
+          "text": "Avant que j'oublie, la garde se fait chez toi ou tu préfères que je l'emmène chez moi ?",
+          "memory_number": 3,
+          "memory_section": 13
+        },
+        {
+          "text": "Côté repas, il mange quoi exactement — et c'est combien de fois par jour ?"
         },
         {
           "text": "Est-ce qu'il a des allergies alimentaires ou des aliments interdits ?"
@@ -162,14 +167,12 @@
           "memory_section": 4
         },
         {
-          "text": "La garde se fait chez toi ou tu préfères que je l'emmène chez moi ?",
-          "memory_number": 3,
-          "memory_section": 13
-        },
-        {
-          "text": "Il y a des habitudes importantes à respecter pour que tout se passe bien ?",
+          "text": "En ce qui concerne l'organisation, il y a des habitudes importantes à respecter pour que tout se passe bien ?",
           "memory_number": 3,
           "memory_section": 4
+        },
+        {
+          "text": "Est-ce qu'il supporte bien la solitude ou il faut éviter de le laisser seul trop longtemps ?"
         },
         {
           "text": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
@@ -177,10 +180,7 @@
           "memory_section": 8
         },
         {
-          "text": "Est-ce qu'il supporte bien la solitude ou il faut éviter de le laisser seul trop longtemps ?"
-        },
-        {
-          "text": "S'il montre des signes de stress ou de maladie, comment je dois réagir ?"
+          "text": "Pour ce qui est de la santé, s'il montre des signes de stress ou de maladie, comment je dois réagir ?"
         },
         {
           "text": "En cas d'urgence, qui est son vétérinaire et comment je le contacte ?",
@@ -188,7 +188,7 @@
           "memory_section": 13
         },
         {
-          "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux te solliciter ?",
+          "text": "Voilà, je crois que j'ai tout ce qu'il faut pour bien m'occuper de lui pendant ton absence — et au moindre doute, je peux te solliciter ?",
           "memory_number": 3,
           "memory_section": 13
         }
@@ -200,7 +200,7 @@
       "prompt": "Je suis votre ami. Vous êtes invité à une cérémonie de mariage d'une amie canadienne. Vous devez me poser des questions pour connaître le déroulement de la cérémonie, les invités, les cadeaux, et les tenues vestimentaires.",
       "questions": [
         {
-          "text": "Alors, la cérémonie de mariage, c'est prévu pour quand exactement ?"
+          "text": "Salut ! Je suis invité(e) au mariage de ton amie canadienne et je ne sais pas trop à quoi m'attendre — alors, la cérémonie de mariage, c'est prévu pour quand exactement ?"
         },
         {
           "text": "À quelle heure ça commence — plutôt le matin ou en fin de journée ?",
@@ -216,7 +216,7 @@
           "memory_section": 13
         },
         {
-          "text": "Comment va se dérouler la journée — il y a un cocktail, un dîner, une soirée dansante ?",
+          "text": "Et concrètement, comment va se dérouler la journée — il y a un cocktail, un dîner, une soirée dansante ?",
           "memory_number": 11,
           "memory_section": 4
         },
@@ -226,7 +226,7 @@
           "memory_section": 7
         },
         {
-          "text": "Est-ce qu'il y a un code vestimentaire particulier — des couleurs à porter ou à éviter ?"
+          "text": "En ce qui concerne la tenue, est-ce qu'il y a un code vestimentaire particulier — des couleurs à porter ou à éviter ?"
         },
         {
           "text": "Pour le cadeau, il y a une liste de mariage ou c'est libre choix ?"
@@ -237,12 +237,12 @@
           "memory_section": 3
         },
         {
-          "text": "Est-ce qu'il y a des traditions canadiennes spécifiques que je devrais connaître ?",
+          "text": "Ensuite, est-ce qu'il y a des traditions canadiennes spécifiques que je devrais connaître ?",
           "memory_number": 11,
           "memory_section": 4
         },
         {
-          "text": "Pour les invités qui viennent de l'extérieur, tu aurais des recommandations pour l'hébergement ?",
+          "text": "Il me reste un point à éclaircir : pour les invités qui viennent de l'extérieur, tu aurais des recommandations pour l'hébergement ?",
           "memory_number": 11,
           "memory_section": 9
         },
@@ -257,7 +257,7 @@
           "memory_section": 5
         },
         {
-          "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux te solliciter ?",
+          "text": "Merci beaucoup, je me sens prêt(e) pour la cérémonie maintenant — mais si j'ai d'autres questions d'ici le grand jour, je peux te solliciter ?",
           "memory_number": 11,
           "memory_section": 13
         }

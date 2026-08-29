@@ -9,7 +9,7 @@
           "kind": "mot-cle",
           "french": "l'objectif principal",
           "english": "the main objective",
-          "example": "Pourriez-vous me donner plus de détails sur le stage — quel est l'objectif principal de cette formation ?",
+          "example": "Bonjour ! Merci de penser à moi pour ce départ au Canada — pourriez-vous me donner plus de détails sur le stage, quel est l'objectif principal de cette formation ?",
           "usage": "Groupe nominal pour désigner le but essentiel d'une formation ou d'un projet."
         },
         {
@@ -49,7 +49,7 @@
           "kind": "mot-cle",
           "french": "des démarches administratives",
           "english": "administrative procedures",
-          "example": "Est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
+          "example": "Pour ce qui est des documents, est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
           "usage": "Ensemble des formalités à accomplir avant un déplacement professionnel à l'étranger."
         },
         {
@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "un visa",
           "english": "a visa",
-          "example": "Est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
+          "example": "Pour ce qui est des documents, est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
           "usage": "Autorisation officielle nécessaire pour entrer sur le territoire d'un autre pays."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "la région",
           "english": "the region/area",
-          "example": "En dehors des heures de formation, est-ce qu'il y a des activités prévues pour découvrir la région ?",
+          "example": "J'en profite pour vous demander : en dehors des heures de formation, est-ce qu'il y a des activités prévues pour découvrir la région ?",
           "usage": "Terme géographique général pour désigner les environs d'un lieu de séjour."
         },
         {
@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "le moindre souci",
           "english": "the slightest problem",
-          "example": "S'il y a le moindre souci, à qui faut-il s'adresser ?",
+          "example": "Et s'il y a le moindre souci, à qui faut-il s'adresser ?",
           "usage": "Expression figée pour désigner un problème même mineur, souvent utilisée pour rassurer sur le suivi."
         },
         {
@@ -89,7 +89,7 @@
           "kind": "collocation",
           "french": "donner plus de détails",
           "english": "to give more details",
-          "example": "Pourriez-vous me donner plus de détails sur le stage — quel est l'objectif principal de cette formation ?",
+          "example": "Bonjour ! Merci de penser à moi pour ce départ au Canada — pourriez-vous me donner plus de détails sur le stage, quel est l'objectif principal de cette formation ?",
           "usage": "Collocation courante pour demander un développement plus précis sur un sujet."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "d'autres collègues",
           "english": "other colleagues",
-          "example": "Est-ce qu'il y aura d'autres collègues dans le groupe ou je serai le seul à partir ?",
+          "example": "Pour ce qui est des personnes présentes, est-ce qu'il y aura d'autres collègues dans le groupe ou je serai le seul à partir ?",
           "usage": "Collocation courante pour évoquer la présence d'autres membres d'une équipe."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "une assurance particulière",
           "english": "special/specific insurance",
-          "example": "Est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
+          "example": "Pour ce qui est des documents, est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
           "usage": "Collocation adjectif-nom désignant une couverture supplémentaire à prévoir."
         },
         {
@@ -161,7 +161,7 @@
           "kind": "collocation",
           "french": "toutes ces infos",
           "english": "all this information",
-          "example": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "example": "Merci pour toutes ces infos, je vais pouvoir préparer ce stage sereinement — et s'il me manque un détail avant le départ, je peux vous solliciter ?",
           "usage": "Collocation orale courante pour clore un échange en remerciant son interlocuteur."
         },
         {
@@ -193,7 +193,7 @@
           "kind": "tournure",
           "french": "je serai le seul à partir",
           "english": "I will be the only one leaving",
-          "example": "Est-ce qu'il y aura d'autres collègues dans le groupe ou je serai le seul à partir ?",
+          "example": "Pour ce qui est des personnes présentes, est-ce qu'il y aura d'autres collègues dans le groupe ou je serai le seul à partir ?",
           "usage": "Tournure au futur simple pour exprimer qu'on sera la seule personne concernée par un départ."
         },
         {
@@ -233,7 +233,7 @@
           "kind": "tournure",
           "french": "En dehors des heures de formation",
           "english": "outside training hours",
-          "example": "En dehors des heures de formation, est-ce qu'il y a des activités prévues pour découvrir la région ?",
+          "example": "J'en profite pour vous demander : en dehors des heures de formation, est-ce qu'il y a des activités prévues pour découvrir la région ?",
           "usage": "Structure temporelle pour situer une activité en dehors d'un cadre horaire précis."
         },
         {
@@ -241,7 +241,7 @@
           "kind": "tournure",
           "french": "à qui faut-il s'adresser",
           "english": "who should one contact",
-          "example": "S'il y a le moindre souci, à qui faut-il s'adresser ?",
+          "example": "Et s'il y a le moindre souci, à qui faut-il s'adresser ?",
           "usage": "Tournure impersonnelle très utile pour demander l'interlocuteur compétent en cas de problème."
         }
       ]
@@ -254,7 +254,7 @@
           "kind": "mot-cle",
           "french": "le week-end",
           "english": "the weekend",
-          "example": "Je suis nouveau dans le quartier et je voudrais sortir le soir. Est-ce que le quartier est animé tous les soirs ou c'est surtout le week-end ?",
+          "example": "Bonjour ! Je suis nouveau dans le quartier et je voudrais sortir le soir. Est-ce que le quartier est animé tous les soirs ou c'est surtout le week-end ?",
           "usage": "Nom courant pour désigner la fin de semaine par opposition aux jours ouvrés."
         },
         {
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "des théâtres",
           "english": "theatres",
-          "example": "Pour les soirées plus calmes, est-ce qu'il y a des cinémas ou des théâtres dans le quartier ?",
+          "example": "Toujours sur ce point, pour les soirées plus calmes, est-ce qu'il y a des cinémas ou des théâtres dans le quartier ?",
           "usage": "Terme culturel désignant les salles de spectacle vivant."
         },
         {
@@ -334,7 +334,7 @@
           "kind": "collocation",
           "french": "nouveau dans le quartier",
           "english": "new to the neighbourhood",
-          "example": "Je suis nouveau dans le quartier et je voudrais sortir le soir. Est-ce que le quartier est animé tous les soirs ou c'est surtout le week-end ?",
+          "example": "Bonjour ! Je suis nouveau dans le quartier et je voudrais sortir le soir. Est-ce que le quartier est animé tous les soirs ou c'est surtout le week-end ?",
           "usage": "Collocation adjectif-complément pour se présenter comme récemment arrivé quelque part."
         },
         {
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "rencontrer du monde",
           "english": "to meet people",
-          "example": "C'est facile de rencontrer du monde — les gens sont plutôt accueillants ?",
+          "example": "Et puis, c'est facile de rencontrer du monde — les gens sont plutôt accueillants ?",
           "usage": "Collocation verbe-complément courante pour évoquer les occasions de socialiser."
         },
         {
@@ -398,7 +398,7 @@
           "kind": "collocation",
           "french": "des choses à éviter",
           "english": "things to avoid",
-          "example": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "example": "Question sécurité, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
           "usage": "Structure nominale réutilisable pour demander des mises en garde pratiques."
         },
         {
@@ -406,7 +406,7 @@
           "kind": "collocation",
           "french": "si j'ai d'autres questions",
           "english": "if I have other questions",
-          "example": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "example": "Merci pour toutes ces infos, je vais tester deux ou trois de ces adresses dès ce week-end — et si j'ai d'autres questions sur le quartier, je peux frapper à votre porte ?",
           "usage": "Collocation conditionnelle courante pour clore poliment un échange."
         },
         {
@@ -414,7 +414,7 @@
           "kind": "tournure",
           "french": "Est-ce que le quartier est animé tous les soirs",
           "english": "Is the neighbourhood lively every night",
-          "example": "Je suis nouveau dans le quartier et je voudrais sortir le soir. Est-ce que le quartier est animé tous les soirs ou c'est surtout le week-end ?",
+          "example": "Bonjour ! Je suis nouveau dans le quartier et je voudrais sortir le soir. Est-ce que le quartier est animé tous les soirs ou c'est surtout le week-end ?",
           "usage": "Tournure pour vérifier si une activité est constante ou seulement occasionnelle."
         },
         {
@@ -446,7 +446,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des précautions particulières à prendre",
           "english": "Are there any special precautions to take",
-          "example": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "example": "Question sécurité, y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
           "usage": "Structure figée très fréquente en Tâche 2 pour aborder les questions de sécurité."
         },
         {
@@ -462,7 +462,7 @@
           "kind": "tournure",
           "french": "Pour les soirées plus calmes",
           "english": "For quieter evenings",
-          "example": "Pour les soirées plus calmes, est-ce qu'il y a des cinémas ou des théâtres dans le quartier ?",
+          "example": "Toujours sur ce point, pour les soirées plus calmes, est-ce qu'il y a des cinémas ou des théâtres dans le quartier ?",
           "usage": "Structure introductive pour présenter une alternative contrastée."
         },
         {
@@ -486,7 +486,7 @@
           "kind": "tournure",
           "french": "Merci pour toutes ces infos",
           "english": "Thanks for all this information",
-          "example": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "example": "Merci pour toutes ces infos, je vais tester deux ou trois de ces adresses dès ce week-end — et si j'ai d'autres questions sur le quartier, je peux frapper à votre porte ?",
           "usage": "Formule de clôture classique avant de terminer poliment un échange."
         }
       ]
@@ -499,7 +499,7 @@
           "kind": "mot-cle",
           "french": "la garde",
           "english": "the care/boarding (of the pet)",
-          "example": "La garde se fait chez toi ou tu préfères que je l'emmène chez moi ?",
+          "example": "Avant que j'oublie, la garde se fait chez toi ou tu préfères que je l'emmène chez moi ?",
           "usage": "Nom désignant le fait de s'occuper d'un animal en l'absence de son propriétaire."
         },
         {
@@ -507,7 +507,7 @@
           "kind": "mot-cle",
           "french": "maladie",
           "english": "illness/sickness",
-          "example": "S'il montre des signes de stress ou de maladie, comment je dois réagir ?",
+          "example": "Pour ce qui est de la santé, s'il montre des signes de stress ou de maladie, comment je dois réagir ?",
           "usage": "Nom désignant un état de santé dégradé, à surveiller chez un animal de compagnie."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "des signes de stress",
           "english": "signs of stress",
-          "example": "S'il montre des signes de stress ou de maladie, comment je dois réagir ?",
+          "example": "Pour ce qui est de la santé, s'il montre des signes de stress ou de maladie, comment je dois réagir ?",
           "usage": "Nom composé désignant les manifestations comportementales d'anxiété."
         },
         {
@@ -595,7 +595,7 @@
           "kind": "collocation",
           "french": "combien de fois par jour",
           "english": "how many times a day",
-          "example": "Il mange quoi exactement — et c'est combien de fois par jour ?",
+          "example": "Côté repas, il mange quoi exactement — et c'est combien de fois par jour ?",
           "usage": "Structure de fréquence très utile pour aborder les routines alimentaires."
         },
         {
@@ -611,7 +611,7 @@
           "kind": "collocation",
           "french": "habitudes importantes",
           "english": "important habits/routines",
-          "example": "Il y a des habitudes importantes à respecter pour que tout se passe bien ?",
+          "example": "En ce qui concerne l'organisation, il y a des habitudes importantes à respecter pour que tout se passe bien ?",
           "usage": "Collocation adjectif-nom désignant des routines à respecter scrupuleusement."
         },
         {
@@ -619,7 +619,7 @@
           "kind": "collocation",
           "french": "tout se passe bien",
           "english": "everything goes well",
-          "example": "Il y a des habitudes importantes à respecter pour que tout se passe bien ?",
+          "example": "En ce qui concerne l'organisation, il y a des habitudes importantes à respecter pour que tout se passe bien ?",
           "usage": "Expression idiomatique pour souhaiter ou vérifier le bon déroulement d'une situation."
         },
         {
@@ -659,7 +659,7 @@
           "kind": "tournure",
           "french": "c'est quel type d'animal",
           "english": "what type of animal is it",
-          "example": "Alors, c'est quel type d'animal — un chat, un chien, autre chose ?",
+          "example": "Salut ! Bien sûr, je peux m'occuper de ton animal pendant tes vacances. Alors, c'est quel type d'animal — un chat, un chien, autre chose ?",
           "usage": "Amorce classique pour ouvrir une conversation sur la nature d'un animal de compagnie."
         },
         {
@@ -683,7 +683,7 @@
           "kind": "tournure",
           "french": "Il mange quoi exactement",
           "english": "What exactly does it eat",
-          "example": "Il mange quoi exactement — et c'est combien de fois par jour ?",
+          "example": "Côté repas, il mange quoi exactement — et c'est combien de fois par jour ?",
           "usage": "Tournure directe et naturelle pour se renseigner sur une alimentation précise."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "tu préfères que je",
           "english": "do you prefer that I",
-          "example": "La garde se fait chez toi ou tu préfères que je l'emmène chez moi ?",
+          "example": "Avant que j'oublie, la garde se fait chez toi ou tu préfères que je l'emmène chez moi ?",
           "usage": "Tournure polie pour proposer une alternative tout en laissant le choix à l'interlocuteur."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "comment je dois réagir",
           "english": "how should I react",
-          "example": "S'il montre des signes de stress ou de maladie, comment je dois réagir ?",
+          "example": "Pour ce qui est de la santé, s'il montre des signes de stress ou de maladie, comment je dois réagir ?",
           "usage": "Structure réutilisable pour demander la conduite à tenir face à un imprévu."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "je peux te solliciter",
           "english": "may I contact you",
-          "example": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux te solliciter ?",
+          "example": "Voilà, je crois que j'ai tout ce qu'il faut pour bien m'occuper de lui pendant ton absence — et au moindre doute, je peux te solliciter ?",
           "usage": "Tournure polie pour demander la permission de recontacter quelqu'un plus tard."
         },
         {
@@ -744,7 +744,7 @@
           "kind": "mot-cle",
           "french": "la cérémonie de mariage",
           "english": "the wedding ceremony",
-          "example": "Alors, la cérémonie de mariage, c'est prévu pour quand exactement ?",
+          "example": "Salut ! Je suis invité(e) au mariage de ton amie canadienne et je ne sais pas trop à quoi m'attendre — alors, la cérémonie de mariage, c'est prévu pour quand exactement ?",
           "usage": "Groupe nominal central du sujet, désignant l'événement principal."
         },
         {
@@ -768,7 +768,7 @@
           "kind": "mot-cle",
           "french": "une soirée dansante",
           "english": "a dance party/evening",
-          "example": "Comment va se dérouler la journée — il y a un cocktail, un dîner, une soirée dansante ?",
+          "example": "Et concrètement, comment va se dérouler la journée — il y a un cocktail, un dîner, une soirée dansante ?",
           "usage": "Groupe nominal désignant un moment festif consacré à la danse."
         },
         {
@@ -784,7 +784,7 @@
           "kind": "mot-cle",
           "french": "un code vestimentaire",
           "english": "a dress code",
-          "example": "Est-ce qu'il y a un code vestimentaire particulier — des couleurs à porter ou à éviter ?",
+          "example": "En ce qui concerne la tenue, est-ce qu'il y a un code vestimentaire particulier — des couleurs à porter ou à éviter ?",
           "usage": "Nom composé désignant les règles de tenue à respecter lors d'un événement."
         },
         {
@@ -800,7 +800,7 @@
           "kind": "mot-cle",
           "french": "des traditions canadiennes",
           "english": "Canadian traditions",
-          "example": "Est-ce qu'il y a des traditions canadiennes spécifiques que je devrais connaître ?",
+          "example": "Ensuite, est-ce qu'il y a des traditions canadiennes spécifiques que je devrais connaître ?",
           "usage": "Collocation adjectif-nom désignant des coutumes propres à une culture donnée."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "l'hébergement",
           "english": "accommodation",
-          "example": "Pour les invités qui viennent de l'extérieur, tu aurais des recommandations pour l'hébergement ?",
+          "example": "Il me reste un point à éclaircir : pour les invités qui viennent de l'extérieur, tu aurais des recommandations pour l'hébergement ?",
           "usage": "Nom courant désignant le logement prévu pour des invités venus de loin."
         },
         {
@@ -856,7 +856,7 @@
           "kind": "collocation",
           "french": "à porter ou à éviter",
           "english": "to wear or avoid",
-          "example": "Est-ce qu'il y a un code vestimentaire particulier — des couleurs à porter ou à éviter ?",
+          "example": "En ce qui concerne la tenue, est-ce qu'il y a un code vestimentaire particulier — des couleurs à porter ou à éviter ?",
           "usage": "Structure double réutilisable pour aborder des recommandations vestimentaires."
         },
         {
@@ -904,7 +904,7 @@
           "kind": "tournure",
           "french": "c'est prévu pour quand exactement",
           "english": "when exactly is it planned for",
-          "example": "Alors, la cérémonie de mariage, c'est prévu pour quand exactement ?",
+          "example": "Salut ! Je suis invité(e) au mariage de ton amie canadienne et je ne sais pas trop à quoi m'attendre — alors, la cérémonie de mariage, c'est prévu pour quand exactement ?",
           "usage": "Tournure réutilisable pour demander une date précise de façon naturelle."
         },
         {
@@ -928,7 +928,7 @@
           "kind": "tournure",
           "french": "Comment va se dérouler la journée",
           "english": "How will the day unfold",
-          "example": "Comment va se dérouler la journée — il y a un cocktail, un dîner, une soirée dansante ?",
+          "example": "Et concrètement, comment va se dérouler la journée — il y a un cocktail, un dîner, une soirée dansante ?",
           "usage": "Tournure réutilisable pour demander le programme détaillé d'une journée."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "tu aurais des recommandations",
           "english": "would you have recommendations",
-          "example": "Pour les invités qui viennent de l'extérieur, tu aurais des recommandations pour l'hébergement ?",
+          "example": "Il me reste un point à éclaircir : pour les invités qui viennent de l'extérieur, tu aurais des recommandations pour l'hébergement ?",
           "usage": "Tournure conditionnelle pour solliciter poliment des conseils ou suggestions."
         },
         {
@@ -968,7 +968,7 @@
           "kind": "tournure",
           "french": "si j'ai d'autres questions",
           "english": "if I have other questions",
-          "example": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux te solliciter ?",
+          "example": "Merci beaucoup, je me sens prêt(e) pour la cérémonie maintenant — mais si j'ai d'autres questions d'ici le grand jour, je peux te solliciter ?",
           "usage": "Structure conditionnelle courante pour clore poliment un échange."
         },
         {
@@ -976,7 +976,7 @@
           "kind": "tournure",
           "french": "je peux te solliciter",
           "english": "may I reach out to you",
-          "example": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux te solliciter ?",
+          "example": "Merci beaucoup, je me sens prêt(e) pour la cérémonie maintenant — mais si j'ai d'autres questions d'ici le grand jour, je peux te solliciter ?",
           "usage": "Tournure orale polie pour demander la permission de recontacter quelqu'un si besoin."
         }
       ]

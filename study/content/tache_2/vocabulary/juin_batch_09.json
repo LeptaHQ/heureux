@@ -49,7 +49,7 @@
           "kind": "mot-cle",
           "french": "un abonnement",
           "english": "a membership",
-          "example": "Comment fonctionnent les tarifs — il faut souscrire un abonnement ou on peut payer chaque activité séparément ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — il faut souscrire un abonnement ou on peut payer chaque activité séparément ?",
           "usage": "Nom masculin désignant la formule de paiement récurrente pour accéder au centre."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "des vestiaires et des douches",
           "english": "changing rooms and showers",
-          "example": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches ?",
+          "example": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches ?",
           "usage": "Énumération désignant les équipements sanitaires disponibles sur place."
         },
         {
@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "l'inscription",
           "english": "registration",
-          "example": "Comment se passe l'inscription — en ligne ou directement sur place ?",
+          "example": "Côté réservation, comment se passe l'inscription — en ligne ou directement sur place ?",
           "usage": "Nom féminin désignant la démarche pour devenir membre."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "adaptées à tous les niveaux",
           "english": "suitable for all levels",
-          "example": "Le centre propose-t-il des activités adaptées à tous les niveaux, y compris aux débutants ?",
+          "example": "En ce qui concerne l'encadrement, le centre propose-t-il des activités adaptées à tous les niveaux, y compris aux débutants ?",
           "usage": "Collocation utile pour vérifier qu'une offre convient aussi aux débutants."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "encadrés par des professeurs qualifiés",
           "english": "led by qualified instructors",
-          "example": "Les cours sont-ils encadrés par des professeurs qualifiés — et est-ce qu'on peut avoir un coach personnel si besoin ?",
+          "example": "Question niveau, les cours sont-ils encadrés par des professeurs qualifiés — et est-ce qu'on peut avoir un coach personnel si besoin ?",
           "usage": "Collocation au passif pour préciser l'encadrement des cours."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "un coach personnel",
           "english": "a personal trainer",
-          "example": "Les cours sont-ils encadrés par des professeurs qualifiés — et est-ce qu'on peut avoir un coach personnel si besoin ?",
+          "example": "Question niveau, les cours sont-ils encadrés par des professeurs qualifiés — et est-ce qu'on peut avoir un coach personnel si besoin ?",
           "usage": "Groupe nominal désignant un entraîneur individuel."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "souscrire un abonnement",
           "english": "to take out a membership",
-          "example": "Comment fonctionnent les tarifs — il faut souscrire un abonnement ou on peut payer chaque activité séparément ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — il faut souscrire un abonnement ou on peut payer chaque activité séparément ?",
           "usage": "Collocation verbe + nom pour exprimer l'adhésion à une formule."
         },
         {
@@ -153,7 +153,7 @@
           "kind": "collocation",
           "french": "payer chaque activité séparément",
           "english": "to pay for each activity separately",
-          "example": "Comment fonctionnent les tarifs — il faut souscrire un abonnement ou on peut payer chaque activité séparément ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — il faut souscrire un abonnement ou on peut payer chaque activité séparément ?",
           "usage": "Collocation verbe + complément décrivant un paiement à la carte."
         },
         {
@@ -185,7 +185,7 @@
           "kind": "tournure",
           "french": "Comment fonctionnent les tarifs",
           "english": "How do the rates work",
-          "example": "Comment fonctionnent les tarifs — il faut souscrire un abonnement ou on peut payer chaque activité séparément ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — il faut souscrire un abonnement ou on peut payer chaque activité séparément ?",
           "usage": "Question ouverte fréquente pour comprendre une grille tarifaire."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce qu'il faut apporter comme équipement",
           "english": "What equipment do you need to bring",
-          "example": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches ?",
+          "example": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches ?",
           "usage": "Question avec « qu'est-ce qu'il faut » pour connaître le matériel requis."
         },
         {
@@ -217,7 +217,7 @@
           "kind": "tournure",
           "french": "Comment se passe l'inscription",
           "english": "How does registration work",
-          "example": "Comment se passe l'inscription — en ligne ou directement sur place ?",
+          "example": "Côté réservation, comment se passe l'inscription — en ligne ou directement sur place ?",
           "usage": "Question ouverte pour comprendre le déroulement d'une inscription."
         },
         {
@@ -294,7 +294,7 @@
           "kind": "mot-cle",
           "french": "la programmation",
           "english": "the schedule of events",
-          "example": "La programmation est publiée à l'avance ou on la découvre au dernier moment ?",
+          "example": "Dans un autre registre, la programmation est publiée à l'avance ou on la découvre au dernier moment ?",
           "usage": "Nom féminin désignant l'ensemble des événements prévus."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "le transport",
           "english": "transport",
-          "example": "Est-ce que le transport est prévu ou faut-il se rendre sur place par ses propres moyens ?",
+          "example": "Pour ce qui est du trajet, est-ce que le transport est prévu ou faut-il se rendre sur place par ses propres moyens ?",
           "usage": "Nom masculin désignant le moyen d'acheminement vers le lieu de la sortie."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "familles avec enfants",
           "english": "families with children",
-          "example": "Ces sorties conviennent-elles aussi aux familles avec enfants ?",
+          "example": "J'ai encore une question : ces sorties conviennent-elles aussi aux familles avec enfants ?",
           "usage": "Groupe nominal désignant le public familial."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "publiée à l'avance",
           "english": "published in advance",
-          "example": "La programmation est publiée à l'avance ou on la découvre au dernier moment ?",
+          "example": "Dans un autre registre, la programmation est publiée à l'avance ou on la découvre au dernier moment ?",
           "usage": "Collocation participe + locution pour indiquer une diffusion anticipée."
         },
         {
@@ -382,7 +382,7 @@
           "kind": "collocation",
           "french": "payer chaque sortie",
           "english": "to pay for each outing",
-          "example": "Comment fonctionnent les tarifs — c'est gratuit pour les habitants ou il faut payer chaque sortie ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — c'est gratuit pour les habitants ou il faut payer chaque sortie ?",
           "usage": "Collocation verbe + complément décrivant un paiement à l'unité."
         },
         {
@@ -406,7 +406,7 @@
           "kind": "collocation",
           "french": "se rendre sur place",
           "english": "to go there in person",
-          "example": "Est-ce que le transport est prévu ou faut-il se rendre sur place par ses propres moyens ?",
+          "example": "Pour ce qui est du trajet, est-ce que le transport est prévu ou faut-il se rendre sur place par ses propres moyens ?",
           "usage": "Locution verbale pour exprimer le déplacement jusqu'au lieu."
         },
         {
@@ -446,7 +446,7 @@
           "kind": "tournure",
           "french": "Comment fonctionnent les tarifs",
           "english": "How do the rates work",
-          "example": "Comment fonctionnent les tarifs — c'est gratuit pour les habitants ou il faut payer chaque sortie ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — c'est gratuit pour les habitants ou il faut payer chaque sortie ?",
           "usage": "Question ouverte fréquente pour comprendre une grille tarifaire."
         },
         {
@@ -462,7 +462,7 @@
           "kind": "tournure",
           "french": "Est-ce que le transport est prévu",
           "english": "Is transport provided",
-          "example": "Est-ce que le transport est prévu ou faut-il se rendre sur place par ses propres moyens ?",
+          "example": "Pour ce qui est du trajet, est-ce que le transport est prévu ou faut-il se rendre sur place par ses propres moyens ?",
           "usage": "Question avec « est-ce que » pour vérifier l'organisation du transport."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "Ces sorties conviennent-elles aussi aux familles",
           "english": "Are these outings also suitable for families",
-          "example": "Ces sorties conviennent-elles aussi aux familles avec enfants ?",
+          "example": "J'ai encore une question : ces sorties conviennent-elles aussi aux familles avec enfants ?",
           "usage": "Question avec inversion pour vérifier l'adéquation au public familial."
         },
         {
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce que vous appréciez le plus",
           "english": "What do you appreciate most",
-          "example": "Qu'est-ce que vous appréciez le plus dans ces sorties ?",
+          "example": "Une dernière chose me vient à l'esprit : qu'est-ce que vous appréciez le plus dans ces sorties ?",
           "usage": "Question ouverte pour obtenir un retour d'expérience personnel."
         },
         {
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "les loisirs",
           "english": "leisure activities",
-          "example": "Quels sont les loisirs disponibles dans le coin — des parcs, des salles de sport, des bibliothèques ?",
+          "example": "En ce qui concerne les activités, quels sont les loisirs disponibles dans le coin — des parcs, des salles de sport, des bibliothèques ?",
           "usage": "Nom masculin pluriel désignant les activités de détente."
         },
         {
@@ -555,7 +555,7 @@
           "kind": "mot-cle",
           "french": "les transports en commun",
           "english": "public transport",
-          "example": "Le quartier est-il bien desservi par les transports en commun ?",
+          "example": "Et côté déplacements, le quartier est-il bien desservi par les transports en commun ?",
           "usage": "Groupe nominal désignant les moyens de transport collectifs."
         },
         {
@@ -627,7 +627,7 @@
           "kind": "collocation",
           "french": "bien desservi par les transports en commun",
           "english": "well served by public transport",
-          "example": "Le quartier est-il bien desservi par les transports en commun ?",
+          "example": "Et côté déplacements, le quartier est-il bien desservi par les transports en commun ?",
           "usage": "Collocation pour évaluer la qualité de la desserte."
         },
         {
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "des règles à respecter entre voisins",
           "english": "rules to follow between neighbours",
-          "example": "Y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
+          "example": "Côté conditions, y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
           "usage": "Groupe nominal avec infinitif de but sur la vie collective."
         },
         {
@@ -691,7 +691,7 @@
           "kind": "tournure",
           "french": "Quels sont les loisirs disponibles dans le coin",
           "english": "What leisure options are available nearby",
-          "example": "Quels sont les loisirs disponibles dans le coin — des parcs, des salles de sport, des bibliothèques ?",
+          "example": "En ce qui concerne les activités, quels sont les loisirs disponibles dans le coin — des parcs, des salles de sport, des bibliothèques ?",
           "usage": "Question avec « quels sont » pour recenser les loisirs."
         },
         {
@@ -699,7 +699,7 @@
           "kind": "tournure",
           "french": "Le quartier est-il bien desservi",
           "english": "Is the neighbourhood well served",
-          "example": "Le quartier est-il bien desservi par les transports en commun ?",
+          "example": "Et côté déplacements, le quartier est-il bien desservi par les transports en commun ?",
           "usage": "Question avec inversion sur la qualité de la desserte."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "qu'est-ce qui est le plus pratique",
           "english": "what is the most convenient",
-          "example": "Selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
+          "example": "Pour ce qui est du lieu, selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
           "usage": "Tournure superlative pour dégager l'avantage principal."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des choses à savoir sur la vie de l'immeuble",
           "english": "Is there anything to know about life in the building",
-          "example": "Y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
+          "example": "Côté conditions, y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
           "usage": "Tournure « y a-t-il des choses à » + infinitif."
         },
         {
@@ -776,7 +776,7 @@
           "kind": "mot-cle",
           "french": "l'assurance",
           "english": "the insurance",
-          "example": "Est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
+          "example": "Pour ce qui est du budget, est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
           "usage": "Nom féminin désignant la couverture en cas de dommage."
         },
         {
@@ -800,7 +800,7 @@
           "kind": "mot-cle",
           "french": "le plein d'essence",
           "english": "a full tank of fuel",
-          "example": "Faut-il rendre la voiture avec le plein d'essence ?",
+          "example": "Côté transport, faut-il rendre la voiture avec le plein d'essence ?",
           "usage": "Groupe nominal désignant le réservoir rempli au retour."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "la location",
           "english": "the rental",
-          "example": "Comment se passe la location concrètement, de la réservation à la restitution du véhicule ?",
+          "example": "Autre chose : comment se passe la location concrètement, de la réservation à la restitution du véhicule ?",
           "usage": "Nom féminin désignant l'ensemble du service de location."
         },
         {
@@ -848,7 +848,7 @@
           "kind": "collocation",
           "french": "comprise dans le tarif",
           "english": "included in the rate",
-          "example": "Est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
+          "example": "Pour ce qui est du budget, est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
           "usage": "Collocation participe + locution pour ce qui est inclus au prix."
         },
         {
@@ -856,7 +856,7 @@
           "kind": "collocation",
           "french": "la prendre en supplément",
           "english": "to take it as an extra",
-          "example": "Est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
+          "example": "Pour ce qui est du budget, est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
           "usage": "Collocation verbe + locution pour une option payante à part."
         },
         {
@@ -880,7 +880,7 @@
           "kind": "collocation",
           "french": "rendre la voiture",
           "english": "to return the car",
-          "example": "Faut-il rendre la voiture avec le plein d'essence ?",
+          "example": "Côté transport, faut-il rendre la voiture avec le plein d'essence ?",
           "usage": "Collocation verbe + nom pour la restitution du véhicule."
         },
         {
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "de la réservation à la restitution du véhicule",
           "english": "from booking to returning the vehicle",
-          "example": "Comment se passe la location concrètement, de la réservation à la restitution du véhicule ?",
+          "example": "Autre chose : comment se passe la location concrètement, de la réservation à la restitution du véhicule ?",
           "usage": "Expression qui résume toutes les étapes d'une location."
         },
         {
@@ -928,7 +928,7 @@
           "kind": "tournure",
           "french": "Comment fonctionnent les tarifs",
           "english": "How do the rates work",
-          "example": "Comment fonctionnent les tarifs — c'est un prix par jour, par semaine ou au kilométrage ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — c'est un prix par jour, par semaine ou au kilométrage ?",
           "usage": "Question ouverte fréquente pour comprendre une grille tarifaire."
         },
         {
@@ -944,7 +944,7 @@
           "kind": "tournure",
           "french": "Est-ce que l'assurance est comprise dans le tarif",
           "english": "Is the insurance included in the rate",
-          "example": "Est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
+          "example": "Pour ce qui est du budget, est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
           "usage": "Question avec « est-ce que » sur l'inclusion de l'assurance."
         },
         {
@@ -1005,7 +1005,7 @@
           "kind": "mot-cle",
           "french": "une séance",
           "english": "a session",
-          "example": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "example": "Côté organisation, les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
           "usage": "Nom féminin désignant une unité de cours."
         },
         {
@@ -1021,7 +1021,7 @@
           "kind": "mot-cle",
           "french": "les enseignants",
           "english": "the teachers",
-          "example": "Qui sont les enseignants — sont-ils diplômés et locuteurs natifs ?",
+          "example": "Côté niveau, qui sont les enseignants — sont-ils diplômés et locuteurs natifs ?",
           "usage": "Nom masculin pluriel désignant les professeurs de l'école."
         },
         {
@@ -1029,7 +1029,7 @@
           "kind": "mot-cle",
           "french": "locuteurs natifs",
           "english": "native speakers",
-          "example": "Qui sont les enseignants — sont-ils diplômés et locuteurs natifs ?",
+          "example": "Côté niveau, qui sont les enseignants — sont-ils diplômés et locuteurs natifs ?",
           "usage": "Groupe nominal désignant des personnes qui enseignent leur langue première."
         },
         {
@@ -1037,7 +1037,7 @@
           "kind": "mot-cle",
           "french": "la grammaire",
           "english": "grammar",
-          "example": "Les cours sont-ils plutôt axés sur la grammaire, la conversation, ou un mélange des deux ?",
+          "example": "Et les cours sont-ils plutôt axés sur la grammaire, la conversation, ou un mélange des deux ?",
           "usage": "Nom féminin désignant l'étude des règles de la langue."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "la conversation",
           "english": "conversation",
-          "example": "Les cours sont-ils plutôt axés sur la grammaire, la conversation, ou un mélange des deux ?",
+          "example": "Et les cours sont-ils plutôt axés sur la grammaire, la conversation, ou un mélange des deux ?",
           "usage": "Nom féminin désignant la pratique de l'expression orale."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "des manuels",
           "english": "textbooks",
-          "example": "Qu'est-ce qu'il faut apporter — des manuels, des cahiers, ou est-ce que tout est fourni ?",
+          "example": "Question matériel, qu'est-ce qu'il faut apporter — des manuels, des cahiers, ou est-ce que tout est fourni ?",
           "usage": "Nom masculin pluriel désignant les livres de cours à apporter."
         },
         {
@@ -1093,7 +1093,7 @@
           "kind": "collocation",
           "french": "dure une séance",
           "english": "a session lasts",
-          "example": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "example": "Côté organisation, les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
           "usage": "Collocation verbe + sujet pour interroger sur la durée."
         },
         {
@@ -1101,7 +1101,7 @@
           "kind": "collocation",
           "french": "sous forme de forfait",
           "english": "as a package",
-          "example": "Comment fonctionnent les tarifs — c'est à la séance ou sous forme de forfait ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — c'est à la séance ou sous forme de forfait ?",
           "usage": "Locution pour décrire un mode de tarification global."
         },
         {
@@ -1165,7 +1165,7 @@
           "kind": "tournure",
           "french": "Les cours ont lieu à quelle fréquence",
           "english": "How often do the classes take place",
-          "example": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "example": "Côté organisation, les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
           "usage": "Question avec « à quelle fréquence » postposé sur le rythme."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "À quel niveau ça s'adresse",
           "english": "What level is it aimed at",
-          "example": "À quel niveau ça s'adresse — plutôt aux débutants ou aussi aux personnes qui ont déjà des bases ?",
+          "example": "En ce qui concerne l'encadrement, à quel niveau ça s'adresse — plutôt aux débutants ou aussi aux personnes qui ont déjà des bases ?",
           "usage": "Tournure orale avec « ça » pour cibler le niveau."
         },
         {
@@ -1189,7 +1189,7 @@
           "kind": "tournure",
           "french": "Qui sont les enseignants",
           "english": "Who are the teachers",
-          "example": "Qui sont les enseignants — sont-ils diplômés et locuteurs natifs ?",
+          "example": "Côté niveau, qui sont les enseignants — sont-ils diplômés et locuteurs natifs ?",
           "usage": "Question avec « qui » attribut sur l'identité des professeurs."
         },
         {
@@ -1197,7 +1197,7 @@
           "kind": "tournure",
           "french": "Les cours sont-ils plutôt axés sur la grammaire",
           "english": "Are the classes focused more on grammar",
-          "example": "Les cours sont-ils plutôt axés sur la grammaire, la conversation, ou un mélange des deux ?",
+          "example": "Et les cours sont-ils plutôt axés sur la grammaire, la conversation, ou un mélange des deux ?",
           "usage": "Question avec inversion sur l'orientation pédagogique."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "Comment fonctionnent les tarifs",
           "english": "How do the rates work",
-          "example": "Comment fonctionnent les tarifs — c'est à la séance ou sous forme de forfait ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — c'est à la séance ou sous forme de forfait ?",
           "usage": "Question ouverte fréquente pour comprendre une grille tarifaire."
         },
         {

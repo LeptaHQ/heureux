@@ -9,7 +9,7 @@
           "kind": "mot-cle",
           "french": "pays francophone",
           "english": "French-speaking country",
-          "example": "Bonjour ! Pour commencer, de quel pays francophone venez-vous ?",
+          "example": "Bonjour ! Je réalise une enquête pour mon cours de français et vous avez accepté d'y répondre — pour commencer, de quel pays francophone venez-vous ?",
           "usage": "Groupe nominal pour désigner le pays d’origine de l’étudiant."
         },
         {
@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "au quotidien",
           "english": "on a daily basis",
-          "example": "Comment vous déplacez-vous au quotidien — à pied, en bus, en métro, à vélo ou autrement ?",
+          "example": "Côté déplacements, comment vous déplacez-vous au quotidien — à pied, en bus, en métro, à vélo ou autrement ?",
           "usage": "Locution utile pour évoquer les déplacements de tous les jours."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "votre temps libre",
           "english": "your free time",
-          "example": "Qu'est-ce que vous aimez faire pendant votre temps libre — du sport, de la musique, de la lecture, les réseaux sociaux ?",
+          "example": "Autre chose : qu'est-ce que vous aimez faire pendant votre temps libre — du sport, de la musique, de la lecture, les réseaux sociaux ?",
           "usage": "Groupe nominal pour parler des loisirs et moments sans cours."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "à pied, en bus, en métro",
           "english": "on foot, by bus, by subway",
-          "example": "Comment vous déplacez-vous au quotidien — à pied, en bus, en métro, à vélo ou autrement ?",
+          "example": "Côté déplacements, comment vous déplacez-vous au quotidien — à pied, en bus, en métro, à vélo ou autrement ?",
           "usage": "Suite de moyens de transport pour décrire un trajet quotidien."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "faire pendant votre temps libre",
           "english": "to do during your free time",
-          "example": "Qu'est-ce que vous aimez faire pendant votre temps libre — du sport, de la musique, de la lecture, les réseaux sociaux ?",
+          "example": "Autre chose : qu'est-ce que vous aimez faire pendant votre temps libre — du sport, de la musique, de la lecture, les réseaux sociaux ?",
           "usage": "Collocation utile pour demander des activités de loisirs."
         },
         {
@@ -161,7 +161,7 @@
           "kind": "collocation",
           "french": "coutumes canadiennes",
           "english": "Canadian customs",
-          "example": "Quelles habitudes ou quelles coutumes canadiennes vous ont le plus surpris(e) depuis votre arrivée ?",
+          "example": "Une dernière chose me vient à l'esprit : quelles habitudes ou quelles coutumes canadiennes vous ont le plus surpris(e) depuis votre arrivée ?",
           "usage": "Collocation nominale pour évoquer des habitudes locales."
         },
         {
@@ -169,7 +169,7 @@
           "kind": "tournure",
           "french": "de quel pays francophone venez-vous",
           "english": "which French-speaking country do you come from",
-          "example": "Bonjour ! Pour commencer, de quel pays francophone venez-vous ?",
+          "example": "Bonjour ! Je réalise une enquête pour mon cours de français et vous avez accepté d'y répondre — pour commencer, de quel pays francophone venez-vous ?",
           "usage": "Question formelle pour demander le pays d’origine."
         },
         {
@@ -217,7 +217,7 @@
           "kind": "tournure",
           "french": "Comment vous déplacez-vous au quotidien",
           "english": "how do you get around every day",
-          "example": "Comment vous déplacez-vous au quotidien — à pied, en bus, en métro, à vélo ou autrement ?",
+          "example": "Côté déplacements, comment vous déplacez-vous au quotidien — à pied, en bus, en métro, à vélo ou autrement ?",
           "usage": "Question pratique sur le transport quotidien."
         },
         {
@@ -233,7 +233,7 @@
           "kind": "tournure",
           "french": "Après vos études, quels sont vos projets",
           "english": "after your studies, what are your plans",
-          "example": "Après vos études, quels sont vos projets ?",
+          "example": "Et pour la suite, après vos études, quels sont vos projets ?",
           "usage": "Question directe sur les projets d’avenir."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "connaissances littéraires",
           "english": "literary knowledge",
-          "example": "Quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?",
+          "example": "En ce qui concerne l'encadrement, quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?",
           "usage": "Groupe nominal pour évoquer le niveau attendu."
         },
         {
@@ -334,7 +334,7 @@
           "kind": "collocation",
           "french": "s'inscrire à l'avance",
           "english": "sign up in advance",
-          "example": "Faut-il s'inscrire à l'avance, et comment ?",
+          "example": "En ce qui concerne la participation, faut-il s'inscrire à l'avance, et comment ?",
           "usage": "Verbe + complément sur l'inscription."
         },
         {
@@ -358,7 +358,7 @@
           "kind": "collocation",
           "french": "cela a lieu exactement",
           "english": "it takes place exactly",
-          "example": "Quand est-ce que cela a lieu exactement, et combien de temps cela dure-t-il ?",
+          "example": "Côté calendrier, quand est-ce que cela a lieu exactement, et combien de temps cela dure-t-il ?",
           "usage": "Suite verbale pour demander le moment précis d’un événement."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "se sentir à l'aise",
           "english": "feel comfortable",
-          "example": "Quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?",
+          "example": "En ce qui concerne l'encadrement, quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?",
           "usage": "Expression utile pour parler du niveau requis."
         },
         {
@@ -382,7 +382,7 @@
           "kind": "collocation",
           "french": "les consulter avant de décider",
           "english": "consult them before deciding",
-          "example": "Quelles sont les règles principales, et peut-on les consulter avant de décider ?",
+          "example": "Question conditions, quelles sont les règles principales, et peut-on les consulter avant de décider ?",
           "usage": "Collocation verbale pour parler du règlement disponible à l’avance."
         },
         {
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "des prix ou des cadeaux",
           "english": "prizes or gifts",
-          "example": "Qu'est-ce qu'on peut gagner — y a-t-il des prix ou des cadeaux ?",
+          "example": "Côté récompenses, qu'est-ce qu'on peut gagner — y a-t-il des prix ou des cadeaux ?",
           "usage": "Groupe nominal utile pour évoquer les récompenses possibles."
         },
         {
@@ -446,7 +446,7 @@
           "kind": "tournure",
           "french": "Quand est-ce que cela a lieu exactement",
           "english": "when exactly does it take place",
-          "example": "Quand est-ce que cela a lieu exactement, et combien de temps cela dure-t-il ?",
+          "example": "Côté calendrier, quand est-ce que cela a lieu exactement, et combien de temps cela dure-t-il ?",
           "usage": "Tournure fréquente pour demander la date et l’horaire."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "Quel niveau de connaissances littéraires faut-il avoir",
           "english": "what level of literary knowledge is needed",
-          "example": "Quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?",
+          "example": "En ce qui concerne l'encadrement, quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?",
           "usage": "Question détaillée pour évaluer la difficulté du jeu."
         },
         {
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "Quelles sont les règles principales",
           "english": "what are the main rules",
-          "example": "Quelles sont les règles principales, et peut-on les consulter avant de décider ?",
+          "example": "Question conditions, quelles sont les règles principales, et peut-on les consulter avant de décider ?",
           "usage": "Question directe pour obtenir le règlement essentiel."
         },
         {
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "un petit groupe",
           "english": "a small group",
-          "example": "Il y a généralement combien de participants — c'est un petit groupe ou un grand groupe ?",
+          "example": "Pour ce qui est des personnes présentes, il y a généralement combien de participants — c'est un petit groupe ou un grand groupe ?",
           "usage": "Groupe nominal pour décrire un effectif réduit."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "une tenue particulière",
           "english": "special clothing",
-          "example": "Qu'est-ce qu'il faut apporter — du matériel, une tenue particulière, ou est-ce que tout est fourni ?",
+          "example": "Côté affaires à prévoir, qu'est-ce qu'il faut apporter — du matériel, une tenue particulière, ou est-ce que tout est fourni ?",
           "usage": "Groupe nominal pour parler d’un vêtement requis."
         },
         {
@@ -603,7 +603,7 @@
           "kind": "collocation",
           "french": "un grand groupe",
           "english": "a large group",
-          "example": "Il y a généralement combien de participants — c'est un petit groupe ou un grand groupe ?",
+          "example": "Pour ce qui est des personnes présentes, il y a généralement combien de participants — c'est un petit groupe ou un grand groupe ?",
           "usage": "Collocation pour opposer un effectif nombreux à un petit groupe."
         },
         {
@@ -611,7 +611,7 @@
           "kind": "collocation",
           "french": "payer à la séance",
           "english": "pay per session",
-          "example": "Comment fonctionnent les tarifs — faut-il payer à la séance ou s'inscrire pour toute la session ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il payer à la séance ou s'inscrire pour toute la session ?",
           "usage": "Expression fréquente pour parler du mode de paiement."
         },
         {
@@ -619,7 +619,7 @@
           "kind": "collocation",
           "french": "s'inscrire pour toute la session",
           "english": "sign up for the whole session",
-          "example": "Comment fonctionnent les tarifs — faut-il payer à la séance ou s'inscrire pour toute la session ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il payer à la séance ou s'inscrire pour toute la session ?",
           "usage": "Collocation utile pour parler d’un engagement plus long."
         },
         {
@@ -643,7 +643,7 @@
           "kind": "collocation",
           "french": "tu en es content(e)",
           "english": "you are happy with it",
-          "example": "Toi, qu'est-ce que tu aimes le plus dans cette activité — tu en es content(e) ?",
+          "example": "Avant que j'oublie, toi, qu'est-ce que tu aimes le plus dans cette activité — tu en es content(e) ?",
           "usage": "Expression orale pour demander un avis personnel."
         },
         {
@@ -691,7 +691,7 @@
           "kind": "tournure",
           "french": "Il y a généralement combien de participants",
           "english": "how many participants are there generally",
-          "example": "Il y a généralement combien de participants — c'est un petit groupe ou un grand groupe ?",
+          "example": "Pour ce qui est des personnes présentes, il y a généralement combien de participants — c'est un petit groupe ou un grand groupe ?",
           "usage": "Question fréquente sur la taille du groupe."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "Comment fonctionnent les tarifs",
           "english": "how the pricing works",
-          "example": "Comment fonctionnent les tarifs — faut-il payer à la séance ou s'inscrire pour toute la session ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il payer à la séance ou s'inscrire pour toute la session ?",
           "usage": "Question pratique sur les modalités de paiement."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce qu'il faut apporter",
           "english": "what needs to be brought",
-          "example": "Qu'est-ce qu'il faut apporter — du matériel, une tenue particulière, ou est-ce que tout est fourni ?",
+          "example": "Côté affaires à prévoir, qu'est-ce qu'il faut apporter — du matériel, une tenue particulière, ou est-ce que tout est fourni ?",
           "usage": "Question utile pour vérifier le matériel nécessaire."
         },
         {
@@ -1013,7 +1013,7 @@
           "kind": "mot-cle",
           "french": "activités intéressantes",
           "english": "interesting activities",
-          "example": "Dans ce pays-là, qu'est-ce qu'on peut faire comme activités intéressantes ?",
+          "example": "Et concrètement, dans ce pays-là, qu'est-ce qu'on peut faire comme activités intéressantes ?",
           "usage": "Groupe nominal pour parler de ce qu’on peut faire sur place."
         },
         {
@@ -1021,7 +1021,7 @@
           "kind": "mot-cle",
           "french": "le climat",
           "english": "the climate",
-          "example": "Le climat y est comment, et quelle est la meilleure période pour y aller ?",
+          "example": "Côté météo, le climat y est comment, et quelle est la meilleure période pour y aller ?",
           "usage": "Nom utile pour parler de la météo d’une destination."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "des précautions particulières",
           "english": "special precautions",
-          "example": "Il y a des questions de sécurité ou des précautions particulières à connaître ?",
+          "example": "Une chose encore : il y a des questions de sécurité ou des précautions particulières à connaître ?",
           "usage": "Groupe nominal pour parler de sécurité et de vigilance."
         },
         {
@@ -1093,7 +1093,7 @@
           "kind": "collocation",
           "french": "faire comme activités intéressantes",
           "english": "do as interesting activities",
-          "example": "Dans ce pays-là, qu'est-ce qu'on peut faire comme activités intéressantes ?",
+          "example": "Et concrètement, dans ce pays-là, qu'est-ce qu'on peut faire comme activités intéressantes ?",
           "usage": "Expression utile pour demander les activités possibles."
         },
         {
@@ -1101,7 +1101,7 @@
           "kind": "collocation",
           "french": "la meilleure période pour y aller",
           "english": "the best time to go there",
-          "example": "Le climat y est comment, et quelle est la meilleure période pour y aller ?",
+          "example": "Côté météo, le climat y est comment, et quelle est la meilleure période pour y aller ?",
           "usage": "Collocation très fréquente pour parler de saison idéale."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "ce qui t'a le plus surpris",
           "english": "what surprised you the most",
-          "example": "Qu'est-ce qui t'a le plus surpris dans ce pays ?",
+          "example": "Ensuite, qu'est-ce qui t'a le plus surpris dans ce pays ?",
           "usage": "Expression utile pour demander un élément marquant ou inattendu."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "qu'est-ce qu'on peut faire comme activités intéressantes",
           "english": "what interesting activities can one do",
-          "example": "Dans ce pays-là, qu'est-ce qu'on peut faire comme activités intéressantes ?",
+          "example": "Et concrètement, dans ce pays-là, qu'est-ce qu'on peut faire comme activités intéressantes ?",
           "usage": "Tournure utile pour demander des idées d’activités."
         },
         {
@@ -1181,7 +1181,7 @@
           "kind": "tournure",
           "french": "quelle est la meilleure période pour y aller",
           "english": "what is the best time to go there",
-          "example": "Le climat y est comment, et quelle est la meilleure période pour y aller ?",
+          "example": "Côté météo, le climat y est comment, et quelle est la meilleure période pour y aller ?",
           "usage": "Question standard sur la meilleure saison pour voyager."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "Quels endroits sont vraiment incontournables sur place",
           "english": "which places are truly must-see there",
-          "example": "Quels endroits sont vraiment incontournables sur place ?",
+          "example": "Question lieu, quels endroits sont vraiment incontournables sur place ?",
           "usage": "Question directe pour obtenir les visites essentielles."
         },
         {

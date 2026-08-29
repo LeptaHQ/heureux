@@ -24,13 +24,27 @@
           "text": "De quoi ça parlait — quel était le thème ou l'histoire ?"
         },
         {
-          "text": "C'était plutôt classique, moderne, ou original dans sa mise en scène ?"
+          "text": "À ce propos, c'était plutôt classique, moderne, ou original dans sa mise en scène ?"
         },
         {
           "text": "Ce spectacle s'adresse-t-il plutôt à un public adulte ou est-il aussi adapté aux familles ?"
         },
         {
-          "text": "Ça se passait où — dans quelle salle ou quel théâtre ?"
+          "text": "Côté impressions, qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
+          "memory_number": 9,
+          "memory_section": 10
+        },
+        {
+          "text": "Selon toi, ce spectacle peut-il donner lieu à un article intéressant pour notre association ?"
+        },
+        {
+          "text": "Tu aurais d'autres spectacles du même genre à me conseiller ?"
+        },
+        {
+          "text": "Côté programmation, est-ce que c'est encore à l'affiche, ou c'était une représentation unique ?"
+        },
+        {
+          "text": "Côté pratique, ça se passait où — dans quelle salle ou quel théâtre ?"
         },
         {
           "text": "Combien de temps dure le spectacle en général ?"
@@ -42,20 +56,6 @@
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
           "memory_number": 9,
           "memory_section": 3
-        },
-        {
-          "text": "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
-          "memory_number": 9,
-          "memory_section": 10
-        },
-        {
-          "text": "Est-ce que c'est encore à l'affiche, ou c'était une représentation unique ?"
-        },
-        {
-          "text": "Selon toi, ce spectacle peut-il donner lieu à un article intéressant pour notre association ?"
-        },
-        {
-          "text": "Tu aurais d'autres spectacles du même genre à me conseiller ?"
         },
         {
           "text": "Pour finir — est-ce que tu recommanderais ce spectacle aux lecteurs de notre revue ?"
@@ -77,7 +77,28 @@
           "text": "Le réseau couvre bien toute la ville, ou seulement le centre ?"
         },
         {
-          "text": "Comment fonctionnent les tarifs — il vaut mieux une carte, un abonnement, ou payer chaque trajet ?"
+          "text": "Pour ce qui est des horaires, les transports fonctionnent jusqu'à quelle heure le soir ?"
+        },
+        {
+          "text": "Est-ce que ça marche aussi le week-end, avec les mêmes horaires ?"
+        },
+        {
+          "text": "D'ailleurs, il y a une application pour suivre les horaires et planifier un itinéraire ?"
+        },
+        {
+          "text": "Et pour quelqu'un qui débarque, le métro, c'est simple à comprendre quand on ne connaît pas ?"
+        },
+        {
+          "text": "Depuis le centre, c'est facile de rejoindre les endroits où je vais travailler ?"
+        },
+        {
+          "text": "Il y a des heures de pointe à éviter parce que c'est bondé ?"
+        },
+        {
+          "text": "Côté imprévus, si je me trompe de ligne ou que j'ai un souci, à qui je peux demander ?"
+        },
+        {
+          "text": "Côté budget, comment fonctionnent les tarifs — il vaut mieux une carte, un abonnement, ou payer chaque trajet ?"
         },
         {
           "text": "Où est-ce que j'achète les titres de transport — en ligne, à une borne, au guichet ?"
@@ -87,27 +108,6 @@
         },
         {
           "text": "Un même ticket est valable pour le métro et le bus ?"
-        },
-        {
-          "text": "Les transports fonctionnent jusqu'à quelle heure le soir ?"
-        },
-        {
-          "text": "Est-ce que ça marche aussi le week-end, avec les mêmes horaires ?"
-        },
-        {
-          "text": "Il y a une application pour suivre les horaires et planifier un itinéraire ?"
-        },
-        {
-          "text": "Depuis le centre, c'est facile de rejoindre les endroits où je vais travailler ?"
-        },
-        {
-          "text": "Il y a des heures de pointe à éviter parce que c'est bondé ?"
-        },
-        {
-          "text": "Le métro, c'est simple à comprendre quand on ne connaît pas ?"
-        },
-        {
-          "text": "Si je me trompe de ligne ou que j'ai un souci, à qui je peux demander ?"
         },
         {
           "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour bien me déplacer à Montréal, ce serait lequel ?"
@@ -135,31 +135,31 @@
           "text": "C'est ouvert à tous les niveaux, ou il faut un certain niveau de français ?"
         },
         {
-          "text": "Quand est-ce que ça se déroule — sur une journée, ou sur plusieurs semaines ?"
+          "text": "Passons maintenant à un autre point : combien d'étudiants participent en général ?"
+        },
+        {
+          "text": "Côté calendrier, quand est-ce que ça se déroule — sur une journée, ou sur plusieurs semaines ?"
         },
         {
           "text": "Où est-ce que ça se passe — dans l'école ou à l'extérieur ?"
         },
         {
-          "text": "Faut-il s'inscrire à l'avance, et comment ?"
+          "text": "En ce qui concerne la participation, faut-il s'inscrire à l'avance, et comment ?"
         },
         {
           "text": "Est-ce qu'il y a des frais de participation, ou c'est gratuit ?"
-        },
-        {
-          "text": "Qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?"
-        },
-        {
-          "text": "Est-ce que ça aide à progresser en français ?"
-        },
-        {
-          "text": "Combien d'étudiants participent en général ?"
         },
         {
           "text": "Faut-il préparer quelque chose à l'avance ?"
         },
         {
           "text": "Est-ce qu'on peut venir juste pour essayer, sans s'engager ?"
+        },
+        {
+          "text": "Une dernière chose me vient à l'esprit : qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?"
+        },
+        {
+          "text": "Est-ce que ça aide à progresser en français ?"
         },
         {
           "text": "Pour finir — qu'est-ce que vous me conseillez pour bien m'y préparer ?"
@@ -184,7 +184,13 @@
           "text": "Ce serait pour combien de temps — une mission temporaire ou une affectation longue ?"
         },
         {
-          "text": "Comment évoluerait mon salaire par rapport à mon poste actuel ?"
+          "text": "Question invités, à qui serais-je rattaché(e), et avec quelle équipe je travaillerais ?"
+        },
+        {
+          "text": "Est-ce que la langue de travail sera le français, ou faut-il maîtriser une autre langue ?"
+        },
+        {
+          "text": "En ce qui concerne la rémunération, comment évoluerait mon salaire par rapport à mon poste actuel ?"
         },
         {
           "text": "Y a-t-il des avantages liés à l'expatriation — logement, prime, prise en charge du déménagement ?"
@@ -193,22 +199,16 @@
           "text": "Qui prend en charge les frais de voyage et d'installation ?"
         },
         {
-          "text": "Comment ça se passe pour la couverture santé et la protection sociale sur place ?"
+          "text": "Côté assurance, comment ça se passe pour la couverture santé et la protection sociale sur place ?"
         },
         {
-          "text": "À qui serais-je rattaché(e), et avec quelle équipe je travaillerais ?"
+          "text": "Autre point important : ma famille pourrait-elle m'accompagner, avec un accompagnement prévu ?"
         },
         {
-          "text": "Est-ce que la langue de travail sera le français, ou faut-il maîtriser une autre langue ?"
-        },
-        {
-          "text": "Quelles seraient les perspectives d'évolution après cette expérience ?"
+          "text": "Et sur le plus long terme, quelles seraient les perspectives d'évolution après cette expérience ?"
         },
         {
           "text": "Je pourrais revenir à mon poste actuel si ça ne me convient pas ?"
-        },
-        {
-          "text": "Ma famille pourrait-elle m'accompagner, avec un accompagnement prévu ?"
         },
         {
           "text": "De combien de temps je dispose pour donner ma réponse ?",
@@ -231,6 +231,9 @@
           "text": "Salut ! J'ai envie de sortir ce soir mais je ne sais pas trop quoi faire — tu aurais des idées ?"
         },
         {
+          "text": "D'abord, tu préfères quelque chose de tranquille ou plutôt animé ce soir ?"
+        },
+        {
           "text": "Qu'est-ce qu'il y a de sympa à faire un soir dans le coin ?"
         },
         {
@@ -243,7 +246,13 @@
           "text": "C'est plutôt calme un soir de semaine, ou il y a de l'ambiance ?"
         },
         {
-          "text": "Ça coûte cher en général, ou on peut trouver des sorties pas chères ?"
+          "text": "Côté participants, on serait juste nous deux, ou tu veux qu'on invite d'autres personnes ?"
+        },
+        {
+          "text": "Pour manger un morceau, tu connais une bonne adresse pas loin ?"
+        },
+        {
+          "text": "Côté budget, ça coûte cher en général, ou on peut trouver des sorties pas chères ?"
         },
         {
           "text": "Il faut réserver quelque part, ou on peut y aller sans prévoir ?"
@@ -255,16 +264,7 @@
           "text": "Jusqu'à quelle heure les endroits restent ouverts un soir de semaine ?"
         },
         {
-          "text": "Pour manger un morceau, tu connais une bonne adresse pas loin ?"
-        },
-        {
-          "text": "Tu préfères quelque chose de tranquille ou plutôt animé ce soir ?"
-        },
-        {
-          "text": "On serait juste nous deux, ou tu veux qu'on invite d'autres personnes ?"
-        },
-        {
-          "text": "Il faut prévoir une tenue particulière pour certains endroits ?"
+          "text": "Question matériel, il faut prévoir une tenue particulière pour certains endroits ?"
         },
         {
           "text": "Et s'il fait mauvais, tu aurais une idée d'activité en intérieur ?"

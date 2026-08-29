@@ -33,7 +33,7 @@
           "kind": "mot-cle",
           "french": "les horaires d'ouverture",
           "english": "the opening hours",
-          "example": "Quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "example": "Et plus largement, quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
           "usage": "Groupe nominal indiquant les plages horaires d'accès à un établissement."
         },
         {
@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "un abonnement",
           "english": "a subscription/membership",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
           "usage": "Nom désignant un engagement payant régulier."
         },
         {
@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "une période d'essai gratuite",
           "english": "a free trial period",
-          "example": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
+          "example": "Sur un autre point, est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
           "usage": "Groupe nominal désignant une durée d'essai sans frais avant engagement."
         },
         {
@@ -65,7 +65,7 @@
           "kind": "mot-cle",
           "french": "des vestiaires et des douches",
           "english": "changing rooms and showers",
-          "example": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
+          "example": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
           "usage": "Coordination de deux noms désignant les équipements sanitaires d'un club."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "l'inscription",
           "english": "the registration/sign-up",
-          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
+          "example": "Question réservation, comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
           "usage": "Nom désignant la démarche administrative pour devenir membre."
         },
         {
@@ -105,7 +105,7 @@
           "kind": "collocation",
           "french": "se sentir perdu(e)",
           "english": "to feel lost",
-          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "example": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "usage": "Association verbe pronominal + adjectif pour exprimer un sentiment de confusion."
         },
         {
@@ -113,7 +113,7 @@
           "kind": "collocation",
           "french": "souscrire à un abonnement",
           "english": "to take out a subscription",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
           "usage": "Association verbe + préposition + nom pour décrire un engagement payant."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "payer chaque activité séparément",
           "english": "to pay for each activity separately",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
           "usage": "Association verbe + complément + adverbe pour décrire un mode de paiement à l'unité."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "avant de s'engager",
           "english": "before committing",
-          "example": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
+          "example": "Sur un autre point, est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
           "usage": "Locution prépositionnelle + infinitif pronominal pour évoquer une période préalable à un engagement."
         },
         {
@@ -185,7 +185,7 @@
           "kind": "tournure",
           "french": "Ça s'adresse à quel public",
           "english": "Who is it aimed at",
-          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "example": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "usage": "Question orale avec le groupe interrogatif 'quel public' maintenu après le verbe, sans inversion."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "Quels sont les horaires d'ouverture",
           "english": "What are the opening hours",
-          "example": "Quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "example": "Et plus largement, quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
           "usage": "Question soutenue avec inversion du sujet 'les horaires d'ouverture' après le verbe 'sont'."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "tournure",
           "french": "Comment fonctionnent les tarifs",
           "english": "How do the rates work",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
           "usage": "Question soutenue avec inversion du sujet 'les tarifs' après le verbe 'fonctionnent'."
         },
         {
@@ -217,7 +217,7 @@
           "kind": "tournure",
           "french": "Le tarif comprend quoi exactement",
           "english": "What exactly does the price include",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
           "usage": "Question orale à l'ordre habituel sujet-verbe, avec 'quoi' maintenu en position finale."
         },
         {
@@ -233,7 +233,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce qu'il faut apporter comme équipement",
           "english": "What equipment do you need to bring",
-          "example": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
+          "example": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
           "usage": "Structure avec 'qu'est-ce que' pour interroger sur un contenu, sans inversion."
         },
         {
@@ -241,7 +241,7 @@
           "kind": "tournure",
           "french": "Comment se passe l'inscription",
           "english": "How does the registration work",
-          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
+          "example": "Question réservation, comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
           "usage": "Question soutenue avec inversion du sujet 'l'inscription' après le verbe pronominal 'passe'."
         }
       ]
@@ -539,7 +539,7 @@
           "kind": "mot-cle",
           "french": "un large public",
           "english": "a wide audience",
-          "example": "Ça s'adresse à quel public — plutôt aux lecteurs habitués à suivre l'actualité ou accessible à un large public ?",
+          "example": "Pour ce qui est du niveau, ça s'adresse à quel public — plutôt aux lecteurs habitués à suivre l'actualité ou accessible à un large public ?",
           "usage": "Groupe nominal désignant un lectorat étendu et varié."
         },
         {
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "le niveau de langue",
           "english": "the language level",
-          "example": "Le niveau de langue est-il accessible pour quelqu'un qui apprend encore le français ?",
+          "example": "Pendant que j'y pense, le niveau de langue est-il accessible pour quelqu'un qui apprend encore le français ?",
           "usage": "Groupe nominal désignant le degré de complexité linguistique d'un texte."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "la version numérique",
           "english": "the digital version",
-          "example": "Est-ce que la version numérique est comprise ou il faut l'acheter séparément ?",
+          "example": "Dernier point pratique : est-ce que la version numérique est comprise ou il faut l'acheter séparément ?",
           "usage": "Groupe nominal désignant la version en ligne d'une publication imprimée."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "un quotidien",
           "english": "a daily newspaper",
-          "example": "Vous avez mentionné un quotidien en particulier — vous pourriez m'en dire un peu plus ?",
+          "example": "Vous avez mentionné un quotidien en particulier — vous pourriez m'en dire un peu plus : il paraît tous les jours ?",
           "usage": "Nom désignant un journal publié chaque jour."
         },
         {
@@ -595,7 +595,7 @@
           "kind": "collocation",
           "french": "suivre l'actualité",
           "english": "to follow the news",
-          "example": "Ça s'adresse à quel public — plutôt aux lecteurs habitués à suivre l'actualité ou accessible à un large public ?",
+          "example": "Pour ce qui est du niveau, ça s'adresse à quel public — plutôt aux lecteurs habitués à suivre l'actualité ou accessible à un large public ?",
           "usage": "Collocation courante pour parler d'une lecture régulière des nouvelles."
         },
         {
@@ -635,7 +635,7 @@
           "kind": "collocation",
           "french": "prévoir beaucoup de temps",
           "english": "to set aside a lot of time",
-          "example": "Les articles sont plutôt courts ou faut-il prévoir beaucoup de temps pour les lire ?",
+          "example": "Côté lecture, les articles sont plutôt courts ou faut-il prévoir beaucoup de temps pour les lire ?",
           "usage": "Association verbe + groupe nominal pour anticiper une durée nécessaire."
         },
         {
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "l'acheter séparément",
           "english": "buy it separately",
-          "example": "Est-ce que la version numérique est comprise ou il faut l'acheter séparément ?",
+          "example": "Dernier point pratique : est-ce que la version numérique est comprise ou il faut l'acheter séparément ?",
           "usage": "Association verbe + pronom + adverbe pour décrire un achat distinct."
         },
         {
@@ -683,7 +683,7 @@
           "kind": "tournure",
           "french": "Ça s'adresse à quel public",
           "english": "Who is it aimed at",
-          "example": "Ça s'adresse à quel public — plutôt aux lecteurs habitués à suivre l'actualité ou accessible à un large public ?",
+          "example": "Pour ce qui est du niveau, ça s'adresse à quel public — plutôt aux lecteurs habitués à suivre l'actualité ou accessible à un large public ?",
           "usage": "Question orale avec le groupe interrogatif maintenu après le verbe, sans inversion."
         },
         {
@@ -699,7 +699,7 @@
           "kind": "tournure",
           "french": "Le niveau de langue est-il accessible",
           "english": "Is the language level accessible",
-          "example": "Le niveau de langue est-il accessible pour quelqu'un qui apprend encore le français ?",
+          "example": "Pendant que j'y pense, le niveau de langue est-il accessible pour quelqu'un qui apprend encore le français ?",
           "usage": "Question avec inversion du pronom sujet 'il' relié au verbe par un trait d'union."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "vous pourriez m'en dire un peu plus",
           "english": "could you tell me a bit more about it",
-          "example": "Vous avez mentionné un quotidien en particulier — vous pourriez m'en dire un peu plus ?",
+          "example": "Vous avez mentionné un quotidien en particulier — vous pourriez m'en dire un peu plus : il paraît tous les jours ?",
           "usage": "Formule de relance au conditionnel pour approfondir un point mentionné."
         },
         {
@@ -800,7 +800,7 @@
           "kind": "mot-cle",
           "french": "l'hébergement",
           "english": "accommodation",
-          "example": "Pour l'hébergement, est-ce que l'université s'en occupe ou je dois réserver moi-même ?",
+          "example": "Pour ce qui est de l'hébergement, est-ce que l'université s'en occupe ou je dois réserver moi-même ?",
           "usage": "Nom désignant le logement prévu pendant un séjour à l'étranger."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "des démarches administratives",
           "english": "administrative procedures",
-          "example": "Est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
+          "example": "En ce qui concerne les papiers, est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
           "usage": "Ensemble des formalités à accomplir avant un déplacement à l'étranger."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "un visa",
           "english": "a visa",
-          "example": "Est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
+          "example": "En ce qui concerne les papiers, est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
           "usage": "Autorisation officielle nécessaire pour entrer sur le territoire d'un autre pays."
         },
         {
@@ -848,7 +848,7 @@
           "kind": "collocation",
           "french": "un niveau de langue particulier",
           "english": "a particular language level",
-          "example": "Ça s'adresse à quel profil — faut-il avoir un niveau de langue particulier ?",
+          "example": "Ensuite, ça s'adresse à quel profil — faut-il avoir un niveau de langue particulier ?",
           "usage": "Association nom + adjectif pour évoquer une exigence linguistique."
         },
         {
@@ -864,7 +864,7 @@
           "kind": "collocation",
           "french": "cours suivis à l'étranger",
           "english": "courses taken abroad",
-          "example": "Les cours suivis à l'étranger seront-ils reconnus dans mon parcours ici ?",
+          "example": "Toujours sur ce point, les cours suivis à l'étranger seront-ils reconnus dans mon parcours ici ?",
           "usage": "Association nom + participe passé + complément de lieu."
         },
         {
@@ -872,7 +872,7 @@
           "kind": "collocation",
           "french": "auprès de l'établissement",
           "english": "directly with the institution",
-          "example": "Comment se passe l'inscription — en ligne ou uniquement auprès de l'établissement ?",
+          "example": "En ce qui concerne les formalités, comment se passe l'inscription — en ligne ou uniquement auprès de l'établissement ?",
           "usage": "Locution prépositionnelle indiquant l'interlocuteur d'une démarche."
         },
         {
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "réserver moi-même",
           "english": "to book it myself",
-          "example": "Pour l'hébergement, est-ce que l'université s'en occupe ou je dois réserver moi-même ?",
+          "example": "Pour ce qui est de l'hébergement, est-ce que l'université s'en occupe ou je dois réserver moi-même ?",
           "usage": "Association verbe + pronom renforcé pour assumer personnellement une réservation."
         },
         {
@@ -896,7 +896,7 @@
           "kind": "collocation",
           "french": "une assurance particulière",
           "english": "special/specific insurance",
-          "example": "Est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
+          "example": "En ce qui concerne les papiers, est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
           "usage": "Collocation adjectif-nom désignant une couverture supplémentaire à prévoir."
         },
         {
@@ -928,7 +928,7 @@
           "kind": "tournure",
           "french": "Les cours suivis à l'étranger seront-ils reconnus",
           "english": "Will the courses taken abroad be recognized",
-          "example": "Les cours suivis à l'étranger seront-ils reconnus dans mon parcours ici ?",
+          "example": "Toujours sur ce point, les cours suivis à l'étranger seront-ils reconnus dans mon parcours ici ?",
           "usage": "Question au futur avec reprise du sujet nominal par le pronom inversé « ils »."
         },
         {
@@ -936,7 +936,7 @@
           "kind": "tournure",
           "french": "Comment se passe l'inscription",
           "english": "How does the registration work",
-          "example": "Comment se passe l'inscription — en ligne ou uniquement auprès de l'établissement ?",
+          "example": "En ce qui concerne les formalités, comment se passe l'inscription — en ligne ou uniquement auprès de l'établissement ?",
           "usage": "Question soutenue avec inversion du sujet après le verbe pronominal 'passe'."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "est-ce que l'université s'en occupe",
           "english": "does the university take care of it",
-          "example": "Pour l'hébergement, est-ce que l'université s'en occupe ou je dois réserver moi-même ?",
+          "example": "Pour ce qui est de l'hébergement, est-ce que l'université s'en occupe ou je dois réserver moi-même ?",
           "usage": "Question avec 'est-ce que' pour vérifier qui est responsable d'une démarche."
         },
         {
@@ -968,7 +968,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'il y a des démarches administratives à prévoir",
           "english": "Are there administrative steps to plan for",
-          "example": "Est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
+          "example": "En ce qui concerne les papiers, est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
           "usage": "Structure avec 'est-ce que' pour interroger sur des formalités à venir."
         },
         {
@@ -1013,7 +1013,7 @@
           "kind": "mot-cle",
           "french": "le carnet d'entretien",
           "english": "the maintenance logbook",
-          "example": "L'entretien a été fait régulièrement — avez-vous encore les factures ou le carnet d'entretien ?",
+          "example": "Il y a un autre point qui m'intéresse : l'entretien a été fait régulièrement — avez-vous encore les factures ou le carnet d'entretien ?",
           "usage": "Groupe nominal désignant le document répertoriant les interventions effectuées sur un véhicule."
         },
         {
@@ -1029,7 +1029,7 @@
           "kind": "mot-cle",
           "french": "l'essence",
           "english": "gasoline/petrol",
-          "example": "Elle fonctionne à l'essence, au diesel ou à l'électricité — et la consommation est raisonnable ?",
+          "example": "Côté motorisation, elle fonctionne à l'essence, au diesel ou à l'électricité — et la consommation est raisonnable ?",
           "usage": "Nom désignant un carburant courant pour les véhicules à moteur thermique."
         },
         {
@@ -1037,7 +1037,7 @@
           "kind": "mot-cle",
           "french": "la consommation",
           "english": "fuel consumption",
-          "example": "Elle fonctionne à l'essence, au diesel ou à l'électricité — et la consommation est raisonnable ?",
+          "example": "Côté motorisation, elle fonctionne à l'essence, au diesel ou à l'électricité — et la consommation est raisonnable ?",
           "usage": "Nom désignant la quantité de carburant utilisée par un véhicule."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "un virement bancaire",
           "english": "a bank transfer",
-          "example": "Pour le paiement, vous préférez un virement bancaire ou un chèque certifié ?",
+          "example": "Dernier point pratique : pour le paiement, vous préférez un virement bancaire ou un chèque certifié ?",
           "usage": "Moyen de paiement électronique entre comptes bancaires."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "mot-cle",
           "french": "un chèque certifié",
           "english": "a certified cheque",
-          "example": "Pour le paiement, vous préférez un virement bancaire ou un chèque certifié ?",
+          "example": "Dernier point pratique : pour le paiement, vous préférez un virement bancaire ou un chèque certifié ?",
           "usage": "Groupe nominal désignant un chèque dont les fonds sont garantis par la banque."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "a été fait régulièrement",
           "english": "has been done regularly",
-          "example": "L'entretien a été fait régulièrement — avez-vous encore les factures ou le carnet d'entretien ?",
+          "example": "Il y a un autre point qui m'intéresse : l'entretien a été fait régulièrement — avez-vous encore les factures ou le carnet d'entretien ?",
           "usage": "Forme passive au passé composé pour confirmer la régularité de l'entretien."
         },
         {
@@ -1117,7 +1117,7 @@
           "kind": "collocation",
           "french": "la consommation est raisonnable",
           "english": "fuel consumption is reasonable",
-          "example": "Elle fonctionne à l'essence, au diesel ou à l'électricité — et la consommation est raisonnable ?",
+          "example": "Côté motorisation, elle fonctionne à l'essence, au diesel ou à l'électricité — et la consommation est raisonnable ?",
           "usage": "Association nom + verbe + adjectif pour évaluer une dépense de carburant."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "mettre en vente",
           "english": "put up for sale",
-          "example": "Pourquoi avez-vous décidé de la mettre en vente ?",
+          "example": "Autre point important : pourquoi avez-vous décidé de la mettre en vente ?",
           "usage": "Collocation standard pour proposer un bien à l'achat."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "faire un essai",
           "english": "to take a test drive",
-          "example": "Est-ce que je pourrais faire un essai avant de me décider ?",
+          "example": "Il me reste un point à éclaircir : est-ce que je pourrais faire un essai avant de me décider ?",
           "usage": "Association verbe + nom pour désigner un essai avant achat."
         },
         {
@@ -1189,7 +1189,7 @@
           "kind": "tournure",
           "french": "Pourquoi avez-vous décidé de",
           "english": "why did you decide to",
-          "example": "Pourquoi avez-vous décidé de la mettre en vente ?",
+          "example": "Autre point important : pourquoi avez-vous décidé de la mettre en vente ?",
           "usage": "Question au passé composé pour interroger sur une motivation."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "avant de me décider",
           "english": "before I make up my mind",
-          "example": "Est-ce que je pourrais faire un essai avant de me décider ?",
+          "example": "Il me reste un point à éclaircir : est-ce que je pourrais faire un essai avant de me décider ?",
           "usage": "Locution prépositionnelle + infinitif pronominal pour évoquer une période de réflexion."
         },
         {
@@ -1213,7 +1213,7 @@
           "kind": "tournure",
           "french": "Pour le paiement, vous préférez",
           "english": "for payment, would you prefer",
-          "example": "Pour le paiement, vous préférez un virement bancaire ou un chèque certifié ?",
+          "example": "Dernier point pratique : pour le paiement, vous préférez un virement bancaire ou un chèque certifié ?",
           "usage": "Structure introductive pour demander un mode de règlement, registre vouvoiement."
         },
         {
@@ -1221,7 +1221,7 @@
           "kind": "tournure",
           "french": "je peux vous recontacter",
           "english": "may I contact you again",
-          "example": "D'accord, si j'ai encore une question, je peux vous recontacter ?",
+          "example": "D'accord, je vais réfléchir à votre offre et vous donner une réponse rapidement — si j'ai encore une question, je peux vous recontacter ?",
           "usage": "Formule de clôture polie pour s'assurer de pouvoir revenir vers son interlocuteur."
         }
       ]

@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "la réalisation",
           "english": "the directing",
-          "example": "La réalisation est-elle plutôt classique, originale ou spectaculaire ?",
+          "example": "Côté mise en scène, la réalisation est-elle plutôt classique, originale ou spectaculaire ?",
           "usage": "Terme désignant les choix artistiques et techniques d'un film."
         },
         {
@@ -49,7 +49,7 @@
           "kind": "mot-cle",
           "french": "en ligne",
           "english": "online",
-          "example": "Où as-tu vu le film — au cinéma, en festival, en ligne ?",
+          "example": "Pour ce qui est du programme, où as-tu vu le film — au cinéma, en festival, en ligne ?",
           "usage": "Locution adverbiale pour désigner un accès via Internet."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "une histoire vraie",
           "english": "a true story",
-          "example": "Ce film est-il basé sur un livre ou une histoire vraie ?",
+          "example": "Autre chose : ce film est-il basé sur un livre ou une histoire vraie ?",
           "usage": "Groupe nominal opposé à la fiction, basé sur des faits réels."
         },
         {
@@ -113,7 +113,7 @@
           "kind": "collocation",
           "french": "originale ou spectaculaire",
           "english": "original or spectacular",
-          "example": "La réalisation est-elle plutôt classique, originale ou spectaculaire ?",
+          "example": "Côté mise en scène, la réalisation est-elle plutôt classique, originale ou spectaculaire ?",
           "usage": "Association d'adjectifs pour décrire la mise en scène d'un film."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "le plus apprécié",
           "english": "appreciated the most",
-          "example": "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
+          "example": "Pour ce qui est de ton ressenti, qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
           "usage": "Superlatif figé pour désigner ce qui plaît le plus."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "moins aimés",
           "english": "liked the least",
-          "example": "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
+          "example": "Pour ce qui est de ton ressenti, qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
           "usage": "Comparatif d'infériorité appliqué au verbe 'aimer' au participe passé."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "tournure",
           "french": "Où as-tu vu le film",
           "english": "Where did you see the film",
-          "example": "Où as-tu vu le film — au cinéma, en festival, en ligne ?",
+          "example": "Pour ce qui est du programme, où as-tu vu le film — au cinéma, en festival, en ligne ?",
           "usage": "Question avec inversion sujet-verbe après l'adverbe interrogatif 'où', registre tutoiement."
         },
         {
@@ -225,7 +225,7 @@
           "kind": "tournure",
           "french": "Ce film est-il basé sur un livre",
           "english": "Is this film based on a book",
-          "example": "Ce film est-il basé sur un livre ou une histoire vraie ?",
+          "example": "Autre chose : ce film est-il basé sur un livre ou une histoire vraie ?",
           "usage": "Question avec inversion complexe 'nom + est-il + participe' pour vérifier une origine."
         },
         {
@@ -262,7 +262,7 @@
           "kind": "mot-cle",
           "french": "une semaine",
           "english": "a week",
-          "example": "Combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
+          "example": "Pour ce qui est de la durée, combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
           "usage": "Nom courant pour désigner une unité de temps de sept jours."
         },
         {
@@ -270,7 +270,7 @@
           "kind": "mot-cle",
           "french": "une autre saison",
           "english": "another season",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "usage": "Groupe nominal pour évoquer une période de l'année différente."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "une condition physique particulière",
           "english": "a particular fitness level",
-          "example": "Est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
+          "example": "Pendant que j'y pense, est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
           "usage": "Niveau de forme éventuellement nécessaire pour suivre un circuit."
         },
         {
@@ -366,7 +366,7 @@
           "kind": "collocation",
           "french": "s'y prendre au dernier moment",
           "english": "to leave it until the last minute",
-          "example": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "example": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
           "usage": "Expression courante pour évoquer une réservation tardive."
         },
         {
@@ -382,7 +382,7 @@
           "kind": "collocation",
           "french": "conviennent aux familles",
           "english": "are suitable for families",
-          "example": "Est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
+          "example": "Pendant que j'y pense, est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
           "usage": "Association verbale pour vérifier qu'une offre convient aux familles."
         },
         {
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "le circuit le plus apprécié",
           "english": "the most popular tour",
-          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
+          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
           "usage": "Superlatif appliqué à un nom pour désigner l'option la plus prisée."
         },
         {
@@ -430,7 +430,7 @@
           "kind": "tournure",
           "french": "Combien de temps faut-il prévoir",
           "english": "How much time should be planned",
-          "example": "Combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
+          "example": "Pour ce qui est de la durée, combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
           "usage": "Tournure impersonnelle avec 'il faut' pour interroger sur une durée nécessaire."
         },
         {
@@ -438,7 +438,7 @@
           "kind": "tournure",
           "french": "il vaut mieux attendre",
           "english": "it is better to wait",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "usage": "Tournure impersonnelle avec 'il vaut mieux' pour exprimer une recommandation."
         },
         {
@@ -454,7 +454,7 @@
           "kind": "tournure",
           "french": "Faut-il réserver le circuit longtemps à l'avance",
           "english": "Should the tour be booked well in advance",
-          "example": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "example": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
           "usage": "Inversion avec « faut-il » pour vérifier le délai de réservation."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "Est-ce que ces circuits conviennent aux familles",
           "english": "Are these tours suitable for families",
-          "example": "Est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
+          "example": "Pendant que j'y pense, est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
           "usage": "Question avec « est-ce que » pour vérifier si une formule convient aux familles."
         },
         {
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "vous pourriez m'en dire un peu plus",
           "english": "could you tell me a bit more",
-          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
+          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
           "usage": "Conditionnel de politesse suivi du pronom 'en' pour relancer sur un sujet, registre vouvoiement."
         },
         {
@@ -515,7 +515,7 @@
           "kind": "mot-cle",
           "french": "buffet",
           "english": "buffet",
-          "example": "Quel type de repas est le plus apprécié — buffet, barbecue, plats faits maison ?",
+          "example": "Passons à la table : quel type de repas est le plus apprécié — buffet, barbecue, plats faits maison ?",
           "usage": "Nom désignant un repas où les convives se servent eux-mêmes, sans article dans une énumération orale."
         },
         {
@@ -523,7 +523,7 @@
           "kind": "mot-cle",
           "french": "des règles de bruit",
           "english": "noise regulations",
-          "example": "Faut-il prévenir la mairie ou respecter des règles de bruit ?",
+          "example": "Question conditions, faut-il prévenir la mairie ou respecter des règles de bruit ?",
           "usage": "Groupe nominal désignant les normes limitant les nuisances sonores."
         },
         {
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "une salle commune",
           "english": "a common room",
-          "example": "Où pourrait-on organiser la fête — dans la cour, une salle commune ou chez quelqu'un ?",
+          "example": "Pour commencer par le lieu, où pourrait-on organiser la fête — dans la cour, une salle commune ou chez quelqu'un ?",
           "usage": "Espace partagé pouvant accueillir une fête entre voisins."
         },
         {
@@ -555,7 +555,7 @@
           "kind": "mot-cle",
           "french": "les invitations",
           "english": "the invitations",
-          "example": "Comment gérer les invitations — par message, papier ou bouche-à-oreille ?",
+          "example": "Côté organisation, comment gérer les invitations — par message, papier ou bouche-à-oreille ?",
           "usage": "Nom courant désignant les messages envoyés pour convier des invités."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "bouche-à-oreille",
           "english": "word of mouth",
-          "example": "Comment gérer les invitations — par message, papier ou bouche-à-oreille ?",
+          "example": "Côté organisation, comment gérer les invitations — par message, papier ou bouche-à-oreille ?",
           "usage": "Nom composé désignant la transmission orale d'une information entre proches."
         },
         {
@@ -587,7 +587,7 @@
           "kind": "collocation",
           "french": "plats faits maison",
           "english": "homemade dishes",
-          "example": "Quel type de repas est le plus apprécié — buffet, barbecue, plats faits maison ?",
+          "example": "Passons à la table : quel type de repas est le plus apprécié — buffet, barbecue, plats faits maison ?",
           "usage": "Association nom + participe passé pour qualifier une préparation artisanale."
         },
         {
@@ -595,7 +595,7 @@
           "kind": "collocation",
           "french": "prévenir la mairie",
           "english": "to notify the town hall",
-          "example": "Faut-il prévenir la mairie ou respecter des règles de bruit ?",
+          "example": "Question conditions, faut-il prévenir la mairie ou respecter des règles de bruit ?",
           "usage": "Association verbe + nom pour désigner une démarche administrative préalable."
         },
         {
@@ -603,7 +603,7 @@
           "kind": "collocation",
           "french": "respecter des règles",
           "english": "to follow rules",
-          "example": "Faut-il prévenir la mairie ou respecter des règles de bruit ?",
+          "example": "Question conditions, faut-il prévenir la mairie ou respecter des règles de bruit ?",
           "usage": "Association verbe + nom pour indiquer l'observation d'une norme."
         },
         {
@@ -627,7 +627,7 @@
           "kind": "collocation",
           "french": "organiser la fête",
           "english": "organize the party",
-          "example": "Où pourrait-on organiser la fête — dans la cour, une salle commune ou chez quelqu'un ?",
+          "example": "Pour commencer par le lieu, où pourrait-on organiser la fête — dans la cour, une salle commune ou chez quelqu'un ?",
           "usage": "Collocation courante pour parler de la préparation d'un événement."
         },
         {
@@ -635,7 +635,7 @@
           "kind": "collocation",
           "french": "par message",
           "english": "by text message",
-          "example": "Comment gérer les invitations — par message, papier ou bouche-à-oreille ?",
+          "example": "Côté organisation, comment gérer les invitations — par message, papier ou bouche-à-oreille ?",
           "usage": "Association préposition + nom pour désigner un canal de communication informel."
         },
         {
@@ -643,7 +643,7 @@
           "kind": "collocation",
           "french": "ce type de fête",
           "english": "this kind of party",
-          "example": "Avez-vous déjà organisé ce type de fête — comment ça s'est passé exactement ?",
+          "example": "Pour ce qui est du déroulement, avez-vous déjà organisé ce type de fête — comment ça s'est passé exactement ?",
           "usage": "Groupe nominal permettant de renvoyer au projet évoqué."
         },
         {
@@ -731,7 +731,7 @@
           "kind": "tournure",
           "french": "comment ça s'est passé exactement",
           "english": "how exactly did it go",
-          "example": "Avez-vous déjà organisé ce type de fête — comment ça s'est passé exactement ?",
+          "example": "Pour ce qui est du déroulement, avez-vous déjà organisé ce type de fête — comment ça s'est passé exactement ?",
           "usage": "Question au passé composé pronominal pour demander un récit détaillé."
         }
       ]
@@ -768,7 +768,7 @@
           "kind": "mot-cle",
           "french": "des associations",
           "english": "associations",
-          "example": "Le bénévolat est-il courant ici — où peut-on trouver des associations qui recherchent des bénévoles ?",
+          "example": "Et puis, le bénévolat est-il courant ici — où peut-on trouver des associations qui recherchent des bénévoles ?",
           "usage": "Organisations locales dans lesquelles il est possible de s'engager."
         },
         {
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "des festivals",
           "english": "festivals",
-          "example": "Y a-t-il des festivals ou événements annuels incontournables pour rencontrer des gens ?",
+          "example": "Et côté agenda, y a-t-il des festivals ou événements annuels incontournables pour rencontrer des gens ?",
           "usage": "Nom courant désignant des événements culturels organisés à date fixe."
         },
         {
@@ -800,7 +800,7 @@
           "kind": "mot-cle",
           "french": "transports en commun",
           "english": "public transport",
-          "example": "Ces lieux et ces activités sont-ils facilement accessibles en transports en commun ?",
+          "example": "Côté déplacements, ces lieux et ces activités sont-ils facilement accessibles en transports en commun ?",
           "usage": "Groupe nominal désignant les moyens de déplacement collectifs."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "le bénévolat",
           "english": "volunteering",
-          "example": "Le bénévolat est-il courant ici — où peut-on trouver des associations qui recherchent des bénévoles ?",
+          "example": "Et puis, le bénévolat est-il courant ici — où peut-on trouver des associations qui recherchent des bénévoles ?",
           "usage": "Nom courant désignant l'engagement non rémunéré au service d'une cause."
         },
         {
@@ -832,7 +832,7 @@
           "kind": "collocation",
           "french": "se faire des amis",
           "english": "to make friends",
-          "example": "Quels types d'activités ou clubs sont populaires ici pour se faire des amis ?",
+          "example": "Concrètement, quels types d'activités ou clubs sont populaires ici pour se faire des amis ?",
           "usage": "Locution verbale figée pour désigner la création de nouvelles amitiés."
         },
         {
@@ -848,7 +848,7 @@
           "kind": "collocation",
           "french": "dans l'immeuble",
           "english": "in the building",
-          "example": "Est-ce que les voisins organisent parfois des activités ou des rencontres dans l'immeuble ?",
+          "example": "Pour ce qui est du déroulement, est-ce que les voisins organisent parfois des activités ou des rencontres dans l'immeuble ?",
           "usage": "Groupe prépositionnel situant une activité dans le lieu de résidence."
         },
         {
@@ -872,7 +872,7 @@
           "kind": "collocation",
           "french": "événements annuels incontournables",
           "english": "unmissable annual events",
-          "example": "Y a-t-il des festivals ou événements annuels incontournables pour rencontrer des gens ?",
+          "example": "Et côté agenda, y a-t-il des festivals ou événements annuels incontournables pour rencontrer des gens ?",
           "usage": "Association nom + adjectif + adjectif pour qualifier des rendez-vous réguliers majeurs."
         },
         {
@@ -880,7 +880,7 @@
           "kind": "collocation",
           "french": "facilement accessibles",
           "english": "easily accessible",
-          "example": "Ces lieux et ces activités sont-ils facilement accessibles en transports en commun ?",
+          "example": "Côté déplacements, ces lieux et ces activités sont-ils facilement accessibles en transports en commun ?",
           "usage": "Association adverbe + adjectif pour qualifier la facilité d'accès à un lieu."
         },
         {
@@ -896,7 +896,7 @@
           "kind": "collocation",
           "french": "prévoir un petit budget",
           "english": "allow for a small budget",
-          "example": "Les activités proposées sont-elles gratuites ou faut-il prévoir un petit budget ?",
+          "example": "En ce qui concerne le budget, les activités proposées sont-elles gratuites ou faut-il prévoir un petit budget ?",
           "usage": "Collocation utile pour anticiper le coût d'une activité."
         },
         {
@@ -928,7 +928,7 @@
           "kind": "tournure",
           "french": "Quels types d'activités ou clubs sont populaires ici",
           "english": "What types of activities or clubs are popular here",
-          "example": "Quels types d'activités ou clubs sont populaires ici pour se faire des amis ?",
+          "example": "Concrètement, quels types d'activités ou clubs sont populaires ici pour se faire des amis ?",
           "usage": "Question avec ordre sujet-verbe standard, sans inversion ; « quels » introduit ici le groupe nominal sujet."
         },
         {
@@ -936,7 +936,7 @@
           "kind": "tournure",
           "french": "Est-ce que les voisins organisent parfois",
           "english": "Do the neighbors sometimes organize",
-          "example": "Est-ce que les voisins organisent parfois des activités ou des rencontres dans l'immeuble ?",
+          "example": "Pour ce qui est du déroulement, est-ce que les voisins organisent parfois des activités ou des rencontres dans l'immeuble ?",
           "usage": "Question avec « est-ce que » portant sur une habitude du voisinage."
         },
         {
@@ -944,7 +944,7 @@
           "kind": "tournure",
           "french": "où peut-on trouver des associations",
           "english": "where can you find associations",
-          "example": "Le bénévolat est-il courant ici — où peut-on trouver des associations qui recherchent des bénévoles ?",
+          "example": "Et puis, le bénévolat est-il courant ici — où peut-on trouver des associations qui recherchent des bénévoles ?",
           "usage": "Question avec inversion du pronom « on » pour demander où chercher."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "Y a-t-il",
           "english": "Is there/Are there",
-          "example": "Y a-t-il des festivals ou événements annuels incontournables pour rencontrer des gens ?",
+          "example": "Et côté agenda, y a-t-il des festivals ou événements annuels incontournables pour rencontrer des gens ?",
           "usage": "Tournure interrogative soutenue avec inversion 'y a-t-il' et '-t-' euphonique."
         },
         {
@@ -997,7 +997,7 @@
           "kind": "mot-cle",
           "french": "les entreprises canadiennes",
           "english": "Canadian companies",
-          "example": "L'équilibre entre vie professionnelle et vie personnelle est-il important dans les entreprises canadiennes ?",
+          "example": "Une dernière chose me vient à l'esprit : l'équilibre entre vie professionnelle et vie personnelle est-il important dans les entreprises canadiennes ?",
           "usage": "Groupe nominal désignant les sociétés implantées au Canada."
         },
         {
@@ -1013,7 +1013,7 @@
           "kind": "mot-cle",
           "french": "jours de congé annuels",
           "english": "annual leave days",
-          "example": "Combien de jours de congé annuels ont-ils en moyenne — c'est plus ou moins que dans mon pays ?",
+          "example": "Et côté repos, combien de jours de congé annuels ont-ils en moyenne — c'est plus ou moins que dans mon pays ?",
           "usage": "Groupe nominal désignant le nombre de jours de vacances accordés chaque année."
         },
         {
@@ -1029,7 +1029,7 @@
           "kind": "mot-cle",
           "french": "le télétravail",
           "english": "remote work",
-          "example": "Le télétravail et les horaires hybrides sont-ils courants au Canada ?",
+          "example": "J'en profite pour te demander : le télétravail et les horaires hybrides sont-ils courants au Canada ?",
           "usage": "Nom composé désignant le travail effectué à distance, hors des locaux de l'entreprise."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "les pauses déjeuner",
           "english": "lunch breaks",
-          "example": "Les pauses déjeuner sont-elles longues ou plutôt courtes par rapport à mon pays ?",
+          "example": "Côté repas, les pauses déjeuner sont-elles longues ou plutôt courtes par rapport à mon pays ?",
           "usage": "Temps de pause accordé aux employés au milieu de la journée."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "mot-cle",
           "french": "l'équilibre entre vie professionnelle et vie personnelle",
           "english": "work-life balance",
-          "example": "L'équilibre entre vie professionnelle et vie personnelle est-il important dans les entreprises canadiennes ?",
+          "example": "Une dernière chose me vient à l'esprit : l'équilibre entre vie professionnelle et vie personnelle est-il important dans les entreprises canadiennes ?",
           "usage": "Répartition équilibrée du temps entre le travail et la vie privée."
         },
         {
@@ -1101,7 +1101,7 @@
           "kind": "collocation",
           "french": "en moyenne",
           "english": "on average",
-          "example": "Combien de jours de congé annuels ont-ils en moyenne — c'est plus ou moins que dans mon pays ?",
+          "example": "Et côté repos, combien de jours de congé annuels ont-ils en moyenne — c'est plus ou moins que dans mon pays ?",
           "usage": "Locution adverbiale figée pour donner une estimation générale."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "les horaires hybrides",
           "english": "hybrid working arrangements",
-          "example": "Le télétravail et les horaires hybrides sont-ils courants au Canada ?",
+          "example": "J'en profite pour te demander : le télétravail et les horaires hybrides sont-ils courants au Canada ?",
           "usage": "Organisation alternant présence sur site et travail à distance."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "plutôt courtes",
           "english": "rather short",
-          "example": "Les pauses déjeuner sont-elles longues ou plutôt courtes par rapport à mon pays ?",
+          "example": "Côté repas, les pauses déjeuner sont-elles longues ou plutôt courtes par rapport à mon pays ?",
           "usage": "Association adverbe + adjectif pour qualifier une durée limitée."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "Combien de jours travaillent-ils par semaine",
           "english": "How many days a week do they work",
-          "example": "Combien de jours travaillent-ils par semaine en général ?",
+          "example": "À ce propos, combien de jours travaillent-ils par semaine en général ?",
           "usage": "Question soutenue avec inversion du pronom sujet 'ils' après le verbe."
         },
         {
@@ -1181,7 +1181,7 @@
           "kind": "tournure",
           "french": "Combien de jours de congé",
           "english": "How many days off",
-          "example": "Combien de jours de congé annuels ont-ils en moyenne — c'est plus ou moins que dans mon pays ?",
+          "example": "Et côté repos, combien de jours de congé annuels ont-ils en moyenne — c'est plus ou moins que dans mon pays ?",
           "usage": "Question soutenue avec l'adverbe interrogatif 'combien' antéposé au groupe nominal."
         },
         {

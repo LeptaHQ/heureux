@@ -9,7 +9,7 @@
           "kind": "mot-cle",
           "french": "bénévolat",
           "english": "volunteering",
-          "example": "Bonjour, je m'intéresse au bénévolat dans le quartier — quels types d'associations proposez-vous ici ?",
+          "example": "Bonjour ! Je m'intéresse au bénévolat dans le quartier et j'aimerais donner un peu de mon temps — quels types d'associations proposez-vous ici ?",
           "usage": "Nom masculin désignant l'activité bénévole ; s'utilise le plus souvent avec « faire du »."
         },
         {
@@ -17,7 +17,7 @@
           "kind": "mot-cle",
           "french": "les bénévoles",
           "english": "the volunteers",
-          "example": "Est-ce que les frais de transport ou de repas sont pris en charge pour les bénévoles ?",
+          "example": "Sur le plan financier, est-ce que les frais de transport ou de repas sont pris en charge pour les bénévoles ?",
           "usage": "Nom pluriel désignant les personnes qui donnent de leur temps sans être rémunérées."
         },
         {
@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "l'accompagnement scolaire",
           "english": "school support / tutoring",
-          "example": "Vous avez mentionné l'accompagnement scolaire — vous pourriez m'en dire un peu plus ?",
+          "example": "Vous avez mentionné l'accompagnement scolaire — vous pourriez m'en dire un peu plus : ça se passe dans les écoles du quartier ?",
           "usage": "Nom composé désignant l'aide apportée aux élèves en dehors des cours."
         },
         {
@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "des personnes âgées",
           "english": "elderly people",
-          "example": "Ces associations s'adressent à quel public — des enfants, des personnes âgées, des familles ?",
+          "example": "Question niveau, ces associations s'adressent à quel public — des enfants, des personnes âgées, des familles ?",
           "usage": "Groupe nominal courant désignant le public senior dans un contexte associatif ou social."
         },
         {
@@ -89,7 +89,7 @@
           "kind": "collocation",
           "french": "types d'associations",
           "english": "types of associations",
-          "example": "Bonjour, je m'intéresse au bénévolat dans le quartier — quels types d'associations proposez-vous ici ?",
+          "example": "Bonjour ! Je m'intéresse au bénévolat dans le quartier et j'aimerais donner un peu de mon temps — quels types d'associations proposez-vous ici ?",
           "usage": "Collocation nom + de + nom pour catégoriser une offre associative."
         },
         {
@@ -113,7 +113,7 @@
           "kind": "collocation",
           "french": "formelle ou décontractée",
           "english": "formal or casual",
-          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "example": "J'en profite pour vous demander : comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "usage": "Collocation adjectivale par coordination pour qualifier une ambiance générale."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "frais de transport",
           "english": "transport costs",
-          "example": "Est-ce que les frais de transport ou de repas sont pris en charge pour les bénévoles ?",
+          "example": "Sur le plan financier, est-ce que les frais de transport ou de repas sont pris en charge pour les bénévoles ?",
           "usage": "Collocation nom + de + nom très courante pour désigner des dépenses de déplacement."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "pris en charge",
           "english": "covered / taken care of",
-          "example": "Est-ce que les frais de transport ou de repas sont pris en charge pour les bénévoles ?",
+          "example": "Sur le plan financier, est-ce que les frais de transport ou de repas sont pris en charge pour les bénévoles ?",
           "usage": "Collocation figée employée pour indiquer qu'une dépense est remboursée ou assumée."
         },
         {
@@ -161,7 +161,7 @@
           "kind": "collocation",
           "french": "en semaine ou le week-end",
           "english": "on weekdays or at the weekend",
-          "example": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
+          "example": "Côté planning, ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
           "usage": "Collocation temporelle par contraste très productive pour situer un événement dans la semaine."
         },
         {
@@ -169,7 +169,7 @@
           "kind": "tournure",
           "french": "vous pourriez m'en dire un peu plus",
           "english": "could you tell me a bit more about it",
-          "example": "Vous avez mentionné l'accompagnement scolaire — vous pourriez m'en dire un peu plus ?",
+          "example": "Vous avez mentionné l'accompagnement scolaire — vous pourriez m'en dire un peu plus : ça se passe dans les écoles du quartier ?",
           "usage": "Tournure de relance polie pour approfondir un point déjà évoqué par l'interlocuteur."
         },
         {
@@ -193,7 +193,7 @@
           "kind": "tournure",
           "french": "si j'ai encore une question, je peux vous recontacter",
           "english": "if I have another question, may I contact you again",
-          "example": "D'accord, si j'ai encore une question, je peux vous recontacter ?",
+          "example": "D'accord, tout est clair — je vais choisir l'association qui me correspond le mieux et me lancer. Si j'ai encore une question, je peux vous recontacter ?",
           "usage": "Tournure de clôture polie pour s'assurer de pouvoir reprendre contact plus tard."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "ça a lieu quel jour exactement",
           "english": "exactly which day does it take place",
-          "example": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
+          "example": "Côté planning, ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
           "usage": "Tournure interrogative directe pour préciser une date ou un jour."
         },
         {
@@ -217,7 +217,7 @@
           "kind": "tournure",
           "french": "comment est l'ambiance en général",
           "english": "what's the atmosphere generally like",
-          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "example": "J'en profite pour vous demander : comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "usage": "Tournure descriptive pour faire caractériser un climat ou une ambiance."
         },
         {
@@ -225,7 +225,7 @@
           "kind": "tournure",
           "french": "ces associations s'adressent à quel public",
           "english": "which audience do these associations target",
-          "example": "Ces associations s'adressent à quel public — des enfants, des personnes âgées, des familles ?",
+          "example": "Question niveau, ces associations s'adressent à quel public — des enfants, des personnes âgées, des familles ?",
           "usage": "Tournure très réutilisable avec « s'adresser à quel public » pour cibler un public visé."
         },
         {
@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "le programme",
           "english": "the syllabus/programme",
-          "example": "Vous avez mentionné le programme — vous pourriez m'en dire un peu plus ?",
+          "example": "Vous avez mentionné le programme — vous suivez un manuel précis ou vous l'adaptez aux besoins de chacun ?",
           "usage": "Nom masculin désignant le contenu structuré d'un enseignement."
         },
         {
@@ -302,7 +302,7 @@
           "kind": "mot-cle",
           "french": "des examens",
           "english": "exams",
-          "example": "D'ailleurs, est-ce que vous préparez aussi vos élèves à des examens officiels de français ?",
+          "example": "Dans le même esprit, est-ce que vous préparez aussi vos élèves à des examens officiels de français ?",
           "usage": "Nom pluriel courant désignant les épreuves de certification linguistique."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "une séance",
           "english": "a session/lesson",
-          "example": "Il y a combien de séances par semaine, et quelle est la durée d'une séance — environ une heure ou plutôt une heure et demie ?",
+          "example": "Côté organisation, il y a combien de séances par semaine, et quelle est la durée d'une séance — environ une heure ou plutôt une heure et demie ?",
           "usage": "Nom féminin désignant une unité de cours, souvent utilisée pour calculer un tarif."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "d'autres questions",
           "english": "other questions",
-          "example": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "example": "Merci pour toutes ces infos, votre approche me convient et j'aimerais commencer dès que possible — si j'ai d'autres questions, je peux vous solliciter ?",
           "usage": "Groupe nominal courant pour clore un échange en laissant la porte ouverte."
         },
         {
@@ -358,7 +358,7 @@
           "kind": "collocation",
           "french": "séances par semaine",
           "english": "sessions per week",
-          "example": "Il y a combien de séances par semaine, et quelle est la durée d'une séance — environ une heure ou plutôt une heure et demie ?",
+          "example": "Côté organisation, il y a combien de séances par semaine, et quelle est la durée d'une séance — environ une heure ou plutôt une heure et demie ?",
           "usage": "Collocation de fréquence pour organiser un emploi du temps de cours."
         },
         {
@@ -406,7 +406,7 @@
           "kind": "collocation",
           "french": "toutes ces infos",
           "english": "all this information",
-          "example": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "example": "Merci pour toutes ces infos, votre approche me convient et j'aimerais commencer dès que possible — si j'ai d'autres questions, je peux vous solliciter ?",
           "usage": "Collocation quantifiante très courante pour clore poliment un échange informatif."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "vous avez mentionné le programme",
           "english": "you mentioned the syllabus",
-          "example": "Vous avez mentionné le programme — vous pourriez m'en dire un peu plus ?",
+          "example": "Vous avez mentionné le programme — vous suivez un manuel précis ou vous l'adaptez aux besoins de chacun ?",
           "usage": "Tournure de reprise permettant de relancer sur un point déjà évoqué."
         },
         {
@@ -486,7 +486,7 @@
           "kind": "tournure",
           "french": "si j'ai d'autres questions, je peux vous solliciter",
           "english": "if I have other questions, may I contact you",
-          "example": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "example": "Merci pour toutes ces infos, votre approche me convient et j'aimerais commencer dès que possible — si j'ai d'autres questions, je peux vous solliciter ?",
           "usage": "Tournure de clôture polie pour garder un contact ouvert après l'échange."
         }
       ]
@@ -531,7 +531,7 @@
           "kind": "mot-cle",
           "french": "randonnée",
           "english": "hiking",
-          "example": "Quelles activités as-tu faites — ski, randonnée, autres sports ou plutôt détente ?",
+          "example": "Et concrètement, quelles activités as-tu faites — ski, randonnée, autres sports ou plutôt détente ?",
           "usage": "Nom féminin désignant une activité sportive de plein air très répandue en montagne."
         },
         {
@@ -539,7 +539,7 @@
           "kind": "mot-cle",
           "french": "chambres d'hôtes",
           "english": "guesthouses / bed and breakfasts",
-          "example": "Tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
+          "example": "En ce qui concerne l'hébergement, tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
           "usage": "Nom composé désignant un type d'hébergement chez l'habitant."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "ton moment préféré",
           "english": "your favourite moment",
-          "example": "Tu as mentionné ton moment préféré — tu pourrais m'en dire un peu plus ?",
+          "example": "Tu as mentionné ton moment préféré — tu pourrais m'en dire un peu plus : qu'est-ce qui t'a marqué(e) ?",
           "usage": "Groupe nominal permettant de relancer sur un souvenir déjà évoqué."
         },
         {
@@ -603,7 +603,7 @@
           "kind": "collocation",
           "french": "activités pour les débutants",
           "english": "activities for beginners",
-          "example": "Ça s'adresse à quel public — il y avait des activités pour les débutants aussi ?",
+          "example": "Et dans la continuité, ça s'adresse à quel public — il y avait des activités pour les débutants aussi ?",
           "usage": "Collocation nom + pour + nom pour cibler un public peu expérimenté."
         },
         {
@@ -611,7 +611,7 @@
           "kind": "collocation",
           "french": "bons endroits",
           "english": "good places",
-          "example": "Tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
+          "example": "En ce qui concerne l'hébergement, tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
           "usage": "Collocation adjectif + nom très productive pour recommander des lieux."
         },
         {
@@ -699,7 +699,7 @@
           "kind": "tournure",
           "french": "ça s'adresse à quel public",
           "english": "who is this aimed at",
-          "example": "Ça s'adresse à quel public — il y avait des activités pour les débutants aussi ?",
+          "example": "Et dans la continuité, ça s'adresse à quel public — il y avait des activités pour les débutants aussi ?",
           "usage": "Tournure interrogative très transférable pour cibler un public visé."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "il faut réserver à l'avance ou on peut trouver facilement sur place",
           "english": "do you need to book in advance or can you easily find something on the spot",
-          "example": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?",
+          "example": "Puisqu'on en parle, il faut réserver à l'avance ou on peut trouver facilement sur place ?",
           "usage": "Tournure d'alternative complète pour comparer deux modes d'organisation d'un séjour."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "tu as mentionné ton moment préféré",
           "english": "you mentioned your favourite moment",
-          "example": "Tu as mentionné ton moment préféré — tu pourrais m'en dire un peu plus ?",
+          "example": "Tu as mentionné ton moment préféré — tu pourrais m'en dire un peu plus : qu'est-ce qui t'a marqué(e) ?",
           "usage": "Tournure de reprise permettant de relancer sur un point déjà évoqué par l'interlocuteur."
         },
         {
@@ -760,7 +760,7 @@
           "kind": "mot-cle",
           "french": "un petit groupe",
           "english": "a small group",
-          "example": "Il y a généralement combien de participants — c'est un petit groupe ou une grande classe ?",
+          "example": "Pour ce qui est des personnes présentes, il y a généralement combien de participants — c'est un petit groupe ou une grande classe ?",
           "usage": "Groupe nominal désignant un effectif restreint de participants."
         },
         {
@@ -768,7 +768,7 @@
           "kind": "mot-cle",
           "french": "une grande classe",
           "english": "a large class",
-          "example": "Il y a généralement combien de participants — c'est un petit groupe ou une grande classe ?",
+          "example": "Pour ce qui est des personnes présentes, il y a généralement combien de participants — c'est un petit groupe ou une grande classe ?",
           "usage": "Groupe nominal désignant un effectif important d'apprenants."
         },
         {
@@ -776,7 +776,7 @@
           "kind": "mot-cle",
           "french": "un abonnement",
           "english": "a subscription/membership",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque cours séparément ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque cours séparément ?",
           "usage": "Nom masculin désignant une formule d'engagement régulier auprès d'un organisme."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "l'inscription",
           "english": "the registration/enrolment",
-          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "example": "Côté réservation, comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "usage": "Nom féminin désignant la démarche administrative pour s'inscrire à une activité."
         },
         {
@@ -832,7 +832,7 @@
           "kind": "collocation",
           "french": "en semaine ou le week-end",
           "english": "on weekdays or at the weekend",
-          "example": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
+          "example": "Côté horaires, ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
           "usage": "Collocation temporelle par contraste très productive pour situer un événement dans la semaine."
         },
         {
@@ -840,7 +840,7 @@
           "kind": "collocation",
           "french": "souscrire à un abonnement",
           "english": "subscribe to a membership",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque cours séparément ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque cours séparément ?",
           "usage": "Collocation verbale formelle pour désigner l'adhésion à une offre payante."
         },
         {
@@ -848,7 +848,7 @@
           "kind": "collocation",
           "french": "payer chaque cours séparément",
           "english": "pay for each class separately",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque cours séparément ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque cours séparément ?",
           "usage": "Collocation verbale pour opposer un paiement unitaire à un forfait."
         },
         {
@@ -880,7 +880,7 @@
           "kind": "collocation",
           "french": "uniquement sur place",
           "english": "only on site",
-          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "example": "Côté réservation, comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "usage": "Collocation adverbiale restrictive pour situer une démarche dans un lieu unique."
         },
         {
@@ -896,7 +896,7 @@
           "kind": "collocation",
           "french": "formelle ou décontractée",
           "english": "formal or casual",
-          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "example": "Passons maintenant à un autre point : comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "usage": "Collocation adjectivale par coordination pour qualifier une ambiance générale."
         },
         {
@@ -928,7 +928,7 @@
           "kind": "tournure",
           "french": "il y a généralement combien de participants",
           "english": "how many participants are there generally",
-          "example": "Il y a généralement combien de participants — c'est un petit groupe ou une grande classe ?",
+          "example": "Pour ce qui est des personnes présentes, il y a généralement combien de participants — c'est un petit groupe ou une grande classe ?",
           "usage": "Tournure interrogative standard pour estimer la taille d'un groupe."
         },
         {
@@ -936,7 +936,7 @@
           "kind": "tournure",
           "french": "comment fonctionnent les tarifs",
           "english": "how do the rates work",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque cours séparément ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque cours séparément ?",
           "usage": "Tournure interrogative très réutilisable pour aborder un système de facturation."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "comment se passe l'inscription",
           "english": "how does registration work",
-          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "example": "Côté réservation, comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "usage": "Tournure interrogative pratique pour demander une procédure administrative."
         },
         {
@@ -968,7 +968,7 @@
           "kind": "tournure",
           "french": "comment est l'ambiance en général",
           "english": "what's the atmosphere generally like",
-          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "example": "Passons maintenant à un autre point : comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "usage": "Tournure descriptive pour faire caractériser un climat ou une ambiance."
         },
         {

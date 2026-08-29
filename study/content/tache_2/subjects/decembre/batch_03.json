@@ -27,6 +27,16 @@
           "memory_section": 2
         },
         {
+          "text": "En ce qui concerne l'encadrement, le centre propose-t-il des activités adaptées à tous les niveaux, y compris aux débutants ?",
+          "memory_number": 8,
+          "memory_section": 6
+        },
+        {
+          "text": "Question niveau, les cours sont-ils encadrés par des professeurs qualifiés — et est-ce qu'on peut avoir un coach personnel si besoin ?",
+          "memory_number": 8,
+          "memory_section": 8
+        },
+        {
           "text": "À quelle heure commencent les cours collectifs — plutôt le matin ou en fin de journée ?",
           "memory_number": 8,
           "memory_section": 4
@@ -37,17 +47,12 @@
           "memory_section": 4
         },
         {
-          "text": "Le centre propose-t-il des activités adaptées à tous les niveaux, y compris aux débutants ?",
-          "memory_number": 8,
-          "memory_section": 6
-        },
-        {
-          "text": "Les cours sont-ils encadrés par des professeurs qualifiés — et est-ce qu'on peut avoir un coach personnel si besoin ?",
+          "text": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches ?",
           "memory_number": 8,
           "memory_section": 8
         },
         {
-          "text": "Comment fonctionnent les tarifs — il faut souscrire un abonnement ou on peut payer chaque activité séparément ?",
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — il faut souscrire un abonnement ou on peut payer chaque activité séparément ?",
           "memory_number": 8,
           "memory_section": 3
         },
@@ -67,12 +72,7 @@
           "memory_section": 12
         },
         {
-          "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches ?",
-          "memory_number": 8,
-          "memory_section": 8
-        },
-        {
-          "text": "Comment se passe l'inscription — en ligne ou directement sur place ?",
+          "text": "Côté réservation, comment se passe l'inscription — en ligne ou directement sur place ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -124,12 +124,22 @@
           "memory_section": 4
         },
         {
-          "text": "La programmation est publiée à l'avance ou on la découvre au dernier moment ?",
+          "text": "Dans un autre registre, la programmation est publiée à l'avance ou on la découvre au dernier moment ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Comment fonctionnent les tarifs — c'est gratuit pour les habitants ou il faut payer chaque sortie ?",
+          "text": "J'ai encore une question : ces sorties conviennent-elles aussi aux familles avec enfants ?",
+          "memory_number": 10,
+          "memory_section": 6
+        },
+        {
+          "text": "Pour ce qui est du trajet, est-ce que le transport est prévu ou faut-il se rendre sur place par ses propres moyens ?",
+          "memory_number": 10,
+          "memory_section": 5
+        },
+        {
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — c'est gratuit pour les habitants ou il faut payer chaque sortie ?",
           "memory_number": 10,
           "memory_section": 3
         },
@@ -149,17 +159,7 @@
           "memory_section": 6
         },
         {
-          "text": "Est-ce que le transport est prévu ou faut-il se rendre sur place par ses propres moyens ?",
-          "memory_number": 10,
-          "memory_section": 5
-        },
-        {
-          "text": "Ces sorties conviennent-elles aussi aux familles avec enfants ?",
-          "memory_number": 10,
-          "memory_section": 6
-        },
-        {
-          "text": "Qu'est-ce que vous appréciez le plus dans ces sorties ?",
+          "text": "Une dernière chose me vient à l'esprit : qu'est-ce que vous appréciez le plus dans ces sorties ?",
           "memory_number": 10,
           "memory_section": 10
         },
@@ -191,14 +191,19 @@
           "memory_section": 10
         },
         {
-          "text": "Pour les enfants, y a-t-il de bonnes écoles et des garderies à proximité ?",
+          "text": "Côté conditions, y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
+          "memory_number": 3,
+          "memory_section": 8
+        },
+        {
+          "text": "En ce qui concerne les activités, quels sont les loisirs disponibles dans le coin — des parcs, des salles de sport, des bibliothèques ?",
           "memory_number": 3,
           "memory_section": 2
         },
         {
-          "text": "Ces écoles sont-elles accessibles à pied ou faut-il prévoir un transport ?",
+          "text": "Y a-t-il des activités ou des clubs pour rencontrer du monde et se faire des amis ?",
           "memory_number": 3,
-          "memory_section": 5
+          "memory_section": 2
         },
         {
           "text": "Côté commerces, y a-t-il des supermarchés, des marchés ou des magasins de quartier pas trop loin ?",
@@ -211,17 +216,17 @@
           "memory_section": 5
         },
         {
-          "text": "Quels sont les loisirs disponibles dans le coin — des parcs, des salles de sport, des bibliothèques ?",
+          "text": "Pour les enfants, y a-t-il de bonnes écoles et des garderies à proximité ?",
           "memory_number": 3,
           "memory_section": 2
         },
         {
-          "text": "Y a-t-il des activités ou des clubs pour rencontrer du monde et se faire des amis ?",
+          "text": "Ces écoles sont-elles accessibles à pied ou faut-il prévoir un transport ?",
           "memory_number": 3,
-          "memory_section": 2
+          "memory_section": 5
         },
         {
-          "text": "Le quartier est-il bien desservi par les transports en commun ?",
+          "text": "Et côté déplacements, le quartier est-il bien desservi par les transports en commun ?",
           "memory_number": 3,
           "memory_section": 5
         },
@@ -236,12 +241,7 @@
           "memory_section": 9
         },
         {
-          "text": "Y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
-          "memory_number": 3,
-          "memory_section": 8
-        },
-        {
-          "text": "Selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
+          "text": "Pour ce qui est du lieu, selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
           "memory_number": 3,
           "memory_section": 11
         },
@@ -278,7 +278,12 @@
           "memory_section": 2
         },
         {
-          "text": "Comment fonctionnent les tarifs — c'est un prix par jour, par semaine ou au kilométrage ?",
+          "text": "Autre chose : comment se passe la location concrètement, de la réservation à la restitution du véhicule ?",
+          "memory_number": 6,
+          "memory_section": 13
+        },
+        {
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — c'est un prix par jour, par semaine ou au kilométrage ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -288,7 +293,12 @@
           "memory_section": 8
         },
         {
-          "text": "Est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
+          "text": "Y a-t-il un âge minimum ou une ancienneté de permis exigée pour louer ?",
+          "memory_number": 6,
+          "memory_section": 8
+        },
+        {
+          "text": "Pour ce qui est du budget, est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
           "memory_number": 6,
           "memory_section": 8
         },
@@ -303,19 +313,9 @@
           "memory_section": 3
         },
         {
-          "text": "Y a-t-il un âge minimum ou une ancienneté de permis exigée pour louer ?",
+          "text": "Côté transport, faut-il rendre la voiture avec le plein d'essence ?",
           "memory_number": 6,
           "memory_section": 8
-        },
-        {
-          "text": "Faut-il rendre la voiture avec le plein d'essence ?",
-          "memory_number": 6,
-          "memory_section": 8
-        },
-        {
-          "text": "Comment se passe la location concrètement, de la réservation à la restitution du véhicule ?",
-          "memory_number": 6,
-          "memory_section": 13
         },
         {
           "text": "Est-ce qu'on peut rendre la voiture en dehors des heures d'ouverture ?",
@@ -355,12 +355,12 @@
           "memory_section": 2
         },
         {
-          "text": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "text": "Et les cours sont-ils plutôt axés sur la grammaire, la conversation, ou un mélange des deux ?",
           "memory_number": 5,
-          "memory_section": 4
+          "memory_section": 2
         },
         {
-          "text": "À quel niveau ça s'adresse — plutôt aux débutants ou aussi aux personnes qui ont déjà des bases ?",
+          "text": "En ce qui concerne l'encadrement, à quel niveau ça s'adresse — plutôt aux débutants ou aussi aux personnes qui ont déjà des bases ?",
           "memory_number": 5,
           "memory_section": 6
         },
@@ -370,17 +370,27 @@
           "memory_section": 6
         },
         {
-          "text": "Qui sont les enseignants — sont-ils diplômés et locuteurs natifs ?",
+          "text": "Côté niveau, qui sont les enseignants — sont-ils diplômés et locuteurs natifs ?",
           "memory_number": 5,
           "memory_section": 8
         },
         {
-          "text": "Les cours sont-ils plutôt axés sur la grammaire, la conversation, ou un mélange des deux ?",
+          "text": "Comment suivez-vous la progression des élèves — il y a des bilans réguliers ?",
+          "memory_number": 5,
+          "memory_section": 4
+        },
+        {
+          "text": "Est-ce que vous préparez aussi aux examens ou aux certifications officielles ?",
           "memory_number": 5,
           "memory_section": 2
         },
         {
-          "text": "Comment fonctionnent les tarifs — c'est à la séance ou sous forme de forfait ?",
+          "text": "Côté organisation, les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "memory_number": 5,
+          "memory_section": 4
+        },
+        {
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — c'est à la séance ou sous forme de forfait ?",
           "memory_number": 5,
           "memory_section": 3
         },
@@ -395,19 +405,9 @@
           "memory_section": 3
         },
         {
-          "text": "Qu'est-ce qu'il faut apporter — des manuels, des cahiers, ou est-ce que tout est fourni ?",
+          "text": "Question matériel, qu'est-ce qu'il faut apporter — des manuels, des cahiers, ou est-ce que tout est fourni ?",
           "memory_number": 5,
           "memory_section": 8
-        },
-        {
-          "text": "Comment suivez-vous la progression des élèves — il y a des bilans réguliers ?",
-          "memory_number": 5,
-          "memory_section": 4
-        },
-        {
-          "text": "Est-ce que vous préparez aussi aux examens ou aux certifications officielles ?",
-          "memory_number": 5,
-          "memory_section": 2
         },
         {
           "text": "Pour finir — si je veux progresser rapidement, quelle formule me conseilleriez-vous ?",

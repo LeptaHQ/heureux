@@ -17,11 +17,6 @@
           "memory_section": 13
         },
         {
-          "text": "Il se trouve où exactement — c'est facilement accessible en transports en commun ?",
-          "memory_number": 9,
-          "memory_section": 5
-        },
-        {
           "text": "Quel type de cuisine est proposé — canadienne, internationale ou un mélange des deux ?",
           "memory_number": 9,
           "memory_section": 2
@@ -32,7 +27,7 @@
           "memory_section": 11
         },
         {
-          "text": "Parmi tous les plats, lequel me conseillerais-tu ?",
+          "text": "Question repas, parmi tous les plats, lequel me conseillerais-tu ?",
           "memory_number": 9,
           "memory_section": 11
         },
@@ -47,7 +42,7 @@
           "memory_section": 9
         },
         {
-          "text": "Comment est l'ambiance en général — plutôt calme et conviviale, ou plus animée ?",
+          "text": "J'en profite pour te demander : comment est l'ambiance en général — plutôt calme et conviviale, ou plus animée ?",
           "memory_number": 9,
           "memory_section": 10
         },
@@ -57,7 +52,12 @@
           "memory_section": 10
         },
         {
-          "text": "C'est dans quelle gamme de prix — plutôt cher ou raisonnable ?",
+          "text": "Qu'est-ce que tu as le plus apprécié — et y a-t-il quelque chose qui t'a moins plu ?",
+          "memory_number": 9,
+          "memory_section": 10
+        },
+        {
+          "text": "En ce qui concerne le budget, c'est dans quelle gamme de prix — plutôt cher ou raisonnable ?",
           "memory_number": 9,
           "memory_section": 3
         },
@@ -67,7 +67,7 @@
           "memory_section": 11
         },
         {
-          "text": "Il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "text": "Pour l'inscription, il faut réserver une table à l'avance ou on peut y aller directement ?",
           "memory_number": 9,
           "memory_section": 9
         },
@@ -77,9 +77,9 @@
           "memory_section": 4
         },
         {
-          "text": "Qu'est-ce que tu as le plus apprécié — et y a-t-il quelque chose qui t'a moins plu ?",
+          "text": "Et pour s'y rendre, il se trouve où exactement — c'est facilement accessible en transports en commun ?",
           "memory_number": 9,
-          "memory_section": 10
+          "memory_section": 5
         },
         {
           "text": "Avec le recul, est-ce que tu y retournerais et tu me le recommanderais vraiment ?",
@@ -182,14 +182,14 @@
           "memory_section": 2
         },
         {
+          "text": "J'en profite pour vous demander : quelles différences y a-t-il entre les options proposées ?",
+          "memory_number": 5,
+          "memory_section": 11
+        },
+        {
           "text": "Ça s'adresse à quels âges — les enfants sont-ils répartis par groupe de niveau ?",
           "memory_number": 5,
           "memory_section": 6
-        },
-        {
-          "text": "Quelles différences y a-t-il entre les options proposées ?",
-          "memory_number": 5,
-          "memory_section": 11
         },
         {
           "text": "Ça se passe où exactement — dans l'école ou dans un centre du quartier ?",
@@ -197,17 +197,7 @@
           "memory_section": 13
         },
         {
-          "text": "Les activités ont lieu quels jours et à quelle heure après l'école ?",
-          "memory_number": 5,
-          "memory_section": 4
-        },
-        {
-          "text": "Quelle est la durée d'une séance — et il y en a combien par semaine ?",
-          "memory_number": 5,
-          "memory_section": 4
-        },
-        {
-          "text": "Qui encadre les enfants — ce sont des animateurs ou des professeurs qualifiés ?",
+          "text": "Côté niveau, qui encadre les enfants — ce sont des animateurs ou des professeurs qualifiés ?",
           "memory_number": 5,
           "memory_section": 7
         },
@@ -215,6 +205,16 @@
           "text": "Il y a généralement combien d'enfants par groupe ?",
           "memory_number": 5,
           "memory_section": 7
+        },
+        {
+          "text": "Côté horaires, les activités ont lieu quels jours et à quelle heure après l'école ?",
+          "memory_number": 5,
+          "memory_section": 4
+        },
+        {
+          "text": "Quelle est la durée d'une séance — et il y en a combien par semaine ?",
+          "memory_number": 5,
+          "memory_section": 4
         },
         {
           "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
@@ -227,7 +227,7 @@
           "memory_section": 6
         },
         {
-          "text": "Comment fonctionnent les tarifs — faut-il payer au mois ou pour toute la session ?",
+          "text": "En ce qui concerne les tarifs, comment ça fonctionne — faut-il payer au mois ou pour toute la session ?",
           "memory_number": 5,
           "memory_section": 3
         },
@@ -237,12 +237,12 @@
           "memory_section": 3
         },
         {
-          "text": "Qu'est-ce qu'il faut apporter — ou est-ce que tout le matériel est fourni sur place ?",
+          "text": "Côté affaires à prévoir, qu'est-ce qu'il faut apporter — ou est-ce que tout le matériel est fourni sur place ?",
           "memory_number": 5,
           "memory_section": 8
         },
         {
-          "text": "Selon vous, quelle activité conviendrait le mieux à des enfants qui aiment bouger et travailler en groupe ?",
+          "text": "Pour finir — selon vous, quelle activité conviendrait le mieux à des enfants qui aiment bouger et travailler en groupe ?",
           "memory_number": 5,
           "memory_section": 11
         }
@@ -269,19 +269,19 @@
           "memory_section": 2
         },
         {
-          "text": "Comment se déroule une distribution, du début à la fin ?",
+          "text": "Dans le détail, comment se déroule une distribution, du début à la fin ?",
           "memory_number": 3,
           "memory_section": 13
         },
         {
-          "text": "Ça a lieu quels jours exactement — plutôt en semaine ou le week-end ?",
+          "text": "Puisqu'on en parle, comment est l'ambiance entre les bénévoles pendant les distributions ?",
           "memory_number": 3,
-          "memory_section": 4
+          "memory_section": 10
         },
         {
-          "text": "À quelle heure ça commence — et combien d'heures par semaine faut-il prévoir ?",
+          "text": "Question sécurité, y a-t-il aussi des aspects difficiles ou des précautions particulières à connaître ?",
           "memory_number": 3,
-          "memory_section": 4
+          "memory_section": 11
         },
         {
           "text": "Est-ce qu'il faut avoir des compétences particulières ou une expérience préalable pour s'engager ?",
@@ -294,12 +294,22 @@
           "memory_section": 6
         },
         {
+          "text": "Côté planning, ça a lieu quels jours exactement — plutôt en semaine ou le week-end ?",
+          "memory_number": 3,
+          "memory_section": 4
+        },
+        {
+          "text": "À quelle heure ça commence — et combien d'heures par semaine faut-il prévoir ?",
+          "memory_number": 3,
+          "memory_section": 4
+        },
+        {
           "text": "Comment se passe l'inscription — en ligne ou directement auprès de l'association ?",
           "memory_number": 3,
           "memory_section": 6
         },
         {
-          "text": "Qu'est-ce qu'il faut apporter — ou est-ce que les gants et le matériel sont fournis sur place ?",
+          "text": "Pour ce qui est de l'équipement, qu'est-ce qu'il faut apporter — ou est-ce que les gants et le matériel sont fournis sur place ?",
           "memory_number": 3,
           "memory_section": 8
         },
@@ -307,16 +317,6 @@
           "text": "Est-ce que les frais de transport ou de repas sont pris en charge pour les bénévoles ?",
           "memory_number": 3,
           "memory_section": 3
-        },
-        {
-          "text": "Comment est l'ambiance entre les bénévoles pendant les distributions ?",
-          "memory_number": 3,
-          "memory_section": 10
-        },
-        {
-          "text": "Y a-t-il aussi des aspects difficiles ou des précautions particulières à connaître ?",
-          "memory_number": 3,
-          "memory_section": 11
         },
         {
           "text": "Qu'est-ce que tu apprécies le plus dans cette expérience ?",
@@ -361,7 +361,7 @@
           "memory_section": 4
         },
         {
-          "text": "À quelle heure ça commence — il y a des horaires flexibles ou tout le monde suit le même rythme ?",
+          "text": "Et concrètement, à quelle heure ça commence — il y a des horaires flexibles ou tout le monde suit le même rythme ?",
           "memory_number": 4,
           "memory_section": 4
         },
@@ -371,7 +371,7 @@
           "memory_section": 4
         },
         {
-          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "text": "Avant que j'oublie, comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "memory_number": 4,
           "memory_section": 10
         },
@@ -381,17 +381,17 @@
           "memory_section": 7
         },
         {
+          "text": "En ce qui concerne la couverture, quels sont les avantages dont bénéficient les employés — assurance, congés, primes, ce genre de choses ?",
+          "memory_number": 4,
+          "memory_section": 3
+        },
+        {
           "text": "Côté salaire, c'est dans quelle gamme pour un poste comme le tien ?",
           "memory_number": 4,
           "memory_section": 3
         },
         {
-          "text": "Quels sont les avantages dont bénéficient les employés — assurance, congés, primes, ce genre de choses ?",
-          "memory_number": 4,
-          "memory_section": 3
-        },
-        {
-          "text": "Tu sais si l'entreprise recrute en ce moment ou si des postes vont bientôt s'ouvrir ?",
+          "text": "Une chose encore : tu sais si l'entreprise recrute en ce moment ou si des postes vont bientôt s'ouvrir ?",
           "memory_number": 4,
           "memory_section": 6
         },
@@ -428,22 +428,17 @@
           "memory_section": 7
         },
         {
+          "text": "D'abord, la garde aurait lieu chez vous ou chez moi ?",
+          "memory_number": 3,
+          "memory_section": 13
+        },
+        {
           "text": "Concrètement, qu'attendez-vous de moi pendant la garde — quelles seront mes principales responsabilités ?",
           "memory_number": 3,
           "memory_section": 7
         },
         {
-          "text": "Pour les repas, qu'avez-vous prévu, et à quelles heures faut-il les servir ?",
-          "memory_number": 3,
-          "memory_section": 7
-        },
-        {
-          "text": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
-          "memory_number": 3,
-          "memory_section": 8
-        },
-        {
-          "text": "Quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
+          "text": "Pour ce qui est des loisirs, quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
           "memory_number": 3,
           "memory_section": 7
         },
@@ -458,24 +453,29 @@
           "memory_section": 8
         },
         {
+          "text": "Et pour les repas, qu'avez-vous prévu, et à quelles heures faut-il les servir ?",
+          "memory_number": 3,
+          "memory_section": 7
+        },
+        {
+          "text": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
+          "memory_number": 3,
+          "memory_section": 8
+        },
+        {
+          "text": "En ce qui concerne la sécurité, y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
+          "memory_number": 3,
+          "memory_section": 8
+        },
+        {
           "text": "Si la garde se prolonge le soir, à quelle heure faut-il prévoir le coucher, et y a-t-il une routine particulière ?",
           "memory_number": 3,
           "memory_section": 4
         },
         {
-          "text": "Y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
+          "text": "En ce qui concerne l'endroit, qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
           "memory_number": 3,
           "memory_section": 8
-        },
-        {
-          "text": "Qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
-          "memory_number": 3,
-          "memory_section": 8
-        },
-        {
-          "text": "La garde aurait lieu chez vous ou chez moi ?",
-          "memory_number": 3,
-          "memory_section": 13
         },
         {
           "text": "Y a-t-il d'autres habitudes ou règles importantes à respecter avec votre enfant ?",

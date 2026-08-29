@@ -22,12 +22,7 @@
           "memory_section": 2
         },
         {
-          "text": "À quelle heure commencent les cours collectifs — plutôt le matin ou en fin de journée ?",
-          "memory_number": 8,
-          "memory_section": 4
-        },
-        {
-          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -37,12 +32,22 @@
           "memory_section": 8
         },
         {
-          "text": "Quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "text": "À quelle heure commencent les cours collectifs — plutôt le matin ou en fin de journée ?",
           "memory_number": 8,
           "memory_section": 4
         },
         {
-          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
+          "text": "Et plus largement, quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+          "memory_number": 8,
+          "memory_section": 4
+        },
+        {
+          "text": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
+          "memory_number": 8,
+          "memory_section": 8
+        },
+        {
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Le tarif comprend quoi exactement ?",
           "memory_number": 8,
           "memory_section": 3
         },
@@ -52,7 +57,7 @@
           "memory_section": 3
         },
         {
-          "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
+          "text": "Sur un autre point, est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
           "memory_number": 8,
           "memory_section": 3
         },
@@ -67,12 +72,7 @@
           "memory_section": 3
         },
         {
-          "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ? Y a-t-il des vestiaires et des douches disponibles ?",
-          "memory_number": 8,
-          "memory_section": 8
-        },
-        {
-          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
+          "text": "Question réservation, comment se passe l'inscription — en ligne ou uniquement sur place ? Il reste encore des places ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -201,7 +201,7 @@
           "memory_section": 11
         },
         {
-          "text": "Ça s'adresse à quel public — plutôt aux lecteurs habitués à suivre l'actualité ou accessible à un large public ?",
+          "text": "Pour ce qui est du niveau, ça s'adresse à quel public — plutôt aux lecteurs habitués à suivre l'actualité ou accessible à un large public ?",
           "memory_number": 10,
           "memory_section": 6
         },
@@ -211,7 +211,7 @@
           "memory_section": 2
         },
         {
-          "text": "Le niveau de langue est-il accessible pour quelqu'un qui apprend encore le français ?",
+          "text": "Pendant que j'y pense, le niveau de langue est-il accessible pour quelqu'un qui apprend encore le français ?",
           "memory_number": 10,
           "memory_section": 6
         },
@@ -221,22 +221,12 @@
           "memory_section": 2
         },
         {
-          "text": "Les articles sont plutôt courts ou faut-il prévoir beaucoup de temps pour les lire ?",
+          "text": "Côté lecture, les articles sont plutôt courts ou faut-il prévoir beaucoup de temps pour les lire ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Et ce journal, c'est dans quelle gamme de prix — plutôt cher ou raisonnable ?",
-          "memory_number": 10,
-          "memory_section": 3
-        },
-        {
-          "text": "Est-ce que la version numérique est comprise ou il faut l'acheter séparément ?",
-          "memory_number": 10,
-          "memory_section": 3
-        },
-        {
-          "text": "Vous avez mentionné un quotidien en particulier — vous pourriez m'en dire un peu plus ?",
+          "text": "Vous avez mentionné un quotidien en particulier — vous pourriez m'en dire un peu plus : il paraît tous les jours ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -244,6 +234,16 @@
           "text": "Qu'est-ce qui rend cette lecture particulièrement intéressante selon vous ?",
           "memory_number": 10,
           "memory_section": 11
+        },
+        {
+          "text": "Et ce journal, c'est dans quelle gamme de prix — plutôt cher ou raisonnable ?",
+          "memory_number": 10,
+          "memory_section": 3
+        },
+        {
+          "text": "Dernier point pratique : est-ce que la version numérique est comprise ou il faut l'acheter séparément ?",
+          "memory_number": 10,
+          "memory_section": 3
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule lecture, ce serait laquelle ?",
@@ -278,7 +278,7 @@
           "memory_section": 2
         },
         {
-          "text": "Ça s'adresse à quel profil — faut-il avoir un niveau de langue particulier ?",
+          "text": "Ensuite, ça s'adresse à quel profil — faut-il avoir un niveau de langue particulier ?",
           "memory_number": 5,
           "memory_section": 6
         },
@@ -293,12 +293,12 @@
           "memory_section": 13
         },
         {
-          "text": "Les cours suivis à l'étranger seront-ils reconnus dans mon parcours ici ?",
+          "text": "Toujours sur ce point, les cours suivis à l'étranger seront-ils reconnus dans mon parcours ici ?",
           "memory_number": 5,
           "memory_section": 2
         },
         {
-          "text": "Comment se passe l'inscription — en ligne ou uniquement auprès de l'établissement ?",
+          "text": "En ce qui concerne les formalités, comment se passe l'inscription — en ligne ou uniquement auprès de l'établissement ?",
           "memory_number": 5,
           "memory_section": 6
         },
@@ -318,12 +318,12 @@
           "memory_section": 3
         },
         {
-          "text": "Pour l'hébergement, est-ce que l'université s'en occupe ou je dois réserver moi-même ?",
+          "text": "Pour ce qui est de l'hébergement, est-ce que l'université s'en occupe ou je dois réserver moi-même ?",
           "memory_number": 5,
           "memory_section": 9
         },
         {
-          "text": "Est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
+          "text": "En ce qui concerne les papiers, est-ce qu'il y a des démarches administratives à prévoir — un visa ou une assurance particulière ?",
           "memory_number": 5,
           "memory_section": 8
         },
@@ -360,6 +360,11 @@
           "memory_section": 4
         },
         {
+          "text": "Autre point important : pourquoi avez-vous décidé de la mettre en vente ?",
+          "memory_number": 6,
+          "memory_section": 11
+        },
+        {
           "text": "Est-ce qu'elle est encore en bon état et fonctionne correctement ?",
           "memory_number": 6,
           "memory_section": 11
@@ -370,7 +375,7 @@
           "memory_section": 8
         },
         {
-          "text": "L'entretien a été fait régulièrement — avez-vous encore les factures ou le carnet d'entretien ?",
+          "text": "Il y a un autre point qui m'intéresse : l'entretien a été fait régulièrement — avez-vous encore les factures ou le carnet d'entretien ?",
           "memory_number": 6,
           "memory_section": 8
         },
@@ -380,22 +385,12 @@
           "memory_section": 8
         },
         {
-          "text": "Elle fonctionne à l'essence, au diesel ou à l'électricité — et la consommation est raisonnable ?",
+          "text": "Côté motorisation, elle fonctionne à l'essence, au diesel ou à l'électricité — et la consommation est raisonnable ?",
           "memory_number": 6,
           "memory_section": 2
         },
         {
-          "text": "Pourquoi avez-vous décidé de la mettre en vente ?",
-          "memory_number": 6,
-          "memory_section": 11
-        },
-        {
           "text": "Pour le prix, vous avez déjà fixé un montant ou est-ce que c'est négociable ?",
-          "memory_number": 6,
-          "memory_section": 3
-        },
-        {
-          "text": "Est-ce que je pourrais faire un essai avant de me décider ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -405,12 +400,17 @@
           "memory_section": 3
         },
         {
-          "text": "Pour le paiement, vous préférez un virement bancaire ou un chèque certifié ?",
+          "text": "Il me reste un point à éclaircir : est-ce que je pourrais faire un essai avant de me décider ?",
           "memory_number": 6,
           "memory_section": 3
         },
         {
-          "text": "D'accord, si j'ai encore une question, je peux vous recontacter ?",
+          "text": "Dernier point pratique : pour le paiement, vous préférez un virement bancaire ou un chèque certifié ?",
+          "memory_number": 6,
+          "memory_section": 3
+        },
+        {
+          "text": "D'accord, je vais réfléchir à votre offre et vous donner une réponse rapidement — si j'ai encore une question, je peux vous recontacter ?",
           "memory_number": 6,
           "memory_section": 13
         }

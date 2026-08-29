@@ -49,7 +49,7 @@
           "kind": "mot-cle",
           "french": "gamme de prix",
           "english": "price range",
-          "example": "C'est dans quelle gamme de prix — plutôt cher ou raisonnable ?",
+          "example": "En ce qui concerne le budget, c'est dans quelle gamme de prix — plutôt cher ou raisonnable ?",
           "usage": "Groupe nominal courant pour évoquer un niveau de tarifs."
         },
         {
@@ -65,7 +65,7 @@
           "kind": "mot-cle",
           "french": "une table",
           "english": "a table",
-          "example": "Il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "example": "Pour l'inscription, il faut réserver une table à l'avance ou on peut y aller directement ?",
           "usage": "Nom féminin courant utilisé dans le contexte d'une réservation au restaurant."
         },
         {
@@ -97,7 +97,7 @@
           "kind": "collocation",
           "french": "accessible en transports en commun",
           "english": "accessible by public transport",
-          "example": "Il se trouve où exactement — c'est facilement accessible en transports en commun ?",
+          "example": "Et pour s'y rendre, il se trouve où exactement — c'est facilement accessible en transports en commun ?",
           "usage": "Collocation adjectif + complément de moyen pour évaluer la desserte d'un lieu."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "calme et conviviale",
           "english": "calm and welcoming",
-          "example": "Comment est l'ambiance en général — plutôt calme et conviviale, ou plus animée ?",
+          "example": "J'en profite pour te demander : comment est l'ambiance en général — plutôt calme et conviviale, ou plus animée ?",
           "usage": "Coordination de deux adjectifs féminins pour décrire une ambiance."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "réserver une table à l'avance",
           "english": "book a table in advance",
-          "example": "Il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "example": "Pour l'inscription, il faut réserver une table à l'avance ou on peut y aller directement ?",
           "usage": "Collocation complète adaptée à un restaurant fréquenté."
         },
         {
@@ -185,7 +185,7 @@
           "kind": "tournure",
           "french": "parmi tous les plats, lequel me conseillerais-tu",
           "english": "among all the dishes, which one would you recommend to me",
-          "example": "Parmi tous les plats, lequel me conseillerais-tu ?",
+          "example": "Question repas, parmi tous les plats, lequel me conseillerais-tu ?",
           "usage": "Pronom interrogatif « lequel » précédé de « parmi » pour demander un choix précis."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "tournure",
           "french": "C'est dans quelle gamme de prix",
           "english": "what is the price range",
-          "example": "C'est dans quelle gamme de prix — plutôt cher ou raisonnable ?",
+          "example": "En ce qui concerne le budget, c'est dans quelle gamme de prix — plutôt cher ou raisonnable ?",
           "usage": "Structure orale avec « c'est » sujet et groupe interrogatif postposé."
         },
         {
@@ -225,7 +225,7 @@
           "kind": "tournure",
           "french": "il faut réserver une table à l'avance ou on peut y aller directement",
           "english": "do you need to book a table in advance or can you just go there directly",
-          "example": "Il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "example": "Pour l'inscription, il faut réserver une table à l'avance ou on peut y aller directement ?",
           "usage": "Tournure d'alternative très utile dans un contexte de restauration."
         },
         {
@@ -523,7 +523,7 @@
           "kind": "mot-cle",
           "french": "les activités",
           "english": "the activities",
-          "example": "Les activités ont lieu quels jours et à quelle heure après l'école ?",
+          "example": "Côté horaires, les activités ont lieu quels jours et à quelle heure après l'école ?",
           "usage": "Nom féminin pluriel désignant l'ensemble des occupations proposées."
         },
         {
@@ -531,7 +531,7 @@
           "kind": "mot-cle",
           "french": "des animateurs",
           "english": "activity leaders / instructors",
-          "example": "Qui encadre les enfants — ce sont des animateurs ou des professeurs qualifiés ?",
+          "example": "Côté niveau, qui encadre les enfants — ce sont des animateurs ou des professeurs qualifiés ?",
           "usage": "Nom masculin pluriel désignant les personnes qui encadrent des enfants dans des activités."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "la session",
           "english": "the term / session",
-          "example": "Comment fonctionnent les tarifs — faut-il payer au mois ou pour toute la session ?",
+          "example": "En ce qui concerne les tarifs, comment ça fonctionne — faut-il payer au mois ou pour toute la session ?",
           "usage": "Nom féminin désignant une période complète d'activités, souvent un trimestre."
         },
         {
@@ -603,7 +603,7 @@
           "kind": "collocation",
           "french": "entre les options proposées",
           "english": "between the options on offer",
-          "example": "Quelles différences y a-t-il entre les options proposées ?",
+          "example": "J'en profite pour vous demander : quelles différences y a-t-il entre les options proposées ?",
           "usage": "Locution prépositionnelle pour comparer plusieurs choix disponibles."
         },
         {
@@ -619,7 +619,7 @@
           "kind": "collocation",
           "french": "quels jours et à quelle heure",
           "english": "which days and at what time",
-          "example": "Les activités ont lieu quels jours et à quelle heure après l'école ?",
+          "example": "Côté horaires, les activités ont lieu quels jours et à quelle heure après l'école ?",
           "usage": "Coordination de deux compléments interrogatifs de temps."
         },
         {
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "tout le matériel",
           "english": "all the equipment",
-          "example": "Qu'est-ce qu'il faut apporter — ou est-ce que tout le matériel est fourni sur place ?",
+          "example": "Côté affaires à prévoir, qu'est-ce qu'il faut apporter — ou est-ce que tout le matériel est fourni sur place ?",
           "usage": "Groupe nominal avec « tout » pour désigner l'ensemble des objets nécessaires."
         },
         {
@@ -683,7 +683,7 @@
           "kind": "tournure",
           "french": "quelles différences y a-t-il entre les options proposées",
           "english": "what differences are there between the options on offer",
-          "example": "Quelles différences y a-t-il entre les options proposées ?",
+          "example": "J'en profite pour vous demander : quelles différences y a-t-il entre les options proposées ?",
           "usage": "Structure impersonnelle « y a-t-il » pour comparer plusieurs choix."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "qui encadre les enfants",
           "english": "who supervises the children",
-          "example": "Qui encadre les enfants — ce sont des animateurs ou des professeurs qualifiés ?",
+          "example": "Côté niveau, qui encadre les enfants — ce sont des animateurs ou des professeurs qualifiés ?",
           "usage": "Pronom interrogatif « qui » sujet pour interroger sur une responsabilité."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "faut-il payer au mois ou pour toute la session",
           "english": "do you have to pay monthly or for the whole term",
-          "example": "Comment fonctionnent les tarifs — faut-il payer au mois ou pour toute la session ?",
+          "example": "En ce qui concerne les tarifs, comment ça fonctionne — faut-il payer au mois ou pour toute la session ?",
           "usage": "Inversion avec « faut-il » pour proposer une alternative de paiement."
         },
         {
@@ -731,7 +731,7 @@
           "kind": "tournure",
           "french": "quelle activité conviendrait le mieux",
           "english": "which activity would suit best",
-          "example": "Selon vous, quelle activité conviendrait le mieux à des enfants qui aiment bouger et travailler en groupe ?",
+          "example": "Pour finir — selon vous, quelle activité conviendrait le mieux à des enfants qui aiment bouger et travailler en groupe ?",
           "usage": "Conditionnel présent du verbe « convenir » pour demander une recommandation adaptée."
         }
       ]
@@ -768,7 +768,7 @@
           "kind": "mot-cle",
           "french": "une distribution",
           "english": "a distribution (of food)",
-          "example": "Comment se déroule une distribution, du début à la fin ?",
+          "example": "Dans le détail, comment se déroule une distribution, du début à la fin ?",
           "usage": "Nom féminin désignant l'action de donner de la nourriture à des personnes dans le besoin."
         },
         {
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "les gants",
           "english": "gloves",
-          "example": "Qu'est-ce qu'il faut apporter — ou est-ce que les gants et le matériel sont fournis sur place ?",
+          "example": "Pour ce qui est de l'équipement, qu'est-ce qu'il faut apporter — ou est-ce que les gants et le matériel sont fournis sur place ?",
           "usage": "Nom masculin pluriel désignant l'équipement de protection des mains."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "l'ambiance",
           "english": "the atmosphere",
-          "example": "Comment est l'ambiance entre les bénévoles pendant les distributions ?",
+          "example": "Puisqu'on en parle, comment est l'ambiance entre les bénévoles pendant les distributions ?",
           "usage": "Nom féminin désignant le climat général régnant dans un groupe."
         },
         {
@@ -840,7 +840,7 @@
           "kind": "collocation",
           "french": "du début à la fin",
           "english": "from start to finish",
-          "example": "Comment se déroule une distribution, du début à la fin ?",
+          "example": "Dans le détail, comment se déroule une distribution, du début à la fin ?",
           "usage": "Locution figée pour décrire le déroulement complet d'un événement."
         },
         {
@@ -848,7 +848,7 @@
           "kind": "collocation",
           "french": "en semaine ou le week-end",
           "english": "on weekdays or at the weekend",
-          "example": "Ça a lieu quels jours exactement — plutôt en semaine ou le week-end ?",
+          "example": "Côté planning, ça a lieu quels jours exactement — plutôt en semaine ou le week-end ?",
           "usage": "Coordination de deux compléments de temps pour situer une fréquence."
         },
         {
@@ -896,7 +896,7 @@
           "kind": "collocation",
           "french": "des précautions particulières",
           "english": "special precautions",
-          "example": "Y a-t-il aussi des aspects difficiles ou des précautions particulières à connaître ?",
+          "example": "Question sécurité, y a-t-il aussi des aspects difficiles ou des précautions particulières à connaître ?",
           "usage": "Collocation adjectif-nom réutilisable pour aborder les mesures de prudence."
         },
         {
@@ -920,7 +920,7 @@
           "kind": "tournure",
           "french": "comment se déroule une distribution",
           "english": "how does a distribution unfold",
-          "example": "Comment se déroule une distribution, du début à la fin ?",
+          "example": "Dans le détail, comment se déroule une distribution, du début à la fin ?",
           "usage": "Verbe pronominal « se dérouler » pour interroger sur le déroulement d'un événement."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "est-ce que les gants et le matériel sont fournis",
           "english": "are the gloves and equipment provided",
-          "example": "Qu'est-ce qu'il faut apporter — ou est-ce que les gants et le matériel sont fournis sur place ?",
+          "example": "Pour ce qui est de l'équipement, qu'est-ce qu'il faut apporter — ou est-ce que les gants et le matériel sont fournis sur place ?",
           "usage": "Voix passive avec « être fourni » pour vérifier la mise à disposition de matériel."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "y a-t-il aussi des aspects difficiles",
           "english": "are there also difficult aspects",
-          "example": "Y a-t-il aussi des aspects difficiles ou des précautions particulières à connaître ?",
+          "example": "Question sécurité, y a-t-il aussi des aspects difficiles ou des précautions particulières à connaître ?",
           "usage": "Structure impersonnelle « y a-t-il » pour aborder un sujet sensible avec tact."
         },
         {
@@ -1021,7 +1021,7 @@
           "kind": "mot-cle",
           "french": "des horaires flexibles",
           "english": "flexible hours",
-          "example": "À quelle heure ça commence — il y a des horaires flexibles ou tout le monde suit le même rythme ?",
+          "example": "Et concrètement, à quelle heure ça commence — il y a des horaires flexibles ou tout le monde suit le même rythme ?",
           "usage": "Groupe nominal désignant des horaires de travail modulables."
         },
         {
@@ -1037,7 +1037,7 @@
           "kind": "mot-cle",
           "french": "l'ambiance",
           "english": "the atmosphere",
-          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "example": "Avant que j'oublie, comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "usage": "Nom courant désignant le climat général qui règne dans un lieu ou un groupe."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "primes",
           "english": "bonuses",
-          "example": "Quels sont les avantages dont bénéficient les employés — assurance, congés, primes, ce genre de choses ?",
+          "example": "En ce qui concerne la couverture, quels sont les avantages dont bénéficient les employés — assurance, congés, primes, ce genre de choses ?",
           "usage": "Nom féminin pluriel désignant des sommes versées en plus du salaire de base."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "formelle ou décontractée",
           "english": "formal or casual",
-          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "example": "Avant que j'oublie, comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "usage": "Collocation adjectivale par coordination pour qualifier une ambiance générale."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "recrute en ce moment",
           "english": "is hiring right now",
-          "example": "Tu sais si l'entreprise recrute en ce moment ou si des postes vont bientôt s'ouvrir ?",
+          "example": "Une chose encore : tu sais si l'entreprise recrute en ce moment ou si des postes vont bientôt s'ouvrir ?",
           "usage": "Collocation verbe + locution temporelle pour interroger sur une actualité de recrutement."
         },
         {
@@ -1181,7 +1181,7 @@
           "kind": "tournure",
           "french": "tout le monde suit le même rythme",
           "english": "everyone keeps the same schedule",
-          "example": "À quelle heure ça commence — il y a des horaires flexibles ou tout le monde suit le même rythme ?",
+          "example": "Et concrètement, à quelle heure ça commence — il y a des horaires flexibles ou tout le monde suit le même rythme ?",
           "usage": "Structure avec « tout le monde » + verbe au singulier pour évoquer une uniformité."
         },
         {
@@ -1189,7 +1189,7 @@
           "kind": "tournure",
           "french": "plutôt formelle ou décontractée",
           "english": "rather formal or casual",
-          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "example": "Avant que j'oublie, comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "usage": "Structure figée avec 'plutôt... ou...' pour proposer une alternative de registre."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "des postes vont bientôt s'ouvrir",
           "english": "positions will soon open up",
-          "example": "Tu sais si l'entreprise recrute en ce moment ou si des postes vont bientôt s'ouvrir ?",
+          "example": "Une chose encore : tu sais si l'entreprise recrute en ce moment ou si des postes vont bientôt s'ouvrir ?",
           "usage": "Futur proche « aller » + infinitif pronominal pour anticiper un événement futur."
         },
         {
@@ -1258,7 +1258,7 @@
           "kind": "mot-cle",
           "french": "les repas",
           "english": "the meals",
-          "example": "Pour les repas, qu'avez-vous prévu, et à quelles heures faut-il les servir ?",
+          "example": "Et pour les repas, qu'avez-vous prévu, et à quelles heures faut-il les servir ?",
           "usage": "Nom masculin pluriel désignant les repas de la journée, sujet central de cette question."
         },
         {
@@ -1290,7 +1290,7 @@
           "kind": "mot-cle",
           "french": "des soins particuliers",
           "english": "special care",
-          "example": "Y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
+          "example": "En ce qui concerne la sécurité, y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
           "usage": "Groupe nominal pour évoquer une attention médicale ou physique spécifique."
         },
         {
@@ -1298,7 +1298,7 @@
           "kind": "mot-cle",
           "french": "le nécessaire",
           "english": "the necessities / everything needed",
-          "example": "Qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
+          "example": "En ce qui concerne l'endroit, qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
           "usage": "Pronom nominalisé introduit par « tout » pour désigner l'ensemble des objets utiles."
         },
         {
@@ -1338,7 +1338,7 @@
           "kind": "collocation",
           "french": "jeux à la maison",
           "english": "games at home",
-          "example": "Quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
+          "example": "Pour ce qui est des loisirs, quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
           "usage": "Groupe nominal pour désigner des activités pratiquées à l'intérieur."
         },
         {
@@ -1370,7 +1370,7 @@
           "kind": "collocation",
           "french": "des médicaments à donner",
           "english": "medication to give",
-          "example": "Y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
+          "example": "En ce qui concerne la sécurité, y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
           "usage": "Groupe nominal avec infinitif de but pour évoquer une responsabilité médicale précise."
         },
         {
@@ -1378,7 +1378,7 @@
           "kind": "collocation",
           "french": "aurait lieu chez vous",
           "english": "would take place at your home",
-          "example": "La garde aurait lieu chez vous ou chez moi ?",
+          "example": "D'abord, la garde aurait lieu chez vous ou chez moi ?",
           "usage": "Le conditionnel sert à confirmer un lieu encore à convenir."
         },
         {
@@ -1402,7 +1402,7 @@
           "kind": "tournure",
           "french": "à quelles heures faut-il les servir",
           "english": "what times should they be served",
-          "example": "Pour les repas, qu'avez-vous prévu, et à quelles heures faut-il les servir ?",
+          "example": "Et pour les repas, qu'avez-vous prévu, et à quelles heures faut-il les servir ?",
           "usage": "Structure impersonnelle « il faut » + pronom « les » reprenant « les repas » pour éviter toute référence genrée à l'enfant."
         },
         {
@@ -1418,7 +1418,7 @@
           "kind": "tournure",
           "french": "quelles sont les activités préférées de votre enfant",
           "english": "what are your child's favourite activities",
-          "example": "Quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
+          "example": "Pour ce qui est des loisirs, quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
           "usage": "Structure avec « quelles sont » pour explorer des préférences."
         },
         {
@@ -1442,7 +1442,7 @@
           "kind": "tournure",
           "french": "est-ce que vous fournissez tout le nécessaire",
           "english": "do you provide everything needed",
-          "example": "Qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
+          "example": "En ce qui concerne l'endroit, qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
           "usage": "Structure avec « est-ce que » pour vérifier discrètement une prise en charge matérielle."
         },
         {
@@ -1450,7 +1450,7 @@
           "kind": "tournure",
           "french": "La garde aurait lieu chez vous ou chez moi",
           "english": "would the care take place at your home or mine",
-          "example": "La garde aurait lieu chez vous ou chez moi ?",
+          "example": "D'abord, la garde aurait lieu chez vous ou chez moi ?",
           "usage": "Alternative polie qui clarifie directement le lieu de garde."
         },
         {

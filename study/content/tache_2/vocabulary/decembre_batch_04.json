@@ -5,12 +5,12 @@
       "subject_key": "tache2:decembre:batch-04:subject-16",
       "entries": [
         {
+          "id": "T2D12S16V01",
           "kind": "mot-cle",
           "french": "vélo de ville",
           "english": "a city bike",
           "example": "Quels modèles de vélos proposez-vous — vélo de ville, VTT, vélo électrique ?",
-          "usage": "Groupe nominal pour un modèle urbain.",
-          "id": "T2D12S16V01"
+          "usage": "Groupe nominal pour un modèle urbain."
         },
         {
           "id": "T2D12S16V02",
@@ -29,60 +29,60 @@
           "usage": "Groupe nominal désignant un vélo avec assistance électrique."
         },
         {
+          "id": "T2D12S16V04",
           "kind": "mot-cle",
           "french": "une caution",
           "english": "a deposit",
           "example": "Faut-il verser une caution — et de quel montant à peu près ?",
-          "usage": "Nom féminin désignant la garantie financière demandée.",
-          "id": "T2D12S16V04"
+          "usage": "Nom féminin désignant la garantie financière demandée."
         },
         {
+          "id": "T2D12S16V05",
           "kind": "mot-cle",
           "french": "une pièce d'identité",
           "english": "an ID document",
           "example": "Quelles sont les conditions pour louer — faut-il une pièce d'identité ou un âge minimum ?",
-          "usage": "Groupe nominal pour un justificatif d'identité.",
-          "id": "T2D12S16V05"
+          "usage": "Groupe nominal pour un justificatif d'identité."
         },
         {
+          "id": "T2D12S16V06",
           "kind": "mot-cle",
           "french": "le casque",
           "english": "the helmet",
-          "example": "Est-ce que le casque et l'antivol sont fournis avec le vélo ?",
-          "usage": "Nom désignant l'équipement de protection.",
-          "id": "T2D12S16V06"
+          "example": "Côté équipement, est-ce que le casque et l'antivol sont fournis avec le vélo ?",
+          "usage": "Nom désignant l'équipement de protection."
         },
         {
           "id": "T2D12S16V07",
           "kind": "mot-cle",
           "french": "l'antivol",
           "english": "the bike lock",
-          "example": "Est-ce que le casque et l'antivol sont fournis avec le vélo ?",
+          "example": "Côté équipement, est-ce que le casque et l'antivol sont fournis avec le vélo ?",
           "usage": "Nom masculin désignant le dispositif qui permet d'attacher le vélo."
         },
         {
+          "id": "T2D12S16V08",
           "kind": "mot-cle",
           "french": "l'assurance",
           "english": "the insurance",
           "example": "Est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
-          "usage": "Nom féminin désignant la couverture en cas de dommage.",
-          "id": "T2D12S16V08"
+          "usage": "Nom féminin désignant la couverture en cas de dommage."
         },
         {
+          "id": "T2D12S16V09",
           "kind": "mot-cle",
           "french": "la location",
           "english": "the rental",
           "example": "Que se passe-t-il en cas de crevaison ou de problème mécanique pendant la location ?",
-          "usage": "Nom désignant le service de location.",
-          "id": "T2D12S16V09"
+          "usage": "Nom désignant le service de location."
         },
         {
+          "id": "T2D12S16V10",
           "kind": "mot-cle",
           "french": "un meilleur tarif",
           "english": "a better rate",
           "example": "Pour finir — si je réserve à l'avance, est-ce que j'obtiens un meilleur tarif ?",
-          "usage": "Groupe nominal désignant un prix plus avantageux.",
-          "id": "T2D12S16V10"
+          "usage": "Groupe nominal désignant un prix plus avantageux."
         },
         {
           "id": "T2D12S16V11",
@@ -97,23 +97,23 @@
           "kind": "collocation",
           "french": "les tarifs de location",
           "english": "rental rates",
-          "example": "Comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
           "usage": "Collocation nominale pour parler du prix demandé selon la durée."
         },
         {
+          "id": "T2D12S16V13",
           "kind": "collocation",
           "french": "à l'heure, à la journée",
           "english": "by the hour, by the day",
-          "example": "Comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
-          "usage": "Énumération de formules de location dans le temps.",
-          "id": "T2D12S16V13"
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "usage": "Énumération de formules de location dans le temps."
         },
         {
           "id": "T2D12S16V14",
           "kind": "collocation",
           "french": "sous forme d'abonnement",
           "english": "as a subscription",
-          "example": "Comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
           "usage": "Expression utilisée pour présenter une formule d'abonnement."
         },
         {
@@ -153,7 +153,7 @@
           "kind": "collocation",
           "french": "un itinéraire adapté",
           "english": "a suitable route",
-          "example": "Pouvez-vous aussi me conseiller un itinéraire adapté selon l'usage que je veux faire du vélo ?",
+          "example": "En ce qui concerne les déplacements, pouvez-vous aussi me conseiller un itinéraire adapté selon l'usage que je veux faire du vélo ?",
           "usage": "Groupe nominal désignant un parcours conseillé selon le besoin du client."
         },
         {
@@ -161,7 +161,7 @@
           "kind": "collocation",
           "french": "réserver à l'avance",
           "english": "book in advance",
-          "example": "Est-ce qu'il faut réserver à l'avance ou on peut louer directement sur place ?",
+          "example": "Côté location, est-ce qu'il faut réserver à l'avance ou on peut louer directement sur place ?",
           "usage": "Locution verbale courante pour parler d'une réservation anticipée."
         },
         {
@@ -209,40 +209,40 @@
           "kind": "tournure",
           "french": "Est-ce que le casque et l'antivol sont fournis avec le vélo",
           "english": "Are the helmet and lock provided with the bike",
-          "example": "Est-ce que le casque et l'antivol sont fournis avec le vélo ?",
+          "example": "Côté équipement, est-ce que le casque et l'antivol sont fournis avec le vélo ?",
           "usage": "Question complète pour vérifier le matériel inclus avec la location."
         },
         {
+          "id": "T2D12S16V27",
           "kind": "tournure",
           "french": "Est-ce qu'on peut rendre le vélo à un autre point de la ville",
           "english": "can we return the bike at another point in town",
           "example": "Est-ce qu'on peut rendre le vélo à un autre point de la ville ou faut-il revenir ici ?",
-          "usage": "Question sur la restitution.",
-          "id": "T2D12S16V27"
+          "usage": "Question sur la restitution."
         },
         {
           "id": "T2D12S16V28",
           "kind": "tournure",
           "french": "Pouvez-vous aussi me conseiller",
           "english": "Could you also advise me",
-          "example": "Pouvez-vous aussi me conseiller un itinéraire adapté selon l'usage que je veux faire du vélo ?",
+          "example": "En ce qui concerne les déplacements, pouvez-vous aussi me conseiller un itinéraire adapté selon l'usage que je veux faire du vélo ?",
           "usage": "Formule polie pour demander une recommandation complémentaire."
         },
         {
+          "id": "T2D12S16V29",
           "kind": "tournure",
           "french": "Jusqu'à quelle heure peut-on rendre le vélo le soir",
           "english": "until what time can you return the bike in the evening",
           "example": "Jusqu'à quelle heure peut-on rendre le vélo le soir ?",
-          "usage": "Question sur les horaires de retour.",
-          "id": "T2D12S16V29"
+          "usage": "Question sur les horaires de retour."
         },
         {
+          "id": "T2D12S16V30",
           "kind": "tournure",
           "french": "Que se passe-t-il si je rends le vélo en retard",
           "english": "what happens if I return the bike late",
-          "example": "Que se passe-t-il si je rends le vélo en retard ou abîmé ?",
-          "usage": "Question sur un cas problématique.",
-          "id": "T2D12S16V30"
+          "example": "En cas de souci, que se passe-t-il si je rends le vélo en retard ou abîmé ?",
+          "usage": "Question sur un cas problématique."
         }
       ]
     },
@@ -274,35 +274,35 @@
           "usage": "Nom masculin désignant un transport urbain circulant sur rails."
         },
         {
+          "id": "T2D12S17V04",
           "kind": "mot-cle",
           "french": "le réseau",
           "english": "the network",
           "example": "Est-ce que le réseau couvre toute la ville ou seulement certaines zones ?",
-          "usage": "Désigne l'ensemble des lignes de transport d'une ville.",
-          "id": "T2D12S17V04"
+          "usage": "Désigne l'ensemble des lignes de transport d'une ville."
         },
         {
+          "id": "T2D12S17V05",
           "kind": "mot-cle",
           "french": "l'application",
           "english": "the app",
           "example": "L'application permet-elle aussi de planifier un itinéraire ?",
-          "usage": "Outil numérique servant à préparer ses déplacements.",
-          "id": "T2D12S17V05"
+          "usage": "Outil numérique servant à préparer ses déplacements."
         },
         {
+          "id": "T2D12S17V06",
           "kind": "mot-cle",
           "french": "chaque jour de la semaine",
           "english": "every day of the week",
           "example": "Le réseau fonctionne-t-il chaque jour de la semaine — les horaires changent-ils le week-end ?",
-          "usage": "Groupe nominal temporel précisant une fréquence quotidienne régulière.",
-          "id": "T2D12S17V06"
+          "usage": "Groupe nominal temporel précisant une fréquence quotidienne régulière."
         },
         {
           "id": "T2D12S17V07",
           "kind": "mot-cle",
           "french": "les tickets",
           "english": "tickets",
-          "example": "Comment fonctionnent les tarifs — où j'achète les tickets, et combien coûte un trajet en général ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — où j'achète les tickets, et combien coûte un trajet en général ?",
           "usage": "Nom masculin pluriel désignant les titres de transport achetés pour voyager."
         },
         {
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "un trajet",
           "english": "a trip",
-          "example": "Comment fonctionnent les tarifs — où j'achète les tickets, et combien coûte un trajet en général ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — où j'achète les tickets, et combien coûte un trajet en général ?",
           "usage": "Groupe nominal désignant un déplacement simple d'un point à un autre."
         },
         {
@@ -330,12 +330,12 @@
           "usage": "Nom féminin pluriel désignant les points d'arrêt ou de départ du réseau."
         },
         {
+          "id": "T2D12S17V11",
           "kind": "collocation",
           "french": "suivre les transports en temps réel",
           "english": "track transport in real time",
-          "example": "Y a-t-il une application pour suivre les transports en temps réel ?",
-          "usage": "Collocation liée à l'usage d'une application de suivi.",
-          "id": "T2D12S17V11"
+          "example": "Côté outils pratiques, y a-t-il une application pour suivre les transports en temps réel ?",
+          "usage": "Collocation liée à l'usage d'une application de suivi."
         },
         {
           "id": "T2D12S17V12",
@@ -358,7 +358,7 @@
           "kind": "collocation",
           "french": "aller au centre-ville",
           "english": "go downtown",
-          "example": "Pour aller au centre-ville et voir les principaux endroits à visiter, tu me conseillerais quel moyen de transport ?",
+          "example": "Concrètement, pour aller au centre-ville et voir les principaux endroits à visiter, tu me conseillerais quel moyen de transport ?",
           "usage": "Locution verbale utile pour parler d'un déplacement vers le cœur de la ville."
         },
         {
@@ -366,7 +366,7 @@
           "kind": "collocation",
           "french": "moyen de transport",
           "english": "means of transport",
-          "example": "Pour aller au centre-ville et voir les principaux endroits à visiter, tu me conseillerais quel moyen de transport ?",
+          "example": "Concrètement, pour aller au centre-ville et voir les principaux endroits à visiter, tu me conseillerais quel moyen de transport ?",
           "usage": "Groupe nominal servant à désigner une solution pour se déplacer."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "combien coûte un trajet",
           "english": "how much a trip costs",
-          "example": "Comment fonctionnent les tarifs — où j'achète les tickets, et combien coûte un trajet en général ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — où j'achète les tickets, et combien coûte un trajet en général ?",
           "usage": "Expression interrogative pratique pour demander le prix d'un déplacement."
         },
         {
@@ -398,7 +398,7 @@
           "kind": "collocation",
           "french": "un système de vélos en libre-service",
           "english": "a bike-sharing system",
-          "example": "Il y a aussi un système de vélos en libre-service, si je veux alterner avec les transports ?",
+          "example": "Côté déplacements, il y a aussi un système de vélos en libre-service, si je veux alterner avec les transports ?",
           "usage": "Groupe nominal désignant un service de vélos partagés en ville."
         },
         {
@@ -418,12 +418,12 @@
           "usage": "Question informelle pour demander des explications générales sur le réseau local."
         },
         {
+          "id": "T2D12S17V22",
           "kind": "tournure",
           "french": "Quels types de transports sont disponibles ici",
           "english": "what types of transport are available here",
           "example": "Quels types de transports sont disponibles ici — bus, métro, tramway ?",
-          "usage": "Question ouverte formelle sur l'offre existante.",
-          "id": "T2D12S17V22"
+          "usage": "Question ouverte formelle sur l'offre existante."
         },
         {
           "id": "T2D12S17V23",
@@ -438,7 +438,7 @@
           "kind": "tournure",
           "french": "Y a-t-il une application",
           "english": "Is there an app",
-          "example": "Y a-t-il une application pour suivre les transports en temps réel ?",
+          "example": "Côté outils pratiques, y a-t-il une application pour suivre les transports en temps réel ?",
           "usage": "Question brève et naturelle pour demander l'existence d'un outil numérique."
         },
         {
@@ -454,7 +454,7 @@
           "kind": "tournure",
           "french": "tu me conseillerais quel moyen de transport",
           "english": "which means of transport would you recommend",
-          "example": "Pour aller au centre-ville et voir les principaux endroits à visiter, tu me conseillerais quel moyen de transport ?",
+          "example": "Concrètement, pour aller au centre-ville et voir les principaux endroits à visiter, tu me conseillerais quel moyen de transport ?",
           "usage": "Question au conditionnel employée entre amis pour demander un conseil."
         },
         {
@@ -462,7 +462,7 @@
           "kind": "tournure",
           "french": "où j'achète les tickets",
           "english": "where I buy tickets",
-          "example": "Comment fonctionnent les tarifs — où j'achète les tickets, et combien coûte un trajet en général ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — où j'achète les tickets, et combien coûte un trajet en général ?",
           "usage": "Segment interrogatif utile pour demander le lieu d'achat des titres de transport."
         },
         {
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "quels quartiers sont les plus pratiques",
           "english": "which neighborhoods are the most practical",
-          "example": "Sans voiture, quels quartiers sont les plus pratiques et les mieux desservis au quotidien ?",
+          "example": "Question transport, sans voiture, quels quartiers sont les plus pratiques et les mieux desservis au quotidien ?",
           "usage": "Question utile pour cibler les zones les mieux desservies."
         },
         {
@@ -539,7 +539,7 @@
           "kind": "mot-cle",
           "french": "un quartier",
           "english": "a neighborhood",
-          "example": "S'il fallait explorer un quartier en priorité, tu me conseillerais lequel ?",
+          "example": "Question lieu, s'il fallait explorer un quartier en priorité, tu me conseillerais lequel ?",
           "usage": "Nom masculin désignant une partie identifiable de la ville."
         },
         {
@@ -555,7 +555,7 @@
           "kind": "mot-cle",
           "french": "la meilleure période de l'année",
           "english": "the best time of year",
-          "example": "Selon toi, quelle est la meilleure période de l'année pour la découvrir ?",
+          "example": "Une chose encore : selon toi, quelle est la meilleure période de l'année pour la découvrir ?",
           "usage": "Groupe nominal servant à parler du moment idéal pour visiter un lieu."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "la cuisine locale",
           "english": "the local cuisine",
-          "example": "La cuisine locale, elle est comment — il y a des spécialités à goûter absolument ?",
+          "example": "Côté repas, la cuisine locale, elle est comment — il y a des spécialités à goûter absolument ?",
           "usage": "Groupe nominal désignant les habitudes gastronomiques d'un lieu."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "un budget serré",
           "english": "a tight budget",
-          "example": "Si on a un budget serré, on peut quand même bien profiter de la ville ?",
+          "example": "Sur le plan financier, si on a un budget serré, on peut quand même bien profiter de la ville ?",
           "usage": "Groupe nominal employé pour parler de moyens financiers limités."
         },
         {
@@ -611,7 +611,7 @@
           "kind": "collocation",
           "french": "beaucoup de temps à se déplacer",
           "english": "a lot of time getting around",
-          "example": "Les transports y sont faciles et efficaces, ou c'est une ville où on passe beaucoup de temps à se déplacer ?",
+          "example": "Côté déplacements, les transports y sont faciles et efficaces, ou c'est une ville où on passe beaucoup de temps à se déplacer ?",
           "usage": "Groupe de mots utile pour évoquer des transports peu pratiques."
         },
         {
@@ -619,7 +619,7 @@
           "kind": "collocation",
           "french": "explorer un quartier",
           "english": "explore a neighborhood",
-          "example": "S'il fallait explorer un quartier en priorité, tu me conseillerais lequel ?",
+          "example": "Question lieu, s'il fallait explorer un quartier en priorité, tu me conseillerais lequel ?",
           "usage": "Locution verbale employée pour parler d'une découverte ciblée dans une ville."
         },
         {
@@ -635,7 +635,7 @@
           "kind": "collocation",
           "french": "à goûter absolument",
           "english": "to absolutely try",
-          "example": "La cuisine locale, elle est comment — il y a des spécialités à goûter absolument ?",
+          "example": "Côté repas, la cuisine locale, elle est comment — il y a des spécialités à goûter absolument ?",
           "usage": "Expression figée pour recommander une spécialité culinaire."
         },
         {
@@ -643,7 +643,7 @@
           "kind": "collocation",
           "french": "bien profiter de la ville",
           "english": "really enjoy the city",
-          "example": "Si on a un budget serré, on peut quand même bien profiter de la ville ?",
+          "example": "Sur le plan financier, si on a un budget serré, on peut quand même bien profiter de la ville ?",
           "usage": "Locution verbale pour parler d'une expérience réussie malgré un budget limité."
         },
         {
@@ -691,7 +691,7 @@
           "kind": "tournure",
           "french": "Les transports y sont faciles et efficaces",
           "english": "transport there is easy and efficient",
-          "example": "Les transports y sont faciles et efficaces, ou c'est une ville où on passe beaucoup de temps à se déplacer ?",
+          "example": "Côté déplacements, les transports y sont faciles et efficaces, ou c'est une ville où on passe beaucoup de temps à se déplacer ?",
           "usage": "Structure descriptive utile pour juger la praticité des déplacements."
         },
         {
@@ -699,7 +699,7 @@
           "kind": "tournure",
           "french": "S'il fallait explorer un quartier en priorité",
           "english": "if you had to explore one neighborhood first",
-          "example": "S'il fallait explorer un quartier en priorité, tu me conseillerais lequel ?",
+          "example": "Question lieu, s'il fallait explorer un quartier en priorité, tu me conseillerais lequel ?",
           "usage": "Amorce hypothétique pratique pour demander une recommandation prioritaire."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "Selon toi, quelle est la meilleure période de l'année",
           "english": "in your view, what is the best time of year",
-          "example": "Selon toi, quelle est la meilleure période de l'année pour la découvrir ?",
+          "example": "Une chose encore : selon toi, quelle est la meilleure période de l'année pour la découvrir ?",
           "usage": "Question d'opinion utile pour demander le moment idéal d'une visite."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "La cuisine locale, elle est comment",
           "english": "what is the local cuisine like",
-          "example": "La cuisine locale, elle est comment — il y a des spécialités à goûter absolument ?",
+          "example": "Côté repas, la cuisine locale, elle est comment — il y a des spécialités à goûter absolument ?",
           "usage": "Tournure orale naturelle pour faire caractériser la gastronomie d'un endroit."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "Si on a un budget serré, on peut quand même bien profiter de la ville",
           "english": "if you are on a tight budget, can you still enjoy the city",
-          "example": "Si on a un budget serré, on peut quand même bien profiter de la ville ?",
+          "example": "Sur le plan financier, si on a un budget serré, on peut quand même bien profiter de la ville ?",
           "usage": "Question conditionnelle utile pour parler de voyage à petit budget."
         },
         {
@@ -748,12 +748,12 @@
           "usage": "Groupe nominal désignant l'événement culturel dont on parle."
         },
         {
+          "id": "T2D12S19V02",
           "kind": "mot-cle",
           "french": "en plein air",
           "english": "outdoors",
           "example": "Ça se déroule où — en plein air, dans une salle ?",
-          "usage": "Locution adverbiale désignant un lieu à ciel ouvert.",
-          "id": "T2D12S19V02"
+          "usage": "Locution adverbiale désignant un lieu à ciel ouvert."
         },
         {
           "id": "T2D12S19V03",
@@ -784,7 +784,7 @@
           "kind": "mot-cle",
           "french": "un pass complet",
           "english": "a full pass",
-          "example": "Les billets coûtent combien — et il y a un tarif à la journée ou un pass complet ?",
+          "example": "Côté budget, les billets coûtent combien — et il y a un tarif à la journée ou un pass complet ?",
           "usage": "Groupe nominal désignant un billet valable pour toute la durée du festival."
         },
         {
@@ -800,23 +800,23 @@
           "kind": "mot-cle",
           "french": "des bénévoles",
           "english": "volunteers",
-          "example": "Est-ce que tu cherches aussi des bénévoles si jamais je veux donner un coup de main ?",
+          "example": "J'en profite pour te demander : est-ce que tu cherches aussi des bénévoles si jamais je veux donner un coup de main ?",
           "usage": "Nom pluriel désignant les personnes qui aident à organiser l'événement."
         },
         {
+          "id": "T2D12S19V09",
           "kind": "mot-cle",
           "french": "une limite d'âge",
           "english": "an age limit",
-          "example": "Y a-t-il une limite d'âge ou des règles particulières à respecter sur place ?",
-          "usage": "Groupe nominal pour une restriction d'âge.",
-          "id": "T2D12S19V09"
+          "example": "Question conditions, y a-t-il une limite d'âge ou des règles particulières à respecter sur place ?",
+          "usage": "Groupe nominal pour une restriction d'âge."
         },
         {
           "id": "T2D12S19V10",
           "kind": "mot-cle",
           "french": "des règles particulières",
           "english": "specific rules",
-          "example": "Y a-t-il une limite d'âge ou des règles particulières à respecter sur place ?",
+          "example": "Question conditions, y a-t-il une limite d'âge ou des règles particulières à respecter sur place ?",
           "usage": "Groupe nominal désignant les consignes propres au site du festival."
         },
         {
@@ -840,7 +840,7 @@
           "kind": "collocation",
           "french": "d'un jour à l'autre",
           "english": "from one day to the next",
-          "example": "Comment le programme s'organise d'un jour à l'autre ?",
+          "example": "Pour ce qui est du déroulement, comment le programme s'organise d'un jour à l'autre ?",
           "usage": "Locution utile pour parler d'une organisation qui varie selon les jours."
         },
         {
@@ -856,7 +856,7 @@
           "kind": "collocation",
           "french": "un tarif à la journée",
           "english": "a day rate",
-          "example": "Les billets coûtent combien — et il y a un tarif à la journée ou un pass complet ?",
+          "example": "Côté budget, les billets coûtent combien — et il y a un tarif à la journée ou un pass complet ?",
           "usage": "Groupe nominal désignant un prix valable pour une seule journée."
         },
         {
@@ -868,35 +868,35 @@
           "usage": "Locution verbale utile pour parler d'un achat anticipé."
         },
         {
+          "id": "T2D12S19V17",
           "kind": "collocation",
           "french": "le stationnement sur place",
           "english": "on-site parking",
-          "example": "Comment on s'organise pour le transport ou le stationnement sur place ?",
-          "usage": "Collocation nom + locution pour désigner une disponibilité de parking.",
-          "id": "T2D12S19V17"
+          "example": "En ce qui concerne l'accès, comment on s'organise pour le transport ou le stationnement sur place ?",
+          "usage": "Collocation nom + locution pour désigner une disponibilité de parking."
         },
         {
+          "id": "T2D12S19V18",
           "kind": "collocation",
           "french": "manger ou boire quelque chose",
           "english": "eat or drink something",
           "example": "On peut manger ou boire quelque chose sur place ?",
-          "usage": "Locution verbale sur la restauration.",
-          "id": "T2D12S19V18"
+          "usage": "Locution verbale sur la restauration."
         },
         {
+          "id": "T2D12S19V19",
           "kind": "collocation",
           "french": "un billet spécial",
           "english": "a special ticket",
           "example": "Faut-il un billet spécial pour le camping, si on veut rester sur place plusieurs jours ?",
-          "usage": "Groupe nominal désignant un titre d'accès complémentaire à une prestation.",
-          "id": "T2D12S19V19"
+          "usage": "Groupe nominal désignant un titre d'accès complémentaire à une prestation."
         },
         {
           "id": "T2D12S19V20",
           "kind": "collocation",
           "french": "donner un coup de main",
           "english": "lend a hand",
-          "example": "Est-ce que tu cherches aussi des bénévoles si jamais je veux donner un coup de main ?",
+          "example": "J'en profite pour te demander : est-ce que tu cherches aussi des bénévoles si jamais je veux donner un coup de main ?",
           "usage": "Locution verbale familière pour proposer son aide."
         },
         {
@@ -944,7 +944,7 @@
           "kind": "tournure",
           "french": "Comment le programme s'organise d'un jour à l'autre",
           "english": "How the programme is organized from one day to the next",
-          "example": "Comment le programme s'organise d'un jour à l'autre ?",
+          "example": "Pour ce qui est du déroulement, comment le programme s'organise d'un jour à l'autre ?",
           "usage": "Question utile pour demander la répartition des concerts selon les jours."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "Les billets coûtent combien",
           "english": "How much do the tickets cost",
-          "example": "Les billets coûtent combien — et il y a un tarif à la journée ou un pass complet ?",
+          "example": "Côté budget, les billets coûtent combien — et il y a un tarif à la journée ou un pass complet ?",
           "usage": "Question orale directe pour demander le prix des billets."
         },
         {
@@ -1025,19 +1025,19 @@
           "usage": "Nom féminin désignant l'atmosphère ressentie pendant la soirée."
         },
         {
+          "id": "T2D12S20V06",
           "kind": "mot-cle",
           "french": "des vêtements particuliers",
           "english": "special clothing",
-          "example": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
-          "usage": "Groupe nominal désignant un équipement vestimentaire adapté à un climat.",
-          "id": "T2D12S20V06"
+          "example": "Et niveau météo, quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "usage": "Groupe nominal désignant un équipement vestimentaire adapté à un climat."
         },
         {
           "id": "T2D12S20V07",
           "kind": "mot-cle",
           "french": "un jour férié",
           "english": "a public holiday",
-          "example": "Le 1er janvier est-il un jour férié au Canada, et que font généralement les gens ce jour-là ?",
+          "example": "Dernier point pratique : le 1er janvier est-il un jour férié au Canada, et que font généralement les gens ce jour-là ?",
           "usage": "Groupe nominal désignant un jour officiellement chômé."
         },
         {
@@ -1049,19 +1049,19 @@
           "usage": "Groupe nominal désignant des événements saisonniers organisés en hiver."
         },
         {
+          "id": "T2D12S20V09",
           "kind": "mot-cle",
           "french": "des traditions canadiennes",
           "english": "Canadian traditions",
           "example": "Est-ce qu'il y a des traditions canadiennes spécifiques que je devrais connaître ?",
-          "usage": "Collocation adjectif-nom désignant des coutumes propres à une culture donnée.",
-          "id": "T2D12S20V09"
+          "usage": "Collocation adjectif-nom désignant des coutumes propres à une culture donnée."
         },
         {
           "id": "T2D12S20V10",
           "kind": "mot-cle",
           "french": "au Québec",
           "english": "in Quebec",
-          "example": "Est-ce que la manière de célébrer au Québec est différente du reste du Canada ?",
+          "example": "Avant que j'oublie, est-ce que la manière de célébrer au Québec est différente du reste du Canada ?",
           "usage": "Groupe prépositionnel désignant la province citée pour comparer les célébrations."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "des habitudes culinaires typiques",
           "english": "typical food customs",
-          "example": "Y a-t-il des plats ou des habitudes culinaires typiques pour cette soirée ?",
+          "example": "Côté table, y a-t-il des plats ou des habitudes culinaires typiques pour cette soirée ?",
           "usage": "Groupe nominal servant à parler des pratiques alimentaires d'une fête."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "du reste du Canada",
           "english": "from the rest of Canada",
-          "example": "Est-ce que la manière de célébrer au Québec est différente du reste du Canada ?",
+          "example": "Avant que j'oublie, est-ce que la manière de célébrer au Québec est différente du reste du Canada ?",
           "usage": "Expression employée pour établir une comparaison à l'échelle du pays."
         },
         {
@@ -1189,7 +1189,7 @@
           "kind": "tournure",
           "french": "Quel temps fait-il généralement à cette époque",
           "english": "What is the weather usually like at that time",
-          "example": "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
+          "example": "Et niveau météo, quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
           "usage": "Question fréquente pour se renseigner sur le climat avant un voyage."
         },
         {
@@ -1197,7 +1197,7 @@
           "kind": "tournure",
           "french": "que font généralement les gens ce jour-là",
           "english": "what people generally do that day",
-          "example": "Le 1er janvier est-il un jour férié au Canada, et que font généralement les gens ce jour-là ?",
+          "example": "Dernier point pratique : le 1er janvier est-il un jour férié au Canada, et que font généralement les gens ce jour-là ?",
           "usage": "Segment interrogatif utile pour demander les habitudes du 1er janvier."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "Est-ce que la manière de célébrer au Québec est différente",
           "english": "Is the way of celebrating in Quebec different",
-          "example": "Est-ce que la manière de célébrer au Québec est différente du reste du Canada ?",
+          "example": "Avant que j'oublie, est-ce que la manière de célébrer au Québec est différente du reste du Canada ?",
           "usage": "Question directe utile pour demander une différence régionale."
         },
         {
@@ -1213,7 +1213,7 @@
           "kind": "tournure",
           "french": "Si on est invité à une fête privée pour le réveillon, qu'est-ce qu'il faut savoir",
           "english": "If you are invited to a private New Year's Eve party, what should you know",
-          "example": "Si on est invité à une fête privée pour le réveillon, qu'est-ce qu'il faut savoir — tenue, cadeaux, horaires habituels ?",
+          "example": "Tant que j'y pense, si on est invité à une fête privée pour le réveillon, qu'est-ce qu'il faut savoir — tenue, cadeaux, horaires habituels ?",
           "usage": "Question conditionnelle pratique pour demander les usages à respecter."
         },
         {

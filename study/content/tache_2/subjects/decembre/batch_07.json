@@ -32,14 +32,34 @@
           "memory_section": 11
         },
         {
+          "text": "Côté programmation, est-ce qu'il y a des séances en IMAX ou dans des salles spéciales ?",
+          "memory_number": 9,
+          "memory_section": 9
+        },
+        {
+          "text": "Côté langue, les séances sont en version originale ou uniquement en version doublée ?",
+          "memory_number": 9,
+          "memory_section": 2
+        },
+        {
           "text": "À quelle heure ça commence — il y a des séances l'après-midi ou seulement en soirée ?",
           "memory_number": 9,
           "memory_section": 4
         },
         {
-          "text": "Les séances sont en version originale ou uniquement en version doublée ?",
+          "text": "Côté inscription, il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
           "memory_number": 9,
-          "memory_section": 2
+          "memory_section": 6
+        },
+        {
+          "text": "Il reste encore des places ou les séances sont souvent complètes pendant les vacances ?",
+          "memory_number": 9,
+          "memory_section": 6
+        },
+        {
+          "text": "C'est facilement accessible en transports en commun ?",
+          "memory_number": 9,
+          "memory_section": 5
         },
         {
           "text": "Parlons du budget — combien est-ce que ça coûte approximativement pour un adulte ?",
@@ -57,27 +77,7 @@
           "memory_section": 3
         },
         {
-          "text": "Il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
-          "memory_number": 9,
-          "memory_section": 6
-        },
-        {
-          "text": "Il reste encore des places ou les séances sont souvent complètes pendant les vacances ?",
-          "memory_number": 9,
-          "memory_section": 6
-        },
-        {
-          "text": "Est-ce qu'il y a des séances en IMAX ou dans des salles spéciales ?",
-          "memory_number": 9,
-          "memory_section": 9
-        },
-        {
-          "text": "C'est facilement accessible en transports en commun ?",
-          "memory_number": 9,
-          "memory_section": 5
-        },
-        {
-          "text": "Est-ce qu'on peut acheter du popcorn et des boissons sur place avant la séance ?",
+          "text": "Question repas, est-ce qu'on peut acheter du popcorn et des boissons sur place avant la séance ?",
           "memory_number": 9,
           "memory_section": 9
         },
@@ -109,7 +109,17 @@
           "memory_section": 10
         },
         {
-          "text": "Combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
+          "text": "Deuxième point : quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
+          "memory_number": 7,
+          "memory_section": 2
+        },
+        {
+          "text": "Tu as mentionné que c'était formidable — tu pourrais m'en dire un peu plus sur ce qui t'a le plus marqué(e) ?",
+          "memory_number": 7,
+          "memory_section": 10
+        },
+        {
+          "text": "Côté organisation, combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
           "memory_number": 7,
           "memory_section": 4
         },
@@ -124,7 +134,7 @@
           "memory_section": 8
         },
         {
-          "text": "Tu connais de bons endroits où séjourner — hôtels, chambres d'hôtes, locations ?",
+          "text": "Pour ce qui est du logement, tu connais de bons endroits où séjourner — hôtels, chambres d'hôtes, locations ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -134,14 +144,9 @@
           "memory_section": 9
         },
         {
-          "text": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?",
+          "text": "Toujours sur ce point, il faut réserver à l'avance ou on peut trouver facilement sur place ?",
           "memory_number": 7,
           "memory_section": 9
-        },
-        {
-          "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total ?",
-          "memory_number": 7,
-          "memory_section": 3
         },
         {
           "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
@@ -154,14 +159,9 @@
           "memory_section": 9
         },
         {
-          "text": "Quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
+          "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total ?",
           "memory_number": 7,
-          "memory_section": 2
-        },
-        {
-          "text": "Tu as mentionné que c'était formidable — tu pourrais m'en dire un peu plus sur ce qui t'a le plus marqué(e) ?",
-          "memory_number": 7,
-          "memory_section": 10
+          "memory_section": 3
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
@@ -201,7 +201,7 @@
           "memory_section": 2
         },
         {
-          "text": "De quoi parle le livre — tu pourrais résumer l'histoire ou l'idée principale sans tout dévoiler ?",
+          "text": "J'en profite pour te demander : de quoi parle le livre — tu pourrais résumer l'histoire ou l'idée principale sans tout dévoiler ?",
           "memory_number": 10,
           "memory_section": 2
         },
@@ -211,7 +211,7 @@
           "memory_section": 2
         },
         {
-          "text": "Comment est le style de l'auteur — plutôt simple, poétique, ou très descriptif ?",
+          "text": "Côté écriture, comment est le style de l'auteur — plutôt simple, poétique, ou très descriptif ?",
           "memory_number": 10,
           "memory_section": 2
         },
@@ -221,19 +221,19 @@
           "memory_section": 11
         },
         {
-          "text": "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
+          "text": "Sur le fond, qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
           "memory_number": 10,
           "memory_section": 10
         },
         {
-          "text": "Ce livre s'adresse-t-il plutôt aux passionnés de littérature ou est-il accessible à un large public ?",
-          "memory_number": 10,
-          "memory_section": 6
-        },
-        {
-          "text": "Tu as mentionné un point intéressant — tu pourrais m'en dire un peu plus ?",
+          "text": "Tu as mentionné un point intéressant — tu pourrais m'en dire un peu plus : ça ferait peut-être un bon angle pour l'article ?",
           "memory_number": 10,
           "memory_section": 13
+        },
+        {
+          "text": "Pour ce qui est du niveau, ce livre s'adresse-t-il plutôt aux passionnés de littérature ou est-il accessible à un large public ?",
+          "memory_number": 10,
+          "memory_section": 6
         },
         {
           "text": "Selon toi, qu'est-ce qui pourrait donner envie de lire ce livre dans un article ?",
@@ -278,17 +278,7 @@
           "memory_section": 6
         },
         {
-          "text": "La participation est-elle entièrement gratuite ou certains frais restent-ils à la charge des candidats ?",
-          "memory_number": 10,
-          "memory_section": 3
-        },
-        {
-          "text": "Combien de temps dure le tournage — quelques heures ou toute la journée ?",
-          "memory_number": 10,
-          "memory_section": 4
-        },
-        {
-          "text": "Il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
+          "text": "Tant que j'y pense, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
           "memory_number": 10,
           "memory_section": 7
         },
@@ -298,14 +288,9 @@
           "memory_section": 7
         },
         {
-          "text": "Peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
+          "text": "Question organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
           "memory_number": 10,
           "memory_section": 13
-        },
-        {
-          "text": "Les défis étaient plutôt difficiles ou amusants — il y a eu des moments stressants ?",
-          "memory_number": 10,
-          "memory_section": 10
         },
         {
           "text": "Le jeu proposait-il des questions ou des défis particuliers ?",
@@ -313,12 +298,27 @@
           "memory_section": 2
         },
         {
-          "text": "Peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
+          "text": "Les défis étaient plutôt difficiles ou amusants — il y a eu des moments stressants ?",
+          "memory_number": 10,
+          "memory_section": 10
+        },
+        {
+          "text": "Côté timing, combien de temps dure le tournage — quelques heures ou toute la journée ?",
+          "memory_number": 10,
+          "memory_section": 4
+        },
+        {
+          "text": "En ce qui concerne le budget, la participation est-elle entièrement gratuite ou certains frais restent-ils à la charge des candidats ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus ?",
+          "text": "Dans un autre registre, peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
+          "memory_number": 10,
+          "memory_section": 3
+        },
+        {
+          "text": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus : qu'est-ce qui s'est passé exactement ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -350,7 +350,37 @@
           "memory_section": 5
         },
         {
-          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "text": "J'ai encore une question : quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
+          "memory_number": 6,
+          "memory_section": 4
+        },
+        {
+          "text": "Le réseau fonctionne-t-il chaque jour de la semaine — les horaires changent-ils le week-end ?",
+          "memory_number": 6,
+          "memory_section": 4
+        },
+        {
+          "text": "En ce qui concerne les déplacements, y a-t-il une application pour suivre les transports en temps réel ?",
+          "memory_number": 6,
+          "memory_section": 9
+        },
+        {
+          "text": "L'application permet-elle aussi de planifier un itinéraire ?",
+          "memory_number": 6,
+          "memory_section": 9
+        },
+        {
+          "text": "En ce qui concerne les visites, les principaux sites touristiques sont-ils facilement accessibles en transports en commun ?",
+          "memory_number": 6,
+          "memory_section": 5
+        },
+        {
+          "text": "Pour ce qui est des conseils, y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "memory_number": 6,
+          "memory_section": 8
+        },
+        {
+          "text": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -368,36 +398,6 @@
           "text": "Le tarif comprend quoi exactement — un ticket est-il valable pour plusieurs types de transport ?",
           "memory_number": 6,
           "memory_section": 3
-        },
-        {
-          "text": "Quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
-          "memory_number": 6,
-          "memory_section": 4
-        },
-        {
-          "text": "Le réseau fonctionne-t-il chaque jour de la semaine — les horaires changent-ils le week-end ?",
-          "memory_number": 6,
-          "memory_section": 4
-        },
-        {
-          "text": "Y a-t-il une application pour suivre les transports en temps réel ?",
-          "memory_number": 6,
-          "memory_section": 9
-        },
-        {
-          "text": "Les principaux sites touristiques sont-ils facilement accessibles en transports en commun ?",
-          "memory_number": 6,
-          "memory_section": 5
-        },
-        {
-          "text": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
-          "memory_number": 6,
-          "memory_section": 8
-        },
-        {
-          "text": "L'application permet-elle aussi de planifier un itinéraire ?",
-          "memory_number": 6,
-          "memory_section": 9
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose pour bien utiliser les transports ici, ce serait laquelle ?",

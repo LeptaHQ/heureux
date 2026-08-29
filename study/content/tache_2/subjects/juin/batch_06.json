@@ -12,7 +12,7 @@
       "prompt": "Je suis votre ami(e). Je suis membre d'un club de randonnée. Vous êtes intéressé(e) et vous me posez des questions sur ce club (participants, lieux parcourus, niveaux proposés, etc.).",
       "questions": [
         {
-          "text": "Tu es membre d'un club de randonnée — tu pourrais m'en dire un peu plus ?",
+          "text": "Salut ! Tu m'as dit que tu es membre d'un club de randonnée — ça me tente bien, tu pourrais m'en dire un peu plus ?",
           "memory_number": 8,
           "memory_section": 13
         },
@@ -27,12 +27,7 @@
           "memory_section": 2
         },
         {
-          "text": "Il y a des niveaux différents, ou c'est accessible à tout le monde dès le début ?",
-          "memory_number": 8,
-          "memory_section": 6
-        },
-        {
-          "text": "Vous êtes généralement combien de participants lors d'une sortie ?",
+          "text": "Pour ce qui est des personnes présentes, vous êtes généralement combien de participants lors d'une sortie ?",
           "memory_number": 8,
           "memory_section": 7
         },
@@ -47,24 +42,14 @@
           "memory_section": 4
         },
         {
-          "text": "Faut-il un équipement particulier, ou de bonnes chaussures suffisent pour commencer ?",
-          "memory_number": 8,
-          "memory_section": 8
-        },
-        {
-          "text": "Y a-t-il une cotisation à payer pour faire partie du club ?",
-          "memory_number": 8,
-          "memory_section": 3
-        },
-        {
-          "text": "Les sorties sont-elles encadrées par un guide, ou chacun s'organise de son côté ?",
+          "text": "Pour ce qui est du déroulement, les sorties sont-elles encadrées par un guide, ou chacun s'organise de son côté ?",
           "memory_number": 8,
           "memory_section": 7
         },
         {
-          "text": "Vous continuez même quand il fait mauvais temps, ou les sorties sont annulées ?",
+          "text": "Il y a des niveaux différents, ou c'est accessible à tout le monde dès le début ?",
           "memory_number": 8,
-          "memory_section": 8
+          "memory_section": 6
         },
         {
           "text": "D'après toi, c'est accessible pour quelqu'un qui n'a jamais fait de randonnée ?",
@@ -72,7 +57,22 @@
           "memory_section": 6
         },
         {
-          "text": "Comment fait-on pour s'inscrire ou rejoindre une sortie la première fois ?",
+          "text": "Côté matériel, faut-il un équipement particulier, ou de bonnes chaussures suffisent pour commencer ?",
+          "memory_number": 8,
+          "memory_section": 8
+        },
+        {
+          "text": "En ce qui concerne le budget, y a-t-il une cotisation à payer pour faire partie du club ?",
+          "memory_number": 8,
+          "memory_section": 3
+        },
+        {
+          "text": "Vous continuez même quand il fait mauvais temps, ou les sorties sont annulées ?",
+          "memory_number": 8,
+          "memory_section": 8
+        },
+        {
+          "text": "Côté réservation, comment fait-on pour s'inscrire ou rejoindre une sortie la première fois ?",
           "memory_number": 8,
           "memory_section": 13
         },
@@ -94,7 +94,7 @@
       "prompt": "Je suis votre ami(e). Mon enfant a fait un séjour linguistique à l'étranger. Vous cherchez un séjour similaire pour votre enfant et vous me posez des questions (pays, activités, conditions, etc.).",
       "questions": [
         {
-          "text": "Ton enfant a fait un séjour linguistique à l'étranger — tu pourrais m'en dire un peu plus ?",
+          "text": "Salut ! Tu m'as dit que ton enfant a fait un séjour linguistique à l'étranger — j'y pense pour le mien, tu pourrais m'en dire un peu plus ?",
           "memory_number": 5,
           "memory_section": 13
         },
@@ -114,7 +114,7 @@
           "memory_section": 4
         },
         {
-          "text": "Il ou elle logeait dans une famille d'accueil, ou plutôt dans un internat avec le groupe ?",
+          "text": "Côté hébergement, il ou elle logeait dans une famille d'accueil, ou plutôt dans un internat avec le groupe ?",
           "memory_number": 5,
           "memory_section": 9
         },
@@ -124,9 +124,9 @@
           "memory_section": 2
         },
         {
-          "text": "Ça a coûté combien environ, en comptant tout ?",
+          "text": "Pour ce qui est du niveau, comment était encadré le séjour — il y avait des accompagnateurs sur place en permanence ?",
           "memory_number": 5,
-          "memory_section": 3
+          "memory_section": 7
         },
         {
           "text": "Comment s'est passée l'adaptation au début — il ou elle s'est vite senti(e) à l'aise ?",
@@ -134,17 +134,12 @@
           "memory_section": 10
         },
         {
-          "text": "Comment était encadré le séjour — il y avait des accompagnateurs sur place en permanence ?",
-          "memory_number": 5,
-          "memory_section": 7
-        },
-        {
           "text": "Et niveau langue, tu as vu une vraie progression au retour ?",
           "memory_number": 5,
           "memory_section": 10
         },
         {
-          "text": "Comment avez-vous choisi ce programme en particulier — par une agence, une école ?",
+          "text": "Côté organisation, comment as-tu choisi ce programme en particulier — par une agence, une école ?",
           "memory_number": 5,
           "memory_section": 6
         },
@@ -154,9 +149,14 @@
           "memory_section": 4
         },
         {
-          "text": "Quels documents faut-il préparer — un passeport, une autorisation parentale ?",
+          "text": "Côté démarches, quels documents faut-il préparer — un passeport, une autorisation parentale ?",
           "memory_number": 5,
           "memory_section": 6
+        },
+        {
+          "text": "Côté budget, ça a coûté combien environ, en comptant tout ?",
+          "memory_number": 5,
+          "memory_section": 3
         },
         {
           "text": "D'après ton expérience, à partir de quel âge tu recommanderais ce genre de séjour ?",
@@ -176,7 +176,7 @@
       "prompt": "Je suis votre collègue. Je vends ma voiture. Vous êtes intéressé(e) et vous me posez des questions sur ce véhicule (prix, état, caractéristiques, etc.).",
       "questions": [
         {
-          "text": "Tu m'as dit que tu vendais ta voiture — tu pourrais m'en dire un peu plus ?",
+          "text": "Salut ! Tu m'as dit que tu vendais ta voiture — justement, je cherche à en changer : tu pourrais m'en dire un peu plus ?",
           "memory_number": 6,
           "memory_section": 13
         },
@@ -191,7 +191,12 @@
           "memory_section": 4
         },
         {
-          "text": "Pourquoi tu as décidé de la vendre ?",
+          "text": "Elle roule à l'essence, au diesel, ou c'est un modèle hybride ?",
+          "memory_number": 6,
+          "memory_section": 2
+        },
+        {
+          "text": "Ensuite, pourquoi tu as décidé de la vendre ?",
           "memory_number": 6,
           "memory_section": 7
         },
@@ -206,7 +211,7 @@
           "memory_section": 7
         },
         {
-          "text": "Tu as gardé le carnet d'entretien et les factures ?",
+          "text": "Il y a un autre point qui m'intéresse : tu as gardé le carnet d'entretien et les factures ?",
           "memory_number": 6,
           "memory_section": 7
         },
@@ -216,12 +221,12 @@
           "memory_section": 7
         },
         {
-          "text": "Elle roule à l'essence, au diesel, ou c'est un modèle hybride ?",
+          "text": "Le prix comprend-il des équipements en plus, comme des pneus d'hiver ?",
           "memory_number": 6,
-          "memory_section": 2
+          "memory_section": 3
         },
         {
-          "text": "Tu en demandes combien ?",
+          "text": "En ce qui concerne le prix, tu en demandes combien ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -231,17 +236,12 @@
           "memory_section": 3
         },
         {
-          "text": "Est-ce que je pourrais l'essayer avant de me décider ?",
+          "text": "Une chose encore : est-ce que je pourrais l'essayer avant de me décider ?",
           "memory_number": 6,
           "memory_section": 3
         },
         {
-          "text": "Le prix comprend-il des équipements en plus, comme des pneus d'hiver ?",
-          "memory_number": 6,
-          "memory_section": 3
-        },
-        {
-          "text": "Pour le paiement, tu préférerais un virement, ou autre chose ?",
+          "text": "Dernier point pratique : pour le paiement, tu préférerais un virement, ou autre chose ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -258,7 +258,7 @@
       "prompt": "Je suis votre collègue. J'ai des billets pour un festival de musique mais je ne peux plus y assister. Vous êtes intéressé(e) et vous me posez des questions sur cet événement (artistes, lieu, prix, etc.).",
       "questions": [
         {
-          "text": "Tu m'as dit que tu avais des billets pour un festival de musique mais que tu ne peux pas y aller — tu peux m'en dire plus ?",
+          "text": "Salut ! Tu m'as dit que tu avais des billets pour un festival de musique mais que tu ne peux pas y aller — ça pourrait bien m'intéresser, tu peux m'en dire plus ?",
           "memory_number": 9,
           "memory_section": 13
         },
@@ -283,14 +283,9 @@
           "memory_section": 4
         },
         {
-          "text": "Pourquoi tu ne peux plus y aller finalement ?",
+          "text": "Et puis, pourquoi tu ne peux plus y aller finalement ?",
           "memory_number": 9,
           "memory_section": 10
-        },
-        {
-          "text": "Tu en demandes combien pour me les céder ?",
-          "memory_number": 9,
-          "memory_section": 3
         },
         {
           "text": "Tu as combien de billets à me proposer ?",
@@ -298,7 +293,12 @@
           "memory_section": 7
         },
         {
-          "text": "Les billets sont-ils transférables à mon nom, ou c'est directement utilisable ?",
+          "text": "Côté prix, tu en demandes combien pour me les céder ?",
+          "memory_number": 9,
+          "memory_section": 3
+        },
+        {
+          "text": "Côté inscription, les billets sont-ils transférables à mon nom, ou c'est directement utilisable ?",
           "memory_number": 9,
           "memory_section": 6
         },
@@ -308,7 +308,7 @@
           "memory_section": 8
         },
         {
-          "text": "Comment on s'organise pour le transport ou le stationnement sur place ?",
+          "text": "En ce qui concerne l'accès, comment on s'organise pour le transport ou le stationnement sur place ?",
           "memory_number": 9,
           "memory_section": 5
         },
@@ -318,14 +318,14 @@
           "memory_section": 6
         },
         {
+          "text": "Pour ce qui est des conditions, y a-t-il une limite d'âge ou des règles particulières à respecter sur place ?",
+          "memory_number": 9,
+          "memory_section": 8
+        },
+        {
           "text": "Toi qui connais l'événement, tu me conseilles d'y aller ?",
           "memory_number": 9,
           "memory_section": 11
-        },
-        {
-          "text": "Y a-t-il une limite d'âge ou des règles particulières à respecter sur place ?",
-          "memory_number": 9,
-          "memory_section": 8
         },
         {
           "text": "Pour finir — je peux te confirmer aujourd'hui si je prends les billets ?",
@@ -350,24 +350,14 @@
           "memory_section": 2
         },
         {
-          "text": "Ça va plutôt dans quelle gamme de prix en général ?",
-          "memory_number": 11,
-          "memory_section": 3
-        },
-        {
           "text": "L'ambiance est plutôt calme et intime, ou plus animée et festive ?",
           "memory_number": 11,
           "memory_section": 10
         },
         {
-          "text": "Ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
+          "text": "Pour ce qui est des repas, ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
           "memory_number": 11,
           "memory_section": 7
-        },
-        {
-          "text": "Faut-il réserver à l'avance, surtout pour un week-end ?",
-          "memory_number": 11,
-          "memory_section": 6
         },
         {
           "text": "Certains proposent-ils un menu spécial pour les anniversaires ?",
@@ -375,22 +365,12 @@
           "memory_section": 9
         },
         {
-          "text": "Ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
-          "memory_number": 11,
-          "memory_section": 5
-        },
-        {
-          "text": "Y a-t-il un parking à proximité si on vient en voiture ?",
-          "memory_number": 11,
-          "memory_section": 9
-        },
-        {
-          "text": "Y a-t-il des options pour les régimes particuliers ou les allergies ?",
+          "text": "En ce qui concerne la nourriture, y a-t-il des options pour les régimes particuliers ou les allergies ?",
           "memory_number": 11,
           "memory_section": 8
         },
         {
-          "text": "Vous avez mentionné un restaurant en particulier — vous pourriez m'en dire un peu plus ?",
+          "text": "Vous avez mentionné un restaurant en particulier — vous pourriez m'en dire un peu plus : il conviendrait pour une dizaine de personnes ?",
           "memory_number": 11,
           "memory_section": 13
         },
@@ -400,12 +380,32 @@
           "memory_section": 10
         },
         {
+          "text": "Côté budget, ça va plutôt dans quelle gamme de prix en général ?",
+          "memory_number": 11,
+          "memory_section": 3
+        },
+        {
           "text": "Le rapport qualité-prix vous semble bon, comparé à d'autres endroits du quartier ?",
           "memory_number": 11,
           "memory_section": 11
         },
         {
           "text": "Le service y est plutôt rapide, ou plus adapté à une soirée tranquille ?",
+          "memory_number": 11,
+          "memory_section": 9
+        },
+        {
+          "text": "En ce qui concerne l'organisation, faut-il réserver à l'avance, surtout pour un week-end ?",
+          "memory_number": 11,
+          "memory_section": 6
+        },
+        {
+          "text": "Et pour s'y rendre, ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
+          "memory_number": 11,
+          "memory_section": 5
+        },
+        {
+          "text": "Y a-t-il un parking à proximité si on vient en voiture ?",
           "memory_number": 11,
           "memory_section": 9
         },

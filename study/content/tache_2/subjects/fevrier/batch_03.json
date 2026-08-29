@@ -85,7 +85,7 @@
       "prompt": "Demandez à votre ami comment s'est déroulé son premier jour dans son nouvel emploi : ambiance, tâches effectuées, accueil par les collègues, etc.",
       "questions": [
         {
-          "text": "Alors, raconte — comment s'est passé ton premier jour ?",
+          "text": "Salut ! Alors, raconte — comment s'est passé ton premier jour ?",
           "memory_number": 4,
           "memory_section": 4
         },
@@ -113,7 +113,7 @@
           "memory_section": 2
         },
         {
-          "text": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus ?",
+          "text": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus : ça va durer plusieurs jours ?",
           "memory_number": 4,
           "memory_section": 13
         },
@@ -162,9 +162,17 @@
           "memory_section": 2
         },
         {
+          "text": "Vous avez mentionné une méthode en particulier — vous pourriez m'en dire un peu plus : elle vous convient bien ?",
+          "memory_number": 10,
+          "memory_section": 13
+        },
+        {
           "text": "Justement, ça s'adresse à quel niveau — est-ce que quelqu'un qui débute complètement pourrait s'y mettre ?",
           "memory_number": 10,
           "memory_section": 6
+        },
+        {
+          "text": "Et le professeur en lui-même, il est comment — plutôt patient et pédagogue ?"
         },
         {
           "text": "Vous avez cours combien de fois par semaine, et ça dure combien de temps à chaque fois ?",
@@ -172,9 +180,9 @@
           "memory_section": 4
         },
         {
-          "text": "Et côté tarifs, comment ça fonctionne — c'est à la séance ou plutôt au mois ?",
+          "text": "Au bout de combien de temps on commence à vraiment jouer des morceaux ?",
           "memory_number": 10,
-          "memory_section": 3
+          "memory_section": 4
         },
         {
           "text": "D'ailleurs, il faut acheter son propre instrument ou le professeur en fournit un pour commencer ?",
@@ -182,17 +190,9 @@
           "memory_section": 8
         },
         {
-          "text": "Vous avez mentionné une méthode en particulier — vous pourriez m'en dire un peu plus ?",
+          "text": "Et côté tarifs, comment ça fonctionne — c'est à la séance ou plutôt au mois ?",
           "memory_number": 10,
-          "memory_section": 13
-        },
-        {
-          "text": "Et le professeur en lui-même, il est comment — plutôt patient et pédagogue ?"
-        },
-        {
-          "text": "Au bout de combien de temps on commence à vraiment jouer des morceaux ?",
-          "memory_number": 10,
-          "memory_section": 4
+          "memory_section": 3
         },
         {
           "text": "Et sinon, il y a des petits concerts ou des présentations en fin d'année ?",
@@ -203,12 +203,12 @@
           "text": "Vous, personnellement, vous êtes satisfaite de votre progression ?"
         },
         {
-          "text": "À votre avis, le professeur accepterait de nouveaux élèves — vous auriez ses coordonnées ?",
+          "text": "Côté niveau, à votre avis, le professeur accepterait de nouveaux élèves — vous auriez ses coordonnées ?",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "Merci pour toutes ces infos — si j'ai d'autres questions, je peux vous solliciter ?",
+          "text": "Merci pour toutes ces infos, je vais en parler chez moi et sans doute me lancer — et si un point reste flou, je peux vous solliciter ?",
           "memory_number": 10,
           "memory_section": 13
         }
@@ -220,10 +220,15 @@
       "prompt": "Vous envisagez un séjour à la campagne. Demandez à votre ami s'il souhaite vous accompagner et renseignez-vous sur les activités, la durée et l'hébergement.",
       "questions": [
         {
-          "text": "Salut ! J'espère que tu vas bien. Dis-moi, est-ce que tu as déjà eu l'occasion de passer du temps à la campagne ? Ce genre d'environnement te plaît ?"
+          "text": "Salut ! Dis-moi, est-ce que tu as déjà eu l'occasion de passer du temps à la campagne, loin de la ville et du bruit ? Ce genre d'environnement te plaît ?"
         },
         {
           "text": "Justement, je prévois un petit séjour à la campagne, près d'Accra, pendant les prochaines vacances, et j'aimerais beaucoup que tu m'accompagnes. Ce serait l'occasion de déconnecter un peu et de profiter de la nature. Est-ce que tu serais disponible pour venir avec moi ?"
+        },
+        {
+          "text": "Concernant les activités, j'ai pensé à faire quelques randonnées, organiser un pique-nique, jouer au football et profiter d'autres activités en plein air. Ce programme te tente, ou tu voudrais ajouter quelque chose ?",
+          "memory_number": 7,
+          "memory_section": 2
         },
         {
           "text": "J'ai déjà arrêté les dates : du 18 au 22 mars. Tu serais libre à ce moment-là ?",
@@ -234,11 +239,6 @@
           "text": "Pour le transport, tu préfères que je m'en occupe ou tu penses pouvoir nous rejoindre directement sur place ?",
           "memory_number": 7,
           "memory_section": 5
-        },
-        {
-          "text": "Concernant les activités, j'ai pensé à faire quelques randonnées, organiser un pique-nique, jouer au football et profiter d'autres activités en plein air. Ce programme te tente, ou tu voudrais ajouter quelque chose ?",
-          "memory_number": 7,
-          "memory_section": 2
         },
         {
           "text": "Pour la nourriture, ne t'inquiète pas, j'ai déjà tout prévu. Tu as des allergies ou des restrictions alimentaires particulières, pour que je puisse m'adapter ?",
@@ -268,27 +268,7 @@
           "memory_section": 13
         },
         {
-          "text": "Comment est l'ambiance en général dans les entreprises canadiennes — plutôt formelle ou décontractée ?",
-          "memory_number": 4,
-          "memory_section": 10
-        },
-        {
-          "text": "Les gens sont sympas — c'est facile de s'intégrer quand on arrive de l'étranger ?",
-          "memory_number": 4,
-          "memory_section": 10
-        },
-        {
-          "text": "Ça s'adresse à quel profil — il faut un niveau de français ou d'anglais particulier ?",
-          "memory_number": 4,
-          "memory_section": 6
-        },
-        {
-          "text": "Si on débute complètement ici, est-ce qu'on risque de se sentir perdu(e) dans les démarches ?",
-          "memory_number": 4,
-          "memory_section": 6
-        },
-        {
-          "text": "Comment se passe la recherche d'emploi — en ligne ou uniquement via le réseau sur place ?",
+          "text": "Pour commencer par le concret : comment se passe la recherche d'emploi — en ligne ou uniquement via le réseau sur place ?",
           "memory_number": 4,
           "memory_section": 6
         },
@@ -303,7 +283,17 @@
           "memory_section": 6
         },
         {
-          "text": "Quels types de contrats sont proposés — temporaires, permanents, à temps partiel ou à temps plein ?"
+          "text": "En ce qui concerne l'encadrement, ça s'adresse à quel profil — il faut un niveau de français ou d'anglais particulier ?",
+          "memory_number": 4,
+          "memory_section": 6
+        },
+        {
+          "text": "Si on débute complètement ici, est-ce qu'on risque de se sentir perdu(e) dans les démarches ?",
+          "memory_number": 4,
+          "memory_section": 6
+        },
+        {
+          "text": "Autre point important : quels types de contrats sont proposés — temporaires, permanents, à temps partiel ou à temps plein ?"
         },
         {
           "text": "La rémunération comprend quoi exactement — des avantages comme l'assurance santé ou les congés payés sont-ils inclus ?",
@@ -321,7 +311,17 @@
           "memory_section": 3
         },
         {
-          "text": "Y a-t-il des différences importantes entre le marché du travail canadien et celui de mon pays d'origine ?"
+          "text": "Il y a un autre point qui m'intéresse : comment est l'ambiance en général dans les entreprises canadiennes — plutôt formelle ou décontractée ?",
+          "memory_number": 4,
+          "memory_section": 10
+        },
+        {
+          "text": "Les gens sont sympas — c'est facile de s'intégrer quand on arrive de l'étranger ?",
+          "memory_number": 4,
+          "memory_section": 10
+        },
+        {
+          "text": "Dernier point pratique : y a-t-il des différences importantes entre le marché du travail canadien et celui de mon pays d'origine ?"
         },
         {
           "text": "Tu as mentionné certaines régions ou villes — tu pourrais m'en dire un peu plus sur les endroits où se concentrent les opportunités ?",

@@ -65,7 +65,7 @@
           "kind": "mot-cle",
           "french": "une représentation unique",
           "english": "a one-off performance",
-          "example": "Est-ce que c'est encore à l'affiche, ou c'était une représentation unique ?",
+          "example": "Côté programmation, est-ce que c'est encore à l'affiche, ou c'était une représentation unique ?",
           "usage": "Groupe nominal sur le caractère unique."
         },
         {
@@ -89,7 +89,7 @@
           "kind": "collocation",
           "french": "le plus apprécié",
           "english": "appreciated the most",
-          "example": "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
+          "example": "Côté impressions, qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
           "usage": "Superlatif figé pour désigner ce qui plaît le plus."
         },
         {
@@ -97,7 +97,7 @@
           "kind": "collocation",
           "french": "moins aimés",
           "english": "liked the least",
-          "example": "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
+          "example": "Côté impressions, qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
           "usage": "Comparatif d'infériorité appliqué au verbe 'aimer' au participe passé."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "classique, moderne, ou original",
           "english": "classic, modern, or original",
-          "example": "C'était plutôt classique, moderne, ou original dans sa mise en scène ?",
+          "example": "À ce propos, c'était plutôt classique, moderne, ou original dans sa mise en scène ?",
           "usage": "Énumération d'adjectifs sur le style."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "encore à l'affiche",
           "english": "still showing",
-          "example": "Est-ce que c'est encore à l'affiche, ou c'était une représentation unique ?",
+          "example": "Côté programmation, est-ce que c'est encore à l'affiche, ou c'était une représentation unique ?",
           "usage": "Locution sur la programmation en cours."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "Ça se passait où",
           "english": "where did it take place",
-          "example": "Ça se passait où — dans quelle salle ou quel théâtre ?",
+          "example": "Côté pratique, ça se passait où — dans quelle salle ou quel théâtre ?",
           "usage": "Question sur le lieu."
         },
         {
@@ -217,7 +217,7 @@
           "kind": "tournure",
           "french": "Est-ce que c'est encore à l'affiche",
           "english": "is it still showing",
-          "example": "Est-ce que c'est encore à l'affiche, ou c'était une représentation unique ?",
+          "example": "Côté programmation, est-ce que c'est encore à l'affiche, ou c'était une représentation unique ?",
           "usage": "Question sur la programmation."
         },
         {
@@ -262,7 +262,7 @@
           "kind": "mot-cle",
           "french": "une carte",
           "english": "a card",
-          "example": "Comment fonctionnent les tarifs — il vaut mieux une carte, un abonnement, ou payer chaque trajet ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — il vaut mieux une carte, un abonnement, ou payer chaque trajet ?",
           "usage": "Nom désignant une carte de transport."
         },
         {
@@ -270,7 +270,7 @@
           "kind": "mot-cle",
           "french": "un abonnement",
           "english": "a pass/subscription",
-          "example": "Comment fonctionnent les tarifs — il vaut mieux une carte, un abonnement, ou payer chaque trajet ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — il vaut mieux une carte, un abonnement, ou payer chaque trajet ?",
           "usage": "Nom désignant un titre à durée."
         },
         {
@@ -302,7 +302,7 @@
           "kind": "mot-cle",
           "french": "une application",
           "english": "an app",
-          "example": "Il y a une application pour suivre les horaires et planifier un itinéraire ?",
+          "example": "D'ailleurs, il y a une application pour suivre les horaires et planifier un itinéraire ?",
           "usage": "Nom désignant l'application de transport."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "le métro",
           "english": "the metro",
-          "example": "Le métro, c'est simple à comprendre quand on ne connaît pas ?",
+          "example": "Et pour quelqu'un qui débarque, le métro, c'est simple à comprendre quand on ne connaît pas ?",
           "usage": "Nom désignant le métro."
         },
         {
@@ -342,7 +342,7 @@
           "kind": "collocation",
           "french": "payer chaque trajet",
           "english": "pay for each trip",
-          "example": "Comment fonctionnent les tarifs — il vaut mieux une carte, un abonnement, ou payer chaque trajet ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — il vaut mieux une carte, un abonnement, ou payer chaque trajet ?",
           "usage": "Verbe + complément sur le paiement."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "planifier un itinéraire",
           "english": "plan a route",
-          "example": "Il y a une application pour suivre les horaires et planifier un itinéraire ?",
+          "example": "D'ailleurs, il y a une application pour suivre les horaires et planifier un itinéraire ?",
           "usage": "Verbe + complément sur l'itinéraire."
         },
         {
@@ -382,7 +382,7 @@
           "kind": "collocation",
           "french": "un souci",
           "english": "a problem",
-          "example": "Si je me trompe de ligne ou que j'ai un souci, à qui je peux demander ?",
+          "example": "Côté imprévus, si je me trompe de ligne ou que j'ai un souci, à qui je peux demander ?",
           "usage": "Nom désignant un incident."
         },
         {
@@ -430,7 +430,7 @@
           "kind": "tournure",
           "french": "Comment fonctionnent les tarifs",
           "english": "how do the fares work",
-          "example": "Comment fonctionnent les tarifs — il vaut mieux une carte, un abonnement, ou payer chaque trajet ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — il vaut mieux une carte, un abonnement, ou payer chaque trajet ?",
           "usage": "Question sur les tarifs."
         },
         {
@@ -462,7 +462,7 @@
           "kind": "tournure",
           "french": "Les transports fonctionnent jusqu'à quelle heure le soir",
           "english": "until what time do they run in the evening",
-          "example": "Les transports fonctionnent jusqu'à quelle heure le soir ?",
+          "example": "Pour ce qui est des horaires, les transports fonctionnent jusqu'à quelle heure le soir ?",
           "usage": "Question sur les horaires du soir."
         },
         {
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "des prix",
           "english": "prizes",
-          "example": "Qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?",
+          "example": "Une dernière chose me vient à l'esprit : qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?",
           "usage": "Nom pluriel désignant les prix à gagner."
         },
         {
@@ -555,7 +555,7 @@
           "kind": "mot-cle",
           "french": "des récompenses",
           "english": "rewards",
-          "example": "Qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?",
+          "example": "Une dernière chose me vient à l'esprit : qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?",
           "usage": "Nom pluriel désignant les récompenses."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "une journée",
           "english": "a day",
-          "example": "Quand est-ce que ça se déroule — sur une journée, ou sur plusieurs semaines ?",
+          "example": "Côté calendrier, quand est-ce que ça se déroule — sur une journée, ou sur plusieurs semaines ?",
           "usage": "Nom désignant la durée d'une journée."
         },
         {
@@ -603,7 +603,7 @@
           "kind": "collocation",
           "french": "sur plusieurs semaines",
           "english": "over several weeks",
-          "example": "Quand est-ce que ça se déroule — sur une journée, ou sur plusieurs semaines ?",
+          "example": "Côté calendrier, quand est-ce que ça se déroule — sur une journée, ou sur plusieurs semaines ?",
           "usage": "Locution sur la durée."
         },
         {
@@ -611,7 +611,7 @@
           "kind": "collocation",
           "french": "s'inscrire à l'avance",
           "english": "sign up in advance",
-          "example": "Faut-il s'inscrire à l'avance, et comment ?",
+          "example": "En ce qui concerne la participation, faut-il s'inscrire à l'avance, et comment ?",
           "usage": "Verbe + complément sur l'inscription."
         },
         {
@@ -683,7 +683,7 @@
           "kind": "tournure",
           "french": "Quand est-ce que ça se déroule",
           "english": "when does it take place",
-          "example": "Quand est-ce que ça se déroule — sur une journée, ou sur plusieurs semaines ?",
+          "example": "Côté calendrier, quand est-ce que ça se déroule — sur une journée, ou sur plusieurs semaines ?",
           "usage": "Question sur la période."
         },
         {
@@ -699,7 +699,7 @@
           "kind": "tournure",
           "french": "Faut-il s'inscrire à l'avance",
           "english": "do you need to sign up in advance",
-          "example": "Faut-il s'inscrire à l'avance, et comment ?",
+          "example": "En ce qui concerne la participation, faut-il s'inscrire à l'avance, et comment ?",
           "usage": "Question sur l'inscription."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce qu'on peut gagner",
           "english": "what can you win",
-          "example": "Qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?",
+          "example": "Une dernière chose me vient à l'esprit : qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?",
           "usage": "Question sur les gains."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "Combien d'étudiants participent en général",
           "english": "how many students take part usually",
-          "example": "Combien d'étudiants participent en général ?",
+          "example": "Passons maintenant à un autre point : combien d'étudiants participent en général ?",
           "usage": "Question sur l'effectif."
         },
         {
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "la couverture santé",
           "english": "health coverage",
-          "example": "Comment ça se passe pour la couverture santé et la protection sociale sur place ?",
+          "example": "Côté assurance, comment ça se passe pour la couverture santé et la protection sociale sur place ?",
           "usage": "Groupe nominal désignant l'assurance maladie."
         },
         {
@@ -800,7 +800,7 @@
           "kind": "mot-cle",
           "french": "la protection sociale",
           "english": "social security",
-          "example": "Comment ça se passe pour la couverture santé et la protection sociale sur place ?",
+          "example": "Côté assurance, comment ça se passe pour la couverture santé et la protection sociale sur place ?",
           "usage": "Groupe nominal désignant la protection sociale."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "les perspectives d'évolution",
           "english": "career prospects",
-          "example": "Quelles seraient les perspectives d'évolution après cette expérience ?",
+          "example": "Et sur le plus long terme, quelles seraient les perspectives d'évolution après cette expérience ?",
           "usage": "Groupe nominal sur l'évolution possible."
         },
         {
@@ -832,7 +832,7 @@
           "kind": "collocation",
           "french": "évoluerait mon salaire",
           "english": "my salary would change",
-          "example": "Comment évoluerait mon salaire par rapport à mon poste actuel ?",
+          "example": "En ce qui concerne la rémunération, comment évoluerait mon salaire par rapport à mon poste actuel ?",
           "usage": "Locution verbale sur le salaire."
         },
         {
@@ -856,7 +856,7 @@
           "kind": "collocation",
           "french": "sur place",
           "english": "there / on site",
-          "example": "Comment ça se passe pour la couverture santé et la protection sociale sur place ?",
+          "example": "Côté assurance, comment ça se passe pour la couverture santé et la protection sociale sur place ?",
           "usage": "Locution sur le lieu."
         },
         {
@@ -880,7 +880,7 @@
           "kind": "collocation",
           "french": "m'accompagner",
           "english": "come with me",
-          "example": "Ma famille pourrait-elle m'accompagner, avec un accompagnement prévu ?",
+          "example": "Autre point important : ma famille pourrait-elle m'accompagner, avec un accompagnement prévu ?",
           "usage": "Locution verbale sur l'accompagnement familial."
         },
         {
@@ -928,7 +928,7 @@
           "kind": "tournure",
           "french": "Comment évoluerait mon salaire par rapport à mon poste actuel",
           "english": "how would my salary change versus my current job",
-          "example": "Comment évoluerait mon salaire par rapport à mon poste actuel ?",
+          "example": "En ce qui concerne la rémunération, comment évoluerait mon salaire par rapport à mon poste actuel ?",
           "usage": "Question sur le salaire."
         },
         {
@@ -944,7 +944,7 @@
           "kind": "tournure",
           "french": "Comment ça se passe pour la couverture santé et la protection sociale sur place",
           "english": "how does health and social coverage work there",
-          "example": "Comment ça se passe pour la couverture santé et la protection sociale sur place ?",
+          "example": "Côté assurance, comment ça se passe pour la couverture santé et la protection sociale sur place ?",
           "usage": "Question sur la protection sociale."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "À qui serais-je rattaché(e)",
           "english": "who would I report to",
-          "example": "À qui serais-je rattaché(e), et avec quelle équipe je travaillerais ?",
+          "example": "Question invités, à qui serais-je rattaché(e), et avec quelle équipe je travaillerais ?",
           "usage": "Question sur le rattachement."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "Quelles seraient les perspectives d'évolution après cette expérience",
           "english": "what would the prospects be after this",
-          "example": "Quelles seraient les perspectives d'évolution après cette expérience ?",
+          "example": "Et sur le plus long terme, quelles seraient les perspectives d'évolution après cette expérience ?",
           "usage": "Question sur l'évolution."
         },
         {
@@ -968,7 +968,7 @@
           "kind": "tournure",
           "french": "Ma famille pourrait-elle m'accompagner",
           "english": "could my family come with me",
-          "example": "Ma famille pourrait-elle m'accompagner, avec un accompagnement prévu ?",
+          "example": "Autre point important : ma famille pourrait-elle m'accompagner, avec un accompagnement prévu ?",
           "usage": "Question sur la famille."
         },
         {
@@ -1029,7 +1029,7 @@
           "kind": "mot-cle",
           "french": "des sorties pas chères",
           "english": "cheap outings",
-          "example": "Ça coûte cher en général, ou on peut trouver des sorties pas chères ?",
+          "example": "Côté budget, ça coûte cher en général, ou on peut trouver des sorties pas chères ?",
           "usage": "Groupe nominal sur les sorties économiques."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "une tenue particulière",
           "english": "a specific dress code",
-          "example": "Il faut prévoir une tenue particulière pour certains endroits ?",
+          "example": "Question matériel, il faut prévoir une tenue particulière pour certains endroits ?",
           "usage": "Groupe nominal sur la tenue."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "tranquille ou plutôt animé",
           "english": "quiet or lively",
-          "example": "Tu préfères quelque chose de tranquille ou plutôt animé ce soir ?",
+          "example": "D'abord, tu préfères quelque chose de tranquille ou plutôt animé ce soir ?",
           "usage": "Alternative adjectivale."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "d'autres personnes",
           "english": "other people",
-          "example": "On serait juste nous deux, ou tu veux qu'on invite d'autres personnes ?",
+          "example": "Côté participants, on serait juste nous deux, ou tu veux qu'on invite d'autres personnes ?",
           "usage": "Groupe nominal désignant d'autres invités."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "Ça coûte cher en général",
           "english": "is it expensive usually",
-          "example": "Ça coûte cher en général, ou on peut trouver des sorties pas chères ?",
+          "example": "Côté budget, ça coûte cher en général, ou on peut trouver des sorties pas chères ?",
           "usage": "Question sur le prix."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "Tu préfères quelque chose de tranquille ou plutôt animé ce soir",
           "english": "do you prefer something quiet or lively tonight",
-          "example": "Tu préfères quelque chose de tranquille ou plutôt animé ce soir ?",
+          "example": "D'abord, tu préfères quelque chose de tranquille ou plutôt animé ce soir ?",
           "usage": "Question sur les préférences."
         },
         {

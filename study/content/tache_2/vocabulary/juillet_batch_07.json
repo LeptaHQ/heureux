@@ -33,7 +33,7 @@
           "kind": "mot-cle",
           "french": "chaque trajet",
           "english": "each trip",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "usage": "Unité de paiement possible, opposée à un abonnement global."
         },
         {
@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "un abonnement",
           "english": "a pass/subscription",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "usage": "Nom central désignant la formule d'accès régulier aux transports."
         },
         {
@@ -97,7 +97,7 @@
           "kind": "collocation",
           "french": "souscrire à un abonnement",
           "english": "subscribe to a pass",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "usage": "Collocation formelle pour parler d'un engagement tarifaire régulier."
         },
         {
@@ -105,7 +105,7 @@
           "kind": "collocation",
           "french": "payer chaque trajet séparément",
           "english": "pay for each trip separately",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "usage": "S'oppose à la formule de l'abonnement."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "suivre les transports en temps réel",
           "english": "track transport in real time",
-          "example": "Y a-t-il une application pour suivre les transports en temps réel ?",
+          "example": "En ce qui concerne les déplacements, y a-t-il une application pour suivre les transports en temps réel ?",
           "usage": "Collocation liée à l'usage d'une application de suivi."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "éviter les foules",
           "english": "avoid the crowds",
-          "example": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "example": "Côté conseils, y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
           "usage": "Objectif pratique lié aux périodes de forte affluence."
         },
         {
@@ -161,7 +161,7 @@
           "kind": "collocation",
           "french": "plutôt ponctuels",
           "english": "fairly punctual",
-          "example": "C'est un moyen de transport fiable — les bus et les trains sont plutôt ponctuels ?",
+          "example": "Et globalement, c'est un moyen de transport fiable — les bus et les trains sont plutôt ponctuels ?",
           "usage": "Locution adjectivale sur la fiabilité."
         },
         {
@@ -185,7 +185,7 @@
           "kind": "tournure",
           "french": "Comment fonctionnent les tarifs",
           "english": "how do the rates work",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "usage": "Tournure standard pour interroger sur un système de prix."
         },
         {
@@ -225,7 +225,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des périodes où c'est très bondé",
           "english": "are there times when it's very crowded",
-          "example": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "example": "Côté conseils, y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
           "usage": "Inversion avec proposition relative introduite par « où »."
         },
         {
@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "la batterie",
           "english": "the battery",
-          "example": "La batterie tient encore bien la charge — elle a quelle autonomie ?",
+          "example": "Autre point important : la batterie tient encore bien la charge — elle a quelle autonomie ?",
           "usage": "Nom désignant la batterie du vélo."
         },
         {
@@ -294,7 +294,7 @@
           "kind": "mot-cle",
           "french": "la facture",
           "english": "the receipt",
-          "example": "Tu as gardé la facture et les accessoires d'origine ?",
+          "example": "J'ai encore une question : tu as gardé la facture et les accessoires d'origine ?",
           "usage": "Nom désignant le justificatif d'achat."
         },
         {
@@ -302,7 +302,7 @@
           "kind": "mot-cle",
           "french": "les accessoires d'origine",
           "english": "the original accessories",
-          "example": "Tu as gardé la facture et les accessoires d'origine ?",
+          "example": "J'ai encore une question : tu as gardé la facture et les accessoires d'origine ?",
           "usage": "Groupe nominal pour les accessoires fournis."
         },
         {
@@ -342,7 +342,7 @@
           "kind": "collocation",
           "french": "avant de me décider",
           "english": "before I make up my mind",
-          "example": "Est-ce que je pourrais l'essayer avant de me décider ?",
+          "example": "Il me reste un point à éclaircir : est-ce que je pourrais l'essayer avant de me décider ?",
           "usage": "Locution prépositionnelle + verbe pronominal pour évoquer une période de réflexion."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "décidé de le vendre",
           "english": "decided to sell it",
-          "example": "Pourquoi tu as décidé de le vendre ?",
+          "example": "Ensuite, pourquoi tu as décidé de le vendre ?",
           "usage": "Verbe + complément sur la décision."
         },
         {
@@ -398,7 +398,7 @@
           "kind": "collocation",
           "french": "tient encore bien la charge",
           "english": "still holds the charge well",
-          "example": "La batterie tient encore bien la charge — elle a quelle autonomie ?",
+          "example": "Autre point important : la batterie tient encore bien la charge — elle a quelle autonomie ?",
           "usage": "Locution verbale sur la batterie."
         },
         {
@@ -406,7 +406,7 @@
           "kind": "collocation",
           "french": "gardé la facture",
           "english": "kept the receipt",
-          "example": "Tu as gardé la facture et les accessoires d'origine ?",
+          "example": "J'ai encore une question : tu as gardé la facture et les accessoires d'origine ?",
           "usage": "Verbe + complément sur les justificatifs."
         },
         {
@@ -414,7 +414,7 @@
           "kind": "tournure",
           "french": "tu en demandes combien",
           "english": "how much are you asking for it",
-          "example": "Tu en demandes combien ?",
+          "example": "En ce qui concerne le prix, tu en demandes combien ?",
           "usage": "Tournure interrogative directe pour demander un prix, registre tutoiement."
         },
         {
@@ -430,7 +430,7 @@
           "kind": "tournure",
           "french": "est-ce que je pourrais l'essayer",
           "english": "could I try it out",
-          "example": "Est-ce que je pourrais l'essayer avant de me décider ?",
+          "example": "Il me reste un point à éclaircir : est-ce que je pourrais l'essayer avant de me décider ?",
           "usage": "Tournure au conditionnel avec « est-ce que » pour demander un essai avant achat."
         },
         {
@@ -462,7 +462,7 @@
           "kind": "tournure",
           "french": "Pourquoi tu as décidé de le vendre",
           "english": "why you decided to sell it",
-          "example": "Pourquoi tu as décidé de le vendre ?",
+          "example": "Ensuite, pourquoi tu as décidé de le vendre ?",
           "usage": "Question sur la motivation."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "elle a quelle autonomie",
           "english": "what range does it have",
-          "example": "La batterie tient encore bien la charge — elle a quelle autonomie ?",
+          "example": "Autre point important : la batterie tient encore bien la charge — elle a quelle autonomie ?",
           "usage": "Question sur l'autonomie de la batterie."
         },
         {
@@ -523,7 +523,7 @@
           "kind": "mot-cle",
           "french": "des pistes",
           "english": "trails",
-          "example": "Où est-ce qu'on peut pratiquer près d'ici — il y a des pistes adaptées aux débutants ?",
+          "example": "Et concrètement, où est-ce qu'on peut pratiquer près d'ici — il y a des pistes adaptées aux débutants ?",
           "usage": "Nom pluriel désignant les parcours de ski."
         },
         {
@@ -531,7 +531,7 @@
           "kind": "mot-cle",
           "french": "bâtons",
           "english": "poles",
-          "example": "De quel équipement on a besoin — skis, bâtons, chaussures spéciales ?",
+          "example": "Côté matériel, de quel équipement on a besoin — skis, bâtons, chaussures spéciales ?",
           "usage": "Nom pluriel désignant les bâtons de ski."
         },
         {
@@ -539,7 +539,7 @@
           "kind": "mot-cle",
           "french": "chaussures spéciales",
           "english": "special boots",
-          "example": "De quel équipement on a besoin — skis, bâtons, chaussures spéciales ?",
+          "example": "Côté matériel, de quel équipement on a besoin — skis, bâtons, chaussures spéciales ?",
           "usage": "Groupe nominal pour les chaussures adaptées."
         },
         {
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "l'équipement complet",
           "english": "the full equipment",
-          "example": "Combien ça coûte à peu près, l'équipement complet ?",
+          "example": "Et combien ça coûte à peu près, l'équipement complet ?",
           "usage": "Groupe nominal pour tout le matériel."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "une bonne condition physique",
           "english": "good physical condition",
-          "example": "C'est un sport fatigant — il faut une bonne condition physique ?",
+          "example": "Deuxième point : c'est un sport fatigant — il faut une bonne condition physique ?",
           "usage": "Groupe nominal sur la forme physique."
         },
         {
@@ -611,7 +611,7 @@
           "kind": "collocation",
           "french": "adaptées aux débutants",
           "english": "suited to beginners",
-          "example": "Où est-ce qu'on peut pratiquer près d'ici — il y a des pistes adaptées aux débutants ?",
+          "example": "Et concrètement, où est-ce qu'on peut pratiquer près d'ici — il y a des pistes adaptées aux débutants ?",
           "usage": "Participe + complément sur le niveau."
         },
         {
@@ -643,7 +643,7 @@
           "kind": "collocation",
           "french": "avoir froid",
           "english": "be cold",
-          "example": "Comment il faut s'habiller pour ne pas avoir froid tout en restant à l'aise ?",
+          "example": "En ce qui concerne la tenue, comment il faut s'habiller pour ne pas avoir froid tout en restant à l'aise ?",
           "usage": "Locution verbale sur la sensation."
         },
         {
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "des précautions de sécurité",
           "english": "safety precautions",
-          "example": "Il y a des précautions de sécurité à connaître avant de se lancer ?",
+          "example": "Une chose encore : il y a des précautions de sécurité à connaître avant de se lancer ?",
           "usage": "Locution nominale sur la sécurité."
         },
         {
@@ -683,7 +683,7 @@
           "kind": "tournure",
           "french": "Où est-ce qu'on peut pratiquer près d'ici",
           "english": "where can you practice near here",
-          "example": "Où est-ce qu'on peut pratiquer près d'ici — il y a des pistes adaptées aux débutants ?",
+          "example": "Et concrètement, où est-ce qu'on peut pratiquer près d'ici — il y a des pistes adaptées aux débutants ?",
           "usage": "Question sur les lieux de pratique."
         },
         {
@@ -691,7 +691,7 @@
           "kind": "tournure",
           "french": "De quel équipement on a besoin",
           "english": "what equipment do you need",
-          "example": "De quel équipement on a besoin — skis, bâtons, chaussures spéciales ?",
+          "example": "Côté matériel, de quel équipement on a besoin — skis, bâtons, chaussures spéciales ?",
           "usage": "Question sur le matériel nécessaire."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "Combien ça coûte à peu près",
           "english": "roughly how much does it cost",
-          "example": "Combien ça coûte à peu près, l'équipement complet ?",
+          "example": "Et combien ça coûte à peu près, l'équipement complet ?",
           "usage": "Question orale sur le prix."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "Comment il faut s'habiller",
           "english": "how you should dress",
-          "example": "Comment il faut s'habiller pour ne pas avoir froid tout en restant à l'aise ?",
+          "example": "En ce qui concerne la tenue, comment il faut s'habiller pour ne pas avoir froid tout en restant à l'aise ?",
           "usage": "Question sur la tenue."
         },
         {
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "jeux de société",
           "english": "board games",
-          "example": "Quels jeux de société ou jeux d'intérieur je pourrais prévoir à la maison ?",
+          "example": "Pour ce qui est des loisirs, quels jeux de société ou jeux d'intérieur je pourrais prévoir à la maison ?",
           "usage": "Groupe nominal pour les jeux d'intérieur."
         },
         {
@@ -800,7 +800,7 @@
           "kind": "mot-cle",
           "french": "des activités gratuites",
           "english": "free activities",
-          "example": "Il y a des activités gratuites ou pas trop chères pour les occuper ?",
+          "example": "En ce qui concerne le budget, il y a des activités gratuites ou pas trop chères pour les occuper ?",
           "usage": "Groupe nominal pour les loisirs sans frais."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "petits plats simples",
           "english": "simple little dishes",
-          "example": "Tu aurais des idées de petits plats simples que les enfants aiment bien ?",
+          "example": "Côté repas, tu aurais des idées de petits plats simples que les enfants aiment bien ?",
           "usage": "Groupe nominal pour des repas faciles."
         },
         {
@@ -872,7 +872,7 @@
           "kind": "collocation",
           "french": "prévoir à la maison",
           "english": "plan at home",
-          "example": "Quels jeux de société ou jeux d'intérieur je pourrais prévoir à la maison ?",
+          "example": "Pour ce qui est des loisirs, quels jeux de société ou jeux d'intérieur je pourrais prévoir à la maison ?",
           "usage": "Locution verbale sur la préparation."
         },
         {
@@ -944,7 +944,7 @@
           "kind": "tournure",
           "french": "Il y a des activités gratuites ou pas trop chères",
           "english": "are there free or cheap activities",
-          "example": "Il y a des activités gratuites ou pas trop chères pour les occuper ?",
+          "example": "En ce qui concerne le budget, il y a des activités gratuites ou pas trop chères pour les occuper ?",
           "usage": "Question sur le budget."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce qui plaît généralement le plus aux enfants",
           "english": "what children usually like most",
-          "example": "Qu'est-ce qui plaît généralement le plus aux enfants, d'après toi ?",
+          "example": "Justement, qu'est-ce qui plaît généralement le plus aux enfants, d'après toi ?",
           "usage": "Question sur les préférences."
         },
         {

@@ -85,7 +85,7 @@
       "prompt": "Je suis votre ami(e). Vous allez recevoir des amis étrangers qui ne connaissent pas votre ville. Vous me demandez des conseils pour organiser leur séjour (visites, activités, restaurants, etc.).",
       "questions": [
         {
-          "text": "Pour commencer, combien de jours faudrait-il prévoir pour bien découvrir la ville ?",
+          "text": "Salut ! Je vais recevoir des amis étrangers qui ne connaissent pas la ville — pour commencer, combien de jours faudrait-il prévoir pour bien découvrir la ville ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -110,12 +110,12 @@
           "memory_section": 6
         },
         {
-          "text": "Pour les activités, tu recommandes plutôt quelque chose de culturel, du plein air ou une activité plus touristique ?",
+          "text": "En ce qui concerne la programmation, il y a des événements spéciaux ou des festivals pendant leur séjour ?",
           "memory_number": 3,
           "memory_section": 2
         },
         {
-          "text": "Il y a des événements spéciaux ou des festivals pendant leur séjour ?",
+          "text": "Et pour les activités, tu recommandes plutôt quelque chose de culturel, du plein air ou une activité plus touristique ?",
           "memory_number": 3,
           "memory_section": 2
         },
@@ -130,12 +130,12 @@
           "memory_section": 9
         },
         {
-          "text": "Pour se déplacer, il vaut mieux utiliser les transports en commun ou louer une voiture ?",
+          "text": "Il me reste un point à éclaircir : pour se déplacer, il vaut mieux utiliser les transports en commun ou louer une voiture ?",
           "memory_number": 3,
           "memory_section": 5
         },
         {
-          "text": "Tu penses qu'un pass touristique serait utile et avantageux pour eux ?",
+          "text": "Une chose encore : tu penses qu'un pass touristique serait utile et avantageux pour eux ?",
           "memory_number": 3,
           "memory_section": 3
         },
@@ -152,16 +152,11 @@
       "prompt": "Je suis votre collègue. Je suis allé(e) à un mariage le week-end dernier. Vous me posez des questions pour savoir comment la fête s'est passée (lieu, menu, activités, etc.).",
       "questions": [
         {
-          "text": "Alors, comment s'est passé le mariage ce week-end ?",
+          "text": "Salut ! J'attendais ton retour pour avoir les détails — alors, comment s'est passé le mariage ce week-end ?",
           "memory_number": 11,
           "memory_section": 10
         },
         "C'était le mariage de qui exactement — un membre de ta famille ou un ami proche ?",
-        {
-          "text": "Il y avait environ combien d'invités — c'était une grande cérémonie ou quelque chose de plus intime ?",
-          "memory_number": 11,
-          "memory_section": 7
-        },
         {
           "text": "Où est-ce que le mariage a eu lieu exactement ?",
           "memory_number": 11,
@@ -173,7 +168,12 @@
           "memory_section": 13
         },
         {
-          "text": "Les mariés avaient choisi quel style de décoration ?",
+          "text": "Il y avait environ combien d'invités — c'était une grande cérémonie ou quelque chose de plus intime ?",
+          "memory_number": 11,
+          "memory_section": 7
+        },
+        {
+          "text": "Tant que j'y pense, les mariés avaient choisi quel style de décoration ?",
           "memory_number": 11,
           "memory_section": 10
         },
@@ -188,7 +188,7 @@
           "memory_section": 13
         },
         {
-          "text": "Qu'est-ce qui était prévu au menu — un repas assis ou un buffet ?",
+          "text": "Et côté repas, qu'est-ce qui était prévu au menu — un repas assis ou un buffet ?",
           "memory_number": 11,
           "memory_section": 9
         },
@@ -198,7 +198,7 @@
           "memory_section": 13
         },
         {
-          "text": "Pour la soirée, il y avait un DJ ou un groupe de musique ?",
+          "text": "Et pour la soirée, il y avait un DJ ou un groupe de musique ?",
           "memory_number": 11,
           "memory_section": 2
         },
@@ -208,7 +208,7 @@
           "memory_section": 10
         },
         {
-          "text": "Il y a eu des animations ou des surprises pendant la fête ?",
+          "text": "En ce qui concerne la programmation, il y a eu des animations ou des surprises pendant la fête ?",
           "memory_number": 11,
           "memory_section": 2
         },
@@ -225,7 +225,7 @@
       "prompt": "Je suis votre collègue. J'ai participé à un circuit touristique pour découvrir le Canada. Vous voulez faire la même chose l'été prochain. Vous me posez des questions sur le circuit (étapes, durée, prix, etc.).",
       "questions": [
         {
-          "text": "Alors, comment s'est passé ton circuit au Canada ?",
+          "text": "Salut ! J'aimerais faire la même chose l'été prochain — alors, comment s'est passé ton circuit au Canada ?",
           "memory_number": 7,
           "memory_section": 10
         },
@@ -245,7 +245,7 @@
           "memory_section": 2
         },
         {
-          "text": "Il y avait combien d'étapes au total ?",
+          "text": "Côté organisation, il y avait combien d'étapes au total ?",
           "memory_number": 7,
           "memory_section": 2
         },
@@ -260,14 +260,19 @@
           "memory_section": 4
         },
         {
-          "text": "Quelles activités avez-vous faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
+          "text": "Et concrètement, quelles activités avez-vous faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
           "memory_number": 7,
           "memory_section": 2
         },
         {
-          "text": "Il y avait des visites guidées ou vous étiez assez libres dans votre programme ?",
+          "text": "En ce qui concerne les découvertes sur place, il y avait des visites guidées ou vous étiez assez libres dans votre programme ?",
           "memory_number": 7,
           "memory_section": 2
+        },
+        {
+          "text": "Côté déplacements, comment vous déplaciez-vous entre les différentes étapes ?",
+          "memory_number": 7,
+          "memory_section": 5
         },
         {
           "text": "Vous logiez plutôt à l'hôtel, en auberge ou ailleurs ?",
@@ -275,9 +280,9 @@
           "memory_section": 9
         },
         {
-          "text": "Comment vous déplaciez-vous entre les différentes étapes ?",
+          "text": "Pour ce qui est de la météo, l'été est une bonne période pour faire ce circuit ou tu me conseillerais une autre saison ?",
           "memory_number": 7,
-          "memory_section": 5
+          "memory_section": 8
         },
         {
           "text": "Parlons du budget — combien est-ce que ça t'a coûté approximativement au total ?",
@@ -288,11 +293,6 @@
           "text": "Le tarif comprenait quoi exactement ?",
           "memory_number": 7,
           "memory_section": 3
-        },
-        {
-          "text": "L'été est une bonne période pour faire ce circuit ou tu me conseillerais une autre saison ?",
-          "memory_number": 7,
-          "memory_section": 8
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule étape, ce serait laquelle ?",
@@ -307,7 +307,7 @@
       "prompt": "Je vis dans votre quartier. Je vais partir une semaine en vacances et je cherche quelqu'un pour garder mon chien pendant mon absence. Vous êtes intéressé(e). Vous me demandez des précisions (dates, rémunération, activités, etc.).",
       "questions": [
         {
-          "text": "Bonjour, vous cherchez toujours quelqu'un pour garder votre chien pendant votre absence ?",
+          "text": "Bonjour ! Je suis votre voisin(e) et je pourrais vous dépanner — vous cherchez toujours quelqu'un pour garder votre chien pendant votre absence ?",
           "memory_number": 3,
           "memory_section": 13
         },
@@ -318,7 +318,7 @@
         },
         "Pourriez-vous me présenter votre chien — quelle est sa race et quel âge a-t-il ?",
         {
-          "text": "Comment est son caractère en général — plutôt calme ou assez énergique ?",
+          "text": "Ensuite, comment est son caractère en général — plutôt calme ou assez énergique ?",
           "memory_number": 3,
           "memory_section": 10
         },
@@ -333,7 +333,7 @@
           "memory_section": 8
         },
         {
-          "text": "Quelle routine faut-il suivre pour ses repas ?",
+          "text": "Et côté quotidien, quelle routine faut-il suivre pour ses repas ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -348,7 +348,7 @@
           "memory_section": 4
         },
         {
-          "text": "La garde aurait lieu chez vous ou chez moi ?",
+          "text": "En ce qui concerne l'endroit, la garde aurait lieu chez vous ou chez moi ?",
           "memory_number": 3,
           "memory_section": 13
         },
@@ -358,7 +358,7 @@
           "memory_section": 4
         },
         {
-          "text": "En cas de problème, qui dois-je contacter — votre vétérinaire ou une autre personne ?",
+          "text": "Pour ce qui est des imprévus, en cas de problème, qui dois-je contacter — votre vétérinaire ou une autre personne ?",
           "memory_number": 3,
           "memory_section": 13
         },

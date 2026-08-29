@@ -22,7 +22,17 @@
           "memory_section": 2
         },
         {
-          "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
+          "memory_number": 7,
+          "memory_section": 11
+        },
+        {
+          "text": "Côté durée, combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
+          "memory_number": 7,
+          "memory_section": 4
+        },
+        {
+          "text": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -37,12 +47,7 @@
           "memory_section": 8
         },
         {
-          "text": "Combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
-          "memory_number": 7,
-          "memory_section": 4
-        },
-        {
-          "text": "Vous connaissez de bons endroits où dormir — hôtels, appartements, auberges ?",
+          "text": "Côté hébergement, vous connaissez de bons endroits où dormir — hôtels, appartements, auberges ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -72,14 +77,9 @@
           "memory_section": 3
         },
         {
-          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "text": "En ce qui concerne le prix, est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
           "memory_number": 7,
           "memory_section": 3
-        },
-        {
-          "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
-          "memory_number": 7,
-          "memory_section": 11
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
@@ -114,7 +114,37 @@
           "memory_section": 2
         },
         {
-          "text": "Si je n'ai pas encore de vélo, tu connais des agences où en louer ?",
+          "text": "Côté précautions, comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
+          "memory_number": 6,
+          "memory_section": 8
+        },
+        {
+          "text": "Est-ce qu'un casque est obligatoire à Ottawa ou seulement recommandé ?",
+          "memory_number": 6,
+          "memory_section": 8
+        },
+        {
+          "text": "Côté matériel, qu'est-ce qu'il faut absolument prévoir — un casque, un antivol et des lumières ?",
+          "memory_number": 6,
+          "memory_section": 8
+        },
+        {
+          "text": "Est-ce qu'on peut emporter son vélo dans le bus ou le train si on est fatigué ?",
+          "memory_number": 6,
+          "memory_section": 5
+        },
+        {
+          "text": "Pour ce qui est de la météo, en hiver, avec la neige, est-ce qu'on peut continuer à rouler ou c'est trop compliqué ?",
+          "memory_number": 6,
+          "memory_section": 8
+        },
+        {
+          "text": "Où est-ce qu'on peut faire réparer ou entretenir son vélo dans le coin ?",
+          "memory_number": 6,
+          "memory_section": 9
+        },
+        {
+          "text": "En ce qui concerne la location, si je n'ai pas encore de vélo, tu connais des agences où en louer ?",
           "memory_number": 6,
           "memory_section": 13
         },
@@ -127,36 +157,6 @@
           "text": "Est-ce qu'il y a aussi des vélos en libre-service un peu partout dans la ville ?",
           "memory_number": 6,
           "memory_section": 2
-        },
-        {
-          "text": "Côté matériel, qu'est-ce qu'il faut absolument prévoir — un casque, un antivol et des lumières ?",
-          "memory_number": 6,
-          "memory_section": 8
-        },
-        {
-          "text": "Est-ce qu'un casque est obligatoire à Ottawa ou seulement recommandé ?",
-          "memory_number": 6,
-          "memory_section": 8
-        },
-        {
-          "text": "Comment faire pour rouler en toute sécurité dans la circulation quand on débute ?",
-          "memory_number": 6,
-          "memory_section": 8
-        },
-        {
-          "text": "Est-ce qu'on peut emporter son vélo dans le bus ou le train si on est fatigué ?",
-          "memory_number": 6,
-          "memory_section": 5
-        },
-        {
-          "text": "En hiver, avec la neige, est-ce qu'on peut continuer à rouler ou c'est trop compliqué ?",
-          "memory_number": 6,
-          "memory_section": 8
-        },
-        {
-          "text": "Où est-ce qu'on peut faire réparer ou entretenir son vélo dans le coin ?",
-          "memory_number": 6,
-          "memory_section": 9
         },
         {
           "text": "Parmi tous ces itinéraires, lequel tu me recommandes pour commencer en douceur ?",
@@ -201,7 +201,7 @@
           "memory_section": 4
         },
         {
-          "text": "Quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
+          "text": "Concrètement, quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
           "memory_number": 3,
           "memory_section": 2
         },
@@ -216,17 +216,7 @@
           "memory_section": 2
         },
         {
-          "text": "Côté salaire, tu proposes combien — c'est un tarif horaire ?",
-          "memory_number": 3,
-          "memory_section": 3
-        },
-        {
-          "text": "Est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
-          "memory_number": 3,
-          "memory_section": 8
-        },
-        {
-          "text": "Est-ce qu'il y a des habitudes ou des règles importantes à respecter avec tes enfants ?",
+          "text": "Pour ce qui est des conditions, est-ce qu'il y a des habitudes ou des règles importantes à respecter avec tes enfants ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -236,9 +226,19 @@
           "memory_section": 8
         },
         {
-          "text": "En cas d'urgence, comment est-ce qu'on peut te joindre pendant ton absence ?",
+          "text": "En ce qui concerne les règles, est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
+          "memory_number": 3,
+          "memory_section": 8
+        },
+        {
+          "text": "Pour ce qui est des imprévus, en cas d'urgence, comment est-ce qu'on peut te joindre pendant ton absence ?",
           "memory_number": 3,
           "memory_section": 13
+        },
+        {
+          "text": "Côté salaire, tu proposes combien — c'est un tarif horaire ?",
+          "memory_number": 3,
+          "memory_section": 3
         },
         {
           "text": "Quand aimerais-tu que ça commence — c'est assez urgent ?",
@@ -278,7 +278,7 @@
           "memory_section": 9
         },
         {
-          "text": "L'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa ?",
+          "text": "En ce qui concerne l'hébergement, l'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -288,27 +288,12 @@
           "memory_section": 9
         },
         {
-          "text": "Proposez-vous un service de blanchisserie ou de repassage ?",
+          "text": "Et puis, proposez-vous un service de blanchisserie ou de repassage ?",
           "memory_number": 7,
           "memory_section": 9
         },
         {
-          "text": "Est-ce qu'il y a un parking à l'hôtel — et est-il gratuit pour les clients ?",
-          "memory_number": 7,
-          "memory_section": 5
-        },
-        {
-          "text": "À quelle heure faut-il libérer la chambre le jour du départ — et peut-on la garder un peu plus longtemps ?",
-          "memory_number": 7,
-          "memory_section": 12
-        },
-        {
-          "text": "Est-il possible de laisser mes bagages à la réception après le départ ?",
-          "memory_number": 7,
-          "memory_section": 9
-        },
-        {
-          "text": "Est-ce que l'hôtel propose une navette pour l'aéroport ou le centre-ville ?",
+          "text": "Côté transport, est-ce que l'hôtel propose une navette pour l'aéroport ou le centre-ville ?",
           "memory_number": 7,
           "memory_section": 5
         },
@@ -318,7 +303,22 @@
           "memory_section": 9
         },
         {
-          "text": "Y a-t-il des services payants en supplément dont je devrais connaître les tarifs ?",
+          "text": "Est-ce qu'il y a un parking à l'hôtel — et est-il gratuit pour les clients ?",
+          "memory_number": 7,
+          "memory_section": 5
+        },
+        {
+          "text": "Côté horaires, à quelle heure faut-il libérer la chambre le jour du départ — et peut-on la garder un peu plus longtemps ?",
+          "memory_number": 7,
+          "memory_section": 12
+        },
+        {
+          "text": "Est-il possible de laisser mes bagages à la réception après le départ ?",
+          "memory_number": 7,
+          "memory_section": 9
+        },
+        {
+          "text": "En ce qui concerne le budget, y a-t-il des services payants en supplément dont je devrais connaître les tarifs ?",
           "memory_number": 7,
           "memory_section": 3
         },
@@ -355,6 +355,11 @@
           "memory_section": 13
         },
         {
+          "text": "Côté groupe, combien de personnes est-ce que tu prends en général — il reste de la place ?",
+          "memory_number": 6,
+          "memory_section": 7
+        },
+        {
           "text": "À quelle fréquence proposes-tu ces trajets — tous les jours ou seulement certains jours ?",
           "memory_number": 6,
           "memory_section": 4
@@ -370,7 +375,12 @@
           "memory_section": 12
         },
         {
-          "text": "Comment se répartissent les frais — on partage l'essence et le péage ?",
+          "text": "J'en profite pour te demander : est-ce qu'on peut discuter et écouter de la musique, ou tu préfères le calme le matin ?",
+          "memory_number": 6,
+          "memory_section": 10
+        },
+        {
+          "text": "En ce qui concerne le budget, comment se répartissent les frais — on partage l'essence et le péage ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -385,24 +395,14 @@
           "memory_section": 3
         },
         {
-          "text": "Combien de personnes est-ce que tu prends en général — il reste de la place ?",
-          "memory_number": 6,
-          "memory_section": 7
-        },
-        {
           "text": "Est-ce qu'on passe par une plateforme de covoiturage ou c'est un arrangement entre nous ?",
           "memory_number": 6,
           "memory_section": 2
         },
         {
-          "text": "Est-ce que ton assurance couvre les passagers en cas de souci ?",
+          "text": "Pour ce qui est des imprévus, est-ce que ton assurance couvre les passagers en cas de souci ?",
           "memory_number": 6,
           "memory_section": 8
-        },
-        {
-          "text": "Est-ce qu'on peut discuter et écouter de la musique, ou tu préfères le calme le matin ?",
-          "memory_number": 6,
-          "memory_section": 10
         },
         {
           "text": "Et si tu es absent ou en vacances, tu connais d'autres personnes qui font le même trajet ?",

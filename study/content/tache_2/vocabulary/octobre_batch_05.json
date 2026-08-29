@@ -49,7 +49,7 @@
           "kind": "mot-cle",
           "french": "un code",
           "english": "a code",
-          "example": "Comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
+          "example": "Côté accès, comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
           "usage": "Nom masculin désignant une combinaison numérique pour ouvrir une porte."
         },
         {
@@ -65,7 +65,7 @@
           "kind": "mot-cle",
           "french": "un voisin",
           "english": "a neighbour",
-          "example": "Est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
+          "example": "Pour ce qui est de la sécurité, est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
           "usage": "Nom masculin désignant une personne qui habite à proximité."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "joignable",
           "english": "reachable",
-          "example": "Est-ce que tu seras facilement joignable pendant ton séjour ?",
+          "example": "Côté contact, est-ce que tu seras facilement joignable pendant ton séjour ?",
           "usage": "Adjectif dérivé du verbe « joindre » pour indiquer qu'on peut contacter quelqu'un."
         },
         {
@@ -97,7 +97,7 @@
           "kind": "collocation",
           "french": "en priorité",
           "english": "as a priority",
-          "example": "Qu'est-ce qu'il faudra faire en priorité pendant que tu seras parti(e) ?",
+          "example": "Et concrètement, qu'est-ce qu'il faudra faire en priorité pendant que tu seras parti(e) ?",
           "usage": "Locution adverbiale figée pour hiérarchiser des tâches."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "un double des clés",
           "english": "a spare set of keys",
-          "example": "Comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
+          "example": "Côté accès, comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
           "usage": "Groupe nominal courant pour désigner une copie de clés confiée à quelqu'un."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "une entreprise de livraison",
           "english": "a delivery company",
-          "example": "Est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
+          "example": "Pour ce qui est de la sécurité, est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
           "usage": "Groupe nominal désignant une société qui livre des colis."
         },
         {
@@ -153,7 +153,7 @@
           "kind": "collocation",
           "french": "en cas de problème",
           "english": "in case of a problem",
-          "example": "En cas de problème dans l'immeuble, à qui faut-il s'adresser ?",
+          "example": "Côté imprévus, en cas de problème dans l'immeuble, à qui faut-il s'adresser ?",
           "usage": "Locution prépositionnelle très fréquente pour introduire une situation hypothétique."
         },
         {
@@ -177,7 +177,7 @@
           "kind": "tournure",
           "french": "qu'est-ce qu'il faudra faire",
           "english": "what will need to be done",
-          "example": "Qu'est-ce qu'il faudra faire en priorité pendant que tu seras parti(e) ?",
+          "example": "Et concrètement, qu'est-ce qu'il faudra faire en priorité pendant que tu seras parti(e) ?",
           "usage": "Futur impersonnel avec « il faudra » pour anticiper des obligations."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "comment est-ce que j'entre",
           "english": "how do I get in",
-          "example": "Comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
+          "example": "Côté accès, comment est-ce que j'entre — tu vas me laisser un double des clés ou il y a un code ?",
           "usage": "Structure orale avec « comment est-ce que » pour interroger sur un moyen d'accès."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "tournure",
           "french": "quelqu'un d'autre risque de passer",
           "english": "someone else might come by",
-          "example": "Est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
+          "example": "Pour ce qui est de la sécurité, est-ce que quelqu'un d'autre risque de passer pendant ton absence — un voisin, un proche ou une entreprise de livraison ?",
           "usage": "Verbe « risquer de » + infinitif pour évoquer une possibilité future."
         },
         {
@@ -217,7 +217,7 @@
           "kind": "tournure",
           "french": "à qui faut-il s'adresser",
           "english": "who should one contact",
-          "example": "En cas de problème dans l'immeuble, à qui faut-il s'adresser ?",
+          "example": "Côté imprévus, en cas de problème dans l'immeuble, à qui faut-il s'adresser ?",
           "usage": "Structure impersonnelle avec « il faut » pour demander un interlocuteur."
         },
         {
@@ -225,7 +225,7 @@
           "kind": "tournure",
           "french": "tu seras facilement joignable",
           "english": "you'll be easy to reach",
-          "example": "Est-ce que tu seras facilement joignable pendant ton séjour ?",
+          "example": "Côté contact, est-ce que tu seras facilement joignable pendant ton séjour ?",
           "usage": "Futur simple pour anticiper une disponibilité pendant une absence."
         },
         {
@@ -499,7 +499,7 @@
           "kind": "mot-cle",
           "french": "votre école de musique",
           "english": "your music school",
-          "example": "Bonjour, je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
+          "example": "Bonjour ! J'aimerais enfin me mettre à la musique et je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
           "usage": "Groupe nominal possessif désignant l'établissement d'enseignement musical."
         },
         {
@@ -531,7 +531,7 @@
           "kind": "mot-cle",
           "french": "une séance",
           "english": "a session",
-          "example": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "example": "Côté organisation, les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
           "usage": "Nom féminin désignant une unité de cours."
         },
         {
@@ -539,7 +539,7 @@
           "kind": "mot-cle",
           "french": "qualifiés",
           "english": "qualified",
-          "example": "Les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "example": "En ce qui concerne l'encadrement, les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
           "usage": "Adjectif qualifiant la compétence reconnue d'un enseignant."
         },
         {
@@ -555,7 +555,7 @@
           "kind": "mot-cle",
           "french": "forfait mensuel",
           "english": "monthly package",
-          "example": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
           "usage": "Groupe nominal désignant un tarif fixe couvrant un mois de cours."
         },
         {
@@ -579,7 +579,7 @@
           "kind": "collocation",
           "french": "m'inscrire à un cours",
           "english": "to enroll in a class",
-          "example": "Bonjour, je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
+          "example": "Bonjour ! J'aimerais enfin me mettre à la musique et je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
           "usage": "Collocation verbe pronominal + nom pour exprimer une inscription."
         },
         {
@@ -611,7 +611,7 @@
           "kind": "collocation",
           "french": "dure une séance",
           "english": "a session lasts",
-          "example": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "example": "Côté organisation, les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
           "usage": "Collocation verbe + sujet pour interroger sur la durée."
         },
         {
@@ -627,7 +627,7 @@
           "kind": "collocation",
           "french": "des petits concerts ou des récitals",
           "english": "small concerts or recitals",
-          "example": "Organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
+          "example": "Question programme, organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
           "usage": "Collocation nom coordonné désignant des événements de restitution pour élèves."
         },
         {
@@ -643,7 +643,7 @@
           "kind": "collocation",
           "french": "un parking à proximité",
           "english": "nearby parking",
-          "example": "L'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
+          "example": "Côté transport, l'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
           "usage": "Groupe nominal désignant une place de stationnement proche d'un lieu."
         },
         {
@@ -659,7 +659,7 @@
           "kind": "tournure",
           "french": "les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre",
           "english": "are the teachers qualified in the instrument I wish to learn",
-          "example": "Les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "example": "En ce qui concerne l'encadrement, les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
           "usage": "Tournure interrogative avec inversion pour vérifier une compétence pédagogique précise."
         },
         {
@@ -675,7 +675,7 @@
           "kind": "tournure",
           "french": "comment fonctionnent les tarifs",
           "english": "how do the rates work",
-          "example": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
           "usage": "Tournure interrogative ouverte fréquente pour comprendre une grille tarifaire."
         },
         {
@@ -691,7 +691,7 @@
           "kind": "tournure",
           "french": "les cours ont lieu à quelle fréquence",
           "english": "how often do the classes take place",
-          "example": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "example": "Côté organisation, les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
           "usage": "Tournure interrogative avec « à quelle fréquence » postposé pour demander le rythme."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "organisez-vous aussi",
           "english": "do you also organize",
-          "example": "Organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
+          "example": "Question programme, organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
           "usage": "Tournure interrogative avec inversion pour vérifier une offre complémentaire."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "l'école est-elle facilement accessible",
           "english": "is the school easily accessible",
-          "example": "L'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
+          "example": "Côté transport, l'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
           "usage": "Tournure interrogative avec inversion pour vérifier un accès pratique."
         },
         {
@@ -784,7 +784,7 @@
           "kind": "mot-cle",
           "french": "un certificat médical",
           "english": "a medical certificate",
-          "example": "Faut-il un certificat médical ou une condition physique particulière pour participer ?",
+          "example": "Côté santé, faut-il un certificat médical ou une condition physique particulière pour participer ?",
           "usage": "Groupe nominal désignant le justificatif de santé."
         },
         {
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "une cotisation",
           "english": "a membership fee",
-          "example": "Y a-t-il une cotisation à l'association, ou on paie à la séance ?",
+          "example": "En ce qui concerne le budget, y a-t-il une cotisation à l'association, ou on paie à la séance ?",
           "usage": "Nom désignant la somme pour l'association."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "un gymnase",
           "english": "a gym/sports hall",
-          "example": "Où est-ce que ça se passe — dans un gymnase, en plein air ?",
+          "example": "Question organisation, où est-ce que ça se passe — dans un gymnase, en plein air ?",
           "usage": "Nom désignant le lieu couvert."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "l'ambiance",
           "english": "the atmosphere",
-          "example": "Est-ce que l'ambiance est plutôt conviviale ou compétitive ?",
+          "example": "Ensuite, est-ce que l'ambiance est plutôt conviviale ou compétitive ?",
           "usage": "Nom désignant l'atmosphère des séances."
         },
         {
@@ -848,7 +848,7 @@
           "kind": "collocation",
           "french": "une condition physique particulière",
           "english": "a particular fitness level",
-          "example": "Faut-il un certificat médical ou une condition physique particulière pour participer ?",
+          "example": "Côté santé, faut-il un certificat médical ou une condition physique particulière pour participer ?",
           "usage": "Groupe nominal sur la forme requise."
         },
         {
@@ -856,7 +856,7 @@
           "kind": "collocation",
           "french": "à la séance",
           "english": "per session",
-          "example": "Y a-t-il une cotisation à l'association, ou on paie à la séance ?",
+          "example": "En ce qui concerne le budget, y a-t-il une cotisation à l'association, ou on paie à la séance ?",
           "usage": "Locution sur le mode de paiement."
         },
         {
@@ -880,7 +880,7 @@
           "kind": "collocation",
           "french": "en plein air",
           "english": "outdoors",
-          "example": "Où est-ce que ça se passe — dans un gymnase, en plein air ?",
+          "example": "Question organisation, où est-ce que ça se passe — dans un gymnase, en plein air ?",
           "usage": "Locution sur le lieu des séances."
         },
         {
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "conviviale ou compétitive",
           "english": "friendly or competitive",
-          "example": "Est-ce que l'ambiance est plutôt conviviale ou compétitive ?",
+          "example": "Ensuite, est-ce que l'ambiance est plutôt conviviale ou compétitive ?",
           "usage": "Alternative adjectivale sur l'ambiance."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "Faut-il un certificat médical ou une condition physique particulière",
           "english": "do you need a medical certificate or particular fitness",
-          "example": "Faut-il un certificat médical ou une condition physique particulière pour participer ?",
+          "example": "Côté santé, faut-il un certificat médical ou une condition physique particulière pour participer ?",
           "usage": "Question sur les conditions."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "Y a-t-il une cotisation à l'association",
           "english": "is there a membership fee",
-          "example": "Y a-t-il une cotisation à l'association, ou on paie à la séance ?",
+          "example": "En ce qui concerne le budget, y a-t-il une cotisation à l'association, ou on paie à la séance ?",
           "usage": "Question sur le coût."
         },
         {
@@ -968,7 +968,7 @@
           "kind": "tournure",
           "french": "Comment se passe l'inscription",
           "english": "how does registration work",
-          "example": "Comment se passe l'inscription — directement auprès de vous ou à l'association ?",
+          "example": "Question réservation, comment se passe l'inscription — directement auprès de vous ou à l'association ?",
           "usage": "Question sur l'inscription."
         },
         {
@@ -1013,7 +1013,7 @@
           "kind": "mot-cle",
           "french": "la gamme de prix",
           "english": "the price range",
-          "example": "Quelle est la gamme de prix en moyenne, selon le type d'hébergement ?",
+          "example": "En ce qui concerne le budget, quelle est la gamme de prix en moyenne, selon le type d'hébergement ?",
           "usage": "Groupe nominal sur les niveaux de tarif."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "réserver longtemps à l'avance",
           "english": "book well in advance",
-          "example": "Faut-il réserver longtemps à l'avance, surtout en haute saison ?",
+          "example": "Pour ce qui est de la météo, faut-il réserver longtemps à l'avance, surtout en haute saison ?",
           "usage": "Verbe + complément sur la réservation."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "adaptés aux familles",
           "english": "suitable for families",
-          "example": "Y a-t-il des hébergements adaptés aux familles, avec cuisine ou plusieurs chambres ?",
+          "example": "Pour ce qui est du logement, y a-t-il des hébergements adaptés aux familles, avec cuisine ou plusieurs chambres ?",
           "usage": "Adjectif + complément."
         },
         {
@@ -1141,7 +1141,7 @@
           "kind": "collocation",
           "french": "comparer et réserver",
           "english": "compare and book",
-          "example": "Vous auriez une brochure ou un site pour comparer et réserver ?",
+          "example": "Et pour finir de m'organiser, vous auriez une brochure ou un site pour comparer et réserver ?",
           "usage": "Verbes coordonnés sur la démarche."
         },
         {
@@ -1165,7 +1165,7 @@
           "kind": "tournure",
           "french": "Où vaut-il mieux se loger",
           "english": "where is it best to stay",
-          "example": "Où vaut-il mieux se loger — plutôt en ville, ou à la campagne près des sites ?",
+          "example": "Côté hébergement, où vaut-il mieux se loger — plutôt en ville, ou à la campagne près des sites ?",
           "usage": "Question sur l'emplacement idéal."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "Quelle est la gamme de prix en moyenne",
           "english": "what is the average price range",
-          "example": "Quelle est la gamme de prix en moyenne, selon le type d'hébergement ?",
+          "example": "En ce qui concerne le budget, quelle est la gamme de prix en moyenne, selon le type d'hébergement ?",
           "usage": "Question sur les prix."
         },
         {
@@ -1189,7 +1189,7 @@
           "kind": "tournure",
           "french": "Faut-il réserver longtemps à l'avance",
           "english": "do you need to book far ahead",
-          "example": "Faut-il réserver longtemps à l'avance, surtout en haute saison ?",
+          "example": "Pour ce qui est de la météo, faut-il réserver longtemps à l'avance, surtout en haute saison ?",
           "usage": "Question sur la réservation."
         },
         {
@@ -1197,7 +1197,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des hébergements adaptés aux familles",
           "english": "are there family-friendly accommodations",
-          "example": "Y a-t-il des hébergements adaptés aux familles, avec cuisine ou plusieurs chambres ?",
+          "example": "Pour ce qui est du logement, y a-t-il des hébergements adaptés aux familles, avec cuisine ou plusieurs chambres ?",
           "usage": "Question sur les familles."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "Vous auriez une brochure ou un site pour comparer et réserver",
           "english": "do you have a brochure or site to compare and book",
-          "example": "Vous auriez une brochure ou un site pour comparer et réserver ?",
+          "example": "Et pour finir de m'organiser, vous auriez une brochure ou un site pour comparer et réserver ?",
           "usage": "Question sur les outils."
         },
         {

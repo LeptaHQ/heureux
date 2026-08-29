@@ -25,7 +25,7 @@
           "kind": "mot-cle",
           "french": "le tournage",
           "english": "the filming",
-          "example": "Combien de temps dure le tournage — quelques heures ou toute la journée ?",
+          "example": "Côté timing, combien de temps dure le tournage — quelques heures ou toute la journée ?",
           "usage": "Enregistrement de l'émission auquel participent les candidats."
         },
         {
@@ -33,7 +33,7 @@
           "kind": "mot-cle",
           "french": "candidats",
           "english": "contestants",
-          "example": "Il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
+          "example": "Dans un autre registre, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
           "usage": "Personnes sélectionnées pour participer au jeu."
         },
         {
@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "une dizaine",
           "english": "around ten",
-          "example": "Il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
+          "example": "Dans un autre registre, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
           "usage": "Quantité approximative utile pour estimer le nombre de candidats."
         },
         {
@@ -49,7 +49,7 @@
           "kind": "mot-cle",
           "french": "les différentes étapes",
           "english": "the different stages",
-          "example": "Peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
+          "example": "En ce qui concerne l'organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
           "usage": "Éléments qui composent le déroulement global d'une activité."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "un moment surprenant",
           "english": "a surprising moment",
-          "example": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus ?",
+          "example": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus : qu'est-ce qui s'est passé exactement ?",
           "usage": "Groupe nominal qualifiant un souvenir marquant à approfondir."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "décrire le déroulement",
           "english": "describe how it went",
-          "example": "Peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
+          "example": "En ce qui concerne l'organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
           "usage": "Collocation utile pour demander un récit structuré d'une expérience."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "gagner de l'argent",
           "english": "win money",
-          "example": "Peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
+          "example": "Dernier point pratique : peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
           "usage": "Collocation courante pour parler d'un gain financier."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "d'autres récompenses",
           "english": "other prizes",
-          "example": "Peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
+          "example": "Dernier point pratique : peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
           "usage": "Désigne les gains autres que l'argent ou les voyages."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "Il y a généralement combien de candidats",
           "english": "how many contestants are there generally",
-          "example": "Il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
+          "example": "Dans un autre registre, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
           "usage": "Tournure existentielle pour estimer le nombre habituel de candidats."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "tournure",
           "french": "Peux-tu décrire le déroulement",
           "english": "can you describe how it went",
-          "example": "Peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
+          "example": "En ce qui concerne l'organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
           "usage": "Inversion simple avec « peux-tu » pour demander un récit détaillé."
         },
         {
@@ -233,7 +233,7 @@
           "kind": "tournure",
           "french": "Peut-on gagner",
           "english": "can you win",
-          "example": "Peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
+          "example": "Dernier point pratique : peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
           "usage": "Inversion avec « on » pour demander quels gains sont proposés."
         },
         {
@@ -531,7 +531,7 @@
           "kind": "mot-cle",
           "french": "équipement",
           "english": "equipment",
-          "example": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
+          "example": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
           "usage": "Nom masculin générique désignant le matériel nécessaire à une activité."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "l'ambiance",
           "english": "the atmosphere",
-          "example": "L'ambiance est comment — les gens viennent surtout pour se dépenser ou aussi pour se rencontrer ?",
+          "example": "Tant que j'y pense, l'ambiance est comment — les gens viennent surtout pour se dépenser ou aussi pour se rencontrer ?",
           "usage": "Nom désignant l'atmosphère du lieu."
         },
         {
@@ -587,7 +587,7 @@
           "kind": "collocation",
           "french": "fourni sur place",
           "english": "provided on-site",
-          "example": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
+          "example": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
           "usage": "Participe passé suivi d'une locution adverbiale pour indiquer une disponibilité locale."
         },
         {
@@ -627,7 +627,7 @@
           "kind": "collocation",
           "french": "pour se dépenser",
           "english": "to burn off energy",
-          "example": "L'ambiance est comment — les gens viennent surtout pour se dépenser ou aussi pour se rencontrer ?",
+          "example": "Tant que j'y pense, l'ambiance est comment — les gens viennent surtout pour se dépenser ou aussi pour se rencontrer ?",
           "usage": "Locution verbale sur l'effort physique."
         },
         {
@@ -635,7 +635,7 @@
           "kind": "collocation",
           "french": "pour se rencontrer",
           "english": "to meet each other",
-          "example": "L'ambiance est comment — les gens viennent surtout pour se dépenser ou aussi pour se rencontrer ?",
+          "example": "Tant que j'y pense, l'ambiance est comment — les gens viennent surtout pour se dépenser ou aussi pour se rencontrer ?",
           "usage": "Locution verbale sur la sociabilité."
         },
         {
@@ -643,7 +643,7 @@
           "kind": "collocation",
           "french": "à la séance",
           "english": "per session",
-          "example": "Comment fonctionnent les tarifs — on paie à la séance ou il faut s'inscrire pour la session ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — on paie à la séance ou il faut s'inscrire pour la session ?",
           "usage": "Locution sur le mode de paiement."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "Comment fonctionnent les tarifs",
           "english": "how do the rates work",
-          "example": "Comment fonctionnent les tarifs — on paie à la séance ou il faut s'inscrire pour la session ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — on paie à la séance ou il faut s'inscrire pour la session ?",
           "usage": "Question courante sur la tarification."
         },
         {
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "le casque",
           "english": "the helmet",
-          "example": "Est-ce que le casque et l'antivol sont fournis avec le vélo ?",
+          "example": "Côté équipement, est-ce que le casque et l'antivol sont fournis avec le vélo ?",
           "usage": "Nom désignant l'équipement de protection."
         },
         {
@@ -800,7 +800,7 @@
           "kind": "mot-cle",
           "french": "l'antivol",
           "english": "the bike lock",
-          "example": "Est-ce que le casque et l'antivol sont fournis avec le vélo ?",
+          "example": "Côté équipement, est-ce que le casque et l'antivol sont fournis avec le vélo ?",
           "usage": "Nom désignant le dispositif antivol."
         },
         {
@@ -824,7 +824,7 @@
           "kind": "collocation",
           "french": "à l'heure, à la journée",
           "english": "by the hour, by the day",
-          "example": "Comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
           "usage": "Énumération de formules de location dans le temps."
         },
         {
@@ -872,7 +872,7 @@
           "kind": "collocation",
           "french": "fournis avec le vélo",
           "english": "provided with the bike",
-          "example": "Est-ce que le casque et l'antivol sont fournis avec le vélo ?",
+          "example": "Côté équipement, est-ce que le casque et l'antivol sont fournis avec le vélo ?",
           "usage": "Participe + complément sur les accessoires."
         },
         {
@@ -896,7 +896,7 @@
           "kind": "collocation",
           "french": "des idées d'itinéraires",
           "english": "route ideas",
-          "example": "Vous fournissez un plan ou des idées d'itinéraires pour découvrir la ville ?",
+          "example": "Puisqu'on en parle, vous fournissez un plan ou des idées d'itinéraires pour découvrir la ville ?",
           "usage": "Locution nominale pour des parcours suggérés."
         },
         {
@@ -904,7 +904,7 @@
           "kind": "tournure",
           "french": "Comment fonctionnent les tarifs de location",
           "english": "How do the rental rates work",
-          "example": "Comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
           "usage": "Question ouverte sur la tarification de la location."
         },
         {
@@ -976,7 +976,7 @@
           "kind": "tournure",
           "french": "Que se passe-t-il si je rends le vélo en retard",
           "english": "what happens if I return the bike late",
-          "example": "Que se passe-t-il si je rends le vélo en retard ou abîmé ?",
+          "example": "En cas de souci, que se passe-t-il si je rends le vélo en retard ou abîmé ?",
           "usage": "Question sur un cas problématique."
         }
       ]
@@ -997,7 +997,7 @@
           "kind": "mot-cle",
           "french": "une bonne période",
           "english": "a good time (of year)",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "usage": "Groupe nominal pour évaluer si un moment convient à un projet de voyage."
         },
         {
@@ -1005,7 +1005,7 @@
           "kind": "mot-cle",
           "french": "une autre saison",
           "english": "another season",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "usage": "Groupe nominal pour évoquer une période de l'année différente."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "les cabines",
           "english": "the cabins",
-          "example": "Comment sont les cabines — il y a différentes catégories de confort ?",
+          "example": "Ensuite, comment sont les cabines — il y a différentes catégories de confort ?",
           "usage": "Nom pluriel désignant les chambres du navire."
         },
         {
@@ -1069,7 +1069,7 @@
           "kind": "collocation",
           "french": "attendre une autre saison",
           "english": "wait for another season",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "usage": "Suggère de reporter un voyage à une période plus favorable."
         },
         {
@@ -1077,7 +1077,7 @@
           "kind": "collocation",
           "french": "il vaut mieux attendre",
           "english": "it's better to wait",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "usage": "Expression impersonnelle figée suivie d'un infinitif pour formuler une recommandation prudente."
         },
         {
@@ -1085,7 +1085,7 @@
           "kind": "collocation",
           "french": "bonne période",
           "english": "a good time (period)",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "usage": "Collocation adjectif + nom pour qualifier un moment opportun pour une activité."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "différentes catégories de confort",
           "english": "different comfort categories",
-          "example": "Comment sont les cabines — il y a différentes catégories de confort ?",
+          "example": "Ensuite, comment sont les cabines — il y a différentes catégories de confort ?",
           "usage": "Locution nominale évoquant les gammes de cabines proposées."
         },
         {
@@ -1157,7 +1157,7 @@
           "kind": "tournure",
           "french": "C'est une bonne période pour y aller",
           "english": "is it a good time to go",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "usage": "Question évaluative très utile pour discuter du calendrier d'un voyage."
         },
         {
@@ -1165,7 +1165,7 @@
           "kind": "tournure",
           "french": "il vaut mieux attendre une autre saison",
           "english": "it's better to wait for another season",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "usage": "Tournure impersonnelle avec « il vaut mieux » pour suggérer une alternative temporelle."
         },
         {
@@ -1221,7 +1221,7 @@
           "kind": "tournure",
           "french": "Quelles activités sont proposées à bord",
           "english": "what activities are offered on board",
-          "example": "Quelles activités sont proposées à bord — spectacles, piscine, restaurants, excursions ?",
+          "example": "Pour ce qui est des repas, quelles activités sont proposées à bord — spectacles, piscine, restaurants, excursions ?",
           "usage": "Question sur les animations."
         }
       ]

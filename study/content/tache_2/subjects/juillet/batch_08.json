@@ -21,10 +21,7 @@
           "text": "Combien de temps ça dure en général, ce genre d'entretien ?"
         },
         {
-          "text": "Comment je devrais m'habiller — il faut une tenue vraiment formelle ?"
-        },
-        {
-          "text": "Quel comportement adopter pour faire bonne impression ?"
+          "text": "Tant que j'y pense, qu'est-ce que je devrais savoir sur l'entreprise avant d'y aller ?"
         },
         {
           "text": "Qu'est-ce qu'on me posera surtout comme questions, d'après toi ?"
@@ -36,22 +33,25 @@
           "text": "Est-ce qu'il vaut mieux préparer des questions à poser au recruteur ?"
         },
         {
-          "text": "Faut-il apporter des documents, comme mon CV ou des références ?"
+          "text": "Côté attitude, quel comportement adopter pour faire bonne impression ?"
         },
         {
-          "text": "Il y a des choses à éviter absolument pendant l'entretien ?"
-        },
-        {
-          "text": "Comment gérer le stress si je perds mes moyens sur le moment ?"
+          "text": "Comment je devrais m'habiller — il faut une tenue vraiment formelle ?"
         },
         {
           "text": "C'est bien vu d'arriver un peu en avance ?"
         },
         {
-          "text": "Qu'est-ce que je devrais savoir sur l'entreprise avant d'y aller ?"
+          "text": "En ce qui concerne le matériel, faut-il apporter des documents, comme mon CV ou des références ?"
         },
         {
-          "text": "Après l'entretien, c'est bien d'envoyer un message de remerciement ?"
+          "text": "Il y a des choses à éviter absolument pendant l'entretien ?"
+        },
+        {
+          "text": "Une autre chose m'inquiète un peu : comment gérer le stress si je perds mes moyens sur le moment ?"
+        },
+        {
+          "text": "Pour ce qui est du contact, après l'entretien, c'est bien d'envoyer un message de remerciement ?"
         },
         {
           "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour réussir cet entretien, ce serait lequel ?"
@@ -74,12 +74,22 @@
           "memory_section": 2
         },
         {
-          "text": "Combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
+          "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
+          "memory_number": 7,
+          "memory_section": 13
+        },
+        {
+          "text": "Pour ce qui est de la durée, combien de temps faut-il prévoir — quelques jours ou toute une semaine ?",
           "memory_number": 7,
           "memory_section": 4
         },
         {
-          "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "text": "Pendant que j'y pense, est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
+          "memory_number": 7,
+          "memory_section": 6
+        },
+        {
+          "text": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -92,6 +102,16 @@
           "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
           "memory_number": 7,
           "memory_section": 8
+        },
+        {
+          "text": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "memory_number": 7,
+          "memory_section": 9
+        },
+        {
+          "text": "Il reste encore des places ou c'est déjà complet ?",
+          "memory_number": 7,
+          "memory_section": 6
         },
         {
           "text": "Parlons du budget — combien est-ce que ça coûte approximativement, transport, hébergement et repas inclus ?",
@@ -112,26 +132,6 @@
           "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
           "memory_number": 7,
           "memory_section": 3
-        },
-        {
-          "text": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
-          "memory_number": 7,
-          "memory_section": 9
-        },
-        {
-          "text": "Il reste encore des places ou c'est déjà complet ?",
-          "memory_number": 7,
-          "memory_section": 6
-        },
-        {
-          "text": "Est-ce que ces circuits conviennent aux familles — faut-il une condition physique particulière ?",
-          "memory_number": 7,
-          "memory_section": 6
-        },
-        {
-          "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
-          "memory_number": 7,
-          "memory_section": 13
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule destination, ce serait laquelle ?",
@@ -161,7 +161,37 @@
           "memory_section": 5
         },
         {
-          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "text": "J'ai encore une question : quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
+          "memory_number": 6,
+          "memory_section": 4
+        },
+        {
+          "text": "Le réseau fonctionne-t-il chaque jour de la semaine — les horaires changent-ils le week-end ?",
+          "memory_number": 6,
+          "memory_section": 4
+        },
+        {
+          "text": "En ce qui concerne les déplacements, y a-t-il une application pour suivre les transports en temps réel ?",
+          "memory_number": 6,
+          "memory_section": 9
+        },
+        {
+          "text": "L'application permet-elle aussi de planifier un itinéraire ?",
+          "memory_number": 6,
+          "memory_section": 9
+        },
+        {
+          "text": "En ce qui concerne les visites, les principaux sites touristiques sont-ils facilement accessibles en transports en commun ?",
+          "memory_number": 6,
+          "memory_section": 5
+        },
+        {
+          "text": "Pour ce qui est des conseils, y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "memory_number": 6,
+          "memory_section": 8
+        },
+        {
+          "text": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -179,36 +209,6 @@
           "text": "Le tarif comprend quoi exactement — un ticket est-il valable pour plusieurs types de transport ?",
           "memory_number": 6,
           "memory_section": 3
-        },
-        {
-          "text": "Quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
-          "memory_number": 6,
-          "memory_section": 4
-        },
-        {
-          "text": "Le réseau fonctionne-t-il chaque jour de la semaine — les horaires changent-ils le week-end ?",
-          "memory_number": 6,
-          "memory_section": 4
-        },
-        {
-          "text": "Y a-t-il une application pour suivre les transports en temps réel ?",
-          "memory_number": 6,
-          "memory_section": 9
-        },
-        {
-          "text": "Les principaux sites touristiques sont-ils facilement accessibles en transports en commun ?",
-          "memory_number": 6,
-          "memory_section": 5
-        },
-        {
-          "text": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
-          "memory_number": 6,
-          "memory_section": 8
-        },
-        {
-          "text": "L'application permet-elle aussi de planifier un itinéraire ?",
-          "memory_number": 6,
-          "memory_section": 9
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose pour bien utiliser les transports ici, ce serait laquelle ?",
@@ -326,6 +326,12 @@
           "memory_section": 11
         },
         {
+          "text": "Avant que j'oublie, c'est le genre de série qu'on regarde tranquillement, ou ça rend vite accro ?"
+        },
+        {
+          "text": "Puisqu'on en parle, c'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?"
+        },
+        {
           "text": "Il y a combien de saisons et d'épisodes — c'est vite fini ou ça dure longtemps ?"
         },
         {
@@ -335,22 +341,16 @@
           "text": "C'est une série terminée ou encore en cours de diffusion ?"
         },
         {
-          "text": "Sur quelle plateforme on peut la regarder ?"
+          "text": "Côté pratique, sur quelle plateforme on peut la regarder ?"
         },
         {
           "text": "Il faut un abonnement payant ou c'est disponible gratuitement quelque part ?"
         },
         {
-          "text": "C'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?"
+          "text": "Pour ce qui est de la langue, elle est disponible en version française, ou seulement en version originale sous-titrée ?"
         },
         {
-          "text": "Elle est disponible en version française, ou seulement en version originale sous-titrée ?"
-        },
-        {
-          "text": "C'est le genre de série qu'on regarde tranquillement, ou ça rend vite accro ?"
-        },
-        {
-          "text": "Toi, qu'est-ce que tu en as pensé — tu l'as regardée jusqu'au bout ?"
+          "text": "Dernier point pratique : toi, qu'est-ce que tu en as pensé — tu l'as regardée jusqu'au bout ?"
         },
         {
           "text": "Pour finir — parmi toutes celles-là, laquelle tu me recommandes vraiment de commencer ?"

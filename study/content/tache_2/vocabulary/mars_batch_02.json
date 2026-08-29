@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "les billets",
           "english": "the tickets",
-          "example": "Il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
+          "example": "Côté inscription, il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
           "usage": "Titres d'accès qu'on achète pour une séance."
         },
         {
@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "des salles spéciales",
           "english": "special screening rooms",
-          "example": "Est-ce qu'il y a des séances en IMAX ou dans des salles spéciales ?",
+          "example": "Côté programmation, est-ce qu'il y a des séances en IMAX ou dans des salles spéciales ?",
           "usage": "Salles équipées pour des formats de projection particuliers."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "des boissons",
           "english": "drinks",
-          "example": "Est-ce qu'on peut acheter du popcorn et des boissons sur place avant la séance ?",
+          "example": "Question repas, est-ce qu'on peut acheter du popcorn et des boissons sur place avant la séance ?",
           "usage": "Terme général pour les rafraîchissements vendus sur place."
         },
         {
@@ -105,7 +105,7 @@
           "kind": "collocation",
           "french": "acheter les billets",
           "english": "buy the tickets",
-          "example": "Il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
+          "example": "Côté inscription, il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
           "usage": "Collocation verbe-objet pour l'achat concret d'un titre d'entrée."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "en version originale",
           "english": "in the original (undubbed) version",
-          "example": "Les séances sont en version originale ou uniquement en version doublée ?",
+          "example": "Côté langue, les séances sont en version originale ou uniquement en version doublée ?",
           "usage": "Collocation prépositionnelle figée désignant la langue de tournage d'un film."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "en version doublée",
           "english": "in the dubbed version",
-          "example": "Les séances sont en version originale ou uniquement en version doublée ?",
+          "example": "Côté langue, les séances sont en version originale ou uniquement en version doublée ?",
           "usage": "Collocation prépositionnelle figée désignant la version traduite en doublage."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "sur place",
           "english": "on-site / in person",
-          "example": "Il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
+          "example": "Côté inscription, il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
           "usage": "Précise que l'action se fait directement au lieu concerné."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "le jour même",
           "english": "on the same day",
-          "example": "Il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
+          "example": "Côté inscription, il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
           "usage": "Souligne l'absence de délai entre la décision et l'achat."
         },
         {
@@ -161,7 +161,7 @@
           "kind": "collocation",
           "french": "acheter du popcorn",
           "english": "buy popcorn",
-          "example": "Est-ce qu'on peut acheter du popcorn et des boissons sur place avant la séance ?",
+          "example": "Question repas, est-ce qu'on peut acheter du popcorn et des boissons sur place avant la séance ?",
           "usage": "Collocation courante pour parler des snacks vendus au cinéma."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "Il faut réserver à l'avance ou on peut",
           "english": "do you need to book in advance or can you",
-          "example": "Il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
+          "example": "Côté inscription, il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
           "usage": "Structure impersonnelle de nécessité opposée à une alternative."
         },
         {
@@ -217,7 +217,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'il y a des séances en IMAX",
           "english": "are there any IMAX screenings",
-          "example": "Est-ce qu'il y a des séances en IMAX ou dans des salles spéciales ?",
+          "example": "Côté programmation, est-ce qu'il y a des séances en IMAX ou dans des salles spéciales ?",
           "usage": "« Est-ce que » introduit une question fermée sans inversion."
         },
         {
@@ -270,7 +270,7 @@
           "kind": "mot-cle",
           "french": "chambres d'hôtes",
           "english": "guesthouses",
-          "example": "Tu connais de bons endroits où séjourner — hôtels, chambres d'hôtes, locations ?",
+          "example": "Pour ce qui est du logement, tu connais de bons endroits où séjourner — hôtels, chambres d'hôtes, locations ?",
           "usage": "Type d'hébergement chez l'habitant, souvent convivial."
         },
         {
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "des choses à faire",
           "english": "things to do",
-          "example": "Quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
+          "example": "Deuxième point : quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
           "usage": "Expression générale pour désigner les activités possibles."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "locations",
           "english": "vacation rentals",
-          "example": "Tu connais de bons endroits où séjourner — hôtels, chambres d'hôtes, locations ?",
+          "example": "Pour ce qui est du logement, tu connais de bons endroits où séjourner — hôtels, chambres d'hôtes, locations ?",
           "usage": "Terme touristique désignant les hébergements loués, distinct des hôtels et chambres d'hôtes."
         },
         {
@@ -366,7 +366,7 @@
           "kind": "collocation",
           "french": "réserver à l'avance",
           "english": "book in advance",
-          "example": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?",
+          "example": "Toujours sur ce point, il faut réserver à l'avance ou on peut trouver facilement sur place ?",
           "usage": "Collocation standard pour anticiper une réservation."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "trouver facilement sur place",
           "english": "easily find something on the spot",
-          "example": "Il faut réserver à l'avance ou on peut trouver facilement sur place ?",
+          "example": "Toujours sur ce point, il faut réserver à l'avance ou on peut trouver facilement sur place ?",
           "usage": "S'oppose à la réservation anticipée pour un hébergement."
         },
         {
@@ -398,7 +398,7 @@
           "kind": "collocation",
           "french": "en dehors de la plage",
           "english": "besides the beach",
-          "example": "Quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
+          "example": "Deuxième point : quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
           "usage": "Introduit des activités complémentaires à la détente balnéaire."
         },
         {
@@ -430,7 +430,7 @@
           "kind": "tournure",
           "french": "Combien de temps faut-il prévoir pour",
           "english": "how much time should be planned for",
-          "example": "Combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
+          "example": "Côté organisation, combien de temps faut-il prévoir pour ce type de séjour — une semaine ou plutôt deux ?",
           "usage": "Tournure impersonnelle standard pour estimer une durée nécessaire."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "Quelles activités as-tu faites",
           "english": "what activities did you do",
-          "example": "Quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
+          "example": "Deuxième point : quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
           "usage": "Inversion au passé composé pour interroger sur une expérience vécue."
         },
         {
@@ -555,7 +555,7 @@
           "kind": "mot-cle",
           "french": "le style de l'auteur",
           "english": "the author's writing style",
-          "example": "Comment est le style de l'auteur — plutôt simple, poétique, ou très descriptif ?",
+          "example": "Côté écriture, comment est le style de l'auteur — plutôt simple, poétique, ou très descriptif ?",
           "usage": "Ensemble des choix d'écriture propres à un(e) écrivain(e)."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "un large public",
           "english": "a wide audience",
-          "example": "Ce livre s'adresse-t-il plutôt aux passionnés de littérature ou est-il accessible à un large public ?",
+          "example": "Pour ce qui est du niveau, ce livre s'adresse-t-il plutôt aux passionnés de littérature ou est-il accessible à un large public ?",
           "usage": "Désigne un lectorat non spécialisé, par opposition aux passionnés."
         },
         {
@@ -643,7 +643,7 @@
           "kind": "collocation",
           "french": "passionnés de littérature",
           "english": "literature enthusiasts",
-          "example": "Ce livre s'adresse-t-il plutôt aux passionnés de littérature ou est-il accessible à un large public ?",
+          "example": "Pour ce qui est du niveau, ce livre s'adresse-t-il plutôt aux passionnés de littérature ou est-il accessible à un large public ?",
           "usage": "Désigne un public expert, par opposition à un lectorat plus large."
         },
         {
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "tu pourrais m'en dire un peu plus",
           "english": "could you tell me a bit more",
-          "example": "Tu as mentionné un point intéressant — tu pourrais m'en dire un peu plus ?",
+          "example": "Tu as mentionné un point intéressant — tu pourrais m'en dire un peu plus : ça ferait peut-être un bon angle pour l'article ?",
           "usage": "Formule de relance classique pour approfondir un point déjà mentionné."
         },
         {
@@ -699,7 +699,7 @@
           "kind": "tournure",
           "french": "De quoi parle le livre",
           "english": "what is the book about",
-          "example": "De quoi parle le livre — tu pourrais résumer l'histoire ou l'idée principale sans tout dévoiler ?",
+          "example": "J'en profite pour te demander : de quoi parle le livre — tu pourrais résumer l'histoire ou l'idée principale sans tout dévoiler ?",
           "usage": "Question ouverte avec « de quoi » pour demander un résumé sans tout révéler."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "Ce livre s'adresse-t-il plutôt",
           "english": "is this book aimed more at",
-          "example": "Ce livre s'adresse-t-il plutôt aux passionnés de littérature ou est-il accessible à un large public ?",
+          "example": "Pour ce qui est du niveau, ce livre s'adresse-t-il plutôt aux passionnés de littérature ou est-il accessible à un large public ?",
           "usage": "Inversion complexe pour opposer deux lectorats possibles."
         },
         {
@@ -760,7 +760,7 @@
           "kind": "mot-cle",
           "french": "le tournage",
           "english": "the filming",
-          "example": "Combien de temps dure le tournage — quelques heures ou toute la journée ?",
+          "example": "Côté timing, combien de temps dure le tournage — quelques heures ou toute la journée ?",
           "usage": "Enregistrement de l'émission auquel participent les candidats."
         },
         {
@@ -768,7 +768,7 @@
           "kind": "mot-cle",
           "french": "candidats",
           "english": "contestants",
-          "example": "Il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
+          "example": "Tant que j'y pense, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
           "usage": "Personnes sélectionnées pour participer au jeu."
         },
         {
@@ -776,7 +776,7 @@
           "kind": "mot-cle",
           "french": "une dizaine",
           "english": "around ten",
-          "example": "Il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
+          "example": "Tant que j'y pense, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
           "usage": "Quantité approximative utile pour estimer le nombre de candidats."
         },
         {
@@ -784,7 +784,7 @@
           "kind": "mot-cle",
           "french": "les différentes étapes",
           "english": "the different stages",
-          "example": "Peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
+          "example": "Question organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
           "usage": "Éléments qui composent le déroulement global d'une activité."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "un moment surprenant",
           "english": "a surprising moment",
-          "example": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus ?",
+          "example": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus : qu'est-ce qui s'est passé exactement ?",
           "usage": "Groupe nominal qualifiant un souvenir marquant à approfondir."
         },
         {
@@ -856,7 +856,7 @@
           "kind": "collocation",
           "french": "décrire le déroulement",
           "english": "describe how it went",
-          "example": "Peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
+          "example": "Question organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
           "usage": "Collocation utile pour demander un récit structuré d'une expérience."
         },
         {
@@ -872,7 +872,7 @@
           "kind": "collocation",
           "french": "gagner de l'argent",
           "english": "win money",
-          "example": "Peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
+          "example": "Dans un autre registre, peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
           "usage": "Collocation courante pour parler d'un gain financier."
         },
         {
@@ -880,7 +880,7 @@
           "kind": "collocation",
           "french": "d'autres récompenses",
           "english": "other prizes",
-          "example": "Peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
+          "example": "Dans un autre registre, peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
           "usage": "Désigne les gains autres que l'argent ou les voyages."
         },
         {
@@ -936,7 +936,7 @@
           "kind": "tournure",
           "french": "Il y a généralement combien de candidats",
           "english": "how many contestants are there generally",
-          "example": "Il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
+          "example": "Tant que j'y pense, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
           "usage": "Tournure existentielle pour estimer le nombre habituel de candidats."
         },
         {
@@ -944,7 +944,7 @@
           "kind": "tournure",
           "french": "Peux-tu décrire le déroulement",
           "english": "can you describe how it went",
-          "example": "Peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
+          "example": "Question organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
           "usage": "Inversion simple avec « peux-tu » pour demander un récit détaillé."
         },
         {
@@ -968,7 +968,7 @@
           "kind": "tournure",
           "french": "Peut-on gagner",
           "english": "can you win",
-          "example": "Peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
+          "example": "Dans un autre registre, peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
           "usage": "Inversion avec « on » pour demander quels gains sont proposés."
         },
         {
@@ -1013,7 +1013,7 @@
           "kind": "mot-cle",
           "french": "chaque trajet",
           "english": "each trip",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "usage": "Unité de paiement possible, opposée à un abonnement global."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "un abonnement",
           "english": "a pass/subscription",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "usage": "Nom central désignant la formule d'accès régulier aux transports."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "les principaux sites touristiques",
           "english": "the main tourist attractions",
-          "example": "Les principaux sites touristiques sont-ils facilement accessibles en transports en commun ?",
+          "example": "En ce qui concerne les visites, les principaux sites touristiques sont-ils facilement accessibles en transports en commun ?",
           "usage": "Lieux que les visiteurs souhaitent rejoindre dans une ville."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "mot-cle",
           "french": "les foules",
           "english": "the crowds",
-          "example": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "example": "Pour ce qui est des conseils, y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
           "usage": "Désigne une forte affluence à éviter à certaines heures."
         },
         {
@@ -1085,7 +1085,7 @@
           "kind": "collocation",
           "french": "souscrire à un abonnement",
           "english": "subscribe to a pass",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "usage": "Collocation formelle pour parler d'un engagement tarifaire régulier."
         },
         {
@@ -1093,7 +1093,7 @@
           "kind": "collocation",
           "french": "payer chaque trajet séparément",
           "english": "pay for each trip separately",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "usage": "S'oppose à la formule de l'abonnement."
         },
         {
@@ -1117,7 +1117,7 @@
           "kind": "collocation",
           "french": "fonctionnent tôt le matin",
           "english": "run early in the morning",
-          "example": "Quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
+          "example": "J'ai encore une question : quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
           "usage": "Décrit une amplitude horaire étendue en début de journée."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "suivre les transports en temps réel",
           "english": "track transport in real time",
-          "example": "Y a-t-il une application pour suivre les transports en temps réel ?",
+          "example": "En ce qui concerne les déplacements, y a-t-il une application pour suivre les transports en temps réel ?",
           "usage": "Collocation liée à l'usage d'une application de suivi."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "éviter les foules",
           "english": "avoid the crowds",
-          "example": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "example": "Pour ce qui est des conseils, y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
           "usage": "Objectif pratique lié aux périodes de forte affluence."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "Comment fonctionnent les tarifs",
           "english": "how do the rates work",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
           "usage": "Tournure standard pour interroger sur un système de prix."
         },
         {
@@ -1197,7 +1197,7 @@
           "kind": "tournure",
           "french": "Quels sont les horaires de ces moyens de transport",
           "english": "what are the hours of these means of transport",
-          "example": "Quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
+          "example": "J'ai encore une question : quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
           "usage": "Structure interrogative formelle avec « quels sont »."
         },
         {
@@ -1213,7 +1213,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des périodes où c'est très bondé",
           "english": "are there times when it's very crowded",
-          "example": "Y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
+          "example": "Pour ce qui est des conseils, y a-t-il des périodes où c'est très bondé — comment éviter les foules ?",
           "usage": "Inversion avec proposition relative introduite par « où »."
         },
         {

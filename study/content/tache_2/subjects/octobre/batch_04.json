@@ -31,21 +31,23 @@
           "memory_section": 6
         },
         {
-          "text": "Il y a beaucoup de monde en général, ou c'est plutôt un petit groupe ?"
+          "text": "Côté participants, il y a beaucoup de monde en général, ou c'est plutôt un petit groupe ?"
         },
         {
-          "text": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
+          "text": "Pendant que j'y pense, comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "memory_number": 10,
+          "memory_section": 10
+        },
+        {
+          "text": "Est-ce que c'est convivial — on peut y rencontrer du monde facilement ?"
+        },
+        {
+          "text": "Côté horaires, ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
           "text": "Ça dure combien de temps — une soirée entière ?"
-        },
-        {
-          "text": "Comment fonctionnent les tarifs — il faut payer une cotisation, ou c'est gratuit ?"
-        },
-        {
-          "text": "Est-ce qu'il faut apporter ses propres jeux, ou ils sont fournis sur place ?"
         },
         {
           "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
@@ -58,12 +60,10 @@
           "memory_section": 3
         },
         {
-          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
-          "memory_number": 10,
-          "memory_section": 10
+          "text": "Côté affaires à prévoir, est-ce qu'il faut apporter ses propres jeux, ou ils sont fournis sur place ?"
         },
         {
-          "text": "Est-ce que c'est convivial — on peut y rencontrer du monde facilement ?"
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — il faut payer une cotisation, ou c'est gratuit ?"
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
@@ -98,13 +98,13 @@
           "text": "On sera nombreux à peu près ?"
         },
         {
-          "text": "Comment ça va se dérouler — il y a un programme, des discours, un repas ?"
+          "text": "En ce qui concerne la nourriture, comment ça va se dérouler — il y a un programme, des discours, un repas ?"
         },
         {
           "text": "Il y a un thème ou une tenue particulière à prévoir ?"
         },
         {
-          "text": "Qu'est-ce qui est prévu côté repas — un buffet, un traiteur ?"
+          "text": "Et qu'est-ce qui est prévu côté repas — un buffet, un traiteur ?"
         },
         {
           "text": "Est-ce qu'on doit apporter quelque chose — un plat, une boisson ?",
@@ -112,16 +112,16 @@
           "memory_section": 13
         },
         {
-          "text": "Pour le cadeau, on fait quelque chose en commun, ou chacun apporte le sien ?"
+          "text": "Toujours sur ce point, pour le cadeau, on fait quelque chose en commun, ou chacun apporte le sien ?"
+        },
+        {
+          "text": "Côté déplacements, comment on s'y rend — c'est accessible en transports, il y a un parking ?"
+        },
+        {
+          "text": "En ce qui concerne le calendrier, est-ce qu'il faut confirmer sa présence, et jusqu'à quand ?"
         },
         {
           "text": "Tu veux un coup de main pour organiser quoi que ce soit ?"
-        },
-        {
-          "text": "Comment on s'y rend — c'est accessible en transports, il y a un parking ?"
-        },
-        {
-          "text": "Est-ce qu'il faut confirmer sa présence, et jusqu'à quand ?"
         },
         {
           "text": "En tout cas je serai là avec plaisir — tu veux que je m'occupe de quelque chose en particulier ?"
@@ -146,30 +146,30 @@
           "text": "C'est ouvert à tout le monde, ou il faut habiter le quartier ?"
         },
         {
-          "text": "Faut-il déjà s'y connaître en jardinage, ou les débutants sont les bienvenus ?"
+          "text": "Question niveau, faut-il déjà s'y connaître en jardinage, ou les débutants sont les bienvenus ?"
         },
         {
-          "text": "À quelle fréquence vous vous retrouvez — une fois par semaine, selon les saisons ?"
+          "text": "Côté programmation, est-ce que vous organisez aussi des événements — un troc de plantes, une fête de récolte ?"
+        },
+        {
+          "text": "Côté rythme, à quelle fréquence vous vous retrouvez — une fois par semaine, selon les saisons ?"
         },
         {
           "text": "Combien de temps dure une séance en général ?"
         },
         {
-          "text": "Y a-t-il une cotisation à payer, ou c'est entièrement gratuit ?"
+          "text": "Est-ce qu'on repart avec des légumes ou des plantes qu'on a cultivés ?"
         },
         {
-          "text": "Faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
+          "text": "Pour ce qui est de l'équipement, faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
           "memory_number": 10,
           "memory_section": 8
-        },
-        {
-          "text": "Est-ce qu'on repart avec des légumes ou des plantes qu'on a cultivés ?"
         },
         {
           "text": "Y a-t-il des précautions à connaître — pour se protéger du soleil, éviter de se blesser ?"
         },
         {
-          "text": "Est-ce que vous organisez aussi des événements — un troc de plantes, une fête de récolte ?"
+          "text": "En ce qui concerne le budget, y a-t-il une cotisation à payer, ou c'est entièrement gratuit ?"
         },
         {
           "text": "En cas de question pendant une séance, à qui je peux m'adresser ?"
@@ -190,7 +190,7 @@
       "prompt": "Souhaitant emprunter des documents, vous vous adressez à moi, employé(e) de la bibliothèque municipale, pour comprendre la marche à suivre (durée du prêt, nombre autorisé, conditions, etc.).",
       "questions": [
         {
-          "text": "Bonjour, je voudrais m'inscrire à la bibliothèque — comment dois-je procéder ?",
+          "text": "Bonjour ! J'aimerais emprunter des livres régulièrement, alors je voudrais m'inscrire à la bibliothèque — comment dois-je procéder ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -205,6 +205,11 @@
           "memory_section": 3
         },
         {
+          "text": "Deuxième point : quels sont les horaires d'ouverture — vous êtes aussi ouverts le week-end ?",
+          "memory_number": 10,
+          "memory_section": 4
+        },
+        {
           "text": "Combien de livres peut-on emprunter à la fois ?",
           "memory_number": 10,
           "memory_section": 11
@@ -215,12 +220,10 @@
           "memory_section": 4
         },
         {
-          "text": "Est-ce qu'on peut emprunter d'autres documents — des DVD, des revues, des partitions ?"
+          "text": "En ce qui concerne le prêt, est-ce qu'on peut emprunter d'autres documents — des DVD, des revues, des partitions ?"
         },
         {
-          "text": "Y a-t-il des frais si on rend un document en retard ?",
-          "memory_number": 10,
-          "memory_section": 3
+          "text": "Côté réservation, peut-on réserver un livre qui est déjà emprunté par quelqu'un d'autre ?"
         },
         {
           "text": "Peut-on prolonger un emprunt en ligne, ou faut-il revenir sur place ?",
@@ -228,7 +231,12 @@
           "memory_section": 6
         },
         {
-          "text": "Peut-on réserver un livre qui est déjà emprunté par quelqu'un d'autre ?"
+          "text": "Y a-t-il des frais si on rend un document en retard ?",
+          "memory_number": 10,
+          "memory_section": 3
+        },
+        {
+          "text": "En cas de souci, que se passe-t-il si je perds ou j'abîme un document emprunté ?"
         },
         {
           "text": "Si un livre n'est pas disponible ici, est-il possible de le faire venir d'une autre bibliothèque ?",
@@ -236,17 +244,9 @@
           "memory_section": 6
         },
         {
-          "text": "Quels sont les horaires d'ouverture — vous êtes aussi ouverts le week-end ?",
-          "memory_number": 10,
-          "memory_section": 4
-        },
-        {
-          "text": "Proposez-vous aussi des livres numériques ou des livres audio à emprunter ?",
+          "text": "Et sinon, proposez-vous aussi des livres numériques ou des livres audio à emprunter ?",
           "memory_number": 10,
           "memory_section": 9
-        },
-        {
-          "text": "Que se passe-t-il si je perds ou j'abîme un document emprunté ?"
         },
         {
           "text": "Y a-t-il une limite d'âge, ou les enfants peuvent-ils avoir leur propre carte ?"
@@ -276,7 +276,10 @@
           "text": "Il y a généralement combien de personnes par cours ?"
         },
         {
-          "text": "À quelle heure ont lieu les cours — plutôt le matin, le midi ou en fin de journée ?"
+          "text": "Dans le même esprit, les cours sont-ils donnés par des maîtres-nageurs qualifiés ?"
+        },
+        {
+          "text": "Côté horaires, à quelle heure ont lieu les cours — plutôt le matin, le midi ou en fin de journée ?"
         },
         {
           "text": "Quels sont les horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
@@ -284,10 +287,13 @@
           "memory_section": 4
         },
         {
-          "text": "Les cours sont-ils donnés par des maîtres-nageurs qualifiés ?"
+          "text": "En ce qui concerne le matériel, qu'est-ce qu'il faut apporter — maillot, bonnet de bain, lunettes ?"
         },
         {
-          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque séance séparément ?"
+          "text": "Il y a des vestiaires et des douches disponibles ?"
+        },
+        {
+          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque séance séparément ?"
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
@@ -300,13 +306,7 @@
           "memory_section": 3
         },
         {
-          "text": "Qu'est-ce qu'il faut apporter — maillot, bonnet de bain, lunettes ?"
-        },
-        {
-          "text": "Il y a des vestiaires et des douches disponibles ?"
-        },
-        {
-          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "text": "Côté réservation, comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "memory_number": 8,
           "memory_section": 6
         },

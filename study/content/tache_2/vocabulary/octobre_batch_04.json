@@ -25,7 +25,7 @@
           "kind": "mot-cle",
           "french": "l'ambiance",
           "english": "the atmosphere",
-          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "example": "Pendant que j'y pense, comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "usage": "Nom féminin désignant le climat général ressenti dans un lieu ou un groupe."
         },
         {
@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "une cotisation",
           "english": "a membership fee",
-          "example": "Comment fonctionnent les tarifs — il faut payer une cotisation, ou c'est gratuit ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — il faut payer une cotisation, ou c'est gratuit ?",
           "usage": "Nom désignant la somme pour être membre."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "ses propres jeux",
           "english": "your own games",
-          "example": "Est-ce qu'il faut apporter ses propres jeux, ou ils sont fournis sur place ?",
+          "example": "Côté affaires à prévoir, est-ce qu'il faut apporter ses propres jeux, ou ils sont fournis sur place ?",
           "usage": "Groupe nominal sur le matériel à apporter."
         },
         {
@@ -105,7 +105,7 @@
           "kind": "collocation",
           "french": "en semaine",
           "english": "on weekdays",
-          "example": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
+          "example": "Côté horaires, ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
           "usage": "Locution prépositionnelle fixe opposée à 'le week-end'."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "formelle ou décontractée",
           "english": "formal or casual",
-          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "example": "Pendant que j'y pense, comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "usage": "Collocation adjectivale par coordination pour qualifier une ambiance générale."
         },
         {
@@ -185,7 +185,7 @@
           "kind": "tournure",
           "french": "Ça a lieu quel jour exactement",
           "english": "What day exactly does it take place",
-          "example": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
+          "example": "Côté horaires, ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
           "usage": "Tournure orale avec « ça » pour préciser la date."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "tournure",
           "french": "plutôt formelle ou décontractée",
           "english": "rather formal or casual",
-          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "example": "Pendant que j'y pense, comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "usage": "Structure figée avec 'plutôt... ou...' pour proposer une alternative de registre."
         },
         {
@@ -217,7 +217,7 @@
           "kind": "tournure",
           "french": "comment est l'ambiance en général",
           "english": "what's the atmosphere generally like",
-          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "example": "Pendant que j'y pense, comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "usage": "Tournure descriptive pour faire caractériser un climat ou une ambiance."
         },
         {
@@ -241,7 +241,7 @@
           "kind": "tournure",
           "french": "Comment fonctionnent les tarifs",
           "english": "how do the fees work",
-          "example": "Comment fonctionnent les tarifs — il faut payer une cotisation, ou c'est gratuit ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — il faut payer une cotisation, ou c'est gratuit ?",
           "usage": "Question sur les tarifs."
         }
       ]
@@ -278,7 +278,7 @@
           "kind": "mot-cle",
           "french": "un programme",
           "english": "a schedule/programme",
-          "example": "Comment ça va se dérouler — il y a un programme, des discours, un repas ?",
+          "example": "En ce qui concerne la nourriture, comment ça va se dérouler — il y a un programme, des discours, un repas ?",
           "usage": "Nom désignant le déroulé de la soirée."
         },
         {
@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "des discours",
           "english": "speeches",
-          "example": "Comment ça va se dérouler — il y a un programme, des discours, un repas ?",
+          "example": "En ce qui concerne la nourriture, comment ça va se dérouler — il y a un programme, des discours, un repas ?",
           "usage": "Nom pluriel désignant les prises de parole."
         },
         {
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "un buffet",
           "english": "a buffet",
-          "example": "Qu'est-ce qui est prévu côté repas — un buffet, un traiteur ?",
+          "example": "Et qu'est-ce qui est prévu côté repas — un buffet, un traiteur ?",
           "usage": "Nom désignant une formule de repas."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "un traiteur",
           "english": "a caterer",
-          "example": "Qu'est-ce qui est prévu côté repas — un buffet, un traiteur ?",
+          "example": "Et qu'est-ce qui est prévu côté repas — un buffet, un traiteur ?",
           "usage": "Nom désignant le prestataire du repas."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "le cadeau",
           "english": "the gift",
-          "example": "Pour le cadeau, on fait quelque chose en commun, ou chacun apporte le sien ?",
+          "example": "Toujours sur ce point, pour le cadeau, on fait quelque chose en commun, ou chacun apporte le sien ?",
           "usage": "Nom désignant le présent collectif."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "quelque chose en commun",
           "english": "something together",
-          "example": "Pour le cadeau, on fait quelque chose en commun, ou chacun apporte le sien ?",
+          "example": "Toujours sur ce point, pour le cadeau, on fait quelque chose en commun, ou chacun apporte le sien ?",
           "usage": "Locution sur le cadeau collectif."
         },
         {
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "confirmer sa présence",
           "english": "confirm attendance",
-          "example": "Est-ce qu'il faut confirmer sa présence, et jusqu'à quand ?",
+          "example": "En ce qui concerne le calendrier, est-ce qu'il faut confirmer sa présence, et jusqu'à quand ?",
           "usage": "Verbe + complément sur la confirmation."
         },
         {
@@ -398,7 +398,7 @@
           "kind": "collocation",
           "french": "accessible en transports",
           "english": "reachable by public transport",
-          "example": "Comment on s'y rend — c'est accessible en transports, il y a un parking ?",
+          "example": "Côté déplacements, comment on s'y rend — c'est accessible en transports, il y a un parking ?",
           "usage": "Adjectif + complément sur l'accès."
         },
         {
@@ -454,7 +454,7 @@
           "kind": "tournure",
           "french": "Comment ça va se dérouler",
           "english": "how will it unfold",
-          "example": "Comment ça va se dérouler — il y a un programme, des discours, un repas ?",
+          "example": "En ce qui concerne la nourriture, comment ça va se dérouler — il y a un programme, des discours, un repas ?",
           "usage": "Question sur le déroulement."
         },
         {
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'il faut confirmer sa présence",
           "english": "do we need to confirm attendance",
-          "example": "Est-ce qu'il faut confirmer sa présence, et jusqu'à quand ?",
+          "example": "En ce qui concerne le calendrier, est-ce qu'il faut confirmer sa présence, et jusqu'à quand ?",
           "usage": "Question sur la confirmation."
         },
         {
@@ -531,7 +531,7 @@
           "kind": "mot-cle",
           "french": "une cotisation",
           "english": "a membership fee",
-          "example": "Y a-t-il une cotisation à payer, ou c'est entièrement gratuit ?",
+          "example": "En ce qui concerne le budget, y a-t-il une cotisation à payer, ou c'est entièrement gratuit ?",
           "usage": "Nom désignant la somme à payer."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "un troc de plantes",
           "english": "a plant swap",
-          "example": "Est-ce que vous organisez aussi des événements — un troc de plantes, une fête de récolte ?",
+          "example": "Côté programmation, est-ce que vous organisez aussi des événements — un troc de plantes, une fête de récolte ?",
           "usage": "Groupe nominal désignant un échange de plantes."
         },
         {
@@ -579,7 +579,7 @@
           "kind": "collocation",
           "french": "fourni sur place",
           "english": "provided on site",
-          "example": "Faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
+          "example": "Pour ce qui est de l'équipement, faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
           "usage": "Collocation participe passé + locution adverbiale pour indiquer une mise à disposition locale."
         },
         {
@@ -611,7 +611,7 @@
           "kind": "collocation",
           "french": "s'y connaître en jardinage",
           "english": "know about gardening",
-          "example": "Faut-il déjà s'y connaître en jardinage, ou les débutants sont les bienvenus ?",
+          "example": "Question niveau, faut-il déjà s'y connaître en jardinage, ou les débutants sont les bienvenus ?",
           "usage": "Locution verbale sur la compétence."
         },
         {
@@ -619,7 +619,7 @@
           "kind": "collocation",
           "french": "les débutants sont les bienvenus",
           "english": "beginners are welcome",
-          "example": "Faut-il déjà s'y connaître en jardinage, ou les débutants sont les bienvenus ?",
+          "example": "Question niveau, faut-il déjà s'y connaître en jardinage, ou les débutants sont les bienvenus ?",
           "usage": "Locution sur l'accueil des novices."
         },
         {
@@ -627,7 +627,7 @@
           "kind": "collocation",
           "french": "une fois par semaine",
           "english": "once a week",
-          "example": "À quelle fréquence vous vous retrouvez — une fois par semaine, selon les saisons ?",
+          "example": "Côté rythme, à quelle fréquence vous vous retrouvez — une fois par semaine, selon les saisons ?",
           "usage": "Locution sur la fréquence."
         },
         {
@@ -659,7 +659,7 @@
           "kind": "tournure",
           "french": "faut-il apporter du matériel particulier",
           "english": "do I need to bring special equipment",
-          "example": "Faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
+          "example": "Pour ce qui est de l'équipement, faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
           "usage": "Tournure interrogative impersonnelle pour vérifier le matériel nécessaire."
         },
         {
@@ -699,7 +699,7 @@
           "kind": "tournure",
           "french": "À quelle fréquence vous vous retrouvez",
           "english": "how often do you meet",
-          "example": "À quelle fréquence vous vous retrouvez — une fois par semaine, selon les saisons ?",
+          "example": "Côté rythme, à quelle fréquence vous vous retrouvez — une fois par semaine, selon les saisons ?",
           "usage": "Question sur la fréquence."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "Est-ce que vous organisez aussi des événements",
           "english": "do you also organise events",
-          "example": "Est-ce que vous organisez aussi des événements — un troc de plantes, une fête de récolte ?",
+          "example": "Côté programmation, est-ce que vous organisez aussi des événements — un troc de plantes, une fête de récolte ?",
           "usage": "Question sur les événements."
         },
         {
@@ -744,7 +744,7 @@
           "kind": "mot-cle",
           "french": "m'inscrire",
           "english": "to register / to sign up",
-          "example": "Bonjour, je voudrais m'inscrire à la bibliothèque — comment dois-je procéder ?",
+          "example": "Bonjour ! J'aimerais emprunter des livres régulièrement, alors je voudrais m'inscrire à la bibliothèque — comment dois-je procéder ?",
           "usage": "Verbe pronominal à l'infinitif pour exprimer la démarche d'adhésion."
         },
         {
@@ -800,7 +800,7 @@
           "kind": "mot-cle",
           "french": "les horaires d'ouverture",
           "english": "opening hours",
-          "example": "Quels sont les horaires d'ouverture — vous êtes aussi ouverts le week-end ?",
+          "example": "Deuxième point : quels sont les horaires d'ouverture — vous êtes aussi ouverts le week-end ?",
           "usage": "Groupe nominal désignant les heures pendant lesquelles un lieu est accessible."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "livres numériques",
           "english": "digital books / e-books",
-          "example": "Proposez-vous aussi des livres numériques ou des livres audio à emprunter ?",
+          "example": "Et sinon, proposez-vous aussi des livres numériques ou des livres audio à emprunter ?",
           "usage": "Groupe nominal désignant des ouvrages consultables sous forme électronique."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "des revues",
           "english": "magazines",
-          "example": "Est-ce qu'on peut emprunter d'autres documents — des DVD, des revues, des partitions ?",
+          "example": "En ce qui concerne le prêt, est-ce qu'on peut emprunter d'autres documents — des DVD, des revues, des partitions ?",
           "usage": "Nom pluriel désignant des périodiques."
         },
         {
@@ -824,7 +824,7 @@
           "kind": "collocation",
           "french": "comment dois-je procéder",
           "english": "how should I proceed",
-          "example": "Bonjour, je voudrais m'inscrire à la bibliothèque — comment dois-je procéder ?",
+          "example": "Bonjour ! J'aimerais emprunter des livres régulièrement, alors je voudrais m'inscrire à la bibliothèque — comment dois-je procéder ?",
           "usage": "Collocation interrogative très utile pour demander la marche à suivre."
         },
         {
@@ -864,7 +864,7 @@
           "kind": "collocation",
           "french": "ouverts le week-end",
           "english": "open on weekends",
-          "example": "Quels sont les horaires d'ouverture — vous êtes aussi ouverts le week-end ?",
+          "example": "Deuxième point : quels sont les horaires d'ouverture — vous êtes aussi ouverts le week-end ?",
           "usage": "Collocation adjectif + complément de temps pour préciser des horaires."
         },
         {
@@ -880,7 +880,7 @@
           "kind": "collocation",
           "french": "réserver un livre",
           "english": "reserve a book",
-          "example": "Peut-on réserver un livre qui est déjà emprunté par quelqu'un d'autre ?",
+          "example": "Côté réservation, peut-on réserver un livre qui est déjà emprunté par quelqu'un d'autre ?",
           "usage": "Verbe + complément sur la réservation."
         },
         {
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "déjà emprunté",
           "english": "already borrowed",
-          "example": "Peut-on réserver un livre qui est déjà emprunté par quelqu'un d'autre ?",
+          "example": "Côté réservation, peut-on réserver un livre qui est déjà emprunté par quelqu'un d'autre ?",
           "usage": "Participe sur l'indisponibilité."
         },
         {
@@ -936,7 +936,7 @@
           "kind": "tournure",
           "french": "proposez-vous aussi des livres numériques",
           "english": "do you also offer digital books",
-          "example": "Proposez-vous aussi des livres numériques ou des livres audio à emprunter ?",
+          "example": "Et sinon, proposez-vous aussi des livres numériques ou des livres audio à emprunter ?",
           "usage": "Tournure interrogative polie pour vérifier une offre de service supplémentaire."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'on peut emprunter d'autres documents",
           "english": "can you borrow other materials",
-          "example": "Est-ce qu'on peut emprunter d'autres documents — des DVD, des revues, des partitions ?",
+          "example": "En ce qui concerne le prêt, est-ce qu'on peut emprunter d'autres documents — des DVD, des revues, des partitions ?",
           "usage": "Question sur les autres supports."
         },
         {
@@ -968,7 +968,7 @@
           "kind": "tournure",
           "french": "Peut-on réserver un livre qui est déjà emprunté",
           "english": "can you reserve a book already on loan",
-          "example": "Peut-on réserver un livre qui est déjà emprunté par quelqu'un d'autre ?",
+          "example": "Côté réservation, peut-on réserver un livre qui est déjà emprunté par quelqu'un d'autre ?",
           "usage": "Question sur la réservation."
         },
         {
@@ -976,7 +976,7 @@
           "kind": "tournure",
           "french": "Que se passe-t-il si je perds ou j'abîme un document",
           "english": "what happens if I lose or damage an item",
-          "example": "Que se passe-t-il si je perds ou j'abîme un document emprunté ?",
+          "example": "En cas de souci, que se passe-t-il si je perds ou j'abîme un document emprunté ?",
           "usage": "Question sur les incidents."
         }
       ]
@@ -1021,7 +1021,7 @@
           "kind": "mot-cle",
           "french": "l'inscription",
           "english": "the registration",
-          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "example": "Côté réservation, comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "usage": "Nom féminin désignant la démarche administrative pour s'inscrire à une activité."
         },
         {
@@ -1037,7 +1037,7 @@
           "kind": "mot-cle",
           "french": "des maîtres-nageurs",
           "english": "lifeguards/swim instructors",
-          "example": "Les cours sont-ils donnés par des maîtres-nageurs qualifiés ?",
+          "example": "Dans le même esprit, les cours sont-ils donnés par des maîtres-nageurs qualifiés ?",
           "usage": "Nom pluriel désignant les moniteurs de natation."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "mot-cle",
           "french": "le midi",
           "english": "midday",
-          "example": "À quelle heure ont lieu les cours — plutôt le matin, le midi ou en fin de journée ?",
+          "example": "Côté horaires, à quelle heure ont lieu les cours — plutôt le matin, le midi ou en fin de journée ?",
           "usage": "Nom désignant le créneau de midi."
         },
         {
@@ -1077,7 +1077,7 @@
           "kind": "collocation",
           "french": "uniquement sur place",
           "english": "only on site",
-          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "example": "Côté réservation, comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "usage": "Collocation adverbiale restrictive pour situer une démarche dans un lieu unique."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "en fin de journée",
           "english": "late in the day",
-          "example": "À quelle heure ont lieu les cours — plutôt le matin, le midi ou en fin de journée ?",
+          "example": "Côté horaires, à quelle heure ont lieu les cours — plutôt le matin, le midi ou en fin de journée ?",
           "usage": "Locution temporelle sur l'horaire."
         },
         {
@@ -1117,7 +1117,7 @@
           "kind": "collocation",
           "french": "souscrire à un abonnement",
           "english": "take out a subscription",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque séance séparément ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque séance séparément ?",
           "usage": "Verbe + complément sur l'abonnement."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "payer chaque séance",
           "english": "pay for each session",
-          "example": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque séance séparément ?",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque séance séparément ?",
           "usage": "Verbe + complément sur le paiement à la séance."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "Comment se passe l'inscription",
           "english": "How does the registration process work",
-          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "example": "Côté réservation, comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "usage": "Question avec « comment » et verbe pronominal « se passer » pour interroger sur une démarche."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "À quelle heure ont lieu les cours",
           "english": "what time are the classes",
-          "example": "À quelle heure ont lieu les cours — plutôt le matin, le midi ou en fin de journée ?",
+          "example": "Côté horaires, à quelle heure ont lieu les cours — plutôt le matin, le midi ou en fin de journée ?",
           "usage": "Question sur l'horaire."
         },
         {
@@ -1213,7 +1213,7 @@
           "kind": "tournure",
           "french": "Les cours sont-ils donnés par des maîtres-nageurs qualifiés",
           "english": "are classes taught by qualified instructors",
-          "example": "Les cours sont-ils donnés par des maîtres-nageurs qualifiés ?",
+          "example": "Dans le même esprit, les cours sont-ils donnés par des maîtres-nageurs qualifiés ?",
           "usage": "Question sur l'encadrement."
         },
         {
@@ -1221,7 +1221,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce qu'il faut apporter — maillot, bonnet de bain, lunettes",
           "english": "what to bring — swimsuit, cap, goggles",
-          "example": "Qu'est-ce qu'il faut apporter — maillot, bonnet de bain, lunettes ?",
+          "example": "En ce qui concerne le matériel, qu'est-ce qu'il faut apporter — maillot, bonnet de bain, lunettes ?",
           "usage": "Question sur l'équipement."
         }
       ]

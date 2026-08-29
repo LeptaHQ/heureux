@@ -12,7 +12,7 @@
       "prompt": "Je suis à l'accueil d'une école de musique où vous aimeriez suivre des cours. Vous vous renseignez sur ce que propose l'établissement : les cours, les tarifs, les horaires et les instruments enseignés.",
       "questions": [
         {
-          "text": "Bonjour, je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
+          "text": "Bonjour ! J'aimerais apprendre la musique et je me renseigne sur votre école avant de choisir un cours. Comment tout cela fonctionne-t-il ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -22,67 +22,67 @@
           "memory_section": 2
         },
         {
-          "text": "Les cours sont-ils individuels, ou plutôt en petit groupe ?",
+          "text": "Les cours sont-ils plutôt individuels ou en petit groupe ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Ça s'adresse à quel niveau — faut-il déjà avoir des bases, ou les débutants sont acceptés ?",
+          "text": "Est-ce qu'un débutant complet peut s'inscrire sans problème ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "text": "Comment choisissez-vous le cours ou l'instrument adapté au niveau de l'élève ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "text": "Les cours ont lieu à quelle fréquence ?",
           "memory_number": 10,
           "memory_section": 7
         },
         {
-          "text": "Faut-il apporter son propre instrument, ou l'école peut-elle en fournir un pour commencer ?",
+          "text": "Et une séance dure combien de temps ?",
           "memory_number": 10,
           "memory_section": 8
         },
         {
-          "text": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
+          "text": "D'ailleurs, les professeurs sont-ils spécialisés par instrument ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Y a-t-il des frais supplémentaires, comme les partitions ou le matériel ?",
+          "text": "Faut-il avoir son propre instrument dès le départ ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Est-ce qu'on peut essayer avec un cours d'essai avant de s'engager ?",
+          "text": "L'école peut-elle en prêter ou en louer pour commencer ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Si je rate un cours, est-il possible de le rattraper à un autre moment ?",
+          "text": "Autre point important : comment fonctionnent les tarifs, à la séance ou au forfait ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
+          "text": "Y a-t-il des frais supplémentaires pour les partitions ou le matériel ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Comment suivez-vous la progression des élèves — il y a des évaluations régulières ?",
+          "text": "Peut-on faire un cours d'essai avant de s'engager ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "L'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
+          "text": "Comment se passe l'inscription, et si je rate un cours, peut-on le rattraper ?",
           "memory_number": 10,
           "memory_section": 5
         },
         {
-          "text": "Pour finir — pour quelqu'un qui débute, quel instrument me conseilleriez-vous ?",
+          "text": "Pour finir, je voudrais savoir quel instrument vous conseilleriez à quelqu'un qui débute et hésite encore.",
           "memory_number": 10,
           "memory_section": 11
         }

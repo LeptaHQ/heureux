@@ -340,77 +340,77 @@
       "prompt": "Vous passez à la bibliothèque où je travaille pour devenir adhérent(e). Cherchant à comprendre comment tout marche, vous m'interrogez sur les modalités d'inscription, l'agenda culturel et les heures d'accueil.",
       "questions": [
         {
-          "text": "Bonjour, je voudrais m'inscrire à la bibliothèque — comment dois-je procéder ?",
+          "text": "Vous travaillez ici ? J'aimerais justement m'inscrire à la bibliothèque du quartier — comment ça se passe pour une première adhésion ?",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "Quels documents faut-il apporter pour l'inscription — une pièce d'identité, un justificatif de domicile ?",
+          "text": "Quels documents dois-je apporter pour faire la carte — une pièce d'identité et un justificatif de domicile suffisent ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "L'inscription est-elle gratuite, ou faut-il payer une cotisation annuelle ?",
+          "text": "Tant que j'y pense, l'inscription est-elle gratuite ou y a-t-il une cotisation annuelle à prévoir ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Quels sont les horaires d'ouverture — vous êtes aussi ouverts le week-end ?",
+          "text": "Quels sont vos horaires d'ouverture, surtout en soirée et le samedi ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Combien de livres peut-on emprunter à la fois ?",
+          "text": "Une fois inscrit(e), combien de livres ou de documents puis-je emprunter en même temps ?",
           "memory_number": 10,
           "memory_section": 11
         },
         {
-          "text": "Et pendant combien de temps peut-on les garder avant de les rapporter ?",
+          "text": "Et pendant combien de temps peut-on les garder avant de les rendre ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Y a-t-il des frais si on rend un document en retard ?",
+          "text": "Si je rends un document en retard, est-ce qu'il y a des frais ou une pénalité ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Peut-on prolonger un emprunt en ligne, ou faut-il revenir sur place ?",
+          "text": "Autre point important : peut-on prolonger un prêt en ligne ou faut-il revenir au comptoir ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Proposez-vous aussi des livres numériques ou des livres audio à emprunter ?",
+          "text": "Proposez-vous aussi des livres numériques ou des livres audio avec la carte de la bibliothèque ?",
           "memory_number": 10,
           "memory_section": 9
         },
         {
-          "text": "Y a-t-il un espace avec des ordinateurs ou un accès Internet sur place ?",
+          "text": "Y a-t-il un espace calme avec des ordinateurs pour lire ou travailler sur place ?",
           "memory_number": 10,
           "memory_section": 9
         },
         {
-          "text": "Organisez-vous des animations, comme des heures du conte ou des ateliers ?",
+          "text": "J'ai vu qu'il y avait parfois des animations : vous organisez quels types d'ateliers ou de rencontres ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Qui anime ces activités — des bibliothécaires ou des intervenants extérieurs ?",
+          "text": "Ces activités sont-elles réservées aux abonnés ou ouvertes à tout le quartier ?",
           "memory_number": 10,
           "memory_section": 8
         },
         {
-          "text": "Y a-t-il un espace calme pour étudier ou travailler sur place ?",
+          "text": "Sur un autre sujet, si le livre que je cherche n'est pas disponible ici, est-ce que vous pouvez le faire venir d'une autre bibliothèque ?",
           "memory_number": 10,
           "memory_section": 9
         },
         {
-          "text": "Si un livre n'est pas disponible ici, est-il possible de le faire venir d'une autre bibliothèque ?",
+          "text": "Comment découvre-t-on les nouveautés : avec une infolettre, un site ou un affichage sur place ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Pour finir — quelle serait la meilleure façon de découvrir les nouveautés dès mon inscription ?",
+          "text": "Pour finir, je voudrais savoir comment être informé(e) des prochains événements dès que ma carte sera prête.",
           "memory_number": 10,
           "memory_section": 13
         }

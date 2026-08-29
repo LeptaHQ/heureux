@@ -68,49 +68,49 @@
       "prompt": "Je travaille dans une librairie qui organise un jeu ouvert au public. Vous me posez des questions sur ce jeu (modalités d’inscription, contenu, intérêt, etc.) afin de décider si vous souhaitez y participer.",
       "questions": [
         {
-          "text": "Bonjour ! J'ai entendu parler du jeu que votre librairie organise — vous pourriez m'expliquer de quoi il s'agit exactement ?"
+          "text": "Bonjour ! J'ai vu l'affiche du jeu organisé par votre librairie, et avant de me décider j'aimerais comprendre exactement en quoi il consiste."
         },
         {
-          "text": "Quel type de jeu est-ce — un quiz, une chasse au trésor, un défi littéraire ou autre chose ?"
+          "text": "Quel type de jeu est-ce : un quiz littéraire, une chasse au trésor, des énigmes autour des livres ?"
         },
         {
-          "text": "Qui peut participer — c'est ouvert à tous les âges ou y a-t-il un âge minimum ?"
+          "text": "Faut-il bien connaître la littérature pour participer, ou c'est accessible à tout le monde ?"
         },
         {
-          "text": "Faut-il s'inscrire à l'avance, et comment ?"
+          "text": "Qui peut s'inscrire : des adultes, des familles, des adolescents ?"
         },
         {
-          "text": "Est-ce que la participation est gratuite ou y a-t-il des frais ?"
+          "text": "Comment se fait l'inscription, et faut-il réserver à l'avance ?"
         },
         {
-          "text": "Quand est-ce que cela a lieu exactement, et combien de temps cela dure-t-il ?"
+          "text": "La participation est-elle gratuite ou y a-t-il des frais ?"
         },
         {
-          "text": "Où est-ce que ça se passe — uniquement dans la librairie ou aussi à l'extérieur ?"
+          "text": "À quelle date le jeu a-t-il lieu, et combien de temps dure-t-il ?"
         },
         {
-          "text": "Peut-on participer en équipe, ou seulement individuellement ?"
+          "text": "Ça se déroule uniquement dans la librairie ou aussi ailleurs dans le quartier ?"
+        },
+        {
+          "text": "D'ailleurs, peut-on jouer en équipe ou faut-il participer seul(e) ?"
         },
         {
           "text": "Combien de participants acceptez-vous au maximum ?"
         },
         {
-          "text": "Quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?"
+          "text": "Quelles sont les règles principales avant de commencer ?"
         },
         {
-          "text": "Quelles sont les règles principales, et peut-on les consulter avant de décider ?"
+          "text": "Autre point important : qu'est-ce qu'on peut gagner à la fin ?"
         },
         {
-          "text": "Qu'est-ce qu'on peut gagner — y a-t-il des prix ou des cadeaux ?"
+          "text": "Comment choisissez-vous le gagnant ou l'équipe gagnante ?"
         },
         {
-          "text": "Comment déterminez-vous le gagnant à la fin ?"
+          "text": "Qu'est-ce qui rend ce jeu amusant, selon vous, même pour quelqu'un qui vient juste pour découvrir la librairie ?"
         },
         {
-          "text": "Quel est l'intérêt pour la librairie d'organiser ce jeu ?"
-        },
-        {
-          "text": "Pour finir — selon vous, quelle est la meilleure raison de s'inscrire ?"
+          "text": "Pour finir, je voudrais savoir quelle est la meilleure raison de s'inscrire cette année."
         }
       ]
     },
@@ -120,51 +120,51 @@
       "prompt": "Je suis un(e) ami(e) canadien(ne) et je pratique une activité artistique (théâtre, danse, musique, etc.). Vous trouvez cette idée intéressante et aimeriez faire la même chose. Vous me posez des questions sur cette activité (intérêt, lieu, horaires, etc.).",
       "questions": [
         {
-          "text": "Salut ! J'ai entendu dire que tu pratiquais une activité artistique chaque semaine — tu pourrais m'en parler un peu ?"
+          "text": "Salut ! Tu m'as déjà parlé de ton activité artistique au Canada, et ça m'intrigue vraiment. Tu peux m'expliquer ce que tu fais exactement ?"
         },
         {
-          "text": "C'est quel type d'activité exactement — tu fais du théâtre, de la danse, de la musique ou autre chose ?"
+          "text": "C'est quel type d'activité : théâtre, danse, musique, ou autre chose ?"
         },
         {
-          "text": "Les séances se passent où — dans un studio, une salle polyvalente, en extérieur ?"
+          "text": "Qu'est-ce qui t'a donné envie de commencer cette activité ?"
         },
         {
-          "text": "Ça s'adresse à quel niveau — plutôt aux débutants ou aux personnes déjà expérimentées ?"
+          "text": "Les séances se passent où, exactement ?"
         },
         {
-          "text": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Ça s'adresse à quel niveau : un débutant complet pourrait-il s'y mettre ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Il y a généralement combien de participants — c'est un petit groupe ou un grand groupe ?"
+          "text": "Il y a beaucoup de participants dans le groupe ?"
         },
         {
-          "text": "Ça a lieu quels jours, et plutôt à quelle heure ?"
+          "text": "Les cours ont lieu quels jours, et à quelle heure en général ?"
         },
         {
-          "text": "Quelle est la durée d'une séance — environ une heure ou plutôt plus ?"
+          "text": "Chaque séance dure combien de temps ?"
         },
         {
-          "text": "Comment fonctionnent les tarifs — faut-il payer à la séance ou s'inscrire pour toute la session ?"
+          "text": "Autre point important : comment fonctionnent les tarifs, à la séance ou pour toute la session ?"
         },
         {
-          "text": "Qu'est-ce qu'il faut apporter — du matériel, une tenue particulière, ou est-ce que tout est fourni ?"
+          "text": "Faut-il apporter du matériel ou une tenue spéciale ?"
         },
         {
-          "text": "Comment se passe l'inscription — en ligne, sur place, ou directement auprès du professeur ?"
+          "text": "Comment se passe l'inscription ?"
         },
         {
-          "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une séance d'essai ?"
+          "text": "D'ailleurs, peut-on faire un essai avant de s'engager ?"
         },
         {
-          "text": "Est-ce qu'il y a des spectacles, des concerts ou des présentations à la fin de l'année ?"
+          "text": "Y a-t-il un spectacle, un concert ou une présentation à la fin de l'année ?"
         },
         {
-          "text": "Toi, qu'est-ce que tu aimes le plus dans cette activité — tu en es content(e) ?"
+          "text": "Qu'est-ce que tu aimes le plus dans cette activité au quotidien ?"
         },
         {
-          "text": "Pour finir — tu me conseillerais de commencer par quoi, si je veux me lancer moi aussi ?"
+          "text": "Pour finir, je voudrais savoir par quoi tu me conseillerais de commencer si je veux me lancer moi aussi."
         }
       ]
     },

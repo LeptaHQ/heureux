@@ -12,61 +12,61 @@
       "prompt": "Membre d'un club de jeux de société, je vous en parle ; la chose vous tente et vous m'interrogez, en collègue, sur le lieu, le prix, les horaires, l'ambiance, etc.",
       "questions": [
         {
-          "text": "Salut ! J'ai entendu dire que tu fais partie d'un club de jeux de société — ça m'intéresse, tu pourrais m'en parler ?"
+          "text": "Salut ! Tu fais partie d'un club de jeux de société, non ? Ça m'intéresse vraiment, alors dis-moi comment ça se passe."
         },
         {
-          "text": "Ça se passe où exactement — dans un café, une salle associative ?"
+          "text": "Vous jouez à quels types de jeux en général ?"
         },
         {
-          "text": "On y joue à quels genres de jeux — plutôt de la stratégie, de l'ambiance, ou un peu de tout ?"
+          "text": "Est-ce qu'il y a des soirées plutôt stratégie et d'autres plus conviviales, ou tout se mélange ?"
         },
         {
-          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
+          "text": "Ça se passe où exactement ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Le club est-il accessible à quelqu'un qui découvre complètement cet univers ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Il y a beaucoup de monde en général, ou c'est plutôt un petit groupe ?"
+          "text": "Il y a beaucoup de membres à chaque séance ?"
         },
         {
-          "text": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
+          "text": "Les rencontres ont lieu quels jours ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Ça dure combien de temps — une soirée entière ?"
+          "text": "Et elles durent combien de temps en moyenne ?"
         },
         {
-          "text": "Comment fonctionnent les tarifs — il faut payer une cotisation, ou c'est gratuit ?"
+          "text": "D'ailleurs, comment fonctionnent les tarifs : cotisation, participation par soirée, ou gratuité ?"
         },
         {
-          "text": "Est-ce qu'il faut apporter ses propres jeux, ou ils sont fournis sur place ?"
+          "text": "Faut-il apporter ses propres jeux ou tout est-il sur place ?"
         },
         {
-          "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "text": "Autre point important : faut-il s'inscrire à l'avance ou peut-on venir essayer librement ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
+          "text": "Y a-t-il une soirée d'essai avant de s'engager ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "text": "Comment décrirais-tu l'ambiance du groupe ?",
           "memory_number": 10,
           "memory_section": 10
         },
         {
-          "text": "Est-ce que c'est convivial — on peut y rencontrer du monde facilement ?"
+          "text": "Est-ce facile d'y rencontrer des gens quand on vient seul(e) ?"
         },
         {
-          "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
+          "text": "Pour finir, je voudrais savoir quelle soirée ou quel type de jeu tu me conseillerais pour commencer.",
           "memory_number": 10,
           "memory_section": 13
         }
@@ -134,51 +134,51 @@
       "prompt": "Des activités de jardinage que j'anime dans le quartier vous attirent ; en voisin(e), je réponds à vos questions sur le coût, l'organisation et ce qu'on y fait, etc.",
       "questions": [
         {
-          "text": "Bonjour ! Vous m'avez dit que vous organisiez des activités de jardinage dans le quartier — ça m'intéresse, vous pourriez m'en parler ?"
+          "text": "Bonjour ! Vous animez des activités de jardinage dans le quartier, c'est bien ça ? Ça me plairait beaucoup d'y participer."
         },
         {
-          "text": "Concrètement, en quoi consistent ces activités — un jardin partagé, l'entretien des espaces verts ?"
+          "text": "Concrètement, qu'est-ce que vous faites pendant ces séances ?"
         },
         {
-          "text": "Où est-ce que ça se passe — dans un jardin collectif, des bacs partagés ?"
+          "text": "Est-ce qu'il s'agit surtout d'un jardin partagé, de plantations saisonnières ou d'autre chose ?"
         },
         {
-          "text": "C'est ouvert à tout le monde, ou il faut habiter le quartier ?"
+          "text": "Ça se passe où exactement dans le quartier ?"
         },
         {
-          "text": "Faut-il déjà s'y connaître en jardinage, ou les débutants sont les bienvenus ?"
+          "text": "Est-ce que c'est ouvert à tout le monde ou réservé aux habitants du secteur ?"
         },
         {
-          "text": "À quelle fréquence vous vous retrouvez — une fois par semaine, selon les saisons ?"
+          "text": "Faut-il déjà s'y connaître un peu en jardinage ?"
         },
         {
-          "text": "Combien de temps dure une séance en général ?"
+          "text": "À quelle fréquence vous retrouvez-vous ?"
         },
         {
-          "text": "Y a-t-il une cotisation à payer, ou c'est entièrement gratuit ?"
+          "text": "Et une séance dure combien de temps ?"
         },
         {
-          "text": "Faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
+          "text": "Autre point important : y a-t-il une cotisation ou est-ce gratuit ?",
           "memory_number": 10,
           "memory_section": 8
         },
         {
-          "text": "Est-ce qu'on repart avec des légumes ou des plantes qu'on a cultivés ?"
+          "text": "Faut-il apporter des gants ou des outils, ou tout est-il fourni ?"
         },
         {
-          "text": "Y a-t-il des précautions à connaître — pour se protéger du soleil, éviter de se blesser ?"
+          "text": "D'ailleurs, repart-on parfois avec ce qu'on a cultivé ?"
         },
         {
-          "text": "Est-ce que vous organisez aussi des événements — un troc de plantes, une fête de récolte ?"
+          "text": "Y a-t-il des précautions particulières à connaître pour travailler dehors ?"
         },
         {
-          "text": "En cas de question pendant une séance, à qui je peux m'adresser ?"
+          "text": "Organisez-vous aussi des événements comme des échanges de plantes ou des fêtes de récolte ?"
         },
         {
-          "text": "Comment fait-on pour s'inscrire et participer dès cette semaine ?"
+          "text": "Comment se passe l'inscription si je veux venir dès la prochaine séance ?"
         },
         {
-          "text": "Pour finir — quelle serait la meilleure façon de commencer si je souhaite vous rejoindre dès cette semaine ?",
+          "text": "Pour finir, je voudrais savoir quelle serait la meilleure façon de commencer quand on n'a pas beaucoup d'expérience.",
           "memory_number": 10,
           "memory_section": 13
         }
@@ -190,69 +190,69 @@
       "prompt": "Souhaitant emprunter des documents, vous vous adressez à moi, employé(e) de la bibliothèque municipale, pour comprendre la marche à suivre (durée du prêt, nombre autorisé, conditions, etc.).",
       "questions": [
         {
-          "text": "Bonjour, je voudrais m'inscrire à la bibliothèque — comment dois-je procéder ?",
+          "text": "Bonjour ! Je voudrais emprunter des documents à la bibliothèque municipale, mais je ne connais pas encore la procédure. Vous pouvez m'expliquer ?",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "Quels documents faut-il apporter pour l'inscription — une pièce d'identité, un justificatif de domicile ?",
+          "text": "Quels documents faut-il présenter pour s'inscrire ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "L'inscription est-elle gratuite, ou faut-il payer une cotisation annuelle ?",
+          "text": "L'inscription est-elle gratuite ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Combien de livres peut-on emprunter à la fois ?",
+          "text": "Une fois la carte faite, combien de documents peut-on emprunter à la fois ?",
           "memory_number": 10,
           "memory_section": 11
         },
         {
-          "text": "Et pendant combien de temps peut-on les garder avant de les rapporter ?",
+          "text": "Et pendant combien de temps peut-on les garder ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Est-ce qu'on peut emprunter d'autres documents — des DVD, des revues, des partitions ?"
+          "text": "Peut-on emprunter seulement des livres, ou aussi des revues, des DVD ou des partitions ?"
         },
         {
-          "text": "Y a-t-il des frais si on rend un document en retard ?",
+          "text": "D'ailleurs, si on rend un document en retard, comment cela se passe-t-il ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Peut-on prolonger un emprunt en ligne, ou faut-il revenir sur place ?",
+          "text": "Peut-on prolonger un prêt à distance ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Peut-on réserver un livre qui est déjà emprunté par quelqu'un d'autre ?"
+          "text": "Est-il possible de réserver un document déjà emprunté ?"
         },
         {
-          "text": "Si un livre n'est pas disponible ici, est-il possible de le faire venir d'une autre bibliothèque ?",
+          "text": "Autre point important : si un livre n'est pas disponible ici, pouvez-vous le faire venir d'une autre bibliothèque ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Quels sont les horaires d'ouverture — vous êtes aussi ouverts le week-end ?",
+          "text": "Quels sont vos horaires d'ouverture, notamment le week-end ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Proposez-vous aussi des livres numériques ou des livres audio à emprunter ?",
+          "text": "Proposez-vous aussi des documents numériques ou audio ?",
           "memory_number": 10,
           "memory_section": 9
         },
         {
-          "text": "Que se passe-t-il si je perds ou j'abîme un document emprunté ?"
+          "text": "Que se passe-t-il si un document est perdu ou abîmé ?"
         },
         {
-          "text": "Y a-t-il une limite d'âge, ou les enfants peuvent-ils avoir leur propre carte ?"
+          "text": "Les enfants peuvent-ils eux aussi avoir une carte ?"
         },
         {
-          "text": "Pour finir — quelle serait la meilleure façon de découvrir les nouveautés dès mon inscription ?",
+          "text": "Pour finir, je voudrais savoir comment repérer facilement les nouveautés une fois inscrit(e).",
           "memory_number": 10,
           "memory_section": 13
         }

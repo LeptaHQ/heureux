@@ -84,79 +84,83 @@
       "title": "Cours de photographie dans l'association",
       "prompt": "Je suis votre voisin(e). Je prends des cours de photographie dans l'association du quartier. Vous êtes intéressé(e) et vous me posez des questions sur le cours (prix, horaires, matériel, etc.).",
       "questions": [
-        "Bonjour ! Je vous ai croisé(e) l'autre jour avec votre appareil photo — vous prenez des cours de photographie à l'association du quartier, c'est bien ça ?",
         {
-          "text": "Ça fait longtemps que vous suivez ces cours ? Vous êtes satisfait(e) de votre progression jusqu'à présent ?",
+          "memory_number": null,
+          "memory_section": null,
+          "text": "Bonjour ! Je vous ai déjà vu revenir avec votre appareil photo ; vous suivez les cours de photographie de l'association, n'est-ce pas ? J'aimerais en savoir plus."
+        },
+        {
+          "text": "Qu'est-ce qu'on apprend au début du cours ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Les cours ont lieu quel jour — plutôt en semaine ou le week-end ? Et c'est compatible avec un emploi du temps professionnel ?",
+          "text": "Est-ce qu'on aborde plusieurs styles de photo pendant la session ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Chaque cours dure combien de temps ?",
+          "text": "Le cours convient-il à quelqu'un qui n'a jamais pris de cours de photo ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Il y a généralement combien de participants par groupe ? Et comment est l'ambiance ?",
+          "text": "Il y a combien de participants dans un groupe ?",
           "memory_number": 10,
           "memory_section": 7
         },
         {
-          "text": "Parlons du coût — combien coûte l'inscription pour la session complète ? Il existe des tarifs réduits pour les habitants du quartier ?",
+          "text": "Les séances ont lieu quels jours ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "text": "Et elles durent combien de temps ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Quel type d'appareil est recommandé — un reflex ou un appareil plus simple suffit ?",
+          "text": "Parlons du budget : combien coûte l'inscription ?",
           "memory_number": 10,
           "memory_section": 8
         },
         {
-          "text": "Y a-t-il du matériel fourni par l'association ou chacun doit venir avec son propre équipement ?",
+          "text": "Peut-on payer en plusieurs fois ?",
           "memory_number": 10,
           "memory_section": 8
         },
         {
-          "text": "Est-ce qu'on peut même suivre les cours avec un smartphone ?",
+          "text": "Autre point important : faut-il un appareil photo particulier pour commencer ?",
           "memory_number": 10,
           "memory_section": 8
         },
         {
-          "text": "Pour le traitement des photos, quel logiciel est généralement recommandé ?",
+          "text": "L'association fournit-elle parfois du matériel ?",
           "memory_number": 10,
           "memory_section": 8
         },
         {
-          "text": "Qu'est-ce qu'on apprend concrètement — c'est plutôt technique, artistique ou un mélange des deux ?",
+          "text": "D'ailleurs, un smartphone peut-il suffire au début ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Les cours couvrent les bases ou s'adressent-ils plutôt à un niveau intermédiaire ?",
+          "text": "Pour le traitement des photos, est-ce qu'on vous recommande aussi des outils ou logiciels ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Y a-t-il des sorties pratiques pour prendre des photos en extérieur ou tout se fait en salle ?",
+          "text": "Y a-t-il des sorties pratiques en extérieur ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Quels types de thèmes sont abordés — portrait, paysage, photo de rue ou un peu de tout ?",
+          "text": "Comment se passe l'inscription, et reste-t-il encore des places ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Et pour finir — il y a des expositions ou des projets de fin de session pour présenter les photos réalisées ?",
+          "text": "Pour finir, je voudrais savoir s'il y a une exposition finale ou un projet à présenter.",
           "memory_number": 10,
           "memory_section": 2
         }
@@ -168,77 +172,77 @@
       "prompt": "Je travaille à l'accueil du nouveau centre culturel de votre ville. Vous êtes intéressé(e) et vous me posez des questions sur les activités proposées par le centre (horaires, prix, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! J'ai appris récemment l'ouverture de ce nouveau centre culturel — depuis quand est-il ouvert exactement ?",
+          "text": "Bonjour ! Je vois souvent des affiches pour le centre culturel de la ville, mais je ne sais pas encore ce qu'on peut y faire exactement. Vous m'expliquez ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Ça se passe où exactement — c'est facilement accessible en transports en commun ?",
+          "text": "Quelles activités proposez-vous en ce moment ?",
           "memory_number": 10,
           "memory_section": 5
         },
         {
-          "text": "Quels types d'activités proposez-vous — c'est plutôt orienté vers l'art, la culture ou un mélange de plusieurs domaines ?",
+          "text": "Y a-t-il des ateliers réguliers, des spectacles et des expositions ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Organisez-vous des cours ou des ateliers réguliers ? Si oui, dans quels domaines précisément ?",
+          "text": "Quelle activité attire le plus de visiteurs ces jours-ci ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Proposez-vous également des spectacles — des concerts, des pièces de théâtre ou des projections de films ?",
+          "text": "Le centre est situé où exactement, et est-il facile d'accès ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "text": "Quels sont vos horaires d'ouverture ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "À quelle heure commencent les cours et les ateliers — plutôt le matin ou en fin de journée ? Et vous êtes ouverts le week-end ?",
+          "text": "Les ateliers ont-ils lieu plutôt en journée, en soirée ou le week-end ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Proposez-vous des activités spécifiques pendant les vacances scolaires, notamment pour les enfants ?",
+          "text": "Autre point important : comment fonctionnent les tarifs, à l'activité ou avec une formule d'abonnement ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "text": "Certaines activités sont-elles gratuites ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Le tarif comprend quoi exactement — certaines activités sont-elles gratuites ?",
+          "text": "Y a-t-il des réductions pour les étudiants, les familles ou les retraités ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Il y a généralement combien de participants par atelier — c'est un petit groupe ou une grande classe ?",
+          "text": "Comment se passe l'inscription pour les ateliers ou les spectacles ?",
           "memory_number": 10,
           "memory_section": 7
         },
         {
-          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "text": "D'ailleurs, proposez-vous aussi des activités pour les enfants pendant les vacances ?",
           "memory_number": 10,
           "memory_section": 10
         },
         {
-          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ? Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "text": "Combien de participants y a-t-il en général dans un atelier ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Y a-t-il une boutique de souvenirs ou une librairie sur place ?",
+          "text": "Comment décririez-vous l'ambiance du lieu ?",
           "memory_number": 10,
           "memory_section": 9
         },
         {
-          "text": "Pour finir — si vous ne deviez me recommander qu'une seule activité, ce serait laquelle ?",
+          "text": "Pour finir, je voudrais savoir quelle activité vous me recommanderiez pour découvrir le centre une première fois.",
           "memory_number": 10,
           "memory_section": 13
         }

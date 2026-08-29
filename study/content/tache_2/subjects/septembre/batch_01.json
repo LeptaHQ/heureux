@@ -224,7 +224,7 @@
       "prompt": "À peine installé(e) au Canada, vous préparez une surprise pour l'anniversaire de votre moitié ; votre voisin(e) que je suis vous aide à tout organiser.",
       "questions": [
         {
-          "text": "Bonjour ! Je viens de m'installer dans le quartier et j'aimerais organiser l'anniversaire de mon conjoint ou ma conjointe — vous auriez des conseils pour bien m'y prendre ?"
+          "text": "Bonjour ! Je viens tout juste de m'installer dans le quartier et j'aimerais préparer une surprise pour l'anniversaire de mon conjoint — vous auriez des conseils pour bien m'y prendre ?"
         },
         {
           "text": "Vous connaissez un bon endroit pour fêter ça — un restaurant, une salle à louer ?",
@@ -237,7 +237,7 @@
           "memory_section": 2
         },
         {
-          "text": "Ça va plutôt dans quelle gamme de prix en général ?",
+          "text": "Une autre chose m'intéresse : ça va plutôt dans quelle gamme de prix en général ?",
           "memory_number": 11,
           "memory_section": 3
         },
@@ -257,7 +257,7 @@
           "memory_section": 9
         },
         {
-          "text": "Si je préfère organiser ça à la maison, vous connaissez un traiteur ou un service de livraison ?"
+          "text": "Autre point important : si je préfère organiser ça à la maison, vous connaissez un traiteur ou un service de livraison ?"
         },
         {
           "text": "Pour le gâteau, vous auriez une bonne adresse de pâtisserie dans le coin ?"
@@ -266,7 +266,7 @@
           "text": "Où est-ce que je peux trouver de la décoration ou des ballons pas trop loin ?"
         },
         {
-          "text": "Y a-t-il des options pour les régimes particuliers ou les allergies ?",
+          "text": "D'ailleurs, y a-t-il des options pour les régimes particuliers ou les allergies ?",
           "memory_number": 11,
           "memory_section": 8
         },

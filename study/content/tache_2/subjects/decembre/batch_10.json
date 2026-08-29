@@ -92,71 +92,71 @@
       "prompt": "Je suis votre collègue. Je suis inscrit(e) à des cours de danse dans une association. Vous êtes intéressé(e), et vous me posez des questions sur ces cours (styles de danse, lieu, horaires, etc.).",
       "questions": [
         {
-          "text": "Salut ! J'ai entendu dire que tu suis des cours de danse dans une association — tu pourrais m'en parler un peu ?"
+          "text": "Salut ! Tu suis des cours de danse dans une association, non ? J'aimerais bien essayer moi aussi, alors raconte-moi un peu comment ça se passe."
         },
         {
-          "text": "C'est quel style de danse — contemporaine, salsa, hip-hop, classique ?"
+          "text": "Quel style de danse pratiquez-vous le plus là-bas ?"
         },
         {
-          "text": "Les cours se passent dans quel type de salle — un studio de danse dédié, une salle polyvalente ?"
+          "text": "Qu'est-ce qu'on travaille pendant les cours : la technique, les enchaînements, l'expression, un peu tout ?"
         },
         {
-          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
+          "text": "Ça se déroule où exactement : dans un vrai studio, une salle municipale, un local associatif ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Est-ce que c'est adapté aux débutants complets ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Il y a généralement combien de participants — c'est un petit groupe ou une grande classe ?",
+          "text": "Il y a combien de participants dans un groupe, en général ?",
           "memory_number": 10,
           "memory_section": 7
         },
         {
-          "text": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
+          "text": "Les cours ont lieu quels jours, et plutôt en semaine ou le week-end ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Quelle est la durée d'une séance — environ une heure ou plutôt une heure et demie ?",
+          "text": "Chaque séance dure combien de temps ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque cours séparément ?",
+          "text": "Autre point important : comment fonctionnent les tarifs, à l'année, au trimestre ou à la séance ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "text": "Y a-t-il une séance d'essai avant de s'engager ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "text": "Comment se passe l'inscription, et faut-il réserver sa place tôt ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "text": "D'ailleurs, faut-il apporter une tenue ou des chaussures particulières ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
+          "text": "Comment décrirais-tu l'ambiance du groupe ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "text": "Y a-t-il un spectacle ou une démonstration à la fin de la saison ?",
           "memory_number": 10,
           "memory_section": 10
         },
         {
-          "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
+          "text": "Pour finir, je voudrais savoir si tu penses que ce cours serait un bon choix pour commencer sans stress.",
           "memory_number": 10,
           "memory_section": 13
         }

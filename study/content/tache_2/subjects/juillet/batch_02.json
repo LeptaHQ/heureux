@@ -12,75 +12,75 @@
       "prompt": "Je suis votre ami(e) et j'ai pris part il y a peu à un jeu télévisé. Intrigué(e), vous voulez tout savoir de l'aventure : comment on s'inscrit, comment ça se déroule et ce que ça apporte.",
       "questions": [
         {
-          "text": "Salut ! J'ai entendu dire que tu as participé à un jeu organisé par une chaîne de télévision — qu'est-ce qui t'a donné envie de t'inscrire ?",
+          "text": "Salut ! Tu as vraiment participé à un jeu télévisé ? Ça m'intrigue énormément, surtout que j'ai déjà pensé à m'inscrire un jour.",
           "memory_number": 10,
           "memory_section": 10
         },
         {
-          "text": "Comment se passe l'inscription — faut-il remplir un formulaire en ligne ou envoyer une vidéo ?",
+          "text": "Qu'est-ce qui t'a motivé(e) à tenter l'expérience ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Après l'inscription, comment se passe la sélection — faut-il passer un casting ou un entretien ?",
+          "text": "Comment se fait l'inscription au départ ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Y avait-il des conditions particulières pour participer — tu as dû préparer quelque chose à l'avance ?",
+          "text": "Y a-t-il ensuite un casting ou une sélection ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "La participation est-elle entièrement gratuite ou certains frais restent-ils à la charge des candidats ?",
+          "text": "Faut-il remplir certaines conditions pour être accepté(e) ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Combien de temps dure le tournage — quelques heures ou toute la journée ?",
+          "text": "Le jour du tournage, combien de temps faut-il prévoir ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
+          "text": "Il y avait beaucoup de candidats ?",
           "memory_number": 10,
           "memory_section": 7
         },
         {
-          "text": "C'est en équipe ou individuellement ?",
+          "text": "D'ailleurs, le jeu se jouait-il seul(e) ou en équipe ?",
           "memory_number": 10,
           "memory_section": 7
         },
         {
-          "text": "Peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
+          "text": "Tu pourrais m'expliquer comment se déroulait l'émission, étape par étape ?",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "Les défis étaient plutôt difficiles ou amusants — il y a eu des moments stressants ?",
+          "text": "Les épreuves étaient plutôt difficiles ou surtout amusantes ?",
           "memory_number": 10,
           "memory_section": 10
         },
         {
-          "text": "Le jeu proposait-il des questions ou des défis particuliers ?",
+          "text": "Quel type de défis ou de questions y avait-il ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
+          "text": "Autre point important : est-ce qu'il faut prévoir des dépenses pour participer ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus ?",
+          "text": "Qu'est-ce qu'on peut gagner réellement ?",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "Et ça va être diffusé à la télévision — on pourra te voir à l'écran bientôt ?"
+          "text": "Et après coup, qu'est-ce que tu retires de cette expérience ?"
         },
         {
-          "text": "Pour finir, as-tu appris quelque chose de nouveau ou vécu une expérience vraiment marquante ?",
+          "text": "Pour finir, je voudrais savoir si tu me conseillerais de tenter ma chance moi aussi.",
           "memory_number": 10,
           "memory_section": 10
         }

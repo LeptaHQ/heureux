@@ -34,6 +34,8 @@
       <a
         class="subject-row-hit-area"
         href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}"
+        target="_blank"
+        rel="noopener noreferrer"
         aria-label="Ouvrir {{ subject.combination_label }} : {{ subject.prompt.text }}">
         <span class="sr-only">Ouvrir le sujet</span>
       </a>

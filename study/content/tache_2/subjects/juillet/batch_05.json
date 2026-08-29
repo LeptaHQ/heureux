@@ -76,51 +76,51 @@
       "prompt": "Je suis votre ami(e) et je viens de suivre un atelier de cuisine. Envie d'en faire autant, vous me demandez ce qu'il en coûte, à quels horaires ça se déroule et ce qu'on y apprend.",
       "questions": [
         {
-          "text": "Salut ! Tu m'as dit que tu avais suivi un atelier de cuisine — ça m'intéresse beaucoup, tu peux m'en parler ?"
+          "text": "Salut ! Tu as fait un atelier de cuisine récemment, non ? Ça m'intéresse beaucoup, alors dis-moi comment ça s'est passé."
         },
         {
-          "text": "Ça se passe où exactement — dans une école de cuisine, un restaurant ?"
+          "text": "Qu'est-ce qu'on apprend pendant l'atelier, exactement ?"
         },
         {
-          "text": "Qu'est-ce qu'on apprend concrètement — un type de cuisine en particulier ?"
+          "text": "Travaille-t-on un type de cuisine précis ou plusieurs recettes ?"
         },
         {
-          "text": "On cuisine vraiment nous-mêmes ou c'est surtout de la démonstration ?"
+          "text": "Est-ce qu'on cuisine soi-même ou est-ce surtout une démonstration ?"
         },
         {
-          "text": "Il faut déjà savoir cuisiner ou c'est ouvert aux débutants ?",
+          "text": "Est-ce que c'est ouvert aux débutants ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Ça dure combien de temps — une séance de quelques heures ou plusieurs cours ?"
+          "text": "Ça se passe où ?"
         },
         {
-          "text": "C'est à quel moment — plutôt en soirée ou le week-end ?"
+          "text": "Les ateliers ont lieu quand, en général ?"
         },
         {
-          "text": "Il y a combien de participants par atelier ?"
+          "text": "Et chaque séance dure combien de temps ?"
         },
         {
-          "text": "Combien ça coûte — c'est à la séance ou il y a un forfait ?"
+          "text": "D'ailleurs, combien de participants y a-t-il par atelier ?"
         },
         {
-          "text": "Le prix comprend quoi — les ingrédients et le matériel sont fournis ?"
+          "text": "Parlons du coût : combien faut-il prévoir ?"
         },
         {
-          "text": "Est-ce qu'on repart avec les plats qu'on a préparés ?"
+          "text": "Le tarif comprend-il les ingrédients et les ustensiles ?"
         },
         {
-          "text": "Est-ce qu'on mange ensemble à la fin de l'atelier ?"
+          "text": "Autre point important : faut-il apporter un tablier ou du matériel personnel ?"
         },
         {
-          "text": "Faut-il apporter quelque chose — un tablier, ses propres ustensiles ?"
+          "text": "Est-ce qu'on mange ensemble à la fin ou repart-on avec les plats ?"
         },
         {
-          "text": "Comment on s'inscrit — il reste encore des places ?"
+          "text": "Comment se passe l'inscription, et faut-il réserver longtemps à l'avance ?"
         },
         {
-          "text": "Pour finir — tu me le recommandes vraiment, cet atelier ?"
+          "text": "Pour finir, je voudrais savoir si cet atelier vaut vraiment le coup pour progresser et passer un bon moment."
         }
       ]
     },
@@ -130,10 +130,9 @@
       "prompt": "Je suis votre collègue et vous venez d'arriver à Toronto. À la recherche d'un lieu pour fêter votre anniversaire, vous me demandez conseil sur les restaurants de la ville : le type de cuisine, les prix et l'ambiance.",
       "questions": [
         {
-          "text": "Salut ! Je viens de m'installer à Toronto et je cherche un bon restaurant pour fêter mon anniversaire — tu aurais des idées à me conseiller ?"
-        },
-        {
-          "text": "Quels types de cuisine on trouve dans les restaurants du coin ?"
+          "text": "Salut ! Comme je débarque à peine à Toronto, je ne connais encore aucun restaurant — je voudrais fêter mon anniversaire quelque part de sympa, tu me conseilles quoi ?",
+          "memory_number": 11,
+          "memory_section": 13
         },
         {
           "text": "Ça va plutôt dans quelle gamme de prix en général ?",
@@ -141,21 +140,32 @@
           "memory_section": 3
         },
         {
-          "text": "L'ambiance est plutôt calme et intime, ou plus animée et festive ?",
+          "text": "Quels types de cuisine on trouve dans les restaurants du coin ?",
+          "memory_number": 11,
+          "memory_section": 2
+        },
+        {
+          "text": "Une autre chose m'intéresse : l'ambiance est plutôt calme et intime, ou plus animée et festive ?",
           "memory_number": 11,
           "memory_section": 10
         },
         {
-          "text": "Ces restaurants conviennent pour un groupe, ou plutôt pour de petites tables ?"
+          "text": "Ces restaurants conviennent pour un groupe, ou plutôt pour de petites tables ?",
+          "memory_number": 11,
+          "memory_section": 7
         },
         {
-          "text": "Il faut réserver à l'avance, surtout pour un week-end ?"
+          "text": "Il faut réserver à l'avance, surtout pour un week-end ?",
+          "memory_number": 11,
+          "memory_section": 6
         },
         {
-          "text": "Certains proposent un menu spécial pour les anniversaires ?"
+          "text": "Certains proposent un menu spécial pour les anniversaires ?",
+          "memory_number": 11,
+          "memory_section": 9
         },
         {
-          "text": "Ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
+          "text": "Pendant qu'on y est, ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
           "memory_number": 11,
           "memory_section": 5
         },
@@ -165,10 +175,14 @@
           "memory_section": 9
         },
         {
-          "text": "Il y a des options pour les régimes particuliers ou les allergies ?"
+          "text": "Il y a des options pour les régimes particuliers ou les allergies ?",
+          "memory_number": 11,
+          "memory_section": 8
         },
         {
-          "text": "Tu as mentionné un restaurant en particulier — tu pourrais m'en dire un peu plus ?"
+          "text": "Au fait, tu as mentionné un restaurant en particulier — tu pourrais m'en dire un peu plus ?",
+          "memory_number": 11,
+          "memory_section": 13
         },
         {
           "text": "Tu y es déjà allé(e) toi-même — qu'est-ce que tu en as pensé ?",
@@ -179,11 +193,6 @@
           "text": "Le rapport qualité-prix te semble bon, comparé à d'autres endroits ?",
           "memory_number": 11,
           "memory_section": 11
-        },
-        {
-          "text": "Le service y est plutôt rapide, ou plus adapté à une soirée tranquille ?",
-          "memory_number": 11,
-          "memory_section": 9
         },
         {
           "text": "Pour finir — parmi tous ceux que tu connais, lequel tu me recommandes vraiment pour l'occasion ?"

@@ -59,6 +59,8 @@
               <a
                 class="subject-row-hit-area"
                 href="{% url 'study:task_subject_detail' part.slug task.slug subject.month_slug subject.batch_number subject.number %}"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Ouvrir le sujet : {{ subject.title }}">
                 <span class="sr-only">Ouvrir le sujet</span>
               </a>
@@ -112,6 +114,8 @@
                         <a
                           class="subject-table-row-link"
                           href="{% url 'study:task_subject_detail' part.slug task.slug subject.month_slug subject.batch_number subject.number %}"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           aria-label="Ouvrir le sujet : {{ subject.title }}">{{ subject.title }}</a>
                         {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="tache-two-theme-prompts" prompt_key=subject.content_key label="Copier la consigne" subject_label=subject.title label_hidden=True only %}
                       </div>

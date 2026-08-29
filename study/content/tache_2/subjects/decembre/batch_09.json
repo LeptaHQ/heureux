@@ -12,51 +12,51 @@
       "prompt": "Je suis professeur de guitare. Vous souhaitez suivre des cours avec moi. Vous me posez des questions sur l’organisation des leçons (horaires, tarifs, styles musicaux, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! J'aimerais prendre des cours de guitare avec vous — comment cela se passe-t-il en général ?"
+          "text": "Bonjour ! J'aimerais commencer la guitare et je me renseigne avant de choisir un professeur. Comment se passent vos cours, en général ?"
         },
         {
-          "text": "Les cours sont-ils individuels, ou proposez-vous aussi des petits groupes ?"
+          "text": "Vous donnez surtout des cours individuels ou aussi en petit groupe ?"
         },
         {
-          "text": "Vous enseignez à quels niveaux — est-ce que les grands débutants sont les bienvenus ?"
+          "text": "Est-ce que vous acceptez les grands débutants qui n'ont jamais joué ?"
         },
         {
-          "text": "Un cours dure combien de temps en général ?"
+          "text": "Quels styles enseignez-vous le plus : folk, classique, rock, accompagnement de chansons ?"
         },
         {
-          "text": "Vous conseillez quelle fréquence pour progresser régulièrement ?"
+          "text": "D'ailleurs, votre méthode est-elle plutôt basée sur la pratique, la lecture, ou un mélange des deux ?"
         },
         {
-          "text": "Les cours ont lieu où exactement — chez vous, chez l'élève, ou dans un studio ?"
+          "text": "Les leçons durent combien de temps ?"
         },
         {
-          "text": "Quels styles de guitare enseignez-vous — classique, folk, rock, jazz, flamenco ?"
+          "text": "À quelle fréquence conseillez-vous de prendre cours pour progresser régulièrement ?"
         },
         {
-          "text": "Quelle méthode utilisez-vous — plutôt lecture, pratique, accompagnement de chansons, ou un mélange ?"
+          "text": "Les cours ont lieu chez vous, chez l'élève, ou en ligne si besoin ?"
         },
         {
-          "text": "Faut-il avoir sa propre guitare dès le début, ou pouvez-vous en prêter une pour les premières séances ?"
+          "text": "Faut-il déjà avoir sa propre guitare, ou peut-on commencer avec un instrument prêté ?"
         },
         {
-          "text": "Au bout de combien de temps peut-on commencer à jouer de vrais morceaux ?"
+          "text": "Au bout de combien de temps peut-on jouer quelques morceaux simples ?"
         },
         {
-          "text": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
+          "text": "Autre point important : comment fonctionnent vos tarifs, à la séance ou au forfait ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Est-ce qu'il y a possibilité de faire un cours d'essai avant de s'engager ?"
+          "text": "Proposez-vous un cours d'essai avant de s'engager ?"
         },
         {
-          "text": "Comment suivez-vous la progression de vos élèves — avez-vous des étapes ou des objectifs précis ?"
+          "text": "Comment suivez-vous la progression de vos élèves ?"
         },
         {
-          "text": "Est-ce que vous auriez éventuellement d'autres élèves ou anciens élèves que je pourrais contacter pour avoir un retour ?"
+          "text": "Et si on doit annuler un cours, comment cela se passe-t-il ?"
         },
         {
-          "text": "Pour finir — comment fixe-t-on le premier rendez-vous, et qu'est-ce que je dois apporter pour la première leçon ?"
+          "text": "Pour finir, je voudrais savoir ce que je dois apporter pour une première leçon avec vous."
         }
       ]
     },

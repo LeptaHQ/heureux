@@ -65,6 +65,8 @@
               <a
                 class="ee-t3-subject-table__link subject-table-row-link"
                 href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Ouvrir {{ subject.combination_label }} : {{ subject.prompt.text }}">{{ subject.prompt.text }}</a>
               <span>{{ subject.document_count }} documents · {{ subject.vocabulary_count }} vocabs</span>
             </td>

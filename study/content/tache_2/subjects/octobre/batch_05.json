@@ -154,77 +154,77 @@
       "prompt": "Enseignant(e) de piano dans une école de musique du quartier, je vous renseigne, en voisin(e), sur l'établissement : vous voulez suivre des cours et m'interrogez sur les formules, les prix, les horaires, etc.",
       "questions": [
         {
-          "text": "Bonjour, je souhaite m'inscrire à un cours dans votre école de musique — comment cela fonctionne-t-il ?",
+          "text": "Bonjour ! Comme vous enseignez le piano dans l'école de musique du quartier, je voulais justement vous demander comment sont organisés les cours pour quelqu'un qui hésite à se lancer.",
           "memory_number": 10,
           "memory_section": 13
         },
         {
-          "text": "Quels instruments peut-on apprendre chez vous ?",
+          "text": "Les cours de piano sont-ils individuels ou en petit groupe ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Les cours sont-ils individuels, ou plutôt en petit groupe ?",
+          "text": "Est-ce qu'un débutant complet peut commencer sans aucune base ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Ça s'adresse à quel niveau — faut-il déjà avoir des bases, ou les débutants sont acceptés ?",
+          "text": "Comment choisissez-vous la formule adaptée selon l'âge ou le niveau ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Les cours ont lieu à quelle fréquence, et combien de temps dure une séance ?",
+          "text": "À quelle fréquence ont lieu les cours ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "text": "Et combien de temps dure une leçon ?",
           "memory_number": 10,
           "memory_section": 7
         },
         {
-          "text": "Faut-il apporter son propre instrument, ou l'école peut-elle en fournir un pour commencer ?",
+          "text": "Travaille-t-on seulement le piano, ou aussi un peu de solfège ?",
           "memory_number": 10,
           "memory_section": 8
         },
         {
-          "text": "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
+          "text": "D'ailleurs, faut-il avoir un piano ou un clavier à la maison pour suivre sérieusement ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Y a-t-il des frais supplémentaires, comme les partitions ou le matériel ?",
+          "text": "L'école peut-elle proposer une solution pour commencer si on n'est pas encore équipé ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Est-ce qu'on peut essayer avec un cours d'essai avant de s'engager ?",
+          "text": "Autre point important : comment fonctionnent les tarifs ?",
           "memory_number": 10,
           "memory_section": 3
         },
         {
-          "text": "Si je rate un cours, est-il possible de le rattraper à un autre moment ?",
+          "text": "Y a-t-il des frais supplémentaires pour les partitions ou le matériel ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Organisez-vous aussi des petits concerts ou des récitals pour les élèves ?",
+          "text": "Peut-on faire un cours d'essai avant l'inscription ?",
           "memory_number": 10,
           "memory_section": 2
         },
         {
-          "text": "Comment suivez-vous la progression des élèves — il y a des évaluations régulières ?",
+          "text": "Comment se passe l'inscription, et si on manque un cours, peut-on le rattraper ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "L'école est-elle facilement accessible, et y a-t-il un parking à proximité ?",
+          "text": "Organisez-vous des auditions ou des petits concerts pour les élèves ?",
           "memory_number": 10,
           "memory_section": 5
         },
         {
-          "text": "Pour finir — pour quelqu'un qui débute, quel instrument me conseilleriez-vous ?",
+          "text": "Pour finir, je voudrais savoir si le piano est un bon choix pour débuter la musique dans votre école.",
           "memory_number": 10,
           "memory_section": 11
         }

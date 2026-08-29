@@ -63,6 +63,8 @@
         <a
           class="subject-row-hit-area"
           href="{% url 'study:task_subject_detail' part.slug task.slug subject_month.slug subject_batch.number subject.number %}"
+          target="_blank"
+          rel="noopener noreferrer"
           aria-label="Ouvrir le sujet {{ subject.number_label }} : {{ subject.title }}">
           <span class="sr-only">Ouvrir le sujet {{ subject.number_label }}</span>
         </a>

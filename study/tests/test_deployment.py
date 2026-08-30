@@ -11,7 +11,7 @@ import json
 import os
 import re
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import call, patch
 
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
@@ -23,13 +23,17 @@ from config.settings import (
     env_int,
     is_pooled_db_host,
 )
+from study.management.commands.deploy_database import (
+    Command as DatabaseDeployCommand,
+    deployment_commit_message,
+    should_skip_database_deploy,
+)
 
 REPO_ROOT = Path(settings.BASE_DIR)
 RENDER_YAML = REPO_ROOT / "render.yaml"
 VERCEL_JSON = REPO_ROOT / "vercel.json"
 
-MIGRATE_COMMAND = "python manage.py migrate --noinput"
-IMPORT_COMMAND = "python manage.py import_content --if-changed"
+DEPLOY_COMMAND = "python manage.py deploy_database"
 
 
 def render_service_fields() -> dict[str, str]:
@@ -131,19 +135,17 @@ class DeploymentCommandTests(SimpleTestCase):
         # work there wakes Neon on every restart.
         self.assertNotIn("manage.py", start)
 
-    def test_free_render_runs_database_work_during_the_build(self):
+    def test_free_render_runs_database_deployment_during_the_build(self):
         self.assertEqual(self.service["plan"], "free")
         self.assertNotIn("preDeployCommand", self.service)
         build = self.service["buildCommand"]
-        self.assertIn(MIGRATE_COMMAND, build)
-        self.assertIn(IMPORT_COMMAND, build)
+        self.assertIn(DEPLOY_COMMAND, build)
 
     def test_render_runs_deploy_database_work_exactly_once_per_deploy(self):
         # The free plan runs this in the build; it must never leak back into the
         # start path, which is executed again on every cold start.
         deploy_time = self.service["buildCommand"]
-        self.assertEqual(deploy_time.count("manage.py migrate"), 1)
-        self.assertEqual(deploy_time.count("manage.py import_content"), 1)
+        self.assertEqual(deploy_time.count("manage.py deploy_database"), 1)
 
     def test_render_build_command_installs_the_app(self):
         build = self.service["buildCommand"]
@@ -163,10 +165,87 @@ class DeploymentCommandTests(SimpleTestCase):
             body,
         )
 
-    def test_vercel_build_migrates_and_runs_the_guarded_import(self):
+    def test_vercel_build_runs_the_database_deployment_command(self):
         config = json.loads(VERCEL_JSON.read_text())
 
-        self.assertEqual(
-            config["buildCommand"],
-            f"{MIGRATE_COMMAND} && {IMPORT_COMMAND}",
+        self.assertEqual(config["buildCommand"], DEPLOY_COMMAND)
+
+
+class DatabaseDeployCommandTests(SimpleTestCase):
+    def test_skip_marker_is_case_insensitive(self):
+        self.assertTrue(
+            should_skip_database_deploy(
+                "Roll out compute safeguards [SKIP DB]"
+            )
         )
+        self.assertFalse(should_skip_database_deploy("Normal deployment"))
+
+    def test_platform_commit_message_avoids_git_lookup(self):
+        with (
+            patch.dict(
+                os.environ,
+                {"VERCEL_GIT_COMMIT_MESSAGE": "Platform message"},
+            ),
+            patch("subprocess.run") as run,
+        ):
+            self.assertEqual(deployment_commit_message(), "Platform message")
+        run.assert_not_called()
+
+    def test_marked_commit_skips_database_commands(self):
+        command = DatabaseDeployCommand()
+        with (
+            patch(
+                "study.management.commands.deploy_database."
+                "deployment_commit_message",
+                return_value="Schema-free rollout [skip db]",
+            ),
+            patch(
+                "study.management.commands.deploy_database.call_command"
+            ) as call_command_mock,
+        ):
+            command.handle(force=False, verbosity=1)
+        call_command_mock.assert_not_called()
+
+    def test_normal_commit_migrates_then_imports(self):
+        command = DatabaseDeployCommand()
+        with (
+            patch(
+                "study.management.commands.deploy_database."
+                "deployment_commit_message",
+                return_value="Normal deployment",
+            ),
+            patch(
+                "study.management.commands.deploy_database.call_command"
+            ) as call_command_mock,
+        ):
+            command.handle(force=False, verbosity=1)
+        self.assertEqual(
+            call_command_mock.call_args_list,
+            [
+                call(
+                    "migrate",
+                    interactive=False,
+                    verbosity=1,
+                ),
+                call(
+                    "import_content",
+                    if_changed=True,
+                    verbosity=1,
+                ),
+            ],
+        )
+
+    def test_force_runs_database_commands_for_a_marked_commit(self):
+        command = DatabaseDeployCommand()
+        with (
+            patch(
+                "study.management.commands.deploy_database."
+                "deployment_commit_message",
+                return_value="Retry [skip db]",
+            ),
+            patch(
+                "study.management.commands.deploy_database.call_command"
+            ) as call_command_mock,
+        ):
+            command.handle(force=True, verbosity=1)
+        self.assertEqual(call_command_mock.call_count, 2)

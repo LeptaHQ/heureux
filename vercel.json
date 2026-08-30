@@ -1,4 +1,4 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "python manage.py migrate --noinput && python manage.py import_content --if-changed"
+  "buildCommand": "python manage.py deploy_database"
 }

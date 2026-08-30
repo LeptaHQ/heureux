@@ -9,7 +9,7 @@ services:
     # deployment work once in the build instead of on every cold start.
     # Vercel runs the same guarded import for deployment resilience; the
     # database advisory lock and content fingerprint prevent duplicate work.
-    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate --noinput && python manage.py import_content --if-changed"
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py deploy_database"
     startCommand: "gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --log-file -"
     envVars:
       - key: PYTHON_VERSION

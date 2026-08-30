@@ -5,8 +5,12 @@ services:
     plan: free
     region: oregon
     healthCheckPath: /healthz
-    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
-    startCommand: "python manage.py migrate --noinput && python manage.py import_content --if-changed && gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --log-file -"
+    # Free Render services do not support pre-deploy commands, so run database
+    # deployment work once in the build instead of on every cold start.
+    # Vercel runs the same guarded import for deployment resilience; the
+    # database advisory lock and content fingerprint prevent duplicate work.
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate --noinput && python manage.py import_content --if-changed"
+    startCommand: "gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --log-file -"
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.15
@@ -20,8 +24,17 @@ services:
         generateValue: true
       - key: WEB_CONCURRENCY
         value: "2"
+      # Keep a pooled connection only as long as a gunicorn worker really
+      # reuses it, so Neon's compute can autosuspend between bursts of traffic.
+      # This mirrors the Render default in config/settings.py.
+      - key: DB_CONN_MAX_AGE
+        value: "60"
+      - key: DB_CONN_HEALTH_CHECKS
+        value: "True"
       # Set these in the Render dashboard (Environment tab):
-      #   DATABASE_URL — your Neon connection string (postgresql://...)
+      #   DATABASE_URL — your Neon connection string (postgresql://...). Use the
+      #   pooled endpoint (host contains "-pooler"); settings.py then disables
+      #   server-side cursors for PgBouncer transaction mode automatically.
       - key: DATABASE_URL
         sync: false
       - key: ALLOWED_HOSTS

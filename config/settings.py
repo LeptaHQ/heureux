@@ -9,6 +9,7 @@ from pathlib import Path
 import os
 
 import dj_database_url
+from django.core.exceptions import ImproperlyConfigured
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,6 +32,47 @@ def env_list(name: str, default: str = "") -> list[str]:
     return [item.strip() for item in raw.split(",") if item.strip()]
 
 
+def env_int(name: str, default: int) -> int:
+    raw = os.environ.get(name, "").strip()
+    if not raw:
+        return default
+    try:
+        value = int(raw)
+    except ValueError as exc:
+        raise ImproperlyConfigured(
+            f"{name} must be a non-negative integer."
+        ) from exc
+    if value < 0:
+        raise ImproperlyConfigured(f"{name} must be a non-negative integer.")
+    return value
+
+
+def default_conn_max_age(*, on_vercel: bool, on_render: bool) -> int:
+    """Seconds a database connection may be reused, per platform.
+
+    Serverless functions (Vercel) can be frozen or recycled between invocations,
+    so persistent connections provide little value and can hold scarce slots
+    open. Long-lived gunicorn workers (Render) do reuse connections, but a short
+    lifetime still lets the database go idle between bursts of traffic. Locally
+    the database is free, so keep connections for the full ten minutes.
+    """
+    if on_vercel:
+        return 0
+    if on_render:
+        return 60
+    return 600
+
+
+def default_conn_health_checks(*, on_vercel: bool) -> bool:
+    """Health checks only pay off when connections are actually reused."""
+    return not on_vercel
+
+
+def is_pooled_db_host(host: str) -> bool:
+    """True for a Neon pooled endpoint (``...-pooler...``), served by PgBouncer."""
+    return "-pooler" in (host or "").lower()
+
+
 SECRET_KEY = os.environ.get(
     "SECRET_KEY",
     "dev-insecure-key-change-me-in-production-0123456789abcdef",
@@ -50,6 +92,17 @@ TRUSTED_PROXY_CIDRS = env_list("TRUSTED_PROXY_CIDRS")
 # Render provides the public hostname at runtime — trust it automatically so
 # the app works without manually listing the *.onrender.com domain.
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+
+# Which platform is serving this process. Vercel runs the app as a short-lived
+# serverless function, Render as a long-lived gunicorn worker; their database
+# connection defaults differ accordingly.
+ON_VERCEL = env_bool("VERCEL") or bool(os.environ.get("VERCEL_ENV"))
+ON_RENDER = bool(
+    env_bool("RENDER")
+    or os.environ.get("RENDER_SERVICE_ID")
+    or RENDER_EXTERNAL_HOSTNAME
+)
+
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
     CSRF_TRUSTED_ORIGINS.append(f"https://{RENDER_EXTERNAL_HOSTNAME}")
@@ -144,13 +197,34 @@ _db_url = (
     os.environ.get("DATABASE_URL") or os.environ.get("POSTGRES_URL") or ""
 ).strip()
 _sqlite_path = os.environ.get("DATABASE_PATH", BASE_DIR / "db.sqlite3")
-DATABASES = {
-    "default": dj_database_url.parse(
-        _db_url or f"sqlite:///{_sqlite_path}",
-        conn_max_age=int(os.environ.get("DB_CONN_MAX_AGE", "600")),
-        conn_health_checks=True,
-    )
-}
+
+# A serverless Postgres (Neon) bills compute for the time its endpoint stays
+# awake, so connections are kept only as long as they are genuinely reused.
+DB_CONN_MAX_AGE = env_int(
+    "DB_CONN_MAX_AGE",
+    default_conn_max_age(on_vercel=ON_VERCEL, on_render=ON_RENDER),
+)
+DB_CONN_HEALTH_CHECKS = env_bool(
+    "DB_CONN_HEALTH_CHECKS",
+    default_conn_health_checks(on_vercel=ON_VERCEL),
+)
+
+_db_config = dj_database_url.parse(
+    _db_url or f"sqlite:///{_sqlite_path}",
+    conn_max_age=DB_CONN_MAX_AGE,
+    conn_health_checks=DB_CONN_HEALTH_CHECKS,
+)
+
+# Neon's pooled endpoint (``...-pooler...``) is PgBouncer in transaction mode,
+# which cannot hold a server-side cursor open across statements. Detect it from
+# the parsed host so the connection URL is never rewritten or exposed.
+DB_IS_POOLED = is_pooled_db_host(_db_config.get("HOST", ""))
+_db_config["DISABLE_SERVER_SIDE_CURSORS"] = env_bool(
+    "DB_DISABLE_SERVER_SIDE_CURSORS",
+    DB_IS_POOLED,
+)
+
+DATABASES = {"default": _db_config}
 
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},

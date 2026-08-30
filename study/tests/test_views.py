@@ -2,14 +2,17 @@
 
 from __future__ import annotations
 
+import json
 import re
 import threading
 from datetime import timedelta
 from unittest.mock import patch
 
 from django.conf import settings
+from django.db.backends.base.base import BaseDatabaseWrapper
 from django.test import (
     Client,
+    RequestFactory,
     TestCase,
     TransactionTestCase,
     override_settings,
@@ -18,10 +21,12 @@ from django.test import (
 from django.urls import reverse
 from django.utils import timezone
 
+from config import urls as config_urls
 from study import content_loader as content_module
 from study import srs, views as study_views
 from study.content_loader import load_sections
 from study.management.commands.import_content import Command
+from study.middleware import HealthCheckMiddleware
 from study.models import (
     Annotation,
     AnnotationKind,
@@ -61,6 +66,44 @@ class HealthTests(TestCase):
         r = self.client.get("/healthz", HTTP_HOST="10.222.26.203")
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r.json()["status"], "ok")
+
+    @override_settings(ALLOWED_HOSTS=["heureux.onrender.com"])
+    def test_healthz_never_opens_a_database_connection(self):
+        # The probe runs continuously; a serverless Postgres (Neon) counts any
+        # connection as activity, so touching the DB here would keep the compute
+        # endpoint awake forever. Patch the real connection entry point rather
+        # than counting SQL — opening a connection logs no queries at all.
+        with patch.object(
+            BaseDatabaseWrapper,
+            "ensure_connection",
+            autospec=True,
+        ) as ensure_connection:
+            r = self.client.get("/healthz", HTTP_HOST="10.222.26.203")
+        self.assertEqual(r.status_code, 200)
+        self.assertEqual(r.json()["status"], "ok")
+        ensure_connection.assert_not_called()
+
+    def test_healthz_url_view_never_opens_a_database_connection(self):
+        # The URLconf fallback (used when HealthCheckMiddleware is absent) must
+        # be just as DB-free as the middleware.
+        request = RequestFactory().get("/healthz")
+        with patch.object(
+            BaseDatabaseWrapper,
+            "ensure_connection",
+            autospec=True,
+        ) as ensure_connection:
+            response = config_urls.healthz(request)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(json.loads(response.content)["status"], "ok")
+        ensure_connection.assert_not_called()
+
+    def test_healthz_is_answered_before_any_other_middleware(self):
+        middleware = HealthCheckMiddleware(
+            lambda request: self.fail("downstream middleware must not run")
+        )
+        response = middleware(RequestFactory().get("/healthz"))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(json.loads(response.content)["status"], "ok")
 
     @override_settings(ALLOWED_HOSTS=["heureux.onrender.com"])
     def test_other_paths_still_validate_host(self):

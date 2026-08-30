@@ -1,7 +1,6 @@
 """URL configuration for the flashcards project."""
 
 from django.contrib import admin
-from django.db import connection
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.urls import include, path
@@ -10,11 +9,15 @@ from django.views.generic import TemplateView
 
 
 def healthz(request):
-    """Lightweight liveness probe for Render (verifies the DB responds)."""
-    try:
-        connection.ensure_connection()
-    except Exception:  # pragma: no cover - only on a broken DB
-        return JsonResponse({"status": "error"}, status=503)
+    """Process-liveness probe for Render — deliberately never touches the DB.
+
+    ``study.middleware.HealthCheckMiddleware`` normally answers this path first;
+    this view is the fallback when the middleware is not installed. Like the
+    middleware it performs zero database work: the probe runs continuously, and
+    a serverless Postgres (Neon) treats any connection as activity, so touching
+    the database here would keep the compute endpoint awake permanently instead
+    of letting it autosuspend. Database problems still surface on real requests.
+    """
     return JsonResponse({"status": "ok"})
 
 

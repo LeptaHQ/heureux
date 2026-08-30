@@ -72,6 +72,7 @@ from .helpers import (
     _route_task,
     _task_card,
     _task_cards,
+    _task_content_counts,
     _task_phrases,
     _task_scope,
     _tache_two_progress,
@@ -372,9 +373,11 @@ def part_detail(request, part_slug):
         slug=part_slug,
     )
     now = timezone.now()
+    part_tasks = list(part.tasks.all())
+    content_counts = _task_content_counts(part_tasks)
     tasks = [
-        _task_card(task, now, request.user)
-        for task in part.tasks.all()
+        _task_card(task, now, request.user, content_counts=content_counts)
+        for task in part_tasks
     ]
     if not part.available or not tasks:
         return render(

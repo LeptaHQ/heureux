@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from django.db import connection
 from django.http import JsonResponse
 from django.contrib.auth.views import redirect_to_login
 from django.conf import settings
@@ -25,6 +24,13 @@ class HealthCheckMiddleware:
     derived from ``PATH_INFO`` and never touches the Host header), we short-
     circuit ``/healthz`` to a 200 without weakening ``ALLOWED_HOSTS`` for any real
     traffic.
+
+    This probe is deliberately **process liveness only**: it must never open or
+    touch a database connection. Render polls it continuously, and a serverless
+    Postgres (Neon) counts every connection as activity, so a DB-touching probe
+    keeps the compute endpoint awake forever and burns the whole compute quota.
+    Answering without the database lets Neon autosuspend after its idle window;
+    real authenticated requests still surface database failures normally.
     """
 
     def __init__(self, get_response):
@@ -32,10 +38,6 @@ class HealthCheckMiddleware:
 
     def __call__(self, request):
         if request.path == HEALTH_CHECK_PATH:
-            try:
-                connection.ensure_connection()
-            except Exception:  # pragma: no cover - only on a broken DB
-                return JsonResponse({"status": "error"}, status=503)
             return JsonResponse({"status": "ok"})
         return self.get_response(request)
 

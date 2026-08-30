@@ -637,20 +637,160 @@ def _route_task(part_slug, task_slug):
     )
 
 
-def _ee_tache_one_task_card(task, user):
-    """Deck card for EE Tâche 1 with explicit subject completion."""
-    sujet_ids = list(
-        WritingSujet.objects.filter(
-            task=task,
+_EMPTY_TASK_CONTENT_COUNTS = {
+    "theme_count": 0,
+    "prompt_count": 0,
+    "phrase_count": 0,
+    "functional_phrase_count": 0,
+    "subject_vocabulary_count": 0,
+    "subject_vocabulary_prompt_count": 0,
+    "theme_vocabulary_count": 0,
+    "writing_sujet_ids": (),
+    "writing_sujet_category_count": 0,
+    "writing_sujet_response_count": 0,
+}
+
+
+def _task_content_counts(tasks):
+    """Static, user-independent content counts for several tasks at once.
+
+    Every card on the dashboard, the expression hub, and a part page shows the
+    same handful of catalogue counts. Fetched per task they cost six round trips
+    each; grouped by task they cost a fixed handful of queries for the whole
+    page, which is what a serverless Postgres bills for.
+
+    Returns ``{task_id: counts}`` with an entry for every task passed in, so a
+    task without content still reads as zeroes.
+    """
+    tasks = list(tasks)
+    counts = {
+        task.pk: dict(_EMPTY_TASK_CONTENT_COUNTS)
+        for task in tasks
+    }
+    available = [task for task in tasks if task.available]
+    task_ids = [task.pk for task in available]
+    if not task_ids:
+        return counts
+
+    for row in (
+        Theme.objects.filter(task_id__in=task_ids, is_active=True)
+        .order_by()
+        .values("task_id")
+        .annotate(total=Count("id"))
+    ):
+        counts[row["task_id"]]["theme_count"] = row["total"]
+
+    for row in (
+        Prompt.objects.filter(theme__task_id__in=task_ids, is_active=True)
+        .order_by()
+        .values("theme__task_id")
+        .annotate(total=Count("id"))
+    ):
+        counts[row["theme__task_id"]]["prompt_count"] = row["total"]
+
+    for row in (
+        Phrase.objects.filter(
             is_active=True,
-        ).values_list("pk", flat=True)
-    )
-    total = len(sujet_ids)
-    response_total = (
-        WritingSujet.objects.filter(task=task, is_active=True)
+            tier__in=(
+                PhraseTier.SHARED,
+                PhraseTier.SUBJECT,
+                PhraseTier.THEME,
+            ),
+            source_prompts__is_active=True,
+            source_prompts__theme__is_active=True,
+            source_prompts__theme__task_id__in=task_ids,
+        )
+        .order_by()
+        .values("source_prompts__theme__task_id")
+        .annotate(
+            shared=Count("id", distinct=True, filter=Q(tier=PhraseTier.SHARED)),
+            functional=Count(
+                "id",
+                distinct=True,
+                filter=Q(
+                    tier=PhraseTier.SHARED,
+                    category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES,
+                ),
+            ),
+            subject=Count(
+                "id",
+                distinct=True,
+                filter=Q(tier=PhraseTier.SUBJECT),
+            ),
+            theme=Count("id", distinct=True, filter=Q(tier=PhraseTier.THEME)),
+        )
+    ):
+        entry = counts[row["source_prompts__theme__task_id"]]
+        entry["phrase_count"] = row["shared"]
+        entry["functional_phrase_count"] = row["functional"]
+        entry["subject_vocabulary_count"] = row["subject"]
+        entry["theme_vocabulary_count"] = row["theme"]
+
+    for row in (
+        Prompt.objects.filter(
+            is_active=True,
+            response__is_active=True,
+            theme__is_active=True,
+            theme__task_id__in=task_ids,
+            phrases__is_active=True,
+            phrases__tier=PhraseTier.SUBJECT,
+        )
+        .order_by()
+        .values("theme__task_id")
+        .annotate(total=Count("id", distinct=True))
+    ):
+        counts[row["theme__task_id"]]["subject_vocabulary_prompt_count"] = row[
+            "total"
+        ]
+
+    writing_task_ids = [
+        task.pk
+        for task in available
+        if (task.part.slug, task.slug) == content_module.EE_TACHE_ONE_TASK
+    ]
+    if writing_task_ids:
+        _add_writing_sujet_counts(counts, writing_task_ids)
+    return counts
+
+
+def _add_writing_sujet_counts(counts, task_ids):
+    """EE Tâche 1 sujet ids, category count, and model-response count."""
+    sujet_ids_by_task = {task_id: [] for task_id in task_ids}
+    categories_by_task = {task_id: set() for task_id in task_ids}
+    for task_id, sujet_id, category in WritingSujet.objects.filter(
+        task_id__in=task_ids,
+        is_active=True,
+    ).values_list("task_id", "pk", "category"):
+        sujet_ids_by_task[task_id].append(sujet_id)
+        categories_by_task[task_id].add(category)
+    for task_id in task_ids:
+        entry = counts[task_id]
+        entry["writing_sujet_ids"] = sujet_ids_by_task[task_id]
+        entry["writing_sujet_category_count"] = len(categories_by_task[task_id])
+
+    for row in (
+        WritingSujet.objects.filter(task_id__in=task_ids, is_active=True)
         .exclude(versions=[])
-        .count()
-    )
+        .order_by()
+        .values("task_id")
+        .annotate(total=Count("id"))
+    ):
+        counts[row["task_id"]]["writing_sujet_response_count"] = row["total"]
+
+
+def _counts_for_task(task, content_counts=None):
+    """Counts for one task, batched by the caller when possible."""
+    if content_counts and task.pk in content_counts:
+        return content_counts[task.pk]
+    return _task_content_counts([task])[task.pk]
+
+
+def _ee_tache_one_task_card(task, user, content_counts=None):
+    """Deck card for EE Tâche 1 with explicit subject completion."""
+    counts = _counts_for_task(task, content_counts)
+    sujet_ids = list(counts["writing_sujet_ids"])
+    total = len(sujet_ids)
+    response_total = counts["writing_sujet_response_count"]
     progress_by_sujet = writing_sujet_progress_by_id(
         user,
         sujet_ids,
@@ -683,12 +823,7 @@ def _ee_tache_one_task_card(task, user):
         "counts": None,
         "phrase_counts": None,
         "revisit_count": 0,
-        "theme_count": (
-            WritingSujet.objects.filter(task=task, is_active=True)
-            .values("category")
-            .distinct()
-            .count()
-        ),
+        "theme_count": counts["writing_sujet_category_count"],
         "prompt_count": total,
         "phrase_count": 0,
         "functional_phrase_count": 0,
@@ -699,13 +834,23 @@ def _ee_tache_one_task_card(task, user):
     }
 
 
-def _task_card(task, now, user, *, with_stats=True, with_deck_stats=True):
+def _task_card(
+    task,
+    now,
+    user,
+    *,
+    with_stats=True,
+    with_deck_stats=True,
+    content_counts=None,
+):
     """Build a dashboard/part card for a single task.
 
     ``with_stats=False`` skips every SRS aggregate for callers that only need
     the content counts. ``with_deck_stats=False`` keeps the subject progress
     summary but drops the per-deck vocabulary stats and queue counts, which
-    the dashboard and expression hub never read.
+    the dashboard and expression hub never read. ``content_counts`` is the
+    :func:`_task_content_counts` mapping for every task on the page; when it is
+    missing (or lacks this task) the counts are fetched for this task alone.
     """
     question_bank = None
     subject_state = None
@@ -713,7 +858,12 @@ def _task_card(task, now, user, *, with_stats=True, with_deck_stats=True):
         task.available
         and (task.part.slug, task.slug) == content_module.EE_TACHE_ONE_TASK
     ):
-        return _ee_tache_one_task_card(task, user)
+        return _ee_tache_one_task_card(task, user, content_counts)
+    content_totals = (
+        _counts_for_task(task, content_counts)
+        if task.available
+        else _EMPTY_TASK_CONTENT_COUNTS
+    )
     if (
         task.available
         and with_stats
@@ -734,17 +884,7 @@ def _task_card(task, now, user, *, with_stats=True, with_deck_stats=True):
         task_progress = combine_progress(
             [vocabulary_progress, subject_state["progress"]]
         )
-        vocabulary_count = (
-            Phrase.objects.filter(
-                is_active=True,
-                tier=PhraseTier.THEME,
-                source_prompts__is_active=True,
-                source_prompts__theme__is_active=True,
-                source_prompts__theme__task=task,
-            )
-            .distinct()
-            .count()
-        )
+        vocabulary_count = content_totals["theme_vocabulary_count"]
         vocabulary_theme_count = len(
             content_module.load_tache_two_subject_themes()[0]
         )
@@ -828,30 +968,14 @@ def _task_card(task, now, user, *, with_stats=True, with_deck_stats=True):
                 counts = None
                 phrase_counts = None
                 revisit_count = 0
-        theme_count = Theme.objects.filter(task=task, is_active=True).count()
-        prompt_count = Prompt.objects.filter(
-            theme__task=task,
-            is_active=True,
-        ).count()
-        phrase_count = _task_phrases(task).count()
-        functional_phrase_count = _task_phrases(task).filter(
-            category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES
-        ).count()
-        subject_vocabulary_count = Phrase.objects.filter(
-            is_active=True,
-            tier=PhraseTier.SUBJECT,
-            source_prompts__is_active=True,
-            source_prompts__theme__is_active=True,
-            source_prompts__theme__task=task,
-        ).distinct().count()
-        subject_vocabulary_prompt_count = Prompt.objects.filter(
-            is_active=True,
-            response__is_active=True,
-            theme__is_active=True,
-            theme__task=task,
-            phrases__is_active=True,
-            phrases__tier=PhraseTier.SUBJECT,
-        ).distinct().count()
+        theme_count = content_totals["theme_count"]
+        prompt_count = content_totals["prompt_count"]
+        phrase_count = content_totals["phrase_count"]
+        functional_phrase_count = content_totals["functional_phrase_count"]
+        subject_vocabulary_count = content_totals["subject_vocabulary_count"]
+        subject_vocabulary_prompt_count = content_totals[
+            "subject_vocabulary_prompt_count"
+        ]
     else:
         response_stats = None
         phrase_stats = None

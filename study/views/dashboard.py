@@ -21,6 +21,7 @@ from ..progress import combine_progress
 
 from .helpers import (
     _task_card,
+    _task_content_counts,
     current_streak,
     deck_stats,
 )
@@ -36,6 +37,16 @@ STATUS_LABELS = {
 }
 
 def _parts_with_task_cards(now, user, *, with_stats=True, with_deck_stats=True):
+    parts = list(
+        ExamPart.objects.filter(is_active=True).prefetch_related(
+            Prefetch("tasks", queryset=Task.objects.filter(is_active=True))
+        )
+    )
+    tasks_by_part = [(part, list(part.tasks.all())) for part in parts]
+    # One grouped lookup for every card on the page instead of six per task.
+    content_counts = _task_content_counts(
+        [task for _, tasks in tasks_by_part for task in tasks]
+    )
     return [
         {
             "part": part,
@@ -46,13 +57,12 @@ def _parts_with_task_cards(now, user, *, with_stats=True, with_deck_stats=True):
                     user,
                     with_stats=with_stats,
                     with_deck_stats=with_deck_stats,
+                    content_counts=content_counts,
                 )
-                for task in part.tasks.all()
+                for task in tasks
             ],
         }
-        for part in ExamPart.objects.filter(is_active=True).prefetch_related(
-            Prefetch("tasks", queryset=Task.objects.filter(is_active=True))
-        )
+        for part, tasks in tasks_by_part
     ]
 
 

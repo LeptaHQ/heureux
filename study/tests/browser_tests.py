@@ -119,6 +119,34 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertTrue(fits, f"{self.page.url}: {overflowing}")
 
+    def touch_swipe(self, locator, from_x, to_x, y):
+        locator.evaluate(
+            """
+            (element, points) => {
+              const event = (type, x, buttons) => new PointerEvent(type, {
+                bubbles: true,
+                cancelable: true,
+                pointerId: 91,
+                pointerType: "touch",
+                isPrimary: true,
+                button: 0,
+                buttons,
+                clientX: x,
+                clientY: points.y,
+              });
+              element.dispatchEvent(event("pointerdown", points.fromX, 1));
+              for (let step = 1; step <= 5; step += 1) {
+                const x = points.fromX
+                  + ((points.toX - points.fromX) * step / 5);
+                element.dispatchEvent(event("pointermove", x, 1));
+              }
+              element.dispatchEvent(event("pointerup", points.toX, 0));
+            }
+            """,
+            {"fromX": from_x, "toX": to_x, "y": y},
+        )
+        self.page.wait_for_timeout(250)
+
     def _import_ee_tache_three_content(self):
         command = Command()
         months = content.load_ee_tache_three_months()
@@ -1877,15 +1905,7 @@ class BrowserTests(StaticLiveServerTestCase):
         swipe_y = card_box["y"] + card_box["height"] * 0.65
         swipe_start = card_box["x"] + card_box["width"] - 20
         swipe_end = card_box["x"] + 20
-        self.page.mouse.move(swipe_start, swipe_y)
-        self.page.mouse.down()
-        for step in range(1, 6):
-            self.page.mouse.move(
-                swipe_start + ((swipe_end - swipe_start) * step / 5),
-                swipe_y,
-            )
-        self.page.mouse.up()
-        self.page.wait_for_timeout(220)
+        self.touch_swipe(active_card, swipe_start, swipe_end, swipe_y)
         self.assertNotEqual(active_card.get_attribute("id"), first_card_id)
 
         table_toggle = self.page.get_by_role("button", name="Tableau")
@@ -2263,15 +2283,7 @@ class BrowserTests(StaticLiveServerTestCase):
             distance = min(100, box["width"] / 3)
             start_x = centre_x + (distance if direction == "left" else -distance)
             end_x = centre_x + (-distance if direction == "left" else distance)
-            self.page.mouse.move(start_x, centre_y)
-            self.page.mouse.down()
-            for step in range(1, 6):
-                self.page.mouse.move(
-                    start_x + (end_x - start_x) * step / 5,
-                    centre_y,
-                )
-            self.page.mouse.up()
-            self.page.wait_for_timeout(220)
+            self.touch_swipe(card, start_x, end_x, centre_y)
 
         swipe("left")
         self.page.locator("#card-back:not(.hidden)").wait_for()
@@ -2309,6 +2321,30 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.locator("#previous-card-label").wait_for(state="hidden")
         self.assertEqual(prompt.inner_text(), current_prompt)
         self.assert_no_horizontal_overflow()
+
+    def test_mouse_drag_selects_review_text_without_revealing_or_grading(self):
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        box = prompt.bounding_box()
+        y = box["y"] + min(24, box["height"] / 2)
+        self.page.mouse.move(box["x"] + 12, y)
+        self.page.mouse.down()
+        self.page.mouse.move(box["x"] + box["width"] - 12, y, steps=8)
+        self.page.mouse.up()
+        self.page.wait_for_timeout(150)
+
+        selection = self.page.evaluate(
+            "window.getSelection().toString().trim()"
+        )
+        self.assertTrue(selection)
+        self.assertTrue(self.page.locator("#card-front").is_visible())
+        self.assertTrue(self.page.locator("#grades").is_hidden())
+        self.assertFalse(ReviewLog.objects.filter(user=self.user).exists())
 
     def test_mobile_highlight_expands_then_toggles_off(self):
         self.page.goto(
@@ -4180,7 +4216,7 @@ class BrowserTests(StaticLiveServerTestCase):
         # Revealing the answer never changes the control row: the deck only
         # ever offers Précédente / Retourner / Suivante.
         control_boxes = self.page.locator(
-            ".annotation-study__controls .btn"
+            "[data-flashcard-controls] .btn:not(.hidden)"
         ).evaluate_all(
             """
             buttons => buttons.map(button => {
@@ -5158,7 +5194,7 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
-    def test_home_daily_activity_cards_stay_compact(self):
+    def test_home_command_center_is_compact_and_scannable(self):
         factories.make_comprehension_test()
         dashboard_url = self.live_server_url + reverse("study:dashboard")
 
@@ -5177,40 +5213,33 @@ class BrowserTests(StaticLiveServerTestCase):
             views_metric.evaluate("element => element.scrollWidth"),
             views_metric.evaluate("element => element.clientWidth"),
         )
-        desktop_heights = self.page.locator(".daily-card").evaluate_all(
-            "cards => cards.map(card => card.getBoundingClientRect().height)"
-        )
-        self.assertTrue(desktop_heights)
-        self.assertLessEqual(max(desktop_heights), 300)
-        self.assertEqual(
-            self.page.locator(".daily-card").first.evaluate(
-                "card => getComputedStyle(card, '::before').content"
-            ),
-            "none",
-        )
-        label_colors = self.page.locator(".daily-card .eyebrow").evaluate_all(
-            "labels => labels.map(label => getComputedStyle(label).color)"
-        )
-        self.assertEqual(len(label_colors), 3)
-        self.assertEqual(len(set(label_colors)), len(label_colors))
-        card_backgrounds = self.page.locator(".daily-card").evaluate_all(
-            "cards => cards.map(card => getComputedStyle(card).backgroundColor)"
-        )
-        surface_color = self.page.evaluate(
+
+        # "Aujourd\u2019hui" is one surface: the action and the goal share it
+        # side by side instead of reading as two unrelated panels.
+        desktop_today = self.page.locator(".home-today__body").evaluate(
             """
-            () => {
-              const probe = document.createElement("div");
-              probe.style.background = "var(--surface)";
-              document.body.append(probe);
-              const color = getComputedStyle(probe).backgroundColor;
-              probe.remove();
-              return color;
+            body => {
+              const action = body.querySelector('.home-today__action')
+                .getBoundingClientRect();
+              const goal = body.querySelector('.home-today__goal')
+                .getBoundingClientRect();
+              return {
+                actionTop: action.top,
+                goalTop: goal.top,
+                actionRight: action.right,
+                goalLeft: goal.left,
+              };
             }
             """
         )
-        self.assertEqual(set(card_backgrounds), {surface_color})
+        self.assertAlmostEqual(
+            desktop_today["actionTop"], desktop_today["goalTop"], delta=1
+        )
+        self.assertAlmostEqual(
+            desktop_today["actionRight"], desktop_today["goalLeft"], delta=1
+        )
         neutral_home_surfaces = self.page.locator(
-            ".home-spotlight, .home-featured"
+            ".home-today, .home-today__action"
         ).evaluate_all(
             """
             elements => elements.map(element => ({
@@ -5230,34 +5259,68 @@ class BrowserTests(StaticLiveServerTestCase):
             neutral_home_surfaces[-1]["borderLeftWidth"],
             "0px",
         )
-        desktop_today_layout = self.page.locator(
-            ".home-today__panel"
-        ).evaluate(
+
+        # The activity queue is a single scannable list of compact rows.
+        queue_rows = self.page.locator(".home-queue__item").evaluate_all(
             """
-            panel => {
-              const featured = panel.querySelector('.home-featured')
-                .getBoundingClientRect();
-              const goal = panel.querySelector('.home-goal')
-                .getBoundingClientRect();
+            rows => rows.map(row => {
+              const box = row.getBoundingClientRect();
               return {
-                featuredTop: featured.top,
-                goalTop: goal.top,
-                featuredRight: featured.right,
-                goalLeft: goal.left,
+                x: box.x,
+                y: box.y,
+                width: box.width,
+                height: box.height,
+                eyebrow: getComputedStyle(
+                  row.querySelector('.eyebrow')
+                ).color,
+                primary: Boolean(row.querySelector('.btn')),
+                secondary: Boolean(
+                  row.querySelector('.home-queue__secondary')
+                ),
               };
+            })
+            """
+        )
+        self.assertEqual(len(queue_rows), 3)
+        self.assertLessEqual(max(row["height"] for row in queue_rows), 120)
+        self.assertEqual(len({row["x"] for row in queue_rows}), 1)
+        self.assertEqual(
+            len({row["eyebrow"] for row in queue_rows}),
+            len(queue_rows),
+        )
+        self.assertTrue(all(row["primary"] for row in queue_rows))
+        self.assertTrue(all(row["secondary"] for row in queue_rows))
+        surface_color = self.page.evaluate(
+            """
+            () => {
+              const probe = document.createElement("div");
+              probe.style.background = "var(--surface)";
+              document.body.append(probe);
+              const color = getComputedStyle(probe).backgroundColor;
+              probe.remove();
+              return color;
             }
             """
         )
-        self.assertAlmostEqual(
-            desktop_today_layout["featuredTop"],
-            desktop_today_layout["goalTop"],
-            delta=1,
+        self.assertEqual(
+            self.page.locator(".home-queue__list").evaluate(
+                "list => getComputedStyle(list).backgroundColor"
+            ),
+            surface_color,
         )
-        self.assertAlmostEqual(
-            desktop_today_layout["featuredRight"],
-            desktop_today_layout["goalLeft"],
-            delta=1,
+
+        # Progress is one panel of rows, not a repeated grid of cards.
+        skill_rows = self.page.locator("[data-home-skill]").evaluate_all(
+            """
+            skills => skills.map(skill => {
+              const box = skill.getBoundingClientRect();
+              return {x: box.x, y: box.y, width: box.width};
+            })
+            """
         )
+        self.assertGreaterEqual(len(skill_rows), 2)
+        self.assertEqual(len({row["x"] for row in skill_rows}), 1)
+        self.assertEqual(len({round(row["y"]) for row in skill_rows}), len(skill_rows))
         self.assert_no_horizontal_overflow()
 
         for width in (1024, 900, 861):
@@ -5269,7 +5332,11 @@ class BrowserTests(StaticLiveServerTestCase):
                 )
                 self.assert_no_horizontal_overflow()
 
-        self.page.set_viewport_size({"width": 320, "height": 568})
+        for width in (390, 320):
+            with self.subTest(width=width):
+                self.page.set_viewport_size({"width": width, "height": 640})
+                self.assert_no_horizontal_overflow()
+
         views_metric.evaluate(
             """
             element => {
@@ -5322,11 +5389,33 @@ class BrowserTests(StaticLiveServerTestCase):
             mobile_hero_layout,
         )
         self.assertGreaterEqual(mobile_hero_layout["radius"], 12)
-        mobile_heights = self.page.locator(".daily-card").evaluate_all(
-            "cards => cards.map(card => card.getBoundingClientRect().height)"
+
+        mobile_queue = self.page.locator(".home-queue__item").evaluate_all(
+            """
+            rows => rows.map(row => {
+              const box = row.getBoundingClientRect();
+              const secondary = row.querySelector('.home-queue__secondary')
+                .getBoundingClientRect();
+              return {
+                height: box.height,
+                width: box.width,
+                secondaryWidth: secondary.width,
+                secondaryHeight: secondary.height,
+              };
+            })
+            """
         )
-        self.assertLessEqual(max(mobile_heights), 180)
-        mobile_skill_boxes = self.page.locator(".home-skill").evaluate_all(
+        self.assertEqual(len(mobile_queue), 3)
+        self.assertLessEqual(max(row["height"] for row in mobile_queue), 180)
+        for row in mobile_queue:
+            self.assertAlmostEqual(
+                row["secondaryWidth"], row["secondaryHeight"], delta=1
+            )
+            self.assertGreaterEqual(row["secondaryHeight"], 34)
+
+        mobile_skill_rows = self.page.locator(
+            "[data-home-skill]"
+        ).evaluate_all(
             """
             skills => skills.map(skill => {
               const box = skill.getBoundingClientRect();
@@ -5334,56 +5423,31 @@ class BrowserTests(StaticLiveServerTestCase):
             })
             """
         )
-        self.assertEqual(len(mobile_skill_boxes), 2)
-        self.assertAlmostEqual(
-            mobile_skill_boxes[0]["y"],
-            mobile_skill_boxes[1]["y"],
+        self.assertGreaterEqual(len(mobile_skill_rows), 2)
+        self.assertEqual(len({row["x"] for row in mobile_skill_rows}), 1)
+        self.assertNotAlmostEqual(
+            mobile_skill_rows[0]["y"],
+            mobile_skill_rows[1]["y"],
             delta=1,
         )
-        self.assertLess(mobile_skill_boxes[0]["width"], 160)
-        secondary_controls = self.page.locator(
-            ".daily-card__secondary"
-        ).evaluate_all(
+
+        mobile_today = self.page.locator(".home-today__body").evaluate(
             """
-            controls => controls.map(control => {
-              const box = control.getBoundingClientRect();
-              return {
-                width: box.width,
-                height: box.height,
-                labelDisplay: getComputedStyle(
-                  control.querySelector('.daily-card__secondary-label')
-                ).display,
-              };
-            })
-            """
-        )
-        self.assertTrue(secondary_controls)
-        for control in secondary_controls:
-            self.assertAlmostEqual(
-                control["width"],
-                control["height"],
-                delta=1,
-            )
-            self.assertEqual(control["labelDisplay"], "none")
-        mobile_today_layout = self.page.locator(
-            ".home-today__panel"
-        ).evaluate(
-            """
-            panel => {
-              const featured = panel.querySelector('.home-featured')
+            body => {
+              const action = body.querySelector('.home-today__action')
                 .getBoundingClientRect();
-              const goal = panel.querySelector('.home-goal')
+              const goal = body.querySelector('.home-today__goal')
                 .getBoundingClientRect();
               return {
-                featuredBottom: featured.bottom,
+                actionBottom: action.bottom,
                 goalTop: goal.top,
               };
             }
             """
         )
         self.assertAlmostEqual(
-            mobile_today_layout["featuredBottom"],
-            mobile_today_layout["goalTop"],
+            mobile_today["actionBottom"],
+            mobile_today["goalTop"],
             delta=1,
         )
         self.assert_no_horizontal_overflow()
@@ -5793,19 +5857,30 @@ class BrowserTests(StaticLiveServerTestCase):
             + reverse("study:review")
             + "?kind=spine&reset=1"
         )
+        # Deck controls are the shared rounded rectangles of the Notes
+        # standard: same height and radius, and clearly not icon circles.
         reveal = self.page.locator("#reveal")
-        reveal_metrics = reveal.evaluate(
-            """element => {
+        control_metrics = self.page.locator(
+            "#previous-card, #reveal"
+        ).evaluate_all(
+            """elements => elements.map(element => {
               const style = getComputedStyle(element);
               return {
                 height: parseFloat(style.height),
                 radius: parseFloat(style.borderTopLeftRadius),
               };
-            }"""
+            })"""
         )
-        self.assertGreaterEqual(
-            reveal_metrics["radius"], reveal_metrics["height"] / 2 - 1
+        self.assertEqual(len(control_metrics), 2)
+        self.assertEqual(
+            len({metrics["radius"] for metrics in control_metrics}), 1
         )
+        self.assertEqual(
+            len({metrics["height"] for metrics in control_metrics}), 1
+        )
+        for metrics in control_metrics:
+            self.assertGreaterEqual(metrics["radius"], 10)
+            self.assertLess(metrics["radius"], metrics["height"] / 2 - 1)
         reveal.click()
         grade_metrics = self.page.locator(".grade").first.evaluate(
             """element => {
@@ -5816,9 +5891,8 @@ class BrowserTests(StaticLiveServerTestCase):
               };
             }"""
         )
-        self.assertGreaterEqual(
-            grade_metrics["radius"], grade_metrics["height"] / 2 - 1
-        )
+        self.assertEqual(grade_metrics["radius"], control_metrics[0]["radius"])
+        self.assertEqual(grade_metrics["height"], control_metrics[0]["height"])
 
         self.page.set_viewport_size({"width": 320, "height": 568})
         toggle = self.page.get_by_role("button", name="Ouvrir le menu")
@@ -6136,6 +6210,187 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertEqual(highlight.quote, expected)
 
+    DECK_METRICS = """
+        () => {
+          const round = value => Math.round(value);
+          const deck = document.querySelector('[data-flashcard-deck]');
+          const toolbar = deck.querySelector('.flashcard-deck__toolbar');
+          const controls = deck.querySelector('[data-flashcard-controls]');
+          const card = deck.querySelector(
+            '[data-flashcard-card]:not(.hidden):not(' +
+            '.theme-vocabulary-card--inactive)'
+          );
+          const buttons = [...controls.querySelectorAll(
+            '.flashcard-deck__control'
+          )].filter(button => button.offsetParent !== null);
+          const buttonStyle = getComputedStyle(buttons[0]);
+          const controlStyle = getComputedStyle(controls);
+          return {
+            toolbarWidth: round(toolbar.getBoundingClientRect().width),
+            controlsWidth: round(controls.getBoundingClientRect().width),
+            cardWidth: round(card.getBoundingClientRect().width),
+            cardMinHeight: getComputedStyle(card).minHeight,
+            columns: controlStyle.gridTemplateColumns.split(' ').length,
+            buttonCount: buttons.length,
+            buttonRows: new Set(
+              buttons.map(button => round(
+                button.getBoundingClientRect().top
+              ))
+            ).size,
+            buttonHeight: buttonStyle.height,
+            buttonRadius: buttonStyle.borderTopLeftRadius,
+            faceLabel: Boolean(
+              card.querySelector('[data-flashcard-face-label]')
+            ),
+            flipHint: Boolean(card.querySelector('.flashcard-deck__flip-hint')),
+            progressLive: deck.querySelector(
+              '[data-flashcard-progress]'
+            ).getAttribute('aria-live'),
+            progressText: deck.querySelector(
+              '[data-flashcard-progress]'
+            ).textContent.trim(),
+            faceSwitch: deck.querySelectorAll('[data-flashcard-order]').length,
+            keyboardHint: Boolean(
+              deck.querySelector('[data-flashcard-keyboard-hint]')
+            ),
+          };
+        }
+    """
+
+    def _deck_metrics(self, url, before=None):
+        self.page.goto(self.live_server_url + url)
+        self.page.wait_for_load_state("networkidle")
+        if before:
+            before()
+        self.page.locator(
+            "[data-flashcard-card]:not(.hidden):not("
+            ".theme-vocabulary-card--inactive)"
+        ).first.wait_for()
+        return self.page.evaluate(self.DECK_METRICS)
+
+    def test_every_deck_follows_the_notes_flashcard_standard(self):
+        for index in range(3):
+            Annotation.objects.create(
+                user=self.user,
+                task=self.task,
+                kind=AnnotationKind.NOTE,
+                quote="recto %d" % index,
+                body="verso %d" % index,
+                study_later=True,
+            )
+        self._import_eo_tache_two_content()
+        vocabulary_url = reverse(
+            "study:tache_two_theme_vocabulary_detail",
+            args=["arrivee"],
+        )
+
+        def choose_cards():
+            self.page.get_by_role("button", name="Cartes").first.click()
+            self.page.wait_for_timeout(300)
+
+        for width, height in ((1110, 900), (390, 844)):
+            with self.subTest(width=width):
+                self.page.set_viewport_size(
+                    {"width": width, "height": height}
+                )
+                notes = self._deck_metrics(reverse("study:annotation_study"))
+                review = self._deck_metrics(
+                    reverse("study:review") + "?kind=spine&reset=1"
+                )
+                vocabulary = self._deck_metrics(
+                    vocabulary_url, before=choose_cards
+                )
+                decks = {
+                    "notes": notes,
+                    "review": review,
+                    "vocabulary": vocabulary,
+                }
+
+                for name, metrics in decks.items():
+                    with self.subTest(deck=name):
+                        # Same toolbar shell, card shell, and control grid.
+                        self.assertEqual(metrics["columns"], 3, metrics)
+                        self.assertEqual(metrics["buttonCount"], 3, metrics)
+                        self.assertEqual(metrics["buttonRows"], 1, metrics)
+                        self.assertTrue(metrics["faceLabel"], metrics)
+                        self.assertTrue(metrics["flipHint"], metrics)
+                        self.assertTrue(metrics["keyboardHint"], metrics)
+                        self.assertEqual(metrics["faceSwitch"], 2, metrics)
+                        self.assertEqual(
+                            metrics["progressLive"], "polite", metrics
+                        )
+                        self.assertRegex(
+                            metrics["progressText"], r"^\d+ / \d+$"
+                        )
+                        self.assertEqual(
+                            metrics["buttonHeight"],
+                            notes["buttonHeight"],
+                            metrics,
+                        )
+                        self.assertEqual(
+                            metrics["buttonRadius"],
+                            notes["buttonRadius"],
+                            metrics,
+                        )
+                        self.assertEqual(
+                            metrics["cardMinHeight"],
+                            notes["cardMinHeight"],
+                            metrics,
+                        )
+                        for key in (
+                            "toolbarWidth",
+                            "controlsWidth",
+                            "cardWidth",
+                        ):
+                            self.assertAlmostEqual(
+                                metrics[key], notes[key], delta=1
+                            )
+                self.assert_no_horizontal_overflow()
+
+        # The review deck swaps the same row for grading after the reveal.
+        self.page.set_viewport_size({"width": 1110, "height": 900})
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        self.page.locator("#card-front .prompt-text").wait_for()
+        self.page.locator("#reveal").click()
+        self.page.locator("#grades:not(.hidden)").wait_for()
+        grading = self.page.evaluate(
+            """
+            () => {
+              const row = document.querySelector('.review__controls');
+              const visible = [...row.querySelectorAll('button')].filter(
+                button => button.offsetParent !== null
+              );
+              return {
+                labels: visible.map(button => button.textContent.trim()),
+                rows: new Set(
+                  visible.map(
+                    button => Math.round(
+                      button.getBoundingClientRect().top
+                    )
+                  )
+                ).size,
+                heights: new Set(
+                  visible.map(
+                    button => Math.round(
+                      button.getBoundingClientRect().height
+                    )
+                  )
+                ).size,
+              };
+            }
+            """
+        )
+        self.assertEqual(grading["rows"], 1, grading)
+        self.assertEqual(grading["heights"], 1, grading)
+        self.assertEqual(len(grading["labels"]), 3, grading)
+        self.assertTrue(self.page.locator("#previous-card").is_hidden())
+        self.assertTrue(self.page.locator("#forward-locked").is_hidden())
+        self.assert_no_horizontal_overflow()
+
     def test_study_deck_navigates_with_next_button_and_swipe(self):
         for index in range(3):
             Annotation.objects.create(
@@ -6175,21 +6430,20 @@ class BrowserTests(StaticLiveServerTestCase):
         box = self.page.locator("[data-study-card]:not(.hidden)").bounding_box()
         middle_y = box["y"] + box["height"] / 2
 
-        def swipe(from_x, to_x):
-            self.page.mouse.move(from_x, middle_y)
-            self.page.mouse.down()
-            for step in range(1, 6):
-                self.page.mouse.move(
-                    from_x + (to_x - from_x) * step / 5,
-                    middle_y,
-                )
-            self.page.mouse.up()
-            self.page.wait_for_timeout(250)
-
         centre = box["x"] + box["width"] / 2
-        swipe(centre + 90, centre - 90)
+        self.touch_swipe(
+            self.page.locator("[data-study-card]:not(.hidden)"),
+            centre + 90,
+            centre - 90,
+            middle_y,
+        )
         self.assertEqual(progress.inner_text(), "2 / 3")
-        swipe(centre - 90, centre + 90)
+        self.touch_swipe(
+            self.page.locator("[data-study-card]:not(.hidden)"),
+            centre - 90,
+            centre + 90,
+            middle_y,
+        )
         self.assertEqual(progress.inner_text(), "1 / 3")
 
         # A swipe must not also flip the card.

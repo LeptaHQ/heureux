@@ -15,57 +15,134 @@
     </dl>
   </header>
 
-  {% if ee_spotlight %}
-    <a class="home-spotlight" href="{{ ee_spotlight.url }}">
-      <span class="home-spotlight__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="sparkles" only %}</span>
-      <span class="home-spotlight__content">
-        <span class="home-spotlight__badge">Nouveau</span>
-        <strong>Expression écrite — Tâche&nbsp;3</strong>
-        <span class="home-spotlight__detail">Comparer des points de vue et argumenter · {{ ee_spotlight.detail }}.</span>
-      </span>
-      <span class="home-spotlight__arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
-    </a>
-  {% endif %}
+  <section class="home-today" aria-labelledby="home-today-title">
+    <div class="home-today__head">
+      <h2 id="home-today-title">Aujourd’hui</h2>
+      <p class="home-today__count"><strong>{{ reviews_today }}</strong>&thinsp;/&thinsp;{{ daily_goal }} révisions</p>
+    </div>
 
-  <section class="home-today" aria-label="Priorité et objectif du jour">
-    <div class="home-today__panel">
+    <div class="home-today__body">
       {% if can_resume_review %}
-        <a class="home-featured home-featured--resume" href="{% url 'study:review' %}">
-          <span class="home-featured__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="circle-dot" only %}</span>
-          <span class="home-featured__body">
+        <a class="home-today__action home-today__action--resume" href="{% url 'study:review' %}">
+          <span class="home-today__action-icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="circle-dot" only %}</span>
+          <span class="home-today__action-copy">
             <span class="eyebrow">Session en cours</span>
-            <strong class="home-featured__title">Reprendre là où je me suis arrêté</strong>
-            <span class="home-featured__detail">{{ resume_scope_label }}</span>
+            <strong class="home-today__action-title">Reprendre là où je me suis arrêté</strong>
+            <span class="home-today__action-detail">{{ resume_scope_label }}</span>
           </span>
-          <span class="home-featured__cta">Reprendre <span aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span></span>
+          <span class="home-today__action-cta">Reprendre <span aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span></span>
         </a>
+        {% if next_action %}
+          <a class="home-today__next home-today__next--{{ next_action.tone }}" href="{{ next_action.url }}">
+            <span class="home-today__next-label">Ensuite</span>
+            <span class="home-today__next-title">{{ next_action.title }}</span>
+            <span class="home-today__next-cta" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+          </a>
+        {% endif %}
       {% elif next_action %}
-        <a class="home-featured home-featured--{{ next_action.tone }}" href="{{ next_action.url }}">
-          <span class="home-featured__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=next_action.icon only %}</span>
-          <span class="home-featured__body">
+        <a class="home-today__action home-today__action--{{ next_action.tone }}" href="{{ next_action.url }}">
+          <span class="home-today__action-icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=next_action.icon only %}</span>
+          <span class="home-today__action-copy">
             <span class="eyebrow">{{ next_action.eyebrow }}</span>
-            <strong class="home-featured__title">{{ next_action.title }}</strong>
-            <span class="home-featured__detail">{{ next_action.detail }}</span>
+            <strong class="home-today__action-title">{{ next_action.title }}</strong>
+            <span class="home-today__action-detail">{{ next_action.detail }}</span>
           </span>
-          <span class="home-featured__cta">{{ next_action.cta }} <span aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span></span>
+          <span class="home-today__action-cta">{{ next_action.cta }} <span aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span></span>
         </a>
       {% endif %}
 
-      <div class="home-goal">
-        <div class="home-goal__head">
-          <p class="eyebrow">Objectif du jour</p>
-          <p class="home-goal__count"><strong>{{ reviews_today }}</strong>&thinsp;/&thinsp;{{ daily_goal }}</p>
-        </div>
-        <div class="home-goal__track" role="progressbar" aria-label="{{ reviews_today }} révisions sur un objectif de {{ daily_goal }}" aria-valuenow="{{ daily_goal_pct }}" aria-valuemin="0" aria-valuemax="100">
-          <span class="home-goal__fill{% if daily_goal_met %} is-complete{% endif %}" style="width: {{ daily_goal_pct }}%"></span>
+      <div class="home-today__goal">
+        <p class="eyebrow home-today__goal-label">Objectif du jour</p>
+        <div class="home-today__goal-track" role="progressbar" aria-label="{{ reviews_today }} révisions sur un objectif de {{ daily_goal }}" aria-valuenow="{{ daily_goal_pct }}" aria-valuemin="0" aria-valuemax="100">
+          <span class="home-today__goal-fill{% if daily_goal_met %} is-complete{% endif %}" style="width: {{ daily_goal_pct }}%"></span>
         </div>
         {% if daily_goal_met %}
-          <p class="home-goal__done">{% include "study/partials/ui_icon.html" with name="check" only %} Objectif atteint. Bravo&nbsp;!</p>
+          <p class="home-today__goal-note home-today__goal-note--done">{% include "study/partials/ui_icon.html" with name="check" only %} Objectif atteint. Bravo&nbsp;!</p>
         {% else %}
-          <p class="home-goal__hint">Encore {{ daily_goal_remaining }} révision{{ daily_goal_remaining|pluralize }} pour atteindre l’objectif.</p>
+          <p class="home-today__goal-note">Encore {{ daily_goal_remaining }} révision{{ daily_goal_remaining|pluralize }} pour atteindre l’objectif.</p>
         {% endif %}
       </div>
     </div>
+
+    {% if ee_spotlight %}
+      <a class="home-spotlight" href="{{ ee_spotlight.url }}">
+        <span class="home-spotlight__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="sparkles" only %}</span>
+        <span class="home-spotlight__content">
+          <span class="home-spotlight__badge">Nouveau</span>
+          <strong>Expression écrite — Tâche&nbsp;3</strong>
+          <span class="home-spotlight__detail">Comparer des points de vue et argumenter · {{ ee_spotlight.detail }}.</span>
+        </span>
+        <span class="home-spotlight__arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+      </a>
+    {% endif %}
+  </section>
+
+  <section class="home-queue" aria-labelledby="home-queue-title">
+    <div class="section-heading home-section-heading">
+      <div>
+        <p class="eyebrow">Parcours</p>
+        <h2 id="home-queue-title">Choisir une activité</h2>
+      </div>
+    </div>
+
+    <ul class="home-queue__list">
+      <li class="home-queue__item home-queue__item--expression">
+        <span class="home-queue__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="target" only %}</span>
+        <span class="home-queue__copy">
+          <span class="eyebrow">Expression</span>
+          <h3>Restituer des réponses</h3>
+          <span class="home-queue__summary">{{ expression_counts.due_reviews }} à revoir · {{ expression_counts.new_available }} nouvelles réponses.</span>
+        </span>
+        <span class="home-queue__actions">
+          <a class="btn btn--primary" href="{% url 'study:review' %}?kind=spine">Pratiquer</a>
+          <a class="home-queue__secondary" href="{% url 'study:expression' %}">Voir les sujets {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
+        </span>
+      </li>
+
+      <li class="home-queue__item home-queue__item--comprehension">
+        <span class="home-queue__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="book-open" only %}</span>
+        <span class="home-queue__copy">
+          <span class="eyebrow">Compréhension</span>
+          {% if comprehension.active_attempt %}
+            <h3>Continuer {{ comprehension.next_test.title }}</h3>
+            <span class="home-queue__summary">{{ comprehension.active_answered_count }}/{{ comprehension.active_question_count }} questions répondues.</span>
+          {% elif comprehension.next_test %}
+            <h3>Faire {{ comprehension.next_test.title }}</h3>
+            <span class="home-queue__summary">{{ comprehension.completed_test_count }}/{{ comprehension.test_count }} tests terminés.</span>
+          {% else %}
+            <h3>Entraîner la compréhension</h3>
+            <span class="home-queue__summary">Les prochains tests apparaîtront ici.</span>
+          {% endif %}
+        </span>
+        <span class="home-queue__actions">
+          {% if comprehension.active_attempt %}
+            <a class="btn btn--primary" href="{{ comprehension.active_attempt_url }}">Continuer</a>
+          {% elif comprehension.next_test %}
+            <a class="btn btn--primary" href="{{ comprehension.next_test_url }}">Ouvrir le test</a>
+          {% else %}
+            <a class="btn" href="{% url 'study:comprehension_hub' %}">Voir le parcours</a>
+          {% endif %}
+          <a class="home-queue__secondary" href="{% url 'study:comprehension_hub' %}">Tous les tests {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
+        </span>
+      </li>
+
+      <li class="home-queue__item home-queue__item--notes">
+        <span class="home-queue__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="pen-line" only %}</span>
+        <span class="home-queue__copy">
+          <span class="eyebrow">Notes</span>
+          <h3>Revoir ce que tu as retenu</h3>
+          <span class="home-queue__summary">{{ notes_to_study }} note{{ notes_to_study|pluralize }} ou surlignage{{ notes_to_study|pluralize }} à étudier.</span>
+        </span>
+        <span class="home-queue__actions">
+          {% if notes_to_study %}
+            <a class="btn btn--primary" href="{% url 'study:annotation_study' %}">Étudier</a>
+          {% else %}
+            <a class="btn" href="{% url 'study:notes_overview' %}">Ouvrir mes notes</a>
+          {% endif %}
+          <a class="home-queue__secondary" href="{% url 'study:notes_overview' %}">Gérer mes notes {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
+        </span>
+      </li>
+    </ul>
   </section>
 
   <section class="home-skills" aria-labelledby="home-skills-title">
@@ -76,96 +153,18 @@
       </div>
       <a class="home-section-link" href="{% url 'study:stats' %}">Voir les stats {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
     </div>
-    <div class="home-skills__grid">
+    <div class="home-skills__panel">
       {% for skill in skills %}
-        <a class="home-skill{% if not skill.available %} home-skill--soon{% endif %}{% if skill.is_new %} home-skill--new{% endif %}" href="{{ skill.url }}" style="--ring-pct: {{ skill.percent }}; --ring-accent: {{ skill.accent }};">
+        <a class="home-skill{% if not skill.available %} home-skill--soon{% endif %}{% if skill.is_new %} home-skill--new{% endif %}" data-home-skill="{{ skill.key }}" href="{{ skill.url }}" style="--ring-pct: {{ skill.percent }}; --ring-accent: {{ skill.accent }};">
           <span class="home-skill__ring"><span class="home-skill__pct">{{ skill.percent }}<small>%</small></span></span>
           <span class="home-skill__body">
             <span class="home-skill__label">{% include "study/partials/ui_icon.html" with name=skill.icon only %} {{ skill.label }}</span>
             <span class="home-skill__detail">{{ skill.detail }}</span>
-            <span class="home-skill__status home-skill__status--{{ skill.status }}">{{ skill.status_label }}</span>
           </span>
+          <span class="home-skill__status home-skill__status--{{ skill.status }}">{{ skill.status_label }}</span>
           <span class="home-skill__arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
         </a>
       {% endfor %}
-    </div>
-  </section>
-
-  <section class="daily-plan" aria-labelledby="daily-plan-title">
-    <div class="section-heading home-section-heading">
-      <div>
-        <p class="eyebrow">Parcours</p>
-        <h2 id="daily-plan-title">Choisir une activité</h2>
-      </div>
-    </div>
-
-    <div class="daily-plan__grid">
-      <article class="daily-card card daily-card--expression">
-        <div class="daily-card__head">
-          <span class="daily-card__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="target" only %}</span>
-          <div>
-            <p class="eyebrow">Expression</p>
-            <h3>Restituer des réponses</h3>
-          </div>
-        </div>
-        <p class="daily-card__summary">{{ expression_counts.due_reviews }} à revoir · {{ expression_counts.new_available }} nouvelles réponses.</p>
-        <div class="daily-card__actions">
-          <a class="btn btn--primary" href="{% url 'study:review' %}?kind=spine">Pratiquer</a>
-          <a class="daily-card__secondary" aria-label="Voir les sujets" href="{% url 'study:expression' %}"><span class="daily-card__secondary-label">Voir les sujets</span> {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
-        </div>
-      </article>
-
-      <article class="daily-card card daily-card--comprehension">
-        <div class="daily-card__head">
-          <span class="daily-card__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="book-open" only %}</span>
-          <div>
-            <p class="eyebrow">Compréhension</p>
-            {% if comprehension.active_attempt %}
-              <h3>Continuer {{ comprehension.next_test.title }}</h3>
-            {% elif comprehension.next_test %}
-              <h3>Faire {{ comprehension.next_test.title }}</h3>
-            {% else %}
-              <h3>Entraîner la compréhension</h3>
-            {% endif %}
-          </div>
-        </div>
-        {% if comprehension.active_attempt %}
-          <p class="daily-card__summary">{{ comprehension.active_answered_count }}/{{ comprehension.active_question_count }} questions répondues.</p>
-        {% elif comprehension.next_test %}
-          <p class="daily-card__summary">{{ comprehension.completed_test_count }}/{{ comprehension.test_count }} tests terminés.</p>
-        {% else %}
-          <p class="daily-card__summary">Les prochains tests apparaîtront ici.</p>
-        {% endif %}
-        <div class="daily-card__actions">
-          {% if comprehension.active_attempt %}
-            <a class="btn btn--primary" href="{{ comprehension.active_attempt_url }}">Continuer</a>
-          {% elif comprehension.next_test %}
-            <a class="btn btn--primary" href="{{ comprehension.next_test_url }}">Ouvrir le test</a>
-          {% else %}
-            <a class="btn" href="{% url 'study:comprehension_hub' %}">Voir le parcours</a>
-          {% endif %}
-          <a class="daily-card__secondary" aria-label="Voir tous les tests" href="{% url 'study:comprehension_hub' %}"><span class="daily-card__secondary-label">Tous les tests</span> {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
-        </div>
-      </article>
-
-      <article class="daily-card card daily-card--notes">
-        <div class="daily-card__head">
-          <span class="daily-card__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="pen-line" only %}</span>
-          <div>
-            <p class="eyebrow">Notes</p>
-            <h3>Revoir ce que tu as retenu</h3>
-          </div>
-        </div>
-        <p class="daily-card__summary">{{ notes_to_study }} note{{ notes_to_study|pluralize }} ou surlignage{{ notes_to_study|pluralize }} à étudier.</p>
-        <div class="daily-card__actions">
-          {% if notes_to_study %}
-            <a class="btn btn--primary" href="{% url 'study:annotation_study' %}">Étudier</a>
-          {% else %}
-            <a class="btn" href="{% url 'study:notes_overview' %}">Ouvrir mes notes</a>
-          {% endif %}
-          <a class="daily-card__secondary" aria-label="Gérer mes notes" href="{% url 'study:notes_overview' %}"><span class="daily-card__secondary-label">Gérer mes notes</span> {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
-        </div>
-      </article>
     </div>
   </section>
 </div>

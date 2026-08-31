@@ -11,33 +11,31 @@
      data-csrf="{{ csrf_token }}"
      data-scope='{{ scope_json }}'>
 
-  <div class="review__top">
-    <div class="review__scope">{{ scope_label }}</div>
-    <div class="review__counters" title="{% if is_revisit %}Cartes dans la liste{% elif is_weak %}Cartes fragiles{% else %}Nouvelles · Apprentissage · Révisions{% endif %}">
-      {% if is_revisit %}
-      <span class="c-review"><span id="c-revisit">{{ counts.revisit_total }}</span> à revoir</span>
-      {% elif is_weak %}
-      <span class="c-review"><span id="c-review">{{ counts.weak_total }}</span> à renforcer</span>
-      {% else %}
-      <span class="c-new" id="c-new">{{ counts.new_available }}</span>
-      <span class="c-learn" id="c-learn">{{ counts.learning_due }}</span>
-      <span class="c-review" id="c-review">{{ counts.review_due }}</span>
-      {% endif %}
-    </div>
-  </div>
-  <div class="review__bar"><span id="progress"></span></div>
-  <div class="review__history">
-    <button class="linkbtn" id="previous-card" type="button" aria-keyshortcuts="ArrowLeft" data-flashcard-control disabled>{% include "study/partials/ui_icon.html" with name="arrow-left" only %}<span>Carte précédente</span></button>
-    <span class="review__history-label hidden" id="previous-card-label">Carte précédente · consultation uniquement</span>
-    <button class="linkbtn hidden" id="current-card" type="button" data-flashcard-control><span id="current-card-label">Retour à la carte actuelle</span>{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</button>
-  </div>
-
-  <div id="card-zone">
-    <div class="review__study-toolbar flashcard-deck__study-toolbar">
+  <div class="review__top flashcard-deck__toolbar">
+    {% include "study/partials/flashcard_progress.html" with deck="review" label="Session" value="0 / 0" only %}
+    <div class="flashcard-deck__toolbar-actions">
+      <div class="review__meta">
+        <span class="review__scope" title="{{ scope_label }}">{{ scope_label }}</span>
+        <span class="review__counters" title="{% if is_revisit %}Cartes dans la liste{% elif is_weak %}Cartes fragiles{% else %}Nouvelles · Apprentissage · Révisions{% endif %}">
+          {% if is_revisit %}
+          <span class="c-review"><span id="c-revisit">{{ counts.revisit_total }}</span> à revoir</span>
+          {% elif is_weak %}
+          <span class="c-review"><span id="c-review">{{ counts.weak_total }}</span> à renforcer</span>
+          {% else %}
+          <span class="c-new" id="c-new" title="Nouvelles" aria-label="Nouvelles">{{ counts.new_available }}</span>
+          <span class="c-learn" id="c-learn" title="Apprentissage" aria-label="Apprentissage">{{ counts.learning_due }}</span>
+          <span class="c-review" id="c-review" title="Révisions" aria-label="Révisions">{{ counts.review_due }}</span>
+          {% endif %}
+        </span>
+      </div>
       {% include "study/partials/flashcard_face_switch.html" %}
     </div>
+  </div>
+
+  <div id="card-zone" class="flashcard-deck__cards">
+    <p class="review__history-label hidden" id="previous-card-label">Carte précédente · consultation uniquement</p>
     <article
-      class="flashcard flashcard-deck__card review-flashcard"
+      class="flashcard-deck__card review-flashcard"
       tabindex="0"
       aria-label="Recto. Appuyez pour retourner la carte."
       aria-keyshortcuts="ArrowUp ArrowDown Space Enter"
@@ -49,41 +47,10 @@
       <div class="flashcard-deck__face review-flashcard__face" id="card-front" data-flashcard-front></div>
       <div class="flashcard-deck__face review-flashcard__face hidden" id="card-back" data-flashcard-back></div>
     </article>
-
-    <div class="controls flashcard-deck__controls">
-      <button class="reveal-btn" id="reveal" type="button" data-flashcard-flip data-flashcard-control><span data-flashcard-flip-label>Retourner</span></button>
-      <div class="grades hidden" id="grades">
-        <button class="grade grade--revisit" type="button" data-action="revisit" data-flashcard-control aria-keyshortcuts="1 R">
-          <span class="grade__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <path d="M3 12a9 9 0 1 0 3-6.7"></path>
-              <path d="M3 4v6h6"></path>
-            </svg>
-          </span>
-          <span class="grade__copy">
-            <span class="grade__label">Revoir</span>
-            <span class="grade__description">Ajouter à ma liste</span>
-          </span>
-          <span class="grade__key" aria-hidden="true">1</span>
-        </button>
-        <button class="grade grade--correct" type="button" data-action="correct" data-flashcard-control aria-keyshortcuts="ArrowRight 2 C">
-          <span class="grade__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <path d="m5 12 4 4L19 6"></path>
-            </svg>
-          </span>
-          <span class="grade__copy">
-            <span class="grade__label">Correct</span>
-            <span class="grade__description">Passer à la suivante</span>
-          </span>
-          <span class="grade__key" aria-hidden="true">2</span>
-        </button>
-      </div>
-      <div class="kbd-hint" id="kbd-hint"></div>
-    </div>
   </div>
 
-  <div id="done-zone" class="done-state done-state--plain hidden">
+  <div id="done-zone" class="card done-state flashcard-deck__done hidden">
+    <div class="done-state__icon done-state__icon--success">{% include "study/partials/ui_icon.html" with name="check" only %}</div>
     <h2>Session terminée</h2>
     <div class="session-summary" id="session-summary"></div>
     {% if is_revisit %}
@@ -93,7 +60,7 @@
     {% else %}
       <p>Vous avez terminé toutes les cartes actuellement disponibles dans cette sélection.</p>
     {% endif %}
-    <div class="row center" style="justify-content:center; margin-top:1rem;">
+    <div class="flashcard-deck__done-actions">
       {% if is_focused_drill %}
         <a class="btn" href="{{ request.get_full_path }}">Refaire ce parcours</a>
       {% endif %}
@@ -118,5 +85,48 @@
       {% endif %}
     </div>
   </div>
+  <div class="flashcard-deck__controls review__controls" data-flashcard-controls>
+    <button class="btn flashcard-deck__control flashcard-deck__control--previous" id="previous-card" type="button" aria-keyshortcuts="ArrowLeft" data-flashcard-control disabled>
+      {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
+      <span class="flashcard-deck__control-label--full">Précédente</span>
+      <span class="flashcard-deck__control-label--short">Préc.</span>
+    </button>
+    <button class="btn btn--primary flashcard-deck__control flashcard-deck__control--flip" id="reveal" type="button" data-flashcard-flip data-flashcard-control aria-keyshortcuts="Space Enter"><span data-flashcard-flip-label>Retourner</span></button>
+    <button class="btn flashcard-deck__control flashcard-deck__control--next hidden" id="current-card" type="button" data-flashcard-control><span id="current-card-label">Retour à la carte actuelle</span>{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</button>
+    <button class="btn flashcard-deck__control flashcard-deck__control--next" id="forward-locked" type="button" disabled title="Répondez à la carte pour continuer">
+      <span class="flashcard-deck__control-label--full">Suivante</span>
+      <span class="flashcard-deck__control-label--short">Suiv.</span>
+      {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
+    </button>
+    <div class="grades hidden" id="grades">
+      <button class="grade grade--revisit flashcard-deck__control" type="button" data-action="revisit" data-flashcard-control aria-keyshortcuts="1 R">
+        <span class="grade__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M3 12a9 9 0 1 0 3-6.7"></path>
+            <path d="M3 4v6h6"></path>
+          </svg>
+        </span>
+        <span class="grade__copy">
+          <span class="grade__label">Revoir</span>
+          <span class="grade__description">Ajouter à ma liste</span>
+        </span>
+        <span class="grade__key" aria-hidden="true">1</span>
+      </button>
+      <button class="grade grade--correct flashcard-deck__control" type="button" data-action="correct" data-flashcard-control aria-keyshortcuts="ArrowRight 2 C">
+        <span class="grade__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="m5 12 4 4L19 6"></path>
+          </svg>
+        </span>
+        <span class="grade__copy">
+          <span class="grade__label">Correct</span>
+          <span class="grade__description">Passer à la suivante</span>
+        </span>
+        <span class="grade__key" aria-hidden="true">2</span>
+      </button>
+    </div>
+  </div>
+  <div class="kbd-hint flashcard-deck__keyboard-hint" id="kbd-hint" data-flashcard-keyboard-hint></div>
+
 </div>
 {% endblock %}

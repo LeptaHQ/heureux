@@ -1949,6 +1949,8 @@
   var currentButton = document.getElementById("current-card");
   var currentButtonLabel = document.getElementById("current-card-label");
   var previousLabel = document.getElementById("previous-card-label");
+  var forwardLocked = document.getElementById("forward-locked");
+  var progressLabel = document.getElementById("review-progress");
   var counters = {
     new: document.getElementById("c-new"),
     learn: document.getElementById("c-learn"),
@@ -1967,6 +1969,8 @@
   var currentData = null;
   var currentView = null;
   var viewingPrevious = false;
+  var canPrevious = false;
+  var finished = false;
   var interaction = null;
 
   function params(extra) {
@@ -1986,6 +1990,10 @@
     var total = reviewed + remaining;
     var pct = total > 0 ? Math.round((reviewed / total) * 100) : 100;
     if (progressEl) progressEl.style.width = pct + "%";
+    if (progressLabel) {
+      progressLabel.textContent =
+        String(reviewed) + " / " + String(total || reviewed);
+    }
   }
 
   function fmtTime(ms) {
@@ -2002,21 +2010,37 @@
     backEl.dataset.annotationSourceKey = sourceKey + ":back";
   }
 
+  function setHidden(element, hidden) {
+    if (element) element.classList.toggle("hidden", Boolean(hidden));
+  }
+
+  /* One three-slot row: history · flip · forward, swapped for grading. */
   function updateCardControls() {
+    var grading = revealed && !viewingPrevious && !finished;
+    setHidden(gradesEl, !grading);
+    setHidden(revealBtn, finished);
+    setHidden(previousButton, grading || viewingPrevious);
+    setHidden(currentButton, !viewingPrevious);
+    setHidden(forwardLocked, grading || viewingPrevious || finished);
+    setHidden(previousLabel, !viewingPrevious);
+    if (previousButton) previousButton.disabled = !canPrevious;
+    if (app) app.classList.toggle("review--done", finished);
+    if (!kbdHint) return;
+    if (finished) {
+      kbdHint.innerHTML = "";
+      return;
+    }
     if (viewingPrevious) {
-      revealBtn.classList.remove("hidden");
-      gradesEl.classList.add("hidden");
       kbdHint.innerHTML =
         "Consultation uniquement · " +
         "<kbd>↑</kbd><kbd>↓</kbd> retourner · " +
         "<kbd>→</kbd> carte actuelle";
       return;
     }
-    revealBtn.classList.toggle("hidden", revealed);
-    gradesEl.classList.toggle("hidden", !revealed);
-    kbdHint.innerHTML = revealed
+    kbdHint.innerHTML = grading
       ? "<kbd>1</kbd> Revoir &nbsp; <kbd>2</kbd>/<kbd>→</kbd> Correct"
-      : "<kbd>↑</kbd><kbd>↓</kbd> retourner";
+      : "<kbd>←</kbd> précédente · " +
+        "<kbd>↑</kbd><kbd>↓</kbd> retourner";
   }
 
   function resetCardFace() {
@@ -2047,11 +2071,10 @@
     currentData = null;
     viewingPrevious = false;
     revealed = false;
+    finished = true;
+    canPrevious = Boolean(data.can_previous);
     if (window.HeureuxReadAloud) window.HeureuxReadAloud.stop();
-    if (previousButton) previousButton.disabled = !data.can_previous;
-    if (previousButton) previousButton.classList.remove("hidden");
-    if (currentButton) currentButton.classList.add("hidden");
-    if (previousLabel) previousLabel.classList.add("hidden");
+    updateCardControls();
     if (summaryEl) {
       if (reviewed === 0) {
         summaryEl.textContent = "Aucune carte révisée dans cette session.";
@@ -2077,12 +2100,10 @@
     frontEl.innerHTML = data.front_html;
     backEl.innerHTML = data.back_html;
     setAnnotationRoots(data.annotation_source_key);
+    finished = false;
+    canPrevious = Boolean(data.can_previous);
     resetCardFace();
     updateCounters(data.counts);
-    if (previousButton) previousButton.disabled = !data.can_previous;
-    if (previousButton) previousButton.classList.remove("hidden");
-    if (currentButton) currentButton.classList.add("hidden");
-    if (previousLabel) previousLabel.classList.add("hidden");
     startTime = Date.now();
   }
 
@@ -2222,7 +2243,7 @@
       viewingPrevious ||
       !previousUrl ||
       (!currentData && !fromDone) ||
-      previousButton.disabled
+      !canPrevious
     ) {
       return;
     }
@@ -2246,13 +2267,12 @@
         frontEl.innerHTML = data.front_html;
         backEl.innerHTML = data.back_html;
         setAnnotationRoots(data.annotation_source_key);
+        finished = false;
         interaction.reset();
-        previousButton.classList.add("hidden");
-        currentButton.classList.remove("hidden");
         currentButtonLabel.textContent = fromDone
           ? "Retour au résumé"
           : "Retour à la carte actuelle";
-        previousLabel.classList.remove("hidden");
+        updateCardControls();
         busy = false;
       })
       .catch(function (error) {
@@ -2267,12 +2287,11 @@
       cardZone.classList.add("hidden");
       doneZone.classList.remove("hidden");
       if (window.HeureuxReadAloud) window.HeureuxReadAloud.stop();
-      previousButton.classList.remove("hidden");
-      currentButton.classList.add("hidden");
       currentButtonLabel.textContent = "Retour à la carte actuelle";
-      previousLabel.classList.add("hidden");
       viewingPrevious = false;
+      finished = true;
       currentView = null;
+      updateCardControls();
       return;
     }
     if (!currentData) return;
@@ -2282,10 +2301,8 @@
     viewingPrevious = false;
     startTime = currentView.startTime + (Date.now() - currentView.pausedAt);
     interaction.setRevealed(currentView.revealed);
-    previousButton.classList.remove("hidden");
-    currentButton.classList.add("hidden");
-    previousLabel.classList.add("hidden");
     currentView = null;
+    updateCardControls();
   }
 
   if (!window.HeureuxFlashcards) return;
@@ -2297,23 +2314,14 @@
       var cardVisible = !cardZone.classList.contains("hidden");
       if (action === "flip" || action === "swipe") return cardVisible;
       if (action === "left") {
-        return (
-          !viewingPrevious &&
-          Boolean(previousButton) &&
-          !previousButton.disabled
-        );
+        return !viewingPrevious && canPrevious;
       }
       if (action === "right") {
         return cardVisible && (viewingPrevious || revealed);
       }
       if (action === "swipe-left") return cardVisible;
       if (action === "swipe-right") {
-        return (
-          cardVisible &&
-          !viewingPrevious &&
-          Boolean(previousButton) &&
-          !previousButton.disabled
-        );
+        return cardVisible && !viewingPrevious && canPrevious;
       }
       return cardVisible;
     },
@@ -2342,6 +2350,13 @@
       grade(btn.dataset.action);
     });
   });
+  if (revealBtn && cardEl) {
+    // Hand focus back to the card so the grading and selection shortcuts
+    // stay live after flipping with the pointer.
+    revealBtn.addEventListener("click", function () {
+      cardEl.focus({ preventScroll: true });
+    });
+  }
   if (previousButton) previousButton.addEventListener("click", viewPrevious);
   if (currentButton) currentButton.addEventListener("click", returnToCurrent);
 

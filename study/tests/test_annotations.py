@@ -12,6 +12,7 @@ from study.models import Annotation, AnnotationKind, Card, CardType, Prompt
 from study.routing import prompt_detail_url, response_detail_url, theme_detail_url
 
 from . import factories
+from .test_views import FLASHCARD_DECK_HOOKS
 
 
 class AnnotationTests(TestCase):
@@ -1235,6 +1236,28 @@ class AnnotationTests(TestCase):
         self.assertContains(response, "data-flashcard-deck")
         self.assertContains(response, "data-flashcard-card")
         self.assertContains(response, "data-read-aloud")
+
+    def test_study_deck_uses_the_shared_flashcard_standard(self):
+        Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            body="D\u00e9cision \u00e0 m\u00e9moriser.",
+            study_later=True,
+        )
+
+        response = self.client.get(reverse("study:annotation_study"))
+
+        for hook in FLASHCARD_DECK_HOOKS:
+            with self.subTest(hook=hook):
+                self.assertContains(response, hook)
+        # The Notes deck keeps its own study hooks on top of the standard.
+        self.assertContains(response, "data-study-previous")
+        self.assertContains(response, "data-study-reveal")
+        self.assertContains(response, "data-study-next")
+        self.assertContains(response, "data-study-progress")
+        self.assertContains(response, "data-study-done")
+        self.assertContains(response, "flashcard-deck__actions")
 
     def test_study_decisions_update_the_queue_without_a_redirect(self):
         note = Annotation.objects.create(

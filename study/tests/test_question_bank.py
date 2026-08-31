@@ -62,6 +62,7 @@ annotation_migration = import_module(
 )
 
 from . import factories
+from .test_views import FLASHCARD_DECK_HOOKS
 
 
 FINAL_EXACT_RESPONSE_REUSE = (
@@ -2991,6 +2992,27 @@ class QuestionBankViewTests(TestCase):
         self.assertEqual(missing_month.status_code, 404)
         self.assertEqual(missing_batch.status_code, 404)
         self.assertEqual(missing_subject.status_code, 404)
+
+    def test_theme_vocabulary_cards_use_the_shared_flashcard_standard(self):
+        response = self.client.get(
+            reverse(
+                "study:tache_two_theme_vocabulary_detail",
+                args=["logement"],
+            )
+        )
+
+        for hook in FLASHCARD_DECK_HOOKS:
+            with self.subTest(hook=hook):
+                self.assertContains(response, hook)
+        # Card mode joins the standard without losing the table controls.
+        self.assertContains(response, "data-theme-vocabulary-previous")
+        self.assertContains(response, "data-theme-vocabulary-next")
+        self.assertContains(response, "data-theme-vocabulary-deck-progress")
+        self.assertContains(response, "collection-table--phrases")
+        self.assertContains(response, "data-collection-view=\"adaptive\"")
+        self.assertContains(response, "data-theme-vocabulary-recall")
+        self.assertContains(response, "data-theme-vocabulary-status-filter")
+        self.assertContains(response, "flashcard-deck__actions", count=45)
 
     def test_theme_vocabulary_detail_groups_contextual_entries(self):
         response = self.client.get(

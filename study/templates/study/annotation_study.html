@@ -22,27 +22,19 @@
 
 {% if items %}
 <section class="annotation-study flashcard-deck" data-annotation-study data-flashcard-deck data-study-mode="{{ study_mode }}">
-  <div class="annotation-study__toolbar flashcard-deck__toolbar">
-    <div class="annotation-study__progress">
-      <div class="annotation-study__progress-copy">
-        <span>Carte</span>
-        <strong data-study-progress aria-live="polite">1 / {{ items|length }}</strong>
-      </div>
-      <span class="annotation-study__progress-track" aria-hidden="true">
-        <span data-study-progress-bar></span>
-      </span>
-    </div>
-    <div class="annotation-study__toolbar-actions">
+  <div class="flashcard-deck__toolbar">
+    {% include "study/partials/flashcard_progress.html" with deck="notes" label="Carte" total=items|length only %}
+    <div class="flashcard-deck__toolbar-actions">
       {% if study_mode == "queue" %}
-        <a class="annotation-study__manage" href="{% url 'study:annotation_search' %}?study=1">Gérer</a>
+        <a class="flashcard-deck__toolbar-link" href="{% url 'study:annotation_search' %}?study=1">Gérer</a>
       {% endif %}
       {% include "study/partials/flashcard_face_switch.html" %}
     </div>
   </div>
-  <div class="annotation-study__cards flashcard-deck__cards">
+  <div class="flashcard-deck__cards">
     {% for item in items %}
       <article
-        class="flashcard flashcard-deck__card annotation-study__card {% if not forloop.first %}hidden{% endif %}"
+        class="flashcard-deck__card annotation-study__card{% if not forloop.first %} hidden{% endif %}"
         tabindex="0"
         aria-label="Recto. Appuyez pour retourner la carte."
         aria-keyshortcuts="ArrowUp ArrowDown Space Enter"
@@ -82,7 +74,7 @@
           {% endif %}
           {% if item.source_path %}<a class="annotation-study__source" href="{{ item.source_path }}" target="_blank" rel="noopener">Voir la source {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>{% endif %}
         </div>
-        <div class="annotation-study__card-actions flashcard-deck__actions">
+        <div class="flashcard-deck__actions annotation-study__card-actions">
           <button
             class="linkbtn annotation-action"
             type="button"
@@ -152,30 +144,13 @@
       </article>
     {% endfor %}
   </div>
-  <div class="annotation-study__controls flashcard-deck__controls">
-    <button class="btn annotation-study__control--previous" type="button" data-study-previous data-flashcard-control aria-keyshortcuts="ArrowLeft" disabled>
-      {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
-      <span class="annotation-study__button-label--full">Précédente</span>
-      <span class="annotation-study__button-label--short">Préc.</span>
-    </button>
-    <button class="btn btn--primary annotation-study__control--reveal" type="button" data-study-reveal data-flashcard-flip data-flashcard-control aria-keyshortcuts="Space Enter">
-      <span data-flashcard-flip-label>Retourner</span>
-    </button>
-    <button class="btn annotation-study__control--next" type="button" data-study-next data-flashcard-control aria-keyshortcuts="ArrowRight">
-      <span class="annotation-study__button-label--full">Suivante</span>
-      <span class="annotation-study__button-label--short">Suiv.</span>
-      {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
-    </button>
-  </div>
-  <div class="kbd-hint flashcard-deck__keyboard-hint annotation-study__keyboard-hint">
-    <kbd>←</kbd> précédente · <kbd>↑</kbd><kbd>↓</kbd> retourner · <kbd>→</kbd> suivante
-    <span class="annotation-study__swipe-hint">· glissez la carte pour naviguer</span>
-  </div>
-  <div class="card done-state annotation-study__done hidden" data-study-done>
+  {% include "study/partials/flashcard_controls.html" with deck="notes" only %}
+  {% include "study/partials/flashcard_keyboard_hint.html" %}
+  <div class="card done-state flashcard-deck__done hidden" data-study-done>
     <div class="done-state__icon done-state__icon--success">{% include "study/partials/ui_icon.html" with name="check" only %}</div>
     <h2>Parcours terminé</h2>
     <p data-study-summary>Vous avez parcouru {{ items|length }} élément{{ items|length|pluralize }} de votre sélection personnelle.</p>
-    <div class="annotation-study__done-actions">
+    <div class="flashcard-deck__done-actions">
       {% if study_mode == "queue" %}
         <button class="btn btn--primary hidden" type="button" data-study-clear>
           <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5 10 17.5 19 6.5"></path></svg>

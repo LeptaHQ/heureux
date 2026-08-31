@@ -138,18 +138,10 @@
     >{{ phrase_count }} fiches affichées</p>
   </div>
 
-  <div class="theme-vocabulary-deck flashcard-deck" data-theme-vocabulary-deck>
-    <div class="annotation-study__toolbar theme-vocabulary-flashcard-toolbar theme-vocabulary-flashcard-only">
-      <div class="annotation-study__progress">
-        <div class="annotation-study__progress-copy">
-          <span>Carte</span>
-          <strong data-theme-vocabulary-deck-progress aria-live="polite">1 / {{ phrase_count }}</strong>
-        </div>
-        <span class="annotation-study__progress-track" aria-hidden="true">
-          <span data-theme-vocabulary-deck-progress-bar></span>
-        </span>
-      </div>
-      <div class="annotation-study__toolbar-actions">
+  <div class="theme-vocabulary-deck flashcard-deck" data-flashcard-deck data-theme-vocabulary-deck>
+    <div class="flashcard-deck__toolbar theme-vocabulary-flashcard-toolbar theme-vocabulary-flashcard-only">
+      {% include "study/partials/flashcard_progress.html" with deck="theme-vocabulary" label="Carte" total=phrase_count only %}
+      <div class="flashcard-deck__toolbar-actions">
         {% include "study/partials/flashcard_face_switch.html" %}
       </div>
     </div>
@@ -186,7 +178,7 @@
             id="phrase-{{ phrase.phrase_id }}"
           >
             {% include "study/partials/flashcard_meta.html" with read_aloud=True read_key=phrase.phrase_id read_label="Lire cette fiche" only %}
-            <div class="theme-vocabulary-flashcard__face theme-vocabulary-flashcard__front" data-flashcard-front>
+            <div class="flashcard-deck__face theme-vocabulary-flashcard__face theme-vocabulary-flashcard__front" data-flashcard-front>
               <span class="theme-vocabulary-flashcard__category">{{ phrase_section.title }}</span>
               <div class="phrase__expr">
                 <span
@@ -197,7 +189,7 @@
                 ><span class="recall-content theme-vocabulary-recall__content" data-recall-content data-read-aloud-text lang="fr">{{ phrase.expression }}</span></span>
               </div>
             </div>
-            <div class="theme-vocabulary-flashcard__face theme-vocabulary-flashcard__back hidden" data-flashcard-back>
+            <div class="flashcard-deck__face theme-vocabulary-flashcard__face theme-vocabulary-flashcard__back hidden" data-flashcard-back>
               <div
                 class="phrase__cue"
                 data-theme-vocabulary-recall-cell="meaning"
@@ -208,7 +200,7 @@
               <p class="phrase__ex" data-read-aloud-text lang="fr">{{ phrase.example_html|safe }}</p>
               {% if phrase.note %}<p class="phrase__note">{{ phrase.note }}</p>{% endif %}
             </div>
-            <footer class="theme-vocabulary-flashcard__status">
+            <footer class="flashcard-deck__actions theme-vocabulary-flashcard__status">
               <span data-theme-vocabulary-status-copy>{% if phrase.is_explicitly_learned %}Apprise{% else %}À apprendre{% endif %}</span>
               {% include "study/partials/theme_vocabulary_learn_check.html" with phrase=phrase %}
             </footer>
@@ -221,25 +213,8 @@
     {% endfor %}
     </div>
 
-    <div class="annotation-study__controls theme-vocabulary-flashcard-controls theme-vocabulary-flashcard-only">
-      <button class="btn" type="button" data-theme-vocabulary-previous data-flashcard-control aria-keyshortcuts="ArrowLeft" disabled>
-        {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
-        <span class="annotation-study__button-label--full">Précédente</span>
-        <span class="annotation-study__button-label--short">Préc.</span>
-      </button>
-      <button class="btn btn--primary" type="button" data-flashcard-flip data-flashcard-control aria-keyshortcuts="Space Enter">
-        <span data-flashcard-flip-label>Retourner</span>
-      </button>
-      <button class="btn" type="button" data-theme-vocabulary-next data-flashcard-control aria-keyshortcuts="ArrowRight">
-        <span class="annotation-study__button-label--full">Suivante</span>
-        <span class="annotation-study__button-label--short">Suiv.</span>
-        {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
-      </button>
-    </div>
-    <div class="kbd-hint theme-vocabulary-flashcard-hint theme-vocabulary-flashcard-only">
-      <kbd>←</kbd> précédente · <kbd>↑</kbd><kbd>↓</kbd> retourner · <kbd>→</kbd> suivante
-      <span>· glissez la carte pour naviguer</span>
-    </div>
+    {% include "study/partials/flashcard_controls.html" with deck="theme-vocabulary" extra_class="theme-vocabulary-flashcard-controls theme-vocabulary-flashcard-only" only %}
+    {% include "study/partials/flashcard_keyboard_hint.html" with extra_class="theme-vocabulary-flashcard-hint theme-vocabulary-flashcard-only" only %}
   </div>
 
   <div class="empty theme-vocabulary-filter-empty hidden" data-theme-vocabulary-filter-empty>

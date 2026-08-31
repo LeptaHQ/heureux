@@ -1,0 +1,24 @@
+{# Shared deck progress block: caption, live position, and track. #}
+<div class="flashcard-deck__progress">
+  <div class="flashcard-deck__progress-copy">
+    <span>{{ label|default:"Carte" }}</span>
+    <strong
+      class="flashcard-deck__progress-value"
+      data-flashcard-progress
+      {% if deck == "notes" %}data-study-progress{% endif %}
+      {% if deck == "theme-vocabulary" %}data-theme-vocabulary-deck-progress{% endif %}
+      {% if deck == "review" %}id="review-progress"{% endif %}
+      role="status"
+      aria-live="polite"
+    >{% if value %}{{ value }}{% else %}{{ position|default:1 }} / {{ total }}{% endif %}</strong>
+  </div>
+  <span class="flashcard-deck__progress-track" aria-hidden="true">
+    <span
+      class="flashcard-deck__progress-fill"
+      data-flashcard-progress-bar
+      {% if deck == "notes" %}data-study-progress-bar{% endif %}
+      {% if deck == "theme-vocabulary" %}data-theme-vocabulary-deck-progress-bar{% endif %}
+      {% if deck == "review" %}id="progress"{% endif %}
+    ></span>
+  </span>
+</div>

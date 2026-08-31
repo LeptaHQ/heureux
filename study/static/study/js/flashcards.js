@@ -199,6 +199,7 @@
       var targetCard = event.target.closest("[data-flashcard-card]");
       if (
         !event.isPrimary ||
+        event.pointerType !== "touch" ||
         targetCard !== card() ||
         event.target.closest("[data-flashcard-ignore-toggle]") ||
         interactiveTarget(event.target) ||
@@ -213,7 +214,7 @@
         card: targetCard,
         axis: null
       };
-      if (targetCard.setPointerCapture) {
+      if (event.isTrusted && targetCard.setPointerCapture) {
         targetCard.setPointerCapture(event.pointerId);
       }
     });

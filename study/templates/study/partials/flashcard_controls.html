@@ -1,0 +1,40 @@
+{# Shared deck navigation: Précédente · Retourner · Suivante. #}
+<div class="flashcard-deck__controls{% if extra_class %} {{ extra_class }}{% endif %}" data-flashcard-controls>
+  <button
+    class="btn flashcard-deck__control flashcard-deck__control--previous"
+    type="button"
+    data-flashcard-previous
+    {% if deck == "notes" %}data-study-previous{% endif %}
+    {% if deck == "theme-vocabulary" %}data-theme-vocabulary-previous{% endif %}
+    data-flashcard-control
+    aria-keyshortcuts="ArrowLeft"
+    disabled
+  >
+    {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
+    <span class="flashcard-deck__control-label--full">Précédente</span>
+    <span class="flashcard-deck__control-label--short">Préc.</span>
+  </button>
+  <button
+    class="btn btn--primary flashcard-deck__control flashcard-deck__control--flip"
+    type="button"
+    data-flashcard-flip
+    {% if deck == "notes" %}data-study-reveal{% endif %}
+    data-flashcard-control
+    aria-keyshortcuts="Space Enter"
+  >
+    <span data-flashcard-flip-label>Retourner</span>
+  </button>
+  <button
+    class="btn flashcard-deck__control flashcard-deck__control--next"
+    type="button"
+    data-flashcard-next
+    {% if deck == "notes" %}data-study-next{% endif %}
+    {% if deck == "theme-vocabulary" %}data-theme-vocabulary-next{% endif %}
+    data-flashcard-control
+    aria-keyshortcuts="ArrowRight"
+  >
+    <span class="flashcard-deck__control-label--full">Suivante</span>
+    <span class="flashcard-deck__control-label--short">Suiv.</span>
+    {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
+  </button>
+</div>

@@ -771,7 +771,8 @@
     var next = deck.querySelector("[data-study-next]");
     var restart = deck.querySelector("[data-study-restart]");
     var done = deck.querySelector("[data-study-done]");
-    var controls = deck.querySelector(".annotation-study__controls");
+    var controls = deck.querySelector("[data-flashcard-controls]");
+    var keyboardHint = deck.querySelector("[data-flashcard-keyboard-hint]");
     var summary = deck.querySelector("[data-study-summary]");
     var clearButton = deck.querySelector("[data-study-clear]");
     var clearLabel = deck.querySelector("[data-study-clear-label]");
@@ -966,6 +967,7 @@
       interaction.reset();
       previous.disabled = index === 0;
       controls.classList.remove("hidden");
+      if (keyboardHint) keyboardHint.classList.remove("hidden");
       done.classList.add("hidden");
       progress.textContent = String(index + 1) + " / " + String(cards.length);
       if (progressBar) {
@@ -988,6 +990,7 @@
         card.classList.add("hidden");
       });
       controls.classList.add("hidden");
+      if (keyboardHint) keyboardHint.classList.add("hidden");
       done.classList.remove("hidden");
       if (window.HeureuxReadAloud) window.HeureuxReadAloud.stop();
       progress.textContent =

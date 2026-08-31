@@ -51,6 +51,33 @@ from study.routing import (
 
 from . import factories
 
+# Structural hooks every flashcard deck template shares with the Notes deck.
+FLASHCARD_DECK_HOOKS = (
+    "data-flashcard-deck",
+    "data-flashcard-card",
+    "data-flashcard-front",
+    "data-flashcard-back",
+    "data-flashcard-controls",
+    "data-flashcard-flip",
+    "data-flashcard-progress",
+    "data-flashcard-progress-bar",
+    "data-flashcard-face-label",
+    'data-flashcard-order="front"',
+    'data-flashcard-order="back"',
+    "flashcard-deck__toolbar",
+    "flashcard-deck__progress-track",
+    "flashcard-deck__card-meta",
+    "flashcard-deck__face",
+    "flashcard-deck__controls",
+    "flashcard-deck__control--previous",
+    "flashcard-deck__control--flip",
+    "flashcard-deck__control--next",
+    "flashcard-deck__keyboard-hint",
+    'aria-keyshortcuts="ArrowLeft"',
+    'aria-keyshortcuts="Space Enter"',
+    'aria-live="polite"',
+)
+
 
 class HealthTests(TestCase):
     def test_healthz_ok(self):
@@ -565,18 +592,31 @@ class SmokeTests(TestCase):
         self.assertContains(written, "À venir", count=1)
         self.assertContains(written, "<dd>Actif</dd>", html=True)
 
+    def test_review_deck_uses_the_shared_flashcard_standard(self):
+        response = self.client.get(reverse("study:review"))
+
+        for hook in FLASHCARD_DECK_HOOKS:
+            with self.subTest(hook=hook):
+                self.assertContains(response, hook)
+        # Review keeps its own semantics inside the shared hierarchy.
+        self.assertContains(response, 'id="previous-card"')
+        self.assertContains(response, 'id="current-card"')
+        self.assertContains(response, 'id="forward-locked"')
+        self.assertContains(response, 'data-action="revisit"')
+        self.assertContains(response, 'data-action="correct"')
+        self.assertContains(response, 'id="grades"')
+        self.assertContains(response, 'id="done-zone"')
+        self.assertContains(response, "Carte pr\u00e9c\u00e9dente \u00b7 consultation uniquement")
+        self.assertContains(response, 'class="review__top flashcard-deck__toolbar"')
+        self.assertContains(response, ">Session<")
+
     def test_dashboard_presents_three_explicit_daily_activities(self):
         factories.make_comprehension_test()
 
         response = self.client.get(reverse("study:dashboard"))
 
         self.assertEqual(response.context["daily_goal_remaining"], 30)
-        self.assertContains(response, 'class="home-today__panel"')
-        self.assertContains(
-            response,
-            "Encore 30 révisions pour atteindre l’objectif.",
-        )
-        self.assertContains(response, 'class="daily-card card ', count=3)
+        self.assertContains(response, 'class="home-queue__item ', count=3)
         for label in (
             "Restituer des réponses",
             "Faire Test 1",
@@ -586,6 +626,55 @@ class SmokeTests(TestCase):
         self.assertContains(response, reverse("study:expression"))
         self.assertContains(response, reverse("study:comprehension_hub"))
         self.assertContains(response, reverse("study:notes_overview"))
+
+    def test_dashboard_hierarchy_leads_with_one_today_surface(self):
+        factories.make_comprehension_test()
+
+        response = self.client.get(reverse("study:dashboard"))
+
+        # Welcome hero, then a single "Aujourd’hui" surface that carries
+        # the next action and the daily goal together, then the activity
+        # queue, then one progress panel.
+        self.assertContains(response, '<h1>Que veux-tu travailler', count=1)
+        self.assertContains(
+            response,
+            '<section class="home-today" aria-labelledby="home-today-title">',
+            count=1,
+        )
+        self.assertContains(
+            response,
+            '<h2 id="home-today-title">Aujourd\u2019hui</h2>',
+            count=1,
+            html=True,
+        )
+        self.assertContains(response, 'class="home-today__action ', count=1)
+        self.assertContains(response, 'class="home-today__goal"', count=1)
+        self.assertContains(
+            response,
+            "Encore 30 r\u00e9visions pour atteindre l\u2019objectif.",
+        )
+        self.assertContains(response, 'role="progressbar"', count=1)
+        self.assertContains(
+            response,
+            '<h2 id="home-queue-title">Choisir une activit\u00e9</h2>',
+            count=1,
+            html=True,
+        )
+        self.assertContains(
+            response,
+            '<h2 id="home-skills-title">Ta progression</h2>',
+            count=1,
+            html=True,
+        )
+        self.assertContains(response, 'class="home-skills__panel"', count=1)
+        skills = response.context["skills"]
+        self.assertContains(response, "data-home-skill=", count=len(skills))
+        for skill in skills:
+            self.assertContains(response, f'data-home-skill="{skill["key"]}"')
+        self.assertContains(response, reverse("study:stats"))
+        # The retired fragmented panels are gone.
+        self.assertNotContains(response, "daily-card")
+        self.assertNotContains(response, "home-featured")
 
     def test_comprehension_hub_is_the_parent_of_written_and_oral_paths(self):
         factories.make_comprehension_test()

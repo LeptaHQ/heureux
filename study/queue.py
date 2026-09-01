@@ -209,9 +209,15 @@ def scoped_cards(
             )
         )
     if scope.get("test"):
+        # A directory page aggregates several tests at once; one slug and a
+        # list of slugs resolve through the same subquery.
+        test_scope = scope["test"]
+        test_slugs = (
+            [test_scope] if isinstance(test_scope, str) else list(test_scope)
+        )
         qs = qs.filter(
             phrase_id__in=Phrase.objects.filter(
-                source_questions__test__slug=scope["test"],
+                source_questions__test__slug__in=test_slugs,
                 source_questions__test__is_active=True,
             )
         )
@@ -287,6 +293,79 @@ def scoped_cards(
     return qs.distinct()
 
 
+def due_aggregates(now: datetime) -> dict:
+    """The conditional counts every queue badge is derived from.
+
+    Passed to ``aggregate`` for one scope or to ``annotate`` after a
+    ``values(<group>)`` to count every deck on a page in a single query.
+    """
+    return {
+        "learning_due": Count(
+            "pk",
+            distinct=True,
+            filter=Q(
+                state__in=[CardState.LEARNING, CardState.RELEARNING],
+                due__lte=now,
+            ),
+        ),
+        "review_due_total": Count(
+            "pk",
+            distinct=True,
+            filter=Q(state=CardState.REVIEW, due__lte=now),
+        ),
+        "new_total": Count(
+            "pk",
+            distinct=True,
+            filter=Q(state=CardState.NEW),
+        ),
+        "scoped_total": Count("pk", distinct=True),
+    }
+
+
+EMPTY_DUE_ROW = {
+    "learning_due": 0,
+    "review_due_total": 0,
+    "new_total": 0,
+    "scoped_total": 0,
+}
+
+
+def counts_from_due_row(row) -> dict:
+    """Shape one :func:`due_aggregates` row into the numbers pages render.
+
+    These are the members of :func:`queue_counts` that describe what is
+    available to study. The two it leaves out — what was reviewed today, and
+    how many cards sit on the revisit list — each cost their own scan.
+    """
+    learning_due = row["learning_due"]
+    review_due = row["review_due_total"]
+    new_available = row["new_total"]
+    due_reviews = learning_due + review_due
+    return {
+        "due_reviews": due_reviews,
+        "learning_due": learning_due,
+        "review_due": review_due,
+        "review_due_total": review_due,
+        "new_available": new_available,
+        "new_total": new_available,
+        "total_due": due_reviews + new_available,
+        "scoped_total": row["scoped_total"],
+    }
+
+
+def available_counts(
+    scope: Optional[dict] = None,
+    now: datetime | None = None,
+    *,
+    user=None,
+) -> dict:
+    """What a scope has available to study, in a single aggregate."""
+    now = now or timezone.now()
+    return counts_from_due_row(
+        narrow(scoped_cards(scope, user=user)).aggregate(**due_aggregates(now))
+    )
+
+
 def queue_counts(
     scope: Optional[dict] = None,
     now: datetime | None = None,
@@ -360,23 +439,7 @@ def queue_counts(
             elif state_before in (CardState.REVIEW, CardState.RELEARNING):
                 reviews_done_today += 1
 
-    due_counts = narrow(cards).aggregate(
-        learning_due=Count(
-            "pk",
-            distinct=True,
-            filter=Q(
-                state__in=[CardState.LEARNING, CardState.RELEARNING],
-                due__lte=now,
-            ),
-        ),
-        review_due_total=Count(
-            "pk",
-            distinct=True,
-            filter=Q(state=CardState.REVIEW, due__lte=now),
-        ),
-        new_total=Count("pk", distinct=True, filter=Q(state=CardState.NEW)),
-        scoped_total=Count("pk", distinct=True),
-    )
+    due_counts = narrow(cards).aggregate(**due_aggregates(now))
     scoped_total = due_counts["scoped_total"]
     learning_due = due_counts["learning_due"]
     review_due_total = due_counts["review_due_total"]

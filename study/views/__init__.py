@@ -15,8 +15,10 @@ from .helpers import (
     _task_content_counts,
     _task_phrases,
     _task_scope,
+    active_task_for_request,
     current_streak,
     deck_stats,
+    expression_task_summaries,
     recent_review_sessions,
 )
 from .account import (
@@ -81,7 +83,7 @@ from .comprehension import (
 )
 from .dashboard import (
     _home_expression_paths,
-    _parts_with_task_cards,
+    _parts_with_task_summaries,
     dashboard,
     expression_hub,
 )
@@ -214,7 +216,7 @@ __all__ = [
     '_home_expression_paths',
     '_locked_review_session',
     '_notes_scope',
-    '_parts_with_task_cards',
+    '_parts_with_task_summaries',
     '_phrase_deck_stats',
     '_prepare_comprehension_test',
     '_queue_state_locked',
@@ -235,6 +237,7 @@ __all__ = [
     '_task_content_counts',
     '_task_phrases',
     '_task_scope',
+    'active_task_for_request',
     'annotation_create',
     'annotation_delete',
     'translate_selection',
@@ -267,6 +270,7 @@ __all__ = [
     'edit_response',
     'export_account',
     'expression_hub',
+    'expression_task_summaries',
     'family_detail',
     'comprehension_notes',
     'general_notes',

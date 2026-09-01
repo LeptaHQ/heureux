@@ -22,6 +22,7 @@ from ..models import (
     ComprehensionTest,
     ExamPart,
     PhraseTier,
+    Prompt,
     Rating,
     Response,
     ReviewSession,
@@ -42,6 +43,8 @@ from .helpers import (
     _route_task,
     _task_scope,
     deck_stats,
+    empty_deck_stats,
+    grouped_deck_stats,
 )
 
 REVIEW_SCOPE_KEYS = (
@@ -441,10 +444,14 @@ def review_hub(request, part_slug, task_slug):
         now,
         user=request.user,
     )
-    weak_counts = queue_module.queue_counts(
-        {**scope, "kind": "weak", "content": "spine"},
-        now,
-        user=request.user,
+    # Only the weak total is shown, so count the weak cards directly instead of
+    # running the whole queue summary, which also scans today's reviews and the
+    # revisit list for a scope that never uses them.
+    weak_count = queue_module.scoped_count(
+        queue_module.scoped_cards(
+            {**scope, "kind": "weak", "content": "spine"},
+            user=request.user,
+        )
     )
     session = ReviewSession.load(request.user)
     saved_scope = session.scope if isinstance(session.scope, dict) else {}
@@ -458,7 +465,33 @@ def review_hub(request, part_slug, task_slug):
         )
     )
     themes = []
-    for theme in Theme.objects.filter(task=task, is_active=True):
+    # Every theme card shows the same numbers, so they come from two grouped
+    # aggregates over the task's response cards instead of a deck summary plus
+    # a queue count for each theme in turn. A response card always targets one
+    # response, so grouping by that response's theme selects exactly the cards
+    # the per-theme scope did.
+    task_themes = list(Theme.objects.filter(task=task, is_active=True))
+    theme_stats_by_theme = {}
+    theme_counts_by_theme = {}
+    if task_themes:
+        theme_cards = queue_module.scoped_cards(
+            response_scope,
+            user=request.user,
+        )
+        theme_stats_by_theme = grouped_deck_stats(
+            theme_cards,
+            "response__theme__slug",
+            now,
+        )
+        theme_counts_by_theme = {
+            row["response__theme__slug"]: queue_module.counts_from_due_row(row)
+            for row in (
+                queue_module.narrow(theme_cards)
+                .values("response__theme__slug")
+                .annotate(**queue_module.due_aggregates(now))
+            )
+        }
+    for theme in task_themes:
         theme_scope = {
             **response_scope,
             "theme": theme.slug,
@@ -466,17 +499,15 @@ def review_hub(request, part_slug, task_slug):
         themes.append(
             {
                 "theme": theme,
-                "stats": deck_stats(
-                    queue_module.scoped_cards(
-                        theme_scope,
-                        user=request.user,
-                    ),
-                    now,
+                "stats": theme_stats_by_theme.get(
+                    theme.slug,
+                    empty_deck_stats(),
                 ),
-                "counts": queue_module.queue_counts(
-                    theme_scope,
-                    now,
-                    user=request.user,
+                "counts": theme_counts_by_theme.get(
+                    theme.slug,
+                    queue_module.counts_from_due_row(
+                        queue_module.EMPTY_DUE_ROW
+                    ),
                 ),
                 "review_url": review_url(theme_scope),
             }
@@ -500,11 +531,13 @@ def review_hub(request, part_slug, task_slug):
             "counts": response_counts,
             "response_stats": response_stats,
             "response_due": response_counts["total_due"],
-            "revisit_count": queue_module.scoped_cards(
-                {**scope, "kind": "revisit", "content": "spine"},
-                user=request.user,
-            ).count(),
-            "weak_count": weak_counts["weak_total"],
+            "revisit_count": queue_module.scoped_count(
+                queue_module.scoped_cards(
+                    {**scope, "kind": "revisit", "content": "spine"},
+                    user=request.user,
+                )
+            ),
+            "weak_count": weak_count,
             "can_resume": can_resume,
             "resume_url": reverse(
                 "study:task_review",
@@ -697,6 +730,26 @@ def review_undo(request):
     return JsonResponse(state)
 
 
+def _canonical_prompts_by_response(response_ids) -> dict:
+    """Each response's canonical prompt, with its task, in one query.
+
+    Matches ``Response.canonical_prompt`` row for row: the prompts arrive in
+    the model's own order, so the first one kept per response is the one the
+    property's ``.first()`` returns.
+    """
+    ids = list(response_ids)
+    if not ids:
+        return {}
+    prompts = {}
+    for prompt in Prompt.objects.filter(
+        response_id__in=ids,
+        is_active=True,
+        is_canonical=True,
+    ).select_related("theme__task__part"):
+        prompts.setdefault(prompt.response_id, prompt)
+    return prompts
+
+
 def revisit_list(request, part_slug=None, task_slug=None):
     """Persistent list of cards marked with the Revisit review action."""
     if bool(task_slug) and not part_slug:
@@ -762,28 +815,36 @@ def revisit_list(request, part_slug=None, task_slug=None):
             "phrase__category",
         )
         .prefetch_related(
-            "response__prompts",
             "phrase__source_prompts__theme__task__part",
             "phrase__source_questions__test",
         )
         .order_by("revisit_added_at", "id")
     )
+    # The title and the link of a response row both need its canonical prompt
+    # and that prompt's task, which used to be five queries per row.
+    canonical_prompts = _canonical_prompts_by_response(
+        {card.response_id for card in cards if card.response_id}
+    )
     items = []
     for card in cards:
         if card.response_id:
-            canonical = card.response.canonical_prompt
+            canonical = canonical_prompts.get(card.response_id)
+            if canonical is None:
+                raise ValueError(
+                    "A public response must have an active canonical prompt."
+                )
             items.append(
                 {
                     "card": card,
                     "kind": "Réponse",
-                    "title": canonical.text if canonical else card.response.prompt,
+                    "title": canonical.text,
                     "icon": card.response.theme.icon,
                     "icon_color": card.response.theme.color,
                     "meta": (
                         f"{card.response.theme.display_name} · "
                         f"{card.response.family.name}"
                     ),
-                    "url": response_detail_url(card.response),
+                    "url": prompt_detail_url(canonical),
                 }
             )
         else:

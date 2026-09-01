@@ -31,7 +31,6 @@ from ..models import (
     AnnotationKind,
     Prompt,
     Task,
-    WritingSujet,
 )
 from ..progress import (
     writing_sujet_id_from_source_key,
@@ -114,34 +113,57 @@ def _scope_annotations(
     return annotations
 
 
-def _general_scope_counts(user):
-    """Split task-less items into personal, general, and comprehension scopes."""
-    totals = Annotation.objects.filter(user=user, task__isnull=True).aggregate(
-        total=Count("id"),
-        custom=Count("id", filter=CUSTOM_NOTE_FILTER),
-        ecrite=Count(
-            "id",
-            filter=Q(
-                source_path__startswith=_comprehension_scope_prefix("ecrite")
+def _annotation_counts(user):
+    """Every notes-nav count for one learner, from a single grouped scan.
+
+    Returns ``(task_totals, folder_counts)``: ``{task_id: total}`` for the
+    tasks that own annotations, and the task-less split the folder nav shows.
+    Grouping by task resolves both in one pass — the task list and the folder
+    counts used to scan the same rows twice. The conditional columns only
+    describe the task-less bucket, which is the only row that reads them.
+    """
+    task_totals = {}
+    folders = {"custom": 0, "ecrite": 0, "orale": 0, "general": 0}
+    rows = (
+        Annotation.objects.filter(user=user)
+        .order_by()
+        .values("task_id")
+        .annotate(
+            total=Count("id"),
+            custom=Count("id", filter=CUSTOM_NOTE_FILTER),
+            ecrite=Count(
+                "id",
+                filter=Q(
+                    source_path__startswith=_comprehension_scope_prefix(
+                        "ecrite"
+                    )
+                ),
             ),
-        ),
-        orale=Count(
-            "id",
-            filter=Q(
-                source_path__startswith=_comprehension_scope_prefix("orale")
+            orale=Count(
+                "id",
+                filter=Q(
+                    source_path__startswith=_comprehension_scope_prefix(
+                        "orale"
+                    )
+                ),
             ),
-        ),
+        )
     )
-    ecrite = totals["ecrite"] or 0
-    orale = totals["orale"] or 0
-    custom = totals["custom"] or 0
-    total = totals["total"] or 0
-    return {
-        "ecrite": ecrite,
-        "orale": orale,
-        "custom": custom,
-        "general": total - custom - ecrite - orale,
-    }
+    for row in rows:
+        total = row["total"] or 0
+        if row["task_id"] is not None:
+            task_totals[row["task_id"]] = total
+            continue
+        custom = row["custom"] or 0
+        ecrite = row["ecrite"] or 0
+        orale = row["orale"] or 0
+        folders = {
+            "custom": custom,
+            "ecrite": ecrite,
+            "orale": orale,
+            "general": total - custom - ecrite - orale,
+        }
+    return task_totals, folders
 
 
 def _annotation_scope_key(annotation):
@@ -167,39 +189,51 @@ def _annotation_scope_key(annotation):
     return "general"
 
 
+_TASK_LESS_SCOPE_LABELS = {
+    "custom": "Notes personnelles",
+    "ecrite": COMPREHENSION_NOTE_LABELS["ecrite"],
+    "orale": COMPREHENSION_NOTE_LABELS["orale"],
+    "general": "Notes générales",
+}
+
+
 def _annotation_scope_label(annotation):
     if annotation.task_id is not None:
         return f"{annotation.task.part.short_name} · {annotation.task.name}"
-    return {
-        "custom": "Notes personnelles",
-        "ecrite": COMPREHENSION_NOTE_LABELS["ecrite"],
-        "orale": COMPREHENSION_NOTE_LABELS["orale"],
-        "general": "Notes générales",
-    }[_annotation_scope_key(annotation)]
+    return _TASK_LESS_SCOPE_LABELS[_annotation_scope_key(annotation)]
 
 
-def _annotation_counts(user):
-    rows = (
-        Annotation.objects.filter(user=user)
-        .values("task_id", "kind", "study_later")
-        .annotate(total=Count("id"))
-    )
-    counts = {}
-    for row in rows:
-        task_counts = counts.setdefault(
-            row["task_id"],
-            {"notes": 0, "highlights": 0, "study": 0, "total": 0},
-        )
-        key = (
-            "highlights"
-            if row["kind"] == AnnotationKind.HIGHLIGHT
-            else "notes"
-        )
-        task_counts[key] += row["total"]
-        if row["study_later"]:
-            task_counts["study"] += row["total"]
-        task_counts["total"] += row["total"]
-    return counts
+def _fixed_scope_label(task, *, comprehension=None, custom=False):
+    """The one label every row of a single-folder scope carries.
+
+    Outside « Toutes », :func:`_scope_annotations` has already narrowed the
+    rows to one bucket, so the label is a property of the folder rather than of
+    each row: no ``task``/``part`` join, and no per-row classification.
+    """
+    if task is not None:
+        return f"{task.part.short_name} · {task.name}"
+    if custom:
+        return _TASK_LESS_SCOPE_LABELS["custom"]
+    if comprehension:
+        return _TASK_LESS_SCOPE_LABELS[comprehension]
+    return _TASK_LESS_SCOPE_LABELS["general"]
+
+
+def _apply_scope_labels(
+    annotations,
+    *,
+    task,
+    aggregate,
+    comprehension,
+    custom,
+):
+    if aggregate:
+        for annotation in annotations:
+            annotation.scope_label = _annotation_scope_label(annotation)
+        return
+    label = _fixed_scope_label(task, comprehension=comprehension, custom=custom)
+    for annotation in annotations:
+        annotation.scope_label = label
 
 
 @require_http_methods(["GET", "POST"])
@@ -353,9 +387,11 @@ def _notes_scope(
     comprehension=None,
     custom=False,
 ):
-    annotations = Annotation.objects.filter(user=request.user).select_related(
-        "task__part"
-    )
+    annotations = Annotation.objects.filter(user=request.user)
+    if aggregate:
+        # « Toutes » is the only folder that mixes scopes, so it is the only
+        # one that has to reach a task and a part to label each row.
+        annotations = annotations.select_related("task__part")
     annotations = _scope_annotations(
         annotations,
         task=task,
@@ -370,8 +406,6 @@ def _notes_scope(
         if request.GET.get("status") in {"todo", "done", "study"}
         else ""
     )
-    study_count = annotations.filter(study_later=True).count()
-    filtered = _filter_annotation_status(annotations, status)
     active_tab = (
         request.GET.get("tab")
         if not custom
@@ -399,34 +433,51 @@ def _notes_scope(
             )
     else:
         form = NoteForm()
-    notes = list(
-        filtered.filter(kind=AnnotationKind.NOTE).order_by(
+    # Both tabs render from the same rows, so fetch them once in final order
+    # and split by kind here rather than paying for a query per tab.
+    rows = list(
+        _filter_annotation_status(annotations, status).order_by(
             "-created_at", "-id"
         )
     )
-    highlights = list(
-        filtered.filter(kind=AnnotationKind.HIGHLIGHT).order_by(
-            "-created_at", "-id"
-        )
+    notes = []
+    highlights = []
+    for annotation in rows:
+        if annotation.kind == AnnotationKind.HIGHLIGHT:
+            highlights.append(annotation)
+        else:
+            notes.append(annotation)
+    _apply_scope_labels(
+        rows,
+        task=task,
+        aggregate=aggregate,
+        comprehension=comprehension,
+        custom=custom,
     )
-    for annotation in notes + highlights:
-        annotation.scope_label = _annotation_scope_label(annotation)
     for highlight in highlights:
         highlight.origin_label = _HIGHLIGHT_ORIGIN_LABELS[
             _highlight_origin(highlight)
         ]
-    counts = _annotation_counts(request.user)
-    general_counts = _general_scope_counts(request.user)
-    task_filters = []
-    for filter_task in Task.objects.select_related("part").filter(
-        Q(is_active=True) | Q(annotations__user=request.user)
-    ).distinct().order_by("part__order", "order"):
-        task_filters.append(
-            {
-                "task": filter_task,
-                "count": counts.get(filter_task.pk, {}).get("total", 0),
-            }
-        )
+    # The hero count covers the whole folder, before the status filter. With no
+    # status filter — or with « À étudier », which selects exactly those rows —
+    # the loaded rows already answer it.
+    if status in {"", "study"}:
+        study_count = sum(1 for annotation in rows if annotation.study_later)
+    else:
+        study_count = annotations.filter(study_later=True).count()
+    task_totals, general_counts = _annotation_counts(request.user)
+    task_filters = [
+        {
+            "task": filter_task,
+            "count": task_totals.get(filter_task.pk, 0),
+        }
+        # Tasks retired from the catalogue stay listed while they still own
+        # annotations; their ids come from the counts above, so this needs no
+        # join back onto the annotations.
+        for filter_task in Task.objects.select_related("part")
+        .filter(Q(is_active=True) | Q(pk__in=list(task_totals)))
+        .order_by("part__order", "order")
+    ]
     preserved = {}
     if query:
         preserved["q"] = query
@@ -523,7 +574,10 @@ def _notes_scope(
 
 
 def task_notes(request, part_slug, task_slug):
-    return _notes_scope(request, _route_task(part_slug, task_slug))
+    return _notes_scope(
+        request,
+        _route_task(part_slug, task_slug, request=request),
+    )
 
 
 def general_notes(request):
@@ -547,6 +601,9 @@ def _annotation_anchor(annotation):
         else "note"
     )
     return f"{prefix}-{annotation.id}"
+
+
+ANNOTATION_SEARCH_LIMIT = 100
 
 
 @require_GET
@@ -578,8 +635,17 @@ def annotation_search(request):
     else:
         task_id = None
 
-    result_count = annotations.count()
-    results = list(annotations.order_by("-created_at", "-id")[:100])
+    # One row past the limit tells us whether the result set was truncated, so
+    # the exact total is only worth a scan when it actually was.
+    results = list(
+        annotations.order_by("-created_at", "-id")[:ANNOTATION_SEARCH_LIMIT + 1]
+    )
+    result_limit_reached = len(results) > ANNOTATION_SEARCH_LIMIT
+    if result_limit_reached:
+        del results[ANNOTATION_SEARCH_LIMIT:]
+        result_count = annotations.count()
+    else:
+        result_count = len(results)
     for annotation in results:
         annotation.scope_label = _annotation_scope_label(annotation)
         annotation.notes_url = (
@@ -592,9 +658,13 @@ def annotation_search(request):
             + _annotation_anchor(annotation)
         )
     task_options = (
-        Task.objects.filter(annotations__user=request.user)
+        Task.objects.filter(
+            pk__in=Annotation.objects.filter(user=request.user)
+            .exclude(task_id=None)
+            .order_by()
+            .values("task_id")
+        )
         .select_related("part")
-        .distinct()
         .order_by("part__order", "order", "name")
     )
     return render(
@@ -608,7 +678,7 @@ def annotation_search(request):
             "task_options": task_options,
             "results": results,
             "result_count": result_count,
-            "result_limit_reached": result_count > len(results),
+            "result_limit_reached": result_limit_reached,
         },
     )
 
@@ -630,23 +700,26 @@ def annotation_study(
     if requested_mode not in {"", "all"} or "item" in request.GET:
         raise Http404
     task = (
-        _route_task(part_slug, task_slug)
+        _route_task(part_slug, task_slug, request=request)
         if part_slug is not None and task_slug is not None
         else None
     )
     study_mode = "all" if requested_mode == "all" else "queue"
-    annotations = Annotation.objects.filter(user=request.user).select_related(
-        "task__part"
+    aggregate = (
+        not task
+        and not comprehension
+        and not general_only
+        and not custom_only
     )
+    annotations = Annotation.objects.filter(user=request.user)
+    if aggregate:
+        # Only the all-notes deck mixes scopes, so it is the only one whose
+        # cards need a task and a part to label themselves.
+        annotations = annotations.select_related("task__part")
     annotations = _scope_annotations(
         annotations,
         task=task,
-        aggregate=(
-            not task
-            and not comprehension
-            and not general_only
-            and not custom_only
-        ),
+        aggregate=aggregate,
         comprehension=comprehension,
         custom=custom_only,
     )
@@ -678,8 +751,13 @@ def annotation_study(
             )
         )
     items = list(annotations.order_by("-updated_at", "-id"))
-    for annotation in items:
-        annotation.scope_label = _annotation_scope_label(annotation)
+    _apply_scope_labels(
+        items,
+        task=task,
+        aggregate=aggregate,
+        comprehension=comprehension,
+        custom=custom_only,
+    )
     back_url = (
         _annotation_scope_url(task)
         if task
@@ -762,13 +840,20 @@ def _annotation_source_key(value):
 
 
 def _writing_sujet_progress_payload(user, source_key):
+    """Refreshed EE Tâche 1 progress for a highlight's sujet, if it has one.
+
+    Only ``writing-sujet:<id>`` source keys resolve, and the progress helper
+    derives its answer from the learner's own rows, so the sujet itself never
+    has to be fetched. A key can still carry an id no sujet can have — the
+    pattern accepts ``writing-sujet:0:personal`` — so the lookup stays
+    optional rather than assuming a row comes back.
+    """
     sujet_id = writing_sujet_id_from_source_key(source_key)
-    if sujet_id is None or not WritingSujet.objects.filter(
-        pk=sujet_id,
-        is_active=True,
-    ).exists():
+    if sujet_id is None or sujet_id <= 0:
         return {}
-    progress = writing_sujet_progress_by_id(user, [sujet_id])[sujet_id]
+    progress = writing_sujet_progress_by_id(user, [sujet_id]).get(sujet_id)
+    if progress is None:
+        return {}
     return {
         "writing_sujet_progress": {
             "sujet_id": sujet_id,
@@ -1131,7 +1216,12 @@ def annotation_create(request):
     return JsonResponse(payload, status=201 if created else 200)
 
 
-def _annotation_redirect(request, annotation):
+def _is_fetch(request):
+    return request.headers.get("X-Requested-With") == "fetch"
+
+
+def _annotation_next_url(request):
+    """The caller-supplied return URL, when it is safe to follow."""
     candidate = request.POST.get("next")
     if candidate and url_has_allowed_host_and_scheme(
         candidate,
@@ -1139,19 +1229,36 @@ def _annotation_redirect(request, annotation):
         require_https=request.is_secure(),
     ):
         return candidate
-    return _annotation_tab_url(
+    return None
+
+
+def _annotation_redirect(request, annotation):
+    return _annotation_next_url(request) or _annotation_tab_url(
         annotation.task,
         annotation.kind,
         custom=_annotation_scope_key(annotation) == "custom",
     )
 
 
+def _annotation_action_queryset(request):
+    """The learner's annotations, joined only when the response needs it.
+
+    A card action answers JSON, or redirects to the URL the form carried;
+    neither walks to the task. It is only the bare fallback redirect that
+    rebuilds a folder URL, and there one compact join beats lazily loading the
+    task and its part one round trip at a time.
+    """
+    annotations = Annotation.objects.filter(user=request.user)
+    if _is_fetch(request) or _annotation_next_url(request) is not None:
+        return annotations
+    return annotations.select_related("task__part")
+
+
 @require_POST
 def annotation_update(request, pk):
     annotation = get_object_or_404(
-        Annotation,
+        _annotation_action_queryset(request),
         pk=pk,
-        user=request.user,
         kind=AnnotationKind.NOTE,
     )
     form = NoteForm(request.POST, instance=annotation)
@@ -1162,7 +1269,7 @@ def annotation_update(request, pk):
         )
     form.save()
     redirect_url = _annotation_redirect(request, annotation) + f"#note-{pk}"
-    if request.headers.get("X-Requested-With") == "fetch":
+    if _is_fetch(request):
         # The rendered body lets callers such as the study deck refresh a
         # single card instead of reloading and losing their place.
         return JsonResponse(
@@ -1180,16 +1287,15 @@ def annotation_update(request, pk):
 @require_POST
 def annotation_study_toggle(request, pk):
     annotation = get_object_or_404(
-        Annotation,
+        _annotation_action_queryset(request),
         pk=pk,
-        user=request.user,
     )
     value = request.POST.get("study_later")
     if value not in {"0", "1"}:
         return HttpResponseBadRequest("Invalid study status.")
     annotation.study_later = value == "1"
     annotation.save(update_fields=["study_later", "updated_at"])
-    if request.headers.get("X-Requested-With") == "fetch":
+    if _is_fetch(request):
         return JsonResponse(
             {
                 "study_later": annotation.study_later,
@@ -1203,16 +1309,15 @@ def annotation_study_toggle(request, pk):
 @require_POST
 def annotation_complete_toggle(request, pk):
     annotation = get_object_or_404(
-        Annotation,
+        _annotation_action_queryset(request),
         pk=pk,
-        user=request.user,
     )
     value = request.POST.get("completed")
     if value not in {"0", "1"}:
         return HttpResponseBadRequest("Invalid completion status.")
     annotation.completed_at = timezone.now() if value == "1" else None
     annotation.save(update_fields=["completed_at", "updated_at"])
-    if request.headers.get("X-Requested-With") == "fetch":
+    if _is_fetch(request):
         return JsonResponse(
             {
                 "completed": annotation.completed,
@@ -1226,11 +1331,13 @@ def annotation_complete_toggle(request, pk):
 @require_POST
 def annotation_delete(request, pk):
     annotation = get_object_or_404(
-        Annotation,
+        _annotation_action_queryset(request),
         pk=pk,
-        user=request.user,
     )
-    target = _annotation_redirect(request, annotation)
+    is_fetch = _is_fetch(request)
+    # Resolved before the row goes away, and only for the caller that follows
+    # it: a fetch response never redirects.
+    target = None if is_fetch else _annotation_redirect(request, annotation)
     payload = {
         "deleted": True,
         "id": annotation.pk,
@@ -1245,7 +1352,7 @@ def annotation_delete(request, pk):
         payload.update(
             _writing_sujet_progress_payload(request.user, source_key)
         )
-    if request.headers.get("X-Requested-With") == "fetch":
+    if is_fetch:
         return JsonResponse(payload)
     return redirect(target)
 

@@ -145,7 +145,6 @@
 <section class="annotations-section" aria-label="Notes">
   {% if notes %}
     {% include "study/partials/annotation_cards.html" with sections=notes_sections variant="notes" %}
-    {% include "study/partials/annotation_table.html" with sections=notes_sections variant="notes" %}
   {% else %}
     <div class="empty annotation-empty">
       <p>{% if custom %}Aucune note personnelle. Utilisez « Nouvelle note » pour en créer une.{% else %}Aucune note ici. Écrivez-en une ou sélectionnez du texte ailleurs dans l'application.{% endif %}</p>
@@ -158,7 +157,6 @@
 <section class="annotations-section" aria-label="Surlignages">
   {% if highlights %}
     {% include "study/partials/annotation_cards.html" with sections=highlights_sections variant="highlights" %}
-    {% include "study/partials/annotation_table.html" with sections=highlights_sections variant="highlights" %}
   {% else %}
     <div class="notes-empty-hint">
       Sélectionnez un passage, puis choisissez l'icône de surlignage.

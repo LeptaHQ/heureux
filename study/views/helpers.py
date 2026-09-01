@@ -3,13 +3,17 @@
 from __future__ import annotations
 
 from django.db.models import Count, Q
+from django.db.models.functions import TruncDate
+from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
 
 from .. import content_loader as content_module
 from .. import queue as queue_module
 from ..models import (
+    Card,
     CardState,
+    CardType,
     MemoryQuestionProgress,
     Phrase,
     PhraseTier,
@@ -22,6 +26,7 @@ from ..models import (
     WritingSujet,
 )
 from ..progress import (
+    MATURE_INTERVAL_DAYS,
     ProgressSummary,
     SubjectProgress,
     combine_progress,
@@ -32,7 +37,7 @@ from ..progress import (
 )
 from ..routing import review_url
 
-MATURE_DAYS = 21
+MATURE_DAYS = MATURE_INTERVAL_DAYS
 
 
 RECENT_SESSION_GAP = timezone.timedelta(minutes=30)
@@ -323,28 +328,36 @@ def _tache_two_theme_progress(user, months=None):
     }
 
 
-def deck_stats(qs, now=None) -> dict:
-    now = now or timezone.now()
-    # One conditional aggregate instead of seven COUNTs: the scoped queryset
-    # joins several tables and is DISTINCT, so each extra count was a full
-    # `SELECT COUNT(*) FROM (SELECT DISTINCT <every column>)` scan.
-    counts = queue_module.narrow(qs).aggregate(
-        total=Count("id", distinct=True),
-        new=Count("id", distinct=True, filter=Q(state=CardState.NEW)),
-        started_new=Count(
+_DUE_CARD_STATES = (
+    CardState.LEARNING,
+    CardState.RELEARNING,
+    CardState.REVIEW,
+)
+
+
+def _deck_stat_aggregates(now) -> dict:
+    """The conditional counts every deck summary is built from.
+
+    Passed to ``aggregate`` for one deck or to ``annotate`` after a
+    ``values(<group>)`` to summarize every deck on a page at once.
+    """
+    return {
+        "total": Count("id", distinct=True),
+        "new": Count("id", distinct=True, filter=Q(state=CardState.NEW)),
+        "started_new": Count(
             "id",
             distinct=True,
             filter=Q(state=CardState.NEW, started_at__isnull=False),
         ),
-        learning=Count(
+        "learning": Count(
             "id",
             distinct=True,
             filter=Q(
                 state__in=[CardState.LEARNING, CardState.RELEARNING]
             ),
         ),
-        review=Count("id", distinct=True, filter=Q(state=CardState.REVIEW)),
-        mature=Count(
+        "review": Count("id", distinct=True, filter=Q(state=CardState.REVIEW)),
+        "mature": Count(
             "id",
             distinct=True,
             filter=Q(
@@ -352,19 +365,27 @@ def deck_stats(qs, now=None) -> dict:
                 interval_days__gte=MATURE_DAYS,
             ),
         ),
-        due=Count(
+        "due": Count(
             "id",
             distinct=True,
-            filter=Q(
-                state__in=[
-                    CardState.LEARNING,
-                    CardState.RELEARNING,
-                    CardState.REVIEW,
-                ],
-                due__lte=now,
-            ),
+            filter=Q(state__in=_DUE_CARD_STATES, due__lte=now),
         ),
-    )
+    }
+
+
+_EMPTY_DECK_COUNTS = {
+    "total": 0,
+    "new": 0,
+    "started_new": 0,
+    "learning": 0,
+    "review": 0,
+    "mature": 0,
+    "due": 0,
+}
+
+
+def _deck_stats_from_counts(counts) -> dict:
+    """Shape the raw conditional counts into the deck summary templates read."""
     total = counts["total"]
     new = counts["new"]
     started_new = counts["started_new"]
@@ -389,26 +410,101 @@ def deck_stats(qs, now=None) -> dict:
     }
 
 
-def _review_batches(scope: dict, user) -> list[dict]:
-    """Describe stable lots and each lot's first-pass progress."""
-    base_scope = {key: value for key, value in scope.items() if key != "batch"}
-    rows = list(
+def empty_deck_stats() -> dict:
+    """The summary a deck without a single card renders."""
+    return _deck_stats_from_counts(_EMPTY_DECK_COUNTS)
+
+
+def deck_stats(qs, now=None) -> dict:
+    now = now or timezone.now()
+    # One conditional aggregate instead of seven COUNTs: the scoped queryset
+    # joins several tables and is DISTINCT, so each extra count was a full
+    # `SELECT COUNT(*) FROM (SELECT DISTINCT <every column>)` scan.
+    return _deck_stats_from_counts(
+        queue_module.narrow(qs).aggregate(**_deck_stat_aggregates(now))
+    )
+
+
+def grouped_deck_stats(qs, group_field, now=None) -> dict:
+    """``deck_stats`` for every group of a queryset in a single aggregate.
+
+    Returns ``{group value: deck stats}``, with no entry for groups the
+    queryset does not reach — callers fall back to :func:`empty_deck_stats`.
+    """
+    now = now or timezone.now()
+    return {
+        row[group_field]: _deck_stats_from_counts(row)
+        for row in (
+            queue_module.narrow(qs)
+            .values(group_field)
+            .annotate(**_deck_stat_aggregates(now))
+        )
+    }
+
+
+def deck_stats_from_rows(rows, now) -> dict:
+    """``deck_stats`` for rows already fetched for another purpose.
+
+    ``rows`` are card dicts carrying ``state``, ``interval_days``, ``due`` and
+    ``started_at``; suspended rows must already be filtered out, exactly as
+    ``scoped_cards`` does before :func:`deck_stats` counts them.
+    """
+    counts = dict(_EMPTY_DECK_COUNTS)
+    for row in rows:
+        state = row["state"]
+        counts["total"] += 1
+        if state == CardState.NEW:
+            counts["new"] += 1
+            if row["started_at"] is not None:
+                counts["started_new"] += 1
+        elif state in (CardState.LEARNING, CardState.RELEARNING):
+            counts["learning"] += 1
+        elif state == CardState.REVIEW:
+            counts["review"] += 1
+            if row["interval_days"] >= MATURE_DAYS:
+                counts["mature"] += 1
+        if (
+            state in _DUE_CARD_STATES
+            and row["due"] is not None
+            and row["due"] <= now
+        ):
+            counts["due"] += 1
+    return _deck_stats_from_counts(counts)
+
+
+BATCH_ROW_FIELDS = (
+    "id",
+    "phrase_id",
+    "state",
+    "due",
+    "suspended",
+    "started_at",
+    "response_practice_started_at",
+)
+
+
+def batch_rows(scope: dict, user, *, extra_fields=()):
+    """The ordered card rows :func:`review_batches_from_rows` partitions.
+
+    Fetching them for a parent scope and filtering the list per child scope in
+    Python gives the same lots as one query per child: the ordering ends on the
+    card id, so it is total, and restricting a totally ordered list preserves
+    the order of every subset.
+    """
+    return list(
         queue_module.scoped_cards(
-            base_scope,
+            scope,
             user=user,
             include_suspended=True,
         )
-        .order_by(*queue_module.batch_ordering(base_scope))
-        .values(
-            "id",
-            "phrase_id",
-            "state",
-            "due",
-            "suspended",
-            "started_at",
-            "response_practice_started_at",
-        )
+        .order_by(*queue_module.batch_ordering(scope))
+        .values(*BATCH_ROW_FIELDS, *extra_fields)
     )
+
+
+def review_batches_from_rows(rows, scope: dict, now=None) -> list[dict]:
+    """Describe stable lots and each lot's first-pass progress."""
+    base_scope = {key: value for key, value in scope.items() if key != "batch"}
     phrase_batches = queue_module._uses_phrase_batches(base_scope)
     if phrase_batches:
         grouped_rows = {}
@@ -418,7 +514,7 @@ def _review_batches(scope: dict, user) -> list[dict]:
     else:
         units = [[row] for row in rows]
 
-    now = timezone.now()
+    now = now or timezone.now()
     size = queue_module.batch_size(base_scope)
     batches = []
     for number, start in enumerate(
@@ -511,6 +607,16 @@ def _review_batches(scope: dict, user) -> list[dict]:
     return batches
 
 
+def _review_batches(scope: dict, user, now=None) -> list[dict]:
+    """Stable lots for one scope, fetching that scope's rows on its own."""
+    base_scope = {key: value for key, value in scope.items() if key != "batch"}
+    return review_batches_from_rows(
+        batch_rows(base_scope, user),
+        base_scope,
+        now,
+    )
+
+
 def summarize_review_batches(batches) -> ProgressSummary:
     """Bubble active lot completion into one parent progress summary."""
     available = [batch for batch in batches if batch["status"] != "unavailable"]
@@ -524,14 +630,38 @@ def summarize_review_batches(batches) -> ProgressSummary:
     )
 
 
-def current_streak(now=None, logs=None, user=None) -> int:
-    """Consecutive days (up to today) with at least one review."""
-    now = now or timezone.now()
+def review_day_counts(user=None, logs=None) -> dict:
+    """Reviews per local calendar day, in one grouped query.
+
+    The database does the day bucketing, so this reads one short row per active
+    day instead of the learner's whole review history — tens of thousands of
+    timestamps for the same handful of dates.
+    """
     logs = ReviewLog.objects.filter(user=user) if logs is None else logs
-    days = {
-        timezone.localtime(dt).date()
-        for dt in logs.values_list("reviewed_at", flat=True)
+    return {
+        row["reviewed_day"]: row["total"]
+        for row in (
+            logs.annotate(reviewed_day=TruncDate("reviewed_at"))
+            .order_by()
+            .values("reviewed_day")
+            .annotate(total=Count("id"))
+        )
+        if row["reviewed_day"] is not None
     }
+
+
+def current_streak(now=None, logs=None, user=None, day_counts=None) -> int:
+    """Consecutive days (up to today) with at least one review.
+
+    ``day_counts`` reuses a :func:`review_day_counts` mapping the caller has
+    already fetched.
+    """
+    now = now or timezone.now()
+    days = set(
+        day_counts
+        if day_counts is not None
+        else review_day_counts(user=user, logs=logs)
+    )
     if not days:
         return 0
     today = timezone.localtime(now).date()
@@ -627,14 +757,56 @@ def _task_phrases(task):
     ).distinct()
 
 
-def _route_task(part_slug, task_slug):
-    return get_object_or_404(
-        Task.objects.select_related("part"),
+def _active_task(part_slug, task_slug):
+    """The active task a slug pair names, or ``None``."""
+    if not task_slug:
+        return None
+    tasks = Task.objects.select_related("part").filter(
         slug=task_slug,
-        part__slug=part_slug,
         is_active=True,
         part__is_active=True,
     )
+    if part_slug:
+        tasks = tasks.filter(part__slug=part_slug)
+    return tasks.first()
+
+
+def active_task_for_request(request, part_slug, task_slug):
+    """Resolve a task once per request, shared by the view and the app shell.
+
+    A page that names a task resolves it in the view, and the shell context
+    processor resolves the same row again to light up the navigation. Memoising
+    on the request keeps that to a single query. The cache lives and dies with
+    the request object, so nothing is shared between users or requests.
+    """
+    cache = getattr(request, "_study_active_tasks", None)
+    if cache is None:
+        cache = {}
+        request._study_active_tasks = cache
+    key = (part_slug or "", task_slug or "")
+    if key not in cache:
+        cache[key] = _active_task(part_slug, task_slug)
+    return cache[key]
+
+
+def _route_task(part_slug, task_slug, *, request=None):
+    """The active task a URL names, 404ing when it is missing.
+
+    Pass ``request`` to share the lookup with the app shell instead of paying
+    for the same row twice.
+    """
+    if request is None:
+        return get_object_or_404(
+            Task.objects.select_related("part"),
+            slug=task_slug,
+            part__slug=part_slug,
+            is_active=True,
+            part__is_active=True,
+        )
+    task = active_task_for_request(request, part_slug, task_slug)
+    if task is None:
+        raise Http404("No Task matches the given query.")
+    return task
 
 
 _EMPTY_TASK_CONTENT_COUNTS = {
@@ -654,10 +826,10 @@ _EMPTY_TASK_CONTENT_COUNTS = {
 def _task_content_counts(tasks):
     """Static, user-independent content counts for several tasks at once.
 
-    Every card on the dashboard, the expression hub, and a part page shows the
-    same handful of catalogue counts. Fetched per task they cost six round trips
-    each; grouped by task they cost a fixed handful of queries for the whole
-    page, which is what a serverless Postgres bills for.
+    Every card on a part page shows the same handful of catalogue counts.
+    Fetched per task they cost six round trips each; grouped by task they cost
+    a fixed handful of queries for the whole page, which is what a serverless
+    Postgres bills for.
 
     Returns ``{task_id: counts}`` with an entry for every task passed in, so a
     task without content still reads as zeroes.
@@ -785,35 +957,39 @@ def _counts_for_task(task, content_counts=None):
     return _task_content_counts([task])[task.pk]
 
 
-def _ee_tache_one_task_card(task, user, content_counts=None):
+def _ee_tache_one_task_card(task, user, content_counts=None, summary=None):
     """Deck card for EE Tâche 1 with explicit subject completion."""
     counts = _counts_for_task(task, content_counts)
     sujet_ids = list(counts["writing_sujet_ids"])
     total = len(sujet_ids)
     response_total = counts["writing_sujet_response_count"]
-    progress_by_sujet = writing_sujet_progress_by_id(
-        user,
-        sujet_ids,
-    )
-    started = sum(
-        progress.started for progress in progress_by_sujet.values()
-    )
-    completed = sum(
-        progress.completed for progress in progress_by_sujet.values()
-    )
-    summary = progress_summary(
-        total=total,
-        started=started,
-        completed=completed,
-    )
-    stats = {
-        "progress": summary,
-        "total": summary.total,
-        "completed": summary.completed,
-        "started_new": max(started - completed, 0),
-        "seen": started,
-        "due": 0,
-    }
+    if summary is not None and summary["stats"] is not None:
+        stats = summary["stats"]
+        total = summary["prompt_count"]
+    else:
+        progress_by_sujet = writing_sujet_progress_by_id(
+            user,
+            sujet_ids,
+        )
+        started = sum(
+            progress.started for progress in progress_by_sujet.values()
+        )
+        completed = sum(
+            progress.completed for progress in progress_by_sujet.values()
+        )
+        progress = progress_summary(
+            total=total,
+            started=started,
+            completed=completed,
+        )
+        stats = {
+            "progress": progress,
+            "total": progress.total,
+            "completed": progress.completed,
+            "started_new": max(started - completed, 0),
+            "seen": started,
+            "due": 0,
+        }
     return {
         "task": task,
         "stats": stats,
@@ -842,37 +1018,54 @@ def _task_card(
     with_stats=True,
     with_deck_stats=True,
     content_counts=None,
+    summaries=None,
 ):
-    """Build a dashboard/part card for a single task.
+    """Build a part-page card for a single task.
 
     ``with_stats=False`` skips every SRS aggregate for callers that only need
     the content counts. ``with_deck_stats=False`` keeps the subject progress
-    summary but drops the per-deck vocabulary stats and queue counts, which
-    the dashboard and expression hub never read. ``content_counts`` is the
-    :func:`_task_content_counts` mapping for every task on the page; when it is
-    missing (or lacks this task) the counts are fetched for this task alone.
+    summary but drops the per-deck vocabulary stats and queue counts, for
+    callers that only render subject progress — the expression hub and the home
+    page reach those numbers through :func:`expression_task_summaries` instead.
+    ``content_counts`` is the :func:`_task_content_counts` mapping for every
+    task on the page; when it is missing (or lacks this task) the counts are
+    fetched for this task alone. ``summaries`` is the matching
+    :func:`expression_task_summaries` mapping: it carries the same subject
+    summary this card would otherwise rebuild one task at a time, so passing it
+    removes the per-task prompt lookup, subject-progress pass and due
+    aggregate.
     """
     question_bank = None
     subject_state = None
+    summary = (summaries or {}).get(task.pk)
     if (
         task.available
         and (task.part.slug, task.slug) == content_module.EE_TACHE_ONE_TASK
     ):
-        return _ee_tache_one_task_card(task, user, content_counts)
+        return _ee_tache_one_task_card(task, user, content_counts, summary)
     content_totals = (
         _counts_for_task(task, content_counts)
         if task.available
         else _EMPTY_TASK_CONTENT_COUNTS
+    )
+    batched_stats = (
+        dict(summary["stats"])
+        if summary is not None and summary["stats"] is not None
+        else None
     )
     if (
         task.available
         and with_stats
         and (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK
     ):
-        subject_state = _tache_two_progress(
-            user,
-            content_module.load_tache_two_subject_months(),
-        )
+        if batched_stats is None:
+            subject_state = _tache_two_progress(
+                user,
+                content_module.load_tache_two_subject_months(),
+            )
+            subject_summary = subject_state["summary"]
+        else:
+            subject_summary = batched_stats
         vocabulary_batches = _review_batches(
             {
                 **_task_scope(task),
@@ -882,7 +1075,7 @@ def _task_card(
         )
         vocabulary_progress = summarize_review_batches(vocabulary_batches)
         task_progress = combine_progress(
-            [vocabulary_progress, subject_state["progress"]]
+            [vocabulary_progress, subject_summary["progress"]]
         )
         vocabulary_count = content_totals["theme_vocabulary_count"]
         vocabulary_theme_count = len(
@@ -894,10 +1087,10 @@ def _task_card(
             "theme_count": vocabulary_theme_count,
             "vocabulary_count": vocabulary_count,
             "batch_count": len(vocabulary_batches),
-            "subject_count": subject_state["total"],
+            "subject_count": subject_summary["total"],
             "progress": task_progress,
             "vocabulary_progress": vocabulary_progress,
-            "subject_progress": subject_state["progress"],
+            "subject_progress": subject_summary["progress"],
             "active_count": max(
                 task_progress.started - task_progress.completed,
                 0,
@@ -913,7 +1106,9 @@ def _task_card(
             phrase_counts = None
             revisit_count = 0
         else:
-            if subject_state is None:
+            if batched_stats is not None:
+                response_stats = batched_stats
+            elif subject_state is None:
                 response_ids = set(
                     Prompt.objects.filter(
                         theme__task=task,
@@ -931,10 +1126,11 @@ def _task_card(
                 )
             else:
                 response_stats = dict(subject_state["summary"])
-            response_stats["due"] = deck_stats(
-                _task_cards(task, user, "spine"),
-                now,
-            )["due"]
+            if batched_stats is None:
+                response_stats["due"] = deck_stats(
+                    _task_cards(task, user, "spine"),
+                    now,
+                )["due"]
             stats = response_stats
             if with_deck_stats:
                 phrase_stats = deck_stats(
@@ -1008,3 +1204,224 @@ def _task_card(
         "question_bank": question_bank,
         "show_phrases": bool(phrase_count),
     }
+
+
+def _due_response_counts_by_task(user, task_ids, now):
+    """Due response cards per task, in one aggregate instead of one per task.
+
+    Equivalent to ``deck_stats(_task_cards(task, user, "spine"), now)["due"]``
+    run for every task: a spine card always targets a response (a card may hold
+    a response or a phrase, never both), so grouping by the response's task
+    resolves to the same cards the per-task queue scope selects.
+    """
+    if not task_ids:
+        return {}
+    return {
+        row["response__theme__task_id"]: row["total"]
+        for row in (
+            Card.objects.current_content()
+            .filter(
+                user=user,
+                card_type=CardType.SPINE,
+                suspended=False,
+                state__in=_DUE_CARD_STATES,
+                due__lte=now,
+                response__theme__task_id__in=task_ids,
+            )
+            .order_by()
+            .values("response__theme__task_id")
+            .annotate(total=Count("id", distinct=True))
+        )
+    }
+
+
+def _expression_prompt_rows(task_ids):
+    """Active prompts of several tasks, with the flags their totals filter on.
+
+    One row per prompt, so the caller can count prompts per task and collect
+    the responses those prompts point at without a query per task.
+    """
+    if not task_ids:
+        return ()
+    return (
+        Prompt.objects.filter(theme__task_id__in=task_ids, is_active=True)
+        .order_by()
+        .values_list(
+            "theme__task_id",
+            "content_key",
+            "response_id",
+            "theme__is_active",
+            "response__is_active",
+        )
+    )
+
+
+def _writing_task_summaries(summaries, user, task_ids, content_counts=None):
+    """EE Tâche 1 progress, which counts sujets rather than responses."""
+    if not task_ids:
+        return
+    sujet_ids_by_task = {task_id: [] for task_id in task_ids}
+    if content_counts and all(
+        task_id in content_counts for task_id in task_ids
+    ):
+        # The catalogue pass already listed every sujet of these tasks.
+        for task_id in task_ids:
+            sujet_ids_by_task[task_id] = list(
+                content_counts[task_id]["writing_sujet_ids"]
+            )
+    else:
+        for task_id, sujet_id in (
+            WritingSujet.objects.filter(task_id__in=task_ids, is_active=True)
+            .order_by()
+            .values_list("task_id", "pk")
+        ):
+            sujet_ids_by_task[task_id].append(sujet_id)
+    progress_by_sujet = writing_sujet_progress_by_id(
+        user,
+        [
+            sujet_id
+            for sujet_ids in sujet_ids_by_task.values()
+            for sujet_id in sujet_ids
+        ],
+    )
+    for task_id, sujet_ids in sujet_ids_by_task.items():
+        items = [
+            progress_by_sujet[sujet_id]
+            for sujet_id in sujet_ids
+            if sujet_id in progress_by_sujet
+        ]
+        started = sum(progress.started for progress in items)
+        completed = sum(progress.completed for progress in items)
+        summary = progress_summary(
+            total=len(sujet_ids),
+            started=started,
+            completed=completed,
+        )
+        summaries[task_id] = {
+            "prompt_count": len(sujet_ids),
+            "stats": {
+                "progress": summary,
+                "total": summary.total,
+                "completed": summary.completed,
+                "started_new": max(started - completed, 0),
+                "seen": started,
+                "due": 0,
+            },
+        }
+
+
+def expression_task_summaries(now, user, tasks, content_counts=None):
+    """Hub and dashboard progress for many tasks in a fixed few queries.
+
+    The expression hub and the home page read only four values per task: the
+    active prompt count, and the subject summary's ``progress``, ``seen``,
+    ``total`` and ``due``. Building a whole :func:`_task_card` to reach them
+    costs about nine queries per task, because every task repeats the same
+    prompt lookup, the same subject-progress lookups and the same due-card
+    aggregate. This batches all of them: one prompt query, one subject-progress
+    pass, and one due-card aggregate for the entire page.
+
+    ``tasks`` should come from a part prefetch so ``task.part`` is already
+    loaded. ``content_counts`` is an optional :func:`_task_content_counts`
+    mapping; when the caller already has one, the EE Tâche 1 sujet ids come
+    from it instead of a second lookup. Returns
+    ``{task_id: {"prompt_count": int, "stats": dict | None}}`` with an entry
+    for every task, unavailable ones reading as an empty card.
+    """
+    summaries = {
+        task.pk: {"prompt_count": 0, "stats": None}
+        for task in tasks
+    }
+    available = [task for task in tasks if task.available]
+    if not available:
+        return summaries
+
+    writing_task_ids = []
+    subject_task_ids = []
+    question_bank_task_id = None
+    for task in available:
+        task_key = (task.part.slug, task.slug)
+        if task_key == content_module.EE_TACHE_ONE_TASK:
+            writing_task_ids.append(task.pk)
+            continue
+        subject_task_ids.append(task.pk)
+        if task_key == content_module.QUESTION_BANK_TASK:
+            question_bank_task_id = task.pk
+
+    response_ids_by_task = {task_id: set() for task_id in subject_task_ids}
+    response_id_by_content_key = {}
+    for (
+        task_id,
+        content_key,
+        response_id,
+        theme_is_active,
+        response_is_active,
+    ) in _expression_prompt_rows(subject_task_ids):
+        summaries[task_id]["prompt_count"] += 1
+        if not response_is_active:
+            continue
+        response_id_by_content_key[content_key] = response_id
+        if theme_is_active:
+            response_ids_by_task[task_id].add(response_id)
+
+    # Tâche 2 counts subject occurrences, not responses: equivalent subjects
+    # share one response and one progress, yet each occurrence is a sujet.
+    subject_keys_by_task = {}
+    if question_bank_task_id is not None:
+        subject_keys_by_task[question_bank_task_id] = tuple(
+            content_module.tache_two_subject_content_key(
+                month.slug,
+                batch.number,
+                subject.number,
+            )
+            for month in content_module.load_tache_two_subject_months()
+            for batch in month.batches
+            for subject in batch.subjects
+        )
+
+    wanted_response_ids = set()
+    for task_id in subject_task_ids:
+        content_keys = subject_keys_by_task.get(task_id)
+        if content_keys is None:
+            wanted_response_ids.update(response_ids_by_task[task_id])
+            continue
+        wanted_response_ids.update(
+            response_id_by_content_key[content_key]
+            for content_key in content_keys
+            if content_key in response_id_by_content_key
+        )
+
+    progress_by_response = subject_progress_by_response(
+        user,
+        wanted_response_ids,
+    )
+    due_by_task = _due_response_counts_by_task(user, subject_task_ids, now)
+
+    for task_id in subject_task_ids:
+        content_keys = subject_keys_by_task.get(task_id)
+        if content_keys is None:
+            items = [
+                progress_by_response[response_id]
+                for response_id in response_ids_by_task[task_id]
+            ]
+        else:
+            items = [
+                progress_by_response.get(
+                    response_id_by_content_key.get(content_key),
+                    _EMPTY_SUBJECT_PROGRESS,
+                )
+                for content_key in content_keys
+            ]
+        stats = summarize_subject_progress(items)
+        # The card counts due responses, not the due subject vocabulary the
+        # subject summary carries.
+        stats["due"] = due_by_task.get(task_id, 0)
+        summaries[task_id]["stats"] = stats
+
+    _writing_task_summaries(
+        summaries,
+        user,
+        writing_task_ids,
+        content_counts,
+    )
+    return summaries

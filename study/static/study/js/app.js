@@ -33,14 +33,8 @@
           element.classList.remove("is-annotation-anchor");
         }
       );
+      // One node per annotation, so the anchor resolves in either view mode.
       var target = document.getElementById(anchorId);
-      if (target && target.offsetParent === null) {
-        target = Array.from(
-          document.querySelectorAll("[data-annotation-anchor]")
-        ).find(function (candidate) {
-          return candidate.dataset.annotationAnchor === anchorId;
-        });
-      }
       if (!target || target.offsetParent === null) return;
 
       target.classList.add("is-annotation-anchor");
@@ -613,6 +607,8 @@
             source.dataset.annotationEditTitle || "";
           editForm.querySelector("[data-annotation-edit-body]").value =
             source.dataset.annotationEditBody || "";
+          editForm.dataset.annotationHasQuote =
+            source.dataset.annotationEditHasQuote || "0";
           setEditError("");
           openDialog(editDialog, button);
         });
@@ -621,6 +617,15 @@
     if (editForm && window.fetch) {
       editForm.addEventListener("submit", function (event) {
         event.preventDefault();
+        var bodyInput = editForm.querySelector("[data-annotation-edit-body]");
+        if (
+          !bodyInput.value.trim()
+          && editForm.dataset.annotationHasQuote !== "1"
+        ) {
+          setEditError("Corrigez la note avant de l'enregistrer.");
+          bodyInput.focus({ preventScroll: true });
+          return;
+        }
         var submitButton =
           event.submitter || editForm.querySelector("[type='submit']");
         submitButton.disabled = true;
@@ -1153,10 +1158,8 @@
       }, 2200);
     }
 
-    function itemNodes(id) {
-      return Array.from(
-        list.querySelectorAll('[data-annotation-item="' + id + '"]')
-      );
+    function itemNode(id) {
+      return list.querySelector('[data-annotation-item="' + id + '"]');
     }
 
     function readNumber(el) {
@@ -1221,11 +1224,9 @@
       }
     }
 
-    function recountSection(section, isRow) {
+    function recountSection(section) {
       if (!section) return;
-      var items = isRow
-        ? section.querySelectorAll("tr.annotation-table__row")
-        : section.querySelectorAll(".annotation-card");
+      var items = section.querySelectorAll("[data-annotation-item]");
       if (!items.length) {
         section.remove();
         return;
@@ -1238,14 +1239,8 @@
       if (list.querySelector("[data-annotation-item]")) return;
       var panel = list.querySelector(".notes-tab-panel");
       var section = panel && panel.querySelector(".annotations-section");
-      var cardsView = list.querySelector(
-        "[data-collection-view-panel='cards']"
-      );
-      var tableView = list.querySelector(
-        "[data-collection-view-panel='table']"
-      );
-      if (cardsView) cardsView.remove();
-      if (tableView) tableView.remove();
+      var sections = list.querySelector(".notes-date-sections");
+      if (sections) sections.remove();
       var toolbar = list.querySelector(".collection-view-toolbar");
       if (toolbar) toolbar.remove();
       if (section && !section.querySelector(".empty, .notes-empty-hint")) {
@@ -1267,14 +1262,12 @@
     }
 
     function detachItem(id) {
-      itemNodes(id).forEach(function (node) {
-        var isRow = node.tagName === "TR";
-        var section = isRow
-          ? node.closest("tbody")
-          : node.closest(".notes-date-section");
+      var node = itemNode(id);
+      if (node) {
+        var section = node.closest(".notes-date-section");
         node.remove();
-        recountSection(section, isRow);
-      });
+        recountSection(section);
+      }
       refreshEmptyState();
     }
 
@@ -1289,27 +1282,8 @@
       return annKind === "highlight" ? "Terminé" : "Terminée";
     }
 
-    function syncRowEmpty(statusCell) {
-      var hasBadge = statusCell.querySelector(
-        ".annotation-card__study, .annotation-card__done"
-      );
-      var empty = statusCell.querySelector(".annotation-table__status-empty");
-      if (hasBadge && empty) {
-        empty.remove();
-      } else if (!hasBadge && !empty) {
-        var span = document.createElement("span");
-        span.className = "annotation-table__status-empty";
-        span.setAttribute("aria-label", "Non marqué");
-        span.textContent = "—";
-        statusCell.appendChild(span);
-      }
-    }
-
     function setBadge(node, type, on, annKind) {
-      var isRow = node.tagName === "TR";
-      var container = isRow
-        ? node.querySelector(".annotation-table__status")
-        : node.querySelector(".annotation-card__head");
+      var container = node.querySelector(".annotation-card__head");
       if (!container) return;
       var cls =
         type === "study" ? "annotation-card__study" : "annotation-card__done";
@@ -1318,20 +1292,15 @@
         var span = document.createElement("span");
         span.className = cls;
         span.textContent = badgeText(type, annKind);
-        if (isRow) {
-          container.appendChild(span);
-        } else {
-          var before =
-            type === "study"
-              ? container.querySelector(".annotation-card__done") ||
-                container.querySelector("time")
-              : container.querySelector("time");
-          container.insertBefore(span, before || null);
-        }
+        var before =
+          type === "study"
+            ? container.querySelector(".annotation-card__done") ||
+              container.querySelector("time")
+            : container.querySelector("time");
+        container.insertBefore(span, before || null);
       } else if (!on && existing) {
         existing.remove();
       }
-      if (isRow) syncRowEmpty(container);
     }
 
     function updateToggleForm(node, action, active, labels) {
@@ -1362,10 +1331,10 @@
         removeFromView(id);
         return;
       }
-      itemNodes(id).forEach(function (node) {
-        updateToggleForm(node, "study", studyLater, STUDY_LABEL);
-        setBadge(node, "study", studyLater, node.dataset.annotationKind);
-      });
+      var node = itemNode(id);
+      if (!node) return;
+      updateToggleForm(node, "study", studyLater, STUDY_LABEL);
+      setBadge(node, "study", studyLater, node.dataset.annotationKind);
     }
 
     function handleComplete(id, completed) {
@@ -1376,10 +1345,10 @@
         removeFromView(id);
         return;
       }
-      itemNodes(id).forEach(function (node) {
-        updateToggleForm(node, "complete", completed, DONE_LABEL);
-        setBadge(node, "done", completed, node.dataset.annotationKind);
-      });
+      var node = itemNode(id);
+      if (!node) return;
+      updateToggleForm(node, "complete", completed, DONE_LABEL);
+      setBadge(node, "done", completed, node.dataset.annotationKind);
     }
 
     function handleDelete(id, data) {

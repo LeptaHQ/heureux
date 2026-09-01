@@ -6,6 +6,7 @@ from functools import lru_cache
 
 
 from django.db.models import Count, Prefetch, Q
+from django.db.models.functions import TruncDate
 from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
@@ -49,7 +50,7 @@ from ..models import (
 from .. import routing
 from ..response_personalization import effective_response
 from ..progress import (
-    card_unit_progress,
+    card_unit_progress_from_rows,
     combine_progress,
     progress_summary,
     subject_progress_by_response,
@@ -77,8 +78,14 @@ from .helpers import (
     _task_scope,
     _tache_two_progress,
     _tache_two_theme_progress,
+    batch_rows,
     deck_stats,
+    deck_stats_from_rows,
+    empty_deck_stats,
+    expression_task_summaries,
+    grouped_deck_stats,
     recent_review_sessions,
+    review_batches_from_rows,
     summarize_review_batches,
 )
 def _subject_stats_for_themes(themes, user, now=None):
@@ -119,6 +126,40 @@ def _subject_stats_for_themes(themes, user, now=None):
         summary["due"] = len(theme_response_ids & due_response_ids)
         stats[theme_id] = summary
     return stats, progress, due_response_ids
+
+
+def _distinct_count(qs) -> int:
+    """Count matching rows without a DISTINCT over every selected column.
+
+    ``qs.distinct().count()`` becomes ``COUNT(*) FROM (SELECT DISTINCT <every
+    column>)``, which makes the database build a temporary index over the whole
+    row. Counting distinct primary keys returns the same number for far less
+    work.
+    """
+    return qs.order_by().aggregate(total=Count("pk", distinct=True))["total"]
+
+
+def _prompt_counts_by_theme(themes=None, *, task=None) -> dict:
+    """Active prompt count per theme, grouped once instead of once per theme.
+
+    Passing ``task`` covers every theme of that task, archived ones included,
+    so the caller can read both each theme's count and the task total from the
+    same query.
+    """
+    prompts = Prompt.objects.filter(is_active=True)
+    if task is not None:
+        prompts = prompts.filter(theme__task=task)
+    else:
+        theme_ids = [theme.pk for theme in themes]
+        if not theme_ids:
+            return {}
+        prompts = prompts.filter(theme_id__in=theme_ids)
+    return {
+        row["theme_id"]: row["total"]
+        for row in (
+            prompts.order_by().values("theme_id").annotate(total=Count("id"))
+        )
+    }
 
 
 def _vocabulary_deck_progress(progress_items):
@@ -259,7 +300,7 @@ def _task_subject_vocabulary_context(
         "subject_theme_groups": groups,
         "subject_prompt_count": len(prompts),
         "subject_response_count": len(response_ids),
-        "subject_vocabulary_count": subject_vocabulary.distinct().count(),
+        "subject_vocabulary_count": _distinct_count(subject_vocabulary),
         "vocabulary_deck_summary": vocabulary_deck_summary,
         "vocabulary_directory_summary": {
             "progress": vocabulary_deck_summary,
@@ -338,18 +379,51 @@ def _theme_vocabulary_status_counts(themes):
     return counts
 
 
+def _theme_vocabulary_directory_batches(task, user, themes):
+    """Task-level lots and each theme's lots, from one fetch of the rows.
+
+    A theme-vocabulary card always targets a phrase, so a theme's deck is
+    exactly the task's rows whose phrase is sourced from a prompt of that
+    theme. The task query already orders the rows down to the card id, so
+    filtering that list per theme yields the same lots — and the same lot
+    numbers — as running the query once per theme.
+    """
+    scope = _theme_vocabulary_scope(task)
+    rows = batch_rows(scope, user)
+    theme_slugs_by_phrase = {}
+    phrase_ids = {row["phrase_id"] for row in rows}
+    if phrase_ids:
+        for phrase_id, theme_slug in (
+            Phrase.objects.filter(pk__in=phrase_ids)
+            .order_by()
+            .values_list("pk", "source_prompts__theme__slug")
+            .distinct()
+        ):
+            theme_slugs_by_phrase.setdefault(phrase_id, set()).add(theme_slug)
+    batches_by_theme = {}
+    for theme in themes:
+        batches_by_theme[theme.slug] = review_batches_from_rows(
+            [
+                row
+                for row in rows
+                if theme.slug
+                in theme_slugs_by_phrase.get(row["phrase_id"], ())
+            ],
+            _theme_vocabulary_scope(task, theme),
+        )
+    return review_batches_from_rows(rows, scope), batches_by_theme
+
+
 def _tache_two_theme_vocabulary_overview_context(user, task):
     scope = _theme_vocabulary_scope(task)
     batches = _review_batches(scope, user)
-    phrase_count = (
+    phrase_count = _distinct_count(
         Phrase.objects.filter(
             tier=PhraseTier.THEME,
             is_active=True,
             source_prompts__is_active=True,
             source_prompts__theme__task=task,
         )
-        .distinct()
-        .count()
     )
     next_batch = next(
         (batch for batch in batches if batch["is_next"]),
@@ -375,8 +449,27 @@ def part_detail(request, part_slug):
     now = timezone.now()
     part_tasks = list(part.tasks.all())
     content_counts = _task_content_counts(part_tasks)
+    # The part page renders subject progress, the catalogue counts and the due
+    # response badge — never the vocabulary decks, queue badges or revisit
+    # count, each of which costs its own scan of the learner's whole deck. The
+    # subject summary itself comes from the same batched pass the expression
+    # hub uses, so it costs a fixed handful of queries rather than one set per
+    # task.
+    summaries = expression_task_summaries(
+        now,
+        request.user,
+        part_tasks,
+        content_counts,
+    )
     tasks = [
-        _task_card(task, now, request.user, content_counts=content_counts)
+        _task_card(
+            task,
+            now,
+            request.user,
+            with_deck_stats=False,
+            content_counts=content_counts,
+            summaries=summaries,
+        )
         for task in part_tasks
     ]
     if not part.available or not tasks:
@@ -698,32 +791,39 @@ def task_detail(request, part_slug, task_slug):
         request.user,
         now,
     )
-    themes = []
-    for theme in active_themes:
-        themes.append(
-            {
-                "theme": theme,
-                "stats": theme_stats[theme.pk],
-                "prompt_count": Prompt.objects.filter(
-                    theme=theme,
-                    is_active=True,
-                ).count(),
-            }
-        )
-    scope = _task_scope(task)
+    prompt_counts = _prompt_counts_by_theme(task=task)
+    themes = [
+        {
+            "theme": theme,
+            "stats": theme_stats[theme.pk],
+            "prompt_count": prompt_counts.get(theme.pk, 0),
+        }
+        for theme in active_themes
+    ]
     response_stats = summarize_subject_progress(response_progress.values())
     response_stats["due"] = len(due_response_ids)
-    task_phrases = _task_phrases(task).filter(
-        category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES,
+    # The catalogue counts this page shows all read the same phrase and prompt
+    # tables, so they are one grouped scan each instead of four.
+    task_phrase_counts = _task_phrases(task).aggregate(
+        functional=Count(
+            "pk",
+            distinct=True,
+            filter=Q(category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES),
+        ),
+        functional_categories=Count(
+            "category_id",
+            distinct=True,
+            filter=Q(category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES),
+        ),
     )
-    phrase_count = task_phrases.count()
+    phrase_count = task_phrase_counts["functional"]
     is_eo_tache_three = (
         task.part.slug,
         task.slug,
     ) == content_module.EO_TACHE_THREE_TASK
     subject_vocabulary_count = 0
     if not is_eo_tache_three:
-        subject_vocabulary_count = (
+        subject_vocabulary_count = _distinct_count(
             Phrase.objects.filter(
                 is_active=True,
                 tier=PhraseTier.SUBJECT,
@@ -731,31 +831,16 @@ def task_detail(request, part_slug, task_slug):
                 source_prompts__theme__is_active=True,
                 source_prompts__theme__task=task,
             )
-            .distinct()
-            .count()
         )
-    phrase_stats = _phrase_deck_stats(now, request.user, task)
     context = {
         "part": task.part,
         "task": task,
         "themes": themes,
         "stats": response_stats,
         "response_stats": response_stats,
-        "phrase_stats": phrase_stats,
-        "counts": queue_module.queue_counts(
-            {**scope, "kind": "spine"},
-            now,
-            user=request.user,
-        ),
-        "prompt_count": Prompt.objects.filter(
-            theme__task=task,
-            is_active=True,
-        ).count(),
+        "prompt_count": sum(prompt_counts.values()),
         "phrase_count": phrase_count,
-        "phrase_category_count": task_phrases
-        .values("category_id")
-        .distinct()
-        .count(),
+        "phrase_category_count": task_phrase_counts["functional_categories"],
         "vocabulary_entry_count": phrase_count + subject_vocabulary_count,
     }
     if is_eo_tache_three:
@@ -803,6 +888,27 @@ def _scope_filters(request, forced_task=None, forced_part_slug=None):
         user=request.user,
         card_type=CardType.SPINE,
     )
+    # One grouped count for every part and task on the page: the filter strip
+    # used to run a count per part plus one per task of the open part, each a
+    # full scan of the learner's response cards.
+    active_counts_by_task = {}
+    active_counts_by_part = {}
+    for row in (
+        active.select_related(None)
+        .order_by()
+        .values("response__theme__task_id", "response__theme__task__part_id")
+        .annotate(total=Count("id", distinct=True))
+    ):
+        task_id = row["response__theme__task_id"]
+        part_id = row["response__theme__task__part_id"]
+        if task_id is not None:
+            active_counts_by_task[task_id] = (
+                active_counts_by_task.get(task_id, 0) + row["total"]
+            )
+        if part_id is not None:
+            active_counts_by_part[part_id] = (
+                active_counts_by_part.get(part_id, 0) + row["total"]
+            )
     filter_parts = []
     active_part_tasks = []
     for part in ExamPart.objects.filter(
@@ -815,7 +921,7 @@ def _scope_filters(request, forced_task=None, forced_part_slug=None):
             {
                 "slug": part.slug,
                 "short_name": part.short_name,
-                "count": active.filter(response__theme__task__part=part).count(),
+                "count": active_counts_by_part.get(part.pk, 0),
                 "active": part_slug == part.slug,
                 "url": reverse("study:part_stats", args=[part.slug]),
             }
@@ -826,7 +932,7 @@ def _scope_filters(request, forced_task=None, forced_part_slug=None):
                     {
                         "slug": task.slug,
                         "name": task.name,
-                        "count": active.filter(response__theme__task=task).count(),
+                        "count": active_counts_by_task.get(task.pk, 0),
                         "active": task_slug == task.slug,
                         "url": reverse(
                             "study:task_stats",
@@ -958,18 +1064,15 @@ def browse(request, part_slug=None, task_slug=None):
         theme_rows,
         request.user,
     )
-    themes = []
-    for theme in theme_rows:
-        themes.append(
-            {
-                "theme": theme,
-                "stats": theme_stats[theme.pk],
-                "prompt_count": Prompt.objects.filter(
-                    theme=theme,
-                    is_active=True,
-                ).count(),
-            }
-        )
+    prompt_counts = _prompt_counts_by_theme(theme_rows)
+    themes = [
+        {
+            "theme": theme,
+            "stats": theme_stats[theme.pk],
+            "prompt_count": prompt_counts.get(theme.pk, 0),
+        }
+        for theme in theme_rows
+    ]
     family_qs = Family.objects.filter(is_active=True)
     if scope.get("task"):
         family_qs = family_qs.filter(
@@ -1047,7 +1150,7 @@ def browse(request, part_slug=None, task_slug=None):
         "theme_count": len(themes),
         "prompt_count": prompt_qs.count(),
         "response_count": response_qs.count(),
-        "phrase_count": phrase_qs.count(),
+        "phrase_count": _distinct_count(phrase_qs),
         **filters,
     }
     return render(request, "study/browse.html", context)
@@ -1366,12 +1469,18 @@ def tache_two_theme_vocabulary(request):
     }
 
     themes = []
-    for theme_data in taxonomy:
-        theme = theme_models.get(f"tache-2-{theme_data.slug}")
-        if theme is None:
-            continue
-        scope = _theme_vocabulary_scope(task, theme)
-        batches = _review_batches(scope, request.user)
+    ordered_themes = [
+        (theme_data, theme_models[f"tache-2-{theme_data.slug}"])
+        for theme_data in taxonomy
+        if f"tache-2-{theme_data.slug}" in theme_models
+    ]
+    task_batches, batches_by_theme = _theme_vocabulary_directory_batches(
+        task,
+        request.user,
+        [theme for _theme_data, theme in ordered_themes],
+    )
+    for theme_data, theme in ordered_themes:
+        batches = batches_by_theme[theme.slug]
         next_batch = next(
             (batch for batch in batches if batch["is_next"]),
             None,
@@ -1408,7 +1517,7 @@ def tache_two_theme_vocabulary(request):
         )
 
     scope = _theme_vocabulary_scope(task)
-    batches = _review_batches(scope, request.user)
+    batches = task_batches
     next_batch = next(
         (batch for batch in batches if batch["is_next"]),
         None,
@@ -1708,10 +1817,17 @@ def _eo_tache_three_theme_vocabulary_context(user, task):
     }
 
     themes = []
-    for theme_data in taxonomy:
-        theme = theme_models.get(theme_data.slug)
-        if theme is None:
-            continue
+    ordered_themes = [
+        (theme_data, theme_models[theme_data.slug])
+        for theme_data in taxonomy
+        if theme_data.slug in theme_models
+    ]
+    task_batches, batches_by_theme = _theme_vocabulary_directory_batches(
+        task,
+        user,
+        [theme for _theme_data, theme in ordered_themes],
+    )
+    for theme_data, theme in ordered_themes:
         section_counts = [
             {
                 **section_data,
@@ -1722,8 +1838,7 @@ def _eo_tache_three_theme_vocabulary_context(user, task):
             }
             for section_data in EO_TACHE_THREE_THEME_VOCABULARY_SECTIONS
         ]
-        scope = _theme_vocabulary_scope(task, theme)
-        batches = _review_batches(scope, user)
+        batches = batches_by_theme[theme.slug]
         next_batch = next(
             (batch for batch in batches if batch["is_next"]),
             None,
@@ -1750,7 +1865,7 @@ def _eo_tache_three_theme_vocabulary_context(user, task):
         )
 
     scope = _theme_vocabulary_scope(task)
-    batches = _review_batches(scope, user)
+    batches = task_batches
     next_batch = next(
         (batch for batch in batches if batch["is_next"]),
         None,
@@ -2368,7 +2483,7 @@ def family_detail(request, part_slug, task_slug, slug):
             theme__task=task,
             is_active=True,
         )
-        .select_related("response", "theme", "family")
+        .select_related("response__theme", "theme", "family")
         .order_by("theme__order", "number")
     )
     if (
@@ -2517,7 +2632,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         is_active=True,
         theme__is_active=True,
         theme_id=selected_prompt.theme_id,
-    ).select_related("theme")
+    ).select_related("theme__task__part")
     navigation_prompts = list(
         navigation_prompts.order_by("number", "pk")
     )
@@ -2550,13 +2665,22 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         .select_related("category")
     )
     task_scope = {"part": task.part.slug, "task": task.slug}
-    phrase_batches = _review_batches(
-        {
-            **task_scope,
-            "kind": "phrase",
-            "response": str(response.pk),
-        },
-        request.user,
+    # The phrase lots only ever cover shared and response-level phrases of this
+    # sujet, all of which appear in the related list, so an empty list means
+    # there is nothing to partition and no reason to scan the deck. Evaluating
+    # the queryset once serves both the check and the template.
+    related_phrase_list = list(related_phrases)
+    phrase_batches = (
+        _review_batches(
+            {
+                **task_scope,
+                "kind": "phrase",
+                "response": str(response.pk),
+            },
+            request.user,
+        )
+        if related_phrase_list
+        else []
     )
     phrase_batch_progress = summarize_review_batches(phrase_batches)
     vocabulary_context = _subject_vocabulary_context(
@@ -2599,7 +2723,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "prompts": prompts,
             "card": card,
             "subject_progress": subject_progress,
-            "related_phrases": related_phrases,
+            "related_phrases": related_phrase_list,
             "phrase_batches": phrase_batches,
             "phrase_batch_progress": phrase_batch_progress,
             **vocabulary_context,
@@ -2931,6 +3055,155 @@ def writing_sujet_edit(request, part_slug, task_slug, sujet_id):
     )
 
 
+def _category_review_batches(phrase_scope, user, categories) -> dict:
+    """Stable lots for several phrase categories, from one fetch of the rows.
+
+    A phrase card's category is its phrase's category, so the scope's rows
+    partition cleanly by category, and the ordering runs down to the card id,
+    so filtering the ordered list per category yields the same lots — and the
+    same lot numbers — as one query per category.
+    """
+    rows = batch_rows(phrase_scope, user, extra_fields=("phrase__category_id",))
+    rows_by_category = {}
+    for row in rows:
+        rows_by_category.setdefault(row["phrase__category_id"], []).append(row)
+    return {
+        category.pk: review_batches_from_rows(
+            rows_by_category.get(category.pk, []),
+            {**phrase_scope, "category": category.slug},
+        )
+        for category in categories
+    }
+
+
+def _comprehension_vocabulary_decks(tests, user, now) -> list[dict]:
+    """The vocabulary deck row of every comprehension test, batched.
+
+    A test's deck used to cost about seven queries — the scoped cards, the
+    stable lots, the unit progress, the deck summary and the queue counts —
+    which a directory listing multiplied by every published test. All of them
+    read the same card rows, so this fetches them once for every test on the
+    page and splits them by test in Python.
+
+    A comprehension-vocabulary card always targets a phrase, and a phrase
+    belongs to a test through the questions that source it, so a phrase shared
+    by two tests lands in both decks exactly as ``scoped_cards(test=...)``
+    placed it.
+    """
+    if not tests:
+        return []
+    test_slugs = [test.slug for test in tests]
+    deck_scope = {"kind": "vocab", "test": test_slugs}
+    rows = batch_rows(
+        deck_scope,
+        user,
+        extra_fields=("interval_days",),
+    )
+    test_ids_by_phrase = {}
+    for phrase_id, test_id in (
+        Phrase.objects.filter(
+            source_questions__test__slug__in=test_slugs,
+            source_questions__test__is_active=True,
+        )
+        .order_by()
+        .values_list("pk", "source_questions__test_id")
+        .distinct()
+    ):
+        test_ids_by_phrase.setdefault(phrase_id, set()).add(test_id)
+
+    revisit_totals = _scoped_totals_by_test(
+        queue_module.scoped_cards(
+            {"kind": "revisit", "test": test_slugs},
+            user=user,
+        ),
+        test_ids_by_phrase,
+    )
+    decks = []
+    for test in tests:
+        test_rows = [
+            row
+            for row in rows
+            if test.pk in test_ids_by_phrase.get(row["phrase_id"], ())
+        ]
+        active_rows = [row for row in test_rows if not row["suspended"]]
+        test_scope = {"kind": "vocab", "test": test.slug}
+        batches = review_batches_from_rows(test_rows, test_scope, now)
+        decks.append(
+            {
+                "test": test,
+                "vocabulary_count": test.vocabulary_count,
+                "batch_count": len(batches),
+                "completed_batch_count": sum(
+                    batch["status"] == "complete" for batch in batches
+                ),
+                "progress": card_unit_progress_from_rows(test_rows),
+                "stats": deck_stats_from_rows(active_rows, now),
+                "counts": _vocabulary_queue_counts(
+                    active_rows,
+                    now,
+                    revisit_total=revisit_totals.get(test.pk, 0),
+                ),
+                "skill_code": comprehension_skill(test.mode),
+                "detail_url": comprehension_vocabulary_url(test=test),
+                "review_url": review_url({**test_scope, "batch": "1"}),
+            }
+        )
+    return decks
+
+
+def _scoped_totals_by_test(cards, test_ids_by_phrase) -> dict:
+    """Count a scoped card queryset per test, from one pass over its rows.
+
+    Counts cards, not phrases: a phrase can own both a production and a
+    recognition card, and the scoped count the directory replaces counts each
+    of them.
+    """
+    totals: dict = {}
+    for _card_id, phrase_id in (
+        queue_module.narrow(cards).values_list("id", "phrase_id").distinct()
+    ):
+        for test_id in test_ids_by_phrase.get(phrase_id, ()):
+            totals[test_id] = totals.get(test_id, 0) + 1
+    return totals
+
+
+
+
+def _vocabulary_queue_counts(rows, now, *, revisit_total) -> dict:
+    """The queue numbers a vocabulary deck row renders, from its own rows.
+
+    ``new_done_today`` and ``reviews_done_today`` are the only members of
+    :func:`queue_counts` left out: they need today's review log matched against
+    the deck, and no directory row shows them.
+    """
+    learning_due = 0
+    review_due = 0
+    new_total = 0
+    for row in rows:
+        state = row["state"]
+        if state == CardState.NEW:
+            new_total += 1
+            continue
+        if row["due"] is None or row["due"] > now:
+            continue
+        if state in (CardState.LEARNING, CardState.RELEARNING):
+            learning_due += 1
+        elif state == CardState.REVIEW:
+            review_due += 1
+    due_reviews = learning_due + review_due
+    return {
+        "due_reviews": due_reviews,
+        "learning_due": learning_due,
+        "review_due": review_due,
+        "review_due_total": review_due,
+        "new_available": new_total,
+        "new_total": new_total,
+        "total_due": due_reviews + new_total,
+        "scoped_total": len(rows),
+        "revisit_total": revisit_total,
+    }
+
+
 def phrases(
     request,
     part_slug=None,
@@ -3067,7 +3340,10 @@ def phrases(
             tier=PhraseTier.SHARED,
         )
         .select_related("category")
-        .prefetch_related("source_prompts__theme__task__part")
+        .prefetch_related(
+            "source_prompts__theme__task__part",
+            "source_questions__test",
+        )
     )
     if task:
         all_phrases = all_phrases.filter(
@@ -3093,10 +3369,35 @@ def phrases(
         .annotate(total=Count("id", distinct=True))
         .values_list("phrase__category_id", "total")
     )
+    # One grouped count for every category instead of a count per category.
+    category_phrase_counts = dict(
+        all_phrases.select_related(None)
+        .prefetch_related(None)
+        .order_by()
+        .values("category_id")
+        .annotate(total=Count("pk", distinct=True))
+        .values_list("category_id", "total")
+    )
+    functional_categories = [
+        category
+        for category in categories
+        if category.name in functional_names
+    ]
+    # The stable lots of the functional categories only feed the page a learner
+    # opened one of them on: everywhere else they are four scans of the shared
+    # phrase deck whose result is never rendered. When they are needed, one
+    # ordered fetch covers every category at once.
+    functional_batches = (
+        _category_review_batches(
+            phrase_scope,
+            request.user,
+            functional_categories,
+        )
+        if category_slug and functional_categories
+        else {}
+    )
     for category in categories:
-        category.phrase_count = all_phrases.filter(
-            category=category
-        ).count()
+        category.phrase_count = category_phrase_counts.get(category.id, 0)
         category.card_count = category_card_counts.get(category.id, 0)
         category.batch_count = (
             category.phrase_count + queue_module.PHRASE_BATCH_SIZE - 1
@@ -3107,11 +3408,8 @@ def phrases(
             "Expressions réutilisables dans plusieurs réponses.",
         )
         category.url = vocabulary_url(task=task, category=category)
-        if category.is_functional:
-            category.review_batches = _review_batches(
-                {**phrase_scope, "category": category.slug},
-                request.user,
-            )
+        if category.id in functional_batches:
+            category.review_batches = functional_batches[category.id]
             category.progress = summarize_review_batches(
                 category.review_batches
             )
@@ -3146,7 +3444,13 @@ def phrases(
                 source_questions__is_active=True,
             )
             .select_related("category")
-            .prefetch_related("source_questions__test")
+            .prefetch_related(
+                "source_questions__test",
+                # The catalogue prints the prompts an entry comes from, so
+                # they are fetched with the page rather than one query per
+                # entry as the template walked the list.
+                "source_prompts__theme__task__part",
+            )
             .distinct()
             .order_by("category__order", "lot_order", "phrase_id")
         )
@@ -3154,6 +3458,7 @@ def phrases(
     grouped = []
     review_batches = []
     first_review_batch = None
+    selected_test_phrase_count = 0
     if selected:
         grouped.append(
             {
@@ -3172,16 +3477,25 @@ def phrases(
             None,
         )
     elif selected_test:
+        # The entries arrive already ordered by category, so grouping the one
+        # fetched list beats re-querying it once per category.
+        test_phrases = list(phrase_qs)
+        phrases_by_category = {}
+        for phrase in test_phrases:
+            phrases_by_category.setdefault(phrase.category_id, []).append(
+                phrase
+            )
         for category in PhraseCategory.objects.filter(
-            phrases__in=phrase_qs,
+            pk__in=phrases_by_category,
             is_active=True,
-        ).distinct().order_by("order"):
+        ).order_by("order"):
             grouped.append(
                 {
                     "category": category,
-                    "phrases": list(phrase_qs.filter(category=category)),
+                    "phrases": phrases_by_category[category.pk],
                 }
             )
+        selected_test_phrase_count = len(test_phrases)
         review_batches = _review_batches(
             {"kind": "vocab", "test": selected_test.slug},
             request.user,
@@ -3191,11 +3505,6 @@ def phrases(
             review_batches[0] if review_batches else None,
         )
 
-    functional_categories = [
-        category
-        for category in categories
-        if category.is_functional
-    ]
     collection_progress = (
         summarize_review_batches(review_batches)
         if review_batches
@@ -3249,38 +3558,18 @@ def phrases(
         )
         if comprehension_mode:
             tests = tests.filter(mode=comprehension_mode)
-        for test in tests:
-            deck_scope = {"kind": "vocab", "test": test.slug}
-            cards = queue_module.scoped_cards(
-                deck_scope,
-                user=request.user,
-            )
-            batches = _review_batches(deck_scope, request.user)
-            deck_progress = card_unit_progress(cards)
-            comprehension_decks.append(
-                {
-                    "test": test,
-                    "vocabulary_count": test.vocabulary_count,
-                    "batch_count": len(batches),
-                    "completed_batch_count": sum(
-                        batch["status"] == "complete"
-                        for batch in batches
-                    ),
-                    "progress": deck_progress,
-                    "stats": deck_stats(cards, timezone.now()),
-                    "counts": queue_module.queue_counts(
-                        deck_scope,
-                        user=request.user,
-                    ),
-                    "skill_code": comprehension_skill(test.mode),
-                    "detail_url": comprehension_vocabulary_url(test=test),
-                    "review_url": review_url(
-                        {**deck_scope, "batch": "1"}
-                    ),
-                }
-            )
-            comprehension_vocabulary_count += test.vocabulary_count
-            comprehension_batch_count += len(batches)
+        tests = list(tests)
+        comprehension_decks = _comprehension_vocabulary_decks(
+            tests,
+            request.user,
+            timezone.now(),
+        )
+        comprehension_vocabulary_count = sum(
+            deck["vocabulary_count"] for deck in comprehension_decks
+        )
+        comprehension_batch_count = sum(
+            deck["batch_count"] for deck in comprehension_decks
+        )
     vocabulary_stats = None
     vocabulary_counts = None
     vocabulary_revisit_count = 0
@@ -3300,31 +3589,11 @@ def phrases(
             }
             if vocabulary_theme:
                 vocabulary_scope["theme"] = vocabulary_theme.slug
-        vocabulary_cards = queue_module.scoped_cards(
-            vocabulary_scope,
-            user=request.user,
-        )
-        vocabulary_stats = deck_stats(vocabulary_cards, timezone.now())
-        vocabulary_counts = queue_module.queue_counts(
-            vocabulary_scope,
-            user=request.user,
-        )
-        vocabulary_revisit_count = queue_module.scoped_cards(
-            {
-                **_task_scope(task),
-                "kind": "revisit",
-                "content": "vocabulary",
-            },
-            user=request.user,
-        ).count()
-        vocabulary_weak_count = queue_module.queue_counts(
-            {
-                **_task_scope(task),
-                "kind": "weak",
-                "content": "vocabulary",
-            },
-            user=request.user,
-        )["weak_total"]
+        # The vocabulary pages link to the review, revisit and weak queues but
+        # never print their sizes, so only the links are built here. Counting
+        # them meant eight scans of the learner's vocabulary deck — including
+        # the weak query, which joins the whole review log — for numbers no
+        # template reads.
         vocabulary_review_url = review_url(vocabulary_scope)
         vocabulary_revisit_url = (
             reverse(
@@ -3418,7 +3687,7 @@ def phrases(
                 selected.phrase_count
                 if selected
                 else (
-                    phrase_qs.count()
+                    selected_test_phrase_count
                     if selected_test
                     else sum(
                     category.phrase_count
@@ -3465,7 +3734,7 @@ def search(request, part_slug=None, task_slug=None):
                 source_prompts__theme__task=task
             ).distinct()
         prompt_result_count = prompt_qs.count()
-        phrase_result_count = phrase_qs.count()
+        phrase_result_count = _distinct_count(phrase_qs)
         prompt_results = list(
             prompt_qs
             .select_related("response", "theme__task__part", "family")
@@ -3644,16 +3913,30 @@ def _learning_activity(scope, user, scoped_cards, logs_base, now):
     active_days: set = set()
     breakdown = []
     for key, label, qs, field in sources:
-        breakdown.append({"key": key, "label": label, "count": qs.count()})
-        recent = qs.filter(**{f"{field}__gte": since_year}).values_list(
-            field, flat=True
-        )
-        for moment in recent:
-            if moment is None:
+        # One grouped pass per source: the database folds the year's activity
+        # into a row per local day and reports the all-time total alongside it,
+        # instead of a COUNT plus every single timestamp of the last year.
+        total = 0
+        for row in (
+            qs.annotate(activity_day=TruncDate(field))
+            .order_by()
+            .values("activity_day")
+            .annotate(
+                all_time=Count("id", distinct=True),
+                recent=Count(
+                    "id",
+                    distinct=True,
+                    filter=Q(**{f"{field}__gte": since_year}),
+                ),
+            )
+        ):
+            total += row["all_time"]
+            day = row["activity_day"]
+            if day is None or not row["recent"]:
                 continue
-            day = timezone.localtime(moment).date()
-            per_day[day] = per_day.get(day, 0) + 1
+            per_day[day] = per_day.get(day, 0) + row["recent"]
             active_days.add(day)
+        breakdown.append({"key": key, "label": label, "count": total})
 
     return {
         "per_day": per_day,
@@ -3711,25 +3994,51 @@ def stats(request, part_slug=None, task_slug=None):
         reviewed_at__gte=now - timezone.timedelta(days=30),
         interval_before__gte=MATURE_DAYS,
     )
-    mature_total = mature_logs.count()
-    mature_pass = mature_logs.exclude(rating=Rating.AGAIN).count()
+    mature_counts = mature_logs.aggregate(
+        total=Count("id"),
+        passed=Count("id", filter=~Q(rating=Rating.AGAIN)),
+    )
+    mature_total = mature_counts["total"]
+    mature_pass = mature_counts["passed"]
     retention = round(100 * mature_pass / mature_total) if mature_total else None
 
     forecast = []
     active = active_cards.filter(
         state__in=[CardState.REVIEW, CardState.LEARNING, CardState.RELEARNING]
     )
-    for offset in range(0, 14):
-        day = today + timezone.timedelta(days=offset)
-        start = timezone.make_aware(
+    # One pass over the scheduled cards instead of a count per day: the scoped
+    # queryset is a DISTINCT join, so fourteen counts meant fourteen scans.
+    forecast_days = [
+        today + timezone.timedelta(days=offset) for offset in range(0, 14)
+    ]
+    day_bounds = [
+        timezone.make_aware(
             timezone.datetime.combine(day, timezone.datetime.min.time())
         )
-        end = start + timezone.timedelta(days=1)
-        if offset == 0:
-            count = active.filter(due__lt=end).count()
-        else:
-            count = active.filter(due__gte=start, due__lt=end).count()
-        forecast.append({"date": day, "count": count})
+        for day in forecast_days
+    ]
+    forecast_counts = queue_module.narrow(active).aggregate(
+        **{
+            f"day_{offset}": Count(
+                "id",
+                distinct=True,
+                filter=(
+                    Q(due__lt=day_bounds[offset] + timezone.timedelta(days=1))
+                    if offset == 0
+                    else Q(
+                        due__gte=day_bounds[offset],
+                        due__lt=day_bounds[offset]
+                        + timezone.timedelta(days=1),
+                    )
+                ),
+            )
+            for offset in range(len(forecast_days))
+        }
+    )
+    forecast = [
+        {"date": day, "count": forecast_counts[f"day_{offset}"]}
+        for offset, day in enumerate(forecast_days)
+    ]
     max_forecast = max((f["count"] for f in forecast), default=0) or 1
 
     overall = deck_stats(active_cards, now)
@@ -3750,16 +4059,23 @@ def stats(request, part_slug=None, task_slug=None):
         )
     elif scope.get("part"):
         theme_qs = theme_qs.filter(task__part__slug=scope["part"])
+    theme_rows = list(theme_qs)
+    # One grouped aggregate for every theme on the page: a response card always
+    # targets one response, so grouping the learner's response cards by that
+    # response's theme selects exactly the cards the per-theme filter did.
+    theme_stats_by_theme = grouped_deck_stats(
+        Card.objects.active().filter(
+            user=request.user,
+            card_type=CardType.SPINE,
+            response__theme_id__in=[theme.pk for theme in theme_rows],
+        ),
+        "response__theme_id",
+        now,
+    )
     themes = [
         {
             "theme": theme,
-            "stats": deck_stats(
-                Card.objects.active().filter(
-                    user=request.user,
-                    card_type=CardType.SPINE, response__theme=theme
-                ),
-                now,
-            ),
+            "stats": theme_stats_by_theme.get(theme.pk, empty_deck_stats()),
             "review_url": review_url(
                 {
                     "kind": "spine",
@@ -3769,7 +4085,7 @@ def stats(request, part_slug=None, task_slug=None):
                 }
             ),
         }
-        for theme in theme_qs
+        for theme in theme_rows
     ]
 
     context = {
@@ -3787,25 +4103,36 @@ def stats(request, part_slug=None, task_slug=None):
         "mastery_percentage": mastery_percentage,
         "themes": themes,
         "streak": _activity_streak(activity["active_days"], today),
-        "total_reviews": logs_base.count(),
+        # The activity breakdown already counted this learner's reviews for the
+        # same scope, so the header reuses it instead of counting them again.
+        "total_reviews": next(
+            item["count"]
+            for item in activity["breakdown"]
+            if item["key"] == "reviews"
+        ),
         "total_activity": activity["total_activity"],
         "breakdown": activity["breakdown"],
         "activity_today": per_day.get(today, 0),
         "recent_sessions": recent_review_sessions(logs_base),
-        "expression_weak_count": queue_module.queue_counts(
-            {**scope, "kind": "weak", "content": "spine"},
-            now,
-            user=request.user,
-        )["weak_total"],
-        "vocabulary_weak_count": queue_module.queue_counts(
-            {
-                **scope,
-                "kind": "weak",
-                "content": "vocabulary",
-            },
-            now,
-            user=request.user,
-        )["weak_total"],
+        # Only the weak totals are shown, so count those cards directly rather
+        # than running the whole queue summary, which also scans today's
+        # reviews and the revisit list for scopes that never render them.
+        "expression_weak_count": queue_module.scoped_count(
+            queue_module.scoped_cards(
+                {**scope, "kind": "weak", "content": "spine"},
+                user=request.user,
+            )
+        ),
+        "vocabulary_weak_count": queue_module.scoped_count(
+            queue_module.scoped_cards(
+                {
+                    **scope,
+                    "kind": "weak",
+                    "content": "vocabulary",
+                },
+                user=request.user,
+            )
+        ),
         "expression_weak_url": review_url(
             {**scope, "kind": "weak", "content": "spine"}
         ),

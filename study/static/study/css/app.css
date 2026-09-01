@@ -3280,6 +3280,13 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
     minmax(10rem, 0.42fr)
     10rem;
 }
+.collection-table--annotations {
+  --collection-table-columns:
+    minmax(8.5rem, 0.34fr)
+    minmax(12rem, 1fr)
+    minmax(8rem, 0.36fr)
+    16.5rem;
+}
 .collection-table--subject-themes {
   --collection-table-columns: minmax(15rem, 1fr) minmax(11rem, 0.45fr) 9rem;
 }
@@ -4903,169 +4910,6 @@ html[data-collection-view-mode="table"]
   height: 1px;
   background: var(--border);
 }
-.annotation-table-shell {
-  overflow-x: auto;
-  border: 1px solid color-mix(in srgb, var(--border-strong) 86%, var(--primary) 14%);
-  border-radius: 10px;
-  background: var(--surface);
-  box-shadow: none;
-}
-.annotation-table {
-  width: 100%;
-  min-width: 1020px;
-  border-collapse: collapse;
-  table-layout: fixed;
-}
-.annotation-table__col-content { width: 36%; }
-.annotation-table__col-context { width: 19%; }
-.annotation-table__col-date { width: 10%; }
-.annotation-table__col-status { width: 10%; }
-.annotation-table__col-actions { width: 25%; }
-.annotation-table thead th {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  padding: 0.72rem 1rem;
-  border-bottom: 1px solid var(--border-strong);
-  background: var(--surface-2);
-  color: var(--text-faint);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-align: left;
-  text-transform: none;
-}
-.annotation-table thead th + th,
-.annotation-table__row td + td {
-  border-left: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
-}
-.annotation-table__group th {
-  padding: 0.58rem 1rem;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background: var(--surface-2);
-  color: var(--text-soft);
-  font-size: 0.82rem;
-  font-weight: 750;
-  letter-spacing: 0.045em;
-  text-align: left;
-  text-transform: uppercase;
-}
-.annotation-table tbody:first-of-type .annotation-table__group th {
-  border-top: 0;
-}
-.annotation-table__group th > span {
-  display: inline-block;
-  vertical-align: middle;
-}
-.annotation-table__group .notes-date-section__count {
-  margin-left: 0.4rem;
-  text-transform: none;
-}
-.annotation-table__row td {
-  padding: 0.78rem 1rem;
-  border-bottom: 1px solid var(--border);
-  color: var(--text-soft);
-  font-size: 0.78rem;
-  vertical-align: top;
-  transition: background 0.16s ease;
-}
-.annotation-table__row:nth-child(odd) td {
-  background: color-mix(in srgb, var(--surface-2) 24%, var(--surface));
-}
-.annotation-table__row:hover td {
-  background: var(--surface-2);
-}
-.annotation-table tbody:last-of-type .annotation-table__row:last-child td {
-  border-bottom: 0;
-}
-.annotation-table__content {
-  color: var(--text) !important;
-  overflow-wrap: anywhere;
-}
-.annotation-table__title {
-  display: block;
-  margin-bottom: 0.28rem;
-  color: var(--text);
-  font-size: 0.88rem;
-}
-.annotation-table__quote {
-  margin: 0;
-  color: var(--text);
-  font-family: var(--font-serif);
-  font-size: 0.84rem;
-  line-height: 1.5;
-}
-.annotation-table__quote mark {
-  border-radius: 3px;
-  background: color-mix(in srgb, var(--success) 18%, transparent);
-  color: inherit;
-}
-.annotation-table__body {
-  margin: 0;
-  color: var(--text);
-  line-height: 1.48;
-  white-space: pre-wrap;
-}
-.annotation-table__quote + .annotation-table__body {
-  margin-top: 0.42rem;
-}
-.annotation-table__context-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  min-width: 0;
-  flex-wrap: wrap;
-}
-.annotation-table__scope {
-  overflow: hidden;
-  color: var(--text-soft);
-  font-size: 0.82rem;
-  font-weight: 650;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.annotation-table__source {
-  display: block;
-  overflow: hidden;
-  margin-top: 0.38rem;
-  color: var(--primary);
-  font-size: 0.82rem;
-  font-weight: 650;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.annotation-table__date time {
-  display: grid;
-  gap: 0.12rem;
-  color: var(--text-soft);
-  white-space: nowrap;
-}
-.annotation-table__date,
-.annotation-table__status,
-.annotation-table__actions-cell {
-  vertical-align: middle !important;
-}
-.annotation-table__date small {
-  color: var(--text-faint);
-  font-size: 0.78rem;
-}
-.annotation-table__status-empty {
-  color: var(--text-faint);
-}
-.annotation-card__actions.annotation-table__actions {
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.2rem;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  flex-wrap: nowrap;
-}
-.annotation-card__actions.annotation-table__actions .linkbtn {
-  padding: 0;
-  white-space: nowrap;
-}
 .notes-empty-hint {
   margin-top: -0.5rem;
   color: var(--text-faint);
@@ -5081,8 +4925,7 @@ html[data-collection-view-mode="table"]
   min-width: 0;
   padding: 1rem 1.05rem;
 }
-.annotation-card.is-annotation-anchor,
-.annotation-table__row.is-annotation-anchor {
+.annotation-card.is-annotation-anchor {
   outline: 3px solid color-mix(in srgb, var(--primary) 34%, transparent);
   outline-offset: -3px;
 }
@@ -5264,6 +5107,16 @@ html[data-collection-view-mode="table"]
   color: var(--text-faint);
   font-size: 0.74rem;
   font-weight: 650;
+}
+/* The card and the row are one node, so the scope only surfaces where the
+   table has a column for it. */
+.annotation-card__context > .annotation-card__scope {
+  display: none;
+  overflow: hidden;
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.82rem;
+  text-overflow: ellipsis;
 }
 .annotation-card__actions {
   display: flex;
@@ -5470,97 +5323,147 @@ html[data-collection-view-mode="table"]
   span {
   display: none;
 }
+/* Notes and highlights: the same card is the table row, so its parts move
+   into the four columns rather than being rendered a second time. */
+html[data-collection-view-mode="table"]
+  .annotations-grid[data-collection-view="adaptive"]
+  > .annotation-card--notes,
+html[data-collection-view-mode="table"]
+  .annotations-grid[data-collection-view="adaptive"]
+  > .annotation-card--highlights {
+  display: grid;
+  grid-template-areas: "head content context actions";
+  grid-template-columns: var(--collection-table-columns);
+  align-items: center;
+  gap: 0;
+  padding: 0;
+}
+html[data-collection-view-mode="table"]
+  .annotation-card--notes
+  .annotation-card__head,
+html[data-collection-view-mode="table"]
+  .annotation-card--highlights
+  .annotation-card__head {
+  grid-area: head;
+  align-self: stretch;
+  align-content: center;
+  justify-content: flex-start;
+  gap: 0.35rem 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.7rem 1rem;
+  margin: 0;
+}
+html[data-collection-view-mode="table"]
+  .annotation-card--notes
+  .annotation-card__head
+  time,
+html[data-collection-view-mode="table"]
+  .annotation-card--highlights
+  .annotation-card__head
+  time {
+  margin-left: 0;
+  flex-basis: 100%;
+}
+html[data-collection-view-mode="table"]
+  .annotation-card--notes
+  .annotation-card__content,
+html[data-collection-view-mode="table"]
+  .annotation-card--highlights
+  .annotation-card__content {
+  grid-area: content;
+  align-self: stretch;
+  align-content: center;
+  padding: 0.7rem 1rem;
+  border-left: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
+}
+html[data-collection-view-mode="table"]
+  .annotation-card--notes
+  .annotation-card__context,
+html[data-collection-view-mode="table"]
+  .annotation-card--highlights
+  .annotation-card__context {
+  grid-area: context;
+  align-self: stretch;
+  align-content: center;
+  display: grid;
+  gap: 0.3rem;
+  min-width: 0;
+  padding: 0.7rem 1rem;
+  border-left: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
+}
+html[data-collection-view-mode="table"]
+  .annotation-card__context
+  > .annotation-card__scope {
+  display: block;
+}
+html[data-collection-view-mode="table"]
+  .annotation-card--notes
+  .annotation-card__source,
+html[data-collection-view-mode="table"]
+  .annotation-card--highlights
+  .annotation-card__source {
+  margin-top: 0;
+  font-size: 0.8rem;
+}
+html[data-collection-view-mode="table"]
+  .annotation-card--notes
+  .annotation-card__actions,
+html[data-collection-view-mode="table"]
+  .annotation-card--highlights
+  .annotation-card__actions {
+  min-width: max-content;
+  align-self: stretch;
+  grid-area: actions;
+  justify-content: flex-start;
+  gap: 0.2rem;
+  padding: 0.7rem 0.8rem;
+  border-left: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
+  margin: 0;
+  border-top: 0;
+  flex-wrap: nowrap;
+}
+html[data-collection-view-mode="table"]
+  .annotation-card--notes
+  .annotation-card__actions
+  > form:first-of-type,
+html[data-collection-view-mode="table"]
+  .annotation-card--highlights
+  .annotation-card__actions
+  > form:first-of-type {
+  margin-left: 0;
+}
+html[data-collection-view-mode="table"]
+  .annotation-card--notes
+  .annotation-card__content
+  h3,
+html[data-collection-view-mode="table"]
+  .annotation-card--highlights
+  .annotation-card__content
+  h3 {
+  font-size: 0.95rem;
+}
+html[data-collection-view-mode="table"]
+  .annotation-card--notes
+  blockquote,
+html[data-collection-view-mode="table"]
+  .annotation-card--highlights
+  blockquote {
+  margin: 0.25rem 0 0.4rem;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.9rem;
+}
+html[data-collection-view-mode="table"]
+  .annotation-card--notes
+  .annotation-card__body,
+html[data-collection-view-mode="table"]
+  .annotation-card--highlights
+  .annotation-card__body {
+  margin: 0.35rem 0 0;
+  font-size: 0.88rem;
+}
 .annotation-card__actions > form { flex: none; }
 
 @media (max-width: 900px) {
-  .annotation-table-shell {
-    overflow: visible;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-  }
-  .annotation-table {
-    display: block;
-    min-width: 0;
-  }
-  .annotation-table colgroup,
-  .annotation-table thead {
-    display: none;
-  }
-  .annotation-table tbody {
-    display: grid;
-    gap: 0.55rem;
-    margin-bottom: 1.15rem;
-  }
-  .annotation-table tbody:last-of-type { margin-bottom: 0; }
-  .annotation-table__group {
-    display: block;
-  }
-  .annotation-table__group th {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.15rem 0;
-    border: 0;
-    background: transparent;
-  }
-  .annotation-table__group .notes-date-section__count {
-    margin-left: 0;
-  }
-  .annotation-table__row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    background: var(--surface);
-    box-shadow: none;
-  }
-  .annotation-table__row td {
-    display: block;
-    padding: 0.65rem 0.75rem;
-    border: 0;
-    background: transparent;
-  }
-  .annotation-table__content,
-  .annotation-table__context,
-  .annotation-table__actions-cell {
-    grid-column: 1 / -1;
-  }
-  .annotation-table__context {
-    padding-top: 0 !important;
-  }
-  .annotation-table__date,
-  .annotation-table__status {
-    border-top: 1px solid var(--border) !important;
-    background: var(--surface-2);
-  }
-  .annotation-table__date {
-    grid-column: 1;
-  }
-  .annotation-table__status {
-    grid-column: 2;
-    min-width: 7rem;
-  }
-  .annotation-table__date::before,
-  .annotation-table__status::before {
-    display: block;
-    margin-bottom: 0.22rem;
-    color: var(--text-faint);
-    content: attr(data-label);
-    font-size: 0.68rem;
-    font-weight: 750;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-  .annotation-table__actions-cell {
-    padding: 0.35rem 0.45rem !important;
-    border-top: 1px solid var(--border) !important;
-  }
-  .annotation-card__actions.annotation-table__actions {
-    justify-content: flex-start;
-  }
   html[data-collection-view-mode="table"]
     .annotations-grid[data-collection-view="adaptive"]
     > .annotation-card--search {
@@ -5589,6 +5492,90 @@ html[data-collection-view-mode="table"]
     .annotation-card--search
     .annotation-card__actions {
     justify-content: flex-start;
+  }
+  /* Narrow screens keep one stacked card per annotation in both modes. */
+  html[data-collection-view-mode="table"]
+    .collection-table--annotations
+    > [data-collection-table-header] {
+    display: none;
+  }
+  html[data-collection-view-mode="table"]
+    .annotations-grid[data-collection-view="adaptive"]
+    > .annotation-card--notes,
+  html[data-collection-view-mode="table"]
+    .annotations-grid[data-collection-view="adaptive"]
+    > .annotation-card--highlights {
+    grid-template-areas:
+      "head"
+      "content"
+      "context"
+      "actions";
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 0;
+  }
+  html[data-collection-view-mode="table"]
+    .annotation-card--notes
+    .annotation-card__content,
+  html[data-collection-view-mode="table"]
+    .annotation-card--highlights
+    .annotation-card__content,
+  html[data-collection-view-mode="table"]
+    .annotation-card--notes
+    .annotation-card__context,
+  html[data-collection-view-mode="table"]
+    .annotation-card--highlights
+    .annotation-card__context,
+  html[data-collection-view-mode="table"]
+    .annotation-card--notes
+    .annotation-card__actions,
+  html[data-collection-view-mode="table"]
+    .annotation-card--highlights
+    .annotation-card__actions {
+    border-top: 1px solid var(--border);
+    border-left: 0;
+  }
+  html[data-collection-view-mode="table"]
+    .annotation-card--notes
+    .annotation-card__actions,
+  html[data-collection-view-mode="table"]
+    .annotation-card--highlights
+    .annotation-card__actions {
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+  html[data-collection-view-mode="table"]
+    .annotation-card--notes
+    .annotation-card__head
+    time,
+  html[data-collection-view-mode="table"]
+    .annotation-card--highlights
+    .annotation-card__head
+    time {
+    flex-basis: auto;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  /* The head stacks into a column here, so its cross axis is horizontal. */
+  html[data-collection-view-mode="table"]
+    .annotation-card--notes
+    .annotation-card__head,
+  html[data-collection-view-mode="table"]
+    .annotation-card--highlights
+    .annotation-card__head {
+    align-content: flex-start;
+  }
+  html[data-collection-view-mode="table"]
+    .annotation-card--notes
+    .annotation-card__head
+    time,
+  html[data-collection-view-mode="table"]
+    .annotation-card--highlights
+    .annotation-card__head
+    time {
+    margin-left: 0;
   }
 }
 
@@ -14485,22 +14472,6 @@ html[data-collection-view-mode="table"]
 }
 .annotation-card--highlight {
   background: var(--surface);
-}
-.annotation-table thead th,
-.annotation-table__group th {
-  background: var(--surface-2);
-}
-.annotation-table .annotation-table__row--note td {
-  background: var(--surface);
-}
-.annotation-table .annotation-table__row--highlight td {
-  background: var(--surface);
-}
-.annotation-table .annotation-table__row:has(.annotation-card__study) td {
-  background: var(--surface);
-}
-.annotation-table .annotation-table__row:hover td {
-  background: var(--surface-2);
 }
 
 /* Comprehension quiz and results */

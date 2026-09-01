@@ -2137,7 +2137,7 @@ class ComprehensionQuestionStudyTests(TestCase):
 
     def test_overview_query_count_does_not_grow_with_more_tests(self):
         self.client.get(reverse("study:comprehension_overview"))
-        with self.assertNumQueries(9):
+        with self.assertNumQueries(6):
             self.client.get(reverse("study:comprehension_overview"))
 
         for number in range(3, 8):
@@ -2150,7 +2150,7 @@ class ComprehensionQuestionStudyTests(TestCase):
                 question=extra.questions.get(number=1),
             )
 
-        with self.assertNumQueries(9):
+        with self.assertNumQueries(6):
             self.client.get(reverse("study:comprehension_overview"))
 
     def test_test_detail_loads_markers_in_one_query(self):
@@ -2162,7 +2162,7 @@ class ComprehensionQuestionStudyTests(TestCase):
         url = reverse("study:comprehension_test", args=[self.test.slug])
         self.client.get(url)
 
-        with self.assertNumQueries(11):
+        with self.assertNumQueries(8):
             response = self.client.get(url)
 
         self.assertEqual(
@@ -2182,7 +2182,7 @@ class ComprehensionQuestionStudyTests(TestCase):
         larger_url = reverse("study:comprehension_test", args=[larger.slug])
         self.client.get(larger_url)
 
-        with self.assertNumQueries(11):
+        with self.assertNumQueries(8):
             larger_response = self.client.get(larger_url)
 
         self.assertEqual(
@@ -2362,7 +2362,7 @@ class ComprehensionStudyListTests(TestCase):
         url = reverse("study:comprehension_study_list")
         self.client.get(url)
 
-        with self.assertNumQueries(6):
+        with self.assertNumQueries(3):
             self.client.get(url)
 
         self.mark(self.first, 2)
@@ -2370,7 +2370,7 @@ class ComprehensionStudyListTests(TestCase):
         self.mark(self.second, 1)
         self.mark(self.second, 2)
 
-        with self.assertNumQueries(6):
+        with self.assertNumQueries(3):
             response = self.client.get(url)
 
         self.assertEqual(response.context["marked_count"], 5)

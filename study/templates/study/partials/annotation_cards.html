@@ -1,19 +1,35 @@
-<div class="notes-date-sections" data-collection-view data-collection-view-panel="cards">
+{% comment %}
+Date-grouped annotation collection.
+
+One node per annotation: each section is an adaptive collection that stays a
+card grid in card mode and becomes a table in table mode, so nothing is
+rendered twice.
+
+Parameters:
+  sections — ordered date sections, each with ``key``, ``title`` and ``items``.
+  variant  — "notes" | "highlights".
+{% endcomment %}
+<div class="notes-date-sections">
   {% for section in sections %}
-    <section class="notes-date-section" aria-labelledby="{{ variant }}-cards-{{ section.key }}-heading">
+    <section class="notes-date-section" aria-labelledby="{{ variant }}-{{ section.key }}-heading">
       <div class="notes-date-section__head">
-        <h2 id="{{ variant }}-cards-{{ section.key }}-heading">{{ section.title }}</h2>
+        <h2 id="{{ variant }}-{{ section.key }}-heading">{{ section.title }}</h2>
         <span class="notes-date-section__count">{{ section.items|length }}</span>
         <span class="notes-date-section__rule" aria-hidden="true"></span>
       </div>
-      <div class="annotations-grid">
-        {% for annotation in section.items %}
+      <div class="annotations-grid collection-table collection-table--annotations" data-collection-view="adaptive">
         {% if variant == "notes" %}
-          {% include "study/partials/annotation_card.html" with annotation=annotation variant=variant anchor_prefix="note" anchor_suffix="-card" %}
+          {% include "study/partials/collection_table_header.html" with variant="annotations" column_1="Type et date" column_2="Note" column_3="Contexte" column_4="Actions" only %}
         {% else %}
-          {% include "study/partials/annotation_card.html" with annotation=annotation variant=variant anchor_prefix="highlight" anchor_suffix="-card" %}
+          {% include "study/partials/collection_table_header.html" with variant="annotations" column_1="Type et date" column_2="Passage" column_3="Contexte" column_4="Actions" only %}
         {% endif %}
-      {% endfor %}
+        {% for annotation in section.items %}
+          {% if variant == "notes" %}
+            {% include "study/partials/annotation_card.html" with annotation=annotation variant=variant anchor_prefix="note" %}
+          {% else %}
+            {% include "study/partials/annotation_card.html" with annotation=annotation variant=variant anchor_prefix="highlight" %}
+          {% endif %}
+        {% endfor %}
       </div>
     </section>
   {% endfor %}

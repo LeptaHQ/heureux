@@ -1,5 +1,9 @@
 {% comment %}
-Shared annotation card.
+Shared annotation card — the only representation an annotation ever gets.
+
+The same node is the card in card mode and the row in table mode, so every
+column's metadata is written here once: the head carries kind, origin, status
+and date, and the context block carries scope and source.
 
 Parameters:
   annotation — Annotation instance. Highlights may carry ``origin_label``
@@ -7,7 +11,6 @@ Parameters:
   variant    — "notes" | "highlights" | "search". Drives the anchor id and
                which footer actions render.
   anchor_prefix — "note" | "highlight" | "annotation".
-  anchor_suffix — Optional id suffix when a second representation is rendered.
 {% endcomment %}
 {% load study_markdown %}
 <article
@@ -16,9 +19,8 @@ Parameters:
   data-annotation-item="{{ annotation.id }}"
   data-annotation-kind="{{ annotation.kind }}"
   data-read-aloud-scope
-  id="{{ anchor_prefix }}-{{ annotation.id }}{{ anchor_suffix|default:"" }}"
-  {% if anchor_suffix %}data-annotation-anchor="{{ anchor_prefix }}-{{ annotation.id }}"{% endif %}
-  {% if variant == "notes" %}data-annotation-edit-source="{{ annotation.id }}" data-annotation-edit-title="{{ annotation.title }}" data-annotation-edit-body="{{ annotation.body }}"{% endif %}
+  id="{{ anchor_prefix }}-{{ annotation.id }}"
+  {% if variant == "notes" %}data-annotation-edit-source="{{ annotation.id }}" data-annotation-edit-title="{{ annotation.title }}" data-annotation-edit-body="{{ annotation.body }}" data-annotation-edit-has-quote="{% if annotation.quote %}1{% else %}0{% endif %}"{% endif %}
 >
   <header class="annotation-card__head">
     <span class="annotation-card__kind">{% if annotation.kind == "highlight" %}Surlignage{% else %}Note{% endif %}</span>
@@ -72,8 +74,13 @@ Parameters:
   </div>
   {% if variant == "search" %}
     <p class="annotation-card__scope">{{ annotation.scope_label }}</p>
-  {% elif annotation.source_path %}
-    <a class="annotation-card__source" href="{{ annotation.source_path }}">{% include "study/partials/ui_icon.html" with name="external-link" only %} {{ annotation.source_title|default:"Voir la source" }}</a>
+  {% else %}
+    <div class="annotation-card__context">
+      <span class="annotation-card__scope">{{ annotation.scope_label }}</span>
+      {% if annotation.source_path %}
+        <a class="annotation-card__source" href="{{ annotation.source_path }}">{% include "study/partials/ui_icon.html" with name="external-link" only %} {{ annotation.source_title|default:"Voir la source" }}</a>
+      {% endif %}
+    </div>
   {% endif %}
   <footer class="annotation-card__actions">
     {% include "study/partials/annotation_actions.html" with annotation=annotation variant=variant %}

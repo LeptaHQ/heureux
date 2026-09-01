@@ -13,17 +13,16 @@ from ..models import (
     Annotation,
     Card,
     ExamPart,
-    ReviewLog,
     ReviewSession,
     Task,
 )
 from ..progress import combine_progress
 
 from .helpers import (
-    _task_card,
-    _task_content_counts,
     current_streak,
     deck_stats,
+    expression_task_summaries,
+    review_day_counts,
 )
 from .comprehension import _comprehension_summary
 
@@ -36,29 +35,30 @@ STATUS_LABELS = {
     "done": "Terminé",
 }
 
-def _parts_with_task_cards(now, user, *, with_stats=True, with_deck_stats=True):
+def _parts_with_task_summaries(now, user):
+    """Every part with the light per-task rows these two pages render.
+
+    The home page and the expression hub only show aggregate progress, so the
+    tasks carry the batched summary instead of a full task card: the same
+    numbers, at a fixed handful of queries for the page rather than about nine
+    per task.
+    """
     parts = list(
         ExamPart.objects.filter(is_active=True).prefetch_related(
             Prefetch("tasks", queryset=Task.objects.filter(is_active=True))
         )
     )
     tasks_by_part = [(part, list(part.tasks.all())) for part in parts]
-    # One grouped lookup for every card on the page instead of six per task.
-    content_counts = _task_content_counts(
-        [task for _, tasks in tasks_by_part for task in tasks]
+    summaries = expression_task_summaries(
+        now,
+        user,
+        [task for _, tasks in tasks_by_part for task in tasks],
     )
     return [
         {
             "part": part,
             "tasks": [
-                _task_card(
-                    task,
-                    now,
-                    user,
-                    with_stats=with_stats,
-                    with_deck_stats=with_deck_stats,
-                    content_counts=content_counts,
-                )
+                {"task": task, **summaries[task.pk]}
                 for task in tasks
             ],
         }
@@ -119,17 +119,12 @@ def _fr_plural(count):
     return "s" if count > 1 else ""
 
 
-def _reviews_today(user, now):
-    start = timezone.localtime(now).replace(
-        hour=0,
-        minute=0,
-        second=0,
-        microsecond=0,
+def _reviews_today(day_counts, now):
+    """Reviews recorded since local midnight, from the per-day mapping."""
+    today = timezone.localtime(now).date()
+    return sum(
+        count for day, count in day_counts.items() if day >= today
     )
-    return ReviewLog.objects.filter(
-        user=user,
-        reviewed_at__gte=start,
-    ).count()
 
 
 def _skill_rings(expression_paths, comprehension):
@@ -288,7 +283,9 @@ def _next_action(*, expression_counts, comprehension, notes_to_study):
 
 def dashboard(request):
     now = timezone.now()
-    expression_counts = queue_module.queue_counts(
+    # Only what is available to study is rendered, so the today and revisit
+    # scans of the full queue summary are not paid for here.
+    expression_counts = queue_module.available_counts(
         {"content": "spine"},
         now=now,
         user=request.user,
@@ -299,7 +296,7 @@ def dashboard(request):
     )
     overall = deck_stats(user_cards, now)
     # Only aggregate expression progress is rendered on the home page.
-    parts = _parts_with_task_cards(now, request.user, with_deck_stats=False)
+    parts = _parts_with_task_summaries(now, request.user)
     expression_paths = _home_expression_paths(parts)
     comprehension = _comprehension_summary(request.user)
     notes_to_study = Annotation.objects.filter(
@@ -313,7 +310,10 @@ def dashboard(request):
         (skill for skill in skills if skill["key"] == "ee" and skill["is_new"]),
         None,
     )
-    reviews_today = _reviews_today(request.user, now)
+    # One grouped pass over the review log serves both the streak and today's
+    # count, instead of a full history fetch plus a separate count.
+    review_days = review_day_counts(user=request.user)
+    reviews_today = _reviews_today(review_days, now)
     daily_goal_pct = (
         min(100, round(100 * reviews_today / DAILY_REVIEW_GOAL))
         if DAILY_REVIEW_GOAL
@@ -325,7 +325,7 @@ def dashboard(request):
         "parts": parts,
         "expression_paths": expression_paths,
         "overall": overall,
-        "streak": current_streak(now, user=request.user),
+        "streak": current_streak(now, day_counts=review_days),
         "comprehension": comprehension,
         "notes_to_study": notes_to_study,
         "can_resume_review": bool(session.current_card_id),
@@ -355,7 +355,7 @@ def dashboard(request):
 
 def expression_hub(request):
     now = timezone.now()
-    parts = _parts_with_task_cards(now, request.user, with_deck_stats=False)
+    parts = _parts_with_task_summaries(now, request.user)
     paths = _home_expression_paths(parts)
     available_paths = [path for path in paths if path["available"]]
     return render(

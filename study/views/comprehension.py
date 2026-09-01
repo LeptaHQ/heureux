@@ -174,7 +174,19 @@ def _attach_comprehension_test_progress(
     return test
 
 
-def _comprehension_test_cards(user, *, mode=None, published_only=False):
+def _comprehension_test_cards(
+    user,
+    *,
+    mode=None,
+    published_only=False,
+    slug=None,
+):
+    """Test rows with this learner's attempts and progress attached.
+
+    ``slug`` narrows the whole pass to one test — its attempts, its answer
+    counts and its completion — instead of building every test's card so the
+    caller can pick one out of the list.
+    """
     attempts = (
         ComprehensionAttempt.objects.filter(user=user)
         .annotate(
@@ -189,6 +201,9 @@ def _comprehension_test_cards(user, *, mode=None, published_only=False):
     ).distinct()
     if mode:
         tests = tests.filter(mode=mode)
+    if slug:
+        tests = tests.filter(slug=slug)
+        attempts = attempts.filter(test__slug=slug)
     if published_only:
         tests = tests.filter(is_active=True, is_published=True)
     tests = list(
@@ -681,7 +696,11 @@ def comprehension_test_detail(
     test = next(
         (
             item
-            for item in _comprehension_test_cards(request.user, mode=mode)
+            for item in _comprehension_test_cards(
+                request.user,
+                mode=mode,
+                slug=test_slug,
+            )
             if item.slug == test_slug
             and item.is_accessible
         ),
@@ -999,6 +1018,7 @@ def comprehension_question_study(
                 request.user,
                 mode=mode,
                 published_only=True,
+                slug=test_slug,
             )
             if item.slug == test_slug
         ),

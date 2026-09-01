@@ -7,7 +7,7 @@ import re
 from typing import Iterable
 from urllib.parse import urlsplit
 
-from django.db.models import Q
+from django.db.models import Count, Q
 from django.utils import timezone
 
 from .models import (
@@ -45,6 +45,8 @@ WRITING_SUJET_SOURCE_RE = re.compile(
     r"^writing-sujet:(?P<sujet_id>\d+):(?:personal|model-\d+)$"
 )
 ANNOTATION_SURFACE_SUFFIXES = (":front", ":back")
+# A card counts as mature once its interval reaches three weeks.
+MATURE_INTERVAL_DAYS = 21
 
 
 @dataclass(frozen=True)
@@ -185,15 +187,13 @@ def combine_progress(
     )
 
 
-def card_unit_progress(cards) -> ProgressSummary:
-    """Summarize active cards, treating both directions as one phrase unit."""
-    rows = cards.values(
-        "id",
-        "phrase_id",
-        "state",
-        "started_at",
-        "suspended",
-    )
+def card_unit_progress_from_rows(rows) -> ProgressSummary:
+    """Summarize already-fetched card rows as phrase units.
+
+    ``rows`` carry ``id``, ``phrase_id``, ``state``, ``started_at`` and
+    ``suspended``; suspended rows are ignored, exactly as they are when the
+    rows come straight from the database.
+    """
     units = {}
     for row in rows:
         key = ("phrase", row["phrase_id"]) if row["phrase_id"] else ("card", row["id"])
@@ -213,6 +213,19 @@ def card_unit_progress(cards) -> ProgressSummary:
             all(row["state"] != CardState.NEW for row in unit)
             for unit in units.values()
         ),
+    )
+
+
+def card_unit_progress(cards) -> ProgressSummary:
+    """Summarize active cards, treating both directions as one phrase unit."""
+    return card_unit_progress_from_rows(
+        cards.values(
+            "id",
+            "phrase_id",
+            "state",
+            "started_at",
+            "suspended",
+        )
     )
 
 
@@ -319,7 +332,11 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
         )
 
     now = timezone.now()
-    vocabulary_cards = (
+    # One grouped aggregate rather than a row per (card, sujet) pair: a learner
+    # owns thousands of subject-vocabulary cards, and every page summarizing
+    # several sujets at once had to pull and count each of them in Python.
+    started_activity = Q(started_at__isnull=False) | ~Q(state=CardState.NEW)
+    vocabulary_rows = (
         Card.objects.current_content()
         .filter(
             user=user,
@@ -327,59 +344,58 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
             phrase__source_prompts__is_active=True,
             phrase__source_prompts__response_id__in=response_ids,
         )
-        .values(
-            "id",
-            "state",
-            "started_at",
-            "suspended",
-            "interval_days",
-            "due",
-            "phrase__source_prompts__response_id",
+        .order_by()
+        .values("phrase__source_prompts__response_id")
+        .annotate(
+            activity_started=Count(
+                "id",
+                distinct=True,
+                filter=started_activity,
+            ),
+            total=Count("id", distinct=True, filter=Q(suspended=False)),
+            started=Count(
+                "id",
+                distinct=True,
+                filter=Q(suspended=False) & started_activity,
+            ),
+            completed=Count(
+                "id",
+                distinct=True,
+                filter=Q(suspended=False) & ~Q(state=CardState.NEW),
+            ),
+            mastered=Count(
+                "id",
+                distinct=True,
+                filter=Q(
+                    suspended=False,
+                    state=CardState.REVIEW,
+                    interval_days__gte=MATURE_INTERVAL_DAYS,
+                ),
+            ),
+            due=Count(
+                "id",
+                distinct=True,
+                filter=Q(
+                    suspended=False,
+                    state__in=[
+                        CardState.LEARNING,
+                        CardState.RELEARNING,
+                        CardState.REVIEW,
+                    ],
+                    due__lte=now,
+                ),
+            ),
         )
-        .distinct()
     )
-    for card in vocabulary_cards:
-        response_id = card["phrase__source_prompts__response_id"]
-        values = progress[response_id]
-        if card["started_at"] is not None or card["state"] != CardState.NEW:
-            values["vocabulary_activity_started"] = True
-        if card["suspended"]:
-            continue
-        values["vocabulary_total"] += 1
-        if (
-            card["started_at"] is not None
-            or card["state"] != CardState.NEW
-        ):
-            values["vocabulary_started"] += 1
-        if card["state"] != CardState.NEW:
-            values["vocabulary_completed"] += 1
-        if (
-            card["state"] == CardState.REVIEW
-            and card["interval_days"] >= 21
-        ):
-            values["vocabulary_mastered"] += 1
-        if (
-            card["state"]
-            in {CardState.LEARNING, CardState.RELEARNING, CardState.REVIEW}
-            and card["due"] is not None
-            and card["due"] <= now
-        ):
-            values["vocabulary_due"] += 1
+    for row in vocabulary_rows:
+        values = progress[row["phrase__source_prompts__response_id"]]
+        values["vocabulary_activity_started"] = bool(row["activity_started"])
+        values["vocabulary_total"] = row["total"]
+        values["vocabulary_started"] = row["started"]
+        values["vocabulary_completed"] = row["completed"]
+        values["vocabulary_mastered"] = row["mastered"]
+        values["vocabulary_due"] = row["due"]
 
-    response_by_content_key = dict(
-        Response.objects.filter(
-            pk__in=response_ids,
-            is_active=True,
-        ).values_list("content_key", "pk")
-    )
-    response_by_prompt_content_key = dict(
-        Prompt.objects.filter(
-            content_key__startswith="tache2:",
-            is_active=True,
-            response_id__in=response_ids,
-            response__is_active=True,
-        ).values_list("content_key", "response_id")
-    )
     highlight_rows = list(
         Annotation.objects.filter(
             user=user,
@@ -393,6 +409,11 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
         )
         .values("source_path", "source_key")
     )
+    if not highlight_rows:
+        # Nothing can match, so the three lookups that resolve highlights onto
+        # responses have nothing to resolve.
+        return _finish_subject_progress(progress)
+
     path_matches = [
         (
             row,
@@ -404,6 +425,36 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
         (row, PHRASE_SOURCE_RE.match(row["source_key"]))
         for row in highlight_rows
     ]
+    # Each lookup below resolves one shape of source key, so it is only worth
+    # running when a highlight of that shape exists.
+    response_by_content_key = (
+        dict(
+            Response.objects.filter(
+                pk__in=response_ids,
+                is_active=True,
+            ).values_list("content_key", "pk")
+        )
+        if any(
+            row["source_key"].startswith(RESPONSE_SOURCE_PREFIX)
+            for row in highlight_rows
+        )
+        else {}
+    )
+    response_by_prompt_content_key = (
+        dict(
+            Prompt.objects.filter(
+                content_key__startswith="tache2:",
+                is_active=True,
+                response_id__in=response_ids,
+                response__is_active=True,
+            ).values_list("content_key", "response_id")
+        )
+        if any(
+            TACHE_TWO_SOURCE_RE.fullmatch(row["source_key"])
+            for row in highlight_rows
+        )
+        else {}
+    )
     prompt_ids = {
         int(match.group("prompt_id"))
         for _row, match in path_matches
@@ -476,6 +527,11 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
         for response_id in matched_response_ids:
             progress[response_id]["has_highlight"] = True
 
+    return _finish_subject_progress(progress)
+
+
+def _finish_subject_progress(progress) -> dict[int, SubjectProgress]:
+    """Turn the collected per-response flags into display-ready summaries."""
     results = {}
     for response_id, values in progress.items():
         if values["explicitly_completed"]:

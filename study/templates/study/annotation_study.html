@@ -44,7 +44,7 @@
         data-annotation-item
         data-study-id="{{ item.id }}"
         data-study-toggle-url="{% url 'study:annotation_study_toggle' item.id %}"
-        {% if item.kind != "highlight" %}data-annotation-edit-source="{{ item.id }}" data-annotation-edit-title="{{ item.title }}" data-annotation-edit-body="{{ item.body }}"{% endif %}
+        {% if item.kind != "highlight" %}data-annotation-edit-source="{{ item.id }}" data-annotation-edit-title="{{ item.title }}" data-annotation-edit-body="{{ item.body }}" data-annotation-edit-has-quote="{% if item.quote %}1{% else %}0{% endif %}"{% endif %}
       >
         {% include "study/partials/flashcard_meta.html" with read_aloud=True read_key=item.id read_label="Lire cette face" only %}
         <div class="flashcard-deck__face annotation-study__front" data-flashcard-front data-study-front>

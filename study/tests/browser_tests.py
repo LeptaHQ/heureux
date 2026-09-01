@@ -75,6 +75,7 @@ class BrowserTests(StaticLiveServerTestCase):
             device_scale_factor=2,
             is_mobile=True,
             has_touch=True,
+            service_workers="block",
         )
         self.page = self.context.new_page()
         self.page.goto(self.live_server_url + reverse("study:login"))
@@ -3652,8 +3653,12 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertGreater(tab_styles["activeRadius"], 100)
         self.assertLessEqual(tab_styles["segmentGap"], 4)
         self.assertFalse(
-            self.page.locator(".annotation-table--notes").is_visible()
+            self.page.locator(
+                ".collection-table--annotations [data-collection-table-header]"
+            ).first.is_visible()
         )
+        # Card mode renders exactly one node for the note.
+        self.assertEqual(self.page.locator("[data-annotation-item]").count(), 1)
         action_icons = self.page.locator(
             ".annotation-card",
             has_text="Une note personnelle.",
@@ -3662,23 +3667,25 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(action_icons.count(), 4)
 
         self.page.get_by_role("button", name="Tableau").click()
-        self.page.locator(
-            ".annotation-table__body",
+        notes_table = self.page.locator(".collection-table--annotations")
+        notes_table.locator(
+            ".annotation-card__body",
             has_text="Une note personnelle.",
         ).wait_for()
-        notes_table = self.page.locator(".annotation-table--notes")
+        # The very same node becomes the row: the toggle never duplicates it.
+        self.assertEqual(self.page.locator("[data-annotation-item]").count(), 1)
         self.assertEqual(
             notes_table.evaluate("table => getComputedStyle(table).display"),
-            "block",
+            "flex",
         )
         self.assertEqual(
-            notes_table.locator(".annotation-table__row").evaluate(
+            notes_table.locator(".annotation-card").evaluate(
                 "row => getComputedStyle(row).display"
             ),
             "grid",
         )
         action_icons = self.page.locator(
-            ".annotation-table__row",
+            ".annotation-card",
             has_text="Une note personnelle.",
         ).locator(".annotation-action__icon")
         # No selected passage on this note, so no read control.
@@ -3733,11 +3740,11 @@ class BrowserTests(StaticLiveServerTestCase):
         ).wait_for()
 
         response_card = self.page.locator(
-            ".annotation-table__row",
+            ".annotation-card",
             has_text="Passage retenu dans une réponse.",
         )
         expression_card = self.page.locator(
-            ".annotation-table__row",
+            ".annotation-card",
             has_text="Passage retenu dans une expression.",
         )
         self.assertEqual(
@@ -3756,43 +3763,61 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.page.set_viewport_size({"width": 1200, "height": 800})
         self.page.reload()
-        highlights_table = self.page.locator(
-            ".annotation-table--highlights"
-        )
-        highlights_table.get_by_role(
-            "columnheader",
-            name="Passage",
-        ).wait_for()
+        highlights_table = self.page.locator(".collection-table--annotations")
+        header = highlights_table.locator("[data-collection-table-header]")
+        header.wait_for(state="visible")
         self.assertEqual(
-            highlights_table.evaluate(
-                "table => getComputedStyle(table).display"
+            header.locator("span").nth(1).inner_text().strip(),
+            "Passage",
+        )
+        rows = highlights_table.locator("[data-collection-item]")
+        self.assertEqual(rows.count(), 2)
+        header_tracks = header.evaluate(
+            "element => getComputedStyle(element).gridTemplateColumns"
+        )
+        self.assertEqual(
+            rows.evaluate_all(
+                "elements => elements.map("
+                "element => getComputedStyle(element).gridTemplateColumns)"
             ),
-            "table",
+            [header_tracks, header_tracks],
         )
         self.assertEqual(
-            highlights_table.locator(".annotation-table__row")
-            .first.evaluate("row => getComputedStyle(row).display"),
-            "table-row",
+            rows.first.evaluate("row => getComputedStyle(row).display"),
+            "grid",
         )
-        table_edge_gap = highlights_table.evaluate(
+        row_edge_offsets = self.page.evaluate(
             """
-            table => {
-              const shell = table.closest('.annotation-table-shell');
-              return shell.getBoundingClientRect().right
-                - table.getBoundingClientRect().right;
+            () => {
+              const headerCells = [
+                ...document.querySelectorAll(
+                  '.collection-table--annotations '
+                  + '[data-collection-table-header] > span'
+                )
+              ];
+              return [
+                ...document.querySelectorAll(
+                  '.collection-table--annotations [data-collection-item]'
+                )
+              ].map(row => [...row.children].map((cell, index) => {
+                return Math.abs(
+                  cell.getBoundingClientRect().left
+                  - headerCells[index].getBoundingClientRect().left
+                );
+              }));
             }
             """
         )
-        self.assertLessEqual(table_edge_gap, 1.5)
-        self.assertEqual(
-            highlights_table.locator(
-                ".annotation-table__actions-heading"
-            ).evaluate("heading => getComputedStyle(heading).textAlign"),
-            "left",
+        self.assertTrue(
+            all(
+                offset <= 1
+                for row_offsets in row_edge_offsets
+                for offset in row_offsets
+            )
         )
         self.assertEqual(
             highlights_table.locator(
-                ".annotation-table__actions"
+                ".annotation-card__actions"
             ).first.evaluate(
                 "actions => getComputedStyle(actions).justifyContent"
             ),
@@ -3803,7 +3828,8 @@ class BrowserTests(StaticLiveServerTestCase):
             ".annotation-card",
             has_text="Passage retenu dans une réponse.",
         ).wait_for()
-        self.assertFalse(highlights_table.is_visible())
+        self.assertFalse(header.is_visible())
+        self.assertEqual(rows.count(), 2)
         self.assert_no_horizontal_overflow()
 
     def test_collection_view_choice_persists_across_catalogs(self):
@@ -3917,12 +3943,13 @@ class BrowserTests(StaticLiveServerTestCase):
                 args=[self.part.slug, self.task.slug],
             )
         )
-        note_table = self.page.locator(".annotation-table--notes")
+        note_table = self.page.locator(".collection-table--annotations")
         note_table.locator(
-            ".annotation-table__body",
+            ".annotation-card__body",
             has_text="Préférence globale d’affichage.",
         ).wait_for()
-        self.assertTrue(note_table.is_visible())
+        note_header = note_table.locator("[data-collection-table-header]")
+        self.assertTrue(note_header.is_visible())
         self.assertEqual(
             self.page.get_by_role("button", name="Tableau").get_attribute(
                 "aria-pressed"
@@ -3935,11 +3962,16 @@ class BrowserTests(StaticLiveServerTestCase):
             ".annotation-card",
             has_text="Préférence globale d’affichage.",
         ).wait_for()
-        self.assertFalse(note_table.is_visible())
+        self.assertFalse(note_header.is_visible())
+        # The anchor resolves against the one node, in either view mode.
         self.page.goto(
             self.page.url.split("#", 1)[0] + f"#note-{note.id}"
         )
-        note_card = self.page.locator(f"#note-{note.id}-card")
+        note_card = self.page.locator(f"#note-{note.id}")
+        self.assertEqual(
+            self.page.locator(f'[data-annotation-item="{note.id}"]').count(),
+            1,
+        )
         self.assertTrue(
             note_card.evaluate(
                 "card => card.classList.contains('is-annotation-anchor')"
@@ -3947,7 +3979,7 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.page.get_by_role("button", name="Tableau").click()
         self.assertTrue(
-            self.page.locator(f"#note-{note.id}").evaluate(
+            note_card.evaluate(
                 "row => row.classList.contains('is-annotation-anchor')"
             )
         )
@@ -4117,6 +4149,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assert_no_horizontal_overflow()
 
     def test_mobile_note_dialogs_create_and_edit_cleanly(self):
+        self.disable_service_worker()
         notes_url = (
             self.live_server_url
             + reverse(
@@ -4200,10 +4233,12 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.page.get_by_role("button", name="Tableau").click()
         note_row = self.page.locator(
-            ".annotation-table__row",
+            ".annotation-card",
             has_text="Version corrigée depuis la fenêtre.",
         )
         note_row.wait_for()
+        # The edit updated the one node the table mode reuses.
+        self.assertEqual(note_row.count(), 1)
         action_buttons = note_row.locator(".annotation-action")
         # A free-standing note reads its optional French title.
         self.assertEqual(action_buttons.count(), 5)
@@ -4823,10 +4858,7 @@ class BrowserTests(StaticLiveServerTestCase):
         controls = self.page.locator("[data-notes-recall]")
         french_button = controls.locator('[data-recall-column="french"]')
         english_button = controls.locator('[data-recall-column="english"]')
-        card = self.page.locator(
-            '[data-collection-view-panel="cards"] '
-            f'[data-annotation-item="{note.pk}"]'
-        )
+        card = self.page.locator(f'[data-annotation-item="{note.pk}"]')
         french_cells = card.locator('[data-recall-cell="french"]')
         french_content = french_cells.locator("[data-recall-content]")
         english_cell = card.locator('[data-recall-cell="english"]')
@@ -4876,10 +4908,10 @@ class BrowserTests(StaticLiveServerTestCase):
         )
 
         self.page.get_by_role("button", name="Tableau").click()
-        table_row = self.page.locator(
-            '[data-collection-view-panel="table"] '
-            f'[data-annotation-item="{note.pk}"]'
-        )
+        # One node per annotation, so table mode keeps the recall state the
+        # card was left in.
+        table_row = self.page.locator(f'[data-annotation-item="{note.pk}"]')
+        self.assertEqual(table_row.count(), 1)
         table_english = table_row.locator('[data-recall-cell="english"]')
         table_english_content = table_english.locator("[data-recall-content]")
         table_row.wait_for(state="visible")
@@ -5088,6 +5120,109 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(self.page.url, url_before)
         note.refresh_from_db()
         self.assertTrue(note.completed)
+
+    def test_notes_actions_apply_in_place_in_table_mode(self):
+        recent = [
+            Annotation.objects.create(
+                user=self.user,
+                task=self.task,
+                kind=AnnotationKind.NOTE,
+                title=f"Ligne {index}",
+                body=f"corps {index}",
+            )
+            for index in range(2)
+        ]
+        older = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            title="Ligne ancienne",
+            body="corps ancien",
+        )
+        Annotation.objects.filter(pk=older.pk).update(
+            created_at=timezone.now() - timezone.timedelta(days=30)
+        )
+        notes_url = reverse(
+            "study:task_notes", args=[self.part.slug, self.task.slug]
+        )
+        self.page.set_viewport_size({"width": 1200, "height": 900})
+        self.page.goto(self.live_server_url + notes_url)
+        self.page.get_by_role("button", name="Tableau").click()
+        url_before = self.page.url
+
+        row = self.page.locator(
+            f'[data-annotation-item="{recent[0].pk}"]'
+        )
+        row.wait_for(state="visible")
+        # Table mode reuses the card node, so there is still only one of it.
+        self.assertEqual(row.count(), 1)
+        self.assertEqual(
+            row.evaluate("element => getComputedStyle(element).display"),
+            "grid",
+        )
+        sections = self.page.locator(".notes-date-section")
+        self.assertEqual(sections.count(), 2)
+        self.assertEqual(
+            sections.first.locator(".notes-date-section__count")
+            .inner_text()
+            .strip(),
+            "2",
+        )
+
+        study_hero = self.page.locator('[data-hero-count="study"]')
+        row.locator('form[data-annotation-action="study"] button').click()
+        row.locator(".annotation-card__study").wait_for(state="visible")
+        self.assertEqual(study_hero.inner_text().strip(), "1")
+        self.assertEqual(self.page.url, url_before)
+
+        row.locator('form[data-annotation-action="complete"] button').click()
+        row.locator(".annotation-card__done").wait_for(state="visible")
+        recent[0].refresh_from_db()
+        self.assertTrue(recent[0].completed)
+
+        # The edit dialog reads its values from the same node.
+        row.get_by_role("button", name="Modifier la note").click()
+        edit_dialog = self.page.locator("#note-edit-dialog")
+        edit_dialog.wait_for(state="visible")
+        self.assertEqual(
+            edit_dialog.get_by_label("Titre (facultatif)").input_value(),
+            "Ligne 0",
+        )
+        edit_dialog.get_by_role("button", name="Annuler", exact=True).click()
+        edit_dialog.wait_for(state="hidden")
+
+        # Deleting drops the one node and recounts its date section.
+        row.locator('form[data-annotation-action="delete"] button').click()
+        self.page.locator("[data-confirm-accept]").click()
+        row.wait_for(state="detached")
+        self.assertEqual(
+            sections.first.locator(".notes-date-section__count")
+            .inner_text()
+            .strip(),
+            "1",
+        )
+        self.assertEqual(
+            self.page.locator('[data-tab-count="notes"]').inner_text().strip(),
+            "2",
+        )
+        self.assertEqual(self.page.url, url_before)
+
+        # Emptying a section removes it; emptying the tab shows the empty state.
+        for annotation in (recent[1], older):
+            node = self.page.locator(
+                f'[data-annotation-item="{annotation.pk}"]'
+            )
+            node.locator('form[data-annotation-action="delete"] button').click()
+            self.page.locator("[data-confirm-accept]").click()
+            node.wait_for(state="detached")
+        self.assertEqual(sections.count(), 0)
+        self.page.locator("#notes-panel .empty").wait_for(state="visible")
+        self.assertEqual(
+            self.page.locator("[data-collection-view-toggle]").count(),
+            0,
+        )
+        self.assertEqual(self.page.url, url_before)
+        self.assert_no_horizontal_overflow()
 
     def test_notes_status_filter_removes_toggled_item_in_place(self):
         note = Annotation.objects.create(

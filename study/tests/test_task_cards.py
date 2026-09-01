@@ -4,13 +4,22 @@ from __future__ import annotations
 
 from unittest.mock import patch
 
+from django.db.models import Prefetch
 from django.test import TestCase
 from django.test.utils import CaptureQueriesContext
 from django.db import connection
 from django.urls import reverse
 from django.utils import timezone
 
+from study import content_loader as content_module
 from study.models import (
+    Annotation,
+    AnnotationKind,
+    Card,
+    CardState,
+    CardType,
+    ExamPart,
+    PersonalWritingResponse,
     Phrase,
     PhraseCategory,
     PhraseTier,
@@ -18,15 +27,57 @@ from study.models import (
     Task,
     Theme,
     WritingSujet,
+    WritingSujetCompletion,
+)
+from study.views.dashboard import (
+    _home_expression_paths,
+    _parts_with_task_summaries,
 )
 from study.views.helpers import (
     FUNCTIONAL_PHRASE_CATEGORY_NAMES,
     _task_card,
     _task_content_counts,
     _task_phrases,
+    expression_task_summaries,
 )
 
 from . import factories
+
+
+def legacy_expression_paths(now, user):
+    """The pre-batch expression paths, kept as the reference for the new ones.
+
+    This is what the home page and the expression hub used to run: a full
+    :func:`_task_card` per active task, folded into paths by
+    :func:`_home_expression_paths`.
+    """
+    parts = list(
+        ExamPart.objects.filter(is_active=True).prefetch_related(
+            Prefetch("tasks", queryset=Task.objects.filter(is_active=True))
+        )
+    )
+    tasks_by_part = [(part, list(part.tasks.all())) for part in parts]
+    content_counts = _task_content_counts(
+        [task for _, tasks in tasks_by_part for task in tasks]
+    )
+    return _home_expression_paths(
+        [
+            {
+                "part": part,
+                "tasks": [
+                    _task_card(
+                        task,
+                        now,
+                        user,
+                        with_deck_stats=False,
+                        content_counts=content_counts,
+                    )
+                    for task in tasks
+                ],
+            }
+            for part, tasks in tasks_by_part
+        ]
+    )
 
 
 def legacy_task_counts(task):
@@ -321,17 +372,17 @@ class TaskCardQueryBudgetTests(TestCase):
         ):
             return self._query_count(url)
 
-    def test_dashboard_batches_content_counts_once(self):
+    def test_expression_pages_summarize_every_task_in_one_call(self):
         with patch(
-            "study.views.dashboard._task_content_counts",
-            wraps=_task_content_counts,
+            "study.views.dashboard.expression_task_summaries",
+            wraps=expression_task_summaries,
         ) as batched:
             self.client.get(reverse("study:dashboard"))
             self.client.get(reverse("study:expression"))
 
         self.assertEqual(batched.call_count, 2)
         for call in batched.call_args_list:
-            tasks = list(call.args[0])
+            tasks = list(call.args[2])
             self.assertEqual(
                 sorted(task.pk for task in tasks),
                 sorted(
@@ -355,25 +406,420 @@ class TaskCardQueryBudgetTests(TestCase):
 
     def test_extra_tasks_do_not_add_content_count_queries(self):
         """Extra tasks may add user progress queries, never content counts."""
-        pages = [
-            (reverse("study:dashboard"), "dashboard"),
-            (reverse("study:expression"), "dashboard"),
-            (reverse("study:part_detail", args=[self.part.slug]), "library"),
-        ]
-        before = {url: self._query_count(url) for url, _ in pages}
+        url = reverse("study:part_detail", args=[self.part.slug])
+        before = self._query_count(url)
 
         added_tasks = 2
         self._task_with_content("tache-4")
         self._task_with_content("tache-5")
 
-        for url, view_module in pages:
+        growth = self._query_count(url) - before
+        unbatched_growth = (
+            self._unbatched_query_count(url, "library") - before
+        )
+        self.assertLessEqual(growth, unbatched_growth - 4 * added_tasks)
+
+    def test_extra_tasks_do_not_add_expression_page_queries(self):
+        """The hub and the home page cost the same whatever the task count."""
+        pages = [
+            reverse("study:dashboard"),
+            reverse("study:expression"),
+        ]
+        before = {url: self._query_count(url) for url in pages}
+
+        self._task_with_content("tache-4")
+        self._task_with_content("tache-5")
+
+        for url in pages:
             with self.subTest(url=url):
-                growth = self._query_count(url) - before[url]
-                unbatched_growth = (
-                    self._unbatched_query_count(url, view_module)
-                    - before[url]
+                self.assertEqual(self._query_count(url), before[url])
+
+
+PATH_KEYS = (
+    "available",
+    "task_count",
+    "has_content",
+    "prompt_count",
+    "seen",
+    "total",
+    "due",
+    "progress",
+    "title",
+)
+
+
+class ExpressionPathSummaryTests(TestCase):
+    """The batched hub summary must equal the task cards it replaced.
+
+    The fixture covers every rule the two pages render: aliases collapsing onto
+    one response, Tâche 2 counting each subject occurrence, the three ways a
+    subject counts as started, explicit completion, due response cards, EE
+    Tâche 1 sujets, and unavailable tasks and parts.
+    """
+
+    def setUp(self):
+        self.user = factories.make_user("expression-paths")
+        self.now = timezone.now()
+        self.prompt_number = 0
+        self.subject_keys = [
+            content_module.tache_two_subject_content_key(
+                month.slug,
+                batch.number,
+                subject.number,
+            )
+            for month in content_module.load_tache_two_subject_months()
+            for batch in month.batches
+            for subject in batch.subjects
+        ]
+
+        self.eo = factories.make_part("eo")
+        self.ee = factories.make_part("ee")
+        self.soon = factories.make_part("ex", available=False)
+
+        self._build_tache_two()
+        self._build_tache_three()
+        self._build_writing_task()
+        self._build_edge_cases()
+
+    def _add_prompt(self, response, content_key, theme=None):
+        self.prompt_number += 1
+        return Prompt.objects.create(
+            content_key=content_key,
+            response=response,
+            theme=theme or response.theme,
+            family=response.family,
+            number=self.prompt_number,
+            text=f"Sujet équivalent {self.prompt_number} ?",
+        )
+
+    def _subject_vocabulary_card(self, response, **overrides):
+        phrase = factories.make_phrase(tier=PhraseTier.SUBJECT)
+        phrase.source_prompts.add(response.prompts.first())
+        return factories.make_phrase_card(
+            phrase=phrase,
+            user=self.user,
+            **overrides,
+        )
+
+    def _highlight(self, **overrides):
+        return Annotation.objects.create(
+            user=self.user,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="extrait",
+            **overrides,
+        )
+
+    def _build_tache_two(self):
+        """EO Tâche 2: two equivalent subjects share one response."""
+        self.tache_two = factories.make_task(self.eo, "tache-2")
+        theme = factories.make_theme("eo-tache-2-theme", task=self.tache_two)
+        shared_card = factories.make_spine_card(theme=theme, user=self.user)
+        self.shared_subject = shared_card.response
+        shared_card.subject_completed_at = self.now
+        shared_card.response_practice_started_at = self.now
+        shared_card.save(
+            update_fields=[
+                "subject_completed_at",
+                "response_practice_started_at",
+            ]
+        )
+        self._add_prompt(self.shared_subject, self.subject_keys[0])
+        self._add_prompt(self.shared_subject, self.subject_keys[1])
+
+        highlighted = factories.make_spine_card(theme=theme, user=self.user)
+        self.highlighted_subject = highlighted.response
+        self._add_prompt(self.highlighted_subject, self.subject_keys[2])
+        self._highlight(
+            source_path="/expression/orale/tache-2/",
+            source_key=(
+                f"response:{self.highlighted_subject.content_key}:front"
+            ),
+        )
+
+    def _build_tache_three(self):
+        """EO Tâche 3: started by practice, by vocabulary, or by a due card."""
+        self.tache_three = factories.make_task(self.eo, "tache-3")
+        theme = factories.make_theme("eo-tache-3-theme", task=self.tache_three)
+
+        practiced = factories.make_spine_card(theme=theme, user=self.user)
+        practiced.response_practice_started_at = self.now
+        practiced.save(update_fields=["response_practice_started_at"])
+        # An alias: a second prompt on the same response, as the content has.
+        self._add_prompt(practiced.response, "test-prompt-alias:tache-3")
+
+        vocabulary_started = factories.make_spine_card(
+            theme=theme,
+            user=self.user,
+        )
+        self._subject_vocabulary_card(
+            vocabulary_started.response,
+            started_at=self.now,
+        )
+
+        self.due_card = factories.make_spine_card(
+            theme=theme,
+            user=self.user,
+            state=CardState.REVIEW,
+            due=self.now - timezone.timedelta(days=1),
+            interval_days=6,
+        )
+        untouched = factories.make_spine_card(theme=theme, user=self.user)
+        self._subject_vocabulary_card(untouched.response)
+
+    def _build_writing_task(self):
+        """EE Tâche 1: completion, personalization, and a highlight."""
+        self.writing_task = factories.make_task(self.ee, "tache-1")
+        self.sujets = [
+            factories.make_writing_sujet(self.writing_task)
+            for _ in range(4)
+        ]
+        factories.make_writing_sujet(self.writing_task, is_active=False)
+        WritingSujetCompletion.objects.create(
+            user=self.user,
+            sujet=self.sujets[0],
+        )
+        PersonalWritingResponse.objects.create(
+            user=self.user,
+            sujet=self.sujets[1],
+            body="Bonjour, viens samedi.",
+        )
+        self._highlight(
+            source_path=(
+                f"/expression/ecrite/tache-1/sujets/{self.sujets[2].pk}/"
+            ),
+            source_key=f"writing-sujet:{self.sujets[2].pk}:personal",
+        )
+
+    def _build_edge_cases(self):
+        """Content the two pages must ignore, skip, or still count."""
+        ee_tache_three = factories.make_task(self.ee, "tache-3")
+        theme = factories.make_theme("ee-tache-3-theme", task=ee_tache_three)
+        factories.make_spine_card(theme=theme, user=self.user)
+
+        # An archived theme still owns prompts: they count as content, but
+        # their responses are not part of the progress.
+        archived = factories.make_theme(
+            "eo-tache-3-archive",
+            task=self.tache_three,
+        )
+        Theme.objects.filter(pk=archived.pk).update(is_active=False)
+        factories.make_response(theme=archived)
+
+        unavailable_task = factories.make_task(
+            self.eo,
+            "tache-1",
+            available=False,
+        )
+        unavailable_theme = factories.make_theme(
+            "eo-tache-1-theme",
+            task=unavailable_task,
+        )
+        factories.make_spine_card(theme=unavailable_theme, user=self.user)
+
+        soon_task = factories.make_task(self.soon, "tache-1")
+        soon_theme = factories.make_theme("ex-tache-1-theme", task=soon_task)
+        factories.make_spine_card(theme=soon_theme, user=self.user)
+
+    def _paths(self):
+        return {
+            path["part"].slug: path
+            for path in _home_expression_paths(
+                _parts_with_task_summaries(self.now, self.user)
+            )
+        }
+
+    def _comparable(self, paths):
+        return [
+            (path["part"].slug, {key: path[key] for key in PATH_KEYS})
+            for path in paths
+        ]
+
+    def test_paths_match_the_task_card_paths(self):
+        legacy = legacy_expression_paths(self.now, self.user)
+        batched = _home_expression_paths(
+            _parts_with_task_summaries(self.now, self.user)
+        )
+
+        self.assertEqual(self._comparable(batched), self._comparable(legacy))
+
+    def test_hub_totals_match_the_task_card_totals(self):
+        legacy = [
+            path
+            for path in legacy_expression_paths(self.now, self.user)
+            if path["available"]
+        ]
+        batched = [
+            path
+            for path in _home_expression_paths(
+                _parts_with_task_summaries(self.now, self.user)
+            )
+            if path["available"]
+        ]
+
+        for key in ("prompt_count", "total", "seen", "due"):
+            with self.subTest(key=key):
+                self.assertEqual(
+                    sum(path[key] for path in batched),
+                    sum(path[key] for path in legacy),
                 )
-                self.assertLessEqual(
-                    growth,
-                    unbatched_growth - 4 * added_tasks,
+
+    def test_tache_two_keeps_every_subject_occurrence(self):
+        summaries = expression_task_summaries(
+            self.now,
+            self.user,
+            [self.tache_two],
+        )
+        stats = summaries[self.tache_two.pk]["stats"]
+
+        self.assertEqual(len(self.subject_keys), 348)
+        self.assertEqual(stats["total"], 348)
+        # The two equivalent subjects share one completed response, and each
+        # occurrence counts on its own instead of collapsing into one.
+        self.assertEqual(stats["completed"], 2)
+        self.assertEqual(stats["seen"], 3)
+        self.assertEqual(stats["progress"].total, 348)
+        self.assertEqual(stats["progress"].completed, 2)
+
+    def test_ordinary_tasks_collapse_aliases_onto_their_response(self):
+        summaries = expression_task_summaries(
+            self.now,
+            self.user,
+            [self.tache_three],
+        )
+        summary = summaries[self.tache_three.pk]
+
+        # Five prompts — four responses plus one alias — and one archived
+        # theme's prompt, over four responses with progress.
+        self.assertEqual(summary["prompt_count"], 6)
+        self.assertEqual(summary["stats"]["total"], 4)
+        self.assertEqual(summary["stats"]["seen"], 3)
+        self.assertEqual(summary["stats"]["completed"], 0)
+
+    def test_due_counts_the_due_response_cards_of_each_task(self):
+        summaries = expression_task_summaries(
+            self.now,
+            self.user,
+            [self.tache_two, self.tache_three],
+        )
+
+        self.assertEqual(summaries[self.tache_three.pk]["stats"]["due"], 1)
+        self.assertEqual(summaries[self.tache_two.pk]["stats"]["due"], 0)
+
+    def test_due_ignores_suspended_and_vocabulary_cards(self):
+        Card.objects.filter(pk=self.due_card.pk).update(suspended=True)
+        self._subject_vocabulary_card(
+            self.shared_subject,
+            state=CardState.REVIEW,
+            due=self.now - timezone.timedelta(days=1),
+            started_at=self.now,
+        )
+
+        summaries = expression_task_summaries(
+            self.now,
+            self.user,
+            [self.tache_two, self.tache_three],
+        )
+
+        self.assertEqual(summaries[self.tache_three.pk]["stats"]["due"], 0)
+        self.assertEqual(summaries[self.tache_two.pk]["stats"]["due"], 0)
+
+    def test_writing_task_counts_sujets(self):
+        summaries = expression_task_summaries(
+            self.now,
+            self.user,
+            [self.writing_task],
+        )
+        summary = summaries[self.writing_task.pk]
+
+        self.assertEqual(summary["prompt_count"], 4)
+        self.assertEqual(summary["stats"]["total"], 4)
+        self.assertEqual(summary["stats"]["completed"], 1)
+        self.assertEqual(summary["stats"]["seen"], 3)
+        self.assertEqual(summary["stats"]["due"], 0)
+
+    def test_unavailable_tasks_and_parts_stay_empty(self):
+        paths = self._paths()
+        unavailable_task = Task.objects.get(part=self.eo, slug="tache-1")
+        summaries = expression_task_summaries(
+            self.now,
+            self.user,
+            [unavailable_task],
+        )
+
+        self.assertEqual(
+            summaries[unavailable_task.pk],
+            {"prompt_count": 0, "stats": None},
+        )
+        self.assertEqual(paths["eo"]["task_count"], 3)
+        self.assertFalse(paths["ex"]["available"])
+        self.assertTrue(paths["ex"]["has_content"])
+
+    def test_rendered_hub_matches_the_task_card_numbers(self):
+        self.client.force_login(self.user)
+        legacy = [
+            path
+            for path in legacy_expression_paths(self.now, self.user)
+            if path["available"]
+        ]
+
+        response = self.client.get(reverse("study:expression"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(
+            response.context["prompt_count"],
+            sum(path["prompt_count"] for path in legacy),
+        )
+        self.assertEqual(
+            response.context["card_total"],
+            sum(path["total"] for path in legacy),
+        )
+        self.assertEqual(
+            response.context["card_seen"],
+            sum(path["seen"] for path in legacy),
+        )
+        self.assertEqual(
+            response.context["response_due"],
+            sum(path["due"] for path in legacy),
+        )
+
+    def test_dashboard_skills_match_the_task_card_progress(self):
+        self.client.force_login(self.user)
+        legacy = {
+            path["part"].slug: path
+            for path in legacy_expression_paths(self.now, self.user)
+        }
+
+        response = self.client.get(reverse("study:dashboard"))
+
+        self.assertEqual(response.status_code, 200)
+        skills = {skill["key"]: skill for skill in response.context["skills"]}
+        for slug in ("eo", "ee"):
+            with self.subTest(slug=slug):
+                progress = legacy[slug]["progress"]
+                self.assertEqual(skills[slug]["percent"], progress.percent)
+                self.assertEqual(skills[slug]["status"], progress.status)
+                self.assertEqual(
+                    skills[slug]["detail"],
+                    f"{progress.completed}/{progress.total} sujets",
                 )
+
+    def test_query_count_does_not_grow_with_the_number_of_tasks(self):
+        tasks = list(
+            Task.objects.select_related("part").filter(
+                is_active=True,
+                part__is_active=True,
+            )
+        )
+        small = [self.tache_three]
+
+        with CaptureQueriesContext(connection) as one_task:
+            expression_task_summaries(self.now, self.user, small)
+        with CaptureQueriesContext(connection) as every_task:
+            expression_task_summaries(self.now, self.user, tasks)
+
+        self.assertGreaterEqual(len(tasks), 6)
+        self.assertLessEqual(
+            len(every_task.captured_queries),
+            len(one_task.captured_queries) + 4,
+        )
+        self.assertLessEqual(len(every_task.captured_queries), 12)

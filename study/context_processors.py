@@ -1,7 +1,7 @@
 """Template context shared across the authenticated application shell."""
 
-from .models import ReviewSession, Task
-from .queue import queue_counts, scoped_cards, scoped_count
+from .models import ReviewSession
+from .views.helpers import active_task_for_request
 
 
 COMPREHENSION_ROUTES = {
@@ -49,13 +49,21 @@ EXPRESSION_ROUTES = {
 NOTES_ROUTES = {
     "notes_overview",
     "general_notes",
+    "custom_notes",
+    "comprehension_notes",
     "task_notes",
     "annotation_search",
     "annotation_study",
     "general_annotation_study",
+    "custom_annotation_study",
+    "comprehension_annotation_study",
     "task_annotation_study",
 }
 STATS_ROUTES = {"stats", "part_stats", "task_stats"}
+# Routes where ``?task=`` selects rows to list rather than naming a content
+# scope: the notes search filters on a task id, so reading it as a slug would
+# only ever cost a lookup that misses.
+TASK_PARAM_ROUTES_WITHOUT_SCOPE = {"annotation_search"}
 
 
 def _empty_globals():
@@ -64,10 +72,6 @@ def _empty_globals():
         "annotation_task": None,
         "content_task": None,
         "active_nav_area": "",
-        "nav_due_total": 0,
-        "nav_counts": {},
-        "nav_revisit_count": 0,
-        "total_cards": 0,
     }
 
 
@@ -84,7 +88,11 @@ def _explicit_task(request):
         part_slug = "eo"
         task_slug = "tache-2"
 
-    data = request.POST if request.method == "POST" else request.GET
+    data = (
+        {}
+        if match and match.url_name in TASK_PARAM_ROUTES_WITHOUT_SCOPE
+        else (request.POST if request.method == "POST" else request.GET)
+    )
     part_slug = part_slug or (data.get("part") or "").strip()
     task_slug = task_slug or (data.get("task") or "").strip()
 
@@ -94,17 +102,9 @@ def _explicit_task(request):
             part_slug = saved_scope.get("part")
             task_slug = saved_scope.get("task")
 
-    if task_slug:
-        tasks = Task.objects.select_related("part").filter(
-            slug=task_slug,
-            is_active=True,
-            part__is_active=True,
-        )
-        if part_slug:
-            tasks = tasks.filter(part__slug=part_slug)
-        return tasks.first()
-
-    return None
+    # Views that route by task resolve the same row; the request-scoped cache
+    # means the shell reads it back instead of querying for it again.
+    return active_task_for_request(request, part_slug, task_slug)
 
 
 def _active_nav_area(request):
@@ -172,6 +172,11 @@ def _active_nav_area(request):
 
 
 def study_globals(request):
+    """The handful of values every authenticated study page's shell needs.
+
+    This runs on every page, so it stays free of aggregates: the navigation
+    renders plain links, and each page computes the counts it displays itself.
+    """
     match = request.resolver_match
     if (
         not request.user.is_authenticated
@@ -181,24 +186,9 @@ def study_globals(request):
         return _empty_globals()
 
     task = _explicit_task(request)
-    if isinstance(task, int):
-        task = Task.objects.select_related("part").filter(
-            pk=task,
-            is_active=True,
-        ).first()
-    scope = (
-        {"part": task.part.slug, "task": task.slug}
-        if task is not None
-        else {}
-    )
-    counts = queue_counts(scope, user=request.user)
     return {
         "app_name": "Heureux",
         "annotation_task": task,
         "content_task": task,
         "active_nav_area": _active_nav_area(request),
-        "nav_due_total": counts["due_reviews"] + counts["new_available"],
-        "nav_counts": counts,
-        "nav_revisit_count": counts["revisit_total"],
-        "total_cards": counts.get("scoped_total", 0),
     }

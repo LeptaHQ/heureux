@@ -2752,7 +2752,7 @@ class BrowserTests(StaticLiveServerTestCase):
             panel.get_by_text("Hello there", exact=True).wait_for()
             panel.get_by_text("Translated on the server.", exact=True).wait_for()
 
-    def test_selection_note_paste_and_close_saves_the_pasted_note(self):
+    def test_selection_note_paste_and_close_saves_and_highlights(self):
         self.context.add_init_script(
             """
             Object.defineProperty(navigator, "clipboard", {
@@ -2787,7 +2787,10 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.assertEqual(create_response.value.status, 201)
         panel.wait_for(state="hidden")
-        self.page.get_by_text("Note enregistrée.", exact=True).wait_for()
+        self.page.get_by_text(
+            "Note enregistrée et passage surligné.",
+            exact=True,
+        ).wait_for()
         self.assertEqual(
             Annotation.objects.get(
                 user=self.user,
@@ -2795,8 +2798,14 @@ class BrowserTests(StaticLiveServerTestCase):
             ).body,
             "Avant texte collé",
         )
+        highlight = Annotation.objects.get(
+            user=self.user,
+            kind=AnnotationKind.HIGHLIGHT,
+        )
+        self.assertEqual(highlight.quote, prompt.inner_text()[:12])
+        prompt.locator("mark.user-highlight").wait_for()
 
-    def test_selection_note_save_and_close_stores_the_note(self):
+    def test_selection_note_save_and_close_stores_note_and_highlight(self):
         self.page.goto(
             self.live_server_url
             + reverse("study:review")
@@ -2819,13 +2828,98 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.assertEqual(save_close_response.value.status, 201)
         panel.wait_for(state="hidden")
-        self.page.get_by_text("Note enregistrée.", exact=True).wait_for()
+        self.page.get_by_text(
+            "Note enregistrée et passage surligné.",
+            exact=True,
+        ).wait_for()
         self.assertEqual(
             Annotation.objects.get(
                 user=self.user,
                 kind=AnnotationKind.NOTE,
             ).body,
             "À retenir avec **attention**.",
+        )
+        highlight = Annotation.objects.get(
+            user=self.user,
+            kind=AnnotationKind.HIGHLIGHT,
+        )
+        self.assertEqual(highlight.quote, prompt.inner_text()[:12])
+        prompt.locator("mark.user-highlight").wait_for()
+
+    def test_stale_selection_note_save_does_not_close_a_new_note_panel(self):
+        self.context.add_init_script(
+            """
+            (() => {
+              const originalFetch = window.fetch.bind(window);
+              window.__releaseSelectionNoteSave = [];
+              window.__heldSelectionNoteSave = false;
+              window.fetch = (url, options) => {
+                const body = String((options && options.body) || "");
+                if (
+                  !window.__heldSelectionNoteSave
+                  && body.includes("kind=note")
+                ) {
+                  window.__heldSelectionNoteSave = true;
+                  return new Promise((resolve, reject) => {
+                    window.__releaseSelectionNoteSave.push(() => {
+                      originalFetch(url, options).then(resolve, reject);
+                    });
+                  });
+                }
+                return originalFetch(url, options);
+              };
+            })();
+            """
+        )
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        self.page.wait_for_load_state("networkidle")
+
+        self.select_prompt(start=0, end=12)
+        self.page.locator("[data-note-selection]").click()
+        panel = self.page.locator("[data-note-panel]")
+        panel.wait_for()
+        panel.locator("[data-note-body]").fill("Première note.")
+        panel.locator("[data-note-save-close]").click()
+        self.page.wait_for_function(
+            "() => window.__releaseSelectionNoteSave.length === 1"
+        )
+
+        panel.locator("[data-note-cancel]").click()
+        panel.wait_for(state="hidden")
+        self.select_prompt(start=1, end=10)
+        self.page.locator("[data-note-selection]").click()
+        panel.wait_for()
+        panel.locator("[data-note-body]").fill("Nouvelle note non enregistrée.")
+
+        self.page.evaluate("window.__releaseSelectionNoteSave[0]()")
+        self.page.get_by_text(
+            "Note enregistrée et passage surligné.",
+            exact=True,
+        ).wait_for()
+        self.assertTrue(panel.is_visible())
+        self.assertEqual(
+            panel.locator("[data-note-body]").input_value(),
+            "Nouvelle note non enregistrée.",
+        )
+        self.assertEqual(
+            Annotation.objects.filter(
+                user=self.user,
+                kind=AnnotationKind.NOTE,
+            ).count(),
+            1,
+        )
+        self.assertEqual(
+            Annotation.objects.filter(
+                user=self.user,
+                kind=AnnotationKind.HIGHLIGHT,
+            ).count(),
+            1,
         )
 
     def test_selection_toolbar_reads_with_premium_french_voice(self):

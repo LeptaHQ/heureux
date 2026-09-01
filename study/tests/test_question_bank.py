@@ -178,6 +178,25 @@ class QuestionBankContentTests(TestCase):
             "Every sentence in your reply must directly answer my current",
             prompt,
         )
+        self.assertIn("PERMANENT RELEVANCE-AND-BREVITY LOCK", prompt)
+        self.assertIn("Default to ONE short natural sentence.", prompt)
+        self.assertIn("Never exceed", prompt)
+        self.assertIn("two sentences. Then STOP and wait.", prompt)
+        self.assertIn("If a shorter answer", prompt)
+        self.assertIn("use the shorter answer.", prompt)
+        self.assertIn(
+            "unless I explicitly request",
+            prompt,
+        )
+        self.assertIn(
+            'Correct AI/agent: "Bonjour, je vous écoute."',
+            prompt,
+        )
+        self.assertNotIn('Correct AI/agent: "Bonjour. Je vous écoute."', prompt)
+        self.assertIn(
+            "must NOT shorten or omit",
+            prompt,
+        )
         self.assertIn(
             "Throughout the entire session, never ask me a question.",
             prompt,

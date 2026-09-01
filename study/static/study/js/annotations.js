@@ -47,6 +47,7 @@
   var sourcePath = window.location.pathname + window.location.search;
   var currentSelection = null;
   var noteSelection = null;
+  var notePanelRevision = 0;
   var highlights = [];
   var toastTimer = null;
   var mutationTimer = null;
@@ -238,16 +239,33 @@
     if (notePaste) notePaste.disabled = false;
   }
 
-  function closeNotePanel() {
+  function notePanelIsCurrent(revision) {
+    return (
+      revision === notePanelRevision
+      && !notePanel.classList.contains("hidden")
+    );
+  }
+
+  function closeNotePanel(expectedRevision) {
+    if (
+      expectedRevision !== undefined
+      && expectedRevision !== notePanelRevision
+    ) {
+      return false;
+    }
+    notePanelRevision += 1;
     notePanel.classList.add("hidden");
     noteStatus.textContent = "";
     resetNoteFormState();
     noteSelection = null;
+    return true;
   }
 
   function openNotePanel() {
     rememberSelection();
     if (!currentSelection) return;
+    notePanelRevision += 1;
+    var revision = notePanelRevision;
     noteSelection = currentSelection;
     noteSource.textContent = noteSelection.quote;
     noteBody.value = "";
@@ -256,7 +274,9 @@
     notePanel.classList.remove("hidden");
     notePanel.focus({ preventScroll: true });
     window.setTimeout(function () {
-      noteBody.focus({ preventScroll: true });
+      if (notePanelIsCurrent(revision)) {
+        noteBody.focus({ preventScroll: true });
+      }
     }, 0);
   }
 
@@ -279,7 +299,8 @@
 
   // Resolves to true only when clipboard text actually landed in the note,
   // so « Coller et fermer » never saves an unchanged note by surprise.
-  function readClipboardIntoNote() {
+  function readClipboardIntoNote(revision) {
+    if (!notePanelIsCurrent(revision)) return Promise.resolve(false);
     if (!navigator.clipboard || !navigator.clipboard.readText) {
       noteStatus.textContent =
         "Collage automatique indisponible. Utilisez ⌘V ou Ctrl+V.";
@@ -288,6 +309,7 @@
     noteStatus.textContent = "Lecture du presse-papiers…";
     return navigator.clipboard.readText()
       .then(function (text) {
+        if (!notePanelIsCurrent(revision)) return false;
         if (!text) {
           noteStatus.textContent = "Le presse-papiers est vide.";
           return false;
@@ -303,16 +325,20 @@
         return true;
       })
       .catch(function () {
-        noteStatus.textContent =
-          "Impossible d'accéder au presse-papiers. Utilisez ⌘V ou Ctrl+V.";
+        if (notePanelIsCurrent(revision)) {
+          noteStatus.textContent =
+            "Impossible d'accéder au presse-papiers. Utilisez ⌘V ou Ctrl+V.";
+        }
         return false;
       });
   }
 
   function pasteNote() {
     if (!notePaste || notePaste.disabled) return;
+    var revision = notePanelRevision;
     notePaste.disabled = true;
-    readClipboardIntoNote().then(function () {
+    readClipboardIntoNote(revision).then(function () {
+      if (!notePanelIsCurrent(revision)) return;
       notePaste.disabled = false;
       noteBody.focus({ preventScroll: true });
     });
@@ -320,32 +346,77 @@
 
   function pasteAndCloseNote() {
     if (!noteSelection || notePasteClose.disabled) return;
+    var revision = notePanelRevision;
     notePasteClose.disabled = true;
     noteSaveClose.disabled = true;
     if (notePaste) notePaste.disabled = true;
-    readClipboardIntoNote().then(function (pasted) {
-      resetNoteFormState();
+    readClipboardIntoNote(revision).then(function (pasted) {
+      if (!notePanelIsCurrent(revision)) return;
       if (!pasted) {
+        resetNoteFormState();
         noteBody.focus({ preventScroll: true });
         return;
       }
-      saveNote();
+      saveNote(revision);
     });
   }
 
-  function saveNote() {
-    if (!noteSelection || noteSaveClose.disabled) return;
+  function createSelectionNote(details, body, alsoHighlight) {
+    return createAnnotation("note", details, body).then(function () {
+      if (!alsoHighlight) {
+        return { highlighted: false, highlightFailed: false };
+      }
+      if (details.fullyHighlighted) {
+        return { highlighted: true, highlightFailed: false };
+      }
+      return highlightSelection(details)
+        .then(function () {
+          return { highlighted: true, highlightFailed: false };
+        })
+        .catch(function () {
+          return { highlighted: false, highlightFailed: true };
+        });
+    });
+  }
+
+  function showSelectionNoteSaved(result) {
+    if (result.highlightFailed) {
+      showToast("Note enregistrée. Surlignage impossible.");
+    } else if (result.highlighted) {
+      showToast("Note enregistrée et passage surligné.");
+    } else {
+      showToast("Note enregistrée.");
+    }
+  }
+
+  function saveNote(expectedRevision) {
+    var revision = expectedRevision === undefined
+      ? notePanelRevision
+      : expectedRevision;
+    if (
+      !noteSelection
+      || !notePanelIsCurrent(revision)
+      || (expectedRevision === undefined && noteSaveClose.disabled)
+    ) {
+      return;
+    }
+    var details = noteSelection;
+    var body = noteBody.value;
     noteSaveClose.disabled = true;
     notePasteClose.disabled = true;
     noteBody.readOnly = true;
     if (notePaste) notePaste.disabled = true;
     noteStatus.textContent = "Enregistrement…";
-    createAnnotation("note", noteSelection, noteBody.value)
-      .then(function () {
-        closeNotePanel();
-        showToast("Note enregistrée.");
+    createSelectionNote(details, body, true)
+      .then(function (result) {
+        closeNotePanel(revision);
+        showSelectionNoteSaved(result);
       })
       .catch(function (error) {
+        if (!notePanelIsCurrent(revision)) {
+          showToast(error.message);
+          return;
+        }
         resetNoteFormState();
         noteStatus.textContent = error.message;
       });
@@ -693,8 +764,9 @@
         details.fullyHighlighted = false;
         details.highlightIds = [];
         details.highlightRevisions = [];
-        currentSelection = details;
-        updateHighlightButton(details);
+        if (currentSelection === details) {
+          updateHighlightButton(details);
+        }
         showToast("Surlignage supprimé.");
         highlightButton.disabled = false;
       })
@@ -734,8 +806,9 @@
       details.fullyHighlighted = true;
       details.highlightIds = [item.id];
       details.highlightRevisions = [item.revision];
-      currentSelection = details;
-      updateHighlightButton(details);
+      if (currentSelection === details) {
+        updateHighlightButton(details);
+      }
       return item;
     });
   }
@@ -1146,7 +1219,9 @@
   });
   notePasteClose.addEventListener("click", pasteAndCloseNote);
   noteCloseButtons.forEach(function (button) {
-    button.addEventListener("click", closeNotePanel);
+    button.addEventListener("click", function () {
+      closeNotePanel();
+    });
   });
   document.addEventListener("pointerdown", function (event) {
     if (
@@ -1187,20 +1262,11 @@
           new Error("La sélection n’est plus disponible.")
         );
       }
-      return createAnnotation("note", details, body).then(function () {
-        // The highlight is a bonus: a failure here must not lose the note.
-        if (!alsoHighlight || details.fullyHighlighted) {
-          showToast("Note enregistrée.");
-          return;
+      return createSelectionNote(details, body, alsoHighlight).then(
+        function (result) {
+          showSelectionNoteSaved(result);
         }
-        return highlightSelection(details)
-          .then(function () {
-            showToast("Note enregistrée et passage surligné.");
-          })
-          .catch(function () {
-            showToast("Note enregistrée. Surlignage impossible.");
-          });
-      });
+      );
     }
   };
 })();

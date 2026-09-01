@@ -60,11 +60,17 @@
     <section class="ce-study-questions" aria-labelledby="ce-study-questions-title">
       <div class="section-heading">
         <h2 id="ce-study-questions-title">Questions · {{ questions|length }}</h2>
+        <p class="ce-study-questions__marked">
+          <a href="{% url test.study_list_route %}">
+            À étudier ·
+            <span data-question-study-test-count="{{ test.slug }}">{{ test.study_marked_count }}</span>
+          </a>
+        </p>
       </div>
 
       <div class="qlist ce-study-question-list">
         {% for item in questions %}
-          <a class="qrow ce-study-question-row" href="{% url test.study_route test.slug item.question.number %}">
+          <article class="qrow ce-study-question-row comprehension-progress-row{% if item.is_to_study %} is-to-study{% endif %}" data-question-study-row="{{ item.question.pk }}">
             <span class="qrow__num">{{ item.question.number }}</span>
             <span class="qrow__text">
               <strong>{{ item.question.prompt_fr }}</strong>
@@ -76,9 +82,14 @@
                   {% if item.answer.is_correct %}{% include "study/partials/ui_icon.html" with name="check" only %}{% else %}{% include "study/partials/ui_icon.html" with name="x" only %}{% endif %}
                 </span>
               {% endif %}
-              <span class="ce-study-question-row__open">Étudier <span aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span></span>
+              {% include "study/partials/comprehension_question_study_form.html" with csrf_token=csrf_token marker=item.study_marker next_url=request.get_full_path variant="row" only %}
+              <span class="question-study-badge">À étudier</span>
+              <span class="ce-study-question-row__open" aria-hidden="true">Étudier {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
             </span>
-          </a>
+            <a class="comprehension-row-hit-area" href="{% url test.study_route test.slug item.question.number %}">
+              <span class="sr-only">Étudier la question {{ item.question.number }} : {{ item.question.prompt_fr }}</span>
+            </a>
+          </article>
         {% empty %}
           <p class="empty">Aucune question n’est disponible.</p>
         {% endfor %}

@@ -1,0 +1,51 @@
+{% comment %}
+Shared « À étudier » marker for one comprehension question.
+
+Every surface that shows a question reuses this control, so a question can be
+marked from the test list, the correction page, a live attempt, or the results.
+It posts a normal form without JavaScript and is upgraded in place by
+comprehension-progress.js.
+
+Parameters:
+  csrf_token — required because this partial is included with ``only``.
+  marker    — payload built by _comprehension_study_marker() in the views.
+  next_url  — same-origin path to return to when JavaScript is unavailable.
+  variant   — optional layout modifier ("row", "side", "quiz", "review", "list").
+  show_text — render the visible action label beside the icon.
+{% endcomment %}
+<form
+  class="question-study{% if variant %} question-study--{{ variant }}{% endif %}{% if marker.marked %} is-marked{% endif %}"
+  method="post"
+  action="{{ marker.toggle_url }}"
+  data-question-study-form
+  data-question-study-question="{{ marker.question_id }}"
+  data-question-study-mode="{{ marker.mode }}"
+  data-question-study-test="{{ marker.test_slug }}"
+  {% if variant == "list" %}data-question-study-refresh="true"{% endif %}>
+  {% csrf_token %}
+  <input type="hidden" name="next" value="{{ next_url }}">
+  <input
+    type="hidden"
+    name="study"
+    value="{% if marker.marked %}0{% else %}1{% endif %}"
+    data-question-study-input>
+  <button
+    class="question-study__button"
+    type="submit"
+    aria-pressed="{% if marker.marked %}true{% else %}false{% endif %}"
+    aria-label="{% if marker.marked %}Retirer de l’étude{% else %}Ajouter à étudier{% endif %} : question {{ marker.question_number }}"
+    title="{% if marker.marked %}Retirer de l’étude{% else %}Ajouter à étudier{% endif %}"
+    data-question-study-button
+    data-question-study-number="{{ marker.question_number }}">
+    <span class="question-study__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false"><path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-3.75L6 21Z"></path></svg>
+    </span>
+    {% if show_text %}
+      <span
+        class="question-study__text"
+        aria-hidden="true"
+        data-question-study-text>{% if marker.marked %}Retirer de l’étude{% else %}Ajouter à étudier{% endif %}</span>
+    {% endif %}
+    <span class="sr-only" data-question-study-label>{% if marker.marked %}Retirer de l’étude{% else %}Ajouter à étudier{% endif %} : question {{ marker.question_number }}</span>
+  </button>
+</form>

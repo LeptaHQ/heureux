@@ -44,6 +44,7 @@ from ..models import (
     CardState,
     ComprehensionAnswer,
     ComprehensionAttempt,
+    ComprehensionQuestionStudy,
     ComprehensionTestCompletion,
     ComprehensionAttemptStatus,
     MemoryQuestionProgress,
@@ -339,6 +340,7 @@ def reset_progress(request):
         ReviewLog.objects.filter(user=request.user).delete()
         ComprehensionAttempt.objects.filter(user=request.user).delete()
         ComprehensionTestCompletion.objects.filter(user=request.user).delete()
+        ComprehensionQuestionStudy.objects.filter(user=request.user).delete()
         WritingSujetCompletion.objects.filter(user=request.user).delete()
         MemoryQuestionProgress.objects.filter(user=request.user).delete()
         ThemeVocabularyProgress.objects.filter(user=request.user).delete()
@@ -484,7 +486,7 @@ def export_account(request):
     settings = Settings.load(request.user)
     payload = {
         "format": "heureux-account-export",
-        "version": 5,
+        "version": 6,
         "exported_at": timezone.now(),
         "account": {
             "username": request.user.get_username(),
@@ -532,6 +534,19 @@ def export_account(request):
             )
             .select_related("test")
             .order_by("completed_at", "pk")
+        ],
+        "comprehension_question_studies": [
+            {
+                "question_key": marker.question.content_key,
+                "test": marker.question.test.slug,
+                "mode": marker.question.test.mode,
+                "created_at": marker.created_at,
+            }
+            for marker in ComprehensionQuestionStudy.objects.filter(
+                user=request.user
+            )
+            .select_related("question__test")
+            .order_by("created_at", "pk")
         ],
         "writing_sujet_completions": [
             {

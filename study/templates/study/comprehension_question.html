@@ -37,7 +37,7 @@
     </div>
     <div class="ce-question-map__grid">
       {% for item in navigator %}
-        <a href="{% url test.question_route test.slug attempt.pk item.number %}{% if attempt.status == 'completed' %}?correction=1{% endif %}" class="{% if item.is_current %}is-current{% elif item.is_answered %}is-answered{% endif %}" aria-label="Question {{ item.number }}{% if item.is_answered %}, répondue{% endif %}"{% if item.is_current %} aria-current="step"{% endif %}>
+        <a href="{% url test.question_route test.slug attempt.pk item.number %}{% if attempt.status == 'completed' %}?correction=1{% endif %}" class="{% if item.is_current %}is-current{% elif item.is_answered %}is-answered{% endif %}{% if item.is_to_study %} is-to-study{% endif %}" data-question-study-map="{{ item.question_id }}" data-question-study-base-label="Question {{ item.number }}{% if item.is_answered %}, répondue{% endif %}" aria-label="Question {{ item.number }}{% if item.is_answered %}, répondue{% endif %}{% if item.is_to_study %}, à étudier{% endif %}"{% if item.is_current %} aria-current="step"{% endif %}>
           {{ item.number }}
         </a>
       {% endfor %}
@@ -64,13 +64,18 @@
       {% endif %}
     </article>
 
-    <section class="ce-answer-card" aria-labelledby="ce-question-prompt">
+    <section class="ce-answer-card{% if is_to_study %} is-to-study{% endif %}" aria-labelledby="ce-question-prompt" data-question-study-row="{{ question_model.pk }}">
       <header class="ce-answer-card__head">
         <span>Q{{ question.number }}</span>
         <div>
           <small>Choisissez la meilleure réponse</small>
           <h2 id="ce-question-prompt">{{ question.prompt_fr }}</h2>
         </div>
+        {% comment %}
+        The marker sits outside the answer form below so the choice buttons are
+        never nested inside a second form.
+        {% endcomment %}
+        {% include "study/partials/comprehension_question_study_form.html" with csrf_token=csrf_token marker=study_marker next_url=request.get_full_path variant="quiz" show_text=True only %}
       </header>
 
       {% if answer %}

@@ -8,6 +8,7 @@ from .models import (
     ComprehensionAttempt,
     ComprehensionChoice,
     ComprehensionQuestion,
+    ComprehensionQuestionStudy,
     ComprehensionTest,
     ComprehensionTestCompletion,
     Family,
@@ -67,6 +68,13 @@ class ComprehensionTestCompletionAdmin(admin.ModelAdmin):
     list_display = ("user", "test", "completed_at")
     list_filter = ("test__mode", "test")
     readonly_fields = ("completed_at",)
+
+
+@admin.register(ComprehensionQuestionStudy)
+class ComprehensionQuestionStudyAdmin(admin.ModelAdmin):
+    list_display = ("user", "question", "created_at")
+    list_filter = ("question__test__mode", "question__test")
+    readonly_fields = ("created_at",)
 
 
 @admin.register(WritingSujetCompletion)

@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}Questions à étudier · {{ mode_title }} · Heureux{% endblock %}
+
+{% block content %}
+<div class="ce-shell ce-study-library">
+  <nav class="ce-breadcrumb" aria-label="Fil d’Ariane">
+    <a href="{% url 'study:dashboard' %}">Accueil</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url 'study:comprehension_hub' %}">Compréhension</a>
+    <span aria-hidden="true">›</span>
+    <a href="{% url overview_route %}">{{ mode_title }}</a>
+    <span aria-hidden="true">›</span>
+    <span>Questions à étudier</span>
+  </nav>
+
+  <header class="ce-library-hero">
+    <div class="ce-library-hero__copy">
+      <p class="eyebrow">{{ mode_title }}</p>
+      <h1>Questions à étudier</h1>
+      <p class="ce-study-library__intro">Les questions que vous marquez « À étudier » restent ici jusqu’à ce que vous les retiriez, quelle que soit votre réponse ou l’avancement du test.</p>
+      <div class="ce-library-hero__actions">
+        <a class="btn" href="{% url overview_route %}">Retour aux tests</a>
+      </div>
+    </div>
+    <div class="ce-library-hero__metrics" aria-label="Questions marquées à étudier">
+      <div>
+        <strong data-question-study-mode-count="{{ mode }}">{{ marked_count }}</strong>
+        <span>questions à étudier</span>
+      </div>
+      <div>
+        <strong>{{ groups|length }}</strong>
+        <span>test{{ groups|length|pluralize }} concerné{{ groups|length|pluralize }}</span>
+      </div>
+    </div>
+  </header>
+
+  {% if groups %}
+    <div class="ce-study-library__groups">
+      {% for group in groups %}
+        <section class="ce-study-library__group" aria-labelledby="study-group-{{ group.test.pk }}">
+          <div class="ce-section-heading">
+            <div>
+              <p class="eyebrow">Test {{ group.test.number|stringformat:"02d" }}</p>
+              <h2 id="study-group-{{ group.test.pk }}">
+                {% if group.test_url %}
+                  <a href="{{ group.test_url }}">{{ group.test.title }}</a>
+                {% else %}
+                  {{ group.test.title }}
+                {% endif %}
+              </h2>
+            </div>
+            <p>{{ group.items|length }} question{{ group.items|length|pluralize }}</p>
+          </div>
+          {% if not group.is_available %}
+            <p class="ce-archive-notice">Ce test n’est plus disponible. Vos marques sont conservées, mais ces questions ne peuvent pas être ouvertes.</p>
+          {% endif %}
+
+          <div class="qlist ce-study-library__list">
+            {% for item in group.items %}
+              <article class="qrow ce-study-library__row{% if item.is_available %} comprehension-progress-row{% endif %} is-to-study" data-question-study-row="{{ item.question.pk }}">
+                <span class="qrow__num">{{ item.question.number }}</span>
+                <span class="qrow__text">
+                  <strong>{{ item.question.prompt_fr }}</strong>
+                  <small>{{ item.question.passage_fr|truncatechars:140 }}</small>
+                  <span class="ce-study-library__meta">
+                    <span class="question-study-badge">À étudier</span>
+                    <span>Marquée le {{ item.created_at|date:"j M Y" }}</span>
+                    {% if not item.is_available %}<span class="ce-study-library__unavailable">Indisponible</span>{% endif %}
+                  </span>
+                </span>
+                <span class="qrow__meta qrow__meta--state">
+                  {% include "study/partials/comprehension_question_study_form.html" with csrf_token=csrf_token marker=item.study_marker next_url=request.get_full_path variant="list" show_text=True only %}
+                  {% if item.is_available %}
+                    <span class="ce-study-question-row__open" aria-hidden="true">Étudier {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+                  {% endif %}
+                </span>
+                {% if item.is_available %}
+                  <a class="comprehension-row-hit-area" href="{{ item.study_url }}">
+                    <span class="sr-only">Étudier la question {{ item.question.number }} : {{ item.question.prompt_fr }}</span>
+                  </a>
+                {% endif %}
+              </article>
+            {% endfor %}
+          </div>
+        </section>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="done-state done-state--plain">
+      <div class="done-state__icon done-state__icon--success">{% include "study/partials/ui_icon.html" with name="check" only %}</div>
+      <h2>Aucune question à étudier</h2>
+      <p>Sur une question, choisissez « Ajouter à étudier » : elle apparaîtra ici pour vos révisions.</p>
+      <a class="btn btn--primary" href="{% url overview_route %}">Ouvrir les tests de {{ mode_title|lower }}</a>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

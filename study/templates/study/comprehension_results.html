@@ -60,6 +60,7 @@
       {% else %}
         <a class="btn" href="{% url test.overview_route %}">Retour aux tests</a>
       {% endif %}
+      <a class="btn" href="{% url test.study_list_route %}">Questions à étudier</a>
     </div>
   </header>
 
@@ -69,7 +70,7 @@
     </div>
     <div class="ce-results-map__grid">
       {% for item in review_items %}
-        <a href="#question-{{ item.question.number }}" class="{% if item.answer.is_correct %}is-correct{% else %}is-wrong{% endif %}" aria-label="Question {{ item.question.number }}, {% if item.answer.is_correct %}correcte{% else %}incorrecte{% endif %}">
+        <a href="#question-{{ item.question.number }}" class="{% if item.answer.is_correct %}is-correct{% else %}is-wrong{% endif %}{% if item.is_to_study %} is-to-study{% endif %}" data-question-study-map="{{ item.answer.question_id }}" data-question-study-base-label="Question {{ item.question.number }}, {% if item.answer.is_correct %}correcte{% else %}incorrecte{% endif %}" aria-label="Question {{ item.question.number }}, {% if item.answer.is_correct %}correcte{% else %}incorrecte{% endif %}{% if item.is_to_study %}, à étudier{% endif %}">
           {{ item.question.number }}
         </a>
       {% endfor %}
@@ -84,15 +85,19 @@
     </div>
 
     {% for item in review_items %}
-      <details class="ce-review-item{% if item.answer.is_correct %} is-correct{% else %} is-wrong{% endif %}" id="question-{{ item.question.number }}">
+      <details class="ce-review-item{% if item.answer.is_correct %} is-correct{% else %} is-wrong{% endif %}{% if item.is_to_study %} is-to-study{% endif %}" id="question-{{ item.question.number }}" data-question-study-row="{{ item.answer.question_id }}">
         <summary>
           <span class="ce-review-item__number">{{ item.question.number }}</span>
           <span class="ce-review-item__prompt">{{ item.question.prompt_fr }}</span>
           <span class="ce-review-item__status">
+            <span class="question-study-badge">À étudier</span>
             {% if item.answer.is_correct %}Correcte <b>{% include "study/partials/ui_icon.html" with name="check" only %}</b>{% else %}À revoir <b>{% include "study/partials/ui_icon.html" with name="x" only %}</b>{% endif %}
           </span>
         </summary>
         <div class="ce-review-item__body">
+          <div class="ce-review-item__actions">
+            {% include "study/partials/comprehension_question_study_form.html" with csrf_token=csrf_token marker=item.study_marker next_url=request.get_full_path variant="review" show_text=True only %}
+          </div>
           <div class="ce-review-item__passage">{{ item.question.passage_fr }}</div>
           {% if test.mode == "orale" %}
             {% include "study/partials/comprehension_audio_reader.html" with question=item.question compact=True only %}

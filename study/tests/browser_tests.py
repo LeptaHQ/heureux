@@ -21,6 +21,7 @@ from study.models import (
     CardState,
     CardType,
     ComprehensionMode,
+    ComprehensionQuestionStudy,
     PhraseCategory,
     PhraseTier,
     PersonalResponse,
@@ -84,6 +85,26 @@ class BrowserTests(StaticLiveServerTestCase):
 
     def tearDown(self):
         self.context.close()
+
+    def disable_service_worker(self):
+        """Serve assets straight from the live server for this page.
+
+        The cached app shell can race a freshly versioned script, which makes
+        progressive-enhancement assertions flaky without changing behavior.
+        """
+        self.page.evaluate(
+            """
+            () => {
+              if (!navigator.serviceWorker) return null;
+              return navigator.serviceWorker
+                .getRegistrations()
+                .then(registrations => Promise.all(
+                  registrations.map(registration => registration.unregister())
+                ))
+                .then(() => null);
+            }
+            """
+        )
 
     def assert_no_horizontal_overflow(self):
         fits = self.page.evaluate(
@@ -6778,3 +6799,224 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertFalse(
             Annotation.objects.filter(pk=int(visible_id)).exists()
         )
+
+    def test_written_question_study_marker_syncs_across_surfaces(self):
+        self.disable_service_worker()
+        test = factories.make_comprehension_test(number=1, question_count=3)
+        first = test.questions.get(number=1)
+
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:comprehension_test", args=[test.slug])
+        )
+        row = self.page.locator(
+            '[data-question-study-row="%d"]' % first.pk
+        )
+        marker = row.locator("[data-question-study-button]")
+        marker.wait_for()
+        self.assertEqual(marker.get_attribute("aria-pressed"), "false")
+        box = marker.bounding_box()
+        self.assertGreaterEqual(box["width"], 44)
+        self.assertGreaterEqual(box["height"], 44)
+        self.assert_no_horizontal_overflow()
+
+        with self.page.expect_response(
+            lambda response: "/a-etudier/" in response.url
+        ):
+            marker.click()
+        self.page.wait_for_function(
+            "() => document.querySelector("
+            "'[data-question-study-row=\"%d\"] [data-question-study-button]')"
+            ".getAttribute('aria-pressed') === 'true'" % first.pk
+        )
+        self.assertEqual(marker.get_attribute("aria-pressed"), "true")
+        self.assertIn("is-to-study", row.get_attribute("class"))
+        self.assertEqual(
+            self.page.locator(
+                '[data-question-study-test-count="%s"]' % test.slug
+            ).inner_text(),
+            "1",
+        )
+        self.assertTrue(
+            ComprehensionQuestionStudy.objects.filter(
+                user=self.user,
+                question=first,
+            ).exists()
+        )
+        self.assert_no_horizontal_overflow()
+
+        # The row is no longer a single anchor, so the marker must not
+        # navigate while the rest of the row still opens the study page.
+        row.click()
+        self.page.get_by_text("Choix et correction").wait_for()
+        self.assertEqual(
+            self.page.url,
+            self.live_server_url
+            + reverse(
+                "study:comprehension_question_study",
+                args=[test.slug, 1],
+            ),
+        )
+        side_marker = self.page.locator(
+            ".detail-side [data-question-study-button]"
+        )
+        self.assertEqual(side_marker.get_attribute("aria-pressed"), "true")
+        self.assert_no_horizontal_overflow()
+
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:comprehension_overview")
+        )
+        self.assertEqual(
+            self.page.locator(
+                '[data-question-study-mode-count="ecrite"]'
+            ).first.inner_text(),
+            "1",
+        )
+        self.page.get_by_role(
+            "link",
+            name="Questions à étudier",
+        ).click()
+        self.page.get_by_role(
+            "heading",
+            name="Questions à étudier",
+            exact=True,
+        ).wait_for()
+        self.assertEqual(
+            self.page.locator(".ce-study-library__row").count(),
+            1,
+        )
+        self.assertTrue(
+            self.page.get_by_text("Question française 1 ?").first.is_visible()
+        )
+        self.assert_no_horizontal_overflow()
+
+        list_marker = self.page.locator(
+            '[data-question-study-row="%d"] [data-question-study-button]'
+            % first.pk
+        )
+        with self.page.expect_navigation(wait_until="domcontentloaded"):
+            list_marker.click()
+        self.page.get_by_role(
+            "heading",
+            name="Aucune question à étudier",
+        ).wait_for()
+        self.assertFalse(
+            ComprehensionQuestionStudy.objects.filter(
+                user=self.user,
+            ).exists()
+        )
+        self.assertEqual(
+            self.page.locator(
+                '[data-question-study-mode-count="ecrite"]'
+            ).first.inner_text(),
+            "0",
+        )
+        self.assertEqual(
+            self.page.locator(".ce-study-library__row").count(),
+            0,
+        )
+        self.assert_no_horizontal_overflow()
+
+    def test_oral_attempt_marker_updates_map_and_results_without_reload(self):
+        self.disable_service_worker()
+        test = factories.make_comprehension_test(
+            number=1,
+            question_count=2,
+            mode=ComprehensionMode.ORALE,
+        )
+        first = test.questions.get(number=1)
+
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:comprehension_oral_test", args=[test.slug])
+        )
+        self.page.get_by_role("button", name="Pratiquer ce test").click()
+        self.page.get_by_role("heading", name="Question 1 sur 2").wait_for()
+        marker = self.page.locator(
+            ".ce-answer-card [data-question-study-button]"
+        )
+        self.assertEqual(marker.get_attribute("aria-pressed"), "false")
+        self.assert_no_horizontal_overflow()
+
+        with self.page.expect_response(
+            lambda response: "/a-etudier/" in response.url
+        ):
+            marker.click()
+        self.page.wait_for_function(
+            "() => document.querySelector("
+            "'.ce-answer-card [data-question-study-button]')"
+            ".getAttribute('aria-pressed') === 'true'"
+        )
+        map_item = self.page.locator(
+            '[data-question-study-map="%d"]' % first.pk
+        )
+        self.assertIn("is-to-study", map_item.get_attribute("class"))
+        self.assertIn("à étudier", map_item.get_attribute("aria-label"))
+        self.assertEqual(
+            marker.locator("[data-question-study-text]").inner_text().strip(),
+            "Retirer de l’étude",
+        )
+        self.assert_no_horizontal_overflow()
+
+        # Answering keeps the marker: it is question state, not attempt state.
+        self.page.locator(".ce-choice", has_text="Choix A français 1").click()
+        self.page.get_by_text("Bonne réponse").first.wait_for()
+        self.assertEqual(
+            self.page.locator(
+                ".ce-answer-card [data-question-study-button]"
+            ).get_attribute("aria-pressed"),
+            "true",
+        )
+
+        self.page.get_by_role("link", name="Question suivante").click()
+        self.page.get_by_role("heading", name="Question 2 sur 2").wait_for()
+        self.page.locator(".ce-choice", has_text="Choix A français 2").click()
+        self.page.get_by_role("link", name="Voir mes résultats").click()
+        self.page.get_by_role("heading", name=test.title).wait_for()
+        self.assertIn(
+            "is-to-study",
+            self.page.locator(
+                '[data-question-study-map="%d"]' % first.pk
+            ).get_attribute("class"),
+        )
+        review_item = self.page.locator(
+            'details[data-question-study-row="%d"]' % first.pk
+        )
+        self.assertIn("is-to-study", review_item.get_attribute("class"))
+        review_item.locator("summary").first.click()
+        review_marker = review_item.locator("[data-question-study-button]")
+        self.assertEqual(review_marker.get_attribute("aria-pressed"), "true")
+        self.assert_no_horizontal_overflow()
+
+        with self.page.expect_response(
+            lambda response: "/a-etudier/" in response.url
+        ):
+            review_marker.click()
+        self.page.wait_for_function(
+            "() => document.querySelector("
+            "'details[data-question-study-row=\"%d\"]"
+            " [data-question-study-button]')"
+            ".getAttribute('aria-pressed') === 'false'" % first.pk
+        )
+        self.assertNotIn(
+            "is-to-study",
+            review_item.get_attribute("class"),
+        )
+        self.assertNotIn(
+            "à étudier",
+            self.page.locator(
+                '[data-question-study-map="%d"]' % first.pk
+            ).get_attribute("aria-label"),
+        )
+        self.assertFalse(
+            ComprehensionQuestionStudy.objects.filter(user=self.user).exists()
+        )
+        self.assert_no_horizontal_overflow()
+
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:comprehension_oral_study_list")
+        )
+        self.page.get_by_text("Aucune question à étudier").wait_for()
+        self.assert_no_horizontal_overflow()

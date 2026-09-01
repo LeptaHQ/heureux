@@ -16,6 +16,10 @@
       <h1>Compréhension écrite</h1>
       <div class="ce-library-hero__actions">
         <a class="btn" href="{% url 'study:comprehension_vocabulary' %}">Vocabulaire des tests</a>
+        <a class="btn btn--primary ce-library-hero__study" href="{{ study_list_url }}">
+          Questions à étudier
+          <span class="ce-library-hero__study-count" data-question-study-mode-count="ecrite">{{ study_marked_count }}</span>
+        </a>
       </div>
     </div>
     <div class="ce-library-hero__metrics" aria-label="Progression en compréhension écrite">
@@ -26,6 +30,10 @@
       <div>
         <strong>{{ completed_count }}</strong>
         <span>test{{ completed_count|pluralize }} terminé{{ completed_count|pluralize }}</span>
+      </div>
+      <div>
+        <strong data-question-study-mode-count="ecrite">{{ study_marked_count }}</strong>
+        <span>questions à étudier</span>
       </div>
       <div>
         <strong>{% if best_percentage is not None %}{{ best_percentage }} %{% else %}—{% endif %}</strong>

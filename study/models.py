@@ -742,6 +742,43 @@ class ComprehensionAnswer(models.Model):
         return f"{self.attempt} · Q{self.question.number}: {self.selected_choice.letter}"
 
 
+class ComprehensionQuestionStudy(models.Model):
+    """A learner's « À étudier » marker on one comprehension question.
+
+    The marker is question-level and independent of attempts: it survives a
+    restart, an answer of any kind, and an explicit test completion. Deleting
+    the row is the only way to clear it.
+    """
+
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="comprehension_question_studies",
+        # The unique constraint below already indexes ``user`` first, so the
+        # default single-column foreign key index would be redundant.
+        db_index=False,
+    )
+    question = models.ForeignKey(
+        ComprehensionQuestion,
+        on_delete=models.CASCADE,
+        related_name="study_markers",
+    )
+    created_at = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ["question__test__order", "question__number", "id"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "question"],
+                name="unique_comprehension_question_study",
+            ),
+        ]
+        verbose_name_plural = "comprehension question studies"
+
+    def __str__(self) -> str:
+        return f"{self.user} · {self.question} · à étudier"
+
+
 class AnnotationKind(models.TextChoices):
     NOTE = "note", "Note"
     HIGHLIGHT = "highlight", "Highlight"

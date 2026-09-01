@@ -95,6 +95,11 @@ urlpatterns = [
         name="comprehension_vocabulary",
     ),
     path(
+        "comprehension/ecrite/a-etudier/",
+        views.comprehension_study_list,
+        name="comprehension_study_list",
+    ),
+    path(
         "comprehension/ecrite/tests/<slug:test_slug>/vocabulaire/",
         views.phrases,
         {"comprehension_mode": "ecrite"},
@@ -111,6 +116,13 @@ urlpatterns = [
         views.comprehension_question_study,
         {"mode": "ecrite"},
         name="comprehension_question_study",
+    ),
+    path(
+        "comprehension/ecrite/tests/<slug:test_slug>/questions/<int:number>/"
+        "a-etudier/",
+        views.comprehension_question_study_toggle,
+        {"mode": "ecrite"},
+        name="comprehension_question_study_toggle",
     ),
     path(
         "comprehension/ecrite/tests/<slug:test_slug>/progression/",
@@ -162,6 +174,11 @@ urlpatterns = [
         name="comprehension_oral_vocabulary",
     ),
     path(
+        "comprehension/orale/a-etudier/",
+        views.comprehension_oral_study_list,
+        name="comprehension_oral_study_list",
+    ),
+    path(
         "comprehension/orale/tests/<slug:test_slug>/vocabulaire/",
         views.phrases,
         {"comprehension_mode": "orale"},
@@ -178,6 +195,13 @@ urlpatterns = [
         views.comprehension_question_study,
         {"mode": "orale"},
         name="comprehension_oral_question_study",
+    ),
+    path(
+        "comprehension/orale/tests/<slug:test_slug>/questions/<int:number>/"
+        "a-etudier/",
+        views.comprehension_question_study_toggle,
+        {"mode": "orale"},
+        name="comprehension_oral_question_study_toggle",
     ),
     path(
         "comprehension/orale/tests/<slug:test_slug>/progression/",

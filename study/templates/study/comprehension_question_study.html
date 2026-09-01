@@ -103,15 +103,18 @@
     </div>
 
     <aside class="detail-side">
-      <div class="card section-card">
+      <div class="card section-card{% if is_to_study %} is-to-study{% endif %}" data-question-study-row="{{ question.pk }}">
         <div class="spine-label">Cette question</div>
         <dl class="kv">
           <div><dt>Test</dt><dd>{{ test.number|stringformat:"02d" }}</dd></div>
           <div><dt>Question</dt><dd>{{ position }}/{{ total_questions }}</dd></div>
           <div><dt>Choix</dt><dd>{{ choices|length }}</dd></div>
           <div><dt>Bonne réponse</dt><dd>{{ correct_choice.letter }}</dd></div>
+          <div><dt>Étude</dt><dd><span class="question-study-badge">À étudier</span><span class="question-study-badge question-study-badge--off">Non marquée</span></dd></div>
         </dl>
         {% include "study/partials/comprehension_practice_action.html" %}
+        {% include "study/partials/comprehension_question_study_form.html" with csrf_token=csrf_token marker=study_marker next_url=request.get_full_path variant="side" show_text=True only %}
+        <a class="btn btn--block" href="{% url test.study_list_route %}">Questions à étudier</a>
         <a class="btn btn--block" href="{% url test.detail_route test.slug %}">Toutes les questions</a>
       </div>
 

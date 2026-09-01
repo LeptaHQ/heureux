@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import tempfile
 from dataclasses import replace
 from pathlib import Path
@@ -22,6 +23,7 @@ from study.models import (
     ComprehensionChoice,
     ComprehensionMode,
     ComprehensionQuestion,
+    ComprehensionQuestionStudy,
     ComprehensionTest,
     ComprehensionTestCompletion,
     Phrase,
@@ -1378,7 +1380,7 @@ class ComprehensionFlowTests(TestCase):
         response = self.client.get(reverse("study:export_account"))
         payload = json.loads(response.content)
 
-        self.assertEqual(payload["version"], 5)
+        self.assertEqual(payload["version"], 6)
         self.assertEqual(len(payload["comprehension_attempts"]), 1)
         exported = payload["comprehension_attempts"][0]
         self.assertEqual(exported["test"], self.test.slug)
@@ -1641,3 +1643,842 @@ class OralComprehensionFlowTests(TestCase):
             "done",
         )
         self.assertContains(group, 'aria-checked="true"')
+
+
+class ComprehensionQuestionStudyModelTests(TestCase):
+    def test_marker_is_unique_per_user_and_question(self):
+        user = factories.make_user("ce-study-unique")
+        test = factories.make_comprehension_test()
+        question = test.questions.get(number=1)
+        ComprehensionQuestionStudy.objects.create(user=user, question=question)
+
+        with self.assertRaises(IntegrityError), transaction.atomic():
+            ComprehensionQuestionStudy.objects.create(
+                user=user,
+                question=question,
+            )
+
+    def test_marker_is_private_to_each_learner(self):
+        first = factories.make_user("ce-study-first")
+        second = factories.make_user("ce-study-second")
+        test = factories.make_comprehension_test()
+        question = test.questions.get(number=1)
+        ComprehensionQuestionStudy.objects.create(user=first, question=question)
+        ComprehensionQuestionStudy.objects.create(
+            user=second,
+            question=question,
+        )
+
+        self.assertEqual(
+            ComprehensionQuestionStudy.objects.filter(
+                question=question,
+            ).count(),
+            2,
+        )
+        self.assertEqual(
+            ComprehensionQuestionStudy.objects.filter(user=first).count(),
+            1,
+        )
+
+    def test_marker_reads_as_a_question_level_study_flag(self):
+        user = factories.make_user("ce-study-str")
+        test = factories.make_comprehension_test()
+        marker = ComprehensionQuestionStudy.objects.create(
+            user=user,
+            question=test.questions.get(number=1),
+        )
+
+        self.assertIn("à étudier", str(marker))
+        self.assertIn("Q1", str(marker))
+
+    def test_deleting_a_question_clears_its_markers(self):
+        user = factories.make_user("ce-study-cascade")
+        test = factories.make_comprehension_test()
+        question = test.questions.get(number=1)
+        ComprehensionQuestionStudy.objects.create(user=user, question=question)
+
+        question.delete()
+
+        self.assertFalse(ComprehensionQuestionStudy.objects.exists())
+
+
+class ComprehensionQuestionStudyTests(TestCase):
+    def setUp(self):
+        self.user = factories.make_user("ce-study-learner")
+        self.other_user = factories.make_user("ce-study-other")
+        self.client.force_login(self.user)
+        self.test = factories.make_comprehension_test(question_count=3)
+        self.oral_test = factories.make_comprehension_test(
+            number=1,
+            question_count=2,
+            mode=ComprehensionMode.ORALE,
+        )
+
+    def toggle(self, test=None, number=1, value="1", route=None, **extra):
+        test = test or self.test
+        route = route or (
+            "study:comprehension_question_study_toggle"
+            if test.mode == ComprehensionMode.ECRITE
+            else "study:comprehension_oral_question_study_toggle"
+        )
+        return self.client.post(
+            reverse(route, args=[test.slug, number]),
+            {"study": value} if value is not None else {},
+            **extra,
+        )
+
+    def marked_numbers(self, test=None, user=None):
+        test = test or self.test
+        return sorted(
+            ComprehensionQuestionStudy.objects.filter(
+                user=user or self.user,
+                question__test=test,
+            ).values_list("question__number", flat=True)
+        )
+
+    def test_written_marker_is_added_and_removed_over_json(self):
+        added = self.toggle(value="1", HTTP_X_REQUESTED_WITH="fetch")
+        payload = added.json()
+
+        self.assertEqual(added.status_code, 200)
+        self.assertTrue(payload["is_to_study"])
+        self.assertEqual(payload["mode"], "ecrite")
+        self.assertEqual(payload["test_slug"], self.test.slug)
+        self.assertEqual(payload["question_number"], 1)
+        self.assertEqual(
+            payload["question_id"],
+            self.test.questions.get(number=1).pk,
+        )
+        self.assertEqual(payload["mode_marked_count"], 1)
+        self.assertEqual(payload["test_marked_count"], 1)
+        self.assertEqual(self.marked_numbers(), [1])
+
+        removed = self.toggle(value="0", HTTP_X_REQUESTED_WITH="fetch")
+
+        self.assertFalse(removed.json()["is_to_study"])
+        self.assertEqual(removed.json()["mode_marked_count"], 0)
+        self.assertEqual(self.marked_numbers(), [])
+
+    def test_oral_marker_is_added_and_removed_over_json(self):
+        added = self.toggle(
+            test=self.oral_test,
+            value="1",
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(added.json()["mode"], "orale")
+        self.assertEqual(added.json()["mode_marked_count"], 1)
+        self.assertEqual(self.marked_numbers(self.oral_test), [1])
+
+        self.toggle(
+            test=self.oral_test,
+            value="0",
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(self.marked_numbers(self.oral_test), [])
+
+    def test_marking_twice_stays_idempotent(self):
+        self.toggle(value="1")
+        self.toggle(value="1")
+        self.toggle(value="0")
+        self.toggle(value="0")
+
+        self.assertEqual(self.marked_numbers(), [])
+        self.assertEqual(ComprehensionQuestionStudy.objects.count(), 0)
+
+    def test_invalid_state_is_rejected(self):
+        for value in ("", "yes", "2", None):
+            with self.subTest(value=value):
+                response = self.toggle(value=value)
+                self.assertEqual(response.status_code, 400)
+
+        json_response = self.toggle(value="maybe", HTTP_X_REQUESTED_WITH="fetch")
+
+        self.assertEqual(json_response.status_code, 400)
+        self.assertIn("error", json_response.json())
+        self.assertFalse(ComprehensionQuestionStudy.objects.exists())
+
+    def test_get_requests_are_not_allowed(self):
+        response = self.client.get(
+            reverse(
+                "study:comprehension_question_study_toggle",
+                args=[self.test.slug, 1],
+            )
+        )
+
+        self.assertEqual(response.status_code, 405)
+
+    def test_unknown_question_test_or_mode_is_not_found(self):
+        wrong_number = self.toggle(number=99)
+        wrong_test = self.client.post(
+            reverse(
+                "study:comprehension_question_study_toggle",
+                args=["unknown-test", 1],
+            ),
+            {"study": "1"},
+        )
+        wrong_mode = self.toggle(
+            test=self.test,
+            number=1,
+            route="study:comprehension_oral_question_study_toggle",
+        )
+
+        self.assertEqual(wrong_number.status_code, 404)
+        self.assertEqual(wrong_test.status_code, 404)
+        self.assertEqual(wrong_mode.status_code, 404)
+        self.assertFalse(ComprehensionQuestionStudy.objects.exists())
+
+    def test_form_post_returns_to_a_validated_same_origin_page(self):
+        target = reverse("study:comprehension_test", args=[self.test.slug])
+        response = self.client.post(
+            reverse(
+                "study:comprehension_question_study_toggle",
+                args=[self.test.slug, 1],
+            ),
+            {"study": "1", "next": target},
+        )
+
+        self.assertRedirects(response, target)
+
+    def test_form_post_refuses_an_off_site_next(self):
+        response = self.client.post(
+            reverse(
+                "study:comprehension_question_study_toggle",
+                args=[self.test.slug, 2],
+            ),
+            {"study": "1", "next": "https://evil.example.com/steal"},
+        )
+
+        self.assertRedirects(
+            response,
+            reverse(
+                "study:comprehension_question_study",
+                args=[self.test.slug, 2],
+            ),
+        )
+
+    def test_one_learner_cannot_change_another_learners_marker(self):
+        question = self.test.questions.get(number=1)
+        ComprehensionQuestionStudy.objects.create(
+            user=self.other_user,
+            question=question,
+        )
+
+        self.toggle(value="0", HTTP_X_REQUESTED_WITH="fetch")
+
+        self.assertTrue(
+            ComprehensionQuestionStudy.objects.filter(
+                user=self.other_user,
+                question=question,
+            ).exists()
+        )
+        self.assertFalse(
+            ComprehensionQuestionStudy.objects.filter(
+                user=self.user,
+                question=question,
+            ).exists()
+        )
+
+    def test_archived_content_can_still_be_unmarked(self):
+        question = self.test.questions.get(number=1)
+        ComprehensionQuestionStudy.objects.create(
+            user=self.user,
+            question=question,
+        )
+        self.test.is_published = False
+        self.test.save(update_fields=["is_published"])
+        question.is_active = False
+        question.save(update_fields=["is_active"])
+
+        response = self.toggle(value="0", HTTP_X_REQUESTED_WITH="fetch")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(ComprehensionQuestionStudy.objects.exists())
+
+    def test_marker_survives_answers_restarts_and_completion(self):
+        question = self.test.questions.get(number=1)
+        self.toggle(value="1")
+        self.client.post(
+            reverse("study:comprehension_start", args=[self.test.slug]),
+            {"action": "continue"},
+        )
+        attempt = ComprehensionAttempt.objects.get(
+            user=self.user,
+            test=self.test,
+            status=ComprehensionAttemptStatus.IN_PROGRESS,
+        )
+        self.client.post(
+            reverse(
+                "study:comprehension_question",
+                args=[self.test.slug, attempt.pk, 1],
+            ),
+            {"choice": question.choices.get(letter="B").pk},
+        )
+        self.client.post(
+            reverse("study:comprehension_start", args=[self.test.slug]),
+            {"action": "restart"},
+        )
+        self.client.post(
+            reverse(
+                "study:comprehension_test_completion",
+                args=[self.test.slug],
+            ),
+            {"completed": "1"},
+        )
+
+        self.assertTrue(
+            ComprehensionQuestionStudy.objects.filter(
+                user=self.user,
+                question=question,
+            ).exists()
+        )
+
+    def test_marker_appears_on_every_question_surface(self):
+        self.toggle(value="1")
+        toggle_url = reverse(
+            "study:comprehension_question_study_toggle",
+            args=[self.test.slug, 1],
+        )
+
+        detail = self.client.get(
+            reverse("study:comprehension_test", args=[self.test.slug])
+        )
+        study = self.client.get(
+            reverse(
+                "study:comprehension_question_study",
+                args=[self.test.slug, 1],
+            )
+        )
+
+        self.assertContains(detail, toggle_url)
+        self.assertContains(detail, 'aria-pressed="true"')
+        self.assertTrue(detail.context["questions"][0]["is_to_study"])
+        self.assertFalse(detail.context["questions"][1]["is_to_study"])
+        self.assertEqual(detail.context["test"].study_marked_count, 1)
+        self.assertContains(study, toggle_url)
+        self.assertTrue(study.context["is_to_study"])
+        self.assertContains(study, "Retirer de l’étude")
+
+    def test_every_marker_form_carries_a_csrf_token(self):
+        self.client.post(
+            reverse("study:comprehension_start", args=[self.test.slug]),
+            {"action": "continue"},
+        )
+        attempt = ComprehensionAttempt.objects.get(
+            user=self.user,
+            test=self.test,
+            status=ComprehensionAttemptStatus.IN_PROGRESS,
+        )
+        for number in (1, 2, 3):
+            self.client.post(
+                reverse(
+                    "study:comprehension_question",
+                    args=[self.test.slug, attempt.pk, number],
+                ),
+                {
+                    "choice": self.test.questions.get(number=number)
+                    .choices.get(letter="A")
+                    .pk
+                },
+            )
+        ComprehensionQuestionStudy.objects.create(
+            user=self.user,
+            question=self.test.questions.get(number=1),
+        )
+        urls = [
+            reverse("study:comprehension_test", args=[self.test.slug]),
+            reverse(
+                "study:comprehension_question_study",
+                args=[self.test.slug, 1],
+            ),
+            reverse(
+                "study:comprehension_question",
+                args=[self.test.slug, attempt.pk, 1],
+            )
+            + "?correction=1",
+            reverse(
+                "study:comprehension_results",
+                args=[self.test.slug, attempt.pk],
+            ),
+            reverse("study:comprehension_study_list"),
+        ]
+
+        for url in urls:
+            with self.subTest(url=url):
+                html = self.client.get(url).content.decode()
+                marker_forms = re.findall(
+                    r"<form[^>]*data-question-study-form.*?</form>",
+                    html,
+                    re.S,
+                )
+                self.assertTrue(marker_forms)
+                for form in marker_forms:
+                    self.assertIn("csrfmiddlewaretoken", form)
+
+    def test_marker_appears_on_the_attempt_navigator_and_results(self):
+        self.toggle(value="1")
+        self.client.post(
+            reverse("study:comprehension_start", args=[self.test.slug]),
+            {"action": "continue"},
+        )
+        attempt = ComprehensionAttempt.objects.get(
+            user=self.user,
+            test=self.test,
+            status=ComprehensionAttemptStatus.IN_PROGRESS,
+        )
+        question = self.client.get(
+            reverse(
+                "study:comprehension_question",
+                args=[self.test.slug, attempt.pk, 1],
+            )
+        )
+
+        self.assertTrue(question.context["is_to_study"])
+        self.assertTrue(question.context["navigator"][0]["is_to_study"])
+        self.assertFalse(question.context["navigator"][1]["is_to_study"])
+        self.assertContains(
+            question,
+            reverse(
+                "study:comprehension_question_study_toggle",
+                args=[self.test.slug, 1],
+            ),
+        )
+        self.assertContains(question, "is-to-study")
+
+        for number in (1, 2, 3):
+            self.client.post(
+                reverse(
+                    "study:comprehension_question",
+                    args=[self.test.slug, attempt.pk, number],
+                ),
+                {
+                    "choice": self.test.questions.get(number=number)
+                    .choices.get(letter="A")
+                    .pk
+                },
+            )
+        results = self.client.get(
+            reverse(
+                "study:comprehension_results",
+                args=[self.test.slug, attempt.pk],
+            )
+        )
+
+        self.assertTrue(results.context["review_items"][0]["is_to_study"])
+        self.assertFalse(results.context["review_items"][1]["is_to_study"])
+        self.assertContains(
+            results,
+            reverse(
+                "study:comprehension_question_study_toggle",
+                args=[self.test.slug, 3],
+            ),
+        )
+
+    def test_attempt_and_test_pages_keep_marker_forms_unnested(self):
+        self.client.post(
+            reverse("study:comprehension_start", args=[self.test.slug]),
+            {"action": "continue"},
+        )
+        attempt = ComprehensionAttempt.objects.get(
+            user=self.user,
+            test=self.test,
+            status=ComprehensionAttemptStatus.IN_PROGRESS,
+        )
+        pages = [
+            self.client.get(
+                reverse("study:comprehension_test", args=[self.test.slug])
+            ),
+            self.client.get(
+                reverse(
+                    "study:comprehension_question",
+                    args=[self.test.slug, attempt.pk, 1],
+                )
+            ),
+            self.client.get(
+                reverse(
+                    "study:comprehension_question_study",
+                    args=[self.test.slug, 1],
+                )
+            ),
+        ]
+
+        for page in pages:
+            with self.subTest(page=page.request["PATH_INFO"]):
+                html = page.content.decode()
+                self.assertNotRegex(
+                    html,
+                    re.compile(r"<form[^>]*>(?:(?!</form>).)*<form", re.S),
+                )
+                self.assertNotRegex(
+                    html,
+                    re.compile(r"<a\b[^>]*>(?:(?!</a>).)*<form", re.S),
+                )
+
+    def test_overviews_expose_the_marked_count_without_extra_queries(self):
+        self.toggle(value="1")
+        self.toggle(number=2, value="1")
+        self.toggle(test=self.oral_test, value="1")
+
+        written = self.client.get(reverse("study:comprehension_overview"))
+        oral = self.client.get(reverse("study:comprehension_oral_overview"))
+
+        self.assertEqual(written.context["study_marked_count"], 2)
+        self.assertEqual(oral.context["study_marked_count"], 1)
+        self.assertContains(written, "Questions à étudier")
+        self.assertContains(
+            written,
+            reverse("study:comprehension_study_list"),
+        )
+        self.assertContains(
+            oral,
+            reverse("study:comprehension_oral_study_list"),
+        )
+
+    def test_overview_query_count_does_not_grow_with_more_tests(self):
+        self.client.get(reverse("study:comprehension_overview"))
+        with self.assertNumQueries(9):
+            self.client.get(reverse("study:comprehension_overview"))
+
+        for number in range(3, 8):
+            extra = factories.make_comprehension_test(
+                number=number,
+                question_count=3,
+            )
+            ComprehensionQuestionStudy.objects.create(
+                user=self.user,
+                question=extra.questions.get(number=1),
+            )
+
+        with self.assertNumQueries(9):
+            self.client.get(reverse("study:comprehension_overview"))
+
+    def test_test_detail_loads_markers_in_one_query(self):
+        for number in (1, 2, 3):
+            ComprehensionQuestionStudy.objects.create(
+                user=self.user,
+                question=self.test.questions.get(number=number),
+            )
+        url = reverse("study:comprehension_test", args=[self.test.slug])
+        self.client.get(url)
+
+        with self.assertNumQueries(11):
+            response = self.client.get(url)
+
+        self.assertEqual(
+            [item["is_to_study"] for item in response.context["questions"]],
+            [True, True, True],
+        )
+
+        larger = factories.make_comprehension_test(
+            number=3,
+            question_count=12,
+        )
+        for number in range(1, 13):
+            ComprehensionQuestionStudy.objects.create(
+                user=self.user,
+                question=larger.questions.get(number=number),
+            )
+        larger_url = reverse("study:comprehension_test", args=[larger.slug])
+        self.client.get(larger_url)
+
+        with self.assertNumQueries(11):
+            larger_response = self.client.get(larger_url)
+
+        self.assertEqual(
+            [
+                item["is_to_study"]
+                for item in larger_response.context["questions"]
+            ],
+            [True] * 12,
+        )
+
+
+class ComprehensionStudyListTests(TestCase):
+    def setUp(self):
+        self.user = factories.make_user("ce-list-learner")
+        self.other_user = factories.make_user("ce-list-other")
+        self.client.force_login(self.user)
+        self.first = factories.make_comprehension_test(
+            number=1,
+            question_count=3,
+        )
+        self.second = factories.make_comprehension_test(
+            number=2,
+            question_count=3,
+        )
+        self.oral = factories.make_comprehension_test(
+            number=1,
+            question_count=3,
+            mode=ComprehensionMode.ORALE,
+        )
+
+    def mark(self, test, number, user=None):
+        return ComprehensionQuestionStudy.objects.create(
+            user=user or self.user,
+            question=test.questions.get(number=number),
+        )
+
+    def test_empty_state_links_back_to_the_mode_overview(self):
+        response = self.client.get(reverse("study:comprehension_study_list"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context["marked_count"], 0)
+        self.assertEqual(response.context["groups"], [])
+        self.assertContains(response, "Aucune question à étudier")
+        self.assertContains(
+            response,
+            reverse("study:comprehension_overview"),
+        )
+
+    def test_list_groups_by_test_and_orders_by_question_number(self):
+        self.mark(self.second, 2)
+        self.mark(self.first, 3)
+        self.mark(self.first, 1)
+
+        response = self.client.get(reverse("study:comprehension_study_list"))
+        groups = response.context["groups"]
+
+        self.assertEqual(response.context["marked_count"], 3)
+        self.assertEqual(
+            [group["test"].slug for group in groups],
+            [self.first.slug, self.second.slug],
+        )
+        self.assertEqual(
+            [item["question"].number for item in groups[0]["items"]],
+            [1, 3],
+        )
+        self.assertEqual(
+            groups[0]["items"][0]["study_url"],
+            reverse(
+                "study:comprehension_question_study",
+                args=[self.first.slug, 1],
+            ),
+        )
+        self.assertContains(response, "Question française 1 ?")
+        self.assertContains(response, "Passage français 1.")
+
+    def test_lists_are_scoped_to_one_mode(self):
+        self.mark(self.first, 1)
+        self.mark(self.oral, 2)
+
+        written = self.client.get(reverse("study:comprehension_study_list"))
+        oral = self.client.get(
+            reverse("study:comprehension_oral_study_list")
+        )
+
+        self.assertEqual(written.context["marked_count"], 1)
+        self.assertEqual(oral.context["marked_count"], 1)
+        self.assertEqual(
+            written.context["groups"][0]["test"].slug,
+            self.first.slug,
+        )
+        self.assertEqual(
+            oral.context["groups"][0]["test"].slug,
+            self.oral.slug,
+        )
+
+    def test_list_only_shows_the_signed_in_learners_markers(self):
+        self.mark(self.first, 1)
+        self.mark(self.second, 1, user=self.other_user)
+
+        response = self.client.get(reverse("study:comprehension_study_list"))
+
+        self.assertEqual(response.context["marked_count"], 1)
+        self.assertEqual(
+            response.context["groups"][0]["test"].slug,
+            self.first.slug,
+        )
+        self.assertNotContains(
+            response,
+            reverse("study:comprehension_test", args=[self.second.slug]),
+        )
+
+    def test_hero_count_matches_the_list_for_archived_tests(self):
+        self.mark(self.first, 1)
+        self.mark(self.second, 1)
+        self.second.is_active = False
+        self.second.save(update_fields=["is_active"])
+
+        overview = self.client.get(reverse("study:comprehension_overview"))
+        listing = self.client.get(reverse("study:comprehension_study_list"))
+
+        self.assertEqual(overview.context["study_marked_count"], 2)
+        self.assertEqual(
+            listing.context["marked_count"],
+            overview.context["study_marked_count"],
+        )
+
+    def test_archived_items_are_kept_but_not_linkable(self):
+        self.mark(self.first, 1)
+        self.mark(self.second, 1)
+        self.first.is_published = False
+        self.first.save(update_fields=["is_published"])
+        question = self.second.questions.get(number=1)
+        question.is_active = False
+        question.save(update_fields=["is_active"])
+
+        response = self.client.get(reverse("study:comprehension_study_list"))
+        groups = response.context["groups"]
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context["marked_count"], 2)
+        self.assertFalse(groups[0]["is_available"])
+        self.assertEqual(groups[0]["items"][0]["study_url"], "")
+        self.assertTrue(groups[1]["is_available"])
+        self.assertFalse(groups[1]["items"][0]["is_available"])
+        self.assertContains(response, "Indisponible")
+        self.assertNotContains(
+            response,
+            'href="{}"'.format(
+                reverse(
+                    "study:comprehension_question_study",
+                    args=[self.first.slug, 1],
+                )
+            ),
+        )
+
+    def test_removing_from_the_list_returns_to_the_list(self):
+        self.mark(self.first, 1)
+        target = reverse("study:comprehension_study_list")
+
+        response = self.client.post(
+            reverse(
+                "study:comprehension_question_study_toggle",
+                args=[self.first.slug, 1],
+            ),
+            {"study": "0", "next": target},
+        )
+
+        self.assertRedirects(response, target)
+        self.assertFalse(ComprehensionQuestionStudy.objects.exists())
+        self.assertEqual(
+            self.client.get(target).context["marked_count"],
+            0,
+        )
+
+    def test_list_query_count_does_not_grow_with_the_number_of_markers(self):
+        self.mark(self.first, 1)
+        url = reverse("study:comprehension_study_list")
+        self.client.get(url)
+
+        with self.assertNumQueries(6):
+            self.client.get(url)
+
+        self.mark(self.first, 2)
+        self.mark(self.first, 3)
+        self.mark(self.second, 1)
+        self.mark(self.second, 2)
+
+        with self.assertNumQueries(6):
+            response = self.client.get(url)
+
+        self.assertEqual(response.context["marked_count"], 5)
+
+
+class ComprehensionQuestionStudyAccountTests(TestCase):
+    def setUp(self):
+        self.user = factories.make_user("ce-study-account")
+        self.other_user = factories.make_user("ce-study-account-other")
+        self.client.force_login(self.user)
+        self.test = factories.make_comprehension_test(question_count=3)
+        self.oral_test = factories.make_comprehension_test(
+            number=1,
+            question_count=2,
+            mode=ComprehensionMode.ORALE,
+        )
+
+    def test_export_lists_markers_with_stable_content_keys(self):
+        written = self.test.questions.get(number=2)
+        oral = self.oral_test.questions.get(number=1)
+        first = ComprehensionQuestionStudy.objects.create(
+            user=self.user,
+            question=written,
+        )
+        second = ComprehensionQuestionStudy.objects.create(
+            user=self.user,
+            question=oral,
+        )
+        ComprehensionQuestionStudy.objects.create(
+            user=self.other_user,
+            question=self.test.questions.get(number=1),
+        )
+
+        payload = json.loads(
+            self.client.get(reverse("study:export_account")).content
+        )
+
+        self.assertEqual(payload["version"], 6)
+        self.assertEqual(
+            payload["comprehension_question_studies"],
+            [
+                {
+                    "question_key": written.content_key,
+                    "test": self.test.slug,
+                    "mode": "ecrite",
+                    "created_at": first.created_at.isoformat(
+                        timespec="milliseconds"
+                    ).replace("+00:00", "Z"),
+                },
+                {
+                    "question_key": oral.content_key,
+                    "test": self.oral_test.slug,
+                    "mode": "orale",
+                    "created_at": second.created_at.isoformat(
+                        timespec="milliseconds"
+                    ).replace("+00:00", "Z"),
+                },
+            ],
+        )
+
+    def test_reset_removes_only_the_current_learners_markers(self):
+        ComprehensionQuestionStudy.objects.create(
+            user=self.user,
+            question=self.test.questions.get(number=1),
+        )
+        kept = ComprehensionQuestionStudy.objects.create(
+            user=self.other_user,
+            question=self.test.questions.get(number=1),
+        )
+
+        response = self.client.post(
+            reverse("study:reset_progress"),
+            {
+                "current_pin": "123456",
+                "confirmation": "REINITIALISER",
+            },
+        )
+
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(
+            ComprehensionQuestionStudy.objects.filter(
+                user=self.user,
+            ).exists()
+        )
+        self.assertTrue(
+            ComprehensionQuestionStudy.objects.filter(pk=kept.pk).exists()
+        )
+
+    def test_account_deletion_cascades_to_markers(self):
+        ComprehensionQuestionStudy.objects.create(
+            user=self.user,
+            question=self.test.questions.get(number=1),
+        )
+        kept = ComprehensionQuestionStudy.objects.create(
+            user=self.other_user,
+            question=self.test.questions.get(number=2),
+        )
+
+        response = self.client.post(
+            reverse("study:delete_account"),
+            {
+                "current_pin": "123456",
+                "username_confirmation": self.user.get_username(),
+            },
+        )
+
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(
+            list(ComprehensionQuestionStudy.objects.values_list("pk", flat=True)),
+            [kept.pk],
+        )

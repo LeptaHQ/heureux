@@ -13,6 +13,7 @@ from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 
 from ..models import (
@@ -22,6 +23,7 @@ from ..models import (
     ComprehensionChoice,
     ComprehensionMode,
     ComprehensionQuestion,
+    ComprehensionQuestionStudy,
     ComprehensionTest,
     ComprehensionTestCompletion,
     Phrase,
@@ -53,6 +55,8 @@ COMPREHENSION_ROUTE_NAMES = {
         "question": "study:comprehension_question",
         "results": "study:comprehension_results",
         "completion": "study:comprehension_test_completion",
+        "study_toggle": "study:comprehension_question_study_toggle",
+        "study_list": "study:comprehension_study_list",
     },
     ComprehensionMode.ORALE: {
         "overview": "study:comprehension_oral_overview",
@@ -63,12 +67,62 @@ COMPREHENSION_ROUTE_NAMES = {
         "question": "study:comprehension_oral_question",
         "results": "study:comprehension_oral_results",
         "completion": "study:comprehension_oral_test_completion",
+        "study_toggle": "study:comprehension_oral_question_study_toggle",
+        "study_list": "study:comprehension_oral_study_list",
     },
 }
 
 
 def _comprehension_group_count(mode):
     return COMPREHENSION_GROUP_COUNTS.get(mode, 0)
+
+
+def _comprehension_study_marked_ids(user, question_ids):
+    """Return the marked question ids among ``question_ids`` in one query."""
+    question_ids = [
+        question_id for question_id in question_ids if question_id
+    ]
+    if not question_ids:
+        return set()
+    return set(
+        ComprehensionQuestionStudy.objects.filter(
+            user=user,
+            question_id__in=question_ids,
+        ).values_list("question_id", flat=True)
+    )
+
+
+def _comprehension_study_mode_count(user, mode):
+    return ComprehensionQuestionStudy.objects.filter(
+        user=user,
+        question__test__mode=mode,
+    ).count()
+
+
+def _comprehension_study_toggle_url(mode, test_slug, number):
+    return reverse(
+        COMPREHENSION_ROUTE_NAMES[mode]["study_toggle"],
+        args=[test_slug, number],
+    )
+
+
+def _comprehension_study_marker(
+    *,
+    mode,
+    test_slug,
+    question_id,
+    number,
+    is_to_study,
+):
+    """Build the template payload consumed by the shared marker partial."""
+    return {
+        "toggle_url": _comprehension_study_toggle_url(mode, test_slug, number),
+        "question_id": question_id,
+        "question_number": number,
+        "test_slug": test_slug,
+        "mode": mode,
+        "marked": is_to_study,
+    }
 
 
 def _prepare_comprehension_test(test):
@@ -84,6 +138,7 @@ def _prepare_comprehension_test(test):
     test.question_route = routes["question"]
     test.results_route = routes["results"]
     test.completion_route = routes["completion"]
+    test.study_list_route = routes["study_list"]
     test.mode_title = f"Compréhension {test.get_mode_display().lower()}"
     test.source_label = (
         "Document"
@@ -142,7 +197,12 @@ def _comprehension_test_cards(user, *, mode=None, published_only=False):
                 "questions",
                 filter=Q(questions__is_active=True),
                 distinct=True,
-            )
+            ),
+            study_marked_count=Count(
+                "questions__study_markers",
+                filter=Q(questions__study_markers__user=user),
+                distinct=True,
+            ),
         ).prefetch_related(
             Prefetch("attempts", queryset=attempts, to_attr="user_attempts")
         )
@@ -534,6 +594,13 @@ def _comprehension_overview_response(request, *, mode, template):
                 (attempt.percentage for attempt in completed_attempts),
                 default=None,
             ),
+            "study_marked_count": _comprehension_study_mode_count(
+                request.user,
+                mode,
+            ),
+            "study_list_url": reverse(
+                COMPREHENSION_ROUTE_NAMES[mode]["study_list"]
+            ),
         },
     )
 
@@ -645,12 +712,25 @@ def comprehension_test_detail(
             if progress_attempt
             else {}
         )
+        question_list = list(question_qs)
+        marked_ids = _comprehension_study_marked_ids(
+            request.user,
+            [question.pk for question in question_list],
+        )
         questions = [
             {
                 "question": question,
                 "answer": answers.get(question.pk),
+                "is_to_study": question.pk in marked_ids,
+                "study_marker": _comprehension_study_marker(
+                    mode=mode,
+                    test_slug=test.slug,
+                    question_id=question.pk,
+                    number=question.number,
+                    is_to_study=question.pk in marked_ids,
+                ),
             }
-            for question in question_qs
+            for question in question_list
         ]
     return render(
         request,
@@ -729,6 +809,182 @@ def comprehension_test_completion(
     return redirect(reverse(test.detail_route, args=[test.slug]))
 
 
+def _comprehension_safe_next(request):
+    """Return a validated same-origin ``next`` target, or an empty string."""
+    candidate = request.POST.get("next", "")
+    if candidate and url_has_allowed_host_and_scheme(
+        candidate,
+        allowed_hosts={request.get_host()},
+        require_https=request.is_secure(),
+    ):
+        return candidate
+    return ""
+
+
+def _comprehension_study_url(mode, test_slug, number):
+    return reverse(
+        COMPREHENSION_ROUTE_NAMES[mode]["study"],
+        args=[test_slug, number],
+    )
+
+
+@require_POST
+def comprehension_question_study_toggle(
+    request,
+    test_slug,
+    number,
+    mode=ComprehensionMode.ECRITE,
+):
+    """Add or remove the current learner's « À étudier » marker.
+
+    Archived tests and questions stay togglable so a learner can always clear a
+    marker they no longer need, and every query below is scoped to the signed-in
+    learner so one account can never read or change another account's markers.
+    """
+    question = get_object_or_404(
+        ComprehensionQuestion.objects.select_related("test"),
+        test__slug=test_slug,
+        test__mode=mode,
+        number=number,
+    )
+    wants_json = request.headers.get("X-Requested-With") == "fetch"
+
+    value = request.POST.get("study")
+    if value not in {"0", "1"}:
+        if wants_json:
+            return JsonResponse(
+                {"error": "État d’étude invalide."},
+                status=400,
+            )
+        return HttpResponseBadRequest("État d’étude invalide.")
+
+    if value == "1":
+        ComprehensionQuestionStudy.objects.get_or_create(
+            user=request.user,
+            question=question,
+        )
+        is_to_study = True
+    else:
+        ComprehensionQuestionStudy.objects.filter(
+            user=request.user,
+            question=question,
+        ).delete()
+        is_to_study = False
+
+    if wants_json:
+        return JsonResponse(
+            {
+                "question_id": question.pk,
+                "question_number": question.number,
+                "is_to_study": is_to_study,
+                "mode": mode,
+                "test_slug": question.test.slug,
+                "mode_marked_count": _comprehension_study_mode_count(
+                    request.user,
+                    mode,
+                ),
+                "test_marked_count": ComprehensionQuestionStudy.objects.filter(
+                    user=request.user,
+                    question__test=question.test,
+                ).count(),
+            }
+        )
+
+    return redirect(
+        _comprehension_safe_next(request)
+        or _comprehension_study_url(mode, question.test.slug, question.number)
+    )
+
+
+def _comprehension_study_list_response(request, *, mode):
+    """Render the mode-scoped library of questions marked « À étudier »."""
+    markers = (
+        ComprehensionQuestionStudy.objects.filter(
+            user=request.user,
+            question__test__mode=mode,
+        )
+        .select_related("question", "question__test")
+        .order_by(
+            "question__test__order",
+            "question__test__number",
+            "question__number",
+            "id",
+        )
+    )
+    groups = []
+    current = None
+    for marker in markers:
+        question = marker.question
+        test = question.test
+        is_available = (
+            test.is_active and test.is_published and question.is_active
+        )
+        if current is None or current["test"].pk != test.pk:
+            current = {
+                "test": _prepare_comprehension_test(test),
+                "is_available": test.is_active and test.is_published,
+                "test_url": (
+                    reverse(
+                        COMPREHENSION_ROUTE_NAMES[mode]["test"],
+                        args=[test.slug],
+                    )
+                    if test.is_active and test.is_published
+                    else ""
+                ),
+                "items": [],
+            }
+            groups.append(current)
+        current["items"].append(
+            {
+                "question": question,
+                "created_at": marker.created_at,
+                "is_available": is_available,
+                "study_url": (
+                    _comprehension_study_url(mode, test.slug, question.number)
+                    if is_available
+                    else ""
+                ),
+                "study_marker": _comprehension_study_marker(
+                    mode=mode,
+                    test_slug=test.slug,
+                    question_id=question.pk,
+                    number=question.number,
+                    is_to_study=True,
+                ),
+            }
+        )
+
+    return render(
+        request,
+        "study/comprehension_study_list.html",
+        {
+            "mode": mode,
+            "mode_title": (
+                f"Compréhension {ComprehensionMode(mode).label.lower()}"
+            ),
+            "overview_route": COMPREHENSION_ROUTE_NAMES[mode]["overview"],
+            "groups": groups,
+            "marked_count": sum(len(group["items"]) for group in groups),
+        },
+    )
+
+
+@require_GET
+def comprehension_study_list(request):
+    return _comprehension_study_list_response(
+        request,
+        mode=ComprehensionMode.ECRITE,
+    )
+
+
+@require_GET
+def comprehension_oral_study_list(request):
+    return _comprehension_study_list_response(
+        request,
+        mode=ComprehensionMode.ORALE,
+    )
+
+
 @require_GET
 def comprehension_question_study(
     request,
@@ -781,6 +1037,9 @@ def comprehension_question_study(
     if correct_choice is None:
         raise Http404
 
+    is_to_study = bool(
+        _comprehension_study_marked_ids(request.user, [question.pk])
+    )
     return render(
         request,
         "study/comprehension_question_study.html",
@@ -798,6 +1057,14 @@ def comprehension_question_study(
                 questions[position + 1]
                 if position + 1 < len(questions)
                 else None
+            ),
+            "is_to_study": is_to_study,
+            "study_marker": _comprehension_study_marker(
+                mode=mode,
+                test_slug=test.slug,
+                question_id=question.pk,
+                number=question.number,
+                is_to_study=is_to_study,
             ),
         },
     )
@@ -1029,14 +1296,19 @@ def _comprehension_question_context(attempt, question_number, error=""):
         ),
         None,
     )
+    navigator_ids = [item["id"] for item in questions]
+    marked_ids = _comprehension_study_marked_ids(attempt.user, navigator_ids)
     navigator = [
         {
             "number": item["number"],
+            "question_id": item["id"],
             "is_answered": item["id"] in answers,
             "is_current": item["id"] == question["id"],
+            "is_to_study": item["id"] in marked_ids,
         }
         for item in questions
     ]
+    is_to_study = question["id"] in marked_ids
     return {
         "attempt": attempt,
         "test": attempt.test,
@@ -1061,6 +1333,14 @@ def _comprehension_question_context(attempt, question_number, error=""):
         ),
         "navigator": navigator,
         "answer_error": error,
+        "is_to_study": is_to_study,
+        "study_marker": _comprehension_study_marker(
+            mode=attempt.test.mode,
+            test_slug=attempt.test.slug,
+            question_id=question_model.pk,
+            number=question_model.number,
+            is_to_study=is_to_study,
+        ),
     }
 
 
@@ -1217,9 +1497,14 @@ def comprehension_results(
         .order_by("question__number")
     )
     review_items = []
+    marked_ids = _comprehension_study_marked_ids(
+        request.user,
+        [answer.question_id for answer in submitted_answers],
+    )
     for answer in submitted_answers:
         question = _comprehension_answer_snapshot(answer)
         choices = question["choices"]
+        is_to_study = answer.question_id in marked_ids
         review_items.append(
             {
                 "question": question,
@@ -1232,6 +1517,14 @@ def comprehension_results(
                 "correct_choice": next(
                     (choice for choice in choices if choice["is_correct"]),
                     None,
+                ),
+                "is_to_study": is_to_study,
+                "study_marker": _comprehension_study_marker(
+                    mode=attempt.test.mode,
+                    test_slug=attempt.test.slug,
+                    question_id=answer.question_id,
+                    number=answer.question.number,
+                    is_to_study=is_to_study,
                 ),
             }
         )

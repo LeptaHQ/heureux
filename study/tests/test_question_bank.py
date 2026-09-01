@@ -3508,7 +3508,7 @@ class QuestionBankViewTests(TestCase):
 
         exported = self.client.get(reverse("study:export_account")).json()
 
-        self.assertEqual(exported["version"], 5)
+        self.assertEqual(exported["version"], 6)
         self.assertEqual(
             exported["memory_question_progress"][0]["question_key"],
             own_progress.question_key,

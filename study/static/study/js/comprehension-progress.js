@@ -229,6 +229,18 @@
           );
         }
       });
+      var resultsMarkedCount = document.querySelectorAll(
+        ".ce-results-map__grid [data-question-study-map].is-to-study"
+      ).length;
+      document.querySelectorAll(
+        "[data-question-study-results-count]"
+      ).forEach(function (counter) {
+        counter.classList.toggle("hidden", resultsMarkedCount === 0);
+        var value = counter.querySelector(
+          "[data-question-study-results-value]"
+        );
+        if (value) value.textContent = String(resultsMarkedCount);
+      });
 
       setCount(
         '[data-question-study-mode-count="' + data.mode + '"]',

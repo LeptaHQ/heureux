@@ -106,6 +106,38 @@ class BrowserTests(StaticLiveServerTestCase):
             """
         )
 
+    def open_new_tab(self, click):
+        """Run ``click`` and return the tab it opens, sized like the current one."""
+        viewport = self.page.viewport_size
+        with self.context.expect_page() as popup:
+            click()
+        opened = popup.value
+        if viewport:
+            opened.set_viewport_size(viewport)
+        opened.wait_for_load_state()
+        return opened
+
+    def follow_new_tab_link(self, name, **kwargs):
+        """Click an exercise link and continue in the tab it opens.
+
+        Exercise rows use ``target="_blank"``, so the assertions that follow
+        belong to the popup rather than the page that was clicked.
+        """
+        self.page = self.open_new_tab(
+            lambda: self.page.get_by_role("link", name=name, **kwargs).click()
+        )
+        return self.page
+
+    def assert_opens_new_tab(self, click, path, follow=False):
+        """Assert a row hit area opens ``path`` in its own tab."""
+        opened = self.open_new_tab(click)
+        self.assertEqual(opened.url, self.live_server_url + path)
+        if follow:
+            self.page = opened
+            return opened
+        opened.close()
+        return None
+
     def assert_no_horizontal_overflow(self):
         fits = self.page.evaluate(
             "document.documentElement.scrollWidth <= "
@@ -443,11 +475,13 @@ class BrowserTests(StaticLiveServerTestCase):
             "[data-tache-two-month-row]:visible"
         ).first
         batch_cell = first_row.locator("th").first.bounding_box()
-        self.page.mouse.click(
-            batch_cell["x"] + batch_cell["width"] / 2,
-            batch_cell["y"] + batch_cell["height"] / 2,
+        self.assert_opens_new_tab(
+            lambda: self.page.mouse.click(
+                batch_cell["x"] + batch_cell["width"] / 2,
+                batch_cell["y"] + batch_cell["height"] / 2,
+            ),
+            detail_path,
         )
-        self.page.wait_for_url(self.live_server_url + detail_path)
 
     def test_ee_tache_one_rows_navigate_without_completion_click_through(self):
         ee_part = factories.make_part("ee")
@@ -503,11 +537,13 @@ class BrowserTests(StaticLiveServerTestCase):
             f'.t1-row:has(a[href="{detail_path}"])'
         ).first
         status = card_row.locator(".progress-status").bounding_box()
-        self.page.mouse.click(
-            status["x"] + status["width"] / 2,
-            status["y"] + status["height"] / 2,
+        self.assert_opens_new_tab(
+            lambda: self.page.mouse.click(
+                status["x"] + status["width"] / 2,
+                status["y"] + status["height"] / 2,
+            ),
+            detail_path,
         )
-        self.page.wait_for_url(self.live_server_url + detail_path)
 
         self.page.goto(self.live_server_url + subjects_path)
         self.page.get_by_role("button", name="Tableau").click()
@@ -553,11 +589,14 @@ class BrowserTests(StaticLiveServerTestCase):
             f'[data-t1-table-subject]:has(a.subject-table-row-link[href="{detail_path}"])'
         )
         content_cell = table_row.locator("td").nth(1).bounding_box()
-        self.page.mouse.click(
-            content_cell["x"] + content_cell["width"] / 2,
-            content_cell["y"] + content_cell["height"] / 2,
+        self.assert_opens_new_tab(
+            lambda: self.page.mouse.click(
+                content_cell["x"] + content_cell["width"] / 2,
+                content_cell["y"] + content_cell["height"] / 2,
+            ),
+            detail_path,
+            follow=True,
         )
-        self.page.wait_for_url(self.live_server_url + detail_path)
 
         response_body = self.page.locator(
             f'[data-annotation-source-key="writing-sujet:{sujet.pk}:model-1"]'
@@ -1436,11 +1475,14 @@ class BrowserTests(StaticLiveServerTestCase):
         questions_cell = first_row.locator(
             ".t1-table__questions"
         ).bounding_box()
-        self.page.mouse.click(
-            questions_cell["x"] + questions_cell["width"] / 2,
-            questions_cell["y"] + questions_cell["height"] / 2,
+        self.assert_opens_new_tab(
+            lambda: self.page.mouse.click(
+                questions_cell["x"] + questions_cell["width"] / 2,
+                questions_cell["y"] + questions_cell["height"] / 2,
+            ),
+            subject_path,
+            follow=True,
         )
-        self.page.wait_for_url(self.live_server_url + subject_path)
         self.page.get_by_role(
             "heading",
             name="Achat d'objets avant un déménagement",
@@ -1978,6 +2020,8 @@ class BrowserTests(StaticLiveServerTestCase):
                 args=["arrivee"],
             )
         )
+        # Group heads label the table view; card mode folds them into cards.
+        self.page.get_by_role("button", name="Tableau").first.click()
         group_head = self.page.locator(".theme-vocabulary-group__head").first
         group_head.wait_for()
 
@@ -2086,11 +2130,9 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.get_by_text("1 terminé.", exact=False).wait_for()
         self.assert_no_horizontal_overflow()
 
-        with self.page.expect_navigation():
-            row.locator(".subject-row-hit-area").click()
-        self.assertEqual(
-            self.page.url,
-            self.live_server_url + response_detail_url(self.first.response),
+        self.assert_opens_new_tab(
+            lambda: row.locator(".subject-row-hit-area").click(),
+            response_detail_url(self.first.response),
         )
 
     def save_current_prompt_highlight(self):
@@ -6073,6 +6115,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assert_no_horizontal_overflow()
 
     def test_mobile_comprehension_quiz_correction_and_results(self):
+        self.disable_service_worker()
         test = factories.make_comprehension_test(question_count=2)
         self.page.set_viewport_size({"width": 320, "height": 568})
 
@@ -6136,7 +6179,8 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(row_checkbox.get_attribute("aria-checked"), "true")
         self.assert_no_horizontal_overflow()
 
-        self.page.get_by_role("link", name="Découvrir le test").click()
+        self.follow_new_tab_link("Découvrir le test")
+        self.disable_service_worker()
         self.page.get_by_role("heading", name=test.title).wait_for()
         detail_checkbox = self.page.locator(
             "[data-comprehension-completion-form] button"
@@ -6184,6 +6228,24 @@ class BrowserTests(StaticLiveServerTestCase):
         ).wait_for()
         explanation = self.page.locator(".ce-rationales--explanation")
         self.assertTrue(explanation.evaluate("element => element.open"))
+        self.assertGreaterEqual(
+            self.page.locator(".ce-choice__text").first.evaluate(
+                "element => parseFloat(getComputedStyle(element).fontSize)"
+            ),
+            16,
+        )
+        self.assertGreaterEqual(
+            explanation.locator("summary").evaluate(
+                "element => parseFloat(getComputedStyle(element).fontSize)"
+            ),
+            15,
+        )
+        self.assertGreaterEqual(
+            explanation.locator("p").first.evaluate(
+                "element => parseFloat(getComputedStyle(element).fontSize)"
+            ),
+            16,
+        )
         header_box = self.page.locator(".ce-correction__head").bounding_box()
         explanation_box = explanation.bounding_box()
         self.assertGreaterEqual(
@@ -6218,6 +6280,25 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.get_by_text("Terminé", exact=True).wait_for()
         self.assertEqual(results_checkbox.get_attribute("aria-checked"), "true")
         self.assertEqual(self.page.locator(".ce-review-item").count(), 2)
+        map_cells = self.page.locator(".ce-results-map__grid a").evaluate_all(
+            """
+            cells => cells.map(cell => {
+              const box = cell.getBoundingClientRect();
+              return { width: box.width, height: box.height };
+            })
+            """
+        )
+        self.assertTrue(map_cells)
+        self.assertLessEqual(max(cell["width"] for cell in map_cells), 44)
+        self.assertTrue(
+            all(abs(cell["width"] - cell["height"]) <= 1 for cell in map_cells)
+        )
+        summary_heights = self.page.locator(
+            ".ce-review-item > summary"
+        ).evaluate_all(
+            "summaries => summaries.map(item => item.getBoundingClientRect().height)"
+        )
+        self.assertLessEqual(max(summary_heights), 96)
         self.assert_no_horizontal_overflow()
 
     def test_mobile_oral_completion_control_uses_the_shared_flow(self):
@@ -6243,7 +6324,8 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(checkbox.get_attribute("aria-checked"), "true")
         self.assert_no_horizontal_overflow()
 
-        self.page.get_by_role("link", name="Découvrir le test").click()
+        self.follow_new_tab_link("Découvrir le test")
+        self.disable_service_worker()
         self.page.get_by_role("heading", name=test.title).wait_for()
         self.assertEqual(
             self.page.locator(
@@ -6333,7 +6415,8 @@ class BrowserTests(StaticLiveServerTestCase):
           const controls = deck.querySelector('[data-flashcard-controls]');
           const card = deck.querySelector(
             '[data-flashcard-card]:not(.hidden):not(' +
-            '.theme-vocabulary-card--inactive)'
+            '.theme-vocabulary-card--inactive):not(' +
+            '.comprehension-vocabulary-phrase--inactive)'
           );
           const buttons = [...controls.querySelectorAll(
             '.flashcard-deck__control'
@@ -6379,9 +6462,445 @@ class BrowserTests(StaticLiveServerTestCase):
             before()
         self.page.locator(
             "[data-flashcard-card]:not(.hidden):not("
-            ".theme-vocabulary-card--inactive)"
+            ".theme-vocabulary-card--inactive):not("
+            ".comprehension-vocabulary-phrase--inactive)"
         ).first.wait_for()
         return self.page.evaluate(self.DECK_METRICS)
+
+    def _make_comprehension_vocabulary(self, mode, number, per_group=2):
+        """A published test whose questions carry two vocabulary groups."""
+        test = factories.make_comprehension_test(
+            number=number,
+            question_count=per_group * 2,
+            mode=mode,
+        )
+        questions = list(test.questions.order_by("number"))
+        categories = [
+            PhraseCategory.objects.get_or_create(
+                slug=f"comprehension-{label}",
+                defaults={
+                    "name": f"Compréhension · {title}",
+                    "content_key": f"test-category:comprehension-{label}",
+                    "order": 90 + index,
+                },
+            )[0]
+            for index, (label, title) in enumerate(
+                (("mots", "Mots-clés"), ("reformulations", "Reformulations"))
+            )
+        ]
+        phrases = []
+        for index, question in enumerate(questions):
+            phrase = factories.make_phrase(
+                category=categories[index // per_group],
+                tier="comprehension",
+                lot_order=index + 1,
+            )
+            phrase.source_questions.add(question)
+            factories.make_phrase_card(phrase=phrase, user=self.user)
+            phrases.append(phrase)
+        return test, phrases
+
+    def _comprehension_deck_state(self):
+        return self.page.evaluate(
+            """
+            () => {
+              const deck = document.querySelector(
+                '[data-comprehension-vocabulary-deck]'
+              );
+              const cards = [...deck.querySelectorAll(
+                '[data-comprehension-vocabulary-phrase]'
+              )];
+              const visible = cards.filter(card => (
+                getComputedStyle(card).display !== 'none'
+                && card.getClientRects().length
+              ));
+              const active = visible[0] || null;
+              const faceVisible = face => Boolean(
+                face
+                && getComputedStyle(face).display !== 'none'
+                && face.getClientRects().length
+              );
+              const chrome = [...document.querySelectorAll(
+                '.comprehension-vocabulary-flashcard-only'
+              )].filter(node => (
+                getComputedStyle(node).display !== 'none'
+                && node.getClientRects().length
+              ));
+              return {
+                total: cards.length,
+                visible: visible.length,
+                progress: deck.querySelector(
+                  '[data-flashcard-progress]'
+                ).textContent.trim(),
+                fill: deck.querySelector(
+                  '[data-flashcard-progress-bar]'
+                ).style.width,
+                previousDisabled: deck.querySelector(
+                  '[data-flashcard-previous]'
+                ).disabled,
+                nextDisabled: deck.querySelector(
+                  '[data-flashcard-next]'
+                ).disabled,
+                chromeVisible: chrome.length,
+                front: active
+                  ? faceVisible(active.querySelector('[data-flashcard-front]'))
+                  : false,
+                back: active
+                  ? faceVisible(active.querySelector('[data-flashcard-back]'))
+                  : false,
+                text: active ? active.innerText.replace(/\\s+/g, ' ').trim() : '',
+                faceLabel: active
+                  ? active.querySelector(
+                      '[data-flashcard-face-label]'
+                    ).textContent.trim()
+                  : '',
+                width: active
+                  ? Math.round(active.getBoundingClientRect().width)
+                  : 0,
+              };
+            }
+            """
+        )
+
+    def _swipe_active_comprehension_card(self, dx):
+        box = self.page.locator(
+            ".comprehension-vocabulary-phrase:not("
+            ".comprehension-vocabulary-phrase--inactive)"
+        ).bounding_box()
+        start_x = box["x"] + box["width"] / 2
+        start_y = box["y"] + box["height"] / 2
+        self.page.evaluate(
+            """
+            ([x, y, dx]) => {
+              const card = document.querySelector(
+                '.comprehension-vocabulary-phrase:not(' +
+                '.comprehension-vocabulary-phrase--inactive)'
+              );
+              const send = (type, clientX) => card.dispatchEvent(
+                new PointerEvent(type, {
+                  bubbles: true,
+                  cancelable: true,
+                  pointerId: 7,
+                  pointerType: 'touch',
+                  isPrimary: true,
+                  clientX,
+                  clientY: y,
+                })
+              );
+              send('pointerdown', x);
+              send('pointermove', x + dx / 2);
+              send('pointermove', x + dx);
+              send('pointerup', x + dx);
+            }
+            """,
+            [start_x, start_y, dx],
+        )
+
+    def test_comprehension_vocabulary_deck_studies_one_card_at_a_time(self):
+        cases = (
+            (
+                ComprehensionMode.ECRITE,
+                "study:comprehension_test_vocabulary",
+                31,
+            ),
+            (
+                ComprehensionMode.ORALE,
+                "study:comprehension_oral_test_vocabulary",
+                32,
+            ),
+        )
+        for mode, url_name, number in cases:
+            with self.subTest(mode=mode):
+                test, phrases = self._make_comprehension_vocabulary(
+                    mode,
+                    number=number,
+                )
+                total = len(phrases)
+                self.page.set_viewport_size({"width": 1280, "height": 900})
+                self.page.goto(
+                    self.live_server_url + reverse(url_name, args=[test.slug])
+                )
+                self.page.wait_for_load_state("networkidle")
+                self.page.get_by_role("button", name="Cartes").first.click()
+                self.page.wait_for_timeout(200)
+
+                state = self._comprehension_deck_state()
+                self.assertEqual(state["total"], total, state)
+                self.assertEqual(state["visible"], 1, state)
+                self.assertEqual(state["progress"], f"1 / {total}", state)
+                self.assertTrue(state["previousDisabled"], state)
+                self.assertFalse(state["nextDisabled"], state)
+                self.assertTrue(state["front"], state)
+                self.assertFalse(state["back"], state)
+                self.assertEqual(state["faceLabel"], "Recto", state)
+                self.assertIn(phrases[0].expression, state["text"])
+                self.assertIn("Mots-clés", state["text"])
+                self.assertNotIn(phrases[0].english_cue, state["text"])
+                self.assertGreaterEqual(state["chromeVisible"], 3, state)
+                self.assertLessEqual(state["width"], 820)
+
+                flip = self.page.locator(
+                    "[data-comprehension-vocabulary-deck] [data-flashcard-flip]"
+                )
+                flip.click()
+                state = self._comprehension_deck_state()
+                self.assertFalse(state["front"], state)
+                self.assertTrue(state["back"], state)
+                self.assertEqual(state["faceLabel"], "Verso", state)
+                self.assertIn(phrases[0].english_cue, state["text"])
+                self.assertIn(test.title, state["text"])
+
+                # Verso first swaps the face order without losing the card.
+                self.page.get_by_role("button", name="Verso", exact=True).click()
+                state = self._comprehension_deck_state()
+                self.assertTrue(state["back"], state)
+                self.assertFalse(state["front"], state)
+                self.assertEqual(state["progress"], f"1 / {total}", state)
+                flip.click()
+                state = self._comprehension_deck_state()
+                self.assertTrue(state["front"], state)
+                self.page.get_by_role(
+                    "button", name="Recto", exact=True
+                ).click()
+
+                self.page.locator(
+                    "[data-comprehension-vocabulary-deck] "
+                    "[data-flashcard-next]"
+                ).click()
+                state = self._comprehension_deck_state()
+                self.assertEqual(state["progress"], f"2 / {total}", state)
+                self.assertEqual(state["visible"], 1, state)
+                self.assertTrue(state["front"], state)
+                self.assertIn(phrases[1].expression, state["text"])
+                self.assertFalse(state["previousDisabled"], state)
+
+                self.page.locator(
+                    "[data-comprehension-vocabulary-deck] "
+                    "[data-flashcard-previous]"
+                ).click()
+                self.assertEqual(
+                    self._comprehension_deck_state()["progress"],
+                    f"1 / {total}",
+                )
+
+                self.page.keyboard.press("ArrowRight")
+                self.assertEqual(
+                    self._comprehension_deck_state()["progress"],
+                    f"2 / {total}",
+                )
+                self.page.keyboard.press("ArrowLeft")
+                self.assertEqual(
+                    self._comprehension_deck_state()["progress"],
+                    f"1 / {total}",
+                )
+
+                # A left swipe advances, a right swipe steps back.
+                self._swipe_active_comprehension_card(-140)
+                self.assertEqual(
+                    self._comprehension_deck_state()["progress"],
+                    f"2 / {total}",
+                )
+                self._swipe_active_comprehension_card(140)
+                state = self._comprehension_deck_state()
+                self.assertEqual(state["progress"], f"1 / {total}", state)
+                self.assertAlmostEqual(
+                    float(state["fill"].rstrip("%")),
+                    100 / total,
+                    places=2,
+                )
+
+                read_aloud = self.page.locator(
+                    ".comprehension-vocabulary-phrase:not("
+                    ".comprehension-vocabulary-phrase--inactive) "
+                    "[data-read-aloud]"
+                )
+                self.assertTrue(read_aloud.is_visible())
+                self.assertTrue(read_aloud.is_enabled())
+                self.page.evaluate(
+                    """
+                    () => {
+                      window.__comprehensionSpoken = [];
+                      window.speechSynthesis.cancel = () => {};
+                      window.speechSynthesis.resume = () => {};
+                      window.speechSynthesis.speak = utterance => {
+                        window.__comprehensionSpoken.push(utterance.text);
+                      };
+                    }
+                    """
+                )
+                read_aloud.click()
+                self.page.wait_for_function(
+                    "() => window.__comprehensionSpoken.length > 0"
+                )
+                self.assertIn(
+                    phrases[0].expression,
+                    self.page.evaluate(
+                        "window.__comprehensionSpoken.join(' ')"
+                    ),
+                )
+                read_aloud.click()
+
+                # Recall blur keeps working inside the card.
+                french_recall = self.page.locator(
+                    '[data-recall-controls="vocabulary-recall-catalog"] '
+                    '[data-recall-column="french"]'
+                )
+                french_cell = self.page.locator(
+                    ".comprehension-vocabulary-phrase:not("
+                    ".comprehension-vocabulary-phrase--inactive) "
+                    '[data-recall-cell="french"]'
+                )
+                french_content = french_cell.locator("[data-recall-content]")
+                french_recall.click()
+                self.assertEqual(
+                    french_cell.get_attribute("aria-pressed"), "false"
+                )
+                self.assertNotEqual(
+                    french_content.evaluate(
+                        "element => getComputedStyle(element).filter"
+                    ),
+                    "none",
+                )
+                french_cell.click()
+                self.assertEqual(
+                    french_cell.get_attribute("aria-pressed"), "true"
+                )
+                self.assertEqual(
+                    french_content.evaluate(
+                        "element => getComputedStyle(element).filter"
+                    ),
+                    "none",
+                )
+                self.assertEqual(
+                    self._comprehension_deck_state()["progress"],
+                    f"1 / {total}",
+                )
+                french_recall.click()
+
+                self.assert_no_horizontal_overflow()
+
+                # Table view returns every row, with every column intact.
+                self.page.get_by_role("button", name="Tableau").first.click()
+                self.page.wait_for_timeout(200)
+                table = self.page.evaluate(
+                    """
+                    () => {
+                      const rows = [...document.querySelectorAll(
+                        '[data-comprehension-vocabulary-phrase]'
+                      )];
+                      const visible = rows.filter(row => (
+                        getComputedStyle(row).display !== 'none'
+                        && row.getClientRects().length
+                      ));
+                      const chrome = [...document.querySelectorAll(
+                        '.comprehension-vocabulary-flashcard-only'
+                      )].filter(node => (
+                        getComputedStyle(node).display !== 'none'
+                        && node.getClientRects().length
+                      ));
+                      const cellText = selector => visible.map(row => (
+                        (row.querySelector(selector) || {}).textContent || ''
+                      ).trim());
+                      const stage = document.querySelector(
+                        '.comprehension-vocabulary-stage'
+                      );
+                      return {
+                        visible: visible.length,
+                        chromeVisible: chrome.length,
+                        expressions: cellText('.phrase__expr'),
+                        cues: cellText('.phrase__cue'),
+                        examples: cellText('.phrase__ex'),
+                        links: visible.map(row => row.querySelectorAll(
+                          '.phrase__foot a'
+                        ).length),
+                        headers: [...document.querySelectorAll(
+                          '.comprehension-vocabulary-group '
+                          + '[data-collection-table-header]'
+                        )].filter(node => (
+                          getComputedStyle(node).display !== 'none'
+                        )).length,
+                        stageWidth: Math.round(
+                          stage.getBoundingClientRect().width
+                        ),
+                        rowWidth: Math.round(
+                          visible[0].getBoundingClientRect().width
+                        ),
+                      };
+                    }
+                    """
+                )
+                self.assertEqual(table["visible"], total, table)
+                self.assertEqual(table["chromeVisible"], 0, table)
+                self.assertEqual(table["headers"], 2, table)
+                self.assertGreater(table["stageWidth"], 820, table)
+                self.assertGreater(table["rowWidth"], 820, table)
+                for index, phrase in enumerate(phrases):
+                    self.assertIn(phrase.expression, table["expressions"][index])
+                    self.assertIn(phrase.english_cue, table["cues"][index])
+                    self.assertTrue(table["examples"][index], table)
+                    self.assertGreaterEqual(table["links"][index], 1, table)
+                self.assert_no_horizontal_overflow()
+
+                # Returning to cards keeps a single valid active card.
+                self.page.get_by_role("button", name="Cartes").first.click()
+                self.page.wait_for_timeout(200)
+                state = self._comprehension_deck_state()
+                self.assertEqual(state["visible"], 1, state)
+                self.assertEqual(state["progress"], f"1 / {total}", state)
+                self.assertTrue(state["front"], state)
+
+                self.page.set_viewport_size({"width": 320, "height": 700})
+                self.page.wait_for_timeout(150)
+                state = self._comprehension_deck_state()
+                self.assertEqual(state["visible"], 1, state)
+                self.assertLessEqual(state["width"], 320)
+                self.assertTrue(
+                    self.page.locator(
+                        "[data-comprehension-vocabulary-deck] "
+                        "[data-flashcard-previous]"
+                    ).is_visible()
+                )
+                self.assertTrue(
+                    self.page.locator(
+                        "[data-comprehension-vocabulary-deck] "
+                        "[data-flashcard-next]"
+                    ).is_visible()
+                )
+                self.assert_no_horizontal_overflow()
+                self.page.set_viewport_size({"width": 1280, "height": 900})
+
+    def test_comprehension_vocabulary_directory_has_no_direct_deck(self):
+        test, _ = self._make_comprehension_vocabulary(
+            ComprehensionMode.ECRITE,
+            number=33,
+        )
+        self.page.set_viewport_size({"width": 1280, "height": 900})
+        self.page.goto(
+            self.live_server_url + reverse("study:comprehension_vocabulary")
+        )
+        self.page.wait_for_load_state("networkidle")
+
+        self.assertEqual(
+            self.page.locator("[data-comprehension-vocabulary-deck]").count(),
+            0,
+        )
+        self.assertEqual(
+            self.page.locator("[data-flashcard-deck]").count(),
+            0,
+        )
+        self.page.get_by_role(
+            "link",
+            name=f"Voir les 50 entrées de {test.title}",
+        ).click()
+        self.page.wait_for_url(
+            self.live_server_url
+            + reverse(
+                "study:comprehension_test_vocabulary",
+                args=[test.slug],
+            )
+        )
+        self.page.locator("[data-comprehension-vocabulary-deck]").wait_for()
+        self.assert_no_horizontal_overflow()
 
     def test_every_deck_follows_the_notes_flashcard_standard(self):
         for index in range(3):
@@ -6398,6 +6917,24 @@ class BrowserTests(StaticLiveServerTestCase):
             "study:tache_two_theme_vocabulary_detail",
             args=["arrivee"],
         )
+        written_test, _ = self._make_comprehension_vocabulary(
+            ComprehensionMode.ECRITE,
+            number=41,
+        )
+        oral_test, _ = self._make_comprehension_vocabulary(
+            ComprehensionMode.ORALE,
+            number=42,
+        )
+        comprehension_urls = {
+            "comprehension-written": reverse(
+                "study:comprehension_test_vocabulary",
+                args=[written_test.slug],
+            ),
+            "comprehension-oral": reverse(
+                "study:comprehension_oral_test_vocabulary",
+                args=[oral_test.slug],
+            ),
+        }
 
         def choose_cards():
             self.page.get_by_role("button", name="Cartes").first.click()
@@ -6420,6 +6957,10 @@ class BrowserTests(StaticLiveServerTestCase):
                     "review": review,
                     "vocabulary": vocabulary,
                 }
+                for name, url in comprehension_urls.items():
+                    decks[name] = self._deck_metrics(
+                        url, before=choose_cards
+                    )
 
                 for name, metrics in decks.items():
                     with self.subTest(deck=name):
@@ -6980,6 +7521,16 @@ class BrowserTests(StaticLiveServerTestCase):
                 '[data-question-study-map="%d"]' % first.pk
             ).get_attribute("class"),
         )
+        results_study_count = self.page.locator(
+            "[data-question-study-results-count]"
+        )
+        self.assertTrue(results_study_count.is_visible())
+        self.assertEqual(
+            results_study_count.locator(
+                "[data-question-study-results-value]"
+            ).inner_text(),
+            "1",
+        )
         review_item = self.page.locator(
             'details[data-question-study-row="%d"]' % first.pk
         )
@@ -7009,6 +7560,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 '[data-question-study-map="%d"]' % first.pk
             ).get_attribute("aria-label"),
         )
+        self.assertFalse(results_study_count.is_visible())
         self.assertFalse(
             ComprehensionQuestionStudy.objects.filter(user=self.user).exists()
         )

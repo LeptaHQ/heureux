@@ -34,6 +34,7 @@ from study.models import (
     CardState,
     CardType,
     ComprehensionAttemptStatus,
+    ComprehensionMode,
     MemoryQuestionProgress,
     PersonalResponse,
     PhraseCategory,
@@ -387,6 +388,138 @@ class SmokeTests(TestCase):
         )
         self.assertContains(detail, 'data-recall-cell="french"', count=1)
         self.assertContains(detail, 'data-recall-cell="meaning"', count=1)
+
+    def test_comprehension_vocabulary_details_use_the_flashcard_standard(self):
+        cases = (
+            (
+                "study:comprehension_test_vocabulary",
+                "study:comprehension_vocabulary",
+                ComprehensionMode.ECRITE,
+                1,
+            ),
+            (
+                "study:comprehension_oral_test_vocabulary",
+                "study:comprehension_oral_vocabulary",
+                ComprehensionMode.ORALE,
+                2,
+            ),
+        )
+        for detail_name, directory_name, mode, number in cases:
+            with self.subTest(mode=mode):
+                test = factories.make_comprehension_test(
+                    number=number,
+                    question_count=2,
+                    mode=mode,
+                )
+                questions = list(test.questions.order_by("number"))
+                phrases = []
+                for index, question in enumerate(questions):
+                    phrase = factories.make_phrase(
+                        tier="comprehension",
+                        lot_order=index + 1,
+                    )
+                    phrase.source_questions.add(question)
+                    factories.make_phrase_card(
+                        phrase=phrase,
+                        user=self.user,
+                    )
+                    phrases.append(phrase)
+
+                detail = self.client.get(reverse(detail_name, args=[test.slug]))
+
+                for hook in FLASHCARD_DECK_HOOKS:
+                    with self.subTest(hook=hook):
+                        self.assertContains(detail, hook)
+                self.assertContains(detail, "data-comprehension-vocabulary-deck")
+                self.assertContains(
+                    detail,
+                    "data-comprehension-vocabulary-phrase",
+                    count=len(phrases),
+                )
+                self.assertContains(
+                    detail,
+                    "comprehension-vocabulary-flashcard__front",
+                    count=len(phrases),
+                )
+                self.assertContains(
+                    detail,
+                    "comprehension-vocabulary-flashcard__back",
+                    count=len(phrases),
+                )
+                self.assertContains(
+                    detail,
+                    "comprehension-vocabulary-flashcard-controls",
+                )
+                self.assertContains(
+                    detail,
+                    "comprehension-vocabulary-flashcard-hint",
+                )
+                self.assertContains(
+                    detail,
+                    "js/comprehension-vocabulary-deck.js",
+                )
+                # Every entry stays in the page exactly once, and the table
+                # view keeps its columns and contextual links.
+                for phrase in phrases:
+                    self.assertContains(
+                        detail,
+                        f'id="phrase-{phrase.phrase_id}"',
+                        count=1,
+                    )
+                    self.assertContains(
+                        detail,
+                        f'lang="fr">{phrase.expression}</span>',
+                        count=1,
+                    )
+                    self.assertContains(detail, phrase.english_cue, count=1)
+                    self.assertContains(
+                        detail,
+                        phrase.example_html,
+                        count=1,
+                    )
+                self.assertContains(
+                    detail,
+                    'data-collection-view="adaptive"',
+                )
+                self.assertContains(detail, "collection-table--phrases")
+                self.assertContains(detail, "Exemple en contexte")
+                self.assertContains(
+                    detail,
+                    'data-recall-controls="vocabulary-recall-catalog"',
+                    count=1,
+                )
+                self.assertContains(
+                    detail,
+                    'data-recall-cell="french"',
+                    count=len(phrases),
+                )
+                self.assertContains(
+                    detail,
+                    'data-recall-cell="meaning"',
+                    count=len(phrases),
+                )
+                # Review lots and the mixed review action stay available.
+                self.assertContains(detail, "Pratiquer le lot")
+                self.assertContains(detail, "Mélanger les 50 cartes")
+                self.assertContains(detail, "review-batches")
+                for question in questions:
+                    self.assertContains(
+                        detail,
+                        f"Q{question.number}",
+                    )
+
+                directory = self.client.get(reverse(directory_name))
+
+                self.assertNotContains(
+                    directory,
+                    "data-comprehension-vocabulary-deck",
+                )
+                self.assertNotContains(directory, "data-flashcard-deck")
+                self.assertNotContains(
+                    directory,
+                    "js/comprehension-vocabulary-deck.js",
+                )
+                self.assertContains(directory, test.title)
 
     def test_removed_legacy_paths_return_404(self):
         legacy_paths = (

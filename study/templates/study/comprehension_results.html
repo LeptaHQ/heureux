@@ -65,8 +65,19 @@
   </header>
 
   <section class="ce-results-map" aria-labelledby="ce-results-map-title">
-    <div>
-      <h2 id="ce-results-map-title">Réponses</h2>
+    <div class="ce-results-map__head">
+      <div>
+        <p class="eyebrow">Vue d’ensemble</p>
+        <h2 id="ce-results-map-title">Réponses</h2>
+      </div>
+      <div class="ce-results-map__legend" aria-label="Résumé des réponses">
+        <span class="is-correct"><b>{{ attempt.score }}</b> correcte{{ attempt.score|pluralize }}</span>
+        <span class="is-wrong"><b>{{ wrong_count }}</b> à revoir</span>
+        <span
+          class="is-to-study{% if not study_marked_count %} hidden{% endif %}"
+          data-question-study-results-count
+        ><b data-question-study-results-value>{{ study_marked_count }}</b> à étudier</span>
+      </div>
     </div>
     <div class="ce-results-map__grid">
       {% for item in review_items %}
@@ -80,7 +91,9 @@
   <section class="ce-review-list" aria-labelledby="ce-review-title">
     <div class="ce-section-heading">
       <div>
+        <p class="eyebrow">Question par question</p>
         <h2 id="ce-review-title">Correction détaillée</h2>
+        <p>Ouvrez une question pour revoir le document, vos choix et les explications.</p>
       </div>
     </div>
 

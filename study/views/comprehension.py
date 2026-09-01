@@ -1537,6 +1537,7 @@ def comprehension_results(
             "group_number": attempt.test.group_number,
             "review_items": review_items,
             "wrong_count": attempt.total_questions - (attempt.score or 0),
+            "study_marked_count": len(marked_ids),
             "is_error_practice": (
                 isinstance(attempt.content_snapshot, dict)
                 and attempt.content_snapshot.get("practice_mode") == "errors"

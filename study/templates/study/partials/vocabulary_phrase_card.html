@@ -1,0 +1,74 @@
+{% comment %}
+One vocabulary entry in the "en contexte" catalog.
+
+With ``flashcard=True`` the entry also becomes a shared deck card: the French
+expression sits on the front face and the meaning, example, usage note and
+source links sit on the back. The table view flattens both faces back into the
+row, so every column keeps the exact same content either way.
+{% endcomment %}
+<article
+  class="phrase card{% if flashcard %} comprehension-vocabulary-phrase flashcard-deck__card{% endif %}"
+  data-collection-item
+  {% if flashcard %}data-comprehension-vocabulary-phrase data-flashcard-card{% endif %}
+  data-read-aloud-scope
+  id="phrase-{{ phrase.phrase_id }}"
+>
+  {% if flashcard %}
+    {% include "study/partials/flashcard_meta.html" with read_aloud=True read_key=phrase.phrase_id read_label="Lire cette fiche" only %}
+    <div
+      class="flashcard-deck__face comprehension-vocabulary-flashcard__face comprehension-vocabulary-flashcard__front"
+      data-flashcard-front
+    >
+      {% if category_label %}
+        <span class="comprehension-vocabulary-flashcard__category">{{ category_label }}</span>
+      {% endif %}
+  {% endif %}
+      <div class="phrase__expr">
+        <span
+          data-recall-cell="french"
+          data-recall-entry="vocabulary-french-{{ phrase.phrase_id }}"
+          {% if flashcard %}data-flashcard-ignore-toggle{% endif %}
+        ><span data-recall-content data-read-aloud-text lang="fr">{{ phrase.expression }}</span></span>
+        {% if not flashcard %}
+          {% include "study/partials/read_aloud_button.html" with key=phrase.phrase_id label="Lire le français" extra_class="phrase-read-aloud" compact="true" only %}
+        {% endif %}
+      </div>
+  {% if flashcard %}
+    </div>
+    <div
+      class="flashcard-deck__face comprehension-vocabulary-flashcard__face comprehension-vocabulary-flashcard__back hidden"
+      data-flashcard-back
+    >
+  {% endif %}
+      <div
+        class="phrase__cue"
+        data-recall-cell="meaning"
+        data-recall-entry="vocabulary-meaning-{{ phrase.phrase_id }}"
+        {% if flashcard %}data-flashcard-ignore-toggle{% endif %}
+      ><span data-recall-content>{{ phrase.english_cue }}</span></div>
+      <p class="phrase__ex" data-read-aloud-text lang="fr">{{ phrase.example_html|safe }}</p>
+      {% if phrase.note %}<p class="phrase__note">{{ phrase.note }}</p>{% endif %}
+      {% with prompts=phrase.source_prompts.all %}
+        {% if prompts %}
+          <div class="phrase__foot">
+            <span class="faint">Tiré de&nbsp;:</span>
+            {% for source in prompts|slice:":10" %}
+              <a class="chip chip--theme" style="--chip: {{ source.theme.color }};" href="{% url 'study:response_detail' source.theme.task.part.slug source.theme.task.slug source.pk %}">{% include "study/partials/ui_icon.html" with name=source.theme.icon only %} P{{ source.number }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+      {% with questions=phrase.source_questions.all %}
+        {% if questions %}
+          <div class="phrase__foot">
+            <span class="faint">Tiré de&nbsp;:</span>
+            {% for source in questions %}
+              <a class="chip" href="{% if source.test.mode == 'orale' %}{% url 'study:comprehension_oral_question_study' source.test.slug source.number %}{% else %}{% url 'study:comprehension_question_study' source.test.slug source.number %}{% endif %}">{{ source.test.title }} · Q{{ source.number }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+  {% if flashcard %}
+    </div>
+  {% endif %}
+</article>

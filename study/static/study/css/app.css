@@ -4996,6 +4996,13 @@ html[data-collection-view-mode="table"]
   margin: 0 0 0.45rem;
   font-size: 1.05rem;
 }
+.annotation-card__subtitle {
+  margin: -0.1rem 0 0.55rem;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
 .annotation-card blockquote {
   margin: 0.35rem 0 0.65rem;
   padding: 0.65rem 0.75rem;

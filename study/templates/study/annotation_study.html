@@ -52,7 +52,7 @@
           {% if item.kind == "highlight" %}
             <h2>Quel passage avez-vous retenu&nbsp;?</h2>
           {% elif item.quote %}
-            <blockquote class="annotation-study__prompt" data-read-aloud-text lang="fr">{{ item.quote }}</blockquote>
+            <h2 data-read-aloud-text lang="fr">{{ item.quote }}</h2>
           {% elif item.title %}
             <h2 data-read-aloud-text lang="fr">{{ item.title }}</h2>
           {% else %}

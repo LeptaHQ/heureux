@@ -172,6 +172,7 @@ class AnnotationTests(TestCase):
             user=self.user,
             task=self.task,
             kind=AnnotationKind.NOTE,
+            title="Titre personnel",
             body="Note de la semaine dernière.",
         )
         Annotation.objects.filter(pk=older.pk).update(
@@ -230,6 +231,27 @@ class AnnotationTests(TestCase):
                 f'data-annotation-edit-source="{note.id}"',
                 count=1,
             )
+
+        # Selection-backed notes use their immutable passage as the same primary
+        # heading a personal note gets; only an optional user title is secondary.
+        self.assertContains(
+            response,
+            'class="annotation-card__title '
+            'annotation-card__title--selection"',
+            count=3,
+        )
+        self.assertContains(
+            response,
+            'class="annotation-card__subtitle"',
+            count=3,
+        )
+        self.assertContains(
+            response,
+            'class="annotation-card__title '
+            'annotation-card__title--personal"',
+            count=1,
+        )
+        self.assertNotContains(response, "<blockquote")
 
         # One node covers both view modes, so nothing is hidden behind a
         # per-mode panel any more.

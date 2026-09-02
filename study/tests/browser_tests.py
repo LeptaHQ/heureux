@@ -4867,6 +4867,15 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertTrue(controls.is_visible())
         self.assertTrue(french_button.is_visible())
         self.assertTrue(english_button.is_visible())
+        self.assertEqual(
+            card.locator("h3.annotation-card__title").inner_text(),
+            "Passage capturé en français.",
+        )
+        self.assertEqual(
+            card.locator(".annotation-card__subtitle").inner_text(),
+            "Titre facultatif",
+        )
+        self.assertEqual(card.locator("blockquote").count(), 0)
         self.assertEqual(french_cells.count(), 2)
 
         french_button.click()

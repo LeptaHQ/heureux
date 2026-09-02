@@ -241,12 +241,62 @@ def _tache_two_progress_by_content_key(user, months):
     return progress_by_content_key, response_id_by_content_key
 
 
+def _group_related_tache_two_subjects(subjects, related_group_by_key):
+    """Keep exact aliases and editorially related variants beside each other."""
+    response_sizes = {}
+    for subject in subjects:
+        response_id = subject["response_id"]
+        if response_id is not None:
+            response_sizes[response_id] = response_sizes.get(response_id, 0) + 1
+
+    clusters = {}
+    cluster_order = {}
+    for original_index, subject in enumerate(subjects):
+        related_group = related_group_by_key.get(subject["content_key"])
+        if related_group is not None:
+            cluster_key = ("related", related_group.id)
+        elif response_sizes.get(subject["response_id"], 0) > 1:
+            cluster_key = ("response", subject["response_id"])
+        else:
+            cluster_key = ("subject", subject["content_key"])
+        cluster_order.setdefault(cluster_key, original_index)
+        clusters.setdefault(cluster_key, []).append(subject)
+
+    grouped = []
+    for cluster_key in sorted(clusters, key=cluster_order.__getitem__):
+        cluster_subjects = clusters[cluster_key]
+        if cluster_key[0] == "related":
+            related_group = related_group_by_key[
+                cluster_subjects[0]["content_key"]
+            ]
+            size = len(cluster_subjects)
+            for position, subject in enumerate(cluster_subjects, start=1):
+                subject["related_group"] = {
+                    "id": related_group.id,
+                    "label": related_group.label,
+                    "kind": related_group.kind,
+                    "position": position,
+                    "size": size,
+                }
+        grouped.extend(cluster_subjects)
+    return grouped
+
+
 def _tache_two_theme_progress(user, months=None):
     """Group Tâche 2 subjects by theme with per-subject progress."""
     if months is None:
         months = content_module.load_tache_two_subject_months()
     months = tuple(months)
     themes, mapping = content_module.load_tache_two_subject_themes()
+    related_groups = content_module.load_tache_two_related_groups(
+        months=months
+    )
+    related_group_by_key = {
+        member: group
+        for group in related_groups
+        for member in group.members
+    }
+    grouped_theme_slugs = {group.theme for group in related_groups}
     progress_by_content_key, response_id_by_content_key = (
         _tache_two_progress_by_content_key(user, months)
     )
@@ -298,6 +348,12 @@ def _tache_two_theme_progress(user, months=None):
     theme_rows = []
     for theme in sorted(themes, key=lambda item: item.order):
         subjects = subjects_by_theme[theme.slug]
+        if theme.slug in grouped_theme_slugs:
+            subjects = _group_related_tache_two_subjects(
+                subjects,
+                related_group_by_key,
+            )
+
         for index, subject in enumerate(subjects, start=1):
             subject["index"] = index
         theme_summary = summarize_subject_progress(

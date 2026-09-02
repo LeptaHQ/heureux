@@ -1700,6 +1700,167 @@ class BrowserTests(StaticLiveServerTestCase):
             second_group.locator("[data-t1-table-subject]").first.is_visible()
         )
 
+        first_table = first_group.locator("[data-nested-sort-table]")
+        first_rows = first_table.locator("[data-nested-sort-row]")
+        second_titles_before = second_group.locator(
+            "[data-nested-sort-row] .subject-table-row-link"
+        ).all_inner_texts()
+        subject_sort = first_table.locator(
+            '[data-nested-table-sort="subject"]'
+        )
+        original_titles = first_rows.locator(
+            ".subject-table-row-link"
+        ).all_inner_texts()
+        subject_sort.click()
+        expected_titles = self.page.evaluate(
+            """
+            values => values.slice().sort(
+              new Intl.Collator("fr", {
+                sensitivity: "base",
+                numeric: true,
+              }).compare
+            )
+            """,
+            original_titles,
+        )
+        self.assertEqual(
+            first_rows.locator(".subject-table-row-link").all_inner_texts(),
+            expected_titles,
+        )
+        self.assertEqual(
+            subject_sort.locator("xpath=..").get_attribute("aria-sort"),
+            "ascending",
+        )
+        subject_sort.click()
+        expected_titles_desc = self.page.evaluate(
+            """
+            values => {
+              const collator = new Intl.Collator("fr", {
+                sensitivity: "base",
+                numeric: true,
+              });
+              return values.slice().sort((left, right) =>
+                -collator.compare(left, right)
+              );
+            }
+            """,
+            original_titles,
+        )
+        self.assertEqual(
+            first_rows.locator(".subject-table-row-link").all_inner_texts(),
+            expected_titles_desc,
+        )
+
+        first_rows.evaluate_all(
+            """
+            rows => rows.forEach(row => {
+              const status = row.querySelector(
+                "[data-subject-progress-status]"
+              );
+              status.classList.remove(
+                "progress-status--done",
+                "progress-status--active"
+              );
+              status.classList.add("progress-status--new");
+            })
+            """
+        )
+        progress_target = first_rows.nth(2)
+        progress_target.evaluate(
+            """
+            row => {
+              row.dataset.sortTestTarget = "true";
+              const status = row.querySelector(
+                "[data-subject-progress-status]"
+              );
+              status.classList.remove("progress-status--new");
+              status.classList.add("progress-status--done");
+            }
+            """
+        )
+        progress_sort = first_table.locator(
+            '[data-nested-table-sort="progress"]'
+        )
+        progress_sort.click()
+        self.assertEqual(
+            first_rows.first.get_attribute("data-sort-test-target"),
+            "true",
+        )
+        self.assertEqual(
+            progress_sort.locator("xpath=..").get_attribute("aria-sort"),
+            "descending",
+        )
+        progress_sort.click()
+        self.assertEqual(
+            first_rows.last.get_attribute("data-sort-test-target"),
+            "true",
+        )
+        self.assertEqual(
+            second_group.locator(
+                "[data-nested-sort-row] .subject-table-row-link"
+            ).all_inner_texts(),
+            second_titles_before,
+        )
+
+        neighborhood_group = groups.filter(
+            has_text="Vie de quartier & entraide"
+        )
+        neighborhood_group.locator("summary").click()
+        childcare_rows = neighborhood_group.locator(
+            '[data-related-subject-group="vq-garde-enfant-proche"]'
+            "[data-nested-sort-row]"
+        )
+        self.assertEqual(childcare_rows.count(), 6)
+        childcare_indexes = childcare_rows.evaluate_all(
+            """
+            rows => rows.map(row =>
+              Array.from(row.parentElement.children).indexOf(row)
+            )
+            """
+        )
+        self.assertEqual(
+            childcare_indexes,
+            list(
+                range(
+                    childcare_indexes[0],
+                    childcare_indexes[0] + len(childcare_indexes),
+                )
+            ),
+        )
+        self.assertEqual(
+            childcare_rows.locator(".t1-table__related-group").count(),
+            6,
+        )
+        neighborhood_table = neighborhood_group.locator(
+            "[data-nested-sort-table]"
+        )
+        neighborhood_rows = neighborhood_table.locator(
+            "[data-nested-sort-row]"
+        )
+        neighborhood_titles = neighborhood_rows.locator(
+            ".subject-table-row-link"
+        ).all_inner_texts()
+        neighborhood_table.locator(
+            '[data-nested-table-sort="subject"]'
+        ).click()
+        expected_neighborhood_titles = self.page.evaluate(
+            """
+            values => values.slice().sort(
+              new Intl.Collator("fr", {
+                sensitivity: "base",
+                numeric: true,
+              }).compare
+            )
+            """,
+            neighborhood_titles,
+        )
+        self.assertEqual(
+            neighborhood_rows.locator(
+                ".subject-table-row-link"
+            ).all_inner_texts(),
+            expected_neighborhood_titles,
+        )
+
         self.page.set_viewport_size({"width": 320, "height": 700})
         table_shell = first_group.locator(".t1-table-shell")
         self.assertFalse(
@@ -1750,6 +1911,12 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertIn("○", mobile_cells["statusGlyph"])
         self.assertFalse(
             self.page.locator(".t1-table-groups__head").is_visible()
+        )
+        self.assertTrue(subject_sort.is_visible())
+        self.assertTrue(progress_sort.is_visible())
+        self.assertIn(
+            "État",
+            progress_sort.get_attribute("aria-label"),
         )
         self.assert_no_horizontal_overflow()
 

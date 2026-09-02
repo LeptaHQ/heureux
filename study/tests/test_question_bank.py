@@ -32,7 +32,9 @@ from study.content_loader import (
     load_question_bank,
     load_question_banks,
     load_comprehension_tests,
+    load_tache_two_related_groups,
     load_tache_two_subject_months,
+    load_tache_two_subject_themes,
     parse_comprehension_vocabulary,
     parse_eo_tache_three_theme_vocabulary,
     parse_tache_two_responses,
@@ -1062,6 +1064,89 @@ class QuestionBankContentTests(TestCase):
                 )
 
         self.assertIn("not its vocabulary", str(error.exception))
+
+    def test_related_groups_preserve_every_authored_response_and_deck(self):
+        groups = load_tache_two_related_groups()
+        responses = parse_tache_two_responses()
+        response_key_by_subject = tache_two_response_key_by_subject_key(
+            responses
+        )
+
+        self.assertEqual(len(groups), 28)
+        self.assertEqual(sum(len(group.members) for group in groups), 117)
+        self.assertEqual(
+            {group.theme for group in groups},
+            {
+                "arts-loisirs",
+                "ecole-etudes",
+                "fetes",
+                "sorties-spectacles",
+                "sport",
+                "transports",
+                "travail",
+                "vie-quartier",
+                "voyages",
+            },
+        )
+        self.assertEqual(len(responses), 186)
+        self.assertEqual(
+            len(parse_tache_two_subject_vocabulary(responses)),
+            5580,
+        )
+        for group in groups:
+            with self.subTest(group=group.id):
+                self.assertGreater(
+                    len(
+                        {
+                            response_key_by_subject[member]
+                            for member in group.members
+                        }
+                    ),
+                    1,
+                )
+
+        childcare = next(
+            group
+            for group in groups
+            if group.id == "vq-garde-enfant-proche"
+        )
+        self.assertIn(
+            "tache2:fevrier:batch-06:subject-26",
+            childcare.members,
+        )
+        self.assertIn(
+            "tache2:mai:batch-05:subject-25",
+            childcare.members,
+        )
+
+    def test_related_groups_reject_cross_theme_members(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "related_groups.json"
+            path.write_text(
+                json.dumps(
+                    {
+                        "version": 1,
+                        "groups": [
+                            {
+                                "id": "invalid-cross-theme",
+                                "theme": "vie-quartier",
+                                "label": "Groupe invalide",
+                                "kind": "variant",
+                                "members": [
+                                    "tache2:fevrier:batch-06:subject-26",
+                                    "tache2:fevrier:batch-01:subject-05",
+                                ],
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            with self.assertRaises(ValueError) as error:
+                load_tache_two_related_groups(path)
+
+        self.assertIn("crosses theme boundaries", str(error.exception))
 
     def test_subjects_generate_srs_responses_and_vocabulary(self):
         months = load_tache_two_subject_months()
@@ -2115,6 +2200,77 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(index, "t1-row__link", count=348)
         self.assertContains(index, "data-t1-table-theme", count=11)
         self.assertContains(index, "data-t1-table-subject", count=348)
+        self.assertContains(index, "data-nested-sort-table", count=11)
+        self.assertContains(
+            index,
+            'data-nested-table-sort="subject"',
+            count=11,
+        )
+        self.assertContains(
+            index,
+            'data-nested-table-sort="progress"',
+            count=11,
+        )
+        related_member_count = sum(
+            len(group.members)
+            for group in load_tache_two_related_groups()
+        )
+        self.assertContains(
+            index,
+            "data-related-subject-group",
+            count=related_member_count * 2,
+        )
+        self.assertContains(
+            index,
+            "t1-table__related-group",
+            count=related_member_count,
+        )
+        themes_by_slug = {
+            theme["slug"]: theme
+            for theme in index.context["subject_themes"]
+        }
+        for group in load_tache_two_related_groups():
+            with self.subTest(related_group=group.id):
+                positions = [
+                    position
+                    for position, subject in enumerate(
+                        themes_by_slug[group.theme]["subjects"]
+                    )
+                    if subject["content_key"] in group.members
+                ]
+                self.assertEqual(
+                    positions,
+                    list(range(positions[0], positions[0] + len(positions))),
+                )
+
+        months = load_tache_two_subject_months()
+        _themes, subject_theme_by_key = load_tache_two_subject_themes()
+        for untouched_theme in ("arrivee", "logement"):
+            expected_order = [
+                tache_two_subject_content_key(
+                    month.slug,
+                    batch.number,
+                    subject.number,
+                )
+                for month in months
+                for batch in month.batches
+                for subject in batch.subjects
+                if subject_theme_by_key[
+                    tache_two_subject_content_key(
+                        month.slug,
+                        batch.number,
+                        subject.number,
+                    )
+                ]
+                == untouched_theme
+            ]
+            self.assertEqual(
+                [
+                    subject["content_key"]
+                    for subject in themes_by_slug[untouched_theme]["subjects"]
+                ],
+                expected_order,
+            )
         self.assertNotContains(index, 'class="t1-table__theme"')
         self.assertContains(index, subject_url)
         self.assertContains(index, february_subject_url)

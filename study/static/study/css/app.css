@@ -15854,6 +15854,12 @@ html[data-collection-view-mode="table"]
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.t1-row__subject {
+  display: grid;
+  flex: 1 1 auto;
+  gap: 0.25rem;
+  min-width: 0;
+}
 .t1-row.is-personalized { border-left: 3px solid var(--primary); }
 .t1-row.is-personalized .t1-row__link { padding-left: 2.15rem; }
 .t1-row.is-empty .t1-row__prompt { color: var(--text-soft); }
@@ -15991,6 +15997,38 @@ html[data-collection-view-mode="table"]
   background: var(--surface-soft, rgba(0, 0, 0, 0.02));
   white-space: nowrap;
 }
+.t1-table__sort-button {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  gap: 0.38rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  text-transform: inherit;
+  cursor: pointer;
+}
+.t1-table__sort-button:hover,
+.t1-table th[aria-sort]:not([aria-sort="none"]) .t1-table__sort-button {
+  color: var(--primary);
+}
+.t1-table__sort-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+.t1-table__sort-indicator {
+  min-width: 1em;
+  color: var(--primary);
+  font-size: 0.9rem;
+  line-height: 1;
+  text-align: center;
+}
+.t1-table__sort-label--compact { display: none; }
 .t1-table__versions-col { text-align: center; }
 .t1-table tbody td {
   padding: 0.68rem 0.9rem;
@@ -16019,6 +16057,25 @@ html[data-collection-view-mode="table"]
 }
 .t1-table__subject-copy .subject-table-row-link {
   min-width: 0;
+}
+.t1-row__related-group,
+.t1-table__related-group {
+  display: block;
+  width: fit-content;
+  margin-top: 0.3rem;
+  padding: 0.16rem 0.42rem;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 0.68rem;
+  font-weight: 750;
+  line-height: 1.25;
+}
+.t1-row__related-group {
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .t1-table__progress {
   display: inline-flex;
@@ -16065,6 +16122,20 @@ html[data-collection-view-mode="table"]
     content: "État";
     font-size: 0.72rem;
   }
+  .tache-two-subjects .t1-table th:nth-child(3)::after {
+    content: none;
+  }
+  .tache-two-subjects .t1-table__sort-button {
+    min-height: 44px;
+  }
+  .tache-two-subjects
+    .t1-table
+    th:nth-child(3)
+    .t1-table__sort-button {
+    font-size: 0.72rem;
+  }
+  .tache-two-subjects .t1-table__sort-label--full { display: none; }
+  .tache-two-subjects .t1-table__sort-label--compact { display: inline; }
   .tache-two-subjects .t1-table__subject {
     overflow-wrap: anywhere;
   }

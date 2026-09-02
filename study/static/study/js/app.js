@@ -320,6 +320,119 @@
     });
   })();
 
+  /* ---------- Nested subject-table sorting ---------- */
+  (function () {
+    var tables = Array.from(
+      document.querySelectorAll("[data-nested-sort-table]")
+    );
+    if (!tables.length) return;
+
+    var collator = new Intl.Collator("fr", {
+      sensitivity: "base",
+      numeric: true,
+    });
+
+    function subjectText(row) {
+      var link = row.querySelector(".subject-table-row-link");
+      return (link ? link.textContent : row.textContent).trim();
+    }
+
+    function accessibleSortLabel(button) {
+      var label = button.dataset.sortLabel;
+      if (button.dataset.sortCompactLabel) {
+        label += " (" + button.dataset.sortCompactLabel + ")";
+      }
+      return label;
+    }
+
+    function progressRank(row) {
+      var status = row.querySelector("[data-subject-progress-status]");
+      if (!status) return 0;
+      if (status.classList.contains("progress-status--done")) return 2;
+      if (status.classList.contains("progress-status--active")) return 1;
+      return 0;
+    }
+
+    function resetButton(button) {
+      delete button.dataset.sortDirection;
+      button.closest("th").setAttribute("aria-sort", "none");
+      button.querySelector(".t1-table__sort-indicator").textContent = "↕";
+      button.setAttribute(
+        "aria-label",
+        "Trier par " + accessibleSortLabel(button).toLowerCase()
+      );
+    }
+
+    tables.forEach(function (table) {
+      var body = table.tBodies[0];
+      if (!body) return;
+      var rows = Array.from(
+        body.querySelectorAll(":scope > [data-nested-sort-row]")
+      );
+      var buttons = Array.from(
+        table.querySelectorAll("[data-nested-table-sort]")
+      );
+      if (rows.length < 2 || !buttons.length) return;
+
+      var originalOrder = new Map(
+        rows.map(function (row, index) {
+          return [row, index];
+        })
+      );
+
+      buttons.forEach(function (button) {
+        resetButton(button);
+        button.addEventListener("click", function () {
+          var current = button.dataset.sortDirection;
+          var direction = current
+            ? current === "ascending"
+              ? "descending"
+              : "ascending"
+            : button.dataset.sortFirstDirection;
+          var multiplier = direction === "ascending" ? 1 : -1;
+          var key = button.dataset.nestedTableSort;
+
+          rows.sort(function (left, right) {
+            var subjectComparison = collator.compare(
+              subjectText(left),
+              subjectText(right)
+            );
+            if (key === "subject" && subjectComparison) {
+              return multiplier * subjectComparison;
+            }
+            if (key === "progress") {
+              var progressComparison =
+                progressRank(left) - progressRank(right);
+              if (progressComparison) {
+                return multiplier * progressComparison;
+              }
+              if (subjectComparison) return subjectComparison;
+            }
+            return originalOrder.get(left) - originalOrder.get(right);
+          });
+
+          buttons.forEach(resetButton);
+          button.dataset.sortDirection = direction;
+          button.closest("th").setAttribute("aria-sort", direction);
+          button.querySelector(".t1-table__sort-indicator").textContent =
+            direction === "ascending" ? "↑" : "↓";
+          button.setAttribute(
+            "aria-label",
+            accessibleSortLabel(button)
+              + " : tri "
+              + (direction === "ascending" ? "croissant" : "décroissant")
+          );
+
+          var fragment = document.createDocumentFragment();
+          rows.forEach(function (row) {
+            fragment.appendChild(row);
+          });
+          body.appendChild(fragment);
+        });
+      });
+    });
+  })();
+
   /* ---------- Tâche 2 month sections ---------- */
   (function () {
     var toggles = Array.from(

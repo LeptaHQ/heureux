@@ -43,9 +43,19 @@
             {% for subject in theme.subjects %}
             <li
               class="t1-row subject-progress-row subject-progress-row--{{ subject.progress.status }} is-status-{{ subject.progress.status }}"
+              {% if subject.related_group %}data-related-subject-group="{{ subject.related_group.id }}"{% endif %}
               data-subject-progress-row="{{ subject.response_id }}">
               <div class="t1-row__link">
-                <span class="t1-row__prompt">{{ subject.title }}</span>
+                <span class="t1-row__subject">
+                  <span class="t1-row__prompt">{{ subject.title }}</span>
+                  {% if subject.related_group %}
+                    <span class="t1-row__related-group">
+                      {{ subject.related_group.label }} ·
+                      {% if subject.related_group.kind == "equivalent" %}même scénario{% else %}variante proche{% endif %}
+                      {{ subject.related_group.position }}/{{ subject.related_group.size }}
+                    </span>
+                  {% endif %}
+                </span>
                 <span class="t1-row__meta">
                   {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="tache-two-theme-prompts" prompt_key=subject.content_key label="Copier la consigne" subject_label=subject.title label_hidden=True only %}
                   <span class="t1-row__count">{{ subject.question_count }} question{{ subject.question_count|pluralize }}</span>
@@ -89,7 +99,7 @@
               </span>
             </summary>
             <div class="t1-table-shell">
-              <table class="t1-table t1-table--grouped">
+              <table class="t1-table t1-table--grouped" data-nested-sort-table>
                 <caption class="sr-only">Sujets du thème {{ theme.name }}</caption>
                 <colgroup>
                   <col class="t1-table__subject-column">
@@ -98,9 +108,31 @@
                 </colgroup>
                 <thead>
                   <tr>
-                    <th scope="col">Sujet</th>
+                    <th scope="col" aria-sort="none">
+                      <button
+                        class="t1-table__sort-button"
+                        type="button"
+                        data-nested-table-sort="subject"
+                        data-sort-first-direction="ascending"
+                        data-sort-label="Sujet">
+                        <span>Sujet</span>
+                        <span class="t1-table__sort-indicator" aria-hidden="true">↕</span>
+                      </button>
+                    </th>
                     <th scope="col" class="t1-table__versions-col">Questions</th>
-                    <th scope="col">Progression</th>
+                    <th scope="col" aria-sort="none">
+                      <button
+                        class="t1-table__sort-button"
+                        type="button"
+                        data-nested-table-sort="progress"
+                        data-sort-first-direction="descending"
+                        data-sort-label="Progression"
+                        data-sort-compact-label="État">
+                        <span class="t1-table__sort-label--full">Progression</span>
+                        <span class="t1-table__sort-label--compact">État</span>
+                        <span class="t1-table__sort-indicator" aria-hidden="true">↕</span>
+                      </button>
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -108,6 +140,8 @@
                   <tr
                     class="t1-table__row subject-progress-row subject-table-row subject-progress-row--{{ subject.progress.status }} is-status-{{ subject.progress.status }}"
                     data-t1-table-subject
+                    data-nested-sort-row
+                    {% if subject.related_group %}data-related-subject-group="{{ subject.related_group.id }}"{% endif %}
                     data-subject-progress-row="{{ subject.response_id }}">
                     <td class="t1-table__subject">
                       <div class="t1-table__subject-copy">
@@ -119,6 +153,13 @@
                           aria-label="Ouvrir le sujet : {{ subject.title }}">{{ subject.title }}</a>
                         {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="tache-two-theme-prompts" prompt_key=subject.content_key label="Copier la consigne" subject_label=subject.title label_hidden=True only %}
                       </div>
+                      {% if subject.related_group %}
+                        <span class="t1-table__related-group">
+                          {{ subject.related_group.label }} ·
+                          {% if subject.related_group.kind == "equivalent" %}même scénario{% else %}variante proche{% endif %}
+                          {{ subject.related_group.position }}/{{ subject.related_group.size }}
+                        </span>
+                      {% endif %}
                     </td>
                     <td class="t1-table__versions t1-table__questions">{{ subject.question_count }}</td>
                     <td class="t1-table__progress-cell">

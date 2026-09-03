@@ -4,11 +4,12 @@
 {% block content %}
 <div class="page-head search-page-head">
   <p class="eyebrow">{% if task %}Recherche filtrée · {{ task.name }}{% else %}Tout le contenu{% endif %}</p>
-  <h1>Recherche</h1>
-  <p>Retrouve un sujet, une expression, un mot ou une question de compréhension.</p>
+  <h1>{% if subjects_only %}Rechercher un sujet{% else %}Recherche{% endif %}</h1>
+  <p>{% if subjects_only %}Retrouve un sujet à partir des mots de sa consigne.{% else %}Retrouve un sujet, une expression, un mot ou une question de compréhension.{% endif %}</p>
   <form class="search-form" method="get" action="{{ search_url }}">
     <label class="sr-only" for="global-search">Rechercher dans le contenu</label>
-    <input id="global-search" class="search-form__input" type="search" name="q" value="{{ query }}" placeholder="Chercher un sujet, une idée, une expression…" autofocus>
+    <input id="global-search" class="search-form__input" type="search" name="q" value="{{ query }}" placeholder="{% if subjects_only %}Rechercher des mots dans les sujets…{% else %}Chercher un sujet, une idée, une expression…{% endif %}" autofocus>
+    {% if subjects_only %}<input type="hidden" name="scope" value="subjects">{% endif %}
     <button class="btn btn--primary btn--icon" type="submit" aria-label="Chercher" title="Chercher">
       <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
     </button>
@@ -27,8 +28,8 @@
     {% include "study/partials/collection_view_toggle.html" %}
   {% endif %}
 
-  {% if prompt_results %}
-    <h2 class="search-section-heading">Sujets &amp; réponses <span>{{ prompt_result_count }}</span></h2>
+  {% if prompt_results or writing_sujet_results %}
+    <h2 class="search-section-heading">{% if subjects_only %}Sujets{% else %}Sujets &amp; réponses{% endif %} <span>{{ subject_result_count }}</span></h2>
     <div class="qlist collection-table collection-table--subjects" data-collection-view="adaptive">
       {% include "study/partials/collection_table_header.html" with variant="subjects" column_1="Repère" column_2="Résultat" column_3="Contexte" only %}
       {% for prompt in prompt_results %}
@@ -49,6 +50,28 @@
             class="subject-row-hit-area"
             href="{% url 'study:response_detail' prompt.theme.task.part.slug prompt.theme.task.slug prompt.pk %}"
             aria-label="Ouvrir le sujet : {{ prompt.text }}">
+            <span class="sr-only">Ouvrir le sujet</span>
+          </a>
+        </article>
+      {% endfor %}
+      {% for sujet in writing_sujet_results %}
+        <article
+          class="qrow subject-progress-row writing-sujet-progress-row writing-sujet-progress-row--{{ sujet.subject_progress.status }}"
+          data-collection-item
+          data-writing-sujet-progress-row="{{ sujet.pk }}">
+          <span class="qrow__num qrow__num--tag"><span class="chip">{{ sujet.category_label }}</span></span>
+          <span class="qrow__text">{{ sujet.prompt }}</span>
+          <span class="qrow__meta">
+            <span class="muted">{{ sujet.task.part.short_name }} · {{ sujet.task.name }}</span>
+            <span
+              class="progress-status progress-status--{{ sujet.subject_progress.status }}"
+              data-writing-sujet-progress-status="{{ sujet.pk }}">{{ sujet.subject_progress.label }}</span>
+            {% include "study/partials/writing_sujet_completion_form.html" with sujet=sujet completed=sujet.subject_progress.explicitly_completed subject_label=sujet.prompt part=sujet.task.part task=sujet.task refresh=True %}
+          </span>
+          <a
+            class="subject-row-hit-area"
+            href="{% url 'study:writing_sujet_detail' sujet.task.part.slug sujet.task.slug sujet.pk %}"
+            aria-label="Ouvrir le sujet : {{ sujet.prompt }}">
             <span class="sr-only">Ouvrir le sujet</span>
           </a>
         </article>
@@ -109,7 +132,11 @@
   {% endif %}
 {% else %}
   <div class="empty">
-    <p>Tapez un mot-clé pour chercher dans {{ prompt_total }} sujets et {{ phrase_total }} expressions.</p>
+    {% if subjects_only %}
+      <p>Tapez un mot-clé pour chercher dans {{ prompt_total }} sujets.</p>
+    {% else %}
+      <p>Tapez un mot-clé pour chercher dans {{ prompt_total }} sujets et {{ phrase_total }} expressions.</p>
+    {% endif %}
   </div>
 {% endif %}
 {% endblock %}

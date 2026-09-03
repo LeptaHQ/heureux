@@ -7715,6 +7715,10 @@ a.qrow:focus-visible {
 .grid--phrases { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 .phrase-group { margin-bottom: 1.8rem; }
 .search-form { display: flex; gap: 0.6rem; margin-top: 0.9rem; }
+.subject-directory-search {
+  width: min(100%, 46rem);
+  margin: 1rem 0 1.4rem;
+}
 .search-form__input {
   flex: 1;
   min-width: 0;

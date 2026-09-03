@@ -213,6 +213,22 @@ class WritingSujetViewTests(TestCase):
             self.assertContains(page, "Invitez Cédric au château.")
             self.assertContains(page, "À rédiger")
 
+    def test_subject_directory_search_finds_writing_prompts(self):
+        directory = self.client.get(
+            reverse("study:task_browse", args=["ee", "tache-1"])
+        )
+        results = self.client.get(
+            reverse("study:task_search", args=["ee", "tache-1"]),
+            {"q": "château", "scope": "subjects"},
+        )
+
+        self.assertContains(directory, "data-subject-directory-search")
+        self.assertEqual(results.context["writing_sujet_result_count"], 1)
+        self.assertEqual(results.context["result_count"], 1)
+        self.assertContains(results, self.multi.prompt)
+        self.assertContains(results, self._detail_url(self.multi))
+        self.assertNotContains(results, self.single.prompt)
+
     def test_table_groups_subjects_by_theme(self):
         page = self.client.get(
             reverse("study:task_browse", args=["ee", "tache-1"])

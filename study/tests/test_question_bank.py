@@ -2202,6 +2202,7 @@ class QuestionBankViewTests(TestCase):
         self.assertEqual(index.context["subject_count"], 348)
         self.assertEqual(index.context["question_count"], 5172)
         self.assertEqual(len(index.context["subject_prompt_map"]), 348)
+        self.assertContains(index, "data-subject-directory-search")
         self.assertContains(
             index,
             'data-prompt-copy-source="tache-two-theme-prompts"',

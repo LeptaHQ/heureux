@@ -4108,17 +4108,21 @@ def search(request, part_slug=None, task_slug=None):
         else None
     )
     query = request.GET.get("q", "").strip()
+    subjects_only = request.GET.get("scope") == "subjects"
     prompt_results = []
+    writing_sujet_results = []
     phrase_results = []
     comprehension_results = []
     prompt_result_count = 0
+    writing_sujet_result_count = 0
     phrase_result_count = 0
     comprehension_result_count = 0
     result_limit = 12
     if query:
-        prompt_qs = Prompt.objects.filter(is_active=True).filter(
-            Q(text__icontains=query) | Q(response__body__icontains=query)
-        )
+        prompt_query = Q(text__icontains=query)
+        if not subjects_only:
+            prompt_query |= Q(response__body__icontains=query)
+        prompt_qs = Prompt.objects.filter(is_active=True).filter(prompt_query)
         phrase_qs = Phrase.objects.filter(
             Q(is_active=True),
             Q(expression__icontains=query)
@@ -4132,7 +4136,8 @@ def search(request, part_slug=None, task_slug=None):
                 source_prompts__theme__task=task
             ).distinct()
         prompt_result_count = prompt_qs.count()
-        phrase_result_count = _distinct_count(phrase_qs)
+        if not subjects_only:
+            phrase_result_count = _distinct_count(phrase_qs)
         prompt_results = list(
             prompt_qs
             .select_related("response", "theme__task__part", "family")
@@ -4144,12 +4149,33 @@ def search(request, part_slug=None, task_slug=None):
         )
         for prompt in prompt_results:
             prompt.subject_progress = prompt_progress[prompt.response_id]
-        phrase_results = list(
-            phrase_qs
-            .select_related("category")
-            .order_by("order")[:result_limit]
-        )
-        if not task:
+        if subjects_only:
+            writing_sujet_qs = WritingSujet.objects.filter(
+                is_active=True,
+                prompt__icontains=query,
+            )
+            if task:
+                writing_sujet_qs = writing_sujet_qs.filter(task=task)
+            writing_sujet_result_count = writing_sujet_qs.count()
+            writing_sujet_results = list(
+                writing_sujet_qs.select_related("task__part").order_by(
+                    "order",
+                    "id",
+                )[:result_limit]
+            )
+            writing_progress = writing_sujet_progress_by_id(
+                request.user,
+                (sujet.pk for sujet in writing_sujet_results),
+            )
+            for sujet in writing_sujet_results:
+                sujet.subject_progress = writing_progress[sujet.pk]
+        else:
+            phrase_results = list(
+                phrase_qs
+                .select_related("category")
+                .order_by("order")[:result_limit]
+            )
+        if not task and not subjects_only:
             comprehension_qs = (
                 ComprehensionQuestion.objects.filter(
                     test__is_active=True,
@@ -4172,16 +4198,27 @@ def search(request, part_slug=None, task_slug=None):
             comprehension_results = list(
                 comprehension_qs[:result_limit]
             )
+    subject_result_count = prompt_result_count + writing_sujet_result_count
     result_count = (
-        prompt_result_count
+        subject_result_count
         + phrase_result_count
         + comprehension_result_count
     )
     visible_result_count = (
         len(prompt_results)
+        + len(writing_sujet_results)
         + len(phrase_results)
         + len(comprehension_results)
     )
+    prompt_total_qs = Prompt.objects.filter(is_active=True)
+    if task:
+        prompt_total_qs = prompt_total_qs.filter(theme__task=task)
+    prompt_total = prompt_total_qs.count()
+    if subjects_only:
+        writing_sujet_total_qs = WritingSujet.objects.filter(is_active=True)
+        if task:
+            writing_sujet_total_qs = writing_sujet_total_qs.filter(task=task)
+        prompt_total += writing_sujet_total_qs.count()
     return render(
         request,
         "study/search.html",
@@ -4190,23 +4227,20 @@ def search(request, part_slug=None, task_slug=None):
             "task": task,
             "search_url": request.path,
             "query": query,
+            "subjects_only": subjects_only,
             "prompt_results": prompt_results,
+            "writing_sujet_results": writing_sujet_results,
             "phrase_results": phrase_results,
             "comprehension_results": comprehension_results,
             "prompt_result_count": prompt_result_count,
+            "writing_sujet_result_count": writing_sujet_result_count,
+            "subject_result_count": subject_result_count,
             "phrase_result_count": phrase_result_count,
             "comprehension_result_count": comprehension_result_count,
             "result_count": result_count,
             "visible_result_count": visible_result_count,
             "results_truncated": result_count > visible_result_count,
-            "prompt_total": (
-                Prompt.objects.filter(
-                    theme__task=task,
-                    is_active=True,
-                ).count()
-                if task
-                else Prompt.objects.filter(is_active=True).count()
-            ),
+            "prompt_total": prompt_total,
             "phrase_total": (
                 _task_phrases(task).count()
                 if task

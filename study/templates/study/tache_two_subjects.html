@@ -20,6 +20,8 @@
     </dl>
   </header>
 
+  {% include "study/partials/subject_directory_search.html" %}
+
   {% if subject_themes %}
     <div class="tache-two-directory-toolbar">
       {% include "study/partials/tache_two_progress.html" with summary=subject_summary unit_label="sujets terminés" only %}

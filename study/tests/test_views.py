@@ -1133,6 +1133,7 @@ class EeTacheThreePageTests(TestCase):
         self.assertContains(response, "data-collection-view-toggle")
         self.assertContains(response, "thèmes restent repliables")
         self.assertContains(response, "publications liées")
+        self.assertContains(response, "data-subject-directory-search")
 
     def test_theme_page_is_a_focused_subject_directory(self):
         prompt = self._first_prompt()
@@ -1457,6 +1458,32 @@ class TaskOrganizationTests(TestCase):
         )
         self.assertContains(own, 'data-recall-cell="french"', count=1)
         self.assertContains(own, 'data-recall-cell="meaning"', count=1)
+
+    def test_subject_directory_searches_prompt_text_only(self):
+        prompt = self.response_card.response.prompts.get(is_canonical=True)
+        prompt.text = "Faut-il protéger le patrimoine local ?"
+        prompt.save(update_fields=["text"])
+
+        directory = self.client.get(self._task_url("study:task_browse"))
+        matches = self.client.get(
+            self._task_url("study:task_search"),
+            {"q": "patrimoine", "scope": "subjects"},
+        )
+        phrase_only = self.client.get(
+            self._task_url("study:task_search"),
+            {"q": "oral-task-only", "scope": "subjects"},
+        )
+
+        self.assertContains(directory, "data-subject-directory-search")
+        self.assertContains(directory, 'name="scope" value="subjects"')
+        self.assertEqual(matches.context["subject_result_count"], 1)
+        self.assertContains(matches, prompt.text)
+        self.assertContains(matches, 'name="scope" value="subjects"')
+        self.assertEqual(phrase_only.context["result_count"], 0)
+        self.assertNotContains(
+            phrase_only,
+            'data-recall-controls="search-vocabulary-recall-catalog"',
+        )
 
     def test_search_summarizes_broad_matches_instead_of_rendering_a_wall(self):
         prompt = self.response_card.response.prompts.get(is_canonical=True)

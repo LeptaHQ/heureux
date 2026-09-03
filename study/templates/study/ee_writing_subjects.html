@@ -35,6 +35,8 @@
     </dl>
   </header>
 
+  {% include "study/partials/subject_directory_search.html" %}
+
   <div class="tache-two-directory-toolbar">
     {% include "study/partials/tache_two_progress.html" with summary=subject_progress unit_label="sujets terminés" only %}
     {% include "study/partials/collection_view_toggle.html" %}

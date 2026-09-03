@@ -8,6 +8,8 @@
   <p>{{ prompt_count }} sujets · {{ response_count }} réponses uniques · {{ theme_count }} thèmes.</p>
 </div>
 
+{% include "study/partials/subject_directory_search.html" %}
+
 {% if not task_locked %}
 {% include "study/partials/scope_filter.html" %}
 {% endif %}

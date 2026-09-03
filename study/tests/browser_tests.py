@@ -1482,11 +1482,14 @@ class BrowserTests(StaticLiveServerTestCase):
             name="Pratiquer ce sujet",
             exact=True,
         ).wait_for()
-        self.page.get_by_role(
+        vocabulary_link = self.page.get_by_role(
             "link",
             name="Pratiquer les vocabs",
             exact=True,
-        ).wait_for()
+        )
+        vocabulary_link.wait_for()
+        vocabulary_review_path = vocabulary_link.get_attribute("href")
+        self.assertTrue(vocabulary_review_path)
         self.assertEqual(
             self.page.locator("#subject-vocabulary .response-batch").count(),
             3,
@@ -1607,12 +1610,7 @@ class BrowserTests(StaticLiveServerTestCase):
         ).wait_for()
         self.assertNotIn("3 arguments", self.page.locator("main").inner_text())
 
-        self.page.goto(self.live_server_url + subject_path)
-        self.page.get_by_role(
-            "link",
-            name="Pratiquer les vocabs",
-            exact=True,
-        ).click()
+        self.page.goto(self.live_server_url + vocabulary_review_path)
         self.page.get_by_text(
             "Vocabulaire du sujet",
             exact=True,
@@ -2828,10 +2826,9 @@ class BrowserTests(StaticLiveServerTestCase):
         note_panel = self.page.locator("[data-note-panel]")
         note_panel.wait_for()
         note_body = note_panel.locator("[data-note-body]")
-        self.assertTrue(
-            note_body.evaluate(
-                "element => element === document.activeElement"
-            )
+        self.page.wait_for_function(
+            "() => document.querySelector('[data-note-body]') "
+            "=== document.activeElement"
         )
         self.page.keyboard.press("h")
         self.assertEqual(note_body.input_value(), "h")
@@ -5673,7 +5670,9 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
-        self.page.locator(".batch-card").first.click()
+        batch_url = self.page.locator(".batch-card").first.get_attribute("href")
+        self.assertTrue(batch_url)
+        self.page.goto(self.live_server_url + batch_url)
         self.page.locator("#card-front > *").first.wait_for()
         self.assert_no_horizontal_overflow()
         self.page.locator("#reveal").click()

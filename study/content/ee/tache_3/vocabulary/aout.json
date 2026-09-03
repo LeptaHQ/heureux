@@ -2280,7 +2280,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de cambrioler ou même de contrôler une voiture.",
+          "example": "En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de préparer un cambriolage ou même de contrôler une voiture.",
           "usage": "Connecteur adverbial ; réutilisable en Numérique/Santé."
         },
         {
@@ -2288,7 +2288,7 @@
           "kind": "collocation",
           "french": "les failles de sécurité",
           "english": "security vulnerabilities",
-          "example": "En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de cambrioler ou même de contrôler une voiture.",
+          "example": "En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de préparer un cambriolage ou même de contrôler une voiture.",
           "usage": "Collocation ; réutilisable en Numérique/Santé."
         },
         {
@@ -2296,7 +2296,7 @@
           "kind": "mot-cle",
           "french": "des pirates",
           "english": "hackers",
-          "example": "En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de cambrioler ou même de contrôler une voiture.",
+          "example": "En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de préparer un cambriolage ou même de contrôler une voiture.",
           "usage": "Nom ou groupe nominal ; réutilisable en Numérique/Santé."
         },
         {
@@ -2304,7 +2304,7 @@
           "kind": "verbe-action",
           "french": "contrôler une voiture",
           "english": "control a car",
-          "example": "En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de cambrioler ou même de contrôler une voiture.",
+          "example": "En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de préparer un cambriolage ou même de contrôler une voiture.",
           "usage": "Construction verbale ; réutilisable en Numérique/Santé."
         },
         {
@@ -3450,8 +3450,8 @@
         {
           "id": "E3-AOU-C17-29",
           "kind": "reformulation",
-          "french": "elle",
-          "english": "it",
+          "french": "elle restait reliée à la ville",
+          "english": "it remained connected to the city",
           "example": "Personnellement, je choisirais la campagne si elle restait reliée à la ville par des transports en commun fiables.",
           "usage": "Reprise anaphorique ; réutilisable en Ville/Campagne."
         },

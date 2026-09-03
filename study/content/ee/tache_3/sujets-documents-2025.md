@@ -469,7 +469,7 @@ Certaines enquêtes montrent que la vidéosurveillance coûte cher et que ses r�
 
 **Document 1**
 
-La livraison de repas permet de gagner du temps. Par exemple, quand on travaille, on peut se faire livrer un repas au bureau sans se déplacer. On perd moins de temps pendant la pause déjeuner, on rentre donc plus tôt chez soi. Généralement, cela offre plus de choix : si un de nos collègues veut commander une pizza mais que nous souhaitons manger des sushis, plus de disputes, il suffit de commander des plats dans différents restaurants. L’autre avantage de ce nouveau mode de consommation est qu’il est disponible à toute heure. En effet, on trouve toujours des restaurants qui restent ouverts 24 heures sur 24. Céline, 25 ans
+Grâce à la livraison en entreprise, les employés bénéficieront d’un gain de temps notable. Il n’est plus question d’aller sortir loin du lieu de travail pour trouver de quoi manger. En complément, l’argent et l’énergie économisés permettent d’être encore plus efficace au travail. Sans pour autant mettre fin à une session importante liée au travail, le repas sera déjà prêt et pourra attendre la fin d’une conférence, d’une réunion ou d’un rendez-vous. Il s’agit d’une véritable solution dédiée aux entreprises ayant une activité intense et qui requiert la présence continue de leurs employés.
 
 **Document 2**
 
@@ -1013,7 +1013,7 @@ Nous avons installé, dans votre entreprise, des bureaux réglables qui montent 
 
 **Document 2**
 
-Les gens passent de plus en plus de temps au travail et les entreprises recherchent toujours plus de productivité et d’efficacité : faire toujours mieux et travailler encore plus. Ainsi, les entreprises inventent de nouvelles astuces pour nous convaincre que le travail, c’est la santé. Pour moi, peu importe la manière dont je suis assis derrière mon ordinateur ! Ce que je veux pour ma santé, c’est faire mon travail sur mon temps de travail sans être obligé de faire des heures supplémentaires.
+De nos jours, les entreprises veulent toujours plus de productivité et d’efficacité, et les employés passent plus de temps sur les lieux de travail. Les entreprises cherchent toujours des moyens ou astuces pour convaincre leurs employés de travailler plus et qu’elles pensent à leur santé. Moi, ce qui m’importe, c’est de faire mon job sur mon temps de travail réel sans être obligé de faire des rallonges en heures supplémentaires. « Florian, ingénieur ».
 
 ---
 
@@ -1051,7 +1051,7 @@ L’idée n’est pas bonne. D’une part, cela coûterait cher aux villes. Or, 
 
 **Document 1**
 
-Grâce aux devoirs à la maison après l’école, seul face à lui-même, l’enfant apprend à devenir autonome. Les devoirs sont également un moyen de rapprocher parents et enfants : réciter une poésie, faire un exercice de mathématiques, c’est souvent un moment de complicité familiale. Enfin, il ne faut pas oublier que les parents ont, eux aussi, un devoir d’éducation. En revanche, parce que la journée à l’école est déjà longue, il ne faut pas que l’enfant passe plus d’un quart d’heure par soir à faire ses devoirs. Valérie, mère de famille
+Selon des associations de parents d’élèves, les devoirs à la maison sont utiles, car ils permettent aux élèves d’apprendre à organiser leur temps de manière autonome. Pour les parents, les devoirs sont un lien quotidien avec l’école. Même s’il est parfois difficile de suivre les devoirs après une journée de travail fatigante, ils apprécient ce moment partagé avec leurs enfants parce que ceux-ci sont contents que leurs parents s’intéressent à eux. C’est valorisant !
 
 **Document 2**
 
@@ -1265,7 +1265,7 @@ Camille qui vit dans la ville préfère faire ses courses au supermarché pour l
 
 **Document 1**
 
-Je suis tout à fait contre les chaînes de restauration rapide car on ne connaît pas les ingrédients qui sont utilisés dans les plats. Je pense que, dans ce genre de restaurants, la nourriture n’est pas de bonne qualité. La consommation de ce type d’aliments peut causer des maladies, comme cela a été montré dans le film documentaire américain « Supersize Me ». C’est vrai qu’il est très facile de manger des hamburgers, des sandwichs ou des frites parce que c’est très bon marché et rapide. Mais à mon avis, il est nécessaire de faire d’autres choix pour être en bonne santé. Marie
+Les restaurants rapides se distinguent par leur engagement à proposer une variété de plats équilibrés, respectant strictement les normes d’hygiène. En laissant aux clients la liberté de composer leur propre menu, ces établissements les responsabilisent dans leurs choix alimentaires, tout en satisfaisant leurs préférences gustatives.
 
 **Document 2**
 
@@ -1655,7 +1655,7 @@ Bien que les effets positifs d’une power nap aient été scientifiquement prou
 
 **Document 1**
 
-Je suis tout à fait contre les chaînes de restauration rapide car on ne connaît pas les ingrédients qui sont utilisés dans les plats. Je pense que, dans ce genre de restaurants, la nourriture n’est pas de bonne qualité. La consommation de ce type d’aliments peut causer des maladies, comme cela a été montré dans le film documentaire américain « Supersize Me ». C’est vrai qu’il est très facile de manger des hamburgers, des sandwichs ou des frites parce que c’est très bon marché et rapide. Mais à mon avis, il est nécessaire de faire d’autres choix pour être en bonne santé. Marie
+Les restaurants rapides se distinguent par leur engagement à proposer une variété de plats équilibrés, respectant strictement les normes d’hygiène. En laissant aux clients la liberté de composer leur propre menu, ces établissements les responsabilisent dans leurs choix alimentaires, tout en satisfaisant leurs préférences gustatives.
 
 **Document 2**
 
@@ -1880,6 +1880,9 @@ Les enfants grandissent très vite et les vêtements sont portés pendant une co
 ### Décembre 2025 — Combinaison 10
 
 **Sujet :** L'uniforme scolaire
+
+> **Anomalie de la source :** le premier document publié est une consigne de
+> Tâche 1 sans rapport avec l'uniforme. Il est conservé verbatim ci-dessous.
 
 **Document 1**
 

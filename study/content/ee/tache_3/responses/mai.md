@@ -62,15 +62,15 @@ Personnellement, je pense que le travail reste essentiel, mais qu’il ne doit p
 
 ### Les jeux vidéo : prévenir la dépendance sans interdire
 
-**Partie 1 — Synthèse (51 mots)**
+**Partie 1 — Synthèse (48 mots)**
 
-Les deux documents présentent la même inquiétude concernant les jeux vidéo : lorsqu’ils deviennent le principal centre d’intérêt, ils peuvent provoquer une dépendance et nuire aux résultats scolaires des adolescents. Toutefois, une position opposée rappelle qu’une pratique modérée peut offrir du divertissement, développer certaines capacités et favoriser les échanges entre joueurs.
+Les deux documents publiés sont identiques : ils défendent la même position sur les jeux vidéo. Tous deux rappellent qu’on parle d’addiction lorsque le jeu devient le centre d’intérêt principal, au détriment des autres activités. Aucun point de vue opposé n’est proposé, la source ayant dupliqué le même texte.
 
-**Partie 2 — Point de vue personnel (111 mots)**
+**Partie 2 — Point de vue personnel (112 mots)**
 
-À mon avis, il ne faut pas interdire les jeux vidéo, mais les intégrer dans un emploi du temps équilibré. Tout d’abord, leur usage modéré peut développer la stratégie, la persévérance et la coopération. Ensuite, des règles précises empêchent le jeu de remplacer le sommeil, les études ou le sport. Par exemple, des parents peuvent autoriser une heure de jeu après les devoirs et conserver les consoles hors de la chambre la nuit. Cependant, il faut aussi reconnaître que certains adolescents perdent le contrôle et nécessitent un accompagnement professionnel. En définitive, le plus important est de prévenir la dépendance grâce au dialogue, à des limites claires et à des activités variées.
+À mon avis, il ne faut pas interdire les jeux vidéo, mais les intégrer dans un emploi du temps équilibré. Tout d’abord, leur usage modéré peut développer la stratégie, la persévérance et la coopération. Ensuite, des règles précises empêchent le jeu de remplacer le sommeil, les études ou le sport. Par exemple, des parents peuvent autoriser une heure de jeu après les devoirs et conserver les consoles hors de la chambre la nuit. Cependant, il faut aussi reconnaître que certains adolescents perdent le contrôle et ont besoin d’un accompagnement professionnel. En définitive, le plus important est de prévenir la dépendance grâce au dialogue, à des limites claires et à des activités variées.
 
-**Total : 162 mots**
+**Total : 160 mots**
 
 ---
 

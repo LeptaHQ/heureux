@@ -44,9 +44,9 @@ Selon moi, le bien-être des salariés exige de bonnes conditions matérielles, 
 
 ### Distributeurs au lycée : la santé en priorité
 
-**Partie 1 — Synthèse (57 mots)**
+**Partie 1 — Synthèse (59 mots)**
 
-Les deux documents s’opposent sur l’interdiction des distributeurs automatiques au lycée. Le premier la juge urgente : l’obésité des adolescents progresse et l’école doit jouer son rôle éducatif face aux produits sucrés. En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et dépannent ceux qui sautent le petit déjeuner.
+Les deux documents s’opposent sur l’interdiction des distributeurs automatiques au lycée. Le premier la juge urgente : l’obésité des adolescents progresse et l’école doit jouer son rôle éducatif face aux produits sucrés. En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident ceux qui ne peuvent pas déjeuner le matin.
 
 **Partie 2 — Point de vue personnel (99 mots)**
 
@@ -62,15 +62,15 @@ Personnellement, je suis favorable à ces appareils à condition que leur conten
 
 ### La sieste au travail : un repos à organiser
 
-**Partie 1 — Synthèse (54 mots)**
+**Partie 1 — Synthèse (58 mots)**
 
-La sieste au travail fait l’objet d’un débat nuancé. Ses défenseurs mettent en avant une meilleure concentration, davantage de créativité et une diminution du stress chez les salariés reposés. Toutefois, ses opposants insistent sur les coûts, le manque d’espace et les obligations nécessaires pour garantir l’hygiène, l’égalité de traitement et la prévention du harcèlement.
+La sieste au travail fait l’objet d’un débat nuancé. Ses défenseurs mettent en avant une meilleure concentration, davantage de créativité et une diminution du stress chez les salariés reposés. Toutefois, ses opposants insistent sur les coûts, le manque d’espace et les obligations à respecter : un local dédié, du matériel adapté, l’égalité de traitement et la prévention du harcèlement.
 
 **Partie 2 — Point de vue personnel (104 mots)**
 
 À mon avis, une courte sieste peut améliorer le bien-être et la productivité, mais elle doit rester facultative. En effet, vingt minutes de repos suffisent souvent à réduire la fatigue sans perturber la journée. Ensuite, un cadre commun évite les abus et les inégalités. Par exemple, une entreprise pourrait aménager une petite salle calme, accessible sur réservation pendant la pause de midi. Cependant, il faut aussi reconnaître que toutes les structures ne disposent ni de l’espace ni du budget nécessaires. En définitive, le plus important est de proposer une solution simple, équitable et adaptée aux conditions de travail, sans imposer cette pratique aux salariés.
 
-**Total : 158 mots**
+**Total : 162 mots**
 
 ---
 
@@ -138,11 +138,11 @@ Faire ses courses chez les producteurs locaux ou au supermarché oppose deux pri
 
 Les maisons de retraite font l’objet de points de vue opposés. Leurs partisans soulignent les soins professionnels, les activités et la vie sociale qu’elles offrent aux personnes âgées isolées. En revanche, leurs détracteurs redoutent l’éloignement familial, un sentiment d’abandon et le manque de personnel qualifié, préférant un accompagnement à domicile.
 
-**Partie 2 — Point de vue personnel (111 mots)**
+**Partie 2 — Point de vue personnel (110 mots)**
 
 Selon moi, aucune solution ne convient à toutes les personnes âgées : le choix doit dépendre de leur santé et de leurs souhaits. Tout d’abord, un établissement spécialisé assure une surveillance continue lorsque l’autonomie diminue. Ensuite, le maintien à domicile préserve les repères et les liens familiaux. Par exemple, une personne encore autonome pourrait rester chez elle avec des visites quotidiennes, puis rejoindre une résidence si ses besoins médicaux deviennent trop importants. Cependant, il faut aussi reconnaître que l’aide à domicile coûte cher et repose parfois lourdement sur les proches. En définitive, le plus important est de garantir des soins dignes, une présence humaine et le consentement de la personne concernée.
 
-**Total : 161 mots**
+**Total : 160 mots**
 
 ---
 
@@ -170,15 +170,15 @@ Il me semble que l’on peut manger sainement dans une chaîne de restauration r
 
 ### Art urbain : créer dans le respect
 
-**Partie 1 — Synthèse (53 mots)**
+**Partie 1 — Synthèse (54 mots)**
 
-L’art urbain oppose deux visions de l’espace public. Ses défenseurs y voient une expression culturelle qui embellit certains lieux, soutient les artistes et attire les touristes vers des quartiers méconnus. En revanche, ses opposants dénoncent les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner aux propriétés.
+L’art urbain oppose deux visions de l’espace public. Ses défenseurs y voient une expression culturelle qui embellit certains lieux, soutient les artistes et attire les touristes vers des quartiers méconnus. En revanche, ses opposants dénoncent les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner à leurs quartiers.
 
 **Partie 2 — Point de vue personnel (100 mots)**
 
 Personnellement, je considère que l’art urbain enrichit la ville lorsqu’il respecte les habitants et les bâtiments. Tout d’abord, des murs autorisés offrent aux artistes un espace d’expression accessible à tous. Ensuite, des parcours guidés peuvent dynamiser les quartiers. Par exemple, une mairie pourrait confier la façade aveugle d’un centre communautaire à un artiste choisi avec les résidents. Cependant, il faut aussi reconnaître que peindre une propriété sans consentement entraîne des dépenses et porte atteinte aux droits de son propriétaire. En définitive, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations imposées.
 
-**Total : 153 mots**
+**Total : 154 mots**
 
 ---
 
@@ -204,7 +204,7 @@ La gratuité des musées suscite un débat. Ses partisans la présentent comme u
 
 **Sujet :** Les objets connectés
 
-### Objets connectés : utiles mais sécurisés
+### Objets connectés : utiles, mais à sécuriser
 
 **Partie 1 — Synthèse (54 mots)**
 

@@ -42,6 +42,16 @@
       ]
     },
     {
+      "id": "ren-infos-familles-vivre-personne",
+      "theme": "rencontres",
+      "canonical": "ee-tache2:janvier:combinaison-9",
+      "members": [
+        "ee-tache2:janvier:combinaison-9",
+        "ee-tache2:octobre:combinaison-3",
+        "ee-tache2:decembre:combinaison-2"
+      ]
+    },
+    {
       "id": "etu-chers-internautes-ans-vais",
       "theme": "etudes-langues",
       "canonical": "ee-tache2:janvier:combinaison-16",
@@ -108,6 +118,15 @@
       "members": [
         "ee-tache2:mars:combinaison-3",
         "ee-tache2:decembre:combinaison-8"
+      ]
+    },
+    {
+      "id": "etu-avez-forum-debat-formations",
+      "theme": "etudes-langues",
+      "canonical": "ee-tache2:mars:combinaison-4",
+      "members": [
+        "ee-tache2:mars:combinaison-4",
+        "ee-tache2:avril:combinaison-3"
       ]
     },
     {
@@ -270,6 +289,15 @@
       ]
     },
     {
+      "id": "spo-decide-changer-votre-alimentation",
+      "theme": "sport-sante",
+      "canonical": "ee-tache2:aout:combinaison-19",
+      "members": [
+        "ee-tache2:aout:combinaison-19",
+        "ee-tache2:novembre:combinaison-4"
+      ]
+    },
+    {
       "id": "env-avez-participe-action-journee",
       "theme": "environnement",
       "canonical": "ee-tache2:octobre:combinaison-1",
@@ -279,12 +307,12 @@
       ]
     },
     {
-      "id": "ren-infos-familles-vivre-personne",
-      "theme": "rencontres",
-      "canonical": "ee-tache2:octobre:combinaison-3",
+      "id": "loi-avez-assiste-festival-cinema",
+      "theme": "loisirs-culture",
+      "canonical": "ee-tache2:octobre:combinaison-4",
       "members": [
-        "ee-tache2:octobre:combinaison-3",
-        "ee-tache2:decembre:combinaison-2"
+        "ee-tache2:octobre:combinaison-4",
+        "ee-tache2:decembre:combinaison-1"
       ]
     }
   ]

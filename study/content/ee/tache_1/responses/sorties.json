@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "theme": "sorties",
+  "responses": [
+    {
+      "content_key": "ee-tache1:janvier:combinaison-6",
+      "versions": [
+        {
+          "body": "Coucou Barbara,\n\nQuelle bonne idée de profiter du beau temps ! Pour déjeuner en plein air ce week-end, je te recommande vivement la terrasse du restaurant du Lac, située au bord du lac Union. C’est un endroit agréable grâce à ses grands parasols et son éclairage chaleureux. La vue sur le lac est superbe et l’ambiance musicale, avec des airs traditionnels, rend le moment encore plus relaxant.\n\nCôté restauration, on y trouve d’excellentes spécialités mexicaines. Je te conseille particulièrement le burrito, et le personnel est accueillant. Le restaurant est ouvert tous les jours de 8 h à 17 h et facilement accessible en bus depuis notre lieu de travail.\n\nDis-moi si tu veux qu’on y aille ensemble !\n\nCorn",
+          "origin": "author"
+        },
+        {
+          "body": "Coucou Barbara,\n\nSuper de te lire ! J’ai exactement ce qu’il te faut : le restaurant Ad, un endroit parfait pour déjeuner en plein air. Il se situe au 123, rue Ebi, près du fleuve Woa, et ouvre de 8 h à 20 h.\n\nL’atmosphère y est calme, et le restaurant est entouré d’arbres exotiques, sous lesquels on peut manger tranquillement. Les prix sont abordables.\n\nCôté cuisine, il propose des spécialités de différents pays. Mon plat préféré est le jollof ghanéen. Cerise sur le gâteau : on peut goûter certaines nouveautés gratuitement. Le personnel est aimable et serviable.\n\nJe te propose que nous y allions ce week-end, si tu es disponible.\n\nDis-moi ce que tu en penses !\n\nBisous,\n\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:janvier:combinaison-10",
+      "versions": [
+        {
+          "body": "Coucou Barbara,\n\nC’est une excellente idée ! Pour ce week-end, je te recommande vivement Gas Works Park. C’est un endroit magnifique qui offre une vue imprenable sur le lac et les gratte-ciel de la ville.\n\nTu pourras t’installer sur la pelouse pour un pique-nique paisible ou te promener le long de l’eau pour profiter de la nature. J’y vais souvent depuis mon installation à Seattle et l’ambiance y est toujours relaxante. Le seul bémol est que le parc est assez fréquenté le samedi, il vaut donc mieux arriver tôt.\n\nSi tu veux, je peux t’accompagner pour déjeuner !\n\nÀ bientôt,\n\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:avril:combinaison-5",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nÇa fait longtemps ! Je t’écris pour t’inviter à passer le week-end prochain chez moi, à Kumasi. Je vis ici depuis quelques années, donc je connais de super endroits.\n\nTout d’abord, nous pourrions visiter le centre-ville et ses cafés. Ensuite, on peut faire une promenade au parc afin que tu profites de la nature. De plus, je te propose de dîner dans un restaurant local avant de rentrer.\n\nLe seul bémol est qu’il peut y avoir du monde. Si tu veux, on peut tout organiser ensemble !\n\nHâte de te voir !",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:avril:combinaison-14",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nJ’espère que tu vas bien ! Je t’écris pour t’inviter à passer la journée de samedi prochain avec moi. Voici le programme que j’ai imaginé.\n\nNous commencerons par un petit déjeuner chez moi dès 8 h. Ensuite, nous irons sur la colline de Jato pour profiter de la vue panoramique. À 10 h, nous assisterons à l’atelier littéraire sur L’Aventure de Cléopas à la bibliothèque municipale. Pour le déjeuner, j’ai réservé une table chez Ade pour goûter leurs spécialités locales. Enfin, nous finirons par une promenade relaxante au parc avant de dîner ensemble.\n\nDis-moi si ce projet te convient ou si tu as d’autres suggestions.\n\nHâte de te voir !\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:avril:combinaison-16",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nÇa fait longtemps ! J’ai dîné au restaurant d’Adebi et c’était merveilleux. Il se situe au 123 Pike Street dans un cadre ombragé, ce qui rend l’atmosphère très apaisante. La décoration est soignée : lanternes colorées et nappes en tissu kente. D’ailleurs, on peut manger sous les arbres pour profiter de la nature.\n\nCôté plats, on y propose de délicieuses spécialités de plusieurs régions, y compris d’Afrique et d’Asie. Je te recommande le jollof ghanéen ! Cerise sur le gâteau : on peut goûter des nouveautés gratuitement. Le personnel est chaleureux et le lieu est accessible en transports depuis le centre-ville.\n\nEn résumé, c’est un super restaurant. Fais-moi signe si tu veux qu’on y aille ensemble !",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:mai:combinaison-5",
+      "versions": [
+        {
+          "body": "Coucou Nan,\n\nÇa fait longtemps ! Hier, j’ai découvert le nouveau restaurant Akwa, juste à côté de l’ancienne bibliothèque. La décoration est chaleureuse, avec des tables en bois, des plantes exotiques et une terrasse ombragée.\n\nCôté cuisine, on y propose d’excellentes spécialités ghanéennes et asiatiques. J’ai adoré le jollof au poulet. Les plats coûtent entre 15 et 25 dollars, ce qui reste abordable. Cerise sur le gâteau : le personnel est souriant, rapide et toujours prêt à aider.\n\nEn résumé, c’est une très bonne adresse. Fais-moi signe si tu veux la découvrir !\n\nCorn",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:mai:combinaison-7",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nJ’espère que tu vas bien ! J’aimerais passer la journée de samedi avec toi. Retrouvons-nous à 8 h chez moi pour prendre un petit déjeuner et boire mon fameux café.\n\nEnsuite, nous irons à vélo sur la colline de Jato afin de profiter de la vue panoramique. Vers 11 h, je te propose de visiter l’exposition de la bibliothèque municipale. J’ai aussi réservé une table chez Ade à 13 h pour goûter leurs spécialités locales. Enfin, nous ferons une promenade relaxante au parc Amazon avant de rentrer vers 18 h.\n\nQu’en penses-tu ? Hâte de te voir !\n\nC",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:juin:combinaison-2",
+      "versions": [
+        {
+          "body": "Coucou Nan,\n\nSuper nouvelle : j’aimerais t’inviter à passer la journée avec moi dimanche prochain ! On se retrouvera chez moi à 9 h, puis nous prendrons le bus jusqu’au parc Westlake.\n\nLe matin, nous louerons des vélos pour faire le tour du lac. Ensuite, j’ai prévu un pique-nique sous les grands arbres, avec ton gâteau au chocolat préféré. L’après-midi, nous visiterons le petit musée voisin avant d’assister à un concert gratuit à 16 h. Nous rentrerons vers 18 h.\n\nDis-moi si ce programme te convient. J’espère vraiment que tu pourras venir !\n\nÀ bientôt,\nCorn",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:aout:combinaison-1",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nJ’espère que tu vas bien ! Le festival de films de Seattle aura lieu du 12 au 14 août au cinéma Cornell, près de la station Westlake. J’aimerais beaucoup que tu m’accompagnes samedi.\n\nLe programme est génial : un film d’aventure à 14 h, une comédie française à 17 h et un documentaire sur le Ghana à 20 h. Le billet coûte 18 dollars pour toute la journée, ou 8 dollars par séance. On peut réserver en ligne avant vendredi.\n\nDis-moi si tu es disponible. Je suis sûr que nous passerons un super moment !\n\nÀ bientôt,\nC",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:aout:combinaison-3",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nJe suis ravi que nous passions la journée ensemble demain. J’ai surtout prévu des activités en plein air.\n\nNous prendrons le bus à 9 h pour arriver au parc dès l’ouverture. Le matin, nous ferons de l’accrobranche, puis nous testerons les montagnes russes et les bateaux tamponneurs. Après un pique-nique près du lac à 13 h, nous jouerons au mini-golf. Enfin, nous assisterons au spectacle de 16 h avant de rentrer vers 18 h.\n\nDis-moi si tu as d’autres idées.\n\nJ’ai hâte de te voir !\n\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:aout:combinaison-12",
+      "versions": [
+        {
+          "body": "Coucou Nan,\n\nÇa fait longtemps ! La bibliothèque municipale organise une rencontre avec l’écrivain Umbo samedi 20 août à 15 h, et j’aimerais que tu viennes avec moi.\n\nIl présentera son nouveau livre, L’Aventure de Cléopas, puis répondra aux questions du public. Une séance de dédicaces et un petit atelier d’écriture sont également prévus. L’entrée est gratuite, mais il faut réserver avant jeudi sur le site de la bibliothèque. Comme le lieu est près du parc Amazon, nous pourrons ensuite nous y promener et prendre un café.\n\nQu’en penses-tu ? Hâte de te voir !\n\nC",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:novembre:combinaison-6",
+      "versions": [
+        {
+          "body": "Coucou Nan,\n\nJ’ai une super sortie à te proposer ! Le festival de cinéma Lumière se déroulera du vendredi 7 au dimanche 9 novembre au théâtre Kotoka. Veux-tu m’accompagner samedi ?\n\nNous pourrons voir la comédie Les Voisins à 16 h, puis le film d’aventure Horizon à 19 h 30. Le pass pour les deux séances coûte 20 dollars, boissons comprises. Les places étant limitées, je compte réserver jeudi soir. Le théâtre se trouve près de la station centrale, donc nous pourrons y aller facilement en bus.\n\nDis-moi vite si tu es partante !\n\nÀ bientôt,\nCorn",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:novembre:combinaison-7",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nMoi aussi, j’ai hâte ! Demain, retrouvons-nous chez moi à 8 h 30. Nous prendrons ensuite le bus 12 jusqu’au parc de loisirs Zion ; le trajet dure environ vingt minutes.\n\nLe matin, nous ferons de l’accrobranche et une courte randonnée autour du lac. Après un pique-nique à l’ombre, nous pourrons essayer les vélos électriques, puis jouer au mini-golf. J’ai réservé toutes les activités jusqu’à 17 h, mais pense à porter des chaussures confortables et à apporter une bouteille d’eau.\n\nLe programme te plaît ? À demain pour cette super journée !\n\nC",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:novembre:combinaison-10",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nJ’espère que tu vas bien ! La bibliothèque de notre quartier organise samedi à 15 h une rencontre avec Ama Koffi, l’autrice de La Route d’Accra. Elle parlera de ses voyages et expliquera comment elle trouve l’inspiration pour ses romans.\n\nAprès la présentation, nous pourrons lui poser des questions, participer à un court atelier littéraire et faire dédicacer son nouveau livre. L’événement est gratuit et durera environ deux heures. Comme tu adores lire, j’ai immédiatement pensé à toi !\n\nVeux-tu venir avec moi ? Dis-moi vite afin que je réserve nos places.\n\nHâte de te voir !\nCorn",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:decembre:combinaison-6",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nUn nouveau restaurant, le Jardin d’Ade, vient d’ouvrir près de chez moi, au 25, rue Pike. J’aimerais le découvrir avec toi samedi soir !\n\nIl propose des spécialités ghanéennes et mexicaines, notamment du jollof au poulet et d’excellents burritos. Les plats coûtent entre 12 et 22 dollars. La décoration semble très chaleureuse : tables en bois, plantes exotiques et terrasse ombragée au bord du fleuve. En plus, les premiers clients peuvent goûter le dessert gratuitement.\n\nJe peux réserver une table pour 19 h. Dis-moi si tu es disponible !\n\nÀ bientôt,\nC",
+          "origin": "original"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "theme": "rencontres",
+  "responses": [
+    {
+      "content_key": "ee-tache2:janvier:combinaison-9",
+      "versions": [
+        {
+          "body": "Mon expérience avec Madame Boateng\n\nJ’ai séjourné plusieurs mois chez Madame Boateng, une dame de quatre-vingts ans. Avant d’arriver, j’étais inquiet. Cependant, ce séjour fut incroyable ! Cette rencontre m’a énormément plu pour trois raisons principales.\n\nTout d’abord, Madame Boateng connaît énormément d’histoires. Elle m’a raconté plusieurs récits sur son pays et son enfance. Cerise sur le gâteau : elle accompagnait ces histoires de jolies chansons, rendant l’expérience parfaite. De plus, elle s’est montrée très chaleureuse et attentive à mon bien-être, comme si j’étais son propre enfant. Enfin, avant mon départ, elle m’a prodigué de précieux conseils et m’a offert un cadeau spécial.\n\nToutefois, les plats traditionnels de Madame Boateng, extrêmement épicés, m’ont fait sortir de ma zone de confort.\n\nEn résumé, cette expérience a été du pain bénit. Elle m’a permis de me vider l’esprit, de me détendre et d’apprendre tout en riant beaucoup.",
+          "origin": "author"
+        },
+        {
+          "body": "J’ai vécu deux ans avec ma grand-mère devenue dépendante. Au début, je pensais qu’il suffirait de préparer ses repas et de l’accompagner chez le médecin. En réalité, nous avons dû apprendre à respecter nos rythmes. Elle se couchait tôt, tandis que je travaillais parfois le soir. Nous avons donc établi un calendrier pour les courses et réservé le dimanche à une promenade commune.\n\nCette cohabitation demandait de la patience : ma grand-mère refusait parfois mon aide parce qu’elle tenait à son autonomie. Je lui proposais alors plusieurs solutions au lieu de décider à sa place. De plus, elle m’a transmis ses recettes et raconté une histoire familiale que j’ignorais. Mon conseil est de parler clairement des besoins de chacun et de partager les responsabilités avec d’autres proches. Finalement, vivre avec une personne âgée peut être exigeant, mais cette proximité crée des souvenirs irremplaçables.",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:novembre:combinaison-6",
+      "versions": [
+        {
+          "body": "J’ai accueilli Sofia, une étudiante brésilienne en échange universitaire. Nous avons préparé ensemble un dîner québécois, ce qui a immédiatement facilité la conversation. En semaine, elle suivait ses cours le matin ; l’après-midi, je lui faisais découvrir le quartier. Nous avons visité le marché, patiné pour la première fois sur un lac gelé et assisté à un concert local. Sofia a cuisiné une feijoada et invité mes voisins : le repas s’est terminé en chansons.\n\nCette semaine m’a beaucoup apporté, car elle m’a fait voyager sans quitter ma ville. Nos discussions m’ont permis de mieux comprendre la vie quotidienne au Brésil et de remettre en question certains clichés. De plus, j’ai pratiqué mon portugais, tandis qu’elle gagnait en confiance en français. Son séjour était court, mais une amitié est née. Nous échangeons chaque semaine et je compte lui rendre visite l’été prochain.",
+          "origin": "original"
+        }
+      ]
+    }
+  ]
+}

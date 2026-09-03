@@ -2,6 +2,15 @@
   "version": 1,
   "groups": [
     {
+      "id": "trp-suis-votre-amie-anna",
+      "theme": "transport",
+      "canonical": "ee-tache1:janvier:combinaison-1",
+      "members": [
+        "ee-tache1:janvier:combinaison-1",
+        "ee-tache1:mars:combinaison-11"
+      ]
+    },
+    {
       "id": "inv-avez-invite-cedric-mariage",
       "theme": "invitations",
       "canonical": "ee-tache1:janvier:combinaison-2",
@@ -13,7 +22,7 @@
       ]
     },
     {
-      "id": "tra-mehdi-vient-emmenager-ville",
+      "id": "trp-mehdi-vient-emmenager-ville",
       "theme": "transport",
       "canonical": "ee-tache1:janvier:combinaison-3",
       "members": [
@@ -120,6 +129,15 @@
       ]
     },
     {
+      "id": "spo-france-televisions-reportage-amateur",
+      "theme": "sport",
+      "canonical": "ee-tache1:mars:combinaison-5",
+      "members": [
+        "ee-tache1:mars:combinaison-5",
+        "ee-tache1:juillet:combinaison-10"
+      ]
+    },
+    {
       "id": "ann-avez-commande-objet-reception",
       "theme": "annonces",
       "canonical": "ee-tache1:mars:combinaison-6",
@@ -154,6 +172,15 @@
       "members": [
         "ee-tache1:mars:combinaison-9",
         "ee-tache1:juin:combinaison-14"
+      ]
+    },
+    {
+      "id": "ann-cherche-velo-bon-etat",
+      "theme": "annonces",
+      "canonical": "ee-tache1:mars:combinaison-10",
+      "members": [
+        "ee-tache1:mars:combinaison-10",
+        "ee-tache1:juillet:combinaison-8"
       ]
     },
     {
@@ -200,6 +227,15 @@
       "members": [
         "ee-tache1:avril:combinaison-7",
         "ee-tache1:juillet:combinaison-7"
+      ]
+    },
+    {
+      "id": "inv-souhaitez-feter-anniversaire-restaurant",
+      "theme": "invitations",
+      "canonical": "ee-tache1:avril:combinaison-8",
+      "members": [
+        "ee-tache1:avril:combinaison-8",
+        "ee-tache1:aout:combinaison-11"
       ]
     },
     {

@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "theme": "ecole",
+  "responses": [
+    {
+      "content_key": "ee-tache1:janvier:combinaison-17",
+      "versions": [
+        {
+          "body": "Madame, Monsieur,\n\nJe m'appelle Cornelius et je réside actuellement aux États-Unis où je travaille comme ingénieur logiciel chez Microsoft. Étant débutant en français, j'ai été très intéressé par votre annonce concernant les échanges linguistiques.\n\nDans le cadre de mon travail, je collabore régulièrement avec de nombreux collègues francophones, et j'aimerais améliorer mes compétences linguistiques afin de mieux communiquer avec eux, tant professionnellement que personnellement. Pourriez-vous me mettre en contact avec un partenaire linguistique ?\n\nCompte tenu de mes obligations professionnelles, je serais disponible uniquement les week-ends, de 8 h à 17 h.\n\nJe vous remercie par avance de l'attention que vous porterez à ma demande.\n\nCordialement,\nCornelius",
+          "origin": "author"
+        },
+        {
+          "body": "Madame, Monsieur,\n\nJe me présente : Cornelius, ingénieur logiciel chez Microsoft. J’ai pris connaissance de votre annonce concernant les partenaires linguistiques et cela m’intéresse vivement, car je suis actuellement débutant en français.\n\nDans le cadre de mes fonctions, je suis amené à collaborer avec des francophones. J’aimerais donc perfectionner ma maîtrise de la langue afin de mieux communiquer sur les plans professionnel et personnel.\n\nCompte tenu de mes obligations professionnelles, je suis disponible uniquement les week-ends, entre 8 h et 18 h.\n\nJe vous remercie de l’attention que vous porterez à ma demande.\n\nCordialement,\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:mars:combinaison-2",
+      "versions": [
+        {
+          "body": "Salut Jo,\n\nSuper de te lire ! Tout d’abord, mon école, située rue Ag, près du centre-ville, propose des cours de français et d’espagnol trois fois par semaine. Chaque séance dure environ une heure et demie.\n\nCôté prix, une séance coûte 20 €, ou 180 € avec l’abonnement mensuel. Cerise sur le gâteau : il y a un cours d’essai gratuit afin que tu puisses voir si cela te convient avant de t’engager. De plus, les professeurs sont chaleureux et expérimentés. Certains proposent aussi des cours en ligne, ce qui est très pratique si tu habites loin.\n\nLe seul bémol est que les cours commencent souvent très tôt. Si tu as le temps, nous pourrions y aller ensemble.\n\nCorn",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:avril:combinaison-15",
+      "versions": [
+        {
+          "body": "Coucou !\n\nC’est une excellente idée, je ne peux que te la recommander ! Je suis inscrit dans cette école depuis trois mois et j’en suis ravi. Les professeurs sont très pédagogues et les cours sont vraiment interactifs.\n\nCe que j’apprécie le plus, c’est l’accent mis sur l’expression orale, ce qui m’a aidé à gagner en confiance. Le seul bémol est que les groupes sont parfois un peu nombreux le soir, il vaut donc mieux choisir les séances du matin si tu peux.\n\nDans l’ensemble, c’est du pain bénit pour progresser rapidement ! N’hésite pas si tu as besoin d’aide pour l’inscription.\n\nÀ très bientôt,\n\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:mai:combinaison-6",
+      "versions": [
+        {
+          "body": "Salut Paul,\n\nSuper de te lire ! Oui, je prends des cours au centre Langues et cultures pour tous depuis trois mois et je te le recommande vivement.\n\nTout d’abord, les salles sont lumineuses et petites pour que chacun puisse participer. Elles disposent de tableaux interactifs, de tablettes et de casques pour les exercices de compréhension orale. Les professeurs sont chaleureux, expérimentés et toujours prêts à expliquer une règle autrement. D’ailleurs, nous travaillons souvent en binômes, ce qui aide beaucoup à parler avec confiance.\n\nLe seul bémol est que les groupes du soir sont parfois nombreux. Si tu peux, choisis une séance le matin !\n\nBises,\nCorn",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:juin:combinaison-1",
+      "versions": [
+        {
+          "body": "Coucou Alex,\n\nSuper de te lire ! L'Université Cornell est vraiment incroyable. Le campus est magnifique, dans un cadre verdoyant afin que les étudiants puissent étudier dans une ambiance agréable.\n\nLes professeurs sont chaleureux et expérimentés. Ils sont toujours prêts à aider, ce qui encourage les étudiants à rester motivés. Par ailleurs, les étudiants viennent du monde entier, ce qui enrichit l'institution sur les plans social et culturel. De plus, l'université favorise la pratique du sport afin de nous permettre de rester en forme.\n\nLe seul bémol est que mes cours commencent très tôt le matin ; je dois donc me lever tôt. En résumé, étudier ici est du pain bénit !\n\nHâte de te faire découvrir les locaux !\n\nC",
+          "origin": "author"
+        }
+      ]
+    }
+  ]
+}

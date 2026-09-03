@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "theme": "sport-sante",
+  "responses": [
+    {
+      "content_key": "ee-tache2:janvier:combinaison-8",
+      "versions": [
+        {
+          "body": "Je me suis inscrit à votre salle en septembre afin de retrouver la forme après une longue période sans activité. Pendant trois mois, j’ai suivi les cours collectifs de vélo et de renforcement musculaire, deux fois par semaine. Les entraîneurs expliquent clairement chaque mouvement et proposent une variante aux débutants. Grâce à leurs conseils, j’ai progressé sans me blesser et je me sens désormais plus énergique.\n\nJ’ai particulièrement apprécié la propreté des vestiaires, le matériel récent et l’ambiance entre les membres. De plus, les cours commencent à l’heure, ce qui facilite l’organisation après le travail. En revanche, la salle devient trop fréquentée le lundi soir et certaines machines restent longtemps occupées. Ajouter un cours à cette heure serait utile. Malgré ce petit inconvénient, mon expérience est très positive et je recommande volontiers votre établissement.",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:janvier:combinaison-18",
+      "versions": [
+        {
+          "body": "Une compétition de ski : une expérience inoubliable\n\nJ’ai participé à une compétition de ski alpin le week-end dernier dans une station de montagne réputée. L’événement a eu lieu samedi matin et était très bien organisé par un club sportif local. Le but était de terminer la descente le plus rapidement possible, tout en respectant les règles de sécurité.\n\nL’organisation était excellente : il fallait que chaque participant porte un équipement adapté avant le départ. Les juges étaient présents tout au long du parcours, ce qui garantissait l’équité de la compétition.\n\nMême si l’épreuve était exigeante physiquement, l’ambiance restait très conviviale. Les participants s’encourageaient mutuellement, ce qui a renforcé l’esprit d’équipe.\n\nEn conclusion, cette compétition m’a beaucoup plu, car elle combinait sport, discipline et plaisir, malgré la pression du chronomètre.",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:avril:combinaison-2",
+      "versions": [
+        {
+          "body": "Mon expérience d’un cours de natation\n\nJ’ai participé à un cours de natation il y a une semaine et c’était une très bonne expérience. La séance a eu lieu au centre aquatique Jeff, situé au 123, rue Pike, près du fleuve Jo, ce qui rend le cadre agréable. Le cours a commencé à 7h et s’est terminé à 9h.\n\nLe coach et les animateurs étaient très compétents et toujours prêts à aider. Ils faisaient attention à chaque participant pour que tout se passe bien et que les règles soient respectées. Les autres participants étaient aussi très sympathiques, surtout avec les débutants comme moi. Bien que la séance ait été assez longue, je ne me suis pas ennuyé.\n\nLe seul bémol est que le cours commence tôt — une contrainte quand on habite loin.\n\nEn résumé, j’ai beaucoup apprécié ce cours et je compte y retourner bientôt.",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:aout:combinaison-19",
+      "versions": [
+        {
+          "body": "Il y a six mois, j’ai décidé de modifier mon alimentation parce que je manquais constamment d’énergie. Je sautais souvent le petit-déjeuner, puis je commandais un repas préparé le soir, faute de temps.\n\nJ’ai commencé simplement : je prépare mes menus le dimanche, j’emporte un déjeuner au travail et je remplace les boissons sucrées par de l’eau. Je mange désormais davantage de légumes, de légumineuses et de fruits de saison, sans interdire complètement le chocolat ou les sorties au restaurant. Cette souplesse m’aide à tenir dans la durée. Les premières semaines demandaient de l’organisation, mais les résultats sont encourageants : je dors mieux, je dépense moins et je prends plaisir à cuisiner. À mon avis, changer progressivement est bien plus efficace qu’adopter un régime strict et culpabilisant.",
+          "origin": "original"
+        },
+        {
+          "body": "Pendant longtemps, je mangeais très vite devant mon ordinateur et choisissais surtout des produits industriels. Mon bilan médical annuel a révélé un taux de cholestérol trop élevé. Cette alerte m’a poussé à revoir mes habitudes pour protéger ma santé.\n\nJ’ai appris à composer des assiettes équilibrées et à lire les étiquettes. Aujourd’hui, je cuisine des soupes, du poisson et des céréales complètes, et je réserve la viande rouge au week-end. Je prends aussi mes repas à table, sans écran, afin d’écouter ma faim. Au début, réduire le sel me semblait difficile ; les herbes fraîches et les épices ont finalement apporté davantage de saveur. Trois mois plus tard, mes analyses se sont améliorées et mes après-midi sont plus productifs. Cette expérience m’a surtout appris qu’une alimentation saine peut rester gourmande, conviviale et accessible.",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:decembre:combinaison-3",
+      "versions": [
+        {
+          "body": "Depuis janvier, je pratique l’escalade en salle chaque samedi. Je cherchais une activité moins répétitive que la course et une amie m’a proposé une séance d’initiation. Après quelques semaines, j’ai réussi une voie qui me paraissait impossible : quelle satisfaction ! Depuis, je progresse encore.\n\nCette activité peut convenir à presque tout le monde, car les parcours sont classés par niveau et chacun progresse à son rythme. Elle renforce l’ensemble du corps, mais développe aussi la concentration, la patience et la confiance en soi. Surtout, les grimpeurs s’encouragent et partagent volontiers leurs techniques, ce qui crée rapidement des liens. Il suffit de choisir un encadrement sérieux et de respecter les consignes de sécurité. Pour moi, l’escalade est devenue autant un exercice qu’un rendez-vous convivial.",
+          "origin": "original"
+        }
+      ]
+    }
+  ]
+}

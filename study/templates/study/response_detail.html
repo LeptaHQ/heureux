@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load study_markdown %}
 {% block title %}{{ selected_prompt.text|truncatechars:50 }} · Heureux{% endblock %}
 
 {% block content %}
@@ -7,9 +8,10 @@
 {% if personal_reset %}<div class="notice">La réponse d'origine est de nouveau utilisée.</div>{% endif %}
 <div class="detail-head">
   <p class="eyebrow">
-    <a href="{% url 'study:task_browse' part.slug task.slug %}">{% if ee_response %}Sujets par mois{% else %}Sujets &amp; réponses{% endif %}</a> ·
+    <a href="{% url 'study:task_browse' part.slug task.slug %}">{% if ee_response %}Sujets par thème{% else %}Sujets &amp; réponses{% endif %}</a> ·
     <a class="link-with-icon" style="--icon-accent: {{ selected_prompt.theme.color }};" href="{% url 'study:theme_detail' part.slug task.slug selected_prompt.theme.slug %}">{% include "study/partials/ui_icon.html" with name=selected_prompt.theme.icon only %}<span>{{ selected_prompt.theme.display_name }}</span></a>
     {% if ee_response %}
+      · <a href="{{ ee_source_url }}" target="_blank" rel="noopener noreferrer">{{ ee_source_month.name }} 2025</a>
       · <span>{{ ee_combination_label }}</span>
     {% else %}
       · <a href="{% url 'study:task_family_detail' part.slug task.slug selected_prompt.family.slug %}">{{ selected_prompt.family.name }}</a>
@@ -25,6 +27,9 @@
 <div class="detail-grid">
   <div class="answer-columns" data-annotation-root data-annotation-source-key="response:{{ response.content_key }}">
     {% if ee_response %}
+      {% for warning in ee_source_warnings %}
+        <div class="notice">{{ warning }}</div>
+      {% endfor %}
       {% if source_documents_html %}
         <section class="card section-card section-card--ee-documents">
           <div class="spine-label">Documents sources</div>
@@ -34,14 +39,14 @@
 
       {% if response_content.position %}
         <section class="card section-card section-card--ee-synthese">
-          <div class="spine-label">Partie 1 — Synthèse <span class="spine-count">· {{ response_content.position|wordcount }} mots</span></div>
+          <div class="spine-label">Partie 1 — Synthèse <span class="spine-count">· {{ response_content.position|french_wordcount }} mots</span>{% if ee_response_origin == "author" %} <span class="chip chip--accent">Version de l’auteur</span>{% endif %}</div>
           <p class="spine-text">{{ response_content.position }}</p>
         </section>
       {% endif %}
 
       {% if response_content.position_claire %}
         <section class="card section-card section-card--ee-point-de-vue">
-          <div class="spine-label">Partie 2 — Point de vue personnel <span class="spine-count">· {{ response_content.position_claire|wordcount }} mots</span></div>
+          <div class="spine-label">Partie 2 — Point de vue personnel <span class="spine-count">· {{ response_content.position_claire|french_wordcount }} mots</span></div>
           <p class="spine-text">{{ response_content.position_claire }}</p>
         </section>
       {% endif %}
@@ -131,14 +136,29 @@
           <a class="btn btn--block" href="{% url 'study:edit_response' part.slug task.slug selected_prompt.pk %}">{% if response_content.is_personal %}Modifier ma version{% else %}Personnaliser la réponse{% endif %}</a>
         {% endif %}
         <a class="btn btn--primary btn--block" href="{{ response_review_url }}">Pratiquer cette réponse</a>
-        <a class="btn btn--block" href="{{ theme_review_url }}">Pratiquer ce {% if ee_response %}mois{% else %}thème{% endif %}</a>
+        <a class="btn btn--block" href="{{ theme_review_url }}">Pratiquer ce thème</a>
         {% if vocabulary_review_url %}
           <a class="btn btn--block" href="{{ vocabulary_review_url }}">Pratiquer les vocabs</a>
         {% endif %}
       </div>
     </div>
 
-    {% if response.has_aliases %}
+    {% if ee_response and ee_equivalent_subjects %}
+      <div class="card section-card response-sidebar-card response-sidebar-card--aliases" id="equivalent-subjects">
+        <div class="spine-label">Sujets équivalents</div>
+        <p class="muted">Ces publications reprennent les mêmes documents. La réponse et la progression sont partagées.</p>
+        <ul class="mini-list">
+          {% for equivalent in ee_equivalent_subjects %}
+            <li>
+              <a href="{% url 'study:response_detail' part.slug task.slug equivalent.prompt.pk %}" target="_blank" rel="noopener noreferrer">
+                <span class="chip">{{ equivalent.month.name }} 2025 · {{ equivalent.combinaison }}</span>
+                {{ equivalent.prompt.text }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% elif response.has_aliases %}
       <div class="card section-card response-sidebar-card response-sidebar-card--aliases" id="subject-vocabulary">
         <div class="spine-label">Sujets équivalents</div>
         <ul class="mini-list">

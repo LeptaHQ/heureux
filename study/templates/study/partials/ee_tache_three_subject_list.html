@@ -13,11 +13,15 @@
       data-subject-progress-row="{{ subject.prompt.response_id }}">
       <div class="ee-t3-subject-row__number">
         <span>{{ subject.combination_number }}</span>
-        <small>Combinaison</small>
+        <small>{{ subject.month_name }} {{ subject.year }}</small>
       </div>
       <div class="ee-t3-subject-row__copy">
         <strong>{{ subject.prompt.text }}</strong>
-        <p>{{ subject.document_count }} documents · {{ subject.vocabulary_count }} vocabs</p>
+        <p>
+          {{ subject.combination_label }} · {{ subject.document_count }} documents · {{ subject.vocabulary_count }} vocabs
+          {% if subject.equivalent_count %} · <span class="chip">{{ subject.equivalent_count|add:1 }} publications liées</span>{% endif %}
+          {% if subject.has_source_issue %} · <span class="chip">Source signalée</span>{% endif %}
+        </p>
       </div>
       <div class="ee-t3-subject-row__progress">
         <span

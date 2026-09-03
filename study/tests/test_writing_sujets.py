@@ -301,7 +301,7 @@ class WritingSujetViewTests(TestCase):
 
         self.assertEqual(page.status_code, 200)
         self.assertContains(page, "Version A la meilleure.")
-        self.assertContains(page, "Voir mes autres versions (2)")
+        self.assertContains(page, "Voir les autres versions (2)")
         self.assertContains(page, "Version B.")
         self.assertContains(page, "Version C.")
 
@@ -310,7 +310,7 @@ class WritingSujetViewTests(TestCase):
 
         self.assertEqual(page.status_code, 200)
         self.assertContains(page, "Une seule version modèle.")
-        self.assertNotContains(page, "Voir mes autres versions")
+        self.assertNotContains(page, "Voir les autres versions")
 
     def test_detail_topic_only_shows_empty_state(self):
         page = self.client.get(self._detail_url(self.empty))

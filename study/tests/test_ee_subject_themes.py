@@ -126,6 +126,31 @@ class EeCorpusTests(SimpleTestCase):
                     with self.subTest(tache=tache, key=row["key"]):
                         self.assertTrue(row["prompt"].strip())
 
+    def test_combined_tache_three_json_matches_every_month_file(self):
+        directory = EE_TACHE_DIRS[3]
+        combined = json.loads(
+            (directory / "sujets-documents-2025.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        combined_by_slug = {
+            month["slug"]: month["combinaisons"]
+            for month in combined["mois"]
+        }
+
+        self.assertEqual(set(combined_by_slug), set(EE_MONTH_ORDER))
+        for month_slug in EE_MONTH_ORDER:
+            monthly = json.loads(
+                (directory / "subjects" / f"{month_slug}.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            with self.subTest(month=month_slug):
+                self.assertEqual(
+                    combined_by_slug[month_slug],
+                    monthly["sujets"],
+                )
+
 
 class EeSubjectThemeTests(SimpleTestCase):
     def test_every_subject_belongs_to_exactly_one_known_theme(self):

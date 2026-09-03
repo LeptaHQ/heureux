@@ -321,6 +321,35 @@ class WritingSujetCardCountsTests(TestCase):
         self.assertEqual(batched["prompt_count"], alone["prompt_count"])
         self.assertEqual(batched["response_stats"], alone["response_stats"])
 
+    def test_unbatched_writing_card_counts_shared_occurrences(self):
+        sujet_ids = list(
+            WritingSujet.objects.filter(
+                task=self.task,
+                is_active=True,
+            ).values_list("pk", flat=True)
+        )
+        counts = _task_content_counts([self.task])
+        counts[self.task.pk]["writing_sujet_ids"] = [
+            sujet_ids[0],
+            sujet_ids[0],
+            sujet_ids[1],
+        ]
+        WritingSujetCompletion.objects.create(
+            user=self.user,
+            sujet_id=sujet_ids[0],
+        )
+
+        card = _task_card(
+            self.task,
+            timezone.now(),
+            self.user,
+            content_counts=counts,
+        )
+
+        self.assertEqual(card["stats"]["total"], 3)
+        self.assertEqual(card["stats"]["completed"], 2)
+        self.assertEqual(card["stats"]["seen"], 2)
+
     def test_writing_sujets_add_two_queries_to_a_batch(self):
         other = factories.make_task(factories.make_part("eo"), "tache-3")
         factories.make_theme("culture-batch", task=other)
@@ -592,9 +621,15 @@ class ExpressionPathSummaryTests(TestCase):
 
     def _build_edge_cases(self):
         """Content the two pages must ignore, skip, or still count."""
-        ee_tache_three = factories.make_task(self.ee, "tache-3")
-        theme = factories.make_theme("ee-tache-3-theme", task=ee_tache_three)
-        factories.make_spine_card(theme=theme, user=self.user)
+        self.ee_tache_three = factories.make_task(self.ee, "tache-3")
+        theme = factories.make_theme(
+            "ee-tache-3-theme",
+            task=self.ee_tache_three,
+        )
+        self.ee_tache_three_card = factories.make_spine_card(
+            theme=theme,
+            user=self.user,
+        )
 
         # An archived theme still owns prompts: they count as content, but
         # their responses are not part of the progress.
@@ -736,6 +771,57 @@ class ExpressionPathSummaryTests(TestCase):
         self.assertEqual(summary["stats"]["completed"], 1)
         self.assertEqual(summary["stats"]["seen"], 3)
         self.assertEqual(summary["stats"]["due"], 0)
+
+    def test_ee_tache_three_counts_each_published_alias(self):
+        keys = content_module.load_ee_subject_keys(3)
+        canonical = self.ee_tache_three_card.response.prompts.get(
+            is_canonical=True
+        )
+        canonical.content_key = keys[0]
+        canonical.save(update_fields=["content_key"])
+        self._add_prompt(
+            self.ee_tache_three_card.response,
+            keys[1],
+            theme=canonical.theme,
+        )
+        self.ee_tache_three_card.subject_completed_at = self.now
+        self.ee_tache_three_card.save(update_fields=["subject_completed_at"])
+
+        summaries = expression_task_summaries(
+            self.now,
+            self.user,
+            [self.ee_tache_three],
+        )
+        summary = summaries[self.ee_tache_three.pk]
+
+        self.assertEqual(summary["prompt_count"], 2)
+        self.assertEqual(summary["stats"]["total"], 2)
+        self.assertEqual(summary["stats"]["completed"], 2)
+        self.assertEqual(summary["stats"]["seen"], 2)
+
+    def test_unbatched_ee_tache_three_card_counts_published_aliases(self):
+        keys = content_module.load_ee_subject_keys(3)
+        canonical = self.ee_tache_three_card.response.prompts.get(
+            is_canonical=True
+        )
+        canonical.content_key = keys[0]
+        canonical.save(update_fields=["content_key"])
+        self._add_prompt(
+            self.ee_tache_three_card.response,
+            keys[1],
+            theme=canonical.theme,
+        )
+        self.ee_tache_three_card.subject_completed_at = self.now
+        self.ee_tache_three_card.save(update_fields=["subject_completed_at"])
+
+        card = _task_card(
+            self.ee_tache_three,
+            self.now,
+            self.user,
+        )
+
+        self.assertEqual(card["stats"]["total"], 2)
+        self.assertEqual(card["stats"]["completed"], 2)
 
     def test_unavailable_tasks_and_parts_stay_empty(self):
         paths = self._paths()

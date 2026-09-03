@@ -26,15 +26,15 @@ La présence d’une photo sur le CV divise les opinions. D’un côté, ses opp
 
 ### La colocation entre adultes : un équilibre à construire
 
-**Partie 1 — Synthèse (53 mots)**
+**Partie 1 — Synthèse (56 mots)**
 
-La vie en colocation entre adultes présente des avantages et des inconvénients. Le texte insiste sur la nécessité d’établir des règles, de respecter les habitudes de chacun et de discuter dès qu’un conflit apparaît. En revanche, une vision opposée souligne que ces contraintes peuvent limiter la liberté, l’intimité et la spontanéité au quotidien.
+Un seul document a été publié pour ce sujet : la source ne fournit aucun point de vue opposé. Ce texte explique que la colocation exige des règles communes, notamment concernant le bruit, les invités et la vaisselle. Il insiste surtout sur le respect mutuel, l’organisation et le dialogue pour résoudre les difficultés de la vie quotidienne.
 
 **Partie 2 — Point de vue personnel (102 mots)**
 
 Selon moi, la colocation est une solution enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, elle réduit les charges financières et rompt l’isolement. Ensuite, une communication ouverte apprend à respecter les besoins de chacun. Par exemple, trois adultes peuvent fixer un calendrier de ménage, des heures calmes et des règles concernant les invités, puis faire un bilan chaque mois. Cependant, il faut aussi reconnaître que certaines habitudes incompatibles créent des tensions malgré les efforts. En définitive, le plus important est de choisir soigneusement ses colocataires et de préserver un équilibre raisonnable entre convivialité, respect mutuel et intimité.
 
-**Total : 155 mots**
+**Total : 158 mots**
 
 ---
 
@@ -44,15 +44,15 @@ Selon moi, la colocation est une solution enrichissante à condition que les res
 
 ### Aider les plus pauvres : de l’urgence à l’autonomie
 
-**Partie 1 — Synthèse (52 mots)**
+**Partie 1 — Synthèse (60 mots)**
 
-L’aide aux personnes pauvres suscite un débat sur la meilleure forme de solidarité. Le témoignage défend les dons de temps ou d’argent, accessibles à tous et particulièrement nécessaires en hiver. Toutefois, une position opposée considère ces gestes trop ponctuels et privilégie un accompagnement durable vers le logement, la formation, l’emploi et l’autonomie.
+Un seul document a été publié pour ce sujet : la source n’a fourni aucun point de vue opposé. Ce témoignage raconte que, chaque hiver, son auteur donne un peu de son temps et de son argent aux personnes qui vivent dans la rue ou aux associations. Ce geste de solidarité, à la portée de tous, reste toutefois ponctuel et saisonnier.
 
 **Partie 2 — Point de vue personnel (97 mots)**
 
 Personnellement, je pense que l’aide immédiate et l’accompagnement à long terme doivent se compléter. Tout d’abord, une personne qui a faim ou froid a besoin d’un secours sans délai. Ensuite, un suivi régulier permet d’agir sur les causes de l’exclusion. Par exemple, à Montréal, une association peut offrir un repas chaud, puis aider le bénéficiaire à obtenir une adresse, une formation et un emploi stable. Cependant, il faut aussi reconnaître que ces actions exigent des professionnels et des ressources durables. En conclusion, le plus important est de conjuguer une solidarité concrète et des solutions qui restaurent l’autonomie.
 
-**Total : 149 mots**
+**Total : 157 mots**
 
 ---
 

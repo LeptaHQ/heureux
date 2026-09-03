@@ -16,6 +16,7 @@
       "canonical": "ee-tache3:janvier:combinaison-2",
       "members": [
         "ee-tache3:janvier:combinaison-2",
+        "ee-tache3:mars:combinaison-12",
         "ee-tache3:juillet:combinaison-41",
         "ee-tache3:septembre:combinaison-3"
       ]
@@ -60,12 +61,32 @@
       ]
     },
     {
+      "id": "trs-interdiction-voitures-centres-villes",
+      "theme": "transports",
+      "canonical": "ee-tache3:janvier:combinaison-17",
+      "members": [
+        "ee-tache3:janvier:combinaison-17",
+        "ee-tache3:avril:combinaison-18"
+      ]
+    },
+    {
+      "id": "san-menus-sans-viande-cantine",
+      "theme": "sante-alimentation",
+      "canonical": "ee-tache3:janvier:combinaison-18",
+      "members": [
+        "ee-tache3:janvier:combinaison-18",
+        "ee-tache3:avril:combinaison-19"
+      ]
+    },
+    {
       "id": "voy-vols-bas-prix",
       "theme": "voyages",
       "canonical": "ee-tache3:janvier:combinaison-19",
       "members": [
         "ee-tache3:janvier:combinaison-19",
-        "ee-tache3:avril:combinaison-20"
+        "ee-tache3:mars:combinaison-8",
+        "ee-tache3:avril:combinaison-20",
+        "ee-tache3:octobre:combinaison-2"
       ]
     },
     {
@@ -74,7 +95,19 @@
       "canonical": "ee-tache3:mars:combinaison-1",
       "members": [
         "ee-tache3:mars:combinaison-1",
-        "ee-tache3:aout:combinaison-9"
+        "ee-tache3:avril:combinaison-9",
+        "ee-tache3:juillet:combinaison-14",
+        "ee-tache3:aout:combinaison-9",
+        "ee-tache3:decembre:combinaison-9"
+      ]
+    },
+    {
+      "id": "soc-animaux-compagnie-enfants",
+      "theme": "societe",
+      "canonical": "ee-tache3:mars:combinaison-2",
+      "members": [
+        "ee-tache3:mars:combinaison-2",
+        "ee-tache3:decembre:combinaison-7"
       ]
     },
     {
@@ -142,6 +175,7 @@
       "members": [
         "ee-tache3:avril:combinaison-4",
         "ee-tache3:juillet:combinaison-1",
+        "ee-tache3:aout:combinaison-4",
         "ee-tache3:novembre:combinaison-5"
       ]
     },
@@ -194,6 +228,15 @@
       ]
     },
     {
+      "id": "cul-organisation-evenements-sportifs",
+      "theme": "culture-loisirs",
+      "canonical": "ee-tache3:avril:combinaison-17",
+      "members": [
+        "ee-tache3:avril:combinaison-17",
+        "ee-tache3:mai:combinaison-4"
+      ]
+    },
+    {
       "id": "tra-travail-favorable-defavorable",
       "theme": "travail",
       "canonical": "ee-tache3:mai:combinaison-3",
@@ -202,6 +245,15 @@
         "ee-tache3:juin:combinaison-13",
         "ee-tache3:juillet:combinaison-43",
         "ee-tache3:septembre:combinaison-1"
+      ]
+    },
+    {
+      "id": "log-colocation-plateaux-tele",
+      "theme": "logement",
+      "canonical": "ee-tache3:mai:combinaison-7",
+      "members": [
+        "ee-tache3:mai:combinaison-7",
+        "ee-tache3:decembre:combinaison-6"
       ]
     },
     {
@@ -229,6 +281,15 @@
       "members": [
         "ee-tache3:aout:combinaison-8",
         "ee-tache3:novembre:combinaison-6"
+      ]
+    },
+    {
+      "id": "san-restauration-rapide-chaines",
+      "theme": "sante-alimentation",
+      "canonical": "ee-tache3:aout:combinaison-15",
+      "members": [
+        "ee-tache3:aout:combinaison-15",
+        "ee-tache3:novembre:combinaison-9"
       ]
     },
     {

@@ -920,22 +920,65 @@ def _task_content_counts(tasks):
     writing_task_ids = [
         task.pk
         for task in available
-        if (task.part.slug, task.slug) == content_module.EE_TACHE_ONE_TASK
+        if (task.part.slug, task.slug)
+        in {
+            content_module.EE_TACHE_ONE_TASK,
+            content_module.EE_TACHE_TWO_TASK,
+        }
     ]
     if writing_task_ids:
         _add_writing_sujet_counts(counts, writing_task_ids)
     return counts
 
 
-def _add_writing_sujet_counts(counts, task_ids):
-    """EE Tâche 1 sujet ids, category count, and model-response count."""
+def _canonical_writing_sujet_ids_by_task(rows, task_ids):
+    """Return one canonical progress id per published writing occurrence."""
+    id_by_task_slug = {
+        (task_id, slug): sujet_id
+        for task_id, sujet_id, _category, slug, _part, _task in rows
+    }
+    tache_by_task = {
+        task_id: {
+            content_module.EE_TACHE_ONE_TASK: 1,
+            content_module.EE_TACHE_TWO_TASK: 2,
+        }.get((part_slug, task_slug))
+        for task_id, _sujet_id, _category, _slug, part_slug, task_slug in rows
+    }
+    canonical_maps = {
+        tache: content_module.ee_writing_canonical_slug_by_slug(tache)
+        for tache in set(tache_by_task.values())
+        if tache is not None
+    }
     sujet_ids_by_task = {task_id: [] for task_id in task_ids}
+    for task_id, sujet_id, _category, slug, _part, _task in rows:
+        tache = tache_by_task.get(task_id)
+        canonical_slug = (
+            canonical_maps[tache].get(slug, slug) if tache is not None else slug
+        )
+        sujet_ids_by_task[task_id].append(
+            id_by_task_slug.get((task_id, canonical_slug), sujet_id)
+        )
+    return sujet_ids_by_task
+
+
+def _add_writing_sujet_counts(counts, task_ids):
+    """EE writing occurrence ids, category count, and model-response count."""
     categories_by_task = {task_id: set() for task_id in task_ids}
-    for task_id, sujet_id, category in WritingSujet.objects.filter(
-        task_id__in=task_ids,
-        is_active=True,
-    ).values_list("task_id", "pk", "category"):
-        sujet_ids_by_task[task_id].append(sujet_id)
+    rows = list(
+        WritingSujet.objects.filter(
+            task_id__in=task_ids,
+            is_active=True,
+        ).values_list(
+            "task_id",
+            "pk",
+            "category",
+            "slug",
+            "task__part__slug",
+            "task__slug",
+        )
+    )
+    sujet_ids_by_task = _canonical_writing_sujet_ids_by_task(rows, task_ids)
+    for task_id, _sujet_id, category, _slug, _part, _task in rows:
         categories_by_task[task_id].add(category)
     for task_id in task_ids:
         entry = counts[task_id]
@@ -959,8 +1002,8 @@ def _counts_for_task(task, content_counts=None):
     return _task_content_counts([task])[task.pk]
 
 
-def _ee_tache_one_task_card(task, user, content_counts=None, summary=None):
-    """Deck card for EE Tâche 1 with explicit subject completion."""
+def _ee_writing_task_card(task, user, content_counts=None, summary=None):
+    """Deck card for an EE writing task with shared explicit completion."""
     counts = _counts_for_task(task, content_counts)
     sujet_ids = list(counts["writing_sujet_ids"])
     total = len(sujet_ids)
@@ -974,10 +1017,12 @@ def _ee_tache_one_task_card(task, user, content_counts=None, summary=None):
             sujet_ids,
         )
         started = sum(
-            progress.started for progress in progress_by_sujet.values()
+            progress_by_sujet[sujet_id].started
+            for sujet_id in sujet_ids
         )
         completed = sum(
-            progress.completed for progress in progress_by_sujet.values()
+            progress_by_sujet[sujet_id].completed
+            for sujet_id in sujet_ids
         )
         progress = progress_summary(
             total=total,
@@ -1042,9 +1087,13 @@ def _task_card(
     summary = (summaries or {}).get(task.pk)
     if (
         task.available
-        and (task.part.slug, task.slug) == content_module.EE_TACHE_ONE_TASK
+        and (task.part.slug, task.slug)
+        in {
+            content_module.EE_TACHE_ONE_TASK,
+            content_module.EE_TACHE_TWO_TASK,
+        }
     ):
-        return _ee_tache_one_task_card(task, user, content_counts, summary)
+        return _ee_writing_task_card(task, user, content_counts, summary)
     content_totals = (
         _counts_for_task(task, content_counts)
         if task.available
@@ -1111,20 +1160,37 @@ def _task_card(
             if batched_stats is not None:
                 response_stats = batched_stats
             elif subject_state is None:
-                response_ids = set(
+                prompt_rows = list(
                     Prompt.objects.filter(
                         theme__task=task,
                         theme__is_active=True,
                         is_active=True,
                         response__is_active=True,
-                    ).values_list("response_id", flat=True)
+                    ).values_list("content_key", "response_id")
                 )
+                response_ids = {
+                    response_id for _content_key, response_id in prompt_rows
+                }
                 response_progress = subject_progress_by_response(
                     user,
                     response_ids,
                 )
+                progress_items = response_progress.values()
+                if (
+                    task.part.slug,
+                    task.slug,
+                ) == content_module.EE_TACHE_THREE_TASK:
+                    ee_progress_items = [
+                        response_progress[response_id]
+                        for content_key, response_id in prompt_rows
+                        if content_key.startswith(
+                            content_module.EE_TACHE_THREE_CONTENT_PREFIX
+                        )
+                    ]
+                    if ee_progress_items:
+                        progress_items = ee_progress_items
                 response_stats = summarize_subject_progress(
-                    response_progress.values()
+                    progress_items
                 )
             else:
                 response_stats = dict(subject_state["summary"])
@@ -1259,7 +1325,7 @@ def _expression_prompt_rows(task_ids):
 
 
 def _writing_task_summaries(summaries, user, task_ids, content_counts=None):
-    """EE Tâche 1 progress, which counts sujets rather than responses."""
+    """EE Tâche 1/2 progress, which counts sujets rather than responses."""
     if not task_ids:
         return
     sujet_ids_by_task = {task_id: [] for task_id in task_ids}
@@ -1272,12 +1338,22 @@ def _writing_task_summaries(summaries, user, task_ids, content_counts=None):
                 content_counts[task_id]["writing_sujet_ids"]
             )
     else:
-        for task_id, sujet_id in (
+        rows = list(
             WritingSujet.objects.filter(task_id__in=task_ids, is_active=True)
             .order_by()
-            .values_list("task_id", "pk")
-        ):
-            sujet_ids_by_task[task_id].append(sujet_id)
+            .values_list(
+                "task_id",
+                "pk",
+                "category",
+                "slug",
+                "task__part__slug",
+                "task__slug",
+            )
+        )
+        sujet_ids_by_task = _canonical_writing_sujet_ids_by_task(
+            rows,
+            task_ids,
+        )
     progress_by_sujet = writing_sujet_progress_by_id(
         user,
         [
@@ -1341,14 +1417,20 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
     writing_task_ids = []
     subject_task_ids = []
     question_bank_task_id = None
+    ee_tache_three_task_id = None
     for task in available:
         task_key = (task.part.slug, task.slug)
-        if task_key == content_module.EE_TACHE_ONE_TASK:
+        if task_key in {
+            content_module.EE_TACHE_ONE_TASK,
+            content_module.EE_TACHE_TWO_TASK,
+        }:
             writing_task_ids.append(task.pk)
             continue
         subject_task_ids.append(task.pk)
         if task_key == content_module.QUESTION_BANK_TASK:
             question_bank_task_id = task.pk
+        elif task_key == content_module.EE_TACHE_THREE_TASK:
+            ee_tache_three_task_id = task.pk
 
     response_ids_by_task = {task_id: set() for task_id in subject_task_ids}
     response_id_by_content_key = {}
@@ -1366,8 +1448,8 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
         if theme_is_active:
             response_ids_by_task[task_id].add(response_id)
 
-    # Tâche 2 counts subject occurrences, not responses: equivalent subjects
-    # share one response and one progress, yet each occurrence is a sujet.
+    # Subject directories count published occurrences, not canonical responses:
+    # equivalents share one progress state, repeated once per visible sujet.
     subject_keys_by_task = {}
     if question_bank_task_id is not None:
         subject_keys_by_task[question_bank_task_id] = tuple(
@@ -1380,6 +1462,14 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
             for batch in month.batches
             for subject in batch.subjects
         )
+    if ee_tache_three_task_id is not None:
+        ee_tache_three_keys = tuple(
+            key
+            for key in content_module.load_ee_subject_keys(3)
+            if key in response_id_by_content_key
+        )
+        if ee_tache_three_keys:
+            subject_keys_by_task[ee_tache_three_task_id] = ee_tache_three_keys
 
     wanted_response_ids = set()
     for task_id in subject_task_ids:

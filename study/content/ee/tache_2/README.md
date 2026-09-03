@@ -4,9 +4,18 @@ Corpus **verbatim** des consignes d'**Expression écrite, Tâche 2** publiées e
 (article de blog, message sur un forum ou page d'un site : raconter une expérience,
 la décrire et l'expliquer).
 
-Ce dossier ne contient **que les sujets sources** : ni réponse modèle, ni correction,
-ni vocabulaire. La tâche est déclarée `available: false` dans `sections.json` tant
-qu'aucun contenu d'entraînement n'a été produit.
+La tâche est active dans `sections.json`. Son parcours conserve les 138 publications,
+les classe par thème et relie les republications à 88 exercices canoniques :
+
+- `responses/<theme>.json` contient **92 versions modèles** de **120 à 150 mots**.
+  Les versions `origin: author` viennent de la
+  [banque personnelle de l'auteur](https://dot-ear-743.notion.site/2d82e3acbb10809eb5d2c44ed17bccbf?v=3d02e3acbb1080e5878b000c3c0edec0) ;
+  les réponses manquantes ont été rédigées dans le même registre et contrôlées
+  contre leur consigne.
+- `load_ee_writing_categories(2)` valide la couverture, l'ordre, les limites et
+  place les versions de l'auteur en premier.
+- Chaque occurrence garde son mois et son numéro de combinaison, tandis que la
+  réponse personnelle et la progression sont partagées avec son sujet canonique.
 
 ## Contenu
 
@@ -45,10 +54,12 @@ et les Tâches 1, 2 et 3 d'une même combinaison portent donc la même clé au p
 
 - `subject_themes.json` — 11 thèmes (`slug`, `name`, `icon`, `order`) et la table
   `content_key → thème` couvrant **les 138 sujets**.
-- `equivalent_groups.json` — **30 groupes** (76 sujets) republiés mot pour mot d'un
-  mois à l'autre. Le membre `canonical` est toujours le plus ancien du groupe ; un
-  sujet n'appartient qu'à un seul groupe et tous les membres partagent son thème.
-  **92 sujets distincts** subsistent une fois les doublons regroupés.
+- `equivalent_groups.json` — **33 groupes** (83 sujets) republiés sous la même
+  consigne. Les seuls écarts admis sont des artefacts source audités : préfixe
+  « Analysez le sujet… », ponctuation ou bloc accidentellement dupliqué. Le membre
+  `canonical` est toujours le plus ancien du groupe ; un sujet n'appartient qu'à un
+  seul groupe et tous les membres partagent son thème.
+  **88 sujets distincts** subsistent une fois les doublons regroupés.
 
 | Thème | Slug | Sujets |
 |---|---|---|
@@ -68,7 +79,7 @@ Chargement et validation : `load_ee_subject_themes(2)` et
 `load_ee_equivalent_groups(2)` dans `study/content_loader.py`. Les règles sont celles
 de l'Expression orale Tâche 2 : version 1, identifiants en `kebab-case` uniques, au
 moins deux membres, `canonical` le plus ancien, aucun chevauchement entre groupes,
-aucun franchissement de thème, et wording réellement partagé.
+aucun franchissement de thème, et consigne normalisée réellement partagée.
 
 ## Reproduction
 

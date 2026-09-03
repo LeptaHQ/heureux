@@ -511,7 +511,7 @@ def _has_ee_tache_three_content(task):
 @lru_cache(maxsize=1)
 def _ee_tache_three_sources_by_key():
     return {
-        combinaison.content_key: combinaison
+        combinaison.content_key: (month, combinaison)
         for month in content_module.load_ee_tache_three_months()
         for combinaison in month.combinaisons
     }
@@ -519,14 +519,15 @@ def _ee_tache_three_sources_by_key():
 
 def _ee_tache_three_subject_context(user, task):
     source_months = content_module.load_ee_tache_three_months()
-    source_keys = [
-        combinaison.content_key
+    source_rows = [
+        (month, combinaison)
         for month in source_months
         for combinaison in month.combinaisons
     ]
+    source_keys = [combinaison.content_key for _month, combinaison in source_rows]
+    theme_data, theme_slug_by_key = content_module.load_ee_subject_themes(3)
     theme_names = {
-        content_module.ee_tache_three_theme_name(month)
-        for month in source_months
+        content_module.ee_subject_theme_name(3, theme) for theme in theme_data
     }
     themes_by_name = {
         theme.name: theme
@@ -558,18 +559,30 @@ def _ee_tache_three_subject_context(user, task):
             for prompt in prompts_by_key.values()
         },
     )
+    response_occurrence_counts = {}
+    for prompt in prompts_by_key.values():
+        response_occurrence_counts[prompt.response_id] = (
+            response_occurrence_counts.get(prompt.response_id, 0) + 1
+        )
+
+    sources_by_theme = {theme.slug: [] for theme in theme_data}
+    for month, combinaison in source_rows:
+        sources_by_theme[theme_slug_by_key[combinaison.content_key]].append(
+            (month, combinaison)
+        )
+
     all_progress = []
-    months = []
-    for source_month in source_months:
+    subject_themes = []
+    for source_theme in theme_data:
         theme = themes_by_name[
-            content_module.ee_tache_three_theme_name(source_month)
+            content_module.ee_subject_theme_name(3, source_theme)
         ]
         subjects = []
-        month_progress = []
-        for combinaison in source_month.combinaisons:
+        theme_progress = []
+        for source_month, combinaison in sources_by_theme[source_theme.slug]:
             prompt = prompts_by_key[combinaison.content_key]
             progress = progress_by_response[prompt.response_id]
-            month_progress.append(progress)
+            theme_progress.append(progress)
             all_progress.append(progress)
             subjects.append(
                 {
@@ -582,6 +595,15 @@ def _ee_tache_three_subject_context(user, task):
                     ),
                     "prompt": prompt,
                     "progress": progress,
+                    "month_slug": source_month.slug,
+                    "month_name": source_month.name,
+                    "month_number": source_month.number,
+                    "year": 2025,
+                    "is_alias": not prompt.is_canonical,
+                    "equivalent_count": (
+                        response_occurrence_counts[prompt.response_id] - 1
+                    ),
+                    "has_source_issue": combinaison.has_source_issue,
                     "document_count": sum(
                         bool(document.strip())
                         for document in (
@@ -595,18 +617,17 @@ def _ee_tache_three_subject_context(user, task):
                 }
             )
 
-        summary = summarize_subject_progress(month_progress)
-        months.append(
+        summary = summarize_subject_progress(theme_progress)
+        subject_themes.append(
             {
-                "number": source_month.number,
-                "number_label": f"{source_month.number:02d}",
-                "slug": source_month.slug,
-                "name": source_month.name,
+                "slug": source_theme.slug,
+                "name": source_theme.name,
+                "icon": source_theme.icon,
                 "theme": theme,
                 "subjects": subjects,
                 "subject_count": len(subjects),
                 "vocabulary_count": (
-                    len(subjects)
+                    len({row["prompt"].response_id for row in subjects})
                     * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
                 ),
                 "review_url": review_url(
@@ -622,12 +643,17 @@ def _ee_tache_three_subject_context(user, task):
         )
 
     summary = summarize_subject_progress(all_progress)
+    response_count = len(
+        {prompt.response_id for prompt in prompts_by_key.values()}
+    )
     return {
-        "months": months,
-        "month_count": len(months),
+        "subject_themes": subject_themes,
+        "theme_count": len(subject_themes),
+        "month_count": len(source_months),
         "subject_count": len(all_progress),
+        "distinct_count": response_count,
         "vocabulary_count": (
-            len(all_progress)
+            response_count
             * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
         ),
         "subject_summary": summary,
@@ -718,6 +744,169 @@ def _ee_tache_one_subject_context(user, task):
     }
 
 
+def _ee_writing_tache(task):
+    return {
+        content_module.EE_TACHE_ONE_TASK: 1,
+        content_module.EE_TACHE_TWO_TASK: 2,
+    }.get((task.part.slug, task.slug))
+
+
+def _ee_writing_source_is_synchronized(task, tache):
+    expected = set(content_module.ee_writing_canonical_slug_by_slug(tache))
+    actual = set(
+        WritingSujet.objects.filter(
+            task=task,
+            is_active=True,
+            slug__in=expected,
+        ).values_list("slug", flat=True)
+    )
+    return actual == expected
+
+
+@lru_cache(maxsize=2)
+def _ee_writing_source_categories(tache):
+    return content_module.load_ee_writing_categories(tache)
+
+
+def _ee_writing_subject_context(user, task, tache):
+    """Build the themed 2025 writing directory with shared canonical progress."""
+    source_categories = _ee_writing_source_categories(tache)
+    theme_data, _ = content_module.load_ee_subject_themes(tache)
+    icon_by_slug = {theme.slug: theme.icon for theme in theme_data}
+    canonical_slug_by_slug = (
+        content_module.ee_writing_canonical_slug_by_slug(tache)
+    )
+    source_by_slug = {
+        source.slug: source
+        for category in source_categories
+        for source in category.sujets
+    }
+    sujets_by_slug = {
+        sujet.slug: sujet
+        for sujet in WritingSujet.objects.filter(
+            task=task,
+            is_active=True,
+            slug__in=source_by_slug,
+        ).order_by("order", "pk")
+    }
+    if set(source_by_slug) != set(sujets_by_slug):
+        raise RuntimeError(f"EE Tâche {tache} writing content is not synchronized")
+
+    canonical_by_slug = {
+        slug: sujets_by_slug[canonical_slug_by_slug[slug]]
+        for slug in source_by_slug
+    }
+    canonical_ids = {
+        sujet.pk for sujet in canonical_by_slug.values()
+    }
+    progress_by_canonical = writing_sujet_progress_by_id(
+        user,
+        canonical_ids,
+    )
+    equivalent_count_by_id = {}
+    for canonical in canonical_by_slug.values():
+        equivalent_count_by_id[canonical.pk] = (
+            equivalent_count_by_id.get(canonical.pk, 0) + 1
+        )
+
+    categories = []
+    all_progress = []
+    for source_category in source_categories:
+        rows = []
+        category_progress = []
+        for source in source_category.sujets:
+            sujet = sujets_by_slug[source.slug]
+            canonical = canonical_by_slug[source.slug]
+            progress = progress_by_canonical[canonical.pk]
+            category_progress.append(progress)
+            all_progress.append(progress)
+            model_versions = canonical.model_versions
+            rows.append(
+                {
+                    "sujet": sujet,
+                    "progress_sujet": canonical,
+                    "prompt": source.prompt,
+                    "source": source,
+                    "source_url": (
+                        content_module.EE_2025_SOURCE_URL.format(
+                            month=source.month_slug
+                        )
+                        if source
+                        else ""
+                    ),
+                    "version_count": len(model_versions),
+                    "has_model_response": bool(model_versions),
+                    "is_personalized": progress.is_personalized,
+                    "explicitly_completed": progress.explicitly_completed,
+                    "progress": progress,
+                    "is_alias": sujet.pk != canonical.pk,
+                    "equivalent_count": (
+                        equivalent_count_by_id[canonical.pk] - 1
+                    ),
+                }
+            )
+        category_summary = progress_summary(
+            total=len(category_progress),
+            started=sum(item.started for item in category_progress),
+            completed=sum(item.completed for item in category_progress),
+        )
+        categories.append(
+            {
+                "slug": source_category.slug,
+                "label": source_category.label,
+                "icon": icon_by_slug[source_category.slug],
+                "sujets": rows,
+                "count": len(rows),
+                "progress": category_summary,
+                "personalized_count": len(
+                    {
+                        row["progress_sujet"].pk
+                        for row in rows
+                        if row["is_personalized"]
+                    }
+                ),
+            }
+        )
+
+    distinct_progress = list(progress_by_canonical.values())
+    minimum, maximum = content_module.EE_WRITING_WORD_LIMITS[tache]
+    return {
+        "categories": categories,
+        "category_count": len(categories),
+        "sujet_count": len(source_by_slug),
+        "distinct_count": len(canonical_ids),
+        "response_count": sum(
+            bool(sujet.model_versions)
+            for sujet in {
+                item.pk: item for item in canonical_by_slug.values()
+            }.values()
+        ),
+        "personalized_count": sum(
+            item.is_personalized for item in distinct_progress
+        ),
+        "completed_count": sum(
+            item.explicitly_completed for item in distinct_progress
+        ),
+        "subject_progress": progress_summary(
+            total=len(all_progress),
+            started=sum(item.started for item in all_progress),
+            completed=sum(item.completed for item in all_progress),
+        ),
+        "distinct_progress": progress_summary(
+            total=len(distinct_progress),
+            started=sum(item.started for item in distinct_progress),
+            completed=sum(item.completed for item in distinct_progress),
+        ),
+        "writing_tache": tache,
+        "word_limit_min": minimum,
+        "word_limit_max": maximum,
+        "subject_prompt_map": {
+            source.source_key: source.prompt
+            for source in source_by_slug.values()
+        },
+    }
+
+
 def task_detail(request, part_slug, task_slug):
     task = get_object_or_404(
         Task.objects.select_related("part"),
@@ -750,6 +939,24 @@ def task_detail(request, part_slug, task_slug):
                 "subject_theme_count": subject_state["theme_count"],
                 "theme_vocabulary": theme_vocabulary,
                 "ai_practice_prompt": content_module.load_ai_examiner_prompt(),
+            },
+        )
+    writing_tache = _ee_writing_tache(task)
+    if (
+        writing_tache is not None
+        and _ee_writing_source_is_synchronized(task, writing_tache)
+    ):
+        return render(
+            request,
+            "study/ee_writing_subjects.html",
+            {
+                "part": task.part,
+                "task": task,
+                **_ee_writing_subject_context(
+                    request.user,
+                    task,
+                    writing_tache,
+                ),
             },
         )
     if (
@@ -1005,6 +1212,25 @@ def browse(request, part_slug=None, task_slug=None):
                 ),
             },
         )
+    writing_tache = _ee_writing_tache(forced_task) if forced_task else None
+    if (
+        forced_task
+        and writing_tache is not None
+        and _ee_writing_source_is_synchronized(forced_task, writing_tache)
+    ):
+        return render(
+            request,
+            "study/ee_writing_subjects.html",
+            {
+                "part": forced_task.part,
+                "task": forced_task,
+                **_ee_writing_subject_context(
+                    request.user,
+                    forced_task,
+                    writing_tache,
+                ),
+            },
+        )
     if (
         forced_task
         and (
@@ -1175,12 +1401,26 @@ def _canonical_numbers_by_response(response_ids) -> dict:
 
 def theme_detail(request, part_slug, task_slug, slug):
     task = _route_task(part_slug, task_slug)
-    theme = get_object_or_404(
-        Theme.objects.select_related("task__part"),
-        slug=slug,
-        task=task,
-        is_active=True,
+    theme = (
+        Theme.objects.select_related("task__part")
+        .filter(
+            slug=slug,
+            task=task,
+            is_active=True,
+        )
+        .first()
     )
+    if theme is None and (
+        (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK
+        and slug.removeprefix("ee-tache-3-") in content_module.EE_MONTH_ORDER
+    ):
+        return redirect(
+            "study:task_browse",
+            task.part.slug,
+            task.slug,
+        )
+    if theme is None:
+        raise Http404
     prompts = list(
         Prompt.objects.filter(theme=theme, is_active=True)
         .select_related("response", "response__theme", "family")
@@ -1202,7 +1442,9 @@ def theme_detail(request, part_slug, task_slug, slug):
         }
         for prompt in prompts
     ]
-    stats = summarize_subject_progress(subject_progress.values())
+    stats = summarize_subject_progress(
+        subject_progress[prompt.response_id] for prompt in prompts
+    )
     review_scope = {
         "kind": "spine",
         "part": task.part.slug,
@@ -1210,69 +1452,71 @@ def theme_detail(request, part_slug, task_slug, slug):
         "theme": theme.slug,
     }
     if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
-        source_month = next(
-            (
-                month
-                for month in content_module.load_ee_tache_three_months()
-                if content_module.ee_tache_three_theme_name(month) == theme.name
-            ),
-            None,
-        )
-        if source_month is not None:
-            source_by_key = {
-                combinaison.content_key: combinaison
-                for combinaison in source_month.combinaisons
-            }
-            for row in rows:
-                source = source_by_key.get(row["prompt"].content_key)
-                if source is None:
-                    raise RuntimeError(
-                        "EE Tâche 3 content is not synchronized"
-                    )
-                row.update(
-                    {
-                        "position": source.position,
-                        "combination_label": source.combinaison,
-                        "combination_number": (
-                            source.combinaison.removeprefix(
-                                "Combinaison "
-                            ).strip()
-                        ),
-                        "document_count": sum(
-                            bool(document.strip())
-                            for document in (
-                                source.document1,
-                                source.document2,
-                            )
-                        ),
-                        "vocabulary_count": (
-                            content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
-                        ),
-                    }
-                )
-            return render(
-                request,
-                "study/ee_tache_three_month.html",
-                {
-                    "theme": theme,
-                    "task": task,
-                    "part": task.part,
-                    "subjects": rows,
-                    "month": {
-                        "number": source_month.number,
-                        "number_label": f"{source_month.number:02d}",
-                        "slug": source_month.slug,
-                        "name": source_month.name,
-                        "subject_count": len(rows),
-                        "vocabulary_count": (
-                            len(rows)
-                            * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
-                        ),
-                        **stats,
-                    },
-                    "review_url": review_url(review_scope),
-                },
+        source_by_key = _ee_tache_three_sources_by_key()
+        occurrence_count_by_response = {}
+        for row in rows:
+            response_id = row["prompt"].response_id
+            occurrence_count_by_response[response_id] = (
+                occurrence_count_by_response.get(response_id, 0) + 1
             )
+        for row in rows:
+            source_row = source_by_key.get(row["prompt"].content_key)
+            if source_row is None:
+                raise RuntimeError("EE Tâche 3 content is not synchronized")
+            source_month, source = source_row
+            row.update(
+                {
+                    "position": source.position,
+                    "combination_label": source.combinaison,
+                    "combination_number": (
+                        source.combinaison.removeprefix(
+                            "Combinaison "
+                        ).strip()
+                    ),
+                    "month_slug": source_month.slug,
+                    "month_name": source_month.name,
+                    "month_number": source_month.number,
+                    "year": 2025,
+                    "document_count": sum(
+                        bool(document.strip())
+                        for document in (
+                            source.document1,
+                            source.document2,
+                        )
+                    ),
+                    "vocabulary_count": (
+                        content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
+                    ),
+                    "equivalent_count": (
+                        occurrence_count_by_response[row["prompt"].response_id]
+                        - 1
+                    ),
+                    "has_source_issue": source.has_source_issue,
+                }
+            )
+        return render(
+            request,
+            "study/ee_tache_three_month.html",
+            {
+                "theme": theme,
+                "task": task,
+                "part": task.part,
+                "subjects": rows,
+                "subject_theme": {
+                    "slug": theme.slug,
+                    "name": theme.display_name,
+                    "icon": theme.icon,
+                    "subject_count": len(rows),
+                    "distinct_count": len(subject_progress),
+                    "vocabulary_count": (
+                        len(subject_progress)
+                        * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
+                    ),
+                    **stats,
+                },
+                "review_url": review_url(review_scope),
+            },
+        )
     return render(
         request,
         "study/theme_detail.html",
@@ -2469,6 +2713,15 @@ def subject_completion(request, part_slug, task_slug, response_id):
 
 def family_detail(request, part_slug, task_slug, slug):
     task = _route_task(part_slug, task_slug)
+    if (
+        (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK
+        and slug.removeprefix("ee-tache-3-") in content_module.EE_MONTH_ORDER
+    ):
+        return redirect(
+            "study:task_browse",
+            task.part.slug,
+            task.slug,
+        )
     family = get_object_or_404(
         Family.objects.filter(
             prompts__is_active=True,
@@ -2696,13 +2949,64 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         )
     )
     ee_combination_label = ""
+    ee_source_month = None
+    ee_source_url = ""
+    ee_equivalent_subjects = []
+    ee_source_warnings = []
+    ee_response_origin = "original"
+    source_documents_html = response.body_html
     if ee_response:
-        source = _ee_tache_three_sources_by_key().get(
-            response.content_key
+        if response.content_key in (
+            content_module.load_ee_tache_three_author_responses()
+        ):
+            ee_response_origin = "author"
+        source_row = _ee_tache_three_sources_by_key().get(
+            selected_prompt.content_key
         )
-        if source is None:
+        if source_row is None:
             raise RuntimeError("EE Tâche 3 content is not synchronized")
+        ee_source_month, source = source_row
         ee_combination_label = source.combinaison
+        ee_source_url = content_module.EE_2025_SOURCE_URL.format(
+            month=ee_source_month.slug
+        )
+        source_documents_html = content_module._ee_tache_three_documents_html(
+            (source.document1, source.document2)
+        )
+        if source.document1_invalid:
+            ee_source_warnings.append(
+                "Le premier document publié est hors sujet ; la réponse "
+                "s’appuie uniquement sur le document valide."
+            )
+        if source.document2_missing:
+            ee_source_warnings.append(
+                "La source publique ne fournit pas de deuxième document."
+            )
+        if source.documents_identical:
+            ee_source_warnings.append(
+                "La source publique a publié deux documents identiques."
+            )
+        if source.title_missing:
+            ee_source_warnings.append(
+                "Le titre affiché a été déduit des documents, car la source "
+                "n’en publie aucun."
+            )
+        for prompt in prompts:
+            if prompt.pk == selected_prompt.pk:
+                continue
+            equivalent_row = _ee_tache_three_sources_by_key().get(
+                prompt.content_key
+            )
+            if equivalent_row is None:
+                raise RuntimeError("EE Tâche 3 content is not synchronized")
+            equivalent_month, equivalent = equivalent_row
+            ee_equivalent_subjects.append(
+                {
+                    "prompt": prompt,
+                    "month": equivalent_month,
+                    "combinaison": equivalent.combinaison,
+                }
+            )
     return render(
         request,
         "study/response_detail.html",
@@ -2719,7 +3023,12 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "arguments": response_content.arguments,
             "ee_response": ee_response,
             "ee_combination_label": ee_combination_label,
-            "source_documents_html": response.body_html,
+            "ee_source_month": ee_source_month,
+            "ee_source_url": ee_source_url,
+            "ee_equivalent_subjects": ee_equivalent_subjects,
+            "ee_source_warnings": ee_source_warnings,
+            "ee_response_origin": ee_response_origin,
+            "source_documents_html": source_documents_html,
             "prompts": prompts,
             "card": card,
             "subject_progress": subject_progress,
@@ -2892,7 +3201,8 @@ def edit_response(request, part_slug, task_slug, prompt_id):
 
 def _route_writing_sujet(part_slug, task_slug, sujet_id):
     task = _route_task(part_slug, task_slug)
-    if (task.part.slug, task.slug) != content_module.EE_TACHE_ONE_TASK:
+    tache = _ee_writing_tache(task)
+    if tache is None:
         raise Http404
     sujet = get_object_or_404(
         WritingSujet.objects.select_related("task__part"),
@@ -2900,21 +3210,49 @@ def _route_writing_sujet(part_slug, task_slug, sujet_id):
         is_active=True,
         task=task,
     )
-    return task, sujet
+    return task, sujet, tache
+
+
+def _canonical_writing_sujet(task, sujet, tache):
+    canonical_slug = content_module.ee_writing_canonical_slug_by_slug(
+        tache
+    ).get(sujet.slug, sujet.slug)
+    if canonical_slug == sujet.slug:
+        return sujet
+    return get_object_or_404(
+        WritingSujet.objects.select_related("task__part"),
+        task=task,
+        slug=canonical_slug,
+        is_active=True,
+    )
+
+
+@lru_cache(maxsize=2)
+def _ee_writing_sources_by_slug(tache):
+    return {
+        source.slug: source
+        for category in _ee_writing_source_categories(tache)
+        for source in category.sujets
+    }
 
 
 def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
-    task, sujet = _route_writing_sujet(part_slug, task_slug, sujet_id)
+    task, sujet, tache = _route_writing_sujet(
+        part_slug,
+        task_slug,
+        sujet_id,
+    )
+    canonical = _canonical_writing_sujet(task, sujet, tache)
     personal = PersonalWritingResponse.objects.filter(
         user=request.user,
-        sujet=sujet,
+        sujet=canonical,
     ).first()
     writing_progress = writing_sujet_progress_by_id(
         request.user,
-        [sujet.pk],
-    )[sujet.pk]
+        [canonical.pk],
+    )[canonical.pk]
     explicitly_completed = writing_progress.explicitly_completed
-    model_versions = sujet.model_versions
+    model_versions = canonical.model_versions
     siblings = list(
         WritingSujet.objects.filter(
             task=task,
@@ -2926,6 +3264,28 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
         (i for i, item in enumerate(siblings) if item.pk == sujet.pk),
         0,
     )
+    sources_by_slug = _ee_writing_sources_by_slug(tache)
+    source = sources_by_slug.get(sujet.slug)
+    canonical_slug_by_slug = (
+        content_module.ee_writing_canonical_slug_by_slug(tache)
+    )
+    equivalent_sujets = [
+        {
+            "sujet": candidate,
+            "source": sources_by_slug[candidate.slug],
+        }
+        for candidate in WritingSujet.objects.filter(
+            task=task,
+            is_active=True,
+            slug__in=[
+                slug
+                for slug, canonical_slug in canonical_slug_by_slug.items()
+                if canonical_slug == canonical.slug
+            ],
+        ).order_by("order", "pk")
+        if candidate.pk != sujet.pk
+    ]
+    minimum, maximum = content_module.EE_WRITING_WORD_LIMITS[tache]
     return render(
         request,
         "study/writing_sujet_detail.html",
@@ -2933,8 +3293,21 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
             "part": task.part,
             "task": task,
             "sujet": sujet,
+            "progress_sujet": canonical,
             "prompt": sujet.prompt,
             "category_label": sujet.category_label,
+            "source": source,
+            "source_url": (
+                content_module.EE_2025_SOURCE_URL.format(
+                    month=source.month_slug
+                )
+                if source
+                else ""
+            ),
+            "equivalent_sujets": equivalent_sujets,
+            "writing_tache": tache,
+            "word_limit_min": minimum,
+            "word_limit_max": maximum,
             "personal": personal,
             "has_personal": personal is not None,
             "writing_progress": writing_progress,
@@ -2959,7 +3332,12 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
 
 @require_POST
 def writing_sujet_completion(request, part_slug, task_slug, sujet_id):
-    task, sujet = _route_writing_sujet(part_slug, task_slug, sujet_id)
+    task, sujet, tache = _route_writing_sujet(
+        part_slug,
+        task_slug,
+        sujet_id,
+    )
+    canonical = _canonical_writing_sujet(task, sujet, tache)
     completed = request.POST.get("completed")
     if completed not in {"0", "1"}:
         if request.headers.get("X-Requested-With") == "fetch":
@@ -2971,12 +3349,12 @@ def writing_sujet_completion(request, part_slug, task_slug, sujet_id):
 
     completion = WritingSujetCompletion.objects.filter(
         user=request.user,
-        sujet=sujet,
+        sujet=canonical,
     )
     if completed == "1":
         WritingSujetCompletion.objects.get_or_create(
             user=request.user,
-            sujet=sujet,
+            sujet=canonical,
         )
         explicitly_completed = True
     else:
@@ -2985,12 +3363,12 @@ def writing_sujet_completion(request, part_slug, task_slug, sujet_id):
 
     progress = writing_sujet_progress_by_id(
         request.user,
-        [sujet.pk],
-    )[sujet.pk]
+        [canonical.pk],
+    )[canonical.pk]
     if request.headers.get("X-Requested-With") == "fetch":
         return JsonResponse(
             {
-                "sujet_id": sujet.pk,
+                "sujet_id": canonical.pk,
                 "completed": explicitly_completed,
                 "sujet": {
                     "status": progress.status,
@@ -3008,10 +3386,15 @@ def writing_sujet_completion(request, part_slug, task_slug, sujet_id):
 
 
 def writing_sujet_edit(request, part_slug, task_slug, sujet_id):
-    task, sujet = _route_writing_sujet(part_slug, task_slug, sujet_id)
+    task, sujet, tache = _route_writing_sujet(
+        part_slug,
+        task_slug,
+        sujet_id,
+    )
+    canonical = _canonical_writing_sujet(task, sujet, tache)
     personal = PersonalWritingResponse.objects.filter(
         user=request.user,
-        sujet=sujet,
+        sujet=canonical,
     ).first()
     detail_url = reverse(
         "study:writing_sujet_detail",
@@ -3032,11 +3415,12 @@ def writing_sujet_edit(request, part_slug, task_slug, sujet_id):
         else:
             PersonalWritingResponse.objects.update_or_create(
                 user=request.user,
-                sujet=sujet,
+                sujet=canonical,
                 defaults={"body": cleaned},
             )
             return redirect(f"{detail_url}?saved=1")
 
+    source = _ee_writing_sources_by_slug(tache).get(sujet.slug)
     return render(
         request,
         "study/writing_sujet_edit.html",
@@ -3044,12 +3428,24 @@ def writing_sujet_edit(request, part_slug, task_slug, sujet_id):
             "part": task.part,
             "task": task,
             "sujet": sujet,
+            "progress_sujet": canonical,
             "prompt": sujet.prompt,
             "category_label": sujet.category_label,
+            "source": source,
+            "source_url": (
+                content_module.EE_2025_SOURCE_URL.format(
+                    month=source.month_slug
+                )
+                if source
+                else ""
+            ),
+            "writing_tache": tache,
+            "word_limit_min": content_module.EE_WRITING_WORD_LIMITS[tache][0],
+            "word_limit_max": content_module.EE_WRITING_WORD_LIMITS[tache][1],
             "body_value": body_value,
             "error": error,
             "has_personal": personal is not None,
-            "model_versions": sujet.model_versions,
+            "model_versions": canonical.model_versions,
             "detail_url": detail_url,
         },
     )

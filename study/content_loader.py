@@ -1,19 +1,21 @@
 """Parse the bundled study banks into structured, importable data.
 
 Pure functions only — no Django imports — so the parser is easy to test and
-reuse. The module owns both the Tâche 3 response corpus and the Tâche 2 master
-question bank.
+reuse. The module owns the expression response corpora, theme taxonomies,
+equivalent-subject groups, and the Tâche 2 master question bank.
 """
 
 from __future__ import annotations
 
 import csv
+import difflib
 import hashlib
 import html
 import json
 import re
 import unicodedata
 from dataclasses import dataclass, field
+from functools import lru_cache
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
@@ -50,6 +52,9 @@ EE_TACHE_THREE_RESPONSES_DIR = EE_TACHE_THREE_DIR / "responses"
 EE_TACHE_THREE_SUBJECTS_DIR = EE_TACHE_THREE_DIR / "subjects"
 EE_TACHE_THREE_VOCABULARY_DIR = EE_TACHE_THREE_DIR / "vocabulary"
 EE_TACHE_THREE_MEMOIRES_DIR = EE_TACHE_THREE_DIR / "memoires"
+EE_TACHE_THREE_AUTHOR_RESPONSES_PATH = (
+    EE_TACHE_THREE_DIR / "author_responses.json"
+)
 EE_TACHE_THREE_VOCABULARY_PER_RESPONSE = 30
 
 EE_TACHE_ONE_TASK = ("ee", "tache-1")
@@ -63,6 +68,22 @@ EE_TACHE_TWO_SUBJECTS_DIR = EE_TACHE_TWO_DIR / "subjects"
 
 EE_TACHE_ONE_CONTENT_PREFIX = "ee-tache1:"
 EE_TACHE_ONE_SUBJECTS_DIR = EE_TACHE_ONE_DIR / "subjects"
+EE_WRITING_TASKS = {
+    1: EE_TACHE_ONE_TASK,
+    2: EE_TACHE_TWO_TASK,
+}
+EE_WRITING_RESPONSE_DIRS = {
+    1: EE_TACHE_ONE_DIR / "responses",
+    2: EE_TACHE_TWO_DIR / "responses",
+}
+EE_WRITING_WORD_LIMITS = {
+    1: (60, 120),
+    2: (120, 150),
+}
+EE_2025_SOURCE_URL = (
+    "https://www.formation-tcfcanada.com/epreuve/"
+    "expression-ecrite/sujets-actualites/{month}-2025"
+)
 
 # The 2025 corpus is published month by month; février 2025 was never
 # published by the source, so it is legitimately absent everywhere.
@@ -493,6 +514,28 @@ class EeEquivalentGroupData:
     theme: str
     canonical: str
     members: Tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class EeWritingSubjectData:
+    source_id: int
+    content_key: str
+    combinaison: str
+    position: int
+    prompt: str
+
+    @property
+    def combination_number(self) -> str:
+        return self.combinaison.removeprefix("Combinaison ").strip()
+
+
+@dataclass(frozen=True)
+class EeWritingMonthData:
+    number: int
+    slug: str
+    name: str
+    year: int
+    sujets: Tuple[EeWritingSubjectData, ...]
 
 
 @dataclass(frozen=True)
@@ -2175,6 +2218,21 @@ class EeTacheThreeCombinaison:
     document2: str
     synthese: str
     point_de_vue: str
+    title_missing: bool
+    document2_missing: bool
+    documents_identical: bool
+    document1_invalid: bool
+
+    @property
+    def has_source_issue(self) -> bool:
+        return any(
+            (
+                self.title_missing,
+                self.document2_missing,
+                self.documents_identical,
+                self.document1_invalid,
+            )
+        )
 
 
 @dataclass(frozen=True)
@@ -2191,6 +2249,14 @@ def ee_tache_three_theme_name(month: EeTacheThreeMonth) -> str:
 
 def ee_tache_three_family_name(month: EeTacheThreeMonth) -> str:
     return f"EE Tâche 3 · {month.name}"
+
+
+def ee_subject_theme_name(tache: int, theme: EeSubjectThemeData) -> str:
+    return f"EE · Tâche {tache} · {theme.name}"
+
+
+def ee_subject_family_name(tache: int, theme: EeSubjectThemeData) -> str:
+    return f"EE Tâche {tache} · {theme.name}"
 
 
 def _ee_tache_three_normalize(text: str) -> str:
@@ -2297,7 +2363,13 @@ def load_ee_tache_three_months(
                     f"{content_key!r}"
                 )
             heading = essay["heading"]
-            sujet = (subject.get("sujet") or "").strip() or heading
+            flags = subject.get("flags") or {}
+            deduced_theme = str(flags.get("deduced_theme") or "").strip()
+            sujet = (
+                (subject.get("sujet") or "").strip()
+                or (deduced_theme[:1].upper() + deduced_theme[1:])
+                or heading
+            )
             combinaisons.append(
                 EeTacheThreeCombinaison(
                     content_key=content_key,
@@ -2309,6 +2381,10 @@ def load_ee_tache_three_months(
                     document2=(subject.get("document2") or "").strip(),
                     synthese=essay["synthese"],
                     point_de_vue=essay["point_de_vue"],
+                    title_missing=bool(flags.get("title_missing")),
+                    document2_missing=bool(flags.get("document2_missing")),
+                    documents_identical=bool(flags.get("documents_identical")),
+                    document1_invalid=bool(flags.get("document1_invalid")),
                 )
             )
         months.append(
@@ -2427,16 +2503,34 @@ def load_ee_subject_themes(
 def _ee_subject_signature_text(text: str) -> str:
     """Fold an EE prompt for equivalence checks.
 
-    The source republishes the same sujet from month to month with cosmetic
-    drift only — a stray space, a missing accent, curly vs straight quotes.
-    Signatures therefore ignore case, accents, punctuation and whitespace so
-    two members of a group must still share their actual wording.
+    The source republishes the same sujet with cosmetic drift and a few stable
+    editorial artifacts (``week-end``/``weekend``, ``RDV``, a prefixed analysis
+    instruction, or an accidentally doubled prompt). Signatures remove only
+    those audited variants alongside case, accents, punctuation and whitespace.
     """
-    folded = unicodedata.normalize("NFD", text.lower())
+    folded = unicodedata.normalize(
+        "NFD",
+        text.lower().replace("œ", "oe").replace("æ", "ae"),
+    )
     folded = "".join(
         char for char in folded if unicodedata.category(char) != "Mn"
     )
-    return re.sub(r"[^a-z0-9]+", " ", folded).strip()
+    signature = re.sub(r"[^a-z0-9]+", " ", folded).strip()
+    signature = re.sub(
+        r"^analysez le sujet d examen suivant\s+",
+        "",
+        signature,
+    )
+    signature = re.sub(r"\betc\b", "", signature)
+    signature = signature.replace("week end", "weekend")
+    signature = signature.replace("france televisions", "france television")
+    signature = re.sub(r"\brdv\b", "rendez vous", signature)
+    signature = " ".join(signature.split())
+    words = signature.split()
+    midpoint = len(words) // 2
+    if len(words) % 2 == 0 and words[:midpoint] == words[midpoint:]:
+        signature = " ".join(words[:midpoint])
+    return signature
 
 
 def _ee_subject_signatures(tache: int) -> Dict[str, str]:
@@ -2457,13 +2551,13 @@ def _ee_subject_signatures(tache: int) -> Dict[str, str]:
                 # A Tâche 3 exam item *is* its pair of source documents; the
                 # title is editorial and drifts between republications, so it
                 # is deliberately excluded from the signature.
-                body = "|".join(
-                    str(subject.get(field) or "")
+                documents = sorted(
+                    _ee_subject_signature_text(
+                        str(subject.get(field) or "")
+                    )
                     for field in ("document1", "document2")
                 )
-                signatures[str(row["response_key"])] = (
-                    _ee_subject_signature_text(body)
-                )
+                signatures[str(row["response_key"])] = "|".join(documents)
             continue
         rows = json.loads(
             (directory / "subjects" / f"{month_slug}.json")
@@ -2551,11 +2645,24 @@ def load_ee_equivalent_groups(
         expected_canonical = min(members, key=subject_order.__getitem__)
         if canonical != expected_canonical:
             raise ValueError(f"{location} canonical must be {expected_canonical!r}")
-        drifted = [
-            member
-            for member in members
-            if signatures[member] != signatures[canonical]
-        ]
+        drifted = []
+        for member in members:
+            if signatures[member] == signatures[canonical]:
+                continue
+            if tache == 3:
+                # Tâche 3 republishes the same document pair with occasional
+                # typos, dropped speaker credits, or the documents reversed.
+                # Groups are explicit and audited; this narrow floor accepts
+                # those variants without turning similarity into auto-grouping.
+                similarity = difflib.SequenceMatcher(
+                    None,
+                    signatures[member].split(),
+                    signatures[canonical].split(),
+                    autojunk=False,
+                ).ratio()
+                if similarity >= 0.93:
+                    continue
+            drifted.append(member)
         if drifted:
             raise ValueError(
                 f"{location} does not share its canonical wording: "
@@ -2589,9 +2696,112 @@ def ee_canonical_by_content_key(tache: int) -> Dict[str, str]:
     }
 
 
+def ee_writing_sujet_slug(content_key: str) -> str:
+    """Return the stable WritingSujet slug for a Tâche 1 or 2 source key."""
+    prefix = next(
+        (
+            EE_TACHE_CONTENT_PREFIXES[tache]
+            for tache in EE_WRITING_TASKS
+            if content_key.startswith(EE_TACHE_CONTENT_PREFIXES[tache])
+        ),
+        "",
+    )
+    if not prefix:
+        raise ValueError(f"Invalid EE writing content key {content_key!r}")
+    slug = content_key.removeprefix(prefix).replace(":", "-")
+    if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug):
+        raise ValueError(f"Invalid EE writing sujet slug {slug!r}")
+    return slug
+
+
+@lru_cache(maxsize=2)
+def ee_writing_canonical_slug_by_slug(tache: int) -> Dict[str, str]:
+    """Map all writing occurrence slugs onto their shared canonical slug."""
+    if tache not in EE_WRITING_TASKS:
+        raise ValueError("EE writing subjects only exist for Tâches 1 and 2")
+    canonical_by_key = ee_canonical_by_content_key(tache)
+    return {
+        ee_writing_sujet_slug(key): ee_writing_sujet_slug(
+            canonical_by_key.get(key, key)
+        )
+        for key in load_ee_subject_keys(tache)
+    }
+
+
+def load_ee_writing_months(tache: int) -> Tuple[EeWritingMonthData, ...]:
+    """Load every dated Tâche 1 or 2 occurrence from the verbatim 2025 corpus."""
+    if tache not in EE_WRITING_TASKS:
+        raise ValueError("EE writing months only support Tâches 1 and 2")
+    directory = EE_TACHE_DIRS[tache] / "subjects"
+    months: List[EeWritingMonthData] = []
+    seen_keys: set[str] = set()
+    ordered_keys: List[str] = []
+    for month_slug in EE_MONTH_ORDER:
+        path = directory / f"{month_slug}.json"
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        month_row = payload.get("month")
+        rows = payload.get("sujets")
+        if not isinstance(month_row, dict) or not isinstance(rows, list) or not rows:
+            raise ValueError(f"{path.name} must contain a month and sujets")
+        if month_row.get("slug") != month_slug:
+            raise ValueError(f"{path.name} has an inconsistent month slug")
+        month_number = int(month_row.get("number", 0))
+        month_name = str(month_row.get("name", "")).strip()
+        year = int(payload.get("year", payload.get("annee", 0)))
+        if month_number < 1 or not month_name or year != 2025:
+            raise ValueError(f"{path.name} has invalid month metadata")
+
+        sujets: List[EeWritingSubjectData] = []
+        for position, row in enumerate(rows, start=1):
+            source_id = row.get("id")
+            combinaison = str(row.get("combinaison", "")).strip()
+            content_key = str(row.get("key", "")).strip()
+            prompt = str(row.get("prompt", "")).strip()
+            if not isinstance(source_id, int) or source_id < 1:
+                raise ValueError(f"{path.name} sujet {position} has an invalid id")
+            if not combinaison or not prompt:
+                raise ValueError(
+                    f"{path.name} sujet {position} needs a combinaison and prompt"
+                )
+            if not content_key.startswith(EE_TACHE_CONTENT_PREFIXES[tache]):
+                raise ValueError(
+                    f"{path.name} sujet {position} has an invalid content key"
+                )
+            if content_key in seen_keys:
+                raise ValueError(f"Duplicate EE writing key {content_key!r}")
+            seen_keys.add(content_key)
+            ordered_keys.append(content_key)
+            sujets.append(
+                EeWritingSubjectData(
+                    source_id=source_id,
+                    content_key=content_key,
+                    combinaison=combinaison,
+                    position=position,
+                    prompt=prompt,
+                )
+            )
+        months.append(
+            EeWritingMonthData(
+                number=month_number,
+                slug=month_slug,
+                name=month_name,
+                year=year,
+                sujets=tuple(sujets),
+            )
+        )
+
+    if tuple(ordered_keys) != load_ee_subject_keys(tache):
+        raise ValueError(f"EE Tâche {tache} writing months are out of order")
+    month_numbers = [month.number for month in months]
+    if len(month_numbers) != len(set(month_numbers)):
+        raise ValueError(f"EE Tâche {tache} month numbers must be unique")
+    return tuple(months)
+
+
 @dataclass(frozen=True)
 class WritingVersionData:
     body: str
+    origin: str = "original"
 
 
 @dataclass(frozen=True)
@@ -2602,6 +2812,13 @@ class WritingSujetData:
     order: int
     prompt: str
     versions: Tuple[WritingVersionData, ...]
+    source_key: str = ""
+    canonical_slug: str = ""
+    month_slug: str = ""
+    month_name: str = ""
+    year: int = 0
+    combinaison: str = ""
+    position: int = 0
 
 
 @dataclass(frozen=True)
@@ -2610,6 +2827,180 @@ class WritingCategoryData:
     label: str
     order: int
     sujets: Tuple[WritingSujetData, ...]
+
+
+def _ee_word_count(text: str) -> int:
+    return len(
+        re.findall(
+            r"[^\W_]+(?:[’'\-][^\W_]+)*",
+            text,
+            flags=re.UNICODE,
+        )
+    )
+
+
+def load_ee_writing_categories(
+    tache: int,
+    *,
+    months: Optional[Tuple[EeWritingMonthData, ...]] = None,
+    responses_dir: Optional[Path] = None,
+) -> Tuple[WritingCategoryData, ...]:
+    """Build the complete themed Tâche 1/2 writing catalogue.
+
+    All 138 dated occurrences are retained. Model versions live only on the
+    canonical occurrence, so equivalent republications share one response and
+    learner progression while remaining independently discoverable.
+    """
+    if tache not in EE_WRITING_TASKS:
+        raise ValueError("EE writing categories only support Tâches 1 and 2")
+    months = months or load_ee_writing_months(tache)
+    themes, theme_by_key = load_ee_subject_themes(tache)
+    canonical_by_key = ee_canonical_by_content_key(tache)
+    occurrence_by_key = {
+        sujet.content_key: (month, sujet)
+        for month in months
+        for sujet in month.sujets
+    }
+    canonical_keys: List[str] = []
+    seen_canonicals: set[str] = set()
+    for key in load_ee_subject_keys(tache):
+        canonical = canonical_by_key.get(key, key)
+        if canonical not in seen_canonicals:
+            canonical_keys.append(canonical)
+            seen_canonicals.add(canonical)
+    expected_by_theme = {
+        theme.slug: [
+            key for key in canonical_keys if theme_by_key[key] == theme.slug
+        ]
+        for theme in themes
+    }
+
+    responses_dir = responses_dir or EE_WRITING_RESPONSE_DIRS[tache]
+    paths = sorted(responses_dir.glob("*.json"))
+    expected_names = {f"{theme.slug}.json" for theme in themes}
+    actual_names = {path.name for path in paths}
+    if actual_names != expected_names:
+        missing = sorted(expected_names - actual_names)
+        unexpected = sorted(actual_names - expected_names)
+        details = []
+        if missing:
+            details.append("missing " + ", ".join(missing))
+        if unexpected:
+            details.append("unexpected " + ", ".join(unexpected))
+        raise ValueError(
+            f"EE Tâche {tache} response files do not match its themes: "
+            + "; ".join(details)
+        )
+
+    minimum, maximum = EE_WRITING_WORD_LIMITS[tache]
+    versions_by_key: Dict[str, Tuple[WritingVersionData, ...]] = {}
+    for path in paths:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(payload, dict) or set(payload) != {
+            "version",
+            "theme",
+            "responses",
+        }:
+            raise ValueError(f"{path.name} has invalid response fields")
+        theme_slug = str(payload["theme"])
+        if (
+            payload["version"] != 1
+            or theme_slug not in expected_by_theme
+            or path.name != f"{theme_slug}.json"
+        ):
+            raise ValueError(f"{path.name} has invalid response metadata")
+        rows = payload["responses"]
+        if not isinstance(rows, list):
+            raise ValueError(f"{path.name} responses must be a list")
+        actual_keys = []
+        for index, row in enumerate(rows, start=1):
+            location = f"{path.name} response {index}"
+            if not isinstance(row, dict) or set(row) != {
+                "content_key",
+                "versions",
+            }:
+                raise ValueError(f"{location} has invalid fields")
+            content_key = str(row["content_key"])
+            raw_versions = row["versions"]
+            if not isinstance(raw_versions, list) or not raw_versions:
+                raise ValueError(f"{location} needs at least one version")
+            versions: List[WritingVersionData] = []
+            seen_bodies: set[str] = set()
+            for version_index, version in enumerate(raw_versions, start=1):
+                version_location = f"{location} version {version_index}"
+                if not isinstance(version, dict) or set(version) != {
+                    "body",
+                    "origin",
+                }:
+                    raise ValueError(f"{version_location} has invalid fields")
+                body = str(version["body"]).strip()
+                origin = str(version["origin"]).strip()
+                if not body or origin not in {"author", "original"}:
+                    raise ValueError(f"{version_location} has invalid content")
+                count = _ee_word_count(body)
+                if not minimum <= count <= maximum:
+                    raise ValueError(
+                        f"{version_location} has {count} words; expected "
+                        f"{minimum}-{maximum}"
+                    )
+                signature = _ee_subject_signature_text(body)
+                if signature in seen_bodies:
+                    raise ValueError(f"{location} repeats a response version")
+                seen_bodies.add(signature)
+                versions.append(WritingVersionData(body=body, origin=origin))
+            actual_keys.append(content_key)
+            versions_by_key[content_key] = tuple(versions)
+        if actual_keys != expected_by_theme[theme_slug]:
+            raise ValueError(
+                f"{path.name} must contain its canonical subjects in "
+                "publication order"
+            )
+
+    categories: List[WritingCategoryData] = []
+    for theme in themes:
+        sujets: List[WritingSujetData] = []
+        for month in months:
+            for occurrence in month.sujets:
+                if theme_by_key[occurrence.content_key] != theme.slug:
+                    continue
+                canonical_key = canonical_by_key.get(
+                    occurrence.content_key,
+                    occurrence.content_key,
+                )
+                if canonical_key not in occurrence_by_key:
+                    raise ValueError(
+                        f"Unknown EE Tâche {tache} canonical {canonical_key!r}"
+                    )
+                sujets.append(
+                    WritingSujetData(
+                        category=theme.slug,
+                        category_label=theme.name,
+                        slug=ee_writing_sujet_slug(occurrence.content_key),
+                        order=len(sujets) + 1,
+                        prompt=occurrence.prompt,
+                        versions=(
+                            versions_by_key[canonical_key]
+                            if occurrence.content_key == canonical_key
+                            else ()
+                        ),
+                        source_key=occurrence.content_key,
+                        canonical_slug=ee_writing_sujet_slug(canonical_key),
+                        month_slug=month.slug,
+                        month_name=month.name,
+                        year=month.year,
+                        combinaison=occurrence.combinaison,
+                        position=occurrence.position,
+                    )
+                )
+        categories.append(
+            WritingCategoryData(
+                slug=theme.slug,
+                label=theme.name,
+                order=theme.order,
+                sujets=tuple(sujets),
+            )
+        )
+    return tuple(categories)
 
 
 def load_ee_tache_one_categories(
@@ -2691,28 +3082,28 @@ def ee_tache_one_sujets(
 def ee_tache_three_themes(
     months: Optional[Tuple[EeTacheThreeMonth, ...]] = None,
 ) -> List[ThemeData]:
-    months = months or load_ee_tache_three_months()
+    themes, _ = load_ee_subject_themes(3)
     return [
         ThemeData(
-            slug=f"ee-tache-3-{month.slug}",
-            name=ee_tache_three_theme_name(month),
-            display=month.name,
-            order=200 + month.number,
+            slug=f"ee-tache-3-{theme.slug}",
+            name=ee_subject_theme_name(3, theme),
+            display=theme.name,
+            order=200 + theme.order,
             color="#0f6fc4",
-            icon="pencil",
+            icon=theme.icon,
             task="ee/tache-3",
         )
-        for month in months
+        for theme in themes
     ]
 
 
 def ee_tache_three_families(
     months: Optional[Tuple[EeTacheThreeMonth, ...]] = None,
 ) -> List[Tuple[str, int]]:
-    months = months or load_ee_tache_three_months()
+    themes, _ = load_ee_subject_themes(3)
     return [
-        (ee_tache_three_family_name(month), 2000 + month.number)
-        for month in months
+        (ee_subject_family_name(3, theme), 2000 + theme.order)
+        for theme in themes
     ]
 
 
@@ -2737,54 +3128,160 @@ def _ee_tache_three_documents_html(documents: Tuple[str, ...]) -> str:
     return "".join(blocks)
 
 
+@lru_cache(maxsize=2)
+def load_ee_tache_three_author_responses(
+    path: Path = EE_TACHE_THREE_AUTHOR_RESPONSES_PATH,
+) -> Dict[str, Dict[str, str]]:
+    """Load the author's Notion responses that override bundled Tâche 3 models."""
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if (
+        not isinstance(payload, dict)
+        or set(payload) != {"version", "responses"}
+        or payload["version"] != 1
+        or not isinstance(payload["responses"], list)
+    ):
+        raise ValueError("EE Tâche 3 author responses must use version 1")
+
+    keys = load_ee_subject_keys(3)
+    order = {key: index for index, key in enumerate(keys)}
+    canonical_by_key = ee_canonical_by_content_key(3)
+    canonical_keys = {canonical_by_key.get(key, key) for key in keys}
+    responses: Dict[str, Dict[str, str]] = {}
+    actual_order: List[int] = []
+    for index, row in enumerate(payload["responses"], start=1):
+        location = f"EE Tâche 3 author response {index}"
+        if not isinstance(row, dict) or set(row) != {
+            "content_key",
+            "heading",
+            "synthese",
+            "point_de_vue",
+            "origin",
+        }:
+            raise ValueError(f"{location} has invalid fields")
+        values = {
+            field: str(row[field]).strip()
+            for field in (
+                "content_key",
+                "heading",
+                "synthese",
+                "point_de_vue",
+                "origin",
+            )
+        }
+        content_key = values["content_key"]
+        if (
+            content_key not in canonical_keys
+            or canonical_by_key.get(content_key, content_key) != content_key
+        ):
+            raise ValueError(f"{location} must reference a canonical subject")
+        if content_key in responses:
+            raise ValueError(f"Duplicate author response for {content_key!r}")
+        if values["origin"] != "author" or not all(values.values()):
+            raise ValueError(f"{location} has invalid content")
+        synthese_words = _ee_word_count(values["synthese"])
+        point_words = _ee_word_count(values["point_de_vue"])
+        if not 40 <= synthese_words <= 60:
+            raise ValueError(
+                f"{location} synthèse has {synthese_words} words; expected 40-60"
+            )
+        if not 80 <= point_words <= 120:
+            raise ValueError(
+                f"{location} point de vue has {point_words} words; expected 80-120"
+            )
+        responses[content_key] = values
+        actual_order.append(order[content_key])
+    if actual_order != sorted(actual_order):
+        raise ValueError("EE Tâche 3 author responses must be in publication order")
+    return responses
+
+
 def parse_ee_tache_three_responses(
     months: Optional[Tuple[EeTacheThreeMonth, ...]] = None,
 ) -> List[ResponseData]:
     months = months or load_ee_tache_three_months()
+    themes, theme_slug_by_key = load_ee_subject_themes(3)
+    theme_by_slug = {theme.slug: theme for theme in themes}
+    canonical_by_key = ee_canonical_by_content_key(3)
+    author_responses = load_ee_tache_three_author_responses()
+    occurrences = [
+        combinaison
+        for month in months
+        for combinaison in month.combinaisons
+    ]
+    occurrence_by_key = {
+        occurrence.content_key: occurrence for occurrence in occurrences
+    }
+    members_by_canonical: Dict[str, List[EeTacheThreeCombinaison]] = {}
+    prompt_number_by_key: Dict[str, int] = {}
+    theme_prompt_counts: Dict[str, int] = {}
+    for occurrence in occurrences:
+        canonical_key = canonical_by_key.get(
+            occurrence.content_key,
+            occurrence.content_key,
+        )
+        members_by_canonical.setdefault(canonical_key, []).append(occurrence)
+        theme_data = theme_by_slug[theme_slug_by_key[occurrence.content_key]]
+        theme_name = ee_subject_theme_name(3, theme_data)
+        number = theme_prompt_counts.get(theme_name, 0) + 1
+        theme_prompt_counts[theme_name] = number
+        prompt_number_by_key[occurrence.content_key] = number
+
     responses: List[ResponseData] = []
-    for month in months:
-        theme = ee_tache_three_theme_name(month)
-        family = ee_tache_three_family_name(month)
-        for combinaison in month.combinaisons:
-            body_parts = [
-                combinaison.sujet,
-                combinaison.document1,
-                combinaison.document2,
-                combinaison.synthese,
-                combinaison.point_de_vue,
-            ]
-            body = "\n\n".join(part for part in body_parts if part)
-            responses.append(
-                ResponseData(
-                    content_key=combinaison.content_key,
-                    body_hash=hashlib.sha256(
-                        body.encode("utf-8")
-                    ).hexdigest(),
-                    theme=theme,
-                    family=family,
-                    prompt=combinaison.sujet,
-                    reformulation=combinaison.heading,
-                    position=combinaison.synthese,
-                    position_claire=combinaison.point_de_vue,
-                    nuance="",
-                    conclusion="",
-                    body=body,
-                    body_html=_ee_tache_three_documents_html(
-                        (combinaison.document1, combinaison.document2)
-                    ),
-                    arguments=[],
-                    prompts=[
-                        PromptData(
-                            content_key=combinaison.content_key,
-                            theme=theme,
-                            number=combinaison.position,
-                            text=combinaison.sujet,
-                            family=family,
-                            is_canonical=True,
-                        )
-                    ],
-                )
+    for combinaison in occurrences:
+        canonical_key = canonical_by_key.get(
+            combinaison.content_key,
+            combinaison.content_key,
+        )
+        if combinaison.content_key != canonical_key:
+            continue
+        canonical = occurrence_by_key[canonical_key]
+        theme_data = theme_by_slug[theme_slug_by_key[canonical_key]]
+        theme = ee_subject_theme_name(3, theme_data)
+        family = ee_subject_family_name(3, theme_data)
+        authored = author_responses.get(canonical_key)
+        heading = authored["heading"] if authored else canonical.heading
+        synthese = authored["synthese"] if authored else canonical.synthese
+        point_de_vue = (
+            authored["point_de_vue"] if authored else canonical.point_de_vue
+        )
+        body_parts = [
+            canonical.sujet,
+            canonical.document1,
+            canonical.document2,
+            synthese,
+            point_de_vue,
+        ]
+        body = "\n\n".join(part for part in body_parts if part)
+        responses.append(
+            ResponseData(
+                content_key=canonical_key,
+                body_hash=hashlib.sha256(body.encode("utf-8")).hexdigest(),
+                theme=theme,
+                family=family,
+                prompt=canonical.sujet,
+                reformulation=heading,
+                position=synthese,
+                position_claire=point_de_vue,
+                nuance="",
+                conclusion="",
+                body=body,
+                body_html=_ee_tache_three_documents_html(
+                    (canonical.document1, canonical.document2)
+                ),
+                arguments=[],
+                prompts=[
+                    PromptData(
+                        content_key=member.content_key,
+                        theme=theme,
+                        number=prompt_number_by_key[member.content_key],
+                        text=member.sujet,
+                        family=family,
+                        is_canonical=(member.content_key == canonical_key),
+                    )
+                    for member in members_by_canonical[canonical_key]
+                ],
             )
+        )
     return responses
 
 
@@ -2801,6 +3298,7 @@ def parse_ee_tache_three_subject_vocabulary(
     }
     if not response_by_key:
         return []
+    canonical_by_key = ee_canonical_by_content_key(3)
 
     paths = sorted(directory.glob("*.json"))
     if not paths:
@@ -2825,6 +3323,7 @@ def parse_ee_tache_three_subject_vocabulary(
         payloads.append((month_number, path.name, path, response_rows))
 
     seen_response_keys: set = set()
+    seen_raw_response_keys: set = set()
     seen_ids: Dict[str, str] = {}
     phrases: List[PhraseData] = []
     base_order = 900_000
@@ -2835,16 +3334,20 @@ def parse_ee_tache_three_subject_vocabulary(
             if not isinstance(response_row, dict):
                 raise ValueError(f"{file_name} has a non-object response")
             response_key = response_row.get("response_key")
-            if response_key not in response_by_key:
+            canonical_key = canonical_by_key.get(response_key, response_key)
+            if canonical_key not in response_by_key:
                 raise ValueError(
                     f"{file_name} references unknown response "
                     f"{response_key!r}"
                 )
-            if response_key in seen_response_keys:
+            if response_key in seen_raw_response_keys:
                 raise ValueError(
                     f"Duplicate EE Tâche 3 vocabulary for {response_key!r}"
                 )
-            seen_response_keys.add(response_key)
+            seen_raw_response_keys.add(response_key)
+            is_canonical = response_key == canonical_key
+            if is_canonical:
+                seen_response_keys.add(response_key)
 
             entries = response_row.get("entries")
             if not isinstance(entries, list):
@@ -2857,7 +3360,7 @@ def parse_ee_tache_three_subject_vocabulary(
                     f"{EE_TACHE_THREE_VOCABULARY_PER_RESPONSE} vocabulary entries"
                 )
 
-            response = response_by_key[response_key]
+            response = response_by_key[canonical_key]
             sources = tuple(
                 (prompt.theme, prompt.number) for prompt in response.prompts
             )
@@ -2921,23 +3424,24 @@ def parse_ee_tache_three_subject_vocabulary(
                         f"{french!r}"
                     )
 
-                phrases.append(
-                    PhraseData(
-                        phrase_id=phrase_id,
-                        tier="subject",
-                        category=EE_TACHE_THREE_VOCABULARY_CATEGORIES[
-                            values["kind"]
-                        ],
-                        english_cue=english,
-                        expression=french,
-                        anchor=french,
-                        example=example,
-                        note=values["usage"],
-                        sources_raw=sources_raw,
-                        sources=sources,
-                        order=base_order + len(phrases) + 1,
+                if is_canonical:
+                    phrases.append(
+                        PhraseData(
+                            phrase_id=phrase_id,
+                            tier="subject",
+                            category=EE_TACHE_THREE_VOCABULARY_CATEGORIES[
+                                values["kind"]
+                            ],
+                            english_cue=english,
+                            expression=french,
+                            anchor=french,
+                            example=example,
+                            note=values["usage"],
+                            sources_raw=sources_raw,
+                            sources=sources,
+                            order=base_order + len(phrases) + 1,
+                        )
                     )
-                )
 
     missing = sorted(set(response_by_key) - seen_response_keys)
     if missing:
@@ -2945,7 +3449,129 @@ def parse_ee_tache_three_subject_vocabulary(
             "Missing EE Tâche 3 subject vocabulary for: "
             + ", ".join(missing)
         )
+    expected_raw_keys = set(load_ee_subject_keys(3))
+    if seen_raw_response_keys != expected_raw_keys:
+        missing_raw = sorted(expected_raw_keys - seen_raw_response_keys)
+        extra_raw = sorted(seen_raw_response_keys - expected_raw_keys)
+        raise ValueError(
+            "EE Tâche 3 raw vocabulary coverage mismatch: "
+            f"missing {missing_raw[:3]}, extra {extra_raw[:3]}"
+        )
     return phrases
+
+
+def ee_tache_three_phrase_id_merges(
+    groups: Optional[Tuple[EeEquivalentGroupData, ...]] = None,
+    directory: Path = EE_TACHE_THREE_VOCABULARY_DIR,
+) -> Dict[str, str]:
+    """Map every retired alias-vocabulary ID onto one canonical vocabulary ID.
+
+    The original monthly decks were generated independently, so exact targets
+    overlap only partially. Migration first preserves exact target+kind pairs,
+    then exact targets, then stable positions within the same kind, and finally
+    the remaining positions. Each 30-card alias deck maps bijectively onto its
+    canonical 30-card deck; this carries learner schedules forward without
+    changing the active canonical content.
+    """
+    groups = groups or load_ee_equivalent_groups(3)
+    entries_by_response: Dict[str, List[dict]] = {}
+    for path in sorted(directory.glob("*.json")):
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        for row in payload.get("responses", []):
+            if isinstance(row, dict):
+                entries_by_response[str(row.get("response_key"))] = row.get(
+                    "entries"
+                )
+
+    merges: Dict[str, str] = {}
+    for group in groups:
+        canonical_entries = entries_by_response.get(group.canonical)
+        if (
+            not isinstance(canonical_entries, list)
+            or len(canonical_entries) != EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
+        ):
+            raise ValueError(
+                f"Missing canonical EE Tâche 3 vocabulary for {group.canonical!r}"
+            )
+        for member in group.members:
+            if member == group.canonical:
+                continue
+            source_entries = entries_by_response.get(member)
+            if (
+                not isinstance(source_entries, list)
+                or len(source_entries)
+                != EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
+            ):
+                raise ValueError(
+                    f"Missing alias EE Tâche 3 vocabulary for {member!r}"
+                )
+
+            available = set(range(len(canonical_entries)))
+            assignments: Dict[int, int] = {}
+
+            def assign_matching(predicate) -> None:
+                for source_index, source in enumerate(source_entries):
+                    if source_index in assignments:
+                        continue
+                    target_index = next(
+                        (
+                            index
+                            for index in sorted(available)
+                            if predicate(source, canonical_entries[index])
+                        ),
+                        None,
+                    )
+                    if target_index is None:
+                        continue
+                    assignments[source_index] = target_index
+                    available.remove(target_index)
+
+            assign_matching(
+                lambda source, target: (
+                    source.get("kind") == target.get("kind")
+                    and _ee_subject_signature_text(
+                        str(source.get("french") or "")
+                    )
+                    == _ee_subject_signature_text(
+                        str(target.get("french") or "")
+                    )
+                )
+            )
+            assign_matching(
+                lambda source, target: _ee_subject_signature_text(
+                    str(source.get("french") or "")
+                )
+                == _ee_subject_signature_text(
+                    str(target.get("french") or "")
+                )
+            )
+            assign_matching(
+                lambda source, target: source.get("kind") == target.get("kind")
+            )
+            assign_matching(lambda _source, _target: True)
+
+            if (
+                len(assignments) != EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
+                or available
+            ):
+                raise ValueError(
+                    f"Could not map all EE Tâche 3 vocabulary for {member!r}"
+                )
+            for source_index, target_index in assignments.items():
+                source_id = source_entries[source_index].get("id")
+                target_id = canonical_entries[target_index].get("id")
+                if not isinstance(source_id, str) or not source_id:
+                    raise ValueError(f"Invalid alias vocabulary id for {member!r}")
+                if not isinstance(target_id, str) or not target_id:
+                    raise ValueError(
+                        f"Invalid canonical vocabulary id for {group.canonical!r}"
+                    )
+                previous = merges.setdefault(source_id, target_id)
+                if previous != target_id:
+                    raise ValueError(
+                        f"Conflicting EE Tâche 3 phrase merge for {source_id!r}"
+                    )
+    return merges
 
 
 def _ce_plain_text(value: str) -> str:

@@ -304,8 +304,9 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(overflowing_cells, [])
         self.assert_no_horizontal_overflow()
 
-    def test_ee_tache_three_month_directory_is_collapsible_and_responsive(self):
-        months, task = self._import_ee_tache_three_content()
+    def test_ee_tache_three_theme_directory_is_collapsible_and_responsive(self):
+        _months, task = self._import_ee_tache_three_content()
+        themes = content.load_ee_subject_themes(3)[0]
         overview_url = reverse(
             "study:task_detail",
             args=[task.part.slug, task.slug],
@@ -344,12 +345,13 @@ class BrowserTests(StaticLiveServerTestCase):
             "table",
         )
         self.assertEqual(
-            self.page.locator(".ee-t3-month-group").count(),
-            len(months),
+            self.page.locator("[data-t1-table-theme]").count(),
+            len(themes),
         )
         self.assertEqual(
             self.page.locator(
-                ".ee-t3-month-group__body:visible"
+                "[data-collection-view-panel='table'] "
+                "[data-ee-tache-three-subject-row]:visible"
             ).count(),
             0,
         )
@@ -357,26 +359,17 @@ class BrowserTests(StaticLiveServerTestCase):
             self.page.get_by_text("Par famille de sujets").count(),
             0,
         )
-        january_body = self.page.locator(
-            "#ee-subject-month-table-janvier"
-        )
-        january_toggle = january_body.locator(
-            ".tache-two-batch-table__month-toggle"
-        )
+        first_theme = self.page.locator("[data-t1-table-theme]").first
+        first_theme.locator("summary").click()
         self.assertEqual(
-            january_toggle.get_attribute("aria-label"),
-            "Afficher Janvier",
+            first_theme.get_attribute("open"),
+            "",
         )
-        january_toggle.click()
-        self.assertEqual(
-            january_toggle.get_attribute("aria-expanded"),
-            "true",
-        )
-        self.assertEqual(
-            january_body.locator(
-                "[data-tache-two-month-row]:visible"
+        self.assertGreater(
+            first_theme.locator(
+                "[data-ee-tache-three-subject-row]:visible"
             ).count(),
-            len(months[0].combinaisons),
+            0,
         )
         self.assert_no_horizontal_overflow()
 
@@ -408,20 +401,11 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.page.set_viewport_size({"width": 1024, "height": 844})
         self.page.get_by_role("button", name="Tableau").click()
-        january_body = self.page.locator(
-            "#ee-subject-month-table-janvier"
-        )
-        if (
-            january_body.locator(
-                "[data-tache-two-month-row]:visible"
-            ).count()
-            == 0
-        ):
-            january_body.locator(
-                ".tache-two-batch-table__month-toggle"
-            ).click()
-        first_row = january_body.locator(
-            "[data-tache-two-month-row]:visible"
+        first_theme = self.page.locator("[data-t1-table-theme]").first
+        if first_theme.get_attribute("open") is None:
+            first_theme.locator("summary").click()
+        first_row = first_theme.locator(
+            "[data-ee-tache-three-subject-row]:visible"
         ).first
         detail_path = first_row.locator(
             ".subject-table-row-link"
@@ -429,6 +413,12 @@ class BrowserTests(StaticLiveServerTestCase):
         completion = first_row.locator(
             "[data-subject-completion-form] button"
         )
+        response_id = first_row.get_attribute("data-subject-progress-row")
+        progress_buttons = self.page.locator(
+            f'[data-subject-progress-row="{response_id}"] '
+            "[data-subject-completion-form] button"
+        )
+        expected_checked = progress_buttons.count()
         self.assertTrue(
             completion.evaluate(
                 """
@@ -445,11 +435,12 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertTrue(completion_response.value.ok)
         self.page.wait_for_function(
             """
-            () => document.querySelectorAll(
+            expected => document.querySelectorAll(
               '[data-subject-completion-form] '
               + 'button[aria-checked="true"]'
-            ).length === 2
-            """
+            ).length === expected
+            """,
+            arg=expected_checked,
         )
         self.assertEqual(self.page.url, self.live_server_url + subjects_url)
         self.assertEqual(
@@ -457,30 +448,18 @@ class BrowserTests(StaticLiveServerTestCase):
                 '[data-subject-completion-form] '
                 'button[aria-checked="true"]'
             ).count(),
-            2,
+            expected_checked,
         )
 
-        january_body = self.page.locator(
-            "#ee-subject-month-table-janvier"
-        )
-        if (
-            january_body.locator(
-                "[data-tache-two-month-row]:visible"
-            ).count()
-            == 0
-        ):
-            january_body.locator(
-                ".tache-two-batch-table__month-toggle"
-            ).click()
-        first_row = january_body.locator(
-            "[data-tache-two-month-row]:visible"
+        first_theme = self.page.locator("[data-t1-table-theme]").first
+        if first_theme.get_attribute("open") is None:
+            first_theme.locator("summary").click()
+        first_row = first_theme.locator(
+            "[data-ee-tache-three-subject-row]:visible"
         ).first
-        batch_cell = first_row.locator("th").first.bounding_box()
+        subject_link = first_row.locator(".subject-table-row-link")
         self.assert_opens_new_tab(
-            lambda: self.page.mouse.click(
-                batch_cell["x"] + batch_cell["width"] / 2,
-                batch_cell["y"] + batch_cell["height"] / 2,
-            ),
+            subject_link.click,
             detail_path,
         )
 

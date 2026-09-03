@@ -756,81 +756,81 @@
         {
           "id": "E3-MAI-C03B-01",
           "kind": "phrase-modele",
-          "french": "Les deux documents présentent la même inquiétude concernant les jeux vidéo",
-          "english": "Both documents express the same concern about video games",
-          "example": "Les deux documents présentent la même inquiétude concernant les jeux vidéo : lorsqu’ils deviennent le principal centre d’intérêt, ils peuvent provoquer une dépendance et nuire aux résultats scolaires des adolescents.",
+          "french": "Les deux documents publiés sont identiques",
+          "english": "The two published documents are identical",
+          "example": "Les deux documents publiés sont identiques : ils défendent la même position sur les jeux vidéo.",
           "usage": "Formule argumentative de registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-MAI-C03B-02",
           "kind": "mot-cle",
-          "french": "le principal centre d’intérêt",
+          "french": "le centre d’intérêt principal",
           "english": "the main focus of interest",
-          "example": "Les deux documents présentent la même inquiétude concernant les jeux vidéo : lorsqu’ils deviennent le principal centre d’intérêt, ils peuvent provoquer une dépendance et nuire aux résultats scolaires des adolescents.",
+          "example": "Tous deux rappellent qu’on parle d’addiction lorsque le jeu devient le centre d’intérêt principal, au détriment des autres activités.",
           "usage": "Groupe nominal ; accord à adapter au contexte ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-MAI-C03B-03",
           "kind": "verbe-action",
-          "french": "provoquer une dépendance",
-          "english": "to cause addiction",
-          "example": "Les deux documents présentent la même inquiétude concernant les jeux vidéo : lorsqu’ils deviennent le principal centre d’intérêt, ils peuvent provoquer une dépendance et nuire aux résultats scolaires des adolescents.",
+          "french": "on parle d’addiction",
+          "english": "we speak of addiction",
+          "example": "Tous deux rappellent qu’on parle d’addiction lorsque le jeu devient le centre d’intérêt principal, au détriment des autres activités.",
           "usage": "Groupe verbal ; verbe à conjuguer selon le sujet ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-MAI-C03B-04",
           "kind": "collocation",
-          "french": "résultats scolaires des adolescents",
-          "english": "teenagers’ academic results",
-          "example": "Les deux documents présentent la même inquiétude concernant les jeux vidéo : lorsqu’ils deviennent le principal centre d’intérêt, ils peuvent provoquer une dépendance et nuire aux résultats scolaires des adolescents.",
+          "french": "la même position",
+          "english": "the same stance",
+          "example": "Les deux documents publiés sont identiques : ils défendent la même position sur les jeux vidéo.",
           "usage": "Association lexicale figée ou semi-figée ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-MAI-C03B-05",
           "kind": "tournure",
-          "french": "lorsqu’ils deviennent le principal centre d’intérêt",
-          "english": "when they become the main focus of interest",
-          "example": "Les deux documents présentent la même inquiétude concernant les jeux vidéo : lorsqu’ils deviennent le principal centre d’intérêt, ils peuvent provoquer une dépendance et nuire aux résultats scolaires des adolescents.",
+          "french": "lorsque le jeu devient le centre d’intérêt principal",
+          "english": "when gaming becomes the main focus of interest",
+          "example": "Tous deux rappellent qu’on parle d’addiction lorsque le jeu devient le centre d’intérêt principal, au détriment des autres activités.",
           "usage": "Structure neutre à adapter grammaticalement ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-MAI-C03B-06",
           "kind": "expression",
-          "french": "Toutefois",
+          "french": "Cependant",
           "english": "However",
-          "example": "Toutefois, une position opposée rappelle qu’une pratique modérée peut offrir du divertissement, développer certaines capacités et favoriser les échanges entre joueurs.",
+          "example": "Cependant, il faut aussi reconnaître que certains adolescents perdent le contrôle et ont besoin d’un accompagnement professionnel.",
           "usage": "Connecteur discursif de registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-MAI-C03B-07",
           "kind": "reformulation",
-          "french": "une position opposée",
-          "english": "an opposing view",
-          "example": "Toutefois, une position opposée rappelle qu’une pratique modérée peut offrir du divertissement, développer certaines capacités et favoriser les échanges entre joueurs.",
+          "french": "Aucun point de vue opposé",
+          "english": "no opposing viewpoint",
+          "example": "Aucun point de vue opposé n’est proposé, la source ayant dupliqué le même texte.",
           "usage": "Reprise lexicale ; accord à adapter au référent ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-MAI-C03B-08",
           "kind": "collocation",
-          "french": "une pratique modérée",
-          "english": "moderate use",
-          "example": "Toutefois, une position opposée rappelle qu’une pratique modérée peut offrir du divertissement, développer certaines capacités et favoriser les échanges entre joueurs.",
+          "french": "leur usage modéré",
+          "english": "their moderate use",
+          "example": "Tout d’abord, leur usage modéré peut développer la stratégie, la persévérance et la coopération.",
           "usage": "Association lexicale figée ou semi-figée ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-MAI-C03B-09",
           "kind": "verbe-action",
-          "french": "favoriser les échanges entre joueurs",
-          "english": "to foster interaction between players",
-          "example": "Toutefois, une position opposée rappelle qu’une pratique modérée peut offrir du divertissement, développer certaines capacités et favoriser les échanges entre joueurs.",
+          "french": "dupliqué le même texte",
+          "english": "duplicated the same text",
+          "example": "Aucun point de vue opposé n’est proposé, la source ayant dupliqué le même texte.",
           "usage": "Groupe verbal ; verbe à conjuguer selon le sujet ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-MAI-C03B-10",
           "kind": "mot-cle",
-          "french": "divertissement",
-          "english": "entertainment",
-          "example": "Toutefois, une position opposée rappelle qu’une pratique modérée peut offrir du divertissement, développer certaines capacités et favoriser les échanges entre joueurs.",
+          "french": "des autres activités",
+          "english": "other activities",
+          "example": "Tous deux rappellent qu’on parle d’addiction lorsque le jeu devient le centre d’intérêt principal, au détriment des autres activités.",
           "usage": "Groupe nominal ; accord à adapter au contexte ; réutilisable en Numérique/Éducation."
         },
         {
@@ -932,9 +932,9 @@
         {
           "id": "E3-MAI-C03B-23",
           "kind": "phrase-modele",
-          "french": "Cependant, il faut aussi reconnaître que certains adolescents perdent le contrôle et nécessitent un accompagnement professionnel",
+          "french": "Cependant, il faut aussi reconnaître que certains adolescents perdent le contrôle et ont besoin d’un accompagnement professionnel",
           "english": "However, it must also be acknowledged that some teenagers lose control and need professional support",
-          "example": "Cependant, il faut aussi reconnaître que certains adolescents perdent le contrôle et nécessitent un accompagnement professionnel.",
+          "example": "Cependant, il faut aussi reconnaître que certains adolescents perdent le contrôle et ont besoin d’un accompagnement professionnel.",
           "usage": "Formule argumentative de registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
@@ -942,7 +942,7 @@
           "kind": "mot-cle",
           "french": "un accompagnement professionnel",
           "english": "professional support",
-          "example": "Cependant, il faut aussi reconnaître que certains adolescents perdent le contrôle et nécessitent un accompagnement professionnel.",
+          "example": "Cependant, il faut aussi reconnaître que certains adolescents perdent le contrôle et ont besoin d’un accompagnement professionnel.",
           "usage": "Groupe nominal ; accord à adapter au contexte ; réutilisable en Numérique/Éducation."
         },
         {
@@ -950,7 +950,7 @@
           "kind": "collocation",
           "french": "perdent le contrôle",
           "english": "lose control",
-          "example": "Cependant, il faut aussi reconnaître que certains adolescents perdent le contrôle et nécessitent un accompagnement professionnel.",
+          "example": "Cependant, il faut aussi reconnaître que certains adolescents perdent le contrôle et ont besoin d’un accompagnement professionnel.",
           "usage": "Association lexicale figée ou semi-figée ; réutilisable en Numérique/Éducation."
         },
         {
@@ -958,7 +958,7 @@
           "kind": "tournure",
           "french": "il faut aussi reconnaître que",
           "english": "it must also be acknowledged that",
-          "example": "Cependant, il faut aussi reconnaître que certains adolescents perdent le contrôle et nécessitent un accompagnement professionnel.",
+          "example": "Cependant, il faut aussi reconnaître que certains adolescents perdent le contrôle et ont besoin d’un accompagnement professionnel.",
           "usage": "Structure neutre à adapter grammaticalement ; réutilisable en Numérique/Éducation."
         },
         {

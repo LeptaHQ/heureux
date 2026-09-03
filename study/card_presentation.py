@@ -72,22 +72,7 @@ def scope_label(scope: dict) -> str:
         if theme:
             from . import content_loader as content_module
 
-            is_ee_month = (
-                theme.task is not None
-                and (
-                    theme.task.part.slug,
-                    theme.task.slug,
-                )
-                == content_module.EE_TACHE_THREE_TASK
-                and Response.objects.filter(
-                    content_key__startswith=(
-                        content_module.EE_TACHE_THREE_CONTENT_PREFIX
-                    ),
-                    theme=theme,
-                    is_active=True,
-                ).exists()
-            )
-            scope_name = "Mois" if is_ee_month else "Thème"
+            scope_name = "Thème"
             if scope.get("kind") == "theme_vocab":
                 vocabulary_name = (
                     "Vocabulaire par thème"

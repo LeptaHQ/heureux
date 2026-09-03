@@ -139,6 +139,7 @@
         "title_missing": false,
         "document2_missing": false,
         "documents_identical": false,
+        "document1_invalid": true,
         "deduced_theme": null
       }
     },

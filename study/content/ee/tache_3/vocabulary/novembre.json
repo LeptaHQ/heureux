@@ -551,7 +551,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et dépannent ceux qui sautent le petit déjeuner.",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident ceux qui ne peuvent pas déjeuner le matin.",
           "usage": "Connecteur adverbial ; réutilisable en Éducation/Santé."
         },
         {
@@ -559,7 +559,7 @@
           "kind": "reformulation",
           "french": "le second",
           "english": "the second one",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et dépannent ceux qui sautent le petit déjeuner.",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident ceux qui ne peuvent pas déjeuner le matin.",
           "usage": "Reprise anaphorique ; réutilisable en Éducation/Santé."
         },
         {
@@ -567,7 +567,7 @@
           "kind": "mot-cle",
           "french": "les industriels",
           "english": "the manufacturers",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et dépannent ceux qui sautent le petit déjeuner.",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident ceux qui ne peuvent pas déjeuner le matin.",
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
@@ -575,7 +575,7 @@
           "kind": "collocation",
           "french": "des boissons chaudes",
           "english": "hot drinks",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et dépannent ceux qui sautent le petit déjeuner.",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident ceux qui ne peuvent pas déjeuner le matin.",
           "usage": "Collocation ; réutilisable en Éducation/Santé."
         },
         {
@@ -583,15 +583,15 @@
           "kind": "mot-cle",
           "french": "l’établissement",
           "english": "the school premises",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et dépannent ceux qui sautent le petit déjeuner.",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident ceux qui ne peuvent pas déjeuner le matin.",
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-11",
           "kind": "mot-cle",
-          "french": "le petit déjeuner",
-          "english": "breakfast",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et dépannent ceux qui sautent le petit déjeuner.",
+          "french": "ces machines",
+          "english": "these machines",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident ceux qui ne peuvent pas déjeuner le matin.",
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
@@ -798,7 +798,7 @@
           "kind": "expression",
           "french": "Toutefois",
           "english": "However",
-          "example": "Toutefois, ses opposants insistent sur les coûts, le manque d’espace et les obligations nécessaires pour garantir l’hygiène, l’égalité de traitement et la prévention du harcèlement.",
+          "example": "Toutefois, ses opposants insistent sur les coûts, le manque d’espace et les obligations à respecter : un local dédié, du matériel adapté, l’égalité de traitement et la prévention du harcèlement.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -806,7 +806,7 @@
           "kind": "mot-cle",
           "french": "le manque d’espace",
           "english": "lack of space",
-          "example": "Toutefois, ses opposants insistent sur les coûts, le manque d’espace et les obligations nécessaires pour garantir l’hygiène, l’égalité de traitement et la prévention du harcèlement.",
+          "example": "Toutefois, ses opposants insistent sur les coûts, le manque d’espace et les obligations à respecter : un local dédié, du matériel adapté, l’égalité de traitement et la prévention du harcèlement.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -814,7 +814,7 @@
           "kind": "collocation",
           "french": "l’égalité de traitement",
           "english": "equal treatment",
-          "example": "Toutefois, ses opposants insistent sur les coûts, le manque d’espace et les obligations nécessaires pour garantir l’hygiène, l’égalité de traitement et la prévention du harcèlement.",
+          "example": "Toutefois, ses opposants insistent sur les coûts, le manque d’espace et les obligations à respecter : un local dédié, du matériel adapté, l’égalité de traitement et la prévention du harcèlement.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -822,7 +822,7 @@
           "kind": "mot-cle",
           "french": "la prévention du harcèlement",
           "english": "harassment prevention",
-          "example": "Toutefois, ses opposants insistent sur les coûts, le manque d’espace et les obligations nécessaires pour garantir l’hygiène, l’égalité de traitement et la prévention du harcèlement.",
+          "example": "Toutefois, ses opposants insistent sur les coûts, le manque d’espace et les obligations à respecter : un local dédié, du matériel adapté, l’égalité de traitement et la prévention du harcèlement.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -2296,7 +2296,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, ses opposants dénoncent les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner aux propriétés.",
+          "example": "En revanche, ses opposants dénoncent les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner à leurs quartiers.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2304,7 +2304,7 @@
           "kind": "collocation",
           "french": "les œuvres réalisées sans autorisation",
           "english": "works created without permission",
-          "example": "En revanche, ses opposants dénoncent les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner aux propriétés.",
+          "example": "En revanche, ses opposants dénoncent les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner à leurs quartiers.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2312,7 +2312,7 @@
           "kind": "mot-cle",
           "french": "leur coût de nettoyage",
           "english": "their cleaning cost",
-          "example": "En revanche, ses opposants dénoncent les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner aux propriétés.",
+          "example": "En revanche, ses opposants dénoncent les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner à leurs quartiers.",
           "usage": "Groupe nominal, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2320,7 +2320,7 @@
           "kind": "collocation",
           "french": "la mauvaise image",
           "english": "the negative image",
-          "example": "En revanche, ses opposants dénoncent les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner aux propriétés.",
+          "example": "En revanche, ses opposants dénoncent les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner à leurs quartiers.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Ville."
         },
         {

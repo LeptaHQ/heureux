@@ -1250,9 +1250,9 @@
         {
           "id": "E3-DEC-C06-01",
           "kind": "phrase-modele",
-          "french": "La colocation entre adultes présente des avantages et des inconvénients",
-          "english": "Flatsharing among adults has advantages and disadvantages",
-          "example": "La colocation entre adultes présente des avantages et des inconvénients.",
+          "french": "La colocation entre adultes oppose deux expériences du quotidien",
+          "english": "Flatsharing among adults sets two everyday experiences against each other",
+          "example": "La colocation entre adultes oppose deux expériences du quotidien.",
           "usage": "Formule argumentative ; réutilisable en Logement/Société."
         },
         {
@@ -1284,7 +1284,7 @@
           "kind": "expression",
           "french": "D’un côté",
           "english": "On the one hand",
-          "example": "D’un côté, elle donne accès à un logement plus spacieux et réduit fortement le loyer ainsi que les charges.",
+          "example": "D’un côté, elle offre de réels moments d’échange, autour des repas ou de jeux de société, un partage des tâches ménagères et une ouverture aux autres.",
           "usage": "Connecteur ou expression ; réutilisable en Logement/Société."
         },
         {
@@ -1292,7 +1292,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, les différences d’habitudes peuvent provoquer des conflits.",
+          "example": "En revanche, elle fait perdre des soirées au calme, impose des invités que l’on n’a pas choisis et des tours de ménage à respecter.",
           "usage": "Connecteur ou expression ; réutilisable en Logement/Société."
         },
         {
@@ -1316,47 +1316,47 @@
           "kind": "mot-cle",
           "french": "La colocation entre adultes",
           "english": "flatsharing among adults",
-          "example": "La colocation entre adultes présente des avantages et des inconvénients.",
+          "example": "La colocation entre adultes oppose deux expériences du quotidien.",
           "usage": "Groupe nominal ; réutilisable en Logement/Société."
         },
         {
           "id": "E3-DEC-C06-10",
           "kind": "mot-cle",
-          "french": "un logement plus spacieux",
-          "english": "more spacious accommodation",
-          "example": "D’un côté, elle donne accès à un logement plus spacieux et réduit fortement le loyer ainsi que les charges.",
+          "french": "de réels moments d’échange",
+          "english": "genuine moments of sharing",
+          "example": "D’un côté, elle offre de réels moments d’échange, autour des repas ou de jeux de société, un partage des tâches ménagères et une ouverture aux autres.",
           "usage": "Groupe nominal ; réutilisable en Logement/Société."
         },
         {
           "id": "E3-DEC-C06-11",
           "kind": "mot-cle",
-          "french": "le loyer",
-          "english": "rent",
-          "example": "D’un côté, elle donne accès à un logement plus spacieux et réduit fortement le loyer ainsi que les charges.",
+          "french": "des tâches ménagères",
+          "english": "household chores",
+          "example": "D’un côté, elle offre de réels moments d’échange, autour des repas ou de jeux de société, un partage des tâches ménagères et une ouverture aux autres.",
           "usage": "Groupe nominal ; réutilisable en Logement/Société."
         },
         {
           "id": "E3-DEC-C06-12",
           "kind": "mot-cle",
-          "french": "les charges",
+          "french": "des charges",
           "english": "household expenses",
-          "example": "D’un côté, elle donne accès à un logement plus spacieux et réduit fortement le loyer ainsi que les charges.",
+          "example": "Par exemple, trois adultes peuvent établir un calendrier de ménage, fixer des heures calmes et verser chaque mois leur part des charges sur un compte commun.",
           "usage": "Groupe nominal ; réutilisable en Logement/Société."
         },
         {
           "id": "E3-DEC-C06-13",
           "kind": "mot-cle",
-          "french": "les différences d’habitudes",
-          "english": "differences in habits",
-          "example": "En revanche, les différences d’habitudes peuvent provoquer des conflits.",
+          "french": "une ouverture aux autres",
+          "english": "openness to others",
+          "example": "D’un côté, elle offre de réels moments d’échange, autour des repas ou de jeux de société, un partage des tâches ménagères et une ouverture aux autres.",
           "usage": "Groupe nominal ; réutilisable en Logement/Société."
         },
         {
           "id": "E3-DEC-C06-14",
           "kind": "mot-cle",
-          "french": "organisation commune",
-          "english": "shared organization",
-          "example": "Une organisation commune, le respect du calme et une communication ouverte deviennent donc indispensables.",
+          "french": "des soirées au calme",
+          "english": "quiet evenings",
+          "example": "En revanche, elle fait perdre des soirées au calme, impose des invités que l’on n’a pas choisis et des tours de ménage à respecter.",
           "usage": "Groupe nominal ; réutilisable en Logement/Société."
         },
         {
@@ -1388,7 +1388,7 @@
           "kind": "collocation",
           "french": "une communication ouverte",
           "english": "open communication",
-          "example": "Une organisation commune, le respect du calme et une communication ouverte deviennent donc indispensables.",
+          "example": "En définitive, le plus important est de choisir soigneusement ses colocataires et de maintenir une communication ouverte fondée sur le respect mutuel.",
           "usage": "Association lexicale ; réutilisable en Logement/Société."
         },
         {
@@ -2238,9 +2238,9 @@
         {
           "id": "E3-DEC-C10-01",
           "kind": "phrase-modele",
-          "french": "L’uniforme scolaire oppose deux visions de la vie à l’école",
-          "english": "School uniforms reflect two opposing views of school life",
-          "example": "L’uniforme scolaire oppose deux visions de la vie à l’école.",
+          "french": "Un seul document traite réellement de l’uniforme scolaire",
+          "english": "Only one document actually deals with school uniforms",
+          "example": "Un seul document traite réellement de l’uniforme scolaire : la source a publié à sa place une consigne d’écriture sans rapport.",
           "usage": "Formule argumentative ; réutilisable en Éducation/Société."
         },
         {
@@ -2270,17 +2270,17 @@
         {
           "id": "E3-DEC-C10-05",
           "kind": "expression",
-          "french": "D’un côté",
-          "english": "On the one hand",
-          "example": "D’un côté, ses partisans estiment qu’il atténue les différences sociales, simplifie l’habillement et renforce le sentiment d’appartenance.",
+          "french": "Tout d’abord",
+          "english": "First of all",
+          "example": "Tout d’abord, une tenue commune peut réduire la comparaison des marques et faciliter la préparation du matin.",
           "usage": "Connecteur ou expression ; réutilisable en Éducation/Société."
         },
         {
           "id": "E3-DEC-C10-06",
           "kind": "expression",
-          "french": "En revanche",
-          "english": "On the other hand",
-          "example": "En revanche, ses détracteurs le trouvent parfois inconfortable, trop chaud et peu attrayant, tout en regrettant qu’il limite l’expression de la personnalité des adolescents.",
+          "french": "Ensuite",
+          "english": "Next",
+          "example": "Ensuite, plusieurs coupes et couleurs permettent de conserver une certaine liberté sans perdre la cohérence collective.",
           "usage": "Connecteur ou expression ; réutilisable en Éducation/Société."
         },
         {
@@ -2304,39 +2304,39 @@
           "kind": "mot-cle",
           "french": "L’uniforme scolaire",
           "english": "the school uniform",
-          "example": "L’uniforme scolaire oppose deux visions de la vie à l’école.",
+          "example": "Un seul document traite réellement de l’uniforme scolaire : la source a publié à sa place une consigne d’écriture sans rapport.",
           "usage": "Groupe nominal ; réutilisable en Éducation/Société."
         },
         {
           "id": "E3-DEC-C10-10",
           "kind": "mot-cle",
-          "french": "les différences sociales",
-          "english": "social differences",
-          "example": "D’un côté, ses partisans estiment qu’il atténue les différences sociales, simplifie l’habillement et renforce le sentiment d’appartenance.",
+          "french": "des écoles publiques",
+          "english": "public schools",
+          "example": "Le second constate qu’au Québec des écoles publiques imposent l’uniforme, mais que les adolescents le jugent inconfortable, trop chaud et peu esthétique, et regrettent qu’il limite l’expression de leur personnalité.",
           "usage": "Groupe nominal ; réutilisable en Éducation/Société."
         },
         {
           "id": "E3-DEC-C10-11",
           "kind": "mot-cle",
-          "french": "l’habillement",
-          "english": "clothing",
-          "example": "D’un côté, ses partisans estiment qu’il atténue les différences sociales, simplifie l’habillement et renforce le sentiment d’appartenance.",
+          "french": "une consigne d’écriture",
+          "english": "a writing instruction",
+          "example": "Un seul document traite réellement de l’uniforme scolaire : la source a publié à sa place une consigne d’écriture sans rapport.",
           "usage": "Groupe nominal ; réutilisable en Éducation/Société."
         },
         {
           "id": "E3-DEC-C10-12",
           "kind": "mot-cle",
-          "french": "le sentiment d’appartenance",
-          "english": "a sense of belonging",
-          "example": "D’un côté, ses partisans estiment qu’il atténue les différences sociales, simplifie l’habillement et renforce le sentiment d’appartenance.",
+          "french": "les adolescents",
+          "english": "teenagers",
+          "example": "Le second constate qu’au Québec des écoles publiques imposent l’uniforme, mais que les adolescents le jugent inconfortable, trop chaud et peu esthétique, et regrettent qu’il limite l’expression de leur personnalité.",
           "usage": "Groupe nominal ; réutilisable en Éducation/Société."
         },
         {
           "id": "E3-DEC-C10-13",
           "kind": "mot-cle",
-          "french": "l’expression de la personnalité",
-          "english": "expression of personality",
-          "example": "En revanche, ses détracteurs le trouvent parfois inconfortable, trop chaud et peu attrayant, tout en regrettant qu’il limite l’expression de la personnalité des adolescents.",
+          "french": "l’expression de leur personnalité",
+          "english": "the expression of their personality",
+          "example": "Le second constate qu’au Québec des écoles publiques imposent l’uniforme, mais que les adolescents le jugent inconfortable, trop chaud et peu esthétique, et regrettent qu’il limite l’expression de leur personnalité.",
           "usage": "Groupe nominal ; réutilisable en Éducation/Société."
         },
         {
@@ -2422,9 +2422,9 @@
         {
           "id": "E3-DEC-C10-24",
           "kind": "tournure",
-          "french": "tout en regrettant qu’il limite l’expression",
-          "english": "while regretting that it limits expression",
-          "example": "En revanche, ses détracteurs le trouvent parfois inconfortable, trop chaud et peu attrayant, tout en regrettant qu’il limite l’expression de la personnalité des adolescents.",
+          "french": "regrettent qu’il limite l’expression",
+          "english": "regret that it limits expression",
+          "example": "Le second constate qu’au Québec des écoles publiques imposent l’uniforme, mais que les adolescents le jugent inconfortable, trop chaud et peu esthétique, et regrettent qu’il limite l’expression de leur personnalité.",
           "usage": "Tournure réutilisable ; réutilisable en Éducation/Société."
         },
         {
@@ -2454,9 +2454,9 @@
         {
           "id": "E3-DEC-C10-28",
           "kind": "verbe-action",
-          "french": "atténue les différences sociales",
-          "english": "reduces social differences",
-          "example": "D’un côté, ses partisans estiment qu’il atténue les différences sociales, simplifie l’habillement et renforce le sentiment d’appartenance.",
+          "french": "imposent l’uniforme",
+          "english": "impose the uniform",
+          "example": "Le second constate qu’au Québec des écoles publiques imposent l’uniforme, mais que les adolescents le jugent inconfortable, trop chaud et peu esthétique, et regrettent qu’il limite l’expression de leur personnalité.",
           "usage": "Construction verbale ; réutilisable en Éducation/Société."
         },
         {
@@ -2470,9 +2470,9 @@
         {
           "id": "E3-DEC-C10-30",
           "kind": "reformulation",
-          "french": "ses détracteurs",
-          "english": "its critics",
-          "example": "En revanche, ses détracteurs le trouvent parfois inconfortable, trop chaud et peu attrayant, tout en regrettant qu’il limite l’expression de la personnalité des adolescents.",
+          "french": "Le second",
+          "english": "the second document",
+          "example": "Le second constate qu’au Québec des écoles publiques imposent l’uniforme, mais que les adolescents le jugent inconfortable, trop chaud et peu esthétique, et regrettent qu’il limite l’expression de leur personnalité.",
           "usage": "Reprise lexicale ; réutilisable en Éducation/Société."
         }
       ]
@@ -3300,7 +3300,7 @@
           "kind": "mot-cle",
           "french": "programmes jeunesse",
           "english": "children’s programmes",
-          "example": "Certains valorisent la qualité de programmes jeunesse qui deviennent bénéfiques lorsque les parents choisissent les contenus et limitent le temps d’écran.",
+          "example": "Certains valorisent des programmes jeunesse de qualité, qui deviennent bénéfiques lorsque les parents choisissent les contenus et limitent le temps d’écran.",
           "usage": "Groupe nominal ; réutilisable en Famille/Médias."
         },
         {
@@ -3308,7 +3308,7 @@
           "kind": "mot-cle",
           "french": "les contenus",
           "english": "content",
-          "example": "Certains valorisent la qualité de programmes jeunesse qui deviennent bénéfiques lorsque les parents choisissent les contenus et limitent le temps d’écran.",
+          "example": "Certains valorisent des programmes jeunesse de qualité, qui deviennent bénéfiques lorsque les parents choisissent les contenus et limitent le temps d’écran.",
           "usage": "Groupe nominal ; réutilisable en Famille/Médias."
         },
         {
@@ -3316,7 +3316,7 @@
           "kind": "mot-cle",
           "french": "le temps d’écran",
           "english": "screen time",
-          "example": "Certains valorisent la qualité de programmes jeunesse qui deviennent bénéfiques lorsque les parents choisissent les contenus et limitent le temps d’écran.",
+          "example": "Certains valorisent des programmes jeunesse de qualité, qui deviennent bénéfiques lorsque les parents choisissent les contenus et limitent le temps d’écran.",
           "usage": "Groupe nominal ; réutilisable en Famille/Médias."
         },
         {
@@ -3412,7 +3412,7 @@
           "kind": "tournure",
           "french": "lorsque les parents choisissent les contenus",
           "english": "when parents choose the content",
-          "example": "Certains valorisent la qualité de programmes jeunesse qui deviennent bénéfiques lorsque les parents choisissent les contenus et limitent le temps d’écran.",
+          "example": "Certains valorisent des programmes jeunesse de qualité, qui deviennent bénéfiques lorsque les parents choisissent les contenus et limitent le temps d’écran.",
           "usage": "Tournure réutilisable ; réutilisable en Famille/Médias."
         },
         {

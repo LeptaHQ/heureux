@@ -713,7 +713,7 @@ class SmokeTests(TestCase):
         self.assertContains(written, "Tâche 2")
         self.assertContains(written, "Tâche 3")
         self.assertNotContains(written, "Rédiger un message clair")
-        self.assertContains(
+        self.assertNotContains(
             written,
             "Raconter et expliquer une expérience",
         )
@@ -722,7 +722,7 @@ class SmokeTests(TestCase):
             written,
             "Comparer des points de vue et argumenter",
         )
-        self.assertContains(written, "À venir", count=1)
+        self.assertNotContains(written, "À venir")
         self.assertContains(written, "<dd>Actif</dd>", html=True)
 
     def test_review_deck_uses_the_shared_flashcard_standard(self):
@@ -1064,14 +1064,16 @@ class EeTacheThreePageTests(TestCase):
             "family",
         ).get(content_key=self.months[0].combinaisons[0].content_key)
 
-    def test_overview_uses_one_month_directory_instead_of_duplicate_taxonomies(self):
+    def test_overview_presents_themed_subject_and_memory_collections(self):
         response = self.client.get(self._task_url("study:task_detail"))
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "study/ee_tache_three_overview.html")
+        self.assertEqual(response.context["theme_count"], 11)
         self.assertEqual(response.context["month_count"], 11)
         self.assertEqual(response.context["subject_count"], 138)
-        self.assertEqual(response.context["vocabulary_count"], 4140)
+        self.assertEqual(response.context["distinct_count"], 84)
+        self.assertEqual(response.context["vocabulary_count"], 2520)
         self.assertEqual(response.context["memory_count"], 4)
         self.assertContains(
             response,
@@ -1093,63 +1095,68 @@ class EeTacheThreePageTests(TestCase):
             response,
             "data-ee-tache-three-subject-row",
         )
-        self.assertNotContains(response, "Par thème")
-        self.assertNotContains(response, "Par famille de sujets")
+        self.assertContains(response, "classés par thème")
 
-    def test_subject_page_groups_all_combinations_in_collapsible_months(self):
+    def test_subject_page_groups_all_combinations_in_collapsible_themes(self):
         response = self.client.get(self._task_url("study:task_browse"))
+        expected_themes = [
+            theme.name
+            for theme in content_module.load_ee_subject_themes(3)[0]
+        ]
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "study/ee_tache_three_subjects.html")
         self.assertEqual(
-            [month["name"] for month in response.context["months"]],
-            [month.name for month in self.months],
+            [theme["name"] for theme in response.context["subject_themes"]],
+            expected_themes,
         )
+        self.assertEqual(len(response.context["subject_themes"]), 11)
         self.assertContains(
             response,
-            'data-tache-two-month-key="ee-tache-three:',
-            count=22,
+            "data-t1-table-theme",
+            count=11,
         )
         self.assertContains(
             response,
             "data-ee-tache-three-subject-row",
-            count=138,
+            count=276,
         )
-        self.assertContains(
-            response,
-            "data-tache-two-month-row",
-            count=138,
-        )
-        self.assertContains(response, "tache-two-batch-table--ee")
         self.assertContains(response, 'data-collection-view-panel="table"')
         self.assertContains(response, 'data-collection-view-panel="cards"')
         self.assertContains(response, "data-collection-view-toggle")
-        self.assertContains(response, "Les mois restent repliés")
+        self.assertContains(response, "thèmes restent repliables")
+        self.assertContains(response, "publications liées")
 
-    def test_month_page_is_a_focused_subject_directory(self):
+    def test_theme_page_is_a_focused_subject_directory(self):
         prompt = self._first_prompt()
         response = self.client.get(theme_detail_url(prompt.theme))
         review = self.client.get(response.context["review_url"])
+        expected_count = Prompt.objects.filter(theme=prompt.theme).count()
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "study/ee_tache_three_month.html")
-        self.assertEqual(response.context["month"]["name"], "Janvier")
         self.assertEqual(
-            response.context["month"]["subject_count"],
-            len(self.months[0].combinaisons),
+            response.context["subject_theme"]["name"],
+            prompt.theme.display_name,
+        )
+        self.assertEqual(
+            response.context["subject_theme"]["subject_count"],
+            expected_count,
         )
         self.assertContains(
             response,
             "data-ee-tache-three-subject-row",
-            count=len(self.months[0].combinaisons),
+            count=expected_count,
         )
-        self.assertContains(response, "Pratiquer ce mois")
+        self.assertContains(response, "Pratiquer ce thème")
         self.assertContains(response, "data-collection-view-toggle")
         self.assertNotContains(response, "data-tache-two-month-toggle")
-        self.assertContains(review, "Mois · Janvier")
-        self.assertNotContains(review, "Thème · Janvier")
+        self.assertContains(
+            review,
+            f"Thème · {prompt.theme.display_name}".replace("&", "&amp;"),
+        )
 
-    def test_response_breadcrumb_uses_month_and_combination_only(self):
+    def test_response_breadcrumb_uses_theme_month_and_combination(self):
         prompt = self._first_prompt()
         response = self.client.get(prompt_detail_url(prompt))
         family_url = reverse(
@@ -1163,9 +1170,15 @@ class EeTacheThreePageTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, theme_detail_url(prompt.theme))
+        self.assertContains(
+            response,
+            prompt.theme.display_name.replace("&", "&amp;"),
+        )
+        self.assertContains(response, "Janvier 2025")
         self.assertContains(response, "Combinaison 1")
         self.assertContains(response, "Documents sources")
-        self.assertContains(response, "Pratiquer ce mois")
+        self.assertContains(response, "Version de l’auteur")
+        self.assertContains(response, "Pratiquer ce thème")
         self.assertNotContains(response, family_url)
 
     def test_source_combination_numbers_are_preserved_across_pages(self):
@@ -1176,16 +1189,21 @@ class EeTacheThreePageTests(TestCase):
         )
         month_page = self.client.get(theme_detail_url(prompt.theme))
         detail = self.client.get(prompt_detail_url(prompt))
+        source_row = next(
+            row
+            for row in month_page.context["subjects"]
+            if row["prompt"].content_key == source.content_key
+        )
 
         self.assertEqual(source.combinaison, "Combinaison 41")
         self.assertEqual(
-            month_page.context["subjects"][15]["combination_label"],
+            source_row["combination_label"],
             "Combinaison 41",
         )
         self.assertContains(detail, "Combinaison 41")
         self.assertNotContains(detail, "Combinaison 16")
 
-    def test_legacy_family_page_redirects_to_its_month(self):
+    def test_family_page_redirects_to_its_theme(self):
         prompt = self._first_prompt()
         response = self.client.get(
             reverse(
@@ -1204,6 +1222,50 @@ class EeTacheThreePageTests(TestCase):
             fetch_redirect_response=False,
         )
 
+    def test_legacy_month_theme_url_redirects_to_the_themed_directory(self):
+        response = self.client.get(
+            reverse(
+                "study:theme_detail",
+                args=[
+                    self.task.part.slug,
+                    self.task.slug,
+                    "ee-tache-3-janvier",
+                ],
+            )
+        )
+
+        self.assertRedirects(
+            response,
+            self._task_url("study:task_browse"),
+            fetch_redirect_response=False,
+        )
+
+    def test_legacy_month_family_url_redirects_to_the_themed_directory(self):
+        response = self.client.get(
+            reverse(
+                "study:task_family_detail",
+                args=[
+                    self.task.part.slug,
+                    self.task.slug,
+                    "ee-tache-3-janvier",
+                ],
+            )
+        )
+
+        self.assertRedirects(
+            response,
+            self._task_url("study:task_browse"),
+            fetch_redirect_response=False,
+        )
+
+    def test_source_defect_warning_is_visible_on_the_subject(self):
+        prompt = Prompt.objects.get(
+            content_key="ee-tache3:decembre:combinaison-10"
+        )
+        response = self.client.get(prompt_detail_url(prompt))
+
+        self.assertContains(response, "premier document publié est hors sujet")
+
     def test_practice_and_memory_pages_use_ee_task_language(self):
         practice = self.client.get(
             self._task_url("study:task_review_hub")
@@ -1213,8 +1275,8 @@ class EeTacheThreePageTests(TestCase):
         )
 
         self.assertEqual(practice.status_code, 200)
-        self.assertContains(practice, "Choisir un mois")
-        self.assertNotContains(practice, "Choisir un thème")
+        self.assertContains(practice, "Choisir un thème")
+        self.assertNotContains(practice, "Choisir un mois")
         self.assertEqual(memories.status_code, 200)
         self.assertEqual(memories.context["memory_count"], 4)
         self.assertContains(memories, "Mémoires")

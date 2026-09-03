@@ -8,12 +8,13 @@
   <header class="memory-overview-hero">
     <div class="memory-overview-hero__copy">
       <p class="eyebrow">{{ part.name }} · {{ task.name }}</p>
-      <h1>Sujets par mois</h1>
-      <p>Chaque mois rassemble les combinaisons de documents, la réponse modèle et 30 vocabs directement liés au sujet.</p>
+      <h1>Sujets par thème</h1>
+      <p>Chaque publication conserve son mois et sa combinaison. Les sujets équivalents partagent une seule réponse, une seule progression et 30 vocabs ciblés.</p>
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Contenu des sujets">
-      <div><dt>Mois</dt><dd>{{ month_count }}</dd></div>
+      <div><dt>Thèmes</dt><dd>{{ theme_count }}</dd></div>
       <div><dt>Sujets</dt><dd>{{ subject_count }}</dd></div>
+      <div><dt>Réponses distinctes</dt><dd>{{ distinct_count }}</dd></div>
       <div><dt>Vocabulaire</dt><dd>{{ vocabulary_count }}</dd></div>
     </dl>
   </header>
@@ -21,16 +22,104 @@
   <section class="ee-t3-section" aria-labelledby="ee-t3-subject-directory-title">
     <div class="ee-t3-section__head">
       <div>
-        <p class="eyebrow">{{ month_count }} collections mensuelles</p>
+        <p class="eyebrow">{{ theme_count }} collections thématiques</p>
         <h2 id="ee-t3-subject-directory-title">Choisir un sujet</h2>
-        <p>Les mois restent repliés pour garder une vue lisible. Ouvrez uniquement la collection que vous souhaitez travailler.</p>
+        <p>Les thèmes restent repliables pour garder une vue lisible. Ouvrez celui que vous souhaitez travailler.</p>
       </div>
       <div class="ee-t3-section__actions">
         {% include "study/partials/collection_view_toggle.html" %}
       </div>
     </div>
-    {% include "study/partials/ee_tache_three_month_directory.html" with directory_id="subjects" months=months part=part task=task %}
-    {% include "study/partials/ee_tache_three_subject_table.html" with months=months part=part task=task %}
+    <div class="t1-collection">
+      <div class="t1-themes" data-collection-view-panel="cards">
+        {% for subject_theme in subject_themes %}
+          <details class="t1-theme" id="theme-{{ subject_theme.slug }}" open>
+            <summary class="t1-theme__head">
+              <span class="t1-theme__chevron" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+              <span class="t1-theme__glyph" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=subject_theme.icon only %}</span>
+              <span class="t1-theme__title">{{ subject_theme.name }}</span>
+              <span class="t1-theme__meta">
+                <span class="t1-theme__count">{{ subject_theme.subject_count }} sujet{{ subject_theme.subject_count|pluralize }}</span>
+                <span class="progress-status progress-status--{{ subject_theme.progress.status }}">{{ subject_theme.completed }}/{{ subject_theme.total }}</span>
+              </span>
+            </summary>
+            {% include "study/partials/ee_tache_three_subject_list.html" with subjects=subject_theme.subjects part=part task=task %}
+          </details>
+        {% endfor %}
+      </div>
+
+      <div class="t1-table-groups" data-collection-view data-collection-view-panel="table">
+        <div class="t1-table-groups__head" aria-hidden="true">
+          <span>Thème</span>
+          <span>Sujets</span>
+          <span>Progression</span>
+        </div>
+        {% for subject_theme in subject_themes %}
+          <details class="t1-theme t1-table-group" data-t1-table-theme>
+            <summary class="t1-theme__head">
+              <span class="t1-theme__chevron" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+              <span class="t1-theme__glyph" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=subject_theme.icon only %}</span>
+              <span class="t1-theme__title">{{ subject_theme.name }}</span>
+              <span class="t1-theme__meta">
+                <span class="t1-theme__count">{{ subject_theme.subject_count }} sujet{{ subject_theme.subject_count|pluralize }}</span>
+                <span class="progress-status progress-status--{{ subject_theme.progress.status }}">{{ subject_theme.completed }}/{{ subject_theme.total }}</span>
+              </span>
+            </summary>
+            <div class="t1-table-shell">
+              <table class="t1-table t1-table--grouped t1-table--writing">
+                <caption class="sr-only">Sujets du thème {{ subject_theme.name }}</caption>
+                <colgroup>
+                  <col class="t1-table__subject-column">
+                  <col class="t1-table__content-column">
+                  <col class="t1-table__writing-status-column">
+                  <col class="t1-table__versions-column">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">Sujet</th>
+                    <th scope="col">Publication</th>
+                    <th scope="col">Progression</th>
+                    <th scope="col">Contenu</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for subject in subject_theme.subjects %}
+                    <tr
+                      class="t1-table__row subject-progress-row subject-table-row subject-progress-row--{{ subject.progress.status }}"
+                      data-ee-tache-three-subject-row
+                      data-subject-progress-row="{{ subject.prompt.response_id }}">
+                      <td class="t1-table__subject">
+                        <a
+                          class="subject-table-row-link"
+                          href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Ouvrir {{ subject.combination_label }} : {{ subject.prompt.text }}">{{ subject.prompt.text }}</a>
+                      </td>
+                      <td>
+                        <span>{{ subject.month_name }} {{ subject.year }}</span>
+                        <small class="t1-table__subject-date">{{ subject.combination_label }}</small>
+                        {% if subject.equivalent_count %}<span class="chip">{{ subject.equivalent_count|add:1 }} liées</span>{% endif %}
+                        {% if subject.has_source_issue %}<span class="chip">Source signalée</span>{% endif %}
+                      </td>
+                      <td class="t1-table__progress-cell">
+                        <div class="t1-table__progress">
+                          <span
+                            class="progress-status progress-status--{{ subject.progress.status }}"
+                            data-subject-progress-status="{{ subject.prompt.response_id }}">{{ subject.progress.label }}</span>
+                          {% include "study/partials/subject_completion_form.html" with response_id=subject.prompt.response_id progress=subject.progress subject_label=subject.prompt.text part=part task=task refresh=True %}
+                        </div>
+                      </td>
+                      <td class="t1-table__versions">{{ subject.document_count }} docs · {{ subject.vocabulary_count }} vocabs</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </details>
+        {% endfor %}
+      </div>
+    </div>
   </section>
 </div>
 {% endblock %}

@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "theme": "annonces",
+  "responses": [
+    {
+      "content_key": "ee-tache1:mars:combinaison-6",
+      "versions": [
+        {
+          "body": "Madame, Monsieur,\n\nJe me permets de vous contacter suite à la réception de ma commande n° 1234, passée le 4 juin 2024. Malheureusement, le téléphone reçu aujourd’hui présente plusieurs problèmes importants.\n\nTout d’abord, l’écran est fissuré, ce qui rend l’appareil difficilement utilisable. De plus, le chargeur était absent du colis lors de la livraison.\n\nPar conséquent, je sollicite l’envoi d’un appareil de remplacement en parfait état dans les meilleurs délais. Si ce modèle n’est plus disponible, je souhaiterais obtenir un remboursement intégral.\n\nJe reste à votre disposition pour retourner le produit défectueux selon les modalités indiquées.\n\nDans l’attente de votre réponse, veuillez agréer mes salutations distinguées.\n\nCorn",
+          "origin": "author"
+        },
+        {
+          "body": "Bonjour,\n\nJe vous écris concernant ma commande n° XYZ 123 du 2 mai 2026. J’ai constaté plusieurs problèmes avec l’appareil dès sa réception.\n\nTout d’abord, l’écran était fissuré, ce qui le rend inutilisable. De plus, la batterie se décharge rapidement et ne dure qu’environ une heure après une charge complète. Par ailleurs, les écouteurs étaient absents du colis.\n\nJe souhaiterais donc un remplacement dans les plus brefs délais. Si ce modèle n’est plus disponible, j’aimerais un remboursement intégral. Je reste également à votre disposition pour vous retourner l’appareil défectueux.\n\nJe vous remercie de l’attention portée à ma demande.\n\nCordialement,\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:mars:combinaison-10",
+      "versions": [
+        {
+          "body": "Bonjour,\n\nJe vous écris au sujet de votre annonce : j’ai justement un vélo à vendre. C’est un vélo de montagne, modèle 2021, en très bon état. Je l’ai utilisé uniquement pendant un été, donc il fonctionne parfaitement.\n\nCe vélo léger est idéal pour les pistes cyclables et les terrains variés. D’ailleurs, je l’entretiens régulièrement afin qu’il reste en excellent état.\n\nJe propose un prix de 500 $, mais je suis ouvert à la négociation. Si vous êtes intéressé, nous pourrions nous rencontrer samedi entre 11h et 13h sur les pistes cyclables du centre-ville afin que vous puissiez l’essayer.\n\nN’hésitez pas à me contacter.\n\nCordialement,\nC",
+          "origin": "author"
+        },
+        {
+          "body": "Bonjour,\n\nJ’ai vu votre annonce et je pense que mon vélo pourrait vous convenir. Il s’agit d’un vélo de ville bleu, acheté en 2023 et très peu utilisé. Les freins, les lumières et les sept vitesses fonctionnent parfaitement. Je fournis également un panier et un antivol.\n\nJe le vends 180 €, mais le prix peut être légèrement négocié. Vous pourrez l’essayer samedi prochain à 10h devant la médiathèque du centre-ville. Cet endroit dispose d’une piste cyclable, ce qui permettra de vérifier facilement son confort.\n\nSi cet horaire ne vous convient pas, proposez-moi un autre rendez-vous.\n\nCordialement,\nC",
+          "origin": "original"
+        }
+      ]
+    }
+  ]
+}

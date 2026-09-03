@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "theme": "travail",
+  "responses": [
+    {
+      "content_key": "ee-tache1:janvier:combinaison-4",
+      "versions": [
+        {
+          "body": "Coucou Jo !\n\nJ'ai une super nouvelle à t'annoncer : j'ai décroché un poste chez Microsoft comme ingénieur logiciel ! Mon rêve se réalise enfin ! Je vais me spécialiser dans la conception et l'optimisation de systèmes de bases de données à grande échelle — exactement ce que j'ai étudié à Cornell. Les bureaux occupent un bâtiment lumineux en plein centre-ville.\n\nLe plus génial ? Le salaire est excellent, bien meilleur qu'avant, et en plus il y a des repas gratuits tous les jours ! Cerise sur le gâteau : plusieurs de mes collègues sont francophones, donc je vais pouvoir pratiquer mon français au quotidien.\n\nHâte de te faire visiter les bureaux lors de ta prochaine visite !\nBisous,\nCorn",
+          "origin": "author"
+        },
+        {
+          "body": "Coucou Jo,\n\nJ’espère que tu vas bien ! Je t’écris pour t’annoncer une excellente nouvelle : j’ai décroché un poste chez Microsoft comme ingénieur logiciel.\n\nTout d’abord, je travaille sur la conception de systèmes de bases de données à grande échelle, ce qui correspond exactement à ce que j’ai étudié à Cornell. Mes collègues sont très professionnels et toujours prêts à aider. De plus, l’entreprise est située rue Ag, dans un quartier dynamique. Chaque employé dispose de son propre bureau et Microsoft offre aussi des déjeuners gratuits.\n\nLe seul bémol est que les locaux sont loin de mon appartement. Malgré cela, ce travail est du pain bénit !\n\nHâte de te voir !\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:janvier:combinaison-9",
+      "versions": [
+        {
+          "body": "Bonjour Ali,\n\nSuper de te lire ! J’ai commencé chez Microsoft il y a trois semaines comme ingénieur logiciel, spécialisé dans l’optimisation de systèmes de bases de données à grande échelle — passionnant !\n\nMes collègues sont géniaux : chaleureux, brillants et super sympas. Cerise sur le gâteau, la moitié d’entre eux sont francophones, donc je peux pratiquer tous les jours.\n\nLes bureaux se trouvent à Redmond, dans un grand campus verdoyant ; le trajet est donc assez long, mais j’en profite pour écouter mes podcasts préférés.\n\nFranchement, c’est une opportunité en or, je me sens vraiment chanceux d’avoir décroché ce poste !\n\nViens quand tu veux, je te ferai découvrir les bureaux !\n\nCorn",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:mars:combinaison-1",
+      "versions": [
+        {
+          "body": "Coucou Lucas,\n\nJ’espère que tu vas bien ! Suite à ton message, je suis ravi de te parler des nouveaux locaux de Themelios. Nous avons récemment emménagé à Faw, au 1233, rue Ode, juste à côté de l’ancien stade. Le quartier est dynamique et le bâtiment est entouré d’arbres, ce qui crée une ambiance calme.\n\nChaque employé dispose de son propre bureau. De plus, nous avons de grandes salles de réunion équipées d’écrans et des espaces communs pour nous détendre. Une cafétéria africaine est installée sur place, ce que j’apprécie beaucoup. Enfin, les pistes cyclables à proximité permettent de venir à vélo.\n\nN’hésite pas à venir les découvrir.\n\nÀ bientôt,\nCorn",
+          "origin": "author"
+        },
+        {
+          "body": "Salut Lucas !\n\nSuper de te lire ! Oui, mon entreprise a récemment déménagé. Tout d’abord, les nouveaux locaux se trouvent à Garden City, au 123, rue Ag, dans un cadre très agréable entouré d’arbres.\n\nEnsuite, l’entreprise utilise trois grands bâtiments bien organisés. Chaque employé a son propre bureau et un ordinateur récent ; les salles de réunion disposent d’écrans, mais nous déjeunons ensemble dans les espaces communs. De plus, il y a plusieurs restaurants à proximité qui proposent différentes spécialités.\n\nLe seul bémol est que le quartier peut être un peu animé aux heures de pointe. En résumé, j’aime beaucoup ces nouveaux locaux et j’ai hâte de te les faire découvrir !\n\nÀ bientôt,\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:juin:combinaison-3",
+      "versions": [
+        {
+          "body": "Coucou Sarah,\n\nJ’espère que tu vas bien ! J’ai une excellente nouvelle : je viens de décrocher un poste d’ingénieur logiciel dans une entreprise spécialisée dans les transports.\n\nTout d’abord, je vais concevoir des applications pour faciliter les déplacements en ville. Mes collègues sont chaleureux, brillants et toujours prêts à aider. Cerise sur le gâteau, plusieurs parlent français, donc je pourrai pratiquer au quotidien. Les bureaux se trouvent près du centre-ville, dans un bâtiment moderne entouré d’arbres. Le seul bémol est le trajet assez long le matin.\n\nMalgré cela, cette occasion est du pain bénit !\n\nHâte de te faire visiter les locaux !\nCorn",
+          "origin": "original"
+        }
+      ]
+    }
+  ]
+}

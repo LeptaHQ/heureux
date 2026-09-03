@@ -119,7 +119,7 @@ def writing_sujet_progress_by_id(
     user,
     sujet_ids,
 ) -> dict[int, WritingSujetProgress]:
-    """Calculate EE Tâche 1 progress from direct response activity."""
+    """Calculate EE Tâche 1/2 progress from direct response activity."""
     ids = {
         int(sujet_id)
         for sujet_id in sujet_ids

@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "theme": "logement",
+  "responses": [
+    {
+      "content_key": "ee-tache1:mars:combinaison-9",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nJ’espère que tu vas bien ! Je voudrais faire quelques changements dans mon appartement le week-end prochain, de 8h à 14h.\n\nTout d’abord, je prévois de remplacer les meubles afin de moderniser l’espace. De plus, j’aimerais décorer la chambre avec de belles fleurs et de jolies lumières pour créer une ambiance plus chaleureuse. Mon chauffage fonctionne mal, donc je vais le remplacer. D’ailleurs, la peinture est assez vieille et ma salle de bain a aussi besoin de quelques travaux.\n\nJ’aurais vraiment besoin de ton aide, surtout pour la peinture !\n\nHâte de te voir !",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:avril:combinaison-1",
+      "versions": [
+        {
+          "body": "Bonjour,\n\nJe vous écris concernant l’annonce de location de l’appartement situé au 123, rue Ag. Je suis très intéressé par une location d’au moins deux ans.\n\nPourriez-vous me préciser si le quartier est calme, notamment le soir ? J’aimerais aussi savoir si des commerces, des hôpitaux ou des écoles se trouvent à proximité et si les transports en commun sont facilement accessibles.\n\nDe plus, pourriez-vous m’indiquer le loyer et les charges ? L’appartement est-il prêt à être habité ? Y a-t-il un ascenseur et un parking ?\n\nEnfin, j’aimerais organiser une visite si possible.\n\nJe vous remercie par avance pour votre réponse.\n\nCordialement,\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:juillet:combinaison-4",
+      "versions": [
+        {
+          "body": "Madame, Monsieur,\n\nJe vais déménager à Nice dans deux mois et je recherche un logement adapté à mes besoins.\n\nJe souhaite un studio ou un appartement en colocation de 25 à 40 m², à condition que la salle de bain soit privée. Mon budget est de 400 € à 600 € par mois, charges comprises. Je préférerais un logement situé à proximité des marchés et bien desservi par les transports en commun. Si possible, pourriez-vous privilégier les immeubles avec ascenseur et un bon système de chauffage ?\n\nJe reste à votre disposition si vous avez besoin de plus d’informations.\n\nJe vous remercie de votre attention.\n\nCordialement,\n\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:aout:combinaison-13",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nJ’espère que tu vas bien !\n\nDans le cadre de mon nouveau travail, je dois déménager à Accra. Le déménagement est prévu samedi prochain à 8h30, depuis mon appartement actuel.\n\nComme j’ai beaucoup d’affaires, j’aurais vraiment besoin de ton aide. Je compte particulièrement sur ta voiture pour transporter mes appareils électroniques et quelques cartons. J’ai déjà loué un camion pour les grosses affaires, comme les meubles.\n\nSi possible, pourrais-tu venir avec deux autres personnes afin que nous puissions organiser et charger plus rapidement ?\n\nMerci de me confirmer avant mercredi si tu seras disponible.\n\nMerci beaucoup,\n\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:aout:combinaison-14",
+      "versions": [
+        {
+          "body": "Chambre disponible dans une colocation agréable\n\nJe propose une chambre meublée dans mon appartement de 85 m², situé près du centre-ville et des transports. Le logement comprend trois pièces, une cuisine équipée, un grand salon lumineux et un balcon. Le loyer mensuel est de 520 €, charges et Internet compris.\n\nJe recherche une personne calme, propre et respectueuse, de préférence non-fumeuse, qui apprécie une vie conviviale tout en respectant l’intimité de chacun. La chambre sera disponible dès le 1er septembre. Les visites sont possibles le soir après 18h ou le samedi matin.\n\nPour plus d’informations, contactez-moi par courriel.",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:aout:combinaison-16",
+      "versions": [
+        {
+          "body": "🏠 Chambre à louer – Colocation sympa sur la colline Washington\n\nJe suis locataire d’un appartement devenu trop grand pour moi et je cherche donc un colocataire.\n\nL’appartement de 80 m² se situe au premier étage avec ascenseur, au 123, rue Pike. Il offre une vue panoramique sur la ville, dans un quartier calme et verdoyant.\n\nLa chambre est privée et spacieuse. Nous partagerons une cuisine équipée, une salle à manger et une salle de bain. J’imagine une colocation conviviale où chacun respecte l’intimité de l’autre. Je recherche donc une personne calme, respectueuse et non-fumeuse.\n\nLe loyer est de 500 dollars par mois, charges comprises. Le logement est disponible immédiatement.\n\nContact : C – 123-234-3456",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:aout:combinaison-17",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nJ’espère que tu vas bien ! Comme tu connais parfaitement Nice, j’aurais besoin de ton aide pour trouver un logement avant mon arrivée, le 1er octobre.\n\nJe cherche un studio meublé d’environ 30 m², de préférence près du centre-ville ou d’un arrêt de tramway. Mon budget maximal est de 700 € par mois, charges comprises. J’aimerais aussi avoir un balcon et un bon système de chauffage.\n\nSi tu vois une annonce intéressante, pourrais-tu m’envoyer le lien ou contacter le propriétaire ?\n\nMerci beaucoup pour ton soutien !\n\nÀ bientôt,\nC",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:aout:combinaison-18",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nJ’ai une excellente nouvelle : j’ai enfin trouvé mon futur appartement ! C’est un deux-pièces lumineux situé au centre de Nice, à cinq minutes du tramway et du marché. Il possède une cuisine équipée, un petit balcon et une grande chambre.\n\nLe loyer est de 650 € par mois, charges comprises, ce qui respecte parfaitement mon budget. Je signerai le contrat vendredi et je compte déménager le 28 septembre.\n\nD’ailleurs, quand tout sera prêt, j’aimerais t’inviter à dîner afin de te faire découvrir le logement.\n\nHâte de te voir !\nC",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:novembre:combinaison-11",
+      "versions": [
+        {
+          "body": "Colocataire recherché à Lyon\n\nJe viens de m’installer dans un appartement lumineux de 70 m², situé dans le quartier de la Croix-Rousse, près du métro et des commerces. Une chambre meublée est disponible immédiatement. La cuisine, le salon et la salle de bain sont à partager. Le loyer est de 480 € par mois, charges comprises.\n\nJe recherche une personne sérieuse, ouverte et respectueuse, qui aime échanger autour d’un repas, mais apprécie également le calme. Je travaille en semaine et je préfère un logement propre, sans cigarette ni fêtes tardives.\n\nSi ce mode de vie vous convient, écrivez-moi pour organiser une visite.",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:novembre:combinaison-12",
+      "versions": [
+        {
+          "body": "Coucou les amis,\n\nMerci encore d’avoir accepté de m’aider samedi ! Rendez-vous à 8h devant mon ancien appartement, au 14, rue Victor-Hugo. Nous commencerons par emballer la vaisselle, puis deux personnes démonteront les meubles pendant que les autres chargeront les cartons.\n\nLe camion partira vers 11h pour mon nouveau logement, au 8, avenue des Lilas, à vingt minutes de route. Le déchargement devrait durer jusqu’à 14h. Pensez à prendre des gants et des chaussures confortables.\n\nEnsuite, je vous offrirai des pizzas et des boissons pour vous remercier.\n\nÀ samedi,\nC",
+          "origin": "original"
+        }
+      ]
+    }
+  ]
+}

@@ -170,15 +170,15 @@ Personnellement, je considère que l’art urbain améliore la ville à conditio
 
 ### Les objets connectés : utiles, mais vulnérables
 
-**Partie 1 — Synthèse (55 mots)**
+**Partie 1 — Synthèse (57 mots)**
 
-Les objets connectés présentent des avantages et des inconvénients. Le premier document souligne leur utilité pour contrôler la maison, suivre son activité physique ou respecter un traitement médical. En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de cambrioler ou même de contrôler une voiture.
+Les objets connectés présentent des avantages et des inconvénients. Le premier document souligne leur utilité pour contrôler la maison, suivre son activité physique ou respecter un traitement médical. En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de préparer un cambriolage ou même de contrôler une voiture.
 
 **Partie 2 — Point de vue personnel (105 mots)**
 
 Selon moi, ces appareils sont utiles à condition que la sécurité et la vie privée soient protégées dès leur conception. Tout d’abord, ils peuvent favoriser l’autonomie des personnes âgées ou malades. Ensuite, des mises à jour régulières et des mots de passe solides limitent les intrusions. Par exemple, une montre pourrait rappeler un médicament à son propriétaire et transmettre uniquement les données nécessaires à son médecin, avec son accord. Cependant, il faut aussi reconnaître que tous les utilisateurs ne maîtrisent pas les réglages techniques. En conclusion, le plus important est de garantir des normes strictes et de choisir consciemment les informations que chaque objet collecte.
 
-**Total : 160 mots**
+**Total : 162 mots**
 
 ---
 
@@ -214,7 +214,7 @@ Les deux documents s’opposent sur la restauration rapide. Marie la rejette : o
 
 Je pense que la restauration rapide reste acceptable si le client peut réellement composer un repas équilibré. Tout d’abord, sa rapidité répond aux contraintes de nombreuses personnes. Ensuite, les restaurants doivent rendre les produits sains aussi visibles et abordables que les plats gras. Par exemple, une étudiante pressée pourrait choisir un sandwich aux légumes, un yaourt et de l’eau si cette formule coûtait moins cher qu’un menu avec frites. Cependant, il faut aussi reconnaître que la publicité encourage souvent les portions excessives. En conclusion, le plus important est de garantir une information transparente et des choix variés, sans confondre liberté alimentaire et absence de responsabilité.
 
-**Total : 164 mots**
+**Total : 162 mots**
 
 ---
 

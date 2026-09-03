@@ -12,8 +12,9 @@
       <p>Comparez deux documents, construisez une synthèse fidèle, puis défendez votre point de vue dans une réponse claire et structurée.</p>
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Contenu disponible">
-      <div><dt>Mois</dt><dd>{{ month_count }}</dd></div>
+      <div><dt>Thèmes</dt><dd>{{ theme_count }}</dd></div>
       <div><dt>Sujets</dt><dd>{{ subject_count }}</dd></div>
+      <div><dt>Réponses distinctes</dt><dd>{{ distinct_count }}</dd></div>
       <div><dt>Mémoires</dt><dd>{{ memory_count }}</dd></div>
     </dl>
   </header>
@@ -23,7 +24,7 @@
       <div>
         <p class="eyebrow">Deux collections</p>
         <h2 id="ee-t3-overview-collections">Choisir un parcours</h2>
-        <p>Entrez dans les sujets mensuels ou révisez les formulations transversales des mémoires.</p>
+        <p>Entrez dans les sujets classés par thème ou révisez les formulations transversales des mémoires.</p>
       </div>
       {% include "study/partials/collection_view_toggle.html" %}
     </div>
@@ -40,13 +41,13 @@
           <span class="ee-t3-overview-entry__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="file-text" only %}</span>
           <span class="ee-t3-overview-entry__copy">
             <strong id="ee-t3-subject-entry-title">Sujets</strong>
-            <small>Les réponses complètes classées par mois.</small>
+            <small>Les réponses complètes classées par thème, avec leurs dates de publication.</small>
           </span>
         </span>
         <span class="ee-t3-overview-entry__facts">
-          <span><b>{{ month_count }}</b> mois</span>
+          <span><b>{{ theme_count }}</b> thèmes</span>
           <span><b>{{ subject_count }}</b> sujets</span>
-          <span><b>{{ vocabulary_count }}</b> vocabs</span>
+          <span><b>{{ distinct_count }}</b> réponses</span>
         </span>
         <div class="ee-t3-overview-entry__progress">
           {% include "study/partials/tache_two_progress.html" with summary=subject_summary unit_label="sujets terminés" compact=True only %}

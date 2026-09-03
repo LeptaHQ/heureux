@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "theme": "numerique",
+  "responses": [
+    {
+      "content_key": "ee-tache2:avril:combinaison-17",
+      "versions": [
+        {
+          "body": "Installer une télévision dans la chambre peut sembler agréable : on regarde un film confortablement et chacun choisit son programme sans déranger le reste de la famille. Pourtant, je préfère réserver cet écran au salon, surtout quand il s’agit de la chambre d’un enfant.\n\nLa chambre devrait favoriser le repos. Or, lorsqu’une télévision se trouve face au lit, il devient tentant de repousser l’heure du sommeil pour terminer une série. Le bruit et la lumière perturbent également la personne qui souhaite lire ou dormir. Dans les familles, regarder un programme ensemble offre en outre une occasion de discuter, tandis que plusieurs appareils risquent d’isoler chacun dans sa pièce.\n\nSi l’on choisit malgré tout cette solution, il faudrait au moins fixer des horaires et éteindre complètement l’appareil avant la nuit. En résumé, un salon confortable constitue selon moi un choix plus sain, économique et convivial.",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:juin:combinaison-1",
+      "versions": [
+        {
+          "body": "Salut les amis,\n\nIl y a un mois, j’ai supprimé Instagram de mon téléphone. J’y passais parfois deux heures par jour. Je comparais mes journées ordinaires aux photos parfaites des autres et je consultais l’application dès le réveil. Lorsque j’ai oublié un rendez-vous important parce que je regardais des vidéos, j’ai décidé de faire une pause.\n\nLes premiers jours, ma main cherchait automatiquement l’icône disparue et j’avais peur de manquer vos nouvelles. Puis j’ai retrouvé du temps pour lire, cuisiner et appeler directement mes proches. Je dors mieux, je me concentre plus longtemps et nos conversations me semblent plus sincères. Je ne critique pas ceux qui utilisent ce réseau avec plaisir, mais son fonctionnement ne me convenait plus. Je serai moins visible en ligne, mais plus disponible dans la vie réelle !",
+          "origin": "original"
+        }
+      ]
+    }
+  ]
+}

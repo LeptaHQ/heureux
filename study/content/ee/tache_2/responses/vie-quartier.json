@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "theme": "vie-quartier",
+  "responses": [
+    {
+      "content_key": "ee-tache2:janvier:combinaison-1",
+      "versions": [
+        {
+          "body": "Mon expérience lors d’une récente fête de voisins\n\nIl y a exactement une semaine, j’ai assisté à une fête de voisins et c’était incroyable. Elle a eu lieu au 123, rue Saint-Charles, près du fleuve, ce qui a créé une ambiance très agréable. L’événement était ouvert à tous les voisins du quartier, et même d’anciens résidents sont venus, ce qui a rendu la rencontre mémorable.\n\nNous avons fêté cela autour de bonnes spécialités et de boissons. Cerise sur le gâteau : un chanteur reconnu était invité et ses chansons nous ont fait danser. J’y suis allé très tôt, donc j’ai eu une bonne place pour bien profiter du spectacle.\n\nPersonnellement, cette fête m’a vraiment permis de me détendre. Je trouve qu’il est important que les voisins se rencontrent régulièrement pour créer des liens.",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:janvier:combinaison-5",
+      "versions": [
+        {
+          "body": "Je travaille depuis deux ans chez Children Care, une association qui propose des activités aux enfants, et je souhaite partager mon expérience ainsi que les raisons pour lesquelles je trouve ce type d’association important. Elle se spécialise dans l’aide aux devoirs et offre aux enfants des occasions de jouer et d’apprendre. Mon expérience est très positive. L’association embauche un personnel formidable, ce qui rend le cadre de travail très convivial. Il faut que les animateurs soient patients et attentifs, et c’est exactement le cas ici.\n\nÀ mon avis, ce type d’association est très utile, surtout pour les parents qui ont des responsabilités professionnelles exigeantes. Elle permet aux enfants de rencontrer d’autres jeunes et de développer leurs compétences sociales. On observe que cela améliore leur comportement. Enfin, ces associations garantissent la sécurité des enfants pendant l’absence des parents.\n\nEn résumé, cette association est du pain bénit : je la recommande aux familles.",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:mars:combinaison-2",
+      "versions": [
+        {
+          "body": "Chaque mardi, je rends visite à deux personnes âgées avec l’association Main dans la main. Au début, je pensais les aider à faire leurs courses ou à remplir des documents. J’ai vite compris que notre présence comptait davantage. Avec Madeleine, nous préparons une soupe avant de regarder ses albums ; monsieur Ali m’apprend à réparer de petits objets.\n\nCes rencontres créent une relation réciproque : nous apportons du temps et une aide, mais recevons des histoires, des conseils et beaucoup d’affection. L’association nous forme, organise les visites selon nos disponibilités et reste joignable en cas de difficulté. Il n’est donc pas nécessaire d’avoir une expérience particulière. Une heure régulière peut rompre une longue semaine de solitude. Si vous souhaitez agir près de chez vous et découvrir des personnes remarquables, rejoignez-nous. Nous avons notamment besoin de bénévoles pour les promenades du samedi.",
+          "origin": "original"
+        }
+      ]
+    }
+  ]
+}

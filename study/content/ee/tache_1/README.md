@@ -3,13 +3,21 @@
 Corpus **verbatim** des consignes d'**Expression écrite, Tâche 1** publiées en 2025
 (message court : inviter, répondre, décrire, demander ou donner une information).
 
-Ce dossier contient deux corpus distincts, qu'il ne faut pas confondre :
+Le parcours actif s'appuie sur le corpus source 2025 :
 
-- `sujets.json` — banque **éditoriale** de 86 sujets classés par catégorie, chacun
-  accompagné de ses **versions modèles**. C'est elle qui alimente la section
-  d'entraînement (`load_ee_tache_one_categories`).
 - `subjects/<mois>.json` + `sujets-2025.json` / `.md` — corpus **source** 2025,
-  recopié tel quel depuis les combinaisons publiées, sans réponse ni correction.
+  recopié tel quel depuis les combinaisons publiées.
+- `responses/<theme>.json` — **104 versions** de **60 à 120 mots** pour les
+  86 exercices distincts. Les versions `origin: author` viennent de la
+  [banque personnelle de l'auteur](https://dot-ear-743.notion.site/2d82e3acbb10809eb5d2c44ed17bccbf?v=3d02e3acbb1080e5878b000c3c0edec0) ;
+  les sujets restants ont reçu une réponse originale rédigée dans le même registre.
+- `sujets.json` — ancienne banque éditoriale conservée comme référence historique ;
+  elle n'alimente plus le parcours 2025.
+
+`load_ee_writing_categories(1)` valide les limites, place les versions de l'auteur
+en premier et fournit les 138 publications à l'importeur. Une publication équivalente
+conserve sa date et sa consigne, mais partage réponse, personnalisation et progression
+avec son sujet canonique.
 
 ## Corpus source 2025
 
@@ -49,17 +57,19 @@ et les Tâches 1, 2 et 3 d'une même combinaison portent donc la même clé au p
 - `subject_themes.json` — 11 thèmes (`slug`, `name`, `icon`, `order`) et la table
   `content_key → thème` couvrant **les 138 sujets**. La taxonomie reprend les
   catégories déjà utilisées par `sujets.json`.
-- `equivalent_groups.json` — **30 groupes** (78 sujets) republiés mot pour mot d'un
-  mois à l'autre. Le membre `canonical` est toujours le plus ancien du groupe ; un
-  sujet n'appartient qu'à un seul groupe et tous les membres partagent son thème.
-  **90 sujets distincts** subsistent une fois les doublons regroupés.
+- `equivalent_groups.json` — **34 groupes** (86 sujets) republiés d'un mois à
+  l'autre sous la même consigne. Les écarts admis sont uniquement éditoriaux
+  (`week-end`/`weekend`, abréviation `RDV`, singulier typographique, etc.). Le membre
+  `canonical` est toujours le plus ancien du groupe ; un sujet n'appartient qu'à un
+  seul groupe et tous les membres partagent son thème.
+  **86 sujets distincts** subsistent une fois les doublons regroupés.
 
 | Thème | Slug | Sujets |
 |---|---|---|
 | Invitations & fêtes | `invitations` | 20 |
-| Sorties & visites | `sorties` | 15 |
+| Sorties & visites | `sorties` | 16 |
 | Accueillir un invité | `accueil` | 12 |
-| Voyages & vacances | `voyages` | 25 |
+| Voyages & vacances | `voyages` | 24 |
 | Ville & quartier | `ville` | 5 |
 | Logement & déménagement | `logement` | 12 |
 | Transports & orientation | `transport` | 7 |
@@ -72,7 +82,7 @@ Chargement et validation : `load_ee_subject_themes(1)` et
 `load_ee_equivalent_groups(1)` dans `study/content_loader.py`. Les règles sont celles
 de l'Expression orale Tâche 2 : version 1, identifiants en `kebab-case` uniques, au
 moins deux membres, `canonical` le plus ancien, aucun chevauchement entre groupes,
-aucun franchissement de thème, et wording réellement partagé.
+aucun franchissement de thème, et consigne normalisée réellement partagée.
 
 ## Reproduction
 

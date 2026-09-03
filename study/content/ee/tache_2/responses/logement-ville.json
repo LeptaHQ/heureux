@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "theme": "logement-ville",
+  "responses": [
+    {
+      "content_key": "ee-tache2:avril:combinaison-8",
+      "versions": [
+        {
+          "body": "J’ai quitté mon appartement pour une petite maison à Saint-Laurent-des-Bois. Je cherchais le calme : le bruit nocturne, les embouteillages et le manque d’espace me fatiguaient. Comme je travaille trois jours par semaine à distance, les déplacements quotidiens n’étaient plus indispensables. J’ai donc loué une maison entourée d’un jardin, à proximité de la gare.\n\nDésormais, ma nouvelle vie offre des avantages très concrets. Je cultive des tomates, je marche en forêt après le travail et je connais déjà mes voisins, toujours prêts à échanger un outil. Le coût du logement est aussi inférieur à celui de mon ancien deux-pièces. Certes, les commerces ferment tôt et une voiture reste utile pour certaines courses. Cependant, je consomme moins et j’organise mieux mes déplacements. En résumé, ce changement m’a apporté du temps, de l’espace et surtout une sérénité que je ne trouvais plus en ville.",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:aout:combinaison-3",
+      "versions": [
+        {
+          "body": "Bonjour,\n\nMerci de votre intérêt pour mon annonce. Il s’agit d’un appartement lumineux de 68 mètres carrés, situé au troisième étage d’un immeuble calme avec ascenseur. Il comprend deux chambres, un salon donnant sur un balcon, une cuisine équipée et une salle de bains rénovée. Le logement est meublé, possède un lave-linge et sera disponible dès le 1er octobre. Le loyer est de 1 250 dollars, chauffage et eau compris ; l’électricité reste à votre charge.\n\nL’immeuble se trouve dans le quartier Saint-Roch, à trois minutes d’un arrêt d’autobus et à dix minutes du centre à vélo. De plus, une épicerie, une pharmacie et une école sont accessibles à pied. Le parc voisin accueille un marché le samedi, mais la rue demeure tranquille le soir. Une place pour les vélos est incluse. Si ces conditions vous conviennent, je peux organiser une visite mardi ou jeudi après 18 heures.\n\nCordialement,",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:decembre:combinaison-11",
+      "versions": [
+        {
+          "body": "Après dix ans à Montréal, nous avons décidé de nous installer dans un village de l’Estrie. Nous voulions plus d’espace et moins de transports. Le télétravail a rendu ce projet possible. Nous avons trouvé une maison proche de l’école et d’une gare, puis déménagé au printemps.\n\nHuit mois plus tard, nous ne regrettons rien. Les enfants vont à l’école à pied, jouent dehors avec leurs voisins et connaissent les producteurs du marché. De mon côté, je dispose enfin d’un bureau et je profite du jardin pendant mes pauses. La vie associative facilite aussi les rencontres : je suis bénévole à la bibliothèque du village. Bien sûr, l’offre culturelle est plus limitée et nous planifions les grosses courses. Néanmoins, l’air pur, l’entraide et le coût raisonnable du logement compensent largement ces contraintes. Pour nous, la campagne signifie moins de précipitation et plus de liens humains.",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:decembre:combinaison-16",
+      "versions": [
+        {
+          "body": "J’ai partagé une maison avec deux amis. Tout d’abord, cette formule nous permettait de louer un logement près du campus, inabordable pour une seule personne. Nous avions chacun une chambre et partagions la cuisine, le salon ainsi qu’un jardin. Cependant, les différences d’habitudes sont vite apparues : l’un invitait souvent du monde, tandis que je me levais tôt.\n\nPour éviter les conflits, nous avons établi un calendrier de ménage, créé une caisse commune pour les produits courants et fixé des soirées calmes. Une réunion mensuelle nous permettait de régler les problèmes avant qu’ils ne s’aggravent. À mon avis, la colocation est économique et enrichissante : elle apprend à négocier, à partager et rompt la solitude. Elle exige toutefois des règles précises et une communication honnête. Je la recommande, surtout aux étudiants, à condition de choisir des colocataires dont le rythme de vie est compatible.",
+          "origin": "original"
+        }
+      ]
+    }
+  ]
+}

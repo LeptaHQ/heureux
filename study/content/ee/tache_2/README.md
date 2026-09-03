@@ -17,6 +17,16 @@ les classe par thème et relie les republications à 88 exercices canoniques :
 - Chaque occurrence garde son mois et son numéro de combinaison, tandis que la
   réponse personnelle et la progression sont partagées avec son sujet canonique.
 
+### Méthodologie appliquée
+
+La [méthodologie EE](https://www.formation-tcfcanada.com/epreuve/expression-ecrite/astuces)
+recommande environ **20 minutes** et corrige une confusion importante : la Tâche 2
+est d'abord une **narration**, pas une dissertation argumentative. Chaque réponse
+situe l'expérience (quand, où, pourquoi), raconte des actions aux temps du passé avec
+des détails et des émotions, utilise des connecteurs temporels, puis se termine par
+un sentiment, une leçon ou une recommandation. Quand la consigne demande un avis,
+celui-ci reste ancré dans l'expérience vécue.
+
 ## Contenu
 
 - `subjects/<mois>.json` — un fichier par mois, même convention que `tache_3/subjects/`.

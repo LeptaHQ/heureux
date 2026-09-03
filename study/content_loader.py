@@ -84,6 +84,9 @@ EE_2025_SOURCE_URL = (
     "https://www.formation-tcfcanada.com/epreuve/"
     "expression-ecrite/sujets-actualites/{month}-2025"
 )
+EE_ASTUCES_URL = (
+    "https://www.formation-tcfcanada.com/epreuve/expression-ecrite/astuces"
+)
 
 # The 2025 corpus is published month by month; février 2025 was never
 # published by the source, so it is legitimately absent everywhere.

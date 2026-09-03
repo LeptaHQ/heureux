@@ -19,6 +19,13 @@ en premier et fournit les 138 publications à l'importeur. Une publication équi
 conserve sa date et sa consigne, mais partage réponse, personnalisation et progression
 avec son sujet canonique.
 
+### Méthodologie appliquée
+
+La [méthodologie EE](https://www.formation-tcfcanada.com/epreuve/expression-ecrite/astuces)
+recommande environ **10 minutes** : salutation et registre adaptés, objet et détails
+essentiels dans un corps concis, puis formule de fermeture appropriée. Les réponses
+respectent la limite 60–120 mots et visent 80–100 mots lorsque la consigne le permet.
+
 ## Corpus source 2025
 
 - `subjects/<mois>.json` — un fichier par mois, même convention que `tache_3/subjects/`.

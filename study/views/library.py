@@ -900,6 +900,7 @@ def _ee_writing_subject_context(user, task, tache):
         "writing_tache": tache,
         "word_limit_min": minimum,
         "word_limit_max": maximum,
+        "methodology_url": content_module.EE_ASTUCES_URL,
         "subject_prompt_map": {
             source.source_key: source.prompt
             for source in source_by_slug.values()
@@ -975,6 +976,7 @@ def task_detail(request, part_slug, task_slug):
                 "task": task,
                 **_ee_tache_three_subject_context(request.user, task),
                 **memory_context,
+                "methodology_url": content_module.EE_ASTUCES_URL,
             },
         )
 

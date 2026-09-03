@@ -531,6 +531,15 @@ class EeWritingPageTests(TestCase):
                 self.assertContains(response, "data-t1-table-subject", count=138)
                 self.assertContains(response, 'target="_blank"')
                 self.assertContains(response, "publications liées")
+                self.assertContains(
+                    response,
+                    (
+                        "Visez idéalement 80 à 100 mots"
+                        if tache == 1
+                        else "La narration prime sur l’argumentation"
+                    ),
+                )
+                self.assertContains(response, content.EE_ASTUCES_URL)
 
     def test_equivalent_sujets_share_personal_response_and_completion(self):
         for tache in (1, 2):

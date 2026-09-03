@@ -14,7 +14,9 @@ Ce dossier regroupe les **sujets sources** et l'ensemble des **réponses modèle
 **Réponses modèles** — `responses/<mois>.md`
 - Une réponse par combinaison : **Partie 1 — Synthèse (40–60 mots)** neutre (connecteur
   d'opposition) + **Partie 2 — Point de vue personnel (80–120 mots)** (avis + arguments +
-  exemple + concession + conclusion). Total 120–180 mots, comptes étiquetés.
+  exemple + concession + conclusion). Total 120–180 mots, comptes étiquetés. La
+  [méthodologie EE](https://www.formation-tcfcanada.com/epreuve/expression-ecrite/astuces)
+  conseille environ **30 minutes** et exige un titre reflétant le débat.
 
 **Vocabulaire** — `vocabulary/<mois>.json`
 - **30 entrées par réponse**, capturant la langue la plus réutilisable (connecteurs,

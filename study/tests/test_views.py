@@ -1090,6 +1090,8 @@ class EeTacheThreePageTests(TestCase):
             self._task_url("study:task_memories"),
         )
         self.assertContains(response, "questions terminées")
+        self.assertContains(response, "En 30 minutes")
+        self.assertContains(response, content_module.EE_ASTUCES_URL)
         self.assertNotContains(response, "data-tache-two-month-toggle")
         self.assertNotContains(
             response,

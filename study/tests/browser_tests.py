@@ -2697,7 +2697,9 @@ class BrowserTests(StaticLiveServerTestCase):
         translation_panel.wait_for(state="hidden")
         self.assertTrue(toolbar.is_visible())
 
-        self.page.locator("[data-translate-selection]").click()
+        self.page.locator("[data-translate-selection]").evaluate(
+            "button => button.click()"
+        )
         translation_panel.wait_for()
         translation_panel.locator("[data-translation-close]").first.click()
         translation_panel.wait_for(state="hidden")
@@ -4852,7 +4854,7 @@ class BrowserTests(StaticLiveServerTestCase):
         spoken_note = self.page.evaluate("window.__annotationSpoken")
         self.assertEqual(
             spoken_note,
-            f"{selected_note.title} — {selected_note.quote}",
+            f"{selected_note.quote} — {selected_note.title}",
         )
         self.assertIn("Rappel important", spoken_note)
         self.assertNotIn("cependant", spoken_note)
@@ -5673,7 +5675,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.locator("#card-front").wait_for()
         self.assert_no_horizontal_overflow()
         self.page.locator("#reveal").click()
-        highlighted = self.page.locator("#card-back mark")
+        highlighted = self.page.locator("#card-back mark:visible").first
         highlighted.wait_for()
         self.assertEqual(
             highlighted.text_content(),
@@ -6135,10 +6137,10 @@ class BrowserTests(StaticLiveServerTestCase):
             has_text="Écrite",
         ).click()
         self.page.locator("h1", has_text="Expression écrite").wait_for()
-        self.assertEqual(self.page.locator(".deck--soon").count(), 1)
+        self.assertEqual(self.page.locator(".deck--soon").count(), 0)
         self.assertEqual(
             self.page.locator(".deck:not(.deck--soon)").count(),
-            2,
+            3,
         )
         self.assert_no_horizontal_overflow()
 

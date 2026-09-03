@@ -13,9 +13,15 @@
   {% endif %}
 </div>
 <nav class="task-nav{% if memory_task or part.slug == 'eo' and task.slug == 'tache-2' %} task-nav--memories{% endif %}{% if part.slug == 'eo' and task.slug == 'tache-3' %} task-nav--eo-t3{% endif %}{% if part.slug == 'ee' and task.slug == 'tache-3' %} task-nav--ee-t3{% endif %}{% if compact %} task-nav--compact{% endif %}" style="--task-accent: {{ task.color }};" aria-label="Navigation de {{ task.name }}">
+  {% if part.slug == 'ee' and task.slug == 'tache-1' or part.slug == 'ee' and task.slug == 'tache-2' %}
+    <a class="{% if request.resolver_match.url_name == 'task_detail' or request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'writing_sujet_detail' or request.resolver_match.url_name == 'writing_sujet_edit' %}is-active{% endif %}"
+       href="{% url 'study:task_detail' part.slug task.slug %}">Sujets</a>
+  {% else %}
   <a class="{% if request.resolver_match.url_name == 'task_detail' %}is-active{% endif %}"
      href="{% url 'study:task_detail' part.slug task.slug %}">Vue d'ensemble</a>
-  {% if part.slug == 'eo' and task.slug == 'tache-2' %}
+  {% endif %}
+  {% if part.slug == 'ee' and task.slug == 'tache-1' or part.slug == 'ee' and task.slug == 'tache-2' %}
+  {% elif part.slug == 'eo' and task.slug == 'tache-2' %}
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'task_subject_batch' or request.resolver_match.url_name == 'task_subject_detail' %}is-active{% endif %}"
        href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a>
     <a class="{% if request.resolver_match.url_name == 'tache_two_theme_vocabulary' or request.resolver_match.url_name == 'tache_two_theme_vocabulary_detail' %}is-active{% endif %}"

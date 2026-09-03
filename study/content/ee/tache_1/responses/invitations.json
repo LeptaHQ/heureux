@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "theme": "invitations",
+  "responses": [
+    {
+      "content_key": "ee-tache1:janvier:combinaison-2",
+      "versions": [
+        {
+          "body": "Salut Cédric,\n\nJ’espère que tu vas bien ! Le Château de Chombony se trouve à Kumasi — tu te souviens ? Nous devions y passer nos vacances il y a trois ans !\n\nIl est perché au sommet de la montagne qui domine la ville et offre une vue à couper le souffle. Impossible de le manquer : c’est un grand bâtiment blanc, visible de loin.\n\nPour y accéder, des navettes partent de l’aéroport les vendredis et samedis, entre 8 h et 12 h.\n\nSi tu te perds en route, n’hésite pas à m’appeler.\n\nHâte de célébrer avec toi !\n\nCorn",
+          "origin": "author"
+        },
+        {
+          "body": "Coucou Cédric,\n\nJe suis ravi que tu puisses assister à mon mariage la semaine prochaine ! Le Château de Chombony se trouve sur les collines d’Accra, entouré d’arbres ombragés, ce qui rend l’atmosphère très calme. Il offre aussi de belles vues panoramiques sur la région.\n\nPour y accéder, des navettes le desservent toutes les 30 minutes depuis l’aéroport ; un taxi sera plus rapide. Le château est grand et blanc, donc très facile à repérer.\n\nJe te conseille d’arriver un peu en avance afin de profiter du lieu tranquillement.\n\nHâte de te voir !\n\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:janvier:combinaison-12",
+      "versions": [
+        {
+          "body": "Coucou Léa,\n\nGénial, j’accepte avec plaisir ! J’ai justement l’endroit parfait : le parc de Labadi, un espace vert perché sur une colline d’Accra, à environ 1 km du théâtre Kotoka.\n\nL’ambiance y est très agréable grâce aux grands arbres ombragés et à la vue panoramique sur la ville.\n\nPour les enfants, il y a des aires de jeux avec balançoires et toboggans, ainsi qu’un espace pour jouer au ballon. Pour les adultes, le parc propose des terrains de beach-volley et de pétanque. On peut aussi faire du vélo ou se relaxer à l’ombre !\n\nQu’en penses-tu ?\n\nHâte de vous voir samedi,\nCorn",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:janvier:combinaison-18",
+      "versions": [
+        {
+          "body": "Coucou les amis,\n\nJe vous écris pour vous inviter à une fête surprise que j’organise en l’honneur de ma petite sœur Jo. Rendez-vous au restaurant Cornell, juste à côté de l’ancienne bibliothèque, le samedi 3 juin à partir de 18 h 30, sur le thème des années 80.\n\nJ’aurais besoin de votre aide pour que tout soit parfait ! Nan, je compte sur tes recettes de glace au chocolat et de gâteau — tu sais combien Jo les adore. Pourriez-vous aussi inviter nos collègues du lycée ?\n\nConfirmez-moi votre venue d’ici le week-end.\n\nHâte de vous voir,\nCorn",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:janvier:combinaison-19",
+      "versions": [
+        {
+          "body": "Coucou les amis,\n\nJ’espère que vous allez bien ! Je vous invite à la fête d’anniversaire surprise d’Umbo, le samedi 3 avril à 18 h 30, au restaurant Yale (123 rue Principale, près de la station de métro). Nan et moi avons tout organisé !\n\nAu programme : de bons plats, de la musique et des jeux. Votre présence compterait énormément pour Umbo, vous savez à quel point vous êtes importants pour lui. N’oubliez pas de me confirmer votre venue d’ici le week-end.\n\nImportant : c’est une surprise, alors motus et bouche cousue ! 🤫\n\nHâte de faire la fête ensemble,\nCornelius",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:mars:combinaison-8",
+      "versions": [
+        {
+          "body": "Coucou Jo et Umbo,\n\nJ’espère que vous allez bien ! Je vous invite à une fête surprise pour l’anniversaire d’Adak. Elle se déroulera à Medina, au 123 rue Ag, de 15 h à 20 h, le samedi 15 mars.\n\nTout est déjà organisé. Cerise sur le gâteau : j’ai invité DJ Jeff pour animer la soirée ! Nous partagerons aussi de bons plats et des boissons dans une ambiance festive.\n\nComme vous savez à quel point Adak aime votre glace au chocolat, pourriez-vous m’aider à la préparer ?\n\nMerci de me confirmer votre venue d’ici le week-end.\n\nHâte de vous voir !\n\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:avril:combinaison-6",
+      "versions": [
+        {
+          "body": "Coucou les amis,\n\nMon anniversaire approche et j’aimerais le célébrer avec vous le samedi 18 avril, dès 19 h, chez moi au 24 rue des Lilas. Le thème sera « soirée tropicale » : chemises colorées et bonne humeur sont recommandées ! Nous partagerons un buffet, puis nous danserons sur une playlist.\n\nJ’aurais besoin de votre aide pour tout préparer. Nan, pourrais-tu apporter ton gâteau au chocolat ? Jo, peux-tu t’occuper de la musique ? Deux volontaires pourraient venir vers 17 h pour installer les décorations.\n\nMerci de me confirmer votre présence et votre aide avant lundi.\n\nHâte de faire la fête ensemble !\nCornelius",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:avril:combinaison-8",
+      "versions": [
+        {
+          "body": "Coucou les amis,\n\nPour mon anniversaire, je vous invite au restaurant Le Jardin, situé au 18 avenue Victor-Hugo, le samedi 25 avril à 19 h 30. Nous aurons un menu complet avec entrée, poulet rôti ou plat végétarien, dessert au chocolat et une boisson. Le prix est de 32 euros par personne.\n\nIl se trouve à deux minutes de la station République. Cerise sur le gâteau : un musicien jouera pendant le repas ! Merci de me dire avant le 15 avril si vous viendrez et de préciser votre choix de plat afin que je puisse réserver.\n\nHâte de vous retrouver !\nCornelius",
+          "origin": "original"
+        },
+        {
+          "body": "Salut tout le monde,\n\nJe souhaite fêter mon anniversaire au Bistrot du Lac, 6 quai des Fleurs, le vendredi 14 août à partir de 20 h. Le chef nous propose une salade de saison, du saumon grillé ou des pâtes aux légumes, puis une tarte aux fruits. Le menu coûte 28 euros, boissons comprises.\n\nL’endroit est accessible par le bus 5 et nous pourrons ensuite profiter de la terrasse.\n\nPourriez-vous me confirmer votre présence avant le 5 août et m’indiquer votre plat principal ? Je dois transmettre le nombre exact de convives.\n\nÀ très vite,\nCorn",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:mai:combinaison-3-bis",
+      "versions": [
+        {
+          "body": "Coucou Jo et Nan,\n\nRavi que vous vouliez m’offrir un cadeau pour mon anniversaire ! Je me suis remis au sport récemment : j’aimerais donc un pull Canada Goose et des chaussures de running Nike, exactement comme celles de Jo.\n\nPour les chaussures, du noir, du bleu ou un mélange des deux me convient parfaitement. Quant au pull, je le préférerais en blanc ou en gris, mais je reste ouvert à d’autres couleurs. Concernant la taille, je prends la même taille que Jo, cela ne devrait donc pas être difficile.\n\nN’hésitez pas à me contacter si besoin. Merci encore !\n\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:octobre:combinaison-4",
+      "versions": [
+        {
+          "body": "Salut Thomas,\n\nAvec plaisir ! Au Ghana, l’une des fêtes les plus importantes est Homowo, célébrée surtout par le peuple ga entre août et septembre. Elle rappelle la fin d’une ancienne famine ; son nom signifie d’ailleurs « se moquer de la faim ».\n\nPour l’occasion, les familles se réunissent, portent des vêtements traditionnels et partagent le kpokpoi, un plat à base de maïs accompagné de soupe de noix de palme. Des tambours, des danses et des processions animent les rues. L’ambiance est très conviviale, mais cette fête permet aussi d’honorer les ancêtres.\n\nJ’aimerais beaucoup te la faire découvrir un jour !\n\nÀ bientôt,\nCornelius",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:decembre:combinaison-3",
+      "versions": [
+        {
+          "body": "Chers collègues,\n\nAprès deux années à Montréal, mon séjour professionnel touche à sa fin. Avant mon départ, j’aimerais vous remercier et partager un moment convivial avec vous. Je vous invite donc au restaurant L’Érable, situé au 75 rue Saint-Paul, le vendredi 11 décembre à 19 h.\n\nNous dégusterons des spécialités québécoises dans une salle réservée. Le dîner sera à ma charge : votre présence sera mon plus beau cadeau ! Merci de me confirmer votre venue avant le 4 décembre et de me signaler toute restriction alimentaire.\n\nJ’espère vous voir nombreux pour célébrer cette belle aventure.\n\nBien cordialement,\nCornelius",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:decembre:combinaison-11",
+      "versions": [
+        {
+          "body": "Coucou les amis,\n\nJ’ai le plaisir de vous inviter à mon dîner d’anniversaire au restaurant La Terrasse, 42 place du Marché, le samedi 19 décembre. Rendez-vous à 19 h 30 ; le repas commencera à 20 h.\n\nLe menu à 30 euros comprend une soupe, un couscous au poulet ou aux légumes, un gâteau d’anniversaire et une boisson. Le restaurant est juste en face de la mairie et dispose d’un parking.\n\nMerci de répondre avant le 10 décembre en précisant votre choix de plat et vos éventuelles allergies. Cela m’aidera à finaliser la réservation.\n\nHâte de célébrer avec vous !\nCorn",
+          "origin": "original"
+        }
+      ]
+    }
+  ]
+}

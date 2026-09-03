@@ -134,15 +134,15 @@ Le rôle éducatif de la télévision suscite un débat. Ses défenseurs mettent
 
 ### La livraison au bureau : pratique, mais sans sacrifier la pause
 
-**Partie 1 — Synthèse (51 mots)**
+**Partie 1 — Synthèse (53 mots)**
 
-La livraison des repas au bureau présente des avantages et des inconvénients. Elle évite des déplacements, économise du temps et facilite les journées de travail chargées. Toutefois, les retards peuvent accroître le stress, tandis que manger sans quitter son poste prive les salariés d’une vraie pause et risque d’aggraver leur fatigue.
+La livraison de repas au bureau oppose deux expériences. Céline apprécie le temps gagné pendant la pause, la possibilité de commander des plats différents pour chacun et des restaurants ouverts vingt-quatre heures sur vingt-quatre. En revanche, Ahmed dénonce les scooters et les voitures polluants ainsi que l’isolement social qu’entraîne ce mode de consommation.
 
 **Partie 2 — Point de vue personnel (103 mots)**
 
 Selon moi, la livraison constitue une solution pratique, mais elle ne doit pas normaliser les repas pris devant l’écran. Une coupure réelle favorise le bien-être, la convivialité et même la productivité de l’après-midi. Par exemple, une équipe peut commander des repas équilibrés, puis les partager pendant trente minutes dans une salle commune ou dehors. Les salariés gagnent ainsi du temps sans renoncer au lien social. Cependant, il faut aussi reconnaître qu’une réunion urgente justifie parfois une organisation plus souple. En conclusion, la priorité est de protéger l’équilibre entre vie professionnelle et personnelle en garantissant une pause, quel que soit le mode de restauration.
 
-**Total : 154 mots**
+**Total : 156 mots**
 
 ---
 
@@ -174,11 +174,11 @@ Personnellement, je pense que l’apprentissage en ligne est efficace à conditi
 
 L’impact du plastique oppose urgence environnementale et utilité sanitaire. Le premier document alerte sur les déchets qui se fragmentent dans les océans, contaminent les espèces et remontent la chaîne alimentaire. En revanche, le second souligne que des dispositifs médicaux résistants et jetables préviennent les infections et améliorent les soins.
 
-**Partie 2 — Point de vue personnel (104 mots)**
+**Partie 2 — Point de vue personnel (103 mots)**
 
 Je pense que le plastique doit disparaître lorsque des solutions fiables existent, tout en restant disponible pour les besoins médicaux essentiels. Réduire les emballages à la source est plus efficace que nettoyer continuellement les océans. Par exemple, un hôpital peut conserver les cathéters stériles à usage unique, mais remplacer les couverts de sa cafétéria par de la vaisselle lavable. Cette distinction protège à la fois les patients et l’environnement. Cependant, il faut aussi reconnaître qu’un substitut mal évalué peut créer d’autres risques. En définitive, l’enjeu principal est d’appliquer une hiérarchie claire : éviter, réutiliser, recycler, puis réserver le jetable aux situations sans alternative sûre.
 
-**Total : 153 mots**
+**Total : 152 mots**
 
 ---
 

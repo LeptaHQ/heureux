@@ -1,0 +1,136 @@
+{
+  "month": {
+    "number": 4,
+    "slug": "avril",
+    "name": "Avril"
+  },
+  "year": 2025,
+  "task": "tache_1",
+  "epreuve": "Expression écrite — Tâche 1",
+  "annee": 2025,
+  "recupere_le": "2026-09-03",
+  "contenu": "consignes (sujets) uniquement — sans réponses ni corrections",
+  "count": 20,
+  "sujets": [
+    {
+      "id": 257,
+      "combinaison": "Combinaison 1",
+      "key": "ee-tache1:avril:combinaison-1",
+      "prompt": "Vous avez consulté une annonce en ligne pour la location d’un appartement. Écrivez un courriel au propriétaire pour demander des informations sur l’appartement et le quartier."
+    },
+    {
+      "id": 258,
+      "combinaison": "Combinaison 2",
+      "key": "ee-tache1:avril:combinaison-2",
+      "prompt": "Votre ami(e) veut découvrir la région dans laquelle vous habitez. Écrivez-lui un message pour lui proposer des sites à visiter."
+    },
+    {
+      "id": 259,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache1:avril:combinaison-3",
+      "prompt": "« Salut, j’ai appris que tu vas dans une salle de sport et qu’elle est magnifique. Peux-tu m’en dire plus ? ». Écrivez un message pour répondre à votre ami concernant ce sujet."
+    },
+    {
+      "id": 260,
+      "combinaison": "Combinaison 4",
+      "key": "ee-tache1:avril:combinaison-4",
+      "prompt": "Rédigez un message pour inviter votre ami(e) à passer ses vacances dans votre ville en précisant les lieux et les endroits à visiter."
+    },
+    {
+      "id": 261,
+      "combinaison": "Combinaison 5",
+      "key": "ee-tache1:avril:combinaison-5",
+      "prompt": "Écrivez un message à votre ami(e) pour l’inviter à venir passer le week-end prochain avec vous en indiquant (activités, lieu, etc.)."
+    },
+    {
+      "id": 262,
+      "combinaison": "Combinaison 6",
+      "key": "ee-tache1:avril:combinaison-6",
+      "prompt": "Invitez vos amis à célébrer votre anniversaire tout en sollicitant leur soutien pour organiser la fête."
+    },
+    {
+      "id": 263,
+      "combinaison": "Combinaison 7",
+      "key": "ee-tache1:avril:combinaison-7",
+      "prompt": "Votre amie Jeanne envisage de visiter votre pays. Rédigez un message personnalisé lui proposant un itinéraire de visite. Incluez une variété de lieux tels que des villes, sites touristiques et monuments célèbres, en expliquant brièvement l’intérêt de chaque recommandation."
+    },
+    {
+      "id": 264,
+      "combinaison": "Combinaison 8",
+      "key": "ee-tache1:avril:combinaison-8",
+      "prompt": "Vous souhaitez fêter votre anniversaire dans un restaurant. Vous invitez vos amis. Vous leur écrivez un courriel pour leur donner toutes les informations nécessaires (lieu, date, menu, prix…) et vous leur demandez une réponse."
+    },
+    {
+      "id": 265,
+      "combinaison": "Combinaison 9",
+      "key": "ee-tache1:avril:combinaison-9",
+      "prompt": "Répondez au courriel de votre ami Lucas pour lui donner des informations sur les nouveaux locaux de votre entreprise (lieu, disposition des pièces, équipements, etc.)"
+    },
+    {
+      "id": 266,
+      "combinaison": "Combinaison 10",
+      "key": "ee-tache1:avril:combinaison-10",
+      "prompt": "L’anniversaire de votre ami approche à grands pas et vous avez décidé de lui offrir un voyage comme cadeau. Rédigez un message pour l’informer des préparations que vous avez faites (destination, dates, préparatifs, etc)."
+    },
+    {
+      "id": 267,
+      "combinaison": "Combinaison 11",
+      "key": "ee-tache1:avril:combinaison-11",
+      "prompt": "Vous partez en vacances avec vos amis, vous avez trouvé un hôtel. Vous écrivez un message à vos amis pour décrire cet hôtel (localisation, prix, équipements, etc.) et vous leur proposez de réserver cet hôtel."
+    },
+    {
+      "id": 268,
+      "combinaison": "Combinaison 12",
+      "key": "ee-tache1:avril:combinaison-12",
+      "prompt": "Vous souhaitez faire du sport et vous voulez que votre ami vous accompagne. Écrivez-lui un message pour lui proposer de pratiquer ensemble."
+    },
+    {
+      "id": 269,
+      "combinaison": "Combinaison 13",
+      "key": "ee-tache1:avril:combinaison-13",
+      "prompt": "Votre ami Cédric a accepté de garder votre maison et jardin pendant vos vacances. Écrivez un message pour lui dire ce qu’il doit faire."
+    },
+    {
+      "id": 270,
+      "combinaison": "Combinaison 14",
+      "key": "ee-tache1:avril:combinaison-14",
+      "prompt": "Invitez un ami à passer une journée avec vous, écrivez-lui un email en lui fournissant les informations nécessaires (lieu, date, heure, activités)."
+    },
+    {
+      "id": 271,
+      "combinaison": "Combinaison 15",
+      "key": "ee-tache1:avril:combinaison-15",
+      "prompt": "« Salut ! J’ai entendu que ton école de langue est super ! J’aimerais m’y inscrire aussi. Peux-tu me dire ce que tu en penses ? » Répondez à votre ami qui veut s’inscrire dans votre école de langue."
+    },
+    {
+      "id": 272,
+      "combinaison": "Combinaison 16",
+      "key": "ee-tache1:avril:combinaison-16",
+      "prompt": "Vous avez dîné dans un nouveau restaurant. Écrivez un message à votre ami pour lui décrire le restaurant : l’ambiance, la décoration, les plats et le service."
+    },
+    {
+      "id": 273,
+      "combinaison": "Combinaison 17",
+      "key": "ee-tache1:avril:combinaison-17",
+      "prompt": "Vous avez récemment déménagé dans une nouvelle ville. Invitez votre amie à venir passer les vacances chez vous."
+    },
+    {
+      "id": 274,
+      "combinaison": "Combinaison 18",
+      "key": "ee-tache1:avril:combinaison-18",
+      "prompt": "Vous avez lu une annonce sur un site internet qui propose d’aider ceux qui souhaitent apprendre le français en les mettant en contact avec des partenaires linguistiques. Envoyez un courriel en vous présentant et en expliquant pourquoi vous souhaitez pratiquer le français."
+    },
+    {
+      "id": 275,
+      "combinaison": "Combinaison 19",
+      "key": "ee-tache1:avril:combinaison-19",
+      "prompt": "Vous voulez organiser une fête. Écrivez un message à vos amis pour les inviter et leur demander de vous aider à l’organiser (lieu, date, thème, etc.)."
+    },
+    {
+      "id": 276,
+      "combinaison": "Combinaison 20",
+      "key": "ee-tache1:avril:combinaison-20",
+      "prompt": "Écrivez un courriel à vos amis pour les inviter à un anniversaire surprise de votre meilleur ami. (Lieu, date, heure, etc.)."
+    }
+  ]
+}

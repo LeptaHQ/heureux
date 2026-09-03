@@ -21,6 +21,8 @@ from study.account_services import (
     users_with_study_state,
 )
 from study.models import (
+    Annotation,
+    AnnotationKind,
     Argument,
     Card,
     CardState,
@@ -33,12 +35,15 @@ from study.models import (
     Family,
     Phrase,
     PhraseCategory,
+    PersonalResponse,
+    PersonalWritingResponse,
     Prompt,
     Response,
     Settings,
     Task,
     Theme,
     WritingSujet,
+    WritingSujetCompletion,
 )
 
 PHRASE_ID_MERGES = {
@@ -94,7 +99,8 @@ class Command(BaseCommand):
             *content.ee_tache_three_themes(ee_tache_three_months),
         ]
         sections = content.load_sections()
-        ee_tache_one_categories = content.load_ee_tache_one_categories()
+        ee_tache_one_categories = content.load_ee_writing_categories(1)
+        ee_tache_two_categories = content.load_ee_writing_categories(2)
         question_banks = content.load_question_banks()
         family_map, families = content.parse_families()
         families = [
@@ -169,6 +175,11 @@ class Command(BaseCommand):
         self.stdout.flush()
         task_by_slug = self._import_sections(sections)
         self._import_writing_sujets(ee_tache_one_categories, task_by_slug)
+        self._import_writing_sujets(
+            ee_tache_two_categories,
+            task_by_slug,
+            task_key="ee/tache-2",
+        )
         theme_by_name = self._import_themes(themes, task_by_slug)
         family_by_name = self._import_families(families)
         response_by_key = self._import_responses(
@@ -177,6 +188,8 @@ class Command(BaseCommand):
         prompt_index = self._import_prompts(
             responses, response_by_key, theme_by_name, family_by_name
         )
+        self._reconcile_personal_responses(response_by_key)
+        self._reconcile_response_annotations(response_by_key)
         self._import_phrases(phrases, prompt_index)
         self._import_comprehension_tests(comprehension_tests)
         self._link_comprehension_vocabulary(comprehension_vocabulary)
@@ -305,36 +318,161 @@ class Command(BaseCommand):
         ExamPart.objects.exclude(pk__in=seen_parts).update(is_active=False)
         return task_by_slug
 
-    def _import_writing_sujets(self, categories, task_by_slug):
-        """Upsert EE Tâche 1 message sujets; learner versions are never touched."""
-        task = task_by_slug.get("ee/tache-1")
+    def _import_writing_sujets(
+        self,
+        categories,
+        task_by_slug,
+        *,
+        task_key="ee/tache-1",
+    ):
+        """Upsert one EE writing corpus without touching learner-owned versions."""
+        part_slug, task_slug = task_key.split("/", 1)
+        task = task_by_slug.get(task_key)
         if task is None:
-            WritingSujet.objects.update(is_active=False)
+            WritingSujet.objects.filter(
+                task__part__slug=part_slug,
+                task__slug=task_slug,
+            ).update(is_active=False)
             return
+        incoming_slugs = {
+            sujet.slug
+            for category in categories
+            for sujet in category.sujets
+        }
+        existing = list(
+            WritingSujet.objects.filter(task=task).order_by("pk")
+        )
+        existing_by_slug = {sujet.slug: sujet for sujet in existing}
+        legacy_by_prompt = defaultdict(list)
+        for sujet in existing:
+            if sujet.slug not in incoming_slugs:
+                legacy_by_prompt[
+                    content._ee_subject_signature_text(sujet.prompt)
+                ].append(sujet)
+
         seen = set()
+        claimed_legacy = set()
         order = 0
         for category in categories:
             for sujet in category.sujets:
                 order += 1
-                obj, _ = WritingSujet.objects.update_or_create(
-                    task=task,
-                    slug=sujet.slug,
-                    defaults={
-                        "category": category.slug,
-                        "category_label": category.label,
-                        "order": order,
-                        "prompt": sujet.prompt,
-                        "versions": [
-                            {"body": version.body}
-                            for version in sujet.versions
-                        ],
-                        "is_active": True,
-                    },
-                )
+                values = {
+                    "category": category.slug,
+                    "category_label": category.label,
+                    "order": order,
+                    "prompt": sujet.prompt,
+                    "versions": [
+                        (
+                            {
+                                "body": version.body,
+                                "origin": version.origin,
+                            }
+                            if sujet.source_key
+                            else {"body": version.body}
+                        )
+                        for version in sujet.versions
+                    ],
+                    "is_active": True,
+                }
+                obj = existing_by_slug.get(sujet.slug)
+                if obj is None:
+                    signature = content._ee_subject_signature_text(
+                        sujet.prompt
+                    )
+                    obj = next(
+                        (
+                            candidate
+                            for candidate in legacy_by_prompt.get(signature, ())
+                            if candidate.pk not in claimed_legacy
+                        ),
+                        None,
+                    )
+                    if obj is not None:
+                        claimed_legacy.add(obj.pk)
+                        obj.slug = sujet.slug
+                if obj is None:
+                    obj = WritingSujet(
+                        task=task,
+                        slug=sujet.slug,
+                        **values,
+                    )
+                else:
+                    for field, value in values.items():
+                        setattr(obj, field, value)
+                obj.save()
                 seen.add(obj.pk)
         WritingSujet.objects.filter(task=task).exclude(pk__in=seen).update(
             is_active=False
         )
+        self._reconcile_writing_sujet_state(
+            task,
+            {
+                sujet.slug: (sujet.canonical_slug or sujet.slug)
+                for category in categories
+                for sujet in category.sujets
+            },
+        )
+
+    @staticmethod
+    def _reconcile_writing_sujet_state(task, canonical_slug_by_slug):
+        """Move private writing work from equivalent aliases to the canonical sujet."""
+        sujets = {
+            sujet.slug: sujet
+            for sujet in WritingSujet.objects.filter(
+                task=task,
+                slug__in=canonical_slug_by_slug,
+            )
+        }
+        for alias_slug, canonical_slug in canonical_slug_by_slug.items():
+            if alias_slug == canonical_slug:
+                continue
+            alias = sujets.get(alias_slug)
+            canonical = sujets.get(canonical_slug)
+            if alias is None or canonical is None:
+                continue
+            for personal in PersonalWritingResponse.objects.filter(
+                sujet=alias
+            ).order_by("pk"):
+                target = PersonalWritingResponse.objects.filter(
+                    user_id=personal.user_id,
+                    sujet=canonical,
+                ).first()
+                if target is None:
+                    PersonalWritingResponse.objects.filter(
+                        pk=personal.pk
+                    ).update(sujet=canonical)
+                    continue
+                if personal.updated_at > target.updated_at:
+                    PersonalWritingResponse.objects.filter(pk=target.pk).update(
+                        body=personal.body,
+                        created_at=min(
+                            personal.created_at,
+                            target.created_at,
+                        ),
+                        updated_at=personal.updated_at,
+                    )
+                personal.delete()
+            for completion in WritingSujetCompletion.objects.filter(
+                sujet=alias
+            ).order_by("pk"):
+                target = WritingSujetCompletion.objects.filter(
+                    user_id=completion.user_id,
+                    sujet=canonical,
+                ).first()
+                if target is None:
+                    WritingSujetCompletion.objects.filter(
+                        pk=completion.pk
+                    ).update(sujet=canonical)
+                    continue
+                if completion.completed_at < target.completed_at:
+                    WritingSujetCompletion.objects.filter(pk=target.pk).update(
+                        completed_at=completion.completed_at
+                    )
+                completion.delete()
+            Command._move_annotation_source_prefix(
+                f"writing-sujet:{alias.pk}:",
+                f"writing-sujet:{canonical.pk}:",
+            )
 
     def _import_themes(self, themes, task_by_slug):
         seen = set()
@@ -965,6 +1103,167 @@ class Command(BaseCommand):
             -card.pk,
         )
 
+    @staticmethod
+    def _move_annotation_source_prefix(source_prefix, target_prefix):
+        """Move private annotations while coalescing duplicate highlights."""
+        annotations = list(
+            Annotation.objects.filter(
+                source_key__startswith=source_prefix
+            ).order_by("pk")
+        )
+        for annotation in annotations:
+            target_key = (
+                target_prefix
+                + annotation.source_key.removeprefix(source_prefix)
+            )
+            duplicate = None
+            if annotation.kind == AnnotationKind.HIGHLIGHT:
+                duplicate = (
+                    Annotation.objects.filter(
+                        user_id=annotation.user_id,
+                        kind=AnnotationKind.HIGHLIGHT,
+                        source_path=annotation.source_path,
+                        source_key=target_key,
+                        start_offset=annotation.start_offset,
+                        end_offset=annotation.end_offset,
+                    )
+                    .exclude(pk=annotation.pk)
+                    .first()
+                )
+            if duplicate is None:
+                Annotation.objects.filter(pk=annotation.pk).update(
+                    source_key=target_key
+                )
+                continue
+            Annotation.objects.filter(pk=duplicate.pk).update(
+                study_later=duplicate.study_later or annotation.study_later,
+                completed_at=(
+                    duplicate.completed_at
+                    or annotation.completed_at
+                ),
+            )
+            annotation.delete()
+
+    @classmethod
+    def _move_annotation_source_key(cls, source_key, target_key):
+        cls._move_annotation_source_prefix(
+            f"{source_key}:",
+            f"{target_key}:",
+        )
+        annotations = list(
+            Annotation.objects.filter(source_key=source_key).order_by("pk")
+        )
+        for annotation in annotations:
+            duplicate = None
+            if annotation.kind == AnnotationKind.HIGHLIGHT:
+                duplicate = (
+                    Annotation.objects.filter(
+                        user_id=annotation.user_id,
+                        kind=AnnotationKind.HIGHLIGHT,
+                        source_path=annotation.source_path,
+                        source_key=target_key,
+                        start_offset=annotation.start_offset,
+                        end_offset=annotation.end_offset,
+                    )
+                    .exclude(pk=annotation.pk)
+                    .first()
+                )
+            if duplicate is None:
+                Annotation.objects.filter(pk=annotation.pk).update(
+                    source_key=target_key
+                )
+                continue
+            Annotation.objects.filter(pk=duplicate.pk).update(
+                study_later=duplicate.study_later or annotation.study_later,
+                completed_at=(
+                    duplicate.completed_at
+                    or annotation.completed_at
+                ),
+            )
+            annotation.delete()
+
+    def _reconcile_personal_responses(self, response_by_key):
+        """Move the latest learner version onto each newly canonical response."""
+        source_plan = getattr(self, "_response_sources", {})
+        content_fields = (
+            "reformulation",
+            "position",
+            "position_claire",
+            "arguments",
+            "nuance",
+            "conclusion",
+        )
+        for content_key, target_response in response_by_key.items():
+            source_ids = source_plan.get(content_key, set())
+            if len(source_ids) < 2:
+                continue
+            versions_by_user = defaultdict(list)
+            for personal in PersonalResponse.objects.filter(
+                response_id__in=source_ids
+            ).order_by("pk"):
+                versions_by_user[personal.user_id].append(personal)
+            for versions in versions_by_user.values():
+                latest = max(
+                    versions,
+                    key=lambda item: (item.updated_at, item.pk),
+                )
+                target = next(
+                    (
+                        item
+                        for item in versions
+                        if item.response_id == target_response.pk
+                    ),
+                    None,
+                )
+                if target is None:
+                    PersonalResponse.objects.filter(pk=latest.pk).update(
+                        response_id=target_response.pk
+                    )
+                    target = latest
+                elif latest.pk != target.pk:
+                    values = {
+                        field: getattr(latest, field)
+                        for field in content_fields
+                    }
+                    values.update(
+                        {
+                            "created_at": min(
+                                item.created_at for item in versions
+                            ),
+                            "updated_at": latest.updated_at,
+                        }
+                    )
+                    PersonalResponse.objects.filter(pk=target.pk).update(
+                        **values
+                    )
+                PersonalResponse.objects.filter(
+                    pk__in=[
+                        item.pk
+                        for item in versions
+                        if item.pk != target.pk
+                    ]
+                ).delete()
+
+    def _reconcile_response_annotations(self, response_by_key):
+        """Retarget notes/highlights when equivalent responses become aliases."""
+        source_plan = getattr(self, "_response_sources", {})
+        source_ids = {
+            response_id
+            for ids in source_plan.values()
+            for response_id in ids
+        }
+        source_responses = Response.objects.in_bulk(source_ids)
+        for content_key, target in response_by_key.items():
+            for source_id in source_plan.get(content_key, set()):
+                source = source_responses.get(source_id)
+                if source is None or source.content_key == target.content_key:
+                    continue
+                for namespace in ("response", "subject-sidebar"):
+                    self._move_annotation_source_key(
+                        f"{namespace}:{source.content_key}",
+                        f"{namespace}:{target.content_key}",
+                    )
+
     def _reconcile_response_cards(self, response_by_key):
         source_plan = getattr(self, "_response_sources", {})
         response_ids = {
@@ -982,7 +1281,6 @@ class Command(BaseCommand):
         cards = Card.objects.filter(
             card_type=CardType.SPINE,
             response_id__in=response_ids,
-            user_id__isnull=False,
         )
         for card in cards:
             cards_by_response[card.response_id][card.user_id] = card
@@ -1086,6 +1384,7 @@ class Command(BaseCommand):
         phrase_id_merges = {
             **PHRASE_ID_MERGES,
             **content.tache_two_phrase_id_merges(),
+            **content.ee_tache_three_phrase_id_merges(),
         }
         phrase_ids = set(phrase_id_merges)
         phrase_ids.update(phrase_id_merges.values())
@@ -1095,12 +1394,14 @@ class Command(BaseCommand):
         }
         cards = Card.objects.filter(
             phrase__phrase_id__in=phrase_ids,
-            user_id__isnull=False,
         ).select_related("phrase")
         cards_by_key = {
             (card.phrase.phrase_id, card.user_id, card.card_type): card
             for card in cards
         }
+        cards_by_phrase = defaultdict(list)
+        for card in cards_by_key.values():
+            cards_by_phrase[card.phrase.phrase_id].append(card)
         schedule_fields = (
             "state",
             "due",
@@ -1120,12 +1421,7 @@ class Command(BaseCommand):
         for source_id, target_id in phrase_id_merges.items():
             if source_id not in phrases or target_id not in phrases:
                 continue
-            source_cards = [
-                card
-                for (phrase_id, _user_id, _card_type), card in cards_by_key.items()
-                if phrase_id == source_id
-            ]
-            for source_card in source_cards:
+            for source_card in cards_by_phrase.get(source_id, ()):
                 target_card = cards_by_key.get(
                     (target_id, source_card.user_id, source_card.card_type)
                 )
@@ -1159,6 +1455,22 @@ class Command(BaseCommand):
                 changed.append(target_card)
         if changed:
             Card.objects.bulk_update(changed, schedule_fields)
+        self._reconcile_phrase_annotations(phrase_id_merges)
+
+    def _reconcile_phrase_annotations(self, phrase_id_merges):
+        """Retarget only phrase IDs that actually have private annotations."""
+        annotated_ids = set()
+        for source_key in Annotation.objects.filter(
+            source_key__startswith="phrase:"
+        ).values_list("source_key", flat=True):
+            phrase_id = source_key.removeprefix("phrase:").split(":", 1)[0]
+            if phrase_id in phrase_id_merges:
+                annotated_ids.add(phrase_id)
+        for source_id in annotated_ids:
+            self._move_annotation_source_key(
+                f"phrase:{source_id}",
+                f"phrase:{phrase_id_merges[source_id]}",
+            )
 
     def _reconcile_local_phrase_directions(self):
         cards = Card.objects.filter(

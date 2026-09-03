@@ -2280,7 +2280,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de cambrioler ou même de contrôler une voiture.",
+          "example": "En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de préparer un cambriolage ou même de contrôler une voiture.",
           "usage": "Connecteur adverbial ; réutilisable en Numérique/Santé."
         },
         {
@@ -2288,7 +2288,7 @@
           "kind": "collocation",
           "french": "les failles de sécurité",
           "english": "security vulnerabilities",
-          "example": "En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de cambrioler ou même de contrôler une voiture.",
+          "example": "En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de préparer un cambriolage ou même de contrôler une voiture.",
           "usage": "Collocation ; réutilisable en Numérique/Santé."
         },
         {
@@ -2296,7 +2296,7 @@
           "kind": "mot-cle",
           "french": "des pirates",
           "english": "hackers",
-          "example": "En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de cambrioler ou même de contrôler une voiture.",
+          "example": "En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de préparer un cambriolage ou même de contrôler une voiture.",
           "usage": "Nom ou groupe nominal ; réutilisable en Numérique/Santé."
         },
         {
@@ -2304,7 +2304,7 @@
           "kind": "verbe-action",
           "french": "contrôler une voiture",
           "english": "control a car",
-          "example": "En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de cambrioler ou même de contrôler une voiture.",
+          "example": "En revanche, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de préparer un cambriolage ou même de contrôler une voiture.",
           "usage": "Construction verbale ; réutilisable en Numérique/Santé."
         },
         {
@@ -2732,65 +2732,65 @@
         {
           "id": "E3-AOU-C15-01",
           "kind": "phrase-modele",
-          "french": "Les deux documents proposés abordent des sujets différents",
-          "english": "The two documents presented address different subjects",
-          "example": "Les deux documents proposés abordent des sujets différents.",
+          "french": "Les deux documents s’opposent sur la restauration rapide",
+          "english": "The two documents disagree about fast food",
+          "example": "Les deux documents s’opposent sur la restauration rapide.",
           "usage": "Formule argumentative ; réutilisable en Alimentation/Responsabilité."
         },
         {
           "id": "E3-AOU-C15-02",
           "kind": "mot-cle",
-          "french": "une restauration rapide variée",
-          "english": "varied fast food",
-          "example": "Le premier valorise une restauration rapide variée, équilibrée et respectueuse des normes d’hygiène, où chacun compose librement son menu.",
+          "french": "les ingrédients utilisés",
+          "english": "the ingredients used",
+          "example": "Marie la rejette : on ignore les ingrédients utilisés, la qualité de la nourriture laisse à désirer et ces aliments peuvent provoquer des maladies.",
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Responsabilité."
         },
         {
           "id": "E3-AOU-C15-03",
           "kind": "collocation",
-          "french": "des normes d’hygiène",
+          "french": "les normes d’hygiène",
           "english": "hygiene standards",
-          "example": "Le premier valorise une restauration rapide variée, équilibrée et respectueuse des normes d’hygiène, où chacun compose librement son menu.",
+          "example": "Ahmed, au contraire, la défend : les menus complets permettent de manger équilibré, le client reste responsable de sa consommation, et les normes d’hygiène y sont respectées.",
           "usage": "Collocation ; réutilisable en Alimentation/Responsabilité."
         },
         {
           "id": "E3-AOU-C15-04",
           "kind": "verbe-action",
-          "french": "compose librement son menu",
-          "english": "freely puts together one’s menu",
-          "example": "Le premier valorise une restauration rapide variée, équilibrée et respectueuse des normes d’hygiène, où chacun compose librement son menu.",
+          "french": "laisse à désirer",
+          "english": "leaves much to be desired",
+          "example": "Marie la rejette : on ignore les ingrédients utilisés, la qualité de la nourriture laisse à désirer et ces aliments peuvent provoquer des maladies.",
           "usage": "Construction verbale ; réutilisable en Alimentation/Responsabilité."
         },
         {
           "id": "E3-AOU-C15-05",
           "kind": "expression",
-          "french": "En revanche",
-          "english": "On the other hand",
-          "example": "En revanche, le second rejette les caméras de surveillance scolaires, jugées inefficaces, et recommande plutôt la communication ainsi que l’application collective des règles de discipline.",
+          "french": "au contraire",
+          "english": "on the contrary",
+          "example": "Ahmed, au contraire, la défend : les menus complets permettent de manger équilibré, le client reste responsable de sa consommation, et les normes d’hygiène y sont respectées.",
           "usage": "Connecteur adverbial ; réutilisable en Alimentation/Responsabilité."
         },
         {
           "id": "E3-AOU-C15-06",
           "kind": "mot-cle",
-          "french": "les caméras de surveillance scolaires",
-          "english": "school surveillance cameras",
-          "example": "En revanche, le second rejette les caméras de surveillance scolaires, jugées inefficaces, et recommande plutôt la communication ainsi que l’application collective des règles de discipline.",
+          "french": "les menus complets",
+          "english": "the complete set meals",
+          "example": "Ahmed, au contraire, la défend : les menus complets permettent de manger équilibré, le client reste responsable de sa consommation, et les normes d’hygiène y sont respectées.",
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Responsabilité."
         },
         {
           "id": "E3-AOU-C15-07",
           "kind": "collocation",
-          "french": "l’application collective des règles de discipline",
-          "english": "collective enforcement of discipline rules",
-          "example": "En revanche, le second rejette les caméras de surveillance scolaires, jugées inefficaces, et recommande plutôt la communication ainsi que l’application collective des règles de discipline.",
+          "french": "manger équilibré",
+          "english": "to eat a balanced diet",
+          "example": "Ahmed, au contraire, la défend : les menus complets permettent de manger équilibré, le client reste responsable de sa consommation, et les normes d’hygiène y sont respectées.",
           "usage": "Collocation ; réutilisable en Alimentation/Responsabilité."
         },
         {
           "id": "E3-AOU-C15-08",
           "kind": "mot-cle",
-          "french": "la communication",
-          "english": "communication",
-          "example": "En revanche, le second rejette les caméras de surveillance scolaires, jugées inefficaces, et recommande plutôt la communication ainsi que l’application collective des règles de discipline.",
+          "french": "sa consommation",
+          "english": "what they consume",
+          "example": "Ahmed, au contraire, la défend : les menus complets permettent de manger équilibré, le client reste responsable de sa consommation, et les normes d’hygiène y sont respectées.",
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Responsabilité."
         },
         {
@@ -2956,9 +2956,9 @@
         {
           "id": "E3-AOU-C15-29",
           "kind": "reformulation",
-          "french": "Le premier",
-          "english": "the first document",
-          "example": "Le premier valorise une restauration rapide variée, équilibrée et respectueuse des normes d’hygiène, où chacun compose librement son menu.",
+          "french": "Marie la rejette",
+          "english": "Marie rejects it",
+          "example": "Marie la rejette : on ignore les ingrédients utilisés, la qualité de la nourriture laisse à désirer et ces aliments peuvent provoquer des maladies.",
           "usage": "Reprise anaphorique ; réutilisable en Alimentation/Responsabilité."
         },
         {
@@ -3450,8 +3450,8 @@
         {
           "id": "E3-AOU-C17-29",
           "kind": "reformulation",
-          "french": "elle",
-          "english": "it",
+          "french": "elle restait reliée à la ville",
+          "english": "it remained connected to the city",
           "example": "Personnellement, je choisirais la campagne si elle restait reliée à la ville par des transports en commun fiables.",
           "usage": "Reprise anaphorique ; réutilisable en Ville/Campagne."
         },

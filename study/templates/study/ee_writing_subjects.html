@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Sujets · {{ task.name }} · Heureux{% endblock %}
+
+{% block content %}
+{% include "study/partials/task_nav.html" %}
+
+<div class="tache-two-subjects ee-writing-subjects ee-writing-subjects--t{{ writing_tache }}" style="--subject-accent: {{ task.color }};">
+  <header class="memory-overview-hero">
+    <div class="memory-overview-hero__copy">
+      <p class="eyebrow">{{ part.name }} · {{ task.name }}</p>
+      <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
+        <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name=task.icon only %}</span>
+        <span>{% if writing_tache == 1 %}Messages &amp; courriels{% else %}Récits &amp; expériences{% endif %}</span>
+      </h1>
+      <p>
+        {% if writing_tache == 1 %}
+          En 10 minutes : choisissez une salutation adaptée, annoncez clairement
+          l’objet et les détails, puis terminez par une formule appropriée.
+          Visez idéalement 80 à 100 mots.
+        {% else %}
+          En 20 minutes : situez quand, où et pourquoi, racontez aux temps du passé
+          avec des actions, des détails et des émotions, puis concluez par votre
+          sentiment ou une recommandation. La narration prime sur l’argumentation.
+        {% endif %}
+        Chaque réponse respecte la limite officielle de {{ word_limit_min }} à {{ word_limit_max }} mots.
+        <a href="{{ methodology_url }}" target="_blank" rel="noopener noreferrer">Voir la méthodologie</a>.
+      </p>
+    </div>
+    <dl class="memory-overview-hero__metrics" aria-label="Corpus de sujets">
+      <div><dt>Thèmes</dt><dd>{{ category_count }}</dd></div>
+      <div><dt>Sujets publiés</dt><dd>{{ sujet_count }}</dd></div>
+      <div><dt>Exercices distincts</dt><dd>{{ distinct_count }}</dd></div>
+      <div><dt>Réponses</dt><dd>{{ response_count }}</dd></div>
+    </dl>
+  </header>
+
+  {% include "study/partials/subject_directory_search.html" %}
+
+  <div class="tache-two-directory-toolbar">
+    {% include "study/partials/tache_two_progress.html" with summary=subject_progress unit_label="sujets terminés" only %}
+    {% include "study/partials/collection_view_toggle.html" %}
+  </div>
+
+  <div class="t1-collection">
+    <div class="t1-themes" data-collection-view-panel="cards">
+      {% for category in categories %}
+        <details class="t1-theme" id="theme-{{ category.slug }}" open>
+          <summary class="t1-theme__head">
+            <span class="t1-theme__chevron" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+            <span class="t1-theme__glyph" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=category.icon only %}</span>
+            <span class="t1-theme__title">{{ category.label }}</span>
+            <span class="t1-theme__meta">
+              <span class="t1-theme__count">{{ category.count }} sujet{{ category.count|pluralize }}</span>
+              <span class="progress-status progress-status--{{ category.progress.status }}">{{ category.progress.completed }}/{{ category.progress.total }}</span>
+            </span>
+          </summary>
+          <ul class="t1-list">
+            {% for row in category.sujets %}
+              <li
+                class="t1-row subject-progress-row writing-sujet-progress-row writing-sujet-progress-row--{{ row.progress.status }}{% if row.is_personalized %} is-personalized{% endif %}"
+                data-writing-sujet-progress-row="{{ row.progress_sujet.pk }}">
+                <div class="t1-row__link">
+                  <span class="t1-row__subject">
+                    <span class="t1-row__prompt">{{ row.prompt|truncatechars:220 }}</span>
+                    <span class="t1-row__date">{{ row.source.month_name }} {{ row.source.year }} · {{ row.source.combinaison }}</span>
+                  </span>
+                  <span class="t1-row__meta">
+                    {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="ee-writing-prompts" prompt_key=row.source.source_key label="Copier la consigne" subject_label=row.prompt label_hidden=True only %}
+                    {% if row.equivalent_count %}
+                      <span class="chip">{{ row.equivalent_count|add:1 }} publications liées</span>
+                    {% endif %}
+                    {% if row.is_personalized %}<span class="chip chip--accent">Personnalisé</span>{% endif %}
+                    <span class="t1-row__count">{{ row.version_count }} version{{ row.version_count|pluralize }}</span>
+                    <span
+                      class="progress-status progress-status--{{ row.progress.status }}"
+                      data-writing-sujet-progress-status="{{ row.progress_sujet.pk }}">{{ row.progress.label }}</span>
+                    {% include "study/partials/writing_sujet_completion_form.html" with sujet=row.progress_sujet completed=row.explicitly_completed subject_label=row.prompt part=part task=task refresh=True %}
+                    <span class="t1-row__arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+                  </span>
+                </div>
+                <a
+                  class="subject-row-hit-area"
+                  href="{% url 'study:writing_sujet_detail' part.slug task.slug row.sujet.pk %}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ouvrir le sujet : {{ row.prompt }}">
+                  <span class="sr-only">Ouvrir le sujet</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </details>
+      {% endfor %}
+    </div>
+
+    <div class="t1-table-groups" data-collection-view data-collection-view-panel="table">
+      <div class="t1-table-groups__head" aria-hidden="true">
+        <span>Thème</span>
+        <span>Sujets</span>
+        <span>Progression</span>
+      </div>
+      {% for category in categories %}
+        <details class="t1-theme t1-table-group" data-t1-table-theme>
+          <summary class="t1-theme__head">
+            <span class="t1-theme__chevron" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+            <span class="t1-theme__glyph" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=category.icon only %}</span>
+            <span class="t1-theme__title">{{ category.label }}</span>
+            <span class="t1-theme__meta">
+              <span class="t1-theme__count">{{ category.count }} sujet{{ category.count|pluralize }}</span>
+              <span class="progress-status progress-status--{{ category.progress.status }}">{{ category.progress.completed }}/{{ category.progress.total }}</span>
+            </span>
+          </summary>
+          <div class="t1-table-shell">
+            <table class="t1-table t1-table--grouped t1-table--writing">
+              <caption class="sr-only">Sujets du thème {{ category.label }}</caption>
+              <colgroup>
+                <col class="t1-table__subject-column">
+                <col class="t1-table__content-column">
+                <col class="t1-table__writing-status-column">
+                <col class="t1-table__versions-column">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">Sujet</th>
+                  <th scope="col">Publication</th>
+                  <th scope="col">Progression</th>
+                  <th scope="col" class="t1-table__versions-col">Versions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in category.sujets %}
+                  <tr
+                    class="t1-table__row subject-progress-row subject-table-row writing-sujet-progress-row writing-sujet-progress-row--{{ row.progress.status }}{% if row.is_personalized %} is-personalized{% endif %}"
+                    data-t1-table-subject
+                    data-writing-sujet-progress-row="{{ row.progress_sujet.pk }}">
+                    <td class="t1-table__subject">
+                      <div class="t1-table__subject-copy">
+                        <a
+                          class="subject-table-row-link"
+                          href="{% url 'study:writing_sujet_detail' part.slug task.slug row.sujet.pk %}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Ouvrir le sujet : {{ row.prompt }}">{{ row.prompt|truncatechars:180 }}</a>
+                        {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="ee-writing-prompts" prompt_key=row.source.source_key label="Copier la consigne" subject_label=row.prompt label_hidden=True only %}
+                      </div>
+                    </td>
+                    <td>
+                      <span>{{ row.source.month_name }} {{ row.source.year }}</span>
+                      <small class="t1-table__subject-date">{{ row.source.combinaison }}</small>
+                      {% if row.equivalent_count %}<span class="chip">{{ row.equivalent_count|add:1 }} liées</span>{% endif %}
+                    </td>
+                    <td class="t1-table__progress-cell">
+                      <div class="t1-table__progress">
+                        <span
+                          class="progress-status progress-status--{{ row.progress.status }}"
+                          data-writing-sujet-progress-status="{{ row.progress_sujet.pk }}">{{ row.progress.label }}</span>
+                        {% include "study/partials/writing_sujet_completion_form.html" with sujet=row.progress_sujet completed=row.explicitly_completed subject_label=row.prompt part=part task=task refresh=True %}
+                      </div>
+                    </td>
+                    <td class="t1-table__versions">{{ row.version_count }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{{ subject_prompt_map|json_script:"ee-writing-prompts" }}
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'study/js/prompt-copy.js' %}?v=1"></script>
+{% endblock %}

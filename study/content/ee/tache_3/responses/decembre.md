@@ -98,15 +98,15 @@ Le rôle éducatif de la télévision suscite un débat nuancé. Ses défenseurs
 
 ### La colocation entre adultes : partager avec des règles claires
 
-**Partie 1 — Synthèse (52 mots)**
+**Partie 1 — Synthèse (59 mots)**
 
-La colocation entre adultes présente des avantages et des inconvénients. D’un côté, elle donne accès à un logement plus spacieux et réduit fortement le loyer ainsi que les charges. En revanche, les différences d’habitudes peuvent provoquer des conflits. Une organisation commune, le respect du calme et une communication ouverte deviennent donc indispensables.
+La colocation entre adultes oppose deux expériences du quotidien. D’un côté, elle offre de réels moments d’échange, autour des repas ou de jeux de société, un partage des tâches ménagères et une ouverture aux autres. En revanche, elle fait perdre des soirées au calme, impose des invités que l’on n’a pas choisis et des tours de ménage à respecter.
 
 **Partie 2 — Point de vue personnel (108 mots)**
 
 Selon moi, la colocation est une solution enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, le partage des dépenses permet de mieux maîtriser son budget. Ensuite, la vie commune rompt l’isolement et favorise l’entraide au quotidien. Par exemple, trois adultes peuvent établir un calendrier de ménage, fixer des heures calmes et verser chaque mois leur part des charges sur un compte commun. Cependant, il faut aussi reconnaître que chacun a besoin d’intimité et que des habitudes incompatibles créent parfois des tensions. En définitive, le plus important est de choisir soigneusement ses colocataires et de maintenir une communication ouverte fondée sur le respect mutuel.
 
-**Total : 160 mots**
+**Total : 167 mots**
 
 ---
 
@@ -168,17 +168,17 @@ Les vêtements de marque pour les enfants suscitent des avis partagés. Leurs d�
 
 **Sujet :** L'uniforme scolaire
 
-### L’uniforme scolaire : l’égalité sans effacer la personnalité
+### L’uniforme au Québec : confort et expression personnelle
 
-**Partie 1 — Synthèse (51 mots)**
+**Partie 1 — Synthèse (50 mots)**
 
-L’uniforme scolaire oppose deux visions de la vie à l’école. D’un côté, ses partisans estiment qu’il atténue les différences sociales, simplifie l’habillement et renforce le sentiment d’appartenance. En revanche, ses détracteurs le trouvent parfois inconfortable, trop chaud et peu attrayant, tout en regrettant qu’il limite l’expression de la personnalité des adolescents.
+Un seul document traite réellement de l’uniforme scolaire : la source a publié à sa place une consigne d’écriture sans rapport. Le second constate qu’au Québec des écoles publiques imposent l’uniforme, mais que les adolescents le jugent inconfortable, trop chaud et peu esthétique, et regrettent qu’il limite l’expression de leur personnalité.
 
 **Partie 2 — Point de vue personnel (107 mots)**
 
 Personnellement, je suis favorable à un uniforme souple, abordable et adapté aux saisons. Tout d’abord, une tenue commune peut réduire la comparaison des marques et faciliter la préparation du matin. Ensuite, plusieurs coupes et couleurs permettent de conserver une certaine liberté sans perdre la cohérence collective. Par exemple, une école québécoise pourrait proposer des pantalons, des jupes et des polos respirants parmi lesquels chaque élève compose sa tenue. Cependant, il faut aussi reconnaître que l’achat initial pèse sur certaines familles et que les jeunes souhaitent exprimer leur identité. En définitive, le plus important est de consulter les élèves et d’offrir un uniforme confortable, inclusif et financièrement accessible.
 
-**Total : 158 mots**
+**Total : 157 mots**
 
 ---
 
@@ -244,7 +244,7 @@ Les produits faits maison présentent des avantages et des inconvénients. Leurs
 
 **Partie 1 — Synthèse (51 mots)**
 
-La télévision pour les enfants fait l’objet d’un débat nuancé. Certains valorisent la qualité de programmes jeunesse qui deviennent bénéfiques lorsque les parents choisissent les contenus et limitent le temps d’écran. En revanche, d’autres craignent qu’un visionnage passif freine l’imagination en remplaçant des activités essentielles comme le jeu et la lecture.
+La télévision pour les enfants fait l’objet d’un débat nuancé. Certains valorisent des programmes jeunesse de qualité, qui deviennent bénéfiques lorsque les parents choisissent les contenus et limitent le temps d’écran. En revanche, d’autres craignent qu’un visionnage passif freine l’imagination en remplaçant des activités essentielles comme le jeu et la lecture.
 
 **Partie 2 — Point de vue personnel (112 mots)**
 

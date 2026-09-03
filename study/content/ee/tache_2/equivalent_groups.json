@@ -1,0 +1,319 @@
+{
+  "version": 1,
+  "groups": [
+    {
+      "id": "vie-avez-assiste-fete-voisins",
+      "theme": "vie-quartier",
+      "canonical": "ee-tache2:janvier:combinaison-1",
+      "members": [
+        "ee-tache2:janvier:combinaison-1",
+        "ee-tache2:mars:combinaison-11"
+      ]
+    },
+    {
+      "id": "etu-experience-apprentissage-langue-etrangere",
+      "theme": "etudes-langues",
+      "canonical": "ee-tache2:janvier:combinaison-2",
+      "members": [
+        "ee-tache2:janvier:combinaison-2",
+        "ee-tache2:mars:combinaison-12",
+        "ee-tache2:juillet:combinaison-41",
+        "ee-tache2:septembre:combinaison-3"
+      ]
+    },
+    {
+      "id": "loi-exprimez-admiration-personnalite-celebre",
+      "theme": "loisirs-culture",
+      "canonical": "ee-tache2:janvier:combinaison-3",
+      "members": [
+        "ee-tache2:janvier:combinaison-3",
+        "ee-tache2:mars:combinaison-13",
+        "ee-tache2:juillet:combinaison-42",
+        "ee-tache2:septembre:combinaison-2"
+      ]
+    },
+    {
+      "id": "voy-raconter-arrivee-pays-etranger",
+      "theme": "voyages",
+      "canonical": "ee-tache2:janvier:combinaison-7",
+      "members": [
+        "ee-tache2:janvier:combinaison-7",
+        "ee-tache2:decembre:combinaison-5"
+      ]
+    },
+    {
+      "id": "ren-infos-familles-vivre-personne",
+      "theme": "rencontres",
+      "canonical": "ee-tache2:janvier:combinaison-9",
+      "members": [
+        "ee-tache2:janvier:combinaison-9",
+        "ee-tache2:octobre:combinaison-3",
+        "ee-tache2:decembre:combinaison-2"
+      ]
+    },
+    {
+      "id": "etu-chers-internautes-ans-vais",
+      "theme": "etudes-langues",
+      "canonical": "ee-tache2:janvier:combinaison-16",
+      "members": [
+        "ee-tache2:janvier:combinaison-16",
+        "ee-tache2:mars:combinaison-14",
+        "ee-tache2:juin:combinaison-3"
+      ]
+    },
+    {
+      "id": "fet-avez-assiste-fete-famille",
+      "theme": "fetes-traditions",
+      "canonical": "ee-tache2:janvier:combinaison-17",
+      "members": [
+        "ee-tache2:janvier:combinaison-17",
+        "ee-tache2:avril:combinaison-18"
+      ]
+    },
+    {
+      "id": "spo-avez-participe-competition-sportive",
+      "theme": "sport-sante",
+      "canonical": "ee-tache2:janvier:combinaison-18",
+      "members": [
+        "ee-tache2:janvier:combinaison-18",
+        "ee-tache2:avril:combinaison-19"
+      ]
+    },
+    {
+      "id": "env-avez-participe-brocante-achat",
+      "theme": "environnement",
+      "canonical": "ee-tache2:janvier:combinaison-19",
+      "members": [
+        "ee-tache2:janvier:combinaison-19",
+        "ee-tache2:mars:combinaison-8",
+        "ee-tache2:avril:combinaison-20",
+        "ee-tache2:octobre:combinaison-2"
+      ]
+    },
+    {
+      "id": "env-avez-assiste-evenement-intitule",
+      "theme": "environnement",
+      "canonical": "ee-tache2:mars:combinaison-1",
+      "members": [
+        "ee-tache2:mars:combinaison-1",
+        "ee-tache2:avril:combinaison-9",
+        "ee-tache2:juillet:combinaison-14",
+        "ee-tache2:aout:combinaison-9",
+        "ee-tache2:decembre:combinaison-9"
+      ]
+    },
+    {
+      "id": "vie-travaillez-association-aide-personnes",
+      "theme": "vie-quartier",
+      "canonical": "ee-tache2:mars:combinaison-2",
+      "members": [
+        "ee-tache2:mars:combinaison-2",
+        "ee-tache2:decembre:combinaison-7"
+      ]
+    },
+    {
+      "id": "fet-avez-participe-evenement-marque",
+      "theme": "fetes-traditions",
+      "canonical": "ee-tache2:mars:combinaison-3",
+      "members": [
+        "ee-tache2:mars:combinaison-3",
+        "ee-tache2:decembre:combinaison-8"
+      ]
+    },
+    {
+      "id": "etu-avez-forum-debat-formations",
+      "theme": "etudes-langues",
+      "canonical": "ee-tache2:mars:combinaison-4",
+      "members": [
+        "ee-tache2:mars:combinaison-4",
+        "ee-tache2:avril:combinaison-3"
+      ]
+    },
+    {
+      "id": "voy-avez-passe-vacances-belle",
+      "theme": "voyages",
+      "canonical": "ee-tache2:mars:combinaison-5",
+      "members": [
+        "ee-tache2:mars:combinaison-5",
+        "ee-tache2:juillet:combinaison-10"
+      ]
+    },
+    {
+      "id": "loi-avez-visite-exposition-artiste",
+      "theme": "loisirs-culture",
+      "canonical": "ee-tache2:mars:combinaison-6",
+      "members": [
+        "ee-tache2:mars:combinaison-6",
+        "ee-tache2:juillet:combinaison-9"
+      ]
+    },
+    {
+      "id": "fet-direction-recherche-salle-fete",
+      "theme": "fetes-traditions",
+      "canonical": "ee-tache2:mars:combinaison-7",
+      "members": [
+        "ee-tache2:mars:combinaison-7",
+        "ee-tache2:juillet:combinaison-12",
+        "ee-tache2:decembre:combinaison-12"
+      ]
+    },
+    {
+      "id": "etu-avez-vecu-experience-ecole",
+      "theme": "etudes-langues",
+      "canonical": "ee-tache2:avril:combinaison-1",
+      "members": [
+        "ee-tache2:avril:combinaison-1",
+        "ee-tache2:juillet:combinaison-13"
+      ]
+    },
+    {
+      "id": "spo-avez-participe-cours-sport",
+      "theme": "sport-sante",
+      "canonical": "ee-tache2:avril:combinaison-2",
+      "members": [
+        "ee-tache2:avril:combinaison-2",
+        "ee-tache2:juillet:combinaison-3"
+      ]
+    },
+    {
+      "id": "loi-avez-participe-concours-gagner",
+      "theme": "loisirs-culture",
+      "canonical": "ee-tache2:avril:combinaison-4",
+      "members": [
+        "ee-tache2:avril:combinaison-4",
+        "ee-tache2:juillet:combinaison-1",
+        "ee-tache2:novembre:combinaison-5"
+      ]
+    },
+    {
+      "id": "fet-avez-participe-concours-cuisine",
+      "theme": "fetes-traditions",
+      "canonical": "ee-tache2:avril:combinaison-6",
+      "members": [
+        "ee-tache2:avril:combinaison-6",
+        "ee-tache2:septembre:combinaison-5"
+      ]
+    },
+    {
+      "id": "loi-experience-personnelle-participation-emission",
+      "theme": "loisirs-culture",
+      "canonical": "ee-tache2:avril:combinaison-7",
+      "members": [
+        "ee-tache2:avril:combinaison-7",
+        "ee-tache2:juillet:combinaison-7"
+      ]
+    },
+    {
+      "id": "log-avez-quitte-ville-afin",
+      "theme": "logement-ville",
+      "canonical": "ee-tache2:avril:combinaison-8",
+      "members": [
+        "ee-tache2:avril:combinaison-8",
+        "ee-tache2:aout:combinaison-11"
+      ]
+    },
+    {
+      "id": "etu-internaute-publie-suivant-vais",
+      "theme": "etudes-langues",
+      "canonical": "ee-tache2:avril:combinaison-10",
+      "members": [
+        "ee-tache2:avril:combinaison-10",
+        "ee-tache2:juillet:combinaison-15",
+        "ee-tache2:decembre:combinaison-19"
+      ]
+    },
+    {
+      "id": "tra-etes-parti-travailler-etranger",
+      "theme": "travail",
+      "canonical": "ee-tache2:avril:combinaison-11",
+      "members": [
+        "ee-tache2:avril:combinaison-11",
+        "ee-tache2:novembre:combinaison-1",
+        "ee-tache2:decembre:combinaison-18"
+      ]
+    },
+    {
+      "id": "voy-suite-voyage-recent-effectue",
+      "theme": "voyages",
+      "canonical": "ee-tache2:avril:combinaison-13",
+      "members": [
+        "ee-tache2:avril:combinaison-13",
+        "ee-tache2:decembre:combinaison-17"
+      ]
+    },
+    {
+      "id": "num-pensez-installation-television-chambre",
+      "theme": "numerique",
+      "canonical": "ee-tache2:avril:combinaison-17",
+      "members": [
+        "ee-tache2:avril:combinaison-17",
+        "ee-tache2:mai:combinaison-4"
+      ]
+    },
+    {
+      "id": "voy-courrier-lecteurs-quitter-partir",
+      "theme": "voyages",
+      "canonical": "ee-tache2:mai:combinaison-3",
+      "members": [
+        "ee-tache2:mai:combinaison-3",
+        "ee-tache2:juin:combinaison-13",
+        "ee-tache2:juillet:combinaison-43",
+        "ee-tache2:septembre:combinaison-1"
+      ]
+    },
+    {
+      "id": "tra-quitter-changer-vie-deux",
+      "theme": "travail",
+      "canonical": "ee-tache2:juillet:combinaison-6",
+      "members": [
+        "ee-tache2:juillet:combinaison-6",
+        "ee-tache2:novembre:combinaison-2"
+      ]
+    },
+    {
+      "id": "loi-etes-alles-voir-spectacle",
+      "theme": "loisirs-culture",
+      "canonical": "ee-tache2:juillet:combinaison-44",
+      "members": [
+        "ee-tache2:juillet:combinaison-44",
+        "ee-tache2:septembre:combinaison-4"
+      ]
+    },
+    {
+      "id": "voy-lettre-reclamation-exprimer-insatisfaction",
+      "theme": "voyages",
+      "canonical": "ee-tache2:aout:combinaison-2",
+      "members": [
+        "ee-tache2:aout:combinaison-2",
+        "ee-tache2:aout:combinaison-15"
+      ]
+    },
+    {
+      "id": "spo-decide-changer-votre-alimentation",
+      "theme": "sport-sante",
+      "canonical": "ee-tache2:aout:combinaison-19",
+      "members": [
+        "ee-tache2:aout:combinaison-19",
+        "ee-tache2:novembre:combinaison-4"
+      ]
+    },
+    {
+      "id": "env-avez-participe-action-journee",
+      "theme": "environnement",
+      "canonical": "ee-tache2:octobre:combinaison-1",
+      "members": [
+        "ee-tache2:octobre:combinaison-1",
+        "ee-tache2:decembre:combinaison-4"
+      ]
+    },
+    {
+      "id": "loi-avez-assiste-festival-cinema",
+      "theme": "loisirs-culture",
+      "canonical": "ee-tache2:octobre:combinaison-4",
+      "members": [
+        "ee-tache2:octobre:combinaison-4",
+        "ee-tache2:decembre:combinaison-1"
+      ]
+    }
+  ]
+}

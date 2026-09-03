@@ -262,9 +262,9 @@
         {
           "id": "E3-JUN-C02-01",
           "kind": "phrase-modele",
-          "french": "La vie en colocation entre adultes présente des avantages et des inconvénients",
-          "english": "Shared living among adults has advantages and disadvantages",
-          "example": "La vie en colocation entre adultes présente des avantages et des inconvénients.",
+          "french": "Un seul document a été publié pour ce sujet : la source ne fournit aucun point de vue opposé",
+          "english": "Only one document was published for this topic: the source provides no opposing viewpoint",
+          "example": "Un seul document a été publié pour ce sujet : la source ne fournit aucun point de vue opposé.",
           "usage": "Formule d’ouverture ; réutilisable en Logement/Société."
         },
         {
@@ -278,65 +278,65 @@
         {
           "id": "E3-JUN-C02-03",
           "kind": "collocation",
-          "french": "des avantages et des inconvénients",
-          "english": "advantages and disadvantages",
-          "example": "La vie en colocation entre adultes présente des avantages et des inconvénients.",
+          "french": "des règles communes",
+          "english": "common rules",
+          "example": "Ce texte explique que la colocation exige des règles communes, notamment concernant le bruit, les invités et la vaisselle.",
           "usage": "Groupe nominal ; réutilisable en Logement/Société."
         },
         {
           "id": "E3-JUN-C02-04",
           "kind": "verbe-action",
-          "french": "établir des règles",
-          "english": "to establish rules",
-          "example": "Le texte insiste sur la nécessité d’établir des règles, de respecter les habitudes de chacun et de discuter dès qu’un conflit apparaît.",
+          "french": "exige des règles communes",
+          "english": "requires common rules",
+          "example": "Ce texte explique que la colocation exige des règles communes, notamment concernant le bruit, les invités et la vaisselle.",
           "usage": "Construction infinitive ; réutilisable en Logement/Société."
         },
         {
           "id": "E3-JUN-C02-05",
           "kind": "collocation",
-          "french": "les habitudes de chacun",
-          "english": "everyone’s habits",
-          "example": "Le texte insiste sur la nécessité d’établir des règles, de respecter les habitudes de chacun et de discuter dès qu’un conflit apparaît.",
+          "french": "le respect mutuel",
+          "english": "mutual respect",
+          "example": "Il insiste surtout sur le respect mutuel, l’organisation et le dialogue pour résoudre les difficultés de la vie quotidienne.",
           "usage": "Groupe nominal ; réutilisable en Logement/Société."
         },
         {
           "id": "E3-JUN-C02-06",
           "kind": "tournure",
-          "french": "dès qu’un conflit apparaît",
-          "english": "as soon as a conflict arises",
-          "example": "Le texte insiste sur la nécessité d’établir des règles, de respecter les habitudes de chacun et de discuter dès qu’un conflit apparaît.",
+          "french": "notamment concernant le bruit, les invités et la vaisselle",
+          "english": "particularly regarding noise, guests and dishes",
+          "example": "Ce texte explique que la colocation exige des règles communes, notamment concernant le bruit, les invités et la vaisselle.",
           "usage": "Subordonnée temporelle ; réutilisable en Logement/Société."
         },
         {
           "id": "E3-JUN-C02-07",
           "kind": "expression",
-          "french": "En revanche",
-          "english": "On the other hand",
-          "example": "En revanche, une vision opposée souligne que ces contraintes peuvent limiter la liberté, l’intimité et la spontanéité au quotidien.",
+          "french": "notamment",
+          "english": "particularly",
+          "example": "Ce texte explique que la colocation exige des règles communes, notamment concernant le bruit, les invités et la vaisselle.",
           "usage": "Connecteur d’opposition ; réutilisable en Logement/Société."
         },
         {
           "id": "E3-JUN-C02-08",
           "kind": "mot-cle",
-          "french": "la liberté",
-          "english": "freedom",
-          "example": "En revanche, une vision opposée souligne que ces contraintes peuvent limiter la liberté, l’intimité et la spontanéité au quotidien.",
+          "french": "l’organisation",
+          "english": "organization",
+          "example": "Il insiste surtout sur le respect mutuel, l’organisation et le dialogue pour résoudre les difficultés de la vie quotidienne.",
           "usage": "Nom féminin ; réutilisable en Logement/Société."
         },
         {
           "id": "E3-JUN-C02-09",
           "kind": "mot-cle",
-          "french": "l’intimité",
-          "english": "privacy",
-          "example": "En revanche, une vision opposée souligne que ces contraintes peuvent limiter la liberté, l’intimité et la spontanéité au quotidien.",
+          "french": "le dialogue",
+          "english": "dialogue",
+          "example": "Il insiste surtout sur le respect mutuel, l’organisation et le dialogue pour résoudre les difficultés de la vie quotidienne.",
           "usage": "Nom féminin ; réutilisable en Logement/Société."
         },
         {
           "id": "E3-JUN-C02-10",
           "kind": "tournure",
-          "french": "au quotidien",
-          "english": "on a daily basis",
-          "example": "En revanche, une vision opposée souligne que ces contraintes peuvent limiter la liberté, l’intimité et la spontanéité au quotidien.",
+          "french": "pour résoudre les difficultés de la vie quotidienne",
+          "english": "to resolve difficulties in daily life",
+          "example": "Il insiste surtout sur le respect mutuel, l’organisation et le dialogue pour résoudre les difficultés de la vie quotidienne.",
           "usage": "Locution adverbiale ; réutilisable en Logement/Société."
         },
         {
@@ -509,17 +509,17 @@
         {
           "id": "E3-JUN-C03-01",
           "kind": "phrase-modele",
-          "french": "L’aide aux personnes pauvres suscite un débat sur la meilleure forme de solidarité",
-          "english": "Aid for poor people sparks debate over the best form of solidarity",
-          "example": "L’aide aux personnes pauvres suscite un débat sur la meilleure forme de solidarité.",
+          "french": "Un seul document a été publié pour ce sujet",
+          "english": "Only one document was published for this topic",
+          "example": "Un seul document a été publié pour ce sujet : la source n’a fourni aucun point de vue opposé.",
           "usage": "Formule d’ouverture ; réutilisable en Solidarité/Emploi."
         },
         {
           "id": "E3-JUN-C03-02",
           "kind": "mot-cle",
-          "french": "personnes pauvres",
-          "english": "poor people",
-          "example": "L’aide aux personnes pauvres suscite un débat sur la meilleure forme de solidarité.",
+          "french": "personnes qui vivent dans la rue",
+          "english": "people living on the street",
+          "example": "Ce témoignage raconte que, chaque hiver, son auteur donne un peu de son temps et de son argent aux personnes qui vivent dans la rue ou aux associations.",
           "usage": "Nom féminin pluriel ; réutilisable en Solidarité/Emploi."
         },
         {
@@ -527,23 +527,23 @@
           "kind": "mot-cle",
           "french": "solidarité",
           "english": "solidarity",
-          "example": "L’aide aux personnes pauvres suscite un débat sur la meilleure forme de solidarité.",
+          "example": "Ce geste de solidarité, à la portée de tous, reste toutefois ponctuel et saisonnier.",
           "usage": "Nom féminin ; réutilisable en Solidarité/Emploi."
         },
         {
           "id": "E3-JUN-C03-04",
           "kind": "collocation",
-          "french": "les dons de temps ou d’argent",
-          "english": "donations of time or money",
-          "example": "Le témoignage défend les dons de temps ou d’argent, accessibles à tous et particulièrement nécessaires en hiver.",
+          "french": "un peu de son temps et de son argent",
+          "english": "a little of one’s time and money",
+          "example": "Ce témoignage raconte que, chaque hiver, son auteur donne un peu de son temps et de son argent aux personnes qui vivent dans la rue ou aux associations.",
           "usage": "Groupe nominal ; réutilisable en Solidarité/Emploi."
         },
         {
           "id": "E3-JUN-C03-05",
           "kind": "tournure",
-          "french": "accessibles à tous",
-          "english": "accessible to everyone",
-          "example": "Le témoignage défend les dons de temps ou d’argent, accessibles à tous et particulièrement nécessaires en hiver.",
+          "french": "à la portée de tous",
+          "english": "within everyone’s reach",
+          "example": "Ce geste de solidarité, à la portée de tous, reste toutefois ponctuel et saisonnier.",
           "usage": "Groupe adjectival ; réutilisable en Solidarité/Emploi."
         },
         {
@@ -551,31 +551,31 @@
           "kind": "expression",
           "french": "Toutefois",
           "english": "However",
-          "example": "Toutefois, une position opposée considère ces gestes trop ponctuels et privilégie un accompagnement durable vers le logement, la formation, l’emploi et l’autonomie.",
+          "example": "Ce geste de solidarité, à la portée de tous, reste toutefois ponctuel et saisonnier.",
           "usage": "Connecteur d’opposition ; réutilisable en Solidarité/Emploi."
         },
         {
           "id": "E3-JUN-C03-07",
           "kind": "collocation",
-          "french": "ces gestes trop ponctuels",
-          "english": "these overly sporadic gestures",
-          "example": "Toutefois, une position opposée considère ces gestes trop ponctuels et privilégie un accompagnement durable vers le logement, la formation, l’emploi et l’autonomie.",
+          "french": "ponctuel et saisonnier",
+          "english": "occasional and seasonal",
+          "example": "Ce geste de solidarité, à la portée de tous, reste toutefois ponctuel et saisonnier.",
           "usage": "Groupe nominal ; réutilisable en Solidarité/Emploi."
         },
         {
           "id": "E3-JUN-C03-08",
           "kind": "mot-cle",
-          "french": "un accompagnement durable",
-          "english": "lasting support",
-          "example": "Toutefois, une position opposée considère ces gestes trop ponctuels et privilégie un accompagnement durable vers le logement, la formation, l’emploi et l’autonomie.",
+          "french": "aux associations",
+          "english": "to charities",
+          "example": "Ce témoignage raconte que, chaque hiver, son auteur donne un peu de son temps et de son argent aux personnes qui vivent dans la rue ou aux associations.",
           "usage": "Nom masculin ; réutilisable en Solidarité/Emploi."
         },
         {
           "id": "E3-JUN-C03-09",
           "kind": "collocation",
-          "french": "vers le logement, la formation, l’emploi et l’autonomie",
-          "english": "toward housing, training, employment and autonomy",
-          "example": "Toutefois, une position opposée considère ces gestes trop ponctuels et privilégie un accompagnement durable vers le logement, la formation, l’emploi et l’autonomie.",
+          "french": "chaque hiver",
+          "english": "every winter",
+          "example": "Ce témoignage raconte que, chaque hiver, son auteur donne un peu de son temps et de son argent aux personnes qui vivent dans la rue ou aux associations.",
           "usage": "Groupe prépositionnel ; réutilisable en Solidarité/Emploi."
         },
         {

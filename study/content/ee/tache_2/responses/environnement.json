@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "theme": "environnement",
+  "responses": [
+    {
+      "content_key": "ee-tache2:janvier:combinaison-19",
+      "versions": [
+        {
+          "body": "Ma première brocante : une super expérience !\n\nSamedi dernier, j’ai tenu pour la première fois un stand à la brocante de ma ville. J’y suis arrivé à sept heures, un peu inquiet, avec deux cartons de vêtements, de livres et de vieux jouets.\n\nDès l’ouverture, les allées se sont remplies et le brouhaha des marchandages a envahi la place. Une dame a longuement hésité devant la machine à coudre de ma mère, puis me l’a achetée en racontant qu’elle voulait s’y remettre : ce moment m’a beaucoup touché ! À midi, j’avais presque tout vendu. Ensuite, mes voisins de stand m’ont offert un café et nous avons discuté tout l’après-midi, même avec ceux qui ne comptaient ni acheter ni vendre.\n\nJe suis rentré fatigué mais ravi : mes affaires ont eu une deuxième vie et j’ai enfin rencontré mon quartier. À mon avis, ce type d’initiative doit continuer !",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:mars:combinaison-1",
+      "versions": [
+        {
+          "body": "Du 12 au 18 mai, ma ville a organisé « Une semaine sans voiture » dans le centre historique. J’ai laissé mon véhicule au garage et reçu une carte donnant accès aux autobus et aux vélos. Sur la place de l’Hôtel-de-Ville, des mécaniciens apprenaient aux participants à réparer une crevaison. Des promenades guidées, un atelier sur la sécurité à vélo et un défi entre quartiers complétaient le programme.\n\nLe premier matin, je craignais de perdre du temps. Pourtant, en combinant tramway et marche, je suis arrivé au travail plus détendu que d’habitude. Au fil des jours, les rues, devenues calmes, étaient aussi plus agréables pour les enfants et les commerçants. Cette initiative m’a convaincu que nous pouvons réduire la pollution sans renoncer à nos déplacements. Il faudrait cependant sécuriser davantage les stationnements pour vélos. Depuis l’événement, je prends mon vélo trois jours par semaine.",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:octobre:combinaison-1",
+      "versions": [
+        {
+          "body": "Salut les amis,\n\nSamedi, j’ai participé au nettoyage des berges de la rivière avec cinquante bénévoles. Tout d’abord, nous avons reçu des gants, des pinces et des sacs, puis formé des groupes. En trois heures, mon équipe a ramassé des bouteilles, des emballages et deux pneus. L’ambiance était conviviale : des familles, des étudiants et des retraités travaillaient ensemble, puis la mairie a offert un pique-nique. J’étais fier, les mains sales, en voyant le chemin redevenu propre.\n\nCes actions sont essentielles : sans nous, ces deux pneus et ces bouteilles auraient fini dans l’eau, où ils menacent les poissons. De plus, elles sensibilisent les passants : plusieurs se sont arrêtés pour nous aider ou nous poser des questions. Toutefois, nettoyer ne suffit pas ; il faut consommer moins et utiliser les poubelles. Je vous propose de venir avec moi lors de la prochaine journée : chaque paire de mains compte !",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:novembre:combinaison-3",
+      "versions": [
+        {
+          "body": "En septembre dernier, pendant « Une semaine sans ma voiture » organisée par ma ville, j’ai remplacé mes trajets habituels par le vélo, l’autobus et la marche. La municipalité avait installé des pistes temporaires et proposait des titres de transport à moitié prix. Le premier matin, une forte pluie a compliqué mon déplacement. Dès le lendemain, mieux équipé, j’ai découvert un itinéraire cyclable longeant le canal, plus agréable que l’avenue où je conduisais quotidiennement.\n\nGlobalement, le bilan est très positif : j’ai dépensé moins, fait davantage d’exercice et discuté avec des collègues dans l’autobus. Toutefois, les correspondances restent rares après vingt-deux heures, ce qui décourage les travailleurs tardifs. À mon avis, ce genre d’action est utile pour faire évoluer nos habitudes, à condition d’être accompagné d’investissements durables. Le dernier soir, en rangeant mon vélo, je me suis dit que cette semaine devrait durer toute l’année.",
+          "origin": "original"
+        }
+      ]
+    }
+  ]
+}

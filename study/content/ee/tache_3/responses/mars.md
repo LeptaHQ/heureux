@@ -98,15 +98,15 @@ Selon moi, la qualité de l’éducation ne devrait jamais dépendre des revenus
 
 ### Les devoirs à la maison : utiles sans créer d’inégalités
 
-**Partie 1 — Synthèse (55 mots)**
+**Partie 1 — Synthèse (52 mots)**
 
-Les devoirs à la maison suscitent des avis partagés. Leurs défenseurs estiment qu’ils développent l’autonomie des élèves et créent un lien quotidien entre les parents et l’école. En revanche, leurs opposants contestent leur efficacité et dénoncent les inégalités entre les enfants aidés chez eux et ceux dont les familles manquent de temps ou de compétences.
+Les devoirs à la maison suscitent des avis partagés. Leurs défenseurs estiment que des exercices limités à quinze minutes développent l’autonomie et créent un lien familial. En revanche, leurs opposants dénoncent le stress, la fatigue et les inégalités entre enfants, jugeant que l’autonomie doit s’acquérir à l’école avec des outils pédagogiques adaptés.
 
 **Partie 2 — Point de vue personnel (104 mots)**
 
 Personnellement, je pense que des devoirs courts sont utiles, mais qu’ils doivent rester réalisables sans aide parentale. Tout d’abord, une révision régulière consolide les apprentissages et apprend à organiser son temps. Ensuite, limiter la quantité préserve le repos et les activités familiales. Par exemple, un enseignant peut demander dix minutes de lecture puis corriger les difficultés en classe le lendemain. Cependant, il faut aussi reconnaître que le matériel numérique et le soutien disponibles à la maison varient fortement selon les familles. En définitive, le plus important est de proposer des exercices brefs, adaptés et accompagnés à l’école afin de ne pas renforcer les inégalités.
 
-**Total : 159 mots**
+**Total : 156 mots**
 
 ---
 

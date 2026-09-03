@@ -6,9 +6,11 @@ import json
 import re
 import threading
 from datetime import timedelta
+from importlib import import_module
 from unittest.mock import patch
 
 from django.conf import settings
+from django.db import connections
 from django.db.backends.base.base import BaseDatabaseWrapper
 from django.test import (
     Client,
@@ -17,6 +19,7 @@ from django.test import (
     TransactionTestCase,
     override_settings,
     skipUnlessDBFeature,
+    tag,
 )
 from django.urls import reverse
 from django.utils import timezone
@@ -51,6 +54,8 @@ from study.routing import (
 )
 
 from . import factories
+
+review_views = import_module("study.views.review")
 
 # Structural hooks every flashcard deck template shares with the Notes deck.
 FLASHCARD_DECK_HOOKS = (
@@ -713,7 +718,7 @@ class SmokeTests(TestCase):
         self.assertContains(written, "Tâche 2")
         self.assertContains(written, "Tâche 3")
         self.assertNotContains(written, "Rédiger un message clair")
-        self.assertContains(
+        self.assertNotContains(
             written,
             "Raconter et expliquer une expérience",
         )
@@ -722,7 +727,7 @@ class SmokeTests(TestCase):
             written,
             "Comparer des points de vue et argumenter",
         )
-        self.assertContains(written, "À venir", count=1)
+        self.assertNotContains(written, "À venir")
         self.assertContains(written, "<dd>Actif</dd>", html=True)
 
     def test_review_deck_uses_the_shared_flashcard_standard(self):
@@ -1064,14 +1069,16 @@ class EeTacheThreePageTests(TestCase):
             "family",
         ).get(content_key=self.months[0].combinaisons[0].content_key)
 
-    def test_overview_uses_one_month_directory_instead_of_duplicate_taxonomies(self):
+    def test_overview_presents_themed_subject_and_memory_collections(self):
         response = self.client.get(self._task_url("study:task_detail"))
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "study/ee_tache_three_overview.html")
+        self.assertEqual(response.context["theme_count"], 11)
         self.assertEqual(response.context["month_count"], 11)
         self.assertEqual(response.context["subject_count"], 138)
-        self.assertEqual(response.context["vocabulary_count"], 4140)
+        self.assertEqual(response.context["distinct_count"], 84)
+        self.assertEqual(response.context["vocabulary_count"], 2520)
         self.assertEqual(response.context["memory_count"], 4)
         self.assertContains(
             response,
@@ -1088,69 +1095,76 @@ class EeTacheThreePageTests(TestCase):
             self._task_url("study:task_memories"),
         )
         self.assertContains(response, "questions terminées")
+        self.assertContains(response, "En 30 minutes")
+        self.assertContains(response, content_module.EE_ASTUCES_URL)
         self.assertNotContains(response, "data-tache-two-month-toggle")
         self.assertNotContains(
             response,
             "data-ee-tache-three-subject-row",
         )
-        self.assertNotContains(response, "Par thème")
-        self.assertNotContains(response, "Par famille de sujets")
+        self.assertContains(response, "classés par thème")
 
-    def test_subject_page_groups_all_combinations_in_collapsible_months(self):
+    def test_subject_page_groups_all_combinations_in_collapsible_themes(self):
         response = self.client.get(self._task_url("study:task_browse"))
+        expected_themes = [
+            theme.name
+            for theme in content_module.load_ee_subject_themes(3)[0]
+        ]
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "study/ee_tache_three_subjects.html")
         self.assertEqual(
-            [month["name"] for month in response.context["months"]],
-            [month.name for month in self.months],
+            [theme["name"] for theme in response.context["subject_themes"]],
+            expected_themes,
         )
+        self.assertEqual(len(response.context["subject_themes"]), 11)
         self.assertContains(
             response,
-            'data-tache-two-month-key="ee-tache-three:',
-            count=22,
+            "data-t1-table-theme",
+            count=11,
         )
         self.assertContains(
             response,
             "data-ee-tache-three-subject-row",
-            count=138,
+            count=276,
         )
-        self.assertContains(
-            response,
-            "data-tache-two-month-row",
-            count=138,
-        )
-        self.assertContains(response, "tache-two-batch-table--ee")
         self.assertContains(response, 'data-collection-view-panel="table"')
         self.assertContains(response, 'data-collection-view-panel="cards"')
         self.assertContains(response, "data-collection-view-toggle")
+        self.assertContains(response, "thèmes restent repliables")
+        self.assertContains(response, "publications liées")
         self.assertContains(response, "data-subject-directory-search")
-        self.assertContains(response, "Les mois restent repliés")
 
-    def test_month_page_is_a_focused_subject_directory(self):
+    def test_theme_page_is_a_focused_subject_directory(self):
         prompt = self._first_prompt()
         response = self.client.get(theme_detail_url(prompt.theme))
         review = self.client.get(response.context["review_url"])
+        expected_count = Prompt.objects.filter(theme=prompt.theme).count()
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "study/ee_tache_three_month.html")
-        self.assertEqual(response.context["month"]["name"], "Janvier")
         self.assertEqual(
-            response.context["month"]["subject_count"],
-            len(self.months[0].combinaisons),
+            response.context["subject_theme"]["name"],
+            prompt.theme.display_name,
+        )
+        self.assertEqual(
+            response.context["subject_theme"]["subject_count"],
+            expected_count,
         )
         self.assertContains(
             response,
             "data-ee-tache-three-subject-row",
-            count=len(self.months[0].combinaisons),
+            count=expected_count,
         )
-        self.assertContains(response, "Pratiquer ce mois")
+        self.assertContains(response, "Pratiquer ce thème")
         self.assertContains(response, "data-collection-view-toggle")
         self.assertNotContains(response, "data-tache-two-month-toggle")
-        self.assertContains(review, "Mois · Janvier")
-        self.assertNotContains(review, "Thème · Janvier")
+        self.assertContains(
+            review,
+            f"Thème · {prompt.theme.display_name}".replace("&", "&amp;"),
+        )
 
-    def test_response_breadcrumb_uses_month_and_combination_only(self):
+    def test_response_breadcrumb_uses_theme_month_and_combination(self):
         prompt = self._first_prompt()
         response = self.client.get(prompt_detail_url(prompt))
         family_url = reverse(
@@ -1164,9 +1178,15 @@ class EeTacheThreePageTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, theme_detail_url(prompt.theme))
+        self.assertContains(
+            response,
+            prompt.theme.display_name.replace("&", "&amp;"),
+        )
+        self.assertContains(response, "Janvier 2025")
         self.assertContains(response, "Combinaison 1")
         self.assertContains(response, "Documents sources")
-        self.assertContains(response, "Pratiquer ce mois")
+        self.assertContains(response, "Version de l’auteur")
+        self.assertContains(response, "Pratiquer ce thème")
         self.assertNotContains(response, family_url)
 
     def test_source_combination_numbers_are_preserved_across_pages(self):
@@ -1177,16 +1197,21 @@ class EeTacheThreePageTests(TestCase):
         )
         month_page = self.client.get(theme_detail_url(prompt.theme))
         detail = self.client.get(prompt_detail_url(prompt))
+        source_row = next(
+            row
+            for row in month_page.context["subjects"]
+            if row["prompt"].content_key == source.content_key
+        )
 
         self.assertEqual(source.combinaison, "Combinaison 41")
         self.assertEqual(
-            month_page.context["subjects"][15]["combination_label"],
+            source_row["combination_label"],
             "Combinaison 41",
         )
         self.assertContains(detail, "Combinaison 41")
         self.assertNotContains(detail, "Combinaison 16")
 
-    def test_legacy_family_page_redirects_to_its_month(self):
+    def test_family_page_redirects_to_its_theme(self):
         prompt = self._first_prompt()
         response = self.client.get(
             reverse(
@@ -1205,6 +1230,50 @@ class EeTacheThreePageTests(TestCase):
             fetch_redirect_response=False,
         )
 
+    def test_legacy_month_theme_url_redirects_to_the_themed_directory(self):
+        response = self.client.get(
+            reverse(
+                "study:theme_detail",
+                args=[
+                    self.task.part.slug,
+                    self.task.slug,
+                    "ee-tache-3-janvier",
+                ],
+            )
+        )
+
+        self.assertRedirects(
+            response,
+            self._task_url("study:task_browse"),
+            fetch_redirect_response=False,
+        )
+
+    def test_legacy_month_family_url_redirects_to_the_themed_directory(self):
+        response = self.client.get(
+            reverse(
+                "study:task_family_detail",
+                args=[
+                    self.task.part.slug,
+                    self.task.slug,
+                    "ee-tache-3-janvier",
+                ],
+            )
+        )
+
+        self.assertRedirects(
+            response,
+            self._task_url("study:task_browse"),
+            fetch_redirect_response=False,
+        )
+
+    def test_source_defect_warning_is_visible_on_the_subject(self):
+        prompt = Prompt.objects.get(
+            content_key="ee-tache3:decembre:combinaison-10"
+        )
+        response = self.client.get(prompt_detail_url(prompt))
+
+        self.assertContains(response, "premier document publié est hors sujet")
+
     def test_practice_and_memory_pages_use_ee_task_language(self):
         practice = self.client.get(
             self._task_url("study:task_review_hub")
@@ -1214,8 +1283,8 @@ class EeTacheThreePageTests(TestCase):
         )
 
         self.assertEqual(practice.status_code, 200)
-        self.assertContains(practice, "Choisir un mois")
-        self.assertNotContains(practice, "Choisir un thème")
+        self.assertContains(practice, "Choisir un thème")
+        self.assertNotContains(practice, "Choisir un mois")
         self.assertEqual(memories.status_code, 200)
         self.assertEqual(memories.context["memory_count"], 4)
         self.assertContains(memories, "Mémoires")
@@ -3115,6 +3184,7 @@ class ReviewFlowTests(TestCase):
 
 
 @skipUnlessDBFeature("has_select_for_update")
+@tag("database-locking")
 class ReviewConcurrencyTests(TransactionTestCase):
     def setUp(self):
         self.user = factories.make_user("concurrent")
@@ -3135,8 +3205,12 @@ class ReviewConcurrencyTests(TransactionTestCase):
         failures = []
         responses = {}
 
-        original_save_session = study_views._save_review_session
-        original_locked_session = study_views._locked_review_session
+        original_save_session = review_views._save_review_session
+        original_locked_session = review_views._locked_review_session
+        stale_client = Client()
+        stale_client.force_login(self.user)
+        answer_client = Client()
+        answer_client.force_login(self.user)
 
         def delayed_save_session(session, scope, card=None, **kwargs):
             if threading.current_thread().name == "stale-next":
@@ -3162,19 +3236,17 @@ class ReviewConcurrencyTests(TransactionTestCase):
 
         def stale_next():
             try:
-                client = Client()
-                client.force_login(self.user)
-                responses["stale"] = client.get(
+                responses["stale"] = stale_client.get(
                     reverse("study:review_next")
                 )
             except BaseException as exc:  # pragma: no cover - thread handoff
                 failures.append(exc)
+            finally:
+                connections.close_all()
 
         def answer():
             try:
-                client = Client()
-                client.force_login(self.user)
-                responses["answer"] = client.post(
+                responses["answer"] = answer_client.post(
                     reverse("study:review_answer"),
                     {
                         "card_id": self.card.id,
@@ -3184,15 +3256,17 @@ class ReviewConcurrencyTests(TransactionTestCase):
                 )
             except BaseException as exc:  # pragma: no cover - thread handoff
                 failures.append(exc)
+            finally:
+                connections.close_all()
 
         with (
             patch.object(
-                study_views,
+                review_views,
                 "_save_review_session",
                 side_effect=delayed_save_session,
             ),
             patch.object(
-                study_views,
+                review_views,
                 "_locked_review_session",
                 side_effect=observed_locked_session,
             ),
@@ -3203,13 +3277,19 @@ class ReviewConcurrencyTests(TransactionTestCase):
             )
             answer_thread = threading.Thread(target=answer, name="answer")
             stale_thread.start()
-            self.assertTrue(stale_selected_card.wait(timeout=10))
+            if not stale_selected_card.wait(timeout=30):
+                release_stale.set()
+                stale_thread.join(timeout=30)
+                self.fail(
+                    "Stale request did not reach its delayed save: "
+                    f"{failures!r}"
+                )
             answer_thread.start()
-            self.assertTrue(answer_attempted_lock.wait(timeout=10))
+            self.assertTrue(answer_attempted_lock.wait(timeout=30))
             self.assertFalse(answer_acquired_lock.wait(timeout=0.2))
             release_stale.set()
-            stale_thread.join(timeout=10)
-            answer_thread.join(timeout=10)
+            stale_thread.join(timeout=30)
+            answer_thread.join(timeout=30)
 
         self.assertFalse(stale_thread.is_alive())
         self.assertFalse(answer_thread.is_alive())

@@ -1,0 +1,52 @@
+{
+  "month": {
+    "number": 9,
+    "slug": "septembre",
+    "name": "Septembre"
+  },
+  "year": 2025,
+  "task": "tache_1",
+  "epreuve": "Expression écrite — Tâche 1",
+  "annee": 2025,
+  "recupere_le": "2026-09-03",
+  "contenu": "consignes (sujets) uniquement — sans réponses ni corrections",
+  "count": 6,
+  "sujets": [
+    {
+      "id": 357,
+      "combinaison": "Combinaison 1",
+      "key": "ee-tache1:septembre:combinaison-1",
+      "prompt": "Vous voulez partir en week-end avec vos amis le mois prochain. Vous leur écrivez un message pour décrire votre projet (lieu, transport, activités, etc.)."
+    },
+    {
+      "id": 358,
+      "combinaison": "Combinaison 2",
+      "key": "ee-tache1:septembre:combinaison-2",
+      "prompt": "Votre ami Mehdi vient d’emménager dans votre ville et cherche des renseignements sur les moyens de transport. Écrivez un message en lui donnant les informations nécessaires (types de transport, abonnement, tarif, etc.)."
+    },
+    {
+      "id": 359,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache1:septembre:combinaison-3",
+      "prompt": "Vous avez invité votre ami Cédric à votre mariage au Château de Chombony, et il vous a répondu qu’il ne connaît pas ce château. Décrivez-le à votre ami (lieu, localisation, transports, etc.)."
+    },
+    {
+      "id": 360,
+      "combinaison": "Combinaison 4",
+      "key": "ee-tache1:septembre:combinaison-4",
+      "prompt": "“Bonjour, ça y est, j’ai obtenu mon visa pour le Canada. Je vais arriver le 3 mars. Est-ce que tu pourras m’aider à trouver un hôtel pour la première semaine ? Merci d’avance pour ton aide.” Matthias. Vous avez trouvé un hôtel pour Matthias. Vous lui écrivez un courriel. Dans ce message vous décrivez l’hôtel et vous lui donnez toutes les informations utiles (situation, tarif…)."
+    },
+    {
+      "id": 361,
+      "combinaison": "Combinaison 5",
+      "key": "ee-tache1:septembre:combinaison-5",
+      "prompt": "Invitez vos amis à célébrer votre anniversaire tout en sollicitant leur soutien pour organiser la fête."
+    },
+    {
+      "id": 363,
+      "combinaison": "Combinaison 7",
+      "key": "ee-tache1:septembre:combinaison-7",
+      "prompt": "« Salut, je suis vraiment intéressé à l’idée de voyager et de découvrir un autre pays. Peux-tu me parler un peu de ton pays et de sa culture ? Marc. » Écrivez un message à votre ami Marc, qui veut voyager et découvrir un autre pays, pour lui parler de votre pays et de sa culture (lieux, sites touristiques, monuments, etc.)."
+    }
+  ]
+}

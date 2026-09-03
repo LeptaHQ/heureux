@@ -1,0 +1,106 @@
+{
+  "month": {
+    "number": 1,
+    "slug": "janvier",
+    "name": "Janvier"
+  },
+  "year": 2025,
+  "task": "tache_2",
+  "epreuve": "Expression écrite — Tâche 2",
+  "annee": 2025,
+  "recupere_le": "2026-09-03",
+  "contenu": "consignes (sujets) uniquement — sans réponses ni corrections",
+  "count": 15,
+  "sujets": [
+    {
+      "id": 281,
+      "combinaison": "Combinaison 1",
+      "key": "ee-tache2:janvier:combinaison-1",
+      "prompt": "Vous avez assisté à une fête de voisins du quartier, écrivez un blog pour montrer pourquoi vous avez aimé cette fête."
+    },
+    {
+      "id": 282,
+      "combinaison": "Combinaison 2",
+      "key": "ee-tache2:janvier:combinaison-2",
+      "prompt": "Dans votre blog, racontez votre expérience de l’apprentissage d’une langue étrangère (vous écrivez sur un forum internet en racontant votre expérience en apprenant une langue étrangère)."
+    },
+    {
+      "id": 283,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache2:janvier:combinaison-3",
+      "prompt": "Exprimez votre admiration pour une personnalité, célèbre ou non, en vous appuyant sur ses actions spécifiques. Rédigez un article de blog en détaillant les actions remarquables de cette personne et expliquez pourquoi vous l’aimez."
+    },
+    {
+      "id": 284,
+      "combinaison": "Combinaison 4",
+      "key": "ee-tache2:janvier:combinaison-4",
+      "prompt": "Une étudiante qui a 19 ans veut aller à l’étranger pour les études. Elle demande aux internautes du forum de partager leurs expériences et vous avez fait un an à l’étranger. Parlez-lui de votre expérience (décrire le séjour à l’étranger, les activités…)."
+    },
+    {
+      "id": 285,
+      "combinaison": "Combinaison 5",
+      "key": "ee-tache2:janvier:combinaison-5",
+      "prompt": "Vous faites partie d’une association de quartier qui propose des activités aux enfants (aide aux devoirs, sorties, jeux, etc.). Sur votre site internet, vous racontez votre expérience et vous expliquez pourquoi ce type d’association est utile."
+    },
+    {
+      "id": 286,
+      "combinaison": "Combinaison 6",
+      "key": "ee-tache2:janvier:combinaison-6",
+      "prompt": "Vous avez visité un nouveau pays pendant vos vacances. Sur un site internet, racontez votre expérience et donnez votre opinion sur ce pays."
+    },
+    {
+      "id": 287,
+      "combinaison": "Combinaison 7",
+      "key": "ee-tache2:janvier:combinaison-7",
+      "prompt": "Écrivez un article de blog pour raconter votre arrivée dans un pays étranger en donnant vos impressions."
+    },
+    {
+      "id": 288,
+      "combinaison": "Combinaison 8",
+      "key": "ee-tache2:janvier:combinaison-8",
+      "prompt": "Bonjour, Vous avez pris des cours dans notre salle de sport. Donnez-nous votre avis sur notre site Internet ! www.masalledesport.org Sur le site Internet de la salle de sport, vous répondez à ce message. Vous racontez cette expérience et vous donnez votre avis"
+    },
+    {
+      "id": 289,
+      "combinaison": "Combinaison 9",
+      "key": "ee-tache2:janvier:combinaison-9",
+      "prompt": "Analysez le sujet d'examen suivant : INFOS FAMILLES Vivre avec une personne âgée : comment faire ? Notre site cherche des témoignages. Vous avez vécu avec une personne âgée. Vous racontez votre expérience."
+    },
+    {
+      "id": 290,
+      "combinaison": "Combinaison 10",
+      "key": "ee-tache2:janvier:combinaison-10",
+      "prompt": "Vous avez visité un nouveau pays pendant vos vacances. Sur un site internet, vous racontez votre expérience et vous donnez votre opinion sur ce pays."
+    },
+    {
+      "id": 292,
+      "combinaison": "Combinaison 12",
+      "key": "ee-tache2:janvier:combinaison-12",
+      "prompt": "“Salut, tu vas bien ? Nous avons deux semaines de vacances en janvier. Nous allons venir visiter ton pays. Nous cherchons à visiter des sites historiques et à découvrir des plats nouveaux. Qu’est-ce que tu nous conseilles ? Aaron & Perla” Vous répondez à Aaron et Perla pour leur faire des propositions et justifiez votre choix en racontant vos dernières vacances."
+    },
+    {
+      "id": 296,
+      "combinaison": "Combinaison 16",
+      "key": "ee-tache2:janvier:combinaison-16",
+      "prompt": "“Chers internautes, J’ai 19 ans, je vais bientôt partir à l’étranger pour continuer mes études. J’aimerais bien lire les témoignages et avis des étudiants qui ont déjà fait des études loin de chez eux. Merci de me répondre. Julie“ Vous avez fait des études à l’étranger pendant un an. Vous écrivez une réponse sur le forum. Vous racontez votre séjour à l’étranger, vous dites si vous avez aimé ou non cette expérience et vous dites pourquoi."
+    },
+    {
+      "id": 297,
+      "combinaison": "Combinaison 17",
+      "key": "ee-tache2:janvier:combinaison-17",
+      "prompt": "Vous avez assisté à une fête de famille. Envoyez un message à vos amis pour leur raconter cette fête et expliquez ce que vous avez le plus apprécié."
+    },
+    {
+      "id": 298,
+      "combinaison": "Combinaison 18",
+      "key": "ee-tache2:janvier:combinaison-18",
+      "prompt": "Vous avez participé à une compétition sportive, racontez votre expérience sur un site internet et donnez votre avis (lieu, date, organisation)."
+    },
+    {
+      "id": 299,
+      "combinaison": "Combinaison 19",
+      "key": "ee-tache2:janvier:combinaison-19",
+      "prompt": "Vous avez participé à une brocante (achat / vente de produits d’occasion) dans votre ville. Sur votre blog personnel, racontez pourquoi vous avez aimé cette activité."
+    }
+  ]
+}

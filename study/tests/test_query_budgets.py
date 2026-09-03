@@ -890,7 +890,12 @@ class StreakAndDayCountTests(TestCase):
 
     def setUp(self):
         self.user = factories.make_user("streak")
-        self.now = timezone.now()
+        self.now = timezone.localtime(timezone.now()).replace(
+            hour=12,
+            minute=0,
+            second=0,
+            microsecond=0,
+        )
         theme = factories.make_theme("streak-theme")
         self.card = factories.make_spine_card(theme=theme, user=self.user)
 

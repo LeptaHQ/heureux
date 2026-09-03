@@ -63,7 +63,7 @@
           "icon": "file-text",
           "color": "#d3263a",
           "order": 2,
-          "available": false
+          "available": true
         },
         {
           "slug": "tache-3",

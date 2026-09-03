@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "theme": "voyages",
+  "responses": [
+    {
+      "content_key": "ee-tache1:janvier:combinaison-8",
+      "versions": [
+        {
+          "body": "Salut Mathieu,\n\nSuper de te lire ! Pendant ton voyage, je te conseille de visiter le château Frontenac, perché sur une colline au cœur du Vieux-Québec. Son architecture est magnifique et la terrasse voisine offre une vue imprenable sur le fleuve.\n\nTu pourras participer à une visite guidée pour découvrir son histoire, puis te promener dans les rues anciennes et goûter des spécialités locales au marché. Le château est facilement accessible en bus depuis la gare. Le seul bémol est qu’il peut être très fréquenté le week-end ; vas-y tôt le matin.\n\nBonne visite et à bientôt !\n\nCorn",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:mars:combinaison-7",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nJ’espère que tu vas bien ! J’ai passé le week-end près du parc national de Kakum, dans un charmant village de la région Centrale. J’y suis allé avec ma famille pour fêter l’anniversaire de ma sœur, et l’expérience a été mémorable.\n\nLe cadre était magnifique : une vue panoramique, beaucoup d’arbres ombragés et une atmosphère apaisante. Nous avons fait plusieurs randonnées dans la forêt tropicale. J’ai même aperçu des singes !\n\nLes habitants étaient très aimables et de bon conseil. En résumé, c’était un week-end dépaysant et ressourçant.\n\nIl faut absolument qu’on y retourne ensemble !\n\nÀ très bientôt,\nCorn",
+          "origin": "author"
+        },
+        {
+          "body": "Coucou Jo,\n\nSuper de te lire ! J’ai passé le week-end dernier près de Kumasi, dans la campagne ashanti. Cet endroit offrait de belles vues panoramiques et était entouré d’arbres ombragés.\n\nLes habitants étaient chaleureux et prêts à nous aider. Cerise sur le gâteau : le village proposait des visites guidées gratuites et les soirées étaient animées par la musique et la danse. Seul bémol : j’ai dû prendre une navette et trois bus pour y accéder.\n\nLe dernier jour, nous avons fait de bonnes affaires au marché de producteurs. En résumé, j’ai passé un excellent moment !\n\nÀ très bientôt,\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:avril:combinaison-2",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nJe suis ravi que tu veuilles découvrir la région ! Seattle est une ville magnifique avec de nombreux endroits à visiter. Je te conseille d’abord le musée de l’Histoire et de l’Industrie (MOHAI), au bord du lac Union, pour mieux comprendre les origines de la ville.\n\nEnsuite, l’arboretum de Washington Park est idéal pour se détendre au milieu des arbres. Le marché de Pike Place est également incontournable pour découvrir les spécialités locales.\n\nEnfin, le mont Si, à environ une heure de route, offre une belle randonnée et une vue panoramique.\n\nFais-moi signe quand tu arrives !\n\nCorn",
+          "origin": "author"
+        },
+        {
+          "body": "Coucou Jo,\n\nSuper de te lire ! Kumasi compte de nombreux endroits à visiter. Tout d’abord, je te conseille le palais Manhyia, dont le musée retrace l’histoire du royaume ashanti.\n\nEnsuite, le musée du centre-ville est incontournable : il propose des expositions spéciales et des ateliers chaque week-end. De plus, le restaurant d’Adwoa sert de délicieuses spécialités locales. D’ailleurs, tu pourras y goûter de nouveaux plats gratuitement.\n\nEnfin, promène-toi au parc Nan, entouré d’arbres ombragés. Le seul bémol est que certains lieux sont très fréquentés. Si tu as le temps, nous pourrons les visiter ensemble.\n\nHâte de te voir !\n\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:avril:combinaison-4",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nJ’espère que tu vas bien ! Je voudrais vraiment que tu passes tes prochaines vacances avec moi à Kumasi, car cette ville offre beaucoup de choses à découvrir.\n\nTout d’abord, nous pourrions visiter le palais Manhyia, dont le musée retrace l’histoire du royaume ashanti. Ensuite, nous assisterions aux ateliers du musée de Faw le week-end.\n\nDe plus, je te conseille le restaurant d’Adebi, connu pour ses spécialités locales. Enfin, le parc Aloha est parfait pour se détendre et faire une promenade. Je connais très bien la ville et peux organiser tout le programme.\n\nHâte de te voir !\n\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:avril:combinaison-7",
+      "versions": [
+        {
+          "body": "Coucou Jeanne,\n\nJe suis ravi que tu envisages de visiter le Ghana ! Commence par Accra, où le monument de l’Indépendance raconte l’histoire du pays. Ensuite, pars vers Cape Coast pour découvrir son château au bord de l’océan et mieux comprendre le passé de la région.\n\nJe te conseille aussi Kumasi, célèbre pour le palais Manhyia, le grand marché Kejetia et l’artisanat ashanti. Enfin, termine ton voyage au parc national de Kakum : sa passerelle suspendue offre une vue imprenable sur la forêt. Si tu veux, je peux t’accompagner à Accra et organiser les transports.\n\nHâte de te voir !\n\nCorn",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:avril:combinaison-10",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nTon anniversaire approche et j’ai préparé une surprise : je t’offre un voyage à Lisbonne du 12 au 16 juin ! Les billets d’avion et notre chambre dans un hôtel du centre-ville sont déjà réservés.\n\nNous visiterons la tour de Belém, le quartier de l’Alfama et le château Saint-Georges. J’ai aussi prévu une excursion au bord de l’océan et un dîner dans un restaurant connu pour ses spécialités locales. Tu dois seulement prendre des chaussures confortables et une veste légère. Garde ces dates libres et envoie-moi une copie de ton passeport d’ici vendredi.\n\nJoyeux anniversaire !\n\nHâte de partir ensemble,\nCorn",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:avril:combinaison-11",
+      "versions": [
+        {
+          "body": "Coucou Jo et Nan,\n\nJ’espère que vous allez bien ! J’ai trouvé un excellent hôtel pour nos prochaines vacances.\n\nIl est situé au 123, rue Ag, sur une colline, ce qui offre des vues imprenables. C’est un hôtel 5 étoiles avec de très bons avis, accessible depuis l’aéroport grâce à des navettes toutes les 30 minutes.\n\nLes tarifs varient entre 90 $ et 150 $ par nuit et par personne, repas inclus, et il y a une salle de sport. Le seul bémol est qu’il peut être complet.\n\nSi vous voulez, réservons-le dès cette semaine !\n\nHâte de vous voir !\n\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:mai:combinaison-3",
+      "versions": [
+        {
+          "body": "Coucou Jo et Nan,\n\nÇa fait longtemps ! J’aimerais que nous passions un week-end ensemble au lac Bosomtwe, près de Kumasi, le mois prochain. Entouré de collines verdoyantes, ce lac offre de belles vues sur la région.\n\nPour y aller, nous louerons une voiture à Kumasi. D’abord, on pourra faire une courte randonnée dans la forêt : je sais à quel point vous aimez cela ! Ensuite, les déjeuners sont prévus au restaurant d’Adebi. Enfin, nous visiterons le marché de producteurs afin d’acheter des produits bio.\n\nDites-moi si vous avez d’autres suggestions. Hâte de vous voir !\n\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:aout:combinaison-4",
+      "versions": [
+        {
+          "body": "Coucou Ali,\n\nÇa fait longtemps ! Je t’invite à passer tes vacances chez moi à Seattle. La ville est magnifique en été et j’ai déjà imaginé notre programme.\n\nNous visiterons le marché de Pike pour goûter des spécialités locales, puis le musée de la Culture populaire. Ensuite, nous flânerons parmi les arbres remarquables du Washington Park Arboretum. Cerise sur le gâteau : nous prendrons le bateau jusqu’à l’île Bainbridge afin d’admirer la baie et les montagnes. Mon appartement est près du métro, donc tous ces lieux sont faciles d’accès.\n\nConfirme-moi tes dates d’ici ce week-end.\n\nHâte de te voir !\n\nCorn",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:aout:combinaison-10",
+      "versions": [
+        {
+          "body": "Salut Nan,\n\nJ’ai une grande surprise pour ton anniversaire : je t’offre un séjour à Marrakech du 5 au 9 octobre ! J’ai réservé nos vols ainsi qu’un riad confortable près de la place Jemaa el-Fna, avec petit déjeuner inclus.\n\nSur place, nous découvrirons les jardins Majorelle, le palais de la Bahia et les marchés colorés de la médina. De plus, j’ai organisé une excursion d’une journée dans les montagnes de l’Atlas. Prépare seulement des vêtements légers et ton passeport. Je t’enverrai les billets par courriel vendredi.\n\nJ’espère que ce cadeau te plaît. Hâte de vivre cette aventure ensemble !\n\nCorn",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:septembre:combinaison-7",
+      "versions": [
+        {
+          "body": "Salut Marc,\n\nSuper de te lire ! Je te conseille vivement de découvrir le Ghana, un pays chaleureux et riche en traditions. À Accra, tu pourras visiter le monument de l’Indépendance et goûter le riz jollof dans les marchés animés. Ensuite, le château de Cape Coast permet de mieux comprendre l’histoire du pays.\n\nKumasi est incontournable pour son palais Manhyia et ses tissus kente aux couleurs magnifiques. Les habitants accordent beaucoup d’importance à l’accueil, à la famille et à la musique. En août, tu pourras aussi assister à plusieurs fêtes traditionnelles.\n\nFais-moi signe quand tu arrives !\n\nCorn",
+          "origin": "original"
+        }
+      ]
+    }
+  ]
+}

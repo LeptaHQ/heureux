@@ -1571,7 +1571,7 @@
           "kind": "mot-cle",
           "french": "postes de direction",
           "english": "management positions",
-          "example": "Le premier document affirme que chacun doit pouvoir accéder à tous les métiers, y compris aux postes de direction.",
+          "example": "Le premier document observe qu’au Québec les femmes accèdent à des métiers longtemps réservés aux hommes, y compris aux postes de direction.",
           "usage": "Groupe nominal ; réutilisable en Travail/Égalité."
         },
         {
@@ -1691,7 +1691,7 @@
           "kind": "tournure",
           "french": "y compris aux postes de direction",
           "english": "including management positions",
-          "example": "Le premier document affirme que chacun doit pouvoir accéder à tous les métiers, y compris aux postes de direction.",
+          "example": "Le premier document observe qu’au Québec les femmes accèdent à des métiers longtemps réservés aux hommes, y compris aux postes de direction.",
           "usage": "Tournure syntaxique ; réutilisable en Travail/Égalité."
         },
         {
@@ -1729,9 +1729,9 @@
         {
           "id": "E3-AVR-C07-30",
           "kind": "reformulation",
-          "french": "chacun",
-          "english": "everyone",
-          "example": "Le premier document affirme que chacun doit pouvoir accéder à tous les métiers, y compris aux postes de direction.",
+          "french": "le second",
+          "english": "the second document",
+          "example": "En revanche, le second souligne la persistance de professions très féminisées et défend une répartition traditionnelle des responsabilités familiales et professionnelles.",
           "usage": "Reformulation nominale ; réutilisable en Travail/Égalité."
         }
       ]
@@ -2246,9 +2246,9 @@
         {
           "id": "E3-AVR-C10-02",
           "kind": "expression",
-          "french": "En revanche",
-          "english": "On the other hand",
-          "example": "En revanche, le second insiste sur les bénéfices possibles pour l’entreprise, comme la fidélisation des salariés, tout en rappelant qu’une réorganisation rigoureuse est indispensable pour maintenir l’efficacité.",
+          "french": "Toutefois",
+          "english": "However",
+          "example": "Toutefois, il rappelle qu’une réorganisation rigoureuse reste indispensable pour maintenir l’efficacité.",
           "usage": "Connecteur adverbial ; réutilisable en Travail/Organisation."
         },
         {
@@ -2326,9 +2326,9 @@
         {
           "id": "E3-AVR-C10-12",
           "kind": "mot-cle",
-          "french": "la fidélisation des salariés",
-          "english": "employee retention",
-          "example": "En revanche, le second insiste sur les bénéfices possibles pour l’entreprise, comme la fidélisation des salariés, tout en rappelant qu’une réorganisation rigoureuse est indispensable pour maintenir l’efficacité.",
+          "french": "une meilleure fidélisation",
+          "english": "better employee retention",
+          "example": "Le second ajoute des bénéfices pour l’entreprise : moins d’absentéisme, une meilleure fidélisation et des salariés plus motivés.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Travail/Organisation."
         },
         {
@@ -2336,7 +2336,7 @@
           "kind": "mot-cle",
           "french": "une réorganisation rigoureuse",
           "english": "a rigorous reorganization",
-          "example": "En revanche, le second insiste sur les bénéfices possibles pour l’entreprise, comme la fidélisation des salariés, tout en rappelant qu’une réorganisation rigoureuse est indispensable pour maintenir l’efficacité.",
+          "example": "Toutefois, il rappelle qu’une réorganisation rigoureuse reste indispensable pour maintenir l’efficacité.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Travail/Organisation."
         },
         {
@@ -2344,7 +2344,7 @@
           "kind": "mot-cle",
           "french": "l’efficacité",
           "english": "efficiency",
-          "example": "En revanche, le second insiste sur les bénéfices possibles pour l’entreprise, comme la fidélisation des salariés, tout en rappelant qu’une réorganisation rigoureuse est indispensable pour maintenir l’efficacité.",
+          "example": "Toutefois, il rappelle qu’une réorganisation rigoureuse reste indispensable pour maintenir l’efficacité.",
           "usage": "Nom ou groupe nominal singulier ; réutilisable en Travail/Organisation."
         },
         {
@@ -2430,9 +2430,9 @@
         {
           "id": "E3-AVR-C10-25",
           "kind": "tournure",
-          "french": "tout en rappelant qu’une réorganisation rigoureuse est indispensable",
-          "english": "while noting that rigorous reorganization is essential",
-          "example": "En revanche, le second insiste sur les bénéfices possibles pour l’entreprise, comme la fidélisation des salariés, tout en rappelant qu’une réorganisation rigoureuse est indispensable pour maintenir l’efficacité.",
+          "french": "il rappelle qu’une réorganisation rigoureuse reste indispensable",
+          "english": "it points out that a rigorous reorganization remains essential",
+          "example": "Toutefois, il rappelle qu’une réorganisation rigoureuse reste indispensable pour maintenir l’efficacité.",
           "usage": "Tournure syntaxique ; réutilisable en Travail/Organisation."
         },
         {
@@ -2456,7 +2456,7 @@
           "kind": "verbe-action",
           "french": "maintenir l’efficacité",
           "english": "to maintain efficiency",
-          "example": "En revanche, le second insiste sur les bénéfices possibles pour l’entreprise, comme la fidélisation des salariés, tout en rappelant qu’une réorganisation rigoureuse est indispensable pour maintenir l’efficacité.",
+          "example": "Toutefois, il rappelle qu’une réorganisation rigoureuse reste indispensable pour maintenir l’efficacité.",
           "usage": "Groupe verbal ; réutilisable en Travail/Organisation."
         },
         {
@@ -2989,7 +2989,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, ses critiques associent ces produits à des conséquences durables, notamment l’obésité, lorsqu’ils sont consommés trop fréquemment.",
+          "example": "En revanche, ses critiques jugent cette alimentation néfaste et l’associent à des problèmes irréversibles, notamment à l’obésité.",
           "usage": "Connecteur adverbial ; réutilisable en Santé/Alimentation."
         },
         {
@@ -3085,7 +3085,7 @@
           "kind": "mot-cle",
           "french": "l’obésité",
           "english": "obesity",
-          "example": "En revanche, ses critiques associent ces produits à des conséquences durables, notamment l’obésité, lorsqu’ils sont consommés trop fréquemment.",
+          "example": "En revanche, ses critiques jugent cette alimentation néfaste et l’associent à des problèmes irréversibles, notamment à l’obésité.",
           "usage": "Nom ou groupe nominal singulier ; réutilisable en Santé/Alimentation."
         },
         {
@@ -3123,9 +3123,9 @@
         {
           "id": "E3-AVR-C13-19",
           "kind": "collocation",
-          "french": "des conséquences durables",
-          "english": "lasting consequences",
-          "example": "En revanche, ses critiques associent ces produits à des conséquences durables, notamment l’obésité, lorsqu’ils sont consommés trop fréquemment.",
+          "french": "des problèmes irréversibles",
+          "english": "irreversible health problems",
+          "example": "En revanche, ses critiques jugent cette alimentation néfaste et l’associent à des problèmes irréversibles, notamment à l’obésité.",
           "usage": "Association lexicale ; réutilisable en Santé/Alimentation."
         },
         {
@@ -3171,9 +3171,9 @@
         {
           "id": "E3-AVR-C13-25",
           "kind": "tournure",
-          "french": "lorsqu’ils sont consommés trop fréquemment",
-          "english": "when they are consumed too frequently",
-          "example": "En revanche, ses critiques associent ces produits à des conséquences durables, notamment l’obésité, lorsqu’ils sont consommés trop fréquemment.",
+          "french": "notamment à l’obésité",
+          "english": "particularly obesity",
+          "example": "En revanche, ses critiques jugent cette alimentation néfaste et l’associent à des problèmes irréversibles, notamment à l’obésité.",
           "usage": "Tournure syntaxique ; réutilisable en Santé/Alimentation."
         },
         {
@@ -3211,9 +3211,9 @@
         {
           "id": "E3-AVR-C13-30",
           "kind": "reformulation",
-          "french": "ces produits",
-          "english": "these products",
-          "example": "En revanche, ses critiques associent ces produits à des conséquences durables, notamment l’obésité, lorsqu’ils sont consommés trop fréquemment.",
+          "french": "cette alimentation",
+          "english": "this type of food",
+          "example": "En revanche, ses critiques jugent cette alimentation néfaste et l’associent à des problèmes irréversibles, notamment à l’obésité.",
           "usage": "Reformulation nominale ; réutilisable en Santé/Alimentation."
         }
       ]

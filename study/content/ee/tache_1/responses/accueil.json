@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "theme": "accueil",
+  "responses": [
+    {
+      "content_key": "ee-tache1:avril:combinaison-13",
+      "versions": [
+        {
+          "body": "Coucou Cédric,\n\nMerci d’avoir accepté de garder ma maison et mon jardin pendant mes vacances.\n\nTout d’abord, il n’y a pas grand-chose à faire dans la maison. Pour économiser l’énergie, éteins les lumières avant 21 h. Je laisserai aussi ma chienne Perp : sa nourriture se trouve dans les tiroirs marron de la cuisine.\n\nConcernant le jardin, les fleurs n’ont pas besoin d’être arrosées tous les jours : deux fois par semaine suffisent.\n\nImportant : les clés sont sous la boîte rouge, dans la salle à manger. En cas de problème, n’hésite pas à me contacter.\n\nMerci encore pour ton aide !\n\nC",
+          "origin": "author"
+        },
+        {
+          "body": "Coucou Cédric,\n\nMerci infiniment d’avoir accepté de garder ma maison et mon jardin pendant mon absence. Voici quelques consignes importantes.\n\nTout d’abord, je laisserai les clés dans le boîtier sécurisé à l’entrée. Pour économiser l’énergie, je te prie d’éteindre toutes les lumières après 21 h. Ensuite, j’attends plusieurs colis la semaine prochaine ; pourrais-tu les déposer dans la cuisine ?\n\nConcernant le jardin, il est assez petit et un arrosage une fois tous les deux jours suffit largement. Au moindre souci, n’hésite pas à me joindre sur mon portable, je resterai disponible.\n\nMerci encore pour ce précieux coup de main !\n\nAmicalement,\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:avril:combinaison-17",
+      "versions": [
+        {
+          "body": "Coucou Jo,\n\nÇa fait longtemps ! Je t’invite à passer tes vacances chez moi, à Kumasi. J’y vis depuis quelques mois et j’adore cette ville. Voici ce que j’ai imaginé.\n\nNous visiterons le palais Manhyia afin de découvrir l’histoire ashanti, puis nous assisterons aux ateliers du musée du centre-ville, organisés chaque samedi.\n\nJ’ai aussi prévu les déjeuners au restaurant d’Adebi, connu pour ses spécialités locales. Enfin, Kumasi offre de beaux parcs ombragés, parfaits pour se promener et se détendre.\n\nConfirme-moi ta venue d’ici ce week-end. Hâte de te voir !\n\nC",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:mai:combinaison-4",
+      "versions": [
+        {
+          "body": "Coucou Nan,\n\nÇa fait longtemps ! Depuis mon déménagement à Montréal, je découvre chaque jour un endroit formidable. Je t’invite donc à passer tes prochaines vacances chez moi. Mon appartement se trouve près du métro Laurier, dans un quartier animé, et la chambre d’amis est prête.\n\nNous pourrons nous promener dans le Vieux-Montréal, visiter le musée des Beaux-Arts et pique-niquer au parc du Mont-Royal. Cerise sur le gâteau : un festival de musique gratuit aura lieu chaque soir. Dis-moi quelles dates te conviennent afin que j’organise tout.\n\nHâte de te voir !\n\nCorn",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:juillet:combinaison-5",
+      "versions": [
+        {
+          "body": "Coucou Carole,\n\nSuper de te lire ! Pour ton séjour en famille, je vous conseille l’hôtel Bellevue, au 25, rue Centrale, à cinq minutes du métro. Une chambre familiale coûte 110 $ par nuit, petit déjeuner compris, et les enfants de moins de douze ans bénéficient d’une réduction.\n\nL’établissement possède une piscine, une salle de jeux et un petit jardin. De plus, des navettes partent toutes les trente minutes vers le centre-ville et le parc Aloha. Le seul bémol est qu’il peut être complet en été. Si tu veux, je peux réserver pour vous.\n\nHâte de vous voir !\n\nCorn",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:juillet:combinaison-44",
+      "versions": [
+        {
+          "body": "Salut Mat,\n\nJ’espère que tu vas bien. J’ai trouvé l’Hôtel Ad pour ta première semaine. Il est situé au 123, rue Deb, à Montréal, près du fleuve Saint-Laurent, avec une belle vue sur la ville.\n\nDepuis l’aéroport, des navettes le desservent toutes les trois heures. Cerise sur le gâteau : il est près du cinéma Africain et propose de très bonnes spécialités culinaires.\n\nLa chambre coûte 50 $ par nuit, avec une réduction à partir de trois nuits. Le seul bémol : la réception ferme à 20 h.\n\nTu peux réserver sur www.adhotel.com ou m’appeler.\n\nHâte de te voir !\n\nCorn",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:aout:combinaison-2",
+      "versions": [
+        {
+          "body": "Salut Cédric,\n\nMerci pour ce précieux coup de main pendant mon absence. Chaque matin, ouvre les volets du salon et donne une tasse de croquettes au chat ; sa nourriture se trouve dans le placard bleu. J’attends aussi un colis jeudi : dépose-le simplement dans l’entrée.\n\nConcernant le jardin, pourrais-tu arroser les tomates un jour sur deux et les fleurs deux fois par semaine ? La tondeuse restera dans le garage, mais il n’est pas nécessaire de tondre. Les clés seront chez la voisine, Mme Diallo. Au moindre souci, n’hésite pas à me joindre.\n\nÀ bientôt,\nCorn",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:novembre:combinaison-9",
+      "versions": [
+        {
+          "body": "Coucou Cédric,\n\nMerci infiniment d’avoir accepté ! Dans la maison, pourrais-tu relever le courrier, ouvrir les fenêtres dix minutes le matin et nourrir Perp deux fois par jour ? Ses croquettes sont dans le tiroir marron de la cuisine. Pense aussi à éteindre toutes les lumières en partant.\n\nPour le jardin, un arrosage le mercredi et le samedi suffit largement. Les plantes du balcon, en revanche, ont besoin d’un peu d’eau tous les deux jours. Je laisserai les clés dans le boîtier sécurisé à l’entrée. Si tu as la moindre question, appelle-moi sur mon portable.\n\nMerci encore pour ton aide !\n\nCorn",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:decembre:combinaison-15",
+      "versions": [
+        {
+          "body": "Salut Ali,\n\nJe suis ravi que tu profites de mon appartement pendant mes vacances. Il se trouve au troisième étage de l’immeuble Bellevue, juste en face du parc. Il comprend une chambre, un salon lumineux, une petite cuisine équipée et un balcon avec une belle vue sur la ville.\n\nPour entrer, compose le code 2480 à la porte principale, puis prends l’ascenseur. Je laisserai les clés sous le vase bleu devant l’appartement. Le wifi s’appelle « Bellevue » et le mot de passe est inscrit sur le réfrigérateur. Fais comme chez toi et n’hésite pas à m’appeler.\n\nBon séjour !\n\nCorn",
+          "origin": "original"
+        }
+      ]
+    }
+  ]
+}

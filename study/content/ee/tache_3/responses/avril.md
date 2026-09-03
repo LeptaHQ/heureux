@@ -116,15 +116,15 @@ Personnellement, je considère qu’un emploi saisonnier peut être formateur, �
 
 ### L’égalité professionnelle : les compétences avant le sexe
 
-**Partie 1 — Synthèse (52 mots)**
+**Partie 1 — Synthèse (55 mots)**
 
-L’égalité entre les femmes et les hommes au travail oppose deux visions. Le premier document affirme que chacun doit pouvoir accéder à tous les métiers, y compris aux postes de direction. En revanche, le second souligne la persistance de professions très féminisées et défend une répartition traditionnelle des responsabilités familiales et professionnelles.
+L’égalité entre les femmes et les hommes au travail oppose deux visions. Le premier document observe qu’au Québec les femmes accèdent à des métiers longtemps réservés aux hommes, y compris aux postes de direction. En revanche, le second souligne la persistance de professions très féminisées et défend une répartition traditionnelle des responsabilités familiales et professionnelles.
 
 **Partie 2 — Point de vue personnel (98 mots)**
 
 À mon avis, les compétences doivent déterminer l’accès à un métier, jamais le sexe. Tout d’abord, écarter une femme d’un poste de direction prive l’entreprise de talents et entretient les stéréotypes. De plus, les responsabilités familiales concernent les deux parents et exigent des mesures équitables. Par exemple, une entreprise peut publier des grilles salariales transparentes et offrir le même congé parental aux mères comme aux pères. Cependant, il faut aussi reconnaître que les habitudes professionnelles évoluent lentement. En conclusion, le plus important est de garantir une rémunération égale, des recrutements impartiaux et un partage réel des responsabilités familiales.
 
-**Total : 150 mots**
+**Total : 153 mots**
 
 ---
 
@@ -170,15 +170,15 @@ Les vêtements de marque chez les jeunes suscitent des avis partagés. D’un c�
 
 ### Réduire le temps de travail : mieux organiser pour réussir
 
-**Partie 1 — Synthèse (53 mots)**
+**Partie 1 — Synthèse (54 mots)**
 
-La réduction du temps de travail fait l’objet d’un débat nuancé. Le premier document valorise un meilleur équilibre personnel, moins de stress et une productivité accrue. En revanche, le second insiste sur les bénéfices possibles pour l’entreprise, comme la fidélisation des salariés, tout en rappelant qu’une réorganisation rigoureuse est indispensable pour maintenir l’efficacité.
+La réduction du temps de travail fait l’objet d’un débat nuancé. Le premier document valorise un meilleur équilibre personnel, moins de stress et une productivité accrue. Le second ajoute des bénéfices pour l’entreprise : moins d’absentéisme, une meilleure fidélisation et des salariés plus motivés. Toutefois, il rappelle qu’une réorganisation rigoureuse reste indispensable pour maintenir l’efficacité.
 
 **Partie 2 — Point de vue personnel (106 mots)**
 
 Personnellement, je suis favorable à une réduction du temps de travail lorsque les objectifs et les effectifs sont adaptés. En effet, des salariés reposés sont souvent plus concentrés et moins absents. De plus, réduire les heures sans revoir la charge risque simplement d’intensifier chaque journée. Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, les retards et le bien-être des équipes. Cependant, il faut aussi reconnaître que certains services doivent rester accessibles en permanence. En définitive, le plus important est de réorganiser collectivement le travail sans diminuer la qualité du service ni transférer la pression aux salariés.
 
-**Total : 159 mots**
+**Total : 160 mots**
 
 ---
 
@@ -224,15 +224,15 @@ Personnellement, je suis favorable à un uniforme simple et abordable, à condit
 
 ### La restauration rapide : un choix occasionnel à équilibrer
 
-**Partie 1 — Synthèse (51 mots)**
+**Partie 1 — Synthèse (50 mots)**
 
-La restauration rapide et la santé opposent deux visions de l’alimentation. D’un côté, ses défenseurs affirment que les enseignes respectent les normes d’hygiène et proposent assez de variété pour composer un repas équilibré. En revanche, ses critiques associent ces produits à des conséquences durables, notamment l’obésité, lorsqu’ils sont consommés trop fréquemment.
+La restauration rapide et la santé opposent deux visions de l’alimentation. D’un côté, ses défenseurs affirment que les enseignes respectent les normes d’hygiène et proposent assez de variété pour composer un repas équilibré. En revanche, ses critiques jugent cette alimentation néfaste et l’associent à des problèmes irréversibles, notamment à l’obésité.
 
 **Partie 2 — Point de vue personnel (104 mots)**
 
 À mon avis, la restauration rapide peut rester occasionnelle, mais elle ne devrait pas devenir une habitude quotidienne. Tout d’abord, de nombreux menus contiennent trop de sel, de gras ou de sucre. Ensuite, le client peut limiter ces excès grâce à des choix plus équilibrés et à des portions raisonnables. Par exemple, une personne pourrait choisir une salade, de l’eau et un fruit plutôt qu’un grand menu accompagné d’une boisson sucrée. Cependant, il faut aussi reconnaître que les options saines ne sont pas toujours les moins chères. En conclusion, le plus important est de sensibiliser les consommateurs et de privilégier régulièrement des produits frais.
 
-**Total : 155 mots**
+**Total : 154 mots**
 
 ---
 

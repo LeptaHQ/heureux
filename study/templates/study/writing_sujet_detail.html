@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load study_markdown %}
 {% block title %}{{ prompt|truncatechars:50 }} · Heureux{% endblock %}
 
 {% block content %}
@@ -20,6 +21,7 @@
     <p class="eyebrow">
       <a href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a> ·
       <span>{{ category_label }}</span>
+      {% if source %} · <span>{{ source.month_name }} {{ source.year }}</span> · <span>{{ source.combinaison }}</span>{% endif %}
       {% if has_personal %} · <span class="chip chip--accent">Version personnelle</span>{% endif %}
     </p>
     <h1 class="detail-prompt">{{ prompt }}</h1>
@@ -53,7 +55,8 @@
           <div
             class="t1-response__body"
             data-annotation-root
-            data-annotation-source-key="writing-sujet:{{ sujet.pk }}:personal">{{ personal.body|linebreaks }}</div>
+            data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:personal">{{ personal.body|linebreaks }}</div>
+          <p class="muted">{{ personal.body|french_wordcount }} mots · limite recommandée : {{ word_limit_min }}–{{ word_limit_max }}</p>
         </section>
         {% if model_versions %}
           <details class="t1-versions">
@@ -65,7 +68,8 @@
                   <div
                     class="t1-response__body"
                     data-annotation-root
-                    data-annotation-source-key="writing-sujet:{{ sujet.pk }}:model-{{ forloop.counter }}">{{ version.body|linebreaks }}</div>
+                   data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-{{ forloop.counter }}">{{ version.body|linebreaks }}</div>
+                  <p class="muted">{{ version.body|french_wordcount }} mots{% if version.origin == "author" %} · version de l’auteur{% endif %}</p>
                 </section>
               {% endfor %}
             </div>
@@ -77,11 +81,12 @@
           <div
             class="t1-response__body"
             data-annotation-root
-            data-annotation-source-key="writing-sujet:{{ sujet.pk }}:model-1">{{ primary_version.body|linebreaks }}</div>
+            data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-1">{{ primary_version.body|linebreaks }}</div>
+          <p class="muted">{{ primary_version.body|french_wordcount }} mots{% if primary_version.origin == "author" %} · version de l’auteur{% endif %}</p>
         </section>
         {% if other_version_count %}
           <details class="t1-versions">
-            <summary class="t1-versions__summary">Voir mes autres versions ({{ other_version_count }})</summary>
+            <summary class="t1-versions__summary">Voir les autres versions ({{ other_version_count }})</summary>
             <div class="t1-versions__list">
               {% for version in other_versions %}
                 <section class="card section-card section-card--model">
@@ -89,7 +94,8 @@
                   <div
                     class="t1-response__body"
                     data-annotation-root
-                    data-annotation-source-key="writing-sujet:{{ sujet.pk }}:model-{{ forloop.counter|add:1 }}">{{ version.body|linebreaks }}</div>
+                    data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-{{ forloop.counter|add:1 }}">{{ version.body|linebreaks }}</div>
+                  <p class="muted">{{ version.body|french_wordcount }} mots{% if version.origin == "author" %} · version de l’auteur{% endif %}</p>
                 </section>
               {% endfor %}
             </div>
@@ -108,18 +114,25 @@
         <div class="spine-label">Progression du sujet</div>
         <div
           class="subject-progress-control{% if explicitly_completed %} is-complete{% endif %}"
-          data-writing-sujet-progress-control="{{ sujet.pk }}">
+          data-writing-sujet-progress-control="{{ progress_sujet.pk }}">
           <span
             class="progress-status progress-status--{{ writing_progress.status }}"
-            data-writing-sujet-progress-status="{{ sujet.pk }}">{{ writing_progress.label }}</span>
+            data-writing-sujet-progress-status="{{ progress_sujet.pk }}">{{ writing_progress.label }}</span>
           <div class="subject-progress-control__action">
             <span>J’ai terminé ce sujet</span>
-            {% include "study/partials/writing_sujet_completion_form.html" with sujet=sujet completed=explicitly_completed subject_label=prompt part=part task=task %}
+            {% include "study/partials/writing_sujet_completion_form.html" with sujet=progress_sujet completed=explicitly_completed subject_label=prompt part=part task=task %}
           </div>
         </div>
         <p class="subject-progress-control__help">Surligner ou personnaliser une réponse garde le sujet « En cours » jusqu’à votre validation.</p>
         <dl class="kv">
           <div><dt>Thème</dt><dd>{{ category_label }}</dd></div>
+          {% if source %}
+            <div>
+              <dt>Publication</dt>
+              <dd><a href="{{ source_url }}" target="_blank" rel="noopener noreferrer">{{ source.month_name }} {{ source.year }} · {{ source.combinaison }}</a></dd>
+            </div>
+          {% endif %}
+          <div><dt>Limite</dt><dd>{{ word_limit_min }}–{{ word_limit_max }} mots</dd></div>
           <div><dt>Réponses modèles</dt><dd>{{ model_versions|length }}</dd></div>
           <div><dt>Personnalisation</dt><dd>{% if has_personal %}Prête{% else %}À faire{% endif %}</dd></div>
           <div><dt>Position</dt><dd>{{ position }} / {{ total }}</dd></div>
@@ -129,6 +142,23 @@
           <a class="btn btn--block" href="{% url 'study:task_browse' part.slug task.slug %}">Tous les sujets</a>
         </div>
       </div>
+
+      {% if equivalent_sujets %}
+        <div class="card section-card response-sidebar-card response-sidebar-card--aliases">
+          <div class="spine-label">Sujets équivalents</div>
+          <p class="muted">Ces publications reprennent la même consigne. Une seule réponse et une seule progression sont partagées.</p>
+          <ul class="mini-list">
+            {% for equivalent in equivalent_sujets %}
+              <li>
+                <a href="{% url 'study:writing_sujet_detail' part.slug task.slug equivalent.sujet.pk %}" target="_blank" rel="noopener noreferrer">
+                  <span class="chip">{{ equivalent.source.month_name }} {{ equivalent.source.year }} · {{ equivalent.source.combinaison }}</span>
+                  {{ equivalent.source.prompt|truncatechars:100 }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </aside>
   </div>
 </div>

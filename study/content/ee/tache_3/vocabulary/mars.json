@@ -1260,31 +1260,31 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, leurs opposants contestent leur efficacité et dénoncent les inégalités entre les enfants aidés chez eux et ceux dont les familles manquent de temps ou de compétences.",
+          "example": "En revanche, leurs opposants dénoncent le stress, la fatigue et les inégalités entre enfants, jugeant que l’autonomie doit s’acquérir à l’école avec des outils pédagogiques adaptés.",
           "usage": "Connecteur adverbial ; réutilisable en Éducation/Famille."
         },
         {
           "id": "E3-MAR-C06-03",
           "kind": "mot-cle",
-          "french": "l’autonomie des élèves",
-          "english": "pupils’ autonomy",
-          "example": "Leurs défenseurs estiment qu’ils développent l’autonomie des élèves et créent un lien quotidien entre les parents et l’école.",
+          "french": "l’autonomie",
+          "english": "autonomy",
+          "example": "Leurs défenseurs estiment que des exercices limités à quinze minutes développent l’autonomie et créent un lien familial.",
           "usage": "Groupe nominal ; réutilisable en Éducation/Famille."
         },
         {
           "id": "E3-MAR-C06-04",
           "kind": "mot-cle",
-          "french": "un lien quotidien",
-          "english": "a daily connection",
-          "example": "Leurs défenseurs estiment qu’ils développent l’autonomie des élèves et créent un lien quotidien entre les parents et l’école.",
+          "french": "un lien familial",
+          "english": "a family connection",
+          "example": "Leurs défenseurs estiment que des exercices limités à quinze minutes développent l’autonomie et créent un lien familial.",
           "usage": "Groupe nominal ; réutilisable en Éducation/Famille."
         },
         {
           "id": "E3-MAR-C06-05",
           "kind": "mot-cle",
-          "french": "les inégalités",
-          "english": "inequalities",
-          "example": "En revanche, leurs opposants contestent leur efficacité et dénoncent les inégalités entre les enfants aidés chez eux et ceux dont les familles manquent de temps ou de compétences.",
+          "french": "les inégalités entre enfants",
+          "english": "inequalities among children",
+          "example": "En revanche, leurs opposants dénoncent le stress, la fatigue et les inégalités entre enfants, jugeant que l’autonomie doit s’acquérir à l’école avec des outils pédagogiques adaptés.",
           "usage": "Groupe nominal ; réutilisable en Éducation/Famille."
         },
         {
@@ -1346,17 +1346,17 @@
         {
           "id": "E3-MAR-C06-13",
           "kind": "collocation",
-          "french": "les parents et l’école",
-          "english": "parents and the school",
-          "example": "Leurs défenseurs estiment qu’ils développent l’autonomie des élèves et créent un lien quotidien entre les parents et l’école.",
+          "french": "des outils pédagogiques adaptés",
+          "english": "suitable teaching tools",
+          "example": "En revanche, leurs opposants dénoncent le stress, la fatigue et les inégalités entre enfants, jugeant que l’autonomie doit s’acquérir à l’école avec des outils pédagogiques adaptés.",
           "usage": "Association lexicale ; réutilisable en Éducation/Famille."
         },
         {
           "id": "E3-MAR-C06-14",
           "kind": "collocation",
-          "french": "les enfants aidés chez eux",
-          "english": "children helped at home",
-          "example": "En revanche, leurs opposants contestent leur efficacité et dénoncent les inégalités entre les enfants aidés chez eux et ceux dont les familles manquent de temps ou de compétences.",
+          "french": "des exercices limités à quinze minutes",
+          "english": "exercises limited to fifteen minutes",
+          "example": "Leurs défenseurs estiment que des exercices limités à quinze minutes développent l’autonomie et créent un lien familial.",
           "usage": "Association lexicale ; réutilisable en Éducation/Famille."
         },
         {
@@ -1394,9 +1394,9 @@
         {
           "id": "E3-MAR-C06-19",
           "kind": "tournure",
-          "french": "ceux dont les familles manquent de temps ou de compétences",
-          "english": "those whose families lack time or skills",
-          "example": "En revanche, leurs opposants contestent leur efficacité et dénoncent les inégalités entre les enfants aidés chez eux et ceux dont les familles manquent de temps ou de compétences.",
+          "french": "jugeant que l’autonomie doit s’acquérir à l’école",
+          "english": "believing that autonomy should be acquired at school",
+          "example": "En revanche, leurs opposants dénoncent le stress, la fatigue et les inégalités entre enfants, jugeant que l’autonomie doit s’acquérir à l’école avec des outils pédagogiques adaptés.",
           "usage": "Construction réutilisable ; réutilisable en Éducation/Famille."
         },
         {
@@ -1484,7 +1484,7 @@
           "kind": "reformulation",
           "french": "leurs opposants",
           "english": "their opponents",
-          "example": "En revanche, leurs opposants contestent leur efficacité et dénoncent les inégalités entre les enfants aidés chez eux et ceux dont les familles manquent de temps ou de compétences.",
+          "example": "En revanche, leurs opposants dénoncent le stress, la fatigue et les inégalités entre enfants, jugeant que l’autonomie doit s’acquérir à l’école avec des outils pédagogiques adaptés.",
           "usage": "Reprise anaphorique ; réutilisable en Éducation/Famille."
         }
       ]

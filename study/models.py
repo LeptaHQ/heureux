@@ -213,7 +213,7 @@ class PersonalResponse(models.Model):
 
 
 class WritingSujet(models.Model):
-    """A short-message writing prompt (EE Tâche 1) with model responses.
+    """An EE Tâche 1/2 writing prompt with shared model responses.
 
     Sujets are grouped by theme category. Every model version is kept, best
     first, inside ``versions``; learners layer their own version on top with a
@@ -294,7 +294,7 @@ class PersonalWritingResponse(models.Model):
 
 
 class WritingSujetCompletion(models.Model):
-    """A learner's explicit completion marker for an EE Tâche 1 sujet."""
+    """A learner's explicit completion marker for an EE writing sujet."""
 
     user = models.ForeignKey(
         django_settings.AUTH_USER_MODEL,

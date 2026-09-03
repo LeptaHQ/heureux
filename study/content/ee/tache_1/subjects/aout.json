@@ -1,0 +1,112 @@
+{
+  "month": {
+    "number": 8,
+    "slug": "aout",
+    "name": "Août"
+  },
+  "year": 2025,
+  "task": "tache_1",
+  "epreuve": "Expression écrite — Tâche 1",
+  "annee": 2025,
+  "recupere_le": "2026-09-03",
+  "contenu": "consignes (sujets) uniquement — sans réponses ni corrections",
+  "count": 16,
+  "sujets": [
+    {
+      "id": 241,
+      "combinaison": "Combinaison 1",
+      "key": "ee-tache1:aout:combinaison-1",
+      "prompt": "Vous voulez aller à un festival de films dans votre ville. Rédigez un message à un ami pour lui proposer de vous accompagner. Indiquez clairement les détails de l’événement (films, horaires, dates et prix)."
+    },
+    {
+      "id": 242,
+      "combinaison": "Combinaison 2",
+      "key": "ee-tache1:aout:combinaison-2",
+      "prompt": "Rédigez un message à votre ami Cédric pour lui fournir des instructions concernant l’entretien de votre maison et de votre jardin pendant votre absence."
+    },
+    {
+      "id": 243,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache1:aout:combinaison-3",
+      "prompt": "Parc de loisirs : J’ai hâte de profiter de cette journée avec toi demain ! Peux-tu me dire quelles activités sont au programme ? Écrivez un message pour répondre à votre ami(e)."
+    },
+    {
+      "id": 244,
+      "combinaison": "Combinaison 4",
+      "key": "ee-tache1:aout:combinaison-4",
+      "prompt": "Invitez votre ami(e) à venir passer les vacances chez vous. Dans votre message, décrivez les sites touristiques et les endroits intéressants à découvrir dans votre ville."
+    },
+    {
+      "id": 245,
+      "combinaison": "Combinaison 8",
+      "key": "ee-tache1:aout:combinaison-8",
+      "prompt": "Votre ami Cédric a accepté de garder votre maison et jardin pendant vos vacances. Écrivez un message pour lui dire ce qu’il doit faire."
+    },
+    {
+      "id": 246,
+      "combinaison": "Combinaison 9",
+      "key": "ee-tache1:aout:combinaison-9",
+      "prompt": "Répondez au courriel de votre ami Lucas pour lui donner des informations sur les nouveaux locaux de votre entreprise (lieu, disposition des pièces, équipements, etc.)"
+    },
+    {
+      "id": 247,
+      "combinaison": "Combinaison 10",
+      "key": "ee-tache1:aout:combinaison-10",
+      "prompt": "Vous avez décidé d’offrir un voyage à votre ami pour son anniversaire. Écrivez un message pour lui expliquer ce que vous avez préparé : la destination, les dates et les autres détails du voyage."
+    },
+    {
+      "id": 248,
+      "combinaison": "Combinaison 11",
+      "key": "ee-tache1:aout:combinaison-11",
+      "prompt": "Vous souhaitez fêter votre anniversaire dans un restaurant. Vous invitez vos amis. Vous leur écrivez un courriel pour leur donner toutes les informations nécessaires (lieu, date, menu, prix, etc.) et vous leur demandez une réponse."
+    },
+    {
+      "id": 249,
+      "combinaison": "Combinaison 12",
+      "key": "ee-tache1:aout:combinaison-12",
+      "prompt": "Rédigez un message à un ami pour l’inviter à une rencontre avec un écrivain organisée par la bibliothèque de votre ville."
+    },
+    {
+      "id": 250,
+      "combinaison": "Combinaison 13",
+      "key": "ee-tache1:aout:combinaison-13",
+      "prompt": "Rédigez un message à un ami pour l’informer de votre déménagement et lui demander son aide, en précisant la date, le lieu et le déroulement du programme."
+    },
+    {
+      "id": 251,
+      "combinaison": "Combinaison 14",
+      "key": "ee-tache1:aout:combinaison-14",
+      "prompt": "Vous êtes locataire d’un appartement qui vous semble trop grand. Rédigez une annonce dans un journal pour trouver un colocataire, en indiquant la superficie, le profil recherché et le montant du loyer, entre autres détails."
+    },
+    {
+      "id": 252,
+      "combinaison": "Combinaison 15",
+      "key": "ee-tache1:aout:combinaison-15",
+      "prompt": "Votre ami Cédric a accepté de garder votre maison et jardin pendant vos vacances. Écrivez un message pour lui dire ce qu’il doit faire."
+    },
+    {
+      "id": 253,
+      "combinaison": "Combinaison 16",
+      "key": "ee-tache1:aout:combinaison-16",
+      "prompt": "Vous occupez un grand appartement et recherchez un colocataire. Racontez la manière dont vous imaginez la colocation et présentez les particularités de votre logement."
+    },
+    {
+      "id": 254,
+      "combinaison": "Combinaison 17",
+      "key": "ee-tache1:aout:combinaison-17",
+      "prompt": "Rédigez un courriel à votre ami francophone afin de solliciter son soutien pour trouver un logement. Pensez à préciser les informations essentielles (genre de logement, budget, date)."
+    },
+    {
+      "id": 255,
+      "combinaison": "Combinaison 18",
+      "key": "ee-tache1:aout:combinaison-18",
+      "prompt": "Vous avez trouvé un appartement intéressant et comptez déménager. Informez un ami par écrit en lui donnant tous les détails essentiels (type de logement, localisation et prix)."
+    },
+    {
+      "id": 256,
+      "combinaison": "Combinaison 19",
+      "key": "ee-tache1:aout:combinaison-19",
+      "prompt": "Envoyez un message à vos amis pour les inviter à passer un week-end chez vous et à pratiquer ensemble des activités sportives."
+    }
+  ]
+}

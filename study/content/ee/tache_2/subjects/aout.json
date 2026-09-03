@@ -1,0 +1,112 @@
+{
+  "month": {
+    "number": 8,
+    "slug": "aout",
+    "name": "Août"
+  },
+  "year": 2025,
+  "task": "tache_2",
+  "epreuve": "Expression écrite — Tâche 2",
+  "annee": 2025,
+  "recupere_le": "2026-09-03",
+  "contenu": "consignes (sujets) uniquement — sans réponses ni corrections",
+  "count": 16,
+  "sujets": [
+    {
+      "id": 241,
+      "combinaison": "Combinaison 1",
+      "key": "ee-tache2:aout:combinaison-1",
+      "prompt": "Vous êtes allé à un festival de cinéma et vous avez regardé un film qui vous a laissé une forte impression. Rédigez un message à vos amis pour partager votre expérience et leur donner votre avis sur ce film."
+    },
+    {
+      "id": 242,
+      "combinaison": "Combinaison 2",
+      "key": "ee-tache2:aout:combinaison-2",
+      "prompt": "Rédigez une lettre de réclamation pour exprimer votre insatisfaction à l’égard des services fournis par une agence de voyage suite à une organisation défaillante de votre séjour."
+    },
+    {
+      "id": 243,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache2:aout:combinaison-3",
+      "prompt": "Vous avez publié une annonce en ligne pour louer votre appartement. Rédigez un courriel afin de fournir des informations sur le logement et le quartier."
+    },
+    {
+      "id": 244,
+      "combinaison": "Combinaison 4",
+      "key": "ee-tache2:aout:combinaison-4",
+      "prompt": "Vous avez été sélectionné(e) pour un concours où le prix est un séjour de deux semaines dans votre ville favorite. Le thème du concours était “Mon artiste préféré”. Rédigez un article de blog pour parler de l’artiste que vous aimez le plus."
+    },
+    {
+      "id": 245,
+      "combinaison": "Combinaison 8",
+      "key": "ee-tache2:aout:combinaison-8",
+      "prompt": "Vous faites une réclamation par rapport aux mauvaises prestations d’une agence de voyages suite à un voyage mal organisé. Exprimez votre mécontentement."
+    },
+    {
+      "id": 246,
+      "combinaison": "Combinaison 9",
+      "key": "ee-tache2:aout:combinaison-9",
+      "prompt": "Vous avez assisté à un événement intitulé « Une semaine sans voiture ». Racontez votre expérience et donnez votre impression sur cette initiative. Décrivez le déroulement de l’événement (dates, lieu, activités proposées)."
+    },
+    {
+      "id": 247,
+      "combinaison": "Combinaison 10",
+      "key": "ee-tache2:aout:combinaison-10",
+      "prompt": "Un internaute exprime des inquiétudes concernant son départ pour étudier à l’étranger. Partagez votre expérience personnelle sur les défis rencontrés, les solutions trouvées et les bénéfices tirés de cette expérience."
+    },
+    {
+      "id": 248,
+      "combinaison": "Combinaison 11",
+      "key": "ee-tache2:aout:combinaison-11",
+      "prompt": "Vous avez quitté la ville afin de vous installer à la campagne. Sur votre blog, vous expliquez pourquoi vous avez fait ce choix et vous présentez les avantages de votre nouvelle vie."
+    },
+    {
+      "id": 249,
+      "combinaison": "Combinaison 12",
+      "key": "ee-tache2:aout:combinaison-12",
+      "prompt": "Rédigez un article de blog relatant votre expérience lors de l’événement « La Semaine du Goût », auquel vous avez participé."
+    },
+    {
+      "id": 250,
+      "combinaison": "Combinaison 13",
+      "key": "ee-tache2:aout:combinaison-13",
+      "prompt": "Rédigez un article de blog sur votre artiste préféré dans le cadre d’un concours dont le thème est « Mon artiste préféré », permettant de gagner un séjour de deux semaines dans votre ville favorite."
+    },
+    {
+      "id": 251,
+      "combinaison": "Combinaison 14",
+      "key": "ee-tache2:aout:combinaison-14",
+      "prompt": "Vous avez récemment débuté une nouvelle activité de loisir, comme un sport ou la danse. Rédigez un article sur votre blog pour partager votre expérience."
+    },
+    {
+      "id": 252,
+      "combinaison": "Combinaison 15",
+      "key": "ee-tache2:aout:combinaison-15",
+      "prompt": "Rédigez une lettre de réclamation pour exprimer votre insatisfaction à l’égard des services fournis par une agence de voyage suite à une organisation défaillante de votre séjour."
+    },
+    {
+      "id": 253,
+      "combinaison": "Combinaison 16",
+      "key": "ee-tache2:aout:combinaison-16",
+      "prompt": "Une compagnie de théâtre est venue dans votre ville et vous avez assisté à l’une de ses représentations. Écrivez un article de blog pour raconter cette expérience."
+    },
+    {
+      "id": 254,
+      "combinaison": "Combinaison 17",
+      "key": "ee-tache2:aout:combinaison-17",
+      "prompt": "Vous êtes chargé(e) d’organiser la journée d’accueil des nouveaux étudiants francophones dans votre école. Vous préparez un courriel destiné aux nouveaux étudiants. Dans ce courriel, vous expliquez le déroulement prévu de la journée et vous donnez toutes les informations nécessaires"
+    },
+    {
+      "id": 255,
+      "combinaison": "Combinaison 18",
+      "key": "ee-tache2:aout:combinaison-18",
+      "prompt": "Vous avez assisté avec un ami à un festival de musique gratuit organisé dans votre ville. Écrivez un article de blog pour partager votre expérience et vos impressions."
+    },
+    {
+      "id": 256,
+      "combinaison": "Combinaison 19",
+      "key": "ee-tache2:aout:combinaison-19",
+      "prompt": "Écrivez un article sur votre blog pour raconter pourquoi vous avez décidé de changer votre alimentation (vos habitudes alimentaires). Écrivez un article sur votre blog pour raconter pourquoi vous avez décidé de changer votre alimentation (vos habitudes alimentaires)."
+    }
+  ]
+}

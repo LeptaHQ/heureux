@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static study_markdown %}
 {% block title %}Personnaliser · {{ task.name }} · Heureux{% endblock %}
 
 {% block content %}
@@ -15,8 +16,8 @@
 
   <div class="page-head response-edit__head">
     <div>
-      <p class="eyebrow">Version personnelle · {{ part.name }} · {{ task.name }}</p>
-      <h1>Ma réponse au message</h1>
+      <p class="eyebrow">Version personnelle · {{ part.name }} · {{ task.name }}{% if source %} · {{ source.month_name }} {{ source.year }}{% endif %}</p>
+      <h1>{% if writing_tache == 1 %}Ma réponse au message{% else %}Mon récit argumenté{% endif %}</h1>
       <p>Seule votre réponse change. La consigne du sujet reste toujours intacte.</p>
     </div>
     <a class="btn" href="{{ detail_url }}">Retour au sujet</a>
@@ -25,6 +26,7 @@
   <section class="card card--pad response-edit__prompt" aria-labelledby="t1-edit-prompt">
     <div class="spine-label" id="t1-edit-prompt">Consigne non modifiable</div>
     <p class="detail-prompt">{{ prompt }}</p>
+    {% if source %}<p class="muted"><a href="{{ source_url }}" target="_blank" rel="noopener noreferrer">Source publique · {{ source.month_name }} {{ source.year }} · {{ source.combinaison }}</a></p>{% endif %}
   </section>
 
   {% if model_versions %}
@@ -37,7 +39,8 @@
             <div
               class="t1-response__body"
               data-annotation-root
-              data-annotation-source-key="writing-sujet:{{ sujet.pk }}:model-{{ forloop.counter }}">{{ version.body|linebreaks }}</div>
+              data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-{{ forloop.counter }}">{{ version.body|linebreaks }}</div>
+            <p class="muted">{{ version.body|french_wordcount }} mots{% if version.origin == "author" %} · version de l’auteur{% endif %}</p>
           </section>
         {% endfor %}
       </div>
@@ -50,7 +53,16 @@
     <section class="card card--pad response-edit__section">
       <div class="response-edit-field">
         <label for="t1-body">Votre message</label>
-        <textarea id="t1-body" name="body" rows="16" class="t1-edit-form__textarea" placeholder="Rédigez ici votre courriel ou message…">{{ body_value }}</textarea>
+        <textarea
+          id="t1-body"
+          name="body"
+          rows="16"
+          class="t1-edit-form__textarea"
+          data-writing-word-input
+          data-word-min="{{ word_limit_min }}"
+          data-word-max="{{ word_limit_max }}"
+          placeholder="{% if writing_tache == 1 %}Rédigez ici votre courriel ou message…{% else %}Rédigez ici votre expérience et votre avis…{% endif %}">{{ body_value }}</textarea>
+        <p class="muted" data-writing-word-status aria-live="polite">Limite officielle : {{ word_limit_min }} à {{ word_limit_max }} mots.</p>
       </div>
     </section>
     <div class="response-edit__actions">
@@ -70,4 +82,9 @@
     </section>
   {% endif %}
 </div>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'study/js/writing-word-count.js' %}?v=1"></script>
 {% endblock %}

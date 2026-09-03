@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "theme": "numerique",
+  "responses": [
+    {
+      "content_key": "ee-tache2:avril:combinaison-17",
+      "versions": [
+        {
+          "body": "L’hiver dernier, j’ai installé une petite télévision face à mon lit. J’étais ravi : je pouvais enfin regarder un film confortablement, sans déranger le reste de la famille.\n\nLes premiers soirs m’ont enchanté. Puis, une nuit de janvier, j’ai repoussé l’heure du sommeil pour terminer une série : la lumière bleue éclairait encore la chambre à deux heures du matin et je me suis levé épuisé. Ensuite, j’ai constaté que nous ne regardions plus rien ensemble ; chacun s’isolait dans sa pièce et nos discussions du dimanche avaient disparu.\n\nAu bout d’un mois, j’ai redescendu l’appareil au salon. Depuis, je dors mieux et nous rions de nouveau devant les mêmes émissions. Si vous tenez à cet écran, fixez au moins des horaires. Pour moi, le salon reste un choix plus sain, économique et convivial.",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:juin:combinaison-1",
+      "versions": [
+        {
+          "body": "Salut les amis,\n\nIl y a un mois, j’ai supprimé Instagram de mon téléphone. J’y passais parfois deux heures par jour. Je comparais mes journées ordinaires aux photos parfaites des autres et je consultais l’application dès le réveil. Lorsque j’ai oublié un rendez-vous important parce que je regardais des vidéos, j’ai décidé de faire une pause.\n\nLes premiers jours, ma main cherchait automatiquement l’icône disparue et j’avais peur de manquer vos nouvelles. Puis j’ai retrouvé du temps pour lire, cuisiner et appeler directement mes proches. Je dors mieux, je me concentre plus longtemps et nos conversations me semblent plus sincères. Je ne critique pas ceux qui utilisent ce réseau avec plaisir, mais son fonctionnement ne me convenait plus. Je serai moins visible en ligne, mais plus disponible dans la vie réelle !",
+          "origin": "original"
+        }
+      ]
+    }
+  ]
+}

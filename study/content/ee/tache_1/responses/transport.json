@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "theme": "transport",
+  "responses": [
+    {
+      "content_key": "ee-tache1:janvier:combinaison-1",
+      "versions": [
+        {
+          "body": "Coucou Anna,\n\nJ’espère que tu vas bien ! Super nouvelle que tu viennes passer le week-end ici ! Voici les meilleurs moyens de te déplacer.\n\nLes bus TCAT sont gratuits avec la carte et très pratiques. Ils desservent les principaux lieux, comme les parcs, les piscines et les cinémas, de 8h à 19h. Petit conseil : sois ponctuelle, car ils ne t’attendront pas !\n\nLes taxis sont assez chers et rares, mais tu peux les réserver à l’avance avec une application. Enfin, abonne-toi à Lime pour utiliser leurs vélos électriques.\n\nMon astuce : combine bus et vélo !\n\nHâte de te faire découvrir la ville,\nCorn",
+          "origin": "author"
+        },
+        {
+          "body": "Coucou Anna,\n\nSuper de te lire ! Je suis ravi que tu veuilles passer un week-end à Kumasi. Pour te déplacer, il existe plusieurs options.\n\nTout d’abord, tu peux prendre les minibus appelés « tro-tros ». Ils sont économiques et desservent les marchés, les parcs et les principaux quartiers toute la journée : c’est très pratique.\n\nEnsuite, tu peux utiliser les taxis ou les VTC comme Uber. Ces options sont plus rapides et confortables. Le seul bémol est qu’elles coûtent plus cher.\n\nPour les trajets courts, la marche reste toutefois mon moyen préféré !\n\nHâte de te voir !\n\nCorn",
+          "origin": "author"
+        },
+        {
+          "body": "Coucou Anna,\n\nSuper nouvelle que tu viennes passer le week-end à Ithaca ! Pour explorer la ville, le bus TCAT est le moyen le plus économique : il dessert le centre, les parcs et le campus de 6h à 23h. Tu peux acheter un ticket à bord ou une carte valable toute la journée.\n\nD’ailleurs, je te conseille aussi de louer un vélo électrique près de la gare : les pistes cyclables sont excellentes. Le taxi reste pratique le soir, mais coûte plus cher.\n\nMon astuce : le vélo en journée et le bus le soir !\n\nHâte de te voir,\nCorn",
+          "origin": "original"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:janvier:combinaison-3",
+      "versions": [
+        {
+          "body": "Salut Mehdi !\n\nBienvenue à Ithaca ! Voici les infos transport :\n\nBus : gratuits avec la carte TCAT. Ils desservent toute la ville de 6h à 23h. Sois ponctuel, car ils ne t’attendront pas !\n\nTaxis : environ 25 $ la course, mais ils sont rares ici. Réserve avec l’application LocalCab.\n\nVélo, mon conseil : c’est le plus pratique au quotidien. Compte 150 $ pour un bon vélo d’occasion. La ville a d’excellentes pistes cyclables. Les lumières et la sonnette sont obligatoires pour rouler la nuit.\n\nAstuce : si tu habites près du campus, le vélo suffit largement !\n\nÀ vite,\nCorn",
+          "origin": "author"
+        },
+        {
+          "body": "Coucou Mehdi,\n\nBienvenue à Kumasi ! Pour te déplacer, il existe plusieurs options.\n\nTout d’abord, tu peux prendre les bus publics et les « tro-tros ». Ils desservent les marchés, les parcs et les principaux quartiers. Il n’existe pas d’abonnement mensuel : compte entre 5 et 10 cedis selon le trajet.\n\nEnsuite, tu peux utiliser les taxis ou les VTC comme Uber. Ces options sont plus rapides et confortables. Le seul bémol est qu’elles coûtent plus cher.\n\nPour les trajets courts, la marche reste toutefois mon moyen préféré !\n\nN’hésite pas si tu as des questions.\n\nÀ bientôt !\n\nCorn",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache1:novembre:combinaison-3",
+      "versions": [
+        {
+          "body": "Coucou Anna,\n\nJ’espère que tu vas bien ! À Lyon, tu auras plusieurs moyens de transport pour visiter la ville. Le métro est le plus rapide : il fonctionne dès 5h et dessert tous les quartiers touristiques. Avec un pass de 48 heures à environ 13 €, tu pourras aussi prendre les bus et les tramways sans limite.\n\nD’ailleurs, le tramway est agréable pour admirer le centre-ville. S’il fait beau, loue un Vélo’v près d’une station : les nombreuses pistes cyclables facilitent les déplacements.\n\nLe soir, tu pourras réserver un taxi, mais cette option coûte plus cher.\n\nHâte de te voir !\nC",
+          "origin": "original"
+        }
+      ]
+    }
+  ]
+}

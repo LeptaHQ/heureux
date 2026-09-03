@@ -31,6 +31,7 @@ from ..models import (
     AnnotationKind,
     Prompt,
     Task,
+    WritingSujet,
 )
 from ..progress import (
     writing_sujet_id_from_source_key,
@@ -58,6 +59,12 @@ TACHE_TWO_SUBJECT_PATH_RE = re.compile(
     r"(?P<task>[-a-zA-Z0-9_]+)/"
     r"sujets/(?P<month>[a-z0-9-]+)/batch-(?P<batch>\d+)/"
     r"(?P<subject>\d+)/$"
+)
+WRITING_SUJET_PATH_RE = re.compile(
+    r"^/expression/(?P<part>orale|ecrite)/"
+    r"(?P<task>[-a-zA-Z0-9_]+)/"
+    r"sujets/messages/(?P<sujet_id>\d+)/"
+    r"(?P<edit>personnaliser/)?$"
 )
 EXPRESSION_PART_BY_PATH = {
     "orale": "eo",
@@ -914,6 +921,48 @@ def _annotation_prompt_scope(prompt):
     return canonical_path, source_filter
 
 
+def _annotation_writing_sujet_scope(sujet, tache, *, prefer_edit=False):
+    canonical_by_slug = content_module.ee_writing_canonical_slug_by_slug(tache)
+    canonical_slug = canonical_by_slug.get(sujet.slug, sujet.slug)
+    sibling_slugs = [
+        slug
+        for slug, target_slug in canonical_by_slug.items()
+        if target_slug == canonical_slug
+    ]
+    siblings = list(
+        WritingSujet.objects.filter(
+            task=sujet.task,
+            slug__in=sibling_slugs,
+            is_active=True,
+        ).order_by("order", "pk")
+    )
+    canonical = next(
+        (item for item in siblings if item.slug == canonical_slug),
+        sujet,
+    )
+    canonical_path = reverse(
+        (
+            "study:writing_sujet_edit"
+            if prefer_edit
+            else "study:writing_sujet_detail"
+        ),
+        args=[sujet.task.part.slug, sujet.task.slug, canonical.pk],
+    )
+    source_filter = Q()
+    for sibling in siblings:
+        for route_name in (
+            "study:writing_sujet_detail",
+            "study:writing_sujet_edit",
+        ):
+            sibling_path = reverse(
+                route_name,
+                args=[sujet.task.part.slug, sujet.task.slug, sibling.pk],
+            )
+            source_filter |= Q(source_path=sibling_path)
+            source_filter |= Q(source_path__startswith=f"{sibling_path}?")
+    return canonical_path, source_filter
+
+
 def _annotation_source_scope(source_path):
     base_path = source_path.split("?", 1)[0]
     match = SUBJECT_SOURCE_PATH_RE.fullmatch(base_path)
@@ -933,6 +982,31 @@ def _annotation_source_scope(source_path):
         )
         if prompt is not None:
             return _annotation_prompt_scope(prompt)
+    writing_match = WRITING_SUJET_PATH_RE.fullmatch(base_path)
+    if writing_match:
+        part_slug = EXPRESSION_PART_BY_PATH[writing_match.group("part")]
+        task_slug = writing_match.group("task")
+        tache = {
+            content_module.EE_TACHE_ONE_TASK: 1,
+            content_module.EE_TACHE_TWO_TASK: 2,
+        }.get((part_slug, task_slug))
+        if tache is not None:
+            sujet = (
+                WritingSujet.objects.filter(
+                    pk=writing_match.group("sujet_id"),
+                    is_active=True,
+                    task__part__slug=part_slug,
+                    task__slug=task_slug,
+                )
+                .select_related("task__part")
+                .first()
+            )
+            if sujet is not None:
+                return _annotation_writing_sujet_scope(
+                    sujet,
+                    tache,
+                    prefer_edit=bool(writing_match.group("edit")),
+                )
     tache_two_match = TACHE_TWO_SUBJECT_PATH_RE.fullmatch(base_path)
     if tache_two_match:
         prompt = (

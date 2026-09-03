@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "theme": "vie-quartier",
+  "responses": [
+    {
+      "content_key": "ee-tache2:janvier:combinaison-1",
+      "versions": [
+        {
+          "body": "Mon expérience lors d’une récente fête de voisins\n\nIl y a exactement une semaine, j’ai assisté à une fête de voisins et c’était incroyable. Elle a eu lieu au 123, rue Saint-Charles, près du fleuve, ce qui a créé une ambiance très agréable. L’événement était ouvert à tous les voisins du quartier, et même d’anciens résidents sont venus, ce qui a rendu la rencontre mémorable.\n\nJ’y suis allé très tôt et j’ai donc eu une bonne place. Dès mon arrivée, l’odeur des grillades m’a mis en appétit : nous avons fêté cela autour de bonnes spécialités et de boissons. Cerise sur le gâteau : un chanteur reconnu était invité et ses chansons nous ont fait danser jusqu’au coucher du soleil.\n\nPersonnellement, cette fête m’a vraiment permis de me détendre. Je trouve qu’il est important que les voisins se rencontrent régulièrement pour créer des liens.",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:janvier:combinaison-5",
+      "versions": [
+        {
+          "body": "Deux ans chez Children Care\n\nDepuis deux ans, je suis bénévole à Children Care, l’association de quartier qui propose de l’aide aux devoirs, des sorties et des jeux aux enfants. Tout a commencé un mercredi : la responsable m’a demandé d’aider Amina, huit ans, qui pleurait devant ses divisions.\n\nNous avons repris son exercice en comptant des bonbons. Une heure plus tard, elle riait et voulait recommencer ! Depuis, j’anime les devoirs le mardi, les jeux du samedi et les sorties du mercredi au parc ou au musée, entouré d’animateurs patients qui rendent le cadre très convivial. J’ai vu des enfants timides devenir amis et des parents arriver soulagés après le travail.\n\nVoilà pourquoi ce type d’association est utile : pendant que les parents travaillent, les enfants apprennent et jouent en sécurité. Le sourire d’Amina, aujourd’hui première en calcul, me suffit. Parents du quartier, poussez notre porte !",
+          "origin": "author"
+        }
+      ]
+    },
+    {
+      "content_key": "ee-tache2:mars:combinaison-2",
+      "versions": [
+        {
+          "body": "Chaque mardi, je rends visite à deux personnes âgées avec l’association Main dans la main. Au début, je pensais les aider à faire leurs courses ou à remplir des documents. J’ai vite compris que notre présence comptait davantage. Avec Madeleine, nous préparons une soupe avant de regarder ses albums : mardi dernier, nous avons ri devant ses photos de mariage. Monsieur Ali m’apprend à réparer de petits objets.\n\nCes rencontres créent une relation réciproque : nous apportons du temps et une aide, mais recevons des histoires, des conseils et beaucoup d’affection. L’association nous forme, organise les visites selon nos disponibilités et reste joignable en cas de difficulté. Il n’est donc pas nécessaire d’avoir une expérience particulière. Une heure régulière peut rompre une longue semaine de solitude. Si vous souhaitez agir près de chez vous et découvrir des personnes remarquables, rejoignez-nous. Nous avons notamment besoin de bénévoles pour les promenades du samedi.",
+          "origin": "original"
+        }
+      ]
+    }
+  ]
+}

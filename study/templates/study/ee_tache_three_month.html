@@ -1,35 +1,39 @@
 {% extends "base.html" %}
-{% block title %}{{ month.name }} · {{ task.name }} · Heureux{% endblock %}
+{% block title %}{{ subject_theme.name }} · {{ task.name }} · Heureux{% endblock %}
 
 {% block content %}
 <div class="ee-t3-page ee-t3-month-page">
   {% include "study/partials/task_nav.html" %}
 
-  <p class="back-link"><a href="{% url 'study:task_browse' part.slug task.slug %}">← Tous les mois</a></p>
+  <p class="back-link"><a href="{% url 'study:task_browse' part.slug task.slug %}">← Tous les thèmes</a></p>
   <header class="memory-overview-hero">
     <div class="memory-overview-hero__copy">
-      <p class="eyebrow">Mois {{ month.number_label }} · {{ part.name }} · {{ task.name }}</p>
-      <h1>{{ month.name }}</h1>
-      <p>Choisissez une combinaison pour lire les deux documents, étudier la synthèse et travailler le point de vue personnel.</p>
+      <p class="eyebrow">{{ part.name }} · {{ task.name }}</p>
+      <h1 class="title-with-icon">
+        <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name=subject_theme.icon only %}</span>
+        <span>{{ subject_theme.name }}</span>
+      </h1>
+      <p>Choisissez une publication pour lire les deux documents, étudier la synthèse et travailler le point de vue personnel. Les équivalents partagent la même réponse.</p>
     </div>
-    <dl class="memory-overview-hero__metrics" aria-label="Progression de {{ month.name }}">
-      <div><dt>Sujets</dt><dd>{{ month.subject_count }}</dd></div>
-      <div><dt>Vocabs</dt><dd>{{ month.vocabulary_count }}</dd></div>
-      <div><dt>Terminés</dt><dd>{{ month.completed }}/{{ month.total }}</dd></div>
+    <dl class="memory-overview-hero__metrics" aria-label="Progression de {{ subject_theme.name }}">
+      <div><dt>Sujets publiés</dt><dd>{{ subject_theme.subject_count }}</dd></div>
+      <div><dt>Réponses distinctes</dt><dd>{{ subject_theme.distinct_count }}</dd></div>
+      <div><dt>Vocabs</dt><dd>{{ subject_theme.vocabulary_count }}</dd></div>
+      <div><dt>Terminés</dt><dd>{{ subject_theme.completed }}/{{ subject_theme.total }}</dd></div>
     </dl>
   </header>
 
   <section class="ee-t3-section" aria-labelledby="ee-t3-month-subjects">
     <div class="ee-t3-section__head">
       <div>
-        <p class="eyebrow">Combinaisons {{ month.name }}</p>
-        <h2 id="ee-t3-month-subjects">Sujets du mois</h2>
-        <p>{{ month.subject_count }} réponses complètes, chacune accompagnée de deux documents et de son vocabulaire ciblé.</p>
+        <p class="eyebrow">{{ subject_theme.name }}</p>
+        <h2 id="ee-t3-month-subjects">Sujets du thème</h2>
+        <p>{{ subject_theme.subject_count }} publications, reliées à {{ subject_theme.distinct_count }} réponses complètes et à leur vocabulaire ciblé.</p>
       </div>
       <div class="ee-t3-section__actions">
-        {% include "study/partials/tache_two_progress.html" with summary=month unit_label="sujets terminés" compact=True only %}
+        {% include "study/partials/tache_two_progress.html" with summary=subject_theme unit_label="sujets terminés" compact=True only %}
         {% include "study/partials/collection_view_toggle.html" %}
-        <a class="btn btn--primary" href="{{ review_url }}">Pratiquer ce mois</a>
+        <a class="btn btn--primary" href="{{ review_url }}">Pratiquer ce thème</a>
       </div>
     </div>
     {% include "study/partials/ee_tache_three_subject_list.html" with subjects=subjects part=part task=task %}

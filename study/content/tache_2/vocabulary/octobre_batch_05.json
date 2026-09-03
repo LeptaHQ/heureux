@@ -742,82 +742,82 @@
         {
           "id": "T2O10S24V01",
           "kind": "mot-cle",
+          "french": "des tarifs réduits",
+          "english": "discounted rates",
+          "example": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "usage": "Groupe nominal désignant les prix diminués pour certains publics."
+        },
+        {
+          "id": "T2O10S24V02",
+          "kind": "mot-cle",
+          "french": "les étudiants, les seniors ou les familles",
+          "english": "students, seniors, or families",
+          "example": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "usage": "Énumération figée des publics bénéficiant généralement de conditions tarifaires spécifiques."
+        },
+        {
+          "id": "T2O10S24V03",
+          "kind": "mot-cle",
+          "french": "les seniors",
+          "english": "senior citizens",
+          "example": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "usage": "Nom courant désignant les personnes âgées dans un contexte tarifaire."
+        },
+        {
+          "id": "T2O10S24V04",
+          "kind": "mot-cle",
+          "french": "les étudiants",
+          "english": "students",
+          "example": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "usage": "Nom pluriel désignant le public scolaire ou universitaire visé par des réductions."
+        },
+        {
+          "id": "T2O10S24V05",
+          "kind": "mot-cle",
+          "french": "équipement",
+          "english": "equipment",
+          "example": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
+          "usage": "Nom masculin générique désignant le matériel nécessaire à une activité."
+        },
+        {
+          "id": "T2O10S24V06",
+          "kind": "mot-cle",
+          "french": "le quartier",
+          "english": "the neighbourhood",
+          "example": "Bonjour ! Vous m'avez dit que vous animiez des cours de sport dans le quartier — ça m'intéresse beaucoup, vous pourriez m'en parler ?",
+          "usage": "Nom masculin désignant la zone de proximité où se déroulent les activités."
+        },
+        {
+          "id": "T2O10S24V07",
+          "kind": "mot-cle",
+          "french": "des cours de sport",
+          "english": "sports classes",
+          "example": "Bonjour ! Vous m'avez dit que vous animiez des cours de sport dans le quartier — ça m'intéresse beaucoup, vous pourriez m'en parler ?",
+          "usage": "Groupe nominal pour les activités sportives."
+        },
+        {
+          "id": "T2O10S24V08",
+          "kind": "mot-cle",
           "french": "aux débutants",
           "english": "to beginners",
           "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
           "usage": "Groupe prépositionnel désignant les novices."
         },
         {
-          "id": "T2O10S24V02",
-          "kind": "mot-cle",
-          "french": "équipement",
-          "english": "equipment",
-          "example": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
-          "usage": "Nom masculin générique désignant le matériel nécessaire à une activité."
-        },
-        {
-          "id": "T2O10S24V03",
-          "kind": "mot-cle",
-          "french": "des activités sportives",
-          "english": "sports activities",
-          "example": "Bonjour ! Vous m'avez dit que vous animiez des activités sportives dans une association du quartier — j'aimerais m'y mettre, vous pourriez m'en parler ?",
-          "usage": "Groupe nominal désignant les activités de sport."
-        },
-        {
-          "id": "T2O10S24V04",
-          "kind": "mot-cle",
-          "french": "du fitness",
-          "english": "fitness",
-          "example": "Quelles disciplines vous proposez — plutôt du collectif, du fitness, de la course ?",
-          "usage": "Nom désignant une discipline sportive."
-        },
-        {
-          "id": "T2O10S24V05",
-          "kind": "mot-cle",
-          "french": "de la course",
-          "english": "running",
-          "example": "Quelles disciplines vous proposez — plutôt du collectif, du fitness, de la course ?",
-          "usage": "Nom désignant la course à pied."
-        },
-        {
-          "id": "T2O10S24V06",
-          "kind": "mot-cle",
-          "french": "un certificat médical",
-          "english": "a medical certificate",
-          "example": "Côté santé, faut-il un certificat médical ou une condition physique particulière pour participer ?",
-          "usage": "Groupe nominal désignant le justificatif de santé."
-        },
-        {
-          "id": "T2O10S24V07",
-          "kind": "mot-cle",
-          "french": "une cotisation",
-          "english": "a membership fee",
-          "example": "En ce qui concerne le budget, y a-t-il une cotisation à l'association, ou on paie à la séance ?",
-          "usage": "Nom désignant la somme pour l'association."
-        },
-        {
-          "id": "T2O10S24V08",
-          "kind": "mot-cle",
-          "french": "un entraînement",
-          "english": "a training session",
-          "example": "Combien de temps dure un entraînement ?",
-          "usage": "Nom désignant une séance sportive."
-        },
-        {
           "id": "T2O10S24V09",
           "kind": "mot-cle",
-          "french": "un gymnase",
-          "english": "a gym/sports hall",
-          "example": "Question organisation, où est-ce que ça se passe — dans un gymnase, en plein air ?",
-          "usage": "Nom désignant le lieu couvert."
+          "french": "une séance",
+          "english": "a session",
+          "example": "Combien de temps dure une séance ?",
+          "usage": "Nom désignant une séance de cours."
         },
         {
           "id": "T2O10S24V10",
           "kind": "mot-cle",
           "french": "l'ambiance",
           "english": "the atmosphere",
-          "example": "Ensuite, est-ce que l'ambiance est plutôt conviviale ou compétitive ?",
-          "usage": "Nom désignant l'atmosphère des séances."
+          "example": "Tant que j'y pense, l'ambiance est comment — les gens viennent surtout pour se dépenser ou aussi pour se rencontrer ?",
+          "usage": "Nom désignant l'atmosphère du lieu."
         },
         {
           "id": "T2O10S24V11",
@@ -830,85 +830,77 @@
         {
           "id": "T2O10S24V12",
           "kind": "collocation",
+          "french": "fourni sur place",
+          "english": "provided on-site",
+          "example": "Côté matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
+          "usage": "Participe passé suivi d'une locution adverbiale pour indiquer une disponibilité locale."
+        },
+        {
+          "id": "T2O10S24V13",
+          "kind": "collocation",
+          "french": "animiez des cours de sport",
+          "english": "run sports classes",
+          "example": "Bonjour ! Vous m'avez dit que vous animiez des cours de sport dans le quartier — ça m'intéresse beaucoup, vous pourriez m'en parler ?",
+          "usage": "Verbe + complément sur l'animation des cours."
+        },
+        {
+          "id": "T2O10S24V14",
+          "kind": "collocation",
+          "french": "du fitness, du yoga",
+          "english": "fitness, yoga",
+          "example": "Quels types de cours proposez-vous — plutôt du fitness, du yoga, des sports collectifs ?",
+          "usage": "Énumération de disciplines proposées."
+        },
+        {
+          "id": "T2O10S24V15",
+          "kind": "collocation",
+          "french": "des sports collectifs",
+          "english": "team sports",
+          "example": "Quels types de cours proposez-vous — plutôt du fitness, du yoga, des sports collectifs ?",
+          "usage": "Locution nominale pour les sports d'équipe."
+        },
+        {
+          "id": "T2O10S24V16",
+          "kind": "collocation",
           "french": "se sentir perdu(e)",
           "english": "to feel lost",
           "example": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "usage": "Locution verbale pronominale sur la difficulté."
         },
         {
-          "id": "T2O10S24V13",
-          "kind": "collocation",
-          "french": "fourni sur place",
-          "english": "provided on-site",
-          "example": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
-          "usage": "Participe passé suivi d'une locution adverbiale pour indiquer une disponibilité locale."
-        },
-        {
-          "id": "T2O10S24V14",
-          "kind": "collocation",
-          "french": "une condition physique particulière",
-          "english": "a particular fitness level",
-          "example": "Côté santé, faut-il un certificat médical ou une condition physique particulière pour participer ?",
-          "usage": "Groupe nominal sur la forme requise."
-        },
-        {
-          "id": "T2O10S24V15",
-          "kind": "collocation",
-          "french": "à la séance",
-          "english": "per session",
-          "example": "En ce qui concerne le budget, y a-t-il une cotisation à l'association, ou on paie à la séance ?",
-          "usage": "Locution sur le mode de paiement."
-        },
-        {
-          "id": "T2O10S24V16",
-          "kind": "collocation",
-          "french": "essayer une séance",
-          "english": "try a session",
-          "example": "Est-ce qu'on peut essayer une séance avant de s'inscrire ?",
-          "usage": "Verbe + complément sur l'essai."
-        },
-        {
           "id": "T2O10S24V17",
           "kind": "collocation",
-          "french": "avant de s'inscrire",
-          "english": "before signing up",
-          "example": "Est-ce qu'on peut essayer une séance avant de s'inscrire ?",
-          "usage": "Locution sur l'essai préalable."
+          "french": "pour se dépenser",
+          "english": "to burn off energy",
+          "example": "Tant que j'y pense, l'ambiance est comment — les gens viennent surtout pour se dépenser ou aussi pour se rencontrer ?",
+          "usage": "Locution verbale sur l'effort physique."
         },
         {
           "id": "T2O10S24V18",
           "kind": "collocation",
-          "french": "en plein air",
-          "english": "outdoors",
-          "example": "Question organisation, où est-ce que ça se passe — dans un gymnase, en plein air ?",
-          "usage": "Locution sur le lieu des séances."
+          "french": "pour se rencontrer",
+          "english": "to meet each other",
+          "example": "Tant que j'y pense, l'ambiance est comment — les gens viennent surtout pour se dépenser ou aussi pour se rencontrer ?",
+          "usage": "Locution verbale sur la sociabilité."
         },
         {
           "id": "T2O10S24V19",
           "kind": "collocation",
-          "french": "conviviale ou compétitive",
-          "english": "friendly or competitive",
-          "example": "Ensuite, est-ce que l'ambiance est plutôt conviviale ou compétitive ?",
-          "usage": "Alternative adjectivale sur l'ambiance."
+          "french": "à la séance",
+          "english": "per session",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — on paie à la séance ou il faut s'inscrire pour la session ?",
+          "usage": "Locution sur le mode de paiement."
         },
         {
           "id": "T2O10S24V20",
           "kind": "collocation",
-          "french": "pour bien commencer",
-          "english": "to get started well",
-          "example": "Pour finir — quelle séance me conseilleriez-vous pour bien commencer ?",
-          "usage": "Locution sur le bon départ."
+          "french": "une séance d'essai",
+          "english": "a trial session",
+          "example": "Est-ce qu'on peut essayer avec une séance d'essai avant de s'engager ?",
+          "usage": "Locution nominale pour un essai gratuit."
         },
         {
           "id": "T2O10S24V21",
-          "kind": "tournure",
-          "french": "Ça s'adresse à quel public",
-          "english": "who is it aimed at",
-          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
-          "usage": "Question sur le public visé."
-        },
-        {
-          "id": "T2O10S24V22",
           "kind": "tournure",
           "french": "si on débute complètement, est-ce qu'on risque de se sentir perdu(e)",
           "english": "if one is a complete beginner, might one feel lost",
@@ -916,68 +908,76 @@
           "usage": "Tournure conditionnelle utile pour exprimer une inquiétude de débutant."
         },
         {
+          "id": "T2O10S24V22",
+          "kind": "tournure",
+          "french": "Y a-t-il des tarifs réduits pour les étudiants",
+          "english": "Are there discounts for students",
+          "example": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "usage": "Tournure « y a-t-il » pour vérifier l'existence de réductions."
+        },
+        {
           "id": "T2O10S24V23",
           "kind": "tournure",
-          "french": "Quelles disciplines vous proposez",
-          "english": "what disciplines do you offer",
-          "example": "Quelles disciplines vous proposez — plutôt du collectif, du fitness, de la course ?",
-          "usage": "Question sur les activités."
+          "french": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles",
+          "english": "Are there reduced rates for students, seniors or families",
+          "example": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "usage": "Tournure interrogative soutenue avec inversion 'y a-t-il' et '-t-' euphonique."
         },
         {
           "id": "T2O10S24V24",
           "kind": "tournure",
-          "french": "Les séances ont lieu quels jours et à quelle heure",
-          "english": "what days and times are the sessions",
-          "example": "Les séances ont lieu quels jours et à quelle heure ?",
-          "usage": "Question sur les créneaux."
+          "french": "Quels types de cours proposez-vous",
+          "english": "what kinds of classes do you offer",
+          "example": "Quels types de cours proposez-vous — plutôt du fitness, du yoga, des sports collectifs ?",
+          "usage": "Question sur l'offre de cours."
         },
         {
           "id": "T2O10S24V25",
           "kind": "tournure",
-          "french": "Combien de temps dure un entraînement",
-          "english": "how long does a training session last",
-          "example": "Combien de temps dure un entraînement ?",
-          "usage": "Question sur la durée."
+          "french": "Ça s'adresse à quel public",
+          "english": "who is it aimed at",
+          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
+          "usage": "Question sur le public visé."
         },
         {
           "id": "T2O10S24V26",
           "kind": "tournure",
-          "french": "Il y a généralement combien de participants",
-          "english": "how many participants usually",
-          "example": "Il y a généralement combien de participants ?",
-          "usage": "Question sur l'effectif."
+          "french": "Les cours ont lieu quels jours",
+          "english": "what days are the classes",
+          "example": "Les cours ont lieu quels jours et à quelle heure — plutôt le matin ou en fin de journée ?",
+          "usage": "Question sur les jours de cours."
         },
         {
           "id": "T2O10S24V27",
           "kind": "tournure",
-          "french": "Faut-il un certificat médical ou une condition physique particulière",
-          "english": "do you need a medical certificate or particular fitness",
-          "example": "Côté santé, faut-il un certificat médical ou une condition physique particulière pour participer ?",
-          "usage": "Question sur les conditions."
+          "french": "Il y a généralement combien de participants",
+          "english": "how many participants are there usually",
+          "example": "Il y a généralement combien de participants par cours ?",
+          "usage": "Question sur l'effectif."
         },
         {
           "id": "T2O10S24V28",
           "kind": "tournure",
-          "french": "Y a-t-il une cotisation à l'association",
-          "english": "is there a membership fee",
-          "example": "En ce qui concerne le budget, y a-t-il une cotisation à l'association, ou on paie à la séance ?",
-          "usage": "Question sur le coût."
+          "french": "Comment fonctionnent les tarifs",
+          "english": "how do the rates work",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — on paie à la séance ou il faut s'inscrire pour la session ?",
+          "usage": "Question courante sur la tarification."
         },
         {
           "id": "T2O10S24V29",
           "kind": "tournure",
-          "french": "Comment se passe l'inscription",
-          "english": "how does registration work",
-          "example": "Question réservation, comment se passe l'inscription — directement auprès de vous ou à l'association ?",
-          "usage": "Question sur l'inscription."
+          "french": "Est-ce qu'on peut essayer avec une séance d'essai",
+          "english": "can we try with a trial session",
+          "example": "Est-ce qu'on peut essayer avec une séance d'essai avant de s'engager ?",
+          "usage": "Question pour tester avant de s'engager."
         },
         {
           "id": "T2O10S24V30",
           "kind": "tournure",
-          "french": "quelle séance me conseilleriez-vous pour bien commencer",
-          "english": "which session would you recommend to start",
-          "example": "Pour finir — quelle séance me conseilleriez-vous pour bien commencer ?",
-          "usage": "Tournure de clôture pour un conseil."
+          "french": "quel cours me conseilleriez-vous pour bien commencer",
+          "english": "which class you would recommend to get started",
+          "example": "Pour finir — quel cours me conseilleriez-vous pour bien commencer ?",
+          "usage": "Question de clôture pour un conseil."
         }
       ]
     },

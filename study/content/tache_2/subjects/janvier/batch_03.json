@@ -258,7 +258,7 @@
       "prompt": "Je travaille à l'accueil d'un musée. Vous voulez visiter ce musée avec des amis. Vous me posez des questions pour préparer votre visite (horaires, tarifs, visites guidées, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! Mes amis et moi aimerions visiter votre musée — c'est la première fois que nous venons. Quelles sont les collections principales qu'on peut voir ici ?",
+          "text": "Bonjour ! Nous aimerions visiter votre musée — c'est la première fois que nous venons. Quelles sont les collections principales qu'on peut voir ici ?",
           "memory_number": 9,
           "memory_section": 2
         },
@@ -318,7 +318,7 @@
           "memory_section": 3
         },
         {
-          "text": "Nous serons cinq ou six personnes — proposez-vous des tarifs de groupe ?",
+          "text": "Nous viendrons à plusieurs — proposez-vous des tarifs de groupe ?",
           "memory_number": 9,
           "memory_section": 7
         },

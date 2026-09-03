@@ -497,13 +497,29 @@
         {
           "id": "T2J7S23V01",
           "kind": "mot-cle",
+          "french": "mon anniversaire",
+          "english": "my birthday",
+          "example": "Bonjour, je cherche un bon restaurant pour fêter mon anniversaire — vous auriez des idées à me conseiller ?",
+          "usage": "Groupe nominal possessif désignant la date de naissance célébrée du locuteur."
+        },
+        {
+          "id": "T2J7S23V02",
+          "kind": "mot-cle",
+          "french": "types de cuisine",
+          "english": "types of cuisine",
+          "example": "Quels types de cuisine trouve-t-on dans les restaurants du coin ?",
+          "usage": "Groupe nominal désignant des catégories de gastronomie proposées."
+        },
+        {
+          "id": "T2J7S23V03",
+          "kind": "mot-cle",
           "french": "gamme de prix",
           "english": "price range",
           "example": "Côté budget, ça va plutôt dans quelle gamme de prix en général ?",
           "usage": "Groupe nominal désignant une fourchette tarifaire."
         },
         {
-          "id": "T2J7S23V02",
+          "id": "T2J7S23V04",
           "kind": "mot-cle",
           "french": "calme et intime",
           "english": "calm and intimate",
@@ -511,7 +527,31 @@
           "usage": "Groupe adjectival coordonné pour qualifier une ambiance feutrée."
         },
         {
-          "id": "T2J7S23V03",
+          "id": "T2J7S23V05",
+          "kind": "mot-cle",
+          "french": "un groupe",
+          "english": "a group",
+          "example": "Pour ce qui est des repas, ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
+          "usage": "Nom masculin désignant un ensemble de plusieurs convives."
+        },
+        {
+          "id": "T2J7S23V06",
+          "kind": "mot-cle",
+          "french": "réserver à l'avance",
+          "english": "to book in advance",
+          "example": "En ce qui concerne l'organisation, faut-il réserver à l'avance, surtout pour un week-end ?",
+          "usage": "Groupe verbal pour anticiper une réservation."
+        },
+        {
+          "id": "T2J7S23V07",
+          "kind": "mot-cle",
+          "french": "un menu spécial",
+          "english": "a special menu",
+          "example": "Certains proposent-ils un menu spécial pour les anniversaires ?",
+          "usage": "Groupe nominal désignant une offre culinaire dédiée à une occasion."
+        },
+        {
+          "id": "T2J7S23V08",
           "kind": "mot-cle",
           "french": "une voiture",
           "english": "a car",
@@ -519,7 +559,7 @@
           "usage": "Nom féminin désignant un moyen de transport individuel motorisé."
         },
         {
-          "id": "T2J7S23V04",
+          "id": "T2J7S23V09",
           "kind": "mot-cle",
           "french": "un parking à proximité",
           "english": "nearby parking",
@@ -527,55 +567,31 @@
           "usage": "Groupe nominal désignant une place de stationnement proche d'un lieu."
         },
         {
-          "id": "T2J7S23V05",
-          "kind": "mot-cle",
-          "french": "un bon restaurant",
-          "english": "a good restaurant",
-          "example": "Salut ! Je viens de m'installer à Toronto et je cherche un bon restaurant pour fêter mon anniversaire — tu aurais des idées à me conseiller ?",
-          "usage": "Groupe nominal désignant l'établissement recherché."
-        },
-        {
-          "id": "T2J7S23V06",
-          "kind": "mot-cle",
-          "french": "mon anniversaire",
-          "english": "my birthday",
-          "example": "Salut ! Je viens de m'installer à Toronto et je cherche un bon restaurant pour fêter mon anniversaire — tu aurais des idées à me conseiller ?",
-          "usage": "Groupe nominal désignant l'occasion à fêter."
-        },
-        {
-          "id": "T2J7S23V07",
-          "kind": "mot-cle",
-          "french": "un menu spécial",
-          "english": "a special menu",
-          "example": "Certains proposent un menu spécial pour les anniversaires ?",
-          "usage": "Groupe nominal pour une formule dédiée."
-        },
-        {
-          "id": "T2J7S23V08",
-          "kind": "mot-cle",
-          "french": "un groupe",
-          "english": "a group",
-          "example": "Côté cuisine, ces restaurants conviennent pour un groupe, ou plutôt pour de petites tables ?",
-          "usage": "Nom désignant un ensemble de convives."
-        },
-        {
-          "id": "T2J7S23V09",
+          "id": "T2J7S23V10",
           "kind": "mot-cle",
           "french": "les régimes particuliers",
           "english": "special diets",
-          "example": "Pour ce qui est des repas, il y a des options pour les régimes particuliers ou les allergies ?",
-          "usage": "Groupe nominal pour les régimes alimentaires."
-        },
-        {
-          "id": "T2J7S23V10",
-          "kind": "mot-cle",
-          "french": "le rapport qualité-prix",
-          "english": "value for money",
-          "example": "Le rapport qualité-prix te semble bon, comparé à d'autres endroits ?",
-          "usage": "Groupe nominal évaluant le prix par rapport à la qualité."
+          "example": "En ce qui concerne la nourriture, y a-t-il des options pour les régimes particuliers ou les allergies ?",
+          "usage": "Groupe nominal désignant des contraintes alimentaires spécifiques."
         },
         {
           "id": "T2J7S23V11",
+          "kind": "collocation",
+          "french": "des idées à me conseiller",
+          "english": "ideas to recommend to me",
+          "example": "Bonjour, je cherche un bon restaurant pour fêter mon anniversaire — vous auriez des idées à me conseiller ?",
+          "usage": "Collocation nominale polie pour solliciter des suggestions, registre vouvoiement."
+        },
+        {
+          "id": "T2J7S23V12",
+          "kind": "collocation",
+          "french": "trouve-t-on",
+          "english": "does one find",
+          "example": "Quels types de cuisine trouve-t-on dans les restaurants du coin ?",
+          "usage": "Collocation interrogative impersonnelle avec inversion pour demander une offre disponible."
+        },
+        {
+          "id": "T2J7S23V13",
           "kind": "collocation",
           "french": "en général",
           "english": "in general",
@@ -583,7 +599,7 @@
           "usage": "Locution adverbiale pour demander une information globale."
         },
         {
-          "id": "T2J7S23V12",
+          "id": "T2J7S23V14",
           "kind": "collocation",
           "french": "animée et festive",
           "english": "lively and festive",
@@ -591,7 +607,39 @@
           "usage": "Collocation adjectivale coordonnée pour qualifier une ambiance dynamique."
         },
         {
-          "id": "T2J7S23V13",
+          "id": "T2J7S23V15",
+          "kind": "collocation",
+          "french": "de petites tables",
+          "english": "small tables",
+          "example": "Pour ce qui est des repas, ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
+          "usage": "Groupe nominal désignant un agencement pour peu de convives."
+        },
+        {
+          "id": "T2J7S23V16",
+          "kind": "collocation",
+          "french": "m'en dire un peu plus",
+          "english": "to tell me a bit more about it",
+          "example": "Vous avez mentionné un restaurant en particulier — vous pourriez m'en dire un peu plus : il conviendrait pour une dizaine de personnes ?",
+          "usage": "Collocation verbale polie pour demander un développement, registre vouvoiement."
+        },
+        {
+          "id": "T2J7S23V17",
+          "kind": "collocation",
+          "french": "qu'est-ce que vous en avez pensé",
+          "english": "what did you think of it",
+          "example": "Vous y êtes déjà allé(e) vous-même — qu'est-ce que vous en avez pensé ?",
+          "usage": "Collocation interrogative au passé composé pour solliciter un avis, registre vouvoiement."
+        },
+        {
+          "id": "T2J7S23V18",
+          "kind": "collocation",
+          "french": "rapport qualité-prix",
+          "english": "value for money",
+          "example": "Le rapport qualité-prix vous semble bon, comparé à d'autres endroits ?",
+          "usage": "Groupe nominal figé désignant l'équilibre entre la qualité et le prix d'un service."
+        },
+        {
+          "id": "T2J7S23V19",
           "kind": "collocation",
           "french": "une soirée tranquille",
           "english": "a quiet evening",
@@ -599,63 +647,31 @@
           "usage": "Groupe nominal désignant un moment calme et détendu."
         },
         {
-          "id": "T2J7S23V14",
-          "kind": "collocation",
-          "french": "fêter mon anniversaire",
-          "english": "celebrate my birthday",
-          "example": "Salut ! Je viens de m'installer à Toronto et je cherche un bon restaurant pour fêter mon anniversaire — tu aurais des idées à me conseiller ?",
-          "usage": "Verbe + complément sur l'événement."
-        },
-        {
-          "id": "T2J7S23V15",
-          "kind": "collocation",
-          "french": "des idées à me conseiller",
-          "english": "ideas to suggest to me",
-          "example": "Salut ! Je viens de m'installer à Toronto et je cherche un bon restaurant pour fêter mon anniversaire — tu aurais des idées à me conseiller ?",
-          "usage": "Locution nominale pour une demande de conseils."
-        },
-        {
-          "id": "T2J7S23V16",
-          "kind": "collocation",
-          "french": "réserver à l'avance",
-          "english": "book in advance",
-          "example": "En ce qui concerne l'organisation, il faut réserver à l'avance, surtout pour un week-end ?",
-          "usage": "Locution verbale sur la réservation."
-        },
-        {
-          "id": "T2J7S23V17",
-          "kind": "collocation",
-          "french": "pour un week-end",
-          "english": "for a weekend",
-          "example": "En ce qui concerne l'organisation, il faut réserver à l'avance, surtout pour un week-end ?",
-          "usage": "Locution temporelle sur la période."
-        },
-        {
-          "id": "T2J7S23V18",
-          "kind": "collocation",
-          "french": "accessibles à pied",
-          "english": "reachable on foot",
-          "example": "Et pour s'y rendre, ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
-          "usage": "Adjectif + complément sur l'accès."
-        },
-        {
-          "id": "T2J7S23V19",
-          "kind": "collocation",
-          "french": "de petites tables",
-          "english": "small tables",
-          "example": "Côté cuisine, ces restaurants conviennent pour un groupe, ou plutôt pour de petites tables ?",
-          "usage": "Locution nominale sur la configuration."
-        },
-        {
           "id": "T2J7S23V20",
           "kind": "collocation",
-          "french": "comparé à d'autres endroits",
-          "english": "compared to other places",
-          "example": "Le rapport qualité-prix te semble bon, comparé à d'autres endroits ?",
-          "usage": "Locution comparative."
+          "french": "pour l'occasion",
+          "english": "for the occasion",
+          "example": "Pour finir — parmi tous ceux que vous connaissez, lequel me recommanderiez-vous vraiment pour l'occasion ?",
+          "usage": "Locution prépositionnelle pour désigner un événement particulier célébré."
         },
         {
           "id": "T2J7S23V21",
+          "kind": "tournure",
+          "french": "faut-il réserver à l'avance",
+          "english": "should one book in advance",
+          "example": "En ce qui concerne l'organisation, faut-il réserver à l'avance, surtout pour un week-end ?",
+          "usage": "Tournure interrogative impersonnelle pour vérifier une nécessité de réservation."
+        },
+        {
+          "id": "T2J7S23V22",
+          "kind": "tournure",
+          "french": "certains proposent-ils un menu spécial",
+          "english": "do some of them offer a special menu",
+          "example": "Certains proposent-ils un menu spécial pour les anniversaires ?",
+          "usage": "Tournure interrogative avec inversion pour vérifier une offre dédiée."
+        },
+        {
+          "id": "T2J7S23V23",
           "kind": "tournure",
           "french": "il vaut mieux prévoir une voiture",
           "english": "it's better to plan for a car",
@@ -663,7 +679,7 @@
           "usage": "Tournure impersonnelle pour recommander un moyen de transport."
         },
         {
-          "id": "T2J7S23V22",
+          "id": "T2J7S23V24",
           "kind": "tournure",
           "french": "y a-t-il un parking à proximité",
           "english": "is there nearby parking",
@@ -671,7 +687,39 @@
           "usage": "Tournure interrogative avec « y a-t-il » pour vérifier une commodité pratique."
         },
         {
-          "id": "T2J7S23V23",
+          "id": "T2J7S23V25",
+          "kind": "tournure",
+          "french": "y a-t-il des options pour les régimes particuliers",
+          "english": "are there options for special diets",
+          "example": "En ce qui concerne la nourriture, y a-t-il des options pour les régimes particuliers ou les allergies ?",
+          "usage": "Tournure interrogative avec « y a-t-il » pour vérifier une adaptation alimentaire."
+        },
+        {
+          "id": "T2J7S23V26",
+          "kind": "tournure",
+          "french": "vous avez mentionné un restaurant en particulier",
+          "english": "you mentioned a particular restaurant",
+          "example": "Vous avez mentionné un restaurant en particulier — vous pourriez m'en dire un peu plus : il conviendrait pour une dizaine de personnes ?",
+          "usage": "Tournure affirmative pour relancer sur un élément déjà évoqué, registre vouvoiement."
+        },
+        {
+          "id": "T2J7S23V27",
+          "kind": "tournure",
+          "french": "vous y êtes déjà allé(e) vous-même",
+          "english": "have you been there yourself",
+          "example": "Vous y êtes déjà allé(e) vous-même — qu'est-ce que vous en avez pensé ?",
+          "usage": "Tournure interrogative au passé composé pour vérifier une expérience personnelle, registre vouvoiement."
+        },
+        {
+          "id": "T2J7S23V28",
+          "kind": "tournure",
+          "french": "le rapport qualité-prix vous semble bon",
+          "english": "does the value for money seem good to you",
+          "example": "Le rapport qualité-prix vous semble bon, comparé à d'autres endroits ?",
+          "usage": "Tournure interrogative pour solliciter une évaluation, registre vouvoiement."
+        },
+        {
+          "id": "T2J7S23V29",
           "kind": "tournure",
           "french": "le service y est plutôt rapide",
           "english": "is the service there rather quick",
@@ -679,60 +727,12 @@
           "usage": "Tournure descriptive pour qualifier le rythme d'un service en salle."
         },
         {
-          "id": "T2J7S23V24",
-          "kind": "tournure",
-          "french": "tu aurais des idées à me conseiller",
-          "english": "would you have ideas to suggest",
-          "example": "Salut ! Je viens de m'installer à Toronto et je cherche un bon restaurant pour fêter mon anniversaire — tu aurais des idées à me conseiller ?",
-          "usage": "Tournure pour demander des suggestions."
-        },
-        {
-          "id": "T2J7S23V25",
-          "kind": "tournure",
-          "french": "Quels types de cuisine on trouve dans les restaurants du coin",
-          "english": "what types of cuisine you find in local restaurants",
-          "example": "Quels types de cuisine on trouve dans les restaurants du coin ?",
-          "usage": "Question sur l'offre culinaire."
-        },
-        {
-          "id": "T2J7S23V26",
-          "kind": "tournure",
-          "french": "Ces restaurants conviennent pour un groupe",
-          "english": "do these restaurants suit a group",
-          "example": "Côté cuisine, ces restaurants conviennent pour un groupe, ou plutôt pour de petites tables ?",
-          "usage": "Question sur l'adaptation au groupe."
-        },
-        {
-          "id": "T2J7S23V27",
-          "kind": "tournure",
-          "french": "Certains proposent un menu spécial pour les anniversaires",
-          "english": "do some offer a special birthday menu",
-          "example": "Certains proposent un menu spécial pour les anniversaires ?",
-          "usage": "Question sur les offres spéciales."
-        },
-        {
-          "id": "T2J7S23V28",
-          "kind": "tournure",
-          "french": "tu pourrais m'en dire un peu plus",
-          "english": "could you tell me a bit more",
-          "example": "Tu as mentionné un restaurant en particulier — tu pourrais m'en dire un peu plus : il conviendrait pour une dizaine de personnes ?",
-          "usage": "Tournure pour approfondir."
-        },
-        {
-          "id": "T2J7S23V29",
-          "kind": "tournure",
-          "french": "qu'est-ce que tu en as pensé",
-          "english": "what did you think of it",
-          "example": "Tu y es déjà allé(e) toi-même — qu'est-ce que tu en as pensé ?",
-          "usage": "Question pour recueillir un avis."
-        },
-        {
           "id": "T2J7S23V30",
           "kind": "tournure",
-          "french": "lequel tu me recommandes vraiment pour l'occasion",
-          "english": "which one you really recommend for the occasion",
-          "example": "Pour finir — parmi tous ceux que tu connais, lequel tu me recommandes vraiment pour l'occasion ?",
-          "usage": "Tournure de clôture pour un choix."
+          "french": "lequel me recommanderiez-vous vraiment",
+          "english": "which one would you really recommend to me",
+          "example": "Pour finir — parmi tous ceux que vous connaissez, lequel me recommanderiez-vous vraiment pour l'occasion ?",
+          "usage": "Tournure de clôture au conditionnel pour solliciter un conseil final, registre vouvoiement."
         }
       ]
     },

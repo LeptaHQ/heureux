@@ -240,16 +240,12 @@
       "prompt": "Vous préparez une sortie au musée en famille et vous m'interrogez, à la réception, pour tout caler : horaires, expositions, tarifs, etc.",
       "questions": [
         {
-          "text": "Bonjour ! J'aimerais organiser une visite du musée en famille — c'est la première fois qu'on vient. Quelles sont les collections principales qu'on peut voir ici ?"
+          "text": "Bonjour ! Nous aimerions visiter votre musée — c'est la première fois que nous venons. Quelles sont les collections principales qu'on peut voir ici ?",
+          "memory_number": 9,
+          "memory_section": 2
         },
         {
-          "text": "Pour ce qui est des visites, le musée est-il adapté aux enfants — y a-t-il des activités ou des ateliers pour eux ?"
-        },
-        {
-          "text": "Il existe un parcours ou un livret spécial pour les enfants ?"
-        },
-        {
-          "text": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "text": "Et dans la continuité, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "memory_number": 9,
           "memory_section": 2
         },
@@ -264,7 +260,17 @@
           "memory_section": 4
         },
         {
-          "text": "En ce qui concerne l'accompagnement, proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ?",
+          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ? On voudrait éviter la foule — quel moment nous conseillez-vous ?",
+          "memory_number": 9,
+          "memory_section": 8
+        },
+        {
+          "text": "Côté budget, proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ?",
+          "memory_number": 9,
+          "memory_section": 2
+        },
+        {
+          "text": "Quelle est la durée d'une visite guidée — environ une heure ou plutôt une heure et demie ? Et dans quelles langues les visites sont-elles proposées ?",
           "memory_number": 9,
           "memory_section": 2
         },
@@ -274,7 +280,9 @@
           "memory_section": 6
         },
         {
-          "text": "Pour ce qui est des repas, on peut manger ou pique-niquer quelque part sur place ?"
+          "text": "Question budget, y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
+          "memory_number": 9,
+          "memory_section": 9
         },
         {
           "text": "Passons aux aspects pratiques : quels sont vos horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
@@ -292,7 +300,9 @@
           "memory_section": 3
         },
         {
-          "text": "Est-ce que c'est gratuit pour les jeunes enfants ?"
+          "text": "Nous viendrons à plusieurs — proposez-vous des tarifs de groupe ?",
+          "memory_number": 9,
+          "memory_section": 7
         },
         {
           "text": "Y a-t-il une boutique de souvenirs ou une librairie sur place ?",

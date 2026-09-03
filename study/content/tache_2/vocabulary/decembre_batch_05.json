@@ -989,7 +989,7 @@
           "kind": "mot-cle",
           "french": "mon anniversaire",
           "english": "my birthday",
-          "example": "Bonjour, je cherche un restaurant dans le quartier pour fêter mon anniversaire — vous auriez des idées à me conseiller ?",
+          "example": "Bonjour, je cherche un bon restaurant pour fêter mon anniversaire — vous auriez des idées à me conseiller ?",
           "usage": "Groupe nominal possessif désignant la date de naissance célébrée du locuteur."
         },
         {
@@ -1069,7 +1069,7 @@
           "kind": "collocation",
           "french": "des idées à me conseiller",
           "english": "ideas to recommend to me",
-          "example": "Bonjour, je cherche un restaurant dans le quartier pour fêter mon anniversaire — vous auriez des idées à me conseiller ?",
+          "example": "Bonjour, je cherche un bon restaurant pour fêter mon anniversaire — vous auriez des idées à me conseiller ?",
           "usage": "Collocation nominale polie pour solliciter des suggestions, registre vouvoiement."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "rapport qualité-prix",
           "english": "value for money",
-          "example": "Le rapport qualité-prix vous semble bon, comparé à d'autres endroits du quartier ?",
+          "example": "Le rapport qualité-prix vous semble bon, comparé à d'autres endroits ?",
           "usage": "Groupe nominal figé désignant l'équilibre entre la qualité et le prix d'un service."
         },
         {
@@ -1141,7 +1141,7 @@
           "kind": "collocation",
           "french": "pour l'occasion",
           "english": "for the occasion",
-          "example": "Pour finir — parmi tous ceux du quartier, lequel me recommanderiez-vous vraiment pour l'occasion ?",
+          "example": "Pour finir — parmi tous ceux que vous connaissez, lequel me recommanderiez-vous vraiment pour l'occasion ?",
           "usage": "Locution prépositionnelle pour désigner un événement particulier célébré."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "le rapport qualité-prix vous semble bon",
           "english": "does the value for money seem good to you",
-          "example": "Le rapport qualité-prix vous semble bon, comparé à d'autres endroits du quartier ?",
+          "example": "Le rapport qualité-prix vous semble bon, comparé à d'autres endroits ?",
           "usage": "Tournure interrogative pour solliciter une évaluation, registre vouvoiement."
         },
         {
@@ -1221,7 +1221,7 @@
           "kind": "tournure",
           "french": "lequel me recommanderiez-vous vraiment",
           "english": "which one would you really recommend to me",
-          "example": "Pour finir — parmi tous ceux du quartier, lequel me recommanderiez-vous vraiment pour l'occasion ?",
+          "example": "Pour finir — parmi tous ceux que vous connaissez, lequel me recommanderiez-vous vraiment pour l'occasion ?",
           "usage": "Tournure de clôture au conditionnel pour solliciter un conseil final, registre vouvoiement."
         }
       ]

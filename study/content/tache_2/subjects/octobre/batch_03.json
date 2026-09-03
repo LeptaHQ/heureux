@@ -91,13 +91,35 @@
     {
       "number": 12,
       "title": "Retour d'un séjour au Canada – Conseils",
-      "prompt": "Rentrant à peine de deux semaines passées au Canada, je vous en parle en ami(e) ; comme vous y partez bientôt, vous me réclamez des conseils concrets (prix, habitants, repas, climat, transports, etc.).",
+      "prompt": "Rentrant à peine d'un séjour au Canada, je vous en parle en ami(e) ; comme vous y partez bientôt, vous me réclamez des conseils concrets (étapes, activités, hébergement, repas, climat, transports, budget, etc.).",
       "questions": [
         {
-          "text": "Salut ! Tu rentres tout juste de deux semaines au Canada et j'y pars bientôt — tu pourrais me donner quelques conseils pratiques ?"
+          "text": "Salut ! J'ai appris que tu avais récemment voyagé au Canada — tu pourrais me raconter un peu ton séjour ?",
+          "memory_number": 7,
+          "memory_section": 10
+        },
+        {
+          "text": "Qu'est-ce qui t'a donné envie de choisir le Canada pour ce voyage ?",
+          "memory_number": 7,
+          "memory_section": 10
         },
         {
           "text": "Tu es allé(e) dans quelles villes ou quelles régions exactement ?",
+          "memory_number": 7,
+          "memory_section": 2
+        },
+        {
+          "text": "Combien de temps es-tu resté(e) sur place ?",
+          "memory_number": 7,
+          "memory_section": 4
+        },
+        {
+          "text": "Tu es parti(e) seul(e), avec des proches ou dans le cadre d'un voyage organisé ?",
+          "memory_number": 7,
+          "memory_section": 7
+        },
+        {
+          "text": "Et concrètement, quelles activités as-tu faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
           "memory_number": 7,
           "memory_section": 2
         },
@@ -107,7 +129,7 @@
           "memory_section": 11
         },
         {
-          "text": "Qu'est-ce que tu as le plus apprécié ?",
+          "text": "Sur le fond, qu'est-ce que tu as le plus apprécié ?",
           "memory_number": 7,
           "memory_section": 10
         },
@@ -117,20 +139,9 @@
           "memory_section": 10
         },
         {
-          "text": "Autre chose : les habitants, ils sont comment — plutôt accueillants et faciles à aborder ?"
-        },
-        {
-          "text": "Est-ce qu'il y a des différences culturelles ou des habitudes qui pourraient me surprendre ?"
-        },
-        {
-          "text": "Côté météo, quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
+          "text": "Côté déplacements, comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
           "memory_number": 7,
-          "memory_section": 8
-        },
-        {
-          "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
-          "memory_number": 7,
-          "memory_section": 9
+          "memory_section": 5
         },
         {
           "text": "Tu logeais plutôt à l'hôtel, en auberge ou ailleurs ?",
@@ -138,20 +149,19 @@
           "memory_section": 9
         },
         {
-          "text": "Côté déplacements, comment te déplaçais-tu entre les différentes étapes — en train, en bus ou en voiture ?",
+          "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
           "memory_number": 7,
-          "memory_section": 5
+          "memory_section": 9
         },
         {
-          "text": "Les transports en commun, c'est pratique et abordable là-bas ?"
+          "text": "Pour ce qui est de la météo, quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
+          "memory_number": 7,
+          "memory_section": 8
         },
         {
           "text": "Parlons du budget — combien est-ce que ça t'a coûté approximativement au total ?",
           "memory_number": 7,
           "memory_section": 3
-        },
-        {
-          "text": "La vie est chère là-bas — qu'est-ce qui coûte le plus cher au quotidien ?"
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule étape ou activité, ce serait laquelle ?",

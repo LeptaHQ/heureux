@@ -12,7 +12,7 @@
       "prompt": "Je suis employé dans une agence de location de vélos. Vous voulez en louer un. Vous effectuez des recherches pour trouver le modèle de vélo qui conviendra le mieux à vos besoins. (modèles, tarifs, fonctionnement, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! Je cherche un vélo à louer et j'aimerais trouver le modèle qui correspond le mieux à mes besoins — pouvez-vous me présenter vos différentes options ?"
+          "text": "Bonjour ! J'aimerais louer un vélo et trouver le modèle qui me convient le mieux — pouvez-vous me présenter vos différentes offres de location ?"
         },
         {
           "text": "Quels modèles de vélos proposez-vous — vélo de ville, VTT, vélo électrique ?"
@@ -21,7 +21,7 @@
           "text": "Selon l'usage que je veux en faire, quel modèle me conseilleriez-vous ?"
         },
         {
-          "text": "En ce qui concerne les déplacements, pouvez-vous aussi me conseiller un itinéraire adapté selon l'usage que je veux faire du vélo ?"
+          "text": "Puisqu'on en parle, vous fournissez un plan ou des idées d'itinéraires adaptés à cet usage ?"
         },
         {
           "text": "Quelles sont les conditions pour louer — faut-il une pièce d'identité ou un âge minimum ?"
@@ -33,7 +33,7 @@
           "text": "Que se passe-t-il en cas de crevaison ou de problème mécanique pendant la location ?"
         },
         {
-          "text": "Côté location, est-ce qu'il faut réserver à l'avance ou on peut louer directement sur place ?"
+          "text": "Pour ce qui est de la location, est-ce qu'il faut réserver à l'avance ou on peut louer directement sur place ?"
         },
         {
           "text": "Jusqu'à quelle heure peut-on rendre le vélo le soir ?"

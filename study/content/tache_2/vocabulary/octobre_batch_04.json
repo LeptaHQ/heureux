@@ -252,10 +252,10 @@
         {
           "id": "T2O10S17V01",
           "kind": "mot-cle",
-          "french": "ton départ à la retraite",
-          "english": "your retirement",
-          "example": "Salut ! Alors comme ça tu organises une soirée pour fêter ton départ à la retraite — félicitations ! Tu peux m'en dire un peu plus ?",
-          "usage": "Groupe nominal désignant le départ en retraite."
+          "french": "l'événement",
+          "english": "the event/occasion",
+          "example": "Salut ! Alors comme ça tu organises une soirée pour fêter l'événement — félicitations ! Tu peux m'en dire un peu plus ?",
+          "usage": "Nom masculin désignant l'occasion que l'on célèbre."
         },
         {
           "id": "T2O10S17V02",
@@ -332,9 +332,9 @@
         {
           "id": "T2O10S17V11",
           "kind": "collocation",
-          "french": "fêter ton départ à la retraite",
-          "english": "celebrate your retirement",
-          "example": "Salut ! Alors comme ça tu organises une soirée pour fêter ton départ à la retraite — félicitations ! Tu peux m'en dire un peu plus ?",
+          "french": "fêter l'événement",
+          "english": "celebrate the occasion",
+          "example": "Salut ! Alors comme ça tu organises une soirée pour fêter l'événement — félicitations ! Tu peux m'en dire un peu plus ?",
           "usage": "Verbe + complément sur la célébration."
         },
         {

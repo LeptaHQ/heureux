@@ -32,7 +32,7 @@
           "memory_section": 6
         },
         {
-          "text": "Dans un autre registre, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
+          "text": "Tant que j'y pense, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
           "memory_number": 10,
           "memory_section": 7
         },
@@ -42,7 +42,7 @@
           "memory_section": 7
         },
         {
-          "text": "En ce qui concerne l'organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
+          "text": "Question organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -67,7 +67,7 @@
           "memory_section": 3
         },
         {
-          "text": "Dernier point pratique : peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
+          "text": "Dans un autre registre, peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
           "memory_number": 10,
           "memory_section": 3
         },
@@ -75,9 +75,6 @@
           "text": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus : qu'est-ce qui s'est passé exactement ?",
           "memory_number": 10,
           "memory_section": 13
-        },
-        {
-          "text": "Et ça va être diffusé à la télévision — on pourra te voir à l'écran bientôt ?"
         },
         {
           "text": "Pour finir, as-tu appris quelque chose de nouveau ou vécu une expérience vraiment marquante ?",
@@ -168,7 +165,7 @@
       "prompt": "Je suis votre voisin(e) et j'anime des cours de sport dans un centre social. L'idée vous séduit, alors vous cherchez à en savoir plus sur les disciplines proposées, les créneaux horaires et le profil des participants.",
       "questions": [
         {
-          "text": "Bonjour ! Vous m'avez dit que vous donniez des cours de sport dans un centre social — ça m'intéresse beaucoup, vous pourriez m'en parler ?",
+          "text": "Bonjour ! Vous m'avez dit que vous animiez des cours de sport dans le quartier — ça m'intéresse beaucoup, vous pourriez m'en parler ?",
           "memory_number": 8,
           "memory_section": 1
         },
@@ -176,7 +173,7 @@
           "text": "Quels types de cours proposez-vous — plutôt du fitness, du yoga, des sports collectifs ?"
         },
         {
-          "text": "Question lieu, où se trouve le centre social exactement — c'est facilement accessible ?"
+          "text": "Question lieu, où est-ce que ça se passe exactement — c'est facilement accessible ?"
         },
         {
           "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
@@ -217,7 +214,7 @@
           "memory_section": 8
         },
         {
-          "text": "En ce qui concerne la réservation, comment se passe l'inscription — directement auprès de vous ou au centre ?"
+          "text": "En ce qui concerne la réservation, comment se passe l'inscription — directement auprès de vous ou sur place ?"
         },
         {
           "text": "Pour finir — quel cours me conseilleriez-vous pour bien commencer ?"
@@ -230,16 +227,16 @@
       "prompt": "Je m'occupe d'un service de location de vélos au Canada. En vacances, vous aimeriez découvrir la ville à vélo et vous vous renseignez sur les modèles proposés, les conditions de location et les tarifs.",
       "questions": [
         {
-          "text": "Bonjour ! Je suis en vacances et j'aimerais visiter la ville à vélo — pouvez-vous me présenter vos différentes offres de location ?"
+          "text": "Bonjour ! J'aimerais louer un vélo et trouver le modèle qui me convient le mieux — pouvez-vous me présenter vos différentes offres de location ?"
         },
         {
           "text": "Quels modèles de vélos proposez-vous — vélo de ville, VTT, vélo électrique ?"
         },
         {
-          "text": "Pour visiter tranquillement la ville, quel modèle me conseilleriez-vous ?"
+          "text": "Selon l'usage que je veux en faire, quel modèle me conseilleriez-vous ?"
         },
         {
-          "text": "Puisqu'on en parle, vous fournissez un plan ou des idées d'itinéraires pour découvrir la ville ?"
+          "text": "Puisqu'on en parle, vous fournissez un plan ou des idées d'itinéraires adaptés à cet usage ?"
         },
         {
           "text": "Quelles sont les conditions pour louer — faut-il une pièce d'identité ou un âge minimum ?"

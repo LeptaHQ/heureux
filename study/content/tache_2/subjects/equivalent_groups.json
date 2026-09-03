@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "groups": [
+    {
+      "id": "vq-garde-enfant-proche",
+      "theme": "vie-quartier",
+      "canonical": "tache2:fevrier:batch-06:subject-26",
+      "members": [
+        "tache2:fevrier:batch-06:subject-26",
+        "tache2:mai:batch-05:subject-25",
+        "tache2:juin:batch-07:subject-31",
+        "tache2:septembre:batch-02:subject-06",
+        "tache2:novembre:batch-02:subject-10"
+      ]
+    },
+    {
+      "id": "vq-garde-animal-proche",
+      "theme": "vie-quartier",
+      "canonical": "tache2:fevrier:batch-02:subject-08",
+      "members": [
+        "tache2:fevrier:batch-02:subject-08",
+        "tache2:novembre:batch-01:subject-01"
+      ]
+    },
+    {
+      "id": "travail-fete-collegue",
+      "theme": "travail",
+      "canonical": "tache2:octobre:batch-04:subject-17",
+      "members": [
+        "tache2:octobre:batch-04:subject-17",
+        "tache2:decembre:batch-10:subject-48"
+      ]
+    },
+    {
+      "id": "transports-location-velo",
+      "theme": "transports",
+      "canonical": "tache2:juillet:batch-02:subject-09",
+      "members": [
+        "tache2:juillet:batch-02:subject-09",
+        "tache2:decembre:batch-04:subject-16"
+      ]
+    },
+    {
+      "id": "voyages-sejour-bord-de-mer",
+      "theme": "voyages",
+      "canonical": "tache2:fevrier:batch-01:subject-02",
+      "members": [
+        "tache2:fevrier:batch-01:subject-02",
+        "tache2:mars:batch-02:subject-07",
+        "tache2:decembre:batch-07:subject-32",
+        "tache2:decembre:batch-10:subject-46"
+      ]
+    },
+    {
+      "id": "voyages-agence",
+      "theme": "voyages",
+      "canonical": "tache2:fevrier:batch-05:subject-22",
+      "members": [
+        "tache2:fevrier:batch-05:subject-22",
+        "tache2:mars:batch-03:subject-12",
+        "tache2:juin:batch-02:subject-07",
+        "tache2:juillet:batch-08:subject-35",
+        "tache2:septembre:batch-03:subject-12",
+        "tache2:octobre:batch-02:subject-07",
+        "tache2:decembre:batch-06:subject-29"
+      ]
+    },
+    {
+      "id": "voyages-retour-canada",
+      "theme": "voyages",
+      "canonical": "tache2:mai:batch-02:subject-06",
+      "members": [
+        "tache2:mai:batch-02:subject-06",
+        "tache2:aout:batch-03:subject-11",
+        "tache2:octobre:batch-03:subject-12"
+      ]
+    },
+    {
+      "id": "sport-seances-voisin",
+      "theme": "sport",
+      "canonical": "tache2:juillet:batch-02:subject-08",
+      "members": [
+        "tache2:juillet:batch-02:subject-08",
+        "tache2:octobre:batch-05:subject-24"
+      ]
+    },
+    {
+      "id": "sorties-visite-musee",
+      "theme": "sorties-spectacles",
+      "canonical": "tache2:janvier:batch-03:subject-14",
+      "members": [
+        "tache2:janvier:batch-03:subject-14",
+        "tache2:mai:batch-03:subject-14",
+        "tache2:aout:batch-04:subject-19",
+        "tache2:octobre:batch-01:subject-04",
+        "tache2:octobre:batch-06:subject-30"
+      ]
+    },
+    {
+      "id": "sorties-choisir-serie",
+      "theme": "sorties-spectacles",
+      "canonical": "tache2:juillet:batch-08:subject-38",
+      "members": [
+        "tache2:juillet:batch-08:subject-38",
+        "tache2:decembre:batch-01:subject-04"
+      ]
+    },
+    {
+      "id": "arts-jeu-televise",
+      "theme": "arts-loisirs",
+      "canonical": "tache2:fevrier:batch-01:subject-04",
+      "members": [
+        "tache2:fevrier:batch-01:subject-04",
+        "tache2:mars:batch-02:subject-09",
+        "tache2:juillet:batch-02:subject-06",
+        "tache2:decembre:batch-07:subject-34"
+      ]
+    },
+    {
+      "id": "fetes-restaurant-anniversaire",
+      "theme": "fetes",
+      "canonical": "tache2:juin:batch-06:subject-30",
+      "members": [
+        "tache2:juin:batch-06:subject-30",
+        "tache2:juillet:batch-04:subject-18",
+        "tache2:juillet:batch-05:subject-23",
+        "tache2:decembre:batch-05:subject-25"
+      ]
+    }
+  ]
+}

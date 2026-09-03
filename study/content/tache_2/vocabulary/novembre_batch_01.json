@@ -7,242 +7,242 @@
         {
           "id": "T2N11S1V01",
           "kind": "mot-cle",
-          "french": "quel âge",
-          "english": "what age",
-          "example": "Comment s'appelle-t-il, et quel âge a-t-il ?",
-          "usage": "Groupe interrogatif standard pour demander l'âge d'un animal ou d'une personne."
+          "french": "la garde",
+          "english": "the care/boarding (of the pet)",
+          "example": "Avant que j'oublie, la garde se fait chez toi ou tu préfères que je l'emmène chez moi ?",
+          "usage": "Nom désignant le fait de s'occuper d'un animal en l'absence de son propriétaire."
         },
         {
           "id": "T2N11S1V02",
           "kind": "mot-cle",
-          "french": "énergique",
-          "english": "energetic",
-          "example": "Comment est son caractère — plutôt calme, ou plutôt énergique avec les inconnus ?",
-          "usage": "Adjectif qualifiant un tempérament vif et actif."
+          "french": "maladie",
+          "english": "illness/sickness",
+          "example": "Pour ce qui est de la santé, s'il montre des signes de stress ou de maladie, comment je dois réagir ?",
+          "usage": "Nom désignant un état de santé dégradé, à surveiller chez un animal de compagnie."
         },
         {
           "id": "T2N11S1V03",
           "kind": "mot-cle",
-          "french": "le nourrir",
-          "english": "to feed it/him",
-          "example": "Côté repas, que mange-t-il exactement, et à quelle fréquence faut-il le nourrir ?",
-          "usage": "Verbe + pronom complément désignant l'action de donner à manger."
+          "french": "son caractère",
+          "english": "its personality/temperament",
+          "example": "Comment est son caractère — il est plutôt calme ou énergique ? Comment il réagit avec les autres animaux et les inconnus ?",
+          "usage": "Groupe nominal pour décrire la nature comportementale d'un animal ou d'une personne."
         },
         {
           "id": "T2N11S1V04",
           "kind": "mot-cle",
-          "french": "des allergies",
-          "english": "allergies",
-          "example": "Y a-t-il des aliments interdits ou des allergies à connaître ?",
-          "usage": "Nom pluriel désignant des réactions à éviter, notamment alimentaires."
+          "french": "les inconnus",
+          "english": "strangers",
+          "example": "Comment est son caractère — il est plutôt calme ou énergique ? Comment il réagit avec les autres animaux et les inconnus ?",
+          "usage": "Nom pluriel désignant les personnes non familières à l'animal ou à la situation."
         },
         {
           "id": "T2N11S1V05",
           "kind": "mot-cle",
-          "french": "des habitudes particulières",
-          "english": "particular habits",
-          "example": "Y a-t-il des habitudes particulières à respecter pour que tout se passe bien ?",
-          "usage": "Groupe nominal désignant des routines spécifiques à respecter."
+          "french": "des allergies alimentaires",
+          "english": "food allergies",
+          "example": "Est-ce qu'il a des allergies alimentaires ou des aliments interdits ?",
+          "usage": "Nom composé médical courant, utile pour discuter des précautions à prendre."
         },
         {
           "id": "T2N11S1V06",
           "kind": "mot-cle",
-          "french": "des soins particuliers",
-          "english": "special care",
-          "example": "Y a-t-il des médicaments à donner ou des soins particuliers à prévoir ?",
-          "usage": "Groupe nominal désignant une attention médicale ou pratique spécifique."
+          "french": "des aliments interdits",
+          "english": "forbidden foods",
+          "example": "Est-ce qu'il a des allergies alimentaires ou des aliments interdits ?",
+          "usage": "Nom composé désignant les denrées à proscrire pour des raisons de santé."
         },
         {
           "id": "T2N11S1V07",
           "kind": "mot-cle",
-          "french": "en vacances",
-          "english": "on holiday",
-          "example": "Salut ! Tu pars en vacances et tu voudrais que je m'occupe de ton chat — avec plaisir, tu m'expliques comment ça se passe ?",
-          "usage": "Locution nominale de temps introduite par « en »."
+          "french": "un parcours habituel",
+          "english": "a usual route",
+          "example": "Pour les promenades, c'est combien de temps et à quelle fréquence ? Et il y a un parcours habituel ou je peux le promener où je veux ?",
+          "usage": "Groupe nominal désignant un trajet répété par habitude."
         },
         {
           "id": "T2N11S1V08",
           "kind": "mot-cle",
-          "french": "la litière",
-          "english": "the litter box",
-          "example": "Pour la litière, où est-elle placée et à quelle fréquence faut-il la nettoyer ?",
-          "usage": "Nom désignant le bac à litière du chat."
+          "french": "la solitude",
+          "english": "solitude/being alone",
+          "example": "Est-ce qu'il supporte bien la solitude ou il faut éviter de le laisser seul trop longtemps ?",
+          "usage": "Nom abstrait pour évoquer l'état de rester seul pendant une période donnée."
         },
         {
           "id": "T2N11S1V09",
           "kind": "mot-cle",
-          "french": "les clés",
-          "english": "the keys",
-          "example": "D'ailleurs, je viens m'en occuper chez toi j'imagine — comment on s'organise pour les clés ?",
-          "usage": "Nom pluriel désignant les clés du logement."
+          "french": "des signes de stress",
+          "english": "signs of stress",
+          "example": "Pour ce qui est de la santé, s'il montre des signes de stress ou de maladie, comment je dois réagir ?",
+          "usage": "Nom composé désignant les manifestations comportementales d'anxiété."
         },
         {
           "id": "T2N11S1V10",
           "kind": "mot-cle",
-          "french": "un dernier conseil",
-          "english": "a final piece of advice",
-          "example": "Pour finir — tu aurais un dernier conseil pour que tout se passe au mieux pendant ton absence ?",
-          "usage": "Groupe nominal pour solliciter une recommandation de clôture."
+          "french": "son vétérinaire",
+          "english": "its vet",
+          "example": "En cas d'urgence, qui est son vétérinaire et comment je le contacte ?",
+          "usage": "Groupe nominal désignant le professionnel de santé animale à contacter en cas de besoin."
         },
         {
           "id": "T2N11S1V11",
           "kind": "collocation",
-          "french": "comment s'appelle-t-il",
-          "english": "what is his name",
-          "example": "Comment s'appelle-t-il, et quel âge a-t-il ?",
-          "usage": "Collocation interrogative standard pour demander le nom de quelqu'un ou d'un animal."
+          "french": "plutôt calme ou énergique",
+          "english": "rather calm or energetic",
+          "example": "Comment est son caractère — il est plutôt calme ou énergique ? Comment il réagit avec les autres animaux et les inconnus ?",
+          "usage": "Collocation adjectivale opposant deux tempéraments courants."
         },
         {
           "id": "T2N11S1V12",
           "kind": "collocation",
-          "french": "avec les inconnus",
-          "english": "with strangers",
-          "example": "Comment est son caractère — plutôt calme, ou plutôt énergique avec les inconnus ?",
-          "usage": "Collocation prépositionnelle pour évoquer le comportement face à des personnes non familières."
+          "french": "les autres animaux",
+          "english": "other animals",
+          "example": "Comment est son caractère — il est plutôt calme ou énergique ? Comment il réagit avec les autres animaux et les inconnus ?",
+          "usage": "Collocation nominale pour désigner l'ensemble des congénères ou espèces croisées."
         },
         {
           "id": "T2N11S1V13",
           "kind": "collocation",
-          "french": "à quelle fréquence",
-          "english": "how often",
-          "example": "Côté repas, que mange-t-il exactement, et à quelle fréquence faut-il le nourrir ?",
-          "usage": "Collocation interrogative standard pour demander la régularité d'une action."
+          "french": "combien de fois par jour",
+          "english": "how many times a day",
+          "example": "Côté repas, il mange quoi exactement — et c'est combien de fois par jour ?",
+          "usage": "Structure de fréquence très utile pour aborder les routines alimentaires."
         },
         {
           "id": "T2N11S1V14",
           "kind": "collocation",
-          "french": "des aliments interdits",
-          "english": "forbidden foods",
-          "example": "Y a-t-il des aliments interdits ou des allergies à connaître ?",
-          "usage": "Collocation nom + adjectif pour désigner des aliments à proscrire."
+          "french": "à quelle fréquence",
+          "english": "how often",
+          "example": "Pour les promenades, c'est combien de temps et à quelle fréquence ? Et il y a un parcours habituel ou je peux le promener où je veux ?",
+          "usage": "Locution interrogative courante pour demander la régularité d'une activité."
         },
         {
           "id": "T2N11S1V15",
           "kind": "collocation",
-          "french": "reste seul un moment",
-          "english": "stays alone for a while",
-          "example": "Passons maintenant à un autre point : comment réagit-il en général quand il reste seul un moment ?",
-          "usage": "Collocation verbe + adjectif + nom pour évoquer une solitude temporaire."
+          "french": "habitudes importantes",
+          "english": "important habits/routines",
+          "example": "En ce qui concerne l'organisation, il y a des habitudes importantes à respecter pour que tout se passe bien ?",
+          "usage": "Collocation adjectif-nom désignant des routines à respecter scrupuleusement."
         },
         {
           "id": "T2N11S1V16",
           "kind": "collocation",
-          "french": "combien de jours",
-          "english": "how many days",
-          "example": "D'abord, sur combien de jours exactement dois-je m'organiser ?",
-          "usage": "Collocation interrogative pour préciser une durée en jours."
+          "french": "tout se passe bien",
+          "english": "everything goes well",
+          "example": "En ce qui concerne l'organisation, il y a des habitudes importantes à respecter pour que tout se passe bien ?",
+          "usage": "Expression idiomatique pour souhaiter ou vérifier le bon déroulement d'une situation."
         },
         {
           "id": "T2N11S1V17",
           "kind": "collocation",
-          "french": "son vétérinaire",
-          "english": "his/her veterinarian",
-          "example": "Pour ce qui est des imprévus, en cas d'urgence, qui est son vétérinaire et comment puis-je le joindre ?",
-          "usage": "Groupe nominal possessif désignant le praticien habituel d'un animal."
+          "french": "des précautions particulières",
+          "english": "special precautions",
+          "example": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "usage": "Collocation adjectif-nom réutilisable pour aborder les mesures de prudence."
         },
         {
           "id": "T2N11S1V18",
           "kind": "collocation",
-          "french": "m'occupe de ton chat",
-          "english": "look after your cat",
-          "example": "Salut ! Tu pars en vacances et tu voudrais que je m'occupe de ton chat — avec plaisir, tu m'expliques comment ça se passe ?",
-          "usage": "Collocation avec le verbe pronominal « s'occuper de » + complément."
+          "french": "des choses à éviter",
+          "english": "things to avoid",
+          "example": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "usage": "Structure nominale réutilisable pour demander des mises en garde pratiques."
         },
         {
           "id": "T2N11S1V19",
           "kind": "collocation",
-          "french": "sort dehors",
-          "english": "goes outside",
-          "example": "Est-ce qu'il sort dehors ou il reste plutôt à l'intérieur ?",
-          "usage": "Collocation verbe + adverbe décrivant l'accès à l'extérieur."
+          "french": "laisser seul trop longtemps",
+          "english": "leave alone for too long",
+          "example": "Est-ce qu'il supporte bien la solitude ou il faut éviter de le laisser seul trop longtemps ?",
+          "usage": "Collocation verbale pour évoquer une durée d'isolement excessive."
         },
         {
           "id": "T2N11S1V20",
           "kind": "collocation",
-          "french": "une autre personne à contacter",
-          "english": "another person to contact",
-          "example": "Si tu n'es pas joignable, y a-t-il une autre personne à contacter en cas de problème ?",
-          "usage": "Groupe nominal + infinitif pour prévoir un contact de secours."
+          "french": "en cas d'urgence",
+          "english": "in case of emergency",
+          "example": "En cas d'urgence, qui est son vétérinaire et comment je le contacte ?",
+          "usage": "Locution prépositionnelle très fréquente pour introduire une procédure exceptionnelle."
         },
         {
           "id": "T2N11S1V21",
           "kind": "tournure",
-          "french": "pour que tout se passe bien",
-          "english": "so that everything goes well",
-          "example": "Y a-t-il des habitudes particulières à respecter pour que tout se passe bien ?",
-          "usage": "Tournure finale très utile pour justifier une demande de précision."
+          "french": "c'est quel type d'animal",
+          "english": "what type of animal is it",
+          "example": "Salut ! Bien sûr, je peux m'occuper de ton animal pendant tes vacances. Alors, c'est quel type d'animal — un chat, un chien, autre chose ?",
+          "usage": "Amorce classique pour ouvrir une conversation sur la nature d'un animal de compagnie."
         },
         {
           "id": "T2N11S1V22",
           "kind": "tournure",
-          "french": "comment réagit-il en général",
-          "english": "how does it generally react",
-          "example": "Passons maintenant à un autre point : comment réagit-il en général quand il reste seul un moment ?",
-          "usage": "Tournure interrogative pour anticiper un comportement habituel."
+          "french": "Il s'appelle comment",
+          "english": "What's its name",
+          "example": "Il s'appelle comment et il a quel âge ?",
+          "usage": "Tournure orale très courante pour demander le nom de quelqu'un ou de quelque chose."
         },
         {
           "id": "T2N11S1V23",
           "kind": "tournure",
-          "french": "y a-t-il des médicaments à donner",
-          "english": "are there any medications to give",
-          "example": "Y a-t-il des médicaments à donner ou des soins particuliers à prévoir ?",
-          "usage": "Tournure interrogative pour vérifier un besoin médical régulier."
+          "french": "il a quel âge",
+          "english": "how old is it/he/she",
+          "example": "Il s'appelle comment et il a quel âge ?",
+          "usage": "Tournure orale interrogative pour demander l'âge de quelqu'un ou d'un animal."
         },
         {
           "id": "T2N11S1V24",
           "kind": "tournure",
-          "french": "dois-je m'organiser",
-          "english": "do I need to organize myself",
-          "example": "D'abord, sur combien de jours exactement dois-je m'organiser ?",
-          "usage": "Tournure interrogative impersonnelle pour clarifier une contrainte de planification."
+          "french": "Il mange quoi exactement",
+          "english": "What exactly does it eat",
+          "example": "Côté repas, il mange quoi exactement — et c'est combien de fois par jour ?",
+          "usage": "Tournure directe et naturelle pour se renseigner sur une alimentation précise."
         },
         {
           "id": "T2N11S1V25",
           "kind": "tournure",
-          "french": "comment puis-je le joindre",
-          "english": "how can I reach him/her",
-          "example": "Pour ce qui est des imprévus, en cas d'urgence, qui est son vétérinaire et comment puis-je le joindre ?",
-          "usage": "Tournure interrogative polie avec « puis-je » pour demander un moyen de contact."
+          "french": "Est-ce qu'il a",
+          "english": "Does it have",
+          "example": "Est-ce qu'il a des allergies alimentaires ou des aliments interdits ?",
+          "usage": "Amorce interrogative simple et réutilisable pour vérifier une caractéristique."
         },
         {
           "id": "T2N11S1V26",
           "kind": "tournure",
-          "french": "tu m'expliques comment ça se passe",
-          "english": "can you explain how it works",
-          "example": "Salut ! Tu pars en vacances et tu voudrais que je m'occupe de ton chat — avec plaisir, tu m'expliques comment ça se passe ?",
-          "usage": "Tournure d'ouverture pour demander le déroulement."
+          "french": "Pour les promenades, c'est combien de temps",
+          "english": "For walks, how long is it",
+          "example": "Pour les promenades, c'est combien de temps et à quelle fréquence ? Et il y a un parcours habituel ou je peux le promener où je veux ?",
+          "usage": "Structure introductive pour aborder la durée d'une activité récurrente."
         },
         {
           "id": "T2N11S1V27",
           "kind": "tournure",
-          "french": "où est-elle placée",
-          "english": "where is it placed",
-          "example": "Pour la litière, où est-elle placée et à quelle fréquence faut-il la nettoyer ?",
-          "usage": "Tournure interrogative pour localiser un objet."
+          "french": "tu préfères que je",
+          "english": "do you prefer that I",
+          "example": "Avant que j'oublie, la garde se fait chez toi ou tu préfères que je l'emmène chez moi ?",
+          "usage": "Tournure polie pour proposer une alternative tout en laissant le choix à l'interlocuteur."
         },
         {
           "id": "T2N11S1V28",
           "kind": "tournure",
-          "french": "je viens m'en occuper chez toi",
-          "english": "I'll come look after it at your place",
-          "example": "D'ailleurs, je viens m'en occuper chez toi j'imagine — comment on s'organise pour les clés ?",
-          "usage": "Tournure pour confirmer le lieu de la garde."
+          "french": "comment je dois réagir",
+          "english": "how should I react",
+          "example": "Pour ce qui est de la santé, s'il montre des signes de stress ou de maladie, comment je dois réagir ?",
+          "usage": "Structure réutilisable pour demander la conduite à tenir face à un imprévu."
         },
         {
           "id": "T2N11S1V29",
           "kind": "tournure",
-          "french": "si tu n'es pas joignable",
-          "english": "if you can't be reached",
-          "example": "Si tu n'es pas joignable, y a-t-il une autre personne à contacter en cas de problème ?",
-          "usage": "Tournure conditionnelle pour envisager une indisponibilité."
+          "french": "je peux te solliciter",
+          "english": "may I contact you",
+          "example": "Voilà, je crois que j'ai tout ce qu'il faut pour bien m'occuper de lui pendant ton absence — et au moindre doute, je peux te solliciter ?",
+          "usage": "Tournure polie pour demander la permission de recontacter quelqu'un plus tard."
         },
         {
           "id": "T2N11S1V30",
           "kind": "tournure",
-          "french": "pour que tout se passe au mieux",
-          "english": "so that everything goes as well as possible",
-          "example": "Pour finir — tu aurais un dernier conseil pour que tout se passe au mieux pendant ton absence ?",
-          "usage": "Tournure finale de but pour clôturer."
+          "french": "Est-ce qu'il supporte bien",
+          "english": "Does it cope well with",
+          "example": "Est-ce qu'il supporte bien la solitude ou il faut éviter de le laisser seul trop longtemps ?",
+          "usage": "Amorce interrogative pour évaluer la tolérance d'un animal à une situation donnée."
         }
       ]
     },

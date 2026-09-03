@@ -252,13 +252,37 @@
         {
           "id": "T2O10S12V01",
           "kind": "mot-cle",
+          "french": "ton séjour",
+          "english": "your trip/stay",
+          "example": "Salut ! J'ai appris que tu avais récemment voyagé au Canada — tu pourrais me raconter un peu ton séjour ?",
+          "usage": "Nom masculin précédé du possessif « ton » ; sert à demander un récit général de voyage."
+        },
+        {
+          "id": "T2O10S12V02",
+          "kind": "mot-cle",
+          "french": "ce voyage",
+          "english": "this trip",
+          "example": "Qu'est-ce qui t'a donné envie de choisir le Canada pour ce voyage ?",
+          "usage": "Groupe nominal avec démonstratif pour désigner le voyage dont on parle."
+        },
+        {
+          "id": "T2O10S12V03",
+          "kind": "mot-cle",
           "french": "exactement",
           "english": "exactly",
           "example": "Tu es allé(e) dans quelles villes ou quelles régions exactement ?",
           "usage": "Adverbe très fréquent en fin de question directe pour demander une précision."
         },
         {
-          "id": "T2O10S12V02",
+          "id": "T2O10S12V04",
+          "kind": "mot-cle",
+          "french": "des proches",
+          "english": "close friends and family",
+          "example": "Tu es parti(e) seul(e), avec des proches ou dans le cadre d'un voyage organisé ?",
+          "usage": "Nom masculin pluriel désignant les proches, amis ou famille."
+        },
+        {
+          "id": "T2O10S12V05",
           "kind": "mot-cle",
           "french": "les différentes étapes",
           "english": "the different legs (of a trip)",
@@ -266,36 +290,12 @@
           "usage": "Nom féminin pluriel désignant les parties d'un itinéraire."
         },
         {
-          "id": "T2O10S12V03",
-          "kind": "mot-cle",
-          "french": "des vêtements particuliers",
-          "english": "special clothing",
-          "example": "Côté météo, quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
-          "usage": "Groupe nominal pour évoquer une tenue adaptée à un climat ou une activité."
-        },
-        {
-          "id": "T2O10S12V04",
-          "kind": "mot-cle",
-          "french": "des spécialités locales",
-          "english": "local specialties",
-          "example": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
-          "usage": "Plats ou produits typiques d'une région à découvrir sur place."
-        },
-        {
-          "id": "T2O10S12V05",
-          "kind": "mot-cle",
-          "french": "des adresses à recommander",
-          "english": "places worth recommending",
-          "example": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
-          "usage": "Formulation utile pour demander des suggestions concrètes."
-        },
-        {
           "id": "T2O10S12V06",
           "kind": "mot-cle",
-          "french": "budget",
-          "english": "budget",
-          "example": "Parlons du budget — combien est-ce que ça t'a coûté approximativement au total ?",
-          "usage": "Montant prévu pour couvrir l'ensemble des dépenses."
+          "french": "des excursions",
+          "english": "day trips / excursions",
+          "example": "En ce qui concerne les découvertes sur place, y avait-il des visites ou des excursions que tu recommanderais particulièrement ?",
+          "usage": "Nom féminin pluriel désignant des sorties organisées de courte durée."
         },
         {
           "id": "T2O10S12V07",
@@ -308,29 +308,45 @@
         {
           "id": "T2O10S12V08",
           "kind": "mot-cle",
-          "french": "des excursions",
-          "english": "day trips / excursions",
-          "example": "En ce qui concerne les découvertes sur place, y avait-il des visites ou des excursions que tu recommanderais particulièrement ?",
-          "usage": "Nom féminin pluriel désignant des sorties organisées de courte durée."
+          "french": "des spécialités locales",
+          "english": "local specialties",
+          "example": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "usage": "Plats ou produits typiques d'une région à découvrir sur place."
         },
         {
           "id": "T2O10S12V09",
           "kind": "mot-cle",
-          "french": "les habitants",
-          "english": "the locals",
-          "example": "Autre chose : les habitants, ils sont comment — plutôt accueillants et faciles à aborder ?",
-          "usage": "Nom pluriel désignant les gens du pays."
+          "french": "budget",
+          "english": "budget",
+          "example": "Parlons du budget — combien est-ce que ça t'a coûté approximativement au total ?",
+          "usage": "Montant prévu pour couvrir l'ensemble des dépenses."
         },
         {
           "id": "T2O10S12V10",
           "kind": "mot-cle",
-          "french": "les transports en commun",
-          "english": "public transport",
-          "example": "Les transports en commun, c'est pratique et abordable là-bas ?",
-          "usage": "Groupe nominal désignant les transports collectifs."
+          "french": "des vêtements particuliers",
+          "english": "special clothing",
+          "example": "Pour ce qui est de la météo, quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
+          "usage": "Groupe nominal pour évoquer une tenue adaptée à un climat ou une activité."
         },
         {
           "id": "T2O10S12V11",
+          "kind": "collocation",
+          "french": "récemment voyagé",
+          "english": "recently traveled",
+          "example": "Salut ! J'ai appris que tu avais récemment voyagé au Canada — tu pourrais me raconter un peu ton séjour ?",
+          "usage": "Collocation adverbe + participe passé pour situer un voyage dans un passé proche."
+        },
+        {
+          "id": "T2O10S12V12",
+          "kind": "collocation",
+          "french": "envie de choisir",
+          "english": "the urge to choose",
+          "example": "Qu'est-ce qui t'a donné envie de choisir le Canada pour ce voyage ?",
+          "usage": "Collocation nom + préposition + infinitif pour exprimer une motivation."
+        },
+        {
+          "id": "T2O10S12V13",
           "kind": "collocation",
           "french": "quelles villes ou quelles régions",
           "english": "which towns or regions",
@@ -338,7 +354,15 @@
           "usage": "Structure interrogative redoublée avec « quel » pour proposer un choix d'échelle géographique."
         },
         {
-          "id": "T2O10S12V12",
+          "id": "T2O10S12V14",
+          "kind": "collocation",
+          "french": "resté(e) sur place",
+          "english": "stayed there",
+          "example": "Combien de temps es-tu resté(e) sur place ?",
+          "usage": "Collocation verbe + adverbe pour indiquer une durée passée à un endroit."
+        },
+        {
+          "id": "T2O10S12V15",
           "kind": "collocation",
           "french": "en train, en bus ou en voiture",
           "english": "by train, bus, or car",
@@ -346,36 +370,12 @@
           "usage": "Énumération de moyens de transport introduits par « en »."
         },
         {
-          "id": "T2O10S12V13",
-          "kind": "collocation",
-          "french": "il fallait prévoir",
-          "english": "you had to plan for",
-          "example": "Côté météo, quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
-          "usage": "Collocation à l'imparfait pour évoquer une nécessité dans un récit passé."
-        },
-        {
-          "id": "T2O10S12V14",
-          "kind": "collocation",
-          "french": "à essayer absolument",
-          "english": "an absolute must-try",
-          "example": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
-          "usage": "Collocation adjectivale figée pour recommander fortement une spécialité."
-        },
-        {
-          "id": "T2O10S12V15",
-          "kind": "collocation",
-          "french": "adresses à recommander",
-          "english": "addresses to recommend",
-          "example": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
-          "usage": "Collocation nom + à + infinitif pour demander des suggestions de lieux."
-        },
-        {
           "id": "T2O10S12V16",
           "kind": "collocation",
-          "french": "ça t'a coûté approximativement",
-          "english": "it cost you approximately",
-          "example": "Parlons du budget — combien est-ce que ça t'a coûté approximativement au total ?",
-          "usage": "Demande une estimation sans exiger un montant exact."
+          "french": "un mélange des deux",
+          "english": "a mix of both",
+          "example": "Et concrètement, quelles activités as-tu faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
+          "usage": "Collocation nominale figée pour indiquer une combinaison de deux éléments proposés."
         },
         {
           "id": "T2O10S12V17",
@@ -388,29 +388,37 @@
         {
           "id": "T2O10S12V18",
           "kind": "collocation",
-          "french": "faciles à aborder",
-          "english": "easy to approach",
-          "example": "Autre chose : les habitants, ils sont comment — plutôt accueillants et faciles à aborder ?",
-          "usage": "Adjectif + complément sur l'accessibilité des gens."
+          "french": "à essayer absolument",
+          "english": "an absolute must-try",
+          "example": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "usage": "Collocation adjectivale figée pour recommander fortement une spécialité."
         },
         {
           "id": "T2O10S12V19",
           "kind": "collocation",
-          "french": "coûte le plus cher",
-          "english": "costs the most",
-          "example": "La vie est chère là-bas — qu'est-ce qui coûte le plus cher au quotidien ?",
-          "usage": "Locution verbale sur les dépenses les plus élevées."
+          "french": "ça t'a coûté approximativement",
+          "english": "it cost you approximately",
+          "example": "Parlons du budget — combien est-ce que ça t'a coûté approximativement au total ?",
+          "usage": "Demande une estimation sans exiger un montant exact."
         },
         {
           "id": "T2O10S12V20",
           "kind": "collocation",
-          "french": "deux semaines",
-          "english": "two weeks",
-          "example": "Salut ! Tu rentres tout juste de deux semaines au Canada et j'y pars bientôt — tu pourrais me donner quelques conseils pratiques ?",
-          "usage": "Locution sur la durée du séjour."
+          "french": "il fallait prévoir",
+          "english": "you had to plan for",
+          "example": "Pour ce qui est de la météo, quel temps faisait-il généralement — il fallait prévoir des vêtements particuliers ?",
+          "usage": "Collocation à l'imparfait pour évoquer une nécessité dans un récit passé."
         },
         {
           "id": "T2O10S12V21",
+          "kind": "tournure",
+          "french": "dans le cadre d'un voyage organisé",
+          "english": "as part of an organized/package trip",
+          "example": "Tu es parti(e) seul(e), avec des proches ou dans le cadre d'un voyage organisé ?",
+          "usage": "Locution prépositionnelle « dans le cadre de » pour situer une action dans un contexte précis."
+        },
+        {
+          "id": "T2O10S12V22",
           "kind": "tournure",
           "french": "comment te déplaçais-tu",
           "english": "how were you getting around",
@@ -418,20 +426,12 @@
           "usage": "Imparfait d'habitude pour interroger sur un moyen de transport pendant un voyage passé."
         },
         {
-          "id": "T2O10S12V22",
-          "kind": "tournure",
-          "french": "tu aurais des adresses à recommander",
-          "english": "would you happen to have addresses to recommend",
-          "example": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
-          "usage": "Le conditionnel adoucit une demande de suggestion."
-        },
-        {
           "id": "T2O10S12V23",
           "kind": "tournure",
-          "french": "combien est-ce que ça t'a coûté",
-          "english": "how much did it cost you",
-          "example": "Parlons du budget — combien est-ce que ça t'a coûté approximativement au total ?",
-          "usage": "Structure orale avec « ça » pour demander un coût global."
+          "french": "quelles activités as-tu faites",
+          "english": "what activities did you do",
+          "example": "Et concrètement, quelles activités as-tu faites — plutôt culturelles, en pleine nature ou un mélange des deux ?",
+          "usage": "Structure avec passé composé pour faire un bilan d'activités."
         },
         {
           "id": "T2O10S12V24",
@@ -444,13 +444,29 @@
         {
           "id": "T2O10S12V25",
           "kind": "tournure",
-          "french": "qu'est-ce que tu as le plus apprécié",
-          "english": "what did you like most",
-          "example": "Qu'est-ce que tu as le plus apprécié ?",
-          "usage": "Structure interrogative avec superlatif « le plus » pour cibler un point positif."
+          "french": "tu aurais des adresses à recommander",
+          "english": "would you happen to have addresses to recommend",
+          "example": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "usage": "Le conditionnel adoucit une demande de suggestion."
         },
         {
           "id": "T2O10S12V26",
+          "kind": "tournure",
+          "french": "combien est-ce que ça t'a coûté",
+          "english": "how much did it cost you",
+          "example": "Parlons du budget — combien est-ce que ça t'a coûté approximativement au total ?",
+          "usage": "Structure orale avec « ça » pour demander un coût global."
+        },
+        {
+          "id": "T2O10S12V27",
+          "kind": "tournure",
+          "french": "qu'est-ce que tu as le plus apprécié",
+          "english": "what did you like most",
+          "example": "Sur le fond, qu'est-ce que tu as le plus apprécié ?",
+          "usage": "Structure interrogative avec superlatif « le plus » pour cibler un point positif."
+        },
+        {
+          "id": "T2O10S12V28",
           "kind": "tournure",
           "french": "y a-t-il quelque chose qui t'a moins plu",
           "english": "was there anything you liked less",
@@ -458,7 +474,7 @@
           "usage": "Structure avec « moins » pour interroger poliment sur un aspect négatif."
         },
         {
-          "id": "T2O10S12V27",
+          "id": "T2O10S12V29",
           "kind": "tournure",
           "french": "si tu ne devais me recommander qu'une seule étape ou activité",
           "english": "if you had to recommend just one leg or activity",
@@ -466,28 +482,12 @@
           "usage": "Structure hypothétique avec « si » + imparfait pour clore la conversation en demandant une priorité."
         },
         {
-          "id": "T2O10S12V28",
+          "id": "T2O10S12V30",
           "kind": "tournure",
           "french": "ce serait laquelle",
           "english": "which one would it be",
           "example": "Pour finir — si tu ne devais me recommander qu'une seule étape ou activité, ce serait laquelle ?",
           "usage": "Conditionnel présent pour formuler une question de clôture ouverte."
-        },
-        {
-          "id": "T2O10S12V29",
-          "kind": "tournure",
-          "french": "La vie est chère là-bas",
-          "english": "life is expensive there",
-          "example": "La vie est chère là-bas — qu'est-ce qui coûte le plus cher au quotidien ?",
-          "usage": "Constat lançant une question sur le coût de la vie."
-        },
-        {
-          "id": "T2O10S12V30",
-          "kind": "tournure",
-          "french": "Est-ce qu'il y a des différences culturelles",
-          "english": "are there cultural differences",
-          "example": "Est-ce qu'il y a des différences culturelles ou des habitudes qui pourraient me surprendre ?",
-          "usage": "Question sur les écarts culturels."
         }
       ]
     },

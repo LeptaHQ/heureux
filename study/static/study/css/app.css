@@ -15860,6 +15860,13 @@ html[data-collection-view-mode="table"]
   gap: 0.25rem;
   min-width: 0;
 }
+.t1-row__date,
+.t1-table__subject-date {
+  color: var(--text-faint);
+  font-size: 0.7rem;
+  font-weight: 650;
+  line-height: 1.3;
+}
 .t1-row.is-personalized { border-left: 3px solid var(--primary); }
 .t1-row.is-personalized .t1-row__link { padding-left: 2.15rem; }
 .t1-row.is-empty .t1-row__prompt { color: var(--text-soft); }
@@ -16058,24 +16065,9 @@ html[data-collection-view-mode="table"]
 .t1-table__subject-copy .subject-table-row-link {
   min-width: 0;
 }
-.t1-row__related-group,
-.t1-table__related-group {
+.t1-table__subject-date {
   display: block;
-  width: fit-content;
-  margin-top: 0.3rem;
-  padding: 0.16rem 0.42rem;
-  border-radius: 999px;
-  background: var(--primary-soft);
-  color: var(--primary);
-  font-size: 0.68rem;
-  font-weight: 750;
-  line-height: 1.25;
-}
-.t1-row__related-group {
-  overflow: hidden;
-  max-width: 100%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  margin-top: 0.25rem;
 }
 .t1-table__progress {
   display: inline-flex;

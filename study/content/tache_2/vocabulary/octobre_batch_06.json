@@ -987,13 +987,21 @@
         {
           "id": "T2O10S30V01",
           "kind": "mot-cle",
+          "french": "les collections principales",
+          "english": "the main collections",
+          "example": "Bonjour ! Nous aimerions visiter votre musée — c'est la première fois que nous venons. Quelles sont les collections principales qu'on peut voir ici ?",
+          "usage": "Groupe nominal désignant les ensembles d'œuvres phares d'un musée."
+        },
+        {
+          "id": "T2O10S30V02",
+          "kind": "mot-cle",
           "french": "un parking à proximité",
           "english": "nearby parking",
           "example": "Où se trouve exactement le musée — est-il facilement accessible en transports en commun ? Y a-t-il un parking à proximité ?",
           "usage": "Groupe nominal désignant un stationnement situé à faible distance."
         },
         {
-          "id": "T2O10S30V02",
+          "id": "T2O10S30V03",
           "kind": "mot-cle",
           "french": "vos horaires d'ouverture",
           "english": "your opening hours",
@@ -1001,23 +1009,31 @@
           "usage": "Groupe nominal indiquant les plages horaires d'accès à un établissement."
         },
         {
-          "id": "T2O10S30V03",
-          "kind": "mot-cle",
-          "french": "la collection permanente",
-          "english": "the permanent collection",
-          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
-          "usage": "Groupe nominal opposé à 'les expositions temporaires'."
-        },
-        {
           "id": "T2O10S30V04",
           "kind": "mot-cle",
-          "french": "des expositions temporaires",
-          "english": "temporary exhibitions",
-          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
-          "usage": "Groupe nominal opposé à « collection permanente » pour désigner des expositions limitées dans le temps."
+          "french": "la foule",
+          "english": "the crowd",
+          "example": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ? On voudrait éviter la foule — quel moment nous conseillez-vous ?",
+          "usage": "Nom collectif désignant un grand nombre de visiteurs réunis."
         },
         {
           "id": "T2O10S30V05",
+          "kind": "mot-cle",
+          "french": "des tarifs de groupe",
+          "english": "group rates",
+          "example": "Nous viendrons à plusieurs — proposez-vous des tarifs de groupe ?",
+          "usage": "Groupe nominal désignant des prix spécifiques pour plusieurs personnes."
+        },
+        {
+          "id": "T2O10S30V06",
+          "kind": "mot-cle",
+          "french": "la collection permanente",
+          "english": "the permanent collection",
+          "example": "Et dans la continuité, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "usage": "Groupe nominal opposé à 'les expositions temporaires'."
+        },
+        {
+          "id": "T2O10S30V07",
           "kind": "mot-cle",
           "french": "un supplément",
           "english": "an extra fee/surcharge",
@@ -1025,15 +1041,23 @@
           "usage": "Nom désignant un montant additionnel à payer."
         },
         {
-          "id": "T2O10S30V06",
+          "id": "T2O10S30V08",
           "kind": "mot-cle",
-          "french": "une librairie",
-          "english": "a bookshop",
-          "example": "Y a-t-il une boutique de souvenirs ou une librairie sur place ?",
-          "usage": "Nom féminin désignant un magasin où l'on vend des livres."
+          "french": "une visite guidée",
+          "english": "a guided tour",
+          "example": "Quelle est la durée d'une visite guidée — environ une heure ou plutôt une heure et demie ? Et dans quelles langues les visites sont-elles proposées ?",
+          "usage": "Groupe nominal désignant une visite accompagnée par un guide."
         },
         {
-          "id": "T2O10S30V07",
+          "id": "T2O10S30V09",
+          "kind": "mot-cle",
+          "french": "un audioguide",
+          "english": "an audio guide",
+          "example": "Question budget, y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
+          "usage": "Nom composé désignant un appareil de guidage sonore pour les visiteurs."
+        },
+        {
+          "id": "T2O10S30V10",
           "kind": "mot-cle",
           "french": "une boutique de souvenirs",
           "english": "a souvenir shop",
@@ -1041,31 +1065,15 @@
           "usage": "Groupe nominal désignant un commerce vendant des objets commémoratifs."
         },
         {
-          "id": "T2O10S30V08",
-          "kind": "mot-cle",
-          "french": "les collections principales",
-          "english": "the main collections",
-          "example": "Bonjour ! J'aimerais organiser une visite du musée en famille — c'est la première fois qu'on vient. Quelles sont les collections principales qu'on peut voir ici ?",
-          "usage": "Groupe nominal désignant les collections majeures."
-        },
-        {
-          "id": "T2O10S30V09",
-          "kind": "mot-cle",
-          "french": "des ateliers",
-          "english": "workshops",
-          "example": "Pour ce qui est des visites, le musée est-il adapté aux enfants — y a-t-il des activités ou des ateliers pour eux ?",
-          "usage": "Nom pluriel désignant des activités pour enfants."
-        },
-        {
-          "id": "T2O10S30V10",
-          "kind": "mot-cle",
-          "french": "un livret",
-          "english": "a booklet",
-          "example": "Il existe un parcours ou un livret spécial pour les enfants ?",
-          "usage": "Nom désignant un support pour enfants."
-        },
-        {
           "id": "T2O10S30V11",
+          "kind": "collocation",
+          "french": "la première fois que nous venons",
+          "english": "the first time we're coming",
+          "example": "Bonjour ! Nous aimerions visiter votre musée — c'est la première fois que nous venons. Quelles sont les collections principales qu'on peut voir ici ?",
+          "usage": "Association temporelle 'la première fois que' + proposition, pour signaler une découverte."
+        },
+        {
+          "id": "T2O10S30V12",
           "kind": "collocation",
           "french": "facilement accessible",
           "english": "easily accessible",
@@ -1073,7 +1081,7 @@
           "usage": "Association adverbe + adjectif pour décrire la facilité d'accès à un lieu."
         },
         {
-          "id": "T2O10S30V12",
+          "id": "T2O10S30V13",
           "kind": "collocation",
           "french": "y compris le week-end",
           "english": "including the weekend",
@@ -1081,39 +1089,23 @@
           "usage": "Locution figée pour préciser qu'une règle s'applique aussi le week-end."
         },
         {
-          "id": "T2O10S30V13",
-          "kind": "collocation",
-          "french": "expositions temporaires",
-          "english": "temporary exhibitions",
-          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
-          "usage": "Groupe nominal désignant des présentations limitées dans le temps, par opposition au fonds permanent."
-        },
-        {
           "id": "T2O10S30V14",
           "kind": "collocation",
-          "french": "collection permanente",
-          "english": "permanent collection",
-          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
-          "usage": "Groupe nominal désignant l'ensemble des œuvres exposées en continu dans un lieu culturel."
+          "french": "éviter la foule",
+          "english": "to avoid the crowd",
+          "example": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ? On voudrait éviter la foule — quel moment nous conseillez-vous ?",
+          "usage": "Association verbe + nom pour exprimer le souhait de ne pas croiser trop de monde."
         },
         {
           "id": "T2O10S30V15",
           "kind": "collocation",
           "french": "en ce moment",
           "english": "at the moment/currently",
-          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "example": "Et dans la continuité, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "usage": "Locution adverbiale fixe pour situer une action dans le présent."
         },
         {
           "id": "T2O10S30V16",
-          "kind": "collocation",
-          "french": "en plus de",
-          "english": "in addition to",
-          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
-          "usage": "Locution prépositionnelle figée introduisant un complément qui s'ajoute à autre chose."
-        },
-        {
-          "id": "T2O10S30V17",
           "kind": "collocation",
           "french": "payer un supplément",
           "english": "to pay an extra fee",
@@ -1121,20 +1113,28 @@
           "usage": "Association verbe + nom pour décrire un paiement additionnel."
         },
         {
-          "id": "T2O10S30V18",
+          "id": "T2O10S30V17",
           "kind": "collocation",
           "french": "inclus dans le tarif",
           "english": "included in the price",
-          "example": "En ce qui concerne l'accompagnement, proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ?",
+          "example": "Côté budget, proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ?",
           "usage": "Association participe passé + groupe prépositionnel pour préciser le contenu d'un prix."
+        },
+        {
+          "id": "T2O10S30V18",
+          "kind": "collocation",
+          "french": "une heure et demie",
+          "english": "an hour and a half",
+          "example": "Quelle est la durée d'une visite guidée — environ une heure ou plutôt une heure et demie ? Et dans quelles langues les visites sont-elles proposées ?",
+          "usage": "Groupe nominal figé pour exprimer une durée précise."
         },
         {
           "id": "T2O10S30V19",
           "kind": "collocation",
-          "french": "boutique de souvenirs",
-          "english": "gift/souvenir shop",
-          "example": "Y a-t-il une boutique de souvenirs ou une librairie sur place ?",
-          "usage": "Groupe nominal désignant un magasin vendant des objets souvenirs, fréquent dans les lieux culturels."
+          "french": "prendre des photos",
+          "english": "to take photos",
+          "example": "Question budget, y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
+          "usage": "Association verbe + nom très courante pour évoquer la prise de clichés."
         },
         {
           "id": "T2O10S30V20",
@@ -1147,13 +1147,21 @@
         {
           "id": "T2O10S30V21",
           "kind": "tournure",
+          "french": "Quelles sont les collections principales qu'on peut voir ici",
+          "english": "What are the main collections one can see here",
+          "example": "Bonjour ! Nous aimerions visiter votre musée — c'est la première fois que nous venons. Quelles sont les collections principales qu'on peut voir ici ?",
+          "usage": "Question soutenue avec inversion du sujet 'les collections principales' après le verbe 'sont'."
+        },
+        {
+          "id": "T2O10S30V22",
+          "kind": "tournure",
           "french": "Où se trouve exactement le musée",
           "english": "Where exactly is the museum located",
           "example": "Où se trouve exactement le musée — est-il facilement accessible en transports en commun ? Y a-t-il un parking à proximité ?",
           "usage": "Question soutenue avec inversion du sujet 'le musée' après le verbe pronominal 'se trouve'."
         },
         {
-          "id": "T2O10S30V22",
+          "id": "T2O10S30V23",
           "kind": "tournure",
           "french": "Quels sont vos horaires d'ouverture",
           "english": "What are your opening hours",
@@ -1161,7 +1169,15 @@
           "usage": "Question soutenue avec inversion du sujet 'vos horaires d'ouverture' après le verbe 'sont'."
         },
         {
-          "id": "T2O10S30V23",
+          "id": "T2O10S30V24",
+          "kind": "tournure",
+          "french": "quel moment nous conseillez-vous",
+          "english": "what time would you recommend to us",
+          "example": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ? On voudrait éviter la foule — quel moment nous conseillez-vous ?",
+          "usage": "Question avec antéposition du groupe interrogatif 'quel moment' devant le sujet-verbe inversé 'conseillez-vous'."
+        },
+        {
+          "id": "T2O10S30V25",
           "kind": "tournure",
           "french": "Combien de temps faut-il prévoir pour visiter l'ensemble du musée",
           "english": "How much time should one plan to visit the whole museum",
@@ -1169,7 +1185,7 @@
           "usage": "Question soutenue avec inversion impersonnelle 'faut-il'."
         },
         {
-          "id": "T2O10S30V24",
+          "id": "T2O10S30V26",
           "kind": "tournure",
           "french": "combien est-ce que ça coûte approximativement",
           "english": "roughly how much does it cost",
@@ -1177,15 +1193,15 @@
           "usage": "Tournure interrogative avec 'est-ce que', qui évite l'inversion du sujet."
         },
         {
-          "id": "T2O10S30V25",
+          "id": "T2O10S30V27",
           "kind": "tournure",
-          "french": "Y a-t-il des expositions temporaires",
-          "english": "Are there any temporary exhibitions",
-          "example": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
-          "usage": "Question avec inversion pour demander si un type d'exposition est actuellement proposé."
+          "french": "proposez-vous des tarifs de groupe",
+          "english": "do you offer group rates",
+          "example": "Nous viendrons à plusieurs — proposez-vous des tarifs de groupe ?",
+          "usage": "Question avec inversion du sujet 'vous' relié au verbe par un trait d'union, registre vouvoiement."
         },
         {
-          "id": "T2O10S30V26",
+          "id": "T2O10S30V28",
           "kind": "tournure",
           "french": "Jusqu'à quand seront-elles accessibles",
           "english": "Until when will they be accessible",
@@ -1193,36 +1209,20 @@
           "usage": "Question soutenue avec inversion du pronom sujet 'elles' relié au verbe par un trait d'union."
         },
         {
-          "id": "T2O10S30V27",
+          "id": "T2O10S30V29",
           "kind": "tournure",
           "french": "Proposez-vous des visites guidées",
           "english": "Do you offer guided tours",
-          "example": "En ce qui concerne l'accompagnement, proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ?",
+          "example": "Côté budget, proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ?",
           "usage": "Question avec inversion du sujet 'vous' relié au verbe par un trait d'union, registre vouvoiement."
         },
         {
-          "id": "T2O10S30V28",
+          "id": "T2O10S30V30",
           "kind": "tournure",
           "french": "Il faut s'inscrire à l'avance pour les visites guidées",
           "english": "You need to register in advance for guided tours",
           "example": "Il faut s'inscrire à l'avance pour les visites guidées ou on peut venir librement ?",
           "usage": "Tournure impersonnelle avec 'il faut' exprimant une nécessité, sans inversion."
-        },
-        {
-          "id": "T2O10S30V29",
-          "kind": "tournure",
-          "french": "Est-ce que c'est gratuit pour les jeunes enfants",
-          "english": "is it free for young children",
-          "example": "Est-ce que c'est gratuit pour les jeunes enfants ?",
-          "usage": "Question sur la gratuité."
-        },
-        {
-          "id": "T2O10S30V30",
-          "kind": "tournure",
-          "french": "Le musée est-il adapté aux enfants",
-          "english": "is the museum child-friendly",
-          "example": "Pour ce qui est des visites, le musée est-il adapté aux enfants — y a-t-il des activités ou des ateliers pour eux ?",
-          "usage": "Question sur l'adaptation aux enfants."
         }
       ]
     }

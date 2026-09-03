@@ -8,71 +8,59 @@
   "subjects": [
     {
       "number": 1,
-      "title": "Garde du chat d'un(e) ami(e)",
-      "prompt": "Un(e) ami(e) part en vacances et vous confie son chat ; en ami(e), vous posez des questions pour bien vous en occuper (nourriture, litière, habitudes, soins, etc.).",
+      "title": "Garde de l'animal d'un(e) ami(e)",
+      "prompt": "Un(e) ami(e) part en vacances et vous confie son animal ; en ami(e), vous posez des questions pour bien vous en occuper (nourriture, promenades, habitudes, soins, etc.).",
       "questions": [
         {
-          "text": "Salut ! Tu pars en vacances et tu voudrais que je m'occupe de ton chat — avec plaisir, tu m'expliques comment ça se passe ?"
+          "text": "Salut ! Bien sûr, je peux m'occuper de ton animal pendant tes vacances. Alors, c'est quel type d'animal — un chat, un chien, autre chose ?"
         },
         {
-          "text": "Comment s'appelle-t-il, et quel âge a-t-il ?",
-          "memory_number": 3,
-          "memory_section": 7
+          "text": "Il s'appelle comment et il a quel âge ?"
         },
         {
-          "text": "Comment est son caractère — plutôt calme, ou plutôt énergique avec les inconnus ?",
-          "memory_number": 3,
-          "memory_section": 7
+          "text": "Comment est son caractère — il est plutôt calme ou énergique ? Comment il réagit avec les autres animaux et les inconnus ?"
         },
         {
-          "text": "D'abord, sur combien de jours exactement dois-je m'organiser ?",
-          "memory_number": 3,
-          "memory_section": 4
-        },
-        {
-          "text": "D'ailleurs, je viens m'en occuper chez toi j'imagine — comment on s'organise pour les clés ?"
-        },
-        {
-          "text": "Côté repas, que mange-t-il exactement, et à quelle fréquence faut-il le nourrir ?",
-          "memory_number": 3,
-          "memory_section": 7
-        },
-        {
-          "text": "Y a-t-il des aliments interdits ou des allergies à connaître ?",
-          "memory_number": 3,
-          "memory_section": 8
-        },
-        {
-          "text": "Pour la litière, où est-elle placée et à quelle fréquence faut-il la nettoyer ?"
-        },
-        {
-          "text": "Est-ce qu'il sort dehors ou il reste plutôt à l'intérieur ?"
-        },
-        {
-          "text": "Y a-t-il des habitudes particulières à respecter pour que tout se passe bien ?",
-          "memory_number": 3,
-          "memory_section": 4
-        },
-        {
-          "text": "Passons maintenant à un autre point : comment réagit-il en général quand il reste seul un moment ?",
-          "memory_number": 3,
-          "memory_section": 7
-        },
-        {
-          "text": "Y a-t-il des médicaments à donner ou des soins particuliers à prévoir ?",
-          "memory_number": 3,
-          "memory_section": 8
-        },
-        {
-          "text": "Pour ce qui est des imprévus, en cas d'urgence, qui est son vétérinaire et comment puis-je le joindre ?",
+          "text": "Avant que j'oublie, la garde se fait chez toi ou tu préfères que je l'emmène chez moi ?",
           "memory_number": 3,
           "memory_section": 13
         },
         {
-          "text": "Si tu n'es pas joignable, y a-t-il une autre personne à contacter en cas de problème ?"
+          "text": "Côté repas, il mange quoi exactement — et c'est combien de fois par jour ?"
         },
         {
-          "text": "Pour finir — tu aurais un dernier conseil pour que tout se passe au mieux pendant ton absence ?"
+          "text": "Est-ce qu'il a des allergies alimentaires ou des aliments interdits ?"
+        },
+        {
+          "text": "Pour les promenades, c'est combien de temps et à quelle fréquence ? Et il y a un parcours habituel ou je peux le promener où je veux ?",
+          "memory_number": 3,
+          "memory_section": 4
+        },
+        {
+          "text": "En ce qui concerne l'organisation, il y a des habitudes importantes à respecter pour que tout se passe bien ?",
+          "memory_number": 3,
+          "memory_section": 4
+        },
+        {
+          "text": "Est-ce qu'il supporte bien la solitude ou il faut éviter de le laisser seul trop longtemps ?"
+        },
+        {
+          "text": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
+          "memory_number": 3,
+          "memory_section": 8
+        },
+        {
+          "text": "Pour ce qui est de la santé, s'il montre des signes de stress ou de maladie, comment je dois réagir ?"
+        },
+        {
+          "text": "En cas d'urgence, qui est son vétérinaire et comment je le contacte ?",
+          "memory_number": 3,
+          "memory_section": 13
+        },
+        {
+          "text": "Voilà, je crois que j'ai tout ce qu'il faut pour bien m'occuper de lui pendant ton absence — et au moindre doute, je peux te solliciter ?",
+          "memory_number": 3,
+          "memory_section": 13
         }
       ]
     },

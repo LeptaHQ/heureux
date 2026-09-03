@@ -340,7 +340,7 @@
       "prompt": "Je suis votre voisin(e). Vous cherchez un restaurant pour fêter votre anniversaire. Vous me posez des questions sur les différents restaurants que je connais dans le quartier (cuisine, prix, ambiance, etc.).",
       "questions": [
         {
-          "text": "Bonjour, je cherche un restaurant dans le quartier pour fêter mon anniversaire — vous auriez des idées à me conseiller ?",
+          "text": "Bonjour, je cherche un bon restaurant pour fêter mon anniversaire — vous auriez des idées à me conseiller ?",
           "memory_number": 11,
           "memory_section": 13
         },
@@ -385,7 +385,7 @@
           "memory_section": 3
         },
         {
-          "text": "Le rapport qualité-prix vous semble bon, comparé à d'autres endroits du quartier ?",
+          "text": "Le rapport qualité-prix vous semble bon, comparé à d'autres endroits ?",
           "memory_number": 11,
           "memory_section": 11
         },
@@ -410,7 +410,7 @@
           "memory_section": 9
         },
         {
-          "text": "Pour finir — parmi tous ceux du quartier, lequel me recommanderiez-vous vraiment pour l'occasion ?",
+          "text": "Pour finir — parmi tous ceux que vous connaissez, lequel me recommanderiez-vous vraiment pour l'occasion ?",
           "memory_number": 11,
           "memory_section": 11
         }

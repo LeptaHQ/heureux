@@ -384,15 +384,21 @@
         resetButton(button);
         button.addEventListener("click", function () {
           var current = button.dataset.sortDirection;
-          var direction = current
-            ? current === "ascending"
-              ? "descending"
-              : "ascending"
-            : button.dataset.sortFirstDirection;
+          var firstDirection = button.dataset.sortFirstDirection;
+          var direction = !current
+            ? firstDirection
+            : current === firstDirection
+              ? firstDirection === "ascending"
+                ? "descending"
+                : "ascending"
+              : null;
           var multiplier = direction === "ascending" ? 1 : -1;
           var key = button.dataset.nestedTableSort;
 
           rows.sort(function (left, right) {
+            if (!direction) {
+              return originalOrder.get(left) - originalOrder.get(right);
+            }
             var subjectComparison = collator.compare(
               subjectText(left),
               subjectText(right)
@@ -412,16 +418,18 @@
           });
 
           buttons.forEach(resetButton);
-          button.dataset.sortDirection = direction;
-          button.closest("th").setAttribute("aria-sort", direction);
-          button.querySelector(".t1-table__sort-indicator").textContent =
-            direction === "ascending" ? "↑" : "↓";
-          button.setAttribute(
-            "aria-label",
-            accessibleSortLabel(button)
-              + " : tri "
-              + (direction === "ascending" ? "croissant" : "décroissant")
-          );
+          if (direction) {
+            button.dataset.sortDirection = direction;
+            button.closest("th").setAttribute("aria-sort", direction);
+            button.querySelector(".t1-table__sort-indicator").textContent =
+              direction === "ascending" ? "↑" : "↓";
+            button.setAttribute(
+              "aria-label",
+              accessibleSortLabel(button)
+                + " : tri "
+                + (direction === "ascending" ? "croissant" : "décroissant")
+            );
+          }
 
           var fragment = document.createDocumentFragment();
           rows.forEach(function (row) {

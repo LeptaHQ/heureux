@@ -744,7 +744,7 @@
           "kind": "mot-cle",
           "french": "les collections principales",
           "english": "the main collections",
-          "example": "Bonjour ! Mes amis et moi aimerions visiter votre musée — c'est la première fois que nous venons. Quelles sont les collections principales qu'on peut voir ici ?",
+          "example": "Bonjour ! Nous aimerions visiter votre musée — c'est la première fois que nous venons. Quelles sont les collections principales qu'on peut voir ici ?",
           "usage": "Groupe nominal désignant les ensembles d'œuvres phares d'un musée."
         },
         {
@@ -776,7 +776,7 @@
           "kind": "mot-cle",
           "french": "des tarifs de groupe",
           "english": "group rates",
-          "example": "Nous serons cinq ou six personnes — proposez-vous des tarifs de groupe ?",
+          "example": "Nous viendrons à plusieurs — proposez-vous des tarifs de groupe ?",
           "usage": "Groupe nominal désignant des prix spécifiques pour plusieurs personnes."
         },
         {
@@ -824,7 +824,7 @@
           "kind": "collocation",
           "french": "la première fois que nous venons",
           "english": "the first time we're coming",
-          "example": "Bonjour ! Mes amis et moi aimerions visiter votre musée — c'est la première fois que nous venons. Quelles sont les collections principales qu'on peut voir ici ?",
+          "example": "Bonjour ! Nous aimerions visiter votre musée — c'est la première fois que nous venons. Quelles sont les collections principales qu'on peut voir ici ?",
           "usage": "Association temporelle 'la première fois que' + proposition, pour signaler une découverte."
         },
         {
@@ -904,7 +904,7 @@
           "kind": "tournure",
           "french": "Quelles sont les collections principales qu'on peut voir ici",
           "english": "What are the main collections one can see here",
-          "example": "Bonjour ! Mes amis et moi aimerions visiter votre musée — c'est la première fois que nous venons. Quelles sont les collections principales qu'on peut voir ici ?",
+          "example": "Bonjour ! Nous aimerions visiter votre musée — c'est la première fois que nous venons. Quelles sont les collections principales qu'on peut voir ici ?",
           "usage": "Question soutenue avec inversion du sujet 'les collections principales' après le verbe 'sont'."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "proposez-vous des tarifs de groupe",
           "english": "do you offer group rates",
-          "example": "Nous serons cinq ou six personnes — proposez-vous des tarifs de groupe ?",
+          "example": "Nous viendrons à plusieurs — proposez-vous des tarifs de groupe ?",
           "usage": "Question avec inversion du sujet 'vous' relié au verbe par un trait d'union, registre vouvoiement."
         },
         {

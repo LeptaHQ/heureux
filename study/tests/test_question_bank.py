@@ -32,7 +32,7 @@ from study.content_loader import (
     load_question_bank,
     load_question_banks,
     load_comprehension_tests,
-    load_tache_two_related_groups,
+    load_tache_two_equivalent_groups,
     load_tache_two_subject_months,
     load_tache_two_subject_themes,
     parse_comprehension_vocabulary,
@@ -41,6 +41,7 @@ from study.content_loader import (
     parse_tache_two_subject_vocabulary,
     parse_tache_two_theme_vocabulary,
     tache_two_response_key_by_subject_key,
+    tache_two_phrase_id_merges,
     tache_two_subject_content_key,
 )
 from study.models import (
@@ -50,6 +51,7 @@ from study.models import (
     CardState,
     CardType,
     MemoryQuestionProgress,
+    PersonalResponse,
     Phrase,
     PhraseTier,
     Prompt,
@@ -61,6 +63,9 @@ from study.routing import response_detail_url
 
 annotation_migration = import_module(
     "study.migrations.0040_shared_tache_two_annotation_keys"
+)
+equivalent_annotation_migration = import_module(
+    "study.migrations.0044_merge_equivalent_tache_two_annotations"
 )
 
 from . import factories
@@ -330,7 +335,7 @@ class QuestionBankContentTests(TestCase):
                             (question.memory_number, question.memory_section)
                         )
 
-        self.assertEqual(linked, 3889)
+        self.assertEqual(linked, 3911)
         # Every theme mémoire is reached by at least one subject question.
         self.assertEqual(
             {number for number, _ in referenced},
@@ -544,7 +549,7 @@ class QuestionBankContentTests(TestCase):
                 )
                 for batch in may.batches
             ],
-            [72, 74, 60, 72, 88],
+            [72, 74, 60, 72, 86],
         )
         june = months[5]
         self.assertEqual(june.name, "Juin")
@@ -599,7 +604,7 @@ class QuestionBankContentTests(TestCase):
         self.assertEqual(july.name, "Juillet")
         self.assertEqual(july.batch_count, 8)
         self.assertEqual(july.subject_count, 38)
-        self.assertEqual(july.question_count, 567)
+        self.assertEqual(july.question_count, 566)
         self.assertEqual(
             [
                 [subject.number for subject in batch.subjects]
@@ -623,7 +628,7 @@ class QuestionBankContentTests(TestCase):
             ],
             [
                 [15, 15, 15, 15, 15],
-                [15, 15, 15, 15, 15],
+                [14, 15, 15, 15, 15],
                 [15, 13, 15, 15, 15],
                 [15, 15, 15, 15, 15],
                 [15, 15, 15, 15, 15],
@@ -640,7 +645,7 @@ class QuestionBankContentTests(TestCase):
                 )
                 for batch in july.batches
             ],
-            [34, 41, 72, 28, 28, 45, 21, 47],
+            [34, 41, 72, 36, 36, 45, 21, 47],
         )
         august = months[7]
         self.assertEqual(august.name, "Août")
@@ -742,20 +747,20 @@ class QuestionBankContentTests(TestCase):
                 )
                 for batch in october.batches
             ],
-            [75, 75, 54, 27, 37, 20, 64, 4, 12, 72],
+            [75, 75, 59, 27, 39, 25, 64, 4, 12, 72],
         )
         november = months[10]
         self.assertEqual(november.name, "Novembre")
         self.assertEqual(november.batch_count, 3)
         self.assertEqual(november.subject_count, 15)
-        self.assertEqual(november.question_count, 223)
+        self.assertEqual(november.question_count, 221)
         self.assertEqual(
             [
                 [subject.question_count for subject in batch.subjects]
                 for batch in november.batches
             ],
             [
-                [15, 15, 15, 15, 15],
+                [13, 15, 15, 15, 15],
                 [15, 15, 15, 15, 15],
                 [13, 15, 15, 15, 15],
             ],
@@ -768,7 +773,7 @@ class QuestionBankContentTests(TestCase):
                 )
                 for batch in november.batches
             ],
-            [35, 73, 20],
+            [32, 71, 20],
         )
         december = months[11]
         self.assertEqual(december.name, "Décembre")
@@ -801,7 +806,7 @@ class QuestionBankContentTests(TestCase):
                 )
                 for batch in december.batches
             ],
-            [26, 71, 75, 15, 75, 47, 73, 16, 24, 45],
+            [26, 71, 75, 15, 75, 47, 73, 16, 24, 46],
         )
 
         def question_signatures(subject):
@@ -1065,20 +1070,19 @@ class QuestionBankContentTests(TestCase):
 
         self.assertIn("not its vocabulary", str(error.exception))
 
-    def test_related_groups_preserve_every_authored_response_and_deck(self):
-        groups = load_tache_two_related_groups()
+    def test_equivalent_groups_share_one_response_and_vocabulary_deck(self):
+        groups = load_tache_two_equivalent_groups()
         responses = parse_tache_two_responses()
         response_key_by_subject = tache_two_response_key_by_subject_key(
             responses
         )
 
-        self.assertEqual(len(groups), 28)
-        self.assertEqual(sum(len(group.members) for group in groups), 117)
+        self.assertEqual(len(groups), 12)
+        self.assertEqual(sum(len(group.members) for group in groups), 42)
         self.assertEqual(
             {group.theme for group in groups},
             {
                 "arts-loisirs",
-                "ecole-etudes",
                 "fetes",
                 "sorties-spectacles",
                 "sport",
@@ -1088,21 +1092,46 @@ class QuestionBankContentTests(TestCase):
                 "voyages",
             },
         )
-        self.assertEqual(len(responses), 186)
+        self.assertEqual(len(responses), 175)
         self.assertEqual(
             len(parse_tache_two_subject_vocabulary(responses)),
-            5580,
+            5250,
         )
+        phrase_id_merges = tache_two_phrase_id_merges(groups)
+        self.assertEqual(len(phrase_id_merges), 900)
+        migrated_phrase_ids = 0
+        for source_id, target_id in phrase_id_merges.items():
+            migrated_key = equivalent_annotation_migration._target_source_key(
+                f"phrase:{source_id}:catalog"
+            )
+            if migrated_key is None:
+                continue
+            migrated_phrase_ids += 1
+            self.assertEqual(
+                migrated_key,
+                f"phrase:{target_id}:catalog",
+            )
+        self.assertEqual(migrated_phrase_ids, 330)
+        responses_by_key = {
+            response.content_key: response for response in responses
+        }
         for group in groups:
             with self.subTest(group=group.id):
-                self.assertGreater(
-                    len(
-                        {
-                            response_key_by_subject[member]
-                            for member in group.members
-                        }
-                    ),
-                    1,
+                self.assertEqual(
+                    {
+                        response_key_by_subject[member]
+                        for member in group.members
+                    },
+                    {group.canonical},
+                )
+                self.assertEqual(
+                    {
+                        prompt.content_key
+                        for prompt in responses_by_key[
+                            group.canonical
+                        ].prompts
+                    },
+                    set(group.members),
                 )
 
         childcare = next(
@@ -1119,9 +1148,9 @@ class QuestionBankContentTests(TestCase):
             childcare.members,
         )
 
-    def test_related_groups_reject_cross_theme_members(self):
+    def test_equivalent_groups_reject_cross_theme_members(self):
         with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory) / "related_groups.json"
+            path = Path(directory) / "equivalent_groups.json"
             path.write_text(
                 json.dumps(
                     {
@@ -1130,8 +1159,9 @@ class QuestionBankContentTests(TestCase):
                             {
                                 "id": "invalid-cross-theme",
                                 "theme": "vie-quartier",
-                                "label": "Groupe invalide",
-                                "kind": "variant",
+                                "canonical": (
+                                    "tache2:fevrier:batch-06:subject-26"
+                                ),
                                 "members": [
                                     "tache2:fevrier:batch-06:subject-26",
                                     "tache2:fevrier:batch-01:subject-05",
@@ -1144,7 +1174,7 @@ class QuestionBankContentTests(TestCase):
             )
 
             with self.assertRaises(ValueError) as error:
-                load_tache_two_related_groups(path)
+                load_tache_two_equivalent_groups(path)
 
         self.assertIn("crosses theme boundaries", str(error.exception))
 
@@ -1168,7 +1198,7 @@ class QuestionBankContentTests(TestCase):
         ]
 
         self.assertEqual(len(subject_keys), 348)
-        self.assertEqual(len(responses), 186)
+        self.assertEqual(len(responses), 175)
         self.assertEqual(len(prompts), len(subject_keys))
         self.assertEqual(
             {prompt.content_key for prompt in prompts},
@@ -1176,9 +1206,9 @@ class QuestionBankContentTests(TestCase):
         )
         self.assertEqual(
             sum(len(response.arguments) for response in responses),
-            2764,
+            2599,
         )
-        self.assertEqual(len(vocabulary), 5580)
+        self.assertEqual(len(vocabulary), 5250)
         for response in responses:
             canonical = [
                 prompt for prompt in response.prompts if prompt.is_canonical
@@ -2170,7 +2200,7 @@ class QuestionBankViewTests(TestCase):
         self.assertTemplateUsed(index, "study/tache_two_subjects.html")
         self.assertEqual(index.context["theme_count"], 11)
         self.assertEqual(index.context["subject_count"], 348)
-        self.assertEqual(index.context["question_count"], 5175)
+        self.assertEqual(index.context["question_count"], 5172)
         self.assertEqual(len(index.context["subject_prompt_map"]), 348)
         self.assertContains(
             index,
@@ -2196,7 +2226,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(index, "Fêtes &amp; célébrations")
         self.assertContains(index, "Arrivée &amp; installation")
         self.assertNotContains(index, "data-tache-two-subject-batch")
-        self.assertNotContains(index, "Batch 01")
+        self.assertContains(index, "Janvier · Batch 01 · Sujet 01", count=2)
         self.assertContains(index, "t1-row__link", count=348)
         self.assertContains(index, "data-t1-table-theme", count=11)
         self.assertContains(index, "data-t1-table-subject", count=348)
@@ -2211,41 +2241,34 @@ class QuestionBankViewTests(TestCase):
             'data-nested-table-sort="progress"',
             count=11,
         )
-        related_member_count = sum(
-            len(group.members)
-            for group in load_tache_two_related_groups()
-        )
-        self.assertContains(
-            index,
-            "data-related-subject-group",
-            count=related_member_count * 2,
-        )
-        self.assertContains(
-            index,
-            "t1-table__related-group",
-            count=related_member_count,
-        )
+        self.assertContains(index, "t1-row__date", count=348)
+        self.assertContains(index, "t1-table__subject-date", count=348)
+        self.assertNotContains(index, "data-related-subject-group")
+        self.assertNotContains(index, "t1-table__related-group")
         themes_by_slug = {
             theme["slug"]: theme
             for theme in index.context["subject_themes"]
         }
-        for group in load_tache_two_related_groups():
-            with self.subTest(related_group=group.id):
-                positions = [
-                    position
-                    for position, subject in enumerate(
-                        themes_by_slug[group.theme]["subjects"]
-                    )
-                    if subject["content_key"] in group.members
-                ]
+        for group in load_tache_two_equivalent_groups():
+            with self.subTest(equivalent_group=group.id):
                 self.assertEqual(
-                    positions,
-                    list(range(positions[0], positions[0] + len(positions))),
+                    {
+                        subject["response_id"]
+                        for subject in themes_by_slug[group.theme]["subjects"]
+                        if subject["content_key"] in group.members
+                    },
+                    {
+                        next(
+                            subject["response_id"]
+                            for subject in themes_by_slug[group.theme]["subjects"]
+                            if subject["content_key"] == group.canonical
+                        )
+                    },
                 )
 
         months = load_tache_two_subject_months()
         _themes, subject_theme_by_key = load_tache_two_subject_themes()
-        for untouched_theme in ("arrivee", "logement"):
+        for theme_slug in themes_by_slug:
             expected_order = [
                 tache_two_subject_content_key(
                     month.slug,
@@ -2262,12 +2285,12 @@ class QuestionBankViewTests(TestCase):
                         subject.number,
                     )
                 ]
-                == untouched_theme
+                == theme_slug
             ]
             self.assertEqual(
                 [
                     subject["content_key"]
-                    for subject in themes_by_slug[untouched_theme]["subjects"]
+                    for subject in themes_by_slug[theme_slug]["subjects"]
                 ],
                 expected_order,
             )
@@ -2746,7 +2769,7 @@ class QuestionBankViewTests(TestCase):
             is_active=True,
         ).distinct()
 
-        self.assertEqual(responses.count(), 186)
+        self.assertEqual(responses.count(), 175)
         self.assertEqual(
             Prompt.objects.filter(
                 content_key__startswith="tache2:",
@@ -2754,7 +2777,7 @@ class QuestionBankViewTests(TestCase):
             ).count(),
             348,
         )
-        self.assertEqual(vocabulary.count(), 5580)
+        self.assertEqual(vocabulary.count(), 5250)
         self.assertEqual(theme_vocabulary.count(), 495)
         self.assertEqual(
             Card.objects.filter(
@@ -2762,7 +2785,7 @@ class QuestionBankViewTests(TestCase):
                 card_type=CardType.SPINE,
                 response_id__in=response_ids,
             ).count(),
-            186,
+            175,
         )
         self.assertEqual(
             Card.objects.filter(
@@ -2770,7 +2793,7 @@ class QuestionBankViewTests(TestCase):
                 card_type=CardType.PHRASE_PRODUCTION,
                 phrase__in=vocabulary,
             ).count(),
-            5580,
+            5250,
         )
         self.assertEqual(
             Card.objects.filter(
@@ -2928,6 +2951,56 @@ class QuestionBankViewTests(TestCase):
             "tache-two:fevrier:batch-4:subject-20",
         )
 
+    def test_audited_childcare_subjects_share_content_and_progress(self):
+        learned_url = reverse(
+            "study:task_subject_detail",
+            args=[self.task.part.slug, self.task.slug, "fevrier", 6, 26],
+        )
+        variant_url = reverse(
+            "study:task_subject_detail",
+            args=[self.task.part.slug, self.task.slug, "mai", 5, 25],
+        )
+        learned = self.client.get(learned_url)
+        variant = self.client.get(variant_url)
+
+        self.assertEqual(learned.context["response"].pk, variant.context["response"].pk)
+        self.assertEqual(
+            learned.context["subject_questions"],
+            variant.context["subject_questions"],
+        )
+        self.assertEqual(
+            learned.context["subject_annotation_key"],
+            "tache-two:fevrier:batch-6:subject-26",
+        )
+        self.assertEqual(
+            variant.context["subject_annotation_key"],
+            learned.context["subject_annotation_key"],
+        )
+        self.assertEqual(len(learned.context["equivalent_subjects"]), 4)
+
+        completed = self.client.post(
+            reverse(
+                "study:subject_completion",
+                args=[
+                    self.task.part.slug,
+                    self.task.slug,
+                    learned.context["response"].pk,
+                ],
+            ),
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(completed.status_code, 200)
+        self.assertEqual(
+            self.client.get(learned_url).context["subject_progress"].status,
+            "done",
+        )
+        self.assertEqual(
+            self.client.get(variant_url).context["subject_progress"].status,
+            "done",
+        )
+
     def test_migration_moves_alias_highlights_onto_the_shared_key(self):
         shared_url = reverse(
             "study:task_subject_detail",
@@ -2994,6 +3067,150 @@ class QuestionBankViewTests(TestCase):
         self.assertFalse(Annotation.objects.filter(pk=duplicate.pk).exists())
         self.assertEqual(survivor.body, "Note à garder")
         self.assertTrue(survivor.study_later)
+
+    def test_new_equivalent_groups_migrate_note_and_highlight_keys(self):
+        source_path = reverse(
+            "study:task_subject_detail",
+            args=[self.task.part.slug, self.task.slug, "mai", 5, 25],
+        )
+        note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            source_path=source_path,
+            source_key="tache-two:mai:batch-5:subject-25",
+            body="Note à conserver.",
+        )
+        phrase_note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            source_path=source_path,
+            source_key="phrase:T2M5S25V01:catalog",
+            body="Note de vocabulaire à conserver.",
+        )
+        special_phrase_note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            source_path=source_path,
+            source_key="phrase:T2J7S6V03:catalog",
+            body="Note avec identifiant spécial à conserver.",
+        )
+        spine_note = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.NOTE,
+            source_path=source_path,
+            source_key=(
+                "response:tache2:mai:batch-05:subject-25:back"
+            ),
+            body="Note de flashcard à conserver.",
+        )
+        survivor = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            source_path=source_path,
+            source_key="tache-two:fevrier:batch-6:subject-26",
+            quote="Passage conservé",
+            start_offset=0,
+            end_offset=16,
+        )
+        duplicate = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            source_path=source_path,
+            source_key="tache-two:mai:batch-5:subject-25",
+            quote="Passage conservé",
+            body="Conserver aussi cette note.",
+            start_offset=0,
+            end_offset=16,
+            study_later=True,
+        )
+
+        equivalent_annotation_migration.preserve_equivalent_group_annotations(
+            apps,
+            None,
+        )
+        note.refresh_from_db()
+        phrase_note.refresh_from_db()
+        special_phrase_note.refresh_from_db()
+        spine_note.refresh_from_db()
+        survivor.refresh_from_db()
+
+        self.assertEqual(
+            note.source_key,
+            "tache-two:fevrier:batch-6:subject-26",
+        )
+        self.assertEqual(
+            phrase_note.source_key,
+            "phrase:T2F2S26V01:catalog",
+        )
+        self.assertEqual(
+            special_phrase_note.source_key,
+            "phrase:T2F2S4V03R:catalog",
+        )
+        self.assertEqual(
+            spine_note.source_key,
+            "response:tache2:fevrier:batch-06:subject-26:back",
+        )
+        self.assertFalse(Annotation.objects.filter(pk=duplicate.pk).exists())
+        self.assertEqual(survivor.body, "Conserver aussi cette note.")
+        self.assertTrue(survivor.study_later)
+
+    def test_new_equivalent_groups_preserve_personal_question_answers(self):
+        target = Prompt.objects.get(
+            content_key="tache2:fevrier:batch-06:subject-26"
+        ).response
+        source = Response.objects.create(
+            content_key="tache2:mai:batch-05:subject-25",
+            body_hash="retired-childcare-response",
+            theme=target.theme,
+            family=target.family,
+            prompt="Ancienne variante de garde d'enfant.",
+            body="",
+            body_html="",
+        )
+        target_version = PersonalResponse.objects.create(
+            user=self.user,
+            response=target,
+            arguments=[{"idea": "Ancienne réponse canonique"}],
+        )
+        source_version = PersonalResponse.objects.create(
+            user=self.user,
+            response=source,
+            arguments=[{"idea": "Réponse personnelle la plus récente"}],
+        )
+        latest = timezone.now() + timedelta(minutes=1)
+        PersonalResponse.objects.filter(pk=source_version.pk).update(
+            updated_at=latest
+        )
+        source_version.refresh_from_db()
+
+        second_user = factories.make_user("personal-response-merge")
+        movable = PersonalResponse.objects.create(
+            user=second_user,
+            response=source,
+            arguments=[{"idea": "Réponse à déplacer"}],
+        )
+
+        equivalent_annotation_migration.preserve_equivalent_group_personal_responses(
+            apps,
+            None,
+        )
+        target_version.refresh_from_db()
+        source_version.refresh_from_db()
+        movable.refresh_from_db()
+
+        self.assertEqual(
+            target_version.arguments,
+            [{"idea": "Réponse personnelle la plus récente"}],
+        )
+        self.assertEqual(target_version.updated_at, latest)
+        self.assertEqual(source_version.response_id, source.pk)
+        self.assertEqual(movable.response_id, target.pk)
 
     def test_existing_subject_highlight_marks_imported_response_in_progress(self):
         subject_url = reverse(

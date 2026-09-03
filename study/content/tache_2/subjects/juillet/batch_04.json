@@ -130,10 +130,14 @@
       "prompt": "Je suis votre collègue et vous venez d'arriver à Toronto. À la recherche d'un lieu pour fêter votre anniversaire, vous me demandez conseil sur les restaurants de la ville : le type de cuisine, les prix et l'ambiance.",
       "questions": [
         {
-          "text": "Salut ! Je viens de m'installer à Toronto et je cherche un bon restaurant pour fêter mon anniversaire — tu aurais des idées à me conseiller ?"
+          "text": "Bonjour, je cherche un bon restaurant pour fêter mon anniversaire — vous auriez des idées à me conseiller ?",
+          "memory_number": 11,
+          "memory_section": 13
         },
         {
-          "text": "Quels types de cuisine on trouve dans les restaurants du coin ?"
+          "text": "Quels types de cuisine trouve-t-on dans les restaurants du coin ?",
+          "memory_number": 11,
+          "memory_section": 2
         },
         {
           "text": "L'ambiance est plutôt calme et intime, ou plus animée et festive ?",
@@ -141,21 +145,29 @@
           "memory_section": 10
         },
         {
-          "text": "Côté cuisine, ces restaurants conviennent pour un groupe, ou plutôt pour de petites tables ?"
-        },
-        {
-          "text": "Certains proposent un menu spécial pour les anniversaires ?"
-        },
-        {
-          "text": "Pour ce qui est des repas, il y a des options pour les régimes particuliers ou les allergies ?"
-        },
-        {
-          "text": "Tu as mentionné un restaurant en particulier — tu pourrais m'en dire un peu plus : il conviendrait pour une dizaine de personnes ?"
-        },
-        {
-          "text": "Tu y es déjà allé(e) toi-même — qu'est-ce que tu en as pensé ?",
+          "text": "Pour ce qui est des repas, ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
           "memory_number": 11,
-          "memory_section": 11
+          "memory_section": 7
+        },
+        {
+          "text": "Certains proposent-ils un menu spécial pour les anniversaires ?",
+          "memory_number": 11,
+          "memory_section": 9
+        },
+        {
+          "text": "En ce qui concerne la nourriture, y a-t-il des options pour les régimes particuliers ou les allergies ?",
+          "memory_number": 11,
+          "memory_section": 8
+        },
+        {
+          "text": "Vous avez mentionné un restaurant en particulier — vous pourriez m'en dire un peu plus : il conviendrait pour une dizaine de personnes ?",
+          "memory_number": 11,
+          "memory_section": 13
+        },
+        {
+          "text": "Vous y êtes déjà allé(e) vous-même — qu'est-ce que vous en avez pensé ?",
+          "memory_number": 11,
+          "memory_section": 10
         },
         {
           "text": "Côté budget, ça va plutôt dans quelle gamme de prix en général ?",
@@ -163,7 +175,7 @@
           "memory_section": 3
         },
         {
-          "text": "Le rapport qualité-prix te semble bon, comparé à d'autres endroits ?",
+          "text": "Le rapport qualité-prix vous semble bon, comparé à d'autres endroits ?",
           "memory_number": 11,
           "memory_section": 11
         },
@@ -173,7 +185,9 @@
           "memory_section": 9
         },
         {
-          "text": "En ce qui concerne l'organisation, il faut réserver à l'avance, surtout pour un week-end ?"
+          "text": "En ce qui concerne l'organisation, faut-il réserver à l'avance, surtout pour un week-end ?",
+          "memory_number": 11,
+          "memory_section": 6
         },
         {
           "text": "Et pour s'y rendre, ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
@@ -186,7 +200,9 @@
           "memory_section": 9
         },
         {
-          "text": "Pour finir — parmi tous ceux que tu connais, lequel tu me recommandes vraiment pour l'occasion ?"
+          "text": "Pour finir — parmi tous ceux que vous connaissez, lequel me recommanderiez-vous vraiment pour l'occasion ?",
+          "memory_number": 11,
+          "memory_section": 11
         }
       ]
     },

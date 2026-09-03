@@ -43,18 +43,11 @@
             {% for subject in theme.subjects %}
             <li
               class="t1-row subject-progress-row subject-progress-row--{{ subject.progress.status }} is-status-{{ subject.progress.status }}"
-              {% if subject.related_group %}data-related-subject-group="{{ subject.related_group.id }}"{% endif %}
               data-subject-progress-row="{{ subject.response_id }}">
               <div class="t1-row__link">
                 <span class="t1-row__subject">
                   <span class="t1-row__prompt">{{ subject.title }}</span>
-                  {% if subject.related_group %}
-                    <span class="t1-row__related-group">
-                      {{ subject.related_group.label }} ·
-                      {% if subject.related_group.kind == "equivalent" %}même scénario{% else %}variante proche{% endif %}
-                      {{ subject.related_group.position }}/{{ subject.related_group.size }}
-                    </span>
-                  {% endif %}
+                  <span class="t1-row__date">{{ subject.month_name }} · Batch {{ subject.batch_number|stringformat:"02d" }} · Sujet {{ subject.number_label }}</span>
                 </span>
                 <span class="t1-row__meta">
                   {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="tache-two-theme-prompts" prompt_key=subject.content_key label="Copier la consigne" subject_label=subject.title label_hidden=True only %}
@@ -141,7 +134,6 @@
                     class="t1-table__row subject-progress-row subject-table-row subject-progress-row--{{ subject.progress.status }} is-status-{{ subject.progress.status }}"
                     data-t1-table-subject
                     data-nested-sort-row
-                    {% if subject.related_group %}data-related-subject-group="{{ subject.related_group.id }}"{% endif %}
                     data-subject-progress-row="{{ subject.response_id }}">
                     <td class="t1-table__subject">
                       <div class="t1-table__subject-copy">
@@ -153,13 +145,7 @@
                           aria-label="Ouvrir le sujet : {{ subject.title }}">{{ subject.title }}</a>
                         {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="tache-two-theme-prompts" prompt_key=subject.content_key label="Copier la consigne" subject_label=subject.title label_hidden=True only %}
                       </div>
-                      {% if subject.related_group %}
-                        <span class="t1-table__related-group">
-                          {{ subject.related_group.label }} ·
-                          {% if subject.related_group.kind == "equivalent" %}même scénario{% else %}variante proche{% endif %}
-                          {{ subject.related_group.position }}/{{ subject.related_group.size }}
-                        </span>
-                      {% endif %}
+                      <span class="t1-table__subject-date">{{ subject.month_name }} · Batch {{ subject.batch_number|stringformat:"02d" }} · Sujet {{ subject.number_label }}</span>
                     </td>
                     <td class="t1-table__versions t1-table__questions">{{ subject.question_count }}</td>
                     <td class="t1-table__progress-cell">

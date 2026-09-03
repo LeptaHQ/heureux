@@ -12,10 +12,12 @@
       "prompt": "Je suis votre ami(e). Je suis allé(e) en vacances au bord de la mer l'année dernière. Vous êtes intéressé(e), et vous me demandez des conseils pour organiser votre séjour (hébergement, activités, budget, etc.).",
       "questions": [
         {
-          "text": "Salut ! Tu m'as dit que tu avais passé de super vacances au bord de la mer l'année dernière — j'aimerais faire la même chose, tu pourrais me donner des conseils ?"
+          "text": "Salut ! Tu as passé des vacances formidables au bord de la mer — j'aimerais faire le même type de séjour, tu pourrais me donner quelques infos ?",
+          "memory_number": 7,
+          "memory_section": 13
         },
         {
-          "text": "Tu es parti(e) où exactement — c'était au Canada ou à l'étranger ?",
+          "text": "Tu es parti(e) où exactement — c'était dans le pays ou à l'étranger ?",
           "memory_number": 7,
           "memory_section": 13
         },
@@ -25,7 +27,7 @@
           "memory_section": 10
         },
         {
-          "text": "Il y a un autre point qui m'intéresse : quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
+          "text": "Deuxième point : quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
           "memory_number": 7,
           "memory_section": 2
         },
@@ -50,7 +52,7 @@
           "memory_section": 8
         },
         {
-          "text": "Question hébergement, tu connais de bons endroits où séjourner — hôtels, chambres d'hôtes, locations ?",
+          "text": "Pour ce qui est du logement, tu connais de bons endroits où séjourner — hôtels, chambres d'hôtes, locations ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -60,7 +62,7 @@
           "memory_section": 9
         },
         {
-          "text": "Dans le même esprit, il faut réserver à l'avance ou on peut trouver facilement sur place ?",
+          "text": "Toujours sur ce point, il faut réserver à l'avance ou on peut trouver facilement sur place ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -168,7 +170,7 @@
       "prompt": "Je suis votre collègue. J'organise une fête pour célébrer ma nomination à un poste de responsable. Vous me posez des questions pour avoir des informations (lieu, horaires, invités, etc.).",
       "questions": [
         {
-          "text": "Salut ! Alors comme ça tu as décroché un poste de responsable — félicitations ! Tu organises une fête pour ça ?"
+          "text": "Salut ! Alors comme ça tu organises une soirée pour fêter l'événement — félicitations ! Tu peux m'en dire un peu plus ?"
         },
         {
           "text": "C'est prévu pour quand exactement — tu as déjà fixé la date ?"
@@ -188,7 +190,7 @@
           "text": "On sera nombreux à peu près ?"
         },
         {
-          "text": "Côté organisation, comment ça va se dérouler — il y a un programme, des discours, un repas ?"
+          "text": "En ce qui concerne la nourriture, comment ça va se dérouler — il y a un programme, des discours, un repas ?"
         },
         {
           "text": "Il y a un thème ou une tenue particulière à prévoir ?"
@@ -202,13 +204,13 @@
           "memory_section": 13
         },
         {
-          "text": "Justement, pour le cadeau, on fait quelque chose en commun, ou chacun apporte le sien ?"
+          "text": "Toujours sur ce point, pour le cadeau, on fait quelque chose en commun, ou chacun apporte le sien ?"
         },
         {
           "text": "Côté déplacements, comment on s'y rend — c'est accessible en transports, il y a un parking ?"
         },
         {
-          "text": "Pour ce qui est des dates, est-ce qu'il faut confirmer sa présence, et jusqu'à quand ?"
+          "text": "En ce qui concerne le calendrier, est-ce qu'il faut confirmer sa présence, et jusqu'à quand ?"
         },
         {
           "text": "Tu veux un coup de main pour organiser quoi que ce soit ?"

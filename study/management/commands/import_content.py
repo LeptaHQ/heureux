@@ -1083,8 +1083,12 @@ class Command(BaseCommand):
             Card.objects.bulk_update(changed, schedule_fields)
 
     def _reconcile_phrase_cards(self):
-        phrase_ids = set(PHRASE_ID_MERGES)
-        phrase_ids.update(PHRASE_ID_MERGES.values())
+        phrase_id_merges = {
+            **PHRASE_ID_MERGES,
+            **content.tache_two_phrase_id_merges(),
+        }
+        phrase_ids = set(phrase_id_merges)
+        phrase_ids.update(phrase_id_merges.values())
         phrases = {
             phrase.phrase_id: phrase
             for phrase in Phrase.objects.filter(phrase_id__in=phrase_ids)
@@ -1113,7 +1117,7 @@ class Command(BaseCommand):
             "suspended",
         )
         changed = []
-        for source_id, target_id in PHRASE_ID_MERGES.items():
+        for source_id, target_id in phrase_id_merges.items():
             if source_id not in phrases or target_id not in phrases:
                 continue
             source_cards = [

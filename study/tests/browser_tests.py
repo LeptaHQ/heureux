@@ -1641,7 +1641,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assert_no_horizontal_overflow()
 
     def test_tache_two_table_groups_subjects_by_theme(self):
-        factories.make_task(self.part, "tache-2")
+        self._import_eo_tache_two_content()
         index_url = self.live_server_url + reverse(
             "study:task_browse",
             args=["eo", "tache-2"],
@@ -1711,6 +1711,33 @@ class BrowserTests(StaticLiveServerTestCase):
         original_titles = first_rows.locator(
             ".subject-table-row-link"
         ).all_inner_texts()
+        original_dates = first_rows.locator(
+            ".t1-table__subject-date"
+        ).all_inner_texts()
+        month_order = {
+            month: index
+            for index, month in enumerate(
+                (
+                    "Janvier",
+                    "Février",
+                    "Mars",
+                    "Avril",
+                    "Mai",
+                    "Juin",
+                    "Juillet",
+                    "Août",
+                    "Septembre",
+                    "Octobre",
+                    "Novembre",
+                    "Décembre",
+                )
+            )
+        }
+        default_months = [
+            month_order[label.split(" · ", 1)[0]]
+            for label in original_dates
+        ]
+        self.assertEqual(default_months, sorted(default_months))
         subject_sort.click()
         expected_titles = self.page.evaluate(
             """
@@ -1749,6 +1776,19 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(
             first_rows.locator(".subject-table-row-link").all_inner_texts(),
             expected_titles_desc,
+        )
+        subject_sort.click()
+        self.assertEqual(
+            first_rows.locator(".subject-table-row-link").all_inner_texts(),
+            original_titles,
+        )
+        self.assertEqual(
+            first_rows.locator(".t1-table__subject-date").all_inner_texts(),
+            original_dates,
+        )
+        self.assertEqual(
+            subject_sort.locator("xpath=..").get_attribute("aria-sort"),
+            "none",
         )
 
         first_rows.evaluate_all(
@@ -1795,6 +1835,11 @@ class BrowserTests(StaticLiveServerTestCase):
             first_rows.last.get_attribute("data-sort-test-target"),
             "true",
         )
+        progress_sort.click()
+        self.assertEqual(
+            first_rows.locator(".subject-table-row-link").all_inner_texts(),
+            original_titles,
+        )
         self.assertEqual(
             second_group.locator(
                 "[data-nested-sort-row] .subject-table-row-link"
@@ -1806,30 +1851,25 @@ class BrowserTests(StaticLiveServerTestCase):
             has_text="Vie de quartier & entraide"
         )
         neighborhood_group.locator("summary").click()
+        childcare_anchor = neighborhood_group.locator(
+            '[data-t1-table-subject]:has('
+            'a[href*="/sujets/fevrier/batch-6/26/"])'
+        )
+        childcare_response_id = childcare_anchor.get_attribute(
+            "data-subject-progress-row"
+        )
         childcare_rows = neighborhood_group.locator(
-            '[data-related-subject-group="vq-garde-enfant-proche"]'
-            "[data-nested-sort-row]"
+            "[data-t1-table-subject]"
+            f'[data-subject-progress-row="{childcare_response_id}"]'
         )
-        self.assertEqual(childcare_rows.count(), 6)
-        childcare_indexes = childcare_rows.evaluate_all(
-            """
-            rows => rows.map(row =>
-              Array.from(row.parentElement.children).indexOf(row)
-            )
-            """
+        self.assertEqual(childcare_rows.count(), 5)
+        self.assertEqual(
+            set(childcare_rows.locator(".t1-table__questions").all_inner_texts()),
+            {"15"},
         )
         self.assertEqual(
-            childcare_indexes,
-            list(
-                range(
-                    childcare_indexes[0],
-                    childcare_indexes[0] + len(childcare_indexes),
-                )
-            ),
-        )
-        self.assertEqual(
-            childcare_rows.locator(".t1-table__related-group").count(),
-            6,
+            neighborhood_group.locator(".t1-table__related-group").count(),
+            0,
         )
         neighborhood_table = neighborhood_group.locator(
             "[data-nested-sort-table]"
@@ -1915,8 +1955,8 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertTrue(subject_sort.is_visible())
         self.assertTrue(progress_sort.is_visible())
         self.assertIn(
-            "État",
-            progress_sort.get_attribute("aria-label"),
+            "état",
+            progress_sort.get_attribute("aria-label").lower(),
         )
         self.assert_no_horizontal_overflow()
 

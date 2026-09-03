@@ -7,61 +7,13 @@
         {
           "id": "T2D12S16V01",
           "kind": "mot-cle",
-          "french": "vélo de ville",
-          "english": "a city bike",
-          "example": "Quels modèles de vélos proposez-vous — vélo de ville, VTT, vélo électrique ?",
-          "usage": "Groupe nominal pour un modèle urbain."
-        },
-        {
-          "id": "T2D12S16V02",
-          "kind": "mot-cle",
-          "french": "VTT",
-          "english": "mountain bike",
-          "example": "Quels modèles de vélos proposez-vous — vélo de ville, VTT, vélo électrique ?",
-          "usage": "Nom masculin invariable désignant un vélo tout-terrain."
-        },
-        {
-          "id": "T2D12S16V03",
-          "kind": "mot-cle",
-          "french": "vélo électrique",
-          "english": "electric bike",
-          "example": "Quels modèles de vélos proposez-vous — vélo de ville, VTT, vélo électrique ?",
-          "usage": "Groupe nominal désignant un vélo avec assistance électrique."
-        },
-        {
-          "id": "T2D12S16V04",
-          "kind": "mot-cle",
           "french": "une caution",
           "english": "a deposit",
           "example": "Faut-il verser une caution — et de quel montant à peu près ?",
           "usage": "Nom féminin désignant la garantie financière demandée."
         },
         {
-          "id": "T2D12S16V05",
-          "kind": "mot-cle",
-          "french": "une pièce d'identité",
-          "english": "an ID document",
-          "example": "Quelles sont les conditions pour louer — faut-il une pièce d'identité ou un âge minimum ?",
-          "usage": "Groupe nominal pour un justificatif d'identité."
-        },
-        {
-          "id": "T2D12S16V06",
-          "kind": "mot-cle",
-          "french": "le casque",
-          "english": "the helmet",
-          "example": "Côté équipement, est-ce que le casque et l'antivol sont fournis avec le vélo ?",
-          "usage": "Nom désignant l'équipement de protection."
-        },
-        {
-          "id": "T2D12S16V07",
-          "kind": "mot-cle",
-          "french": "l'antivol",
-          "english": "the bike lock",
-          "example": "Côté équipement, est-ce que le casque et l'antivol sont fournis avec le vélo ?",
-          "usage": "Nom masculin désignant le dispositif qui permet d'attacher le vélo."
-        },
-        {
-          "id": "T2D12S16V08",
+          "id": "T2D12S16V02",
           "kind": "mot-cle",
           "french": "l'assurance",
           "english": "the insurance",
@@ -69,15 +21,7 @@
           "usage": "Nom féminin désignant la couverture en cas de dommage."
         },
         {
-          "id": "T2D12S16V09",
-          "kind": "mot-cle",
-          "french": "la location",
-          "english": "the rental",
-          "example": "Que se passe-t-il en cas de crevaison ou de problème mécanique pendant la location ?",
-          "usage": "Nom désignant le service de location."
-        },
-        {
-          "id": "T2D12S16V10",
+          "id": "T2D12S16V03",
           "kind": "mot-cle",
           "french": "un meilleur tarif",
           "english": "a better rate",
@@ -85,23 +29,63 @@
           "usage": "Groupe nominal désignant un prix plus avantageux."
         },
         {
+          "id": "T2D12S16V04",
+          "kind": "mot-cle",
+          "french": "la location",
+          "english": "the rental",
+          "example": "Que se passe-t-il en cas de crevaison ou de problème mécanique pendant la location ?",
+          "usage": "Nom désignant le service de location."
+        },
+        {
+          "id": "T2D12S16V05",
+          "kind": "mot-cle",
+          "french": "vélo de ville",
+          "english": "a city bike",
+          "example": "Quels modèles de vélos proposez-vous — vélo de ville, VTT, vélo électrique ?",
+          "usage": "Groupe nominal pour un modèle urbain."
+        },
+        {
+          "id": "T2D12S16V06",
+          "kind": "mot-cle",
+          "french": "vélo électrique",
+          "english": "an electric bike",
+          "example": "Quels modèles de vélos proposez-vous — vélo de ville, VTT, vélo électrique ?",
+          "usage": "Groupe nominal pour un vélo à assistance."
+        },
+        {
+          "id": "T2D12S16V07",
+          "kind": "mot-cle",
+          "french": "le casque",
+          "english": "the helmet",
+          "example": "Côté équipement, est-ce que le casque et l'antivol sont fournis avec le vélo ?",
+          "usage": "Nom désignant l'équipement de protection."
+        },
+        {
+          "id": "T2D12S16V08",
+          "kind": "mot-cle",
+          "french": "l'antivol",
+          "english": "the bike lock",
+          "example": "Côté équipement, est-ce que le casque et l'antivol sont fournis avec le vélo ?",
+          "usage": "Nom désignant le dispositif antivol."
+        },
+        {
+          "id": "T2D12S16V09",
+          "kind": "mot-cle",
+          "french": "une pièce d'identité",
+          "english": "an ID document",
+          "example": "Quelles sont les conditions pour louer — faut-il une pièce d'identité ou un âge minimum ?",
+          "usage": "Groupe nominal pour un justificatif d'identité."
+        },
+        {
+          "id": "T2D12S16V10",
+          "kind": "mot-cle",
+          "french": "un âge minimum",
+          "english": "a minimum age",
+          "example": "Quelles sont les conditions pour louer — faut-il une pièce d'identité ou un âge minimum ?",
+          "usage": "Groupe nominal pour une condition d'âge."
+        },
+        {
           "id": "T2D12S16V11",
-          "kind": "collocation",
-          "french": "vos différentes options",
-          "english": "your different options",
-          "example": "Bonjour ! Je cherche un vélo à louer et j'aimerais trouver le modèle qui correspond le mieux à mes besoins — pouvez-vous me présenter vos différentes options ?",
-          "usage": "Groupe nominal utile pour demander un aperçu des choix proposés."
-        },
-        {
-          "id": "T2D12S16V12",
-          "kind": "collocation",
-          "french": "les tarifs de location",
-          "english": "rental rates",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
-          "usage": "Collocation nominale pour parler du prix demandé selon la durée."
-        },
-        {
-          "id": "T2D12S16V13",
           "kind": "collocation",
           "french": "à l'heure, à la journée",
           "english": "by the hour, by the day",
@@ -109,124 +93,140 @@
           "usage": "Énumération de formules de location dans le temps."
         },
         {
+          "id": "T2D12S16V12",
+          "kind": "collocation",
+          "french": "verser une caution",
+          "english": "to pay a deposit",
+          "example": "Faut-il verser une caution — et de quel montant à peu près ?",
+          "usage": "Collocation verbe + nom sur la garantie financière."
+        },
+        {
+          "id": "T2D12S16V13",
+          "kind": "collocation",
+          "french": "comprise dans le tarif",
+          "english": "included in the rate",
+          "example": "Est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
+          "usage": "Collocation participe + locution pour ce qui est inclus au prix."
+        },
+        {
           "id": "T2D12S16V14",
           "kind": "collocation",
-          "french": "sous forme d'abonnement",
-          "english": "as a subscription",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
-          "usage": "Expression utilisée pour présenter une formule d'abonnement."
+          "french": "la prendre en supplément",
+          "english": "to take it as an extra",
+          "example": "Est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
+          "usage": "Collocation verbe + locution pour une option payante à part."
         },
         {
           "id": "T2D12S16V15",
           "kind": "collocation",
-          "french": "les conditions pour louer",
-          "english": "the rental conditions",
-          "example": "Quelles sont les conditions pour louer — faut-il une pièce d'identité ou un âge minimum ?",
-          "usage": "Groupe nominal pour introduire les règles ou justificatifs demandés."
+          "french": "réserve à l'avance",
+          "english": "book in advance",
+          "example": "Pour finir — si je réserve à l'avance, est-ce que j'obtiens un meilleur tarif ?",
+          "usage": "Collocation verbe + locution temporelle sur l'anticipation."
         },
         {
           "id": "T2D12S16V16",
           "kind": "collocation",
-          "french": "comprise dans le tarif",
-          "english": "included in the price",
-          "example": "Est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
-          "usage": "Expression employée pour vérifier si un service est déjà inclus."
+          "french": "louer un vélo",
+          "english": "rent a bike",
+          "example": "Bonjour ! J'aimerais louer un vélo et trouver le modèle qui me convient le mieux — pouvez-vous me présenter vos différentes offres de location ?",
+          "usage": "Verbe + complément sur la location d'un vélo."
         },
         {
           "id": "T2D12S16V17",
           "kind": "collocation",
-          "french": "la prendre en supplément",
-          "english": "take it as an extra",
-          "example": "Est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
-          "usage": "Locution verbale utile pour parler d'une option payante ajoutée au tarif."
+          "french": "fournis avec le vélo",
+          "english": "provided with the bike",
+          "example": "Côté équipement, est-ce que le casque et l'antivol sont fournis avec le vélo ?",
+          "usage": "Participe + complément sur les accessoires."
         },
         {
           "id": "T2D12S16V18",
           "kind": "collocation",
           "french": "en cas de crevaison",
-          "english": "in the event of a puncture",
+          "english": "in case of a flat tire",
           "example": "Que se passe-t-il en cas de crevaison ou de problème mécanique pendant la location ?",
-          "usage": "Expression figée pour évoquer un problème rencontré pendant l'utilisation du vélo."
+          "usage": "Locution sur un incident possible."
         },
         {
           "id": "T2D12S16V19",
           "kind": "collocation",
-          "french": "un itinéraire adapté",
-          "english": "a suitable route",
-          "example": "En ce qui concerne les déplacements, pouvez-vous aussi me conseiller un itinéraire adapté selon l'usage que je veux faire du vélo ?",
-          "usage": "Groupe nominal désignant un parcours conseillé selon le besoin du client."
+          "french": "problème mécanique",
+          "english": "a mechanical problem",
+          "example": "Que se passe-t-il en cas de crevaison ou de problème mécanique pendant la location ?",
+          "usage": "Locution nominale pour une panne."
         },
         {
           "id": "T2D12S16V20",
           "kind": "collocation",
-          "french": "réserver à l'avance",
-          "english": "book in advance",
-          "example": "Côté location, est-ce qu'il faut réserver à l'avance ou on peut louer directement sur place ?",
-          "usage": "Locution verbale courante pour parler d'une réservation anticipée."
+          "french": "des idées d'itinéraires",
+          "english": "route ideas",
+          "example": "Puisqu'on en parle, vous fournissez un plan ou des idées d'itinéraires adaptés à cet usage ?",
+          "usage": "Locution nominale pour des parcours suggérés."
         },
         {
           "id": "T2D12S16V21",
           "kind": "tournure",
-          "french": "Pouvez-vous me présenter",
-          "english": "Could you show me",
-          "example": "Bonjour ! Je cherche un vélo à louer et j'aimerais trouver le modèle qui correspond le mieux à mes besoins — pouvez-vous me présenter vos différentes options ?",
-          "usage": "Formule polie pour demander une présentation des offres disponibles."
+          "french": "Comment fonctionnent les tarifs de location",
+          "english": "How do the rental rates work",
+          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "usage": "Question ouverte sur la tarification de la location."
         },
         {
           "id": "T2D12S16V22",
           "kind": "tournure",
-          "french": "Selon l'usage que je veux en faire",
-          "english": "depending on how I want to use it",
-          "example": "Selon l'usage que je veux en faire, quel modèle me conseilleriez-vous ?",
-          "usage": "Amorce utile pour préciser que le choix dépend de l'utilisation prévue."
+          "french": "Faut-il verser une caution",
+          "english": "Do you have to pay a deposit",
+          "example": "Faut-il verser une caution — et de quel montant à peu près ?",
+          "usage": "Question impersonnelle avec « faut-il » sur la garantie."
         },
         {
           "id": "T2D12S16V23",
           "kind": "tournure",
-          "french": "quel modèle me conseilleriez-vous",
-          "english": "which model would you recommend",
-          "example": "Selon l'usage que je veux en faire, quel modèle me conseilleriez-vous ?",
-          "usage": "Question au conditionnel pour demander un conseil personnalisé."
+          "french": "Est-ce que l'assurance est comprise dans le tarif",
+          "english": "Is the insurance included in the rate",
+          "example": "Est-ce que l'assurance est comprise dans le tarif ou faut-il la prendre en supplément ?",
+          "usage": "Question avec « est-ce que » sur l'inclusion de l'assurance."
         },
         {
           "id": "T2D12S16V24",
           "kind": "tournure",
-          "french": "Faut-il verser une caution",
-          "english": "Do you have to pay a deposit",
-          "example": "Faut-il verser une caution — et de quel montant à peu près ?",
-          "usage": "Question directe pour vérifier s'il faut laisser une garantie financière."
+          "french": "si je réserve à l'avance, est-ce que j'obtiens un meilleur tarif",
+          "english": "if I book in advance, do I get a better rate",
+          "example": "Pour finir — si je réserve à l'avance, est-ce que j'obtiens un meilleur tarif ?",
+          "usage": "Structure hypothétique pour négocier un avantage tarifaire."
         },
         {
           "id": "T2D12S16V25",
           "kind": "tournure",
-          "french": "Quelles sont les conditions pour louer",
-          "english": "What are the conditions for renting",
-          "example": "Quelles sont les conditions pour louer — faut-il une pièce d'identité ou un âge minimum ?",
-          "usage": "Formule interrogative utile pour demander les critères à remplir."
+          "french": "Quels modèles de vélos proposez-vous",
+          "english": "what bike models do you offer",
+          "example": "Quels modèles de vélos proposez-vous — vélo de ville, VTT, vélo électrique ?",
+          "usage": "Question sur l'offre de vélos."
         },
         {
           "id": "T2D12S16V26",
           "kind": "tournure",
-          "french": "Est-ce que le casque et l'antivol sont fournis avec le vélo",
-          "english": "Are the helmet and lock provided with the bike",
-          "example": "Côté équipement, est-ce que le casque et l'antivol sont fournis avec le vélo ?",
-          "usage": "Question complète pour vérifier le matériel inclus avec la location."
+          "french": "quel modèle me conseilleriez-vous",
+          "english": "which model you would recommend",
+          "example": "Selon l'usage que je veux en faire, quel modèle me conseilleriez-vous ?",
+          "usage": "Question pour un conseil de choix."
         },
         {
           "id": "T2D12S16V27",
+          "kind": "tournure",
+          "french": "Quelles sont les conditions pour louer",
+          "english": "what are the conditions to rent",
+          "example": "Quelles sont les conditions pour louer — faut-il une pièce d'identité ou un âge minimum ?",
+          "usage": "Question sur les modalités."
+        },
+        {
+          "id": "T2D12S16V28",
           "kind": "tournure",
           "french": "Est-ce qu'on peut rendre le vélo à un autre point de la ville",
           "english": "can we return the bike at another point in town",
           "example": "Est-ce qu'on peut rendre le vélo à un autre point de la ville ou faut-il revenir ici ?",
           "usage": "Question sur la restitution."
-        },
-        {
-          "id": "T2D12S16V28",
-          "kind": "tournure",
-          "french": "Pouvez-vous aussi me conseiller",
-          "english": "Could you also advise me",
-          "example": "En ce qui concerne les déplacements, pouvez-vous aussi me conseiller un itinéraire adapté selon l'usage que je veux faire du vélo ?",
-          "usage": "Formule polie pour demander une recommandation complémentaire."
         },
         {
           "id": "T2D12S16V29",

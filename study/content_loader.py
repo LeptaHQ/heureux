@@ -33,8 +33,8 @@ TACHE_TWO_SUBJECTS_DIR = QUESTION_BANK_DIR / "subjects"
 TACHE_TWO_VOCABULARY_DIR = QUESTION_BANK_DIR / "vocabulary"
 TACHE_TWO_THEME_VOCABULARY_DIR = QUESTION_BANK_DIR / "theme_vocabulary"
 TACHE_TWO_SUBJECT_THEMES_PATH = TACHE_TWO_SUBJECTS_DIR / "subject_themes.json"
-TACHE_TWO_RELATED_GROUPS_PATH = (
-    TACHE_TWO_SUBJECTS_DIR / "related_groups.json"
+TACHE_TWO_EQUIVALENT_GROUPS_PATH = (
+    TACHE_TWO_SUBJECTS_DIR / "equivalent_groups.json"
 )
 QUESTION_BANK_TASK = ("eo", "tache-2")
 EO_TACHE_THREE_TASK = ("eo", "tache-3")
@@ -437,11 +437,10 @@ class TacheTwoThemeData:
 
 
 @dataclass(frozen=True)
-class TacheTwoRelatedGroupData:
+class TacheTwoEquivalentGroupData:
     id: str
     theme: str
-    label: str
-    kind: str
+    canonical: str
     members: Tuple[str, ...]
 
 
@@ -970,33 +969,35 @@ def load_tache_two_subject_themes(
     return themes, mapping
 
 
-def load_tache_two_related_groups(
-    path: Path = TACHE_TWO_RELATED_GROUPS_PATH,
+def load_tache_two_equivalent_groups(
+    path: Path = TACHE_TWO_EQUIVALENT_GROUPS_PATH,
     *,
     months: Optional[Tuple[TacheTwoSubjectMonthData, ...]] = None,
     subject_themes_path: Path = TACHE_TWO_SUBJECT_THEMES_PATH,
-) -> Tuple[TacheTwoRelatedGroupData, ...]:
-    """Load editorially related subjects without collapsing their content."""
+) -> Tuple[TacheTwoEquivalentGroupData, ...]:
+    """Load audited groups whose questions and progression are truly shared."""
     data = json.loads(path.read_text(encoding="utf-8"))
     if (
         not isinstance(data, dict)
         or set(data) != {"version", "groups"}
         or data["version"] != 1
     ):
-        raise ValueError("Tâche 2 related groups must use version 1")
+        raise ValueError("Tâche 2 equivalent groups must use version 1")
     if not isinstance(data["groups"], list):
-        raise ValueError("Tâche 2 related groups must contain a groups list")
+        raise ValueError("Tâche 2 equivalent groups must contain a groups list")
 
     months = months or load_tache_two_subject_months()
-    known_keys = {
+    subjects_by_key = {
         tache_two_subject_content_key(
-            month.slug,
-            batch.number,
-            subject.number,
-        )
+            month.slug, batch.number, subject.number
+        ): subject
         for month in months
         for batch in month.batches
         for subject in batch.subjects
+    }
+    subject_order = {
+        content_key: index
+        for index, content_key in enumerate(subjects_by_key)
     }
     _themes, theme_by_key = load_tache_two_subject_themes(
         subject_themes_path
@@ -1005,12 +1006,11 @@ def load_tache_two_related_groups(
     seen_members = set()
     groups = []
     for index, row in enumerate(data["groups"], start=1):
-        location = f"Tâche 2 related group {index}"
+        location = f"Tâche 2 equivalent group {index}"
         if not isinstance(row, dict) or set(row) != {
             "id",
             "theme",
-            "label",
-            "kind",
+            "canonical",
             "members",
         }:
             raise ValueError(f"{location} has invalid fields")
@@ -1018,24 +1018,21 @@ def load_tache_two_related_groups(
             raise ValueError(f"{location} members must be a list")
         group_id = str(row["id"]).strip()
         theme = str(row["theme"]).strip()
-        label = str(row["label"]).strip()
-        kind = str(row["kind"]).strip()
+        canonical = str(row["canonical"]).strip()
         members = tuple(
             str(member).strip() for member in row["members"]
         )
         if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", group_id):
             raise ValueError(f"{location} has an invalid id")
         if group_id in seen_ids:
-            raise ValueError(f"Duplicate Tâche 2 related group {group_id!r}")
-        if not label:
-            raise ValueError(f"{location} needs a label")
-        if kind not in {"equivalent", "variant"}:
-            raise ValueError(f"{location} has an invalid kind")
+            raise ValueError(f"Duplicate Tâche 2 equivalent group {group_id!r}")
         if len(members) < 2 or len(set(members)) != len(members):
             raise ValueError(
                 f"{location} needs at least two unique members"
             )
-        unknown = set(members) - known_keys
+        if canonical not in members:
+            raise ValueError(f"{location} must include its canonical subject")
+        unknown = set(members) - set(subjects_by_key)
         if unknown:
             raise ValueError(
                 f"{location} references unknown subjects: "
@@ -1057,14 +1054,39 @@ def load_tache_two_related_groups(
                 f"{location} crosses theme boundaries: "
                 + ", ".join(wrong_theme)
             )
+        expected_canonical = min(
+            members,
+            key=subject_order.__getitem__,
+        )
+        if canonical != expected_canonical:
+            raise ValueError(
+                f"{location} canonical must be {expected_canonical!r}"
+            )
+        canonical_questions = tuple(
+            question.text
+            for question in subjects_by_key[canonical].questions
+        )
+        drifted = [
+            member
+            for member in members
+            if tuple(
+                question.text
+                for question in subjects_by_key[member].questions
+            )
+            != canonical_questions
+        ]
+        if drifted:
+            raise ValueError(
+                f"{location} does not share its canonical questions: "
+                + ", ".join(drifted)
+            )
         seen_ids.add(group_id)
         seen_members.update(members)
         groups.append(
-            TacheTwoRelatedGroupData(
+            TacheTwoEquivalentGroupData(
                 id=group_id,
                 theme=theme,
-                label=label,
-                kind=kind,
+                canonical=canonical,
                 members=members,
             )
         )
@@ -1265,6 +1287,72 @@ def _tache_two_vocabulary_signature(entries) -> Optional[Tuple]:
         else None
         for entry in entries
     )
+
+
+def tache_two_phrase_id_merges(
+    groups: Optional[Tuple[TacheTwoEquivalentGroupData, ...]] = None,
+    directory: Path = TACHE_TWO_VOCABULARY_DIR,
+) -> Dict[str, str]:
+    """Map retired equivalent-deck phrase ids onto the canonical deck."""
+    if groups is None:
+        groups = load_tache_two_equivalent_groups()
+    entries_by_subject_key = {}
+    for path in sorted(directory.glob("*.json")):
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        for row in payload.get("subjects", []):
+            if isinstance(row, dict):
+                entries_by_subject_key[row.get("subject_key")] = row.get(
+                    "entries"
+                )
+
+    merges = {}
+    for group in groups:
+        canonical_entries = entries_by_subject_key.get(group.canonical)
+        canonical_signature = _tache_two_vocabulary_signature(
+            canonical_entries
+        )
+        if canonical_signature is None:
+            raise ValueError(
+                f"Missing canonical vocabulary for {group.canonical!r}"
+            )
+        canonical_ids = tuple(
+            entry.get("id") for entry in canonical_entries
+        )
+        if not all(
+            isinstance(phrase_id, str) and phrase_id
+            for phrase_id in canonical_ids
+        ):
+            raise ValueError(
+                f"Invalid canonical vocabulary ids for {group.canonical!r}"
+            )
+        for member in group.members:
+            if member == group.canonical:
+                continue
+            member_entries = entries_by_subject_key.get(member)
+            if (
+                _tache_two_vocabulary_signature(member_entries)
+                != canonical_signature
+            ):
+                raise ValueError(
+                    f"{member!r} does not share canonical vocabulary with "
+                    f"{group.canonical!r}"
+                )
+            for entry, target_id in zip(
+                member_entries,
+                canonical_ids,
+                strict=True,
+            ):
+                source_id = entry.get("id")
+                if not isinstance(source_id, str) or not source_id:
+                    raise ValueError(
+                        f"Invalid equivalent vocabulary id for {member!r}"
+                    )
+                previous = merges.setdefault(source_id, target_id)
+                if previous != target_id:
+                    raise ValueError(
+                        f"Conflicting phrase merge for {source_id!r}"
+                    )
+    return merges
 
 
 def parse_tache_two_subject_vocabulary(

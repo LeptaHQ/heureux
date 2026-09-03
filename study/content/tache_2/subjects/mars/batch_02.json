@@ -94,12 +94,12 @@
       "prompt": "Je suis un(e) ami(e) canadien(ne), je viens de passer des vacances formidables au bord de la mer. Vous aimeriez faire la même chose. Vous me posez des questions sur ce séjour (lieu, activités, tarifs, etc.).",
       "questions": [
         {
-          "text": "Salut ! Tu viens de passer des vacances formidables au bord de la mer — j'aimerais faire le même type de séjour, tu pourrais me donner quelques infos ?",
+          "text": "Salut ! Tu as passé des vacances formidables au bord de la mer — j'aimerais faire le même type de séjour, tu pourrais me donner quelques infos ?",
           "memory_number": 7,
           "memory_section": 13
         },
         {
-          "text": "Tu es parti(e) où exactement — c'était au Canada ou à l'étranger ?",
+          "text": "Tu es parti(e) où exactement — c'était dans le pays ou à l'étranger ?",
           "memory_number": 7,
           "memory_section": 13
         },

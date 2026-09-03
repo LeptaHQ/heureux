@@ -33,7 +33,7 @@
           "kind": "mot-cle",
           "french": "candidats",
           "english": "contestants",
-          "example": "Dans un autre registre, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
+          "example": "Tant que j'y pense, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
           "usage": "Personnes sélectionnées pour participer au jeu."
         },
         {
@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "une dizaine",
           "english": "around ten",
-          "example": "Dans un autre registre, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
+          "example": "Tant que j'y pense, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
           "usage": "Quantité approximative utile pour estimer le nombre de candidats."
         },
         {
@@ -49,7 +49,7 @@
           "kind": "mot-cle",
           "french": "les différentes étapes",
           "english": "the different stages",
-          "example": "En ce qui concerne l'organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
+          "example": "Question organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
           "usage": "Éléments qui composent le déroulement global d'une activité."
         },
         {
@@ -71,18 +71,18 @@
         {
           "id": "T2J7S6V09",
           "kind": "mot-cle",
-          "french": "un moment surprenant",
-          "english": "a surprising moment",
-          "example": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus : qu'est-ce qui s'est passé exactement ?",
-          "usage": "Groupe nominal qualifiant un souvenir marquant à approfondir."
-        },
-        {
-          "id": "T2J7S6V10",
-          "kind": "mot-cle",
           "french": "une expérience vraiment marquante",
           "english": "a truly memorable experience",
           "example": "Pour finir, as-tu appris quelque chose de nouveau ou vécu une expérience vraiment marquante ?",
           "usage": "Qualifie un souvenir particulièrement fort à l'issue de l'activité."
+        },
+        {
+          "id": "T2J7S6V10",
+          "kind": "mot-cle",
+          "french": "un moment surprenant",
+          "english": "a surprising moment",
+          "example": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus : qu'est-ce qui s'est passé exactement ?",
+          "usage": "Groupe nominal qualifiant un souvenir marquant à approfondir."
         },
         {
           "id": "T2J7S6V11",
@@ -119,25 +119,25 @@
         {
           "id": "T2J7S6V15",
           "kind": "collocation",
+          "french": "décrire le déroulement",
+          "english": "describe how it went",
+          "example": "Question organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
+          "usage": "Collocation utile pour demander un récit structuré d'une expérience."
+        },
+        {
+          "id": "T2J7S6V16",
+          "kind": "collocation",
           "french": "en équipe",
           "english": "as a team",
           "example": "C'est en équipe ou individuellement ?",
           "usage": "Collocation prépositionnelle figée opposant la participation collective à la participation individuelle."
         },
         {
-          "id": "T2J7S6V16",
-          "kind": "collocation",
-          "french": "décrire le déroulement",
-          "english": "describe how it went",
-          "example": "En ce qui concerne l'organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
-          "usage": "Collocation utile pour demander un récit structuré d'une expérience."
-        },
-        {
           "id": "T2J7S6V17",
           "kind": "collocation",
           "french": "gagner de l'argent",
           "english": "win money",
-          "example": "Dernier point pratique : peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
+          "example": "Dans un autre registre, peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
           "usage": "Collocation courante pour parler d'un gain financier."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "d'autres récompenses",
           "english": "other prizes",
-          "example": "Dernier point pratique : peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
+          "example": "Dans un autre registre, peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
           "usage": "Désigne les gains autres que l'argent ou les voyages."
         },
         {
@@ -201,7 +201,7 @@
           "kind": "tournure",
           "french": "Il y a généralement combien de candidats",
           "english": "how many contestants are there generally",
-          "example": "Dans un autre registre, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
+          "example": "Tant que j'y pense, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
           "usage": "Tournure existentielle pour estimer le nombre habituel de candidats."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "tournure",
           "french": "Peux-tu décrire le déroulement",
           "english": "can you describe how it went",
-          "example": "En ce qui concerne l'organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
+          "example": "Question organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
           "usage": "Inversion simple avec « peux-tu » pour demander un récit détaillé."
         },
         {
@@ -233,7 +233,7 @@
           "kind": "tournure",
           "french": "Peut-on gagner",
           "english": "can you win",
-          "example": "Dernier point pratique : peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
+          "example": "Dans un autre registre, peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
           "usage": "Inversion avec « on » pour demander quels gains sont proposés."
         },
         {
@@ -537,17 +537,17 @@
         {
           "id": "T2J7S8V06",
           "kind": "mot-cle",
-          "french": "un centre social",
-          "english": "a community center",
-          "example": "Bonjour ! Vous m'avez dit que vous donniez des cours de sport dans un centre social — ça m'intéresse beaucoup, vous pourriez m'en parler ?",
-          "usage": "Groupe nominal désignant la structure de quartier."
+          "french": "le quartier",
+          "english": "the neighbourhood",
+          "example": "Bonjour ! Vous m'avez dit que vous animiez des cours de sport dans le quartier — ça m'intéresse beaucoup, vous pourriez m'en parler ?",
+          "usage": "Nom masculin désignant la zone de proximité où se déroulent les activités."
         },
         {
           "id": "T2J7S8V07",
           "kind": "mot-cle",
           "french": "des cours de sport",
           "english": "sports classes",
-          "example": "Bonjour ! Vous m'avez dit que vous donniez des cours de sport dans un centre social — ça m'intéresse beaucoup, vous pourriez m'en parler ?",
+          "example": "Bonjour ! Vous m'avez dit que vous animiez des cours de sport dans le quartier — ça m'intéresse beaucoup, vous pourriez m'en parler ?",
           "usage": "Groupe nominal pour les activités sportives."
         },
         {
@@ -593,10 +593,10 @@
         {
           "id": "T2J7S8V13",
           "kind": "collocation",
-          "french": "donniez des cours de sport",
-          "english": "give sports classes",
-          "example": "Bonjour ! Vous m'avez dit que vous donniez des cours de sport dans un centre social — ça m'intéresse beaucoup, vous pourriez m'en parler ?",
-          "usage": "Verbe + complément sur l'enseignement."
+          "french": "animiez des cours de sport",
+          "english": "run sports classes",
+          "example": "Bonjour ! Vous m'avez dit que vous animiez des cours de sport dans le quartier — ça m'intéresse beaucoup, vous pourriez m'en parler ?",
+          "usage": "Verbe + complément sur l'animation des cours."
         },
         {
           "id": "T2J7S8V14",
@@ -862,10 +862,10 @@
         {
           "id": "T2J7S9V16",
           "kind": "collocation",
-          "french": "visiter la ville à vélo",
-          "english": "visit the city by bike",
-          "example": "Bonjour ! Je suis en vacances et j'aimerais visiter la ville à vélo — pouvez-vous me présenter vos différentes offres de location ?",
-          "usage": "Verbe + complément sur la balade."
+          "french": "louer un vélo",
+          "english": "rent a bike",
+          "example": "Bonjour ! J'aimerais louer un vélo et trouver le modèle qui me convient le mieux — pouvez-vous me présenter vos différentes offres de location ?",
+          "usage": "Verbe + complément sur la location d'un vélo."
         },
         {
           "id": "T2J7S9V17",
@@ -896,7 +896,7 @@
           "kind": "collocation",
           "french": "des idées d'itinéraires",
           "english": "route ideas",
-          "example": "Puisqu'on en parle, vous fournissez un plan ou des idées d'itinéraires pour découvrir la ville ?",
+          "example": "Puisqu'on en parle, vous fournissez un plan ou des idées d'itinéraires adaptés à cet usage ?",
           "usage": "Locution nominale pour des parcours suggérés."
         },
         {
@@ -944,7 +944,7 @@
           "kind": "tournure",
           "french": "quel modèle me conseilleriez-vous",
           "english": "which model you would recommend",
-          "example": "Pour visiter tranquillement la ville, quel modèle me conseilleriez-vous ?",
+          "example": "Selon l'usage que je veux en faire, quel modèle me conseilleriez-vous ?",
           "usage": "Question pour un conseil de choix."
         },
         {

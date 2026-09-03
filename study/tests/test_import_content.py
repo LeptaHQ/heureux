@@ -470,6 +470,38 @@ class NonDestructiveImportTests(TestCase):
         self.assertLess(target_card.started_at, source_started_at)
         self.assertEqual(source_card.reps, 8)
 
+    def test_equivalent_subject_deck_keeps_existing_vocabulary_schedule(self):
+        user = factories.make_user("subject-phrase-merge-user")
+        target_phrase = factories.make_phrase(tier="subject")
+        target_phrase.phrase_id = "T2F2S26V01"
+        target_phrase.save(update_fields=["phrase_id"])
+        source_phrase = factories.make_phrase(
+            category=target_phrase.category,
+            tier="subject",
+        )
+        source_phrase.phrase_id = "T2M5S25V01"
+        source_phrase.save(update_fields=["phrase_id"])
+        target_card = factories.make_phrase_card(
+            user=user,
+            phrase=target_phrase,
+        )
+        source_card = factories.make_phrase_card(
+            user=user,
+            phrase=source_phrase,
+            state=CardState.REVIEW,
+            reps=12,
+            interval_days=28,
+            last_reviewed=timezone.now(),
+            needs_revisit=True,
+        )
+
+        Command()._reconcile_phrase_cards()
+
+        target_card.refresh_from_db()
+        self.assertEqual(target_card.reps, 12)
+        self.assertEqual(target_card.interval_days, 28)
+        self.assertTrue(target_card.needs_revisit)
+
     def test_local_phrase_keeps_recognition_progress_on_production_card(self):
         user = factories.make_user("direction-merge-user")
         phrase = factories.make_phrase(tier="response")

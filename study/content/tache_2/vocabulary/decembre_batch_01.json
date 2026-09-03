@@ -742,34 +742,34 @@
         {
           "id": "T2D12S4V01",
           "kind": "mot-cle",
-          "french": "une série télé",
-          "english": "a TV series",
-          "example": "Salut ! Je voudrais commencer une série télé, mais je ne sais pas laquelle choisir — tu me conseillerais quoi ?",
-          "usage": "Groupe nominal désignant une fiction télévisée découpée en épisodes."
+          "french": "gâcher l'histoire",
+          "english": "to spoil the story",
+          "example": "De quoi ça parle, sans trop m'en dire pour ne pas gâcher l'histoire ?",
+          "usage": "Groupe verbal désignant le fait de révéler une intrigue par avance."
         },
         {
           "id": "T2D12S4V02",
+          "kind": "mot-cle",
+          "french": "des acteurs",
+          "english": "actors",
+          "example": "Qui joue dedans — il y a des acteurs que je connaîtrais peut-être ?",
+          "usage": "Nom pluriel désignant les interprètes d'une œuvre cinématographique."
+        },
+        {
+          "id": "T2D12S4V03",
+          "kind": "mot-cle",
+          "french": "une nouvelle série",
+          "english": "a new series",
+          "example": "Salut ! Je voudrais commencer une nouvelle série mais je ne sais pas laquelle choisir — tu aurais des idées à me conseiller ?",
+          "usage": "Groupe nominal désignant la série à choisir."
+        },
+        {
+          "id": "T2D12S4V04",
           "kind": "mot-cle",
           "french": "quel genre",
           "english": "what genre",
           "example": "C'est quel genre — plutôt comédie, thriller, science-fiction, drame ?",
           "usage": "Groupe interrogatif sur le type de série."
-        },
-        {
-          "id": "T2D12S4V03",
-          "kind": "mot-cle",
-          "french": "l'histoire",
-          "english": "the story/plot",
-          "example": "De quoi ça parle, sans trop m'en dire pour ne pas gâcher l'histoire ?",
-          "usage": "Nom féminin employé pour parler de l’intrigue d’une série."
-        },
-        {
-          "id": "T2D12S4V04",
-          "kind": "mot-cle",
-          "french": "des acteurs",
-          "english": "actors",
-          "example": "Qui joue dedans — il y a des acteurs que je connaîtrais peut-être ?",
-          "usage": "Nom pluriel désignant les interprètes visibles à l’écran."
         },
         {
           "id": "T2D12S4V05",
@@ -782,45 +782,61 @@
         {
           "id": "T2D12S4V06",
           "kind": "mot-cle",
-          "french": "une série terminée",
-          "english": "a finished series",
-          "example": "C'est une série terminée ou encore en cours de diffusion ?",
-          "usage": "Groupe nominal pour parler d’une série déjà achevée."
+          "french": "un abonnement payant",
+          "english": "a paid subscription",
+          "example": "Il faut un abonnement payant ou c'est disponible gratuitement quelque part ?",
+          "usage": "Groupe nominal pour l'abonnement payant."
         },
         {
           "id": "T2D12S4V07",
           "kind": "mot-cle",
-          "french": "quelle chaîne",
-          "english": "which channel",
-          "example": "Côté pratique, c'est diffusé sur quelle chaîne, et quel jour à quelle heure ?",
-          "usage": "Groupe interrogatif servant à demander le diffuseur télévisé."
+          "french": "un public particulier",
+          "english": "a specific audience",
+          "example": "Puisqu'on en parle, c'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?",
+          "usage": "Groupe nominal pour un public ciblé."
         },
         {
           "id": "T2D12S4V08",
           "kind": "mot-cle",
-          "french": "un épisode",
-          "english": "an episode",
-          "example": "Si je rate un épisode à la télé, je peux le revoir où après ?",
-          "usage": "Nom masculin désignant une partie d’une série."
+          "french": "le genre de série",
+          "english": "the kind of series",
+          "example": "Avant que j'oublie, c'est le genre de série qu'on regarde tranquillement, ou ça rend vite accro ?",
+          "usage": "Groupe nominal pour le style de série."
         },
         {
           "id": "T2D12S4V09",
           "kind": "mot-cle",
-          "french": "un public particulier",
-          "english": "a specific audience",
-          "example": "Et puis, c'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?",
-          "usage": "Groupe nominal pour un public ciblé."
+          "french": "une série terminée",
+          "english": "a finished series",
+          "example": "C'est une série terminée ou encore en cours de diffusion ?",
+          "usage": "Groupe nominal pour une série achevée."
         },
         {
           "id": "T2D12S4V10",
           "kind": "mot-cle",
-          "french": "version française",
-          "english": "French version",
-          "example": "Côté langue, elle est disponible en version française, ou il faut la regarder en version originale sous-titrée ?",
-          "usage": "Groupe nominal désignant la version diffusée en français."
+          "french": "une série pour tout le monde",
+          "english": "a series for everyone",
+          "example": "Puisqu'on en parle, c'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?",
+          "usage": "Groupe nominal pour une série grand public."
         },
         {
           "id": "T2D12S4V11",
+          "kind": "collocation",
+          "french": "commencer une nouvelle série",
+          "english": "start a new series",
+          "example": "Salut ! Je voudrais commencer une nouvelle série mais je ne sais pas laquelle choisir — tu aurais des idées à me conseiller ?",
+          "usage": "Verbe + complément sur le visionnage."
+        },
+        {
+          "id": "T2D12S4V12",
+          "kind": "collocation",
+          "french": "des idées à me conseiller",
+          "english": "ideas to suggest to me",
+          "example": "Salut ! Je voudrais commencer une nouvelle série mais je ne sais pas laquelle choisir — tu aurais des idées à me conseiller ?",
+          "usage": "Locution nominale pour une demande de conseils."
+        },
+        {
+          "id": "T2D12S4V13",
           "kind": "collocation",
           "french": "tu as vraiment aimé",
           "english": "you really liked",
@@ -828,7 +844,7 @@
           "usage": "Locution verbale sur l'appréciation."
         },
         {
-          "id": "T2D12S4V12",
+          "id": "T2D12S4V14",
           "kind": "collocation",
           "french": "sans trop m'en dire",
           "english": "without telling me too much",
@@ -836,7 +852,7 @@
           "usage": "Locution pour éviter les révélations."
         },
         {
-          "id": "T2D12S4V13",
+          "id": "T2D12S4V15",
           "kind": "collocation",
           "french": "qui joue dedans",
           "english": "who is in it",
@@ -844,7 +860,7 @@
           "usage": "Locution verbale familière sur le casting."
         },
         {
-          "id": "T2D12S4V14",
+          "id": "T2D12S4V16",
           "kind": "collocation",
           "french": "combien de saisons et d'épisodes",
           "english": "how many seasons and episodes",
@@ -852,7 +868,7 @@
           "usage": "Locution interrogative sur le volume."
         },
         {
-          "id": "T2D12S4V15",
+          "id": "T2D12S4V17",
           "kind": "collocation",
           "french": "en cours de diffusion",
           "english": "currently airing",
@@ -860,124 +876,108 @@
           "usage": "Locution sur le statut de diffusion."
         },
         {
-          "id": "T2D12S4V16",
-          "kind": "collocation",
-          "french": "à quelle heure",
-          "english": "at what time",
-          "example": "Côté pratique, c'est diffusé sur quelle chaîne, et quel jour à quelle heure ?",
-          "usage": "Groupe interrogatif très courant pour demander un horaire précis."
-        },
-        {
-          "id": "T2D12S4V17",
-          "kind": "collocation",
-          "french": "le revoir où après",
-          "english": "watch it again where afterwards",
-          "example": "Si je rate un épisode à la télé, je peux le revoir où après ?",
-          "usage": "Suite verbale familière pour demander l’endroit du replay."
-        },
-        {
           "id": "T2D12S4V18",
           "kind": "collocation",
-          "french": "version originale sous-titrée",
-          "english": "original version with subtitles",
-          "example": "Côté langue, elle est disponible en version française, ou il faut la regarder en version originale sous-titrée ?",
-          "usage": "Groupe nominal désignant une diffusion en langue originale accompagnée de sous-titres."
+          "french": "la regarder",
+          "english": "watch it",
+          "example": "Côté pratique, où est-ce qu'on peut la regarder — sur quelle chaîne ou quelle plateforme ?",
+          "usage": "Locution verbale sur le visionnage."
         },
         {
           "id": "T2D12S4V19",
           "kind": "collocation",
-          "french": "accroche dès le début",
-          "english": "hooks you from the start",
-          "example": "Tant que j'y pense, il faut attendre longtemps avant que ça devienne vraiment intéressant, ou on accroche dès le début ?",
-          "usage": "Collocation verbale familière pour dire qu’une série devient immédiatement prenante."
+          "french": "disponible gratuitement",
+          "english": "available for free",
+          "example": "Il faut un abonnement payant ou c'est disponible gratuitement quelque part ?",
+          "usage": "Locution adjectivale sur l'accès."
         },
         {
           "id": "T2D12S4V20",
           "kind": "collocation",
-          "french": "du même genre",
-          "english": "of the same genre",
-          "example": "Qu'est-ce qui la rend différente des autres séries du même genre ?",
-          "usage": "Groupe prépositionnel utilisé pour comparer des séries similaires."
+          "french": "en version française",
+          "english": "in the French version",
+          "example": "Pour ce qui est de la langue, elle est disponible en version française, ou seulement en version originale sous-titrée ?",
+          "usage": "Locution sur la langue de diffusion."
         },
         {
           "id": "T2D12S4V21",
           "kind": "tournure",
-          "french": "tu me conseillerais quoi",
-          "english": "what would you recommend to me",
-          "example": "Salut ! Je voudrais commencer une série télé, mais je ne sais pas laquelle choisir — tu me conseillerais quoi ?",
-          "usage": "Question au conditionnel pour demander une recommandation de façon détendue."
+          "french": "de quoi ça parle",
+          "english": "what it's about",
+          "example": "De quoi ça parle, sans trop m'en dire pour ne pas gâcher l'histoire ?",
+          "usage": "Tournure idiomatique très courante pour résumer le sujet d'une œuvre."
         },
         {
           "id": "T2D12S4V22",
           "kind": "tournure",
-          "french": "de quoi ça parle",
-          "english": "what it is about",
-          "example": "De quoi ça parle, sans trop m'en dire pour ne pas gâcher l'histoire ?",
-          "usage": "Tournure très fréquente pour demander le sujet d’une œuvre sans entrer dans les détails."
+          "french": "je connaîtrais peut-être",
+          "english": "I might know",
+          "example": "Qui joue dedans — il y a des acteurs que je connaîtrais peut-être ?",
+          "usage": "Tournure au conditionnel + adverbe pour exprimer une possibilité incertaine."
         },
         {
           "id": "T2D12S4V23",
           "kind": "tournure",
-          "french": "c'est diffusé sur quelle chaîne",
-          "english": "what channel is it broadcast on",
-          "example": "Côté pratique, c'est diffusé sur quelle chaîne, et quel jour à quelle heure ?",
-          "usage": "Question passive courante pour identifier le canal de diffusion."
+          "french": "tu aurais des idées à me conseiller",
+          "english": "would you have ideas to suggest",
+          "example": "Salut ! Je voudrais commencer une nouvelle série mais je ne sais pas laquelle choisir — tu aurais des idées à me conseiller ?",
+          "usage": "Tournure pour demander des suggestions."
         },
         {
           "id": "T2D12S4V24",
           "kind": "tournure",
-          "french": "si je rate un épisode à la télé",
-          "english": "if I miss an episode on TV",
-          "example": "Si je rate un épisode à la télé, je peux le revoir où après ?",
-          "usage": "Subordonnée hypothétique utilisée pour parler d’un épisode manqué."
+          "french": "Qu'est-ce que tu as regardé récemment",
+          "english": "what you have watched recently",
+          "example": "Qu'est-ce que tu as regardé récemment et que tu as vraiment aimé ?",
+          "usage": "Question sur les visionnages récents."
         },
         {
           "id": "T2D12S4V25",
           "kind": "tournure",
-          "french": "c'est plutôt une série pour tout le monde",
-          "english": "it is more a series for everyone",
-          "example": "Et puis, c'est plutôt une série pour tout le monde, ou plus adaptée à un public particulier ?",
-          "usage": "Tournure descriptive pour évaluer l’accessibilité d’une série à différents publics."
+          "french": "Les épisodes durent combien de temps",
+          "english": "how long the episodes last",
+          "example": "Les épisodes durent combien de temps chacun ?",
+          "usage": "Question sur la durée des épisodes."
         },
         {
           "id": "T2D12S4V26",
           "kind": "tournure",
-          "french": "il faut la regarder en version originale sous-titrée",
-          "english": "you have to watch it in the original subtitled version",
-          "example": "Côté langue, elle est disponible en version française, ou il faut la regarder en version originale sous-titrée ?",
-          "usage": "Tournure impersonnelle pour demander si un format de visionnage est nécessaire."
+          "french": "où est-ce qu'on peut la regarder",
+          "english": "where can we watch it",
+          "example": "Côté pratique, où est-ce qu'on peut la regarder — sur quelle chaîne ou quelle plateforme ?",
+          "usage": "Question sur le moyen de visionnage."
         },
         {
           "id": "T2D12S4V27",
           "kind": "tournure",
-          "french": "ça devienne vraiment intéressant",
-          "english": "it becomes really interesting",
-          "example": "Tant que j'y pense, il faut attendre longtemps avant que ça devienne vraiment intéressant, ou on accroche dès le début ?",
-          "usage": "Subordonnée avec subjonctif pour parler du moment où une série prend de l’intérêt."
+          "french": "Il faut un abonnement payant",
+          "english": "do you need a paid subscription",
+          "example": "Il faut un abonnement payant ou c'est disponible gratuitement quelque part ?",
+          "usage": "Question sur le coût d'accès."
         },
         {
           "id": "T2D12S4V28",
           "kind": "tournure",
-          "french": "qu'est-ce qui la rend différente",
-          "english": "what makes it different",
-          "example": "Qu'est-ce qui la rend différente des autres séries du même genre ?",
-          "usage": "Question en « qu’est-ce qui » pour faire ressortir l’originalité d’une série."
+          "french": "Elle est disponible en version française",
+          "english": "is it available in French",
+          "example": "Pour ce qui est de la langue, elle est disponible en version française, ou seulement en version originale sous-titrée ?",
+          "usage": "Question sur la langue."
         },
         {
           "id": "T2D12S4V29",
           "kind": "tournure",
-          "french": "si je ne dois en commencer qu'une seule",
-          "english": "if I should start only one",
-          "example": "Pour finir — si je ne dois en commencer qu'une seule, laquelle tu me recommandes vraiment ?",
-          "usage": "Tournure restrictive de clôture pour réduire le choix à une seule option."
+          "french": "qu'est-ce que tu en as pensé",
+          "english": "what you thought of it",
+          "example": "Dernier point pratique : toi, qu'est-ce que tu en as pensé — tu l'as regardée jusqu'au bout ?",
+          "usage": "Question pour recueillir un avis."
         },
         {
           "id": "T2D12S4V30",
           "kind": "tournure",
-          "french": "laquelle tu me recommandes vraiment",
-          "english": "which one you really recommend to me",
-          "example": "Pour finir — si je ne dois en commencer qu'une seule, laquelle tu me recommandes vraiment ?",
-          "usage": "Question finale informelle pour obtenir une recommandation tranchée."
+          "french": "laquelle tu me recommandes vraiment de commencer",
+          "english": "which one you really recommend I start",
+          "example": "Pour finir — parmi toutes celles-là, laquelle tu me recommandes vraiment de commencer ?",
+          "usage": "Tournure de clôture pour un choix."
         }
       ]
     },

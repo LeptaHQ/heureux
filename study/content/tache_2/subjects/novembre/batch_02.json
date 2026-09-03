@@ -332,81 +332,77 @@
     },
     {
       "number": 10,
-      "title": "Garde de l'enfant d'un(e) voisin(e)",
-      "prompt": "Un(e) voisin(e) vous demande de garder son enfant le week-end prochain ; vous acceptez et demandez comment vous organiser (horaires, repas, activités, consignes, etc.).",
+      "title": "Garde de l'enfant d'un(e) ami(e)",
+      "prompt": "Un(e) ami(e) vous confie sa fille de 3 ans le week-end prochain ; vous acceptez et vous l'interrogez sur ses habitudes : alimentation, loisirs, sommeil, etc.",
       "questions": [
         {
-          "text": "Bonjour ! D'accord pour garder votre enfant le week-end prochain — c'est prévu pour quel jour exactement, et quels sont les horaires souhaités ?",
+          "text": "Salut ! Je vais garder ta fille ce week-end — tu peux me dire quels sont ses repas préférés et ce qu'elle mange habituellement ?",
+          "memory_number": 3,
+          "memory_section": 9
+        },
+        {
+          "text": "Y a-t-il des aliments qu'elle ne doit absolument pas manger — allergies ou intolérances ?",
+          "memory_number": 3,
+          "memory_section": 8
+        },
+        {
+          "text": "Côté loisirs, quels sont ses jeux ou activités préférés — elle aime plutôt rester à l'intérieur ou sortir au parc ?",
+          "memory_number": 3,
+          "memory_section": 2
+        },
+        {
+          "text": "Y a-t-il des objets ou jouets qu'elle veut toujours avoir avec elle ?",
+          "memory_number": 3,
+          "memory_section": 8
+        },
+        {
+          "text": "Avant que j'oublie, elle aime être seule un moment ou elle préfère rester avec quelqu'un ?"
+        },
+        {
+          "text": "Comment réagit-elle si elle est fatiguée ou contrariée ?"
+        },
+        {
+          "text": "A-t-elle des rituels particuliers le matin ou avant le bain ?",
           "memory_number": 3,
           "memory_section": 4
         },
         {
-          "text": "Pour que je m'organise, quel est le prénom et l'âge de votre enfant ?",
+          "text": "Côté sommeil, à quelle heure se couche-t-elle le soir — et fait-elle une sieste dans la journée ?",
           "memory_number": 3,
-          "memory_section": 7
+          "memory_section": 4
         },
         {
-          "text": "D'abord, la garde aurait lieu chez vous ou chez moi ?",
+          "text": "A-t-elle besoin d'un doudou ou d'une routine spéciale pour s'endormir ?",
+          "memory_number": 3,
+          "memory_section": 4
+        },
+        {
+          "text": "Tu as mentionné ses habitudes du soir — tu pourrais m'en dire un peu plus sur sa routine avant de dormir ?",
+          "memory_number": 3,
+          "memory_section": 4
+        },
+        {
+          "text": "Y a-t-il des signes de maladie ou de stress auxquels je dois faire attention ?",
+          "memory_number": 3,
+          "memory_section": 8
+        },
+        {
+          "text": "Prend-elle des médicaments ou compléments — comment dois-je les lui donner ?",
+          "memory_number": 3,
+          "memory_section": 8
+        },
+        {
+          "text": "En cas d'urgence, quel médecin dois-je contacter — tu seras joignable pendant ton absence ?",
           "memory_number": 3,
           "memory_section": 13
         },
         {
-          "text": "Concrètement, qu'attendez-vous de moi pendant la garde — quelles seront mes principales responsabilités ?",
-          "memory_number": 3,
-          "memory_section": 7
-        },
-        {
-          "text": "Pour ce qui est des loisirs, quelles sont les activités préférées de votre enfant — plutôt des jeux à la maison, des activités créatives ou sportives ?",
-          "memory_number": 3,
-          "memory_section": 7
-        },
-        {
-          "text": "S'il fait beau et que je sors avec votre enfant, y a-t-il des consignes particulières à respecter — un vêtement à prévoir, une limite de temps, ce genre de chose ?",
+          "text": "En ce qui concerne le matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
           "memory_number": 3,
           "memory_section": 8
         },
         {
-          "text": "Y a-t-il des règles particulières à respecter pour la télévision, les écrans ou les jeux vidéo ?",
-          "memory_number": 3,
-          "memory_section": 8
-        },
-        {
-          "text": "Et pour les repas, qu'avez-vous prévu, et à quelles heures faut-il les servir ?",
-          "memory_number": 3,
-          "memory_section": 7
-        },
-        {
-          "text": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
-          "memory_number": 3,
-          "memory_section": 8
-        },
-        {
-          "text": "En ce qui concerne la sécurité, y a-t-il des soins particuliers à prévoir ou des médicaments à donner ?",
-          "memory_number": 3,
-          "memory_section": 8
-        },
-        {
-          "text": "Si la garde se prolonge le soir, à quelle heure faut-il prévoir le coucher, et y a-t-il une routine particulière ?",
-          "memory_number": 3,
-          "memory_section": 4
-        },
-        {
-          "text": "En ce qui concerne l'endroit, qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
-          "memory_number": 3,
-          "memory_section": 8
-        },
-        {
-          "text": "Y a-t-il d'autres habitudes ou règles importantes à respecter avec votre enfant ?",
-          "memory_number": 3,
-          "memory_section": 4
-        },
-        {
-          "text": "En cas de problème, comment puis-je vous joindre, et y a-t-il une autre personne à contacter si vous n'êtes pas disponible ?",
-          "memory_number": 3,
-          "memory_section": 13
-        },
-        {
-          "text": "Pour finir — y a-t-il autre chose d'important que je devrais savoir avant ce week-end ?",
+          "text": "Pour finir — si tu ne devais me donner qu'un seul conseil pour qu'elle se sente bien, ce serait lequel ?",
           "memory_number": 3,
           "memory_section": 13
         }

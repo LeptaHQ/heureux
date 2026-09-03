@@ -45,7 +45,7 @@ jobs:
       - run: python manage.py import_content
       - run: python manage.py import_content --if-changed
       - run: python manage.py collectstatic --noinput
-      - run: python manage.py test
+      - run: python manage.py test --parallel
         env:
           DEBUG: "True"
           SECURE_SSL_REDIRECT: "False"

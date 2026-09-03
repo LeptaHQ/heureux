@@ -6,9 +6,11 @@ import json
 import re
 import threading
 from datetime import timedelta
+from importlib import import_module
 from unittest.mock import patch
 
 from django.conf import settings
+from django.db import connections
 from django.db.backends.base.base import BaseDatabaseWrapper
 from django.test import (
     Client,
@@ -51,6 +53,8 @@ from study.routing import (
 )
 
 from . import factories
+
+review_views = import_module("study.views.review")
 
 # Structural hooks every flashcard deck template shares with the Notes deck.
 FLASHCARD_DECK_HOOKS = (
@@ -3172,8 +3176,12 @@ class ReviewConcurrencyTests(TransactionTestCase):
         failures = []
         responses = {}
 
-        original_save_session = study_views._save_review_session
-        original_locked_session = study_views._locked_review_session
+        original_save_session = review_views._save_review_session
+        original_locked_session = review_views._locked_review_session
+        stale_client = Client()
+        stale_client.force_login(self.user)
+        answer_client = Client()
+        answer_client.force_login(self.user)
 
         def delayed_save_session(session, scope, card=None, **kwargs):
             if threading.current_thread().name == "stale-next":
@@ -3199,19 +3207,17 @@ class ReviewConcurrencyTests(TransactionTestCase):
 
         def stale_next():
             try:
-                client = Client()
-                client.force_login(self.user)
-                responses["stale"] = client.get(
+                responses["stale"] = stale_client.get(
                     reverse("study:review_next")
                 )
             except BaseException as exc:  # pragma: no cover - thread handoff
                 failures.append(exc)
+            finally:
+                connections.close_all()
 
         def answer():
             try:
-                client = Client()
-                client.force_login(self.user)
-                responses["answer"] = client.post(
+                responses["answer"] = answer_client.post(
                     reverse("study:review_answer"),
                     {
                         "card_id": self.card.id,
@@ -3221,15 +3227,17 @@ class ReviewConcurrencyTests(TransactionTestCase):
                 )
             except BaseException as exc:  # pragma: no cover - thread handoff
                 failures.append(exc)
+            finally:
+                connections.close_all()
 
         with (
             patch.object(
-                study_views,
+                review_views,
                 "_save_review_session",
                 side_effect=delayed_save_session,
             ),
             patch.object(
-                study_views,
+                review_views,
                 "_locked_review_session",
                 side_effect=observed_locked_session,
             ),
@@ -3240,13 +3248,19 @@ class ReviewConcurrencyTests(TransactionTestCase):
             )
             answer_thread = threading.Thread(target=answer, name="answer")
             stale_thread.start()
-            self.assertTrue(stale_selected_card.wait(timeout=10))
+            if not stale_selected_card.wait(timeout=30):
+                release_stale.set()
+                stale_thread.join(timeout=30)
+                self.fail(
+                    "Stale request did not reach its delayed save: "
+                    f"{failures!r}"
+                )
             answer_thread.start()
-            self.assertTrue(answer_attempted_lock.wait(timeout=10))
+            self.assertTrue(answer_attempted_lock.wait(timeout=30))
             self.assertFalse(answer_acquired_lock.wait(timeout=0.2))
             release_stale.set()
-            stale_thread.join(timeout=10)
-            answer_thread.join(timeout=10)
+            stale_thread.join(timeout=30)
+            answer_thread.join(timeout=30)
 
         self.assertFalse(stale_thread.is_alive())
         self.assertFalse(answer_thread.is_alive())

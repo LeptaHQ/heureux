@@ -1,0 +1,46 @@
+{
+  "month": {
+    "number": 6,
+    "slug": "juin",
+    "name": "Juin"
+  },
+  "year": 2025,
+  "task": "tache_1",
+  "epreuve": "Expression écrite — Tâche 1",
+  "annee": 2025,
+  "recupere_le": "2026-09-03",
+  "contenu": "consignes (sujets) uniquement — sans réponses ni corrections",
+  "count": 5,
+  "sujets": [
+    {
+      "id": 320,
+      "combinaison": "Combinaison 1",
+      "key": "ee-tache1:juin:combinaison-1",
+      "prompt": "« Salut, Comment ça va ? Alors, comment est la nouvelle université ? Est-ce que les étudiants sont sympas ? Comment sont les profs ? À bientôt. Alex »"
+    },
+    {
+      "id": 321,
+      "combinaison": "Combinaison 2",
+      "key": "ee-tache1:juin:combinaison-2",
+      "prompt": "Écrivez un courriel à votre ami pour l’inviter à passer une journée avec vous (lieu, date, activités, etc.)."
+    },
+    {
+      "id": 322,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache1:juin:combinaison-3",
+      "prompt": "Vous avez trouvé un nouveau travail. Vous écrivez à votre ami(e) francophone pour lui annoncer la nouvelle. Vous décrivez votre poste, vos collègues et votre lieu de travail. Vous avez trouvé un nouveau travail. Vous écrivez à votre ami(e) francophone pour lui annoncer la nouvelle. Vous décrivez votre poste, vos collègues et votre lieu de travail."
+    },
+    {
+      "id": 712,
+      "combinaison": "Combinaison 13",
+      "key": "ee-tache1:juin:combinaison-13",
+      "prompt": "Vous voulez partir en week-end avec vos amis le mois prochain. Vous leur écrivez un message pour décrire votre projet (lieu, transport, activités, etc.)."
+    },
+    {
+      "id": 722,
+      "combinaison": "Combinaison 14",
+      "key": "ee-tache1:juin:combinaison-14",
+      "prompt": "Vous voulez changer la décoration de votre appartement (meubles, peinture, objets, etc.). Vous écrivez un message à un(e) ami(e). Vous lui décrivez votre projet et vous lui demandez de vous aider."
+    }
+  ]
+}

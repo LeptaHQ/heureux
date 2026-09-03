@@ -1,0 +1,100 @@
+{
+  "month": {
+    "number": 3,
+    "slug": "mars",
+    "name": "Mars"
+  },
+  "year": 2025,
+  "task": "tache_2",
+  "epreuve": "Expression écrite — Tâche 2",
+  "annee": 2025,
+  "recupere_le": "2026-09-03",
+  "contenu": "consignes (sujets) uniquement — sans réponses ni corrections",
+  "count": 14,
+  "sujets": [
+    {
+      "id": 327,
+      "combinaison": "Combinaison 1",
+      "key": "ee-tache2:mars:combinaison-1",
+      "prompt": "Vous avez assisté à un événement intitulé “Une semaine sans voiture”. Racontez votre expérience et donnez votre impression sur cette initiative. Décrivez le déroulement de l’événement (dates, lieu, activités proposées)."
+    },
+    {
+      "id": 328,
+      "combinaison": "Combinaison 2",
+      "key": "ee-tache2:mars:combinaison-2",
+      "prompt": "Vous travaillez dans une association qui aide les personnes âgées. Rédigez un article de blog pour raconter vos expériences et convaincre d’autres personnes de rejoindre l’association."
+    },
+    {
+      "id": 329,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache2:mars:combinaison-3",
+      "prompt": "Vous avez participé à un événement qui vous a marqué (anniversaire, mariage, etc.). Racontez votre souvenir en décrivant ce qui vous a le plus marqué."
+    },
+    {
+      "id": 330,
+      "combinaison": "Combinaison 4",
+      "key": "ee-tache2:mars:combinaison-4",
+      "prompt": "Analysez le sujet d'examen suivant : Vous avez lu sur un forum un débat concernant les formations en ligne. Écrivez un message en décrivant votre expérience (cours de langue, formation professionnelle, etc.). Donnez votre avis sur ce que vous avez aimé et ce que vous n’en avez pas aimé."
+    },
+    {
+      "id": 331,
+      "combinaison": "Combinaison 5",
+      "key": "ee-tache2:mars:combinaison-5",
+      "prompt": "Vous avez passé des vacances dans une belle région de votre pays. Vous écrivez un message à vos amis dans lequel vous décrivez votre expérience, vous expliquez pourquoi vous avez beaucoup aimé ce séjour."
+    },
+    {
+      "id": 332,
+      "combinaison": "Combinaison 6",
+      "key": "ee-tache2:mars:combinaison-6",
+      "prompt": "Vous avez visité une exposition de votre artiste préféré. Rédigez un article exprimant votre expérience lors de la visite. Décrivez ce que vous avez vu et vos impressions."
+    },
+    {
+      "id": 333,
+      "combinaison": "Combinaison 7",
+      "key": "ee-tache2:mars:combinaison-7",
+      "prompt": "Votre direction est à la recherche d’une salle pour la fête de fin d’année, capable d’accueillir 100 invités. Rédigez un message à la direction pour leur dire que vous avez trouvé un local idéal. (lieu, tarifs, services, etc.)."
+    },
+    {
+      "id": 334,
+      "combinaison": "Combinaison 8",
+      "key": "ee-tache2:mars:combinaison-8",
+      "prompt": "Vous avez participé à une brocante (achat / vente de produits d’occasion) dans votre ville. Sur votre blog personnel, racontez pourquoi vous avez aimé cette activité."
+    },
+    {
+      "id": 335,
+      "combinaison": "Combinaison 9",
+      "key": "ee-tache2:mars:combinaison-9",
+      "prompt": "Cours gratuits, concerts, jeux. Rendez-vous vendredi, à partir de 9 heures » Vous avez participé à cet évènement. Vous écrivez à vos amis pour raconter votre expérience et vous donnez votre opinion sur cette journée."
+    },
+    {
+      "id": 336,
+      "combinaison": "Combinaison 10",
+      "key": "ee-tache2:mars:combinaison-10",
+      "prompt": "Vous avez passé une journée à la campagne avec vos amis. À votre retour, vous écrivez un message sur votre forum pour raconter à vos amis comment cette journée s’est passée. Vous expliquez ce que vous avez aimé (activités, lieu, animaux, etc…)."
+    },
+    {
+      "id": 337,
+      "combinaison": "Combinaison 11",
+      "key": "ee-tache2:mars:combinaison-11",
+      "prompt": "Vous avez assisté à une fête de voisins du quartier, écrivez un blog pour montrer pourquoi vous avez aimé cette fête."
+    },
+    {
+      "id": 338,
+      "combinaison": "Combinaison 12",
+      "key": "ee-tache2:mars:combinaison-12",
+      "prompt": "Dans votre blog, racontez votre expérience de l’apprentissage d’une langue étrangère (vous écrivez sur un forum internet en racontant votre expérience en apprenant une langue étrangère)."
+    },
+    {
+      "id": 339,
+      "combinaison": "Combinaison 13",
+      "key": "ee-tache2:mars:combinaison-13",
+      "prompt": "Exprimez votre admiration pour une personnalité, célèbre ou non, en vous appuyant sur ses actions spécifiques. Rédigez un article de blog en détaillant les actions remarquables de cette personne et expliquez pourquoi vous l’aimez."
+    },
+    {
+      "id": 340,
+      "combinaison": "Combinaison 14",
+      "key": "ee-tache2:mars:combinaison-14",
+      "prompt": "“Chers internautes, J’ai 19 ans, je vais bientôt partir à l’étranger pour continuer mes études. J’aimerais bien lire les témoignages et avis des étudiants qui ont déjà fait des études loin de chez eux. Merci de me répondre. Julie“ Vous avez fait des études à l’étranger pendant un an. Vous écrivez une réponse sur le forum. Vous racontez votre séjour à l’étranger, vous dites si vous avez aimé ou non cette expérience et vous dites pourquoi."
+    }
+  ]
+}

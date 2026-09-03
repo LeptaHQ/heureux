@@ -72,7 +72,47 @@ la position ressort du texte.
   `deduced_theme` est fourni, déduit des documents (éditorial), signalé comme tel.
 - **Deuxième document absent** : Juin — Combinaisons 2, 3.
 - **Documents identiques** (doublon source) : Mai — Combinaison 3.
+- **Numéro de combinaison dupliqué** : Mai publie **deux** panneaux « Combinaison 3 ».
+  Le second reçoit le suffixe `-bis` (`ee-tache3:mai:combinaison-3-bis`) pour rester
+  identifiable ; la même convention vaut pour les Tâches 1 et 2.
 - La numérotation des combinaisons reprend celle de la source (sauts possibles).
+
+## Thèmes et sujets équivalents
+
+- `subject_themes.json` — taxonomie de 11 thèmes (`slug`, `name`, `icon`, `order`) et
+  table `content_key → thème` couvrant **les 138 sujets**.
+- `equivalent_groups.json` — **26 groupes** de sujets que la source a republiés à
+  l'identique. Pour la Tâche 3, l'identité d'un sujet est celle de ses **deux documents** :
+  le titre est éditorial et varie d'un mois à l'autre (« Vivre en colocation » /
+  « Vivre En Colocation : Pour Ou Contre ? »). Le membre `canonical` est toujours le
+  plus ancien du groupe. Mêmes règles de validation que l'Expression orale Tâche 2.
+
+Chargement et validation : `load_ee_subject_themes(3)` et
+`load_ee_equivalent_groups(3)` dans `study/content_loader.py`.
+
+## Conformité au texte source (audit 2026-09)
+
+Les 138 sujets ont été re-scrapés puis comparés champ par champ à la source. Neuf
+champs avaient été paraphrasés lors de la collecte initiale et ont été **remplacés par
+le texte verbatim** :
+
+| Sujet | Champ(s) corrigé(s) |
+|---|---|
+| Janvier — Combinaison 8 | `document1`, `document2` |
+| Mars — Combinaison 6 | `document1`, `document2` |
+| Août — Combinaison 15 | `document1`, `document2` |
+| Août — Combinaison 17 | `document1`, `document2` |
+| Novembre — Combinaison 2 | `sujet`, `document1`, `document2` |
+| Novembre — Combinaison 3 | `document1`, `document2` |
+| Novembre — Combinaison 8 | `document1`, `document2` |
+| Décembre — Combinaison 6 | `document1`, `document2` |
+
+Deux d'entre eux étaient de véritables défauts de données : Août C15 portait un
+`document2` sur les caméras de surveillance scolaires sous un titre « La Restauration
+Rapide », et Novembre C3 reprenait les documents de Janvier C1. Les **synthèses**
+(Partie 1) de ces deux réponses ont été réécrites pour coller aux documents réels ;
+leurs entrées de vocabulaire issues de la synthèse ont été régénérées. Novembre C2
+retrouve son titre source (« Les bureaux électriques »).
 
 ## Reproduction
 

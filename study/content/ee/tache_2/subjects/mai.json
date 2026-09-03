@@ -1,0 +1,64 @@
+{
+  "month": {
+    "number": 5,
+    "slug": "mai",
+    "name": "Mai"
+  },
+  "year": 2025,
+  "task": "tache_2",
+  "epreuve": "Expression écrite — Tâche 2",
+  "annee": 2025,
+  "recupere_le": "2026-09-03",
+  "contenu": "consignes (sujets) uniquement — sans réponses ni corrections",
+  "count": 8,
+  "sujets": [
+    {
+      "id": 323,
+      "combinaison": "Combinaison 1",
+      "key": "ee-tache2:mai:combinaison-1",
+      "prompt": "Vous venez d’assister au concert de votre artiste favori. Vous écrivez un article sur votre blog personnel, pour partager cette expérience et inciter vos amis et les autres à assister à son prochain concert."
+    },
+    {
+      "id": 324,
+      "combinaison": "Combinaison 2",
+      "key": "ee-tache2:mai:combinaison-2",
+      "prompt": "Vous avez assisté à une fête traditionnelle dans votre pays ou à l’étranger. Racontez-la dans votre blog et dites pourquoi vous l’avez aimée."
+    },
+    {
+      "id": 325,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache2:mai:combinaison-3",
+      "prompt": "COURRIER DES LECTEURS Tout quitter pour partir en voyage pendant un an: bonne ou mauvaise idée ? Répondez sur notre site Internet : “voyage.internaute.fr”. Vous écrivez un message sur ce site internet, vous répondez à la question posée en prenant des exemples de votre vie personnelle."
+    },
+    {
+      "id": 326,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache2:mai:combinaison-3-bis",
+      "prompt": "Analysez le sujet d'examen suivant : www.manger-international.com Ce mois-ci, nous nous intéressons aux habitudes alimentaires dans le monde. Racontez-nous comment mangent les habitants de votre pays ! Les 10 premiers témoignages seront publiés sur notre site ! Vous avez lu cette annonce. Vous écrivez un article pour les lecteurs du site www.manger-international.com. Vous expliquez comment mangent les habitants de votre pays et vous indiquez quelles habitudes vous plaisent ou vous déplaisent, et pourquoi ?"
+    },
+    {
+      "id": 667,
+      "combinaison": "Combinaison 4",
+      "key": "ee-tache2:mai:combinaison-4",
+      "prompt": "\"Que pensez-vous de l’installation d’une télévision dans la chambre ?\" Partagez votre avis dans un article de blog."
+    },
+    {
+      "id": 668,
+      "combinaison": "Combinaison 5",
+      "key": "ee-tache2:mai:combinaison-5",
+      "prompt": "Vous avez participé à un cours de langue. Sur un forum Internet, vous écrivez un article dans lequel vous racontez votre expérience (lieu, déroulement, durée, etc.) et vous donnez votre opinion sur ce cours."
+    },
+    {
+      "id": 669,
+      "combinaison": "Combinaison 6",
+      "key": "ee-tache2:mai:combinaison-6",
+      "prompt": "Vous avez participé à un pique-nique avec vos collègues. Vous écrivez un article dans le journal de l'entreprise. Vous racontez comment s'est passé ce pique-nique (lieu, nourriture, météo, etc)."
+    },
+    {
+      "id": 670,
+      "combinaison": "Combinaison 7",
+      "key": "ee-tache2:mai:combinaison-7",
+      "prompt": "Dans le cadre de votre travail, vous avez participé à une journée de formation professionnelle. Votre entreprise vous demande d'écrire un article pour partager cette expérience avec vos collègues. Vous présentez cette journée et vous expliquez ce que vous en avez pensé."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "month": {
+    "number": 6,
+    "slug": "juin",
+    "name": "Juin"
+  },
+  "year": 2025,
+  "task": "tache_2",
+  "epreuve": "Expression écrite — Tâche 2",
+  "annee": 2025,
+  "recupere_le": "2026-09-03",
+  "contenu": "consignes (sujets) uniquement — sans réponses ni corrections",
+  "count": 5,
+  "sujets": [
+    {
+      "id": 320,
+      "combinaison": "Combinaison 1",
+      "key": "ee-tache2:juin:combinaison-1",
+      "prompt": "Vous avez décidé de ne plus utiliser votre réseau social préféré (Instagram, Facebook, etc.). Vous écrivez à vos amis pour leur raconter cette expérience et expliquer pourquoi vous avez pris cette décision"
+    },
+    {
+      "id": 321,
+      "combinaison": "Combinaison 2",
+      "key": "ee-tache2:juin:combinaison-2",
+      "prompt": "Vous avez participé à une journée de formation dans votre entreprise. Écrivez un courriel à vos collègues pour raconter cette journée et exprimer ce que vous avez apprécié."
+    },
+    {
+      "id": 322,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache2:juin:combinaison-3",
+      "prompt": "« Chers internautes, J’ai 19 ans, je vais bientôt partir à l’étranger pour continuer mes études. J’aimerais bien lire les témoignages et avis des étudiants qui ont déjà fait des études loin de chez eux. Merci de me répondre. Julie » Vous avez fait des études à l’étranger pendant un an. Vous écrivez une réponse sur le forum. Vous racontez votre séjour à l’étranger, vous dites si vous avez aimé ou non cette expérience et vous dites pourquoi."
+    },
+    {
+      "id": 712,
+      "combinaison": "Combinaison 13",
+      "key": "ee-tache2:juin:combinaison-13",
+      "prompt": "COURRIER DES LECTEURS Tout quitter pour partir en voyage pendant un an: bonne ou mauvaise idée ? Répondez sur notre site Internet : “voyage.internaute.fr”. Vous écrivez un message sur ce site internet, vous répondez à la question posée en prenant des exemples de votre vie personnelle."
+    },
+    {
+      "id": 722,
+      "combinaison": "Combinaison 14",
+      "key": "ee-tache2:juin:combinaison-14",
+      "prompt": "\"École de musique ! Cours gratuits, concerts, jeux. Rendez-vous vendredi, à partir de 9 heures\" Vous avez participé à cet évènement. Vous écrivez à vos amis pour raconter votre expérience et vous donnez votre opinion sur cette journée."
+    }
+  ]
+}

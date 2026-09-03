@@ -1,0 +1,136 @@
+{
+  "month": {
+    "number": 4,
+    "slug": "avril",
+    "name": "Avril"
+  },
+  "year": 2025,
+  "task": "tache_2",
+  "epreuve": "Expression écrite — Tâche 2",
+  "annee": 2025,
+  "recupere_le": "2026-09-03",
+  "contenu": "consignes (sujets) uniquement — sans réponses ni corrections",
+  "count": 20,
+  "sujets": [
+    {
+      "id": 257,
+      "combinaison": "Combinaison 1",
+      "key": "ee-tache2:avril:combinaison-1",
+      "prompt": "Vous avez vécu une expérience dans une école de langue. Écrivez un commentaire sur votre site parlant de cette expérience."
+    },
+    {
+      "id": 258,
+      "combinaison": "Combinaison 2",
+      "key": "ee-tache2:avril:combinaison-2",
+      "prompt": "Vous avez participé à un cours de sport dans une salle. Écrivez un article dans votre blog parlant de cette expérience et en exprimant également votre avis par rapport à cette salle."
+    },
+    {
+      "id": 259,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache2:avril:combinaison-3",
+      "prompt": "Vous avez lu sur un forum un débat concernant les formations en ligne. Écrivez un message en décrivant votre expérience (cours de langue, formation professionnelle, etc.). Donnez votre avis sur ce que vous avez aimé et ce que vous n’en avez pas aimé."
+    },
+    {
+      "id": 260,
+      "combinaison": "Combinaison 4",
+      "key": "ee-tache2:avril:combinaison-4",
+      "prompt": "Vous avez participé à un concours pour gagner un séjour de deux semaines dans votre ville préférée. Le thème de ce concours est “Mon artiste préféré“. Écrivez un article de blog pour parler de votre artiste préféré."
+    },
+    {
+      "id": 261,
+      "combinaison": "Combinaison 5",
+      "key": "ee-tache2:avril:combinaison-5",
+      "prompt": "Vous avez décidé de laisser tout derrière vous pour voyager pendant un an. Rédigez un article de blog pour partager cette aventure unique."
+    },
+    {
+      "id": 262,
+      "combinaison": "Combinaison 6",
+      "key": "ee-tache2:avril:combinaison-6",
+      "prompt": "Vous avez participé à un concours de cuisine, vous allez décrire vos souvenirs dans votre blog en indiquant les détails."
+    },
+    {
+      "id": 263,
+      "combinaison": "Combinaison 7",
+      "key": "ee-tache2:avril:combinaison-7",
+      "prompt": "Racontez votre expérience personnelle de participation à une émission de télévision. Détaillez le contexte de votre participation, votre rôle dans l’émission, et les impressions que vous en avez retirées."
+    },
+    {
+      "id": 264,
+      "combinaison": "Combinaison 8",
+      "key": "ee-tache2:avril:combinaison-8",
+      "prompt": "Vous avez quitté la ville afin de vous installer à la campagne. Sur votre blog, vous expliquez pourquoi vous avez fait ce choix et vous présentez les avantages de votre nouvelle vie."
+    },
+    {
+      "id": 265,
+      "combinaison": "Combinaison 9",
+      "key": "ee-tache2:avril:combinaison-9",
+      "prompt": "Vous avez assisté à un événement intitulé « Une semaine sans voiture ». Racontez votre expérience et donnez votre impression sur cette initiative. Décrivez le déroulement de l’événement (dates, lieu, activités proposées)."
+    },
+    {
+      "id": 266,
+      "combinaison": "Combinaison 10",
+      "key": "ee-tache2:avril:combinaison-10",
+      "prompt": "Un internaute a publié le message suivant : « Je vais partir étudier un an à l’étranger et j’ai peur ». Rédigez une réponse pour partager votre expérience personnelle. Parlez des défis que vous avez rencontrés, des solutions que vous avez trouvées, et des bénéfices que vous avez tirés de cette expérience."
+    },
+    {
+      "id": 267,
+      "combinaison": "Combinaison 11",
+      "key": "ee-tache2:avril:combinaison-11",
+      "prompt": "Vous êtes parti(e) travailler à l’étranger. Vous envoyez un message à vos amis pour raconter cette nouvelle expérience professionnelle. Vous expliquez ce que vous avez le plus aimé."
+    },
+    {
+      "id": 268,
+      "combinaison": "Combinaison 12",
+      "key": "ee-tache2:avril:combinaison-12",
+      "prompt": "Vous avez déjà étudié dans une université à l’étranger. Écrivez un article sur votre blog pour raconter cette expérience."
+    },
+    {
+      "id": 269,
+      "combinaison": "Combinaison 13",
+      "key": "ee-tache2:avril:combinaison-13",
+      "prompt": "Suite à un voyage récent effectué avec une agence de voyages, vous êtes insatisfait(e) des prestations reçues. Rédigez un courriel de réclamation en exprimant votre mécontentement. Décrivez les problèmes rencontrés et demandez une solution de la part de l’agence."
+    },
+    {
+      "id": 270,
+      "combinaison": "Combinaison 14",
+      "key": "ee-tache2:avril:combinaison-14",
+      "prompt": "Vous avez passé une journée de formation dans votre entreprise. Dans un forum, rédigez un article à vos collègues pour leur raconter cette journée et ce qui vous a plu."
+    },
+    {
+      "id": 271,
+      "combinaison": "Combinaison 15",
+      "key": "ee-tache2:avril:combinaison-15",
+      "prompt": "Écrivez un article pour le journal de l’entreprise pour raconter le pique-nique que vous avez fait avec vos collègues de travail. Décrivez l’ambiance, les plats apportés, les activités faites ensemble et les meilleurs moments de la journée."
+    },
+    {
+      "id": 272,
+      "combinaison": "Combinaison 16",
+      "key": "ee-tache2:avril:combinaison-16",
+      "prompt": "Racontez dans un blog votre expérience de l’apprentissage d’une langue étrangère (vous écrivez sur un forum internet en racontant votre expérience en apprenant une langue étrangère)."
+    },
+    {
+      "id": 273,
+      "combinaison": "Combinaison 17",
+      "key": "ee-tache2:avril:combinaison-17",
+      "prompt": "« Que pensez-vous de l’installation d’une télévision dans la chambre ? » Partagez votre avis dans un article de blog."
+    },
+    {
+      "id": 274,
+      "combinaison": "Combinaison 18",
+      "key": "ee-tache2:avril:combinaison-18",
+      "prompt": "Vous avez assisté à une fête de famille. Envoyez un message à vos amis pour leur raconter cette fête et expliquez ce que vous avez le plus apprécié."
+    },
+    {
+      "id": 275,
+      "combinaison": "Combinaison 19",
+      "key": "ee-tache2:avril:combinaison-19",
+      "prompt": "Vous avez participé à une compétition sportive, racontez votre expérience sur un site internet et donnez votre avis (lieu, date, organisation)."
+    },
+    {
+      "id": 276,
+      "combinaison": "Combinaison 20",
+      "key": "ee-tache2:avril:combinaison-20",
+      "prompt": "Vous avez participé à une brocante (achat / vente de produits d’occasion) dans votre ville. Sur votre blog personnel, racontez pourquoi vous avez aimé cette activité."
+    }
+  ]
+}

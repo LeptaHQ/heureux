@@ -1,0 +1,293 @@
+{
+  "version": 1,
+  "groups": [
+    {
+      "id": "inv-avez-invite-cedric-mariage",
+      "theme": "invitations",
+      "canonical": "ee-tache1:janvier:combinaison-2",
+      "members": [
+        "ee-tache1:janvier:combinaison-2",
+        "ee-tache1:mars:combinaison-12",
+        "ee-tache1:juillet:combinaison-41",
+        "ee-tache1:septembre:combinaison-3"
+      ]
+    },
+    {
+      "id": "tra-mehdi-vient-emmenager-ville",
+      "theme": "transport",
+      "canonical": "ee-tache1:janvier:combinaison-3",
+      "members": [
+        "ee-tache1:janvier:combinaison-3",
+        "ee-tache1:mars:combinaison-13",
+        "ee-tache1:juillet:combinaison-42",
+        "ee-tache1:septembre:combinaison-2"
+      ]
+    },
+    {
+      "id": "tra-avez-trouve-nouveau-travail",
+      "theme": "travail",
+      "canonical": "ee-tache1:janvier:combinaison-4",
+      "members": [
+        "ee-tache1:janvier:combinaison-4",
+        "ee-tache1:janvier:combinaison-16",
+        "ee-tache1:mars:combinaison-14"
+      ]
+    },
+    {
+      "id": "spo-journal-universite-rechercher-partenaire",
+      "theme": "sport",
+      "canonical": "ee-tache1:janvier:combinaison-7",
+      "members": [
+        "ee-tache1:janvier:combinaison-7",
+        "ee-tache1:decembre:combinaison-5"
+      ]
+    },
+    {
+      "id": "tra-salut-commence-nouveau-travail",
+      "theme": "travail",
+      "canonical": "ee-tache1:janvier:combinaison-9",
+      "members": [
+        "ee-tache1:janvier:combinaison-9",
+        "ee-tache1:octobre:combinaison-3",
+        "ee-tache1:decembre:combinaison-2"
+      ]
+    },
+    {
+      "id": "eco-avez-annonce-propose-aider",
+      "theme": "ecole",
+      "canonical": "ee-tache1:janvier:combinaison-17",
+      "members": [
+        "ee-tache1:janvier:combinaison-17",
+        "ee-tache1:avril:combinaison-18"
+      ]
+    },
+    {
+      "id": "inv-voulez-organiser-fete-amis",
+      "theme": "invitations",
+      "canonical": "ee-tache1:janvier:combinaison-18",
+      "members": [
+        "ee-tache1:janvier:combinaison-18",
+        "ee-tache1:avril:combinaison-19"
+      ]
+    },
+    {
+      "id": "inv-courriel-amis-inviter-anniversaire",
+      "theme": "invitations",
+      "canonical": "ee-tache1:janvier:combinaison-19",
+      "members": [
+        "ee-tache1:janvier:combinaison-19",
+        "ee-tache1:avril:combinaison-20"
+      ]
+    },
+    {
+      "id": "tra-repondez-courriel-lucas-donner",
+      "theme": "travail",
+      "canonical": "ee-tache1:mars:combinaison-1",
+      "members": [
+        "ee-tache1:mars:combinaison-1",
+        "ee-tache1:avril:combinaison-9",
+        "ee-tache1:juillet:combinaison-14",
+        "ee-tache1:aout:combinaison-9",
+        "ee-tache1:decembre:combinaison-9"
+      ]
+    },
+    {
+      "id": "eco-souhaite-suivre-cours-langue",
+      "theme": "ecole",
+      "canonical": "ee-tache1:mars:combinaison-2",
+      "members": [
+        "ee-tache1:mars:combinaison-2",
+        "ee-tache1:decembre:combinaison-7"
+      ]
+    },
+    {
+      "id": "spo-souhaite-commencer-faire-sport",
+      "theme": "sport",
+      "canonical": "ee-tache1:mars:combinaison-3",
+      "members": [
+        "ee-tache1:mars:combinaison-3",
+        "ee-tache1:decembre:combinaison-8"
+      ]
+    },
+    {
+      "id": "spo-salut-appris-vas-salle",
+      "theme": "sport",
+      "canonical": "ee-tache1:mars:combinaison-4",
+      "members": [
+        "ee-tache1:mars:combinaison-4",
+        "ee-tache1:juillet:combinaison-2",
+        "ee-tache1:juillet:combinaison-11"
+      ]
+    },
+    {
+      "id": "ann-avez-commande-objet-reception",
+      "theme": "annonces",
+      "canonical": "ee-tache1:mars:combinaison-6",
+      "members": [
+        "ee-tache1:mars:combinaison-6",
+        "ee-tache1:juillet:combinaison-9"
+      ]
+    },
+    {
+      "id": "voy-avez-passe-week-end",
+      "theme": "voyages",
+      "canonical": "ee-tache1:mars:combinaison-7",
+      "members": [
+        "ee-tache1:mars:combinaison-7",
+        "ee-tache1:juillet:combinaison-12",
+        "ee-tache1:decembre:combinaison-12"
+      ]
+    },
+    {
+      "id": "inv-courriel-amis-inviter-anniversaire-2",
+      "theme": "invitations",
+      "canonical": "ee-tache1:mars:combinaison-8",
+      "members": [
+        "ee-tache1:mars:combinaison-8",
+        "ee-tache1:octobre:combinaison-2"
+      ]
+    },
+    {
+      "id": "log-voulez-changer-decoration-appartement",
+      "theme": "logement",
+      "canonical": "ee-tache1:mars:combinaison-9",
+      "members": [
+        "ee-tache1:mars:combinaison-9",
+        "ee-tache1:juin:combinaison-14"
+      ]
+    },
+    {
+      "id": "log-avez-consulte-annonce-ligne",
+      "theme": "logement",
+      "canonical": "ee-tache1:avril:combinaison-1",
+      "members": [
+        "ee-tache1:avril:combinaison-1",
+        "ee-tache1:juillet:combinaison-13"
+      ]
+    },
+    {
+      "id": "voy-veut-decouvrir-region-laquelle",
+      "theme": "voyages",
+      "canonical": "ee-tache1:avril:combinaison-2",
+      "members": [
+        "ee-tache1:avril:combinaison-2",
+        "ee-tache1:juillet:combinaison-3"
+      ]
+    },
+    {
+      "id": "voy-inviter-passer-vacances-ville",
+      "theme": "voyages",
+      "canonical": "ee-tache1:avril:combinaison-4",
+      "members": [
+        "ee-tache1:avril:combinaison-4",
+        "ee-tache1:juillet:combinaison-1",
+        "ee-tache1:novembre:combinaison-5"
+      ]
+    },
+    {
+      "id": "inv-invitez-amis-celebrer-anniversaire",
+      "theme": "invitations",
+      "canonical": "ee-tache1:avril:combinaison-6",
+      "members": [
+        "ee-tache1:avril:combinaison-6",
+        "ee-tache1:septembre:combinaison-5"
+      ]
+    },
+    {
+      "id": "voy-jeanne-envisage-visiter-pays",
+      "theme": "voyages",
+      "canonical": "ee-tache1:avril:combinaison-7",
+      "members": [
+        "ee-tache1:avril:combinaison-7",
+        "ee-tache1:juillet:combinaison-7"
+      ]
+    },
+    {
+      "id": "voy-anniversaire-approche-grands-avez",
+      "theme": "voyages",
+      "canonical": "ee-tache1:avril:combinaison-10",
+      "members": [
+        "ee-tache1:avril:combinaison-10",
+        "ee-tache1:juillet:combinaison-15",
+        "ee-tache1:decembre:combinaison-19"
+      ]
+    },
+    {
+      "id": "voy-partez-vacances-amis-avez",
+      "theme": "voyages",
+      "canonical": "ee-tache1:avril:combinaison-11",
+      "members": [
+        "ee-tache1:avril:combinaison-11",
+        "ee-tache1:novembre:combinaison-1",
+        "ee-tache1:decembre:combinaison-18"
+      ]
+    },
+    {
+      "id": "acc-cedric-accepte-garder-maison",
+      "theme": "accueil",
+      "canonical": "ee-tache1:avril:combinaison-13",
+      "members": [
+        "ee-tache1:avril:combinaison-13",
+        "ee-tache1:aout:combinaison-8",
+        "ee-tache1:aout:combinaison-15",
+        "ee-tache1:decembre:combinaison-17"
+      ]
+    },
+    {
+      "id": "voy-voulez-partir-week-end",
+      "theme": "voyages",
+      "canonical": "ee-tache1:mai:combinaison-3",
+      "members": [
+        "ee-tache1:mai:combinaison-3",
+        "ee-tache1:juin:combinaison-13",
+        "ee-tache1:juillet:combinaison-43",
+        "ee-tache1:septembre:combinaison-1"
+      ]
+    },
+    {
+      "id": "spo-salut-sais-fais-sport",
+      "theme": "sport",
+      "canonical": "ee-tache1:juillet:combinaison-6",
+      "members": [
+        "ee-tache1:juillet:combinaison-6",
+        "ee-tache1:novembre:combinaison-2"
+      ]
+    },
+    {
+      "id": "acc-bonjour-obtenu-visa-canada",
+      "theme": "accueil",
+      "canonical": "ee-tache1:juillet:combinaison-44",
+      "members": [
+        "ee-tache1:juillet:combinaison-44",
+        "ee-tache1:septembre:combinaison-4"
+      ]
+    },
+    {
+      "id": "vil-venez-installer-nouvelle-ville",
+      "theme": "ville",
+      "canonical": "ee-tache1:octobre:combinaison-1",
+      "members": [
+        "ee-tache1:octobre:combinaison-1",
+        "ee-tache1:decembre:combinaison-4"
+      ]
+    },
+    {
+      "id": "inv-avez-recu-thomas-salut",
+      "theme": "invitations",
+      "canonical": "ee-tache1:octobre:combinaison-4",
+      "members": [
+        "ee-tache1:octobre:combinaison-4",
+        "ee-tache1:decembre:combinaison-1"
+      ]
+    },
+    {
+      "id": "sor-souhaitez-assister-festival-cinema",
+      "theme": "sorties",
+      "canonical": "ee-tache1:novembre:combinaison-6",
+      "members": [
+        "ee-tache1:novembre:combinaison-6",
+        "ee-tache1:novembre:combinaison-8"
+      ]
+    }
+  ]
+}

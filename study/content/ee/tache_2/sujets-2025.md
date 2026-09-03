@@ -1,0 +1,875 @@
+# Expression écrite — Tâche 2 — sujets 2025
+
+**138 sujets** sur 11 mois. Février 2025 : aucune page publiée sur la source.
+
+## Janvier 2025
+
+15 sujets
+
+### Combinaison 1
+
+`ee-tache2:janvier:combinaison-1`
+
+Vous avez assisté à une fête de voisins du quartier, écrivez un blog pour montrer pourquoi vous avez aimé cette fête.
+
+### Combinaison 2
+
+`ee-tache2:janvier:combinaison-2`
+
+Dans votre blog, racontez votre expérience de l’apprentissage d’une langue étrangère (vous écrivez sur un forum internet en racontant votre expérience en apprenant une langue étrangère).
+
+### Combinaison 3
+
+`ee-tache2:janvier:combinaison-3`
+
+Exprimez votre admiration pour une personnalité, célèbre ou non, en vous appuyant sur ses actions spécifiques. Rédigez un article de blog en détaillant les actions remarquables de cette personne et expliquez pourquoi vous l’aimez.
+
+### Combinaison 4
+
+`ee-tache2:janvier:combinaison-4`
+
+Une étudiante qui a 19 ans veut aller à l’étranger pour les études. Elle demande aux internautes du forum de partager leurs expériences et vous avez fait un an à l’étranger. Parlez-lui de votre expérience (décrire le séjour à l’étranger, les activités…).
+
+### Combinaison 5
+
+`ee-tache2:janvier:combinaison-5`
+
+Vous faites partie d’une association de quartier qui propose des activités aux enfants (aide aux devoirs, sorties, jeux, etc.). Sur votre site internet, vous racontez votre expérience et vous expliquez pourquoi ce type d’association est utile.
+
+### Combinaison 6
+
+`ee-tache2:janvier:combinaison-6`
+
+Vous avez visité un nouveau pays pendant vos vacances. Sur un site internet, racontez votre expérience et donnez votre opinion sur ce pays.
+
+### Combinaison 7
+
+`ee-tache2:janvier:combinaison-7`
+
+Écrivez un article de blog pour raconter votre arrivée dans un pays étranger en donnant vos impressions.
+
+### Combinaison 8
+
+`ee-tache2:janvier:combinaison-8`
+
+Bonjour, Vous avez pris des cours dans notre salle de sport. Donnez-nous votre avis sur notre site Internet ! www.masalledesport.org Sur le site Internet de la salle de sport, vous répondez à ce message. Vous racontez cette expérience et vous donnez votre avis
+
+### Combinaison 9
+
+`ee-tache2:janvier:combinaison-9`
+
+Analysez le sujet d'examen suivant : INFOS FAMILLES Vivre avec une personne âgée : comment faire ? Notre site cherche des témoignages. Vous avez vécu avec une personne âgée. Vous racontez votre expérience.
+
+### Combinaison 10
+
+`ee-tache2:janvier:combinaison-10`
+
+Vous avez visité un nouveau pays pendant vos vacances. Sur un site internet, vous racontez votre expérience et vous donnez votre opinion sur ce pays.
+
+### Combinaison 12
+
+`ee-tache2:janvier:combinaison-12`
+
+“Salut, tu vas bien ? Nous avons deux semaines de vacances en janvier. Nous allons venir visiter ton pays. Nous cherchons à visiter des sites historiques et à découvrir des plats nouveaux. Qu’est-ce que tu nous conseilles ? Aaron & Perla” Vous répondez à Aaron et Perla pour leur faire des propositions et justifiez votre choix en racontant vos dernières vacances.
+
+### Combinaison 16
+
+`ee-tache2:janvier:combinaison-16`
+
+“Chers internautes, J’ai 19 ans, je vais bientôt partir à l’étranger pour continuer mes études. J’aimerais bien lire les témoignages et avis des étudiants qui ont déjà fait des études loin de chez eux. Merci de me répondre. Julie“ Vous avez fait des études à l’étranger pendant un an. Vous écrivez une réponse sur le forum. Vous racontez votre séjour à l’étranger, vous dites si vous avez aimé ou non cette expérience et vous dites pourquoi.
+
+### Combinaison 17
+
+`ee-tache2:janvier:combinaison-17`
+
+Vous avez assisté à une fête de famille. Envoyez un message à vos amis pour leur raconter cette fête et expliquez ce que vous avez le plus apprécié.
+
+### Combinaison 18
+
+`ee-tache2:janvier:combinaison-18`
+
+Vous avez participé à une compétition sportive, racontez votre expérience sur un site internet et donnez votre avis (lieu, date, organisation).
+
+### Combinaison 19
+
+`ee-tache2:janvier:combinaison-19`
+
+Vous avez participé à une brocante (achat / vente de produits d’occasion) dans votre ville. Sur votre blog personnel, racontez pourquoi vous avez aimé cette activité.
+
+## Mars 2025
+
+14 sujets
+
+### Combinaison 1
+
+`ee-tache2:mars:combinaison-1`
+
+Vous avez assisté à un événement intitulé “Une semaine sans voiture”. Racontez votre expérience et donnez votre impression sur cette initiative. Décrivez le déroulement de l’événement (dates, lieu, activités proposées).
+
+### Combinaison 2
+
+`ee-tache2:mars:combinaison-2`
+
+Vous travaillez dans une association qui aide les personnes âgées. Rédigez un article de blog pour raconter vos expériences et convaincre d’autres personnes de rejoindre l’association.
+
+### Combinaison 3
+
+`ee-tache2:mars:combinaison-3`
+
+Vous avez participé à un événement qui vous a marqué (anniversaire, mariage, etc.). Racontez votre souvenir en décrivant ce qui vous a le plus marqué.
+
+### Combinaison 4
+
+`ee-tache2:mars:combinaison-4`
+
+Analysez le sujet d'examen suivant : Vous avez lu sur un forum un débat concernant les formations en ligne. Écrivez un message en décrivant votre expérience (cours de langue, formation professionnelle, etc.). Donnez votre avis sur ce que vous avez aimé et ce que vous n’en avez pas aimé.
+
+### Combinaison 5
+
+`ee-tache2:mars:combinaison-5`
+
+Vous avez passé des vacances dans une belle région de votre pays. Vous écrivez un message à vos amis dans lequel vous décrivez votre expérience, vous expliquez pourquoi vous avez beaucoup aimé ce séjour.
+
+### Combinaison 6
+
+`ee-tache2:mars:combinaison-6`
+
+Vous avez visité une exposition de votre artiste préféré. Rédigez un article exprimant votre expérience lors de la visite. Décrivez ce que vous avez vu et vos impressions.
+
+### Combinaison 7
+
+`ee-tache2:mars:combinaison-7`
+
+Votre direction est à la recherche d’une salle pour la fête de fin d’année, capable d’accueillir 100 invités. Rédigez un message à la direction pour leur dire que vous avez trouvé un local idéal. (lieu, tarifs, services, etc.).
+
+### Combinaison 8
+
+`ee-tache2:mars:combinaison-8`
+
+Vous avez participé à une brocante (achat / vente de produits d’occasion) dans votre ville. Sur votre blog personnel, racontez pourquoi vous avez aimé cette activité.
+
+### Combinaison 9
+
+`ee-tache2:mars:combinaison-9`
+
+Cours gratuits, concerts, jeux. Rendez-vous vendredi, à partir de 9 heures » Vous avez participé à cet évènement. Vous écrivez à vos amis pour raconter votre expérience et vous donnez votre opinion sur cette journée.
+
+### Combinaison 10
+
+`ee-tache2:mars:combinaison-10`
+
+Vous avez passé une journée à la campagne avec vos amis. À votre retour, vous écrivez un message sur votre forum pour raconter à vos amis comment cette journée s’est passée. Vous expliquez ce que vous avez aimé (activités, lieu, animaux, etc…).
+
+### Combinaison 11
+
+`ee-tache2:mars:combinaison-11`
+
+Vous avez assisté à une fête de voisins du quartier, écrivez un blog pour montrer pourquoi vous avez aimé cette fête.
+
+### Combinaison 12
+
+`ee-tache2:mars:combinaison-12`
+
+Dans votre blog, racontez votre expérience de l’apprentissage d’une langue étrangère (vous écrivez sur un forum internet en racontant votre expérience en apprenant une langue étrangère).
+
+### Combinaison 13
+
+`ee-tache2:mars:combinaison-13`
+
+Exprimez votre admiration pour une personnalité, célèbre ou non, en vous appuyant sur ses actions spécifiques. Rédigez un article de blog en détaillant les actions remarquables de cette personne et expliquez pourquoi vous l’aimez.
+
+### Combinaison 14
+
+`ee-tache2:mars:combinaison-14`
+
+“Chers internautes, J’ai 19 ans, je vais bientôt partir à l’étranger pour continuer mes études. J’aimerais bien lire les témoignages et avis des étudiants qui ont déjà fait des études loin de chez eux. Merci de me répondre. Julie“ Vous avez fait des études à l’étranger pendant un an. Vous écrivez une réponse sur le forum. Vous racontez votre séjour à l’étranger, vous dites si vous avez aimé ou non cette expérience et vous dites pourquoi.
+
+## Avril 2025
+
+20 sujets
+
+### Combinaison 1
+
+`ee-tache2:avril:combinaison-1`
+
+Vous avez vécu une expérience dans une école de langue. Écrivez un commentaire sur votre site parlant de cette expérience.
+
+### Combinaison 2
+
+`ee-tache2:avril:combinaison-2`
+
+Vous avez participé à un cours de sport dans une salle. Écrivez un article dans votre blog parlant de cette expérience et en exprimant également votre avis par rapport à cette salle.
+
+### Combinaison 3
+
+`ee-tache2:avril:combinaison-3`
+
+Vous avez lu sur un forum un débat concernant les formations en ligne. Écrivez un message en décrivant votre expérience (cours de langue, formation professionnelle, etc.). Donnez votre avis sur ce que vous avez aimé et ce que vous n’en avez pas aimé.
+
+### Combinaison 4
+
+`ee-tache2:avril:combinaison-4`
+
+Vous avez participé à un concours pour gagner un séjour de deux semaines dans votre ville préférée. Le thème de ce concours est “Mon artiste préféré“. Écrivez un article de blog pour parler de votre artiste préféré.
+
+### Combinaison 5
+
+`ee-tache2:avril:combinaison-5`
+
+Vous avez décidé de laisser tout derrière vous pour voyager pendant un an. Rédigez un article de blog pour partager cette aventure unique.
+
+### Combinaison 6
+
+`ee-tache2:avril:combinaison-6`
+
+Vous avez participé à un concours de cuisine, vous allez décrire vos souvenirs dans votre blog en indiquant les détails.
+
+### Combinaison 7
+
+`ee-tache2:avril:combinaison-7`
+
+Racontez votre expérience personnelle de participation à une émission de télévision. Détaillez le contexte de votre participation, votre rôle dans l’émission, et les impressions que vous en avez retirées.
+
+### Combinaison 8
+
+`ee-tache2:avril:combinaison-8`
+
+Vous avez quitté la ville afin de vous installer à la campagne. Sur votre blog, vous expliquez pourquoi vous avez fait ce choix et vous présentez les avantages de votre nouvelle vie.
+
+### Combinaison 9
+
+`ee-tache2:avril:combinaison-9`
+
+Vous avez assisté à un événement intitulé « Une semaine sans voiture ». Racontez votre expérience et donnez votre impression sur cette initiative. Décrivez le déroulement de l’événement (dates, lieu, activités proposées).
+
+### Combinaison 10
+
+`ee-tache2:avril:combinaison-10`
+
+Un internaute a publié le message suivant : « Je vais partir étudier un an à l’étranger et j’ai peur ». Rédigez une réponse pour partager votre expérience personnelle. Parlez des défis que vous avez rencontrés, des solutions que vous avez trouvées, et des bénéfices que vous avez tirés de cette expérience.
+
+### Combinaison 11
+
+`ee-tache2:avril:combinaison-11`
+
+Vous êtes parti(e) travailler à l’étranger. Vous envoyez un message à vos amis pour raconter cette nouvelle expérience professionnelle. Vous expliquez ce que vous avez le plus aimé.
+
+### Combinaison 12
+
+`ee-tache2:avril:combinaison-12`
+
+Vous avez déjà étudié dans une université à l’étranger. Écrivez un article sur votre blog pour raconter cette expérience.
+
+### Combinaison 13
+
+`ee-tache2:avril:combinaison-13`
+
+Suite à un voyage récent effectué avec une agence de voyages, vous êtes insatisfait(e) des prestations reçues. Rédigez un courriel de réclamation en exprimant votre mécontentement. Décrivez les problèmes rencontrés et demandez une solution de la part de l’agence.
+
+### Combinaison 14
+
+`ee-tache2:avril:combinaison-14`
+
+Vous avez passé une journée de formation dans votre entreprise. Dans un forum, rédigez un article à vos collègues pour leur raconter cette journée et ce qui vous a plu.
+
+### Combinaison 15
+
+`ee-tache2:avril:combinaison-15`
+
+Écrivez un article pour le journal de l’entreprise pour raconter le pique-nique que vous avez fait avec vos collègues de travail. Décrivez l’ambiance, les plats apportés, les activités faites ensemble et les meilleurs moments de la journée.
+
+### Combinaison 16
+
+`ee-tache2:avril:combinaison-16`
+
+Racontez dans un blog votre expérience de l’apprentissage d’une langue étrangère (vous écrivez sur un forum internet en racontant votre expérience en apprenant une langue étrangère).
+
+### Combinaison 17
+
+`ee-tache2:avril:combinaison-17`
+
+« Que pensez-vous de l’installation d’une télévision dans la chambre ? » Partagez votre avis dans un article de blog.
+
+### Combinaison 18
+
+`ee-tache2:avril:combinaison-18`
+
+Vous avez assisté à une fête de famille. Envoyez un message à vos amis pour leur raconter cette fête et expliquez ce que vous avez le plus apprécié.
+
+### Combinaison 19
+
+`ee-tache2:avril:combinaison-19`
+
+Vous avez participé à une compétition sportive, racontez votre expérience sur un site internet et donnez votre avis (lieu, date, organisation).
+
+### Combinaison 20
+
+`ee-tache2:avril:combinaison-20`
+
+Vous avez participé à une brocante (achat / vente de produits d’occasion) dans votre ville. Sur votre blog personnel, racontez pourquoi vous avez aimé cette activité.
+
+## Mai 2025
+
+8 sujets
+
+### Combinaison 1
+
+`ee-tache2:mai:combinaison-1`
+
+Vous venez d’assister au concert de votre artiste favori. Vous écrivez un article sur votre blog personnel, pour partager cette expérience et inciter vos amis et les autres à assister à son prochain concert.
+
+### Combinaison 2
+
+`ee-tache2:mai:combinaison-2`
+
+Vous avez assisté à une fête traditionnelle dans votre pays ou à l’étranger. Racontez-la dans votre blog et dites pourquoi vous l’avez aimée.
+
+### Combinaison 3
+
+`ee-tache2:mai:combinaison-3`
+
+COURRIER DES LECTEURS Tout quitter pour partir en voyage pendant un an: bonne ou mauvaise idée ? Répondez sur notre site Internet : “voyage.internaute.fr”. Vous écrivez un message sur ce site internet, vous répondez à la question posée en prenant des exemples de votre vie personnelle.
+
+### Combinaison 3
+
+`ee-tache2:mai:combinaison-3-bis`
+
+Analysez le sujet d'examen suivant : www.manger-international.com Ce mois-ci, nous nous intéressons aux habitudes alimentaires dans le monde. Racontez-nous comment mangent les habitants de votre pays ! Les 10 premiers témoignages seront publiés sur notre site ! Vous avez lu cette annonce. Vous écrivez un article pour les lecteurs du site www.manger-international.com. Vous expliquez comment mangent les habitants de votre pays et vous indiquez quelles habitudes vous plaisent ou vous déplaisent, et pourquoi ?
+
+### Combinaison 4
+
+`ee-tache2:mai:combinaison-4`
+
+"Que pensez-vous de l’installation d’une télévision dans la chambre ?" Partagez votre avis dans un article de blog.
+
+### Combinaison 5
+
+`ee-tache2:mai:combinaison-5`
+
+Vous avez participé à un cours de langue. Sur un forum Internet, vous écrivez un article dans lequel vous racontez votre expérience (lieu, déroulement, durée, etc.) et vous donnez votre opinion sur ce cours.
+
+### Combinaison 6
+
+`ee-tache2:mai:combinaison-6`
+
+Vous avez participé à un pique-nique avec vos collègues. Vous écrivez un article dans le journal de l'entreprise. Vous racontez comment s'est passé ce pique-nique (lieu, nourriture, météo, etc).
+
+### Combinaison 7
+
+`ee-tache2:mai:combinaison-7`
+
+Dans le cadre de votre travail, vous avez participé à une journée de formation professionnelle. Votre entreprise vous demande d'écrire un article pour partager cette expérience avec vos collègues. Vous présentez cette journée et vous expliquez ce que vous en avez pensé.
+
+## Juin 2025
+
+5 sujets
+
+### Combinaison 1
+
+`ee-tache2:juin:combinaison-1`
+
+Vous avez décidé de ne plus utiliser votre réseau social préféré (Instagram, Facebook, etc.). Vous écrivez à vos amis pour leur raconter cette expérience et expliquer pourquoi vous avez pris cette décision
+
+### Combinaison 2
+
+`ee-tache2:juin:combinaison-2`
+
+Vous avez participé à une journée de formation dans votre entreprise. Écrivez un courriel à vos collègues pour raconter cette journée et exprimer ce que vous avez apprécié.
+
+### Combinaison 3
+
+`ee-tache2:juin:combinaison-3`
+
+« Chers internautes, J’ai 19 ans, je vais bientôt partir à l’étranger pour continuer mes études. J’aimerais bien lire les témoignages et avis des étudiants qui ont déjà fait des études loin de chez eux. Merci de me répondre. Julie » Vous avez fait des études à l’étranger pendant un an. Vous écrivez une réponse sur le forum. Vous racontez votre séjour à l’étranger, vous dites si vous avez aimé ou non cette expérience et vous dites pourquoi.
+
+### Combinaison 13
+
+`ee-tache2:juin:combinaison-13`
+
+COURRIER DES LECTEURS Tout quitter pour partir en voyage pendant un an: bonne ou mauvaise idée ? Répondez sur notre site Internet : “voyage.internaute.fr”. Vous écrivez un message sur ce site internet, vous répondez à la question posée en prenant des exemples de votre vie personnelle.
+
+### Combinaison 14
+
+`ee-tache2:juin:combinaison-14`
+
+"École de musique ! Cours gratuits, concerts, jeux. Rendez-vous vendredi, à partir de 9 heures" Vous avez participé à cet évènement. Vous écrivez à vos amis pour raconter votre expérience et vous donnez votre opinion sur cette journée.
+
+## Juillet 2025
+
+19 sujets
+
+### Combinaison 1
+
+`ee-tache2:juillet:combinaison-1`
+
+Vous avez participé à un concours pour gagner un séjour de deux semaines dans votre ville préférée. Le thème de ce concours est “Mon artiste préféré“. Écrivez un article de blog pour parler de votre artiste préféré.
+
+### Combinaison 2
+
+`ee-tache2:juillet:combinaison-2`
+
+Vous avez lu sur un forum un débat concernant les formations en ligne. Écrivez un message en décrivant votre expérience (cours de langue, formation professionnelle, etc.). Donnez votre avis sur ce que vous avez aimé et ce que vous n’avez pas.
+
+### Combinaison 3
+
+`ee-tache2:juillet:combinaison-3`
+
+Vous avez participé à un cours de sport dans une salle. Écrivez un article dans votre blog parlant de cette expérience et en exprimant également votre avis par rapport à cette salle.
+
+### Combinaison 4
+
+`ee-tache2:juillet:combinaison-4`
+
+Vous avez commencé à prendre des cours dans une école de langues. Vous envoyez un message à vos amis pour leur raconter comment s’est passée votre première semaine. Parlez de votre impression sur l’école et sur vos cours.
+
+### Combinaison 5
+
+`ee-tache2:juillet:combinaison-5`
+
+Écrivez un article de blog pour partager votre expérience d’apprentissage d’une nouvelle langue (français ou autre). Décrivez les défis rencontrés, les progrès réalisés et les méthodes d’apprentissage que vous avez trouvées efficaces.
+
+### Combinaison 6
+
+`ee-tache2:juillet:combinaison-6`
+
+« Tout quitter pour changer de vie ? Il y a deux ans, nous avons décidé de changer de vie. Paul a quitté son poste de banquier à Paris et nous avons ouvert une boulangerie à Calgary ! Que pensez-vous de cette décision ? Avez-vous déjà vécu un grand changement, professionnel ou personnel ? Paul et Naïma » Vous avez lu ce message sur un forum internet. Vous répondez à Paul et Naïma. Dans votre message, vous donnez votre opinion sur le choix de Paul et de Naïma et vous racontez comment vous feriez si vous étiez à leur place.
+
+### Combinaison 7
+
+`ee-tache2:juillet:combinaison-7`
+
+Racontez votre expérience personnelle de participation à une émission de télévision. Détaillez le contexte de votre participation, votre rôle dans l’émission, et les impressions que vous en avez retirées.
+
+### Combinaison 8
+
+`ee-tache2:juillet:combinaison-8`
+
+Écrivez un message à vos amis pour leur partager votre expérience de travail temporaire effectué durant les vacances d’été.
+
+### Combinaison 9
+
+`ee-tache2:juillet:combinaison-9`
+
+Vous avez visité une exposition de votre artiste préféré. Rédigez un article exprimant votre expérience lors de la visite. Décrivez ce que vous avez vu et vos impressions.
+
+### Combinaison 10
+
+`ee-tache2:juillet:combinaison-10`
+
+Vous avez passé des vacances dans une belle région de votre pays. Vous écrivez un message à vos amis dans lequel vous décrivez votre expérience, vous expliquez pourquoi vous avez beaucoup aimé ce séjour.
+
+### Combinaison 11
+
+`ee-tache2:juillet:combinaison-11`
+
+Vous avez lu sur un forum un débat concernant les formations en ligne. Écrivez un message en décrivant votre expérience (cours de langue, formation professionnelle, etc.). Donnez votre avis sur ce que vous avez aimé et ce que vous n’avez pas aimé.
+
+### Combinaison 12
+
+`ee-tache2:juillet:combinaison-12`
+
+Votre direction est à la recherche d’une salle pour la fête de fin d’année, capable d’accueillir 100 invités. Rédigez un message à la direction pour leur dire que vous avez trouvé un local idéal. (lieu, tarifs, services, etc.).
+
+### Combinaison 13
+
+`ee-tache2:juillet:combinaison-13`
+
+Vous avez vécu une expérience dans une école de langue. Écrivez un commentaire sur votre site parlant de cette expérience.
+
+### Combinaison 14
+
+`ee-tache2:juillet:combinaison-14`
+
+Vous avez assisté à un événement intitulé “Une semaine sans voiture”. Racontez votre expérience et donnez votre impression sur cette initiative. Décrivez le déroulement de l’événement (dates, lieu, activités proposées).
+
+### Combinaison 15
+
+`ee-tache2:juillet:combinaison-15`
+
+Un internaute a publié le message suivant : « Je vais partir étudier un an à l’étranger et j’ai peur ». Rédigez une réponse pour partager votre expérience personnelle. Parlez des défis que vous avez rencontrés, des solutions que vous avez trouvées, et des bénéfices que vous avez tirés de cette expérience.
+
+### Combinaison 41
+
+`ee-tache2:juillet:combinaison-41`
+
+Dans votre blog, racontez votre expérience de l’apprentissage d’une langue étrangère (vous écrivez sur un forum internet en racontant votre expérience en apprenant une langue étrangère).
+
+### Combinaison 42
+
+`ee-tache2:juillet:combinaison-42`
+
+Exprimez votre admiration pour une personnalité, célèbre ou non, en vous appuyant sur ses actions spécifiques. Rédigez un article de blog en détaillant les actions remarquables de cette personne et expliquez pourquoi vous l’aimez.
+
+### Combinaison 43
+
+`ee-tache2:juillet:combinaison-43`
+
+COURRIER DES LECTEURS Tout quitter pour partir en voyage pendant un an: bonne ou mauvaise idée ? Répondez sur notre site Internet : “voyage.internaute.fr”. Vous écrivez un message sur ce site internet, vous répondez à la question posée en prenant des exemples de votre vie personnelle.
+
+### Combinaison 44
+
+`ee-tache2:juillet:combinaison-44`
+
+Vous êtes allés voir un spectacle (film, pièce de théâtre, concert, etc.) avec des amis. Vous l’avez aimé. Sur votre blog, vous racontez votre soirée et vous expliquez pourquoi vous avez aimé le spectacle.
+
+## Août 2025
+
+16 sujets
+
+### Combinaison 1
+
+`ee-tache2:aout:combinaison-1`
+
+Vous êtes allé à un festival de cinéma et vous avez regardé un film qui vous a laissé une forte impression. Rédigez un message à vos amis pour partager votre expérience et leur donner votre avis sur ce film.
+
+### Combinaison 2
+
+`ee-tache2:aout:combinaison-2`
+
+Rédigez une lettre de réclamation pour exprimer votre insatisfaction à l’égard des services fournis par une agence de voyage suite à une organisation défaillante de votre séjour.
+
+### Combinaison 3
+
+`ee-tache2:aout:combinaison-3`
+
+Vous avez publié une annonce en ligne pour louer votre appartement. Rédigez un courriel afin de fournir des informations sur le logement et le quartier.
+
+### Combinaison 4
+
+`ee-tache2:aout:combinaison-4`
+
+Vous avez été sélectionné(e) pour un concours où le prix est un séjour de deux semaines dans votre ville favorite. Le thème du concours était “Mon artiste préféré”. Rédigez un article de blog pour parler de l’artiste que vous aimez le plus.
+
+### Combinaison 8
+
+`ee-tache2:aout:combinaison-8`
+
+Vous faites une réclamation par rapport aux mauvaises prestations d’une agence de voyages suite à un voyage mal organisé. Exprimez votre mécontentement.
+
+### Combinaison 9
+
+`ee-tache2:aout:combinaison-9`
+
+Vous avez assisté à un événement intitulé « Une semaine sans voiture ». Racontez votre expérience et donnez votre impression sur cette initiative. Décrivez le déroulement de l’événement (dates, lieu, activités proposées).
+
+### Combinaison 10
+
+`ee-tache2:aout:combinaison-10`
+
+Un internaute exprime des inquiétudes concernant son départ pour étudier à l’étranger. Partagez votre expérience personnelle sur les défis rencontrés, les solutions trouvées et les bénéfices tirés de cette expérience.
+
+### Combinaison 11
+
+`ee-tache2:aout:combinaison-11`
+
+Vous avez quitté la ville afin de vous installer à la campagne. Sur votre blog, vous expliquez pourquoi vous avez fait ce choix et vous présentez les avantages de votre nouvelle vie.
+
+### Combinaison 12
+
+`ee-tache2:aout:combinaison-12`
+
+Rédigez un article de blog relatant votre expérience lors de l’événement « La Semaine du Goût », auquel vous avez participé.
+
+### Combinaison 13
+
+`ee-tache2:aout:combinaison-13`
+
+Rédigez un article de blog sur votre artiste préféré dans le cadre d’un concours dont le thème est « Mon artiste préféré », permettant de gagner un séjour de deux semaines dans votre ville favorite.
+
+### Combinaison 14
+
+`ee-tache2:aout:combinaison-14`
+
+Vous avez récemment débuté une nouvelle activité de loisir, comme un sport ou la danse. Rédigez un article sur votre blog pour partager votre expérience.
+
+### Combinaison 15
+
+`ee-tache2:aout:combinaison-15`
+
+Rédigez une lettre de réclamation pour exprimer votre insatisfaction à l’égard des services fournis par une agence de voyage suite à une organisation défaillante de votre séjour.
+
+### Combinaison 16
+
+`ee-tache2:aout:combinaison-16`
+
+Une compagnie de théâtre est venue dans votre ville et vous avez assisté à l’une de ses représentations. Écrivez un article de blog pour raconter cette expérience.
+
+### Combinaison 17
+
+`ee-tache2:aout:combinaison-17`
+
+Vous êtes chargé(e) d’organiser la journée d’accueil des nouveaux étudiants francophones dans votre école. Vous préparez un courriel destiné aux nouveaux étudiants. Dans ce courriel, vous expliquez le déroulement prévu de la journée et vous donnez toutes les informations nécessaires
+
+### Combinaison 18
+
+`ee-tache2:aout:combinaison-18`
+
+Vous avez assisté avec un ami à un festival de musique gratuit organisé dans votre ville. Écrivez un article de blog pour partager votre expérience et vos impressions.
+
+### Combinaison 19
+
+`ee-tache2:aout:combinaison-19`
+
+Écrivez un article sur votre blog pour raconter pourquoi vous avez décidé de changer votre alimentation (vos habitudes alimentaires). Écrivez un article sur votre blog pour raconter pourquoi vous avez décidé de changer votre alimentation (vos habitudes alimentaires).
+
+## Septembre 2025
+
+6 sujets
+
+### Combinaison 1
+
+`ee-tache2:septembre:combinaison-1`
+
+COURRIER DES LECTEURS Tout quitter pour partir en voyage pendant un an: bonne ou mauvaise idée ? Répondez sur notre site Internet : “voyage.internaute.fr”. Vous écrivez un message sur ce site internet, vous répondez à la question posée en prenant des exemples de votre vie personnelle.
+
+### Combinaison 2
+
+`ee-tache2:septembre:combinaison-2`
+
+Exprimez votre admiration pour une personnalité, célèbre ou non, en vous appuyant sur ses actions spécifiques. Rédigez un article de blog en détaillant les actions remarquables de cette personne et expliquez pourquoi vous l’aimez.
+
+### Combinaison 3
+
+`ee-tache2:septembre:combinaison-3`
+
+Dans votre blog, racontez votre expérience de l’apprentissage d’une langue étrangère (vous écrivez sur un forum internet en racontant votre expérience en apprenant une langue étrangère).
+
+### Combinaison 4
+
+`ee-tache2:septembre:combinaison-4`
+
+Vous êtes allés voir un spectacle (film, pièce de théâtre, concert, etc.) avec des amis. Vous l’avez aimé. Sur votre blog, vous racontez votre soirée et vous expliquez pourquoi vous avez aimé le spectacle.
+
+### Combinaison 5
+
+`ee-tache2:septembre:combinaison-5`
+
+Vous avez participé à un concours de cuisine, vous allez décrire vos souvenirs dans votre blog en indiquant les détails.
+
+### Combinaison 7
+
+`ee-tache2:septembre:combinaison-7`
+
+Vous venez d’avoir un nouveau travail. Envoyez un courriel à vos amis pour leur raconter comment vous avez passé votre première semaine de travail (entreprise, poste, tâches, etc.).
+
+## Octobre 2025
+
+4 sujets
+
+### Combinaison 1
+
+`ee-tache2:octobre:combinaison-1`
+
+Vous avez participé à une action pour la « Journée mondiale du nettoyage de notre planète ». Vous avez ramassé des déchets dans un lieu public (plage, forêt, rue, etc.) avec d’autres personnes. Vous racontez cette expérience à vos amis. Vous expliquez pourquoi il est important de participer à ce type d’action.
+
+### Combinaison 2
+
+`ee-tache2:octobre:combinaison-2`
+
+Vous avez participé à une brocante (achat / vente de produits d’occasion) dans votre ville. Sur votre blog personnel, racontez pourquoi vous avez aimé cette activité.
+
+### Combinaison 3
+
+`ee-tache2:octobre:combinaison-3`
+
+INFOS FAMILLES Vivre avec une personne âgée : comment faire ? Notre site cherche des témoignages. Vous avez vécu avec une personne âgée. Vous racontez votre expérience.
+
+### Combinaison 4
+
+`ee-tache2:octobre:combinaison-4`
+
+Vous avez assisté à un festival de cinéma. Vous avez vu plusieurs films. Sur votre site personnel, vous racontez le film que vous avez préféré. Vous expliquez votre choix. Vous avez assisté à un festival de cinéma. Vous avez vu plusieurs films. Sur votre site personnel, vous racontez le film que vous avez préféré. Vous expliquez votre choix.
+
+## Novembre 2025
+
+12 sujets
+
+### Combinaison 1
+
+`ee-tache2:novembre:combinaison-1`
+
+Vous êtes parti(e) travailler à l’étranger. Vous envoyez un message à vos amis pour raconter cette nouvelle expérience professionnelle. Vous expliquez ce que vous avez le plus aimé.
+
+### Combinaison 2
+
+`ee-tache2:novembre:combinaison-2`
+
+Tout quitter pour changer de vie ? Il y a deux ans, nous avons décidé de changer de vie. Paul a quitté son poste de banquier à Paris et nous avons ouvert une boulangerie à Calgary ! Que pensez-vous de cette décision ? Avez-vous déjà vécu un grand changement, professionnel ou personnel ? Paul et Naïma » Vous avez lu ce message sur un forum internet. Vous répondez à Paul et Naïma. Dans votre message, vous donnez votre opinion sur le choix de Paul et de Naïma et vous racontez comment vous feriez si vous étiez à leur place.
+
+### Combinaison 3
+
+`ee-tache2:novembre:combinaison-3`
+
+Vous avez participé à l’événement « Une semaine sans ma voiture » organisé par votre ville. Sur un site Internet, vous racontez votre expérience et vous donnez votre opinion sur ce type d’action
+
+### Combinaison 4
+
+`ee-tache2:novembre:combinaison-4`
+
+Écrivez un article sur votre blog pour raconter pourquoi vous avez décidé de changer votre alimentation (vos habitudes alimentaires).
+
+### Combinaison 5
+
+`ee-tache2:novembre:combinaison-5`
+
+Vous avez participé à un concours pour gagner un séjour de deux semaines dans votre ville préférée. Le thème de ce concours est “Mon artiste préféré“. Écrivez un article de blog pour parler de votre artiste préféré.
+
+### Combinaison 6
+
+`ee-tache2:novembre:combinaison-6`
+
+Vous avez accueilli un(e) étudiant(e) étranger(e) pendant une semaine chez vous. Sur votre blog, vous écrivez un article pour raconter cette semaine. Vous expliquez pourquoi vous avez aimé cette expérience.
+
+### Combinaison 7
+
+`ee-tache2:novembre:combinaison-7`
+
+Écrivez un message à vos amis pour leur raconter votre expérience lors d’un salon du livre (conférence, expositions et rencontre avec les auteurs…).
+
+### Combinaison 8
+
+`ee-tache2:novembre:combinaison-8`
+
+Vous avez récemment assisté à un festival de cinéma et vous avez vu un film qui vous a particulièrement marqué. Écrivez un message à vos amis pour leur raconter votre expérience lors de ce festival et leur parler de votre film préféré. Vous avez récemment assisté à un festival de cinéma et vous avez vu un film qui vous a particulièrement marqué. Écrivez un message à vos amis pour leur raconter votre expérience lors de ce festival et leur parler de votre film préféré.
+
+### Combinaison 9
+
+`ee-tache2:novembre:combinaison-9`
+
+Vous avez fait un séjour à l’étranger organisé par une agence de voyage. Vous êtes déçu(e) par les services proposés. Vous écrivez à l’agence pour raconter votre expérience et donner votre opinion sur ce séjour
+
+### Combinaison 10
+
+`ee-tache2:novembre:combinaison-10`
+
+Dans le cadre de la Semaine du goût, vous avez participé à une activité pour découvrir les cuisines du monde. Vous écrivez un article pour le site Internet de votre ville. Dans cet article, vous racontez votre expérience et vous expliquez ce que vous avez aimé.
+
+### Combinaison 11
+
+`ee-tache2:novembre:combinaison-11`
+
+Vous avez commencé une nouvelle activité de loisir (danse, peinture, sport, etc.). Vous écrivez un message à vos amis pour raconter votre expérience et pour donner votre opinion sur cette activité
+
+### Combinaison 12
+
+`ee-tache2:novembre:combinaison-12`
+
+Participez à notre concours pour gagner un séjour pour deux personnes dans la ville de votre choix. Rédigez un article sur le thème : « La vie de mon artiste préféré(e) ». Vous participez à ce concours. Vous expliquez pourquoi vous avez choisi cet(te) artiste et vous racontez sa vie.
+
+## Décembre 2025
+
+19 sujets
+
+### Combinaison 1
+
+`ee-tache2:decembre:combinaison-1`
+
+Vous avez assisté à un festival de cinéma. Vous avez vu plusieurs films. Sur votre site personnel, vous racontez le film que vous avez préféré. Vous expliquez votre choix.
+
+### Combinaison 2
+
+`ee-tache2:decembre:combinaison-2`
+
+INFOS FAMILLES Vivre avec une personne âgée : comment faire ? Notre site cherche des témoignages. Vous avez vécu avec une personne âgée. Vous racontez votre expérience.
+
+### Combinaison 3
+
+`ee-tache2:decembre:combinaison-3`
+
+Vous avez commencé une nouvelle activité sportive. Sur votre blog, vous racontez votre expérience. Vous expliquez pourquoi cette activité peut être intéressante pour tout le monde.
+
+### Combinaison 4
+
+`ee-tache2:decembre:combinaison-4`
+
+Vous avez participé à une action pour la « Journée mondiale du nettoyage de notre planète ». Vous avez ramassé des déchets dans un lieu public (plage, forêt, rue, etc.) avec d’autres personnes. Vous racontez cette expérience à vos amis. Vous expliquez pourquoi il est important de participer à ce type d’action.
+
+### Combinaison 5
+
+`ee-tache2:decembre:combinaison-5`
+
+Écrivez un article de blog pour raconter votre arrivée dans un pays étranger en donnant vos impressions.
+
+### Combinaison 6
+
+`ee-tache2:decembre:combinaison-6`
+
+Vous avez visité une ville que vous ne connaissiez pas. Vous avez envie de partager votre découverte. Vous postez un message sur un site Internet dédié aux voyages. Racontez votre expérience et expliquez ce qui vous a plu et ce qui vous a déplu dans la ville.
+
+### Combinaison 7
+
+`ee-tache2:decembre:combinaison-7`
+
+Vous travaillez dans une association qui aide les personnes âgées. Rédigez un article de blog pour raconter vos expériences et convaincre d'autres personnes de rejoindre l'association.
+
+### Combinaison 8
+
+`ee-tache2:decembre:combinaison-8`
+
+Vous avez participé à un événement qui vous a marqué (anniversaire, mariage, etc.). Racontez votre souvenir en décrivant ce qui vous a le plus marqué.
+
+### Combinaison 9
+
+`ee-tache2:decembre:combinaison-9`
+
+Vous avez assisté à un événement intitulé “Une semaine sans voiture”. Racontez votre expérience et donnez votre impression sur cette initiative. Décrivez le déroulement de l’événement (dates, lieu, activités proposées).
+
+### Combinaison 10
+
+`ee-tache2:decembre:combinaison-10`
+
+Vous avez étudié dans une université à l'étranger pendant six mois. Vous écrivez un message à vos amis pour raconter votre expérience et vous expliquez ce que vous avez aimé
+
+### Combinaison 11
+
+`ee-tache2:decembre:combinaison-11`
+
+Vous avez quitté la ville pour vous installer à la campagne. Sur un forum internet, vous expliquez pourquoi vous avez fait ce choix et vous présentez les avantages de votre nouvelle vie
+
+### Combinaison 12
+
+`ee-tache2:decembre:combinaison-12`
+
+Votre direction est à la recherche d’une salle pour la fête de fin d’année, capable d’accueillir 100 invités. Rédigez un message à la direction pour leur dire que vous avez trouvé un local idéal. (lieu, tarifs, services, etc.).
+
+### Combinaison 13
+
+`ee-tache2:decembre:combinaison-13`
+
+Vous avez suivi une formation (cours de langue, informatique, etc.). Sur un site Internet, vous écrivez un message pour raconter votre expérience (cours, participants, professeurs, etc.). Vous expliquez ce que vous avez aimé ou pas aimé pendant cette formation.
+
+### Combinaison 14
+
+`ee-tache2:decembre:combinaison-14`
+
+Vous venez d’arriver dans un nouveau pays. Vous écrivez à vos amis pour leur raconter votre arrivée et décrire vos premières impressions.
+
+### Combinaison 15
+
+`ee-tache2:decembre:combinaison-15`
+
+Écrivez un article de blog sur le souvenir de voyage que vous avez le plus aimé.
+
+### Combinaison 16
+
+`ee-tache2:decembre:combinaison-16`
+
+Le site « colocation.com » recherche des témoignages sur vos expériences de colocation. Écrivez-nous ! >> Vous avez déjà habité en colocation avec des amis. Vous racontez votre expérience aux membres du site internet. Vous donnez votre opinion sur ce mode de logement.
+
+### Combinaison 17
+
+`ee-tache2:decembre:combinaison-17`
+
+Suite à un voyage récent effectué avec une agence de voyages, vous êtes insatisfait(e) des prestations reçues. Rédigez un courriel de réclamation en exprimant votre mécontentement. Décrivez les problèmes rencontrés et demandez une solution de la part de l’agence.
+
+### Combinaison 18
+
+`ee-tache2:decembre:combinaison-18`
+
+Vous êtes parti(e) travailler à l’étranger. Vous envoyez un message à vos amis pour raconter cette nouvelle expérience professionnelle. Vous expliquez ce que vous avez le plus aimé.
+
+### Combinaison 19
+
+`ee-tache2:decembre:combinaison-19`
+
+Un internaute a publié le message suivant : « Je vais partir étudier un an à l’étranger et j’ai peur ». Rédigez une réponse pour partager votre expérience personnelle. Parlez des défis que vous avez rencontrés, des solutions que vous avez trouvées, et des bénéfices que vous avez tirés de cette expérience.

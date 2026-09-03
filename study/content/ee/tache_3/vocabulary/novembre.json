@@ -257,7 +257,7 @@
     {
       "response_key": "ee-tache3:novembre:combinaison-2",
       "combinaison": "Combinaison 2",
-      "sujet": "le bien-être au travail",
+      "sujet": "Les bureaux électriques",
       "entries": [
         {
           "id": "E3-NOV-C02-01",
@@ -286,9 +286,9 @@
         {
           "id": "E3-NOV-C02-04",
           "kind": "collocation",
-          "french": "des bureaux réglables",
-          "english": "adjustable desks",
-          "example": "Le premier témoignage valorise des bureaux réglables, qui amélioreraient le confort, la productivité et les échanges entre collègues.",
+          "french": "des bureaux électriques",
+          "english": "height-adjustable electric desks",
+          "example": "Le premier témoignage valorise des bureaux électriques, qui amélioreraient le confort, la productivité et les échanges entre collègues.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -296,7 +296,7 @@
           "kind": "mot-cle",
           "french": "la productivité",
           "english": "productivity",
-          "example": "Le premier témoignage valorise des bureaux réglables, qui amélioreraient le confort, la productivité et les échanges entre collègues.",
+          "example": "Le premier témoignage valorise des bureaux électriques, qui amélioreraient le confort, la productivité et les échanges entre collègues.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -304,7 +304,7 @@
           "kind": "collocation",
           "french": "les échanges entre collègues",
           "english": "exchanges among colleagues",
-          "example": "Le premier témoignage valorise des bureaux réglables, qui amélioreraient le confort, la productivité et les échanges entre collègues.",
+          "example": "Le premier témoignage valorise des bureaux électriques, qui amélioreraient le confort, la productivité et les échanges entre collègues.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -416,7 +416,7 @@
           "kind": "expression",
           "french": "Par exemple",
           "english": "For example",
-          "example": "Par exemple, une entreprise peut fournir des bureaux réglables tout en bloquant les courriels professionnels après dix-huit heures.",
+          "example": "Par exemple, une entreprise peut fournir des bureaux électriques tout en bloquant les courriels professionnels après dix-huit heures.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -424,7 +424,7 @@
           "kind": "tournure",
           "french": "tout en bloquant les courriels professionnels",
           "english": "while blocking work emails",
-          "example": "Par exemple, une entreprise peut fournir des bureaux réglables tout en bloquant les courriels professionnels après dix-huit heures.",
+          "example": "Par exemple, une entreprise peut fournir des bureaux électriques tout en bloquant les courriels professionnels après dix-huit heures.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -432,7 +432,7 @@
           "kind": "collocation",
           "french": "les courriels professionnels",
           "english": "work emails",
-          "example": "Par exemple, une entreprise peut fournir des bureaux réglables tout en bloquant les courriels professionnels après dix-huit heures.",
+          "example": "Par exemple, une entreprise peut fournir des bureaux électriques tout en bloquant les courriels professionnels après dix-huit heures.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -509,90 +509,90 @@
         {
           "id": "E3-NOV-C03-01",
           "kind": "phrase-modele",
-          "french": "Les distributeurs de boissons dans les lycées présentent des avantages et des inconvénients",
-          "english": "Drink vending machines in high schools have advantages and disadvantages",
-          "example": "Les distributeurs de boissons dans les lycées présentent des avantages et des inconvénients.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Santé/Éducation."
+          "french": "Les deux documents s’opposent sur l’interdiction des distributeurs automatiques au lycée",
+          "english": "The two documents disagree about banning vending machines in high schools",
+          "example": "Les deux documents s’opposent sur l’interdiction des distributeurs automatiques au lycée.",
+          "usage": "Formule argumentative ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-02",
           "kind": "mot-cle",
-          "french": "Les distributeurs de boissons",
-          "english": "drink vending machines",
-          "example": "Les distributeurs de boissons dans les lycées présentent des avantages et des inconvénients.",
-          "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Santé/Éducation."
+          "french": "distributeurs automatiques",
+          "english": "vending machines",
+          "example": "Les deux documents s’opposent sur l’interdiction des distributeurs automatiques au lycée.",
+          "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-03",
           "kind": "mot-cle",
-          "french": "Leurs partisans",
-          "english": "their supporters",
-          "example": "Leurs partisans soulignent leur commodité, la possibilité d’y proposer des produits sains et les revenus supplémentaires pour l’école.",
-          "usage": "Groupe nominal, registre neutre ; réutilisable en Santé/Éducation."
+          "french": "l’obésité des adolescents",
+          "english": "teenage obesity",
+          "example": "Le premier la juge urgente : l’obésité des adolescents progresse et l’école doit jouer son rôle éducatif face aux produits sucrés.",
+          "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-04",
           "kind": "collocation",
-          "french": "des produits sains",
-          "english": "healthy products",
-          "example": "Leurs partisans soulignent leur commodité, la possibilité d’y proposer des produits sains et les revenus supplémentaires pour l’école.",
-          "usage": "Association lexicale, registre neutre ; réutilisable en Santé/Éducation."
+          "french": "jouer son rôle éducatif",
+          "english": "to play its educational role",
+          "example": "Le premier la juge urgente : l’obésité des adolescents progresse et l’école doit jouer son rôle éducatif face aux produits sucrés.",
+          "usage": "Collocation ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-05",
           "kind": "mot-cle",
-          "french": "les revenus supplémentaires",
-          "english": "additional revenue",
-          "example": "Leurs partisans soulignent leur commodité, la possibilité d’y proposer des produits sains et les revenus supplémentaires pour l’école.",
-          "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Santé/Éducation."
+          "french": "produits sucrés",
+          "english": "sugary products",
+          "example": "Le premier la juge urgente : l’obésité des adolescents progresse et l’école doit jouer son rôle éducatif face aux produits sucrés.",
+          "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-06",
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, leurs opposants craignent que les boissons sucrées encouragent de mauvaises habitudes alimentaires et aggravent l’obésité ou le diabète.",
-          "usage": "Connecteur adverbial, registre neutre ; réutilisable en Santé/Éducation."
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et dépannent ceux qui sautent le petit déjeuner.",
+          "usage": "Connecteur adverbial ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-07",
           "kind": "reformulation",
-          "french": "leurs opposants",
-          "english": "their opponents",
-          "example": "En revanche, leurs opposants craignent que les boissons sucrées encouragent de mauvaises habitudes alimentaires et aggravent l’obésité ou le diabète.",
-          "usage": "Reformulation, registre neutre ; réutilisable en Santé/Éducation."
+          "french": "le second",
+          "english": "the second one",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et dépannent ceux qui sautent le petit déjeuner.",
+          "usage": "Reprise anaphorique ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-08",
           "kind": "mot-cle",
-          "french": "boissons sucrées",
-          "english": "sugary drinks",
-          "example": "En revanche, leurs opposants craignent que les boissons sucrées encouragent de mauvaises habitudes alimentaires et aggravent l’obésité ou le diabète.",
-          "usage": "Groupe nominal, registre neutre ; réutilisable en Santé/Éducation."
+          "french": "les industriels",
+          "english": "the manufacturers",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et dépannent ceux qui sautent le petit déjeuner.",
+          "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-09",
           "kind": "collocation",
-          "french": "de mauvaises habitudes alimentaires",
-          "english": "poor eating habits",
-          "example": "En revanche, leurs opposants craignent que les boissons sucrées encouragent de mauvaises habitudes alimentaires et aggravent l’obésité ou le diabète.",
-          "usage": "Association lexicale, registre neutre ; réutilisable en Santé/Éducation."
+          "french": "des boissons chaudes",
+          "english": "hot drinks",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et dépannent ceux qui sautent le petit déjeuner.",
+          "usage": "Collocation ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-10",
           "kind": "mot-cle",
-          "french": "l’obésité",
-          "english": "obesity",
-          "example": "En revanche, leurs opposants craignent que les boissons sucrées encouragent de mauvaises habitudes alimentaires et aggravent l’obésité ou le diabète.",
-          "usage": "Nom singulier, registre neutre ; réutilisable en Santé/Éducation."
+          "french": "l’établissement",
+          "english": "the school premises",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et dépannent ceux qui sautent le petit déjeuner.",
+          "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-11",
           "kind": "mot-cle",
-          "french": "le diabète",
-          "english": "diabetes",
-          "example": "En revanche, leurs opposants craignent que les boissons sucrées encouragent de mauvaises habitudes alimentaires et aggravent l’obésité ou le diabète.",
-          "usage": "Nom masculin singulier, registre neutre ; réutilisable en Santé/Éducation."
+          "french": "le petit déjeuner",
+          "english": "breakfast",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et dépannent ceux qui sautent le petit déjeuner.",
+          "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-12",

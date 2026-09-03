@@ -22,17 +22,17 @@ La question des jeux vidéo suscite des avis partagés. D’un côté, certaines
 
 ## Combinaison 2
 
-**Sujet :** le bien-être au travail
+**Sujet :** Les bureaux électriques
 
 ### Bien-être au travail : le confort sans pression
 
 **Partie 1 — Synthèse (52 mots)**
 
-Le bien-être au travail oppose deux visions de l’organisation professionnelle. Le premier témoignage valorise des bureaux réglables, qui amélioreraient le confort, la productivité et les échanges entre collègues. En revanche, le second redoute que ces aménagements ne servent surtout à prolonger les journées et réclame le respect strict du temps de travail.
+Le bien-être au travail oppose deux visions de l’organisation professionnelle. Le premier témoignage valorise des bureaux électriques, qui amélioreraient le confort, la productivité et les échanges entre collègues. En revanche, le second redoute que ces aménagements ne servent surtout à prolonger les journées et réclame le respect strict du temps de travail.
 
 **Partie 2 — Point de vue personnel (103 mots)**
 
-Selon moi, le bien-être des salariés exige de bonnes conditions matérielles, mais aussi le respect de leurs horaires. Tout d’abord, un mobilier ergonomique réduit les douleurs et favorise la concentration. Ensuite, le droit à la déconnexion protège l’équilibre entre vie professionnelle et personnelle. Par exemple, une entreprise peut fournir des bureaux réglables tout en bloquant les courriels professionnels après dix-huit heures. Cette politique améliore le confort sans pousser les employés aux heures supplémentaires. Cependant, il faut aussi reconnaître que certains métiers nécessitent une souplesse ponctuelle. En définitive, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression.
+Selon moi, le bien-être des salariés exige de bonnes conditions matérielles, mais aussi le respect de leurs horaires. Tout d’abord, un mobilier ergonomique réduit les douleurs et favorise la concentration. Ensuite, le droit à la déconnexion protège l’équilibre entre vie professionnelle et personnelle. Par exemple, une entreprise peut fournir des bureaux électriques tout en bloquant les courriels professionnels après dix-huit heures. Cette politique améliore le confort sans pousser les employés aux heures supplémentaires. Cependant, il faut aussi reconnaître que certains métiers nécessitent une souplesse ponctuelle. En définitive, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression.
 
 **Total : 155 mots**
 
@@ -44,15 +44,15 @@ Selon moi, le bien-être des salariés exige de bonnes conditions matérielles, 
 
 ### Distributeurs au lycée : la santé en priorité
 
-**Partie 1 — Synthèse (51 mots)**
+**Partie 1 — Synthèse (57 mots)**
 
-Les distributeurs de boissons dans les lycées présentent des avantages et des inconvénients. Leurs partisans soulignent leur commodité, la possibilité d’y proposer des produits sains et les revenus supplémentaires pour l’école. En revanche, leurs opposants craignent que les boissons sucrées encouragent de mauvaises habitudes alimentaires et aggravent l’obésité ou le diabète.
+Les deux documents s’opposent sur l’interdiction des distributeurs automatiques au lycée. Le premier la juge urgente : l’obésité des adolescents progresse et l’école doit jouer son rôle éducatif face aux produits sucrés. En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et dépannent ceux qui sautent le petit déjeuner.
 
 **Partie 2 — Point de vue personnel (99 mots)**
 
 Personnellement, je suis favorable à ces appareils à condition que leur contenu soit strictement encadré. Tout d’abord, l’accès rapide à l’eau aide les élèves à rester attentifs. De plus, les bénéfices peuvent financer des outils pédagogiques. Par exemple, un lycée pourrait vendre uniquement de l’eau, du lait et des boissons sans sucre ajouté, puis consacrer les revenus à sa bibliothèque. Cependant, il faut aussi reconnaître que la publicité encourage les adolescents à choisir les produits les plus sucrés. En conclusion, le plus important est de privilégier la santé grâce à une sélection transparente, contrôlée par l’établissement et régulièrement évaluée.
 
-**Total : 150 mots**
+**Total : 158 mots**
 
 ---
 

@@ -139,11 +139,11 @@ La télévision peut également présenter certains inconvénients. Les émissio
 
 **Document 1**
 
-Grâce à la livraison en entreprise, les employés bénéficieront d’un gain de temps notable. Il n’est plus question d’aller sortir loin du lieu de travail pour trouver de quoi manger. En complément, l’argent et l’énergie économisés permettent d’être encore plus efficace au travail. Sans pour autant mettre fin à une session importante liée au travail, le repas sera déjà prêt et pourra attendre la fin d’une conférence, d’une réunion ou d’un rendez-vous. Il s’agit d’une véritable solution dédiée aux entreprises ayant une activité intense et qui requiert la présence continue de leurs employés.
+La livraison de repas permet de gagner du temps. Par exemple, quand on travaille, on peut se faire livrer un repas au bureau sans se déplacer. On perd moins de temps pendant la pause déjeuner, on rentre donc plus tôt chez soi. Généralement, cela offre plus de choix : si un de nos collègues veut commander une pizza mais que nous souhaitons manger des sushis, plus de disputes, il suffit de commander des plats dans différents restaurants. L’autre avantage de ce nouveau mode de consommation est qu’il est disponible à toute heure. En effet, on trouve toujours des restaurants qui restent ouverts 24 heures sur 24. Céline, 25 ans
 
 **Document 2**
 
-Cette pratique révèle souvent des inconvénients à cause de sa notoriété montante. Certains jours, il arrive que les responsables de livraisons peuvent être envahis par un grand nombre de livraisons à faire et cela risque de générer des perturbations liées au stress de l’attente. De même pour les employés, une trop longue heure de travail peut causer un état de fatigue si ce dernier ne quitte pas son bureau pour le repas. Dans tous les cas, il est recommandé de toujours marquer des temps de pause lors des durs labeurs.
+La livraison de repas plaît de plus en plus aux consommateurs qui n’ont pas le temps ou l’envie de cuisiner. Toutefois, ce service présente des inconvénients écologiques. Les repas sont souvent livrés en scooter ou en voiture, qui sont des modes de transports polluants ! Cette habitude a aussi des conséquences négatives sur la vie sociale. Quand on mange des repas livrés au bureau ou à domicile, on a tendance à rester enfermé et à voir les mêmes personnes. Pourtant, il est important de sortir prendre l’air et, pourquoi pas, de rencontrer d’autres personnes. Ahmed, 40 ans
 
 ---
 
@@ -325,11 +325,11 @@ Dans les collèges privés, il y a peu d’élèves de milieux sociaux défavori
 
 **Document 1**
 
-Selon des associations de parents d’élèves, les devoirs à la maison sont utiles, car ils permettent aux élèves d’apprendre à organiser leur temps de manière autonome. Pour les parents, les devoirs sont un lien quotidien avec l’école. Même s’il est parfois difficile de suivre les devoirs après une journée de travail fatigante, ils apprécient ce moment partagé avec leurs enfants parce que ceux-ci sont contents que leurs parents s’intéressent à eux. C’est valorisant !
+Grâce aux devoirs à la maison après l’école, seul face à lui-même, l’enfant apprend à devenir autonome. Les devoirs sont également un moyen de rapprocher parents et enfants : réciter une poésie, faire un exercice de mathématiques, c’est souvent un moment de complicité familiale. Enfin, il ne faut pas oublier que les parents ont, eux aussi, un devoir d’éducation. En revanche, parce que la journée à l’école est déjà longue, il ne faut pas que l’enfant passe plus d’un quart d’heure par soir à faire ses devoirs. Valérie, mère de famille
 
 **Document 2**
 
-Nous protestons depuis longtemps contre les devoirs à la maison pour plusieurs raisons. Personne n’a jamais prouvé leur utilité pour améliorer les résultats des élèves. Beaucoup de parents ont peu de temps pour encadrer les devoirs de leurs enfants et certains parents ne savent pas le faire. Quant aux élèves, ceux qui ont réussi les exercices en classe perdent leur temps à les faire à la maison. Ceux qui ne sont pas aidés à la maison ne réussissent toujours pas, ils sont défavorisés. C’est pourquoi nous pensons qu’il faut supprimer les devoirs à la maison.
+J’enseigne à l’école primaire et je ne donne pas de devoirs à la maison. Les devoirs sont une source de stress et de fatigue pour l’enfant. Les élèves ne viennent pas tous du même milieu, les familles n’ont pas toutes le temps ou les connaissances nécessaires pour faire travailler leur enfant. Certains disent que les devoirs créent un lien entre la famille et l’école. Mais quel lien ? C’est bien souvent un moment d’énervement partagé… Et l’autonomie, elle s’acquiert à l’école, avec des outils pédagogiques pensés par l’école. Pas avec les devoirs à la maison ! Isabelle, enseignante
 
 ---
 
@@ -469,7 +469,7 @@ Certaines enquêtes montrent que la vidéosurveillance coûte cher et que ses r�
 
 **Document 1**
 
-Grâce à la livraison en entreprise, les employés bénéficieront d’un gain de temps notable. Il n’est plus question d’aller sortir loin du lieu de travail pour trouver de quoi manger. En complément, l’argent et l’énergie économisés permettent d’être encore plus efficace au travail. Sans pour autant mettre fin à une session importante liée au travail, le repas sera déjà prêt et pourra attendre la fin d’une conférence, d’une réunion ou d’un rendez-vous. Il s’agit d’une véritable solution dédiée aux entreprises ayant une activité intense et qui requiert la présence continue de leurs employés.
+La livraison de repas permet de gagner du temps. Par exemple, quand on travaille, on peut se faire livrer un repas au bureau sans se déplacer. On perd moins de temps pendant la pause déjeuner, on rentre donc plus tôt chez soi. Généralement, cela offre plus de choix : si un de nos collègues veut commander une pizza mais que nous souhaitons manger des sushis, plus de disputes, il suffit de commander des plats dans différents restaurants. L’autre avantage de ce nouveau mode de consommation est qu’il est disponible à toute heure. En effet, on trouve toujours des restaurants qui restent ouverts 24 heures sur 24. Céline, 25 ans
 
 **Document 2**
 
@@ -1013,7 +1013,7 @@ Nous avons installé, dans votre entreprise, des bureaux réglables qui montent 
 
 **Document 2**
 
-De nos jours, les entreprises veulent toujours plus de productivité et d’efficacité, et les employés passent plus de temps sur les lieux de travail. Les entreprises cherchent toujours des moyens ou astuces pour convaincre leurs employés de travailler plus et qu’elles pensent à leur santé. Moi, ce qui m’importe, c’est de faire mon job sur mon temps de travail réel sans être obligé de faire des rallonges en heures supplémentaires. « Florian, ingénieur ».
+Les gens passent de plus en plus de temps au travail et les entreprises recherchent toujours plus de productivité et d’efficacité : faire toujours mieux et travailler encore plus. Ainsi, les entreprises inventent de nouvelles astuces pour nous convaincre que le travail, c’est la santé. Pour moi, peu importe la manière dont je suis assis derrière mon ordinateur ! Ce que je veux pour ma santé, c’est faire mon travail sur mon temps de travail sans être obligé de faire des heures supplémentaires.
 
 ---
 
@@ -1051,7 +1051,7 @@ L’idée n’est pas bonne. D’une part, cela coûterait cher aux villes. Or, 
 
 **Document 1**
 
-Selon des associations de parents d’élèves, les devoirs à la maison sont utiles, car ils permettent aux élèves d’apprendre à organiser leur temps de manière autonome. Pour les parents, les devoirs sont un lien quotidien avec l’école. Même s’il est parfois difficile de suivre les devoirs après une journée de travail fatigante, ils apprécient ce moment partagé avec leurs enfants parce que ceux-ci sont contents que leurs parents s’intéressent à eux. C’est valorisant !
+Grâce aux devoirs à la maison après l’école, seul face à lui-même, l’enfant apprend à devenir autonome. Les devoirs sont également un moyen de rapprocher parents et enfants : réciter une poésie, faire un exercice de mathématiques, c’est souvent un moment de complicité familiale. Enfin, il ne faut pas oublier que les parents ont, eux aussi, un devoir d’éducation. En revanche, parce que la journée à l’école est déjà longue, il ne faut pas que l’enfant passe plus d’un quart d’heure par soir à faire ses devoirs. Valérie, mère de famille
 
 **Document 2**
 
@@ -1265,7 +1265,7 @@ Camille qui vit dans la ville préfère faire ses courses au supermarché pour l
 
 **Document 1**
 
-Les restaurants rapides se distinguent par leur engagement à proposer une variété de plats équilibrés, respectant strictement les normes d’hygiène. En laissant aux clients la liberté de composer leur propre menu, ces établissements les responsabilisent dans leurs choix alimentaires, tout en satisfaisant leurs préférences gustatives.
+Je suis tout à fait contre les chaînes de restauration rapide car on ne connaît pas les ingrédients qui sont utilisés dans les plats. Je pense que, dans ce genre de restaurants, la nourriture n’est pas de bonne qualité. La consommation de ce type d’aliments peut causer des maladies, comme cela a été montré dans le film documentaire américain « Supersize Me ». C’est vrai qu’il est très facile de manger des hamburgers, des sandwichs ou des frites parce que c’est très bon marché et rapide. Mais à mon avis, il est nécessaire de faire d’autres choix pour être en bonne santé. Marie
 
 **Document 2**
 
@@ -1363,11 +1363,11 @@ Rendre les musées gratuits est une excellente initiative, car cela permet à to
 
 **Document 1**
 
-Les restaurants rapides se distinguent par leur engagement à proposer une variété de plats équilibrés, respectant strictement les normes d’hygiène. En laissant aux clients la liberté de composer leur propre menu, ces établissements les responsabilisent dans leurs choix alimentaires, tout en satisfaisant leurs préférences gustatives.
+Je suis tout à fait contre les chaînes de restauration rapide car on ne connaît pas les ingrédients qui sont utilisés dans les plats. Je pense que, dans ce genre de restaurants, la nourriture n’est pas de bonne qualité. La consommation de ce type d’aliments peut causer des maladies, comme cela a été montré dans le film documentaire américain « Supersize Me ». C’est vrai qu’il est très facile de manger des hamburgers, des sandwichs ou des frites parce que c’est très bon marché et rapide. Mais à mon avis, il est nécessaire de faire d’autres choix pour être en bonne santé. Marie
 
 **Document 2**
 
-Je m’oppose à l’installation des caméras de surveillance dans nos écoles à Montréal. Les résultats obtenus dans d’autres pays utilisant ce système ne sont pas convaincants. Les individus mal intentionnés peuvent facilement contourner ces caméras très visibles. Pour résoudre les problèmes de discipline à l’école, il est préférable d’améliorer la communication entre enseignants, administration et élèves, et de faire respecter les règles scolaires par tous, plutôt que de dépendre des caméras.
+Je suis favorable à la restauration rapide. Je travaille pour une chaîne de restaurants très connue et, selon moi, il est possible d’y manger de façon équilibrée. Les menus proposent des plats complets : il y a des légumes, des salades, du pain, de la viande… C’est le client qui est responsable de ce qu’il consomme. S’il choisit deux sandwichs et beaucoup de ketchup, ce n’est pas un repas sain. De plus, les restaurants sont très propres car il y a beaucoup de normes d’hygiène à respecter, et ce sont aussi des lieux pratiques : il est facile d’y venir avec des enfants ou un groupe d’amis. Ahmed
 
 ---
 
@@ -1391,11 +1391,11 @@ Un travail de recherche paru dans une revue scientifique montre que les enfants 
 
 **Document 1**
 
-Selon moi, vivre en ville offre beaucoup d’occasions de se divertir : aller au cinéma, manger dans un restaurant, faire les magasins… Tout est accessible sans devoir parcourir de longues distances ni chercher un taxi pour un trajet. On trouve facilement tout ce dont on a besoin. De plus, les amateurs de culture y trouvent aussi leur bonheur : musées, théâtres, opéras… tout est présent !
+De mon point de vue, vivre en ville a l’avantage de donner accès à de nombreux loisirs, comme aller au cinéma ou au théâtre, déjeuner au restaurant et faire du shopping. Car en ville tout est plus proche, pas besoin de faire des dizaines de kilomètres pour trouver une boutique ou un restaurant. Mais d’autres activités sont aussi plus accessibles en ville qu’à la campagne. Les activités culturelles y sont particulièrement nombreuses. Musées, opéras, salles de concert ou encore théâtres, vous trouverez ce que vous voulez. Et c’est en ville que se tiennent la plupart des concerts, événements sportifs, expositions ou festivals. Tiffany, 28 ans
 
 **Document 2**
 
-Récemment, j’ai choisi de quitter la vie urbaine pour m’installer à la campagne, car je ressentais le besoin de me rapprocher de la nature et de profiter de la tranquillité. Aujourd’hui, au lieu de sortir chaque jour dans un café ou un restaurant, je préfère inviter mes amis sur ma terrasse ou organiser parfois un barbecue dans mon jardin. Une autre raison qui m’a poussé à faire ce choix, c’est le prix des logements : à la campagne, les maisons sont beaucoup plus abordables. Avec mon budget actuel, je profite d’une grande maison avec terrasse et jardin, alors qu’en ville je n’avais qu’un petit appartement au cinquième étage.
+J’ai décidé de m’installer à la campagne parce que je voulais profiter du calme et de la nature. Au lieu d’aller dans un bar, j’invite mes amis à boire un verre sur la terrasse de ma maison. Les sorties au restaurant sont remplacées par des barbecues dans le jardin en été. De plus, se loger à la campagne est beaucoup plus facile qu’en ville, les loyers sont moins élevés. Pour le prix d’un appartement en centre-ville, j’ai une jolie maison avec jardin, bien plus agréable pour élever mes enfants. Youssef, 34 ans
 
 ---
 
@@ -1595,15 +1595,15 @@ Pendant trois ans, des enfants âgés de 8 à 17 ans ont participé à une étud
 
 ### Novembre 2025 — Combinaison 2
 
-**Sujet :** le bien-être au travail
+**Sujet :** Les bureaux électriques
 
 **Document 1**
 
-Nous avons installé, dans votre entreprise, des bureaux réglables qui montent et descendent, ceci pour permettre aux employés de choisir la position qui leur convient le mieux pour travailler. Les employés sont satisfaits et disent qu’ils sont plus productifs et plus efficaces lors des négociations au téléphone par exemple. Même le climat social est plus convivial et la communication verbale entre collègues s’est renforcée. « Lorie, responsable ».
+Dans notre entreprise, nous avons installé des bureaux électriques qui montent et qui descendent. Ainsi, les collaborateurs peuvent choisir de travailler debout ou assis selon leurs envies. Et ça marche ! Cela a un impact positif sur la qualité de vie au travail : nos employés se disent plus productifs mais aussi plus efficaces, lors de négociations au téléphone par exemple. Cela a également amélioré le climat social dans l’entreprise : les employés se déplacent désormais plus souvent pour poser des questions à leurs collègues plutôt que d’envoyer un mail.
 
 **Document 2**
 
-De nos jours, les entreprises veulent toujours plus de productivité et d’efficacité, et les employés passent plus de temps sur les lieux de travail. Les entreprises cherchent toujours des moyens ou astuces pour convaincre leurs employés de travailler plus et qu’elles pensent à leur santé. Moi, ce qui m’importe, c’est de faire mon job sur mon temps de travail réel sans être obligé de faire des rallonges en heures supplémentaires. « Florian, ingénieur ».
+Les gens passent de plus en plus de temps au travail et les entreprises recherchent toujours plus de productivité et d’efficacité : faire toujours mieux et travailler encore plus. Ainsi, les entreprises inventent de nouvelles astuces pour nous convaincre que le travail, c’est la santé. Pour moi, peu importe la manière dont je suis assis derrière mon ordinateur ! Ce que je veux pour ma santé, c’est faire mon travail sur mon temps de travail sans être obligé de faire des heures supplémentaires.
 
 ---
 
@@ -1613,11 +1613,11 @@ De nos jours, les entreprises veulent toujours plus de productivité et d’effi
 
 **Document 1**
 
-Opinion 1 : “Je suis en faveur des distributeurs de boissons dans les lycées. Premièrement, ils offrent une commodité supplémentaire pour les élèves, notamment pour ceux qui n’ont pas le temps de passer à la cafétéria pendant les pauses. Deuxièmement, s’ils sont bien gérés, ces distributeurs peuvent offrir une gamme de boissons saines, comme de l’eau, du jus de fruits pur et des boissons aux fruits sans sucre ajouté. Ces distributeurs peuvent être une source de revenus supplémentaire pour l’école, qui peut être réinvestie dans l’amélioration des infrastructures ou des programmes scolaires.”
+De plus en plus de collèges et lycées décident d’interdire les distributeurs automatiques de snacks et de boissons sucrées à l’intérieur des établissements. L’objectif est de protéger la santé des élèves. En effet, le pourcentage d’adolescents obèses est en augmentation et l’école doit avoir un rôle éducatif pour lutter contre ce phénomène. Une canette de soda de 33 centilitres, par exemple, contient 7 ou 8 morceaux de sucre. Or les jeunes doivent comprendre que ces produits sucrés sont mauvais pour leur santé. Ainsi, il est urgent d’interdire tous ces distributeurs qui les invitent à consommer des bonbons et des sodas entre les cours. D’après ecolesdifferentes.free.fr
 
 **Document 2**
 
-Opinion 2 : “Je suis contre l’installation de distributeurs de boissons dans les lycées. Ma principale préoccupation est liée à la santé des élèves. Malheureusement, beaucoup de ces distributeurs sont remplis de boissons sucrées et de sodas qui contribuent à l’obésité infantile et à d’autres problèmes de santé comme le diabète. Même les jus de fruits, qui peuvent sembler sains, contiennent souvent beaucoup de sucre. Les écoles devraient être des lieux qui encouragent des habitudes alimentaires saines et je crains que la présence de ces distributeurs n’encourage une consommation excessive de boissons sucrées.”
+L’interdiction des distributeurs automatiques de snacks et de boissons dans les établissements scolaires ne plaît pas à tout le monde. Les industriels qui commercialisent ces produits expliquent que la présence de ces machines a de nombreux effets positifs. Les boissons chaudes, par exemple, permettent aux élèves de se réchauffer pendant les pauses en hiver. De plus, comme ces machines se trouvent à l’intérieur des lycées, les élèves ne sortent pas de l’établissement pour acheter quelque chose à manger. Ils peuvent ainsi rester concentrés sur leurs cours. Enfin, pour ceux qui n’ont pas la possibilité de prendre un petit déjeuner chez eux, ces distributeurs sont très pratiques et utiles. D’après institutdanone.org
 
 ---
 
@@ -1655,7 +1655,7 @@ Bien que les effets positifs d’une power nap aient été scientifiquement prou
 
 **Document 1**
 
-Les restaurants rapides se distinguent par leur engagement à proposer une variété de plats équilibrés, respectant strictement les normes d’hygiène. En laissant aux clients la liberté de composer leur propre menu, ces établissements les responsabilisent dans leurs choix alimentaires, tout en satisfaisant leurs préférences gustatives.
+Je suis tout à fait contre les chaînes de restauration rapide car on ne connaît pas les ingrédients qui sont utilisés dans les plats. Je pense que, dans ce genre de restaurants, la nourriture n’est pas de bonne qualité. La consommation de ce type d’aliments peut causer des maladies, comme cela a été montré dans le film documentaire américain « Supersize Me ». C’est vrai qu’il est très facile de manger des hamburgers, des sandwichs ou des frites parce que c’est très bon marché et rapide. Mais à mon avis, il est nécessaire de faire d’autres choix pour être en bonne santé. Marie
 
 **Document 2**
 
@@ -1683,11 +1683,11 @@ Camille qui vit dans la ville préfère faire ses courses au supermarché pour l
 
 **Document 1**
 
-Les maisons de retraite sont une bonne solution pour les personnes âgées. Elles y reçoivent des soins adaptés et sont entourées de professionnels. De plus, elles peuvent participer à des activités qui les aident à rester socialement actives, ce qui évite l’isolement. Dans certains cas, c’est mieux que de rester seules à la maison.
+J’habite dans un pays où il y a très peu de maisons de retraite. Ici, quand une personne âgée ne peut plus être autonome, elle habite avec les générations plus jeunes, et dans l’ensemble, cela ne pose pas de problèmes majeurs. Il nous paraît étrange de confier nos parents ou grands-parents à des personnes qu’ils ne connaissent pas.
 
 **Document 2**
 
-Les maisons de retraite peuvent éloigner les personnes âgées de leur famille et créer un sentiment d’abandon. De plus, les conditions de vie ne sont pas toujours idéales et il arrive que certains établissements manquent de personnel qualifié. Je crois que le soutien à domicile est une meilleure option pour vieillir en famille.
+Beaucoup de gens critiquent les maisons de retraite, pourtant c’est une bonne solution d’accueil pour les personnes âgées ! D’abord, pour lutter contre l’isolement puisqu’elles sont entourées de personnes de leur âge à la maison de retraite. Ensuite, pour les soins et les services médicaux offerts dans ce type d’établissement. Enfin, parce que c’est pratique et rassurant pour leurs enfants et petits-enfants. Malheureusement, ce type de logement reste encore trop cher pour certains.
 
 ---
 
@@ -1827,11 +1827,11 @@ La télévision peut également présenter certains inconvénients. Les émissio
 
 **Document 1**
 
-Vivre avec d’autres personnes demande d’avoir une bonne entente et de respecter certaines règles. Il n’est pas toujours possible d’écouter sa musique préférée à volume élevé, d’inviter tous ses amis pour faire la fête ou de laisser de la vaisselle sale dans la cuisine. Chaque individu a des habitudes susceptibles d’irriter les autres. C’est pourquoi il est essentiel d’établir des règles de vie en communauté et de les respecter mutuellement. Il est important de communiquer avec ses colocataires chaque fois qu’un problème survient. L’organisation et la discussion sont les clés d’une colocation réussie ou non.
+Il y a ceux qui aiment les plateaux télé et ceux qui ne supportent pas de manger tout seuls. Pour ces derniers, le mieux est la colocation. En effet, vivre en colocation permet d’avoir de réels moments d’échange, que ce soit pendant les repas ou à d’autres moments. Par exemple, en jouant à des jeux de société. Autre élément important : la vaisselle et toutes les autres tâches ménagères se font aussi à plusieurs. Vivre avec d’autres personnes permet d’ouvrir son esprit, de découvrir d’autres façons de vivre, de créer des liens uniques, de partager des expériences et de se rendre des services l’un l’autre.
 
 **Document 2**
 
-Être adulte et vivre en colocation ? C’est un choix qui permet d’accéder facilement à un logement plus spacieux et économique. Il est vrai que vous n’aurez qu’une chambre pour vous et que vous devrez partager la cuisine, le salon et la salle de bain. Toutefois, une colocation peut inclure une maison avec jardin ou un grand appartement en centre-ville ! De plus, en partageant le loyer et les charges avec vos colocataires, vous réduirez considérablement vos dépenses par rapport à un appartement individuel. Alors que vous n’aurez qu’une chambre pour vous et que vous devrez partager les espaces communs, une colocation offre des opportunités de logements bien plus abordables.
+Il peut être difficile de vivre en colocation quand, certains soirs, vous aimeriez bien vous retrouver au calme et seul. Vous devrez également accepter le fait de recevoir des amis qui ne sont pas forcément les vôtres, et veiller à ce que les tours du ménage soient bien respectés, au lieu de devoir tout faire vous-même (ou de laisser l’autre tout faire à votre place). Autrement dit, vous allez devoir vous montrer diplomate sur bien des points. À moins, bien entendu, de tomber sur le colocataire parfait.
 
 ---
 

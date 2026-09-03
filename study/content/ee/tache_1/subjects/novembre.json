@@ -1,0 +1,88 @@
+{
+  "month": {
+    "number": 11,
+    "slug": "novembre",
+    "name": "Novembre"
+  },
+  "year": 2025,
+  "task": "tache_1",
+  "epreuve": "Expression écrite — Tâche 1",
+  "annee": 2025,
+  "recupere_le": "2026-09-03",
+  "contenu": "consignes (sujets) uniquement — sans réponses ni corrections",
+  "count": 12,
+  "sujets": [
+    {
+      "id": 341,
+      "combinaison": "Combinaison 1",
+      "key": "ee-tache1:novembre:combinaison-1",
+      "prompt": "Vous partez en vacances avec vos amis, vous avez trouvé un hôtel. Vous écrivez un message à vos amis pour décrire cet hôtel (localisation, prix, équipements, etc.) et vous leur proposez de réserver cet hôtel."
+    },
+    {
+      "id": 342,
+      "combinaison": "Combinaison 2",
+      "key": "ee-tache1:novembre:combinaison-2",
+      "prompt": "Salut ! Je sais que tu fais du sport depuis le mois dernier. Ça m’intéresse beaucoup et j’aimerais bien venir avec toi. Tu peux m’en dire plus ? À bientôt ! Camille » Vous répondez à votre ami Camille. Dans votre message, vous décrivez votre activité sportive et vous donnez des informations utiles (lieu, durée, prix, etc.)."
+    },
+    {
+      "id": 343,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache1:novembre:combinaison-3",
+      "prompt": "Salut ! Comment vas-tu ? Je vais bientôt venir passer un week-end dans ta ville. Est-ce que tu peux me donner des informations sur les moyens de transport possibles pour visiter […] Vous répondez à Anna. Dans votre message, vous décrivez les différents moyens de transport possibles dans votre ville (métro, tramway, vélo, etc.)"
+    },
+    {
+      "id": 344,
+      "combinaison": "Combinaison 4",
+      "key": "ee-tache1:novembre:combinaison-4",
+      "prompt": "Vous voulez passer un week-end avec vos amis et faire du sport. Vous leur écrivez une lettre pour proposer ça en citant (date, lieu, programme)."
+    },
+    {
+      "id": 345,
+      "combinaison": "Combinaison 5",
+      "key": "ee-tache1:novembre:combinaison-5",
+      "prompt": "Rédigez un message pour inviter votre ami(e) à passer ses vacances dans votre ville en précisant les lieux et les endroits à visiter."
+    },
+    {
+      "id": 346,
+      "combinaison": "Combinaison 6",
+      "key": "ee-tache1:novembre:combinaison-6",
+      "prompt": "Vous souhaitez assister à un festival de cinéma dans votre ville. Vous écrivez un message à votre ami(e) pour lui proposer de venir avec vous. Vous lui donnez toutes les informations nécessaires sur l’événement (films, dates et horaires, tarifs, etc.)."
+    },
+    {
+      "id": 347,
+      "combinaison": "Combinaison 7",
+      "key": "ee-tache1:novembre:combinaison-7",
+      "prompt": "Parc de loisirs : “J’ai hâte de passer la journée avec toi demain. S’il te plaît, dis-moi, quelle activité nous pourrons faire ?” Répondez à votre ami(e) pour lui décrire la sortie (horaires, transport, activités, etc.)."
+    },
+    {
+      "id": 348,
+      "combinaison": "Combinaison 8",
+      "key": "ee-tache1:novembre:combinaison-8",
+      "prompt": "Vous souhaitez assister à un festival de cinéma dans votre ville. Vous écrivez un message à votre ami(e) pour lui proposer de venir avec vous. Vous lui donnez toutes les informations nécessaires sur l’événement (films, dates et horaires, tarifs, etc.)."
+    },
+    {
+      "id": 349,
+      "combinaison": "Combinaison 9",
+      "key": "ee-tache1:novembre:combinaison-9",
+      "prompt": "Salut ! Je suis d’accord pour m’occuper de ta maison et de ton jardin pendant tes vacances. Tu peux m’expliquer ce que je dois faire ? À bientôt, Cédric Consigne de la tâche : Vous répondez à Cédric. Dans votre message, vous décrivez ce qu’il doit faire chez vous pendant votre absence."
+    },
+    {
+      "id": 350,
+      "combinaison": "Combinaison 10",
+      "key": "ee-tache1:novembre:combinaison-10",
+      "prompt": "La bibliothèque de votre quartier propose une rencontre avec un(e) auteur(e). Vous souhaitez y aller avec un(e) ami(e). Vous lui écrivez un message. Vous décrivez l’événement et vous lui proposez de venir avec vous."
+    },
+    {
+      "id": 351,
+      "combinaison": "Combinaison 11",
+      "key": "ee-tache1:novembre:combinaison-11",
+      "prompt": "Vous venez de vous installer dans un nouveau logement. Vous recherchez un colocataire. Vous écrivez une annonce avec toutes les informations utiles sur le logement (lieu, taille, loyer, etc.) et vous décrivez la personne avec laquelle vous pourriez vivre (caractère, mode de vie, etc.)"
+    },
+    {
+      "id": 352,
+      "combinaison": "Combinaison 12",
+      "key": "ee-tache1:novembre:combinaison-12",
+      "prompt": "Vous allez déménager. Des amis ont accepté de vous aider. Vous leur écrivez un message collectif pour leur expliquer comment le déménagement va se passer (lieux, horaires, durée, trajet, tâches à faire, etc.)"
+    }
+  ]
+}

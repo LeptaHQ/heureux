@@ -1,0 +1,88 @@
+{
+  "month": {
+    "number": 11,
+    "slug": "novembre",
+    "name": "Novembre"
+  },
+  "year": 2025,
+  "task": "tache_2",
+  "epreuve": "Expression écrite — Tâche 2",
+  "annee": 2025,
+  "recupere_le": "2026-09-03",
+  "contenu": "consignes (sujets) uniquement — sans réponses ni corrections",
+  "count": 12,
+  "sujets": [
+    {
+      "id": 341,
+      "combinaison": "Combinaison 1",
+      "key": "ee-tache2:novembre:combinaison-1",
+      "prompt": "Vous êtes parti(e) travailler à l’étranger. Vous envoyez un message à vos amis pour raconter cette nouvelle expérience professionnelle. Vous expliquez ce que vous avez le plus aimé."
+    },
+    {
+      "id": 342,
+      "combinaison": "Combinaison 2",
+      "key": "ee-tache2:novembre:combinaison-2",
+      "prompt": "Tout quitter pour changer de vie ? Il y a deux ans, nous avons décidé de changer de vie. Paul a quitté son poste de banquier à Paris et nous avons ouvert une boulangerie à Calgary ! Que pensez-vous de cette décision ? Avez-vous déjà vécu un grand changement, professionnel ou personnel ? Paul et Naïma » Vous avez lu ce message sur un forum internet. Vous répondez à Paul et Naïma. Dans votre message, vous donnez votre opinion sur le choix de Paul et de Naïma et vous racontez comment vous feriez si vous étiez à leur place."
+    },
+    {
+      "id": 343,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache2:novembre:combinaison-3",
+      "prompt": "Vous avez participé à l’événement « Une semaine sans ma voiture » organisé par votre ville. Sur un site Internet, vous racontez votre expérience et vous donnez votre opinion sur ce type d’action"
+    },
+    {
+      "id": 344,
+      "combinaison": "Combinaison 4",
+      "key": "ee-tache2:novembre:combinaison-4",
+      "prompt": "Écrivez un article sur votre blog pour raconter pourquoi vous avez décidé de changer votre alimentation (vos habitudes alimentaires)."
+    },
+    {
+      "id": 345,
+      "combinaison": "Combinaison 5",
+      "key": "ee-tache2:novembre:combinaison-5",
+      "prompt": "Vous avez participé à un concours pour gagner un séjour de deux semaines dans votre ville préférée. Le thème de ce concours est “Mon artiste préféré“. Écrivez un article de blog pour parler de votre artiste préféré."
+    },
+    {
+      "id": 346,
+      "combinaison": "Combinaison 6",
+      "key": "ee-tache2:novembre:combinaison-6",
+      "prompt": "Vous avez accueilli un(e) étudiant(e) étranger(e) pendant une semaine chez vous. Sur votre blog, vous écrivez un article pour raconter cette semaine. Vous expliquez pourquoi vous avez aimé cette expérience."
+    },
+    {
+      "id": 347,
+      "combinaison": "Combinaison 7",
+      "key": "ee-tache2:novembre:combinaison-7",
+      "prompt": "Écrivez un message à vos amis pour leur raconter votre expérience lors d’un salon du livre (conférence, expositions et rencontre avec les auteurs…)."
+    },
+    {
+      "id": 348,
+      "combinaison": "Combinaison 8",
+      "key": "ee-tache2:novembre:combinaison-8",
+      "prompt": "Vous avez récemment assisté à un festival de cinéma et vous avez vu un film qui vous a particulièrement marqué. Écrivez un message à vos amis pour leur raconter votre expérience lors de ce festival et leur parler de votre film préféré. Vous avez récemment assisté à un festival de cinéma et vous avez vu un film qui vous a particulièrement marqué. Écrivez un message à vos amis pour leur raconter votre expérience lors de ce festival et leur parler de votre film préféré."
+    },
+    {
+      "id": 349,
+      "combinaison": "Combinaison 9",
+      "key": "ee-tache2:novembre:combinaison-9",
+      "prompt": "Vous avez fait un séjour à l’étranger organisé par une agence de voyage. Vous êtes déçu(e) par les services proposés. Vous écrivez à l’agence pour raconter votre expérience et donner votre opinion sur ce séjour"
+    },
+    {
+      "id": 350,
+      "combinaison": "Combinaison 10",
+      "key": "ee-tache2:novembre:combinaison-10",
+      "prompt": "Dans le cadre de la Semaine du goût, vous avez participé à une activité pour découvrir les cuisines du monde. Vous écrivez un article pour le site Internet de votre ville. Dans cet article, vous racontez votre expérience et vous expliquez ce que vous avez aimé."
+    },
+    {
+      "id": 351,
+      "combinaison": "Combinaison 11",
+      "key": "ee-tache2:novembre:combinaison-11",
+      "prompt": "Vous avez commencé une nouvelle activité de loisir (danse, peinture, sport, etc.). Vous écrivez un message à vos amis pour raconter votre expérience et pour donner votre opinion sur cette activité"
+    },
+    {
+      "id": 352,
+      "combinaison": "Combinaison 12",
+      "key": "ee-tache2:novembre:combinaison-12",
+      "prompt": "Participez à notre concours pour gagner un séjour pour deux personnes dans la ville de votre choix. Rédigez un article sur le thème : « La vie de mon artiste préféré(e) ». Vous participez à ce concours. Vous expliquez pourquoi vous avez choisi cet(te) artiste et vous racontez sa vie."
+    }
+  ]
+}

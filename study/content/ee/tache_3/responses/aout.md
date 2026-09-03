@@ -206,15 +206,15 @@ L’accès gratuit aux musées suscite un débat. Le premier document redoute un
 
 ### La restauration rapide : liberté et responsabilité
 
-**Partie 1 — Synthèse (52 mots)**
+**Partie 1 — Synthèse (57 mots)**
 
-Les deux documents proposés abordent des sujets différents. Le premier valorise une restauration rapide variée, équilibrée et respectueuse des normes d’hygiène, où chacun compose librement son menu. En revanche, le second rejette les caméras de surveillance scolaires, jugées inefficaces, et recommande plutôt la communication ainsi que l’application collective des règles de discipline.
+Les deux documents s’opposent sur la restauration rapide. Marie la rejette : on ignore les ingrédients utilisés, la qualité de la nourriture laisse à désirer et ces aliments peuvent provoquer des maladies. Ahmed, au contraire, la défend : les menus complets permettent de manger équilibré, le client reste responsable de sa consommation, et les normes d’hygiène y sont respectées.
 
 **Partie 2 — Point de vue personnel (105 mots)**
 
 Je pense que la restauration rapide reste acceptable si le client peut réellement composer un repas équilibré. Tout d’abord, sa rapidité répond aux contraintes de nombreuses personnes. Ensuite, les restaurants doivent rendre les produits sains aussi visibles et abordables que les plats gras. Par exemple, une étudiante pressée pourrait choisir un sandwich aux légumes, un yaourt et de l’eau si cette formule coûtait moins cher qu’un menu avec frites. Cependant, il faut aussi reconnaître que la publicité encourage souvent les portions excessives. En conclusion, le plus important est de garantir une information transparente et des choix variés, sans confondre liberté alimentaire et absence de responsabilité.
 
-**Total : 157 mots**
+**Total : 164 mots**
 
 ---
 

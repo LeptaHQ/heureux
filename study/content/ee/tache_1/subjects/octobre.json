@@ -1,0 +1,40 @@
+{
+  "month": {
+    "number": 10,
+    "slug": "octobre",
+    "name": "Octobre"
+  },
+  "year": 2025,
+  "task": "tache_1",
+  "epreuve": "Expression écrite — Tâche 1",
+  "annee": 2025,
+  "recupere_le": "2026-09-03",
+  "contenu": "consignes (sujets) uniquement — sans réponses ni corrections",
+  "count": 4,
+  "sujets": [
+    {
+      "id": 353,
+      "combinaison": "Combinaison 1",
+      "key": "ee-tache1:octobre:combinaison-1",
+      "prompt": "Vous venez de vous installer dans une nouvelle ville. Vous écrivez un message à un(e) ami(e) pour décrire votre nouvel environnement (quartier, voisins, magasins, etc.)"
+    },
+    {
+      "id": 354,
+      "combinaison": "Combinaison 2",
+      "key": "ee-tache1:octobre:combinaison-2",
+      "prompt": "Écrivez un courriel à vos amis pour les inviter à un anniversaire surprise de votre meilleur(e) ami(e). (Lieu, date, horaire, etc.)."
+    },
+    {
+      "id": 355,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache1:octobre:combinaison-3",
+      "prompt": "Salut, Tu as commencé ton nouveau travail ! C’est comment ? Tu es content(e) ? Ali Vous répondez à votre ami Ali. Dans votre message, vous décrivez votre nouveau travail (lieu, collègues, etc.) et vous donnez vos impressions."
+    },
+    {
+      "id": 356,
+      "combinaison": "Combinaison 4",
+      "key": "ee-tache1:octobre:combinaison-4",
+      "prompt": "Vous avez reçu ce message de votre ami Thomas : « Salut ! Je ne connais pas bien la culture et les traditions de ton pays. Peux-tu me parler d’une grande fête célébrée chez toi ? À bientôt ! » Consigne : Répondez-lui en décrivant une fête importante de votre pays."
+    }
+  ]
+}

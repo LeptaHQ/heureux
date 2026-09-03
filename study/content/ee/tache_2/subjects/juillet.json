@@ -1,0 +1,130 @@
+{
+  "month": {
+    "number": 7,
+    "slug": "juillet",
+    "name": "Juillet"
+  },
+  "year": 2025,
+  "task": "tache_2",
+  "epreuve": "Expression écrite — Tâche 2",
+  "annee": 2025,
+  "recupere_le": "2026-09-03",
+  "contenu": "consignes (sujets) uniquement — sans réponses ni corrections",
+  "count": 19,
+  "sujets": [
+    {
+      "id": 300,
+      "combinaison": "Combinaison 1",
+      "key": "ee-tache2:juillet:combinaison-1",
+      "prompt": "Vous avez participé à un concours pour gagner un séjour de deux semaines dans votre ville préférée. Le thème de ce concours est “Mon artiste préféré“. Écrivez un article de blog pour parler de votre artiste préféré."
+    },
+    {
+      "id": 301,
+      "combinaison": "Combinaison 2",
+      "key": "ee-tache2:juillet:combinaison-2",
+      "prompt": "Vous avez lu sur un forum un débat concernant les formations en ligne. Écrivez un message en décrivant votre expérience (cours de langue, formation professionnelle, etc.). Donnez votre avis sur ce que vous avez aimé et ce que vous n’avez pas."
+    },
+    {
+      "id": 302,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache2:juillet:combinaison-3",
+      "prompt": "Vous avez participé à un cours de sport dans une salle. Écrivez un article dans votre blog parlant de cette expérience et en exprimant également votre avis par rapport à cette salle."
+    },
+    {
+      "id": 303,
+      "combinaison": "Combinaison 4",
+      "key": "ee-tache2:juillet:combinaison-4",
+      "prompt": "Vous avez commencé à prendre des cours dans une école de langues. Vous envoyez un message à vos amis pour leur raconter comment s’est passée votre première semaine. Parlez de votre impression sur l’école et sur vos cours."
+    },
+    {
+      "id": 304,
+      "combinaison": "Combinaison 5",
+      "key": "ee-tache2:juillet:combinaison-5",
+      "prompt": "Écrivez un article de blog pour partager votre expérience d’apprentissage d’une nouvelle langue (français ou autre). Décrivez les défis rencontrés, les progrès réalisés et les méthodes d’apprentissage que vous avez trouvées efficaces."
+    },
+    {
+      "id": 305,
+      "combinaison": "Combinaison 6",
+      "key": "ee-tache2:juillet:combinaison-6",
+      "prompt": "« Tout quitter pour changer de vie ? Il y a deux ans, nous avons décidé de changer de vie. Paul a quitté son poste de banquier à Paris et nous avons ouvert une boulangerie à Calgary ! Que pensez-vous de cette décision ? Avez-vous déjà vécu un grand changement, professionnel ou personnel ? Paul et Naïma » Vous avez lu ce message sur un forum internet. Vous répondez à Paul et Naïma. Dans votre message, vous donnez votre opinion sur le choix de Paul et de Naïma et vous racontez comment vous feriez si vous étiez à leur place."
+    },
+    {
+      "id": 306,
+      "combinaison": "Combinaison 7",
+      "key": "ee-tache2:juillet:combinaison-7",
+      "prompt": "Racontez votre expérience personnelle de participation à une émission de télévision. Détaillez le contexte de votre participation, votre rôle dans l’émission, et les impressions que vous en avez retirées."
+    },
+    {
+      "id": 307,
+      "combinaison": "Combinaison 8",
+      "key": "ee-tache2:juillet:combinaison-8",
+      "prompt": "Écrivez un message à vos amis pour leur partager votre expérience de travail temporaire effectué durant les vacances d’été."
+    },
+    {
+      "id": 308,
+      "combinaison": "Combinaison 9",
+      "key": "ee-tache2:juillet:combinaison-9",
+      "prompt": "Vous avez visité une exposition de votre artiste préféré. Rédigez un article exprimant votre expérience lors de la visite. Décrivez ce que vous avez vu et vos impressions."
+    },
+    {
+      "id": 309,
+      "combinaison": "Combinaison 10",
+      "key": "ee-tache2:juillet:combinaison-10",
+      "prompt": "Vous avez passé des vacances dans une belle région de votre pays. Vous écrivez un message à vos amis dans lequel vous décrivez votre expérience, vous expliquez pourquoi vous avez beaucoup aimé ce séjour."
+    },
+    {
+      "id": 310,
+      "combinaison": "Combinaison 11",
+      "key": "ee-tache2:juillet:combinaison-11",
+      "prompt": "Vous avez lu sur un forum un débat concernant les formations en ligne. Écrivez un message en décrivant votre expérience (cours de langue, formation professionnelle, etc.). Donnez votre avis sur ce que vous avez aimé et ce que vous n’avez pas aimé."
+    },
+    {
+      "id": 311,
+      "combinaison": "Combinaison 12",
+      "key": "ee-tache2:juillet:combinaison-12",
+      "prompt": "Votre direction est à la recherche d’une salle pour la fête de fin d’année, capable d’accueillir 100 invités. Rédigez un message à la direction pour leur dire que vous avez trouvé un local idéal. (lieu, tarifs, services, etc.)."
+    },
+    {
+      "id": 312,
+      "combinaison": "Combinaison 13",
+      "key": "ee-tache2:juillet:combinaison-13",
+      "prompt": "Vous avez vécu une expérience dans une école de langue. Écrivez un commentaire sur votre site parlant de cette expérience."
+    },
+    {
+      "id": 313,
+      "combinaison": "Combinaison 14",
+      "key": "ee-tache2:juillet:combinaison-14",
+      "prompt": "Vous avez assisté à un événement intitulé “Une semaine sans voiture”. Racontez votre expérience et donnez votre impression sur cette initiative. Décrivez le déroulement de l’événement (dates, lieu, activités proposées)."
+    },
+    {
+      "id": 314,
+      "combinaison": "Combinaison 15",
+      "key": "ee-tache2:juillet:combinaison-15",
+      "prompt": "Un internaute a publié le message suivant : « Je vais partir étudier un an à l’étranger et j’ai peur ». Rédigez une réponse pour partager votre expérience personnelle. Parlez des défis que vous avez rencontrés, des solutions que vous avez trouvées, et des bénéfices que vous avez tirés de cette expérience."
+    },
+    {
+      "id": 316,
+      "combinaison": "Combinaison 41",
+      "key": "ee-tache2:juillet:combinaison-41",
+      "prompt": "Dans votre blog, racontez votre expérience de l’apprentissage d’une langue étrangère (vous écrivez sur un forum internet en racontant votre expérience en apprenant une langue étrangère)."
+    },
+    {
+      "id": 317,
+      "combinaison": "Combinaison 42",
+      "key": "ee-tache2:juillet:combinaison-42",
+      "prompt": "Exprimez votre admiration pour une personnalité, célèbre ou non, en vous appuyant sur ses actions spécifiques. Rédigez un article de blog en détaillant les actions remarquables de cette personne et expliquez pourquoi vous l’aimez."
+    },
+    {
+      "id": 318,
+      "combinaison": "Combinaison 43",
+      "key": "ee-tache2:juillet:combinaison-43",
+      "prompt": "COURRIER DES LECTEURS Tout quitter pour partir en voyage pendant un an: bonne ou mauvaise idée ? Répondez sur notre site Internet : “voyage.internaute.fr”. Vous écrivez un message sur ce site internet, vous répondez à la question posée en prenant des exemples de votre vie personnelle."
+    },
+    {
+      "id": 319,
+      "combinaison": "Combinaison 44",
+      "key": "ee-tache2:juillet:combinaison-44",
+      "prompt": "Vous êtes allés voir un spectacle (film, pièce de théâtre, concert, etc.) avec des amis. Vous l’avez aimé. Sur votre blog, vous racontez votre soirée et vous expliquez pourquoi vous avez aimé le spectacle."
+    }
+  ]
+}

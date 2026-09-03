@@ -12,6 +12,7 @@ import hashlib
 import html
 import json
 import re
+import unicodedata
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -54,6 +55,40 @@ EE_TACHE_THREE_VOCABULARY_PER_RESPONSE = 30
 EE_TACHE_ONE_TASK = ("ee", "tache-1")
 EE_TACHE_ONE_DIR = CONTENT_DIR / "ee" / "tache_1"
 EE_TACHE_ONE_SUJETS_PATH = EE_TACHE_ONE_DIR / "sujets.json"
+
+EE_TACHE_TWO_TASK = ("ee", "tache-2")
+EE_TACHE_TWO_CONTENT_PREFIX = "ee-tache2:"
+EE_TACHE_TWO_DIR = CONTENT_DIR / "ee" / "tache_2"
+EE_TACHE_TWO_SUBJECTS_DIR = EE_TACHE_TWO_DIR / "subjects"
+
+EE_TACHE_ONE_CONTENT_PREFIX = "ee-tache1:"
+EE_TACHE_ONE_SUBJECTS_DIR = EE_TACHE_ONE_DIR / "subjects"
+
+# The 2025 corpus is published month by month; février 2025 was never
+# published by the source, so it is legitimately absent everywhere.
+EE_MONTH_ORDER = (
+    "janvier",
+    "mars",
+    "avril",
+    "mai",
+    "juin",
+    "juillet",
+    "aout",
+    "septembre",
+    "octobre",
+    "novembre",
+    "decembre",
+)
+EE_TACHE_DIRS = {
+    1: EE_TACHE_ONE_DIR,
+    2: EE_TACHE_TWO_DIR,
+    3: EE_TACHE_THREE_DIR,
+}
+EE_TACHE_CONTENT_PREFIXES = {
+    1: EE_TACHE_ONE_CONTENT_PREFIX,
+    2: EE_TACHE_TWO_CONTENT_PREFIX,
+    3: EE_TACHE_THREE_CONTENT_PREFIX,
+}
 
 # Memory-backed tasks mapped to their JSON directory and progress-key namespace.
 # EO T2 remains here for its subject source bank and legacy URL redirects; only
@@ -438,6 +473,22 @@ class TacheTwoThemeData:
 
 @dataclass(frozen=True)
 class TacheTwoEquivalentGroupData:
+    id: str
+    theme: str
+    canonical: str
+    members: Tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class EeSubjectThemeData:
+    slug: str
+    name: str
+    icon: str
+    order: int
+
+
+@dataclass(frozen=True)
+class EeEquivalentGroupData:
     id: str
     theme: str
     canonical: str
@@ -2274,6 +2325,268 @@ def load_ee_tache_three_months(
     if len(numbers) != len(set(numbers)):
         raise ValueError("EE Tâche 3 months must have unique numbers")
     return tuple(months)
+
+
+def ee_subject_content_key(
+    tache: int,
+    month_slug: str,
+    combinaison: str,
+) -> str:
+    """Build the stable content key for one EE combinaison.
+
+    ``combinaison`` is the source label ("Combinaison 3"); the optional
+    ``-bis`` suffix disambiguates the months where the source published two
+    panels under the same number (mai 2025).
+    """
+    prefix = EE_TACHE_CONTENT_PREFIXES[tache]
+    number = combinaison.strip().lower().replace("combinaison ", "")
+    return f"{prefix}{month_slug}:combinaison-{number}"
+
+
+def load_ee_subject_keys(tache: int) -> Tuple[str, ...]:
+    """Return every content key for an EE tâche, in published order.
+
+    Tâches 1 and 2 key off their own ``subjects/<mois>.json`` files; Tâche 3
+    reuses the authoritative ``response_key`` already stored in its
+    vocabulary files so a single subject never gains two identities.
+    """
+    directory = EE_TACHE_DIRS[tache]
+    keys: List[str] = []
+    for month_slug in EE_MONTH_ORDER:
+        if tache == 3:
+            path = EE_TACHE_THREE_VOCABULARY_DIR / f"{month_slug}.json"
+            rows = json.loads(path.read_text(encoding="utf-8"))["responses"]
+            keys.extend(str(row["response_key"]) for row in rows)
+            continue
+        path = directory / "subjects" / f"{month_slug}.json"
+        rows = json.loads(path.read_text(encoding="utf-8"))["sujets"]
+        keys.extend(str(row["key"]) for row in rows)
+    if len(keys) != len(set(keys)):
+        raise ValueError(f"EE Tâche {tache} content keys must be unique")
+    prefix = EE_TACHE_CONTENT_PREFIXES[tache]
+    bad = [key for key in keys if not key.startswith(prefix)]
+    if bad:
+        raise ValueError(
+            f"EE Tâche {tache} keys must start with {prefix!r}: "
+            + ", ".join(bad[:3])
+        )
+    return tuple(keys)
+
+
+def load_ee_subject_themes(
+    tache: int,
+    path: Optional[Path] = None,
+) -> Tuple[Tuple[EeSubjectThemeData, ...], Dict[str, str]]:
+    """Load an EE theme taxonomy plus its content_key -> theme-slug map."""
+    path = path or EE_TACHE_DIRS[tache] / "subject_themes.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict) or set(data) != {"themes", "subjects"}:
+        raise ValueError(f"{path.name} must hold themes and subjects")
+    themes = tuple(
+        EeSubjectThemeData(
+            slug=str(theme["slug"]),
+            name=str(theme["name"]),
+            icon=str(theme.get("icon", "pen-line")),
+            order=int(theme["order"]),
+        )
+        for theme in data["themes"]
+    )
+    if not themes:
+        raise ValueError(f"{path.name} needs at least one theme")
+    slugs = [theme.slug for theme in themes]
+    if len(slugs) != len(set(slugs)):
+        raise ValueError(f"{path.name} has duplicate theme slugs")
+    orders = [theme.order for theme in themes]
+    if sorted(orders) != list(range(1, len(themes) + 1)):
+        raise ValueError(f"{path.name} theme orders must be 1..n")
+    for theme in themes:
+        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", theme.slug):
+            raise ValueError(f"{path.name} has an invalid slug {theme.slug!r}")
+
+    mapping = {str(key): str(value) for key, value in data["subjects"].items()}
+    unknown = sorted(set(mapping.values()) - set(slugs))
+    if unknown:
+        raise ValueError(
+            f"{path.name} references unknown themes: " + ", ".join(unknown)
+        )
+    keys = load_ee_subject_keys(tache)
+    missing = [key for key in keys if key not in mapping]
+    if missing:
+        raise ValueError(
+            f"{path.name} is missing {len(missing)} subject(s), e.g. "
+            + ", ".join(missing[:3])
+        )
+    extra = sorted(set(mapping) - set(keys))
+    if extra:
+        raise ValueError(
+            f"{path.name} maps unknown subjects: " + ", ".join(extra[:3])
+        )
+    return themes, mapping
+
+
+def _ee_subject_signature_text(text: str) -> str:
+    """Fold an EE prompt for equivalence checks.
+
+    The source republishes the same sujet from month to month with cosmetic
+    drift only — a stray space, a missing accent, curly vs straight quotes.
+    Signatures therefore ignore case, accents, punctuation and whitespace so
+    two members of a group must still share their actual wording.
+    """
+    folded = unicodedata.normalize("NFD", text.lower())
+    folded = "".join(
+        char for char in folded if unicodedata.category(char) != "Mn"
+    )
+    return re.sub(r"[^a-z0-9]+", " ", folded).strip()
+
+
+def _ee_subject_signatures(tache: int) -> Dict[str, str]:
+    """Map every content key to a normalised copy of its full prompt text."""
+    directory = EE_TACHE_DIRS[tache]
+    signatures: Dict[str, str] = {}
+    for month_slug in EE_MONTH_ORDER:
+        if tache == 3:
+            subjects = json.loads(
+                (EE_TACHE_THREE_SUBJECTS_DIR / f"{month_slug}.json")
+                .read_text(encoding="utf-8")
+            )["sujets"]
+            vocab = json.loads(
+                (EE_TACHE_THREE_VOCABULARY_DIR / f"{month_slug}.json")
+                .read_text(encoding="utf-8")
+            )["responses"]
+            for subject, row in zip(subjects, vocab):
+                # A Tâche 3 exam item *is* its pair of source documents; the
+                # title is editorial and drifts between republications, so it
+                # is deliberately excluded from the signature.
+                body = "|".join(
+                    str(subject.get(field) or "")
+                    for field in ("document1", "document2")
+                )
+                signatures[str(row["response_key"])] = (
+                    _ee_subject_signature_text(body)
+                )
+            continue
+        rows = json.loads(
+            (directory / "subjects" / f"{month_slug}.json")
+            .read_text(encoding="utf-8")
+        )["sujets"]
+        for row in rows:
+            signatures[str(row["key"])] = _ee_subject_signature_text(
+                str(row["prompt"])
+            )
+    return signatures
+
+
+def load_ee_equivalent_groups(
+    tache: int,
+    path: Optional[Path] = None,
+    *,
+    subject_themes_path: Optional[Path] = None,
+) -> Tuple[EeEquivalentGroupData, ...]:
+    """Load audited EE groups whose sujets the source republished verbatim."""
+    path = path or EE_TACHE_DIRS[tache] / "equivalent_groups.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if (
+        not isinstance(data, dict)
+        or set(data) != {"version", "groups"}
+        or data["version"] != 1
+    ):
+        raise ValueError(f"EE Tâche {tache} equivalent groups must use version 1")
+    if not isinstance(data["groups"], list):
+        raise ValueError(
+            f"EE Tâche {tache} equivalent groups must contain a groups list"
+        )
+
+    keys = load_ee_subject_keys(tache)
+    subject_order = {key: index for index, key in enumerate(keys)}
+    signatures = _ee_subject_signatures(tache)
+    _themes, theme_by_key = load_ee_subject_themes(tache, subject_themes_path)
+
+    seen_ids: set = set()
+    seen_members: set = set()
+    groups: List[EeEquivalentGroupData] = []
+    for index, row in enumerate(data["groups"], start=1):
+        location = f"EE Tâche {tache} equivalent group {index}"
+        if not isinstance(row, dict) or set(row) != {
+            "id",
+            "theme",
+            "canonical",
+            "members",
+        }:
+            raise ValueError(f"{location} has invalid fields")
+        if not isinstance(row["members"], list):
+            raise ValueError(f"{location} members must be a list")
+        group_id = str(row["id"]).strip()
+        theme = str(row["theme"]).strip()
+        canonical = str(row["canonical"]).strip()
+        members = tuple(str(member).strip() for member in row["members"])
+        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", group_id):
+            raise ValueError(f"{location} has an invalid id")
+        if group_id in seen_ids:
+            raise ValueError(
+                f"Duplicate EE Tâche {tache} equivalent group {group_id!r}"
+            )
+        if len(members) < 2 or len(set(members)) != len(members):
+            raise ValueError(f"{location} needs at least two unique members")
+        if canonical not in members:
+            raise ValueError(f"{location} must include its canonical subject")
+        unknown = set(members) - set(subject_order)
+        if unknown:
+            raise ValueError(
+                f"{location} references unknown subjects: "
+                + ", ".join(sorted(unknown))
+            )
+        repeated = set(members) & seen_members
+        if repeated:
+            raise ValueError(
+                f"{location} repeats grouped subjects: "
+                + ", ".join(sorted(repeated))
+            )
+        wrong_theme = [
+            member for member in members if theme_by_key.get(member) != theme
+        ]
+        if wrong_theme:
+            raise ValueError(
+                f"{location} crosses theme boundaries: " + ", ".join(wrong_theme)
+            )
+        expected_canonical = min(members, key=subject_order.__getitem__)
+        if canonical != expected_canonical:
+            raise ValueError(f"{location} canonical must be {expected_canonical!r}")
+        drifted = [
+            member
+            for member in members
+            if signatures[member] != signatures[canonical]
+        ]
+        if drifted:
+            raise ValueError(
+                f"{location} does not share its canonical wording: "
+                + ", ".join(drifted)
+            )
+        seen_ids.add(group_id)
+        seen_members.update(members)
+        groups.append(
+            EeEquivalentGroupData(
+                id=group_id,
+                theme=theme,
+                canonical=canonical,
+                members=members,
+            )
+        )
+    return tuple(groups)
+
+
+def ee_theme_by_content_key(tache: int) -> Dict[str, EeSubjectThemeData]:
+    themes, mapping = load_ee_subject_themes(tache)
+    by_slug = {theme.slug: theme for theme in themes}
+    return {key: by_slug[slug] for key, slug in mapping.items()}
+
+
+def ee_canonical_by_content_key(tache: int) -> Dict[str, str]:
+    """Map each grouped subject to the canonical sujet that represents it."""
+    return {
+        member: group.canonical
+        for group in load_ee_equivalent_groups(tache)
+        for member in group.members
+    }
 
 
 @dataclass(frozen=True)

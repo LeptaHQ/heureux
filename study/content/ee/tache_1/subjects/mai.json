@@ -1,0 +1,64 @@
+{
+  "month": {
+    "number": 5,
+    "slug": "mai",
+    "name": "Mai"
+  },
+  "year": 2025,
+  "task": "tache_1",
+  "epreuve": "Expression écrite — Tâche 1",
+  "annee": 2025,
+  "recupere_le": "2026-09-03",
+  "contenu": "consignes (sujets) uniquement — sans réponses ni corrections",
+  "count": 8,
+  "sujets": [
+    {
+      "id": 323,
+      "combinaison": "Combinaison 1",
+      "key": "ee-tache1:mai:combinaison-1",
+      "prompt": "Le journal ” Bienvenue” compte publier un article qui parle des habitants de notre ville. Écrivez-nous un message qui sera diffusé dans ce numéro. Vous vous êtes récemment installé dans cette ville, et il vous est demandé de vous présenter et décrire ensuite tous vos lieux préférés au sein de cette ville."
+    },
+    {
+      "id": 324,
+      "combinaison": "Combinaison 2",
+      "key": "ee-tache1:mai:combinaison-2",
+      "prompt": "Vous avez emménagé dans une nouvelle ville il y a un mois. Écrivez un courriel à votre ami Léo pour lui donner de vos nouvelles. Parlez-lui de votre appartement, du quartier, de la ville en général, et des activités que vous faites."
+    },
+    {
+      "id": 325,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache1:mai:combinaison-3",
+      "prompt": "Vous voulez partir en week-end avec vos amis le mois prochain. Vous leur écrivez un message pour décrire votre projet (lieu, transport, activités, etc.)."
+    },
+    {
+      "id": 326,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache1:mai:combinaison-3-bis",
+      "prompt": "Vous allez fêter votre anniversaire. Vos amis vous demandent ce que vous souhaitez comme cadeaux. Vous voulez des vêtements. Vous leur écrivez un message pour leur décrire les vêtements que vous aimeriez recevoir."
+    },
+    {
+      "id": 667,
+      "combinaison": "Combinaison 4",
+      "key": "ee-tache1:mai:combinaison-4",
+      "prompt": "Vous avez récemment déménagé dans une nouvelle ville. Invitez votre ami(e) à venir passer les vacances chez vous."
+    },
+    {
+      "id": 668,
+      "combinaison": "Combinaison 5",
+      "key": "ee-tache1:mai:combinaison-5",
+      "prompt": "Vous êtes allé(e) dans un nouveau restaurant près de chez vous. Vous écrivez un courriel à un(e) ami(e) pour lui décrire vos impressions sur ce nouveau restaurant (décoration, personnel, tarifs, cuisine, etc.)."
+    },
+    {
+      "id": 669,
+      "combinaison": "Combinaison 6",
+      "key": "ee-tache1:mai:combinaison-6",
+      "prompt": "Tu as pris des cours au centre de langues cultures pour tous ? Comment est cette école ? Bises, Paul Vous répondez à votre ami Paul. Vous décrivez l'école de langues(salle de cours ,matériel, professeur,.etc)"
+    },
+    {
+      "id": 670,
+      "combinaison": "Combinaison 7",
+      "key": "ee-tache1:mai:combinaison-7",
+      "prompt": "Vous avez envie de passer une journée avec votre ami(e). Vous écrivez à votre ami(e). Vous l'invitez et vous décrivez le programme de la journée (heure, lieu du rendez-vous, activités, etc.)."
+    }
+  ]
+}

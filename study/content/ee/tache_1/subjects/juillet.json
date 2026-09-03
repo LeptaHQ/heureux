@@ -1,0 +1,130 @@
+{
+  "month": {
+    "number": 7,
+    "slug": "juillet",
+    "name": "Juillet"
+  },
+  "year": 2025,
+  "task": "tache_1",
+  "epreuve": "Expression écrite — Tâche 1",
+  "annee": 2025,
+  "recupere_le": "2026-09-03",
+  "contenu": "consignes (sujets) uniquement — sans réponses ni corrections",
+  "count": 19,
+  "sujets": [
+    {
+      "id": 300,
+      "combinaison": "Combinaison 1",
+      "key": "ee-tache1:juillet:combinaison-1",
+      "prompt": "Rédigez un message pour inviter votre ami(e) à passer ses vacances dans votre ville en précisant les lieux et les endroits à visiter."
+    },
+    {
+      "id": 301,
+      "combinaison": "Combinaison 2",
+      "key": "ee-tache1:juillet:combinaison-2",
+      "prompt": "“Salut, j’ai appris que tu vas à une salle de sport et qu’elle est magnifique. Peux-tu m’en dire plus ?”. Écrivez un message pour répondre à votre ami concernant ce sujet."
+    },
+    {
+      "id": 302,
+      "combinaison": "Combinaison 3",
+      "key": "ee-tache1:juillet:combinaison-3",
+      "prompt": "Votre ami(e) veut découvrir la région dans laquelle vous habitez. Écrivez-lui un message pour lui proposer des sites à visiter."
+    },
+    {
+      "id": 303,
+      "combinaison": "Combinaison 4",
+      "key": "ee-tache1:juillet:combinaison-4",
+      "prompt": "Vous allez déménager à Nice, en France. Vous écrivez un message sur le site d’une agence immobilière. Vous donnez les informations nécessaires (superficie, budget, nombre de pièces, etc)."
+    },
+    {
+      "id": 304,
+      "combinaison": "Combinaison 5",
+      "key": "ee-tache1:juillet:combinaison-5",
+      "prompt": "Votre amie Carole et sa famille prévoient de visiter votre ville prochainement. Dans un message, proposez-leur un hôtel où séjourner (tarifs, activités, transports, etc.)"
+    },
+    {
+      "id": 305,
+      "combinaison": "Combinaison 6",
+      "key": "ee-tache1:juillet:combinaison-6",
+      "prompt": "« Salut ! Je sais que tu fais du sport depuis le mois dernier. Ça m’intéresse beaucoup et j’aimerais bien venir avec toi. Tu peux m’en dire plus ? A bientôt ! Camille » Vous répondez à votre ami Camille. Dans votre message, vous décrivez votre activité sportive et vous donnez des informations utiles (lieu, durée, prix, etc.)."
+    },
+    {
+      "id": 306,
+      "combinaison": "Combinaison 7",
+      "key": "ee-tache1:juillet:combinaison-7",
+      "prompt": "Votre amie Jeanne envisage de visiter votre pays. Rédigez un message personnalisé lui proposant un itinéraire de visite. Incluez une variété de lieux tels que des villes, sites touristiques et monuments célèbres, en expliquant brièvement l’intérêt de chaque recommandation."
+    },
+    {
+      "id": 307,
+      "combinaison": "Combinaison 8",
+      "key": "ee-tache1:juillet:combinaison-8",
+      "prompt": "Je cherche un vélo en bon état et bon marché. Contactez-moi par courriel : [email protected] Vous avez un vélo à vendre. Vous écrivez un courriel pour décrire votre vélo et proposer un prix. Vous lui donnez un rendez-vous pour essayer le vélo."
+    },
+    {
+      "id": 308,
+      "combinaison": "Combinaison 9",
+      "key": "ee-tache1:juillet:combinaison-9",
+      "prompt": "Vous avez commandé un objet sur Internet et après réception du colis, vous constatez que l’objet est cassé. Rédigez un e-mail au service clientèle pour signaler le problème, décrivez le dommage de l’objet et précisez ce que vous attendez comme solution."
+    },
+    {
+      "id": 309,
+      "combinaison": "Combinaison 10",
+      "key": "ee-tache1:juillet:combinaison-10",
+      "prompt": "France Télévision prépare un reportage sur le sport amateur. Et vous, quel sportif êtes-vous ? Envoyez-nous vos témoignages sur francetélévision.fr."
+    },
+    {
+      "id": 310,
+      "combinaison": "Combinaison 11",
+      "key": "ee-tache1:juillet:combinaison-11",
+      "prompt": "« Salut, j’ai appris que tu vas à une salle de sport et qu’elle est magnifique. Peux-tu m’en dire plus ? ». Écrivez un message pour répondre à votre ami concernant ce sujet."
+    },
+    {
+      "id": 311,
+      "combinaison": "Combinaison 12",
+      "key": "ee-tache1:juillet:combinaison-12",
+      "prompt": "Vous avez passé un week-end à la campagne. Écrivez un message à votre ami(e) pour lui décrire ce qui s’est passé."
+    },
+    {
+      "id": 312,
+      "combinaison": "Combinaison 13",
+      "key": "ee-tache1:juillet:combinaison-13",
+      "prompt": "Vous avez consulté une annonce en ligne pour la location d’un appartement. Écrivez un courriel au propriétaire pour demander des informations sur l’appartement et le quartier."
+    },
+    {
+      "id": 313,
+      "combinaison": "Combinaison 14",
+      "key": "ee-tache1:juillet:combinaison-14",
+      "prompt": "Répondez au courriel de votre ami Lucas pour lui donner des informations sur les nouveaux locaux de votre entreprise (lieu, disposition des pièces, équipements, etc.)."
+    },
+    {
+      "id": 314,
+      "combinaison": "Combinaison 15",
+      "key": "ee-tache1:juillet:combinaison-15",
+      "prompt": "L’anniversaire de votre ami approche à grands pas et vous avez décidé de lui offrir un voyage comme cadeau. Rédigez un message pour l’informer des préparations que vous avez faites (destination, dates, préparatifs, etc)."
+    },
+    {
+      "id": 316,
+      "combinaison": "Combinaison 41",
+      "key": "ee-tache1:juillet:combinaison-41",
+      "prompt": "Vous avez invité votre ami Cédric à votre mariage au Château de Chombony et il vous a répondu qu’il ne connaît pas ce château. Décrivez-le à votre ami (lieu, localisation, transports, etc.)."
+    },
+    {
+      "id": 317,
+      "combinaison": "Combinaison 42",
+      "key": "ee-tache1:juillet:combinaison-42",
+      "prompt": "Votre ami Mehdi vient d’emménager dans votre ville et cherche des renseignements sur les moyens de transport. Écrivez un message en lui donnant les informations nécessaires (types de transport, abonnement, tarif, etc.)."
+    },
+    {
+      "id": 318,
+      "combinaison": "Combinaison 43",
+      "key": "ee-tache1:juillet:combinaison-43",
+      "prompt": "Vous voulez partir en week-end avec vos amis le mois prochain. Vous leur écrivez un message pour décrire votre projet (lieu, transport, activités, etc.)."
+    },
+    {
+      "id": 319,
+      "combinaison": "Combinaison 44",
+      "key": "ee-tache1:juillet:combinaison-44",
+      "prompt": "“Bonjour, ça y est, j’ai obtenu mon visa pour le Canada. Je vais arriver le 3 mars. Est-ce que tu pourras m’aider à trouver un hôtel pour la première semaine ? Merci d’avance pour ton aide.” Matthias. Vous avez trouvé un hôtel pour Matthias. Vous lui écrivez un courriel. Dans ce message vous décrivez l’hôtel et vous lui donnez toutes les informations utiles (situation, tarif…)."
+    }
+  ]
+}

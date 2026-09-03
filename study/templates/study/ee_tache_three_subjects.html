@@ -2,7 +2,7 @@
 {% block title %}Sujets · {{ task.name }} · Heureux{% endblock %}
 
 {% block content %}
-<div class="ee-t3-page ee-t3-subjects-page">
+<div class="ee-t3-page ee-t3-subjects-page sortable-subject-directory">
   {% include "study/partials/task_nav.html" %}
 
   <header class="memory-overview-hero">
@@ -68,42 +68,37 @@
               </span>
             </summary>
             <div class="t1-table-shell">
-              <table class="t1-table t1-table--grouped t1-table--writing">
+              <table class="t1-table t1-table--grouped" data-nested-sort-table>
                 <caption class="sr-only">Sujets du thème {{ subject_theme.name }}</caption>
                 <colgroup>
                   <col class="t1-table__subject-column">
                   <col class="t1-table__content-column">
-                  <col class="t1-table__writing-status-column">
-                  <col class="t1-table__versions-column">
+                  <col class="t1-table__status-column">
                 </colgroup>
-                <thead>
-                  <tr>
-                    <th scope="col">Sujet</th>
-                    <th scope="col">Publication</th>
-                    <th scope="col">Progression</th>
-                    <th scope="col">Contenu</th>
-                  </tr>
-                </thead>
+                {% include "study/partials/sortable_subject_table_head.html" with secondary_label="Contenu" only %}
                 <tbody>
                   {% for subject in subject_theme.subjects %}
                     <tr
-                      class="t1-table__row subject-progress-row subject-table-row subject-progress-row--{{ subject.progress.status }}"
+                      class="t1-table__row subject-progress-row subject-table-row subject-progress-row--{{ subject.progress.status }} is-status-{{ subject.progress.status }}"
                       data-ee-tache-three-subject-row
+                      data-nested-sort-row
                       data-subject-progress-row="{{ subject.prompt.response_id }}">
                       <td class="t1-table__subject">
-                        <a
-                          class="subject-table-row-link"
-                          href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label="Ouvrir {{ subject.combination_label }} : {{ subject.prompt.text }}">{{ subject.prompt.text }}</a>
+                        <div class="t1-table__subject-copy">
+                          <a
+                            class="subject-table-row-link"
+                            href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Ouvrir {{ subject.combination_label }} : {{ subject.prompt.text }}">{{ subject.prompt.text }}</a>
+                        </div>
+                        <span class="t1-table__subject-date">
+                          {{ subject.month_name }} {{ subject.year }} · {{ subject.combination_label }}
+                          {% if subject.equivalent_count %} · {{ subject.equivalent_count|add:1 }} publications liées{% endif %}
+                          {% if subject.has_source_issue %} · Source signalée{% endif %}
+                        </span>
                       </td>
-                      <td>
-                        <span>{{ subject.month_name }} {{ subject.year }}</span>
-                        <small class="t1-table__subject-date">{{ subject.combination_label }}</small>
-                        {% if subject.equivalent_count %}<span class="chip">{{ subject.equivalent_count|add:1 }} liées</span>{% endif %}
-                        {% if subject.has_source_issue %}<span class="chip">Source signalée</span>{% endif %}
-                      </td>
+                      <td class="t1-table__versions t1-table__questions">{{ subject.document_count }} docs · {{ subject.vocabulary_count }} vocabs</td>
                       <td class="t1-table__progress-cell">
                         <div class="t1-table__progress">
                           <span
@@ -112,7 +107,6 @@
                           {% include "study/partials/subject_completion_form.html" with response_id=subject.prompt.response_id progress=subject.progress subject_label=subject.prompt.text part=part task=task refresh=True %}
                         </div>
                       </td>
-                      <td class="t1-table__versions">{{ subject.document_count }} docs · {{ subject.vocabulary_count }} vocabs</td>
                     </tr>
                   {% endfor %}
                 </tbody>

@@ -346,7 +346,9 @@
     }
 
     function progressRank(row) {
-      var status = row.querySelector("[data-subject-progress-status]");
+      var status = row.querySelector(
+        "[data-subject-progress-status], [data-writing-sujet-progress-status]"
+      );
       if (!status) return 0;
       if (status.classList.contains("progress-status--done")) return 2;
       if (status.classList.contains("progress-status--active")) return 1;

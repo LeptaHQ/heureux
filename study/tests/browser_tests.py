@@ -227,6 +227,20 @@ class BrowserTests(StaticLiveServerTestCase):
         task = task_by_slug["ee/tache-3"]
         return months, task
 
+    def _import_ee_writing_content(self):
+        command = Command()
+        task_by_slug = command._import_sections(load_sections())
+        for tache in (1, 2):
+            command._import_writing_sujets(
+                content.load_ee_writing_categories(tache),
+                task_by_slug,
+                task_key=f"ee/tache-{tache}",
+            )
+        return {
+            tache: task_by_slug[f"ee/tache-{tache}"]
+            for tache in (1, 2)
+        }
+
     def _import_eo_tache_two_content(self):
         command = Command()
         task_by_slug = command._import_sections(load_sections())
@@ -371,6 +385,34 @@ class BrowserTests(StaticLiveServerTestCase):
             ).count(),
             0,
         )
+        first_table = first_theme.locator("[data-nested-sort-table]")
+        first_rows = first_table.locator("[data-nested-sort-row]")
+        original_titles = first_rows.locator(
+            ".subject-table-row-link"
+        ).all_inner_texts()
+        subject_sort = first_table.locator(
+            '[data-nested-table-sort="subject"]'
+        )
+        subject_sort.click()
+        expected_titles = self.page.evaluate(
+            """
+            values => values.slice().sort(
+              new Intl.Collator("fr", {
+                sensitivity: "base",
+                numeric: true,
+              }).compare
+            )
+            """,
+            original_titles,
+        )
+        self.assertEqual(
+            first_rows.locator(".subject-table-row-link").all_inner_texts(),
+            expected_titles,
+        )
+        self.assertEqual(
+            subject_sort.locator("xpath=..").get_attribute("aria-sort"),
+            "ascending",
+        )
         self.assert_no_horizontal_overflow()
 
         for width in (390, 1024):
@@ -407,9 +449,6 @@ class BrowserTests(StaticLiveServerTestCase):
         first_row = first_theme.locator(
             "[data-ee-tache-three-subject-row]:visible"
         ).first
-        detail_path = first_row.locator(
-            ".subject-table-row-link"
-        ).get_attribute("href")
         completion = first_row.locator(
             "[data-subject-completion-form] button"
         )
@@ -458,10 +497,135 @@ class BrowserTests(StaticLiveServerTestCase):
             "[data-ee-tache-three-subject-row]:visible"
         ).first
         subject_link = first_row.locator(".subject-table-row-link")
+        detail_path = subject_link.get_attribute("href")
         self.assert_opens_new_tab(
             subject_link.click,
             detail_path,
         )
+
+    def test_ee_writing_tables_reuse_scoped_sorting_on_mobile(self):
+        tasks = self._import_ee_writing_content()
+
+        for tache, task in tasks.items():
+            with self.subTest(tache=tache):
+                subjects_url = reverse(
+                    "study:task_browse",
+                    args=[task.part.slug, task.slug],
+                )
+                self.page.set_viewport_size(
+                    {"width": 1183, "height": 844}
+                )
+                self.page.goto(self.live_server_url + subjects_url)
+                if (
+                    self.page.locator("html").get_attribute(
+                        "data-collection-view-mode"
+                    )
+                    != "table"
+                ):
+                    self.page.get_by_role("button", name="Tableau").click()
+
+                groups = self.page.locator("[data-t1-table-theme]")
+                self.assertEqual(groups.count(), 11)
+                first_group = groups.first
+                second_group = groups.nth(1)
+                first_group.locator("summary").click()
+                first_table = first_group.locator(
+                    "[data-nested-sort-table]"
+                )
+                first_rows = first_table.locator("[data-nested-sort-row]")
+                second_titles_before = second_group.locator(
+                    "[data-nested-sort-row] .subject-table-row-link"
+                ).all_inner_texts()
+                original_titles = first_rows.locator(
+                    ".subject-table-row-link"
+                ).all_inner_texts()
+
+                subject_sort = first_table.locator(
+                    '[data-nested-table-sort="subject"]'
+                )
+                subject_sort.click()
+                expected_titles = self.page.evaluate(
+                    """
+                    values => values.slice().sort(
+                      new Intl.Collator("fr", {
+                        sensitivity: "base",
+                        numeric: true,
+                      }).compare
+                    )
+                    """,
+                    original_titles,
+                )
+                self.assertEqual(
+                    first_rows.locator(
+                        ".subject-table-row-link"
+                    ).all_inner_texts(),
+                    expected_titles,
+                )
+                self.assertEqual(
+                    subject_sort.locator("xpath=..").get_attribute(
+                        "aria-sort"
+                    ),
+                    "ascending",
+                )
+
+                first_rows.evaluate_all(
+                    """
+                    rows => rows.forEach(row => {
+                      const status = row.querySelector(
+                        "[data-writing-sujet-progress-status]"
+                      );
+                      status.classList.remove(
+                        "progress-status--done",
+                        "progress-status--active"
+                      );
+                      status.classList.add("progress-status--new");
+                    })
+                    """
+                )
+                progress_target = first_rows.last
+                progress_target.evaluate(
+                    """
+                    row => {
+                      row.dataset.sortTestTarget = "true";
+                      const status = row.querySelector(
+                        "[data-writing-sujet-progress-status]"
+                      );
+                      status.classList.remove("progress-status--new");
+                      status.classList.add("progress-status--done");
+                    }
+                    """
+                )
+                progress_sort = first_table.locator(
+                    '[data-nested-table-sort="progress"]'
+                )
+                progress_sort.click()
+                self.assertEqual(
+                    first_rows.first.get_attribute("data-sort-test-target"),
+                    "true",
+                )
+                self.assertEqual(
+                    progress_sort.locator("xpath=..").get_attribute(
+                        "aria-sort"
+                    ),
+                    "descending",
+                )
+                self.assertEqual(
+                    second_group.locator(
+                        "[data-nested-sort-row] .subject-table-row-link"
+                    ).all_inner_texts(),
+                    second_titles_before,
+                )
+
+                self.page.set_viewport_size(
+                    {"width": 320, "height": 700}
+                )
+                self.assertFalse(
+                    first_group.locator(".t1-table-shell").evaluate(
+                        "element => "
+                        "element.scrollWidth > element.clientWidth"
+                    )
+                )
+                self.assert_no_horizontal_overflow()
 
     def test_ee_tache_one_rows_navigate_without_completion_click_through(self):
         ee_part = factories.make_part("ee")

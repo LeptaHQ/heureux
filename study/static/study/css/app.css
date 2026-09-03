@@ -16110,75 +16110,54 @@ html[data-collection-view-mode="table"]
   .tache-two-batch-table-shell {
     overflow-x: hidden;
   }
-  .tache-two-subjects .t1-table {
+  .sortable-subject-directory .t1-table {
     width: 100%;
     min-width: 0;
     table-layout: fixed;
   }
-  .tache-two-subjects .t1-table th,
-  .tache-two-subjects .t1-table td {
+  .sortable-subject-directory .t1-table th,
+  .sortable-subject-directory .t1-table td {
     padding-inline: 0.65rem;
   }
-  .tache-two-subjects .t1-table th:nth-child(2),
-  .tache-two-subjects .t1-table td:nth-child(2),
-  .tache-two-subjects .t1-table__questions-column {
+  .sortable-subject-directory .t1-table th:nth-child(2),
+  .sortable-subject-directory .t1-table td:nth-child(2),
+  .sortable-subject-directory .t1-table__questions-column {
     display: none;
   }
-  .tache-two-subjects .t1-table th:nth-child(3),
-  .tache-two-subjects .t1-table td:nth-child(3) {
+  .sortable-subject-directory .t1-table th:nth-child(3),
+  .sortable-subject-directory .t1-table td:nth-child(3) {
     width: 5rem;
   }
-  .tache-two-subjects .t1-table__status-column {
+  .sortable-subject-directory .t1-table__status-column {
     width: 5rem;
   }
-  .tache-two-subjects .t1-table th:nth-child(3),
+  .sortable-subject-directory .t1-table th:nth-child(3),
   .ee-t1-page .t1-table--writing th:nth-child(3) {
     font-size: 0;
   }
-  .tache-two-subjects .t1-table th:nth-child(3)::after,
+  .sortable-subject-directory .t1-table th:nth-child(3)::after,
   .ee-t1-page .t1-table--writing th:nth-child(3)::after {
     content: "État";
     font-size: 0.72rem;
   }
-  .tache-two-subjects .t1-table th:nth-child(3)::after {
+  .sortable-subject-directory .t1-table th:nth-child(3)::after {
     content: none;
   }
-  .tache-two-subjects .t1-table__sort-button {
+  .sortable-subject-directory .t1-table__sort-button {
     min-height: 44px;
   }
-  .tache-two-subjects
+  .sortable-subject-directory
     .t1-table
     th:nth-child(3)
     .t1-table__sort-button {
     font-size: 0.72rem;
   }
-  .tache-two-subjects .t1-table__sort-label--full { display: none; }
-  .tache-two-subjects .t1-table__sort-label--compact { display: inline; }
-  .tache-two-subjects .t1-table__subject {
+  .sortable-subject-directory .t1-table__sort-label--full { display: none; }
+  .sortable-subject-directory .t1-table__sort-label--compact { display: inline; }
+  .sortable-subject-directory .t1-table__subject {
     overflow-wrap: anywhere;
   }
-  .ee-writing-subjects .t1-table th:nth-child(4),
-  .ee-writing-subjects .t1-table td:nth-child(4),
-  .ee-writing-subjects .t1-table__versions-column,
-  .ee-t3-subjects-page .t1-table th:nth-child(2),
-  .ee-t3-subjects-page .t1-table td:nth-child(2),
-  .ee-t3-subjects-page .t1-table th:nth-child(4),
-  .ee-t3-subjects-page .t1-table td:nth-child(4),
-  .ee-t3-subjects-page .t1-table__content-column,
-  .ee-t3-subjects-page .t1-table__versions-column {
-    display: none;
-  }
-  .ee-t3-subjects-page .t1-table--writing {
-    width: 100%;
-    min-width: 0;
-    table-layout: fixed;
-  }
-  .ee-t3-subjects-page .t1-table th:nth-child(3),
-  .ee-t3-subjects-page .t1-table td:nth-child(3),
-  .ee-t3-subjects-page .t1-table__writing-status-column {
-    width: 5rem;
-  }
-  .tache-two-subjects .t1-table__subject-copy {
+  .sortable-subject-directory .t1-table__subject-copy {
     align-items: flex-start;
   }
   .t1-table__progress {

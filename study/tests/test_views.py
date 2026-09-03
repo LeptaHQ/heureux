@@ -1128,6 +1128,18 @@ class EeTacheThreePageTests(TestCase):
             "data-ee-tache-three-subject-row",
             count=276,
         )
+        self.assertContains(response, "data-nested-sort-table", count=11)
+        self.assertContains(
+            response,
+            'data-nested-table-sort="subject"',
+            count=11,
+        )
+        self.assertContains(
+            response,
+            'data-nested-table-sort="progress"',
+            count=11,
+        )
+        self.assertContains(response, "data-nested-sort-row", count=138)
         self.assertContains(response, 'data-collection-view-panel="table"')
         self.assertContains(response, 'data-collection-view-panel="cards"')
         self.assertContains(response, "data-collection-view-toggle")

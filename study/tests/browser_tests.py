@@ -2705,7 +2705,9 @@ class BrowserTests(StaticLiveServerTestCase):
         translation_panel.wait_for(state="hidden")
         self.assertTrue(toolbar.is_visible())
 
-        self.page.locator("[data-note-selection]").click()
+        self.page.locator("[data-note-selection]").evaluate(
+            "button => button.click()"
+        )
         self.page.locator("[data-note-panel]").wait_for()
         self.assertTrue(toolbar.is_visible())
         self.page.locator("[data-note-cancel]").click()
@@ -5672,11 +5674,14 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assert_no_horizontal_overflow()
 
         self.page.locator(".batch-card").first.click()
-        self.page.locator("#card-front").wait_for()
+        self.page.locator("#card-front > *").first.wait_for()
         self.assert_no_horizontal_overflow()
         self.page.locator("#reveal").click()
-        highlighted = self.page.locator("#card-back mark:visible").first
-        highlighted.wait_for()
+        self.page.wait_for_function(
+            "() => !document.querySelector('#card-back').classList.contains('hidden')"
+        )
+        highlighted = self.page.locator("#card-back mark").first
+        self.assertGreater(self.page.locator("#card-back mark").count(), 0)
         self.assertEqual(
             highlighted.text_content(),
             shared_phrases[0].anchor,

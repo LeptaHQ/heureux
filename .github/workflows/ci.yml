@@ -45,7 +45,11 @@ jobs:
       - run: python manage.py import_content
       - run: python manage.py import_content --if-changed
       - run: python manage.py collectstatic --noinput
-      - run: python manage.py test --parallel
+      - run: python manage.py test --parallel --exclude-tag=database-locking
+        env:
+          DEBUG: "True"
+          SECURE_SSL_REDIRECT: "False"
+      - run: python manage.py test --tag=database-locking --parallel=1
         env:
           DEBUG: "True"
           SECURE_SSL_REDIRECT: "False"

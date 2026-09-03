@@ -19,6 +19,7 @@ from django.test import (
     TransactionTestCase,
     override_settings,
     skipUnlessDBFeature,
+    tag,
 )
 from django.urls import reverse
 from django.utils import timezone
@@ -3156,6 +3157,7 @@ class ReviewFlowTests(TestCase):
 
 
 @skipUnlessDBFeature("has_select_for_update")
+@tag("database-locking")
 class ReviewConcurrencyTests(TransactionTestCase):
     def setUp(self):
         self.user = factories.make_user("concurrent")

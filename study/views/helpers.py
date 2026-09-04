@@ -1085,9 +1085,10 @@ def _task_card(
     question_bank = None
     subject_state = None
     summary = (summaries or {}).get(task.pk)
+    task_key = (task.part.slug, task.slug)
     if (
         task.available
-        and (task.part.slug, task.slug)
+        and task_key
         in {
             content_module.EE_TACHE_ONE_TASK,
             content_module.EE_TACHE_TWO_TASK,
@@ -1107,7 +1108,39 @@ def _task_card(
     if (
         task.available
         and with_stats
-        and (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK
+        and task_key == content_module.EO_TACHE_ONE_TASK
+    ):
+        directory, namespace = content_module.MEMOIRE_TASKS[task_key]
+        memories = content_module.load_question_banks(
+            directory,
+            key_namespace=namespace,
+        )
+        if batched_stats is not None:
+            task_progress = batched_stats["progress"]
+        else:
+            memory_states = _memory_progress(user, memories)
+            task_progress = combine_progress(
+                memory_states[memory.number]["progress"]
+                for memory in memories
+            )
+        question_bank = {
+            "title": memories[0].title,
+            "category_count": sum(
+                memory.category_count for memory in memories
+            ),
+            "question_count": sum(
+                memory.question_count for memory in memories
+            ),
+            "progress": task_progress,
+            "active_count": max(
+                task_progress.started - task_progress.completed,
+                0,
+            ),
+        }
+    if (
+        task.available
+        and with_stats
+        and task_key == content_module.QUESTION_BANK_TASK
     ):
         if batched_stats is None:
             subject_state = _tache_two_progress(
@@ -1417,6 +1450,7 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
     writing_task_ids = []
     subject_task_ids = []
     question_bank_task_id = None
+    direct_question_bank_tasks = []
     ee_tache_three_task_id = None
     for task in available:
         task_key = (task.part.slug, task.slug)
@@ -1425,6 +1459,9 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
             content_module.EE_TACHE_TWO_TASK,
         }:
             writing_task_ids.append(task.pk)
+            continue
+        if task_key == content_module.EO_TACHE_ONE_TASK:
+            direct_question_bank_tasks.append(task)
             continue
         subject_task_ids.append(task.pk)
         if task_key == content_module.QUESTION_BANK_TASK:
@@ -1516,4 +1553,30 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
         writing_task_ids,
         content_counts,
     )
+    for task in direct_question_bank_tasks:
+        task_key = (task.part.slug, task.slug)
+        directory, namespace = content_module.MEMOIRE_TASKS[task_key]
+        memories = content_module.load_question_banks(
+            directory,
+            key_namespace=namespace,
+        )
+        memory_states = _memory_progress(user, memories)
+        progress = combine_progress(
+            memory_states[memory.number]["progress"]
+            for memory in memories
+        )
+        summaries[task.pk] = {
+            "prompt_count": progress.total,
+            "stats": {
+                "progress": progress,
+                "total": progress.total,
+                "completed": progress.completed,
+                "started_new": max(
+                    progress.started - progress.completed,
+                    0,
+                ),
+                "seen": progress.started,
+                "due": 0,
+            },
+        }
     return summaries

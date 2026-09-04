@@ -18,6 +18,7 @@ from django.utils import timezone
 from study.account_services import provision_user_study_data
 from study.content_loader import (
     AI_EXAMINER_PROMPT_PATH,
+    EO_TACHE_ONE_QUESTION_BANK_DIR,
     EO_TACHE_THREE_THEME_VOCABULARY_CATEGORIES,
     EO_TACHE_THREE_THEME_VOCABULARY_DIR,
     EO_TACHE_THREE_THEME_VOCABULARY_PER_KIND,
@@ -60,6 +61,7 @@ from study.models import (
     ThemeVocabularyProgress,
 )
 from study.routing import response_detail_url
+from study.views.helpers import expression_task_summaries
 
 annotation_migration = import_module(
     "study.migrations.0040_shared_tache_two_annotation_keys"
@@ -303,6 +305,35 @@ class QuestionBankContentTests(TestCase):
 
         self.assertEqual(len(questions), 572)
         self.assertEqual(len(set(questions)), 572)
+
+    def test_tache_one_question_bank_is_universal_and_answer_free(self):
+        banks = load_question_banks(
+            EO_TACHE_ONE_QUESTION_BANK_DIR,
+            key_namespace="eo-tache1",
+        )
+
+        self.assertEqual(len(banks), 1)
+        bank = banks[0]
+        self.assertEqual(bank.title, "Questions de l’entretien dirigé")
+        self.assertEqual(bank.category_count, 9)
+        self.assertEqual(bank.question_count, 70)
+        self.assertEqual(len(set(bank.question_keys)), 70)
+        self.assertTrue(
+            all(
+                key.startswith("memory:eo-tache1:1:question:")
+                for key in bank.question_keys
+            )
+        )
+        questions = [
+            question.text
+            for section in bank.sections
+            for group in section.groups
+            for question in group.questions
+        ]
+        self.assertIn("Pouvez-vous vous présenter ?", questions)
+        self.assertIn("Que faites-vous dans la vie ?", questions)
+        self.assertNotIn("Cornelius", " ".join(questions))
+        self.assertNotIn("Microsoft", " ".join(questions))
 
     def test_subject_questions_point_at_their_own_theme_memoire(self):
         themes = json.loads(
@@ -1796,6 +1827,126 @@ class EoTacheThreeThemeVocabularyViewTests(TestCase):
             self._directory_url(),
         )
         self.assertEqual(all_themes.context["scope_label"], "Vocabulaire")
+
+
+class EoTacheOneQuestionBankViewTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command("import_content", stdout=StringIO())
+        cls.user = factories.make_user("tache-one-question-bank")
+        provision_user_study_data(cls.user)
+        cls.task = Task.objects.select_related("part").get(
+            part__slug="eo",
+            slug="tache-1",
+        )
+        cls.bank = load_question_banks(
+            EO_TACHE_ONE_QUESTION_BANK_DIR,
+            key_namespace="eo-tache1",
+        )[0]
+
+    def setUp(self):
+        self.client.force_login(self.user)
+
+    def test_task_is_available_and_opens_the_question_bank(self):
+        response = self.client.get(
+            reverse(
+                "study:task_detail",
+                args=[self.task.part.slug, self.task.slug],
+            )
+        )
+
+        self.assertTrue(self.task.available)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "study/question_bank.html")
+        self.assertEqual(response.context["question_bank"].question_count, 70)
+        self.assertEqual(len(response.context["memory_sections"]), 9)
+        self.assertContains(response, "Questions de l’entretien dirigé")
+        self.assertContains(response, "data-question-bank-question", count=70)
+        self.assertContains(response, ">Questions</a>")
+        self.assertNotContains(response, ">Sujets</a>")
+        self.assertNotContains(response, ">Pratiquer</a>")
+        self.assertNotContains(response, "data-card-back")
+
+    def test_oral_part_card_reports_question_content_and_progress(self):
+        response = self.client.get(
+            reverse("study:part_detail", args=[self.task.part.slug])
+        )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Questions de l’entretien dirigé")
+        self.assertContains(response, "9 catégories")
+        self.assertContains(response, "70 questions")
+        self.assertContains(response, "0/70 apprises")
+
+    def test_question_progress_is_saved_for_the_current_user(self):
+        question_key = self.bank.question_keys[0]
+        response = self.client.post(
+            reverse(
+                "study:task_memory_progress",
+                args=[
+                    self.task.part.slug,
+                    self.task.slug,
+                    self.bank.number,
+                ],
+            ),
+            {
+                "question_key": question_key,
+                "completed": "1",
+            },
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()["memory"]["completed"], 1)
+        self.assertEqual(response.json()["memory"]["total"], 70)
+        self.assertTrue(
+            MemoryQuestionProgress.objects.filter(
+                user=self.user,
+                memory_number=self.bank.number,
+                question_key=question_key,
+            ).exists()
+        )
+
+    def test_question_progress_rolls_up_to_expression_summaries(self):
+        MemoryQuestionProgress.objects.create(
+            user=self.user,
+            memory_number=self.bank.number,
+            question_key=self.bank.question_keys[0],
+        )
+
+        summary = expression_task_summaries(
+            timezone.now(),
+            self.user,
+            [self.task],
+        )[self.task.pk]
+
+        self.assertEqual(summary["prompt_count"], 70)
+        self.assertEqual(summary["stats"]["total"], 70)
+        self.assertEqual(summary["stats"]["seen"], 1)
+        self.assertEqual(summary["stats"]["completed"], 1)
+
+    def test_memory_urls_redirect_to_the_direct_question_page(self):
+        task_url = reverse(
+            "study:task_detail",
+            args=[self.task.part.slug, self.task.slug],
+        )
+
+        for url in (
+            reverse(
+                "study:task_memories",
+                args=[self.task.part.slug, self.task.slug],
+            ),
+            reverse(
+                "study:task_memory_detail",
+                args=[
+                    self.task.part.slug,
+                    self.task.slug,
+                    self.bank.number,
+                ],
+            ),
+        ):
+            with self.subTest(url=url):
+                self.assertRedirects(self.client.get(url), task_url)
 
 
 class QuestionBankViewTests(TestCase):

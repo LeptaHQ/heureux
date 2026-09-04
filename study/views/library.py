@@ -923,6 +923,17 @@ def task_detail(request, part_slug, task_slug):
             "study/coming_soon.html",
             {"part": task.part, "task": task},
         )
+    if (task.part.slug, task.slug) == content_module.EO_TACHE_ONE_TASK:
+        question_bank = _load_task_memoires(task)[0]
+        return render(
+            request,
+            "study/question_bank.html",
+            _question_bank_page_context(
+                request.user,
+                task,
+                question_bank,
+            ),
+        )
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
         theme_vocabulary = _tache_two_theme_vocabulary_overview_context(
             request.user,
@@ -1549,7 +1560,7 @@ def _memory_task(part_slug, task_slug):
 
 
 def _memoire_task(part_slug, task_slug):
-    """Gate for tasks that expose a Mémoires section (EO T2 and EE T3)."""
+    """Gate routes backed by reusable question-bank content."""
     task = get_object_or_404(
         Task.objects.select_related("part"),
         slug=task_slug,
@@ -1589,6 +1600,12 @@ def _memory_by_number(memories, memory_number):
 
 def task_memories(request, part_slug, task_slug):
     task = _memoire_task(part_slug, task_slug)
+    if (task.part.slug, task.slug) == content_module.EO_TACHE_ONE_TASK:
+        return redirect(
+            "study:task_detail",
+            part_slug=task.part.slug,
+            task_slug=task.slug,
+        )
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
         return redirect("study:tache_two_theme_vocabulary")
     memories = _load_task_memoires(task)
@@ -2535,6 +2552,27 @@ def _memory_sections(memory, completed_keys):
     return sections
 
 
+def _question_bank_page_context(user, task, question_bank):
+    memory_state = _memory_progress(
+        user,
+        (question_bank,),
+    )[question_bank.number]
+    return {
+        "part": task.part,
+        "task": task,
+        "memory_task": (
+            (task.part.slug, task.slug)
+            == content_module.QUESTION_BANK_TASK
+        ),
+        "question_bank": question_bank,
+        "memory_progress": memory_state["progress"],
+        "memory_sections": _memory_sections(
+            question_bank,
+            memory_state["completed_keys"],
+        ),
+    }
+
+
 def _memory_progress_error(request, message):
     if request.headers.get("X-Requested-With") == "fetch":
         return JsonResponse({"error": message}, status=400)
@@ -2543,31 +2581,24 @@ def _memory_progress_error(request, message):
 
 def task_memory_detail(request, part_slug, task_slug, memory_number):
     task = _memoire_task(part_slug, task_slug)
+    if (task.part.slug, task.slug) == content_module.EO_TACHE_ONE_TASK:
+        return redirect(
+            "study:task_detail",
+            part_slug=task.part.slug,
+            task_slug=task.slug,
+        )
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
         return redirect("study:tache_two_theme_vocabulary")
     memories = _load_task_memoires(task)
     question_bank = _memory_by_number(memories, memory_number)
-    memory_state = _memory_progress(
-        request.user,
-        (question_bank,),
-    )[question_bank.number]
     return render(
         request,
         "study/question_bank.html",
-        {
-            "part": task.part,
-            "task": task,
-            "memory_task": (
-                (task.part.slug, task.slug)
-                == content_module.QUESTION_BANK_TASK
-            ),
-            "question_bank": question_bank,
-            "memory_progress": memory_state["progress"],
-            "memory_sections": _memory_sections(
-                question_bank,
-                memory_state["completed_keys"],
-            ),
-        },
+        _question_bank_page_context(
+            request.user,
+            task,
+            question_bank,
+        ),
     )
 
 
@@ -2647,6 +2678,12 @@ def task_memory_progress(request, part_slug, task_slug, memory_number):
                     "label": section_summary.label,
                 },
             }
+        )
+    if (task.part.slug, task.slug) == content_module.EO_TACHE_ONE_TASK:
+        return redirect(
+            "study:task_detail",
+            part_slug=task.part.slug,
+            task_slug=task.slug,
         )
     return redirect(
         reverse(

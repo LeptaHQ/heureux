@@ -29,6 +29,8 @@ THEMES_PATH = CONTENT_DIR / "themes.json"
 SECTIONS_PATH = CONTENT_DIR / "sections.json"
 COMPREHENSION_DIR = CONTENT_DIR / "comprehension"
 COMPREHENSION_TESTS_PATH = COMPREHENSION_DIR / "tests.json"
+EO_TACHE_ONE_TASK = ("eo", "tache-1")
+EO_TACHE_ONE_QUESTION_BANK_DIR = CONTENT_DIR / "tache_1"
 QUESTION_BANK_PATH = CONTENT_DIR / "tache_2" / "master_question_bank_1.json"
 QUESTION_BANK_DIR = QUESTION_BANK_PATH.parent
 AI_EXAMINER_PROMPT_PATH = QUESTION_BANK_DIR / "ai_examiner_prompt.md"
@@ -120,10 +122,11 @@ EE_TACHE_CONTENT_PREFIXES = {
     3: EE_TACHE_THREE_CONTENT_PREFIX,
 }
 
-# Memory-backed tasks mapped to their JSON directory and progress-key namespace.
-# EO T2 remains here for its subject source bank and legacy URL redirects; only
-# EE T3 still exposes the bank as a user-facing Mémoires section.
+# Question-bank-backed tasks mapped to their JSON directory and progress-key
+# namespace. EO T1 opens its single bank directly, EO T2 retains the files for
+# subject references and legacy redirects, and EE T3 exposes Mémoires.
 MEMOIRE_TASKS = {
+    EO_TACHE_ONE_TASK: (EO_TACHE_ONE_QUESTION_BANK_DIR, "eo-tache1"),
     QUESTION_BANK_TASK: (QUESTION_BANK_DIR, ""),
     EE_TACHE_THREE_TASK: (EE_TACHE_THREE_MEMOIRES_DIR, "ee-tache3"),
 }
@@ -951,11 +954,11 @@ def load_question_banks(
         )
     )
     if not banks:
-        raise ValueError("Tâche 2 needs at least one memory")
+        raise ValueError("A question-bank directory needs at least one bank")
     numbers = [bank.number for bank in banks]
     if numbers != list(range(1, len(banks) + 1)):
         raise ValueError(
-            "Tâche 2 memories must be numbered consecutively from 1"
+            "Question banks must be numbered consecutively from 1"
         )
     return banks
 

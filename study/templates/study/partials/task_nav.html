@@ -12,15 +12,17 @@
     <strong>{{ task.name }}</strong>
   {% endif %}
 </div>
-<nav class="task-nav{% if memory_task or part.slug == 'eo' and task.slug == 'tache-2' %} task-nav--memories{% endif %}{% if part.slug == 'eo' and task.slug == 'tache-3' %} task-nav--eo-t3{% endif %}{% if part.slug == 'ee' and task.slug == 'tache-3' %} task-nav--ee-t3{% endif %}{% if compact %} task-nav--compact{% endif %}" style="--task-accent: {{ task.color }};" aria-label="Navigation de {{ task.name }}">
-  {% if part.slug == 'ee' and task.slug == 'tache-1' or part.slug == 'ee' and task.slug == 'tache-2' %}
+<nav class="task-nav{% if memory_task or part.slug == 'eo' and task.slug == 'tache-1' or part.slug == 'eo' and task.slug == 'tache-2' %} task-nav--memories{% endif %}{% if part.slug == 'eo' and task.slug == 'tache-3' %} task-nav--eo-t3{% endif %}{% if part.slug == 'ee' and task.slug == 'tache-3' %} task-nav--ee-t3{% endif %}{% if compact %} task-nav--compact{% endif %}" style="--task-accent: {{ task.color }};" aria-label="Navigation de {{ task.name }}">
+  {% if part.slug == 'eo' and task.slug == 'tache-1' %}
+    <a class="is-active" href="{% url 'study:task_detail' part.slug task.slug %}">Questions</a>
+  {% elif part.slug == 'ee' and task.slug == 'tache-1' or part.slug == 'ee' and task.slug == 'tache-2' %}
     <a class="{% if request.resolver_match.url_name == 'task_detail' or request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'writing_sujet_detail' or request.resolver_match.url_name == 'writing_sujet_edit' %}is-active{% endif %}"
        href="{% url 'study:task_detail' part.slug task.slug %}">Sujets</a>
   {% else %}
   <a class="{% if request.resolver_match.url_name == 'task_detail' %}is-active{% endif %}"
      href="{% url 'study:task_detail' part.slug task.slug %}">Vue d'ensemble</a>
   {% endif %}
-  {% if part.slug == 'ee' and task.slug == 'tache-1' or part.slug == 'ee' and task.slug == 'tache-2' %}
+  {% if part.slug == 'eo' and task.slug == 'tache-1' or part.slug == 'ee' and task.slug == 'tache-1' or part.slug == 'ee' and task.slug == 'tache-2' %}
   {% elif part.slug == 'eo' and task.slug == 'tache-2' %}
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'task_subject_batch' or request.resolver_match.url_name == 'task_subject_detail' %}is-active{% endif %}"
        href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a>

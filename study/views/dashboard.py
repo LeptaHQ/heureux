@@ -147,7 +147,7 @@ def _skill_rings(expression_paths, comprehension):
                 "available": bool(path["available"] and path["has_content"]),
                 "percent": progress.percent,
                 "detail": (
-                    f"{progress.completed}/{progress.total} sujets"
+                    f"{progress.completed}/{progress.total} éléments"
                     if progress.total
                     else "Bientôt disponible"
                 ),

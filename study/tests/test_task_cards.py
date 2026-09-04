@@ -886,7 +886,7 @@ class ExpressionPathSummaryTests(TestCase):
                 self.assertEqual(skills[slug]["status"], progress.status)
                 self.assertEqual(
                     skills[slug]["detail"],
-                    f"{progress.completed}/{progress.total} sujets",
+                    f"{progress.completed}/{progress.total} éléments",
                 )
 
     def test_query_count_does_not_grow_with_the_number_of_tasks(self):

@@ -14,9 +14,9 @@
           "name": "Tâche 1",
           "subtitle": "Entretien dirigé",
           "icon": "hand-wave",
-          "color": "#8a94a6",
+          "color": "#173f90",
           "order": 1,
-          "available": false
+          "available": true
         },
         {
           "slug": "tache-2",

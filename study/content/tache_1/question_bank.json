@@ -1,0 +1,196 @@
+{
+  "number": 1,
+  "title": "Questions de l’entretien dirigé",
+  "label": "Entretien dirigé",
+  "icon": "hand-wave",
+  "subtitle": "70 questions personnelles pour apprendre à répondre spontanément, sans réponse modèle.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Se présenter et parler de soi",
+      "guidance": "Présenter clairement son identité, sa situation actuelle et les langues que l’on parle.",
+      "groups": [
+        {
+          "title": "Identité et situation actuelle",
+          "guidance": "Répondre directement, puis ajouter un détail personnel pertinent.",
+          "questions": [
+            "Pouvez-vous vous présenter ?",
+            "Quel âge avez-vous ?",
+            "D’où venez-vous ?",
+            "Où habitez-vous actuellement ?",
+            "Depuis combien de temps vivez-vous dans votre pays de résidence actuel ?",
+            "Quelles langues parlez-vous ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Origines et vie à l’étranger",
+      "guidance": "Parler de son pays d’origine, de son adaptation et de son expérience à l’étranger.",
+      "groups": [
+        {
+          "title": "Pays d’origine et pays de résidence",
+          "guidance": "Comparer à partir de son expérience personnelle sans faire de généralisation excessive.",
+          "questions": [
+            "Pourquoi êtes-vous venu vivre dans votre pays de résidence actuel ?",
+            "Pouvez-vous me parler de votre pays d’origine ?",
+            "Qu’est-ce qui vous manque le plus de votre pays d’origine ?",
+            "Quelles différences remarquez-vous entre votre pays d’origine et votre pays de résidence actuel ?",
+            "Était-il difficile de vous adapter à la vie à l’étranger ?",
+            "Qu’aimez-vous dans votre pays de résidence actuel ?",
+            "Préférez-vous vivre dans votre pays d’origine ou dans votre pays de résidence actuel ?",
+            "Retournez-vous souvent dans votre pays d’origine ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Études et parcours universitaire",
+      "guidance": "Décrire sa formation, ses choix et ce que les études ont apporté.",
+      "groups": [
+        {
+          "title": "Formation et expérience étudiante",
+          "guidance": "Illustrer les réponses avec un cours, un projet ou un souvenir précis.",
+          "questions": [
+            "Où avez-vous fait vos études ?",
+            "Qu’avez-vous étudié à l’université ?",
+            "Pourquoi avez-vous choisi ce domaine ?",
+            "Pourquoi avez-vous choisi votre université ?",
+            "Comment était votre vie étudiante ?",
+            "Qu’avez-vous appris grâce à vos études ?",
+            "Quel souvenir important gardez-vous de vos études ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Travail et carrière",
+      "guidance": "Présenter son métier simplement, puis expliquer ses responsabilités, ses motivations et ses projets.",
+      "groups": [
+        {
+          "title": "Métier, responsabilités et évolution",
+          "guidance": "Adapter le niveau de détail technique à un interlocuteur non spécialiste.",
+          "questions": [
+            "Que faites-vous dans la vie ?",
+            "Dans quelle entreprise ou quel secteur travaillez-vous ?",
+            "En quoi consiste exactement votre travail ?",
+            "Pouvez-vous expliquer votre métier simplement ?",
+            "Pourquoi avez-vous choisi ce métier ?",
+            "Qu’est-ce qui vous intéresse le plus dans votre domaine ?",
+            "Décrivez une journée de travail typique.",
+            "Travaillez-vous seul ou en équipe ?",
+            "Qu’est-ce qui vous plaît le plus dans votre travail ?",
+            "Quelle est la partie la plus difficile de votre travail ?",
+            "Votre travail est-il stressant ?",
+            "Quelles qualités faut-il avoir pour exercer votre métier ?",
+            "Que souhaitez-vous faire plus tard dans votre carrière ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Famille et relations",
+      "guidance": "Parler de ses proches, de la distance et des valeurs familiales avec des exemples simples.",
+      "groups": [
+        {
+          "title": "Les proches et la vie familiale",
+          "guidance": "Ne donner que les informations personnelles que l’on souhaite partager.",
+          "questions": [
+            "Pouvez-vous me parler de votre famille ?",
+            "Avez-vous des frères et sœurs ?",
+            "Êtes-vous proche de votre famille ?",
+            "Comment restez-vous en contact avec vos proches ?",
+            "Que faites-vous lorsque vous êtes avec votre famille ?",
+            "Quelles valeurs votre famille vous a-t-elle transmises ?",
+            "Comment célébrez-vous les fêtes importantes ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Loisirs et temps libre",
+      "guidance": "Expliquer ses goûts, ses habitudes et les raisons pour lesquelles on apprécie une activité.",
+      "groups": [
+        {
+          "title": "Films, lecture et activités personnelles",
+          "guidance": "Préparer au moins un exemple concret de film, de livre ou de projet personnel.",
+          "questions": [
+            "Que faites-vous pendant votre temps libre ?",
+            "Quel genre de films aimez-vous ?",
+            "Quel est votre film préféré ?",
+            "Quel film avez-vous regardé récemment ?",
+            "Préférez-vous regarder des films au cinéma ou chez vous ?",
+            "Quel genre de livres lisez-vous ?",
+            "Quel livre avez-vous lu récemment ?",
+            "Avez-vous une activité créative ou technique en dehors du travail ?",
+            "Que faites-vous généralement le week-end ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Vie quotidienne, alimentation et voyages",
+      "guidance": "Décrire ses habitudes et raconter brièvement une expérience concrète.",
+      "groups": [
+        {
+          "title": "Organisation personnelle et découvertes",
+          "guidance": "Utiliser le présent pour les habitudes et le passé pour une expérience de voyage.",
+          "questions": [
+            "Que faites-vous généralement après le travail ou les études ?",
+            "Comment organisez-vous votre temps ?",
+            "Aimez-vous cuisiner et quel est votre plat préféré ?",
+            "Aimez-vous voyager ?",
+            "Quel pays ou quelle ville aimeriez-vous visiter ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Apprentissage du français",
+      "guidance": "Expliquer sa motivation, ses méthodes, ses difficultés et ses objectifs linguistiques.",
+      "groups": [
+        {
+          "title": "Motivation et méthodes d’apprentissage",
+          "guidance": "Donner des exemples réels de pratique régulière et de progrès.",
+          "questions": [
+            "Pourquoi apprenez-vous le français ?",
+            "Depuis combien de temps apprenez-vous le français ?",
+            "Comment apprenez-vous le français ?",
+            "Quelle est la partie la plus difficile du français pour vous ?",
+            "Comment pratiquez-vous l’expression orale ?",
+            "Pourquoi passez-vous cet examen de français ?",
+            "Comment utiliserez-vous le français à l’avenir ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Personnalité, expériences et projets",
+      "guidance": "Présenter ses qualités, tirer une leçon d’une expérience passée et parler de l’avenir.",
+      "groups": [
+        {
+          "title": "Réflexion personnelle et avenir",
+          "guidance": "Appuyer les qualités et les réussites sur un exemple concret.",
+          "questions": [
+            "Comment décririez-vous votre personnalité ?",
+            "Quelle est votre principale qualité ?",
+            "Quel défaut aimeriez-vous améliorer ?",
+            "Parlez-moi d’une difficulté que vous avez surmontée.",
+            "De quoi êtes-vous le plus fier ?",
+            "Quels sont vos projets à court terme ?",
+            "Quels sont vos projets à long terme ?",
+            "Où vous voyez-vous dans cinq ans ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

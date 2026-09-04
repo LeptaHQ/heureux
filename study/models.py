@@ -67,7 +67,11 @@ class Task(models.Model):
         task_key = (self.part.slug, self.slug)
         return (
             task_key in content_loader.MEMOIRE_TASKS
-            and task_key != content_loader.QUESTION_BANK_TASK
+            and task_key
+            not in {
+                content_loader.EO_TACHE_ONE_TASK,
+                content_loader.QUESTION_BANK_TASK,
+            }
         )
 
 
@@ -454,7 +458,7 @@ class ContentImportState(models.Model):
 
 
 class MemoryQuestionProgress(models.Model):
-    """A reusable Tâche 2 question marked as learned by one learner."""
+    """A reusable expression question marked as learned by one learner."""
 
     user = models.ForeignKey(
         django_settings.AUTH_USER_MODEL,

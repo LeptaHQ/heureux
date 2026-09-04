@@ -12,8 +12,9 @@
       <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name=task.icon only %}</span>
       <span>{{ question_bank.title }}</span>
     </h1>
+    {% if question_bank.subtitle %}<p>{{ question_bank.subtitle }}</p>{% endif %}
   </div>
-  <dl class="question-bank-hero__metrics" aria-label="Contenu de la mémoire">
+  <dl class="question-bank-hero__metrics" aria-label="Contenu de la banque de questions">
     <div><dt>Catégories</dt><dd>{{ question_bank.category_count }}</dd></div>
     <div><dt>Questions</dt><dd>{{ question_bank.question_count }}</dd></div>
   </dl>
@@ -43,7 +44,7 @@
       </div>
       <span>{{ question_bank.category_count }}</span>
     </div>
-    <nav aria-label="Catégories de la mémoire">
+    <nav aria-label="Catégories de questions">
       {% for section in memory_sections %}
         <a href="#{{ section.anchor }}" data-index-section="{{ section.number }}">
           <span>{{ section.number_label }}</span>

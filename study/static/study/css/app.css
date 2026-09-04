@@ -2206,6 +2206,12 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   gap: 0.75rem;
   margin-bottom: 0.3rem;
 }
+.tache-two-consigne__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
 .tache-two-consigne h2 {
   margin: 0;
   font-size: 1.08rem;
@@ -2214,6 +2220,16 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   min-height: 2rem;
   padding: 0.3rem 0.7rem;
   font-size: 0.78rem;
+}
+.ee-ai-examiner-button {
+  border-color: color-mix(in srgb, var(--subject-accent) 38%, var(--border));
+  background: color-mix(in srgb, var(--subject-accent) 9%, var(--surface));
+}
+.ee-subject-consigne__notice {
+  display: block;
+  margin-top: 0.65rem;
+  color: var(--text-faint);
+  line-height: 1.45;
 }
 .tache-two-consigne p {
   max-width: 58rem;
@@ -2849,6 +2865,14 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   .memory-overview-hero__actions,
   .tache-two-ai-prompt-button {
     width: 100%;
+  }
+  .tache-two-consigne__heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .tache-two-consigne__actions {
+    width: 100%;
+    justify-content: flex-start;
   }
   .memory-overview-hero__metrics {
     width: 100%;

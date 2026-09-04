@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load study_markdown %}
+{% load static study_markdown %}
 {% block title %}{{ selected_prompt.text|truncatechars:50 }} · Heureux{% endblock %}
 
 {% block content %}
@@ -18,15 +18,24 @@
     {% endif %}
     {% if response_content.is_personal %} · <span class="chip">Version personnelle</span>{% endif %}
   </p>
-  <h1 class="detail-prompt">{{ selected_prompt.text }}</h1>
+  <h1 class="detail-prompt">{% if ee_response %}{{ selected_prompt.theme.display_name }} · {{ ee_combination_label }}{% else %}{{ selected_prompt.text }}{% endif %}</h1>
   {% if response_content.reformulation %}<p class="reform">« {{ response_content.reformulation }} »</p>{% endif %}
 </div>
 
 {% include "study/partials/prompt_navigation.html" %}
 
-<div class="detail-grid">
-  <div class="answer-columns" data-annotation-root data-annotation-source-key="response:{{ response.content_key }}">
+<div class="detail-grid"{% if ee_response %} style="--subject-accent: {{ task.color }};"{% endif %}>
+  <div class="answer-columns"{% if not ee_response %} data-annotation-root data-annotation-source-key="response:{{ response.content_key }}"{% endif %}>
     {% if ee_response %}
+      {% if ee_examiner_available %}
+        {% include "study/partials/ee_subject_consigne.html" with title_id="ee-tache-three-subject-title" subject_text=ee_subject_instruction subject_source_id="ee-tache-three-subject-content" examiner_source_id="ee-tache-three-examiner-prompt-content" examiner_available=ee_examiner_available only %}
+      {% else %}
+        {% with examiner_notice="Évaluation IA indisponible : la source publiée ne contient pas deux documents distincts et exploitables." %}
+          {% include "study/partials/ee_subject_consigne.html" with title_id="ee-tache-three-subject-title" subject_text=ee_subject_instruction subject_source_id="ee-tache-three-subject-content" examiner_source_id="ee-tache-three-examiner-prompt-content" examiner_available=ee_examiner_available examiner_unavailable_message=examiner_notice only %}
+        {% endwith %}
+      {% endif %}
+
+      <div class="answer-columns" data-annotation-root data-annotation-source-key="response:{{ response.content_key }}">
       {% for warning in ee_source_warnings %}
         <div class="notice">{{ warning }}</div>
       {% endfor %}
@@ -50,6 +59,7 @@
           <p class="spine-text">{{ response_content.position_claire }}</p>
         </section>
       {% endif %}
+      </div>
     {% else %}
     {% if response_content.position %}
       <section class="card section-card">
@@ -219,4 +229,13 @@
 </div>
 
 {% include "study/partials/prompt_navigation.html" with bottom=True %}
+{% if ee_response %}
+  {{ ee_subject_copy_text|json_script:"ee-tache-three-subject-content" }}
+  {% if ee_examiner_available %}{{ ee_ai_examiner_prompt|json_script:"ee-tache-three-examiner-prompt-content" }}{% endif %}
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {% if ee_response %}<script src="{% static 'study/js/prompt-copy.js' %}?v=1"></script>{% endif %}
 {% endblock %}

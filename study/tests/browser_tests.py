@@ -647,6 +647,19 @@ class BrowserTests(StaticLiveServerTestCase):
             args=["ee", "tache-1", sujet.pk],
         )
 
+        self.context.add_init_script(
+            """
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: {
+                writeText: text => {
+                  window.__eeSubjectCopy = text;
+                  return Promise.resolve();
+                },
+              },
+            });
+            """
+        )
         self.page.set_viewport_size({"width": 1183, "height": 844})
         self.page.goto(self.live_server_url + subjects_path)
         card_row = self.page.locator(
@@ -741,6 +754,34 @@ class BrowserTests(StaticLiveServerTestCase):
             detail_path,
             follow=True,
         )
+
+        subject_payload = json.loads(
+            self.page.locator("#ee-writing-subject-content").text_content()
+        )
+        examiner_payload = json.loads(
+            self.page.locator(
+                "#ee-writing-examiner-prompt-content"
+            ).text_content()
+        )
+        copy_buttons = self.page.locator(
+            ".ee-subject-consigne [data-prompt-copy]"
+        )
+        self.assertEqual(copy_buttons.count(), 2)
+        copy_buttons.nth(0).click()
+        self.page.wait_for_function(
+            "expected => window.__eeSubjectCopy === expected",
+            arg=subject_payload,
+        )
+        copy_buttons.nth(1).click()
+        self.page.wait_for_function(
+            "expected => window.__eeSubjectCopy === expected",
+            arg=examiner_payload,
+        )
+        self.assertIn(sujet.prompt, examiner_payload)
+        self.assert_no_horizontal_overflow()
+        self.page.set_viewport_size({"width": 390, "height": 844})
+        self.assert_no_horizontal_overflow()
+        self.page.set_viewport_size({"width": 1183, "height": 844})
 
         response_body = self.page.locator(
             f'[data-annotation-source-key="writing-sujet:{sujet.pk}:model-1"]'

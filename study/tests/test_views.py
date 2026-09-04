@@ -1095,7 +1095,7 @@ class EeTacheThreePageTests(TestCase):
             self._task_url("study:task_memories"),
         )
         self.assertContains(response, "questions terminées")
-        self.assertContains(response, "En 30 minutes")
+        self.assertContains(response, "trois tâches dure 60 minutes")
         self.assertContains(response, content_module.EE_ASTUCES_URL)
         self.assertNotContains(response, "data-tache-two-month-toggle")
         self.assertNotContains(
@@ -1199,6 +1199,38 @@ class EeTacheThreePageTests(TestCase):
         self.assertContains(response, "Documents sources")
         self.assertContains(response, "Version de l’auteur")
         self.assertContains(response, "Pratiquer ce thème")
+        self.assertContains(response, "tache-two-consigne")
+        self.assertContains(response, "Copier le sujet")
+        self.assertContains(response, "AI Examiner Prompt")
+        self.assertContains(
+            response,
+            'data-prompt-copy-source="ee-tache-three-subject-content"',
+        )
+        self.assertContains(
+            response,
+            'data-prompt-copy-source="ee-tache-three-examiner-prompt-content"',
+        )
+        self.assertIn(
+            self.months[0].combinaisons[0].document1,
+            response.context["ee_ai_examiner_prompt"],
+        )
+        self.assertIn(
+            self.months[0].combinaisons[0].document2,
+            response.context["ee_subject_copy_text"],
+        )
+        self.assertEqual(
+            response.context["ee_subject_copy_text"],
+            content_module.ee_exam_subject_packet(
+                3,
+                prompt.text,
+                document1=self.months[0].combinaisons[0].document1,
+                document2=self.months[0].combinaisons[0].document2,
+            ),
+        )
+        self.assertEqual(
+            response.context["ee_subject_copy_text"].count("Sujet :"),
+            1,
+        )
         self.assertNotContains(response, family_url)
 
     def test_source_combination_numbers_are_preserved_across_pages(self):
@@ -1222,6 +1254,59 @@ class EeTacheThreePageTests(TestCase):
         )
         self.assertContains(detail, "Combinaison 41")
         self.assertNotContains(detail, "Combinaison 16")
+
+    def test_examiner_prompt_handles_every_published_source_defect(self):
+        sources = [
+            source
+            for month in self.months
+            for source in month.combinaisons
+        ]
+        unusable = [
+            source
+            for source in sources
+            if (
+                source.document1_invalid
+                or source.document2_missing
+                or source.documents_identical
+            )
+        ]
+        self.assertEqual(len(unusable), 4)
+
+        for source in unusable:
+            prompt = Prompt.objects.get(content_key=source.content_key)
+            with self.subTest(content_key=source.content_key):
+                response = self.client.get(prompt_detail_url(prompt))
+
+                self.assertEqual(response.status_code, 200)
+                self.assertFalse(response.context["ee_examiner_available"])
+                self.assertEqual(response.context["ee_ai_examiner_prompt"], "")
+                self.assertContains(response, "Évaluation IA indisponible")
+                self.assertNotContains(
+                    response,
+                    (
+                        'data-prompt-copy-source='
+                        '"ee-tache-three-examiner-prompt-content"'
+                    ),
+                )
+                self.assertIn(
+                    "Source note :",
+                    response.context["ee_subject_copy_text"],
+                )
+
+        title_only = next(
+            source
+            for source in sources
+            if (
+                source.title_missing
+                and not source.document1_invalid
+                and not source.document2_missing
+                and not source.documents_identical
+            )
+        )
+        prompt = Prompt.objects.get(content_key=title_only.content_key)
+        response = self.client.get(prompt_detail_url(prompt))
+        self.assertTrue(response.context["ee_examiner_available"])
+        self.assertContains(response, "AI Examiner Prompt")
 
     def test_family_page_redirects_to_its_theme(self):
         prompt = self._first_prompt()

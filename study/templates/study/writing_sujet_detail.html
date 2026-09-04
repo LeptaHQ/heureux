@@ -1,9 +1,9 @@
 {% extends "base.html" %}
-{% load study_markdown %}
+{% load static study_markdown %}
 {% block title %}{{ prompt|truncatechars:50 }} · Heureux{% endblock %}
 
 {% block content %}
-<div class="ee-t1-page ee-t1-detail">
+<div class="ee-t1-page ee-t1-detail tache-two-subject-detail" style="--subject-accent: {{ task.color }};">
   <div class="task-context" style="--task-accent: {{ task.color }};">
     <a href="{% url 'study:expression' %}">Expression</a>
     <span aria-hidden="true">›</span>
@@ -17,14 +17,19 @@
   {% if personal_saved %}<div class="notice">Votre version personnelle a été enregistrée.</div>{% endif %}
   {% if personal_reset %}<div class="notice">La réponse modèle est de nouveau affichée.</div>{% endif %}
 
-  <header class="detail-head">
-    <p class="eyebrow">
-      <a href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a> ·
-      <span>{{ category_label }}</span>
-      {% if source %} · <span>{{ source.month_name }} {{ source.year }}</span> · <span>{{ source.combinaison }}</span>{% endif %}
-      {% if has_personal %} · <span class="chip chip--accent">Version personnelle</span>{% endif %}
-    </p>
-    <h1 class="detail-prompt">{{ prompt }}</h1>
+  <header class="tache-two-subject-detail__hero">
+    <div class="tache-two-subject-detail__meta">
+      <a class="subject-page-back" href="{% url 'study:task_browse' part.slug task.slug %}#theme-{{ sujet.category }}">
+        {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
+        {{ category_label }}
+      </a>
+      <span>
+        {% if source %}{{ source.month_name }} {{ source.year }} · {{ source.combinaison }} · {% endif %}
+        Sujet {{ position }} sur {{ total }}
+        {% if has_personal %} · <span class="chip chip--accent">Version personnelle</span>{% endif %}
+      </span>
+    </div>
+    <h1>{{ category_label }}{% if source %} · {{ source.combinaison }}{% endif %}</h1>
   </header>
 
   <nav class="prompt-nav" aria-label="Navigation entre les sujets">
@@ -49,6 +54,8 @@
 
   <div class="detail-grid">
     <div class="answer-columns">
+      {% include "study/partials/ee_subject_consigne.html" with title_id="ee-writing-subject-title" subject_text=prompt subject_source_id="ee-writing-subject-content" examiner_source_id="ee-writing-examiner-prompt-content" examiner_available=True only %}
+
       {% if has_personal %}
         <section class="card section-card section-card--personal" aria-labelledby="t1-personal-label">
           <div class="spine-label" id="t1-personal-label">Ma version <span class="chip chip--accent">Personnelle</span></div>
@@ -162,4 +169,11 @@
     </aside>
   </div>
 </div>
+{{ prompt|json_script:"ee-writing-subject-content" }}
+{{ ai_examiner_prompt|json_script:"ee-writing-examiner-prompt-content" }}
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'study/js/prompt-copy.js' %}?v=1"></script>
 {% endblock %}

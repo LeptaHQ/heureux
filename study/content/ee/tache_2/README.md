@@ -16,16 +16,16 @@ les classe par thème et relie les republications à 88 exercices canoniques :
   place les versions de l'auteur en premier.
 - Chaque occurrence garde son mois et son numéro de combinaison, tandis que la
   réponse personnelle et la progression sont partagées avec son sujet canonique.
+- `ai_examiner_prompt.md` — prompt d’évaluation propre à la Tâche 2 ; la page
+  du sujet y ajoute automatiquement la consigne exacte avant la copie.
 
 ### Méthodologie appliquée
 
-La [méthodologie EE](https://www.formation-tcfcanada.com/epreuve/expression-ecrite/astuces)
-recommande environ **20 minutes** et corrige une confusion importante : la Tâche 2
-est d'abord une **narration**, pas une dissertation argumentative. Chaque réponse
-situe l'expérience (quand, où, pourquoi), raconte des actions aux temps du passé avec
-des détails et des émotions, utilise des connecteurs temporels, puis se termine par
-un sentiment, une leçon ou une recommandation. Quand la consigne demande un avis,
-celui-ci reste ancré dans l'expérience vécue.
+Conformément à la description officielle, la Tâche 2 est un **compte rendu
+d’expérience ou un récit**, accompagné des commentaires, opinions ou arguments
+demandés par la consigne. Chaque réponse situe l’expérience, raconte des actions
+avec des détails et des émotions, puis répond à l’objectif précis. FEI fixe
+**60 minutes pour les trois tâches réunies**, sans temps officiel par tâche.
 
 ## Contenu
 

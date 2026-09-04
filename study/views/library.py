@@ -2956,6 +2956,10 @@ def response_detail(request, part_slug, task_slug, prompt_id):
     ee_equivalent_subjects = []
     ee_source_warnings = []
     ee_response_origin = "original"
+    ee_subject_instruction = ""
+    ee_subject_copy_text = ""
+    ee_ai_examiner_prompt = ""
+    ee_examiner_available = False
     source_documents_html = response.body_html
     if ee_response:
         if response.content_key in (
@@ -2992,6 +2996,35 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             ee_source_warnings.append(
                 "Le titre affiché a été déduit des documents, car la source "
                 "n’en publie aucun."
+            )
+        ee_subject_instruction = content_module.ee_tache_three_instruction(
+            selected_prompt.text
+        )
+        copied_document2 = (
+            source.document2
+            if source.document2
+            else "(document non fourni par la source publiée)"
+        )
+        source_note = " ".join(ee_source_warnings)
+        ee_subject_copy_text = content_module.ee_exam_subject_packet(
+            3,
+            selected_prompt.text,
+            document1=source.document1,
+            document2=copied_document2,
+            source_note=source_note,
+        )
+        ee_examiner_available = not (
+            source.document1_invalid
+            or source.document2_missing
+            or source.documents_identical
+        )
+        if ee_examiner_available:
+            ee_ai_examiner_prompt = content_module.build_ee_ai_examiner_prompt(
+                3,
+                selected_prompt.text,
+                document1=source.document1,
+                document2=source.document2,
+                source_note=source_note,
             )
         for prompt in prompts:
             if prompt.pk == selected_prompt.pk:
@@ -3030,6 +3063,10 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "ee_equivalent_subjects": ee_equivalent_subjects,
             "ee_source_warnings": ee_source_warnings,
             "ee_response_origin": ee_response_origin,
+            "ee_subject_instruction": ee_subject_instruction,
+            "ee_subject_copy_text": ee_subject_copy_text,
+            "ee_ai_examiner_prompt": ee_ai_examiner_prompt,
+            "ee_examiner_available": ee_examiner_available,
             "source_documents_html": source_documents_html,
             "prompts": prompts,
             "card": card,
@@ -3310,6 +3347,10 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
             "writing_tache": tache,
             "word_limit_min": minimum,
             "word_limit_max": maximum,
+            "ai_examiner_prompt": content_module.build_ee_ai_examiner_prompt(
+                tache,
+                sujet.prompt,
+            ),
             "personal": personal,
             "has_personal": personal is not None,
             "writing_progress": writing_progress,

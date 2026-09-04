@@ -1,0 +1,20 @@
+<section class="tache-two-consigne ee-subject-consigne" aria-labelledby="{{ title_id }}">
+  <span class="tache-two-consigne__icon" aria-hidden="true">
+    {% include "study/partials/ui_icon.html" with name="file-text" only %}
+  </span>
+  <div>
+    <div class="tache-two-consigne__heading">
+      <h2 id="{{ title_id }}">Consigne</h2>
+      <div class="tache-two-consigne__actions">
+        {% include "study/partials/prompt_copy_button.html" with button_class="btn btn--sm prompt-copy-button tache-two-consigne__copy" source_id=subject_source_id label="Copier le sujet" success_label="Copié !" aria_label="Copier le sujet" only %}
+        {% if examiner_available %}
+          {% include "study/partials/prompt_copy_button.html" with button_class="btn btn--sm prompt-copy-button tache-two-consigne__copy ee-ai-examiner-button" source_id=examiner_source_id label="AI Examiner Prompt" success_label="Copied!" error_label="Copy failed" toast_message="Prompt d’examinateur IA copié dans le presse-papiers." error_message="Impossible de copier le prompt d’examinateur IA." aria_label="Copier le prompt d’examinateur IA" only %}
+        {% endif %}
+      </div>
+    </div>
+    <p>{{ subject_text|linebreaksbr }}</p>
+    {% if examiner_unavailable_message %}
+      <small class="ee-subject-consigne__notice">{{ examiner_unavailable_message }}</small>
+    {% endif %}
+  </div>
+</section>

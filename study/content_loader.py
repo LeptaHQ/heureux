@@ -76,10 +76,16 @@ EE_WRITING_RESPONSE_DIRS = {
     1: EE_TACHE_ONE_DIR / "responses",
     2: EE_TACHE_TWO_DIR / "responses",
 }
+EE_AI_EXAMINER_PROMPT_PATHS = {
+    1: EE_TACHE_ONE_DIR / "ai_examiner_prompt.md",
+    2: EE_TACHE_TWO_DIR / "ai_examiner_prompt.md",
+    3: EE_TACHE_THREE_DIR / "ai_examiner_prompt.md",
+}
 EE_WRITING_WORD_LIMITS = {
     1: (60, 120),
     2: (120, 150),
 }
+EE_TACHE_THREE_WORD_LIMIT = (120, 180)
 EE_2025_SOURCE_URL = (
     "https://www.formation-tcfcanada.com/epreuve/"
     "expression-ecrite/sujets-actualites/{month}-2025"
@@ -720,8 +726,7 @@ def load_sections() -> List[SectionData]:
     return sections
 
 
-def load_ai_examiner_prompt(path: Path = AI_EXAMINER_PROMPT_PATH) -> str:
-    """Extract the copy-ready master prompt from its Markdown guide."""
+def _load_master_prompt(path: Path) -> str:
     text = path.read_text(encoding="utf-8").replace("\r\n", "\n")
     heading = "## Master prompt"
     _, found_heading, prompt_section = text.partition(heading)
@@ -737,6 +742,101 @@ def load_ai_examiner_prompt(path: Path = AI_EXAMINER_PROMPT_PATH) -> str:
     if not found_closing_fence or not prompt:
         raise ValueError(f"{path.name} has an incomplete Master prompt")
     return prompt
+
+
+def load_ai_examiner_prompt(path: Path = AI_EXAMINER_PROMPT_PATH) -> str:
+    """Extract the copy-ready oral master prompt from its Markdown guide."""
+    return _load_master_prompt(path)
+
+
+def load_ee_ai_examiner_prompt(tache: int, path: Optional[Path] = None) -> str:
+    """Extract one task-specific written-expression evaluator prompt."""
+    if tache not in EE_AI_EXAMINER_PROMPT_PATHS:
+        raise ValueError(f"Unsupported EE task: {tache}")
+    return _load_master_prompt(path or EE_AI_EXAMINER_PROMPT_PATHS[tache])
+
+
+def ee_tache_three_instruction(subject: str) -> str:
+    """Return the complete candidate-facing instruction for one Tâche 3 topic."""
+    subject = subject.strip()
+    if not subject:
+        raise ValueError("An EE Tâche 3 subject is required")
+    return (
+        "Rédigez un texte de 120 à 180 mots sur le sujet ci-dessous. "
+        "Dans une première partie de 40 à 60 mots, présentez une synthèse "
+        "neutre des deux documents. Dans une deuxième partie de 80 à 120 "
+        "mots, donnez et justifiez votre point de vue personnel.\n\n"
+        f"Sujet : {subject}"
+    )
+
+
+def ee_exam_subject_packet(
+    tache: int,
+    subject: str,
+    *,
+    document1: str = "",
+    document2: str = "",
+    source_note: str = "",
+) -> str:
+    """Format one exact written-expression subject for copying or evaluation."""
+    subject = subject.strip()
+    if tache not in {1, 2, 3}:
+        raise ValueError(f"Unsupported EE task: {tache}")
+    if not subject:
+        raise ValueError("An EE subject is required")
+
+    if tache in EE_WRITING_WORD_LIMITS:
+        minimum, maximum = EE_WRITING_WORD_LIMITS[tache]
+        sections = [
+            f"Expression écrite — Tâche {tache}",
+            f"Required length: {minimum}-{maximum} words",
+            f"Sujet :\n{subject}",
+        ]
+    else:
+        sections = [
+            f"Expression écrite — Tâche {tache}",
+            ee_tache_three_instruction(subject),
+        ]
+    if tache == 3:
+        document1 = document1.strip()
+        document2 = document2.strip()
+        if not document1 or not document2:
+            raise ValueError("Both source documents are required for EE Tâche 3")
+        sections.extend(
+            [
+                f"Document 1 :\n{document1}",
+                f"Document 2 :\n{document2}",
+            ]
+        )
+        if source_note.strip():
+            sections.append(f"Source note :\n{source_note.strip()}")
+    return "\n\n".join(sections)
+
+
+def build_ee_ai_examiner_prompt(
+    tache: int,
+    subject: str,
+    *,
+    document1: str = "",
+    document2: str = "",
+    source_note: str = "",
+) -> str:
+    """Build a subject-specific evaluator prompt that waits for one response."""
+    packet = ee_exam_subject_packet(
+        tache,
+        subject,
+        document1=document1,
+        document2=document2,
+        source_note=source_note,
+    )
+    return (
+        f"{load_ee_ai_examiner_prompt(tache)}\n\n"
+        "======================================================================\n"
+        "ACTIVE PRACTICE PACKET\n"
+        "======================================================================\n\n"
+        f"{packet}\n\n"
+        "Candidate response: WAIT FOR MY NEXT MESSAGE."
+    )
 
 
 def load_question_bank(

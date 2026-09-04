@@ -1,4 +1,5 @@
 import json
+import re
 
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
@@ -21,13 +22,133 @@ from study.templatetags.study_markdown import french_wordcount
 from . import factories
 
 
+_QUE = r"qu(?:e\b|['’])"
+_SUBJUNCTIVE_TRIGGER_RE = re.compile(
+    "|".join(
+        (
+            rf"\b(?:pour|afin|bien|sans|quoique|à condition)\s+{_QUE}",
+            rf"\bavant(?:\s+même)?\s+{_QUE}",
+            rf"\bil\s+(?:faut|faudrait|suffit|suffirait)"
+            rf"(?:\s+[a-zà-ÿ]+){{0,3}}\s+{_QUE}",
+            rf"\bil\s+(?:vaut|vaudrait)(?:\s+[a-zà-ÿ]+){{0,2}}"
+            rf"\s+mieux\s+{_QUE}",
+            rf"\bil\s+est(?:\s+[a-zà-ÿ]+){{0,3}}\s+"
+            rf"(?:essentiel|important|nécessaire|indispensable|préférable|"
+            rf"souhaitable)(?:\s+[a-zà-ÿ]+){{0,2}}\s+{_QUE}",
+            rf"\b(?:j['’](?:aimerais|aurais|ai)|"
+            rf"je\s+(?:souhaite|voudrais|veux|propose|recommande|préfère|suis)|"
+            rf"tu\s+veux|nous\s+(?:souhaitons|proposons|recommandons|sommes)|"
+            rf"elle\s+a\s+exigé)(?:\s+[a-zà-ÿ'’]+){{0,4}}\s+{_QUE}",
+            rf"\b(?:ravi|ravie|ravis|ravies|heureux|heureuse|content|contente|"
+            rf"super\s+nouvelle)(?:\s+[a-zà-ÿ]+){{0,2}}\s+{_QUE}",
+        )
+    ),
+    re.IGNORECASE,
+)
+
+
 class EeWritingContentTests(SimpleTestCase):
+    def test_written_examiner_prompt_contains_the_exact_active_subject(self):
+        subject = "Racontez une expérience utile."
+        prompt = content.build_ee_ai_examiner_prompt(2, subject)
+
+        for tache in (1, 2, 3):
+            task_prompt = content.load_ee_ai_examiner_prompt(tache)
+            self.assertIn(
+                f"Expression écrite, Tâche {tache}",
+                task_prompt,
+            )
+            self.assertIn("linguistic:", task_prompt)
+            self.assertIn("pragmatic:", task_prompt)
+            self.assertIn("sociolinguistic:", task_prompt)
+            self.assertIn("NCLC 8 readiness", task_prompt)
+            self.assertIn(
+                "as Not yet, Approaching, On track, or Strong",
+                task_prompt,
+            )
+            self.assertIn(
+                "écrite /20 score covers all three tasks together",
+                task_prompt,
+            )
+        self.assertNotEqual(
+            content.load_ee_ai_examiner_prompt(1),
+            content.load_ee_ai_examiner_prompt(2),
+        )
+        self.assertNotEqual(
+            content.load_ee_ai_examiner_prompt(2),
+            content.load_ee_ai_examiner_prompt(3),
+        )
+        self.assertIn("ACTIVE PRACTICE PACKET", prompt)
+        self.assertIn("Expression écrite — Tâche 2", prompt)
+        self.assertIn("Required length: 120-150 words", prompt)
+        self.assertIn(subject, prompt)
+        self.assertIn("FEI defines one word", prompt)
+        self.assertIn("count the complete candidate-authored submission", prompt)
+        self.assertIn("title, greeting, closing, or signature", prompt)
+        self.assertTrue(
+            prompt.endswith("Candidate response: WAIT FOR MY NEXT MESSAGE.")
+        )
+
+        tache_three = content.build_ee_ai_examiner_prompt(
+            3,
+            "Les transports en ville",
+            document1="Le premier avis soutient les autobus.",
+            document2="Le second avis préfère le vélo.",
+        )
+        self.assertIn("première partie de 40 à 60 mots", tache_three)
+        self.assertIn("deuxième partie de 80 à 120 mots", tache_three)
+        self.assertIn("Document 1 :", tache_three)
+        self.assertIn("Document 2 :", tache_three)
+        self.assertEqual(tache_three.count("Sujet :"), 1)
+
+        with self.assertRaisesMessage(
+            ValueError,
+            "Both source documents are required",
+        ):
+            content.build_ee_ai_examiner_prompt(3, "Sujet incomplet")
+
     def test_displayed_word_count_uses_the_validated_french_rules(self):
         text = "Aujourd’hui, l’auteur explique qu’un week-end bien organisé aide."
         self.assertEqual(
             french_wordcount(text),
             content._ee_word_count(text),
         )
+
+    def test_every_author_response_uses_one_or_two_natural_subjunctive_triggers(
+        self,
+    ):
+        responses = []
+        for tache in (1, 2):
+            responses.extend(
+                (tache, sujet.source_key, version.body)
+                for category in content.load_ee_writing_categories(tache)
+                for sujet in category.sujets
+                for version in sujet.versions
+                if version.origin == "author"
+            )
+        responses.extend(
+            (
+                3,
+                content_key,
+                f"{response['synthese']} {response['point_de_vue']}",
+            )
+            for content_key, response in (
+                content.load_ee_tache_three_author_responses().items()
+            )
+        )
+
+        self.assertEqual(
+            {
+                tache: sum(item[0] == tache for item in responses)
+                for tache in (1, 2, 3)
+            },
+            {1: 60, 2: 16, 3: 10},
+        )
+        for tache, content_key, body in responses:
+            with self.subTest(tache=tache, content_key=content_key):
+                trigger_count = len(_SUBJUNCTIVE_TRIGGER_RE.findall(body))
+                self.assertGreaterEqual(trigger_count, 1)
+                self.assertLessEqual(trigger_count, 2)
 
     def test_final_equivalence_counts_match_the_audited_corpora(self):
         expected = {
@@ -547,12 +668,75 @@ class EeWritingPageTests(TestCase):
                 self.assertContains(
                     response,
                     (
-                        "Visez idéalement 80 à 100 mots"
+                        "Rédigez un message clair de 60 à 120 mots"
                         if tache == 1
-                        else "La narration prime sur l’argumentation"
+                        else "compte rendu d’expérience ou un récit de 120 à 150 mots"
                     ),
                 )
                 self.assertContains(response, content.EE_ASTUCES_URL)
+
+    def test_subject_detail_matches_oral_consigne_and_offers_both_copies(self):
+        for tache in (1, 2):
+            task = self.tasks[tache]
+            sujet = WritingSujet.objects.filter(
+                task=task,
+                is_active=True,
+            ).order_by("order", "pk").first()
+
+            with self.subTest(tache=tache):
+                response = self.client.get(
+                    reverse(
+                        "study:writing_sujet_detail",
+                        args=[task.part.slug, task.slug, sujet.pk],
+                    )
+                )
+
+                self.assertEqual(response.status_code, 200)
+                self.assertContains(response, "tache-two-consigne")
+                self.assertContains(response, "Copier le sujet")
+                self.assertContains(
+                    response,
+                    'aria-label="Copier le sujet"',
+                    count=1,
+                )
+                self.assertContains(response, "AI Examiner Prompt")
+                self.assertContains(
+                    response,
+                    'data-prompt-copy-source="ee-writing-subject-content"',
+                )
+                self.assertContains(
+                    response,
+                    (
+                        'data-prompt-copy-source='
+                        '"ee-writing-examiner-prompt-content"'
+                    ),
+                )
+                self.assertIn(
+                    sujet.prompt,
+                    response.context["ai_examiner_prompt"],
+                )
+
+    def test_multiline_subject_keeps_its_visible_structure(self):
+        task = self.tasks[1]
+        sujet = WritingSujet.objects.filter(
+            task=task,
+            is_active=True,
+        ).order_by("order", "pk").first()
+        sujet.prompt = "Message reçu : Bonjour !\nRépondez avec deux conseils."
+        sujet.save(update_fields=["prompt"])
+
+        response = self.client.get(
+            reverse(
+                "study:writing_sujet_detail",
+                args=[task.part.slug, task.slug, sujet.pk],
+            )
+        )
+
+        self.assertContains(
+            response,
+            "Message reçu : Bonjour !<br>Répondez avec deux conseils.",
+            html=True,
+        )
 
     def test_equivalent_sujets_share_personal_response_and_completion(self):
         for tache in (1, 2):

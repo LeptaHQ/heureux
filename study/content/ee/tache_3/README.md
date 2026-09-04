@@ -12,11 +12,14 @@ Ce dossier regroupe les **sujets sources** et l'ensemble des **réponses modèle
 - `subjects/<mois>.json` — un fichier par mois (même convention que `tache_2/subjects/`).
 
 **Réponses modèles** — `responses/<mois>.md`
-- Une réponse par combinaison : **Partie 1 — Synthèse (40–60 mots)** neutre (connecteur
-  d'opposition) + **Partie 2 — Point de vue personnel (80–120 mots)** (avis + arguments +
-  exemple + concession + conclusion). Total 120–180 mots, comptes étiquetés. La
-  [méthodologie EE](https://www.formation-tcfcanada.com/epreuve/expression-ecrite/astuces)
-  conseille environ **30 minutes** et exige un titre reflétant le débat.
+- Une réponse par combinaison : **Partie 1 — Synthèse (40–60 mots)** neutre
+  des deux opinions + **Partie 2 — Point de vue personnel (80–120 mots)**.
+  Ces plages figurent dans l’exemple d’épreuve officiel FEI ; le total officiel
+  est de 120–180 mots. Les modèles ajoutent un titre pertinent comme choix
+  éditorial ; FEI ne le présente pas comme une exigence générale.
+- `ai_examiner_prompt.md` — prompt d’évaluation propre à la Tâche 3 ; il reçoit
+  la consigne et les deux documents du sujet avant la copie. L’évaluation IA est
+  désactivée lorsque la source ne fournit pas deux documents distincts et exploitables.
 
 **Vocabulaire** — `vocabulary/<mois>.json`
 - **30 entrées par réponse**, capturant la langue la plus réutilisable (connecteurs,

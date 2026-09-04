@@ -13,6 +13,8 @@ Le parcours actif s'appuie sur le corpus source 2025 :
   les sujets restants ont reçu une réponse originale rédigée dans le même registre.
 - `sujets.json` — ancienne banque éditoriale conservée comme référence historique ;
   elle n'alimente plus le parcours 2025.
+- `ai_examiner_prompt.md` — prompt d’évaluation propre à la Tâche 1 ; la page
+  du sujet y ajoute automatiquement la consigne exacte avant la copie.
 
 `load_ee_writing_categories(1)` valide les limites, place les versions de l'auteur
 en premier et fournit les 138 publications à l'importeur. Une publication équivalente
@@ -21,10 +23,10 @@ avec son sujet canonique.
 
 ### Méthodologie appliquée
 
-La [méthodologie EE](https://www.formation-tcfcanada.com/epreuve/expression-ecrite/astuces)
-recommande environ **10 minutes** : salutation et registre adaptés, objet et détails
-essentiels dans un corps concis, puis formule de fermeture appropriée. Les réponses
-respectent la limite 60–120 mots et visent 80–100 mots lorsque la consigne le permet.
+Les réponses appliquent une salutation et un registre adaptés, couvrent l’objet
+et les détails essentiels dans un corps concis, puis emploient une formule de
+fermeture appropriée. Elles respectent la limite officielle de 60–120 mots.
+FEI fixe **60 minutes pour les trois tâches réunies**, sans temps officiel par tâche.
 
 ## Corpus source 2025
 

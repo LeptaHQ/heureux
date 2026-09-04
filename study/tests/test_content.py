@@ -32,6 +32,9 @@ class AppCopyTests(SimpleTestCase):
         forbidden = ("T" + "CF", "T" + "EF")
         exam_specific_sources = {
             project_root / "study/content/tache_2/ai_examiner_prompt.md",
+            project_root / "study/content/ee/tache_1/ai_examiner_prompt.md",
+            project_root / "study/content/ee/tache_2/ai_examiner_prompt.md",
+            project_root / "study/content/ee/tache_3/ai_examiner_prompt.md",
         }
         pattern = re.compile(
             r"\b(?:" + "|".join(re.escape(item) for item in forbidden) + r")\b",

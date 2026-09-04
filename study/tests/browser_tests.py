@@ -174,6 +174,54 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertTrue(fits, f"{self.page.url}: {overflowing}")
 
+    def assert_no_theme_vocabulary_action_overlap(self, card):
+        overlapping_text = card.evaluate(
+            """
+            card => {
+              const example = card.querySelector(".phrase__ex");
+              const walker = document.createTreeWalker(
+                example,
+                NodeFilter.SHOW_TEXT
+              );
+              const textRects = [];
+              let node;
+              while ((node = walker.nextNode())) {
+                if (!node.textContent.trim()) continue;
+                const range = document.createRange();
+                range.selectNodeContents(node);
+                textRects.push(...range.getClientRects());
+              }
+              const actionRects = [
+                card.querySelector(".flashcard-deck__card-meta"),
+                card.querySelector(".theme-vocabulary-learn-check"),
+              ].map(element => element.getBoundingClientRect());
+              return textRects.flatMap(text => actionRects
+                .filter(action =>
+                  text.left < action.right
+                  && text.right > action.left
+                  && text.top < action.bottom
+                  && text.bottom > action.top
+                )
+                .map(action => ({
+                  text: {
+                    left: text.left,
+                    right: text.right,
+                    top: text.top,
+                    bottom: text.bottom,
+                  },
+                  action: {
+                    left: action.left,
+                    right: action.right,
+                    top: action.top,
+                    bottom: action.bottom,
+                  },
+                }))
+              );
+            }
+            """
+        )
+        self.assertEqual(overlapping_text, [])
+
     def touch_swipe(self, locator, from_x, to_x, y):
         locator.evaluate(
             """
@@ -1199,6 +1247,21 @@ class BrowserTests(StaticLiveServerTestCase):
         first_theme_entry.click()
         self.page.wait_for_url(self.live_server_url + expected_detail_path)
         self.page.get_by_role("heading", name=first_theme_title).wait_for()
+        hero_border = self.page.locator(".theme-vocabulary-hero").evaluate(
+            """
+            hero => {
+              const style = getComputedStyle(hero);
+              return {
+                topWidth: style.borderTopWidth,
+                topColor: style.borderTopColor,
+                sideWidth: style.borderLeftWidth,
+                sideColor: style.borderLeftColor,
+              };
+            }
+            """
+        )
+        self.assertEqual(hero_border["topWidth"], hero_border["sideWidth"])
+        self.assertEqual(hero_border["topColor"], hero_border["sideColor"])
         detail_nav = self.page.locator(".task-nav")
         self.assertEqual(detail_nav.locator("a").count(), 3)
         self.assertEqual(
@@ -1332,6 +1395,14 @@ class BrowserTests(StaticLiveServerTestCase):
                 ".theme-vocabulary-catalog [data-collection-table-header]"
             ).first.is_visible()
         )
+        first_theme_phrase = self.page.locator(
+            ".theme-vocabulary-phrase"
+        ).first
+        self.assertIn(
+            "au moment de vous installer",
+            first_theme_phrase.locator(".phrase__ex").inner_text(),
+        )
+        self.assert_no_theme_vocabulary_action_overlap(first_theme_phrase)
         self.assert_no_horizontal_overflow()
 
         recall_controls = self.page.locator(
@@ -2427,6 +2498,10 @@ class BrowserTests(StaticLiveServerTestCase):
                 "[data-collection-table-header]"
             ).first.is_visible()
         )
+        first_table_card = self.page.locator(
+            ".theme-vocabulary-phrase"
+        ).first
+        self.assert_no_theme_vocabulary_action_overlap(first_table_card)
         french_recall = self.page.locator(
             '[data-theme-vocabulary-recall-column="french"]'
         )
@@ -2454,6 +2529,7 @@ class BrowserTests(StaticLiveServerTestCase):
         table_toggle.click()
         self.assertEqual(table_toggle.get_attribute("aria-pressed"), "true")
         self.assertTrue(french_recall.is_visible())
+        self.assert_no_theme_vocabulary_action_overlap(first_table_card)
         self.assert_no_horizontal_overflow()
 
     def test_theme_vocabulary_group_heads_use_readable_small_type(self):

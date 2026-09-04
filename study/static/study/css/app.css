@@ -13635,14 +13635,6 @@ html[data-collection-view-mode="table"]
 .theme-vocabulary-entry .memory-entry__facts {
   flex-wrap: wrap;
 }
-.theme-vocabulary-hero {
-  position: relative;
-  overflow: hidden;
-  border-top: 4px solid var(--theme-vocabulary-accent);
-}
-.theme-vocabulary-hero .eyebrow {
-  color: var(--theme-vocabulary-accent);
-}
 .theme-vocabulary-catalog {
   margin-top: 2rem;
 }
@@ -14105,7 +14097,7 @@ html[data-collection-view-mode="table"]
 html[data-collection-view-mode="table"]
   .theme-vocabulary-phrase
   .phrase__ex {
-  padding-right: 3.5rem;
+  padding-right: 6rem !important;
 }
 
 /* Comprehension test vocabulary: the Notes-standard one-at-a-time deck.

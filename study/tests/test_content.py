@@ -79,6 +79,44 @@ class AppCopyTests(SimpleTestCase):
         self.assertEqual(violations, [])
 
 
+class SubjectNavigationTemplateTests(SimpleTestCase):
+    def test_detail_navigation_stays_in_the_current_tab(self):
+        project_root = Path(__file__).resolve().parents[2]
+        templates = (
+            project_root / "study/templates/study/writing_sujet_detail.html",
+            project_root
+            / "study/templates/study/partials/tache_two_subject_navigation.html",
+            project_root
+            / "study/templates/study/partials/prompt_navigation.html",
+        )
+
+        for template in templates:
+            with self.subTest(template=template.name):
+                source = template.read_text(encoding="utf-8")
+                links = re.findall(
+                    r'<a class="prompt-nav__link[^"]*"[^>]*>',
+                    source,
+                )
+                self.assertTrue(links)
+                self.assertTrue(
+                    all('target="_blank"' not in link for link in links)
+                )
+
+    def test_subject_directories_keep_opening_items_in_new_tabs(self):
+        project_root = Path(__file__).resolve().parents[2]
+        templates = (
+            project_root / "study/templates/study/tache_two_subjects.html",
+            project_root / "study/templates/study/ee_tache_one_subjects.html",
+            project_root / "study/templates/study/ee_writing_subjects.html",
+            project_root / "study/templates/study/ee_tache_three_subjects.html",
+        )
+
+        for template in templates:
+            with self.subTest(template=template.name):
+                source = template.read_text(encoding="utf-8")
+                self.assertIn('target="_blank"', source)
+
+
 class PhraseParserTests(SimpleTestCase):
     @classmethod
     def setUpClass(cls):

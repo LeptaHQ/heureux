@@ -48,6 +48,7 @@ from ..models import (
     ComprehensionTestCompletion,
     ComprehensionAttemptStatus,
     MemoryQuestionProgress,
+    PersonalQuestionResponse,
     PersonalResponse,
     PersonalWritingResponse,
     ReviewLog,
@@ -486,7 +487,7 @@ def export_account(request):
     settings = Settings.load(request.user)
     payload = {
         "format": "heureux-account-export",
-        "version": 6,
+        "version": 7,
         "exported_at": timezone.now(),
         "account": {
             "username": request.user.get_username(),
@@ -521,6 +522,21 @@ def export_account(request):
                 user=request.user
             )
             .select_related("sujet__task__part")
+            .order_by("created_at", "pk")
+        ],
+        "personal_question_responses": [
+            {
+                "part": personal.task.part.slug,
+                "task": personal.task.slug,
+                "question_key": personal.question_key,
+                "body": personal.body,
+                "created_at": personal.created_at,
+                "updated_at": personal.updated_at,
+            }
+            for personal in PersonalQuestionResponse.objects.filter(
+                user=request.user
+            )
+            .select_related("task__part")
             .order_by("created_at", "pk")
         ],
         "comprehension_attempts": comprehension_attempts,

@@ -25,6 +25,7 @@ from study.models import (
     ComprehensionQuestionStudy,
     PhraseCategory,
     PhraseTier,
+    PersonalQuestionResponse,
     PersonalResponse,
     Rating,
     ReviewLog,
@@ -341,6 +342,120 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         command._sync_cards(response_by_key, user=self.user)
         return task_by_slug["eo/tache-2"]
+
+    def test_tache_one_question_response_editor_saves_and_reopens(self):
+        task = Command()._import_sections(load_sections())["eo/tache-1"]
+        page_url = reverse(
+            "study:task_detail",
+            args=[task.part.slug, task.slug],
+        )
+        self.page.goto(self.live_server_url + page_url)
+
+        edit_buttons = self.page.locator("[data-question-response-edit]")
+        self.assertEqual(edit_buttons.count(), 70)
+        first_row = self.page.locator("[data-question-bank-question]").first
+        first_button = first_row.locator("[data-question-response-edit]")
+        first_button.click()
+
+        dialog = self.page.locator("[data-question-response-dialog]")
+        dialog.wait_for(state="visible")
+        body = dialog.locator("[data-question-response-body]")
+        body.fill("Voici ma réponse personnelle.")
+        with self.page.expect_response(
+            lambda response: "/reponse/" in response.url
+        ) as response_info:
+            dialog.get_by_role("button", name="Enregistrer").click()
+        save_response = response_info.value
+        self.assertEqual(
+            save_response.status,
+            200,
+            save_response.text(),
+        )
+        dialog.wait_for(state="hidden", timeout=5_000)
+
+        self.assertEqual(
+            first_row.locator("[data-question-response-display]").inner_text(),
+            "Voici ma réponse personnelle.",
+        )
+        question_key = first_row.get_attribute("data-question-key")
+        self.assertTrue(
+            PersonalQuestionResponse.objects.filter(
+                user=self.user,
+                task=task,
+                question_key=question_key,
+                body="Voici ma réponse personnelle.",
+            ).exists()
+        )
+
+        first_button.click()
+        dialog.wait_for(state="visible")
+        self.assertEqual(body.input_value(), "Voici ma réponse personnelle.")
+        self.assert_no_horizontal_overflow()
+
+    def test_question_editors_stay_locked_during_a_slow_save(self):
+        task = Command()._import_sections(load_sections())["eo/tache-1"]
+        self.page.goto(
+            self.live_server_url
+            + reverse(
+                "study:task_detail",
+                args=[task.part.slug, task.slug],
+            )
+        )
+        rows = self.page.locator("[data-question-bank-question]")
+        first_row = rows.nth(0)
+        second_row = rows.nth(1)
+        dialog = self.page.locator("[data-question-response-dialog]")
+        body = dialog.locator("[data-question-response-body]")
+
+        self.page.evaluate(
+            """
+            () => {
+              const originalFetch = window.fetch.bind(window);
+              window.fetch = (url, options) => {
+                if (!String(url).includes("/reponse/")) {
+                  return originalFetch(url, options);
+                }
+                return new Promise((resolve, reject) => {
+                  window.__releaseQuestionResponseSave = () => {
+                    originalFetch(url, options).then(resolve, reject);
+                  };
+                });
+              };
+            }
+            """
+        )
+
+        first_row.locator("[data-question-response-edit]").click()
+        body.fill("Réponse enregistrée lentement.")
+        dialog.get_by_role("button", name="Enregistrer").click()
+        self.page.wait_for_function(
+            "() => typeof window.__releaseQuestionResponseSave === 'function'"
+        )
+        dialog.get_by_role("button", name="Annuler").click()
+        second_button = second_row.locator("[data-question-response-edit]")
+        self.assertTrue(second_button.is_disabled())
+
+        self.page.evaluate("window.__releaseQuestionResponseSave()")
+        first_row.locator(
+            "[data-question-response-display]"
+        ).get_by_text("Réponse enregistrée lentement.", exact=True).wait_for()
+        self.page.wait_for_function(
+            """
+            () => Array.from(
+              document.querySelectorAll("[data-question-response-edit]")
+            ).every(button => !button.disabled)
+            """
+        )
+
+        second_button.click()
+        dialog.wait_for(state="visible")
+        self.assertTrue(dialog.is_visible())
+        self.assertEqual(body.input_value(), "")
+        self.assertTrue(
+            second_row.locator(
+                "[data-question-response-preview]"
+            ).evaluate("element => element.classList.contains('hidden')")
+        )
 
     def test_ee_tache_three_overview_cards_have_bounded_hover_content(self):
         _, task = self._import_ee_tache_three_content()

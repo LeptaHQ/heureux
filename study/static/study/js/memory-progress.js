@@ -139,6 +139,192 @@
     }
   }
 
+  var responseDialog = document.querySelector(
+    "[data-question-response-dialog]"
+  );
+  var responseForm = responseDialog
+    ? responseDialog.querySelector("[data-question-response-form]")
+    : null;
+  var responseKey = responseForm
+    ? responseForm.querySelector("[data-question-response-key]")
+    : null;
+  var responseBody = responseForm
+    ? responseForm.querySelector("[data-question-response-body]")
+    : null;
+  var responseQuestion = responseDialog
+    ? responseDialog.querySelector("[data-question-response-question]")
+    : null;
+  var responseError = responseDialog
+    ? responseDialog.querySelector("[data-question-response-error]")
+    : null;
+  var responseDelete = responseForm
+    ? responseForm.querySelector("[data-question-response-delete]")
+    : null;
+  var responseButtons = responseForm
+    ? Array.from(responseForm.querySelectorAll("[type='submit']"))
+    : [];
+  var responseEditButtons = Array.from(
+    root.querySelectorAll("[data-question-response-edit]")
+  );
+  var activeResponseRow = null;
+  var responseDialogSession = 0;
+
+  function setResponseError(message) {
+    if (!responseError) return;
+    responseError.textContent = message || "";
+    responseError.hidden = !message;
+  }
+
+  function openResponseDialog(button) {
+    if (
+      (responseForm && responseForm.dataset.pending === "true")
+      || !responseDialog
+      || !responseForm
+      || !responseKey
+      || !responseBody
+      || !responseQuestion
+    ) return;
+    var row = button.closest("[data-question-bank-question]");
+    if (!row) return;
+    var source = row.querySelector("[data-question-response-source]");
+    responseDialogSession += 1;
+    activeResponseRow = row;
+    responseKey.value = row.dataset.questionKey || "";
+    responseBody.value = source ? source.value : "";
+    responseQuestion.textContent = button.dataset.questionText || "";
+    if (responseDelete) {
+      responseDelete.classList.toggle(
+        "hidden",
+        !responseBody.value.trim()
+      );
+    }
+    setResponseError("");
+    responseDialog._returnFocus = button;
+    if (typeof responseDialog.showModal === "function") {
+      responseDialog.showModal();
+    } else {
+      responseDialog.setAttribute("open", "");
+    }
+    window.requestAnimationFrame(function () {
+      responseBody.focus();
+      responseBody.setSelectionRange(
+        responseBody.value.length,
+        responseBody.value.length
+      );
+    });
+  }
+
+  function updateResponseRow(row, data) {
+    if (!row) return;
+    var source = row.querySelector("[data-question-response-source]");
+    var preview = row.querySelector("[data-question-response-preview]");
+    var display = row.querySelector("[data-question-response-display]");
+    var edit = row.querySelector("[data-question-response-edit]");
+    if (source) source.value = data.body;
+    if (display) display.textContent = data.body;
+    if (preview) preview.classList.toggle("hidden", !data.has_response);
+    row.classList.toggle("has-response", data.has_response);
+    if (edit) {
+      var questionText = edit.dataset.questionText || "cette question";
+      edit.classList.toggle("has-response", data.has_response);
+      edit.setAttribute(
+        "aria-label",
+        (data.has_response ? "Modifier" : "Ajouter")
+          + " ma réponse : "
+          + questionText
+      );
+      edit.title = data.has_response
+        ? "Modifier ma réponse"
+        : "Ajouter ma réponse";
+    }
+  }
+
+  root.addEventListener("click", function (event) {
+    var button = event.target.closest
+      ? event.target.closest("[data-question-response-edit]")
+      : null;
+    if (button) openResponseDialog(button);
+  });
+
+  if (responseForm) {
+    responseForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (responseForm.dataset.pending === "true") return;
+      var action = event.submitter
+        ? event.submitter.value
+        : "save";
+      if (action === "save" && !responseBody.value.trim()) {
+        setResponseError("Votre réponse ne peut pas être vide.");
+        responseBody.focus({ preventScroll: true });
+        return;
+      }
+      if (
+        action === "delete"
+        && !window.confirm("Supprimer votre réponse à cette question ?")
+      ) return;
+
+      setResponseError("");
+      responseForm.dataset.pending = "true";
+      var submittedRow = activeResponseRow;
+      var submittedSession = responseDialogSession;
+      responseButtons.forEach(function (button) {
+        button.disabled = true;
+      });
+      responseEditButtons.forEach(function (button) {
+        button.disabled = true;
+      });
+      var formData = new FormData(responseForm);
+      formData.set("action", action);
+      fetch(responseForm.getAttribute("action"), {
+        method: "POST",
+        body: formData,
+        credentials: "same-origin",
+        headers: {
+          "Accept": "application/json",
+          "X-CSRFToken": responseForm.querySelector(
+            "input[name='csrfmiddlewaretoken']"
+          ).value,
+          "X-Requested-With": "fetch"
+        }
+      })
+        .then(readJson)
+        .then(function (data) {
+        updateResponseRow(submittedRow, data);
+        if (
+          responseDialog.open
+          && responseDialogSession === submittedSession
+        ) {
+          if (typeof responseDialog.close === "function") {
+            responseDialog.close();
+          } else {
+            responseDialog.removeAttribute("open");
+          }
+        }
+      })
+      .catch(function (error) {
+        var message =
+          error.message || "Impossible d’enregistrer votre réponse.";
+        if (
+          responseDialog.open
+          && responseDialogSession === submittedSession
+        ) {
+          setResponseError(message);
+        } else {
+          showError(message);
+        }
+        })
+        .finally(function () {
+          delete responseForm.dataset.pending;
+          responseButtons.forEach(function (button) {
+            button.disabled = false;
+          });
+          responseEditButtons.forEach(function (button) {
+            button.disabled = false;
+          });
+        });
+    });
+  }
+
   root.addEventListener("submit", function (event) {
     var form = event.target.closest("[data-memory-progress-form]");
     if (!form) return;

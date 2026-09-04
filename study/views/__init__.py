@@ -154,6 +154,7 @@ from .library import (
     task_memory_detail,
     task_memories,
     task_memory_progress,
+    task_question_response,
     task_subject_batch,
     task_subject_detail,
     tache_two_theme_vocabulary,

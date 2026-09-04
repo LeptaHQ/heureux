@@ -32,6 +32,8 @@ from ..models import (
     ExamPart,
     Family,
     MemoryQuestionProgress,
+    PERSONAL_QUESTION_RESPONSE_MAX_LENGTH,
+    PersonalQuestionResponse,
     Phrase,
     PhraseCategory,
     PhraseTier,
@@ -2911,7 +2913,8 @@ def task_subject_detail(
     )
 
 
-def _memory_sections(memory, completed_keys):
+def _memory_sections(memory, completed_keys, personal_responses=None):
+    personal_responses = personal_responses or {}
     sections = []
     for section in memory.sections:
         completed_count = len(set(section.question_keys) & completed_keys)
@@ -2939,6 +2942,10 @@ def _memory_sections(memory, completed_keys):
                                 "completed": (
                                     question.content_key in completed_keys
                                 ),
+                                "response": personal_responses.get(
+                                    question.content_key,
+                                    "",
+                                ),
                             }
                             for question in group.questions
                         ],
@@ -2951,6 +2958,19 @@ def _memory_sections(memory, completed_keys):
 
 
 def _question_bank_page_context(user, task, question_bank):
+    task_key = (task.part.slug, task.slug)
+    question_responses_enabled = (
+        task_key == content_module.EO_TACHE_ONE_TASK
+    )
+    personal_responses = {}
+    if question_responses_enabled:
+        personal_responses = dict(
+            PersonalQuestionResponse.objects.filter(
+                user=user,
+                task=task,
+                question_key__in=question_bank.question_keys,
+            ).values_list("question_key", "body")
+        )
     memory_state = _memory_progress(
         user,
         (question_bank,),
@@ -2967,6 +2987,11 @@ def _question_bank_page_context(user, task, question_bank):
         "memory_sections": _memory_sections(
             question_bank,
             memory_state["completed_keys"],
+            personal_responses,
+        ),
+        "question_responses_enabled": question_responses_enabled,
+        "question_response_max_length": (
+            PERSONAL_QUESTION_RESPONSE_MAX_LENGTH
         ),
     }
 
@@ -2975,6 +3000,74 @@ def _memory_progress_error(request, message):
     if request.headers.get("X-Requested-With") == "fetch":
         return JsonResponse({"error": message}, status=400)
     return HttpResponseBadRequest(message)
+
+
+@require_POST
+def task_question_response(request, part_slug, task_slug, memory_number):
+    task = _memoire_task(part_slug, task_slug)
+    if (task.part.slug, task.slug) != content_module.EO_TACHE_ONE_TASK:
+        raise Http404
+
+    memory = _memory_by_number(_load_task_memoires(task), memory_number)
+    question_key = request.POST.get("question_key", "").strip()
+    section = next(
+        (
+            section
+            for section in memory.sections
+            if question_key in section.question_keys
+        ),
+        None,
+    )
+    if section is None:
+        return _memory_progress_error(
+            request,
+            "Cette question ne fait pas partie de la banque.",
+        )
+
+    action = request.POST.get("action", "save")
+    if action == "delete":
+        PersonalQuestionResponse.objects.filter(
+            user=request.user,
+            task=task,
+            question_key=question_key,
+        ).delete()
+        body = ""
+    elif action == "save":
+        body = (request.POST.get("body") or "").strip()
+        if not body:
+            return _memory_progress_error(
+                request,
+                "Votre réponse ne peut pas être vide.",
+            )
+        if len(body) > PERSONAL_QUESTION_RESPONSE_MAX_LENGTH:
+            return _memory_progress_error(
+                request,
+                "Votre réponse ne peut pas dépasser 10 000 caractères.",
+            )
+        PersonalQuestionResponse.objects.update_or_create(
+            user=request.user,
+            task=task,
+            question_key=question_key,
+            defaults={"body": body},
+        )
+    else:
+        return _memory_progress_error(request, "Action invalide.")
+
+    if request.headers.get("X-Requested-With") == "fetch":
+        return JsonResponse(
+            {
+                "question_key": question_key,
+                "body": body,
+                "has_response": bool(body),
+            }
+        )
+    return redirect(
+        reverse(
+            "study:task_detail",
+            args=[task.part.slug, task.slug],
+        )
+        + f"#{section.anchor}"
+    )
 
 
 def task_memory_detail(request, part_slug, task_slug, memory_number):

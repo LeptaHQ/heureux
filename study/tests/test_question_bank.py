@@ -52,6 +52,8 @@ from study.models import (
     CardState,
     CardType,
     MemoryQuestionProgress,
+    PERSONAL_QUESTION_RESPONSE_MAX_LENGTH,
+    PersonalQuestionResponse,
     PersonalResponse,
     Phrase,
     PhraseTier,
@@ -1847,6 +1849,17 @@ class EoTacheOneQuestionBankViewTests(TestCase):
     def setUp(self):
         self.client.force_login(self.user)
 
+    def _response_url(self, task=None, memory_number=None):
+        task = task or self.task
+        return reverse(
+            "study:task_question_response",
+            args=[
+                task.part.slug,
+                task.slug,
+                memory_number or self.bank.number,
+            ],
+        )
+
     def test_task_is_available_and_opens_the_question_bank(self):
         response = self.client.get(
             reverse(
@@ -1862,6 +1875,12 @@ class EoTacheOneQuestionBankViewTests(TestCase):
         self.assertEqual(len(response.context["memory_sections"]), 9)
         self.assertContains(response, "Questions de l’entretien dirigé")
         self.assertContains(response, "data-question-bank-question", count=70)
+        self.assertContains(response, "data-question-response-edit", count=70)
+        self.assertContains(response, "data-question-response-dialog", count=1)
+        self.assertContains(
+            response,
+            f'maxlength="{PERSONAL_QUESTION_RESPONSE_MAX_LENGTH}"',
+        )
         self.assertContains(response, ">Questions</a>")
         self.assertNotContains(response, ">Sujets</a>")
         self.assertNotContains(response, ">Pratiquer</a>")
@@ -1877,6 +1896,229 @@ class EoTacheOneQuestionBankViewTests(TestCase):
         self.assertContains(response, "9 catégories")
         self.assertContains(response, "70 questions")
         self.assertContains(response, "0/70 apprises")
+
+    def test_user_can_create_and_update_a_private_question_response(self):
+        question_key = self.bank.question_keys[0]
+        created = self.client.post(
+            self._response_url(),
+            {
+                "question_key": question_key,
+                "body": "  Ma première réponse.  ",
+                "action": "save",
+            },
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(created.status_code, 200)
+        self.assertEqual(created.json()["body"], "Ma première réponse.")
+        self.assertTrue(created.json()["has_response"])
+        personal = PersonalQuestionResponse.objects.get(
+            user=self.user,
+            task=self.task,
+            question_key=question_key,
+        )
+        self.assertEqual(personal.body, "Ma première réponse.")
+
+        updated = self.client.post(
+            self._response_url(),
+            {
+                "question_key": question_key,
+                "body": "Ma réponse améliorée.",
+                "action": "save",
+            },
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(updated.status_code, 200)
+        self.assertEqual(
+            PersonalQuestionResponse.objects.filter(
+                user=self.user,
+                task=self.task,
+                question_key=question_key,
+            ).count(),
+            1,
+        )
+        personal.refresh_from_db()
+        self.assertEqual(personal.body, "Ma réponse améliorée.")
+        page = self.client.get(
+            reverse(
+                "study:task_detail",
+                args=[self.task.part.slug, self.task.slug],
+            )
+        )
+        self.assertContains(page, "Ma réponse améliorée.")
+        self.assertContains(page, "Modifier ma réponse")
+
+    def test_question_responses_are_isolated_by_user(self):
+        question_key = self.bank.question_keys[0]
+        PersonalQuestionResponse.objects.create(
+            user=self.user,
+            task=self.task,
+            question_key=question_key,
+            body="Réponse privée unique.",
+        )
+        other_user = factories.make_user("other-question-response-user")
+        self.client.force_login(other_user)
+
+        page = self.client.get(
+            reverse(
+                "study:task_detail",
+                args=[self.task.part.slug, self.task.slug],
+            )
+        )
+
+        self.assertEqual(page.status_code, 200)
+        self.assertNotContains(page, "Réponse privée unique.")
+
+    def test_user_can_delete_a_question_response(self):
+        question_key = self.bank.question_keys[0]
+        personal = PersonalQuestionResponse.objects.create(
+            user=self.user,
+            task=self.task,
+            question_key=question_key,
+            body="Réponse à supprimer.",
+        )
+
+        deleted = self.client.post(
+            self._response_url(),
+            {
+                "question_key": question_key,
+                "action": "delete",
+            },
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(deleted.status_code, 200)
+        self.assertEqual(deleted.json()["body"], "")
+        self.assertFalse(deleted.json()["has_response"])
+        self.assertFalse(
+            PersonalQuestionResponse.objects.filter(pk=personal.pk).exists()
+        )
+
+    def test_question_response_rejects_invalid_input(self):
+        question_key = self.bank.question_keys[0]
+        cases = (
+            (
+                {"question_key": "not-a-question", "body": "Réponse"},
+                "Cette question ne fait pas partie de la banque.",
+            ),
+            (
+                {"question_key": question_key, "body": "   "},
+                "Votre réponse ne peut pas être vide.",
+            ),
+            (
+                {
+                    "question_key": question_key,
+                    "body": "a" * (
+                        PERSONAL_QUESTION_RESPONSE_MAX_LENGTH + 1
+                    ),
+                },
+                "Votre réponse ne peut pas dépasser 10 000 caractères.",
+            ),
+            (
+                {
+                    "question_key": question_key,
+                    "body": "Réponse",
+                    "action": "inconnue",
+                },
+                "Action invalide.",
+            ),
+        )
+
+        for payload, message in cases:
+            with self.subTest(message=message):
+                response = self.client.post(
+                    self._response_url(),
+                    payload,
+                    HTTP_X_REQUESTED_WITH="fetch",
+                )
+                self.assertEqual(response.status_code, 400)
+                self.assertEqual(response.json()["error"], message)
+        self.assertFalse(
+            PersonalQuestionResponse.objects.filter(user=self.user).exists()
+        )
+
+    def test_question_response_route_is_limited_to_oral_task_one(self):
+        task_two = Task.objects.select_related("part").get(
+            part__slug="eo",
+            slug="tache-2",
+        )
+
+        response = self.client.post(
+            self._response_url(task=task_two),
+            {
+                "question_key": self.bank.question_keys[0],
+                "body": "Réponse",
+            },
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(response.status_code, 404)
+
+    def test_account_export_includes_only_owned_question_responses(self):
+        personal = PersonalQuestionResponse.objects.create(
+            user=self.user,
+            task=self.task,
+            question_key=self.bank.question_keys[0],
+            body="Ma réponse exportée.",
+        )
+        other_user = factories.make_user("other-exported-question-response")
+        PersonalQuestionResponse.objects.create(
+            user=other_user,
+            task=self.task,
+            question_key=self.bank.question_keys[1],
+            body="Réponse d’un autre utilisateur.",
+        )
+
+        exported = self.client.get(reverse("study:export_account")).json()
+
+        self.assertEqual(exported["version"], 7)
+        self.assertEqual(
+            exported["personal_question_responses"],
+            [
+                {
+                    "part": "eo",
+                    "task": "tache-1",
+                    "question_key": personal.question_key,
+                    "body": personal.body,
+                    "created_at": personal.created_at.isoformat(
+                        timespec="milliseconds"
+                    ).replace("+00:00", "Z"),
+                    "updated_at": personal.updated_at.isoformat(
+                        timespec="milliseconds"
+                    ).replace("+00:00", "Z"),
+                }
+            ],
+        )
+
+    def test_resetting_progress_preserves_personal_question_responses(self):
+        personal = PersonalQuestionResponse.objects.create(
+            user=self.user,
+            task=self.task,
+            question_key=self.bank.question_keys[0],
+            body="Ma réponse durable.",
+        )
+        MemoryQuestionProgress.objects.create(
+            user=self.user,
+            memory_number=self.bank.number,
+            question_key=self.bank.question_keys[0],
+        )
+
+        response = self.client.post(
+            reverse("study:reset_progress"),
+            {
+                "current_pin": "123456",
+                "confirmation": "REINITIALISER",
+            },
+        )
+
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(
+            PersonalQuestionResponse.objects.filter(pk=personal.pk).exists()
+        )
+        self.assertFalse(
+            MemoryQuestionProgress.objects.filter(user=self.user).exists()
+        )
 
     def test_question_progress_is_saved_for_the_current_user(self):
         question_key = self.bank.question_keys[0]
@@ -4033,7 +4275,7 @@ class QuestionBankViewTests(TestCase):
 
         exported = self.client.get(reverse("study:export_account")).json()
 
-        self.assertEqual(exported["version"], 6)
+        self.assertEqual(exported["version"], 7)
         self.assertEqual(
             exported["memory_question_progress"][0]["question_key"],
             own_progress.question_key,

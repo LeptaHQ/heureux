@@ -2602,12 +2602,54 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 }
 .question-bank-questions li {
   display: grid;
-  grid-template-columns: 2rem minmax(0, 1fr) 2rem;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
   align-items: start;
   gap: 0.6rem;
   padding: 0.7rem 0.45rem;
   border-radius: 12px;
   transition: background 0.16s ease, box-shadow 0.16s ease;
+}
+.question-bank-question__content { min-width: 0; }
+.question-bank-question__actions {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 0.25rem;
+}
+.question-response-edit {
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.12rem;
+  border-color: transparent;
+  color: var(--text-faint);
+}
+.question-response-edit:hover,
+.question-response-edit.has-response {
+  border-color: color-mix(in srgb, var(--bank-accent) 28%, var(--border));
+  background: color-mix(in srgb, var(--bank-accent) 9%, var(--surface));
+  color: var(--bank-accent);
+}
+.question-bank-response {
+  margin-top: 0.55rem;
+  padding: 0.6rem 0.7rem;
+  border-left: 3px solid color-mix(in srgb, var(--bank-accent) 58%, var(--border));
+  border-radius: 0 9px 9px 0;
+  background: color-mix(in srgb, var(--bank-accent) 6%, var(--surface-2));
+}
+.question-bank-response > span {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--bank-accent);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.question-bank-response > div {
+  color: var(--text-soft);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
 }
 .question-bank-questions li + li {
   border-top: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
@@ -2789,6 +2831,17 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 .question-bank-section__top:hover {
   color: var(--bank-accent);
 }
+.question-response-dialog__question {
+  margin: 0;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.question-response-dialog__delete { margin-right: auto; }
 
 @media (max-width: 900px) {
   .tache-two-overview-grid,
@@ -2989,7 +3042,7 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
     padding: 0.25rem 0.75rem 0.1rem;
   }
   .question-bank-questions li {
-    grid-template-columns: 1.7rem minmax(0, 1fr) 2rem;
+    grid-template-columns: 1.7rem minmax(0, 1fr) auto;
     gap: 0.5rem;
     padding: 0.65rem 0.35rem;
   }

@@ -377,6 +377,12 @@ urlpatterns = [
         name="task_memory_progress",
     ),
     path(
+        "expression/<expression_part:part_slug>/<slug:task_slug>/"
+        "memoires/<int:memory_number>/reponse/",
+        views.task_question_response,
+        name="task_question_response",
+    ),
+    path(
         "expression/<expression_part:part_slug>/<slug:task_slug>/sujets/",
         views.browse,
         name="task_browse",

@@ -469,7 +469,7 @@ class WritingSujetViewTests(TestCase):
         payload = json.loads(
             self.client.get(reverse("study:export_account")).content
         )
-        self.assertEqual(payload["version"], 6)
+        self.assertEqual(payload["version"], 7)
         self.assertEqual(
             payload["personal_writing_responses"],
             [

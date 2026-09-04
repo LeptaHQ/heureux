@@ -464,6 +464,43 @@ class ContentImportState(models.Model):
     imported_at = models.DateTimeField(auto_now=True)
 
 
+PERSONAL_QUESTION_RESPONSE_MAX_LENGTH = 10_000
+
+
+class PersonalQuestionResponse(models.Model):
+    """A learner-owned response to a reusable expression question."""
+
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="personal_question_responses",
+    )
+    task = models.ForeignKey(
+        Task,
+        on_delete=models.CASCADE,
+        related_name="personal_question_responses",
+    )
+    question_key = models.CharField(max_length=120)
+    body = models.TextField(max_length=PERSONAL_QUESTION_RESPONSE_MAX_LENGTH)
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-updated_at", "-id"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "task", "question_key"],
+                name="unique_user_task_question_response",
+            ),
+        ]
+        indexes = [
+            models.Index(fields=["user", "task", "updated_at"]),
+        ]
+
+    def __str__(self) -> str:
+        return f"{self.user_id} · {self.task_id} · {self.question_key}"
+
+
 class MemoryQuestionProgress(models.Model):
     """A reusable expression question marked as learned by one learner."""
 

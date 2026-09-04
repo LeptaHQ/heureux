@@ -91,30 +91,50 @@
               {% endif %}
               <ol class="question-bank-questions">
                 {% for question in group.questions %}
-                  <li class="{% if question.completed %}is-complete{% endif %}" data-question-bank-question data-question-key="{{ question.content_key }}">
+                  <li class="{% if question.completed %}is-complete{% endif %}{% if question.response %} has-response{% endif %}" data-question-bank-question data-question-key="{{ question.content_key }}">
                     <span class="question-bank-question__number" aria-hidden="true">{{ forloop.counter|stringformat:"02d" }}</span>
-                    <div>
+                    <div class="question-bank-question__content">
                       <p>{{ question.text }}</p>
                       {% if question.note %}<small>{{ question.note }}</small>{% endif %}
+                      {% if question_responses_enabled %}
+                        <div class="question-bank-response{% if not question.response %} hidden{% endif %}" data-question-response-preview>
+                          <span>Ma réponse</span>
+                          <div data-question-response-display>{{ question.response }}</div>
+                        </div>
+                        <textarea hidden data-question-response-source>{{ question.response }}</textarea>
+                      {% endif %}
                     </div>
-                    <form
-                      class="memory-question-check"
-                      method="post"
-                      action="{% url 'study:task_memory_progress' part.slug task.slug question_bank.number %}"
-                      data-memory-progress-form>
-                      {% csrf_token %}
-                      <input type="hidden" name="question_key" value="{{ question.content_key }}">
-                      <input type="hidden" name="completed" value="{% if question.completed %}0{% else %}1{% endif %}" data-memory-completed-input>
+                    <div class="question-bank-question__actions">
+                      {% if question_responses_enabled %}
                       <button
-                        type="submit"
-                        role="checkbox"
+                        class="icon-button question-response-edit{% if question.response %} has-response{% endif %}"
+                        type="button"
+                        data-question-response-edit
                         data-question-text="{{ question.text }}"
-                        aria-checked="{{ question.completed|yesno:'true,false' }}"
-                        aria-label="{% if question.completed %}Marquer comme non apprise : {% else %}Marquer comme apprise : {% endif %}{{ question.text }}"
-                        title="{% if question.completed %}Question apprise{% else %}Marquer comme apprise{% endif %}">
-                        {% include "study/partials/ui_icon.html" with name="check" only %}
+                        aria-label="{% if question.response %}Modifier{% else %}Ajouter{% endif %} ma réponse : {{ question.text }}"
+                        title="{% if question.response %}Modifier ma réponse{% else %}Ajouter ma réponse{% endif %}">
+                        {% include "study/partials/ui_icon.html" with name="pencil" only %}
                       </button>
-                    </form>
+                      {% endif %}
+                      <form
+                        class="memory-question-check"
+                        method="post"
+                        action="{% url 'study:task_memory_progress' part.slug task.slug question_bank.number %}"
+                        data-memory-progress-form>
+                        {% csrf_token %}
+                        <input type="hidden" name="question_key" value="{{ question.content_key }}">
+                        <input type="hidden" name="completed" value="{% if question.completed %}0{% else %}1{% endif %}" data-memory-completed-input>
+                        <button
+                          type="submit"
+                          role="checkbox"
+                          data-question-text="{{ question.text }}"
+                          aria-checked="{{ question.completed|yesno:'true,false' }}"
+                          aria-label="{% if question.completed %}Marquer comme non apprise : {% else %}Marquer comme apprise : {% endif %}{{ question.text }}"
+                          title="{% if question.completed %}Question apprise{% else %}Marquer comme apprise{% endif %}">
+                          {% include "study/partials/ui_icon.html" with name="check" only %}
+                        </button>
+                      </form>
+                    </div>
                   </li>
                 {% endfor %}
               </ol>
@@ -127,10 +147,13 @@
     {% endfor %}
   </div>
 </div>
+{% if question_responses_enabled %}
+  {% include "study/partials/question_response_dialog.html" %}
+{% endif %}
 </div>
 {% endblock %}
 
 {% block scripts %}
   {{ block.super }}
-  <script src="{% static 'study/js/memory-progress.js' %}?v=2"></script>
+  <script src="{% static 'study/js/memory-progress.js' %}?v=3"></script>
 {% endblock %}

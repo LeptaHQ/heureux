@@ -5,7 +5,7 @@
 {% block content %}
 {% include "study/partials/task_nav.html" %}
 
-<div class="tache-two-subjects" style="--subject-accent: {{ task.color }};">
+<div class="tache-two-subjects sortable-subject-directory" style="--subject-accent: {{ task.color }};">
   <header class="memory-overview-hero">
     <div class="memory-overview-hero__copy">
       <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
@@ -101,35 +101,7 @@
                   <col class="t1-table__questions-column">
                   <col class="t1-table__status-column">
                 </colgroup>
-                <thead>
-                  <tr>
-                    <th scope="col" aria-sort="none">
-                      <button
-                        class="t1-table__sort-button"
-                        type="button"
-                        data-nested-table-sort="subject"
-                        data-sort-first-direction="ascending"
-                        data-sort-label="Sujet">
-                        <span>Sujet</span>
-                        <span class="t1-table__sort-indicator" aria-hidden="true">↕</span>
-                      </button>
-                    </th>
-                    <th scope="col" class="t1-table__versions-col">Questions</th>
-                    <th scope="col" aria-sort="none">
-                      <button
-                        class="t1-table__sort-button"
-                        type="button"
-                        data-nested-table-sort="progress"
-                        data-sort-first-direction="descending"
-                        data-sort-label="Progression"
-                        data-sort-compact-label="État">
-                        <span class="t1-table__sort-label--full">Progression</span>
-                        <span class="t1-table__sort-label--compact">État</span>
-                        <span class="t1-table__sort-indicator" aria-hidden="true">↕</span>
-                      </button>
-                    </th>
-                  </tr>
-                </thead>
+                {% include "study/partials/sortable_subject_table_head.html" with secondary_label="Questions" only %}
                 <tbody>
                 {% for subject in theme.subjects %}
                   <tr

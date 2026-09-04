@@ -5,7 +5,7 @@
 {% block content %}
 {% include "study/partials/task_nav.html" %}
 
-<div class="tache-two-subjects ee-writing-subjects ee-writing-subjects--t{{ writing_tache }}" style="--subject-accent: {{ task.color }};">
+<div class="tache-two-subjects sortable-subject-directory ee-writing-subjects ee-writing-subjects--t{{ writing_tache }}" style="--subject-accent: {{ task.color }};">
   <header class="memory-overview-hero">
     <div class="memory-overview-hero__copy">
       <p class="eyebrow">{{ part.name }} · {{ task.name }}</p>
@@ -112,27 +112,20 @@
             </span>
           </summary>
           <div class="t1-table-shell">
-            <table class="t1-table t1-table--grouped t1-table--writing">
+            <table class="t1-table t1-table--grouped" data-nested-sort-table>
               <caption class="sr-only">Sujets du thème {{ category.label }}</caption>
               <colgroup>
                 <col class="t1-table__subject-column">
-                <col class="t1-table__content-column">
-                <col class="t1-table__writing-status-column">
-                <col class="t1-table__versions-column">
+                <col class="t1-table__questions-column">
+                <col class="t1-table__status-column">
               </colgroup>
-              <thead>
-                <tr>
-                  <th scope="col">Sujet</th>
-                  <th scope="col">Publication</th>
-                  <th scope="col">Progression</th>
-                  <th scope="col" class="t1-table__versions-col">Versions</th>
-                </tr>
-              </thead>
+              {% include "study/partials/sortable_subject_table_head.html" with secondary_label="Versions" only %}
               <tbody>
                 {% for row in category.sujets %}
                   <tr
-                    class="t1-table__row subject-progress-row subject-table-row writing-sujet-progress-row writing-sujet-progress-row--{{ row.progress.status }}{% if row.is_personalized %} is-personalized{% endif %}"
+                    class="t1-table__row subject-progress-row subject-table-row writing-sujet-progress-row writing-sujet-progress-row--{{ row.progress.status }} is-status-{{ row.progress.status }}{% if row.is_personalized %} is-personalized{% endif %}"
                     data-t1-table-subject
+                    data-nested-sort-row
                     data-writing-sujet-progress-row="{{ row.progress_sujet.pk }}">
                     <td class="t1-table__subject">
                       <div class="t1-table__subject-copy">
@@ -144,12 +137,12 @@
                           aria-label="Ouvrir le sujet : {{ row.prompt }}">{{ row.prompt|truncatechars:180 }}</a>
                         {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="ee-writing-prompts" prompt_key=row.source.source_key label="Copier la consigne" subject_label=row.prompt label_hidden=True only %}
                       </div>
+                      <span class="t1-table__subject-date">
+                        {{ row.source.month_name }} {{ row.source.year }} · {{ row.source.combinaison }}
+                        {% if row.equivalent_count %} · {{ row.equivalent_count|add:1 }} publications liées{% endif %}
+                      </span>
                     </td>
-                    <td>
-                      <span>{{ row.source.month_name }} {{ row.source.year }}</span>
-                      <small class="t1-table__subject-date">{{ row.source.combinaison }}</small>
-                      {% if row.equivalent_count %}<span class="chip">{{ row.equivalent_count|add:1 }} liées</span>{% endif %}
-                    </td>
+                    <td class="t1-table__versions t1-table__questions">{{ row.version_count }}</td>
                     <td class="t1-table__progress-cell">
                       <div class="t1-table__progress">
                         <span
@@ -158,7 +151,6 @@
                         {% include "study/partials/writing_sujet_completion_form.html" with sujet=row.progress_sujet completed=row.explicitly_completed subject_label=row.prompt part=part task=task refresh=True %}
                       </div>
                     </td>
-                    <td class="t1-table__versions">{{ row.version_count }}</td>
                   </tr>
                 {% endfor %}
               </tbody>

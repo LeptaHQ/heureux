@@ -529,6 +529,18 @@ class EeWritingPageTests(TestCase):
                 self.assertEqual(response.context["response_count"], distinct)
                 self.assertContains(response, "data-t1-table-theme", count=11)
                 self.assertContains(response, "data-t1-table-subject", count=138)
+                self.assertContains(response, "data-nested-sort-table", count=11)
+                self.assertContains(
+                    response,
+                    'data-nested-table-sort="subject"',
+                    count=11,
+                )
+                self.assertContains(
+                    response,
+                    'data-nested-table-sort="progress"',
+                    count=11,
+                )
+                self.assertContains(response, "data-nested-sort-row", count=138)
                 self.assertContains(response, "data-subject-directory-search")
                 self.assertContains(response, 'target="_blank"')
                 self.assertContains(response, "publications liées")

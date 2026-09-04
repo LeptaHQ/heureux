@@ -247,10 +247,10 @@
         {
           "id": "SVT1-0031",
           "kind": "tournure",
-          "french": "ne suffisent pas à créer de vraies amitiés",
-          "english": "aren't enough to create real friendships",
-          "example": "À mon avis, les réseaux sociaux facilitent effectivement les premiers contacts, mais ils ne suffisent pas à créer de vraies amitiés.",
-          "usage": "ne...pas suffire à + infinitive; 'de' before plural adjective+noun."
+          "french": "il faut que",
+          "english": "it is necessary that",
+          "example": "À mon avis, les réseaux sociaux facilitent les premiers contacts, mais il faut que les échanges inspirent confiance pour qu'une amitié puisse naître.",
+          "usage": "Tournure d'obligation suivie du subjonctif ; l'exemple ajoute aussi « pour que »."
         },
         {
           "id": "SVT1-0032",
@@ -327,9 +327,9 @@
         {
           "id": "SVT1-0041",
           "kind": "phrase-modele",
-          "french": "À mon avis, les réseaux sociaux facilitent effectivement les premiers contacts, mais ils ne suffisent pas à créer de vraies amitiés.",
-          "english": "In my opinion, social media does make first contacts easier, but it isn't enough to create real friendships.",
-          "example": "À mon avis, les réseaux sociaux facilitent effectivement les premiers contacts, mais ils ne suffisent pas à créer de vraies amitiés.",
+          "french": "À mon avis, les réseaux sociaux facilitent les premiers contacts, mais il faut que les échanges inspirent confiance pour qu'une amitié puisse naître.",
+          "english": "In my opinion, social media makes initial contact easier, but interactions must inspire trust for a friendship to develop.",
+          "example": "À mon avis, les réseaux sociaux facilitent les premiers contacts, mais il faut que les échanges inspirent confiance pour qu'une amitié puisse naître.",
           "usage": "Balanced thesis (concession + limit); reusable opener for any 'tool helps but...' argument."
         },
         {
@@ -580,10 +580,10 @@
         {
           "id": "SVT1-0072",
           "kind": "expression",
-          "french": "En revanche",
-          "english": "on the other hand",
-          "example": "En revanche, dans une société où tout serait pensé pour fonctionner sans cet outil, l'effort serait beaucoup plus facile.",
-          "usage": "Contrast connector; formal."
+          "french": "vivre sans téléphone",
+          "english": "to live without a phone",
+          "example": "Pour qu'il soit plus facile de vivre sans téléphone, il faut que les services proposent aussi d'autres solutions.",
+          "usage": "Infinitive expression « vivre sans » + noun; useful for discussing digital dependence and alternatives."
         },
         {
           "id": "SVT1-0073",
@@ -1470,10 +1470,10 @@
         {
           "id": "SVT1-0182",
           "kind": "tournure",
-          "french": "C'est l'usage qui fait la différence",
-          "english": "It's the use that makes the difference",
-          "example": "C'est l'usage qui fait la différence, pas l'outil.",
-          "usage": "Cleft 'c'est... qui...' emphasising the subject."
+          "french": "c'est l'usage qui fait la différence",
+          "english": "it is the use that makes the difference",
+          "example": "Il faut donc que chacun garde un bon équilibre : c'est l'usage qui fait la différence, pas l'outil.",
+          "usage": "Cleft construction « c'est… qui… » emphasizing use rather than the tool itself."
         },
         {
           "id": "SVT1-0183",
@@ -1558,10 +1558,10 @@
         {
           "id": "SVT1-0193",
           "kind": "phrase-modele",
-          "french": "C'est l'usage qui fait la différence, pas l'outil.",
-          "english": "It's the use that makes the difference, not the tool.",
-          "example": "C'est l'usage qui fait la différence, pas l'outil.",
-          "usage": "Cleft + contrast; memorable thesis statement about technology."
+          "french": "Il faut donc que chacun garde un bon équilibre : c'est l'usage qui fait la différence, pas l'outil.",
+          "english": "Everyone must therefore maintain a healthy balance: it is the use that makes the difference, not the tool.",
+          "example": "Il faut donc que chacun garde un bon équilibre : c'est l'usage qui fait la différence, pas l'outil.",
+          "usage": "« Il faut que » + subjunctive states the recommendation; the cleft « c’est… qui… » emphasizes use rather than the tool."
         },
         {
           "id": "SVT1-0194",
@@ -2152,10 +2152,10 @@
         {
           "id": "SVT1-0266",
           "kind": "collocation",
-          "french": "dimension plus concrète",
-          "english": "a more concrete dimension",
-          "example": "Les images donnent une dimension plus concrète à l'information.",
-          "usage": "une dimension concrète; comparative 'plus concrète'."
+          "french": "l'information plus concrète",
+          "english": "information more concrete",
+          "example": "Les images rendent l'information plus concrète, à condition qu'elles soient accompagnées d'explications claires.",
+          "usage": "Collocation used with « rendre + object + adjective »; « concrète » agrees with feminine « information »."
         },
         {
           "id": "SVT1-0267",
@@ -2368,10 +2368,10 @@
         {
           "id": "SVT1-0293",
           "kind": "phrase-modele",
-          "french": "Les images donnent une dimension plus concrète à l'information.",
-          "english": "Images give a more concrete dimension to information.",
-          "example": "Les images donnent une dimension plus concrète à l'information.",
-          "usage": "donner une dimension à; concise supporting claim about visuals."
+          "french": "Les images rendent l'information plus concrète, à condition qu'elles soient accompagnées d'explications claires.",
+          "english": "Images make information more concrete, provided they are accompanied by clear explanations.",
+          "example": "Les images rendent l'information plus concrète, à condition qu'elles soient accompagnées d'explications claires.",
+          "usage": "« Rendre l’information plus concrète » uses rendre + object + adjective; « à condition que » introduces a necessary condition in the subjunctive."
         },
         {
           "id": "SVT1-0294",
@@ -2551,7 +2551,7 @@
           "kind": "collocation",
           "french": "perd facilement beaucoup de temps",
           "english": "easily wastes a lot of time",
-          "example": "En revanche, sans objectif, on perd facilement beaucoup de temps sans rien y gagner.",
+          "example": "Sans objectif clair, on perd facilement beaucoup de temps ; il faut donc que chacun sache quitter l'application une fois son objectif atteint.",
           "usage": "perdre du temps = 'waste time'; 'facilement' adverb."
         },
         {
@@ -2605,10 +2605,10 @@
         {
           "id": "SVT1-0322",
           "kind": "expression",
-          "french": "En revanche",
-          "english": "on the other hand",
-          "example": "En revanche, sans objectif, on perd facilement beaucoup de temps sans rien y gagner.",
-          "usage": "Contrast connector."
+          "french": "une fois son objectif atteint",
+          "english": "once one's goal has been achieved",
+          "example": "Sans objectif clair, on perd facilement beaucoup de temps ; il faut donc que chacun sache quitter l'application une fois son objectif atteint.",
+          "usage": "Time expression « une fois + noun + past participle »; « atteint » agrees with masculine « objectif »."
         },
         {
           "id": "SVT1-0323",
@@ -2852,7 +2852,7 @@
           "kind": "mot-cle",
           "french": "smartphone",
           "english": "smartphone",
-          "example": "Beaucoup de services partent du principe que tout le monde a un smartphone connecté à Internet.",
+          "example": "Beaucoup de services supposent que chacun a un smartphone, mais il faut qu'ils restent accessibles sans téléphone.",
           "usage": "Masc., loanword; « un smartphone connecté à Internet »."
         },
         {
@@ -3305,7 +3305,7 @@
           "kind": "mot-cle",
           "french": "dimension affective",
           "english": "emotional dimension",
-          "example": "Cela permet de comprendre que la lettre garde une dimension affective unique.",
+          "example": "Il est important que les lettres gardent leur dimension affective, car peu d'outils numériques peuvent vraiment l'égaler.",
           "usage": "Fem.; « une dimension affective unique »."
         },
         {
@@ -3511,10 +3511,10 @@
         {
           "id": "SVT1-0434",
           "kind": "tournure",
-          "french": "Cela permet de comprendre que",
-          "english": "This helps to understand that",
-          "example": "Cela permet de comprendre que la lettre garde une dimension affective unique.",
-          "usage": "Cela permet de + infinitive."
+          "french": "Il est important que les lettres gardent leur dimension affective",
+          "english": "It is important for letters to retain their emotional dimension",
+          "example": "Il est important que les lettres gardent leur dimension affective, car peu d'outils numériques peuvent vraiment l'égaler.",
+          "usage": "Recommendation frame « il est important que » + subjunctive, followed by a justification with « car »."
         },
         {
           "id": "SVT1-0435",
@@ -3591,10 +3591,10 @@
         {
           "id": "SVT1-0444",
           "kind": "phrase-modele",
-          "french": "Cela permet de comprendre que la lettre garde une dimension affective unique.",
-          "english": "This helps us understand that the letter keeps a unique emotional dimension.",
-          "example": "Cela permet de comprendre que la lettre garde une dimension affective unique.",
-          "usage": "'garder une dimension' + adjective; takeaway."
+          "french": "Il est important que les lettres gardent leur dimension affective, car peu d'outils numériques peuvent vraiment l'égaler.",
+          "english": "It is important for letters to retain their emotional dimension, because few digital tools can truly equal it.",
+          "example": "Il est important que les lettres gardent leur dimension affective, car peu d'outils numériques peuvent vraiment l'égaler.",
+          "usage": "« Il est important que » takes the subjunctive; « garder une dimension affective » highlights the emotional value preserved by letters."
         },
         {
           "id": "SVT1-0445",
@@ -3948,10 +3948,10 @@
         {
           "id": "SVT1-0488",
           "kind": "tournure",
-          "french": "On peut très bien se parler souvent sans vraiment se comprendre",
-          "english": "One can chat often without really understanding each other",
-          "example": "On peut très bien se parler souvent sans vraiment se comprendre.",
-          "usage": "on peut très bien + infinitive; reciprocal 'se parler / se comprendre'."
+          "french": "Même si l'on se parle souvent,",
+          "english": "Even if we speak to each other often,",
+          "example": "Même si l'on se parle souvent, il faut que chacun sache vraiment écouter pour bien comprendre l'autre.",
+          "usage": "Concessive opener with « même si » + indicative; it contrasts frequent contact with genuine listening."
         },
         {
           "id": "SVT1-0489",

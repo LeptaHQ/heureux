@@ -726,7 +726,7 @@
           "kind": "tournure",
           "french": "Cependant, il faut reconnaître que",
           "english": "However, one must acknowledge that",
-          "example": "Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge.",
+          "example": "Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge, bien qu'aucune méthode ne convienne à tout le monde.",
           "usage": "Tournure concessive; elle ouvre une nuance sans abandonner la position principale."
         },
         {
@@ -796,10 +796,10 @@
         {
           "id": "SVD1-0099",
           "kind": "phrase-modele",
-          "french": "Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge.",
-          "english": "Nuance sentence: learning methods change with age.",
-          "example": "Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge.",
-          "usage": "Phrase de concession; cependant signale une limite tout en gardant la thèse."
+          "french": "Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge, bien qu'aucune méthode ne convienne à tout le monde.",
+          "english": "However, it must be acknowledged that the way people learn changes with age, although no single method suits everyone.",
+          "example": "Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge, bien qu'aucune méthode ne convienne à tout le monde.",
+          "usage": "« Cependant » introduces nuance; « il faut reconnaître que » acknowledges a fact, while « bien que » takes the subjunctive."
         },
         {
           "id": "SVD1-0100",
@@ -1629,7 +1629,7 @@
           "kind": "mot-cle",
           "french": "démarche d'immigration",
           "english": "immigration process",
-          "example": "À mon avis, trois questions doivent être posées avant toute démarche d'immigration au Québec.",
+          "example": "À mon avis, il faut que chaque candidat se pose trois questions avant toute démarche d'immigration au Québec.",
           "usage": "Nom féminin : désigne l’ensemble des formalités et décisions, plutôt qu’un simple projet de départ."
         },
         {
@@ -1877,7 +1877,7 @@
           "kind": "tournure",
           "french": "avant toute démarche d'immigration",
           "english": "before any immigration step",
-          "example": "À mon avis, trois questions doivent être posées avant toute démarche d'immigration au Québec.",
+          "example": "À mon avis, il faut que chaque candidat se pose trois questions avant toute démarche d'immigration au Québec.",
           "usage": "Avant toute + singular noun gives a formal 'before any' structure."
         },
         {
@@ -2098,7 +2098,7 @@
           "kind": "mot-cle",
           "french": "arnaques",
           "english": "scams",
-          "example": "Il peut diffuser de fausses informations, créer de la panique ou laisser place à des arnaques aux dons.",
+          "example": "Il faut que chacun vérifie les contenus pour éviter de diffuser de fausses informations, de créer de la panique ou de laisser place à des arnaques aux dons.",
           "usage": "Registre courant : « arnaques » est plus familier que « fraudes », mais naturel à l’oral."
         },
         {
@@ -2186,7 +2186,7 @@
           "kind": "collocation",
           "french": "fausses informations",
           "english": "false information; misinformation",
-          "example": "Il peut diffuser de fausses informations, créer de la panique ou laisser place à des arnaques aux dons.",
+          "example": "Il faut que chacun vérifie les contenus pour éviter de diffuser de fausses informations, de créer de la panique ou de laisser place à des arnaques aux dons.",
           "usage": "Adjectif avant le nom : « fausses » met l’accent sur le caractère trompeur des informations."
         },
         {
@@ -2266,7 +2266,7 @@
           "kind": "expression",
           "french": "laisser place à",
           "english": "leave room for; give way to",
-          "example": "Il peut diffuser de fausses informations, créer de la panique ou laisser place à des arnaques aux dons.",
+          "example": "Il faut que chacun vérifie les contenus pour éviter de diffuser de fausses informations, de créer de la panique ou de laisser place à des arnaques aux dons.",
           "usage": "Expression verbale suivie d’un nom : souvent utilisée pour introduire un risque ou une dérive."
         },
         {

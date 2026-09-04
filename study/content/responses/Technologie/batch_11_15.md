@@ -24,7 +24,7 @@ Tout d'abord, aujourd'hui, beaucoup d'aspects de la vie quotidienne rendent le t
 
 **Développement**
 
-En effet, le téléphone sert à communiquer, à se déplacer, à payer, à faire des démarches administratives, à travailler ou à organiser sa famille. Beaucoup de services partent du principe que tout le monde a un smartphone connecté à Internet. Au contraire, vivre sans téléphone aujourd'hui revient à se compliquer la vie sur de nombreux aspects pratiques.
+En effet, le téléphone sert à communiquer, à se déplacer, à payer, à faire des démarches administratives, à travailler ou à organiser sa famille. Beaucoup de services supposent que chacun a un smartphone, mais il faut qu'ils restent accessibles sans téléphone. Au contraire, vivre sans téléphone aujourd'hui revient à se compliquer la vie sur de nombreux aspects pratiques.
 
 **Exemple**
 
@@ -76,7 +76,7 @@ Cependant, il faut reconnaître que se passer totalement de téléphone reste un
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'on peut encore vivre sans téléphone, mais que cela demande beaucoup d'organisation et reste peu réaliste pour une grande partie de la population. L'enjeu est de savoir dans quels contextes on peut réellement s'en passer, et non simplement de réduire son usage. Il faut que les services essentiels puissent rester accessibles aux personnes sans téléphone.
+En conclusion, je dirais qu'on peut encore vivre sans téléphone, mais que cela demande beaucoup d'organisation et reste peu réaliste pour une grande partie de la population. L'enjeu est de savoir dans quels contextes on peut réellement s'en passer, et non simplement de réduire son usage.
 
 ---
 
@@ -132,7 +132,7 @@ Par exemple, beaucoup de personnes gardent précieusement de vieilles lettres re
 
 **Conséquence**
 
-Cela permet de comprendre que la lettre garde une dimension affective unique.
+Il est important que les lettres gardent leur dimension affective, car peu d'outils numériques peuvent vraiment l'égaler.
 
 ### **4. Argument 3 - La lettre dure dans le temps, sans dépendre de la technologie**
 
@@ -158,7 +158,7 @@ Cependant, pour les échanges urgents ou pratiques, la communication numérique 
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les lettres écrites à la main ne sont plus un moyen courant de communication, mais qu'elles restent précieuses quand on veut transmettre quelque chose de plus personnel. Elles ont changé de fonction, mais n'ont pas totalement disparu. Il faut que nous continuions à écrire des lettres pour les messages les plus personnels.
+En conclusion, je dirais que les lettres écrites à la main ne sont plus un moyen courant de communication, mais qu'elles restent précieuses quand on veut transmettre quelque chose de plus personnel. Elles ont changé de fonction, mais n'ont pas totalement disparu.
 
 ---
 
@@ -236,11 +236,11 @@ Cela montre que le téléphone portable n'est plus seulement un confort, c'est u
 
 ### **5. Nuance**
 
-Cependant, le téléphone facilite la communication, mais il ne garantit pas pour autant des échanges plus profonds ni plus attentifs. On peut très bien se parler souvent sans vraiment se comprendre. La qualité d'une relation dépend toujours de l'attention que l'on porte à l'autre, pas seulement du nombre de messages échangés.
+Cependant, le téléphone facilite la communication, mais il ne garantit pas pour autant des échanges plus profonds ni plus attentifs. Même si l'on se parle souvent, il faut que chacun sache vraiment écouter pour bien comprendre l'autre. La qualité d'une relation dépend toujours de l'attention que l'on porte à l'autre, pas seulement du nombre de messages échangés.
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que oui, les téléphones portables facilitent la communication, parce qu'ils rendent les échanges plus rapides et plus simples, tout en nous obligeant à rester attentifs à la qualité de nos relations. La technologie aide, mais ne remplace pas l'écoute. Il faut que chacun sache aussi écouter, même quand le téléphone facilite les échanges.
+En conclusion, je dirais que oui, les téléphones portables facilitent la communication, parce qu'ils rendent les échanges plus rapides et plus simples, tout en nous obligeant à rester attentifs à la qualité de nos relations. La technologie aide, mais ne remplace pas l'écoute.
 
 ---
 
@@ -260,7 +260,7 @@ La vraie question est de savoir si la télévision contribue vraiment au dévelo
 
 ### **1. Position claire**
 
-À mon avis, la télévision peut contribuer au développement de l'enfant, à condition d'être bien utilisée. D'abord, parce que des programmes adaptés peuvent être très utiles pour apprendre. Ensuite, parce qu'elle ouvre l'enfant sur le monde, sur d'autres cultures et sur des réalités qu'il ne connaît pas. Enfin, parce que, regardée avec les parents, elle devient un vrai support d'échange et de langage.
+À mon avis, la télévision peut aider l'enfant, à condition qu'elle reste un outil parmi d'autres dans son quotidien. D'abord, parce que des programmes adaptés peuvent être très utiles pour apprendre. Ensuite, parce qu'elle ouvre l'enfant sur le monde, sur d'autres cultures et sur des réalités qu'il ne connaît pas. Enfin, parce que, regardée avec les parents, elle devient un vrai support d'échange et de langage.
 
 ### **2. Argument 1 - Des programmes adaptés peuvent vraiment aider à apprendre**
 
@@ -322,7 +322,7 @@ Cependant, ces bénéfices supposent un usage mesuré et un contenu adapté : tr
 
 ### **6. Conclusion**
 
-En conclusion, je pense que la télévision peut contribuer au développement de l'enfant, mais seulement si elle est utilisée avec mesure et accompagnée par les parents. Mal encadrée, elle peut au contraire nuire à son équilibre. Il faut que les parents choisissent les programmes et limitent le temps d'écran.
+En conclusion, je pense que la télévision peut contribuer au développement de l'enfant, mais seulement si elle est utilisée avec mesure et accompagnée par les parents. Mal encadrée, elle peut au contraire nuire à son équilibre.
 
 ---
 

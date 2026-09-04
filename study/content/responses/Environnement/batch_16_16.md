@@ -72,10 +72,10 @@ Cela montre que le tourisme massif peut appauvrir, à la longue, l'identité mê
 
 ### **5. Nuance**
 
-Cependant, le tourisme n'est pas mauvais en soi. Bien organisé, il peut faire vivre une région, créer beaucoup d'emplois et financer la protection de certains sites. Le vrai problème vient surtout de l'excès et du manque de régulation.
+Bien que le tourisme puisse avoir des effets négatifs, il n'est pas mauvais en soi. Bien organisé, il peut faire vivre une région, créer beaucoup d'emplois et financer la protection de certains sites. Le vrai problème vient surtout de l'excès et du manque de régulation.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que le tourisme peut détruire certaines régions, mais surtout quand il devient massif et mal contrôlé. La solution n'est pas de le supprimer, mais de mieux l'encadrer pour respecter le territoire et ses habitants. Il faut que les autorités limitent la fréquentation pour que les habitants puissent préserver leur territoire.
+En conclusion, je pense que le tourisme peut détruire certaines régions, mais surtout quand il devient massif et mal contrôlé. La solution n'est pas de le supprimer, mais de mieux l'encadrer pour respecter le territoire et ses habitants.
 
 ---

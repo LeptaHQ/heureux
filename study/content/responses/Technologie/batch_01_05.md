@@ -14,7 +14,7 @@ La vraie question est de savoir si les réseaux sociaux rendent vraiment les nou
 
 ### **1. Position claire**
 
-À mon avis, les réseaux sociaux facilitent effectivement les premiers contacts, mais ils ne suffisent pas à créer de vraies amitiés. D'abord, parce qu'ils élargissent rapidement le cercle de connaissances, surtout autour de centres d'intérêt communs. Ensuite, parce qu'une amitié solide se construit rarement uniquement en ligne. Enfin, parce qu'ils sont particulièrement utiles pour des personnes qui ont peu d'occasions de rencontre dans la vie réelle.
+À mon avis, les réseaux sociaux facilitent les premiers contacts, mais il faut que les échanges inspirent confiance pour qu'une amitié puisse naître. D'abord, parce qu'ils élargissent rapidement le cercle de connaissances, surtout autour de centres d'intérêt communs. Ensuite, parce qu'une amitié solide se construit rarement uniquement en ligne. Enfin, parce qu'ils sont particulièrement utiles pour des personnes qui ont peu d'occasions de rencontre dans la vie réelle.
 
 ### **2. Argument 1 - Ils facilitent les premiers contacts**
 
@@ -76,7 +76,7 @@ Cependant, ces outils peuvent aussi donner une fausse impression d'amitiés nomb
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les réseaux sociaux rendent les rencontres plus faciles au départ, mais qu'ils ne remplacent pas le temps, la confiance et la présence nécessaires pour créer de vrais amis. Ils sont une porte d'entrée, pas une amitié à part entière. Il est important que les échanges en ligne puissent mener à de vraies rencontres.
+En conclusion, je dirais que les réseaux sociaux rendent les rencontres plus faciles au départ, mais qu'ils ne remplacent pas le temps, la confiance et la présence nécessaires pour créer de vrais amis. Ils sont une porte d'entrée, pas une amitié à part entière.
 
 ---
 
@@ -124,7 +124,7 @@ Ensuite, je pense que cette dépendance vient aussi de l'organisation moderne de
 
 **Développement**
 
-En effet, beaucoup de services publics, d'employeurs et de commerces partent du principe que tout le monde possède un smartphone connecté à Internet. Sans téléphone, on se retrouve vite mis à l'écart de certains services. En revanche, dans une société où tout serait pensé pour fonctionner sans cet outil, l'effort serait beaucoup plus facile.
+En effet, beaucoup de services publics, d'employeurs et de commerces partent du principe que tout le monde possède un smartphone connecté à Internet. Sans téléphone, on se retrouve vite mis à l'écart de certains services. Pour qu'il soit plus facile de vivre sans téléphone, il faut que les services proposent aussi d'autres solutions.
 
 **Exemple**
 
@@ -158,7 +158,7 @@ Cependant, vivre avec moins de téléphone reste possible si l'on accepte certai
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il n'est pas facile de se passer complètement de son téléphone portable aujourd'hui, même si l'on peut apprendre à en dépendre beaucoup moins. L'enjeu n'est pas de le supprimer, mais de retrouver un usage plus maîtrisé. Il faut que chacun puisse aussi gérer certaines tâches sans téléphone.
+En conclusion, je dirais qu'il n'est pas facile de se passer complètement de son téléphone portable aujourd'hui, même si l'on peut apprendre à en dépendre beaucoup moins. L'enjeu n'est pas de le supprimer, mais de retrouver un usage plus maîtrisé.
 
 ---
 
@@ -288,7 +288,7 @@ Ensuite, je pense que le problème vient surtout de l'excès et du déséquilibr
 
 **Développement**
 
-En effet, Internet est un outil neutre. Il peut permettre de garder le contact, d'apprendre, de s'informer ou de partager, mais il peut aussi devenir un piège quand on lui consacre trop de temps. C'est l'usage qui fait la différence, pas l'outil. Au contraire, accuser Internet de tous les problèmes de solitude revient à oublier les autres causes : rythme de vie, stress, manque de temps, etc.
+En effet, Internet est un outil neutre. Il peut permettre de garder le contact, d'apprendre, de s'informer ou de partager, mais il peut aussi devenir un piège quand on lui consacre trop de temps. Il faut donc que chacun garde un bon équilibre : c'est l'usage qui fait la différence, pas l'outil. Au contraire, accuser Internet de tous les problèmes de solitude revient à oublier les autres causes : rythme de vie, stress, manque de temps, etc.
 
 **Exemple**
 
@@ -322,7 +322,7 @@ Cependant, Internet peut aussi aider à garder le contact ou à rompre l'isoleme
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'Internet ne rend pas automatiquement les gens solitaires. Tout dépend surtout de la manière dont on l'utilise et de la place que l'on laisse aux relations réelles. Le problème, ce n'est pas Internet, c'est l'usage qu'on en fait. Il faut que chacun garde du temps pour des rencontres et des activités hors ligne.
+En conclusion, je dirais qu'Internet ne rend pas automatiquement les gens solitaires. Tout dépend surtout de la manière dont on l'utilise et de la place que l'on laisse aux relations réelles. Le problème, ce n'est pas Internet, c'est l'usage qu'on en fait.
 
 ---
 

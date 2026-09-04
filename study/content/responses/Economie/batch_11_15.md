@@ -72,11 +72,11 @@ Cela montre que ces voyages posent problème non seulement par leur coût financ
 
 ### **5. Nuance**
 
-Cependant, il faut reconnaître que la recherche spatiale a parfois donné lieu à des innovations utiles, par exemple dans les télécommunications, la météorologie ou la médecine. Le problème n'est donc pas la science spatiale en général, mais surtout les voyages très coûteux et peu utiles, comme le tourisme spatial.
+Cependant, il faut reconnaître que la recherche spatiale a parfois donné lieu à des innovations utiles, par exemple dans les télécommunications, la météorologie ou la médecine. Le problème n'est donc pas la recherche spatiale elle-même : il faut qu'elle serve l'intérêt général, et non une poignée de touristes fortunés.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les voyages dans l'espace coûtent trop cher, profitent à trop peu de gens et pèsent lourd sur l'environnement. Tant que des besoins urgents restent mal couverts, ce type de dépense devrait passer après des projets plus utiles au plus grand nombre. Il est essentiel que la recherche spatiale profite au plus grand nombre, plutôt qu'à une poignée de touristes fortunés.
+En conclusion, je pense que les voyages dans l'espace coûtent trop cher, profitent à trop peu de gens et pèsent lourd sur l'environnement. Tant que des besoins urgents restent mal couverts, ce type de dépense devrait passer après des projets plus utiles au plus grand nombre.
 
 ---
 
@@ -196,7 +196,7 @@ Par exemple, beaucoup de personnes finissent par quitter un poste bien payé par
 
 **Conséquence**
 
-Cela montre qu'un emploi ne se juge pas seulement à la fin du mois, mais aussi au quotidien.
+Cela montre qu'un emploi ne se juge pas seulement à la fin du mois, mais aussi au quotidien, et il est important que les employeurs prennent en compte ce bien-être au travail.
 
 ### **3. Argument 2 - Le sens et l'intérêt du métier sont décisifs sur la durée**
 
@@ -240,7 +240,7 @@ Cependant, il faut reconnaître que lorsque le salaire est trop faible, la quest
 
 ### **6. Conclusion**
 
-En conclusion, je pense que le salaire est très important, mais qu'il n'est pas la chose la plus importante dans un travail. Un bon emploi, c'est un emploi bien payé, mais aussi vivable, intéressant, porteur de sens et stable. Il est essentiel que chacun puisse concilier un salaire correct avec de bonnes conditions de travail.
+En conclusion, je pense que le salaire est très important, mais qu'il n'est pas la chose la plus importante dans un travail. Un bon emploi, c'est un emploi bien payé, mais aussi vivable, intéressant, porteur de sens et stable.
 
 ---
 
@@ -318,11 +318,11 @@ Cela montre que la frontière entre départ choisi et départ subi n'est pas aus
 
 ### **5. Nuance**
 
-Cependant, il faut reconnaître que certaines personnes partent vraiment par envie de découverte, de mobilité ou de changement de vie. Pour ces personnes, partir est un choix, pas une contrainte. La phrase « pas d'autre choix » ne décrit donc pas toutes les situations, même si elle décrit la majorité.
+Cependant, il faut reconnaître que certaines personnes partent vraiment par envie de découverte, de mobilité ou de changement de vie. Pour ces personnes, partir est un choix, pas une contrainte, bien qu'il faille reconnaître que cette liberté reste un privilège minoritaire. La phrase « pas d'autre choix » ne décrit donc pas toutes les situations, même si elle décrit la majorité.
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il est en grande partie vrai que ceux qui quittent leur pays le font par manque de choix, surtout pour des raisons économiques ou de sécurité. Le départ vraiment libre existe, mais il reste minoritaire par rapport aux départs imposés par les circonstances. Il faut que chaque personne puisse quitter son pays par choix, et non par nécessité.
+En conclusion, je pense qu'il est en grande partie vrai que ceux qui quittent leur pays le font par manque de choix, surtout pour des raisons économiques ou de sécurité. Le départ vraiment libre existe, mais il reste minoritaire par rapport aux départs imposés par les circonstances.
 
 ---
 
@@ -396,7 +396,7 @@ Par exemple, un médecin formé à l'étranger doit souvent passer par plusieurs
 
 **Conséquence**
 
-Cela montre que partir ne suffit pas : il faut aussi pouvoir faire valoir son parcours sur place.
+Cela montre que partir ne suffit pas : il est essentiel que chacun puisse faire reconnaître ses compétences et son expérience une fois sur place.
 
 ### **5. Nuance**
 
@@ -404,6 +404,6 @@ Cependant, dans certains secteurs en pénurie, comme l'informatique ou certains 
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il n'est pas vraiment facile de partir travailler à l'étranger, à cause des démarches, de la langue et de la reconnaissance des diplômes. Cela reste une expérience accessible, mais qui demande une vraie préparation et beaucoup d'énergie. Il est essentiel que les candidats puissent faire reconnaître leurs diplômes avant de partir travailler à l'étranger.
+En conclusion, je dirais qu'il n'est pas vraiment facile de partir travailler à l'étranger, à cause des démarches, de la langue et de la reconnaissance des diplômes. Cela reste une expérience accessible, mais qui demande une vraie préparation et beaucoup d'énergie.
 
 ---

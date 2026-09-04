@@ -60,7 +60,7 @@ Enfin, je pense qu'en revanche, cette rapidité a renforcé l'immédiateté, la 
 
 **Développement**
 
-En effet, la possibilité de joindre quelqu'un à toute heure crée souvent une attente de réponse immédiate, même en dehors des heures de bureau. Beaucoup de salariés se sentent obligés de consulter leurs e-mails le soir, le week-end ou en vacances. En revanche, sans règles claires, le travail finit par déborder sur la vie personnelle.
+En effet, la possibilité de joindre quelqu'un à toute heure crée souvent une attente de réponse immédiate, même en dehors des heures de bureau. Beaucoup de salariés se sentent obligés de consulter leurs e-mails le soir, le week-end ou en vacances. En revanche, sans règles claires, le travail finit par déborder sur la vie personnelle, jusqu'à ce que cet équilibre devienne impossible à tenir.
 
 **Exemple**
 
@@ -76,6 +76,6 @@ Cependant, le bilan n'est ni totalement positif ni totalement négatif. Tout dé
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'Internet a bien changé le comportement au travail, en apportant plus d'efficacité et de flexibilité, mais aussi de nouvelles contraintes qu'il faut apprendre à maîtriser. Le défi est aujourd'hui de trouver un usage plus équilibré. Il faut que les entreprises définissent des limites claires pour que les salariés puissent se déconnecter.
+En conclusion, je dirais qu'Internet a bien changé le comportement au travail, en apportant plus d'efficacité et de flexibilité, mais aussi de nouvelles contraintes qu'il faut apprendre à maîtriser. Le défi est aujourd'hui de trouver un usage plus équilibré.
 
 ---

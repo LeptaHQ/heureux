@@ -748,10 +748,10 @@
         {
           "id": "SVE1-0093",
           "kind": "phrase-modele",
-          "french": "Cela montre que la question dépasse le sport : elle touche à la cohésion et à la justice dans la société.",
-          "english": "This shows the issue goes beyond sport: it touches social cohesion and justice.",
-          "example": "Cela montre que la question dépasse le sport : elle touche à la cohésion et à la justice dans la société.",
-          "usage": "Widening-scope model; colon + 'toucher à' = to concern."
+          "french": "Cela montre que la question dépasse le sport : il est essentiel que la société trouve un meilleur équilibre entre reconnaissance financière et utilité réelle.",
+          "english": "This shows that the issue goes beyond sport: society must find a better balance between financial recognition and actual usefulness.",
+          "example": "Cela montre que la question dépasse le sport : il est essentiel que la société trouve un meilleur équilibre entre reconnaissance financière et utilité réelle.",
+          "usage": "The colon introduces the needed response; « il est essentiel que » takes the subjunctive and « trouver un équilibre entre » links two competing values."
         },
         {
           "id": "SVE1-0094",
@@ -2599,7 +2599,7 @@
           "kind": "expression",
           "french": "à la fin du mois",
           "english": "at the end of the month",
-          "example": "Cela montre qu'un emploi ne se juge pas seulement à la fin du mois, mais aussi au quotidien.",
+          "example": "Cela montre qu'un emploi ne se juge pas seulement à la fin du mois, mais aussi au quotidien, et il est important que les employeurs prennent en compte ce bien-être au travail.",
           "usage": "time idiom; a job isn't judged 'seulement à la fin du mois'."
         },
         {
@@ -2773,10 +2773,10 @@
         {
           "id": "SVE1-0343",
           "kind": "phrase-modele",
-          "french": "Cela montre qu'un emploi ne se juge pas seulement à la fin du mois, mais aussi au quotidien.",
-          "english": "A job isn't judged only at month's end, but also day to day.",
-          "example": "Cela montre qu'un emploi ne se juge pas seulement à la fin du mois, mais aussi au quotidien.",
-          "usage": "Synthesis model; 'ne ... pas seulement ... mais aussi'."
+          "french": "Cela montre qu'un emploi ne se juge pas seulement à la fin du mois, mais aussi au quotidien, et il est important que les employeurs prennent en compte ce bien-être au travail.",
+          "english": "This shows that a job is judged not only at the end of the month but also day to day, and employers must take well-being at work into account.",
+          "example": "Cela montre qu'un emploi ne se juge pas seulement à la fin du mois, mais aussi au quotidien, et il est important que les employeurs prennent en compte ce bien-être au travail.",
+          "usage": "« Ne… pas seulement… mais aussi » broadens the criterion; « il est important que » + subjunctive introduces the employer’s responsibility."
         },
         {
           "id": "SVE1-0344",

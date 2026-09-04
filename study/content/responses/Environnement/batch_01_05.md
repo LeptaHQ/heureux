@@ -154,11 +154,11 @@ Cela montre que les zoos peuvent faire avancer la connaissance scientifique, et 
 
 ### **5. Nuance**
 
-Cependant, cette utilité n'existe que si les conditions de vie des animaux sont vraiment respectées. Un zoo qui maltraite ses animaux, qui les enferme dans des espaces trop petits ou qui mise tout sur le spectacle perd toute légitimité. La qualité des installations et le bien-être animal doivent rester la priorité.
+Cependant, pour que les zoos restent utiles, il faut qu'ils garantissent de bonnes conditions de vie aux animaux. Un zoo qui maltraite ses animaux, qui les enferme dans des espaces trop petits ou qui mise tout sur le spectacle perd toute légitimité. La qualité des installations et le bien-être animal doivent rester la priorité.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les parcs zoologiques peuvent encore avoir une vraie utilité, à la fois pédagogique, scientifique et sociale, mais seulement s'ils respectent réellement les animaux qu'ils accueillent. Il est essentiel que chaque zoo garantisse des conditions de vie dignes à tous ses animaux.
+En conclusion, je pense que les parcs zoologiques peuvent encore avoir une vraie utilité, à la fois pédagogique, scientifique et sociale, mais seulement s'ils respectent réellement les animaux qu'ils accueillent.
 
 ---
 
@@ -318,11 +318,11 @@ Cela montre que la voie de la réforme est plus efficace qu'une réponse extrêm
 
 ### **5. Nuance**
 
-Cependant, il faut être très ferme avec les structures qui n'évoluent pas. Un zoo qui continue à enfermer ses animaux dans des conditions indignes ne peut plus être défendu et doit être fermé sans hésitation. La tolérance ne doit pas devenir une excuse pour maintenir de mauvaises pratiques.
+Cependant, il faut que les autorités soient très fermes avec les structures qui n'évoluent pas. Un zoo qui continue à enfermer ses animaux dans des conditions indignes ne peut plus être défendu et doit être fermé sans hésitation. La tolérance ne doit pas devenir une excuse pour maintenir de mauvaises pratiques.
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il ne faut pas fermer tous les zoos, mais imposer des règles strictes et fermer ceux qui ne les respectent pas. C'est cette voie qui me semble la plus juste, à la fois pour les animaux et pour le public. Il faut que chaque zoo fasse du bien-être animal sa priorité.
+En conclusion, je pense qu'il ne faut pas fermer tous les zoos, mais imposer des règles strictes et fermer ceux qui ne les respectent pas. C'est cette voie qui me semble la plus juste, à la fois pour les animaux et pour le public.
 
 ---
 

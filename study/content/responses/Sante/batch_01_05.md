@@ -138,7 +138,7 @@ Cela permet de comprendre qu'un excès d'écrans appauvrit d'autres apprentissag
 
 **Idée**
 
-Enfin, je pense que les parents doivent fixer des limites claires et proposer d'autres activités à leurs enfants.
+Enfin, je pense qu'il est important que les parents encadrent le temps d'écran et proposent régulièrement d'autres activités à leurs enfants.
 
 **Développement**
 
@@ -158,7 +158,7 @@ Cependant, un usage raisonnable et bien encadré peut aussi avoir des aspects ut
 
 ### **6. Conclusion**
 
-En conclusion, je pense que beaucoup d'enfants passent trop de temps devant les écrans, et qu'il faut surtout mieux encadrer cet usage au lieu de l'accepter comme quelque chose de normal. L'objectif est de remettre les écrans à leur juste place, pas de les supprimer totalement. Il faut que les parents fixent des limites claires pour que les enfants gardent un bon équilibre.
+En conclusion, je pense que beaucoup d'enfants passent trop de temps devant les écrans, et qu'il faut surtout mieux encadrer cet usage au lieu de l'accepter comme quelque chose de normal. L'objectif est de remettre les écrans à leur juste place, pas de les supprimer totalement.
 
 ---
 
@@ -236,11 +236,11 @@ Cela montre que la difficulté ne tient pas seulement à la charge, mais aussi �
 
 ### **5. Nuance**
 
-Cependant, cette double charge n'est pas impossible non plus. Avec un emploi du temps souple, un travail à temps partiel adapté, le soutien des proches et un objectif clair, certaines personnes y arrivent très bien et en tirent même de la fierté. Tout dépend des conditions concrètes dans lesquelles cette situation se vit.
+Cependant, cette double charge n'est pas impossible non plus. À condition que leur emploi du temps reste souple, certaines personnes y arrivent très bien et en tirent même de la fierté grâce à un travail à temps partiel adapté, au soutien de leurs proches et à un objectif clair. Tout dépend des conditions concrètes dans lesquelles cette situation se vit.
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que travailler et étudier en même temps est vraiment difficile, même si cela peut être faisable dans de bonnes conditions et pour une période limitée. C'est une expérience qui fait grandir, mais qui demande beaucoup. Il est essentiel que les employeurs proposent des horaires souples pour que les étudiants puissent se reposer.
+En conclusion, je dirais que travailler et étudier en même temps est vraiment difficile, même si cela peut être faisable dans de bonnes conditions et pour une période limitée. C'est une expérience qui fait grandir, mais qui demande beaucoup.
 
 ---
 

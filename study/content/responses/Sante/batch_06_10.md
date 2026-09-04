@@ -138,7 +138,7 @@ Cela permet de comprendre que l'inégalité d'accès au bio n'est pas seulement 
 
 **Idée**
 
-Enfin, je pense qu'une alimentation de qualité ou produite de manière plus durable ne devrait pas devenir un privilège réservé à une minorité.
+Enfin, il est important que les aliments de qualité ou produits de manière durable soient accessibles à tous.
 
 **Développement**
 
@@ -158,7 +158,7 @@ Cependant, il faut reconnaître que le bio s'est un peu démocratisé ces derni�
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les produits bio restent souvent plus faciles à acheter pour les personnes les plus aisées, ce qui montre qu'il faut réfléchir à une alimentation de qualité réellement plus accessible. L'enjeu n'est pas d'opposer bio et non bio, mais de mieux nourrir tout le monde. Il faut que les produits bio deviennent plus abordables pour que chacun puisse mieux choisir son alimentation.
+En conclusion, je dirais que les produits bio restent souvent plus faciles à acheter pour les personnes les plus aisées, ce qui montre qu'il faut réfléchir à une alimentation de qualité réellement plus accessible. L'enjeu n'est pas d'opposer bio et non bio, mais de mieux nourrir tout le monde.
 
 ---
 
@@ -220,7 +220,7 @@ Cela permet de comprendre que la manière dont on présente le sport à l'enfant
 
 **Idée**
 
-Enfin, je pense qu'il vaut mieux proposer plusieurs activités et aider l'enfant à trouver celle qui lui correspond.
+Enfin, il faut que les parents proposent plusieurs activités pour que l'enfant trouve celle qui lui correspond.
 
 **Développement**
 
@@ -240,7 +240,7 @@ Cependant, même sans obliger systématiquement, les parents doivent quand même
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il vaut mieux encourager les enfants à faire du sport avec intelligence et souplesse plutôt que les obliger de façon automatique. Le but n'est pas d'imposer un sport à tout prix, mais de construire une motivation durable. Il est important que chaque enfant choisisse une activité adaptée à ses goûts.
+En conclusion, je dirais qu'il vaut mieux encourager les enfants à faire du sport avec intelligence et souplesse plutôt que les obliger de façon automatique. Le but n'est pas d'imposer un sport à tout prix, mais de construire une motivation durable.
 
 ---
 
@@ -266,7 +266,7 @@ La vraie question est de savoir comment juger le recours croissant à la chirurg
 
 **Idée**
 
-Tout d'abord, le succès croissant de la chirurgie esthétique reflète une forte pression sociale liée à la jeunesse et à l'apparence.
+Tout d'abord, bien que chacun puisse choisir librement, le succès croissant de la chirurgie esthétique reflète une forte pression sociale liée à la jeunesse et à l'apparence.
 
 **Développement**
 
@@ -322,7 +322,7 @@ Cependant, il ne s'agit pas de juger les personnes qui font ce choix. Une interv
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'on peut comprendre certains recours à la chirurgie esthétique, mais qu'il faut rester vigilant face à la pression sociale qui pousse à refuser le vieillissement. C'est moins le geste individuel que la norme collective qui est inquiétante. Il faut que chacun puisse vieillir sans subir une pression excessive sur son apparence.
+En conclusion, je dirais qu'on peut comprendre certains recours à la chirurgie esthétique, mais qu'il faut rester vigilant face à la pression sociale qui pousse à refuser le vieillissement. C'est moins le geste individuel que la norme collective qui est inquiétante.
 
 ---
 
@@ -384,7 +384,7 @@ Cela permet de comprendre qu'une interdiction brutale ne règle pas vraiment le 
 
 **Idée**
 
-Enfin, je pense que la prévention et l'éducation sont souvent plus efficaces qu'une simple logique de punition.
+Enfin, il faut que l'État privilégie la prévention et l'éducation plutôt qu'une simple logique de punition.
 
 **Développement**
 
@@ -404,6 +404,6 @@ Cependant, sur certains points précis, des mesures très dures restent justifi�
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que l'État doit encadrer très fortement la vente de tabac et d'alcool, mais qu'une interdiction totale n'est pas forcément la réponse la plus efficace. La régulation, la prévention et l'éducation, combinées, sont plus utiles qu'une interdiction de principe. Il est essentiel que l'État renforce la prévention pour que chacun comprenne mieux les risques.
+En conclusion, je dirais que l'État doit encadrer très fortement la vente de tabac et d'alcool, mais qu'une interdiction totale n'est pas forcément la réponse la plus efficace. La régulation, la prévention et l'éducation, combinées, sont plus utiles qu'une interdiction de principe.
 
 ---

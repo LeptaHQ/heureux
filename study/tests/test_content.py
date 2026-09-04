@@ -18,10 +18,13 @@ from study import content_loader as content
 # Keep the corpus check limited to constructions audited as subjunctive.
 CLEAR_SUBJUNCTIVE_MARKER = re.compile(
     r"(?:"
-    r"\b(?:à condition|avant|pour|sans) qu(?:e\b|['’])"
-    r"|\bil faut qu(?:e\b|['’])"
-    r"|\bil (?:est|semble) "
-    r"(?:important|essentiel|logique|rare) qu(?:e\b|['’])"
+    r"\b(?:à condition|à moins|avant|bien|pour|sans|jusqu'à ce) "
+    r"qu(?:e\b|['’])"
+    r"|\bil (?:ne )?faut(?: aussi| donc| pas| seulement| surtout)? "
+    r"qu(?:e\b|['’])"
+    r"|\bil (?:est|serait|semble)(?: donc)? "
+    r"(?:important|essentiel|juste|logique|normal|rare) qu(?:e\b|['’])"
+    r"|\bil (?:se peut|suffit) qu(?:e\b|['’])"
     r"|\b(?:le plus important|le risque) est qu(?:e\b|['’])"
     r"|\b(?:accepter|garantissent pas) qu(?:e\b|['’])"
     r"|\bje ne pense pas qu(?:e\b|['’])"

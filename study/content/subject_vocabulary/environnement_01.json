@@ -534,7 +534,7 @@
           "kind": "collocation",
           "french": "conditions de vie",
           "english": "living conditions",
-          "example": "Cependant, cette utilité n'existe que si les conditions de vie des animaux sont vraiment respectées.",
+          "example": "Cependant, pour que les zoos restent utiles, il faut qu'ils garantissent de bonnes conditions de vie aux animaux.",
           "usage": "Fem. plural; 'les conditions de vie des animaux'."
         },
         {
@@ -718,7 +718,7 @@
           "kind": "tournure",
           "french": "Cependant",
           "english": "however",
-          "example": "Cependant, cette utilité n'existe que si les conditions de vie des animaux sont vraiment respectées.",
+          "example": "Cependant, pour que les zoos restent utiles, il faut qu'ils garantissent de bonnes conditions de vie aux animaux.",
           "usage": "Concession linker introducing a reservation."
         },
         {
@@ -780,10 +780,10 @@
         {
           "id": "SVN1-0097",
           "kind": "phrase-modele",
-          "french": "cette utilité n'existe que si les conditions de vie des animaux sont vraiment respectées",
-          "english": "this usefulness only exists if the animals' living conditions are genuinely respected",
-          "example": "Cependant, cette utilité n'existe que si les conditions de vie des animaux sont vraiment respectées.",
-          "usage": "'ne ... que si' restrictive condition."
+          "french": "pour que les zoos restent utiles, il faut qu'ils garantissent de bonnes conditions de vie aux animaux",
+          "english": "for zoos to remain useful, they must guarantee good living conditions for animals",
+          "example": "Cependant, pour que les zoos restent utiles, il faut qu'ils garantissent de bonnes conditions de vie aux animaux.",
+          "usage": "Conditional model combining « pour que » and « il faut que », both followed by the subjunctive."
         },
         {
           "id": "SVN1-0098",
@@ -1606,10 +1606,10 @@
         {
           "id": "SVN1-0199",
           "kind": "phrase-modele",
-          "french": "il faut être très ferme avec les structures qui n'évoluent pas",
-          "english": "we must be very firm with the facilities that don't change",
-          "example": "Cependant, il faut être très ferme avec les structures qui n'évoluent pas.",
-          "usage": "'il faut + inf.'; nuance toward strictness."
+          "french": "il faut que les autorités soient très fermes avec les structures qui n'évoluent pas",
+          "english": "the authorities must be very firm with facilities that do not improve",
+          "example": "Cependant, il faut que les autorités soient très fermes avec les structures qui n'évoluent pas.",
+          "usage": "Requirement frame « il faut que » + subjunctive; « être ferme avec » expresses strict oversight."
         },
         {
           "id": "SVN1-0200",
@@ -2248,10 +2248,10 @@
         {
           "id": "SVN1-0278",
           "kind": "expression",
-          "french": "rester bloqués dans les embouteillages",
-          "english": "to remain stuck in traffic jams",
-          "example": "Réduire leur place rend les rues plus sûres pour les enfants, les personnes âgées et les cyclistes, et permet aux bus et aux tramways de circuler plus facilement, sans rester bloqués dans les embouteillages.",
-          "usage": "Rester bloqué dans les embouteillages is the natural way to describe delayed car, bus or delivery travel."
+          "french": "réduire la place des voitures",
+          "english": "to reduce the space given to cars",
+          "example": "Il faut donc réduire la place des voitures pour que les enfants, les personnes âgées et les cyclistes soient plus en sécurité et que les bus et les tramways circulent mieux.",
+          "usage": "Verb expression « réduire la place de »; useful for discussing transport policy without demanding a total ban."
         },
         {
           "id": "SVN1-0279",
@@ -3034,10 +3034,10 @@
         {
           "id": "SVN1-0375",
           "kind": "expression",
-          "french": "tout de même",
-          "english": "all the same / nonetheless",
-          "example": "Enfin, je pense qu'il faut tout de même refuser une interdiction totale, immédiate et appliquée partout de la même façon.",
-          "usage": "Concessive adverbial."
+          "french": "limiter la circulation",
+          "english": "to limit traffic",
+          "example": "Bien qu'il faille limiter la circulation, je pense qu'une interdiction totale, immédiate et uniforme serait injuste.",
+          "usage": "Verb expression with a direct object; often used for measured traffic-reduction policies."
         },
         {
           "id": "SVN1-0376",
@@ -3202,10 +3202,10 @@
         {
           "id": "SVN1-0396",
           "kind": "phrase-modele",
-          "french": "il faut tout de même refuser une interdiction totale, immédiate et appliquée partout de la même façon",
-          "english": "we must nonetheless refuse a total, immediate ban applied everywhere the same way",
-          "example": "Enfin, je pense qu'il faut tout de même refuser une interdiction totale, immédiate et appliquée partout de la même façon.",
-          "usage": "'il faut + inf.'; nuance/refusal."
+          "french": "Bien qu'il faille limiter la circulation, je pense qu'une interdiction totale, immédiate et uniforme serait injuste",
+          "english": "Although traffic must be limited, I think a total, immediate and uniform ban would be unfair",
+          "example": "Bien qu'il faille limiter la circulation, je pense qu'une interdiction totale, immédiate et uniforme serait injuste.",
+          "usage": "Balanced concession with « bien que » + subjunctive, followed by a clear judgment in the conditional."
         },
         {
           "id": "SVN1-0397",
@@ -3884,10 +3884,10 @@
         {
           "id": "SVN1-0480",
           "kind": "expression",
-          "french": "ne suffisent pas pour répondre vraiment au problème",
-          "english": "are not enough to truly address the problem",
-          "example": "Cela montre que les mesures actuelles sont un bon début, mais qu'elles ne suffisent pas pour répondre vraiment au problème.",
-          "usage": "Ne pas suffire pour + infinitive gives a measured critique: acknowledge progress, then state what remains inadequate."
+          "french": "ne suffisent pas encore à répondre vraiment au problème",
+          "english": "are still not enough to truly address the problem",
+          "example": "Bien que les mesures actuelles soient un bon début, elles ne suffisent pas encore à répondre vraiment au problème.",
+          "usage": "« Ne pas suffire à » + infinitive gives a measured critique while « encore » signals that more action is needed."
         },
         {
           "id": "SVN1-0481",
@@ -4028,10 +4028,10 @@
         {
           "id": "SVN1-0498",
           "kind": "phrase-modele",
-          "french": "les mesures actuelles sont un bon début, mais qu'elles ne suffisent pas pour répondre vraiment au problème",
-          "english": "current measures are a good start, but not enough to really address the problem",
-          "example": "Cela montre que les mesures actuelles sont un bon début, mais qu'elles ne suffisent pas pour répondre vraiment au problème.",
-          "usage": "'ne pas suffire pour + inf.'."
+          "french": "Bien que les mesures actuelles soient un bon début, elles ne suffisent pas encore à répondre vraiment au problème",
+          "english": "Although the current measures are a good start, they are still not enough to truly address the problem",
+          "example": "Bien que les mesures actuelles soient un bon début, elles ne suffisent pas encore à répondre vraiment au problème.",
+          "usage": "Concessive model with « bien que » + subjunctive, followed by « ne pas suffire à » to state what remains inadequate."
         },
         {
           "id": "SVN1-0499",
@@ -4744,7 +4744,7 @@
           "kind": "tournure",
           "french": "je pense que",
           "english": "I think that",
-          "example": "Ensuite, je pense que les politiques publiques jouent un rôle décisif pour rendre cet équilibre possible.",
+          "example": "Ensuite, je pense que les politiques publiques jouent un rôle décisif, car il faut que l'État accompagne financièrement la transition des entreprises vers des pratiques plus propres.",
           "usage": "Opinion frame + indicative."
         },
         {
@@ -4814,10 +4814,10 @@
         {
           "id": "SVN1-0595",
           "kind": "phrase-modele",
-          "french": "les politiques publiques jouent un rôle décisif pour rendre cet équilibre possible",
-          "english": "public policies play a decisive role in making this balance possible",
-          "example": "Ensuite, je pense que les politiques publiques jouent un rôle décisif pour rendre cet équilibre possible.",
-          "usage": "'jouer un rôle décisif'; 'rendre + adj'."
+          "french": "je pense que les politiques publiques jouent un rôle décisif, car il faut que l'État accompagne financièrement la transition des entreprises vers des pratiques plus propres",
+          "english": "I think public policies play a decisive role, because the state must financially support companies' transition to cleaner practices",
+          "example": "Ensuite, je pense que les politiques publiques jouent un rôle décisif, car il faut que l'État accompagne financièrement la transition des entreprises vers des pratiques plus propres.",
+          "usage": "Argument model combining an opinion, « jouer un rôle décisif » and a justification introduced by « car »."
         },
         {
           "id": "SVN1-0596",

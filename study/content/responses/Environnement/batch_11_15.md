@@ -68,7 +68,7 @@ Par exemple, on demande aux particuliers de trier leurs déchets, mais en parall
 
 **Conséquence**
 
-Cela montre que les mesures actuelles sont un bon début, mais qu'elles ne suffisent pas pour répondre vraiment au problème.
+Bien que les mesures actuelles soient un bon début, elles ne suffisent pas encore à répondre vraiment au problème.
 
 ### **5. Nuance**
 
@@ -76,7 +76,7 @@ Cependant, il faut reconnaître que la lutte contre la pollution est un sujet di
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les mesures prises dans mon pays contre la pollution vont dans le bon sens, mais qu'elles restent insuffisantes. Il faudrait plus de cohérence, plus de moyens de contrôle et une vision plus claire sur le long terme. Il est essentiel que l'État renforce les contrôles pour que les mesures produisent des résultats durables.
+En conclusion, je dirais que les mesures prises dans mon pays contre la pollution vont dans le bon sens, mais qu'elles restent insuffisantes. Il faudrait plus de cohérence, plus de moyens de contrôle et une vision plus claire sur le long terme.
 
 ---
 
@@ -284,7 +284,7 @@ Cela montre que l'opposition entre économie et environnement n'est pas absolue 
 
 **Idée**
 
-Ensuite, je pense que les politiques publiques jouent un rôle décisif pour rendre cet équilibre possible.
+Ensuite, je pense que les politiques publiques jouent un rôle décisif, car il faut que l'État accompagne financièrement la transition des entreprises vers des pratiques plus propres.
 
 **Développement**
 
@@ -322,7 +322,7 @@ Cependant, cela n'est pas possible si l'on continue à viser une croissance rapi
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il est possible de développer l'économie tout en préservant l'environnement, mais à condition de changer le modèle. Cela suppose des secteurs plus propres, des politiques publiques fortes et des habitudes de consommation plus responsables. Il faut que les pouvoirs publics soutiennent une économie plus propre pour que la croissance respecte l'environnement.
+En conclusion, je dirais qu'il est possible de développer l'économie tout en préservant l'environnement, mais à condition de changer le modèle. Cela suppose des secteurs plus propres, des politiques publiques fortes et des habitudes de consommation plus responsables.
 
 ---
 

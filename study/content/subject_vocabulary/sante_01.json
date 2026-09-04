@@ -788,10 +788,10 @@
         {
           "id": "SVS1-0098",
           "kind": "phrase-modele",
-          "french": "Enfin, je pense que les parents doivent fixer des limites claires et proposer d'autres activités à leurs enfants.",
-          "english": "Finally, I think parents must set clear limits and offer other activities to their children.",
-          "example": "Enfin, je pense que les parents doivent fixer des limites claires et proposer d'autres activités à leurs enfants.",
-          "usage": "Modèle d'argument 3; doivent + infinitifs coordonnés exprime l'obligation."
+          "french": "Enfin, je pense qu'il est important que les parents encadrent le temps d'écran et proposent régulièrement d'autres activités à leurs enfants.",
+          "english": "Finally, I think it is important for parents to manage screen time and regularly offer their children other activities.",
+          "example": "Enfin, je pense qu'il est important que les parents encadrent le temps d'écran et proposent régulièrement d'autres activités à leurs enfants.",
+          "usage": "« Il est important que » takes the subjunctive; « encadrer le temps d’écran » and « proposer d’autres activités » express two complementary parental actions."
         },
         {
           "id": "SVS1-0099",
@@ -961,17 +961,17 @@
         {
           "id": "SVS1-0119",
           "kind": "collocation",
-          "french": "emploi du temps souple",
-          "english": "flexible timetable",
-          "example": "Avec un emploi du temps souple, un travail à temps partiel adapté, le soutien des proches et un objectif clair, certaines personnes y arrivent très bien et en tirent même de la fierté.",
-          "usage": "Antonyme pratique de «emploi du temps très serré»."
+          "french": "travail à temps partiel adapté",
+          "english": "suitable part-time work",
+          "example": "À condition que leur emploi du temps reste souple, certaines personnes y arrivent très bien et en tirent même de la fierté grâce à un travail à temps partiel adapté, au soutien de leurs proches et à un objectif clair.",
+          "usage": "Masculine noun phrase; « à temps partiel » describes the schedule and « adapté » agrees with « travail »."
         },
         {
           "id": "SVS1-0120",
           "kind": "collocation",
           "french": "objectif clair",
           "english": "clear goal",
-          "example": "Avec un emploi du temps souple, un travail à temps partiel adapté, le soutien des proches et un objectif clair, certaines personnes y arrivent très bien et en tirent même de la fierté.",
+          "example": "À condition que leur emploi du temps reste souple, certaines personnes y arrivent très bien et en tirent même de la fierté grâce à un travail à temps partiel adapté, au soutien de leurs proches et à un objectif clair.",
           "usage": "Nom masculin + adjectif; aide à formuler une condition de réussite."
         },
         {
@@ -1051,7 +1051,7 @@
           "kind": "expression",
           "french": "en tirent même de la fierté",
           "english": "even take pride from it",
-          "example": "Avec un emploi du temps souple, un travail à temps partiel adapté, le soutien des proches et un objectif clair, certaines personnes y arrivent très bien et en tirent même de la fierté.",
+          "example": "À condition que leur emploi du temps reste souple, certaines personnes y arrivent très bien et en tirent même de la fierté grâce à un travail à temps partiel adapté, au soutien de leurs proches et à un objectif clair.",
           "usage": "Structure «tirer de la fierté de»; ici «en» reprend la situation."
         },
         {
@@ -2860,7 +2860,7 @@
           "kind": "mot-cle",
           "french": "apparence",
           "english": "appearance",
-          "example": "Tout d'abord, le succès croissant de la chirurgie esthétique reflète une forte pression sociale liée à la jeunesse et à l'apparence.",
+          "example": "Tout d'abord, bien que chacun puisse choisir librement, le succès croissant de la chirurgie esthétique reflète une forte pression sociale liée à la jeunesse et à l'apparence.",
           "usage": "Nom féminin: l'apparence; often linked to social pressure and images."
         },
         {
@@ -2868,7 +2868,7 @@
           "kind": "mot-cle",
           "french": "jeunesse",
           "english": "youth",
-          "example": "Tout d'abord, le succès croissant de la chirurgie esthétique reflète une forte pression sociale liée à la jeunesse et à l'apparence.",
+          "example": "Tout d'abord, bien que chacun puisse choisir librement, le succès croissant de la chirurgie esthétique reflète une forte pression sociale liée à la jeunesse et à l'apparence.",
           "usage": "Nom féminin: la jeunesse; use with lié(e) à to express the value placed on being young."
         },
         {
@@ -2932,7 +2932,7 @@
           "kind": "collocation",
           "french": "forte pression sociale",
           "english": "strong social pressure",
-          "example": "Tout d'abord, le succès croissant de la chirurgie esthétique reflète une forte pression sociale liée à la jeunesse et à l'apparence.",
+          "example": "Tout d'abord, bien que chacun puisse choisir librement, le succès croissant de la chirurgie esthétique reflète une forte pression sociale liée à la jeunesse et à l'apparence.",
           "usage": "Feminine collocation; key cause phrase, often followed by autour de/sur."
         },
         {
@@ -3170,10 +3170,10 @@
         {
           "id": "SVS1-0392",
           "kind": "phrase-modele",
-          "french": "Tout d'abord, le succès croissant de la chirurgie esthétique reflète une forte pression sociale liée à la jeunesse et à l'apparence.",
-          "english": "The growing success of cosmetic surgery reflects pressure linked to youth and appearance.",
-          "example": "Tout d'abord, le succès croissant de la chirurgie esthétique reflète une forte pression sociale liée à la jeunesse et à l'apparence.",
-          "usage": "Model first argument with Tout d'abord and reflète une forte pression sociale."
+          "french": "Tout d'abord, bien que chacun puisse choisir librement, le succès croissant de la chirurgie esthétique reflète une forte pression sociale liée à la jeunesse et à l'apparence.",
+          "english": "First, although everyone is free to choose, the growing popularity of cosmetic surgery reflects strong social pressure linked to youth and appearance.",
+          "example": "Tout d'abord, bien que chacun puisse choisir librement, le succès croissant de la chirurgie esthétique reflète une forte pression sociale liée à la jeunesse et à l'apparence.",
+          "usage": "Argument model opened by « Tout d’abord »; « bien que » takes the subjunctive before the claim expressed with « refléter une forte pression sociale »."
         },
         {
           "id": "SVS1-0393",
@@ -3623,9 +3623,9 @@
         {
           "id": "SVS1-0448",
           "kind": "phrase-modele",
-          "french": "Enfin, je pense que la prévention et l'éducation sont souvent plus efficaces qu'une simple logique de punition.",
-          "english": "Finally, I think prevention and education are often more effective than a simple logic of punishment.",
-          "example": "Enfin, je pense que la prévention et l'éducation sont souvent plus efficaces qu'une simple logique de punition.",
+          "french": "Enfin, il faut que l'État privilégie la prévention et l'éducation plutôt qu'une simple logique de punition.",
+          "english": "Finally, the state must prioritize prevention and education rather than a purely punitive approach.",
+          "example": "Enfin, il faut que l'État privilégie la prévention et l'éducation plutôt qu'une simple logique de punition.",
           "usage": "Third argument sentence; shifts from punishment to education."
         },
         {

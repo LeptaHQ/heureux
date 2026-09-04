@@ -17,7 +17,7 @@
           "kind": "mot-cle",
           "french": "une contrainte",
           "english": "a constraint / necessity",
-          "example": "Pour ces personnes, partir est un choix, pas une contrainte.",
+          "example": "Pour ces personnes, partir est un choix, pas une contrainte, bien qu'il faille reconnaître que cette liberté reste un privilège minoritaire.",
           "usage": "Feminine noun contrasting with voluntary choice; useful for economic, family, and migration pressures."
         },
         {
@@ -383,10 +383,10 @@
         {
           "id": "SVE2-0048",
           "kind": "phrase-modele",
-          "french": "Pour ces personnes, partir est un choix, pas une contrainte.",
-          "english": "For them, leaving is a choice, not a constraint",
-          "example": "Pour ces personnes, partir est un choix, pas une contrainte.",
-          "usage": "Crisp antithesis 'un choix, pas une contrainte'; useful in nuance paragraphs."
+          "french": "Pour ces personnes, partir est un choix, pas une contrainte, bien qu'il faille reconnaître que cette liberté reste un privilège minoritaire.",
+          "english": "For these people, leaving is a choice, not a constraint, although this freedom must be acknowledged as a privilege enjoyed by a minority.",
+          "example": "Pour ces personnes, partir est un choix, pas une contrainte, bien qu'il faille reconnaître que cette liberté reste un privilège minoritaire.",
+          "usage": "The antithesis « un choix, pas une contrainte » is qualified by « bien qu’il faille reconnaître que » + subjunctive."
         },
         {
           "id": "SVE2-0049",
@@ -638,7 +638,7 @@
           "kind": "expression",
           "french": "partir ne suffit pas",
           "english": "leaving is not enough",
-          "example": "Cela montre que partir ne suffit pas : il faut aussi pouvoir faire valoir son parcours sur place.",
+          "example": "Cela montre que partir ne suffit pas : il est essentiel que chacun puisse faire reconnaître ses compétences et son expérience une fois sur place.",
           "usage": "'ne pas suffire' with an infinitive subject; punchy argument opener."
         },
         {
@@ -796,10 +796,10 @@
         {
           "id": "SVE2-0099",
           "kind": "phrase-modele",
-          "french": "Cela montre que partir ne suffit pas : il faut aussi pouvoir faire valoir son parcours sur place.",
-          "english": "Leaving isn't enough; you must prove your worth",
-          "example": "Cela montre que partir ne suffit pas : il faut aussi pouvoir faire valoir son parcours sur place.",
-          "usage": "Colon links claim and explanation; 'faire valoir son parcours sur place'."
+          "french": "Cela montre que partir ne suffit pas : il est essentiel que chacun puisse faire reconnaître ses compétences et son expérience une fois sur place.",
+          "english": "Leaving is not enough: everyone must be able to have their skills and experience recognized once there.",
+          "example": "Cela montre que partir ne suffit pas : il est essentiel que chacun puisse faire reconnaître ses compétences et son expérience une fois sur place.",
+          "usage": "« Partir ne suffit pas » sets a limit; « faire reconnaître ses compétences et son expérience » means obtaining recognition for them."
         },
         {
           "id": "SVE2-0100",
@@ -1861,7 +1861,7 @@
           "kind": "expression",
           "french": "pas suffisant à lui seul",
           "english": "not sufficient on its own",
-          "example": "Un certain niveau d'argent reste donc nécessaire, même s'il n'est pas suffisant à lui seul.",
+          "example": "Un certain niveau d'argent reste donc nécessaire, même s'il n'est pas suffisant à lui seul, à condition qu'il ne devienne pas une fin en soi.",
           "usage": "'à lui seul' = by itself; money necessary but not enough."
         },
         {
@@ -2011,10 +2011,10 @@
         {
           "id": "SVE2-0249",
           "kind": "phrase-modele",
-          "french": "Un certain niveau d'argent reste donc nécessaire, même s'il n'est pas suffisant à lui seul.",
-          "english": "Some money is needed but not enough",
-          "example": "Un certain niveau d'argent reste donc nécessaire, même s'il n'est pas suffisant à lui seul.",
-          "usage": "Balanced nuance; 'nécessaire ... mais pas suffisant'."
+          "french": "Un certain niveau d'argent reste donc nécessaire, même s'il n'est pas suffisant à lui seul, à condition qu'il ne devienne pas une fin en soi.",
+          "english": "A certain level of income therefore remains necessary, even if it is not sufficient on its own, provided that it does not become an end in itself.",
+          "example": "Un certain niveau d'argent reste donc nécessaire, même s'il n'est pas suffisant à lui seul, à condition qu'il ne devienne pas une fin en soi.",
+          "usage": "Balanced model combining « même si » with the restriction « à condition que » + subjunctive; « une fin en soi » means an end in itself."
         },
         {
           "id": "SVE2-0250",
@@ -2090,7 +2090,7 @@
           "kind": "mot-cle",
           "french": "l'utilité sociale",
           "english": "social usefulness",
-          "example": "Cela montre qu'il existe un vrai décalage entre l'utilité sociale et la reconnaissance salariale.",
+          "example": "Cela montre qu'il existe un vrai décalage entre l'utilité sociale et la reconnaissance salariale, et il serait juste que ce décalage soit progressivement corrigé.",
           "usage": "Feminine; essential jobs' worth, often underpaid."
         },
         {
@@ -2408,10 +2408,10 @@
         {
           "id": "SVE2-0298",
           "kind": "phrase-modele",
-          "french": "Cela montre qu'il existe un vrai décalage entre l'utilité sociale et la reconnaissance salariale.",
-          "english": "A real gap between usefulness and pay",
-          "example": "Cela montre qu'il existe un vrai décalage entre l'utilité sociale et la reconnaissance salariale.",
-          "usage": "'il existe un décalage entre X et Y'; strong closing claim."
+          "french": "Cela montre qu'il existe un vrai décalage entre l'utilité sociale et la reconnaissance salariale, et il serait juste que ce décalage soit progressivement corrigé.",
+          "english": "This shows that there is a real gap between social usefulness and salary recognition, and it would be fair for that gap to be gradually corrected.",
+          "example": "Cela montre qu'il existe un vrai décalage entre l'utilité sociale et la reconnaissance salariale, et il serait juste que ce décalage soit progressivement corrigé.",
+          "usage": "« Un décalage entre X et Y » identifies an imbalance; « il serait juste que » takes the subjunctive to recommend correcting it."
         },
         {
           "id": "SVE2-0299",
@@ -3226,10 +3226,10 @@
         {
           "id": "SVE2-0399",
           "kind": "phrase-modele",
-          "french": "Cela montre que la lutte contre la pauvreté est une responsabilité partagée par tous les acteurs de la société.",
-          "english": "Fighting poverty is everyone's duty",
-          "example": "Cela montre que la lutte contre la pauvreté est une responsabilité partagée par tous les acteurs de la société.",
-          "usage": "'partagé par qqn' passive; 'les acteurs de la société'."
+          "french": "Cela montre que la lutte contre la pauvreté est une responsabilité partagée, et il faut que chacun de ces acteurs apporte une contribution concrète et régulière.",
+          "english": "Fighting poverty is a shared responsibility, and each actor must make a concrete, regular contribution.",
+          "example": "Cela montre que la lutte contre la pauvreté est une responsabilité partagée, et il faut que chacun de ces acteurs apporte une contribution concrète et régulière.",
+          "usage": "« Responsabilité partagée » distributes the duty, while « apporter une contribution » names the concrete action expected from each actor."
         },
         {
           "id": "SVE2-0400",

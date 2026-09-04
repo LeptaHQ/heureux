@@ -303,10 +303,10 @@
         {
           "id": "SVC3-0038",
           "kind": "tournure",
-          "french": "Cependant,",
-          "english": "However,",
-          "example": "Cependant, il faut reconnaître qu'avec une bonne préparation, une vraie ouverture et un effort d'intégration, une expérience à l'étranger reste très souvent positive sur le long terme.",
-          "usage": "Concession linker introducing the nuance section."
+          "french": "Pour qu'une expérience à l'étranger soit positive sur le long terme,",
+          "english": "For an experience abroad to be positive in the long term,",
+          "example": "Pour qu'une expérience à l'étranger soit positive sur le long terme, il faut une bonne préparation, une vraie ouverture et un effort d'intégration.",
+          "usage": "Purpose or condition opener with « pour que » + subjunctive; it prepares a list of requirements."
         },
         {
           "id": "SVC3-0039",
@@ -383,10 +383,10 @@
         {
           "id": "SVC3-0048",
           "kind": "phrase-modele",
-          "french": "avec une bonne préparation, une vraie ouverture et un effort d'intégration, une expérience à l'étranger reste très souvent positive sur le long terme",
-          "english": "with good preparation, real openness and an effort to integrate, an experience abroad stays very often positive long-term",
-          "example": "Cependant, il faut reconnaître qu'avec une bonne préparation, une vraie ouverture et un effort d'intégration, une expérience à l'étranger reste très souvent positive sur le long terme.",
-          "usage": "Nuance model listing conditions; « sur le long terme »."
+          "french": "il faut une bonne préparation, une vraie ouverture et un effort d'intégration",
+          "english": "good preparation, genuine openness and an effort to integrate are needed",
+          "example": "Pour qu'une expérience à l'étranger soit positive sur le long terme, il faut une bonne préparation, une vraie ouverture et un effort d'intégration.",
+          "usage": "« Il faut » + noun phrase lists the conditions needed for a successful long-term experience."
         },
         {
           "id": "SVC3-0049",
@@ -1113,18 +1113,18 @@
         {
           "id": "SVC3-0138",
           "kind": "tournure",
-          "french": "Cependant,",
-          "english": "However,",
-          "example": "Cependant, il faut reconnaître que parler parfaitement la langue n'est pas indispensable pour commencer à connaître un pays.",
-          "usage": "Concession linker opening the nuance."
+          "french": "Bien qu'il ne soit pas indispensable de parler parfaitement la langue,",
+          "english": "Although it is not essential to speak the language perfectly,",
+          "example": "Bien qu'il ne soit pas indispensable de parler parfaitement la langue, il faut que les voyageurs en apprennent au moins les bases.",
+          "usage": "Concessive opener with « bien que » + subjunctive; it rejects perfection as a requirement before setting a minimum."
         },
         {
           "id": "SVC3-0139",
           "kind": "tournure",
-          "french": "il faut reconnaître que",
-          "english": "one must acknowledge that",
-          "example": "Cependant, il faut reconnaître que parler parfaitement la langue n'est pas indispensable pour commencer à connaître un pays.",
-          "usage": "Concession formula; « il faut reconnaître que + indicatif »."
+          "french": "il faut que",
+          "english": "it is necessary that",
+          "example": "Bien qu'il ne soit pas indispensable de parler parfaitement la langue, il faut que les voyageurs en apprennent au moins les bases.",
+          "usage": "Tournure d'obligation suivie du subjonctif."
         },
         {
           "id": "SVC3-0140",
@@ -1472,7 +1472,7 @@
           "kind": "tournure",
           "french": "À mon avis,",
           "english": "In my opinion,",
-          "example": "À mon avis, on n'a pas absolument besoin de lire pour être cultivé, mais la lecture garde un rôle particulier.",
+          "example": "À mon avis, on n'est pas obligé de lire pour être cultivé, mais la lecture reste l'une des voies les plus solides et les plus complètes pour le devenir.",
           "usage": "Opinion marker; sentence-initial."
         },
         {
@@ -1925,16 +1925,16 @@
           "kind": "tournure",
           "french": "Cependant,",
           "english": "However,",
-          "example": "Cependant, il faut reconnaître que voyager seul ne convient pas à tout le monde.",
+          "example": "Cependant, il se peut que certaines personnes aient davantage besoin de partager leurs émotions et se sentent moins à l'aise seules.",
           "usage": "Concession linker opening the nuance."
         },
         {
           "id": "SVC3-0239",
           "kind": "tournure",
-          "french": "il faut reconnaître que",
-          "english": "one must acknowledge that",
-          "example": "Cependant, il faut reconnaître que voyager seul ne convient pas à tout le monde.",
-          "usage": "Concession formula; « il faut reconnaître que + indicatif »."
+          "french": "Cependant, il se peut que",
+          "english": "However, it may be that",
+          "example": "Cependant, il se peut que certaines personnes aient davantage besoin de partager leurs émotions et se sentent moins à l'aise seules.",
+          "usage": "Nuance opener; « il se peut que » takes the subjunctive and introduces a cautious possibility."
         },
         {
           "id": "SVC3-0240",
@@ -2194,7 +2194,7 @@
           "kind": "expression",
           "french": "bien vivre à l'étranger",
           "english": "to live well abroad",
-          "example": "À mon avis, il est presque indispensable de créer des relations avec les habitants pour bien vivre à l'étranger.",
+          "example": "La vraie question est de savoir si créer des liens avec les habitants est vraiment indispensable pour bien vivre à l'étranger, ou seulement un avantage parmi d'autres.",
           "usage": "« bien vivre » + « à l'étranger »; recurring goal phrase of the essay."
         },
         {
@@ -2282,7 +2282,7 @@
           "kind": "tournure",
           "french": "À mon avis,",
           "english": "In my opinion,",
-          "example": "À mon avis, il est presque indispensable de créer des relations avec les habitants pour bien vivre à l'étranger.",
+          "example": "À mon avis, pour que l'on vive bien à l'étranger, il faut créer des relations avec les habitants.",
           "usage": "Opinion marker; sentence-initial."
         },
         {
@@ -2733,18 +2733,18 @@
         {
           "id": "SVC3-0338",
           "kind": "tournure",
-          "french": "Cependant,",
-          "english": "However,",
-          "example": "Cependant, il faut reconnaître que ces différentes motivations se mélangent souvent dans une même personne.",
-          "usage": "Concession linker opening the nuance."
+          "french": "il est donc rare qu'une seule raison suffise",
+          "english": "it is therefore rare for a single reason to be enough",
+          "example": "Il faut reconnaître que ces motivations se mélangent souvent ; il est donc rare qu'une seule raison suffise à expliquer un départ.",
+          "usage": "« Il est rare que » introduit une généralisation prudente et demande le subjonctif ; « donc » marque la conclusion tirée du mélange des motivations."
         },
         {
           "id": "SVC3-0339",
           "kind": "tournure",
-          "french": "il faut reconnaître que",
+          "french": "Il faut reconnaître que",
           "english": "one must acknowledge that",
-          "example": "Cependant, il faut reconnaître que ces différentes motivations se mélangent souvent dans une même personne.",
-          "usage": "Concession formula; « il faut reconnaître que + indicatif »."
+          "example": "Il faut reconnaître que ces motivations se mélangent souvent ; il est donc rare qu'une seule raison suffise à expliquer un départ.",
+          "usage": "Sentence-opening concession formula followed by the indicative; useful for acknowledging complexity."
         },
         {
           "id": "SVC3-0340",
@@ -2829,10 +2829,10 @@
         {
           "id": "SVC3-0350",
           "kind": "phrase-modele",
-          "french": "Il est donc rarement possible de réduire un projet à une seule raison",
-          "english": "It is thus rarely possible to reduce a project to a single reason",
-          "example": "Il est donc rarement possible de réduire un projet à une seule raison.",
-          "usage": "Closing model; « réduire X à Y »; « rarement possible »."
+          "french": "Il faut reconnaître que ces motivations se mélangent souvent ; il est donc rare qu'une seule raison suffise à expliquer un départ.",
+          "english": "These motivations often overlap, so a single reason is rarely enough to explain a departure.",
+          "example": "Il faut reconnaître que ces motivations se mélangent souvent ; il est donc rare qu'une seule raison suffise à expliquer un départ.",
+          "usage": "Modèle de nuance complet : « il faut reconnaître que » admet un fait, puis « il est rare que » introduit le subjonctif."
         }
       ]
     },
@@ -2844,7 +2844,7 @@
           "kind": "mot-cle",
           "french": "le pays d'accueil",
           "english": "the host country",
-          "example": "À mon avis, il est important de bien connaître le pays d'accueil avant d'immigrer.",
+          "example": "À mon avis, il est important que chacun se renseigne sérieusement sur le pays d'accueil avant d'immigrer.",
           "usage": "Masc.; central keyword; « bien connaître le pays d'accueil »."
         },
         {
@@ -3092,7 +3092,7 @@
           "kind": "tournure",
           "french": "À mon avis,",
           "english": "In my opinion,",
-          "example": "À mon avis, il est important de bien connaître le pays d'accueil avant d'immigrer.",
+          "example": "À mon avis, il est important que chacun se renseigne sérieusement sur le pays d'accueil avant d'immigrer.",
           "usage": "Opinion marker; sentence-initial."
         },
         {

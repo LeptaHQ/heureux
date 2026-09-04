@@ -42,7 +42,7 @@ Ensuite, je pense que limiter la voiture améliore la sécurité et la fluidité
 
 **Développement**
 
-En effet, beaucoup d'accidents urbains impliquent des voitures qui circulent vite ou qui ne respectent pas les passages piétons et les pistes cyclables. Réduire leur place rend les rues plus sûres pour les enfants, les personnes âgées et les cyclistes, et permet aux bus et aux tramways de circuler plus facilement, sans rester bloqués dans les embouteillages. Au contraire, une rue saturée de voitures est dangereuse à traverser et ralentit même les transports publics.
+En effet, beaucoup d'accidents urbains impliquent des voitures qui circulent vite ou qui ne respectent pas les passages piétons et les pistes cyclables. Il faut donc réduire la place des voitures pour que les enfants, les personnes âgées et les cyclistes soient plus en sécurité et que les bus et les tramways circulent mieux. Au contraire, une rue saturée de voitures est dangereuse à traverser et ralentit même les transports publics.
 
 **Exemple**
 
@@ -76,7 +76,7 @@ Cependant, cette limitation ne sera vraiment acceptée que si elle s'accompagne 
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il est nécessaire de limiter la circulation des voitures en ville, parce que cela améliore la santé, la qualité de vie et l'organisation de l'espace urbain. Mais cette politique doit être pensée avec des alternatives concrètes pour tous les habitants. Il faut que les villes offrent des alternatives fiables avant de limiter davantage la circulation automobile.
+En conclusion, je pense qu'il est nécessaire de limiter la circulation des voitures en ville, parce que cela améliore la santé, la qualité de vie et l'organisation de l'espace urbain. Mais cette politique doit être pensée avec des alternatives concrètes pour tous les habitants.
 
 ---
 
@@ -220,7 +220,7 @@ Cela permet de comprendre que ce type d'interdiction n'est ni théorique ni utop
 
 **Idée**
 
-Enfin, je pense qu'il faut tout de même refuser une interdiction totale, immédiate et appliquée partout de la même façon.
+Bien qu'il faille limiter la circulation, je pense qu'une interdiction totale, immédiate et uniforme serait injuste.
 
 **Développement**
 
@@ -240,7 +240,7 @@ Cependant, même dans les zones interdites aux voitures, il faut prévoir des ex
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il faut interdire ou limiter très fortement les voitures dans certaines zones des centres-villes, parce que cela améliore la santé, la sécurité et la qualité de vie. Mais cette politique doit rester progressive, ciblée et accompagnée de vraies alternatives. Il faut que les villes développent des alternatives fiables pour que chacun puisse se déplacer facilement.
+En conclusion, je pense qu'il faut interdire ou limiter très fortement les voitures dans certaines zones des centres-villes, parce que cela améliore la santé, la sécurité et la qualité de vie. Mais cette politique doit rester progressive, ciblée et accompagnée de vraies alternatives.
 
 ---
 
@@ -318,11 +318,11 @@ Cela montre que le tourisme massif peut appauvrir, à la longue, l'identité mê
 
 ### **5. Nuance**
 
-Cependant, le tourisme n'est pas mauvais en soi. Bien organisé, il peut faire vivre une région, créer beaucoup d'emplois et financer la protection de certains sites. Le vrai problème vient surtout de l'excès et du manque de régulation.
+Bien que le tourisme puisse avoir des effets négatifs, il n'est pas mauvais en soi. Bien organisé, il peut faire vivre une région, créer beaucoup d'emplois et financer la protection de certains sites. Le vrai problème vient surtout de l'excès et du manque de régulation.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que le tourisme peut détruire certaines régions, mais surtout quand il devient massif et mal contrôlé. La solution n'est pas de le supprimer, mais de mieux l'encadrer pour respecter le territoire et ses habitants. Il faut que les autorités limitent la fréquentation pour que les habitants puissent préserver leur territoire.
+En conclusion, je pense que le tourisme peut détruire certaines régions, mais surtout quand il devient massif et mal contrôlé. La solution n'est pas de le supprimer, mais de mieux l'encadrer pour respecter le territoire et ses habitants.
 
 ---
 

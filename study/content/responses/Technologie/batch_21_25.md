@@ -60,7 +60,7 @@ Enfin, je pense que ce média correspond mieux à mon rythme, parce que je peux 
 
 **Développement**
 
-En effet, contrairement à un journal télévisé ou à une émission de radio diffusée à une heure précise, Internet me laisse libre du moment et de la durée. Je peux lire un titre rapidement, ou approfondir un sujet pendant une heure si j'en ai envie. À l'inverse, les autres médias imposent souvent un rythme et un format que l'on subit plus qu'on ne choisit.
+Contrairement à la télévision ou à la radio, Internet s'adapte à mon rythme, à condition que je puisse choisir librement le moment et la durée. Je peux lire un titre rapidement, ou approfondir un sujet pendant une heure si j'en ai envie. À l'inverse, les autres médias imposent souvent un rythme et un format que l'on subit plus qu'on ne choisit.
 
 **Exemple**
 
@@ -76,7 +76,7 @@ Cependant, la radio et les journaux gardent malgré tout des avantages réels : 
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que je préfère Internet, parce qu'il m'offre plus de liberté et de variété, à condition de l'utiliser avec recul et de vérifier les sources. C'est selon moi le média le mieux adapté à une information moderne et active. Il faut que je puisse comparer plusieurs sources avant de me faire une opinion.
+En conclusion, je dirais que je préfère Internet, parce qu'il m'offre plus de liberté et de variété, à condition de l'utiliser avec recul et de vérifier les sources. C'est selon moi le média le mieux adapté à une information moderne et active.
 
 ---
 
@@ -142,7 +142,7 @@ Enfin, je pense qu'en revanche, cette rapidité a renforcé l'immédiateté, la 
 
 **Développement**
 
-En effet, la possibilité de joindre quelqu'un à toute heure crée souvent une attente de réponse immédiate, même en dehors des heures de bureau. Beaucoup de salariés se sentent obligés de consulter leurs e-mails le soir, le week-end ou en vacances. En revanche, sans règles claires, le travail finit par déborder sur la vie personnelle.
+En effet, la possibilité de joindre quelqu'un à toute heure crée souvent une attente de réponse immédiate, même en dehors des heures de bureau. Beaucoup de salariés se sentent obligés de consulter leurs e-mails le soir, le week-end ou en vacances. En revanche, sans règles claires, le travail finit par déborder sur la vie personnelle, jusqu'à ce que cet équilibre devienne impossible à tenir.
 
 **Exemple**
 
@@ -158,7 +158,7 @@ Cependant, le bilan n'est ni totalement positif ni totalement négatif. Tout dé
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'Internet a bien changé le comportement au travail, en apportant plus d'efficacité et de flexibilité, mais aussi de nouvelles contraintes qu'il faut apprendre à maîtriser. Le défi est aujourd'hui de trouver un usage plus équilibré. Il faut que les entreprises définissent des limites claires pour que les salariés puissent se déconnecter.
+En conclusion, je dirais qu'Internet a bien changé le comportement au travail, en apportant plus d'efficacité et de flexibilité, mais aussi de nouvelles contraintes qu'il faut apprendre à maîtriser. Le défi est aujourd'hui de trouver un usage plus équilibré.
 
 ---
 
@@ -224,7 +224,7 @@ Enfin, je pense qu'en revanche, cette rapidité a renforcé l'immédiateté, la 
 
 **Développement**
 
-En effet, la possibilité de joindre quelqu'un à toute heure crée souvent une attente de réponse immédiate, même en dehors des heures de bureau. Beaucoup de salariés se sentent obligés de consulter leurs e-mails le soir, le week-end ou en vacances. En revanche, sans règles claires, le travail finit par déborder sur la vie personnelle.
+En effet, la possibilité de joindre quelqu'un à toute heure crée souvent une attente de réponse immédiate, même en dehors des heures de bureau. Beaucoup de salariés se sentent obligés de consulter leurs e-mails le soir, le week-end ou en vacances. En revanche, sans règles claires, le travail finit par déborder sur la vie personnelle, jusqu'à ce que cet équilibre devienne impossible à tenir.
 
 **Exemple**
 
@@ -240,7 +240,7 @@ Cependant, le bilan n'est ni totalement positif ni totalement négatif. Tout dé
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'Internet a bien changé le comportement au travail, en apportant plus d'efficacité et de flexibilité, mais aussi de nouvelles contraintes qu'il faut apprendre à maîtriser. Le défi est aujourd'hui de trouver un usage plus équilibré. Il faut que les entreprises définissent des limites claires pour que les salariés puissent se déconnecter.
+En conclusion, je dirais qu'Internet a bien changé le comportement au travail, en apportant plus d'efficacité et de flexibilité, mais aussi de nouvelles contraintes qu'il faut apprendre à maîtriser. Le défi est aujourd'hui de trouver un usage plus équilibré.
 
 ---
 
@@ -306,7 +306,7 @@ Enfin, je pense qu'Internet me permet aussi de diversifier plus facilement mes s
 
 **Développement**
 
-En effet, sur un même sujet, je peux consulter plusieurs médias français, étrangers, généralistes ou spécialisés. Cela m'aide à comparer les angles, à vérifier des informations et à me faire une opinion plus équilibrée. Au contraire, ne suivre qu'une seule chaîne de télévision ou qu'une seule radio peut donner une vision plus partielle.
+En effet, sur un même sujet, je peux consulter plusieurs médias français, étrangers, généralistes ou spécialisés. Cela m'aide à comparer les angles, mais il faut que je puisse vérifier l'origine des informations pour me faire une opinion équilibrée. Au contraire, ne suivre qu'une seule chaîne de télévision ou qu'une seule radio peut donner une vision plus partielle.
 
 **Exemple**
 
@@ -322,7 +322,7 @@ Cependant, la radio reste très pratique en déplacement, par exemple en voiture
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que je préfère Internet, parce qu'il correspond mieux à mon rythme et qu'il me permet de m'informer de manière plus libre et plus complète. C'est, à mes yeux, le média qui combine le mieux la rapidité, la diversité et la profondeur. Il faut que je puisse comparer plusieurs médias pour profiter pleinement des avantages d'Internet.
+En conclusion, je dirais que je préfère Internet, parce qu'il correspond mieux à mon rythme et qu'il me permet de m'informer de manière plus libre et plus complète. C'est, à mes yeux, le média qui combine le mieux la rapidité, la diversité et la profondeur.
 
 ---
 
@@ -400,10 +400,10 @@ Cela montre que le téléphone portable n'est plus seulement un confort, c'est u
 
 ### **5. Nuance**
 
-Cependant, le téléphone facilite la communication, mais il ne garantit pas pour autant des échanges plus profonds ni plus attentifs. On peut très bien se parler souvent sans vraiment se comprendre. La qualité d'une relation dépend toujours de l'attention que l'on porte à l'autre, pas seulement du nombre de messages échangés.
+Cependant, le téléphone facilite la communication, mais il ne garantit pas pour autant des échanges plus profonds ni plus attentifs. Même si l'on se parle souvent, il faut que chacun sache vraiment écouter pour bien comprendre l'autre. La qualité d'une relation dépend toujours de l'attention que l'on porte à l'autre, pas seulement du nombre de messages échangés.
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que oui, les téléphones portables facilitent la communication, parce qu'ils rendent les échanges plus rapides et plus simples, tout en nous obligeant à rester attentifs à la qualité de nos relations. La technologie aide, mais ne remplace pas l'écoute. Il faut que chacun sache aussi écouter, même quand le téléphone facilite les échanges.
+En conclusion, je dirais que oui, les téléphones portables facilitent la communication, parce qu'ils rendent les échanges plus rapides et plus simples, tout en nous obligeant à rester attentifs à la qualité de nos relations. La technologie aide, mais ne remplace pas l'écoute.
 
 ---

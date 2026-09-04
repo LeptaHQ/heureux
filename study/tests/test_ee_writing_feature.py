@@ -734,6 +734,7 @@ class EeWritingPageTests(TestCase):
                 self.assertContains(subjects, "data-subject-directory-search")
                 self.assertContains(subjects, 'target="_blank"')
                 self.assertContains(subjects, "publications liées")
+                self.assertNotContains(subjects, "Combinaison")
                 self.assertContains(
                     subjects,
                     (
@@ -773,6 +774,14 @@ class EeWritingPageTests(TestCase):
                     'data-prompt-copy-source="ee-writing-subject-content"',
                 )
                 self.assertNotContains(response, "AI Examiner Prompt")
+                self.assertNotContains(response, "Combinaison")
+                edit = self.client.get(
+                    reverse(
+                        "study:writing_sujet_edit",
+                        args=[task.part.slug, task.slug, sujet.pk],
+                    )
+                )
+                self.assertNotContains(edit, "Combinaison")
 
     def test_theme_vocabulary_reuses_shared_directory_and_progress(self):
         for tache in (1, 2):

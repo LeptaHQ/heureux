@@ -63,7 +63,7 @@
                 <div class="t1-row__link">
                   <span class="t1-row__subject">
                     <span class="t1-row__prompt">{{ row.prompt|truncatechars:220 }}</span>
-                    <span class="t1-row__date">{{ row.source.month_name }} {{ row.source.year }} · {{ row.source.combinaison }}</span>
+                    <span class="t1-row__date">{{ row.source.month_name }} {{ row.source.year }}</span>
                   </span>
                   <span class="t1-row__meta">
                     {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="ee-writing-prompts" prompt_key=row.source.source_key label="Copier la consigne" subject_label=row.prompt label_hidden=True only %}
@@ -138,7 +138,7 @@
                         {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="ee-writing-prompts" prompt_key=row.source.source_key label="Copier la consigne" subject_label=row.prompt label_hidden=True only %}
                       </div>
                       <span class="t1-table__subject-date">
-                        {{ row.source.month_name }} {{ row.source.year }} · {{ row.source.combinaison }}
+                        {{ row.source.month_name }} {{ row.source.year }}
                         {% if row.equivalent_count %} · {{ row.equivalent_count|add:1 }} publications liées{% endif %}
                       </span>
                     </td>

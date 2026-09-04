@@ -12,13 +12,12 @@
     <a class="link-with-icon" style="--icon-accent: {{ selected_prompt.theme.color }};" href="{% url 'study:theme_detail' part.slug task.slug selected_prompt.theme.slug %}">{% include "study/partials/ui_icon.html" with name=selected_prompt.theme.icon only %}<span>{{ selected_prompt.theme.display_name }}</span></a>
     {% if ee_response %}
       · <a href="{{ ee_source_url }}" target="_blank" rel="noopener noreferrer">{{ ee_source_month.name }} 2025</a>
-      · <span>{{ ee_combination_label }}</span>
     {% else %}
       · <a href="{% url 'study:task_family_detail' part.slug task.slug selected_prompt.family.slug %}">{{ selected_prompt.family.name }}</a>
     {% endif %}
     {% if response_content.is_personal %} · <span class="chip">Version personnelle</span>{% endif %}
   </p>
-  <h1 class="detail-prompt">{% if ee_response %}{{ selected_prompt.theme.display_name }} · {{ ee_combination_label }}{% else %}{{ selected_prompt.text }}{% endif %}</h1>
+  <h1 class="detail-prompt">{% if ee_response %}{{ selected_prompt.theme.display_name }}{% else %}{{ selected_prompt.text }}{% endif %}</h1>
   {% if response_content.reformulation %}<p class="reform">« {{ response_content.reformulation }} »</p>{% endif %}
 </div>
 
@@ -155,7 +154,7 @@
           {% for equivalent in ee_equivalent_subjects %}
             <li>
               <a href="{% url 'study:response_detail' part.slug task.slug equivalent.prompt.pk %}" target="_blank" rel="noopener noreferrer">
-                <span class="chip">{{ equivalent.month.name }} 2025 · {{ equivalent.combinaison }}</span>
+                <span class="chip">{{ equivalent.month.name }} 2025</span>
                 {{ equivalent.prompt.text }}
               </a>
             </li>

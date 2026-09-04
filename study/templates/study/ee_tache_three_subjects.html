@@ -9,7 +9,7 @@
     <div class="memory-overview-hero__copy">
       <p class="eyebrow">{{ part.name }} · {{ task.name }}</p>
       <h1>Sujets par thème</h1>
-      <p>Chaque publication conserve son mois et sa combinaison. Les sujets équivalents partagent une seule réponse, une seule progression et 30 vocabs ciblés.</p>
+      <p>Chaque publication conserve son mois. Les sujets équivalents partagent une seule réponse, une seule progression et 30 vocabs ciblés.</p>
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Contenu des sujets">
       <div><dt>Thèmes</dt><dd>{{ theme_count }}</dd></div>
@@ -90,10 +90,10 @@
                             href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}"
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Ouvrir {{ subject.combination_label }} : {{ subject.prompt.text }}">{{ subject.prompt.text }}</a>
+                            aria-label="Ouvrir le sujet : {{ subject.prompt.text }}">{{ subject.prompt.text }}</a>
                         </div>
                         <span class="t1-table__subject-date">
-                          {{ subject.month_name }} {{ subject.year }} · {{ subject.combination_label }}
+                          {{ subject.month_name }} {{ subject.year }}
                           {% if subject.equivalent_count %} · {{ subject.equivalent_count|add:1 }} publications liées{% endif %}
                           {% if subject.has_source_issue %} · Source signalée{% endif %}
                         </span>

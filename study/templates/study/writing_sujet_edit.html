@@ -26,7 +26,7 @@
   <section class="card card--pad response-edit__prompt" aria-labelledby="t1-edit-prompt">
     <div class="spine-label" id="t1-edit-prompt">Consigne non modifiable</div>
     <p class="detail-prompt">{{ prompt }}</p>
-    {% if source %}<p class="muted"><a href="{{ source_url }}" target="_blank" rel="noopener noreferrer">Source publique · {{ source.month_name }} {{ source.year }} · {{ source.combinaison }}</a></p>{% endif %}
+    {% if source %}<p class="muted"><a href="{{ source_url }}" target="_blank" rel="noopener noreferrer">Source publique · {{ source.month_name }} {{ source.year }}</a></p>{% endif %}
   </section>
 
   {% if model_versions %}

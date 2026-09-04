@@ -1235,7 +1235,7 @@ class EeTacheThreePageTests(TestCase):
             f"Thème · {prompt.theme.display_name}".replace("&", "&amp;"),
         )
 
-    def test_response_breadcrumb_uses_theme_month_and_combination(self):
+    def test_response_breadcrumb_uses_theme_and_month(self):
         prompt = self._first_prompt()
         response = self.client.get(prompt_detail_url(prompt))
         family_url = reverse(
@@ -1254,7 +1254,7 @@ class EeTacheThreePageTests(TestCase):
             prompt.theme.display_name.replace("&", "&amp;"),
         )
         self.assertContains(response, "Janvier 2025")
-        self.assertContains(response, "Combinaison 1")
+        self.assertNotContains(response, "Combinaison")
         self.assertContains(response, "Documents sources")
         self.assertContains(response, "Version de l’auteur")
         self.assertContains(response, "Pratiquer ce thème")
@@ -1284,7 +1284,7 @@ class EeTacheThreePageTests(TestCase):
         )
         self.assertNotContains(response, family_url)
 
-    def test_source_combination_numbers_are_preserved_across_pages(self):
+    def test_source_combination_numbers_stay_internal(self):
         july = next(month for month in self.months if month.slug == "juillet")
         source = july.combinaisons[15]
         prompt = Prompt.objects.select_related("theme").get(
@@ -1303,8 +1303,8 @@ class EeTacheThreePageTests(TestCase):
             source_row["combination_label"],
             "Combinaison 41",
         )
-        self.assertContains(detail, "Combinaison 41")
-        self.assertNotContains(detail, "Combinaison 16")
+        self.assertNotContains(month_page, "Combinaison")
+        self.assertNotContains(detail, "Combinaison")
 
     def test_subject_copy_preserves_every_published_source_defect(self):
         sources = [

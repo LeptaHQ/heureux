@@ -13,7 +13,7 @@
     </colgroup>
     <thead>
       <tr>
-        <th scope="col">Combinaison</th>
+        <th scope="col">Publication</th>
         <th scope="col">Sujet</th>
         <th scope="col">Progression</th>
         <th scope="col">Action</th>
@@ -58,7 +58,7 @@
             <th scope="row">
               <span class="tache-two-batch-table__batch-link">
                 {% include "study/partials/ui_icon.html" with name="file-text" only %}
-                <span>Combinaison {{ subject.combination_number }}</span>
+                <span>{{ month.name }} 2025</span>
               </span>
             </th>
             <td>
@@ -67,7 +67,7 @@
                 href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Ouvrir {{ subject.combination_label }} : {{ subject.prompt.text }}">{{ subject.prompt.text }}</a>
+                aria-label="Ouvrir le sujet : {{ subject.prompt.text }}">{{ subject.prompt.text }}</a>
               <span>{{ subject.document_count }} documents · {{ subject.vocabulary_count }} vocabs</span>
             </td>
             <td class="ee-t3-subject-table__progress-cell">

@@ -1,6 +1,6 @@
 <div class="ee-t3-subject-list collection-table collection-table--ee-subjects" data-collection-view="adaptive">
   <div class="ee-t3-subject-list__columns collection-table-header collection-table-header--ee-subjects" data-collection-table-header aria-hidden="true">
-    <span>Combinaison</span>
+    <span>Publication</span>
     <span>Sujet</span>
     <span>Progression</span>
     <span>Action</span>
@@ -12,13 +12,13 @@
       data-ee-tache-three-subject-row
       data-subject-progress-row="{{ subject.prompt.response_id }}">
       <div class="ee-t3-subject-row__number">
-        <span>{{ subject.combination_number }}</span>
-        <small>{{ subject.month_name }} {{ subject.year }}</small>
+        <span>{{ subject.month_name }}</span>
+        <small>{{ subject.year }}</small>
       </div>
       <div class="ee-t3-subject-row__copy">
         <strong>{{ subject.prompt.text }}</strong>
         <p>
-          {{ subject.combination_label }} · {{ subject.document_count }} documents · {{ subject.vocabulary_count }} vocabs
+          {{ subject.document_count }} documents · {{ subject.vocabulary_count }} vocabs
           {% if subject.equivalent_count %} · <span class="chip">{{ subject.equivalent_count|add:1 }} publications liées</span>{% endif %}
           {% if subject.has_source_issue %} · <span class="chip">Source signalée</span>{% endif %}
         </p>
@@ -40,7 +40,7 @@
         href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Ouvrir {{ subject.combination_label }} : {{ subject.prompt.text }}">
+        aria-label="Ouvrir le sujet : {{ subject.prompt.text }}">
         <span class="sr-only">Ouvrir le sujet</span>
       </a>
     </article>

@@ -712,7 +712,7 @@ class SmokeTests(TestCase):
             hub,
             reverse("study:part_detail", args=["ee"]),
         )
-        self.assertContains(hub, "3 tâches · 0 contenus · 0/0 commencés")
+        self.assertContains(hub, "3 tâches · 0 sujets · 0/0 sujets commencés")
         self.assertEqual(written.status_code, 200)
         self.assertContains(written, "Tâche 1")
         self.assertContains(written, "Tâche 2")

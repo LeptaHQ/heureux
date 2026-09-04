@@ -97,6 +97,12 @@ def _home_expression_paths(parts):
                     task["stats"]["due"] for task in available_tasks
                 ),
                 "progress": path_progress,
+                "content_unit": (
+                    "contenus" if item["part"].slug == "eo" else "sujets"
+                ),
+                "progress_unit": (
+                    "contenus" if item["part"].slug == "eo" else "sujets"
+                ),
                 "title": {
                     "ee": "Écrite",
                     "eo": "Orale",
@@ -137,6 +143,7 @@ def _skill_rings(expression_paths, comprehension):
         if path is None:
             continue
         progress = path["progress"]
+        progress_unit = path["progress_unit"]
         rings.append(
             {
                 "key": slug,
@@ -147,7 +154,7 @@ def _skill_rings(expression_paths, comprehension):
                 "available": bool(path["available"] and path["has_content"]),
                 "percent": progress.percent,
                 "detail": (
-                    f"{progress.completed}/{progress.total} éléments"
+                    f"{progress.completed}/{progress.total} {progress_unit}"
                     if progress.total
                     else "Bientôt disponible"
                 ),

@@ -240,7 +240,7 @@ Cependant, il faut reconnaître que l'on peut vivre des périodes de solitude ch
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il n'est pas réaliste de dire que les amis ne sont pas nécessaires pour être heureux. Ils nous soutiennent dans les épreuves, répondent à un besoin social fondamental et nous aident à grandir. L'amitié reste donc l'un des piliers les plus précieux d'une vie heureuse.
+En conclusion, je pense qu'il n'est pas réaliste de dire que les amis ne sont pas nécessaires pour être heureux. Ils nous soutiennent dans les épreuves, répondent à un besoin social fondamental et nous aident à grandir. L'amitié reste donc l'un des piliers les plus précieux d'une vie heureuse. Il est important que chacun puisse compter sur des amitiés sincères dans les moments difficiles.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, il n'est pas nécessaire d'avoir beaucoup d'amis pour bien vivre. Une
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il est généralement nécessaire d'avoir des amis pour bien vivre sa vie, parce qu'ils apportent un soutien concret, de l'ouverture et une protection contre l'isolement. Quelques amitiés sincères suffisent largement à faire une vraie différence.
+En conclusion, je dirais qu'il est généralement nécessaire d'avoir des amis pour bien vivre sa vie, parce qu'ils apportent un soutien concret, de l'ouverture et une protection contre l'isolement. Quelques amitiés sincères suffisent largement à faire une vraie différence. Il faut que chacun prenne le temps d'entretenir les amitiés qui lui font du bien.
 
 ---
 
@@ -404,6 +404,6 @@ Cependant, il est vrai que dans certaines familles très soudées, des liens vra
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que la famille peut parfois ressembler à une amitié profonde, mais qu'il vaut mieux ne pas confondre totalement ces deux formes de relation. Famille et amitié sont précieuses, mais elles ne se remplacent pas.
+En conclusion, je dirais que la famille peut parfois ressembler à une amitié profonde, mais qu'il vaut mieux ne pas confondre totalement ces deux formes de relation. Famille et amitié sont précieuses, mais elles ne se remplacent pas. Il est essentiel que chacun puisse construire des liens sincères, dans sa famille comme parmi ses amis.
 
 ---

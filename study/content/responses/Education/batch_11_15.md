@@ -76,7 +76,7 @@ Cependant, il est vrai que l'école doit d'abord assurer les apprentissages fond
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les matières culturelles doivent absolument rester à l'école, parce qu'elles développent l'expression et l'esprit critique, ouvrent à d'autres cultures et peuvent révéler de vrais talents. Loin d'être une perte de temps, elles font partie d'une éducation complète.
+En conclusion, je pense que les matières culturelles doivent absolument rester à l'école, parce qu'elles développent l'expression et l'esprit critique, ouvrent à d'autres cultures et peuvent révéler de vrais talents. Loin d'être une perte de temps, elles font partie d'une éducation complète. Il faut que les écoles accordent assez de temps à ces matières dans leurs programmes.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, la lecture ne remplace pas totalement l'expérience directe. Vivre da
 
 ### **6. Conclusion**
 
-En conclusion, je pense que la lecture des livres est un très bon moyen pour connaître un pays, parce qu'elle donne accès à son histoire, à sa mentalité et reste accessible à tous. Elle complète l'expérience du voyage, sans pouvoir totalement la remplacer.
+En conclusion, je pense que la lecture des livres est un très bon moyen pour connaître un pays, parce qu'elle donne accès à son histoire, à sa mentalité et reste accessible à tous. Elle complète l'expérience du voyage, sans pouvoir totalement la remplacer. Il faut que les lecteurs puissent découvrir plusieurs auteurs pour mieux comprendre la diversité d'un pays.
 
 ---
 

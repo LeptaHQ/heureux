@@ -76,7 +76,7 @@ Cependant, pour une personne très indépendante, ou dans une famille tendue où
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il est parfois plus facile de vivre seul, mais qu'une vie de famille équilibrée peut offrir des avantages qu'on ne retrouve pas dans la solitude. La vraie question n'est donc pas seulement la forme de vie choisie, mais la qualité de la relation aux autres.
+En conclusion, je dirais qu'il est parfois plus facile de vivre seul, mais qu'une vie de famille équilibrée peut offrir des avantages qu'on ne retrouve pas dans la solitude. La vraie question n'est donc pas seulement la forme de vie choisie, mais la qualité de la relation aux autres. Il faut que chacun respecte les besoins des autres pour que la vie commune soit agréable.
 
 ---
 
@@ -158,7 +158,7 @@ Cependant, l'inverse de l'autoritarisme n'est pas la permissivité totale. Un pa
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il faut être ferme avec ses enfants, sans tomber dans l'autoritarisme. Une vraie autorité combine des règles claires, une certaine fermeté et beaucoup de dialogue : c'est elle qui aide vraiment l'enfant à grandir.
+En conclusion, je pense qu'il faut être ferme avec ses enfants, sans tomber dans l'autoritarisme. Une vraie autorité combine des règles claires, une certaine fermeté et beaucoup de dialogue : c'est elle qui aide vraiment l'enfant à grandir. Il faut que les parents soient fermes et qu'ils dialoguent calmement avec leurs enfants.
 
 ---
 
@@ -240,7 +240,7 @@ Cependant, ce bilinguisme demande de la patience et une vraie régularité, surt
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il vaut mieux parler aux enfants dans la langue familiale tout en leur donnant aussi une vraie maîtrise de la langue du pays. Les deux langues sont utiles et complémentaires, et le vrai cadeau qu'on peut leur faire est précisément le bilinguisme.
+En conclusion, je dirais qu'il vaut mieux parler aux enfants dans la langue familiale tout en leur donnant aussi une vraie maîtrise de la langue du pays. Les deux langues sont utiles et complémentaires, et le vrai cadeau qu'on peut leur faire est précisément le bilinguisme. Il est important que les enfants puissent utiliser les deux langues sans jamais devoir choisir entre elles.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, cette participation ne doit pas être identique pour tout le monde. U
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que chacun devrait aider à la maison, même modestement, parce qu'un foyer fonctionne mieux quand les responsabilités sont partagées. Les tâches ménagères ne sont pas un détail : elles touchent à l'équilibre et au respect dans la vie commune.
+En conclusion, je dirais que chacun devrait aider à la maison, même modestement, parce qu'un foyer fonctionne mieux quand les responsabilités sont partagées. Les tâches ménagères ne sont pas un détail : elles touchent à l'équilibre et au respect dans la vie commune. Il faut que chacun fasse sa part pour que le foyer reste juste et agréable.
 
 ---
 

@@ -76,7 +76,7 @@ Cependant, cela ne veut pas dire que certaines personnes seraient « inadaptable
 
 ### **6. Conclusion**
 
-En conclusion, je pense que tout le monde n'est pas naturellement capable de s'adapter facilement à un pays étranger. Cela dépend des qualités personnelles, de la langue, de la culture et des conditions du départ, mais cela peut aussi se construire avec le temps.
+En conclusion, je pense que tout le monde n'est pas naturellement capable de s'adapter facilement à un pays étranger. Cela dépend des qualités personnelles, de la langue, de la culture et des conditions du départ, mais cela peut aussi se construire avec le temps. Il faut que chacun bénéficie d'un soutien adapté pour qu'il trouve progressivement sa place.
 
 ---
 
@@ -158,7 +158,7 @@ Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge. 
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il n'est jamais trop tard pour apprendre, parce que le cerveau reste capable, l'expérience aide et les bénéfices sont réels. Apprendre est une activité qui peut accompagner toute la vie, à condition d'adapter ses méthodes à son âge.
+En conclusion, je pense qu'il n'est jamais trop tard pour apprendre, parce que le cerveau reste capable, l'expérience aide et les bénéfices sont réels. Apprendre est une activité qui peut accompagner toute la vie, à condition d'adapter ses méthodes à son âge. Il faut que les adultes trouvent des méthodes adaptées à leur rythme et à leurs objectifs.
 
 ---
 
@@ -240,7 +240,7 @@ Cependant, l'interdiction ne doit pas être absolue. Le téléphone peut parfois
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il faut interdire l'usage du téléphone portable à l'école pour protéger la concentration, prévenir certains comportements et favoriser les échanges. Le téléphone n'a sa place en classe que lorsqu'il est utilisé comme outil par l'enseignant.
+En conclusion, je pense qu'il faut interdire l'usage du téléphone portable à l'école pour protéger la concentration, prévenir certains comportements et favoriser les échanges. Le téléphone n'a sa place en classe que lorsqu'il est utilisé comme outil par l'enseignant. Il faut que les élèves puissent apprendre sans être distraits par leur téléphone.
 
 ---
 
@@ -404,6 +404,6 @@ Cependant, ces trois questions ne sont pas les seules à se poser. Le climat, l'
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les trois questions les plus importantes avant d'immigrer au Québec sont celles de la langue, du métier et des moyens. Ce sont elles qui déterminent en grande partie la réussite ou l'échec du projet sur le terrain.
+En conclusion, je pense que les trois questions les plus importantes avant d'immigrer au Québec sont celles de la langue, du métier et des moyens. Ce sont elles qui déterminent en grande partie la réussite ou l'échec du projet sur le terrain. Il faut que chaque candidat connaisse bien les exigences du Québec avant d'engager ses démarches.
 
 ---

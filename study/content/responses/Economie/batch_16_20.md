@@ -240,7 +240,7 @@ Cependant, il faut reconnaître que vivre avec des revenus trop faibles rend tou
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il faut un revenu suffisant pour vivre correctement, mais pas forcément beaucoup d'argent pour profiter de la vie. Le bonheur dépend bien plus des relations, du temps et du sens donné à ce que l'on fait.
+En conclusion, je pense qu'il faut un revenu suffisant pour vivre correctement, mais pas forcément beaucoup d'argent pour profiter de la vie. Le bonheur dépend bien plus des relations, du temps et du sens donné à ce que l'on fait. Il est important que chacun ait un revenu suffisant sans sacrifier son temps ni ses relations.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, accessibilité ne veut pas dire que l'université convient à tout le
 
 ### **6. Conclusion**
 
-En conclusion, je pense que l'université devrait rester accessible à tout le monde, parce qu'elle joue un rôle clé pour l'égalité des chances et pour la société. Mais cela doit aller de pair avec d'autres voies de réussite, tout aussi respectées.
+En conclusion, je pense que l'université devrait rester accessible à tout le monde, parce qu'elle joue un rôle clé pour l'égalité des chances et pour la société. Mais cela doit aller de pair avec d'autres voies de réussite, tout aussi respectées. Il faut que chacun puisse accéder à l'université, quelle que soit son origine sociale.
 
 ---
 
@@ -404,6 +404,6 @@ Cependant, il faut reconnaître que certains métiers difficiles sont effectivem
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les métiers difficiles ne sont pas toujours les mieux payés. Le salaire dépend surtout de la rareté des compétences et du marché, ce qui crée parfois de vraies injustices entre l'effort fourni et la rémunération réelle.
+En conclusion, je dirais que les métiers difficiles ne sont pas toujours les mieux payés. Le salaire dépend surtout de la rareté des compétences et du marché, ce qui crée parfois de vraies injustices entre l'effort fourni et la rémunération réelle. Il est important que les personnes qui exercent des métiers pénibles soient mieux rémunérées.
 
 ---

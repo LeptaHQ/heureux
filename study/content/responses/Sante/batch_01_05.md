@@ -158,7 +158,7 @@ Cependant, un usage raisonnable et bien encadré peut aussi avoir des aspects ut
 
 ### **6. Conclusion**
 
-En conclusion, je pense que beaucoup d'enfants passent trop de temps devant les écrans, et qu'il faut surtout mieux encadrer cet usage au lieu de l'accepter comme quelque chose de normal. L'objectif est de remettre les écrans à leur juste place, pas de les supprimer totalement.
+En conclusion, je pense que beaucoup d'enfants passent trop de temps devant les écrans, et qu'il faut surtout mieux encadrer cet usage au lieu de l'accepter comme quelque chose de normal. L'objectif est de remettre les écrans à leur juste place, pas de les supprimer totalement. Il faut que les parents fixent des limites claires pour que les enfants gardent un bon équilibre.
 
 ---
 
@@ -240,7 +240,7 @@ Cependant, cette double charge n'est pas impossible non plus. Avec un emploi du 
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que travailler et étudier en même temps est vraiment difficile, même si cela peut être faisable dans de bonnes conditions et pour une période limitée. C'est une expérience qui fait grandir, mais qui demande beaucoup.
+En conclusion, je dirais que travailler et étudier en même temps est vraiment difficile, même si cela peut être faisable dans de bonnes conditions et pour une période limitée. C'est une expérience qui fait grandir, mais qui demande beaucoup. Il est essentiel que les employeurs proposent des horaires souples pour que les étudiants puissent se reposer.
 
 ---
 

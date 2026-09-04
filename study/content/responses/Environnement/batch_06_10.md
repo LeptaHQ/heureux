@@ -76,7 +76,7 @@ Cependant, cette limitation ne sera vraiment acceptée que si elle s'accompagne 
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il est nécessaire de limiter la circulation des voitures en ville, parce que cela améliore la santé, la qualité de vie et l'organisation de l'espace urbain. Mais cette politique doit être pensée avec des alternatives concrètes pour tous les habitants.
+En conclusion, je pense qu'il est nécessaire de limiter la circulation des voitures en ville, parce que cela améliore la santé, la qualité de vie et l'organisation de l'espace urbain. Mais cette politique doit être pensée avec des alternatives concrètes pour tous les habitants. Il faut que les villes offrent des alternatives fiables avant de limiter davantage la circulation automobile.
 
 ---
 
@@ -240,7 +240,7 @@ Cependant, même dans les zones interdites aux voitures, il faut prévoir des ex
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il faut interdire ou limiter très fortement les voitures dans certaines zones des centres-villes, parce que cela améliore la santé, la sécurité et la qualité de vie. Mais cette politique doit rester progressive, ciblée et accompagnée de vraies alternatives.
+En conclusion, je pense qu'il faut interdire ou limiter très fortement les voitures dans certaines zones des centres-villes, parce que cela améliore la santé, la sécurité et la qualité de vie. Mais cette politique doit rester progressive, ciblée et accompagnée de vraies alternatives. Il faut que les villes développent des alternatives fiables pour que chacun puisse se déplacer facilement.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, le tourisme n'est pas mauvais en soi. Bien organisé, il peut faire v
 
 ### **6. Conclusion**
 
-En conclusion, je pense que le tourisme peut détruire certaines régions, mais surtout quand il devient massif et mal contrôlé. La solution n'est pas de le supprimer, mais de mieux l'encadrer pour respecter le territoire et ses habitants.
+En conclusion, je pense que le tourisme peut détruire certaines régions, mais surtout quand il devient massif et mal contrôlé. La solution n'est pas de le supprimer, mais de mieux l'encadrer pour respecter le territoire et ses habitants. Il faut que les autorités limitent la fréquentation pour que les habitants puissent préserver leur territoire.
 
 ---
 

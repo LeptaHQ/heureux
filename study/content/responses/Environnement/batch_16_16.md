@@ -76,6 +76,6 @@ Cependant, le tourisme n'est pas mauvais en soi. Bien organisé, il peut faire v
 
 ### **6. Conclusion**
 
-En conclusion, je pense que le tourisme peut détruire certaines régions, mais surtout quand il devient massif et mal contrôlé. La solution n'est pas de le supprimer, mais de mieux l'encadrer pour respecter le territoire et ses habitants.
+En conclusion, je pense que le tourisme peut détruire certaines régions, mais surtout quand il devient massif et mal contrôlé. La solution n'est pas de le supprimer, mais de mieux l'encadrer pour respecter le territoire et ses habitants. Il faut que les autorités limitent la fréquentation pour que les habitants puissent préserver leur territoire.
 
 ---

@@ -76,7 +76,7 @@ Cependant, il serait exagéré de dire que tous les programmes de télé-réalit
 
 ### **6. Conclusion**
 
-En conclusion, je pense que la télé-réalité a souvent une mauvaise influence sur les jeunes, parce qu'elle valorise des modèles superficiels, banalise des comportements problématiques et s'adresse à un public particulièrement exposé. L'éducation à l'esprit critique reste donc indispensable face à ce type de programmes.
+En conclusion, je pense que la télé-réalité a souvent une mauvaise influence sur les jeunes, parce qu'elle valorise des modèles superficiels, banalise des comportements problématiques et s'adresse à un public particulièrement exposé. L'éducation à l'esprit critique reste donc indispensable face à ce type de programmes. Il faut que les parents et l'école apprennent aux jeunes à décoder ces images.
 
 ---
 

@@ -76,7 +76,7 @@ Cependant, la réponse varie beaucoup selon le profil. Pour un travailleur quali
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'on peut trouver du travail au Canada, mais que cela demande du temps, une bonne préparation et de la souplesse. Ce n'est donc pas facile au sens automatique du mot, mais c'est un objectif réaliste pour qui s'y prépare sérieusement.
+En conclusion, je dirais qu'on peut trouver du travail au Canada, mais que cela demande du temps, une bonne préparation et de la souplesse. Ce n'est donc pas facile au sens automatique du mot, mais c'est un objectif réaliste pour qui s'y prépare sérieusement. Il faut que les nouveaux arrivants préparent leur recherche pour qu'ils trouvent un emploi adapté à leurs compétences.
 
 ---
 
@@ -157,7 +157,7 @@ Cependant, il faut préciser que cela ne concerne pas tous les sportifs. La majo
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les revenus de certains grands sportifs sont effectivement excessifs, surtout quand on les compare aux métiers essentiels. Le problème n'est donc pas le sport en lui-même, mais le déséquilibre énorme entre quelques stars et le reste de la société.
+En conclusion, je pense que les revenus de certains grands sportifs sont effectivement excessifs, surtout quand on les compare aux métiers essentiels. Le problème n'est donc pas le sport en lui-même, mais le déséquilibre énorme entre quelques stars et le reste de la société. Il est important que les revenus des stars restent raisonnables et que les métiers essentiels soient mieux valorisés.
 
 ---
 
@@ -239,7 +239,7 @@ Cependant, il ne faut pas en conclure qu'être responsable est réservé à quel
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que la fonction de responsable n'est pas à la portée immédiate de tout le monde, parce qu'elle demande des compétences humaines, une certaine solidité personnelle et une vraie expérience. C'est une fonction qui se prépare et se mérite, plus qu'elle ne se distribue.
+En conclusion, je dirais que la fonction de responsable n'est pas à la portée immédiate de tout le monde, parce qu'elle demande des compétences humaines, une certaine solidité personnelle et une vraie expérience. C'est une fonction qui se prépare et se mérite, plus qu'elle ne se distribue. Il faut que les futurs responsables reçoivent une formation adaptée avant de diriger une équipe.
 
 ---
 

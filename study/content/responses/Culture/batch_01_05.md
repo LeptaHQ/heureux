@@ -76,7 +76,7 @@ Cependant, la frontière entre ce qu'il faut adapter et ce qu'on peut garder n'e
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il ne faut ni tout garder ni tout abandonner. La meilleure adaptation est celle qui change ce que la vie quotidienne du pays d'accueil impose, qui garde ce qui appartient à la vie privée, et qui se fait progressivement et par choix.
+En conclusion, je dirais qu'il ne faut ni tout garder ni tout abandonner. La meilleure adaptation est celle qui change ce que la vie quotidienne du pays d'accueil impose, qui garde ce qui appartient à la vie privée, et qui se fait progressivement et par choix. Il faut que chacun adapte certaines habitudes sans renoncer à son identité.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, l'ordre des priorités peut varier selon les pays et les contextes. D
 
 ### **6. Conclusion**
 
-En conclusion, je pense que la lutte contre la pauvreté et l'exclusion est la priorité la plus urgente, parce qu'elle réunit trois éléments essentiels : une urgence humaine directe, un impact très large sur les autres problèmes sociaux, et la possibilité d'une action collective réelle.
+En conclusion, je pense que la lutte contre la pauvreté et l'exclusion est la priorité la plus urgente, parce qu'elle réunit trois éléments essentiels : une urgence humaine directe, un impact très large sur les autres problèmes sociaux, et la possibilité d'une action collective réelle. Il faut que les États coopèrent davantage pour réduire durablement la pauvreté et l'exclusion.
 
 ---
 

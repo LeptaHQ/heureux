@@ -76,7 +76,7 @@ Cependant, la situation n'est pas la même selon les régions, les générations
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que l'alimentation dans mon pays est globalement intéressante, avec de vraies qualités, mais qu'elle doit être mieux protégée contre les excès liés au mode de vie actuel. Le défi est de moderniser sans dénaturer.
+En conclusion, je dirais que l'alimentation dans mon pays est globalement intéressante, avec de vraies qualités, mais qu'elle doit être mieux protégée contre les excès liés au mode de vie actuel. Le défi est de moderniser sans dénaturer. Il faut que les familles préservent les traditions culinaires tout en limitant les produits trop transformés.
 
 ---
 
@@ -158,7 +158,7 @@ Cependant, certaines personnes transforment mieux le stress en motivation que d'
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que le stress peut être stimulant à petite dose et dans des moments précis, mais qu'il devient rapidement nocif dès qu'il s'installe. Le but n'est pas de le supprimer totalement, mais d'apprendre à le maîtriser.
+En conclusion, je dirais que le stress peut être stimulant à petite dose et dans des moments précis, mais qu'il devient rapidement nocif dès qu'il s'installe. Le but n'est pas de le supprimer totalement, mais d'apprendre à le maîtriser. Il faut que chacun apprenne à reconnaître ses limites pour que le stress reste maîtrisable.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, jouer occasionnellement à un jeu adapté n'a pas le même effet que 
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les jeux vidéo peuvent effectivement avoir des effets négatifs sur les enfants, surtout en cas d'excès et d'absence d'encadrement. Le vrai enjeu est de fixer des règles claires et de préserver un équilibre de vie.
+En conclusion, je dirais que les jeux vidéo peuvent effectivement avoir des effets négatifs sur les enfants, surtout en cas d'excès et d'absence d'encadrement. Le vrai enjeu est de fixer des règles claires et de préserver un équilibre de vie. Il est important que les parents fixent des horaires clairs pour que les enfants dorment suffisamment.
 
 ---
 

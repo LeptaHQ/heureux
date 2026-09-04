@@ -76,7 +76,7 @@ Cependant, certaines personnes les trouvent trop courts, trop répétitifs ou tr
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les journaux télévisés restent intéressants, à condition de les considérer comme un point de départ et non comme une source suffisante à elle seule. L'idéal est de les compléter par d'autres formats plus approfondis.
+En conclusion, je dirais que les journaux télévisés restent intéressants, à condition de les considérer comme un point de départ et non comme une source suffisante à elle seule. L'idéal est de les compléter par d'autres formats plus approfondis. Il faut que les téléspectateurs puissent comparer les reportages avec d'autres sources fiables.
 
 ---
 
@@ -158,7 +158,7 @@ Cependant, Internet peut aussi aider à garder le contact ou à rompre l'isoleme
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'Internet ne rend pas automatiquement les gens solitaires. Tout dépend surtout de la manière dont on l'utilise et de la place que l'on laisse aux relations réelles. Le problème, ce n'est pas Internet, c'est l'usage qu'on en fait.
+En conclusion, je dirais qu'Internet ne rend pas automatiquement les gens solitaires. Tout dépend surtout de la manière dont on l'utilise et de la place que l'on laisse aux relations réelles. Le problème, ce n'est pas Internet, c'est l'usage qu'on en fait. Il faut que chacun garde du temps pour des rencontres et des activités hors ligne.
 
 ---
 
@@ -240,7 +240,7 @@ Cependant, vivre avec moins de téléphone reste possible si l'on accepte certai
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il n'est pas facile de se passer complètement de son téléphone portable aujourd'hui, même si l'on peut apprendre à en dépendre beaucoup moins. L'enjeu n'est pas de le supprimer, mais de retrouver un usage plus maîtrisé.
+En conclusion, je dirais qu'il n'est pas facile de se passer complètement de son téléphone portable aujourd'hui, même si l'on peut apprendre à en dépendre beaucoup moins. L'enjeu n'est pas de le supprimer, mais de retrouver un usage plus maîtrisé. Il faut que chacun puisse aussi gérer certaines tâches sans téléphone.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, ces outils peuvent aussi donner une fausse impression d'amitiés nomb
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les réseaux sociaux rendent les rencontres plus faciles au départ, mais qu'ils ne remplacent pas le temps, la confiance et la présence nécessaires pour créer de vrais amis. Ils sont une porte d'entrée, pas une amitié à part entière.
+En conclusion, je dirais que les réseaux sociaux rendent les rencontres plus faciles au départ, mais qu'ils ne remplacent pas le temps, la confiance et la présence nécessaires pour créer de vrais amis. Ils sont une porte d'entrée, pas une amitié à part entière. Il est important que les échanges en ligne puissent mener à de vraies rencontres.
 
 ---
 
@@ -404,6 +404,6 @@ Cependant, sans recul, les réseaux sociaux peuvent aussi faire perdre du temps,
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les réseaux sociaux restent utiles aujourd'hui s'ils servent un but précis et s'ils ne prennent pas trop de place dans la vie quotidienne. C'est moins l'outil que l'usage qui fait la différence.
+En conclusion, je dirais que les réseaux sociaux restent utiles aujourd'hui s'ils servent un but précis et s'ils ne prennent pas trop de place dans la vie quotidienne. C'est moins l'outil que l'usage qui fait la différence. Il faut que chacun fixe des limites claires pour que ces outils restent utiles.
 
 ---

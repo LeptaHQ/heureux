@@ -3257,7 +3257,7 @@ def _memory_progress_error(request, message):
 
 @require_POST
 def task_question_response(request, part_slug, task_slug, memory_number):
-    task = _memoire_task(part_slug, task_slug)
+    task = _memoire_task(request, part_slug, task_slug)
     if (task.part.slug, task.slug) != content_module.EO_TACHE_ONE_TASK:
         raise Http404
 

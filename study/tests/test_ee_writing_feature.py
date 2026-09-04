@@ -82,15 +82,27 @@ class EeWritingContentTests(SimpleTestCase):
             self.assertIn("linguistic:", task_prompt)
             self.assertIn("pragmatic:", task_prompt)
             self.assertIn("sociolinguistic:", task_prompt)
-            self.assertIn("NCLC 8 readiness", task_prompt)
+            self.assertIn("estimated task-level CEFR", task_prompt)
             self.assertIn(
-                "as Not yet, Approaching, On track, or Strong",
+                "best-estimate projected " + "T" + "CF writing score",
+                task_prompt,
+            )
+            self.assertIn("projected NCLC", task_prompt)
+            self.assertIn("1 = A1; 2–5 = A2", task_prompt)
+            self.assertIn("16–20 = NCLC 10 or higher", task_prompt)
+            self.assertIn(
+                "Choose CEFR first, derive the point",
                 task_prompt,
             )
             self.assertIn(
-                "écrite /20 score covers all three tasks together",
+                "may cross an adjacent CEFR or NCLC boundary",
                 task_prompt,
             )
+            self.assertRegex(
+                task_prompt,
+                r"six\s+task-level judgments from two independent evaluations",
+            )
+            self.assertNotIn("NCLC 8 readiness", task_prompt)
         self.assertNotEqual(
             content.load_ee_ai_examiner_prompt(1),
             content.load_ee_ai_examiner_prompt(2),

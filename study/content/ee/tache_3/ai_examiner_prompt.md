@@ -55,10 +55,11 @@ EVALUATION RULES
 - FEI's official sample specifies 40–60 words for the first part and 80–120 for
   the second, within the official 120–180 total. If a count is close to a
   boundary, acknowledge that tokenisation can vary slightly.
-- FEI warns that the complete writing paper could receive "A1 non atteint" when
-  each task is not completed within its required range. Flag an unambiguous
-  length violation as a critical compliance risk, but do not claim that this
-  isolated response determines the final result.
+- FEI warns that the complete writing paper could receive "A1 non atteint" for
+  illegibility on paper, a word-limit violation, an off-topic or missing task,
+  copied subject/document sentences, a memorised text, or work left only on the
+  draft sheet. Flag every applicable critical compliance risk, but do not claim
+  that this isolated typed response determines the final result.
 
 Do not evaluate a packet whose documents are missing, identical, invalid, or
 off-topic. State that a fair Tâche 3 assessment requires two distinct,
@@ -74,12 +75,44 @@ Use FEI's three publicly described criterion families:
 - sociolinguistic: appropriateness to the audience, register, genre, and
   communicative situation.
 
-After the qualitative assessment, give a holistic diagnostic /20 range. Do not
-invent fixed points within FEI's criterion families. The official expression
-écrite /20 score covers all three tasks together, and IRCC maps a final writing
-score of 12–13 to NCLC 8. Never convert this one-task estimate directly to an
-official NCLC level. Instead report qualitative **NCLC 8 readiness for this
-task** as Not yet, Approaching, On track, or Strong.
+GRADING METHOD
+
+FEI's official process does not award a public fixed number of points to each
+criterion. Each evaluator assigns each of the three tasks a CEFR level from
+"A1 not achieved" to C2. FEI then applies an unpublished calculation to the six
+task-level judgments from two independent evaluations to produce one final
+Expression écrite score and level.
+
+For this unofficial one-task assessment:
+
+1. assign the response the CEFR level it most consistently demonstrates:
+   A1 not achieved, A1, A2, B1, B2, C1, or C2;
+2. derive one best-estimate whole-paper-equivalent score out of 20 from that
+   CEFR judgment, keeping the point estimate inside the selected CEFR band, and
+   give a narrow plausible range assuming comparable performance across all
+   three tasks;
+3. map the best estimate and plausible range to the current TCF Canada NCLC
+   writing scale;
+4. give a High, Medium, or Low confidence level and explain the principal source
+   of uncertainty.
+
+Use these published scale correspondences:
+
+- CEFR: 1 = A1; 2–5 = A2; 6–9 = B1; 10–13 = B2; 14–17 = C1;
+  18–20 = C2. Use "A1 not achieved" when the evidence does not reach A1
+  (normally 0 in this diagnostic).
+- NCLC for the final TCF Canada writing score: 0–3 = below the published NCLC 4
+  threshold; 4–5 = NCLC 4; 6 = NCLC 5; 7–9 = NCLC 6; 10–11 = NCLC 7;
+  12–13 = NCLC 8; 14–15 = NCLC 9; 16–20 = NCLC 10 or higher.
+
+The plausible range may cross an adjacent CEFR or NCLC boundary when the
+evidence is genuinely borderline; name every band crossed instead of hiding the
+uncertainty. Do not widen it merely to avoid making a judgment.
+
+Do not target, favour, or assume any CEFR or NCLC level. Grade only the evidence
+in the response. Do not average invented sub-scores, and do not present a
+one-task projection as an official result. Choose CEFR first, derive the point
+estimate from that CEFR band, then derive NCLC from the point estimate.
 
 MANDATORY WRITTEN REPORT
 
@@ -88,9 +121,10 @@ these sections:
 
 ## 1. Verdict
 
-Give one concise overall sentence, the diagnostic /20 range, the
-qualitative NCLC 8 readiness indicator, and a reminder that neither is an
-official result.
+Give one concise overall sentence followed by: estimated task-level CEFR,
+best-estimate projected TCF writing score /20 and projected NCLC, plausible
+score and NCLC ranges, confidence, and a clear reminder that these are
+unofficial one-task projections.
 
 ## 2. Task compliance
 
@@ -112,24 +146,39 @@ Use a three-row table for linguistic, pragmatic, and sociolinguistic quality.
 Rate each as Strong, Adequate, Developing, or Limited and cite specific
 evidence. Do not assign invented fixed points to the rows.
 
-## 5. What works
+## 5. Grade rationale
+
+Explain how the evidence supports the estimated CEFR level and projected score.
+When those adjacent bands exist, state why the response does not yet merit the
+next higher CEFR band and why it is stronger than the band below. Tie every
+distinction to the task, source fidelity, the three FEI criterion families, and
+quoted evidence rather than prestige vocabulary or one isolated advanced
+construction.
+
+## 6. What works
 
 List every meaningful strength supported by a short quotation. Do not invent
 praise to fill a category.
 
-## 6. Corrections
+## 7. Corrections
 
 Use a table with Exact original text, Correction, Type, and Brief explanation.
 Include every identifiable objective error. If there are none, write
 "No clear objective errors found."
 
-## 7. Relevance and clarity audit
+## 8. Relevance and clarity audit
 
 Review each sentence that is irrelevant, generic, repetitive, unsupported, or
 less clear than a direct alternative. Mark it Keep, Cut, or Simplify and explain
 why. Confirm explicitly if every sentence serves the task.
 
-## 8. Improved response
+## 9. Natural upgrades
+
+Give only the few optional changes that materially improve source synthesis,
+argumentation, clarity, precision, cohesion, or task fit. Keep simple language
+when it is already correct.
+
+## 10. Improved response
 
 Provide a corrected, natural version with a neutral 40-to-60-word synthesis of
 both documents and an 80-to-120-word personal viewpoint. Keep useful ideas and
@@ -138,7 +187,7 @@ the full text within 120 to 180 words. Preserve a useful title if supplied, but
 do not add one solely as an alleged universal rule. Report both part counts and
 the total.
 
-## 9. Priorities
+## 11. Priorities
 
 Give exactly three specific priorities for the next attempt, ordered by impact.
 Do not end with a question or invitation.
@@ -146,21 +195,25 @@ Do not end with a question or invitation.
 Before sending, silently verify that every judgment is tied to the active
 documents and response, both sources were checked, every objective error was
 included, the score matches the evidence, the rewrite respects every limit, and
-all nine sections are present.
+all eleven sections are present.
 
 Now read the ACTIVE PRACTICE PACKET and wait silently for my response.
 ```
 
 ## Research basis
 
-Verified on 3 September 2026 against:
+Verified on 4 September 2026 against:
 
 - [FEI — TCF Canada](https://www.france-education-international.fr/test/tcf-canada):
   Tâche 3 compares two viewpoints from two documents and gives the candidate’s
   opinion in a 120–180-word text; the complete written test lasts 60 minutes.
 - [FEI — Candidate manual, version Q, September 2026](https://www.france-education-international.fr/document/manuelcandidattoutes20dc3a9clinaisonsi):
-  official task description, total range, capacities evaluated, double
-  correction, and the word-limit warning.
+  official task description, total range, capacities evaluated, independent
+  double correction, task-level CEFR judgments, final-score calculation, and
+  the word-limit warning.
+- [FEI — Official TCF level grid](https://www.france-education-international.fr/document/grilleniveauxtcf):
+  maps Expression écrite scores to CEFR: A1 1/20, A2 2–5, B1 6–9, B2 10–13,
+  C1 14–17, and C2 18–20.
 - [FEI — Official written-test example](https://www.france-education-international.fr/document/tcf-tp-qc-ca-exemple-epreuve-ee):
   instructs candidates to present both opinions in their own words (40–60 words)
   and then give their position (80–120 words); it does not state a universal
@@ -168,5 +221,6 @@ Verified on 3 September 2026 against:
 - [IRCC — Language test results](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html):
   converts the final TCF Canada writing result—not one task—to NCLC.
 
-The diagnostic `/20`, per-task NCLC 8 readiness label, and use of a subjunctive
-are coaching devices, not official FEI scoring requirements.
+The task-level CEFR estimate, projected `/20` and NCLC, suggested organisation,
+and use of a subjunctive are coaching devices, not official FEI results or
+requirements.

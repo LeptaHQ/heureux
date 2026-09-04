@@ -206,7 +206,7 @@ Ensuite, je pense que l'école doit aussi développer l'esprit critique des él�
 
 **Développement**
 
-En effet, dans un monde où circulent énormément d'informations contradictoires, il est essentiel d'apprendre à comparer, à douter, à vérifier et à se forger sa propre opinion. Cet esprit critique n'est pas toujours assez développé explicitement dans le programme : il dépend beaucoup de la manière dont les enseignants traitent les sujets en classe. En revanche, une école qui se contente de faire apprendre par cœur produit des élèves obéissants, mais peu autonomes face aux idées.
+En effet, face à des informations contradictoires, il est essentiel que les élèves sachent comparer les sources et construire leur propre opinion. Cet esprit critique n'est pas toujours assez développé explicitement dans le programme : il dépend beaucoup de la manière dont les enseignants traitent les sujets en classe. En revanche, une école qui se contente de faire apprendre par cœur produit des élèves obéissants, mais peu autonomes face aux idées.
 
 **Exemple**
 
@@ -240,7 +240,7 @@ Cependant, il est évident que l'école ne peut pas remplir toutes ces missions 
 
 ### **6. Conclusion**
 
-En conclusion, je pense que la priorité de l'école va bien au-delà du seul programme scolaire. Elle doit aussi apprendre à vivre ensemble, développer l'esprit critique et préparer à la vie d'adulte. Il faut que les programmes gardent une place pour l'esprit critique et la vie collective.
+En conclusion, je pense que la priorité de l'école va bien au-delà du seul programme scolaire. Elle doit aussi apprendre à vivre ensemble, développer l'esprit critique et préparer à la vie d'adulte.
 
 ---
 
@@ -260,7 +260,7 @@ La vraie question est de savoir si la télévision contribue vraiment au dévelo
 
 ### **1. Position claire**
 
-À mon avis, la télévision peut contribuer au développement de l'enfant, à condition d'être bien utilisée. D'abord, parce que des programmes adaptés peuvent être très utiles pour apprendre. Ensuite, parce qu'elle ouvre l'enfant sur le monde, sur d'autres cultures et sur des réalités qu'il ne connaît pas. Enfin, parce que, regardée avec les parents, elle devient un vrai support d'échange et de langage.
+À mon avis, la télévision peut aider l'enfant, à condition qu'elle reste un outil parmi d'autres dans son quotidien. D'abord, parce que des programmes adaptés peuvent être très utiles pour apprendre. Ensuite, parce qu'elle ouvre l'enfant sur le monde, sur d'autres cultures et sur des réalités qu'il ne connaît pas. Enfin, parce que, regardée avec les parents, elle devient un vrai support d'échange et de langage.
 
 ### **2. Argument 1 - Des programmes adaptés peuvent vraiment aider à apprendre**
 
@@ -322,7 +322,7 @@ Cependant, ces bénéfices supposent un usage mesuré et un contenu adapté : tr
 
 ### **6. Conclusion**
 
-En conclusion, je pense que la télévision peut contribuer au développement de l'enfant, mais seulement si elle est utilisée avec mesure et accompagnée par les parents. Mal encadrée, elle peut au contraire nuire à son équilibre. Il faut que les parents choisissent les programmes et limitent le temps d'écran.
+En conclusion, je pense que la télévision peut contribuer au développement de l'enfant, mais seulement si elle est utilisée avec mesure et accompagnée par les parents. Mal encadrée, elle peut au contraire nuire à son équilibre.
 
 ---
 
@@ -360,7 +360,7 @@ Par exemple, beaucoup d'enseignants, de médecins ou d'ingénieurs aujourd'hui e
 
 **Conséquence**
 
-Cela montre que l'accès à l'université joue un vrai rôle dans la mobilité sociale.
+Cela montre que l'accès à l'université joue un vrai rôle dans la mobilité sociale, et il est essentiel que les aides financières suivent cette logique d'égalité des chances.
 
 ### **3. Argument 2 - Cela permet à la société d'avoir des citoyens mieux formés**
 
@@ -404,6 +404,6 @@ Cependant, accessibilité ne veut pas dire que l'université convient à tout le
 
 ### **6. Conclusion**
 
-En conclusion, je pense que l'université devrait rester accessible à tout le monde, parce qu'elle joue un rôle clé pour l'égalité des chances et pour la société. Mais cela doit aller de pair avec d'autres voies de réussite, tout aussi respectées. Il faut que chacun puisse accéder à l'université, quelle que soit son origine sociale.
+En conclusion, je pense que l'université devrait rester accessible à tout le monde, parce qu'elle joue un rôle clé pour l'égalité des chances et pour la société. Mais cela doit aller de pair avec d'autres voies de réussite, tout aussi respectées.
 
 ---

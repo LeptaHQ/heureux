@@ -60,7 +60,7 @@ Enfin, je pense que le rôle des parents est surtout d'accompagner les usages nu
 
 **Développement**
 
-En effet, plutôt que d'interdire sans expliquer, il vaut mieux poser des règles précises : pas de téléphone à table, pas de téléphone dans la chambre la nuit, temps d'écran limité, applications choisies ensemble. À l'opposé, ne rien dire ni rien encadrer revient à laisser l'enfant seul face à un outil très puissant.
+En effet, il faut que les parents expliquent clairement les règles : pas de téléphone à table ou dans la chambre la nuit, temps d'écran limité et applications choisies ensemble. À l'opposé, ne rien dire ni rien encadrer revient à laisser l'enfant seul face à un outil très puissant.
 
 **Exemple**
 
@@ -76,7 +76,7 @@ Cependant, un téléphone simple peut être utile pour des raisons pratiques ou 
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il faut surtout retarder, limiter et encadrer l'usage du téléphone portable chez les enfants, plutôt que choisir une solution totalement extrême. L'éducation aux écrans est plus efficace qu'une simple interdiction. Il faut que les parents sachent adapter les règles à l'âge de chaque enfant.
+En conclusion, je dirais qu'il faut surtout retarder, limiter et encadrer l'usage du téléphone portable chez les enfants, plutôt que choisir une solution totalement extrême. L'éducation aux écrans est plus efficace qu'une simple interdiction.
 
 ---
 
@@ -154,11 +154,11 @@ Cela montre que ces voyages posent problème non seulement par leur coût financ
 
 ### **5. Nuance**
 
-Cependant, il faut reconnaître que la recherche spatiale a parfois donné lieu à des innovations utiles, par exemple dans les télécommunications, la météorologie ou la médecine. Le problème n'est donc pas la science spatiale en général, mais surtout les voyages très coûteux et peu utiles, comme le tourisme spatial.
+Cependant, il faut reconnaître que la recherche spatiale a parfois donné lieu à des innovations utiles, par exemple dans les télécommunications, la météorologie ou la médecine. Le problème n'est donc pas la recherche spatiale elle-même : il faut qu'elle serve l'intérêt général, et non une poignée de touristes fortunés.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les voyages dans l'espace coûtent trop cher, profitent à trop peu de gens et pèsent lourd sur l'environnement. Tant que des besoins urgents restent mal couverts, ce type de dépense devrait passer après des projets plus utiles au plus grand nombre. Il est essentiel que la recherche spatiale profite au plus grand nombre, plutôt qu'à une poignée de touristes fortunés.
+En conclusion, je pense que les voyages dans l'espace coûtent trop cher, profitent à trop peu de gens et pèsent lourd sur l'environnement. Tant que des besoins urgents restent mal couverts, ce type de dépense devrait passer après des projets plus utiles au plus grand nombre.
 
 ---
 
@@ -206,7 +206,7 @@ Ensuite, je pense que les achats en ligne ne conviennent pas à tout, parce que 
 
 **Développement**
 
-En effet, pour des vêtements, des chaussures, des meubles, certaines denrées alimentaires ou des produits techniques complexes, le contact direct reste très important. La photo et la description ne remplacent pas la matière, la taille réelle, la couleur exacte ou un essai. Au contraire, acheter ces produits en ligne entraîne souvent des déceptions et de nombreux retours.
+En effet, pour des vêtements, des chaussures, des meubles, certaines denrées alimentaires ou des produits techniques complexes, le contact direct reste très important. La photo et la description ne remplacent pas la matière, la taille réelle, la couleur exacte ou un essai. Au contraire, acheter ces produits en ligne entraîne souvent des déceptions et de nombreux retours ; il est donc important que les vendeurs fournissent des informations aussi précises que possible.
 
 **Exemple**
 
@@ -240,7 +240,7 @@ Cependant, tout dépend du type de produit, des habitudes de la personne et du n
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'on peut acheter beaucoup de choses sur Internet, mais que certains achats restent plus rassurants et plus pertinents en magasin. Le bon équilibre dépend du produit et des préférences de chacun. Il faut que les consommateurs puissent encore essayer certains produits avant de les acheter.
+En conclusion, je dirais qu'on peut acheter beaucoup de choses sur Internet, mais que certains achats restent plus rassurants et plus pertinents en magasin. Le bon équilibre dépend du produit et des préférences de chacun.
 
 ---
 
@@ -288,7 +288,7 @@ Ensuite, je pense que l'effet des jeux vidéo dépend beaucoup du contenu choisi
 
 **Développement**
 
-En effet, un jeu adapté à l'âge, joué de façon raisonnable, n'a pas du tout le même impact qu'un jeu violent joué pendant des heures. Les adultes ont un vrai rôle à jouer dans le choix des jeux, la durée des sessions et les règles concernant les horaires. À l'inverse, sans aucun cadre, l'effet positif disparaît rapidement.
+En effet, un jeu adapté à l'âge, joué de façon raisonnable, n'a pas du tout le même impact qu'un jeu violent joué pendant des heures. Il faut que les parents parlent régulièrement avec l'enfant pour choisir les jeux, limiter les sessions et fixer les horaires. À l'inverse, sans aucun cadre, l'effet positif disparaît rapidement.
 
 **Exemple**
 
@@ -322,7 +322,7 @@ Cependant, un usage excessif ou des jeux inadaptés peuvent au contraire créer 
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les jeux vidéo peuvent participer au développement de l'enfant, à condition d'être bien choisis, limités et accompagnés par les adultes. Ce ne sont ni un mal absolu, ni une solution éducative en soi. Il faut que les parents sachent choisir des jeux adaptés et limiter le temps d'écran.
+En conclusion, je dirais que les jeux vidéo peuvent participer au développement de l'enfant, à condition d'être bien choisis, limités et accompagnés par les adultes. Ce ne sont ni un mal absolu, ni une solution éducative en soi.
 
 ---
 

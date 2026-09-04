@@ -142,7 +142,7 @@ Cela montre que la télévision a une fonction culturelle et humaine, et pas seu
 
 **Idée**
 
-Enfin, la télévision ne devient une perte de temps que lorsqu'elle est consommée sans choix et sans limite.
+Enfin, il suffit que l'on regarde sans réfléchir pour que la télévision devienne une perte de temps.
 
 **Développement**
 
@@ -162,7 +162,7 @@ Cependant, il faut reconnaître qu'une grande partie des programmes télévisés
 
 ### **6. Conclusion**
 
-En conclusion, je pense que le temps passé devant la télévision n'est pas du temps perdu en soi, parce qu'elle peut informer, créer du lien et faire découvrir des œuvres importantes. Tout dépend de ce que l'on regarde, du temps qu'on y consacre et du regard critique que l'on garde. Il faut que chacun choisisse ses programmes et limite le temps passé devant l'écran.
+En conclusion, je pense que le temps passé devant la télévision n'est pas du temps perdu en soi, parce qu'elle peut informer, créer du lien et faire découvrir des œuvres importantes. Tout dépend de ce que l'on regarde, du temps qu'on y consacre et du regard critique que l'on garde.
 
 ---
 
@@ -240,11 +240,11 @@ Cela montre que les matières culturelles peuvent aussi avoir une utilité très
 
 ### **5. Nuance**
 
-Cependant, il est vrai que l'école doit d'abord assurer les apprentissages fondamentaux comme lire, écrire et compter. Mais les matières culturelles ne s'opposent pas à ces apprentissages : elles les complètent et donnent souvent aux élèves une nouvelle motivation pour venir à l'école.
+Cependant, il est vrai que l'école doit d'abord assurer les apprentissages fondamentaux comme lire, écrire et compter. Il est important que les écoles accordent aussi du temps aux matières culturelles, car elles donnent souvent aux élèves une nouvelle motivation pour venir en classe.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les matières culturelles doivent absolument rester à l'école, parce qu'elles développent l'expression et l'esprit critique, ouvrent à d'autres cultures et peuvent révéler de vrais talents. Loin d'être une perte de temps, elles font partie d'une éducation complète. Il faut que les écoles accordent assez de temps à ces matières dans leurs programmes.
+En conclusion, je pense que les matières culturelles doivent absolument rester à l'école, parce qu'elles développent l'expression et l'esprit critique, ouvrent à d'autres cultures et peuvent révéler de vrais talents. Loin d'être une perte de temps, elles font partie d'une éducation complète.
 
 ---
 
@@ -322,11 +322,11 @@ Cela montre que la distance n'est plus un véritable obstacle pour entrer en con
 
 ### **5. Nuance**
 
-Cependant, sans voyage, la connaissance d'une culture reste en partie théorique : se trouver sur place permet de ressentir l'ambiance, les odeurs et le rythme de vie, ce que les écrans transmettent difficilement. Le voyage garde donc une vraie valeur ; mais comme il n'est pas accessible à tout le monde, l'idéal reste de combiner ces différentes ressources.
+Bien que l'on puisse découvrir une culture à distance, cette connaissance reste en partie théorique : les écrans transmettent mal l'ambiance, les odeurs et le rythme de vie. Le voyage garde donc une vraie valeur ; mais comme il n'est pas accessible à tout le monde, l'idéal reste de combiner ces différentes ressources.
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'on peut vraiment connaître les autres cultures sans voyager, grâce aux livres, aux médias et aux rencontres, y compris à distance. Le voyage apporte une dimension directe que rien ne remplace totalement, mais il n'est pas la seule porte d'entrée vers les autres cultures. Pour que cette découverte soit profonde, il faut multiplier les lectures, les échanges et les rencontres.
+En conclusion, je pense qu'on peut vraiment connaître les autres cultures sans voyager, grâce aux livres, aux médias et aux rencontres, y compris à distance. Le voyage apporte une dimension directe que rien ne remplace totalement, mais il n'est pas la seule porte d'entrée vers les autres cultures.
 
 ---
 
@@ -404,8 +404,8 @@ Cela montre que la cuisine joue un vrai rôle de porte d'entrée vers la culture
 
 ### **5. Nuance**
 
-Cependant, il faut reconnaître que la cuisine ne donne pas accès à toute la culture d'un pays. Elle ne dit pas grand-chose, par exemple, de son système politique, de ses valeurs profondes ou de sa langue. Elle est donc une porte d'entrée importante, mais elle doit être complétée par d'autres formes de découverte pour vraiment connaître un pays.
+Bien que la cuisine donne accès à une partie importante d'une culture, elle ne permet pas de tout comprendre. Elle ne dit pas grand-chose, par exemple, de son système politique, de ses valeurs profondes ou de sa langue. Elle est donc une porte d'entrée importante, mais elle doit être complétée par d'autres formes de découverte pour vraiment connaître un pays.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que la cuisine permet réellement de connaître une partie importante de la culture d'un pays, parce qu'elle révèle ses habitudes, son histoire et sa manière de vivre. Elle ne suffit pas à elle seule, mais elle reste l'une des entrées les plus vivantes et les plus concrètes dans une culture. Pour que cette découverte soit complète, il faut aussi échanger avec les habitants.
+En conclusion, je pense que la cuisine permet réellement de connaître une partie importante de la culture d'un pays, parce qu'elle révèle ses habitudes, son histoire et sa manière de vivre. Elle ne suffit pas à elle seule, mais elle reste l'une des entrées les plus vivantes et les plus concrètes dans une culture.

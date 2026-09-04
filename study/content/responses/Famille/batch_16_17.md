@@ -120,7 +120,7 @@ Cela montre que le mensonge, même bien intentionné, peut faire plus de mal que
 
 **Idée**
 
-Ensuite, je pense qu'il faut surtout adapter la vérité à l'âge et à la sensibilité de l'enfant.
+Ensuite, il est essentiel que les parents adaptent la vérité à l'âge et à la sensibilité de l'enfant.
 
 **Développement**
 
@@ -158,6 +158,6 @@ Cependant, tout dire immédiatement et sans filtre n'est pas non plus une bonne 
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il faut dire la vérité aux enfants, mais avec des mots adaptés et au bon moment. Cette honnêteté, exprimée avec délicatesse, protège à la fois la confiance et l'équilibre de l'enfant. Il faut que les parents répondent simplement aux questions de l'enfant, sans lui donner des détails inadaptés.
+En conclusion, je pense qu'il faut dire la vérité aux enfants, mais avec des mots adaptés et au bon moment. Cette honnêteté, exprimée avec délicatesse, protège à la fois la confiance et l'équilibre de l'enfant.
 
 ---

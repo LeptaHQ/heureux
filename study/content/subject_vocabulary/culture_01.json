@@ -49,7 +49,7 @@
           "kind": "mot-cle",
           "french": "s'installe dans un nouveau pays",
           "english": "settles in a new country",
-          "example": "À mon avis, quand on s'installe dans un nouveau pays, il faut changer certaines habitudes, mais pas toutes.",
+          "example": "À mon avis, quand on s'installe dans un nouveau pays, il est normal que certaines habitudes évoluent, sans que l'on perde son identité.",
           "usage": "Pronominal s'installer + dans; the source uses the present with on. A core frame for relocating abroad."
         },
         {
@@ -249,7 +249,7 @@
           "kind": "tournure",
           "french": "À mon avis,",
           "english": "In my opinion,",
-          "example": "À mon avis, quand on s'installe dans un nouveau pays, il faut changer certaines habitudes, mais pas toutes.",
+          "example": "À mon avis, quand on s'installe dans un nouveau pays, il est normal que certaines habitudes évoluent, sans que l'on perde son identité.",
           "usage": "Opinion marker opening a stance; front position, comma after. Alt: selon moi, d'après moi."
         },
         {
@@ -327,10 +327,10 @@
         {
           "id": "SVC1-0041",
           "kind": "phrase-modele",
-          "french": "il faut changer certaines habitudes, mais pas toutes",
-          "english": "you must change some habits, but not all",
-          "example": "À mon avis, quand on s'installe dans un nouveau pays, il faut changer certaines habitudes, mais pas toutes.",
-          "usage": "Balanced thesis 'certaines... mais pas toutes'; template for a nuanced position."
+          "french": "il est normal que certaines habitudes évoluent",
+          "english": "it is normal for some habits to evolve",
+          "example": "À mon avis, quand on s'installe dans un nouveau pays, il est normal que certaines habitudes évoluent, sans que l'on perde son identité.",
+          "usage": "« Il est normal que » takes the subjunctive; useful for presenting adaptation as expected without making it absolute."
         },
         {
           "id": "SVC1-0042",
@@ -1590,10 +1590,10 @@
         {
           "id": "SVC1-0197",
           "kind": "phrase-modele",
-          "french": "une cause n'est vraiment prioritaire que si l'on peut agir concrètement dessus",
-          "english": "a cause is only truly a priority if one can act concretely on it",
-          "example": "Enfin, une cause n'est vraiment prioritaire que si l'on peut agir concrètement dessus, et la lutte contre la pauvreté en fait clairement partie.",
-          "usage": "ne... que si = only if; 'agir dessus' (dessus = on it); feasibility criterion."
+          "french": "pour qu'une cause soit vraiment prioritaire, il faut pouvoir agir concrètement dessus",
+          "english": "for a cause to be truly a priority, one must be able to take concrete action on it",
+          "example": "Enfin, pour qu'une cause soit vraiment prioritaire, il faut pouvoir agir concrètement dessus, et la lutte contre la pauvreté en fait clairement partie.",
+          "usage": "« Pour que » takes the subjunctive; the model links priority to the practical possibility of acting."
         },
         {
           "id": "SVC1-0198",
@@ -2320,10 +2320,10 @@
         {
           "id": "SVC1-0287",
           "kind": "tournure",
-          "french": "Cependant,",
-          "english": "However,",
-          "example": "Cependant, le livre n'est pas la seule manière de s'informer ou de se cultiver.",
-          "usage": "Opens the nuance: the book is not the only good resource."
+          "french": "Bien que le livre soit un outil essentiel,",
+          "english": "Although books are an essential tool,",
+          "example": "Bien que le livre soit un outil essentiel, il n'est pas la seule manière de s'informer ou de se cultiver.",
+          "usage": "Concessive opener with « bien que » + subjunctive; it introduces a limit without rejecting the main argument."
         },
         {
           "id": "SVC1-0288",
@@ -2821,10 +2821,10 @@
         {
           "id": "SVC1-0349",
           "kind": "phrase-modele",
-          "french": "Cette difficulté économique est réelle, mais elle ne dit rien sur le sérieux du métier lui-même",
-          "english": "This economic difficulty is real, but it says nothing about the seriousness of the job itself",
-          "example": "Cette difficulté économique est réelle, mais elle ne dit rien sur le sérieux du métier lui-même.",
-          "usage": "Concession 'réelle, mais'; 'ne rien dire sur' = to say nothing about; the nuance."
+          "french": "Bien que cette difficulté économique soit réelle, elle ne dit rien sur le sérieux du métier lui-même",
+          "english": "Although this economic difficulty is real, it says nothing about the seriousness of the profession itself",
+          "example": "Bien que cette difficulté économique soit réelle, elle ne dit rien sur le sérieux du métier lui-même.",
+          "usage": "Concession with « bien que » + subjunctive, followed by « ne rien dire sur » to reject an invalid conclusion."
         },
         {
           "id": "SVC1-0350",

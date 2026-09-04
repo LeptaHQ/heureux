@@ -77,7 +77,7 @@ Memorize the spine; rebuild the full answer out loud using the skeleton. Prompts
 - **Arg 1 :** Une expérience à l'étranger peut effectivement apporter beaucoup
 - **Arg 2 :** Elle peut aussi être très difficile sans langue ni intégration
 - **Arg 3 :** La situation personnelle change tout
-- **Nuance :** Cependant, il faut reconnaître qu'avec une bonne préparation, une vraie ouverture et un effort d'intégration, une expérience à l'étranger reste très souvent positive sur le long terme.
+- **Nuance :** Pour qu'une expérience à l'étranger soit positive sur le long terme, il faut une bonne préparation, une vraie ouverture et un effort d'intégration.
 
 **Culture P24 = Culture P28**
 > Pour bien vivre dans un pays étranger, il est indispensable de créer des relations avec les habitants du pays. Que pensez-vous ?
@@ -95,7 +95,7 @@ Memorize the spine; rebuild the full answer out loud using the skeleton. Prompts
 - **Arg 1 :** Les motivations professionnelles
 - **Arg 2 :** Les motivations personnelles et de développement
 - **Arg 3 :** La recherche d'un meilleur avenir, parfois par nécessité
-- **Nuance :** Cependant, il faut reconnaître que ces différentes motivations se mélangent souvent dans une même personne.
+- **Nuance :** Il faut reconnaître que ces motivations se mélangent souvent ; il est donc rare qu'une seule raison suffise à expliquer un départ.
 
 **Culture P26**
 > Si vous immigrez, est-il important pour vous de bien connaître le pays d'accueil ?
@@ -199,7 +199,7 @@ Memorize the spine; rebuild the full answer out loud using the skeleton. Prompts
 - **Arg 1 :** Les livres, les documentaires et les médias donnent accès aux autres cultures
 - **Arg 2 :** On peut rencontrer d'autres cultures près de chez soi
 - **Arg 3 :** Internet permet aujourd'hui un contact direct avec d'autres cultures
-- **Nuance :** Cependant, sans voyage, la connaissance d'une culture reste en partie théorique : se trouver sur place permet de ressentir l'ambiance, les odeurs et le rythme de vie, ce que les écrans transmettent difficilement.
+- **Nuance :** Bien que l'on puisse découvrir une culture à distance, cette connaissance reste en partie théorique : les écrans transmettent mal l'ambiance, les odeurs et le rythme de vie.
 
 **Culture P15**
 > La cuisine permet de connaître la culture des pays. Êtes-vous d'accord ?
@@ -208,7 +208,7 @@ Memorize the spine; rebuild the full answer out loud using the skeleton. Prompts
 - **Arg 1 :** La cuisine révèle les habitudes quotidiennes et la vie sociale d'un pays
 - **Arg 2 :** La cuisine porte l'histoire et la géographie d'un pays
 - **Arg 3 :** La cuisine est l'une des manières les plus concrètes d'entrer dans une culture
-- **Nuance :** Cependant, il faut reconnaître que la cuisine ne donne pas accès à toute la culture d'un pays.
+- **Nuance :** Bien que la cuisine donne accès à une partie importante d'une culture, elle ne permet pas de tout comprendre.
 
 **Culture P19**
 > À votre avis, peut-on connaître un pays sans en parler la langue ? Pourquoi ?
@@ -217,7 +217,7 @@ Memorize the spine; rebuild the full answer out loud using the skeleton. Prompts
 - **Arg 1 :** La langue donne accès aux vraies conversations et aux mentalités
 - **Arg 2 :** Sans la langue, on reste dans une bulle touristique
 - **Arg 3 :** Certains aspects restent malgré tout accessibles
-- **Nuance :** Cependant, il faut reconnaître que parler parfaitement la langue n'est pas indispensable pour commencer à connaître un pays.
+- **Nuance :** Bien qu'il ne soit pas indispensable de parler parfaitement la langue, il faut que les voyageurs en apprennent au moins les bases.
 
 **Culture P21**
 > Certaines personnes préfèrent voyager seules. Qu'en pensez-vous ?
@@ -226,7 +226,7 @@ Memorize the spine; rebuild the full answer out loud using the skeleton. Prompts
 - **Arg 1 :** Voyager seul développe l'autonomie et la confiance en soi
 - **Arg 2 :** Il donne une liberté totale dans le rythme et les choix
 - **Arg 3 :** Il favorise des rencontres plus authentiques
-- **Nuance :** Cependant, il faut reconnaître que voyager seul ne convient pas à tout le monde.
+- **Nuance :** Cependant, il se peut que certaines personnes aient davantage besoin de partager leurs émotions et se sentent moins à l'aise seules.
 
 ---
 
@@ -240,7 +240,7 @@ Memorize the spine; rebuild the full answer out loud using the skeleton. Prompts
 - **Arg 1 :** Le livre développe la réflexion et la concentration
 - **Arg 2 :** Le livre transmet des connaissances solides et durables
 - **Arg 3 :** Le livre nourrit l'imagination, la sensibilité et l'esprit critique
-- **Nuance :** Cependant, le livre n'est pas la seule manière de s'informer ou de se cultiver.
+- **Nuance :** Bien que le livre soit un outil essentiel, il n'est pas la seule manière de s'informer ou de se cultiver.
 
 **Culture P20**
 > On associe souvent la lecture à la culture. Qu'en pensez-vous ? Doit-on lire pour être cultivé ?
@@ -281,7 +281,7 @@ Memorize the spine; rebuild the full answer out loud using the skeleton. Prompts
 - **Arg 1 :** Le cerveau garde une vraie capacité d'apprentissage
 - **Arg 2 :** L'expérience de la vie facilite souvent l'apprentissage
 - **Arg 3 :** Apprendre à tout âge apporte de vrais bénéfices
-- **Nuance :** Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge.
+- **Nuance :** Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge, bien qu'aucune méthode ne convienne à tout le monde.
 
 **Education P3**
 > À votre avis, faut-il interdire l'usage du téléphone portable à l'école ? Pourquoi ?
@@ -353,7 +353,7 @@ Memorize the spine; rebuild the full answer out loud using the skeleton. Prompts
 - **Arg 1 :** Elles ouvrent l'accès à des études et à des métiers plus stables
 - **Arg 2 :** Elles donnent confiance en soi et habituent à l'effort
 - **Arg 3 :** Elles attirent des opportunités au-delà du diplôme
-- **Nuance :** Cependant, les notes ne font pas tout : beaucoup de personnes réussissent très bien sans avoir été d'excellents élèves, grâce à leur motivation, leur persévérance et leurs qualités humaines.
+- **Nuance :** Cependant, il ne faut pas que les notes fassent oublier la motivation, la persévérance et les qualités humaines.
 
 **Education P22**
 > De nos jours, on peut tout apprendre seul grâce à l'Internet ? Que pensez-vous ?
@@ -371,7 +371,7 @@ Memorize the spine; rebuild the full answer out loud using the skeleton. Prompts
 - **Arg 1 :** Elles permettent un apprentissage concret
 - **Arg 2 :** Elles éveillent la curiosité
 - **Arg 3 :** Elles sont un moment important de vie collective
-- **Nuance :** Cependant, ces sorties ne sont vraiment bénéfiques que si elles sont bien préparées par les enseignants : un thème clair, un encadrement suffisant et un travail en classe avant et après la visite.
+- **Nuance :** Pour que ces sorties soient bénéfiques, il faut que les enseignants prévoient un thème, un bon encadrement et un suivi en classe.
 
 ---
 
@@ -566,7 +566,7 @@ Memorize the spine; rebuild the full answer out loud using the skeleton. Prompts
 - **Arg 1 :** Le courrier traditionnel avait une vraie dimension humaine
 - **Arg 2 :** Écrire prenait du temps et améliorait la qualité de l'expression
 - **Arg 3 :** Les lettres laissaient une trace durable
-- **Nuance :** Cependant, il faut reconnaître que les outils numériques répondent à un vrai besoin de rapidité et de facilité.
+- **Nuance :** Bien que les outils numériques répondent à un vrai besoin de rapidité et de facilité, il serait dommage qu'ils fassent totalement disparaître le geste d'écrire à la main.
 
 **Techno P2 = Techno P8**
 > Il est facile de se passer de son téléphone portable. Qu'en pensez-vous ?
@@ -1092,7 +1092,7 @@ Memorize the spine; rebuild the full answer out loud using the skeleton. Prompts
 - **Arg 1 :** Ils ont un vrai rôle pédagogique
 - **Arg 2 :** Ils participent à la conservation des espèces menacées
 - **Arg 3 :** Ils font avancer la recherche scientifique
-- **Nuance :** Cependant, cette utilité n'existe que si les conditions de vie des animaux sont vraiment respectées.
+- **Nuance :** Cependant, pour que les zoos restent utiles, il faut qu'ils garantissent de bonnes conditions de vie aux animaux.
 
 **Environ P3**
 > Tout le monde peut réduire ses déchets. Qu'en pensez-vous ?
@@ -1110,7 +1110,7 @@ Memorize the spine; rebuild the full answer out loud using the skeleton. Prompts
 - **Arg 1 :** Fermer tous les zoos poserait un problème pour les animaux
 - **Arg 2 :** Certains zoos gardent une utilité réelle
 - **Arg 3 :** La meilleure réponse est la réforme, pas la fermeture totale
-- **Nuance :** Cependant, il faut être très ferme avec les structures qui n'évoluent pas.
+- **Nuance :** Cependant, il faut que les autorités soient très fermes avec les structures qui n'évoluent pas.
 
 **Environ P7 = Environ P12 = Economie P8**
 > On voit de plus en plus de produits bio dans les supermarchés. Selon vous, est-ce une bonne chose ?
@@ -1128,7 +1128,7 @@ Memorize the spine; rebuild the full answer out loud using the skeleton. Prompts
 - **Arg 1 :** Le tourisme massif pèse sur l'environnement local
 - **Arg 2 :** Il fait monter les prix et chasse les habitants
 - **Arg 3 :** Il peut transformer la culture locale en spectacle
-- **Nuance :** Cependant, le tourisme n'est pas mauvais en soi.
+- **Nuance :** Bien que le tourisme puisse avoir des effets négatifs, il n'est pas mauvais en soi.
 
 **Environ P11**
 > Quel est votre avis sur les mesures prises dans votre pays pour réduire la pollution ?

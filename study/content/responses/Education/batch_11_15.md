@@ -72,11 +72,11 @@ Cela montre que les matières culturelles peuvent aussi avoir une utilité très
 
 ### **5. Nuance**
 
-Cependant, il est vrai que l'école doit d'abord assurer les apprentissages fondamentaux comme lire, écrire et compter. Mais les matières culturelles ne s'opposent pas à ces apprentissages : elles les complètent et donnent souvent aux élèves une nouvelle motivation pour venir à l'école.
+Cependant, il est vrai que l'école doit d'abord assurer les apprentissages fondamentaux comme lire, écrire et compter. Il est important que les écoles accordent aussi du temps aux matières culturelles, car elles donnent souvent aux élèves une nouvelle motivation pour venir en classe.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les matières culturelles doivent absolument rester à l'école, parce qu'elles développent l'expression et l'esprit critique, ouvrent à d'autres cultures et peuvent révéler de vrais talents. Loin d'être une perte de temps, elles font partie d'une éducation complète. Il faut que les écoles accordent assez de temps à ces matières dans leurs programmes.
+En conclusion, je pense que les matières culturelles doivent absolument rester à l'école, parce qu'elles développent l'expression et l'esprit critique, ouvrent à d'autres cultures et peuvent révéler de vrais talents. Loin d'être une perte de temps, elles font partie d'une éducation complète.
 
 ---
 
@@ -278,7 +278,7 @@ Par exemple, lire de grands auteurs d'un pays aide souvent à mieux comprendre s
 
 **Conséquence**
 
-Cela montre que les livres permettent d'aller au-delà de l'image touristique d'un pays.
+Pour que les lecteurs dépassent l'image touristique d'un pays, il faut qu'ils découvrent plusieurs auteurs et points de vue.
 
 ### **3. Argument 2 - Ils aident à comprendre la mentalité et le quotidien**
 
@@ -322,7 +322,7 @@ Cependant, la lecture ne remplace pas totalement l'expérience directe. Vivre da
 
 ### **6. Conclusion**
 
-En conclusion, je pense que la lecture des livres est un très bon moyen pour connaître un pays, parce qu'elle donne accès à son histoire, à sa mentalité et reste accessible à tous. Elle complète l'expérience du voyage, sans pouvoir totalement la remplacer. Il faut que les lecteurs puissent découvrir plusieurs auteurs pour mieux comprendre la diversité d'un pays.
+En conclusion, je pense que la lecture des livres est un très bon moyen pour connaître un pays, parce qu'elle donne accès à son histoire, à sa mentalité et reste accessible à tous. Elle complète l'expérience du voyage, sans pouvoir totalement la remplacer.
 
 ---
 

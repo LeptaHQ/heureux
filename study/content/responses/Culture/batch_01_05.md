@@ -14,7 +14,7 @@ La vraie question est de savoir jusqu'où il faut changer ses habitudes de vie q
 
 ### **1. Position claire**
 
-À mon avis, quand on s'installe dans un nouveau pays, il faut changer certaines habitudes, mais pas toutes. Même si certaines adaptations peuvent demander un vrai effort au début, elles restent une condition normale pour bien vivre dans le pays d'accueil. D'abord, certaines habitudes doivent forcément évoluer parce que la vie quotidienne dans le pays d'accueil l'impose. Ensuite, d'autres habitudes peuvent et doivent être gardées, parce qu'elles ne gênent personne et qu'elles appartiennent à la vie privée. Enfin, l'adaptation est plus solide quand elle se fait progressivement et par choix, plutôt que sous la pression.
+À mon avis, quand on s'installe dans un nouveau pays, il est normal que certaines habitudes évoluent, sans que l'on perde son identité. Même si certaines adaptations peuvent demander un vrai effort au début, elles restent une condition normale pour bien vivre dans le pays d'accueil. D'abord, certaines habitudes doivent forcément évoluer parce que la vie quotidienne dans le pays d'accueil l'impose. Ensuite, d'autres habitudes peuvent et doivent être gardées, parce qu'elles ne gênent personne et qu'elles appartiennent à la vie privée. Enfin, l'adaptation est plus solide quand elle se fait progressivement et par choix, plutôt que sous la pression.
 
 ### **2. Argument 1 - Certaines habitudes doivent changer parce que la vie quotidienne du pays d'accueil l'impose**
 
@@ -76,7 +76,7 @@ Cependant, la frontière entre ce qu'il faut adapter et ce qu'on peut garder n'e
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il ne faut ni tout garder ni tout abandonner. La meilleure adaptation est celle qui change ce que la vie quotidienne du pays d'accueil impose, qui garde ce qui appartient à la vie privée, et qui se fait progressivement et par choix. Il faut que chacun adapte certaines habitudes sans renoncer à son identité.
+En conclusion, je dirais qu'il ne faut ni tout garder ni tout abandonner. La meilleure adaptation est celle qui change ce que la vie quotidienne du pays d'accueil impose, qui garde ce qui appartient à la vie privée, et qui se fait progressivement et par choix.
 
 ---
 
@@ -302,7 +302,7 @@ Cela produit des effets en chaîne très positifs sur la santé, l'éducation, l
 
 **Idée**
 
-Enfin, une cause n'est vraiment prioritaire que si l'on peut agir concrètement dessus, et la lutte contre la pauvreté en fait clairement partie.
+Enfin, pour qu'une cause soit vraiment prioritaire, il faut pouvoir agir concrètement dessus, et la lutte contre la pauvreté en fait clairement partie.
 
 **Développement**
 
@@ -322,7 +322,7 @@ Cependant, l'ordre des priorités peut varier selon les pays et les contextes. D
 
 ### **6. Conclusion**
 
-En conclusion, je pense que la lutte contre la pauvreté et l'exclusion est la priorité la plus urgente, parce qu'elle réunit trois éléments essentiels : une urgence humaine directe, un impact très large sur les autres problèmes sociaux, et la possibilité d'une action collective réelle. Il faut que les États coopèrent davantage pour réduire durablement la pauvreté et l'exclusion.
+En conclusion, je pense que la lutte contre la pauvreté et l'exclusion est la priorité la plus urgente, parce qu'elle réunit trois éléments essentiels : une urgence humaine directe, un impact très large sur les autres problèmes sociaux, et la possibilité d'une action collective réelle.
 
 ---
 

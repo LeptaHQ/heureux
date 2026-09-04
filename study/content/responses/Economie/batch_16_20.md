@@ -236,11 +236,11 @@ Cela montre que la course à l'argent peut justement nous priver de ce qui rend 
 
 ### **5. Nuance**
 
-Cependant, il faut reconnaître que vivre avec des revenus trop faibles rend tout beaucoup plus difficile. Quand on n'arrive pas à payer son loyer ou ses besoins de base, parler de « profiter de la vie » devient irréaliste. Un certain niveau d'argent reste donc nécessaire, même s'il n'est pas suffisant à lui seul.
+Cependant, il faut reconnaître que vivre avec des revenus trop faibles rend tout beaucoup plus difficile. Quand on n'arrive pas à payer son loyer ou ses besoins de base, parler de « profiter de la vie » devient irréaliste. Un certain niveau d'argent reste donc nécessaire, même s'il n'est pas suffisant à lui seul, à condition qu'il ne devienne pas une fin en soi.
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il faut un revenu suffisant pour vivre correctement, mais pas forcément beaucoup d'argent pour profiter de la vie. Le bonheur dépend bien plus des relations, du temps et du sens donné à ce que l'on fait. Il est important que chacun ait un revenu suffisant sans sacrifier son temps ni ses relations.
+En conclusion, je pense qu'il faut un revenu suffisant pour vivre correctement, mais pas forcément beaucoup d'argent pour profiter de la vie. Le bonheur dépend bien plus des relations, du temps et du sens donné à ce que l'on fait.
 
 ---
 
@@ -278,7 +278,7 @@ Par exemple, beaucoup d'enseignants, de médecins ou d'ingénieurs aujourd'hui e
 
 **Conséquence**
 
-Cela montre que l'accès à l'université joue un vrai rôle dans la mobilité sociale.
+Cela montre que l'accès à l'université joue un vrai rôle dans la mobilité sociale, et il est essentiel que les aides financières suivent cette logique d'égalité des chances.
 
 ### **3. Argument 2 - Cela permet à la société d'avoir des citoyens mieux formés**
 
@@ -322,7 +322,7 @@ Cependant, accessibilité ne veut pas dire que l'université convient à tout le
 
 ### **6. Conclusion**
 
-En conclusion, je pense que l'université devrait rester accessible à tout le monde, parce qu'elle joue un rôle clé pour l'égalité des chances et pour la société. Mais cela doit aller de pair avec d'autres voies de réussite, tout aussi respectées. Il faut que chacun puisse accéder à l'université, quelle que soit son origine sociale.
+En conclusion, je pense que l'université devrait rester accessible à tout le monde, parce qu'elle joue un rôle clé pour l'égalité des chances et pour la société. Mais cela doit aller de pair avec d'autres voies de réussite, tout aussi respectées.
 
 ---
 
@@ -396,7 +396,7 @@ Par exemple, on a vu lors de récentes crises sanitaires que les métiers les pl
 
 **Conséquence**
 
-Cela montre qu'il existe un vrai décalage entre l'utilité sociale et la reconnaissance salariale.
+Cela montre qu'il existe un vrai décalage entre l'utilité sociale et la reconnaissance salariale, et il serait juste que ce décalage soit progressivement corrigé.
 
 ### **5. Nuance**
 
@@ -404,6 +404,6 @@ Cependant, il faut reconnaître que certains métiers difficiles sont effectivem
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les métiers difficiles ne sont pas toujours les mieux payés. Le salaire dépend surtout de la rareté des compétences et du marché, ce qui crée parfois de vraies injustices entre l'effort fourni et la rémunération réelle. Il est important que les personnes qui exercent des métiers pénibles soient mieux rémunérées.
+En conclusion, je dirais que les métiers difficiles ne sont pas toujours les mieux payés. Le salaire dépend surtout de la rareté des compétences et du marché, ce qui crée parfois de vraies injustices entre l'effort fourni et la rémunération réelle.
 
 ---

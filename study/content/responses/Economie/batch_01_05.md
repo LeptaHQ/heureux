@@ -56,7 +56,7 @@ Cela montre que la langue n'est pas un détail : elle détermine en grande parti
 
 **Idée**
 
-Enfin, je pense que trouver du travail dépend surtout de la qualité de la préparation et du réalisme du projet.
+Enfin, je pense que trouver du travail dépend surtout de la qualité de la préparation, et il est essentiel que chacun cible un secteur réaliste avant même de partir.
 
 **Développement**
 
@@ -76,7 +76,7 @@ Cependant, la réponse varie beaucoup selon le profil. Pour un travailleur quali
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'on peut trouver du travail au Canada, mais que cela demande du temps, une bonne préparation et de la souplesse. Ce n'est donc pas facile au sens automatique du mot, mais c'est un objectif réaliste pour qui s'y prépare sérieusement. Il faut que les nouveaux arrivants préparent leur recherche pour qu'ils trouvent un emploi adapté à leurs compétences.
+En conclusion, je dirais qu'on peut trouver du travail au Canada, mais que cela demande du temps, une bonne préparation et de la souplesse. Ce n'est donc pas facile au sens automatique du mot, mais c'est un objectif réaliste pour qui s'y prépare sérieusement.
 
 ---
 
@@ -132,7 +132,7 @@ On l'a bien vu pendant la crise sanitaire : les caissiers, les éboueurs et les 
 
 **Conséquence**
 
-Cela montre que la question dépasse le sport : elle touche à la cohésion et à la justice dans la société.
+Cela montre que la question dépasse le sport : il est essentiel que la société trouve un meilleur équilibre entre reconnaissance financière et utilité réelle.
 
 ### **4. Argument 3 - Cela transmet une vision discutable de la réussite**
 
@@ -157,7 +157,7 @@ Cependant, il faut préciser que cela ne concerne pas tous les sportifs. La majo
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les revenus de certains grands sportifs sont effectivement excessifs, surtout quand on les compare aux métiers essentiels. Le problème n'est donc pas le sport en lui-même, mais le déséquilibre énorme entre quelques stars et le reste de la société. Il est important que les revenus des stars restent raisonnables et que les métiers essentiels soient mieux valorisés.
+En conclusion, je pense que les revenus de certains grands sportifs sont effectivement excessifs, surtout quand on les compare aux métiers essentiels. Le problème n'est donc pas le sport en lui-même, mais le déséquilibre énorme entre quelques stars et le reste de la société.
 
 ---
 
@@ -219,7 +219,7 @@ Cela montre que la responsabilité n'est pas seulement une compétence : c'est a
 
 **Idée**
 
-Enfin, je pense que la fonction de responsable demande une expérience et une formation que personne n'a au départ.
+Enfin, il faut que les futurs responsables soient formés et acquièrent de l'expérience avant de diriger une équipe.
 
 **Développement**
 
@@ -239,7 +239,7 @@ Cependant, il ne faut pas en conclure qu'être responsable est réservé à quel
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que la fonction de responsable n'est pas à la portée immédiate de tout le monde, parce qu'elle demande des compétences humaines, une certaine solidité personnelle et une vraie expérience. C'est une fonction qui se prépare et se mérite, plus qu'elle ne se distribue. Il faut que les futurs responsables reçoivent une formation adaptée avant de diriger une équipe.
+En conclusion, je dirais que la fonction de responsable n'est pas à la portée immédiate de tout le monde, parce qu'elle demande des compétences humaines, une certaine solidité personnelle et une vraie expérience. C'est une fonction qui se prépare et se mérite, plus qu'elle ne se distribue.
 
 ---
 

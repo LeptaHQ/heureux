@@ -167,10 +167,10 @@
         {
           "id": "SVD2-0021",
           "kind": "expression",
-          "french": "aller au-delà de l'image touristique",
-          "english": "go beyond the tourist image",
-          "example": "Cela montre que les livres permettent d'aller au-delà de l'image touristique d'un pays.",
-          "usage": "Expression : « aller au-delà de » invite à dépasser une représentation superficielle pour l’analyser plus profondément."
+          "french": "dépassent l'image touristique d'un pays",
+          "english": "go beyond a country's tourist image",
+          "example": "Pour que les lecteurs dépassent l'image touristique d'un pays, il faut qu'ils découvrent plusieurs auteurs et points de vue.",
+          "usage": "« Dépasser » takes a direct object; here the subjunctive form follows « pour que » and means moving beyond a superficial image."
         },
         {
           "id": "SVD2-0022",
@@ -303,10 +303,10 @@
         {
           "id": "SVD2-0038",
           "kind": "tournure",
-          "french": "Cela montre que les livres permettent",
-          "english": "This shows that books allow",
-          "example": "Cela montre que les livres permettent d'aller au-delà de l'image touristique d'un pays.",
-          "usage": "Conséquence frame; « Cela montre que » + indicative."
+          "french": "Pour que les lecteurs dépassent l'image touristique d'un pays,",
+          "english": "So that readers go beyond a country's tourist image,",
+          "example": "Pour que les lecteurs dépassent l'image touristique d'un pays, il faut qu'ils découvrent plusieurs auteurs et points de vue.",
+          "usage": "Purpose opener with « pour que » + subjunctive; it introduces what readers need to deepen their understanding."
         },
         {
           "id": "SVD2-0039",
@@ -351,10 +351,10 @@
         {
           "id": "SVD2-0044",
           "kind": "phrase-modele",
-          "french": "Cela montre que les livres permettent d'aller au-delà de l'image touristique d'un pays.",
-          "english": "This shows books let you go beyond the tourist image.",
-          "example": "Cela montre que les livres permettent d'aller au-delà de l'image touristique d'un pays.",
-          "usage": "Conséquence model; « permettre de + inf »."
+          "french": "Pour que les lecteurs dépassent l'image touristique d'un pays, il faut qu'ils découvrent plusieurs auteurs et points de vue.",
+          "english": "For readers to move beyond a country's tourist image, they must discover several authors and viewpoints.",
+          "example": "Pour que les lecteurs dépassent l'image touristique d'un pays, il faut qu'ils découvrent plusieurs auteurs et points de vue.",
+          "usage": "Double condition model: « pour que » and « il faut que » both take the subjunctive; « dépasser l’image touristique » means moving beyond a superficial view."
         },
         {
           "id": "SVD2-0045",
@@ -1803,10 +1803,10 @@
         {
           "id": "SVD2-0223",
           "kind": "expression",
-          "french": "se forger sa propre opinion",
-          "english": "form one's own opinion",
-          "example": "En effet, dans un monde où circulent énormément d'informations contradictoires, il est essentiel d'apprendre à comparer, à douter, à vérifier et à se forger sa propre opinion.",
-          "usage": "Reflexive « se forger »; goal of critical thinking."
+          "french": "construire leur propre opinion",
+          "english": "to form their own opinion",
+          "example": "En effet, face à des informations contradictoires, il est essentiel que les élèves sachent comparer les sources et construire leur propre opinion.",
+          "usage": "Verb expression « construire sa propre opinion »; the possessive changes with the subject."
         },
         {
           "id": "SVD2-0224",
@@ -2042,7 +2042,7 @@
           "kind": "mot-cle",
           "french": "développement de l'enfant",
           "english": "child development",
-          "example": "À mon avis, la télévision peut contribuer au développement de l'enfant, à condition d'être bien utilisée.",
+          "example": "La vraie question est de savoir si la télévision contribue vraiment au développement de l'enfant ou si elle lui fait surtout du mal.",
           "usage": "Nom masculin : couvre les progrès cognitifs, langagiers, sociaux et affectifs de l’enfant."
         },
         {
@@ -2114,7 +2114,7 @@
           "kind": "collocation",
           "french": "contribuer au développement de l'enfant",
           "english": "contribute to the child's development",
-          "example": "À mon avis, la télévision peut contribuer au développement de l'enfant, à condition d'être bien utilisée.",
+          "example": "À mon avis, la télévision peut contribuer au développement de l'enfant, mais seulement si elle est bien choisie et bien encadrée.",
           "usage": "« contribuer à » (à+le=au); the thesis verb."
         },
         {
@@ -2272,10 +2272,10 @@
         {
           "id": "SVD2-0281",
           "kind": "tournure",
-          "french": "À mon avis, la télévision peut contribuer au développement de l'enfant, à condition d'être bien utilisée",
-          "english": "In my view, television can contribute to child development, provided it is used well",
-          "example": "À mon avis, la télévision peut contribuer au développement de l'enfant, à condition d'être bien utilisée.",
-          "usage": "Thèse conditionnelle : elle admet un bénéfice tout en imposant un critère de qualité d’usage."
+          "french": "À mon avis, la télévision peut aider l'enfant, à condition qu'elle reste un outil parmi d'autres dans son quotidien",
+          "english": "In my opinion, television can help children, provided that it remains one tool among others in their daily lives",
+          "example": "À mon avis, la télévision peut aider l'enfant, à condition qu'elle reste un outil parmi d'autres dans son quotidien.",
+          "usage": "Conditional thesis: « à condition que » takes the subjunctive and limits television to a supporting role."
         },
         {
           "id": "SVD2-0282",
@@ -2471,7 +2471,7 @@
           "kind": "mot-cle",
           "french": "la mobilité sociale",
           "english": "social mobility",
-          "example": "Cela montre que l'accès à l'université joue un vrai rôle dans la mobilité sociale.",
+          "example": "Cela montre que l'accès à l'université joue un vrai rôle dans la mobilité sociale, et il est essentiel que les aides financières suivent cette logique d'égalité des chances.",
           "usage": "Feminine; university's role in it."
         },
         {
@@ -2671,7 +2671,7 @@
           "kind": "expression",
           "french": "un vrai rôle dans la mobilité sociale",
           "english": "a real role in social mobility",
-          "example": "Cela montre que l'accès à l'université joue un vrai rôle dans la mobilité sociale.",
+          "example": "Cela montre que l'accès à l'université joue un vrai rôle dans la mobilité sociale, et il est essentiel que les aides financières suivent cette logique d'égalité des chances.",
           "usage": "« jouer un vrai rôle dans »; access as lever."
         },
         {
@@ -2735,8 +2735,8 @@
           "kind": "tournure",
           "french": "Cela montre que l'accès à l'université joue un vrai rôle",
           "english": "This shows access to university plays a real role",
-          "example": "Cela montre que l'accès à l'université joue un vrai rôle dans la mobilité sociale.",
-          "usage": "Conséquence frame; « jouer un rôle »."
+          "example": "Cela montre que l'accès à l'université joue un vrai rôle dans la mobilité sociale, et il est essentiel que les aides financières suivent cette logique d'égalité des chances.",
+          "usage": "« Cela montre que » introduces a conclusion; « jouer un vrai rôle dans » identifies the concrete effect on social mobility."
         },
         {
           "id": "SVD2-0339",
@@ -2773,10 +2773,10 @@
         {
           "id": "SVD2-0343",
           "kind": "phrase-modele",
-          "french": "Cela montre que l'accès à l'université joue un vrai rôle dans la mobilité sociale.",
-          "english": "This shows access plays a real role in social mobility.",
-          "example": "Cela montre que l'accès à l'université joue un vrai rôle dans la mobilité sociale.",
-          "usage": "Conséquence model; « jouer un rôle dans »."
+          "french": "Cela montre que l'accès à l'université joue un vrai rôle dans la mobilité sociale, et il est essentiel que les aides financières suivent cette logique d'égalité des chances.",
+          "english": "This shows that access to university supports social mobility and that financial aid must follow the same equal-opportunity principle.",
+          "example": "Cela montre que l'accès à l'université joue un vrai rôle dans la mobilité sociale, et il est essentiel que les aides financières suivent cette logique d'égalité des chances.",
+          "usage": "Consequence model combining « jouer un rôle dans » with « il est essentiel que » + subjunctive to recommend financial support."
         },
         {
           "id": "SVD2-0344",
@@ -2900,7 +2900,7 @@
           "kind": "mot-cle",
           "french": "persévérance",
           "english": "perseverance",
-          "example": "Cependant, les notes ne font pas tout : beaucoup de personnes réussissent très bien sans avoir été d'excellents élèves, grâce à leur motivation, leur persévérance et leurs qualités humaines.",
+          "example": "Cependant, il ne faut pas que les notes fassent oublier la motivation, la persévérance et les qualités humaines.",
           "usage": "Feminine; a human quality beyond grades."
         },
         {
@@ -3154,10 +3154,10 @@
         {
           "id": "SVD2-0390",
           "kind": "tournure",
-          "french": "Cependant, les notes ne font pas tout",
-          "english": "However, grades aren't everything",
-          "example": "Cependant, les notes ne font pas tout : beaucoup de personnes réussissent très bien sans avoir été d'excellents élèves, grâce à leur motivation, leur persévérance et leurs qualités humaines.",
-          "usage": "Nuance opener; idiom « ne pas faire tout » = not be all."
+          "french": "Cependant, il ne faut pas que les notes fassent oublier",
+          "english": "However, grades must not make people forget",
+          "example": "Cependant, il ne faut pas que les notes fassent oublier la motivation, la persévérance et les qualités humaines.",
+          "usage": "Nuance opener with « il ne faut pas que » + subjunctive; it warns against allowing one criterion to hide others."
         },
         {
           "id": "SVD2-0391",
@@ -3409,7 +3409,7 @@
           "kind": "expression",
           "french": "un outil formidable",
           "english": "a fantastic tool",
-          "example": "À mon avis, Internet est un outil formidable pour apprendre, mais il ne permet pas de tout apprendre seul.",
+          "example": "À mon avis, bien qu'Internet soit un outil formidable, il ne permet pas de tout apprendre seul.",
           "usage": "Masculine; « formidable » = terrific. Positive framing of Internet."
         },
         {
@@ -3567,9 +3567,9 @@
         {
           "id": "SVD2-0441",
           "kind": "phrase-modele",
-          "french": "À mon avis, Internet est un outil formidable pour apprendre, mais il ne permet pas de tout apprendre seul.",
+          "french": "À mon avis, bien qu'Internet soit un outil formidable, il ne permet pas de tout apprendre seul.",
           "english": "Thesis: the Internet is great for learning but not for everything.",
-          "example": "À mon avis, Internet est un outil formidable pour apprendre, mais il ne permet pas de tout apprendre seul.",
+          "example": "À mon avis, bien qu'Internet soit un outil formidable, il ne permet pas de tout apprendre seul.",
           "usage": "Model thesis; « ne pas permettre de + inf »."
         },
         {
@@ -3716,10 +3716,10 @@
         {
           "id": "SVD2-0459",
           "kind": "mot-cle",
-          "french": "un encadrement suffisant",
-          "english": "adequate supervision",
-          "example": "Cependant, ces sorties ne sont vraiment bénéfiques que si elles sont bien préparées par les enseignants : un thème clair, un encadrement suffisant et un travail en classe avant et après la visite.",
-          "usage": "Masculine « encadrement »; a preparation condition."
+          "french": "un bon encadrement",
+          "english": "good supervision",
+          "example": "Pour que ces sorties soient bénéfiques, il faut que les enseignants prévoient un thème, un bon encadrement et un suivi en classe.",
+          "usage": "Masculine noun phrase; a practical condition for safe, well-organized educational outings."
         },
         {
           "id": "SVD2-0460",
@@ -3860,10 +3860,10 @@
         {
           "id": "SVD2-0477",
           "kind": "expression",
-          "french": "un thème clair",
-          "english": "a clear theme",
-          "example": "Cependant, ces sorties ne sont vraiment bénéfiques que si elles sont bien préparées par les enseignants : un thème clair, un encadrement suffisant et un travail en classe avant et après la visite.",
-          "usage": "Masculine; a preparation requirement."
+          "french": "un suivi en classe",
+          "english": "classroom follow-up",
+          "example": "Pour que ces sorties soient bénéfiques, il faut que les enseignants prévoient un thème, un bon encadrement et un suivi en classe.",
+          "usage": "Masculine noun phrase; « suivi » refers to work done afterward to reinforce learning."
         },
         {
           "id": "SVD2-0478",
@@ -3964,10 +3964,10 @@
         {
           "id": "SVD2-0490",
           "kind": "tournure",
-          "french": "Cependant, ces sorties ne sont vraiment bénéfiques",
-          "english": "However, these outings are only truly beneficial",
-          "example": "Cependant, ces sorties ne sont vraiment bénéfiques que si elles sont bien préparées par les enseignants : un thème clair, un encadrement suffisant et un travail en classe avant et après la visite.",
-          "usage": "Nuance opener; condition « que si » follows."
+          "french": "Pour que ces sorties soient bénéfiques,",
+          "english": "For these outings to be beneficial,",
+          "example": "Pour que ces sorties soient bénéfiques, il faut que les enseignants prévoient un thème, un bon encadrement et un suivi en classe.",
+          "usage": "Condition opener with « pour que » + subjunctive; it introduces the preparation required for a useful outing."
         },
         {
           "id": "SVD2-0491",

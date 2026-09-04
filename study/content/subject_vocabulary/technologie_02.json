@@ -612,17 +612,17 @@
         {
           "id": "SVT2-0076",
           "kind": "expression",
-          "french": "poser des règles précises",
-          "english": "to set precise rules",
-          "example": "En effet, plutôt que d'interdire sans expliquer, il vaut mieux poser des règles précises : pas de téléphone à table, pas de téléphone dans la chambre la nuit, temps d'écran limité, applications choisies ensemble.",
-          "usage": "Verb+object; 'poser des règles' = to lay down rules."
+          "french": "expliquent clairement les règles",
+          "english": "clearly explain the rules",
+          "example": "En effet, il faut que les parents expliquent clairement les règles : pas de téléphone à table ou dans la chambre la nuit, temps d'écran limité et applications choisies ensemble.",
+          "usage": "Verb expression « expliquer clairement les règles »; here the subjunctive form follows « il faut que »."
         },
         {
           "id": "SVT2-0077",
           "kind": "expression",
           "french": "temps d'écran limité",
           "english": "limited screen time",
-          "example": "En effet, plutôt que d'interdire sans expliquer, il vaut mieux poser des règles précises : pas de téléphone à table, pas de téléphone dans la chambre la nuit, temps d'écran limité, applications choisies ensemble.",
+          "example": "En effet, il faut que les parents expliquent clairement les règles : pas de téléphone à table ou dans la chambre la nuit, temps d'écran limité et applications choisies ensemble.",
           "usage": "Noun phrase + past participle 'limité'; a concrete rule."
         },
         {
@@ -1201,10 +1201,10 @@
         {
           "id": "SVT2-0149",
           "kind": "phrase-modele",
-          "french": "Le problème n'est donc pas la science spatiale en général, mais surtout les voyages très coûteux et peu utiles, comme le tourisme spatial.",
-          "english": "The problem is therefore not space science in general, but rather very costly, low-value trips such as space tourism.",
-          "example": "Le problème n'est donc pas la science spatiale en général, mais surtout les voyages très coûteux et peu utiles, comme le tourisme spatial.",
-          "usage": "'ne … pas … mais …' contrastive correction; 'comme' = such as."
+          "french": "Le problème n'est donc pas la recherche spatiale elle-même : il faut qu'elle serve l'intérêt général, et non une poignée de touristes fortunés.",
+          "english": "The problem is therefore not space research itself: it must serve the public interest, not a handful of wealthy tourists.",
+          "example": "Le problème n'est donc pas la recherche spatiale elle-même : il faut qu'elle serve l'intérêt général, et non une poignée de touristes fortunés.",
+          "usage": "The colon introduces the condition « il faut que » + subjunctive; « et non » contrasts the public interest with a privileged minority."
         },
         {
           "id": "SVT2-0150",
@@ -1280,7 +1280,7 @@
           "kind": "mot-cle",
           "french": "déceptions",
           "english": "disappointments",
-          "example": "Au contraire, acheter ces produits en ligne entraîne souvent des déceptions et de nombreux retours.",
+          "example": "Au contraire, acheter ces produits en ligne entraîne souvent des déceptions et de nombreux retours ; il est donc important que les vendeurs fournissent des informations aussi précises que possible.",
           "usage": "Fem. plural; 'entraîne des déceptions'."
         },
         {
@@ -1288,7 +1288,7 @@
           "kind": "mot-cle",
           "french": "retours",
           "english": "returns",
-          "example": "Au contraire, acheter ces produits en ligne entraîne souvent des déceptions et de nombreux retours.",
+          "example": "Au contraire, acheter ces produits en ligne entraîne souvent des déceptions et de nombreux retours ; il est donc important que les vendeurs fournissent des informations aussi précises que possible.",
           "usage": "Masc. plural; e-commerce term 'de nombreux retours'."
         },
         {
@@ -1448,7 +1448,7 @@
           "kind": "expression",
           "french": "entraîne souvent des déceptions",
           "english": "often leads to disappointments",
-          "example": "Au contraire, acheter ces produits en ligne entraîne souvent des déceptions et de nombreux retours.",
+          "example": "Au contraire, acheter ces produits en ligne entraîne souvent des déceptions et de nombreux retours ; il est donc important que les vendeurs fournissent des informations aussi précises que possible.",
           "usage": "'entraîner' = to lead to; 'souvent' frequency adverb."
         },
         {
@@ -1496,7 +1496,7 @@
           "kind": "tournure",
           "french": "acheter ces produits en ligne entraîne souvent des déceptions",
           "english": "buying these products online often leads to disappointment",
-          "example": "Au contraire, acheter ces produits en ligne entraîne souvent des déceptions et de nombreux retours.",
+          "example": "Au contraire, acheter ces produits en ligne entraîne souvent des déceptions et de nombreux retours ; il est donc important que les vendeurs fournissent des informations aussi précises que possible.",
           "usage": "« Entraîner des déceptions » gives a probable negative consequence; « souvent » hedges it."
         },
         {
@@ -2557,10 +2557,10 @@
         {
           "id": "SVT2-0316",
           "kind": "collocation",
-          "french": "journal télévisé",
-          "english": "TV news bulletin",
-          "example": "En effet, contrairement à un journal télévisé ou à une émission de radio diffusée à une heure précise, Internet me laisse libre du moment et de la durée.",
-          "usage": "Noun+adj, masc.; scheduled, less flexible."
+          "french": "s'adapte à mon rythme",
+          "english": "adapts to my pace",
+          "example": "Contrairement à la télévision ou à la radio, Internet s'adapte à mon rythme, à condition que je puisse choisir librement le moment et la durée.",
+          "usage": "Collocation « s'adapter à un rythme »; the possessive changes with the speaker or subject."
         },
         {
           "id": "SVT2-0317",
@@ -3052,7 +3052,7 @@
           "kind": "expression",
           "french": "déborder sur la vie personnelle",
           "english": "to spill over into personal life",
-          "example": "En revanche, sans règles claires, le travail finit par déborder sur la vie personnelle.",
+          "example": "En revanche, sans règles claires, le travail finit par déborder sur la vie personnelle, jusqu'à ce que cet équilibre devienne impossible à tenir.",
           "usage": "'déborder sur' = to spill over onto; risk without rules."
         },
         {
@@ -3455,10 +3455,10 @@
         {
           "id": "SVT2-0427",
           "kind": "expression",
-          "french": "me faire une opinion plus équilibrée",
-          "english": "to form a more balanced opinion",
-          "example": "Cela m'aide à comparer les angles, à vérifier des informations et à me faire une opinion plus équilibrée.",
-          "usage": "'se faire une opinion'; comparative 'plus équilibrée'."
+          "french": "me faire une opinion équilibrée",
+          "english": "to form a balanced opinion",
+          "example": "Cela m'aide à comparer les angles, mais il faut que je puisse vérifier l'origine des informations pour me faire une opinion équilibrée.",
+          "usage": "Pronominal expression « se faire une opinion »; « me » agrees with the first-person speaker and « équilibrée » with « opinion »."
         },
         {
           "id": "SVT2-0428",

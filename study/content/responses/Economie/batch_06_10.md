@@ -120,7 +120,7 @@ Cela montre que l'opposition entre économie et environnement n'est pas absolue 
 
 **Idée**
 
-Ensuite, je pense que les politiques publiques jouent un rôle décisif pour rendre cet équilibre possible.
+Ensuite, je pense que les politiques publiques jouent un rôle décisif, car il faut que l'État accompagne financièrement la transition des entreprises vers des pratiques plus propres.
 
 **Développement**
 
@@ -158,7 +158,7 @@ Cependant, cela n'est pas possible si l'on continue à viser une croissance rapi
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il est possible de développer l'économie tout en préservant l'environnement, mais à condition de changer le modèle. Cela suppose des secteurs plus propres, des politiques publiques fortes et des habitudes de consommation plus responsables. Il faut que les pouvoirs publics soutiennent une économie plus propre pour que la croissance respecte l'environnement.
+En conclusion, je dirais qu'il est possible de développer l'économie tout en préservant l'environnement, mais à condition de changer le modèle. Cela suppose des secteurs plus propres, des politiques publiques fortes et des habitudes de consommation plus responsables.
 
 ---
 
@@ -278,7 +278,7 @@ Par exemple, beaucoup de personnes finissent par quitter un poste bien payé par
 
 **Conséquence**
 
-Cela montre qu'un emploi ne se juge pas seulement à la fin du mois, mais aussi au quotidien.
+Cela montre qu'un emploi ne se juge pas seulement à la fin du mois, mais aussi au quotidien, et il est important que les employeurs prennent en compte ce bien-être au travail.
 
 ### **3. Argument 2 - Le sens et l'intérêt du métier sont décisifs sur la durée**
 
@@ -322,7 +322,7 @@ Cependant, il faut reconnaître que lorsque le salaire est trop faible, la quest
 
 ### **6. Conclusion**
 
-En conclusion, je pense que le salaire est très important, mais qu'il n'est pas la chose la plus importante dans un travail. Un bon emploi, c'est un emploi bien payé, mais aussi vivable, intéressant, porteur de sens et stable. Il est essentiel que chacun puisse concilier un salaire correct avec de bonnes conditions de travail.
+En conclusion, je pense que le salaire est très important, mais qu'il n'est pas la chose la plus importante dans un travail. Un bon emploi, c'est un emploi bien payé, mais aussi vivable, intéressant, porteur de sens et stable.
 
 ---
 

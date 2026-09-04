@@ -1590,10 +1590,10 @@
         {
           "id": "SVC2-0197",
           "kind": "phrase-modele",
-          "french": "la télévision ne devient une perte de temps que lorsqu'elle est consommée sans choix et sans limite",
-          "english": "television only becomes a waste of time when it is consumed without choice and without limit",
-          "example": "Enfin, la télévision ne devient une perte de temps que lorsqu'elle est consommée sans choix et sans limite.",
-          "usage": "'ne ... que lorsque' = only when; conditional argument."
+          "french": "il suffit que l'on regarde sans réfléchir pour que la télévision devienne une perte de temps",
+          "english": "all it takes is watching without thinking for television to become a waste of time",
+          "example": "Enfin, il suffit que l'on regarde sans réfléchir pour que la télévision devienne une perte de temps.",
+          "usage": "« Il suffit que » and « pour que » both introduce the subjunctive; the model states a condition leading to a negative result."
         },
         {
           "id": "SVC2-0198",
@@ -1861,7 +1861,7 @@
           "kind": "expression",
           "french": "une nouvelle motivation",
           "english": "a fresh motivation",
-          "example": "Mais les matières culturelles ne s'opposent pas à ces apprentissages : elles les complètent et donnent souvent aux élèves une nouvelle motivation pour venir à l'école.",
+          "example": "Il est important que les écoles accordent aussi du temps aux matières culturelles, car elles donnent souvent aux élèves une nouvelle motivation pour venir en classe.",
           "usage": "'nouvelle' before noun; why arts help school engagement."
         },
         {
@@ -2003,10 +2003,10 @@
         {
           "id": "SVC2-0248",
           "kind": "phrase-modele",
-          "french": "les matières culturelles ne s'opposent pas à ces apprentissages : elles les complètent",
-          "english": "cultural subjects do not conflict with these learnings: they complement them",
-          "example": "Mais les matières culturelles ne s'opposent pas à ces apprentissages : elles les complètent et donnent souvent aux élèves une nouvelle motivation pour venir à l'école.",
-          "usage": "'s'opposer à' negated; colon of contrast."
+          "french": "Il est important que les écoles accordent aussi du temps aux matières culturelles",
+          "english": "It is important for schools to also devote time to cultural subjects",
+          "example": "Il est important que les écoles accordent aussi du temps aux matières culturelles, car elles donnent souvent aux élèves une nouvelle motivation pour venir en classe.",
+          "usage": "« Il est important que » takes the subjunctive; use this model to make a recommendation and then justify it."
         },
         {
           "id": "SVC2-0249",
@@ -2344,10 +2344,10 @@
         {
           "id": "SVC2-0290",
           "kind": "tournure",
-          "french": "Cependant, sans voyage,",
-          "english": "However, without travel,",
-          "example": "Cependant, sans voyage, la connaissance d'une culture reste en partie théorique : se trouver sur place permet de ressentir l'ambiance, les odeurs et le rythme de vie, ce que les écrans transmettent difficilement.",
-          "usage": "Concessive + 'sans + noun' opening the nuance."
+          "french": "Bien que l'on puisse découvrir une culture à distance,",
+          "english": "Although one can discover a culture remotely,",
+          "example": "Bien que l'on puisse découvrir une culture à distance, cette connaissance reste en partie théorique : les écrans transmettent mal l'ambiance, les odeurs et le rythme de vie.",
+          "usage": "Concessive opener with « bien que » + subjunctive; it acknowledges remote access before stating its limit."
         },
         {
           "id": "SVC2-0291",
@@ -2408,10 +2408,10 @@
         {
           "id": "SVC2-0298",
           "kind": "phrase-modele",
-          "french": "se trouver sur place permet de ressentir l'ambiance, les odeurs et le rythme de vie, ce que les écrans transmettent difficilement",
-          "english": "being there in person lets you feel the atmosphere, the smells and the pace of life, which screens convey only with difficulty",
-          "example": "Cependant, sans voyage, la connaissance d'une culture reste en partie théorique : se trouver sur place permet de ressentir l'ambiance, les odeurs et le rythme de vie, ce que les écrans transmettent difficilement.",
-          "usage": "Nuance line; 'ce que' relative summarising."
+          "french": "les écrans transmettent mal l'ambiance, les odeurs et le rythme de vie",
+          "english": "screens convey the atmosphere, smells and pace of life poorly",
+          "example": "Bien que l'on puisse découvrir une culture à distance, cette connaissance reste en partie théorique : les écrans transmettent mal l'ambiance, les odeurs et le rythme de vie.",
+          "usage": "A reusable claim contrasting mediated discovery with sensory experience; « transmettre mal » means to convey inadequately."
         },
         {
           "id": "SVC2-0299",
@@ -2749,10 +2749,10 @@
         {
           "id": "SVC2-0340",
           "kind": "tournure",
-          "french": "Cependant, il faut reconnaître que",
-          "english": "However, one must acknowledge that",
-          "example": "Cependant, il faut reconnaître que la cuisine ne donne pas accès à toute la culture d'un pays.",
-          "usage": "Concessive 'il faut reconnaître que' opening the nuance."
+          "french": "Bien que la cuisine donne accès à une partie importante d'une culture,",
+          "english": "Although cuisine provides access to an important part of a culture,",
+          "example": "Bien que la cuisine donne accès à une partie importante d'une culture, elle ne permet pas de tout comprendre.",
+          "usage": "Concessive opener with « bien que » + subjunctive; « donner accès à » introduces a benefit before a limitation."
         },
         {
           "id": "SVC2-0341",
@@ -2972,7 +2972,7 @@
           "kind": "collocation",
           "french": "reprendre confiance",
           "english": "to regain confidence",
-          "example": "Par exemple, après une rupture, un échec à un examen ou une période de chômage, pouvoir appeler un ami qui écoute sans juger aide souvent à reprendre confiance et à ne pas rester seul avec son inquiétude.",
+          "example": "Par exemple, après une rupture, un échec à un examen ou une période de chômage, il est important que chacun puisse appeler un ami qui écoute sans juger. Ce soutien aide à reprendre confiance et à ne pas rester seul avec son inquiétude.",
           "usage": "'reprendre + noun'; effect of a friend's support."
         },
         {
@@ -3140,7 +3140,7 @@
           "kind": "tournure",
           "french": "Par exemple,",
           "english": "For example,",
-          "example": "Par exemple, après une rupture, un échec à un examen ou une période de chômage, pouvoir appeler un ami qui écoute sans juger aide souvent à reprendre confiance et à ne pas rester seul avec son inquiétude.",
+          "example": "Par exemple, après une rupture, un échec à un examen ou une période de chômage, il est important que chacun puisse appeler un ami qui écoute sans juger. Ce soutien aide à reprendre confiance et à ne pas rester seul avec son inquiétude.",
           "usage": "Illustration connector."
         },
         {

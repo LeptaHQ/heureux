@@ -41,16 +41,16 @@
           "kind": "mot-cle",
           "french": "langue maternelle",
           "english": "mother tongue",
-          "example": "En effet, une personne peut faire le choix de continuer à pratiquer des gestes simples comme parler sa langue maternelle à la maison, cuisiner les plats de son pays, célébrer ses fêtes traditionnelles, puis de transmettre tout cela à ses enfants.",
+          "example": "En effet, pour que ce lien reste vivant, il faut parler sa langue maternelle, cuisiner les plats de son pays, célébrer ses fêtes et transmettre ces traditions à ses enfants.",
           "usage": "Feminine; adjective follows noun; concrete marker of cultural transmission."
         },
         {
           "id": "SVC4-0006",
           "kind": "mot-cle",
-          "french": "fêtes traditionnelles",
-          "english": "traditional festivals/holidays",
-          "example": "En effet, une personne peut faire le choix de continuer à pratiquer des gestes simples comme parler sa langue maternelle à la maison, cuisiner les plats de son pays, célébrer ses fêtes traditionnelles, puis de transmettre tout cela à ses enfants.",
-          "usage": "Feminine plural; example of practised heritage; note adjective agreement -elles."
+          "french": "fêtes",
+          "english": "celebrations / holidays",
+          "example": "En effet, pour que ce lien reste vivant, il faut parler sa langue maternelle, cuisiner les plats de son pays, célébrer ses fêtes et transmettre ces traditions à ses enfants.",
+          "usage": "Feminine plural keyword; commonly used in « célébrer ses fêtes » when discussing cultural heritage."
         },
         {
           "id": "SVC4-0007",
@@ -113,7 +113,7 @@
           "kind": "collocation",
           "french": "parler sa langue maternelle",
           "english": "speak one's mother tongue",
-          "example": "En effet, une personne peut faire le choix de continuer à pratiquer des gestes simples comme parler sa langue maternelle à la maison, cuisiner les plats de son pays, célébrer ses fêtes traditionnelles, puis de transmettre tout cela à ses enfants.",
+          "example": "En effet, pour que ce lien reste vivant, il faut parler sa langue maternelle, cuisiner les plats de son pays, célébrer ses fêtes et transmettre ces traditions à ses enfants.",
           "usage": "Concrete heritage-keeping action; possessive sa agrees with langue."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "cuisiner les plats de son pays",
           "english": "cook the dishes of one's country",
-          "example": "En effet, une personne peut faire le choix de continuer à pratiquer des gestes simples comme parler sa langue maternelle à la maison, cuisiner les plats de son pays, célébrer ses fêtes traditionnelles, puis de transmettre tout cela à ses enfants.",
+          "example": "En effet, pour que ce lien reste vivant, il faut parler sa langue maternelle, cuisiner les plats de son pays, célébrer ses fêtes et transmettre ces traditions à ses enfants.",
           "usage": "cuisiner + N; vivid everyday example of maintained culture."
         },
         {
@@ -851,7 +851,7 @@
           "kind": "mot-cle",
           "french": "nouveaux arrivants",
           "english": "newcomers",
-          "example": "Ensuite, je pense que l'intégration est difficile parce qu'elle ne dépend pas seulement des efforts de la personne, mais aussi de l'ouverture de la société d'accueil et du temps qu'elle accorde aux nouveaux arrivants.",
+          "example": "Ensuite, je pense que l'intégration ne dépend pas seulement des efforts de la personne. Il faut aussi que la société d'accueil soit ouverte et accorde du temps aux nouveaux arrivants.",
           "usage": "Masculine plural; adjective precedes; the people who must prove themselves."
         },
         {
@@ -1067,7 +1067,7 @@
           "kind": "tournure",
           "french": "ne dépend pas seulement des efforts de la personne",
           "english": "does not depend only on the person's efforts",
-          "example": "Ensuite, je pense que l'intégration est difficile parce qu'elle ne dépend pas seulement des efforts de la personne, mais aussi de l'ouverture de la société d'accueil et du temps qu'elle accorde aux nouveaux arrivants.",
+          "example": "Ensuite, je pense que l'intégration ne dépend pas seulement des efforts de la personne. Il faut aussi que la société d'accueil soit ouverte et accorde du temps aux nouveaux arrivants.",
           "usage": "ne...pas seulement de + N; opens a two-sided argument."
         },
         {
@@ -1470,10 +1470,10 @@
         {
           "id": "SVC4-0182",
           "kind": "tournure",
-          "french": "ne se résume pas à un divertissement",
-          "english": "is not reducible to entertainment",
-          "example": "Cela montre que l'influence de la télé-réalité ne se résume pas à un divertissement, mais touche vraiment la construction des jeunes.",
-          "usage": "se résumer à + N; ne...pas; asserts deeper stakes."
+          "french": "Pour que cette influence soit limitée,",
+          "english": "So that this influence remains limited,",
+          "example": "Pour que cette influence soit limitée, il faut que les parents et l'école développent l'esprit critique des jeunes.",
+          "usage": "Purpose opener with « pour que » + subjunctive; it introduces the condition needed to limit an influence."
         },
         {
           "id": "SVC4-0183",
@@ -1574,10 +1574,10 @@
         {
           "id": "SVC4-0195",
           "kind": "phrase-modele",
-          "french": "Cela montre que l'influence de la télé-réalité ne se résume pas à un divertissement, mais touche vraiment la construction des jeunes.",
-          "english": "Consequence (arg 3): its influence is not mere entertainment but really shapes young people.",
-          "example": "Cela montre que l'influence de la télé-réalité ne se résume pas à un divertissement, mais touche vraiment la construction des jeunes.",
-          "usage": "ne se résume pas à..., mais...; consequence with contrast."
+          "french": "Pour que cette influence soit limitée, il faut que les parents et l'école développent l'esprit critique des jeunes.",
+          "english": "For this influence to remain limited, parents and schools must develop young people's critical thinking.",
+          "example": "Pour que cette influence soit limitée, il faut que les parents et l'école développent l'esprit critique des jeunes.",
+          "usage": "Conditional model combining « pour que » and « il faut que », both followed by the subjunctive."
         },
         {
           "id": "SVC4-0196",

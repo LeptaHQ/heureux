@@ -28,7 +28,7 @@ En effet, on choisit ses amis librement, ce qui crée souvent une grande confian
 
 **Exemple**
 
-Par exemple, après une rupture, un échec à un examen ou une période de chômage, pouvoir appeler un ami qui écoute sans juger aide souvent à reprendre confiance et à ne pas rester seul avec son inquiétude.
+Par exemple, après une rupture, un échec à un examen ou une période de chômage, il est important que chacun puisse appeler un ami qui écoute sans juger. Ce soutien aide à reprendre confiance et à ne pas rester seul avec son inquiétude.
 
 **Conséquence**
 
@@ -76,7 +76,7 @@ Cependant, il faut reconnaître que l'on peut vivre des périodes de solitude ch
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il n'est pas réaliste de dire que les amis ne sont pas nécessaires pour être heureux. Ils nous soutiennent dans les épreuves, répondent à un besoin social fondamental et nous aident à grandir. L'amitié reste donc l'un des piliers les plus précieux d'une vie heureuse. Il est important que chacun puisse compter sur des amitiés sincères dans les moments difficiles.
+En conclusion, je pense qu'il n'est pas réaliste de dire que les amis ne sont pas nécessaires pour être heureux. Ils nous soutiennent dans les épreuves, répondent à un besoin social fondamental et nous aident à grandir. L'amitié reste donc l'un des piliers les plus précieux d'une vie heureuse.
 
 ---
 
@@ -154,11 +154,11 @@ Cela montre que l'on ne peut pas dire qu'une expérience à l'étranger est touj
 
 ### **5. Nuance**
 
-Cependant, il faut reconnaître qu'avec une bonne préparation, une vraie ouverture et un effort d'intégration, une expérience à l'étranger reste très souvent positive sur le long terme. Beaucoup de personnes en gardent un souvenir fort et y voient un tournant important de leur vie. Le mot « toujours » est donc trop fort, mais le bilan reste, dans la plupart des cas, plutôt enrichissant.
+Pour qu'une expérience à l'étranger soit positive sur le long terme, il faut une bonne préparation, une vraie ouverture et un effort d'intégration. Beaucoup de personnes en gardent un souvenir fort et y voient un tournant important de leur vie. Le mot « toujours » est donc trop fort, mais le bilan reste, dans la plupart des cas, plutôt enrichissant.
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'une expérience à l'étranger n'est pas toujours positive, parce qu'elle dépend de la langue, de l'intégration et de la situation personnelle. Elle peut être une vraie chance, mais jamais une réussite automatique : tout repose sur les conditions dans lesquelles elle se vit. Pour que l'expérience soit positive, il faut préparer son départ et créer des liens sur place.
+En conclusion, je pense qu'une expérience à l'étranger n'est pas toujours positive, parce qu'elle dépend de la langue, de l'intégration et de la situation personnelle. Elle peut être une vraie chance, mais jamais une réussite automatique : tout repose sur les conditions dans lesquelles elle se vit.
 
 ---
 
@@ -236,11 +236,11 @@ Cela montre que le courrier traditionnel jouait aussi un rôle de mémoire perso
 
 ### **5. Nuance**
 
-Cependant, il faut reconnaître que les outils numériques répondent à un vrai besoin de rapidité et de facilité. Ils permettent aussi de garder le contact avec des personnes très éloignées, presque tous les jours, ce qui n'était pas possible avant. Ce n'est donc pas tant la communication elle-même qui est en cause, mais une certaine forme d'attention et de durée que l'on a tendance à perdre.
+Bien que les outils numériques répondent à un vrai besoin de rapidité et de facilité, il serait dommage qu'ils fassent totalement disparaître le geste d'écrire à la main. Ils permettent aussi de garder le contact avec des personnes très éloignées, presque tous les jours, ce qui n'était pas possible avant. Ce n'est donc pas tant la communication elle-même qui est en cause, mais une certaine forme d'attention et de durée que l'on a tendance à perdre.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que la disparition du courrier traditionnel est regrettable, parce qu'elle fait perdre une vraie dimension humaine, une qualité d'écriture et une mémoire durable. Les outils numériques sont très utiles, mais ils ne remplacent pas complètement ce que ces lettres apportaient. Il est important que nous puissions encore écrire des lettres pour les occasions importantes.
+En conclusion, je pense que la disparition du courrier traditionnel est regrettable, parce qu'elle fait perdre une vraie dimension humaine, une qualité d'écriture et une mémoire durable. Les outils numériques sont très utiles, mais ils ne remplacent pas complètement ce que ces lettres apportaient.
 
 ---
 
@@ -318,11 +318,11 @@ Cela montre qu'il existe une première connaissance d'un pays sans la langue, ma
 
 ### **5. Nuance**
 
-Cependant, il faut reconnaître que parler parfaitement la langue n'est pas indispensable pour commencer à connaître un pays. Une personne attentive, curieuse et ouverte peut apprendre beaucoup en observant et en posant des questions, même avec un niveau modeste. La langue n'est donc pas un mur infranchissable, mais elle reste l'outil le plus solide pour aller au-delà de la surface.
+Bien qu'il ne soit pas indispensable de parler parfaitement la langue, il faut que les voyageurs en apprennent au moins les bases. Une personne attentive, curieuse et ouverte peut apprendre beaucoup en observant et en posant des questions, même avec un niveau modeste. La langue n'est donc pas un mur infranchissable, mais elle reste l'outil le plus solide pour aller au-delà de la surface.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que l'on peut percevoir certaines choses d'un pays sans en parler la langue, mais que l'on ne peut pas vraiment le connaître en profondeur. La langue reste la clé qui ouvre l'accès aux vraies conversations, aux idées et à la vie réelle d'une société. Il faut que les voyageurs apprennent au moins les bases de la langue locale.
+En conclusion, je pense que l'on peut percevoir certaines choses d'un pays sans en parler la langue, mais que l'on ne peut pas vraiment le connaître en profondeur. La langue reste la clé qui ouvre l'accès aux vraies conversations, aux idées et à la vie réelle d'une société.
 
 ---
 
@@ -342,7 +342,7 @@ La vraie question est de savoir si la lecture est vraiment indispensable pour ê
 
 ### **1. Position claire**
 
-À mon avis, on n'a pas absolument besoin de lire pour être cultivé, mais la lecture garde un rôle particulier. D'abord, la culture passe aujourd'hui aussi par les documentaires, les films, les podcasts, les voyages et les échanges, qui apportent de vraies connaissances. Ensuite, la lecture reste la voie la plus profonde, parce qu'elle entraîne la réflexion, la concentration et le langage. Enfin, certains domaines de la culture, comme la littérature ou la pensée, restent surtout accessibles par les livres.
+Bien qu'on n'ait pas absolument besoin de lire pour être cultivé, la lecture garde un rôle particulier. D'abord, la culture passe aujourd'hui aussi par les documentaires, les films, les podcasts, les voyages et les échanges, qui apportent de vraies connaissances. Ensuite, la lecture reste la voie la plus profonde, parce qu'elle entraîne la réflexion, la concentration et le langage. Enfin, certains domaines de la culture, comme la littérature ou la pensée, restent surtout accessibles par les livres.
 
 ### **2. Argument 1 - Aujourd'hui, la culture peut s'acquérir par beaucoup d'autres voies**
 
@@ -404,4 +404,4 @@ Cependant, il faut reconnaître qu'une personne peut être très cultivée sans 
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'on n'est pas obligé de lire pour être cultivé, parce que la culture s'acquiert aussi par beaucoup d'autres voies. Mais la lecture reste l'une des plus solides, parce qu'elle entraîne la pensée et donne accès à une part de l'héritage culturel que rien d'autre ne remplace vraiment. Il est important que chacun puisse choisir des sources culturelles variées sans négliger les livres.
+En conclusion, je pense qu'on n'est pas obligé de lire pour être cultivé, parce que la culture s'acquiert aussi par beaucoup d'autres voies. Mais la lecture reste l'une des plus solides, parce qu'elle entraîne la pensée et donne accès à une part de l'héritage culturel que rien d'autre ne remplace vraiment.

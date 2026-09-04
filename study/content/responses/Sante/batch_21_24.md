@@ -56,7 +56,7 @@ Cela permet de comprendre qu'un stress chronique n'a plus rien de stimulant : il
 
 **Idée**
 
-Enfin, je pense que le stress n'est stimulant que s'il est suivi d'un vrai temps de repos et de récupération.
+Enfin, je pense que le stress ne peut être stimulant qu'à condition qu'il soit suivi d'un vrai temps de repos et de récupération.
 
 **Développement**
 
@@ -76,7 +76,7 @@ Cependant, certaines personnes transforment mieux le stress en motivation que d'
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que le stress peut être stimulant à petite dose et dans des moments précis, mais qu'il devient rapidement nocif dès qu'il s'installe. Le but n'est pas de le supprimer totalement, mais d'apprendre à le maîtriser. Il faut que chacun apprenne à reconnaître ses limites pour que le stress reste maîtrisable.
+En conclusion, je dirais que le stress peut être stimulant à petite dose et dans des moments précis, mais qu'il devient rapidement nocif dès qu'il s'installe. Le but n'est pas de le supprimer totalement, mais d'apprendre à le maîtriser.
 
 ---
 
@@ -120,7 +120,7 @@ Cela montre que l'argent n'est pas négligeable et qu'il joue un vrai rôle dans
 
 **Idée**
 
-Ensuite, je pense que le bonheur dépend aussi de la santé, des liens humains et de la stabilité émotionnelle.
+Ensuite, il est essentiel que chacun préserve sa santé, ses liens humains et sa stabilité émotionnelle pour être heureux.
 
 **Développement**
 
@@ -158,7 +158,7 @@ Cependant, un manque d'argent important peut malgré tout rendre le bonheur plus
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'un bon salaire est utile, mais qu'il ne suffit pas pour être heureux. Le bonheur repose sur un équilibre beaucoup plus large, où l'argent n'est qu'un élément parmi d'autres. Il est important que chacun préserve sa santé et ses relations, même avec un bon salaire.
+En conclusion, je dirais qu'un bon salaire est utile, mais qu'il ne suffit pas pour être heureux. Le bonheur repose sur un équilibre beaucoup plus large, où l'argent n'est qu'un élément parmi d'autres.
 
 ---
 
@@ -266,7 +266,7 @@ La vraie question est de savoir comment juger le recours croissant à la chirurg
 
 **Idée**
 
-Tout d'abord, le succès croissant de la chirurgie esthétique reflète une forte pression sociale liée à la jeunesse et à l'apparence.
+Tout d'abord, bien que chacun puisse choisir librement, le succès croissant de la chirurgie esthétique reflète une forte pression sociale liée à la jeunesse et à l'apparence.
 
 **Développement**
 
@@ -322,6 +322,6 @@ Cependant, il ne s'agit pas de juger les personnes qui font ce choix. Une interv
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'on peut comprendre certains recours à la chirurgie esthétique, mais qu'il faut rester vigilant face à la pression sociale qui pousse à refuser le vieillissement. C'est moins le geste individuel que la norme collective qui est inquiétante. Il faut que chacun puisse vieillir sans subir une pression excessive sur son apparence.
+En conclusion, je dirais qu'on peut comprendre certains recours à la chirurgie esthétique, mais qu'il faut rester vigilant face à la pression sociale qui pousse à refuser le vieillissement. C'est moins le geste individuel que la norme collective qui est inquiétante.
 
 ---

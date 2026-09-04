@@ -56,7 +56,7 @@ Cela permet de comprendre que le rythme de vie actuel pèse fortement sur la qua
 
 **Idée**
 
-Enfin, je pense qu'il faut donc préserver les bonnes habitudes alimentaires tout en améliorant les choix du quotidien.
+Enfin, je pense qu'il est essentiel que chacun garde le meilleur des habitudes traditionnelles tout en apprenant à mieux choisir au quotidien.
 
 **Développement**
 
@@ -76,7 +76,7 @@ Cependant, la situation n'est pas la même selon les régions, les générations
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que l'alimentation dans mon pays est globalement intéressante, avec de vraies qualités, mais qu'elle doit être mieux protégée contre les excès liés au mode de vie actuel. Le défi est de moderniser sans dénaturer. Il faut que les familles préservent les traditions culinaires tout en limitant les produits trop transformés.
+En conclusion, je dirais que l'alimentation dans mon pays est globalement intéressante, avec de vraies qualités, mais qu'elle doit être mieux protégée contre les excès liés au mode de vie actuel. Le défi est de moderniser sans dénaturer.
 
 ---
 
@@ -138,7 +138,7 @@ Cela permet de comprendre qu'un stress chronique n'a plus rien de stimulant : il
 
 **Idée**
 
-Enfin, je pense que le stress n'est stimulant que s'il est suivi d'un vrai temps de repos et de récupération.
+Enfin, je pense que le stress ne peut être stimulant qu'à condition qu'il soit suivi d'un vrai temps de repos et de récupération.
 
 **Développement**
 
@@ -158,7 +158,7 @@ Cependant, certaines personnes transforment mieux le stress en motivation que d'
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que le stress peut être stimulant à petite dose et dans des moments précis, mais qu'il devient rapidement nocif dès qu'il s'installe. Le but n'est pas de le supprimer totalement, mais d'apprendre à le maîtriser. Il faut que chacun apprenne à reconnaître ses limites pour que le stress reste maîtrisable.
+En conclusion, je dirais que le stress peut être stimulant à petite dose et dans des moments précis, mais qu'il devient rapidement nocif dès qu'il s'installe. Le but n'est pas de le supprimer totalement, mais d'apprendre à le maîtriser.
 
 ---
 
@@ -302,7 +302,7 @@ Cela permet de comprendre que le rôle des parents et la qualité du contenu son
 
 **Idée**
 
-Enfin, je pense que sans règles claires, les jeux vidéo peuvent perturber le travail scolaire et créer des tensions familiales.
+Enfin, il faut que les parents fixent des règles claires pour que les jeux vidéo ne perturbent ni le travail scolaire ni la vie familiale.
 
 **Développement**
 
@@ -322,7 +322,7 @@ Cependant, jouer occasionnellement à un jeu adapté n'a pas le même effet que 
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les jeux vidéo peuvent effectivement avoir des effets négatifs sur les enfants, surtout en cas d'excès et d'absence d'encadrement. Le vrai enjeu est de fixer des règles claires et de préserver un équilibre de vie. Il est important que les parents fixent des horaires clairs pour que les enfants dorment suffisamment.
+En conclusion, je dirais que les jeux vidéo peuvent effectivement avoir des effets négatifs sur les enfants, surtout en cas d'excès et d'absence d'encadrement. Le vrai enjeu est de fixer des règles claires et de préserver un équilibre de vie.
 
 ---
 

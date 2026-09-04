@@ -72,11 +72,11 @@ Cela montre que la capacité à s'adapter ne dépend pas seulement de la personn
 
 ### **5. Nuance**
 
-Cependant, cela ne veut pas dire que certaines personnes seraient « inadaptables » par nature. Avec du temps, de l'aide et une bonne préparation, beaucoup de personnes finissent par s'intégrer, même quand le départ est difficile. La capacité d'adaptation se travaille, elle n'est pas figée à l'avance.
+Cependant, cela ne veut pas dire que certaines personnes seraient « inadaptables » par nature. Pour que l'intégration réussisse, il faut que la personne bénéficie de temps, d'aide et d'une bonne préparation malgré les difficultés du départ. La capacité d'adaptation se travaille, elle n'est pas figée à l'avance.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que tout le monde n'est pas naturellement capable de s'adapter facilement à un pays étranger. Cela dépend des qualités personnelles, de la langue, de la culture et des conditions du départ, mais cela peut aussi se construire avec le temps. Il faut que chacun bénéficie d'un soutien adapté pour qu'il trouve progressivement sa place.
+En conclusion, je pense que tout le monde n'est pas naturellement capable de s'adapter facilement à un pays étranger. Cela dépend des qualités personnelles, de la langue, de la culture et des conditions du départ, mais cela peut aussi se construire avec le temps.
 
 ---
 
@@ -154,11 +154,11 @@ Cela montre qu'apprendre n'est pas seulement utile pour le travail : c'est aussi
 
 ### **5. Nuance**
 
-Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge. Certaines choses sont plus difficiles à acquérir tard, comme une parfaite prononciation dans une nouvelle langue ou des gestes techniques très précis. Mais cela ne signifie pas qu'on ne peut plus apprendre : cela signifie qu'on apprend différemment.
+Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge, bien qu'aucune méthode ne convienne à tout le monde. Certaines choses sont plus difficiles à acquérir tard, comme une parfaite prononciation dans une nouvelle langue ou des gestes techniques très précis. Mais cela ne signifie pas qu'on ne peut plus apprendre : cela signifie qu'on apprend différemment.
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il n'est jamais trop tard pour apprendre, parce que le cerveau reste capable, l'expérience aide et les bénéfices sont réels. Apprendre est une activité qui peut accompagner toute la vie, à condition d'adapter ses méthodes à son âge. Il faut que les adultes trouvent des méthodes adaptées à leur rythme et à leurs objectifs.
+En conclusion, je pense qu'il n'est jamais trop tard pour apprendre, parce que le cerveau reste capable, l'expérience aide et les bénéfices sont réels. Apprendre est une activité qui peut accompagner toute la vie, à condition d'adapter ses méthodes à son âge.
 
 ---
 
@@ -188,7 +188,7 @@ Je pense d'abord que le téléphone portable est une source de distraction très
 
 **Développement**
 
-En effet, dès qu'un élève a son téléphone à portée de main, il pense aux notifications, aux messages et aux réseaux sociaux, même pendant les cours. Cela coupe la concentration et réduit ce qu'il retient des leçons. Au contraire, sans téléphone, l'attention reste plus facilement tournée vers l'enseignant et le contenu du cours.
+En effet, dès qu'un élève a son téléphone à portée de main, il pense aux notifications, aux messages et aux réseaux sociaux, même pendant les cours. Cela coupe la concentration et réduit ce qu'il retient des leçons. Pour que l'attention reste tournée vers l'enseignant et le cours, il faut que le téléphone soit rangé.
 
 **Exemple**
 
@@ -240,7 +240,7 @@ Cependant, l'interdiction ne doit pas être absolue. Le téléphone peut parfois
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il faut interdire l'usage du téléphone portable à l'école pour protéger la concentration, prévenir certains comportements et favoriser les échanges. Le téléphone n'a sa place en classe que lorsqu'il est utilisé comme outil par l'enseignant. Il faut que les élèves puissent apprendre sans être distraits par leur téléphone.
+En conclusion, je pense qu'il faut interdire l'usage du téléphone portable à l'école pour protéger la concentration, prévenir certains comportements et favoriser les échanges. Le téléphone n'a sa place en classe que lorsqu'il est utilisé comme outil par l'enseignant.
 
 ---
 
@@ -342,7 +342,7 @@ La vraie question est de savoir quelles sont les trois questions essentielles à
 
 ### **1. Position claire**
 
-À mon avis, trois questions doivent être posées avant toute démarche d'immigration au Québec. D'abord, ai-je un niveau de français suffisant pour vivre et travailler là-bas ? Ensuite, mon métier est-il reconnu et recherché sur le marché québécois ? Enfin, ai-je les moyens financiers et humains pour réussir l'installation, surtout si je pars en famille ?
+À mon avis, il faut que chaque candidat se pose trois questions avant toute démarche d'immigration au Québec. D'abord, ai-je un niveau de français suffisant pour vivre et travailler là-bas ? Ensuite, mon métier est-il reconnu et recherché sur le marché québécois ? Enfin, ai-je les moyens financiers et humains pour réussir l'installation, surtout si je pars en famille ?
 
 ### **2. Argument 1 - Ai-je un niveau de français suffisant ?**
 
@@ -404,6 +404,6 @@ Cependant, ces trois questions ne sont pas les seules à se poser. Le climat, l'
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les trois questions les plus importantes avant d'immigrer au Québec sont celles de la langue, du métier et des moyens. Ce sont elles qui déterminent en grande partie la réussite ou l'échec du projet sur le terrain. Il faut que chaque candidat connaisse bien les exigences du Québec avant d'engager ses démarches.
+En conclusion, je pense que les trois questions les plus importantes avant d'immigrer au Québec sont celles de la langue, du métier et des moyens. Ce sont elles qui déterminent en grande partie la réussite ou l'échec du projet sur le terrain.
 
 ---

@@ -72,11 +72,11 @@ Cela montre que de bonnes notes ouvrent aussi des portes de façon informelle, p
 
 ### **5. Nuance**
 
-Cependant, les notes ne font pas tout : beaucoup de personnes réussissent très bien sans avoir été d'excellents élèves, grâce à leur motivation, leur persévérance et leurs qualités humaines. La définition même de la réussite est d'ailleurs très personnelle : pour certains, c'est un bon poste ; pour d'autres, fonder une famille, équilibrer sa vie ou se sentir utile aux autres. Les notes aident donc pour certaines réussites, mais pas pour toutes.
+Cependant, il ne faut pas que les notes fassent oublier la motivation, la persévérance et les qualités humaines. La définition même de la réussite est d'ailleurs très personnelle : pour certains, c'est un bon poste ; pour d'autres, fonder une famille, équilibrer sa vie ou se sentir utile aux autres. Les notes aident donc pour certaines réussites, mais pas pour toutes.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que de bonnes notes peuvent contribuer à la réussite dans la vie, surtout au début du parcours, mais qu'elles ne sont ni indispensables ni suffisantes. Ce qui compte vraiment, c'est la combinaison entre le travail scolaire, la motivation et les qualités humaines. Il est important que les élèves puissent développer leurs qualités humaines sans être jugés uniquement sur leurs notes.
+En conclusion, je pense que de bonnes notes peuvent contribuer à la réussite dans la vie, surtout au début du parcours, mais qu'elles ne sont ni indispensables ni suffisantes. Ce qui compte vraiment, c'est la combinaison entre le travail scolaire, la motivation et les qualités humaines.
 
 ---
 
@@ -96,7 +96,7 @@ La vraie question est de savoir si Internet permet vraiment d'apprendre tout seu
 
 ### **1. Position claire**
 
-À mon avis, Internet est un outil formidable pour apprendre, mais il ne permet pas de tout apprendre seul. D'abord, parce qu'il existe en ligne énormément de ressources de qualité, accessibles à tous. Ensuite, parce qu'apprendre seul demande beaucoup de discipline et d'autonomie, ce que tout le monde n'a pas. Enfin, parce que certaines compétences ne s'acquièrent qu'avec un enseignant, un cadre ou une vraie pratique encadrée.
+À mon avis, bien qu'Internet soit un outil formidable, il ne permet pas de tout apprendre seul. D'abord, parce qu'il existe en ligne énormément de ressources de qualité, accessibles à tous. Ensuite, parce qu'apprendre seul demande beaucoup de discipline et d'autonomie, ce que tout le monde n'a pas. Enfin, parce que certaines compétences ne s'acquièrent qu'avec un enseignant, un cadre ou une vraie pratique encadrée.
 
 ### **2. Argument 1 - Internet offre énormément de ressources accessibles à tous**
 
@@ -158,7 +158,7 @@ Cependant, Internet a vraiment changé la donne pour certaines compétences plus
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'Internet permet d'apprendre énormément de choses seul, mais pas tout. La réussite dépend à la fois des ressources disponibles, de la discipline personnelle et de la nature même des compétences visées. Il faut que les apprenants sachent vérifier les sources et demander de l'aide quand une notion reste difficile.
+En conclusion, je pense qu'Internet permet d'apprendre énormément de choses seul, mais pas tout. La réussite dépend à la fois des ressources disponibles, de la discipline personnelle et de la nature même des compétences visées.
 
 ---
 
@@ -236,11 +236,11 @@ Cela montre que les sorties pédagogiques renforcent aussi le côté humain et s
 
 ### **5. Nuance**
 
-Cependant, ces sorties ne sont vraiment bénéfiques que si elles sont bien préparées par les enseignants : un thème clair, un encadrement suffisant et un travail en classe avant et après la visite. Sans cette préparation, la sortie peut se transformer en simple promenade sans grand effet pédagogique.
+Pour que ces sorties soient bénéfiques, il faut que les enseignants prévoient un thème, un bon encadrement et un suivi en classe. Sans cette préparation, la sortie peut se transformer en simple promenade sans grand effet pédagogique.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les sorties pédagogiques sont vraiment bénéfiques pour les enfants, parce qu'elles rendent les apprentissages concrets, éveillent la curiosité et renforcent la vie collective. Elles sont un complément précieux à l'enseignement en classe. Il est essentiel que chaque sortie soit préparée pour que les enfants en tirent un véritable apprentissage.
+En conclusion, je pense que les sorties pédagogiques sont vraiment bénéfiques pour les enfants, parce qu'elles rendent les apprentissages concrets, éveillent la curiosité et renforcent la vie collective. Elles sont un complément précieux à l'enseignement en classe.
 
 ---
 
@@ -399,11 +399,11 @@ Cela montre qu'apprendre n'est pas seulement utile pour le travail : c'est aussi
 
 ### **5. Nuance**
 
-Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge. Certaines choses sont plus difficiles à acquérir tard, comme une parfaite prononciation dans une nouvelle langue ou des gestes techniques très précis. Mais cela ne signifie pas qu'on ne peut plus apprendre : cela signifie qu'on apprend différemment.
+Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge, bien qu'aucune méthode ne convienne à tout le monde. Certaines choses sont plus difficiles à acquérir tard, comme une parfaite prononciation dans une nouvelle langue ou des gestes techniques très précis. Mais cela ne signifie pas qu'on ne peut plus apprendre : cela signifie qu'on apprend différemment.
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il n'est jamais trop tard pour apprendre, parce que le cerveau reste capable, l'expérience aide et les bénéfices sont réels. Apprendre est une activité qui peut accompagner toute la vie, à condition d'adapter ses méthodes à son âge. Il faut que les adultes trouvent des méthodes adaptées à leur rythme et à leurs objectifs.
+En conclusion, je pense qu'il n'est jamais trop tard pour apprendre, parce que le cerveau reste capable, l'expérience aide et les bénéfices sont réels. Apprendre est une activité qui peut accompagner toute la vie, à condition d'adapter ses méthodes à son âge.
 
 ---
 

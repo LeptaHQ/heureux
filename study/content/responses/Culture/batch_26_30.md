@@ -14,7 +14,7 @@ La vraie question est de savoir si bien connaître le pays d'accueil avant d'imm
 
 ### **1. Position claire**
 
-À mon avis, il est important de bien connaître le pays d'accueil avant d'immigrer. D'abord, cette connaissance facilite les démarches et la vie quotidienne une fois sur place. Ensuite, elle permet de construire un projet réaliste, en tenant compte du marché du travail, du coût de la vie et du système local. Enfin, elle aide à se préparer mentalement aux différences culturelles et à éviter un choc trop brutal.
+À mon avis, il est important que chacun se renseigne sérieusement sur le pays d'accueil avant d'immigrer. D'abord, cette connaissance facilite les démarches et la vie quotidienne une fois sur place. Ensuite, elle permet de construire un projet réaliste, en tenant compte du marché du travail, du coût de la vie et du système local. Enfin, elle aide à se préparer mentalement aux différences culturelles et à éviter un choc trop brutal.
 
 ### **2. Argument 1 - Cela facilite les démarches et la vie quotidienne**
 
@@ -76,7 +76,7 @@ Cependant, il faut reconnaître qu'on ne peut jamais tout savoir d'un pays avant
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il est vraiment important de bien connaître le pays d'accueil avant d'immigrer, parce que cela facilite les démarches du quotidien, rend le projet plus réaliste et prépare mentalement aux différences. Cette connaissance ne garantit pas tout, mais elle reste une base indispensable pour un départ réussi. Il faut que les futurs immigrés puissent anticiper les réalités pratiques et culturelles du pays d'accueil.
+En conclusion, je pense qu'il est vraiment important de bien connaître le pays d'accueil avant d'immigrer, parce que cela facilite les démarches du quotidien, rend le projet plus réaliste et prépare mentalement aux différences. Cette connaissance ne garantit pas tout, mais elle reste une base indispensable pour un départ réussi.
 
 ---
 
@@ -142,7 +142,7 @@ Enfin, je pense que le maintien ou non du lien avec sa culture d'origine dépend
 
 **Développement**
 
-En effet, une personne peut faire le choix de continuer à pratiquer des gestes simples comme parler sa langue maternelle à la maison, cuisiner les plats de son pays, célébrer ses fêtes traditionnelles, puis de transmettre tout cela à ses enfants. De plus, internet, les voyages et les communautés présentes à l'étranger rendent ce maintien beaucoup plus facile qu'avant. À l'inverse, d'autres préfèrent se fondre complètement dans le pays d'accueil et laissent peu à peu ce lien s'éloigner.
+En effet, pour que ce lien reste vivant, il faut parler sa langue maternelle, cuisiner les plats de son pays, célébrer ses fêtes et transmettre ces traditions à ses enfants. De plus, internet, les voyages et les communautés présentes à l'étranger rendent ce maintien beaucoup plus facile qu'avant. À l'inverse, d'autres préfèrent se fondre complètement dans le pays d'accueil et laissent peu à peu ce lien s'éloigner.
 
 **Exemple**
 
@@ -158,7 +158,7 @@ Cependant, il faut reconnaître que vivre loin de son pays modifie forcément la
 
 ### **6. Conclusion**
 
-En conclusion, je pense que vivre longtemps à l'étranger peut éloigner de certaines habitudes, mais ne conduit pas forcément à l'oubli de sa culture d'origine. L'identité reste solide et le lien peut se maintenir, surtout si l'on fait l'effort de le transmettre et de le garder vivant. Il est essentiel que chacun entretienne sa culture d'origine et la transmette aux générations suivantes.
+En conclusion, je pense que vivre longtemps à l'étranger peut éloigner de certaines habitudes, mais ne conduit pas forcément à l'oubli de sa culture d'origine. L'identité reste solide et le lien peut se maintenir, surtout si l'on fait l'effort de le transmettre et de le garder vivant.
 
 ---
 
@@ -178,7 +178,7 @@ La vraie question est de savoir si créer des liens avec les habitants est vraim
 
 ### **1. Position claire**
 
-À mon avis, il est presque indispensable de créer des relations avec les habitants pour bien vivre à l'étranger. D'abord, sans ces liens, on finit rapidement par se sentir isolé et coupé de la société d'accueil. Ensuite, ce sont les habitants qui permettent vraiment d'apprendre la langue et de comprendre les codes du pays. Enfin, ces relations ouvrent aussi des opportunités humaines et professionnelles que l'on n'aurait pas autrement.
+À mon avis, pour que l'on vive bien à l'étranger, il faut créer des relations avec les habitants. D'abord, sans ces liens, on finit rapidement par se sentir isolé et coupé de la société d'accueil. Ensuite, ce sont les habitants qui permettent vraiment d'apprendre la langue et de comprendre les codes du pays. Enfin, ces relations ouvrent aussi des opportunités humaines et professionnelles que l'on n'aurait pas autrement.
 
 ### **2. Argument 1 - Sans liens locaux, on finit par se sentir isolé**
 
@@ -240,7 +240,7 @@ Cependant, il ne faut pas dévaloriser la communauté d'origine. Elle aide à su
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il est presque indispensable de créer des relations avec les habitants pour bien vivre à l'étranger, parce qu'elles évitent l'isolement, permettent une vraie intégration et ouvrent de nombreuses opportunités. Vivre dans un pays sans aucun lien local revient, en pratique, à vivre à côté de ce pays plutôt que dedans. Il faut que les nouveaux arrivants puissent créer des liens sincères avec les habitants.
+En conclusion, je pense qu'il est presque indispensable de créer des relations avec les habitants pour bien vivre à l'étranger, parce qu'elles évitent l'isolement, permettent une vraie intégration et ouvrent de nombreuses opportunités. Vivre dans un pays sans aucun lien local revient, en pratique, à vivre à côté de ce pays plutôt que dedans.
 
 ---
 
@@ -366,7 +366,7 @@ Cela montre que la vraie intégration suppose une maîtrise fine de la langue et
 
 **Idée**
 
-Ensuite, je pense que l'intégration est difficile parce qu'elle ne dépend pas seulement des efforts de la personne, mais aussi de l'ouverture de la société d'accueil et du temps qu'elle accorde aux nouveaux arrivants.
+Ensuite, je pense que l'intégration ne dépend pas seulement des efforts de la personne. Il faut aussi que la société d'accueil soit ouverte et accorde du temps aux nouveaux arrivants.
 
 **Développement**
 
@@ -404,4 +404,4 @@ Cependant, il faut reconnaître que beaucoup de personnes finissent par s'intég
 
 ### **6. Conclusion**
 
-En conclusion, je pense que s'intégrer dans un pays étranger n'est pas vraiment facile, parce que cela demande de maîtriser la langue et les codes culturels, d'être accepté par la société d'accueil et de développer un vrai sentiment d'appartenance. C'est un objectif atteignable, mais qui se construit lentement et qui ne peut pas se réduire à de simples critères pratiques. Pour que l'intégration réussisse, il faut que la société d'accueil soit ouverte aux nouveaux arrivants.
+En conclusion, je pense que s'intégrer dans un pays étranger n'est pas vraiment facile, parce que cela demande de maîtriser la langue et les codes culturels, d'être accepté par la société d'accueil et de développer un vrai sentiment d'appartenance. C'est un objectif atteignable, mais qui se construit lentement et qui ne peut pas se réduire à de simples critères pratiques.

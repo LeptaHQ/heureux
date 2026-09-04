@@ -74,11 +74,11 @@ Cela enrichit la vie intérieure et donne accès à des émotions, des idées et
 
 ### **5. Nuance**
 
-Cependant, le livre n'est pas la seule manière de s'informer ou de se cultiver. Les documentaires, les podcasts et les conférences en ligne peuvent aussi être de grande qualité. L'idéal est de combiner ces différentes ressources, plutôt que d'opposer le livre au numérique.
+Bien que le livre soit un outil essentiel, il n'est pas la seule manière de s'informer ou de se cultiver. Les documentaires, les podcasts et les conférences en ligne peuvent aussi être de grande qualité. L'idéal est de combiner ces différentes ressources, plutôt que d'opposer le livre au numérique.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que le livre est loin d'être inutile, parce qu'il développe la réflexion, transmet des connaissances solides et nourrit la sensibilité. Plutôt que de l'opposer au numérique, il faut le voir comme un outil complémentaire, indispensable à une vraie culture personnelle. Il est essentiel que le livre conserve sa place aux côtés des outils numériques.
+En conclusion, je pense que le livre est loin d'être inutile, parce qu'il développe la réflexion, transmet des connaissances solides et nourrit la sensibilité. Plutôt que de l'opposer au numérique, il faut le voir comme un outil complémentaire, indispensable à une vraie culture personnelle.
 
 ---
 
@@ -156,11 +156,11 @@ Cela place les métiers artistiques au même niveau d'exigence professionnelle q
 
 ### **5. Nuance**
 
-Cependant, c'est vrai que les métiers artistiques restent souvent plus précaires que d'autres, avec des revenus irréguliers et peu de stabilité. Cette difficulté économique est réelle, mais elle ne dit rien sur le sérieux du métier lui-même.
+Cependant, c'est vrai que les métiers artistiques restent souvent plus précaires que d'autres, avec des revenus irréguliers et peu de stabilité. Bien que cette difficulté économique soit réelle, elle ne dit rien sur le sérieux du métier lui-même.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les métiers artistiques sont des métiers parfaitement sérieux, parce qu'ils demandent une vraie discipline, une longue formation et reposent sur une vraie organisation professionnelle. Leur précarité est un vrai problème, mais cela ne change rien à la valeur du travail accompli. Il faut que la société reconnaisse le travail et les compétences qu'exigent les métiers artistiques.
+En conclusion, je pense que les métiers artistiques sont des métiers parfaitement sérieux, parce qu'ils demandent une vraie discipline, une longue formation et reposent sur une vraie organisation professionnelle. Leur précarité est un vrai problème, mais cela ne change rien à la valeur du travail accompli.
 
 ---
 

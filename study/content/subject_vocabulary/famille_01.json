@@ -105,7 +105,7 @@
           "kind": "collocation",
           "french": "temps d'écran limité",
           "english": "limited screen time",
-          "example": "Les parents doivent donc fixer des règles : un âge minimum, un temps d'écran limité, certains réseaux interdits avant un certain âge.",
+          "example": "Il faut donc que les parents fixent des règles : un âge minimum, un temps d'écran limité, certains réseaux interdits avant un certain âge.",
           "usage": "Masc. noun phrase; \"un temps d'écran limité\"; concrete parental rule."
         },
         {
@@ -875,7 +875,7 @@
           "kind": "mot-cle",
           "french": "respect",
           "english": "respect",
-          "example": "Enfin, je pense qu'il faut tout de même écouter ces conseils avec respect, mais sans les suivre de manière automatique.",
+          "example": "Enfin, je pense qu'il est important que chacun sache écouter ces conseils avec respect, sans les suivre de manière automatique.",
           "usage": "Masc. noun; \"écouter leur expérience avec respect\"."
         },
         {
@@ -1011,7 +1011,7 @@
           "kind": "expression",
           "french": "de manière automatique",
           "english": "automatically / blindly",
-          "example": "Enfin, je pense qu'il faut tout de même écouter ces conseils avec respect, mais sans les suivre de manière automatique.",
+          "example": "Enfin, je pense qu'il est important que chacun sache écouter ces conseils avec respect, sans les suivre de manière automatique.",
           "usage": "Adverbial phrase; \"sans les suivre de manière automatique\"."
         },
         {
@@ -1035,7 +1035,7 @@
           "kind": "expression",
           "french": "avec respect",
           "english": "with respect",
-          "example": "Enfin, je pense qu'il faut tout de même écouter ces conseils avec respect, mais sans les suivre de manière automatique.",
+          "example": "Enfin, je pense qu'il est important que chacun sache écouter ces conseils avec respect, sans les suivre de manière automatique.",
           "usage": "Adverbial; \"écouter leur expérience avec respect\"."
         },
         {
@@ -1925,7 +1925,7 @@
           "kind": "tournure",
           "french": "je pense que",
           "english": "I think that",
-          "example": "Ensuite, je pense que cette distance développe l'autonomie, mais sans faire disparaître le besoin de liens familiaux.",
+          "example": "Enfin, je pense que certaines périodes rappellent particulièrement l'importance de la famille.",
           "usage": "Opinion frame + indicative."
         },
         {
@@ -3194,10 +3194,10 @@
         {
           "id": "SVF1-0395",
           "kind": "phrase-modele",
-          "french": "les amis protègent contre l'isolement durable, surtout dans les périodes de transition de la vie",
-          "english": "friends protect against lasting isolation, especially in life's transition periods",
-          "example": "Enfin, je pense que les amis protègent contre l'isolement durable, surtout dans les périodes de transition de la vie.",
-          "usage": "\"protéger contre\"; argument sentence."
+          "french": "il est important que chacun puisse compter sur ses amis, surtout pendant les périodes de transition de la vie",
+          "english": "it is important for everyone to be able to rely on friends, especially during periods of transition in life",
+          "example": "Enfin, il est important que chacun puisse compter sur ses amis, surtout pendant les périodes de transition de la vie.",
+          "usage": "« Il est important que » takes the subjunctive; « compter sur » means to rely on someone."
         },
         {
           "id": "SVF1-0396",
@@ -3425,7 +3425,7 @@
           "kind": "expression",
           "french": "se complètent",
           "english": "complement each other",
-          "example": "Ces deux dimensions se complètent.",
+          "example": "Il est important que ces deux dimensions se complètent.",
           "usage": "\"se compléter\"; \"Ces deux dimensions se complètent\"."
         },
         {
@@ -4020,10 +4020,10 @@
         {
           "id": "SVF1-0497",
           "kind": "phrase-modele",
-          "french": "une bonne cohabitation familiale repose surtout sur des règles claires et une contribution réelle de chacun",
-          "english": "good family cohabitation rests above all on clear rules and a real contribution from everyone",
-          "example": "Enfin, je pense qu'une bonne cohabitation familiale repose surtout sur des règles claires et une contribution réelle de chacun.",
-          "usage": "\"reposer surtout sur\"; condition thesis."
+          "french": "pour qu'une cohabitation familiale fonctionne bien, il faut des règles claires et une contribution réelle de chacun",
+          "english": "for family cohabitation to work well, clear rules and a real contribution from everyone are needed",
+          "example": "Enfin, pour qu'une cohabitation familiale fonctionne bien, il faut des règles claires et une contribution réelle de chacun.",
+          "usage": "Conditional model with « pour que » + subjunctive, followed by « il faut » and a list of requirements."
         },
         {
           "id": "SVF1-0498",
@@ -4353,10 +4353,10 @@
         {
           "id": "SVF1-0538",
           "kind": "tournure",
-          "french": "je pense que",
-          "english": "I think that",
-          "example": "Enfin, je pense que l'autorité la plus efficace est celle qui est ferme, juste et expliquée.",
-          "usage": "Opinion frame + indicative."
+          "french": "il est essentiel que",
+          "english": "it is essential that",
+          "example": "Enfin, il est essentiel que l'autorité soit ferme, juste et expliquée pour être efficace.",
+          "usage": "Tournure de recommandation forte suivie du subjonctif."
         },
         {
           "id": "SVF1-0539",
@@ -4520,7 +4520,7 @@
           "kind": "mot-cle",
           "french": "bilingues",
           "english": "bilingual",
-          "example": "En effet, les enfants peuvent tout à fait grandir bilingues si chaque langue a sa place : par exemple, la langue maternelle à la maison, et la langue du pays à l'école et avec les amis.",
+          "example": "En effet, pour que les enfants puissent grandir bilingues, chaque langue doit avoir sa place : par exemple, la langue maternelle à la maison, et la langue du pays à l'école et avec les amis.",
           "usage": "Adjective; \"grandir bilingues\"; agrees in number."
         },
         {
@@ -4822,10 +4822,10 @@
         {
           "id": "SVF1-0596",
           "kind": "phrase-modele",
-          "french": "les enfants peuvent tout à fait grandir bilingues si chaque langue a sa place",
-          "english": "children can perfectly well grow up bilingual if each language has its place",
-          "example": "En effet, les enfants peuvent tout à fait grandir bilingues si chaque langue a sa place : par exemple, la langue maternelle à la maison, et la langue du pays à l'école et avec les amis.",
-          "usage": "\"si + présent\"; solution sentence."
+          "french": "pour que les enfants puissent grandir bilingues, chaque langue doit avoir sa place",
+          "english": "for children to grow up bilingual, each language must have its place",
+          "example": "En effet, pour que les enfants puissent grandir bilingues, chaque langue doit avoir sa place : par exemple, la langue maternelle à la maison, et la langue du pays à l'école et avec les amis.",
+          "usage": "Conditional model with « pour que » + subjunctive; the main clause states a practical requirement for bilingualism."
         },
         {
           "id": "SVF1-0597",

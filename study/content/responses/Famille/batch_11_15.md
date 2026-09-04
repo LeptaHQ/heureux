@@ -56,7 +56,7 @@ Cela permet de comprendre que la vie en famille apporte une sécurité affective
 
 **Idée**
 
-Enfin, je pense qu'une bonne cohabitation familiale repose surtout sur des règles claires et une contribution réelle de chacun.
+Enfin, pour qu'une cohabitation familiale fonctionne bien, il faut des règles claires et une contribution réelle de chacun.
 
 **Développement**
 
@@ -76,7 +76,7 @@ Cependant, pour une personne très indépendante, ou dans une famille tendue où
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il est parfois plus facile de vivre seul, mais qu'une vie de famille équilibrée peut offrir des avantages qu'on ne retrouve pas dans la solitude. La vraie question n'est donc pas seulement la forme de vie choisie, mais la qualité de la relation aux autres. Il faut que chacun respecte les besoins des autres pour que la vie commune soit agréable.
+En conclusion, je dirais qu'il est parfois plus facile de vivre seul, mais qu'une vie de famille équilibrée peut offrir des avantages qu'on ne retrouve pas dans la solitude. La vraie question n'est donc pas seulement la forme de vie choisie, mais la qualité de la relation aux autres.
 
 ---
 
@@ -138,7 +138,7 @@ Cela permet de comprendre que la dureté n'est pas une garantie d'éducation ré
 
 **Idée**
 
-Enfin, je pense que l'autorité la plus efficace est celle qui est ferme, juste et expliquée.
+Enfin, il est essentiel que l'autorité soit ferme, juste et expliquée pour être efficace.
 
 **Développement**
 
@@ -158,7 +158,7 @@ Cependant, l'inverse de l'autoritarisme n'est pas la permissivité totale. Un pa
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il faut être ferme avec ses enfants, sans tomber dans l'autoritarisme. Une vraie autorité combine des règles claires, une certaine fermeté et beaucoup de dialogue : c'est elle qui aide vraiment l'enfant à grandir. Il faut que les parents soient fermes et qu'ils dialoguent calmement avec leurs enfants.
+En conclusion, je pense qu'il faut être ferme avec ses enfants, sans tomber dans l'autoritarisme. Une vraie autorité combine des règles claires, une certaine fermeté et beaucoup de dialogue : c'est elle qui aide vraiment l'enfant à grandir.
 
 ---
 
@@ -224,7 +224,7 @@ Enfin, je pense que le meilleur équilibre consiste à valoriser réellement les
 
 **Développement**
 
-En effet, les enfants peuvent tout à fait grandir bilingues si chaque langue a sa place : par exemple, la langue maternelle à la maison, et la langue du pays à l'école et avec les amis. Ce bilinguisme est un atout pour leur cerveau, leur ouverture culturelle et leurs futures opportunités. En revanche, opposer les deux langues oblige l'enfant à choisir et appauvrit son rapport au monde.
+En effet, pour que les enfants puissent grandir bilingues, chaque langue doit avoir sa place : par exemple, la langue maternelle à la maison, et la langue du pays à l'école et avec les amis. Ce bilinguisme est un atout pour leur cerveau, leur ouverture culturelle et leurs futures opportunités. En revanche, opposer les deux langues oblige l'enfant à choisir et appauvrit son rapport au monde.
 
 **Exemple**
 
@@ -240,7 +240,7 @@ Cependant, ce bilinguisme demande de la patience et une vraie régularité, surt
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il vaut mieux parler aux enfants dans la langue familiale tout en leur donnant aussi une vraie maîtrise de la langue du pays. Les deux langues sont utiles et complémentaires, et le vrai cadeau qu'on peut leur faire est précisément le bilinguisme. Il est important que les enfants puissent utiliser les deux langues sans jamais devoir choisir entre elles.
+En conclusion, je dirais qu'il vaut mieux parler aux enfants dans la langue familiale tout en leur donnant aussi une vraie maîtrise de la langue du pays. Les deux langues sont utiles et complémentaires, et le vrai cadeau qu'on peut leur faire est précisément le bilinguisme.
 
 ---
 
@@ -306,7 +306,7 @@ Enfin, je pense qu'une bonne cohabitation repose sur des règles claires et une 
 
 **Développement**
 
-En effet, pour éviter les disputes et les oublis, il vaut mieux répartir clairement les tâches : qui fait les courses, qui s'occupe du ménage, qui prépare les repas. Cette organisation peut être souple, mais elle doit être visible et respectée. À l'opposé, sans règles claires, c'est toujours la même personne qui finit par tout faire.
+En effet, pour éviter les disputes et les oublis, il vaut mieux répartir clairement les tâches : qui fait les courses, qui s'occupe du ménage, qui prépare les repas. Cette organisation peut être souple, à condition qu'elle soit visible et respectée. À l'opposé, sans règles claires, c'est toujours la même personne qui finit par tout faire.
 
 **Exemple**
 
@@ -322,7 +322,7 @@ Cependant, cette participation ne doit pas être identique pour tout le monde. U
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que chacun devrait aider à la maison, même modestement, parce qu'un foyer fonctionne mieux quand les responsabilités sont partagées. Les tâches ménagères ne sont pas un détail : elles touchent à l'équilibre et au respect dans la vie commune. Il faut que chacun fasse sa part pour que le foyer reste juste et agréable.
+En conclusion, je dirais que chacun devrait aider à la maison, même modestement, parce qu'un foyer fonctionne mieux quand les responsabilités sont partagées. Les tâches ménagères ne sont pas un détail : elles touchent à l'équilibre et au respect dans la vie commune.
 
 ---
 

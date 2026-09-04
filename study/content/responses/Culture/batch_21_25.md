@@ -72,11 +72,11 @@ Cela montre que le voyage en solitaire n'est pas synonyme de solitude, mais souv
 
 ### **5. Nuance**
 
-Cependant, il faut reconnaître que voyager seul ne convient pas à tout le monde. Certaines personnes ont vraiment besoin de partager leurs émotions sur le moment, et d'autres se sentiraient mal à l'aise dans certaines situations sans personne à leurs côtés. Voyager seul reste donc un choix très enrichissant, mais qui doit correspondre à la personnalité de chacun.
+Cependant, il se peut que certaines personnes aient davantage besoin de partager leurs émotions et se sentent moins à l'aise seules. Certaines personnes ont vraiment besoin de partager leurs émotions sur le moment, et d'autres se sentiraient mal à l'aise dans certaines situations sans personne à leurs côtés. Voyager seul reste donc un choix très enrichissant, mais qui doit correspondre à la personnalité de chacun.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que voyager seul est une expérience très positive pour ceux qui s'y prêtent, parce qu'elle développe l'autonomie, donne une grande liberté et favorise de vraies rencontres. Ce n'est pas un choix universel, mais c'est une manière de voyager qui apporte beaucoup à ceux qui l'essaient. Il faut que chaque voyageur soit conscient que ce choix ne convient pas à tout le monde.
+En conclusion, je pense que voyager seul est une expérience très positive pour ceux qui s'y prêtent, parce qu'elle développe l'autonomie, donne une grande liberté et favorise de vraies rencontres. Ce n'est pas un choix universel, mais c'est une manière de voyager qui apporte beaucoup à ceux qui l'essaient.
 
 ---
 
@@ -154,11 +154,11 @@ Cela montre que l'on ne peut pas dire qu'une expérience à l'étranger est touj
 
 ### **5. Nuance**
 
-Cependant, il faut reconnaître qu'avec une bonne préparation, une vraie ouverture et un effort d'intégration, une expérience à l'étranger reste très souvent positive sur le long terme. Beaucoup de personnes en gardent un souvenir fort et y voient un tournant important de leur vie. Le mot « toujours » est donc trop fort, mais le bilan reste, dans la plupart des cas, plutôt enrichissant.
+Pour qu'une expérience à l'étranger soit positive sur le long terme, il faut une bonne préparation, une vraie ouverture et un effort d'intégration. Beaucoup de personnes en gardent un souvenir fort et y voient un tournant important de leur vie. Le mot « toujours » est donc trop fort, mais le bilan reste, dans la plupart des cas, plutôt enrichissant.
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'une expérience à l'étranger n'est pas toujours positive, parce qu'elle dépend de la langue, de l'intégration et de la situation personnelle. Elle peut être une vraie chance, mais jamais une réussite automatique : tout repose sur les conditions dans lesquelles elle se vit. Pour que l'expérience soit positive, il faut préparer son départ et créer des liens sur place.
+En conclusion, je pense qu'une expérience à l'étranger n'est pas toujours positive, parce qu'elle dépend de la langue, de l'intégration et de la situation personnelle. Elle peut être une vraie chance, mais jamais une réussite automatique : tout repose sur les conditions dans lesquelles elle se vit.
 
 ---
 
@@ -236,11 +236,11 @@ Cela montre que le courrier traditionnel jouait aussi un rôle de mémoire perso
 
 ### **5. Nuance**
 
-Cependant, il faut reconnaître que les outils numériques répondent à un vrai besoin de rapidité et de facilité. Ils permettent aussi de garder le contact avec des personnes très éloignées, presque tous les jours, ce qui n'était pas possible avant. Ce n'est donc pas tant la communication elle-même qui est en cause, mais une certaine forme d'attention et de durée que l'on a tendance à perdre.
+Bien que les outils numériques répondent à un vrai besoin de rapidité et de facilité, il serait dommage qu'ils fassent totalement disparaître le geste d'écrire à la main. Ils permettent aussi de garder le contact avec des personnes très éloignées, presque tous les jours, ce qui n'était pas possible avant. Ce n'est donc pas tant la communication elle-même qui est en cause, mais une certaine forme d'attention et de durée que l'on a tendance à perdre.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que la disparition du courrier traditionnel est regrettable, parce qu'elle fait perdre une vraie dimension humaine, une qualité d'écriture et une mémoire durable. Les outils numériques sont très utiles, mais ils ne remplacent pas complètement ce que ces lettres apportaient. Il est important que nous puissions encore écrire des lettres pour les occasions importantes.
+En conclusion, je pense que la disparition du courrier traditionnel est regrettable, parce qu'elle fait perdre une vraie dimension humaine, une qualité d'écriture et une mémoire durable. Les outils numériques sont très utiles, mais ils ne remplacent pas complètement ce que ces lettres apportaient.
 
 ---
 
@@ -260,7 +260,7 @@ La vraie question est de savoir si créer des liens avec les habitants est vraim
 
 ### **1. Position claire**
 
-À mon avis, il est presque indispensable de créer des relations avec les habitants pour bien vivre à l'étranger. D'abord, sans ces liens, on finit rapidement par se sentir isolé et coupé de la société d'accueil. Ensuite, ce sont les habitants qui permettent vraiment d'apprendre la langue et de comprendre les codes du pays. Enfin, ces relations ouvrent aussi des opportunités humaines et professionnelles que l'on n'aurait pas autrement.
+À mon avis, pour que l'on vive bien à l'étranger, il faut créer des relations avec les habitants. D'abord, sans ces liens, on finit rapidement par se sentir isolé et coupé de la société d'accueil. Ensuite, ce sont les habitants qui permettent vraiment d'apprendre la langue et de comprendre les codes du pays. Enfin, ces relations ouvrent aussi des opportunités humaines et professionnelles que l'on n'aurait pas autrement.
 
 ### **2. Argument 1 - Sans liens locaux, on finit par se sentir isolé**
 
@@ -322,7 +322,7 @@ Cependant, il ne faut pas dévaloriser la communauté d'origine. Elle aide à su
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il est presque indispensable de créer des relations avec les habitants pour bien vivre à l'étranger, parce qu'elles évitent l'isolement, permettent une vraie intégration et ouvrent de nombreuses opportunités. Vivre dans un pays sans aucun lien local revient, en pratique, à vivre à côté de ce pays plutôt que dedans. Il faut que les nouveaux arrivants puissent créer des liens sincères avec les habitants.
+En conclusion, je pense qu'il est presque indispensable de créer des relations avec les habitants pour bien vivre à l'étranger, parce qu'elles évitent l'isolement, permettent une vraie intégration et ouvrent de nombreuses opportunités. Vivre dans un pays sans aucun lien local revient, en pratique, à vivre à côté de ce pays plutôt que dedans.
 
 ---
 
@@ -400,8 +400,8 @@ Cela montre que les motivations ne relèvent pas toutes du même degré de liber
 
 ### **5. Nuance**
 
-Cependant, il faut reconnaître que ces différentes motivations se mélangent souvent dans une même personne. Quelqu'un peut partir d'abord pour le travail, mais aussi pour vivre une expérience, apprendre une langue et donner un avenir meilleur à sa famille. Il est donc rarement possible de réduire un projet à une seule raison.
+Il faut reconnaître que ces motivations se mélangent souvent ; il est donc rare qu'une seule raison suffise à expliquer un départ. Quelqu'un peut partir d'abord pour le travail, mais aussi pour vivre une expérience, apprendre une langue et donner un avenir meilleur à sa famille. Il est donc rarement possible de réduire un projet à une seule raison.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les motivations pour vivre à l'étranger sont très diverses, mais qu'elles tournent surtout autour du travail, du développement personnel et de la recherche d'un meilleur avenir. Derrière chaque parcours, il y a presque toujours plusieurs raisons mêlées, plus ou moins choisies selon les situations. Il est important que chaque projet d'expatriation corresponde aux besoins réels de la personne.
+En conclusion, je pense que les motivations pour vivre à l'étranger sont très diverses, mais qu'elles tournent surtout autour du travail, du développement personnel et de la recherche d'un meilleur avenir. Derrière chaque parcours, il y a presque toujours plusieurs raisons mêlées, plus ou moins choisies selon les situations.

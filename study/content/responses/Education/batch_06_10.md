@@ -72,11 +72,11 @@ Cela montre qu'Internet ne sert pas seulement à donner de l'aide, mais aussi à
 
 ### **5. Nuance**
 
-Cependant, Internet a aussi ses limites. Il peut diffuser de fausses informations, créer de la panique ou laisser place à des arnaques aux dons. La solidarité en ligne ne remplace pas non plus l'aide concrète sur le terrain, qui reste indispensable.
+Cependant, Internet a aussi ses limites. Il faut que chacun vérifie les contenus pour éviter de diffuser de fausses informations, de créer de la panique ou de laisser place à des arnaques aux dons. La solidarité en ligne ne remplace pas non plus l'aide concrète sur le terrain, qui reste indispensable.
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'Internet joue un rôle très utile en matière de solidarité, en particulier pour informer, organiser l'aide et donner la parole aux victimes. Il complète l'action de terrain, mais ne peut pas la remplacer. Il est essentiel que les informations soient vérifiées pour que l'aide atteigne rapidement les bonnes personnes.
+En conclusion, je pense qu'Internet joue un rôle très utile en matière de solidarité, en particulier pour informer, organiser l'aide et donner la parole aux victimes. Il complète l'action de terrain, mais ne peut pas la remplacer.
 
 ---
 
@@ -154,11 +154,11 @@ Cela montre que les études ne sont pas seulement utiles pour les jeunes : elles
 
 ### **5. Nuance**
 
-Cependant, il faut reconnaître que la manière d'étudier change avec l'âge. Avec un travail, une famille ou des responsabilités, il est plus difficile de s'organiser et de trouver du temps. Mais cela ne signifie pas qu'on ne peut plus étudier : cela signifie qu'on étudie autrement.
+Cependant, il faut reconnaître que la manière d'étudier change avec l'âge. Avec un travail, une famille ou des responsabilités, il est important que chacun adapte son organisation et son rythme d'études. Mais cela ne signifie pas qu'on ne peut plus étudier : cela signifie qu'on étudie autrement.
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il n'y a pas d'âge pour faire des études, parce que le cerveau reste capable, l'expérience aide et les bénéfices sont réels. Étudier est une activité qui peut accompagner toute la vie, à condition d'adapter son organisation à son âge. Il est important que chacun puisse reprendre des études selon son rythme et ses responsabilités.
+En conclusion, je pense qu'il n'y a pas d'âge pour faire des études, parce que le cerveau reste capable, l'expérience aide et les bénéfices sont réels. Étudier est une activité qui peut accompagner toute la vie, à condition d'adapter son organisation à son âge.
 
 ---
 
@@ -236,11 +236,11 @@ Cela enrichit la vie intérieure et donne accès à des émotions, des idées et
 
 ### **5. Nuance**
 
-Cependant, le livre n'est pas la seule manière de s'informer ou de se cultiver. Les documentaires, les podcasts et les conférences en ligne peuvent aussi être de grande qualité. L'idéal est de combiner ces différentes ressources, plutôt que d'opposer le livre au numérique.
+Bien que le livre soit un outil essentiel, il n'est pas la seule manière de s'informer ou de se cultiver. Les documentaires, les podcasts et les conférences en ligne peuvent aussi être de grande qualité. L'idéal est de combiner ces différentes ressources, plutôt que d'opposer le livre au numérique.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que le livre est loin d'être inutile, parce qu'il développe la réflexion, transmet des connaissances solides et nourrit la sensibilité. Plutôt que de l'opposer au numérique, il faut le voir comme un outil complémentaire, indispensable à une vraie culture personnelle. Il est essentiel que le livre conserve sa place aux côtés des outils numériques.
+En conclusion, je pense que le livre est loin d'être inutile, parce qu'il développe la réflexion, transmet des connaissances solides et nourrit la sensibilité. Plutôt que de l'opposer au numérique, il faut le voir comme un outil complémentaire, indispensable à une vraie culture personnelle.
 
 ---
 
@@ -318,11 +318,11 @@ Cela montre qu'apprendre n'est pas seulement utile pour le travail : c'est aussi
 
 ### **5. Nuance**
 
-Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge. Certaines choses sont plus difficiles à acquérir tard, comme une parfaite prononciation dans une nouvelle langue ou des gestes techniques très précis. Mais cela ne signifie pas qu'on ne peut plus apprendre : cela signifie qu'on apprend différemment.
+Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge, bien qu'aucune méthode ne convienne à tout le monde. Certaines choses sont plus difficiles à acquérir tard, comme une parfaite prononciation dans une nouvelle langue ou des gestes techniques très précis. Mais cela ne signifie pas qu'on ne peut plus apprendre : cela signifie qu'on apprend différemment.
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il n'est jamais trop tard pour apprendre, parce que le cerveau reste capable, l'expérience aide et les bénéfices sont réels. Apprendre est une activité qui peut accompagner toute la vie, à condition d'adapter ses méthodes à son âge. Il faut que les adultes trouvent des méthodes adaptées à leur rythme et à leurs objectifs.
+En conclusion, je pense qu'il n'est jamais trop tard pour apprendre, parce que le cerveau reste capable, l'expérience aide et les bénéfices sont réels. Apprendre est une activité qui peut accompagner toute la vie, à condition d'adapter ses méthodes à son âge.
 
 ---
 

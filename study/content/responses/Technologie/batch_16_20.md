@@ -76,7 +76,7 @@ Cependant, un téléphone simple peut être utile pour des raisons pratiques ou 
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il faut surtout retarder, limiter et encadrer l'usage du téléphone portable chez les enfants, plutôt que choisir une solution totalement extrême. L'éducation aux écrans est plus efficace qu'une simple interdiction.
+En conclusion, je dirais qu'il faut surtout retarder, limiter et encadrer l'usage du téléphone portable chez les enfants, plutôt que choisir une solution totalement extrême. L'éducation aux écrans est plus efficace qu'une simple interdiction. Il faut que les parents sachent adapter les règles à l'âge de chaque enfant.
 
 ---
 
@@ -158,7 +158,7 @@ Cependant, il faut reconnaître que la recherche spatiale a parfois donné lieu 
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les voyages dans l'espace coûtent trop cher, profitent à trop peu de gens et pèsent lourd sur l'environnement. Tant que des besoins urgents restent mal couverts, ce type de dépense devrait passer après des projets plus utiles au plus grand nombre.
+En conclusion, je pense que les voyages dans l'espace coûtent trop cher, profitent à trop peu de gens et pèsent lourd sur l'environnement. Tant que des besoins urgents restent mal couverts, ce type de dépense devrait passer après des projets plus utiles au plus grand nombre. Il est essentiel que la recherche spatiale profite au plus grand nombre, plutôt qu'à une poignée de touristes fortunés.
 
 ---
 
@@ -240,7 +240,7 @@ Cependant, tout dépend du type de produit, des habitudes de la personne et du n
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'on peut acheter beaucoup de choses sur Internet, mais que certains achats restent plus rassurants et plus pertinents en magasin. Le bon équilibre dépend du produit et des préférences de chacun.
+En conclusion, je dirais qu'on peut acheter beaucoup de choses sur Internet, mais que certains achats restent plus rassurants et plus pertinents en magasin. Le bon équilibre dépend du produit et des préférences de chacun. Il faut que les consommateurs puissent encore essayer certains produits avant de les acheter.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, un usage excessif ou des jeux inadaptés peuvent au contraire créer 
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les jeux vidéo peuvent participer au développement de l'enfant, à condition d'être bien choisis, limités et accompagnés par les adultes. Ce ne sont ni un mal absolu, ni une solution éducative en soi.
+En conclusion, je dirais que les jeux vidéo peuvent participer au développement de l'enfant, à condition d'être bien choisis, limités et accompagnés par les adultes. Ce ne sont ni un mal absolu, ni une solution éducative en soi. Il faut que les parents sachent choisir des jeux adaptés et limiter le temps d'écran.
 
 ---
 

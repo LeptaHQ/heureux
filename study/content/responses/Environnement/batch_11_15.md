@@ -76,7 +76,7 @@ Cependant, il faut reconnaître que la lutte contre la pollution est un sujet di
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les mesures prises dans mon pays contre la pollution vont dans le bon sens, mais qu'elles restent insuffisantes. Il faudrait plus de cohérence, plus de moyens de contrôle et une vision plus claire sur le long terme.
+En conclusion, je dirais que les mesures prises dans mon pays contre la pollution vont dans le bon sens, mais qu'elles restent insuffisantes. Il faudrait plus de cohérence, plus de moyens de contrôle et une vision plus claire sur le long terme. Il est essentiel que l'État renforce les contrôles pour que les mesures produisent des résultats durables.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, cela n'est pas possible si l'on continue à viser une croissance rapi
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il est possible de développer l'économie tout en préservant l'environnement, mais à condition de changer le modèle. Cela suppose des secteurs plus propres, des politiques publiques fortes et des habitudes de consommation plus responsables.
+En conclusion, je dirais qu'il est possible de développer l'économie tout en préservant l'environnement, mais à condition de changer le modèle. Cela suppose des secteurs plus propres, des politiques publiques fortes et des habitudes de consommation plus responsables. Il faut que les pouvoirs publics soutiennent une économie plus propre pour que la croissance respecte l'environnement.
 
 ---
 

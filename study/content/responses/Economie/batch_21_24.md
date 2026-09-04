@@ -240,7 +240,7 @@ Cependant, il faut reconnaître que les associations et les ONG jouent un rôle 
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les associations et les ONG sont précieuses, mais qu'elles ne peuvent pas porter seules la lutte contre la pauvreté. Cette mission demande l'action coordonnée de l'État, des entreprises, des citoyens et du tissu associatif.
+En conclusion, je dirais que les associations et les ONG sont précieuses, mais qu'elles ne peuvent pas porter seules la lutte contre la pauvreté. Cette mission demande l'action coordonnée de l'État, des entreprises, des citoyens et du tissu associatif. Il faut que ces acteurs travaillent ensemble pour que l'aide soit vraiment durable.
 
 ---
 

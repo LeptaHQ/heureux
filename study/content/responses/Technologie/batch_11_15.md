@@ -76,7 +76,7 @@ Cependant, il faut reconnaître que se passer totalement de téléphone reste un
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'on peut encore vivre sans téléphone, mais que cela demande beaucoup d'organisation et reste peu réaliste pour une grande partie de la population. L'enjeu est de savoir dans quels contextes on peut réellement s'en passer, et non simplement de réduire son usage.
+En conclusion, je dirais qu'on peut encore vivre sans téléphone, mais que cela demande beaucoup d'organisation et reste peu réaliste pour une grande partie de la population. L'enjeu est de savoir dans quels contextes on peut réellement s'en passer, et non simplement de réduire son usage. Il faut que les services essentiels puissent rester accessibles aux personnes sans téléphone.
 
 ---
 
@@ -158,7 +158,7 @@ Cependant, pour les échanges urgents ou pratiques, la communication numérique 
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les lettres écrites à la main ne sont plus un moyen courant de communication, mais qu'elles restent précieuses quand on veut transmettre quelque chose de plus personnel. Elles ont changé de fonction, mais n'ont pas totalement disparu.
+En conclusion, je dirais que les lettres écrites à la main ne sont plus un moyen courant de communication, mais qu'elles restent précieuses quand on veut transmettre quelque chose de plus personnel. Elles ont changé de fonction, mais n'ont pas totalement disparu. Il faut que nous continuions à écrire des lettres pour les messages les plus personnels.
 
 ---
 
@@ -240,7 +240,7 @@ Cependant, le téléphone facilite la communication, mais il ne garantit pas pou
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que oui, les téléphones portables facilitent la communication, parce qu'ils rendent les échanges plus rapides et plus simples, tout en nous obligeant à rester attentifs à la qualité de nos relations. La technologie aide, mais ne remplace pas l'écoute.
+En conclusion, je dirais que oui, les téléphones portables facilitent la communication, parce qu'ils rendent les échanges plus rapides et plus simples, tout en nous obligeant à rester attentifs à la qualité de nos relations. La technologie aide, mais ne remplace pas l'écoute. Il faut que chacun sache aussi écouter, même quand le téléphone facilite les échanges.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, ces bénéfices supposent un usage mesuré et un contenu adapté : tr
 
 ### **6. Conclusion**
 
-En conclusion, je pense que la télévision peut contribuer au développement de l'enfant, mais seulement si elle est utilisée avec mesure et accompagnée par les parents. Mal encadrée, elle peut au contraire nuire à son équilibre.
+En conclusion, je pense que la télévision peut contribuer au développement de l'enfant, mais seulement si elle est utilisée avec mesure et accompagnée par les parents. Mal encadrée, elle peut au contraire nuire à son équilibre. Il faut que les parents choisissent les programmes et limitent le temps d'écran.
 
 ---
 

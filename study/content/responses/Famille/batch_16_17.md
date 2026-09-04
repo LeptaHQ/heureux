@@ -158,6 +158,6 @@ Cependant, tout dire immédiatement et sans filtre n'est pas non plus une bonne 
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il faut dire la vérité aux enfants, mais avec des mots adaptés et au bon moment. Cette honnêteté, exprimée avec délicatesse, protège à la fois la confiance et l'équilibre de l'enfant.
+En conclusion, je pense qu'il faut dire la vérité aux enfants, mais avec des mots adaptés et au bon moment. Cette honnêteté, exprimée avec délicatesse, protège à la fois la confiance et l'équilibre de l'enfant. Il faut que les parents répondent simplement aux questions de l'enfant, sans lui donner des détails inadaptés.
 
 ---

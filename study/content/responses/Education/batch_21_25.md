@@ -76,7 +76,7 @@ Cependant, les notes ne font pas tout : beaucoup de personnes réussissent très
 
 ### **6. Conclusion**
 
-En conclusion, je pense que de bonnes notes peuvent contribuer à la réussite dans la vie, surtout au début du parcours, mais qu'elles ne sont ni indispensables ni suffisantes. Ce qui compte vraiment, c'est la combinaison entre le travail scolaire, la motivation et les qualités humaines.
+En conclusion, je pense que de bonnes notes peuvent contribuer à la réussite dans la vie, surtout au début du parcours, mais qu'elles ne sont ni indispensables ni suffisantes. Ce qui compte vraiment, c'est la combinaison entre le travail scolaire, la motivation et les qualités humaines. Il est important que les élèves puissent développer leurs qualités humaines sans être jugés uniquement sur leurs notes.
 
 ---
 
@@ -158,7 +158,7 @@ Cependant, Internet a vraiment changé la donne pour certaines compétences plus
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'Internet permet d'apprendre énormément de choses seul, mais pas tout. La réussite dépend à la fois des ressources disponibles, de la discipline personnelle et de la nature même des compétences visées.
+En conclusion, je pense qu'Internet permet d'apprendre énormément de choses seul, mais pas tout. La réussite dépend à la fois des ressources disponibles, de la discipline personnelle et de la nature même des compétences visées. Il faut que les apprenants sachent vérifier les sources et demander de l'aide quand une notion reste difficile.
 
 ---
 
@@ -240,7 +240,7 @@ Cependant, ces sorties ne sont vraiment bénéfiques que si elles sont bien pré
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les sorties pédagogiques sont vraiment bénéfiques pour les enfants, parce qu'elles rendent les apprentissages concrets, éveillent la curiosité et renforcent la vie collective. Elles sont un complément précieux à l'enseignement en classe.
+En conclusion, je pense que les sorties pédagogiques sont vraiment bénéfiques pour les enfants, parce qu'elles rendent les apprentissages concrets, éveillent la curiosité et renforcent la vie collective. Elles sont un complément précieux à l'enseignement en classe. Il est essentiel que chaque sortie soit préparée pour que les enfants en tirent un véritable apprentissage.
 
 ---
 
@@ -403,7 +403,7 @@ Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge. 
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il n'est jamais trop tard pour apprendre, parce que le cerveau reste capable, l'expérience aide et les bénéfices sont réels. Apprendre est une activité qui peut accompagner toute la vie, à condition d'adapter ses méthodes à son âge.
+En conclusion, je pense qu'il n'est jamais trop tard pour apprendre, parce que le cerveau reste capable, l'expérience aide et les bénéfices sont réels. Apprendre est une activité qui peut accompagner toute la vie, à condition d'adapter ses méthodes à son âge. Il faut que les adultes trouvent des méthodes adaptées à leur rythme et à leurs objectifs.
 
 ---
 

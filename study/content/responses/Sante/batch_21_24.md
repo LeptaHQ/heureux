@@ -76,7 +76,7 @@ Cependant, certaines personnes transforment mieux le stress en motivation que d'
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que le stress peut être stimulant à petite dose et dans des moments précis, mais qu'il devient rapidement nocif dès qu'il s'installe. Le but n'est pas de le supprimer totalement, mais d'apprendre à le maîtriser.
+En conclusion, je dirais que le stress peut être stimulant à petite dose et dans des moments précis, mais qu'il devient rapidement nocif dès qu'il s'installe. Le but n'est pas de le supprimer totalement, mais d'apprendre à le maîtriser. Il faut que chacun apprenne à reconnaître ses limites pour que le stress reste maîtrisable.
 
 ---
 
@@ -158,7 +158,7 @@ Cependant, un manque d'argent important peut malgré tout rendre le bonheur plus
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'un bon salaire est utile, mais qu'il ne suffit pas pour être heureux. Le bonheur repose sur un équilibre beaucoup plus large, où l'argent n'est qu'un élément parmi d'autres.
+En conclusion, je dirais qu'un bon salaire est utile, mais qu'il ne suffit pas pour être heureux. Le bonheur repose sur un équilibre beaucoup plus large, où l'argent n'est qu'un élément parmi d'autres. Il est important que chacun préserve sa santé et ses relations, même avec un bon salaire.
 
 ---
 
@@ -322,6 +322,6 @@ Cependant, il ne s'agit pas de juger les personnes qui font ce choix. Une interv
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'on peut comprendre certains recours à la chirurgie esthétique, mais qu'il faut rester vigilant face à la pression sociale qui pousse à refuser le vieillissement. C'est moins le geste individuel que la norme collective qui est inquiétante.
+En conclusion, je dirais qu'on peut comprendre certains recours à la chirurgie esthétique, mais qu'il faut rester vigilant face à la pression sociale qui pousse à refuser le vieillissement. C'est moins le geste individuel que la norme collective qui est inquiétante. Il faut que chacun puisse vieillir sans subir une pression excessive sur son apparence.
 
 ---

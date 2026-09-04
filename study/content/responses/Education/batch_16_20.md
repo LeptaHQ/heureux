@@ -240,7 +240,7 @@ Cependant, il est évident que l'école ne peut pas remplir toutes ces missions 
 
 ### **6. Conclusion**
 
-En conclusion, je pense que la priorité de l'école va bien au-delà du seul programme scolaire. Elle doit aussi apprendre à vivre ensemble, développer l'esprit critique et préparer à la vie d'adulte.
+En conclusion, je pense que la priorité de l'école va bien au-delà du seul programme scolaire. Elle doit aussi apprendre à vivre ensemble, développer l'esprit critique et préparer à la vie d'adulte. Il faut que les programmes gardent une place pour l'esprit critique et la vie collective.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, ces bénéfices supposent un usage mesuré et un contenu adapté : tr
 
 ### **6. Conclusion**
 
-En conclusion, je pense que la télévision peut contribuer au développement de l'enfant, mais seulement si elle est utilisée avec mesure et accompagnée par les parents. Mal encadrée, elle peut au contraire nuire à son équilibre.
+En conclusion, je pense que la télévision peut contribuer au développement de l'enfant, mais seulement si elle est utilisée avec mesure et accompagnée par les parents. Mal encadrée, elle peut au contraire nuire à son équilibre. Il faut que les parents choisissent les programmes et limitent le temps d'écran.
 
 ---
 
@@ -404,6 +404,6 @@ Cependant, accessibilité ne veut pas dire que l'université convient à tout le
 
 ### **6. Conclusion**
 
-En conclusion, je pense que l'université devrait rester accessible à tout le monde, parce qu'elle joue un rôle clé pour l'égalité des chances et pour la société. Mais cela doit aller de pair avec d'autres voies de réussite, tout aussi respectées.
+En conclusion, je pense que l'université devrait rester accessible à tout le monde, parce qu'elle joue un rôle clé pour l'égalité des chances et pour la société. Mais cela doit aller de pair avec d'autres voies de réussite, tout aussi respectées. Il faut que chacun puisse accéder à l'université, quelle que soit son origine sociale.
 
 ---

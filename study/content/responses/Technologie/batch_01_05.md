@@ -76,7 +76,7 @@ Cependant, ces outils peuvent aussi donner une fausse impression d'amitiés nomb
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les réseaux sociaux rendent les rencontres plus faciles au départ, mais qu'ils ne remplacent pas le temps, la confiance et la présence nécessaires pour créer de vrais amis. Ils sont une porte d'entrée, pas une amitié à part entière.
+En conclusion, je dirais que les réseaux sociaux rendent les rencontres plus faciles au départ, mais qu'ils ne remplacent pas le temps, la confiance et la présence nécessaires pour créer de vrais amis. Ils sont une porte d'entrée, pas une amitié à part entière. Il est important que les échanges en ligne puissent mener à de vraies rencontres.
 
 ---
 
@@ -158,7 +158,7 @@ Cependant, vivre avec moins de téléphone reste possible si l'on accepte certai
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il n'est pas facile de se passer complètement de son téléphone portable aujourd'hui, même si l'on peut apprendre à en dépendre beaucoup moins. L'enjeu n'est pas de le supprimer, mais de retrouver un usage plus maîtrisé.
+En conclusion, je dirais qu'il n'est pas facile de se passer complètement de son téléphone portable aujourd'hui, même si l'on peut apprendre à en dépendre beaucoup moins. L'enjeu n'est pas de le supprimer, mais de retrouver un usage plus maîtrisé. Il faut que chacun puisse aussi gérer certaines tâches sans téléphone.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, Internet peut aussi aider à garder le contact ou à rompre l'isoleme
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'Internet ne rend pas automatiquement les gens solitaires. Tout dépend surtout de la manière dont on l'utilise et de la place que l'on laisse aux relations réelles. Le problème, ce n'est pas Internet, c'est l'usage qu'on en fait.
+En conclusion, je dirais qu'Internet ne rend pas automatiquement les gens solitaires. Tout dépend surtout de la manière dont on l'utilise et de la place que l'on laisse aux relations réelles. Le problème, ce n'est pas Internet, c'est l'usage qu'on en fait. Il faut que chacun garde du temps pour des rencontres et des activités hors ligne.
 
 ---
 

@@ -76,7 +76,7 @@ Cependant, une interdiction totale n'est pas non plus la meilleure réponse. À 
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les parents ne doivent pas laisser leurs enfants utiliser les réseaux sociaux sans encadrement. L'enjeu n'est pas tant l'accès lui-même que la qualité de l'accompagnement parental autour de cet usage.
+En conclusion, je pense que les parents ne doivent pas laisser leurs enfants utiliser les réseaux sociaux sans encadrement. L'enjeu n'est pas tant l'accès lui-même que la qualité de l'accompagnement parental autour de cet usage. Il faut que les parents encadrent cet usage pour que leurs enfants restent en sécurité.
 
 ---
 
@@ -240,7 +240,7 @@ Cependant, cela ne veut pas dire que les conseils des personnes âgées seraient
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que les personnes âgées donnent souvent de bons conseils, mais pas toujours. Il faut écouter leur expérience avec respect, tout en gardant en tête que chaque époque a aussi ses propres réalités à comprendre par soi-même.
+En conclusion, je dirais que les personnes âgées donnent souvent de bons conseils, mais pas toujours. Il faut écouter leur expérience avec respect, tout en gardant en tête que chaque époque a aussi ses propres réalités à comprendre par soi-même. Il est important que chacun sache écouter les aînés tout en gardant son esprit critique.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, tout dire immédiatement et sans filtre n'est pas non plus une bonne 
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il faut dire la vérité aux enfants, mais avec des mots adaptés et au bon moment. Cette honnêteté, exprimée avec délicatesse, protège à la fois la confiance et l'équilibre de l'enfant.
+En conclusion, je pense qu'il faut dire la vérité aux enfants, mais avec des mots adaptés et au bon moment. Cette honnêteté, exprimée avec délicatesse, protège à la fois la confiance et l'équilibre de l'enfant. Il faut que les parents répondent simplement aux questions de l'enfant, sans lui donner des détails inadaptés.
 
 ---
 
@@ -404,6 +404,6 @@ Cependant, vivre loin de sa famille peut mieux se passer quand on a un projet so
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'on peut vivre loin de sa famille et bien s'en sortir, mais que ce n'est pas vraiment facile, surtout quand on a besoin de soutien ou de présence affective. La distance se gère, elle ne s'oublie pas.
+En conclusion, je dirais qu'on peut vivre loin de sa famille et bien s'en sortir, mais que ce n'est pas vraiment facile, surtout quand on a besoin de soutien ou de présence affective. La distance se gère, elle ne s'oublie pas. Il est essentiel que chacun puisse maintenir des liens réguliers malgré la distance.
 
 ---

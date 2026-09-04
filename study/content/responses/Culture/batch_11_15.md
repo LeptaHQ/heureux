@@ -162,7 +162,7 @@ Cependant, il faut reconnaître qu'une grande partie des programmes télévisés
 
 ### **6. Conclusion**
 
-En conclusion, je pense que le temps passé devant la télévision n'est pas du temps perdu en soi, parce qu'elle peut informer, créer du lien et faire découvrir des œuvres importantes. Tout dépend de ce que l'on regarde, du temps qu'on y consacre et du regard critique que l'on garde.
+En conclusion, je pense que le temps passé devant la télévision n'est pas du temps perdu en soi, parce qu'elle peut informer, créer du lien et faire découvrir des œuvres importantes. Tout dépend de ce que l'on regarde, du temps qu'on y consacre et du regard critique que l'on garde. Il faut que chacun choisisse ses programmes et limite le temps passé devant l'écran.
 
 ---
 
@@ -244,7 +244,7 @@ Cependant, il est vrai que l'école doit d'abord assurer les apprentissages fond
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les matières culturelles doivent absolument rester à l'école, parce qu'elles développent l'expression et l'esprit critique, ouvrent à d'autres cultures et peuvent révéler de vrais talents. Loin d'être une perte de temps, elles font partie d'une éducation complète.
+En conclusion, je pense que les matières culturelles doivent absolument rester à l'école, parce qu'elles développent l'expression et l'esprit critique, ouvrent à d'autres cultures et peuvent révéler de vrais talents. Loin d'être une perte de temps, elles font partie d'une éducation complète. Il faut que les écoles accordent assez de temps à ces matières dans leurs programmes.
 
 ---
 
@@ -326,7 +326,7 @@ Cependant, sans voyage, la connaissance d'une culture reste en partie théorique
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'on peut vraiment connaître les autres cultures sans voyager, grâce aux livres, aux médias et aux rencontres, y compris à distance. Le voyage apporte une dimension directe que rien ne remplace totalement, mais il n'est pas la seule porte d'entrée vers les autres cultures.
+En conclusion, je pense qu'on peut vraiment connaître les autres cultures sans voyager, grâce aux livres, aux médias et aux rencontres, y compris à distance. Le voyage apporte une dimension directe que rien ne remplace totalement, mais il n'est pas la seule porte d'entrée vers les autres cultures. Pour que cette découverte soit profonde, il faut multiplier les lectures, les échanges et les rencontres.
 
 ---
 
@@ -408,4 +408,4 @@ Cependant, il faut reconnaître que la cuisine ne donne pas accès à toute la c
 
 ### **6. Conclusion**
 
-En conclusion, je pense que la cuisine permet réellement de connaître une partie importante de la culture d'un pays, parce qu'elle révèle ses habitudes, son histoire et sa manière de vivre. Elle ne suffit pas à elle seule, mais elle reste l'une des entrées les plus vivantes et les plus concrètes dans une culture.
+En conclusion, je pense que la cuisine permet réellement de connaître une partie importante de la culture d'un pays, parce qu'elle révèle ses habitudes, son histoire et sa manière de vivre. Elle ne suffit pas à elle seule, mais elle reste l'une des entrées les plus vivantes et les plus concrètes dans une culture. Pour que cette découverte soit complète, il faut aussi échanger avec les habitants.

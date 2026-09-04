@@ -158,7 +158,7 @@ Cependant, cette utilité n'existe que si les conditions de vie des animaux sont
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les parcs zoologiques peuvent encore avoir une vraie utilité, à la fois pédagogique, scientifique et sociale, mais seulement s'ils respectent réellement les animaux qu'ils accueillent.
+En conclusion, je pense que les parcs zoologiques peuvent encore avoir une vraie utilité, à la fois pédagogique, scientifique et sociale, mais seulement s'ils respectent réellement les animaux qu'ils accueillent. Il est essentiel que chaque zoo garantisse des conditions de vie dignes à tous ses animaux.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, il faut être très ferme avec les structures qui n'évoluent pas. Un
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il ne faut pas fermer tous les zoos, mais imposer des règles strictes et fermer ceux qui ne les respectent pas. C'est cette voie qui me semble la plus juste, à la fois pour les animaux et pour le public.
+En conclusion, je pense qu'il ne faut pas fermer tous les zoos, mais imposer des règles strictes et fermer ceux qui ne les respectent pas. C'est cette voie qui me semble la plus juste, à la fois pour les animaux et pour le public. Il faut que chaque zoo fasse du bien-être animal sa priorité.
 
 ---
 

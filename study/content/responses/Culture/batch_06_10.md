@@ -78,7 +78,7 @@ Cependant, le livre n'est pas la seule manière de s'informer ou de se cultiver.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que le livre est loin d'être inutile, parce qu'il développe la réflexion, transmet des connaissances solides et nourrit la sensibilité. Plutôt que de l'opposer au numérique, il faut le voir comme un outil complémentaire, indispensable à une vraie culture personnelle.
+En conclusion, je pense que le livre est loin d'être inutile, parce qu'il développe la réflexion, transmet des connaissances solides et nourrit la sensibilité. Plutôt que de l'opposer au numérique, il faut le voir comme un outil complémentaire, indispensable à une vraie culture personnelle. Il est essentiel que le livre conserve sa place aux côtés des outils numériques.
 
 ---
 
@@ -160,7 +160,7 @@ Cependant, c'est vrai que les métiers artistiques restent souvent plus précair
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les métiers artistiques sont des métiers parfaitement sérieux, parce qu'ils demandent une vraie discipline, une longue formation et reposent sur une vraie organisation professionnelle. Leur précarité est un vrai problème, mais cela ne change rien à la valeur du travail accompli.
+En conclusion, je pense que les métiers artistiques sont des métiers parfaitement sérieux, parce qu'ils demandent une vraie discipline, une longue formation et reposent sur une vraie organisation professionnelle. Leur précarité est un vrai problème, mais cela ne change rien à la valeur du travail accompli. Il faut que la société reconnaisse le travail et les compétences qu'exigent les métiers artistiques.
 
 ---
 

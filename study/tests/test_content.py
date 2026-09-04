@@ -15,6 +15,27 @@ from django.test import SimpleTestCase
 from study import content_loader as content
 
 
+# Keep the corpus check limited to constructions audited as subjunctive.
+CLEAR_SUBJUNCTIVE_MARKER = re.compile(
+    r"(?:"
+    r"\b(?:à condition|avant|pour|sans) qu(?:e\b|['’])"
+    r"|\bil faut qu(?:e\b|['’])"
+    r"|\bil (?:est|semble) "
+    r"(?:important|essentiel|logique|rare) qu(?:e\b|['’])"
+    r"|\b(?:le plus important|le risque) est qu(?:e\b|['’])"
+    r"|\b(?:accepter|garantissent pas) qu(?:e\b|['’])"
+    r"|\bje ne pense pas qu(?:e\b|['’])"
+    r"|\bje comprends que certaines personnes aient\b"
+    r"|\bcomprendre que certaines personnes veuillent\b"
+    r"|\bqu(?:el|elle|els|elles) qu(?:e\b|['’])"
+    r"|\bqui que ce soit\b"
+    r"|\bqu['’]il (?:s['’]agisse|soit motivé)"
+    r"|\bun (?:système qui prenne|revenu qui permette)"
+    r")",
+    re.IGNORECASE,
+)
+
+
 class AppCopyTests(SimpleTestCase):
     def test_user_facing_sources_omit_exam_brand_acronyms(self):
         project_root = Path(__file__).resolve().parents[2]
@@ -81,6 +102,15 @@ class PhraseParserTests(SimpleTestCase):
         }
         row.update(overrides)
         return row
+
+    def test_every_response_uses_a_clear_subjunctive_construction(self):
+        missing = [
+            response.content_key
+            for response in self.responses
+            if not CLEAR_SUBJUNCTIVE_MARKER.search(response.body)
+        ]
+
+        self.assertEqual(missing, [])
 
     def parse_rows(self, rows):
         with tempfile.TemporaryDirectory() as directory:

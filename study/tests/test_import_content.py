@@ -22,6 +22,7 @@ from study.models import (
     CardType,
     ContentImportState,
     Phrase,
+    PersonalResponse,
     Prompt,
     Rating,
     Response,
@@ -233,7 +234,7 @@ class NonDestructiveImportTests(TestCase):
             ],
         )
 
-    def test_response_text_edit_preserves_card_and_review_history(self):
+    def test_response_text_edit_preserves_private_learning_state(self):
         user = factories.make_user("import-user")
         card = factories.make_spine_card(user=user)
         srs.review(card, Rating.GOOD)
@@ -241,6 +242,32 @@ class NonDestructiveImportTests(TestCase):
         response_id = response.pk
         card_id = card.pk
         log_id = ReviewLog.objects.get().pk
+        personal = PersonalResponse.objects.create(
+            user=user,
+            response=response,
+            conclusion="Ma conclusion personnelle.",
+        )
+        source_key = f"response:{response.content_key}:back"
+        note = Annotation.objects.create(
+            user=user,
+            task=response.theme.task,
+            kind=AnnotationKind.NOTE,
+            body="Ma note reste attachée.",
+            source_path="/expression/orale/tache-3/",
+            source_key=source_key,
+        )
+        highlight = Annotation.objects.create(
+            user=user,
+            task=response.theme.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="Passage déjà appris.",
+            source_path="/expression/orale/tache-3/",
+            source_key=source_key,
+            start_offset=20,
+            end_offset=40,
+            prefix="Avant ",
+            suffix=" après.",
+        )
         data = self._response_data(response)
 
         imported = Command()._import_responses(
@@ -256,6 +283,30 @@ class NonDestructiveImportTests(TestCase):
         self.assertEqual(card.pk, card_id)
         self.assertEqual(card.reps, 1)
         self.assertTrue(ReviewLog.objects.filter(pk=log_id, card=card).exists())
+        self.assertTrue(
+            PersonalResponse.objects.filter(
+                pk=personal.pk,
+                response_id=response_id,
+            ).exists()
+        )
+        self.assertTrue(
+            Annotation.objects.filter(
+                pk=note.pk,
+                source_key=source_key,
+                body="Ma note reste attachée.",
+            ).exists()
+        )
+        self.assertTrue(
+            Annotation.objects.filter(
+                pk=highlight.pk,
+                source_key=source_key,
+                quote="Passage déjà appris.",
+                start_offset=20,
+                end_offset=40,
+                prefix="Avant ",
+                suffix=" après.",
+            ).exists()
+        )
 
     def test_unchanged_response_skips_response_and_argument_updates(self):
         response = factories.make_response()

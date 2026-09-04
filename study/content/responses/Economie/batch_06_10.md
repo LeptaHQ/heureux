@@ -158,7 +158,7 @@ Cependant, cela n'est pas possible si l'on continue à viser une croissance rapi
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il est possible de développer l'économie tout en préservant l'environnement, mais à condition de changer le modèle. Cela suppose des secteurs plus propres, des politiques publiques fortes et des habitudes de consommation plus responsables.
+En conclusion, je dirais qu'il est possible de développer l'économie tout en préservant l'environnement, mais à condition de changer le modèle. Cela suppose des secteurs plus propres, des politiques publiques fortes et des habitudes de consommation plus responsables. Il faut que les pouvoirs publics soutiennent une économie plus propre pour que la croissance respecte l'environnement.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, il faut reconnaître que lorsque le salaire est trop faible, la quest
 
 ### **6. Conclusion**
 
-En conclusion, je pense que le salaire est très important, mais qu'il n'est pas la chose la plus importante dans un travail. Un bon emploi, c'est un emploi bien payé, mais aussi vivable, intéressant, porteur de sens et stable.
+En conclusion, je pense que le salaire est très important, mais qu'il n'est pas la chose la plus importante dans un travail. Un bon emploi, c'est un emploi bien payé, mais aussi vivable, intéressant, porteur de sens et stable. Il est essentiel que chacun puisse concilier un salaire correct avec de bonnes conditions de travail.
 
 ---
 

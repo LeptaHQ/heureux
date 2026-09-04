@@ -76,7 +76,7 @@ Cependant, il faut reconnaître que la recherche spatiale a parfois donné lieu 
 
 ### **6. Conclusion**
 
-En conclusion, je pense que les voyages dans l'espace coûtent trop cher, profitent à trop peu de gens et pèsent lourd sur l'environnement. Tant que des besoins urgents restent mal couverts, ce type de dépense devrait passer après des projets plus utiles au plus grand nombre.
+En conclusion, je pense que les voyages dans l'espace coûtent trop cher, profitent à trop peu de gens et pèsent lourd sur l'environnement. Tant que des besoins urgents restent mal couverts, ce type de dépense devrait passer après des projets plus utiles au plus grand nombre. Il est essentiel que la recherche spatiale profite au plus grand nombre, plutôt qu'à une poignée de touristes fortunés.
 
 ---
 
@@ -240,7 +240,7 @@ Cependant, il faut reconnaître que lorsque le salaire est trop faible, la quest
 
 ### **6. Conclusion**
 
-En conclusion, je pense que le salaire est très important, mais qu'il n'est pas la chose la plus importante dans un travail. Un bon emploi, c'est un emploi bien payé, mais aussi vivable, intéressant, porteur de sens et stable.
+En conclusion, je pense que le salaire est très important, mais qu'il n'est pas la chose la plus importante dans un travail. Un bon emploi, c'est un emploi bien payé, mais aussi vivable, intéressant, porteur de sens et stable. Il est essentiel que chacun puisse concilier un salaire correct avec de bonnes conditions de travail.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, il faut reconnaître que certaines personnes partent vraiment par env
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il est en grande partie vrai que ceux qui quittent leur pays le font par manque de choix, surtout pour des raisons économiques ou de sécurité. Le départ vraiment libre existe, mais il reste minoritaire par rapport aux départs imposés par les circonstances.
+En conclusion, je pense qu'il est en grande partie vrai que ceux qui quittent leur pays le font par manque de choix, surtout pour des raisons économiques ou de sécurité. Le départ vraiment libre existe, mais il reste minoritaire par rapport aux départs imposés par les circonstances. Il faut que chaque personne puisse quitter son pays par choix, et non par nécessité.
 
 ---
 
@@ -404,6 +404,6 @@ Cependant, dans certains secteurs en pénurie, comme l'informatique ou certains 
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'il n'est pas vraiment facile de partir travailler à l'étranger, à cause des démarches, de la langue et de la reconnaissance des diplômes. Cela reste une expérience accessible, mais qui demande une vraie préparation et beaucoup d'énergie.
+En conclusion, je dirais qu'il n'est pas vraiment facile de partir travailler à l'étranger, à cause des démarches, de la langue et de la reconnaissance des diplômes. Cela reste une expérience accessible, mais qui demande une vraie préparation et beaucoup d'énergie. Il est essentiel que les candidats puissent faire reconnaître leurs diplômes avant de partir travailler à l'étranger.
 
 ---

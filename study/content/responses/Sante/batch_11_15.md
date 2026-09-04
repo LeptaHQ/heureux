@@ -76,7 +76,7 @@ Cependant, sur certains points précis, des mesures très dures restent justifi�
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que l'État doit encadrer très fortement la vente de tabac et d'alcool, mais qu'une interdiction totale n'est pas forcément la réponse la plus efficace. La régulation, la prévention et l'éducation, combinées, sont plus utiles qu'une interdiction de principe.
+En conclusion, je dirais que l'État doit encadrer très fortement la vente de tabac et d'alcool, mais qu'une interdiction totale n'est pas forcément la réponse la plus efficace. La régulation, la prévention et l'éducation, combinées, sont plus utiles qu'une interdiction de principe. Il est essentiel que l'État renforce la prévention pour que chacun comprenne mieux les risques.
 
 ---
 
@@ -158,7 +158,7 @@ Cependant, sur certains points précis, des mesures très dures restent justifi�
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que l'État doit encadrer très fortement la vente de tabac et d'alcool, mais qu'une interdiction totale n'est pas forcément la réponse la plus efficace. La régulation, la prévention et l'éducation, combinées, sont plus utiles qu'une interdiction de principe.
+En conclusion, je dirais que l'État doit encadrer très fortement la vente de tabac et d'alcool, mais qu'une interdiction totale n'est pas forcément la réponse la plus efficace. La régulation, la prévention et l'éducation, combinées, sont plus utiles qu'une interdiction de principe. Il est essentiel que l'État renforce la prévention pour que chacun comprenne mieux les risques.
 
 ---
 

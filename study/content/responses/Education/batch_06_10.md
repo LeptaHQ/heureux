@@ -76,7 +76,7 @@ Cependant, Internet a aussi ses limites. Il peut diffuser de fausses information
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'Internet joue un rôle très utile en matière de solidarité, en particulier pour informer, organiser l'aide et donner la parole aux victimes. Il complète l'action de terrain, mais ne peut pas la remplacer.
+En conclusion, je pense qu'Internet joue un rôle très utile en matière de solidarité, en particulier pour informer, organiser l'aide et donner la parole aux victimes. Il complète l'action de terrain, mais ne peut pas la remplacer. Il est essentiel que les informations soient vérifiées pour que l'aide atteigne rapidement les bonnes personnes.
 
 ---
 
@@ -158,7 +158,7 @@ Cependant, il faut reconnaître que la manière d'étudier change avec l'âge. A
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il n'y a pas d'âge pour faire des études, parce que le cerveau reste capable, l'expérience aide et les bénéfices sont réels. Étudier est une activité qui peut accompagner toute la vie, à condition d'adapter son organisation à son âge.
+En conclusion, je pense qu'il n'y a pas d'âge pour faire des études, parce que le cerveau reste capable, l'expérience aide et les bénéfices sont réels. Étudier est une activité qui peut accompagner toute la vie, à condition d'adapter son organisation à son âge. Il est important que chacun puisse reprendre des études selon son rythme et ses responsabilités.
 
 ---
 
@@ -240,7 +240,7 @@ Cependant, le livre n'est pas la seule manière de s'informer ou de se cultiver.
 
 ### **6. Conclusion**
 
-En conclusion, je pense que le livre est loin d'être inutile, parce qu'il développe la réflexion, transmet des connaissances solides et nourrit la sensibilité. Plutôt que de l'opposer au numérique, il faut le voir comme un outil complémentaire, indispensable à une vraie culture personnelle.
+En conclusion, je pense que le livre est loin d'être inutile, parce qu'il développe la réflexion, transmet des connaissances solides et nourrit la sensibilité. Plutôt que de l'opposer au numérique, il faut le voir comme un outil complémentaire, indispensable à une vraie culture personnelle. Il est essentiel que le livre conserve sa place aux côtés des outils numériques.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, il faut reconnaître que la manière d'apprendre change avec l'âge. 
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il n'est jamais trop tard pour apprendre, parce que le cerveau reste capable, l'expérience aide et les bénéfices sont réels. Apprendre est une activité qui peut accompagner toute la vie, à condition d'adapter ses méthodes à son âge.
+En conclusion, je pense qu'il n'est jamais trop tard pour apprendre, parce que le cerveau reste capable, l'expérience aide et les bénéfices sont réels. Apprendre est une activité qui peut accompagner toute la vie, à condition d'adapter ses méthodes à son âge. Il faut que les adultes trouvent des méthodes adaptées à leur rythme et à leurs objectifs.
 
 ---
 

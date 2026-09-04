@@ -76,7 +76,7 @@ Cependant, la radio et les journaux gardent malgré tout des avantages réels : 
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que je préfère Internet, parce qu'il m'offre plus de liberté et de variété, à condition de l'utiliser avec recul et de vérifier les sources. C'est selon moi le média le mieux adapté à une information moderne et active.
+En conclusion, je dirais que je préfère Internet, parce qu'il m'offre plus de liberté et de variété, à condition de l'utiliser avec recul et de vérifier les sources. C'est selon moi le média le mieux adapté à une information moderne et active. Il faut que je puisse comparer plusieurs sources avant de me faire une opinion.
 
 ---
 
@@ -158,7 +158,7 @@ Cependant, le bilan n'est ni totalement positif ni totalement négatif. Tout dé
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'Internet a bien changé le comportement au travail, en apportant plus d'efficacité et de flexibilité, mais aussi de nouvelles contraintes qu'il faut apprendre à maîtriser. Le défi est aujourd'hui de trouver un usage plus équilibré.
+En conclusion, je dirais qu'Internet a bien changé le comportement au travail, en apportant plus d'efficacité et de flexibilité, mais aussi de nouvelles contraintes qu'il faut apprendre à maîtriser. Le défi est aujourd'hui de trouver un usage plus équilibré. Il faut que les entreprises définissent des limites claires pour que les salariés puissent se déconnecter.
 
 ---
 
@@ -240,7 +240,7 @@ Cependant, le bilan n'est ni totalement positif ni totalement négatif. Tout dé
 
 ### **6. Conclusion**
 
-En conclusion, je dirais qu'Internet a bien changé le comportement au travail, en apportant plus d'efficacité et de flexibilité, mais aussi de nouvelles contraintes qu'il faut apprendre à maîtriser. Le défi est aujourd'hui de trouver un usage plus équilibré.
+En conclusion, je dirais qu'Internet a bien changé le comportement au travail, en apportant plus d'efficacité et de flexibilité, mais aussi de nouvelles contraintes qu'il faut apprendre à maîtriser. Le défi est aujourd'hui de trouver un usage plus équilibré. Il faut que les entreprises définissent des limites claires pour que les salariés puissent se déconnecter.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, la radio reste très pratique en déplacement, par exemple en voiture
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que je préfère Internet, parce qu'il correspond mieux à mon rythme et qu'il me permet de m'informer de manière plus libre et plus complète. C'est, à mes yeux, le média qui combine le mieux la rapidité, la diversité et la profondeur.
+En conclusion, je dirais que je préfère Internet, parce qu'il correspond mieux à mon rythme et qu'il me permet de m'informer de manière plus libre et plus complète. C'est, à mes yeux, le média qui combine le mieux la rapidité, la diversité et la profondeur. Il faut que je puisse comparer plusieurs médias pour profiter pleinement des avantages d'Internet.
 
 ---
 
@@ -404,6 +404,6 @@ Cependant, le téléphone facilite la communication, mais il ne garantit pas pou
 
 ### **6. Conclusion**
 
-En conclusion, je dirais que oui, les téléphones portables facilitent la communication, parce qu'ils rendent les échanges plus rapides et plus simples, tout en nous obligeant à rester attentifs à la qualité de nos relations. La technologie aide, mais ne remplace pas l'écoute.
+En conclusion, je dirais que oui, les téléphones portables facilitent la communication, parce qu'ils rendent les échanges plus rapides et plus simples, tout en nous obligeant à rester attentifs à la qualité de nos relations. La technologie aide, mais ne remplace pas l'écoute. Il faut que chacun sache aussi écouter, même quand le téléphone facilite les échanges.
 
 ---

@@ -76,7 +76,7 @@ Cependant, il faut reconnaître que l'on peut vivre des périodes de solitude ch
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'il n'est pas réaliste de dire que les amis ne sont pas nécessaires pour être heureux. Ils nous soutiennent dans les épreuves, répondent à un besoin social fondamental et nous aident à grandir. L'amitié reste donc l'un des piliers les plus précieux d'une vie heureuse.
+En conclusion, je pense qu'il n'est pas réaliste de dire que les amis ne sont pas nécessaires pour être heureux. Ils nous soutiennent dans les épreuves, répondent à un besoin social fondamental et nous aident à grandir. L'amitié reste donc l'un des piliers les plus précieux d'une vie heureuse. Il est important que chacun puisse compter sur des amitiés sincères dans les moments difficiles.
 
 ---
 
@@ -158,7 +158,7 @@ Cependant, il faut reconnaître qu'avec une bonne préparation, une vraie ouvert
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'une expérience à l'étranger n'est pas toujours positive, parce qu'elle dépend de la langue, de l'intégration et de la situation personnelle. Elle peut être une vraie chance, mais jamais une réussite automatique : tout repose sur les conditions dans lesquelles elle se vit.
+En conclusion, je pense qu'une expérience à l'étranger n'est pas toujours positive, parce qu'elle dépend de la langue, de l'intégration et de la situation personnelle. Elle peut être une vraie chance, mais jamais une réussite automatique : tout repose sur les conditions dans lesquelles elle se vit. Pour que l'expérience soit positive, il faut préparer son départ et créer des liens sur place.
 
 ---
 
@@ -240,7 +240,7 @@ Cependant, il faut reconnaître que les outils numériques répondent à un vrai
 
 ### **6. Conclusion**
 
-En conclusion, je pense que la disparition du courrier traditionnel est regrettable, parce qu'elle fait perdre une vraie dimension humaine, une qualité d'écriture et une mémoire durable. Les outils numériques sont très utiles, mais ils ne remplacent pas complètement ce que ces lettres apportaient.
+En conclusion, je pense que la disparition du courrier traditionnel est regrettable, parce qu'elle fait perdre une vraie dimension humaine, une qualité d'écriture et une mémoire durable. Les outils numériques sont très utiles, mais ils ne remplacent pas complètement ce que ces lettres apportaient. Il est important que nous puissions encore écrire des lettres pour les occasions importantes.
 
 ---
 
@@ -322,7 +322,7 @@ Cependant, il faut reconnaître que parler parfaitement la langue n'est pas indi
 
 ### **6. Conclusion**
 
-En conclusion, je pense que l'on peut percevoir certaines choses d'un pays sans en parler la langue, mais que l'on ne peut pas vraiment le connaître en profondeur. La langue reste la clé qui ouvre l'accès aux vraies conversations, aux idées et à la vie réelle d'une société.
+En conclusion, je pense que l'on peut percevoir certaines choses d'un pays sans en parler la langue, mais que l'on ne peut pas vraiment le connaître en profondeur. La langue reste la clé qui ouvre l'accès aux vraies conversations, aux idées et à la vie réelle d'une société. Il faut que les voyageurs apprennent au moins les bases de la langue locale.
 
 ---
 
@@ -404,4 +404,4 @@ Cependant, il faut reconnaître qu'une personne peut être très cultivée sans 
 
 ### **6. Conclusion**
 
-En conclusion, je pense qu'on n'est pas obligé de lire pour être cultivé, parce que la culture s'acquiert aussi par beaucoup d'autres voies. Mais la lecture reste l'une des plus solides, parce qu'elle entraîne la pensée et donne accès à une part de l'héritage culturel que rien d'autre ne remplace vraiment.
+En conclusion, je pense qu'on n'est pas obligé de lire pour être cultivé, parce que la culture s'acquiert aussi par beaucoup d'autres voies. Mais la lecture reste l'une des plus solides, parce qu'elle entraîne la pensée et donne accès à une part de l'héritage culturel que rien d'autre ne remplace vraiment. Il est important que chacun puisse choisir des sources culturelles variées sans négliger les livres.

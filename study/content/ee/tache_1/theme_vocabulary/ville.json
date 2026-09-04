@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-1",
+  "theme": "ville",
+  "name": "Ville & quartier",
+  "entries": [
+    {
+      "id": "e1vif01",
+      "kind": "formule-adaptee",
+      "french": "Content d'apprendre que tu emménages dans le quartier !",
+      "anchor": "content d'apprendre que tu emménages",
+      "english": "Glad to hear you're moving into the neighborhood!",
+      "example": "Content d'apprendre que tu emménages dans le quartier ! Je vais te donner quelques conseils.",
+      "usage": "Formule d'ouverture chaleureuse en réponse à une nouvelle d'emménagement."
+    },
+    {
+      "id": "e1vif02",
+      "kind": "formule-adaptee",
+      "french": "Je vis ici depuis un an et j'adore cette ville.",
+      "anchor": "j'adore cette ville",
+      "english": "I've lived here for a year and I love this city.",
+      "example": "Je vis ici depuis un an et j'adore cette ville.",
+      "usage": "Formule pour présenter son expérience personnelle d'un lieu avant de le recommander."
+    },
+    {
+      "id": "e1vif03",
+      "kind": "formule-adaptee",
+      "french": "On pourra y aller ensemble pour que tu voies l'ambiance par toi-même !",
+      "anchor": "pour que tu voies l'ambiance",
+      "english": "We can go there together so you can see the atmosphere for yourself!",
+      "example": "On pourra y aller ensemble pour que tu voies l'ambiance par toi-même !",
+      "usage": "Formule de clôture proposant une découverte partagée du quartier."
+    },
+    {
+      "id": "e1vif04",
+      "kind": "formule-adaptee",
+      "french": "N'hésite pas à me demander si tu as des questions sur le quartier.",
+      "anchor": "si tu as des questions sur le quartier",
+      "english": "Don't hesitate to ask me if you have questions about the neighborhood.",
+      "example": "N'hésite pas à me demander si tu as des questions sur le quartier, je le connais bien.",
+      "usage": "Formule proposant son aide pour orienter un nouvel arrivant."
+    },
+    {
+      "id": "e1vif05",
+      "kind": "formule-adaptee",
+      "french": "J'aimerais que tu viennes vite la découvrir avec moi !",
+      "anchor": "que tu viennes vite la découvrir",
+      "english": "I'd love for you to come discover it with me soon!",
+      "example": "J'aimerais que tu viennes vite la découvrir avec moi !",
+      "usage": "Formule de clôture affectueuse invitant le destinataire à visiter la ville, avec subjonctif après 'aimerais que'."
+    },
+    {
+      "id": "e1vii01",
+      "kind": "information-precise",
+      "french": "Le quartier est bien desservi par les transports en commun, avec un métro à proximité.",
+      "anchor": "bien desservi par les transports en commun",
+      "english": "The neighborhood is well served by public transportation, with a metro nearby.",
+      "example": "Le quartier est bien desservi par les transports en commun, avec un métro à proximité.",
+      "usage": "Formule utile pour décrire l'accès aux transports d'un quartier."
+    },
+    {
+      "id": "e1vii02",
+      "kind": "information-precise",
+      "french": "Le quartier est calme et à proximité des écoles et des hôpitaux.",
+      "anchor": "à proximité des écoles et des hôpitaux",
+      "english": "The neighborhood is quiet and close to schools and hospitals.",
+      "example": "Le quartier est calme et à proximité des écoles et des hôpitaux.",
+      "usage": "Formule pour décrire les commodités disponibles près d'un logement ou quartier."
+    },
+    {
+      "id": "e1vii03",
+      "kind": "information-precise",
+      "french": "J'habite au troisième étage d'un immeuble récent, avec ascenseur.",
+      "anchor": "au troisième étage",
+      "english": "I live on the third floor of a recent building, with an elevator.",
+      "example": "J'habite au troisième étage d'un immeuble récent, avec ascenseur.",
+      "usage": "Précise l'emplacement exact d'un logement dans un bâtiment."
+    },
+    {
+      "id": "e1vii04",
+      "kind": "information-precise",
+      "french": "Le marché du quartier est ouvert tous les jours sauf le dimanche.",
+      "anchor": "ouvert tous les jours sauf le dimanche",
+      "english": "The neighborhood market is open every day except Sunday.",
+      "example": "Le marché du quartier est ouvert tous les jours sauf le dimanche.",
+      "usage": "Formule pour préciser les horaires d'ouverture d'un commerce ou service local."
+    },
+    {
+      "id": "e1vii05",
+      "kind": "information-precise",
+      "french": "Le quartier est assez propre et sécuritaire, même le soir.",
+      "anchor": "assez propre et sécuritaire",
+      "english": "The neighborhood is quite clean and safe, even at night.",
+      "example": "Le quartier est assez propre et sécuritaire, même le soir.",
+      "usage": "Formule utile pour évaluer positivement la qualité générale d'un quartier."
+    },
+    {
+      "id": "e1viv01",
+      "kind": "verbe-collocation",
+      "french": "emménager dans un quartier",
+      "anchor": "emménager dans un quartier",
+      "english": "to move into a neighborhood",
+      "example": "Nous venons d'emménager dans un quartier très animé.",
+      "usage": "Verbe de base pour parler d'une installation dans un nouveau lieu."
+    },
+    {
+      "id": "e1viv02",
+      "kind": "verbe-collocation",
+      "french": "se déplacer à vélo",
+      "anchor": "se déplacer à vélo",
+      "english": "to get around by bike",
+      "example": "Ici, on peut facilement se déplacer à vélo grâce aux pistes cyclables.",
+      "usage": "Collocation pour décrire un moyen de transport pratique dans un quartier."
+    },
+    {
+      "id": "e1viv03",
+      "kind": "verbe-collocation",
+      "french": "profiter des commerces de proximité",
+      "anchor": "profiter des commerces de proximité",
+      "english": "to enjoy the nearby shops",
+      "example": "On peut profiter des commerces de proximité pour faire ses courses rapidement.",
+      "usage": "Collocation pour parler des avantages pratiques d'un quartier bien équipé."
+    },
+    {
+      "id": "e1viv04",
+      "kind": "verbe-collocation",
+      "french": "se sentir chez soi",
+      "anchor": "se sentir chez soi",
+      "english": "to feel at home",
+      "example": "Après quelques semaines, on commence à se sentir chez soi dans ce quartier.",
+      "usage": "Expression pronominale décrivant l'intégration progressive dans un nouveau lieu."
+    },
+    {
+      "id": "e1viv05",
+      "kind": "verbe-collocation",
+      "french": "découvrir le voisinage",
+      "anchor": "découvrir le voisinage",
+      "english": "to get to know the neighborhood",
+      "example": "Je te propose de découvrir le voisinage ensemble ce week-end.",
+      "usage": "Collocation pour inviter quelqu'un à explorer les environs d'un logement."
+    },
+    {
+      "id": "e1vip01",
+      "kind": "phrase-modele",
+      "french": "J'ai ce qu'il te faut : un marché animé situé au cœur du quartier.",
+      "anchor": "j'ai ce qu'il te faut",
+      "english": "I have just what you need: a lively market in the heart of the neighborhood.",
+      "example": "J'ai ce qu'il te faut : un marché animé situé au cœur du quartier, ouvert tous les matins.",
+      "usage": "Phrase modèle pour introduire une recommandation avec enthousiasme."
+    },
+    {
+      "id": "e1vip02",
+      "kind": "phrase-modele",
+      "french": "Le quartier est assez calme, mais très bien desservi par les transports en commun.",
+      "anchor": "assez calme, mais très bien desservi",
+      "english": "The neighborhood is quite quiet, but very well served by public transportation.",
+      "example": "Le quartier est assez calme, mais très bien desservi par les transports en commun.",
+      "usage": "Phrase modèle combinant deux qualités d'un quartier avec 'mais' pour nuancer."
+    },
+    {
+      "id": "e1vip03",
+      "kind": "phrase-modele",
+      "french": "Le seul bémol est que je me sens un peu éloigné du centre-ville.",
+      "anchor": "le seul bémol est que je me sens",
+      "english": "The only downside is that I feel a bit far from downtown.",
+      "example": "Le seul bémol est que je me sens un peu éloigné du centre-ville depuis mon emménagement.",
+      "usage": "Phrase modèle pour signaler un inconvénient mineur d'un quartier tout en restant positif."
+    },
+    {
+      "id": "e1vip04",
+      "kind": "phrase-modele",
+      "french": "Les commerces, les écoles et les parcs sont tous à quelques minutes à pied.",
+      "anchor": "tous à quelques minutes à pied",
+      "english": "The shops, schools, and parks are all a few minutes' walk away.",
+      "example": "Les commerces, les écoles et les parcs sont tous à quelques minutes à pied de chez moi.",
+      "usage": "Phrase modèle énumérant plusieurs commodités proches, utile pour décrire un quartier pratique."
+    },
+    {
+      "id": "e1vip05",
+      "kind": "phrase-modele",
+      "french": "Viens vite t'installer, je suis sûr que ce quartier te plaira.",
+      "anchor": "je suis sûr que ce quartier te plaira",
+      "english": "Come settle in soon, I'm sure you'll like this neighborhood.",
+      "example": "Viens vite t'installer, je suis sûr que ce quartier te plaira autant qu'à moi.",
+      "usage": "Phrase modèle d'encouragement final pour convaincre quelqu'un d'emménager."
+    }
+  ]
+}

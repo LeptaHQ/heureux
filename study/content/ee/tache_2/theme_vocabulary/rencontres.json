@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-2",
+  "theme": "rencontres",
+  "name": "Rencontres & relations",
+  "entries": [
+    {
+      "id": "e2ret01",
+      "kind": "repere-temporel",
+      "french": "l’année dernière",
+      "anchor": "l’année dernière",
+      "english": "last year",
+      "example": "L’année dernière, j’ai passé six mois chez ma logeuse.",
+      "usage": "Expression de temps ; situe le récit dans un passé précis."
+    },
+    {
+      "id": "e2ret02",
+      "kind": "repere-temporel",
+      "french": "dès notre première rencontre",
+      "anchor": "dès notre première rencontre",
+      "english": "from our very first meeting",
+      "example": "Dès notre première rencontre, Madame Boateng m’a mis à l’aise avec un grand sourire.",
+      "usage": "Connecteur temporel ; « dès » marque l’immédiateté d’une impression."
+    },
+    {
+      "id": "e2ret03",
+      "kind": "repere-temporel",
+      "french": "chaque dimanche",
+      "anchor": "chaque dimanche",
+      "english": "every Sunday",
+      "example": "Chaque dimanche, nous prenions le thé ensemble dans son salon.",
+      "usage": "Marqueur de fréquence ; introduit une habitude à l’imparfait."
+    },
+    {
+      "id": "e2ret04",
+      "kind": "repere-temporel",
+      "french": "au bout de quelques semaines",
+      "anchor": "au bout de quelques semaines",
+      "english": "after a few weeks",
+      "example": "Au bout de quelques semaines, nous avions trouvé un rythme commun.",
+      "usage": "Locution temporelle ; indique une durée avant un résultat."
+    },
+    {
+      "id": "e2ret05",
+      "kind": "repere-temporel",
+      "french": "quand j’ai dû repartir",
+      "anchor": "quand j’ai dû repartir",
+      "english": "when I had to leave",
+      "example": "Quand j’ai dû repartir, nous avons échangé nos adresses en promettant de nous écrire.",
+      "usage": "Subordonnée temporelle ; « quand » + passé composé, moment clé du récit."
+    },
+    {
+      "id": "e2rev01",
+      "kind": "verbe-recit",
+      "french": "j’ai accueilli chez moi",
+      "anchor": "j’ai accueilli chez moi",
+      "english": "I hosted at my place",
+      "example": "En février dernier, j’ai accueilli chez moi une étudiante en échange.",
+      "usage": "Passé composé ; verbe d’accueil, présente le personnage principal."
+    },
+    {
+      "id": "e2rev02",
+      "kind": "verbe-recit",
+      "french": "nous avons dû apprendre à",
+      "anchor": "nous avons dû apprendre à",
+      "english": "we had to learn to",
+      "example": "Nous avons dû apprendre à respecter nos rythmes très différents.",
+      "usage": "« devoir » + infinitif au passé composé ; nécessité vécue."
+    },
+    {
+      "id": "e2rev03",
+      "kind": "verbe-recit",
+      "french": "j’ai établi un calendrier pour",
+      "anchor": "j’ai établi un calendrier pour",
+      "english": "I set up a schedule for",
+      "example": "Pour éviter les tensions, j’ai établi un calendrier pour les tâches communes.",
+      "usage": "Passé composé + « pour » + nom ; solution pratique du récit."
+    },
+    {
+      "id": "e2rev04",
+      "kind": "verbe-recit",
+      "french": "elle m’a raconté son enfance",
+      "anchor": "elle m’a raconté son enfance",
+      "english": "she told me about her childhood",
+      "example": "Ce soir-là, elle m’a raconté son enfance dans son village natal.",
+      "usage": "Passé composé + double complément ; rapporte une confidence."
+    },
+    {
+      "id": "e2rev05",
+      "kind": "verbe-recit",
+      "french": "nous avons gardé le contact",
+      "anchor": "nous avons gardé le contact",
+      "english": "we stayed in touch",
+      "example": "Depuis son départ, nous avons gardé le contact grâce à des appels réguliers.",
+      "usage": "Passé composé ; conclut le récit sur une note positive."
+    },
+    {
+      "id": "e2red01",
+      "kind": "detail-impression",
+      "french": "un salon qui sentait le gingembre",
+      "anchor": "un salon qui sentait le gingembre",
+      "english": "a living room that smelled of ginger",
+      "example": "Nous discutions dans un salon qui sentait le gingembre et les épices.",
+      "usage": "Relative + imparfait ; détail olfactif, ancre le souvenir."
+    },
+    {
+      "id": "e2red02",
+      "kind": "detail-impression",
+      "french": "des histoires accompagnées de chansons",
+      "anchor": "des histoires accompagnées de chansons",
+      "english": "stories accompanied by songs",
+      "example": "Elle ponctuait des histoires accompagnées de chansons de son enfance.",
+      "usage": "Groupe nominal ; détail culturel qui enrichit le portrait."
+    },
+    {
+      "id": "e2red03",
+      "kind": "detail-impression",
+      "french": "une patience que je ne connaissais pas",
+      "anchor": "une patience que je ne connaissais pas",
+      "english": "a patience I didn’t know I had",
+      "example": "Cette cohabitation m’a demandé une patience que je ne connaissais pas.",
+      "usage": "Relative au passé ; détail introspectif, évolution personnelle."
+    },
+    {
+      "id": "e2red04",
+      "kind": "detail-impression",
+      "french": "un dîner qui a délié les langues",
+      "anchor": "un dîner qui a délié les langues",
+      "english": "a dinner that got everyone talking",
+      "example": "Le premier soir, un dîner qui a délié les langues nous a tout de suite rapprochés.",
+      "usage": "Relative au passé composé ; détail qui explique un rapprochement."
+    },
+    {
+      "id": "e2red05",
+      "kind": "detail-impression",
+      "french": "une confiance née peu à peu",
+      "anchor": "une confiance née peu à peu",
+      "english": "a trust that grew little by little",
+      "example": "Entre nous s’est installée une confiance née peu à peu.",
+      "usage": "Participe passé en emploi adjectival ; détail sur la durée."
+    },
+    {
+      "id": "e2rec01",
+      "kind": "commentaire-recommandation",
+      "french": "cette rencontre m’a beaucoup appris sur",
+      "anchor": "cette rencontre m’a beaucoup appris sur",
+      "english": "this encounter taught me a lot about",
+      "example": "Cette rencontre m’a beaucoup appris sur une culture que je connaissais mal.",
+      "usage": "Passé composé ; bilan final sur une rencontre."
+    },
+    {
+      "id": "e2rec02",
+      "kind": "commentaire-recommandation",
+      "french": "je recommande cette expérience à ceux qui",
+      "anchor": "je recommande cette expérience à ceux qui",
+      "english": "I recommend this experience to those who",
+      "example": "Je recommande cette expérience à ceux qui veulent sortir de leur routine.",
+      "usage": "« recommander à » + relative ; conseil ciblé au lecteur."
+    },
+    {
+      "id": "e2rec03",
+      "kind": "commentaire-recommandation",
+      "french": "à mon avis, la patience reste essentielle pour",
+      "anchor": "à mon avis, la patience reste essentielle pour",
+      "english": "in my opinion, patience remains essential to",
+      "example": "À mon avis, la patience reste essentielle pour bien vivre à plusieurs.",
+      "usage": "Formule d’opinion + « pour » + infinitif ; conclusion générale."
+    },
+    {
+      "id": "e2rec04",
+      "kind": "commentaire-recommandation",
+      "french": "si vous accueillez quelqu’un, prenez le temps de",
+      "anchor": "si vous accueillez quelqu’un, prenez le temps de",
+      "english": "if you host someone, take the time to",
+      "example": "Si vous accueillez quelqu’un, prenez le temps de connaître ses habitudes.",
+      "usage": "Si + présent, impératif ; conseil pratique direct."
+    },
+    {
+      "id": "e2rec05",
+      "kind": "commentaire-recommandation",
+      "french": "je garde un excellent souvenir de",
+      "anchor": "je garde un excellent souvenir de",
+      "english": "I have an excellent memory of",
+      "example": "Je garde un excellent souvenir de ces mois passés ensemble.",
+      "usage": "Présent ; formule de clôture positive et personnelle."
+    }
+  ]
+}

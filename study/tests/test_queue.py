@@ -310,6 +310,59 @@ class QueueCountsTests(TestCase):
             .exists()
         )
 
+    def test_written_theme_vocabulary_uses_direct_theme_in_lots_of_five(self):
+        task = make_task(part=make_part("ee"), slug="tache-1")
+        theme = make_theme(slug="ee-tache-1-invitations", task=task)
+        cards = [
+            make_phrase_card(
+                phrase=make_phrase(
+                    tier=PhraseTier.THEME,
+                    lot_order=lot_order,
+                    vocabulary_theme=theme,
+                )
+            )
+            for lot_order in range(1, 7)
+        ]
+        scope = {
+            "kind": "theme_vocab",
+            "part": "ee",
+            "task": "tache-1",
+            "theme": theme.slug,
+            "batch": "1",
+        }
+
+        self.assertEqual(q.batch_size(scope), 5)
+        self.assertEqual(
+            set(q.scoped_cards(scope).values_list("pk", flat=True)),
+            {card.pk for card in cards[:5]},
+        )
+        cards[0].needs_revisit = True
+        cards[0].revisit_added_at = timezone.now()
+        cards[0].state = CardState.REVIEW
+        cards[0].last_rating = Rating.AGAIN
+        cards[0].save(
+            update_fields=[
+                "needs_revisit",
+                "revisit_added_at",
+                "state",
+                "last_rating",
+            ]
+        )
+        base_scope = {
+            "part": "ee",
+            "task": "tache-1",
+        }
+        self.assertTrue(
+            q.scoped_cards(
+                {**base_scope, "kind": "revisit"}
+            ).filter(pk=cards[0].pk).exists()
+        )
+        self.assertTrue(
+            q.scoped_cards(
+                {**base_scope, "kind": "weak"}
+            ).filter(pk=cards[0].pk).exists()
+        )
+
     def test_comprehension_vocabulary_only_enters_its_test_deck(self):
         first_test = make_comprehension_test(number=1, question_count=1)
         second_test = make_comprehension_test(number=2, question_count=1)

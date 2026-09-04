@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from unittest.mock import patch
 
-from django.db.models import Prefetch
+from django.db.models import Prefetch, Q
 from django.test import TestCase
 from django.test.utils import CaptureQueriesContext
 from django.db import connection
@@ -114,9 +114,17 @@ def legacy_task_counts(task):
         "theme_vocabulary_count": Phrase.objects.filter(
             is_active=True,
             tier=PhraseTier.THEME,
-            source_prompts__is_active=True,
-            source_prompts__theme__is_active=True,
-            source_prompts__theme__task=task,
+        )
+        .filter(
+            Q(
+                source_prompts__is_active=True,
+                source_prompts__theme__is_active=True,
+                source_prompts__theme__task=task,
+            )
+            | Q(
+                vocabulary_theme__is_active=True,
+                vocabulary_theme__task=task,
+            )
         )
         .distinct()
         .count(),

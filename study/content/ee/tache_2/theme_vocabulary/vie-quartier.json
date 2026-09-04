@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-2",
+  "theme": "vie-quartier",
+  "name": "Vie de quartier & entraide",
+  "entries": [
+    {
+      "id": "e2vqt01",
+      "kind": "repere-temporel",
+      "french": "dès mon emménagement dans le quartier",
+      "anchor": "dès mon emménagement dans le quartier",
+      "english": "as soon as I moved into the neighborhood",
+      "example": "Dès mon emménagement dans le quartier, mes voisins sont venus se présenter avec un gâteau.",
+      "usage": "Locution temporelle en tête de phrase pour ouvrir un récit de vie de quartier."
+    },
+    {
+      "id": "e2vqt02",
+      "kind": "repere-temporel",
+      "french": "depuis la dernière réunion de quartier",
+      "anchor": "depuis la dernière réunion de quartier",
+      "english": "since the last neighborhood meeting",
+      "example": "Depuis la dernière réunion de quartier, plusieurs habitants se sont portés volontaires pour le projet.",
+      "usage": "Locution temporelle marquant une durée depuis un événement précis."
+    },
+    {
+      "id": "e2vqt03",
+      "kind": "repere-temporel",
+      "french": "le jour de la fête des voisins",
+      "anchor": "le jour de la fête des voisins",
+      "english": "on the day of the neighbors' festival",
+      "example": "Le jour de la fête des voisins, toute la rue s'est rassemblée autour d'un grand repas partagé.",
+      "usage": "Groupe nominal temporel ; situe une action lors d'un événement précis."
+    },
+    {
+      "id": "e2vqt04",
+      "kind": "repere-temporel",
+      "french": "au fil des rencontres avec les voisins",
+      "anchor": "au fil des rencontres avec les voisins",
+      "english": "over the course of encounters with the neighbors",
+      "example": "Au fil des rencontres avec les voisins, j'ai fini par me sentir vraiment chez moi ici.",
+      "usage": "Locution temporelle exprimant une évolution progressive."
+    },
+    {
+      "id": "e2vqt05",
+      "kind": "repere-temporel",
+      "french": "quelques semaines après mon arrivée dans l'immeuble",
+      "anchor": "quelques semaines après mon arrivée dans l'immeuble",
+      "english": "a few weeks after I arrived in the building",
+      "example": "Quelques semaines après mon arrivée dans l'immeuble, on m'a invité à la réunion des copropriétaires.",
+      "usage": "Groupe nominal temporel précisant un délai après un événement initial."
+    },
+    {
+      "id": "e2vqv01",
+      "kind": "verbe-recit",
+      "french": "emménager dans le quartier",
+      "anchor": "dans le quartier",
+      "english": "to move into the neighborhood",
+      "example": "J'ai emménagé dans le quartier au printemps dernier, sans connaître personne au départ.",
+      "usage": "Verbe à l'infinitif ; se conjugue au passé composé pour raconter une installation."
+    },
+    {
+      "id": "e2vqv02",
+      "kind": "verbe-recit",
+      "french": "rendre service à un voisin",
+      "anchor": "service à un voisin",
+      "english": "to do a favor for a neighbor",
+      "example": "J'ai rendu service à un voisin en gardant son chat pendant ses vacances.",
+      "usage": "Verbe transitif ; « à » introduit le bénéficiaire du service."
+    },
+    {
+      "id": "e2vqv03",
+      "kind": "verbe-recit",
+      "french": "organiser une collecte de quartier",
+      "anchor": "une collecte de quartier",
+      "english": "to organize a neighborhood collection",
+      "example": "Nous avons organisé une collecte de quartier pour aider les familles touchées par les inondations.",
+      "usage": "Verbe transitif ; décrit une initiative collective d'entraide."
+    },
+    {
+      "id": "e2vqv04",
+      "kind": "verbe-recit",
+      "french": "faire connaissance avec les voisins",
+      "anchor": "connaissance avec les voisins",
+      "english": "to get to know the neighbors",
+      "example": "J'ai fait connaissance avec les voisins lors d'un apéritif improvisé dans la cour.",
+      "usage": "Expression verbale ; « faire » se conjugue au passé composé."
+    },
+    {
+      "id": "e2vqv05",
+      "kind": "verbe-recit",
+      "french": "participer à une fête de quartier",
+      "anchor": "une fête de quartier",
+      "english": "to take part in a neighborhood party",
+      "example": "J'ai participé à une fête de quartier organisée pour célébrer la rénovation du parc.",
+      "usage": "Verbe transitif indirect ; « à » introduit l'événement."
+    },
+    {
+      "id": "e2vqd01",
+      "kind": "detail-impression",
+      "french": "une ambiance conviviale",
+      "anchor": "une ambiance conviviale",
+      "english": "a friendly, convivial atmosphere",
+      "example": "Une ambiance conviviale régnait dès le début de la fête et a mis tous les invités à l'aise.",
+      "usage": "Groupe nominal féminin ; décrit une impression sociale positive."
+    },
+    {
+      "id": "e2vqd02",
+      "kind": "detail-impression",
+      "french": "un voisinage solidaire",
+      "anchor": "un voisinage solidaire",
+      "english": "a supportive, close-knit neighborhood",
+      "example": "J'ai découvert un voisinage solidaire, toujours prêt à donner un coup de main.",
+      "usage": "Groupe nominal masculin ; qualifie les relations entre habitants."
+    },
+    {
+      "id": "e2vqd03",
+      "kind": "detail-impression",
+      "french": "une odeur de grillades dans l'air",
+      "anchor": "une odeur de grillades dans l'air",
+      "english": "the smell of barbecue in the air",
+      "example": "Une odeur de grillades dans l'air annonçait déjà la fête de voisins avant même d'arriver.",
+      "usage": "Groupe nominal ; précise une impression olfactive concrète."
+    },
+    {
+      "id": "e2vqd04",
+      "kind": "detail-impression",
+      "french": "un sentiment d'appartenance au quartier",
+      "anchor": "un sentiment d'appartenance au quartier",
+      "english": "a sense of belonging to the neighborhood",
+      "example": "Ces rencontres m'ont donné un sentiment d'appartenance au quartier que je n'attendais pas.",
+      "usage": "Groupe nominal masculin ; exprime une impression émotionnelle durable."
+    },
+    {
+      "id": "e2vqd05",
+      "kind": "detail-impression",
+      "french": "une rue animée et bruyante",
+      "anchor": "une rue animée et bruyante",
+      "english": "a lively and noisy street",
+      "example": "Le jour de la fête, notre rue habituellement calme est devenue une rue animée et bruyante.",
+      "usage": "Groupe nominal féminin ; décrit une impression sonore et visuelle."
+    },
+    {
+      "id": "e2vqc01",
+      "kind": "commentaire-recommandation",
+      "french": "je conseille vivement de participer à ce type d'événement",
+      "anchor": "je conseille vivement de participer à ce type d'événement",
+      "english": "I strongly advise taking part in this kind of event",
+      "example": "Je conseille vivement de participer à ce type d'événement pour mieux connaître ses voisins.",
+      "usage": "Formule de recommandation à l'infinitif après « de »."
+    },
+    {
+      "id": "e2vqc02",
+      "kind": "commentaire-recommandation",
+      "french": "ce que j'ai le plus apprécié, c'est l'entraide entre voisins",
+      "anchor": "ce que j'ai le plus apprécié, c'est l'entraide entre voisins",
+      "english": "what I appreciated most was the mutual support among neighbors",
+      "example": "Ce que j'ai le plus apprécié, c'est l'entraide entre voisins tout au long de l'année.",
+      "usage": "Structure emphatique « ce que... c'est » pour souligner un point positif."
+    },
+    {
+      "id": "e2vqc03",
+      "kind": "commentaire-recommandation",
+      "french": "à mon avis, ce genre d'initiative renforce les liens du quartier",
+      "anchor": "ce genre d'initiative renforce les liens du quartier",
+      "english": "in my opinion, this kind of initiative strengthens neighborhood ties",
+      "example": "À mon avis, ce genre d'initiative renforce les liens du quartier bien plus que prévu.",
+      "usage": "Formule d'opinion personnelle introduisant un jugement général."
+    },
+    {
+      "id": "e2vqc04",
+      "kind": "commentaire-recommandation",
+      "french": "le seul regret est le manque de participants",
+      "anchor": "le seul regret est le manque de participants",
+      "english": "the only regret is the lack of participants",
+      "example": "Le seul regret est le manque de participants lors de notre première réunion.",
+      "usage": "Formule nuançant un bilan globalement positif."
+    },
+    {
+      "id": "e2vqc05",
+      "kind": "commentaire-recommandation",
+      "french": "je recommande cette association sans hésiter",
+      "anchor": "je recommande cette association sans hésiter",
+      "english": "I recommend this association without hesitating",
+      "example": "Je recommande cette association sans hésiter à toute personne souhaitant s'investir localement.",
+      "usage": "Formule de recommandation directe en fin de récit."
+    }
+  ]
+}

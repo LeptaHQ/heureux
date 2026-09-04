@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-2",
+  "theme": "loisirs-culture",
+  "name": "Loisirs & culture",
+  "entries": [
+    {
+      "id": "e2lct01",
+      "kind": "repere-temporel",
+      "french": "le soir de la première",
+      "anchor": "le soir de la première",
+      "english": "on the evening of the premiere",
+      "example": "Le soir de la première, la salle était comble bien avant le lever du rideau.",
+      "usage": "Groupe nominal temporel situant une action lors d'un événement culturel précis."
+    },
+    {
+      "id": "e2lct02",
+      "kind": "repere-temporel",
+      "french": "dès l'ouverture de l'exposition",
+      "anchor": "dès l'ouverture de l'exposition",
+      "english": "as soon as the exhibition opened",
+      "example": "Dès l'ouverture de l'exposition, de nombreux visiteurs se sont pressés devant les premières œuvres.",
+      "usage": "Locution temporelle en tête de phrase pour ouvrir un récit culturel."
+    },
+    {
+      "id": "e2lct03",
+      "kind": "repere-temporel",
+      "french": "après plusieurs séances de répétition",
+      "anchor": "après plusieurs séances de répétition",
+      "english": "after several rehearsal sessions",
+      "example": "Après plusieurs séances de répétition, notre groupe se sentait enfin prêt pour le concert.",
+      "usage": "Groupe nominal temporel indiquant une préparation antérieure à l'événement."
+    },
+    {
+      "id": "e2lct04",
+      "kind": "repere-temporel",
+      "french": "au fil des concerts",
+      "anchor": "au fil des concerts",
+      "english": "over the course of the concerts",
+      "example": "Au fil des concerts, j'ai découvert des artistes que je n'aurais jamais écoutés autrement.",
+      "usage": "Locution temporelle exprimant une évolution progressive liée aux sorties culturelles."
+    },
+    {
+      "id": "e2lct05",
+      "kind": "repere-temporel",
+      "french": "à la fin du festival",
+      "anchor": "à la fin du festival",
+      "english": "at the end of the festival",
+      "example": "À la fin du festival, les organisateurs ont annoncé la date de la prochaine édition.",
+      "usage": "Groupe nominal temporel marquant la conclusion d'un événement culturel."
+    },
+    {
+      "id": "e2lcv01",
+      "kind": "verbe-recit",
+      "french": "assister à une exposition",
+      "anchor": "à une exposition",
+      "english": "to attend an exhibition",
+      "example": "J'ai assisté à une exposition consacrée à un peintre que j'admire depuis longtemps.",
+      "usage": "Verbe transitif indirect ; « à » introduit l'événement culturel."
+    },
+    {
+      "id": "e2lcv02",
+      "kind": "verbe-recit",
+      "french": "répéter un morceau difficile",
+      "anchor": "un morceau difficile",
+      "english": "to rehearse a difficult piece",
+      "example": "J'ai répété un morceau difficile pendant des semaines avant de le jouer en public.",
+      "usage": "Verbe transitif ; décrit une préparation artistique."
+    },
+    {
+      "id": "e2lcv03",
+      "kind": "verbe-recit",
+      "french": "monter sur scène",
+      "anchor": "sur scène",
+      "english": "to go up on stage",
+      "example": "Je suis monté sur scène le cœur battant, sans savoir si je me souviendrais de mon texte.",
+      "usage": "Expression verbale ; se conjugue au passé composé avec l'auxiliaire être."
+    },
+    {
+      "id": "e2lcv04",
+      "kind": "verbe-recit",
+      "french": "découvrir un artiste méconnu",
+      "anchor": "un artiste méconnu",
+      "english": "to discover a little-known artist",
+      "example": "J'ai découvert un artiste méconnu grâce à une petite galerie du centre-ville.",
+      "usage": "Verbe transitif ; introduit une découverte culturelle personnelle."
+    },
+    {
+      "id": "e2lcv05",
+      "kind": "verbe-recit",
+      "french": "applaudir longuement les artistes",
+      "anchor": "longuement les artistes",
+      "english": "to applaud the performers at length",
+      "example": "Le public a applaudi longuement les artistes à la fin du spectacle.",
+      "usage": "Verbe transitif ; « longuement » précise la durée de l'action."
+    },
+    {
+      "id": "e2lcd01",
+      "kind": "detail-impression",
+      "french": "une salle comble",
+      "anchor": "une salle comble",
+      "english": "a packed hall",
+      "example": "Le soir de la première, nous avons joué devant une salle comble et attentive.",
+      "usage": "Groupe nominal féminin ; décrit une impression visuelle de forte affluence."
+    },
+    {
+      "id": "e2lcd02",
+      "kind": "detail-impression",
+      "french": "des applaudissements chaleureux",
+      "anchor": "des applaudissements chaleureux",
+      "english": "warm applause",
+      "example": "Des applaudissements chaleureux ont accueilli les artistes dès leur entrée sur scène.",
+      "usage": "Groupe nominal pluriel ; exprime une impression sonore et émotionnelle positive."
+    },
+    {
+      "id": "e2lcd03",
+      "kind": "detail-impression",
+      "french": "une émotion intense sur scène",
+      "anchor": "une émotion intense sur scène",
+      "english": "intense emotion on stage",
+      "example": "J'ai ressenti une émotion intense sur scène, entre le trac et le plaisir de jouer.",
+      "usage": "Groupe nominal féminin ; décrit une impression émotionnelle forte."
+    },
+    {
+      "id": "e2lcd04",
+      "kind": "detail-impression",
+      "french": "des couleurs éclatantes sur la toile",
+      "anchor": "des couleurs éclatantes sur la toile",
+      "english": "vivid colors on the canvas",
+      "example": "Devant cette toile, des couleurs éclatantes sur la toile semblaient presque vibrer sous la lumière.",
+      "usage": "Groupe nominal pluriel ; précise une impression visuelle marquante."
+    },
+    {
+      "id": "e2lcd05",
+      "kind": "detail-impression",
+      "french": "un silence religieux dans le public",
+      "anchor": "un silence religieux dans le public",
+      "english": "a hushed silence among the audience",
+      "example": "Pendant le solo final, un silence religieux dans le public a duré plusieurs secondes.",
+      "usage": "Groupe nominal masculin ; décrit une impression sonore particulière lors d'un spectacle."
+    },
+    {
+      "id": "e2lcc01",
+      "kind": "commentaire-recommandation",
+      "french": "je recommande vivement cette exposition",
+      "anchor": "je recommande vivement cette exposition",
+      "english": "I highly recommend this exhibition",
+      "example": "Je recommande vivement cette exposition à toute personne qui aime la peinture moderne.",
+      "usage": "Formule de recommandation directe en fin de récit culturel."
+    },
+    {
+      "id": "e2lcc02",
+      "kind": "commentaire-recommandation",
+      "french": "ce que j'ai préféré, c'est la mise en scène originale",
+      "anchor": "ce que j'ai préféré, c'est la mise en scène originale",
+      "english": "what I preferred was the original staging",
+      "example": "Ce que j'ai préféré, c'est la mise en scène originale imaginée par le metteur en scène.",
+      "usage": "Structure emphatique « ce que... c'est » pour souligner un point fort artistique."
+    },
+    {
+      "id": "e2lcc03",
+      "kind": "commentaire-recommandation",
+      "french": "à mon avis, ce spectacle mérite le détour",
+      "anchor": "ce spectacle mérite le détour",
+      "english": "in my opinion, this show is worth the trip",
+      "example": "À mon avis, ce spectacle mérite le détour malgré la distance pour y assister.",
+      "usage": "Formule d'opinion personnelle introduisant une recommandation culturelle."
+    },
+    {
+      "id": "e2lcc04",
+      "kind": "commentaire-recommandation",
+      "french": "le seul bémol est le prix des billets",
+      "anchor": "le seul bémol est le prix des billets",
+      "english": "the only downside is the price of the tickets",
+      "example": "Le seul bémol est le prix des billets, un peu élevé pour un étudiant.",
+      "usage": "Formule nuançant un avis globalement positif sur une sortie culturelle."
+    },
+    {
+      "id": "e2lcc05",
+      "kind": "commentaire-recommandation",
+      "french": "je conseille d'y assister en avance pour avoir une bonne place",
+      "anchor": "je conseille d'y assister en avance pour avoir une bonne place",
+      "english": "I advise arriving early to get a good seat",
+      "example": "Je conseille d'y assister en avance pour avoir une bonne place, car la salle se remplit vite.",
+      "usage": "Formule de recommandation pratique suivie d'un verbe à l'infinitif."
+    }
+  ]
+}

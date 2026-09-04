@@ -16,7 +16,7 @@
         <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name="sparkles" only %}</span>
         <span>Vocabulaire</span>
       </h1>
-      <p>Construisez un vocabulaire argumentatif solide pour les grands thèmes de la Tâche 3. Chaque collection réunit les notions, verbes, locutions et constructions qui vous aideront à défendre un point de vue avec précision.</p>
+      <p>{{ vocabulary_description|default:"Construisez un vocabulaire solide pour les grands thèmes de cette tâche." }}</p>
       <div class="memory-overview-hero__actions">
         {% if review_url %}<a class="btn btn--primary" href="{{ review_url }}">Continuer le prochain lot</a>{% endif %}
         {% if phrase_count %}<a class="btn" href="{{ mixed_review_url }}">Révision mélangée</a>{% endif %}
@@ -30,7 +30,11 @@
   </header>
 
   <div class="tache-two-directory-toolbar task-vocabulary-directory__toolbar">
-    {% include "study/partials/tache_two_progress.html" with summary=summary unit_label="lots terminés" only %}
+    {% if vocabulary_progress_unit %}
+      {% include "study/partials/tache_two_progress.html" with summary=summary unit_label=vocabulary_progress_unit only %}
+    {% else %}
+      {% include "study/partials/tache_two_progress.html" with summary=summary unit_label="lots terminés" only %}
+    {% endif %}
     {% if themes %}{% include "study/partials/collection_view_toggle.html" %}{% endif %}
   </div>
 
@@ -38,7 +42,7 @@
     <div class="section-heading">
       <div>
         <h2 id="task-vocabulary-themes-title">Explorer les thèmes</h2>
-        <p>Les quatre lots de chaque thème forment un parcours complet : nommer l’enjeu, choisir le verbe juste, enrichir l’expression, puis construire l’argument.</p>
+        <p>{{ vocabulary_pathways_description|default:"Ouvrez un thème pour travailler ses fiches et ses lots guidés." }}</p>
       </div>
     </div>
     {% if themes %}
@@ -68,7 +72,7 @@
           <div class="memory-entry__progress">
             <div class="memory-entry__progress-copy">
               <span class="progress-status progress-status--{{ progress.status }}">{{ progress.label }}</span>
-              <span>{{ progress.completed }}/{{ progress.total }} lots terminés</span>
+              <span>{{ progress.completed }}/{{ progress.total }} {{ item.progress_unit|default:"lots terminés" }}</span>
             </div>
             <div class="progress" aria-label="{{ progress.percent }} % terminé">
               <span class="memory-progress-fill memory-progress-fill--{{ progress.status }}" style="width: {{ progress.percent }}%;"></span>

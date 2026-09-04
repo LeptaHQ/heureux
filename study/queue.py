@@ -28,6 +28,7 @@ from .models import (
 RESPONSE_BATCH_SIZE = 15
 PHRASE_BATCH_SIZE = 10
 THEME_VOCABULARY_BATCH_SIZE = 15
+EE_WRITING_THEME_VOCABULARY_BATCH_SIZE = 5
 THEME_VOCABULARY_CONTENT = "theme_vocabulary"
 WEAK_LOOKBACK_DAYS = 30
 
@@ -66,6 +67,11 @@ def batch_size(scope: Optional[dict] = None) -> int:
         scope.get("kind") == "theme_vocab"
         or scope.get("content") == THEME_VOCABULARY_CONTENT
     ):
+        if (
+            scope.get("part") == "ee"
+            and scope.get("task") in {"tache-1", "tache-2"}
+        ):
+            return EE_WRITING_THEME_VOCABULARY_BATCH_SIZE
         return THEME_VOCABULARY_BATCH_SIZE
     if _uses_phrase_batches(scope):
         return PHRASE_BATCH_SIZE
@@ -179,6 +185,16 @@ def scoped_cards(
     }
     response_lookups = {}
     phrase_lookups = {}
+    direct_theme_lookups = {}
+    direct_theme_scope = not any(
+        scope.get(key)
+        for key in ("family", "response", "category", "test")
+    )
+    direct_theme_filters = {
+        "part": "vocabulary_theme__task__part__slug",
+        "task": "vocabulary_theme__task__slug",
+        "theme": "vocabulary_theme__slug",
+    }
     has_relation_scope = False
     for key, (response_lookup, phrase_lookup) in relation_filters.items():
         if scope.get(key):
@@ -189,13 +205,18 @@ def scoped_cards(
             # Strip the leading ``phrase__`` so the condition can be applied
             # directly to Phrase in a subquery.
             phrase_lookups[phrase_lookup.split("__", 1)[1]] = scope[key]
+            if direct_theme_scope and key in direct_theme_filters:
+                direct_theme_lookups[direct_theme_filters[key]] = scope[key]
     if has_relation_scope:
         # Resolving the phrase side through a subquery keeps the many-to-many
         # join off the card table, so SQLite can drive the plan from the few
         # matching phrases instead of scanning every card the user owns.
+        phrase_scope_query = Q(**phrase_lookups)
+        if direct_theme_lookups:
+            phrase_scope_query |= Q(**direct_theme_lookups)
         qs = qs.filter(
             Q(response_id__in=Response.objects.filter(**response_lookups))
-            | Q(phrase_id__in=Phrase.objects.filter(**phrase_lookups))
+            | Q(phrase_id__in=Phrase.objects.filter(phrase_scope_query))
         )
     if scope.get("category"):
         qs = qs.filter(phrase__category__slug=scope["category"])

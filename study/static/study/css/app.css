@@ -1329,6 +1329,9 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   gap: 1rem;
   margin-top: 1.5rem;
 }
+.task-choice-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 .tache-two-overview-panel,
 .task-choice-card {
   --overview-panel-accent: var(--primary);
@@ -2220,16 +2223,6 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   min-height: 2rem;
   padding: 0.3rem 0.7rem;
   font-size: 0.78rem;
-}
-.ee-ai-examiner-button {
-  border-color: color-mix(in srgb, var(--subject-accent) 38%, var(--border));
-  background: color-mix(in srgb, var(--subject-accent) 9%, var(--surface));
-}
-.ee-subject-consigne__notice {
-  display: block;
-  margin-top: 0.65rem;
-  color: var(--text-faint);
-  line-height: 1.45;
 }
 .tache-two-consigne p {
   max-width: 58rem;
@@ -15370,7 +15363,7 @@ html[data-collection-view-mode="table"]
     gap: 0.35rem;
   }
   .task-nav--ee-t3 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 0.35rem;
   }
   .ee-t3-section__head {

@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-2",
+  "theme": "numerique",
+  "name": "Numérique & réseaux",
+  "entries": [
+    {
+      "id": "e2nut01",
+      "kind": "repere-temporel",
+      "french": "il y a un mois",
+      "anchor": "il y a un mois",
+      "english": "a month ago",
+      "example": "Il y a un mois, j’ai supprimé Instagram de mon téléphone.",
+      "usage": "Expression de temps ; « il y a » + durée, situe l’action au passé."
+    },
+    {
+      "id": "e2nut02",
+      "kind": "repere-temporel",
+      "french": "dès le premier soir",
+      "anchor": "dès le premier soir",
+      "english": "from the very first evening",
+      "example": "Dès le premier soir, ma tablette m’a tenu éveillé jusqu’à minuit.",
+      "usage": "Connecteur temporel ; « dès » insiste sur l’immédiateté."
+    },
+    {
+      "id": "e2nut03",
+      "kind": "repere-temporel",
+      "french": "au bout d’une semaine",
+      "anchor": "au bout d’une semaine",
+      "english": "after a week",
+      "example": "Au bout d’une semaine sans réseaux sociaux, j’ai remarqué que je dormais mieux.",
+      "usage": "Locution temporelle ; marque une durée écoulée avant un changement."
+    },
+    {
+      "id": "e2nut04",
+      "kind": "repere-temporel",
+      "french": "depuis ce jour",
+      "anchor": "depuis ce jour",
+      "english": "since that day",
+      "example": "Depuis ce jour, je consulte mes messages seulement deux fois par jour.",
+      "usage": "Connecteur temporel ; relie le passé au présent du récit."
+    },
+    {
+      "id": "e2nut05",
+      "kind": "repere-temporel",
+      "french": "quelques jours plus tard",
+      "anchor": "quelques jours plus tard",
+      "english": "a few days later",
+      "example": "Quelques jours plus tard, j’ai reçu une notification qui m’a rappelé pourquoi j’avais quitté l’application.",
+      "usage": "Marqueur chronologique ; fait progresser le récit dans le temps."
+    },
+    {
+      "id": "e2nuv01",
+      "kind": "verbe-recit",
+      "french": "j’ai décidé de désinstaller",
+      "anchor": "j’ai décidé de désinstaller",
+      "english": "I decided to uninstall",
+      "example": "Excédé par les publicités, j’ai décidé de désinstaller l’application.",
+      "usage": "Verbe + « de » + infinitif ; passé composé, décision personnelle."
+    },
+    {
+      "id": "e2nuv02",
+      "kind": "verbe-recit",
+      "french": "je me suis rendu compte que",
+      "anchor": "je me suis rendu compte que",
+      "english": "I realized that",
+      "example": "Après une heure de défilement, je me suis rendu compte que j’avais perdu tout mon après-midi.",
+      "usage": "Verbe pronominal au passé composé ; introduit une prise de conscience."
+    },
+    {
+      "id": "e2nuv03",
+      "kind": "verbe-recit",
+      "french": "j’ai fini par répondre à",
+      "anchor": "j’ai fini par répondre à",
+      "english": "I finally replied to",
+      "example": "Après plusieurs relances, j’ai fini par répondre à tous mes messages en retard.",
+      "usage": "« finir par » + infinitif ; aboutissement après une hésitation."
+    },
+    {
+      "id": "e2nuv04",
+      "kind": "verbe-recit",
+      "french": "j’ai configuré des rappels pour",
+      "anchor": "j’ai configuré des rappels pour",
+      "english": "I set up reminders to",
+      "example": "Pour limiter mon temps d’écran, j’ai configuré des rappels pour fermer l’application après vingt minutes.",
+      "usage": "Passé composé + « pour » + infinitif ; exprime un but."
+    },
+    {
+      "id": "e2nuv05",
+      "kind": "verbe-recit",
+      "french": "j’ai changé mes mots de passe après",
+      "anchor": "j’ai changé mes mots de passe après",
+      "english": "I changed my passwords after",
+      "example": "J’ai changé mes mots de passe après avoir reçu un courriel suspect.",
+      "usage": "Passé composé + « après » + infinitif passé ; ordre chronologique."
+    },
+    {
+      "id": "e2nud01",
+      "kind": "detail-impression",
+      "french": "la lumière bleue de l’écran",
+      "anchor": "la lumière bleue de l’écran",
+      "english": "the screen’s blue light",
+      "example": "La lumière bleue de l’écran éclairait encore la chambre à deux heures du matin.",
+      "usage": "Groupe nominal ; détail visuel concret pour décrire une scène."
+    },
+    {
+      "id": "e2nud02",
+      "kind": "detail-impression",
+      "french": "mon pouce cherchait encore l’icône",
+      "anchor": "mon pouce cherchait encore l’icône",
+      "english": "my thumb still looked for the icon",
+      "example": "Les premiers jours, mon pouce cherchait encore l’icône disparue de l’écran d’accueil.",
+      "usage": "Imparfait ; décrit un réflexe persistant, effet de continuité."
+    },
+    {
+      "id": "e2nud03",
+      "kind": "detail-impression",
+      "french": "une pile de notifications non lues",
+      "anchor": "une pile de notifications non lues",
+      "english": "a pile of unread notifications",
+      "example": "En rentrant de vacances, j’ai retrouvé une pile de notifications non lues sur mon téléphone.",
+      "usage": "Groupe nominal ; détail visuel qui traduit une surcharge."
+    },
+    {
+      "id": "e2nud04",
+      "kind": "detail-impression",
+      "french": "un silence étrange régnait dans la pièce",
+      "anchor": "un silence étrange régnait dans la pièce",
+      "english": "a strange silence filled the room",
+      "example": "Sans les notifications habituelles, un silence étrange régnait dans la pièce, presque reposant.",
+      "usage": "Imparfait ; crée une atmosphère, détail sensoriel auditif."
+    },
+    {
+      "id": "e2nud05",
+      "kind": "detail-impression",
+      "french": "les yeux fatigués par l’écran",
+      "anchor": "les yeux fatigués par l’écran",
+      "english": "eyes tired from the screen",
+      "example": "Le soir, j’avais souvent les yeux fatigués par l’écran de l’ordinateur.",
+      "usage": "Groupe nominal ; détail physique, conséquence concrète."
+    },
+    {
+      "id": "e2nuc01",
+      "kind": "commentaire-recommandation",
+      "french": "à mon avis, il vaut mieux limiter",
+      "anchor": "à mon avis, il vaut mieux limiter",
+      "english": "in my opinion, it’s better to limit",
+      "example": "À mon avis, il vaut mieux limiter le temps passé sur les réseaux sociaux le soir.",
+      "usage": "Formule d’opinion + « il vaut mieux » + infinitif ; conseil général."
+    },
+    {
+      "id": "e2nuc02",
+      "kind": "commentaire-recommandation",
+      "french": "je recommande vivement de désactiver",
+      "anchor": "je recommande vivement de désactiver",
+      "english": "I strongly recommend disabling",
+      "example": "Je recommande vivement de désactiver les notifications inutiles avant de dormir.",
+      "usage": "« recommander » + « de » + infinitif ; conseil appuyé."
+    },
+    {
+      "id": "e2nuc03",
+      "kind": "commentaire-recommandation",
+      "french": "si vous hésitez encore, essayez de",
+      "anchor": "si vous hésitez encore, essayez de",
+      "english": "if you’re still hesitating, try to",
+      "example": "Si vous hésitez encore, essayez de couper votre connexion une soirée par semaine.",
+      "usage": "Si + présent, proposition implicite ; interpelle directement le lecteur."
+    },
+    {
+      "id": "e2nuc04",
+      "kind": "commentaire-recommandation",
+      "french": "cette expérience m’a appris à",
+      "anchor": "cette expérience m’a appris à",
+      "english": "this experience taught me to",
+      "example": "Cette expérience m’a appris à mieux distinguer les informations fiables des rumeurs.",
+      "usage": "Passé composé + infinitif ; bilan personnel de l’expérience."
+    },
+    {
+      "id": "e2nuc05",
+      "kind": "commentaire-recommandation",
+      "french": "je conseille aux parents de fixer",
+      "anchor": "je conseille aux parents de fixer",
+      "english": "I advise parents to set",
+      "example": "Je conseille aux parents de fixer des horaires clairs pour les écrans en famille.",
+      "usage": "« conseiller à qqn de » + infinitif ; recommandation ciblée."
+    }
+  ]
+}

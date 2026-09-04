@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-2",
+  "theme": "travail",
+  "name": "Travail & vie professionnelle",
+  "entries": [
+    {
+      "id": "e2trt01",
+      "kind": "repere-temporel",
+      "french": "dès ma prise de poste",
+      "anchor": "dès ma prise de poste",
+      "english": "as soon as I started the position",
+      "example": "Dès ma prise de poste, j'ai dû me familiariser avec de nouveaux logiciels internes.",
+      "usage": "Locution temporelle en tête de phrase pour ouvrir un récit professionnel."
+    },
+    {
+      "id": "e2trt02",
+      "kind": "repere-temporel",
+      "french": "au bout de deux mois dans l'entreprise",
+      "anchor": "au bout de deux mois dans l'entreprise",
+      "english": "after two months at the company",
+      "example": "Au bout de deux mois dans l'entreprise, on m'a confié mon premier projet en autonomie.",
+      "usage": "Groupe nominal temporel indiquant une durée écoulée."
+    },
+    {
+      "id": "e2trt03",
+      "kind": "repere-temporel",
+      "french": "le jour de mon premier entretien",
+      "anchor": "le jour de mon premier entretien",
+      "english": "on the day of my first interview",
+      "example": "Le jour de mon premier entretien, j'étais si nerveux que j'ai à peine dormi la veille.",
+      "usage": "Groupe nominal temporel situant une action à un moment précis."
+    },
+    {
+      "id": "e2trt04",
+      "kind": "repere-temporel",
+      "french": "depuis ma dernière évaluation",
+      "anchor": "depuis ma dernière évaluation",
+      "english": "since my last performance review",
+      "example": "Depuis ma dernière évaluation, j'ai pris plus d'initiatives lors des réunions d'équipe.",
+      "usage": "Locution temporelle exprimant une durée depuis un événement professionnel."
+    },
+    {
+      "id": "e2trt05",
+      "kind": "repere-temporel",
+      "french": "à la fin de la période d'essai",
+      "anchor": "à la fin de la période d'essai",
+      "english": "at the end of the probationary period",
+      "example": "À la fin de la période d'essai, ma responsable m'a proposé un contrat permanent.",
+      "usage": "Groupe nominal temporel marquant une étape administrative du parcours professionnel."
+    },
+    {
+      "id": "e2trv01",
+      "kind": "verbe-recit",
+      "french": "prendre son nouveau poste",
+      "anchor": "nouveau poste",
+      "english": "to start one's new position",
+      "example": "J'ai pris mon nouveau poste avec enthousiasme, même si tout restait à apprendre.",
+      "usage": "Verbe transitif ; « son » s'accorde avec le sujet du récit."
+    },
+    {
+      "id": "e2trv02",
+      "kind": "verbe-recit",
+      "french": "mener un projet à terme",
+      "anchor": "un projet à terme",
+      "english": "to see a project through to completion",
+      "example": "J'ai mené un projet à terme malgré des délais particulièrement serrés.",
+      "usage": "Verbe transitif ; « à terme » précise l'aboutissement de l'action."
+    },
+    {
+      "id": "e2trv03",
+      "kind": "verbe-recit",
+      "french": "assister à une réunion d'équipe",
+      "anchor": "une réunion d'équipe",
+      "english": "to attend a team meeting",
+      "example": "J'ai assisté à une réunion d'équipe où j'ai proposé une idée qui a été retenue.",
+      "usage": "Verbe transitif indirect ; « à » introduit l'événement."
+    },
+    {
+      "id": "e2trv04",
+      "kind": "verbe-recit",
+      "french": "recevoir des retours positifs",
+      "anchor": "des retours positifs",
+      "english": "to receive positive feedback",
+      "example": "J'ai reçu des retours positifs de mes collègues après ma première présentation.",
+      "usage": "Verbe transitif ; s'emploie souvent au passé composé dans un bilan professionnel."
+    },
+    {
+      "id": "e2trv05",
+      "kind": "verbe-recit",
+      "french": "gérer un client mécontent",
+      "anchor": "gérer un client mécontent",
+      "english": "to handle an unhappy customer",
+      "example": "J'ai dû gérer un client mécontent en restant calme et à l'écoute de ses attentes.",
+      "usage": "Verbe transitif ; décrit une compétence professionnelle mise en pratique."
+    },
+    {
+      "id": "e2trd01",
+      "kind": "detail-impression",
+      "french": "une ambiance de travail stimulante",
+      "anchor": "une ambiance de travail stimulante",
+      "english": "a stimulating work atmosphere",
+      "example": "J'ai tout de suite ressenti une ambiance de travail stimulante au sein de l'équipe.",
+      "usage": "Groupe nominal féminin ; décrit une impression professionnelle positive."
+    },
+    {
+      "id": "e2trd02",
+      "kind": "detail-impression",
+      "french": "un emploi du temps chargé",
+      "anchor": "un emploi du temps chargé",
+      "english": "a busy schedule",
+      "example": "Les premières semaines, j'ai dû jongler avec un emploi du temps chargé, en plus de nouvelles responsabilités.",
+      "usage": "Groupe nominal masculin ; exprime une contrainte concrète du quotidien professionnel."
+    },
+    {
+      "id": "e2trd03",
+      "kind": "detail-impression",
+      "french": "un sentiment de fierté professionnelle",
+      "anchor": "un sentiment de fierté professionnelle",
+      "english": "a feeling of professional pride",
+      "example": "Voir mon projet aboutir m'a procuré un sentiment de fierté professionnelle rare.",
+      "usage": "Groupe nominal masculin ; exprime une impression émotionnelle liée au travail."
+    },
+    {
+      "id": "e2trd04",
+      "kind": "detail-impression",
+      "french": "une charge de travail éprouvante",
+      "anchor": "une charge de travail éprouvante",
+      "english": "a grueling workload",
+      "example": "Certaines semaines, une charge de travail éprouvante m'a laissé peu de temps pour me reposer.",
+      "usage": "Groupe nominal féminin ; nuance un bilan professionnel par une difficulté vécue."
+    },
+    {
+      "id": "e2trd05",
+      "kind": "detail-impression",
+      "french": "un bureau lumineux et convivial",
+      "anchor": "bureau lumineux et convivial",
+      "english": "a bright, friendly office",
+      "example": "Mon nouveau bureau lumineux et convivial m'a tout de suite donné envie de m'investir.",
+      "usage": "Groupe nominal masculin ; décrit une impression visuelle et sociale du cadre de travail."
+    },
+    {
+      "id": "e2trc01",
+      "kind": "commentaire-recommandation",
+      "french": "je recommande cette formation à mes collègues",
+      "anchor": "je recommande cette formation à mes collègues",
+      "english": "I recommend this training to my colleagues",
+      "example": "Je recommande cette formation à mes collègues qui souhaitent progresser sur ce sujet.",
+      "usage": "Formule de recommandation directe suivie du destinataire du conseil."
+    },
+    {
+      "id": "e2trc02",
+      "kind": "commentaire-recommandation",
+      "french": "ce que j'apprécie le plus dans ce poste, c'est l'autonomie",
+      "anchor": "ce que j'apprécie le plus dans ce poste, c'est l'autonomie",
+      "english": "what I like most about this position is the autonomy",
+      "example": "Ce que j'apprécie le plus dans ce poste, c'est l'autonomie laissée à chaque membre de l'équipe.",
+      "usage": "Structure emphatique « ce que... c'est » pour souligner un point fort."
+    },
+    {
+      "id": "e2trc03",
+      "kind": "commentaire-recommandation",
+      "french": "à mon sens, cette expérience a renforcé mes compétences",
+      "anchor": "cette expérience a renforcé mes compétences",
+      "english": "in my view, this experience strengthened my skills",
+      "example": "À mon sens, cette expérience a renforcé mes compétences bien plus qu'une simple formation théorique.",
+      "usage": "Formule d'opinion personnelle introduisant un bilan de compétences."
+    },
+    {
+      "id": "e2trc04",
+      "kind": "commentaire-recommandation",
+      "french": "le seul inconvénient reste le rythme soutenu",
+      "anchor": "le seul inconvénient reste le rythme soutenu",
+      "english": "the only drawback remains the fast pace",
+      "example": "Le seul inconvénient reste le rythme soutenu imposé pendant les périodes de forte activité.",
+      "usage": "Formule nuançant un avis globalement positif sur l'expérience professionnelle."
+    },
+    {
+      "id": "e2trc05",
+      "kind": "commentaire-recommandation",
+      "french": "je conseille de bien s'organiser dès le départ",
+      "anchor": "je conseille de bien s'organiser dès le départ",
+      "english": "I advise organizing oneself well right from the start",
+      "example": "Je conseille de bien s'organiser dès le départ pour éviter d'être débordé la première semaine.",
+      "usage": "Formule de recommandation suivie d'un verbe à l'infinitif."
+    }
+  ]
+}

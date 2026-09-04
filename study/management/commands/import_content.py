@@ -96,6 +96,8 @@ class Command(BaseCommand):
         themes = [
             *content.load_themes(),
             *content.tache_two_themes(subject_months),
+            *content.ee_writing_themes(1),
+            *content.ee_writing_themes(2),
             *content.ee_tache_three_themes(ee_tache_three_months),
         ]
         sections = content.load_sections()
@@ -139,6 +141,10 @@ class Command(BaseCommand):
                 standard_responses
             )
         )
+        ee_writing_theme_vocabulary = [
+            *content.parse_ee_writing_theme_vocabulary(1),
+            *content.parse_ee_writing_theme_vocabulary(2),
+        ]
         ee_tache_three_vocabulary = content.parse_ee_tache_three_subject_vocabulary(
             ee_tache_three_responses
         )
@@ -152,6 +158,7 @@ class Command(BaseCommand):
             *tache_two_vocabulary,
             *tache_two_theme_vocabulary,
             *eo_tache_three_theme_vocabulary,
+            *ee_writing_theme_vocabulary,
             *ee_tache_three_vocabulary,
             *(item.phrase for item in comprehension_vocabulary),
         ]
@@ -190,7 +197,7 @@ class Command(BaseCommand):
         )
         self._reconcile_personal_responses(response_by_key)
         self._reconcile_response_annotations(response_by_key)
-        self._import_phrases(phrases, prompt_index)
+        self._import_phrases(phrases, prompt_index, theme_by_name)
         self._import_comprehension_tests(comprehension_tests)
         self._link_comprehension_vocabulary(comprehension_vocabulary)
         users = list(users_with_study_state())
@@ -943,7 +950,8 @@ class Command(BaseCommand):
         Prompt.objects.exclude(pk__in=seen).update(is_active=False)
         return index
 
-    def _import_phrases(self, phrases, prompt_index):
+    def _import_phrases(self, phrases, prompt_index, theme_by_name=None):
+        theme_by_name = theme_by_name or {}
         for data in phrases:
             missing_sources = [
                 key for key in data.sources if key not in prompt_index
@@ -954,6 +962,14 @@ class Command(BaseCommand):
                 )
                 raise CommandError(
                     f"Phrase {data.phrase_id} references unknown prompts: {labels}"
+                )
+            if (
+                data.vocabulary_theme
+                and data.vocabulary_theme not in theme_by_name
+            ):
+                raise CommandError(
+                    f"Phrase {data.phrase_id} references unknown vocabulary "
+                    f"theme {data.vocabulary_theme!r}"
                 )
 
         seen_categories = {}
@@ -974,6 +990,7 @@ class Command(BaseCommand):
             "example",
             "note",
             "sources_raw",
+            "vocabulary_theme",
             "order",
             "lot_order",
             "is_active",
@@ -1012,6 +1029,11 @@ class Command(BaseCommand):
                 "example": data.example,
                 "note": data.note,
                 "sources_raw": data.sources_raw,
+                "vocabulary_theme_id": (
+                    theme_by_name[data.vocabulary_theme].pk
+                    if data.vocabulary_theme
+                    else None
+                ),
                 "order": data.order,
                 "lot_order": lot_order,
                 "is_active": True,

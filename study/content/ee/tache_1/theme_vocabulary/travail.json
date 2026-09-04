@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-1",
+  "theme": "travail",
+  "name": "Travail & emploi",
+  "entries": [
+    {
+      "id": "e1emf01",
+      "kind": "formule-adaptee",
+      "french": "J'ai une bonne nouvelle à t'annoncer",
+      "anchor": "j'ai une bonne nouvelle à t'annoncer",
+      "english": "I have good news to tell you",
+      "example": "J'ai une bonne nouvelle à t'annoncer : j'ai trouvé un nouveau travail !",
+      "usage": "Formule pour introduire une annonce positive."
+    },
+    {
+      "id": "e1emf02",
+      "kind": "formule-adaptee",
+      "french": "Je suis ravi(e) de te dire que je commence mon nouveau poste",
+      "anchor": "je suis ravi(e) de te dire que",
+      "english": "I'm delighted to tell you that I'm starting my new position",
+      "example": "Je suis ravi(e) de te dire que je commence mon nouveau poste lundi prochain.",
+      "usage": "Formule pour partager une nouvelle professionnelle avec enthousiasme."
+    },
+    {
+      "id": "e1emf03",
+      "kind": "formule-adaptee",
+      "french": "Pour répondre à ta question, voici quelques précisions sur mon poste",
+      "anchor": "voici quelques précisions sur mon poste",
+      "english": "To answer your question, here are some details about my position",
+      "example": "Pour répondre à ta question, voici quelques précisions sur mon poste.",
+      "usage": "Formule de transition avant de donner des détails professionnels."
+    },
+    {
+      "id": "e1emf04",
+      "kind": "formule-adaptee",
+      "french": "Dans l'ensemble, je suis très content(e) de ce nouveau poste",
+      "anchor": "je suis très content(e) de ce nouveau poste",
+      "english": "Overall, I'm very happy with this new position",
+      "example": "Dans l'ensemble, je suis très content(e) de ce nouveau poste.",
+      "usage": "Formule pour exprimer une impression générale positive sur un emploi."
+    },
+    {
+      "id": "e1emf05",
+      "kind": "formule-adaptee",
+      "french": "Passe me voir au bureau si tu es dans le quartier",
+      "anchor": "passe me voir au bureau",
+      "english": "Come see me at the office if you're in the area",
+      "example": "Passe me voir au bureau si tu es dans le quartier !",
+      "usage": "Formule de clôture amicale pour inviter à visiter le lieu de travail."
+    },
+    {
+      "id": "e1emi01",
+      "kind": "information-precise",
+      "french": "Je travaille du lundi au vendredi, de neuf heures à dix-sept heures",
+      "anchor": "du lundi au vendredi, de neuf heures à dix-sept heures",
+      "english": "I work Monday to Friday, from 9 a.m. to 5 p.m.",
+      "example": "Je travaille du lundi au vendredi, de neuf heures à dix-sept heures.",
+      "usage": "Pour préciser des horaires de travail exacts."
+    },
+    {
+      "id": "e1emi02",
+      "kind": "information-precise",
+      "french": "Le bureau se trouve au troisième étage",
+      "anchor": "au troisième étage",
+      "english": "The office is on the third floor",
+      "example": "Le bureau se trouve au troisième étage, juste à côté de la salle de réunion.",
+      "usage": "Pour situer précisément un lieu de travail dans un bâtiment."
+    },
+    {
+      "id": "e1emi03",
+      "kind": "information-precise",
+      "french": "Nous sommes une dizaine de collègues dans l'équipe",
+      "anchor": "une dizaine de collègues",
+      "english": "There are about ten colleagues on the team",
+      "example": "Nous sommes une dizaine de collègues dans l'équipe, tous très accueillants.",
+      "usage": "Pour donner un nombre approximatif de collègues."
+    },
+    {
+      "id": "e1emi04",
+      "kind": "information-precise",
+      "french": "J'ai un contrat à durée déterminée de six mois",
+      "anchor": "un contrat à durée déterminée de six mois",
+      "english": "I have a fixed-term contract of six months",
+      "example": "J'ai un contrat à durée déterminée de six mois, renouvelable.",
+      "usage": "Pour préciser le type et la durée d'un contrat de travail."
+    },
+    {
+      "id": "e1emi05",
+      "kind": "information-precise",
+      "french": "Mon bureau est équipé de deux écrans et d'une imprimante",
+      "anchor": "équipé de deux écrans",
+      "english": "My desk is equipped with two screens and a printer",
+      "example": "Mon bureau est équipé de deux écrans et d'une imprimante partagée.",
+      "usage": "Pour décrire précisément l'équipement d'un poste de travail."
+    },
+    {
+      "id": "e1emv01",
+      "kind": "verbe-collocation",
+      "french": "occuper un poste d'assistant marketing",
+      "anchor": "occuper un poste",
+      "english": "to hold a position",
+      "example": "Je viens d'occuper un poste d'assistant marketing.",
+      "usage": "Collocation courante pour dire quel emploi on exerce."
+    },
+    {
+      "id": "e1emv02",
+      "kind": "verbe-collocation",
+      "french": "s'entendre bien avec ses collègues",
+      "anchor": "s'entendre bien avec ses collègues",
+      "english": "to get along well with one's colleagues",
+      "example": "Dans une nouvelle équipe, il est important de s'entendre bien avec ses collègues.",
+      "usage": "Expression pour décrire de bonnes relations professionnelles."
+    },
+    {
+      "id": "e1emv03",
+      "kind": "verbe-collocation",
+      "french": "postuler à une offre d'emploi",
+      "anchor": "postuler à une offre d'emploi",
+      "english": "to apply for a job offer",
+      "example": "Il n'est jamais trop tard pour postuler à une offre d'emploi qui te plaît.",
+      "usage": "Collocation pour parler d'une candidature."
+    },
+    {
+      "id": "e1emv04",
+      "kind": "verbe-collocation",
+      "french": "signer un contrat de travail",
+      "anchor": "signer un contrat de travail",
+      "english": "to sign an employment contract",
+      "example": "Avant de signer un contrat de travail, relis bien toutes les clauses.",
+      "usage": "Verbe utile pour évoquer une étape administrative d'embauche."
+    },
+    {
+      "id": "e1emv05",
+      "kind": "verbe-collocation",
+      "french": "gérer l'aménagement des nouveaux locaux",
+      "anchor": "gérer l'aménagement des nouveaux locaux",
+      "english": "to manage the setup of the new premises",
+      "example": "C'est moi qui dois gérer l'aménagement des nouveaux locaux.",
+      "usage": "Collocation pour parler de la gestion d'un espace de travail."
+    },
+    {
+      "id": "e1emp01",
+      "kind": "phrase-modele",
+      "french": "Je travaille dans une petite entreprise spécialisée dans le marketing.",
+      "anchor": "je travaille dans une petite entreprise",
+      "english": "I work at a small company specializing in marketing.",
+      "example": "Je travaille dans une petite entreprise spécialisée dans le marketing.",
+      "usage": "Phrase modèle pour présenter son lieu de travail."
+    },
+    {
+      "id": "e1emp02",
+      "kind": "phrase-modele",
+      "french": "Mes collègues sont vraiment sympathiques et toujours prêts à aider.",
+      "anchor": "mes collègues sont vraiment sympathiques",
+      "english": "My colleagues are really nice and always ready to help.",
+      "example": "Mes collègues sont vraiment sympathiques et toujours prêts à aider.",
+      "usage": "Phrase modèle pour décrire ses collègues positivement."
+    },
+    {
+      "id": "e1emp03",
+      "kind": "phrase-modele",
+      "french": "Les nouveaux locaux sont spacieux et bien équipés.",
+      "anchor": "les nouveaux locaux sont spacieux",
+      "english": "The new premises are spacious and well equipped.",
+      "example": "Les nouveaux locaux sont spacieux et bien équipés, avec une belle salle de pause.",
+      "usage": "Phrase modèle pour décrire un lieu de travail."
+    },
+    {
+      "id": "e1emp04",
+      "kind": "phrase-modele",
+      "french": "Ce que je préfère, c'est l'ambiance conviviale du bureau.",
+      "anchor": "ce que je préfère, c'est l'ambiance conviviale",
+      "english": "What I like best is the friendly atmosphere at the office.",
+      "example": "Ce que je préfère, c'est l'ambiance conviviale du bureau.",
+      "usage": "Phrase modèle pour exprimer une préférence sur son emploi."
+    },
+    {
+      "id": "e1emp05",
+      "kind": "phrase-modele",
+      "french": "Au début, c'était un peu stressant, mais je m'y habitue vite.",
+      "anchor": "je m'y habitue vite",
+      "english": "At first it was a bit stressful, but I'm getting used to it quickly.",
+      "example": "Au début, c'était un peu stressant, mais je m'y habitue vite.",
+      "usage": "Phrase modèle pour nuancer une première impression professionnelle."
+    }
+  ]
+}

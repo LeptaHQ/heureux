@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-1",
+  "theme": "annonces",
+  "name": "Annonces & réclamations",
+  "entries": [
+    {
+      "id": "e1anf01",
+      "kind": "formule-adaptee",
+      "french": "Je vous écris pour signaler un problème avec ma commande",
+      "anchor": "je vous écris pour signaler un problème",
+      "english": "I am writing to report a problem with my order",
+      "example": "Je vous écris pour signaler un problème avec ma commande reçue hier.",
+      "usage": "Formule d'ouverture formelle pour une réclamation."
+    },
+    {
+      "id": "e1anf02",
+      "kind": "formule-adaptee",
+      "french": "Je souhaiterais obtenir un remboursement ou un échange",
+      "anchor": "je souhaiterais obtenir un remboursement",
+      "english": "I would like to obtain a refund or an exchange",
+      "example": "Je souhaiterais obtenir un remboursement ou un échange dans les meilleurs délais.",
+      "usage": "Formule pour exprimer une demande claire dans une réclamation."
+    },
+    {
+      "id": "e1anf03",
+      "kind": "formule-adaptee",
+      "french": "Dans l'attente d'une réponse de votre part, je vous prie d'agréer mes salutations distinguées",
+      "anchor": "dans l'attente d'une réponse de votre part",
+      "english": "Looking forward to hearing from you, please accept my best regards",
+      "example": "Dans l'attente d'une réponse de votre part, je vous prie d'agréer mes salutations distinguées.",
+      "usage": "Formule de clôture formelle pour un courriel de réclamation."
+    },
+    {
+      "id": "e1anf04",
+      "kind": "formule-adaptee",
+      "french": "N'hésitez pas à me contacter pour plus de détails",
+      "anchor": "n'hésitez pas à me contacter",
+      "english": "Don't hesitate to contact me for more details",
+      "example": "N'hésitez pas à me contacter pour plus de détails sur l'article.",
+      "usage": "Formule de clôture pour une petite annonce."
+    },
+    {
+      "id": "e1anf05",
+      "kind": "formule-adaptee",
+      "french": "Je vends un article en bon état, à un prix intéressant",
+      "anchor": "je vends un article en bon état",
+      "english": "I'm selling an item in good condition, at an attractive price",
+      "example": "Je vends un article en bon état, à un prix intéressant.",
+      "usage": "Formule d'ouverture pour une annonce de vente."
+    },
+    {
+      "id": "e1ani01",
+      "kind": "information-precise",
+      "french": "L'objet est arrivé cassé au niveau de l'écran",
+      "anchor": "arrivé cassé au niveau de l'écran",
+      "english": "The item arrived broken at the screen",
+      "example": "L'objet est arrivé cassé au niveau de l'écran, dès l'ouverture du colis.",
+      "usage": "Pour décrire précisément l'endroit d'un dommage."
+    },
+    {
+      "id": "e1ani02",
+      "kind": "information-precise",
+      "french": "J'ai passé ma commande le douze mars",
+      "anchor": "j'ai passé ma commande le douze mars",
+      "english": "I placed my order on March 12th",
+      "example": "J'ai passé ma commande le douze mars, numéro de suivi à l'appui.",
+      "usage": "Pour donner une date exacte de commande."
+    },
+    {
+      "id": "e1ani03",
+      "kind": "information-precise",
+      "french": "Le vélo est en excellent état, utilisé seulement six mois",
+      "anchor": "utilisé seulement six mois",
+      "english": "The bike is in excellent condition, used only six months",
+      "example": "Le vélo est en excellent état, utilisé seulement six mois.",
+      "usage": "Pour préciser la durée d'utilisation d'un objet à vendre."
+    },
+    {
+      "id": "e1ani04",
+      "kind": "information-precise",
+      "french": "Je propose ce vélo pour cent vingt euros",
+      "anchor": "pour cent vingt euros",
+      "english": "I'm offering this bike for one hundred twenty euros",
+      "example": "Je propose ce vélo pour cent vingt euros, prix légèrement négociable.",
+      "usage": "Pour indiquer un prix précis dans une annonce de vente."
+    },
+    {
+      "id": "e1ani05",
+      "kind": "information-precise",
+      "french": "Je suis disponible samedi après-midi pour un essai",
+      "anchor": "disponible samedi après-midi",
+      "english": "I'm available Saturday afternoon for a test",
+      "example": "Je suis disponible samedi après-midi pour un essai, si cela vous convient.",
+      "usage": "Pour proposer un créneau précis de rendez-vous."
+    },
+    {
+      "id": "e1anv01",
+      "kind": "verbe-collocation",
+      "french": "signaler un problème avec le colis reçu",
+      "anchor": "signaler un problème",
+      "english": "to report a problem",
+      "example": "Je vous contacte pour signaler un problème avec le colis reçu.",
+      "usage": "Collocation de base pour une réclamation."
+    },
+    {
+      "id": "e1anv02",
+      "kind": "verbe-collocation",
+      "french": "demander un remboursement intégral",
+      "anchor": "demander un remboursement",
+      "english": "to request a refund",
+      "example": "J'aimerais demander un remboursement intégral de cet article.",
+      "usage": "Expression pour formuler une demande de remboursement."
+    },
+    {
+      "id": "e1anv03",
+      "kind": "verbe-collocation",
+      "french": "constater un dommage",
+      "anchor": "constater un dommage",
+      "english": "to notice damage",
+      "example": "Il est important de constater un dommage dès la réception du colis.",
+      "usage": "Collocation pour décrire la découverte d'un défaut."
+    },
+    {
+      "id": "e1anv04",
+      "kind": "verbe-collocation",
+      "french": "fixer un rendez-vous pour un essai",
+      "anchor": "fixer un rendez-vous",
+      "english": "to set up a meeting",
+      "example": "On peut fixer un rendez-vous pour que tu voies le vélo.",
+      "usage": "Expression pour organiser une rencontre, par exemple pour un essai."
+    },
+    {
+      "id": "e1anv05",
+      "kind": "verbe-collocation",
+      "french": "joindre une photo à l'annonce",
+      "anchor": "joindre une photo",
+      "english": "to attach a photo",
+      "example": "Il est utile de joindre une photo pour montrer l'état exact de l'objet.",
+      "usage": "Collocation utile pour appuyer une annonce ou une réclamation par une image."
+    },
+    {
+      "id": "e1anp01",
+      "kind": "phrase-modele",
+      "french": "J'ai bien reçu le colis, mais l'objet est malheureusement endommagé.",
+      "anchor": "l'objet est malheureusement endommagé",
+      "english": "I received the package, but unfortunately the item is damaged.",
+      "example": "J'ai bien reçu le colis, mais l'objet est malheureusement endommagé.",
+      "usage": "Phrase modèle pour introduire une réclamation après réception."
+    },
+    {
+      "id": "e1anp02",
+      "kind": "phrase-modele",
+      "french": "Je vous serais reconnaissant(e) de bien vouloir résoudre ce problème rapidement.",
+      "anchor": "de bien vouloir résoudre ce problème rapidement",
+      "english": "I would be grateful if you could resolve this issue quickly.",
+      "example": "Je vous serais reconnaissant(e) de bien vouloir résoudre ce problème rapidement.",
+      "usage": "Phrase modèle formelle pour demander une résolution rapide."
+    },
+    {
+      "id": "e1anp03",
+      "kind": "phrase-modele",
+      "french": "Ce vélo est parfait pour se déplacer en ville au quotidien.",
+      "anchor": "parfait pour se déplacer en ville",
+      "english": "This bike is perfect for getting around town every day.",
+      "example": "Ce vélo est parfait pour se déplacer en ville au quotidien.",
+      "usage": "Phrase modèle pour vanter un article mis en vente."
+    },
+    {
+      "id": "e1anp04",
+      "kind": "phrase-modele",
+      "french": "Le prix est négociable si vous venez le récupérer rapidement.",
+      "anchor": "le prix est négociable",
+      "english": "The price is negotiable if you come pick it up quickly.",
+      "example": "Le prix est négociable si vous venez le récupérer rapidement.",
+      "usage": "Phrase modèle pour préciser les conditions de vente."
+    },
+    {
+      "id": "e1anp05",
+      "kind": "phrase-modele",
+      "french": "Merci de me tenir informé(e) de la suite donnée à ma réclamation.",
+      "anchor": "de me tenir informé(e)",
+      "english": "Please keep me informed about the follow-up to my complaint.",
+      "example": "Merci de me tenir informé(e) de la suite donnée à ma réclamation.",
+      "usage": "Phrase modèle pour clore poliment une réclamation."
+    }
+  ]
+}

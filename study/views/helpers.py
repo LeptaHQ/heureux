@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from django.db.models import Count, Q
-from django.db.models.functions import TruncDate
+from django.db.models.functions import Coalesce, TruncDate
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
@@ -870,12 +870,26 @@ def _task_content_counts(tasks):
                 PhraseTier.SUBJECT,
                 PhraseTier.THEME,
             ),
-            source_prompts__is_active=True,
-            source_prompts__theme__is_active=True,
-            source_prompts__theme__task_id__in=task_ids,
+        )
+        .filter(
+            Q(
+                source_prompts__is_active=True,
+                source_prompts__theme__is_active=True,
+                source_prompts__theme__task_id__in=task_ids,
+            )
+            | Q(
+                vocabulary_theme__is_active=True,
+                vocabulary_theme__task_id__in=task_ids,
+            )
+        )
+        .annotate(
+            content_task_id=Coalesce(
+                "vocabulary_theme__task_id",
+                "source_prompts__theme__task_id",
+            )
         )
         .order_by()
-        .values("source_prompts__theme__task_id")
+        .values("content_task_id")
         .annotate(
             shared=Count("id", distinct=True, filter=Q(tier=PhraseTier.SHARED)),
             functional=Count(
@@ -894,7 +908,7 @@ def _task_content_counts(tasks):
             theme=Count("id", distinct=True, filter=Q(tier=PhraseTier.THEME)),
         )
     ):
-        entry = counts[row["source_prompts__theme__task_id"]]
+        entry = counts[row["content_task_id"]]
         entry["phrase_count"] = row["shared"]
         entry["functional_phrase_count"] = row["functional"]
         entry["subject_vocabulary_count"] = row["subject"]

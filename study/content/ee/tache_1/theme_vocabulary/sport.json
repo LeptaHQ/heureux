@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-1",
+  "theme": "sport",
+  "name": "Sport & bien-être",
+  "entries": [
+    {
+      "id": "e1spf01",
+      "kind": "formule-adaptee",
+      "french": "Je cherche un(e) partenaire pour faire du sport avec moi",
+      "anchor": "je cherche un(e) partenaire pour faire du sport",
+      "english": "I'm looking for a partner to exercise with",
+      "example": "Je cherche un(e) partenaire pour faire du sport avec moi le week-end.",
+      "usage": "Formule pour lancer une petite annonce sportive."
+    },
+    {
+      "id": "e1spf02",
+      "kind": "formule-adaptee",
+      "french": "Je te conseille cette salle de sport, elle est vraiment bien équipée",
+      "anchor": "je te conseille cette salle de sport",
+      "english": "I recommend this gym, it's really well equipped",
+      "example": "Je te conseille cette salle de sport, elle est vraiment bien équipée.",
+      "usage": "Formule pour recommander un lieu de sport à un ami."
+    },
+    {
+      "id": "e1spf03",
+      "kind": "formule-adaptee",
+      "french": "Dis-moi si ça t'intéresse, on pourrait s'entraîner ensemble",
+      "anchor": "on pourrait s'entraîner ensemble",
+      "english": "Let me know if you're interested, we could train together",
+      "example": "Dis-moi si ça t'intéresse, on pourrait s'entraîner ensemble.",
+      "usage": "Formule pour proposer une activité sportive en commun."
+    },
+    {
+      "id": "e1spf04",
+      "kind": "formule-adaptee",
+      "french": "Voici mon témoignage sur ma pratique du sport amateur",
+      "anchor": "voici mon témoignage",
+      "english": "Here's my account of my amateur sports practice",
+      "example": "Voici mon témoignage sur ma pratique du sport amateur.",
+      "usage": "Formule d'introduction pour un témoignage sportif."
+    },
+    {
+      "id": "e1spf05",
+      "kind": "formule-adaptee",
+      "french": "À bientôt sur le terrain !",
+      "anchor": "à bientôt sur le terrain",
+      "english": "See you soon on the field!",
+      "example": "À bientôt sur le terrain !",
+      "usage": "Formule de clôture conviviale pour un message sportif."
+    },
+    {
+      "id": "e1spi01",
+      "kind": "information-precise",
+      "french": "La salle propose des cours de yoga trois fois par semaine",
+      "anchor": "trois fois par semaine",
+      "english": "The gym offers yoga classes three times a week",
+      "example": "La salle propose des cours de yoga trois fois par semaine, le matin.",
+      "usage": "Pour préciser la fréquence d'une activité sportive."
+    },
+    {
+      "id": "e1spi02",
+      "kind": "information-precise",
+      "french": "L'abonnement mensuel coûte environ quarante euros",
+      "anchor": "coûte environ quarante euros",
+      "english": "The monthly membership costs about forty euros",
+      "example": "L'abonnement mensuel coûte environ quarante euros, sans engagement.",
+      "usage": "Pour donner un tarif précis d'abonnement sportif."
+    },
+    {
+      "id": "e1spi03",
+      "kind": "information-precise",
+      "french": "La salle est ouverte de six heures à vingt-deux heures",
+      "anchor": "de six heures à vingt-deux heures",
+      "english": "The gym is open from 6 a.m. to 10 p.m.",
+      "example": "La salle est ouverte de six heures à vingt-deux heures, tous les jours.",
+      "usage": "Pour préciser des horaires d'ouverture."
+    },
+    {
+      "id": "e1spi04",
+      "kind": "information-precise",
+      "french": "Elle se trouve à deux rues de chez moi",
+      "anchor": "à deux rues de chez moi",
+      "english": "It's two streets away from my place",
+      "example": "Elle se trouve à deux rues de chez moi, c'est très pratique.",
+      "usage": "Pour situer précisément un lieu sportif par rapport à un repère."
+    },
+    {
+      "id": "e1spi05",
+      "kind": "information-precise",
+      "french": "Je cours environ dix kilomètres chaque semaine",
+      "anchor": "dix kilomètres chaque semaine",
+      "english": "I run about ten kilometers each week",
+      "example": "Je cours environ dix kilomètres chaque semaine, répartis sur trois sorties.",
+      "usage": "Pour donner une mesure précise de sa pratique sportive."
+    },
+    {
+      "id": "e1spv01",
+      "kind": "verbe-collocation",
+      "french": "faire du sport régulièrement",
+      "anchor": "faire du sport régulièrement",
+      "english": "to exercise regularly",
+      "example": "J'essaie de faire du sport régulièrement, au moins deux fois par semaine.",
+      "usage": "Collocation de base pour parler d'une habitude sportive."
+    },
+    {
+      "id": "e1spv02",
+      "kind": "verbe-collocation",
+      "french": "se muscler en douceur avec le pilates",
+      "anchor": "se muscler en douceur",
+      "english": "to build muscle gently",
+      "example": "Les cours de pilates permettent de se muscler en douceur.",
+      "usage": "Expression pour parler d'un renforcement musculaire progressif."
+    },
+    {
+      "id": "e1spv03",
+      "kind": "verbe-collocation",
+      "french": "garder la forme toute l'année",
+      "anchor": "garder la forme",
+      "english": "to stay in shape",
+      "example": "La natation m'aide vraiment à garder la forme toute l'année.",
+      "usage": "Expression courante pour parler du maintien d'une bonne condition physique."
+    },
+    {
+      "id": "e1spv04",
+      "kind": "verbe-collocation",
+      "french": "s'inscrire dans un club",
+      "anchor": "inscrire dans un club",
+      "english": "to join a club",
+      "example": "Je pense m'inscrire dans un club de tennis à la rentrée.",
+      "usage": "Collocation pour parler d'une adhésion à un club sportif."
+    },
+    {
+      "id": "e1spv05",
+      "kind": "verbe-collocation",
+      "french": "évacuer le stress après le travail",
+      "anchor": "évacuer le stress",
+      "english": "to release stress",
+      "example": "Le sport m'aide beaucoup à évacuer le stress après le travail.",
+      "usage": "Expression pour évoquer un bénéfice du sport sur le bien-être."
+    },
+    {
+      "id": "e1spp01",
+      "kind": "phrase-modele",
+      "french": "Cette salle propose des activités variées, du yoga à la musculation.",
+      "anchor": "des activités variées",
+      "english": "This gym offers a variety of activities, from yoga to weight training.",
+      "example": "Cette salle propose des activités variées, du yoga à la musculation.",
+      "usage": "Phrase modèle pour décrire une offre d'activités sportives."
+    },
+    {
+      "id": "e1spp02",
+      "kind": "phrase-modele",
+      "french": "Ce que j'apprécie le plus, c'est l'ambiance motivante des cours collectifs.",
+      "anchor": "l'ambiance motivante des cours collectifs",
+      "english": "What I like most is the motivating atmosphere of the group classes.",
+      "example": "Ce que j'apprécie le plus, c'est l'ambiance motivante des cours collectifs.",
+      "usage": "Phrase modèle pour exprimer une préférence sportive."
+    },
+    {
+      "id": "e1spp03",
+      "kind": "phrase-modele",
+      "french": "Depuis que je fais du sport, je me sens beaucoup plus énergique.",
+      "anchor": "je me sens beaucoup plus énergique",
+      "english": "Since I started exercising, I feel much more energetic.",
+      "example": "Depuis que je fais du sport, je me sens beaucoup plus énergique.",
+      "usage": "Phrase modèle pour exprimer un bienfait personnel du sport."
+    },
+    {
+      "id": "e1spp04",
+      "kind": "phrase-modele",
+      "french": "Si tu veux, on peut commencer doucement avec deux séances par semaine.",
+      "anchor": "on peut commencer doucement",
+      "english": "If you want, we can start slowly with two sessions a week.",
+      "example": "Si tu veux, on peut commencer doucement avec deux séances par semaine.",
+      "usage": "Phrase modèle pour proposer un rythme d'entraînement progressif."
+    },
+    {
+      "id": "e1spp05",
+      "kind": "phrase-modele",
+      "french": "Le sport n'est pas seulement bon pour le corps, mais aussi pour le moral.",
+      "anchor": "bon pour le corps, mais aussi pour le moral",
+      "english": "Sport isn't just good for the body, but also for morale.",
+      "example": "Le sport n'est pas seulement bon pour le corps, mais aussi pour le moral.",
+      "usage": "Phrase modèle pour souligner les bienfaits globaux du sport."
+    }
+  ]
+}

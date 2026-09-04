@@ -3,6 +3,7 @@ import re
 
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
+from django.utils import timezone
 
 from study import content_loader as content
 from study.account_services import provision_user_study_data
@@ -11,8 +12,10 @@ from study.models import (
     Annotation,
     AnnotationKind,
     CardState,
+    CardType,
     PersonalResponse,
     PersonalWritingResponse,
+    Phrase,
     Task,
     WritingSujet,
     WritingSujetCompletion,
@@ -212,6 +215,36 @@ class EeWritingContentTests(SimpleTestCase):
                                 key={"author": 0, "original": 1}.get,
                             ),
                         )
+
+    def test_theme_vocabulary_covers_every_writing_theme(self):
+        all_ids = set()
+        for tache in (1, 2):
+            phrases = content.parse_ee_writing_theme_vocabulary(tache)
+            themes, _ = content.load_ee_subject_themes(tache)
+            theme_names = {
+                content.ee_subject_theme_name(tache, theme)
+                for theme in themes
+            }
+
+            with self.subTest(tache=tache):
+                self.assertEqual(len(phrases), 220)
+                self.assertEqual(
+                    {phrase.vocabulary_theme for phrase in phrases},
+                    theme_names,
+                )
+                self.assertTrue(
+                    all(phrase.tier == "theme" for phrase in phrases)
+                )
+                self.assertEqual(
+                    len({phrase.phrase_id for phrase in phrases}),
+                    220,
+                )
+                self.assertFalse(
+                    all_ids.intersection(
+                        phrase.phrase_id for phrase in phrases
+                    )
+                )
+                all_ids.update(phrase.phrase_id for phrase in phrases)
 
     def test_every_equivalent_occurrence_points_to_one_canonical_slug(self):
         for tache in (1, 2):
@@ -612,22 +645,38 @@ class EeWritingPageTests(TestCase):
     def setUpTestData(cls):
         command = Command()
         task_by_slug = command._import_sections(content.load_sections())
+        theme_by_name = command._import_themes(
+            [
+                *content.ee_writing_themes(1),
+                *content.ee_writing_themes(2),
+            ],
+            task_by_slug,
+        )
         for tache in (1, 2):
             command._import_writing_sujets(
                 content.load_ee_writing_categories(tache),
                 task_by_slug,
                 task_key=f"ee/tache-{tache}",
             )
+        command._import_phrases(
+            [
+                *content.parse_ee_writing_theme_vocabulary(1),
+                *content.parse_ee_writing_theme_vocabulary(2),
+            ],
+            {},
+            theme_by_name,
+        )
         cls.tasks = {
             tache: task_by_slug[f"ee/tache-{tache}"]
             for tache in (1, 2)
         }
         cls.user = factories.make_user("ee-writing-pages")
+        provision_user_study_data(cls.user)
 
     def setUp(self):
         self.client.force_login(self.user)
 
-    def test_both_tasks_are_available_and_group_all_occurrences_by_theme(self):
+    def test_both_tasks_have_overviews_and_group_all_subjects_by_theme(self):
         for tache, distinct in ((1, 86), (2, 88)):
             task = self.tasks[tache]
             with self.subTest(tache=tache):
@@ -642,40 +691,60 @@ class EeWritingPageTests(TestCase):
                 self.assertEqual(response.status_code, 200)
                 self.assertTemplateUsed(
                     response,
-                    "study/ee_writing_subjects.html",
+                    "study/ee_writing_overview.html",
                 )
                 self.assertEqual(response.context["category_count"], 11)
                 self.assertEqual(response.context["sujet_count"], 138)
                 self.assertEqual(response.context["distinct_count"], distinct)
                 self.assertEqual(response.context["response_count"], distinct)
-                self.assertContains(response, "data-t1-table-theme", count=11)
-                self.assertContains(response, "data-t1-table-subject", count=138)
-                self.assertContains(response, "data-nested-sort-table", count=11)
-                self.assertContains(
-                    response,
-                    'data-nested-table-sort="subject"',
-                    count=11,
+                self.assertEqual(
+                    response.context["theme_vocabulary"]["phrase_count"],
+                    220,
                 )
+                self.assertContains(response, "data-task-choice", count=2)
+                self.assertContains(response, "AI Practice Prompt")
                 self.assertContains(
                     response,
+                    'data-prompt-copy-source="ee-ai-practice-prompt-content"',
+                )
+                self.assertEqual(
+                    response.context["ai_practice_prompt"],
+                    content.load_ee_ai_examiner_prompt(tache),
+                )
+
+                subjects = self.client.get(
+                    reverse(
+                        "study:task_browse",
+                        args=[task.part.slug, task.slug],
+                    )
+                )
+                self.assertTemplateUsed(
+                    subjects,
+                    "study/ee_writing_subjects.html",
+                )
+                self.assertContains(subjects, "data-t1-table-theme", count=11)
+                self.assertContains(subjects, "data-t1-table-subject", count=138)
+                self.assertContains(subjects, "data-nested-sort-table", count=11)
+                self.assertContains(
+                    subjects,
                     'data-nested-table-sort="progress"',
                     count=11,
                 )
-                self.assertContains(response, "data-nested-sort-row", count=138)
-                self.assertContains(response, "data-subject-directory-search")
-                self.assertContains(response, 'target="_blank"')
-                self.assertContains(response, "publications liées")
+                self.assertContains(subjects, "data-nested-sort-row", count=138)
+                self.assertContains(subjects, "data-subject-directory-search")
+                self.assertContains(subjects, 'target="_blank"')
+                self.assertContains(subjects, "publications liées")
                 self.assertContains(
-                    response,
+                    subjects,
                     (
                         "Rédigez un message clair de 60 à 120 mots"
                         if tache == 1
                         else "compte rendu d’expérience ou un récit de 120 à 150 mots"
                     ),
                 )
-                self.assertContains(response, content.EE_ASTUCES_URL)
+                self.assertContains(subjects, content.EE_ASTUCES_URL)
 
-    def test_subject_detail_matches_oral_consigne_and_offers_both_copies(self):
+    def test_subject_detail_matches_oral_consigne_and_copies_subject(self):
         for tache in (1, 2):
             task = self.tasks[tache]
             sujet = WritingSujet.objects.filter(
@@ -699,22 +768,96 @@ class EeWritingPageTests(TestCase):
                     'aria-label="Copier le sujet"',
                     count=1,
                 )
-                self.assertContains(response, "AI Examiner Prompt")
                 self.assertContains(
                     response,
                     'data-prompt-copy-source="ee-writing-subject-content"',
                 )
+                self.assertNotContains(response, "AI Examiner Prompt")
+
+    def test_theme_vocabulary_reuses_shared_directory_and_progress(self):
+        for tache in (1, 2):
+            task = self.tasks[tache]
+            with self.subTest(tache=tache):
+                directory = self.client.get(
+                    reverse(
+                        "study:task_phrases",
+                        args=[task.part.slug, task.slug],
+                    )
+                )
+                self.assertTemplateUsed(directory, "study/task_vocabulary.html")
+                self.assertEqual(directory.context["theme_count"], 11)
+                self.assertEqual(directory.context["phrase_count"], 220)
+                self.assertEqual(directory.context["batch_count"], 44)
                 self.assertContains(
-                    response,
-                    (
-                        'data-prompt-copy-source='
-                        '"ee-writing-examiner-prompt-content"'
-                    ),
+                    directory,
+                    "data-theme-vocabulary-directory-item",
+                    count=11,
                 )
-                self.assertIn(
-                    sujet.prompt,
-                    response.context["ai_examiner_prompt"],
+
+                first = directory.context["themes"][0]
+                detail = self.client.get(first["url"])
+                self.assertTemplateUsed(
+                    detail,
+                    "study/theme_vocabulary_detail.html",
                 )
+                self.assertEqual(detail.context["phrase_count"], 20)
+                self.assertEqual(len(detail.context["phrase_sections"]), 4)
+                self.assertEqual(
+                    [
+                        len(section["phrases"])
+                        for section in detail.context["phrase_sections"]
+                    ],
+                    [5, 5, 5, 5],
+                )
+                self.assertEqual(len(detail.context["review_batches"]), 4)
+
+                phrase = detail.context["phrase_sections"][0]["phrases"][0]
+                marked = self.client.post(
+                    phrase.progress_url,
+                    {"completed": "1"},
+                    HTTP_X_REQUESTED_WITH="fetch",
+                )
+                self.assertEqual(marked.status_code, 200)
+                self.assertEqual(marked.json()["learned"], 1)
+
+    def test_direct_theme_vocabulary_revisit_links_back_to_its_theme(self):
+        task = self.tasks[1]
+        phrase = Phrase.objects.filter(
+            vocabulary_theme__task=task,
+            is_active=True,
+        ).select_related("vocabulary_theme").first()
+        card = self.user.study_cards.get(
+            phrase=phrase,
+            card_type=CardType.PHRASE_PRODUCTION,
+        )
+        card.needs_revisit = True
+        card.revisit_added_at = timezone.now()
+        card.save(update_fields=["needs_revisit", "revisit_added_at"])
+
+        response = self.client.get(
+            reverse(
+                "study:task_revisit_list",
+                args=[task.part.slug, task.slug],
+            )
+        )
+        item = next(
+            item
+            for group in response.context["revisit_groups"]
+            for item in group["items"]
+            if item["card"].pk == card.pk
+        )
+        expected = reverse(
+            "study:task_vocabulary_theme",
+            args=[
+                task.part.slug,
+                task.slug,
+                phrase.vocabulary_theme.slug,
+            ],
+        )
+        self.assertEqual(
+            item["url"],
+            expected + f"#phrase-{phrase.phrase_id}",
+        )
 
     def test_multiline_subject_keeps_its_visible_structure(self):
         task = self.tasks[1]

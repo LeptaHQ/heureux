@@ -26,7 +26,9 @@ from django.utils import timezone
 
 from config import urls as config_urls
 from study import content_loader as content_module
+from study import queue as queue_module
 from study import srs, views as study_views
+from study.account_services import provision_user_study_data
 from study.content_loader import load_sections
 from study.management.commands.import_content import Command
 from study.middleware import HealthCheckMiddleware
@@ -1048,14 +1050,20 @@ class EeTacheThreePageTests(TestCase):
             theme_by_name,
             family_by_name,
         )
-        command._import_prompts(
+        prompt_index = command._import_prompts(
             responses,
             response_by_key,
             theme_by_name,
             family_by_name,
         )
+        command._import_phrases(
+            content_module.parse_ee_tache_three_subject_vocabulary(responses),
+            prompt_index,
+            theme_by_name,
+        )
         cls.task = task_by_slug["ee/tache-3"]
         cls.user = factories.make_user("ee-tache-three-pages")
+        provision_user_study_data(cls.user)
 
     def setUp(self):
         self.client.force_login(self.user)
@@ -1069,7 +1077,7 @@ class EeTacheThreePageTests(TestCase):
             "family",
         ).get(content_key=self.months[0].combinaisons[0].content_key)
 
-    def test_overview_presents_themed_subject_and_memory_collections(self):
+    def test_overview_presents_subject_vocabulary_and_memory_collections(self):
         response = self.client.get(self._task_url("study:task_detail"))
 
         self.assertEqual(response.status_code, 200)
@@ -1079,13 +1087,17 @@ class EeTacheThreePageTests(TestCase):
         self.assertEqual(response.context["subject_count"], 138)
         self.assertEqual(response.context["distinct_count"], 84)
         self.assertEqual(response.context["vocabulary_count"], 2520)
+        self.assertEqual(response.context["vocabulary_entry_count"], 2520)
+        self.assertEqual(response.context["vocabulary_theme_count"], 11)
+        self.assertEqual(response.context["vocabulary_deck_count"], 84)
         self.assertEqual(response.context["memory_count"], 4)
         self.assertContains(
             response,
             "data-ee-tache-three-overview-entry",
-            count=2,
+            count=3,
         )
-        self.assertContains(response, "data-collection-view-toggle")
+        self.assertContains(response, "data-task-choice", count=3)
+        self.assertNotContains(response, "data-collection-view-toggle")
         self.assertContains(
             response,
             self._task_url("study:task_browse"),
@@ -1093,6 +1105,15 @@ class EeTacheThreePageTests(TestCase):
         self.assertContains(
             response,
             self._task_url("study:task_memories"),
+        )
+        self.assertContains(
+            response,
+            self._task_url("study:task_phrases"),
+        )
+        self.assertContains(response, "AI Practice Prompt")
+        self.assertEqual(
+            response.context["ai_practice_prompt"],
+            content_module.load_ee_ai_examiner_prompt(3),
         )
         self.assertContains(response, "questions terminées")
         self.assertContains(response, "trois tâches dure 60 minutes")
@@ -1102,7 +1123,45 @@ class EeTacheThreePageTests(TestCase):
             response,
             "data-ee-tache-three-subject-row",
         )
-        self.assertContains(response, "classés par thème")
+        self.assertContains(response, "regroupées par grand thème")
+
+    def test_vocabulary_directory_groups_subject_decks_by_theme(self):
+        response = self.client.get(self._task_url("study:task_phrases"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "study/task_vocabulary.html")
+        self.assertEqual(response.context["theme_count"], 11)
+        self.assertEqual(response.context["phrase_count"], 2520)
+        self.assertEqual(len(response.context["themes"]), 11)
+        self.assertContains(
+            response,
+            "data-theme-vocabulary-directory-item",
+            count=11,
+        )
+        self.assertContains(response, "decks terminés")
+
+        first = response.context["themes"][0]
+        detail = self.client.get(first["url"])
+        self.assertTemplateUsed(detail, "study/task_vocabulary_theme.html")
+        self.assertGreater(detail.context["subject_prompt_count"], 0)
+        self.assertGreater(detail.context["subject_vocabulary_count"], 0)
+
+        first_batch = queue_module.scoped_cards(
+            {
+                "kind": "vocab",
+                "part": self.task.part.slug,
+                "task": self.task.slug,
+                "batch": "1",
+            },
+            user=self.user,
+        )
+        first_batch.update(
+            state=CardState.REVIEW,
+            started_at=timezone.now(),
+            due=timezone.now() + timedelta(days=30),
+        )
+        continued = self.client.get(self._task_url("study:task_phrases"))
+        self.assertIn("batch=2", continued.context["review_url"])
 
     def test_subject_page_groups_all_combinations_in_collapsible_themes(self):
         response = self.client.get(self._task_url("study:task_browse"))
@@ -1201,19 +1260,11 @@ class EeTacheThreePageTests(TestCase):
         self.assertContains(response, "Pratiquer ce thème")
         self.assertContains(response, "tache-two-consigne")
         self.assertContains(response, "Copier le sujet")
-        self.assertContains(response, "AI Examiner Prompt")
         self.assertContains(
             response,
             'data-prompt-copy-source="ee-tache-three-subject-content"',
         )
-        self.assertContains(
-            response,
-            'data-prompt-copy-source="ee-tache-three-examiner-prompt-content"',
-        )
-        self.assertIn(
-            self.months[0].combinaisons[0].document1,
-            response.context["ee_ai_examiner_prompt"],
-        )
+        self.assertNotContains(response, "AI Examiner Prompt")
         self.assertIn(
             self.months[0].combinaisons[0].document2,
             response.context["ee_subject_copy_text"],
@@ -1255,7 +1306,7 @@ class EeTacheThreePageTests(TestCase):
         self.assertContains(detail, "Combinaison 41")
         self.assertNotContains(detail, "Combinaison 16")
 
-    def test_examiner_prompt_handles_every_published_source_defect(self):
+    def test_subject_copy_preserves_every_published_source_defect(self):
         sources = [
             source
             for month in self.months
@@ -1278,15 +1329,9 @@ class EeTacheThreePageTests(TestCase):
                 response = self.client.get(prompt_detail_url(prompt))
 
                 self.assertEqual(response.status_code, 200)
-                self.assertFalse(response.context["ee_examiner_available"])
-                self.assertEqual(response.context["ee_ai_examiner_prompt"], "")
-                self.assertContains(response, "Évaluation IA indisponible")
                 self.assertNotContains(
                     response,
-                    (
-                        'data-prompt-copy-source='
-                        '"ee-tache-three-examiner-prompt-content"'
-                    ),
+                    "AI Examiner Prompt",
                 )
                 self.assertIn(
                     "Source note :",
@@ -1305,8 +1350,10 @@ class EeTacheThreePageTests(TestCase):
         )
         prompt = Prompt.objects.get(content_key=title_only.content_key)
         response = self.client.get(prompt_detail_url(prompt))
-        self.assertTrue(response.context["ee_examiner_available"])
-        self.assertContains(response, "AI Examiner Prompt")
+        self.assertIn(
+            "Source note :",
+            response.context["ee_subject_copy_text"],
+        )
 
     def test_family_page_redirects_to_its_theme(self):
         prompt = self._first_prompt()

@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-1",
+  "theme": "ecole",
+  "name": "École & langue",
+  "entries": [
+    {
+      "id": "e1ecf01",
+      "kind": "formule-adaptee",
+      "french": "Voici les informations sur l'école dont je t'ai parlé",
+      "anchor": "voici les informations sur l'école",
+      "english": "Here's the information about the school I told you about",
+      "example": "Voici les informations sur l'école dont je t'ai parlé.",
+      "usage": "Formule de transition pour introduire des détails sur une école."
+    },
+    {
+      "id": "e1ecf02",
+      "kind": "formule-adaptee",
+      "french": "Je te recommande vivement cette école de langue",
+      "anchor": "je te recommande vivement",
+      "english": "I highly recommend this language school",
+      "example": "Je te recommande vivement cette école de langue, elle est excellente.",
+      "usage": "Formule pour recommander chaleureusement un établissement."
+    },
+    {
+      "id": "e1ecf03",
+      "kind": "formule-adaptee",
+      "french": "N'hésite pas si tu veux que je t'accompagne pour l'inscription",
+      "anchor": "n'hésite pas si tu veux que je t'accompagne",
+      "english": "Don't hesitate if you'd like me to come with you to register",
+      "example": "N'hésite pas si tu veux que je t'accompagne pour l'inscription.",
+      "usage": "Formule de clôture proposant une aide concrète."
+    },
+    {
+      "id": "e1ecf04",
+      "kind": "formule-adaptee",
+      "french": "J'espère que ces informations t'aideront à faire ton choix",
+      "anchor": "t'aideront à faire ton choix",
+      "english": "I hope this information will help you make your choice",
+      "example": "J'espère que ces informations t'aideront à faire ton choix.",
+      "usage": "Formule de clôture pour conclure une réponse informative."
+    },
+    {
+      "id": "e1ecf05",
+      "kind": "formule-adaptee",
+      "french": "Tiens-moi au courant si tu t'inscris finalement",
+      "anchor": "tiens-moi au courant",
+      "english": "Keep me posted if you end up registering",
+      "example": "Tiens-moi au courant si tu t'inscris finalement !",
+      "usage": "Formule de clôture amicale invitant à donner des nouvelles."
+    },
+    {
+      "id": "e1eci01",
+      "kind": "information-precise",
+      "french": "Les cours ont lieu deux fois par semaine, le mardi et le jeudi",
+      "anchor": "deux fois par semaine",
+      "english": "Classes take place twice a week, on Tuesday and Thursday",
+      "example": "Les cours ont lieu deux fois par semaine, le mardi et le jeudi soir.",
+      "usage": "Pour préciser la fréquence exacte des cours."
+    },
+    {
+      "id": "e1eci02",
+      "kind": "information-precise",
+      "french": "Le tarif est de cent cinquante euros par mois",
+      "anchor": "cent cinquante euros par mois",
+      "english": "The fee is one hundred fifty euros per month",
+      "example": "Le tarif est de cent cinquante euros par mois, matériel inclus.",
+      "usage": "Pour donner un prix précis de scolarité."
+    },
+    {
+      "id": "e1eci03",
+      "kind": "information-precise",
+      "french": "Les groupes sont limités à dix étudiants",
+      "anchor": "limités à dix étudiants",
+      "english": "Groups are limited to ten students",
+      "example": "Les groupes sont limités à dix étudiants pour favoriser les échanges.",
+      "usage": "Pour préciser la taille maximale d'un groupe de cours."
+    },
+    {
+      "id": "e1eci04",
+      "kind": "information-precise",
+      "french": "L'école propose des niveaux allant de débutant à avancé",
+      "anchor": "de débutant à avancé",
+      "english": "The school offers levels ranging from beginner to advanced",
+      "example": "L'école propose des niveaux allant de débutant à avancé.",
+      "usage": "Pour décrire l'éventail des niveaux proposés."
+    },
+    {
+      "id": "e1eci05",
+      "kind": "information-precise",
+      "french": "L'école se situe à dix minutes du centre-ville en bus",
+      "anchor": "à dix minutes du centre-ville",
+      "english": "The school is ten minutes from downtown by bus",
+      "example": "L'école se situe à dix minutes du centre-ville en bus.",
+      "usage": "Pour donner un repère de localisation précis."
+    },
+    {
+      "id": "e1ecv01",
+      "kind": "verbe-collocation",
+      "french": "s'inscrire à un cours en ligne",
+      "anchor": "s'inscrire à un cours en ligne",
+      "english": "to register for an online course",
+      "example": "Il est très facile de s'inscrire à un cours en ligne depuis le site de l'école.",
+      "usage": "Collocation courante pour parler d'une inscription scolaire."
+    },
+    {
+      "id": "e1ecv02",
+      "kind": "verbe-collocation",
+      "french": "passer un test de niveau",
+      "anchor": "passer un test de niveau",
+      "english": "to take a placement test",
+      "example": "Avant de commencer, il faut passer un test de niveau.",
+      "usage": "Expression pour évoquer une évaluation initiale de compétence."
+    },
+    {
+      "id": "e1ecv03",
+      "kind": "verbe-collocation",
+      "french": "suivre des cours intensifs pendant l'été",
+      "anchor": "suivre des cours intensifs",
+      "english": "to take intensive courses",
+      "example": "Elle a décidé de suivre des cours intensifs pendant l'été.",
+      "usage": "Collocation pour parler d'un rythme d'apprentissage soutenu."
+    },
+    {
+      "id": "e1ecv04",
+      "kind": "verbe-collocation",
+      "french": "faire des progrès rapides",
+      "anchor": "progrès rapides",
+      "english": "to make rapid progress",
+      "example": "Grâce aux petits groupes, on fait des progrès rapides.",
+      "usage": "Expression pour évoquer une amélioration rapide du niveau."
+    },
+    {
+      "id": "e1ecv05",
+      "kind": "verbe-collocation",
+      "french": "profiter d'un tarif réduit",
+      "anchor": "profiter d'un tarif réduit",
+      "english": "to benefit from a reduced rate",
+      "example": "Les étudiants peuvent profiter d'un tarif réduit sur présentation de leur carte.",
+      "usage": "Collocation pour parler d'une réduction de prix."
+    },
+    {
+      "id": "e1ecp01",
+      "kind": "phrase-modele",
+      "french": "Cette école propose des cours adaptés à tous les niveaux.",
+      "anchor": "des cours adaptés à tous les niveaux",
+      "english": "This school offers courses suited to all levels.",
+      "example": "Cette école propose des cours adaptés à tous les niveaux.",
+      "usage": "Phrase modèle pour présenter l'offre pédagogique d'une école."
+    },
+    {
+      "id": "e1ecp02",
+      "kind": "phrase-modele",
+      "french": "Les professeurs sont patients et expliquent très bien la grammaire.",
+      "anchor": "les professeurs sont patients",
+      "english": "The teachers are patient and explain things very well.",
+      "example": "Les professeurs sont patients et expliquent très bien la grammaire.",
+      "usage": "Phrase modèle pour évaluer la qualité de l'enseignement."
+    },
+    {
+      "id": "e1ecp03",
+      "kind": "phrase-modele",
+      "french": "Ce qui est bien, c'est qu'on peut choisir ses horaires.",
+      "anchor": "ce qui est bien, c'est qu'on peut choisir ses horaires",
+      "english": "What's great is that you can choose your schedule.",
+      "example": "Ce qui est bien, c'est qu'on peut choisir ses horaires selon son emploi du temps.",
+      "usage": "Phrase modèle pour souligner la flexibilité d'une formule."
+    },
+    {
+      "id": "e1ecp04",
+      "kind": "phrase-modele",
+      "french": "Depuis que je suis ces cours, je me sens beaucoup plus à l'aise en français.",
+      "anchor": "je me sens beaucoup plus à l'aise",
+      "english": "Since I started these classes, I feel much more comfortable in French.",
+      "example": "Depuis que je suis ces cours, je me sens beaucoup plus à l'aise en français.",
+      "usage": "Phrase modèle pour exprimer un progrès personnel en langue."
+    },
+    {
+      "id": "e1ecp05",
+      "kind": "phrase-modele",
+      "french": "Si ça t'intéresse, je peux te donner les coordonnées de l'école.",
+      "anchor": "je peux te donner les coordonnées",
+      "english": "If you're interested, I can give you the school's contact details.",
+      "example": "Si ça t'intéresse, je peux te donner les coordonnées de l'école.",
+      "usage": "Phrase modèle pour proposer de transmettre des informations pratiques."
+    }
+  ]
+}

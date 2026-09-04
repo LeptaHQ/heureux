@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-2",
+  "theme": "voyages",
+  "name": "Voyages & découvertes",
+  "entries": [
+    {
+      "id": "e2vot01",
+      "kind": "repere-temporel",
+      "french": "dès notre arrivée à destination",
+      "anchor": "dès notre arrivée à destination",
+      "english": "as soon as we arrived at our destination",
+      "example": "Dès notre arrivée à destination, nous avons posé nos valises et sommes partis explorer la vieille ville.",
+      "usage": "Locution temporelle en tête de phrase, suivie d'une virgule, pour ouvrir un récit de voyage."
+    },
+    {
+      "id": "e2vot02",
+      "kind": "repere-temporel",
+      "french": "après quelques jours de voyage",
+      "anchor": "après quelques jours de voyage",
+      "english": "after a few days of travelling",
+      "example": "Après quelques jours de voyage, j'ai enfin trouvé mes repères dans cette ville immense.",
+      "usage": "Locution temporelle introduisant une étape intermédiaire du séjour."
+    },
+    {
+      "id": "e2vot03",
+      "kind": "repere-temporel",
+      "french": "au milieu du séjour",
+      "anchor": "au milieu du séjour",
+      "english": "halfway through the stay",
+      "example": "Au milieu du séjour, nous avons décidé de changer d'itinéraire pour visiter la côte.",
+      "usage": "Locution temporelle marquant le point médian d'un voyage."
+    },
+    {
+      "id": "e2vot04",
+      "kind": "repere-temporel",
+      "french": "la veille de notre départ",
+      "anchor": "la veille de notre départ",
+      "english": "the day before our departure",
+      "example": "La veille de notre départ, nous avons profité d'un dernier dîner sur la place principale.",
+      "usage": "Groupe nominal temporel ; précède l'action qu'il situe dans le temps."
+    },
+    {
+      "id": "e2vot05",
+      "kind": "repere-temporel",
+      "french": "de retour à la maison",
+      "anchor": "de retour à la maison",
+      "english": "back home",
+      "example": "De retour à la maison, je repensais déjà avec nostalgie à ce voyage inoubliable.",
+      "usage": "Locution temporelle pour conclure un récit de voyage."
+    },
+    {
+      "id": "e2vov01",
+      "kind": "verbe-recit",
+      "french": "découvrir un nouveau pays",
+      "anchor": "un nouveau pays",
+      "english": "to discover a new country",
+      "example": "J'ai découvert un nouveau pays en parcourant ses ruelles à pied dès le premier matin.",
+      "usage": "Verbe à l'infinitif ; se conjugue au passé composé pour raconter la découverte."
+    },
+    {
+      "id": "e2vov02",
+      "kind": "verbe-recit",
+      "french": "se perdre dans les ruelles",
+      "anchor": "dans les ruelles",
+      "english": "to get lost in the alleyways",
+      "example": "Nous nous sommes perdus dans les ruelles du vieux quartier avant de retrouver notre hôtel.",
+      "usage": "Verbe pronominal ; s'accorde avec le sujet au passé composé."
+    },
+    {
+      "id": "e2vov03",
+      "kind": "verbe-recit",
+      "french": "rater sa correspondance",
+      "anchor": "correspondance",
+      "english": "to miss one's connecting flight or train",
+      "example": "J'ai raté ma correspondance à l'aéroport et j'ai dû attendre le vol suivant.",
+      "usage": "Verbe transitif ; « sa » s'accorde avec le sujet du récit."
+    },
+    {
+      "id": "e2vov04",
+      "kind": "verbe-recit",
+      "french": "s'installer dans son hébergement",
+      "anchor": "hébergement",
+      "english": "to settle into one's accommodation",
+      "example": "Nous nous sommes installés dans notre hébergement avant de partir découvrir les environs.",
+      "usage": "Verbe pronominal introduisant une étape logistique du séjour."
+    },
+    {
+      "id": "e2vov05",
+      "kind": "verbe-recit",
+      "french": "faire une randonnée inoubliable",
+      "anchor": "une randonnée inoubliable",
+      "english": "to go on an unforgettable hike",
+      "example": "J'ai fait une randonnée inoubliable jusqu'au sommet, malgré la fatigue des dernières heures.",
+      "usage": "Expression verbale ; « faire » se conjugue selon le sujet et le temps du récit."
+    },
+    {
+      "id": "e2vod01",
+      "kind": "detail-impression",
+      "french": "un accueil chaleureux",
+      "anchor": "un accueil chaleureux",
+      "english": "a warm welcome",
+      "example": "Dès notre arrivée, un accueil chaleureux nous a immédiatement mis à l'aise.",
+      "usage": "Groupe nominal masculin ; décrit une impression humaine positive."
+    },
+    {
+      "id": "e2vod02",
+      "kind": "detail-impression",
+      "french": "des paysages à couper le souffle",
+      "anchor": "des paysages à couper le souffle",
+      "english": "breathtaking landscapes",
+      "example": "Du sommet, nous avons découvert des paysages à couper le souffle sur toute la vallée.",
+      "usage": "Groupe nominal pluriel ; ajoute une impression visuelle forte au récit."
+    },
+    {
+      "id": "e2vod03",
+      "kind": "detail-impression",
+      "french": "une ambiance dépaysante",
+      "anchor": "une ambiance dépaysante",
+      "english": "a refreshingly foreign atmosphere",
+      "example": "Le marché local dégageait une ambiance dépaysante, entre odeurs d'épices et musique traditionnelle.",
+      "usage": "Groupe nominal féminin ; évoque un dépaysement sensoriel global."
+    },
+    {
+      "id": "e2vod04",
+      "kind": "detail-impression",
+      "french": "une odeur alléchante de cuisine de rue",
+      "anchor": "une odeur alléchante de cuisine de rue",
+      "english": "an appetizing smell of street food",
+      "example": "Une odeur alléchante de cuisine de rue flottait dans l'air dès l'entrée du marché.",
+      "usage": "Groupe nominal ; précise une impression olfactive concrète."
+    },
+    {
+      "id": "e2vod05",
+      "kind": "detail-impression",
+      "french": "un sentiment de dépaysement total",
+      "anchor": "un sentiment de dépaysement total",
+      "english": "a feeling of total change of scenery",
+      "example": "J'ai ressenti un sentiment de dépaysement total en découvrant des coutumes si différentes des miennes.",
+      "usage": "Groupe nominal masculin ; exprime une impression émotionnelle marquante."
+    },
+    {
+      "id": "e2voc01",
+      "kind": "commentaire-recommandation",
+      "french": "je recommande vivement de réserver à l'avance",
+      "anchor": "je recommande vivement de réserver à l'avance",
+      "english": "I highly recommend booking in advance",
+      "example": "Je recommande vivement de réserver à l'avance, car les meilleurs hébergements partent vite.",
+      "usage": "Formule de recommandation ; « vivement » renforce le conseil donné."
+    },
+    {
+      "id": "e2voc02",
+      "kind": "commentaire-recommandation",
+      "french": "le seul bémol reste la foule aux heures de pointe",
+      "anchor": "le seul bémol reste la foule aux heures de pointe",
+      "english": "the only downside remains the crowds at peak times",
+      "example": "Le seul bémol reste la foule aux heures de pointe devant les sites les plus connus.",
+      "usage": "Formule nuançant un avis globalement positif."
+    },
+    {
+      "id": "e2voc03",
+      "kind": "commentaire-recommandation",
+      "french": "à mes yeux, ce voyage restera inoubliable",
+      "anchor": "ce voyage restera inoubliable",
+      "english": "in my eyes, this trip will remain unforgettable",
+      "example": "À mes yeux, ce voyage restera inoubliable grâce à la gentillesse des habitants rencontrés.",
+      "usage": "Formule d'opinion personnelle en fin de récit."
+    },
+    {
+      "id": "e2voc04",
+      "kind": "commentaire-recommandation",
+      "french": "si c'était à refaire, je partirais hors saison",
+      "anchor": "si c'était à refaire",
+      "english": "if I had to do it again, I would leave off-season",
+      "example": "Si c'était à refaire, je partirais hors saison pour éviter la foule des vacances.",
+      "usage": "Structure hypothétique à l'imparfait et au conditionnel ; sert à formuler une recommandation."
+    },
+    {
+      "id": "e2voc05",
+      "kind": "commentaire-recommandation",
+      "french": "j'y retournerais volontiers",
+      "anchor": "j'y retournerais volontiers",
+      "english": "I would gladly go back there",
+      "example": "J'y retournerais volontiers, cette fois pour explorer les régions que je n'ai pas vues.",
+      "usage": "Verbe au conditionnel présent ; exprime un souhait de répéter l'expérience."
+    }
+  ]
+}

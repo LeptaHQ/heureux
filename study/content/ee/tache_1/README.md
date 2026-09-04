@@ -13,8 +13,10 @@ Le parcours actif s'appuie sur le corpus source 2025 :
   les sujets restants ont reçu une réponse originale rédigée dans le même registre.
 - `sujets.json` — ancienne banque éditoriale conservée comme référence historique ;
   elle n'alimente plus le parcours 2025.
-- `ai_examiner_prompt.md` — prompt d’évaluation propre à la Tâche 1 ; la page
-  du sujet y ajoute automatiquement la consigne exacte avant la copie.
+- `ai_examiner_prompt.md` — prompt d’évaluation propre à la Tâche 1, disponible
+  depuis la vue d’ensemble avant de copier un sujet.
+- `theme_vocabulary/<theme>.json` — **220 fiches** réutilisables, soit 20 par
+  thème en quatre parcours : formules, informations, verbes et phrases modèles.
 
 `load_ee_writing_categories(1)` valide les limites, place les versions de l'auteur
 en premier et fournit les 138 publications à l'importeur. Une publication équivalente

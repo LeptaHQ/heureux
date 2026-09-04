@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-2",
+  "theme": "logement-ville",
+  "name": "Logement & cadre de vie",
+  "entries": [
+    {
+      "id": "e2lvt01",
+      "kind": "repere-temporel",
+      "french": "il y a six mois",
+      "anchor": "il y a six mois",
+      "english": "six months ago",
+      "example": "Il y a six mois, j’ai quitté mon appartement pour une maison à la campagne.",
+      "usage": "Expression de temps ; « il y a » + durée, ouvre le récit."
+    },
+    {
+      "id": "e2lvt02",
+      "kind": "repere-temporel",
+      "french": "le premier matin",
+      "anchor": "le premier matin",
+      "english": "the first morning",
+      "example": "Le premier matin, les oiseaux m’ont réveillé à la place des klaxons.",
+      "usage": "Marqueur temporel ; souligne une première impression forte."
+    },
+    {
+      "id": "e2lvt03",
+      "kind": "repere-temporel",
+      "french": "huit mois plus tard",
+      "anchor": "huit mois plus tard",
+      "english": "eight months later",
+      "example": "Huit mois plus tard, nous ne regrettons absolument rien.",
+      "usage": "Marqueur chronologique ; introduit un bilan après une durée."
+    },
+    {
+      "id": "e2lvt04",
+      "kind": "repere-temporel",
+      "french": "pendant mes deux années de master",
+      "anchor": "pendant mes deux années de master",
+      "english": "during my two years of graduate school",
+      "example": "Pendant mes deux années de master, j’ai partagé une maison avec deux amis.",
+      "usage": "Locution de durée ; situe le contexte de vie."
+    },
+    {
+      "id": "e2lvt05",
+      "kind": "repere-temporel",
+      "french": "dès notre installation",
+      "anchor": "dès notre installation",
+      "english": "as soon as we settled in",
+      "example": "Dès notre installation, nous avons rencontré nos voisins les plus proches.",
+      "usage": "Connecteur temporel ; marque un début immédiat d’action."
+    },
+    {
+      "id": "e2lvv01",
+      "kind": "verbe-recit",
+      "french": "j’ai quitté mon appartement pour",
+      "anchor": "j’ai quitté mon appartement pour",
+      "english": "I left my apartment for",
+      "example": "Il y a six mois, j’ai quitté mon appartement pour une maison plus calme.",
+      "usage": "Passé composé + « pour » ; explique un choix de vie."
+    },
+    {
+      "id": "e2lvv02",
+      "kind": "verbe-recit",
+      "french": "nous avons établi un calendrier de ménage",
+      "anchor": "nous avons établi un calendrier de ménage",
+      "english": "we set up a cleaning schedule",
+      "example": "Pour éviter les conflits, nous avons établi un calendrier de ménage.",
+      "usage": "Passé composé, 1re pers. pluriel ; organisation pratique."
+    },
+    {
+      "id": "e2lvv03",
+      "kind": "verbe-recit",
+      "french": "j’ai trouvé un logement proche de",
+      "anchor": "j’ai trouvé un logement proche de",
+      "english": "I found housing close to",
+      "example": "Après plusieurs visites, j’ai trouvé un logement proche de la gare.",
+      "usage": "Passé composé ; aboutissement d’une recherche."
+    },
+    {
+      "id": "e2lvv04",
+      "kind": "verbe-recit",
+      "french": "nous avons décidé de nous installer",
+      "anchor": "nous avons décidé de nous installer",
+      "english": "we decided to settle",
+      "example": "Après dix ans en ville, nous avons décidé de nous installer dans un village.",
+      "usage": "« décider de » + infinitif au passé composé ; décision assumée."
+    },
+    {
+      "id": "e2lvv05",
+      "kind": "verbe-recit",
+      "french": "je me suis fait des amis parmi",
+      "anchor": "je me suis fait des amis parmi",
+      "english": "I made friends among",
+      "example": "Rapidement, je me suis fait des amis parmi mes voisins de palier.",
+      "usage": "Verbe pronominal au passé composé ; intégration sociale."
+    },
+    {
+      "id": "e2lvd01",
+      "kind": "detail-impression",
+      "french": "le bruit des klaxons toute la nuit",
+      "anchor": "le bruit des klaxons toute la nuit",
+      "english": "the noise of car horns all night",
+      "example": "En appartement, le bruit des klaxons toute la nuit m’empêchait de dormir.",
+      "usage": "Groupe nominal ; détail sonore, justifie un choix de vie."
+    },
+    {
+      "id": "e2lvd02",
+      "kind": "detail-impression",
+      "french": "un jardin où je cultive des tomates",
+      "anchor": "un jardin où je cultive des tomates",
+      "english": "a garden where I grow tomatoes",
+      "example": "Depuis mon déménagement, j’ai un jardin où je cultive des tomates.",
+      "usage": "Relative au présent ; détail sur une nouvelle habitude."
+    },
+    {
+      "id": "e2lvd03",
+      "kind": "detail-impression",
+      "french": "des voisins prêts à prêter un outil",
+      "anchor": "des voisins prêts à prêter un outil",
+      "english": "neighbors ready to lend a tool",
+      "example": "J’ai découvert des voisins prêts à prêter un outil à tout moment.",
+      "usage": "Groupe nominal + « prêt à » ; détail sur l’entraide locale."
+    },
+    {
+      "id": "e2lvd04",
+      "kind": "detail-impression",
+      "french": "un logement inabordable pour une seule personne",
+      "anchor": "un logement inabordable pour une seule personne",
+      "english": "housing unaffordable for a single person",
+      "example": "Près du campus, c’était un logement inabordable pour une seule personne.",
+      "usage": "Groupe nominal ; détail chiffré et économique justifiant un choix."
+    },
+    {
+      "id": "e2lvd05",
+      "kind": "detail-impression",
+      "french": "les enfants qui jouent dehors sans danger",
+      "anchor": "les enfants qui jouent dehors sans danger",
+      "english": "children who play outside safely",
+      "example": "Dans ce village, les enfants qui jouent dehors sans danger m’ont beaucoup plu.",
+      "usage": "Relative au présent ; détail rassurant sur le cadre de vie."
+    },
+    {
+      "id": "e2lvc01",
+      "kind": "commentaire-recommandation",
+      "french": "je recommande la colocation à ceux qui",
+      "anchor": "je recommande la colocation à ceux qui",
+      "english": "I recommend shared housing to those who",
+      "example": "Je recommande la colocation à ceux qui veulent réduire leur loyer.",
+      "usage": "« recommander à » + relative ; conseil ciblé selon un profil."
+    },
+    {
+      "id": "e2lvc02",
+      "kind": "commentaire-recommandation",
+      "french": "à mon avis, la campagne convient surtout à",
+      "anchor": "à mon avis, la campagne convient surtout à",
+      "english": "in my opinion, the countryside mainly suits",
+      "example": "À mon avis, la campagne convient surtout à ceux qui télétravaillent.",
+      "usage": "Formule d’opinion + « convenir à » ; nuance la recommandation."
+    },
+    {
+      "id": "e2lvc03",
+      "kind": "commentaire-recommandation",
+      "french": "cette expérience m’a appris à mieux organiser",
+      "anchor": "cette expérience m’a appris à mieux organiser",
+      "english": "this experience taught me to better organize",
+      "example": "Cette expérience m’a appris à mieux organiser la vie commune.",
+      "usage": "Passé composé + infinitif ; bilan pratique de l’expérience."
+    },
+    {
+      "id": "e2lvc04",
+      "kind": "commentaire-recommandation",
+      "french": "si vous déménagez, vérifiez d’abord",
+      "anchor": "si vous déménagez, vérifiez d’abord",
+      "english": "if you move, first check",
+      "example": "Si vous déménagez, vérifiez d’abord les transports et les commerces du quartier.",
+      "usage": "Si + présent, impératif ; conseil pratique séquencé."
+    },
+    {
+      "id": "e2lvc05",
+      "kind": "commentaire-recommandation",
+      "french": "je ne regrette absolument pas d’avoir choisi",
+      "anchor": "je ne regrette absolument pas d’avoir choisi",
+      "english": "I don’t regret at all having chosen",
+      "example": "Je ne regrette absolument pas d’avoir choisi ce quartier plus calme.",
+      "usage": "Négation renforcée + infinitif passé ; bilan assumé et positif."
+    }
+  ]
+}

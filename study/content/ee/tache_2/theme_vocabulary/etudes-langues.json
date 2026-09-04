@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-2",
+  "theme": "etudes-langues",
+  "name": "Études & langues",
+  "entries": [
+    {
+      "id": "e2elt01",
+      "kind": "repere-temporel",
+      "french": "dès la rentrée universitaire",
+      "anchor": "dès la rentrée universitaire",
+      "english": "as soon as the university term started",
+      "example": "Dès la rentrée universitaire, je me suis inscrit à un cours de conversation en français.",
+      "usage": "Locution temporelle en tête de phrase pour ouvrir un récit scolaire."
+    },
+    {
+      "id": "e2elt02",
+      "kind": "repere-temporel",
+      "french": "après six mois d'apprentissage",
+      "anchor": "après six mois d'apprentissage",
+      "english": "after six months of learning",
+      "example": "Après six mois d'apprentissage, je comprenais enfin la plupart des conversations courantes.",
+      "usage": "Groupe nominal temporel indiquant une durée d'apprentissage écoulée."
+    },
+    {
+      "id": "e2elt03",
+      "kind": "repere-temporel",
+      "french": "la veille de l'examen",
+      "anchor": "la veille de l'examen",
+      "english": "the day before the exam",
+      "example": "La veille de l'examen, j'ai révisé mon vocabulaire une dernière fois avant de me coucher tôt.",
+      "usage": "Groupe nominal temporel précédant l'action qu'il situe."
+    },
+    {
+      "id": "e2elt04",
+      "kind": "repere-temporel",
+      "french": "depuis le début du semestre",
+      "anchor": "depuis le début du semestre",
+      "english": "since the start of the semester",
+      "example": "Depuis le début du semestre, je suis deux cours de langue en plus de mes matières principales.",
+      "usage": "Locution temporelle exprimant une durée depuis un point de départ précis."
+    },
+    {
+      "id": "e2elt05",
+      "kind": "repere-temporel",
+      "french": "au terme de mon échange",
+      "anchor": "au terme de mon échange",
+      "english": "at the end of my exchange",
+      "example": "Au terme de mon échange, je parlais avec beaucoup plus d'aisance qu'à mon arrivée.",
+      "usage": "Groupe nominal temporel marquant la fin d'une période d'études à l'étranger."
+    },
+    {
+      "id": "e2elv01",
+      "kind": "verbe-recit",
+      "french": "s'inscrire à un cours de langue",
+      "anchor": "un cours de langue",
+      "english": "to enroll in a language course",
+      "example": "Je me suis inscrit à un cours de langue pour mieux communiquer avec mes amis francophones.",
+      "usage": "Verbe pronominal ; « à » introduit le cours choisi."
+    },
+    {
+      "id": "e2elv02",
+      "kind": "verbe-recit",
+      "french": "progresser en compréhension orale",
+      "anchor": "en compréhension orale",
+      "english": "to improve in listening comprehension",
+      "example": "J'ai beaucoup progressé en compréhension orale grâce aux podcasts écoutés chaque jour.",
+      "usage": "Verbe intransitif ; « en » précise le domaine de progrès."
+    },
+    {
+      "id": "e2elv03",
+      "kind": "verbe-recit",
+      "french": "réussir un examen difficile",
+      "anchor": "un examen difficile",
+      "english": "to pass a difficult exam",
+      "example": "J'ai réussi un examen difficile après plusieurs semaines de révisions intensives.",
+      "usage": "Verbe transitif ; s'emploie au passé composé pour un résultat obtenu."
+    },
+    {
+      "id": "e2elv04",
+      "kind": "verbe-recit",
+      "french": "échanger avec des locuteurs natifs",
+      "anchor": "des locuteurs natifs",
+      "english": "to converse with native speakers",
+      "example": "J'ai échangé avec des locuteurs natifs chaque semaine pour améliorer mon accent.",
+      "usage": "Verbe transitif indirect ; « avec » introduit l'interlocuteur."
+    },
+    {
+      "id": "e2elv05",
+      "kind": "verbe-recit",
+      "french": "surmonter le trac à l'oral",
+      "anchor": "surmonter le trac à l'oral",
+      "english": "to overcome stage fright when speaking",
+      "example": "J'ai fini par surmonter le trac à l'oral en participant régulièrement aux discussions en classe.",
+      "usage": "Verbe transitif ; décrit une évolution personnelle face à une difficulté."
+    },
+    {
+      "id": "e2eld01",
+      "kind": "detail-impression",
+      "french": "un accent difficile à comprendre",
+      "anchor": "un accent difficile à comprendre",
+      "english": "an accent that is hard to understand",
+      "example": "Au début, un accent difficile à comprendre me faisait perdre le fil des conversations.",
+      "usage": "Groupe nominal masculin ; décrit une difficulté d'écoute concrète."
+    },
+    {
+      "id": "e2eld02",
+      "kind": "detail-impression",
+      "french": "un sentiment de fierté après l'examen",
+      "anchor": "un sentiment de fierté après l'examen",
+      "english": "a feeling of pride after the exam",
+      "example": "J'ai ressenti un sentiment de fierté après l'examen malgré la difficulté des questions.",
+      "usage": "Groupe nominal masculin ; exprime une impression émotionnelle positive."
+    },
+    {
+      "id": "e2eld03",
+      "kind": "detail-impression",
+      "french": "une salle de classe animée",
+      "anchor": "une salle de classe animée",
+      "english": "a lively classroom",
+      "example": "Nos cours se déroulaient dans une salle de classe animée, pleine de discussions et de rires.",
+      "usage": "Groupe nominal féminin ; décrit une impression sonore et sociale."
+    },
+    {
+      "id": "e2eld04",
+      "kind": "detail-impression",
+      "french": "un vocabulaire de plus en plus riche",
+      "anchor": "un vocabulaire de plus en plus riche",
+      "english": "an increasingly rich vocabulary",
+      "example": "Semaine après semaine, j'ai développé un vocabulaire de plus en plus riche.",
+      "usage": "Groupe nominal masculin ; illustre une progression concrète en langue."
+    },
+    {
+      "id": "e2eld05",
+      "kind": "detail-impression",
+      "french": "une légère appréhension avant de parler",
+      "anchor": "une légère appréhension avant de parler",
+      "english": "slight apprehension before speaking",
+      "example": "Je ressentais toujours une légère appréhension avant de parler devant toute la classe.",
+      "usage": "Groupe nominal féminin ; exprime une impression émotionnelle passagère."
+    },
+    {
+      "id": "e2elc01",
+      "kind": "commentaire-recommandation",
+      "french": "je recommande cette méthode à quiconque apprend une langue",
+      "anchor": "je recommande cette méthode à quiconque apprend une langue",
+      "english": "I recommend this method to anyone learning a language",
+      "example": "Je recommande cette méthode à quiconque apprend une langue et cherche des résultats rapides.",
+      "usage": "Formule de recommandation générale suivie du public visé."
+    },
+    {
+      "id": "e2elc02",
+      "kind": "commentaire-recommandation",
+      "french": "ce qui m'a le plus aidé, c'est de pratiquer chaque jour",
+      "anchor": "ce qui m'a le plus aidé, c'est de pratiquer chaque jour",
+      "english": "what helped me most was practicing every day",
+      "example": "Ce qui m'a le plus aidé, c'est de pratiquer chaque jour, même quelques minutes seulement.",
+      "usage": "Structure emphatique « ce qui... c'est » pour souligner un facteur de réussite."
+    },
+    {
+      "id": "e2elc03",
+      "kind": "commentaire-recommandation",
+      "french": "à mon avis, l'immersion reste le meilleur moyen de progresser",
+      "anchor": "l'immersion reste le meilleur moyen de progresser",
+      "english": "in my opinion, immersion remains the best way to improve",
+      "example": "À mon avis, l'immersion reste le meilleur moyen de progresser rapidement en langue étrangère.",
+      "usage": "Formule d'opinion personnelle introduisant un jugement général sur l'apprentissage."
+    },
+    {
+      "id": "e2elc04",
+      "kind": "commentaire-recommandation",
+      "french": "le seul point faible est le manque de pratique orale",
+      "anchor": "le seul point faible est le manque de pratique orale",
+      "english": "the only weak point is the lack of oral practice",
+      "example": "Le seul point faible est le manque de pratique orale pendant les premiers mois.",
+      "usage": "Formule nuançant un bilan globalement positif."
+    },
+    {
+      "id": "e2elc05",
+      "kind": "commentaire-recommandation",
+      "french": "je conseille vivement de ne pas avoir peur de faire des erreurs",
+      "anchor": "je conseille vivement de ne pas avoir peur de faire des erreurs",
+      "english": "I strongly advise not being afraid of making mistakes",
+      "example": "Je conseille vivement de ne pas avoir peur de faire des erreurs à l'oral.",
+      "usage": "Formule de recommandation suivie d'une structure négative à l'infinitif."
+    }
+  ]
+}

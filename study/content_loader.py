@@ -62,11 +62,13 @@ EE_TACHE_THREE_VOCABULARY_PER_RESPONSE = 30
 EE_TACHE_ONE_TASK = ("ee", "tache-1")
 EE_TACHE_ONE_DIR = CONTENT_DIR / "ee" / "tache_1"
 EE_TACHE_ONE_SUJETS_PATH = EE_TACHE_ONE_DIR / "sujets.json"
+EE_TACHE_ONE_THEME_VOCABULARY_DIR = EE_TACHE_ONE_DIR / "theme_vocabulary"
 
 EE_TACHE_TWO_TASK = ("ee", "tache-2")
 EE_TACHE_TWO_CONTENT_PREFIX = "ee-tache2:"
 EE_TACHE_TWO_DIR = CONTENT_DIR / "ee" / "tache_2"
 EE_TACHE_TWO_SUBJECTS_DIR = EE_TACHE_TWO_DIR / "subjects"
+EE_TACHE_TWO_THEME_VOCABULARY_DIR = EE_TACHE_TWO_DIR / "theme_vocabulary"
 
 EE_TACHE_ONE_CONTENT_PREFIX = "ee-tache1:"
 EE_TACHE_ONE_SUBJECTS_DIR = EE_TACHE_ONE_DIR / "subjects"
@@ -87,6 +89,51 @@ EE_WRITING_WORD_LIMITS = {
     1: (60, 120),
     2: (120, 150),
 }
+EE_WRITING_THEME_VOCABULARY_DIRS = {
+    1: EE_TACHE_ONE_THEME_VOCABULARY_DIR,
+    2: EE_TACHE_TWO_THEME_VOCABULARY_DIR,
+}
+EE_WRITING_THEME_VOCABULARY_KINDS = {
+    1: (
+        "formule-adaptee",
+        "information-precise",
+        "verbe-collocation",
+        "phrase-modele",
+    ),
+    2: (
+        "repere-temporel",
+        "verbe-recit",
+        "detail-impression",
+        "commentaire-recommandation",
+    ),
+}
+EE_WRITING_THEME_VOCABULARY_CATEGORIES = {
+    1: {
+        "formule-adaptee": "EE Tâche 1 · Formules adaptées",
+        "information-precise": "EE Tâche 1 · Informations précises",
+        "verbe-collocation": "EE Tâche 1 · Verbes et collocations",
+        "phrase-modele": "EE Tâche 1 · Phrases modèles",
+    },
+    2: {
+        "repere-temporel": "EE Tâche 2 · Repères temporels",
+        "verbe-recit": "EE Tâche 2 · Verbes du récit",
+        "detail-impression": "EE Tâche 2 · Détails et impressions",
+        "commentaire-recommandation": (
+            "EE Tâche 2 · Commentaires et recommandations"
+        ),
+    },
+}
+EE_WRITING_THEME_VOCABULARY_FIELDS = (
+    "id",
+    "kind",
+    "french",
+    "anchor",
+    "english",
+    "example",
+    "usage",
+)
+EE_WRITING_THEME_VOCABULARY_PER_KIND = 5
+EE_WRITING_THEME_VOCABULARY_PER_THEME = 20
 EE_TACHE_THREE_WORD_LIMIT = (120, 180)
 EE_2025_SOURCE_URL = (
     "https://www.formation-tcfcanada.com/epreuve/"
@@ -600,6 +647,7 @@ class PhraseData:
     sources_raw: str
     sources: Tuple[Tuple[str, int], ...]
     order: int
+    vocabulary_theme: str = ""
 
 
 @dataclass(frozen=True)
@@ -3201,6 +3249,169 @@ def ee_tache_three_themes(
         )
         for theme in themes
     ]
+
+
+def ee_writing_themes(tache: int) -> List[ThemeData]:
+    """Return database themes for an EE Tâche 1 or 2 vocabulary directory."""
+    if tache not in EE_WRITING_TASKS:
+        raise ValueError(f"Unsupported EE writing task: {tache}")
+    themes, _ = load_ee_subject_themes(tache)
+    return [
+        ThemeData(
+            slug=f"ee-tache-{tache}-{theme.slug}",
+            name=ee_subject_theme_name(tache, theme),
+            display=theme.name,
+            order=300 + (tache * 20) + theme.order,
+            color="#d3263a",
+            icon=theme.icon,
+            task=f"ee/tache-{tache}",
+        )
+        for theme in themes
+    ]
+
+
+def parse_ee_writing_theme_vocabulary(
+    tache: int,
+    directory: Optional[Path] = None,
+) -> List[PhraseData]:
+    """Validate and parse reusable theme vocabulary for EE Tâches 1 and 2."""
+    if tache not in EE_WRITING_TASKS:
+        raise ValueError(f"Unsupported EE writing task: {tache}")
+    directory = directory or EE_WRITING_THEME_VOCABULARY_DIRS[tache]
+    themes, _ = load_ee_subject_themes(tache)
+    theme_by_slug = {theme.slug: theme for theme in themes}
+    paths = sorted(directory.glob("*.json"))
+    expected_names = {f"{theme.slug}.json" for theme in themes}
+    actual_names = {path.name for path in paths}
+    if actual_names != expected_names:
+        missing = sorted(expected_names - actual_names)
+        unexpected = sorted(actual_names - expected_names)
+        raise ValueError(
+            f"EE Tâche {tache} theme-vocabulary files do not match its "
+            f"taxonomy: missing {missing}, unexpected {unexpected}"
+        )
+
+    expected_kinds = tuple(
+        kind
+        for kind in EE_WRITING_THEME_VOCABULARY_KINDS[tache]
+        for _ in range(EE_WRITING_THEME_VOCABULARY_PER_KIND)
+    )
+    seen_ids = {}
+    seen_targets = {}
+    phrases = []
+    for path in paths:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if (
+            not isinstance(payload, dict)
+            or set(payload) != {"version", "task", "theme", "name", "entries"}
+            or payload["version"] != 1
+            or payload["task"] != f"ee/tache-{tache}"
+        ):
+            raise ValueError(
+                f"{path.name} must use EE Tâche {tache} vocabulary version 1"
+            )
+        theme_slug = str(payload["theme"])
+        theme = theme_by_slug.get(theme_slug)
+        if (
+            theme is None
+            or path.name != f"{theme_slug}.json"
+            or payload["name"] != theme.name
+        ):
+            raise ValueError(f"{path.name} has invalid theme metadata")
+        entries = payload["entries"]
+        if (
+            not isinstance(entries, list)
+            or len(entries) != EE_WRITING_THEME_VOCABULARY_PER_THEME
+        ):
+            raise ValueError(
+                f"{path.name} must contain exactly "
+                f"{EE_WRITING_THEME_VOCABULARY_PER_THEME} entries"
+            )
+        actual_kinds = tuple(
+            entry.get("kind") if isinstance(entry, dict) else None
+            for entry in entries
+        )
+        if actual_kinds != expected_kinds:
+            raise ValueError(
+                f"{path.name} must group exactly "
+                f"{EE_WRITING_THEME_VOCABULARY_PER_KIND} entries for each "
+                "kind in the documented order"
+            )
+
+        for entry_index, entry in enumerate(entries, start=1):
+            location = f"{path.name} entry {entry_index}"
+            if (
+                not isinstance(entry, dict)
+                or set(entry) != set(EE_WRITING_THEME_VOCABULARY_FIELDS)
+            ):
+                raise ValueError(
+                    f"{location} fields must be "
+                    f"{EE_WRITING_THEME_VOCABULARY_FIELDS}"
+                )
+            values = {}
+            for field_name in EE_WRITING_THEME_VOCABULARY_FIELDS:
+                value = entry[field_name]
+                if not isinstance(value, str) or not value.strip():
+                    raise ValueError(
+                        f"{location} has an empty {field_name!r} field"
+                    )
+                values[field_name] = value.strip()
+
+            phrase_id = values["id"]
+            if (
+                len(phrase_id) > PHRASE_MAX_LENGTHS["id"]
+                or not re.fullmatch(rf"e{tache}[a-z0-9]+", phrase_id)
+            ):
+                raise ValueError(f"{location} has an invalid id")
+            phrase_id_key = phrase_id.casefold()
+            if phrase_id_key in seen_ids:
+                raise ValueError(
+                    f"Duplicate EE Tâche {tache} vocabulary id "
+                    f"{phrase_id!r} in {seen_ids[phrase_id_key]} and {location}"
+                )
+            seen_ids[phrase_id_key] = location
+
+            french = values["french"]
+            anchor = values["anchor"]
+            english = values["english"]
+            example = values["example"]
+            if len(french) > PHRASE_MAX_LENGTHS["expression"]:
+                raise ValueError(f"{location} french target is too long")
+            if len(anchor) > PHRASE_MAX_LENGTHS["anchor"]:
+                raise ValueError(f"{location} anchor is too long")
+            if len(english) > PHRASE_MAX_LENGTHS["english_cue"]:
+                raise ValueError(f"{location} english cue is too long")
+            target_key = french.casefold()
+            if target_key in seen_targets:
+                raise ValueError(
+                    f"Duplicate EE Tâche {tache} vocabulary target "
+                    f"{french!r} in {seen_targets[target_key]} and {location}"
+                )
+            seen_targets[target_key] = location
+            if anchor.casefold() not in french.casefold():
+                raise ValueError(f"{location} anchor must occur in french")
+            if anchor.casefold() not in example.casefold():
+                raise ValueError(f"{location} anchor must occur in example")
+
+            phrases.append(
+                PhraseData(
+                    phrase_id=phrase_id,
+                    tier="theme",
+                    category=EE_WRITING_THEME_VOCABULARY_CATEGORIES[tache][
+                        values["kind"]
+                    ],
+                    english_cue=english,
+                    expression=french,
+                    anchor=anchor,
+                    example=example,
+                    note=values["usage"],
+                    sources_raw=f"EE Tâche {tache} · {theme.name}",
+                    sources=(),
+                    order=900_000 + (tache * 10_000) + len(phrases) + 1,
+                    vocabulary_theme=ee_subject_theme_name(tache, theme),
+                )
+            )
+    return phrases
 
 
 def ee_tache_three_families(

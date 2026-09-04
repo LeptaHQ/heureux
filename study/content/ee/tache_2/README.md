@@ -16,8 +16,10 @@ les classe par thème et relie les republications à 88 exercices canoniques :
   place les versions de l'auteur en premier.
 - Chaque occurrence garde son mois et son numéro de combinaison, tandis que la
   réponse personnelle et la progression sont partagées avec son sujet canonique.
-- `ai_examiner_prompt.md` — prompt d’évaluation propre à la Tâche 2 ; la page
-  du sujet y ajoute automatiquement la consigne exacte avant la copie.
+- `ai_examiner_prompt.md` — prompt d’évaluation propre à la Tâche 2, disponible
+  depuis la vue d’ensemble avant de copier un sujet.
+- `theme_vocabulary/<theme>.json` — **220 fiches** réutilisables, soit 20 par
+  thème en quatre parcours : repères, verbes du récit, impressions et commentaires.
 
 ### Méthodologie appliquée
 

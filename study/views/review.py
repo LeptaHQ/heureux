@@ -813,6 +813,7 @@ def revisit_list(request, part_slug=None, task_slug=None):
             "response__theme",
             "response__family",
             "phrase__category",
+            "phrase__vocabulary_theme__task__part",
         )
         .prefetch_related(
             "phrase__source_prompts__theme__task__part",
@@ -870,6 +871,19 @@ def revisit_list(request, part_slug=None, task_slug=None):
                     + "#subject-vocabulary"
                     if source_prompt
                     else reverse("study:expression")
+                )
+            elif phrase.vocabulary_theme_id:
+                theme = phrase.vocabulary_theme
+                item_url = (
+                    reverse(
+                        "study:task_vocabulary_theme",
+                        args=[
+                            theme.task.part.slug,
+                            theme.task.slug,
+                            theme.slug,
+                        ],
+                    )
+                    + f"#phrase-{phrase.phrase_id}"
                 )
             else:
                 source_prompt = next(

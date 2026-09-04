@@ -402,6 +402,13 @@ class Phrase(models.Model):
     source_prompts = models.ManyToManyField(
         Prompt, related_name="phrases", blank=True
     )
+    vocabulary_theme = models.ForeignKey(
+        Theme,
+        on_delete=models.CASCADE,
+        related_name="direct_vocabulary_phrases",
+        null=True,
+        blank=True,
+    )
     source_questions = models.ManyToManyField(
         "ComprehensionQuestion",
         related_name="vocabulary",

@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-1",
+  "theme": "logement",
+  "name": "Logement & déménagement",
+  "entries": [
+    {
+      "id": "e1lof01",
+      "kind": "formule-adaptee",
+      "french": "Je vous écris concernant l'annonce de location de l'appartement.",
+      "anchor": "concernant l'annonce de location",
+      "english": "I'm writing regarding the apartment rental listing.",
+      "example": "Je vous écris concernant l'annonce de location de l'appartement situé au centre-ville.",
+      "usage": "Formule d'ouverture formelle standard pour répondre à une annonce immobilière."
+    },
+    {
+      "id": "e1lof02",
+      "kind": "formule-adaptee",
+      "french": "Pourriez-vous me préciser si le loyer inclut les charges ?",
+      "anchor": "pourriez-vous me préciser",
+      "english": "Could you tell me whether the rent includes utilities?",
+      "example": "Pourriez-vous me préciser si le loyer inclut les charges ?",
+      "usage": "Formule polie pour poser une question précise dans une lettre formelle."
+    },
+    {
+      "id": "e1lof03",
+      "kind": "formule-adaptee",
+      "french": "Je reste à votre disposition pour tout complément d'information.",
+      "anchor": "je reste à votre disposition",
+      "english": "I remain available for any further information.",
+      "example": "Je reste à votre disposition pour tout complément d'information sur mon dossier.",
+      "usage": "Formule de clôture formelle proposant sa disponibilité, typique des lettres de demande de logement."
+    },
+    {
+      "id": "e1lof04",
+      "kind": "formule-adaptee",
+      "french": "J'aurais vraiment besoin que tu viennes m'aider pour le déménagement.",
+      "anchor": "j'aurais vraiment besoin que tu viennes",
+      "english": "I'd really need you to come help me with the move.",
+      "example": "J'aurais vraiment besoin que tu viennes m'aider pour le déménagement.",
+      "usage": "Formule informelle pour demander de l'aide, avec subjonctif après 'besoin que'."
+    },
+    {
+      "id": "e1lof05",
+      "kind": "formule-adaptee",
+      "french": "Je vous remercie par avance de votre réponse.",
+      "anchor": "je vous remercie par avance",
+      "english": "Thank you in advance for your reply.",
+      "example": "Je vous remercie par avance de votre réponse et vous prie d'agréer mes salutations distinguées.",
+      "usage": "Formule de clôture formelle pour remercier avant même d'avoir reçu de réponse."
+    },
+    {
+      "id": "e1loi01",
+      "kind": "information-precise",
+      "french": "Mon budget est de 400 à 600 euros par mois, charges comprises.",
+      "anchor": "charges comprises",
+      "english": "My budget is 400 to 600 euros a month, utilities included.",
+      "example": "Mon budget est de 400 à 600 euros par mois, charges comprises.",
+      "usage": "Formule précise pour indiquer un budget de location incluant les charges."
+    },
+    {
+      "id": "e1loi02",
+      "kind": "information-precise",
+      "french": "Je recherche un studio de 25 à 40 m², proche du centre-ville.",
+      "anchor": "un studio de 25 à 40 m²",
+      "english": "I'm looking for a studio of 25 to 40 square meters, close to downtown.",
+      "example": "Je recherche un studio de 25 à 40 m², proche du centre-ville.",
+      "usage": "Précise la surface souhaitée d'un logement en mètres carrés."
+    },
+    {
+      "id": "e1loi03",
+      "kind": "information-precise",
+      "french": "Je préférerais un logement à proximité des transports en commun.",
+      "anchor": "à proximité des transports en commun",
+      "english": "I would prefer housing close to public transportation.",
+      "example": "Je préférerais un logement à proximité des transports en commun.",
+      "usage": "Formule courante pour préciser un critère de localisation dans une recherche de logement."
+    },
+    {
+      "id": "e1loi04",
+      "kind": "information-precise",
+      "french": "Je souhaiterais un appartement avec ascenseur et un bon chauffage.",
+      "anchor": "avec ascenseur et un bon chauffage",
+      "english": "I would like an apartment with an elevator and good heating.",
+      "example": "Je souhaiterais un appartement avec ascenseur et un bon chauffage.",
+      "usage": "Formule pour lister des équipements essentiels recherchés dans un logement."
+    },
+    {
+      "id": "e1loi05",
+      "kind": "information-precise",
+      "french": "L'appartement est disponible à partir du premier du mois prochain.",
+      "anchor": "disponible à partir du premier du mois",
+      "english": "The apartment is available from the first of next month.",
+      "example": "L'appartement est disponible à partir du premier du mois prochain.",
+      "usage": "Précise la date de disponibilité d'un logement à louer."
+    },
+    {
+      "id": "e1lov01",
+      "kind": "verbe-collocation",
+      "french": "déménager dans un nouvel appartement",
+      "anchor": "déménager dans un nouvel appartement",
+      "english": "to move into a new apartment",
+      "example": "Nous allons déménager dans un nouvel appartement le mois prochain.",
+      "usage": "Verbe de base pour annoncer un changement de logement."
+    },
+    {
+      "id": "e1lov02",
+      "kind": "verbe-collocation",
+      "french": "signer le bail",
+      "anchor": "signer le bail",
+      "english": "to sign the lease",
+      "example": "Nous devons signer le bail avant la fin de la semaine.",
+      "usage": "Collocation essentielle dans le contexte de la location d'un logement."
+    },
+    {
+      "id": "e1lov03",
+      "kind": "verbe-collocation",
+      "french": "emballer les cartons",
+      "anchor": "emballer les cartons",
+      "english": "to pack the boxes",
+      "example": "Il faut emballer les cartons avant l'arrivée du camion samedi.",
+      "usage": "Collocation courante pour décrire les préparatifs d'un déménagement."
+    },
+    {
+      "id": "e1lov04",
+      "kind": "verbe-collocation",
+      "french": "rafraîchir la peinture",
+      "anchor": "rafraîchir la peinture",
+      "english": "to freshen up the paint",
+      "example": "Il faudrait rafraîchir la peinture avant l'arrivée des nouveaux locataires.",
+      "usage": "Verbe utile pour parler des travaux de rénovation légère d'un logement."
+    },
+    {
+      "id": "e1lov05",
+      "kind": "verbe-collocation",
+      "french": "visiter l'appartement",
+      "anchor": "visiter l'appartement",
+      "english": "to view the apartment",
+      "example": "Serait-il possible de visiter l'appartement ce week-end ?",
+      "usage": "Collocation indispensable pour organiser la visite d'un logement avant location."
+    },
+    {
+      "id": "e1lop01",
+      "kind": "phrase-modele",
+      "french": "Je suis très intéressé par une location d'au moins deux ans.",
+      "anchor": "une location d'au moins deux ans",
+      "english": "I'm very interested in a rental of at least two years.",
+      "example": "Je suis très intéressé par une location d'au moins deux ans, si possible meublée.",
+      "usage": "Phrase modèle formelle pour préciser la durée de location envisagée."
+    },
+    {
+      "id": "e1lop02",
+      "kind": "phrase-modele",
+      "french": "Pourriez-vous m'indiquer le montant du loyer et des charges ?",
+      "anchor": "le montant du loyer et des charges",
+      "english": "Could you tell me the amount of the rent and utilities?",
+      "example": "Pourriez-vous m'indiquer le montant du loyer et des charges avant que je ne prenne ma décision ?",
+      "usage": "Phrase modèle formelle pour demander des précisions financières essentielles."
+    },
+    {
+      "id": "e1lop03",
+      "kind": "phrase-modele",
+      "french": "J'aimerais faire quelques changements dans mon appartement le week-end prochain.",
+      "anchor": "faire quelques changements dans mon appartement",
+      "english": "I'd like to make a few changes to my apartment next weekend.",
+      "example": "J'aimerais faire quelques changements dans mon appartement le week-end prochain, avec ton aide.",
+      "usage": "Phrase modèle informelle pour annoncer un projet de rénovation ou de réaménagement."
+    },
+    {
+      "id": "e1lop04",
+      "kind": "phrase-modele",
+      "french": "Je vais déménager dans deux mois et je recherche un logement adapté à mes besoins.",
+      "anchor": "je recherche un logement adapté à mes besoins",
+      "english": "I'm moving in two months and I'm looking for housing suited to my needs.",
+      "example": "Je vais déménager dans deux mois et je recherche un logement adapté à mes besoins.",
+      "usage": "Phrase modèle d'ouverture pour une lettre formelle de demande de logement."
+    },
+    {
+      "id": "e1lop05",
+      "kind": "phrase-modele",
+      "french": "L'appartement est-il prêt à être habité dès maintenant ?",
+      "anchor": "prêt à être habité",
+      "english": "Is the apartment ready to move into right now?",
+      "example": "L'appartement est-il prêt à être habité dès maintenant, ou des travaux sont-ils prévus ?",
+      "usage": "Phrase modèle pour poser une question précise sur l'état d'un logement avant location."
+    }
+  ]
+}

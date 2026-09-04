@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-1",
+  "theme": "invitations",
+  "name": "Invitations & fêtes",
+  "entries": [
+    {
+      "id": "e1ivf01",
+      "kind": "formule-adaptee",
+      "french": "Coucou Sophie, j'espère que tu vas bien !",
+      "anchor": "j'espère que tu vas bien",
+      "english": "Hi Sophie, I hope you're doing well!",
+      "example": "Coucou Sophie, j'espère que tu vas bien ! Je t'écris pour t'inviter à mon anniversaire.",
+      "usage": "Formule d'ouverture amicale et chaleureuse pour une lettre informelle ; s'utilise avec un prénom et le tutoiement."
+    },
+    {
+      "id": "e1ivf02",
+      "kind": "formule-adaptee",
+      "french": "Madame, Monsieur,",
+      "anchor": "madame, monsieur",
+      "english": "Dear Sir or Madam,",
+      "example": "Madame, Monsieur, je vous écris pour vous inviter à notre soirée de fin d'année.",
+      "usage": "Formule d'appel neutre et formelle quand on ne connaît pas le nom du destinataire ; à utiliser avec le vouvoiement."
+    },
+    {
+      "id": "e1ivf03",
+      "kind": "formule-adaptee",
+      "french": "Je t'invite avec plaisir à fêter mon nouvel emploi.",
+      "anchor": "je t'invite avec plaisir",
+      "english": "I'm delighted to invite you to celebrate my new job.",
+      "example": "Je t'invite avec plaisir à fêter mon nouvel emploi samedi prochain.",
+      "usage": "Formule chaleureuse pour lancer une invitation informelle ; peut devenir 'je vous invite' au pluriel ou en registre formel."
+    },
+    {
+      "id": "e1ivf04",
+      "kind": "formule-adaptee",
+      "french": "Merci de me confirmer votre présence avant le 10 juin.",
+      "anchor": "confirmer votre présence",
+      "english": "Please confirm your attendance by June 10.",
+      "example": "Merci de me confirmer votre présence avant le 10 juin afin que je puisse réserver les places.",
+      "usage": "Formule de clôture pratique pour demander une réponse précise ; convient en registre formel comme informel."
+    },
+    {
+      "id": "e1ivf05",
+      "kind": "formule-adaptee",
+      "french": "Hâte de te voir !",
+      "anchor": "hâte de te voir",
+      "english": "Looking forward to seeing you!",
+      "example": "Hâte de te voir samedi pour célébrer ensemble !",
+      "usage": "Formule de clôture enthousiaste et informelle, typique des lettres entre amis ou en famille."
+    },
+    {
+      "id": "e1ivi01",
+      "kind": "information-precise",
+      "french": "La soirée commencera à partir de 19 h.",
+      "anchor": "à partir de 19 h",
+      "english": "The evening will start at 7 p.m.",
+      "example": "La soirée commencera à partir de 19 h, chez moi.",
+      "usage": "Précise l'heure de début d'un événement ; structure utile pour indiquer un horaire dans une invitation."
+    },
+    {
+      "id": "e1ivi02",
+      "kind": "information-precise",
+      "french": "Le dîner aura lieu au 24 rue des Lilas.",
+      "anchor": "24 rue des lilas",
+      "english": "Dinner will take place at 24 Lilas Street.",
+      "example": "Le dîner aura lieu au 24 rue des Lilas, juste à côté du parc.",
+      "usage": "Formule standard pour donner une adresse précise dans une invitation ; 'au' + numéro + nom de rue."
+    },
+    {
+      "id": "e1ivi03",
+      "kind": "information-precise",
+      "french": "Le prix est de 32 euros par personne.",
+      "anchor": "32 euros par personne",
+      "english": "The price is 32 euros per person.",
+      "example": "Le prix est de 32 euros par personne, boissons comprises.",
+      "usage": "Indique un tarif exact pour un repas ou une sortie ; utile pour préciser le coût dans une invitation."
+    },
+    {
+      "id": "e1ivi04",
+      "kind": "information-precise",
+      "french": "La fête se déroulera sur le thème des années 80.",
+      "anchor": "thème des années 80",
+      "english": "The party will be 80s-themed.",
+      "example": "La fête se déroulera sur le thème des années 80, alors sortez vos looks vintage !",
+      "usage": "Précise le thème ou le code vestimentaire d'une fête ; structure 'sur le thème de' + nom."
+    },
+    {
+      "id": "e1ivi05",
+      "kind": "information-precise",
+      "french": "Merci de répondre d'ici le week-end.",
+      "anchor": "d'ici le week-end",
+      "english": "Please reply by the weekend.",
+      "example": "Merci de répondre d'ici le week-end pour que je sache combien de places réserver.",
+      "usage": "Exprime une échéance proche et informelle ; alternative à une date précise pour fixer un délai de réponse."
+    },
+    {
+      "id": "e1ivv01",
+      "kind": "verbe-collocation",
+      "french": "inviter quelqu'un à une fête",
+      "anchor": "inviter",
+      "english": "to invite someone to a party",
+      "example": "J'aimerais inviter mes collègues à une fête pour mon départ.",
+      "usage": "Verbe principal des invitations ; se construit avec 'à' + nom d'événement."
+    },
+    {
+      "id": "e1ivv02",
+      "kind": "verbe-collocation",
+      "french": "organiser une fête surprise",
+      "anchor": "organiser une fête",
+      "english": "to organize a surprise party",
+      "example": "Nous allons organiser une fête surprise pour les 30 ans d'Adak.",
+      "usage": "Collocation courante pour décrire la préparation d'un événement ; verbe 'organiser' + nom de l'événement."
+    },
+    {
+      "id": "e1ivv03",
+      "kind": "verbe-collocation",
+      "french": "confirmer sa venue",
+      "anchor": "confirmer sa venue",
+      "english": "to confirm one's attendance",
+      "example": "Chaque invité doit confirmer sa venue avant vendredi.",
+      "usage": "Expression essentielle pour demander une réponse à une invitation ; s'accorde selon la personne (sa/ta/votre)."
+    },
+    {
+      "id": "e1ivv04",
+      "kind": "verbe-collocation",
+      "french": "réserver une table",
+      "anchor": "réserver une table",
+      "english": "to book a table",
+      "example": "J'ai dû réserver une table pour douze personnes au restaurant.",
+      "usage": "Verbe utile lorsqu'une invitation implique un restaurant ; se construit avec 'pour' + nombre de personnes."
+    },
+    {
+      "id": "e1ivv05",
+      "kind": "verbe-collocation",
+      "french": "prévoir un buffet",
+      "anchor": "prévoir un buffet",
+      "english": "to plan a buffet",
+      "example": "Nous allons prévoir un buffet avec des plats salés et sucrés.",
+      "usage": "Collocation utile pour décrire l'organisation matérielle d'une fête ; 'prévoir' + nom (buffet, menu, boissons)."
+    },
+    {
+      "id": "e1ivp01",
+      "kind": "phrase-modele",
+      "french": "Je vous invite à une fête surprise pour l'anniversaire de ma sœur.",
+      "anchor": "fête surprise pour l'anniversaire",
+      "english": "I'm inviting you to a surprise party for my sister's birthday.",
+      "example": "Je vous invite à une fête surprise pour l'anniversaire de ma sœur, samedi prochain.",
+      "usage": "Phrase-clé pour annoncer clairement l'objet d'une invitation dès le début du message."
+    },
+    {
+      "id": "e1ivp02",
+      "kind": "phrase-modele",
+      "french": "La fête aura lieu samedi soir, de 19 h à minuit, chez moi.",
+      "anchor": "la fête aura lieu",
+      "english": "The party will take place Saturday evening, from 7 p.m. to midnight, at my place.",
+      "example": "La fête aura lieu samedi soir, de 19 h à minuit, chez moi ; venez nombreux !",
+      "usage": "Structure 'avoir lieu' + jour + horaires pour donner les détails essentiels d'un événement."
+    },
+    {
+      "id": "e1ivp03",
+      "kind": "phrase-modele",
+      "french": "Merci de me confirmer votre venue afin que je puisse réserver le nombre de places nécessaire.",
+      "anchor": "confirmer votre venue afin que",
+      "english": "Please confirm your attendance so I can book the right number of seats.",
+      "example": "Merci de me confirmer votre venue afin que je puisse réserver le nombre de places nécessaire au restaurant.",
+      "usage": "Phrase pratique reliant la demande de confirmation à sa raison logistique, avec 'afin que' + subjonctif."
+    },
+    {
+      "id": "e1ivp04",
+      "kind": "phrase-modele",
+      "french": "N'hésitez pas à m'appeler si vous avez besoin de plus d'informations.",
+      "anchor": "n'hésitez pas à m'appeler",
+      "english": "Don't hesitate to call me if you need more information.",
+      "example": "N'hésitez pas à m'appeler si vous avez besoin de plus d'informations sur le lieu.",
+      "usage": "Formule de clôture polie proposant son aide ; adaptable en 'n'hésite pas' en registre informel."
+    },
+    {
+      "id": "e1ivp05",
+      "kind": "phrase-modele",
+      "french": "Ce sera l'occasion de nous retrouver tous ensemble avant mon départ.",
+      "anchor": "l'occasion de nous retrouver",
+      "english": "It will be a chance for us all to get together before my departure.",
+      "example": "Ce sera l'occasion de nous retrouver tous ensemble avant mon départ à l'étranger.",
+      "usage": "Phrase qui justifie l'invitation en soulignant sa valeur affective ou symbolique."
+    }
+  ]
+}

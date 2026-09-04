@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-2",
+  "theme": "fetes-traditions",
+  "name": "Fêtes & traditions",
+  "entries": [
+    {
+      "id": "e2ftt01",
+      "kind": "repere-temporel",
+      "french": "samedi dernier",
+      "anchor": "samedi dernier",
+      "english": "last Saturday",
+      "example": "Samedi dernier, j’ai assisté à une fête organisée en l’honneur de mon frère.",
+      "usage": "Expression de temps ; ouvre un récit précis au passé composé."
+    },
+    {
+      "id": "e2ftt02",
+      "kind": "repere-temporel",
+      "french": "l’été dernier",
+      "anchor": "l’été dernier",
+      "english": "last summer",
+      "example": "L’été dernier, mon frère s’est marié au bord d’un lac.",
+      "usage": "Expression de temps ; situe un événement marquant dans le passé."
+    },
+    {
+      "id": "e2ftt03",
+      "kind": "repere-temporel",
+      "french": "début novembre",
+      "anchor": "début novembre",
+      "english": "in early November",
+      "example": "Début novembre, j’ai assisté à la fête des Morts dans un petit village.",
+      "usage": "Marqueur temporel ; précise le moment de l’année."
+    },
+    {
+      "id": "e2ftt04",
+      "kind": "repere-temporel",
+      "french": "peu avant la cérémonie",
+      "anchor": "peu avant la cérémonie",
+      "english": "shortly before the ceremony",
+      "example": "Peu avant la cérémonie, un orage a soudain éclaté.",
+      "usage": "Locution temporelle ; introduit un rebondissement du récit."
+    },
+    {
+      "id": "e2ftt05",
+      "kind": "repere-temporel",
+      "french": "à la fin de la soirée",
+      "anchor": "à la fin de la soirée",
+      "english": "at the end of the evening",
+      "example": "À la fin de la soirée, chacun a reçu un petit cadeau souvenir.",
+      "usage": "Marqueur temporel ; conclut la chronologie du récit."
+    },
+    {
+      "id": "e2ftv01",
+      "kind": "verbe-recit",
+      "french": "j’ai participé au concours de cuisine",
+      "anchor": "j’ai participé au concours de cuisine",
+      "english": "I took part in the cooking contest",
+      "example": "Dimanche, j’ai participé au concours de cuisine de mon quartier.",
+      "usage": "Passé composé + « à » ; introduit l’événement du récit."
+    },
+    {
+      "id": "e2ftv02",
+      "kind": "verbe-recit",
+      "french": "j’ai dû recommencer ma préparation",
+      "anchor": "j’ai dû recommencer ma préparation",
+      "english": "I had to start my preparation over",
+      "example": "Après une erreur de sel, j’ai dû recommencer ma préparation.",
+      "usage": "« devoir » + infinitif au passé composé ; contretemps du récit."
+    },
+    {
+      "id": "e2ftv03",
+      "kind": "verbe-recit",
+      "french": "les invités ont transporté les chaises",
+      "anchor": "les invités ont transporté les chaises",
+      "english": "the guests carried the chairs",
+      "example": "Sous la pluie, les invités ont transporté les chaises et les fleurs à l’abri.",
+      "usage": "Passé composé, 3e pers. pluriel ; action collective imprévue."
+    },
+    {
+      "id": "e2ftv04",
+      "kind": "verbe-recit",
+      "french": "nous avons décoré les rues de fleurs",
+      "anchor": "nous avons décoré les rues de fleurs",
+      "english": "we decorated the streets with flowers",
+      "example": "Ce jour-là, nous avons décoré les rues de fleurs orange et de bougies.",
+      "usage": "Passé composé + « de » ; précise le moyen utilisé."
+    },
+    {
+      "id": "e2ftv05",
+      "kind": "verbe-recit",
+      "french": "je me suis inscrit à un atelier",
+      "anchor": "je me suis inscrit à un atelier",
+      "english": "I signed up for a workshop",
+      "example": "Curieux, je me suis inscrit à un atelier de cuisine du monde.",
+      "usage": "Verbe pronominal au passé composé ; annonce une activité choisie."
+    },
+    {
+      "id": "e2ftd01",
+      "kind": "detail-impression",
+      "french": "un arc-en-ciel derrière les mariés",
+      "anchor": "un arc-en-ciel derrière les mariés",
+      "english": "a rainbow behind the newlyweds",
+      "example": "Au moment de leur entrée, un arc-en-ciel derrière les mariés a émerveillé tout le monde.",
+      "usage": "Groupe nominal ; détail visuel marquant, point culminant du récit."
+    },
+    {
+      "id": "e2ftd02",
+      "kind": "detail-impression",
+      "french": "un plat commun posé au centre de la natte",
+      "anchor": "un plat commun posé au centre de la natte",
+      "english": "a shared dish placed in the middle of the mat",
+      "example": "Chez ma tante, un plat commun posé au centre de la natte réunissait toute la famille.",
+      "usage": "Groupe nominal ; détail culturel concret de partage."
+    },
+    {
+      "id": "e2ftd03",
+      "kind": "detail-impression",
+      "french": "le parfum des épices dans la cuisine",
+      "anchor": "le parfum des épices dans la cuisine",
+      "english": "the smell of spices in the kitchen",
+      "example": "Toute la matinée, le parfum des épices dans la cuisine annonçait la fête.",
+      "usage": "Groupe nominal ; détail olfactif qui installe l’ambiance."
+    },
+    {
+      "id": "e2ftd04",
+      "kind": "detail-impression",
+      "french": "des générations réunies autour de la même table",
+      "anchor": "des générations réunies autour de la même table",
+      "english": "generations gathered around the same table",
+      "example": "J’ai aimé voir des générations réunies autour de la même table.",
+      "usage": "Groupe nominal ; détail humain, valeur symbolique du récit."
+    },
+    {
+      "id": "e2ftd05",
+      "kind": "detail-impression",
+      "french": "l’ambiance est restée conviviale malgré la pluie",
+      "anchor": "l’ambiance est restée conviviale malgré la pluie",
+      "english": "the atmosphere stayed friendly despite the rain",
+      "example": "Contre toute attente, l’ambiance est restée conviviale malgré la pluie.",
+      "usage": "Passé composé + « malgré » ; détail sur une ambiance contrastée."
+    },
+    {
+      "id": "e2ftc01",
+      "kind": "commentaire-recommandation",
+      "french": "je recommande cette fête à tous ceux qui aiment",
+      "anchor": "je recommande cette fête à tous ceux qui aiment",
+      "english": "I recommend this celebration to anyone who likes",
+      "example": "Je recommande cette fête à tous ceux qui aiment les traditions vivantes.",
+      "usage": "« recommander à » + relative ; conseil chaleureux au lecteur."
+    },
+    {
+      "id": "e2ftc02",
+      "kind": "commentaire-recommandation",
+      "french": "à mon avis, ces traditions méritent d’être",
+      "anchor": "à mon avis, ces traditions méritent d’être",
+      "english": "in my opinion, these traditions deserve to be",
+      "example": "À mon avis, ces traditions méritent d’être transmises aux plus jeunes.",
+      "usage": "Formule d’opinion + « mériter d’être » + participe passé ; jugement."
+    },
+    {
+      "id": "e2ftc03",
+      "kind": "commentaire-recommandation",
+      "french": "cette expérience m’a fait découvrir",
+      "anchor": "cette expérience m’a fait découvrir",
+      "english": "this experience introduced me to",
+      "example": "Cette expérience m’a fait découvrir une culture que je connaissais mal.",
+      "usage": "« faire » + infinitif au passé composé ; bilan d’ouverture culturelle."
+    },
+    {
+      "id": "e2ftc04",
+      "kind": "commentaire-recommandation",
+      "french": "si vous organisez une fête, pensez à",
+      "anchor": "si vous organisez une fête, pensez à",
+      "english": "if you organize a celebration, remember to",
+      "example": "Si vous organisez une fête, pensez à prévoir un plan en cas de pluie.",
+      "usage": "Si + présent, impératif ; conseil pratique organisé."
+    },
+    {
+      "id": "e2ftc05",
+      "kind": "commentaire-recommandation",
+      "french": "je garde un souvenir inoubliable de",
+      "anchor": "je garde un souvenir inoubliable de",
+      "english": "I have an unforgettable memory of",
+      "example": "Je garde un souvenir inoubliable de cette soirée entre amis et famille.",
+      "usage": "Présent ; formule de clôture émotionnelle."
+    }
+  ]
+}

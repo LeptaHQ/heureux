@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-1",
+  "theme": "sorties",
+  "name": "Sorties & visites",
+  "entries": [
+    {
+      "id": "e1sof01",
+      "kind": "formule-adaptee",
+      "french": "Quelle bonne idée de profiter du beau temps !",
+      "anchor": "quelle bonne idée",
+      "english": "What a good idea to make the most of the nice weather!",
+      "example": "Quelle bonne idée de profiter du beau temps ce week-end !",
+      "usage": "Formule enthousiaste pour réagir positivement à une proposition de sortie."
+    },
+    {
+      "id": "e1sof02",
+      "kind": "formule-adaptee",
+      "french": "Je te recommande vivement de visiter ce quartier historique.",
+      "anchor": "je te recommande vivement",
+      "english": "I highly recommend that you visit this historic neighborhood.",
+      "example": "Je te recommande vivement de visiter ce quartier historique.",
+      "usage": "Formule pour conseiller fortement un lieu ou une activité à un ami ; devient 'je vous recommande' en formel."
+    },
+    {
+      "id": "e1sof03",
+      "kind": "formule-adaptee",
+      "french": "Ça te dit de faire une promenade samedi après-midi ?",
+      "anchor": "ça te dit de",
+      "english": "How about going for a walk on Saturday afternoon?",
+      "example": "Ça te dit de faire une promenade au parc samedi après-midi ?",
+      "usage": "Formule informelle et amicale pour proposer une sortie ; suivie d'un verbe à l'infinitif."
+    },
+    {
+      "id": "e1sof04",
+      "kind": "formule-adaptee",
+      "french": "Dis-moi si tu veux qu'on y aille ensemble !",
+      "anchor": "si tu veux qu'on y aille",
+      "english": "Let me know if you'd like us to go together!",
+      "example": "Dis-moi si tu veux qu'on y aille ensemble samedi prochain !",
+      "usage": "Formule de clôture invitant à une réponse rapide et informelle."
+    },
+    {
+      "id": "e1sof05",
+      "kind": "formule-adaptee",
+      "french": "À bientôt, j'espère, pour cette nouvelle sortie !",
+      "anchor": "à bientôt",
+      "english": "See you soon, I hope, for this new outing!",
+      "example": "À bientôt, j'espère, pour cette nouvelle sortie !",
+      "usage": "Formule de clôture amicale exprimant l'envie de se revoir prochainement."
+    },
+    {
+      "id": "e1soi01",
+      "kind": "information-precise",
+      "french": "Le musée est ouvert tous les jours de 9 h à 18 h.",
+      "anchor": "ouvert tous les jours de 9 h à 18 h",
+      "english": "The museum is open every day from 9 a.m. to 6 p.m.",
+      "example": "Le musée est ouvert tous les jours de 9 h à 18 h, sauf le lundi.",
+      "usage": "Formule utile pour préciser les horaires d'ouverture d'un lieu à visiter."
+    },
+    {
+      "id": "e1soi02",
+      "kind": "information-precise",
+      "french": "Le parc est accessible en bus depuis la gare.",
+      "anchor": "accessible en bus",
+      "english": "The park is accessible by bus from the station.",
+      "example": "Le parc est accessible en bus depuis la gare, en dix minutes environ.",
+      "usage": "Précise le moyen de transport pour se rendre à un lieu de sortie."
+    },
+    {
+      "id": "e1soi03",
+      "kind": "information-precise",
+      "french": "Le marché est très fréquenté ; il vaut mieux y aller avant midi.",
+      "anchor": "avant midi",
+      "english": "The market is very busy, so it's better to go before noon.",
+      "example": "Le marché est très fréquenté ; il vaut mieux y aller avant midi.",
+      "usage": "Structure utile pour recommander un moment précis afin d'éviter l'affluence."
+    },
+    {
+      "id": "e1soi04",
+      "kind": "information-precise",
+      "french": "L'entrée coûte environ dix euros pour les adultes.",
+      "anchor": "l'entrée coûte",
+      "english": "Admission costs about ten euros for adults.",
+      "example": "L'entrée coûte environ dix euros pour les adultes, gratuite pour les enfants.",
+      "usage": "Formule pour donner le tarif d'entrée d'un site ou d'une activité."
+    },
+    {
+      "id": "e1soi05",
+      "kind": "information-precise",
+      "french": "Le théâtre se trouve à environ dix minutes à pied du centre-ville.",
+      "anchor": "à environ dix minutes à pied",
+      "english": "The theater is about a ten-minute walk from downtown.",
+      "example": "Le théâtre se trouve à environ dix minutes à pied du centre-ville.",
+      "usage": "Précise la distance et le temps de trajet à pied jusqu'à un lieu."
+    },
+    {
+      "id": "e1sov01",
+      "kind": "verbe-collocation",
+      "french": "profiter du beau temps",
+      "anchor": "profiter du beau temps",
+      "english": "to take advantage of the nice weather",
+      "example": "Nous devrions profiter du beau temps pour pique-niquer au parc.",
+      "usage": "Collocation courante pour justifier une sortie en plein air."
+    },
+    {
+      "id": "e1sov02",
+      "kind": "verbe-collocation",
+      "french": "faire une promenade",
+      "anchor": "faire une promenade",
+      "english": "to go for a walk",
+      "example": "Nous pourrions faire une promenade le long de la rivière.",
+      "usage": "Verbe 'faire' + activité de loisir ; très utilisé pour décrire une sortie tranquille."
+    },
+    {
+      "id": "e1sov03",
+      "kind": "verbe-collocation",
+      "french": "réserver une visite guidée",
+      "anchor": "réserver une visite guidée",
+      "english": "to book a guided tour",
+      "example": "Il faut réserver une visite guidée au moins une semaine à l'avance.",
+      "usage": "Collocation utile pour organiser la découverte d'un site touristique."
+    },
+    {
+      "id": "e1sov04",
+      "kind": "verbe-collocation",
+      "french": "goûter des spécialités locales",
+      "anchor": "goûter des spécialités locales",
+      "english": "to taste local specialties",
+      "example": "Nous irons goûter des spécialités locales au marché du village.",
+      "usage": "Verbe 'goûter' + nom pour décrire une expérience culinaire lors d'une sortie."
+    },
+    {
+      "id": "e1sov05",
+      "kind": "verbe-collocation",
+      "french": "éviter la foule",
+      "anchor": "éviter la foule",
+      "english": "to avoid the crowds",
+      "example": "Pour éviter la foule, il vaut mieux arriver dès l'ouverture.",
+      "usage": "Collocation pratique pour conseiller le meilleur moment pour une visite."
+    },
+    {
+      "id": "e1sop01",
+      "kind": "phrase-modele",
+      "french": "Pour ce week-end, je te recommande vivement de visiter ce parc, célèbre pour sa vue sur la ville.",
+      "anchor": "je te recommande vivement de visiter",
+      "english": "For this weekend, I highly recommend visiting this park, famous for its view of the city.",
+      "example": "Pour ce week-end, je te recommande vivement de visiter ce parc, célèbre pour sa vue sur la ville.",
+      "usage": "Structure complète pour recommander un lieu en expliquant brièvement son intérêt."
+    },
+    {
+      "id": "e1sop02",
+      "kind": "phrase-modele",
+      "french": "Le site est assez fréquenté le samedi ; il vaut donc mieux que nous soyons sur place tôt le matin.",
+      "anchor": "il vaut donc mieux que nous soyons",
+      "english": "The site is quite busy on Saturdays, so we'd better be there early in the morning.",
+      "example": "Le site est assez fréquenté le samedi ; il vaut donc mieux que nous soyons sur place tôt le matin.",
+      "usage": "Phrase modèle reliant une observation à un conseil pratique, avec 'il vaut mieux que' + subjonctif."
+    },
+    {
+      "id": "e1sop03",
+      "kind": "phrase-modele",
+      "french": "On pourra s'y promener tranquillement avant de déjeuner sur la terrasse.",
+      "anchor": "s'y promener tranquillement",
+      "english": "We'll be able to stroll around peacefully before having lunch on the terrace.",
+      "example": "On pourra s'y promener tranquillement avant de déjeuner sur la terrasse du restaurant.",
+      "usage": "Phrase modèle décrivant le déroulement agréable d'une sortie en plusieurs étapes."
+    },
+    {
+      "id": "e1sop04",
+      "kind": "phrase-modele",
+      "french": "Si tu veux, je peux t'accompagner pour cette sortie.",
+      "anchor": "je peux t'accompagner",
+      "english": "If you'd like, I can go with you on this outing.",
+      "example": "Si tu veux, je peux t'accompagner pour cette sortie au marché.",
+      "usage": "Phrase modèle proposant sa compagnie de façon simple et amicale."
+    },
+    {
+      "id": "e1sop05",
+      "kind": "phrase-modele",
+      "french": "L'ambiance y est toujours conviviale, que l'on vienne seul ou entre amis.",
+      "anchor": "l'ambiance y est toujours",
+      "english": "The atmosphere there is always friendly, whether you come alone or with friends.",
+      "example": "L'ambiance y est toujours conviviale, que l'on vienne seul ou entre amis.",
+      "usage": "Phrase modèle pour décrire positivement l'atmosphère d'un lieu de sortie."
+    }
+  ]
+}

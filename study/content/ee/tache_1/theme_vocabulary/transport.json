@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-1",
+  "theme": "transport",
+  "name": "Transports & orientation",
+  "entries": [
+    {
+      "id": "e1trf01",
+      "kind": "formule-adaptee",
+      "french": "Voici comment tu peux te déplacer en ville",
+      "anchor": "comment tu peux te déplacer en ville",
+      "english": "Here's how you can get around town",
+      "example": "Voici comment tu peux te déplacer en ville pendant ton séjour.",
+      "usage": "Formule pour introduire des conseils de transport dans un message informel."
+    },
+    {
+      "id": "e1trf02",
+      "kind": "formule-adaptee",
+      "french": "Je te conseille de prendre le bus plutôt que le taxi",
+      "anchor": "je te conseille de prendre le bus",
+      "english": "I recommend you take the bus rather than the taxi",
+      "example": "Je te conseille de prendre le bus plutôt que le taxi, c'est plus économique.",
+      "usage": "Formule pour recommander un moyen de transport précis à un ami."
+    },
+    {
+      "id": "e1trf03",
+      "kind": "formule-adaptee",
+      "french": "N'hésite pas à me demander si tu as besoin d'autres précisions",
+      "anchor": "n'hésite pas à me demander",
+      "english": "Don't hesitate to ask me if you need more details",
+      "example": "N'hésite pas à me demander si tu as besoin d'autres précisions sur les horaires.",
+      "usage": "Formule de clôture pour proposer une aide supplémentaire."
+    },
+    {
+      "id": "e1trf04",
+      "kind": "formule-adaptee",
+      "french": "Dis-moi à quelle heure tu arrives, et je viendrai te chercher",
+      "anchor": "dis-moi à quelle heure tu arrives",
+      "english": "Tell me what time you arrive, and I'll come pick you up",
+      "example": "Dis-moi à quelle heure tu arrives, et je viendrai te chercher à la gare.",
+      "usage": "Formule pour proposer d'accueillir quelqu'un à son arrivée."
+    },
+    {
+      "id": "e1trf05",
+      "kind": "formule-adaptee",
+      "french": "Bon voyage, et à très bientôt !",
+      "anchor": "bon voyage",
+      "english": "Have a good trip, see you very soon!",
+      "example": "Bon voyage, et à très bientôt !",
+      "usage": "Formule de clôture chaleureuse pour un message lié à un déplacement."
+    },
+    {
+      "id": "e1tri01",
+      "kind": "information-precise",
+      "french": "Le bus passe toutes les vingt minutes",
+      "anchor": "toutes les vingt minutes",
+      "english": "The bus comes every twenty minutes",
+      "example": "Le bus passe toutes les vingt minutes entre sept heures et vingt-deux heures.",
+      "usage": "Formulation précise pour indiquer la fréquence d'un transport."
+    },
+    {
+      "id": "e1tri02",
+      "kind": "information-precise",
+      "french": "Le trajet dure environ une demi-heure",
+      "anchor": "dure environ une demi-heure",
+      "english": "The trip takes about half an hour",
+      "example": "Le trajet en métro dure environ une demi-heure jusqu'au centre-ville.",
+      "usage": "Pour préciser la durée approximative d'un déplacement."
+    },
+    {
+      "id": "e1tri03",
+      "kind": "information-precise",
+      "french": "Un aller simple coûte trois euros",
+      "anchor": "un aller simple coûte trois euros",
+      "english": "A one-way ticket costs three euros",
+      "example": "Un aller simple coûte trois euros, et l'abonnement mensuel environ quarante euros.",
+      "usage": "Pour donner un prix exact, aller simple ou abonnement."
+    },
+    {
+      "id": "e1tri04",
+      "kind": "information-precise",
+      "french": "La station la plus proche se trouve à cinq minutes à pied",
+      "anchor": "à cinq minutes à pied",
+      "english": "The nearest station is a five-minute walk away",
+      "example": "La station la plus proche se trouve à cinq minutes à pied de chez moi.",
+      "usage": "Pour préciser une distance à pied en minutes."
+    },
+    {
+      "id": "e1tri05",
+      "kind": "information-precise",
+      "french": "Le dernier bus part à vingt-trois heures",
+      "anchor": "le dernier bus part à vingt-trois heures",
+      "english": "The last bus leaves at 11 p.m.",
+      "example": "Attention, le dernier bus part à vingt-trois heures précises.",
+      "usage": "Pour donner l'heure exacte du dernier passage d'un transport."
+    },
+    {
+      "id": "e1trv01",
+      "kind": "verbe-collocation",
+      "french": "prendre les transports en commun",
+      "anchor": "prendre les transports en commun",
+      "english": "to take public transportation",
+      "example": "Je préfère prendre les transports en commun plutôt que conduire en ville.",
+      "usage": "Collocation courante pour parler de son moyen de déplacement habituel."
+    },
+    {
+      "id": "e1trv02",
+      "kind": "verbe-collocation",
+      "french": "se perdre en chemin",
+      "anchor": "se perdre en chemin",
+      "english": "to get lost on the way",
+      "example": "Sans plan précis, on peut vite se perdre en chemin dans ce quartier.",
+      "usage": "Expression verbale pour évoquer une difficulté d'orientation."
+    },
+    {
+      "id": "e1trv03",
+      "kind": "verbe-collocation",
+      "french": "réserver un taxi à l'avance",
+      "anchor": "réserver un taxi à l'avance",
+      "english": "to book a taxi in advance",
+      "example": "Il vaut mieux réserver un taxi à l'avance le week-end.",
+      "usage": "Collocation pour parler d'une réservation anticipée."
+    },
+    {
+      "id": "e1trv04",
+      "kind": "verbe-collocation",
+      "french": "changer de ligne à la station suivante",
+      "anchor": "changer de ligne",
+      "english": "to change lines",
+      "example": "Tu dois changer de ligne à la station suivante pour aller au centre.",
+      "usage": "Verbe utile pour expliquer une correspondance de métro ou de bus."
+    },
+    {
+      "id": "e1trv05",
+      "kind": "verbe-collocation",
+      "french": "descendre au bon arrêt",
+      "anchor": "descendre au bon arrêt",
+      "english": "to get off at the right stop",
+      "example": "Fais attention à descendre au bon arrêt, juste après la pharmacie.",
+      "usage": "Collocation pour donner un repère de descente précis."
+    },
+    {
+      "id": "e1trp01",
+      "kind": "phrase-modele",
+      "french": "Pour te déplacer, tu as plusieurs options : le bus, le vélo ou le taxi.",
+      "anchor": "tu as plusieurs options",
+      "english": "To get around, you have several options: the bus, the bike, or the taxi.",
+      "example": "Pour te déplacer, tu as plusieurs options : le bus, le vélo ou le taxi.",
+      "usage": "Phrase modèle pour présenter plusieurs moyens de transport."
+    },
+    {
+      "id": "e1trp02",
+      "kind": "phrase-modele",
+      "french": "Si tu te perds, n'hésite pas à demander ton chemin aux passants.",
+      "anchor": "n'hésite pas à demander ton chemin",
+      "english": "If you get lost, don't hesitate to ask passers-by for directions.",
+      "example": "Si tu te perds, n'hésite pas à demander ton chemin aux passants.",
+      "usage": "Phrase modèle pour rassurer sur l'orientation en cas de doute."
+    },
+    {
+      "id": "e1trp03",
+      "kind": "phrase-modele",
+      "french": "Le plus simple, c'est de prendre le métro jusqu'au terminus.",
+      "anchor": "le plus simple, c'est de prendre le métro",
+      "english": "The simplest way is to take the subway to the last stop.",
+      "example": "Le plus simple, c'est de prendre le métro jusqu'au terminus, puis de marcher cinq minutes.",
+      "usage": "Phrase modèle pour indiquer le trajet le plus pratique."
+    },
+    {
+      "id": "e1trp04",
+      "kind": "phrase-modele",
+      "french": "Il vaut mieux partir un peu plus tôt pour éviter les embouteillages.",
+      "anchor": "il vaut mieux partir un peu plus tôt",
+      "english": "It's better to leave a bit earlier to avoid traffic jams.",
+      "example": "Il vaut mieux partir un peu plus tôt pour éviter les embouteillages aux heures de pointe.",
+      "usage": "Phrase modèle pour conseiller un départ anticipé."
+    },
+    {
+      "id": "e1trp05",
+      "kind": "phrase-modele",
+      "french": "Une fois arrivé à la gare, tu n'auras qu'à suivre les panneaux.",
+      "anchor": "tu n'auras qu'à suivre les panneaux",
+      "english": "Once you arrive at the station, you'll just have to follow the signs.",
+      "example": "Une fois arrivé à la gare, tu n'auras qu'à suivre les panneaux pour trouver la sortie.",
+      "usage": "Phrase modèle pour guider quelqu'un une fois sur place."
+    }
+  ]
+}

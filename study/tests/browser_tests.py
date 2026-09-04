@@ -13,6 +13,7 @@ from playwright.sync_api import sync_playwright
 from django.utils import timezone
 
 from study import content_loader as content
+from study.account_services import provision_user_study_data
 from study.content_loader import load_sections
 from study.management.commands.import_content import Command
 from study.models import (
@@ -218,24 +219,46 @@ class BrowserTests(StaticLiveServerTestCase):
             theme_by_name,
             family_by_name,
         )
-        command._import_prompts(
+        prompt_index = command._import_prompts(
             responses,
             response_by_key,
             theme_by_name,
             family_by_name,
         )
+        command._import_phrases(
+            content.parse_ee_tache_three_subject_vocabulary(responses),
+            prompt_index,
+            theme_by_name,
+        )
+        provision_user_study_data(self.user)
         task = task_by_slug["ee/tache-3"]
         return months, task
 
     def _import_ee_writing_content(self):
         command = Command()
         task_by_slug = command._import_sections(load_sections())
+        theme_by_name = command._import_themes(
+            [
+                *content.ee_writing_themes(1),
+                *content.ee_writing_themes(2),
+            ],
+            task_by_slug,
+        )
         for tache in (1, 2):
             command._import_writing_sujets(
                 content.load_ee_writing_categories(tache),
                 task_by_slug,
                 task_key=f"ee/tache-{tache}",
             )
+        command._import_phrases(
+            [
+                *content.parse_ee_writing_theme_vocabulary(1),
+                *content.parse_ee_writing_theme_vocabulary(2),
+            ],
+            {},
+            theme_by_name,
+        )
+        provision_user_study_data(self.user)
         return {
             tache: task_by_slug[f"ee/tache-{tache}"]
             for tache in (1, 2)
@@ -271,7 +294,7 @@ class BrowserTests(StaticLiveServerTestCase):
         command._sync_cards(response_by_key, user=self.user)
         return task_by_slug["eo/tache-2"]
 
-    def test_ee_tache_three_overview_table_has_bounded_hover_content(self):
+    def test_ee_tache_three_overview_cards_have_bounded_hover_content(self):
         _, task = self._import_ee_tache_three_content()
         overview_url = reverse(
             "study:task_detail",
@@ -291,10 +314,10 @@ class BrowserTests(StaticLiveServerTestCase):
             "none",
         )
         self.page.goto(self.live_server_url + overview_url)
-        self.page.get_by_role("button", name="Tableau").click()
         overview_entries = self.page.locator(
             "[data-ee-tache-three-overview-entry]"
         )
+        self.assertEqual(overview_entries.count(), 3)
         overview_entries.first.hover()
         self.assertEqual(
             overview_entries.first.evaluate(
@@ -302,20 +325,15 @@ class BrowserTests(StaticLiveServerTestCase):
             ),
             "none",
         )
-        overflowing_cells = overview_entries.evaluate_all(
-            """
-            entries => entries.flatMap(entry =>
-              [...entry.children]
-                .filter(cell => cell.scrollWidth > cell.clientWidth + 1)
-                .map(cell => ({
-                  className: cell.className,
-                  clientWidth: cell.clientWidth,
-                  scrollWidth: cell.scrollWidth,
-                }))
-            )
-            """
+        self.assertEqual(
+            len(
+                self.page.locator(".task-choice-grid").evaluate(
+                    "element => getComputedStyle(element)"
+                    ".gridTemplateColumns.split(' ')"
+                )
+            ),
+            3,
         )
-        self.assertEqual(overflowing_cells, [])
         self.assert_no_horizontal_overflow()
 
     def test_ee_tache_three_theme_directory_is_collapsible_and_responsive(self):
@@ -329,6 +347,10 @@ class BrowserTests(StaticLiveServerTestCase):
             "study:task_browse",
             args=[task.part.slug, task.slug],
         )
+        vocabulary_url = reverse(
+            "study:task_phrases",
+            args=[task.part.slug, task.slug],
+        )
 
         self.page.goto(self.live_server_url + overview_url)
 
@@ -336,21 +358,28 @@ class BrowserTests(StaticLiveServerTestCase):
             self.page.locator(
                 "[data-ee-tache-three-overview-entry]"
             ).count(),
-            2,
+            3,
         )
         self.assertEqual(
             self.page.locator(".ee-t3-month-group").count(),
             0,
         )
-        self.page.get_by_role("button", name="Tableau").click()
         self.assertEqual(
-            self.page.locator("html").get_attribute(
-                "data-collection-view-mode"
-            ),
-            "table",
+            self.page.locator("[data-collection-view-toggle]").count(),
+            0,
         )
 
+        self.page.goto(self.live_server_url + vocabulary_url)
+        self.assertEqual(
+            self.page.locator(
+                "[data-theme-vocabulary-directory-item]"
+            ).count(),
+            len(themes),
+        )
+        self.assert_no_horizontal_overflow()
+
         self.page.goto(self.live_server_url + subjects_url)
+        self.page.get_by_role("button", name="Tableau").click()
 
         self.assertEqual(
             self.page.locator("html").get_attribute(
@@ -505,16 +534,54 @@ class BrowserTests(StaticLiveServerTestCase):
 
     def test_ee_writing_tables_reuse_scoped_sorting_on_mobile(self):
         tasks = self._import_ee_writing_content()
+        self.context.add_init_script(
+            """
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: {
+                writeText: text => {
+                  window.__eePracticePromptCopied = text;
+                  return Promise.resolve();
+                },
+              },
+            });
+            """
+        )
 
         for tache, task in tasks.items():
             with self.subTest(tache=tache):
+                overview_url = reverse(
+                    "study:task_detail",
+                    args=[task.part.slug, task.slug],
+                )
                 subjects_url = reverse(
                     "study:task_browse",
+                    args=[task.part.slug, task.slug],
+                )
+                vocabulary_url = reverse(
+                    "study:task_phrases",
                     args=[task.part.slug, task.slug],
                 )
                 self.page.set_viewport_size(
                     {"width": 1183, "height": 844}
                 )
+                self.page.goto(self.live_server_url + overview_url)
+                self.page.get_by_role(
+                    "button",
+                    name="Copy AI Practice Prompt",
+                ).click()
+                self.page.wait_for_function(
+                    "expected => window.__eePracticePromptCopied === expected",
+                    arg=content.load_ee_ai_examiner_prompt(tache),
+                )
+                self.page.goto(self.live_server_url + vocabulary_url)
+                self.assertEqual(
+                    self.page.locator(
+                        "[data-theme-vocabulary-directory-item]"
+                    ).count(),
+                    11,
+                )
+                self.assert_no_horizontal_overflow()
                 self.page.goto(self.live_server_url + subjects_url)
                 if (
                     self.page.locator("html").get_attribute(
@@ -758,26 +825,15 @@ class BrowserTests(StaticLiveServerTestCase):
         subject_payload = json.loads(
             self.page.locator("#ee-writing-subject-content").text_content()
         )
-        examiner_payload = json.loads(
-            self.page.locator(
-                "#ee-writing-examiner-prompt-content"
-            ).text_content()
-        )
         copy_buttons = self.page.locator(
             ".ee-subject-consigne [data-prompt-copy]"
         )
-        self.assertEqual(copy_buttons.count(), 2)
-        copy_buttons.nth(0).click()
+        self.assertEqual(copy_buttons.count(), 1)
+        copy_buttons.click()
         self.page.wait_for_function(
             "expected => window.__eeSubjectCopy === expected",
             arg=subject_payload,
         )
-        copy_buttons.nth(1).click()
-        self.page.wait_for_function(
-            "expected => window.__eeSubjectCopy === expected",
-            arg=examiner_payload,
-        )
-        self.assertIn(sujet.prompt, examiner_payload)
         self.assert_no_horizontal_overflow()
         self.page.set_viewport_size({"width": 390, "height": 844})
         self.assert_no_horizontal_overflow()

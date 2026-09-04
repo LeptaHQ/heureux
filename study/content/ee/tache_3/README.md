@@ -17,9 +17,10 @@ Ce dossier regroupe les **sujets sources** et l'ensemble des **réponses modèle
   Ces plages figurent dans l’exemple d’épreuve officiel FEI ; le total officiel
   est de 120–180 mots. Les modèles ajoutent un titre pertinent comme choix
   éditorial ; FEI ne le présente pas comme une exigence générale.
-- `ai_examiner_prompt.md` — prompt d’évaluation propre à la Tâche 3 ; il reçoit
-  la consigne et les deux documents du sujet avant la copie. L’évaluation IA est
-  désactivée lorsque la source ne fournit pas deux documents distincts et exploitables.
+- `ai_examiner_prompt.md` — prompt d’évaluation propre à la Tâche 3, disponible
+  depuis la vue d’ensemble avant de fournir le sujet et ses deux documents.
+- La vue d’ensemble donne accès au vocabulaire des sujets regroupé par thème ;
+  chaque thème conserve les decks et la progression des réponses distinctes.
 
 **Vocabulaire** — `vocabulary/<mois>.json`
 - **30 entrées par réponse**, capturant la langue la plus réutilisable (connecteurs,

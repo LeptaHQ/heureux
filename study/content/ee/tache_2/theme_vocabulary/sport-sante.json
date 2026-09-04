@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-2",
+  "theme": "sport-sante",
+  "name": "Sport & santé",
+  "entries": [
+    {
+      "id": "e2sst01",
+      "kind": "repere-temporel",
+      "french": "dès la première séance d'entraînement",
+      "anchor": "dès la première séance d'entraînement",
+      "english": "as soon as the first training session took place",
+      "example": "Dès la première séance d'entraînement, j'ai compris que je devais revoir mes objectifs.",
+      "usage": "Locution temporelle en tête de phrase pour ouvrir un récit sportif."
+    },
+    {
+      "id": "e2sst02",
+      "kind": "repere-temporel",
+      "french": "après trois mois de pratique régulière",
+      "anchor": "après trois mois de pratique régulière",
+      "english": "after three months of regular practice",
+      "example": "Après trois mois de pratique régulière, je me sentais déjà beaucoup plus endurant.",
+      "usage": "Groupe nominal temporel indiquant une durée de pratique écoulée."
+    },
+    {
+      "id": "e2sst03",
+      "kind": "repere-temporel",
+      "french": "le jour de la compétition",
+      "anchor": "le jour de la compétition",
+      "english": "on the day of the competition",
+      "example": "Le jour de la compétition, le stress a rapidement laissé place à la concentration.",
+      "usage": "Groupe nominal temporel situant une action lors d'un événement sportif précis."
+    },
+    {
+      "id": "e2sst04",
+      "kind": "repere-temporel",
+      "french": "au terme de ma rééducation",
+      "anchor": "au terme de ma rééducation",
+      "english": "at the end of my rehabilitation",
+      "example": "Au terme de ma rééducation, j'ai enfin pu reprendre le sport sans douleur.",
+      "usage": "Groupe nominal temporel marquant la fin d'un parcours de santé."
+    },
+    {
+      "id": "e2sst05",
+      "kind": "repere-temporel",
+      "french": "depuis que je fais du sport régulièrement",
+      "anchor": "depuis que je fais du sport régulièrement",
+      "english": "since I have been exercising regularly",
+      "example": "Depuis que je fais du sport régulièrement, je dors beaucoup mieux et je me sens plus énergique.",
+      "usage": "Locution temporelle introduite par « depuis que » suivie d'un verbe conjugué."
+    },
+    {
+      "id": "e2ssv01",
+      "kind": "verbe-recit",
+      "french": "s'inscrire à une salle de sport",
+      "anchor": "une salle de sport",
+      "english": "to sign up at a gym",
+      "example": "Je me suis inscrit à une salle de sport en septembre pour retrouver la forme.",
+      "usage": "Verbe pronominal ; « à » introduit le lieu d'inscription."
+    },
+    {
+      "id": "e2ssv02",
+      "kind": "verbe-recit",
+      "french": "reprendre une activité physique",
+      "anchor": "une activité physique",
+      "english": "to resume physical activity",
+      "example": "J'ai repris une activité physique après plusieurs mois d'arrêt à cause d'une blessure.",
+      "usage": "Verbe transitif ; décrit un retour à la pratique sportive."
+    },
+    {
+      "id": "e2ssv03",
+      "kind": "verbe-recit",
+      "french": "participer à une compétition",
+      "anchor": "à une compétition",
+      "english": "to take part in a competition",
+      "example": "J'ai participé à une compétition de ski organisée dans une station de montagne.",
+      "usage": "Verbe transitif indirect ; « à » introduit l'événement sportif."
+    },
+    {
+      "id": "e2ssv04",
+      "kind": "verbe-recit",
+      "french": "se blesser pendant l'entraînement",
+      "anchor": "pendant l'entraînement",
+      "english": "to get injured during training",
+      "example": "Je me suis blessé pendant l'entraînement en effectuant un mauvais mouvement.",
+      "usage": "Verbe pronominal ; se conjugue avec l'auxiliaire être au passé composé."
+    },
+    {
+      "id": "e2ssv05",
+      "kind": "verbe-recit",
+      "french": "améliorer son endurance",
+      "anchor": "endurance",
+      "english": "to improve one's endurance",
+      "example": "J'ai amélioré mon endurance grâce à des séances de course régulières chaque semaine.",
+      "usage": "Verbe transitif ; « son » s'accorde avec le sujet du récit."
+    },
+    {
+      "id": "e2ssd01",
+      "kind": "detail-impression",
+      "french": "des jambes tremblantes après l'effort",
+      "anchor": "des jambes tremblantes après l'effort",
+      "english": "trembling legs after the effort",
+      "example": "Après la séance, j'avais des jambes tremblantes après l'effort mais un sentiment de satisfaction.",
+      "usage": "Groupe nominal pluriel ; décrit une impression physique concrète."
+    },
+    {
+      "id": "e2ssd02",
+      "kind": "detail-impression",
+      "french": "un souffle court mais régulier",
+      "anchor": "un souffle court mais régulier",
+      "english": "short but steady breathing",
+      "example": "En haut de la côte, j'avais un souffle court mais régulier, signe de mes progrès.",
+      "usage": "Groupe nominal masculin ; précise une sensation physique liée à l'effort."
+    },
+    {
+      "id": "e2ssd03",
+      "kind": "detail-impression",
+      "french": "une sensation d'épuisement total",
+      "anchor": "une sensation d'épuisement total",
+      "english": "a feeling of complete exhaustion",
+      "example": "À l'arrivée, une sensation d'épuisement total a envahi tout mon corps.",
+      "usage": "Groupe nominal féminin ; exprime une impression physique intense."
+    },
+    {
+      "id": "e2ssd04",
+      "kind": "detail-impression",
+      "french": "un cœur qui bat à tout rompre",
+      "anchor": "un cœur qui bat à tout rompre",
+      "english": "a racing, pounding heart",
+      "example": "Sur la ligne de départ, j'avais un cœur qui bat à tout rompre malgré mes efforts pour rester calme.",
+      "usage": "Groupe nominal masculin ; décrit une réaction physique liée au stress ou à l'effort."
+    },
+    {
+      "id": "e2ssd05",
+      "kind": "detail-impression",
+      "french": "une énergie retrouvée",
+      "anchor": "une énergie retrouvée",
+      "english": "renewed energy",
+      "example": "Après ces trois mois, je ressentais une énergie retrouvée et une meilleure humeur au quotidien.",
+      "usage": "Groupe nominal féminin ; exprime une impression physique et morale positive."
+    },
+    {
+      "id": "e2ssc01",
+      "kind": "commentaire-recommandation",
+      "french": "je recommande cette salle de sport sans hésiter",
+      "anchor": "je recommande cette salle de sport sans hésiter",
+      "english": "I recommend this gym without hesitating",
+      "example": "Je recommande cette salle de sport sans hésiter pour son ambiance et son encadrement.",
+      "usage": "Formule de recommandation directe en fin de récit sportif."
+    },
+    {
+      "id": "e2ssc02",
+      "kind": "commentaire-recommandation",
+      "french": "ce que j'ai le plus apprécié, c'est le suivi personnalisé",
+      "anchor": "ce que j'ai le plus apprécié, c'est le suivi personnalisé",
+      "english": "what I appreciated most was the personalized follow-up",
+      "example": "Ce que j'ai le plus apprécié, c'est le suivi personnalisé proposé par l'entraîneur.",
+      "usage": "Structure emphatique « ce que... c'est » pour souligner un point fort."
+    },
+    {
+      "id": "e2ssc03",
+      "kind": "commentaire-recommandation",
+      "french": "à mon sens, la régularité est la clé du progrès",
+      "anchor": "la régularité est la clé du progrès",
+      "english": "in my view, consistency is the key to progress",
+      "example": "À mon sens, la régularité est la clé du progrès plus que l'intensité des séances.",
+      "usage": "Formule d'opinion personnelle introduisant un conseil général."
+    },
+    {
+      "id": "e2ssc04",
+      "kind": "commentaire-recommandation",
+      "french": "le seul point négatif reste la fréquentation aux heures de pointe",
+      "anchor": "le seul point négatif reste la fréquentation aux heures de pointe",
+      "english": "the only negative point remains the crowding at peak hours",
+      "example": "Le seul point négatif reste la fréquentation aux heures de pointe, surtout en soirée.",
+      "usage": "Formule nuançant un bilan globalement positif."
+    },
+    {
+      "id": "e2ssc05",
+      "kind": "commentaire-recommandation",
+      "french": "je conseille de commencer progressivement pour éviter les blessures",
+      "anchor": "je conseille de commencer progressivement pour éviter les blessures",
+      "english": "I advise starting gradually to avoid injuries",
+      "example": "Je conseille de commencer progressivement pour éviter les blessures, surtout après une pause.",
+      "usage": "Formule de recommandation pratique suivie d'un verbe à l'infinitif."
+    }
+  ]
+}

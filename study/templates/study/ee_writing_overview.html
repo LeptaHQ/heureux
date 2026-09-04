@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Vue d’ensemble · {{ task.name }} · Heureux{% endblock %}
+
+{% block content %}
+{% include "study/partials/task_nav.html" %}
+
+<div class="memory-overview ee-writing-overview" style="--memory-accent: {{ task.color }};">
+  <header class="memory-overview-hero task-hero">
+    <div class="memory-overview-hero__copy">
+      <p class="eyebrow">{{ part.name }}</p>
+      <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
+        <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name=task.icon only %}</span>
+        <span>{{ task.name }}</span>
+      </h1>
+      {% if task.subtitle %}<p>{{ task.subtitle }}</p>{% endif %}
+      <div class="memory-overview-hero__actions">
+        {% include "study/partials/prompt_copy_button.html" with button_class="btn tache-two-ai-prompt-button" source_id="ee-ai-practice-prompt-content" label="AI Practice Prompt" success_label="Copied!" error_label="Copy failed" toast_message="AI Practice Prompt copied to your clipboard." error_message="Could not copy the AI Practice Prompt." status_id="ee-ai-practice-prompt-status" aria_label="Copy AI Practice Prompt" only %}
+        <span class="sr-only" id="ee-ai-practice-prompt-status" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+    <dl class="memory-overview-hero__metrics" aria-label="Contenu de {{ task.name }}">
+      <div><dt>Thèmes</dt><dd>{{ category_count }}</dd></div>
+      <div><dt>Sujets</dt><dd>{{ sujet_count }}</dd></div>
+      <div><dt>Réponses distinctes</dt><dd>{{ distinct_count }}</dd></div>
+      <div><dt>Vocabulaire</dt><dd>{{ theme_vocabulary.phrase_count }}</dd></div>
+    </dl>
+  </header>
+
+  <div class="task-choice-grid">
+    <a
+      class="task-choice-card task-choice-card--vocabulary card"
+      data-task-choice="vocabulary"
+      href="{% url 'study:task_phrases' part.slug task.slug %}"
+      aria-labelledby="ee-writing-vocabulary-choice-title">
+      <header class="task-choice-card__head">
+        <span class="task-choice-card__icon" aria-hidden="true">
+          {% include "study/partials/ui_icon.html" with name="sparkles" only %}
+        </span>
+        <div>
+          <h2 id="ee-writing-vocabulary-choice-title">Vocabulaire</h2>
+          <p>{% if writing_tache == 1 %}Des formules et constructions pour rédiger des messages précis et adaptés.{% else %}Des repères et formulations pour raconter une expérience avec clarté.{% endif %}</p>
+        </div>
+      </header>
+      <div class="task-choice-card__facts">
+        <span><b>{{ theme_vocabulary.theme_count }}</b> thèmes</span>
+        <span><b>{{ theme_vocabulary.phrase_count }}</b> fiches</span>
+        <span><b>{{ theme_vocabulary.batch_count }}</b> lots guidés</span>
+      </div>
+      <footer class="task-choice-card__footer">
+        {% include "study/partials/tache_two_progress.html" with summary=theme_vocabulary.summary unit_label="lots terminés" compact=True only %}
+        <span class="task-choice-card__action">Ouvrir {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+      </footer>
+    </a>
+
+    <a
+      class="task-choice-card task-choice-card--subjects card"
+      data-task-choice="subjects"
+      href="{% url 'study:task_browse' part.slug task.slug %}"
+      aria-labelledby="ee-writing-subjects-choice-title">
+      <header class="task-choice-card__head">
+        <span class="task-choice-card__icon" aria-hidden="true">
+          {% include "study/partials/ui_icon.html" with name="file-text" only %}
+        </span>
+        <div>
+          <h2 id="ee-writing-subjects-choice-title">Sujets</h2>
+          <p>Les sujets 2025 classés par thème, avec réponses modèles et personnalisation.</p>
+        </div>
+      </header>
+      <div class="task-choice-card__facts">
+        <span><b>{{ category_count }}</b> thèmes</span>
+        <span><b>{{ sujet_count }}</b> sujets</span>
+        <span><b>{{ distinct_count }}</b> réponses distinctes</span>
+      </div>
+      <footer class="task-choice-card__footer">
+        {% include "study/partials/tache_two_progress.html" with summary=subject_summary unit_label="sujets terminés" compact=True only %}
+        <span class="task-choice-card__action">Ouvrir {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+      </footer>
+    </a>
+  </div>
+</div>
+{{ ai_practice_prompt|json_script:"ee-ai-practice-prompt-content" }}
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'study/js/prompt-copy.js' %}?v=1"></script>
+{% endblock %}

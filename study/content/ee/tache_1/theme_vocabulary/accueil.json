@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-1",
+  "theme": "accueil",
+  "name": "Accueillir un invité",
+  "entries": [
+    {
+      "id": "e1acf01",
+      "kind": "formule-adaptee",
+      "french": "Merci d'avoir accepté de garder mon appartement pendant mes vacances.",
+      "anchor": "merci d'avoir accepté",
+      "english": "Thank you for agreeing to look after my apartment while I'm on vacation.",
+      "example": "Merci d'avoir accepté de garder mon appartement pendant mes vacances.",
+      "usage": "Formule de remerciement initial lorsqu'on confie une tâche ou une responsabilité à quelqu'un."
+    },
+    {
+      "id": "e1acf02",
+      "kind": "formule-adaptee",
+      "french": "Installe-toi, fais comme chez toi !",
+      "anchor": "fais comme chez toi",
+      "english": "Settle in, make yourself at home!",
+      "example": "Installe-toi, fais comme chez toi pendant ton séjour !",
+      "usage": "Formule chaleureuse et informelle pour mettre un invité à l'aise."
+    },
+    {
+      "id": "e1acf03",
+      "kind": "formule-adaptee",
+      "french": "N'hésite pas à me contacter en cas de problème.",
+      "anchor": "n'hésite pas à me contacter",
+      "english": "Don't hesitate to contact me if there's a problem.",
+      "example": "N'hésite pas à me contacter en cas de problème pendant mon absence.",
+      "usage": "Formule rassurante proposant son aide à distance, utile pour un logement à garder."
+    },
+    {
+      "id": "e1acf04",
+      "kind": "formule-adaptee",
+      "french": "Je te laisse toutes les instructions ci-dessous.",
+      "anchor": "je te laisse toutes les instructions",
+      "english": "I'm leaving all the instructions below for you.",
+      "example": "Je te laisse toutes les instructions ci-dessous pour t'occuper de la maison.",
+      "usage": "Formule pour introduire une liste de consignes pratiques à un invité ou un gardien."
+    },
+    {
+      "id": "e1acf05",
+      "kind": "formule-adaptee",
+      "french": "Merci encore pour ton aide, je te revaudrai ça !",
+      "anchor": "merci encore pour ton aide",
+      "english": "Thanks again for your help, I'll make it up to you!",
+      "example": "Merci encore pour ton aide, je te revaudrai ça !",
+      "usage": "Formule de clôture reconnaissante, typique des lettres informelles de remerciement."
+    },
+    {
+      "id": "e1aci01",
+      "kind": "information-precise",
+      "french": "Les clés se trouvent sous le pot de fleurs, à droite de la porte.",
+      "anchor": "les clés se trouvent",
+      "english": "The keys are under the flowerpot, to the right of the door.",
+      "example": "Les clés se trouvent sous le pot de fleurs, à droite de la porte.",
+      "usage": "Formule pratique pour indiquer l'emplacement précis d'un objet important."
+    },
+    {
+      "id": "e1aci02",
+      "kind": "information-precise",
+      "french": "La chambre d'amis est prête, avec des serviettes propres sur le lit.",
+      "anchor": "la chambre d'amis est prête",
+      "english": "The guest room is ready, with clean towels on the bed.",
+      "example": "La chambre d'amis est prête, avec des serviettes propres sur le lit.",
+      "usage": "Précise que l'hébergement est préparé pour recevoir un invité."
+    },
+    {
+      "id": "e1aci03",
+      "kind": "information-precise",
+      "french": "Sa nourriture se trouve dans le placard de la cuisine, à côté du four.",
+      "anchor": "se trouve dans le placard",
+      "english": "Its food is in the kitchen cupboard, next to the oven.",
+      "example": "Sa nourriture se trouve dans le placard de la cuisine, à côté du four.",
+      "usage": "Structure utile pour localiser des affaires (nourriture, objets) dans la maison, notamment pour un animal."
+    },
+    {
+      "id": "e1aci04",
+      "kind": "information-precise",
+      "french": "Il faut arroser les plantes deux fois par semaine, le lundi et le jeudi.",
+      "anchor": "arroser les plantes deux fois par semaine",
+      "english": "You need to water the plants twice a week, on Mondays and Thursdays.",
+      "example": "Il faut arroser les plantes deux fois par semaine, le lundi et le jeudi.",
+      "usage": "Précise une consigne récurrente avec sa fréquence exacte."
+    },
+    {
+      "id": "e1aci05",
+      "kind": "information-precise",
+      "french": "Mon appartement se trouve à deux pas du métro Laurier.",
+      "anchor": "à deux pas du métro",
+      "english": "My apartment is just steps from the Laurier metro.",
+      "example": "Mon appartement se trouve à deux pas du métro Laurier.",
+      "usage": "Formule pour situer un logement par rapport à un point de repère connu."
+    },
+    {
+      "id": "e1acv01",
+      "kind": "verbe-collocation",
+      "french": "accueillir un invité",
+      "anchor": "accueillir un invité",
+      "english": "to welcome a guest",
+      "example": "Je suis ravi d'accueillir un invité chez moi ce week-end.",
+      "usage": "Verbe de base pour parler de la réception d'un visiteur."
+    },
+    {
+      "id": "e1acv02",
+      "kind": "verbe-collocation",
+      "french": "garder la maison",
+      "anchor": "garder la maison",
+      "english": "to look after the house",
+      "example": "Merci de garder la maison pendant notre absence.",
+      "usage": "Collocation pour désigner la surveillance d'un logement en l'absence des propriétaires."
+    },
+    {
+      "id": "e1acv03",
+      "kind": "verbe-collocation",
+      "french": "s'installer dans la chambre d'amis",
+      "anchor": "s'installer dans la chambre",
+      "english": "to settle into the guest room",
+      "example": "On peut s'installer dans la chambre d'amis dès ce soir.",
+      "usage": "Verbe pronominal utile pour indiquer où un invité peut poser ses affaires."
+    },
+    {
+      "id": "e1acv04",
+      "kind": "verbe-collocation",
+      "french": "économiser l'énergie",
+      "anchor": "économiser l'énergie",
+      "english": "to save energy",
+      "example": "Pour économiser l'énergie, éteins les lumières en sortant.",
+      "usage": "Collocation fréquente dans les consignes laissées à un invité ou un gardien."
+    },
+    {
+      "id": "e1acv05",
+      "kind": "verbe-collocation",
+      "french": "faire visiter les environs",
+      "anchor": "visiter les environs",
+      "english": "to show someone around the area",
+      "example": "Je te ferai visiter les environs dès ton arrivée.",
+      "usage": "Verbe 'faire visiter' pour proposer de montrer le quartier à un invité."
+    },
+    {
+      "id": "e1acp01",
+      "kind": "phrase-modele",
+      "french": "Merci d'avoir accepté de garder ma maison pendant mes vacances ; voici quelques précisions.",
+      "anchor": "garder ma maison pendant mes vacances",
+      "english": "Thank you for agreeing to look after my house while I'm on vacation; here are a few details.",
+      "example": "Merci d'avoir accepté de garder ma maison pendant mes vacances ; voici quelques précisions.",
+      "usage": "Phrase modèle d'ouverture pour remercier la personne qui s'occupe du logement."
+    },
+    {
+      "id": "e1acp02",
+      "kind": "phrase-modele",
+      "french": "Les clés sont sous le pot rouge, près de la porte d'entrée.",
+      "anchor": "les clés sont sous",
+      "english": "The keys are under the red pot, near the front door.",
+      "example": "Les clés sont sous le pot rouge, près de la porte d'entrée, à côté du paillasson.",
+      "usage": "Phrase pratique et précise pour localiser un objet essentiel."
+    },
+    {
+      "id": "e1acp03",
+      "kind": "phrase-modele",
+      "french": "Je te laisse mon numéro au cas où tu aurais besoin de moi.",
+      "anchor": "je te laisse mon numéro",
+      "english": "I'm leaving you my number in case you need me.",
+      "example": "Je te laisse mon numéro au cas où tu aurais besoin de moi pendant le week-end.",
+      "usage": "Phrase rassurante offrant un contact en cas d'imprévu."
+    },
+    {
+      "id": "e1acp04",
+      "kind": "phrase-modele",
+      "french": "Installe-toi confortablement, tout est prêt pour ton arrivée.",
+      "anchor": "tout est prêt pour ton arrivée",
+      "english": "Make yourself comfortable, everything is ready for your arrival.",
+      "example": "Installe-toi confortablement, tout est prêt pour ton arrivée : serviettes, draps et petit-déjeuner.",
+      "usage": "Phrase modèle accueillante confirmant que le logement est prêt."
+    },
+    {
+      "id": "e1acp05",
+      "kind": "phrase-modele",
+      "french": "Nous préparerons ensemble le programme de ton séjour.",
+      "anchor": "le programme de ton séjour",
+      "english": "We'll plan your stay's itinerary together.",
+      "example": "Nous préparerons ensemble le programme de ton séjour dès ton arrivée.",
+      "usage": "Phrase modèle proposant une organisation conjointe des activités pour un invité."
+    }
+  ]
+}

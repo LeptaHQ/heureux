@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-1",
+  "theme": "voyages",
+  "name": "Voyages & vacances",
+  "entries": [
+    {
+      "id": "e1vof01",
+      "kind": "formule-adaptee",
+      "french": "Super de te lire ! J'espère que ton voyage se prépare bien.",
+      "anchor": "super de te lire",
+      "english": "Great to hear from you! I hope your trip is coming together well.",
+      "example": "Super de te lire ! J'espère que ton voyage se prépare bien.",
+      "usage": "Formule d'ouverture enthousiaste répondant à une lettre reçue, registre informel."
+    },
+    {
+      "id": "e1vof02",
+      "kind": "formule-adaptee",
+      "french": "Je te conseille vivement de visiter ce village pendant ton séjour.",
+      "anchor": "je te conseille vivement de visiter",
+      "english": "I highly recommend you visit this village during your stay.",
+      "example": "Je te conseille vivement de visiter ce village pendant ton séjour.",
+      "usage": "Formule pour recommander fortement un lieu à découvrir lors d'un voyage."
+    },
+    {
+      "id": "e1vof03",
+      "kind": "formule-adaptee",
+      "french": "Bon voyage et à bientôt, envoie-moi des photos !",
+      "anchor": "bon voyage",
+      "english": "Have a good trip and see you soon, send me some photos!",
+      "example": "Bon voyage et à bientôt, envoie-moi des photos !",
+      "usage": "Formule de clôture chaleureuse adressée à quelqu'un qui part en voyage."
+    },
+    {
+      "id": "e1vof04",
+      "kind": "formule-adaptee",
+      "french": "J'espère que tu as passé un excellent séjour au bord de la mer.",
+      "anchor": "j'espère que tu as passé un excellent séjour",
+      "english": "I hope you had an excellent stay by the sea.",
+      "example": "J'espère que tu as passé un excellent séjour au bord de la mer.",
+      "usage": "Formule pour ouvrir une lettre après le retour de voyage d'un proche."
+    },
+    {
+      "id": "e1vof05",
+      "kind": "formule-adaptee",
+      "french": "Fais-moi signe quand tu arrives, je viendrai te chercher !",
+      "anchor": "fais-moi signe quand tu arrives",
+      "english": "Let me know when you arrive, I'll come pick you up!",
+      "example": "Fais-moi signe quand tu arrives, je viendrai te chercher à la gare.",
+      "usage": "Formule informelle pour demander à être prévenu à l'arrivée d'un voyage."
+    },
+    {
+      "id": "e1voi01",
+      "kind": "information-precise",
+      "french": "La montagne se trouve à environ une heure de route de la ville.",
+      "anchor": "à environ une heure de route",
+      "english": "The mountain is about an hour's drive from the city.",
+      "example": "La montagne se trouve à environ une heure de route de la ville.",
+      "usage": "Précise la distance en temps de trajet en voiture jusqu'à une destination."
+    },
+    {
+      "id": "e1voi02",
+      "kind": "information-precise",
+      "french": "Le vol dure environ huit heures avec une escale à Paris.",
+      "anchor": "le vol dure environ huit heures",
+      "english": "The flight lasts about eight hours with a layover in Paris.",
+      "example": "Le vol dure environ huit heures avec une escale à Paris.",
+      "usage": "Formule pour indiquer la durée d'un trajet en avion."
+    },
+    {
+      "id": "e1voi03",
+      "kind": "information-precise",
+      "french": "Prévois des vêtements chauds pour le soir, les températures baissent vite.",
+      "anchor": "des vêtements chauds",
+      "english": "Pack warm clothes for the evening, temperatures drop quickly.",
+      "example": "Prévois des vêtements chauds pour le soir, les températures baissent vite.",
+      "usage": "Conseil pratique pour préparer ses bagages selon le climat."
+    },
+    {
+      "id": "e1voi04",
+      "kind": "information-precise",
+      "french": "L'hôtel se trouve à deux minutes de la plage, avec vue sur la mer.",
+      "anchor": "à deux minutes de la plage",
+      "english": "The hotel is two minutes from the beach, with a sea view.",
+      "example": "L'hôtel se trouve à deux minutes de la plage, avec vue sur la mer.",
+      "usage": "Précise l'emplacement d'un hébergement par rapport à un point d'intérêt."
+    },
+    {
+      "id": "e1voi05",
+      "kind": "information-precise",
+      "french": "Le meilleur moment pour partir est au printemps, quand il fait moins chaud.",
+      "anchor": "le meilleur moment pour partir",
+      "english": "The best time to go is in spring, when it's less hot.",
+      "example": "Le meilleur moment pour partir est au printemps, quand il fait moins chaud.",
+      "usage": "Formule utile pour conseiller une période de voyage idéale."
+    },
+    {
+      "id": "e1vov01",
+      "kind": "verbe-collocation",
+      "french": "réserver un billet d'avion",
+      "anchor": "un billet d'avion",
+      "english": "to book a plane ticket",
+      "example": "J'ai réservé un billet d'avion pour la fin du mois.",
+      "usage": "Collocation de base pour organiser un déplacement en avion."
+    },
+    {
+      "id": "e1vov02",
+      "kind": "verbe-collocation",
+      "french": "faire une randonnée",
+      "anchor": "une randonnée",
+      "english": "to go hiking",
+      "example": "Nous avons fait une randonnée jusqu'au sommet de la colline.",
+      "usage": "Verbe 'faire' + activité pour décrire une excursion à pied en pleine nature."
+    },
+    {
+      "id": "e1vov03",
+      "kind": "verbe-collocation",
+      "french": "découvrir la région",
+      "anchor": "découvrir la région",
+      "english": "to explore the region",
+      "example": "J'ai hâte de découvrir la région pendant les vacances.",
+      "usage": "Collocation courante pour parler de l'exploration touristique d'un lieu."
+    },
+    {
+      "id": "e1vov04",
+      "kind": "verbe-collocation",
+      "french": "profiter du paysage",
+      "anchor": "profiter du paysage",
+      "english": "to enjoy the scenery",
+      "example": "On peut profiter du paysage depuis le sommet de la falaise.",
+      "usage": "Verbe utile pour décrire une contemplation agréable de la nature en voyage."
+    },
+    {
+      "id": "e1vov05",
+      "kind": "verbe-collocation",
+      "french": "faire escale à Paris",
+      "anchor": "escale à paris",
+      "english": "to have a layover in Paris",
+      "example": "Nous ferons escale à Paris avant de continuer vers Rome.",
+      "usage": "Collocation spécifique aux voyages en avion pour indiquer une étape intermédiaire."
+    },
+    {
+      "id": "e1vop01",
+      "kind": "phrase-modele",
+      "french": "Pendant ton voyage, je te conseille de visiter ce village, connu pour son marché artisanal.",
+      "anchor": "je te conseille de visiter ce village",
+      "english": "During your trip, I recommend visiting this village, known for its craft market.",
+      "example": "Pendant ton voyage, je te conseille de visiter ce village, connu pour son marché artisanal.",
+      "usage": "Phrase modèle pour recommander un lieu précis avec une raison qui le rend intéressant."
+    },
+    {
+      "id": "e1vop02",
+      "kind": "phrase-modele",
+      "french": "Le seul bémol est que l'endroit peut être très fréquenté le week-end.",
+      "anchor": "le seul bémol est que",
+      "english": "The only downside is that the place can be very crowded on weekends.",
+      "example": "Le seul bémol est que l'endroit peut être très fréquenté le week-end ; vas-y tôt le matin.",
+      "usage": "Phrase modèle pour nuancer une recommandation en signalant un inconvénient mineur."
+    },
+    {
+      "id": "e1vop03",
+      "kind": "phrase-modele",
+      "french": "L'expérience a été mémorable, surtout grâce aux paysages incroyables que nous avons découverts.",
+      "anchor": "l'expérience a été mémorable",
+      "english": "The experience was memorable, especially thanks to the incredible scenery we discovered.",
+      "example": "L'expérience a été mémorable, surtout grâce aux paysages incroyables que nous avons découverts.",
+      "usage": "Phrase modèle pour résumer positivement un séjour ou une excursion."
+    },
+    {
+      "id": "e1vop04",
+      "kind": "phrase-modele",
+      "french": "Il faut absolument que nous y retournions ensemble un jour.",
+      "anchor": "il faut absolument que nous y retournions",
+      "english": "We absolutely must go back there together someday.",
+      "example": "Il faut absolument que nous y retournions ensemble un jour, c'était magnifique.",
+      "usage": "Phrase modèle exprimant un souhait fort avec 'il faut que' + subjonctif."
+    },
+    {
+      "id": "e1vop05",
+      "kind": "phrase-modele",
+      "french": "Je te tiendrai au courant de la suite de mon voyage.",
+      "anchor": "je te tiendrai au courant",
+      "english": "I'll keep you posted on the rest of my trip.",
+      "example": "Je te tiendrai au courant de la suite de mon voyage dès que possible.",
+      "usage": "Phrase modèle de clôture promettant de donner des nouvelles pendant un déplacement."
+    }
+  ]
+}

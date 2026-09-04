@@ -54,7 +54,7 @@
 
   <div class="detail-grid">
     <div class="answer-columns">
-      {% include "study/partials/ee_subject_consigne.html" with title_id="ee-writing-subject-title" subject_text=prompt subject_source_id="ee-writing-subject-content" examiner_source_id="ee-writing-examiner-prompt-content" examiner_available=True only %}
+      {% include "study/partials/ee_subject_consigne.html" with title_id="ee-writing-subject-title" subject_text=prompt subject_source_id="ee-writing-subject-content" only %}
 
       {% if has_personal %}
         <section class="card section-card section-card--personal" aria-labelledby="t1-personal-label">
@@ -170,7 +170,6 @@
   </div>
 </div>
 {{ prompt|json_script:"ee-writing-subject-content" }}
-{{ ai_examiner_prompt|json_script:"ee-writing-examiner-prompt-content" }}
 {% endblock %}
 
 {% block scripts %}

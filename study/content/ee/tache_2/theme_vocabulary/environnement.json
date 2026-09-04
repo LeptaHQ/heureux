@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "task": "ee/tache-2",
+  "theme": "environnement",
+  "name": "Environnement & consommation",
+  "entries": [
+    {
+      "id": "e2ent01",
+      "kind": "repere-temporel",
+      "french": "le week-end dernier",
+      "anchor": "le week-end dernier",
+      "english": "last weekend",
+      "example": "Le week-end dernier, j’ai participé au nettoyage des berges de la rivière.",
+      "usage": "Expression de temps ; ouvre un récit au passé composé."
+    },
+    {
+      "id": "e2ent02",
+      "kind": "repere-temporel",
+      "french": "pendant toute la semaine",
+      "anchor": "pendant toute la semaine",
+      "english": "throughout the whole week",
+      "example": "Pendant toute la semaine sans voiture, j’ai pris le vélo pour aller travailler.",
+      "usage": "Locution de durée ; « pendant » + période, contexte narratif."
+    },
+    {
+      "id": "e2ent03",
+      "kind": "repere-temporel",
+      "french": "au fil des jours",
+      "anchor": "au fil des jours",
+      "english": "as the days went by",
+      "example": "Au fil des jours, les rues du centre-ville sont devenues plus calmes.",
+      "usage": "Locution temporelle ; décrit une évolution progressive."
+    },
+    {
+      "id": "e2ent04",
+      "kind": "repere-temporel",
+      "french": "dès le lendemain",
+      "anchor": "dès le lendemain",
+      "english": "starting the very next day",
+      "example": "Dès le lendemain, j’ai trouvé un itinéraire cyclable plus agréable que l’avenue habituelle.",
+      "usage": "Connecteur temporel ; souligne la rapidité d’un changement."
+    },
+    {
+      "id": "e2ent05",
+      "kind": "repere-temporel",
+      "french": "depuis cette expérience",
+      "anchor": "depuis cette expérience",
+      "english": "since this experience",
+      "example": "Depuis cette expérience, je trie systématiquement mes déchets.",
+      "usage": "Connecteur temporel ; relie le vécu passé à une habitude actuelle."
+    },
+    {
+      "id": "e2env01",
+      "kind": "verbe-recit",
+      "french": "j’ai tenu un stand à",
+      "anchor": "j’ai tenu un stand à",
+      "english": "I ran a stall at",
+      "example": "Samedi, j’ai tenu un stand à la brocante de mon quartier.",
+      "usage": "Passé composé ; verbe d’action concrète du récit."
+    },
+    {
+      "id": "e2env02",
+      "kind": "verbe-recit",
+      "french": "je me suis inscrit au nettoyage",
+      "anchor": "je me suis inscrit au nettoyage",
+      "english": "I signed up for the clean-up",
+      "example": "Ce printemps, je me suis inscrit au nettoyage organisé par la mairie.",
+      "usage": "Verbe pronominal au passé composé ; annonce une participation."
+    },
+    {
+      "id": "e2env03",
+      "kind": "verbe-recit",
+      "french": "j’ai remplacé ma voiture par",
+      "anchor": "j’ai remplacé ma voiture par",
+      "english": "I replaced my car with",
+      "example": "Pendant cette semaine, j’ai remplacé ma voiture par le vélo et l’autobus.",
+      "usage": "« remplacer X par Y » ; passé composé, comparaison implicite."
+    },
+    {
+      "id": "e2env04",
+      "kind": "verbe-recit",
+      "french": "nous avons ramassé des déchets",
+      "anchor": "nous avons ramassé des déchets",
+      "english": "we picked up litter",
+      "example": "En trois heures, nous avons ramassé des déchets le long de la rivière.",
+      "usage": "Passé composé, 1re pers. pluriel ; action collective du récit."
+    },
+    {
+      "id": "e2env05",
+      "kind": "verbe-recit",
+      "french": "j’ai commencé à composter",
+      "anchor": "j’ai commencé à composter",
+      "english": "I started composting",
+      "example": "Pour réduire le gaspillage, j’ai commencé à composter mes épluchures.",
+      "usage": "« commencer à » + infinitif ; passé composé, début d’habitude."
+    },
+    {
+      "id": "e2end01",
+      "kind": "detail-impression",
+      "french": "le brouhaha des marchandages",
+      "anchor": "le brouhaha des marchandages",
+      "english": "the hubbub of haggling",
+      "example": "Dès l’ouverture, le brouhaha des marchandages a envahi la place du marché.",
+      "usage": "Groupe nominal ; détail sonore vivant pour planter le décor."
+    },
+    {
+      "id": "e2end02",
+      "kind": "detail-impression",
+      "french": "les mains sales mais fières",
+      "anchor": "les mains sales mais fières",
+      "english": "hands dirty but proud",
+      "example": "À la fin du nettoyage, nous avions les mains sales mais fières du résultat.",
+      "usage": "Groupe nominal avec « mais » ; détail contrasté, fierté malgré l’effort."
+    },
+    {
+      "id": "e2end03",
+      "kind": "detail-impression",
+      "french": "des bouteilles et de vieux pneus",
+      "anchor": "des bouteilles et de vieux pneus",
+      "english": "bottles and old tires",
+      "example": "Notre équipe a retrouvé des bouteilles et de vieux pneus abandonnés sur la berge.",
+      "usage": "Groupe nominal ; détail concret et chiffrable du récit."
+    },
+    {
+      "id": "e2end04",
+      "kind": "detail-impression",
+      "french": "l’air semblait plus respirable en ville",
+      "anchor": "l’air semblait plus respirable en ville",
+      "english": "the air felt easier to breathe in the city",
+      "example": "Sans les voitures, l’air semblait plus respirable en ville.",
+      "usage": "Imparfait de « sembler » ; impression subjective et sensorielle."
+    },
+    {
+      "id": "e2end05",
+      "kind": "detail-impression",
+      "french": "un panier rempli de légumes de saison",
+      "anchor": "un panier rempli de légumes de saison",
+      "english": "a basket full of seasonal vegetables",
+      "example": "Je suis reparti du marché avec un panier rempli de légumes de saison.",
+      "usage": "Groupe nominal ; détail concret conclusif d’une sortie."
+    },
+    {
+      "id": "e2enc01",
+      "kind": "commentaire-recommandation",
+      "french": "ces actions sont essentielles pour",
+      "anchor": "ces actions sont essentielles pour",
+      "english": "these actions are essential to",
+      "example": "Ces actions sont essentielles pour préserver la rivière et ses berges.",
+      "usage": "Présent + « pour » + infinitif ; justifie une position."
+    },
+    {
+      "id": "e2enc02",
+      "kind": "commentaire-recommandation",
+      "french": "je recommande à chacun de trier",
+      "anchor": "je recommande à chacun de trier",
+      "english": "I recommend that everyone sort",
+      "example": "Je recommande à chacun de trier davantage ses déchets à la maison.",
+      "usage": "« recommander à qqn de » + infinitif ; conseil général."
+    },
+    {
+      "id": "e2enc03",
+      "kind": "commentaire-recommandation",
+      "french": "à mon avis, réduire l’usage de la voiture reste",
+      "anchor": "à mon avis, réduire l’usage de la voiture reste",
+      "english": "in my opinion, cutting back on car use remains",
+      "example": "À mon avis, réduire l’usage de la voiture reste le geste le plus simple pour l’environnement.",
+      "usage": "Formule d’opinion + infinitif sujet ; conclusion argumentée."
+    },
+    {
+      "id": "e2enc04",
+      "kind": "commentaire-recommandation",
+      "french": "cette expérience m’a rendu plus attentif à",
+      "anchor": "cette expérience m’a rendu plus attentif à",
+      "english": "this experience made me more mindful of",
+      "example": "Cette expérience m’a rendu plus attentif à ma consommation quotidienne.",
+      "usage": "Passé composé + adjectif ; bilan personnel positif."
+    },
+    {
+      "id": "e2enc05",
+      "kind": "commentaire-recommandation",
+      "french": "je conseille de privilégier les produits locaux",
+      "anchor": "je conseille de privilégier les produits locaux",
+      "english": "I advise favoring local products",
+      "example": "Pour limiter son impact, je conseille de privilégier les produits locaux et de saison.",
+      "usage": "« conseiller de » + infinitif ; recommandation pratique."
+    }
+  ]
+}

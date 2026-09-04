@@ -7,6 +7,8 @@ shape it replaced so the numbers cannot drift.
 
 from __future__ import annotations
 
+from unittest.mock import patch
+
 from django.db import connection
 from django.db.models import Count, Q
 from django.test import TestCase
@@ -14,7 +16,10 @@ from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 from django.utils import timezone
 
+from study import content_loader as content_module
 from study import queue as queue_module
+from study.account_services import provision_user_study_data
+from study.management.commands.import_content import Command
 from study.models import (
     Annotation,
     AnnotationKind,
@@ -199,6 +204,181 @@ class ExpressionPageBudgetTests(QueryBudgetTestCase):
         for key, url in pages.items():
             with self.subTest(page=key):
                 self.assertEqual(self._query_count(url), before[key])
+
+
+class EePageBudgetTests(QueryBudgetTestCase):
+    """Full EE pages stay flat against the complete bundled 2025 corpus."""
+
+    @classmethod
+    def setUpTestData(cls):
+        command = Command()
+        task_by_slug = command._import_sections(content_module.load_sections())
+        months = content_module.load_ee_tache_three_months()
+        theme_by_name = command._import_themes(
+            [
+                *content_module.ee_writing_themes(1),
+                *content_module.ee_writing_themes(2),
+                *content_module.ee_tache_three_themes(months),
+            ],
+            task_by_slug,
+        )
+        for tache in (1, 2):
+            command._import_writing_sujets(
+                content_module.load_ee_writing_categories(tache),
+                task_by_slug,
+                task_key=f"ee/tache-{tache}",
+            )
+        family_by_name = command._import_families(
+            content_module.ee_tache_three_families(months)
+        )
+        responses = content_module.parse_ee_tache_three_responses(months)
+        response_by_key = command._import_responses(
+            responses,
+            theme_by_name,
+            family_by_name,
+        )
+        prompt_index = command._import_prompts(
+            responses,
+            response_by_key,
+            theme_by_name,
+            family_by_name,
+        )
+        command._import_phrases(
+            [
+                *content_module.parse_ee_writing_theme_vocabulary(1),
+                *content_module.parse_ee_writing_theme_vocabulary(2),
+                *content_module.parse_ee_tache_three_subject_vocabulary(
+                    responses
+                ),
+            ],
+            prompt_index,
+            theme_by_name,
+        )
+        cls.user = factories.make_user("ee-page-budgets")
+        provision_user_study_data(cls.user)
+        cls.tasks = {
+            tache: task_by_slug[f"ee/tache-{tache}"]
+            for tache in (1, 2, 3)
+        }
+
+    def setUp(self):
+        self.client.force_login(self.user)
+
+    def _pages(self):
+        pages = {}
+        for tache, task in self.tasks.items():
+            args = [task.part.slug, task.slug]
+            pages[f"t{tache}-overview"] = reverse(
+                "study:task_detail",
+                args=args,
+            )
+            pages[f"t{tache}-subjects"] = reverse(
+                "study:task_browse",
+                args=args,
+            )
+            pages[f"t{tache}-vocabulary"] = reverse(
+                "study:task_phrases",
+                args=args,
+            )
+            first_theme = Theme.objects.filter(
+                task=task,
+                is_active=True,
+            ).order_by("order", "pk").first()
+            pages[f"t{tache}-vocabulary-theme"] = reverse(
+                "study:task_vocabulary_theme",
+                args=[task.part.slug, task.slug, first_theme.slug],
+            )
+        return pages
+
+    def test_full_corpus_pages_stay_within_query_budgets(self):
+        budgets = {
+            "t1-overview": 9,
+            "t1-subjects": 8,
+            "t1-vocabulary": 8,
+            "t1-vocabulary-theme": 8,
+            "t2-overview": 9,
+            "t2-subjects": 8,
+            "t2-vocabulary": 8,
+            "t2-vocabulary-theme": 8,
+            "t3-overview": 11,
+            "t3-subjects": 10,
+            "t3-vocabulary": 11,
+            "t3-vocabulary-theme": 10,
+        }
+        for name, url in self._pages().items():
+            with self.subTest(page=name):
+                self.assertLessEqual(self._query_count(url), budgets[name])
+
+    def test_large_subject_directory_is_compressed_for_transfer(self):
+        url = reverse(
+            "study:task_browse",
+            args=["ee", "tache-2"],
+        )
+
+        response = self.client.get(url, HTTP_ACCEPT_ENCODING="gzip")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.headers["Content-Encoding"], "gzip")
+        self.assertLess(len(response.content), 200_000)
+
+    def test_writing_progress_limits_highlights_to_the_current_task(self):
+        url = reverse(
+            "study:task_detail",
+            args=["ee", "tache-1"],
+        )
+
+        _response, queries = self._queries(url)
+        annotation_queries = [
+            query["sql"]
+            for query in queries
+            if '"study_annotation"' in query["sql"]
+        ]
+
+        self.assertEqual(len(annotation_queries), 1)
+        self.assertIn(
+            '"study_annotation"."task_id" =',
+            annotation_queries[0],
+        )
+        self.assertIn(
+            '"study_annotation"."task_id" IS NULL',
+            annotation_queries[0],
+        )
+
+    def test_bundled_page_content_is_parsed_once_per_process(self):
+        from study.views.library import (
+            _ee_subject_theme_data,
+            _ee_tache_three_source_months,
+            _load_task_memoires_by_key,
+        )
+
+        _ee_subject_theme_data.cache_clear()
+        _ee_tache_three_source_months.cache_clear()
+        _load_task_memoires_by_key.cache_clear()
+        with (
+            patch.object(
+                content_module,
+                "load_ee_subject_themes",
+                wraps=content_module.load_ee_subject_themes,
+            ) as load_themes,
+            patch.object(
+                content_module,
+                "load_ee_tache_three_months",
+                wraps=content_module.load_ee_tache_three_months,
+            ) as load_months,
+            patch.object(
+                content_module,
+                "load_question_banks",
+                wraps=content_module.load_question_banks,
+            ) as load_memories,
+        ):
+            for _ in range(2):
+                _ee_subject_theme_data(3)
+                _ee_tache_three_source_months()
+                _load_task_memoires_by_key("ee", "tache-3")
+
+        self.assertEqual(load_themes.call_count, 1)
+        self.assertEqual(load_months.call_count, 1)
+        self.assertEqual(load_memories.call_count, 1)
 
 
 class ReviewHubEqualityTests(TestCase):

@@ -1029,6 +1029,7 @@ def _ee_writing_task_card(task, user, content_counts=None, summary=None):
         progress_by_sujet = writing_sujet_progress_by_id(
             user,
             sujet_ids,
+            task_id=task.pk,
         )
         started = sum(
             progress_by_sujet[sujet_id].started

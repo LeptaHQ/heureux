@@ -10,8 +10,8 @@
   data-prompt-copy-error-message="{{ error_message|default:'Impossible de copier la consigne.' }}"
   {% if status_id %}data-prompt-copy-status="{{ status_id }}" aria-describedby="{{ status_id }}"{% endif %}
   {% if subject_label %}
-    aria-label="Copier la consigne : {{ subject_label }}"
-    title="Copier la consigne : {{ subject_label }}"
+    aria-label="Copier la consigne : {{ subject_label|truncatechars:100 }}"
+    title="Copier la consigne : {{ subject_label|truncatechars:100 }}"
   {% else %}
     aria-label="{{ aria_label|default:label }}"
     title="{{ aria_label|default:label }}"

@@ -40,7 +40,7 @@
         href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Ouvrir le sujet : {{ subject.prompt.text }}">
+        aria-label="Ouvrir le sujet : {{ subject.prompt.text|truncatechars:120 }}">
         <span class="sr-only">Ouvrir le sujet</span>
       </a>
     </article>

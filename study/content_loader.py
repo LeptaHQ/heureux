@@ -795,16 +795,30 @@ def _load_master_prompt(path: Path) -> str:
     return prompt
 
 
+@lru_cache(maxsize=1)
+def _load_default_ai_examiner_prompt() -> str:
+    return _load_master_prompt(AI_EXAMINER_PROMPT_PATH)
+
+
 def load_ai_examiner_prompt(path: Path = AI_EXAMINER_PROMPT_PATH) -> str:
     """Extract the copy-ready oral master prompt from its Markdown guide."""
+    if path == AI_EXAMINER_PROMPT_PATH:
+        return _load_default_ai_examiner_prompt()
     return _load_master_prompt(path)
+
+
+@lru_cache(maxsize=3)
+def _load_default_ee_ai_examiner_prompt(tache: int) -> str:
+    return _load_master_prompt(EE_AI_EXAMINER_PROMPT_PATHS[tache])
 
 
 def load_ee_ai_examiner_prompt(tache: int, path: Optional[Path] = None) -> str:
     """Extract one task-specific written-expression evaluator prompt."""
     if tache not in EE_AI_EXAMINER_PROMPT_PATHS:
         raise ValueError(f"Unsupported EE task: {tache}")
-    return _load_master_prompt(path or EE_AI_EXAMINER_PROMPT_PATHS[tache])
+    if path is None or path == EE_AI_EXAMINER_PROMPT_PATHS[tache]:
+        return _load_default_ee_ai_examiner_prompt(tache)
+    return _load_master_prompt(path)
 
 
 def ee_tache_three_instruction(subject: str) -> str:

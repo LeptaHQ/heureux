@@ -1,5 +1,6 @@
 import json
 import re
+from unittest.mock import patch
 
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
@@ -51,6 +52,23 @@ _SUBJUNCTIVE_TRIGGER_RE = re.compile(
 
 
 class EeWritingContentTests(SimpleTestCase):
+    def test_default_examiner_prompts_are_loaded_once_per_process(self):
+        content._load_default_ai_examiner_prompt.cache_clear()
+        content._load_default_ee_ai_examiner_prompt.cache_clear()
+
+        with patch.object(
+            content,
+            "_load_master_prompt",
+            wraps=content._load_master_prompt,
+        ) as load_prompt:
+            content.load_ai_examiner_prompt()
+            content.load_ai_examiner_prompt()
+            for tache in (1, 2, 3):
+                content.load_ee_ai_examiner_prompt(tache)
+                content.load_ee_ai_examiner_prompt(tache)
+
+        self.assertEqual(load_prompt.call_count, 4)
+
     def test_written_examiner_prompt_contains_the_exact_active_subject(self):
         subject = "Racontez une expérience utile."
         prompt = content.build_ee_ai_examiner_prompt(2, subject)

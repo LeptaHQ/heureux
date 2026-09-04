@@ -118,6 +118,8 @@ def writing_sujet_id_from_source_key(source_key: str) -> int | None:
 def writing_sujet_progress_by_id(
     user,
     sujet_ids,
+    *,
+    task_id=None,
 ) -> dict[int, WritingSujetProgress]:
     """Calculate EE Tâche 1/2 progress from direct response activity."""
     ids = {
@@ -141,11 +143,16 @@ def writing_sujet_progress_by_id(
         ).values_list("sujet_id", flat=True)
     )
     highlighted_ids = set()
-    source_keys = Annotation.objects.filter(
+    highlights = Annotation.objects.filter(
         user=user,
         kind=AnnotationKind.HIGHLIGHT,
         source_key__startswith=WRITING_SUJET_SOURCE_PREFIX,
-    ).values_list("source_key", flat=True)
+    )
+    if task_id is not None:
+        highlights = highlights.filter(
+            Q(task_id=task_id) | Q(task_id__isnull=True)
+        )
+    source_keys = highlights.values_list("source_key", flat=True)
     for source_key in source_keys:
         sujet_id = writing_sujet_id_from_source_key(source_key)
         if sujet_id in ids:

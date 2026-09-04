@@ -66,7 +66,7 @@
                     <span class="t1-row__date">{{ row.source.month_name }} {{ row.source.year }}</span>
                   </span>
                   <span class="t1-row__meta">
-                    {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="ee-writing-prompts" prompt_key=row.source.source_key label="Copier la consigne" subject_label=row.prompt label_hidden=True only %}
+                    {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="ee-writing-prompts" prompt_key=row.source.source_key label="Copier la consigne" aria_label="Copier la consigne" label_hidden=True only %}
                     {% if row.equivalent_count %}
                       <span class="chip">{{ row.equivalent_count|add:1 }} publications liées</span>
                     {% endif %}
@@ -84,7 +84,7 @@
                   href="{% url 'study:writing_sujet_detail' part.slug task.slug row.sujet.pk %}"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Ouvrir le sujet : {{ row.prompt }}">
+                  aria-label="Ouvrir le sujet : {{ row.prompt|truncatechars:120 }}">
                   <span class="sr-only">Ouvrir le sujet</span>
                 </a>
               </li>
@@ -134,8 +134,8 @@
                           href="{% url 'study:writing_sujet_detail' part.slug task.slug row.sujet.pk %}"
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label="Ouvrir le sujet : {{ row.prompt }}">{{ row.prompt|truncatechars:180 }}</a>
-                        {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="ee-writing-prompts" prompt_key=row.source.source_key label="Copier la consigne" subject_label=row.prompt label_hidden=True only %}
+                          aria-label="Ouvrir le sujet : {{ row.prompt|truncatechars:120 }}">{{ row.prompt|truncatechars:180 }}</a>
+                        {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id="ee-writing-prompts" prompt_key=row.source.source_key label="Copier la consigne" aria_label="Copier la consigne" label_hidden=True only %}
                       </div>
                       <span class="t1-table__subject-date">
                         {{ row.source.month_name }} {{ row.source.year }}

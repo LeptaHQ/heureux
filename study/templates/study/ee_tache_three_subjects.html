@@ -90,7 +90,7 @@
                             href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}"
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Ouvrir le sujet : {{ subject.prompt.text }}">{{ subject.prompt.text }}</a>
+                            aria-label="Ouvrir le sujet : {{ subject.prompt.text|truncatechars:120 }}">{{ subject.prompt.text }}</a>
                         </div>
                         <span class="t1-table__subject-date">
                           {{ subject.month_name }} {{ subject.year }}

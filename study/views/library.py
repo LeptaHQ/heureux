@@ -237,11 +237,16 @@ def _task_subject_vocabulary_context(
             response_id: progress_by_response[response_id]
             for response_id in response_ids
         }
-    phrase_counts_by_theme = dict(
-        subject_vocabulary.order_by()
-        .values("source_prompts__theme_id")
-        .annotate(total=Count("pk", distinct=True))
-        .values_list("source_prompts__theme_id", "total")
+    subject_vocabulary_count = _distinct_count(subject_vocabulary)
+    phrase_counts_by_theme = (
+        {theme.pk: subject_vocabulary_count}
+        if theme is not None
+        else dict(
+            subject_vocabulary.order_by()
+            .values("source_prompts__theme_id")
+            .annotate(total=Count("pk", distinct=True))
+            .values_list("source_prompts__theme_id", "total")
+        )
     )
     groups = []
     current_group = None
@@ -308,7 +313,7 @@ def _task_subject_vocabulary_context(
         "subject_theme_groups": groups,
         "subject_prompt_count": len(prompts),
         "subject_response_count": len(response_ids),
-        "subject_vocabulary_count": _distinct_count(subject_vocabulary),
+        "subject_vocabulary_count": subject_vocabulary_count,
         "vocabulary_deck_summary": vocabulary_deck_summary,
         "vocabulary_directory_summary": {
             "progress": vocabulary_deck_summary,
@@ -401,17 +406,18 @@ def _theme_vocabulary_directory_batches(task, user, themes):
     theme_slugs_by_phrase = {}
     phrase_ids = {row["phrase_id"] for row in rows}
     if phrase_ids:
-        for phrase_id, direct_theme_slug, source_theme_slug in (
-            Phrase.objects.filter(pk__in=phrase_ids)
-            .order_by()
-            .values_list(
-                "pk",
-                "vocabulary_theme__slug",
-                "source_prompts__theme__slug",
+        if _ee_writing_tache(task) is not None:
+            phrase_themes = Phrase.objects.filter(
+                pk__in=phrase_ids,
+            ).values_list("pk", "vocabulary_theme__slug")
+        else:
+            phrase_themes = (
+                Phrase.objects.filter(pk__in=phrase_ids)
+                .order_by()
+                .values_list("pk", "source_prompts__theme__slug")
+                .distinct()
             )
-            .distinct()
-        ):
-            theme_slug = direct_theme_slug or source_theme_slug
+        for phrase_id, theme_slug in phrase_themes:
             if theme_slug:
                 theme_slugs_by_phrase.setdefault(phrase_id, set()).add(
                     theme_slug
@@ -526,23 +532,33 @@ def _has_ee_tache_three_content(task):
 
 
 @lru_cache(maxsize=1)
+def _ee_tache_three_source_months():
+    return content_module.load_ee_tache_three_months()
+
+
+@lru_cache(maxsize=3)
+def _ee_subject_theme_data(tache):
+    return content_module.load_ee_subject_themes(tache)
+
+
+@lru_cache(maxsize=1)
 def _ee_tache_three_sources_by_key():
     return {
         combinaison.content_key: (month, combinaison)
-        for month in content_module.load_ee_tache_three_months()
+        for month in _ee_tache_three_source_months()
         for combinaison in month.combinaisons
     }
 
 
 def _ee_tache_three_subject_context(user, task):
-    source_months = content_module.load_ee_tache_three_months()
+    source_months = _ee_tache_three_source_months()
     source_rows = [
         (month, combinaison)
         for month in source_months
         for combinaison in month.combinaisons
     ]
     source_keys = [combinaison.content_key for _month, combinaison in source_rows]
-    theme_data, theme_slug_by_key = content_module.load_ee_subject_themes(3)
+    theme_data, theme_slug_by_key = _ee_subject_theme_data(3)
     theme_names = {
         content_module.ee_subject_theme_name(3, theme) for theme in theme_data
     }
@@ -665,6 +681,7 @@ def _ee_tache_three_subject_context(user, task):
     )
     return {
         "subject_themes": subject_themes,
+        "_progress_by_response": progress_by_response,
         "theme_count": len(subject_themes),
         "month_count": len(source_months),
         "subject_count": len(all_progress),
@@ -674,6 +691,46 @@ def _ee_tache_three_subject_context(user, task):
             * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
         ),
         "subject_summary": summary,
+    }
+
+
+def _ee_tache_three_overview_context(user, task):
+    source_months = _ee_tache_three_source_months()
+    source_keys = [
+        combinaison.content_key
+        for month in source_months
+        for combinaison in month.combinaisons
+    ]
+    response_id_by_key = dict(
+        Prompt.objects.filter(
+            content_key__in=source_keys,
+            theme__task=task,
+            is_active=True,
+            response__is_active=True,
+        ).values_list("content_key", "response_id")
+    )
+    if set(response_id_by_key) != set(source_keys):
+        raise RuntimeError("EE Tâche 3 content is not synchronized")
+    progress_by_response = subject_progress_by_response(
+        user,
+        set(response_id_by_key.values()),
+    )
+    all_progress = [
+        progress_by_response[response_id_by_key[source_key]]
+        for source_key in source_keys
+    ]
+    response_count = len(progress_by_response)
+    return {
+        "_progress_by_response": progress_by_response,
+        "theme_count": len(_ee_subject_theme_data(3)[0]),
+        "month_count": len(source_months),
+        "subject_count": len(all_progress),
+        "distinct_count": response_count,
+        "vocabulary_count": (
+            response_count
+            * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
+        ),
+        "subject_summary": summarize_subject_progress(all_progress),
     }
 
 
@@ -692,6 +749,7 @@ def _ee_tache_one_subject_context(user, task):
     progress_by_sujet = writing_sujet_progress_by_id(
         user,
         (sujet.pk for sujet in sujets),
+        task_id=task.pk,
     )
     categories = []
     current = None
@@ -768,16 +826,20 @@ def _ee_writing_tache(task):
     }.get((task.part.slug, task.slug))
 
 
-def _ee_writing_source_is_synchronized(task, tache):
-    expected = set(content_module.ee_writing_canonical_slug_by_slug(tache))
-    actual = set(
+def _ee_writing_sujet_ids_by_slug(task, tache):
+    expected = {
+        source.slug
+        for category in _ee_writing_source_categories(tache)
+        for source in category.sujets
+    }
+    actual = dict(
         WritingSujet.objects.filter(
             task=task,
             is_active=True,
             slug__in=expected,
-        ).values_list("slug", flat=True)
+        ).values_list("slug", "pk")
     )
-    return actual == expected
+    return actual if set(actual) == expected else None
 
 
 @lru_cache(maxsize=2)
@@ -785,10 +847,16 @@ def _ee_writing_source_categories(tache):
     return content_module.load_ee_writing_categories(tache)
 
 
-def _ee_writing_subject_context(user, task, tache):
+def _ee_writing_subject_context(
+    user,
+    task,
+    tache,
+    *,
+    allow_unsynchronized=False,
+):
     """Build the themed 2025 writing directory with shared canonical progress."""
     source_categories = _ee_writing_source_categories(tache)
-    theme_data, _ = content_module.load_ee_subject_themes(tache)
+    theme_data, _ = _ee_subject_theme_data(tache)
     icon_by_slug = {theme.slug: theme.icon for theme in theme_data}
     canonical_slug_by_slug = (
         content_module.ee_writing_canonical_slug_by_slug(tache)
@@ -807,6 +875,8 @@ def _ee_writing_subject_context(user, task, tache):
         ).order_by("order", "pk")
     }
     if set(source_by_slug) != set(sujets_by_slug):
+        if allow_unsynchronized:
+            return None
         raise RuntimeError(f"EE Tâche {tache} writing content is not synchronized")
 
     canonical_by_slug = {
@@ -819,6 +889,7 @@ def _ee_writing_subject_context(user, task, tache):
     progress_by_canonical = writing_sujet_progress_by_id(
         user,
         canonical_ids,
+        task_id=task.pk,
     )
     equivalent_count_by_id = {}
     for canonical in canonical_by_slug.values():
@@ -925,14 +996,51 @@ def _ee_writing_subject_context(user, task, tache):
     }
 
 
-def task_detail(request, part_slug, task_slug):
-    task = get_object_or_404(
-        Task.objects.select_related("part"),
-        slug=task_slug,
-        part__slug=part_slug,
-        is_active=True,
-        part__is_active=True,
+def _ee_writing_overview_context(user, task, tache, sujet_ids_by_slug):
+    source_categories = _ee_writing_source_categories(tache)
+    canonical_slug_by_slug = (
+        content_module.ee_writing_canonical_slug_by_slug(tache)
     )
+    canonical_ids = {
+        sujet_ids_by_slug[canonical_slug_by_slug[source.slug]]
+        for category in source_categories
+        for source in category.sujets
+    }
+    progress_by_canonical = writing_sujet_progress_by_id(
+        user,
+        canonical_ids,
+        task_id=task.pk,
+    )
+    occurrence_progress = [
+        progress_by_canonical[
+            sujet_ids_by_slug[canonical_slug_by_slug[source.slug]]
+        ]
+        for category in source_categories
+        for source in category.sujets
+    ]
+    distinct_progress = list(progress_by_canonical.values())
+    return {
+        "category_count": len(source_categories),
+        "sujet_count": len(occurrence_progress),
+        "distinct_count": len(canonical_ids),
+        "response_count": len(canonical_ids),
+        "personalized_count": sum(
+            item.is_personalized for item in distinct_progress
+        ),
+        "completed_count": sum(
+            item.explicitly_completed for item in distinct_progress
+        ),
+        "subject_progress": progress_summary(
+            total=len(occurrence_progress),
+            started=sum(item.started for item in occurrence_progress),
+            completed=sum(item.completed for item in occurrence_progress),
+        ),
+        "writing_tache": tache,
+    }
+
+
+def task_detail(request, part_slug, task_slug):
+    task = _route_task(part_slug, task_slug, request=request)
     now = timezone.now()
     if not task.available:
         return render(
@@ -971,16 +1079,19 @@ def task_detail(request, part_slug, task_slug):
             },
         )
     writing_tache = _ee_writing_tache(task)
-    if (
-        writing_tache is not None
-        and _ee_writing_source_is_synchronized(task, writing_tache)
-    ):
-        subject_context = _ee_writing_subject_context(
+    writing_sujet_ids = (
+        _ee_writing_sujet_ids_by_slug(task, writing_tache)
+        if writing_tache is not None
+        else None
+    )
+    if writing_tache is not None and writing_sujet_ids is not None:
+        subject_context = _ee_writing_overview_context(
             request.user,
             task,
             writing_tache,
+            writing_sujet_ids,
         )
-        vocabulary_context = _ee_writing_theme_vocabulary_context(
+        vocabulary_context = _ee_writing_theme_vocabulary_overview_context(
             request.user,
             task,
             writing_tache,
@@ -1014,13 +1125,13 @@ def task_detail(request, part_slug, task_slug):
         (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK
         and _has_ee_tache_three_content(task)
     ):
+        subject_context = _ee_tache_three_overview_context(request.user, task)
         memory_context = _question_bank_memory_context(
             request.user,
             _load_task_memoires(task),
         )
-        vocabulary_context = _task_subject_vocabulary_context(
-            task,
-            request.user,
+        vocabulary_progress = _vocabulary_deck_progress(
+            subject_context["_progress_by_response"].values()
         )
         return render(
             request,
@@ -1028,20 +1139,24 @@ def task_detail(request, part_slug, task_slug):
             {
                 "part": task.part,
                 "task": task,
-                **_ee_tache_three_subject_context(request.user, task),
+                **subject_context,
                 **memory_context,
-                "vocabulary_theme_count": len(
-                    vocabulary_context["subject_theme_groups"]
+                "vocabulary_theme_count": subject_context["theme_count"],
+                "vocabulary_entry_count": (
+                    subject_context["distinct_count"]
+                    * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
                 ),
-                "vocabulary_entry_count": vocabulary_context[
-                    "subject_vocabulary_count"
-                ],
-                "vocabulary_deck_count": vocabulary_context[
-                    "subject_response_count"
-                ],
-                "vocabulary_summary": vocabulary_context[
-                    "vocabulary_directory_summary"
-                ],
+                "vocabulary_deck_count": subject_context["distinct_count"],
+                "vocabulary_summary": {
+                    "progress": vocabulary_progress,
+                    "completed": vocabulary_progress.completed,
+                    "total": vocabulary_progress.total,
+                    "started_new": max(
+                        vocabulary_progress.started
+                        - vocabulary_progress.completed,
+                        0,
+                    ),
+                },
                 "ai_practice_prompt": (
                     content_module.load_ee_ai_examiner_prompt(3)
                 ),
@@ -1249,7 +1364,7 @@ def _scope_filters(request, forced_task=None, forced_part_slug=None):
 
 
 def browse(request, part_slug=None, task_slug=None):
-    forced_task = _route_task(part_slug, task_slug)
+    forced_task = _route_task(part_slug, task_slug, request=request)
     if forced_task and not forced_task.available:
         return render(
             request,
@@ -1284,22 +1399,24 @@ def browse(request, part_slug=None, task_slug=None):
             },
         )
     writing_tache = _ee_writing_tache(forced_task) if forced_task else None
-    if (
-        forced_task
-        and writing_tache is not None
-        and _ee_writing_source_is_synchronized(forced_task, writing_tache)
-    ):
+    writing_context = (
+        _ee_writing_subject_context(
+            request.user,
+            forced_task,
+            writing_tache,
+            allow_unsynchronized=True,
+        )
+        if forced_task and writing_tache is not None
+        else None
+    )
+    if writing_context is not None:
         return render(
             request,
             "study/ee_writing_subjects.html",
             {
                 "part": forced_task.part,
                 "task": forced_task,
-                **_ee_writing_subject_context(
-                    request.user,
-                    forced_task,
-                    writing_tache,
-                ),
+                **writing_context,
             },
         )
     if (
@@ -1471,7 +1588,7 @@ def _canonical_numbers_by_response(response_ids) -> dict:
 
 
 def theme_detail(request, part_slug, task_slug, slug):
-    task = _route_task(part_slug, task_slug)
+    task = _route_task(part_slug, task_slug, request=request)
     theme = (
         Theme.objects.select_related("task__part")
         .filter(
@@ -1617,24 +1734,25 @@ def _memory_task(part_slug, task_slug):
     return task
 
 
-def _memoire_task(part_slug, task_slug):
+def _memoire_task(request, part_slug, task_slug):
     """Gate routes backed by reusable question-bank content."""
-    task = get_object_or_404(
-        Task.objects.select_related("part"),
-        slug=task_slug,
-        part__slug=part_slug,
-        is_active=True,
-        part__is_active=True,
-        available=True,
-    )
-    if (task.part.slug, task.slug) not in content_module.MEMOIRE_TASKS:
+    task = _route_task(part_slug, task_slug, request=request)
+    if (
+        not task.available
+        or (task.part.slug, task.slug) not in content_module.MEMOIRE_TASKS
+    ):
         raise Http404
     return task
 
 
 def _load_task_memoires(task):
+    return _load_task_memoires_by_key(task.part.slug, task.slug)
+
+
+@lru_cache(maxsize=8)
+def _load_task_memoires_by_key(part_slug, task_slug):
     directory, namespace = content_module.MEMOIRE_TASKS[
-        (task.part.slug, task.slug)
+        (part_slug, task_slug)
     ]
     return content_module.load_question_banks(
         directory,
@@ -1657,7 +1775,7 @@ def _memory_by_number(memories, memory_number):
 
 
 def task_memories(request, part_slug, task_slug):
-    task = _memoire_task(part_slug, task_slug)
+    task = _memoire_task(request, part_slug, task_slug)
     if (task.part.slug, task.slug) == content_module.EO_TACHE_ONE_TASK:
         return redirect(
             "study:task_detail",
@@ -1844,6 +1962,17 @@ EE_WRITING_THEME_VOCABULARY_SECTIONS = {
 
 
 def _theme_vocabulary_phrases(task, theme=None):
+    if _ee_writing_tache(task) is not None:
+        phrases = Phrase.objects.filter(
+            tier=PhraseTier.THEME,
+            is_active=True,
+            vocabulary_theme__is_active=True,
+            vocabulary_theme__task=task,
+        )
+        if theme is not None:
+            phrases = phrases.filter(vocabulary_theme=theme)
+        return phrases
+
     phrases = Phrase.objects.filter(
         tier=PhraseTier.THEME,
         is_active=True,
@@ -1865,7 +1994,7 @@ def _theme_vocabulary_phrases(task, theme=None):
 
 
 def tache_two_theme_vocabulary(request):
-    task = _route_task("eo", "tache-2")
+    task = _route_task("eo", "tache-2", request=request)
     taxonomy, _subject_mapping = (
         content_module.load_tache_two_subject_themes()
     )
@@ -2061,7 +2190,7 @@ def _theme_vocabulary_detail_context(
 
 
 def tache_two_theme_vocabulary_detail(request, theme_slug):
-    task = _route_task("eo", "tache-2")
+    task = _route_task("eo", "tache-2", request=request)
     taxonomy, _subject_mapping = (
         content_module.load_tache_two_subject_themes()
     )
@@ -2153,7 +2282,7 @@ def _update_theme_vocabulary_progress(
 
 @require_POST
 def tache_two_theme_vocabulary_progress(request, theme_slug, phrase_pk):
-    task = _route_task("eo", "tache-2")
+    task = _route_task("eo", "tache-2", request=request)
     theme = get_object_or_404(
         Theme,
         task=task,
@@ -2184,7 +2313,7 @@ def theme_vocabulary_progress(
     vocabulary_theme_slug,
     phrase_pk,
 ):
-    task = _route_task(part_slug, task_slug)
+    task = _route_task(part_slug, task_slug, request=request)
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
         raise Http404
     theme = get_object_or_404(
@@ -2369,7 +2498,7 @@ def _eo_tache_three_theme_vocabulary_detail(request, task, theme):
 
 
 def _ee_writing_theme_vocabulary_context(user, task, tache):
-    taxonomy, _subject_mapping = content_module.load_ee_subject_themes(tache)
+    taxonomy, _subject_mapping = _ee_subject_theme_data(tache)
     model_slug_by_source = {
         item.slug: f"ee-tache-{tache}-{item.slug}" for item in taxonomy
     }
@@ -2469,6 +2598,21 @@ def _ee_writing_theme_vocabulary_context(user, task, tache):
     }
 
 
+def _ee_writing_theme_vocabulary_overview_context(user, task, tache):
+    batches = _review_batches(_theme_vocabulary_scope(task), user)
+    next_batch = next(
+        (batch for batch in batches if batch["is_next"]),
+        None,
+    )
+    return {
+        "theme_count": len(_ee_subject_theme_data(tache)[0]),
+        "phrase_count": _theme_vocabulary_phrases(task).count(),
+        "batch_count": len(batches),
+        "summary": _theme_vocabulary_batch_summary(batches),
+        "review_url": next_batch["review_url"] if next_batch else "",
+    }
+
+
 def _ee_writing_theme_vocabulary_directory(request, task, tache):
     return render(
         request,
@@ -2490,7 +2634,7 @@ def _ee_writing_theme_vocabulary_detail(request, task, theme, tache):
     theme_data = next(
         (
             item
-            for item in content_module.load_ee_subject_themes(tache)[0]
+            for item in _ee_subject_theme_data(tache)[0]
             if f"ee-tache-{tache}-{item.slug}" == theme.slug
         ),
         None,
@@ -2537,35 +2681,105 @@ def _ee_writing_theme_vocabulary_detail(request, task, theme, tache):
 
 
 def _ee_tache_three_vocabulary_directory(request, task):
-    subject_context = _task_subject_vocabulary_context(
-        task,
-        request.user,
+    taxonomy = _ee_subject_theme_data(3)[0]
+    theme_names = {
+        content_module.ee_subject_theme_name(3, theme) for theme in taxonomy
+    }
+    themes_by_name = {
+        theme.name: theme
+        for theme in Theme.objects.filter(
+            task=task,
+            is_active=True,
+            name__in=theme_names,
+        )
+    }
+    prompt_rows = list(
+        Prompt.objects.filter(
+            content_key__startswith=(
+                content_module.EE_TACHE_THREE_CONTENT_PREFIX
+            ),
+            theme__task=task,
+            theme__is_active=True,
+            response__is_active=True,
+            is_active=True,
+        )
+        .order_by()
+        .values_list("theme_id", "response_id")
     )
+    response_ids = {response_id for _theme_id, response_id in prompt_rows}
+    progress_by_response = subject_progress_by_response(
+        request.user,
+        response_ids,
+    )
+    directory_progress = _vocabulary_deck_progress(
+        progress_by_response.values()
+    )
+    response_ids_by_theme = {}
+    prompt_count_by_theme = {}
+    for theme_id, response_id in prompt_rows:
+        response_ids_by_theme.setdefault(theme_id, set()).add(response_id)
+        prompt_count_by_theme[theme_id] = (
+            prompt_count_by_theme.get(theme_id, 0) + 1
+        )
     themes = [
         {
-            "theme": group["theme"],
-            "phrase_count": group["phrase_count"],
+            "theme": theme,
+            "phrase_count": (
+                len(response_ids_by_theme.get(theme.pk, ()))
+                * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
+            ),
             "section_counts": [
                 {
-                    "count": len(group["prompts"]),
+                    "count": prompt_count_by_theme.get(theme.pk, 0),
                     "short_title": "sujets",
                 },
                 {
-                    "count": group["deck_count"],
+                    "count": len(response_ids_by_theme.get(theme.pk, ())),
                     "short_title": "decks",
                 },
                 {
-                    "count": group["phrase_count"],
+                    "count": (
+                        len(response_ids_by_theme.get(theme.pk, ()))
+                        * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
+                    ),
                     "short_title": "fiches",
                 },
             ],
-            "batch_count": group["batch_count"],
+            "batch_count": (
+                len(response_ids_by_theme.get(theme.pk, ()))
+                * (
+                    content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
+                    // queue_module.PHRASE_BATCH_SIZE
+                )
+            ),
             "progress_unit": "decks terminés",
-            "summary": {"progress": group["progress"]},
-            "url": group["url"],
-            "review_url": group["review_url"],
+            "summary": {
+                "progress": _vocabulary_deck_progress(
+                    progress_by_response[response_id]
+                    for response_id in response_ids_by_theme.get(
+                        theme.pk,
+                        (),
+                    )
+                )
+            },
+            "url": reverse(
+                "study:task_vocabulary_theme",
+                args=[task.part.slug, task.slug, theme.slug],
+            ),
+            "review_url": review_url(
+                {
+                    **_task_scope(task),
+                    "kind": "vocab",
+                    "theme": theme.slug,
+                }
+            ),
         }
-        for group in subject_context["subject_theme_groups"]
+        for source_theme in taxonomy
+        if (
+            theme := themes_by_name.get(
+                content_module.ee_subject_theme_name(3, source_theme)
+            )
+        )
     ]
     scope = {**_task_scope(task), "kind": "vocab"}
     review_batches = _review_batches(scope, request.user)
@@ -2582,9 +2796,21 @@ def _ee_tache_three_vocabulary_directory(request, task):
             "section": "vocabulary",
             "themes": themes,
             "theme_count": len(themes),
-            "phrase_count": subject_context["subject_vocabulary_count"],
+            "phrase_count": (
+                len(response_ids)
+                * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
+            ),
             "batch_count": len(review_batches),
-            "summary": subject_context["vocabulary_directory_summary"],
+            "summary": {
+                "progress": directory_progress,
+                "completed": directory_progress.completed,
+                "total": directory_progress.total,
+                "started_new": max(
+                    directory_progress.started
+                    - directory_progress.completed,
+                    0,
+                ),
+            },
             "theme_status_counts": _theme_vocabulary_status_counts(themes),
             "review_url": (
                 next_batch["review_url"] if next_batch else ""
@@ -2599,6 +2825,33 @@ def _ee_tache_three_vocabulary_directory(request, task):
                 "lots de vocabulaire directement liés aux documents."
             ),
             "vocabulary_progress_unit": "decks terminés",
+        },
+    )
+
+
+def _ee_tache_three_vocabulary_theme_detail(request, task, theme):
+    subject_context = _task_subject_vocabulary_context(
+        task,
+        request.user,
+        theme,
+    )
+    theme_group = (
+        subject_context["subject_theme_groups"][0]
+        if subject_context["subject_theme_groups"]
+        else None
+    )
+    return render(
+        request,
+        "study/task_vocabulary_theme.html",
+        {
+            "part": task.part,
+            "task": task,
+            **subject_context,
+            "vocabulary_theme": theme,
+            "vocabulary_theme_group": theme_group,
+            "vocabulary_review_url": (
+                theme_group["review_url"] if theme_group else ""
+            ),
         },
     )
 
@@ -3071,7 +3324,7 @@ def task_question_response(request, part_slug, task_slug, memory_number):
 
 
 def task_memory_detail(request, part_slug, task_slug, memory_number):
-    task = _memoire_task(part_slug, task_slug)
+    task = _memoire_task(request, part_slug, task_slug)
     if (task.part.slug, task.slug) == content_module.EO_TACHE_ONE_TASK:
         return redirect(
             "study:task_detail",
@@ -3095,7 +3348,7 @@ def task_memory_detail(request, part_slug, task_slug, memory_number):
 
 @require_POST
 def task_memory_progress(request, part_slug, task_slug, memory_number):
-    task = _memoire_task(part_slug, task_slug)
+    task = _memoire_task(request, part_slug, task_slug)
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
         return redirect("study:tache_two_theme_vocabulary")
     memories = _load_task_memoires(task)
@@ -3187,7 +3440,7 @@ def task_memory_progress(request, part_slug, task_slug, memory_number):
 
 @require_POST
 def subject_completion(request, part_slug, task_slug, response_id):
-    task = _route_task(part_slug, task_slug)
+    task = _route_task(part_slug, task_slug, request=request)
     route_prompt = (
         Prompt.objects.select_related("response")
         .filter(
@@ -3242,7 +3495,7 @@ def subject_completion(request, part_slug, task_slug, response_id):
 
 
 def family_detail(request, part_slug, task_slug, slug):
-    task = _route_task(part_slug, task_slug)
+    task = _route_task(part_slug, task_slug, request=request)
     if (
         (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK
         and slug.removeprefix("ee-tache-3-") in content_module.EE_MONTH_ORDER
@@ -3379,7 +3632,7 @@ def _subject_vocabulary_context(response, task_scope, user):
 
 
 def response_detail(request, part_slug, task_slug, prompt_id):
-    task = _route_task(part_slug, task_slug)
+    task = _route_task(part_slug, task_slug, request=request)
     selected_prompt = get_object_or_404(
         Prompt.objects.select_related(
             "response__theme__task__part",
@@ -3612,7 +3865,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
 
 
 def edit_response(request, part_slug, task_slug, prompt_id):
-    task = _route_task(part_slug, task_slug)
+    task = _route_task(part_slug, task_slug, request=request)
     task_key = (task.part.slug, task.slug)
     is_tache_two = task_key == content_module.QUESTION_BANK_TASK
     if not (
@@ -3749,8 +4002,8 @@ def edit_response(request, part_slug, task_slug, prompt_id):
     )
 
 
-def _route_writing_sujet(part_slug, task_slug, sujet_id):
-    task = _route_task(part_slug, task_slug)
+def _route_writing_sujet(request, part_slug, task_slug, sujet_id):
+    task = _route_task(part_slug, task_slug, request=request)
     tache = _ee_writing_tache(task)
     if tache is None:
         raise Http404
@@ -3788,6 +4041,7 @@ def _ee_writing_sources_by_slug(tache):
 
 def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
     task, sujet, tache = _route_writing_sujet(
+        request,
         part_slug,
         task_slug,
         sujet_id,
@@ -3800,6 +4054,7 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
     writing_progress = writing_sujet_progress_by_id(
         request.user,
         [canonical.pk],
+        task_id=task.pk,
     )[canonical.pk]
     explicitly_completed = writing_progress.explicitly_completed
     model_versions = canonical.model_versions
@@ -3883,6 +4138,7 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
 @require_POST
 def writing_sujet_completion(request, part_slug, task_slug, sujet_id):
     task, sujet, tache = _route_writing_sujet(
+        request,
         part_slug,
         task_slug,
         sujet_id,
@@ -3914,6 +4170,7 @@ def writing_sujet_completion(request, part_slug, task_slug, sujet_id):
     progress = writing_sujet_progress_by_id(
         request.user,
         [canonical.pk],
+        task_id=task.pk,
     )[canonical.pk]
     if request.headers.get("X-Requested-With") == "fetch":
         return JsonResponse(
@@ -3937,6 +4194,7 @@ def writing_sujet_completion(request, part_slug, task_slug, sujet_id):
 
 def writing_sujet_edit(request, part_slug, task_slug, sujet_id):
     task, sujet, tache = _route_writing_sujet(
+        request,
         part_slug,
         task_slug,
         sujet_id,
@@ -4214,7 +4472,7 @@ def phrases(
             )
         )
     task = (
-        _route_task(part_slug, task_slug)
+        _route_task(part_slug, task_slug, request=request)
         if part_slug and task_slug
         else None
     )
@@ -4268,8 +4526,13 @@ def phrases(
         == content_module.EE_TACHE_THREE_TASK
         and category_slug is None
         and test_slug is None
-        and vocabulary_theme is None
     ):
+        if vocabulary_theme is not None:
+            return _ee_tache_three_vocabulary_theme_detail(
+                request,
+                task,
+                vocabulary_theme,
+            )
         return _ee_tache_three_vocabulary_directory(request, task)
     if (
         task
@@ -4679,7 +4942,7 @@ def search(request, part_slug=None, task_slug=None):
     if bool(part_slug) != bool(task_slug):
         raise Http404
     task = (
-        _route_task(part_slug, task_slug)
+        _route_task(part_slug, task_slug, request=request)
         if part_slug and task_slug
         else None
     )
@@ -4960,7 +5223,7 @@ def stats(request, part_slug=None, task_slug=None):
     if bool(task_slug) and not part_slug:
         raise Http404
     forced_task = (
-        _route_task(part_slug, task_slug)
+        _route_task(part_slug, task_slug, request=request)
         if part_slug is not None and task_slug is not None
         else None
     )

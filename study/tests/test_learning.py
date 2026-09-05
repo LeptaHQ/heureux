@@ -8,7 +8,9 @@ import tempfile
 from copy import deepcopy
 from pathlib import Path
 
+from django.db import connection
 from django.test import TestCase
+from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 from django.utils import timezone
 
@@ -157,6 +159,23 @@ class LearningContentTests(TestCase):
         ):
             load_learning_catalog(self._write_payload(payload))
 
+    def test_notion_and_mixed_lessons_require_source_labels(self):
+        for source_type in ("notion", "mixed"):
+            with self.subTest(source_type=source_type):
+                payload = _catalog_payload()
+                lesson = payload["modules"][0]["lessons"][0]
+                lesson["source_type"] = source_type
+                lesson["sources"] = ["Notion · Tips 1"]
+                catalog = load_learning_catalog(self._write_payload(payload))
+                self.assertEqual(catalog.lessons[0].source_type, source_type)
+
+                lesson["sources"] = []
+                with self.assertRaisesRegex(ValueError, "sources"):
+                    load_learning_catalog(self._write_payload(payload))
+
+    def test_bundled_catalog_is_cached_between_requests(self):
+        self.assertIs(load_learning_catalog(), load_learning_catalog())
+
     def test_loader_rejects_duplicate_lesson_ids(self):
         payload = deepcopy(_catalog_payload())
         duplicate = deepcopy(payload["modules"][0]["lessons"][0])
@@ -177,20 +196,37 @@ class LearningContentTests(TestCase):
             rendered,
         )
 
-    def test_bundled_curriculum_covers_every_source_and_uses_real_examples(self):
+    def test_bundled_curriculum_preserves_source_labels_and_noun_examples(self):
         catalog = load_learning_catalog(LEARNING_CONTENT_PATH)
-        pdf_sources = {
+        source_labels = {
             source
             for lesson in catalog.lessons
-            if lesson.source_type == "pdf"
             for source in lesson.sources
+        }
+        pdf_sources = {
+            source for source in source_labels if source.startswith("Tips ")
+        }
+        notion_sources = {
+            source
+            for source in source_labels
+            if source.startswith(("Notion · ", "Essentials · "))
         }
 
         self.assertGreaterEqual(len(catalog.modules), 8)
-        self.assertGreaterEqual(len(catalog.lessons), 67)
+        self.assertGreaterEqual(len(catalog.lessons), 80)
         self.assertEqual(
             pdf_sources,
             {f"Tips {number}" for number in range(2, 31)},
+        )
+        self.assertTrue(
+            {
+                "Essentials · Punctuation",
+                "Essentials · Majuscule",
+                "Essentials · Tenses",
+                "Essentials · Connectors",
+                "Notion · Tips 1",
+                "Notion · Tips Revision",
+            }.issubset(notion_sources)
         )
 
         for lesson in catalog.lessons:
@@ -243,7 +279,7 @@ class LearningViewTests(TestCase):
         self.assertContains(response, "collection-table--learn")
         self.assertContains(
             response,
-            "data-learning-module-toggle",
+            "data-learning-module-details",
             count=len(self.catalog.modules),
         )
         self.assertContains(
@@ -259,6 +295,34 @@ class LearningViewTests(TestCase):
             response.context["summary"].total,
             len(self.catalog.lessons),
         )
+
+    def test_hub_loads_lesson_progress_in_one_query(self):
+        self.client.get(reverse("study:learn"))
+        with CaptureQueriesContext(connection) as queries:
+            response = self.client.get(reverse("study:learn"))
+        self.assertEqual(response.status_code, 200)
+        progress_queries = [
+            query["sql"]
+            for query in queries
+            if "study_learninglessonprogress" in query["sql"]
+        ]
+        self.assertEqual(len(progress_queries), 1)
+
+    def test_all_lessons_render_examples_without_removed_sections(self):
+        for lesson in self.catalog.lessons:
+            with self.subTest(lesson=lesson.id):
+                response = self.client.get(
+                    reverse("study:learn_lesson", args=[lesson.slug])
+                )
+                self.assertEqual(response.status_code, 200)
+                self.assertContains(response, lesson.title)
+                self.assertContains(
+                    response,
+                    'class="learn-example"',
+                    count=sum(len(section.examples) for section in lesson.sections),
+                )
+                for removed in ("learn-vocabulary-item", "learn-practice", "learn-takeaways"):
+                    self.assertNotContains(response, removed)
 
     def test_viewing_is_safe_and_start_endpoint_is_user_scoped(self):
         other_user = factories.make_user("other-learning-view")

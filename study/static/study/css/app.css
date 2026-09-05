@@ -16447,6 +16447,7 @@ html[data-collection-view-mode="table"]
   --hero-soft: var(--tone-learning-soft);
 }
 .learn-module__icon {
+  --icon-color: var(--learn-accent, var(--tone-learning));
   width: 2.75rem;
   height: 2.75rem;
   display: inline-grid;
@@ -16585,19 +16586,19 @@ html[data-collection-view-mode="table"]
 }
 .learn-module {
   --learn-accent: var(--learn-content-accent);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
 }
 .learn-module__head {
-  position: relative;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 0.85rem;
   margin-bottom: 0.75rem;
   padding-bottom: 0.7rem;
   border-bottom: 1px solid var(--border);
-}
-.learn-module__toggle {
-  display: none;
 }
 .learn-module__head h2 {
   margin: 0;
@@ -16648,7 +16649,7 @@ html[data-collection-view-mode="table"] .learn-module + .learn-module {
   border-top: 1px solid var(--border);
 }
 html[data-collection-view-mode="table"] .learn-module__head {
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
   gap: 0.75rem;
   margin: 0;
   padding: 0.75rem 0.85rem;
@@ -16660,47 +16661,9 @@ html[data-collection-view-mode="table"] .learn-module__head:hover {
   background: var(--surface-2);
 }
 html[data-collection-view-mode="table"]
-  .learn-module.is-expanded
+  .learn-module[open]
   > .learn-module__head {
   border-bottom: 1px solid var(--border-strong);
-}
-html[data-collection-view-mode="table"] .learn-module__toggle {
-  position: absolute;
-  z-index: 2;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  color: var(--learn-accent);
-  cursor: pointer;
-}
-html[data-collection-view-mode="table"] .learn-module__toggle::before {
-  position: absolute;
-  top: 50%;
-  right: 0.85rem;
-  content: "›";
-  font-size: 1.35rem;
-  line-height: 1;
-  transform: translateY(-50%) rotate(90deg);
-  transition: transform 0.16s ease;
-}
-html[data-collection-view-mode="table"]
-  .learn-module.is-expanded
-  .learn-module__toggle::before {
-  transform: translateY(-50%) rotate(-90deg);
-}
-html[data-collection-view-mode="table"]
-  .learn-module__toggle:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--learn-accent) 32%, transparent);
-  outline-offset: -4px;
-}
-.learn-module__lessons[hidden],
-[data-learning-module-lessons][hidden] {
-  display: none !important;
 }
 .learn-lesson-grid {
   display: grid;
@@ -16797,42 +16760,6 @@ html[data-collection-view-mode="table"]
   top: 0.65rem;
   right: 0.65rem;
   margin: 0;
-}
-.learning-lesson-check button {
-  --icon-color: var(--success);
-  width: 2rem;
-  height: 2rem;
-  display: inline-grid;
-  padding: 0;
-  place-items: center;
-  border: 1px solid color-mix(in srgb, var(--success) 42%, var(--border));
-  border-radius: 50%;
-  background: var(--success-soft);
-  color: var(--success);
-  cursor: pointer;
-}
-.learning-lesson-check button:hover {
-  border-color: color-mix(in srgb, var(--success) 42%, var(--border));
-  background: var(--success-soft);
-  color: var(--success);
-}
-.learning-lesson-check button:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--success) 28%, transparent);
-  outline-offset: 2px;
-}
-.learning-lesson-check button:disabled {
-  cursor: wait;
-  opacity: 0.58;
-}
-.learning-lesson-check .ui-icon {
-  width: 1rem;
-  height: 1rem;
-}
-.learn-lesson-card.is-completed .learning-lesson-check button {
-  --icon-color: var(--primary-ink);
-  border-color: var(--success);
-  background: var(--success);
-  color: var(--primary-ink);
 }
 html[data-collection-view-mode="table"] .collection-table--learn {
   overflow: hidden;
@@ -17137,6 +17064,7 @@ html[data-collection-view-mode="table"]
   font-size: 1.02rem;
   font-weight: 650;
   line-height: 1.5;
+  white-space: pre-line;
 }
 .learn-example figcaption {
   display: grid;
@@ -17293,11 +17221,12 @@ html[data-collection-view-mode="table"]
     flex-wrap: nowrap;
     overflow-x: auto;
   }
-  .learn-module__head {
-    grid-template-columns: auto minmax(0, 1fr);
+  .learn-module__head,
+  html[data-collection-view-mode="table"] .learn-module__head {
+    grid-template-columns: auto auto minmax(0, 1fr);
   }
   .learn-module__progress {
-    grid-column: 2;
+    grid-column: 3;
     justify-items: stretch;
   }
   .learn-module__progress-track {

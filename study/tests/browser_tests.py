@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import json
 import os
-import re
 from unittest import mock
 
 from django.contrib.sessions.models import Session
@@ -6407,18 +6406,20 @@ class BrowserTests(StaticLiveServerTestCase):
             "data-collection-view-mode",
             "table",
         )
-        modules = self.page.locator("[data-learning-module]")
+        modules = self.page.locator("[data-learning-module-details]")
         self.assertEqual(modules.count(), 8)
+        icon_colours = self.page.locator(
+            ".learn-module__icon .ui-icon"
+        ).evaluate_all("icons => icons.map(icon => getComputedStyle(icon).color)")
+        self.assertEqual(len(set(icon_colours)), 1)
         self.assertEqual(
-            self.page.locator("[data-learning-module].is-expanded").count(),
+            self.page.locator("[data-learning-module-details][open]").count(),
             0,
         )
 
         first_module = modules.first
-        first_module.locator("[data-learning-module-toggle]").click()
-        expect(first_module).to_have_class(
-            re.compile(r"\bis-expanded\b"),
-        )
+        first_module.locator(":scope > summary").click()
+        expect(first_module).to_have_attribute("open", "")
         self.assertGreater(
             first_module.locator("[data-learning-lesson]:visible").count(),
             0,
@@ -6433,13 +6434,31 @@ class BrowserTests(StaticLiveServerTestCase):
             first_card.locator("[data-learning-card-status]").inner_text(),
             "Terminée",
         )
+        self.assertTrue(
+            first_card.locator(".subject-completion-check").evaluate(
+                "form => form.classList.contains('is-complete')"
+            )
+        )
+        self.page.reload()
+        first_module.locator(":scope > summary").click()
+        expect(check).to_have_attribute("aria-checked", "true")
+        expect(first_card.locator("[data-learning-card-status]")).to_have_text(
+            "Terminée"
+        )
         check.click()
         expect(check).to_have_attribute("aria-checked", "false")
+
+        summary = first_module.locator(":scope > summary")
+        summary.focus()
+        summary.press("Enter")
+        expect(first_card).not_to_be_visible()
+        summary.press("Space")
+        expect(first_card).to_be_visible()
 
         search = self.page.locator("[data-learning-search]")
         search.fill("subjonctif")
         expect(
-            self.page.locator("[data-learning-module].is-expanded:visible")
+            self.page.locator("[data-learning-module-details][open]:visible")
         ).to_have_count(1)
         self.assertEqual(
             self.page.locator("[data-learning-lesson]:visible").count(),
@@ -6453,9 +6472,14 @@ class BrowserTests(StaticLiveServerTestCase):
             "cards",
         )
         self.assertEqual(
-            self.page.locator("[data-learning-module].is-expanded").count(),
+            self.page.locator("[data-learning-module-details][open]").count(),
             8,
         )
+        first_module.locator(":scope > summary").click()
+        expect(first_card).not_to_be_visible()
+        search.fill("articles et le genre")
+        expect(first_card).to_be_visible()
+        search.fill("")
         self.assert_no_horizontal_overflow()
 
         target_id = first_card.get_attribute("id")
@@ -6486,10 +6510,50 @@ class BrowserTests(StaticLiveServerTestCase):
         target = self.page.locator(f"#{target_id}")
         expect(target).to_be_visible()
         expect(
-            target.locator("xpath=ancestor::*[@data-learning-module][1]")
-        ).to_have_class(
-            re.compile(r"\bis-expanded\b"),
+            target.locator(
+                "xpath=ancestor::*[@data-learning-module-details][1]"
+            )
+        ).to_have_attribute("open", "")
+        self.assert_no_horizontal_overflow()
+
+    def test_learn_table_disclosure_works_without_learning_script(self):
+        self.page.evaluate(
+            "() => localStorage.setItem('collectionViewMode', 'table')"
         )
+        self.page.route("**/study/js/learning.js*", lambda route: route.abort())
+        self.page.goto(self.live_server_url + reverse("study:learn"))
+
+        module = self.page.locator("[data-learning-module-details]").first
+        lesson = module.locator("[data-learning-lesson]").first
+        expect(lesson).not_to_be_visible()
+        module.locator(":scope > summary").click()
+        expect(lesson).to_be_visible()
+        module.locator(":scope > summary").click()
+        expect(lesson).not_to_be_visible()
+
+    def test_learn_mobile_layout_and_new_lesson_examples(self):
+        self.page.goto(self.live_server_url + reverse("study:learn"))
+        self.page.get_by_role("button", name="Tableau").click()
+        modules = self.page.locator("[data-learning-module-details]")
+        modules.first.locator(":scope > summary").click()
+        for width in (320, 390, 768):
+            with self.subTest(width=width):
+                self.page.set_viewport_size({"width": width, "height": 844})
+                self.assert_no_horizontal_overflow()
+                check = modules.first.locator("[data-learning-card-check]").first
+                expect(check).to_be_visible()
+                circle_width = check.evaluate(
+                    "button => parseFloat(getComputedStyle(button, '::before').width)"
+                )
+                self.assertLess(circle_width, 20)
+
+        self.page.set_viewport_size({"width": 390, "height": 844})
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:learn_lesson", args=["time-clauses-conjunctions"])
+        )
+        self.assertGreaterEqual(self.page.locator(".learn-example").count(), 4)
+        self.assertGreaterEqual(self.page.locator(".learn-mistake").count(), 2)
         self.assert_no_horizontal_overflow()
 
     def test_mobile_notes_scope_picker_reveals_the_active_scope(self):

@@ -52,13 +52,15 @@
 
     <div class="learn-modules">
       {% for item in modules %}
-        <section
-          class="learn-module"
+        <details
+          class="learn-module t1-theme"
           style="--learn-progress: {{ item.progress.percent }}%;"
           aria-labelledby="learn-module-{{ item.module.slug }}"
           data-learning-module="{{ item.module.slug }}"
+          data-learning-module-details
         >
-          <header class="learn-module__head">
+          <summary class="learn-module__head t1-theme__head">
+            <span class="t1-theme__chevron" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
             <span class="learn-module__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=item.module.icon only %}</span>
             <div>
               <h2 id="learn-module-{{ item.module.slug }}">{{ item.module.title }}</h2>
@@ -68,16 +70,7 @@
               <span><b data-learning-module-completed>{{ item.progress.completed }}</b>/{{ item.progress.total }}</span>
               <span class="learn-module__progress-track" aria-hidden="true"><i></i></span>
             </div>
-            <button
-              class="learn-module__toggle"
-              type="button"
-              aria-expanded="false"
-              aria-controls="learn-module-lessons-{{ item.module.slug }}"
-              data-learning-module-toggle
-            >
-              <span class="sr-only">Afficher ou masquer les leçons de {{ item.module.title }}</span>
-            </button>
-          </header>
+          </summary>
 
           <div
             class="learn-lesson-grid collection-table collection-table--learn"
@@ -116,7 +109,7 @@
                 <span class="learn-lesson-card__level">{{ row.lesson.level }}</span>
                 <span class="learn-lesson-card__duration">{{ row.lesson.duration_minutes }} min</span>
                 <span class="progress-status progress-status--{{ row.status }}" data-learning-card-status>{{ row.status_label }}</span>
-                <form class="learning-lesson-check" method="post" action="{{ row.progress_url }}" data-learning-card-progress>
+                <form class="subject-completion-check learning-lesson-check{% if row.completed %} is-complete{% endif %}" method="post" action="{{ row.progress_url }}" data-learning-card-progress>
                   {% csrf_token %}
                   <input type="hidden" name="completed" value="{% if row.completed %}0{% else %}1{% endif %}" data-learning-card-completed-input>
                   <button
@@ -133,7 +126,7 @@
               </article>
             {% endfor %}
           </div>
-        </section>
+        </details>
       {% endfor %}
     </div>
 
@@ -148,5 +141,5 @@
 
 {% block scripts %}
   {{ block.super }}
-  <script src="{% static 'study/js/learning.js' %}?v=6"></script>
+  <script src="{% static 'study/js/learning.js' %}?v=8"></script>
 {% endblock %}

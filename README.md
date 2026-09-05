@@ -43,6 +43,13 @@ python manage.py test study.tests.browser_tests
 | `study/content/learning/`           | Source-controlled lessons rendered by the Learn experience   |
 | `templates/`                        | Project-wide shell, error, PWA, and service-worker templates |
 
+The Learn curriculum is loaded from `study/content/learning/curriculum.json`
+and cached per process; restart the app after changing lesson content.
+Keep lesson IDs and slugs stable to preserve saved progress and links.
+`source_type` accepts `pdf`, `notion`, `mixed`, or `editorial-gap-fill`;
+source-backed lessons must retain their source labels. Labels record provenance,
+not proof that every item in a source is covered.
+
 ## Naming conventions
 
 - Python modules use `snake_case` and describe one responsibility. Service,

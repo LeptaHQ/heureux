@@ -15,7 +15,7 @@ LEARNING_CONTENT_PATH = (
 )
 
 LEARNING_LEVELS = {"Fondamental", "Intermédiaire", "Avancé"}
-LEARNING_SOURCE_TYPES = {"pdf", "editorial-gap-fill"}
+LEARNING_SOURCE_TYPES = {"pdf", "notion", "mixed", "editorial-gap-fill"}
 LEARNING_VOCABULARY_KINDS = {"noun", "verb", "adjective", "expression"}
 LEARNING_VOCABULARY_LABELS = {
     "noun": "Nom",

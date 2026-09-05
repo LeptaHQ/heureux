@@ -45,6 +45,9 @@
     var modules = Array.from(
       root.querySelectorAll("[data-learning-module]")
     );
+    var moduleDetails = Array.from(
+      root.querySelectorAll("[data-learning-module-details]")
+    );
     var viewButtons = Array.from(
       root.querySelectorAll("[data-collection-view-option]")
     );
@@ -78,11 +81,11 @@
     }
 
     function syncModuleDisclosure(resetTable) {
-      modules.forEach(function (module) {
+      moduleDetails.forEach(function (module) {
         if (!tableMode()) {
-          setModuleExpanded(module, true);
+          module.open = true;
         } else if (resetTable) {
-          setModuleExpanded(module, false);
+          module.open = false;
         }
       });
     }
@@ -97,20 +100,10 @@
       if (!target || !target.matches("[data-learning-lesson]")) return;
       var module = target.closest("[data-learning-module]");
       if (!module) return;
-      setModuleExpanded(module, true);
+      module.open = true;
       window.requestAnimationFrame(function () {
         target.scrollIntoView({ block: "center" });
       });
-    }
-
-    function setModuleExpanded(module, expanded) {
-      var lessons = module.querySelector("[data-learning-module-lessons]");
-      var toggle = module.querySelector("[data-learning-module-toggle]");
-      module.classList.toggle("is-expanded", expanded);
-      if (lessons) lessons.hidden = tableMode() && !expanded;
-      if (toggle) {
-        toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
-      }
     }
 
     function showProgressError(message) {
@@ -154,10 +147,9 @@
         module.hidden = !hasVisibleLesson;
         if (
           hasVisibleLesson
-          && tableMode()
           && (query || moduleFilter !== "all" || statusFilter !== "all")
         ) {
-          setModuleExpanded(module, true);
+          module.open = true;
         }
       });
       if (result) {
@@ -186,6 +178,7 @@
       var button = form.querySelector("[data-learning-card-check]");
       var status = card.querySelector("[data-learning-card-status]");
       card.classList.toggle("is-completed", completed);
+      form.classList.toggle("is-complete", completed);
       card.dataset.learningStatus = completed ? "done" : "active";
       if (input) input.value = completed ? "0" : "1";
       if (button) {
@@ -266,17 +259,6 @@
       button.addEventListener("click", function () {
         selectStatus(button.dataset.learningStatusFilter);
         applyFilters(true);
-      });
-    });
-    modules.forEach(function (module) {
-      var toggle = module.querySelector("[data-learning-module-toggle]");
-      if (!toggle) return;
-      toggle.addEventListener("click", function () {
-        if (!tableMode()) return;
-        setModuleExpanded(
-          module,
-          !module.classList.contains("is-expanded")
-        );
       });
     });
     viewButtons.forEach(function (button) {

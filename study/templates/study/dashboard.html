@@ -86,6 +86,24 @@
     </div>
 
     <ul class="home-queue__list">
+      <li class="home-queue__item home-queue__item--learning">
+        <span class="home-queue__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="graduation-cap" only %}</span>
+        <span class="home-queue__copy">
+          <span class="eyebrow">Apprendre</span>
+          {% if learning.next_lesson %}
+            <h3>{{ learning.next_lesson.title }}</h3>
+            <span class="home-queue__summary">{{ learning.progress.completed }}/{{ learning.progress.total }} leçons terminées.</span>
+          {% else %}
+            <h3>Consolider les fondamentaux</h3>
+            <span class="home-queue__summary">Toutes les leçons sont acquises.</span>
+          {% endif %}
+        </span>
+        <span class="home-queue__actions">
+          <a class="btn btn--primary" href="{{ learning.next_url }}">{% if learning.next_lesson %}Continuer{% else %}Revoir{% endif %}</a>
+          <a class="home-queue__secondary" href="{% url 'study:learn' %}">Toutes les leçons {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
+        </span>
+      </li>
+
       <li class="home-queue__item home-queue__item--expression">
         <span class="home-queue__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="target" only %}</span>
         <span class="home-queue__copy">

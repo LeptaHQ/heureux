@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load static study_markdown %}
+{% block title %}{{ lesson.title }} · Apprendre · Heureux{% endblock %}
+
+{% block content %}
+<div
+  class="learn-lesson-page{% if is_completed %} is-completed{% endif %}"
+  data-learning-lesson-page
+>
+  {% if not is_started %}
+    <form class="hidden" method="post" action="{{ start_url }}" data-learning-start-form>
+      {% csrf_token %}
+    </form>
+  {% endif %}
+  <nav class="phrase-category-back" aria-label="Retour aux leçons">
+    <a href="{% url 'study:learn' %}#lesson-{{ lesson.slug }}">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Toutes les leçons</a>
+  </nav>
+
+  <header class="learn-lesson-hero">
+    <div class="learn-lesson-hero__identity">
+      <span class="learn-module__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=module.icon only %}</span>
+      <div>
+        <p class="eyebrow">{{ module.title }} · Leçon {{ lesson_number }} sur {{ lesson_total }}</p>
+        <h1>{{ lesson.title }}</h1>
+      </div>
+    </div>
+    <div class="learn-lesson-hero__meta">
+      <span class="chip">{{ lesson.level }}</span>
+      <span class="chip">{{ lesson.duration_minutes }} min</span>
+      <span class="progress-status progress-status--{% if is_completed %}done{% else %}active{% endif %}" data-learning-lesson-status>
+        {% if is_completed %}Terminée{% else %}En cours{% endif %}
+      </span>
+    </div>
+    <div class="learn-overall-progress">
+      <span><b data-learning-completed-count>{{ summary.completed }}</b>/{{ summary.total }} leçons terminées</span>
+      <span class="learn-overall-progress__track" role="progressbar" aria-label="{{ summary.percent }} % des leçons terminées" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ summary.percent }}" data-learning-progress-bar>
+        <i style="width: {{ summary.percent }}%;" data-learning-progress-fill></i>
+      </span>
+    </div>
+  </header>
+
+  <article class="learn-lesson-content">
+      {% for section in lesson.sections %}
+        <section
+          class="learn-content-section card"
+          id="{{ section.id }}"
+          data-annotation-root
+          data-annotation-source-key="learn:{{ lesson.id }}:{{ section.id }}"
+          data-read-aloud-scope
+          lang="en"
+        >
+          <header class="learn-content-section__head">
+            <span>{{ forloop.counter|stringformat:"02d" }}</span>
+            <h2>{{ section.title }}</h2>
+            {% include "study/partials/read_aloud_button.html" with compact=True key=section.id label="Read the French examples" only %}
+          </header>
+
+          {% for paragraph in section.paragraphs %}
+            <p>{{ paragraph|markdown_inline }}</p>
+          {% endfor %}
+
+          {% if section.points %}
+            <ul class="learn-key-points">
+              {% for point in section.points %}<li>{{ point|markdown_inline }}</li>{% endfor %}
+            </ul>
+          {% endif %}
+
+          {% if section.examples %}
+            <div class="learn-examples">
+              <h3>Examples</h3>
+              {% for example in section.examples %}
+                <figure class="learn-example">
+                  <blockquote lang="fr" data-read-aloud-text>{{ example.french }}</blockquote>
+                  <figcaption>
+                    <span>{{ example.english }}</span>
+                    {% if example.note %}<small>{{ example.note|markdown_inline }}</small>{% endif %}
+                  </figcaption>
+                </figure>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          {% if section.mistakes %}
+            <div class="learn-mistakes">
+              <h3>Common corrections</h3>
+              {% for mistake in section.mistakes %}
+                <div class="learn-mistake">
+                  <p><span aria-label="À éviter">×</span> <s lang="fr">{{ mistake.avoid }}</s></p>
+                  <p><span aria-label="À privilégier">✓</span> <strong lang="fr">{{ mistake.prefer }}</strong></p>
+                  <small>{{ mistake.why|markdown_inline }}</small>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </section>
+      {% endfor %}
+
+      <section class="learn-completion card" id="lesson-completion">
+        <div>
+          <p class="eyebrow">Progression</p>
+          <h2 data-learning-completion-title>{% if is_completed %}Leçon acquise{% else %}Prêt à valider cette leçon&nbsp;?{% endif %}</h2>
+          <p data-learning-completion-copy>{% if is_completed %}Tu peux la rouvrir à tout moment pour consolider un point.{% else %}Valide-la lorsque tu peux expliquer les idées essentielles sans relire.{% endif %}</p>
+        </div>
+        <form method="post" action="{{ progress_url }}" data-learning-progress-form>
+          {% csrf_token %}
+          <input type="hidden" name="completed" value="{% if is_completed %}0{% else %}1{% endif %}" data-learning-completed-input>
+          <button class="btn{% if not is_completed %} btn--primary{% endif %}" type="submit" aria-pressed="{{ is_completed|yesno:'true,false' }}" data-learning-completion-button>
+            {% include "study/partials/ui_icon.html" with name="check" only %}
+            <span data-learning-completion-label>{% if is_completed %}Marquer à revoir{% else %}Marquer comme acquise{% endif %}</span>
+          </button>
+        </form>
+        <p class="learn-completion__status" role="status" aria-live="polite" data-learning-progress-status></p>
+      </section>
+
+  </article>
+
+  <nav class="learn-lesson-nav" aria-label="Navigation entre les leçons">
+    {% if previous_lesson %}
+      <a class="learn-lesson-nav__link learn-lesson-nav__link--previous" href="{% url 'study:learn_lesson' previous_lesson.slug %}">
+        {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
+        <span><small>Leçon précédente</small><strong>{{ previous_lesson.title }}</strong></span>
+      </a>
+    {% else %}<span></span>{% endif %}
+    {% if next_lesson %}
+      <a class="learn-lesson-nav__link learn-lesson-nav__link--next" href="{% url 'study:learn_lesson' next_lesson.slug %}">
+        <span><small>Leçon suivante</small><strong>{{ next_lesson.title }}</strong></span>
+        {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
+      </a>
+    {% endif %}
+  </nav>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'study/js/learning.js' %}?v=6"></script>
+{% endblock %}

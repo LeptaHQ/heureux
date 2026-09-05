@@ -12,6 +12,7 @@ from .models import (
     ComprehensionTest,
     ComprehensionTestCompletion,
     Family,
+    LearningLessonProgress,
     LoginThrottle,
     Phrase,
     PhraseCategory,
@@ -89,6 +90,14 @@ class ThemeVocabularyProgressAdmin(admin.ModelAdmin):
     list_display = ("user", "phrase", "completed_at")
     list_filter = ("phrase__category",)
     readonly_fields = ("completed_at",)
+
+
+@admin.register(LearningLessonProgress)
+class LearningLessonProgressAdmin(admin.ModelAdmin):
+    list_display = ("user", "lesson_id", "started_at", "completed_at")
+    list_filter = ("completed_at",)
+    search_fields = ("user__username", "lesson_id")
+    readonly_fields = ("started_at",)
 
 
 @admin.register(ComprehensionQuestion)

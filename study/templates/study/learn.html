@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% load static study_markdown %}
+{% block title %}Apprendre · Heureux{% endblock %}
+
+{% block content %}
+<div class="learn-page" data-learning-catalog>
+  <header class="area-hero learn-hero">
+    <div class="area-hero__copy">
+      <p class="eyebrow">Cours guidés</p>
+      <h1>{{ catalog.title }}</h1>
+      <p lang="en">{{ catalog.description }}</p>
+    </div>
+    <dl class="area-hero__metrics" aria-label="Progression des leçons">
+      <div><dt>Parcours</dt><dd>{{ modules|length }}</dd></div>
+      <div><dt>Leçons</dt><dd>{{ lesson_count }}</dd></div>
+      <div><dt>Terminées</dt><dd><span data-learning-completed-total>{{ summary.completed }}</span><span class="hero-metric__total">/ {{ summary.total }}</span></dd></div>
+    </dl>
+  </header>
+
+  <section class="learn-library" aria-labelledby="learn-library-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Bibliothèque</p>
+        <h2 id="learn-library-title">Toutes les leçons</h2>
+      </div>
+      <div class="learn-library__heading-tools">
+        <p class="learn-library__result" role="status" aria-live="polite" data-learning-result>{{ lesson_count }} leçons affichées</p>
+        {% include "study/partials/collection_view_toggle.html" %}
+      </div>
+    </div>
+
+    <div class="learn-toolbar card">
+      <label class="learn-search" for="learn-search">
+        <span class="sr-only">Rechercher une leçon</span>
+        {% include "study/partials/ui_icon.html" with name="search" only %}
+        <input id="learn-search" type="search" placeholder="Rechercher une règle, une stratégie…" autocomplete="off" data-learning-search>
+      </label>
+      <div class="learn-filters" role="group" aria-label="Filtrer par progression">
+        <button class="is-active" type="button" data-learning-status-filter="all" aria-pressed="true">Toutes</button>
+        <button type="button" data-learning-status-filter="unfinished" aria-pressed="false">À faire</button>
+        <button type="button" data-learning-status-filter="done" aria-pressed="false">Terminées</button>
+      </div>
+    </div>
+    <p class="memory-progress-error hidden" role="alert" data-learning-progress-error></p>
+
+    <div class="learn-module-filters" role="group" aria-label="Filtrer par parcours">
+      <button class="is-active" type="button" data-learning-module-filter="all" aria-pressed="true">Tous les parcours</button>
+      {% for item in modules %}
+        <button type="button" data-learning-module-filter="{{ item.module.slug }}" aria-pressed="false">{{ item.module.title }}</button>
+      {% endfor %}
+    </div>
+
+    <div class="learn-modules">
+      {% for item in modules %}
+        <section
+          class="learn-module"
+          style="--learn-progress: {{ item.progress.percent }}%;"
+          aria-labelledby="learn-module-{{ item.module.slug }}"
+          data-learning-module="{{ item.module.slug }}"
+        >
+          <header class="learn-module__head">
+            <span class="learn-module__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=item.module.icon only %}</span>
+            <div>
+              <h2 id="learn-module-{{ item.module.slug }}">{{ item.module.title }}</h2>
+              <p lang="en">{{ item.module.description }}</p>
+            </div>
+            <div class="learn-module__progress">
+              <span><b data-learning-module-completed>{{ item.progress.completed }}</b>/{{ item.progress.total }}</span>
+              <span class="learn-module__progress-track" aria-hidden="true"><i></i></span>
+            </div>
+            <button
+              class="learn-module__toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="learn-module-lessons-{{ item.module.slug }}"
+              data-learning-module-toggle
+            >
+              <span class="sr-only">Afficher ou masquer les leçons de {{ item.module.title }}</span>
+            </button>
+          </header>
+
+          <div
+            class="learn-lesson-grid collection-table collection-table--learn"
+            id="learn-module-lessons-{{ item.module.slug }}"
+            data-collection-view="adaptive"
+            data-learning-module-lessons
+          >
+            <div class="collection-table-header collection-table-header--learn" data-collection-table-header aria-hidden="true">
+              <span>No</span>
+              <span>Leçon</span>
+              <span>Niveau</span>
+              <span>Durée</span>
+              <span>Progression</span>
+              <span></span>
+            </div>
+            {% for row in item.lessons %}
+              <article
+                class="learn-lesson-card card{% if row.completed %} is-completed{% endif %}"
+                id="lesson-{{ row.lesson.slug }}"
+                data-collection-item
+                data-learning-lesson
+                data-learning-lesson-id="{{ row.lesson.id }}"
+                data-learning-module-name="{{ item.module.slug }}"
+                data-learning-status="{{ row.status }}"
+                data-learning-search-text="{{ row.lesson.searchable_text }}"
+              >
+                <span class="learn-lesson-card__number">{{ forloop.counter|stringformat:"02d" }}</span>
+                <span class="learn-lesson-card__body">
+                  <span class="learn-lesson-card__meta">
+                    <span>{{ row.lesson.level }}</span>
+                    <span>{{ row.lesson.duration_minutes }} min</span>
+                  </span>
+                  <strong><a href="{{ row.url }}">{{ row.lesson.title }}</a></strong>
+                  <span lang="en">{{ row.lesson.summary|markdown_inline }}</span>
+                </span>
+                <span class="learn-lesson-card__level">{{ row.lesson.level }}</span>
+                <span class="learn-lesson-card__duration">{{ row.lesson.duration_minutes }} min</span>
+                <span class="progress-status progress-status--{{ row.status }}" data-learning-card-status>{{ row.status_label }}</span>
+                <form class="learning-lesson-check" method="post" action="{{ row.progress_url }}" data-learning-card-progress>
+                  {% csrf_token %}
+                  <input type="hidden" name="completed" value="{% if row.completed %}0{% else %}1{% endif %}" data-learning-card-completed-input>
+                  <button
+                    type="submit"
+                    role="checkbox"
+                    aria-checked="{{ row.completed|yesno:'true,false' }}"
+                    aria-label="{% if row.completed %}Marquer comme non acquise : {% else %}Marquer comme acquise : {% endif %}{{ row.lesson.title }}"
+                    title="{% if row.completed %}Leçon acquise{% else %}Marquer comme acquise{% endif %}"
+                    data-learning-card-check
+                  >
+                    {% include "study/partials/ui_icon.html" with name="check" only %}
+                  </button>
+                </form>
+              </article>
+            {% endfor %}
+          </div>
+        </section>
+      {% endfor %}
+    </div>
+
+    <div class="empty learn-library__empty hidden" data-learning-empty>
+      <strong>Aucune leçon ne correspond à ces filtres.</strong>
+      <p>Essaie un autre mot-clé ou affiche tous les parcours.</p>
+      <button class="btn" type="button" data-learning-reset>Réinitialiser les filtres</button>
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="{% static 'study/js/learning.js' %}?v=6"></script>
+{% endblock %}

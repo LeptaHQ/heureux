@@ -24,6 +24,12 @@ COMPREHENSION_ROUTES = {
     "comprehension_oral_vocabulary",
     "comprehension_oral_test_vocabulary",
 }
+LEARNING_ROUTES = {
+    "learn",
+    "learn_lesson",
+    "learn_lesson_progress",
+    "learn_lesson_start",
+}
 EXPRESSION_ROUTES = {
     "expression",
     "part_detail",
@@ -112,6 +118,8 @@ def _active_nav_area(request):
     route_name = match.url_name if match else ""
     if route_name == "dashboard":
         return "home"
+    if route_name in LEARNING_ROUTES:
+        return "learn"
     if route_name in COMPREHENSION_ROUTES:
         return "comprehension"
     if route_name in EXPRESSION_ROUTES:

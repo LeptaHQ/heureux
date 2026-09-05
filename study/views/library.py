@@ -31,6 +31,7 @@ from ..models import (
     ComprehensionTest,
     ExamPart,
     Family,
+    LearningLessonProgress,
     MemoryQuestionProgress,
     PERSONAL_QUESTION_RESPONSE_MAX_LENGTH,
     PersonalQuestionResponse,
@@ -5176,6 +5177,17 @@ def _learning_activity(scope, user, scoped_cards, logs_base, now):
                 "memories",
                 "Mémoires apprises",
                 MemoryQuestionProgress.objects.filter(user=user),
+                "completed_at",
+            )
+        )
+        sources.append(
+            (
+                "lessons",
+                "Leçons terminées",
+                LearningLessonProgress.objects.filter(
+                    user=user,
+                    completed_at__isnull=False,
+                ),
                 "completed_at",
             )
         )

@@ -2,13 +2,14 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from unittest import mock
 
 from django.contrib.sessions.models import Session
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.test import override_settings
 from django.urls import reverse
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import expect, sync_playwright
 
 from django.utils import timezone
 
@@ -6226,7 +6227,7 @@ class BrowserTests(StaticLiveServerTestCase):
             })
             """
         )
-        self.assertEqual(len(queue_rows), 3)
+        self.assertEqual(len(queue_rows), 4)
         self.assertLessEqual(max(row["height"] for row in queue_rows), 120)
         self.assertEqual(len({row["x"] for row in queue_rows}), 1)
         self.assertEqual(
@@ -6350,7 +6351,7 @@ class BrowserTests(StaticLiveServerTestCase):
             })
             """
         )
-        self.assertEqual(len(mobile_queue), 3)
+        self.assertEqual(len(mobile_queue), 4)
         self.assertLessEqual(max(row["height"] for row in mobile_queue), 180)
         for row in mobile_queue:
             self.assertAlmostEqual(
@@ -6394,6 +6395,100 @@ class BrowserTests(StaticLiveServerTestCase):
             mobile_today["actionBottom"],
             mobile_today["goalTop"],
             delta=1,
+        )
+        self.assert_no_horizontal_overflow()
+
+    def test_learn_nested_table_and_completion_controls(self):
+        self.page.set_viewport_size({"width": 1200, "height": 800})
+        self.page.goto(self.live_server_url + reverse("study:learn"))
+
+        self.page.get_by_role("button", name="Tableau").click()
+        expect(self.page.locator("html")).to_have_attribute(
+            "data-collection-view-mode",
+            "table",
+        )
+        modules = self.page.locator("[data-learning-module]")
+        self.assertEqual(modules.count(), 8)
+        self.assertEqual(
+            self.page.locator("[data-learning-module].is-expanded").count(),
+            0,
+        )
+
+        first_module = modules.first
+        first_module.locator("[data-learning-module-toggle]").click()
+        expect(first_module).to_have_class(
+            re.compile(r"\bis-expanded\b"),
+        )
+        self.assertGreater(
+            first_module.locator("[data-learning-lesson]:visible").count(),
+            0,
+        )
+
+        first_card = first_module.locator("[data-learning-lesson]").first
+        check = first_card.locator("[data-learning-card-check]")
+        self.assertEqual(check.get_attribute("aria-checked"), "false")
+        check.click()
+        expect(check).to_have_attribute("aria-checked", "true")
+        self.assertEqual(
+            first_card.locator("[data-learning-card-status]").inner_text(),
+            "Terminée",
+        )
+        check.click()
+        expect(check).to_have_attribute("aria-checked", "false")
+
+        search = self.page.locator("[data-learning-search]")
+        search.fill("subjonctif")
+        expect(
+            self.page.locator("[data-learning-module].is-expanded:visible")
+        ).to_have_count(1)
+        self.assertEqual(
+            self.page.locator("[data-learning-lesson]:visible").count(),
+            1,
+        )
+
+        search.fill("")
+        self.page.get_by_role("button", name="Cartes").click()
+        expect(self.page.locator("html")).to_have_attribute(
+            "data-collection-view-mode",
+            "cards",
+        )
+        self.assertEqual(
+            self.page.locator("[data-learning-module].is-expanded").count(),
+            8,
+        )
+        self.assert_no_horizontal_overflow()
+
+        target_id = first_card.get_attribute("id")
+        first_card.locator(".learn-lesson-card__body strong a").click()
+        self.page.locator(".learn-content-section").wait_for()
+        self.assertGreaterEqual(self.page.locator(".learn-example").count(), 4)
+        self.assertEqual(
+            self.page.locator(
+                ".learn-outline, .learn-vocabulary-item, "
+                ".learn-practice, .learn-takeaways"
+            ).count(),
+            0,
+        )
+        self.assertEqual(
+            self.page.locator(
+                ".learn-lesson-hero__identity > div > p"
+            ).count(),
+            1,
+        )
+        self.page.evaluate(
+            "() => localStorage.setItem('collectionViewMode', 'table')"
+        )
+        self.page.get_by_role("link", name="Toutes les leçons").click()
+        expect(self.page.locator("html")).to_have_attribute(
+            "data-collection-view-mode",
+            "table",
+        )
+        target = self.page.locator(f"#{target_id}")
+        expect(target).to_be_visible()
+        expect(
+            target.locator("xpath=ancestor::*[@data-learning-module][1]")
+        ).to_have_class(
+            re.compile(r"\bis-expanded\b"),
         )
         self.assert_no_horizontal_overflow()
 

@@ -557,6 +557,38 @@ class ThemeVocabularyProgress(models.Model):
         return f"{self.user} · {self.phrase.phrase_id} · learned"
 
 
+class LearningLessonProgress(models.Model):
+    """A learner's progress through one source-controlled Learn lesson."""
+
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="learning_lesson_progress",
+    )
+    lesson_id = models.CharField(max_length=80)
+    started_at = models.DateTimeField(default=timezone.now)
+    completed_at = models.DateTimeField(null=True, blank=True, db_index=True)
+
+    class Meta:
+        ordering = ["started_at", "id"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "lesson_id"],
+                name="unique_user_learning_lesson_progress",
+            ),
+        ]
+        indexes = [
+            models.Index(
+                fields=["user", "completed_at"],
+                name="study_learn_user_id_ed46af_idx",
+            ),
+        ]
+
+    def __str__(self) -> str:
+        status = "completed" if self.completed_at else "started"
+        return f"{self.user} · {self.lesson_id} · {status}"
+
+
 class ComprehensionMode(models.TextChoices):
     ECRITE = "ecrite", "Écrite"
     ORALE = "orale", "Orale"

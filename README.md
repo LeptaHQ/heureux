@@ -1,8 +1,8 @@
 # Heureux
 
-Heureux is a Django study application. It combines
+Heureux is a Django study application. It combines guided French lessons,
 model responses, reusable vocabulary, comprehension practice, spaced
-repetition, notes, highlights, and explicit subject-completion tracking.
+repetition, notes, highlights, and explicit completion tracking.
 
 ## Local development
 
@@ -33,12 +33,14 @@ python manage.py test study.tests.browser_tests
 | `study/models.py`                   | Persistent study, progress, and account data                 |
 | `study/account_services.py`         | Account provisioning, recovery, and login throttling         |
 | `study/content_loader.py`           | Pure parsing and validation of bundled study content         |
+| `study/learning_content.py`         | Validation and cached loading for the Learn curriculum        |
 | `study/card_presentation.py`        | Review scope parsing and card response payloads              |
 | `study/response_personalization.py` | Canonical and personalized response resolution               |
 | `study/views/`                      | HTTP request handlers and shared view helpers                |
 | `study/templates/study/partials/`   | Reusable app template fragments                              |
 | `study/static/study/`               | Versioned CSS, JavaScript, icons, and images                 |
 | `study/content/`                    | Source-controlled content imported into the database         |
+| `study/content/learning/`           | Source-controlled lessons rendered by the Learn experience   |
 | `templates/`                        | Project-wide shell, error, PWA, and service-worker templates |
 
 ## Naming conventions

@@ -47,6 +47,7 @@ from ..models import (
     ComprehensionQuestionStudy,
     ComprehensionTestCompletion,
     ComprehensionAttemptStatus,
+    LearningLessonProgress,
     MemoryQuestionProgress,
     PersonalQuestionResponse,
     PersonalResponse,
@@ -343,6 +344,7 @@ def reset_progress(request):
         ComprehensionTestCompletion.objects.filter(user=request.user).delete()
         ComprehensionQuestionStudy.objects.filter(user=request.user).delete()
         WritingSujetCompletion.objects.filter(user=request.user).delete()
+        LearningLessonProgress.objects.filter(user=request.user).delete()
         MemoryQuestionProgress.objects.filter(user=request.user).delete()
         ThemeVocabularyProgress.objects.filter(user=request.user).delete()
         _save_review_session(session, {}, clear_pass=True)
@@ -487,7 +489,7 @@ def export_account(request):
     settings = Settings.load(request.user)
     payload = {
         "format": "heureux-account-export",
-        "version": 7,
+        "version": 8,
         "exported_at": timezone.now(),
         "account": {
             "username": request.user.get_username(),
@@ -576,6 +578,16 @@ def export_account(request):
             )
             .select_related("sujet__task__part")
             .order_by("completed_at", "pk")
+        ],
+        "learning_lesson_progress": [
+            {
+                "lesson_id": item.lesson_id,
+                "started_at": item.started_at,
+                "completed_at": item.completed_at,
+            }
+            for item in LearningLessonProgress.objects.filter(
+                user=request.user
+            ).order_by("started_at", "pk")
         ],
         "memory_question_progress": [
             {

@@ -17,6 +17,7 @@ from ..models import (
     Task,
 )
 from ..progress import combine_progress
+from .learning import learning_summary
 
 from .helpers import (
     current_streak,
@@ -133,9 +134,29 @@ def _reviews_today(day_counts, now):
     )
 
 
-def _skill_rings(expression_paths, comprehension):
+def _skill_rings(expression_paths, comprehension, learning):
     """Progress rings for the expression and comprehension study areas."""
-    rings = []
+    learning_progress = learning["progress"]
+    rings = [
+        {
+            "key": "learn",
+            "icon": "graduation-cap",
+            "label": "Fondamentaux",
+            "sublabel": "Méthode & langue",
+            "accent": "var(--tone-learning)",
+            "available": bool(learning_progress.total),
+            "percent": learning_progress.percent,
+            "detail": (
+                f"{learning_progress.completed}/{learning_progress.total} leçons"
+                if learning_progress.total
+                else "Bientôt disponible"
+            ),
+            "status": learning_progress.status,
+            "status_label": learning_progress.label,
+            "url": reverse("study:learn"),
+            "is_new": False,
+        }
+    ]
     paths_by_slug = {path["part"].slug: path for path in expression_paths}
 
     for slug, icon in (("eo", "microphone"), ("ee", "pencil")):
@@ -196,7 +217,13 @@ def _skill_rings(expression_paths, comprehension):
     return rings
 
 
-def _next_action(*, expression_counts, comprehension, notes_to_study):
+def _next_action(
+    *,
+    expression_counts,
+    comprehension,
+    notes_to_study,
+    learning,
+):
     """The single most useful next step, chosen by a fixed priority order."""
     review_url = reverse("study:review")
 
@@ -276,6 +303,20 @@ def _next_action(*, expression_counts, comprehension, notes_to_study):
             "url": reverse("study:annotation_study"),
         }
 
+    if learning["next_lesson"]:
+        return {
+            "tone": "learning",
+            "icon": "graduation-cap",
+            "eyebrow": "À apprendre",
+            "title": learning["next_lesson"].title,
+            "detail": (
+                f"{learning['progress'].completed}/"
+                f"{learning['progress'].total} leçons terminées."
+            ),
+            "cta": "Continuer",
+            "url": learning["next_url"],
+        }
+
     return {
         "tone": "done",
         "icon": "sparkles",
@@ -306,13 +347,14 @@ def dashboard(request):
     parts = _parts_with_task_summaries(now, request.user)
     expression_paths = _home_expression_paths(parts)
     comprehension = _comprehension_summary(request.user)
+    learning = learning_summary(request.user)
     notes_to_study = Annotation.objects.filter(
         user=request.user,
         study_later=True,
     ).count()
     session = ReviewSession.load(request.user)
 
-    skills = _skill_rings(expression_paths, comprehension)
+    skills = _skill_rings(expression_paths, comprehension, learning)
     ee_spotlight = next(
         (skill for skill in skills if skill["key"] == "ee" and skill["is_new"]),
         None,
@@ -334,6 +376,7 @@ def dashboard(request):
         "overall": overall,
         "streak": current_streak(now, day_counts=review_days),
         "comprehension": comprehension,
+        "learning": learning,
         "notes_to_study": notes_to_study,
         "can_resume_review": bool(session.current_card_id),
         "resume_scope_label": (
@@ -347,6 +390,7 @@ def dashboard(request):
             expression_counts=expression_counts,
             comprehension=comprehension,
             notes_to_study=notes_to_study,
+            learning=learning,
         ),
         "reviews_today": reviews_today,
         "daily_goal": DAILY_REVIEW_GOAL,

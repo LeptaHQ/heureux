@@ -750,14 +750,15 @@ class SmokeTests(TestCase):
         self.assertContains(response, 'class="review__top flashcard-deck__toolbar"')
         self.assertContains(response, ">Session<")
 
-    def test_dashboard_presents_three_explicit_daily_activities(self):
+    def test_dashboard_presents_four_explicit_daily_activities(self):
         factories.make_comprehension_test()
 
         response = self.client.get(reverse("study:dashboard"))
 
         self.assertEqual(response.context["daily_goal_remaining"], 30)
-        self.assertContains(response, 'class="home-queue__item ', count=3)
+        self.assertContains(response, 'class="home-queue__item ', count=4)
         for label in (
+            "Apprendre",
             "Restituer des réponses",
             "Faire Test 1",
             "Revoir ce que tu as retenu",
@@ -854,6 +855,7 @@ class SmokeTests(TestCase):
 
         for name in (
             "study:dashboard",
+            "study:learn",
             "study:comprehension_hub",
             "study:expression",
             "study:notes_overview",
@@ -898,10 +900,11 @@ class SmokeTests(TestCase):
         self.assertContains(
             response,
             'class="nav__primary-link',
-            count=5,
+            count=6,
         )
         for label in (
             "Accueil",
+            "Apprendre",
             "Compréhension",
             "Expression",
             "Notes",
@@ -914,14 +917,14 @@ class SmokeTests(TestCase):
         self.assertContains(
             response,
             'class="nav__group nav__group--learn" role="group" '
-            'aria-label="Apprendre"',
+            'aria-label="Parcours d’apprentissage"',
         )
         self.assertContains(
             response,
             'class="nav__group nav__group--tools" role="group" '
             'aria-label="Outils personnels"',
         )
-        self.assertContains(response, 'class="nav__item-icon"', count=5)
+        self.assertContains(response, 'class="nav__item-icon"', count=6)
         self.assertNotContains(response, 'class="footer__inner"')
 
     def test_global_pages_do_not_false_highlight_task_navigation(self):

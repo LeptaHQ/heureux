@@ -7,7 +7,7 @@
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
   <script src="{% static 'study/js/theme-init.js' %}?v=2"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=184">
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=189">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -67,6 +67,10 @@
         <circle cx="11" cy="11" r="6.5"></circle>
         <path d="m16 16 4 4"></path>
       </symbol>
+      <symbol id="nav-icon-learn" viewBox="0 0 24 24">
+        <path d="m3 9 9-5 9 5-9 5z"></path>
+        <path d="M7 12v4.5c2.8 2 7.2 2 10 0V12M21 9v6"></path>
+      </symbol>
     </svg>
     <div class="nav__inner">
       <a class="brand" href="{% url 'study:dashboard' %}">
@@ -79,13 +83,20 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="nav__links" id="primary-navigation" aria-label="Navigation principale" data-nav-links>
-        <div class="nav__group nav__group--learn" role="group" aria-label="Apprendre">
-          <span class="nav__section-label" aria-hidden="true">Apprendre</span>
+        <div class="nav__group nav__group--learn" role="group" aria-label="Parcours d’apprentissage">
+          <span class="nav__section-label" aria-hidden="true">Parcours</span>
           <a href="{% url 'study:dashboard' %}" class="nav__primary-link{% if active_nav_area == 'home' %} is-active{% endif %}"{% if active_nav_area == 'home' %} aria-current="page"{% endif %} data-nav-tone="home">
             <span class="nav__item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#nav-icon-home"></use></svg></span>
             <span class="nav__item-copy">
               <span class="nav__item-label">Accueil</span>
               <small aria-hidden="true">Vue d'ensemble</small>
+            </span>
+          </a>
+          <a href="{% url 'study:learn' %}" class="nav__primary-link{% if active_nav_area == 'learn' %} is-active{% endif %}"{% if active_nav_area == 'learn' %} aria-current="page"{% endif %} data-nav-tone="learning">
+            <span class="nav__item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#nav-icon-learn"></use></svg></span>
+            <span class="nav__item-copy">
+              <span class="nav__item-label">Apprendre</span>
+              <small aria-hidden="true">Méthode et astuces</small>
             </span>
           </a>
           <a href="{% url 'study:comprehension_hub' %}" class="nav__primary-link{% if active_nav_area == 'comprehension' %} is-active{% endif %}"{% if active_nav_area == 'comprehension' %} aria-current="page"{% endif %} data-nav-tone="comprehension">

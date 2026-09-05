@@ -75,6 +75,22 @@ urlpatterns = [
     ),
     # Main areas
     path("", views.dashboard, name="dashboard"),
+    path("apprendre/", views.learn, name="learn"),
+    path(
+        "apprendre/<slug:lesson_slug>/",
+        views.learn_lesson,
+        name="learn_lesson",
+    ),
+    path(
+        "apprendre/<slug:lesson_slug>/progression/",
+        views.learn_lesson_progress,
+        name="learn_lesson_progress",
+    ),
+    path(
+        "apprendre/<slug:lesson_slug>/commencer/",
+        views.learn_lesson_start,
+        name="learn_lesson_start",
+    ),
     path("comprehension/", views.comprehension_hub, name="comprehension_hub"),
     path("expression/", views.expression_hub, name="expression"),
     # Compréhension écrite (CE)

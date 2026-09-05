@@ -87,6 +87,13 @@ from .dashboard import (
     dashboard,
     expression_hub,
 )
+from .learning import (
+    learn,
+    learn_lesson,
+    learn_lesson_progress,
+    learn_lesson_start,
+    learning_summary,
+)
 from .notes import (
     ANNOTATION_SOURCE_KEY_RE,
     MAX_ANNOTATION_BODY_LENGTH,
@@ -275,6 +282,11 @@ __all__ = [
     'family_detail',
     'comprehension_notes',
     'general_notes',
+    'learn',
+    'learn_lesson',
+    'learn_lesson_progress',
+    'learn_lesson_start',
+    'learning_summary',
     'login_view',
     'logout_view',
     'notes_overview',

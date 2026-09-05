@@ -2072,7 +2072,7 @@ class EoTacheOneQuestionBankViewTests(TestCase):
 
         exported = self.client.get(reverse("study:export_account")).json()
 
-        self.assertEqual(exported["version"], 7)
+        self.assertEqual(exported["version"], 8)
         self.assertEqual(
             exported["personal_question_responses"],
             [
@@ -4275,7 +4275,7 @@ class QuestionBankViewTests(TestCase):
 
         exported = self.client.get(reverse("study:export_account")).json()
 
-        self.assertEqual(exported["version"], 7)
+        self.assertEqual(exported["version"], 8)
         self.assertEqual(
             exported["memory_question_progress"][0]["question_key"],
             own_progress.question_key,

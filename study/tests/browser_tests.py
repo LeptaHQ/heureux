@@ -6409,7 +6409,8 @@ class BrowserTests(StaticLiveServerTestCase):
             "table",
         )
         modules = self.page.locator("[data-learning-module-details]")
-        self.assertEqual(modules.count(), 8)
+        module_count = len(load_learning_catalog().modules)
+        self.assertEqual(modules.count(), module_count)
         icon_colours = self.page.locator(
             ".learn-module .t1-theme__glyph .ui-icon"
         ).evaluate_all("icons => icons.map(icon => getComputedStyle(icon).color)")
@@ -6484,7 +6485,7 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(first_card).to_be_visible()
 
         search = self.page.locator("[data-learning-search]")
-        search.fill("subjonctif")
+        search.fill("subjonctif présent et passé")
         expect(
             self.page.locator("[data-learning-module-details][open]:visible")
         ).to_have_count(1)
@@ -6501,7 +6502,7 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertEqual(
             self.page.locator("[data-learning-module-details][open]").count(),
-            8,
+            module_count,
         )
         expect(first_module.locator(".t1-theme__description")).to_be_visible()
         first_module.locator(":scope > summary").click()
@@ -6605,15 +6606,53 @@ class BrowserTests(StaticLiveServerTestCase):
                 self.assertLess(circle_width, 20)
 
         self.page.set_viewport_size({"width": 390, "height": 844})
-        response = self.page.goto(
+        for slug in (
+            "time-clauses-conjunctions",
+            "daily-school-work",
+            "daily-description-personality",
+        ):
+            with self.subTest(lesson=slug):
+                response = self.page.goto(
+                    self.live_server_url
+                    + reverse("study:learn_lesson", args=[slug])
+                )
+                self.assertEqual(response.status, 200, self.page.locator("body").inner_text())
+                expect(self.page.locator(".learn-example").first).to_be_visible()
+                self.assertGreaterEqual(self.page.locator(".learn-example").count(), 4)
+                self.assertGreaterEqual(self.page.locator(".learn-mistake").count(), 2)
+                self.assert_no_horizontal_overflow()
+
+    def test_learn_bilingual_lists_preserve_line_breaks(self):
+        self.page.goto(
             self.live_server_url
-            + reverse("study:learn_lesson", args=["time-clauses-conjunctions"])
+            + reverse("study:learn_lesson", args=["writing-punctuation-typography"])
         )
-        self.assertEqual(response.status, 200, self.page.locator("body").inner_text())
-        expect(self.page.locator(".learn-example").first).to_be_visible()
-        self.assertGreaterEqual(self.page.locator(".learn-example").count(), 4)
-        self.assertGreaterEqual(self.page.locator(".learn-mistake").count(), 2)
-        self.assert_no_horizontal_overflow()
+        example = self.page.locator(".learn-example").filter(
+            has_text="Pour préparer le dossier, il faut"
+        )
+        expect(example).to_have_count(1)
+        for selector in ("blockquote", "figcaption > span"):
+            with self.subTest(language=selector):
+                text = example.locator(selector)
+                expect(text).to_have_css("white-space", "pre-line")
+                self.assertEqual(text.inner_text().count("\n"), 3)
+        for width in (320, 768, 1200):
+            with self.subTest(width=width):
+                self.page.set_viewport_size({"width": width, "height": 844})
+                self.assert_no_horizontal_overflow()
+
+    def test_learn_country_reference_remains_readable_on_mobile(self):
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:learn_lesson", args=["lexicon-country-nationalities"])
+        )
+        references = self.page.locator('[id^="country-reference-"]')
+        expect(references).to_have_count(5)
+        expect(references.locator(".learn-key-points li")).to_have_count(51)
+        for width in (320, 390, 1200):
+            with self.subTest(width=width):
+                self.page.set_viewport_size({"width": width, "height": 844})
+                self.assert_no_horizontal_overflow()
 
     def test_mobile_notes_scope_picker_reveals_the_active_scope(self):
         for order, slug in enumerate(

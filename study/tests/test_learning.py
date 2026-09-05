@@ -6,7 +6,9 @@ import json
 import re
 import tempfile
 from copy import deepcopy
+from dataclasses import replace
 from pathlib import Path
+from unittest.mock import patch
 
 from django.db import connection
 from django.test import TestCase
@@ -175,6 +177,204 @@ class LearningContentTests(TestCase):
 
     def test_bundled_catalog_is_cached_between_requests(self):
         self.assertIs(load_learning_catalog(), load_learning_catalog())
+
+    def test_topics_are_grouped_in_a_clear_learning_order(self):
+        catalog = load_learning_catalog()
+        self.assertEqual(
+            [module.id for module in catalog.modules],
+            [
+                "grammar-foundations",
+                "spelling-punctuation",
+                "verbs-tenses-moods",
+                "pronouns-questions-negation",
+                "time-place-prepositions",
+                "communication-expressions",
+                "word-meanings-expressions",
+                "everyday-vocabulary",
+                "exam-writing",
+                "learning-strategy",
+            ],
+        )
+        for slug, category in {
+            "orthography-diacritics": "spelling-punctuation",
+            "writing-capitalisation": "spelling-punctuation",
+            "writing-punctuation-typography": "spelling-punctuation",
+            "imperative": "verbs-tenses-moods",
+            "grammar-relative-pronouns": "pronouns-questions-negation",
+            "daily-on-usage": "pronouns-questions-negation",
+            "expressions-opinion-preference": "communication-expressions",
+            "verbs-lexical-distinctions": "word-meanings-expressions",
+            "daily-social-idioms": "word-meanings-expressions",
+            "lexicon-aller-suit": "everyday-vocabulary",
+        }.items():
+            with self.subTest(lesson=slug):
+                module, _lesson = catalog.lesson_by_slug(slug)
+                self.assertEqual(module.id, category)
+
+    def test_new_vocabulary_topics_are_not_buried_in_grammar_or_abbreviations(self):
+        catalog = load_learning_catalog()
+        for source, target, section_ids in (
+            (
+                "grammar-adjective-agreement",
+                "daily-description-personality",
+                {
+                    "describing-weight-shape-and-condition",
+                    "describing-impressions-and-coolness",
+                    "describing-personality-and-reputation",
+                    "net-and-pareil-by-context",
+                },
+            ),
+            (
+                "lexicon-abbreviations-register",
+                "daily-school-work",
+                {
+                    "school-stages-subjects-and-activities",
+                    "learner-interface-and-personal-information",
+                    "occupations-and-people-in-charge",
+                },
+            ),
+        ):
+            with self.subTest(lesson=target):
+                _module, original = catalog.lesson_by_slug(source)
+                module, focused = catalog.lesson_by_slug(target)
+                self.assertEqual(module.id, "everyday-vocabulary")
+                self.assertEqual(
+                    {section.id for section in focused.sections}, section_ids
+                )
+                self.assertTrue(
+                    section_ids.isdisjoint(section.id for section in original.sections)
+                )
+                self.assertIn("core-concept", {section.id for section in original.sections})
+
+    def test_supported_variants_are_not_listed_as_grammar_errors(self):
+        catalog = load_learning_catalog()
+        for slug, supported in {
+            "writing-job-application": "J’ai postulé ce poste la semaine dernière.",
+            "daily-social-idioms": "Merci beaucoup. — Plaisir partagé.",
+            "lexicon-part-partie": "Chacun doit faire sa partie du travail.",
+        }.items():
+            with self.subTest(lesson=slug):
+                _module, lesson = catalog.lesson_by_slug(slug)
+                self.assertNotIn(
+                    supported,
+                    [
+                        mistake.avoid
+                        for section in lesson.sections
+                        for mistake in section.mistakes
+                    ],
+                )
+
+    def test_french_correction_fields_do_not_contain_english_instructions(self):
+        for lesson in load_learning_catalog().lessons:
+            for section in lesson.sections:
+                for mistake in section.mistakes:
+                    for text in (mistake.avoid, mistake.prefer):
+                        with self.subTest(lesson=lesson.id, correction=text):
+                            self.assertNotRegex(
+                                text,
+                                r"^(?:Translating|Reading|Translate|Read|Use|"
+                                r"Always translating)\b",
+                            )
+                            self.assertNotIn("(intended:", text)
+                            self.assertNotIn("(intended only:", text)
+
+    def test_notion_teaching_terms_are_in_visible_sections(self):
+        catalog = load_learning_catalog()
+        for slug, terms in {
+            "grammar-articles-gender": ("un arbre", "un niveau", "FLE"),
+            "daily-sports-music": ("le footing", "un jogging"),
+            "verbs-subjunctive": ("prenions", "voulions", "past subjunctive"),
+            "verbs-conditional-si": (
+                "au cas où", "pourvu que", "viendrait", "aurais dû",
+            ),
+            "connectors-concession": ("avoir beau", "quand même"),
+            "connectors-logical-organization": (
+                "c’est-à-dire", "autrement dit", "à savoir", "du moins", "tel que",
+            ),
+            "verbs-infinitive-time-purpose": (
+                "de manière à", "en vue de", "histoire de", "dans le but de",
+            ),
+            "imperative": ("soyez", "ayez", "soyons", "ayons"),
+            "verbs-future": ("saur", "tiendr"),
+        }.items():
+            with self.subTest(lesson=slug):
+                _module, lesson = catalog.lesson_by_slug(slug)
+                visible_text = " ".join(
+                    text
+                    for section in lesson.sections
+                    for text in (
+                        section.title,
+                        *section.paragraphs,
+                        *section.points,
+                        *(example.french for example in section.examples),
+                    )
+                ).casefold().replace("’", "'")
+                for term in terms:
+                    self.assertIn(term.casefold().replace("’", "'"), visible_text)
+
+    def test_new_notion_topics_can_be_found_in_lesson_search(self):
+        catalog = load_learning_catalog()
+        for slug, terms in {
+            "grammar-articles-gender": ("FLE", "niveau"),
+            "daily-sports-music": ("footing", "jogging"),
+            "connectors-logical-organization": ("autrement dit", "tel que"),
+            "verbs-conditional-si": ("au cas où", "pourvu que"),
+            "daily-school-work": ("maternelle", "factrice", "examen"),
+            "daily-description-personality": ("talentueux", "pointu", "extraverti"),
+            "daily-news-community": ("informations", "solidarité"),
+        }.items():
+            with self.subTest(lesson=slug):
+                _module, lesson = catalog.lesson_by_slug(slug)
+                for term in terms:
+                    self.assertIn(
+                        term.casefold(),
+                        lesson.searchable_text.casefold(),
+                    )
+
+    def test_country_reference_keeps_all_source_families_visible(self):
+        _module, lesson = load_learning_catalog().lesson_by_slug(
+            "lexicon-country-nationalities"
+        )
+        reference = [
+            point
+            for section in lesson.sections
+            if section.id.startswith("country-reference-")
+            for point in section.points
+        ]
+        self.assertEqual(len(reference), 51)
+        self.assertEqual(
+            {point.split(" — ", 1)[0] for point in reference},
+            {
+                "l’Albanie (f.)", "l’Allemagne (f.)", "l’Andorre (f.)",
+                "l’Arménie (f.)", "l’Autriche (f.)", "l’Azerbaïdjan (m.)",
+                "la Belgique (f.)", "la Biélorussie (f.)",
+                "la Bosnie-Herzégovine (f.)", "la Bulgarie (f.)",
+                "Chypre (f.; normally no article)", "la Croatie (f.)",
+                "le Danemark (m.)", "l’Espagne (f.)", "l’Estonie (f.)",
+                "la Finlande (f.)", "la France (f.)", "la Géorgie (f.)",
+                "la Grèce (f.)", "la Hongrie (f.)", "l’Irlande (f.)",
+                "l’Islande (f.)", "l’Italie (f.)", "le Kazakhstan (m.)",
+                "le Kosovo (m.)", "la Lettonie (f.)", "le Liechtenstein (m.)",
+                "la Lituanie (f.)", "le Luxembourg (m.)",
+                "la Macédoine du Nord (f.)", "Malte (f.; normally no article)",
+                "la Moldavie (f.)", "Monaco (normally no article)",
+                "le Monténégro (m.)", "la Norvège (f.)", "les Pays-Bas (m. pl.)",
+                "la Pologne (f.)", "le Portugal (m.)", "la République tchèque (f.)",
+                "la Roumanie (f.)", "le Royaume-Uni (m.)", "la Russie (f.)",
+                "Saint-Marin (m.; normally no article)", "la Serbie (f.)",
+                "la Slovaquie (f.)", "la Slovénie (f.)", "la Suède (f.)",
+                "la Suisse (f.)", "la Turquie (f.)", "l’Ukraine (f.)",
+                "le Vatican (m.)",
+            },
+        )
+        for point in reference:
+            with self.subTest(country=point):
+                _name, meaning, adjectives = point.split(" — ")
+                self.assertTrue(meaning)
+                self.assertIn(" / ", adjectives)
+        reference_text = " ".join(reference)
+        for forms in ("letton / lettone", "grec / grecque", "turc / turque"):
+            self.assertIn(forms, reference_text)
 
     def test_loader_rejects_duplicate_lesson_ids(self):
         payload = deepcopy(_catalog_payload())
@@ -404,6 +604,44 @@ class LearningViewTests(TestCase):
             ).completed_at,
             original,
         )
+
+    def test_reorganizing_a_lesson_preserves_its_completion_and_url(self):
+        source, lesson = self.catalog.lesson_by_slug("imperative")
+        target = next(
+            module for module in self.catalog.modules if module.id != source.id
+        )
+        progress = LearningLessonProgress.objects.create(
+            user=self.user, lesson_id=lesson.id, completed_at=timezone.now()
+        )
+        original_completion = progress.completed_at
+        modules = []
+        for module in self.catalog.modules:
+            lessons = tuple(item for item in module.lessons if item.id != lesson.id)
+            if module.id == target.id:
+                lessons += (lesson,)
+            modules.append(replace(module, lessons=lessons))
+        reorganized = replace(self.catalog, modules=tuple(modules))
+
+        with patch(
+            "study.views.learning.load_learning_catalog", return_value=reorganized
+        ):
+            hub = self.client.get(reverse("study:learn"))
+            detail = self.client.get(
+                reverse("study:learn_lesson", args=[lesson.slug])
+            )
+
+        group = next(
+            item for item in hub.context["modules"] if item["module"].id == target.id
+        )
+        card = next(item for item in group["lessons"] if item["lesson"].id == lesson.id)
+        self.assertTrue(card["completed"])
+        self.assertEqual(card["status"], "done")
+        self.assertEqual(group["progress"].completed, 1)
+        self.assertEqual(detail.status_code, 200)
+        self.assertEqual(detail.context["module"].id, target.id)
+        self.assertTrue(detail.context["is_completed"])
+        progress.refresh_from_db()
+        self.assertEqual(progress.completed_at, original_completion)
 
     def test_progress_endpoint_marks_and_reopens_a_lesson(self):
         url = reverse(

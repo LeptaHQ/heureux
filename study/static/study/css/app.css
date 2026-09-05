@@ -17032,6 +17032,9 @@ html[data-collection-view-mode="table"]
   color: var(--text-soft);
   font-size: 0.78rem;
 }
+.learn-example figcaption > span {
+  white-space: pre-line;
+}
 .learn-example figcaption small {
   color: var(--text-faint);
 }

@@ -16,6 +16,15 @@
     });
   }
 
+  function setProgressStatus(element, status) {
+    element.classList.remove(
+      "progress-status--new",
+      "progress-status--active",
+      "progress-status--done"
+    );
+    element.classList.add("progress-status--" + status);
+  }
+
   function preserveAuthentication(response) {
     if (response.redirected) {
       window.location.assign(response.url);
@@ -199,36 +208,33 @@
       }
       if (status) {
         status.textContent = completed ? "Terminée" : "En cours";
-        status.classList.remove(
-          "progress-status--new",
-          "progress-status--active",
-          "progress-status--done"
-        );
-        status.classList.add(
-          completed ? "progress-status--done" : "progress-status--active"
-        );
+        setProgressStatus(status, completed ? "done" : "active");
       }
       if (completedTotal) {
         completedTotal.textContent = String(data.completed_count);
       }
       var module = card.closest("[data-learning-module]");
       if (module) {
-        var moduleCompleted = module.querySelector(
-          "[data-learning-module-completed]"
-        );
         var moduleCards = Array.from(
           module.querySelectorAll("[data-learning-lesson]")
         );
         var completeCount = moduleCards.filter(function (lessonCard) {
           return lessonCard.classList.contains("is-completed");
         }).length;
-        if (moduleCompleted) {
-          moduleCompleted.textContent = String(completeCount);
-        }
-        module.style.setProperty(
-          "--learn-progress",
-          String(Math.round(100 * completeCount / moduleCards.length)) + "%"
+        var moduleStatus = module.querySelector(
+          "[data-learning-module-status]"
         );
+        if (moduleStatus) {
+          moduleStatus.textContent = String(completeCount) + "/" + moduleCards.length;
+          var hasStarted = moduleCards.some(function (lessonCard) {
+            return lessonCard.dataset.learningStatus !== "new";
+          });
+          setProgressStatus(
+            moduleStatus,
+            completeCount === moduleCards.length
+              ? "done" : hasStarted ? "active" : "new"
+          );
+        }
       }
       applyFilters(false);
     }

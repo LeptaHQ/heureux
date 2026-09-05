@@ -277,6 +277,10 @@ class LearningViewTests(TestCase):
         self.assertContains(response, "data-learning-search")
         self.assertContains(response, "data-collection-view-toggle")
         self.assertContains(response, "collection-table--learn")
+        self.assertTemplateUsed(response, "study/partials/theme_group_summary.html")
+        self.assertContains(
+            response, "data-learning-module-status", count=len(self.catalog.modules)
+        )
         self.assertContains(
             response,
             "data-learning-module-details",

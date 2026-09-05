@@ -50,27 +50,17 @@
       {% endfor %}
     </div>
 
-    <div class="learn-modules">
+    <div class="learn-modules t1-table-groups">
       {% for item in modules %}
         <details
-          class="learn-module t1-theme"
-          style="--learn-progress: {{ item.progress.percent }}%;"
+          class="learn-module t1-theme t1-table-group"
           aria-labelledby="learn-module-{{ item.module.slug }}"
           data-learning-module="{{ item.module.slug }}"
           data-learning-module-details
         >
-          <summary class="learn-module__head t1-theme__head">
-            <span class="t1-theme__chevron" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
-            <span class="learn-module__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=item.module.icon only %}</span>
-            <div>
-              <h2 id="learn-module-{{ item.module.slug }}">{{ item.module.title }}</h2>
-              <p lang="en">{{ item.module.description }}</p>
-            </div>
-            <div class="learn-module__progress">
-              <span><b data-learning-module-completed>{{ item.progress.completed }}</b>/{{ item.progress.total }}</span>
-              <span class="learn-module__progress-track" aria-hidden="true"><i></i></span>
-            </div>
-          </summary>
+          {% with title_id="learn-module-"|add:item.module.slug %}
+            {% include "study/partials/theme_group_summary.html" with title=item.module.title title_id=title_id description=item.module.description icon=item.module.icon count=item.progress.total count_label="leçon" status=item.progress.status completed=item.progress.completed total=item.progress.total learning=True only %}
+          {% endwith %}
 
           <div
             class="learn-lesson-grid collection-table collection-table--learn"
@@ -141,5 +131,5 @@
 
 {% block scripts %}
   {{ block.super }}
-  <script src="{% static 'study/js/learning.js' %}?v=8"></script>
+  <script src="{% static 'study/js/learning.js' %}?v=9"></script>
 {% endblock %}

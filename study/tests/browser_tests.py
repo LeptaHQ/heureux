@@ -15,6 +15,7 @@ from django.utils import timezone
 from study import content_loader as content
 from study.account_services import provision_user_study_data
 from study.content_loader import load_sections
+from study.learning_content import load_learning_catalog
 from study.management.commands.import_content import Command
 from study.models import (
     Annotation,
@@ -23,6 +24,7 @@ from study.models import (
     CardType,
     ComprehensionMode,
     ComprehensionQuestionStudy,
+    LearningLessonProgress,
     PhraseCategory,
     PhraseTier,
     PersonalQuestionResponse,
@@ -6409,7 +6411,7 @@ class BrowserTests(StaticLiveServerTestCase):
         modules = self.page.locator("[data-learning-module-details]")
         self.assertEqual(modules.count(), 8)
         icon_colours = self.page.locator(
-            ".learn-module__icon .ui-icon"
+            ".learn-module .t1-theme__glyph .ui-icon"
         ).evaluate_all("icons => icons.map(icon => getComputedStyle(icon).color)")
         self.assertEqual(len(set(icon_colours)), 1)
         self.assertEqual(
@@ -6418,6 +6420,28 @@ class BrowserTests(StaticLiveServerTestCase):
         )
 
         first_module = modules.first
+        summaries = modules.locator(":scope > summary")
+        compact_rows = summaries.evaluate_all(
+            """summaries => {
+              const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+              return summaries.every(summary =>
+                summary.getBoundingClientRect().height <= 3.7 * rem
+                && getComputedStyle(summary.querySelector('.t1-theme__description')).display === 'none'
+              );
+            }"""
+        )
+        self.assertTrue(compact_rows)
+        self.assertEqual(
+            self.page.locator(".learn-module__progress-track").count(),
+            0,
+        )
+        module_total = first_module.locator("[data-learning-lesson]").count()
+        expect(first_module.locator(".t1-theme__count")).to_have_text(
+            f"{module_total} leçons"
+        )
+        module_status = first_module.locator("[data-learning-module-status]")
+        expect(module_status).to_have_text(f"0/{module_total}")
+        expect(module_status).to_have_class("progress-status progress-status--new")
         first_module.locator(":scope > summary").click()
         expect(first_module).to_have_attribute("open", "")
         self.assertGreater(
@@ -6430,6 +6454,8 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(check.get_attribute("aria-checked"), "false")
         check.click()
         expect(check).to_have_attribute("aria-checked", "true")
+        expect(module_status).to_have_text(f"1/{module_total}")
+        expect(module_status).to_have_class("progress-status progress-status--active")
         self.assertEqual(
             first_card.locator("[data-learning-card-status]").inner_text(),
             "Terminée",
@@ -6447,6 +6473,8 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         check.click()
         expect(check).to_have_attribute("aria-checked", "false")
+        expect(module_status).to_have_text(f"0/{module_total}")
+        expect(module_status).to_have_class("progress-status progress-status--active")
 
         summary = first_module.locator(":scope > summary")
         summary.focus()
@@ -6475,6 +6503,7 @@ class BrowserTests(StaticLiveServerTestCase):
             self.page.locator("[data-learning-module-details][open]").count(),
             8,
         )
+        expect(first_module.locator(".t1-theme__description")).to_be_visible()
         first_module.locator(":scope > summary").click()
         expect(first_card).not_to_be_visible()
         search.fill("articles et le genre")
@@ -6516,6 +6545,34 @@ class BrowserTests(StaticLiveServerTestCase):
         ).to_have_attribute("open", "")
         self.assert_no_horizontal_overflow()
 
+    def test_learn_module_badge_updates_when_all_lessons_are_completed(self):
+        lessons = load_learning_catalog().modules[0].lessons
+        LearningLessonProgress.objects.bulk_create(
+            [
+                LearningLessonProgress(
+                    user=self.user,
+                    lesson_id=lesson.id,
+                    completed_at=timezone.now(),
+                )
+                for lesson in lessons[1:]
+            ]
+        )
+        self.page.goto(self.live_server_url + reverse("study:learn"))
+        self.page.get_by_role("button", name="Tableau").click()
+        module = self.page.locator("[data-learning-module-details]").first
+        module.locator(":scope > summary").click()
+        badge = module.locator("[data-learning-module-status]")
+        check = module.locator("[data-learning-card-check]").first
+        check.click()
+        expect(badge).to_have_text(f"{len(lessons)}/{len(lessons)}")
+        expect(badge).to_have_class("progress-status progress-status--done")
+        self.page.reload()
+        expect(badge).to_have_class("progress-status progress-status--done")
+        module.locator(":scope > summary").click()
+        check.click()
+        expect(badge).to_have_text(f"{len(lessons) - 1}/{len(lessons)}")
+        expect(badge).to_have_class("progress-status progress-status--active")
+
     def test_learn_table_disclosure_works_without_learning_script(self):
         self.page.evaluate(
             "() => localStorage.setItem('collectionViewMode', 'table')"
@@ -6548,10 +6605,12 @@ class BrowserTests(StaticLiveServerTestCase):
                 self.assertLess(circle_width, 20)
 
         self.page.set_viewport_size({"width": 390, "height": 844})
-        self.page.goto(
+        response = self.page.goto(
             self.live_server_url
             + reverse("study:learn_lesson", args=["time-clauses-conjunctions"])
         )
+        self.assertEqual(response.status, 200, self.page.locator("body").inner_text())
+        expect(self.page.locator(".learn-example").first).to_be_visible()
         self.assertGreaterEqual(self.page.locator(".learn-example").count(), 4)
         self.assertGreaterEqual(self.page.locator(".learn-mistake").count(), 2)
         self.assert_no_horizontal_overflow()

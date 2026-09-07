@@ -192,6 +192,8 @@ def parse_course_lesson(value, *, directory: str, reference=None) -> CourseLesso
     reference = reference or load_learning_catalog()
     location = f"course {directory}"
     value = _object(value, location)
+    if isinstance(value.get("id"), str):
+        location += f"/{value['id']}"
     _exact_fields(value, set(CourseLesson.__dataclass_fields__), location)
     level = _text(value["cefr_level"], f"{location}.cefr_level")
     if level not in CEFR_LEVELS or LEVEL_DIRECTORIES[level] != directory:
@@ -245,6 +247,8 @@ def parse_course_lesson(value, *, directory: str, reference=None) -> CourseLesso
         answers = _text_list(raw["answers"], f"{item_location}.answers")
         _unique(tuple(normalize_answer(item, **normalization) for item in choices), f"{item_location}.choices")
         _unique(tuple(normalize_answer(item, **normalization) for item in answers), f"{item_location}.answers")
+        if any(not normalize_answer(item, **normalization) for item in (*choices, *answers)):
+            raise ValueError(f"{item_location} choices and answers must not normalize to empty text")
         if kind == "choice" and (
             len(choices) < 2 or not set(answers) <= set(choices)
         ):
@@ -328,9 +332,13 @@ def _read_catalog(root: Path) -> CourseCatalog:
     for path in sorted(root.rglob("*.json")):
         if path.parent.parent != root or path.parent.name not in LEVEL_DIRECTORIES.values():
             raise ValueError(f"Unexpected course file location: {path}")
-        lessons.append(parse_course_lesson(
-            json.loads(path.read_text(encoding="utf-8")), directory=path.parent.name
-        ))
+        try:
+            lesson = parse_course_lesson(
+                json.loads(path.read_text(encoding="utf-8")), directory=path.parent.name
+            )
+        except ValueError as exc:
+            raise ValueError(f"{path}: {exc}") from exc
+        lessons.append(lesson)
     return build_course_catalog(lessons)
 
 

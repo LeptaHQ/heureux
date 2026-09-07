@@ -21,7 +21,7 @@ from study.course_content import (
     load_course_catalog, normalize_answer, parse_course_lesson, validate_coverage_ledger,
 )
 from study.course_practice import (
-    PracticeError, _complete, abandon_attempt, evidence_state, practice_event,
+    PracticeError, _answer, _complete, abandon_attempt, evidence_state, practice_event,
     start_attempt, submit_check,
 )
 from study.learning_content import load_learning_catalog
@@ -120,6 +120,20 @@ class CourseSchemaTests(SimpleTestCase):
                 self.assertIs(load_course_catalog(), load_course_catalog())
             _bundled_course_catalog.cache_clear()
 
+    def test_loading_reports_exact_file_and_lesson_for_invalid_content(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "a1"
+            path.mkdir()
+            payload = course_payload()
+            payload["practice"][0]["answers"] = ["", "incorrect"]
+            lesson_path = path / "specific-lesson.json"
+            lesson_path.write_text(json.dumps(payload), encoding="utf-8")
+            with self.assertRaises(ValueError) as failure:
+                load_course_catalog(Path(directory))
+            self.assertIn(str(lesson_path), str(failure.exception))
+            self.assertIn("a1-foundations", str(failure.exception))
+            self.assertIn("practice[0].answers", str(failure.exception))
+
     def test_typography_is_normalized_but_accents_and_internal_punctuation_survive(self):
         self.assertEqual(normalize_answer("  L’ÉCOLE \n "), normalize_answer("l'école"))
         self.assertEqual(normalize_answer("e\u0301cole"), "école")
@@ -141,6 +155,18 @@ class CourseSchemaTests(SimpleTestCase):
         payload["practice"][0]["case_sensitive"] = "true"
         with self.assertRaisesRegex(ValueError, "booleans"):
             parse_course_lesson(payload, directory="a1")
+
+    def test_grading_respects_explicit_case_and_terminal_punctuation_flags(self):
+        item = {
+            "kind": "text", "answers": ["École."], "choices": [],
+            "case_sensitive": True, "terminal_punctuation_sensitive": True,
+        }
+        self.assertTrue(_answer(item, " École. "))
+        for wrong in ("école.", "École", "Ecole."):
+            self.assertFalse(_answer(item, wrong))
+        item.update(case_sensitive=False, terminal_punctuation_sensitive=False)
+        self.assertTrue(_answer(item, "ÉCOLE"))
+        self.assertFalse(_answer(item, "ECOLE"))
 
     def _ledger(self):
         benchmark = json.loads((CONTENT_ROOT / "benchmarks" / "a1.json").read_text(encoding="utf-8"))
@@ -274,6 +300,28 @@ class CoursePlatformTests(TestCase):
         self.assertEqual(dashboard.context["learning"]["progress"].completed, 1)
         self.assertIn("/apprendre/cours/", dashboard.context["learning"]["next_url"])
 
+    def test_annotations_are_shared_across_course_and_reference_navigation_queries(self):
+        for route, slug, key in (
+            ("course_lesson", self.lesson.slug, f"learn:{self.lesson.id}:rule"),
+            ("learn_lesson", "grammar-articles-gender", "learn:grammar-articles-gender:core-concept"),
+        ):
+            with self.subTest(route=route):
+                source = reverse(f"study:{route}", args=[slug])
+                old = Annotation.objects.create(
+                    user=self.user, kind="highlight", quote="A saved highlight", source_key=key,
+                    source_path=source + "?level=A1", start_offset=30, end_offset=47,
+                )
+                created = self.client.post(reverse("study:annotation_create"), {
+                    "kind": "highlight", "quote": "New quote", "source_key": key,
+                    "source_path": source + "?level=all", "start_offset": 1, "end_offset": 10,
+                })
+                self.assertEqual(created.status_code, 201)
+                self.assertTrue(Annotation.objects.filter(user=self.user, source_path=source, quote="New quote").exists())
+                for query in ("", "?level=A1", "?level=all&q=article"):
+                    response = self.client.get(reverse("study:annotations_for_source"), {"source_path": source + query})
+                    self.assertEqual({row["id"] for row in response.json()["highlights"]},
+                                     {old.pk, Annotation.objects.get(user=self.user, source_path=source, quote="New quote").pk})
+
     def test_initial_pages_and_exports_never_leak_keys(self):
         attempt = self.start()
         for response in (
@@ -389,6 +437,7 @@ class CoursePlatformTests(TestCase):
         with patch("study.course_practice.timezone.now", return_value=retry.submitted_at + timedelta(days=7)):
             self.assertTrue(evidence_state(self.user, self.lesson)["review_due"])
             review = self.start("review")
+            self.assertTrue(evidence_state(self.user, self.lesson)["fresh_review_available"])
         self.assertTrue(review.independent)
         self.assertEqual(review.review_of_id, retry.pk)
         self.assertEqual({item["pool"] for item in review.snapshot["items"]}, {"review"})
@@ -404,7 +453,14 @@ class CoursePlatformTests(TestCase):
             retry = self.submit(self.start("review"))
             self.assertFalse(retry.independent)
             self.assertTrue(retry.criterion_met)
-            self.assertEqual(evidence_state(self.user, self.lesson)["review"].pk, retry.pk)
+            evidence = evidence_state(self.user, self.lesson)
+            self.assertEqual(evidence["rehearsed_review"].pk, retry.pk)
+            self.assertIsNone(evidence["review"])
+            self.assertTrue(evidence["review_due"])
+            self.assertFalse(evidence["fresh_review_available"])
+            page = self.client.get(reverse("study:course_practice", args=[self.lesson.slug]))
+            self.assertContains(page, "insufficient unseen review items")
+            self.assertContains(page, "Start / resume review")
         self.assertEqual(review.results["correct"], 0)
         self.assertTrue(CourseAttempt.objects.get(pk=check.pk).criterion_met)
         response = self.client.get(reverse("study:course_attempt", args=[retry.pk]))
@@ -431,6 +487,19 @@ class CoursePlatformTests(TestCase):
         with self.assertRaises(ValidationError):
             attempt.save()
         self.assertFalse(start_attempt(self.user, updated, "check").independent)
+
+    def test_cosmetic_prompt_edits_and_item_renames_cannot_erase_exposure(self):
+        self.submit(self.start())
+        changed_prompts = replace(self.lesson, practice=tuple(
+            replace(item, prompt="Please: " + item.prompt) for item in self.lesson.practice
+        ))
+        changed = start_attempt(self.user, changed_prompts, "check")
+        self.assertFalse(changed.independent)
+        abandon_attempt(self.user, changed.pk)
+        renamed_items = replace(self.lesson, practice=tuple(
+            replace(item, id="renamed-" + item.id) for item in self.lesson.practice
+        ))
+        self.assertFalse(start_attempt(self.user, renamed_items, "check").independent)
 
     def test_user_isolation_authentication_and_csrf(self):
         attempt = start_attempt(self.other, self.lesson, "check")

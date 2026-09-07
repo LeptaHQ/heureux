@@ -140,6 +140,7 @@ def learn(request):
             "scope": scope,
             "cefr_levels": CEFR_LEVELS,
             "course_available": bool(course.lessons),
+            "default_collection_view": "table" if scope == "course" else "",
             "course_url": reverse("study:learn") + "?" + urlencode({
                 "scope": "course", "q": request.GET.get("q", ""),
             }),

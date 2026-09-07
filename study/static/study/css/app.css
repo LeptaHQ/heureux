@@ -17113,6 +17113,10 @@ html[data-collection-view-mode="table"]
 .course-reading-intro ul {
   margin: 0 0 0.7rem;
 }
+.course-lesson-page .learn-example blockquote,
+.course-lesson-page .learn-example figcaption > span {
+  white-space: normal;
+}
 .course-practice-section {
   padding: 1rem;
 }

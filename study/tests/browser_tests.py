@@ -25,6 +25,8 @@ from study.models import (
     ComprehensionMode,
     ComprehensionQuestionStudy,
     LearningLessonProgress,
+    CourseAttempt,
+    CourseProduction,
     PhraseCategory,
     PhraseTier,
     PersonalQuestionResponse,
@@ -37,6 +39,7 @@ from study.models import (
 from study.routing import response_detail_url, theme_detail_url
 
 from . import factories
+from .course_fixtures import course_catalog
 
 
 @override_settings(
@@ -6398,6 +6401,106 @@ class BrowserTests(StaticLiveServerTestCase):
             delta=1,
         )
         self.assert_no_horizontal_overflow()
+
+    def install_course_fixture(self):
+        catalog = course_catalog()
+        for target in ("study.views.learning.load_course_catalog", "study.views.course.load_course_catalog"):
+            loader = mock.patch(target, return_value=catalog)
+            loader.start()
+            self.addCleanup(loader.stop)
+        return catalog
+
+    def test_course_filters_navigation_completion_and_responsive_examples(self):
+        self.install_course_fixture()
+        self.page.set_viewport_size({"width": 1200, "height": 800})
+        self.page.goto(self.live_server_url + reverse("study:learn"))
+        expect(self.page.locator("html")).to_have_attribute("data-collection-view-mode", "table")
+        self.page.get_by_role("button", name="Tableau").click()
+        expect(self.page.locator("[data-learning-module-details][open]")).to_have_count(0)
+        self.page.locator("[data-learning-level-filter]").select_option("A2")
+        self.page.locator("[data-learning-search]").fill("ecole")
+        expect(self.page.locator("[data-learning-lesson]:visible")).to_have_count(1)
+        self.assertIn("level=A2", self.page.url)
+        row = self.page.locator("[data-learning-lesson]:visible")
+        for width in (320, 390, 768, 1200):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            self.assert_no_horizontal_overflow()
+            check = row.locator("[data-learning-card-check]")
+            self.assertLess(check.evaluate("button => parseFloat(getComputedStyle(button, '::before').width)"), 20)
+        row.locator(".learn-lesson-card__body strong a").click()
+        self.page.wait_for_url("**/apprendre/cours/a2-foundations/?level=A2")
+        expect(self.page.locator(".learn-lesson-nav a")).to_have_count(0)
+        example = self.page.locator(".learn-example").first
+        expect(example.locator("blockquote strong")).to_have_count(2)
+        self.assertEqual(example.locator("blockquote").inner_text().count("\n"), 1)
+        self.assertNotIn("**", example.locator("[data-read-aloud-text]").text_content())
+        expect(self.page.locator("[data-annotation-root]").first).to_have_attribute(
+            "data-annotation-source-key", "learn:a2-foundations:rule"
+        )
+        self.page.locator("[data-learning-completion-button]").click()
+        expect(self.page.locator("[data-learning-completion-button]")).to_have_attribute("aria-pressed", "true")
+        self.assertFalse(CourseAttempt.objects.filter(user=self.user).exists())
+        for width in (320, 390, 768, 1200):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            self.assert_no_horizontal_overflow()
+        self.page.get_by_role("link", name="Toutes les leçons").click()
+        expect(self.page.locator("[data-learning-level-filter]")).to_have_value("A2")
+        self.page.locator("[data-learning-status-filter='done']").click()
+        expect(self.page.locator("[data-learning-lesson]:visible")).to_have_count(1)
+        self.page.locator("[data-learning-search]").fill("subjonctif")
+        expect(self.page.locator("[data-learning-empty]")).to_be_visible()
+        self.page.get_by_role("link", name="Bibliothèque de référence", exact=True).click()
+        self.page.wait_for_url("**/apprendre/?scope=reference&q=subjonctif")
+        expect(self.page.locator("[data-learning-level-filter]")).to_have_count(0)
+        self.assertGreater(self.page.locator("[data-learning-lesson]:visible").count(), 0)
+
+    def test_course_practice_hints_check_and_production_without_client_keys(self):
+        catalog = self.install_course_fixture()
+        lesson = catalog.lessons[0]
+        self.page.goto(self.live_server_url + reverse("study:course_practice", args=[lesson.slug]))
+        self.assertNotIn("Private check feedback", self.page.content())
+        self.assertNotIn(lesson.production_task.model_answer, self.page.content())
+        self.page.get_by_role("button", name="Learning practice", exact=True).click()
+        self.page.wait_for_url("**/apprendre/pratique/*/")
+        practice = CourseAttempt.objects.get(user=self.user, mode="practice")
+        first = practice.snapshot["items"][0]
+        self.page.locator(f"#item-{first['id']}").get_by_role("button", name="Reveal a hint / answer").click()
+        expect(self.page.locator(f"#item-{first['id']} .course-feedback")).to_be_visible()
+        self.assertIn(first["explanation"], self.page.locator("body").inner_text())
+        self.assertNotIn("Private check feedback", self.page.content())
+        self.page.get_by_role("link", name="Practice and history").click()
+        self.page.get_by_role("button", name="Start / resume check").click()
+        self.page.wait_for_url("**/apprendre/pratique/*/")
+        attempt = CourseAttempt.objects.get(user=self.user, mode="check")
+        self.assertNotIn("Private check feedback", self.page.content())
+        expect(self.page.get_by_role("button", name="Reveal a hint / answer")).to_have_count(0)
+        for width in (320, 390, 768, 1200):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            self.assert_no_horizontal_overflow()
+        for item in attempt.snapshot["items"]:
+            field = self.page.locator(f"[name='answer-{item['id']}']")
+            if item["kind"] == "choice":
+                self.page.locator(f"[name='answer-{item['id']}'][value='école']").check()
+            else:
+                field.fill("L’ÉCOLE.")
+        self.page.get_by_role("button", name="Submit all answers once").click()
+        expect(self.page.get_by_role("heading", name="First submitted results")).to_be_visible()
+        expect(self.page.locator(".course-feedback")).to_have_count(8)
+        attempt.refresh_from_db()
+        self.assertTrue(attempt.criterion_met)
+        self.page.reload()
+        expect(self.page.locator(".course-check-form")).to_have_count(0)
+        self.page.get_by_role("link", name="Practice and history").click()
+        expect(self.page.get_by_role("button", name="Start / resume review")).to_have_count(0)
+        self.page.locator("#production-body").fill("Il y a une école et une maison.")
+        self.page.get_by_role("button", name="Save and self-review").click()
+        expect(self.page.get_by_role("heading", name="One possible model")).to_be_visible()
+        self.page.get_by_role("button", name="I have reviewed my response").click()
+        expect(self.page.get_by_text("No assessment score awarded.", exact=False)).to_be_visible()
+        self.assertIsNotNone(CourseProduction.objects.get(user=self.user).self_reviewed_at)
+        for width in (320, 390, 768, 1200):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            self.assert_no_horizontal_overflow()
 
     def test_learn_nested_table_and_completion_controls(self):
         self.page.set_viewport_size({"width": 1200, "height": 800})

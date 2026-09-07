@@ -4,7 +4,7 @@
 
 {% block content %}
 <div
-  class="learn-lesson-page{% if is_completed %} is-completed{% endif %}"
+  class="learn-lesson-page{% if course %} course-lesson-page{% endif %}{% if is_completed %} is-completed{% endif %}"
   data-learning-lesson-page
 >
   {% if not is_started %}
@@ -83,9 +83,9 @@
               <h3>Examples</h3>
               {% for example in section.examples %}
                 <figure class="learn-example">
-                  <blockquote lang="fr" data-read-aloud-text>{{ example.french|markdown_inline }}</blockquote>
+                  <blockquote lang="fr" data-read-aloud-text>{% if course %}{{ example.french|markdown_inline }}{% else %}{{ example.french }}{% endif %}</blockquote>
                   <figcaption>
-                    <span>{{ example.english|markdown_inline }}</span>
+                    <span>{% if course %}{{ example.english|markdown_inline }}{% else %}{{ example.english }}{% endif %}</span>
                     {% if example.note %}<small>{{ example.note|markdown_inline }}</small>{% endif %}
                   </figcaption>
                 </figure>

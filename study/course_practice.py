@@ -32,12 +32,25 @@ def evidence_state(user, lesson):
     check = successful_check(user, lesson)
     due_at = check.submitted_at + REVIEW_DELAY if check else None
     review = None
+    rehearsed_review = None
+    active_fresh_review = False
     if check:
         review = check.reviews.filter(
-            status="completed", criterion_met=True,
+            status="completed", independent=True, criterion_met=True,
         ).order_by("-submitted_at").first()
+        rehearsed_review = check.reviews.filter(
+            status="completed", independent=False, criterion_met=True,
+        ).order_by("-submitted_at").first()
+        active_fresh_review = check.reviews.filter(status="active", independent=True).exists()
+    seen_prompts, seen_ids = _exposures(user)
+    fresh_review = [
+        item for item in lesson.practice
+        if item.pool == "review" and _is_fresh(lesson, item, seen_prompts, seen_ids)
+    ]
     return {
         "check": check, "review": review, "due_at": due_at,
+        "rehearsed_review": rehearsed_review,
+        "fresh_review_available": active_fresh_review or _sufficient(fresh_review, "review"),
         "review_due": bool(due_at and timezone.now() >= due_at and not review),
     }
 
@@ -59,17 +72,31 @@ def public_snapshot(attempt):
     }
 
 
-def _selected_items(lesson, mode, seen):
-    bank = [item for item in lesson.practice if item.pool == mode]
-    fresh = [item for item in bank if item.exposure_key not in seen]
+def _exposures(user):
+    seen_prompts, seen_ids = set(), set()
+    for lesson_id, snapshot in CourseAttempt.objects.filter(user=user).values_list("lesson_id", "snapshot"):
+        for item in snapshot["items"]:
+            seen_prompts.add(item["exposure_key"])
+            seen_ids.add((lesson_id, item["id"]))
+    return seen_prompts, seen_ids
+
+
+def _is_fresh(lesson, item, seen_prompts, seen_ids):
+    return item.exposure_key not in seen_prompts and (lesson.id, item.id) not in seen_ids
+
+
+def _sufficient(items, mode):
     count = POOL_MINIMUMS[mode]
+    return len(items) >= count and (
+        mode == "practice" or sum(item.kind == "text" for item in items) >= count // 2
+    )
 
-    def sufficient(items):
-        return len(items) >= count and (
-            mode == "practice" or sum(item.kind == "text" for item in items) >= count // 2
-        )
 
-    candidates = fresh if sufficient(fresh) else bank
+def _selected_items(lesson, mode, seen_prompts, seen_ids):
+    bank = [item for item in lesson.practice if item.pool == mode]
+    fresh = [item for item in bank if _is_fresh(lesson, item, seen_prompts, seen_ids)]
+    count = POOL_MINIMUMS[mode]
+    candidates = fresh if _sufficient(fresh, mode) else bank
     random = secrets.SystemRandom()
     if mode == "practice":
         selected = random.sample(candidates, count)
@@ -96,13 +123,11 @@ def start_attempt(user, lesson, mode):
         check = successful_check(user, lesson)
         if not check or timezone.now() < check.submitted_at + REVIEW_DELAY:
             raise PracticeError("Review opens seven days after a successful check.")
-    seen = {
-        item["exposure_key"]
-        for snapshot in CourseAttempt.objects.filter(user=user).values_list("snapshot", flat=True)
-        for item in snapshot["items"]
-    }
-    selected = _selected_items(lesson, mode, seen)
-    independent = mode != "practice" and all(item.exposure_key not in seen for item in selected)
+    seen_prompts, seen_ids = _exposures(user)
+    selected = _selected_items(lesson, mode, seen_prompts, seen_ids)
+    independent = mode != "practice" and all(
+        _is_fresh(lesson, item, seen_prompts, seen_ids) for item in selected
+    )
     snapshot = {
         "title": lesson.title, "slug": lesson.slug, "cefr_level": lesson.cefr_level,
         "version": lesson.version,

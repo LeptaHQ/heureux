@@ -79,6 +79,19 @@ sessions, cannot become fresh evidence through a retry or feedback edit.
 Bank exhaustion permits rehearsal, not a false independent-mastery claim.
 Open production is saved for model/rubric self-review, never automatically scored.
 
+The separate practice page offers section/item guidance, not a mastery score.
+Learning prioritizes recent incorrect or blank first answers, then hint-supported
+answers, then untested items, using completed sessions only. It spreads equally
+prioritized sections and prefers unseen practice items within the chosen focus;
+revisiting a known weakness may deliberately rehearse an old question.
+Checks/reviews spread eligible sections while preserving their bounded size,
+text-answer quota and fresh-bank preference. Frozen session scope lists omitted
+sections and those without eligible items; a short sample is not full coverage.
+Section feedback uses only completed checks/reviews, counts the latest first
+answer per unchanged item, and labels rehearsed evidence. Unchanged item versions
+can inform guidance after teaching edits, explicitly labelled as older evidence;
+new or changed items remain untested, and earlier results are never rewritten.
+
 Answer normalization preserves accents and internal punctuation, while allowing
 case, typographic apostrophes, whitespace and optional terminal `. ! ? …`.
 Items testing capitalization or terminal punctuation can explicitly set

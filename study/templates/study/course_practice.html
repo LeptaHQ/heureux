@@ -31,6 +31,33 @@
     {% if evidence.rehearsed_review %}<p>Rehearsed review criterion met: <a href="{% url 'study:course_attempt' evidence.rehearsed_review.pk %}">{{ evidence.rehearsed_review.submitted_at|date:"j M Y, H:i" }}</a>. Useful practice, but not fresh independent evidence.</p>{% endif %}
     {% if evidence.review_exhausted %}<p>The fresh-review requirement is still outstanding. This bank has insufficient unseen review items; you can keep rehearsing, but another fresh review needs new items. Repeating these questions cannot complete the fresh-review requirement.</p>{% endif %}
   </section>
+  <section class="card course-practice-section course-guidance" aria-labelledby="section-evidence-title">
+    <h2 id="section-evidence-title">Section / item evidence</h2>
+    <p>Completed check / review first answers for unchanged items, not mastery or every CEFR skill. Open sections for untested items and learning focus.</p>
+    <details>
+      <summary>Sections and practice focus ({{ guidance|length }})</summary>
+      <dl class="course-guidance-list">
+        {% for row in guidance %}
+          <div>
+            <dt><a href="{% url 'study:course_lesson' lesson.slug %}#{{ row.id }}">{{ row.title }}</a></dt>
+            <dd>
+              {% if row.assessed %}
+                <p>{{ row.correct }}/{{ row.assessed }} latest first answers correct · {{ row.blank }} blank · {{ row.untested }} bank items untested.<br>
+                  From fresh sessions: {{ row.fresh }} / rehearsed sessions: {{ row.rehearsed }} · latest {{ row.last_assessed|date:"j M Y" }}.
+                  {% if row.older_content %}{{ row.older_content }} from earlier teaching versions; unchanged items only, not evidence for new material.{% endif %}</p>
+              {% else %}
+                <p>No completed check / review item evidence. {{ row.untested }} bank items untested.</p>
+              {% endif %}
+              <p>{{ row.reason }}{% if not row.practice_count %} No learning-practice items in this section.{% endif %}</p>
+              {% if not row.check_count or not row.review_count %}<p class="course-bank-limit">{% if not row.check_count %}No check items.{% endif %} {% if not row.review_count %}No review items.{% endif %} This bank cannot assess all teaching here.</p>{% endif %}
+            </dd>
+          </div>
+        {% endfor %}
+      </dl>
+      <p>Untested means no completed check / review first answer, not inability. Learning focus also uses completed learning sessions: recent misses or blanks first, then hint-supported answers, then untested items. Within that focus, new practice questions come first when available. Hints and rehearsal are learning, not independent evidence.</p>
+      <p>Each check samples 8 items and each review 4, with at least half text answers. Sections are spread where feasible; slot, text-answer and fresh-bank limits can leave sections out. Each session records its own sampling limits. Reading completion and earlier results are unchanged.</p>
+    </details>
+  </section>
   <section class="card course-practice-section">
     <h2>Apply it yourself · unscored</h2>
     <p>{{ lesson.production_task.prompt|markdown_inline }}</p>

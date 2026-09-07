@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import tempfile
+from collections import Counter
 from copy import deepcopy
 from dataclasses import replace
 from datetime import timedelta
@@ -21,15 +22,15 @@ from study.course_content import (
     load_course_catalog, normalize_answer, parse_course_lesson, validate_coverage_ledger,
 )
 from study.course_practice import (
-    PracticeError, _answer, _complete, abandon_attempt, evidence_state, practice_event,
-    start_attempt, submit_check,
+    PracticeError, _answer, _complete, _selected_items, abandon_attempt, evidence_state,
+    practice_event, practice_guidance, start_attempt, submit_check,
 )
 from study.learning_content import load_learning_catalog
 from study.models import Annotation, CourseAttempt, CourseProduction, LearningLessonProgress
 from study.templatetags.study_markdown import render_markdown_inline
 
 from . import factories
-from .course_fixtures import course_catalog, course_lesson, course_payload
+from .course_fixtures import course_catalog, course_lesson, course_payload, sectioned_course_lesson
 
 
 class CourseSchemaTests(SimpleTestCase):
@@ -568,3 +569,306 @@ class CoursePlatformTests(TestCase):
         self.assertEqual(result.status_code, 302)
         self.assertFalse(CourseAttempt.objects.filter(user_id=self.other.pk).exists())
         self.assertFalse(CourseProduction.objects.filter(user_id=self.other.pk).exists())
+
+
+class CourseGuidanceTests(TestCase):
+    def setUp(self):
+        self.user = factories.make_user("guidance-owner", pin="482731")
+        self.other = factories.make_user("guidance-other", pin="482731")
+        self.client.force_login(self.user)
+        self.lesson = sectioned_course_lesson()
+
+    def finish_learning(self, attempt, correct=True):
+        for item in attempt.snapshot["items"]:
+            response = item["answers"][0] if correct else (
+                "maison" if item["kind"] == "choice" else ""
+            )
+            attempt = practice_event(self.user, attempt.pk, item["id"], "answer", response)
+        return attempt
+
+    def finish_check(self, attempt, correct=True, user=None):
+        return submit_check(user or self.user, attempt.pk, {
+            item["id"]: item["answers"][0] if correct else (
+                "maison" if item["kind"] == "choice" else ""
+            ) for item in attempt.snapshot["items"]
+        })
+
+    def one_section_practice(self):
+        return replace(self.lesson, practice=tuple(
+            item for item in self.lesson.practice
+            if item.pool != "practice" or item.section_id == "section-0"
+        ))
+
+    def page(self, lesson=None):
+        lesson = lesson or self.lesson
+        with patch("study.views.course.load_course_catalog", return_value=build_course_catalog([lesson])):
+            return self.client.get(reverse("study:course_practice", args=[lesson.slug]))
+
+    def test_weak_section_is_rehearsed_ahead_of_unseen_strong_sections(self):
+        original = self.finish_learning(
+            start_attempt(self.user, self.one_section_practice(), "practice"), False,
+        )
+        frozen = deepcopy(original.snapshot), deepcopy(original.events), deepcopy(original.results)
+        next_attempt = start_attempt(self.user, self.lesson, "practice")
+        self.assertEqual({item["section_id"] for item in next_attempt.snapshot["items"]}, {"section-0"})
+        self.assertTrue(next_attempt.snapshot["selection"]["focus"][0]["rehearsed"])
+        self.assertIn("incorrect or blank", next_attempt.snapshot["selection"]["focus"][0]["reason"])
+        self.assertFalse(next_attempt.independent)
+        self.finish_learning(next_attempt)
+        next_attempt = start_attempt(self.user, self.lesson, "practice")
+        self.assertNotIn("section-0", {item["section_id"] for item in next_attempt.snapshot["items"]})
+        original.refresh_from_db()
+        self.assertEqual((original.snapshot, original.events, original.results), frozen)
+        self.assertTrue(all(row["assessed"] == 0 for row in practice_guidance(self.user, self.lesson)))
+        self.assertIsNone(evidence_state(self.user, self.lesson)["check"])
+
+    def test_unseen_questions_are_preferred_within_the_weak_focus(self):
+        self.finish_learning(start_attempt(self.user, self.one_section_practice(), "practice"), False)
+        added = tuple(
+            replace(item, id="new-" + item.id, prompt="Another constrained task: " + item.prompt)
+            for item in self.lesson.practice if item.pool == "practice" and item.section_id == "section-0"
+        )
+        updated = replace(self.lesson, practice=(*self.lesson.practice, *added))
+        attempt = start_attempt(self.user, updated, "practice")
+        self.assertEqual({item["id"] for item in attempt.snapshot["items"]}, {item.id for item in added})
+        self.assertFalse(attempt.snapshot["selection"]["focus"][0]["rehearsed"])
+
+    def test_learning_spreads_untried_sections_and_prefers_most_recent_needs(self):
+        self.lesson = sectioned_course_lesson(5)
+        unseen = start_attempt(self.user, self.lesson, "practice")
+        self.assertEqual(len({item["section_id"] for item in unseen.snapshot["items"]}), 4)
+        abandon_attempt(self.user, unseen.pk)
+        now = timezone.now()
+        for index in range(5):
+            focused = replace(self.lesson, practice=tuple(
+                item for item in self.lesson.practice
+                if item.pool != "practice" or item.section_id == f"section-{index}"
+            ))
+            with patch("study.course_practice.timezone.now", return_value=now + timedelta(minutes=index)):
+                self.finish_learning(start_attempt(self.user, focused, "practice"), False)
+        attempt = start_attempt(self.user, self.lesson, "practice")
+        self.assertEqual(
+            {item["section_id"] for item in attempt.snapshot["items"]},
+            {f"section-{index}" for index in range(1, 5)},
+        )
+
+    def test_unanswered_and_hinted_learning_never_become_assessment_feedback(self):
+        attempt = start_attempt(self.user, self.one_section_practice(), "practice")
+        item = attempt.snapshot["items"][0]
+        practice_event(self.user, attempt.pk, item["id"], "hint")
+        self.assertTrue(all(row["priority"] == 2 for row in practice_guidance(self.user, self.lesson)))
+        self.finish_learning(attempt)
+        rows = practice_guidance(self.user, self.lesson)
+        self.assertEqual(rows[0]["priority"], 1)
+        self.assertEqual(rows[0]["assessed"], 0)
+        next_attempt = start_attempt(self.user, self.lesson, "practice")
+        self.assertEqual({item["section_id"] for item in next_attempt.snapshot["items"]}, {"section-0"})
+        self.assertIn("Hint-supported", next_attempt.snapshot["selection"]["focus"][0]["reason"])
+
+    def test_learning_uses_latest_completed_first_answers_not_retries(self):
+        attempt = start_attempt(self.user, self.one_section_practice(), "practice")
+        first = attempt.snapshot["items"][0]
+        wrong = "maison" if first["kind"] == "choice" else ""
+        practice_event(self.user, attempt.pk, first["id"], "answer", wrong)
+        with self.assertRaises(PracticeError):
+            practice_event(self.user, attempt.pk, first["id"], "answer", first["answers"][0])
+        self.assertEqual(practice_guidance(self.user, self.lesson)[0]["priority"], 2)
+        for item in attempt.snapshot["items"][1:]:
+            practice_event(self.user, attempt.pk, item["id"], "answer", item["answers"][0])
+        self.assertEqual(practice_guidance(self.user, self.lesson)[0]["priority"], 0)
+        self.finish_learning(start_attempt(self.user, self.one_section_practice(), "practice"))
+        self.assertEqual(practice_guidance(self.user, self.lesson)[0]["priority"], 3)
+
+    def test_sections_balance_and_text_quota_across_bank_compositions(self):
+        for mode, count in (("check", 8), ("review", 4)):
+            for section_count in (1, 3, 10):
+                lesson = sectioned_course_lesson(section_count)
+                bank = [item for item in lesson.practice if item.pool == mode]
+                for composition in ("mixed", "text-only", "concentrated-text"):
+                    with self.subTest(mode=mode, sections=section_count, composition=composition):
+                        if composition == "text-only":
+                            items = tuple(replace(item, kind="text", choices=()) for item in bank)
+                        elif composition == "concentrated-text":
+                            items = tuple(
+                                replace(item, kind="text", choices=()) if item.section_id == "section-0"
+                                else replace(item, kind="choice", choices=("école", "maison"), answers=("école",))
+                                for item in bank
+                            )
+                        else:
+                            items = tuple(bank)
+                        changed = replace(lesson, practice=items)
+                        for _ in range(12):
+                            selected = _selected_items(changed, mode, set(), set())
+                            self.assertEqual(len({item.id for item in selected}), count)
+                            self.assertGreaterEqual(sum(item.kind == "text" for item in selected), count // 2)
+                            spread = Counter(item.section_id for item in selected)
+                            maximum_sections = min(section_count, count)
+                            if composition == "concentrated-text":
+                                maximum_sections = min(section_count, count // 2 + 1)
+                            self.assertEqual(len(spread), maximum_sections)
+                            if composition != "concentrated-text" and section_count <= count:
+                                self.assertLessEqual(max(spread.values()) - min(spread.values()), 1)
+
+    def test_fresh_bank_wins_over_broader_rehearsed_section_coverage(self):
+        for mode in ("check", "review"):
+            bank = [item for item in self.lesson.practice if item.pool == mode]
+            seen = {(self.lesson.id, item.id) for item in bank if item.section_id != "section-0"}
+            selected = _selected_items(self.lesson, mode, set(), seen)
+            self.assertEqual({item.section_id for item in selected}, {"section-0"})
+            text = next(item for item in bank if item.section_id == "section-0" and item.kind == "text")
+            seen.add((self.lesson.id, text.id))
+            selected = _selected_items(self.lesson, mode, set(), seen)
+            self.assertGreater(len({item.section_id for item in selected}), 1)
+            self.assertTrue(any((self.lesson.id, item.id) in seen for item in selected))
+            self.assertGreaterEqual(sum(item.kind == "text" for item in selected), len(selected) // 2)
+
+    def test_enough_fresh_choices_without_text_quota_cannot_be_independent(self):
+        for mode, count in (("check", 8), ("review", 4)):
+            seen_items = [
+                item for item in self.lesson.practice if item.pool == mode and item.kind == "text"
+            ]
+            seen = {(self.lesson.id, item.id) for item in seen_items}
+            choices = [item for item in self.lesson.practice if item.pool == mode and item.kind == "choice"]
+            self.assertGreaterEqual(len(choices), count)
+            selected = _selected_items(self.lesson, mode, set(), seen)
+            self.assertEqual(len(selected), count)
+            self.assertGreaterEqual(sum(item.kind == "text" for item in selected), count // 2)
+            self.assertTrue(any((self.lesson.id, item.id) in seen for item in selected))
+
+    def test_assessment_difficulty_and_recency_guide_learning_not_current_check_answers(self):
+        initial = self.finish_check(start_attempt(self.user, self.lesson, "check"), False)
+        rows = practice_guidance(self.user, self.lesson)
+        self.assertTrue(all(row["priority"] == 0 for row in rows))
+        self.assertEqual(sum(row["assessed"] for row in rows), 8)
+        self.assertEqual(sum(row["correct"] for row in rows), 0)
+        active = start_attempt(self.user, self.lesson, "check")
+        active.events = [
+            {"action": "answer", "item_id": item["id"], "correct": True,
+             "response": item["answers"][0], "hinted": False, "at": timezone.now().isoformat()}
+            for item in active.snapshot["items"]
+        ]
+        active.save(update_fields=["events"])
+        self.assertEqual(practice_guidance(self.user, self.lesson), rows)
+        self.assertEqual(self.page().context["guidance"], rows)
+        abandon_attempt(self.user, active.pk)
+        self.assertEqual(practice_guidance(self.user, self.lesson), rows)
+        initial.refresh_from_db()
+        self.assertEqual(initial.results["correct"], 0)
+
+    def test_unchanged_item_history_survives_teaching_edits_without_assessing_new_material(self):
+        original = self.finish_check(start_attempt(self.user, self.lesson, "check"))
+        old_item = original.snapshot["items"][0]
+        new_section = replace(self.lesson.sections[0], id="added", title="New teaching")
+        updated = replace(
+            self.lesson, sections=(*self.lesson.sections, new_section),
+            practice=tuple(
+                replace(item, explanation="A corrected explanation.") if item.id == old_item["id"] else item
+                for item in self.lesson.practice
+            ),
+        )
+        frozen = deepcopy(original.snapshot), deepcopy(original.results)
+        rows = practice_guidance(self.user, updated)
+        self.assertEqual(sum(row["assessed"] for row in rows), 7)
+        self.assertEqual(sum(row["older_content"] for row in rows), 7)
+        self.assertEqual(rows[-1]["assessed"], 0)
+        self.assertEqual(rows[-1]["practice_count"], 0)
+        self.assertIsNone(evidence_state(self.user, updated)["check"])
+        page = self.page(updated)
+        self.assertContains(page, "from earlier teaching versions")
+        self.assertContains(page, "not evidence for new material")
+        self.assertContains(page, "No check items.")
+        self.assertContains(page, "No review items.")
+        self.assertNotContains(page, "Private check feedback")
+        original.refresh_from_db()
+        self.assertEqual((original.snapshot, original.results), frozen)
+
+    def test_new_items_are_untested_even_when_all_prior_check_items_were_correct(self):
+        self.lesson = course_lesson()
+        self.finish_check(start_attempt(self.user, self.lesson, "check"))
+        added = replace(
+            self.lesson.practice[4], id="new-distinction",
+            prompt="A newly taught distinction: supply the requested form.",
+        )
+        updated = replace(self.lesson, practice=(*self.lesson.practice, added))
+        row = practice_guidance(self.user, updated)[0]
+        self.assertEqual((row["assessed"], row["correct"], row["untested"]), (8, 8, 5))
+        self.assertEqual(row["older_content"], 8)
+        self.assertIsNone(evidence_state(self.user, updated)["check"])
+
+    def test_completed_rehearsal_is_labelled_and_latest_not_accumulated(self):
+        self.lesson = course_lesson()
+        first = self.finish_check(start_attempt(self.user, self.lesson, "check"), False)
+        second = self.finish_check(start_attempt(self.user, self.lesson, "check"))
+        row = practice_guidance(self.user, self.lesson)[0]
+        self.assertEqual((row["assessed"], row["correct"], row["fresh"], row["rehearsed"]), (8, 8, 0, 8))
+        self.assertEqual(row["untested"], 4)
+        self.assertFalse(second.independent)
+        first.refresh_from_db()
+        self.assertEqual(first.results["correct"], 0)
+        with patch("study.course_practice.timezone.now", return_value=second.submitted_at + timedelta(days=7)):
+            review = self.finish_check(start_attempt(self.user, self.lesson, "review"), False)
+            row = practice_guidance(self.user, self.lesson)[0]
+            self.assertEqual((row["assessed"], row["correct"], row["fresh"], row["rehearsed"]), (12, 8, 4, 8))
+            self.assertEqual(row["untested"], 0)
+            self.assertEqual(row["last_assessed"], review.submitted_at)
+            self.assertTrue(evidence_state(self.user, self.lesson)["review_exhausted"])
+
+    def test_session_scope_is_frozen_and_reports_missing_and_bounded_sections(self):
+        lesson = sectioned_course_lesson(10)
+        added = replace(lesson.sections[0], id="no-bank", title="No bank section")
+        lesson = replace(lesson, sections=(*lesson.sections, added))
+        attempt = start_attempt(self.user, lesson, "check")
+        notes = deepcopy(attempt.snapshot["selection"])
+        self.assertEqual((notes["sampled"], notes["total"]), (8, 11))
+        self.assertEqual(len(notes["omitted"]), 3)
+        self.assertEqual(notes["unavailable"], ["No bank section"])
+        response = self.client.get(reverse("study:course_attempt", args=[attempt.pk]))
+        self.assertContains(response, "8/11 teaching sections sampled")
+        self.assertContains(response, "No eligible items in this session")
+        self.assertNotContains(response, "Private check feedback")
+        changed = replace(lesson, sections=tuple(
+            replace(section, title="Changed " + section.title) for section in lesson.sections
+        ))
+        self.assertEqual(start_attempt(self.user, changed, "check").pk, attempt.pk)
+        attempt.refresh_from_db()
+        self.assertEqual(attempt.snapshot["selection"], notes)
+        self.assertNotContains(self.client.get(reverse("study:export_account")), '"selection"')
+
+    def test_published_snapshots_without_selection_metadata_still_render_and_inform_guidance(self):
+        original = self.finish_check(start_attempt(self.user, self.lesson, "check"))
+        old_snapshot = {key: value for key, value in original.snapshot.items() if key != "selection"}
+        historical = CourseAttempt.objects.create(
+            user=self.other, lesson_id=self.lesson.id, content_version=self.lesson.content_version,
+            mode="check", status="completed", independent=True, criterion_met=True,
+            snapshot=old_snapshot, events=original.events, results=original.results,
+            submitted_at=original.submitted_at,
+        )
+        self.client.force_login(self.other)
+        page = self.client.get(reverse("study:course_attempt", args=[historical.pk]))
+        self.assertEqual(page.status_code, 200)
+        self.assertContains(page, "First submitted results")
+        self.assertNotContains(page, "Session scope:")
+        self.assertEqual(sum(row["assessed"] for row in practice_guidance(self.other, self.lesson)), 8)
+        historical.refresh_from_db()
+        self.assertNotIn("selection", historical.snapshot)
+
+    def test_guidance_is_single_query_private_and_removed_with_account_history(self):
+        self.finish_check(start_attempt(self.other, self.lesson, "check"), user=self.other)
+        with self.assertNumQueries(1):
+            rows = practice_guidance(self.user, self.lesson)
+        self.assertTrue(all(row["assessed"] == 0 for row in rows))
+        self.finish_check(start_attempt(self.user, self.lesson, "check"))
+        self.assertGreater(sum(row["assessed"] for row in practice_guidance(self.user, self.lesson)), 0)
+        page = self.page()
+        self.assertContains(page, "Section / item evidence")
+        self.assertContains(page, "Sections and practice focus (3)")
+        self.assertNotContains(page, "Private check feedback")
+        self.assertNotContains(page, '"item_version"')
+        for attempt in page.context["attempts"]:
+            self.assertIn("snapshot", attempt.get_deferred_fields())
+            self.assertIn("events", attempt.get_deferred_fields())
+        self.client.post(reverse("study:reset_progress"), {
+            "current_pin": "482731", "confirmation": "REINITIALISER",
+        })
+        self.assertTrue(all(row["assessed"] == 0 for row in practice_guidance(self.user, self.lesson)))
+        self.assertEqual(sum(row["assessed"] for row in practice_guidance(self.other, self.lesson)), 8)

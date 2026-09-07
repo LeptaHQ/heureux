@@ -1,5 +1,7 @@
 """Small synthetic banks for platform behavior, not published teaching content."""
 
+from copy import deepcopy
+
 from study.course_content import build_course_catalog, parse_course_lesson
 
 
@@ -64,3 +66,20 @@ def course_catalog():
     return build_course_catalog((
         course_lesson(), course_lesson("A2"), course_lesson("C1-preparation"),
     ))
+
+
+def sectioned_course_lesson(section_count=3):
+    payload = course_payload()
+    sections, items = [], []
+    for index in range(section_count):
+        section = deepcopy(payload["sections"][0])
+        section.update(id=f"section-{index}", title=f"Teaching section {index + 1}")
+        sections.append(section)
+        for original in payload["practice"]:
+            item = deepcopy(original)
+            item.update(
+                id=f"s{index}-{original['id']}", section_id=section["id"],
+                prompt=f"Section {index + 1}: {original['prompt']}",
+            )
+            items.append(item)
+    return parse_course_lesson({**payload, "sections": sections, "practice": items}, directory="a1")

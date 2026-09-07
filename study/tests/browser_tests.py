@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+from dataclasses import replace
 from unittest import mock
 
 from django.contrib.sessions.models import Session
@@ -15,7 +16,8 @@ from django.utils import timezone
 from study import content_loader as content
 from study.account_services import provision_user_study_data
 from study.content_loader import load_sections
-from study.course_content import load_course_catalog
+from study.course_content import build_course_catalog, load_course_catalog
+from study.course_practice import practice_event, start_attempt
 from study.learning_content import load_learning_catalog
 from study.management.commands.import_content import Command
 from study.models import (
@@ -40,7 +42,7 @@ from study.models import (
 from study.routing import response_detail_url, theme_detail_url
 
 from . import factories
-from .course_fixtures import course_catalog
+from .course_fixtures import course_catalog, sectioned_course_lesson
 
 
 @override_settings(
@@ -6577,6 +6579,82 @@ class BrowserTests(StaticLiveServerTestCase):
         for width in (320, 390, 768, 1200):
             self.page.set_viewport_size({"width": width, "height": 844})
             self.assert_no_horizontal_overflow()
+
+    def test_course_section_guidance_is_compact_accessible_and_completed_only(self):
+        lesson = sectioned_course_lesson()
+        empty = replace(lesson.sections[0], id="new-teaching", title="New teaching without questions")
+        lesson = replace(lesson, sections=(*lesson.sections, empty))
+        for target in ("study.views.learning.load_course_catalog", "study.views.course.load_course_catalog"):
+            loader = mock.patch(target, return_value=build_course_catalog([lesson]))
+            loader.start()
+            self.addCleanup(loader.stop)
+        focused = replace(lesson, practice=tuple(
+            item for item in lesson.practice if item.pool != "practice" or item.section_id == "section-0"
+        ))
+        practice = start_attempt(self.user, focused, "practice")
+        for item in practice.snapshot["items"]:
+            practice_event(
+                self.user, practice.pk, item["id"], "answer",
+                "" if item["kind"] == "text" else "maison",
+            )
+        self.page.goto(self.live_server_url + reverse("study:course_practice", args=[lesson.slug]))
+        guidance = self.page.get_by_role("region", name="Section / item evidence")
+        summary = guidance.locator("summary")
+        expect(summary).to_have_text("Sections and practice focus (4)")
+        expect(guidance.locator("details")).not_to_have_attribute("open", "")
+        for width in (320, 390, 768, 1200):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            self.assertLess(guidance.bounding_box()["height"], 350)
+            self.assert_no_horizontal_overflow()
+        summary.focus()
+        self.page.keyboard.press("Enter")
+        expect(guidance.locator("details")).to_have_attribute("open", "")
+        expect(guidance.get_by_text("Recent incorrect or blank first answers", exact=False)).to_have_count(1)
+        expect(guidance.get_by_text("No completed check / review item evidence.", exact=False)).to_have_count(4)
+        expect(guidance.get_by_text("No check items.", exact=False)).to_be_visible()
+        for width in (320, 390, 768, 1200):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            self.assert_no_horizontal_overflow()
+        guidance.get_by_role("link", name="Teaching section 1").click()
+        self.page.wait_for_url("**/apprendre/cours/a1-foundations/#section-0")
+        expect(self.page.locator("#section-0")).to_be_in_viewport()
+        expect(self.page.locator(".course-guidance")).to_have_count(0)
+        self.page.get_by_role("link", name="Practise this lesson").click()
+        self.page.get_by_role("button", name="Learning practice", exact=True).click()
+        self.page.wait_for_url("**/apprendre/pratique/*/")
+        scope = self.page.locator(".course-selection")
+        expect(scope.locator("summary")).to_have_text("Session scope: 1/4 teaching sections sampled")
+        scope.locator("summary").click()
+        expect(scope.get_by_text("Includes previously seen learning questions.", exact=False)).to_be_visible()
+        self.assertNotIn("Private check feedback", self.page.content())
+        self.page.get_by_role("link", name="Practice and history").click()
+        self.page.get_by_role("button", name="Start / resume check").click()
+        self.page.wait_for_url("**/apprendre/pratique/*/")
+        attempt = CourseAttempt.objects.get(user=self.user, mode="check")
+        for item in attempt.snapshot["items"]:
+            if item["kind"] == "text":
+                self.page.locator(f"[name='answer-{item['id']}']").fill(item["answers"][0])
+            else:
+                self.page.locator(f"[name='answer-{item['id']}'][value='école']").check()
+        practice_url = self.live_server_url + reverse("study:course_practice", args=[lesson.slug])
+        other_tab = self.context.new_page()
+        other_tab.goto(practice_url)
+        other_tab.locator(".course-guidance summary").click()
+        expect(other_tab.get_by_text("No completed check / review item evidence.", exact=False)).to_have_count(4)
+        self.assertNotIn("Private check feedback", other_tab.content())
+        self.page.get_by_role("button", name="Submit all answers once").click()
+        expect(self.page.get_by_role("heading", name="First submitted results")).to_be_visible()
+        other_tab.reload()
+        other_tab.locator(".course-guidance summary").click()
+        expect(other_tab.get_by_text("latest first answers correct", exact=False)).to_have_count(3)
+        expect(other_tab.get_by_text("No completed check / review item evidence.", exact=False)).to_have_count(1)
+        for width in (320, 390, 768, 1200):
+            other_tab.set_viewport_size({"width": width, "height": 844})
+            self.assertLessEqual(other_tab.evaluate(
+                "document.documentElement.scrollWidth - window.innerWidth"
+            ), 1)
+        self.assertNotIn("Private check feedback", other_tab.content())
+        other_tab.close()
 
     def test_learn_nested_table_and_completion_controls(self):
         self.page.set_viewport_size({"width": 1200, "height": 800})

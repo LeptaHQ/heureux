@@ -11,7 +11,7 @@ from django.views.decorators.http import require_http_methods, require_POST
 
 from ..course_content import load_course_catalog
 from ..course_practice import (
-    PracticeError, abandon_attempt, evidence_state, practice_event, public_snapshot,
+    PracticeError, abandon_attempt, evidence_state, practice_event, practice_guidance, public_snapshot,
     start_attempt, submit_check,
 )
 from ..models import CourseAttempt, CourseProduction
@@ -38,8 +38,13 @@ def course_practice(request, lesson_slug):
             return redirect("study:course_attempt", attempt_id=attempt.pk)
     return render(request, "study/course_practice.html", {
         "lesson": lesson, "evidence": evidence_state(request.user, lesson),
-        "attempts": CourseAttempt.objects.filter(user=request.user, lesson_id=lesson.id),
-        "productions": CourseProduction.objects.filter(user=request.user, lesson_id=lesson.id),
+        "guidance": practice_guidance(request.user, lesson),
+        "attempts": CourseAttempt.objects.filter(
+            user=request.user, lesson_id=lesson.id,
+        ).defer("snapshot", "events"),
+        "productions": CourseProduction.objects.filter(
+            user=request.user, lesson_id=lesson.id,
+        ).defer("task_snapshot", "body"),
         "error": error,
     }, status=400 if error else 200)
 

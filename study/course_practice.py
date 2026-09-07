@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import secrets
+from collections import Counter
 from dataclasses import asdict
 from datetime import timedelta
 
@@ -77,7 +78,8 @@ def public_snapshot(attempt):
 
 def _exposures(user):
     seen_prompts, seen_ids = set(), set()
-    for lesson_id, snapshot in CourseAttempt.objects.filter(user=user).values_list("lesson_id", "snapshot"):
+    history = CourseAttempt.objects.filter(user=user).values_list("lesson_id", "snapshot")
+    for lesson_id, snapshot in history.iterator(chunk_size=100):
         for item in snapshot["items"]:
             seen_prompts.add(item["exposure_key"])
             seen_ids.add((lesson_id, item["id"]))
@@ -95,19 +97,158 @@ def _sufficient(items, mode):
     )
 
 
-def _selected_items(lesson, mode, seen_prompts, seen_ids):
+def _item_history(user, lesson):
+    """Keep only latest completed first answers for exactly unchanged items."""
+    versions = {item.id: item.item_version for item in lesson.practice}
+    latest, assessed = {}, {}
+    history = CourseAttempt.objects.filter(
+        user=user, lesson_id=lesson.id, status="completed",
+    ).order_by("-submitted_at", "-started_at", "-id").values_list(
+        "snapshot", "events", "mode", "independent", "content_version", "submitted_at",
+    )
+    content_version = lesson.content_version
+    for snapshot, events, mode, independent, version, submitted_at in history.iterator(chunk_size=100):
+        first = _first_answers(events)
+        for item in snapshot["items"]:
+            if versions.get(item["id"]) != item["item_version"] or item["id"] not in first:
+                continue
+            event = first[item["id"]]
+            record = {
+                "correct": event["correct"], "blank": not event["response"].strip(),
+                "hinted": event["hinted"], "at": submitted_at,
+                "older_content": version != content_version,
+                "independent": independent,
+            }
+            latest.setdefault(item["id"], record)
+            if mode in {"check", "review"}:
+                assessed.setdefault(item["id"], record)
+    return latest, assessed
+
+
+def _section_guidance(lesson, latest, assessed):
+    rows = []
+    for section in lesson.sections:
+        bank = [item for item in lesson.practice if item.section_id == section.id]
+        learning = [item for item in bank if item.pool == "practice"]
+        records = [latest[item.id] for item in bank if item.id in latest]
+        missed = [record for record in records if not record["correct"]]
+        hinted = [record for record in records if record["hinted"]]
+        untried = [item for item in learning if item.id not in latest]
+        if missed:
+            priority, needs = 0, missed
+            reason = "Recent incorrect or blank first answers; revisit this section."
+        elif hinted:
+            priority, needs = 1, hinted
+            reason = "Hint-supported first answers; try without help."
+        elif untried or not records:
+            priority, needs = 2, []
+            reason = "No completed first answer for some items; try something untested."
+        else:
+            priority, needs = 3, []
+            reason = "Revisit earlier learning; no current missed first answers recorded."
+        checks = [assessed[item.id] for item in bank if item.id in assessed]
+        rows.append({
+            "id": section.id, "title": section.title, "reason": reason,
+            "priority": priority,
+            "recent_need": max((record["at"].timestamp() for record in needs), default=0),
+            "practice_count": len(learning),
+            "check_count": sum(item.pool == "check" for item in bank),
+            "review_count": sum(item.pool == "review" for item in bank),
+            "assessed": len(checks),
+            "untested": sum(item.pool != "practice" and item.id not in assessed for item in bank),
+            "correct": sum(record["correct"] for record in checks),
+            "blank": sum(record["blank"] for record in checks),
+            "fresh": sum(record["independent"] for record in checks),
+            "rehearsed": sum(not record["independent"] for record in checks),
+            "older_content": sum(record["older_content"] for record in checks),
+            "last_assessed": max((record["at"] for record in checks), default=None),
+        })
+    return rows
+
+
+def practice_guidance(user, lesson):
+    latest, assessed = _item_history(user, lesson)
+    return _section_guidance(lesson, latest, assessed)
+
+
+def _assessment_sample(candidates, count, random):
+    remaining = list(candidates)
+    random.shuffle(remaining)
+    selected, sections = [], Counter()
+    text_count, quota = 0, count // 2
+    while len(selected) < count:
+        slots_left = count - len(selected) - 1
+        texts_left = sum(item.kind == "text" for item in remaining)
+        # Reserve enough slots for constructed answers before spreading sections.
+        feasible = [
+            item for item in remaining
+            if text_count + (item.kind == "text")
+            + min(slots_left, texts_left - (item.kind == "text")) >= quota
+        ]
+        item = min(feasible, key=lambda item: (
+            sections[item.section_id],
+            item.kind != "text" if text_count < quota else False,
+        ))
+        selected.append(item)
+        remaining.remove(item)
+        sections[item.section_id] += 1
+        text_count += item.kind == "text"
+    return selected
+
+
+def _selected_items(lesson, mode, seen_prompts, seen_ids, latest=None, guidance=None):
     bank = [item for item in lesson.practice if item.pool == mode]
+    if not _sufficient(bank, mode):
+        raise PracticeError("This bank has insufficient items or text answers for this session.")
     fresh = [item for item in bank if _is_fresh(lesson, item, seen_prompts, seen_ids)]
     count = POOL_MINIMUMS[mode]
-    candidates = fresh if _sufficient(fresh, mode) else bank
     random = secrets.SystemRandom()
     if mode == "practice":
-        selected = random.sample(candidates, count)
+        latest = {} if latest is None else latest
+        rows = guidance if guidance is not None else _section_guidance(lesson, latest, {})
+        priorities = {row["id"]: row for row in rows}
+        random.shuffle(bank)
+        selected, sections = [], Counter()
+        for _ in range(count):
+            item = min(bank, key=lambda item: (
+                priorities[item.section_id]["priority"], sections[item.section_id],
+                -priorities[item.section_id]["recent_need"],
+                not _is_fresh(lesson, item, seen_prompts, seen_ids),
+                item.id in latest and latest[item.id]["correct"] and not latest[item.id]["hinted"],
+            ))
+            selected.append(item)
+            bank.remove(item)
+            sections[item.section_id] += 1
     else:
-        text = random.sample([item for item in candidates if item.kind == "text"], count // 2)
-        selected = text + random.sample([item for item in candidates if item not in text], count - len(text))
+        candidates = fresh if _sufficient(fresh, mode) else bank
+        selected = _assessment_sample(candidates, count, random)
     random.shuffle(selected)
     return selected
+
+
+def _selection_notes(lesson, mode, selected, seen_prompts, seen_ids, guidance):
+    sampled = {item.section_id for item in selected}
+    bank = [item for item in lesson.practice if item.pool == mode]
+    fresh = [item for item in bank if _is_fresh(lesson, item, seen_prompts, seen_ids)]
+    eligible = fresh if mode != "practice" and _sufficient(fresh, mode) else bank
+    eligible_sections = {item.section_id for item in eligible}
+    return {
+        "sampled": len(sampled), "total": len(lesson.sections),
+        "omitted": [section.title for section in lesson.sections if section.id not in sampled],
+        "unavailable": [
+            section.title for section in lesson.sections if section.id not in eligible_sections
+        ],
+        "focus": [
+            {
+                "title": row["title"], "reason": row["reason"],
+                "rehearsed": any(
+                    item.section_id == row["id"]
+                    and not _is_fresh(lesson, item, seen_prompts, seen_ids) for item in selected
+                ),
+            }
+            for row in guidance if row["id"] in sampled
+        ] if mode == "practice" else [],
+    }
 
 
 @transaction.atomic
@@ -127,13 +268,18 @@ def start_attempt(user, lesson, mode):
         if not check or timezone.now() < check.submitted_at + REVIEW_DELAY:
             raise PracticeError("Review opens seven days after a successful check.")
     seen_prompts, seen_ids = _exposures(user)
-    selected = _selected_items(lesson, mode, seen_prompts, seen_ids)
+    latest, guidance = {}, []
+    if mode == "practice":
+        latest, assessed = _item_history(user, lesson)
+        guidance = _section_guidance(lesson, latest, assessed)
+    selected = _selected_items(lesson, mode, seen_prompts, seen_ids, latest, guidance)
     independent = mode != "practice" and all(
         _is_fresh(lesson, item, seen_prompts, seen_ids) for item in selected
     )
     snapshot = {
         "title": lesson.title, "slug": lesson.slug, "cefr_level": lesson.cefr_level,
         "version": lesson.version,
+        "selection": _selection_notes(lesson, mode, selected, seen_prompts, seen_ids, guidance),
         "items": [
             {
                 **asdict(item), "choices": list(item.choices), "answers": list(item.answers),

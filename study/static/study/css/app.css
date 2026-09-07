@@ -17131,6 +17131,27 @@ html[data-collection-view-mode="table"]
 .course-practice-section h2 {
   font-size: 1.08rem;
 }
+.course-guidance summary,
+.course-selection summary {
+  cursor: pointer;
+}
+.course-guidance-list {
+  margin: 0.6rem 0 0;
+}
+.course-guidance-list > div {
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--border);
+}
+.course-guidance-list dt {
+  font-weight: 600;
+}
+.course-guidance-list dd {
+  margin: 0.25rem 0 0;
+}
+.course-guidance-list p {
+  margin: 0.25rem 0;
+  font-size: 0.88rem;
+}
 .course-practice-section form,
 .course-check-form,
 .course-choices {

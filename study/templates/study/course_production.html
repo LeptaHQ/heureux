@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load study_markdown %}
+{% block title %}Production self-review · Heureux{% endblock %}
+{% block content %}
+<div class="learn-lesson-page course-practice-page" lang="en">
+  <nav class="phrase-category-back"><a href="{% url 'study:course_practice' production.task_snapshot.slug %}">← Practice and history</a></nav>
+  <header class="learn-lesson-hero"><h1>Production self-review</h1><p>{{ production.task_snapshot.title }} · {{ production.created_at|date:"j M Y, H:i" }}</p><p>Unscored. A model and your own rubric review do not independently assess writing, speaking or an official level.</p></header>
+  <section class="card course-practice-section">
+    <h2>Your response</h2>
+    <p>{{ production.task_snapshot.prompt|markdown_inline }}</p>
+    <div class="course-production-text" lang="fr">{{ production.body|linebreaksbr }}</div>
+  </section>
+  <section class="card course-practice-section" data-read-aloud-scope>
+    <h2>One possible model</h2>
+    {% include "study/partials/read_aloud_button.html" with compact=True key="production-model" label="Read the French model" only %}
+    <div lang="fr" data-read-aloud-text>{{ production.task_snapshot.model_answer|markdown_inline }}</div>
+    <p>{{ production.task_snapshot.translation|markdown_inline }}</p>
+    <h3>Review your own work</h3>
+    <ul>{% for criterion in production.task_snapshot.rubric %}<li>{{ criterion|markdown_inline }}</li>{% endfor %}</ul>
+    {% if production.self_reviewed_at %}<p>Self-reviewed {{ production.self_reviewed_at|date:"j M Y, H:i" }}. No assessment score awarded.</p>
+    {% else %}<form method="post">{% csrf_token %}<button class="btn" name="reviewed" value="1">I have reviewed my response against this rubric</button></form>{% endif %}
+  </section>
+</div>
+{% endblock %}

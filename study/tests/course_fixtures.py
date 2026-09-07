@@ -1,0 +1,66 @@
+"""Small synthetic banks for platform behavior, not published teaching content."""
+
+from study.course_content import build_course_catalog, parse_course_lesson
+
+
+def course_payload(level="A1", order=1, *, suffix="foundations", topic="grammar-foundations"):
+    prefix = level[:2].lower()
+    return {
+        "version": 1, "id": f"{prefix}-{suffix}", "slug": f"{prefix}-{suffix}",
+        "cefr_level": level, "topic": topic, "title": f"{level} · Une école",
+        "summary": "Choose a noun's article and preserve its accents.", "order": order,
+        "duration_minutes": 10, "prerequisites": [],
+        "objectives": ["Choose an article that agrees with the noun."],
+        "keywords": ["article", "école", "school"],
+        "sources": [{"label": "Topic index", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"}],
+        "related_legacy_ids": ["grammar-articles-gender"],
+        "sections": [{
+            "id": "rule", "title": "Article agreement",
+            "paragraphs": ["A **noun** names a person, place or thing. <script>unsafe()</script>"],
+            "points": ["Keep grammatical accents."],
+            "examples": [
+                {"french": french, "english": english, "note": ""}
+                for french, english in (
+                    ("**Une** école.\n**Une** maison.", "A school.\nA house."),
+                    ("Un chat.", "A cat."), ("Un livre.", "A book."),
+                    ("Une porte.", "A door."), ("La porte.", "The door."),
+                    ("Le chat.", "The cat."), ("Les livres.", "The books."),
+                    ("Des maisons.", "Some houses."),
+                )
+            ],
+            "mistakes": [
+                {"avoid": "un maison", "prefer": "une maison", "why": "Maison is feminine."},
+                {"avoid": "une livre", "prefer": "un livre", "why": "A book is masculine."},
+            ],
+        }],
+        "practice": [
+            {
+                "id": f"{pool}-{index + 1:02}", "kind": "text" if index % 2 == 0 else "choice",
+                "pool": pool, "section_id": "rule",
+                "prompt": f"{level} {pool} fixture {index + 1}: supply the French word for school.",
+                "choices": [] if index % 2 == 0 else ["école", "maison"],
+                "answers": ["école", "l'école"] if index % 2 == 0 else ["école"],
+                "explanation": f"Private {pool} feedback {index + 1}: keep the accent in école.",
+            }
+            for pool, count in (("practice", 4), ("check", 8), ("review", 4))
+            for index in range(count)
+        ],
+        "production_task": {
+            "prompt": "Describe a place in your town using two noun phrases.",
+            "model_answer": "Il y a une école et une bibliothèque.",
+            "translation": "There is a school and a library.",
+            "rubric": ["Did you choose an article agreeing with each noun?"],
+        },
+    }
+
+
+def course_lesson(level="A1", order=1, **kwargs):
+    payload = course_payload(level, order, **kwargs)
+    directory = "c1-preparation" if level == "C1-preparation" else level.lower()
+    return parse_course_lesson(payload, directory=directory)
+
+
+def course_catalog():
+    return build_course_catalog((
+        course_lesson(), course_lesson("A2"), course_lesson("C1-preparation"),
+    ))

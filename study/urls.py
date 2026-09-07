@@ -1,6 +1,7 @@
 from django.urls import path, register_converter
 
 from . import views
+from .views import course
 
 
 class ExpressionPartConverter:
@@ -76,6 +77,17 @@ urlpatterns = [
     # Main areas
     path("", views.dashboard, name="dashboard"),
     path("apprendre/", views.learn, name="learn"),
+    path("apprendre/cours/<slug:lesson_slug>/", views.learn_lesson,
+         {"course": True}, name="course_lesson"),
+    path("apprendre/cours/<slug:lesson_slug>/progression/", views.learn_lesson_progress,
+         {"course": True}, name="course_lesson_progress"),
+    path("apprendre/cours/<slug:lesson_slug>/commencer/", views.learn_lesson_start,
+         {"course": True}, name="course_lesson_start"),
+    path("apprendre/cours/<slug:lesson_slug>/pratique/", course.course_practice, name="course_practice"),
+    path("apprendre/cours/<slug:lesson_slug>/production/", course.course_production_create,
+         name="course_production_create"),
+    path("apprendre/pratique/<uuid:attempt_id>/", course.course_attempt, name="course_attempt"),
+    path("apprendre/production/<uuid:production_id>/", course.course_production, name="course_production"),
     path(
         "apprendre/<slug:lesson_slug>/",
         views.learn_lesson,

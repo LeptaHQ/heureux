@@ -13,7 +13,7 @@
     </form>
   {% endif %}
   <nav class="phrase-category-back" aria-label="Retour aux leçons">
-    <a href="{% url 'study:learn' %}#lesson-{{ lesson.slug }}">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Toutes les leçons</a>
+    <a href="{{ hub_url }}#lesson-{{ lesson.slug }}">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} {% if course %}Toutes les leçons{% else %}Bibliothèque de référence{% endif %}</a>
   </nav>
 
   <header class="learn-lesson-hero">
@@ -38,6 +38,19 @@
       </span>
     </div>
   </header>
+
+  {% if course %}
+    <div class="course-reading-intro" lang="en">
+      <p>{{ lesson.summary|markdown_inline }}</p>
+      <ul>{% for objective in lesson.objectives %}<li>{{ objective|markdown_inline }}</li>{% endfor %}</ul>
+      {% if prerequisites %}
+        <p>Suggested earlier reading (not locked):
+          {% for prerequisite in prerequisites %}<a href="{% url 'study:course_lesson' prerequisite.slug %}">{{ prerequisite.title }}</a>{% if not forloop.last %} · {% endif %}{% endfor %}
+        </p>
+      {% endif %}
+      <a class="btn" href="{% url 'study:course_practice' lesson.slug %}">Practise this lesson</a>
+    </div>
+  {% endif %}
 
   <article class="learn-lesson-content">
       {% for section in lesson.sections %}
@@ -70,9 +83,9 @@
               <h3>Examples</h3>
               {% for example in section.examples %}
                 <figure class="learn-example">
-                  <blockquote lang="fr" data-read-aloud-text>{{ example.french }}</blockquote>
+                  <blockquote lang="fr" data-read-aloud-text>{{ example.french|markdown_inline }}</blockquote>
                   <figcaption>
-                    <span>{{ example.english }}</span>
+                    <span>{{ example.english|markdown_inline }}</span>
                     {% if example.note %}<small>{{ example.note|markdown_inline }}</small>{% endif %}
                   </figcaption>
                 </figure>
@@ -98,31 +111,44 @@
       <section class="learn-completion card" id="lesson-completion">
         <div>
           <p class="eyebrow">Progression</p>
-          <h2 data-learning-completion-title>{% if is_completed %}Leçon acquise{% else %}Prêt à valider cette leçon&nbsp;?{% endif %}</h2>
-          <p data-learning-completion-copy>{% if is_completed %}Tu peux la rouvrir à tout moment pour consolider un point.{% else %}Valide-la lorsque tu peux expliquer les idées essentielles sans relire.{% endif %}</p>
+          <h2 data-learning-completion-title>{% if is_completed %}Lecture terminée{% else %}Lecture terminée&nbsp;?{% endif %}</h2>
+          <p data-learning-completion-copy>Un repère personnel de lecture, distinct des résultats de pratique.</p>
         </div>
         <form method="post" action="{{ progress_url }}" data-learning-progress-form>
           {% csrf_token %}
           <input type="hidden" name="completed" value="{% if is_completed %}0{% else %}1{% endif %}" data-learning-completed-input>
           <button class="btn{% if not is_completed %} btn--primary{% endif %}" type="submit" aria-pressed="{{ is_completed|yesno:'true,false' }}" data-learning-completion-button>
             {% include "study/partials/ui_icon.html" with name="check" only %}
-            <span data-learning-completion-label>{% if is_completed %}Marquer à revoir{% else %}Marquer comme acquise{% endif %}</span>
+            <span data-learning-completion-label>{% if is_completed %}Marquer à revoir{% else %}Marquer la lecture terminée{% endif %}</span>
           </button>
         </form>
         <p class="learn-completion__status" role="status" aria-live="polite" data-learning-progress-status></p>
       </section>
 
+      {% if course %}
+        <details class="course-reading-references">
+          <summary>References and further practice</summary>
+          <ul>{% for source in lesson.sources %}<li><a href="{{ source.url }}" rel="noopener noreferrer">{{ source.label }}</a></li>{% endfor %}</ul>
+          {% if related_lessons %}<p>From your preserved reference library:</p>
+            <ul>{% for related in related_lessons %}<li><a href="{% url 'study:learn_lesson' related.slug %}">{{ related.title }}</a></li>{% endfor %}</ul>
+          {% endif %}
+          {% if lesson.cefr_level == 'C1-preparation' %}
+            <p lang="en">Grammar practice does not establish four-skill readiness. Practise each skill separately:</p>
+            <p><a href="{% url 'study:comprehension_oral_overview' %}">Compréhension orale</a> · <a href="{% url 'study:comprehension_overview' %}">Compréhension écrite</a> · <a href="{% url 'study:part_detail' 'eo' %}">Expression orale</a> · <a href="{% url 'study:part_detail' 'ee' %}">Expression écrite</a></p>
+          {% endif %}
+        </details>
+      {% endif %}
   </article>
 
   <nav class="learn-lesson-nav" aria-label="Navigation entre les leçons">
     {% if previous_lesson %}
-      <a class="learn-lesson-nav__link learn-lesson-nav__link--previous" href="{% url 'study:learn_lesson' previous_lesson.slug %}">
+      <a class="learn-lesson-nav__link learn-lesson-nav__link--previous" href="{{ previous_url }}">
         {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
         <span><small>Leçon précédente</small><strong>{{ previous_lesson.title }}</strong></span>
       </a>
     {% else %}<span></span>{% endif %}
     {% if next_lesson %}
-      <a class="learn-lesson-nav__link learn-lesson-nav__link--next" href="{% url 'study:learn_lesson' next_lesson.slug %}">
+      <a class="learn-lesson-nav__link learn-lesson-nav__link--next" href="{{ next_url }}">
         <span><small>Leçon suivante</small><strong>{{ next_lesson.title }}</strong></span>
         {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
       </a>
@@ -133,5 +159,5 @@
 
 {% block scripts %}
   {{ block.super }}
-  <script src="{% static 'study/js/learning.js' %}?v=9"></script>
+  <script src="{% static 'study/js/learning.js' %}?v=10"></script>
 {% endblock %}

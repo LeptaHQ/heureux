@@ -17,6 +17,13 @@
     </dl>
   </header>
 
+  <nav class="learn-module-filters" aria-label="Collection Apprendre">
+    <a class="btn{% if scope == 'course' %} btn--primary{% endif %}" href="{{ course_url }}"{% if scope == 'course' %} aria-current="page"{% endif %}>Cours A1–B2 et préparation C1</a>
+    <a class="btn{% if scope == 'reference' %} btn--primary{% endif %}" href="{{ reference_url }}"{% if scope == 'reference' %} aria-current="page"{% endif %}>Bibliothèque de référence</a>
+  </nav>
+  {% if not course_available %}<p lang="en">The original course is not installed yet. Your reference lessons, notes and reading progress remain available.</p>{% endif %}
+  <p lang="en">The small check marks reading completion only, not assessed grammar control or an official level.</p>
+
   <section class="learn-library" aria-labelledby="learn-library-title">
     <div class="section-heading">
       <div>
@@ -40,6 +47,14 @@
         <button type="button" data-learning-status-filter="unfinished" aria-pressed="false">À faire</button>
         <button type="button" data-learning-status-filter="done" aria-pressed="false">Terminées</button>
       </div>
+      {% if scope == 'course' %}
+        <label class="learn-level-filter" for="learn-level">Niveau CEFR
+          <select id="learn-level" data-learning-level-filter>
+            <option value="all">Tous les niveaux</option>
+            {% for level in cefr_levels %}<option value="{{ level }}">{{ level }}</option>{% endfor %}
+          </select>
+        </label>
+      {% endif %}
     </div>
     <p class="memory-progress-error hidden" role="alert" data-learning-progress-error></p>
 
@@ -85,6 +100,7 @@
                 data-learning-lesson-id="{{ row.lesson.id }}"
                 data-learning-module-name="{{ item.module.slug }}"
                 data-learning-status="{{ row.status }}"
+                data-learning-level="{{ row.lesson.cefr_level }}"
                 data-learning-search-text="{{ row.lesson.searchable_text }}"
               >
                 <span class="learn-lesson-card__number">{{ forloop.counter|stringformat:"02d" }}</span>
@@ -106,8 +122,8 @@
                     type="submit"
                     role="checkbox"
                     aria-checked="{{ row.completed|yesno:'true,false' }}"
-                    aria-label="{% if row.completed %}Marquer comme non acquise : {% else %}Marquer comme acquise : {% endif %}{{ row.lesson.title }}"
-                    title="{% if row.completed %}Leçon acquise{% else %}Marquer comme acquise{% endif %}"
+                    aria-label="{% if row.completed %}Marquer la lecture à faire : {% else %}Marquer la lecture terminée : {% endif %}{{ row.lesson.title }}"
+                    title="{% if row.completed %}Lecture terminée{% else %}Marquer la lecture terminée{% endif %}"
                     data-learning-card-check
                   >
                     {% include "study/partials/ui_icon.html" with name="check" only %}
@@ -131,5 +147,5 @@
 
 {% block scripts %}
   {{ block.super }}
-  <script src="{% static 'study/js/learning.js' %}?v=9"></script>
+  <script src="{% static 'study/js/learning.js' %}?v=10"></script>
 {% endblock %}

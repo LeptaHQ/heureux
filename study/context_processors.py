@@ -29,6 +29,13 @@ LEARNING_ROUTES = {
     "learn_lesson",
     "learn_lesson_progress",
     "learn_lesson_start",
+    "course_lesson",
+    "course_lesson_progress",
+    "course_lesson_start",
+    "course_practice",
+    "course_attempt",
+    "course_production_create",
+    "course_production",
 }
 EXPRESSION_ROUTES = {
     "expression",

@@ -470,7 +470,7 @@ class LearningViewTests(TestCase):
         self.lesson = self.catalog.lessons[0]
 
     def test_hub_renders_searchable_modules_and_active_navigation(self):
-        response = self.client.get(reverse("study:learn"))
+        response = self.client.get(reverse("study:learn"), {"scope": "reference"})
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'data-active-area="learn"')
@@ -501,9 +501,9 @@ class LearningViewTests(TestCase):
         )
 
     def test_hub_loads_lesson_progress_in_one_query(self):
-        self.client.get(reverse("study:learn"))
+        self.client.get(reverse("study:learn"), {"scope": "reference"})
         with CaptureQueriesContext(connection) as queries:
-            response = self.client.get(reverse("study:learn"))
+            response = self.client.get(reverse("study:learn"), {"scope": "reference"})
         self.assertEqual(response.status_code, 200)
         progress_queries = [
             query["sql"]
@@ -625,7 +625,7 @@ class LearningViewTests(TestCase):
         with patch(
             "study.views.learning.load_learning_catalog", return_value=reorganized
         ):
-            hub = self.client.get(reverse("study:learn"))
+            hub = self.client.get(reverse("study:learn"), {"scope": "reference"})
             detail = self.client.get(
                 reverse("study:learn_lesson", args=[lesson.slug])
             )
@@ -698,7 +698,7 @@ class LearningViewTests(TestCase):
 
         payload = self.client.get(reverse("study:export_account")).json()
 
-        self.assertEqual(payload["version"], 8)
+        self.assertEqual(payload["version"], 9)
         self.assertEqual(
             payload["learning_lesson_progress"][0]["lesson_id"],
             self.lesson.id,
@@ -711,7 +711,8 @@ class LearningViewTests(TestCase):
             completed_at=timezone.now(),
         )
 
-        dashboard = self.client.get(reverse("study:dashboard"))
+        with patch("study.views.learning._default_catalog", return_value=self.catalog):
+            dashboard = self.client.get(reverse("study:dashboard"))
         stats = self.client.get(reverse("study:stats"))
         breakdown = {
             item["key"]: item["count"]

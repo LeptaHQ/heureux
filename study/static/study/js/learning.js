@@ -48,6 +48,7 @@
 
   function setupCatalog(root) {
     var search = root.querySelector("[data-learning-search]");
+    var levelSelect = root.querySelector("[data-learning-level-filter]");
     var lessonCards = Array.from(
       root.querySelectorAll("[data-learning-lesson]")
     );
@@ -81,6 +82,7 @@
     var query = "";
     var moduleFilter = "all";
     var statusFilter = "all";
+    var levelFilter = "all";
 
     function tableMode() {
       return (
@@ -104,7 +106,9 @@
       var targetId = window.location.hash.slice(1);
       try {
         targetId = decodeURIComponent(targetId);
-      } catch (error) {}
+      } catch (error) {
+        console.warn("Invalid lesson anchor encoding", error);
+      }
       var target = document.getElementById(targetId);
       if (!target || !target.matches("[data-learning-lesson]")) return;
       var module = target.closest("[data-learning-module]");
@@ -143,6 +147,7 @@
           (!query || searchable.indexOf(query) !== -1)
           && (moduleFilter === "all"
             || card.dataset.learningModuleName === moduleFilter)
+          && (levelFilter === "all" || card.dataset.learningLevel === levelFilter)
           && matchesStatus(card);
         card.hidden = !matches;
         if (matches) visible += 1;
@@ -156,7 +161,7 @@
         module.hidden = !hasVisibleLesson;
         if (
           hasVisibleLesson
-          && (query || moduleFilter !== "all" || statusFilter !== "all")
+          && (query || moduleFilter !== "all" || statusFilter !== "all" || levelFilter !== "all")
         ) {
           module.open = true;
         }
@@ -177,8 +182,27 @@
         statusFilter === "all"
           ? url.searchParams.delete("statut")
           : url.searchParams.set("statut", statusFilter);
+        levelFilter === "all"
+          ? url.searchParams.delete("level")
+          : url.searchParams.set("level", levelFilter);
         window.history.replaceState({}, "", url);
       }
+      if (levelSelect) {
+        lessonCards.forEach(function (card) {
+          var link = card.querySelector(".learn-lesson-card__body strong a");
+          if (!link) return;
+          var lessonUrl = new URL(link.href);
+          levelFilter === "all"
+            ? lessonUrl.searchParams.delete("level")
+            : lessonUrl.searchParams.set("level", levelFilter);
+          link.href = lessonUrl.href;
+        });
+      }
+      root.querySelectorAll("[aria-label='Collection Apprendre'] a").forEach(function (link) {
+        var scopeUrl = new URL(link.href);
+        query ? scopeUrl.searchParams.set("q", search.value.trim()) : scopeUrl.searchParams.delete("q");
+        link.href = scopeUrl.href;
+      });
     }
 
     function renderCardProgress(card, form, data) {
@@ -198,12 +222,12 @@
         button.setAttribute("aria-checked", completed ? "true" : "false");
         button.setAttribute(
           "aria-label",
-          (completed ? "Marquer comme non acquise : " : "Marquer comme acquise : ")
+          (completed ? "Marquer la lecture à faire : " : "Marquer la lecture terminée : ")
           + lessonTitle
         );
         button.setAttribute(
           "title",
-          completed ? "Leçon acquise" : "Marquer comme acquise"
+          completed ? "Lecture terminée" : "Marquer la lecture terminée"
         );
       }
       if (status) {
@@ -313,12 +337,20 @@
       query = normalize(search.value.trim());
       applyFilters(true);
     });
+    if (levelSelect) {
+      levelSelect.addEventListener("change", function () {
+        levelFilter = levelSelect.value;
+        applyFilters(true);
+      });
+    }
     if (reset) {
       reset.addEventListener("click", function () {
         search.value = "";
         query = "";
         selectModule("all");
         selectStatus("all");
+        levelFilter = "all";
+        if (levelSelect) levelSelect.value = "all";
         syncModuleDisclosure(true);
         applyFilters(true);
         search.focus();
@@ -330,6 +362,11 @@
     query = normalize(search.value.trim());
     selectModule(params.get("parcours") || "all");
     selectStatus(params.get("statut") || "all");
+    if (levelSelect) {
+      levelSelect.value = params.get("level") || "all";
+      if (!levelSelect.value) levelSelect.value = "all";
+      levelFilter = levelSelect.value;
+    }
     syncModuleDisclosure(true);
     applyFilters(false);
     revealHashTarget();
@@ -381,7 +418,7 @@
       button.classList.toggle("btn--primary", !completed);
       label.textContent = completed
         ? "Marquer à revoir"
-        : "Marquer comme acquise";
+        : "Marquer la lecture terminée";
       if (lessonStatus) {
         lessonStatus.textContent = completed ? "Terminée" : "En cours";
         lessonStatus.classList.toggle("progress-status--done", completed);
@@ -398,13 +435,11 @@
       if (fill) fill.style.width = String(data.percent) + "%";
       if (title) {
         title.textContent = completed
-          ? "Leçon acquise"
-          : "Prêt à valider cette leçon ?";
+          ? "Lecture terminée"
+          : "Lecture terminée ?";
       }
       if (copy) {
-        copy.textContent = completed
-          ? "Tu peux la rouvrir à tout moment pour consolider un point."
-          : "Valide-la lorsque tu peux expliquer les idées essentielles sans relire.";
+        copy.textContent = "Un repère personnel de lecture, distinct des résultats de pratique.";
       }
       if (status) {
         status.textContent = completed

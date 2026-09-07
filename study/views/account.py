@@ -48,6 +48,8 @@ from ..models import (
     ComprehensionTestCompletion,
     ComprehensionAttemptStatus,
     LearningLessonProgress,
+    CourseAttempt,
+    CourseProduction,
     MemoryQuestionProgress,
     PersonalQuestionResponse,
     PersonalResponse,
@@ -63,6 +65,7 @@ from .review import (
     _locked_review_session,
     _save_review_session,
 )
+from ..course_practice import public_snapshot
 
 def _auth_redirect(request):
     candidate = request.POST.get("next") or request.GET.get("next")
@@ -345,6 +348,8 @@ def reset_progress(request):
         ComprehensionQuestionStudy.objects.filter(user=request.user).delete()
         WritingSujetCompletion.objects.filter(user=request.user).delete()
         LearningLessonProgress.objects.filter(user=request.user).delete()
+        CourseAttempt.objects.filter(user=request.user).delete()
+        CourseProduction.objects.filter(user=request.user).delete()
         MemoryQuestionProgress.objects.filter(user=request.user).delete()
         ThemeVocabularyProgress.objects.filter(user=request.user).delete()
         _save_review_session(session, {}, clear_pass=True)
@@ -489,7 +494,7 @@ def export_account(request):
     settings = Settings.load(request.user)
     payload = {
         "format": "heureux-account-export",
-        "version": 8,
+        "version": 9,
         "exported_at": timezone.now(),
         "account": {
             "username": request.user.get_username(),
@@ -542,6 +547,27 @@ def export_account(request):
             .order_by("created_at", "pk")
         ],
         "comprehension_attempts": comprehension_attempts,
+        "course_attempts": [
+            {
+                "id": item.pk, "lesson_id": item.lesson_id,
+                "content_version": item.content_version, "mode": item.mode,
+                "status": item.status, "independent": item.independent,
+                "criterion_met": item.criterion_met, "results": item.results,
+                "events": item.events, "review_of": item.review_of_id,
+                "started_at": item.started_at, "submitted_at": item.submitted_at,
+                "snapshot": item.snapshot if item.status == "completed" else public_snapshot(item),
+            }
+            for item in CourseAttempt.objects.filter(user=request.user).order_by("started_at", "pk")
+        ],
+        "course_productions": [
+            {
+                "id": item.pk, "lesson_id": item.lesson_id,
+                "content_version": item.content_version, "task_snapshot": item.task_snapshot,
+                "body": item.body, "created_at": item.created_at,
+                "self_reviewed_at": item.self_reviewed_at,
+            }
+            for item in CourseProduction.objects.filter(user=request.user).order_by("created_at", "pk")
+        ],
         "comprehension_test_completions": [
             {
                 "test": completion.test.slug,

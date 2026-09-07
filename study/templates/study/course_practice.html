@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load study_markdown %}
+{% block title %}Pratique · {{ lesson.title }} · Heureux{% endblock %}
+{% block content %}
+<div class="learn-lesson-page course-practice-page" lang="en">
+  <nav class="phrase-category-back"><a href="{% url 'study:course_lesson' lesson.slug %}">← {{ lesson.title }}</a></nav>
+  <header class="learn-lesson-hero">
+    <p class="eyebrow">{{ lesson.cefr_level }} · Controlled grammar practice</p>
+    <h1>Practise this lesson</h1>
+    <p>Reading completion is separate. These bounded exercises are not CEFR/TCF certification or a prediction of NCLC scores.</p>
+  </header>
+  {% if error %}<p class="memory-progress-error" role="alert">{{ error }}</p>{% endif %}
+  <section class="card course-practice-section">
+    <h2>Learning, check and delayed review</h2>
+    <p>Practice offers feedback and optional hints. Checks hold all feedback until submission. The pilot criterion is at least 80% overall and 75% on text answers, on the first submission with fresh items.</p>
+    <p>Items seen in an earlier session, including abandoned sessions, are rehearsed. A retry remains useful but cannot become independent evidence. A finite bank may run out of fresh items.</p>
+    <div class="course-actions">
+      <form method="post">{% csrf_token %}<button class="btn btn--primary" name="mode" value="practice">Learning practice</button></form>
+      <form method="post">{% csrf_token %}<button class="btn" name="mode" value="check">Start / resume check</button></form>
+      {% if evidence.due_at %}
+        {% if evidence.review_due or evidence.review %}
+          <form method="post">{% csrf_token %}<button class="btn" name="mode" value="review">Start / resume review</button></form>
+        {% endif %}
+      {% endif %}
+    </div>
+    {% if evidence.check %}
+      <p>Check criterion met ({% if evidence.check.independent %}fresh{% else %}rehearsed, not independent{% endif %}): <a href="{% url 'study:course_attempt' evidence.check.pk %}">{{ evidence.check.submitted_at|date:"j M Y, H:i" }}</a>.</p>
+      <p>Delayed review opens {{ evidence.due_at|date:"j M Y, H:i" }} (at least seven days later). {% if evidence.review_due %}<strong>Review due.</strong>{% endif %}</p>
+    {% else %}<p>No successful check for this content version yet. Earlier results remain in your history.</p>{% endif %}
+    {% if evidence.review %}<p>Delayed-review criterion met ({% if evidence.review.independent %}fresh{% else %}rehearsed, not independent{% endif %}): <a href="{% url 'study:course_attempt' evidence.review.pk %}">{{ evidence.review.submitted_at|date:"j M Y, H:i" }}</a>. This is dated practice evidence, not permanent mastery.</p>{% endif %}
+  </section>
+  <section class="card course-practice-section">
+    <h2>Apply it yourself · unscored</h2>
+    <p>{{ lesson.production_task.prompt|markdown_inline }}</p>
+    <p>Write your own response, or transcribe a spoken response. After saving, compare it with an original model and a self-review rubric. No automatic free-writing or speaking score is awarded.</p>
+    <form method="post" action="{% url 'study:course_production_create' lesson.slug %}">
+      {% csrf_token %}
+      <label for="production-body">Your French response</label>
+      <textarea id="production-body" name="body" lang="fr" rows="7" maxlength="20000" required></textarea>
+      <button class="btn" type="submit">Save and self-review</button>
+    </form>
+  </section>
+  <details class="course-practice-section">
+    <summary>Practice history</summary>
+    <ul class="course-history">
+      {% for attempt in attempts %}
+        <li><a href="{% url 'study:course_attempt' attempt.pk %}">{{ attempt.started_at|date:"j M Y, H:i" }} · {{ attempt.mode }} · {{ attempt.status }}</a>
+          {% if attempt.status == 'completed' %} · {{ attempt.results.correct }}/{{ attempt.results.total }} first answers{% if attempt.criterion_met %} · criterion met{% endif %}{% endif %}
+          · {% if attempt.independent %}fresh items{% else %}learning / rehearsed{% endif %}
+        </li>
+      {% empty %}<li>No sessions yet.</li>{% endfor %}
+    </ul>
+    <ul class="course-history">
+      {% for production in productions %}<li><a href="{% url 'study:course_production' production.pk %}">{{ production.created_at|date:"j M Y, H:i" }} · production self-review</a></li>{% endfor %}
+    </ul>
+  </details>
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load study_markdown %}
+{% block title %}{{ attempt.mode|capfirst }} · {{ attempt.snapshot.title }} · Heureux{% endblock %}
+{% block content %}
+<div class="learn-lesson-page course-practice-page" lang="en">
+  <nav class="phrase-category-back"><a href="{% url 'study:course_practice' attempt.snapshot.slug %}">← Practice and history</a></nav>
+  <header class="learn-lesson-hero">
+    <p class="eyebrow">{{ attempt.snapshot.cefr_level }} · {{ attempt.mode }} · {{ attempt.started_at|date:"j M Y, H:i" }}</p>
+    <h1>{{ attempt.snapshot.title }}</h1>
+    <p>{% if attempt.independent %}Fresh controlled grammar items. First submission only.{% else %}Learning / rehearsed session. This cannot establish independent evidence.{% endif %} Not CEFR/TCF certification.</p>
+    {% if attempt.mode != 'practice' %}<p>No hints or feedback until submission. Work without notes, translations or external help; the app cannot verify those conditions.</p>{% endif %}
+  </header>
+  {% if error %}<p class="memory-progress-error" role="alert">{{ error }}</p>{% endif %}
+  {% if attempt.status == 'completed' %}
+    <section class="card course-practice-section" aria-label="First submitted results">
+      <h2>First submitted results</h2>
+      <p>{{ attempt.submitted_at|date:"j M Y, H:i" }} · Overall {{ attempt.results.correct }}/{{ attempt.results.total }} · Text {{ attempt.results.text_correct }}/{{ attempt.results.text_total }} · Choice {{ attempt.results.choice_correct }}/{{ attempt.results.choice_total }}.</p>
+      {% if attempt.mode == 'practice' %}
+        <p>Learning only · {{ attempt.results.hinted_items }} hinted items. This does not count as check evidence.</p>
+      {% elif attempt.criterion_met %}
+        <p>The 80% overall / 75% text criterion was met.{% if not attempt.independent %} <strong>Rehearsed: not independent evidence.</strong>{% endif %}</p>
+      {% else %}<p>The 80% overall / 75% text criterion was not met. Practice remains available; earlier results are preserved.</p>{% endif %}
+      <a class="btn" href="{% url 'study:course_practice' attempt.snapshot.slug %}">Practice again or review history</a>
+    </section>
+  {% elif attempt.status == 'abandoned' %}
+    <p>This session was abandoned. Its items remain recorded as seen; no result was awarded.</p>
+  {% endif %}
+  {% if attempt.mode != 'practice' and attempt.status == 'active' %}
+    <form method="post" class="course-check-form">
+      {% csrf_token %}
+      {% for item in items %}
+        <section class="card course-practice-section">
+          <h2>{{ forloop.counter }}. {{ item.prompt|markdown_inline }}</h2>
+          {% with field_name="answer-"|add:item.id %}{% include "study/partials/course_item_input.html" %}{% endwith %}
+        </section>
+      {% endfor %}
+      <button class="btn btn--primary" type="submit" name="action" value="submit">Submit all answers once</button>
+    </form>
+  {% else %}
+    {% for item in items %}
+      <section class="card course-practice-section" id="item-{{ item.id }}">
+        <h2>{{ forloop.counter }}. {{ item.prompt|markdown_inline }}</h2>
+        {% include "study/partials/course_item_feedback.html" %}
+        {% if attempt.mode == 'practice' and attempt.status == 'active' and not item.answer %}
+          <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="item_id" value="{{ item.id }}">
+            {% include "study/partials/course_item_input.html" with field_name="response" %}
+            <div class="course-actions">
+              <button class="btn btn--primary" name="action" value="answer">Check this answer</button>
+              {% if not item.hinted %}<button class="btn" name="action" value="hint" formnovalidate>Reveal a hint / answer</button>{% endif %}
+            </div>
+          </form>
+        {% endif %}
+      </section>
+    {% endfor %}
+  {% endif %}
+  {% if attempt.status == 'active' %}
+    <form class="course-practice-section" method="post">{% csrf_token %}<button class="btn" name="action" value="abandon">Abandon session (items stay seen)</button></form>
+  {% endif %}
+  <p class="course-version">Content version {{ attempt.content_version }}</p>
+</div>
+{% endblock %}

@@ -6401,7 +6401,7 @@ class BrowserTests(StaticLiveServerTestCase):
 
     def test_learn_nested_table_and_completion_controls(self):
         self.page.set_viewport_size({"width": 1200, "height": 800})
-        self.page.goto(self.live_server_url + reverse("study:learn"))
+        self.page.goto(self.live_server_url + reverse("study:learn") + "?scope=reference")
 
         self.page.get_by_role("button", name="Tableau").click()
         expect(self.page.locator("html")).to_have_attribute(
@@ -6532,7 +6532,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.evaluate(
             "() => localStorage.setItem('collectionViewMode', 'table')"
         )
-        self.page.get_by_role("link", name="Toutes les leçons").click()
+        self.page.get_by_role("link", name="Bibliothèque de référence").click()
         expect(self.page.locator("html")).to_have_attribute(
             "data-collection-view-mode",
             "table",
@@ -6558,7 +6558,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 for lesson in lessons[1:]
             ]
         )
-        self.page.goto(self.live_server_url + reverse("study:learn"))
+        self.page.goto(self.live_server_url + reverse("study:learn") + "?scope=reference")
         self.page.get_by_role("button", name="Tableau").click()
         module = self.page.locator("[data-learning-module-details]").first
         module.locator(":scope > summary").click()
@@ -6579,7 +6579,7 @@ class BrowserTests(StaticLiveServerTestCase):
             "() => localStorage.setItem('collectionViewMode', 'table')"
         )
         self.page.route("**/study/js/learning.js*", lambda route: route.abort())
-        self.page.goto(self.live_server_url + reverse("study:learn"))
+        self.page.goto(self.live_server_url + reverse("study:learn") + "?scope=reference")
 
         module = self.page.locator("[data-learning-module-details]").first
         lesson = module.locator("[data-learning-lesson]").first
@@ -6590,7 +6590,7 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(lesson).not_to_be_visible()
 
     def test_learn_mobile_layout_and_new_lesson_examples(self):
-        self.page.goto(self.live_server_url + reverse("study:learn"))
+        self.page.goto(self.live_server_url + reverse("study:learn") + "?scope=reference")
         self.page.get_by_role("button", name="Tableau").click()
         modules = self.page.locator("[data-learning-module-details]")
         modules.first.locator(":scope > summary").click()

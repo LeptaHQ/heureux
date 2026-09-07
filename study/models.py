@@ -11,6 +11,8 @@ Two layers:
 
 from __future__ import annotations
 
+import uuid
+
 from django.conf import settings as django_settings
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -587,6 +589,96 @@ class LearningLessonProgress(models.Model):
     def __str__(self) -> str:
         status = "completed" if self.completed_at else "started"
         return f"{self.user} · {self.lesson_id} · {status}"
+
+
+class CourseAttempt(models.Model):
+    """Frozen selected item keys and first submitted results, not proficiency."""
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+        related_name="course_attempts",
+    )
+    lesson_id = models.CharField(max_length=80)
+    content_version = models.CharField(max_length=64)
+    mode = models.CharField(
+        max_length=8, choices=[(value, value) for value in ("practice", "check", "review")]
+    )
+    status = models.CharField(
+        max_length=9, default="active",
+        choices=[(value, value) for value in ("active", "completed", "abandoned")],
+    )
+    snapshot = models.JSONField()
+    events = models.JSONField(default=list)
+    results = models.JSONField(default=dict)
+    independent = models.BooleanField(default=False)
+    criterion_met = models.BooleanField(default=False)
+    started_at = models.DateTimeField(default=timezone.now)
+    submitted_at = models.DateTimeField(null=True, blank=True)
+    review_of = models.ForeignKey(
+        "self", null=True, blank=True, on_delete=models.SET_NULL, related_name="reviews"
+    )
+
+    class Meta:
+        ordering = ["-started_at", "-id"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "lesson_id", "mode"],
+                condition=Q(status="active"), name="unique_active_course_attempt",
+            ),
+        ]
+        indexes = [
+            models.Index(fields=["user", "lesson_id"], name="course_user_lesson_idx"),
+        ]
+
+    def save(self, *args, **kwargs):
+        if not self._state.adding:
+            original = type(self).objects.get(pk=self.pk)
+            frozen = (
+                "user_id", "lesson_id", "content_version", "mode", "snapshot",
+                "independent", "started_at", "review_of_id",
+            )
+            if any(getattr(self, field) != getattr(original, field) for field in frozen):
+                raise ValidationError("Course attempt content and selection are immutable.")
+            if original.status != "active":
+                if any(getattr(self, field) != getattr(original, field) for field in (
+                    "status", "events", "results", "criterion_met", "submitted_at",
+                )):
+                    raise ValidationError("Submitted course results are immutable.")
+            if self.events[:len(original.events)] != original.events:
+                raise ValidationError("Course events are append-only.")
+        super().save(*args, **kwargs)
+
+
+class CourseProduction(models.Model):
+    """An unscored learner response and the original task used for self-review."""
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+        related_name="course_productions",
+    )
+    lesson_id = models.CharField(max_length=80)
+    content_version = models.CharField(max_length=64)
+    task_snapshot = models.JSONField()
+    body = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)
+    self_reviewed_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ["-created_at", "-id"]
+        indexes = [
+            models.Index(fields=["user", "lesson_id"], name="production_user_lesson_idx"),
+        ]
+
+    def save(self, *args, **kwargs):
+        if not self._state.adding:
+            original = type(self).objects.get(pk=self.pk)
+            if any(getattr(self, field) != getattr(original, field) for field in (
+                "user_id", "lesson_id", "content_version", "task_snapshot", "body", "created_at",
+            )):
+                raise ValidationError("Production responses are immutable; submit a new response.")
+        super().save(*args, **kwargs)
 
 
 class ComprehensionMode(models.TextChoices):

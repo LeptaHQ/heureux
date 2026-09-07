@@ -1,0 +1,10 @@
+{% load study_markdown %}
+{% if item.answer %}
+  <p><strong>{% if item.answer.correct %}Correct{% else %}Not accepted{% endif %}</strong> · first response{% if item.answer.hinted %}, after a hint{% endif %}: <span lang="fr">{{ item.answer.response|default:"(blank)" }}</span></p>
+{% endif %}
+{% if item.feedback %}
+  <div class="course-feedback">
+    <p>Accepted answers: {% for answer in item.feedback.answers %}<span lang="fr">{{ answer }}</span>{% if not forloop.last %} / {% endif %}{% endfor %}</p>
+    <p>{{ item.feedback.explanation|markdown_inline }}</p>
+  </div>
+{% endif %}

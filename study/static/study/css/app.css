@@ -17122,6 +17122,9 @@ html[data-collection-view-mode="table"]
 .course-lesson-page .learn-example figcaption > span {
   white-space: normal;
 }
+.course-lesson-page .learn-example blockquote {
+  font-weight: 400;
+}
 .course-practice-section {
   padding: 1rem;
 }

@@ -6449,6 +6449,10 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator(".learn-lesson-nav a")).to_have_count(0)
         example = self.page.locator(".learn-example").first
         expect(example.locator("blockquote strong")).to_have_count(2)
+        expect(example.locator("blockquote")).to_have_css("font-weight", "400")
+        expect(example.locator("blockquote strong").first).to_have_css(
+            "font-weight", "700"
+        )
         self.assertEqual(example.locator("blockquote").inner_text().count("\n"), 1)
         self.assertNotIn("**", example.locator("[data-read-aloud-text]").text_content())
         expect(self.page.locator("[data-annotation-root]").first).to_have_attribute(

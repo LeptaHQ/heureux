@@ -21,6 +21,7 @@ from study.course_content import (
     DepthEntry,
     TeachingEvidence,
     build_course_catalog,
+    load_course_catalog,
     validate_depth_report,
 )
 
@@ -272,6 +273,30 @@ class CourseDepthCommandTests(SimpleTestCase):
         with self.assertRaises(CommandError):
             call_command("validate_courses", depth=True, stdout=output)
         self.assertEqual(output.getvalue(), "")
+
+
+class CourseDepthBundleTests(SimpleTestCase):
+    def test_all_published_depth_reports_resolve_to_the_current_course(self):
+        expected_files = {f"{level.lower()}.json" for level in BENCHMARK_COUNTS}
+        self.assertEqual(
+            {path.name for path in (CONTENT_ROOT / "depth").glob("*.json")},
+            expected_files,
+        )
+        catalog = load_course_catalog()
+        source_urls = set()
+        for level, count in BENCHMARK_COUNTS.items():
+            with self.subTest(level=level):
+                name = f"{level.lower()}.json"
+                entries = validate_depth_report(
+                    json.loads((CONTENT_ROOT / "depth" / name).read_text(encoding="utf-8")),
+                    json.loads((CONTENT_ROOT / "benchmarks" / name).read_text(encoding="utf-8")),
+                    catalog,
+                )
+                self.assertEqual(len(entries), count)
+                urls = {entry.source_url for entry in entries}
+                self.assertTrue(source_urls.isdisjoint(urls))
+                source_urls.update(urls)
+        self.assertEqual(len(source_urls), 479)
 
 
 class PublishedCourseIdentityTests(SimpleTestCase):

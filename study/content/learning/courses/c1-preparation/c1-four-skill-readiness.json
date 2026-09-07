@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "id": "c1-four-skill-readiness",
+  "slug": "c1-four-skill-readiness",
+  "cefr_level": "C1-preparation",
+  "topic": "learning-strategy",
+  "title": "Transférer ses acquis et examiner les quatre compétences",
+  "summary": "Apply precise reading and task interpretation, then build an honest four-skill preparation record without converting grammar practice into a proficiency score.",
+  "order": 9,
+  "duration_minutes": 15,
+  "prerequisites": ["c1-compare-reformulate", "c1-audience-requests", "c1-narrative-commentary", "c1-information-follow-up", "c1-sustained-opinion", "c1-spoken-repair"],
+  "objectives": [
+    "Distinguish a changed event detail from a condition that remains unchanged.",
+    "Identify the purpose, audience and constraints of a production task before answering.",
+    "Separate controlled grammar evidence, self-review and independent four-skill performance."
+  ],
+  "keywords": ["préparation", "quatre compétences", "NCLC 9", "TCF Canada", "compréhension", "expression", "readiness", "self-review"],
+  "sources": [
+    {"label": "IRCC language-test equivalence table: separate TCF Canada NCLC 9+ minimums, consulted 2026-09-07", "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html"},
+    {"label": "FEI TCF level grid: C1 reception 500–599 and production 14–17/20, PDF consulted 2026-09-07", "url": "https://www.france-education-international.fr/document/grilleniveauxtcf"},
+    {"label": "FEI TCF Canada: four components, task formats and one-play listening, consulted 2026-09-07", "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"},
+    {"label": "FEI evaluation: language, discourse and situation-appropriate production, consulted 2026-09-07", "url": "https://www.france-education-international.fr/article/evaluation-epreuves-tcf"}
+  ],
+  "related_legacy_ids": ["editorial-learning-sequence", "editorial-error-feedback-loop", "writing-structured-argumentation", "connectors-concession"],
+  "sections": [
+    {
+      "id": "target",
+      "title": "Keep the target separate from the evidence you have",
+      "paragraphs": [
+        "This is an original C1-oriented preparation bridge for a user-selected NCLC 9+ goal in all four TCF Canada skills, not an official complete C1 curriculum, certification or a score guarantee. The verified separate minimums are listening 523, reading 524, speaking 14/20 and writing 14/20. One stronger skill does not compensate for another below the selected target.",
+        "These minimums fall in FEI's C1 test-score bands: 500–599 for reception and 14–17/20 for production. NCLC and CEFR are different scales; do not turn these test-specific correspondences into a universal equation. These figures describe a language-learning target, not immigration or legal advice.",
+        "A controlled check can show that you handled its particular grammar or meaning questions. It cannot establish unfamiliar listening, sustained reading, spontaneous speaking or independent writing. Reading completion, practice results, open-task self-review and external performance feedback are different kinds of evidence. There is no conversion from an Apprendre percentage to a TCF or NCLC score."
+      ],
+      "points": [
+        "Official listening: 39 questions in 35 minutes; each recording is played once. Answer from unfamiliar audio before viewing a transcript.",
+        "Official reading: 39 questions in 60 minutes. Use unfamiliar texts, not memorised lesson passages, for readiness practice.",
+        "Official speaking: guided interview, 2 minutes without preparation; information-seeking interaction, 5 minutes 30 including 2 minutes of preparation; spontaneous viewpoint development, 4 minutes 30 without preparation.",
+        "Official writing: three tasks in 60 minutes; addressed message 60–120 words, account or narrative with relevant commentary 120–150 words, comparison of two viewpoints plus personal position 120–180 words. Follow each actual task's instructions.",
+        "TCF Canada has no separate grammar-structures paper. The general TCF score grid includes other variants; do not import their components."
+      ],
+      "examples": [
+        {"french": "J'ai réussi des questions de grammaire ; **cela ne prouve pas** que je comprends un enregistrement inconnu.", "english": "I answered grammar questions successfully; that does not prove that I understand an unfamiliar recording.", "note": "The conclusion stays within the evidence's actual scope."},
+        {"french": "Je comprends ce dialogue **après lecture de la transcription** ; pour examiner ma compréhension à la première écoute, il me faut un autre enregistrement que je ne connais pas.", "english": "I understand this dialogue after reading the transcript; to examine my first-listen comprehension, I need another recording that I do not know.", "note": "After-transcript understanding is a learning result, not first-play listening evidence. The same familiar dialogue cannot supply a new unaided first attempt."},
+        {"french": "Bien que ma lecture soit plus rapide, **je n'en déduis pas** que mon expression orale a progressé autant.", "english": "Although my reading is faster, I do not infer from that that my speaking has improved as much.", "note": "A concession and a carefully bounded inference keep the four skills distinct."}
+      ],
+      "mistakes": [
+        {"avoid": "Bien que j'ai compris le texte, je dois encore travailler l'écoute.", "prefer": "Bien que j'aie compris le texte, je dois encore travailler l'écoute.", "why": "Bien que selects the subjunctive. J'aie compris concedes a completed act of understanding without making it listening evidence."}
+      ]
+    },
+    {
+      "id": "transfer",
+      "title": "Check what changes, what stays and what remains unknown",
+      "paragraphs": [
+        "Read the original notice below as a new practical problem. Identify its purpose, updated location, unchanged deadline and uncertain later outcome. Puisque gives a stated reason; en revanche marks a contrast; sans décider excludes a conclusion that might otherwise be assumed.",
+        "For writing or speaking, identify the requested action before selecting grammar. Expliquer pourquoi calls for reasons; expliquer comment calls for a method; comparer requires a relationship between viewpoints, not just personal opinion. Keep the audience visible. You may know the vocabulary and still fail to answer the requested question."
+      ],
+      "points": [
+        "The notice is fictional and its questions assess reading of printed text, not listening.",
+        "Une échéance (f.) is a deadline; un bilan (m.) is a review or assessment of what happened."
+      ],
+      "examples": [
+        {"french": "Avis aux participants — La rencontre de samedi se tiendra dans la salle du jardin, puisque la salle habituelle sera utilisée pour une autre activité. L'horaire reste fixé à quinze heures. En revanche, les personnes souhaitant présenter une idée devront toujours l'envoyer avant jeudi, comme prévu. La rencontre permettra de comparer les propositions, **sans décider immédiatement** lesquelles seront retenues. Un compte rendu sera transmis la semaine suivante.", "english": "Notice to participants — Saturday's meeting will take place in the garden room, since the usual room will be used for another activity. The time remains set at three in the afternoon. However, anyone wishing to present an idea must still send it before Thursday, as planned. The meeting will allow the proposals to be compared, without immediately deciding which will be selected. Minutes will be sent the following week.", "note": "The location changes; the time and submission deadline do not. Selection is not promised during the meeting."},
+        {"french": "La salle change, **mais l'échéance reste la même**.", "english": "The room changes, but the deadline stays the same.", "note": "A concise reformulation preserves the contrast between updated and unchanged information."},
+        {"french": "On me demande **de comparer les propositions**, pas seulement de dire laquelle je préfère.", "english": "I am being asked to compare the proposals, not merely to say which one I prefer.", "note": "Identifying the task verb prevents a relevant-sounding but incomplete response."}
+      ],
+      "mistakes": [
+        {"avoid": "La salle dont nous utiliserons samedi se trouve au fond du jardin.", "prefer": "La salle que nous utiliserons samedi se trouve au fond du jardin.", "why": "Utiliser takes a direct object, so que is needed. Dont would require a de relationship."}
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": "Plan separate practice and label its conditions honestly",
+      "paragraphs": [
+        "For listening, use unfamiliar human speech with varied voices, ordinary delivery, connected sounds, stance and late corrections. Record your first-play answers before any replay or transcript. Then replay for learning and identify whether a missed point came from sound recognition, vocabulary, reference tracking or inference. A printed dialogue and synthetic speech are study aids, not proof of listening readiness.",
+        "For reading, record time and whether the text was new; explain why each interpretation fits. For speaking, record a fresh guided introduction, an actual information-seeking exchange and a sustained opinion, paying attention to intelligibility, interaction, coherence and repair. For writing, produce new texts that fulfil the audience, purpose and constraints before comparing with a model.",
+        "Ask a qualified teacher or other suitable independent reviewer for feedback on free production when available, while keeping their formative judgement distinct from an official result. Alone, label the work self-review. Neither keyword matching nor an automatic count of advanced forms can establish an NCLC score. Passing this lesson's constrained items cannot mark the four-skill goal complete."
+      ],
+      "points": [
+        "Use the application's existing comprehension and expression areas for further practice; a lesson completion checkbox is not a skill certificate.",
+        "A useful record states the date, material, timing, help used, observed difficulty and next action. Leave untested skills explicitly untested."
+      ],
+      "examples": [
+        {"french": "J'ai répondu sans transcription, puis j'ai réécouté pour comprendre mon erreur. **Je distingue ces deux étapes** dans mon bilan.", "english": "I answered without a transcript, then listened again to understand my mistake. I distinguish those two stages in my review.", "note": "A later successful replay does not overwrite the original listening conditions."},
+        {"french": "Mon texte respecte la consigne, **mais je n'ai pas encore reçu de retour indépendant** sur sa cohérence et sa précision.", "english": "My text follows the instructions, but I have not yet received independent feedback on its coherence and precision.", "note": "The learner can record self-review while acknowledging a missing kind of evidence."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "choice", "pool": "practice", "section_id": "transfer", "prompt": "In the meeting notice, which detail has changed?", "choices": ["La salle", "L'heure de début", "La date limite d'envoi des idées"], "answers": ["La salle"], "explanation": "The room changes to the garden room. The time and submission deadline remain as planned."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "transfer", "prompt": "From the notice, copy the two-word deadline for sending an idea.", "choices": [], "answers": ["avant jeudi"], "explanation": "The deadline remains before Thursday, even though the location changes."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "target", "prompt": "Supply only avoir in the required mood: Bien que j'___ compris le dialogue écrit, l'écoute reste à travailler.", "choices": [], "answers": ["aie"], "explanation": "Bien que introduces the subjunctive; aie compris refers to a completed act of understanding."},
+    {"id": "item-04", "kind": "choice", "pool": "practice", "section_id": "transfer", "prompt": "Which conclusion is supported by the notice?", "choices": ["Les propositions seront toutes retenues samedi.", "Les propositions seront comparées avant une décision ultérieure.", "Aucun compte rendu n'est prévu."], "answers": ["Les propositions seront comparées avant une décision ultérieure."], "explanation": "Comparison is planned at the meeting, while immediate selection is explicitly excluded."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "transfer", "prompt": "Read a new notice: La sortie est reportée au dimanche. Les inscriptions restent ouvertes jusqu'à vendredi. Copy only the new event day, without a preposition.", "choices": [], "answers": ["dimanche"], "explanation": "The event moves to Sunday; Friday is still the registration boundary, not the outing day."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "transfer", "prompt": "Supply the relative pronoun: Voici les deux avis ___ vous devez comparer.", "choices": [], "answers": ["que"], "explanation": "The viewpoints are the direct object of comparer; vous is the subject."},
+    {"id": "item-07", "kind": "choice", "pool": "check", "section_id": "transfer", "prompt": "Read: Racontez votre visite et expliquez pourquoi vous recommanderiez ce lieu à de nouveaux habitants. Which response plan fulfils both parts?", "choices": ["Donner seulement l'adresse", "Raconter des moments de la visite puis justifier une recommandation", "Comparer deux lieux sans raconter la visite demandée"], "answers": ["Raconter des moments de la visite puis justifier une recommandation"], "explanation": "The task requires both an account and reasons linked to new residents' needs."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "transfer", "prompt": "Copy only the connector giving the stated reason: L'accueil fermera tôt puisque l'équipe participe à une formation.", "choices": [], "answers": ["puisque"], "explanation": "Puisque links the early closure to the stated reason, training."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "evidence", "prompt": "Supply only répondre in the pluperfect: Avant de lire la transcription, j'___ aux questions.", "choices": [], "answers": ["avais répondu"], "explanation": "The pluperfect separates the first answer stage from later transcript study."},
+    {"id": "item-10", "kind": "choice", "pool": "check", "section_id": "evidence", "prompt": "Read: J'ai compris la conclusion après trois écoutes et la lecture du texte. Which reformulation is faithful?", "choices": ["La compréhension a été obtenue avec une aide ultérieure.", "Tout a été compris à la première écoute sans aide.", "Aucune écoute n'a été nécessaire."], "answers": ["La compréhension a été obtenue avec une aide ultérieure."], "explanation": "The statement describes learning after replay and text support, not unaided first-play comprehension."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "transfer", "prompt": "Read: Écrivez à votre collègue pour expliquer comment rejoindre la salle. Copy only the question word specifying a method rather than a reason.", "choices": [], "answers": ["comment"], "explanation": "Comment calls for directions or a method; pourquoi would ask for a reason."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "target", "prompt": "Complete with the exact four-word expression meaning 'I do not infer from it': Ma lecture progresse ; ___ que toutes mes compétences progressent au même rythme. Begin with je.", "choices": [], "answers": ["je n'en déduis pas"], "explanation": "Je n'en déduis pas rejects an inference beyond the evidence; n'en is one written word here."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "transfer", "prompt": "Read: L'accès est gratuit pour les visiteurs, mais la réservation demeure obligatoire. Copy the two-word noun phrase naming the requirement.", "choices": [], "answers": ["la réservation"], "explanation": "Free entry does not remove the reservation requirement."},
+    {"id": "item-14", "kind": "choice", "pool": "review", "section_id": "transfer", "prompt": "Read: Les horaires pourraient être élargis si l'essai était concluant. Which summary preserves both uncertainty and condition?", "choices": ["Les horaires ont déjà été élargis définitivement.", "Une extension est possible, sous réserve d'un essai concluant.", "L'essai interdit toute extension."], "answers": ["Une extension est possible, sous réserve d'un essai concluant."], "explanation": "The conditional and si clause do not establish a completed or unconditional extension."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "target", "prompt": "Supply only être in the required mood: Bien que les réponses ___ correctes, cette activité ne mesure pas toute la compétence.", "choices": [], "answers": ["soient"], "explanation": "Bien que selects the subjunctive; correctness on these items does not establish a whole-skill level."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "evidence", "prompt": "Copy the time phrase that makes this later-assisted result different from a first attempt: J'ai corrigé ma réponse après avoir consulté le modèle. Start with après and omit final punctuation.", "choices": [], "answers": ["après avoir consulté le modèle"], "explanation": "The correction follows model access; that condition must remain visible in the record."}
+  ],
+  "production_task": {
+    "prompt": "Original synthesis task: Write a 100–150-word message to a study partner proposing a realistic four-skill practice session. Specify unfamiliar audio before transcript access, a new timed text, a real spoken exchange and new writing for an identified audience. Distinguish practice, self-review and any independent feedback still missing. You may invent a schedule, but do not claim completed tests or scores you do not have. Then explain your plan aloud without reading. Both activities remain self-review unless separately reviewed; this task is not an official test format.",
+    "model_answer": "Bonjour Alex,\nJe te propose de travailler les quatre compétences séparément cette semaine. Pour l'écoute, choisissons un enregistrement que nous ne connaissons pas et répondons avant de regarder la transcription. Nous pourrons ensuite réécouter pour comprendre nos erreurs, sans confondre ce travail avec la première tentative. Pour la lecture, prenons un nouveau texte et notons le temps utilisé ainsi que les passages difficiles. À l'oral, j'aimerais te demander des renseignements sur une activité que tu choisiras, puis développer un avis sur une autre question. Enfin, chacun pourrait rédiger un message destiné à un responsable d'association, en respectant une consigne précise. Nous relirons nos productions avec une grille, mais cela restera une autoévaluation. Il nous manquera encore un retour indépendant sur la qualité de notre expression. Aucun de ces exercices ne nous donnera un score officiel.",
+    "translation": "Hello Alex,\nI suggest working on the four skills separately this week. For listening, let us choose a recording we do not know and answer before looking at the transcript. We can then listen again to understand our mistakes, without confusing that work with the first attempt. For reading, let us take a new text and record the time used and the difficult passages. For speaking, I would like to ask you for information about an activity you choose, then develop an opinion on another question. Finally, each of us could write a message to an association coordinator, following a precise instruction. We will reread our work with a checklist, but that will remain self-assessment. We will still lack independent feedback on the quality of our expression. None of these exercises will give us an official score.",
+    "rubric": [
+      "My plan has distinct listening, reading, speaking and writing activities; a stronger result in one does not stand in for another.",
+      "Listening uses unfamiliar audio before a transcript; I separate the first attempt from later learning support.",
+      "Speaking includes genuine interaction when possible, and writing identifies an audience and purpose.",
+      "I distinguish planned work from completed evidence and self-review from independent feedback; untested areas remain explicit.",
+      "I check the 100–150-word instruction and explain the plan aloud without reading. I do not infer an official level or guarantee from these activities."
+    ]
+  }
+}

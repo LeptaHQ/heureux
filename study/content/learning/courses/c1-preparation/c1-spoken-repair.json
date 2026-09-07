@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "id": "c1-spoken-repair",
+  "slug": "c1-spoken-repair",
+  "cefr_level": "C1-preparation",
+  "topic": "communication-expressions",
+  "title": "Se corriger à l'oral sans perdre le fil",
+  "summary": "Repair a misleading detail, replace a vague word and recognise spoken reductions while distinguishing a transcript from actual listening.",
+  "order": 8,
+  "duration_minutes": 15,
+  "prerequisites": ["c1-information-follow-up", "c1-sustained-opinion"],
+  "objectives": [
+    "Correct a date, number or reference with a brief repair that preserves the message.",
+    "Reformulate a missing word by function or description rather than abandoning the turn.",
+    "Explain why spoken reductions, sound boundaries and intonation require audio evidence."
+  ],
+  "keywords": ["autocorrection", "reprise", "précision", "oral spontané", "réduction", "repair", "listening", "fluency"],
+  "sources": [
+    {"label": "FEI evaluation: pronunciation, fluency, interaction and linguistic control, consulted 2026-09-07", "url": "https://www.france-education-international.fr/article/evaluation-epreuves-tcf"},
+    {"label": "FEI TCF Canada: unfamiliar spoken discourse and one-play listening, consulted 2026-09-07", "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"}
+  ],
+  "related_legacy_ids": ["editorial-error-feedback-loop", "questions-forms", "grammar-relative-pronouns", "negation-core", "daily-on-usage"],
+  "sections": [
+    {
+      "id": "repair",
+      "title": "Correct the smallest unit that changes the meaning",
+      "paragraphs": [
+        "A repair is a speaker's adjustment after noticing that an earlier word was wrong, vague or misleading. Je veux dire corrects or specifies; plutôt can replace a detail; plus précisément narrows a broad claim. Correct the important unit, then continue. Repeating the entire answer after every small slip can make the message harder to follow.",
+        "Prioritise an incorrect date, polarity, quantity or person because it changes the listener's action. A brief pardon can mark a correction, but repeated apologies are not required. Recheck that your repair actually replaces the wrong detail instead of adding a second competing version."
+      ],
+      "points": [
+        "Smooth speech is not the absence of every pause or self-correction.",
+        "An unresolved contradiction is more serious for communication than a clearly repaired slip."
+      ],
+      "examples": [
+        {"french": "— Je pourrai venir jeudi... **pardon, vendredi**, après mon travail.\n— Vendredi, donc. Vers dix-huit heures ?\n— Oui, dix-huit heures au plus tôt. Et je viendrai seul, **je veux dire sans mon collègue** ; il vous rejoindra plus tard.\n— D'accord, je note une arrivée à dix-huit heures et une autre plus tard.\n— Pour être précis, je ne peux pas garantir dix-huit heures exactement. **Disons entre dix-huit heures et dix-huit heures trente**.", "english": "— I can come on Thursday... sorry, Friday, after work.\n— Friday, then. Around six?\n— Yes, six at the earliest. And I will come alone, I mean without my colleague; he will join you later.\n— All right, I will note one arrival at six and another later.\n— To be precise, I cannot guarantee exactly six. Let us say between six and six thirty.", "note": "The repairs progressively settle the day, who arrives together and the time window. The final version overrides the earlier exact-time assumption."},
+        {"french": "J'ai attendu trois heures... **plutôt trois quarts d'heure**. C'était moins long que je ne l'avais d'abord indiqué.", "english": "I waited three hours... rather, three quarters of an hour. It was shorter than I first indicated.", "note": "The replacement corrects a substantial quantity error."},
+        {"french": "Le service est fermé... **je veux dire, le comptoir est fermé** ; on peut encore téléphoner.", "english": "The service is closed... I mean, the desk is closed; you can still phone.", "note": "The narrower noun prevents the listener from assuming that every contact channel is unavailable."}
+      ],
+      "mistakes": [
+        {"avoid": "Il faut que je peux préciser l'heure.", "prefer": "Il faut que je puisse préciser l'heure.", "why": "Il faut que selects the subjunctive. Puisse is the required form of pouvoir; a speaker can repair peux to puisse and continue."}
+      ]
+    },
+    {
+      "id": "reformulate",
+      "title": "Replace vague language with function and reference",
+      "paragraphs": [
+        "If a word is temporarily unavailable, describe what the object does or where it is used: l'appareil qui imprime les billets. A relative clause, a clause beginning with qui, que or dont, can supply the useful relation. Qui is the subject of its clause; que can be a direct object; dont represents a de relationship.",
+        "An initially broad claim can also be repaired. Replace tout le monde with les personnes que j'ai interrogées if that is the evidence you actually have. Precision comes from a defensible boundary, not from a rarer synonym."
+      ],
+      "points": [
+        "Un casier (m.) is a locker or compartment; une borne (f.) can be a self-service terminal.",
+        "A paraphrase may keep communication moving even when it is not the shortest possible wording."
+      ],
+      "examples": [
+        {"french": "Je cherche la borne, **l'appareil qui permet de retirer un billet**.", "english": "I am looking for the terminal, the machine that lets you collect a ticket.", "note": "The function identifies the object and qui is the subject of permet."},
+        {"french": "C'est la pièce **dont j'ai besoin** pour terminer le montage.", "english": "It is the part I need to finish the assembly.", "note": "Dont preserves avoir besoin de; the description remains informative without the part's technical name."},
+        {"french": "Tout le monde trouve l'horaire compliqué... **enfin, les deux personnes à qui j'en ai parlé**.", "english": "Everyone finds the schedule complicated... well, the two people I spoke to about it.", "note": "The repair reduces an unsupported generalisation to the actual evidence."}
+      ],
+      "mistakes": [
+        {"avoid": "Je cherche le document que j'ai besoin.", "prefer": "Je cherche le document dont j'ai besoin.", "why": "Avoir besoin de requires dont, not direct-object que, in this relative clause."}
+      ]
+    },
+    {
+      "id": "spoken",
+      "title": "Recognise spoken forms without treating spelling as sound",
+      "paragraphs": [
+        "Ordinary speech may omit ne, reduce il y a, join sounds across word boundaries, or interrupt a phrase before replacing it. A transcript spelling such as y a records a reduction; it is not a recommendation for a formal email. These forms occur in multiple French-speaking regions and are not a reason to stereotype one accent.",
+        "Understanding a printed sentence lets you see word boundaries and reread a correction. Listening requires segmenting a continuous signal, recognising reduced forms, tracking stress and holding earlier information while hearing a replacement. Familiarity with a transcript or synthetic read-aloud does not establish readiness for unfamiliar voices and natural delivery.",
+        "Use a real unfamiliar recording for listening practice: answer before revealing a transcript, record what you understood on the first play, then use replay and the transcript diagnostically. For exam-format practice, FEI TCF Canada recordings are played once. Do not count later recognition after transcript study as first-play comprehension."
+      ],
+      "points": [
+        "A missing written ne is not proof of affirmative meaning in conversational speech: pas, jamais or plus and context matter.",
+        "For ambiguous written plus, do not infer a single spoken meaning without context and pronunciation."
+      ],
+      "examples": [
+        {"french": "À l'oral familier : « **On peut pas** venir demain. »\nÀ l'écrit soigné : « **On ne peut pas** venir demain. »", "english": "In informal speech: \"We cannot come tomorrow.\"\nIn careful writing: \"We cannot come tomorrow.\"", "note": "Omission of ne in common speech does not remove the negation carried by pas."},
+        {"french": "Transcription familière : « **Y a** une autre entrée, à gauche. »\nForme développée : « **Il y a** une autre entrée, à gauche. »", "english": "Informal transcription: \"There is another entrance, on the left.\"\nFull form: \"There is another entrance, on the left.\"", "note": "The transcript explains a reduced form; only actual audio can assess whether the learner recognises it in a continuous signal."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "choice", "pool": "practice", "section_id": "repair", "prompt": "In the opening dialogue, which final time commitment is supported?", "choices": ["Jeudi à dix-huit heures exactement", "Vendredi entre dix-huit heures et dix-huit heures trente", "Vendredi avant dix-huit heures"], "answers": ["Vendredi entre dix-huit heures et dix-huit heures trente"], "explanation": "The day is repaired to Friday, and the exact time is replaced by a window."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "repair", "prompt": "Supply the three-word repair marker taught for 'I mean': Le service ferme, ___ le comptoir ferme.", "choices": [], "answers": ["je veux dire"], "explanation": "The repair narrows service to comptoir; the whole message need not restart."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "reformulate", "prompt": "Supply the relative pronoun: C'est le document ___ j'ai besoin.", "choices": [], "answers": ["dont", "duquel"], "explanation": "The underlying expression is avoir besoin de ce document. Dont is natural here; duquel is also grammatical with this masculine singular antecedent, though heavier."},
+    {"id": "item-04", "kind": "choice", "pool": "practice", "section_id": "spoken", "prompt": "What does On peut pas venir mean in the explicitly informal spoken example?", "choices": ["On peut venir.", "On ne peut pas venir.", "On viendra certainement."], "answers": ["On ne peut pas venir."], "explanation": "The omitted ne does not change the negative meaning of pas."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "repair", "prompt": "Read: Le rendez-vous est le douze, pardon, le treize. Supply only the corrected date in French words, including le.", "choices": [], "answers": ["le treize"], "explanation": "The repair replaces twelve with thirteen; retaining both would leave an unresolved contradiction."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "reformulate", "prompt": "Supply the relative pronoun: Je cherche un appareil ___ imprime les reçus.", "choices": [], "answers": ["qui"], "explanation": "The device performs the action imprimer, so qui is the relative subject."},
+    {"id": "item-07", "kind": "choice", "pool": "check", "section_id": "repair", "prompt": "A speaker says Nous sommes quatre... enfin, trois, car Léo ne vient plus. What should the listener retain?", "choices": ["Trois personnes viennent.", "Quatre personnes viennent.", "Léo vient seul."], "answers": ["Trois personnes viennent."], "explanation": "The corrected number is three and the reason confirms the reduction."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "spoken", "prompt": "Restore only the missing ne in this careful written version; write the whole sentence: Je sais pas où attendre.", "choices": [], "answers": ["Je ne sais pas où attendre."], "explanation": "The spoken negative is expanded for careful writing without changing its meaning."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "repair", "prompt": "Supply only pouvoir in the required mood: Il faut que nous ___ préciser le nombre de participants.", "choices": [], "answers": ["puissions"], "explanation": "Il faut que selects the subjunctive, here puissions for nous."},
+    {"id": "item-10", "kind": "choice", "pool": "check", "section_id": "reformulate", "prompt": "You have spoken to two neighbours. Which repair makes Tous les voisins sont d'accord faithful to that evidence?", "choices": ["Tous les habitants du pays sont d'accord.", "Plus précisément, les deux voisins à qui j'ai parlé sont d'accord.", "Il est certain que personne ne s'oppose au projet."], "answers": ["Plus précisément, les deux voisins à qui j'ai parlé sont d'accord."], "explanation": "The repair limits the claim to the two people actually consulted."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "spoken", "prompt": "Expand only the informal opening Y a into its full standard form before une place libre.", "choices": [], "answers": ["Il y a"], "explanation": "Il y a is the full written form behind this common spoken reduction."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "repair", "prompt": "Read: Le bâtiment est fermé... plus précisément, l'entrée principale est fermée ; l'accès latéral reste ouvert. Copy only the noun phrase naming what is actually closed.", "choices": [], "answers": ["l'entrée principale"], "explanation": "The narrowed claim concerns one entrance, not every way into the building."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "reformulate", "prompt": "Supply the relative pronoun: Le reçu ___ vous avez imprimé est lisible.", "choices": [], "answers": ["que"], "explanation": "The receipt is the direct object of avez imprimé; vous is the subject."},
+    {"id": "item-14", "kind": "choice", "pool": "review", "section_id": "repair", "prompt": "A speaker says Je parle de la permanence du soir, pas de celle du matin. What has been clarified?", "choices": ["Le créneau concerné", "Le nombre de bénévoles", "Le prix de l'activité"], "answers": ["Le créneau concerné"], "explanation": "The contrast resolves which service period is meant."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "spoken", "prompt": "Restore the negative marker required in careful writing: Nous ___ avons jamais réservé ici. Supply only the missing contracted marker.", "choices": [], "answers": ["n'"], "explanation": "Ne contracts before avons; jamais retains the negative meaning often expressed without ne in conversation."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "repair", "prompt": "Read: Le trajet prend une heure... plutôt une demi-heure quand la circulation est fluide. Copy the corrected duration only, without the condition.", "choices": [], "answers": ["une demi-heure"], "explanation": "The repair changes the duration; the condition that traffic is flowing freely still limits when it applies."}
+  ],
+  "production_task": {
+    "prompt": "Original spoken task: Explain to a new volunteer how to find a community event and what role you can help with. A partner should ask for clarification about the entrance or your availability. Respond to the actual question and, if necessary, repair one misleading detail without restarting. If you make no error, clarify a genuinely vague phrase rather than staging a fake slip. Record 1–2 minutes, then self-review. The model illustrates repairs, not a script to memorise. Solo rehearsal does not establish live interaction or listening readiness.",
+    "model_answer": "La rencontre aura lieu au centre du quartier, près de l'arrêt d'autobus. On entre par la rue principale... je précise : l'entrée habituelle est sur cette rue, mais samedi il faudra utiliser la porte du jardin. Elle se trouve derrière le bâtiment. Je pourrai vous aider à installer les tables à neuf heures... pardon, à neuf heures trente, car je travaille tôt ce matin-là. Ensuite, je serai disponible jusqu'à midi. Pour le matériel, je peux apporter une rallonge, le câble qui permet de brancher un appareil plus loin de la prise. En revanche, je n'ai pas de haut-parleur. Si vous me dites exactement ce qu'il manque, je pourrai vérifier ce que j'ai chez moi. Est-ce que ces horaires vous conviennent ?",
+    "translation": "The gathering will take place at the neighbourhood centre, near the bus stop. You enter from the main street... let me clarify: the usual entrance is on that street, but on Saturday you will need to use the garden door. It is behind the building. I can help you set up the tables at nine... sorry, at nine thirty, because I am working early that morning. After that, I will be available until noon. For equipment, I can bring an extension lead, the cable that lets you plug in a device farther from the socket. However, I do not have a speaker. If you tell me exactly what is missing, I can check what I have at home. Do those times work for you?",
+    "rubric": [
+      "The listener can identify the final entrance, time and role after any repair.",
+      "I correct or clarify only the needed unit and continue with an intelligible message.",
+      "A paraphrase identifies the missing word by a useful function; relative pronouns preserve the intended relationship.",
+      "I respond to a real follow-up when working with a partner. I label solo recording and transcript analysis honestly.",
+      "I review accuracy, comprehensibility and continuity myself; no automatic word matching establishes a speaking or listening level."
+    ]
+  }
+}

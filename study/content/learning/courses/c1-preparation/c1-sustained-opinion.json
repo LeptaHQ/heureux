@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "id": "c1-sustained-opinion",
+  "slug": "c1-sustained-opinion",
+  "cefr_level": "C1-preparation",
+  "topic": "communication-expressions",
+  "title": "Développer une opinion et traiter une objection",
+  "summary": "Sustain a position with explained reasons, concrete illustrations and a fair concession, rather than a memorised list of connectors.",
+  "order": 7,
+  "duration_minutes": 15,
+  "prerequisites": ["c1-implicit-stance", "c1-compare-reformulate", "c1-narrative-commentary"],
+  "objectives": [
+    "State a position that directly answers the question and defines its limits.",
+    "Develop a reason by explaining its mechanism and giving a relevant illustration.",
+    "Address an objection without caricaturing it or abandoning the argument."
+  ],
+  "keywords": ["argumentation", "opinion", "objection", "concession", "hypothèse", "sustained speaking", "reasons"],
+  "sources": [
+    {"label": "FEI TCF Canada: oral task 3 spontaneous viewpoint development, consulted 2026-09-07", "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"},
+    {"label": "FEI evaluation: thematic development, coherence and fluency, consulted 2026-09-07", "url": "https://www.france-education-international.fr/article/evaluation-epreuves-tcf"}
+  ],
+  "related_legacy_ids": ["writing-structured-argumentation", "connectors-concession", "expressions-opinion-preference", "verbs-conditional-si"],
+  "sections": [
+    {
+      "id": "develop",
+      "title": "Turn a reason into an explanation",
+      "paragraphs": [
+        "A position answers the actual question. A reason explains why you hold it. An illustration makes that explanation concrete, but a single example does not prove a universal rule. Ask after each reason: how would this work, for whom, and under what conditions?",
+        "You do not need rare vocabulary or a ceremonial introduction to sound precise. A clear position followed by developed reasons is more useful than d'abord, ensuite, enfin with no explanation. A hypothetical example must remain hypothetical: imagine a neighbour, rather than inventing a survey or claiming that a whole city has already succeeded."
+      ],
+      "points": [
+        "A material-sharing service is one original discussion topic, not a required exam theme.",
+        "Un emprunt (m.) here means borrowing an item; un achat (m.) is a purchase."
+      ],
+      "examples": [
+        {"french": "Faut-il développer le prêt d'objets dans les quartiers ? **J'y suis favorable pour les objets utilisés rarement**, à condition que le service reste simple. Une personne qui a besoin d'une perceuse pour un seul projet pourrait l'emprunter plutôt que l'acheter. L'intérêt ne se limite donc pas au prix : elle éviterait aussi de stocker un objet dont elle se sert peu. Cela ne signifie pas que tous les biens doivent être partagés.", "english": "Should neighbourhood item-lending services be expanded? I support them for items that are rarely used, provided the service remains simple. Someone who needs a drill for just one project could borrow it rather than buy it. So the benefit is not limited to price: they would also avoid storing an item they seldom use. That does not mean that all goods must be shared.", "note": "Position, condition, mechanism and illustration are linked; no measured result is invented."},
+        {"french": "Je privilégierais une petite sélection d'objets, **parce qu'elle serait plus facile à entretenir**.", "english": "I would favour a small selection of items because it would be easier to maintain.", "note": "The reason explains the operational benefit of the proposed scope."},
+        {"french": "**Par exemple**, une personne qui prépare une fête pourrait emprunter de la vaisselle.", "english": "For example, someone organising a party could borrow tableware.", "note": "The conditional makes this an illustration of a possibility, not a claim about observed users."}
+      ],
+      "mistakes": [
+        {"avoid": "Si chacun emprunterait les objets peu utilisés, on pourrait limiter certains achats.", "prefer": "Si chacun empruntait les objets peu utilisés, on pourrait limiter certains achats.", "why": "A hypothetical condition uses si + imperfect; the conditional belongs in the result."}
+      ]
+    },
+    {
+      "id": "objection",
+      "title": "Give the objection its strongest reasonable form",
+      "paragraphs": [
+        "A fair objection identifies a real difficulty, such as maintenance or unequal access. Certes accepts a point; toutefois or cependant introduces a limit or response. You may concede the problem while proposing a way to reduce it. Do not call the opposing view absurd simply to make your own position easier.",
+        "À condition que takes the subjunctive; à condition de takes an infinitive with an understood subject. Même si takes the indicative in the ordinary concession used here. These choices connect actual reasoning; adding a subjunctive merely to display an advanced form does not improve an argument."
+      ],
+      "points": [
+        "An answer to an objection should address that objection, not switch to a different benefit.",
+        "Reducing a risk is not the same as guaranteeing that it disappears."
+      ],
+      "examples": [
+        {"french": "**Certes**, l'entretien demande du temps. **Toutefois**, un service limité à quelques objets serait plus facile à suivre.", "english": "Admittedly, maintenance takes time. However, a service limited to a few items would be easier to manage.", "note": "The response reduces the identified burden rather than denying it."},
+        {"french": "Le projet serait utile **à condition que** les horaires soient compatibles avec la vie des usagers.", "english": "The project would be useful provided the hours were compatible with users' lives.", "note": "Soient follows à condition que; the condition concerns practical access."},
+        {"french": "**Même si** certains préfèrent acheter, cela n'empêche pas de proposer le prêt à ceux qui le souhaitent.", "english": "Even if some people prefer to buy, that does not prevent lending from being offered to those who want it.", "note": "The response supports a choice, not compulsory sharing."}
+      ],
+      "mistakes": [
+        {"avoid": "Le service fonctionnerait à condition que les objets sont vérifiés.", "prefer": "Le service fonctionnerait à condition que les objets soient vérifiés.", "why": "À condition que selects the subjunctive. Soient vérifiés is a present subjunctive passive."}
+      ]
+    },
+    {
+      "id": "sustain",
+      "title": "Keep developing instead of repeating or filling time",
+      "paragraphs": [
+        "If you have stated a benefit, develop a consequence, compare a realistic alternative, or explain a limit. Repeating c'est important in different words does not develop the theme. Use a brief transition to orient the listener, then supply new substance.",
+        "FEI oral task 3 asks for spontaneous, continuous viewpoint development for 4 minutes 30 seconds without preparation. In learning mode you can plan and rehearse; a separate attempt should use a fresh question without reading a prepared text. The model is a shortened illustration of reasoning, not a timed script or an official exam answer."
+      ],
+      "points": [
+        "A conclusion should answer the original question in light of the reasons, not introduce an unrelated final argument.",
+        "Pauses to organise thought are different from abandoning the message. Aim for intelligibility and continuity, not mechanically fast speech."
+      ],
+      "examples": [
+        {"french": "**Reste la question des horaires** : un service utile en théorie peut être difficile à utiliser si l'accueil ferme tôt.", "english": "The question of opening hours remains: a service that is useful in theory may be difficult to use if the desk closes early.", "note": "The transition introduces a new practical dimension rather than repeating the cost argument."},
+        {"french": "**Je soutiens donc un essai limité**, avec un bilan avant toute extension.", "english": "I therefore support a limited trial, with a review before any expansion.", "note": "The conclusion reflects both support and the implementation concerns."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "choice", "pool": "practice", "section_id": "develop", "prompt": "Which sentence develops a reason rather than merely repeating approval?", "choices": ["Le prêt est bien, vraiment très bien.", "Le prêt peut éviter de stocker un objet utilisé une seule fois.", "Je suis pour, parce que je suis favorable."], "answers": ["Le prêt peut éviter de stocker un objet utilisé une seule fois."], "explanation": "It explains a concrete mechanism linking lending to a practical benefit."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "develop", "prompt": "Supply only emprunter in the imperfect: Si chacun ___ moins souvent les mêmes objets, il faudrait revoir le stock.", "choices": [], "answers": ["empruntait"], "explanation": "Si introduces a hypothesis with the imperfect; chacun is singular."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "objection", "prompt": "Supply only être in the required mood: Le prêt serait utile à condition que les horaires ___ adaptés.", "choices": [], "answers": ["soient"], "explanation": "À condition que requires the subjunctive; les horaires is plural."},
+    {"id": "item-04", "kind": "choice", "pool": "practice", "section_id": "objection", "prompt": "An objection concerns maintenance workload. Which response actually addresses it?", "choices": ["Le service serait joli.", "Commençons par peu d'objets pour limiter le travail d'entretien.", "Les habitants aiment parfois se rencontrer."], "answers": ["Commençons par peu d'objets pour limiter le travail d'entretien."], "explanation": "A small inventory directly responds to the workload concern."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "develop", "prompt": "Supply only permettre in the conditional present: Un horaire plus large ___ aux salariés de venir après le travail.", "choices": [], "answers": ["permettrait"], "explanation": "The benefit is presented as a projected possibility, not an observed universal result."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "objection", "prompt": "Use the one-word concession opener beginning with c: ___, une permanence coûte du temps ; toutefois, elle peut rendre le service accessible.", "choices": [], "answers": ["Certes"], "explanation": "Certes grants the cost before introducing a countervailing consideration."},
+    {"id": "item-07", "kind": "choice", "pool": "check", "section_id": "develop", "prompt": "Read: Imaginons une personne qui utilise une machine à coudre une fois par an. What is the status of this example?", "choices": ["Un résultat statistique vérifié", "Une illustration hypothétique", "Une preuve que personne ne coud souvent"], "answers": ["Une illustration hypothétique"], "explanation": "Imaginons introduces a possible case, not collected evidence or a universal claim."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "objection", "prompt": "Supply only pouvoir in the present indicative: Même si certains ne ___ pas venir, la réunion peut être utile.", "choices": [], "answers": ["peuvent"], "explanation": "Même si uses the indicative here; certains is plural."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "develop", "prompt": "Read: Je propose un essai, parce qu'il permettrait de repérer les difficultés avant de s'engager. Copy only the infinitive naming what the trial would help do.", "choices": [], "answers": ["repérer"], "explanation": "The stated mechanism is identifying difficulties before commitment, not guaranteeing success."},
+    {"id": "item-10", "kind": "choice", "pool": "check", "section_id": "sustain", "prompt": "You have already explained the financial benefit of shared equipment. Which next move develops a distinct relevant dimension?", "choices": ["Répéter que cela coûte moins cher sans expliquer davantage", "Examiner comment organiser l'entretien et les horaires", "Donner une statistique inventée pour paraître convaincant"], "answers": ["Examiner comment organiser l'entretien et les horaires"], "explanation": "Practical operation adds substance and can qualify the initial position."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "objection", "prompt": "Complete the infinitive construction with one preposition: Je soutiens le projet à condition ___ préserver un accueil en personne.", "choices": [], "answers": ["de"], "explanation": "À condition de takes an infinitive; à condition que would require a finite clause."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "sustain", "prompt": "Copy the two-word phrase marking the remaining issue, including its article: Reste la question des horaires, qui doit être examinée avant l'ouverture.", "choices": [], "answers": ["la question"], "explanation": "Reste la question... introduces an unresolved dimension; the following complement specifies which question."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "objection", "prompt": "Supply only avoir in the required mood: Je serais favorable à l'essai à condition que nous ___ un moyen d'en faire le bilan.", "choices": [], "answers": ["ayons"], "explanation": "À condition que selects the subjunctive, here ayons with nous."},
+    {"id": "item-14", "kind": "choice", "pool": "review", "section_id": "sustain", "prompt": "An argument supports a small trial but warns about limited staff. Which conclusion is coherent?", "choices": ["Il faut tout généraliser immédiatement sans bilan.", "Essayons à petite échelle avant de décider d'une extension.", "Il est prouvé que le personnel est inutile."], "answers": ["Essayons à petite échelle avant de décider d'une extension."], "explanation": "The conclusion preserves both the support and the staffing limitation."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "develop", "prompt": "Supply only réduire in the conditional present: Si le matériel durait plus longtemps, cela ___ certains frais.", "choices": [], "answers": ["réduirait"], "explanation": "The hypothetical result uses the conditional, with singular cela."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "objection", "prompt": "Read: Il faut faciliter l'accès, sans garantir que chacun utilisera le service. Copy the limitation beginning with sans, without a final full stop.", "choices": [], "answers": ["sans garantir que chacun utilisera le service"], "explanation": "Improving access is not the same as promising universal uptake."}
+  ],
+  "production_task": {
+    "prompt": "Original spoken question: Should a neighbourhood centre lend everyday items as well as offering activities? In learning mode, identify a position, two distinct reasons, a concrete illustration, a serious objection and a qualified conclusion. Then make a separate fresh attempt on the question 'Should a neighbourhood centre keep some evening hours?' Speak spontaneously for up to 4 minutes 30 seconds without preparation or reading. The model below illustrates the first question in condensed form, not a full timed performance. Self-review the recording; do not assign an NCLC score from keywords.",
+    "model_answer": "Je serais favorable à un service de prêt, mais je commencerais par des objets peu nombreux et faciles à gérer. L'objectif ne serait pas de remplacer tous les achats. Il s'agirait plutôt de rendre disponibles des choses dont on a besoin occasionnellement.\nD'abord, cela pourrait éviter un achat disproportionné par rapport à l'usage. Imaginons une personne qui prépare une fête et cherche de la vaisselle supplémentaire. Emprunter lui permettrait de répondre à un besoin précis sans devoir ensuite ranger tout ce matériel chez elle. Ce n'est pas une économie garantie dans chaque situation, mais c'est une possibilité concrète.\nEnsuite, le centre pourrait devenir un lieu où l'on échange des conseils sur le choix et l'utilisation des objets. Je ne parle pas de transformer chaque bénévole en spécialiste. Une explication simple sur le fonctionnement du service et des consignes claires seraient déjà utiles. Cette dimension humaine distingue le prêt d'une simple liste d'objets sur un site.\nL'objection principale, à mon sens, concerne l'entretien. Quelqu'un doit vérifier les retours, ranger le matériel et répondre aux questions. Ce travail ne disparaît pas parce que le projet paraît généreux. C'est pourquoi je ne proposerais pas une ouverture immédiate à tous les types d'objets. Un essai limité permettrait de voir ce que l'équipe peut réellement gérer.\nIl faudrait également réfléchir aux horaires. Si le comptoir n'ouvre que pendant la journée, certaines personnes qui travaillent risquent de ne jamais pouvoir venir. Une permanence en soirée pourrait être envisagée, sans promettre qu'elle conviendra à tout le monde.\nEn somme, je soutiens le principe, à condition de définir une offre réaliste, de rendre les règles compréhensibles et de faire un bilan avant toute extension. Mieux vaut un petit service fiable qu'une promesse très large que le centre ne pourrait pas tenir.",
+    "translation": "I would support a lending service, but I would start with a small number of items that are easy to manage. The aim would not be to replace every purchase. Rather, it would be to make available things that people need occasionally.\nFirst, this could avoid a purchase that is disproportionate to its use. Imagine someone organising a party and looking for extra tableware. Borrowing would let them meet a specific need without then having to store all that equipment at home. It is not a guaranteed saving in every situation, but it is a concrete possibility.\nSecond, the centre could become a place where people exchange advice on choosing and using items. I do not mean turning every volunteer into a specialist. A simple explanation of how the service works and clear instructions would already be useful. This human element distinguishes lending from a mere list of items on a website.\nThe main objection, in my view, concerns maintenance. Someone has to check returned items, put equipment away and answer questions. That work does not disappear because the project seems generous. That is why I would not propose immediately opening the service to every type of item. A limited trial would show what the team can actually manage.\nOpening hours would also need consideration. If the desk is only open during the day, some people who work risk never being able to come. An evening service period could be considered, without promising that it would suit everyone.\nIn short, I support the principle, provided the offer is realistic, the rules are understandable, and a review takes place before any expansion. A small reliable service is better than a very broad promise that the centre could not keep.",
+    "rubric": [
+      "I answer the question directly and develop distinct reasons through explanations, not repeated approval.",
+      "My illustration is clearly hypothetical or honestly personal; I do not fabricate statistics or authority.",
+      "I present a serious objection fairly and respond to it with a relevant condition or adjustment.",
+      "I sustain intelligible speech and conclude consistently. The second attempt is spontaneous; reading the model is rehearsal, not assessed speaking readiness.",
+      "I use the recording for self-review of relevance, cohesion, fluency and accuracy, not a keyword-based TCF or NCLC estimate."
+    ]
+  }
+}

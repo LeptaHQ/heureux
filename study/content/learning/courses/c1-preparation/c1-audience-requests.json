@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "id": "c1-audience-requests",
+  "slug": "c1-audience-requests",
+  "cefr_level": "C1-preparation",
+  "topic": "exam-writing",
+  "title": "Adapter le registre et formuler une demande précise",
+  "summary": "Write a concise request that fits the relationship, separates facts from assumptions and makes the desired response easy to identify.",
+  "order": 4,
+  "duration_minutes": 12,
+  "prerequisites": ["c1-implicit-stance"],
+  "objectives": [
+    "Choose a suitable level of formality without treating informal French as inherently wrong.",
+    "Embed a question with statement word order.",
+    "Specify an action and a useful deadline without overstating entitlement or blame."
+  ],
+  "keywords": ["registre", "demande", "politesse", "interrogation indirecte", "courriel", "audience", "formal request"],
+  "sources": [
+    {"label": "FEI TCF Canada: addressed message task, consulted 2026-09-07", "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"},
+    {"label": "FEI evaluation: appropriateness to the communication situation, consulted 2026-09-07", "url": "https://www.france-education-international.fr/article/evaluation-epreuves-tcf"}
+  ],
+  "related_legacy_ids": ["writing-cohesion-formality", "questions-forms", "verbs-conditional-si", "lexicon-abbreviations-register"],
+  "sections": [
+    {
+      "id": "audience",
+      "title": "Choose the relationship before choosing the formula",
+      "paragraphs": [
+        "Register is the degree and style of formality suited to a situation. A message to a close friend can be brief and familiar; an initial request to an unfamiliar service normally benefits from vous, a greeting and an explicit purpose. Actual workplace relationships vary in Canada and elsewhere: follow an established tu relationship rather than assuming one national rule.",
+        "The conditional in pourriez-vous or je souhaiterais softens a request. It does not require an imaginary si clause. Formality does not mean adding long ceremonial phrases: polite wording should leave the requested action clear. A direct imperative may fit an instruction between colleagues but sound abrupt in a first request."
+      ],
+      "points": [
+        "The following two requests are both grammatical; the difference is relationship and tone, not correctness.",
+        "Un justificatif (m.) is a supporting document; une confirmation (f.) is a confirmation."
+      ],
+      "examples": [
+        {"french": "Salut Zoé, tu peux me renvoyer l'adresse quand tu as un moment ?", "english": "Hi Zoé, can you send me the address again when you have a moment?", "note": "An ordinary familiar request between people who already use tu."},
+        {"french": "Bonjour, **pourriez-vous** me confirmer l'adresse de l'atelier ?", "english": "Hello, could you confirm the workshop address for me?", "note": "An initial request to an unfamiliar organiser uses vous and a softened question."},
+        {"french": "Bonjour Madame,\nJe vous écris au sujet de mon inscription à l'atelier de samedi. J'ai reçu la confirmation, mais elle ne précise pas la salle. **Pourriez-vous m'indiquer** où je dois me présenter ?\nMerci pour votre aide.\nCordialement,\nSamira", "english": "Dear Madam,\nI am writing about my registration for Saturday's workshop. I received the confirmation, but it does not specify the room. Could you tell me where I should go?\nThank you for your help.\nKind regards,\nSamira", "note": "Context, missing information and desired action are visible without a long introduction."}
+      ],
+      "mistakes": [
+        {"avoid": "Pourriez-vous me confirmé l'adresse ?", "prefer": "Pourriez-vous me confirmer l'adresse ?", "why": "Pouvoir is followed by an infinitive, confirmer, not the past participle confirmé."}
+      ]
+    },
+    {
+      "id": "embedded",
+      "title": "Put an embedded question in statement order",
+      "paragraphs": [
+        "An indirect or embedded question sits inside a larger request: Pourriez-vous me dire où la réunion aura lieu ? The outer question may use inversion, but the embedded question normally keeps subject before verb. Do not retain subject-pronoun inversion such as partira-t-il. Inversion with a full noun subject is possible in some embedded questions: où se trouve l'entrée is also correct. Use si for a yes/no question, without est-ce que; use a question word such as où or quand for the missing detail.",
+        "Compare Où aura lieu la réunion ? with Je voudrais savoir où la réunion aura lieu. The second is a statement of what you want to know. When the whole sentence begins Pourriez-vous..., it remains a question and takes a question mark."
+      ],
+      "points": [
+        "In these examples, si means whether, not a hypothetical if. Je voudrais savoir si vous pourriez... is possible; the rule banning a conditional in a hypothetical si clause does not apply to every si.",
+        "Do not remove useful details merely to make a message sound elegant."
+      ],
+      "examples": [
+        {"french": "Je voudrais savoir **si le matériel est fourni**.", "english": "I would like to know whether the equipment is provided.", "note": "A yes/no question is embedded with si and ordinary subject–verb order."},
+        {"french": "Pouvez-vous préciser **quand les inscriptions se terminent** ?", "english": "Can you specify when registration closes?", "note": "The outer question is inverted; the embedded clause is not."},
+        {"french": "Je souhaiterais savoir **si vous pourriez** déplacer notre rendez-vous.", "english": "I would like to know whether you could move our appointment.", "note": "Si introduces an indirect question here. The conditional is legitimate."}
+      ],
+      "mistakes": [
+        {"avoid": "Je voudrais savoir où est-ce que la séance aura lieu.", "prefer": "Je voudrais savoir où la séance aura lieu.", "why": "Do not carry the direct-question marker est-ce que into this careful written embedded question."}
+      ]
+    },
+    {
+      "id": "precision",
+      "title": "Be explicit about facts, deadlines and next steps",
+      "paragraphs": [
+        "Distinguish the fact you observed from the cause you suspect. Je n'ai pas reçu la confirmation does not establish vous avez oublié. State what response you need and why a date matters. D'ici vendredi sets a deadline by Friday; avant vendredi asks for an earlier response. Avoid inventing legal obligations or refund entitlements in a language exercise.",
+        "TCF Canada writing task 1 is an addressed message of 60–120 words, but not every task is a formal complaint. The audience and purpose in the prompt decide the register. The three writing tasks together last 60 minutes; this lesson's message is a short original preparation task."
+      ],
+      "points": [
+        "One request per sentence can be clearer than several polite clauses nested inside each other.",
+        "Use an actual reason for urgency, not an automatic threat or excessive apology."
+      ],
+      "examples": [
+        {"french": "Je n'ai pas reçu la confirmation ; **pourriez-vous vérifier** que mon inscription a bien été enregistrée ?", "english": "I have not received the confirmation; could you check that my registration was properly recorded?", "note": "The observation is certain; no unsupported accusation is added."},
+        {"french": "Une réponse **d'ici jeudi** me permettrait d'organiser mon déplacement.", "english": "A reply by Thursday would allow me to organise my trip.", "note": "The deadline is explained rather than presented as an unexplained demand."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "choice", "pool": "practice", "section_id": "audience", "prompt": "For a first email to an unfamiliar workshop organiser, choose the most appropriate request for the room location.", "choices": ["Salut, dis-moi dans quelle salle c'est.", "Bonjour, pourriez-vous me préciser la salle ?", "Bonjour, je vous confirme que la salle est réservée."], "answers": ["Bonjour, pourriez-vous me préciser la salle ?"], "explanation": "The request is both polite and specific. The familiar form may fit a friend, not this first contact; confirming a booking does not ask where to go."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "audience", "prompt": "Supply only the required form of préciser: Pourriez-vous ___ l'horaire ?", "choices": [], "answers": ["préciser"], "explanation": "The modal pouvoir is followed by an infinitive."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "embedded", "prompt": "Supply only the connector for an embedded yes/no question: Je voudrais savoir ___ la salle est accessible le soir.", "choices": [], "answers": ["si"], "explanation": "Si here means whether, not a hypothetical condition."},
+    {"id": "item-04", "kind": "choice", "pool": "practice", "section_id": "precision", "prompt": "You can establish only that no confirmation reached you. Which wording avoids an unsupported accusation?", "choices": ["Vous avez forcément oublié mon inscription.", "Je n'ai pas reçu la confirmation.", "Votre service refuse toutes les inscriptions."], "answers": ["Je n'ai pas reçu la confirmation."], "explanation": "The statement reports an observation without inventing its cause."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "embedded", "prompt": "Reorder only these words as the embedded clause after Je voudrais savoir: commence / la visite / quand. Supply the clause without punctuation.", "choices": [], "answers": ["quand la visite commence", "quand commence la visite"], "explanation": "Question word + subject + verb works. Inversion with the full noun subject la visite is also grammatical here; it is not the subject-pronoun inversion excluded from an embedded question."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "audience", "prompt": "Supply only pouvoir in the conditional present: ___-vous me transmettre le programme ?", "choices": [], "answers": ["Pourriez"], "explanation": "Pourriez-vous softens a request addressed with vous."},
+    {"id": "item-07", "kind": "choice", "pool": "check", "section_id": "embedded", "prompt": "Choose the well-formed careful written indirect question.", "choices": ["Je souhaite savoir si est-ce que la visite est maintenue.", "Je souhaite savoir si la visite est maintenue.", "Je souhaite savoir si la visite est-elle maintenue."], "answers": ["Je souhaite savoir si la visite est maintenue."], "explanation": "The embedded yes/no question has si and statement word order, without est-ce que or subject inversion."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "precision", "prompt": "Use d'ici plus the weekday to express 'by Tuesday': Une réponse ___ serait utile. Supply only the two written words.", "choices": [], "answers": ["d'ici mardi"], "explanation": "D'ici mardi sets a deadline by Tuesday; the apostrophe is part of d'ici."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "embedded", "prompt": "Supply only the embedded clause after Pourriez-vous me dire, using these words in their usual order: où / se trouve / l'entrée. No punctuation.", "choices": [], "answers": ["où l'entrée se trouve", "où se trouve l'entrée"], "explanation": "Où l'entrée se trouve uses subject–verb order. Où se trouve l'entrée is also a legitimate embedded inversion with a full noun subject; neither uses est-ce que or a repeated subject pronoun."},
+    {"id": "item-10", "kind": "choice", "pool": "check", "section_id": "audience", "prompt": "A colleague has explicitly invited you to use tu. Is Tu peux me rappeler cet après-midi ? inherently ungrammatical or inappropriate?", "choices": ["Oui, toute demande exige vous.", "Non, ce registre peut convenir à cette relation."], "answers": ["Non, ce registre peut convenir à cette relation."], "explanation": "Register depends on the established relationship. Familiar French is not automatically an error."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "embedded", "prompt": "Supply only être in the conditional present: Je voudrais savoir si un autre horaire ___ possible.", "choices": [], "answers": ["serait"], "explanation": "Si introduces whether here, so a conditional is possible in this tentative indirect question."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "precision", "prompt": "Read: Merci de m'indiquer si une place reste disponible, afin que je puisse organiser mon déplacement. Copy only the infinitive naming the requested action.", "choices": [], "answers": ["indiquer"], "explanation": "The addressee is asked to provide information about availability; organiser describes the writer's resulting action."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "audience", "prompt": "Supply only recevoir in the infinitive: Je souhaiterais ___ une confirmation écrite.", "choices": [], "answers": ["recevoir"], "explanation": "Souhaiter is followed directly by the infinitive in this structure."},
+    {"id": "item-14", "kind": "choice", "pool": "review", "section_id": "precision", "prompt": "The writer needs an answer earlier than Friday, not on Friday. Which phrase preserves this requirement?", "choices": ["Avant vendredi", "À partir de vendredi", "Pendant vendredi"], "answers": ["Avant vendredi"], "explanation": "Avant excludes Friday as the requested response day; à partir de gives a starting point."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "embedded", "prompt": "Correct only the embedded clause in Je voudrais savoir quand partira-t-il. Use quand, il and partira, without punctuation.", "choices": [], "answers": ["quand il partira"], "explanation": "Do not retain pronoun inversion from the direct question Quand partira-t-il ? in this embedded clause."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "precision", "prompt": "Copy the stated reason, starting with pour and without the final full stop: Pourriez-vous préciser la durée de la visite ? J'en ai besoin pour réserver mon retour.", "choices": [], "answers": ["pour réserver mon retour"], "explanation": "A concrete reason makes the request useful without implying a legal obligation."}
+  ],
+  "production_task": {
+    "prompt": "Original situation: You are registered for a Saturday class at a community centre. The confirmation omits the room and whether materials are provided. Write a polite 60–120-word email to the unfamiliar coordinator asking for both details and a reply by Thursday so you can organise your trip. Do not invent a complaint or legal entitlement. Self-review only.",
+    "model_answer": "Bonjour,\nJe suis inscrite à l'atelier de samedi et j'ai bien reçu votre confirmation. Pour préparer ma venue, pourriez-vous m'indiquer dans quelle salle la séance aura lieu et si le matériel sera fourni ? Si je dois apporter certains objets, une courte liste me serait très utile. Une réponse d'ici jeudi me permettrait d'organiser mon déplacement et de me procurer ce qui manque. Je vous remercie pour ces précisions et reste disponible si vous avez besoin de mon numéro d'inscription.\nCordialement,\nNadia",
+    "translation": "Hello,\nI am registered for Saturday's workshop and have received your confirmation. To prepare for my visit, could you tell me which room the session will take place in and whether materials will be provided? If I need to bring any items, a short list would be very helpful. A reply by Thursday would allow me to organise my trip and obtain anything missing. Thank you for these details, and I remain available if you need my registration number.\nKind regards,\nNadia",
+    "rubric": [
+      "My greeting, vous forms and closing fit an unfamiliar coordinator.",
+      "I ask both required questions and preserve statement order in embedded clauses.",
+      "The requested deadline and its reason are explicit; I do not blame the organiser without evidence.",
+      "I check the 60–120-word range and review this original message myself. A model comparison is not independent writing assessment."
+    ]
+  }
+}

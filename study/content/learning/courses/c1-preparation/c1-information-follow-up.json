@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "id": "c1-information-follow-up",
+  "slug": "c1-information-follow-up",
+  "cefr_level": "C1-preparation",
+  "topic": "pronouns-questions-negation",
+  "title": "Obtenir une information et rebondir sur la réponse",
+  "summary": "Ask useful questions, respond to new constraints and clarify details instead of reciting a fixed interview script.",
+  "order": 6,
+  "duration_minutes": 15,
+  "prerequisites": ["c1-audience-requests"],
+  "objectives": [
+    "Choose a question that fills a real gap in the current exchange.",
+    "Build a follow-up from the answer just received.",
+    "Confirm a date, restriction or inclusion without misrepresenting it."
+  ],
+  "keywords": ["interaction", "relance", "clarification", "questions", "reformulation", "speaking", "information-seeking"],
+  "sources": [
+    {"label": "FEI TCF Canada: oral task 2 information-seeking interaction, consulted 2026-09-07", "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"},
+    {"label": "FEI evaluation: interaction, fluency and situation-appropriate language, consulted 2026-09-07", "url": "https://www.france-education-international.fr/article/evaluation-epreuves-tcf"}
+  ],
+  "related_legacy_ids": ["questions-forms", "pronouns-y-en", "prepositions-time-duration", "writing-cohesion-formality"],
+  "sections": [
+    {
+      "id": "purpose",
+      "title": "Ask for information you actually need",
+      "paragraphs": [
+        "An information-seeking exchange is a joint activity, not a list of unrelated questions. Start with your purpose and the missing detail, then let the answer change your next move. A yes/no question checks a proposition; a question with quel, comment or à quelle heure requests a particular detail.",
+        "Est-ce que questions and subject–verb questions with rising intonation are ordinary spoken forms. Inversion can also be appropriate, especially in a polite request. Avoid treating the most formal form as the only correct spoken French. Keep vous when the fictional relationship is an unfamiliar organiser."
+      ],
+      "points": [
+        "A follow-up should not ask for a detail that was already given unless you are deliberately confirming it.",
+        "Une séance (f.) is a session; le matériel (m.) is equipment."
+      ],
+      "examples": [
+        {"french": "— Bonjour, je voudrais participer à votre atelier photo. **Quel matériel faut-il apporter** ?\n— Un téléphone suffit, mais il doit être chargé.\n— D'accord. **Et si la batterie se vide**, est-ce qu'on peut la recharger sur place ?\n— Oui, dans la salle d'accueil, pas pendant la sortie.\n— Donc, il vaut mieux arriver avec une batterie pleine. **Combien de temps dure la sortie** ?", "english": "— Hello, I would like to take part in your photography workshop. What equipment do we need to bring?\n— A phone is enough, but it must be charged.\n— All right. And if the battery runs down, can we recharge it there?\n— Yes, in the reception room, not during the outing.\n— So it is better to arrive with a full battery. How long does the outing last?", "note": "Each new question grows out of the previous answer. This is a written demonstration, not listening evidence."},
+        {"french": "**Est-ce que** le parcours convient aux débutants ?", "english": "Is the route suitable for beginners?", "note": "A neutral spoken yes/no question checks suitability."},
+        {"french": "Vous proposez aussi une séance en soirée ?", "english": "Do you also offer an evening session?", "note": "Subject–verb order with question intonation is normal speech, not defective grammar."}
+      ],
+      "mistakes": [
+        {"avoid": "Est-ce que peut-on emprunter un appareil ?", "prefer": "Est-ce qu'on peut emprunter un appareil ?", "why": "Do not combine est-ce que with subject-pronoun inversion. Peut-on emprunter un appareil ? is also correct without est-ce que."}
+      ]
+    },
+    {
+      "id": "follow-up",
+      "title": "Follow the answer, especially when it changes the plan",
+      "paragraphs": [
+        "A useful follow-up can narrow a vague answer, ask about an alternative, or explore a condition. Dans ce cas explicitly links your response to new information. If a session is full, asking about another date is more responsive than restarting with a question about its location.",
+        "En and y can avoid unnecessary repetition when their references are clear: Il reste des places ? Il en reste combien ? Y covers a place or an à complement referring to a thing: Peut-on y participer à distance ? If several possible references compete, name the session or service instead."
+      ],
+      "points": [
+        "Do not turn an unsuccessful request into a demand for an entitlement the scenario never established.",
+        "The best next question depends on your purpose; more than one can be sensible in real conversation."
+      ],
+      "examples": [
+        {"french": "— La séance de samedi est complète.\n— **Dans ce cas**, quelle autre date pourriez-vous me proposer ?", "english": "— Saturday's session is full.\n— In that case, what other date could you offer me?", "note": "The speaker adapts instead of continuing a memorised Saturday script."},
+        {"french": "— Il reste quelques places dimanche.\n— Il **en** reste assez pour deux personnes ?", "english": "— There are a few places left on Sunday.\n— Are there enough left for two people?", "note": "En refers back to places; the quantity question now serves a concrete need."},
+        {"french": "— L'activité se déroule dehors, sauf en cas de forte pluie.\n— Et dans ce cas, **est-elle reportée ou organisée à l'intérieur** ?", "english": "— The activity takes place outdoors, except in heavy rain.\n— And in that case, is it postponed or held indoors?", "note": "The follow-up asks about the stated exception, not a new unrelated topic."}
+      ],
+      "mistakes": [
+        {"avoid": "Vous avez des places ? Combien vous restez ?", "prefer": "Vous avez des places ? Combien vous en reste-t-il ?", "why": "In il vous reste des places, il is the impersonal subject, vous is the person for whom places remain, and en represents places. Vous restez asks about you staying, not remaining places."}
+      ]
+    },
+    {
+      "id": "clarify",
+      "title": "Check the precise boundary before closing",
+      "paragraphs": [
+        "Reformulate with si j'ai bien compris, then check the detail that matters. Avant mardi, jusqu'à mardi and à partir de mardi set different boundaries. Inclus means included; en supplément means extra. If a boundary remains vague, ask explicitly whether the day or item counts.",
+        "For FEI oral task 2, the total is 5 minutes 30 seconds, including 2 minutes of preparation, leaving about 3 minutes 30 seconds of interaction. Use preparation to identify information gaps and possible branches, not to write and read a complete speech. The short model below illustrates moves; it is not a full-length timed performance."
+      ],
+      "points": [
+        "Clarification is evidence of active interaction, not automatically a failure.",
+        "A written dialogue cannot establish comprehension of a live response, turn-taking speed, intelligibility or spontaneous fluency."
+      ],
+      "examples": [
+        {"french": "Quand vous dites « jusqu'à mardi », **mardi est-il compris** ?", "english": "When you say \"until Tuesday,\" does that include Tuesday?", "note": "The question resolves a boundary instead of silently assuming it."},
+        {"french": "Si j'ai bien compris, le prêt est inclus, **mais pas** l'impression des photos. C'est bien cela ?", "english": "If I have understood correctly, the loan is included, but printing the photos is not. Is that right?", "note": "The contrast carries the exact inclusion/exclusion distinction into the check."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "choice", "pool": "practice", "section_id": "purpose", "prompt": "After Un téléphone suffit, mais il doit être chargé, which follow-up addresses the new constraint?", "choices": ["Peut-on recharger le téléphone sur place ?", "Faut-il vraiment un téléphone, puisque vous venez de le dire ?", "Quelle est votre couleur préférée ?"], "answers": ["Peut-on recharger le téléphone sur place ?"], "explanation": "The charging requirement motivates a practical follow-up."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "purpose", "prompt": "Keep est-ce que and remove only the inversion: Est-ce que peut-on venir sans appareil ? Write the corrected whole question.", "choices": [], "answers": ["Est-ce qu'on peut venir sans appareil ?"], "explanation": "After est-ce que, use on peut; que contracts to qu' before on."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "follow-up", "prompt": "Supply the pronoun replacing places: Des places dimanche ? Il ___ reste combien ?", "choices": [], "answers": ["en"], "explanation": "En refers to the previously mentioned places and combines with a quantity."},
+    {"id": "item-04", "kind": "choice", "pool": "practice", "section_id": "clarify", "prompt": "The organiser says Inscrivez-vous jusqu'à mardi. You need to know whether Tuesday itself is allowed. Choose the precise clarification.", "choices": ["Mardi est-il compris ?", "Pourquoi aimez-vous mardi ?", "Où se trouve le centre ?"], "answers": ["Mardi est-il compris ?"], "explanation": "The question checks the deadline boundary rather than an unrelated detail."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "purpose", "prompt": "Supply the three-word expression beginning with à for asking the start time: ___ commence la visite ? Use the appropriate form of quel with heure.", "choices": [], "answers": ["À quelle heure"], "explanation": "À quelle heure asks at what time; quelle agrees with the feminine noun heure."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "follow-up", "prompt": "Use the exact three-word linking expression taught: La séance est annulée. ___, peut-on choisir une autre date ?", "choices": [], "answers": ["Dans ce cas"], "explanation": "Dans ce cas makes the alternative request depend on the cancellation."},
+    {"id": "item-07", "kind": "choice", "pool": "check", "section_id": "follow-up", "prompt": "You need two places together. The organiser says Il reste une place vendredi et plusieurs dimanche. Which follow-up best serves that need?", "choices": ["Pouvez-vous réserver deux places dimanche ?", "À quelle heure vendredi commence-t-il ?", "Pourquoi n'y a-t-il qu'une place vendredi ?"], "answers": ["Pouvez-vous réserver deux places dimanche ?"], "explanation": "Sunday is the offered option with enough capacity for two; the question uses the answer just given."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "clarify", "prompt": "Read: Le casque est fourni, mais les gants ne le sont pas. Copy only the two-word noun phrase naming what you must bring if needed.", "choices": [], "answers": ["les gants"], "explanation": "The helmet is provided; the gloves are excluded."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "purpose", "prompt": "Form only the inversion of vous pouvez, preserving pouvoir in the present.", "choices": [], "answers": ["pouvez-vous"], "explanation": "Simple inversion joins the verb and subject pronoun with a hyphen."},
+    {"id": "item-10", "kind": "choice", "pool": "check", "section_id": "clarify", "prompt": "Read: Les réservations commencent à partir de jeudi. Is a reservation on Wednesday supported?", "choices": ["Oui, mercredi est après jeudi.", "Non, l'ouverture des réservations est jeudi."], "answers": ["Non, l'ouverture des réservations est jeudi."], "explanation": "À partir de marks the start; it is not a deadline before which to act."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "follow-up", "prompt": "Use the place pronoun: L'inscription se fait au comptoir. Peut-on ___ payer aussi ?", "choices": [], "answers": ["y"], "explanation": "Y replaces au comptoir, the place where payment might also be possible."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "clarify", "prompt": "Supply only comprendre in the past participle: Si j'ai bien ___, le repas n'est pas inclus.", "choices": [], "answers": ["compris"], "explanation": "Si j'ai bien compris introduces a check of what was understood, not an assertion of certainty."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "purpose", "prompt": "Supply only the direct-question word asking how, not when: ___ peut-on modifier une réservation ?", "choices": [], "answers": ["Comment"], "explanation": "Comment asks for the procedure, rather than its time."},
+    {"id": "item-14", "kind": "choice", "pool": "review", "section_id": "follow-up", "prompt": "The guide says Les enfants sont acceptés à partir de huit ans. You are coming with a seven-year-old. Which reply correctly handles the restriction?", "choices": ["Donc, sept ans suffit.", "Existe-t-il une activité adaptée aux enfants de sept ans ?", "Je vais réserver ici pour sept ans sans vous le dire."], "answers": ["Existe-t-il une activité adaptée aux enfants de sept ans ?"], "explanation": "The speaker respects the stated threshold and asks for an alternative."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "clarify", "prompt": "Copy only the two words that mean an extra charge rather than inclusion: La visite est comprise ; le repas est en supplément.", "choices": [], "answers": ["en supplément"], "explanation": "The meal is extra, even though the visit is included."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "follow-up", "prompt": "Read: Nous pouvons vous prêter un appareil, mais seulement sur réservation. Copy the three-word restriction starting with seulement, without a final full stop.", "choices": [], "answers": ["seulement sur réservation"], "explanation": "The offer is conditional on reservation; a useful follow-up would ask how to reserve."}
+  ],
+  "production_task": {
+    "prompt": "Original spoken task: You want to join a community cooking workshop with a friend. Spend two minutes listing information gaps, then interact with a partner for about three and a half minutes. Ask about availability, equipment and a practical constraint. The partner should introduce an unexpected change, such as a full session or different venue. Follow up, clarify one detail and confirm the next step. Without a partner, record your questions and possible branches, but label this solo rehearsal, not live interaction. The model is a short illustration, not a full timed answer. Self-review only.",
+    "model_answer": "— Bonjour, je cherche un atelier de cuisine pour deux personnes. Est-ce qu'il reste des places samedi ?\n— Il n'en reste qu'une, mais nous avons une séance dimanche.\n— Dans ce cas, pourriez-vous nous inscrire dimanche ? À quelle heure faut-il arriver ?\n— À neuf heures quarante-cinq. Attention, la séance aura lieu dans notre autre cuisine.\n— Merci de me le préciser. Pourriez-vous me donner l'adresse exacte ? Et faut-il apporter du matériel ?\n— Je vous enverrai l'adresse. Apportez seulement un tablier et une boîte pour emporter votre préparation.\n— Une boîte par personne, c'est bien cela ?\n— Oui.\n— Très bien. Donc, nous serons deux dimanche à neuf heures quarante-cinq, avec un tablier et une boîte chacun. Comment dois-je confirmer la réservation ?",
+    "translation": "— Hello, I am looking for a cooking workshop for two people. Are there any places left on Saturday?\n— There is only one left, but we have a session on Sunday.\n— In that case, could you register us for Sunday? What time should we arrive?\n— At nine forty-five. Please note that the session will take place in our other kitchen.\n— Thank you for pointing that out. Could you give me the exact address? And do we need to bring any equipment?\n— I will send you the address. Just bring an apron and a container to take home what you have made.\n— One container per person, is that right?\n— Yes.\n— Very good. So there will be two of us on Sunday at nine forty-five, with an apron and a container each. How should I confirm the booking?",
+    "rubric": [
+      "I obtain information that serves my purpose, rather than merely asking many memorised questions.",
+      "At least one follow-up depends on the partner's actual answer; I handle the unexpected change.",
+      "I confirm an important boundary, inclusion, time or quantity without introducing an incorrect fact.",
+      "I review intelligibility, turn-taking and question formation. A transcript or solo rehearsal cannot independently establish live interaction or listening readiness."
+    ]
+  }
+}

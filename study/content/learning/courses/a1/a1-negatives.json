@@ -180,9 +180,136 @@
           "why": "For the intended meaning 'I am not coming either', use non plus."
         }
       ]
+    },
+    {
+      "id": "negative-scope",
+      "title": "Move the negative only if you mean to change its scope",
+      "paragraphs": [
+        "Compare the same action with two placements. Vous ne pouvez pas participer denies the possibility or permission to participate. Vous pouvez ne pas participer allows the option of not participating. With an infinitive alone, ne pas comes before it; if that infinitive is reflexive, its pronoun follows ne pas. Read the intended permission or choice first, then decide which verb the negative belongs to."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Sans inscription, vous **ne pouvez pas participer**.",
+          "english": "Without registration, you cannot take part.",
+          "note": "Participation is not available."
+        },
+        {
+          "french": "La visite est facultative : vous **pouvez ne pas participer**.",
+          "english": "The visit is optional: you are allowed not to take part.",
+          "note": "Not participating is an available choice."
+        },
+        {
+          "french": "Nous préférons **ne pas nous asseoir** près de la porte.",
+          "english": "We prefer not to sit down near the door.",
+          "note": "Ne pas precedes the reflexive pronoun and infinitive."
+        }
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "negative-identity",
+      "title": "A subject's identity is not an absent quantity",
+      "paragraphs": [
+        "The article can remain when a negative tells us what a subject does not become or remain. In ce bâtiment ne devient pas un hôtel, un hôtel describes the building's proposed identity; it is not a quantity of hotels that someone lacks. This extends the meaning-based distinction behind ce n'est pas un hôtel. Ask whether the noun describes the subject or an amount denied, rather than memorising a ban on articles after ne."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Cette salle **ne reste pas une réserve** : elle devient un atelier.",
+          "english": "This room does not remain a storeroom: it becomes a workshop.",
+          "note": "Une réserve (f.) here is a storeroom; une describes what the room remains."
+        },
+        {
+          "french": "Ce jus **ne devient pas du vin** en une heure.",
+          "english": "This juice does not turn into wine in an hour.",
+          "note": "Du vin names the substance it does not become; this is not a statement that no wine is available."
+        },
+        {
+          "french": "Nous **n'avons pas de vin** pour le dîner.",
+          "english": "We do not have any wine for dinner.",
+          "note": "Here the message really is zero available quantity, so de is appropriate."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-neg-depth-01",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "negative-scope",
+      "prompt": "Signing is optional. Which sentence explicitly allows the choice not to sign?",
+      "choices": [
+        "Vous pouvez ne pas signer.",
+        "Vous ne pouvez pas signer."
+      ],
+      "answers": [
+        "Vous pouvez ne pas signer."
+      ],
+      "explanation": "Pouvez allows the negative action ne pas signer. The other placement denies permission or ability to sign."
+    },
+    {
+      "id": "a1-neg-depth-02",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "negative-scope",
+      "prompt": "Make only the infinitive reflexive action negative by inserting ne pas: 'Je préfère me lever maintenant.' Keep all other words.",
+      "choices": [],
+      "answers": [
+        "Je préfère ne pas me lever maintenant."
+      ],
+      "explanation": "Ne pas belongs before me lever, rather than surrounding préfère."
+    },
+    {
+      "id": "a1-neg-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "negative-scope",
+      "prompt": "Deny the possibility of entering by adding ne and pas around pouvoir: 'Nous pouvons entrer.'",
+      "choices": [],
+      "answers": [
+        "Nous ne pouvons pas entrer."
+      ],
+      "explanation": "This denies entering; nous pouvons ne pas entrer would instead present not entering as a choice."
+    },
+    {
+      "id": "a1-neg-depth-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "negative-identity",
+      "prompt": "Keep the subject's identity, rather than applying a zero-quantity rule: 'L'ancienne école ne devient pas ___ hôtel.' Choose un or de.",
+      "choices": [],
+      "answers": [
+        "un"
+      ],
+      "explanation": "Un hôtel says what the building does not become; it is not an absent object quantity."
+    },
+    {
+      "id": "a1-neg-depth-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "negative-identity",
+      "prompt": "Choose une or de for the retained description: 'Cette cabane ne reste pas ___ simple remise.'",
+      "choices": [],
+      "answers": [
+        "une"
+      ],
+      "explanation": "Une simple remise describes the cabane after rester."
+    },
+    {
+      "id": "a1-neg-depth-06",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "negative-identity",
+      "prompt": "Choose du or de when denying a transformation: 'Le lait ne devient pas ___ fromage en quelques secondes.'",
+      "choices": [],
+      "answers": [
+        "du"
+      ],
+      "explanation": "Du fromage identifies the resulting substance, rather than a quantity someone does not have."
+    },
     {
       "id": "a1-neg-01",
       "kind": "text",

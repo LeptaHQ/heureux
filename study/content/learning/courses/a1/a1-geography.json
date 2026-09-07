@@ -168,9 +168,79 @@
         }
       ],
       "mistakes": []
+    },
+    {
+      "id": "place-identity",
+      "title": "Establish what the place name identifies before choosing a preposition",
+      "paragraphs": [
+        "A name can refer to a city and to a larger administrative area. À Genève identifies the city; dans le canton de Genève explicitly identifies the Swiss canton. A construction with canton, province or État is useful when the bare name leaves the reader unsure. It also avoids guessing a regional convention from the city rule.",
+        "Look at the whole geographical name rather than its last letter. Le pays de Galles (m., Wales) is singular: pays ends in s even in the singular, and Galles does not make the phrase plural. Learn its ordinary location phrase au pays de Galles as a unit. This does not change the aux pattern for genuinely plural names."
+      ],
+      "points": [
+        "Un canton (m.) is an administrative canton; un État (m.) is a state; une province (f.) is a province."
+      ],
+      "examples": [
+        {
+          "french": "L'hôtel est **à Genève**.",
+          "english": "The hotel is in Geneva.",
+          "note": "This is the city construction."
+        },
+        {
+          "french": "Le sentier est **dans le canton de Genève**, loin du centre-ville.",
+          "english": "The path is in the canton of Geneva, far from the city centre.",
+          "note": "The named administrative area is explicit."
+        },
+        {
+          "french": "**Le pays de Galles est** à l'ouest de l'Angleterre.",
+          "english": "Wales is west of England.",
+          "note": "The subject is singular despite its spelling."
+        },
+        {
+          "french": "Elle voyage **au pays de Galles**.",
+          "english": "She is travelling in Wales.",
+          "note": "Au combines à with singular le."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-geo-depth-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "place-identity",
+      "prompt": "Explicitly identify the administrative canton: 'Le chalet est ___ le canton de Vaud.' Supply the preposition.",
+      "choices": [],
+      "answers": [
+        "dans"
+      ],
+      "explanation": "Dans le canton de names the area explicitly, rather than treating the canton as a city."
+    },
+    {
+      "id": "a1-geo-depth-02",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "place-identity",
+      "prompt": "Complete the city construction, not the canton construction: 'Le congrès a lieu ___ Genève.'",
+      "choices": [],
+      "answers": [
+        "à"
+      ],
+      "explanation": "The ordinary city name takes à."
+    },
+    {
+      "id": "a1-geo-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "place-identity",
+      "prompt": "Choose au or aux for Wales: 'Ils travaillent ___ pays de Galles.'",
+      "choices": [],
+      "answers": [
+        "au"
+      ],
+      "explanation": "Le pays de Galles is singular; the visible s does not require aux."
+    },
     {
       "id": "a1-geo-01",
       "kind": "text",

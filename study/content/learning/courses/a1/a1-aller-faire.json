@@ -134,9 +134,71 @@
           "why": "The vous form is the irregular faites."
         }
       ]
+    },
+    {
+      "id": "wellbeing-state",
+      "title": "General well-being and a specific state use different constructions",
+      "paragraphs": [
+        "Aller bien, aller mal and aller mieux describe general well-being or improvement. For an ordinary adjective naming a specific state, use être: être malade, être fatigué/fatiguée. Do not attach every English description after aller just because the conversation began with Comment allez-vous ? The answer can legitimately switch verbs."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Aujourd'hui, je **vais mieux**.",
+          "english": "Today, I am feeling better.",
+          "note": "Mieux is the comparative adverb used in the general well-being expression."
+        },
+        {
+          "french": "Comment va votre sœur ? — Elle **est fatiguée**, mais elle **va bien**.",
+          "english": "How is your sister? — She is tired, but she is well.",
+          "note": "The state adjective agrees with the person; bien remains an adverb."
+        },
+        {
+          "french": "Je **suis malade** aujourd'hui.",
+          "english": "I am ill today.",
+          "note": "Être introduces this specific state."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-aller-depth-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "wellbeing-state",
+      "prompt": "Complete with the present of être, not aller: 'Après ce long trajet, nous ___ fatigués.'",
+      "choices": [],
+      "answers": [
+        "sommes"
+      ],
+      "explanation": "A specific adjective state uses être: nous sommes fatigués."
+    },
+    {
+      "id": "a1-aller-depth-02",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "wellbeing-state",
+      "prompt": "Express improving well-being with aller: 'Depuis hier, les enfants ___ mieux.'",
+      "choices": [],
+      "answers": [
+        "vont"
+      ],
+      "explanation": "Aller mieux describes feeling better; the plural subject takes vont."
+    },
+    {
+      "id": "a1-aller-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "wellbeing-state",
+      "prompt": "Correct only the verb phrase for a woman describing tiredness: 'Je vais fatiguée.'",
+      "choices": [],
+      "answers": [
+        "Je suis fatiguée."
+      ],
+      "explanation": "The specific state fatiguée takes être in this ordinary construction."
+    },
     {
       "id": "a1-godo-01",
       "kind": "text",

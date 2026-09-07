@@ -88,7 +88,7 @@
       "title": "Keep the de in multiword location phrases",
       "paragraphs": [
         "À côté de means next to; en face de means opposite/across from; près de means near; loin de means far from; à l'intérieur de means inside; à l'extérieur de means outside; au coin de means at the corner of. De is part of these expressions and contracts with a following le or les: près du parc, en face des maisons. Before a vowel use d' where no article intervenes, as in près d'ici (near here).",
-        "Devant and en face de need not describe the same position. A person can stand devant a shop, immediately in front of its entrance; a café en face du shop is across from it. Context supplies the exact distance."
+        "Devant and en face de need not describe the same position. A person can stand devant a shop, immediately in front of its entrance; a café en face du magasin is across from the shop. Context supplies the exact distance."
       ],
       "points": [
         "Un parc (m.) = a park; une rue (f.) = a street; un bâtiment (m.) = a building."
@@ -168,9 +168,94 @@
           "why": "A library is a place, not a person or professional identified by a person noun."
         }
       ]
+    },
+    {
+      "id": "outside-home",
+      "title": "A location phrase can also express a viewpoint",
+      "paragraphs": [
+        "En dehors de can locate something outside a boundary, much like à l'extérieur de. It can also mean apart from when excluding an item from a statement. De still contracts with le or les. Decide whether there is a physical boundary or an exception to a group.",
+        "Chez nous presents the place as our home or premises. À la maison is the ordinary at home expression. If you describe the dwelling as a building, use an appropriate building or position phrase such as devant notre maison. Do not translate every English home or house with the same construction."
+      ],
+      "points": [
+        "Une maison (f.) is a house; un village (m.) is a village."
+      ],
+      "examples": [
+        {
+          "french": "Le parking est **en dehors du village**.",
+          "english": "The car park is outside the village.",
+          "note": "This is a physical boundary: de + le becomes du."
+        },
+        {
+          "french": "**En dehors de Léa**, tout le groupe est présent.",
+          "english": "Apart from Léa, the whole group is present.",
+          "note": "Léa is an exception, not the boundary of a place."
+        },
+        {
+          "french": "Nous dînons **chez nous** ce soir. Les enfants restent **à la maison**.",
+          "english": "We are having dinner at our place tonight. The children are staying at home.",
+          "note": "Both expressions can refer to the home, with different wording."
+        },
+        {
+          "french": "Le taxi attend **devant notre maison**.",
+          "english": "The taxi is waiting in front of our house.",
+          "note": "This describes the building as a physical reference point."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-place-depth-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "outside-home",
+      "prompt": "Complete the contraction: 'Le refuge est en dehors ___ village.' Use de + le.",
+      "choices": [],
+      "answers": [
+        "du"
+      ],
+      "explanation": "En dehors de retains de, which contracts with le."
+    },
+    {
+      "id": "a1-place-depth-02",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "outside-home",
+      "prompt": "In 'En dehors du gardien, tout le personnel est en congé', does en dehors de describe a physical boundary or an exception?",
+      "choices": [
+        "An exception",
+        "A physical boundary"
+      ],
+      "answers": [
+        "An exception"
+      ],
+      "explanation": "The caretaker is excepted from the statement about staff leave."
+    },
+    {
+      "id": "a1-place-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "outside-home",
+      "prompt": "Supply chez or à for our home: 'Après le spectacle, nous rentrons ___ nous.'",
+      "choices": [],
+      "answers": [
+        "chez"
+      ],
+      "explanation": "Chez + stressed nous names our home; à nous would not express home here."
+    },
+    {
+      "id": "a1-place-depth-04",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "outside-home",
+      "prompt": "Supply the preposition in the ordinary at-home phrase: 'Le mercredi, je travaille ___ la maison.'",
+      "choices": [],
+      "answers": [
+        "à"
+      ],
+      "explanation": "À la maison is the established home expression."
+    },
     {
       "id": "a1-place-01",
       "kind": "text",

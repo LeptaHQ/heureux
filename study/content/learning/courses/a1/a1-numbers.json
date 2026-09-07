@@ -184,9 +184,172 @@
           "why": "For first on its own, use première with a feminine noun."
         }
       ]
+    },
+    {
+      "id": "count-unit-label",
+      "title": "Distinguish a numerical count, a quantity noun and a rank",
+      "paragraphs": [
+        "Un millier (m.) is a group or quantity of a thousand, often an approximate count in ordinary use. Like million, it is a noun: it can take plural -s and needs de/d' before the things counted. Mille is instead an invariable number used directly before the counted noun. Do not insert de after every large number.",
+        "Un tiers (m.) means one third of a whole; troisième gives position in a sequence. For rulers' numerical names, the usual cardinal reading has one important boundary: Ier is premier, as in Henri Ier. A later numeral is cardinal. The fraction and the label are not ordinary adjective agreement problems."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Le fichier contient **mille** noms. Le dossier contient **un millier de** noms.",
+          "english": "The file contains a thousand names. The folder contains about a thousand names.",
+          "note": "Un millier de commonly presents the number as an approximate quantity; mille gives the numerical count."
+        },
+        {
+          "french": "**Des milliers de** visiteurs arrivent en été.",
+          "english": "Thousands of visitors arrive in summer.",
+          "note": "Milliers is plural and keeps de."
+        },
+        {
+          "french": "**Un tiers de** la salle est fermé; **la troisième** porte reste ouverte.",
+          "english": "One third of the room is closed; the third door remains open.",
+          "note": "A share of the space is not a position in a sequence."
+        },
+        {
+          "french": "Dans le livre, **Henri Ier** se lit **Henri premier**, et **Henri IV** se lit **Henri quatre**.",
+          "english": "In the book, Henri I is read as Henri the First, and Henri IV as Henri the Fourth.",
+          "note": "The English ordinal translation does not dictate the French numerical reading."
+        }
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "price-reading",
+      "title": "Read the currency and preserve the value of the cents",
+      "paragraphs": [
+        "In a euro price written with a decimal comma, two digits after the comma give the centimes. The zero in 8,05 matters: five centimes are not fifty. A common spoken reading names euros between the whole amount and the cents; a fully explicit reading uses euros et ... centimes. Un euro is singular, while an amount of two euros or more normally takes plural euros.",
+        "For ordinary written prices, a useful format is the amount with a decimal comma followed by the currency symbol: 8,05 €. The English decimal point and leading currency sign need not be copied. Un euro (m.) is a euro; un centime (m.) is a cent."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Ce carnet coûte **huit euros et cinq centimes** : **8,05 €**.",
+          "english": "This notebook costs eight euros and five cents: €8.05.",
+          "note": "The cents are five, not fifty, despite the two written decimal places."
+        },
+        {
+          "french": "Le timbre coûte **un euro cinquante**.",
+          "english": "The stamp costs one euro fifty.",
+          "note": "The shorter spoken price is 1,50 €; the noun euro stays singular after un."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-num-depth-07",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "price-reading",
+      "prompt": "Read the delivery charge 14,09 € using the explicit pattern '... euros et ... centimes'. Write only the amount in words.",
+      "choices": [],
+      "answers": [
+        "quatorze euros et neuf centimes"
+      ],
+      "explanation": "The amount after the decimal comma is nine cents, not ninety."
+    },
+    {
+      "id": "a1-num-depth-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "price-reading",
+      "prompt": "Choose euro or euros in the spoken price for 1,80 €: 'un ___ quatre-vingts'.",
+      "choices": [],
+      "answers": [
+        "euro"
+      ],
+      "explanation": "The currency noun is singular after un; the cents do not change that agreement."
+    },
+    {
+      "id": "a1-num-depth-09",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "price-reading",
+      "prompt": "Write the English price €23.70 in French notation. Use a decimal comma and place the € sign after the amount.",
+      "choices": [],
+      "answers": [
+        "23,70 €",
+        "23,70€"
+      ],
+      "explanation": "The comma separates euros and cents. The currency symbol follows the amount in the requested format."
+    },
+    {
+      "id": "a1-num-depth-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "count-unit-label",
+      "prompt": "Supply de or no word (write 'rien'): 'Des milliers ___ cartes sont triées.'",
+      "choices": [],
+      "answers": [
+        "de"
+      ],
+      "explanation": "Milliers is a quantity noun and needs de before cartes."
+    },
+    {
+      "id": "a1-num-depth-02",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "count-unit-label",
+      "prompt": "Keep the count of 1,000 but replace 'un millier de' with the ordinary number: 'Un millier de graines'. Write the resulting noun phrase.",
+      "choices": [],
+      "answers": [
+        "mille graines"
+      ],
+      "explanation": "Mille is invariable and directly precedes graines, without de."
+    },
+    {
+      "id": "a1-num-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "count-unit-label",
+      "prompt": "Choose tiers or troisième: 'Un ___ du budget finance les livres.'",
+      "choices": [],
+      "answers": [
+        "tiers"
+      ],
+      "explanation": "A share of the budget is a fraction, not a third position."
+    },
+    {
+      "id": "a1-num-depth-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "count-unit-label",
+      "prompt": "Choose tiers or troisième for rank: 'La ___ équipe présente son projet.'",
+      "choices": [],
+      "answers": [
+        "troisième"
+      ],
+      "explanation": "The team occupies third position; it is not one third of another team."
+    },
+    {
+      "id": "a1-num-depth-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "count-unit-label",
+      "prompt": "Write only the word pronounced for Ier in the ruler's name 'Henri Ier'.",
+      "choices": [],
+      "answers": [
+        "premier"
+      ],
+      "explanation": "The first ruler uses the ordinal premier; this is the exception to the usual cardinal reading."
+    },
+    {
+      "id": "a1-num-depth-06",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "count-unit-label",
+      "prompt": "Write only the French word pronounced for IV in the ruler's name 'Henri IV'.",
+      "choices": [],
+      "answers": [
+        "quatre"
+      ],
+      "explanation": "The later ruler's numeral is cardinal in French even though English says the Fourth."
+    },
     {
       "id": "a1-num-01",
       "kind": "text",

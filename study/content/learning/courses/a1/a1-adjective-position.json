@@ -156,9 +156,119 @@
         }
       ],
       "mistakes": []
+    },
+    {
+      "id": "ordered-groups",
+      "title": "Count, rank and newness answer different questions",
+      "paragraphs": [
+        "A count tells how many; a rank selects which ones in an ordered group. The count comes before the rank in les trois premières pages: three pages, specifically the first three. Both precede the noun, and premières agrees with pages. An adjective can also precede a personal proper name in a descriptive phrase such as la jeune Salomé, especially in narration.",
+        "Nouveau is the ordinary choice for someone newly joining a situation: une nouvelle collègue. Neuf describes unused or newly made things, so it is not the normal adjective for a new colleague or a newly adopted animal. The person or animal need not be newly born to be nouveau in your life."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Lisez **les trois premières pages**, pas seulement la troisième.",
+          "english": "Read the first three pages, not only the third.",
+          "note": "Trois counts the pages; premières selects the beginning of the sequence."
+        },
+        {
+          "french": "Nous gardons **les deux dernières places**.",
+          "english": "We are keeping the last two seats.",
+          "note": "The count precedes the agreeing ordinal adjective."
+        },
+        {
+          "french": "Dans la pièce, **la jeune Salomé** entre en scène.",
+          "english": "In the play, young Salomé comes onstage.",
+          "note": "The descriptive adjective can come before a personal name."
+        },
+        {
+          "french": "Notre **nouvelle collègue** a beaucoup d'expérience.",
+          "english": "Our new colleague has a lot of experience.",
+          "note": "New to the team does not mean inexperienced or unused."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-position-depth-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "ordered-groups",
+      "prompt": "Order these words to mean the first two rows: 'premières / les / rangées / deux'.",
+      "choices": [],
+      "answers": [
+        "les deux premières rangées"
+      ],
+      "explanation": "The count deux comes before the rank premières, which agrees with rangées."
+    },
+    {
+      "id": "a1-position-depth-02",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "ordered-groups",
+      "prompt": "Does 'les quatre derniers chapitres' mean four chapters at the end, or only chapter four?",
+      "choices": [
+        "Four chapters at the end",
+        "Only chapter four"
+      ],
+      "answers": [
+        "Four chapters at the end"
+      ],
+      "explanation": "Quatre counts the chapters; derniers locates them at the end of the sequence."
+    },
+    {
+      "id": "a1-position-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "ordered-groups",
+      "prompt": "Keep the descriptive adjective before the personal name. Order: 'jeune / le / Malik'.",
+      "choices": [],
+      "answers": [
+        "le jeune Malik"
+      ],
+      "explanation": "A descriptive adjective may precede a personal proper name in this kind of phrase."
+    },
+    {
+      "id": "a1-position-depth-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "ordered-groups",
+      "prompt": "Choose nouvelle or neuve for a person joining a team: 'C'est notre ___ collègue.'",
+      "choices": [],
+      "answers": [
+        "nouvelle"
+      ],
+      "explanation": "A colleague is new to the situation, not an unused manufactured object."
+    },
+    {
+      "id": "a1-position-depth-05",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "ordered-groups",
+      "prompt": "Can 'notre nouveau chat' describe an adult cat adopted yesterday?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "answers": [
+        "Oui"
+      ],
+      "explanation": "Nouveau can mean new to the household, regardless of the animal's age."
+    },
+    {
+      "id": "a1-position-depth-06",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "ordered-groups",
+      "prompt": "Select nouveau or neuf for the newly appointed director: 'Le ___ directeur travaille déjà ici depuis dix ans.'",
+      "choices": [],
+      "answers": [
+        "nouveau"
+      ],
+      "explanation": "The director is new in that role even if not new to the organisation."
+    },
     {
       "id": "a1-posadj-01",
       "kind": "text",

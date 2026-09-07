@@ -125,9 +125,79 @@
           "why": "The plural of écrire requires v."
         }
       ]
+    },
+    {
+      "id": "lire-prefixes",
+      "title": "Transfer a known paradigm without confusing the meanings",
+      "paragraphs": [
+        "Relire means read again and élire means elect. Both retain the lire pattern, including the s in plural forms. Keep the prefix and conjugate the familiar base. This is a way to check forms you encounter, not a rule that every verb beginning with re- or é- belongs to lire."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Je **relis**\nTu **relis**\nIl/elle/on **relit**\nNous **relisons**\nVous **relisez**\nIls/elles **relisent**",
+          "english": "I reread\nYou reread\nHe/she rereads; one rereads/we reread\nWe reread\nYou reread\nThey reread",
+          "note": "The first-person singular and second-person singular end in -s, not -t."
+        },
+        {
+          "french": "J'**élis**\nTu **élis**\nIl/elle/on **élit**\nNous **élisons**\nVous **élisez**\nIls/elles **élisent**",
+          "english": "I elect\nYou elect\nHe/she elects; one elects/we elect\nWe elect\nYou elect\nThey elect",
+          "note": "Keep é in every form."
+        },
+        {
+          "french": "Avant l'envoi, vous **relisez** votre demande.",
+          "english": "Before sending it, you reread your application.",
+          "note": "Une demande (f.) here is an application."
+        },
+        {
+          "french": "Les membres du club **élisent** une présidente.",
+          "english": "The club members elect a president.",
+          "note": "The prefix changes the meaning, but the conjugation is familiar."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-read-depth-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "lire-prefixes",
+      "prompt": "Use relire for reading a draft again: 'L'architecte ___ son rapport avant la réunion.'",
+      "choices": [],
+      "answers": [
+        "relit"
+      ],
+      "explanation": "The singular subject takes relit, on the model of il lit."
+    },
+    {
+      "id": "a1-read-depth-02",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "lire-prefixes",
+      "prompt": "Use élire: 'Cette année, nous ___ deux représentants.'",
+      "choices": [],
+      "answers": [
+        "élisons"
+      ],
+      "explanation": "Nous élisons has the same plural pattern as nous lisons and keeps é."
+    },
+    {
+      "id": "a1-read-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "lire-prefixes",
+      "prompt": "Supply relire then élire in the present, separated by a comma: 'Vous ___ le règlement, puis vous ___ le comité.'",
+      "choices": [],
+      "answers": [
+        "relisez, élisez",
+        "relisez,élisez",
+        "relisez , élisez",
+        "relisez ,élisez"
+      ],
+      "explanation": "Both use the vous lisez pattern; only élire means elect."
+    },
     {
       "id": "a1-msg-01",
       "kind": "text",

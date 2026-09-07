@@ -155,9 +155,109 @@
           "why": "The present verb already expresses the ongoing weather action."
         }
       ]
+    },
+    {
+      "id": "weather-boundaries",
+      "title": "Separate a pleasant temperature from a pleasant-looking sky",
+      "paragraphs": [
+        "Il fait bon says that the temperature feels pleasant. Il fait beau describes nice weather, often a clear or sunny-looking day. A bright winter sky can therefore go with il fait beau and il fait froid. For a hot object or food, c'est chaud is useful; it is not the ordinary way to give the outdoor weather report.",
+        "The simple faire/adjective and il y a/noun models are useful starting points, not a ban on every other weather construction. Il fait soleil is an established expression. Another useful model is le temps est + adjective: le temps est venteux describes windy weather. Learn these as constructions rather than inserting any weather noun or adjective after any verb."
+      ],
+      "points": [
+        "Venteux has the forms venteux, venteuse, venteux, venteuses for masculine singular, feminine singular, masculine plural and feminine plural."
+      ],
+      "examples": [
+        {
+          "french": "Sur la terrasse, **il fait bon** : nous n'avons ni trop chaud ni trop froid.",
+          "english": "On the terrace, the temperature is pleasant: we are neither too hot nor too cold.",
+          "note": "Bon concerns the comfortable temperature here."
+        },
+        {
+          "french": "En janvier, **il fait beau**, mais **il fait froid**.",
+          "english": "In January, the weather is nice, but it is cold.",
+          "note": "Nice-looking weather does not guarantee warmth."
+        },
+        {
+          "french": "Attention au plat : **c'est chaud** !",
+          "english": "Be careful with the dish: it is hot!",
+          "note": "Un plat (m.) is a dish. This is not a weather description."
+        },
+        {
+          "french": "**Il fait soleil**, mais **le temps est venteux**.",
+          "english": "It is sunny, but the weather is windy.",
+          "note": "These are established alternatives, not errors merely because they differ from the beginner models."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-weather-depth-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "weather-boundaries",
+      "prompt": "Complete with bon or beau to focus specifically on a comfortable outdoor temperature: 'Il fait ___, ni trop chaud ni trop froid.'",
+      "choices": [],
+      "answers": [
+        "bon"
+      ],
+      "explanation": "Il fait bon focuses on a pleasant temperature."
+    },
+    {
+      "id": "a1-weather-depth-02",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "weather-boundaries",
+      "prompt": "Can 'Il fait beau, mais il fait froid' describe a bright winter day without contradiction?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "answers": [
+        "Oui"
+      ],
+      "explanation": "Beau concerns pleasant weather and appearance, not necessarily a warm temperature."
+    },
+    {
+      "id": "a1-weather-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "weather-boundaries",
+      "prompt": "Describe windy weather with the taught adjective: 'Le temps est ___.'",
+      "choices": [],
+      "answers": [
+        "venteux"
+      ],
+      "explanation": "Le temps est venteux is an adjective construction; il y a du vent is the noun construction."
+    },
+    {
+      "id": "a1-weather-depth-04",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "weather-boundaries",
+      "prompt": "Must 'Il fait soleil' be rejected simply because soleil is a noun?",
+      "choices": [
+        "Non",
+        "Oui"
+      ],
+      "answers": [
+        "Non"
+      ],
+      "explanation": "Il fait soleil is an established expression. A useful beginner model is not an exhaustive ban on other constructions."
+    },
+    {
+      "id": "a1-weather-depth-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "weather-boundaries",
+      "prompt": "Warn about hot soup using c'est + chaud: 'Attention à la soupe : ___ !' Supply the two-word clause.",
+      "choices": [],
+      "answers": [
+        "c'est chaud"
+      ],
+      "explanation": "C'est chaud is appropriate for the hot thing being handled or tasted, rather than the weather."
+    },
     {
       "id": "a1-weather-01",
       "kind": "text",

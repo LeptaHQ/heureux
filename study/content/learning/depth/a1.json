@@ -1,0 +1,3295 @@
+{
+  "version": 1,
+  "level": "A1",
+  "baseline_commit": "1e94f93c723fb11361137e8bc7d23adb18ac6231",
+  "scope": "public-lesson-text",
+  "entries": [
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/il-elle-ils-and-elles-it-he-she-and-they",
+      "source_title": "Il/elle/ils/elles = it/he/she/they (French Subject Pronouns)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Grammatical reference for things and people is already explicit, including female-only and mixed groups; the mapped substitution tasks require those decisions rather than just recalling a pronoun list.",
+      "evidence": [
+        {
+          "lesson_id": "a1-sentence-foundations",
+          "section_ids": [
+            "subject-pronouns"
+          ],
+          "practice_ids": [
+            "a1-found-03",
+            "a1-found-07",
+            "a1-found-08",
+            "a1-found-13"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/on-can-mean-we-one-and-people",
+      "source_title": "On can mean either we/one/people (French Subject Pronouns)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "The existing meanings of on were adequate. Added the missing distinction between its singular verb and an adjective agreeing with a known group.",
+      "evidence": [
+        {
+          "lesson_id": "a1-sentence-foundations",
+          "section_ids": [
+            "on-everyone",
+            "on-agreement"
+          ],
+          "practice_ids": [
+            "a1-found-04",
+            "a1-found-15",
+            "a1-found-depth-01",
+            "a1-found-depth-02",
+            "a1-found-depth-03"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/compound-subjects-are-replaced-with-these-subject-pronouns-nous-vous-or-ils-elles",
+      "source_title": "Using nous/vous/ils/elles to replace compound subjects (French Subject Pronouns)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The speaker-first, listener-next decision for a compound subject is already worked through and tested for nous, vous and mixed third-person reference.",
+      "evidence": [
+        {
+          "lesson_id": "a1-sentence-foundations",
+          "section_ids": [
+            "subject-pronouns"
+          ],
+          "practice_ids": [
+            "a1-found-05",
+            "a1-found-06",
+            "a1-found-13"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/subject-pronouns-nous-versus-on",
+      "source_title": "Nous vs on to say \"we\" in French (French Subject Pronouns)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Conversational on versus nous was already practised. Added bidirectional rewrites showing that the verb changes while a known group's adjective agreement can remain.",
+      "evidence": [
+        {
+          "lesson_id": "a1-sentence-foundations",
+          "section_ids": [
+            "on-everyone",
+            "on-agreement"
+          ],
+          "practice_ids": [
+            "a1-found-09",
+            "a1-found-17",
+            "a1-found-depth-01",
+            "a1-found-depth-02",
+            "a1-found-depth-03"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/c-est-vs-il-elle-est-saying-it-is-she-is-he-is",
+      "source_title": "\"C'est\" vs \"Il/Elle est\" to say it is/she is/he is in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Identification with a noun phrase, bare-profession description and overall evaluation are already distinguished with bilingual examples and constrained production. No wholesale rewrite was needed.",
+      "evidence": [
+        {
+          "lesson_id": "a1-reference",
+          "section_ids": [
+            "identify",
+            "describe"
+          ],
+          "practice_ids": [
+            "a1-ref-06",
+            "a1-ref-07",
+            "a1-ref-08"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/cest-and-ce-sont-this-is-these-are-demonstrative-pronouns",
+      "source_title": "C'est, ce sont = this is, these are (French Demonstrative Pronouns)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added a worked distinction between plural noun identification and evaluating a plural-named topic as a whole; an intervening adverb does not erase the noun phrase.",
+      "evidence": [
+        {
+          "lesson_id": "a1-reference",
+          "section_ids": [
+            "identify",
+            "plural-topic"
+          ],
+          "practice_ids": [
+            "a1-ref-01",
+            "a1-ref-05",
+            "a1-ref-12",
+            "a1-ref-15",
+            "a1-ref-depth-01",
+            "a1-ref-depth-02",
+            "a1-ref-depth-03"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/ca-means-that-this-or-it-pronoun",
+      "source_title": "Ça = that/this/it (French Demonstrative Pronouns)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "The existing demonstrative meaning was sufficient. Added singular verb agreement after ça even when the detached topic is plural, contrasted with tracking those things using elles.",
+      "evidence": [
+        {
+          "lesson_id": "a1-reference",
+          "section_ids": [
+            "ca",
+            "plural-topic"
+          ],
+          "practice_ids": [
+            "a1-ref-04",
+            "a1-ref-11",
+            "a1-ref-depth-04",
+            "a1-ref-depth-05",
+            "a1-ref-depth-06"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/moi-toi-lui-elle-me-you-him-her-simple-cases-that-use-stressed-pronouns",
+      "source_title": "Moi/toi/lui/elle = Me/you/him/her - simple cases (French Stress Pronouns)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The full stressed-pronoun set, isolated answers, emphasis and prepositional use already have examples and constructed responses; these meet the public body's instructional need.",
+      "evidence": [
+        {
+          "lesson_id": "a1-stressed-object-pronouns",
+          "section_ids": [
+            "stressed"
+          ],
+          "practice_ids": [
+            "a1-pro-01",
+            "a1-pro-05",
+            "a1-pro-12",
+            "a1-pro-13"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-say-us-you-them-simple-cases-of-use-nous-vous-eux-elles-disjunctive-stress-pronouns",
+      "source_title": "Nous/vous/eux/elles = Us/you/them - simple cases (French Stress Pronouns)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Plural stressed forms were already taught. Added the fixed identification c'est nous/vous in the reference lesson so learners do not manufacture ce sommes or ce êtes.",
+      "evidence": [
+        {
+          "lesson_id": "a1-stressed-object-pronouns",
+          "section_ids": [
+            "stressed"
+          ],
+          "practice_ids": [
+            "a1-pro-02",
+            "a1-pro-06",
+            "a1-pro-07"
+          ]
+        },
+        {
+          "lesson_id": "a1-reference",
+          "section_ids": [
+            "plural-topic"
+          ],
+          "practice_ids": [
+            "a1-ref-depth-07",
+            "a1-ref-depth-08",
+            "a1-ref-depth-09"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-express-what-you-think-or-believe-with-penser-que-and-croire-que",
+      "source_title": "Penser que/Croire que = To think that/To believe that in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The affirmative thought-clause construction already keeps que/qu', supplies a full clause and contrasts penser à. The exercises assess the link, not an English word-for-word omission.",
+      "evidence": [
+        {
+          "lesson_id": "a1-croire-mettre",
+          "section_ids": [
+            "thought-clause"
+          ],
+          "practice_ids": [
+            "a1-cm-07",
+            "a1-cm-08",
+            "a1-cm-15"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/when-to-use-me-te-nous-and-vous-as-me-you-us-and-you-direct-and-indirect-object-pronouns",
+      "source_title": "Me/te/nous/vous = Me/you/us/you (French Direct and Indirect Object Pronouns)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The existing direct/indirect explanation, elision, placement before the relevant verb and unchanged subject agreement cover the public scope with independent pronoun-placement work.",
+      "evidence": [
+        {
+          "lesson_id": "a1-stressed-object-pronouns",
+          "section_ids": [
+            "objects"
+          ],
+          "practice_ids": [
+            "a1-pro-03",
+            "a1-pro-04",
+            "a1-pro-08",
+            "a1-pro-09",
+            "a1-pro-10",
+            "a1-pro-11"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-say-everybody-tout-le-monde-indefinite-pronouns",
+      "source_title": "Tout le monde = Everybody/Everyone (French Indefinite Pronouns)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Singular agreement was already secure. Added everyone in the relevant situation versus the geographical whole world, with both reference choice and sentence transformation.",
+      "evidence": [
+        {
+          "lesson_id": "a1-sentence-foundations",
+          "section_ids": [
+            "on-everyone",
+            "everyone-world"
+          ],
+          "practice_ids": [
+            "a1-found-10",
+            "a1-found-14",
+            "a1-found-depth-04",
+            "a1-found-depth-05",
+            "a1-found-depth-06"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-irregular-avoir-in-le-present-the-present-tense",
+      "source_title": "Conjugate avoir in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Avoir already has its complete present paradigm, elision, possession and age uses, plus multiple-person production and correction. No useful teaching gap remained.",
+      "evidence": [
+        {
+          "lesson_id": "a1-etre-avoir",
+          "section_ids": [
+            "avoir"
+          ],
+          "practice_ids": [
+            "a1-behave-02",
+            "a1-behave-07",
+            "a1-behave-08",
+            "a1-behave-09",
+            "a1-behave-12",
+            "a1-behave-15"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-etre-in-le-present-present-tense",
+      "source_title": "Conjugate être in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Être already has a complete accented paradigm and examples linking subjects to identity or description. Mapped production checks include forms that cannot be guessed from a regular ending.",
+      "evidence": [
+        {
+          "lesson_id": "a1-etre-avoir",
+          "section_ids": [
+            "etre"
+          ],
+          "practice_ids": [
+            "a1-behave-01",
+            "a1-behave-04",
+            "a1-behave-05",
+            "a1-behave-06",
+            "a1-behave-11",
+            "a1-behave-13"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-aller-in-le-present-present-tense",
+      "source_title": "Conjugate aller in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Aller already has all six persons, its irregular stems and location use; several independent items prevent treating its -er infinitive as a regular conjugation.",
+      "evidence": [
+        {
+          "lesson_id": "a1-aller-faire",
+          "section_ids": [
+            "aller"
+          ],
+          "practice_ids": [
+            "a1-godo-01",
+            "a1-godo-05",
+            "a1-godo-06",
+            "a1-godo-07",
+            "a1-godo-13"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-venir-tenir-and-derivatives-in-le-present-present-tense",
+      "source_title": "Conjugate venir/tenir and derivatives in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Both complete base paradigms and meaningful prefix transfer are already taught. Extending the lexical catalogue would add length rather than a missing conjugation decision.",
+      "evidence": [
+        {
+          "lesson_id": "a1-venir-tenir-prendre",
+          "section_ids": [
+            "venir-tenir"
+          ],
+          "practice_ids": [
+            "a1-vtp-01",
+            "a1-vtp-02",
+            "a1-vtp-05",
+            "a1-vtp-06",
+            "a1-vtp-10",
+            "a1-vtp-12",
+            "a1-vtp-13"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-regular-er-verbs-in-le-present-present-tense",
+      "source_title": "Conjugate regular -er verbs in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The complete regular -er model, stem-plus-ending method and subject-specific writing checks already support transfer beyond the model verb.",
+      "evidence": [
+        {
+          "lesson_id": "a1-present-families",
+          "section_ids": [
+            "er"
+          ],
+          "practice_ids": [
+            "a1-pres-01",
+            "a1-pres-05",
+            "a1-pres-09",
+            "a1-pres-15"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/le-present-usage-where-present-tense-is-used-in-english-current-actions-habits-situations",
+      "source_title": "Expressing current actions, habits and situations (English Present Tense) with the present tense (Le Présent) in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Present habits, states and current events are already separated from English auxiliary habits; the mapped tasks require interpreting and forming the appropriate present.",
+      "evidence": [
+        {
+          "lesson_id": "a1-present-families",
+          "section_ids": [
+            "meaning"
+          ],
+          "practice_ids": [
+            "a1-pres-04",
+            "a1-pres-12"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-faire-in-le-present-present-tense",
+      "source_title": "Conjugate faire in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Faire already has a full paradigm, doing/making contexts and explicit attention to vous faites and ils font, with independent production across persons.",
+      "evidence": [
+        {
+          "lesson_id": "a1-aller-faire",
+          "section_ids": [
+            "faire"
+          ],
+          "practice_ids": [
+            "a1-godo-02",
+            "a1-godo-04",
+            "a1-godo-08",
+            "a1-godo-09",
+            "a1-godo-11",
+            "a1-godo-14"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-vouloir-in-le-present-present-tense",
+      "source_title": "Conjugate vouloir in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Vouloir's full paradigm and infinitive complement are already explained and practised without inserting a preposition or conjugating the second verb.",
+      "evidence": [
+        {
+          "lesson_id": "a1-want-can-must",
+          "section_ids": [
+            "forms"
+          ],
+          "practice_ids": [
+            "a1-modal-01",
+            "a1-modal-05",
+            "a1-modal-14"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-pouvoir-in-le-present-present-tense",
+      "source_title": "Conjugate pouvoir in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The complete pouvoir paradigm, ability/permission meanings and constrained infinitive pattern are already present, with the formal puis variant explicitly distinguished from ordinary peux.",
+      "evidence": [
+        {
+          "lesson_id": "a1-want-can-must",
+          "section_ids": [
+            "forms"
+          ],
+          "practice_ids": [
+            "a1-modal-02",
+            "a1-modal-06",
+            "a1-modal-08",
+            "a1-modal-15"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-devoir-in-le-present-present-tense",
+      "source_title": "Conjugate devoir in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Devoir's full paradigm and requirement-plus-infinitive pattern already meet this conjugation body's scope. The separate need/owe comparison receives its own depth record.",
+      "evidence": [
+        {
+          "lesson_id": "a1-want-can-must",
+          "section_ids": [
+            "forms"
+          ],
+          "practice_ids": [
+            "a1-modal-03",
+            "a1-modal-07",
+            "a1-modal-13"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-regular-ir-verbs-in-le-present-present-tense",
+      "source_title": "Conjugate regular -ir verbs in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added a dictionary-word check using répartir versus repartir and a sound-versus-spelling explanation, building on the existing full -ir paradigm rather than implying that all -ir verbs behave alike.",
+      "evidence": [
+        {
+          "lesson_id": "a1-present-families",
+          "section_ids": [
+            "ir",
+            "family-check"
+          ],
+          "practice_ids": [
+            "a1-pres-02",
+            "a1-pres-06",
+            "a1-pres-08",
+            "a1-pres-13",
+            "a1-pres-16",
+            "a1-pres-depth-01",
+            "a1-pres-depth-02",
+            "a1-pres-depth-03",
+            "a1-pres-depth-05"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-regular-dre-verbs-in-le-present-present-tense",
+      "source_title": "Conjugate regular -dre verbs in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "The existing regular -dre model and exclusion of other families were sufficient. Added the audible-d contrast and a written singular-form decision so silent endings are not guessed from sound alone.",
+      "evidence": [
+        {
+          "lesson_id": "a1-present-families",
+          "section_ids": [
+            "dre",
+            "family-check"
+          ],
+          "practice_ids": [
+            "a1-pres-03",
+            "a1-pres-07",
+            "a1-pres-11",
+            "a1-pres-14",
+            "a1-pres-depth-04",
+            "a1-pres-depth-06"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-croire-in-le-present-present-tense",
+      "source_title": "Conjugate croire in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The actual public article is example-led; our lesson already supplies the complete croire paradigm, plural-stem explanation and meaningful complement contrast with production evidence.",
+      "evidence": [
+        {
+          "lesson_id": "a1-croire-mettre",
+          "section_ids": [
+            "croire"
+          ],
+          "practice_ids": [
+            "a1-cm-01",
+            "a1-cm-05",
+            "a1-cm-06",
+            "a1-cm-14"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-semi-regular-cer-verbs-in-le-present-present-tense",
+      "source_title": "Conjugate semi-regular -cer verbs in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The reason for ç before -ons, the complete commencer paradigm and transfer to another -cer verb are already visible and assessed.",
+      "evidence": [
+        {
+          "lesson_id": "a1-present-spelling",
+          "section_ids": [
+            "soft-sounds"
+          ],
+          "practice_ids": [
+            "a1-spell-01",
+            "a1-spell-05",
+            "a1-spell-15"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-semi-regular-ger-verbs-in-le-present-present-tense",
+      "source_title": "Conjugate semi-regular -ger verbs in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The preserved soft-g explanation, complete manger paradigm and plural-context construction already explain why only nous needs the extra e in these present forms.",
+      "evidence": [
+        {
+          "lesson_id": "a1-present-spelling",
+          "section_ids": [
+            "soft-sounds"
+          ],
+          "practice_ids": [
+            "a1-spell-02",
+            "a1-spell-06"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-reflexive-verbs-in-le-present-present-tense",
+      "source_title": "Conjugate reflexive verbs in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Subject-matched reflexive pronouns, elision and ordinary conjugation are already integrated in full paradigms, examples and pronoun-production tasks.",
+      "evidence": [
+        {
+          "lesson_id": "a1-reflexive-routines",
+          "section_ids": [
+            "pattern"
+          ],
+          "practice_ids": [
+            "a1-refl-01",
+            "a1-refl-07",
+            "a1-refl-12"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-reflexive-verb-se-reveiller-in-le-present-present-tense",
+      "source_title": "Conjugate reflexive verb se réveiller in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Se réveiller already has complete forms and is meaningfully distinguished from getting up; mapped items test its reflexive spelling and subject matching.",
+      "evidence": [
+        {
+          "lesson_id": "a1-reflexive-routines",
+          "section_ids": [
+            "routine"
+          ],
+          "practice_ids": [
+            "a1-refl-02",
+            "a1-refl-09"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-reflexive-verb-se-lever-in-le-present-present-tense",
+      "source_title": "Conjugate reflexive verb se lever in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Se lever already combines the full reflexive paradigm with the e/è alternation and the distinction from merely waking. Independent items assess the relevant changes.",
+      "evidence": [
+        {
+          "lesson_id": "a1-reflexive-routines",
+          "section_ids": [
+            "routine"
+          ],
+          "practice_ids": [
+            "a1-refl-03",
+            "a1-refl-10"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-reflexive-verb-se-coucher-in-le-present-present-tense",
+      "source_title": "Conjugate reflexive verb se coucher in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Se coucher already has full forms and the useful limit that going to bed is not necessarily falling asleep. Existing production covers the reflexive and plural forms.",
+      "evidence": [
+        {
+          "lesson_id": "a1-reflexive-routines",
+          "section_ids": [
+            "routine"
+          ],
+          "practice_ids": [
+            "a1-refl-05",
+            "a1-refl-16"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-reflexive-verb-s-habiller-in-le-present-present-tense",
+      "source_title": "Conjugate reflexive verb s'habiller in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "S'habiller already explains silent-h elision and supplies every person, including the non-elided plural reflexive pronouns, with independent construction checks.",
+      "evidence": [
+        {
+          "lesson_id": "a1-reflexive-routines",
+          "section_ids": [
+            "routine"
+          ],
+          "practice_ids": [
+            "a1-refl-06",
+            "a1-refl-13"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-reflexive-verb-se-laver-in-le-present-present-tense",
+      "source_title": "Conjugate reflexive verb se laver in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Se laver is already the full system model and is connected to obvious-body-part articles. The mapped tasks exercise the actual pronoun/verb combination.",
+      "evidence": [
+        {
+          "lesson_id": "a1-reflexive-routines",
+          "section_ids": [
+            "pattern"
+          ],
+          "practice_ids": [
+            "a1-refl-01",
+            "a1-refl-07"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-reflexive-verb-s-amuser-in-le-present-present-tense",
+      "source_title": "Conjugate reflexive verb s'amuser in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "S'amuser already has its own meaning, complete forms and elision, rather than being only a named example of reflexive verbs.",
+      "evidence": [
+        {
+          "lesson_id": "a1-reflexive-routines",
+          "section_ids": [
+            "routine"
+          ],
+          "practice_ids": [
+            "a1-refl-08",
+            "a1-refl-15"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-e-er-and-e-er-verbs-in-le-present-except-for-eter-and-eler-verbs",
+      "source_title": "Conjugate -é(-)er, -e(-)er verbs - except -eter and -eler - in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Existing e/é-to-è paradigms were good. Added the boundary that a circumflex is not that alternation, with a full rêver paradigm and contrastive written decisions.",
+      "evidence": [
+        {
+          "lesson_id": "a1-present-spelling",
+          "section_ids": [
+            "accents",
+            "accent-boundary"
+          ],
+          "practice_ids": [
+            "a1-spell-03",
+            "a1-spell-07",
+            "a1-spell-08",
+            "a1-spell-14",
+            "a1-spell-depth-01",
+            "a1-spell-depth-02",
+            "a1-spell-depth-03"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-partir-sortir-and-other-irregular-tir-verbs-in-le-present-present-tense",
+      "source_title": "Conjugate partir/sortir and other irregular -TIR verbs in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "The full short-stem paradigms and prefix strategy were already present. Cross-linked evidence now tests the meaningful répartir/repartir boundary instead of transferring a family merely by resemblance.",
+      "evidence": [
+        {
+          "lesson_id": "a1-daily-irregulars",
+          "section_ids": [
+            "short-stems"
+          ],
+          "practice_ids": [
+            "a1-dailyv-01",
+            "a1-dailyv-05",
+            "a1-dailyv-06",
+            "a1-dailyv-13",
+            "a1-dailyv-16"
+          ]
+        },
+        {
+          "lesson_id": "a1-present-families",
+          "section_ids": [
+            "family-check"
+          ],
+          "practice_ids": [
+            "a1-pres-depth-01",
+            "a1-pres-depth-02"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-eter-and-eler-verbs-in-le-present-main-rule-ll-tt-e",
+      "source_title": "Conjugate -eter and -eler verbs in the present tense in French (Le Présent) - main rule (ll / tt)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The existing lesson already distinguishes appeler/jeter from acheter/geler and explicitly preserves both traditional and rectified alternatives for other applicable verbs. No variant was removed.",
+      "evidence": [
+        {
+          "lesson_id": "a1-present-spelling",
+          "section_ids": [
+            "eler-eter"
+          ],
+          "practice_ids": [
+            "a1-spell-04",
+            "a1-spell-09",
+            "a1-spell-13",
+            "a1-spell-16"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-prendre-and-derivatives-in-le-present-present-tense",
+      "source_title": "Conjugate prendre and derivatives in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Prendre and its derivatives already have the full stem changes, including plural d loss and nn, with several independent family-transfer items.",
+      "evidence": [
+        {
+          "lesson_id": "a1-venir-tenir-prendre",
+          "section_ids": [
+            "prendre"
+          ],
+          "practice_ids": [
+            "a1-vtp-03",
+            "a1-vtp-04",
+            "a1-vtp-08",
+            "a1-vtp-09",
+            "a1-vtp-11",
+            "a1-vtp-16"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/le-present-usage-where-present-continuous-is-used-in-english-ongoing-current-actions",
+      "source_title": "Expressing ongoing actions (English Present Continuous) with the present tense (Le Présent) in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The ordinary French present already covers current action without adding être, and the lesson directly corrects the English auxiliary calque with independent production.",
+      "evidence": [
+        {
+          "lesson_id": "a1-present-families",
+          "section_ids": [
+            "meaning"
+          ],
+          "practice_ids": [
+            "a1-pres-04",
+            "a1-pres-10"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-dire-in-le-present-present-tense",
+      "source_title": "Conjugate dire and derivatives in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The full dire model already distinguishes redire, other -disez derivatives and the separate maudire plural. Existing exercises genuinely test those boundaries.",
+      "evidence": [
+        {
+          "lesson_id": "a1-say-read-write",
+          "section_ids": [
+            "dire"
+          ],
+          "practice_ids": [
+            "a1-msg-01",
+            "a1-msg-04",
+            "a1-msg-05",
+            "a1-msg-06",
+            "a1-msg-11",
+            "a1-msg-12",
+            "a1-msg-14"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-dormir-and-other-irregular-mir-verbs-in-le-present-present-tense",
+      "source_title": "Conjugate dormir and other -MIR verbs in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added the missing semantic decision between sleeping, falling asleep and putting someone to sleep, retaining the familiar conjugation and supplying the complete s'endormir paradigm.",
+      "evidence": [
+        {
+          "lesson_id": "a1-daily-irregulars",
+          "section_ids": [
+            "short-stems",
+            "sleep-transition"
+          ],
+          "practice_ids": [
+            "a1-dailyv-02",
+            "a1-dailyv-07",
+            "a1-daily-depth-01",
+            "a1-daily-depth-02",
+            "a1-daily-depth-03"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-ecrire-in-le-present-present-tense",
+      "source_title": "Conjugate écrire/inscrire in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Écrire and inscrire already have complete paradigms, plural v and accented spellings, plus meaningful message/address contexts and independent derivative production.",
+      "evidence": [
+        {
+          "lesson_id": "a1-say-read-write",
+          "section_ids": [
+            "lire-ecrire"
+          ],
+          "practice_ids": [
+            "a1-msg-03",
+            "a1-msg-08",
+            "a1-msg-09",
+            "a1-msg-13"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/le-present-usage-immediate-near-future-actions",
+      "source_title": "Expressing immediate and near-future actions with the present tense (Le Présent) in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The present's future reading is already tied to scheduling and time context, not treated as an automatic future meaning. Existing items distinguish that use from a near-future construction.",
+      "evidence": [
+        {
+          "lesson_id": "a1-near-future",
+          "section_ids": [
+            "present-future"
+          ],
+          "practice_ids": [
+            "a1-fut-04",
+            "a1-fut-11",
+            "a1-fut-16"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-express-im-going-to-aller-infinitive-le-futur-proche",
+      "source_title": "Conjugate verbs in the near future in French using aller + infinitive (Le Futur Proche)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The full aller-plus-infinitive formation, negation, motion contrast and absence of a fixed elapsed-time cutoff already supply useful depth and application.",
+      "evidence": [
+        {
+          "lesson_id": "a1-near-future",
+          "section_ids": [
+            "formation"
+          ],
+          "practice_ids": [
+            "a1-fut-01",
+            "a1-fut-02",
+            "a1-fut-05",
+            "a1-fut-06",
+            "a1-fut-09"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-lire-in-le-present-present-tense",
+      "source_title": "Conjugate lire in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added relire and élire as meaningful transfer cases, with complete paradigms and independent rereading/election contexts; the prefix changes meaning, not the lire endings.",
+      "evidence": [
+        {
+          "lesson_id": "a1-say-read-write",
+          "section_ids": [
+            "lire-ecrire",
+            "lire-prefixes"
+          ],
+          "practice_ids": [
+            "a1-msg-02",
+            "a1-msg-10",
+            "a1-msg-15",
+            "a1-read-depth-01",
+            "a1-read-depth-02",
+            "a1-read-depth-03"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-reflexive-verbs-in-le-futur-proche-aller-infinitive",
+      "source_title": "Conjugate reflexive verbs in the near future in French using aller + infinitive (Le Futur Proche)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The existing lesson already keeps the reflexive pronoun with the infinitive, selects it for the subject, handles elision and explains negative order with real production.",
+      "evidence": [
+        {
+          "lesson_id": "a1-near-future",
+          "section_ids": [
+            "reflexive"
+          ],
+          "practice_ids": [
+            "a1-fut-03",
+            "a1-fut-07",
+            "a1-fut-08",
+            "a1-fut-10",
+            "a1-fut-13",
+            "a1-fut-15"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-in-le-passe-proche-by-using-venir-de-infinite",
+      "source_title": "Expressing the close past in French using \"venir de\" + [infinitive] (Le Passé Proche)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Recent completion, full venir forms, de/d', reflexive placement and the origin-versus-completed-action contrast are already taught and tested. The optional emphatic adverb does not require another formation model.",
+      "evidence": [
+        {
+          "lesson_id": "a1-recent-past-progressive",
+          "section_ids": [
+            "recent"
+          ],
+          "practice_ids": [
+            "a1-aspect-01",
+            "a1-aspect-02",
+            "a1-aspect-05",
+            "a1-aspect-06",
+            "a1-aspect-07",
+            "a1-aspect-12"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-mettre-promettre-and-derivatives-in-le-present-present-tense",
+      "source_title": "Conjugate mettre and derivatives in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Mettre already has its complete paradigm, singular/plural stems, prefix transfer and the practical putting-on versus wearing contrast with independent application.",
+      "evidence": [
+        {
+          "lesson_id": "a1-croire-mettre",
+          "section_ids": [
+            "mettre"
+          ],
+          "practice_ids": [
+            "a1-cm-03",
+            "a1-cm-09",
+            "a1-cm-10",
+            "a1-cm-11",
+            "a1-cm-13",
+            "a1-cm-16"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-eter-and-eler-verbs-in-le-present-exceptions-in-e-only",
+      "source_title": "Conjugate -eter and -eler verbs in the present tense in French (Le Présent) - with \"è\"",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Complete acheter/geler models and contrasts with doubling verbs are already explicit. The existing treatment preserves the published spelling variants without cloning a rare-verb catalogue.",
+      "evidence": [
+        {
+          "lesson_id": "a1-present-spelling",
+          "section_ids": [
+            "eler-eter"
+          ],
+          "practice_ids": [
+            "a1-spell-10",
+            "a1-spell-11",
+            "a1-spell-12"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-the-reflexive-s-asseoir-to-sit-down-in-le-present-present-tense",
+      "source_title": "Conjugate reflexive verb s'asseoir in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Both standard s'asseoir series and both accepted infinitive spellings are already visible and accepted where relevant. No published variant was narrowed.",
+      "evidence": [
+        {
+          "lesson_id": "a1-reflexive-routines",
+          "section_ids": [
+            "asseoir"
+          ],
+          "practice_ids": [
+            "a1-refl-04",
+            "a1-refl-11",
+            "a1-refl-14"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/conjugate-boire-in-le-present-present-tense",
+      "source_title": "Conjugate boire in the present tense in French (Le Présent)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Boire's three present stems, complete paradigm and independent singular/plural production already address the public body's conjugation need.",
+      "evidence": [
+        {
+          "lesson_id": "a1-daily-irregulars",
+          "section_ids": [
+            "boire"
+          ],
+          "practice_ids": [
+            "a1-dailyv-03",
+            "a1-dailyv-08",
+            "a1-dailyv-09",
+            "a1-dailyv-14"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/du-de-la-de-l-are-used-to-express-some-or-any-partitive-articles",
+      "source_title": "Du/de la/de l'/des = Some/any (French Partitive Articles)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Existing portion/category teaching was strong. Added an explicit same-noun count-versus-material decision and practice that cannot be solved merely by memorising a food noun's gender.",
+      "evidence": [
+        {
+          "lesson_id": "a1-articles-gender",
+          "section_ids": [
+            "quantity",
+            "meaning-first"
+          ],
+          "practice_ids": [
+            "a1-art-02",
+            "a1-art-05",
+            "a1-art-06",
+            "a1-art-13",
+            "a1-art-depth-01"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/contractions-of-articles-a-le-au-a-les-aux-de-le-du-de-les-des",
+      "source_title": "Definite articles contract with à and de in French (French Contracted Articles)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "All four contractions and the noncontracting la/l' cases are already contrasted; the lesson also distinguishes contracted du from a partitive reading.",
+      "evidence": [
+        {
+          "lesson_id": "a1-articles-gender",
+          "section_ids": [
+            "contractions"
+          ],
+          "practice_ids": [
+            "a1-art-03",
+            "a1-art-07",
+            "a1-art-08",
+            "a1-art-14"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/continents-countries-counties-regions-and-states-are-masculine-feminine-or-plural-gender",
+      "source_title": "Continents/countries/counties/regions/states are masculine, feminine or plural in French (Gender)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Gender clues and named exceptions were already supplied. Added a whole-name decision using singular pays de Galles so visible final s is not mistaken for grammatical plurality.",
+      "evidence": [
+        {
+          "lesson_id": "a1-geography",
+          "section_ids": [
+            "names",
+            "place-identity"
+          ],
+          "practice_ids": [
+            "a1-geo-01",
+            "a1-geo-05",
+            "a1-geo-06",
+            "a1-geo-depth-03"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/using-le-la-l-les-with-continents-countries-and-regions-names",
+      "source_title": "Using le, la, l', les with continents, countries & regions names (definite articles)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The article inventory already includes country/region gender, articleless names and city-name exceptions. The existing examples avoid treating every city or country alike.",
+      "evidence": [
+        {
+          "lesson_id": "a1-geography",
+          "section_ids": [
+            "names"
+          ],
+          "practice_ids": [
+            "a1-geo-01",
+            "a1-geo-06"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/talking-about-the-seasons-use-en-or-l-with-seasons-but-au-with-printemps",
+      "source_title": "En/l'/au with seasons (French Articles and Prepositions)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Seasonal genders, au printemps versus en with the other seasons, and general/recurring definite-article use are already explained and exercised.",
+      "evidence": [
+        {
+          "lesson_id": "a1-calendar",
+          "section_ids": [
+            "recurrence-seasons"
+          ],
+          "practice_ids": [
+            "a1-cal-03",
+            "a1-cal-08",
+            "a1-cal-09",
+            "a1-cal-14"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/use-le-la-l-or-les-before-nouns-when-generalising-definite-articles",
+      "source_title": "Using le, la, l', les before nouns when generalising (definite articles)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added category versus particular liked referent and English zero-article contrasts, plus general negative retention versus zero quantity. No blanket claim that preference verbs force definite articles was introduced.",
+      "evidence": [
+        {
+          "lesson_id": "a1-articles-gender",
+          "section_ids": [
+            "quantity",
+            "meaning-first"
+          ],
+          "practice_ids": [
+            "a1-art-04",
+            "a1-art-17",
+            "a1-art-depth-02",
+            "a1-art-depth-03"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-identify-gender-by-some-word-endings",
+      "source_title": "Identifying the gender of nouns by some specific word endings in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added useful -isme, -té/-tié and quality-noun -eur clues with explicit exceptions and a noun-plus-gender verification method. No unsupported success percentage or universal suffix rule was imported.",
+      "evidence": [
+        {
+          "lesson_id": "a1-articles-gender",
+          "section_ids": [
+            "identify",
+            "gender-clues"
+          ],
+          "practice_ids": [
+            "a1-art-01",
+            "a1-art-09",
+            "a1-art-16",
+            "a1-art-depth-04",
+            "a1-art-depth-05",
+            "a1-art-depth-06",
+            "a1-art-depth-10"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/when-to-use-le-with-days-of-the-week-weekend",
+      "source_title": "Using \"le\" with days of the week + the weekend (French Definite Articles)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "The recurring/bare weekday contrast was already good. Added a full dated weekday and a subject use to show why le does not always mean every.",
+      "evidence": [
+        {
+          "lesson_id": "a1-calendar",
+          "section_ids": [
+            "recurrence-seasons",
+            "dated-weekday"
+          ],
+          "practice_ids": [
+            "a1-cal-02",
+            "a1-cal-07",
+            "a1-cal-depth-01",
+            "a1-cal-depth-02",
+            "a1-cal-depth-03"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/using-le-la-les-with-weights-and-measures-definite-articles",
+      "source_title": "Using le, la, les with weights and measures (definite articles)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Per-unit prices already use the definite article with single items, kilos and a multi-gram quantity. Existing items test the rate relation rather than possession.",
+      "evidence": [
+        {
+          "lesson_id": "a1-numbers",
+          "section_ids": [
+            "rank-measure"
+          ],
+          "practice_ids": [
+            "a1-num-14",
+            "a1-num-19"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/nouns-ending-in-au-or-eau-take-an-x-in-the-plural",
+      "source_title": "Forming the plural of French nouns ending in -au or -eau",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "reference-qualified",
+      "note": "Retained the existing -x pattern with landaus and validated sarraus exceptions. The public body's unconditional -au pattern does not justify deleting the published exception.",
+      "evidence": [
+        {
+          "lesson_id": "a1-noun-plurals",
+          "section_ids": [
+            "families"
+          ],
+          "practice_ids": [
+            "a1-plur-02",
+            "a1-plur-05",
+            "a1-plur-06",
+            "a1-plur-09"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "url": "https://usito.usherbrooke.ca/d%C3%A9finitions/sarrau",
+          "purpose": "The dictionary explicitly gives sarraus; preserve that published exception rather than adopting an unconditional -au to -aux rule."
+        }
+      ]
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/using-le-la-les-with-body-parts-and-clothing-definite-articles",
+      "source_title": "Using le, la, les with body parts and clothing (definite articles)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "The obvious-owner article rule was already taught with clothing limits. Added lever la main versus se lever so learners do not create a reflexive verb merely to translate your.",
+      "evidence": [
+        {
+          "lesson_id": "a1-articles-gender",
+          "section_ids": [
+            "familiar-contexts",
+            "construction-boundaries"
+          ],
+          "practice_ids": [
+            "a1-art-10",
+            "a1-art-15",
+            "a1-art-depth-07"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/using-le-la-les-with-titles-languages-and-academic-subjects-definite-articles",
+      "source_title": "Using le, la, les with titles, languages and academic subjects (definite articles)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added explicit acceptance of parler le français alongside common parler français; kept the existing subject-language article and direct-address contrast rather than rewriting them as absolute bans.",
+      "evidence": [
+        {
+          "lesson_id": "a1-articles-gender",
+          "section_ids": [
+            "familiar-contexts",
+            "construction-boundaries"
+          ],
+          "practice_ids": [
+            "a1-art-11",
+            "a1-art-12",
+            "a1-art-depth-08",
+            "a1-art-depth-09"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-pluralise-nouns-ending-in-al-rule-and-exceptions",
+      "source_title": "Forming the plural of French nouns ending in -al",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The usual -al to -aux change and common -s exceptions already have noun headwords, examples and independent spelling checks; related -ail is not conflated.",
+      "evidence": [
+        {
+          "lesson_id": "a1-noun-plurals",
+          "section_ids": [
+            "families"
+          ],
+          "practice_ids": [
+            "a1-plur-03",
+            "a1-plur-07",
+            "a1-plur-12"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/nouns-ending-in-eu-take-x-or-s-in-the-plural",
+      "source_title": "Forming the plural of French nouns ending in -eu",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The existing -eu model and pneus/bleus exceptions are already practised with written plural production, so the public body revealed no useful gap.",
+      "evidence": [
+        {
+          "lesson_id": "a1-noun-plurals",
+          "section_ids": [
+            "families"
+          ],
+          "practice_ids": [
+            "a1-plur-08",
+            "a1-plur-13"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/surnames-dont-pluralise",
+      "source_title": "Surnames don't pluralise in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Ordinary family surnames already remain unchanged, with the historical-family qualification retained. Mapped questions assess the intended ordinary use rather than inventing a universal rule.",
+      "evidence": [
+        {
+          "lesson_id": "a1-noun-plurals",
+          "section_ids": [
+            "surnames"
+          ],
+          "practice_ids": [
+            "a1-plur-04",
+            "a1-plur-10",
+            "a1-plur-16"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-adjectives-ending-with-mute-e-dont-change-in-the-feminine-form-feminine-adjectives",
+      "source_title": "Adjectives ending with mute -e don't change in the feminine in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The basic agreement section already explains that silent final e needs no second e, while plural agreement remains available, with independent adjective production.",
+      "evidence": [
+        {
+          "lesson_id": "a1-adjective-forms",
+          "section_ids": [
+            "basic"
+          ],
+          "practice_ids": [
+            "a1-adj-01",
+            "a1-adj-21"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-colour-descriptions-adjectives-change-according-to-gender-and-number",
+      "source_title": "Colour descriptions change according to gender and number (French Colour Adjectives)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Existing simple, compound and noun-colour rules were sound. Added full brun agreement versus invariable colour marron, including agreement after être.",
+      "evidence": [
+        {
+          "lesson_id": "a1-adjective-forms",
+          "section_ids": [
+            "colours",
+            "brown-nationality"
+          ],
+          "practice_ids": [
+            "a1-adj-04",
+            "a1-adj-15",
+            "a1-adj-16",
+            "a1-adj-19",
+            "a1-adj-depth-01",
+            "a1-adj-depth-02",
+            "a1-adj-depth-03"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/adjectives-following-cest-are-always-masculine",
+      "source_title": "Standalone adjectives after c'est are always masculine",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "The standalone masculine-singular evaluation was already explained. Added a plural-topic contrast to prevent changing c'est merely because several things are under discussion.",
+      "evidence": [
+        {
+          "lesson_id": "a1-reference",
+          "section_ids": [
+            "describe",
+            "plural-topic"
+          ],
+          "practice_ids": [
+            "a1-ref-03",
+            "a1-ref-09",
+            "a1-ref-10",
+            "a1-ref-16",
+            "a1-ref-depth-01",
+            "a1-ref-depth-02"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-express-possession-with-de",
+      "source_title": "Expressing possession in French with \"de\"",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The thing-first, owner-second construction, contractions and elision already have contextual examples and production. No English possessive apostrophe calque is encouraged.",
+      "evidence": [
+        {
+          "lesson_id": "a1-possession",
+          "section_ids": [
+            "de-owner"
+          ],
+          "practice_ids": [
+            "a1-own-03",
+            "a1-own-10"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/use-mon-ma-mes-ton-ta-tes-son-sa-ses-to-say-my-your-his-her-possessive-adjectives",
+      "source_title": "Mon, ma, mes; ton, ta, tes; son, sa, ses = my; your; his / her in French (French possessive adjectives)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "All singular-owner possessive forms are already taught by the possessed noun's gender/number, including feminine vowel-initial nouns and owner-versus-object contrasts.",
+      "evidence": [
+        {
+          "lesson_id": "a1-possession",
+          "section_ids": [
+            "determiners"
+          ],
+          "practice_ids": [
+            "a1-own-01",
+            "a1-own-02",
+            "a1-own-05",
+            "a1-own-12",
+            "a1-own-14"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/use-notre-nos-votre-vos-leur-leurs-to-say-our-your-and-their-possessive-adjectives",
+      "source_title": "Notre / nos / votre / vos / leur / leurs = our / your / their (French Possessive Adjectives)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Notre/votre/leur and plural forms already distinguish possessor from possession, polite vous and shared/distributive contexts with constructed responses.",
+      "evidence": [
+        {
+          "lesson_id": "a1-possession",
+          "section_ids": [
+            "determiners"
+          ],
+          "practice_ids": [
+            "a1-own-06",
+            "a1-own-07",
+            "a1-own-08",
+            "a1-own-09",
+            "a1-own-13",
+            "a1-own-16"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-form-the-feminine-of-nouns-and-adjectives-ending-in-ien-ion-and-on-adjectives-nouns",
+      "source_title": "Forming the feminine of nouns and adjectives ending in \"-ien/-ion/-on\" in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Existing feminine families include adjective and person/animal noun limits. Added nationality person-noun capitals versus descriptive adjectives and language names, with explicitly case-sensitive checks.",
+      "evidence": [
+        {
+          "lesson_id": "a1-adjective-forms",
+          "section_ids": [
+            "feminine-families",
+            "brown-nationality"
+          ],
+          "practice_ids": [
+            "a1-adj-02",
+            "a1-adj-06",
+            "a1-adj-07",
+            "a1-adj-depth-04",
+            "a1-adj-depth-05",
+            "a1-adj-depth-06"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/djectives-ending-in-eux-become-euse-forming-feminine-adjectives",
+      "source_title": "Adjectives ending in -eux become -euse in the feminine in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The -eux/-euse family and separate -x pairs are already distinguished, with gender/number production rather than a misleading all-x replacement rule.",
+      "evidence": [
+        {
+          "lesson_id": "a1-adjective-forms",
+          "section_ids": [
+            "feminine-families",
+            "basic"
+          ],
+          "practice_ids": [
+            "a1-adj-03",
+            "a1-adj-18"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/adjectives-ending-in-s-or-x-only-change-their-feminine-forms-when-plural",
+      "source_title": "Adjectives ending in -s or -x change in the plural forms only when feminine in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The unchanged masculine plural of -s/-x and the separately inflected feminine plural are already explicit and assessed.",
+      "evidence": [
+        {
+          "lesson_id": "a1-adjective-forms",
+          "section_ids": [
+            "basic"
+          ],
+          "practice_ids": [
+            "a1-adj-05",
+            "a1-adj-18"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/beau-nouveau-vieux-fou-mou-two-masculine-and-one-feminine-form",
+      "source_title": "Beau, nouveau, vieux, fou, mou have two masculine forms and one feminine form (French Adjectives)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The complete special adjective forms already specify immediate pre-noun vowel context, ordinary post-noun forms and the literary limits of fol/mol. Published nuance remains intact.",
+      "evidence": [
+        {
+          "lesson_id": "a1-adjective-position",
+          "section_ids": [
+            "special-forms"
+          ],
+          "practice_ids": [
+            "a1-posadj-01",
+            "a1-posadj-05",
+            "a1-posadj-08",
+            "a1-posadj-11",
+            "a1-posadj-12",
+            "a1-posadj-16"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-say-new-neuf-versus-nouveau",
+      "source_title": "Neuf vs nouveau to say new in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "The second-hand/new-to-me distinction was already good. Added people and adopted animals to show why new in a situation does not mean unused or newly born.",
+      "evidence": [
+        {
+          "lesson_id": "a1-adjective-position",
+          "section_ids": [
+            "neuf-nouveau",
+            "ordered-groups"
+          ],
+          "practice_ids": [
+            "a1-posadj-03",
+            "a1-posadj-09",
+            "a1-position-depth-04",
+            "a1-position-depth-05",
+            "a1-position-depth-06"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-form-regular-adverbs-ment",
+      "source_title": "Forming regular adverbs with \"-ment\" in French (French Adverbs)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Adverb formation already includes feminine-base and vowel cases, exceptions, invariant use and placement; the mapped tasks require independently constructing forms.",
+      "evidence": [
+        {
+          "lesson_id": "a1-adverbs",
+          "section_ids": [
+            "formation",
+            "placement"
+          ],
+          "practice_ids": [
+            "a1-adv-01",
+            "a1-adv-02",
+            "a1-adv-03",
+            "a1-adv-05",
+            "a1-adv-06",
+            "a1-adv-07",
+            "a1-adv-13"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-you-double-the-last-consonant-when-forming-the-feminine-of-adjectives-ending-in-el-eil-il-ul-et-and-s",
+      "source_title": "Forming the feminine of adjectives ending in \"-el/-eil/-il/-ul/-et/some in -s\" in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The existing families retain explicit -il/-ul/-et/-s exceptions and their production checks. The public comparison did not warrant replacing these safeguards with a single doubling recipe.",
+      "evidence": [
+        {
+          "lesson_id": "a1-adjective-forms",
+          "section_ids": [
+            "feminine-families"
+          ],
+          "practice_ids": [
+            "a1-adj-09",
+            "a1-adj-10",
+            "a1-adj-11",
+            "a1-adj-12",
+            "a1-adj-13",
+            "a1-adj-14",
+            "a1-adj-17",
+            "a1-adj-20"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-adjectives-beau-nouveau-and-vieux-have-different-plural-forms-in-the-masculine-and-the-feminine-plural-of-adjectives",
+      "source_title": "Beau, nouveau, vieux have different plural forms for masculine and feminine (French Adjectives)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Masculine/feminine plurals of beau, nouveau and vieux are already fully listed, contrasted with special singular forms and tested in noun phrases.",
+      "evidence": [
+        {
+          "lesson_id": "a1-adjective-position",
+          "section_ids": [
+            "special-forms"
+          ],
+          "practice_ids": [
+            "a1-posadj-06",
+            "a1-posadj-07",
+            "a1-posadj-14"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-adjectives-ending-in-er-become-ere-in-the-feminine-feminine-adjectives",
+      "source_title": "Adjectives ending in -er become -ère in the feminine in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The -er/-ère family and plural agreement already have visible examples and independent written production, including the accent.",
+      "evidence": [
+        {
+          "lesson_id": "a1-adjective-forms",
+          "section_ids": [
+            "feminine-families"
+          ],
+          "practice_ids": [
+            "a1-adj-08",
+            "a1-adj-22"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/other-types-of-adjectives-that-go-before-the-noun",
+      "source_title": "Position of French Adjectives - More adjectives that go BEFORE nouns",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added count-before-rank grouping and descriptive adjective placement before a personal name; existing ordinary noun placement and plural de guidance remain intact.",
+      "evidence": [
+        {
+          "lesson_id": "a1-adjective-position",
+          "section_ids": [
+            "position",
+            "ordered-groups"
+          ],
+          "practice_ids": [
+            "a1-posadj-04",
+            "a1-posadj-10",
+            "a1-position-depth-01",
+            "a1-position-depth-02",
+            "a1-position-depth-03"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-use-ne-pas-not-with-simple-tenses-negation",
+      "source_title": "Ne ... pas = Not - with simple tenses (French Negations)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Conjugated-verb bracketing, n' elision and informal ne omission versus standard written production are already clearly separated.",
+      "evidence": [
+        {
+          "lesson_id": "a1-negatives",
+          "section_ids": [
+            "placement"
+          ],
+          "practice_ids": [
+            "a1-neg-01",
+            "a1-neg-05"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/un-and-une-become-de-or-d-in-negative-sentences-indefinite-article",
+      "source_title": "Un/une become de/d' in negative sentences in French (French Indefinite Articles)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Zero-quantity versus identification was already taught. Added what a subject does not become/remain so article retention is understood by meaning beyond a memorised être exception.",
+      "evidence": [
+        {
+          "lesson_id": "a1-negatives",
+          "section_ids": [
+            "articles",
+            "negative-identity"
+          ],
+          "practice_ids": [
+            "a1-neg-02",
+            "a1-neg-10",
+            "a1-neg-16",
+            "a1-neg-depth-04",
+            "a1-neg-depth-05"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/the-partitive-article-in-negative-sentences",
+      "source_title": "Du/de la/de l'/des all become de/d' in negative sentences (French Partitive Articles)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added a denied-substance-transformation contrast to the existing absent-quantity rule, keeping the partitive when it describes the subject's resulting identity.",
+      "evidence": [
+        {
+          "lesson_id": "a1-negatives",
+          "section_ids": [
+            "articles",
+            "negative-identity"
+          ],
+          "practice_ids": [
+            "a1-neg-08",
+            "a1-neg-09",
+            "a1-neg-13",
+            "a1-neg-depth-06"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/use-si-instead-of-oui-to-disagree-with-a-negative-question-or-statement",
+      "source_title": "Using \"si\" instead of \"oui\" to disagree with a negative question or statement in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The existing response section distinguishes contradicting a negative with si from confirming it with non, with both meaningful examples and constrained responses.",
+      "evidence": [
+        {
+          "lesson_id": "a1-negatives",
+          "section_ids": [
+            "responses"
+          ],
+          "practice_ids": [
+            "a1-neg-04",
+            "a1-neg-14"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-express-never-ne-jamais-negative-expressions",
+      "source_title": "Ne ... jamais = Never (French Negations)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Jamais replacing pas in a negative habit is already explained, including reflexive placement and the limit that other uses belong to later study.",
+      "evidence": [
+        {
+          "lesson_id": "a1-negatives",
+          "section_ids": [
+            "never"
+          ],
+          "practice_ids": [
+            "a1-neg-03",
+            "a1-neg-11"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-say-neither-nor-with-non-plus",
+      "source_title": "Non plus = Neither/nor (French Negations)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Sharing a negative fact with non plus is already contrasted with positive aussi, including standalone stressed-pronoun response and sentence placement.",
+      "evidence": [
+        {
+          "lesson_id": "a1-negatives",
+          "section_ids": [
+            "responses"
+          ],
+          "practice_ids": [
+            "a1-neg-12",
+            "a1-neg-17"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-use-ne-pas-with-reflexive-verbs-in-simple-tenses-negation",
+      "source_title": "Ne ... pas = Not - with reflexive verbs in simple tenses (French Negations)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Reflexive pronouns already remain between ne and the finite verb, with both pas and jamais examples and independently assessed word order.",
+      "evidence": [
+        {
+          "lesson_id": "a1-negatives",
+          "section_ids": [
+            "placement",
+            "never"
+          ],
+          "practice_ids": [
+            "a1-neg-06",
+            "a1-neg-11"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/where-to-place-negations-in-sentences-with-two-verbs-conjugated-and-infinitive",
+      "source_title": "Position of French Negations - with conjugated verb + infinitive",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added a same-action permission contrast between ne pouvez pas and pouvez ne pas, plus reflexive infinitive placement, so moving the negative changes a worked meaning rather than only word order.",
+      "evidence": [
+        {
+          "lesson_id": "a1-negatives",
+          "section_ids": [
+            "placement",
+            "negative-scope"
+          ],
+          "practice_ids": [
+            "a1-neg-07",
+            "a1-neg-15",
+            "a1-neg-depth-01",
+            "a1-neg-depth-02",
+            "a1-neg-depth-03"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/use-cest-quoi-and-quest-ce-que-to-say-whats-that",
+      "source_title": "C'est quoi, Qu'est-ce que c'est ? = What's that? (French Questions)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Object identity questions were already taught. Added polite repetition repair and the contextual Comment ? meaning, distinguished from identifying an object and from potentially abrupt Quoi ?.",
+      "evidence": [
+        {
+          "lesson_id": "a1-questions",
+          "section_ids": [
+            "identify-object",
+            "repair-question"
+          ],
+          "practice_ids": [
+            "a1-q-02",
+            "a1-q-07",
+            "a1-question-depth-01",
+            "a1-question-depth-02",
+            "a1-question-depth-03"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/three-simple-ways-to-ask-yes-no-questionsintonation-est-ce-que-nest-pas",
+      "source_title": "Asking yes/no questions in French with intonation, est-ce que, n'est-ce pas (French Questions)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Statement order, est-ce que, conventional inversion, register and question punctuation already have visible models and independently constrained questions. Published sensitivity flags remain untouched.",
+      "evidence": [
+        {
+          "lesson_id": "a1-questions",
+          "section_ids": [
+            "yes-no"
+          ],
+          "practice_ids": [
+            "a1-q-01",
+            "a1-q-05",
+            "a1-q-06",
+            "a1-q-14"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-ask-questions-with-qui-que-quoi-quand-ou-comment-pourquoi-and-combien",
+      "source_title": "Asking questions in French with \"qui/que/quoi/quand/où/comment/pourquoi/combien\" (French Question Words)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The information-word inventory already follows the missing-information decision, including subject qui, quoi after a preposition and combien de; questions constrain the expected construction fairly.",
+      "evidence": [
+        {
+          "lesson_id": "a1-questions",
+          "section_ids": [
+            "information"
+          ],
+          "practice_ids": [
+            "a1-q-03",
+            "a1-q-04",
+            "a1-q-08",
+            "a1-q-09",
+            "a1-q-10",
+            "a1-q-11",
+            "a1-q-12",
+            "a1-q-13",
+            "a1-q-15"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/use-dans-sur-sous-devant-derriere-entre-to-say-in-on-top-of-under-in-front-of-behind-prepositions",
+      "source_title": "Dans/sur/sous/devant/derrière/entre = in/on top of/under/in front of/behind/between (French Prepositions of Location)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The spatial relations already have actual layouts, direct versus de-bearing prepositions and movement/location examples with independent selection and production.",
+      "evidence": [
+        {
+          "lesson_id": "a1-place",
+          "section_ids": [
+            "simple"
+          ],
+          "practice_ids": [
+            "a1-place-01",
+            "a1-place-02",
+            "a1-place-05",
+            "a1-place-06",
+            "a1-place-07",
+            "a1-place-08"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/prepositions-locations-dans-versus-en",
+      "source_title": "En vs Dans with locations (French Prepositions of Location)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The existing activity/setting versus physical-interior contrast explains en classe versus dans la classe and explicitly rejects a gender-only shortcut.",
+      "evidence": [
+        {
+          "lesson_id": "a1-place",
+          "section_ids": [
+            "en-chez"
+          ],
+          "practice_ids": [
+            "a1-place-11",
+            "a1-place-12"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/prepositions-relative-positions-a-cote-de-en-face-de-a-lexterieur-de-a-linterieur-de-pres-de-loin-de-au-coin-de",
+      "source_title": "À côté de, en face de, à l'extérieur de, à l'intérieur de, près de, loin de, au coin de (French Prepositions)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added physical outside versus exception readings of en dehors de. Also narrowly corrected the mixed-language phrase en face du shop to en face du magasin; existing section identity and examples were preserved.",
+      "evidence": [
+        {
+          "lesson_id": "a1-place",
+          "section_ids": [
+            "compound",
+            "outside-home"
+          ],
+          "practice_ids": [
+            "a1-place-03",
+            "a1-place-09",
+            "a1-place-10",
+            "a1-place-13",
+            "a1-place-14",
+            "a1-place-15",
+            "a1-place-16",
+            "a1-place-18",
+            "a1-place-depth-01",
+            "a1-place-depth-02"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/use-pour-plus-infinitive-to-say-in-order-to",
+      "source_title": "Pour + [infinitive] = In order to + [do] in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added subject-matched reflexive purpose and more formal afin de/d' while preserving the same-understood-doer boundary of the existing pour construction.",
+      "evidence": [
+        {
+          "lesson_id": "a1-want-can-must",
+          "section_ids": [
+            "purpose",
+            "purpose-reflexive"
+          ],
+          "practice_ids": [
+            "a1-modal-04",
+            "a1-modal-12",
+            "a1-modal-depth-04",
+            "a1-modal-depth-05",
+            "a1-modal-depth-06"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/use-en-with-feminine-countries-and-aux-with-masculine-countries-to-say-in-or-to-prepositions",
+      "source_title": "En/au/aux = In/to with countries and continents (French Prepositions)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Country location/destination and origin are already explained through gender, initial sound and number, with articleless exceptions; a short decision method is already practised.",
+      "evidence": [
+        {
+          "lesson_id": "a1-geography",
+          "section_ids": [
+            "countries"
+          ],
+          "practice_ids": [
+            "a1-geo-02",
+            "a1-geo-07",
+            "a1-geo-08"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/prepositions-with-regions-states-counties",
+      "source_title": "En/Dans = in/to + regions/states/counties (French Prepositions)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added an explicit canton-versus-city identity method rather than guessing a regional construction from a city name. Existing en/dans and au/dans regional variants remain accepted.",
+      "evidence": [
+        {
+          "lesson_id": "a1-geography",
+          "section_ids": [
+            "cities-regions",
+            "place-identity"
+          ],
+          "practice_ids": [
+            "a1-geo-10",
+            "a1-geo-11",
+            "a1-geo-16",
+            "a1-geo-depth-01",
+            "a1-geo-depth-02"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-use-a-to-in-and-de-from-of-with-cities-prepositions",
+      "source_title": "À = To/in and De = From/of with cities in French (French Prepositions of Location)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Ordinary à/de city constructions already include proper-name article contractions and the Quebec City/province distinction, avoiding an all-cities-have-no-article rule.",
+      "evidence": [
+        {
+          "lesson_id": "a1-geography",
+          "section_ids": [
+            "cities-regions"
+          ],
+          "practice_ids": [
+            "a1-geo-04",
+            "a1-geo-12",
+            "a1-geo-14"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/say-where-you-come-from-with-venir-de-d-du-des-country-state-region",
+      "source_title": "Venir de/d'/du/des = To come/be from with countries/states/regions and continents (French Prepositions)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The existing origin constructions distinguish country and regional article behaviour, include vowel cases and keep the city/province distinction visible in practice.",
+      "evidence": [
+        {
+          "lesson_id": "a1-geography",
+          "section_ids": [
+            "countries",
+            "cities-regions"
+          ],
+          "practice_ids": [
+            "a1-geo-03",
+            "a1-geo-09",
+            "a1-geo-13",
+            "a1-geo-15"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/when-to-use-a-en-with-means-of-transport-prepositions",
+      "source_title": "À/en + [means of transportation] (French Prepositions)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Existing mode-versus-position and cycling variants were strong. Added established par le train/par avion alternatives with their different article patterns, not a universal substitution rule.",
+      "evidence": [
+        {
+          "lesson_id": "a1-travel-compounds",
+          "section_ids": [
+            "transport",
+            "transport-alternatives"
+          ],
+          "practice_ids": [
+            "a1-trip-01",
+            "a1-trip-02",
+            "a1-trip-05",
+            "a1-trip-06",
+            "a1-trip-13",
+            "a1-travel-depth-01",
+            "a1-travel-depth-02",
+            "a1-travel-depth-03"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/using-dans-not-sur-with-streets-and-transportation-prepositions",
+      "source_title": "Differences between French and English usages - Using \"dans\" with streets and means of transportation (French Prepositions of Location)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added the bare named-street address after habiter and its transitive place-object alternative. Both habiter cette rue and habiter dans cette rue are accepted; general street-activity and regional-variation guidance remains intact.",
+      "evidence": [
+        {
+          "lesson_id": "a1-travel-compounds",
+          "section_ids": [
+            "transport",
+            "street",
+            "named-address"
+          ],
+          "practice_ids": [
+            "a1-trip-07",
+            "a1-trip-08",
+            "a1-travel-depth-04",
+            "a1-travel-depth-05",
+            "a1-travel-depth-06"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "url": "https://www.dictionnaire-academie.fr/article/A9H0025",
+          "purpose": "The verb entry confirms both transitive place objects and prepositional location constructions; accept habiter cette rue as well as habiter dans cette rue."
+        }
+      ]
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-express-at-time-a",
+      "source_title": "À + [heure] = At + [time] in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The distinction between telling the current time and locating an event with à is already explicit, including midi/minuit and contextual appointment items.",
+      "evidence": [
+        {
+          "lesson_id": "a1-clock",
+          "section_ids": [
+            "schedule"
+          ],
+          "practice_ids": [
+            "a1-clock-03",
+            "a1-clock-12"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-say-at-someones-place-chez-prepositions",
+      "source_title": "Chez = at someone's place (French Prepositions)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "The existing person/profession/building contrast was good. Added chez nous versus à la maison and a physical-house viewpoint without declaring all possessive house phrases impossible.",
+      "evidence": [
+        {
+          "lesson_id": "a1-place",
+          "section_ids": [
+            "en-chez",
+            "outside-home"
+          ],
+          "practice_ids": [
+            "a1-place-04",
+            "a1-place-17",
+            "a1-place-19",
+            "a1-place-depth-03",
+            "a1-place-depth-04"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/compound-nouns-are-formed-using-prepositions-a-de-en",
+      "source_title": "Compound nouns formed with prepositions à/de/en in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added ingredient/flavour à and material de alongside en, qualifying a one-preposition-one-meaning shortcut while preserving the original purpose/contents contrast.",
+      "evidence": [
+        {
+          "lesson_id": "a1-travel-compounds",
+          "section_ids": [
+            "noun-groups",
+            "ingredient-material"
+          ],
+          "practice_ids": [
+            "a1-trip-03",
+            "a1-trip-09",
+            "a1-trip-10",
+            "a1-trip-11",
+            "a1-trip-14",
+            "a1-travel-depth-07",
+            "a1-travel-depth-08",
+            "a1-travel-depth-09"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/compound-nouns-formed-using-noun-a-verb-infinitive",
+      "source_title": "Compound nouns formed with [noun] + à + [infinitive] in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Noun + à + infinitive already names function, keeps the infinitive unchanged and contrasts with an action's pour purpose; independent noun-group work makes the distinction usable.",
+      "evidence": [
+        {
+          "lesson_id": "a1-travel-compounds",
+          "section_ids": [
+            "noun-groups"
+          ],
+          "practice_ids": [
+            "a1-trip-04",
+            "a1-trip-12",
+            "a1-trip-15"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-tell-time-in-french-simple",
+      "source_title": "Telling time in French - general 12-hour clock rules",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "reference-qualified",
+      "note": "Added explicit morning direct-minute readings beside conversational fractions. Do not import a categorical ban on quinze/trente/quarante-cinq below twelve; the existing hour agreement and moins patterns remain.",
+      "evidence": [
+        {
+          "lesson_id": "a1-clock",
+          "section_ids": [
+            "twelve",
+            "reading-style"
+          ],
+          "practice_ids": [
+            "a1-clock-01",
+            "a1-clock-02",
+            "a1-clock-05",
+            "a1-clock-06",
+            "a1-clock-07",
+            "a1-clock-13",
+            "a1-clock-depth-01",
+            "a1-clock-depth-02",
+            "a1-clock-depth-03"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/21516/la-typographie/nombres/ecriture-des-heures",
+          "purpose": "The full public time-writing guidance applies numerical hours and minutes throughout the day, including morning schedules; do not prohibit direct minute readings below twelve."
+        }
+      ]
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-express-numbers-from-70-to-999",
+      "source_title": "Expressing numbers 70 to 999 in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The existing number-building method includes 71/81/91, cent/vingt agreement, feminine une and legitimate regional/hyphenation variants. Mapped production checks cover the actual spelling decisions.",
+      "evidence": [
+        {
+          "lesson_id": "a1-numbers",
+          "section_ids": [
+            "small",
+            "tens-hundreds"
+          ],
+          "practice_ids": [
+            "a1-num-02",
+            "a1-num-05",
+            "a1-num-06",
+            "a1-num-07",
+            "a1-num-16",
+            "a1-num-17"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-express-large-numbers-in-french-such-as-thousands-millions-and-billions-numbers",
+      "source_title": "Expressing large numbers -thousands/millions/billions - in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added quantity-noun millier(s) de versus invariable numerical mille, with the approximate ordinary-use perspective and direct noun linkage. Existing million/milliard and internal-number limits were retained.",
+      "evidence": [
+        {
+          "lesson_id": "a1-numbers",
+          "section_ids": [
+            "large-decimal",
+            "count-unit-label"
+          ],
+          "practice_ids": [
+            "a1-num-03",
+            "a1-num-08",
+            "a1-num-09",
+            "a1-num-depth-01",
+            "a1-num-depth-02"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-write-decimal-numbers-in-french",
+      "source_title": "Writing decimal numbers in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Decimal notation and virgule reading were already worked through, but price reading lacked its own examples and assessment. Added spoken euro prices, value-preserving cents, currency agreement and a constrained written-price conversion.",
+      "evidence": [
+        {
+          "lesson_id": "a1-numbers",
+          "section_ids": [
+            "large-decimal",
+            "price-reading"
+          ],
+          "practice_ids": [
+            "a1-num-10",
+            "a1-num-18",
+            "a1-num-depth-07",
+            "a1-num-depth-08",
+            "a1-num-depth-09"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-tell-time-in-french-am-vs-pm",
+      "source_title": "Telling time in French - 24-hour clock rules = AM vs PM",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "reference-qualified",
+      "note": "Schedule and conversational readings were already separated. Added the boundary that direct minute counts also work in morning schedules, rather than treating the hour number alone as a grammatical prohibition.",
+      "evidence": [
+        {
+          "lesson_id": "a1-clock",
+          "section_ids": [
+            "schedule",
+            "reading-style"
+          ],
+          "practice_ids": [
+            "a1-clock-08",
+            "a1-clock-09",
+            "a1-clock-14",
+            "a1-clock-depth-01",
+            "a1-clock-depth-02",
+            "a1-clock-depth-03"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/21516/la-typographie/nombres/ecriture-des-heures",
+          "purpose": "The full public time-writing guidance applies numerical hours and minutes throughout the day, including morning schedules; do not prohibit direct minute readings below twelve."
+        }
+      ]
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/when-to-use-an-annee-matin-matinee-jour-journee-soir-soiree-time-unit-vs-duration",
+      "source_title": "An vs année, matin vs matinée, jour vs journée, soir vs soirée to express a time unit or a duration in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The unit-versus-lived-period viewpoint already includes all four noun pairs, conventional greetings, age and the limit that numbers can accompany described années. No mechanical short/long word rule was needed.",
+      "evidence": [
+        {
+          "lesson_id": "a1-calendar",
+          "section_ids": [
+            "unit-duration"
+          ],
+          "practice_ids": [
+            "a1-cal-04",
+            "a1-cal-10",
+            "a1-cal-11",
+            "a1-cal-12",
+            "a1-cal-13",
+            "a1-cal-15",
+            "a1-cal-16"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-form-ordinal-numbers-1st-2nd-10th",
+      "source_title": "Ordinal numbers - 1st/2nd/10th/etc - in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "reference-qualified",
+      "note": "Retained the already complete ordinal formation and acceptance of second/seconde when a series continues. The primary usage note confirms that the two-element distinction is optional, not a grading rule.",
+      "evidence": [
+        {
+          "lesson_id": "a1-numbers",
+          "section_ids": [
+            "rank-measure"
+          ],
+          "practice_ids": [
+            "a1-num-04",
+            "a1-num-11",
+            "a1-num-12",
+            "a1-num-20",
+            "a1-num-21"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "url": "https://www.academie-francaise.fr/second-deuxieme",
+          "purpose": "The primary usage note makes the two-element distinction optional; retain the published acceptance of second in a continuing series."
+        }
+      ]
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-use-ordinal-numbers-differences-between-french-and-english-use",
+      "source_title": "Ordinal vs Cardinal numbers - Differences between French and English usages",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added fraction tiers versus rank troisième and the first-ruler exception to cardinal name readings, with distinct contexts and independent production rather than an English ordinal calque.",
+      "evidence": [
+        {
+          "lesson_id": "a1-numbers",
+          "section_ids": [
+            "rank-measure",
+            "count-unit-label"
+          ],
+          "practice_ids": [
+            "a1-num-13",
+            "a1-num-20",
+            "a1-num-21",
+            "a1-num-depth-03",
+            "a1-num-depth-04",
+            "a1-num-depth-05",
+            "a1-num-depth-06"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-express-timeliness-late-early-on-time-general",
+      "source_title": "Expressing timeliness in French - late/early/on time - general",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Late/early/on-time expressions are already located against a schedule and contrasted with à temps and general tôt/tard; worked timing decisions and independent checks exceed a bare expression list.",
+      "evidence": [
+        {
+          "lesson_id": "a1-clock",
+          "section_ids": [
+            "timeliness"
+          ],
+          "practice_ids": [
+            "a1-clock-04",
+            "a1-clock-10",
+            "a1-clock-11",
+            "a1-clock-15",
+            "a1-clock-16"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-express-how-you-are-with-the-verb-aller-greetings",
+      "source_title": "Expressing how you are with aller (Greetings in French)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added general well-being with aller versus a specific adjective state with être, including mieux and an answer that legitimately switches verbs after the greeting.",
+      "evidence": [
+        {
+          "lesson_id": "a1-aller-faire",
+          "section_ids": [
+            "greetings",
+            "wellbeing-state"
+          ],
+          "practice_ids": [
+            "a1-godo-03",
+            "a1-godo-10",
+            "a1-godo-12",
+            "a1-godo-15",
+            "a1-aller-depth-01",
+            "a1-aller-depth-02",
+            "a1-aller-depth-03"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/talking-about-the-weather-expressions-with-il-fait",
+      "source_title": "Talking about the weather in French - il fait + [adjectif]",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "reference-qualified",
+      "note": "Added pleasant-temperature bon versus pleasant-looking beau and the hot-object limit. Qualified the rejection of il fait soleil using the dictionary; our beginner models are not an exhaustive ban.",
+      "evidence": [
+        {
+          "lesson_id": "a1-weather",
+          "section_ids": [
+            "faire",
+            "weather-boundaries"
+          ],
+          "practice_ids": [
+            "a1-weather-01",
+            "a1-weather-05",
+            "a1-weather-10",
+            "a1-weather-12",
+            "a1-weather-15",
+            "a1-weather-depth-01",
+            "a1-weather-depth-02",
+            "a1-weather-depth-04",
+            "a1-weather-depth-05"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "url": "https://usito.usherbrooke.ca/d%C3%A9finitions/soleil",
+          "purpose": "The dictionary records il fait (un beau) soleil, qualifying a blanket rejection of noun-based faire weather expressions."
+        }
+      ]
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/talking-about-the-weather-expressions-with-il-y-a",
+      "source_title": "Talking about the weather in French - il y a + [nom]",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "reference-qualified",
+      "note": "The noun-weather construction was already complete. Added le temps est venteux and retained established faire soleil, rather than importing claims that wind has no adjective or faire cannot occur with a noun.",
+      "evidence": [
+        {
+          "lesson_id": "a1-weather",
+          "section_ids": [
+            "nouns",
+            "weather-boundaries"
+          ],
+          "practice_ids": [
+            "a1-weather-02",
+            "a1-weather-06",
+            "a1-weather-07",
+            "a1-weather-08",
+            "a1-weather-14",
+            "a1-weather-depth-03",
+            "a1-weather-depth-04"
+          ]
+        }
+      ],
+      "references": [
+        {
+          "url": "https://usito.usherbrooke.ca/d%C3%A9finitions/venteux",
+          "purpose": "The adjective entry and inflection table confirm that venteux exists for windy conditions; do not import a no-adjective-for-wind assertion."
+        },
+        {
+          "url": "https://usito.usherbrooke.ca/d%C3%A9finitions/soleil",
+          "purpose": "The dictionary records il fait (un beau) soleil, qualifying a blanket rejection of noun-based faire weather expressions."
+        }
+      ]
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/faire-de-jouer-a-how-to-talk-about-leisure-activities",
+      "source_title": "Faire de/jouer à : talking about sports, hobbies and leisure activities in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Activity-dependent faire de/jouer à, contractions and legitimate overlap are already explicit and assessed. The ordinary-present teaching handles current versus habitual action without inventing a new tense for the activity noun.",
+      "evidence": [
+        {
+          "lesson_id": "a1-activities",
+          "section_ids": [
+            "sports"
+          ],
+          "practice_ids": [
+            "a1-act-01",
+            "a1-act-02",
+            "a1-act-05",
+            "a1-act-06",
+            "a1-act-12",
+            "a1-act-13",
+            "a1-act-16"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/jouer-de-to-play-an-instrument",
+      "source_title": "Jouer de = to play an instrument in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Instrument jouer de, all article shapes, game-versus-music contrast and common faire alternatives already have meaningful independent practice.",
+      "evidence": [
+        {
+          "lesson_id": "a1-activities",
+          "section_ids": [
+            "music"
+          ],
+          "practice_ids": [
+            "a1-act-03",
+            "a1-act-07",
+            "a1-act-08",
+            "a1-act-14"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/idiomatic-expressions-with-etre-ca-mest-egal-i-dont-mind",
+      "source_title": "Ça m'est égal = I don't mind/care (French Idiomatic Expressions)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "All six experiencer forms already retain singular est/égal, explain elision and distinguish no preference from dismissiveness. The actual public body revealed no missing core decision.",
+      "evidence": [
+        {
+          "lesson_id": "a1-everyday-responses",
+          "section_ids": [
+            "preference"
+          ],
+          "practice_ids": [
+            "a1-react-02",
+            "a1-react-07",
+            "a1-react-08",
+            "a1-react-12",
+            "a1-react-14"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-express-to-need-with-avoir-besoin-de",
+      "source_title": "Avoir besoin de = To need (French Expressions with avoir)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Avoir besoin de already has a full model and contrasts mass, countable, identified and infinitive complements, with de/d' and contraction work.",
+      "evidence": [
+        {
+          "lesson_id": "a1-avoir-needs",
+          "section_ids": [
+            "need-desire"
+          ],
+          "practice_ids": [
+            "a1-needs-01",
+            "a1-needs-05",
+            "a1-needs-07",
+            "a1-needs-08"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/avoir-envie-de-to-express-to-feel-like-to-want",
+      "source_title": "Avoir envie de = To feel like, want to (French Expressions with avoir)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added bodily-urge uses of envie so ordinary desire is not mistaken for a voluntary wish in every context; retained the existing noun/infinitive and article distinctions.",
+      "evidence": [
+        {
+          "lesson_id": "a1-avoir-needs",
+          "section_ids": [
+            "need-desire",
+            "body-idioms"
+          ],
+          "practice_ids": [
+            "a1-needs-02",
+            "a1-needs-06",
+            "a1-needs-14",
+            "a1-need-depth-04",
+            "a1-need-depth-07"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/faire-les-courses-versus-faire-les-magasins",
+      "source_title": "Faire les courses vs Faire les magasins to talk about shopping (French Expressions with faire)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Necessary shopping/errands versus browsing shops is already explained with the limit that visiting shops does not guarantee buying. Existing faire des courses nuance remains.",
+      "evidence": [
+        {
+          "lesson_id": "a1-activities",
+          "section_ids": [
+            "shopping"
+          ],
+          "practice_ids": [
+            "a1-act-04",
+            "a1-act-09",
+            "a1-act-10",
+            "a1-act-15"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/devoir-vs-avoir-besoin-de-to-express-to-need-to",
+      "source_title": "Devoir vs Avoir besoin de to express \"to need to\" in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added devoir + noun meaning owe, contrasted with needing a resource, plus bodily-urge evidence in the needs lesson. The prior obligation-versus-personal-need distinction was preserved.",
+      "evidence": [
+        {
+          "lesson_id": "a1-want-can-must",
+          "section_ids": [
+            "need",
+            "owe-need"
+          ],
+          "practice_ids": [
+            "a1-modal-09",
+            "a1-modal-10",
+            "a1-modal-11",
+            "a1-modal-depth-01",
+            "a1-modal-depth-02",
+            "a1-modal-depth-03"
+          ]
+        },
+        {
+          "lesson_id": "a1-avoir-needs",
+          "section_ids": [
+            "body-idioms"
+          ],
+          "practice_ids": [
+            "a1-need-depth-04",
+            "a1-need-depth-07"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-express-possession-with-etre-a",
+      "source_title": "Expressing possession in French with \"être à\"",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Possession with être à and stressed owner pronouns already contrasts with noun-phrase ownership and keeps agreement with the possessed subject. Mapped production is sufficient.",
+      "evidence": [
+        {
+          "lesson_id": "a1-possession",
+          "section_ids": [
+            "etre-a"
+          ],
+          "practice_ids": [
+            "a1-own-04",
+            "a1-own-11",
+            "a1-own-15"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/etre-daccord-avec-to-agree-with",
+      "source_title": "Être d'accord avec = to agree with (French Expressions with être)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "All être forms with invariant d'accord, avec + person/pronoun, topic sur and ordinary negation are already taught with independent responses.",
+      "evidence": [
+        {
+          "lesson_id": "a1-everyday-responses",
+          "section_ids": [
+            "agreement"
+          ],
+          "practice_ids": [
+            "a1-react-01",
+            "a1-react-05",
+            "a1-react-06",
+            "a1-react-11",
+            "a1-react-13"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/avoir-mal-a-to-be-in-pain-to-hurt-somewhere",
+      "source_title": "Avoir mal (à) = To be in pain, to hurt somewhere (French Expressions with avoir)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added common nausea interpretation of mal au cœur without a diagnostic claim, and the eye/eyes headword, elision and contraction contrast alongside existing body-part pain teaching.",
+      "evidence": [
+        {
+          "lesson_id": "a1-avoir-needs",
+          "section_ids": [
+            "pain",
+            "body-idioms"
+          ],
+          "practice_ids": [
+            "a1-needs-04",
+            "a1-needs-11",
+            "a1-needs-12",
+            "a1-needs-13",
+            "a1-needs-16",
+            "a1-need-depth-05",
+            "a1-need-depth-06"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/how-to-use-sentir-to-describe-senses",
+      "source_title": "Describing senses with \"sentir\" - The different meanings of the verb \"sentir\" in French",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added tasting-context sentir and a worked perceiver-versus-smell-source decision using the same construction; the existing reflexive self-state contrast remains available.",
+      "evidence": [
+        {
+          "lesson_id": "a1-daily-irregulars",
+          "section_ids": [
+            "sentir",
+            "perceiver-source"
+          ],
+          "practice_ids": [
+            "a1-dailyv-04",
+            "a1-dailyv-10",
+            "a1-dailyv-11",
+            "a1-dailyv-12",
+            "a1-dailyv-15",
+            "a1-daily-depth-04",
+            "a1-daily-depth-05",
+            "a1-daily-depth-06"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/etre-en-train-de-expression-of-the-continuous-present",
+      "source_title": "Expressing ongoing actions in the present in French with \"être en train de\"",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The complete progressive expression already adds process emphasis rather than replacing every present, includes reflexives and distinguishes ongoing action from state, recent completion and future intention.",
+      "evidence": [
+        {
+          "lesson_id": "a1-recent-past-progressive",
+          "section_ids": [
+            "progressive",
+            "timeline"
+          ],
+          "practice_ids": [
+            "a1-aspect-03",
+            "a1-aspect-08",
+            "a1-aspect-09",
+            "a1-aspect-10",
+            "a1-aspect-11",
+            "a1-aspect-14",
+            "a1-aspect-16"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/avoir-peur-de-to-be-afraid-or-scared-of",
+      "source_title": "Avoir peur de = To be afraid/scared of (French Expressions with avoir)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "Added feared-person stressed pronouns versus a subject-matched reflexive infinitive, with de/d' and original contexts. The existing noun-category contractions remain unchanged.",
+      "evidence": [
+        {
+          "lesson_id": "a1-avoir-needs",
+          "section_ids": [
+            "fear",
+            "fear-complement"
+          ],
+          "practice_ids": [
+            "a1-needs-03",
+            "a1-needs-09",
+            "a1-needs-10",
+            "a1-needs-15",
+            "a1-need-depth-01",
+            "a1-need-depth-02",
+            "a1-need-depth-03"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/the-expression-ca-y-est-meaning-thats-it-its-done",
+      "source_title": "Ça y est = That's it/It's done (French Idiomatic Expressions)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "The fixed expression already marks an expected point reached, including readiness and understanding rather than literal location, with context-sensitive independent responses.",
+      "evidence": [
+        {
+          "lesson_id": "a1-everyday-responses",
+          "section_ids": [
+            "completion"
+          ],
+          "practice_ids": [
+            "a1-react-03",
+            "a1-react-09",
+            "a1-react-16"
+          ]
+        }
+      ],
+      "references": []
+    },
+    {
+      "source_url": "https://french.kwiziq.com/revision/grammar/ca-ne-fait-rien-it-doesnt-matter",
+      "source_title": "Ça ne fait rien = It doesn't matter (French Idiomatic Expressions)",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "sufficient",
+      "note": "Minor-problem reassurance already contrasts with no preference, explains rien versus pas and recognises casual ne omission without imposing it in written tasks. Serious-concern limits are already explicit.",
+      "evidence": [
+        {
+          "lesson_id": "a1-everyday-responses",
+          "section_ids": [
+            "reassure"
+          ],
+          "practice_ids": [
+            "a1-react-04",
+            "a1-react-10",
+            "a1-react-15"
+          ]
+        }
+      ],
+      "references": []
+    }
+  ]
+}

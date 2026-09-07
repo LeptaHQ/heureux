@@ -156,9 +156,74 @@
         }
       ],
       "mistakes": []
+    },
+    {
+      "id": "reading-style",
+      "title": "Choose a reading style, not a ban on small hour numbers",
+      "paragraphs": [
+        "A morning schedule can use direct minute numbers too: 7 h 30 can be sept heures trente. Sept heures et demie is its ordinary conversational equivalent. The minute-count style is not restricted to hours above twelve. Keep one consistent style within the reading, and retain the difference between telling the current time and giving the time of an event."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Le guichet ouvre **à sept heures trente**.",
+          "english": "The ticket office opens at seven thirty.",
+          "note": "A direct schedule reading works before noon."
+        },
+        {
+          "french": "Le guichet ouvre **à sept heures et demie**.",
+          "english": "The ticket office opens at half past seven.",
+          "note": "This is a conversational reading of the same time."
+        },
+        {
+          "french": "**Il est** huit heures quinze; le guichet ouvre **à** neuf heures.",
+          "english": "It is eight fifteen; the ticket office opens at nine.",
+          "note": "Direct minute counts do not remove the il est / à distinction."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-clock-depth-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "reading-style",
+      "prompt": "Read the morning time 7 h 30 with direct minute numbers, not et demie. Write only the time in words.",
+      "choices": [],
+      "answers": [
+        "sept heures trente"
+      ],
+      "explanation": "Direct minute readings also work for morning hour numbers below twelve."
+    },
+    {
+      "id": "a1-clock-depth-02",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "reading-style",
+      "prompt": "Do sept heures trente and sept heures et demie name the same clock time?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "answers": [
+        "Oui"
+      ],
+      "explanation": "They are different reading styles for the same thirty minutes past seven."
+    },
+    {
+      "id": "a1-clock-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "reading-style",
+      "prompt": "Supply the event-time preposition: 'La collecte commence ___ huit heures quinze.'",
+      "choices": [],
+      "answers": [
+        "à"
+      ],
+      "explanation": "An event starts à a time; il est instead tells what time it currently is."
+    },
     {
       "id": "a1-clock-01",
       "kind": "text",

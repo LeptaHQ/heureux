@@ -156,9 +156,141 @@
           "why": "On uses a singular verb, including when it means we."
         }
       ]
+    },
+    {
+      "id": "on-agreement",
+      "title": "A singular verb can describe a real group",
+      "paragraphs": [
+        "Separate two decisions with conversational on. The verb always uses the il/elle form. An adjective describing the people can nevertheless show their actual gender and number when on means a known we. With a general, unspecified person, masculine singular is the usual default. Do not change the verb to a plural form just because an adjective is plural."
+      ],
+      "points": [
+        "First identify what on means in this conversation; then choose the verb form and the adjective agreement separately."
+      ],
+      "examples": [
+        {
+          "french": "Ma sœur et moi, **on est heureuses** de rester ici.",
+          "english": "My sister and I are happy to stay here.",
+          "note": "Said by a woman: heureuses describes the two women, but est is singular."
+        },
+        {
+          "french": "Nous sommes deux étudiantes. **On est prêtes**.",
+          "english": "We are two female students. We are ready.",
+          "note": "Prêtes describes both women; on still takes est."
+        },
+        {
+          "french": "Quand on attend longtemps, **on est impatient**.",
+          "english": "When you wait a long time, you are impatient.",
+          "note": "This is a general observation, not a reference to a known group."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "On sommes prêtes.",
+          "prefer": "On est prêtes.",
+          "why": "A feminine plural adjective does not make on take the nous verb form."
+        }
+      ]
+    },
+    {
+      "id": "everyone-world",
+      "title": "Everyone is a group of people, not the planet",
+      "paragraphs": [
+        "Tout le monde means everyone in the relevant situation: a household, a class or a larger group. It does not automatically mean every person on Earth. Le monde entier means the whole world. Learn le monde (m., world) as a noun, but treat tout le monde as the fixed expression for everyone."
+      ],
+      "points": [
+        "A phrase's grammatical number and the number of people it includes are separate: tout le monde takes a singular verb."
+      ],
+      "examples": [
+        {
+          "french": "La réunion commence. **Tout le monde est** là.",
+          "english": "The meeting is starting. Everyone is here.",
+          "note": "Everyone means the people expected at this meeting."
+        },
+        {
+          "french": "Cette radio diffuse des nouvelles du **monde entier**.",
+          "english": "This radio station broadcasts news from the whole world.",
+          "note": "The geographical expression is le monde entier; de + le becomes du."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-found-depth-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "on-agreement",
+      "prompt": "Two women speak about themselves. Supply the adjective from prêt: 'On est ___ pour la visite.'",
+      "choices": [],
+      "answers": [
+        "prêtes"
+      ],
+      "explanation": "On keeps singular est, but the adjective describes two women and is feminine plural."
+    },
+    {
+      "id": "a1-found-depth-02",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "on-agreement",
+      "prompt": "Keep the adjective and replace nous by conversational on: 'Nous sommes contents du résultat.' Write the whole sentence.",
+      "choices": [],
+      "answers": [
+        "On est contents du résultat."
+      ],
+      "explanation": "Only the subject and verb change here. Contents still describes the same masculine or mixed group."
+    },
+    {
+      "id": "a1-found-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "on-agreement",
+      "prompt": "A group of female neighbours says 'On est surprises.' Rewrite with nous, retaining the meaning and adjective.",
+      "choices": [],
+      "answers": [
+        "Nous sommes surprises."
+      ],
+      "explanation": "Nous requires sommes. Surprises already agrees with the women and does not change."
+    },
+    {
+      "id": "a1-found-depth-04",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "everyone-world",
+      "prompt": "A receptionist calls everyone in the waiting room, not the whole planet. Which expression means everyone?",
+      "choices": [
+        "tout le monde",
+        "le monde entier"
+      ],
+      "answers": [
+        "tout le monde"
+      ],
+      "explanation": "Tout le monde means all the people relevant to the situation."
+    },
+    {
+      "id": "a1-found-depth-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "everyone-world",
+      "prompt": "Use monde and entier to complete 'Cette émission parle du climat dans ___.' The intended meaning is 'throughout the whole world', not 'among everyone'.",
+      "choices": [],
+      "answers": [
+        "le monde entier"
+      ],
+      "explanation": "Le monde entier refers to the world as a whole; tout le monde refers to people."
+    },
+    {
+      "id": "a1-found-depth-06",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "everyone-world",
+      "prompt": "Replace tous les participants by tout le monde and adjust the verb: 'Tous les participants sont ici.'",
+      "choices": [],
+      "answers": [
+        "Tout le monde est ici."
+      ],
+      "explanation": "The relevant people stay the same, but the expression tout le monde is grammatically singular."
+    },
     {
       "id": "a1-found-01",
       "kind": "text",

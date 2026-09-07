@@ -178,9 +178,246 @@
         }
       ],
       "mistakes": []
+    },
+    {
+      "id": "meaning-first",
+      "title": "Choose the meaning before choosing the article",
+      "paragraphs": [
+        "Ask what the noun represents here: a whole category, an identified thing, one countable item or an unspecified amount. The same noun can change between these readings. A preference verb does not force every following noun into a category: aimer mon quartier expresses affection for a particular neighbourhood, not neighbourhoods in general.",
+        "When English has no article, French may still need one. A general dislike keeps its definite article; denying that any quantity is available normally gives de/d'. These are different messages, not two interchangeable ways of saying the same thing."
+      ],
+      "points": [
+        "Vocabulary: un poulet (m., chicken as an animal or whole bird); du poulet (chicken as food); un quartier (m., neighbourhood)."
+      ],
+      "examples": [
+        {
+          "french": "La ferme élève **des poulets**. À midi, nous mangeons **du poulet**.",
+          "english": "The farm raises chickens. At noon, we eat chicken.",
+          "note": "Countable animals and an unspecified amount of meat use different article readings."
+        },
+        {
+          "french": "J'aime **les quartiers calmes**, et j'aime beaucoup **mon quartier**.",
+          "english": "I like quiet neighbourhoods, and I really like my neighbourhood.",
+          "note": "The category takes les; the particular place can have a possessive."
+        },
+        {
+          "french": "Je n'aime pas **le miel**, mais je n'ai pas **de confiture**.",
+          "english": "I do not like honey, but I do not have any jam.",
+          "note": "Le miel (m., honey) is a category in the first clause. La confiture (f., jam) is an absent quantity in the second."
+        },
+        {
+          "french": "**La patience** aide pendant un long voyage.",
+          "english": "Patience helps during a long journey.",
+          "note": "La patience (f.) names an abstract quality generally; English omits the article."
+        }
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "gender-clues",
+      "title": "Use an ending as a hypothesis, then verify the noun",
+      "paragraphs": [
+        "Several endings help with unfamiliar words: -isme is normally masculine, while many nouns in -té or -tié are feminine. But a familiar exception such as un côté (m., side) keeps its own gender. Do not treat the written accent in -té as though it were a silent final -e.",
+        "With -eur, meaning helps: many nouns naming a quality, such as la largeur (f., width), are feminine. This is not a rule for all words ending in those letters: un moteur (m., engine) names a thing, and even an abstract noun such as le bonheur (m., happiness) can be masculine. Record a new noun with un/une where possible; l' by itself hides gender."
+      ],
+      "points": [
+        "When a dictionary contradicts your ending-based guess, keep the dictionary's noun-and-gender pair rather than changing the article to fit the guess."
+      ],
+      "examples": [
+        {
+          "french": "**Le tourisme** crée des emplois.",
+          "english": "Tourism creates jobs.",
+          "note": "Le tourisme (m., tourism) illustrates the useful -isme clue."
+        },
+        {
+          "french": "**La sécurité** est importante dans cet atelier.",
+          "english": "Safety is important in this workshop.",
+          "note": "La sécurité (f., safety) illustrates -té; un atelier (m.) is a workshop."
+        },
+        {
+          "french": "**L'amitié** compte beaucoup pour nous.",
+          "english": "Friendship matters a lot to us.",
+          "note": "Une amitié (f., a friendship) illustrates -tié; the elided definite article alone does not show its gender."
+        },
+        {
+          "french": "**La largeur** de cette porte est suffisante.",
+          "english": "The width of this door is sufficient.",
+          "note": "The quality noun largeur is feminine."
+        },
+        {
+          "french": "**Le moteur** est silencieux, et **un côté** du bateau est ouvert.",
+          "english": "The engine is quiet, and one side of the boat is open.",
+          "note": "These nouns cannot be assigned feminine gender merely from -eur or -té."
+        }
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "construction-boundaries",
+      "title": "An article pattern does not decide the whole sentence",
+      "paragraphs": [
+        "For an obvious body part, keep the ordinary verb that expresses the action. Lever la main means raise your hand; se lever means get up. Adding a reflexive pronoun is not a universal way of translating English your.",
+        "Parler français is a common language pattern; parler le français is also possible. This optional article does not make all language nouns optional elsewhere: le français as a sentence subject still needs its article. Likewise, mentioning le docteur differs from directly addressing Docteur. Check the construction, not only the vocabulary."
+      ],
+      "points": [
+        "Use these contrasts to avoid overcorrecting a valid sentence just because another sentence uses a different article pattern."
+      ],
+      "examples": [
+        {
+          "french": "Pour répondre, la participante **lève la main**. Ensuite, elle **se lève**.",
+          "english": "To answer, the participant raises her hand. Then she gets up.",
+          "note": "The body-part article stays definite; the two verb constructions have different meanings."
+        },
+        {
+          "french": "Il parle **français**. Il parle aussi **le français** avec ses collègues.",
+          "english": "He speaks French. He also speaks French with his colleagues.",
+          "note": "Both language constructions are grammatical; the articleless form is very common."
+        },
+        {
+          "french": "**Le docteur** arrive. Bonjour, **docteur** !",
+          "english": "The doctor is arriving. Hello, doctor!",
+          "note": "Mentioning the professional and addressing them are different uses."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-art-depth-10",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "gender-clues",
+      "prompt": "Use the -té/-tié clues: supply le or la for '___ sécurité', then un or une for '___ amitié'. Separate the two articles with a comma.",
+      "choices": [],
+      "answers": [
+        "la, une",
+        "la,une",
+        "la , une",
+        "la ,une"
+      ],
+      "explanation": "La sécurité and une amitié are feminine. Using une makes the gender visible where l'amitié would hide it."
+    },
+    {
+      "id": "a1-art-depth-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "meaning-first",
+      "prompt": "Choose du or des for an unspecified amount of chicken meat: 'La cantine prépare ___ poulet.'",
+      "choices": [],
+      "answers": [
+        "du"
+      ],
+      "explanation": "Here poulet is food in an unspecified amount, not several counted birds."
+    },
+    {
+      "id": "a1-art-depth-02",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "meaning-first",
+      "prompt": "Can 'J'aime cette bibliothèque' correctly express liking one particular library?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "answers": [
+        "Oui"
+      ],
+      "explanation": "Aimer can refer to a particular thing with cette; a preference does not always describe a whole category."
+    },
+    {
+      "id": "a1-art-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "meaning-first",
+      "prompt": "Supply la or de in each gap, in order separated by a comma: 'Je n'aime pas ___ viande, et je n'achète pas ___ viande.' Both clauses concern meat generally, with no contrastive emphasis.",
+      "choices": [],
+      "answers": [
+        "la, de",
+        "la,de",
+        "la , de",
+        "la ,de"
+      ],
+      "explanation": "The dislike keeps definite la; the second clause denies buying any quantity and uses de."
+    },
+    {
+      "id": "a1-art-depth-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "gender-clues",
+      "prompt": "Use the -isme gender clue to supply le or la: '___ tourisme'.",
+      "choices": [],
+      "answers": [
+        "le"
+      ],
+      "explanation": "Tourisme is masculine, consistent with the -isme pattern."
+    },
+    {
+      "id": "a1-art-depth-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "gender-clues",
+      "prompt": "Supply the definite article for the quality noun largeur: '___ largeur du couloir'.",
+      "choices": [],
+      "answers": [
+        "la"
+      ],
+      "explanation": "La largeur is a feminine quality noun in -eur; this does not extend to every -eur noun."
+    },
+    {
+      "id": "a1-art-depth-06",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "gender-clues",
+      "prompt": "Use the learned gender, not a mechanical -té rule: '___ côté de la boîte est bleu.' Supply un or une.",
+      "choices": [],
+      "answers": [
+        "un"
+      ],
+      "explanation": "Un côté is masculine despite -té."
+    },
+    {
+      "id": "a1-art-depth-07",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "construction-boundaries",
+      "prompt": "A seated student raises a hand but does not stand up. Choose the intended description.",
+      "choices": [
+        "Elle lève la main.",
+        "Elle se lève."
+      ],
+      "answers": [
+        "Elle lève la main."
+      ],
+      "explanation": "The hand-raising action uses lever la main. Se lever would say that she gets up."
+    },
+    {
+      "id": "a1-art-depth-08",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "construction-boundaries",
+      "prompt": "Are both 'Nous parlons français' and 'Nous parlons le français' grammatical language constructions?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "answers": [
+        "Oui"
+      ],
+      "explanation": "Parler permits the language with or without the article; do not generalise this to all uses of the language noun."
+    },
+    {
+      "id": "a1-art-depth-09",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "construction-boundaries",
+      "prompt": "Remove only the article to turn this into ordinary direct address: 'Merci, le docteur !'",
+      "choices": [],
+      "answers": [
+        "Merci, docteur !"
+      ],
+      "explanation": "Directly addressing a doctor does not normally retain the third-person article."
+    },
     {
       "id": "a1-art-01",
       "kind": "text",

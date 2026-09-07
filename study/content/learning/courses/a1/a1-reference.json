@@ -145,9 +145,163 @@
           "why": "The normal impersonal evaluation uses c'est."
         }
       ]
+    },
+    {
+      "id": "plural-topic",
+      "title": "Check the words after c'est, not just the topic before it",
+      "paragraphs": [
+        "A plural topic does not automatically require ce sont. To identify several things with a following plural noun phrase, use ce sont in careful writing. To comment on a whole activity or category, c'est + a standalone adjective remains singular. An adverb such as ici (here) or bientôt (soon) does not itself create a plural noun phrase.",
+        "Ça also packages a topic as one general idea, even when the topic is named by plural words. Its verb stays singular. In contrast, ils or elles can track the actual plural things. A useful separate fixed pattern is c'est nous / c'est vous for identification; do not mechanically turn these into ce sommes or ce êtes."
+      ],
+      "points": [
+        "Name the people or things, then ask what the second clause does: identify them, describe them individually or comment on the overall idea."
+      ],
+      "examples": [
+        {
+          "french": "**Ce sont** des exercices courts.",
+          "english": "These are short exercises.",
+          "note": "A plural noun phrase follows the identification."
+        },
+        {
+          "french": "Les exercices en groupe, **c'est utile**.",
+          "english": "Group exercises are useful.",
+          "note": "The speaker evaluates doing this kind of exercise as a whole."
+        },
+        {
+          "french": "Les longues réunions, **ça fatigue**. Ces deux réunions, **elles commencent** à neuf heures.",
+          "english": "Long meetings are tiring. These two meetings start at nine o'clock.",
+          "note": "A general effect takes singular ça fatigue; tracking two specific meetings takes plural elles commencent."
+        },
+        {
+          "french": "Qui prépare l'affiche ? — **C'est nous**.",
+          "english": "Who is preparing the poster? — We are.",
+          "note": "The identification uses c'est with stressed nous; une affiche (f.) is a poster."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Les longues réunions, ça fatiguent.",
+          "prefer": "Les longues réunions, ça fatigue.",
+          "why": "The subject of fatigue is singular ça, not the detached plural topic."
+        }
+      ]
     }
   ],
   "practice": [
+    {
+      "id": "a1-ref-depth-01",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "plural-topic",
+      "prompt": "Choose a careful written identification of several objects, rather than a general evaluation.",
+      "choices": [
+        "Ce sont des outils utiles.",
+        "Les outils, c'est utile."
+      ],
+      "answers": [
+        "Ce sont des outils utiles."
+      ],
+      "explanation": "Ce sont introduces the plural noun phrase des outils utiles. The other sentence evaluates tools generally."
+    },
+    {
+      "id": "a1-ref-depth-02",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "plural-topic",
+      "prompt": "For a general evaluation, supply c'est or ce sont: 'Les vacances à la maison, ___ reposant.'",
+      "choices": [],
+      "answers": [
+        "c'est"
+      ],
+      "explanation": "The standalone adjective evaluates the experience as a whole; there is no following plural noun phrase."
+    },
+    {
+      "id": "a1-ref-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "plural-topic",
+      "prompt": "Use careful written identification and supply c'est or ce sont: '___ surtout des livres de cuisine.'",
+      "choices": [],
+      "answers": [
+        "ce sont"
+      ],
+      "explanation": "The adverb surtout does not remove the plural noun phrase des livres de cuisine."
+    },
+    {
+      "id": "a1-ref-depth-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "plural-topic",
+      "prompt": "Keep ça and supply change or changent: 'Les horaires variables, ça ___ tout.'",
+      "choices": [],
+      "answers": [
+        "change"
+      ],
+      "explanation": "Ça is singular even though the general topic les horaires variables is plural."
+    },
+    {
+      "id": "a1-ref-depth-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "plural-topic",
+      "prompt": "The topic is 'les messages tardifs'. Supply dérange or dérangent after ça: 'Ça me ___.'",
+      "choices": [],
+      "answers": [
+        "dérange"
+      ],
+      "explanation": "The verb agrees with singular ça, not with the plural topic being discussed."
+    },
+    {
+      "id": "a1-ref-depth-06",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "plural-topic",
+      "prompt": "Change only the verb to agree with ça: 'Les jeux de mémoire, ça demandent de l'attention.'",
+      "choices": [],
+      "answers": [
+        "Les jeux de mémoire, ça demande de l'attention."
+      ],
+      "explanation": "The detached topic is plural, but the grammatical subject of demande is ça."
+    },
+    {
+      "id": "a1-ref-depth-07",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "plural-topic",
+      "prompt": "A group claims responsibility for a drawing. Choose the normal identification with stressed nous.",
+      "choices": [
+        "C'est nous.",
+        "Ce sommes nous."
+      ],
+      "answers": [
+        "C'est nous."
+      ],
+      "explanation": "C'est nous is the established identification pattern."
+    },
+    {
+      "id": "a1-ref-depth-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "plural-topic",
+      "prompt": "Identify the listeners as the organisers. Supply c'est or ce sont before stressed vous: 'Les organisateurs ? ___ vous !'",
+      "choices": [],
+      "answers": [
+        "c'est"
+      ],
+      "explanation": "C'est vous remains the standard form even when vous refers to several people."
+    },
+    {
+      "id": "a1-ref-depth-09",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "plural-topic",
+      "prompt": "Correct only the identification verb in 'Ce sommes nous !'",
+      "choices": [],
+      "answers": [
+        "C'est nous !"
+      ],
+      "explanation": "Use the fixed identification c'est nous, not agreement with nous after ce."
+    },
     {
       "id": "a1-ref-01",
       "kind": "text",

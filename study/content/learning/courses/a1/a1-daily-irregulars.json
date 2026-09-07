@@ -151,9 +151,145 @@
           "why": "In sentir bon, bon is an invariable adverb."
         }
       ]
+    },
+    {
+      "id": "sleep-transition",
+      "title": "Sleeping is a state; falling asleep is a change",
+      "paragraphs": [
+        "Dormir describes sleeping. S'endormir describes the transition into sleep; endormir quelqu'un means put someone to sleep. The added se is meaningful, not decoration. Endormir keeps the dormir family: j'endors, tu endors, il/elle/on endort, nous endormons, vous endormez, ils/elles endorment. For s'endormir, select the reflexive pronoun for the subject before using that same verb form."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Je **m'endors**\nTu **t'endors**\nIl/elle/on **s'endort**\nNous **nous endormons**\nVous **vous endormez**\nIls/elles **s'endorment**",
+          "english": "I fall asleep\nYou fall asleep\nHe/she falls asleep; one falls asleep/we fall asleep\nWe fall asleep\nYou fall asleep\nThey fall asleep",
+          "note": "The first three reflexive pronouns elide before the vowel."
+        },
+        {
+          "french": "Le bébé **s'endort**, puis il **dort** pendant la promenade.",
+          "english": "The baby falls asleep, then sleeps during the walk.",
+          "note": "The first verb marks the change; the second describes the continuing state."
+        },
+        {
+          "french": "Cette berceuse **endort** le bébé.",
+          "english": "This lullaby puts the baby to sleep.",
+          "note": "Une berceuse (f.) is a lullaby. The baby is the object, not the subject."
+        }
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "perceiver-source",
+      "title": "Find the perceiver, or the source of the smell",
+      "paragraphs": [
+        "With sentir + noun, the subject may perceive something or give off its smell. A person is not automatically the perceiver: after cooking, a person's clothes can smell of food. Read the whole situation. In a tasting context, sentir can also mean detect an ingredient's flavour; it is not limited to the nose. Se sentir, with a reflexive pronoun, instead describes the subject's own condition."
+      ],
+      "points": [
+        "Vocabulary: la cannelle (f., cinnamon); la fumée (f., smoke); un manteau (m., coat)."
+      ],
+      "examples": [
+        {
+          "french": "En goûtant la compote, je **sens la cannelle**.",
+          "english": "When tasting the stewed fruit, I can taste the cinnamon.",
+          "note": "The tasting context identifies the sense involved."
+        },
+        {
+          "french": "Dans l'escalier, nous **sentons la fumée**.",
+          "english": "In the stairwell, we can smell the smoke.",
+          "note": "Nous identifies the perceivers."
+        },
+        {
+          "french": "Après le feu de camp, nos manteaux **sentent la fumée**.",
+          "english": "After the campfire, our coats smell of smoke.",
+          "note": "The coats give off the smell; they do not perceive it."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-daily-depth-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "sleep-transition",
+      "prompt": "Describe the change into sleep, using s'endormir: 'Après la lecture, je ___.' Supply pronoun and verb.",
+      "choices": [],
+      "answers": [
+        "m'endors"
+      ],
+      "explanation": "Je m'endors means I fall asleep; je dors describes already sleeping."
+    },
+    {
+      "id": "a1-daily-depth-02",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "sleep-transition",
+      "prompt": "Which sentence says that the music puts the child to sleep, not that the music itself falls asleep?",
+      "choices": [
+        "La musique endort l'enfant.",
+        "La musique s'endort."
+      ],
+      "answers": [
+        "La musique endort l'enfant."
+      ],
+      "explanation": "Endormir has the person put to sleep as its object."
+    },
+    {
+      "id": "a1-daily-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "sleep-transition",
+      "prompt": "Complete with s'endormir: 'Pendant ce long trajet, vous ___ facilement.' Supply the pronoun and present verb.",
+      "choices": [],
+      "answers": [
+        "vous endormez"
+      ],
+      "explanation": "Vous vous endormez keeps the full dorm- stem and the vous reflexive pronoun."
+    },
+    {
+      "id": "a1-daily-depth-04",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "perceiver-source",
+      "prompt": "In 'En goûtant ce dessert, je sens la cannelle', what does sentir describe?",
+      "choices": [
+        "Detecting a flavour",
+        "Giving off a cinnamon smell",
+        "Feeling unwell"
+      ],
+      "answers": [
+        "Detecting a flavour"
+      ],
+      "explanation": "Goûter ce dessert supplies a tasting context."
+    },
+    {
+      "id": "a1-daily-depth-05",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "perceiver-source",
+      "prompt": "In 'Après la cuisson, ta veste sent l'oignon', is the jacket perceiving a smell or giving one off?",
+      "choices": [
+        "Giving one off",
+        "Perceiving a smell"
+      ],
+      "answers": [
+        "Giving one off"
+      ],
+      "explanation": "A jacket is the source of an onion smell here; sentir + noun does not always describe perception."
+    },
+    {
+      "id": "a1-daily-depth-06",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "perceiver-source",
+      "prompt": "Use sentir, not se sentir, for perceiving a smell: 'À l'entrée du fournil, nous ___ le pain chaud.'",
+      "choices": [],
+      "answers": [
+        "sentons"
+      ],
+      "explanation": "Nous sentons describes what we perceive; nous nous sentons would introduce our own condition."
+    },
     {
       "id": "a1-dailyv-01",
       "kind": "text",

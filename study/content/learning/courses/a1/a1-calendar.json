@@ -168,9 +168,74 @@
           "why": "Matinée is feminine, so the article is la."
         }
       ]
+    },
+    {
+      "id": "dated-weekday",
+      "title": "Look beyond le before deciding that a day repeats",
+      "paragraphs": [
+        "Le jeudi on its own in a timetable commonly describes a weekly habit. Add a full calendar date and le jeudi 18 juin names a single dated day instead. The article also belongs with the day when you discuss it as a category or subject. Do not translate every le + weekday mechanically as every."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "La permanence a lieu **le jeudi**.",
+          "english": "The drop-in session takes place on Thursdays.",
+          "note": "This is a recurring timetable."
+        },
+        {
+          "french": "La permanence exceptionnelle a lieu **le jeudi 18 juin**.",
+          "english": "The special drop-in session takes place on Thursday 18 June.",
+          "note": "The full date singles out one occurrence."
+        },
+        {
+          "french": "**Le jeudi** est mon jour le plus chargé.",
+          "english": "Thursday is my busiest day.",
+          "note": "The weekday is the sentence subject, considered generally."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-cal-depth-01",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "dated-weekday",
+      "prompt": "Does 'L'inscription ouvre le vendredi 6 novembre' identify a dated opening or a weekly opening?",
+      "choices": [
+        "A dated opening",
+        "A weekly opening"
+      ],
+      "answers": [
+        "A dated opening"
+      ],
+      "explanation": "The calendar date prevents interpreting le vendredi here as every Friday."
+    },
+    {
+      "id": "a1-cal-depth-02",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "dated-weekday",
+      "prompt": "Complete the full dated expression: 'Le tournoi commence ___ samedi 12 décembre.' Supply the article.",
+      "choices": [],
+      "answers": [
+        "le"
+      ],
+      "explanation": "A weekday with its full date normally takes le, without implying repetition."
+    },
+    {
+      "id": "a1-cal-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "dated-weekday",
+      "prompt": "Add the missing article before a weekday used as the subject: '___ mardi est une journée calme au musée.'",
+      "choices": [],
+      "answers": [
+        "le"
+      ],
+      "explanation": "Le mardi is a day considered generally and is the sentence subject."
+    },
     {
       "id": "a1-cal-01",
       "kind": "text",

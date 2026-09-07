@@ -162,9 +162,77 @@
           "why": "The stressed question form after a preposition is quoi."
         }
       ]
+    },
+    {
+      "id": "repair-question",
+      "title": "Ask for repetition without asking for an object's identity",
+      "paragraphs": [
+        "If you did not hear someone, Pardon ? or Comment ? can invite repetition. Comment ? here is a conversational repair, not necessarily a request to explain how something works. A bare Quoi ? is common in casual exchanges but can sound abrupt with an unfamiliar person. A fuller polite request is Vous pouvez répéter, s'il vous plaît ? Qu'est-ce que c'est ? instead asks what a thing is."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Le départ est à huit heures. — **Pardon ?** — À huit heures.",
+          "english": "Departure is at eight. — Sorry? — At eight.",
+          "note": "The response asks the speaker to repeat, not to identify departure."
+        },
+        {
+          "french": "**Comment ?** Je n'entends pas bien.",
+          "english": "Sorry? I cannot hear very well.",
+          "note": "The surrounding situation makes the repair meaning clear."
+        },
+        {
+          "french": "**Vous pouvez répéter, s'il vous plaît ?**",
+          "english": "Could you repeat that, please?",
+          "note": "A complete request can be easier to interpret politely."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-question-depth-01",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "repair-question",
+      "prompt": "You did not hear the receptionist. Choose the short neutral request for repetition rather than an object-identification question.",
+      "choices": [
+        "Pardon ?",
+        "Qu'est-ce que c'est ?"
+      ],
+      "answers": [
+        "Pardon ?"
+      ],
+      "explanation": "Pardon ? can ask for repetition; qu'est-ce que c'est ? asks what something is."
+    },
+    {
+      "id": "a1-question-depth-02",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "repair-question",
+      "prompt": "Supply the infinitive meaning repeat in this polite repair: 'Vous pouvez ___, s'il vous plaît ?'",
+      "choices": [],
+      "answers": [
+        "répéter"
+      ],
+      "explanation": "Pouvez répéter asks the speaker to say it again; the infinitive keeps both acute accents."
+    },
+    {
+      "id": "a1-question-depth-03",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "repair-question",
+      "prompt": "After a muffled announcement, someone says 'Comment ?'. Must this mean 'By what method?'",
+      "choices": [
+        "Non",
+        "Oui"
+      ],
+      "answers": [
+        "Non"
+      ],
+      "explanation": "In this context, comment ? asks for repetition."
+    },
     {
       "id": "a1-q-01",
       "kind": "text",

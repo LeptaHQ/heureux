@@ -149,9 +149,75 @@
           "why": "Acheter uses è rather than doubled t."
         }
       ]
+    },
+    {
+      "id": "accent-boundary",
+      "title": "Identify the accent before applying the change",
+      "paragraphs": [
+        "The e/é → è patterns do not instruct you to replace every accented vowel. A circumflex in rêver (dream) stays ê throughout the present. First identify the infinitive and its spelling family, then attach the ending; do not decide from the English meaning or from the presence of any accent."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Je **rêve**\nTu **rêves**\nIl/elle/on **rêve**\nNous **rêvons**\nVous **rêvez**\nIls/elles **rêvent**",
+          "english": "I dream\nYou dream\nHe/she dreams; one dreams/we dream\nWe dream\nYou dream\nThey dream",
+          "note": "All six forms preserve ê."
+        },
+        {
+          "french": "Elle **rêve** d'un voyage, mais elle **préfère** attendre.",
+          "english": "She dreams of a trip, but she prefers to wait.",
+          "note": "Rêver keeps ê; préférer changes its last stem é to è in this person."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Tu rèves.",
+          "prefer": "Tu rêves.",
+          "why": "Rêver has a stable circumflex, not the e/é alternation."
+        }
+      ]
     }
   ],
   "practice": [
+    {
+      "id": "a1-spell-depth-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "accent-boundary",
+      "prompt": "Keep the infinitive's circumflex: 'Nous ___ d'une maison près du fleuve.' Use rêver.",
+      "choices": [],
+      "answers": [
+        "rêvons"
+      ],
+      "explanation": "Nous rêvons keeps ê and adds the regular -ons ending."
+    },
+    {
+      "id": "a1-spell-depth-02",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "accent-boundary",
+      "prompt": "Correct only the accent: 'Les enfants rèvent de devenir pilotes.'",
+      "choices": [],
+      "answers": [
+        "Les enfants rêvent de devenir pilotes."
+      ],
+      "explanation": "Rêver retains ê even before the silent -ent ending."
+    },
+    {
+      "id": "a1-spell-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "accent-boundary",
+      "prompt": "Supply both forms, separated by a comma: 'Tu ___ d'un jardin; tu ___ une terrasse.' (rêver, préférer)",
+      "choices": [],
+      "answers": [
+        "rêves, préfères",
+        "rêves,préfères",
+        "rêves , préfères",
+        "rêves ,préfères"
+      ],
+      "explanation": "Rêver keeps ê, whereas préférer changes the final stem é to è before -es."
+    },
     {
       "id": "a1-spell-01",
       "kind": "text",

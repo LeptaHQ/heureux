@@ -155,9 +155,157 @@
           "why": "À + le must contract."
         }
       ]
+    },
+    {
+      "id": "fear-complement",
+      "title": "After de, distinguish a person from an action",
+      "paragraphs": [
+        "After peur de, a pronoun naming the feared person is stressed: moi, toi, lui, elle, nous, vous, eux, elles. De becomes d' before eux and elles. A feared action instead uses an infinitive, and a reflexive action keeps its pronoun before that infinitive. The fear belongs to the main subject, but the feared person need not be that same person."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Le chien ne connaît pas les visiteurs; il **a peur d'eux**.",
+          "english": "The dog does not know the visitors; it is afraid of them.",
+          "note": "Eux refers to the feared people, not the subject."
+        },
+        {
+          "french": "Je **n'ai pas peur de toi**.",
+          "english": "I am not afraid of you.",
+          "note": "Use stressed toi after de."
+        },
+        {
+          "french": "Dans cette grande gare, nous **avons peur de nous perdre**.",
+          "english": "In this large station, we are afraid of getting lost.",
+          "note": "Se perdre means get lost; the infinitive keeps the pronoun for nous."
+        }
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "body-idioms",
+      "title": "A bodily feeling is not always a voluntary wish",
+      "paragraphs": [
+        "Avoir envie de often describes a desire, but avoir envie d'aller aux toilettes can express a bodily urge, and avoir envie de vomir means feel like throwing up. These do not mean that the speaker enjoys or chooses the sensation. Avoir mal au cœur also commonly expresses nausea; do not translate the familiar expression word for word as a diagnosis of heart disease. Actual chest pain needs to be described clearly rather than inferred from, or dismissed because of, an idiom.",
+        "For eye pain, learn the noun pair un œil (m., an eye) / les yeux (m. plural, eyes). The usual body-part pattern gives à l'œil for one eye and aux yeux for the plural. The change is both an irregular noun plural and an article contraction."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Pendant la réunion, il **a envie d'aller aux toilettes**.",
+          "english": "During the meeting, he needs to go to the toilet.",
+          "note": "Envie expresses a bodily urge here."
+        },
+        {
+          "french": "Sur le bateau, j'**ai envie de vomir**.",
+          "english": "On the boat, I feel like throwing up.",
+          "note": "This describes nausea, not a pleasant wish."
+        },
+        {
+          "french": "Dans les virages, elle **a mal au cœur**.",
+          "english": "On the bends, she feels sick.",
+          "note": "This is the common nausea idiom, not a medical diagnosis."
+        },
+        {
+          "french": "J'**ai mal à l'œil** droit. Le soir, j'**ai mal aux yeux**.",
+          "english": "My right eye hurts. In the evening, my eyes hurt.",
+          "note": "Un œil has the irregular plural yeux."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-need-depth-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "fear-complement",
+      "prompt": "Replace de + les visiteurs by de plus the stressed pronoun for a mixed group: 'Le chiot a peur ___.'",
+      "choices": [],
+      "answers": [
+        "d'eux"
+      ],
+      "explanation": "De + eux elides to d'eux; the pronoun names the feared people."
+    },
+    {
+      "id": "a1-need-depth-02",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "fear-complement",
+      "prompt": "Use the stressed pronoun for familiar singular you: 'Je n'ai pas peur de ___.'",
+      "choices": [],
+      "answers": [
+        "toi"
+      ],
+      "explanation": "After de, the person pronoun is stressed toi, not te or tu."
+    },
+    {
+      "id": "a1-need-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "fear-complement",
+      "prompt": "Complete the reflexive infinitive for getting lost: 'Vous avez peur de ___ perdre dans le métro.'",
+      "choices": [],
+      "answers": [
+        "vous"
+      ],
+      "explanation": "The feared action refers back to vous, so the phrase is de vous perdre."
+    },
+    {
+      "id": "a1-need-depth-04",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "body-idioms",
+      "prompt": "On a rough ferry crossing, 'J'ai envie de vomir' normally reports which meaning?",
+      "choices": [
+        "A feeling of nausea",
+        "An enjoyable voluntary plan"
+      ],
+      "answers": [
+        "A feeling of nausea"
+      ],
+      "explanation": "Envie de vomir can describe an involuntary bodily sensation."
+    },
+    {
+      "id": "a1-need-depth-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "body-idioms",
+      "prompt": "Complete the familiar nausea expression with the body-part noun: 'En voiture, j'ai mal au ___.'",
+      "choices": [],
+      "answers": [
+        "cœur"
+      ],
+      "explanation": "Avoir mal au cœur commonly means feel sick; the idiom alone is not a medical diagnosis."
+    },
+    {
+      "id": "a1-need-depth-06",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "body-idioms",
+      "prompt": "Change one eye to both eyes in the pain expression: replace 'à l'œil' in 'J'ai mal à l'œil.' Write the whole sentence.",
+      "choices": [],
+      "answers": [
+        "J'ai mal aux yeux."
+      ],
+      "explanation": "Œil becomes yeux, and à + les contracts to aux."
+    },
+    {
+      "id": "a1-need-depth-07",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "body-idioms",
+      "prompt": "Can 'avoir envie d'aller aux toilettes' describe a bodily need rather than leisure preference?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "answers": [
+        "Oui"
+      ],
+      "explanation": "This established use of envie describes a bodily urge."
+    },
     {
       "id": "a1-needs-01",
       "kind": "text",

@@ -171,9 +171,119 @@
           "why": "For the intended single colour 'light blue', the compound colour remains invariable."
         }
       ]
+    },
+    {
+      "id": "brown-nationality",
+      "title": "Check the word's job as well as its ending",
+      "paragraphs": [
+        "Brun is an agreeing adjective: brun, brune, bruns, brunes. Marron used as a colour label is normally unchanged. Both can describe brown things; do not invent a rule that every translation of English brown must have the same French agreement.",
+        "A nationality adjective normally has a lower-case initial, but a noun identifying a person by nationality takes a capital: un Italien, une Italienne, des Italiens, des Italiennes. A language name remains lower-case. Capitalisation here tells you the word's job; it does not change its gender-agreement pattern."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Une ceinture **brune**, des ceintures **brunes**; une ceinture **marron**, des ceintures **marron**.",
+          "english": "A brown belt, brown belts; a brown belt, brown belts.",
+          "note": "Une ceinture (f.) is a belt. The two colour words have different agreement behaviour."
+        },
+        {
+          "french": "Les sacs sont **bruns**.",
+          "english": "The bags are brown.",
+          "note": "Brun also agrees after être."
+        },
+        {
+          "french": "Une **Italienne** travaille avec une équipe **italienne**.",
+          "english": "An Italian woman works with an Italian team.",
+          "note": "The person noun has a capital; the describing adjective does not."
+        },
+        {
+          "french": "Elle apprend **l'italien**.",
+          "english": "She is learning Italian.",
+          "note": "L'italien (m.) is the language name and remains lower-case."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-adj-depth-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "brown-nationality",
+      "prompt": "Use brun as an agreeing adjective: 'Ces enveloppes sont ___.'",
+      "choices": [],
+      "answers": [
+        "brunes"
+      ],
+      "explanation": "Enveloppes is feminine plural; brun becomes brunes."
+    },
+    {
+      "id": "a1-adj-depth-02",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "brown-nationality",
+      "prompt": "Supply brun then marron for feminine plural nouns, separated by a comma: 'des feuilles ___ et des étiquettes ___'.",
+      "choices": [],
+      "answers": [
+        "brunes, marron",
+        "brunes,marron",
+        "brunes , marron",
+        "brunes ,marron"
+      ],
+      "explanation": "Brun agrees, while marron as a colour label normally does not."
+    },
+    {
+      "id": "a1-adj-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "brown-nationality",
+      "prompt": "Correct the brown adjective after être: 'Les chevaux sont brun.' Keep the other words.",
+      "choices": [],
+      "answers": [
+        "Les chevaux sont bruns."
+      ],
+      "explanation": "An adjective after être still agrees: masculine plural bruns."
+    },
+    {
+      "id": "a1-adj-depth-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "brown-nationality",
+      "prompt": "Capitalisation matters. Supply the noun for an Italian woman: 'C'est une ___.' Use Italienne or italienne.",
+      "choices": [],
+      "answers": [
+        "Italienne"
+      ],
+      "case_sensitive": true,
+      "explanation": "The nationality names a person, so it takes a capital."
+    },
+    {
+      "id": "a1-adj-depth-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "brown-nationality",
+      "prompt": "Capitalisation matters. Supply the adjective for Italian: 'une association ___'. Use Italienne or italienne.",
+      "choices": [],
+      "answers": [
+        "italienne"
+      ],
+      "case_sensitive": true,
+      "explanation": "The nationality describes association; it is an adjective and normally lower-case."
+    },
+    {
+      "id": "a1-adj-depth-06",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "brown-nationality",
+      "prompt": "Capitalisation matters. Supply the language name: 'Nous étudions l'___.' Use Italien or italien.",
+      "choices": [],
+      "answers": [
+        "italien"
+      ],
+      "case_sensitive": true,
+      "explanation": "The language name is lower-case, unlike a noun naming a person by nationality."
+    },
     {
       "id": "a1-adj-01",
       "kind": "text",

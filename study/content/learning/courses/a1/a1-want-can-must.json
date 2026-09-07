@@ -144,9 +144,138 @@
           "why": "With the same understood subject, pour takes the infinitive."
         }
       ]
+    },
+    {
+      "id": "owe-need",
+      "title": "Devoir + a noun is not the same as needing that noun",
+      "paragraphs": [
+        "Before an infinitive, devoir can express a requirement. With a direct noun object, it can instead mean owe: devoir de l'argent is owe money, not need money. Avoir besoin de is the construction for needing the money. Identify what follows the verb before translating English need."
+      ],
+      "points": [
+        "L'argent (m.) means money; une explication (f.) is an explanation."
+      ],
+      "examples": [
+        {
+          "french": "Je **dois de l'argent** au garage.",
+          "english": "I owe money to the garage.",
+          "note": "This is a debt, not a statement that the speaker needs money."
+        },
+        {
+          "french": "J'**ai besoin d'argent** pour la réparation.",
+          "english": "I need money for the repair.",
+          "note": "Besoin de expresses the resource needed."
+        },
+        {
+          "french": "Nous **devons une explication** aux voisins.",
+          "english": "We owe the neighbours an explanation.",
+          "note": "Owing need not concern a monetary debt."
+        }
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "purpose-reflexive",
+      "title": "Keep the purpose infinitive and its own pronoun together",
+      "paragraphs": [
+        "A reflexive purpose keeps the pronoun before the infinitive: pour me reposer, pour nous préparer. Choose that pronoun for the understood doer, normally the main subject. Afin de + infinitive expresses a similar purpose in a more formal style; its de becomes d' before a vowel, but stays de before a consonant-starting reflexive pronoun."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Je coupe la radio **pour me concentrer**.",
+          "english": "I turn off the radio to concentrate.",
+          "note": "Se concentrer means concentrate; je requires me before the infinitive."
+        },
+        {
+          "french": "Nous partons tôt **pour nous installer** tranquillement.",
+          "english": "We leave early to settle in without rushing.",
+          "note": "The doer of both actions is nous."
+        },
+        {
+          "french": "Elle réserve une salle **afin d'organiser** la rencontre.",
+          "english": "She books a room in order to organise the meeting.",
+          "note": "Afin d' is a more formal alternative to pour here."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-modal-depth-01",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "owe-need",
+      "prompt": "What does 'L'association doit de l'argent au fournisseur' say?",
+      "choices": [
+        "The association owes the supplier money.",
+        "The association needs the supplier's money."
+      ],
+      "answers": [
+        "The association owes the supplier money."
+      ],
+      "explanation": "Devoir + money expresses a debt; needing uses avoir besoin de."
+    },
+    {
+      "id": "a1-modal-depth-02",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "owe-need",
+      "prompt": "Express a need, not a debt: 'Nous ___ d'argent pour imprimer les affiches.' Supply avoir besoin in the present.",
+      "choices": [],
+      "answers": [
+        "avons besoin"
+      ],
+      "explanation": "Nous avons besoin d'argent identifies a needed resource."
+    },
+    {
+      "id": "a1-modal-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "owe-need",
+      "prompt": "Use devoir to say that the manager owes an explanation: 'La responsable ___ une explication aux bénévoles.'",
+      "choices": [],
+      "answers": [
+        "doit"
+      ],
+      "explanation": "Doit + une explication means owes an explanation, not needs one."
+    },
+    {
+      "id": "a1-modal-depth-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "purpose-reflexive",
+      "prompt": "Complete the reflexive purpose: 'Tu fermes les yeux pour ___ reposer.'",
+      "choices": [],
+      "answers": [
+        "te"
+      ],
+      "explanation": "The understood doer is tu, so se reposer becomes pour te reposer."
+    },
+    {
+      "id": "a1-modal-depth-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "purpose-reflexive",
+      "prompt": "Use afin de, with elision if required: 'Le centre ouvre plus tôt ___ accueillir les visiteurs.'",
+      "choices": [],
+      "answers": [
+        "afin d'"
+      ],
+      "explanation": "De elides before accueillir; the action remains an infinitive."
+    },
+    {
+      "id": "a1-modal-depth-06",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "purpose-reflexive",
+      "prompt": "Supply the reflexive pronoun: 'Nous vérifions le plan afin de ___ orienter.'",
+      "choices": [],
+      "answers": [
+        "nous"
+      ],
+      "explanation": "The purpose concerns nous; de does not elide before the consonant in nous."
+    },
     {
       "id": "a1-modal-01",
       "kind": "text",

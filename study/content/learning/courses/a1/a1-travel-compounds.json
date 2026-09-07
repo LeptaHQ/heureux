@@ -152,9 +152,202 @@
           "why": "The functional noun construction uses an infinitive after à."
         }
       ]
+    },
+    {
+      "id": "transport-alternatives",
+      "title": "Recognise conventional alternatives without inventing a universal par rule",
+      "paragraphs": [
+        "En train and en avion are useful default travel-mode phrases. Par le train and par avion are also established ways of naming the means used. Notice that these two par phrases do not use the same article pattern. Learn the combinations rather than replacing every en with par plus a definite article."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Nous faisons ce trajet **par le train**, pas par la route.",
+          "english": "We make this journey by train, not by road.",
+          "note": "Par le train is an alternative means-of-transport expression."
+        },
+        {
+          "french": "Le colis arrive **par avion**.",
+          "english": "The parcel arrives by air.",
+          "note": "Par avion has no definite article."
+        }
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "named-address",
+      "title": "A named address can omit the street preposition",
+      "paragraphs": [
+        "With habiter and a named street, French can give the address directly: habiter rue des Tilleuls. Habiter can also take a place as its direct object: habiter cette rue is grammatical alongside habiter dans cette rue. These possibilities belong to habiter; they are not a reason to remove dans from ordinary phrases such as jouer dans la rue."
+      ],
+      "points": [],
+      "examples": [
+        {
+          "french": "Ma cousine **habite rue des Tilleuls**.",
+          "english": "My cousin lives on Rue des Tilleuls.",
+          "note": "The name functions as an address."
+        },
+        {
+          "french": "Elle **habite dans cette rue**, près du cinéma.",
+          "english": "She lives on this street, near the cinema.",
+          "note": "Dans is natural here, but not obligatory after habiter."
+        },
+        {
+          "french": "Leur famille **habite cette rue** depuis longtemps.",
+          "english": "Their family has lived on this street for a long time.",
+          "note": "Habiter takes cette rue directly as its object in this construction."
+        }
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "ingredient-material",
+      "title": "A linking preposition does not have just one meaning",
+      "paragraphs": [
+        "À can identify an ingredient or flavour, not only an object's purpose: a dessert à la vanille is vanilla-flavoured. Keep the article and the ordinary contractions, such as au and aux. Material can also use de in established combinations, as well as en. Therefore neither every à means for nor every de means filled with. Use the relation and the established noun group together."
+      ],
+      "points": [
+        "La vanille (f.) is vanilla; une noix (f.) is a nut; la pierre (f.) is stone."
+      ],
+      "examples": [
+        {
+          "french": "Je prépare une crème **à la vanille**.",
+          "english": "I am making a vanilla custard.",
+          "note": "À la introduces flavour."
+        },
+        {
+          "french": "Le boulanger vend du pain **aux noix**.",
+          "english": "The baker sells walnut bread.",
+          "note": "Aux is à + les, identifying an ingredient."
+        },
+        {
+          "french": "Un mur **de pierre** entoure la cour; le banc est **en pierre**.",
+          "english": "A stone wall surrounds the courtyard; the bench is made of stone.",
+          "note": "De and en can both introduce material in these established combinations."
+        }
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
+    {
+      "id": "a1-travel-depth-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "transport-alternatives",
+      "prompt": "Supply the article in the taught alternative: 'Les marchandises arrivent par ___ train.'",
+      "choices": [],
+      "answers": [
+        "le"
+      ],
+      "explanation": "Par le train uses le; do not infer that par avion needs it too."
+    },
+    {
+      "id": "a1-travel-depth-02",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "transport-alternatives",
+      "prompt": "Express by air using par and avion: 'Nous expédions le paquet ___.'",
+      "choices": [],
+      "answers": [
+        "par avion"
+      ],
+      "explanation": "The established mode expression is par avion, without an article."
+    },
+    {
+      "id": "a1-travel-depth-03",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "transport-alternatives",
+      "prompt": "Must 'Nous voyageons par le train' be rejected because en train is also possible?",
+      "choices": [
+        "Non",
+        "Oui"
+      ],
+      "answers": [
+        "Non"
+      ],
+      "explanation": "Both are established expressions for the means of travel."
+    },
+    {
+      "id": "a1-travel-depth-04",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "named-address",
+      "prompt": "Is 'Il habite rue des Verriers' a possible French address construction?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "answers": [
+        "Oui"
+      ],
+      "explanation": "A named street can directly follow habiter."
+    },
+    {
+      "id": "a1-travel-depth-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "named-address",
+      "prompt": "Supply dans or no word (write 'rien') for the ordinary demonstrative phrase: 'Elle habite ___ cette rue.'",
+      "choices": [],
+      "answers": [
+        "dans",
+        "rien"
+      ],
+      "explanation": "Habiter dans cette rue and transitive habiter cette rue are both grammatical; dans is not obligatory with this verb."
+    },
+    {
+      "id": "a1-travel-depth-06",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "named-address",
+      "prompt": "Rewrite only by removing dans la to give the direct named-street address: 'Nous habitons dans la rue du Canal.'",
+      "choices": [],
+      "answers": [
+        "Nous habitons rue du Canal."
+      ],
+      "explanation": "Rue du Canal can directly identify the address after habiter."
+    },
+    {
+      "id": "a1-travel-depth-07",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "ingredient-material",
+      "prompt": "Complete the ingredient contraction à + les: 'une brioche ___ raisins'.",
+      "choices": [],
+      "answers": [
+        "aux"
+      ],
+      "explanation": "Aux raisins identifies an ingredient, not a purpose for the brioche."
+    },
+    {
+      "id": "a1-travel-depth-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "ingredient-material",
+      "prompt": "Supply à la or de la to name vanilla flavour in this taught construction: 'une crème ___ vanille'.",
+      "choices": [],
+      "answers": [
+        "à la"
+      ],
+      "explanation": "À la vanille identifies the flavour of the cream."
+    },
+    {
+      "id": "a1-travel-depth-09",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "ingredient-material",
+      "prompt": "In 'un mur de pierre', does de introduce the wall's material or something poured into it?",
+      "choices": [
+        "Its material",
+        "Something poured into it"
+      ],
+      "answers": [
+        "Its material"
+      ],
+      "explanation": "De can introduce material in an established noun group; it does not always mean contents."
+    },
     {
       "id": "a1-trip-01",
       "kind": "text",

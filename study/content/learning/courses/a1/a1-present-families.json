@@ -148,9 +148,124 @@
           "why": "The third-person singular adds no ending after vend-."
         }
       ]
+    },
+    {
+      "id": "family-check",
+      "title": "Check the dictionary word before transferring a pattern",
+      "paragraphs": [
+        "A familiar-looking ending is a clue, not a complete conjugation rule. Répartir (distribute or divide up) belongs to the finir family. Repartir (leave again), without the accent, belongs to partir. Their meanings and plural forms differ. When a new verb resembles one you know, check the accent, meaning and nous form before reusing the pattern.",
+        "In ordinary pronunciation, the written final -s or -t of finis/finit is silent; finissent keeps the pronounced -iss- but not the ending -ent. In the vendre family, vends/vend have a silent final d, while vendent has an audible d. Use the subject and the learned written ending to spell these forms; sound alone cannot distinguish every person."
+      ],
+      "points": [
+        "Do not remove an accent as a harmless typing variant: répartir and repartir are different verbs."
+      ],
+      "examples": [
+        {
+          "french": "Je **répartis**\nTu **répartis**\nIl/elle/on **répartit**\nNous **répartissons**\nVous **répartissez**\nIls/elles **répartissent**",
+          "english": "I distribute\nYou distribute\nHe/she/one distributes; we distribute\nWe distribute\nYou distribute\nThey distribute",
+          "note": "Répartir uses the complete regular -ir pattern."
+        },
+        {
+          "french": "Nous **répartissons** les tâches avant la réunion.",
+          "english": "We divide up the tasks before the meeting.",
+          "note": "Une tâche (f.) is a task. The meaning is allocation, not leaving."
+        },
+        {
+          "french": "Nous **repartons** après la réunion.",
+          "english": "We leave again after the meeting.",
+          "note": "Repartir has no accent and no -iss-; the partir paradigm is in the daily irregulars lesson."
+        },
+        {
+          "french": "Je **vends** des plantes. Mes voisins **vendent** des fleurs.",
+          "english": "I sell plants. My neighbours sell flowers.",
+          "note": "The singular and plural differ in both the written ending and whether d is heard."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Nous répartons les tâches.",
+          "prefer": "Nous répartissons les tâches.",
+          "why": "For dividing things up, répartir requires the regular -ir plural, including -iss-."
+        }
+      ]
     }
   ],
   "practice": [
+    {
+      "id": "a1-pres-depth-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "family-check",
+      "prompt": "Use répartir (distribute) in the present: 'Les bénévoles ___ les repas entre les familles.'",
+      "choices": [],
+      "answers": [
+        "répartissent"
+      ],
+      "explanation": "Répartir follows finir, giving -issent with the plural subject."
+    },
+    {
+      "id": "a1-pres-depth-02",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "family-check",
+      "prompt": "Conjugate the supplied verb, keeping its meaning and accent: 'Nous ___ le budget entre trois projets.' (répartir)",
+      "choices": [],
+      "answers": [
+        "répartissons"
+      ],
+      "explanation": "Dividing a budget uses répartir, not repartir; nous requires -issons."
+    },
+    {
+      "id": "a1-pres-depth-03",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "family-check",
+      "prompt": "Supply the present vous form of répartir: 'Vous ___ les rôles avant la répétition.'",
+      "choices": [],
+      "answers": [
+        "répartissez"
+      ],
+      "explanation": "Répartir describes allocating roles and takes the regular -ir ending -issez."
+    },
+    {
+      "id": "a1-pres-depth-04",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "family-check",
+      "prompt": "In ordinary pronunciation, which vendre form has an audible d?",
+      "choices": [
+        "il vend",
+        "ils vendent"
+      ],
+      "answers": [
+        "ils vendent"
+      ],
+      "explanation": "The d is silent in vend, but heard in vendent; -ent itself is silent."
+    },
+    {
+      "id": "a1-pres-depth-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "family-check",
+      "prompt": "The forms finis and finit sound alike. Use the written form for this subject: 'Le programme ___ à midi.' (finir)",
+      "choices": [],
+      "answers": [
+        "finit"
+      ],
+      "explanation": "The singular subject is equivalent to il, so the written ending is -it."
+    },
+    {
+      "id": "a1-pres-depth-06",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "family-check",
+      "prompt": "Write the correct present form even though the final d is silent: 'Le magasin ___ des cartes postales.' (vendre)",
+      "choices": [],
+      "answers": [
+        "vend"
+      ],
+      "explanation": "A singular subject requires vend, with no extra t or s."
+    },
     {
       "id": "a1-pres-01",
       "kind": "text",

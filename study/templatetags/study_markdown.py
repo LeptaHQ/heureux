@@ -30,9 +30,10 @@ def render_markdown(value):
 def render_markdown_inline(value):
     if not value:
         return ""
-    rendered = _renderer.renderInline(str(value)).replace(
-        "<code>",
-        '<code lang="fr">',
+    rendered = re.sub(
+        r"<code>(.*?)</code>",
+        _french_inline_code,
+        _renderer.renderInline(str(value)),
     )
     rendered = re.sub(
         r"«([^»]+)»",
@@ -40,6 +41,11 @@ def render_markdown_inline(value):
         rendered,
     )
     return mark_safe(rendered)
+
+
+def _french_inline_code(match):
+    content = match.group(1).replace("/", "/<wbr>")
+    return f'<code lang="fr">{content}</code>'
 
 
 @register.filter(name="french_wordcount")

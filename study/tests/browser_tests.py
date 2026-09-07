@@ -6487,6 +6487,11 @@ class BrowserTests(StaticLiveServerTestCase):
             lesson for lesson in load_course_catalog().lessons
             if lesson.id == "a1-sentence-foundations"
         )
+        reference = load_learning_catalog().lessons[0]
+        LearningLessonProgress.objects.bulk_create([
+            LearningLessonProgress(user=self.user, lesson_id=reading.id)
+            for reading in (lesson, reference)
+        ])
         self.page.goto(self.live_server_url + reverse("study:learn"))
         self.page.locator("[data-learning-search]").fill("conversational on from nous")
         row = self.page.locator("[data-learning-lesson]:visible")
@@ -6548,7 +6553,6 @@ class BrowserTests(StaticLiveServerTestCase):
         scope.locator("summary").click()
         expect(scope.locator("code")).to_have_text("On")
         self.assertNotIn("`", scope.inner_text())
-        reference = load_learning_catalog().lessons[0]
         self.page.goto(self.live_server_url + reverse("study:learn_lesson", args=[reference.slug]))
         expect(self.page.locator(".course-reading-layout")).to_have_count(0)
         expect(self.page.locator(".course-reading-intro")).to_have_count(0)
@@ -6566,10 +6570,19 @@ class BrowserTests(StaticLiveServerTestCase):
 
     def test_bundled_course_search_and_examples_render_across_levels(self):
         catalog = load_course_catalog()
-        for level in ("A1", "A2", "B1", "B2", "C1-preparation"):
-            lesson = next(
+        lessons = [
+            next(
                 lesson for lesson in catalog.lessons if lesson.cefr_level == level
             )
+            for level in ("A1", "A2", "B1", "B2", "C1-preparation")
+        ]
+        # Keep this rendering journey read-only; starting and completing a
+        # reading session have separate browser coverage.
+        LearningLessonProgress.objects.bulk_create([
+            LearningLessonProgress(user=self.user, lesson_id=lesson.id) for lesson in lessons
+        ])
+        for lesson in lessons:
+            level = lesson.cefr_level
             with self.subTest(level=level):
                 self.page.goto(self.live_server_url + reverse("study:learn"))
                 self.page.locator("[data-learning-level-filter]").select_option(level)

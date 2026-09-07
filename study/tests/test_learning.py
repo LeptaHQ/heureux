@@ -396,6 +396,18 @@ class LearningContentTests(TestCase):
             rendered,
         )
 
+    def test_inline_french_paradigms_wrap_at_slashes_without_changing_text(self):
+        rendered = render_markdown_inline("Compare `cuis/cuis/cuit/cuisons/cuisez/cuisent`.")
+        self.assertEqual(
+            rendered,
+            'Compare <code lang="fr">cuis/<wbr>cuis/<wbr>cuit/<wbr>'
+            'cuisons/<wbr>cuisez/<wbr>cuisent</code>.',
+        )
+        self.assertEqual(
+            render_markdown_inline("Keep `<script>x</script>` literal."),
+            'Keep <code lang="fr">&lt;script&gt;x&lt;/<wbr>script&gt;</code> literal.',
+        )
+
     def test_bundled_curriculum_preserves_source_labels_and_noun_examples(self):
         catalog = load_learning_catalog(LEARNING_CONTENT_PATH)
         source_labels = {

@@ -1,0 +1,61 @@
+{
+  "version": 1, "id": "b2-subjunctive-two-stems", "slug": "b2-subjunctive-two-stems", "cefr_level": "B2", "topic": "verbs-tenses-moods",
+  "title": "Prendre, venir, tenir et vouloir", "summary": "Switch stems correctly and transfer the pattern to useful verb families.", "order": 3, "duration_minutes": 13,
+  "prerequisites": ["b2-subjunctive-irregular"], "objectives": ["Conjugate all persons of prendre, venir, tenir and vouloir in the present subjunctive.", "Apply family patterns to comprendre, apprendre, revenir and obtenir."],
+  "keywords": ["prenne", "vienne", "tienne", "veuille", "two stems", "subjonctif"],
+  "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}],
+  "related_legacy_ids": ["verbs-subjunctive"],
+  "sections": [
+    {"id": "prendre", "title": "Use prenn- or pren- according to the person",
+      "paragraphs": ["A stem is the part to which a person ending is attached. For prendre, the singular and ils/elles use prenn-; nous and vous use pren-. This resembles the indicative contrast ils prennent / nous prenons, but the subjunctive endings are still -e, -es, -e, -ions, -iez, -ent.", "Keep a derivative's prefix: comprendre gives comprenne, comprennes, comprenne, comprenions, compreniez, comprennent; apprendre gives apprenne, apprennes, apprenne, apprenions, appreniez, apprennent. The same transfer works for reprendre and surprendre."],
+      "points": ["The double n belongs only to the prenn- group."],
+      "examples": [
+        {"french": "que je **prenne**\nque tu **prennes**\nqu'il/elle/on **prenne**\nque nous **prenions**\nque vous **preniez**\nqu'ils/elles **prennent**", "english": "that I take\nthat you take\nthat he/she/one take\nthat we take\nthat you take\nthat they take", "note": "All six persons are needed to see both stems."},
+        {"french": "Il faut que nous **comprenions** le problème.", "english": "We need to understand the problem.", "note": "Nous keeps one n."},
+        {"french": "Il faut qu'elle **apprenne** à déléguer.", "english": "She needs to learn to delegate.", "note": "Third-person singular uses double n."}
+      ],
+      "mistakes": [{"avoid": "Il faut que vous prenniez le train.", "prefer": "Il faut que vous preniez le train.", "why": "Nous and vous use pren-, with one n."}]
+    },
+    {"id": "venir-tenir", "title": "Vienn-/ven- and tienn-/ten-",
+      "paragraphs": ["Venir and tenir have parallel stem changes. The singular and ils/elles use vienn- and tienn-; nous and vous use ven- and ten-. Their derivatives keep the prefix and the same six-person pattern.", "Revenir: revienne, reviennes, revienne, revenions, reveniez, reviennent. Obtenir: obtienne, obtiennes, obtienne, obtenions, obteniez, obtiennent. Devenir, intervenir, retenir and maintenir work in the same way with their own prefixes."],
+      "points": [],
+      "examples": [
+        {"french": "que je **vienne**\nque tu **viennes**\nqu'il/elle/on **vienne**\nque nous **venions**\nque vous **veniez**\nqu'ils/elles **viennent**", "english": "that I come\nthat you come\nthat he/she/one come\nthat we come\nthat you come\nthat they come", "note": "Do not import the future stem viendr-."},
+        {"french": "que je **tienne**\nque tu **tiennes**\nqu'il/elle/on **tienne**\nque nous **tenions**\nque vous **teniez**\nqu'ils/elles **tiennent**", "english": "that I hold\nthat you hold\nthat he/she/one hold\nthat we hold\nthat you hold\nthat they hold", "note": "Tenir can also mean keep, as in keep a promise."},
+        {"french": "Il faut que vous **reveniez** vendredi.", "english": "You need to come back on Friday.", "note": "The prefix re- does not change the pattern."},
+        {"french": "Il faut qu'ils **obtiennent** un accord écrit.", "english": "They need to obtain a written agreement.", "note": "Obtenir uses obtienn- here."},
+        {"french": "Il faut que nous **tenions** notre promesse.", "english": "We need to keep our promise.", "note": "Nous takes ten- + -ions."}
+      ],
+      "mistakes": [{"avoid": "Il faut que nous viennions.", "prefer": "Il faut que nous venions.", "why": "The nous stem is ven-, not vienn-."}]
+    },
+    {"id": "vouloir", "title": "Vouloir has its own two-stem pattern",
+      "paragraphs": ["Vouloir uses veuill- in the singular and ils/elles, but voul- for nous and vous. These forms can follow a construction requiring the subjunctive, such as bien que (although). Separately, an indicative vouloir in a main clause can itself select a subjunctive after que: je veux que tu viennes. The first verb does not automatically become subjunctive just because the second one is."],
+      "points": [],
+      "examples": [
+        {"french": "que je **veuille**\nque tu **veuilles**\nqu'il/elle/on **veuille**\nque nous **voulions**\nque vous **vouliez**\nqu'ils/elles **veuillent**", "english": "that I want\nthat you want\nthat he/she/one want\nthat we want\nthat you want\nthat they want", "note": "The ll of veuill- does not survive in voulions."},
+        {"french": "Bien que nous **voulions** aider, nous manquons de temps.", "english": "Although we want to help, we are short of time.", "note": "A real wish appears in the subjunctive after bien que."},
+        {"french": "Bien qu'elle **veuille** rester, elle doit partir.", "english": "Although she wants to stay, she has to leave.", "note": "Present subjunctive, not veillera or voudra."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "p01", "kind": "text", "pool": "practice", "section_id": "prendre", "prompt": "Present subjunctive of prendre only: Il faut que tu ___ des notes.", "choices": [], "answers": ["prennes"], "explanation": "Tu uses prenn-."},
+    {"id": "p02", "kind": "text", "pool": "practice", "section_id": "venir-tenir", "prompt": "Present subjunctive of venir only: Il faut que vous ___ ensemble.", "choices": [], "answers": ["veniez"], "explanation": "Vous uses ven-."},
+    {"id": "p03", "kind": "text", "pool": "practice", "section_id": "venir-tenir", "prompt": "Present subjunctive of tenir only: Il faut qu'elle ___ la porte.", "choices": [], "answers": ["tienne"], "explanation": "The singular uses tienn-."},
+    {"id": "p04", "kind": "text", "pool": "practice", "section_id": "vouloir", "prompt": "Supply vouloir in the present subjunctive: Bien qu'ils ___ participer, ils sont absents.", "choices": [], "answers": ["veuillent"], "explanation": "Ils uses veuill- + -ent."},
+    {"id": "c01", "kind": "text", "pool": "check", "section_id": "prendre", "prompt": "Supply comprendre in the present subjunctive: Il faut que vous ___ ce risque.", "choices": [], "answers": ["compreniez"], "explanation": "Com- + pren- + -iez."},
+    {"id": "c02", "kind": "text", "pool": "check", "section_id": "prendre", "prompt": "Supply apprendre in the present subjunctive: Il faut qu'ils ___ le code.", "choices": [], "answers": ["apprennent"], "explanation": "Ils uses apprenn-."},
+    {"id": "c03", "kind": "text", "pool": "check", "section_id": "venir-tenir", "prompt": "Supply obtenir in the present subjunctive: Il faut que nous ___ une réponse.", "choices": [], "answers": ["obtenions"], "explanation": "Nous uses obten-."},
+    {"id": "c04", "kind": "text", "pool": "check", "section_id": "venir-tenir", "prompt": "Supply revenir in the present subjunctive: Il faut qu'il ___ avant la nuit.", "choices": [], "answers": ["revienne"], "explanation": "Third-person singular uses revienn-."},
+    {"id": "c05", "kind": "text", "pool": "check", "section_id": "vouloir", "prompt": "Supply vouloir in the present subjunctive: Bien que vous ___ continuer, la séance est terminée.", "choices": [], "answers": ["vouliez"], "explanation": "Vous uses voul-."},
+    {"id": "c06", "kind": "text", "pool": "check", "section_id": "vouloir", "prompt": "Supply vouloir in the present subjunctive: Bien que je ___ économiser, je dois acheter un vélo.", "choices": [], "answers": ["veuille"], "explanation": "Je uses veuill-."},
+    {"id": "c07", "kind": "text", "pool": "check", "section_id": "venir-tenir", "prompt": "Supply maintenir in the present subjunctive: Il faut que tu ___ le contact.", "choices": [], "answers": ["maintiennes"], "explanation": "Maintain the prefix main- and the tienn- stem."},
+    {"id": "c08", "kind": "text", "pool": "check", "section_id": "prendre", "prompt": "Supply reprendre in the present subjunctive: Il faut que nous ___ la discussion.", "choices": [], "answers": ["reprenions"], "explanation": "Nous keeps one n."},
+    {"id": "r01", "kind": "text", "pool": "review", "section_id": "venir-tenir", "prompt": "Supply devenir in the present subjunctive: Il faut que cette information ___ publique.", "choices": [], "answers": ["devienne"], "explanation": "Devenir follows venir."},
+    {"id": "r02", "kind": "text", "pool": "review", "section_id": "prendre", "prompt": "Supply surprendre in the present subjunctive: Il faut que le spectacle ___ le public.", "choices": [], "answers": ["surprenne"], "explanation": "Surprendre follows prendre."},
+    {"id": "r03", "kind": "text", "pool": "review", "section_id": "vouloir", "prompt": "Supply vouloir in the present subjunctive: Bien que tu ___ partir, attends cinq minutes.", "choices": [], "answers": ["veuilles"], "explanation": "Tu uses veuill- + -es."},
+    {"id": "r04", "kind": "text", "pool": "review", "section_id": "venir-tenir", "prompt": "Supply retenir in the present subjunctive: Il faut que vous ___ ces trois dates.", "choices": [], "answers": ["reteniez"], "explanation": "Vous uses reten- + -iez."}
+  ],
+  "production_task": {"prompt": "Organize a volunteer handover. Write three requirements using a prendre-family verb, a venir-family verb and a tenir-family verb, plus one concession beginning bien que with vouloir.", "model_answer": "Il faut que les nouveaux bénévoles comprennent la procédure. Il faut que nous revenions demain. Il faut que chacun retienne le numéro d'urgence. Bien que nous voulions tout expliquer ce soir, il est déjà tard.", "translation": "The new volunteers need to understand the procedure. We need to come back tomorrow. Everyone needs to remember the emergency number. Although we want to explain everything this evening, it is already late.", "rubric": ["The four target families are represented.", "Nous/vous forms do not copy the singular stems.", "The concession contrasts two compatible facts.", "The handover instructions are specific and useful."]}
+}

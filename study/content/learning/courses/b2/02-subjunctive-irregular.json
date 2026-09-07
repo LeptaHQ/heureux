@@ -1,0 +1,66 @@
+{
+  "version": 1, "id": "b2-subjunctive-irregular", "slug": "b2-subjunctive-irregular", "cefr_level": "B2", "topic": "verbs-tenses-moods",
+  "title": "Six verbes essentiels au subjonctif", "summary": "Use complete subjunctive paradigms of être, avoir, aller, faire, pouvoir and savoir.", "order": 2, "duration_minutes": 15,
+  "prerequisites": ["b2-subjunctive-patterns"], "objectives": ["Produce all persons of six high-frequency irregular verbs.", "Keep subjunctive forms distinct from indicative and future forms."],
+  "keywords": ["sois", "aie", "aille", "fasse", "puisse", "sache", "irregular subjunctive"],
+  "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}],
+  "related_legacy_ids": ["verbs-subjunctive"],
+  "sections": [
+    {"id": "auxiliaries", "title": "Être and avoir: learn the whole pattern",
+      "paragraphs": ["An auxiliary is a helping verb used to form a compound tense. Être and avoir also function on their own: to be and to have. Their subjunctives are essential both independently and later in the past subjunctive.", "Neither verb follows the regular present-stem recipe. In aie, aies and aient, the final letters distinguish the persons even when they sound alike. Soyons, soyez, ayons and ayez contain y, not the regular -ions/-iez sequence."],
+      "points": ["Paradigms use je, tu, il/elle/on, nous, vous, ils/elles in that order."],
+      "examples": [
+        {"french": "que je **sois**\nque tu **sois**\nqu'il/elle/on **soit**\nque nous **soyons**\nque vous **soyez**\nqu'ils/elles **soient**", "english": "that I be\nthat you be\nthat he/she/one be\nthat we be\nthat you be\nthat they be", "note": "English subjunctive 'be' is shown to make the paradigm compact."},
+        {"french": "que j'**aie**\nque tu **aies**\nqu'il/elle/on **ait**\nque nous **ayons**\nque vous **ayez**\nqu'ils/elles **aient**", "english": "that I have\nthat you have\nthat he/she/one have\nthat we have\nthat you have\nthat they have", "note": "Do not confuse ait with est or aient with ont."},
+        {"french": "Il faut que nous **soyons** précis.", "english": "We need to be precise.", "note": "Être gives soyons with nous."},
+        {"french": "Il faut qu'elle **ait** une copie.", "english": "She needs to have a copy.", "note": "Avoir, third-person singular."},
+        {"french": "Il faut que vous **ayez** confiance.", "english": "You need to have confidence.", "note": "Ayez has no i."}
+      ],
+      "mistakes": [{"avoid": "Il faut que vous soyiez prêts.", "prefer": "Il faut que vous soyez prêts.", "why": "The exceptional vous form is soyez."}]
+    },
+    {"id": "actions", "title": "Aller changes stems; faire keeps fass-",
+      "paragraphs": ["Aller uses aill- in the singular and third-person plural, but all- for nous and vous. Faire uses fass- for every person. These are subjunctive stems: do not replace them with future ir- or fer-."],
+      "points": [],
+      "examples": [
+        {"french": "que j'**aille**\nque tu **ailles**\nqu'il/elle/on **aille**\nque nous **allions**\nque vous **alliez**\nqu'ils/elles **aillent**", "english": "that I go\nthat you go\nthat he/she/one go\nthat we go\nthat you go\nthat they go", "note": "Allions and alliez can also be imperfect indicative elsewhere; context identifies the mood."},
+        {"french": "que je **fasse**\nque tu **fasses**\nqu'il/elle/on **fasse**\nque nous **fassions**\nque vous **fassiez**\nqu'ils/elles **fassent**", "english": "that I do/make\nthat you do/make\nthat he/she/one do/make\nthat we do/make\nthat you do/make\nthat they do/make", "note": "Fass- remains throughout."},
+        {"french": "Il faut qu'ils **aillent** au dépôt.", "english": "They need to go to the depot.", "note": "Third-person plural has aill-."},
+        {"french": "Il faut que nous **allions** les chercher.", "english": "We need to go and get them.", "note": "Nous switches to all-."},
+        {"french": "Il faut que tu **fasses** une pause.", "english": "You need to take a break.", "note": "Faire une pause means take a break."}
+      ],
+      "mistakes": [{"avoid": "Il faut qu'ils faisent attention.", "prefer": "Il faut qu'ils fassent attention.", "why": "The subjunctive stem of faire is fass-, not fais-."}]
+    },
+    {"id": "ability-knowledge", "title": "Pouvoir and savoir have stable exceptional stems",
+      "paragraphs": ["Pouvoir uses puiss- and savoir uses sach-, followed by the ordinary subjunctive endings. Pouvoir describes ability or permission; savoir describes knowledge or knowing how. Il faut que requires a subjunctive even when the skill or information is perfectly real."],
+      "points": [],
+      "examples": [
+        {"french": "que je **puisse**\nque tu **puisses**\nqu'il/elle/on **puisse**\nque nous **puissions**\nque vous **puissiez**\nqu'ils/elles **puissent**", "english": "that I can\nthat you can\nthat he/she/one can\nthat we can\nthat you can\nthat they can", "note": "English can has no matching visible subjunctive."},
+        {"french": "que je **sache**\nque tu **saches**\nqu'il/elle/on **sache**\nque nous **sachions**\nque vous **sachiez**\nqu'ils/elles **sachent**", "english": "that I know\nthat you know\nthat he/she/one know\nthat we know\nthat you know\nthat they know", "note": "Do not use the indicative sav- stem here."},
+        {"french": "Il faut que chacun **puisse** entrer.", "english": "Everyone needs to be able to enter.", "note": "Chacun takes a singular verb."},
+        {"french": "Il faut que vous **sachiez** nager.", "english": "You need to know how to swim.", "note": "Savoir + infinitive describes a learned skill."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "p01", "kind": "text", "pool": "practice", "section_id": "auxiliaries", "prompt": "Present subjunctive of être only: Il faut que je ___ disponible.", "choices": [], "answers": ["sois"], "explanation": "Je takes sois."},
+    {"id": "p02", "kind": "text", "pool": "practice", "section_id": "auxiliaries", "prompt": "Present subjunctive of avoir only: Il faut qu'ils ___ les clés.", "choices": [], "answers": ["aient"], "explanation": "The plural spelling is aient."},
+    {"id": "p03", "kind": "text", "pool": "practice", "section_id": "actions", "prompt": "Present subjunctive of aller only: Il faut que tu ___ au bureau.", "choices": [], "answers": ["ailles"], "explanation": "Tu uses aill- + -es."},
+    {"id": "p04", "kind": "text", "pool": "practice", "section_id": "actions", "prompt": "Present subjunctive of faire only: Il faut que nous ___ un choix.", "choices": [], "answers": ["fassions"], "explanation": "Fass- + -ions."},
+    {"id": "p05", "kind": "text", "pool": "practice", "section_id": "ability-knowledge", "prompt": "Present subjunctive of pouvoir only: Il faut que vous ___ lire l'écran.", "choices": [], "answers": ["puissiez"], "explanation": "Puiss- + -iez."},
+    {"id": "p06", "kind": "text", "pool": "practice", "section_id": "ability-knowledge", "prompt": "Present subjunctive of savoir only: Il faut qu'elle ___ répondre.", "choices": [], "answers": ["sache"], "explanation": "Sach- + -e."},
+    {"id": "c01", "kind": "text", "pool": "check", "section_id": "auxiliaries", "prompt": "Supply être in the present subjunctive: Il faut qu'elles ___ présentes.", "choices": [], "answers": ["soient"], "explanation": "Third-person plural is soient."},
+    {"id": "c02", "kind": "text", "pool": "check", "section_id": "auxiliaries", "prompt": "Supply avoir in the present subjunctive: Il faut que tu ___ assez de temps.", "choices": [], "answers": ["aies"], "explanation": "Tu requires the written s."},
+    {"id": "c03", "kind": "text", "pool": "check", "section_id": "actions", "prompt": "Supply aller in the present subjunctive: Il faut que vous ___ à pied.", "choices": [], "answers": ["alliez"], "explanation": "Vous uses all-, not aill-."},
+    {"id": "c04", "kind": "text", "pool": "check", "section_id": "actions", "prompt": "Supply faire in the present subjunctive: Il faut qu'on ___ vite.", "choices": [], "answers": ["fasse"], "explanation": "On takes the singular fasse."},
+    {"id": "c05", "kind": "text", "pool": "check", "section_id": "ability-knowledge", "prompt": "Supply pouvoir in the present subjunctive: Il faut que nous ___ sortir.", "choices": [], "answers": ["puissions"], "explanation": "Nous takes -ions."},
+    {"id": "c06", "kind": "text", "pool": "check", "section_id": "ability-knowledge", "prompt": "Supply savoir in the present subjunctive: Il faut qu'ils ___ où aller.", "choices": [], "answers": ["sachent"], "explanation": "Sach- + -ent."},
+    {"id": "c07", "kind": "text", "pool": "check", "section_id": "auxiliaries", "prompt": "Supply avoir in the present subjunctive: Il faut que j'___ une autorisation.", "choices": [], "answers": ["aie"], "explanation": "Je has aie, without s or t."},
+    {"id": "c08", "kind": "text", "pool": "check", "section_id": "auxiliaries", "prompt": "Supply être in the present subjunctive: Il faut que nous ___ attentifs.", "choices": [], "answers": ["soyons"], "explanation": "Nous uses soyons."},
+    {"id": "r01", "kind": "text", "pool": "review", "section_id": "actions", "prompt": "Supply aller in the present subjunctive: Il faut qu'elle ___ voir le gardien.", "choices": [], "answers": ["aille"], "explanation": "Third-person singular has aill-."},
+    {"id": "r02", "kind": "text", "pool": "review", "section_id": "actions", "prompt": "Supply faire in the present subjunctive: Il faut que vous ___ moins de bruit.", "choices": [], "answers": ["fassiez"], "explanation": "Fass- + -iez."},
+    {"id": "r03", "kind": "text", "pool": "review", "section_id": "ability-knowledge", "prompt": "Supply pouvoir in the present subjunctive: Il faut qu'ils ___ se reposer.", "choices": [], "answers": ["puissent"], "explanation": "Puiss- + -ent."},
+    {"id": "r04", "kind": "text", "pool": "review", "section_id": "ability-knowledge", "prompt": "Supply savoir in the present subjunctive: Il faut que tu ___ mon adresse.", "choices": [], "answers": ["saches"], "explanation": "Sach- + -es."}
+  ],
+  "production_task": {"prompt": "A colleague is preparing a first aid workshop. Write four requirements with il faut que and four of this lesson's verbs. Explain who needs which resource or ability.", "model_answer": "Il faut que la salle soit calme. Il faut que nous ayons une trousse de secours. Il faut que vous fassiez une démonstration. Il faut que tous les participants puissent voir vos gestes.", "translation": "The room needs to be quiet. We need to have a first aid kit. You need to give a demonstration. All the participants need to be able to see your movements.", "rubric": ["Four different target verbs have correct stems and person endings.", "Each requirement names a clear subject.", "The requirements fit the workshop context.", "Avoir and être are chosen for meaning, not simply because both are irregular."]}
+}

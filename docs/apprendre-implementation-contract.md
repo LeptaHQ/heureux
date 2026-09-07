@@ -151,3 +151,62 @@ Verified target minimums for NCLC 9+: listening 523, reading 524, speaking 14/20
 ## Completion report from each owner
 
 Give commit SHA, exact files, lesson/topic/example/item counts, checks run, grammar/source questions, remaining limitations, and any integration contracts needing attention. Do not say “perfect” or “fully equivalent” based on schema tests. Do not stop after writing only a few samples: the assigned scope must be fully authored and reviewed.
+
+## Teaching-depth follow-up
+
+The follow-up baseline is published commit `1e94f93c723fb11361137e8bc7d23adb18ac6231`: 120 A1–B2 lessons, nine preparation lessons and 479 topic mappings. The next review examines publicly accessible teaching bodies, rather than treating index-title coverage as evidence of matching explanation depth.
+
+### Source use and honest scope
+
+- Read each assigned benchmark's actual public teaching body. Use exact URLs from the benchmark/coverage files, follow ordinary public redirects and respect access restrictions. No authenticated question-bank extraction, access-control workarounds or bulk endpoint probing.
+- Compare underlying grammatical facts and instructional needs: formation, meaning, scope, contrasts, exceptions, register, decision methods, correction rationale and contextual application.
+- Do not reproduce or closely paraphrase the source's prose, tips, example bank, exercise bank or teaching sequence. Do not turn the audit into a substitute copy of the source course. New teaching and exercises must be independently written for our existing curriculum; use primary French references for disputed rules.
+- Public lesson text is not the entire product. Subscriber questions, interactive assessment, community discussion and linked audio/video are outside this audit unless specifically and lawfully inspected. Inaccessible or partial material stays explicitly unassessed.
+- Do not assume the reference is infallible. Qualify oversimplifications where authoritative grammar evidence warrants it. Do not invent gaps merely to increase a change count.
+
+### Published-data preservation
+
+- Level owners may edit only their level's course JSON, coverage ledger and new depth-audit JSON. The preparation bridge and preserved reference library are outside this follow-up authoring scope.
+- Preserve lesson IDs, slugs, section IDs, item IDs, sources and cross-level preparation links. Prefer additive, coherently named teaching sections and useful examples over wholesale rewrites that disturb saved annotation text. Make targeted factual corrections where necessary and report them.
+- Keep `version: 1`: it is the schema version. Content and item revisions already have computed hashes. Do not mutate historical learner attempts or pretend that an edited old item is unseen.
+- Use stable new IDs for genuinely new exercises. Assess each newly introduced distinction with clear, constrained tasks and independent contexts; do not manufacture freshness by changing only a name, number or superficial wording.
+- Expand check/review banks where real instructional gaps require it. No filler quotas or copied questions. The existing global question-uniqueness, constructed-answer and coverage requirements still apply.
+- Keep English explanations and faithful French/English pairs, complete relevant paradigms and noun headwords with articles/genders. Include usable decision steps and meaningful contrasts rather than simply longer paragraphs.
+- No new UI panels on reading pages. The existing teaching-section renderer and separate practice area remain the interface.
+
+### Depth audit records
+
+Each level owns `study/content/learning/depth/<level>.json`, with this separate report schema. It is not an extra field in course lessons or a claim of external certification.
+
+```json
+{
+  "version": 1,
+  "level": "A1",
+  "baseline_commit": "1e94f93c723fb11361137e8bc7d23adb18ac6231",
+  "scope": "public-lesson-text",
+  "entries": [
+    {
+      "source_url": "exact benchmark URL",
+      "source_title": "exact benchmark title",
+      "checked_on": "2026-09-07",
+      "access": "read",
+      "finding": "enriched",
+      "note": "A brief original factual gap or adequacy judgement, not a summary of the source lesson.",
+      "evidence": [
+        {"lesson_id": "a1-example", "section_ids": ["decision"], "practice_ids": ["depth-01"]}
+      ],
+      "references": [
+        {"url": "actual additional grammar reference consulted", "purpose": "Why this reference was needed."}
+      ]
+    }
+  ]
+}
+```
+
+`access` is `read`, `partial` or `unavailable`; `finding` is `sufficient`, `enriched`, `reference-qualified` or `not-assessed`. A partial/unavailable entry must use `not-assessed`, explain its limitation and must not be counted as a completed depth comparison. `references` may be empty when no additional source was needed. Evidence must resolve to real teaching and exercise IDs in the same level. All 134/165/96/84 benchmark rows must be accounted for exactly once, with actual access and review status, not fabricated completion.
+
+### Assessment workstream
+
+Evaluate verified public product descriptions separately from undocumented algorithms or validation claims. Do not infer a proprietary formula from marketing language. Original improvements may make learning practice responsive to recent difficulty, improve section coverage in checks and report which sections remain untested. Preserve server-owned grading, finite-bank/freshness honesty, delayed-review rules, frozen results, account lifecycle and clean reading pages. Do not introduce an unvalidated mastery percentage, official-looking score, new pass threshold or claim of empirical equivalence.
+
+The coordinator owns the depth-report validator, integration checks and final release record. Each author uses at most one independent editorial review of the new/changed teaching, questions and depth decisions, with focused follow-up for corrections. Report exact pages actually read, inaccessible pages, meaningful improvements, new exercise counts, preserved identities and remaining limits. Publish only a coherent completed follow-up, not another title-only coverage claim.

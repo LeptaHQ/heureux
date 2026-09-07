@@ -5,7 +5,7 @@
   "cefr_level": "B1",
   "topic": "verbs-tenses-moods",
   "title": "Construire un projet au futur",
-  "summary": "Form the simple future and coordinate events with quand and pendant que.",
+  "summary": "Form the simple future and coordinate events with `quand` and `pendant que`.",
   "order": 4,
   "duration_minutes": 12,
   "prerequisites": [],
@@ -20,29 +20,29 @@
     {
       "id": "build",
       "title": "One verb form, six endings",
-      "paragraphs": ["The simple future presents an event as later than now: a prediction, commitment or planned step. It is not restricted to the distant future. Aller in the present plus an infinitive also expresses the future, often connecting a plan or prediction more closely to the present situation.", "For regular -er and -ir verbs, keep the whole infinitive and add -ai, -as, -a, -ons, -ez, -ont. For verbs such as attendre, répondre, prendre and mettre, remove only the final -e first. A stem is the part to which these endings attach. Some other verbs have special stems, taught in the following lessons."],
-      "points": ["Il, elle and on share one ending; ils and elles share another.", "Keep the written e of verbs such as jouer and créer even when it is not heard.", "Vocabulary: un atelier (masculine), a workshop; une affiche (feminine), a poster."],
+      "paragraphs": ["The simple future presents an event as later than now: a prediction, commitment or planned step. It is not restricted to the distant future. `Aller` in the present plus an infinitive also expresses the future, often connecting a plan or prediction more closely to the present situation.", "For regular `-er` and `-ir` verbs, keep the whole infinitive and add `-ai, -as, -a, -ons, -ez, -ont`. For verbs such as `attendre`, `répondre`, `prendre` and `mettre`, remove only the final `-e` first. A stem is the part to which these endings attach. Some other verbs have special stems, taught in the following lessons."],
+      "points": ["`Il`, `elle` and `on` share one ending; `ils` and `elles` share another.", "Keep the written `e` of verbs such as `jouer` and `créer` even when it is not heard.", "Vocabulary: `un atelier` (masculine), a workshop; `une affiche` (feminine), a poster."],
       "examples": [
-        {"french": "je **préparerai**\ntu **prépareras**\nil/elle/on **préparera**\nnous **préparerons**\nvous **préparerez**\nils/elles **prépareront**", "english": "I will prepare\nyou will prepare (singular)\nhe/she/one will prepare\nwe will prepare\nyou will prepare (plural or polite)\nthey will prepare", "note": "Préparer keeps its infinitive as its stem."},
-        {"french": "je **finirai**\ntu **finiras**\nil/elle/on **finira**\nnous **finirons**\nvous **finirez**\nils/elles **finiront**", "english": "I will finish\nyou will finish (singular)\nhe/she/one will finish\nwe will finish\nyou will finish (plural or polite)\nthey will finish", "note": "Do not carry the present plural -iss- into the future."},
-        {"french": "j'**attendrai**\ntu **attendras**\nil/elle/on **attendra**\nnous **attendrons**\nvous **attendrez**\nils/elles **attendront**", "english": "I will wait\nyou will wait (singular)\nhe/she/one will wait\nwe will wait\nyou will wait (plural or polite)\nthey will wait", "note": "Attendre loses only its last e."},
-        {"french": "Vous **créerez** une affiche pour l'atelier.", "english": "You will create a poster for the workshop.", "note": "Créer keeps both written e letters before the ending."},
-        {"french": "Nous **prendrons** le train de huit heures.", "english": "We will take the eight o'clock train.", "note": "Prendre gives prendr-, not the present plural stem pren-."}
+        {"french": "je **préparerai**\ntu **prépareras**\nil/elle/on **préparera**\nnous **préparerons**\nvous **préparerez**\nils/elles **prépareront**", "english": "I will prepare\nyou will prepare (singular)\nhe/she/one will prepare\nwe will prepare\nyou will prepare (plural or polite)\nthey will prepare", "note": "`Préparer` keeps its infinitive as its stem."},
+        {"french": "je **finirai**\ntu **finiras**\nil/elle/on **finira**\nnous **finirons**\nvous **finirez**\nils/elles **finiront**", "english": "I will finish\nyou will finish (singular)\nhe/she/one will finish\nwe will finish\nyou will finish (plural or polite)\nthey will finish", "note": "Do not carry the present plural `-iss-` into the future."},
+        {"french": "j'**attendrai**\ntu **attendras**\nil/elle/on **attendra**\nnous **attendrons**\nvous **attendrez**\nils/elles **attendront**", "english": "I will wait\nyou will wait (singular)\nhe/she/one will wait\nwe will wait\nyou will wait (plural or polite)\nthey will wait", "note": "`Attendre` loses only its last `e`."},
+        {"french": "Vous **créerez** une affiche pour l'atelier.", "english": "You will create a poster for the workshop.", "note": "`Créer` keeps both written `e` letters before the ending."},
+        {"french": "Nous **prendrons** le train de huit heures.", "english": "We will take the eight o'clock train.", "note": "`Prendre` gives `prendr-`, not the present plural stem `pren-`."}
       ],
       "mistakes": [
-        {"avoid": "Ils finisseront demain.", "prefer": "Ils finiront demain.", "why": "Use finir- plus -ont, not the present-tense finiss- stem."},
-        {"avoid": "Je répondreai ce soir.", "prefer": "Je répondrai ce soir.", "why": "Drop the final e of répondre before adding -ai."}
+        {"avoid": "Ils finisseront demain.", "prefer": "Ils finiront demain.", "why": "Use `finir-` plus `-ont`, not the present-tense `finiss-` stem."},
+        {"avoid": "Je répondreai ce soir.", "prefer": "Je répondrai ce soir.", "why": "Drop the final `e` of `répondre` before adding `-ai`."}
       ]
     },
     {
       "id": "sequence",
       "title": "Future events inside time clauses",
-      "paragraphs": ["A time clause is a small sentence locating another event in time. When quand (when) or pendant que (while) introduces an event that will happen later, French normally uses the future there too. English often uses the present in the corresponding clause.", "This is about meaning, not a ban on present forms after quand: Quand je travaille, je coupe mon téléphone describes a present habit. Also distinguish a condition introduced by si: Si tu arrives tôt, tu aideras uses a present condition, not a future one."],
-      "points": ["Quand places an event at a point in time; pendant que highlights an overlapping activity.", "An event already completed before another future event may need the future perfect; the examples here concern events happening at that future time."],
+      "paragraphs": ["A time clause is a small sentence locating another event in time. When `quand` (when) or `pendant que` (while) introduces an event that will happen later, French normally uses the future there too. English often uses the present in the corresponding clause.", "This is about meaning, not a ban on present forms after `quand`: `Quand je travaille, je coupe mon téléphone` describes a present habit. Also distinguish a condition introduced by `si`: `Si tu arrives tôt, tu aideras` uses a present condition, not a future one."],
+      "points": ["`Quand` places an event at a point in time; `pendant que` highlights an overlapping activity.", "An event already completed before another future event may need the future perfect; the examples here concern events happening at that future time."],
       "examples": [
         {"french": "**Quand** tu **arriveras**, nous commencerons.", "english": "When you arrive, we will begin.", "note": "Both events are future, despite English arrive."},
         {"french": "**Pendant que** vous **installerez** les tables, je préparerai le café.", "english": "While you set up the tables, I will prepare the coffee.", "note": "The activities will overlap."},
-        {"french": "**Si** le train arrive tôt, nous marcherons jusqu'au musée.", "english": "If the train arrives early, we will walk to the museum.", "note": "A future possibility with conditional si takes a present verb in the si clause."},
+        {"french": "**Si** le train arrive tôt, nous marcherons jusqu'au musée.", "english": "If the train arrives early, we will walk to the museum.", "note": "A future possibility with conditional `si` takes a present verb in the `si` clause."},
         {"french": "**Quand** je travaille chez moi, je ferme la porte.", "english": "When I work at home, I close the door.", "note": "A repeated present habit is not changed into the future."}
       ],
       "mistakes": []
@@ -67,7 +67,7 @@
     {"id": "item-16", "kind": "text", "pool": "review", "section_id": "sequence", "prompt": "Supply travailler for tomorrow's overlapping activity: Pendant que nous ___, tu te reposeras.", "choices": [], "answers": ["travaillerons"], "explanation": "The future has the same time reference on both sides."}
   ],
   "production_task": {
-    "prompt": "You are coordinating a community workshop tomorrow. Write four sentences assigning tasks. Include nous and vous future forms, one quand clause and one pendant que clause.",
+    "prompt": "You are coordinating a community workshop tomorrow. Write four sentences assigning tasks. Include `nous` and `vous` future forms, one `quand` clause and one `pendant que` clause.",
     "model_answer": "Nous préparerons la salle à neuf heures. Vous installerez les tables. Quand les enfants arriveront, nous commencerons l'atelier. Pendant que vous expliquerez les règles, je distribuerai le matériel.",
     "translation": "We will prepare the room at nine o'clock. You will set up the tables. When the children arrive, we will begin the workshop. While you explain the rules, I will hand out the materials.",
     "rubric": ["The future endings match each subject.", "Both future time clauses use future forms.", "The plan makes clear who does each task and when.", "Do not count this self-reviewed writing as an independently assessed check."]

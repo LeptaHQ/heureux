@@ -1,52 +1,52 @@
 {
   "version": 1, "id": "b1-present-stem-changes", "slug": "b1-present-stem-changes", "cefr_level": "B1", "topic": "verbs-tenses-moods",
   "title": "Trois familles irrégulières au présent",
-  "summary": "Use valoir, mourir and acquérir without forcing them into regular verb patterns.",
+  "summary": "Use `valoir`, `mourir` and `acquérir` without forcing them into regular verb patterns.",
   "order": 1, "duration_minutes": 13, "prerequisites": ["a2-present-receive-drive"],
-  "objectives": ["Use all present forms of valoir, mourir and acquérir.", "Transfer acquérir's pattern to conquérir and distinguish quérir."],
+  "objectives": ["Use all present forms of `valoir`, `mourir` and `acquérir`.", "Transfer `acquérir`'s pattern to `conquérir` and distinguish `quérir`."],
   "keywords": ["valoir", "mourir", "acquérir", "conquérir", "requérir", "present stems"],
   "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}, {"label": "Le Robert: quérir as an old defective verb", "url": "https://dictionnaire.lerobert.com/definition/querir"}],
   "related_legacy_ids": ["verbs-present-patterns", "expressions-avoir-faire-il-faut"],
   "sections": [
     {
-      "id": "value", "title": "Valoir: value, worth and worthwhile action",
-      "paragraphs": ["Valoir means to be worth. Its singular forms end in -x, -x, -t, while the plural uses val-. Il vaut mieux followed by an infinitive means it is better to do something. Valoir la peine means to be worthwhile; it is not the same as coûter, which states a price paid.", "Vocabulary: une peine (feminine), effort or trouble in valoir la peine; un détour (masculine), a detour; une compétence (feminine), a skill."],
-      "points": ["The il in il vaut mieux is an impersonal subject: it does not refer to a man.", "Personal forms such as nous valons occur when comparing people's or things' worth, but il/elle vaut and ils/elles valent are especially frequent."],
+      "id": "value", "title": "`Valoir`: value, worth and worthwhile action",
+      "paragraphs": ["`Valoir` means to be worth. Its singular forms end in `-x, -x, -t`, while the plural uses `val-`. `Il vaut mieux` followed by an infinitive means it is better to do something. `Valoir la peine` means to be worthwhile; it is not the same as `coûter`, which states a price paid.", "Vocabulary: `une peine` (feminine), effort or trouble in `valoir la peine`; `un détour` (masculine), a detour; `une compétence` (feminine), a skill."],
+      "points": ["The `il` in `il vaut mieux` is an impersonal subject: it does not refer to a man.", "Personal forms such as `nous valons` occur when comparing people's or things' worth, but `il/elle vaut` and `ils/elles valent` are especially frequent."],
       "examples": [
-        {"french": "je **vaux**\ntu **vaux**\nil/elle/on **vaut**\nnous **valons**\nvous **valez**\nils/elles **valent**", "english": "I am worth\nyou are worth (singular)\nhe/she/one is worth\nwe are worth\nyou are worth (plural or polite)\nthey are worth", "note": "Keep the written x in je and tu."},
-        {"french": "Ces deux appareils **valent** le même prix.", "english": "These two devices are worth the same amount.", "note": "The plural subject needs valent."},
+        {"french": "je **vaux**\ntu **vaux**\nil/elle/on **vaut**\nnous **valons**\nvous **valez**\nils/elles **valent**", "english": "I am worth\nyou are worth (singular)\nhe/she/one is worth\nwe are worth\nyou are worth (plural or polite)\nthey are worth", "note": "Keep the written `x` in `je` and `tu`."},
+        {"french": "Ces deux appareils **valent** le même prix.", "english": "These two devices are worth the same amount.", "note": "The plural subject needs `valent`."},
         {"french": "Il **vaut mieux** vérifier l'adresse.", "english": "It is better to check the address.", "note": "An infinitive follows this recommendation."},
         {"french": "Cela **vaut la peine** de faire un détour pour admirer cette vue.", "english": "It is worth making a detour to admire this view.", "note": "Worthwhile effort rather than a monetary cost."}
       ],
-      "mistakes": [{"avoid": "Ces billets valont vingt euros.", "prefer": "Ces billets valent vingt euros.", "why": "The present third-person plural is valent, not valont."}]
+      "mistakes": [{"avoid": "Ces billets valont vingt euros.", "prefer": "Ces billets valent vingt euros.", "why": "The present third-person plural is `valent`, not `valont`."}]
     },
     {
-      "id": "life", "title": "Mourir: meur- around mour-",
-      "paragraphs": ["Mourir means to die. The singular and third-person plural use meur-, but nous and vous use mour-. The final consonants are not a guide to pronunciation: meurs, meurt and meurent normally sound alike. The expression mourir de faim can exaggerate ordinary hunger; it does not necessarily describe an emergency."],
-      "points": ["Do not confuse mourir (to die) with tuer (to kill), which takes a direct object."],
+      "id": "life", "title": "`Mourir`: `meur-` around `mour-`",
+      "paragraphs": ["`Mourir` means to die. The singular and third-person plural use `meur-`, but `nous` and `vous` use `mour-`. The final consonants are not a guide to pronunciation: `meurs`, `meurt` and `meurent` normally sound alike. The expression `mourir de faim` can exaggerate ordinary hunger; it does not necessarily describe an emergency."],
+      "points": ["Do not confuse `mourir` (to die) with `tuer` (to kill), which takes a direct object."],
       "examples": [
-        {"french": "je **meurs**\ntu **meurs**\nil/elle/on **meurt**\nnous **mourons**\nvous **mourez**\nils/elles **meurent**", "english": "I die / am dying\nyou die / are dying (singular)\nhe/she/one dies / is dying\nwe die / are dying\nyou die / are dying (plural or polite)\nthey die / are dying", "note": "The two plural middle forms keep ou."},
+        {"french": "je **meurs**\ntu **meurs**\nil/elle/on **meurt**\nnous **mourons**\nvous **mourez**\nils/elles **meurent**", "english": "I die / am dying\nyou die / are dying (singular)\nhe/she/one dies / is dying\nwe die / are dying\nyou die / are dying (plural or polite)\nthey die / are dying", "note": "The two plural middle forms keep `ou`."},
         {"french": "Sans eau, ces plantes **meurent**.", "english": "Without water, these plants die.", "note": "A general observation in the present."},
         {"french": "Nous **mourons de faim** après cette longue marche.", "english": "We are starving after this long walk.", "note": "An everyday exaggeration in this context."}
       ],
-      "mistakes": [{"avoid": "Les plantes mourent.", "prefer": "Les plantes meurent.", "why": "Use meur- for ils/elles, not the nous stem mour-."}]
+      "mistakes": [{"avoid": "Les plantes mourent.", "prefer": "Les plantes meurent.", "why": "Use `meur-` for `ils/elles`, not the `nous` stem `mour-`."}]
     },
     {
-      "id": "acquisition", "title": "Acquérir and related -quérir verbs",
-      "paragraphs": ["Acquérir means to acquire: an object, a right or a skill. It alternates acquiers/acquiert, acquérons/acquérez and acquièrent. Notice both the i and the grave accent in acquièrent. Conquérir (to conquer or win over), reconquérir (to win back) and requérir (to require, more formal) follow the same endings and stem alternation after their prefixes.", "Full parallel forms: conquérir gives je conquiers, tu conquiers, il/elle/on conquiert, nous conquérons, vous conquérez, ils/elles conquièrent; requérir gives je requiers, tu requiers, il/elle/on requiert, nous requérons, vous requérez, ils/elles requièrent. Reconquérir adds re- to every conquérir form. The old verb quérir is mainly encountered as an infinitive in aller quérir, to go and fetch; do not invent a regular present from it."],
-      "points": ["Acquérir is not regular like finir: there is no acquérissons.", "Everyday acheter means buy; acquérir has a wider, often more formal meaning."],
+      "id": "acquisition", "title": "`Acquérir` and related `-quérir` verbs",
+      "paragraphs": ["`Acquérir` means to acquire: an object, a right or a skill. It alternates `acquiers/acquiert`, `acquérons/acquérez` and `acquièrent`. Notice both the `i` and the grave accent in `acquièrent`. `Conquérir` (to conquer or win over), `reconquérir` (to win back) and `requérir` (to require, more formal) follow the same endings and stem alternation after their prefixes.", "Full parallel forms: `conquérir` gives `je conquiers, tu conquiers, il/elle/on conquiert, nous conquérons, vous conquérez, ils/elles conquièrent`; `requérir` gives `je requiers, tu requiers, il/elle/on requiert, nous requérons, vous requérez, ils/elles requièrent`. `Reconquérir` adds `re-` to every `conquérir` form. The old verb `quérir` is mainly encountered as an infinitive in `aller quérir`, to go and fetch; do not invent a regular present from it."],
+      "points": ["`Acquérir` is not regular like `finir`: there is no `acquérissons`.", "Everyday `acheter` means buy; `acquérir` has a wider, often more formal meaning."],
       "examples": [
         {"french": "j'**acquiers**\ntu **acquiers**\nil/elle/on **acquiert**\nnous **acquérons**\nvous **acquérez**\nils/elles **acquièrent**", "english": "I acquire\nyou acquire (singular)\nhe/she/one acquires\nwe acquire\nyou acquire (plural or polite)\nthey acquire", "note": "Three stem shapes must be recognized."},
-        {"french": "Vous **acquérez** de nouvelles compétences.", "english": "You are acquiring new skills.", "note": "The vous form has é and no i after qu."},
-        {"french": "Ces réparations **requièrent** du temps.", "english": "These repairs require time.", "note": "Requérir follows the same third-person plural pattern."},
-        {"french": "La troupe **conquiert** un nouveau public.", "english": "The troupe is winning over a new audience.", "note": "Conquérir can have a nonmilitary meaning."}
+        {"french": "Vous **acquérez** de nouvelles compétences.", "english": "You are acquiring new skills.", "note": "The `vous` form has `é` and no `i` after `qu`."},
+        {"french": "Ces réparations **requièrent** du temps.", "english": "These repairs require time.", "note": "`Requérir` follows the same third-person plural pattern."},
+        {"french": "La troupe **conquiert** un nouveau public.", "english": "The troupe is winning over a new audience.", "note": "`Conquérir` can have a nonmilitary meaning."}
       ],
-      "mistakes": [{"avoid": "Nous acquérissons de l'expérience.", "prefer": "Nous acquérons de l'expérience.", "why": "Acquérir does not use the regular -ir plural -iss- pattern."}]
+      "mistakes": [{"avoid": "Nous acquérissons de l'expérience.", "prefer": "Nous acquérons de l'expérience.", "why": "`Acquérir` does not use the regular `-ir` plural `-iss-` pattern."}]
     },
     {
       "id": "formal-enquiry", "title": "Reconnaître et employer s'enquérir de",
-      "paragraphs": ["S'enquérir de means inquire about or ask after. It is formal, especially useful to recognize in reports or correspondence; se renseigner sur or demander des nouvelles de is often more natural in everyday conversation, depending on what is being asked. Do not confuse enquiring with acquiring: s'enquérir is reflexive and retains de before the subject of the enquiry.", "Its complete present follows the familiar stem alternation with reflexive pronouns: je m'enquiers, tu t'enquiers, il/elle/on s'enquiert, nous nous enquérons, vous vous enquérez, ils/elles s'enquièrent. The s' in the infinitive is part of the reflexive construction; en at the beginning of enquérir is part of the verb, not a separate quantity pronoun to move."],
-      "points": ["Vocabulary: un état (masculine), a state or condition; une livraison (feminine), a delivery."],
+      "paragraphs": ["`S'enquérir de` means inquire about or ask after. It is formal, especially useful to recognize in reports or correspondence; `se renseigner sur` or `demander des nouvelles de` is often more natural in everyday conversation, depending on what is being asked. Do not confuse enquiring with acquiring: `s'enquérir` is reflexive and retains `de` before the subject of the enquiry.", "Its complete present follows the familiar stem alternation with reflexive pronouns: `je m'enquiers, tu t'enquiers, il/elle/on s'enquiert, nous nous enquérons, vous vous enquérez, ils/elles s'enquièrent`. The `s'` in the infinitive is part of the reflexive construction; `en` at the beginning of `enquérir` is part of the verb, not a separate quantity pronoun to move."],
+      "points": ["Vocabulary: `un état` (masculine), a state or condition; `une livraison` (feminine), a delivery."],
       "examples": [
         {"french": "La coordinatrice **s'enquiert de** l'état des livraisons.", "english": "The coordinator enquires about the status of the deliveries.", "note": "A formal report may use this construction."},
         {"french": "Au téléphone, nous **demandons des nouvelles de** la livraison.", "english": "On the phone, we ask for an update on the delivery.", "note": "A more ordinary way to ask for news in this context."}
@@ -74,5 +74,5 @@
     {"id": "depth-formal-inquiry-form", "kind": "text", "pool": "check", "section_id": "formal-enquiry", "prompt": "Complete this formal report with present s'enquérir and de: Les inspectrices ___ l'état du bâtiment.", "choices": [], "answers": ["s'enquièrent de"], "explanation": "Third-person plural uses s'enquièrent, with the grave accent, followed by de."},
     {"id": "depth-inquiry-register", "kind": "choice", "pool": "review", "section_id": "formal-enquiry", "prompt": "In a formal email, Je m'enquiers de votre disponibilité means which of the following?", "choices": ["I am asking about your availability.", "I am acquiring your available time."], "answers": ["I am asking about your availability."], "explanation": "S'enquérir de means enquire about; it is not acquérir, and its formal register suits the email."}
   ],
-  "production_task": {"prompt": "Write a short message about a demanding training course. Say what skills participants acquire, whether the effort is worthwhile, and use mourir de faim as a clearly figurative reaction after a long session.", "model_answer": "Nous acquérons des compétences utiles. Les exercices requièrent de la concentration, mais ce cours vaut la peine. Après trois heures de travail, nous mourons de faim. Il vaut mieux prévoir une pause.", "translation": "We are acquiring useful skills. The exercises require concentration, but this course is worthwhile. After three hours of work, we are starving. It is better to plan a break.", "rubric": ["Use the correct stem for nous and for a plural noun subject.", "Use valoir for worth or a recommendation, not as a synonym for every use of cost.", "Make the exaggerated expression clear from context."]}
+  "production_task": {"prompt": "Write a short message about a demanding training course. Say what skills participants acquire, whether the effort is worthwhile, and use `mourir de faim` as a clearly figurative reaction after a long session.", "model_answer": "Nous acquérons des compétences utiles. Les exercices requièrent de la concentration, mais ce cours vaut la peine. Après trois heures de travail, nous mourons de faim. Il vaut mieux prévoir une pause.", "translation": "We are acquiring useful skills. The exercises require concentration, but this course is worthwhile. After three hours of work, we are starving. It is better to plan a break.", "rubric": ["Use the correct stem for `nous` and for a plural noun subject.", "Use `valoir` for worth or a recommendation, not as a synonym for every use of cost.", "Make the exaggerated expression clear from context."]}
 }

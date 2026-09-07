@@ -1,55 +1,55 @@
 {
   "version": 1, "id": "b1-future-outcomes", "slug": "b1-future-outcomes", "cefr_level": "B1", "topic": "verbs-tenses-moods",
   "title": "Voir, envoyer, recevoir et courir au futur",
-  "summary": "Use voir, envoyer, recevoir and courir families with their distinct future stems.",
+  "summary": "Use `voir`, `envoyer`, `recevoir` and `courir` families with their distinct future stems.",
   "order": 8, "duration_minutes": 13, "prerequisites": ["b1-future-spelling", "b1-future-commitments"],
-  "objectives": ["Use verr-, enverr-, recevr- and courr- across all persons.", "Avoid overextending irregular forms to prévoir and pourvoir."],
+  "objectives": ["Use `verr-`, `enverr-`, `recevr-` and `courr-` across all persons.", "Avoid overextending irregular forms to `prévoir` and `pourvoir`."],
   "keywords": ["voir", "envoyer", "recevoir", "apercevoir", "concevoir", "percevoir", "courir", "future"],
   "sources": [{"label": "University of Texas: irregular future stems", "url": "https://www.laits.utexas.edu/tex/gr/taf3.html"}],
   "related_legacy_ids": ["verbs-future"],
   "sections": [
     {
-      "id": "seeing-sending", "title": "Verr- and enverr- are useful exceptions",
-      "paragraphs": ["Voir uses verr- in the future. Revoir (see again) adds re-: reverr-. Envoyer uses enverr-, not the -oyer pattern envoier-. Renvoyer (send back) uses renverr-. Each takes the same six future endings.", "Do not give every verb ending in -voir the same stem. Prévoir (foresee or plan) has prévoir-: je prévoirai, tu prévoiras, il/elle/on prévoira, nous prévoirons, vous prévoirez, ils/elles prévoiront. Pourvoir (provide for or fill a post) has pourvoir- with the same endings. Vocabulary: un reçu (masculine), a receipt; une consigne (feminine), an instruction."],
-      "points": ["Revoir: je reverrai, tu reverras, il/elle/on reverra, nous reverrons, vous reverrez, ils/elles reverront.", "Renvoyer: je renverrai, tu renverras, il/elle/on renverra, nous renverrons, vous renverrez, ils/elles renverront."],
+      "id": "seeing-sending", "title": "`Verr-` and `enverr-` are useful exceptions",
+      "paragraphs": ["`Voir` uses `verr-` in the future. `Revoir` (see again) adds `re-`: `reverr-`. `Envoyer` uses `enverr-`, not the `-oyer` pattern `envoier-`. `Renvoyer` (send back) uses `renverr-`. Each takes the same six future endings.", "Do not give every verb ending in `-voir` the same stem. `Prévoir` (foresee or plan) has `prévoir-`: `je prévoirai, tu prévoiras, il/elle/on prévoira, nous prévoirons, vous prévoirez, ils/elles prévoiront`. `Pourvoir` (provide for or fill a post) has `pourvoir-` with the same endings. Vocabulary: `un reçu` (masculine), a receipt; `une consigne` (feminine), an instruction."],
+      "points": ["`Revoir: je reverrai, tu reverras, il/elle/on reverra, nous reverrons, vous reverrez, ils/elles reverront`.", "`Renvoyer: je renverrai, tu renverras, il/elle/on renverra, nous renverrons, vous renverrez, ils/elles renverront`."],
       "examples": [
-        {"french": "je **verrai**\ntu **verras**\nil/elle/on **verra**\nnous **verrons**\nvous **verrez**\nils/elles **verront**", "english": "I will see\nyou will see (singular)\nhe/she/one will see\nwe will see\nyou will see (plural or polite)\nthey will see", "note": "Voir uses a double r."},
-        {"french": "j'**enverrai**\ntu **enverras**\nil/elle/on **enverra**\nnous **enverrons**\nvous **enverrez**\nils/elles **enverront**", "english": "I will send\nyou will send (singular)\nhe/she/one will send\nwe will send\nyou will send (plural or polite)\nthey will send", "note": "Envoyer does not follow nettoyer."},
-        {"french": "Nous **reverrons** les consignes ensemble.", "english": "We will go over the instructions again together.", "note": "Revoir can mean review as well as see again."},
-        {"french": "Je **prévoirai** une marge de sécurité.", "english": "I will allow a safety margin.", "note": "Prévoir does not use préverr-."}
+        {"french": "je **verrai**\ntu **verras**\nil/elle/on **verra**\nnous **verrons**\nvous **verrez**\nils/elles **verront**", "english": "I will see\nyou will see (singular)\nhe/she/one will see\nwe will see\nyou will see (plural or polite)\nthey will see", "note": "`Voir` uses a double `r`."},
+        {"french": "j'**enverrai**\ntu **enverras**\nil/elle/on **enverra**\nnous **enverrons**\nvous **enverrez**\nils/elles **enverront**", "english": "I will send\nyou will send (singular)\nhe/she/one will send\nwe will send\nyou will send (plural or polite)\nthey will send", "note": "`Envoyer` does not follow `nettoyer`."},
+        {"french": "Nous **reverrons** les consignes ensemble.", "english": "We will go over the instructions again together.", "note": "`Revoir` can mean review as well as see again."},
+        {"french": "Je **prévoirai** une marge de sécurité.", "english": "I will allow a safety margin.", "note": "`Prévoir` does not use `préverr-`."}
       ],
-      "mistakes": [{"avoid": "Vous envoierez le reçu.", "prefer": "Vous enverrez le reçu.", "why": "Envoyer is an exception to the usual -oyer future pattern."}]
+      "mistakes": [{"avoid": "Vous envoierez le reçu.", "prefer": "Vous enverrez le reçu.", "why": "`Envoyer` is an exception to the usual `-oyer` future pattern."}]
     },
     {
-      "id": "receiving", "title": "-Cevoir becomes -cevr-",
-      "paragraphs": ["Recevoir gives recevr-. Other common -cevoir verbs follow it: apercevoir (catch sight of) gives apercevr-, percevoir (perceive or collect) percevr-, concevoir (conceive or design) concevr- and décevoir (disappoint) décevr-. There is no cedilla before e in these stems.", "To form a derivative for any person, preserve its prefix and use -cevrai, -cevras, -cevra, -cevrons, -cevrez, -cevront. Concevoir, for example: je concevrai, tu concevras, il/elle/on concevra, nous concevrons, vous concevrez, ils/elles concevront."],
-      "points": ["Apercevoir is a brief perception; voir is the broader verb see."],
+      "id": "receiving", "title": "`-Cevoir` becomes `-cevr-`",
+      "paragraphs": ["`Recevoir` gives `recevr-`. Other common `-cevoir` verbs follow it: `apercevoir` (catch sight of) gives `apercevr-`, `percevoir` (perceive or collect) `percevr-`, `concevoir` (conceive or design) `concevr-` and `décevoir` (disappoint) `décevr-`. There is no cedilla before `e` in these stems.", "To form a derivative for any person, preserve its prefix and use `-cevrai, -cevras, -cevra, -cevrons, -cevrez, -cevront`. `Concevoir`, for example: `je concevrai, tu concevras, il/elle/on concevra, nous concevrons, vous concevrez, ils/elles concevront`."],
+      "points": ["`Apercevoir` is a brief perception; `voir` is the broader verb see."],
       "examples": [
-        {"french": "je **recevrai**\ntu **recevras**\nil/elle/on **recevra**\nnous **recevrons**\nvous **recevrez**\nils/elles **recevront**", "english": "I will receive\nyou will receive (singular)\nhe/she/one will receive\nwe will receive\nyou will receive (plural or polite)\nthey will receive", "note": "The stem loses the oi of the infinitive."},
-        {"french": "Depuis le pont, vous **apercevrez** le phare.", "english": "From the bridge, you will catch sight of the lighthouse.", "note": "Apercevoir shares recevr-'s family shape."},
-        {"french": "Cette version ne **décevra** pas les lecteurs.", "english": "This version will not disappoint readers.", "note": "Décevoir keeps its initial accent, but needs no ç before e."}
+        {"french": "je **recevrai**\ntu **recevras**\nil/elle/on **recevra**\nnous **recevrons**\nvous **recevrez**\nils/elles **recevront**", "english": "I will receive\nyou will receive (singular)\nhe/she/one will receive\nwe will receive\nyou will receive (plural or polite)\nthey will receive", "note": "The stem loses the `oi` of the infinitive."},
+        {"french": "Depuis le pont, vous **apercevrez** le phare.", "english": "From the bridge, you will catch sight of the lighthouse.", "note": "`Apercevoir` shares `recevr-`'s family shape."},
+        {"french": "Cette version ne **décevra** pas les lecteurs.", "english": "This version will not disappoint readers.", "note": "`Décevoir` keeps its initial accent, but needs no `ç` before `e`."}
       ],
-      "mistakes": [{"avoid": "Nous reçevrons une réponse.", "prefer": "Nous recevrons une réponse.", "why": "C already has its soft sound before e; do not use ç."}]
+      "mistakes": [{"avoid": "Nous reçevrons une réponse.", "prefer": "Nous recevrons une réponse.", "why": "`C` already has its soft sound before `e`; do not use `ç`."}]
     },
     {
-      "id": "running", "title": "Courir loses i and doubles r",
-      "paragraphs": ["Courir uses courr- rather than courir-. The same future change appears in parcourir (cover or travel through), accourir (rush over), recourir (resort to) and secourir (help or rescue): parcourr-, accourr-, recourr-, secourr-. Add -ai, -as, -a, -ons, -ez, -ont after each.", "Do not confuse courrons, we will run, with courons, we run. The extra r carries grammatical information even when pronunciation offers little help."],
-      "points": ["Recourir is followed by à: nous recourrons à une autre méthode."],
+      "id": "running", "title": "`Courir` loses `i` and doubles `r`",
+      "paragraphs": ["`Courir` uses `courr-` rather than `courir-`. The same future change appears in `parcourir` (cover or travel through), `accourir` (rush over), `recourir` (resort to) and `secourir` (help or rescue): `parcourr-, accourr-, recourr-, secourr-`. Add `-ai, -as, -a, -ons, -ez, -ont` after each.", "Do not confuse `courrons`, we will run, with `courons`, we run. The extra `r` carries grammatical information even when pronunciation offers little help."],
+      "points": ["`Recourir` is followed by `à`: `nous recourrons à une autre méthode`."],
       "examples": [
-        {"french": "je **courrai**\ntu **courras**\nil/elle/on **courra**\nnous **courrons**\nvous **courrez**\nils/elles **courront**", "english": "I will run\nyou will run (singular)\nhe/she/one will run\nwe will run\nyou will run (plural or polite)\nthey will run", "note": "Double r in every future form."},
-        {"french": "Les participantes **parcourront** la ville à pied.", "english": "The participants will travel through the city on foot.", "note": "Parcourir retains the prefix par-."},
-        {"french": "Nous **recourrons** à une carte papier si nécessaire.", "english": "We will use a paper map if necessary.", "note": "A courir-family verb need not describe physical running."}
+        {"french": "je **courrai**\ntu **courras**\nil/elle/on **courra**\nnous **courrons**\nvous **courrez**\nils/elles **courront**", "english": "I will run\nyou will run (singular)\nhe/she/one will run\nwe will run\nyou will run (plural or polite)\nthey will run", "note": "Double `r` in every future form."},
+        {"french": "Les participantes **parcourront** la ville à pied.", "english": "The participants will travel through the city on foot.", "note": "`Parcourir` retains the prefix `par-`."},
+        {"french": "Nous **recourrons** à une carte papier si nécessaire.", "english": "We will use a paper map if necessary.", "note": "A `courir`-family verb need not describe physical running."}
       ],
       "mistakes": []
     },
     {
       "id": "realising", "title": "Apercevoir quelque chose ou s'apercevoir de quelque chose",
-      "paragraphs": ["Apercevoir takes what you catch sight of directly. S'apercevoir de means become aware of or realize something, not literally see yourself. With a whole statement, use s'apercevoir que + clause. Keep the reflexive pronoun with this awareness meaning and keep de before a noun; do not combine de with que in this construction.", "The future stem stays apercevr-. Full reflexive forms: je m'apercevrai, tu t'apercevras, il/elle/on s'apercevra, nous nous apercevrons, vous vous apercevrez, ils/elles s'apercevront. Me, te and se elide before the initial vowel; nous and vous do not."],
-      "points": ["Vocabulary: une anomalie (feminine), an anomaly; une fumée (feminine), smoke."],
+      "paragraphs": ["`Apercevoir` takes what you catch sight of directly. `S'apercevoir de` means become aware of or realize something, not literally see yourself. With a whole statement, use `s'apercevoir que` + clause. Keep the reflexive pronoun with this awareness meaning and keep `de` before a noun; do not combine `de` with `que` in this construction.", "The future stem stays `apercevr-`. Full reflexive forms: `je m'apercevrai, tu t'apercevras, il/elle/on s'apercevra, nous nous apercevrons, vous vous apercevrez, ils/elles s'apercevront`. `Me`, `te` and `se` elide before the initial vowel; `nous` and `vous` do not."],
+      "points": ["Vocabulary: `une anomalie` (feminine), an anomaly; `une fumée` (feminine), smoke."],
       "examples": [
         {"french": "Du belvédère, vous **apercevrez** la fumée au-dessus des toits.", "english": "From the lookout, you will catch sight of the smoke above the roofs.", "note": "A direct object names what can be seen."},
-        {"french": "En comparant les factures, vous **vous apercevrez de** l'anomalie.", "english": "By comparing the invoices, you will become aware of the anomaly.", "note": "The reflexive construction plus de expresses realization."},
-        {"french": "Tu **t'apercevras que** les deux codes sont identiques.", "english": "You will realize that the two codes are identical.", "note": "Que introduces the whole statement; no de appears before it."}
+        {"french": "En comparant les factures, vous **vous apercevrez de** l'anomalie.", "english": "By comparing the invoices, you will become aware of the anomaly.", "note": "The reflexive construction plus `de` expresses realization."},
+        {"french": "Tu **t'apercevras que** les deux codes sont identiques.", "english": "You will realize that the two codes are identical.", "note": "`Que` introduces the whole statement; no `de` appears before it."}
       ],
       "mistakes": []
     }
@@ -78,5 +78,5 @@
     {"id": "depth-realise-clause", "kind": "text", "pool": "check", "section_id": "realising", "prompt": "Complete with s'apercevoir in the future and que, meaning realize that: Elle ___ le dossier est vide.", "choices": [], "answers": ["s'apercevra que"], "explanation": "A whole clause follows que; s' is the required reflexive pronoun, and there is no de before que."},
     {"id": "depth-glimpse-versus-realise", "kind": "choice", "pool": "review", "section_id": "realising", "prompt": "Which future sentence describes becoming aware of a mistake rather than catching sight of a physical object?", "choices": ["Ils s'apercevront de leur erreur.", "Ils apercevront une tour."], "answers": ["Ils s'apercevront de leur erreur."], "explanation": "S'apercevoir de is the awareness construction; apercevoir + object is visual perception."}
   ],
-  "production_task": {"prompt": "Write an itinerary update for a walking group. Include a message you will send, information they will receive, something they will see and the route they will cover.", "model_answer": "Je vous enverrai le plan ce soir. Vous recevrez aussi les consignes de sécurité. Depuis la colline, nous verrons le fleuve. Nous parcourrons ensuite le quartier du port.", "translation": "I will send you the map this evening. You will also receive the safety instructions. From the hill, we will see the river. We will then walk through the port neighbourhood.", "rubric": ["Keep the distinct stems for sending, receiving, seeing and covering a route.", "Use courr-, not courir-, in the derivative.", "Make the update a usable sequence of information."]}
+  "production_task": {"prompt": "Write an itinerary update for a walking group. Include a message you will send, information they will receive, something they will see and the route they will cover.", "model_answer": "Je vous enverrai le plan ce soir. Vous recevrez aussi les consignes de sécurité. Depuis la colline, nous verrons le fleuve. Nous parcourrons ensuite le quartier du port.", "translation": "I will send you the map this evening. You will also receive the safety instructions. From the hill, we will see the river. We will then walk through the port neighbourhood.", "rubric": ["Keep the distinct stems for sending, receiving, seeing and covering a route.", "Use `courr-`, not `courir-`, in the derivative.", "Make the update a usable sequence of information."]}
 }

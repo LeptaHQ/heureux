@@ -1,7 +1,7 @@
 {
   "version": 1, "id": "b1-future-spelling", "slug": "b1-future-spelling", "cefr_level": "B1", "topic": "verbs-tenses-moods",
   "title": "Les changements orthographiques au futur",
-  "summary": "Manage e/è, doubled consonants and y/i, including accepted traditional and revised spellings.",
+  "summary": "Manage `e/è`, doubled consonants and `y/i`, including accepted traditional and revised spellings.",
   "order": 6, "duration_minutes": 15, "prerequisites": ["b1-future-building"],
   "objectives": ["Build spelling-changing future stems.", "Recognize and accept both taught spelling variants."],
   "keywords": ["acheter", "lever", "appeler", "jeter", "préférer", "nettoyer", "essuyer", "payer", "1990 spelling"],
@@ -13,19 +13,19 @@
   "sections": [
     {
       "id": "accent-double", "title": "The changed stem stays changed for all persons",
-      "paragraphs": ["An unaccented e in stems such as lever and acheter becomes è before the future ending: lèver-, achèter-. Geler gives gèler-, mener gives mèner- and peser gives pèser-. Appeler and jeter instead keep a doubled consonant: appeller-, jetter-. Their derivatives rappeler and rejeter keep that pattern.", "These changes apply to every future person, including nous and vous. Use the full future endings -ai, -as, -a, -ons, -ez, -ont after the displayed stem. Thus jeter gives je jetterai, tu jetteras, il/elle/on jettera, nous jetterons, vous jetterez, ils/elles jetteront; lever gives je lèverai, tu lèveras, il/elle/on lèvera, nous lèverons, vous lèverez, ils/elles lèveront."],
-      "points": ["Vocabulary: une étiquette (feminine), a label; une étagère (feminine), a shelf.", "Not every -eter verb doubles t: acheter is achèter-, not acheterr- or achetter-."],
+      "paragraphs": ["An unaccented `e` in stems such as `lever` and `acheter` becomes `è` before the future ending: `lèver-, achèter-`. `Geler` gives `gèler-`, `mener` gives `mèner-` and `peser` gives `pèser-`. `Appeler` and `jeter` instead keep a doubled consonant: `appeller-, jetter-`. Their derivatives `rappeler` and `rejeter` keep that pattern.", "These changes apply to every future person, including `nous` and `vous`. Use the full future endings `-ai, -as, -a, -ons, -ez, -ont` after the displayed stem. Thus `jeter` gives `je jetterai, tu jetteras, il/elle/on jettera, nous jetterons, vous jetterez, ils/elles jetteront`; `lever` gives `je lèverai, tu lèveras, il/elle/on lèvera, nous lèverons, vous lèverez, ils/elles lèveront`."],
+      "points": ["Vocabulary: `une étiquette` (feminine), a label; `une étagère` (feminine), a shelf.", "Not every `-eter` verb doubles `t`: `acheter` is `achèter-`, not `acheterr-` or `achetter-`."],
       "examples": [
         {"french": "j'**achèterai**\ntu **achèteras**\nil/elle/on **achètera**\nnous **achèterons**\nvous **achèterez**\nils/elles **achèteront**", "english": "I will buy\nyou will buy (singular)\nhe/she/one will buy\nwe will buy\nyou will buy (plural or polite)\nthey will buy", "note": "The grave accent remains in all six forms."},
-        {"french": "j'**appellerai**\ntu **appelleras**\nil/elle/on **appellera**\nnous **appellerons**\nvous **appellerez**\nils/elles **appelleront**", "english": "I will call\nyou will call (singular)\nhe/she/one will call\nwe will call\nyou will call (plural or polite)\nthey will call", "note": "The doubled l remains even with nous and vous."},
-        {"french": "Nous **lèverons** les stores à huit heures.", "english": "We will raise the blinds at eight o'clock.", "note": "Unlike present nous levons, future nous lèverons has è."},
-        {"french": "Vous **jetterez** les étiquettes abîmées.", "english": "You will throw away the damaged labels.", "note": "Jeter retains tt throughout the future."}
+        {"french": "j'**appellerai**\ntu **appelleras**\nil/elle/on **appellera**\nnous **appellerons**\nvous **appellerez**\nils/elles **appelleront**", "english": "I will call\nyou will call (singular)\nhe/she/one will call\nwe will call\nyou will call (plural or polite)\nthey will call", "note": "The doubled `l` remains even with `nous` and `vous`."},
+        {"french": "Nous **lèverons** les stores à huit heures.", "english": "We will raise the blinds at eight o'clock.", "note": "Unlike present `nous levons`, future `nous lèverons` has `è`."},
+        {"french": "Vous **jetterez** les étiquettes abîmées.", "english": "You will throw away the damaged labels.", "note": "`Jeter` retains `tt` throughout the future."}
       ],
-      "mistakes": [{"avoid": "Nous acheterons une étagère.", "prefer": "Nous achèterons une étagère.", "why": "The future stem achèter- keeps è with nous too."}]
+      "mistakes": [{"avoid": "Nous acheterons une étagère.", "prefer": "Nous achèterons une étagère.", "why": "The future stem `achèter-` keeps `è` with `nous` too."}]
     },
     {
       "id": "variants", "title": "Two spelling traditions can both be correct",
-      "paragraphs": ["For verbs with é before the final consonant, traditional future spelling keeps é: préférerai, répéterai, compléterai. The 1990 rectifications permit è there: préfèrerai, répèterai, complèterai. Both are correct. Apply the chosen stem to every person: préférerai/préfèrerai, préféreras/préfèreras, préférera/préfèrera, préférerons/préfèrerons, préférerez/préfèrerez, préféreront/préfèreront.", "Many -eler and -eter verbs traditionally double the consonant but can use è under the rectifications: épeler gives épellerai or épèlerai; renouveler gives renouvellerai or renouvèlerai; étiqueter gives étiquetterai or étiquèterai. The alternatives persist with all six endings. Appeler, jeter and their derivatives are exceptions to that simplification: appellerai and jetterai remain the forms, not appèlerai or jèterai."],
+      "paragraphs": ["For verbs with `é` before the final consonant, traditional future spelling keeps `é`: `préférerai, répéterai, compléterai`. The 1990 rectifications permit `è` there: `préfèrerai, répèterai, complèterai`. Both are correct. Apply the chosen stem to every person: `préférerai/préfèrerai, préféreras/préfèreras, préférera/préfèrera, préférerons/préfèrerons, préférerez/préfèrerez, préféreront/préfèreront`.", "Many `-eler` and `-eter` verbs traditionally double the consonant but can use `è` under the rectifications: `épeler` gives `épellerai` or `épèlerai`; `renouveler` gives `renouvellerai` or `renouvèlerai`; `étiqueter` gives `étiquetterai` or `étiquèterai`. The alternatives persist with all six endings. `Appeler`, `jeter` and their derivatives are exceptions to that simplification: `appellerai` and `jetterai` remain the forms, not `appèlerai` or `jèterai`."],
       "points": ["A chosen spelling convention should be reasonably consistent, but either accepted form is valid in these exercises.", "This spelling choice does not change tense, person or meaning."],
       "examples": [
         {"french": "Tu **préféreras / préfèreras** peut-être le modèle pliable.", "english": "You may prefer the folding model.", "note": "Traditional and revised spelling are both shown."},
@@ -34,15 +34,15 @@
       "mistakes": []
     },
     {
-      "id": "y-i", "title": "Y becomes i, except that -ayer offers a choice",
-      "paragraphs": ["For -oyer and -uyer verbs, use i in the future stem: nettoyer gives nettoier-, employer emploier-, essuyer essuier- and appuyer appuier-. Envoyer and renvoyer are special: enverr- and renverr-, taught in the future outcomes lesson.", "For -ayer verbs, both i and y are accepted: payer gives paier- or payer-; essayer gives essaier- or essayer-. Payer's full forms are je paierai/payerai, tu paieras/payeras, il/elle/on paiera/payera, nous paierons/payerons, vous paierez/payerez, ils/elles paieront/payeront. Do not transfer this optional y to nettoyer or essuyer."],
-      "points": ["Essuyer follows the six endings without any other change: j'essuierai, tu essuieras, il/elle/on essuiera, nous essuierons, vous essuierez, ils/elles essuieront."],
+      "id": "y-i", "title": "`Y` becomes `i`, except that `-ayer` offers a choice",
+      "paragraphs": ["For `-oyer` and `-uyer` verbs, use `i` in the future stem: `nettoyer` gives `nettoier-`, `employer` `emploier-`, `essuyer` `essuier-` and `appuyer` `appuier-`. `Envoyer` and `renvoyer` are special: `enverr-` and `renverr-`, taught in the future outcomes lesson.", "For `-ayer` verbs, both `i` and `y` are accepted: `payer` gives `paier-` or `payer-`; `essayer` gives `essaier-` or `essayer-`. `Payer`'s full forms are `je paierai/payerai, tu paieras/payeras, il/elle/on paiera/payera, nous paierons/payerons, vous paierez/payerez, ils/elles paieront/payeront`. Do not transfer this optional `y` to `nettoyer` or `essuyer`."],
+      "points": ["`Essuyer` follows the six endings without any other change: `j'essuierai, tu essuieras, il/elle/on essuiera, nous essuierons, vous essuierez, ils/elles essuieront`."],
       "examples": [
-        {"french": "je **nettoierai**\ntu **nettoieras**\nil/elle/on **nettoiera**\nnous **nettoierons**\nvous **nettoierez**\nils/elles **nettoieront**", "english": "I will clean\nyou will clean (singular)\nhe/she/one will clean\nwe will clean\nyou will clean (plural or polite)\nthey will clean", "note": "The i is used throughout."},
-        {"french": "Vous **essuierez** le comptoir après le service.", "english": "You will wipe the counter after service.", "note": "Essuyer changes y to i."},
-        {"french": "Nous **paierons / payerons** en ligne.", "english": "We will pay online.", "note": "Both variants of payer are accepted."}
+        {"french": "je **nettoierai**\ntu **nettoieras**\nil/elle/on **nettoiera**\nnous **nettoierons**\nvous **nettoierez**\nils/elles **nettoieront**", "english": "I will clean\nyou will clean (singular)\nhe/she/one will clean\nwe will clean\nyou will clean (plural or polite)\nthey will clean", "note": "The `i` is used throughout."},
+        {"french": "Vous **essuierez** le comptoir après le service.", "english": "You will wipe the counter after service.", "note": "`Essuyer` changes `y` to `i`."},
+        {"french": "Nous **paierons / payerons** en ligne.", "english": "We will pay online.", "note": "Both variants of `payer` are accepted."}
       ],
-      "mistakes": [{"avoid": "Ils nettoyeront la salle.", "prefer": "Ils nettoieront la salle.", "why": "Unlike -ayer, -oyer normally requires i in the future stem."}]
+      "mistakes": [{"avoid": "Ils nettoyeront la salle.", "prefer": "Ils nettoieront la salle.", "why": "Unlike `-ayer`, `-oyer` normally requires `i` in the future stem."}]
     }
   ],
   "practice": [
@@ -68,5 +68,5 @@
     {"id": "item-20", "kind": "text", "pool": "check", "section_id": "variants", "prompt": "Supply compléter in the simple future: Vous ___ le formulaire. Either standard spelling is accepted.", "choices": [], "answers": ["compléterez", "complèterez"], "explanation": "Traditional é and revised è are both valid in the future stem."},
     {"id": "item-21", "kind": "text", "pool": "review", "section_id": "y-i", "prompt": "Supply employer in the simple future: L'équipe ___ une autre méthode.", "choices": [], "answers": ["emploiera"], "explanation": "-Oyer changes y to i; it does not share payer's optional y."}
   ],
-  "production_task": {"prompt": "Plan the reopening of a small shop in four sentences. Include an accent-changing future, a doubled-consonant future, an -oyer/-uyer future and an -ayer future. Choose either accepted spelling where alternatives exist.", "model_answer": "Nous achèterons de nouvelles étagères. J'appellerai le peintre lundi. Vous nettoierez les vitres avant l'ouverture. Nous paierons la facture après les travaux.", "translation": "We will buy new shelves. I will call the painter on Monday. You will clean the windows before opening. We will pay the invoice after the work.", "rubric": ["Keep each changed stem throughout its form.", "Do not extend payer's optional y to nettoyer.", "Use a coherent spelling convention without rejecting valid alternatives.", "Make the sequence of jobs understandable."]}
+  "production_task": {"prompt": "Plan the reopening of a small shop in four sentences. Include an accent-changing future, a doubled-consonant future, an `-oyer/-uyer` future and an `-ayer` future. Choose either accepted spelling where alternatives exist.", "model_answer": "Nous achèterons de nouvelles étagères. J'appellerai le peintre lundi. Vous nettoierez les vitres avant l'ouverture. Nous paierons la facture après les travaux.", "translation": "We will buy new shelves. I will call the painter on Monday. You will clean the windows before opening. We will pay the invoice after the work.", "rubric": ["Keep each changed stem throughout its form.", "Do not extend `payer`'s optional `y` to `nettoyer`.", "Use a coherent spelling convention without rejecting valid alternatives.", "Make the sequence of jobs understandable."]}
 }

@@ -1,28 +1,28 @@
 {
   "version": 1, "id": "b1-time-and-celebrations", "slug": "b1-time-and-celebrations", "cefr_level": "B1", "topic": "time-place-prepositions",
   "title": "Situer une durée et une fête",
-  "summary": "Choose present or compound past with negative depuis and use natural holiday date expressions.",
+  "summary": "Choose present or compound past with negative `depuis` and use natural holiday date expressions.",
   "order": 21, "duration_minutes": 13, "prerequisites": ["b1-negative-scope", "b1-indefinite-quantity-and-emphasis"],
-  "objectives": ["Distinguish an ongoing negative state from the absence of a completed event.", "Contrast depuis, pendant, il y a and en.", "Use à with common festivals and feminine saint's-day names."],
+  "objectives": ["Distinguish an ongoing negative state from the absence of a completed event.", "Contrast `depuis`, `pendant`, `il y a` and `en`.", "Use `à` with common festivals and feminine saint's-day names."],
   "keywords": ["depuis", "negative present", "negative passé composé", "Noël", "Pâques", "Saint-Valentin", "duration"],
   "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}, {"label": "Académie française: Aïd, lexical gender and festival names", "url": "https://www.dictionnaire-academie.fr/article/B0A00013"}],
   "related_legacy_ids": ["prepositions-time-duration", "daily-calendar"],
   "sections": [
     {
       "id": "depuis", "title": "An ongoing absence is not always the same kind of absence",
-      "paragraphs": ["Depuis marks a starting point or elapsed duration reaching the reference time. For a state or habit that is still true now, use the present, even where English uses have been: Je ne travaille plus ici depuis juin, I have not worked here since June / I no longer work here and have not since June.", "To say that a particular type of completed event has not occurred during the interval, the negative passé composé is often appropriate: Je n'ai pas reçu de réponse depuis lundi, I have not received a reply since Monday. Compare Je ne reçois plus de courrier depuis lundi, which presents an ongoing stopped delivery pattern. Do not use a mechanical rule that all negative depuis sentences take the same tense.", "Present and compound past can overlap when a verb can describe either a state or repeated events. The exercises specify the intended viewpoint and sometimes the tense explicitly; they do not reject another natural viewpoint in an unconstrained conversation."],
-      "points": ["Vocabulary: une réponse (feminine), a reply; le courrier (masculine), mail.", "The choice depends on aspect, the way the situation is viewed, as well as time."],
+      "paragraphs": ["`Depuis` marks a starting point or elapsed duration reaching the reference time. For a state or habit that is still true now, use the present, even where English uses have been: `Je ne travaille plus ici depuis juin`, I have not worked here since June / I no longer work here and have not since June.", "To say that a particular type of completed event has not occurred during the interval, the negative `passé composé` is often appropriate: `Je n'ai pas reçu de réponse depuis lundi`, I have not received a reply since Monday. Compare `Je ne reçois plus de courrier depuis lundi`, which presents an ongoing stopped delivery pattern. Do not use a mechanical rule that all negative `depuis` sentences take the same tense.", "Present and compound past can overlap when a verb can describe either a state or repeated events. The exercises specify the intended viewpoint and sometimes the tense explicitly; they do not reject another natural viewpoint in an unconstrained conversation."],
+      "points": ["Vocabulary: `une réponse` (feminine), a reply; `le courrier` (masculine), mail.", "The choice depends on aspect, the way the situation is viewed, as well as time."],
       "examples": [
         {"french": "Je **ne fume plus depuis** trois ans.", "english": "I haven't smoked for three years.", "note": "A continuing non-smoking habit is described in the present."},
         {"french": "Elle **n'habite plus** ici **depuis** janvier.", "english": "She hasn't lived here since January.", "note": "An ongoing residential state."},
         {"french": "Nous **n'avons reçu aucune réponse depuis** mardi.", "english": "We haven't received any reply since Tuesday.", "note": "No completed receipt event has occurred in the interval."},
         {"french": "Il **n'a pas appelé depuis** notre réunion.", "english": "He hasn't called since our meeting.", "note": "No call has occurred since the starting point."}
       ],
-      "mistakes": [{"avoid": "J'habite ici depuis il y a trois ans.", "prefer": "J'habite ici depuis trois ans.", "why": "For the ordinary elapsed-duration expression, use depuis directly with the duration. Il y a is not needed."}]
+      "mistakes": [{"avoid": "J'habite ici depuis il y a trois ans.", "prefer": "J'habite ici depuis trois ans.", "why": "For the ordinary elapsed-duration expression, use `depuis` directly with the duration. `Il y a` is not needed."}]
     },
     {
       "id": "duration-contrast", "title": "Four different time questions",
-      "paragraphs": ["Depuis answers since when or for how long up to the reference time. Pendant marks the duration of an activity without saying it continues now. Il y a + duration places a past event that long ago. En + duration gives the time needed to complete something. These expressions are not interchangeable translations of English for.", "Pour + duration can describe an intended span, particularly a planned stay or commitment: je pars pour trois jours. The context determines whether a duration is completed, ongoing or planned."],
+      "paragraphs": ["`Depuis` answers since when or for how long up to the reference time. `Pendant` marks the duration of an activity without saying it continues now. `Il y a` + duration places a past event that long ago. `En` + duration gives the time needed to complete something. These expressions are not interchangeable translations of English for.", "`Pour` + duration can describe an intended span, particularly a planned stay or commitment: `je pars pour trois jours`. The context determines whether a duration is completed, ongoing or planned."],
       "points": ["Use the tense and time expression together; a duration word alone does not settle every tense choice."],
       "examples": [
         {"french": "J'ai travaillé là-bas **pendant** six mois.", "english": "I worked there for six months.", "note": "A completed work period."},
@@ -32,28 +32,28 @@
     },
     {
       "id": "festival", "title": "Choose the whole holiday expression",
-      "paragraphs": ["Common time expressions include à Noël, at Christmas, and à Pâques, at Easter, normally without an article in these standard expressions. Use à la Toussaint, at All Saints' Day, and au Nouvel An, at New Year. Le jour de Noël names the day itself. Pour Noël can instead express a plan, gift occasion or target date, depending on context; it is not always a wrong substitute.", "Some regional or traditional usage says à la Noël. The exercises asking for the common no-article expression explicitly specify that choice. Dates such as le 14 juillet use a date article rather than an automatic à. Learn the phrase, not a universal rule that every celebration follows one article pattern."],
-      "points": ["Vocabulary: la Toussaint (feminine), All Saints' Day; le Nouvel An (masculine), New Year; Noël is normally treated as masculine in modern general use, with feminine regional/traditional usage also found.", "A cultural date expression does not imply that everyone celebrates that occasion."],
+      "paragraphs": ["Common time expressions include `à Noël`, at Christmas, and `à Pâques`, at Easter, normally without an article in these standard expressions. Use `à la Toussaint`, at All Saints' Day, and `au Nouvel An`, at New Year. `Le jour de Noël` names the day itself. `Pour Noël` can instead express a plan, gift occasion or target date, depending on context; it is not always a wrong substitute.", "Some regional or traditional usage says `à la Noël`. The exercises asking for the common no-article expression explicitly specify that choice. Dates such as `le 14 juillet` use a date article rather than an automatic `à`. Learn the phrase, not a universal rule that every celebration follows one article pattern."],
+      "points": ["Vocabulary: `la Toussaint` (feminine), All Saints' Day; `le Nouvel An` (masculine), New Year; `Noël` is normally treated as masculine in modern general use, with feminine regional/traditional usage also found.", "A cultural date expression does not imply that everyone celebrates that occasion."],
       "examples": [
         {"french": "Le centre sera fermé **à Noël**, mais ouvert **à Pâques**.", "english": "The centre will be closed at Christmas but open at Easter.", "note": "Two common no-article festival expressions."},
-        {"french": "Nous nous retrouverons **au Nouvel An**.", "english": "We will meet again at New Year.", "note": "À + le becomes au."}
+        {"french": "Nous nous retrouverons **au Nouvel An**.", "english": "We will meet again at New Year.", "note": "`À + le` becomes `au`."}
       ],
       "mistakes": []
     },
     {
-      "id": "saints-days", "title": "The implied fête explains la",
-      "paragraphs": ["A celebration named for a saint commonly takes la because the implied noun is la fête, a celebration: à la Saint-Valentin, à la Saint-Patrick, à la Saint-Jean, à la Sainte-Catherine. The saint's gender controls Saint/Sainte in the name, but not the feminine article of the feast.", "Distinguish the saint from the festival: saint Patrick refers to the person; la Saint-Patrick refers to the day. Festival names use a capital and a hyphen in these expressions."],
-      "points": ["Vocabulary: une fête (feminine), a celebration; la Saint-Valentin (feminine), Valentine's Day."],
+      "id": "saints-days", "title": "The implied `fête` explains `la`",
+      "paragraphs": ["A celebration named for a saint commonly takes `la` because the implied noun is `la fête`, a celebration: `à la Saint-Valentin`, `à la Saint-Patrick`, `à la Saint-Jean`, `à la Sainte-Catherine`. The saint's gender controls `Saint/Sainte` in the name, but not the feminine article of the feast.", "Distinguish the saint from the festival: `saint Patrick` refers to the person; `la Saint-Patrick` refers to the day. Festival names use a capital and a hyphen in these expressions."],
+      "points": ["Vocabulary: `une fête` (feminine), a celebration; `la Saint-Valentin` (feminine), Valentine's Day."],
       "examples": [
-        {"french": "L'association organise un repas **à la Saint-Patrick**.", "english": "The association organizes a meal on Saint Patrick's Day.", "note": "La refers to the celebration, not to the male saint."},
-        {"french": "Un atelier sera proposé **à la Sainte-Catherine**.", "english": "A workshop will be offered on Saint Catherine's Day.", "note": "Sainte agrees with the saint's name, while the festival remains feminine."}
+        {"french": "L'association organise un repas **à la Saint-Patrick**.", "english": "The association organizes a meal on Saint Patrick's Day.", "note": "`La` refers to the celebration, not to the male saint."},
+        {"french": "Un atelier sera proposé **à la Sainte-Catherine**.", "english": "A workshop will be offered on Saint Catherine's Day.", "note": "`Sainte` agrees with the saint's name, while the festival remains feminine."}
       ],
-      "mistakes": [{"avoid": "Nous organisons un concert au Saint-Patrick.", "prefer": "Nous organisons un concert à la Saint-Patrick.", "why": "The celebration takes la, with an implied feminine fête, not le for the saint."}]
+      "mistakes": [{"avoid": "Nous organisons un concert au Saint-Patrick.", "prefer": "Nous organisons un concert à la Saint-Patrick.", "why": "The celebration takes `la`, with an implied feminine `fête`, not `le` for the saint."}]
     },
     {
       "id": "duration-scope", "title": "Depuis peu ou sans événement depuis longtemps",
-      "paragraphs": ["Negation has scope: the part of the meaning that it denies. With an ongoing present state, ne ... pas depuis longtemps can deny a long duration rather than deny the state itself. Je ne travaille pas ici depuis longtemps can mean that I do work here, but started recently. With the passé composé, Je n'ai pas travaillé ici depuis longtemps instead says that no work here has occurred for a long time.", "To avoid an unintended interpretation, establish whether the person is doing the activity now. For a recent start, a positive reformulation with depuis peu is often clearer. For a long absence of events, give a last-event date or use the negative compound past. Ne ... plus in the present highlights that a former state has stopped; it does not mean recently started."],
-      "points": ["Depuis peu means for a short time / recently. Do not decide the meaning from pas alone."],
+      "paragraphs": ["Negation has scope: the part of the meaning that it denies. With an ongoing present state, `ne ... pas depuis longtemps` can deny a long duration rather than deny the state itself. `Je ne travaille pas ici depuis longtemps` can mean that I do work here, but started recently. With the `passé composé`, `Je n'ai pas travaillé ici depuis longtemps` instead says that no work here has occurred for a long time.", "To avoid an unintended interpretation, establish whether the person is doing the activity now. For a recent start, a positive reformulation with `depuis peu` is often clearer. For a long absence of events, give a last-event date or use the negative compound past. `Ne ... plus` in the present highlights that a former state has stopped; it does not mean recently started."],
+      "points": ["`Depuis peu` means for a short time / recently. Do not decide the meaning from `pas` alone."],
       "examples": [
         {"french": "Je **ne travaille pas ici depuis longtemps** : j'ai commencé mardi.", "english": "I haven't been working here long: I started on Tuesday.", "note": "The job is current; the duration is short."},
         {"french": "Je **n'ai pas travaillé ici depuis longtemps** : ma dernière mission date de 2018.", "english": "I haven't worked here in a long time: my last assignment was in 2018.", "note": "The long interval contains no work event here."},
@@ -63,12 +63,12 @@
     },
     {
       "id": "named-day", "title": "Une période de fête ou son jour précis",
-      "paragraphs": ["Le jour de + a celebration identifies the day more precisely than a general festival-period expression. Keep any article belonging to the celebration's name: le jour de Noël, le jour de la Saint-Jean, le jour de la Toussaint. The masculine le of le jour does not change the article inside the name that follows de.", "Other useful expressions are à Hanoucca and à l'Aïd. Learn the complete name with its article where present; a vowel does not automatically create an article. When an article is already needed, it elides before the vowel. For a notice, specify the intended celebration and local date rather than assuming that a festival always covers one day or falls on the same civil-calendar date."],
-      "points": ["Vocabulary: un jour (masculine), a day; Hanoucca (feminine), Hanukkah; l'Aïd (masculine), Eid, used for either of the two principal Muslim festivals in the consulted Academy entry."],
+      "paragraphs": ["`Le jour de` + a celebration identifies the day more precisely than a general festival-period expression. Keep any article belonging to the celebration's name: `le jour de Noël`, `le jour de la Saint-Jean`, `le jour de la Toussaint`. The masculine `le` of `le jour` does not change the article inside the name that follows `de`.", "Other useful expressions are `à Hanoucca` and `à l'Aïd`. Learn the complete name with its article where present; a vowel does not automatically create an article. When an article is already needed, it elides before the vowel. For a notice, specify the intended celebration and local date rather than assuming that a festival always covers one day or falls on the same civil-calendar date."],
+      "points": ["Vocabulary: `un jour` (masculine), a day; `Hanoucca` (feminine), Hanukkah; `l'Aïd` (masculine), Eid, used for either of the two principal Muslim festivals in the consulted Academy entry."],
       "examples": [
-        {"french": "La navette fonctionnera **le jour de la Saint-Jean**.", "english": "The shuttle will run on Saint John's Day.", "note": "Keep de la before the feminine festival name."},
+        {"french": "La navette fonctionnera **le jour de la Saint-Jean**.", "english": "The shuttle will run on Saint John's Day.", "note": "Keep `de la` before the feminine festival name."},
         {"french": "Une rencontre est prévue **à Hanoucca**.", "english": "A gathering is planned at Hanukkah.", "note": "This time expression has no article."},
-        {"french": "Les horaires changeront **le jour de l'Aïd**.", "english": "The opening hours will change on Eid day.", "note": "De precedes the name's elided article; confirm the actual date for the notice."}
+        {"french": "Les horaires changeront **le jour de l'Aïd**.", "english": "The opening hours will change on Eid day.", "note": "`De` precedes the name's elided article; confirm the actual date for the notice."}
       ],
       "mistakes": []
     }

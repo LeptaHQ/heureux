@@ -1,7 +1,7 @@
 {
   "version": 1, "id": "b1-gerund-actions", "slug": "b1-gerund-actions", "cefr_level": "B1", "topic": "verbs-tenses-moods",
   "title": "Relier deux actions avec le gérondif",
-  "summary": "Use en + present participle for simultaneous action, means and conditions with a shared subject.",
+  "summary": "Use `en` + present participle for simultaneous action, means and conditions with a shared subject.",
   "order": 25, "duration_minutes": 12, "prerequisites": ["b1-everyday-verb-distinctions"],
   "objectives": ["Form regular and three irregular gerunds.", "Keep the implied subject of the gerund the same as the main subject.", "Distinguish while/by meanings and retain reflexive pronouns."],
   "keywords": ["gérondif", "en -ant", "ayant", "étant", "sachant", "tout en", "simultaneity"],
@@ -9,39 +9,39 @@
   "related_legacy_ids": ["verbs-participle-gerund"],
   "sections": [
     {
-      "id": "formation", "title": "Start from nous, but do not keep a person ending",
-      "paragraphs": ["The gerund is en + a present participle. Usually remove -ons from the present nous form and add -ant: nous parlons gives en parlant; nous finissons gives en finissant; nous prenons gives en prenant. This form is not conjugated for different persons and does not agree in gender or number.", "Three common irregular forms are avoir: en ayant, être: en étant, savoir: en sachant. Spelling protects pronunciation: nous mangeons gives en mangeant, nous commençons gives en commençant. Verbs in -ger keep e before a; verbs in -cer need ç before a.", "A reflexive pronoun stays before the participle and agrees with the person doing the action: en me levant, en te levant, en se levant, en nous levant, en vous levant, en se levant. Negation can surround the participle group: en ne parlant pas, en ne se pressant pas."],
-      "points": ["Vocabulary: une notice (feminine), an instruction leaflet; une poignée (feminine), a handle.", "Do not confuse invariable verbal en fatiguant with an agreeing adjective such as une journée fatigante."],
+      "id": "formation", "title": "Start from `nous`, but do not keep a person ending",
+      "paragraphs": ["The gerund is `en` + a present participle. Usually remove `-ons` from the present `nous` form and add `-ant`: `nous parlons` gives `en parlant`; `nous finissons` gives `en finissant`; `nous prenons` gives `en prenant`. This form is not conjugated for different persons and does not agree in gender or number.", "Three common irregular forms are `avoir: en ayant`, `être: en étant`, `savoir: en sachant`. Spelling protects pronunciation: `nous mangeons` gives `en mangeant`, `nous commençons` gives `en commençant`. Verbs in `-ger` keep `e` before `a`; verbs in `-cer` need `ç` before `a`.", "A reflexive pronoun stays before the participle and agrees with the person doing the action: `en me levant, en te levant, en se levant, en nous levant, en vous levant, en se levant`. Negation can surround the participle group: `en ne parlant pas, en ne se pressant pas`."],
+      "points": ["Vocabulary: `une notice` (feminine), an instruction leaflet; `une poignée` (feminine), a handle.", "Do not confuse invariable verbal `en fatiguant` with an agreeing adjective such as `une journée fatigante`."],
       "examples": [
-        {"french": "Elle vérifie l'adresse **en lisant** le message.", "english": "She checks the address while reading the message.", "note": "Nous lisons gives lisant."},
-        {"french": "Nous discutons **en mangeant**.", "english": "We talk while eating.", "note": "Mangeant keeps e to preserve the soft g."},
-        {"french": "Tu progresseras **en commençant** par des phrases courtes.", "english": "You will improve by starting with short sentences.", "note": "Commençant needs ç."},
-        {"french": "**En te levant** plus tôt, tu éviteras la circulation.", "english": "By getting up earlier, you will avoid the traffic.", "note": "The reflexive te matches tu."}
+        {"french": "Elle vérifie l'adresse **en lisant** le message.", "english": "She checks the address while reading the message.", "note": "`Nous lisons` gives `lisant`."},
+        {"french": "Nous discutons **en mangeant**.", "english": "We talk while eating.", "note": "`Mangeant` keeps `e` to preserve the soft `g`."},
+        {"french": "Tu progresseras **en commençant** par des phrases courtes.", "english": "You will improve by starting with short sentences.", "note": "`Commençant` needs `ç`."},
+        {"french": "**En te levant** plus tôt, tu éviteras la circulation.", "english": "By getting up earlier, you will avoid the traffic.", "note": "The reflexive `te` matches `tu`."}
       ],
       "mistakes": [{"avoid": "Elles travaillent en parlantes.", "prefer": "Elles travaillent en parlant.", "why": "The gerund does not agree with the subject."}]
     },
     {
       "id": "meaning", "title": "While, by or if: read the relationship",
-      "paragraphs": ["The gerund can show simultaneity, two actions happening together: écouter en marchant. It can show a means or method: apprendre en pratiquant. In an instruction, it can imply a condition: en tournant à gauche, vous verrez la mairie, if you turn left, you will see the town hall.", "Tout en often reinforces simultaneity and can add a contrast: elle reste polie tout en exprimant son désaccord, she remains polite while expressing disagreement. It does not require a new tense or a change to the participle. Do not translate every English -ing form with en: I like reading is j'aime lire, not j'aime en lisant."],
+      "paragraphs": ["The gerund can show simultaneity, two actions happening together: `écouter en marchant`. It can show a means or method: `apprendre en pratiquant`. In an instruction, it can imply a condition: `en tournant à gauche, vous verrez la mairie`, if you turn left, you will see the town hall.", "`Tout en` often reinforces simultaneity and can add a contrast: `elle reste polie tout en exprimant son désaccord`, she remains polite while expressing disagreement. It does not require a new tense or a change to the participle. Do not translate every English -ing form with `en`: I like reading is `j'aime lire`, not `j'aime en lisant`."],
       "points": ["The gerund itself has no person or tense ending; the main clause supplies the time reference.", "Choose a relationship the reader can infer; if the link is unclear, write two complete clauses."],
       "examples": [
         {"french": "Vous économiserez du papier **en imprimant** recto verso.", "english": "You will save paper by printing on both sides.", "note": "A method for saving paper."},
         {"french": "**En tournant** à droite, vous trouverez l'accueil.", "english": "If you turn right, you will find reception.", "note": "An implied condition in directions."},
-        {"french": "Il prend des notes **tout en écoutant**.", "english": "He takes notes while listening.", "note": "Tout en emphasizes simultaneous actions."},
+        {"french": "Il prend des notes **tout en écoutant**.", "english": "He takes notes while listening.", "note": "`Tout en` emphasizes simultaneous actions."},
         {"french": "Elle reste calme **tout en refusant** la proposition.", "english": "She stays calm while refusing the proposal.", "note": "Simultaneity with a mild contrast."}
       ],
       "mistakes": []
     },
     {
       "id": "shared-subject", "title": "The same person normally does both actions",
-      "paragraphs": ["In standard careful usage, the implied subject of a gerund is the subject of the main clause. En ouvrant la porte, j'ai vu le jardin means I opened the door and I saw the garden. En ouvrant la porte, le jardin était magnifique incorrectly makes the garden the understood opener in an ordinary reading.", "When the subjects differ, use a full time clause such as pendant que or quand: Pendant que je préparais le repas, les enfants jouaient. Some fixed expressions do not follow the simple shared-subject test, but do not use those exceptions to justify unclear everyday sentences."],
+      "paragraphs": ["In standard careful usage, the implied subject of a gerund is the subject of the main clause. `En ouvrant la porte, j'ai vu le jardin` means I opened the door and I saw the garden. `En ouvrant la porte, le jardin était magnifique` incorrectly makes the garden the understood opener in an ordinary reading.", "When the subjects differ, use a full time clause such as `pendant que` or `quand`: `Pendant que je préparais le repas, les enfants jouaient`. Some fixed expressions do not follow the simple shared-subject test, but do not use those exceptions to justify unclear everyday sentences."],
       "points": ["Check the actor before trying to make a sentence shorter."],
       "examples": [
-        {"french": "**En étant** plus précis, nous éviterons les malentendus.", "english": "By being more precise, we will avoid misunderstandings.", "note": "Nous is the subject of both being and avoiding."},
-        {"french": "Elle accepte **en sachant** que le délai est court.", "english": "She accepts knowing that the deadline is short.", "note": "Savoir has the irregular form sachant."},
-        {"french": "**En ayant** tous les documents sous les yeux, vous pourrez répondre plus vite.", "english": "By having all the documents in front of you, you will be able to answer faster.", "note": "Avoir has the irregular form ayant."}
+        {"french": "**En étant** plus précis, nous éviterons les malentendus.", "english": "By being more precise, we will avoid misunderstandings.", "note": "`Nous` is the subject of both being and avoiding."},
+        {"french": "Elle accepte **en sachant** que le délai est court.", "english": "She accepts knowing that the deadline is short.", "note": "`Savoir` has the irregular form `sachant`."},
+        {"french": "**En ayant** tous les documents sous les yeux, vous pourrez répondre plus vite.", "english": "By having all the documents in front of you, you will be able to answer faster.", "note": "`Avoir` has the irregular form `ayant`."}
       ],
-      "mistakes": [{"avoid": "En arrivant à la gare, le train était déjà parti.", "prefer": "Quand je suis arrivé à la gare, le train était déjà parti.", "why": "The traveller arrived, not the train. Give the arriving action its own subject rather than attaching it to le train."}]
+      "mistakes": [{"avoid": "En arrivant à la gare, le train était déjà parti.", "prefer": "Quand je suis arrivé à la gare, le train était déjà parti.", "why": "The traveller arrived, not the train. Give the arriving action its own subject rather than attaching it to `le train`."}]
     }
   ],
   "practice": [
@@ -62,5 +62,5 @@
     {"id": "item-15", "kind": "choice", "pool": "review", "section_id": "meaning", "prompt": "Choose the standard expression for I like reading.", "choices": ["J'aime lire.", "J'aime en lisant."], "answers": ["J'aime lire."], "explanation": "An English -ing complement is not automatically a French gerund."},
     {"id": "item-16", "kind": "text", "pool": "review", "section_id": "formation", "prompt": "Give the gerund of réfléchir, including en.", "choices": [], "answers": ["en réfléchissant"], "explanation": "Nous réfléchissons supplies réfléchiss-."}
   ],
-  "production_task": {"prompt": "Explain how you prepare for an oral presentation. Use one gerund for a method, one for simultaneous activity, one reflexive gerund and one irregular form. Make sure the main subject performs each gerund action.", "model_answer": "Je prépare mon intervention en notant trois idées essentielles. Je m'entraîne tout en regardant l'horloge. En me préparant à voix haute, je repère les phrases trop longues. En étant plus précis, je rends mon message plus clair.", "translation": "I prepare my presentation by noting three essential ideas. I practise while watching the clock. By preparing aloud, I identify sentences that are too long. By being more precise, I make my message clearer.", "rubric": ["Derive regular forms from the present nous stem.", "Keep each gerund invariable.", "Match the reflexive pronoun and the implied actor to the main subject.", "Make the means or simultaneous relationship clear."]}
+  "production_task": {"prompt": "Explain how you prepare for an oral presentation. Use one gerund for a method, one for simultaneous activity, one reflexive gerund and one irregular form. Make sure the main subject performs each gerund action.", "model_answer": "Je prépare mon intervention en notant trois idées essentielles. Je m'entraîne tout en regardant l'horloge. En me préparant à voix haute, je repère les phrases trop longues. En étant plus précis, je rends mon message plus clair.", "translation": "I prepare my presentation by noting three essential ideas. I practise while watching the clock. By preparing aloud, I identify sentences that are too long. By being more precise, I make my message clearer.", "rubric": ["Derive regular forms from the present `nous` stem.", "Keep each gerund invariable.", "Match the reflexive pronoun and the implied actor to the main subject.", "Make the means or simultaneous relationship clear."]}
 }

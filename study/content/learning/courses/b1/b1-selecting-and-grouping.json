@@ -1,44 +1,44 @@
 {
   "version": 1, "id": "b1-selecting-and-grouping", "slug": "b1-selecting-and-grouping", "cefr_level": "B1", "topic": "pronouns-questions-negation",
   "title": "Désigner, répartir et qualifier sans répéter",
-  "summary": "Use celui/celle, certains d'entre eux, l'un/l'autre and quelque chose de.",
+  "summary": "Use `celui/celle`, `certains d'entre eux`, `l'un/l'autre` and `quelque chose de`.",
   "order": 16, "duration_minutes": 13, "prerequisites": ["b1-relative-connections"],
-  "objectives": ["Choose the correct demonstrative pronoun and supply its identifying complement.", "Refer to parts of a group with gender agreement.", "Use masculine adjective forms after quelque chose de."],
+  "objectives": ["Choose the correct demonstrative pronoun and supply its identifying complement.", "Refer to parts of a group with gender agreement.", "Use masculine adjective forms after `quelque chose de`."],
   "keywords": ["celui", "celle", "ceux", "celles", "certains", "d'entre", "l'un", "l'autre", "quelque chose de"],
   "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],
   "related_legacy_ids": ["grammar-demonstratives-reference", "pronouns-indefinites"],
   "sections": [
     {
       "id": "demonstratives", "title": "The one must match the noun it replaces",
-      "paragraphs": ["Celui replaces a masculine singular noun, celle a feminine singular noun, ceux a masculine or mixed plural and celles a feminine plural. These pronouns mean the one(s), not this + noun: ce dossier becomes celui de Nora, the one belonging to Nora.", "Normally identify the selection with de + a possessor, a relative clause, or -ci/-là: celle de gauche, celui qui arrive, ceux-ci, celles-là. Do not leave bare celui where a complete identifying expression is needed. Use celui-ci est pratique rather than celui pratique. The noun's grammatical gender determines the form even for objects."],
-      "points": ["Vocabulary: un dossier (masculine), a file; une affiche (feminine), a poster.", "The -ci/-là contrast can indicate nearer/farther or simply distinguish items in the conversation."],
+      "paragraphs": ["`Celui` replaces a masculine singular noun, `celle` a feminine singular noun, `ceux` a masculine or mixed plural and `celles` a feminine plural. These pronouns mean the one(s), not this + noun: `ce dossier` becomes `celui de Nora`, the one belonging to Nora.", "Normally identify the selection with `de` + a possessor, a relative clause, or `-ci/-là`: `celle de gauche`, `celui qui arrive`, `ceux-ci`, `celles-là`. Do not leave bare `celui` where a complete identifying expression is needed. Use `celui-ci est pratique` rather than `celui pratique`. The noun's grammatical gender determines the form even for objects."],
+      "points": ["Vocabulary: `un dossier` (masculine), a file; `une affiche` (feminine), a poster.", "The `-ci/-là` contrast can indicate nearer/farther or simply distinguish items in the conversation."],
       "examples": [
-        {"french": "Mon dossier est complet; **celui de Nora** ne l'est pas.", "english": "My file is complete; Nora's is not.", "note": "Celui replaces masculine dossier; neutral l' recalls the description complet."},
-        {"french": "Je préfère **celle qui** montre le jardin.", "english": "I prefer the one that shows the garden.", "note": "Celle refers to a previously mentioned feminine affiche."},
-        {"french": "Ces sièges sont occupés; **ceux-là** sont libres.", "english": "These seats are occupied; those ones are free.", "note": "Ceux is masculine plural."},
-        {"french": "Les petites tasses sont fragiles; prenez **celles du fond**.", "english": "The small cups are fragile; take the ones at the back.", "note": "Celle becomes celles for a feminine plural noun."}
+        {"french": "Mon dossier est complet; **celui de Nora** ne l'est pas.", "english": "My file is complete; Nora's is not.", "note": "`Celui` replaces masculine `dossier`; neutral `l'` recalls the description `complet`."},
+        {"french": "Je préfère **celle qui** montre le jardin.", "english": "I prefer the one that shows the garden.", "note": "`Celle` refers to a previously mentioned feminine `affiche`."},
+        {"french": "Ces sièges sont occupés; **ceux-là** sont libres.", "english": "These seats are occupied; those ones are free.", "note": "`Ceux` is masculine plural."},
+        {"french": "Les petites tasses sont fragiles; prenez **celles du fond**.", "english": "The small cups are fragile; take the ones at the back.", "note": "`Celle` becomes `celles` for a feminine plural noun."}
       ],
-      "mistakes": [{"avoid": "Je préfère celui affiche.", "prefer": "Je préfère cette affiche.", "why": "Before the noun, use a demonstrative determiner. Celui replaces a noun rather than accompanying it."}]
+      "mistakes": [{"avoid": "Je préfère celui affiche.", "prefer": "Je préfère cette affiche.", "why": "Before the noun, use a demonstrative determiner. `Celui` replaces a noun rather than accompanying it."}]
     },
     {
       "id": "group-parts", "title": "Some of them; one group and the others",
-      "paragraphs": ["Certains/certaines can stand alone for some people or things. To say some of them within an identified group, use certains d'entre eux for masculine or mixed referents and certaines d'entre elles for feminine referents. The plural adjective-pronoun and stressed pronoun agree with the group: certaines d'entre nous when nous is an all-female group.", "L'un ... l'autre and l'une ... l'autre distinguish two referents. Les uns ... les autres and les unes ... les autres divide a larger group. L'autre and les autres have the same written shape for either gender; un/une and uns/unes show the contrast. These expressions can also be reciprocal: ils s'aident l'un l'autre, they help each other. A required preposition stays: elles parlent les unes aux autres, they talk to each other."],
-      "points": ["Use d'entre, not a word-for-word de eux.", "L'une ... l'autre identifies two; certains ... les autres can divide a larger group without giving exact numbers."],
+      "paragraphs": ["`Certains/certaines` can stand alone for some people or things. To say some of them within an identified group, use `certains d'entre eux` for masculine or mixed referents and `certaines d'entre elles` for feminine referents. The plural adjective-pronoun and stressed pronoun agree with the group: `certaines d'entre nous` when `nous` is an all-female group.", "`L'un ... l'autre` and `l'une ... l'autre` distinguish two referents. `Les uns ... les autres` and `les unes ... les autres` divide a larger group. `L'autre` and `les autres` have the same written shape for either gender; `un/une` and `uns/unes` show the contrast. These expressions can also be reciprocal: `ils s'aident l'un l'autre`, they help each other. A required preposition stays: `elles parlent les unes aux autres`, they talk to each other."],
+      "points": ["Use `d'entre`, not a word-for-word `de eux`.", "`L'une ... l'autre` identifies two; `certains ... les autres` can divide a larger group without giving exact numbers."],
       "examples": [
-        {"french": "Les candidates attendent; **certaines d'entre elles** ont déjà visité les lieux.", "english": "The applicants are waiting; some of them have already visited the premises.", "note": "All-female group: certaines and elles."},
-        {"french": "J'ai deux propositions: **l'une** est rapide, **l'autre** est moins chère.", "english": "I have two proposals: one is quick, the other is cheaper.", "note": "Proposition is feminine."},
+        {"french": "Les candidates attendent; **certaines d'entre elles** ont déjà visité les lieux.", "english": "The applicants are waiting; some of them have already visited the premises.", "note": "All-female group: `certaines` and `elles`."},
+        {"french": "J'ai deux propositions: **l'une** est rapide, **l'autre** est moins chère.", "english": "I have two proposals: one is quick, the other is cheaper.", "note": "`Proposition` is feminine."},
         {"french": "**Les uns** préparent la salle; **les autres** accueillent les visiteurs.", "english": "Some prepare the room; the others welcome the visitors.", "note": "A larger group is divided by task."},
-        {"french": "Les participantes expliquent leurs idées **les unes aux autres**.", "english": "The participants explain their ideas to one another.", "note": "The à required for the recipient becomes aux before les autres."}
+        {"french": "Les participantes expliquent leurs idées **les unes aux autres**.", "english": "The participants explain their ideas to one another.", "note": "The `à` required for the recipient becomes `aux` before `les autres`."}
       ],
-      "mistakes": [{"avoid": "Certaines de elles sont disponibles.", "prefer": "Certaines d'entre elles sont disponibles.", "why": "Use the partitive-group expression d'entre elles."}]
+      "mistakes": [{"avoid": "Certaines de elles sont disponibles.", "prefer": "Certaines d'entre elles sont disponibles.", "why": "Use the partitive-group expression `d'entre elles`."}]
     },
     {
-      "id": "something", "title": "Quelque chose de takes a neutral masculine description",
-      "paragraphs": ["Quelque chose means something and is treated as masculine for an adjective added with de: quelque chose de nouveau. This differs from the ordinary feminine noun une chose nouvelle. Quelqu'un de uses the same linking de; the description can follow the known person's gender where appropriate. Our exercises focus on neutral quelque chose.", "Use d' before a vowel: quelque chose d'utile. The same useful pattern appears in rien de spécial, nothing special, and quoi de neuf?, what's new? Do not omit the connecting de."],
-      "points": ["Nouveau, intéressant, beau and spécial remain masculine singular after neutral quelque chose."],
+      "id": "something", "title": "`Quelque chose de` takes a neutral masculine description",
+      "paragraphs": ["`Quelque chose` means something and is treated as masculine for an adjective added with `de`: `quelque chose de nouveau`. This differs from the ordinary feminine noun `une chose nouvelle`. `Quelqu'un de` uses the same linking `de`; the description can follow the known person's gender where appropriate. Our exercises focus on neutral `quelque chose`.", "Use `d'` before a vowel: `quelque chose d'utile`. The same useful pattern appears in `rien de spécial`, nothing special, and `quoi de neuf?`, what's new? Do not omit the connecting `de`."],
+      "points": ["`Nouveau`, `intéressant`, `beau` and `spécial` remain masculine singular after neutral `quelque chose`."],
       "examples": [
-        {"french": "Nous cherchons **quelque chose de simple**.", "english": "We are looking for something simple.", "note": "De links the neutral expression to the adjective."},
-        {"french": "Elle a proposé **quelque chose de nouveau**.", "english": "She proposed something new.", "note": "Nouveau is masculine even though chose by itself is feminine."}
+        {"french": "Nous cherchons **quelque chose de simple**.", "english": "We are looking for something simple.", "note": "`De` links the neutral expression to the adjective."},
+        {"french": "Elle a proposé **quelque chose de nouveau**.", "english": "She proposed something new.", "note": "`Nouveau` is masculine even though `chose` by itself is feminine."}
       ],
       "mistakes": []
     }
@@ -61,5 +61,5 @@
     {"id": "item-15", "kind": "text", "pool": "review", "section_id": "something", "prompt": "Supply beau with the correct form: C'est quelque chose de ___.", "choices": [], "answers": ["beau"], "explanation": "The description remains masculine singular."},
     {"id": "item-16", "kind": "text", "pool": "review", "section_id": "group-parts", "prompt": "Complete for an all-female group including the speaker: ___ d'entre nous sont bénévoles. Use certains in the correct form.", "choices": [], "answers": ["Certaines"], "explanation": "An all-female nous group takes certaines."}
   ],
-  "production_task": {"prompt": "Compare two activity proposals and allocate tasks to a group. Use l'une/l'autre, a demonstrative pronoun with a relative clause, certains/certaines d'entre and quelque chose de.", "model_answer": "Nous avons deux propositions: l'une est sportive, l'autre est culturelle. Je préfère celle qui permet de rencontrer les voisins. Certaines d'entre nous prépareront l'accueil. Nous voulons créer quelque chose de chaleureux.", "translation": "We have two proposals: one is sports-based, the other is cultural. I prefer the one that lets us meet the neighbours. Some of us will prepare the welcome. We want to create something warm and welcoming.", "rubric": ["Match pronouns to the gender and number of their referents.", "Identify the selected one with a complement.", "Use d'entre for a subset of the group.", "Keep the adjective after quelque chose de masculine singular."]}
+  "production_task": {"prompt": "Compare two activity proposals and allocate tasks to a group. Use `l'une/l'autre`, a demonstrative pronoun with a relative clause, `certains/certaines d'entre` and `quelque chose de`.", "model_answer": "Nous avons deux propositions: l'une est sportive, l'autre est culturelle. Je préfère celle qui permet de rencontrer les voisins. Certaines d'entre nous prépareront l'accueil. Nous voulons créer quelque chose de chaleureux.", "translation": "We have two proposals: one is sports-based, the other is cultural. I prefer the one that lets us meet the neighbours. Some of us will prepare the welcome. We want to create something warm and welcoming.", "rubric": ["Match pronouns to the gender and number of their referents.", "Identify the selected one with a complement.", "Use `d'entre` for a subset of the group.", "Keep the adjective after `quelque chose de` masculine singular."]}
 }

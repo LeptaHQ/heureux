@@ -1,53 +1,53 @@
 {
   "version": 1, "id": "b1-negative-subjects", "slug": "b1-negative-subjects", "cefr_level": "B1", "topic": "pronouns-questions-negation",
   "title": "Personne, rien, aucun et nulle part",
-  "summary": "Build negative subjects and express absence without adding an unnecessary pas.",
+  "summary": "Build negative subjects and express absence without adding an unnecessary `pas`.",
   "order": 11, "duration_minutes": 12, "prerequisites": ["b1-narrative-and-questions"],
-  "objectives": ["Use personne, rien and aucun as negative subjects.", "Distinguish a negative subject from a negative object or place.", "Use ni l'un ni l'autre with appropriate agreement."],
+  "objectives": ["Use `personne`, `rien` and `aucun` as negative subjects.", "Distinguish a negative subject from a negative object or place.", "Use `ni l'un ni l'autre` with appropriate agreement."],
   "keywords": ["personne ne", "rien ne", "aucun", "nulle part", "ni l'un ni l'autre"],
   "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],
   "related_legacy_ids": ["negation-core", "pronouns-indefinites"],
   "sections": [
     {
       "id": "subject", "title": "The absent person or thing is the subject",
-      "paragraphs": ["A subject does the action or is described by the verb. Personne ne means nobody and rien ne means nothing when placed before the verb. Use a singular verb and do not add pas: Personne ne répond. At a compound tense, ne precedes the auxiliary: Rien n'a changé.", "Compare the object position: Je n'ai vu personne means I saw nobody; Je n'ai rien vu means I saw nothing. Personne follows the participle in this object use, while rien normally comes between the auxiliary and participle. Une personne (feminine) is the ordinary positive noun a person; negative personne does not take that article."],
-      "points": ["Vocabulary: une candidature (feminine), an application; un candidat / une candidate (masculine/feminine), an applicant."],
+      "paragraphs": ["A subject does the action or is described by the verb. `Personne ne` means nobody and `rien ne` means nothing when placed before the verb. Use a singular verb and do not add `pas`: `Personne ne répond`. At a compound tense, `ne` precedes the auxiliary: `Rien n'a changé`.", "Compare the object position: `Je n'ai vu personne` means I saw nobody; `Je n'ai rien vu` means I saw nothing. `Personne` follows the participle in this object use, while `rien` normally comes between the auxiliary and participle. `Une personne` (feminine) is the ordinary positive noun a person; negative `personne` does not take that article."],
+      "points": ["Vocabulary: `une candidature` (feminine), an application; `un candidat / une candidate` (masculine/feminine), an applicant."],
       "examples": [
-        {"french": "**Personne n'a** ouvert la porte.", "english": "Nobody opened the door.", "note": "Nobody is the subject; n' goes before a."},
-        {"french": "**Rien ne** fonctionne sans cette batterie.", "english": "Nothing works without this battery.", "note": "Rien takes a singular verb."},
-        {"french": "Je **n'ai vu personne** dans le couloir.", "english": "I saw nobody in the corridor.", "note": "Personne is the object here."},
-        {"french": "Nous **n'avons rien trouvé**.", "english": "We found nothing.", "note": "Object rien normally precedes the participle."}
+        {"french": "**Personne n'a** ouvert la porte.", "english": "Nobody opened the door.", "note": "Nobody is the subject; `n'` goes before `a`."},
+        {"french": "**Rien ne** fonctionne sans cette batterie.", "english": "Nothing works without this battery.", "note": "`Rien` takes a singular verb."},
+        {"french": "Je **n'ai vu personne** dans le couloir.", "english": "I saw nobody in the corridor.", "note": "`Personne` is the object here."},
+        {"french": "Nous **n'avons rien trouvé**.", "english": "We found nothing.", "note": "Object `rien` normally precedes the participle."}
       ],
-      "mistakes": [{"avoid": "Personne ne répond pas.", "prefer": "Personne ne répond.", "why": "For the intended meaning nobody answers, personne and ne are sufficient; do not add pas."}]
+      "mistakes": [{"avoid": "Personne ne répond pas.", "prefer": "Personne ne répond.", "why": "For the intended meaning nobody answers, `personne` and `ne` are sufficient; do not add `pas`."}]
     },
     {
-      "id": "none-neither", "title": "Aucun and neither of two",
-      "paragraphs": ["Aucun means not one or none. Before a noun it agrees in gender and normally remains singular: aucun candidat, aucune candidature. As a pronoun it can stand alone or take de: aucune de ces candidatures. A subject built this way takes a singular verb: Aucune n'a été retenue. Plural aucuns/aucunes exists with nouns used only in the plural or with a special plural meaning, such as aucuns frais; it is not the ordinary form for several countable objects.", "Ni l'un ni l'autre means neither one nor the other for two masculine referents; ni l'une ni l'autre for two feminine referents. Keep ne before the verb and omit pas. Both singular and plural verb agreement are possible when two separate referents are denied; plural is common. This lesson accepts either where the task does not specify one. If a verb action can only have one subject in context, agreement needs closer attention."],
-      "points": ["Aucun can also be an object: Je n'ai reçu aucune réponse.", "The grammatical gender comes from the noun being replaced, not from the English word one."],
+      "id": "none-neither", "title": "`Aucun` and neither of two",
+      "paragraphs": ["`Aucun` means not one or none. Before a noun it agrees in gender and normally remains singular: `aucun candidat`, `aucune candidature`. As a pronoun it can stand alone or take `de`: `aucune de ces candidatures`. A subject built this way takes a singular verb: `Aucune n'a été retenue`. Plural `aucuns/aucunes` exists with nouns used only in the plural or with a special plural meaning, such as `aucuns frais`; it is not the ordinary form for several countable objects.", "`Ni l'un ni l'autre` means neither one nor the other for two masculine referents; `ni l'une ni l'autre` for two feminine referents. Keep `ne` before the verb and omit `pas`. Both singular and plural verb agreement are possible when two separate referents are denied; plural is common. This lesson accepts either where the task does not specify one. If a verb action can only have one subject in context, agreement needs closer attention."],
+      "points": ["`Aucun` can also be an object: `Je n'ai reçu aucune réponse`.", "The grammatical gender comes from the noun being replaced, not from the English word one."],
       "examples": [
-        {"french": "**Aucune candidature n'a** été retenue.", "english": "No application was selected.", "note": "Feminine singular aucune agrees with candidature."},
-        {"french": "**Aucun de ces bus ne** passe par la gare.", "english": "None of these buses goes via the station.", "note": "Aucun remains singular despite the plural phrase after de."},
-        {"french": "**Ni l'une ni l'autre ne sont** disponibles.", "english": "Neither of them is available.", "note": "Two women or feminine referents; plural agreement is used here. N'est disponible is also possible."}
+        {"french": "**Aucune candidature n'a** été retenue.", "english": "No application was selected.", "note": "Feminine singular `aucune` agrees with `candidature`."},
+        {"french": "**Aucun de ces bus ne** passe par la gare.", "english": "None of these buses goes via the station.", "note": "`Aucun` remains singular despite the plural phrase after `de`."},
+        {"french": "**Ni l'une ni l'autre ne sont** disponibles.", "english": "Neither of them is available.", "note": "Two women or feminine referents; plural agreement is used here. `N'est disponible` is also possible."}
       ],
-      "mistakes": [{"avoid": "Aucune de ces réponses ne sont correctes.", "prefer": "Aucune de ces réponses n'est correcte.", "why": "The subject head aucune is singular, even though réponses is plural."}]
+      "mistakes": [{"avoid": "Aucune de ces réponses ne sont correctes.", "prefer": "Aucune de ces réponses n'est correcte.", "why": "The subject head `aucune` is singular, even though `réponses` is plural."}]
     },
     {
-      "id": "place", "title": "Nulle part is a negative place expression",
-      "paragraphs": ["Ne ... nulle part means nowhere or not anywhere. It is usually placed after the verb or after the participle in a compound tense. It does not replace the subject: Je ne trouve cette adresse nulle part. To answer a where question briefly, Nulle part is sufficient as a fragment."],
-      "points": ["Do not add à or en just because the meaning concerns a place: aller nulle part is the ordinary construction."],
+      "id": "place", "title": "`Nulle part` is a negative place expression",
+      "paragraphs": ["`Ne ... nulle part` means nowhere or not anywhere. It is usually placed after the verb or after the participle in a compound tense. It does not replace the subject: `Je ne trouve cette adresse nulle part`. To answer a where question briefly, `Nulle part` is sufficient as a fragment."],
+      "points": ["Do not add `à` or `en` just because the meaning concerns a place: `aller nulle part` is the ordinary construction."],
       "examples": [
-        {"french": "Nous **n'allons nulle part** ce soir.", "english": "We are not going anywhere this evening.", "note": "Nulle part follows the conjugated verb."},
+        {"french": "Nous **n'allons nulle part** ce soir.", "english": "We are not going anywhere this evening.", "note": "`Nulle part` follows the conjugated verb."},
         {"french": "Elle **n'a trouvé** ce modèle **nulle part**.", "english": "She did not find this model anywhere.", "note": "The place expression comes after the object here."}
       ],
       "mistakes": []
     },
     {
       "id": "subset-subject", "title": "Accorder avec aucun, non avec le groupe",
-      "paragraphs": ["To refer back to an already named group without repeating its noun, combine aucun/aucune with d'entre eux/elles. Aucune d'entre elles means none of those feminine referents, but aucune still controls a singular verb. Compare Certaines d'entre elles répondent, some of them answer, with Aucune d'entre elles ne répond, none of them answers.", "In a short reply, the negative pronoun can stand without ne because there is no conjugated verb to frame: Laquelle convient ? Aucune. Similarly, a choice between two can receive Ni l'une ni l'autre as a standalone answer. When you restore the full sentence, restore ne."],
-      "points": ["Elles in d'entre elles identifies the group; it is not the subject that controls the main verb's number."],
+      "paragraphs": ["To refer back to an already named group without repeating its noun, combine `aucun/aucune` with `d'entre eux/elles`. `Aucune d'entre elles` means none of those feminine referents, but `aucune` still controls a singular verb. Compare `Certaines d'entre elles répondent`, some of them answer, with `Aucune d'entre elles ne répond`, none of them answers.", "In a short reply, the negative pronoun can stand without `ne` because there is no conjugated verb to frame: `Laquelle convient ? Aucune`. Similarly, a choice between two can receive `Ni l'une ni l'autre` as a standalone answer. When you restore the full sentence, restore `ne`."],
+      "points": ["`Elles` in `d'entre elles` identifies the group; it is not the subject that controls the main verb's number."],
       "examples": [
-        {"french": "J'ai comparé les offres. **Aucune d'entre elles n'est** adaptée.", "english": "I compared the offers. None of them is suitable.", "note": "Offres is feminine plural, but singular aucune controls est."},
-        {"french": "Laquelle des deux clés fonctionne ? **Ni l'une ni l'autre**.", "english": "Which of the two keys works? Neither.", "note": "No ne is needed in a verbless reply."}
+        {"french": "J'ai comparé les offres. **Aucune d'entre elles n'est** adaptée.", "english": "I compared the offers. None of them is suitable.", "note": "`Offres` is feminine plural, but singular `aucune` controls `est`."},
+        {"french": "Laquelle des deux clés fonctionne ? **Ni l'une ni l'autre**.", "english": "Which of the two keys works? Neither.", "note": "No `ne` is needed in a verbless reply."}
       ],
       "mistakes": []
     }
@@ -72,5 +72,5 @@
     {"id": "depth-none-subset", "kind": "text", "pool": "check", "section_id": "subset-subject", "prompt": "Supply the full phrase none of them using aucune and elles: Les lampes sont neuves, mais ___ ne fonctionne.", "choices": [], "answers": ["aucune d'entre elles"], "explanation": "The group is feminine plural; aucune d'entre elles is still a singular subject."},
     {"id": "depth-neither-fragment", "kind": "text", "pool": "review", "section_id": "subset-subject", "prompt": "Answer Neither to Lequel des deux itinéraires préférez-vous ? Use ni, l'un and l'autre only, without a verb.", "choices": [], "answers": ["Ni l'un ni l'autre."], "explanation": "The noun itinéraire is masculine. A standalone paired-pronoun reply does not contain ne."}
   ],
-  "production_task": {"prompt": "Report an unsuccessful search for a room. Use a negative subject with personne or rien, a sentence with aucun/aucune, and a sentence with nulle part. Keep the tone factual.", "model_answer": "Personne n'a répondu à mes messages. Aucune des salles proposées n'est disponible samedi. Je n'ai trouvé de place nulle part dans le quartier. Rien ne nous empêche de chercher dans une autre commune.", "translation": "Nobody replied to my messages. None of the proposed rooms is available on Saturday. I did not find space anywhere in the neighbourhood. Nothing prevents us from looking in another municipality.", "rubric": ["Keep personne, rien and aucun subjects singular.", "Do not add pas to the target negative expressions.", "Place nulle part naturally and make clear what was searched for."]}
+  "production_task": {"prompt": "Report an unsuccessful search for a room. Use a negative subject with `personne` or `rien`, a sentence with `aucun/aucune`, and a sentence with `nulle part`. Keep the tone factual.", "model_answer": "Personne n'a répondu à mes messages. Aucune des salles proposées n'est disponible samedi. Je n'ai trouvé de place nulle part dans le quartier. Rien ne nous empêche de chercher dans une autre commune.", "translation": "Nobody replied to my messages. None of the proposed rooms is available on Saturday. I did not find space anywhere in the neighbourhood. Nothing prevents us from looking in another municipality.", "rubric": ["Keep `personne`, `rien` and `aucun` subjects singular.", "Do not add `pas` to the target negative expressions.", "Place `nulle part` naturally and make clear what was searched for."]}
 }

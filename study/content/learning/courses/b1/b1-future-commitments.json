@@ -1,0 +1,56 @@
+{
+  "version": 1, "id": "b1-future-commitments", "slug": "b1-future-commitments", "cefr_level": "B1", "topic": "verbs-tenses-moods",
+  "title": "Future commitments, wishes and constraints",
+  "summary": "Coordinate who will come, what will be possible and what people will have to do.",
+  "order": 7, "duration_minutes": 14, "prerequisites": ["b1-future-core-stems"],
+  "objectives": ["Conjugate venir, tenir, vouloir, pouvoir and devoir in the future.", "Apply venir/tenir stems to common derivatives.", "Distinguish willingness, ability and obligation."],
+  "keywords": ["viendr", "tiendr", "voudr", "pourr", "devr", "future modals"],
+  "sources": [{"label": "University of Texas: irregular future stems", "url": "https://www.laits.utexas.edu/tex/gr/taf3.html"}],
+  "related_legacy_ids": ["verbs-future"],
+  "sections": [
+    {
+      "id": "come-hold", "title": "Venir and tenir share a shape",
+      "paragraphs": ["Venir (to come) uses viendr-; tenir (to hold or keep) uses tiendr-. Add -ai, -as, -a, -ons, -ez, -ont. The inserted d belongs to the future stem, not the present forms.", "The prefixes stay on derivatives: revenir (come back) gives reviendr-, devenir (become) deviendr-, prévenir (warn) préviendr-; obtenir (obtain) gives obtiendr-, retenir (retain or remember) retiendr-, maintenir (maintain) maintiendr- and soutenir (support) soutiendr-. Attach all six endings exactly as in the models. For example: je reviendrai, tu reviendras, il/elle/on reviendra, nous reviendrons, vous reviendrez, ils/elles reviendront."],
+      "points": ["Vocabulary: une promesse (feminine), a promise; un délai (masculine), a time limit or delay."],
+      "examples": [
+        {"french": "je **viendrai**\ntu **viendras**\nil/elle/on **viendra**\nnous **viendrons**\nvous **viendrez**\nils/elles **viendront**", "english": "I will come\nyou will come (singular)\nhe/she/one will come\nwe will come\nyou will come (plural or polite)\nthey will come", "note": "Venir uses viendr- in all persons."},
+        {"french": "je **tiendrai**\ntu **tiendras**\nil/elle/on **tiendra**\nnous **tiendrons**\nvous **tiendrez**\nils/elles **tiendront**", "english": "I will hold/keep\nyou will hold/keep (singular)\nhe/she/one will hold/keep\nwe will hold/keep\nyou will hold/keep (plural or polite)\nthey will hold/keep", "note": "Tenir uses tiendr-."},
+        {"french": "Nous **tiendrons** notre promesse.", "english": "We will keep our promise.", "note": "Tenir une promesse is a natural use of tenir."},
+        {"french": "Vous **obtiendrez** une réponse sous huit jours.", "english": "You will receive an answer within eight days.", "note": "Obtenir shares tenir's stem change."}
+      ],
+      "mistakes": [{"avoid": "Nous venirons demain.", "prefer": "Nous viendrons demain.", "why": "Venir uses viendr-, not the whole infinitive."}]
+    },
+    {
+      "id": "modals", "title": "Want to, be able to, have to",
+      "paragraphs": ["Vouloir, pouvoir and devoir are often followed directly by an infinitive: no à or de is added. Their future stems are voudr-, pourr- and devr-. Vouloir expresses a wish or willingness; pouvoir expresses possibility or ability; devoir usually expresses an obligation in the situations here.", "Je voudrai means I will want; it is not the usual polite request je voudrais, I would like. Likewise je pourrai is future ability, while je pourrais is conditional possibility. Devoir can also convey an expectation or inference, so context matters; the timetable examples here concern requirements."],
+      "points": ["Pouvoir has two r letters in its future stem; devoir has one.", "A future form describes the anticipated situation, not necessarily the speaker's present preference."],
+      "examples": [
+        {"french": "je **voudrai**\ntu **voudras**\nil/elle/on **voudra**\nnous **voudrons**\nvous **voudrez**\nils/elles **voudront**", "english": "I will want\nyou will want (singular)\nhe/she/one will want\nwe will want\nyou will want (plural or polite)\nthey will want", "note": "Future wanting is distinct from a polite conditional."},
+        {"french": "je **pourrai**\ntu **pourras**\nil/elle/on **pourra**\nnous **pourrons**\nvous **pourrez**\nils/elles **pourront**", "english": "I will be able to\nyou will be able to (singular)\nhe/she/one will be able to\nwe will be able to\nyou will be able to (plural or polite)\nthey will be able to", "note": "The double r is visible throughout."},
+        {"french": "je **devrai**\ntu **devras**\nil/elle/on **devra**\nnous **devrons**\nvous **devrez**\nils/elles **devront**", "english": "I will have to\nyou will have to (singular)\nhe/she/one will have to\nwe will have to\nyou will have to (plural or polite)\nthey will have to", "note": "These translations fit an obligation context."},
+        {"french": "Après le voyage, tu **voudras** sûrement te reposer.", "english": "After the journey, you will probably want to rest.", "note": "A prediction about a future wish."},
+        {"french": "Nous **pourrons** entrer, mais nous **devrons** montrer nos billets.", "english": "We will be able to enter, but we will have to show our tickets.", "note": "Possibility and obligation are different."}
+      ],
+      "mistakes": [{"avoid": "Vous pourrez de venir.", "prefer": "Vous pourrez venir.", "why": "Pouvoir is followed directly by an infinitive."}]
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "text", "pool": "practice", "section_id": "come-hold", "prompt": "Supply venir in the future: Tu ___ avec nous.", "choices": [], "answers": ["viendras"], "explanation": "Viendr- takes -as."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "come-hold", "prompt": "Supply tenir in the future: Nous ___ le stand.", "choices": [], "answers": ["tiendrons"], "explanation": "Tiendr- takes -ons."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "modals", "prompt": "Supply pouvoir in the future: Vous ___ réserver en ligne.", "choices": [], "answers": ["pourrez"], "explanation": "The stem is pourr-."},
+    {"id": "item-04", "kind": "choice", "pool": "practice", "section_id": "modals", "prompt": "Choose the verb that expresses a future requirement, not a wish: Vous ___ présenter une pièce d'identité.", "choices": ["devrez", "voudrez"], "answers": ["devrez"], "explanation": "Devoir states the requirement in this context."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "come-hold", "prompt": "Supply devenir in the future: Cette salle ___ un atelier.", "choices": [], "answers": ["deviendra"], "explanation": "Devenir retains venir's viendr- pattern after de-."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "come-hold", "prompt": "Supply maintenir in the future: Nous ___ le prix actuel.", "choices": [], "answers": ["maintiendrons"], "explanation": "Maintenir uses maintiendr-."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "modals", "prompt": "Supply vouloir in the future: Les enfants ___ essayer le jeu.", "choices": [], "answers": ["voudront"], "explanation": "A plural subject uses voudr- plus -ont."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "modals", "prompt": "Supply devoir in the future: Je ___ partir à midi.", "choices": [], "answers": ["devrai"], "explanation": "Devr- plus -ai gives a future obligation."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "modals", "prompt": "Supply pouvoir in the future: On ___ modifier la date.", "choices": [], "answers": ["pourra"], "explanation": "On takes the singular -a ending."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "come-hold", "prompt": "Supply prévenir in the future: Je vous ___ en cas de retard.", "choices": [], "answers": ["préviendrai"], "explanation": "Prévenir gives préviendr-, with the accent retained."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "come-hold", "prompt": "Supply obtenir in the future: Elles ___ une réduction.", "choices": [], "answers": ["obtiendront"], "explanation": "Obtenir follows tenir."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "modals", "prompt": "Supply vouloir in the future, not the conditional: Je ___ peut-être changer de poste plus tard.", "choices": [], "answers": ["voudrai"], "explanation": "Je future ends in -ai; voudrais would be conditional."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "come-hold", "prompt": "Supply revenir in the future: Vous ___ la semaine prochaine.", "choices": [], "answers": ["reviendrez"], "explanation": "Re- remains before viendr- plus -ez."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "modals", "prompt": "Supply devoir in the future: Nous ___ recommencer.", "choices": [], "answers": ["devrons"], "explanation": "Nous takes devr- plus -ons."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "modals", "prompt": "Supply pouvoir in the future: Elles ___ vous accompagner.", "choices": [], "answers": ["pourront"], "explanation": "The plural future retains rr."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "come-hold", "prompt": "Supply soutenir in the future: Tu ___ notre proposition.", "choices": [], "answers": ["soutiendras"], "explanation": "Soutenir follows tenir with sou- retained."}
+  ],
+  "production_task": {"prompt": "Arrange a group visit. Explain who will come, one promise, one possible activity and one compulsory step. Use venir/tenir or a derivative, pouvoir and devoir.", "model_answer": "Nous viendrons samedi et nous tiendrons notre promesse d'aider. Vous pourrez visiter l'atelier après le déjeuner. Les visiteurs devront porter un badge. Je vous préviendrai si l'horaire change.", "translation": "We will come on Saturday and keep our promise to help. You will be able to visit the workshop after lunch. Visitors will have to wear a badge. I will let you know if the schedule changes.", "rubric": ["Distinguish a promise, possibility and requirement.", "Use direct infinitives after pouvoir and devoir.", "Keep each derivative's prefix and irregular stem."]}
+}

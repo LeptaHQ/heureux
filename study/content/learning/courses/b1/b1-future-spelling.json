@@ -1,0 +1,67 @@
+{
+  "version": 1, "id": "b1-future-spelling", "slug": "b1-future-spelling", "cefr_level": "B1", "topic": "verbs-tenses-moods",
+  "title": "Future spelling without false exceptions",
+  "summary": "Manage e/è, doubled consonants and y/i, including accepted traditional and revised spellings.",
+  "order": 6, "duration_minutes": 15, "prerequisites": ["b1-future-building"],
+  "objectives": ["Build spelling-changing future stems.", "Recognize and accept both taught spelling variants."],
+  "keywords": ["acheter", "lever", "appeler", "jeter", "préférer", "nettoyer", "essuyer", "payer", "1990 spelling"],
+  "sources": [
+    {"label": "OQLF: -eler/-eter spelling rectifications", "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/23169/lorthographe/rectifications-de-lorthographe/rectifications-liees-aux-consonnes-doubles/rectifications-liees-a-la-conjugaison-des-verbes-en-eler-et-en-eter"},
+    {"label": "OQLF: conditional stems and future/conditional spelling variants", "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/24137/la-grammaire/le-verbe/conjugaison/formes-du-conditionnel"}
+  ],
+  "related_legacy_ids": ["verbs-future", "verbs-present-spelling-families"],
+  "sections": [
+    {
+      "id": "accent-double", "title": "The changed stem stays changed for all persons",
+      "paragraphs": ["An unaccented e in stems such as lever and acheter becomes è before the future ending: lèver-, achèter-. Geler gives gèler-, mener gives mèner- and peser gives pèser-. Appeler and jeter instead keep a doubled consonant: appeller-, jetter-. Their derivatives rappeler and rejeter keep that pattern.", "These changes apply to every future person, including nous and vous. Use the full future endings -ai, -as, -a, -ons, -ez, -ont after the displayed stem. Thus jeter gives je jetterai, tu jetteras, il/elle/on jettera, nous jetterons, vous jetterez, ils/elles jetteront; lever gives je lèverai, tu lèveras, il/elle/on lèvera, nous lèverons, vous lèverez, ils/elles lèveront."],
+      "points": ["Vocabulary: une étiquette (feminine), a label; une étagère (feminine), a shelf.", "Not every -eter verb doubles t: acheter is achèter-, not acheterr- or achetter-."],
+      "examples": [
+        {"french": "j'**achèterai**\ntu **achèteras**\nil/elle/on **achètera**\nnous **achèterons**\nvous **achèterez**\nils/elles **achèteront**", "english": "I will buy\nyou will buy (singular)\nhe/she/one will buy\nwe will buy\nyou will buy (plural or polite)\nthey will buy", "note": "The grave accent remains in all six forms."},
+        {"french": "j'**appellerai**\ntu **appelleras**\nil/elle/on **appellera**\nnous **appellerons**\nvous **appellerez**\nils/elles **appelleront**", "english": "I will call\nyou will call (singular)\nhe/she/one will call\nwe will call\nyou will call (plural or polite)\nthey will call", "note": "The doubled l remains even with nous and vous."},
+        {"french": "Nous **lèverons** les stores à huit heures.", "english": "We will raise the blinds at eight o'clock.", "note": "Unlike present nous levons, future nous lèverons has è."},
+        {"french": "Vous **jetterez** les étiquettes abîmées.", "english": "You will throw away the damaged labels.", "note": "Jeter retains tt throughout the future."}
+      ],
+      "mistakes": [{"avoid": "Nous acheterons une étagère.", "prefer": "Nous achèterons une étagère.", "why": "The future stem achèter- keeps è with nous too."}]
+    },
+    {
+      "id": "variants", "title": "Two spelling traditions can both be correct",
+      "paragraphs": ["For verbs with é before the final consonant, traditional future spelling keeps é: préférerai, répéterai, compléterai. The 1990 rectifications permit è there: préfèrerai, répèterai, complèterai. Both are correct. Apply the chosen stem to every person: préférerai/préfèrerai, préféreras/préfèreras, préférera/préfèrera, préférerons/préfèrerons, préférerez/préfèrerez, préféreront/préfèreront.", "Many -eler and -eter verbs traditionally double the consonant but can use è under the rectifications: épeller gives épellerai or épèlerai; renouveler gives renouvellerai or renouvèlerai; étiqueter gives étiquetterai or étiquèterai. The alternatives persist with all six endings. Appeler, jeter and their derivatives are exceptions to that simplification: appellerai and jetterai remain the forms, not appèlerai or jèterai."],
+      "points": ["A chosen spelling convention should be reasonably consistent, but either accepted form is valid in these exercises.", "This spelling choice does not change tense, person or meaning."],
+      "examples": [
+        {"french": "Tu **préféreras / préfèreras** peut-être le modèle pliable.", "english": "You may prefer the folding model.", "note": "Traditional and revised spelling are both shown."},
+        {"french": "Elle **épellera / épèlera** son nom au téléphone.", "english": "She will spell her name over the phone.", "note": "Both spellings are accepted; the choice is not a difference in meaning."}
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "y-i", "title": "Y becomes i, except that -ayer offers a choice",
+      "paragraphs": ["For -oyer and -uyer verbs, use i in the future stem: nettoyer gives nettoier-, employer emploier-, essuyer essuier- and appuyer appuier-. Envoyer and renvoyer are special: enverr- and renverr-, taught in the future outcomes lesson.", "For -ayer verbs, both i and y are accepted: payer gives paier- or payer-; essayer gives essaier- or essayer-. Payer's full forms are je paierai/payerai, tu paieras/payeras, il/elle/on paiera/payera, nous paierons/payerons, vous paierez/payerez, ils/elles paieront/payeront. Do not transfer this optional y to nettoyer or essuyer."],
+      "points": ["Essuyer follows the six endings without any other change: j'essuierai, tu essuieras, il/elle/on essuiera, nous essuierons, vous essuierez, ils/elles essuieront."],
+      "examples": [
+        {"french": "je **nettoierai**\ntu **nettoieras**\nil/elle/on **nettoiera**\nnous **nettoierons**\nvous **nettoierez**\nils/elles **nettoieront**", "english": "I will clean\nyou will clean (singular)\nhe/she/one will clean\nwe will clean\nyou will clean (plural or polite)\nthey will clean", "note": "The i is used throughout."},
+        {"french": "Vous **essuierez** le comptoir après le service.", "english": "You will wipe the counter after service.", "note": "Essuyer changes y to i."},
+        {"french": "Nous **paierons / payerons** en ligne.", "english": "We will pay online.", "note": "Both variants of payer are accepted."}
+      ],
+      "mistakes": [{"avoid": "Ils nettoyeront la salle.", "prefer": "Ils nettoieront la salle.", "why": "Unlike -ayer, -oyer normally requires i in the future stem."}]
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "text", "pool": "practice", "section_id": "accent-double", "prompt": "Supply acheter in the simple future: Vous ___ du matériel.", "choices": [], "answers": ["achèterez"], "explanation": "Achèter- keeps è with vous."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "accent-double", "prompt": "Supply appeler in the simple future: Nous ___ le fournisseur.", "choices": [], "answers": ["appellerons"], "explanation": "Appeler retains doubled l."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "variants", "prompt": "Supply répéter in the simple future: Elle ___ la consigne. Either standard spelling is accepted.", "choices": [], "answers": ["répétera", "répètera"], "explanation": "Traditional é and rectified è are both valid."},
+    {"id": "item-04", "kind": "text", "pool": "practice", "section_id": "y-i", "prompt": "Supply payer in the simple future: Je ___ par carte. Either variant is accepted.", "choices": [], "answers": ["paierai", "payerai"], "explanation": "-Ayer allows both i and y."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "accent-double", "prompt": "Supply lever in the simple future: Nous ___ la main.", "choices": [], "answers": ["lèverons"], "explanation": "Use future lèver-, not present lev-."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "accent-double", "prompt": "Supply jeter in the simple future: Tu ___ le brouillon.", "choices": [], "answers": ["jetteras"], "explanation": "Jeter retains tt in both spelling conventions."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "variants", "prompt": "Supply préférer in the simple future: Ils ___ attendre. Either standard spelling is accepted.", "choices": [], "answers": ["préféreront", "préfèreront"], "explanation": "Both future stems are accepted."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "variants", "prompt": "Supply renouveler in the simple future: Vous ___ votre inscription. Either standard spelling is accepted.", "choices": [], "answers": ["renouvellerez", "renouvèlerez"], "explanation": "Traditional ll alternates with rectified è plus single l."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "y-i", "prompt": "Supply nettoyer in the simple future: Elles ___ les vitres.", "choices": [], "answers": ["nettoieront"], "explanation": "Nettoyer requires i in this stem."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "y-i", "prompt": "Supply essuyer in the simple future: J'___ la table.", "choices": [], "answers": ["essuierai"], "explanation": "-Uyer changes y to i."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "y-i", "prompt": "Supply essayer in the simple future: Nous ___ une autre méthode. Either variant is accepted.", "choices": [], "answers": ["essaierons", "essayerons"], "explanation": "Essayer allows both future spellings."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "variants", "prompt": "Supply étiqueter in the simple future: Tu ___ les boîtes. Either standard spelling is accepted.", "choices": [], "answers": ["étiquetteras", "étiquèteras"], "explanation": "Traditional tt or rectified è plus t are valid."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "accent-double", "prompt": "Supply rappeler in the simple future: Elle ___ le client.", "choices": [], "answers": ["rappellera"], "explanation": "Rappeler retains appeler's doubled l."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "variants", "prompt": "Supply épeler in the simple future: Nous ___ le nom. Either standard spelling is accepted.", "choices": [], "answers": ["épellerons", "épèlerons"], "explanation": "Both the traditional and revised stems take -ons."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "y-i", "prompt": "Supply appuyer in the simple future: Vous ___ sur le bouton vert.", "choices": [], "answers": ["appuierez"], "explanation": "The future stem is appuier-."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "accent-double", "prompt": "Supply mener in the simple future: Ils ___ l'enquête.", "choices": [], "answers": ["mèneront"], "explanation": "Mener changes its stem e to è."}
+  ],
+  "production_task": {"prompt": "Plan the reopening of a small shop in four sentences. Include an accent-changing future, a doubled-consonant future, an -oyer/-uyer future and an -ayer future. Choose either accepted spelling where alternatives exist.", "model_answer": "Nous achèterons de nouvelles étagères. J'appellerai le peintre lundi. Vous nettoierez les vitres avant l'ouverture. Nous paierons la facture après les travaux.", "translation": "We will buy new shelves. I will call the painter on Monday. You will clean the windows before opening. We will pay the invoice after the work.", "rubric": ["Keep each changed stem throughout its form.", "Do not extend payer's optional y to nettoyer.", "Use a coherent spelling convention without rejecting valid alternatives.", "Make the sequence of jobs understandable."]}
+}

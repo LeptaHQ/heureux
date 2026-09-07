@@ -1,0 +1,65 @@
+{
+  "version": 1, "id": "b1-future-outcomes", "slug": "b1-future-outcomes", "cefr_level": "B1", "topic": "verbs-tenses-moods",
+  "title": "Future messages, perceptions and movement",
+  "summary": "Use voir, envoyer, recevoir and courir families with their distinct future stems.",
+  "order": 8, "duration_minutes": 13, "prerequisites": ["b1-future-spelling", "b1-future-commitments"],
+  "objectives": ["Use verr-, enverr-, recevr- and courr- across all persons.", "Avoid overextending irregular forms to prévoir and pourvoir."],
+  "keywords": ["voir", "envoyer", "recevoir", "apercevoir", "concevoir", "percevoir", "courir", "future"],
+  "sources": [{"label": "University of Texas: irregular future stems", "url": "https://www.laits.utexas.edu/tex/gr/taf3.html"}],
+  "related_legacy_ids": ["verbs-future"],
+  "sections": [
+    {
+      "id": "seeing-sending", "title": "Verr- and enverr- are useful exceptions",
+      "paragraphs": ["Voir uses verr- in the future. Revoir (see again) adds re-: reverr-. Envoyer uses enverr-, not the -oyer pattern envoier-. Renvoyer (send back) uses renverr-. Each takes the same six future endings.", "Do not give every verb ending in -voir the same stem. Prévoir (foresee or plan) has prévoir-: je prévoirai, tu prévoiras, il/elle/on prévoira, nous prévoirons, vous prévoirez, ils/elles prévoiront. Pourvoir (provide for or fill a post) has pourvoir- with the same endings. Vocabulary: un reçu (masculine), a receipt; une consigne (feminine), an instruction."],
+      "points": ["Revoir: je reverrai, tu reverras, il/elle/on reverra, nous reverrons, vous reverrez, ils/elles reverront.", "Renvoyer: je renverrai, tu renverras, il/elle/on renverra, nous renverrons, vous renverrez, ils/elles renverront."],
+      "examples": [
+        {"french": "je **verrai**\ntu **verras**\nil/elle/on **verra**\nnous **verrons**\nvous **verrez**\nils/elles **verront**", "english": "I will see\nyou will see (singular)\nhe/she/one will see\nwe will see\nyou will see (plural or polite)\nthey will see", "note": "Voir uses a double r."},
+        {"french": "j'**enverrai**\ntu **enverras**\nil/elle/on **enverra**\nnous **enverrons**\nvous **enverrez**\nils/elles **enverront**", "english": "I will send\nyou will send (singular)\nhe/she/one will send\nwe will send\nyou will send (plural or polite)\nthey will send", "note": "Envoyer does not follow nettoyer."},
+        {"french": "Nous **reverrons** les consignes ensemble.", "english": "We will go over the instructions again together.", "note": "Revoir can mean review as well as see again."},
+        {"french": "Je **prévoirai** une marge de sécurité.", "english": "I will allow a safety margin.", "note": "Prévoir does not use préverr-."}
+      ],
+      "mistakes": [{"avoid": "Vous envoierez le reçu.", "prefer": "Vous enverrez le reçu.", "why": "Envoyer is an exception to the usual -oyer future pattern."}]
+    },
+    {
+      "id": "receiving", "title": "-Cevoir becomes -cevr-",
+      "paragraphs": ["Recevoir gives recevr-. Other common -cevoir verbs follow it: apercevoir (catch sight of) gives apercevr-, percevoir (perceive or collect) percevr-, concevoir (conceive or design) concevr- and décevoir (disappoint) décevr-. There is no cedilla before e in these stems.", "To form a derivative for any person, preserve its prefix and use -cevrai, -cevras, -cevra, -cevrons, -cevrez, -cevront. Concevoir, for example: je concevrai, tu concevras, il/elle/on concevra, nous concevrons, vous concevrez, ils/elles concevront."],
+      "points": ["Apercevoir is a brief perception; voir is the broader verb see."],
+      "examples": [
+        {"french": "je **recevrai**\ntu **recevras**\nil/elle/on **recevra**\nnous **recevrons**\nvous **recevrez**\nils/elles **recevront**", "english": "I will receive\nyou will receive (singular)\nhe/she/one will receive\nwe will receive\nyou will receive (plural or polite)\nthey will receive", "note": "The stem loses the oi of the infinitive."},
+        {"french": "Depuis le pont, vous **apercevrez** le phare.", "english": "From the bridge, you will catch sight of the lighthouse.", "note": "Apercevoir shares recevr-'s family shape."},
+        {"french": "Cette version ne **décevra** pas les lecteurs.", "english": "This version will not disappoint readers.", "note": "Décevoir keeps its initial accent, but needs no ç before e."}
+      ],
+      "mistakes": [{"avoid": "Nous reçevrons une réponse.", "prefer": "Nous recevrons une réponse.", "why": "C already has its soft sound before e; do not use ç."}]
+    },
+    {
+      "id": "running", "title": "Courir loses i and doubles r",
+      "paragraphs": ["Courir uses courr- rather than courir-. The same future change appears in parcourir (cover or travel through), accourir (rush over), recourir (resort to) and secourir (help or rescue): parcourr-, accourr-, recourr-, secourr-. Add -ai, -as, -a, -ons, -ez, -ont after each.", "Do not confuse courrons, we will run, with courons, we run. The extra r carries grammatical information even when pronunciation offers little help."],
+      "points": ["Recourir is followed by à: nous recourrons à une autre méthode."],
+      "examples": [
+        {"french": "je **courrai**\ntu **courras**\nil/elle/on **courra**\nnous **courrons**\nvous **courrez**\nils/elles **courront**", "english": "I will run\nyou will run (singular)\nhe/she/one will run\nwe will run\nyou will run (plural or polite)\nthey will run", "note": "Double r in every future form."},
+        {"french": "Les participantes **parcourront** la ville à pied.", "english": "The participants will travel through the city on foot.", "note": "Parcourir retains the prefix par-."},
+        {"french": "Nous **recourrons** à une carte papier si nécessaire.", "english": "We will use a paper map if necessary.", "note": "A courir-family verb need not describe physical running."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "text", "pool": "practice", "section_id": "seeing-sending", "prompt": "Supply voir in the future: Nous ___ le résultat demain.", "choices": [], "answers": ["verrons"], "explanation": "Verr- takes -ons."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "seeing-sending", "prompt": "Supply envoyer in the future: Elle ___ le devis.", "choices": [], "answers": ["enverra"], "explanation": "Envoyer uses enverr-."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "receiving", "prompt": "Supply recevoir in the future: Tu ___ une invitation.", "choices": [], "answers": ["recevras"], "explanation": "Recevr- takes -as."},
+    {"id": "item-04", "kind": "text", "pool": "practice", "section_id": "running", "prompt": "Supply courir in the future: Je ___ samedi matin.", "choices": [], "answers": ["courrai"], "explanation": "Courir uses courr-, not courir-."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "seeing-sending", "prompt": "Supply renvoyer in the future: Vous ___ le formulaire signé.", "choices": [], "answers": ["renverrez"], "explanation": "Renvoyer follows envoyer."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "seeing-sending", "prompt": "Supply revoir in the future: Ils ___ leur formatrice lundi.", "choices": [], "answers": ["reverront"], "explanation": "Add re- to verront."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "seeing-sending", "prompt": "Supply prévoir in the future: Nous ___ deux heures pour la visite.", "choices": [], "answers": ["prévoirons"], "explanation": "Prévoir retains prévoir-, unlike voir."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "receiving", "prompt": "Supply apercevoir in the future: Vous ___ la mer après le tunnel.", "choices": [], "answers": ["apercevrez"], "explanation": "Use apercevr- plus -ez."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "receiving", "prompt": "Supply concevoir in the future: Nous ___ un nouvel outil.", "choices": [], "answers": ["concevrons"], "explanation": "Concevoir follows the -cevr- family."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "receiving", "prompt": "Supply décevoir in the future: Cette décision ne ___ personne.", "choices": [], "answers": ["décevra"], "explanation": "Décevr- plus -a needs no cedilla."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "running", "prompt": "Supply courir in the future: Nous ___ au bord du canal.", "choices": [], "answers": ["courrons"], "explanation": "Courrons is future; courons is present."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "running", "prompt": "Supply parcourir in the future: Elles ___ le sentier demain.", "choices": [], "answers": ["parcourront"], "explanation": "Parcourir follows courir's double-r future."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "seeing-sending", "prompt": "Supply envoyer in the future: J'___ une copie à l'équipe.", "choices": [], "answers": ["enverrai"], "explanation": "Use enverr- plus -ai."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "receiving", "prompt": "Supply percevoir in the future: Les artistes ___ leurs droits en juin.", "choices": [], "answers": ["percevront"], "explanation": "Percevoir can mean receive money; the stem is percevr-."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "running", "prompt": "Supply recourir in the future: Vous ___ à un spécialiste.", "choices": [], "answers": ["recourrez"], "explanation": "Recourir keeps à and takes recourr-."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "receiving", "prompt": "Supply recevoir in the future: Les candidates ___ un courriel.", "choices": [], "answers": ["recevront"], "explanation": "The plural subject takes -ont."}
+  ],
+  "production_task": {"prompt": "Write an itinerary update for a walking group. Include a message you will send, information they will receive, something they will see and the route they will cover.", "model_answer": "Je vous enverrai le plan ce soir. Vous recevrez aussi les consignes de sécurité. Depuis la colline, nous verrons le fleuve. Nous parcourrons ensuite le quartier du port.", "translation": "I will send you the map this evening. You will also receive the safety instructions. From the hill, we will see the river. We will then walk through the port neighbourhood.", "rubric": ["Keep the distinct stems for sending, receiving, seeing and covering a route.", "Use courr-, not courir-, in the derivative.", "Make the update a usable sequence of information."]}
+}

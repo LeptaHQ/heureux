@@ -1,0 +1,66 @@
+{
+  "version": 1, "id": "b1-present-stem-changes", "slug": "b1-present-stem-changes", "cefr_level": "B1", "topic": "verbs-tenses-moods",
+  "title": "Recognizing three irregular present families",
+  "summary": "Use valoir, mourir and acquérir without forcing them into regular verb patterns.",
+  "order": 1, "duration_minutes": 13, "prerequisites": [],
+  "objectives": ["Use all present forms of valoir, mourir and acquérir.", "Transfer acquérir's pattern to conquérir and distinguish quérir."],
+  "keywords": ["valoir", "mourir", "acquérir", "conquérir", "requérir", "present stems"],
+  "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],
+  "related_legacy_ids": ["verbs-present-patterns", "expressions-avoir-faire-il-faut"],
+  "sections": [
+    {
+      "id": "value", "title": "Valoir: value, worth and worthwhile action",
+      "paragraphs": ["Valoir means to be worth. Its singular forms end in -x, -x, -t, while the plural uses val-. Il vaut mieux followed by an infinitive means it is better to do something. Valoir la peine means to be worthwhile; it is not the same as coûter, which states a price paid.", "Vocabulary: une peine (feminine), effort or trouble in valoir la peine; un détour (masculine), a detour; une compétence (feminine), a skill."],
+      "points": ["The il in il vaut mieux is an impersonal subject: it does not refer to a man.", "Personal forms such as nous valons occur when comparing people's or things' worth, but il/elle vaut and ils/elles valent are especially frequent."],
+      "examples": [
+        {"french": "je **vaux**\ntu **vaux**\nil/elle/on **vaut**\nnous **valons**\nvous **valez**\nils/elles **valent**", "english": "I am worth\nyou are worth (singular)\nhe/she/one is worth\nwe are worth\nyou are worth (plural or polite)\nthey are worth", "note": "Keep the written x in je and tu."},
+        {"french": "Ces deux appareils **valent** le même prix.", "english": "These two devices are worth the same amount.", "note": "The plural subject needs valent."},
+        {"french": "Il **vaut mieux** vérifier l'adresse.", "english": "It is better to check the address.", "note": "An infinitive follows this recommendation."},
+        {"french": "Cette vue **vaut la peine** de faire un détour.", "english": "This view is worth making a detour for.", "note": "Worthwhile effort rather than a monetary cost."}
+      ],
+      "mistakes": [{"avoid": "Ces billets valont vingt euros.", "prefer": "Ces billets valent vingt euros.", "why": "The present third-person plural is valent, not valont."}]
+    },
+    {
+      "id": "life", "title": "Mourir: meur- around mour-",
+      "paragraphs": ["Mourir means to die. The singular and third-person plural use meur-, but nous and vous use mour-. The final consonants are not a guide to pronunciation: meurs, meurt and meurent normally sound alike. The expression mourir de faim can exaggerate ordinary hunger; it does not necessarily describe an emergency."],
+      "points": ["Do not confuse mourir (to die) with tuer (to kill), which takes a direct object."],
+      "examples": [
+        {"french": "je **meurs**\ntu **meurs**\nil/elle/on **meurt**\nnous **mourons**\nvous **mourez**\nils/elles **meurent**", "english": "I die / am dying\nyou die / are dying (singular)\nhe/she/one dies / is dying\nwe die / are dying\nyou die / are dying (plural or polite)\nthey die / are dying", "note": "The two plural middle forms keep ou."},
+        {"french": "Sans eau, ces plantes **meurent**.", "english": "Without water, these plants die.", "note": "A general observation in the present."},
+        {"french": "Nous **mourons de faim** après cette longue marche.", "english": "We are starving after this long walk.", "note": "An everyday exaggeration in this context."}
+      ],
+      "mistakes": [{"avoid": "Les plantes mourent.", "prefer": "Les plantes meurent.", "why": "Use meur- for ils/elles, not the nous stem mour-."}]
+    },
+    {
+      "id": "acquisition", "title": "Acquérir and related -quérir verbs",
+      "paragraphs": ["Acquérir means to acquire: an object, a right or a skill. It alternates acquiers/acquiert, acquérons/acquérez and acquièrent. Notice both the i and the grave accent in acquièrent. Conquérir (to conquer or win over), reconquérir (to win back) and requérir (to require, more formal) follow the same endings and stem alternation after their prefixes.", "Full parallel forms: conquérir gives je conquiers, tu conquiers, il/elle/on conquiert, nous conquérons, vous conquérez, ils/elles conquièrent; requérir gives je requiers, tu requiers, il/elle/on requiert, nous requérons, vous requérez, ils/elles requièrent. Reconquérir adds re- to every conquérir form. The old verb quérir is mainly encountered as an infinitive in aller quérir, to go and fetch; do not invent a regular present from it."],
+      "points": ["Acquérir is not regular like finir: there is no acquérissons.", "Everyday acheter means buy; acquérir has a wider, often more formal meaning."],
+      "examples": [
+        {"french": "j'**acquiers**\ntu **acquiers**\nil/elle/on **acquiert**\nnous **acquérons**\nvous **acquérez**\nils/elles **acquièrent**", "english": "I acquire\nyou acquire (singular)\nhe/she/one acquires\nwe acquire\nyou acquire (plural or polite)\nthey acquire", "note": "Three stem shapes must be recognized."},
+        {"french": "Vous **acquérez** de nouvelles compétences.", "english": "You are acquiring new skills.", "note": "The vous form has é and no i after qu."},
+        {"french": "Ces réparations **requièrent** du temps.", "english": "These repairs require time.", "note": "Requérir follows the same third-person plural pattern."},
+        {"french": "La troupe **conquiert** un nouveau public.", "english": "The troupe is winning over a new audience.", "note": "Conquérir can have a nonmilitary meaning."}
+      ],
+      "mistakes": [{"avoid": "Nous acquérissons de l'expérience.", "prefer": "Nous acquérons de l'expérience.", "why": "Acquérir does not use the regular -ir plural -iss- pattern."}]
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "text", "pool": "practice", "section_id": "value", "prompt": "Supply valoir in the present: Ce meuble ___ cent euros.", "choices": [], "answers": ["vaut"], "explanation": "Ce meuble is singular: il vaut."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "life", "prompt": "Supply mourir in the present: Les fleurs ___ sans lumière.", "choices": [], "answers": ["meurent"], "explanation": "Third-person plural uses meur- and -ent."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "acquisition", "prompt": "Supply acquérir in the present: Nous ___ une méthode de travail.", "choices": [], "answers": ["acquérons"], "explanation": "Nous uses acquér- and -ons."},
+    {"id": "item-04", "kind": "choice", "pool": "practice", "section_id": "value", "prompt": "Choose the phrase meaning it is better to wait.", "choices": ["Il vaut mieux attendre.", "Il coûte attendre."], "answers": ["Il vaut mieux attendre."], "explanation": "Il vaut mieux + infinitive makes a recommendation."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "value", "prompt": "Supply valoir in the present: Ces objets ___ peu d'argent.", "choices": [], "answers": ["valent"], "explanation": "The plural stem is val-; ils takes -ent."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "life", "prompt": "Supply mourir in the present: Après le sport, nous ___ de faim.", "choices": [], "answers": ["mourons"], "explanation": "Nous keeps mour-."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "acquisition", "prompt": "Supply acquérir in the present: Les stagiaires ___ de l'assurance.", "choices": [], "answers": ["acquièrent"], "explanation": "Ils/elles takes acquièr- plus -ent."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "acquisition", "prompt": "Supply conquérir in the present: Cette chanteuse ___ le public.", "choices": [], "answers": ["conquiert"], "explanation": "The singular follows acquiert with the con- prefix."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "acquisition", "prompt": "Supply requérir in the present: Ces tâches ___ de la patience.", "choices": [], "answers": ["requièrent"], "explanation": "Third-person plural uses requièr-."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "value", "prompt": "Supply valoir in the present: Tu ___ mieux que cette réputation.", "choices": [], "answers": ["vaux"], "explanation": "Tu takes vaux, ending in x."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "life", "prompt": "Supply mourir in the present: Cette vieille tradition ___ peu à peu.", "choices": [], "answers": ["meurt"], "explanation": "The figurative singular use has the same conjugation."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "acquisition", "prompt": "Supply acquérir in the present: Vous ___ un droit de passage.", "choices": [], "answers": ["acquérez"], "explanation": "Vous uses acquér- plus -ez."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "value", "prompt": "Supply valoir in the present: Est-ce que ce détour ___ la peine?", "choices": [], "answers": ["vaut"], "explanation": "Valoir la peine asks whether the effort is worthwhile."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "life", "prompt": "Supply mourir in the present: Vous ___ d'envie de voir le résultat.", "choices": [], "answers": ["mourez"], "explanation": "Vous keeps mour-; mourir d'envie means to be very eager."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "acquisition", "prompt": "Supply acquérir in the present: J'___ une meilleure compréhension du sujet.", "choices": [], "answers": ["acquiers"], "explanation": "Je takes acquiers, with a final s."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "acquisition", "prompt": "Supply reconquérir in the present: Les joueuses ___ leur place.", "choices": [], "answers": ["reconquièrent"], "explanation": "Add re- to conquièrent."}
+  ],
+  "production_task": {"prompt": "Write a short message about a demanding training course. Say what skills participants acquire, whether the effort is worthwhile, and use mourir de faim as a clearly figurative reaction after a long session.", "model_answer": "Nous acquérons des compétences utiles. Les exercices requièrent de la concentration, mais ce cours vaut la peine. Après trois heures de travail, nous mourons de faim. Il vaut mieux prévoir une pause.", "translation": "We are acquiring useful skills. The exercises require concentration, but this course is worthwhile. After three hours of work, we are starving. It is better to plan a break.", "rubric": ["Use the correct stem for nous and for a plural noun subject.", "Use valoir for worth or a recommendation, not as a synonym for every use of cost.", "Make the exaggerated expression clear from context."]}
+}

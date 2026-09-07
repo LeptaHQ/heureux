@@ -1,0 +1,56 @@
+{
+  "version": 1, "id": "b1-future-core-stems", "slug": "b1-future-core-stems", "cefr_level": "B1", "topic": "verbs-tenses-moods",
+  "title": "Future essentials: being, having, doing, going and knowing",
+  "summary": "Use ser-, aur-, fer-, ir- and saur- to make practical plans and predictions.",
+  "order": 5, "duration_minutes": 13, "prerequisites": ["b1-future-building"],
+  "objectives": ["Recall all six future forms of five essential verbs.", "Distinguish j'irai from je vais and je saurai from je serai."],
+  "keywords": ["être", "avoir", "faire", "aller", "savoir", "futur simple"],
+  "sources": [{"label": "University of Texas: irregular future stems", "url": "https://www.laits.utexas.edu/tex/gr/taf3.html"}],
+  "related_legacy_ids": ["verbs-future"],
+  "sections": [
+    {
+      "id": "core-forms", "title": "Irregular stems, regular endings",
+      "paragraphs": ["These five verbs do not build the future from their infinitives. Learn a short stem ending in r and attach the same six endings as before. Être uses ser-, avoir aur-, faire fer-, aller ir- and savoir saur-. Il, elle and on share a form.", "Savoir means know a fact or know how to do something. Savoir plus an infinitive can express acquired ability, not just future permission. Pouvoir, taught separately, expresses being able because circumstances allow it. Vocabulary: une réponse (feminine), an answer; un stage (masculine), an internship or training course."],
+      "points": ["Do not confuse serai (will be) with saurai (will know).", "Je ferai has one r; it is not faire + -ai."],
+      "examples": [
+        {"french": "je **serai**\ntu **seras**\nil/elle/on **sera**\nnous **serons**\nvous **serez**\nils/elles **seront**", "english": "I will be\nyou will be (singular)\nhe/she/one will be\nwe will be\nyou will be (plural or polite)\nthey will be", "note": "Être uses ser-."},
+        {"french": "j'**aurai**\ntu **auras**\nil/elle/on **aura**\nnous **aurons**\nvous **aurez**\nils/elles **auront**", "english": "I will have\nyou will have (singular)\nhe/she/one will have\nwe will have\nyou will have (plural or polite)\nthey will have", "note": "Avoir uses aur-."},
+        {"french": "je **ferai**\ntu **feras**\nil/elle/on **fera**\nnous **ferons**\nvous **ferez**\nils/elles **feront**", "english": "I will do/make\nyou will do/make (singular)\nhe/she/one will do/make\nwe will do/make\nyou will do/make (plural or polite)\nthey will do/make", "note": "Faire uses fer-."},
+        {"french": "j'**irai**\ntu **iras**\nil/elle/on **ira**\nnous **irons**\nvous **irez**\nils/elles **iront**", "english": "I will go\nyou will go (singular)\nhe/she/one will go\nwe will go\nyou will go (plural or polite)\nthey will go", "note": "Aller's entire future stem is ir-."},
+        {"french": "je **saurai**\ntu **sauras**\nil/elle/on **saura**\nnous **saurons**\nvous **saurez**\nils/elles **sauront**", "english": "I will know\nyou will know (singular)\nhe/she/one will know\nwe will know\nyou will know (plural or polite)\nthey will know", "note": "Savoir uses saur-, not ser-."}
+      ],
+      "mistakes": [{"avoid": "Vous faisez le bilan demain.", "prefer": "Vous ferez le bilan demain.", "why": "For the requested simple future, faire uses fer- plus -ez."}, {"avoid": "Je serai la réponse demain.", "prefer": "Je saurai la réponse demain.", "why": "Knowing an answer needs savoir; serai means will be."}]
+    },
+    {
+      "id": "use", "title": "Use a future form to make a commitment",
+      "paragraphs": ["A future form is useful when you commit to a task, predict a state or say when information will become available. It is not a guarantee: the tense presents the event as future, while context shows how certain it is.", "Je vais partir is a near-future construction: present aller plus an infinitive. J'irai au bureau is the simple future of going somewhere. J'irai chercher le dossier means I will go and fetch the file: the future verb still describes going, followed by another action."],
+      "points": ["Après le stage, vous saurez réparer... concerns a skill learned by then.", "Keep the future in a future quand clause: quand nous aurons la réponse."],
+      "examples": [
+        {"french": "Je **serai** disponible après seize heures.", "english": "I will be available after four p.m.", "note": "A future state."},
+        {"french": "Quand nous **aurons** les résultats, nous **ferons** le bilan.", "english": "When we have the results, we will take stock.", "note": "Both clauses refer to future events."},
+        {"french": "Vous **irez** chercher les badges à l'accueil.", "english": "You will go and collect the badges at reception.", "note": "Irez expresses going, with chercher as the following action."},
+        {"french": "Après cet atelier, ils **sauront** régler la machine.", "english": "After this workshop, they will know how to adjust the machine.", "note": "Savoir plus an infinitive expresses know-how."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "text", "pool": "practice", "section_id": "core-forms", "prompt": "Supply être in the simple future: Je ___ à l'accueil.", "choices": [], "answers": ["serai"], "explanation": "Ser- plus -ai gives serai."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "core-forms", "prompt": "Supply avoir in the simple future: Tu ___ ton badge demain.", "choices": [], "answers": ["auras"], "explanation": "Aur- plus -as gives auras."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "core-forms", "prompt": "Supply faire in the simple future: Nous ___ une pause.", "choices": [], "answers": ["ferons"], "explanation": "Faire uses fer-."},
+    {"id": "item-04", "kind": "choice", "pool": "practice", "section_id": "use", "prompt": "Which sentence says we will go there, using the simple future?", "choices": ["Nous irons là-bas.", "Nous allons là-bas."], "answers": ["Nous irons là-bas."], "explanation": "Irons is the simple future; allons is present."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "core-forms", "prompt": "Supply savoir in the simple future: Vous ___ utiliser cet outil.", "choices": [], "answers": ["saurez"], "explanation": "Saur- plus -ez expresses future know-how."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "core-forms", "prompt": "Supply être in the simple future: Les salles ___ ouvertes.", "choices": [], "answers": ["seront"], "explanation": "A plural noun subject uses seront."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "core-forms", "prompt": "Supply avoir in the simple future: Nous ___ besoin d'aide.", "choices": [], "answers": ["aurons"], "explanation": "Avoir besoin keeps avoir, conjugated aurons."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "core-forms", "prompt": "Supply faire in the simple future: Elle ___ les réservations.", "choices": [], "answers": ["fera"], "explanation": "Elle takes fer- plus -a."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "core-forms", "prompt": "Supply aller in the simple future: Vous ___ directement au laboratoire.", "choices": [], "answers": ["irez"], "explanation": "Ir- plus -ez gives irez."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "core-forms", "prompt": "Supply savoir in the simple future: On ___ demain si le projet continue.", "choices": [], "answers": ["saura"], "explanation": "On uses the third-person singular saura."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "core-forms", "prompt": "Supply aller in the simple future: J'___ chercher les documents.", "choices": [], "answers": ["irai"], "explanation": "Je elides before irai."},
+    {"id": "item-12", "kind": "choice", "pool": "check", "section_id": "use", "prompt": "Choose the form meaning they will know, not they will be: Ils ___ la date exacte lundi.", "choices": ["seront", "sauront"], "answers": ["sauront"], "explanation": "Sauront comes from savoir."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "core-forms", "prompt": "Supply faire in the simple future: Vous ___ le point avec l'équipe.", "choices": [], "answers": ["ferez"], "explanation": "Ferez is the vous future of faire."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "use", "prompt": "Supply avoir in the simple future: Quand elle ___ la confirmation, elle réservera.", "choices": [], "answers": ["aura"], "explanation": "The future time clause uses aura."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "core-forms", "prompt": "Supply être in the simple future: Nous ___ prêts à neuf heures.", "choices": [], "answers": ["serons"], "explanation": "Être uses ser- plus -ons."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "core-forms", "prompt": "Supply savoir in the simple future: Tu ___ bientôt réparer ton vélo.", "choices": [], "answers": ["sauras"], "explanation": "Sauras plus an infinitive describes future learned ability."}
+  ],
+  "production_task": {"prompt": "Write five short sentences telling a new colleague what will happen during induction. Use each of être, avoir, faire, aller and savoir once in the simple future.", "model_answer": "Vous serez avec notre équipe lundi. Vous aurez un badge personnel. Nous ferons le tour du bâtiment. Ensuite, vous irez au laboratoire. À la fin de la journée, vous saurez utiliser le logiciel.", "translation": "You will be with our team on Monday. You will have a personal badge. We will tour the building. Then you will go to the laboratory. By the end of the day, you will know how to use the software.", "rubric": ["Use the five distinct stems accurately.", "Choose endings for the intended subjects.", "Make the induction sequence practical and clear."]}
+}

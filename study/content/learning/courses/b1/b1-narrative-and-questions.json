@@ -1,0 +1,65 @@
+{
+  "version": 1, "id": "b1-narrative-and-questions", "slug": "b1-narrative-and-questions", "cefr_level": "B1", "topic": "verbs-tenses-moods",
+  "title": "Controlling a past narrative and asking what happened",
+  "summary": "Separate background from events, negate reflexive past forms and form careful inverted questions.",
+  "order": 3, "duration_minutes": 15, "prerequisites": ["b1-past-families"],
+  "objectives": ["Distinguish background, bounded events and an earlier past event.", "Place negation around a reflexive auxiliary.", "Invert compound-past questions with a noun or reflexive pronoun."],
+  "keywords": ["imparfait", "passé composé", "plus-que-parfait", "inversion", "reflexive negation"],
+  "sources": [{"label": "University of Texas: pronoun placement in compound negation", "url": "https://www.laits.utexas.edu/tex/gr/pro9.html"}, {"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],
+  "related_legacy_ids": ["verbs-past-contrast", "verbs-imparfait", "questions-forms", "negation-core"],
+  "sections": [
+    {
+      "id": "viewpoint", "title": "Choose what the listener sees",
+      "paragraphs": ["The imparfait shows a situation from inside: background, a habit or an action in progress. The passé composé presents an event as a whole or moves the story forward. Neither tense is chosen simply because an action was long or short: J'ai travaillé dix ans ici treats ten years as a completed period.", "Form the imparfait from present nous minus -ons, then add -ais, -ais, -ait, -ions, -iez, -aient. Être is exceptional: j'étais, tu étais, il/elle/on était, nous étions, vous étiez, ils/elles étaient. A plus-que-parfait puts an event before a past reference point: use the imparfait of avoir (avais, avais, avait, avions, aviez, avaient) or être (étais, étais, était, étions, étiez, étaient) plus the participle, keeping the compound-past auxiliary and agreement rules."],
+      "points": ["Parler in the imparfait: je parlais, tu parlais, il/elle/on parlait, nous parlions, vous parliez, ils/elles parlaient.", "Vocabulary: une alarme (feminine), an alarm; un entretien (masculine), an interview or maintenance session."],
+      "examples": [
+        {"french": "Il **pleuvait** quand l'alarme **a sonné**.", "english": "It was raining when the alarm rang.", "note": "The rain is background; the alarm advances the story."},
+        {"french": "Pendant trois ans, elle **a travaillé** dans ce laboratoire.", "english": "For three years, she worked in this laboratory.", "note": "A long period can still be viewed as a completed whole."},
+        {"french": "Nous **avions fermé** les fenêtres avant l'orage.", "english": "We had closed the windows before the storm.", "note": "The closing precedes the past storm."},
+        {"french": "Chaque matin, je **prenais** le même bus.", "english": "Every morning, I used to take the same bus.", "note": "A repeated past habit seen without a specific completed boundary."}
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "reflexive-negative", "title": "Keep the pronoun with the auxiliary",
+      "paragraphs": ["A reflexive verb includes me, te, se, nous, vous or se before its auxiliary être. In a written negative compound past, the order is subject + ne + reflexive pronoun + être + pas + participle. Ne and the reflexive pronoun elide before vowels where needed.", "For se lever: je ne me suis pas levé/levée; tu ne t'es pas levé/levée; il ne s'est pas levé; elle ne s'est pas levée; on ne s'est pas levé; nous ne nous sommes pas levés/levées; vous ne vous êtes pas levé/levée/levés/levées; ils ne se sont pas levés; elles ne se sont pas levées. The listed endings depend on the people concerned. Not every reflexive participle agrees automatically: elle s'est lavé les mains has a following direct object; elles se sont parlé has an indirect reflexive object."],
+      "points": ["Jamais and plus can occupy pas's position: elle ne s'est jamais trompée; elle ne s'est plus déplacée."],
+      "examples": [
+        {"french": "Lina **ne s'est pas réveillée** à temps.", "english": "Lina did not wake up in time.", "note": "Pas follows est, not the infinitive or the participle."},
+        {"french": "Nous **ne nous sommes pas trompés** d'adresse.", "english": "We did not get the address wrong.", "note": "A mixed or all-male group uses trompés here."}
+      ],
+      "mistakes": [{"avoid": "Elle ne s'est réveillée pas.", "prefer": "Elle ne s'est pas réveillée.", "why": "Pas comes immediately after the auxiliary in this construction."}]
+    },
+    {
+      "id": "inversion", "title": "Move the auxiliary, not the participle",
+      "paragraphs": ["In a careful or formal question, invert the auxiliary with the subject pronoun: a-t-elle compris? The participle stays after that unit. With a noun subject, keep the noun first and repeat it with the matching pronoun: Les candidates ont-elles compris? Insert -t- between a vowel-ending auxiliary and il/elle/on when needed: a-t-il. Do not add another t to est-il or ont-ils.", "For reflexive questions, the reflexive pronoun stays before the auxiliary: s'est-elle levée? With a noun, combine the two patterns: Lina s'est-elle levée? A negative question frames the same auxiliary unit: Lina ne s'est-elle pas levée? In ordinary conversation, est-ce que or a rising voice is often more natural; inversion is not obligatory in every question."],
+      "points": ["Use hyphens in the inverted auxiliary-pronoun unit and around inserted -t-.", "Question punctuation does not replace the required subject pronoun in noun inversion."],
+      "examples": [
+        {"french": "Le gardien **a-t-il entendu** l'alarme?", "english": "Did the caretaker hear the alarm?", "note": "The noun is retained; il repeats it after a."},
+        {"french": "Les visiteuses **se sont-elles présentées** à l'accueil?", "english": "Did the visitors introduce themselves at reception?", "note": "Se stays before sont; elles follows it."},
+        {"french": "**T'es-tu souvenu** de l'entretien?", "english": "Did you remember the interview?", "note": "Addressing one man; for one woman, souvenue."},
+        {"french": "Nora **ne s'est-elle pas inscrite** hier?", "english": "Didn't Nora register yesterday?", "note": "Ne precedes s'; pas follows the inverted auxiliary unit."}
+      ],
+      "mistakes": [{"avoid": "Les participantes ont compris-elles?", "prefer": "Les participantes ont-elles compris?", "why": "Invert the auxiliary ont, not the participle compris."}]
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "choice", "pool": "practice", "section_id": "viewpoint", "prompt": "Choose the background in a story: Il ___ froid quand nous sommes sortis.", "choices": ["faisait", "a fait"], "answers": ["faisait"], "explanation": "The instruction treats the cold as surrounding background."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "reflexive-negative", "prompt": "Insert only the missing words: Lina ne ___ pas levée. Use se lever in the passé composé.", "choices": [], "answers": ["s'est"], "explanation": "The reflexive pronoun precedes the auxiliary être."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "inversion", "prompt": "Supply only the inverted auxiliary-pronoun unit: Le train ___ quitté la gare? Use avoir and il.", "choices": [], "answers": ["a-t-il"], "explanation": "A requires inserted -t- before il."},
+    {"id": "item-04", "kind": "text", "pool": "practice", "section_id": "inversion", "prompt": "Supply only the missing unit: Les enfants ___ couchés? Use se coucher in the passé composé with inversion.", "choices": [], "answers": ["se sont-ils"], "explanation": "Se stays before the auxiliary; ils follows sont."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "reflexive-negative", "prompt": "Rewrite exactly in the negative with ne ... pas: Elle s'est arrêtée.", "choices": [], "answers": ["Elle ne s'est pas arrêtée."], "explanation": "Ne precedes s'est; pas follows est."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "inversion", "prompt": "Turn into a noun-subject inverted question: Les techniciens ont vérifié le câble.", "choices": [], "answers": ["Les techniciens ont-ils vérifié le câble?"], "explanation": "Keep the noun and repeat it as ils after ont."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "inversion", "prompt": "Turn into an inverted question: Elle s'est reposée.", "choices": [], "answers": ["S'est-elle reposée?"], "explanation": "The reflexive s' stays attached to est, not to the participle."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "inversion", "prompt": "Supply the inverted unit: La directrice ___ reçu votre message? Use avoir and elle.", "choices": [], "answers": ["a-t-elle"], "explanation": "A vowel-ending a needs -t- before elle."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "viewpoint", "prompt": "Supply attendre in the imparfait: Nous ___ quand le téléphone a sonné.", "choices": [], "answers": ["attendions"], "explanation": "Attendre uses attend- plus -ions for ongoing background."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "viewpoint", "prompt": "Supply fermer in the plus-que-parfait: À mon arrivée, ils ___ le magasin.", "choices": [], "answers": ["avaient fermé"], "explanation": "The closing had already occurred before the past arrival."},
+    {"id": "item-11", "kind": "choice", "pool": "check", "section_id": "viewpoint", "prompt": "Choose the form presenting a ten-year job as a completed period.", "choices": ["Elle a travaillé ici pendant dix ans.", "Elle travaillait ici quand je l'ai rencontrée."], "answers": ["Elle a travaillé ici pendant dix ans."], "explanation": "The passé composé can package a long period as a whole."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "reflexive-negative", "prompt": "Supply the missing negative group: Nous ___ trompées. Use ne ... pas and se tromper in the passé composé.", "choices": [], "answers": ["ne nous sommes pas"], "explanation": "Ne + nous + sommes + pas precedes the participle."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "inversion", "prompt": "Turn into an inverted question retaining the noun: Amina s'est inscrite.", "choices": [], "answers": ["Amina s'est-elle inscrite?"], "explanation": "Retain Amina and place elle after est."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "reflexive-negative", "prompt": "Rewrite with ne ... jamais: Il s'est plaint.", "choices": [], "answers": ["Il ne s'est jamais plaint."], "explanation": "Jamais takes the same position after the auxiliary as pas."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "viewpoint", "prompt": "Supply être in the imparfait: Vous ___ déjà sur place.", "choices": [], "answers": ["étiez"], "explanation": "Être has the exceptional imparfait stem ét-."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "inversion", "prompt": "Supply only the inverted unit: ___ rappelé l'heure du rendez-vous? Use vous and se rappeler in the passé composé.", "choices": [], "answers": ["Vous êtes-vous"], "explanation": "Reflexive vous precedes êtes; subject vous follows it. Rappelé stays unchanged before its following direct object."}
+  ],
+  "production_task": {"prompt": "A colleague missed a meeting. Write a brief account with background, one completed event and one earlier event. Add a negative reflexive sentence and a noun-subject inverted question you could use in a formal follow-up.", "model_answer": "Il pleuvait et le bus avançait lentement. Lina avait oublié son téléphone. Elle est arrivée après la réunion, mais elle ne s'est pas découragée. La responsable a-t-elle reçu son courriel?", "translation": "It was raining and the bus was moving slowly. Lina had forgotten her phone. She arrived after the meeting, but she did not lose heart. Did the manager receive her email?", "rubric": ["Make the three time viewpoints distinguishable.", "Keep the reflexive pronoun before être and pas after it.", "Invert the auxiliary and repeat the noun with a matching subject pronoun.", "Use subject agreement only where the construction requires it."]}
+}

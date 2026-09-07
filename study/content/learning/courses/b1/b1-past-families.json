@@ -1,0 +1,60 @@
+{
+  "version": 1, "id": "b1-past-families", "slug": "b1-past-families", "cefr_level": "B1", "topic": "verbs-tenses-moods",
+  "title": "Irregular past participles and their auxiliaries",
+  "summary": "Report discoveries, journeys and encounters with connu, paru, couru, battu and apparu.",
+  "order": 2, "duration_minutes": 15, "prerequisites": ["b1-present-stem-changes"],
+  "objectives": ["Build compound past forms across four irregular families.", "Distinguish the usual auxiliaries of paraître, apparaître and naître."],
+  "keywords": ["passé composé", "connu", "paru", "couru", "battu", "apparu", "né", "auxiliary"],
+  "sources": [{"label": "OQLF: auxiliary choice with apparaître", "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/23848/la-grammaire/le-verbe/auxiliaires/emploi-des-auxiliaires-avec-le-verbe-apparaitre"}, {"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],
+  "related_legacy_ids": ["verbs-passe-compose", "verbs-irregular-past-participles"],
+  "sections": [
+    {
+      "id": "avoir-families", "title": "A present auxiliary plus a family participle",
+      "paragraphs": ["The passé composé combines an auxiliary, a helping verb, with a past participle. With avoir, learn j'ai, tu as, il/elle/on a, nous avons, vous avez, ils/elles ont. The participle does not agree with the subject. Agreement with a preceding direct object is a separate rule; our examples keep direct objects after the verb.", "Connaître gives connu; reconnaître gives reconnu and méconnaître gives méconnu (to misunderstand or fail to recognize). Paraître gives paru; disparaître gives disparu, reparaître gives reparu and comparaître gives comparu (to appear in court). These are not regular -u forms derived by mechanically cutting off -aître.", "Courir gives couru; parcourir gives parcouru (to travel through or cover), accourir gives accouru (to rush over), recourir gives recouru (to resort to) and secourir gives secouru (to help or rescue). Accourir can also take être; the exercises specifying avoir train that accepted pattern. Battre gives battu; combattre gives combattu, débattre gives débattu and abattre gives abattu. Se battre is reflexive and therefore uses être: elle s'est battue."],
+      "points": ["The full six-person pattern below works unchanged with paru, couru or battu in place of connu.", "Vocabulary: un parcours (masculine), a route; un témoin (masculine), a witness; une panne (feminine), a breakdown."],
+      "examples": [
+        {"french": "j'**ai connu**\ntu **as connu**\nil/elle/on **a connu**\nnous **avons connu**\nvous **avez connu**\nils/elles **ont connu**", "english": "I knew / have known\nyou knew / have known (singular)\nhe/she/one knew / has known\nwe knew / have known\nyou knew / have known (plural or polite)\nthey knew / have known", "note": "Use for an experience or bounded period of knowing; ongoing past familiarity often takes connaissais."},
+        {"french": "Nous **avons reconnu** le témoin.", "english": "We recognized the witness.", "note": "Recognizing is a completed event here."},
+        {"french": "La panne **a paru** moins grave après le contrôle.", "english": "The breakdown seemed less serious after the inspection.", "note": "Paraître meaning seem uses avoir."},
+        {"french": "Les randonneuses **ont parcouru** vingt kilomètres.", "english": "The hikers covered twenty kilometres.", "note": "No subject agreement on parcouru with avoir."},
+        {"french": "Les élus **ont débattu** de la proposition.", "english": "The elected representatives debated the proposal.", "note": "Débattre de uses débattu."},
+        {"french": "Les bénévoles **ont secouru** un cycliste.", "english": "The volunteers helped a cyclist in distress.", "note": "Secourir shares couru's family pattern."}
+      ],
+      "mistakes": [
+        {"avoid": "Elles ont courues jusqu'au pont.", "prefer": "Elles ont couru jusqu'au pont.", "why": "Avoir does not make the participle agree with the subject."},
+        {"avoid": "Nous avons batté le record.", "prefer": "Nous avons battu le record.", "why": "Battre has the irregular participle battu."}
+      ]
+    },
+    {
+      "id": "appear-born", "title": "Apparu and né: do not choose by spelling alone",
+      "paragraphs": ["Apparaître gives apparu and is normally used with être in contemporary French. Avoir is also attested, especially when emphasizing the event; it is not an impossible form. The exercises request être where a single auxiliary is expected. With être, the participle agrees with the subject: apparu, apparue, apparus, apparues.", "Naître gives né and takes être: je suis né/née, tu es né/née, il/on est né, elle est née, nous sommes nés/nées, vous êtes né/ née/nés/nées according to the people addressed, ils sont nés, elles sont nées. Renaître gives rené in compound forms, which are much less common than the simple forms; it is not a paraître-family verb. For publications, paraître can also take être to present the published state: le livre est paru. Do not turn the common avoir pattern into an absolute ban on être."],
+      "points": ["On uses est; agreement can reflect a known group when on means we.", "With polite vous addressing one person, agreement remains singular."],
+      "examples": [
+        {"french": "je **suis apparu/apparue**\ntu **es apparu/apparue**\nil **est apparu** / elle **est apparue** / on **est apparu**\nnous **sommes apparus/apparues**\nvous **êtes apparu/apparue/apparus/apparues**\nils **sont apparus** / elles **sont apparues**", "english": "I appeared\nyou appeared (singular)\nhe appeared / she appeared / one appeared\nwe appeared\nyou appeared (polite singular or plural)\nthey appeared (masculine or mixed) / they appeared (feminine)", "note": "Choose one agreement form to match the actual subject; slashes show alternatives, not a sentence to say aloud."},
+        {"french": "Deux nouvelles options **sont apparues** à l'écran.", "english": "Two new options appeared on the screen.", "note": "Options is feminine plural."},
+        {"french": "Ma sœur **est née** à Rennes.", "english": "My sister was born in Rennes.", "note": "Naître has its own participle and takes être."},
+        {"french": "Le deuxième volume **est paru** en juin.", "english": "The second volume came out in June.", "note": "Être is accepted for publication; a paru is also possible."}
+      ],
+      "mistakes": [{"avoid": "Les icônes sont apparu.", "prefer": "Les icônes sont apparues.", "why": "With être, agree apparues with the feminine plural subject."}]
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "text", "pool": "practice", "section_id": "avoir-families", "prompt": "Supply the past participle of connaître: J'ai ___ cette période difficile.", "choices": [], "answers": ["connu"], "explanation": "Connaître gives connu."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "avoir-families", "prompt": "Supply courir in the passé composé: Nous ___ jusqu'à la gare.", "choices": [], "answers": ["avons couru"], "explanation": "Use nous avons plus couru."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "avoir-families", "prompt": "Supply the past participle of battre: L'équipe a ___ son record.", "choices": [], "answers": ["battu"], "explanation": "Battre gives battu, not batté."},
+    {"id": "item-04", "kind": "text", "pool": "practice", "section_id": "appear-born", "prompt": "Use apparaître in the passé composé with être: Une ligne ___ sur l'écran.", "choices": [], "answers": ["est apparue"], "explanation": "Ligne is feminine singular, so apparue agrees."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "avoir-families", "prompt": "Supply reconnaître in the passé composé: Vous ___ sa voix.", "choices": [], "answers": ["avez reconnu"], "explanation": "Recognu is not the participle; use reconnu."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "avoir-families", "prompt": "Use paraître meaning seem in the passé composé: Cette solution ___ simple.", "choices": [], "answers": ["a paru"], "explanation": "Paraître meaning seem takes avoir and paru."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "avoir-families", "prompt": "Supply the past participle of parcourir: Elles ont ___ le quartier à pied.", "choices": [], "answers": ["parcouru"], "explanation": "Parcourir shares couru's pattern; do not agree with elles."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "avoir-families", "prompt": "Supply combattre in the passé composé: Les associations ___ cette injustice.", "choices": [], "answers": ["ont combattu"], "explanation": "The derivative retains battu: combattu."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "appear-born", "prompt": "Use apparaître with être: Plusieurs fissures ___ hier. Supply the passé composé; une fissure is feminine.", "choices": [], "answers": ["sont apparues"], "explanation": "Être and a feminine plural subject require apparues."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "appear-born", "prompt": "Supply naître in the passé composé: Les jumelles ___ en août.", "choices": [], "answers": ["sont nées"], "explanation": "Naître takes être and the feminine plural participle nées."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "avoir-families", "prompt": "Supply disparaître in the passé composé using avoir: Les nuages ___.", "choices": [], "answers": ["ont disparu"], "explanation": "Disparaître gives disparu."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "avoir-families", "prompt": "Supply accourir in the passé composé with avoir: Tu ___ pour nous aider.", "choices": [], "answers": ["as accouru"], "explanation": "Accourir gives accouru; the prompt specifies the accepted avoir construction."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "avoir-families", "prompt": "Supply recourir in the passé composé: Nous ___ à un interprète.", "choices": [], "answers": ["avons recouru"], "explanation": "Recourir à means to resort to or use the services of."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "avoir-families", "prompt": "Supply the participle of débattre: Vous avez ___ du budget.", "choices": [], "answers": ["débattu"], "explanation": "The family participle is débattu."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "appear-born", "prompt": "Use apparaître with être in the passé composé: Vous ___ à la télévision. Address one woman politely.", "choices": [], "answers": ["êtes apparue"], "explanation": "Polite singular vous takes êtes but feminine singular agreement."},
+    {"id": "item-16", "kind": "choice", "pool": "review", "section_id": "appear-born", "prompt": "Choose both accepted auxiliaries for a published book: Ce roman ___ paru l'an dernier.", "choices": ["a / est", "a only", "est only"], "answers": ["a / est"], "explanation": "Publication allows either a paru or est paru; paraître does not always exclude être."}
+  ],
+  "production_task": {"prompt": "Describe a walking tour where you recognized someone and noticed something new. Use a connaître-family participle, a courir-family participle and apparaître with être. Include a feminine plural subject for one agreement.", "model_answer": "Nous avons parcouru le vieux quartier. J'ai reconnu une ancienne voisine près du marché. Deux fresques sont apparues sur le mur depuis ma dernière visite. Elles ont paru très lumineuses au soleil.", "translation": "We walked through the old neighbourhood. I recognized a former neighbour near the market. Two murals have appeared on the wall since my last visit. They looked very bright in the sunlight.", "rubric": ["Use the correct irregular participles.", "Do not agree avoir participles with the subject.", "Agree the être participle with the intended subject.", "Tell a connected event rather than a list of unrelated forms."]}
+}

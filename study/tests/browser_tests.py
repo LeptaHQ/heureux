@@ -15,6 +15,7 @@ from django.utils import timezone
 from study import content_loader as content
 from study.account_services import provision_user_study_data
 from study.content_loader import load_sections
+from study.course_content import load_course_catalog
 from study.learning_content import load_learning_catalog
 from study.management.commands.import_content import Command
 from study.models import (
@@ -6453,6 +6454,56 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.wait_for_url("**/apprendre/?scope=reference&q=subjonctif")
         expect(self.page.locator("[data-learning-level-filter]")).to_have_count(0)
         self.assertGreater(self.page.locator("[data-learning-lesson]:visible").count(), 0)
+
+    def test_bundled_course_search_and_examples_render_across_levels(self):
+        catalog = load_course_catalog()
+        for level in ("A1", "A2", "B1", "B2", "C1-preparation"):
+            lesson = next(
+                lesson for lesson in catalog.lessons if lesson.cefr_level == level
+            )
+            with self.subTest(level=level):
+                self.page.goto(self.live_server_url + reverse("study:learn"))
+                self.page.locator("[data-learning-level-filter]").select_option(level)
+                self.page.locator("[data-learning-search]").fill(lesson.title)
+                expect(
+                    self.page.locator("[data-learning-lesson]:visible")
+                ).to_have_count(1)
+                self.assert_no_horizontal_overflow()
+
+                self.page.goto(
+                    self.live_server_url
+                    + reverse("study:course_lesson", args=[lesson.slug])
+                    + f"?level={level}"
+                )
+                expect(self.page.locator("h1")).to_have_text(lesson.title)
+                expect(self.page.locator("[data-annotation-root]")).to_have_count(
+                    len(lesson.sections)
+                )
+                examples = [
+                    example
+                    for section in lesson.sections
+                    for example in section.examples
+                ]
+                rendered = self.page.locator(".learn-example blockquote")
+                expect(rendered).to_have_count(len(examples))
+                for index, example in enumerate(examples):
+                    text = rendered.nth(index).inner_text()
+                    self.assertNotIn("**", text)
+                    self.assertEqual(text.count("\n"), example.french.count("\n"))
+                for width in (320, 768, 1200):
+                    self.page.set_viewport_size({"width": width, "height": 844})
+                    self.assert_no_horizontal_overflow()
+
+                self.page.get_by_role("link", name="Practise this lesson").click()
+                self.page.wait_for_url(
+                    "**" + reverse("study:course_practice", args=[lesson.slug])
+                )
+                expect(
+                    self.page.get_by_role("heading", name="Practise this lesson")
+                ).to_be_visible()
+                self.page.set_viewport_size({"width": 320, "height": 844})
+                self.assert_no_horizontal_overflow()
+        self.assertFalse(CourseAttempt.objects.filter(user=self.user).exists())
 
     def test_course_practice_hints_check_and_production_without_client_keys(self):
         catalog = self.install_course_fixture()

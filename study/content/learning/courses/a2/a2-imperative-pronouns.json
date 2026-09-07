@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-imperative-pronouns","slug":"a2-imperative-pronouns","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Entrez, écoute-moi, ne le prends pas","summary":"Give clear instructions and move pronouns only when the command is affirmative.","order":21,"duration_minutes":15,"prerequisites":["a2-possessive-pronouns"],
+ "objectives":["Form tu, nous and vous imperatives without subject pronouns.","Place direct/indirect pronouns after affirmative commands and before negative commands.","Handle moi/toi and the y/en spelling cases."],
+ "keywords":["impératif","command","moi","toi","le","lui","ne pas","vas-y"],
+ "sources":[{"label":"OQLF: pronouns with imperative verbs; consulted 7 September 2026","url":"https://vitrinelinguistique.oqlf.gouv.qc.ca/24206/la-grammaire/les-pronoms/pronoms-personnels/pronoms-personnels-employes-avec-un-verbe-a-limperatif"},{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["imperative","pronouns-direct-indirect"],
+ "sections":[
+  {"id":"forms","title":"Three possible addressees, no written subject",
+   "paragraphs":["The imperative gives an instruction, suggestion or invitation. It has tu, nous and vous forms, but normally omits those subject pronouns. The nous form often means 'let's'. Use present forms, removing the final s from the tu form of -er verbs and verbs like ouvrir/offrir: parle, ouvre. Finir and attendre keep their usual tu s.", "Politeness depends on tone and context as well as grammar. Vous is appropriate for polite or plural address; adding s'il vous plaît softens many practical instructions. A negative command uses ne ... pas around the verb, keeping ordinary before-verb pronoun placement."],
+   "points":["Parler: parle, parlons, parlez. Finir: finis, finissons, finissez. Attendre: attends, attendons, attendez. Ouvrir: ouvre, ouvrons, ouvrez.","Common irregular sets: être → sois, soyons, soyez; avoir → aie, ayons, ayez; savoir → sache, sachons, sachez; aller → va, allons, allez. For a polite request with vouloir, veuillez + infinitive is the useful recognition form."],
+   "examples":[
+    {"french":"**Ferme** la fenêtre, s'il te plaît.","english":"Close the window, please.","note":"Tu command without tu or final s."},
+    {"french":"**Finissons** ce travail ensemble.","english":"Let's finish this work together.","note":"Nous imperative."},
+    {"french":"**Attendez** ici, s'il vous plaît.","english":"Please wait here.","note":"Polite or plural vous."},
+    {"french":"**Ne soyez pas** en retard.","english":"Do not be late.","note":"Negative irregular être imperative."}
+   ],
+   "mistakes":[{"avoid":"Attend ici !","prefer":"Attends ici !","why":"The tu imperative of attendre keeps its final s, unlike an -er command such as parle."}]
+  },
+  {"id":"pronoun-order","title":"Affirmative after; negative before",
+   "paragraphs":["In an affirmative imperative, attach the object pronoun after the verb with a hyphen: regarde-le, parle-lui. Me and te become moi and toi: aide-moi, assieds-toi. Le/la/les still represent direct objects; lui/leur represent indirect recipients. With two pronouns, place the direct object before moi/toi/lui/nous/vous/leur: donne-le-moi.", "Negative commands restore ordinary pronouns and order: ne me regarde pas, ne lui parle pas, ne le prends pas. No hyphen links these before-verb pronouns. Before en or y attached to a tu command otherwise ending in a vowel, add s: parles-en, vas-y. Moi/toi become m'/t' immediately before en or y: donne-m'en, va-t'en. If en belongs to a following infinitive, it is not attached: va en acheter."],
+   "points":["Reflexive se lever: lève-toi, levons-nous, levez-vous; negative ne te lève pas, ne nous levons pas, ne vous levez pas.","S'en aller commands: va-t'en, allons-nous-en, allez-vous-en; negative ne t'en va pas, ne nous en allons pas, ne vous en allez pas."],
+   "examples":[
+    {"french":"Le formulaire ? **Remplis-le**.","english":"The form? Fill it in.","note":"Direct object follows the affirmative verb."},
+    {"french":"La conseillère ? **Téléphone-lui**.","english":"The adviser? Call her.","note":"Téléphoner à requires indirect lui."},
+    {"french":"**Donne-moi** un instant et **ne me coupe pas** la parole.","english":"Give me a moment and do not interrupt me.","note":"Affirmative moi contrasts with negative me."},
+    {"french":"Du pain ? **Achètes-en** deux ; **donne-m'en** un.","english":"Bread? Buy two loaves; give me one.","note":"Linking s with en; moi elides before en. The context is loaves."}
+   ],
+   "mistakes":[{"avoid":"Ne donne-moi pas ce dossier.","prefer":"Ne me donne pas ce dossier.","why":"Negative commands use me before the verb, not moi after it."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"forms","prompt":"Give the tu imperative of regarder: ___ le plan.","choices":[],"answers":["Regarde"],"explanation":"Drop tu and final s."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"forms","prompt":"Give the nous imperative of choisir: ___ une date.","choices":[],"answers":["Choisissons"],"explanation":"The nous imperative means let's choose."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"pronoun-order","prompt":"Rewrite Aide + me as a tu affirmative command.","choices":[],"answers":["Aide-moi."],"explanation":"Me becomes moi after an affirmative command."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"pronoun-order","prompt":"Replace le contrat in the command Signe le contrat.","choices":[],"answers":["Signe-le."],"explanation":"Direct le follows with a hyphen."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"forms","prompt":"Give the vous imperative of attendre: ___ dehors.","choices":[],"answers":["Attendez"],"explanation":"Use the vous form without vous."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"forms","prompt":"Give the tu imperative of finir: ___ ton repas.","choices":[],"answers":["Finis"],"explanation":"Finir keeps final s."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"forms","prompt":"Give the tu imperative of ouvrir: ___ la porte.","choices":[],"answers":["Ouvre"],"explanation":"Ouvrir has an -e imperative without s."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"pronoun-order","prompt":"Replace à tes parents: Réponds à tes parents.","choices":[],"answers":["Réponds-leur."],"explanation":"Répondre à takes indirect leur."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"pronoun-order","prompt":"Replace les instructions: Lis les instructions.","choices":[],"answers":["Lis-les."],"explanation":"Lire takes direct les."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"pronoun-order","prompt":"Make negative with ne ... pas: Regarde-moi.","choices":[],"answers":["Ne me regarde pas."],"explanation":"Moi returns to me before the verb."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"pronoun-order","prompt":"Make negative with ne ... pas: Prends-le.","choices":[],"answers":["Ne le prends pas."],"explanation":"Le moves before the negative command."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"pronoun-order","prompt":"Join va and y as the affirmative command meaning go there.","choices":[],"answers":["Vas-y."],"explanation":"Add s before attached y."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"forms","prompt":"Give the vous imperative of être: ___ prudents.","choices":[],"answers":["Soyez"],"explanation":"Être has an irregular imperative."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"pronoun-order","prompt":"Use the tu affirmative imperative of donner with me + en, meaning give me some.","choices":[],"answers":["Donne-m'en."],"explanation":"Moi becomes m' before en."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"pronoun-order","prompt":"Make negative with ne ... pas: Lève-toi.","choices":[],"answers":["Ne te lève pas."],"explanation":"Reflexive toi becomes te before the verb."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"pronoun-order","prompt":"Form the tu affirmative command with donner + le + moi.","choices":[],"answers":["Donne-le-moi."],"explanation":"Direct le comes before moi, with hyphens."}
+ ],
+ "production_task":{"prompt":"Give a colleague instructions for receiving visitors. Use polite vous commands, one object pronoun and one negative command.","model_answer":"Ouvrez la salle à neuf heures. Les visiteurs arrivent à l'accueil : accompagnez-les jusqu'à la salle. Donnez-leur un badge et ne bloquez pas la sortie.","translation":"Open the room at nine. The visitors arrive at reception: accompany them to the room. Give them a badge and do not block the exit.","rubric":["Omit subject pronouns in commands.","Choose les for accompagner and leur for the recipients of donner.","Keep negative commands in before-verb pronoun order."]}
+}

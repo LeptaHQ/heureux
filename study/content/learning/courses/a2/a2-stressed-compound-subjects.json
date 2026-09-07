@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-stressed-compound-subjects","slug":"a2-stressed-compound-subjects","cefr_level":"A2","topic":"pronouns-questions-negation","title":"Toi et moi, nous-mêmes","summary":"Use stressed pronouns after prepositions, in joined groups and for emphasis, with the right verb person.","order":15,"duration_minutes":12,"prerequisites":["a2-object-pronoun-positions"],
+ "objectives":["Select the complete stressed-pronoun series, including generic soi.","Choose nous/vous/ils/elles agreement for multiple subjects.","Use même(s) to emphasise personal involvement."],
+ "keywords":["moi","toi","lui","elle","soi","nous","vous","eux","elles","même","compound subject"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["pronouns-stressed-reflexive","daily-on-usage"],
+ "sections":[
+  {"id":"stressed","title":"Forms that can stand on their own",
+   "paragraphs":["Stressed pronouns are the forms used for emphasis, after a preposition, in a short answer or in a joined group. They are moi, toi, lui, elle, soi, nous, vous, eux, elles. Unlike English I/me, French uses moi in both a joined subject and a joined object: Léa et moi travaillons; pour Léa et moi.", "Use soi for a general unspecified person, often with on, chacun or an infinitive. Use lui-même or elle-même for a particular person. After c'est use a stressed form: c'est moi; the careful plural identification is ce sont eux. Dislocation repeats a subject for emphasis: moi, je préfère attendre."],
+   "points":["After prepositions: avec moi, chez toi, pour lui, sans elle, entre nous, devant vous, avec eux, chez elles.","Même adds emphasis ('personally', 'oneself'): moi-même, toi-même, lui-même, elle-même, soi-même, nous-mêmes, vous-même for one person, vous-mêmes for several, eux-mêmes, elles-mêmes. A hyphen links the parts."],
+   "examples":[
+    {"french":"Qui accompagne le groupe ? — **Moi**.","english":"Who is accompanying the group? — Me.","note":"Use a stressed form as a standalone answer."},
+    {"french":"Le colis est pour Nora et **toi**.","english":"The parcel is for Nora and you.","note":"A joined object also uses the stressed form."},
+    {"french":"Chacun travaille pour **soi**.","english":"Each person works for themselves.","note":"Generic singular reference."},
+    {"french":"Madame, vous pouvez vérifier **vous-même**.","english":"Madam, you can check for yourself.","note":"One polite addressee: no plural s."}
+   ],
+   "mistakes":[{"avoid":"Je viens avec ils.","prefer":"Je viens avec eux.","why":"After avec use the stressed form eux."}]
+  },
+  {"id":"joined-subjects","title":"Who is included decides the verb ending",
+   "paragraphs":["A compound subject contains two or more joined people or things. If the speaker is included, use the nous verb form. If the speaker is absent but the addressee is included, use vous. Otherwise use ils/elles forms: elles for an entirely feminine group, ils for a masculine or mixed group. The stressed pronouns name the people; the verb still follows this person hierarchy.", "You may repeat the corresponding subject pronoun after a comma in a conversational sentence: toi et moi, nous partons. A compact written sentence can omit that repetition: toi et moi partons. Both are grammatical."],
+   "points":["Lui et moi → nous; toi et elle → vous; lui et elle → ils; elle et sa sœur → elles.","Do not choose the verb simply from the nearest noun."],
+   "examples":[
+    {"french":"Toi et moi **prenons** le bus.","english":"You and I take the bus.","note":"The speaker is included: nous form."},
+    {"french":"Lina et toi **êtes** responsables.","english":"Lina and you are responsible.","note":"The addressee is included but not the speaker."},
+    {"french":"Paul et elle **viennent** demain.","english":"Paul and she are coming tomorrow.","note":"Third-person plural."},
+    {"french":"Elles ont réparé le vélo **elles-mêmes**.","english":"They repaired the bicycle themselves.","note":"Emphasis on personal involvement, not a reflexive verb."}
+   ],
+   "mistakes":[{"avoid":"Toi et moi partent ensemble.","prefer":"Toi et moi partons ensemble.","why":"A subject including the speaker requires the nous verb form."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"stressed","prompt":"Replace Paul and Marc after avec: Je viens avec ___.","choices":[],"answers":["eux"],"explanation":"Use the masculine plural stressed form."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"stressed","prompt":"Supply the stressed form of je: Qui veut essayer ? — ___.","choices":[],"answers":["Moi"],"explanation":"A standalone answer uses moi."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"joined-subjects","prompt":"Present of avoir: Ma sœur et moi ___ une idée.","choices":[],"answers":["avons"],"explanation":"Including the speaker requires nous."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"stressed","prompt":"Complete the generic expression: Il faut croire en ___. Use the stressed reflexive form.","choices":[],"answers":["soi"],"explanation":"The person is unspecified."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"joined-subjects","prompt":"Present of être: Toi et Luc ___ invités.","choices":[],"answers":["êtes"],"explanation":"The addressee is included, the speaker is not."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"joined-subjects","prompt":"Present of venir: Elle et son frère ___ ensemble.","choices":[],"answers":["viennent"],"explanation":"Third-person plural."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"joined-subjects","prompt":"Present of pouvoir: Vous et moi ___ aider.","choices":[],"answers":["pouvons"],"explanation":"Speaker inclusion takes priority."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"stressed","prompt":"Supply the stressed form of tu: C'est pour ma mère et ___.","choices":[],"answers":["toi"],"explanation":"Joined objects take stressed forms."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"stressed","prompt":"Supply 'yourself' for one polite male addressee using vous + même: Monsieur, faites-le ___.","choices":[],"answers":["vous-même"],"explanation":"One person: même has no plural s."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"stressed","prompt":"Supply 'yourselves' using vous + même: Les enfants, préparez-le ___.","choices":[],"answers":["vous-mêmes"],"explanation":"Several people require mêmes."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"stressed","prompt":"Supply 'herself' as emphasis: Léa a organisé la fête ___.","choices":[],"answers":["elle-même"],"explanation":"A specific woman uses elle-même."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"stressed","prompt":"Replace mes deux sœurs: Nous dormons chez ___.","choices":[],"answers":["elles"],"explanation":"Feminine plural stressed pronoun."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"joined-subjects","prompt":"Present of savoir: Toi et moi ___ la réponse.","choices":[],"answers":["savons"],"explanation":"The speaker is included."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"stressed","prompt":"Use the stressed form of je in a joined subject: Paul et ___ travaillons ici.","choices":[],"answers":["moi"],"explanation":"French uses moi even within the subject group."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"stressed","prompt":"Supply 'ourselves' as emphasis with nous + même: Nous avons construit l'étagère ___.","choices":[],"answers":["nous-mêmes"],"explanation":"Hyphen and plural s."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"joined-subjects","prompt":"Replace Léa et sa sœur with the subject pronoun: ___ attendent dehors.","choices":[],"answers":["Elles"],"explanation":"An entirely feminine group uses elles."}
+ ],
+ "production_task":{"prompt":"Divide tasks for a neighbourhood event. Say what you and someone else will do, what the addressee and another person will do, and what you will do personally.","model_answer":"Toi et moi préparons la salle. Léa et vous accueillez les visiteurs. Je vérifie les inscriptions moi-même. Les bénévoles restent avec nous après la rencontre.","translation":"You and I prepare the room. Léa and you welcome the visitors. I check the registrations myself. The volunteers stay with us after the gathering.","rubric":["Use stressed forms in joined groups.","Choose nous or vous endings from who is included.","Use même(s) with the appropriate number."]}
+}

@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-indefinite-people-things","slug":"a2-indefinite-people-things","cefr_level":"A2","topic":"pronouns-questions-negation","title":"Quelqu'un, autre chose, n'importe quoi","summary":"Refer to unspecified people or things without confusing someone, anyone and nonsense.","order":17,"duration_minutes":12,"prerequisites":["a2-y-en-reference"],
+ "objectives":["Distinguish someone, someone else, something else and free-choice anyone/anything.","Use de before descriptive adjectives with indefinite pronouns.","Handle default masculine singular agreement without treating index headings as universal rules."],
+ "keywords":["quelqu'un","quelque chose","autre chose","n'importe qui","n'importe quoi","indefinite"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["pronouns-indefinites"],
+ "sections":[
+  {"id":"someone-something","title":"A person or thing not yet identified",
+   "paragraphs":["An indefinite pronoun refers to someone or something without naming exactly who or what. Quelqu'un means someone; quelqu'un d'autre means someone else. Quelque chose means something; autre chose and quelque chose d'autre mean something else. Keep quelque chose as two words and the apostrophes in quelqu'un and d'autre.", "To describe these indefinite expressions, use de + adjective: quelqu'un de disponible, quelque chose d'utile, rien de grave. The adjective is normally masculine singular in these generic patterns, even though une chose is feminine as an ordinary noun. Tout le monde means everybody but takes a singular verb and normally masculine singular descriptive agreement. The pronoun personne ('nobody') differs from the feminine noun une personne; known personal reference can allow natural-gender agreement in some constructions, so 'always masculine' is too broad."],
+   "points":["Tout le monde est prêt is generic everybody is ready; une personne est prête describes the feminine noun personne.","This lesson assesses generic forms, not cases where a specifically identified woman controls natural-gender agreement."],
+   "examples":[
+    {"french":"**Quelqu'un** attend à l'accueil.","english":"Someone is waiting at reception.","note":"An unspecified person; singular verb."},
+    {"french":"Je vais demander à **quelqu'un d'autre**.","english":"I am going to ask someone else.","note":"D'autre changes which person."},
+    {"french":"Vous cherchez **autre chose** ?","english":"Are you looking for something else?","note":"No de is needed in this alternative expression."},
+    {"french":"Il faut **quelque chose de solide**.","english":"We need something sturdy.","note":"De plus masculine singular adjective."},
+    {"french":"**Tout le monde est prêt** ; il n'y a **rien de compliqué**.","english":"Everyone is ready; there is nothing complicated.","note":"Generic singular agreement in both expressions."}
+   ],
+   "mistakes":[{"avoid":"Il faut quelque chose de solide et de nouvelle.","prefer":"Il faut quelque chose de solide et de nouveau.","why":"The adjectives in this indefinite pattern use default masculine singular, despite the feminine noun une chose elsewhere."}]
+  },
+  {"id":"free-choice","title":"Anyone at all, anything at all, or nonsense",
+   "paragraphs":["N'importe qui means anyone regardless of identity: access is not restricted to a particular person. N'importe quoi can mean anything regardless of what it is, but often evaluates an action or statement as nonsense or something careless. Context decides. Do not translate every English any mechanically: negative 'I don't see anyone' is je ne vois personne, not a free-choice expression.", "The fixed n' in n'importe qui/quoi is part of the expression, not a complete sentence negation. Je ne prête pas mes clés à n'importe qui means I do not lend my keys to just anyone; it does not mean I lend them to nobody."],
+   "points":["Quelqu'un asserts an unspecified person's existence; n'importe qui removes a restriction on who may be chosen."],
+   "examples":[
+    {"french":"**N'importe qui** peut participer à cette activité gratuite.","english":"Anyone can take part in this free activity.","note":"No restriction on participant identity."},
+    {"french":"Ne signe pas **n'importe quoi** sans lire.","english":"Do not sign just anything without reading it.","note":"A warning against indiscriminate choice."},
+    {"french":"Ce calcul donne mille euros ? C'est **n'importe quoi** !","english":"That calculation gives a thousand euros? That's nonsense!","note":"An evaluative use, not a choice among objects."}
+   ],
+   "mistakes":[{"avoid":"N'importe qui peuvent entrer.","prefer":"N'importe qui peut entrer.","why":"N'importe qui takes a singular verb."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"someone-something","prompt":"Supply the expression 'someone': ___ a laissé un message.","choices":[],"answers":["Quelqu'un"],"explanation":"An unspecified person."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"someone-something","prompt":"Add the expression meaning 'else': Je cherche quelqu'un ___.","choices":[],"answers":["d'autre"],"explanation":"D'autre gives someone else; it is written with an apostrophe."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"someone-something","prompt":"Supply de, d' or nothing before utile: quelque chose ___utile. Enter the required written form.","choices":[],"answers":["d'"],"explanation":"De elides before a vowel."},
+  {"id":"item-04","kind":"choice","pool":"practice","section_id":"free-choice","prompt":"In C'est n'importe quoi ! after an absurd claim, what does the expression mean?","choices":["That's nonsense!","That's someone else!"],"answers":["That's nonsense!"],"explanation":"Here n'importe quoi expresses a judgement."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"someone-something","prompt":"Supply either standard expression meaning 'something else': Vous voulez ___ ?","choices":[],"answers":["autre chose","quelque chose d'autre"],"explanation":"Both expressions are accepted."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"someone-something","prompt":"Supply 'someone else': Je peux appeler ___.","choices":[],"answers":["quelqu'un d'autre"],"explanation":"The alternative is a person."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"someone-something","prompt":"Use neuf in its generic adjective form: Il faut quelque chose de ___.","choices":[],"answers":["neuf"],"explanation":"The indefinite expression takes default masculine singular."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"someone-something","prompt":"Generic agreement of prêt: Tout le monde est ___.","choices":[],"answers":["prêt"],"explanation":"Generic tout le monde takes masculine singular agreement."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"someone-something","prompt":"Supply the preposition linking personne to its adjective: Personne ___ gentil ne ferait cela.","choices":[],"answers":["de"],"explanation":"Personne de gentil uses de before the adjective in this generic pattern."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"free-choice","prompt":"Supply the expression meaning 'anyone at all': ___ peut utiliser cette table publique.","choices":[],"answers":["N'importe qui"],"explanation":"The choice of user is unrestricted."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"free-choice","prompt":"Supply the expression meaning 'just anything': Ne mange pas ___ dans ce bois.","choices":[],"answers":["n'importe quoi"],"explanation":"The warning is against indiscriminate choice."},
+  {"id":"item-12","kind":"choice","pool":"check","section_id":"free-choice","prompt":"Je ne raconte pas ma vie à n'importe qui means:","choices":["I don't tell just anyone my life story.","I tell nobody anything."],"answers":["I don't tell just anyone my life story."],"explanation":"Not just anyone restricts the choice but does not mean nobody."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"someone-something","prompt":"Supply the verb être in the present: Tout le monde ___ ici.","choices":[],"answers":["est"],"explanation":"The expression takes a singular verb."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"someone-something","prompt":"Supply the phrase 'nothing new', using nouveau: Il n'y a ___.","choices":[],"answers":["rien de nouveau"],"explanation":"Rien de + masculine singular adjective."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"free-choice","prompt":"Present of savoir: N'importe qui ___ cela.","choices":[],"answers":["sait"],"explanation":"N'importe qui is singular."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"someone-something","prompt":"Complete the contrasting noun phrase with prêt: Une personne est ___.","choices":[],"answers":["prête"],"explanation":"The ordinary noun une personne is feminine, unlike default generic indefinite agreement."}
+ ],
+ "production_task":{"prompt":"Ask a colleague for help finding a replacement volunteer. Say what kind of person you need and what you do not want to leave to chance.","model_answer":"Je cherche quelqu'un de disponible samedi. Si tu es occupé, je peux demander à quelqu'un d'autre. L'accueil est important : je ne veux pas confier les clés à n'importe qui.","translation":"I am looking for someone available on Saturday. If you are busy, I can ask someone else. Reception matters: I do not want to entrust the keys to just anyone.","rubric":["Use de before a descriptive adjective.","Distinguish someone else from anyone at all.","Make the request respectful and specific."]}
+}

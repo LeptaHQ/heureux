@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "id": "a2-duration-timelines",
+  "slug": "a2-duration-timelines",
+  "cefr_level": "A2",
+  "topic": "time-place-prepositions",
+  "title": "Depuis, pendant, en ou dans ?",
+  "summary": "Choose a time expression by deciding what continues, what ended, and what has not started.",
+  "order": 29,
+  "duration_minutes": 13,
+  "prerequisites": ["a2-past-contrast"],
+  "objectives": ["Describe an ongoing situation with depuis.", "Distinguish elapsed duration, completed duration, completion time and a future delay.", "Report completed events within a period without treating depuis as a tense command."],
+  "keywords": ["depuis", "pendant", "durant", "pour", "en", "dans", "il y a", "duration", "since", "ago"],
+  "sources": [
+    {"label": "Académie française: depuis, consulted 7 September 2026", "url": "https://www.dictionnaire-academie.fr/article/A9D1606"},
+    {"label": "Public A2 topic index: coverage reference, not lesson prose", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}
+  ],
+  "related_legacy_ids": ["prepositions-time-duration"],
+  "sections": [
+    {
+      "id": "continuing",
+      "title": "A situation that still holds",
+      "paragraphs": ["A duration says how long; a starting point says when it began. For one situation that began earlier and continues now, use a present-tense verb with depuis, followed directly by either kind of time expression. English often uses 'have been', but French describes the current situation with the present.", "Depuis combien de temps asks for a duration; depuis quand asks for a starting point. Depuis que introduces a clause, a group containing a subject and a verb, not a bare number of days."],
+      "points": ["Present + depuis is the useful continuing-situation pattern, not a rule that every verb near depuis must be present."],
+      "examples": [
+        {"french": "Nous **partageons** ce bureau **depuis janvier**.", "english": "We have been sharing this office since January.", "note": "The arrangement continues now."},
+        {"french": "Le technicien **attend depuis une heure**.", "english": "The technician has been waiting for an hour.", "note": "The wait has not ended."},
+        {"french": "**Depuis quand** prenez-vous ce médicament ?", "english": "Since when have you been taking this medicine?", "note": "Ask for the starting point."}
+      ],
+      "mistakes": [
+        {"avoid": "Nous partageons ce bureau depuis de janvier.", "prefer": "Nous partageons ce bureau depuis janvier.", "why": "Depuis introduces the starting point directly."},
+        {"avoid": "Il attend depuis que une heure.", "prefer": "Il attend depuis une heure.", "why": "Une heure is a duration, not a clause."}
+      ]
+    },
+    {
+      "id": "bounded",
+      "title": "An interval, a planned stay, or an event ago",
+      "paragraphs": ["Pendant and durant describe the length of an interval. With a completed past action they say how long it lasted; they also work for future intervals. Durant is often more written in tone. Pour can give the intended duration of a stay, reservation or arrangement; it is not a general replacement for English 'for' with every past action.", "Il y a + duration locates an event that far before now: it means 'ago'. Do not confuse this use with il y a + noun, 'there is/are'."],
+      "points": ["A completed interval need not continue now. A planned duration does not guarantee that the plan was fulfilled."],
+      "examples": [
+        {"french": "J'ai gardé le chien **pendant trois jours**, puis sa famille est rentrée.", "english": "I looked after the dog for three days, then its family came home.", "note": "The period is complete; durant is also possible."},
+        {"french": "Nous louons la salle **pour deux soirées**.", "english": "We are renting the room for two evenings.", "note": "This is the agreed rental period."},
+        {"french": "L'atelier a fermé **il y a six mois**.", "english": "The workshop closed six months ago.", "note": "This dates the closure, not its duration."}
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "delay-completion",
+      "title": "Time needed versus time before the start",
+      "paragraphs": ["En + duration measures the time needed to complete something. Dans + duration places a future event after that much time has passed. En dix minutes answers 'How long did it take?'; dans dix minutes answers 'How long from now?'."],
+      "points": ["Select the timeline before selecting the preposition."],
+      "examples": [
+        {"french": "Elle a réparé la lampe **en vingt minutes**.", "english": "She repaired the lamp in twenty minutes.", "note": "Twenty minutes were needed to finish."},
+        {"french": "Le cours commence **dans vingt minutes**.", "english": "The class starts in twenty minutes.", "note": "The start is twenty minutes from now."}
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "events-since",
+      "title": "Completed events inside a period",
+      "paragraphs": ["Depuis can frame a period in which completed events have occurred. Use the passé composé to count those events, or to say that an expected event has not occurred. The period reaches now, but each event can be complete. A past reference point can also take the imparfait: elle attendait depuis une heure describes a wait already lasting an hour at that past moment."],
+      "points": ["Do not 'correct' a grammatical passé composé simply because you see depuis."],
+      "examples": [
+        {"french": "J'**ai réparé** trois vélos **depuis samedi**.", "english": "I have repaired three bicycles since Saturday.", "note": "Three completed repairs within the period."},
+        {"french": "Nous **n'avons pas reçu** de facture **depuis juin**.", "english": "We have not received a bill since June.", "note": "No receipt of a bill has occurred in that period."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "text", "pool": "practice", "section_id": "continuing", "prompt": "The wait continues now. Supply attendre in the present: Nous ___ depuis dix minutes.", "choices": [], "answers": ["attendons"], "explanation": "French uses the present for this continuing wait."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "bounded", "prompt": "Supply the expression meaning 'ago': Le magasin a ouvert ___ deux semaines.", "choices": [], "answers": ["il y a"], "explanation": "Il y a dates the opening relative to now."},
+    {"id": "item-03", "kind": "choice", "pool": "practice", "section_id": "delay-completion", "prompt": "The repair is finished; it took an hour. Choose the missing word: Réparation terminée ___ une heure.", "choices": ["en", "dans"], "answers": ["en"], "explanation": "En measures time needed for completion."},
+    {"id": "item-04", "kind": "text", "pool": "practice", "section_id": "events-since", "prompt": "Supply envoyer in the passé composé: Depuis mardi, vous ___ quatre invitations.", "choices": [], "answers": ["avez envoyé"], "explanation": "We count completed acts of sending within a period."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "continuing", "prompt": "Supply habiter in the present for a continuing situation: Elle ___ ici depuis son mariage.", "choices": [], "answers": ["habite"], "explanation": "She still lives here."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "continuing", "prompt": "Complete with the four-word phrase asking how long: ___ travaillez-vous ensemble ?", "choices": [], "answers": ["Depuis combien de temps"], "explanation": "Depuis combien de temps asks for elapsed duration."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "bounded", "prompt": "Give either pendant or its synonym durant: J'ai travaillé ___ tout le week-end, puis je me suis reposé.", "choices": [], "answers": ["pendant", "durant"], "explanation": "Both describe the completed interval."},
+    {"id": "item-08", "kind": "choice", "pool": "check", "section_id": "bounded", "prompt": "The hotel asks about the intended length of your booking. Complete: Je réserve ___ quatre nuits.", "choices": ["pour", "depuis"], "answers": ["pour"], "explanation": "Pour gives the intended booking period; it does not describe elapsed time."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "delay-completion", "prompt": "The ferry has not arrived yet; it will arrive five minutes from now. Supply en or dans: Il arrive ___ cinq minutes.", "choices": [], "answers": ["dans"], "explanation": "Dans marks the delay before the event."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "delay-completion", "prompt": "Supply en or dans for the time needed: J'ai rempli le formulaire ___ huit minutes.", "choices": [], "answers": ["en"], "explanation": "The eight minutes are the time taken to finish."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "events-since", "prompt": "Supply voir in the passé composé: Depuis mon arrivée, j'___ deux appartements.", "choices": [], "answers": ["ai vu"], "explanation": "The visits are completed events counted since arrival."},
+    {"id": "item-12", "kind": "choice", "pool": "check", "section_id": "events-since", "prompt": "Which statement about depuis is accurate?", "choices": ["It always excludes the passé composé.", "It can frame a period containing completed events."], "answers": ["It can frame a period containing completed events."], "explanation": "Continuing states and completed events within a period require different tense choices."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "bounded", "prompt": "Supply the expression meaning ago: Nous avons signé le bail ___ trois jours.", "choices": [], "answers": ["il y a"], "explanation": "The signing occurred three days before now."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "continuing", "prompt": "Delete the one unnecessary word: Elle cherche depuis de septembre.", "choices": [], "answers": ["Elle cherche depuis septembre."], "explanation": "Depuis takes the starting point directly."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "events-since", "prompt": "Supply recevoir in the passé composé: Depuis jeudi, il n'___ aucun appel.", "choices": [], "answers": ["a reçu"], "explanation": "The negative sentence reports that no receiving event occurred."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "delay-completion", "prompt": "A recipe needs 30 minutes to cook, not a 30-minute wait before cooking. Supply en or dans: Ce plat cuit ___ trente minutes.", "choices": [], "answers": ["en"], "explanation": "En expresses the cooking time needed."}
+  ],
+  "production_task": {
+    "prompt": "Write a short message to a colleague about a room booking. Say how long you have been organising the event, when you booked, how long the room is reserved for, and when the event starts. Keep the timeline consistent.",
+    "model_answer": "Je prépare cette rencontre depuis deux semaines. J'ai réservé la salle il y a trois jours, pour une soirée. La rencontre commence dans une heure. Nous avons installé les tables en vingt minutes.",
+    "translation": "I have been preparing this gathering for two weeks. I booked the room three days ago, for one evening. The gathering starts in an hour. We set up the tables in twenty minutes.",
+    "rubric": ["Use present + depuis for the preparation that continues.", "Distinguish the booking date from the booking duration.", "Use dans for a future delay and en only for time needed.", "Make the message useful without adding unsupported details."]
+  }
+}

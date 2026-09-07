@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-past-contrast","slug":"a2-past-contrast","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Ce qui se passait et ce qui s'est passé","summary":"Choose a past viewpoint: background, habit, completed event or interrupted activity.","order":13,"duration_minutes":15,"prerequisites":["a2-imperfect-formation"],
+ "objectives":["Distinguish background and habitual situations from bounded past events.","Use être en train de in a past scene.","Interpret devoir without assuming that an obligation was necessarily fulfilled."],
+ "keywords":["imparfait","passé composé","habitude","description","être en train de","devoir"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["verbs-past-contrast","aspect-progressive-en-train-de"],
+ "sections":[
+  {"id":"viewpoint","title":"Ask what the sentence is doing",
+   "paragraphs":["The imparfait opens a past scene: a description, an opinion at that time, an ongoing action or a habit. It does not show the beginning and end as a completed package. The passé composé reports a bounded event or interval and often moves a story forward. Duration alone does not choose the tense: a long job can be presented as completed, and a brief scene can be viewed in progress.", "A habit often uses the imparfait, but a counted set of completed repetitions can use the passé composé. An account of events can use the passé composé without an imparfait. Conversely, a description can stay in the imparfait without an interruption."],
+   "points":["Imparfait habit: je prenais ce bus chaque matin. Bounded repetition: j'ai pris ce bus trois fois hier.","An opinion can be background (je trouvais ce quartier agréable) or a reaction treated as a completed experience (j'ai trouvé la visite agréable). Neither tense is an automatic error with trouver."],
+   "examples":[
+    {"french":"Il **pleuvait** et la rue **était** vide.","english":"It was raining and the street was empty.","note":"Background conditions."},
+    {"french":"Je **préparais** le repas quand le téléphone **a sonné**.","english":"I was preparing the meal when the telephone rang.","note":"Ongoing activity plus an event."},
+    {"french":"Le dimanche, nous **rendions** visite à nos voisins.","english":"On Sundays, we used to visit our neighbours.","note":"An open-ended past habit."},
+    {"french":"Hier, nous **avons rendu** visite à trois voisins.","english":"Yesterday, we visited three neighbours.","note":"A bounded set of visits."},
+    {"french":"Je **trouvais** le travail intéressant, mais j'**ai changé** de poste.","english":"I found the work interesting, but I changed jobs.","note":"An opinion at the time contrasts with a completed change."}
+   ],
+   "mistakes":[{"avoid":"Je étais fatigué.","prefer":"J'étais fatigué.","why":"Je elides before étais; the background tense itself is appropriate."}]
+  },
+  {"id":"progress-obligation","title":"Make an ongoing action or obligation explicit",
+   "paragraphs":["Être en train de + infinitive highlights an action in progress at a reference moment. In the past use étais, étais, était, étions, étiez, étaient, followed by en train de and the infinitive. Je lisais often already means 'I was reading'; the longer expression adds emphasis, not a required English-style progressive.", "Devoir in the imparfait gives the obligation, expectation or plan as background: je devais appeler does not establish whether I called. In the passé composé, j'ai dû appeler commonly reports a necessity that arose in the situation and often an action taken. It can also express an inference ('I must have called'); context decides. Do not equate every a dû with proof of fulfilment."],
+   "points":["Devoir imparfait: je devais, tu devais, il/elle/on devait, nous devions, vous deviez, ils/elles devaient. Passé composé: j'ai dû, tu as dû, il/elle/on a dû, nous avons dû, vous avez dû, ils/elles ont dû."],
+   "examples":[
+    {"french":"Nous **étions en train de charger** la voiture quand la pluie a commencé.","english":"We were loading the car when the rain started.","note":"The loading is explicitly in progress."},
+    {"french":"Je **devais appeler**, mais j'ai oublié.","english":"I was supposed to call, but I forgot.","note":"The obligation was not fulfilled."},
+    {"french":"Le pont était fermé ; nous **avons dû faire** un détour.","english":"The bridge was closed; we had to take a detour.","note":"A necessity arose during the journey."}
+   ],
+   "mistakes":[{"avoid":"Elle était en train de préparait le dîner.","prefer":"Elle était en train de préparer le dîner.","why":"After en train de, use an infinitive, not a second conjugated verb."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"choice","pool":"practice","section_id":"viewpoint","prompt":"Describe the weather as background to an arrival.","choices":["Il pleuvait quand elle est arrivée.","Il a plu quand elle arrivait."],"answers":["Il pleuvait quand elle est arrivée."],"explanation":"The requested viewpoint makes rain background and arrival the event."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"viewpoint","prompt":"Use the imparfait for a former habit: Chaque soir, nous ___ (lire) ensemble.","choices":[],"answers":["lisions"],"explanation":"A regular past activity uses the requested imparfait."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"progress-obligation","prompt":"Supply être in the imparfait: Vous ___ en train d'attendre.","choices":[],"answers":["étiez"],"explanation":"Être carries the past tense."},
+  {"id":"item-04","kind":"choice","pool":"practice","section_id":"progress-obligation","prompt":"Je devais envoyer le colis. Does this alone prove I sent it?","choices":["Yes.","No."],"answers":["No."],"explanation":"An obligation does not establish its fulfilment."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"viewpoint","prompt":"Use the imparfait for a description: La salle ___ (être) lumineuse.","choices":[],"answers":["était"],"explanation":"The sentence describes a past setting."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"viewpoint","prompt":"Use the imparfait for an opinion at that time: Je ___ (trouver) ce quartier calme.","choices":[],"answers":["trouvais"],"explanation":"The opinion is presented as background."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"viewpoint","prompt":"Use the passé composé for the counted events: Hier, elle ___ (appeler) trois fois.","choices":[],"answers":["a appelé"],"explanation":"The calls form a bounded set."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"viewpoint","prompt":"Use the imparfait for the activity already underway: Nous ___ (dormir) quand l'alarme a sonné.","choices":[],"answers":["dormions"],"explanation":"The sleeping was in progress."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"progress-obligation","prompt":"Complete with the infinitive: J'étais en train de ___ (écrire).","choices":[],"answers":["écrire"],"explanation":"Only être is conjugated in this expression."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"progress-obligation","prompt":"Use devoir in the imparfait for an unfulfilled plan: Ils ___ venir, mais ils ont annulé.","choices":[],"answers":["devaient"],"explanation":"The expected action did not happen."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"progress-obligation","prompt":"Use devoir in the passé composé: Le train était annulé ; nous ___ prendre un taxi.","choices":[],"answers":["avons dû"],"explanation":"The context reports a necessity that arose."},
+  {"id":"item-12","kind":"choice","pool":"check","section_id":"viewpoint","prompt":"Can a completed-event account consist of J'ai appelé, j'ai réservé et j'ai payé?","choices":["Yes.","No, an imparfait is obligatory."],"answers":["Yes."],"explanation":"An event sequence does not need a background clause."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"viewpoint","prompt":"Use the imparfait for a repeated childhood action: Enfant, je ___ (jouer) dehors après l'école.","choices":[],"answers":["jouais"],"explanation":"An open-ended past habit."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"viewpoint","prompt":"Use the passé composé for a completed long interval: Nous ___ (travailler) dix heures, puis nous sommes rentrés.","choices":[],"answers":["avons travaillé"],"explanation":"Long duration can still be bounded and completed."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"progress-obligation","prompt":"Supply être in the imparfait: Les agents ___ en train de vérifier les billets.","choices":[],"answers":["étaient"],"explanation":"Third-person plural être in the past."},
+  {"id":"item-16","kind":"choice","pool":"review","section_id":"progress-obligation","prompt":"Which claim about elle a dû partir is accurate?","choices":["It can express a necessity or an inference, depending on context.","It always proves that an obligation was fulfilled."],"answers":["It can express a necessity or an inference, depending on context."],"explanation":"Devoir has more than one contextual reading."}
+ ],
+ "production_task":{"prompt":"Tell a friend about a small disruption during a journey. Set the scene, explain what was happening and say what you did next.","model_answer":"Il neigeait et nous attendions le bus. Nous étions en train de consulter les horaires quand un agent a annoncé une annulation. Nous avons dû marcher jusqu'à une autre station. Le trajet a pris une heure.","translation":"It was snowing and we were waiting for the bus. We were checking the timetable when an agent announced a cancellation. We had to walk to another station. The journey took an hour.","rubric":["Use imparfait for the scene and activity in progress.","Use passé composé for the announcement and completed events.","Make the reason for the change clear."]}
+}

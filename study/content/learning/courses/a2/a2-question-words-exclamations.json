@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-question-words-exclamations","slug":"a2-question-words-exclamations","cefr_level":"A2","topic":"pronouns-questions-negation","title":"Qui appelle ? Que cherchez-vous ?","summary":"Ask about a person, a thing or a choice by deciding whether the unknown element is the subject or object.","order":25,"duration_minutes":14,"prerequisites":["a2-question-inversion"],
+ "objectives":["Distinguish subject and object questions with qui and que.","Use qu'est-ce qui for a thing as subject.","Agree quel in questions and exclamations."],
+ "keywords":["qui","qui est-ce qui","qui est-ce que","que","qu'est-ce qui","quel","exclamation"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["questions-forms"],
+ "sections":[
+  {"id":"person-thing-role","title":"Is the unknown person doing the action?",
+   "paragraphs":["If you ask who performs the action, qui itself is the subject: qui appelle ? You can also say qui est-ce qui appelle ? No extra subject pronoun is needed. If a known subject acts on an unknown person, ask an object question: qui appelez-vous ? or qui est-ce que vous appelez ? Conversational vous appelez qui ? is also possible.", "For a thing as direct object, use que + inversion (que cherchez-vous ?), qu'est-ce que + ordinary word order (qu'est-ce que vous cherchez ?) or conversational vous cherchez quoi ? Que becomes qu' before a vowel. For a thing as subject, use qu'est-ce qui + verb: qu'est-ce qui bloque la porte ? Do not add a separate il for the thing already represented by qui.", "If the verb requires a preposition, keep it: à qui parlez-vous ? The ordinary forms here use singular verbs after subject qui/qu'est-ce qui when the answer's number is not specified."],
+   "points":["Person subject: qui / qui est-ce qui. Person object: qui / qui est-ce que. Thing subject: qu'est-ce qui. Thing object: que / qu'est-ce que / final quoi according to construction."],
+   "examples":[
+    {"french":"**Qui** conduit le camion ?","english":"Who is driving the truck?","note":"The unknown person is the subject."},
+    {"french":"**Qui est-ce que** vous attendez ?","english":"Who are you waiting for?","note":"Vous is the subject; the unknown person is the object of attendre."},
+    {"french":"**Que cherchez-vous** dans ce dossier ?","english":"What are you looking for in this file?","note":"Que is the object with inversion."},
+    {"french":"**Qu'est-ce qui** fait ce bruit ?","english":"What is making that noise?","note":"The unknown thing is the subject."},
+    {"french":"**À qui** téléphonez-vous ?","english":"Who are you calling?","note":"Téléphoner requires à in French."}
+   ],
+   "mistakes":[{"avoid":"Qui est-ce que arrive ?","prefer":"Qui est-ce qui arrive ?","why":"The unknown person is the subject, so the last word is qui."}]
+  },
+  {"id":"quel","title":"A noun after the question word",
+   "paragraphs":["Quel introduces a noun and agrees with it: quel (masculine singular), quelle (feminine singular), quels (masculine plural), quelles (feminine plural). It asks which or what: quelle adresse, quels horaires. With être, agreement still follows the noun identified: quelle est votre adresse ? Not every English what becomes que.", "The same forms introduce exclamations: quelle surprise ! means 'What a surprise!' French uses quel directly before the noun, without an extra un/une. Tone or punctuation separates a question from an exclamation; the agreement is the same."],
+   "points":["Quel billet ? Quelle place ? Quels documents ? Quelles dates ? The four forms sound alike, so the noun guides the spelling."],
+   "examples":[
+    {"french":"**Quelle adresse** faut-il écrire ?","english":"Which address should be written?","note":"Adresse is feminine."},
+    {"french":"**Quels documents** avez-vous apportés ?","english":"Which documents did you bring?","note":"Masculine plural question; apportés agrees with the preceding direct object."},
+    {"french":"**Quelle bonne idée** ! **Quels beaux dessins** !","english":"What a good idea! What beautiful drawings!","note":"Exclamative agreement without un/une."}
+   ],
+   "mistakes":[{"avoid":"Quelle une surprise !","prefer":"Quelle surprise !","why":"Do not copy the English article after what a."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"person-thing-role","prompt":"Supply qui or que: Qui est-ce ___ frappe à la porte ?","choices":[],"answers":["qui"],"explanation":"The unknown person is the subject."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"person-thing-role","prompt":"Supply qui or que: Qui est-ce ___ tu invites ?","choices":[],"answers":["que"],"explanation":"Tu is the subject; the person invited is the object."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"person-thing-role","prompt":"Ask what is happening with qu'est-ce qui and se passer in the present.","choices":[],"answers":["Qu'est-ce qui se passe ?"],"explanation":"The question asks about the thing happening."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"quel","prompt":"Supply quel in the correct form: ___ heure est-il ?","choices":[],"answers":["Quelle"],"explanation":"Heure is feminine singular."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"person-thing-role","prompt":"Ask who works here using the short subject qui form and travailler.","choices":[],"answers":["Qui travaille ici ?"],"explanation":"Qui is the subject; no inversion is needed."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"person-thing-role","prompt":"Ask whom vous invitez using qui and inversion. No other words.","choices":[],"answers":["Qui invitez-vous ?"],"explanation":"The unknown person is the object."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"person-thing-role","prompt":"Ask what vous voulez using que and inversion. No other words.","choices":[],"answers":["Que voulez-vous ?"],"explanation":"Que is the object before inversion."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"person-thing-role","prompt":"Complete with the full subject-thing question expression: ___ bloque la sortie ?","choices":[],"answers":["Qu'est-ce qui"],"explanation":"The unknown thing performs the blocking."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"person-thing-role","prompt":"Supply the final question word: Vous préparez ___ ? Ask what.","choices":[],"answers":["quoi"],"explanation":"In the conversational final position, use quoi."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"quel","prompt":"Supply quel in the correct form: ___ dates préférez-vous ?","choices":[],"answers":["Quelles"],"explanation":"Dates is feminine plural."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"quel","prompt":"Supply quel in the correct form: ___ est votre numéro ?","choices":[],"answers":["Quel"],"explanation":"Numéro is masculine singular."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"quel","prompt":"Turn une belle journée into a French exclamation beginning with the appropriate form of quel.","choices":[],"answers":["Quelle belle journée !"],"explanation":"No une after quelle."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"person-thing-role","prompt":"Keep parler's preposition: ___ qui parlez-vous ?","choices":[],"answers":["À"],"explanation":"Parler à someone requires à."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"person-thing-role","prompt":"Supply qui or que: Qu'est-ce ___ vous avez acheté ?","choices":[],"answers":["que"],"explanation":"Vous is the subject; the unknown thing is the object."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"quel","prompt":"Supply quel for an exclamation: ___ beaux cadeaux !","choices":[],"answers":["Quels"],"explanation":"Cadeaux is masculine plural."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"person-thing-role","prompt":"Ask who called using qui est-ce qui and appeler in the passé composé. No other words.","choices":[],"answers":["Qui est-ce qui a appelé ?"],"explanation":"Qui represents the subject of a appelé."}
+ ],
+ "production_task":{"prompt":"You are organising a group activity. Ask who will help, which dates suit people and what you need to bring; add one natural appreciative exclamation.","model_answer":"Qui peut aider samedi ? Quelles dates préférez-vous si samedi ne convient pas ? Que devons-nous apporter ? Quelle bonne idée de partager le matériel !","translation":"Who can help on Saturday? Which dates do you prefer if Saturday does not work? What should we bring? What a good idea to share the equipment!","rubric":["Distinguish subject qui from object que.","Agree quel with the noun.","Do not add an article after exclamative quel."]}
+}

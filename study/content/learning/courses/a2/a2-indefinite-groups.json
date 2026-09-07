@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-indefinite-groups","slug":"a2-indefinite-groups","cefr_level":"A2","topic":"pronouns-questions-negation","title":"Tous, chacun, d'autres et les mêmes","summary":"Describe whole groups, individual members, unspecified quantities and alternatives.","order":18,"duration_minutes":15,"prerequisites":["a2-indefinite-people-things"],
+ "objectives":["Distinguish tout as determiner, pronoun and adverb.","Use chaque/chacun, quelques/plusieurs/de nombreux and autre/même forms.","Separate unspecified d'autres from de + les autres."],
+ "keywords":["tout","tous","toute","toutes","chacun","chaque","quelques","plusieurs","d'autres","même"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["pronouns-indefinites"],
+ "sections":[
+  {"id":"whole-each","title":"The whole group or one member at a time",
+   "paragraphs":["A determiner introduces a noun. Tout agrees as a determiner: tout le quartier, toute la rue, tous les voisins, toutes les maisons. As a pronoun replacing a whole idea, tout means everything and takes a singular verb; tous/toutes mean all of them and take a plural verb. The s of the pronoun tous is pronounced, unlike tous before a noun.", "Chaque introduces a singular noun: chaque billet. Chacun/chacune stands without that noun and takes a singular verb: chacun a un billet, chacune des invitées arrive. Quelques means a few, plusieurs several, and de nombreux/de nombreuses many; these introduce plural nouns."],
+   "points":["As an adverb meaning completely/very, tout is usually unchanged: ils sont tout contents, elle est tout heureuse. Before a feminine adjective beginning with a consonant or aspirated h, it agrees: elle est toute contente, elles sont toutes honteuses. The h in heureuse is mute; in honteuse it blocks elision."],
+   "examples":[
+    {"french":"**Toute la journée**, nous aidons les visiteurs.","english":"All day, we help the visitors.","note":"Toute agrees with feminine journée."},
+    {"french":"**Tout est** prêt et les bénévoles sont **tous** là.","english":"Everything is ready and the volunteers are all here.","note":"Singular everything versus plural all of them."},
+    {"french":"**Chaque** candidate parle ; **chacune** a cinq minutes.","english":"Each candidate speaks; each one has five minutes.","note":"Determiner versus standalone pronoun."},
+    {"french":"**Quelques** voisins apportent des chaises ; **plusieurs** amis proposent de l'aide.","english":"A few neighbours bring chairs; several friends offer help.","note":"Both expressions introduce plural nouns."},
+    {"french":"Elle est **toute contente** ; ses sœurs sont **tout heureuses**.","english":"She is very happy; her sisters are very happy.","note":"Adverb agreement depends on the following sound."}
+   ],
+   "mistakes":[{"avoid":"Chaque voisins a une clé.","prefer":"Chaque voisin a une clé.","why":"Chaque takes a singular noun."}]
+  },
+  {"id":"others-same","title":"Other ones or the same ones",
+   "paragraphs":["L'autre and les autres mean the other one(s) in a known set: je prends l'autre, les autres attendent. D'autres means other unspecified people or things: d'autres arrivent. Des autres is de + les autres when de belongs to the construction: les sacs des autres. Do not replace one with the other without checking the meaning.", "Le même, la même, les mêmes mean the same one(s), agreeing with what is referred to. They can also introduce a noun: la même adresse. De nombreux voisins and de nombreuses personnes mean many neighbours/people; keep the gender agreement in nombreux."],
+   "points":["D'autres idées = other ideas; les idées des autres = other people's ideas. The second de is required by the possession relationship."],
+   "examples":[
+    {"french":"Ce stylo ne marche pas ; je prends **l'autre**.","english":"This pen does not work; I am taking the other one.","note":"An identified alternative."},
+    {"french":"**D'autres** attendent dehors ; ce sont les sacs **des autres**.","english":"Others are waiting outside; these are the others' bags.","note":"Unspecified other people versus de + les autres."},
+    {"french":"Nous avons **les mêmes** horaires et **de nombreuses** réunions.","english":"We have the same hours and many meetings.","note":"Mêmes is plural; nombreuses agrees with réunions."}
+   ],
+   "mistakes":[{"avoid":"Je cherche des autres solutions.","prefer":"Je cherche d'autres solutions.","why":"Unspecified other solutions use d'autres, without a construction requiring de + les."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"whole-each","prompt":"Supply the right form of tout: ___ les portes sont fermées.","choices":[],"answers":["Toutes"],"explanation":"Portes is feminine plural."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"whole-each","prompt":"Supply chaque or chacun: ___ doit signer.","choices":[],"answers":["Chacun"],"explanation":"No noun follows the pronoun."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"others-same","prompt":"Supply the phrase meaning 'the other one': Ce billet est déchiré ; prenez ___. Use autre.","choices":[],"answers":["l'autre"],"explanation":"An identified alternative."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"others-same","prompt":"Supply d'autres or des autres: J'ai ___ questions.","choices":[],"answers":["d'autres"],"explanation":"Unspecified additional questions."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"whole-each","prompt":"Use tout as the pronoun meaning everything: ___ fonctionne.","choices":[],"answers":["Tout"],"explanation":"Everything takes singular fonctionne."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"whole-each","prompt":"Use the pronoun meaning all of them for les invitées: Elles sont ___ arrivées.","choices":[],"answers":["toutes"],"explanation":"Feminine plural pronoun."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"whole-each","prompt":"Complete with quelques, meaning a few: Nous avons ___ places libres.","choices":[],"answers":["quelques"],"explanation":"Quelques introduces a plural noun."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"whole-each","prompt":"Supply the word meaning several: ___ clients attendent.","choices":[],"answers":["Plusieurs"],"explanation":"Plusieurs takes a plural noun and verb."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"others-same","prompt":"Use de nombreux in the correct gender: ___ associations participent.","choices":[],"answers":["De nombreuses"],"explanation":"Associations is feminine plural."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"whole-each","prompt":"Supply chacun in the right gender: ___ des participantes a une copie.","choices":[],"answers":["Chacune"],"explanation":"A feminine group; singular a."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"others-same","prompt":"Replace 'the same one' referring to une chambre: Je veux ___. Use même.","choices":[],"answers":["la même"],"explanation":"Feminine singular reference."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"others-same","prompt":"Supply d'autres or des autres: Ne prenez pas les manteaux ___.","choices":[],"answers":["des autres"],"explanation":"The coats belong to the others: de + les."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"whole-each","prompt":"Use adverb tout in the appropriate form: Elles sont ___ contentes.","choices":[],"answers":["toutes"],"explanation":"Feminine adjective beginning with a consonant: agreement."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"whole-each","prompt":"Use adverb tout meaning completely: Elle est ___ heureuse.","choices":[],"answers":["tout"],"explanation":"Mute h allows the invariable adverb before heureuse."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"others-same","prompt":"Use the expression 'the same ones' for les chaussures: Je porte ___.","choices":[],"answers":["les mêmes"],"explanation":"Plural reference."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"others-same","prompt":"Use the expression 'the others' as subject: Deux personnes entrent ; ___ restent dehors.","choices":[],"answers":["les autres"],"explanation":"The remaining members of a known group."}
+ ],
+ "production_task":{"prompt":"Describe how a group shares equipment. Mention the whole group, each person's responsibility, extra supplies and which supplies belong to others.","model_answer":"Tous les bénévoles ont un badge. Chacun reçoit une clé. Nous avons quelques tables, mais il faut d'autres chaises. Les sacs des autres restent près de l'entrée.","translation":"All the volunteers have a badge. Each person receives a key. We have a few tables, but we need other chairs. The others' bags stay near the entrance.","rubric":["Keep chaque/chacun singular.","Match tout and numerous forms to their nouns.","Distinguish d'autres from des autres."]}
+}

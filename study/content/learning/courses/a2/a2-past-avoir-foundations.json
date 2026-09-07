@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-past-avoir-foundations","slug":"a2-past-avoir-foundations","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Raconter une action terminée","summary":"Build the passé composé with avoir, regular participles and four essential irregulars.","order":6,"duration_minutes":14,"prerequisites":["a2-infinitives-necessity"],
+ "objectives":["Form completed past actions with a present auxiliary and past participle.","Use -é, -i, -u, dit, fait, eu and été accurately."],
+ "keywords":["passé composé","avoir","participe passé","dire","faire","être","past"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["verbs-passe-compose","verbs-irregular-past-participles"],
+ "sections":[
+  {"id":"build","title":"Two verb parts, one completed event",
+   "paragraphs":["The passé composé presents an event as a completed whole, often to say what happened next. English may use a simple past ('I called') or a present perfect ('I have called'). French needs two parts: an auxiliary, a helping verb conjugated for the subject, and a past participle, the form naming the completed action. Here the auxiliary is avoir in the present.", "For regular -er verbs remove -er and add -é. For regular -ir verbs of the finir family, replace -ir with -i. For regular -dre verbs such as vendre, attendre and répondre, replace -re with -u. These are families, not rules for every verb with a similar ending: prendre has pris."],
+   "points":["All persons: j'ai parlé, tu as parlé, il/elle/on a parlé, nous avons parlé, vous avez parlé, ils/elles ont parlé. Substitute fini, vendu, dit, fait, eu or été without changing the auxiliary pattern.","In these examples the direct object comes after the verb or is absent, so an avoir participle does not agree with the subject. Preceding direct objects are a separate agreement case."],
+   "examples":[
+    {"french":"J'**ai réservé** une table.","english":"I booked a table.","note":"Réserver becomes réservé."},
+    {"french":"Vous **avez fini** le rapport.","english":"You have finished the report.","note":"Finir becomes fini."},
+    {"french":"Nous **avons attendu** dehors.","english":"We waited outside.","note":"Attendre becomes attendu."},
+    {"french":"Elles **ont vendu** leur voiture.","english":"They sold their car.","note":"No subject agreement with avoir."}
+   ],
+   "mistakes":[{"avoid":"J'ai réserver une table.","prefer":"J'ai réservé une table.","why":"After the auxiliary, use a participle, not an infinitive."}]
+  },
+  {"id":"essential-irregulars","title":"Four small forms with many uses",
+   "paragraphs":["Learn dire → dit, faire → fait, avoir → eu and être → été as whole participles. Avoir and être themselves both use avoir as their auxiliary here: j'ai eu, j'ai été. Having été does not turn the auxiliary into être. Use this tense for bounded experiences as well as actions: j'ai été malade trois jours presents a completed period of illness."],
+   "points":["Negation surrounds the conjugated auxiliary: je n'ai pas appelé. The participle remains after pas.","A past account can consist entirely of completed events; it does not need an imparfait in every sentence."],
+   "examples":[
+    {"french":"Elle **a dit** son nom.","english":"She said her name.","note":"Dire has dit."},
+    {"french":"Tu **as fait** la réservation.","english":"You made the reservation.","note":"Faire has fait."},
+    {"french":"Nous **avons eu** un problème.","english":"We had a problem.","note":"The first form is the auxiliary; eu is the participle of avoir."},
+    {"french":"Ils **ont été** patients.","english":"They were patient.","note":"Être uses avoir here; patients agrees as an adjective."}
+   ],
+   "mistakes":[{"avoid":"Elle est été malade.","prefer":"Elle a été malade.","why":"The passé composé of être uses avoir."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"build","prompt":"Supply appeler in the passé composé: Tu ___ le garage.","choices":[],"answers":["as appelé"],"explanation":"As + appelé."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"build","prompt":"Supply choisir in the passé composé: Nous ___ un horaire.","choices":[],"answers":["avons choisi"],"explanation":"Choisir follows finir: choisi."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"build","prompt":"Supply répondre in the passé composé: Elle ___ au message.","choices":[],"answers":["a répondu"],"explanation":"Répondre has répondu."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"essential-irregulars","prompt":"Supply faire in the passé composé: Vous ___ une pause.","choices":[],"answers":["avez fait"],"explanation":"Faire has fait."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"build","prompt":"Supply terminer in the passé composé: Elles ___ leur travail.","choices":[],"answers":["ont terminé"],"explanation":"No subject agreement with avoir."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"build","prompt":"Supply réussir in the passé composé: J'___ l'entretien.","choices":[],"answers":["ai réussi"],"explanation":"Réussir follows the regular -ir participle pattern."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"build","prompt":"Supply vendre in the passé composé: Il ___ son vélo.","choices":[],"answers":["a vendu"],"explanation":"Vendre becomes vendu."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"essential-irregulars","prompt":"Supply dire in the passé composé: Nous ___ merci.","choices":[],"answers":["avons dit"],"explanation":"Dire has dit."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"essential-irregulars","prompt":"Supply avoir in the passé composé: Tu ___ de la chance.","choices":[],"answers":["as eu"],"explanation":"Avoir uses eu after the auxiliary."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"essential-irregulars","prompt":"Supply être in the passé composé: Vous ___ très aimables.","choices":[],"answers":["avez été"],"explanation":"Être takes avoir, not être, as auxiliary."},
+  {"id":"item-11","kind":"choice","pool":"check","section_id":"build","prompt":"A completed event: Yesterday I posted the letter. Choose the French form.","choices":["Hier, j'ai posté la lettre.","Hier, je poste la lettre."],"answers":["Hier, j'ai posté la lettre."],"explanation":"The ordinary completed past uses the passé composé."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"essential-irregulars","prompt":"Supply faire in the passé composé: Elles ___ les courses.","choices":[],"answers":["ont fait"],"explanation":"Fait does not agree with elles here."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"build","prompt":"Supply attendre in the passé composé: Vous ___ longtemps.","choices":[],"answers":["avez attendu"],"explanation":"Attendre has attendu."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"essential-irregulars","prompt":"Correct the auxiliary only: Ils sont été surpris.","choices":[],"answers":["ont"],"explanation":"The auxiliary for été is avoir."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"build","prompt":"Give the participle only: Elle a remplir le formulaire.","choices":[],"answers":["rempli"],"explanation":"Replace the infinitive with rempli."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"essential-irregulars","prompt":"Supply avoir in the passé composé: J'___ une réponse.","choices":[],"answers":["ai eu"],"explanation":"Ai is the auxiliary; eu means had."}
+ ],
+ "production_task":{"prompt":"Tell a friend what you did to arrange an appointment yesterday. Use three completed actions and mention the result.","model_answer":"J'ai appelé le centre et j'ai expliqué mon problème. Nous avons choisi une date. J'ai eu une confirmation par courriel et le personnel a été très aimable.","translation":"I called the centre and explained my problem. We chose a date. I received a confirmation by email and the staff were very kind.","rubric":["Use an auxiliary in every passé composé.","Distinguish infinitives from participles.","Report a clear sequence and outcome."]}
+}

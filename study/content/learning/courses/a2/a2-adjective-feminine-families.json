@@ -1,0 +1,52 @@
+{
+ "version":1,"id":"a2-adjective-feminine-families","slug":"a2-adjective-feminine-families","cefr_level":"A2","topic":"grammar-foundations","title":"Neuve, douce, fraîche et longue","summary":"Form useful feminine adjectives by family while learning exceptions individually.","order":26,"duration_minutes":14,"prerequisites":["a2-possessive-demonstrative-determiners"],
+ "objectives":["Form feminine -f, -c and -oux adjectives with their exceptions.","Use frais, long, favori and rigolo in all gender/number forms."],
+ "keywords":["accord","féminin","neuve","publique","douce","rousse","fausse","fraîche","longue","favorite","rigolote"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["grammar-adjective-agreement"],
+ "sections":[
+  {"id":"f-c","title":"The ending can change, not just gain e",
+   "paragraphs":["An adjective describes a noun and normally agrees with its gender and number. Many masculine adjectives ending in -f replace f with ve in the feminine: neuf/neuve (new), actif/active (active), sportif/sportive (sporty), vif/vive (lively), veuf/veuve (widowed). To form the plural, usually add s to each gender form.", "Adjectives ending in -c do not have one universal feminine rule. Learn blanc/blanche (white), franc/franche (frank), sec/sèche (dry), public/publique (public), turc/turque (Turkish), grec/grecque (Greek), caduc/caduque (no longer valid). Notice sec changes both spelling and accent, while grec keeps c before que."],
+   "points":["Complete models: neuf, neuve, neufs, neuves; public, publique, publics, publiques; grec, grecque, grecs, grecques.","Some less common -f words such as bref/brève have an accent change too; do not use the simple family rule as a substitute for a dictionary when unsure."],
+   "examples":[
+    {"french":"C'est une veste **neuve**.","english":"It is a new jacket.","note":"Neuf becomes neuve."},
+    {"french":"Ces activités sont **sportives**.","english":"These activities are sporting activities.","note":"Feminine plural of sportif."},
+    {"french":"La serviette est **sèche** et la nappe est **blanche**.","english":"The towel is dry and the tablecloth is white.","note":"Two different -c changes."},
+    {"french":"La bibliothèque **publique** organise une soirée **grecque**.","english":"The public library is organising a Greek evening.","note":"Publique versus grecque."}
+   ],
+   "mistakes":[{"avoid":"Une voiture neuf.","prefer":"Une voiture neuve.","why":"Voiture is feminine, so neuf becomes neuve."}]
+  },
+  {"id":"oux-irregular","title":"Similar masculine endings, different feminine forms",
+   "paragraphs":["Doux becomes douce (soft/gentle), roux becomes rousse (red-haired), and jaloux becomes jalouse (jealous). Faux becomes fausse (false), not fause. Masculine forms ending in x already have that same spelling in the plural; feminine plurals add s.", "Other useful pairs are frais/fraîche (fresh/cool), long/longue (long), favori/favorite (favourite) and rigolo/rigolote (funny, informal). The 1990 spelling fraiche without a circumflex is also accepted. Rigolo is conversational; amusant is a less informal alternative."],
+   "points":["Full sets: doux/douce/doux/douces; roux/rousse/roux/rousses; jaloux/jalouse/jaloux/jalouses; faux/fausse/faux/fausses.","Frais/fraîche/frais/fraîches; long/longue/longs/longues; favori/favorite/favoris/favorites; rigolo/rigolote/rigolos/rigolotes. Each set lists masculine singular, feminine singular, masculine plural, feminine plural."],
+   "examples":[
+    {"french":"Cette écharpe est **douce**.","english":"This scarf is soft.","note":"Doux has douce, not douse."},
+    {"french":"Ma sœur est **rousse**, et elle n'est pas **jalouse**.","english":"My sister is red-haired, and she is not jealous.","note":"Roux doubles s; jaloux does not."},
+    {"french":"Cette information est **fausse** ; l'attente sera plus **longue**.","english":"This information is false; the wait will be longer.","note":"Fausse and longue have different changes."},
+    {"french":"Ma boisson **favorite** est fraîche ; cette histoire est **rigolote**.","english":"My favourite drink is cool; this story is funny.","note":"Favorite and rigolote gain t before e."}
+   ],
+   "mistakes":[{"avoid":"Ces réponses sont fauses.","prefer":"Ces réponses sont fausses.","why":"The feminine of faux has double s, followed by plural s."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"f-c","prompt":"Agree neuf: une cuisine ___.","choices":[],"answers":["neuve"],"explanation":"F becomes ve."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"f-c","prompt":"Agree actif: des femmes ___.","choices":[],"answers":["actives"],"explanation":"Feminine active plus plural s."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"oux-irregular","prompt":"Agree doux: une voix ___.","choices":[],"answers":["douce"],"explanation":"Doux gives douce."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"oux-irregular","prompt":"Agree frais: une salade ___.","choices":[],"answers":["fraîche","fraiche"],"explanation":"Both traditional and 1990 spellings are accepted."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"f-c","prompt":"Agree blanc: des portes ___.","choices":[],"answers":["blanches"],"explanation":"Blanc gives blanche, then plural s."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"f-c","prompt":"Agree sec: une peau ___.","choices":[],"answers":["sèche"],"explanation":"Sec gives sèche with è."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"f-c","prompt":"Agree public: une réunion ___.","choices":[],"answers":["publique"],"explanation":"Public gives publique."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"f-c","prompt":"Agree grec: une recette ___.","choices":[],"answers":["grecque"],"explanation":"Keep c before que."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"oux-irregular","prompt":"Agree roux: deux chattes ___.","choices":[],"answers":["rousses"],"explanation":"Feminine rousse plus plural s."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"oux-irregular","prompt":"Agree jaloux: une voisine ___.","choices":[],"answers":["jalouse"],"explanation":"Jaloux gives jalouse."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"oux-irregular","prompt":"Agree faux: une adresse ___.","choices":[],"answers":["fausse"],"explanation":"Double s in fausse."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"oux-irregular","prompt":"Agree long: des journées ___.","choices":[],"answers":["longues"],"explanation":"Longue plus plural s."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"oux-irregular","prompt":"Agree favori: mes chansons ___.","choices":[],"answers":["favorites"],"explanation":"Feminine favorite gains t."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"oux-irregular","prompt":"Agree rigolo: une scène ___.","choices":[],"answers":["rigolote"],"explanation":"Informal rigolo gives rigolote."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"f-c","prompt":"Agree turc: une famille ___.","choices":[],"answers":["turque"],"explanation":"Turc gives turque."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"f-c","prompt":"Agree franc: une réponse ___.","choices":[],"answers":["franche"],"explanation":"Franc gives franche."},
+  {"id":"item-17","kind":"text","pool":"check","section_id":"f-c","prompt":"Agree caduc: une autorisation ___.","choices":[],"answers":["caduque"],"explanation":"Caduc gives caduque."},
+  {"id":"item-18","kind":"text","pool":"review","section_id":"f-c","prompt":"Agree vif: des couleurs ___.","choices":[],"answers":["vives"],"explanation":"Vif follows the f to ve family."}
+ ],
+ "production_task":{"prompt":"Describe a room or place you like using four relevant adjectives, not a disconnected list.","model_answer":"Ma pièce favorite est la cuisine. Elle a une table neuve et de longues étagères blanches. La lumière est douce le matin. J'aime y prendre mon petit-déjeuner.","translation":"My favourite room is the kitchen. It has a new table and long white shelves. The light is soft in the morning. I like having breakfast there.","rubric":["Agree each adjective with its own noun.","Check irregular stems before adding plural s.","Use descriptions that help someone imagine the place."]}
+}

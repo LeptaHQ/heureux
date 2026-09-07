@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-numbers-halves-calculations","slug":"a2-numbers-halves-calculations","cefr_level":"A2","topic":"grammar-foundations","title":"Une dizaine, une moitié, trois fois quatre","summary":"Give approximate quantities, divide something in half and explain a simple calculation.","order":35,"duration_minutes":13,"prerequisites":["a2-comparison-change","a2-time-place-schedules"],
+ "objectives":["Use approximate-number nouns with de.","Distinguish demi-, et demi(e), la moitié de and à moitié.","Read and express basic arithmetic operations."],
+ "keywords":["dizaine","douzaine","centaine","millier","demi","moitié","addition","soustraction","multiplication","division"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["grammar-numbers-ordinals","daily-food-quantity"],
+ "sections":[
+  {"id":"approximate-halves","title":"Exact halves, approximate groups",
+   "paragraphs":["Une dizaine (f.) is a group of about ten, une vingtaine about twenty, une trentaine about thirty, une quarantaine about forty, une cinquantaine about fifty, une soixantaine about sixty and une centaine about a hundred. Un millier (m.) is about a thousand. These are nouns and normally take de before what is counted. Une douzaine means a dozen; it can be exactly twelve for packaged goods or approximately twelve in a conversational estimate.", "Before a noun, demi- is unchanged and linked by a hyphen: une demi-heure, des demi-journées. After a noun with et, demi agrees in gender but not number: un an et demi, deux heures et demie. Midi et demi and minuit et demi are masculine. La moitié de means half of an amount or set; à moitié modifies an action or state and means halfway/half."],
+   "points":["Half of the group: la moitié du groupe. Half of the people: la moitié des personnes. De contracts with le/les as usual.","Demie can also be a noun in clock expressions such as la demie; the fixed et demi(e) pattern here does not take plural s."],
+   "examples":[
+    {"french":"Une **vingtaine de** personnes attendent dehors.","english":"About twenty people are waiting outside.","note":"An approximate-number noun plus de."},
+    {"french":"Nous avons commandé **une douzaine d'**œufs.","english":"We ordered a dozen eggs.","note":"In this purchase, a dozen is twelve."},
+    {"french":"La visite dure **une demi-heure** ; l'atelier dure **deux heures et demie**.","english":"The visit lasts half an hour; the workshop lasts two and a half hours.","note":"Before-noun demi- versus after-noun feminine demie."},
+    {"french":"**La moitié du** groupe est déjà là ; la salle est **à moitié** pleine.","english":"Half the group is already there; the room is half full.","note":"A noun fraction versus an adverbial expression."}
+   ],
+   "mistakes":[{"avoid":"Deux heures et demies.","prefer":"Deux heures et demie.","why":"After et, demi agrees in gender, not number."}]
+  },
+  {"id":"arithmetic","title":"Say the operation as well as the result",
+   "paragraphs":["For addition use plus; for subtraction use moins; for multiplication use fois or multiplié par; for division use divisé par. A simple spoken result uses ça fait or font. To read an equality without a full verb sentence, égal is also common: trois plus deux, égal cinq.", "With a full verbal sentence, use a grammatically complete frame: deux plus trois font cinq, dix divisé par deux donne cinq. Do not confuse multiplication fois with fois meaning an occasion; context identifies the operation. A decimal uses a comma in French notation and virgule when read: 2,5 = deux virgule cinq."],
+   "points":["For the constrained operation questions, give the requested word, not an unrestricted reformulation."],
+   "examples":[
+    {"french":"Trois **plus** quatre **font** sept.","english":"Three plus four equals seven.","note":"Addition."},
+    {"french":"Dix **moins** trois, ça fait sept.","english":"Ten minus three makes seven.","note":"Subtraction."},
+    {"french":"Quatre **fois** cinq, ça fait vingt.","english":"Four times five makes twenty.","note":"Multiplication."},
+    {"french":"Douze **divisé par** quatre donne trois.","english":"Twelve divided by four gives three.","note":"Division."}
+   ],
+   "mistakes":[{"avoid":"Une dizaine des personnes sont venues.","prefer":"Une dizaine de personnes sont venues.","why":"For an unspecified approximate quantity, use de, not des."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"approximate-halves","prompt":"Supply the noun for about ten: une ___ de jours.","choices":[],"answers":["dizaine"],"explanation":"Une dizaine gives an approximate ten."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"approximate-halves","prompt":"Supply de or des: une centaine ___ visiteurs.","choices":[],"answers":["de"],"explanation":"The quantity noun takes de."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"approximate-halves","prompt":"Write 'half an hour' with demi before heure, beginning une.","choices":[],"answers":["une demi-heure"],"explanation":"Demi stays unchanged before the noun and takes a hyphen."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"arithmetic","prompt":"Name the French operation word for 8 + 2. Give only the word for +.","choices":[],"answers":["plus"],"explanation":"Plus marks addition."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"approximate-halves","prompt":"Supply the approximate-number noun for about forty: une ___ de personnes.","choices":[],"answers":["quarantaine"],"explanation":"Quarantaine is about forty."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"approximate-halves","prompt":"Supply the noun for a dozen: une ___ d'œufs.","choices":[],"answers":["douzaine"],"explanation":"A packaged dozen is twelve."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"approximate-halves","prompt":"Agree demi: une semaine et ___.","choices":[],"answers":["demie"],"explanation":"Semaine is feminine; et demie follows it."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"approximate-halves","prompt":"Agree demi: trois mois et ___.","choices":[],"answers":["demi"],"explanation":"Masculine noun; no plural s in this pattern."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"approximate-halves","prompt":"Supply la moitié plus the contracted de article: ___ gâteau reste. Meaning half the cake remains.","choices":[],"answers":["La moitié du"],"explanation":"De + le gâteau contracts to du."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"arithmetic","prompt":"Name the French operation word for 9 - 4. Give only the word for the subtraction sign.","choices":[],"answers":["moins"],"explanation":"Moins marks subtraction."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"arithmetic","prompt":"Supply the one-word multiplication expression: six ___ trois, ça fait dix-huit.","choices":[],"answers":["fois"],"explanation":"Fois expresses multiplication."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"arithmetic","prompt":"Supply the division expression: vingt ___ cinq donne quatre.","choices":[],"answers":["divisé par"],"explanation":"Divisé par expresses division."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"approximate-halves","prompt":"Supply the noun for about a thousand: un ___ de participants.","choices":[],"answers":["millier"],"explanation":"Millier is a masculine approximate-number noun."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"approximate-halves","prompt":"Supply demi in the right form: Il est midi et ___.","choices":[],"answers":["demi"],"explanation":"Midi is masculine."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"approximate-halves","prompt":"Supply the phrase meaning half in 'half empty': La boîte est ___ vide.","choices":[],"answers":["à moitié"],"explanation":"À moitié modifies an adjective."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"arithmetic","prompt":"Write the result in French words: quinze divisé par trois donne ___.","choices":[],"answers":["cinq"],"explanation":"Fifteen divided by three is five."}
+ ],
+ "production_task":{"prompt":"Explain supplies and costs for a small gathering. Give an estimated attendance, one half quantity or duration and a simple calculation.","model_answer":"Une vingtaine de personnes vont venir. Nous avons une demi-heure pour préparer la salle. Quatre tables coûtent cinq euros chacune : quatre fois cinq, ça fait vingt euros. La moitié du groupe apporte de la nourriture.","translation":"About twenty people are going to come. We have half an hour to prepare the room. Four tables cost five euros each: four times five makes twenty euros. Half the group is bringing food.","rubric":["Use de after an approximate-number noun.","Distinguish demi- from la moitié de.","Make the arithmetic and quantities consistent."]}
+}

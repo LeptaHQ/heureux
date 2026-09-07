@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-manquer-perspectives","slug":"a2-manquer-perspectives","cefr_level":"A2","topic":"word-meanings-expressions","title":"Tu me manques ou je manque de temps ?","summary":"Distinguish emotional absence, a missed event, a lack and failure to fulfil a commitment.","order":34,"duration_minutes":11,"prerequisites":["a2-avoir-faire-expressions"],
+ "objectives":["Use manquer à with the missed person or thing as subject.","Distinguish manquer + object from manquer de + resource.","Interpret manquer à an obligation without assuming every à marks emotional missing."],
+ "keywords":["manquer","miss","lack","manquer à","manquer de"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["verbs-lexical-distinctions"],
+ "sections":[
+  {"id":"emotional","title":"The person missed becomes the French subject",
+   "paragraphs":["For emotional missing, manquer à someone describes what is absent from that person's life. In tu me manques, tu is the missed person and me is the person feeling the absence: I miss you. The verb agrees with the missed person or thing, not the person experiencing the feeling. In English the experiencer comes first; in French the grammatical roles are different.", "Replace à + experiencer with me, te, lui, nous, vous, leur before the verb. Lui can mean to him or to her. A full noun can follow à: sa famille manque à Nora. The same construction works in the past: tu m'as manqué."],
+   "points":["Present manquer: je manque, tu manques, il/elle/on manque, nous manquons, vous manquez, ils/elles manquent.","For I miss them, use ils/elles me manquent. For they miss me, use je leur manque."],
+   "examples":[
+    {"french":"Tu **me manques**.","english":"I miss you.","note":"Tu is the person absent."},
+    {"french":"Mes amis **me manquent**.","english":"I miss my friends.","note":"Plural subject controls manquent."},
+    {"french":"Je **lui manque**.","english":"He or she misses me.","note":"The speaker is the person being missed."},
+    {"french":"Le quartier **manque à** ma sœur.","english":"My sister misses the neighbourhood.","note":"A place can be what is missed."}
+   ],
+   "mistakes":[{"avoid":"Mes amis me manque.","prefer":"Mes amis me manquent.","why":"The plural subject is mes amis, not me."}]
+  },
+  {"id":"miss-lack","title":"A direct object, de or à changes the relationship",
+   "paragraphs":["Manquer + direct object can mean miss an event, appointment, transport or target: manquer le train. Manquer de + noun means lack a resource or quality: manquer de temps, de patience. Something missing from a set can itself be the subject: il manque une page, une page manque au dossier.", "Manquer à also has a non-emotional use with an obligation: manquer à sa promesse means fail to keep one's promise. The complement's meaning matters; à is not an automatic signal for a person feeling emotional absence. Manquer de + infinitive can mean nearly do something, such as j'ai manqué de tomber; recognise this separately from lacking a noun resource."],
+   "points":["Useful contrast: j'ai manqué le cours = I missed the class; le cours m'a manqué = I missed having the class / felt its absence, depending on context."],
+   "examples":[
+    {"french":"J'**ai manqué le train**.","english":"I missed the train.","note":"A missed departure takes a direct object."},
+    {"french":"Nous **manquons de temps**.","english":"We are short of time.","note":"A missing resource follows de."},
+    {"french":"Il **manque une page** au dossier.","english":"One page is missing from the application.","note":"Impersonal il introduces what is missing."},
+    {"french":"Il **a manqué à sa promesse**.","english":"He failed to keep his promise.","note":"An obligation, not emotional missing."}
+   ],
+   "mistakes":[{"avoid":"Nous manquons du temps pour finir.","prefer":"Nous manquons de temps pour finir.","why":"For an unspecified shortage, manquer de takes the noun without a partitive article."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"emotional","prompt":"Supply manquer in the present: Tu me ___.","choices":[],"answers":["manques"],"explanation":"Tu controls the verb."},
+  {"id":"item-02","kind":"choice","pool":"practice","section_id":"emotional","prompt":"In Je lui manque, who feels the absence?","choices":["The person represented by lui.","The speaker necessarily."],"answers":["The person represented by lui."],"explanation":"Je is the person missed."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"miss-lack","prompt":"Supply de or à: Nous manquons ___ place.","choices":[],"answers":["de"],"explanation":"A shortage takes de."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"miss-lack","prompt":"Supply manquer in the passé composé: Elle ___ son rendez-vous.","choices":[],"answers":["a manqué"],"explanation":"A missed appointment is a direct object."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"emotional","prompt":"Translate 'I miss my sisters' using mes sœurs as the subject and manquer.","choices":[],"answers":["Mes sœurs me manquent."],"explanation":"The missed people become the subject."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"emotional","prompt":"Translate 'My parents miss me' with je as subject and leur.","choices":[],"answers":["Je leur manque."],"explanation":"Je is missed; leur represents the parents experiencing it."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"emotional","prompt":"Supply manquer in the passé composé: Tu m'___ pendant le voyage.","choices":[],"answers":["as manqué"],"explanation":"The construction remains the same in the past."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"emotional","prompt":"Replace à Nora: Sa famille ___ manque.","choices":[],"answers":["lui"],"explanation":"The experiencer takes indirect lui."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"miss-lack","prompt":"Supply the missing noun-linking preposition: Il manque ___ patience.","choices":[],"answers":["de"],"explanation":"He lacks patience."},
+  {"id":"item-10","kind":"choice","pool":"check","section_id":"miss-lack","prompt":"J'ai manqué le bus means:","choices":["I missed the bus departure.","The bus felt sad without me."],"answers":["I missed the bus departure."],"explanation":"The direct object gives the missed transport meaning."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"miss-lack","prompt":"Supply à or de: Elle a manqué ___ sa parole.","choices":[],"answers":["à"],"explanation":"Manquer à sa parole means fail to keep one's word."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"miss-lack","prompt":"Present of manquer: Il ___ deux signatures sur ce formulaire.","choices":[],"answers":["manque"],"explanation":"Impersonal il keeps a singular verb even though two signatures are absent."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"emotional","prompt":"Translate 'We miss you' using tu as subject and nous.","choices":[],"answers":["Tu nous manques."],"explanation":"Tu is missed by us."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"miss-lack","prompt":"Correct the quantity phrase only: Nous manquons des chaises. We lack chairs in general.","choices":[],"answers":["de chaises"],"explanation":"Use de without an indefinite article."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"emotional","prompt":"Present of manquer: Vos messages me ___.","choices":[],"answers":["manquent"],"explanation":"Plural messages controls the verb."},
+  {"id":"item-16","kind":"choice","pool":"review","section_id":"miss-lack","prompt":"J'ai manqué de tomber means:","choices":["I nearly fell.","I lacked a fall."],"answers":["I nearly fell."],"explanation":"Manquer de + infinitive can express a narrowly avoided event."}
+ ],
+ "production_task":{"prompt":"Write to a friend after moving. Express what you miss, explain a practical shortage and mention an appointment or bus you missed.","model_answer":"Tu me manques, et nos promenades me manquent aussi. Ici, je manque encore de temps pour découvrir le quartier. Hier, j'ai manqué le bus, mais j'ai trouvé un autre trajet.","translation":"I miss you, and I miss our walks too. Here, I am still short of time to discover the neighbourhood. Yesterday, I missed the bus, but I found another route.","rubric":["Make the missed person or thing the subject for emotional absence.","Use de for a lack of a resource.","Use a direct object for missing transport."]}
+}

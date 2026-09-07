@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-object-pronoun-positions","slug":"a2-object-pronoun-positions","cefr_level":"A2","topic":"pronouns-questions-negation","title":"Je le vois, je lui parle","summary":"Identify who acts and what the verb acts on, then place an object pronoun with the right verb.","order":14,"duration_minutes":15,"prerequisites":["a2-past-contrast"],
+ "objectives":["Distinguish subjects, direct objects and indirect objects.","Choose le/la/l'/les or lui/leur from the French verb construction.","Place pronouns with simple, compound, infinitive and negative verbs."],
+ "keywords":["sujet","objet direct","objet indirect","le","la","les","lui","leur","word order"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["pronouns-direct-indirect","negation-core"],
+ "sections":[
+  {"id":"roles","title":"Follow the French verb, not the English translation",
+   "paragraphs":["The subject is who or what the verb says something about. In Nora appelle son frère, Nora is the subject; son frère is the direct object, attached to appelle without a preposition. A pronoun stands for a noun or noun phrase so you need not repeat it. Replace a specific direct object with le (masculine singular), la (feminine singular), l' before a vowel or mute h, or les (plural). People and things both use these forms.", "An indirect object is linked through a preposition. With verbs such as parler à, téléphoner à, répondre à and donner quelque chose à someone, replace à + person with lui (to him or her) or leur (to them). Leur is unchanged; it is not the possessive leurs. Not every à + person takes lui: penser à elle keeps a stressed pronoun."],
+   "points":["First/second-person object forms are me, te, nous, vous: elle me voit; elle me parle. Third-person forms reveal the direct/indirect distinction.","Je le cherche means I am looking for him: chercher is direct in French even though English uses for. Écouter someone is also direct."],
+   "examples":[
+    {"french":"Nora appelle son frère : elle **l'appelle**.","english":"Nora calls her brother: she calls him.","note":"Elle is the subject; l' is the direct object."},
+    {"french":"Je cherche la clé : je **la cherche**.","english":"I am looking for the key: I am looking for it.","note":"Chercher takes a direct object."},
+    {"french":"Tu écoutes les voisins : tu **les écoutes**.","english":"You listen to the neighbours: you listen to them.","note":"No à after écouter."},
+    {"french":"Nous parlons à la directrice : nous **lui parlons**.","english":"We speak to the director: we speak to her.","note":"Lui can refer to a woman."}
+   ],
+   "mistakes":[{"avoid":"Je lui regarde.","prefer":"Je le regarde.","why":"For looking at a man, regarder is direct: le, not lui."}]
+  },
+  {"id":"placement","title":"Put the pronoun with the verb it completes",
+   "paragraphs":["With one conjugated verb, the object pronoun normally comes before it. With a compound tense, it comes before the auxiliary, not between the auxiliary and participle. With a following infinitive, put the pronoun before that infinitive when it is the infinitive's object: je veux la voir. If it belongs to the first verb, it stays there: je lui demande de venir.", "In a negative simple or compound construction, ne precedes the pronoun group and pas follows the conjugated verb or auxiliary. With an infinitive object, compare je ne veux pas le signer. A preceding direct object can trigger avoir participle agreement: la lettre, je l'ai écrite. Indirect lui/leur does not trigger that agreement."],
+   "points":["Ordinary affirmative commands move object pronouns after the verb; that separate pattern is taught in the imperative lesson."],
+   "examples":[
+    {"french":"Je **leur réponds** ce soir.","english":"I am replying to them tonight.","note":"Indirect plural leur has no s."},
+    {"french":"Le reçu ? Je **l'ai gardé**.","english":"The receipt? I kept it.","note":"L' precedes the auxiliary."},
+    {"french":"La responsable ? Je veux **l'appeler**.","english":"The manager? I want to call her.","note":"L' belongs to appeler, not veux."},
+    {"french":"Ces documents ? Je **ne les ai pas oubliés**.","english":"Those documents? I have not forgotten them.","note":"Ne + pronoun + auxiliary + pas; oubliés agrees with preceding les."}
+   ],
+   "mistakes":[{"avoid":"Je veux appelle lui.","prefer":"Je veux l'appeler.","why":"Appeler is direct and stays infinitive after veux; its pronoun precedes it."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"choice","pool":"practice","section_id":"roles","prompt":"In Le médecin appelle Nora, which words form the subject?","choices":["Le médecin","Nora"],"answers":["Le médecin"],"explanation":"The doctor performs the calling."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"roles","prompt":"Replace la valise with one pronoun: Je ___ cherche.","choices":[],"answers":["la"],"explanation":"Chercher takes a direct object."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"roles","prompt":"Replace à ma sœur: Je ___ téléphone.","choices":[],"answers":["lui"],"explanation":"Téléphoner à someone takes lui."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"placement","prompt":"Replace le reçu: J'ai gardé le reçu. Rewrite the whole sentence.","choices":[],"answers":["Je l'ai gardé."],"explanation":"The pronoun precedes the auxiliary."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"roles","prompt":"Replace les enfants: Nous ___ attendons.","choices":[],"answers":["les"],"explanation":"Attendre is direct."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"roles","prompt":"Replace à mes voisins: Je ___ réponds.","choices":[],"answers":["leur"],"explanation":"Indirect plural leur has no s."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"placement","prompt":"Replace ce message: Tu lis ce message. Rewrite the sentence.","choices":[],"answers":["Tu le lis."],"explanation":"Object pronoun before a simple tense."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"placement","prompt":"Replace la voiture: Nous allons vendre la voiture. Rewrite the sentence.","choices":[],"answers":["Nous allons la vendre."],"explanation":"La belongs to vendre."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"placement","prompt":"Replace à Paul: Elle a parlé à Paul. Rewrite the sentence.","choices":[],"answers":["Elle lui a parlé."],"explanation":"Lui precedes a and causes no agreement."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"placement","prompt":"Make negative with ne ... pas: Je le connais.","choices":[],"answers":["Je ne le connais pas."],"explanation":"Ne precedes le; pas follows connais."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"placement","prompt":"Replace cette lettre: Il n'a pas reçu cette lettre. Rewrite with preceding direct-object agreement.","choices":[],"answers":["Il ne l'a pas reçue."],"explanation":"L' represents feminine lettre and precedes a reçu."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"placement","prompt":"Replace les billets: Je ne veux pas perdre les billets. Rewrite.","choices":[],"answers":["Je ne veux pas les perdre."],"explanation":"Les is the object of perdre."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"roles","prompt":"Supply le or lui for a man: Je ___ remercie.","choices":[],"answers":["le"],"explanation":"Remercier someone is direct in French."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"placement","prompt":"Replace à Léa: Je demande à Léa de venir. Rewrite.","choices":[],"answers":["Je lui demande de venir."],"explanation":"Lui belongs to demande, not venir."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"placement","prompt":"Replace les photos: Nous avons regardé les photos. Rewrite with agreement.","choices":[],"answers":["Nous les avons regardées."],"explanation":"Preceding feminine plural les triggers -ées."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"roles","prompt":"Supply lui or elle: Je pense à ___. The person is ma sœur.","choices":[],"answers":["elle"],"explanation":"Penser à takes a stressed pronoun here, not indirect lui before the verb."}
+ ],
+ "production_task":{"prompt":"Write a message about a document and a person you need to contact. Introduce each noun clearly before replacing it with a pronoun.","model_answer":"J'ai reçu le contrat. Je l'ai lu et je veux le signer demain. J'ai aussi appelé la responsable. Je lui ai demandé une précision, mais elle ne m'a pas encore répondu.","translation":"I received the contract. I read it and I want to sign it tomorrow. I also called the manager. I asked her for clarification, but she has not replied to me yet.","rubric":["Make every pronoun's reference clear.","Choose direct or indirect from the French verb.","Put each pronoun before its own verb or auxiliary."]}
+}

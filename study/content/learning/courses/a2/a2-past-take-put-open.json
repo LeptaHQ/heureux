@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-past-take-put-open","slug":"a2-past-take-put-open","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Pris, mis, ouvert, offert et voulu","summary":"Retrieve useful irregular participles and keep derivative verbs in their families.","order":7,"duration_minutes":12,"prerequisites":["a2-past-avoir-foundations"],
+ "objectives":["Use prendre and mettre families in the passé composé.","Form ouvert, découvert, offert, souffert and voulu with avoir."],
+ "keywords":["pris","appris","compris","mis","permis","ouvert","offert","souffert","voulu"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["verbs-irregular-past-participles"],
+ "sections":[
+  {"id":"take-put","title":"Families of short participles",
+   "paragraphs":["A past participle is the second verb part after the auxiliary. Prendre becomes pris, not prendu. Apprendre (learn), comprendre (understand), reprendre (take again/resume) and surprendre (surprise) give appris, compris, repris and surpris. Mettre becomes mis; remettre (put back/hand in), permettre (allow), promettre (promise) and admettre (admit) give remis, permis, promis and admis."],
+   "points":["Use the full avoir pattern with each participle: j'ai pris, tu as pris, il/elle/on a pris, nous avons pris, vous avez pris, ils/elles ont pris. Replace pris with mis, appris, compris, remis, etc.","The final s belongs to the participle itself. It is not a plural marker in j'ai pris."],
+   "examples":[
+    {"french":"J'**ai pris** le métro.","english":"I took the metro.","note":"Prendre has pris."},
+    {"french":"Elle **a appris** à conduire.","english":"She learned to drive.","note":"Apprendre keeps the family participle."},
+    {"french":"Nous **avons compris** la consigne.","english":"We understood the instruction.","note":"Comprendre becomes compris."},
+    {"french":"Vous **avez remis** les clés à l'accueil.","english":"You handed the keys in at reception.","note":"Remettre becomes remis."}
+   ],
+   "mistakes":[{"avoid":"Il a prendu le train.","prefer":"Il a pris le train.","why":"Prendre is not a regular -dre participle."}]
+  },
+  {"id":"open-offer-want","title":"The present pattern does not predict the participle",
+   "paragraphs":["Ouvrir uses ouvert; découvrir and recouvrir give découvert and recouvert. Offrir gives offert and souffrir gives souffert. Their present forms resemble -er verbs, but their participles do not end in -é. Vouloir gives voulu. J'ai voulu can describe a specific wish or attempt; it does not by itself guarantee success. Je n'ai pas voulu often means 'I refused/did not want to' in a particular situation."],
+   "points":["All take avoir: j'ai ouvert, tu as ouvert, il/elle/on a ouvert, nous avons ouvert, vous avez ouvert, ils/elles ont ouvert. Substitute découvert, offert, souffert or voulu.","No subject agreement in these avoir examples: elles ont offert, not elles ont offertes, when the object follows."],
+   "examples":[
+    {"french":"Ils **ont ouvert** le centre en mai.","english":"They opened the centre in May.","note":"The participle is ouvert."},
+    {"french":"Tu **as découvert** une nouvelle piste cyclable.","english":"You discovered a new cycle path.","note":"Découvrir follows ouvrir."},
+    {"french":"Nous **avons offert** notre aide, mais elle **a souffert** du manque de matériel.","english":"We offered our help, but she suffered from the lack of equipment.","note":"Offert and souffert are distinct participles."},
+    {"french":"J'**ai voulu** réparer la lampe, mais je n'ai pas réussi.","english":"I wanted to repair the lamp, but I did not succeed.","note":"Voulu does not assert successful completion of the repair."}
+   ],
+   "mistakes":[{"avoid":"Elles ont ouvré les fenêtres.","prefer":"Elles ont ouvert les fenêtres.","why":"For ouvrir, the participle is ouvert; ouvrer is a different, uncommon verb."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"take-put","prompt":"Passé composé of prendre: Vous ___ rendez-vous.","choices":[],"answers":["avez pris"],"explanation":"Prendre has pris."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"take-put","prompt":"Passé composé of mettre: Elle ___ son manteau.","choices":[],"answers":["a mis"],"explanation":"Mettre has mis."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"open-offer-want","prompt":"Passé composé of ouvrir: Nous ___ la porte.","choices":[],"answers":["avons ouvert"],"explanation":"Ouvrir has ouvert."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"open-offer-want","prompt":"Passé composé of vouloir: Tu ___ essayer.","choices":[],"answers":["as voulu"],"explanation":"Vouloir has voulu."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"take-put","prompt":"Passé composé of apprendre: Ils ___ la nouvelle hier.","choices":[],"answers":["ont appris"],"explanation":"Apprendre gives appris."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"take-put","prompt":"Passé composé of comprendre: J'___ votre demande.","choices":[],"answers":["ai compris"],"explanation":"Comprendre gives compris."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"take-put","prompt":"Passé composé of permettre: Ce bus ___ un trajet direct.","choices":[],"answers":["a permis"],"explanation":"Permettre follows mettre."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"take-put","prompt":"Passé composé of promettre: Nous ___ de venir.","choices":[],"answers":["avons promis"],"explanation":"Promettre gives promis."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"open-offer-want","prompt":"Passé composé of découvrir: Vous ___ une erreur.","choices":[],"answers":["avez découvert"],"explanation":"Découvrir gives découvert."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"open-offer-want","prompt":"Passé composé of offrir: Elles ___ des fleurs.","choices":[],"answers":["ont offert"],"explanation":"Offert has no subject agreement here."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"open-offer-want","prompt":"Passé composé of souffrir: Il ___ de la chaleur.","choices":[],"answers":["a souffert"],"explanation":"Souffrir gives souffert."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"open-offer-want","prompt":"Supply vouloir in the passé composé: Elle n'___ répondre.","choices":[],"answers":["a pas voulu"],"explanation":"The negative wraps the auxiliary: n'a pas voulu."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"take-put","prompt":"Passé composé of reprendre: Tu ___ le travail.","choices":[],"answers":["as repris"],"explanation":"Reprendre gives repris."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"take-put","prompt":"Passé composé of remettre: J'___ le dossier au responsable.","choices":[],"answers":["ai remis"],"explanation":"Remettre gives remis."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"open-offer-want","prompt":"Passé composé of recouvrir: La neige ___ la route.","choices":[],"answers":["a recouvert"],"explanation":"Recouvrir follows ouvrir."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"take-put","prompt":"Passé composé of admettre: Ils ___ leur erreur.","choices":[],"answers":["ont admis"],"explanation":"Admettre gives admis."}
+ ],
+ "production_task":{"prompt":"Explain how you tried to solve a problem at work. Include what you learned, what you did and an offer of help.","model_answer":"J'ai appris qu'une porte était bloquée. J'ai pris la clé de secours et j'ai ouvert la porte. Une collègue a offert son aide. Nous avons remis la clé à sa place.","translation":"I learned that a door was blocked. I took the spare key and opened the door. A colleague offered her help. We put the key back in its place.","rubric":["Retrieve appris, pris, ouvert and offert accurately.","Use avoir with each completed action.","Explain the result, not just a list of verbs."]}
+}

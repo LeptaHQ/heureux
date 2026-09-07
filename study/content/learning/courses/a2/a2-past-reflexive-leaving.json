@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-past-reflexive-leaving","slug":"a2-past-reflexive-leaving","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Je me suis préparé, je m'en vais","summary":"Describe completed routines with reflexive verbs and use s'en aller for leaving.","order":11,"duration_minutes":14,"prerequisites":["a2-past-etre-movement"],
+ "objectives":["Place reflexive pronouns before être in the passé composé.","Distinguish basic direct and indirect reflexive agreement.","Use s'en aller in the present and past without dropping en."],
+ "keywords":["verbes pronominaux","se lever","se laver","accord","s'en aller"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["pronouns-stressed-reflexive","verbs-past-participle-agreement"],
+ "sections":[
+  {"id":"reflexive-past","title":"Keep the pronoun before the helping verb",
+   "paragraphs":["A reflexive verb includes a pronoun referring back to its subject: je me lave means 'I wash myself'. The pronouns are me, te, se, nous, vous, se; me/te/se become m'/t'/s' before a vowel. In the passé composé, put that pronoun before the present of être, then the participle.", "For a direct reflexive action such as se laver with no following body-part object, the pronoun is the direct object (the person washed), so the participle agrees with it. But in elle s'est lavé les mains, les mains is the direct object after the verb and se means 'to herself': lavé stays unchanged. Likewise elles se sont parlé has no direct object; parler à makes se indirect. Être with a reflexive verb does not justify automatic subject agreement in every case."],
+   "points":["Complete pattern: je me suis levé/levée, tu t'es levé/levée, il s'est levé, elle s'est levée, on s'est levé/levée/levés/levées according to reference, nous nous sommes levés/levées, vous vous êtes levé/levée/levés/levées, ils se sont levés, elles se sont levées.","Negation surrounds pronoun + auxiliary: elle ne s'est pas levée. Se souvenir gives souvenu and agrees with its subject: elles se sont souvenues."],
+   "examples":[
+    {"french":"Nora **s'est levée** à sept heures.","english":"Nora got up at seven.","note":"Pronoun, être, participle."},
+    {"french":"Nous, les deux frères, **nous sommes préparés** rapidement.","english":"We, the two brothers, got ready quickly.","note":"Two nous forms do different jobs: subject and reflexive pronoun."},
+    {"french":"Elle **s'est lavée**, puis elle **s'est lavé les cheveux**.","english":"She washed herself, then she washed her hair.","note":"The following direct object changes the agreement analysis."},
+    {"french":"Elles **se sont parlé** après le cours.","english":"They spoke to each other after class.","note":"Se is indirect, so parlé does not gain -es."}
+   ],
+   "mistakes":[{"avoid":"Je me ai préparé.","prefer":"Je me suis préparé.","why":"A masculine speaker uses me suis préparé, not avoir."}]
+  },
+  {"id":"leaving","title":"S'en aller means to leave or go away",
+   "paragraphs":["S'en aller is a fixed expression built on aller. En stays between the reflexive pronoun and the verb; here it is part of the expression, not a quantity to translate separately. It highlights leaving, whereas aller usually directs attention to a destination. Partir is another ordinary verb for leave. Do not label either alternative wrong when the context allows it."],
+   "points":["Present: je m'en vais, tu t'en vas, il/elle/on s'en va, nous nous en allons, vous vous en allez, ils/elles s'en vont.","Passé composé: je m'en suis allé/allée, tu t'en es allé/allée, il s'en est allé, elle s'en est allée, on s'en est allé/allée/allés/allées according to reference, nous nous en sommes allés/allées, vous vous en êtes allé/allée/allés/allées, ils s'en sont allés, elles s'en sont allées.","In everyday speech, je suis parti/partie is often a simpler way to report a departure. Present negation: je ne m'en vais pas."],
+   "examples":[
+    {"french":"Je **m'en vais** : mon bus arrive.","english":"I'm leaving: my bus is arriving.","note":"Focus on departure."},
+    {"french":"Vous **vous en allez** déjà ?","english":"Are you leaving already?","note":"Keep both vous and en."},
+    {"french":"Elles **s'en sont allées** avant le dessert.","english":"They left before dessert.","note":"En precedes the auxiliary."},
+    {"french":"Nous **ne nous en allons pas** tout de suite.","english":"We are not leaving right away.","note":"Ne precedes the pronoun group."}
+   ],
+   "mistakes":[{"avoid":"Je m'en va.","prefer":"Je m'en vais.","why":"The je present form of aller is vais."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"reflexive-past","prompt":"Passé composé of se lever: Léa ___ tôt.","choices":[],"answers":["s'est levée"],"explanation":"Feminine singular direct reflexive agreement."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"reflexive-past","prompt":"Passé composé of se préparer: Les garçons ___ ensemble.","choices":[],"answers":["se sont préparés"],"explanation":"Pronoun + être + masculine plural participle."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"leaving","prompt":"Present of s'en aller: Tu ___ maintenant ?","choices":[],"answers":["t'en vas"],"explanation":"Te becomes t' before en."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"leaving","prompt":"Present of s'en aller: Nous ___ à midi.","choices":[],"answers":["nous en allons"],"explanation":"The first nous in the sentence is the subject."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"reflexive-past","prompt":"Passé composé of se coucher: Marie et Zoé ___ tard.","choices":[],"answers":["se sont couchées"],"explanation":"Feminine plural agreement."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"reflexive-past","prompt":"Supply the participle of laver: Elle s'est ___ les pieds.","choices":[],"answers":["lavé"],"explanation":"Les pieds is the following direct object; se is indirect."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"reflexive-past","prompt":"Supply the participle of parler: Les voisines se sont ___ hier.","choices":[],"answers":["parlé"],"explanation":"Parler à makes se indirect."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"reflexive-past","prompt":"Passé composé of se reposer: Madame, vous ___ ? Address one woman.","choices":[],"answers":["vous êtes reposée"],"explanation":"Polite vous refers to one woman."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"leaving","prompt":"Present of s'en aller: Les clients ___ bientôt.","choices":[],"answers":["s'en vont"],"explanation":"Ils/elles take vont."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"leaving","prompt":"Passé composé of s'en aller: Paul ___ sans bruit.","choices":[],"answers":["s'en est allé"],"explanation":"En precedes est."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"leaving","prompt":"Passé composé of s'en aller: Les deux amies ___ ensemble.","choices":[],"answers":["s'en sont allées"],"explanation":"Feminine plural agreement."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"reflexive-past","prompt":"Make negative with ne ... pas: Elle s'est réveillée.","choices":[],"answers":["Elle ne s'est pas réveillée."],"explanation":"Pas follows the auxiliary."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"reflexive-past","prompt":"Passé composé of se souvenir: Elles ___ de cette date.","choices":[],"answers":["se sont souvenues"],"explanation":"Se souvenir agrees with its subject."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"leaving","prompt":"Present of s'en aller: Je ___ après la réunion.","choices":[],"answers":["m'en vais"],"explanation":"Je uses vais with m'en."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"reflexive-past","prompt":"Supply the participle of habiller: Les enfants se sont ___ seuls. Mixed group.","choices":[],"answers":["habillés"],"explanation":"Direct reflexive pronoun before the verb gives masculine plural agreement."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"leaving","prompt":"Make negative with ne ... pas: Il s'en va.","choices":[],"answers":["Il ne s'en va pas."],"explanation":"The pronouns stay together before va."}
+ ],
+ "production_task":{"prompt":"Describe getting ready and leaving for a community activity. Identify the people so agreement is clear.","model_answer":"Ma sœur et moi, sa sœur aînée, nous nous sommes préparées tôt. Nous nous sommes lavé les mains avant de faire les sandwichs. Ensuite, nous nous en sommes allées à pied.","translation":"My sister and I, her older sister, got ready early. We washed our hands before making the sandwiches. Then we left on foot.","rubric":["Match the reflexive pronoun to the subject.","Distinguish préparées from lavé les mains.","Keep en before the auxiliary in s'en aller."]}
+}

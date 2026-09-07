@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-adverbs-formation-position","slug":"a2-adverbs-formation-position","cefr_level":"A2","topic":"grammar-foundations","title":"Poliment, prudemment, très bien","summary":"Build manner adverbs, learn useful irregulars and place them according to what they modify.","order":27,"duration_minutes":14,"prerequisites":["a2-adjective-feminine-families","a2-past-avoir-foundations"],
+ "objectives":["Form adverbs from vowel-ending, -ant and -ent adjectives with exceptions.","Distinguish bien/mal/mieux/moins/peu from adjectives.","Place short and longer adverbs in simple and compound sentences."],
+ "keywords":["adverbe","-ment","-amment","-emment","bien","mal","mieux","moins","peu","word order"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["grammar-adverbs"],
+ "sections":[
+  {"id":"formation","title":"How an action is done",
+   "paragraphs":["An adverb modifies a verb, adjective, another adverb or a whole statement. It normally does not agree for gender or number. Many manner adverbs end in -ment. The ordinary pattern uses the feminine adjective: lent → lente → lentement. But adjectives ending in a pronounced vowel, often spelled -i, -u or -é, commonly add -ment to the masculine: poli → poliment, vrai → vraiment, absolu → absolument, aisé → aisément.", "For most adjectives ending in -ant, use -amment: constant → constamment, suffisant → suffisamment. For most ending in -ent, use -emment: prudent → prudemment, patient → patiemment, récent → récemment. Both endings have the same 'a' sound. Important exceptions include lent → lentement and présent → présentement. Gentil gives gentiment; gai permits gaiement, gaîment or the 1990 spelling gaiment."],
+   "points":["Adverb formation is not automatic for every adjective. Use an established form rather than inventing one."],
+   "examples":[
+    {"french":"Elle répond **poliment**.","english":"She replies politely.","note":"Poli + ment; no feminine e."},
+    {"french":"Nous sommes **vraiment** satisfaits.","english":"We are really satisfied.","note":"Vraiment modifies an adjective."},
+    {"french":"Il conduit **prudemment**.","english":"He drives carefully.","note":"Prudent gives -emment."},
+    {"french":"Le téléphone sonne **constamment**.","english":"The telephone rings constantly.","note":"Constant gives -amment."}
+   ],
+   "mistakes":[{"avoid":"Elle répond prudentement.","prefer":"Elle répond prudemment.","why":"Prudent takes the -emment formation."}]
+  },
+  {"id":"position-irregulars","title":"Place the adverb near its target",
+   "paragraphs":["With a simple tense, a manner or amount adverb commonly follows the verb: il parle lentement, elle travaille beaucoup. Before an adjective or another adverb, put the modifier first: très utile, assez vite. Time and place adverbs often go at the beginning or end of the sentence; meaning and emphasis allow variation.", "With a compound tense, common short adverbs such as bien, mal, beaucoup, peu, déjà, souvent and trop often go between auxiliary and participle. Longer manner adverbs commonly follow the participle or its object. These are useful tendencies, not a ban on other grammatical placements.", "Bien means well; mal means badly; mieux means better; moins means less; peu means little/not much. Bon/mauvais are adjectives describing a noun, while bien/mal usually describe how something is done. Mieux is the comparative of bien: elle travaille mieux, not plus bien. Adverbs remain unchanged with plural subjects."],
+   "points":["Compare une bonne explication (a good explanation) with elle explique bien (she explains well).","Practice that asks for a particular placement specifies it; valid alternate emphasis is not a general error."],
+   "examples":[
+    {"french":"Elle parle **bien**, mais j'entends **mal**.","english":"She speaks well, but I cannot hear well.","note":"The adverbs describe speaking and hearing."},
+    {"french":"Nous **avons bien compris**.","english":"We understood well.","note":"Short bien between auxiliary and participle."},
+    {"french":"Ils **ont répondu poliment** à la cliente.","english":"They replied politely to the customer.","note":"Longer manner adverb after the participle."},
+    {"french":"Je dors **mieux**, je travaille **moins** et je mange **peu** le soir.","english":"I sleep better, work less and eat little in the evening.","note":"Three invariable adverbs with different meanings."}
+   ],
+   "mistakes":[{"avoid":"Elles parlent biens.","prefer":"Elles parlent bien.","why":"The adverb does not agree with elles."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"formation","prompt":"Form the manner adverb from poli.","choices":[],"answers":["poliment"],"explanation":"Add -ment to the vowel-ending masculine."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"formation","prompt":"Form the adverb from suffisant.","choices":[],"answers":["suffisamment"],"explanation":"-Ant gives -amment."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"formation","prompt":"Form the adverb from patient.","choices":[],"answers":["patiemment"],"explanation":"-Ent gives -emment."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"position-irregulars","prompt":"Supply bon or bien: Elle explique ___.","choices":[],"answers":["bien"],"explanation":"The adverb describes the action."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"formation","prompt":"Form the adverb from vrai.","choices":[],"answers":["vraiment"],"explanation":"No feminine e is added."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"formation","prompt":"Form the adverb from absolu.","choices":[],"answers":["absolument"],"explanation":"Keep absolu before -ment."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"formation","prompt":"Form the adverb from prudent.","choices":[],"answers":["prudemment"],"explanation":"Use -emment."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"formation","prompt":"Form the adverb from constant.","choices":[],"answers":["constamment"],"explanation":"Use -amment."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"position-irregulars","prompt":"Add souvent immediately after the simple-tense verb: Nous discutons ici.","choices":[],"answers":["Nous discutons souvent ici."],"explanation":"The requested ordinary placement follows the verb."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"position-irregulars","prompt":"Place bien between auxiliary and participle: J'ai dormi.","choices":[],"answers":["J'ai bien dormi."],"explanation":"A common short-adverb position."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"position-irregulars","prompt":"Supply the irregular comparative of bien: Aujourd'hui, je comprends ___ qu'hier.","choices":[],"answers":["mieux"],"explanation":"Better is mieux, not plus bien."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"position-irregulars","prompt":"Supply peu meaning little: Il mange ___ le matin.","choices":[],"answers":["peu"],"explanation":"Peu is invariable."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"formation","prompt":"Form the established adverb from lent.","choices":[],"answers":["lentement"],"explanation":"Lent is an exception to the -ent shortcut."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"position-irregulars","prompt":"Use the adverb meaning less: Nous travaillons ___ maintenant.","choices":[],"answers":["moins"],"explanation":"Moins modifies the amount of work."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"position-irregulars","prompt":"Place mal between auxiliary and participle: Elle a compris.","choices":[],"answers":["Elle a mal compris."],"explanation":"Mal is a short adverb commonly placed before the participle."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"formation","prompt":"Form the established adverb from gentil.","choices":[],"answers":["gentiment"],"explanation":"Gentil has irregular gentiment."}
+ ],
+ "production_task":{"prompt":"Describe how a service interaction went and one thing you now do better. Include manner, a past action and a comparison with mieux.","model_answer":"L'agente a répondu poliment à mes questions. J'ai bien compris les étapes. Maintenant, je prépare mes documents plus calmement et je comprends mieux les consignes.","translation":"The agent answered my questions politely. I understood the steps well. Now I prepare my documents more calmly and understand the instructions better.","rubric":["Keep adverbs invariable.","Put short adverbs naturally around compound verbs.","Use mieux to compare bien."]}
+}

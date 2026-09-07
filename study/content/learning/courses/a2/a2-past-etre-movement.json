@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-past-etre-movement","slug":"a2-past-etre-movement","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Arrivé, parti, né et devenu","summary":"Choose être for selected past verbs and make the participle agree with the subject.","order":10,"duration_minutes":14,"prerequisites":["a2-past-consonant-families"],
+ "objectives":["Conjugate common être verbs in all persons.","Apply gender/number agreement and distinguish movement from moving an object."],
+ "keywords":["être","passé composé","accord","aller","venir","naître","mourir","devenir","rester"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["verbs-passe-compose","verbs-past-participle-agreement"],
+ "sections":[
+  {"id":"movement-agreement","title":"A selected verb group, not every movement verb",
+   "paragraphs":["Some verbs use être rather than avoir in the passé composé: aller → allé, venir → venu, arriver → arrivé, partir → parti, entrer → entré, sortir → sorti, retourner → retourné, rentrer → rentré, tomber → tombé, monter → monté and descendre → descendu in their movement uses. Courir, marcher and voyager still take avoir.", "Agreement means changing a form to match another word. With these non-reflexive être verbs, the participle matches the subject: add -e for feminine, -s for masculine/mixed plural and -es for feminine plural. For vous, decide whether it means one person or several. On takes est, but a known group can have a plural participle: on est arrivés/arrivées."],
+   "points":["Complete pattern: je suis arrivé/arrivée, tu es arrivé/arrivée, il est arrivé, elle est arrivée, on est arrivé/arrivée/arrivés/arrivées according to reference, nous sommes arrivés/arrivées, vous êtes arrivé/arrivée/arrivés/arrivées, ils sont arrivés, elles sont arrivées.","Some verbs switch to avoir when they take a direct object, the thing acted on without a preposition: elle est sortie versus elle a sorti les poubelles; nous sommes montés versus nous avons monté les cartons. Traversing a direct object also gives j'ai monté l'escalier."],
+   "examples":[
+    {"french":"Lina **est arrivée** avant midi.","english":"Lina arrived before noon.","note":"Feminine singular -ée."},
+    {"french":"Mes frères **sont partis** tôt.","english":"My brothers left early.","note":"Masculine plural -is."},
+    {"french":"Mes voisines **sont venues** à pied.","english":"My neighbours came on foot.","note":"Feminine plural -ues."},
+    {"french":"Elle **est descendue**, puis elle **a descendu** les valises.","english":"She went downstairs, then she brought the suitcases down.","note":"Movement of the subject versus acting on a direct object."}
+   ],
+   "mistakes":[{"avoid":"Elles ont arrivées.","prefer":"Elles sont arrivées.","why":"Arriver takes être, with subject agreement."}]
+  },
+  {"id":"life-change","title":"Events and changes without travel",
+   "paragraphs":["Être is also used with naître → né (be born), mourir → mort (die), décéder → décédé (pass away), devenir → devenu (become) and rester → resté (stay). Décéder is a respectful, more formal way to report a death. Revenir → revenu and devenir → devenu share venir's participle ending. Do not add an extra avoir to these two-part forms."],
+   "points":["Use the same être auxiliary pattern with every participle: je suis resté/restée ... nous sommes restés/restées ... elles sont restées. Mort gives morte, morts, mortes; né gives née, nés, nées."],
+   "examples":[
+    {"french":"Je **suis née** à Sherbrooke.","english":"I was born in Sherbrooke.","note":"A woman speaking uses née."},
+    {"french":"Son grand-père **est mort** en 2019.","english":"His grandfather died in 2019.","note":"Mourir has the irregular participle mort."},
+    {"french":"La fondatrice **est décédée** l'an dernier.","english":"The founder passed away last year.","note":"Décédé takes feminine agreement here."},
+    {"french":"Elles **sont devenues** infirmières et **sont restées** dans la région.","english":"They became nurses and stayed in the region.","note":"Both verbs use être without describing a journey."}
+   ],
+   "mistakes":[{"avoid":"Elle est devenu responsable.","prefer":"Elle est devenue responsable.","why":"Devenue agrees with the feminine subject."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"movement-agreement","prompt":"Passé composé of aller: Paul ___ au marché.","choices":[],"answers":["est allé"],"explanation":"Aller takes être; Paul is masculine singular."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"movement-agreement","prompt":"Passé composé of venir: Les deux sœurs ___ ensemble.","choices":[],"answers":["sont venues"],"explanation":"Feminine plural agreement."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"life-change","prompt":"Passé composé of naître: Ma fille ___ en avril.","choices":[],"answers":["est née"],"explanation":"Naître has né and takes feminine agreement."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"life-change","prompt":"Passé composé of rester: Les garçons ___ ici.","choices":[],"answers":["sont restés"],"explanation":"Rester takes être."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"movement-agreement","prompt":"Passé composé of entrer: Madame Roy, vous ___ par cette porte. Address one woman.","choices":[],"answers":["êtes entrée"],"explanation":"Polite vous is singular here."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"movement-agreement","prompt":"Passé composé of partir: Mes parents ___ hier.","choices":[],"answers":["sont partis"],"explanation":"Mixed plural agreement is masculine."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"movement-agreement","prompt":"Passé composé of rentrer: Nous, les trois amies, ___ tard.","choices":[],"answers":["sommes rentrées"],"explanation":"The known group is feminine plural."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"movement-agreement","prompt":"Passé composé of sortir: Elle ___ les déchets.","choices":[],"answers":["a sorti"],"explanation":"Sortir takes avoir with this direct object."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"life-change","prompt":"Passé composé of mourir: Cet arbre ___ cet hiver.","choices":[],"answers":["est mort"],"explanation":"Mourir gives mort with être."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"life-change","prompt":"Passé composé of décéder: La directrice ___ en juin.","choices":[],"answers":["est décédée"],"explanation":"Feminine singular agreement."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"life-change","prompt":"Passé composé of devenir: Elles ___ propriétaires.","choices":[],"answers":["sont devenues"],"explanation":"Devenir takes être and feminine plural agreement."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"movement-agreement","prompt":"Passé composé of monter: Les deux hommes ___ dans le bus.","choices":[],"answers":["sont montés"],"explanation":"They themselves got on; dans le bus is not a direct object."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"movement-agreement","prompt":"Passé composé of descendre: La passagère ___ du train.","choices":[],"answers":["est descendue"],"explanation":"Subject movement with être."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"movement-agreement","prompt":"Passé composé of retourner: Les filles ___ à la bibliothèque.","choices":[],"answers":["sont retournées"],"explanation":"Return to a place takes être."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"life-change","prompt":"Passé composé of revenir: Mon frère ___ lundi.","choices":[],"answers":["est revenu"],"explanation":"Revenir follows venir."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"movement-agreement","prompt":"Passé composé of tomber: Les feuilles ___ cette nuit.","choices":[],"answers":["sont tombées"],"explanation":"Feminine plural subject agreement."}
+ ],
+ "production_task":{"prompt":"Describe a relative's move: arrival, a change in work or life, and whether they stayed. Make gender and number clear.","model_answer":"Ma tante est arrivée au Canada en 2018. Elle est devenue cuisinière dans un petit restaurant. Ses deux filles sont venues la rejoindre. Elles sont restées dans la même ville.","translation":"My aunt arrived in Canada in 2018. She became a cook in a small restaurant. Her two daughters came to join her. They stayed in the same city.","rubric":["Use être with the selected verbs.","Agree participles with the people described.","Do not turn every movement verb into an être verb."]}
+}

@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-infinitives-necessity","slug":"a2-infinitives-necessity","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Lire, apprendre, il faut partir","summary":"Use an infinitive for an activity or a necessary action instead of copying English -ing.","order":5,"duration_minutes":10,"prerequisites":["a2-present-know-see"],
+ "objectives":["Use an infinitive as an activity name or after another verb.","Express general necessity with il faut and distinguish a necessary object from an action."],
+ "keywords":["infinitif","-ing","il faut","falloir","nécessité"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["verbs-infinitive-time-purpose","expressions-avoir-faire-il-faut"],
+ "sections":[
+  {"id":"activity","title":"Name an action with the dictionary form",
+   "paragraphs":["An infinitive does not identify a person or time: lire means 'to read' or, when naming an activity, 'reading'. English -ing has several jobs, so it does not have one French equivalent. An activity used as the subject can be an infinitive. After aimer, préférer, savoir, vouloir and pouvoir, use an infinitive directly. Other verbs require a preposition: apprendre à conduire, essayer de comprendre."],
+   "points":["A present action normally needs a conjugated present: je lis can mean 'I am reading'. Do not substitute an infinitive for the main verb.","With a reflexive activity, match the reflexive pronoun to the understood subject: je veux me reposer, tu veux te reposer, il/elle veut se reposer, nous voulons nous reposer, vous voulez vous reposer, ils/elles veulent se reposer."],
+   "examples":[
+    {"french":"**Marcher** me détend.","english":"Walking relaxes me.","note":"The activity is the subject."},
+    {"french":"J'aime **lire** dans le train.","english":"I like reading on the train.","note":"Aimer takes an infinitive directly."},
+    {"french":"Nous apprenons **à conduire**.","english":"We are learning to drive.","note":"Apprendre requires à before this infinitive."},
+    {"french":"Elle veut **se reposer**.","english":"She wants to rest.","note":"Se refers back to elle."}
+   ],
+   "mistakes":[{"avoid":"J'aime lisant le soir.","prefer":"J'aime lire le soir.","why":"After aimer, name the activity with the infinitive."}]
+  },
+  {"id":"necessity","title":"Il faut: what is necessary",
+   "paragraphs":["Il faut means 'it is necessary', 'one must' or, in context, 'we/you need to'. Falloir is impersonal: il does not name a man, and the present form is always il faut. Put an infinitive after it for a necessary action, or a noun phrase for a required thing. To state a particular person's obligation directly, use devoir with that subject: nous devons partir.", "Il ne faut pas + infinitive normally tells someone not to do something. It does not mean that doing it is optional. For 'it is not necessary', use ce n'est pas nécessaire de + infinitive or il n'est pas nécessaire de + infinitive."],
+   "points":["For a general reflexive instruction use il faut se préparer, not il faut me préparer unless the intended object really is 'me'.","Il faut que introduces a different construction requiring the subjunctive; use the infinitive pattern here rather than inventing il faut que partir."],
+   "examples":[
+    {"french":"Il **faut apporter** une pièce d'identité.","english":"You need to bring identification.","note":"A necessary action; une pièce d'identité (f.) is an identity document."},
+    {"french":"Il **faut deux signatures**.","english":"Two signatures are needed.","note":"The required thing is a noun phrase."},
+    {"french":"Il **ne faut pas bloquer** la sortie.","english":"You must not block the exit.","note":"A prohibition, not an optional action."},
+    {"french":"Il **n'est pas nécessaire de réserver**.","english":"It is not necessary to book.","note":"Booking is not required."}
+   ],
+   "mistakes":[{"avoid":"Nous faut partir.","prefer":"Il faut partir.","why":"Falloir keeps impersonal il. Nous devons partir is another grammatical formulation."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"activity","prompt":"Supply the infinitive of 'to swim': ___ est bon pour moi. Use nager.","choices":[],"answers":["Nager"],"explanation":"The activity name is an infinitive."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"activity","prompt":"Choose the form of cuisiner after aimer: J'aime ___.","choices":[],"answers":["cuisiner"],"explanation":"Aimer takes the infinitive."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"necessity","prompt":"Supply falloir in the present: Il ___ attendre.","choices":[],"answers":["faut"],"explanation":"The present impersonal form is faut."},
+  {"id":"item-04","kind":"choice","pool":"practice","section_id":"necessity","prompt":"What does Il ne faut pas entrer mean?","choices":["You must not enter.","You do not have to enter."],"answers":["You must not enter."],"explanation":"This is a prohibition."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"activity","prompt":"Supply lire in the correct form: Elle préfère ___ le contrat.","choices":[],"answers":["lire"],"explanation":"The second verb stays in the infinitive."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"activity","prompt":"Supply à or de: Nous essayons ___ comprendre.","choices":[],"answers":["de"],"explanation":"Essayer takes de before an infinitive."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"activity","prompt":"Supply à or de: Il apprend ___ conduire.","choices":[],"answers":["à"],"explanation":"Apprendre takes à."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"activity","prompt":"Supply only the reflexive pronoun: Vous voulez ___ asseoir.","choices":[],"answers":["vous"],"explanation":"The person sitting down is vous."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"necessity","prompt":"Complete with the two words meaning 'it is necessary': ___ vérifier l'adresse.","choices":[],"answers":["Il faut"],"explanation":"Il faut introduces the required action."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"necessity","prompt":"Supply signer in the right form: Il faut ___ ici.","choices":[],"answers":["signer"],"explanation":"Use an infinitive after faut."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"necessity","prompt":"Supply the reflexive pronoun for a general instruction: Il faut ___ laver les mains.","choices":[],"answers":["se"],"explanation":"Se is used for the unspecified person."},
+  {"id":"item-12","kind":"choice","pool":"check","section_id":"necessity","prompt":"Choose the sentence saying a reservation is optional.","choices":["Il ne faut pas réserver.","Il n'est pas nécessaire de réserver."],"answers":["Il n'est pas nécessaire de réserver."],"explanation":"Not necessary differs from must not."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"activity","prompt":"Correct the verb only: Nous aimons voyageant.","choices":[],"answers":["voyager"],"explanation":"The activity after aimer uses the infinitive."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"necessity","prompt":"Supply the required present form of falloir: Pour ce dossier, il ___ trois photos.","choices":[],"answers":["faut"],"explanation":"The plural photos does not change impersonal faut."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"activity","prompt":"Supply travailler as the main present verb: Je ___ maintenant.","choices":[],"answers":["travaille"],"explanation":"English am working corresponds to a conjugated present, not an infinitive."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"necessity","prompt":"Make this instruction negative with ne ... pas: Il faut courir.","choices":[],"answers":["Il ne faut pas courir."],"explanation":"Ne and pas surround faut."}
+ ],
+ "production_task":{"prompt":"Write three practical instructions for a first visit to a sports centre. Include one requirement, one prohibition and one optional action.","model_answer":"Il faut apporter une serviette. Il ne faut pas courir près de la piscine. Il n'est pas nécessaire de réserver pour la séance libre.","translation":"You need to bring a towel. You must not run near the pool. It is not necessary to book for the open session.","rubric":["Keep infinitives after the instruction expressions.","Separate forbidden from not required.","Give useful, consistent instructions."]}
+}

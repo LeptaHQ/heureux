@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-past-consonant-families","slug":"a2-past-consonant-families","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Peint, conduit, suivi et écrit","summary":"Complete a past account with -indre, -uire, suivre and écrire participles.","order":9,"duration_minutes":11,"prerequisites":["a2-past-u-families"],
+ "objectives":["Form -aint, -eint and -oint participles.","Use conduit, traduit, suivi and écrit, including common derivatives."],
+ "keywords":["craint","peint","joint","conduit","traduit","suivi","écrit"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["verbs-irregular-past-participles"],
+ "sections":[
+  {"id":"indre-uire","title":"The participle is not the plural present stem",
+   "paragraphs":["Craindre → craint, plaindre → plaint; peindre → peint, éteindre → éteint, atteindre → atteint; joindre → joint, rejoindre → rejoint. The plural present has gn, but these participles do not. Conduire → conduit, construire → construit, produire → produit, traduire → traduit and réduire → réduit. These common -uire participles end in -uit; do not insert the s heard in nous conduisons."],
+   "points":["Use avoir throughout: j'ai peint, tu as peint, il/elle/on a peint, nous avons peint, vous avez peint, ils/elles ont peint. Substitute any participle in this section.","In j'ai peint la porte, the object follows the verb. The subject's gender does not change peint."],
+   "examples":[
+    {"french":"Nous **avons craint** une panne.","english":"We feared a breakdown.","note":"Craindre becomes craint."},
+    {"french":"Elle **a peint** le plafond et **a éteint** la lumière.","english":"She painted the ceiling and switched off the light.","note":"Both -eindre verbs have -eint."},
+    {"french":"J'**ai joint** le reçu au dossier.","english":"I attached the receipt to the application.","note":"Joindre becomes joint."},
+    {"french":"Vous **avez conduit** le camion et **avez traduit** les instructions.","english":"You drove the truck and translated the instructions.","note":"Both participles end in -uit."}
+   ],
+   "mistakes":[{"avoid":"Nous avons peigné le mur en bleu.","prefer":"Nous avons peint le mur en bleu.","why":"For painting use peint. Peigné belongs to peigner, to comb, a different verb."}]
+  },
+  {"id":"follow-write","title":"An i ending versus an it ending",
+   "paragraphs":["Suivre → suivi; poursuivre → poursuivi. Écrire → écrit; décrire → décrit; inscrire → inscrit; réécrire → réécrit. The final t of écrit is part of its spelling even when not pronounced. Read the meaning too: suivre un cours means take a course, while décrire means describe, not write in general."],
+   "points":["All persons: j'ai suivi, tu as suivi, il/elle/on a suivi, nous avons suivi, vous avez suivi, ils/elles ont suivi. Replace suivi with écrit, décrit or inscrit as needed."],
+   "examples":[
+    {"french":"Ils **ont suivi** un cours de secourisme.","english":"They took a first-aid course.","note":"Suivi ends in i."},
+    {"french":"Nous **avons poursuivi** la discussion dehors.","english":"We continued the discussion outside.","note":"Poursuivre follows suivre."},
+    {"french":"Tu **as écrit** à la propriétaire.","english":"You wrote to the landlady.","note":"Écrit keeps its final t."},
+    {"french":"Elle **a décrit** la panne et **a inscrit** son numéro.","english":"She described the breakdown and wrote down her number.","note":"Both derivatives keep -crit."}
+   ],
+   "mistakes":[{"avoid":"Il a écrivé son nom.","prefer":"Il a écrit son nom.","why":"The present plural stem écriv- does not form this participle."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"indre-uire","prompt":"Participle of craindre: J'ai ___ le pire.","choices":[],"answers":["craint"],"explanation":"Craindre gives craint."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"indre-uire","prompt":"Participle of peindre: Ils ont ___ la clôture.","choices":[],"answers":["peint"],"explanation":"Peindre gives peint."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"follow-write","prompt":"Participle of suivre: Vous avez ___ le guide.","choices":[],"answers":["suivi"],"explanation":"Suivre gives suivi."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"follow-write","prompt":"Participle of écrire: Nous avons ___ un message.","choices":[],"answers":["écrit"],"explanation":"Écrire gives écrit."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"indre-uire","prompt":"Passé composé of joindre: Elle ___ une copie.","choices":[],"answers":["a joint"],"explanation":"Joindre gives joint with avoir."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"indre-uire","prompt":"Participle of éteindre: Tu as ___ le four.","choices":[],"answers":["éteint"],"explanation":"Éteindre gives éteint."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"indre-uire","prompt":"Participle of atteindre: Nous avons ___ notre objectif.","choices":[],"answers":["atteint"],"explanation":"Atteindre uses -eint."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"indre-uire","prompt":"Passé composé of conduire: Ils ___ toute la nuit.","choices":[],"answers":["ont conduit"],"explanation":"Conduire gives conduit."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"indre-uire","prompt":"Participle of traduire: J'ai ___ la notice.","choices":[],"answers":["traduit"],"explanation":"Traduire follows conduire."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"follow-write","prompt":"Participle of poursuivre: Elle a ___ ses recherches.","choices":[],"answers":["poursuivi"],"explanation":"Poursuivre follows suivre."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"follow-write","prompt":"Participle of décrire: Vous avez ___ les symptômes.","choices":[],"answers":["décrit"],"explanation":"Décrire follows écrire."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"follow-write","prompt":"Participle of inscrire: Nous avons ___ notre enfant au cours.","choices":[],"answers":["inscrit"],"explanation":"Inscrire gives inscrit."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"indre-uire","prompt":"Participle of rejoindre: J'ai ___ mes collègues.","choices":[],"answers":["rejoint"],"explanation":"Rejoindre follows joindre."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"indre-uire","prompt":"Participle of construire: Ils ont ___ une terrasse.","choices":[],"answers":["construit"],"explanation":"Construire gives construit."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"follow-write","prompt":"Participle of réécrire: Tu as ___ cette phrase.","choices":[],"answers":["réécrit"],"explanation":"Réécrire keeps the écrit family."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"indre-uire","prompt":"Participle of réduire: Nous avons ___ le bruit.","choices":[],"answers":["réduit"],"explanation":"Réduire gives réduit."}
+ ],
+ "production_task":{"prompt":"Report progress on a repair or community project. Include a practical action, written communication and something completed.","model_answer":"Nous avons peint les bancs et construit une petite table. J'ai écrit aux voisins et joint deux photos. Ils ont suivi nos conseils pour réduire le bruit.","translation":"We painted the benches and built a small table. I wrote to the neighbours and attached two photos. They followed our advice to reduce the noise.","rubric":["Keep participles distinct from present stems.","Use écrit with its final t.","Make the actions relevant to one project."]}
+}

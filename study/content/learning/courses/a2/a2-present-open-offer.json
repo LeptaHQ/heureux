@@ -9,7 +9,7 @@
   "related_legacy_ids": ["verbs-present-spelling-families", "verbs-present-patterns"],
   "sections": [
     {"id": "y-spelling", "title": "A changing stem, not a new tense",
-      "paragraphs": ["The stem is the part before a verb's ending. In the present, -oyer and -uyer change y to i before a silent e, but keep y in nous and vous. -Ayer permits either y or i in those same singular and third-person plural forms. The meaning does not change."],
+      "paragraphs": ["The stem is the part before a verb's ending. In the present, -oyer and -uyer change y to i before a silent e, but keep y in nous and vous. -Ayer permits either y or i in those same singular and third-person plural forms. The meaning does not change. Envoyer means send; essuyer means wipe or dry; payer means pay; nettoyer means clean; appuyer means press or support."],
       "points": ["Envoyer: j'envoie, tu envoies, il/elle/on envoie, nous envoyons, vous envoyez, ils/elles envoient.", "Essuyer: j'essuie, tu essuies, il/elle/on essuie, nous essuyons, vous essuyez, ils/elles essuient.", "Payer: je paie/paye, tu paies/payes, il/elle/on paie/paye, nous payons, vous payez, ils/elles paient/payent. Nettoyer follows envoyer; appuyer follows essuyer."],
       "examples": [
         {"french": "J'**envoie** le devis ce matin.", "english": "I am sending the estimate this morning.", "note": "The singular stem contains i."},
@@ -20,7 +20,7 @@
       "mistakes": [{"avoid": "Nous envoions le dossier.", "prefer": "Nous envoyons le dossier.", "why": "Keep y before -ons."}]
     },
     {"id": "ir-e-endings", "title": "Some -ir verbs use -e, not -is",
-      "paragraphs": ["An infinitive is the dictionary form, such as ouvrir, 'to open'. These -ir verbs do not follow finir. Their present endings are -e, -es, -e, -ons, -ez, -ent. Keep the family stem shown below. Découvrir and recouvrir follow ouvrir; recueillir and accueillir follow cueillir."],
+      "paragraphs": ["An infinitive is the dictionary form, such as ouvrir, 'to open'. Offrir means offer; souffrir means suffer; cueillir means pick; accueillir means welcome. These -ir verbs do not follow finir. Their present endings are -e, -es, -e, -ons, -ez, -ent. Keep the family stem shown below. Découvrir (discover) and recouvrir (cover) follow ouvrir; recueillir (collect or take in) and accueillir follow cueillir."],
       "points": ["Ouvrir: j'ouvre, tu ouvres, il/elle/on ouvre, nous ouvrons, vous ouvrez, ils/elles ouvrent.", "Offrir: j'offre, tu offres, il/elle/on offre, nous offrons, vous offrez, ils/elles offrent.", "Souffrir: je souffre, tu souffres, il/elle/on souffre, nous souffrons, vous souffrez, ils/elles souffrent.", "Cueillir: je cueille, tu cueilles, il/elle/on cueille, nous cueillons, vous cueillez, ils/elles cueillent. Accueillir: j'accueille, tu accueilles, il/elle/on accueille, nous accueillons, vous accueillez, ils/elles accueillent."],
       "examples": [
         {"french": "Elle **ouvre** les fenêtres.", "english": "She opens the windows.", "note": "Not an -is form."},
@@ -28,7 +28,7 @@
         {"french": "Vous **souffrez** du dos ?", "english": "Does your back hurt?", "note": "Literally, are you suffering from back trouble?"},
         {"french": "Ils **cueillent** des pommes et nous **accueillons** les visiteurs.", "english": "They pick apples and we welcome the visitors.", "note": "Both verbs keep the cueill spelling."}
       ],
-      "mistakes": [{"avoid": "Elle ouvrisse la porte.", "prefer": "Elle ouvre la porte.", "why": "Ouvrir does not take the finir pattern."}]
+      "mistakes": [{"avoid": "Nous ouvrissons les portes.", "prefer": "Nous ouvrons les portes.", "why": "Ouvrir does not take the finir pattern."}]
     }
   ],
   "practice": [

@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-comparison-change","slug":"a2-comparison-change","cefr_level":"A2","topic":"grammar-foundations","title":"Aussi calme, autant, de plus en plus","summary":"Compare qualities, actions and changing quantities without mixing aussi and autant.","order":28,"duration_minutes":14,"prerequisites":["a2-adverbs-formation-position"],
+ "objectives":["Compare adjectives, adverbs and verbs with the appropriate pattern.","Use superlatives with verbs and adverbs.","Describe increasing or decreasing qualities, actions and noun quantities."],
+ "keywords":["plus que","moins que","aussi que","autant que","le plus","le moins","de plus en plus"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["grammar-comparisons"],
+ "sections":[
+  {"id":"comparative","title":"What kind of thing are you comparing?",
+   "paragraphs":["A comparative places one thing or action relative to another. Before an adjective or adverb use plus ... que (more), moins ... que (less) or aussi ... que (as ... as). The adjective still agrees with its noun; an adverb stays unchanged. For a verb's amount, put plus que, moins que or autant que after the verb. Equality of an action uses autant, not aussi.", "Compare a noun quantity with plus de, moins de or autant de + noun + que. Bon normally becomes meilleur (meilleure/meilleurs/meilleures); bien becomes mieux. These distinguish a better thing from doing something better."],
+   "points":["Adjective: aussi calme que. Adverb: aussi lentement que. Verb: travailler autant que. Noun: autant de travail que.","Use stressed pronouns after que when comparing people: plus vite que moi, autant que lui."],
+   "examples":[
+    {"french":"Cette rue est **moins bruyante que** la nôtre.","english":"This street is less noisy than ours.","note":"Adjective comparison; bruyante agrees with rue."},
+    {"french":"Elle explique **aussi clairement que** toi.","english":"She explains as clearly as you.","note":"Aussi compares an adverb."},
+    {"french":"Je travaille **autant que** mon frère.","english":"I work as much as my brother.","note":"Autant compares the amount of the action."},
+    {"french":"Nous avons **plus de place que** nos voisins.","english":"We have more space than our neighbours.","note":"De introduces a noun quantity."}
+   ],
+   "mistakes":[{"avoid":"Elle travaille aussi que moi.","prefer":"Elle travaille autant que moi.","why":"Equality with the verb alone needs autant."}]
+  },
+  {"id":"ranking-change","title":"The highest amount and a trend over time",
+   "paragraphs":["A superlative identifies the greatest or smallest degree in a group. With an adverb use le plus/le moins before it: elle parle le plus clairement. With a verb use le plus/le moins after it: c'est elle qui travaille le plus. In these adverb/verb patterns le stays unchanged even for a feminine or plural subject. This differs from an adjective superlative such as la plus grande salle.", "For a trend, use de plus en plus or de moins en moins. Put it before an adjective/adverb (de plus en plus utile, de moins en moins vite), after a verb (je lis de plus en plus), and add de before a noun (de plus en plus de monde). Do not carry that extra noun de into adjective or adverb patterns."],
+   "points":["De plus en plus de expresses an increasing amount, not a one-time comparison with another person."],
+   "examples":[
+    {"french":"C'est Lina qui répond **le plus vite**.","english":"Lina is the one who replies fastest.","note":"Adverb superlative uses invariable le."},
+    {"french":"Parmi nous, ce sont elles qui voyagent **le moins**.","english":"Among us, they are the ones who travel least.","note":"Verb superlative: le does not agree with elles."},
+    {"french":"La salle devient **de plus en plus calme** ; nous parlons **de moins en moins fort**.","english":"The room is becoming quieter and quieter; we speak less and less loudly.","note":"Trend before adjective and adverb."},
+    {"french":"Je marche **de plus en plus** et je prends **de moins en moins de taxis**.","english":"I walk more and more and take fewer and fewer taxis.","note":"Verb trend versus noun quantity with de."}
+   ],
+   "mistakes":[{"avoid":"Elles parlent les plus clairement.","prefer":"Elles parlent le plus clairement.","why":"The adverb superlative uses invariable le, not les."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"comparative","prompt":"Supply aussi or autant: Cette pièce est ___ grande que l'autre.","choices":[],"answers":["aussi"],"explanation":"Grande is an adjective."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"comparative","prompt":"Supply aussi or autant: Nous dormons ___ que vous.","choices":[],"answers":["autant"],"explanation":"Compare the amount of sleeping."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"comparative","prompt":"Supply que or de: Il parle plus lentement ___ moi.","choices":[],"answers":["que"],"explanation":"Que introduces the comparison partner."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"ranking-change","prompt":"Supply le or la: C'est elle qui court ___ plus vite.","choices":[],"answers":["le"],"explanation":"An adverb superlative uses le."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"comparative","prompt":"Build 'less expensive than' using cher to agree with cette maison: Cette maison est ___ l'autre.","choices":[],"answers":["moins chère que"],"explanation":"Chère agrees with feminine maison."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"comparative","prompt":"Supply the three-word comparison 'as quickly as': Elle répond ___ son collègue. Use vite.","choices":[],"answers":["aussi vite que"],"explanation":"Aussi compares an adverb."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"comparative","prompt":"Supply 'more than' after the verb: Il voyage ___ nous.","choices":[],"answers":["plus que"],"explanation":"No de before the comparison partner."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"comparative","prompt":"Supply 'less than' after the verb: Je dépense ___ toi.","choices":[],"answers":["moins que"],"explanation":"A verb comparison uses moins que."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"ranking-change","prompt":"Supply 'the least' after the verb: Parmi les voisins, elle conduit ___.","choices":[],"answers":["le moins"],"explanation":"Verb superlative."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"ranking-change","prompt":"Supply 'more and more' before the adjective: Le quartier est ___ animé.","choices":[],"answers":["de plus en plus"],"explanation":"No extra de before animé."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"ranking-change","prompt":"Supply 'fewer and fewer' before the noun: Il y a ___ voitures. Include the noun-linking de.","choices":[],"answers":["de moins en moins de"],"explanation":"Noun quantity requires the final de."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"ranking-change","prompt":"Supply 'more and more' after the verb: Nous lisons ___.","choices":[],"answers":["de plus en plus"],"explanation":"The trend modifies the action."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"comparative","prompt":"Use the comparative of bon: Cette solution est ___ que la première.","choices":[],"answers":["meilleure"],"explanation":"Meilleure agrees with solution."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"ranking-change","prompt":"Supply 'the most clearly' using clairement: De tous les agents, elle explique ___.","choices":[],"answers":["le plus clairement"],"explanation":"Le stays unchanged with an adverb."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"ranking-change","prompt":"Supply 'less and less' before an adverb: Il parle ___ vite.","choices":[],"answers":["de moins en moins"],"explanation":"Trend before an adverb, no final de."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"ranking-change","prompt":"Supply 'more and more' before the noun, including final de: Nous avons ___ demandes.","choices":[],"answers":["de plus en plus de"],"explanation":"Noun quantity needs de."}
+ ],
+ "production_task":{"prompt":"Compare ways to travel to work and explain a change in your habits. Include a quality, an action and an increasing or decreasing quantity.","model_answer":"Le vélo est moins cher que la voiture. Je mets autant de temps à vélo qu'en bus. Je roule de plus en plus souvent et je paie de moins en moins de frais de stationnement. C'est le bus qui me fatigue le moins quand il pleut.","translation":"Cycling is cheaper than driving. It takes me as much time by bicycle as by bus. I cycle more and more often and pay less and less in parking fees. The bus tires me least when it rains.","rubric":["Use aussi for qualities and autant for action amounts.","Add de only when a noun quantity needs it.","Compare realistic alternatives and explain the trend."]}
+}

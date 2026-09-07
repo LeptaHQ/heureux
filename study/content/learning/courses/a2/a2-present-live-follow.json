@@ -14,7 +14,7 @@
     {"french":"Je **suis** une formation.","english":"I am taking a training course.","note":"Une formation is the object of suivre."},
     {"french":"Vous **poursuivez** votre recherche.","english":"You are continuing your search.","note":"Poursuivre keeps the suivre pattern."}
    ],
-   "mistakes":[{"avoid":"Nous suivrons le guide maintenant.","prefer":"Nous suivons le guide maintenant.","why":"For the intended present action, use suivons; suivrons is future, not a present spelling."}]
+   "mistakes":[{"avoid":"Ils suit le guide.","prefer":"Ils suivent le guide.","why":"The plural subject requires suivent, not singular suit."}]
   },
   {"id":"serve-laugh-run","title":"Keep each family's full pattern",
    "paragraphs":["Servir drops v in the singular but keeps it in the plural; desservir follows it. Do not apply that rule to every verb ending in -vir: vivre above keeps v in vit. Rire keeps ri- even in nous rions; sourire adds sou-. Courir keeps cour- throughout its present forms; parcourir follows it."],

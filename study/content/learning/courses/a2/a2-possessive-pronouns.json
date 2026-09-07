@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-possessive-pronouns","slug":"a2-possessive-pronouns","cefr_level":"A2","topic":"pronouns-questions-negation","title":"Le mien, la vôtre et les leurs","summary":"Replace an owned object with a possessive pronoun while tracking both owner and object.","order":20,"duration_minutes":12,"prerequisites":["a2-possessive-demonstrative-determiners"],
+ "objectives":["Select all singular-owner and plural-owner possessive pronoun forms.","Keep the article, agreement and circumflex that distinguish pronouns from determiners."],
+ "keywords":["le mien","le tien","le sien","le nôtre","le vôtre","le leur","possessive pronouns"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["grammar-possessives"],
+ "sections":[
+  {"id":"one-owner","title":"Mine, yours, his or hers",
+   "paragraphs":["A possessive pronoun replaces the possessed noun rather than introducing it: mon sac → le mien. Choose the owner series first, then match the gender and number of the omitted noun. The owner's gender does not choose sien versus sienne: le sien can mean his or hers when the object is masculine. Keep the article."],
+   "points":["My: le mien, la mienne, les miens, les miennes.","Your (tu): le tien, la tienne, les tiens, les tiennes.","His/her/its: le sien, la sienne, les siens, les siennes.","Each list is ordered masculine singular, feminine singular, masculine plural, feminine plural. The noun is not repeated after these pronouns."],
+   "examples":[
+    {"french":"Ton sac est ici ; **le mien** est dans la voiture.","english":"Your bag is here; mine is in the car.","note":"Mien replaces masculine sac."},
+    {"french":"Ma clé fonctionne ; **la tienne** est abîmée.","english":"My key works; yours is damaged.","note":"Tienne replaces feminine clé."},
+    {"french":"Ce sont mes gants ; où sont **les tiens** ?","english":"These are my gloves; where are yours?","note":"Masculine plural gants."},
+    {"french":"Léa a ses chaussures ; Paul cherche **les siennes**.","english":"Léa has her shoes; Paul is looking for his.","note":"Siennes follows chaussures, not Paul's gender."}
+   ],
+   "mistakes":[{"avoid":"Ces clés sont les mienne.","prefer":"Ces clés sont les miennes.","why":"The pronoun agrees with feminine plural clés."}]
+  },
+  {"id":"group-owners","title":"Ours, yours and theirs",
+   "paragraphs":["For a nous owner use nôtre; for vous use vôtre, whether addressing one person politely or several; for ils/elles use leur. The article still identifies the possessed noun's gender and number. Notre/votre before a noun have no circumflex, but le nôtre/la vôtre as pronouns do. The circumflex is retained in these pronouns under the 1990 recommendations.", "After à and de, contract with le/les as usual: au mien, aux vôtres, du nôtre, des leurs. La does not contract: à la mienne, de la vôtre."],
+   "points":["Our: le nôtre, la nôtre, les nôtres (either gender).","Your (vous): le vôtre, la vôtre, les vôtres (either gender).","Their: le leur, la leur, les leurs (either gender). The s in les leurs belongs to the possessive pronoun, not the indirect object pronoun leur."],
+   "examples":[
+    {"french":"Votre équipe arrive ; **la nôtre** est déjà là.","english":"Your team is arriving; ours is already here.","note":"Feminine singular équipe."},
+    {"french":"Notre dossier est complet ; **le vôtre** manque d'une photo.","english":"Our application is complete; yours is missing a photo.","note":"Pronoun vôtre has a circumflex."},
+    {"french":"Nos enfants jouent avec **les leurs**.","english":"Our children are playing with theirs.","note":"Plural objects possessed by them."},
+    {"french":"Je compare mes résultats **aux vôtres**.","english":"I am comparing my results with yours.","note":"À + les contracts to aux."}
+   ],
+   "mistakes":[{"avoid":"Ces billets sont les leur.","prefer":"Ces billets sont les leurs.","why":"The plural possessive pronoun takes s."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"one-owner","prompt":"Replace mon vélo with the possessive pronoun: C'est ___.","choices":[],"answers":["le mien"],"explanation":"Masculine singular object, je owner."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"one-owner","prompt":"Replace ta valise with the possessive pronoun: Je prends ___.","choices":[],"answers":["la tienne"],"explanation":"Feminine singular object, tu owner."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"group-owners","prompt":"Replace notre maison with the possessive pronoun: Voici ___.","choices":[],"answers":["la nôtre"],"explanation":"Feminine singular with a nous owner."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"group-owners","prompt":"Replace leurs billets with the possessive pronoun: Ce sont ___.","choices":[],"answers":["les leurs"],"explanation":"Plural possessed objects."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"one-owner","prompt":"Use 'mine' for mes lunettes: Ce sont ___.","choices":[],"answers":["les miennes"],"explanation":"Lunettes is feminine plural."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"one-owner","prompt":"Use 'yours' for tes dossiers, addressing tu: Où sont ___ ?","choices":[],"answers":["les tiens"],"explanation":"Dossiers is masculine plural."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"one-owner","prompt":"Use 'hers' for le sac de Léa: C'est ___.","choices":[],"answers":["le sien"],"explanation":"Sac, not Léa, controls grammatical gender."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"one-owner","prompt":"Use 'his' for la montre de Paul: C'est ___.","choices":[],"answers":["la sienne"],"explanation":"Montre is feminine."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"group-owners","prompt":"Use 'ours' for nos horaires: Ce sont ___.","choices":[],"answers":["les nôtres"],"explanation":"The plural is identical for either gender."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"group-owners","prompt":"Use 'yours' for votre adresse: Je vérifie ___.","choices":[],"answers":["la vôtre"],"explanation":"Keep the circumflex in the pronoun."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"group-owners","prompt":"Use 'theirs' for leur appartement: Nous visitons ___.","choices":[],"answers":["le leur"],"explanation":"One masculine object; multiple owners."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"group-owners","prompt":"Contract à + les vôtres: Je pense ___ plutôt qu'aux miens.","choices":[],"answers":["aux vôtres"],"explanation":"À + les becomes aux."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"one-owner","prompt":"Use 'mine' for mes documents: Voici ___.","choices":[],"answers":["les miens"],"explanation":"Masculine plural."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"one-owner","prompt":"Use 'yours' for tes chaussures, addressing tu: Je reconnais ___.","choices":[],"answers":["les tiennes"],"explanation":"Feminine plural with tu owner."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"group-owners","prompt":"Use 'theirs' for leur voiture: ___ est rouge.","choices":[],"answers":["La leur"],"explanation":"Feminine singular object."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"group-owners","prompt":"Supply de + le nôtre as a contracted phrase: Le toit ___ est neuf. The referent is our building.","choices":[],"answers":["du nôtre"],"explanation":"De + le becomes du; keep nôtre's accent."}
+ ],
+ "production_task":{"prompt":"You and a colleague have mixed up belongings after a meeting. Write a short message identifying two objects and asking about theirs.","model_answer":"J'ai trouvé deux sacs. Le mien est noir et le vôtre est peut-être bleu. Ma clé est dans une poche, mais je ne vois pas la vôtre. Pouvez-vous vérifier vos affaires ?","translation":"I found two bags. Mine is black and yours may be blue. My key is in a pocket, but I cannot see yours. Can you check your belongings?","rubric":["Introduce each object before replacing it.","Match pronoun gender/number to the object.","Keep articles and circumflexes."]}
+}

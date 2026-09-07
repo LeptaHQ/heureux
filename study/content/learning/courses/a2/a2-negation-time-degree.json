@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-negation-time-degree","slug":"a2-negation-time-degree","cefr_level":"A2","topic":"pronouns-questions-negation","title":"Pas encore, plus, pas assez","summary":"Say not yet, no longer, not enough and not either while placing negation around the conjugated verb.","order":22,"duration_minutes":14,"prerequisites":["a2-imperative-pronouns"],
+ "objectives":["Choose negative expressions by time and degree.","Place compound-tense negation around the auxiliary.","Use de after negative quantities and distinguish not much from nothing."],
+ "keywords":["ne pas","pas du tout","plus","pas encore","pas assez","pas grand-chose","non plus"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["negation-core","grammar-articles-negation"],
+ "sections":[
+  {"id":"time-position","title":"No longer is different from not yet",
+   "paragraphs":["A negative expression denies or limits a statement. In careful written French, ne (n' before a vowel or mute h) precedes the conjugated verb and pas, plus or pas encore follows it. Ne ... plus means no longer/not anymore: a former situation has ended. Ne ... pas encore means not yet: the event is still expected. Do not add pas to ne ... plus for this ordinary meaning.", "With the passé composé, place the negative around the auxiliary, not the participle: elle n'a pas répondu, elle n'est pas encore arrivée. Spoken French often omits ne; recognise je sais pas or j'ai plus de pain without treating that colloquial omission as the formal written model. Written plus can mean more or no longer; ne and context clarify the meaning."],
+   "points":["Ne ... pas du tout strengthens the denial: not at all. Ne ... pas non plus adds another negative: not ... either."],
+   "examples":[
+    {"french":"Je **ne travaille plus** le samedi.","english":"I no longer work on Saturdays.","note":"A former routine has ended."},
+    {"french":"Le technicien **n'est pas encore arrivé**.","english":"The technician has not arrived yet.","note":"Arrival is still expected."},
+    {"french":"Nous **n'avons pas reçu** le colis.","english":"We have not received the parcel.","note":"Negation surrounds avons."},
+    {"french":"Je **ne suis pas du tout** inquiet ; elle **ne l'est pas non plus**.","english":"I am not worried at all; she is not either.","note":"Degree of denial versus adding a second negative."}
+   ],
+   "mistakes":[{"avoid":"Elle a répondu pas au message.","prefer":"Elle n'a pas répondu au message.","why":"In the careful written pattern, n' precedes the auxiliary and pas follows it."}]
+  },
+  {"id":"quantity-degree","title":"Not enough, none left, or not much",
+   "paragraphs":["Ne ... pas assez modifies a verb or adjective: je ne dors pas assez, ce sac n'est pas assez grand. Before a noun use pas assez de/d': pas assez de temps. Ne ... plus de says a quantity is exhausted: je n'ai plus de monnaie. Ordinary indefinite and partitive quantities usually become de/d' after ne ... pas or ne ... plus; definite le/la/les remain.", "Ne ... pas grand-chose means not much, not nothing. Grand-chose has a hyphen in this expression. Ce n'est pas grand-chose can minimise a problem or an amount. Do not infer zero from this phrase."],
+   "points":["Compare je n'ai pas assez de pain (some, but insufficient), je n'ai plus de pain (none left), je n'ai pas acheté grand-chose (not much bought).","After être, identification retains the article: ce n'est pas un problème, not ce n'est pas de problème in that construction."],
+   "examples":[
+    {"french":"Nous **n'avons plus de** billets.","english":"We have no tickets left.","note":"The supply has run out."},
+    {"french":"Je **ne bois pas assez d'**eau.","english":"I do not drink enough water.","note":"Assez de elides before eau."},
+    {"french":"La salle **n'est pas assez** grande.","english":"The room is not big enough.","note":"No de before an adjective."},
+    {"french":"Je **n'ai pas acheté grand-chose**.","english":"I did not buy much.","note":"The amount is small, not necessarily zero."}
+   ],
+   "mistakes":[{"avoid":"Nous n'avons pas assez des chaises.","prefer":"Nous n'avons pas assez de chaises.","why":"For an unspecified quantity, assez takes de, not des."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"time-position","prompt":"Make the sentence mean no longer: Je travaille ici. Use ne ... plus.","choices":[],"answers":["Je ne travaille plus ici."],"explanation":"Plus marks the ended situation."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"time-position","prompt":"Make negative with ne ... pas: Elle a payé.","choices":[],"answers":["Elle n'a pas payé."],"explanation":"Negation surrounds a."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"quantity-degree","prompt":"Supply de, d' or des: Je n'ai plus ___argent.","choices":[],"answers":["d'"],"explanation":"De elides before argent."},
+  {"id":"item-04","kind":"choice","pool":"practice","section_id":"quantity-degree","prompt":"Je n'ai pas fait grand-chose means:","choices":["I did not do much.","I did absolutely nothing."],"answers":["I did not do much."],"explanation":"A small amount is not necessarily zero."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"time-position","prompt":"Use ne ... pas du tout: Je comprends. Make it mean I do not understand at all.","choices":[],"answers":["Je ne comprends pas du tout."],"explanation":"Du tout strengthens the denial."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"time-position","prompt":"Use ne ... pas encore: Nous avons terminé. Make it mean we have not finished yet.","choices":[],"answers":["Nous n'avons pas encore terminé."],"explanation":"Pas encore follows the auxiliary."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"time-position","prompt":"Complete with 'either' in this negative sentence: Je ne viens pas ___.","choices":[],"answers":["non plus"],"explanation":"Non plus adds another negative."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"time-position","prompt":"Use ne ... plus: Elle prend le train. Make it mean she no longer takes the train.","choices":[],"answers":["Elle ne prend plus le train."],"explanation":"No extra pas with plus."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"quantity-degree","prompt":"Make 'no tickets left' with ne ... plus de: Nous avons des billets.","choices":[],"answers":["Nous n'avons plus de billets."],"explanation":"Negative exhausted quantity uses de."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"quantity-degree","prompt":"Supply the phrase 'not enough' after n'a: Il n'a ___ temps. Include de.","choices":[],"answers":["pas assez de"],"explanation":"Before a noun, use pas assez de."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"quantity-degree","prompt":"Supply the phrase 'not enough' before the adjective: Ce manteau n'est ___ chaud.","choices":[],"answers":["pas assez"],"explanation":"No de before chaud."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"quantity-degree","prompt":"Supply the hyphenated expression meaning much: Elle n'a pas appris ___.","choices":[],"answers":["grand-chose"],"explanation":"Pas grand-chose means not much."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"time-position","prompt":"Make negative with ne ... pas: Ils sont partis.","choices":[],"answers":["Ils ne sont pas partis."],"explanation":"Negation surrounds the être auxiliary."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"time-position","prompt":"Add not yet using ne ... pas encore: J'ai reçu la réponse.","choices":[],"answers":["Je n'ai pas encore reçu la réponse."],"explanation":"Pas encore follows ai."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"quantity-degree","prompt":"Supply de or les: Je n'aime pas ___ horaires proposés. Refer to the specific proposed hours.","choices":[],"answers":["les"],"explanation":"Definite articles remain under negation."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"time-position","prompt":"Complete the careful written sentence by supplying the missing word: Nous ___ voulons pas attendre.","choices":[],"answers":["ne"],"explanation":"Ne is expected in the specified written register."}
+ ],
+ "production_task":{"prompt":"Explain a delay in a group project. Say what is not yet done, what resource is insufficient and what is no longer possible.","model_answer":"Nous n'avons pas encore reçu les affiches. Nous n'avons pas assez de temps pour tout préparer aujourd'hui. Je ne peux plus rester ce soir, et ma collègue ne peut pas rester non plus.","translation":"We have not received the posters yet. We do not have enough time to prepare everything today. I can no longer stay this evening, and my colleague cannot stay either.","rubric":["Separate not yet from no longer.","Use de after an insufficient noun quantity.","Place negatives around auxiliaries, not participles."]}
+}

@@ -213,6 +213,14 @@ Use deterministic grading only where accepted answers can be specified reliably.
 
 Retrieval and delayed transfer are supported by [Roediger and Karpicke (2006)](https://doi.org/10.1111/j.1467-9280.2006.01693.x) and [Butler (2010)](https://pubmed.ncbi.nlm.nih.gov/20804289/). These studies support design principles; they do not validate French proficiency cutoffs. Use explicit criteria and reviewer calibration for open responses, consistent with the Council's [classroom assessment guidance](https://www.coe.int/en/web/common-european-framework-reference-languages/classroom-assessment).
 
+### Public assessment comparison, reviewed 7 September 2026
+
+Twenty official public product/help URLs were inspected separately from the grammar teaching audit. The [tour](https://www.kwiziq.com/tour), [FAQ](https://www.kwiziq.com/faqs) and [scoring help](https://www.kwiziq.com/faq/the-kwiziq-score) describe personalized recommendations and a confidence score informed by answer history and question-format assistance. Their qualitative description does not disclose enough formula, calibration or scheduling detail to reproduce the system. Occasional revisits are documented; an elapsed-time score-decay rule was not established in the reviewed pages. Logged-in behavior and the private question bank were not inspected.
+
+There are [research citations supporting retrieval practice](https://french.kwiziq.com/revision/hints-and-tips/recall-your-way-to-better-french) and a [self-reported learning-speed survey](https://www.kwiziq.com/blog/kwiziq-learning-speed-survey-2019-wow/); do not claim an absence of research. Neither establishes the validity of this independent Heureux implementation or equivalence between the products.
+
+Our original follow-up uses completed first answers on unchanged item versions to guide learning practice, spreads check/review samples across eligible sections, and shows compact section/item evidence on the separate practice page. It distinguishes fresh from rehearsed work, preserves older results, and leaves new or changed items untested. An unchanged old item can inform guidance after a teaching edit without certifying newly added material. Sampling omissions and missing bank coverage stay visible; no new mastery percentage or proficiency claim is introduced.
+
 ## 9. Technical implementation
 
 | Surface | Implemented design and safeguard |

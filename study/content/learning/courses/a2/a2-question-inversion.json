@@ -26,6 +26,12 @@
     {"french":"**Ai-je** le bon numéro ? **Suis-je** au bon endroit ?","english":"Do I have the right number? Am I in the right place?","note":"Two useful je inversion forms."}
    ],
    "mistakes":[{"avoid":"Peux-je entrer ?","prefer":"Puis-je entrer ?","why":"The established inverted form of pouvoir with je is puis-je."}]
+  },
+  {"id":"vais-je","title":"Recognise vais-je without changing the following infinitive",
+   "paragraphs":["Vais-je is another established je inversion. It can ask about movement or introduce a near-future action. In vais-je devoir attendre ?, vais is the conjugated word, and devoir and attendre remain infinitives. Est-ce que je vais devoir attendre ? gives the same question with ordinary subject order."],
+   "points":["Invert the finite verb, not every verb in the chain."],
+   "examples":[{"french":"**Vais-je** vers la bonne sortie ?","english":"Am I heading towards the right exit?","note":"Aller describes movement."},{"french":"**Vais-je devoir** imprimer le formulaire ?","english":"Am I going to have to print the form?","note":"Aller introduces a future requirement."}],
+   "mistakes":[]
   }
  ],
  "practice":[
@@ -44,7 +50,8 @@
   {"id":"item-13","kind":"text","pool":"review","section_id":"nouns-je","prompt":"Invert J'ai oublié le code as a question.","choices":[],"answers":["Ai-je oublié le code ?"],"explanation":"Invert the auxiliary using ai-je."},
   {"id":"item-14","kind":"text","pool":"review","section_id":"nouns-je","prompt":"Make a complex inverted question: Nora a répondu.","choices":[],"answers":["Nora a-t-elle répondu ?"],"explanation":"Keep Nora, repeat elle, invert a with linking t."},
   {"id":"item-15","kind":"text","pool":"review","section_id":"pronoun-inversion","prompt":"Invert Vous vous reposez as a question.","choices":[],"answers":["Vous reposez-vous ?"],"explanation":"Reflexive vous remains before the verb."},
-  {"id":"item-16","kind":"text","pool":"review","section_id":"pronoun-inversion","prompt":"Rewrite Vous venez ? with est-ce que instead of inversion.","choices":[],"answers":["Est-ce que vous venez ?"],"explanation":"Est-ce que allows ordinary subject-verb order."}
+  {"id":"item-16","kind":"text","pool":"review","section_id":"pronoun-inversion","prompt":"Rewrite Vous venez ? with est-ce que instead of inversion.","choices":[],"answers":["Est-ce que vous venez ?"],"explanation":"Est-ce que allows ordinary subject-verb order."},
+  {"id":"depth-near-future-je","kind":"text","pool":"check","section_id":"vais-je","prompt":"Replace est-ce que with inversion: Est-ce que je vais pouvoir récupérer mes bagages ?","choices":[],"answers":["Vais-je pouvoir récupérer mes bagages ?"],"explanation":"Invert vais-je; pouvoir and récupérer remain infinitives.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
  "production_task":{"prompt":"Write three clear questions to a service desk: a polite request, a question about the centre and a question about a completed action.","model_answer":"Puis-je déposer mon dossier ici ? Le centre ouvre-t-il samedi ? Avez-vous reçu ma demande en ligne ?","translation":"May I submit my application here? Does the centre open on Saturday? Have you received my online request?","rubric":["Use linking t only where needed.","Repeat a noun subject in complex inversion.","Invert the auxiliary in a compound tense."]}
 }

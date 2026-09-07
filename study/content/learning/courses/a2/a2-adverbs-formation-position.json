@@ -26,6 +26,12 @@
     {"french":"Je dors **mieux**, je travaille **moins** et je mange **peu** le soir.","english":"I sleep better, work less and eat little in the evening.","note":"Three invariable adverbs with different meanings."}
    ],
    "mistakes":[{"avoid":"Elles parlent biens.","prefer":"Elles parlent bien.","why":"The adverb does not agree with elles."}]
+  },
+  {"id":"form-and-meaning","title":"Check the established word and what it means",
+   "paragraphs":["Bref gives brève, then brièvement (briefly), with an additional i. Courant gives couramment, but a person's language skill is expressed with parler couramment, not être courant. La langue (feminine) means a language; le courant (masculine) is a current, while the adjective courant can mean common or running, depending on the noun."],
+   "points":["A familiar suffix supplies a form, not a guarantee that every meaning of the adjective carries over."],
+   "examples":[{"french":"La directrice a présenté **brièvement** les options.","english":"The director briefly presented the options.","note":"Brièvement keeps the grave accent and adds i."},{"french":"Il parle **couramment** portugais et comprend les expressions **courantes**.","english":"He speaks Portuguese fluently and understands common expressions.","note":"Fluency and commonness use related forms with different meanings."}],
+   "mistakes":[]
   }
  ],
  "practice":[
@@ -44,7 +50,9 @@
   {"id":"item-13","kind":"text","pool":"review","section_id":"formation","prompt":"Form the established adverb from lent.","choices":[],"answers":["lentement"],"explanation":"Lent is an exception to the -ent shortcut."},
   {"id":"item-14","kind":"text","pool":"review","section_id":"position-irregulars","prompt":"Use the adverb meaning less: Nous travaillons ___ maintenant.","choices":[],"answers":["moins"],"explanation":"Moins modifies the amount of work."},
   {"id":"item-15","kind":"text","pool":"review","section_id":"position-irregulars","prompt":"Place mal between auxiliary and participle: Elle a compris.","choices":[],"answers":["Elle a mal compris."],"explanation":"Mal is a short adverb commonly placed before the participle."},
-  {"id":"item-16","kind":"text","pool":"review","section_id":"formation","prompt":"Form the established adverb from gentil.","choices":[],"answers":["gentiment"],"explanation":"Gentil has irregular gentiment."}
+  {"id":"item-16","kind":"text","pool":"review","section_id":"formation","prompt":"Form the established adverb from gentil.","choices":[],"answers":["gentiment"],"explanation":"Gentil has irregular gentiment."},
+  {"id":"depth-brief-report","kind":"text","pool":"check","section_id":"form-and-meaning","prompt":"Replace en peu de mots with the adverb formed from bref, retaining its position: Résumez en peu de mots la décision.","choices":[],"answers":["Résumez brièvement la décision."],"explanation":"The established adverb is brièvement, not brèvement.","case_sensitive":false,"terminal_punctuation_sensitive":false},
+  {"id":"depth-fluency-construction","kind":"text","pool":"review","section_id":"form-and-meaning","prompt":"Express fluency with parler in the present and couramment. Complete: Cette interprète ___ japonais.","choices":[],"answers":["parle couramment"],"explanation":"Describe fluent speaking with parler couramment, rather than describing the person as courante.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
  "production_task":{"prompt":"Describe how a service interaction went and one thing you now do better. Include manner, a past action and a comparison with mieux.","model_answer":"L'agente a répondu poliment à mes questions. J'ai bien compris les étapes. Maintenant, je prépare mes documents plus calmement et je comprends mieux les consignes.","translation":"The agent answered my questions politely. I understood the steps well. Now I prepare my documents more calmly and understand the instructions better.","rubric":["Keep adverbs invariable.","Put short adverbs naturally around compound verbs.","Use mieux to compare bien."]}
 }

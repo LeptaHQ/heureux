@@ -26,6 +26,12 @@
     {"french":"Ils **ont été** patients.","english":"They were patient.","note":"Être uses avoir here; patients agrees as an adjective."}
    ],
    "mistakes":[{"avoid":"Elle est été malade.","prefer":"Elle a été malade.","why":"The passé composé of être uses avoir."}]
+  },
+  {"id":"participle-transfer","title":"Transfer the participle, not the present irregularity",
+   "paragraphs":["A verb can be irregular in the present yet have a short -i participle: dormir gives dormi and servir gives servi. Conversely, coudre (sew) has cousu, not a mechanically formed -u after coud-. Learn the present family and participle separately.", "Dire derivatives retain dit: interdire (forbid) gives interdit; contredire (contradict) gives contredit; prédire (predict) gives prédit; redire (say again) gives redit; médire (speak ill) gives médit. Add the usual present avoir auxiliary. The final t belongs to the participle even for a singular subject."],
+   "points":["Check the complete infinitive before applying a regular ending rule."],
+   "examples":[{"french":"Le traiteur **a servi** le repas après le discours.","english":"The caterer served the meal after the speech.","note":"Servi, despite the irregular present je sers."},{"french":"J'**ai cousu** un bouton sur la manche.","english":"I sewed a button onto the sleeve.","note":"Cousu is the participle of coudre."},{"french":"Les relevés **ont contredit** notre première estimation.","english":"The readings contradicted our first estimate.","note":"Contredit keeps dire's participle, without plural subject agreement."}],
+   "mistakes":[]
   }
  ],
  "practice":[
@@ -44,7 +50,10 @@
   {"id":"item-13","kind":"text","pool":"review","section_id":"build","prompt":"Supply attendre in the passé composé: Vous ___ longtemps.","choices":[],"answers":["avez attendu"],"explanation":"Attendre has attendu."},
   {"id":"item-14","kind":"text","pool":"review","section_id":"essential-irregulars","prompt":"Correct the auxiliary only: Ils sont été surpris.","choices":[],"answers":["ont"],"explanation":"The auxiliary for été is avoir."},
   {"id":"item-15","kind":"text","pool":"review","section_id":"build","prompt":"Give the participle only: Elle a remplir le formulaire.","choices":[],"answers":["rempli"],"explanation":"Replace the infinitive with rempli."},
-  {"id":"item-16","kind":"text","pool":"review","section_id":"essential-irregulars","prompt":"Supply avoir in the passé composé: J'___ une réponse.","choices":[],"answers":["ai eu"],"explanation":"Ai is the auxiliary; eu means had."}
+  {"id":"item-16","kind":"text","pool":"review","section_id":"essential-irregulars","prompt":"Supply avoir in the passé composé: J'___ une réponse.","choices":[],"answers":["ai eu"],"explanation":"Ai is the auxiliary; eu means had."},
+  {"id":"depth-servir-participle","kind":"text","pool":"practice","section_id":"participle-transfer","prompt":"Put the complete verb in the passé composé: Pendant la fête, nous ___ (servir) des boissons chaudes.","choices":[],"answers":["avons servi"],"explanation":"Servir takes avoir and the participle servi, not a form built from sers.","case_sensitive":false,"terminal_punctuation_sensitive":false},
+  {"id":"depth-coudre-exception","kind":"text","pool":"check","section_id":"participle-transfer","prompt":"Supply the participle of coudre: La costumière a ___ une poche intérieure.","choices":[],"answers":["cousu"],"explanation":"Coudre has cousu; its spelling cannot be obtained from the regular vendre pattern.","case_sensitive":false,"terminal_punctuation_sensitive":false},
+  {"id":"depth-dire-derivative","kind":"text","pool":"review","section_id":"participle-transfer","prompt":"Replace the present verb with the passé composé, retaining the rest: La mairie interdit le stationnement.","choices":[],"answers":["La mairie a interdit le stationnement."],"explanation":"Interdire keeps dit in its participle interdit; a is the present auxiliary.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
  "production_task":{"prompt":"Tell a friend what you did to arrange an appointment yesterday. Use three completed actions and mention the result.","model_answer":"J'ai appelé le centre et j'ai expliqué mon problème. Nous avons choisi une date. J'ai eu une confirmation par courriel et le personnel a été très aimable.","translation":"I called the centre and explained my problem. We chose a date. I received a confirmation by email and the staff were very kind.","rubric":["Use an auxiliary in every passé composé.","Distinguish infinitives from participles.","Report a clear sequence and outcome."]}
 }

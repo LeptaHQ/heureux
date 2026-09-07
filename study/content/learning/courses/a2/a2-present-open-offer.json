@@ -29,6 +29,12 @@
         {"french": "Ils **cueillent** des pommes et nous **accueillons** les visiteurs.", "english": "They pick apples and we welcome the visitors.", "note": "Both verbs keep the cueill spelling."}
       ],
       "mistakes": [{"avoid": "Nous ouvrissons les portes.", "prefer": "Nous ouvrons les portes.", "why": "Ouvrir does not take the finir pattern."}]
+    },
+    {"id":"family-transfer","title":"Keep the family endings, check the complete verb",
+      "paragraphs":["Couvrir (cover) uses couvr- with the same six endings as ouvrir; rouvrir or réouvrir (reopen) adds the reopening prefix to the ouvrir forms. Redécouvrir (rediscover) adds re- to découvrir. The prefix changes the meaning, not the present endings.", "Recueillir can mean collect or take in; se recueillir means to reflect quietly or pay one's respects. Keep the reflexive pronoun before the verb rather than treating the two expressions as interchangeable."],
+      "points":["Se recueillir: je me recueille, tu te recueilles, il/elle/on se recueille, nous nous recueillons, vous vous recueillez, ils/elles se recueillent."],
+      "examples":[{"french":"Vous **couvrez** les meubles avant les travaux.","english":"You cover the furniture before the work starts.","note":"Couvr- takes -ez, not -issez."},{"french":"La piscine **rouvre** après les travaux.","english":"The swimming pool reopens after the work.","note":"Réouvre is another accepted form."},{"french":"Nous **recueillons** les témoignages, puis nous **nous recueillons** en silence.","english":"We collect the accounts, then we reflect quietly in silence.","note":"The reflexive expression describes a different activity."}],
+      "mistakes":[]
     }
   ],
   "practice": [
@@ -47,7 +53,10 @@
     {"id":"item-13","kind":"text","pool":"review","section_id":"y-spelling","prompt":"Correct the verb only: Vous envoiez une confirmation.","choices":[],"answers":["envoyez"],"explanation":"Vous keeps y."},
     {"id":"item-14","kind":"text","pool":"review","section_id":"ir-e-endings","prompt":"Supply recouvrir in the present: La neige ___ le toit.","choices":[],"answers":["recouvre"],"explanation":"Recouvrir uses the ouvrir pattern."},
     {"id":"item-15","kind":"text","pool":"review","section_id":"ir-e-endings","prompt":"Supply recueillir in the present: Nous ___ les avis.","choices":[],"answers":["recueillons"],"explanation":"The family stem ends in cueill-."},
-    {"id":"item-16","kind":"text","pool":"review","section_id":"ir-e-endings","prompt":"Supply offrir in the present: J'___ mon aide.","choices":[],"answers":["offre"],"explanation":"The je ending is -e."}
+    {"id":"item-16","kind":"text","pool":"review","section_id":"ir-e-endings","prompt":"Supply offrir in the present: J'___ mon aide.","choices":[],"answers":["offre"],"explanation":"The je ending is -e."},
+    {"id":"depth-cover-transfer","kind":"text","pool":"check","section_id":"family-transfer","prompt":"Use couvrir in the present to complete this weather report: Un brouillard épais ___ la vallée.","choices":[],"answers":["couvre"],"explanation":"Couvrir takes the ouvrir-type -e ending in the singular.","case_sensitive":false,"terminal_punctuation_sensitive":false},
+    {"id":"depth-reopen-prefix","kind":"text","pool":"review","section_id":"family-transfer","prompt":"Replace ouvre with the present-tense form meaning 'reopens'; supply the verb only: Le musée ouvre après sa rénovation.","choices":[],"answers":["rouvre","réouvre"],"explanation":"Both rouvrir and réouvrir retain the present ending of ouvrir.","case_sensitive":false,"terminal_punctuation_sensitive":false},
+    {"id":"depth-reflect-reflexive","kind":"text","pool":"practice","section_id":"family-transfer","prompt":"Supply se recueillir in the present, including its reflexive pronoun: Devant le monument, les visiteurs ___ un instant.","choices":[],"answers":["se recueillent"],"explanation":"Se recueillir describes quiet reflection; recueillir alone would have a different construction and meaning.","case_sensitive":false,"terminal_punctuation_sensitive":false}
   ],
   "production_task": {"prompt":"Write a short update about welcoming visitors at a community event. Mention an invitation, an opening and something offered.","model_answer":"Nous envoyons les invitations aujourd'hui. Demain, nous ouvrons la salle à dix heures. J'accueille les familles et nous offrons du café.","translation":"We are sending the invitations today. Tomorrow, we open the room at ten. I welcome the families and we offer coffee.","rubric":["Keep y in nous envoyons.","Use ouvrir and offrir without -iss-.","Make the responsibilities and time clear."]}
 }

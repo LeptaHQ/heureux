@@ -26,6 +26,12 @@
     {"french":"**Cet hôtel** est près de **cette station** ; **ces chambres** sont libres.","english":"This hotel is near this station; these rooms are available.","note":"Masculine mute h, feminine singular and plural."}
    ],
    "mistakes":[{"avoid":"Cet adresse est correcte.","prefer":"Cette adresse est correcte.","why":"Adresse is feminine; vowel-starting feminine nouns still take cette."}]
+  },
+  {"id":"following-sound","title":"Check the word immediately after the possessive",
+   "paragraphs":["An adjective can create the vowel contact as well as remove it. Before a feminine noun, mon/ton/son is required when the immediately following adjective starts with a vowel or mute h: the noun itself need not start with a vowel. The adjective and noun remain feminine.", "Initial y needs a pronunciation check, not just a letter check. In une yaourtière (feminine, yoghurt maker), y has a consonant sound, so use ma yaourtière. In a name with initial vowel y, such as Yvonne, affectionate mon Yvonne is possible. This sound rule does not change the person's gender."],
+   "points":["Choose the owner and noun agreement first; then inspect the next sound for the feminine singular substitution."],
+   "examples":[{"french":"**Mon ancienne collègue** a retrouvé **ma vieille écharpe**.","english":"My former colleague found my old scarf.","note":"Ancienne starts with a vowel; vieille starts with a consonant."},{"french":"**Ta yaourtière** est dans **ton immense cuisine**.","english":"Your yoghurt maker is in your huge kitchen.","note":"The initial consonant sound in yaourtière contrasts with the vowel in immense."}],
+   "mistakes":[]
   }
  ],
  "practice":[
@@ -44,7 +50,9 @@
   {"id":"item-13","kind":"text","pool":"review","section_id":"generic-pointing","prompt":"Generic on, choose notre or sa: Quand on voyage seul, on prépare ___ valise.","choices":[],"answers":["sa"],"explanation":"Generic singular possession."},
   {"id":"item-14","kind":"text","pool":"review","section_id":"generic-pointing","prompt":"Supply son/sa/ses: Personne ne doit oublier ___ billet.","choices":[],"answers":["son"],"explanation":"Generic personne and masculine billet."},
   {"id":"item-15","kind":"text","pool":"review","section_id":"generic-pointing","prompt":"Supply the plural demonstrative: ___ horaires sont nouveaux.","choices":[],"answers":["Ces"],"explanation":"Ces works for either gender in the plural."},
-  {"id":"item-16","kind":"text","pool":"review","section_id":"possessive-choice","prompt":"Supply their as a possessive determiner: Les voisins cherchent ___ clés.","choices":[],"answers":["leurs"],"explanation":"Plural possessed noun requires leurs, unlike object pronoun leur."}
+  {"id":"item-16","kind":"text","pool":"review","section_id":"possessive-choice","prompt":"Supply their as a possessive determiner: Les voisins cherchent ___ clés.","choices":[],"answers":["leurs"],"explanation":"Plural possessed noun requires leurs, unlike object pronoun leur."},
+  {"id":"depth-vowel-adjective","kind":"text","pool":"practice","section_id":"following-sound","prompt":"Choose ma or mon: ___ ancienne responsable m'a conseillé ce livre.","choices":[],"answers":["Mon"],"explanation":"Ancienne immediately follows the possessive and begins with a vowel, although responsable begins with a consonant.","case_sensitive":false,"terminal_punctuation_sensitive":false},
+  {"id":"depth-consonant-y","kind":"text","pool":"check","section_id":"following-sound","prompt":"Choose sa or son: Elle range ___ yaourtière. Une yaourtière is feminine and its initial y has a consonant sound.","choices":[],"answers":["sa"],"explanation":"A written y is not automatically a vowel sound that triggers son.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
  "production_task":{"prompt":"Send instructions to your household about a move. Mention your shared home, each person's own documents and two objects you can point to.","model_answer":"On prépare notre déménagement samedi. Chacun garde ses documents dans son sac. Cette boîte est pour la cuisine et ces cartons sont pour nos livres. Mon amie vient nous aider.","translation":"We are preparing our move on Saturday. Each person keeps their documents in their bag. This box is for the kitchen and these boxes are for our books. My friend is coming to help us.","rubric":["Choose possessives from the noun and owner.","Use son/sa/ses for each generic individual.","Distinguish cette from cet and ces."]}
 }

@@ -26,6 +26,16 @@
     {"french":"Elles ont réparé le vélo **elles-mêmes**.","english":"They repaired the bicycle themselves.","note":"Emphasis on personal involvement, not a reflexive verb."}
    ],
    "mistakes":[{"avoid":"Toi et moi partent ensemble.","prefer":"Toi et moi partons ensemble.","why":"A subject including the speaker requires the nous verb form."}]
+  },
+  {"id":"focused-forms","title":"A named alternative is not an ordinary object pronoun",
+   "paragraphs":["After comparative que ('than/as') and restrictive que ('only'), use a stressed pronoun when naming a person: plus vite que moi, seulement lui / ne ... que lui. Compare an ordinary object before the verb with a focused person after que. The two placements do different jobs; do not move le or leur after que.", "A joined direct object also uses stressed forms, even without a preposition. In careful social introductions, name the other person before moi; this is a courtesy convention, not a change to the verb's agreement."],
+   "points":["Choose the role first: ordinary object, joined group, or person singled out after que."],
+   "examples":[
+    {"french":"Je **le** reconnais, mais je ne reconnais **que lui**.","english":"I recognise him, but I recognise only him.","note":"Only singles out the person; it calls for stressed lui after que."},
+    {"french":"Cette stagiaire lit plus vite **que moi**.","english":"This intern reads faster than I do.","note":"Moi is the compared person, not the object of lit."},
+    {"french":"Le jury a retenu **Samira et moi**.","english":"The panel selected Samira and me.","note":"The whole joined group is the direct object."}
+   ],
+   "mistakes":[{"avoid":"Elle ne consulte que le.","prefer":"Elle ne consulte que lui.","why":"For 'only him', que is followed by stressed lui, not the ordinary direct-object form le."}]
   }
  ],
  "practice":[
@@ -44,7 +54,10 @@
   {"id":"item-13","kind":"text","pool":"review","section_id":"joined-subjects","prompt":"Present of savoir: Toi et moi ___ la réponse.","choices":[],"answers":["savons"],"explanation":"The speaker is included."},
   {"id":"item-14","kind":"text","pool":"review","section_id":"stressed","prompt":"Use the stressed form of je in a joined subject: Paul et ___ travaillons ici.","choices":[],"answers":["moi"],"explanation":"French uses moi even within the subject group."},
   {"id":"item-15","kind":"text","pool":"review","section_id":"stressed","prompt":"Supply 'ourselves' as emphasis with nous + même: Nous avons construit l'étagère ___.","choices":[],"answers":["nous-mêmes"],"explanation":"Hyphen and plural s."},
-  {"id":"item-16","kind":"text","pool":"review","section_id":"joined-subjects","prompt":"Replace Léa et sa sœur with the subject pronoun: ___ attendent dehors.","choices":[],"answers":["Elles"],"explanation":"An entirely feminine group uses elles."}
+  {"id":"item-16","kind":"text","pool":"review","section_id":"joined-subjects","prompt":"Replace Léa et sa sœur with the subject pronoun: ___ attendent dehors.","choices":[],"answers":["Elles"],"explanation":"An entirely feminine group uses elles."},
+  {"id":"depth-joined-object","kind":"text","pool":"practice","section_id":"focused-forms","prompt":"Supply the stressed form referring to the speaker: La photographe a placé mon frère et ___ au centre.","choices":[],"answers":["moi"],"explanation":"A pronoun in a joined direct object takes its stressed form.","case_sensitive":false,"terminal_punctuation_sensitive":false},
+  {"id":"depth-comparison-person","kind":"text","pool":"check","section_id":"focused-forms","prompt":"Replace les deux mécaniciens with one stressed pronoun: Elle répare ce moteur plus vite que ___.","choices":[],"answers":["eux"],"explanation":"After comparative que, the masculine plural group is represented by eux.","case_sensitive":false,"terminal_punctuation_sensitive":false},
+  {"id":"depth-only-person","kind":"text","pool":"review","section_id":"focused-forms","prompt":"Supply le or lui to say that only the male guide is being followed: Dans le brouillard, nous ne suivons que ___.","choices":[],"answers":["lui"],"explanation":"Restricted personal reference after que uses lui; the ordinary object construction would be nous le suivons.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
  "production_task":{"prompt":"Divide tasks for a neighbourhood event. Say what you and someone else will do, what the addressee and another person will do, and what you will do personally.","model_answer":"Toi et moi préparons la salle. Léa et vous accueillez les visiteurs. Je vérifie les inscriptions moi-même. Les bénévoles restent avec nous après la rencontre.","translation":"You and I prepare the room. Léa and you welcome the visitors. I check the registrations myself. The volunteers stay with us after the gathering.","rubric":["Use stressed forms in joined groups.","Choose nous or vous endings from who is included.","Use même(s) with the appropriate number."]}
 }

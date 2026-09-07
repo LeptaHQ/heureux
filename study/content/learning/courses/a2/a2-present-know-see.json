@@ -26,6 +26,12 @@
     {"french":"Ils **revoient** leurs collègues lundi.","english":"They are seeing their colleagues again on Monday.","note":"No y in this third-person plural form."}
    ],
    "mistakes":[{"avoid":"Vous voiez la sortie.","prefer":"Vous voyez la sortie.","why":"The vous form uses voy-."}]
+  },
+  {"id":"related-stems","title":"Transfer a pattern without guessing from the last letters",
+   "paragraphs":["The present pattern of voir extends to entrevoir (glimpse) and pourvoir (provide for): nous entrevoyons, ils entrevoient; nous pourvoyons, ils pourvoient. Recevoir belongs to a different family despite its final letters.", "Fuir (flee or avoid) has the same i/y distribution as voir but its own fu- base. Naître (be born) uses nais-/naiss-; renaître (be reborn) keeps those forms with re-. Méconnaître (fail to recognise or know adequately) and comparaître (appear in court) preserve the connaître/paraître endings."],
+   "points":["Fuir: je fuis, tu fuis, il/elle/on fuit, nous fuyons, vous fuyez, ils/elles fuient.","Naître: je nais, tu nais, il/elle/on naît, nous naissons, vous naissez, ils/elles naissent. Nait is also accepted under the 1990 spelling recommendations."],
+   "examples":[{"french":"Vous **fuyez** les endroits bruyants.","english":"You avoid noisy places.","note":"Fuir need not describe physically running away."},{"french":"Les premières idées **naissent** pendant la discussion.","english":"The first ideas emerge during the discussion.","note":"Naître can be used figuratively; the plural has double s."},{"french":"Nous **entrevoyons** une solution, mais nous ne la connaissons pas encore en détail.","english":"We can glimpse a solution, but we do not yet know it in detail.","note":"Nous keeps the voir-family y."}],
+   "mistakes":[]
   }
  ],
  "practice":[
@@ -44,7 +50,10 @@
   {"id":"item-13","kind":"text","pool":"review","section_id":"knowledge","prompt":"Present of connaître: Vous ___ nos tarifs.","choices":[],"answers":["connaissez"],"explanation":"Keep double s."},
   {"id":"item-14","kind":"text","pool":"review","section_id":"appearance-sight","prompt":"Correct the verb only: Ils voyent la mer.","choices":[],"answers":["voient"],"explanation":"Ils uses voi-, not voy-."},
   {"id":"item-15","kind":"text","pool":"review","section_id":"appearance-sight","prompt":"Present of apparaître: Une icône ___ ici.","choices":[],"answers":["apparaît","apparait"],"explanation":"Third-person singular follows paraît."},
-  {"id":"item-16","kind":"text","pool":"review","section_id":"knowledge","prompt":"Present of savoir: On ___ déjà la réponse.","choices":[],"answers":["sait"],"explanation":"On takes the same form as il."}
+  {"id":"item-16","kind":"text","pool":"review","section_id":"knowledge","prompt":"Present of savoir: On ___ déjà la réponse.","choices":[],"answers":["sait"],"explanation":"On takes the same form as il."},
+  {"id":"depth-fuir-person-change","kind":"text","pool":"check","section_id":"related-stems","prompt":"Change only the subject and verb from Nous to Ils: Nous fuyons la foule.","choices":[],"answers":["Ils fuient la foule."],"explanation":"Fuir has y with nous/vous but i with ils/elles.","case_sensitive":false,"terminal_punctuation_sensitive":false},
+  {"id":"depth-naissance-metaphor","kind":"text","pool":"practice","section_id":"related-stems","prompt":"Use naître in the present for an emerging idea: Une nouvelle question ___ de cette découverte.","choices":[],"answers":["naît","nait"],"explanation":"The singular form is naît, also written nait under the 1990 recommendations.","case_sensitive":false,"terminal_punctuation_sensitive":false},
+  {"id":"depth-court-appearance","kind":"text","pool":"review","section_id":"related-stems","prompt":"Supply comparaître in the present: Demain, vous ___ devant le juge.","choices":[],"answers":["comparaissez"],"explanation":"The present can refer to a scheduled future event; comparaître keeps the paraître-family -aiss- plural stem.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
  "production_task":{"prompt":"A new colleague asks for help finding a room. Explain what you know, what you can see and whether you know the building.","model_answer":"Je connais bien le bâtiment. Je sais où se trouve la salle, mais je ne vois pas son numéro d'ici. Nous voyons l'escalier à gauche : la salle est juste derrière.","translation":"I know the building well. I know where the room is, but I cannot see its number from here. We can see the stairs on the left: the room is just behind them.","rubric":["Use connaître for familiarity.","Use savoir before information.","Check singular and plural voir spellings."]}
 }

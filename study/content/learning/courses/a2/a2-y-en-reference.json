@@ -26,6 +26,12 @@
     {"french":"Des collègues ici ? J'**en connais plusieurs**.","english":"Colleagues here? I know several.","note":"The quantified personal reference is ordinary French."}
    ],
    "mistakes":[{"avoid":"J'en ai de trois.","prefer":"J'en ai trois.","why":"Keep the number without an extra de."}]
+  },
+  {"id":"another-quantity","title":"Keep another one after en",
+   "paragraphs":["When asking for a replacement or an additional item, keep un autre or une autre after the verb. En removes the repeated noun, not the information that you want another one. Choose un/une from that noun, not from the person speaking."],
+   "points":["An explicitly named headword helps: un exemplaire (masculine, copy); une pile (feminine, battery)."],
+   "examples":[{"french":"Cette pile est usée ; j'**en prends une autre**.","english":"This battery is worn out; I am taking another one.","note":"Une autre retains the feminine singular reference."},{"french":"L'exemplaire est illisible ; nous allons **en demander un autre**.","english":"The copy is illegible; we are going to request another one.","note":"En belongs to demander; un autre remains after it."}],
+   "mistakes":[]
   }
  ],
  "practice":[
@@ -44,7 +50,10 @@
   {"id":"item-13","kind":"text","pool":"review","section_id":"quantity-en","prompt":"Use en to avoid repeating noun: Elle a beaucoup d'amis.","choices":[],"answers":["Elle en a beaucoup."],"explanation":"Quantified people can be represented by en."},
   {"id":"item-14","kind":"text","pool":"review","section_id":"quantity-en","prompt":"Replace ma collègue specifically with a stressed pronoun: Je parle de ma collègue.","choices":[],"answers":["Je parle d'elle."],"explanation":"The prompt requests a stressed personal form; it does not assert that personal en is always wrong."},
   {"id":"item-15","kind":"text","pool":"review","section_id":"quantity-en","prompt":"Supply les or en for all the specific tickets: Les billets ? Je ___ ai.","choices":[],"answers":["les"],"explanation":"A definite object uses les, not quantity en."},
-  {"id":"item-16","kind":"text","pool":"review","section_id":"place-y","prompt":"Rewrite with y: Vous travaillez à la mairie.","choices":[],"answers":["Vous y travaillez."],"explanation":"Y replaces the workplace location."}
+  {"id":"item-16","kind":"text","pool":"review","section_id":"place-y","prompt":"Rewrite with y: Vous travaillez à la mairie.","choices":[],"answers":["Vous y travaillez."],"explanation":"Y replaces the workplace location."},
+  {"id":"depth-another-replacement","kind":"text","pool":"practice","section_id":"another-quantity","prompt":"Use en to avoid repeating carte, but retain the replacement information: Je demande une autre carte.","choices":[],"answers":["J'en demande une autre."],"explanation":"En replaces the noun while une autre remains.","case_sensitive":false,"terminal_punctuation_sensitive":false},
+  {"id":"depth-another-infinitive","kind":"text","pool":"check","section_id":"another-quantity","prompt":"Rewrite with en, keeping the meaning 'another one': Vous devez choisir un autre siège.","choices":[],"answers":["Vous devez en choisir un autre."],"explanation":"En is the object of choisir, and un autre preserves the new selection.","case_sensitive":false,"terminal_punctuation_sensitive":false},
+  {"id":"depth-another-gender","kind":"text","pool":"review","section_id":"another-quantity","prompt":"A second copy is needed. Complete with un autre or une autre: Une copie ne suffit pas ; il faut en imprimer ___.","choices":[],"answers":["une autre"],"explanation":"Une copie is feminine, so the retained amount phrase is une autre.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
  "production_task":{"prompt":"Plan supplies for a meeting at a known location. Say who is going there, what supplies you have and how many more you need.","model_answer":"La rencontre est au centre communautaire. J'y vais à dix heures. Des chaises, nous en avons douze, mais il faut en apporter deux de plus. Du café, j'en ai déjà.","translation":"The meeting is at the community centre. I am going there at ten. We have twelve chairs, but we need to bring two more. I already have some coffee.","rubric":["Give a clear place before using y.","Retain numbers with en.","Do not confuse a definite object with an unspecified quantity."]}
 }

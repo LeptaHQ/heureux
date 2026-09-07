@@ -26,6 +26,12 @@
     {"french":"Il **a manqué à sa promesse**.","english":"He failed to keep his promise.","note":"An obligation, not emotional missing."}
    ],
    "mistakes":[{"avoid":"Nous manquons du temps pour finir.","prefer":"Nous manquons de temps pour finir.","why":"For an unspecified shortage, manquer de takes the noun without a partitive article."}]
+  },
+  {"id":"specified-shortfall","title":"Say who is short of a particular amount",
+   "paragraphs":["Il me manque ... combines the impersonal subject il with an indirect pronoun for the person experiencing a practical shortage. The thing or amount missing follows the verb: il nous manque deux pièces. This is not the emotional pattern where the missed person or thing becomes the subject.", "Manquer de describes a general shortage without a partitive article. Impersonal il manque introduces what is absent and can retain a determiner: il manque une vis, il manque du matériel. Une vis (feminine) is a screw; le matériel (masculine) is equipment."],
+   "points":["Keep manque singular after impersonal il, even when several missing objects follow it."],
+   "examples":[{"french":"**Il nous manque trois planches** pour finir l'étagère.","english":"We are three boards short of finishing the shelf.","note":"The missing amount is specified; il is the grammatical subject."},{"french":"Nous **manquons de matériel** ; **il manque du matériel** dans cette caisse.","english":"We lack equipment; there is equipment missing from this crate.","note":"Different constructions explain de versus du."}],
+   "mistakes":[]
   }
  ],
  "practice":[
@@ -44,7 +50,9 @@
   {"id":"item-13","kind":"text","pool":"review","section_id":"emotional","prompt":"Translate 'We miss you' using tu as subject and nous.","choices":[],"answers":["Tu nous manques."],"explanation":"Tu is missed by us."},
   {"id":"item-14","kind":"text","pool":"review","section_id":"miss-lack","prompt":"Correct the quantity phrase only: Nous manquons des chaises. We lack chairs in general.","choices":[],"answers":["de chaises"],"explanation":"Use de without an indefinite article."},
   {"id":"item-15","kind":"text","pool":"review","section_id":"emotional","prompt":"Present of manquer: Vos messages me ___.","choices":[],"answers":["manquent"],"explanation":"Plural messages controls the verb."},
-  {"id":"item-16","kind":"choice","pool":"review","section_id":"miss-lack","prompt":"J'ai manqué de tomber means:","choices":["I nearly fell.","I lacked a fall."],"answers":["I nearly fell."],"explanation":"Manquer de + infinitive can express a narrowly avoided event."}
+  {"id":"item-16","kind":"choice","pool":"review","section_id":"miss-lack","prompt":"J'ai manqué de tomber means:","choices":["I nearly fell.","I lacked a fall."],"answers":["I nearly fell."],"explanation":"Manquer de + infinitive can express a narrowly avoided event."},
+  {"id":"depth-practical-shortfall","kind":"text","pool":"check","section_id":"specified-shortfall","prompt":"Replace à nos collègues with the indirect pronoun, keeping the impersonal construction: Il manque deux outils à nos collègues.","choices":[],"answers":["Il leur manque deux outils."],"explanation":"Leur names the people short of tools; impersonal il keeps singular manque.","case_sensitive":false,"terminal_punctuation_sensitive":false},
+  {"id":"depth-shortage-article","kind":"text","pool":"review","section_id":"specified-shortfall","prompt":"Choose de or du for a general resource shortage: Nous manquons ___ bois. Then choose de or du for the impersonal construction: Il manque ___ bois dans la réserve. Give the two answers separated by a comma.","choices":[],"answers":["de, du"],"explanation":"Manquer de takes bare de before the resource, whereas impersonal il manque can introduce a partitive du bois.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
  "production_task":{"prompt":"Write to a friend after moving. Express what you miss, explain a practical shortage and mention an appointment or bus you missed.","model_answer":"Tu me manques, et nos promenades me manquent aussi. Ici, je manque encore de temps pour découvrir le quartier. Hier, j'ai manqué le bus, mais j'ai trouvé un autre trajet.","translation":"I miss you, and I miss our walks too. Here, I am still short of time to discover the neighbourhood. Yesterday, I missed the bus, but I found another route.","rubric":["Make the missed person or thing the subject for emotional absence.","Use de for a lack of a resource.","Use a direct object for missing transport."]}
 }

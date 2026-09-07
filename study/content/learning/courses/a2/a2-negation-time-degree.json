@@ -26,6 +26,12 @@
     {"french":"Je **n'ai pas acheté grand-chose**.","english":"I did not buy much.","note":"The amount is small, not necessarily zero."}
    ],
    "mistakes":[{"avoid":"Nous n'avons pas assez des chaises.","prefer":"Nous n'avons pas assez de chaises.","why":"For an unspecified quantity, assez takes de, not des."}]
+  },
+  {"id":"negative-tail","title":"The emphasis can come later",
+   "paragraphs":["Pas and du tout need not remain next to each other: the emphatic du tout can follow the object or description. Non plus can likewise follow the object or activity to add a second negative statement. Keep ne/pas around the finite verb or auxiliary even when the extra phrase comes later.", "For the ordinary not-yet pattern, learn pas encore together before a following infinitive or participle. Do not treat every negative phrase as though its final words had the same placement options."],
+   "points":["A short reply can be pas du tout, pas encore or pas grand-chose. In full careful written sentences, restore the appropriate ne."],
+   "examples":[{"french":"Je **n'ai pas aimé cette décoration du tout**.","english":"I did not like this decoration at all.","note":"Du tout follows the object; pas remains after ai."},{"french":"Mon collègue **ne peut pas utiliser ce logiciel non plus**.","english":"My colleague cannot use this software either.","note":"Non plus adds the colleague's negative situation."},{"french":"Nous **n'avons pas encore choisi** les couleurs.","english":"We have not chosen the colours yet.","note":"Pas encore stays before the participle in the core pattern."}],
+   "mistakes":[]
   }
  ],
  "practice":[
@@ -44,7 +50,9 @@
   {"id":"item-13","kind":"text","pool":"review","section_id":"time-position","prompt":"Make negative with ne ... pas: Ils sont partis.","choices":[],"answers":["Ils ne sont pas partis."],"explanation":"Negation surrounds the être auxiliary."},
   {"id":"item-14","kind":"text","pool":"review","section_id":"time-position","prompt":"Add not yet using ne ... pas encore: J'ai reçu la réponse.","choices":[],"answers":["Je n'ai pas encore reçu la réponse."],"explanation":"Pas encore follows ai."},
   {"id":"item-15","kind":"text","pool":"review","section_id":"quantity-degree","prompt":"Supply de or les: Je n'aime pas ___ horaires proposés. Refer to the specific proposed hours.","choices":[],"answers":["les"],"explanation":"Definite articles remain under negation."},
-  {"id":"item-16","kind":"text","pool":"review","section_id":"time-position","prompt":"Complete the careful written sentence by supplying the missing word: Nous ___ voulons pas attendre.","choices":[],"answers":["ne"],"explanation":"Ne is expected in the specified written register."}
+  {"id":"item-16","kind":"text","pool":"review","section_id":"time-position","prompt":"Complete the careful written sentence by supplying the missing word: Nous ___ voulons pas attendre.","choices":[],"answers":["ne"],"explanation":"Ne is expected in the specified written register."},
+  {"id":"depth-separated-emphasis","kind":"text","pool":"check","section_id":"negative-tail","prompt":"Move only du tout to the end: Nous n'avons pas du tout apprécié ce changement.","choices":[],"answers":["Nous n'avons pas apprécié ce changement du tout."],"explanation":"The emphatic phrase can follow the object; ne/pas still surround the auxiliary.","case_sensitive":false,"terminal_punctuation_sensitive":false},
+  {"id":"depth-separated-either","kind":"text","pool":"review","section_id":"negative-tail","prompt":"Add non plus at the end to say that your neighbour has the same negative situation: Ma voisine ne reçoit pas ce journal.","choices":[],"answers":["Ma voisine ne reçoit pas ce journal non plus."],"explanation":"Non plus can follow the object without changing the main negative frame.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
  "production_task":{"prompt":"Explain a delay in a group project. Say what is not yet done, what resource is insufficient and what is no longer possible.","model_answer":"Nous n'avons pas encore reçu les affiches. Nous n'avons pas assez de temps pour tout préparer aujourd'hui. Je ne peux plus rester ce soir, et ma collègue ne peut pas rester non plus.","translation":"We have not received the posters yet. We do not have enough time to prepare everything today. I can no longer stay this evening, and my colleague cannot stay either.","rubric":["Separate not yet from no longer.","Use de after an insufficient noun quantity.","Place negatives around auxiliaries, not participles."]}
 }

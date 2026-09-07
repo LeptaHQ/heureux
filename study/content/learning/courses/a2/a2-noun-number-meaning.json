@@ -26,6 +26,12 @@
     {"french":"Il cherche **un poste** dans **la mode**, près de **la poste**.","english":"He is looking for a job in fashion, near the post office.","note":"Position, fashion and postal service."}
    ],
    "mistakes":[{"avoid":"Ces bijoux sont dans des boîtes pleines de cloux.","prefer":"Ces bijoux sont dans des boîtes pleines de clous.","why":"Bijou is an -oux exception; clou is not."}]
+  },
+  {"id":"group-and-number","title":"A group can have a singular grammatical head",
+   "paragraphs":["La police (feminine), le personnel (masculine, staff) and une équipe (feminine, team) are grammatically singular group nouns. When one is the subject on its own, use a singular verb even if English uses a plural: the people inside the group do not become the French grammatical subject.", "In ordinary French in France, les toilettes (feminine plural) names the restroom, even when there is just one room. La toilette (feminine singular) can name washing and personal grooming. Number can therefore affect meaning, not just the number of objects."],
+   "points":["Inspect the French noun itself before choosing est/sont or an adjective ending."],
+   "examples":[{"french":"**Le personnel est** disponible pour vous aider.","english":"The staff are available to help you.","note":"The French group noun is singular."},{"french":"**Les toilettes sont** au fond du couloir.","english":"The restroom is at the end of the corridor.","note":"A plural French expression for the facility."},{"french":"Elle fait **sa toilette** avant le petit-déjeuner.","english":"She washes and gets ready before breakfast.","note":"Singular toilette describes personal grooming here."}],
+   "mistakes":[]
   }
  ],
  "practice":[
@@ -46,7 +52,9 @@
   {"id":"item-15","kind":"text","pool":"review","section_id":"gender-meaning","prompt":"Supply le or la for a frying pan: ___ poêle est dans le placard.","choices":[],"answers":["La"],"explanation":"The frying pan is feminine; the stove is masculine."},
   {"id":"item-16","kind":"text","pool":"review","section_id":"number","prompt":"Supply être in the present: Mes vacances ___ courtes.","choices":[],"answers":["sont"],"explanation":"Vacances is plural even for one holiday."},
   {"id":"item-17","kind":"text","pool":"check","section_id":"gender-meaning","prompt":"Supply le or la for a boat's sail: ___ voile est déchirée.","choices":[],"answers":["La"],"explanation":"The sail is feminine; a veil is masculine."},
-  {"id":"item-18","kind":"text","pool":"review","section_id":"gender-meaning","prompt":"Supply le or la for a method or setting: ___ mode automatique fonctionne.","choices":[],"answers":["Le"],"explanation":"Mode meaning setting is masculine."}
+  {"id":"item-18","kind":"text","pool":"review","section_id":"gender-meaning","prompt":"Supply le or la for a method or setting: ___ mode automatique fonctionne.","choices":[],"answers":["Le"],"explanation":"Mode meaning setting is masculine."},
+  {"id":"depth-collective-head","kind":"text","pool":"check","section_id":"group-and-number","prompt":"Conjugate vérifier in the present according to the French subject: La police ___ les accès.","choices":[],"answers":["vérifie"],"explanation":"La police is grammatically singular, regardless of how many officers are involved.","case_sensitive":false,"terminal_punctuation_sensitive":false},
+  {"id":"depth-restroom-number","kind":"text","pool":"review","section_id":"group-and-number","prompt":"Complete with être in the present on a restroom sign: Les toilettes ___ au premier étage.","choices":[],"answers":["sont"],"explanation":"The facility is named by the plural les toilettes, so the French verb is plural.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
  "production_task":{"prompt":"Describe items to pack or check before a trip. Include a French singular garment, a plural that differs from English and a meaning-changing noun with a clear article.","model_answer":"Mon pantalon est propre, mais mes chaussures sont encore mouillées. J'ai besoin de renseignements sur le trajet. Je prends un livre pour le train et je laisse mes bijoux à la maison.","translation":"My trousers are clean, but my shoes are still wet. I need information about the journey. I am taking a book for the train and leaving my jewellery at home.","rubric":["Use French rather than English grammatical number.","Remember the -oux exceptions without overapplying them.","Use the article that matches the intended meaning."]}
 }

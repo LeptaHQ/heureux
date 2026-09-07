@@ -17,7 +17,7 @@
    "mistakes":[{"avoid":"Ils suit le guide.","prefer":"Ils suivent le guide.","why":"The plural subject requires suivent, not singular suit."}]
   },
   {"id":"serve-laugh-run","title":"Keep each family's full pattern",
-   "paragraphs":["Servir drops v in the singular but keeps it in the plural; desservir follows it. Do not apply that rule to every verb ending in -vir: vivre above keeps v in vit. Rire keeps ri- even in nous rions; sourire adds sou-. Courir keeps cour- throughout its present forms; parcourir follows it."],
+   "paragraphs":["Servir drops the stem's final v in the singular but keeps it in the plural; desservir follows it. Compare je sers with nous servons. Rire keeps ri- even in nous rions; sourire adds sou-. Courir keeps cour- throughout its present forms; parcourir follows it."],
    "points":["Servir: je sers, tu sers, il/elle/on sert, nous servons, vous servez, ils/elles servent.","Rire: je ris, tu ris, il/elle/on rit, nous rions, vous riez, ils/elles rient. Sourire: je souris, tu souris, il/elle/on sourit, nous sourions, vous souriez, ils/elles sourient.","Courir: je cours, tu cours, il/elle/on court, nous courons, vous courez, ils/elles courent."],
    "examples":[
     {"french":"Ce bus **dessert** l'hôpital.","english":"This bus serves the hospital.","note":"Singular desservir drops v."},
@@ -26,6 +26,12 @@
     {"french":"Ils **courent** au parc ; nous **parcourons** le quartier à pied.","english":"They run in the park; we walk through the neighbourhood.","note":"Parcourir means to cover or travel through; it does not require running."}
    ],
    "mistakes":[{"avoid":"Vous courissez vite.","prefer":"Vous courez vite.","why":"Courir does not add -iss-."}]
+  },
+  {"id":"serve-or-use","title":"Serving something is not the same as using it",
+   "paragraphs":["Servir + direct object means serve that thing; se servir de + thing means use it. Se servir without de can mean help oneself. Resservir means serve again; se resservir means help oneself again. All retain the servir present stem changes, with a reflexive pronoun where required.", "Revivre follows vivre and can mean live again or relive an experience; the prefix does not add a new present ending."],
+   "points":["Se servir: je me sers, tu te sers, il/elle/on se sert, nous nous servons, vous vous servez, ils/elles se servent."],
+   "examples":[{"french":"Je **sers** la soupe et je **me sers de** cette louche.","english":"I serve the soup and I use this ladle.","note":"Une louche (feminine) is a ladle; de belongs to the use construction."},{"french":"Les convives **se resservent**, mais je ne **ressers** pas de dessert.","english":"The guests help themselves again, but I do not serve dessert again.","note":"The reflexive form changes who receives the extra helping."}],
+   "mistakes":[]
   }
  ],
  "practice":[
@@ -44,7 +50,9 @@
   {"id":"item-13","kind":"text","pool":"review","section_id":"live-follow","prompt":"Present of vivre: Vous ___ loin de votre travail.","choices":[],"answers":["vivez"],"explanation":"The plural uses viv-."},
   {"id":"item-14","kind":"text","pool":"review","section_id":"serve-laugh-run","prompt":"Present of servir: Ce code ___ à ouvrir la porte.","choices":[],"answers":["sert"],"explanation":"The singular drops v."},
   {"id":"item-15","kind":"text","pool":"review","section_id":"serve-laugh-run","prompt":"Present of sourire: Le bébé ___ à sa sœur.","choices":[],"answers":["sourit"],"explanation":"Third-person singular ends in t."},
-  {"id":"item-16","kind":"text","pool":"review","section_id":"serve-laugh-run","prompt":"Correct the verb only: Nous courrons chaque matin. Use the present, not the future.","choices":[],"answers":["courons"],"explanation":"Present courons has one r; future courrons has two."}
+  {"id":"item-16","kind":"text","pool":"review","section_id":"serve-laugh-run","prompt":"Correct the verb only: Nous courrons chaque matin. Use the present, not the future.","choices":[],"answers":["courons"],"explanation":"Present courons has one r; future courrons has two."},
+  {"id":"depth-use-construction","kind":"text","pool":"practice","section_id":"serve-or-use","prompt":"Complete the expression meaning 'we use', with se servir in the present: Pour mesurer le tissu, nous ___ de cette règle.","choices":[],"answers":["nous servons"],"explanation":"Se servir de requires both the reflexive nous and de.","case_sensitive":false,"terminal_punctuation_sensitive":false},
+  {"id":"depth-second-helping","kind":"text","pool":"check","section_id":"serve-or-use","prompt":"Supply se resservir in the present, including the reflexive pronoun: Comme le plat lui plaît, il ___.","choices":[],"answers":["se ressert"],"explanation":"The diner helps himself again; singular ressert has no v.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
  "production_task":{"prompt":"Describe a normal morning in your neighbourhood, including where you live, transport or a course, and an activity.","model_answer":"Je vis près d'un parc et je cours le matin. Le bus dessert mon centre de formation. Nous suivons un cours de cuisine et nous servons ensuite le repas.","translation":"I live near a park and I run in the morning. The bus serves my training centre. We take a cooking class and then serve the meal.","rubric":["Distinguish vivre from suivre.","Keep the correct singular/plural stem.","Describe a coherent routine."]}
 }

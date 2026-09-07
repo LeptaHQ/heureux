@@ -40,7 +40,8 @@
   </header>
 
   {% if course %}
-    <div class="course-reading-intro" lang="en">
+    <div class="course-reading-layout">
+    <aside class="course-reading-intro card" lang="en" aria-label="Lesson overview">
       <p>{{ lesson.summary|markdown_inline }}</p>
       <ul>{% for objective in lesson.objectives %}<li>{{ objective|markdown_inline }}</li>{% endfor %}</ul>
       {% if prerequisites %}
@@ -49,7 +50,7 @@
         </p>
       {% endif %}
       <a class="btn" href="{% url 'study:course_practice' lesson.slug %}">Practise this lesson</a>
-    </div>
+    </aside>
   {% endif %}
 
   <article class="learn-lesson-content">
@@ -64,7 +65,7 @@
         >
           <header class="learn-content-section__head">
             <span>{{ forloop.counter|stringformat:"02d" }}</span>
-            <h2>{{ section.title }}</h2>
+            <h2>{% if course %}{{ section.title|markdown_inline }}{% else %}{{ section.title }}{% endif %}</h2>
             {% include "study/partials/read_aloud_button.html" with compact=True key=section.id label="Read the French examples" only %}
           </header>
 
@@ -139,6 +140,7 @@
         </details>
       {% endif %}
   </article>
+  {% if course %}</div>{% endif %}
 
   <nav class="learn-lesson-nav" aria-label="Navigation entre les leçons">
     {% if previous_lesson %}
@@ -159,5 +161,5 @@
 
 {% block scripts %}
   {{ block.super }}
-  <script src="{% static 'study/js/learning.js' %}?v=10"></script>
+  <script src="{% static 'study/js/learning.js' %}?v=11"></script>
 {% endblock %}

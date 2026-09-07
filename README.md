@@ -54,6 +54,12 @@ annotation anchors and links. `/apprendre/` defaults to the original course
 when installed; `?scope=reference` and all old detail URLs retain the library.
 An absent course directory falls back to reference reading, not an empty replacement.
 
+Course summaries, objectives and the practice link sit in a right-hand sidebar on
+wide screens and above the teaching on smaller screens. Use explicit backticks
+for French snippets inside English explanations; the existing inline renderer
+marks them as French and gives them a distinct style. Do not automatically style
+ambiguous words such as English "on". Plain-text searches ignore those backticks.
+
 The course contains 33 A1, 36 A2, 26 B1 and 25 B2 lessons, with exact
 coverage mappings for all 479 public benchmark topics, plus nine C1-oriented
 preparation lessons. The teaching-depth follow-up enriched 75 existing lessons

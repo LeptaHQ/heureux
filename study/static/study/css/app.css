@@ -16948,7 +16948,9 @@ html[data-collection-view-mode="table"]
   line-height: 1.7;
 }
 .learn-content-section code,
-.learn-lesson-card code {
+.learn-lesson-card code,
+.course-reading-intro code,
+.course-practice-section code {
   padding: 0.08em 0.28em;
   border: 1px solid color-mix(
     in srgb,
@@ -17117,6 +17119,56 @@ html[data-collection-view-mode="table"]
 .course-reading-intro p,
 .course-reading-intro ul {
   margin: 0 0 0.7rem;
+}
+.course-reading-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-5);
+  min-width: 0;
+}
+.course-reading-intro {
+  width: 100%;
+  max-width: 820px;
+  margin-inline: auto;
+  padding: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.course-reading-intro ul {
+  padding-left: 1.2rem;
+}
+.course-reading-intro li + li {
+  margin-top: 0.35rem;
+}
+.course-reading-intro > .btn {
+  width: 100%;
+  white-space: normal;
+  text-align: center;
+}
+.course-lesson-page code {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+@media (min-width: 960px) {
+  .course-reading-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(15rem, 18rem);
+  }
+  .course-reading-layout > .learn-lesson-content {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: none;
+  }
+  .course-reading-intro {
+    grid-column: 2;
+    grid-row: 1;
+    position: sticky;
+    top: 5.5rem;
+    max-height: calc(100vh - 6.5rem);
+    max-height: calc(100dvh - 6.5rem);
+    overflow: auto;
+  }
 }
 .course-lesson-page .learn-example blockquote,
 .course-lesson-page .learn-example figcaption > span {

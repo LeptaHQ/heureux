@@ -6482,6 +6482,88 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertGreater(self.page.locator("[data-learning-lesson]:visible").count(), 0)
 
+    def test_course_sidebar_and_explicit_french_mentions(self):
+        lesson = next(
+            lesson for lesson in load_course_catalog().lessons
+            if lesson.id == "a1-sentence-foundations"
+        )
+        self.page.goto(self.live_server_url + reverse("study:learn"))
+        self.page.locator("[data-learning-search]").fill("conversational on from nous")
+        row = self.page.locator("[data-learning-lesson]:visible")
+        expect(row).to_have_count(1)
+        row.locator(".learn-lesson-card__body strong a").click()
+        self.page.wait_for_url("**" + reverse("study:course_lesson", args=[lesson.slug]))
+        sidebar = self.page.get_by_role("complementary", name="Lesson overview")
+        article = self.page.locator(".learn-lesson-content")
+        expect(sidebar.locator(":scope > p code")).to_have_text(["on", "nous"])
+        expect(sidebar.get_by_role("link", name="Practise this lesson")).to_have_count(1)
+        point = self.page.locator("#on-everyone .learn-key-points li").nth(1)
+        expect(point).to_have_text("Do not assume that on always includes the speaker.")
+        expect(point.locator("code")).to_have_text("on")
+        expect(point.locator("code")).to_have_attribute("lang", "fr")
+        expect(self.page.locator("#on-everyone h2 code")).to_have_text("On")
+        self.assertNotIn("`", article.inner_text())
+        self.assertNotIn("`", sidebar.inner_text())
+        self.assertIn(
+            "every person on Earth",
+            self.page.locator("#everyone-world > p").inner_text(),
+        )
+        self.assertNotIn(
+            "on", self.page.locator("#everyone-world > p code").all_text_contents(),
+        )
+        for width in (960, 1024, 1440):
+            self.page.set_viewport_size({"width": width, "height": 900})
+            self.page.evaluate("window.scrollTo(0, 0)")
+            side_box, text_box = sidebar.bounding_box(), article.bounding_box()
+            self.assertGreater(side_box["x"], text_box["x"] + text_box["width"])
+            self.assertAlmostEqual(side_box["y"], text_box["y"], delta=2)
+            self.assertLess(side_box["width"], text_box["width"])
+            self.assert_no_horizontal_overflow()
+        for width in (320, 390, 768, 959):
+            self.page.set_viewport_size({"width": width, "height": 900})
+            self.page.evaluate("window.scrollTo(0, 0)")
+            side_box, text_box = sidebar.bounding_box(), article.bounding_box()
+            self.assertLessEqual(side_box["y"] + side_box["height"], text_box["y"])
+            expect(sidebar).to_have_css("position", "relative")
+            self.assert_no_horizontal_overflow()
+        self.page.set_viewport_size({"width": 1200, "height": 360})
+        self.page.evaluate("window.scrollTo(0, 1000)")
+        expect(sidebar).to_have_css("position", "sticky")
+        side_box = sidebar.bounding_box()
+        nav_box = self.page.locator(".nav").bounding_box()
+        self.assertGreaterEqual(side_box["y"], nav_box["y"] + nav_box["height"])
+        self.assertLessEqual(side_box["y"] + side_box["height"], 360)
+        self.assertTrue(sidebar.evaluate("el => el.scrollHeight > el.clientHeight"))
+        practice_link = sidebar.get_by_role("link", name="Practise this lesson")
+        practice_link.focus()
+        expect(practice_link).to_be_in_viewport()
+        self.page.keyboard.press("Enter")
+        self.page.wait_for_url("**" + reverse("study:course_practice", args=[lesson.slug]))
+        guidance = self.page.locator(".course-guidance")
+        guidance.locator("summary").click()
+        expect(guidance.locator("dt code")).to_have_text("On")
+        self.page.get_by_role("button", name="Learning practice", exact=True).click()
+        self.page.wait_for_url("**/apprendre/pratique/*/")
+        scope = self.page.locator(".course-selection")
+        scope.locator("summary").click()
+        expect(scope.locator("code")).to_have_text("On")
+        self.assertNotIn("`", scope.inner_text())
+        reference = load_learning_catalog().lessons[0]
+        self.page.goto(self.live_server_url + reverse("study:learn_lesson", args=[reference.slug]))
+        expect(self.page.locator(".course-reading-layout")).to_have_count(0)
+        expect(self.page.locator(".course-reading-intro")).to_have_count(0)
+        with self.browser.new_context(
+            storage_state=self.context.storage_state(), java_script_enabled=False,
+            viewport={"width": 1200, "height": 800},
+        ) as context:
+            page = context.new_page()
+            page.goto(self.live_server_url + reverse("study:course_lesson", args=[lesson.slug]))
+            aside = page.get_by_role("complementary", name="Lesson overview")
+            body = page.locator(".learn-lesson-content").bounding_box()
+            self.assertGreater(aside.bounding_box()["x"], body["x"] + body["width"])
+            aside.get_by_role("link", name="Practise this lesson").click()
+            page.wait_for_url("**" + reverse("study:course_practice", args=[lesson.slug]))
+
     def test_bundled_course_search_and_examples_render_across_levels(self):
         catalog = load_course_catalog()
         for level in ("A1", "A2", "B1", "B2", "C1-preparation"):

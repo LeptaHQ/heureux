@@ -16,10 +16,10 @@
       <summary>Session scope: {{ attempt.snapshot.selection.sampled }}/{{ attempt.snapshot.selection.total }} teaching sections sampled</summary>
       <p>Frozen at session start. Item evidence only, not a complete assessment of these sections.</p>
       {% for focus in attempt.snapshot.selection.focus %}
-        <p><strong>{{ focus.title }}</strong>: {{ focus.reason }}{% if focus.rehearsed %} Includes previously seen learning questions.{% endif %}</p>
+        <p><strong>{{ focus.title|markdown_inline }}</strong>: {{ focus.reason }}{% if focus.rehearsed %} Includes previously seen learning questions.{% endif %}</p>
       {% endfor %}
-      {% if attempt.snapshot.selection.omitted %}<p>Not sampled: {{ attempt.snapshot.selection.omitted|join:", " }}. Bounded slots, text-answer requirements and eligible banks limit the sample.</p>{% endif %}
-      {% if attempt.snapshot.selection.unavailable %}<p>No eligible items in this session's bank: {{ attempt.snapshot.selection.unavailable|join:", " }}.</p>{% endif %}
+      {% if attempt.snapshot.selection.omitted %}<p>Not sampled: {{ attempt.snapshot.selection.omitted|join:", "|markdown_inline }}. Bounded slots, text-answer requirements and eligible banks limit the sample.</p>{% endif %}
+      {% if attempt.snapshot.selection.unavailable %}<p>No eligible items in this session's bank: {{ attempt.snapshot.selection.unavailable|join:", "|markdown_inline }}.</p>{% endif %}
     </details>
   {% endif %}
   {% if attempt.status == 'completed' %}

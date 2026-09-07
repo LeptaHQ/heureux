@@ -3,6 +3,7 @@
 
   function normalize(value) {
     return String(value || "")
+      .replace(/`/g, "")
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .toLocaleLowerCase("fr");

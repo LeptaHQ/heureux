@@ -19,6 +19,8 @@ Reuse the existing compact grouped table and small completion checkbox. Add cour
 
 Practice has its own page reached by a simple action on a course lesson. Original examples can use `**bold**` for the relevant French forms; render through the existing safe inline Markdown renderer, preserve line breaks and read-aloud text, and never expose raw HTML.
 
+The existing summary, objectives and practice action use a desktop sidebar, stacked above the teaching on smaller screens. Mark French snippets within English explanations explicitly with backticks, rather than guessing from ambiguous words such as English "on". These snippets use the existing French-language inline-code treatment; headings and practice section labels must render the same markup without exposing delimiters. Do not alter exercise keys merely to change lesson presentation.
+
 ## Course lesson JSON: version 1
 
 Each file is one complete JSON object, not an array. Example shape (illustrative placeholders, not a publishable lesson):

@@ -5,14 +5,14 @@
   "cefr_level": "A1",
   "topic": "grammar-foundations",
   "title": "Construire une phrase : qui fait quoi ?",
-  "summary": "Find the subject and verb, replace names with pronouns, and distinguish conversational on from nous.",
+  "summary": "Find the subject and verb, replace names with pronouns, and distinguish conversational `on` from `nous`.",
   "order": 1,
   "duration_minutes": 12,
   "prerequisites": [],
   "objectives": [
     "Identify the subject and verb of a simple statement.",
     "Choose a subject pronoun for a person, thing or group.",
-    "Use a singular verb after on and tout le monde."
+    "Use a singular verb after `on` and `tout le monde`."
   ],
   "keywords": [
     "subject",
@@ -38,8 +38,8 @@
       "id": "building-blocks",
       "title": "Start with the person or thing, then say what happens",
       "paragraphs": [
-        "The subject tells us who or what the sentence is about. The verb expresses an action or state. In a simple statement, put the subject before the verb. An infinitive is a verb's dictionary form, such as parler (to speak). A conjugated form is the form chosen for a subject and time: parle in Léa parle. English 'speaks' and 'is speaking' can both correspond to French parle.",
-        "A noun names someone or something. Learn it with an article, the small word before it: un livre (m., a book), une table (f., a table). Masculine and feminine are grammatical categories, not claims about an object's sex. Singular means one; plural means more than one. Later lessons explain how articles and endings change."
+        "The subject tells us who or what the sentence is about. The verb expresses an action or state. In a simple statement, put the subject before the verb. An infinitive is a verb's dictionary form, such as `parler` (to speak). A conjugated form is the form chosen for a subject and time: `parle` in `Léa parle`. English 'speaks' and 'is speaking' can both correspond to French `parle`.",
+        "A noun names someone or something. Learn it with an article, the small word before it: `un livre` (m., a book), `une table` (f., a table). Masculine and feminine are grammatical categories, not claims about an object's sex. Singular means one; plural means more than one. Later lessons explain how articles and endings change."
       ],
       "points": [
         "The dictionary form is not normally the only verb in a complete statement: use a conjugated form.",
@@ -49,12 +49,12 @@
         {
           "french": "**Léa** parle.",
           "english": "Léa speaks.",
-          "note": "Léa is the subject."
+          "note": "`Léa` is the subject."
         },
         {
           "french": "Le train **arrive**.",
           "english": "The train is arriving.",
-          "note": "Arrive is the verb; un train (m.) is a train."
+          "note": "`Arrive` is the verb; `un train` (m.) is a train."
         }
       ],
       "mistakes": [
@@ -69,23 +69,23 @@
       "id": "subject-pronouns",
       "title": "Replace a repeated name with a subject pronoun",
       "paragraphs": [
-        "A pronoun stands in for a noun or group. Je = I; tu = you to one familiar person; il = he or a masculine it; elle = she or a feminine it; nous = we; vous = you to several people or politely to one; ils = they for masculine or mixed-gender groups; elles = they for feminine groups only. Je becomes j' before a vowel or silent h: j'arrive. Tu does not become t' in standard written subject forms.",
-        "For objects, choose il or elle from the noun's grammatical gender, not from the English word 'it'. Combine subjects by including the speaker first: Léa et moi becomes nous. A group including the listener but not the speaker becomes vous. Otherwise use ils or elles."
+        "A pronoun stands in for a noun or group. `Je` = I; `tu` = you to one familiar person; `il` = he or a masculine it; `elle` = she or a feminine it; `nous` = we; `vous` = you to several people or politely to one; `ils` = they for masculine or mixed-gender groups; `elles` = they for feminine groups only. `Je` becomes `j'` before a vowel or silent `h`: `j'arrive`. `Tu` does not become `t'` in standard written subject forms.",
+        "For objects, choose `il` or `elle` from the noun's grammatical gender, not from the English word 'it'. Combine subjects by including the speaker first: `Léa et moi` becomes `nous`. A group including the listener but not the speaker becomes `vous`. Otherwise use `ils` or `elles`."
       ],
       "points": [
-        "Tu and vous express the relationship with the listener as well as number.",
-        "An all-feminine group takes elles; the conventional form for a mixed group is ils."
+        "`Tu` and `vous` express the relationship with the listener as well as number.",
+        "An all-feminine group takes `elles`; the conventional form for a mixed group is `ils`."
       ],
       "examples": [
         {
           "french": "Le livre est ici. **Il** est bleu.",
           "english": "The book is here. It is blue.",
-          "note": "Livre is masculine."
+          "note": "`Livre` is masculine."
         },
         {
           "french": "La table est ici. **Elle** est ronde.",
           "english": "The table is here. It is round.",
-          "note": "Table is feminine."
+          "note": "`Table` is feminine."
         },
         {
           "french": "Mina et Zoé arrivent. **Elles** arrivent ensemble.",
@@ -95,12 +95,12 @@
         {
           "french": "Mina et Paul arrivent. **Ils** arrivent ensemble.",
           "english": "Mina and Paul are arriving. They are arriving together.",
-          "note": "A mixed group takes ils."
+          "note": "A mixed group takes `ils`."
         },
         {
           "french": "Toi et moi, **nous** parlons français.",
           "english": "You and I speak French.",
-          "note": "A group including the speaker takes nous."
+          "note": "A group including the speaker takes `nous`."
         },
         {
           "french": "Lina et toi, **vous** arrivez ensemble.",
@@ -112,31 +112,31 @@
         {
           "avoid": "Mina et moi, ils arrivent.",
           "prefer": "Mina et moi, nous arrivons.",
-          "why": "When the speaker is part of the subject, use nous and its verb form."
+          "why": "When the speaker is part of the subject, use `nous` and its verb form."
         }
       ]
     },
     {
       "id": "on-everyone",
-      "title": "On can include us; everyone still takes a singular verb",
+      "title": "`On` can include us; everyone still takes a singular verb",
       "paragraphs": [
-        "In everyday conversation, on often means we. Nous is also correct and is useful in more formal writing. On always uses the third-person singular verb form, the same form as il or elle, even when it means several people. On can also mean people in general, English 'one', or an unspecified person; context decides.",
-        "Tout le monde means everyone. Although it refers to a group, its verb is singular. Do not translate the English idea of many people into a plural verb here."
+        "In everyday conversation, `on` often means we. `Nous` is also correct and is useful in more formal writing. `On` always uses the third-person singular verb form, the same form as `il` or `elle`, even when it means several people. `On` can also mean people in general, English 'one', or an unspecified person; context decides.",
+        "`Tout le monde` means everyone. Although it refers to a group, its verb is singular. Do not translate the English idea of many people into a plural verb here."
       ],
       "points": [
-        "Nous parlons and on parle can describe the same group.",
-        "Do not assume that on always includes the speaker."
+        "`Nous parlons` and `on parle` can describe the same group.",
+        "Do not assume that `on` always includes the speaker."
       ],
       "examples": [
         {
           "french": "**On parle** français à la maison.",
           "english": "We speak French at home.",
-          "note": "In a conversation about our household, on means we."
+          "note": "In a conversation about our household, `on` means we."
         },
         {
           "french": "Ici, **on parle** doucement.",
           "english": "Here, people speak quietly.",
-          "note": "On describes a general practice."
+          "note": "`On` describes a general practice."
         },
         {
           "french": "**On frappe** à la porte.",
@@ -146,14 +146,14 @@
         {
           "french": "**Tout le monde arrive** à midi.",
           "english": "Everyone arrives at noon.",
-          "note": "Arrive is singular, despite the collective meaning."
+          "note": "`Arrive` is singular, despite the collective meaning."
         }
       ],
       "mistakes": [
         {
           "avoid": "On parlons français.",
           "prefer": "On parle français.",
-          "why": "On uses a singular verb, including when it means we."
+          "why": "`On` uses a singular verb, including when it means we."
         }
       ]
     },
@@ -161,21 +161,21 @@
       "id": "on-agreement",
       "title": "A singular verb can describe a real group",
       "paragraphs": [
-        "Separate two decisions with conversational on. The verb always uses the il/elle form. An adjective describing the people can nevertheless show their actual gender and number when on means a known we. With a general, unspecified person, masculine singular is the usual default. Do not change the verb to a plural form just because an adjective is plural."
+        "Separate two decisions with conversational `on`. The verb always uses the `il/elle` form. An adjective describing the people can nevertheless show their actual gender and number when `on` means a known we. With a general, unspecified person, masculine singular is the usual default. Do not change the verb to a plural form just because an adjective is plural."
       ],
       "points": [
-        "First identify what on means in this conversation; then choose the verb form and the adjective agreement separately."
+        "First identify what `on` means in this conversation; then choose the verb form and the adjective agreement separately."
       ],
       "examples": [
         {
           "french": "Ma sœur et moi, **on est heureuses** de rester ici.",
           "english": "My sister and I are happy to stay here.",
-          "note": "Said by a woman: heureuses describes the two women, but est is singular."
+          "note": "Said by a woman: `heureuses` describes the two women, but `est` is singular."
         },
         {
           "french": "Nous sommes deux étudiantes. **On est prêtes**.",
           "english": "We are two female students. We are ready.",
-          "note": "Prêtes describes both women; on still takes est."
+          "note": "`Prêtes` describes both women; `on` still takes `est`."
         },
         {
           "french": "Quand on attend longtemps, **on est impatient**.",
@@ -187,7 +187,7 @@
         {
           "avoid": "On sommes prêtes.",
           "prefer": "On est prêtes.",
-          "why": "A feminine plural adjective does not make on take the nous verb form."
+          "why": "A feminine plural adjective does not make `on` take the `nous` verb form."
         }
       ]
     },
@@ -195,10 +195,10 @@
       "id": "everyone-world",
       "title": "Everyone is a group of people, not the planet",
       "paragraphs": [
-        "Tout le monde means everyone in the relevant situation: a household, a class or a larger group. It does not automatically mean every person on Earth. Le monde entier means the whole world. Learn le monde (m., world) as a noun, but treat tout le monde as the fixed expression for everyone."
+        "`Tout le monde` means everyone in the relevant situation: a household, a class or a larger group. It does not automatically mean every person on Earth. `Le monde entier` means the whole world. Learn `le monde` (m., world) as a noun, but treat `tout le monde` as the fixed expression for everyone."
       ],
       "points": [
-        "A phrase's grammatical number and the number of people it includes are separate: tout le monde takes a singular verb."
+        "A phrase's grammatical number and the number of people it includes are separate: `tout le monde` takes a singular verb."
       ],
       "examples": [
         {
@@ -209,7 +209,7 @@
         {
           "french": "Cette radio diffuse des nouvelles du **monde entier**.",
           "english": "This radio station broadcasts news from the whole world.",
-          "note": "The geographical expression is le monde entier; de + le becomes du."
+          "note": "The geographical expression is `le monde entier`; `de` + `le` becomes `du`."
         }
       ],
       "mistakes": []
@@ -509,13 +509,13 @@
     }
   ],
   "production_task": {
-    "prompt": "Introduce a study group in three short sentences: name two people, refer back to them with a pronoun, then include yourself with nous or on. Use parler (speak) or arriver (arrive).",
+    "prompt": "Introduce a study group in three short sentences: name two people, refer back to them with a pronoun, then include yourself with `nous` or `on`. Use `parler` (speak) or `arriver` (arrive).",
     "model_answer": "Aya et Luc arrivent. Ils parlent français. On parle ensemble.",
     "translation": "Aya and Luc are arriving. They speak French. We speak together.",
     "rubric": [
       "Every statement has a subject and conjugated verb.",
       "The pronoun matches the group it replaces.",
-      "On has a singular verb, or nous has its own plural form."
+      "`On` has a singular verb, or `nous` has its own plural form."
     ]
   }
 }

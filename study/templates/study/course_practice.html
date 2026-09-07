@@ -39,7 +39,7 @@
       <dl class="course-guidance-list">
         {% for row in guidance %}
           <div>
-            <dt><a href="{% url 'study:course_lesson' lesson.slug %}#{{ row.id }}">{{ row.title }}</a></dt>
+            <dt><a href="{% url 'study:course_lesson' lesson.slug %}#{{ row.id }}">{{ row.title|markdown_inline }}</a></dt>
             <dd>
               {% if row.assessed %}
                 <p>{{ row.correct }}/{{ row.assessed }} latest first answers correct · {{ row.blank }} blank · {{ row.untested }} bank item{{ row.untested|pluralize }} untested.<br>

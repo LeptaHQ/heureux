@@ -5,7 +5,7 @@
   "order": 1, "duration_minutes": 13, "prerequisites": ["a2-present-receive-drive"],
   "objectives": ["Use all present forms of valoir, mourir and acquérir.", "Transfer acquérir's pattern to conquérir and distinguish quérir."],
   "keywords": ["valoir", "mourir", "acquérir", "conquérir", "requérir", "present stems"],
-  "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],
+  "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}, {"label": "Le Robert: quérir as an old defective verb", "url": "https://dictionnaire.lerobert.com/definition/querir"}],
   "related_legacy_ids": ["verbs-present-patterns", "expressions-avoir-faire-il-faut"],
   "sections": [
     {
@@ -42,6 +42,16 @@
         {"french": "La troupe **conquiert** un nouveau public.", "english": "The troupe is winning over a new audience.", "note": "Conquérir can have a nonmilitary meaning."}
       ],
       "mistakes": [{"avoid": "Nous acquérissons de l'expérience.", "prefer": "Nous acquérons de l'expérience.", "why": "Acquérir does not use the regular -ir plural -iss- pattern."}]
+    },
+    {
+      "id": "formal-enquiry", "title": "Reconnaître et employer s'enquérir de",
+      "paragraphs": ["S'enquérir de means inquire about or ask after. It is formal, especially useful to recognize in reports or correspondence; se renseigner sur or demander des nouvelles de is often more natural in everyday conversation, depending on what is being asked. Do not confuse enquiring with acquiring: s'enquérir is reflexive and retains de before the subject of the enquiry.", "Its complete present follows the familiar stem alternation with reflexive pronouns: je m'enquiers, tu t'enquiers, il/elle/on s'enquiert, nous nous enquérons, vous vous enquérez, ils/elles s'enquièrent. The s' in the infinitive is part of the reflexive construction; en at the beginning of enquérir is part of the verb, not a separate quantity pronoun to move."],
+      "points": ["Vocabulary: un état (masculine), a state or condition; une livraison (feminine), a delivery."],
+      "examples": [
+        {"french": "La coordinatrice **s'enquiert de** l'état des livraisons.", "english": "The coordinator enquires about the status of the deliveries.", "note": "A formal report may use this construction."},
+        {"french": "Au téléphone, nous **demandons des nouvelles de** la livraison.", "english": "On the phone, we ask for an update on the delivery.", "note": "A more ordinary way to ask for news in this context."}
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
@@ -60,7 +70,9 @@
     {"id": "item-13", "kind": "text", "pool": "review", "section_id": "value", "prompt": "Supply valoir in the present: Est-ce que ce détour ___ la peine?", "choices": [], "answers": ["vaut"], "explanation": "Valoir la peine asks whether the effort is worthwhile."},
     {"id": "item-14", "kind": "text", "pool": "review", "section_id": "life", "prompt": "Supply mourir in the present: Vous ___ d'envie de voir le résultat.", "choices": [], "answers": ["mourez"], "explanation": "Vous keeps mour-; mourir d'envie means to be very eager."},
     {"id": "item-15", "kind": "text", "pool": "review", "section_id": "acquisition", "prompt": "Supply acquérir in the present: J'___ une meilleure compréhension du sujet.", "choices": [], "answers": ["acquiers"], "explanation": "Je takes acquiers, with a final s."},
-    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "acquisition", "prompt": "Supply reconquérir in the present: Les joueuses ___ leur place.", "choices": [], "answers": ["reconquièrent"], "explanation": "Add re- to conquièrent."}
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "acquisition", "prompt": "Supply reconquérir in the present: Les joueuses ___ leur place.", "choices": [], "answers": ["reconquièrent"], "explanation": "Add re- to conquièrent."},
+    {"id": "depth-formal-inquiry-form", "kind": "text", "pool": "check", "section_id": "formal-enquiry", "prompt": "Complete this formal report with present s'enquérir and de: Les inspectrices ___ l'état du bâtiment.", "choices": [], "answers": ["s'enquièrent de"], "explanation": "Third-person plural uses s'enquièrent, with the grave accent, followed by de."},
+    {"id": "depth-inquiry-register", "kind": "choice", "pool": "review", "section_id": "formal-enquiry", "prompt": "In a formal email, Je m'enquiers de votre disponibilité means which of the following?", "choices": ["I am asking about your availability.", "I am acquiring your available time."], "answers": ["I am asking about your availability."], "explanation": "S'enquérir de means enquire about; it is not acquérir, and its formal register suits the email."}
   ],
   "production_task": {"prompt": "Write a short message about a demanding training course. Say what skills participants acquire, whether the effort is worthwhile, and use mourir de faim as a clearly figurative reaction after a long session.", "model_answer": "Nous acquérons des compétences utiles. Les exercices requièrent de la concentration, mais ce cours vaut la peine. Après trois heures de travail, nous mourons de faim. Il vaut mieux prévoir une pause.", "translation": "We are acquiring useful skills. The exercises require concentration, but this course is worthwhile. After three hours of work, we are starving. It is better to plan a break.", "rubric": ["Use the correct stem for nous and for a plural noun subject.", "Use valoir for worth or a recommendation, not as a synonym for every use of cost.", "Make the exaggerated expression clear from context."]}
 }

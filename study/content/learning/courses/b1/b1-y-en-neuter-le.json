@@ -5,7 +5,7 @@
   "order": 15, "duration_minutes": 14, "prerequisites": ["b1-commands-and-pronouns"],
   "objectives": ["Replace suitable à and de phrases with y and en.", "Use neutral le for an idea or an adjective without agreement.", "Place the pronoun with the verb it belongs to."],
   "keywords": ["y", "en", "neuter le", "adverbial pronouns", "à", "de"],
-  "sources": [{"label": "University of Texas: pronoun order and negation", "url": "https://www.laits.utexas.edu/tex/gr/pro9.html"}, {"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],
+  "sources": [{"label": "University of Texas: pronoun order and negation", "url": "https://www.laits.utexas.edu/tex/gr/pro9.html"}, {"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}, {"label": "OQLF: en, including references to people", "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/23513/la-grammaire/les-pronoms/pronoms-personnels/le-pronom-personnel-en"}, {"label": "Le Robert: penser à and its personal complements", "url": "https://dictionnaire.lerobert.com/definition/penser"}],
   "related_legacy_ids": ["pronouns-y-en", "pronouns-direct-indirect"],
   "sections": [
     {
@@ -41,6 +41,18 @@
         {"french": "Cette question est importante; je vais **y** réfléchir.", "english": "This question is important; I am going to think about it.", "note": "Y belongs to réfléchir à, so it sits before réfléchir."}
       ],
       "mistakes": []
+    },
+    {
+      "id": "whole-complement", "title": "Rétablir le complément entier avant de choisir",
+      "paragraphs": ["A pronoun can replace an action as well as an object. Rebuild the full complement: renoncer à modifier le plan gives y renoncer, because à introduces the action. By contrast, a previously mentioned action can be recalled with le faire when faire means do that. The presence of an infinitive in the original is not by itself a reason to choose y.", "Also distinguish an unspecified amount from an identified object. Du tissu, some fabric, can become en; ce tissu, this particular fabric, can become le. The fact that fabric is a mass substance does not force en when the original phrase identifies it as a whole. With quantities of people, en is ordinary too: it can stand for the counted noun while a number remains. A blanket ban on en referring to people would be wrong.", "Use a three-step check: restore the missing words, locate any preposition required by the original construction, and keep any quantity or description that the pronoun does not replace. Then put the pronoun beside the verb it belongs to. For a person after penser à, keep à plus the stressed pronoun; do not assume that every person introduced by à becomes lui or leur."],
+      "points": ["Vocabulary: le tissu (masculine), fabric; un interprète / une interprète (masculine/feminine), an interpreter."],
+      "examples": [
+        {"french": "Renoncer à modifier le plan ? Nous **y renoncerons** seulement si c'est nécessaire.", "english": "Give up changing the plan? We will give that up only if necessary.", "note": "Y replaces the whole à + action complement."},
+        {"french": "Reprendre les mesures ? Nous pouvons **le faire** maintenant.", "english": "Take the measurements again? We can do that now.", "note": "Le faire recalls the action as a whole."},
+        {"french": "Du tissu, j'**en** coupe pour les essais. Ce tissu épais, je **le** garde pour les sacs.", "english": "I cut some fabric for the trials. I keep this thick fabric for the bags.", "note": "An amount and a particular identified material have different references."},
+        {"french": "Des interprètes, l'équipe **en** cherche deux.", "english": "The team is looking for two interpreters.", "note": "En can refer to people in a quantity construction; deux remains."}
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
@@ -59,7 +71,11 @@
     {"id": "item-13", "kind": "text", "pool": "review", "section_id": "en", "prompt": "Replace de Bordeaux with en: Elle revient de Bordeaux.", "choices": [], "answers": ["Elle en revient."], "explanation": "En can replace an origin introduced by de."},
     {"id": "item-14", "kind": "text", "pool": "review", "section_id": "y", "prompt": "Replace au rendez-vous with y: Je ne suis pas allé au rendez-vous.", "choices": [], "answers": ["Je n'y suis pas allé."], "explanation": "Y precedes the auxiliary inside the negative group."},
     {"id": "item-15", "kind": "text", "pool": "review", "section_id": "neutral", "prompt": "Supply the neutral pronoun before ai: C'était une erreur; je ___ ai compris trop tard.", "choices": [], "answers": ["l'"], "explanation": "Neutral le elides before ai and replaces the fact."},
-    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "neutral", "prompt": "Supply the neutral pronoun: Ils sont disponibles; nous ___ serons demain.", "choices": [], "answers": ["le"], "explanation": "Le replaces the adjective regardless of plural subjects."}
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "neutral", "prompt": "Supply the neutral pronoun: Ils sont disponibles; nous ___ serons demain.", "choices": [], "answers": ["le"], "explanation": "Le replaces the adjective regardless of plural subjects."},
+    {"id": "depth-action-complement", "kind": "text", "pool": "practice", "section_id": "whole-complement", "prompt": "Replace the whole phrase à changer d'horaire with y, keeping the other words: Nous songeons à changer d'horaire.", "choices": [], "answers": ["Nous y songeons."], "explanation": "Songer à takes an à complement, here an action. Y replaces that whole complement."},
+    {"id": "depth-do-that", "kind": "text", "pool": "check", "section_id": "whole-complement", "prompt": "Avoid repeating vérifier les données by using the taught two-word group le + faire: Vérifier les données ? Je vais ___ après la pause.", "choices": [], "answers": ["le faire"], "explanation": "Neutral le with faire recalls the action; it goes before the infinitive faire."},
+    {"id": "depth-specific-material", "kind": "text", "pool": "check", "section_id": "whole-complement", "prompt": "Replace the specifically identified la farine in this sentence with a direct-object pronoun, without changing anything else: Je pèse la farine.", "choices": [], "answers": ["Je la pèse."], "explanation": "The definite feminine noun phrase refers to the identified flour, so la is appropriate rather than a pronoun meaning some of it."},
+    {"id": "depth-counted-people", "kind": "text", "pool": "review", "section_id": "whole-complement", "prompt": "Replace assistants with en and preserve the number: Nous recrutons trois assistants.", "choices": [], "answers": ["Nous en recrutons trois."], "explanation": "En can replace a counted noun referring to people; keep trois."}
   ],
   "production_task": {"prompt": "Write a short exchange about a proposed workshop. Mention the location and return to it with y; mention a topic with de and return to it with en; confirm a whole fact with le; use neutral le for an adjective.", "model_answer": "L'atelier aura lieu à la mairie. Nous y irons samedi. Nous devons parler du budget; nous en parlerons après la visite. La salle est petite, je le sais. Les bénévoles sont motivés, et je le suis aussi.", "translation": "The workshop will take place at the town hall. We will go there on Saturday. We need to talk about the budget; we will discuss it after the visit. The room is small, I know that. The volunteers are motivated, and so am I.", "rubric": ["Make each pronoun's reference recoverable.", "Distinguish a de complement, a location and a whole fact.", "Do not make neutral le agree with an adjective or subject.", "Place the pronoun with the appropriate verb."]}
 }

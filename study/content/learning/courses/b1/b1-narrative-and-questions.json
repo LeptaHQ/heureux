@@ -41,6 +41,17 @@
         {"french": "Nora **ne s'est-elle pas inscrite** hier?", "english": "Didn't Nora register yesterday?", "note": "Ne precedes s'; pas follows the inverted auxiliary unit."}
       ],
       "mistakes": [{"avoid": "Les participantes ont compris-elles?", "prefer": "Les participantes ont-elles compris?", "why": "Invert the auxiliary ont, not the participle compris."}]
+    },
+    {
+      "id": "coordinated-inversion", "title": "Un groupe avec moi ou toi dans une question",
+      "paragraphs": ["A noun group containing moi is repeated by nous in an inverted question; a group containing toi but not moi is repeated by vous. This changes the auxiliary as well as the pronoun: le responsable et moi avons-nous..., la responsable et toi avez-vous.... Do not automatically use ils or elles just because two people are named.", "For a reflexive verb, one nous/vous before the auxiliary belongs to the verb and a second after it repeats the subject. In le responsable et moi nous sommes-nous inscrits?, the first nous is reflexive and the second nous is the inverted subject pronoun. Neither is an accidental duplicate. Match participle agreement to the actual group where that verb requires it."],
+      "points": ["These written question patterns are formal. Est-ce que with ordinary subject order is often easier in conversation."],
+      "examples": [
+        {"french": "La responsable et moi **avons-nous choisi** la bonne date ?", "english": "Have the manager and I chosen the right date?", "note": "A group containing the speaker is nous; the following object leaves choisi unchanged."},
+        {"french": "Le formateur et toi **avez-vous confirmé** l'horaire ?", "english": "Have the trainer and you confirmed the schedule?", "note": "A group containing the addressee but not the speaker is vous."},
+        {"french": "La responsable et moi **nous sommes-nous inscrites** au même atelier ?", "english": "Have the manager and I registered for the same workshop?", "note": "Both people are women here. The first nous is reflexive, the second is the subject pronoun; inscrites agrees with the group."}
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
@@ -59,7 +70,10 @@
     {"id": "item-13", "kind": "text", "pool": "review", "section_id": "inversion", "prompt": "Turn into an inverted question retaining the noun: Amina s'est inscrite.", "choices": [], "answers": ["Amina s'est-elle inscrite?"], "explanation": "Retain Amina and place elle after est."},
     {"id": "item-14", "kind": "text", "pool": "review", "section_id": "reflexive-negative", "prompt": "Rewrite with ne ... jamais: Il s'est plaint.", "choices": [], "answers": ["Il ne s'est jamais plaint."], "explanation": "Jamais takes the same position after the auxiliary as pas."},
     {"id": "item-15", "kind": "text", "pool": "review", "section_id": "viewpoint", "prompt": "Supply être in the imparfait: Vous ___ déjà sur place.", "choices": [], "answers": ["étiez"], "explanation": "Être has the exceptional imparfait stem ét-."},
-    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "inversion", "prompt": "Supply only the inverted unit: ___ rappelé l'heure du rendez-vous? Use vous and se rappeler in the passé composé.", "choices": [], "answers": ["Vous êtes-vous"], "explanation": "Reflexive vous precedes êtes; subject vous follows it. Rappelé stays unchanged before its following direct object."}
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "inversion", "prompt": "Supply only the inverted unit: ___ rappelé l'heure du rendez-vous? Use vous and se rappeler in the passé composé.", "choices": [], "answers": ["Vous êtes-vous"], "explanation": "Reflexive vous precedes êtes; subject vous follows it. Rappelé stays unchanged before its following direct object."},
+    {"id": "depth-speaker-group-question", "kind": "text", "pool": "practice", "section_id": "coordinated-inversion", "prompt": "Supply avoir and its inverted subject pronoun: Le jury et moi ___ retenu la même candidature ?", "choices": [], "answers": ["avons-nous"], "explanation": "A group containing moi is repeated by nous; the auxiliary must be avons."},
+    {"id": "depth-addressee-group-question", "kind": "text", "pool": "check", "section_id": "coordinated-inversion", "prompt": "Supply avoir and its inverted subject pronoun: Ta sœur et toi ___ reçu les invitations ?", "choices": [], "answers": ["avez-vous"], "explanation": "A group containing toi but not the speaker is vous, paired with avez."},
+    {"id": "depth-double-nous", "kind": "text", "pool": "review", "section_id": "coordinated-inversion", "prompt": "Complete the reflexive and inverted auxiliary-pronoun group only: Les autres bénévoles et moi ___ retrouvés devant la mairie ? Use se retrouver in the passé composé.", "choices": [], "answers": ["nous sommes-nous"], "explanation": "Reflexive nous stays before sommes; the subject pronoun nous follows it with a hyphen. Both are required."}
   ],
   "production_task": {"prompt": "A colleague missed a meeting. Write a brief account with background, one completed event and one earlier event. Add a negative reflexive sentence and a noun-subject inverted question you could use in a formal follow-up.", "model_answer": "Il pleuvait et le bus avançait lentement. Lina avait oublié son téléphone. Elle est arrivée après la réunion, mais elle ne s'est pas découragée. La responsable a-t-elle reçu son courriel?", "translation": "It was raining and the bus was moving slowly. Lina had forgotten her phone. She arrived after the meeting, but she did not lose heart. Did the manager receive her email?", "rubric": ["Make the three time viewpoints distinguishable.", "Keep the reflexive pronoun before être and pas after it.", "Invert the auxiliary and repeat the noun with a matching subject pronoun.", "Use subject agreement only where the construction requires it."]}
 }

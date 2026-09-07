@@ -43,6 +43,17 @@
         {"french": "**Même** les débutants ont réussi.", "english": "Even the beginners succeeded.", "note": "Adverbial même stays singular before a plural group."}
       ],
       "mistakes": []
+    },
+    {
+      "id": "recurring-events", "title": "Un intervalle régulier ou un événement qui se répète",
+      "paragraphs": ["An interval answers how often an event happens; a trigger tells you what happens whenever another event occurs. Compare chaque année or tous les ans, every year, with chaque fois que + a clause, every time something happens. Une fois (feminine) means an occasion here, not a unit on a calendar.", "When the repeated occasion is already understood, à chaque fois can stand on its own. Before a clause, both chaque fois que and à chaque fois que are normal. Que elides before a vowel. Do not confuse chaque fois with une fois, once: a repeated instruction is not a one-time instruction."],
+      "points": ["Identify the repeated unit first: a named duration takes chaque/tous les; a recurring situation takes (à) chaque fois que."],
+      "examples": [
+        {"french": "Le détecteur est contrôlé **tous les ans**.", "english": "The detector is inspected every year.", "note": "A calendar-based schedule; chaque année expresses the same frequency."},
+        {"french": "**Chaque fois qu'**une porte reste ouverte, une alarme retentit.", "english": "Every time a door remains open, an alarm sounds.", "note": "The door being open is the trigger, not a regular interval."},
+        {"french": "Tu as dû recommencer ? Oui, **à chaque fois**.", "english": "Did you have to start again? Yes, every time.", "note": "The occasion is understood, so no following clause is needed."}
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
@@ -61,7 +72,10 @@
     {"id": "item-13", "kind": "text", "pool": "review", "section_id": "meme", "prompt": "Supply the emphatic pronoun for one woman addressed politely: Vous l'avez vérifié ___.", "choices": [], "answers": ["vous-même"], "explanation": "Polite singular vous takes singular même."},
     {"id": "item-14", "kind": "text", "pool": "review", "section_id": "meme", "prompt": "Complete the emphatic phrase meaning kindness itself: Elle est la gentillesse ___.", "choices": [], "answers": ["même"], "explanation": "Post-noun même can intensify an abstract quality as itself."},
     {"id": "item-15", "kind": "text", "pool": "review", "section_id": "amounts", "prompt": "Supply the complete quantity phrase meaning few before idées: Il a ___ idées. Use peu.", "choices": [], "answers": ["peu d'"], "explanation": "Peu de before a vowel becomes peu d'."},
-    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "meme", "prompt": "Supply même in the phrase meaning at the exact spot: à l'endroit ___ où le chemin commence.", "choices": [], "answers": ["même"], "explanation": "Post-noun même emphasizes the precise location."}
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "meme", "prompt": "Supply même in the phrase meaning at the exact spot: à l'endroit ___ où le chemin commence.", "choices": [], "answers": ["même"], "explanation": "Post-noun même emphasizes the precise location."},
+    {"id": "depth-event-trigger", "kind": "text", "pool": "practice", "section_id": "recurring-events", "prompt": "Link a recurring trigger to its result. Replace Dès que with the taught expression meaning every time that: Dès qu'un colis arrive, je reçois un message. Give only the replacement, including elision; forms with or without à are accepted.", "choices": [], "answers": ["Chaque fois qu'", "À chaque fois qu'"], "explanation": "The trigger recurs whenever a parcel arrives. Both chaque fois que and à chaque fois que work, and que elides before un."},
+    {"id": "depth-event-frequency", "kind": "choice", "pool": "check", "section_id": "recurring-events", "prompt": "A technician must record a measurement on every restart, however irregularly restarts occur. Which instruction states that rule?", "choices": ["Notez la mesure chaque fois que la machine redémarre.", "Notez la mesure une fois par an."], "answers": ["Notez la mesure chaque fois que la machine redémarre."], "explanation": "Chaque fois que attaches the action to every occurrence of the restart; une fois par an sets an unrelated yearly frequency."},
+    {"id": "depth-event-alone", "kind": "text", "pool": "review", "section_id": "recurring-events", "prompt": "Answer with the taught standalone expression meaning every time, using à, chaque and fois: Vous avez vérifié le billet à chacun de vos voyages ? Oui, ___.", "choices": [], "answers": ["à chaque fois"], "explanation": "The journeys are already understood; à chaque fois needs no further clause."}
   ],
   "production_task": {"prompt": "Explain your association's routine and resources. State a recurring interval, a few available items, a limited resource, something the same for everyone and one surprising fact using even.", "model_answer": "Nous nous réunissons toutes les deux semaines. Nous avons quelques outils et un peu de matériel, mais peu d'argent. Tous les membres suivent les mêmes consignes. Même les nouveaux participants peuvent proposer une activité. Nous préparons les affiches nous-mêmes.", "translation": "We meet every two weeks. We have a few tools and a little equipment, but not much money. All members follow the same instructions. Even new participants can propose an activity. We prepare the posters ourselves.", "rubric": ["Do not confuse an interval with a number of meetings per week.", "Choose quantity expressions according to countable or mass meaning.", "Agree adjective mêmes but not adverb même.", "Use the emphatic pronoun with a hyphen if included."]}
 }

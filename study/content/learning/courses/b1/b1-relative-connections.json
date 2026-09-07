@@ -5,7 +5,7 @@
   "order": 14, "duration_minutes": 14, "prerequisites": [],
   "objectives": ["Distinguish relative subject qui from direct object que.", "Refer to a place or time with où.", "Choose ce qui/ce que when no explicit noun is supplied."],
   "keywords": ["relative pronouns", "qui", "que", "où", "ce qui", "ce que", "antecedent"],
-  "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],
+  "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}, {"label": "OQLF: identifying subjects, including relative-clause inversion", "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/25319/la-syntaxe/le-sujet-dans-la-phrase/reperage-du-sujet-pour-eviter-les-erreurs-daccord-du-verbe"}],
   "related_legacy_ids": ["grammar-relative-pronouns"],
   "sections": [
     {
@@ -41,6 +41,29 @@
         {"french": "Le rendez-vous a été confirmé, **ce qui** nous rassure.", "english": "The appointment was confirmed, which reassures us.", "note": "Ce qui refers back to the whole confirmation."}
       ],
       "mistakes": []
+    },
+    {
+      "id": "reconstruct-clause", "title": "Retrouver le rôle même si l'ordre change",
+      "paragraphs": ["To choose qui or que, temporarily make the relative clause an independent sentence and put the named noun back. In le devis que prépare l'architecte, rebuild L'architecte prépare le devis. The architect is the subject; the quotation is the object, so que is correct even though the next word is a verb. This noun-subject inversion is common in written French. It is not the auxiliary-pronoun inversion of a question.", "The word immediately after the relative is only a clue, not a rule. An adverb or an object pronoun may intervene before the verb, and a noun subject may follow it. Identify the verb, find who or what is its subject, then locate the missing role. If the antecedent fills the subject role, use qui; if a different subject acts on it directly, use que. The same analysis applies to ce qui and ce que.", "Keep the verb's agreement tied to its actual subject. In les documents que demande le service, demande agrees with singular le service, not plural documents. By contrast, les documents qui manquent has plural manquent because documents supplies the subject of the relative."],
+      "points": ["Vocabulary: un devis (masculine), a quotation or estimate; un architecte / une architecte (masculine/feminine), an architect; un document (masculine), a document."],
+      "examples": [
+        {"french": "Je relis le devis **que prépare l'architecte**.", "english": "I am rereading the quotation that the architect is preparing.", "note": "Reconstruction: L'architecte prépare le devis. Que is the direct object despite preceding prépare."},
+        {"french": "Je relis le devis **qui, normalement, comprend** la livraison.", "english": "I am rereading the quotation which normally includes delivery.", "note": "Reconstruction: Le devis comprend normalement la livraison. The intervening adverb does not change qui's subject role."},
+        {"french": "Voici les documents **que demande le service**.", "english": "Here are the documents that the department is requesting.", "note": "Le service demande les documents; demande is singular."},
+        {"french": "Je note **ce que recommande le guide**.", "english": "I am noting what the guide recommends.", "note": "Le guide recommande something. The unnamed something is the object, so ce que is needed."}
+      ],
+      "mistakes": [{"avoid": "Les pièces que réclament la banque sont prêtes.", "prefer": "Les pièces que réclame la banque sont prêtes.", "why": "Rebuild La banque réclame les pièces. The relative verb has singular la banque as subject; plural pièces is its object."}]
+    },
+    {
+      "id": "question-or-clause", "title": "Distinguer l'infinitif et la proposition conjuguée",
+      "paragraphs": ["In an embedded question with a finite verb and its own subject, use ce que for the unknown direct object: Je ne sais pas ce que nous devons emporter. A finite verb is conjugated for a subject and tense. With an infinitive directly expressing what to do, quoi can supply that object instead: Je ne sais pas quoi emporter. Do not write ce que emporter or ce qui emporter.", "Relative où connects a place or time noun to its clause; it does not replace quand in a direct question about time. Compare Quand aura lieu la visite? with le jour où la visite aura lieu. Keep the relative word in French even where English would omit when or that."],
+      "points": ["The infinitive construction does not cover every English what: inspect whether the following verb is infinitive or finite, and whether a preposition is required."],
+      "examples": [
+        {"french": "Je ne sais pas **quoi emporter** pour la randonnée.", "english": "I don't know what to take for the hike.", "note": "An unknown object before the infinitive emporter."},
+        {"french": "Je ne sais pas **ce que nous devons emporter**.", "english": "I don't know what we must take.", "note": "Nous is the subject of finite devons; the unknown thing is the direct object of emporter."},
+        {"french": "**Quand** aura lieu la visite ? Je cherche le jour **où** elle aura lieu.", "english": "When will the visit take place? I am looking for the day on which it will take place.", "note": "The question asks when; the relative clause specifies a time noun."}
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
@@ -59,7 +82,14 @@
     {"id": "item-13", "kind": "text", "pool": "review", "section_id": "unnamed", "prompt": "Supply ce qui, ce que or ce qu': Dis-moi ___ elle cherche.", "choices": [], "answers": ["ce qu'"], "explanation": "The object relative elides before elle."},
     {"id": "item-14", "kind": "text", "pool": "review", "section_id": "unnamed", "prompt": "Supply ce qui or ce que to refer to the whole previous event: Ils ont annulé, ___ nous laisse plus de temps.", "choices": [], "answers": ["ce qui"], "explanation": "The cancellation as a whole is the subject of laisse."},
     {"id": "item-15", "kind": "text", "pool": "review", "section_id": "qui-que", "prompt": "Join with que, without changing the wording otherwise: Voici le film. Nous recommandons ce film.", "choices": [], "answers": ["Voici le film que nous recommandons."], "explanation": "Replace the second direct object ce film with que."},
-    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "where-when", "prompt": "Supply the accented relative pronoun: Voici l'endroit ___ nous nous retrouvons.", "choices": [], "answers": ["où"], "explanation": "Où marks the meeting location; ou without an accent means or."}
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "where-when", "prompt": "Supply the accented relative pronoun: Voici l'endroit ___ nous nous retrouvons.", "choices": [], "answers": ["où"], "explanation": "Où marks the meeting location; ou without an accent means or."},
+    {"id": "depth-inverted-object", "kind": "text", "pool": "practice", "section_id": "reconstruct-clause", "prompt": "Rebuild Le mécanicien vérifie les freins, then supply qui or que: les freins ___ vérifie le mécanicien.", "choices": [], "answers": ["que"], "explanation": "The mechanic is the subject even after vérifie; les freins is the direct object replaced by que."},
+    {"id": "depth-intervening-adverb", "kind": "text", "pool": "check", "section_id": "reconstruct-clause", "prompt": "Supply qui or que: un appareil ___, parfois, émet un signal. The device emits the signal.", "choices": [], "answers": ["qui"], "explanation": "The device is the subject of émet. Parfois intervenes, but does not supply another subject."},
+    {"id": "depth-inverted-agreement", "kind": "text", "pool": "check", "section_id": "reconstruct-clause", "prompt": "Supply the present form of examiner: Les dossiers qu'___ la commission sont confidentiels.", "choices": [], "answers": ["examine"], "explanation": "Reconstruct La commission examine les dossiers. The singular commission is the subject of examine, regardless of its position."},
+    {"id": "depth-unnamed-inversion", "kind": "text", "pool": "review", "section_id": "reconstruct-clause", "prompt": "Supply ce qui or ce que for the object of the designer's proposal: Je dessine ___ propose la décoratrice.", "choices": [], "answers": ["ce que"], "explanation": "La décoratrice propose something; the unnamed thing is the object, so ce que precedes the inverted verb-subject sequence."},
+    {"id": "depth-infinitive-object", "kind": "text", "pool": "check", "section_id": "question-or-clause", "prompt": "Supply quoi, ce qui or ce que: Les formulaires se ressemblent ; je ne sais pas ___ remplir.", "choices": [], "answers": ["quoi"], "explanation": "Quoi supplies the unknown object before the infinitive remplir."},
+    {"id": "depth-finite-object", "kind": "text", "pool": "review", "section_id": "question-or-clause", "prompt": "Supply quoi, ce qui or ce que: Le menu est illisible ; je ne sais pas ___ les clients commandent.", "choices": [], "answers": ["ce que"], "explanation": "The finite verb commandent has the subject les clients; ce que supplies its object."},
+    {"id": "depth-time-question", "kind": "text", "pool": "practice", "section_id": "question-or-clause", "prompt": "Ask at what time the departure occurs, using quand or où: ___ part le prochain train ? Give only the question word.", "choices": [], "answers": ["Quand"], "explanation": "A direct question about time uses quand. Où can mean when only in the relevant relative construction after a time noun."}
   ],
   "production_task": {"prompt": "Recommend a neighbourhood activity in five sentences. Identify a person with qui, something you recommend with que, a location or time with où, and explain ce qui matters and ce que participants should bring.", "model_answer": "L'atelier que je recommande se trouve près de la gare. La bénévole qui l'anime explique très bien. C'est un lieu où chacun peut apprendre. Ce qui compte, c'est la curiosité. Voici ce que vous devez apporter: un carnet et un crayon.", "translation": "The workshop I recommend is near the station. The volunteer who runs it explains things very well. It is a place where everyone can learn. What matters is curiosity. Here is what you need to bring: a notebook and a pencil.", "rubric": ["Choose qui/que by the role inside the relative clause.", "Use où for a place or time relationship.", "Use ce only where there is no explicit noun antecedent or where it refers to a whole idea.", "Keep the recommendation coherent."]}
 }

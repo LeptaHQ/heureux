@@ -40,6 +40,16 @@
         {"french": "Elle **n'a trouvé** ce modèle **nulle part**.", "english": "She did not find this model anywhere.", "note": "The place expression comes after the object here."}
       ],
       "mistakes": []
+    },
+    {
+      "id": "subset-subject", "title": "Accorder avec aucun, non avec le groupe",
+      "paragraphs": ["To refer back to an already named group without repeating its noun, combine aucun/aucune with d'entre eux/elles. Aucune d'entre elles means none of those feminine referents, but aucune still controls a singular verb. Compare Certaines d'entre elles répondent, some of them answer, with Aucune d'entre elles ne répond, none of them answers.", "In a short reply, the negative pronoun can stand without ne because there is no conjugated verb to frame: Laquelle convient ? Aucune. Similarly, a choice between two can receive Ni l'une ni l'autre as a standalone answer. When you restore the full sentence, restore ne."],
+      "points": ["Elles in d'entre elles identifies the group; it is not the subject that controls the main verb's number."],
+      "examples": [
+        {"french": "J'ai comparé les offres. **Aucune d'entre elles n'est** adaptée.", "english": "I compared the offers. None of them is suitable.", "note": "Offres is feminine plural, but singular aucune controls est."},
+        {"french": "Laquelle des deux clés fonctionne ? **Ni l'une ni l'autre**.", "english": "Which of the two keys works? Neither.", "note": "No ne is needed in a verbless reply."}
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
@@ -58,7 +68,9 @@
     {"id": "item-13", "kind": "text", "pool": "review", "section_id": "subject", "prompt": "Rewrite meaning nobody answered, deleting the unnecessary word: Personne n'a pas répondu.", "choices": [], "answers": ["Personne n'a répondu."], "explanation": "The intended single negation uses personne with ne."},
     {"id": "item-14", "kind": "text", "pool": "review", "section_id": "none-neither", "prompt": "Supply venir in the present: Ni l'un ni l'autre ne ___. Either accepted number agreement is allowed.", "choices": [], "answers": ["vient", "viennent"], "explanation": "Both singular and plural agreement occur with the paired negative subjects."},
     {"id": "item-15", "kind": "text", "pool": "review", "section_id": "place", "prompt": "Complete the negative place expression: Elle ne trouve ses clés ___ part.", "choices": [], "answers": ["nulle"], "explanation": "Nulle part is the fixed expression."},
-    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "none-neither", "prompt": "Supply aucun in the correct form: ___ de ces livres ne traite du sujet.", "choices": [], "answers": ["Aucun"], "explanation": "Livre is masculine and aucun remains singular."}
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "none-neither", "prompt": "Supply aucun in the correct form: ___ de ces livres ne traite du sujet.", "choices": [], "answers": ["Aucun"], "explanation": "Livre is masculine and aucun remains singular."},
+    {"id": "depth-none-subset", "kind": "text", "pool": "check", "section_id": "subset-subject", "prompt": "Supply the full phrase none of them using aucune and elles: Les lampes sont neuves, mais ___ ne fonctionne.", "choices": [], "answers": ["aucune d'entre elles"], "explanation": "The group is feminine plural; aucune d'entre elles is still a singular subject."},
+    {"id": "depth-neither-fragment", "kind": "text", "pool": "review", "section_id": "subset-subject", "prompt": "Answer Neither to Lequel des deux itinéraires préférez-vous ? Use ni, l'un and l'autre only, without a verb.", "choices": [], "answers": ["Ni l'un ni l'autre."], "explanation": "The noun itinéraire is masculine. A standalone paired-pronoun reply does not contain ne."}
   ],
   "production_task": {"prompt": "Report an unsuccessful search for a room. Use a negative subject with personne or rien, a sentence with aucun/aucune, and a sentence with nulle part. Keep the tone factual.", "model_answer": "Personne n'a répondu à mes messages. Aucune des salles proposées n'est disponible samedi. Je n'ai trouvé de place nulle part dans le quartier. Rien ne nous empêche de chercher dans une autre commune.", "translation": "Nobody replied to my messages. None of the proposed rooms is available on Saturday. I did not find space anywhere in the neighbourhood. Nothing prevents us from looking in another municipality.", "rubric": ["Keep personne, rien and aucun subjects singular.", "Do not add pas to the target negative expressions.", "Place nulle part naturally and make clear what was searched for."]}
 }

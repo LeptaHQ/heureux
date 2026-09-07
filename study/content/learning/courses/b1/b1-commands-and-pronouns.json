@@ -42,6 +42,17 @@
         {"french": "**Ne m'en apporte pas** aujourd'hui.", "english": "Don't bring me any today.", "note": "Me elides before en, both before the verb."}
       ],
       "mistakes": []
+    },
+    {
+      "id": "sitting-and-infinitives", "title": "S'asseoir et rattacher le pronom au bon verbe",
+      "paragraphs": ["S'asseoir, to sit down, has two accepted imperative families. For tu, nous and vous: assieds-toi / asseyons-nous / asseyez-vous, or assois-toi / assoyons-nous / assoyez-vous. Negative commands are ne t'assieds pas / ne nous asseyons pas / ne vous asseyez pas, or ne t'assois pas / ne nous assoyons pas / ne vous assoyez pas. Both families are standard; the tasks accept either unless they explicitly ask for one.", "With an imperative followed by a reflexive infinitive, the reflexive pronoun belongs to the infinitive and stays before it: va te sécher, allons nous changer, allez vous installer. The imperative aller has no attached reflexive pronoun in that pattern. This can present going to do something rather than simply ordering the action; it is not automatically more polite in every tone or context."],
+      "points": ["Vocabulary: un siège (masculine), a seat. In an actual instruction, use one full form rather than reading the slash-separated alternatives aloud."],
+      "examples": [
+        {"french": "**Assieds-toi / Assois-toi** sur le siège près de la prise.", "english": "Sit on the seat near the socket.", "note": "Both imperative forms address one familiar person."},
+        {"french": "**Ne vous asseyez pas / Ne vous assoyez pas** sur ce banc fraîchement peint.", "english": "Don't sit on this freshly painted bench.", "note": "Negative vous precedes the verb in either family."},
+        {"french": "**Allez vous installer** dans la petite salle.", "english": "Go and settle in the small room.", "note": "Vous belongs to s'installer, not to aller; there is no hyphen."}
+      ],
+      "mistakes": [{"avoid": "Allez-vous installer dans la petite salle !", "prefer": "Allez vous installer dans la petite salle !", "why": "For the intended command go and settle, vous is the infinitive's reflexive pronoun. A hyphen after allez would suggest subject inversion instead."}]
     }
   ],
   "practice": [
@@ -64,7 +75,10 @@
     {"id": "item-17", "kind": "text", "pool": "check", "section_id": "y-en-positive", "prompt": "Replace de cet outil with en: Sers-toi de cet outil.", "choices": [], "answers": ["Sers-t'en."], "explanation": "Toi becomes t' before attached en; retain the s already present in sers."},
     {"id": "item-18", "kind": "text", "pool": "review", "section_id": "y-en-positive", "prompt": "Replace du courage with en: Aie du courage.", "choices": [], "answers": ["Aies-en."], "explanation": "The irregular tu command aie gains a linking s directly before en."},
     {"id": "item-19", "kind": "text", "pool": "practice", "section_id": "reflexive", "prompt": "Supply être as a nous command: ___ patients.", "choices": [], "answers": ["Soyons"], "explanation": "Être has the irregular imperative soyons."},
-    {"id": "item-20", "kind": "text", "pool": "check", "section_id": "reflexive", "prompt": "Supply savoir as a vous command: ___ que vous pouvez nous appeler.", "choices": [], "answers": ["Sachez"], "explanation": "The imperative is sachez, not the present savez."}
+    {"id": "item-20", "kind": "text", "pool": "check", "section_id": "reflexive", "prompt": "Supply savoir as a vous command: ___ que vous pouvez nous appeler.", "choices": [], "answers": ["Sachez"], "explanation": "The imperative is sachez, not the present savez."},
+    {"id": "depth-sit-invitation", "kind": "text", "pool": "practice", "section_id": "sitting-and-infinitives", "prompt": "Invite the group, including yourself, to sit down. Give only the affirmative nous imperative of s'asseoir; either standard family is accepted.", "choices": [], "answers": ["Asseyons-nous.", "Assoyons-nous."], "explanation": "Both families retain the imperative nous ending and attach reflexive nous after a hyphen."},
+    {"id": "depth-sit-prohibition", "kind": "text", "pool": "check", "section_id": "sitting-and-infinitives", "prompt": "Give only the negative tu imperative of s'asseoir with ne ... pas. Both standard families are accepted.", "choices": [], "answers": ["Ne t'assieds pas.", "Ne t'assois pas."], "explanation": "Te elides before the verb and stays before it; both assieds and assois are standard."},
+    {"id": "depth-reflexive-infinitive-command", "kind": "text", "pool": "review", "section_id": "sitting-and-infinitives", "prompt": "Build a command to one familiar person from va, te and changer, meaning go and get changed. Use those words only.", "choices": [], "answers": ["Va te changer."], "explanation": "Te belongs to the reflexive infinitive changer, so it precedes that infinitive without an imperative hyphen."}
   ],
   "production_task": {"prompt": "Give five instructions to a new volunteer. Include an affirmative reflexive command, a command with y, a command with en and two negative commands, one with an object pronoun.", "model_answer": "Installe-toi près de l'entrée. Le vestiaire est au fond: vas-y pour poser ton sac. Il reste des badges: prends-en un. Ne te dépêche pas. Le dossier est confidentiel: ne le montre pas aux visiteurs.", "translation": "Settle in near the entrance. The cloakroom is at the back: go there to put down your bag. There are badges left: take one. Don't hurry. The file is confidential: don't show it to visitors.", "rubric": ["Use hyphens only in the affirmative attached-pronoun groups.", "Check the added s before y/en where required.", "Keep negative pronouns before the verb.", "Make the instructions practical and unambiguous."]}
 }

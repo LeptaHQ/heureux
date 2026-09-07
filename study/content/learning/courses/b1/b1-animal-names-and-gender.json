@@ -42,6 +42,17 @@
         {"french": "Cette **souris mâle** est **petite**.", "english": "This male mouse is small.", "note": "Grammatical feminine agreement remains."}
       ],
       "mistakes": []
+    },
+    {
+      "id": "wildlife-descriptions", "title": "Nommer l'espèce sans inventer le sexe",
+      "paragraphs": ["Two useful wildlife families are un lion (masculine), lion; une lionne (feminine), lioness; un lionceau (masculine), lion cub; and un cerf (masculine), stag or deer of the species; une biche (feminine), doe; un faon (masculine), fawn. Do not assume that a young animal is male just because its ordinary noun is masculine. Un lionceau femelle and un faon femelle retain masculine grammatical agreement.", "For a wildlife observation, first decide what is actually known: species, age and sex are separate pieces of information. Use the sex-specific word when that distinction is supported by the context; otherwise a species or young-animal term can be enough. The plural lionceaux follows the -eau pattern already used for other young animals."],
+      "points": ["These are recognition and description terms, not a requirement to memorize every zoological age label."],
+      "examples": [
+        {"french": "La caméra a filmé une **biche** avec son **faon**.", "english": "The camera filmed a doe with her fawn.", "note": "The nouns distinguish an adult female from a young animal; faon alone does not specify the young animal's sex."},
+        {"french": "La fiche indique : « Un **lionceau femelle**, encore très **jeune**. »", "english": "The record says: 'A female lion cub, still very young.'", "note": "Femelle adds biological information without replacing the masculine article un."},
+        {"french": "Les **lionceaux** restent près de la **lionne**.", "english": "The lion cubs stay near the lioness.", "note": "The young-animal noun has plural -eaux."}
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
@@ -79,7 +90,10 @@
     {"id": "item-32", "kind": "text", "pool": "practice", "section_id": "birds", "prompt": "Give the specific adult female counterpart of un coq, including the indefinite article.", "choices": [], "answers": ["une poule"], "explanation": "The adult female chicken is une poule."},
     {"id": "item-33", "kind": "text", "pool": "check", "section_id": "farm", "prompt": "Give either of the two taught generic adult words for a pig, including an indefinite article. Do not use the specialist breeding-male term.", "choices": [], "answers": ["un porc", "un cochon"], "explanation": "Porc and cochon are both taught generic terms; verrat is more specific."},
     {"id": "item-34", "kind": "text", "pool": "review", "section_id": "pets", "prompt": "Give the plural of un lapereau, including the indefinite article.", "choices": [], "answers": ["des lapereaux"], "explanation": "The young-rabbit noun takes the regular -eau to -eaux plural."},
-    {"id": "item-35", "kind": "text", "pool": "check", "section_id": "farm", "prompt": "Give the taught masculine noun for a foal, including the indefinite article.", "choices": [], "answers": ["un poulain"], "explanation": "Poulain can be the generic foal term or specify a male foal; pouliche specifies a female."}
+    {"id": "item-35", "kind": "text", "pool": "check", "section_id": "farm", "prompt": "Give the taught masculine noun for a foal, including the indefinite article.", "choices": [], "answers": ["un poulain"], "explanation": "Poulain can be the generic foal term or specify a male foal; pouliche specifies a female."},
+    {"id": "depth-wildlife-label", "kind": "text", "pool": "practice", "section_id": "wildlife-descriptions", "prompt": "A wildlife caption must name an adult female deer and a fawn. Give the two specific taught noun phrases in that order, each with an indefinite article, joined with et.", "choices": [], "answers": ["une biche et un faon"], "explanation": "Biche identifies the adult female; faon identifies a young deer without necessarily specifying its sex."},
+    {"id": "depth-cub-plural", "kind": "text", "pool": "check", "section_id": "wildlife-descriptions", "prompt": "Pluralize only the noun in un lionceau to label several cubs. Give the plural noun without an article.", "choices": [], "answers": ["lionceaux"], "explanation": "Lionceau takes -eaux in the plural, like veau and lapereau."},
+    {"id": "depth-wildlife-sex", "kind": "text", "pool": "review", "section_id": "wildlife-descriptions", "prompt": "Agree blessé with the grammatical noun, not the animal's sex: Le faon femelle est ___.", "choices": [], "answers": ["blessé"], "explanation": "Faon is masculine even when femelle specifies the animal's sex."}
   ],
   "production_task": {"prompt": "Write a short description for visitors to a small educational farm. Mention three adult/young animal families and include one sentence where grammatical gender stays fixed despite the animal's sex.", "model_answer": "Près de l'entrée, la jument marche avec son poulain. Les vaches restent à l'ombre avec les veaux. Une poule guide ses poussins vers l'abri. Dans la maison, un chaton femelle très curieux observe les visiteurs.", "translation": "Near the entrance, the mare walks with her foal. The cows stay in the shade with the calves. A hen leads her chicks towards the shelter. In the house, a very curious female kitten watches the visitors.", "rubric": ["Use articles and genders for the animal nouns.", "Distinguish adult, female and young terms where the description requires it.", "Keep adjective agreement tied to grammatical gender.", "Avoid inventing forms by adding e or a guessed baby suffix."]}
 }

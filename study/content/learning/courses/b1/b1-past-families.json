@@ -39,6 +39,17 @@
         {"french": "Le deuxième volume **est paru** en juin.", "english": "The second volume came out in June.", "note": "Être is accepted for publication; a paru is also possible."}
       ],
       "mistakes": [{"avoid": "Les icônes sont apparu.", "prefer": "Les icônes sont apparues.", "why": "With être, agree apparues with the feminine plural subject."}]
+    },
+    {
+      "id": "further-past-uses", "title": "Des emplois précis de concouru, encouru et rabattu",
+      "paragraphs": ["Concourir can mean compete, but concourir à + noun also means contribute to a result. Its participle is concouru. Encourir means incur or become liable to, especially a risk or penalty; it takes a direct object and gives encouru. These verbs share courir's past family without meaning physically run.", "Rabattre gives rabattu. A practical use is to fold or lower something into a different position, such as rabattre les sièges to fold down seats. Do not confuse this with débattre de, discuss or debate, merely because both belong to the battre family.", "All three use avoir in these nonreflexive constructions. Pair each participle with every auxiliary form: j'ai, tu as, il/elle/on a, nous avons, vous avez, ils/elles ont + concouru, encouru or rabattu. A following direct object does not cause subject agreement on the participle."],
+      "points": ["Vocabulary: une amélioration (feminine), an improvement; une pénalité (feminine), a penalty; un siège (masculine), a seat."],
+      "examples": [
+        {"french": "Les nouveaux horaires **ont concouru à** l'amélioration du service.", "english": "The new schedules contributed to the improvement of the service.", "note": "Here concourir à describes contributing, not taking part in a contest."},
+        {"french": "Nous **avons encouru** une pénalité pour ce retard.", "english": "We incurred a penalty for this delay.", "note": "Une pénalité is a direct object; no à is inserted."},
+        {"french": "Elles **ont rabattu** les sièges pour charger les vélos.", "english": "They folded down the seats to load the bicycles.", "note": "Rabattu has no feminine plural ending with avoir and a following object."}
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
@@ -63,7 +74,10 @@
     {"id": "item-19", "kind": "text", "pool": "review", "section_id": "avoir-families", "prompt": "Supply comparaître in the passé composé: Les témoins ___ devant le tribunal.", "choices": [], "answers": ["ont comparu"], "explanation": "Comparaître gives comparu and means appear in court."},
     {"id": "item-20", "kind": "text", "pool": "check", "section_id": "avoir-families", "prompt": "Supply secourir in the passé composé: Les bénévoles ___ les voyageurs bloqués.", "choices": [], "answers": ["ont secouru"], "explanation": "Secourir follows the couru participle family."},
     {"id": "item-21", "kind": "text", "pool": "review", "section_id": "avoir-families", "prompt": "Supply abattre in the passé composé: Le vent ___ un vieil arbre.", "choices": [], "answers": ["a abattu"], "explanation": "Abattre retains battu after its prefix."},
-    {"id": "item-22", "kind": "text", "pool": "check", "section_id": "avoir-families", "prompt": "Supply se battre in the passé composé: Elles ___ pour obtenir une bibliothèque.", "choices": [], "answers": ["se sont battues"], "explanation": "The reflexive construction uses être and feminine plural agreement, unlike avoir + battu."}
+    {"id": "item-22", "kind": "text", "pool": "check", "section_id": "avoir-families", "prompt": "Supply se battre in the passé composé: Elles ___ pour obtenir une bibliothèque.", "choices": [], "answers": ["se sont battues"], "explanation": "The reflexive construction uses être and feminine plural agreement, unlike avoir + battu."},
+    {"id": "depth-contribution-past", "kind": "text", "pool": "practice", "section_id": "further-past-uses", "prompt": "Use concourir in the passé composé for contributing, not competing: Ces deux changements ___ à la baisse des coûts.", "choices": [], "answers": ["ont concouru"], "explanation": "Concourir à can mean contribute to; the plural subject takes ont and the family participle is concouru."},
+    {"id": "depth-incurred-penalty", "kind": "text", "pool": "check", "section_id": "further-past-uses", "prompt": "Express incurred using encourir in the passé composé: Vous ___ une pénalité en dépassant le délai.", "choices": [], "answers": ["avez encouru"], "explanation": "Encourir takes the penalty directly and uses avoir + encouru."},
+    {"id": "depth-folded-seats", "kind": "text", "pool": "review", "section_id": "further-past-uses", "prompt": "Supply rabattre in the passé composé, not the verb meaning debate: La conductrice ___ les sièges arrière.", "choices": [], "answers": ["a rabattu"], "explanation": "Rabattre means fold down here; feminine conductrice does not add e to rabattu with avoir."}
   ],
   "production_task": {"prompt": "Describe a walking tour where you recognized someone and noticed something new. Use a connaître-family participle, a courir-family participle and apparaître with être. Include a feminine plural subject for one agreement.", "model_answer": "Nous avons parcouru le vieux quartier. J'ai reconnu une ancienne voisine près du marché. Deux fresques sont apparues sur le mur depuis ma dernière visite. Elles ont paru très lumineuses au soleil.", "translation": "We walked through the old neighbourhood. I recognized a former neighbour near the market. Two murals have appeared on the wall since my last visit. They looked very bright in the sunlight.", "rubric": ["Use the correct irregular participles.", "Do not agree avoir participles with the subject.", "Agree the être participle with the intended subject.", "Tell a connected event rather than a list of unrelated forms."]}
 }

@@ -41,6 +41,27 @@
         {"french": "Ajoutez **un demi-litre** d'eau.", "english": "Add half a litre of water.", "note": "Demi before the noun is invariable and hyphenated."}
       ],
       "mistakes": []
+    },
+    {
+      "id": "dimension-constructions", "title": "Mesure fixe ou adjectif qui s'accorde",
+      "paragraphs": ["Two dimension constructions place the describing word differently. After a measurement, de long, de large and de haut stay fixed; the noun alternatives are de longueur, de largeur and de hauteur. Depth uses de profondeur, not de profond. With être + adjective + de + measurement, however, the adjective describes the subject and agrees: la fosse est profonde de deux mètres.", "Keep the full agreement patterns available: haut, haute, hauts, hautes; long, longue, longs, longues; large, large, larges, larges; profond, profonde, profonds, profondes, in masculine singular, feminine singular, masculine plural and feminine plural order. First identify which construction you are using, then decide whether agreement applies.", "Sur can link two dimensions, meaning by: quatre mètres sur trois. It joins side lengths; the resulting area is a separate calculation, here twelve square metres. Do not call each side douze mètres or confuse the side lengths with the area."],
+      "points": ["Vocabulary: une fosse (feminine), a pit; une longueur (feminine), a length; une largeur (feminine), a width; une hauteur (feminine), a height; une profondeur (feminine), a depth."],
+      "examples": [
+        {"french": "Les fosses font deux mètres **de profondeur** ; elles sont **profondes de** deux mètres.", "english": "The pits are two metres deep; they have a depth of two metres.", "note": "The noun profondeur is fixed after the amount; the adjective profondes agrees before de."},
+        {"french": "La rampe fait six mètres **de longueur** ; elle est **longue de** six mètres.", "english": "The ramp is six metres in length; it is six metres long.", "note": "La rampe fait six mètres de long is another natural wording without adjective agreement."},
+        {"french": "L'abri fait quatre mètres **sur** trois, soit douze mètres carrés.", "english": "The shelter measures four metres by three, or twelve square metres.", "note": "Sur links two dimensions, not their sum."}
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "fraction-subject", "title": "La fraction et le nombre du verbe",
+      "paragraphs": ["A singular fraction followed by a plural group can allow singular or plural verb agreement: un quart des élèves participe / participent. Singular agreement highlights the fraction as one portion; plural agreement highlights its members. Neither form should automatically be marked wrong in an otherwise open context.", "Do not turn that choice into free agreement everywhere. A singular amount such as la moitié du réservoir is not a plural group of people; in La moitié du réservoir est vide, use singular est. And trois quarts already has a plural head in Les trois quarts sont réservés."],
+      "points": ["Check both the fractional expression and its complement before judging number."],
+      "examples": [
+        {"french": "**Un tiers des logements dispose / disposent** d'un balcon.", "english": "One third of the dwellings have a balcony.", "note": "Either agreement can express the stated proportion; the example displays accepted alternatives."},
+        {"french": "**La moitié du réservoir est** vide.", "english": "Half of the tank is empty.", "note": "The singular quantity and singular complement do not create a plural group reading."}
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
@@ -59,7 +80,12 @@
     {"id": "item-13", "kind": "text", "pool": "review", "section_id": "dimensions", "prompt": "Supply the fixed word for height: une tour de vingt mètres de ___.", "choices": [], "answers": ["haut"], "explanation": "De haut remains masculine singular in the measurement phrase."},
     {"id": "item-14", "kind": "text", "pool": "review", "section_id": "fractions", "prompt": "Write 4/5 in French words, without an article.", "choices": [], "answers": ["quatre cinquièmes"], "explanation": "Cinquièmes is plural with a numerator greater than one."},
     {"id": "item-15", "kind": "text", "pool": "review", "section_id": "fractions", "prompt": "Supply demi in the correct form: trois litres et ___.", "choices": [], "answers": ["demi"], "explanation": "Litre is masculine; post-noun demi does not take plural s."},
-    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "distance", "prompt": "Supply the two prepositions in order, separated by a comma: Le gîte est ___ quinze minutes à pied ___ la gare.", "choices": [], "answers": ["à, de"], "explanation": "À introduces travel time; de introduces the reference location."}
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "distance", "prompt": "Supply the two prepositions in order, separated by a comma: Le gîte est ___ quinze minutes à pied ___ la gare.", "choices": [], "answers": ["à, de"], "explanation": "À introduces travel time; de introduces the reference location."},
+    {"id": "depth-agree-dimension", "kind": "text", "pool": "practice", "section_id": "dimension-constructions", "prompt": "Supply the agreed form of long: Les passerelles sont ___ de quinze mètres.", "choices": [], "answers": ["longues"], "explanation": "In être + adjective + de + measurement, longues agrees with feminine plural passerelles."},
+    {"id": "depth-depth-noun", "kind": "text", "pool": "check", "section_id": "dimension-constructions", "prompt": "Complete the noun expression for depth: Le bassin fait un mètre de ___.", "choices": [], "answers": ["profondeur"], "explanation": "After the measurement, use de profondeur; de profond is not this dimension construction."},
+    {"id": "depth-two-sides", "kind": "text", "pool": "review", "section_id": "dimension-constructions", "prompt": "Write the French word meaning by between side lengths: La bâche fait sept mètres ___ deux.", "choices": [], "answers": ["sur"], "explanation": "Sur joins length and width; here the corresponding rectangular area is fourteen square metres."},
+    {"id": "depth-fraction-group-agreement", "kind": "text", "pool": "check", "section_id": "fraction-subject", "prompt": "Supply disposer in the present; either accepted number is allowed: Un quart des appartements ___ d'une cave.", "choices": [], "answers": ["dispose", "disposent"], "explanation": "Singular agreement foregrounds the quarter as a portion; plural agreement foregrounds the apartments."},
+    {"id": "depth-fraction-singular-amount", "kind": "text", "pool": "review", "section_id": "fraction-subject", "prompt": "Supply être in the present for this singular quantity: La moitié du gâteau ___ intacte.", "choices": [], "answers": ["est"], "explanation": "This subject refers to half of one cake and takes singular est."}
   ],
   "production_task": {"prompt": "Describe a room you might rent for an event. Give its distance from a station, its length and width, the fraction of the budget the rent would use, and a visit duration ending in et demie.", "model_answer": "La salle est à cinq minutes à pied de la gare. Elle fait huit mètres de long et six mètres de large. Le loyer utiliserait un tiers du budget. La visite durera une heure et demie.", "translation": "The room is a five-minute walk from the station. It is eight metres long and six metres wide. The rent would use one third of the budget. The visit will last an hour and a half.", "rubric": ["Include both à and de in the distance expression.", "Keep de long and de large fixed.", "Use the appropriate fractional noun and de contraction.", "Check demi's position and gender agreement."]}
 }

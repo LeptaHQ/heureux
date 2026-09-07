@@ -41,6 +41,17 @@
         {"french": "Nous **recourrons** à une carte papier si nécessaire.", "english": "We will use a paper map if necessary.", "note": "A courir-family verb need not describe physical running."}
       ],
       "mistakes": []
+    },
+    {
+      "id": "realising", "title": "Apercevoir quelque chose ou s'apercevoir de quelque chose",
+      "paragraphs": ["Apercevoir takes what you catch sight of directly. S'apercevoir de means become aware of or realize something, not literally see yourself. With a whole statement, use s'apercevoir que + clause. Keep the reflexive pronoun with this awareness meaning and keep de before a noun; do not combine de with que in this construction.", "The future stem stays apercevr-. Full reflexive forms: je m'apercevrai, tu t'apercevras, il/elle/on s'apercevra, nous nous apercevrons, vous vous apercevrez, ils/elles s'apercevront. Me, te and se elide before the initial vowel; nous and vous do not."],
+      "points": ["Vocabulary: une anomalie (feminine), an anomaly; une fumée (feminine), smoke."],
+      "examples": [
+        {"french": "Du belvédère, vous **apercevrez** la fumée au-dessus des toits.", "english": "From the lookout, you will catch sight of the smoke above the roofs.", "note": "A direct object names what can be seen."},
+        {"french": "En comparant les factures, vous **vous apercevrez de** l'anomalie.", "english": "By comparing the invoices, you will become aware of the anomaly.", "note": "The reflexive construction plus de expresses realization."},
+        {"french": "Tu **t'apercevras que** les deux codes sont identiques.", "english": "You will realize that the two codes are identical.", "note": "Que introduces the whole statement; no de appears before it."}
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
@@ -62,7 +73,10 @@
     {"id": "item-16", "kind": "text", "pool": "review", "section_id": "receiving", "prompt": "Supply recevoir in the future: Les candidates ___ un courriel.", "choices": [], "answers": ["recevront"], "explanation": "The plural subject takes -ont."},
     {"id": "item-17", "kind": "text", "pool": "check", "section_id": "seeing-sending", "prompt": "Supply pourvoir in the future: Le service ___ les postes vacants.", "choices": [], "answers": ["pourvoira"], "explanation": "Pourvoir retains pourvoir-, unlike voir's verr-."},
     {"id": "item-18", "kind": "text", "pool": "practice", "section_id": "running", "prompt": "Supply accourir in the future: Nous ___ dès votre appel.", "choices": [], "answers": ["accourrons"], "explanation": "Accourir keeps ac- before courir's courr- stem."},
-    {"id": "item-19", "kind": "text", "pool": "review", "section_id": "running", "prompt": "Supply secourir in the future: Vous ___ les personnes en difficulté.", "choices": [], "answers": ["secourrez"], "explanation": "Secourir uses secourr- with the future ending -ez."}
+    {"id": "item-19", "kind": "text", "pool": "review", "section_id": "running", "prompt": "Supply secourir in the future: Vous ___ les personnes en difficulté.", "choices": [], "answers": ["secourrez"], "explanation": "Secourir uses secourr- with the future ending -ez."},
+    {"id": "depth-realise-noun", "kind": "text", "pool": "practice", "section_id": "realising", "prompt": "Use s'apercevoir in the future, including its preposition, to mean become aware of: Nous ___ cette différence après le contrôle.", "choices": [], "answers": ["nous apercevrons de"], "explanation": "Nous nous apercevrons de names a future realization; the first nous is already printed as the subject."},
+    {"id": "depth-realise-clause", "kind": "text", "pool": "check", "section_id": "realising", "prompt": "Complete with s'apercevoir in the future and que, meaning realize that: Elle ___ le dossier est vide.", "choices": [], "answers": ["s'apercevra que"], "explanation": "A whole clause follows que; s' is the required reflexive pronoun, and there is no de before que."},
+    {"id": "depth-glimpse-versus-realise", "kind": "choice", "pool": "review", "section_id": "realising", "prompt": "Which future sentence describes becoming aware of a mistake rather than catching sight of a physical object?", "choices": ["Ils s'apercevront de leur erreur.", "Ils apercevront une tour."], "answers": ["Ils s'apercevront de leur erreur."], "explanation": "S'apercevoir de is the awareness construction; apercevoir + object is visual perception."}
   ],
   "production_task": {"prompt": "Write an itinerary update for a walking group. Include a message you will send, information they will receive, something they will see and the route they will cover.", "model_answer": "Je vous enverrai le plan ce soir. Vous recevrez aussi les consignes de sécurité. Depuis la colline, nous verrons le fleuve. Nous parcourrons ensuite le quartier du port.", "translation": "I will send you the map this evening. You will also receive the safety instructions. From the hill, we will see the river. We will then walk through the port neighbourhood.", "rubric": ["Keep the distinct stems for sending, receiving, seeing and covering a route.", "Use courr-, not courir-, in the derivative.", "Make the update a usable sequence of information."]}
 }

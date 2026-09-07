@@ -5,7 +5,7 @@
   "order": 21, "duration_minutes": 13, "prerequisites": ["b1-negative-scope", "b1-indefinite-quantity-and-emphasis"],
   "objectives": ["Distinguish an ongoing negative state from the absence of a completed event.", "Contrast depuis, pendant, il y a and en.", "Use à with common festivals and feminine saint's-day names."],
   "keywords": ["depuis", "negative present", "negative passé composé", "Noël", "Pâques", "Saint-Valentin", "duration"],
-  "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],
+  "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}, {"label": "Académie française: Aïd, lexical gender and festival names", "url": "https://www.dictionnaire-academie.fr/article/B0A00013"}],
   "related_legacy_ids": ["prepositions-time-duration", "daily-calendar"],
   "sections": [
     {
@@ -49,6 +49,28 @@
         {"french": "Un atelier sera proposé **à la Sainte-Catherine**.", "english": "A workshop will be offered on Saint Catherine's Day.", "note": "Sainte agrees with the saint's name, while the festival remains feminine."}
       ],
       "mistakes": [{"avoid": "Nous organisons un concert au Saint-Patrick.", "prefer": "Nous organisons un concert à la Saint-Patrick.", "why": "The celebration takes la, with an implied feminine fête, not le for the saint."}]
+    },
+    {
+      "id": "duration-scope", "title": "Depuis peu ou sans événement depuis longtemps",
+      "paragraphs": ["Negation has scope: the part of the meaning that it denies. With an ongoing present state, ne ... pas depuis longtemps can deny a long duration rather than deny the state itself. Je ne travaille pas ici depuis longtemps can mean that I do work here, but started recently. With the passé composé, Je n'ai pas travaillé ici depuis longtemps instead says that no work here has occurred for a long time.", "To avoid an unintended interpretation, establish whether the person is doing the activity now. For a recent start, a positive reformulation with depuis peu is often clearer. For a long absence of events, give a last-event date or use the negative compound past. Ne ... plus in the present highlights that a former state has stopped; it does not mean recently started."],
+      "points": ["Depuis peu means for a short time / recently. Do not decide the meaning from pas alone."],
+      "examples": [
+        {"french": "Je **ne travaille pas ici depuis longtemps** : j'ai commencé mardi.", "english": "I haven't been working here long: I started on Tuesday.", "note": "The job is current; the duration is short."},
+        {"french": "Je **n'ai pas travaillé ici depuis longtemps** : ma dernière mission date de 2018.", "english": "I haven't worked here in a long time: my last assignment was in 2018.", "note": "The long interval contains no work event here."},
+        {"french": "Elle **habite ici depuis peu**.", "english": "She has been living here for a short time.", "note": "A positive wording makes a recent start explicit."}
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "named-day", "title": "Une période de fête ou son jour précis",
+      "paragraphs": ["Le jour de + a celebration identifies the day more precisely than a general festival-period expression. Keep any article belonging to the celebration's name: le jour de Noël, le jour de la Saint-Jean, le jour de la Toussaint. The masculine le of le jour does not change the article inside the name that follows de.", "Other useful expressions are à Hanoucca and à l'Aïd. Learn the complete name with its article where present; a vowel does not automatically create an article. When an article is already needed, it elides before the vowel. For a notice, specify the intended celebration and local date rather than assuming that a festival always covers one day or falls on the same civil-calendar date."],
+      "points": ["Vocabulary: un jour (masculine), a day; Hanoucca (feminine), Hanukkah; l'Aïd (masculine), Eid, used for either of the two principal Muslim festivals in the consulted Academy entry."],
+      "examples": [
+        {"french": "La navette fonctionnera **le jour de la Saint-Jean**.", "english": "The shuttle will run on Saint John's Day.", "note": "Keep de la before the feminine festival name."},
+        {"french": "Une rencontre est prévue **à Hanoucca**.", "english": "A gathering is planned at Hanukkah.", "note": "This time expression has no article."},
+        {"french": "Les horaires changeront **le jour de l'Aïd**.", "english": "The opening hours will change on Eid day.", "note": "De precedes the name's elided article; confirm the actual date for the notice."}
+      ],
+      "mistakes": []
     }
   ],
   "practice": [
@@ -67,7 +89,13 @@
     {"id": "item-13", "kind": "text", "pool": "review", "section_id": "depuis", "prompt": "Use the present of fumer: Je ne ___ plus depuis mon déménagement.", "choices": [], "answers": ["fume"], "explanation": "An ongoing non-smoking habit is described in the present."},
     {"id": "item-14", "kind": "text", "pool": "review", "section_id": "depuis", "prompt": "Use the passé composé of voir: Je ne l'___ pas depuis vendredi.", "choices": [], "answers": ["ai vu", "ai vue"], "explanation": "No seeing event has occurred since Friday. The unspecified direct-object l' allows masculine vu or feminine vue."},
     {"id": "item-15", "kind": "text", "pool": "review", "section_id": "festival", "prompt": "Use à, adding an article only if required in the usual festival expression: ___ Pâques.", "choices": [], "answers": ["à"], "explanation": "The usual phrase here is à Pâques, without an article."},
-    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "duration-contrast", "prompt": "Choose depuis or pendant for a completed period: J'ai vécu à Lyon ___ quatre ans, puis je suis parti.", "choices": [], "answers": ["pendant"], "explanation": "The stay is presented as a completed duration."}
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "duration-contrast", "prompt": "Choose depuis or pendant for a completed period: J'ai vécu à Lyon ___ quatre ans, puis je suis parti.", "choices": [], "answers": ["pendant"], "explanation": "The stay is presented as a completed duration."},
+    {"id": "depth-short-duration", "kind": "choice", "pool": "practice", "section_id": "duration-scope", "prompt": "Read Je n'habite pas ici depuis longtemps : j'ai emménagé le mois dernier. Which statement follows?", "choices": ["The speaker lives here now and moved in recently.", "The speaker has not lived here for many years."], "answers": ["The speaker lives here now and moved in recently."], "explanation": "The present state is ongoing; pas denies a long duration, and the move-in date confirms the short-duration reading."},
+    {"id": "depth-recent-start-rephrase", "kind": "text", "pool": "check", "section_id": "duration-scope", "prompt": "Replace pas depuis longtemps with the taught positive recent-start phrase. Complete Je connais cette équipe ___. Use depuis and peu only.", "choices": [], "answers": ["depuis peu"], "explanation": "Depuis peu makes the recent start explicit while keeping the current state positive."},
+    {"id": "depth-long-absence", "kind": "choice", "pool": "review", "section_id": "duration-scope", "prompt": "A former volunteer last helped at the refuge ten years ago and has not helped there since. Choose the sentence that states this long absence of events.", "choices": ["Je n'ai pas aidé au refuge depuis longtemps.", "J'aide au refuge depuis peu."], "answers": ["Je n'ai pas aidé au refuge depuis longtemps."], "explanation": "The negative compound past denies any helping event over the interval; depuis peu would describe a recent start."},
+    {"id": "depth-feast-specific-day", "kind": "text", "pool": "check", "section_id": "named-day", "prompt": "Make the day explicit without losing the festival's article: replace à la Toussaint with le jour ... . Give the whole time phrase.", "choices": [], "answers": ["le jour de la Toussaint"], "explanation": "Le belongs to jour and la belongs to the festival name; de links them."},
+    {"id": "depth-eid-article", "kind": "text", "pool": "review", "section_id": "named-day", "prompt": "Complete the taught expression using à and the article in l'Aïd: Le centre propose un repas ___ Aïd. Give only the missing group.", "choices": [], "answers": ["à l'"], "explanation": "The complete expression is à l'Aïd. L' is the article belonging to the name, elided before a vowel."},
+    {"id": "depth-hanukkah-expression", "kind": "text", "pool": "practice", "section_id": "named-day", "prompt": "Use à with an article only if the taught expression requires one: une réunion ___ Hanoucca.", "choices": [], "answers": ["à"], "explanation": "The taught time expression is à Hanoucca, without an article."}
   ],
   "production_task": {"prompt": "Update a friend about your schedule. Describe one habit that has stopped and remains stopped, one event that has not occurred recently, and two future dates using different holiday expression patterns.", "model_answer": "Je ne travaille plus le samedi depuis janvier. Je n'ai pas reçu mon nouvel horaire depuis notre dernière réunion. Nous serons disponibles à Noël. L'association prévoit aussi un repas à la Saint-Patrick.", "translation": "I haven't worked on Saturdays since January. I haven't received my new schedule since our last meeting. We will be available at Christmas. The association is also planning a meal on Saint Patrick's Day.", "rubric": ["Use a present form for the continuing changed habit.", "Use the compound past for the missing completed event.", "Choose each festival's complete preposition/article expression.", "Make the dates and timeline understandable."]}
 }

@@ -5,7 +5,7 @@
   "cefr_level": "A1",
   "topic": "verbs-tenses-moods",
   "title": "Annoncer un projet : aller + infinitif",
-  "summary": "Use aller + infinitive for a planned or expected action, place reflexive pronouns correctly and recognise future-time uses of the present.",
+  "summary": "Use `aller` + infinitive for a planned or expected action, place reflexive pronouns correctly and recognise future-time uses of the present.",
   "order": 28,
   "duration_minutes": 12,
   "prerequisites": [
@@ -17,7 +17,7 @@
   "objectives": [
     "Form the near future for every subject.",
     "Keep a reflexive pronoun with the following infinitive.",
-    "Distinguish movement aller from future aller and recognise a future-oriented present."
+    "Distinguish movement `aller` from future `aller` and recognise a future-oriented present."
   ],
   "keywords": [
     "near future",
@@ -38,14 +38,14 @@
   "sections": [
     {
       "id": "formation",
-      "title": "Aller carries the person; the second verb names the planned action",
+      "title": "`Aller` carries the person; the second verb names the planned action",
       "paragraphs": [
-        "Aller in the present + an infinitive is a common way to announce an intention, a next step or an expected event. It often corresponds to English going to. Only aller is conjugated; the action verb stays in its dictionary form. The name futur proche does not impose a fixed time limit: a plan linked to the present can concern next year.",
-        "Compare je vais au marché, a movement to a place, with je vais travailler, a future action. In the second construction, you need not be physically going anywhere. A negative normally surrounds aller: je ne vais pas travailler."
+        "`Aller` in the present + an infinitive is a common way to announce an intention, a next step or an expected event. It often corresponds to English going to. Only `aller` is conjugated; the action verb stays in its dictionary form. The name `futur proche` does not impose a fixed time limit: a plan linked to the present can concern next year.",
+        "Compare `je vais au marché`, a movement to a place, with `je vais travailler`, a future action. In the second construction, you need not be physically going anywhere. A negative normally surrounds `aller`: `je ne vais pas travailler`."
       ],
       "points": [
-        "Use vais, vas, va, allons, allez, vont, then an infinitive.",
-        "Do not insert à before the infinitive in this future construction."
+        "Use `vais`, `vas`, `va`, `allons`, `allez`, `vont`, then an infinitive.",
+        "Do not insert `à` before the infinitive in this future construction."
       ],
       "examples": [
         {
@@ -66,7 +66,7 @@
         {
           "french": "Elle **ne va pas venir**.",
           "english": "She is not going to come.",
-          "note": "Ne…pas surrounds the conjugated aller."
+          "note": "`Ne…pas` surrounds the conjugated `aller`."
         }
       ],
       "mistakes": [
@@ -78,7 +78,7 @@
         {
           "avoid": "Nous allons à partir.",
           "prefer": "Nous allons partir.",
-          "why": "The near future directly joins aller and the infinitive."
+          "why": "The near future directly joins `aller` and the infinitive."
         }
       ]
     },
@@ -86,22 +86,22 @@
       "id": "reflexive",
       "title": "The reflexive pronoun belongs just before its infinitive",
       "paragraphs": [
-        "For a reflexive future, choose the pronoun matching the subject and put it immediately before the infinitive, after aller: je vais me lever, not je me vais lever. The infinitive's spelling does not change: lever keeps e even though present je me lève has è. Elide me/te/se before a vowel or silent h: je vais m'habiller.",
-        "In the negative, keep the reflexive group together after pas: nous n'allons pas nous coucher. The first nous is the subject; the later nous belongs to the infinitive."
+        "For a reflexive future, choose the pronoun matching the subject and put it immediately before the infinitive, after `aller`: `je vais me lever`, not `je me vais lever`. The infinitive's spelling does not change: `lever` keeps `e` even though present `je me lève` has `è`. Elide `me/te/se` before a vowel or silent `h`: `je vais m'habiller`.",
+        "In the negative, keep the reflexive group together after `pas`: `nous n'allons pas nous coucher`. The first `nous` is the subject; the later `nous` belongs to the infinitive."
       ],
       "points": [
-        "Subject + present aller + matching reflexive pronoun + infinitive."
+        "Subject + present `aller` + matching reflexive pronoun + infinitive."
       ],
       "examples": [
         {
           "french": "Je **vais me lever**\nTu **vas te lever**\nIl/elle/on **va se lever**\nNous **allons nous lever**\nVous **allez vous lever**\nIls/elles **vont se lever**",
           "english": "I am going to get up\nYou are going to get up\nHe/she is going to get up; one/we are going to get up\nWe are going to get up\nYou are going to get up\nThey are going to get up",
-          "note": "The pronoun agrees with the subject; lever stays infinitive."
+          "note": "The pronoun agrees with the subject; `lever` stays infinitive."
         },
         {
           "french": "Elle **va s'habiller**.",
           "english": "She is going to get dressed.",
-          "note": "Se elides before silent h."
+          "note": "`Se` elides before silent `h`."
         },
         {
           "french": "Nous **n'allons pas nous coucher** maintenant.",
@@ -113,7 +113,7 @@
         {
           "avoid": "Je me vais laver.",
           "prefer": "Je vais me laver.",
-          "why": "Me belongs before laver, not before aller."
+          "why": "`Me` belongs before `laver`, not before `aller`."
         }
       ]
     },
@@ -121,8 +121,8 @@
       "id": "present-future",
       "title": "A time word can give an ordinary present form a future meaning",
       "paragraphs": [
-        "The present can describe a scheduled, planned or very immediate future action when context makes the time clear: demain, je pars; le train arrive dans dix minutes; je descends tout de suite. You do not always need aller + infinitive to refer to later. The present often presents the event as settled or imminent; aller + infinitive explicitly presents what is going to happen. Both can be natural for the same plan.",
-        "A present form without time context is not automatically future: je travaille can describe a habit or the current moment. Choose a time phrase when the listener needs it."
+        "The present can describe a scheduled, planned or very immediate future action when context makes the time clear: `demain, je pars`; `le train arrive dans dix minutes`; `je descends tout de suite`. You do not always need `aller` + infinitive to refer to later. The present often presents the event as settled or imminent; `aller` + infinitive explicitly presents what is going to happen. Both can be natural for the same plan.",
+        "A present form without time context is not automatically future: `je travaille` can describe a habit or the current moment. Choose a time phrase when the listener needs it."
       ],
       "points": [
         "The verb's grammatical form and the event's real-world time are not always identical."
@@ -356,7 +356,7 @@
     "model_answer": "Je vais préparer mon sac. Nous allons nous lever tôt. Demain, le train part à sept heures.",
     "translation": "I am going to prepare my bag. We are going to get up early. Tomorrow, the train leaves at seven o'clock.",
     "rubric": [
-      "Only aller is conjugated in the near future.",
+      "Only `aller` is conjugated in the near future.",
       "Place the reflexive pronoun before the infinitive.",
       "Make the future meaning of the ordinary present clear."
     ]

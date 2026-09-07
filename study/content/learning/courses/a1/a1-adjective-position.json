@@ -5,7 +5,7 @@
   "cefr_level": "A1",
   "topic": "grammar-foundations",
   "title": "Un bel appartement : place et formes des adjectifs",
-  "summary": "Place familiar short adjectives before nouns, distinguish neuf from nouveau, and use bel, nouvel and vieil correctly.",
+  "summary": "Place familiar short adjectives before nouns, distinguish `neuf` from `nouveau`, and use `bel`, `nouvel` and `vieil` correctly.",
   "order": 18,
   "duration_minutes": 13,
   "prerequisites": [
@@ -13,8 +13,8 @@
   ],
   "objectives": [
     "Place common adjectives before or after the noun appropriately.",
-    "Choose beau/bel/belle, nouveau/nouvel/nouvelle and vieux/vieil/vieille with their plurals.",
-    "Distinguish brand-new from newly acquired and recognise fol/mol."
+    "Choose `beau/bel/belle`, `nouveau/nouvel/nouvelle` and `vieux/vieil/vieille` with their plurals.",
+    "Distinguish brand-new from newly acquired and recognise `fol/mol`."
   ],
   "keywords": [
     "adjective position",
@@ -42,27 +42,27 @@
       "id": "position",
       "title": "Most descriptions follow the noun; some frequent short adjectives precede it",
       "paragraphs": [
-        "Colour, nationality and many descriptive adjectives normally follow the noun: une voiture rouge, un étudiant canadien. Familiar short adjectives often come before it: petit (small), grand (big/tall), jeune (young), joli (pretty), bon (good), mauvais (bad), beau (beautiful), vieux (old), nouveau (new), premier (first), dernier (last). This is a useful list, not a universal length rule. Several adjectives can change meaning with position, such as un grand homme (a great man) versus un homme grand (a tall man).",
-        "When an adjective comes before a plural noun, careful French usually uses de rather than indefinite des: de petits sacs. Fixed combinations and conversational variants exist; the exercises specify the ordinary careful construction. For pointing to a noun, use ce (masculine), cet (masculine before a vowel or silent h), cette (feminine), ces (plural). These mean this/that or these/those and replace the article."
+        "Colour, nationality and many descriptive adjectives normally follow the noun: `une voiture rouge`, `un étudiant canadien`. Familiar short adjectives often come before it: `petit` (small), `grand` (big/tall), `jeune` (young), `joli` (pretty), `bon` (good), `mauvais` (bad), `beau` (beautiful), `vieux` (old), `nouveau` (new), `premier` (first), `dernier` (last). This is a useful list, not a universal length rule. Several adjectives can change meaning with position, such as `un grand homme` (a great man) versus `un homme grand` (a tall man).",
+        "When an adjective comes before a plural noun, careful French usually uses `de` rather than indefinite `des`: `de petits sacs`. Fixed combinations and conversational variants exist; the exercises specify the ordinary careful construction. For pointing to a noun, use `ce` (masculine), `cet` (masculine before a vowel or silent `h`), `cette` (feminine), `ces` (plural). These mean this/that or these/those and replace the article."
       ],
       "points": [
-        "Un appartement (m.) = an apartment; une voiture (f.) = a car."
+        "`Un appartement` (m.) = an apartment; `une voiture` (f.) = a car."
       ],
       "examples": [
         {
           "french": "une **petite** voiture **rouge**",
           "english": "a small red car",
-          "note": "Petite precedes the noun; the colour follows it."
+          "note": "`Petite` precedes the noun; the colour follows it."
         },
         {
           "french": "de **jolis** dessins",
           "english": "pretty drawings",
-          "note": "The ordinary careful indefinite plural is de before a pre-noun adjective."
+          "note": "The ordinary careful indefinite plural is `de` before a pre-noun adjective."
         },
         {
           "french": "**Cet** appartement est calme.",
           "english": "This apartment is quiet.",
-          "note": "Cet is masculine before a vowel; it is not feminine cette."
+          "note": "`Cet` is masculine before a vowel; it is not feminine `cette`."
         }
       ],
       "mistakes": [
@@ -77,23 +77,23 @@
       "id": "special-forms",
       "title": "A following vowel changes the masculine singular, not the noun's gender",
       "paragraphs": [
-        "Immediately before a masculine singular noun beginning with a vowel or silent h, use bel, nouvel and vieil instead of beau, nouveau and vieux. Before a consonant use the ordinary masculine form. After the noun or after être use beau, nouveau or vieux again. Feminines are belle, nouvelle, vieille. Masculine plurals are beaux, nouveaux, vieux; feminine plurals are belles, nouvelles, vieilles.",
-        "Fou (mad/crazy) and mou (soft) have feminine folle and molle, masculine plurals fous and mous, feminine plurals folles and molles. Their pre-vowel masculine forms fol and mol are mostly literary or fixed-use recognition forms. Ordinary speech usually chooses the adjective after the noun: un espoir fou, un oreiller mou. Do not force fol or mol into every everyday description."
+        "Immediately before a masculine singular noun beginning with a vowel or silent `h`, use `bel`, `nouvel` and `vieil` instead of `beau`, `nouveau` and `vieux`. Before a consonant use the ordinary masculine form. After the noun or after `être` use `beau`, `nouveau` or `vieux` again. Feminines are `belle`, `nouvelle`, `vieille`. Masculine plurals are `beaux`, `nouveaux`, `vieux`; feminine plurals are `belles`, `nouvelles`, `vieilles`.",
+        "`Fou` (mad/crazy) and `mou` (soft) have feminine `folle` and `molle`, masculine plurals `fous` and `mous`, feminine plurals `folles` and `molles`. Their pre-vowel masculine forms `fol` and `mol` are mostly literary or fixed-use recognition forms. Ordinary speech usually chooses the adjective after the noun: `un espoir fou`, `un oreiller mou`. Do not force `fol` or `mol` into every everyday description."
       ],
       "points": [
-        "Beau/bel/belle/beaux/belles; nouveau/nouvel/nouvelle/nouveaux/nouvelles; vieux/vieil/vieille/vieux/vieilles.",
-        "An aspirated h blocks the pre-vowel form: un vieux héros."
+        "`Beau/bel/belle/beaux/belles`; `nouveau/nouvel/nouvelle/nouveaux/nouvelles`; `vieux/vieil/vieille/vieux/vieilles`.",
+        "An aspirated `h` blocks the pre-vowel form: `un vieux héros`."
       ],
       "examples": [
         {
           "french": "un **bel** appartement / un appartement **beau** et lumineux",
           "english": "a beautiful apartment / an apartment that is beautiful and bright",
-          "note": "Bel immediately precedes the vowel; beau is used after the noun."
+          "note": "`Bel` immediately precedes the vowel; `beau` is used after the noun."
         },
         {
           "french": "un **nouvel** hôtel / une **nouvelle** maison",
           "english": "a new hotel / a new house",
-          "note": "Silent h triggers nouvel; feminine uses nouvelle."
+          "note": "Silent `h` triggers `nouvel`; feminine uses `nouvelle`."
         },
         {
           "french": "un **vieil** ami / de **vieux** amis / de **vieilles** amies",
@@ -103,34 +103,34 @@
         {
           "french": "de **beaux** jardins et de **belles** terrasses",
           "english": "beautiful gardens and beautiful terraces",
-          "note": "Masculine plural adds x; feminine plural adds s."
+          "note": "Masculine plural adds `x`; feminine plural adds `s`."
         },
         {
           "french": "de **nouveaux** livres et de **nouvelles** revues",
           "english": "new books and new magazines",
-          "note": "Nouveau has the same -x/-s plural contrast."
+          "note": "`Nouveau` has the same `-x/-s` plural contrast."
         },
         {
           "french": "Dans le poème, il garde un **fol** espoir.",
           "english": "In the poem, he keeps a wild hope.",
-          "note": "Literary recognition: fol before masculine vowel-initial espoir."
+          "note": "Literary recognition: `fol` before masculine vowel-initial `espoir`."
         },
         {
           "french": "Le texte décrit un **mol** oreiller.",
           "english": "The text describes a soft pillow.",
-          "note": "Literary recognition; everyday un oreiller mou is more usual."
+          "note": "Literary recognition; everyday `un oreiller mou` is more usual."
         }
       ],
       "mistakes": [
         {
           "avoid": "un belle appartement",
           "prefer": "un bel appartement",
-          "why": "Appartement is masculine; bel, not feminine belle, precedes the vowel."
+          "why": "`Appartement` is masculine; `bel`, not feminine `belle`, precedes the vowel."
         },
         {
           "avoid": "Cet hôtel est bel.",
           "prefer": "Cet hôtel est beau.",
-          "why": "After être use beau, not the pre-noun form bel."
+          "why": "After `être` use `beau`, not the pre-noun form `bel`."
         }
       ]
     },
@@ -138,7 +138,7 @@
       "id": "neuf-nouveau",
       "title": "New to someone is not necessarily brand-new",
       "paragraphs": [
-        "Nouveau usually comes before the noun and means new in the situation, recently obtained, different or additional. Neuf normally follows the noun and means newly made or unused. A newly purchased second-hand bicycle can be mon nouveau vélo without being neuf. Neuf changes to neuve, neufs, neuves."
+        "`Nouveau` usually comes before the noun and means new in the situation, recently obtained, different or additional. `Neuf` normally follows the noun and means newly made or unused. A newly purchased second-hand bicycle can be `mon nouveau vélo` without being `neuf`. `Neuf` changes to `neuve`, `neufs`, `neuves`."
       ],
       "points": [
         "Choose the intended meaning before choosing the adjective."
@@ -152,7 +152,7 @@
         {
           "french": "Ces chaussures sont **neuves**.",
           "english": "These shoes are brand-new.",
-          "note": "Neuf indicates unused condition and agrees with feminine plural chaussures."
+          "note": "`Neuf` indicates unused condition and agrees with feminine plural `chaussures`."
         }
       ],
       "mistakes": []
@@ -161,15 +161,15 @@
       "id": "ordered-groups",
       "title": "Count, rank and newness answer different questions",
       "paragraphs": [
-        "A count tells how many; a rank selects which ones in an ordered group. The count comes before the rank in les trois premières pages: three pages, specifically the first three. Both precede the noun, and premières agrees with pages. An adjective can also precede a personal proper name in a descriptive phrase such as la jeune Salomé, especially in narration.",
-        "Nouveau is the ordinary choice for someone newly joining a situation: une nouvelle collègue. Neuf describes unused or newly made things, so it is not the normal adjective for a new colleague or a newly adopted animal. The person or animal need not be newly born to be nouveau in your life."
+        "A count tells how many; a rank selects which ones in an ordered group. The count comes before the rank in `les trois premières pages`: three pages, specifically the first three. Both precede the noun, and `premières` agrees with `pages`. An adjective can also precede a personal proper name in a descriptive phrase such as `la jeune Salomé`, especially in narration.",
+        "`Nouveau` is the ordinary choice for someone newly joining a situation: `une nouvelle collègue`. `Neuf` describes unused or newly made things, so it is not the normal adjective for a new colleague or a newly adopted animal. The person or animal need not be newly born to be `nouveau` in your life."
       ],
       "points": [],
       "examples": [
         {
           "french": "Lisez **les trois premières pages**, pas seulement la troisième.",
           "english": "Read the first three pages, not only the third.",
-          "note": "Trois counts the pages; premières selects the beginning of the sequence."
+          "note": "`Trois` counts the pages; `premières` selects the beginning of the sequence."
         },
         {
           "french": "Nous gardons **les deux dernières places**.",
@@ -472,12 +472,12 @@
     }
   ],
   "production_task": {
-    "prompt": "Describe a newly acquired second-hand object and a place you like. Include nouveau, a beau-family form and a colour in its neutral position.",
+    "prompt": "Describe a newly acquired second-hand object and a place you like. Include `nouveau`, a `beau`-family form and a colour in its neutral position.",
     "model_answer": "J'ai un nouveau vélo d'occasion. Il est rouge. Près de chez moi, il y a un bel hôtel.",
     "translation": "I have a new second-hand bicycle. It is red. Near my home, there is a beautiful hotel.",
     "rubric": [
-      "Use nouveau without implying unused condition.",
-      "Use bel before a masculine noun with silent h.",
+      "Use `nouveau` without implying unused condition.",
+      "Use `bel` before a masculine noun with silent `h`.",
       "Use ordinary adjective agreement and position."
     ]
   }

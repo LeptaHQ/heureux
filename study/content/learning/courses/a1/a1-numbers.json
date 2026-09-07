@@ -14,7 +14,7 @@
   ],
   "objectives": [
     "Build numbers from zero through hundreds and large units.",
-    "Apply cent/vingt/mille agreement and accepted hyphenation variants.",
+    "Apply `cent/vingt/mille` agreement and accepted hyphenation variants.",
     "Read decimal notation and prices per unit.",
     "Form ordinals and recognise contexts that use cardinal labels."
   ],
@@ -45,11 +45,11 @@
       "id": "small",
       "title": "Build a number from a small set of words",
       "paragraphs": [
-        "Learn 0–16: zéro, un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize. Then 17–19 are dix-sept, dix-huit, dix-neuf. Tens through 60 are vingt, trente, quarante, cinquante, soixante. Add a unit: vingt-deux, trente-trois. Use et un for 21, 31, 41, 51 and 61: vingt et un. Un changes to une when directly counting a feminine noun: vingt et une personnes.",
-        "Traditional spelling links many parts with hyphens but leaves spaces around et and between hundreds and following parts. The 1990 recommendations also allow hyphens throughout a compound numeral: vingt-et-un, deux-cent-trente. Both spelling systems are accepted in this course; exercises list legitimate variants rather than calling one wrong."
+        "Learn 0–16: `zéro`, `un`, `deux`, `trois`, `quatre`, `cinq`, `six`, `sept`, `huit`, `neuf`, `dix`, `onze`, `douze`, `treize`, `quatorze`, `quinze`, `seize`. Then 17–19 are `dix-sept`, `dix-huit`, `dix-neuf`. Tens through 60 are `vingt`, `trente`, `quarante`, `cinquante`, `soixante`. Add a unit: `vingt-deux`, `trente-trois`. Use `et un` for 21, 31, 41, 51 and 61: `vingt et un`. `Un` changes to `une` when directly counting a feminine noun: `vingt et une personnes`.",
+        "Traditional spelling links many parts with hyphens but leaves spaces around `et` and between hundreds and following parts. The 1990 recommendations also allow hyphens throughout a compound numeral: `vingt-et-un`, `deux-cent-trente`. Both spelling systems are accepted in this course; exercises list legitimate variants rather than calling one wrong."
       ],
       "points": [
-        "A number usually replaces an indefinite article before a noun: deux livres, not des deux livres."
+        "A number usually replaces an indefinite article before a noun: `deux livres`, not `des deux livres`."
       ],
       "examples": [
         {
@@ -60,14 +60,14 @@
         {
           "french": "Il y a **vingt et une** places.",
           "english": "There are twenty-one places.",
-          "note": "Une agrees with feminine places."
+          "note": "`Une` agrees with feminine `places`."
         }
       ],
       "mistakes": [
         {
           "avoid": "vingt et un personnes",
           "prefer": "vingt et une personnes",
-          "why": "Un becomes une when counting a feminine noun."
+          "why": "`Un` becomes `une` when counting a feminine noun."
         }
       ]
     },
@@ -75,59 +75,59 @@
       "id": "tens-hundreds",
       "title": "In the common France/Canada system, 70 and 90 build on 60 and 80",
       "paragraphs": [
-        "70 = soixante-dix; 71 = soixante et onze; 72 = soixante-douze. Continue the teens after soixante through 79 = soixante-dix-neuf. 80 = quatre-vingts; 81 = quatre-vingt-un, without et; 90 = quatre-vingt-dix; 91 = quatre-vingt-onze; 99 = quatre-vingt-dix-neuf. Belgium and Switzerland also use septante and nonante, and parts of Switzerland use huitante. These are legitimate regional forms; a task specifying France/Canada forms is testing that named system, not their validity.",
-        "100 = cent; 200 = deux cents; 201 = deux cent un; 999 = neuf cent quatre-vingt-dix-neuf. Cent and vingt take -s when multiplied and final in a cardinal numeral: deux cents, quatre-vingts. They lose that -s before a further number: deux cent trois, quatre-vingt-deux. Do not add s to cent when it is not multiplied: cent, cent un."
+        "70 = `soixante-dix`; 71 = `soixante et onze`; 72 = `soixante-douze`. Continue the teens after `soixante` through 79 = `soixante-dix-neuf`. 80 = `quatre-vingts`; 81 = `quatre-vingt-un`, without `et`; 90 = `quatre-vingt-dix`; 91 = `quatre-vingt-onze`; 99 = `quatre-vingt-dix-neuf`. Belgium and Switzerland also use `septante` and `nonante`, and parts of Switzerland use `huitante`. These are legitimate regional forms; a task specifying France/Canada forms is testing that named system, not their validity.",
+        "100 = `cent`; 200 = `deux cents`; 201 = `deux cent un`; 999 = `neuf cent quatre-vingt-dix-neuf`. `Cent` and `vingt` take `-s` when multiplied and final in a cardinal numeral: `deux cents`, `quatre-vingts`. They lose that `-s` before a further number: `deux cent trois`, `quatre-vingt-deux`. Do not add `s` to `cent` when it is not multiplied: `cent`, `cent un`."
       ],
       "points": [
-        "No et in 81 or 91 in this system.",
-        "Cent and vingt have special number agreement; most number words do not vary."
+        "No `et` in 81 or 91 in this system.",
+        "`Cent` and `vingt` have special number agreement; most number words do not vary."
       ],
       "examples": [
         {
           "french": "Le billet coûte **soixante et onze** euros.",
           "english": "The ticket costs seventy-one euros.",
-          "note": "71 contains et onze."
+          "note": "71 contains `et onze`."
         },
         {
           "french": "Il reste **quatre-vingts** places, puis **quatre-vingt-une** après une annulation.",
           "english": "There are eighty places left, then eighty-one after a cancellation.",
-          "note": "Final vingt takes s at 80; it loses s before une."
+          "note": "Final `vingt` takes `s` at 80; it loses `s` before `une`."
         },
         {
           "french": "La salle a **deux cents** sièges; le théâtre en a **deux cent dix**.",
           "english": "The room has two hundred seats; the theatre has two hundred and ten.",
-          "note": "Cent loses s before dix."
+          "note": "`Cent` loses `s` before `dix`."
         }
       ],
       "mistakes": [
         {
           "avoid": "quatre-vingt et un euros",
           "prefer": "quatre-vingt-un euros",
-          "why": "81 has no et in the France/Canada counting system."
+          "why": "81 has no `et` in the France/Canada counting system."
         }
       ]
     },
     {
       "id": "large-decimal",
-      "title": "Mille stays unchanged; million and milliard are nouns",
+      "title": "`Mille` stays unchanged; `million` and `milliard` are nouns",
       "paragraphs": [
-        "1 000 = mille, not un mille for ordinary counting; 2 000 = deux mille. Mille is invariable. 1 000 000 = un million; 1 000 000 000 = un milliard, English one billion. Million and milliard take plural s and de before a following counted noun when the amount ends there: deux millions d'euros. Contrast deux mille euros, without de. Before mille, cent and vingt lose their plural s; before million, a noun, they can keep it: deux cent mille, deux cents millions.",
-        "French uses a comma as the decimal separator and normally a space to group thousands: 1 250,5. Read a decimal with virgule, followed by the decimal digits or the decimal part as a number when clear: 3,25 can be trois virgule vingt-cinq or trois virgule deux cinq. A zero after the comma must be preserved in value: 3,05 = trois virgule zéro cinq. Prices commonly use euros and centimes rather than virgule."
+        "1 000 = `mille`, not `un mille` for ordinary counting; 2 000 = `deux mille`. `Mille` is invariable. 1 000 000 = `un million`; 1 000 000 000 = `un milliard`, English one billion. `Million` and `milliard` take plural `s` and `de` before a following counted noun when the amount ends there: `deux millions d'euros`. Contrast `deux mille euros`, without `de`. Before `mille`, `cent` and `vingt` lose their plural `s`; before `million`, a noun, they can keep it: `deux cent mille`, `deux cents millions`.",
+        "French uses a comma as the decimal separator and normally a space to group thousands: 1 250,5. Read a decimal with `virgule`, followed by the decimal digits or the decimal part as a number when clear: 3,25 can be `trois virgule vingt-cinq` or `trois virgule deux cinq`. A zero after the comma must be preserved in value: 3,05 = `trois virgule zéro cinq`. Prices commonly use `euros` and `centimes` rather than `virgule`."
       ],
       "points": [
-        "English billion = French milliard, not billion in ordinary contemporary usage.",
+        "English billion = French `milliard`, not `billion` in ordinary contemporary usage.",
         "Do not use a period as the French decimal separator in the written-number exercises."
       ],
       "examples": [
         {
           "french": "Le village compte **trois mille** habitants.",
           "english": "The village has three thousand inhabitants.",
-          "note": "Mille never takes plural s."
+          "note": "`Mille` never takes plural `s`."
         },
         {
           "french": "Le projet coûte **deux millions d'**euros.",
           "english": "The project costs two million euros.",
-          "note": "Million is a plural noun followed by de/d'."
+          "note": "`Million` is a plural noun followed by `de/d'`."
         },
         {
           "french": "**1,05** se lit **un virgule zéro cinq**.",
@@ -139,7 +139,7 @@
         {
           "avoid": "deux milles euros",
           "prefer": "deux mille euros",
-          "why": "Mille is invariable and does not require de before euros."
+          "why": "`Mille` is invariable and does not require `de` before `euros`."
         }
       ]
     },
@@ -147,13 +147,13 @@
       "id": "rank-measure",
       "title": "A rank uses an ordinal; a label or price unit may not",
       "paragraphs": [
-        "Cardinal numbers count or label: trois livres, page trois, chambre douze. Ordinals give rank: premier/première (first), deuxième (second), troisième, quatrième, cinquième, sixième, septième, huitième, neuvième, dixième. Normally add -ième, dropping a final e; cinq adds u, neuf changes f to v. Vingt et unième is twenty-first; only first itself uses premier/première. Second/seconde is another valid form for second; it is not a grammatical error merely because a series continues.",
-        "French commonly uses cardinal labels where English may use an ordinal: page vingt, leçon quatre, Louis quatorze (written Louis XIV). Dates normally use cardinals except le premier; the calendar lesson develops this. A count like deux jours is different from rank le deuxième jour.",
-        "For a price per unit, French uses the definite article: trois euros le kilo, deux euros la pièce, cinq euros les cent grammes. This is a rate, not ownership. Le kilo (m.) is a kilogram, une pièce (f.) here means one item, un gramme (m.) a gram."
+        "Cardinal numbers count or label: `trois livres`, `page trois`, `chambre douze`. Ordinals give rank: `premier/première` (first), `deuxième` (second), `troisième`, `quatrième`, `cinquième`, `sixième`, `septième`, `huitième`, `neuvième`, `dixième`. Normally add `-ième`, dropping a final `e`; `cinq` adds `u`, `neuf` changes `f` to `v`. `Vingt et unième` is twenty-first; only first itself uses `premier/première`. `Second/seconde` is another valid form for second; it is not a grammatical error merely because a series continues.",
+        "French commonly uses cardinal labels where English may use an ordinal: `page vingt`, `leçon quatre`, `Louis quatorze` (written Louis XIV). Dates normally use cardinals except `le premier`; the calendar lesson develops this. A count like `deux jours` is different from rank `le deuxième jour`.",
+        "For a price per unit, French uses the definite article: `trois euros le kilo`, `deux euros la pièce`, `cinq euros les cent grammes`. This is a rate, not ownership. `Le kilo` (m.) is a kilogram, `une pièce` (f.) here means one item, `un gramme` (m.) a gram."
       ],
       "points": [
-        "The gendered first forms are premier and première; most -ième forms have one spelling for both genders.",
-        "Use le/la/les in familiar price-per-unit expressions."
+        "The gendered first forms are `premier` and `première`; most `-ième` forms have one spelling for both genders.",
+        "Use `le/la/les` in familiar price-per-unit expressions."
       ],
       "examples": [
         {
@@ -164,12 +164,12 @@
         {
           "french": "La réponse est à la page **vingt**.",
           "english": "The answer is on page twenty.",
-          "note": "A page number is a label, not a vingt-ième construction."
+          "note": "A page number is a label, not a `vingt-ième` construction."
         },
         {
           "french": "Les pommes coûtent deux euros **le kilo**.",
           "english": "The apples cost two euros per kilogram.",
-          "note": "Le expresses the price unit."
+          "note": "`Le` expresses the price unit."
         },
         {
           "french": "Le fromage coûte quatre euros **les cent grammes**.",
@@ -181,7 +181,7 @@
         {
           "avoid": "la unième porte",
           "prefer": "la première porte",
-          "why": "For first on its own, use première with a feminine noun."
+          "why": "For first on its own, use `première` with a feminine noun."
         }
       ]
     },
@@ -189,20 +189,20 @@
       "id": "count-unit-label",
       "title": "Distinguish a numerical count, a quantity noun and a rank",
       "paragraphs": [
-        "Un millier (m.) is a group or quantity of a thousand, often an approximate count in ordinary use. Like million, it is a noun: it can take plural -s and needs de/d' before the things counted. Mille is instead an invariable number used directly before the counted noun. Do not insert de after every large number.",
-        "Un tiers (m.) means one third of a whole; troisième gives position in a sequence. For rulers' numerical names, the usual cardinal reading has one important boundary: Ier is premier, as in Henri Ier. A later numeral is cardinal. The fraction and the label are not ordinary adjective agreement problems."
+        "`Un millier` (m.) is a group or quantity of a thousand, often an approximate count in ordinary use. Like `million`, it is a noun: it can take plural `-s` and needs `de/d'` before the things counted. `Mille` is instead an invariable number used directly before the counted noun. Do not insert `de` after every large number.",
+        "`Un tiers` (m.) means one third of a whole; `troisième` gives position in a sequence. For rulers' numerical names, the usual cardinal reading has one important boundary: `Ier` is `premier`, as in Henri Ier. A later numeral is cardinal. The fraction and the label are not ordinary adjective agreement problems."
       ],
       "points": [],
       "examples": [
         {
           "french": "Le fichier contient **mille** noms. Le dossier contient **un millier de** noms.",
           "english": "The file contains a thousand names. The folder contains about a thousand names.",
-          "note": "Un millier de commonly presents the number as an approximate quantity; mille gives the numerical count."
+          "note": "`Un millier de` commonly presents the number as an approximate quantity; `mille` gives the numerical count."
         },
         {
           "french": "**Des milliers de** visiteurs arrivent en été.",
           "english": "Thousands of visitors arrive in summer.",
-          "note": "Milliers is plural and keeps de."
+          "note": "`Milliers` is plural and keeps `de`."
         },
         {
           "french": "**Un tiers de** la salle est fermé; **la troisième** porte reste ouverte.",
@@ -221,8 +221,8 @@
       "id": "price-reading",
       "title": "Read the currency and preserve the value of the cents",
       "paragraphs": [
-        "In a euro price written with a decimal comma, two digits after the comma give the centimes. The zero in 8,05 matters: five centimes are not fifty. A common spoken reading names euros between the whole amount and the cents; a fully explicit reading uses euros et ... centimes. Un euro is singular, while an amount of two euros or more normally takes plural euros.",
-        "For ordinary written prices, a useful format is the amount with a decimal comma followed by the currency symbol: 8,05 €. The English decimal point and leading currency sign need not be copied. Un euro (m.) is a euro; un centime (m.) is a cent."
+        "In a euro price written with a decimal comma, two digits after the comma give the centimes. The zero in 8,05 matters: five centimes are not fifty. A common spoken reading names `euros` between the whole amount and the cents; a fully explicit reading uses `euros et ... centimes`. `Un euro` is singular, while an amount of two euros or more normally takes plural `euros`.",
+        "For ordinary written prices, a useful format is the amount with a decimal comma followed by the currency symbol: 8,05 €. The English decimal point and leading currency sign need not be copied. `Un euro` (m.) is a euro; `un centime` (m.) is a cent."
       ],
       "points": [],
       "examples": [
@@ -234,7 +234,7 @@
         {
           "french": "Le timbre coûte **un euro cinquante**.",
           "english": "The stamp costs one euro fifty.",
-          "note": "The shorter spoken price is 1,50 €; the noun euro stays singular after un."
+          "note": "The shorter spoken price is 1,50 €; the noun `euro` stays singular after `un`."
         }
       ],
       "mistakes": []

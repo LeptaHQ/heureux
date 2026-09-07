@@ -5,16 +5,16 @@
   "cefr_level": "A1",
   "topic": "verbs-tenses-moods",
   "title": "Dire, lire et écrire des messages",
-  "summary": "Use dire, lire and écrire, with the important derivative exceptions of dire and the écrire family.",
+  "summary": "Use `dire`, `lire` and `écrire`, with the important derivative exceptions of `dire` and the `écrire` family.",
   "order": 11,
   "duration_minutes": 14,
   "prerequisites": [
     "a1-present-families"
   ],
   "objectives": [
-    "Conjugate dire, lire and écrire.",
-    "Distinguish vous dites/redites from interdisez and recognise maudire's plural.",
-    "Apply écrire's pattern to inscrire."
+    "Conjugate `dire`, `lire` and `écrire`.",
+    "Distinguish `vous dites/redites` from `interdisez` and recognise `maudire`'s plural.",
+    "Apply `écrire`'s pattern to `inscrire`."
   ],
   "keywords": [
     "dire",
@@ -38,69 +38,69 @@
   "sections": [
     {
       "id": "dire",
-      "title": "Dire has vous dites, but not every derivative does",
+      "title": "`Dire` has `vous dites`, but not every derivative does",
       "paragraphs": [
-        "Dire means say or tell. Redire (say again) follows its full pattern: je redis, tu redis, il/elle/on redit, nous redisons, vous redites, ils/elles redisent. In contrast, interdire (forbid), prédire (predict), contredire (contradict) and médire (speak ill) use -disez with vous. Their other present persons follow the usual dire pattern. For example: j'interdis, tu interdis, il/elle/on interdit, nous interdisons, vous interdisez, ils/elles interdisent.",
-        "Maudire (curse) is a lower-priority recognition verb with a different plural: je maudis, tu maudis, il/elle/on maudit, nous maudissons, vous maudissez, ils/elles maudissent. It is included to prevent a misleading 'all derivatives are identical' rule. Médire is followed by de before the person spoken ill of."
+        "`Dire` means say or tell. `Redire` (say again) follows its full pattern: `je redis`, `tu redis`, `il/elle/on redit`, `nous redisons`, `vous redites`, `ils/elles redisent`. In contrast, `interdire` (forbid), `prédire` (predict), `contredire` (contradict) and `médire` (speak ill) use `-disez` with `vous`. Their other present persons follow the usual `dire` pattern. For example: `j'interdis`, `tu interdis`, `il/elle/on interdit`, `nous interdisons`, `vous interdisez`, `ils/elles interdisent`.",
+        "`Maudire` (curse) is a lower-priority recognition verb with a different plural: `je maudis`, `tu maudis`, `il/elle/on maudit`, `nous maudissons`, `vous maudissez`, `ils/elles maudissent`. It is included to prevent a misleading 'all derivatives are identical' rule. `Médire` is followed by `de` before the person spoken ill of."
       ],
       "points": [
-        "Dire/redire: dites/redites. Interdire/prédire/contredire/médire: interdisez/prédisez/contredisez/médisez."
+        "`Dire/redire`: `dites/redites`. `Interdire/prédire/contredire/médire`: `interdisez/prédisez/contredisez/médisez`."
       ],
       "examples": [
         {
           "french": "Je **dis**\nTu **dis**\nIl/elle/on **dit**\nNous **disons**\nVous **dites**\nIls/elles **disent**",
           "english": "I say\nYou say\nHe/she says; one says/we say\nWe say\nYou say\nThey say",
-          "note": "The complete dire paradigm."
+          "note": "The complete `dire` paradigm."
         },
         {
           "french": "Vous **redites** votre nom.",
           "english": "You say your name again.",
-          "note": "Redire retains redites."
+          "note": "`Redire` retains `redites`."
         },
         {
           "french": "Vous **interdisez** le stationnement.",
           "english": "You forbid parking.",
-          "note": "Le stationnement (m.) means parking; this derivative uses -disez."
+          "note": "`Le stationnement` (m.) means parking; this derivative uses `-disez`."
         },
         {
           "french": "Dans le récit, ils **maudissent** le voleur.",
           "english": "In the story, they curse the thief.",
-          "note": "Recognition example: maudire has -iss- in the plural; un voleur (m.) is a thief."
+          "note": "Recognition example: `maudire` has `-iss-` in the plural; `un voleur` (m.) is a thief."
         }
       ],
       "mistakes": [
         {
           "avoid": "Vous disez bonjour.",
           "prefer": "Vous dites bonjour.",
-          "why": "Dire itself has the irregular vous form dites."
+          "why": "`Dire` itself has the irregular `vous` form `dites`."
         },
         {
           "avoid": "Vous interdites le stationnement.",
           "prefer": "Vous interdisez le stationnement.",
-          "why": "Interdire does not copy dites in the vous form."
+          "why": "`Interdire` does not copy `dites` in the `vous` form."
         }
       ]
     },
     {
       "id": "lire-ecrire",
-      "title": "Lire adds s in the plural; écrire adds v",
+      "title": "`Lire` adds `s` in the plural; `écrire` adds `v`",
       "paragraphs": [
-        "Lire (read) uses lis, lis, lit in the singular and lisons, lisez, lisent in the plural. Écrire (write) uses écris, écris, écrit, then écrivons, écrivez, écrivent. Keep the accent in écrire and its forms.",
-        "Inscrire (write down/register) and décrire (describe) follow écrire. Inscrire gives j'inscris, tu inscris, il/elle/on inscrit, nous inscrivons, vous inscrivez, ils/elles inscrivent. S'inscrire means register oneself; the added reflexive pronoun is taught next. Un message (m.) is a message; une adresse (f.) is an address."
+        "`Lire` (read) uses `lis`, `lis`, `lit` in the singular and `lisons`, `lisez`, `lisent` in the plural. `Écrire` (write) uses `écris`, `écris`, `écrit`, then `écrivons`, `écrivez`, `écrivent`. Keep the accent in `écrire` and its forms.",
+        "`Inscrire` (write down/register) and `décrire` (describe) follow `écrire`. `Inscrire` gives `j'inscris`, `tu inscris`, `il/elle/on inscrit`, `nous inscrivons`, `vous inscrivez`, `ils/elles inscrivent`. `S'inscrire` means register oneself; the added reflexive pronoun is taught next. `Un message` (m.) is a message; `une adresse` (f.) is an address."
       ],
       "points": [
-        "Do not add v to the singular of écrire; do not omit it from the plural."
+        "Do not add `v` to the singular of `écrire`; do not omit it from the plural."
       ],
       "examples": [
         {
           "french": "Je **lis**\nTu **lis**\nIl/elle/on **lit**\nNous **lisons**\nVous **lisez**\nIls/elles **lisent**",
           "english": "I read\nYou read\nHe/she reads; one reads/we read\nWe read\nYou read\nThey read",
-          "note": "The complete lire paradigm."
+          "note": "The complete `lire` paradigm."
         },
         {
           "french": "J'**écris**\nTu **écris**\nIl/elle/on **écrit**\nNous **écrivons**\nVous **écrivez**\nIls/elles **écrivent**",
           "english": "I write\nYou write\nHe/she writes; one writes/we write\nWe write\nYou write\nThey write",
-          "note": "V appears only in the plural."
+          "note": "`V` appears only in the plural."
         },
         {
           "french": "Elle **lit** le message.",
@@ -110,19 +110,19 @@
         {
           "french": "Nous **inscrivons** l'adresse sur la carte.",
           "english": "We write the address on the card.",
-          "note": "Inscrire keeps the écrire family pattern."
+          "note": "`Inscrire` keeps the `écrire` family pattern."
         },
         {
           "french": "Tu **décris** le quartier.",
           "english": "You describe the neighbourhood.",
-          "note": "Décrire has no v in the singular."
+          "note": "`Décrire` has no `v` in the singular."
         }
       ],
       "mistakes": [
         {
           "avoid": "Nous écrions un message.",
           "prefer": "Nous écrivons un message.",
-          "why": "The plural of écrire requires v."
+          "why": "The plural of `écrire` requires `v`."
         }
       ]
     },
@@ -130,24 +130,24 @@
       "id": "lire-prefixes",
       "title": "Transfer a known paradigm without confusing the meanings",
       "paragraphs": [
-        "Relire means read again and élire means elect. Both retain the lire pattern, including the s in plural forms. Keep the prefix and conjugate the familiar base. This is a way to check forms you encounter, not a rule that every verb beginning with re- or é- belongs to lire."
+        "`Relire` means read again and `élire` means elect. Both retain the `lire` pattern, including the `s` in plural forms. Keep the prefix and conjugate the familiar base. This is a way to check forms you encounter, not a rule that every verb beginning with `re-` or `é-` belongs to `lire`."
       ],
       "points": [],
       "examples": [
         {
           "french": "Je **relis**\nTu **relis**\nIl/elle/on **relit**\nNous **relisons**\nVous **relisez**\nIls/elles **relisent**",
           "english": "I reread\nYou reread\nHe/she rereads; one rereads/we reread\nWe reread\nYou reread\nThey reread",
-          "note": "The first-person singular and second-person singular end in -s, not -t."
+          "note": "The first-person singular and second-person singular end in `-s`, not `-t`."
         },
         {
           "french": "J'**élis**\nTu **élis**\nIl/elle/on **élit**\nNous **élisons**\nVous **élisez**\nIls/elles **élisent**",
           "english": "I elect\nYou elect\nHe/she elects; one elects/we elect\nWe elect\nYou elect\nThey elect",
-          "note": "Keep é in every form."
+          "note": "Keep `é` in every form."
         },
         {
           "french": "Avant l'envoi, vous **relisez** votre demande.",
           "english": "Before sending it, you reread your application.",
-          "note": "Une demande (f.) here is an application."
+          "note": "`Une demande` (f.) here is an application."
         },
         {
           "french": "Les membres du club **élisent** une présidente.",
@@ -402,9 +402,9 @@
     "model_answer": "Je lis le message. Nous disons merci. Nous écrivons une réponse.",
     "translation": "I read the message. We say thank you. We write a reply.",
     "rubric": [
-      "Use the correct lire form.",
-      "Distinguish disons from the vous form dites.",
-      "Include v in écrivons."
+      "Use the correct `lire` form.",
+      "Distinguish `disons` from the `vous` form `dites`.",
+      "Include `v` in `écrivons`."
     ]
   }
 }

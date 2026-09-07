@@ -14,9 +14,9 @@
     "a1-negatives"
   ],
   "objectives": [
-    "Use être d'accord avec rather than a literal English agree construction.",
-    "Use ça m'est égal in a suitable choice context.",
-    "Distinguish ça y est from ça ne fait rien."
+    "Use `être d'accord avec` rather than a literal English agree construction.",
+    "Use `ça m'est égal` in a suitable choice context.",
+    "Distinguish `ça y est` from `ça ne fait rien`."
   ],
   "keywords": [
     "d'accord",
@@ -38,45 +38,45 @@
   "sections": [
     {
       "id": "agreement",
-      "title": "Use être d'accord avec to share an opinion",
+      "title": "Use `être d'accord avec` to share an opinion",
       "paragraphs": [
-        "Être d'accord means agree or be in agreement. Conjugate être, then keep d'accord unchanged: je suis d'accord, tu es d'accord, il/elle/on est d'accord, nous sommes d'accord, vous êtes d'accord, ils/elles sont d'accord. Use avec before the person or view you agree with, and a stressed pronoun after avec. D'accord does not take plural s.",
-        "You can add sur before the topic: nous sommes d'accord sur la date. D'accord ! alone can also mean okay as acceptance of a proposal. Agreement can be made negative normally: je ne suis pas d'accord."
+        "`Être d'accord` means agree or be in agreement. Conjugate `être`, then keep `d'accord` unchanged: `je suis d'accord`, `tu es d'accord`, `il/elle/on est d'accord`, `nous sommes d'accord`, `vous êtes d'accord`, `ils/elles sont d'accord`. Use `avec` before the person or view you agree with, and a stressed pronoun after `avec`. `D'accord` does not take plural `s`.",
+        "You can add `sur` before the topic: `nous sommes d'accord sur la date`. `D'accord !` alone can also mean okay as acceptance of a proposal. Agreement can be made negative normally: `je ne suis pas d'accord`."
       ],
       "points": [
-        "Agreeing with a person uses avec; being in agreement is built with être, not avoir."
+        "Agreeing with a person uses `avec`; being in agreement is built with `être`, not `avoir`."
       ],
       "examples": [
         {
           "french": "Je **suis d'accord avec** toi.",
           "english": "I agree with you.",
-          "note": "Avec takes stressed toi."
+          "note": "`Avec` takes stressed `toi`."
         },
         {
           "french": "Nous **sommes d'accord sur** la date.",
           "english": "We agree on the date.",
-          "note": "Sur introduces the topic."
+          "note": "`Sur` introduces the topic."
         }
       ],
       "mistakes": [
         {
           "avoid": "J'ai d'accord.",
           "prefer": "Je suis d'accord.",
-          "why": "The expression uses être."
+          "why": "The expression uses `être`."
         },
         {
           "avoid": "Nous sommes d'accords.",
           "prefer": "Nous sommes d'accord.",
-          "why": "D'accord stays unchanged in this fixed expression."
+          "why": "`D'accord` stays unchanged in this fixed expression."
         }
       ]
     },
     {
       "id": "preference",
-      "title": "Ça m'est égal can mean either option is fine",
+      "title": "`Ça m'est égal` can mean either option is fine",
       "paragraphs": [
-        "Ça m'est égal literally presents the alternatives as equal to me. In a choice between acceptable options it means I don't mind or I have no preference. It can sound indifferent or dismissive if used about someone's serious concern, so context and tone matter. Ce n'est pas important pour moi can be an explanatory alternative, but do not use either to minimise a person's problem.",
-        "The person changes through the object pronoun, not through the verb: ça m'est égal, ça t'est égal, ça lui est égal, ça nous est égal, ça vous est égal, ça leur est égal. Ça remains the singular subject, so est and égal remain singular. Me and te elide before est."
+        "`Ça m'est égal` literally presents the alternatives as equal to me. In a choice between acceptable options it means I don't mind or I have no preference. It can sound indifferent or dismissive if used about someone's serious concern, so context and tone matter. `Ce n'est pas important pour moi` can be an explanatory alternative, but do not use either to minimise a person's problem.",
+        "The person changes through the object pronoun, not through the verb: `ça m'est égal`, `ça t'est égal`, `ça lui est égal`, `ça nous est égal`, `ça vous est égal`, `ça leur est égal`. `Ça` remains the singular subject, so `est` and `égal` remain singular. `Me` and `te` elide before `est`."
       ],
       "points": [
         "No preference is not the same as enthusiastic agreement or a claim that nothing matters."
@@ -90,25 +90,25 @@
         {
           "french": "Partir à huit heures ou à neuf heures, **ça nous est égal**.",
           "english": "Leaving at eight or nine makes no difference to us.",
-          "note": "Nous identifies the people who have no preference; est stays singular."
+          "note": "`Nous` identifies the people who have no preference; `est` stays singular."
         }
       ],
       "mistakes": [
         {
           "avoid": "Ça me est égal.",
           "prefer": "Ça m'est égal.",
-          "why": "Me elides before est."
+          "why": "`Me` elides before `est`."
         }
       ]
     },
     {
       "id": "completion",
-      "title": "Ça y est announces that the expected point has been reached",
+      "title": "`Ça y est` announces that the expected point has been reached",
       "paragraphs": [
-        "Ça y est is a fixed conversational expression used when something is ready, completed or has finally happened. Depending on the situation, English equivalents include that's it, there we are, it's done or we're ready. It is not automatically a literal statement that something is physically there. The surrounding sentence tells the listener what is now complete."
+        "`Ça y est` is a fixed conversational expression used when something is ready, completed or has finally happened. Depending on the situation, English equivalents include that's it, there we are, it's done or we're ready. It is not automatically a literal statement that something is physically there. The surrounding sentence tells the listener what is now complete."
       ],
       "points": [
-        "Keep y in this fixed expression."
+        "Keep `y` in this fixed expression."
       ],
       "examples": [
         {
@@ -126,16 +126,16 @@
         {
           "avoid": "Ça est, je comprends !",
           "prefer": "Ça y est, je comprends !",
-          "why": "The completion expression needs y; ça est is not this fixed phrase."
+          "why": "The completion expression needs `y`; `ça est` is not this fixed phrase."
         }
       ]
     },
     {
       "id": "reassure",
-      "title": "Ça ne fait rien reassures someone about a minor problem",
+      "title": "`Ça ne fait rien` reassures someone about a minor problem",
       "paragraphs": [
-        "Ça ne fait rien means it doesn't matter or never mind in an appropriate reassurance context. Rien means nothing; it replaces pas in this negative expression. It does not mean the speaker has no preference between two options in exactly the same way as ça m'est égal.",
-        "Use it for a small inconvenience or an apology when you genuinely want to reassure the person. Serious problems call for acknowledgment and a suitable response, not automatic dismissal. Informal speech may drop ne, but this lesson retains the standard written form."
+        "`Ça ne fait rien` means it doesn't matter or never mind in an appropriate reassurance context. `Rien` means nothing; it replaces `pas` in this negative expression. It does not mean the speaker has no preference between two options in exactly the same way as `ça m'est égal`.",
+        "Use it for a small inconvenience or an apology when you genuinely want to reassure the person. Serious problems call for acknowledgment and a suitable response, not automatic dismissal. Informal speech may drop `ne`, but this lesson retains the standard written form."
       ],
       "points": [
         "Use the context: no preference, completion and reassurance have different jobs."
@@ -156,7 +156,7 @@
         {
           "avoid": "Ça ne fait pas rien.",
           "prefer": "Ça ne fait rien.",
-          "why": "For the intended fixed reassurance 'it doesn't matter', use ne…rien without pas. Adding pas changes the meaning."
+          "why": "For the intended fixed reassurance 'it doesn't matter', use `ne…rien` without `pas`. Adding `pas` changes the meaning."
         }
       ]
     }
@@ -369,9 +369,9 @@
     "model_answer": "— On réserve une table ?\n— Je suis d'accord. À sept heures ou à huit heures, ça m'est égal.\n— Ça y est, la table est réservée.",
     "translation": "— Shall we book a table?\n— I agree. Seven or eight o'clock is fine with me.\n— There we are, the table is booked.",
     "rubric": [
-      "Use être d'accord for agreement.",
-      "Use ça m'est égal only where no preference is intended.",
-      "Use ça y est when something has become ready or complete."
+      "Use `être d'accord` for agreement.",
+      "Use `ça m'est égal` only where no preference is intended.",
+      "Use `ça y est` when something has become ready or complete."
     ]
   }
 }

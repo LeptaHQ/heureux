@@ -5,15 +5,15 @@
   "cefr_level": "A1",
   "topic": "verbs-tenses-moods",
   "title": "Aller et faire : actions et nouvelles de quelqu'un",
-  "summary": "Use every present form of aller and faire and distinguish going somewhere from feeling well.",
+  "summary": "Use every present form of `aller` and `faire` and distinguish going somewhere from feeling well.",
   "order": 7,
   "duration_minutes": 10,
   "prerequisites": [
     "a1-present-families"
   ],
   "objectives": [
-    "Recall the complete present of aller and faire.",
-    "Use aller for movement and everyday greetings."
+    "Recall the complete present of `aller` and `faire`.",
+    "Use `aller` for movement and everyday greetings."
   ],
   "keywords": [
     "aller",
@@ -35,12 +35,12 @@
   "sections": [
     {
       "id": "aller",
-      "title": "Aller is irregular even though its infinitive ends in -er",
+      "title": "`Aller` is irregular even though its infinitive ends in `-er`",
       "paragraphs": [
-        "Aller means to go. Learn its three visible present stems rather than trying to use the parler pattern. Location phrases often follow it: au travail (to work), à la maison (home), à l'école (to school). The same form can mean go or am going."
+        "`Aller` means to go. Learn its three visible present stems rather than trying to use the `parler` pattern. Location phrases often follow it: `au travail` (to work), `à la maison` (home), `à l'école` (to school). The same form can mean go or am going."
       ],
       "points": [
-        "Aller: vais, vas, va, allons, allez, vont."
+        "`Aller`: `vais`, `vas`, `va`, `allons`, `allez`, `vont`."
       ],
       "examples": [
         {
@@ -51,30 +51,30 @@
         {
           "french": "Je **vais** à la bibliothèque.",
           "english": "I am going to the library.",
-          "note": "Une bibliothèque (f.) is a library."
+          "note": "`Une bibliothèque` (f.) is a library."
         },
         {
           "french": "Les enfants **vont** à l'école.",
           "english": "The children go to school.",
-          "note": "The plural form is vont, not a regular -er form."
+          "note": "The plural form is `vont`, not a regular `-er` form."
         }
       ],
       "mistakes": [
         {
           "avoid": "Ils allent à l'école.",
           "prefer": "Ils vont à l'école.",
-          "why": "Aller does not follow the regular -er pattern."
+          "why": "`Aller` does not follow the regular `-er` pattern."
         }
       ]
     },
     {
       "id": "greetings",
-      "title": "To ask about well-being, use aller, not a literal movement question",
+      "title": "To ask about well-being, use `aller`, not a literal movement question",
       "paragraphs": [
-        "Comment vas-tu ? and Comment allez-vous ? mean How are you? The verb and pronoun swap places in these conventional question forms. Ça va ? is a very common shorter question. Answer Je vais bien, merci or Ça va bien, merci. Bien means well; mal means badly. Ça va can also mean that's okay, depending on context."
+        "`Comment vas-tu ?` and `Comment allez-vous ?` mean How are you? The verb and pronoun swap places in these conventional question forms. `Ça va ?` is a very common shorter question. Answer `Je vais bien, merci` or `Ça va bien, merci`. `Bien` means well; `mal` means badly. `Ça va` can also mean that's okay, depending on context."
       ],
       "points": [
-        "Use tu for one familiar person and vous politely or for a group."
+        "Use `tu` for one familiar person and `vous` politely or for a group."
       ],
       "examples": [
         {
@@ -85,7 +85,7 @@
         {
           "french": "Je **vais bien**, merci.",
           "english": "I am well, thank you.",
-          "note": "Aller describes well-being, not a destination."
+          "note": "`Aller` describes well-being, not a destination."
         },
         {
           "french": "**Ça va** ? — Oui, **ça va**.",
@@ -97,41 +97,41 @@
     },
     {
       "id": "faire",
-      "title": "Faire means to do or make; listen especially for vous faites",
+      "title": "`Faire` means to do or make; listen especially for `vous faites`",
       "paragraphs": [
-        "Faire means to do or make, depending on what follows. Le travail (m.) means work; un gâteau (m.) is a cake. Faire also appears in many activity and weather expressions taught later. Do not treat it as a helper for English do-questions: French questions do not need a translation of do."
+        "`Faire` means to do or make, depending on what follows. `Le travail` (m.) means work; `un gâteau` (m.) is a cake. `Faire` also appears in many activity and weather expressions taught later. Do not treat it as a helper for English do-questions: French questions do not need a translation of do."
       ],
       "points": [
-        "Faire: fais, fais, fait, faisons, faites, font.",
-        "The usual pronunciation of faisons begins like fe-, despite written ai."
+        "`Faire`: `fais`, `fais`, `fait`, `faisons`, `faites`, `font`.",
+        "The usual pronunciation of `faisons` begins like `fe-`, despite written `ai`."
       ],
       "examples": [
         {
           "french": "Je **fais**\nTu **fais**\nIl/elle/on **fait**\nNous **faisons**\nVous **faites**\nIls/elles **font**",
           "english": "I do/make\nYou do/make\nHe/she does/makes; one does/we do\nWe do/make\nYou do/make\nThey do/make",
-          "note": "The plural forms are not all predictable from fais-."
+          "note": "The plural forms are not all predictable from `fais-`."
         },
         {
           "french": "Tu **fais** un gâteau.",
           "english": "You are making a cake.",
-          "note": "Here faire means make."
+          "note": "Here `faire` means make."
         },
         {
           "french": "Nous **faisons** le travail ensemble.",
           "english": "We do the work together.",
-          "note": "Here faire means do."
+          "note": "Here `faire` means do."
         },
         {
           "french": "Vous **faites** une pause.",
           "english": "You are taking a break.",
-          "note": "Une pause (f.) is a break; French uses faire in this expression."
+          "note": "`Une pause` (f.) is a break; French uses `faire` in this expression."
         }
       ],
       "mistakes": [
         {
           "avoid": "Vous faisez une pause.",
           "prefer": "Vous faites une pause.",
-          "why": "The vous form is the irregular faites."
+          "why": "The `vous` form is the irregular `faites`."
         }
       ]
     },
@@ -139,24 +139,24 @@
       "id": "wellbeing-state",
       "title": "General well-being and a specific state use different constructions",
       "paragraphs": [
-        "Aller bien, aller mal and aller mieux describe general well-being or improvement. For an ordinary adjective naming a specific state, use être: être malade, être fatigué/fatiguée. Do not attach every English description after aller just because the conversation began with Comment allez-vous ? The answer can legitimately switch verbs."
+        "`Aller bien`, `aller mal` and `aller mieux` describe general well-being or improvement. For an ordinary adjective naming a specific state, use `être`: `être malade`, `être fatigué/fatiguée`. Do not attach every English description after `aller` just because the conversation began with `Comment allez-vous ?` The answer can legitimately switch verbs."
       ],
       "points": [],
       "examples": [
         {
           "french": "Aujourd'hui, je **vais mieux**.",
           "english": "Today, I am feeling better.",
-          "note": "Mieux is the comparative adverb used in the general well-being expression."
+          "note": "`Mieux` is the comparative adverb used in the general well-being expression."
         },
         {
           "french": "Comment va votre sœur ? — Elle **est fatiguée**, mais elle **va bien**.",
           "english": "How is your sister? — She is tired, but she is well.",
-          "note": "The state adjective agrees with the person; bien remains an adverb."
+          "note": "The state adjective agrees with the person; `bien` remains an adverb."
         },
         {
           "french": "Je **suis malade** aujourd'hui.",
           "english": "I am ill today.",
-          "note": "Être introduces this specific state."
+          "note": "`Être` introduces this specific state."
         }
       ],
       "mistakes": []
@@ -406,8 +406,8 @@
     "model_answer": "Je vais bien, merci. Je vais chez Samir. Nous faisons un gâteau.",
     "translation": "I am well, thank you. I am going to Samir's place. We are making a cake.",
     "rubric": [
-      "Distinguish aller + bien from aller + a destination.",
-      "Use the correct nous form of faire.",
+      "Distinguish `aller` + `bien` from `aller` + a destination.",
+      "Use the correct `nous` form of `faire`.",
       "Keep a subject in each statement."
     ]
   }

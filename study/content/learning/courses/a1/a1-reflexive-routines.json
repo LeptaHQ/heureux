@@ -5,7 +5,7 @@
   "cefr_level": "A1",
   "topic": "verbs-tenses-moods",
   "title": "Se préparer : les verbes pronominaux au présent",
-  "summary": "Match reflexive pronouns to the subject, describe a daily routine and recognise both standard s'asseoir paradigms.",
+  "summary": "Match reflexive pronouns to the subject, describe a daily routine and recognise both standard `s'asseoir` paradigms.",
   "order": 13,
   "duration_minutes": 15,
   "prerequisites": [
@@ -13,9 +13,9 @@
     "a1-daily-irregulars"
   ],
   "objectives": [
-    "Place me, te, se, nous and vous before a present verb.",
+    "Place `me`, `te`, `se`, `nous` and `vous` before a present verb.",
     "Conjugate six common daily reflexive verbs.",
-    "Use either accepted present pattern of s'asseoir."
+    "Use either accepted present pattern of `s'asseoir`."
   ],
   "keywords": [
     "reflexive",
@@ -46,35 +46,35 @@
       "id": "pattern",
       "title": "The subject does the action to or for itself",
       "paragraphs": [
-        "A reflexive verb has a small pronoun that points back to its subject. In the dictionary it appears with se: se laver (wash oneself). In a present statement put the pronoun before the conjugated verb: je me lave, tu te laves, il/elle/on se lave, nous nous lavons, vous vous lavez, ils/elles se lavent. The repeated nous or vous is not a mistake: the first word is the subject, the second is the reflexive pronoun.",
-        "Me, te and se become m', t' and s' before a vowel or silent h. Nous and vous do not elide. Some pronominal verbs have a conventional meaning rather than a literal English myself: s'amuser means have fun. Compare laver la voiture (wash the car) with se laver (wash oneself)."
+        "A reflexive verb has a small pronoun that points back to its subject. In the dictionary it appears with `se`: `se laver` (wash oneself). In a present statement put the pronoun before the conjugated verb: `je me lave`, `tu te laves`, `il/elle/on se lave`, `nous nous lavons`, `vous vous lavez`, `ils/elles se lavent`. The repeated `nous` or `vous` is not a mistake: the first word is the subject, the second is the reflexive pronoun.",
+        "`Me`, `te` and `se` become `m'`, `t'` and `s'` before a vowel or silent `h`. `Nous` and `vous` do not elide. Some pronominal verbs have a conventional meaning rather than a literal English myself: `s'amuser` means have fun. Compare `laver la voiture` (wash the car) with `se laver` (wash oneself)."
       ],
       "points": [
         "The verb still agrees with its subject; the reflexive pronoun does not replace the subject.",
-        "Use a definite article for an obvious body part: se laver les mains."
+        "Use a definite article for an obvious body part: `se laver les mains`."
       ],
       "examples": [
         {
           "french": "Je **me lave**\nTu **te laves**\nIl/elle/on **se lave**\nNous **nous lavons**\nVous **vous lavez**\nIls/elles **se lavent**",
           "english": "I wash myself\nYou wash yourself\nHe/she washes; one washes/we wash\nWe wash ourselves\nYou wash yourselves/yourself\nThey wash themselves",
-          "note": "The complete se laver paradigm."
+          "note": "The complete `se laver` paradigm."
         },
         {
           "french": "Elle **se lave** les mains.",
           "english": "She washes her hands.",
-          "note": "Les mains is the body part; se identifies the owner."
+          "note": "`Les mains` is the body part; `se` identifies the owner."
         }
       ],
       "mistakes": [
         {
           "avoid": "Je se lave.",
           "prefer": "Je me lave.",
-          "why": "The reflexive pronoun must match je."
+          "why": "The reflexive pronoun must match `je`."
         },
         {
           "avoid": "Nous lavons à huit heures.",
           "prefer": "Nous nous lavons à huit heures.",
-          "why": "For the intended meaning 'we wash ourselves', the reflexive pronoun is needed; lavons alone does not express that explicitly."
+          "why": "For the intended meaning 'we wash ourselves', the reflexive pronoun is needed; `lavons` alone does not express that explicitly."
         }
       ]
     },
@@ -82,8 +82,8 @@
       "id": "routine",
       "title": "Keep each verb's own spelling pattern",
       "paragraphs": [
-        "Se réveiller means wake up, se lever means get up, se coucher means go to bed, s'habiller means get dressed, and s'amuser means have fun. All take regular -er endings, but se lever also changes e to è before silent endings, just like lever. The h in habiller is silent, so the reflexive pronoun elides.",
-        "Waking and getting up are different actions; you can wake at seven and get up at seven thirty. S'habiller describes the action of dressing, not simply being in a dressed state. The full forms below make it possible to talk about any person, not just je."
+        "`Se réveiller` means wake up, `se lever` means get up, `se coucher` means go to bed, `s'habiller` means get dressed, and `s'amuser` means have fun. All take regular `-er` endings, but `se lever` also changes `e` to `è` before silent endings, just like `lever`. The `h` in `habiller` is silent, so the reflexive pronoun elides.",
+        "Waking and getting up are different actions; you can wake at seven and get up at seven thirty. `S'habiller` describes the action of dressing, not simply being in a dressed state. The full forms below make it possible to talk about any person, not just `je`."
       ],
       "points": [
         "Keep the same person in subject, reflexive pronoun and verb."
@@ -92,12 +92,12 @@
         {
           "french": "Je **me réveille**\nTu **te réveilles**\nIl/elle/on **se réveille**\nNous **nous réveillons**\nVous **vous réveillez**\nIls/elles **se réveillent**",
           "english": "I wake up\nYou wake up\nHe/she wakes up; one wakes up/we wake up\nWe wake up\nYou wake up\nThey wake up",
-          "note": "Réveiller keeps its regular stem."
+          "note": "`Réveiller` keeps its regular stem."
         },
         {
           "french": "Je **me lève**\nTu **te lèves**\nIl/elle/on **se lève**\nNous **nous levons**\nVous **vous levez**\nIls/elles **se lèvent**",
           "english": "I get up\nYou get up\nHe/she gets up; one gets up/we get up\nWe get up\nYou get up\nThey get up",
-          "note": "È appears except with nous and vous."
+          "note": "`È` appears except with `nous` and `vous`."
         },
         {
           "french": "Je **me couche**\nTu **te couches**\nIl/elle/on **se couche**\nNous **nous couchons**\nVous **vous couchez**\nIls/elles **se couchent**",
@@ -107,7 +107,7 @@
         {
           "french": "Je **m'habille**\nTu **t'habilles**\nIl/elle/on **s'habille**\nNous **nous habillons**\nVous **vous habillez**\nIls/elles **s'habillent**",
           "english": "I get dressed\nYou get dressed\nHe/she gets dressed; one gets dressed/we get dressed\nWe get dressed\nYou get dressed\nThey get dressed",
-          "note": "The silent h permits elision."
+          "note": "The silent `h` permits elision."
         },
         {
           "french": "Je **m'amuse**\nTu **t'amuses**\nIl/elle/on **s'amuse**\nNous **nous amusons**\nVous **vous amusez**\nIls/elles **s'amusent**",
@@ -124,7 +124,7 @@
         {
           "avoid": "Elle se habille.",
           "prefer": "Elle s'habille.",
-          "why": "Se elides before the silent h of habiller."
+          "why": "`Se` elides before the silent `h` of `habiller`."
         }
       ]
     },
@@ -132,10 +132,10 @@
       "id": "asseoir",
       "title": "Two accepted ways to say sit down",
       "paragraphs": [
-        "S'asseoir means sit down. Both present series below are standard; neither is an error. The alternative infinitive spelling s'assoir is accepted under the spelling recommendations. The pronouns still follow the same reflexive system. Learn one series for active use and recognise the other. Nous forms such as nous nous asseyons contain both subject and reflexive pronoun."
+        "`S'asseoir` means sit down. Both present series below are standard; neither is an error. The alternative infinitive spelling `s'assoir` is accepted under the spelling recommendations. The pronouns still follow the same reflexive system. Learn one series for active use and recognise the other. `Nous` forms such as `nous nous asseyons` contain both subject and reflexive pronoun."
       ],
       "points": [
-        "Do not confuse sitting down, an action, with être assis/assise, being seated."
+        "Do not confuse sitting down, an action, with `être assis/assise`, being seated."
       ],
       "examples": [
         {
@@ -151,14 +151,14 @@
         {
           "french": "Elle **s'assied** près de la fenêtre.",
           "english": "She sits down near the window.",
-          "note": "Elle s'assoit is equally valid here; une fenêtre is feminine."
+          "note": "`Elle s'assoit` is equally valid here; `une fenêtre` is feminine."
         }
       ],
       "mistakes": [
         {
           "avoid": "Nous s'asseyons ici.",
           "prefer": "Nous nous asseyons ici.",
-          "why": "The reflexive pronoun must agree with nous."
+          "why": "The reflexive pronoun must agree with `nous`."
         }
       ]
     }
@@ -364,14 +364,14 @@
     }
   ],
   "production_task": {
-    "prompt": "Describe a morning and evening routine in four sentences. Include waking, getting up or dressed, sitting down and going to bed. Use at least one nous or vous form.",
+    "prompt": "Describe a morning and evening routine in four sentences. Include waking, getting up or dressed, sitting down and going to bed. Use at least one `nous` or `vous` form.",
     "model_answer": "Je me réveille à sept heures. Je m'habille. Nous nous asseyons dans la cuisine. Je me couche à dix heures.",
     "translation": "I wake up at seven o'clock. I get dressed. We sit down in the kitchen. I go to bed at ten o'clock.",
     "rubric": [
       "Match every reflexive pronoun to its subject.",
-      "Elide me/te/se before vowels or silent h.",
-      "Use a standard s'asseoir form.",
-      "Keep nous nous where required."
+      "Elide `me/te/se` before vowels or silent `h`.",
+      "Use a standard `s'asseoir` form.",
+      "Keep `nous nous` where required."
     ]
   }
 }

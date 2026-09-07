@@ -14,7 +14,7 @@
   ],
   "objectives": [
     "Form regular feminine and plural adjectives.",
-    "Recognise common consonant-doubling, -eux/-euse and -er/-ère patterns and exceptions.",
+    "Recognise common consonant-doubling, `-eux/-euse` and `-er/-ère` patterns and exceptions.",
     "Apply colour agreement and recognise basic invariable colour descriptions."
   ],
   "keywords": [
@@ -45,8 +45,8 @@
       "id": "basic",
       "title": "Find the noun before changing the adjective",
       "paragraphs": [
-        "An adjective describes a noun. Agreement means matching that noun's gender and number, whether the adjective is next to it or follows être. Usually add -e for feminine, then -s for plural: petit, petite, petits, petites. If the masculine already ends in silent -e, the feminine has the same spelling: calme, utile, jeune.",
-        "A masculine adjective already ending in -s or -x adds nothing in the masculine plural: bas → bas, heureux → heureux. Its feminine form can still add plural -s: basses, heureuses. With a mixed-gender group, conventional standard agreement is masculine plural."
+        "An adjective describes a noun. Agreement means matching that noun's gender and number, whether the adjective is next to it or follows `être`. Usually add `-e` for feminine, then `-s` for plural: `petit`, `petite`, `petits`, `petites`. If the masculine already ends in silent `-e`, the feminine has the same spelling: `calme`, `utile`, `jeune`.",
+        "A masculine adjective already ending in `-s` or `-x` adds nothing in the masculine plural: `bas` → `bas`, `heureux` → `heureux`. Its feminine form can still add plural `-s`: `basses`, `heureuses`. With a mixed-gender group, conventional standard agreement is masculine plural."
       ],
       "points": [
         "Do not assume that a silent final letter is unnecessary in writing."
@@ -55,24 +55,24 @@
         {
           "french": "un **petit** sac / une **petite** boîte / les **petites** boîtes",
           "english": "a small bag / a small box / the small boxes",
-          "note": "Un sac is masculine; une boîte is feminine. Petit normally precedes the noun."
+          "note": "`Un sac` is masculine; `une boîte` is feminine. `Petit` normally precedes the noun."
         },
         {
           "french": "une rue **calme** / des rues **calmes**",
           "english": "a quiet street / quiet streets",
-          "note": "Calme already ends in e; only the plural adds a letter."
+          "note": "`Calme` already ends in `e`; only the plural adds a letter."
         },
         {
           "french": "des murs **bas** / des tables **basses**",
           "english": "low walls / low tables",
-          "note": "Masculine bas stays unchanged; feminine basse adds plural s."
+          "note": "Masculine `bas` stays unchanged; feminine `basse` adds plural `s`."
         }
       ],
       "mistakes": [
         {
           "avoid": "Les portes sont ouvert.",
           "prefer": "Les portes sont ouvertes.",
-          "why": "The adjective must be feminine plural to describe portes."
+          "why": "The adjective must be feminine plural to describe `portes`."
         }
       ]
     },
@@ -80,19 +80,19 @@
       "id": "feminine-families",
       "title": "Learn families, but keep the exceptions visible",
       "paragraphs": [
-        "Common -ien and -on adjectives double n before feminine -e: canadien/canadienne, ancien/ancienne, bon/bonne, mignon/mignonne. Related person or animal nouns can do the same: un musicien/une musicienne, un champion/une championne, un lion/une lionne. These mean musician, champion and lion/lioness. Do not invent a feminine for every noun in -ion or -on: many name objects with fixed grammatical gender.",
-        "Adjectives in -eux commonly become -euse: heureux/heureuse (happy), sérieux/sérieuse (serious). -Er becomes -ère: léger/légère (light), cher/chère (expensive/dear), dernier/dernière (last). Some other -x adjectives need a different pair: doux/douce (soft), faux/fausse (false), roux/rousse (red-haired).",
-        "Common -el and -eil adjectives double l: naturel/naturelle, pareil/pareille. Learn gentil/gentille and nul/nulle too, but do not generalise them to all -il/-ul words: civil/civile, subtil/subtile and seul/seule simply add e. Many -et adjectives double t, such as net/nette and muet/muette; complet/complète, discret/discrète, inquiet/inquiète and secret/secrète instead use è. Some -s adjectives double s: gros/grosse, bas/basse, gras/grasse, épais/épaisse; others do not, such as gris/grise."
+        "Common `-ien` and `-on` adjectives double `n` before feminine `-e`: `canadien/canadienne`, `ancien/ancienne`, `bon/bonne`, `mignon/mignonne`. Related person or animal nouns can do the same: `un musicien/une musicienne`, `un champion/une championne`, `un lion/une lionne`. These mean musician, champion and lion/lioness. Do not invent a feminine for every noun in `-ion` or `-on`: many name objects with fixed grammatical gender.",
+        "Adjectives in `-eux` commonly become `-euse`: `heureux/heureuse` (happy), `sérieux/sérieuse` (serious). `-Er` becomes `-ère`: `léger/légère` (light), `cher/chère` (expensive/dear), `dernier/dernière` (last). Some other `-x` adjectives need a different pair: `doux/douce` (soft), `faux/fausse` (false), `roux/rousse` (red-haired).",
+        "Common `-el` and `-eil` adjectives double `l`: `naturel/naturelle`, `pareil/pareille`. Learn `gentil/gentille` and `nul/nulle` too, but do not generalise them to all `-il/-ul` words: `civil/civile`, `subtil/subtile` and `seul/seule` simply add `e`. Many `-et` adjectives double `t`, such as `net/nette` and `muet/muette`; `complet/complète`, `discret/discrète`, `inquiet/inquiète` and `secret/secrète` instead use `è`. Some `-s` adjectives double `s`: `gros/grosse`, `bas/basse`, `gras/grasse`, `épais/épaisse`; others do not, such as `gris/grise`."
       ],
       "points": [
         "These are grouped spelling pairs, not a claim that one suffix predicts every French word.",
-        "An accent can be part of the feminine change: léger → légère."
+        "An accent can be part of the feminine change: `léger` → `légère`."
       ],
       "examples": [
         {
           "french": "Une musicienne **canadienne** arrive.",
           "english": "A Canadian musician is arriving.",
-          "note": "Both the noun and adjective have -ienne."
+          "note": "Both the noun and adjective have `-ienne`."
         },
         {
           "french": "La **championne** regarde la **lionne**.",
@@ -102,44 +102,44 @@
         {
           "french": "Les étudiantes sont **heureuses**.",
           "english": "The students are happy.",
-          "note": "-Eux becomes -euse, then adds plural s."
+          "note": "`-Eux` becomes `-euse`, then adds plural `s`."
         },
         {
           "french": "La valise est **légère**.",
           "english": "The suitcase is light.",
-          "note": "Une valise is feminine; -er becomes -ère."
+          "note": "`Une valise` is feminine; `-er` becomes `-ère`."
         },
         {
           "french": "Sa réponse est **naturelle**, et sa voix est **pareille** à la mienne.",
           "english": "Her answer is natural, and her voice is like mine.",
-          "note": "-El and -eil double l."
+          "note": "`-El` and `-eil` double `l`."
         },
         {
           "french": "Sa sœur est **gentille**. La différence est **nulle**.",
           "english": "His sister is kind. The difference is zero.",
-          "note": "Two independent examples: gentille and nulle are learned pairs, not a universal -il/-ul rule."
+          "note": "Two independent examples: `gentille` and `nulle` are learned pairs, not a universal `-il/-ul` rule."
         },
         {
           "french": "Une tenue **civile** convient.",
           "english": "Civilian clothing is suitable.",
-          "note": "Civil adds one e without doubling l; une tenue is an outfit."
+          "note": "`Civil` adds one `e` without doubling `l`; `une tenue` is an outfit."
         },
         {
           "french": "La photo est **nette**, mais la liste est **incomplète**.",
           "english": "The photo is clear, but the list is incomplete.",
-          "note": "-Et can give -ette or, in named exceptions, -ète."
+          "note": "`-Et` can give `-ette` or, in named exceptions, `-ète`."
         }
       ],
       "mistakes": [
         {
           "avoid": "une réponse complette",
           "prefer": "une réponse complète",
-          "why": "Complet uses -ète, not doubled t."
+          "why": "`Complet` uses `-ète`, not doubled `t`."
         },
         {
           "avoid": "une robe grisse",
           "prefer": "une robe grise",
-          "why": "Gris does not belong to the small group that doubles s."
+          "why": "`Gris` does not belong to the small group that doubles `s`."
         }
       ]
     },
@@ -147,7 +147,7 @@
       "id": "colours",
       "title": "Simple colour adjectives normally agree",
       "paragraphs": [
-        "Common simple colours behave like adjectives: bleu/bleue/bleus/bleues, vert/verte/verts/vertes, noir/noire/noirs/noires. Rouge and jaune already end in e and only add s for plural. Blanc has blanche; violet has violette. A colour made of multiple words, such as bleu clair (light blue), normally stays unchanged. Nouns used as colour labels, notably orange and marron, are normally invariable. Rose and mauve are established agreeing colour adjectives."
+        "Common simple colours behave like adjectives: `bleu/bleue/bleus/bleues`, `vert/verte/verts/vertes`, `noir/noire/noirs/noires`. `Rouge` and `jaune` already end in `e` and only add `s` for plural. `Blanc` has `blanche`; `violet` has `violette`. A colour made of multiple words, such as `bleu clair` (light blue), normally stays unchanged. Nouns used as colour labels, notably `orange` and `marron`, are normally invariable. `Rose` and `mauve` are established agreeing colour adjectives."
       ],
       "points": [
         "A plain colour and a compound colour follow different agreement patterns."
@@ -161,7 +161,7 @@
         {
           "french": "des chemises **bleu clair** et des sacs **orange**",
           "english": "light-blue shirts and orange bags",
-          "note": "Compound bleu clair and colour-noun orange stay unchanged."
+          "note": "Compound `bleu clair` and colour-noun `orange` stay unchanged."
         }
       ],
       "mistakes": [
@@ -176,20 +176,20 @@
       "id": "brown-nationality",
       "title": "Check the word's job as well as its ending",
       "paragraphs": [
-        "Brun is an agreeing adjective: brun, brune, bruns, brunes. Marron used as a colour label is normally unchanged. Both can describe brown things; do not invent a rule that every translation of English brown must have the same French agreement.",
-        "A nationality adjective normally has a lower-case initial, but a noun identifying a person by nationality takes a capital: un Italien, une Italienne, des Italiens, des Italiennes. A language name remains lower-case. Capitalisation here tells you the word's job; it does not change its gender-agreement pattern."
+        "`Brun` is an agreeing adjective: `brun`, `brune`, `bruns`, `brunes`. `Marron` used as a colour label is normally unchanged. Both can describe brown things; do not invent a rule that every translation of English brown must have the same French agreement.",
+        "A nationality adjective normally has a lower-case initial, but a noun identifying a person by nationality takes a capital: `un Italien`, `une Italienne`, `des Italiens`, `des Italiennes`. A language name remains lower-case. Capitalisation here tells you the word's job; it does not change its gender-agreement pattern."
       ],
       "points": [],
       "examples": [
         {
           "french": "Une ceinture **brune**, des ceintures **brunes**; une ceinture **marron**, des ceintures **marron**.",
           "english": "A brown belt, brown belts; a brown belt, brown belts.",
-          "note": "Une ceinture (f.) is a belt. The two colour words have different agreement behaviour."
+          "note": "`Une ceinture` (f.) is a belt. The two colour words have different agreement behaviour."
         },
         {
           "french": "Les sacs sont **bruns**.",
           "english": "The bags are brown.",
-          "note": "Brun also agrees after être."
+          "note": "`Brun` also agrees after `être`."
         },
         {
           "french": "Une **Italienne** travaille avec une équipe **italienne**.",
@@ -199,7 +199,7 @@
         {
           "french": "Elle apprend **l'italien**.",
           "english": "She is learning Italian.",
-          "note": "L'italien (m.) is the language name and remains lower-case."
+          "note": "`L'italien` (m.) is the language name and remains lower-case."
         }
       ],
       "mistakes": []
@@ -558,8 +558,8 @@
     "translation": "The room is quiet. The tables are low. There is a green box near the door.",
     "rubric": [
       "Find the gender and number of each described noun.",
-      "Keep the same feminine form for calme.",
-      "Use feminine plural basses and feminine singular verte."
+      "Keep the same feminine form for `calme`.",
+      "Use feminine plural `basses` and feminine singular `verte`."
     ]
   }
 }

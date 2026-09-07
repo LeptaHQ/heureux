@@ -5,7 +5,7 @@
   "cefr_level": "A1",
   "topic": "verbs-tenses-moods",
   "title": "Le présent : trois familles régulières",
-  "summary": "Build the present of parler, finir and vendre and use it for habits, states and actions happening now.",
+  "summary": "Build the present of `parler`, `finir` and `vendre` and use it for habits, states and actions happening now.",
   "order": 5,
   "duration_minutes": 13,
   "prerequisites": [
@@ -13,7 +13,7 @@
     "a1-articles-gender"
   ],
   "objectives": [
-    "Conjugate regular -er, -ir with -iss-, and regular -dre verbs.",
+    "Conjugate regular `-er`, `-ir` with `-iss-`, and regular `-dre` verbs.",
     "Use French present forms for both English simple and continuous present meanings."
   ],
   "keywords": [
@@ -38,7 +38,7 @@
       "id": "meaning",
       "title": "French does not need a separate 'am doing' form",
       "paragraphs": [
-        "The present expresses a current state, a habit or an action happening now. Context words such as chaque jour (every day) or maintenant (now) make the intended reading clear. Je travaille can mean I work or I am working. Do not insert être before another conjugated verb to imitate English am working."
+        "The present expresses a current state, a habit or an action happening now. Context words such as `chaque jour` (every day) or `maintenant` (now) make the intended reading clear. `Je travaille` can mean I work or I am working. Do not insert `être` before another conjugated verb to imitate English am working."
       ],
       "points": [
         "The same form can describe a routine and a current action."
@@ -57,95 +57,95 @@
         {
           "french": "Nous **regardons** un film chaque vendredi.",
           "english": "We watch a film every Friday.",
-          "note": "A repeated habit; un film (m.) is a film."
+          "note": "A repeated habit; `un film` (m.) is a film."
         }
       ],
       "mistakes": [
         {
           "avoid": "Je suis travaille.",
           "prefer": "Je travaille.",
-          "why": "The French present already expresses am working; do not add être."
+          "why": "The French present already expresses am working; do not add `être`."
         }
       ]
     },
     {
       "id": "er",
-      "title": "Remove -er, then add the subject's ending",
+      "title": "Remove `-er`, then add the subject's ending",
       "paragraphs": [
-        "For regular -er verbs, remove -er to find the stem: parler gives parl-. Add -e, -es, -e, -ons, -ez, -ent. This works for regarder (watch), aimer (like/love), travailler (work) and habiter (live). Aller ends in -er but is irregular and is taught separately. The endings -e, -es and -ent are normally silent here; spelling still distinguishes the subjects."
+        "For regular `-er` verbs, remove `-er` to find the stem: `parler` gives `parl-`. Add `-e`, `-es`, `-e`, `-ons`, `-ez`, `-ent`. This works for `regarder` (watch), `aimer` (like/love), `travailler` (work) and `habiter` (live). `Aller` ends in `-er` but is irregular and is taught separately. The endings `-e`, `-es` and `-ent` are normally silent here; spelling still distinguishes the subjects."
       ],
       "points": [
-        "Il, elle and on use the same third-person singular form."
+        "`Il`, `elle` and `on` use the same third-person singular form."
       ],
       "examples": [
         {
           "french": "Je **parle**\nTu **parles**\nIl/elle/on **parle**\nNous **parlons**\nVous **parlez**\nIls/elles **parlent**",
           "english": "I speak\nYou speak\nHe/she speaks; one speaks/we speak\nWe speak\nYou speak\nThey speak",
-          "note": "Full regular -er present."
+          "note": "Full regular `-er` present."
         },
         {
           "french": "Vous **habitez** près du parc.",
           "english": "You live near the park.",
-          "note": "Habiter uses the same endings."
+          "note": "`Habiter` uses the same endings."
         }
       ],
       "mistakes": [
         {
           "avoid": "Ils parles français.",
           "prefer": "Ils parlent français.",
-          "why": "Ils needs written -ent, not the tu ending -es."
+          "why": "`Ils` needs written `-ent`, not the `tu` ending `-es`."
         }
       ]
     },
     {
       "id": "ir",
-      "title": "Regular -ir verbs add -iss- in the plural",
+      "title": "Regular `-ir` verbs add `-iss-` in the plural",
       "paragraphs": [
-        "Finir (finish), choisir (choose) and réussir (succeed) belong to the regular -ir family. Remove -ir and use -is, -is, -it, -issons, -issez, -issent. Not every -ir verb follows it: partir and dormir belong to a different family. Learn which family a verb belongs to, not just its last two letters."
+        "`Finir` (finish), `choisir` (choose) and `réussir` (succeed) belong to the regular `-ir` family. Remove `-ir` and use `-is`, `-is`, `-it`, `-issons`, `-issez`, `-issent`. Not every `-ir` verb follows it: `partir` and `dormir` belong to a different family. Learn which family a verb belongs to, not just its last two letters."
       ],
       "points": [
-        "The -iss- in the plural is pronounced."
+        "The `-iss-` in the plural is pronounced."
       ],
       "examples": [
         {
           "french": "Je **finis**\nTu **finis**\nIl/elle/on **finit**\nNous **finissons**\nVous **finissez**\nIls/elles **finissent**",
           "english": "I finish\nYou finish\nHe/she finishes; one finishes/we finish\nWe finish\nYou finish\nThey finish",
-          "note": "Full regular -ir present."
+          "note": "Full regular `-ir` present."
         },
         {
           "french": "Les clientes **choisissent** une table.",
           "english": "The customers choose a table.",
-          "note": "Choisir adds -iss- with elles; une cliente is a female customer."
+          "note": "`Choisir` adds `-iss-` with `elles`; `une cliente` is a female customer."
         }
       ],
       "mistakes": []
     },
     {
       "id": "dre",
-      "title": "Vendre and attendre keep d but add no extra t with il",
+      "title": "`Vendre` and `attendre` keep `d` but add no extra `t` with `il`",
       "paragraphs": [
-        "For regular verbs like vendre (sell), attendre (wait for), répondre (answer) and rendre (return/give back), remove -re and add -s, -s, nothing, -ons, -ez, -ent. Thus vend- gives il vend, not il vendt. This is a limited regular family: prendre is not regular and -indre verbs have another pattern."
+        "For regular verbs like `vendre` (sell), `attendre` (wait for), `répondre` (answer) and `rendre` (return/give back), remove `-re` and add `-s`, `-s`, nothing, `-ons`, `-ez`, `-ent`. Thus `vend-` gives `il vend`, not `il vendt`. This is a limited regular family: `prendre` is not regular and `-indre` verbs have another pattern."
       ],
       "points": [
-        "Attendre takes its object directly: attendre le bus, without pour."
+        "`Attendre` takes its object directly: `attendre le bus`, without `pour`."
       ],
       "examples": [
         {
           "french": "Je **vends**\nTu **vends**\nIl/elle/on **vend**\nNous **vendons**\nVous **vendez**\nIls/elles **vendent**",
           "english": "I sell\nYou sell\nHe/she sells; one sells/we sell\nWe sell\nYou sell\nThey sell",
-          "note": "The third-person singular ends in the stem's d."
+          "note": "The third-person singular ends in the stem's `d`."
         },
         {
           "french": "Nous **attendons** le bus.",
           "english": "We are waiting for the bus.",
-          "note": "Regular -dre pattern; no added pour."
+          "note": "Regular `-dre` pattern; no added `pour`."
         }
       ],
       "mistakes": [
         {
           "avoid": "Elle vendt des livres.",
           "prefer": "Elle vend des livres.",
-          "why": "The third-person singular adds no ending after vend-."
+          "why": "The third-person singular adds no ending after `vend-`."
         }
       ]
     },
@@ -153,39 +153,39 @@
       "id": "family-check",
       "title": "Check the dictionary word before transferring a pattern",
       "paragraphs": [
-        "A familiar-looking ending is a clue, not a complete conjugation rule. Répartir (distribute or divide up) belongs to the finir family. Repartir (leave again), without the accent, belongs to partir. Their meanings and plural forms differ. When a new verb resembles one you know, check the accent, meaning and nous form before reusing the pattern.",
-        "In ordinary pronunciation, the written final -s or -t of finis/finit is silent; finissent keeps the pronounced -iss- but not the ending -ent. In the vendre family, vends/vend have a silent final d, while vendent has an audible d. Use the subject and the learned written ending to spell these forms; sound alone cannot distinguish every person."
+        "A familiar-looking ending is a clue, not a complete conjugation rule. `Répartir` (distribute or divide up) belongs to the `finir` family. `Repartir` (leave again), without the accent, belongs to `partir`. Their meanings and plural forms differ. When a new verb resembles one you know, check the accent, meaning and `nous` form before reusing the pattern.",
+        "In ordinary pronunciation, the written final `-s` or `-t` of `finis/finit` is silent; `finissent` keeps the pronounced `-iss-` but not the ending `-ent`. In the `vendre` family, `vends/vend` have a silent final `d`, while `vendent` has an audible `d`. Use the subject and the learned written ending to spell these forms; sound alone cannot distinguish every person."
       ],
       "points": [
-        "Do not remove an accent as a harmless typing variant: répartir and repartir are different verbs."
+        "Do not remove an accent as a harmless typing variant: `répartir` and `repartir` are different verbs."
       ],
       "examples": [
         {
           "french": "Je **répartis**\nTu **répartis**\nIl/elle/on **répartit**\nNous **répartissons**\nVous **répartissez**\nIls/elles **répartissent**",
           "english": "I distribute\nYou distribute\nHe/she/one distributes; we distribute\nWe distribute\nYou distribute\nThey distribute",
-          "note": "Répartir uses the complete regular -ir pattern."
+          "note": "`Répartir` uses the complete regular `-ir` pattern."
         },
         {
           "french": "Nous **répartissons** les tâches avant la réunion.",
           "english": "We divide up the tasks before the meeting.",
-          "note": "Une tâche (f.) is a task. The meaning is allocation, not leaving."
+          "note": "`Une tâche` (f.) is a task. The meaning is allocation, not leaving."
         },
         {
           "french": "Nous **repartons** après la réunion.",
           "english": "We leave again after the meeting.",
-          "note": "Repartir has no accent and no -iss-; the partir paradigm is in the daily irregulars lesson."
+          "note": "`Repartir` has no accent and no `-iss-`; the `partir` paradigm is in the daily irregulars lesson."
         },
         {
           "french": "Je **vends** des plantes. Mes voisins **vendent** des fleurs.",
           "english": "I sell plants. My neighbours sell flowers.",
-          "note": "The singular and plural differ in both the written ending and whether d is heard."
+          "note": "The singular and plural differ in both the written ending and whether `d` is heard."
         }
       ],
       "mistakes": [
         {
           "avoid": "Nous répartons les tâches.",
           "prefer": "Nous répartissons les tâches.",
-          "why": "For dividing things up, répartir requires the regular -ir plural, including -iss-."
+          "why": "For dividing things up, `répartir` requires the regular `-ir` plural, including `-iss-`."
         }
       ]
     }
@@ -469,13 +469,13 @@
     }
   ],
   "production_task": {
-    "prompt": "Describe your study routine and what you are doing now. Include one regular -er verb, one regular -ir verb and attendre or répondre.",
+    "prompt": "Describe your study routine and what you are doing now. Include one regular `-er` verb, one regular `-ir` verb and `attendre` or `répondre`.",
     "model_answer": "Je travaille le matin. Nous finissons le cours à midi. Maintenant, j'attends le bus.",
     "translation": "I work in the morning. We finish the class at noon. Now I am waiting for the bus.",
     "rubric": [
       "Use the present for both the routine and the current action.",
       "Match each ending to its subject.",
-      "Do not add être before a second conjugated verb."
+      "Do not add `être` before a second conjugated verb."
     ]
   }
 }

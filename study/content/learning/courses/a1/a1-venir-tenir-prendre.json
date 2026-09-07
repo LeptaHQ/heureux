@@ -5,15 +5,15 @@
   "cefr_level": "A1",
   "topic": "verbs-tenses-moods",
   "title": "Venir, tenir et prendre : trois familles utiles",
-  "summary": "Use venir, tenir and prendre with all their present stems and transfer the patterns to common derivatives.",
+  "summary": "Use `venir`, `tenir` and `prendre` with all their present stems and transfer the patterns to common derivatives.",
   "order": 9,
   "duration_minutes": 12,
   "prerequisites": [
     "a1-present-families"
   ],
   "objectives": [
-    "Conjugate venir, tenir and prendre across all persons.",
-    "Apply the patterns to revenir, retenir, apprendre and comprendre."
+    "Conjugate `venir`, `tenir` and `prendre` across all persons.",
+    "Apply the patterns to `revenir`, `retenir`, `apprendre` and `comprendre`."
   ],
   "keywords": [
     "venir",
@@ -36,13 +36,13 @@
   "sections": [
     {
       "id": "venir-tenir",
-      "title": "Singular -ien-, nous/vous -en-, and plural -ienn-",
+      "title": "Singular `-ien-`, `nous/vous` `-en-`, and plural `-ienn-`",
       "paragraphs": [
-        "Venir means come; tenir means hold or keep. They share the same stem alternation: viens/venons/viennent and tiens/tenons/tiennent. The il/elle/on form ends in -t, while je and tu end in -s. Derivatives keep the pattern after their prefix: revenir (come back), devenir (become), retenir (retain/remember or hold back) and obtenir (obtain).",
-        "For a derivative, keep its prefix before every form: revenir gives reviens, reviens, revient, revenons, revenez, reviennent; retenir gives retiens, retiens, retient, retenons, retenez, retiennent. These lists follow je, tu, il/elle/on, nous, vous, ils/elles order."
+        "`Venir` means come; `tenir` means hold or keep. They share the same stem alternation: `viens/venons/viennent` and `tiens/tenons/tiennent`. The `il/elle/on` form ends in `-t`, while `je` and `tu` end in `-s`. Derivatives keep the pattern after their prefix: `revenir` (come back), `devenir` (become), `retenir` (retain/remember or hold back) and `obtenir` (obtain).",
+        "For a derivative, keep its prefix before every form: `revenir` gives `reviens`, `reviens`, `revient`, `revenons`, `revenez`, `reviennent`; `retenir` gives `retiens`, `retiens`, `retient`, `retenons`, `retenez`, `retiennent`. These lists follow `je`, `tu`, `il/elle/on`, `nous`, `vous`, `ils/elles` order."
       ],
       "points": [
-        "Do not extend the singular stem unchanged to nous or vous."
+        "Do not extend the singular stem unchanged to `nous` or `vous`."
       ],
       "examples": [
         {
@@ -53,69 +53,69 @@
         {
           "french": "Je **tiens**\nTu **tiens**\nIl/elle/on **tient**\nNous **tenons**\nVous **tenez**\nIls/elles **tiennent**",
           "english": "I hold\nYou hold\nHe/she holds; one holds/we hold\nWe hold\nYou hold\nThey hold",
-          "note": "Tenir mirrors venir."
+          "note": "`Tenir` mirrors `venir`."
         },
         {
           "french": "Nous **revenons** demain.",
           "english": "We are coming back tomorrow.",
-          "note": "The prefix re- stays before venons."
+          "note": "The prefix `re-` stays before `venons`."
         },
         {
           "french": "Elle **retient** le numéro.",
           "english": "She remembers the number.",
-          "note": "Retenir can mean retain in memory; un numéro (m.) is a number."
+          "note": "`Retenir` can mean retain in memory; `un numéro` (m.) is a number."
         }
       ],
       "mistakes": [
         {
           "avoid": "Nous viennons demain.",
           "prefer": "Nous venons demain.",
-          "why": "Nous uses ven-, not vienn-."
+          "why": "`Nous` uses `ven-`, not `vienn-`."
         }
       ]
     },
     {
       "id": "prendre",
-      "title": "Prendre loses d in the plural and doubles n only with ils/elles",
+      "title": "`Prendre` loses `d` in the plural and doubles `n` only with `ils/elles`",
       "paragraphs": [
-        "Prendre means take; it also appears when choosing food or transport. Unlike regular vendre, it loses d in all plural present forms and doubles n with ils/elles. Apprendre (learn), comprendre (understand), reprendre (take again/resume) and surprendre (surprise) follow it.",
-        "The complete derivative patterns are j'apprends, tu apprends, il/elle/on apprend, nous apprenons, vous apprenez, ils/elles apprennent; je comprends, tu comprends, il/elle/on comprend, nous comprenons, vous comprenez, ils/elles comprennent."
+        "`Prendre` means take; it also appears when choosing food or transport. Unlike regular `vendre`, it loses `d` in all plural present forms and doubles `n` with `ils/elles`. `Apprendre` (learn), `comprendre` (understand), `reprendre` (take again/resume) and `surprendre` (surprise) follow it.",
+        "The complete derivative patterns are `j'apprends`, `tu apprends`, `il/elle/on apprend`, `nous apprenons`, `vous apprenez`, `ils/elles apprennent`; `je comprends`, `tu comprends`, `il/elle/on comprend`, `nous comprenons`, `vous comprenez`, `ils/elles comprennent`."
       ],
       "points": [
-        "Compare nous vendons with nous prenons: not all -dre verbs are regular."
+        "Compare `nous vendons` with `nous prenons`: not all `-dre` verbs are regular."
       ],
       "examples": [
         {
           "french": "Je **prends**\nTu **prends**\nIl/elle/on **prend**\nNous **prenons**\nVous **prenez**\nIls/elles **prennent**",
           "english": "I take\nYou take\nHe/she takes; one takes/we take\nWe take\nYou take\nThey take",
-          "note": "No d in plural forms; nn only with ils/elles."
+          "note": "No `d` in plural forms; `nn` only with `ils/elles`."
         },
         {
           "french": "Je **prends** le métro.",
           "english": "I take the metro.",
-          "note": "Le métro (m.) is the metro."
+          "note": "`Le métro` (m.) is the metro."
         },
         {
           "french": "Nous **apprenons** le français.",
           "english": "We are learning French.",
-          "note": "Apprendre keeps the same pattern after ap-."
+          "note": "`Apprendre` keeps the same pattern after `ap-`."
         },
         {
           "french": "Les élèves **comprennent** la consigne.",
           "english": "The students understand the instruction.",
-          "note": "Une consigne (f.) is an instruction; comprendre uses nn with ils/elles."
+          "note": "`Une consigne` (f.) is an instruction; `comprendre` uses `nn` with `ils/elles`."
         }
       ],
       "mistakes": [
         {
           "avoid": "Vous prendez le bus.",
           "prefer": "Vous prenez le bus.",
-          "why": "Prendre loses d in the plural."
+          "why": "`Prendre` loses `d` in the plural."
         },
         {
           "avoid": "Ils comprenent.",
           "prefer": "Ils comprennent.",
-          "why": "The third-person plural doubles n."
+          "why": "The third-person plural doubles `n`."
         }
       ]
     }
@@ -322,8 +322,8 @@
     "model_answer": "Je viens demain. Nous prenons le métro. Nous apprenons le français ensemble.",
     "translation": "I am coming tomorrow. We take the metro. We are learning French together.",
     "rubric": [
-      "Use viens with je.",
-      "Drop d in prenons and apprenons.",
+      "Use `viens` with `je`.",
+      "Drop `d` in `prenons` and `apprenons`.",
       "Keep the intended subject visible."
     ]
   }

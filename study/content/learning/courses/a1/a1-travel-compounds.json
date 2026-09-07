@@ -5,7 +5,7 @@
   "cefr_level": "A1",
   "topic": "time-place-prepositions",
   "title": "Se déplacer et nommer les objets utiles",
-  "summary": "Describe transport, distinguish travelling by from being inside a vehicle, and interpret noun groups built with à, de or en.",
+  "summary": "Describe transport, distinguish travelling by from being inside a vehicle, and interpret noun groups built with `à`, `de` or `en`.",
   "order": 24,
   "duration_minutes": 12,
   "prerequisites": [
@@ -14,7 +14,7 @@
   ],
   "objectives": [
     "Use ordinary transport expressions and distinguish mode from physical location.",
-    "Use dans for streets and vehicle interiors.",
+    "Use `dans` for streets and vehicle interiors.",
     "Distinguish purpose, contents and material in familiar compound noun groups."
   ],
   "keywords": [
@@ -40,20 +40,20 @@
   "sections": [
     {
       "id": "transport",
-      "title": "Name the travel mode with en or à",
+      "title": "Name the travel mode with `en` or `à`",
       "paragraphs": [
-        "Common enclosed-vehicle travel modes use en without an article: en voiture, en train, en bus, en métro, en avion. Conventional exposed modes include à pied, à vélo, à bicyclette, à moto and à cheval. You will also hear and read en vélo and en moto; à vélo/à moto are safe reference forms, not a reason to claim all en variants are impossible.",
-        "When describing your physical position, use the relevant location preposition plus an article: dans le bus, dans la voiture, sur le vélo. En bus describes how you travel; dans le bus says where you are. English on the bus normally corresponds to dans le bus, not being on its roof."
+        "Common enclosed-vehicle travel modes use `en` without an article: `en voiture`, `en train`, `en bus`, `en métro`, `en avion`. Conventional exposed modes include `à pied`, `à vélo`, `à bicyclette`, `à moto` and `à cheval`. You will also hear and read `en vélo` and `en moto`; `à vélo/à moto` are safe reference forms, not a reason to claim all `en` variants are impossible.",
+        "When describing your physical position, use the relevant location preposition plus an article: `dans le bus`, `dans la voiture`, `sur le vélo`. `En bus` describes how you travel; `dans le bus` says where you are. English on the bus normally corresponds to `dans le bus`, not being on its roof."
       ],
       "points": [
-        "Un train (m.) = a train; une voiture (f.) = a car; un vélo (m.) = a bicycle.",
-        "À pied keeps pied singular in the ordinary expression."
+        "`Un train` (m.) = a train; `une voiture` (f.) = a car; `un vélo` (m.) = a bicycle.",
+        "`À pied` keeps `pied` singular in the ordinary expression."
       ],
       "examples": [
         {
           "french": "Nous allons au travail **en train**.",
           "english": "We go to work by train.",
-          "note": "En + transport mode has no article."
+          "note": "`En` + transport mode has no article."
         },
         {
           "french": "Je rentre **à pied**.",
@@ -63,7 +63,7 @@
         {
           "french": "Elle vient **à vélo**.",
           "english": "She is coming by bicycle.",
-          "note": "The reference form uses à."
+          "note": "The reference form uses `à`."
         },
         {
           "french": "Je lis **dans le bus**.",
@@ -81,30 +81,30 @@
     },
     {
       "id": "street",
-      "title": "A street is normally introduced with dans when describing activity there",
+      "title": "A street is normally introduced with `dans` when describing activity there",
       "paragraphs": [
-        "French usually says marcher dans la rue, jouer dans la rue or habiter dans cette rue. This does not mean underground inside the road; it is the normal way to place activity in the street area. A precise address can use au + number, followed by the street name: au 12, rue des Lilas. Usage with streets varies regionally, but dans la rue is a safe general activity expression."
+        "French usually says `marcher dans la rue`, `jouer dans la rue` or `habiter dans cette rue`. This does not mean underground inside the road; it is the normal way to place activity in the street area. A precise address can use `au` + number, followed by the street name: `au 12, rue des Lilas`. Usage with streets varies regionally, but `dans la rue` is a safe general activity expression."
       ],
       "points": [
-        "Une rue (f.) = a street; une avenue (f.) = an avenue."
+        "`Une rue` (f.) = a street; `une avenue` (f.) = an avenue."
       ],
       "examples": [
         {
           "french": "Les enfants jouent **dans la rue**.",
           "english": "The children are playing in the street.",
-          "note": "Dans is the normal location preposition here."
+          "note": "`Dans` is the normal location preposition here."
         },
         {
           "french": "Elle habite **dans cette rue**.",
           "english": "She lives on this street.",
-          "note": "Do not translate English on mechanically as sur."
+          "note": "Do not translate English on mechanically as `sur`."
         }
       ],
       "mistakes": [
         {
           "avoid": "Je marche en la rue.",
           "prefer": "Je marche dans la rue.",
-          "why": "Use dans with the ordinary definite street noun phrase."
+          "why": "Use `dans` with the ordinary definite street noun phrase."
         }
       ]
     },
@@ -112,11 +112,11 @@
       "id": "noun-groups",
       "title": "A linking preposition can identify an object's purpose, contents or material",
       "paragraphs": [
-        "French often uses noun + preposition + noun where English uses two nouns together. À can indicate a purpose or type: une tasse à café (a coffee cup), une brosse à dents (a toothbrush). De can indicate contents: une tasse de café (a cup of coffee), un verre d'eau (a glass of water). En often names material: une table en bois (a wooden table). Established expressions must be learned; do not mechanically substitute one preposition everywhere.",
-        "Noun + à + infinitive names a thing's intended function: une machine à laver (a washing machine), une salle à manger (a dining room), une machine à coudre (a sewing machine). The infinitive does not agree with the noun and is not conjugated. This identifying à differs from pour + infinitive giving the purpose of someone's action."
+        "French often uses noun + preposition + noun where English uses two nouns together. `À` can indicate a purpose or type: `une tasse à café` (a coffee cup), `une brosse à dents` (a toothbrush). `De` can indicate contents: `une tasse de café` (a cup of coffee), `un verre d'eau` (a glass of water). `En` often names material: `une table en bois` (a wooden table). Established expressions must be learned; do not mechanically substitute one preposition everywhere.",
+        "Noun + `à` + infinitive names a thing's intended function: `une machine à laver` (a washing machine), `une salle à manger` (a dining room), `une machine à coudre` (a sewing machine). The infinitive does not agree with the noun and is not conjugated. This identifying `à` differs from `pour` + infinitive giving the purpose of someone's action."
       ],
       "points": [
-        "Une tasse (f.) = a cup; une brosse (f.) = a brush; le bois (m.) = wood; une machine (f.) = a machine."
+        "`Une tasse` (f.) = a cup; `une brosse` (f.) = a brush; `le bois` (m.) = wood; `une machine` (f.) = a machine."
       ],
       "examples": [
         {
@@ -127,49 +127,49 @@
         {
           "french": "Il prépare une **tasse de café**.",
           "english": "He prepares a cup of coffee.",
-          "note": "De identifies what the cup contains."
+          "note": "`De` identifies what the cup contains."
         },
         {
           "french": "Nous avons une table **en bois**.",
           "english": "We have a wooden table.",
-          "note": "En introduces the material."
+          "note": "`En` introduces the material."
         },
         {
           "french": "La **machine à laver** est dans la cuisine.",
           "english": "The washing machine is in the kitchen.",
-          "note": "À + infinitive identifies its function."
+          "note": "`À` + infinitive identifies its function."
         },
         {
           "french": "Ils mangent dans la **salle à manger**.",
           "english": "They eat in the dining room.",
-          "note": "Manger remains an infinitive in the noun group."
+          "note": "`Manger` remains an infinitive in the noun group."
         }
       ],
       "mistakes": [
         {
           "avoid": "une machine à lave",
           "prefer": "une machine à laver",
-          "why": "The functional noun construction uses an infinitive after à."
+          "why": "The functional noun construction uses an infinitive after `à`."
         }
       ]
     },
     {
       "id": "transport-alternatives",
-      "title": "Recognise conventional alternatives without inventing a universal par rule",
+      "title": "Recognise conventional alternatives without inventing a universal `par` rule",
       "paragraphs": [
-        "En train and en avion are useful default travel-mode phrases. Par le train and par avion are also established ways of naming the means used. Notice that these two par phrases do not use the same article pattern. Learn the combinations rather than replacing every en with par plus a definite article."
+        "`En train` and `en avion` are useful default travel-mode phrases. `Par le train` and `par avion` are also established ways of naming the means used. Notice that these two `par` phrases do not use the same article pattern. Learn the combinations rather than replacing every `en` with `par` plus a definite article."
       ],
       "points": [],
       "examples": [
         {
           "french": "Nous faisons ce trajet **par le train**, pas par la route.",
           "english": "We make this journey by train, not by road.",
-          "note": "Par le train is an alternative means-of-transport expression."
+          "note": "`Par le train` is an alternative means-of-transport expression."
         },
         {
           "french": "Le colis arrive **par avion**.",
           "english": "The parcel arrives by air.",
-          "note": "Par avion has no definite article."
+          "note": "`Par avion` has no definite article."
         }
       ],
       "mistakes": []
@@ -178,7 +178,7 @@
       "id": "named-address",
       "title": "A named address can omit the street preposition",
       "paragraphs": [
-        "With habiter and a named street, French can give the address directly: habiter rue des Tilleuls. Habiter can also take a place as its direct object: habiter cette rue is grammatical alongside habiter dans cette rue. These possibilities belong to habiter; they are not a reason to remove dans from ordinary phrases such as jouer dans la rue."
+        "With `habiter` and a named street, French can give the address directly: `habiter rue des Tilleuls`. `Habiter` can also take a place as its direct object: `habiter cette rue` is grammatical alongside `habiter dans cette rue`. These possibilities belong to `habiter`; they are not a reason to remove `dans` from ordinary phrases such as `jouer dans la rue`."
       ],
       "points": [],
       "examples": [
@@ -190,12 +190,12 @@
         {
           "french": "Elle **habite dans cette rue**, près du cinéma.",
           "english": "She lives on this street, near the cinema.",
-          "note": "Dans is natural here, but not obligatory after habiter."
+          "note": "`Dans` is natural here, but not obligatory after `habiter`."
         },
         {
           "french": "Leur famille **habite cette rue** depuis longtemps.",
           "english": "Their family has lived on this street for a long time.",
-          "note": "Habiter takes cette rue directly as its object in this construction."
+          "note": "`Habiter` takes `cette rue` directly as its object in this construction."
         }
       ],
       "mistakes": []
@@ -204,26 +204,26 @@
       "id": "ingredient-material",
       "title": "A linking preposition does not have just one meaning",
       "paragraphs": [
-        "À can identify an ingredient or flavour, not only an object's purpose: a dessert à la vanille is vanilla-flavoured. Keep the article and the ordinary contractions, such as au and aux. Material can also use de in established combinations, as well as en. Therefore neither every à means for nor every de means filled with. Use the relation and the established noun group together."
+        "`À` can identify an ingredient or flavour, not only an object's purpose: a dessert `à la vanille` is vanilla-flavoured. Keep the article and the ordinary contractions, such as `au` and `aux`. Material can also use `de` in established combinations, as well as `en`. Therefore neither every `à` means for nor every `de` means filled with. Use the relation and the established noun group together."
       ],
       "points": [
-        "La vanille (f.) is vanilla; une noix (f.) is a nut; la pierre (f.) is stone."
+        "`La vanille` (f.) is vanilla; `une noix` (f.) is a nut; `la pierre` (f.) is stone."
       ],
       "examples": [
         {
           "french": "Je prépare une crème **à la vanille**.",
           "english": "I am making a vanilla custard.",
-          "note": "À la introduces flavour."
+          "note": "`À la` introduces flavour."
         },
         {
           "french": "Le boulanger vend du pain **aux noix**.",
           "english": "The baker sells walnut bread.",
-          "note": "Aux is à + les, identifying an ingredient."
+          "note": "`Aux` is `à` + `les`, identifying an ingredient."
         },
         {
           "french": "Un mur **de pierre** entoure la cour; le banc est **en pierre**.",
           "english": "A stone wall surrounds the courtyard; the bench is made of stone.",
-          "note": "De and en can both introduce material in these established combinations."
+          "note": "`De` and `en` can both introduce material in these established combinations."
         }
       ],
       "mistakes": []
@@ -545,11 +545,11 @@
     }
   ],
   "production_task": {
-    "prompt": "Describe your trip to a shop and an object you need there. Include a travel mode, an interior or street location and a noun group with à or en.",
+    "prompt": "Describe your trip to a shop and an object you need there. Include a travel mode, an interior or street location and a noun group with `à` or `en`.",
     "model_answer": "Je vais au magasin en bus. Dans le bus, je lis ma liste. J'ai besoin d'une brosse à dents.",
     "translation": "I am going to the shop by bus. On the bus, I read my list. I need a toothbrush.",
     "rubric": [
-      "Distinguish en bus from dans le bus.",
+      "Distinguish `en bus` from `dans le bus`.",
       "Keep the preposition in the compound noun.",
       "Do not conjugate a functional infinitive if you use one."
     ]

@@ -5,7 +5,7 @@
   "cefr_level": "A1",
   "topic": "verbs-tenses-moods",
   "title": "Vouloir, pouvoir et devoir agir",
-  "summary": "Use vouloir, pouvoir and devoir with an infinitive; distinguish obligation from a need and express purpose with pour.",
+  "summary": "Use `vouloir`, `pouvoir` and `devoir` with an infinitive; distinguish obligation from a need and express purpose with `pour`.",
   "order": 8,
   "duration_minutes": 13,
   "prerequisites": [
@@ -13,9 +13,9 @@
     "a1-aller-faire"
   ],
   "objectives": [
-    "Conjugate vouloir, pouvoir and devoir in every present person.",
+    "Conjugate `vouloir`, `pouvoir` and `devoir` in every present person.",
     "Keep a second verb in the infinitive.",
-    "Distinguish devoir, avoir besoin de and pour + infinitive."
+    "Distinguish `devoir`, `avoir besoin de` and `pour` + infinitive."
   ],
   "keywords": [
     "vouloir",
@@ -42,11 +42,11 @@
       "id": "forms",
       "title": "Conjugate the first verb; leave the action in its dictionary form",
       "paragraphs": [
-        "Vouloir means want, pouvoir means can or be able to, and devoir commonly means must or have to. When they introduce another action, the second verb stays in the infinitive. Do not insert à or de after these three verbs in this construction. Pouvoir can express permission as well as ability or possibility.",
-        "Learn all the forms below. Je peux is the ordinary present of pouvoir; je puis is a more formal alternative, especially in Puis-je… ? requests. This lesson practises peux in ordinary statements."
+        "`Vouloir` means want, `pouvoir` means can or be able to, and `devoir` commonly means must or have to. When they introduce another action, the second verb stays in the infinitive. Do not insert `à` or `de` after these three verbs in this construction. `Pouvoir` can express permission as well as ability or possibility.",
+        "Learn all the forms below. `Je peux` is the ordinary present of `pouvoir`; `je puis` is a more formal alternative, especially in `Puis-je… ?` requests. This lesson practises `peux` in ordinary statements."
       ],
       "points": [
-        "Je veux partir = I want to leave; je peux partir = I can leave; je dois partir = I must leave."
+        "`Je veux partir` = I want to leave; `je peux partir` = I can leave; `je dois partir` = I must leave."
       ],
       "examples": [
         {
@@ -57,34 +57,34 @@
         {
           "french": "Je **peux**\nTu **peux**\nIl/elle/on **peut**\nNous **pouvons**\nVous **pouvez**\nIls/elles **peuvent**",
           "english": "I can\nYou can\nHe/she/one can; we can\nWe can\nYou can\nThey can",
-          "note": "Formal je puis is also possible."
+          "note": "Formal `je puis` is also possible."
         },
         {
           "french": "Je **dois**\nTu **dois**\nIl/elle/on **doit**\nNous **devons**\nVous **devez**\nIls/elles **doivent**",
           "english": "I must\nYou must\nHe/she/one must; we must\nWe must\nYou must\nThey must",
-          "note": "Devoir expresses obligation here."
+          "note": "`Devoir` expresses obligation here."
         },
         {
           "french": "Nous **voulons visiter** le musée.",
           "english": "We want to visit the museum.",
-          "note": "Un musée (m.) is a museum; visiter remains infinitive."
+          "note": "`Un musée` (m.) is a museum; `visiter` remains infinitive."
         },
         {
           "french": "Vous **pouvez entrer**.",
           "english": "You may come in.",
-          "note": "Pouvoir gives permission here."
+          "note": "`Pouvoir` gives permission here."
         },
         {
           "french": "Elle **doit travailler** demain.",
           "english": "She has to work tomorrow.",
-          "note": "Only devoir is conjugated."
+          "note": "Only `devoir` is conjugated."
         }
       ],
       "mistakes": [
         {
           "avoid": "Je veux de partir.",
           "prefer": "Je veux partir.",
-          "why": "Vouloir takes the infinitive directly."
+          "why": "`Vouloir` takes the infinitive directly."
         },
         {
           "avoid": "Nous pouvons parlons.",
@@ -97,10 +97,10 @@
       "id": "need",
       "title": "An obligation and a need can overlap without being identical",
       "paragraphs": [
-        "Devoir + infinitive usually presents something as required: je dois partir can mean I have to leave. Avoir besoin de + noun or infinitive presents a need: j'ai besoin de repos (I need rest), j'ai besoin de dormir (I need to sleep). A personal need is not necessarily an external obligation, but both can translate English need to in context. De becomes d' before a vowel. Do not attach de to devoir just because besoin uses it."
+        "`Devoir` + infinitive usually presents something as required: `je dois partir` can mean I have to leave. `Avoir besoin de` + noun or infinitive presents a need: `j'ai besoin de repos` (I need rest), `j'ai besoin de dormir` (I need to sleep). A personal need is not necessarily an external obligation, but both can translate English need to in context. `De` becomes `d'` before a vowel. Do not attach `de` to `devoir` just because `besoin` uses it."
       ],
       "points": [
-        "Le repos (m.) means rest. Besoin is part of a fixed avoir expression."
+        "`Le repos` (m.) means rest. `Besoin` is part of a fixed `avoir` expression."
       ],
       "examples": [
         {
@@ -118,12 +118,12 @@
     },
     {
       "id": "purpose",
-      "title": "Pour + infinitive explains the purpose of an action",
+      "title": "`Pour` + infinitive explains the purpose of an action",
       "paragraphs": [
-        "Use pour + infinitive for in order to when the understood doer of that infinitive is the same as the main subject. Je travaille pour payer means I work in order to pay. This is different from vouloir: one states a purpose, the other a desire. A separate subject after pour requires a different construction, taught later."
+        "Use `pour` + infinitive for in order to when the understood doer of that infinitive is the same as the main subject. `Je travaille pour payer` means I work in order to pay. This is different from `vouloir`: one states a purpose, the other a desire. A separate subject after `pour` requires a different construction, taught later."
       ],
       "points": [
-        "Do not conjugate the verb immediately after purpose pour."
+        "Do not conjugate the verb immediately after purpose `pour`."
       ],
       "examples": [
         {
@@ -134,25 +134,25 @@
         {
           "french": "Nous travaillons **pour payer** le loyer.",
           "english": "We work to pay the rent.",
-          "note": "Le loyer (m.) is the rent."
+          "note": "`Le loyer` (m.) is the rent."
         }
       ],
       "mistakes": [
         {
           "avoid": "Je travaille pour je paie le loyer.",
           "prefer": "Je travaille pour payer le loyer.",
-          "why": "With the same understood subject, pour takes the infinitive."
+          "why": "With the same understood subject, `pour` takes the infinitive."
         }
       ]
     },
     {
       "id": "owe-need",
-      "title": "Devoir + a noun is not the same as needing that noun",
+      "title": "`Devoir` + a noun is not the same as needing that noun",
       "paragraphs": [
-        "Before an infinitive, devoir can express a requirement. With a direct noun object, it can instead mean owe: devoir de l'argent is owe money, not need money. Avoir besoin de is the construction for needing the money. Identify what follows the verb before translating English need."
+        "Before an infinitive, `devoir` can express a requirement. With a direct noun object, it can instead mean owe: `devoir de l'argent` is owe money, not need money. `Avoir besoin de` is the construction for needing the money. Identify what follows the verb before translating English need."
       ],
       "points": [
-        "L'argent (m.) means money; une explication (f.) is an explanation."
+        "`L'argent` (m.) means money; `une explication` (f.) is an explanation."
       ],
       "examples": [
         {
@@ -163,7 +163,7 @@
         {
           "french": "J'**ai besoin d'argent** pour la réparation.",
           "english": "I need money for the repair.",
-          "note": "Besoin de expresses the resource needed."
+          "note": "`Besoin de` expresses the resource needed."
         },
         {
           "french": "Nous **devons une explication** aux voisins.",
@@ -177,24 +177,24 @@
       "id": "purpose-reflexive",
       "title": "Keep the purpose infinitive and its own pronoun together",
       "paragraphs": [
-        "A reflexive purpose keeps the pronoun before the infinitive: pour me reposer, pour nous préparer. Choose that pronoun for the understood doer, normally the main subject. Afin de + infinitive expresses a similar purpose in a more formal style; its de becomes d' before a vowel, but stays de before a consonant-starting reflexive pronoun."
+        "A reflexive purpose keeps the pronoun before the infinitive: `pour me reposer`, `pour nous préparer`. Choose that pronoun for the understood doer, normally the main subject. `Afin de` + infinitive expresses a similar purpose in a more formal style; its `de` becomes `d'` before a vowel, but stays `de` before a consonant-starting reflexive pronoun."
       ],
       "points": [],
       "examples": [
         {
           "french": "Je coupe la radio **pour me concentrer**.",
           "english": "I turn off the radio to concentrate.",
-          "note": "Se concentrer means concentrate; je requires me before the infinitive."
+          "note": "`Se concentrer` means concentrate; `je` requires `me` before the infinitive."
         },
         {
           "french": "Nous partons tôt **pour nous installer** tranquillement.",
           "english": "We leave early to settle in without rushing.",
-          "note": "The doer of both actions is nous."
+          "note": "The doer of both actions is `nous`."
         },
         {
           "french": "Elle réserve une salle **afin d'organiser** la rencontre.",
           "english": "She books a room in order to organise the meeting.",
-          "note": "Afin d' is a more formal alternative to pour here."
+          "note": "`Afin d'` is a more formal alternative to `pour` here."
         }
       ],
       "mistakes": []
@@ -476,13 +476,13 @@
     }
   ],
   "production_task": {
-    "prompt": "Explain a study plan: one thing you want to do, one obligation, and the purpose of your study using pour.",
+    "prompt": "Explain a study plan: one thing you want to do, one obligation, and the purpose of your study using `pour`.",
     "model_answer": "Je veux apprendre le français. Je dois travailler ce soir. J'étudie le matin pour préparer mon examen.",
     "translation": "I want to learn French. I have to work this evening. I study in the morning to prepare for my exam.",
     "rubric": [
       "Conjugate the first verb but not the following infinitive.",
       "Distinguish desire from obligation.",
-      "Use pour + infinitive for the same person's purpose."
+      "Use `pour` + infinitive for the same person's purpose."
     ]
   }
 }

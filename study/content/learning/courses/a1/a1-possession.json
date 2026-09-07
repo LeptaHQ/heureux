@@ -5,7 +5,7 @@
   "cefr_level": "A1",
   "topic": "grammar-foundations",
   "title": "Dire à qui appartient quelque chose",
-  "summary": "Choose possessive determiners by the thing possessed and distinguish de + owner from être à + owner.",
+  "summary": "Choose possessive determiners by the thing possessed and distinguish `de` + owner from `être à` + owner.",
   "order": 16,
   "duration_minutes": 12,
   "prerequisites": [
@@ -14,8 +14,8 @@
   ],
   "objectives": [
     "Choose every common possessive determiner.",
-    "Use mon/ton/son before a feminine vowel-initial noun.",
-    "Express possession with de and être à."
+    "Use `mon/ton/son` before a feminine vowel-initial noun.",
+    "Express possession with `de` and `être à`."
   ],
   "keywords": [
     "mon",
@@ -42,38 +42,38 @@
       "id": "determiners",
       "title": "The owner chooses the row; the possessed noun chooses the form",
       "paragraphs": [
-        "A possessive determiner replaces the article before a noun. For one owner: my = mon/ma/mes; your with tu = ton/ta/tes; his or her = son/sa/ses. Choose the masculine singular, feminine singular or plural form from the thing possessed, not the owner's gender. Son vélo can mean his bicycle or her bicycle because un vélo is masculine.",
-        "For plural owners: our = notre/nos; your with vous = votre/vos; their = leur/leurs. Notre, votre and leur are singular-thing forms for either gender; nos, vos and leurs are plural-thing forms. Polite singular vous also uses votre/vos. Before a feminine singular noun beginning with a vowel or silent h, use mon, ton or son instead of ma, ta or sa: mon amie. The noun is still feminine."
+        "A possessive determiner replaces the article before a noun. For one owner: my = `mon/ma/mes`; your with `tu` = `ton/ta/tes`; his or her = `son/sa/ses`. Choose the masculine singular, feminine singular or plural form from the thing possessed, not the owner's gender. `Son vélo` can mean his bicycle or her bicycle because `un vélo` is masculine.",
+        "For plural owners: our = `notre/nos`; your with `vous` = `votre/vos`; their = `leur/leurs`. `Notre`, `votre` and `leur` are singular-thing forms for either gender; `nos`, `vos` and `leurs` are plural-thing forms. Polite singular `vous` also uses `votre/vos`. Before a feminine singular noun beginning with a vowel or silent `h`, use `mon`, `ton` or `son` instead of `ma`, `ta` or `sa`: `mon amie`. The noun is still feminine."
       ],
       "points": [
-        "Do not add le or la before a possessive determiner.",
-        "One thing: mon/ma, ton/ta, son/sa, notre, votre, leur. Several things: mes, tes, ses, nos, vos, leurs."
+        "Do not add `le` or `la` before a possessive determiner.",
+        "One thing: `mon/ma`, `ton/ta`, `son/sa`, `notre`, `votre`, `leur`. Several things: `mes`, `tes`, `ses`, `nos`, `vos`, `leurs`."
       ],
       "examples": [
         {
           "french": "Lina cherche **son** vélo et **sa** veste.",
           "english": "Lina is looking for her bicycle and her jacket.",
-          "note": "Un vélo (m.) and une veste (f.) determine son and sa."
+          "note": "`Un vélo` (m.) and `une veste` (f.) determine `son` and `sa`."
         },
         {
           "french": "Paul cherche **sa** veste.",
           "english": "Paul is looking for his jacket.",
-          "note": "The owner's gender does not change sa."
+          "note": "The owner's gender does not change `sa`."
         },
         {
           "french": "Voici **mes** clés et **tes** lunettes.",
           "english": "Here are my keys and your glasses.",
-          "note": "Plural nouns take mes/tes regardless of gender."
+          "note": "Plural nouns take `mes/tes` regardless of gender."
         },
         {
           "french": "**Mon** amie arrive avec **son** histoire.",
           "english": "My friend is arriving with her story.",
-          "note": "Une amie and une histoire remain feminine; the vowel/silent h triggers mon/son."
+          "note": "`Une amie` and `une histoire` remain feminine; the vowel/silent `h` triggers `mon/son`."
         },
         {
           "french": "**Notre** maison est près de **votre** appartement.",
           "english": "Our house is near your apartment.",
-          "note": "Singular possessed nouns take notre/votre with either gender."
+          "note": "Singular possessed nouns take `notre/votre` with either gender."
         },
         {
           "french": "**Nos** voisins cherchent **leurs** enfants.",
@@ -83,7 +83,7 @@
         {
           "french": "Les enfants ouvrent **leur** livre.",
           "english": "The children open their book.",
-          "note": "Leur is singular; context can mean a shared book or each child's own book."
+          "note": "`Leur` is singular; context can mean a shared book or each child's own book."
         }
       ],
       "mistakes": [
@@ -95,65 +95,65 @@
         {
           "avoid": "ma amie",
           "prefer": "mon amie",
-          "why": "Use mon before a feminine noun starting with a vowel."
+          "why": "Use `mon` before a feminine noun starting with a vowel."
         }
       ]
     },
     {
       "id": "de-owner",
-      "title": "De puts an owner after the thing",
+      "title": "`De` puts an owner after the thing",
       "paragraphs": [
-        "Use thing + de + owner: le sac de Lina means Lina's bag. French does not add an English possessive apostrophe-s. De contracts with a following definite le or les, but not with a personal name without an article: le sac du professeur, le sac de Lina. De becomes d' before a vowel."
+        "Use thing + `de` + owner: `le sac de Lina` means Lina's bag. French does not add an English possessive apostrophe-s. `De` contracts with a following definite `le` or `les`, but not with a personal name without an article: `le sac du professeur`, `le sac de Lina`. `De` becomes `d'` before a vowel."
       ],
       "points": [
-        "Un sac (m.) = a bag. The thing comes before its owner in this pattern."
+        "`Un sac` (m.) = a bag. The thing comes before its owner in this pattern."
       ],
       "examples": [
         {
           "french": "C'est le sac **de** Lina.",
           "english": "It is Lina's bag.",
-          "note": "A named owner follows de."
+          "note": "A named owner follows `de`."
         },
         {
           "french": "Voici les clés **du** voisin.",
           "english": "Here are the neighbour's keys.",
-          "note": "De + le contracts to du."
+          "note": "`De` + `le` contracts to `du`."
         }
       ],
       "mistakes": [
         {
           "avoid": "C'est Lina's sac.",
           "prefer": "C'est le sac de Lina.",
-          "why": "Use the French de construction, not English apostrophe-s."
+          "why": "Use the French `de` construction, not English apostrophe-s."
         }
       ]
     },
     {
       "id": "etre-a",
-      "title": "Être à states who owns it",
+      "title": "`Être à` states who owns it",
       "paragraphs": [
-        "In a sentence, être à + a name or stressed pronoun means belong to: ce sac est à Lina, ce sac est à moi. Compare le sac de Lina (a noun phrase) with le sac est à Lina (a complete ownership statement). Use a stressed pronoun after à: moi, toi, lui, elle, nous, vous, eux, elles. Être agrees with the thing or things possessed."
+        "In a sentence, `être à` + a name or stressed pronoun means belong to: `ce sac est à Lina`, `ce sac est à moi`. Compare `le sac de Lina` (a noun phrase) with `le sac est à Lina` (a complete ownership statement). Use a stressed pronoun after `à`: `moi`, `toi`, `lui`, `elle`, `nous`, `vous`, `eux`, `elles`. `Être` agrees with the thing or things possessed."
       ],
       "points": [
-        "À qui ? asks whose it is or who it belongs to."
+        "`À qui ?` asks whose it is or who it belongs to."
       ],
       "examples": [
         {
           "french": "Ce vélo **est à moi**.",
           "english": "This bicycle belongs to me.",
-          "note": "À takes the stressed pronoun moi."
+          "note": "`À` takes the stressed pronoun `moi`."
         },
         {
           "french": "Ces clés **sont à elle**.",
           "english": "These keys belong to her.",
-          "note": "Plural clés takes sont."
+          "note": "Plural `clés` takes `sont`."
         }
       ],
       "mistakes": [
         {
           "avoid": "Ce sac est à je.",
           "prefer": "Ce sac est à moi.",
-          "why": "After à, use the stressed form moi."
+          "why": "After `à`, use the stressed form `moi`."
         }
       ]
     }
@@ -356,13 +356,13 @@
     }
   ],
   "production_task": {
-    "prompt": "Sort belongings after a class: identify your bag, a friend's keys and something belonging to the group. Use a possessive determiner, de and être à.",
+    "prompt": "Sort belongings after a class: identify your bag, a friend's keys and something belonging to the group. Use a possessive determiner, `de` and `être à`.",
     "model_answer": "Voici mon sac. Ce sont les clés de Nadia. Ces livres sont à nous.",
     "translation": "Here is my bag. These are Nadia's keys. These books belong to us.",
     "rubric": [
       "Choose the determiner from the possessed noun.",
-      "Put a named owner after de.",
-      "Use à plus a stressed pronoun for the ownership statement."
+      "Put a named owner after `de`.",
+      "Use `à` plus a stressed pronoun for the ownership statement."
     ]
   }
 }

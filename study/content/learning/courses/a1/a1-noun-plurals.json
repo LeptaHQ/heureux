@@ -5,7 +5,7 @@
   "cefr_level": "A1",
   "topic": "grammar-foundations",
   "title": "D'un à plusieurs : le pluriel des noms",
-  "summary": "Build regular plurals, recognise common -x and -aux families, and keep ordinary family names unchanged.",
+  "summary": "Build regular plurals, recognise common `-x` and `-aux` families, and keep ordinary family names unchanged.",
   "order": 4,
   "duration_minutes": 10,
   "prerequisites": [
@@ -39,18 +39,18 @@
   "sections": [
     {
       "id": "regular",
-      "title": "Change the article and normally add -s",
+      "title": "Change the article and normally add `-s`",
       "paragraphs": [
-        "Plural means more than one. Un and une normally become des; le, la and l' become les. The noun usually adds -s. This final -s is often silent, so listen to the article as well as the noun. A singular noun already ending in -s, -x or -z does not change in writing."
+        "Plural means more than one. `Un` and `une` normally become `des`; `le`, `la` and `l'` become `les`. The noun usually adds `-s`. This final `-s` is often silent, so listen to the article as well as the noun. A singular noun already ending in `-s`, `-x` or `-z` does not change in writing."
       ],
       "points": [
-        "Un sac (m.) = a bag; une clé (f.) = a key; une voix (f.) = a voice."
+        "`Un sac` (m.) = a bag; `une clé` (f.) = a key; `une voix` (f.) = a voice."
       ],
       "examples": [
         {
           "french": "un sac → des **sacs**",
           "english": "a bag → bags",
-          "note": "Add the ordinary plural -s."
+          "note": "Add the ordinary plural `-s`."
         },
         {
           "french": "une clé → des **clés**",
@@ -60,70 +60,70 @@
         {
           "french": "une voix → des **voix**",
           "english": "a voice → voices",
-          "note": "A final x is already present."
+          "note": "A final `x` is already present."
         }
       ],
       "mistakes": [
         {
           "avoid": "des clé",
           "prefer": "des clés",
-          "why": "The written plural requires -s even when it is not heard."
+          "why": "The written plural requires `-s` even when it is not heard."
         }
       ]
     },
     {
       "id": "families",
-      "title": "Use -x or -aux when the ending belongs to that family",
+      "title": "Use `-x` or `-aux` when the ending belongs to that family",
       "paragraphs": [
-        "Nouns in -eau normally add -x: un bateau (m., a boat) becomes des bateaux. Most nouns in -au and -eu also add -x: un tuyau (m., a pipe), un jeu (m., a game). Learn common exceptions taking -s: un landau (m., a pram), un sarrau (m., a smock), un pneu (m., a tyre), un bleu (m., a bruise).",
-        "Most nouns in -al replace -al with -aux: un journal (m., a newspaper) becomes des journaux. Common exceptions keep -al and add -s: un bal, un carnaval, un festival, un récital, un régal, un chacal, un aval (all masculine). These mean a dance, carnival, festival, recital, treat, jackal and approval. Do not apply -al rules to every -ail noun: un détail (m., a detail) gives des détails; un travail (m., a job or piece of work) has the irregular plural des travaux."
+        "Nouns in `-eau` normally add `-x`: `un bateau` (m., a boat) becomes `des bateaux`. Most nouns in `-au` and `-eu` also add `-x`: `un tuyau` (m., a pipe), `un jeu` (m., a game). Learn common exceptions taking `-s`: `un landau` (m., a pram), `un sarrau` (m., a smock), `un pneu` (m., a tyre), `un bleu` (m., a bruise).",
+        "Most nouns in `-al` replace `-al` with `-aux`: `un journal` (m., a newspaper) becomes `des journaux`. Common exceptions keep `-al` and add `-s`: `un bal`, `un carnaval`, `un festival`, `un récital`, `un régal`, `un chacal`, `un aval` (all masculine). These mean a dance, carnival, festival, recital, treat, jackal and approval. Do not apply `-al` rules to every `-ail` noun: `un détail` (m., a detail) gives `des détails`; `un travail` (m., a job or piece of work) has the irregular plural `des travaux`."
       ],
       "points": [
-        "These families are spelling patterns, not a rule to add x to all nouns.",
+        "These families are spelling patterns, not a rule to add `x` to all nouns.",
         "Learn an exception as a singular/plural pair."
       ],
       "examples": [
         {
           "french": "Les **bateaux** arrivent.",
           "english": "The boats are arriving.",
-          "note": "-eau takes -x."
+          "note": "`-eau` takes `-x`."
         },
         {
           "french": "Il répare deux **tuyaux**.",
           "english": "He is repairing two pipes.",
-          "note": "The usual -au plural."
+          "note": "The usual `-au` plural."
         },
         {
           "french": "Les **jeux** sont ici.",
           "english": "The games are here.",
-          "note": "-eu usually takes -x."
+          "note": "`-eu` usually takes `-x`."
         },
         {
           "french": "Nous avons des **pneus** neufs.",
           "english": "We have brand-new tyres.",
-          "note": "Pneu is an -s exception."
+          "note": "`Pneu` is an `-s` exception."
         },
         {
           "french": "Les **journaux** parlent des **festivals**.",
           "english": "The newspapers talk about the festivals.",
-          "note": "The regular -aux family contrasts with an -als exception."
+          "note": "The regular `-aux` family contrasts with an `-als` exception."
         },
         {
           "french": "Les **landaus** sont dans le couloir.",
           "english": "The prams are in the corridor.",
-          "note": "Landau takes -s, not -x."
+          "note": "`Landau` takes `-s`, not `-x`."
         }
       ],
       "mistakes": [
         {
           "avoid": "des journals",
           "prefer": "des journaux",
-          "why": "Journal replaces -al with -aux."
+          "why": "`Journal` replaces `-al` with `-aux`."
         },
         {
           "avoid": "des pneux",
           "prefer": "des pneus",
-          "why": "Pneu is a common exception to the -eu + x pattern."
+          "why": "`Pneu` is a common exception to the `-eu` + `x` pattern."
         }
       ]
     },
@@ -131,10 +131,10 @@
       "id": "surnames",
       "title": "An ordinary family name stays unchanged",
       "paragraphs": [
-        "When naming an ordinary family, make the article plural but leave the surname unchanged: les Moreau means the Moreau family. Do not add an English family-name -s. Certain established historical or dynastic names have conventional plurals, such as les Bourbons; learn these as special names rather than applying them to your neighbours."
+        "When naming an ordinary family, make the article plural but leave the surname unchanged: `les Moreau` means the Moreau family. Do not add an English family-name -s. Certain established historical or dynastic names have conventional plurals, such as `les Bourbons`; learn these as special names rather than applying them to your neighbours."
       ],
       "points": [
-        "An ordinary surname ending in -eau does not follow the common-noun -eaux rule."
+        "An ordinary surname ending in `-eau` does not follow the common-noun `-eaux` rule."
       ],
       "examples": [
         {
@@ -145,7 +145,7 @@
         {
           "french": "Les **Diallo** arrivent demain.",
           "english": "The Diallos arrive tomorrow.",
-          "note": "Plural reference is shown by les and the verb."
+          "note": "Plural reference is shown by `les` and the verb."
         }
       ],
       "mistakes": []
@@ -360,7 +360,7 @@
     "translation": "The keys and games are here. The Morels have the newspapers.",
     "rubric": [
       "Change articles to plural.",
-      "Use jeux and journaux accurately.",
+      "Use `jeux` and `journaux` accurately.",
       "Leave the family surname unchanged."
     ]
   }

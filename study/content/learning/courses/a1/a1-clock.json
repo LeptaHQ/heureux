@@ -13,9 +13,9 @@
     "a1-questions"
   ],
   "objectives": [
-    "Give times with il est and appointment times with à.",
+    "Give times with `il est` and appointment times with `à`.",
     "Distinguish 12-hour conversational forms from 24-hour schedules.",
-    "Use en retard, en avance, à l'heure and à temps appropriately."
+    "Use `en retard`, `en avance`, `à l'heure` and `à temps` appropriately."
   ],
   "keywords": [
     "time",
@@ -39,35 +39,35 @@
   "sections": [
     {
       "id": "twelve",
-      "title": "Use il est to tell the time and count hours with heure",
+      "title": "Use `il est` to tell the time and count hours with `heure`",
       "paragraphs": [
-        "Ask Quelle heure est-il ? and answer il est + time. Use une heure for one o'clock and heures with other numbered hours. Twelve noon is midi; twelve midnight is minuit. For the 12-hour clock, add du matin, de l'après-midi or du soir when the context is unclear.",
-        "For 15 minutes after the hour, use et quart; for 30, et demie after heure/heures. Midi and minuit instead take et demi without feminine e. Before the next hour, use moins + the minutes remaining: neuf heures moins dix means 8:50. For a quarter to, use moins le quart. Exact-minute forms such as huit heures cinquante are also correct."
+        "Ask `Quelle heure est-il ?` and answer `il est` + time. Use `une heure` for one o'clock and `heures` with other numbered hours. Twelve noon is `midi`; twelve midnight is `minuit`. For the 12-hour clock, add `du matin`, `de l'après-midi` or `du soir` when the context is unclear.",
+        "For 15 minutes after the hour, use `et quart`; for 30, `et demie` after `heure/heures`. `Midi` and `minuit` instead take `et demi` without feminine `e`. Before the next hour, use `moins` + the minutes remaining: `neuf heures moins dix` means 8:50. For a quarter to, use `moins le quart`. Exact-minute forms such as `huit heures cinquante` are also correct."
       ],
       "points": [
-        "Heure is feminine, so une heure et demie has demie.",
-        "Do not put heures after midi or minuit."
+        "`Heure` is feminine, so `une heure et demie` has `demie`.",
+        "Do not put `heures` after `midi` or `minuit`."
       ],
       "examples": [
         {
           "french": "Il est **une heure**.",
           "english": "It is one o'clock.",
-          "note": "Use feminine une and singular heure."
+          "note": "Use feminine `une` and singular `heure`."
         },
         {
           "french": "Il est **trois heures et quart**.",
           "english": "It is quarter past three.",
-          "note": "Et quart means fifteen minutes past."
+          "note": "`Et quart` means fifteen minutes past."
         },
         {
           "french": "Il est **six heures et demie**.",
           "english": "It is half past six.",
-          "note": "Demie agrees with feminine heure."
+          "note": "`Demie` agrees with feminine `heure`."
         },
         {
           "french": "Il est **midi et demi**.",
           "english": "It is half past noon.",
-          "note": "Midi takes masculine demi."
+          "note": "`Midi` takes masculine `demi`."
         },
         {
           "french": "Il est **neuf heures moins le quart**.",
@@ -79,24 +79,24 @@
         {
           "avoid": "Il est un heure.",
           "prefer": "Il est une heure.",
-          "why": "Heure is feminine."
+          "why": "`Heure` is feminine."
         },
         {
           "avoid": "Il est midi et demie.",
           "prefer": "Il est midi et demi.",
-          "why": "After midi, demi is masculine."
+          "why": "After `midi`, `demi` is masculine."
         }
       ]
     },
     {
       "id": "schedule",
-      "title": "A 24-hour schedule counts forward; à introduces an appointment time",
+      "title": "A 24-hour schedule counts forward; `à` introduces an appointment time",
       "paragraphs": [
-        "Schedules often use the 24-hour clock: 14 h 20 = quatorze heures vingt, 18 h 45 = dix-huit heures quarante-cinq. Count the minutes directly after the hour; do not mix a 24-hour schedule reading with conversational et quart or moins le quart. The h symbol stays h, not hs. Midnight is commonly 0 h or 00 h; 24 h can mark the end of a stated day in schedules.",
-        "Use à before an event's time: le cours commence à neuf heures. À midi and à minuit also need à. Distinguish what time it is (il est…) from when something happens (à…). English a.m. and p.m. usually become a 24-hour time in a schedule, or du matin/du soir in conversation."
+        "Schedules often use the 24-hour clock: `14 h 20` = `quatorze heures vingt`, `18 h 45` = `dix-huit heures quarante-cinq`. Count the minutes directly after the hour; do not mix a 24-hour schedule reading with conversational `et quart` or `moins le quart`. The `h` symbol stays `h`, not `hs`. Midnight is commonly `0 h` or `00 h`; `24 h` can mark the end of a stated day in schedules.",
+        "Use `à` before an event's time: `le cours commence à neuf heures`. `À midi` and `à minuit` also need `à`. Distinguish what time it is (`il est…`) from when something happens (`à…`). English a.m. and p.m. usually become a 24-hour time in a schedule, or `du matin/du soir` in conversation."
       ],
       "points": [
-        "14 h = two in the afternoon, not two in the morning."
+        "`14 h` = two in the afternoon, not two in the morning."
       ],
       "examples": [
         {
@@ -107,19 +107,19 @@
         {
           "french": "Le rendez-vous est **à huit heures du matin**.",
           "english": "The appointment is at eight in the morning.",
-          "note": "À introduces the time; du matin removes ambiguity."
+          "note": "`À` introduces the time; `du matin` removes ambiguity."
         },
         {
           "french": "Nous mangeons **à midi**.",
           "english": "We eat at noon.",
-          "note": "Midi takes à like a numbered time."
+          "note": "`Midi` takes `à` like a numbered time."
         }
       ],
       "mistakes": [
         {
           "avoid": "Le cours commence neuf heures.",
           "prefer": "Le cours commence à neuf heures.",
-          "why": "A stated event time normally needs à."
+          "why": "A stated event time normally needs `à`."
         }
       ]
     },
@@ -127,11 +127,11 @@
       "id": "timeliness",
       "title": "Distinguish the scheduled time from the last useful moment",
       "paragraphs": [
-        "Être or arriver en retard means be/arrive late relative to an expected time. En avance means early, ahead of that time. À l'heure means on time, according to the schedule. À temps means in time, before it is too late to achieve something. A person can arrive later than planned but still à temps pour prendre le train. Tôt and tard mean early and late more generally, without necessarily referring to a fixed appointment."
+        "`Être` or `arriver en retard` means be/arrive late relative to an expected time. `En avance` means early, ahead of that time. `À l'heure` means on time, according to the schedule. `À temps` means in time, before it is too late to achieve something. A person can arrive later than planned but still `à temps pour prendre le train`. `Tôt` and `tard` mean early and late more generally, without necessarily referring to a fixed appointment."
       ],
       "points": [
-        "A delay amount uses de: en retard de dix minutes.",
-        "À l'heure and à temps can overlap, but their reference points differ."
+        "A delay amount uses `de`: `en retard de dix minutes`.",
+        "`À l'heure` and `à temps` can overlap, but their reference points differ."
       ],
       "examples": [
         {
@@ -147,7 +147,7 @@
         {
           "french": "Je suis **en retard de** dix minutes.",
           "english": "I am ten minutes late.",
-          "note": "De introduces the size of the delay."
+          "note": "`De` introduces the size of the delay."
         },
         {
           "french": "Nous arrivons **à temps pour** acheter les billets.",
@@ -161,7 +161,7 @@
       "id": "reading-style",
       "title": "Choose a reading style, not a ban on small hour numbers",
       "paragraphs": [
-        "A morning schedule can use direct minute numbers too: 7 h 30 can be sept heures trente. Sept heures et demie is its ordinary conversational equivalent. The minute-count style is not restricted to hours above twelve. Keep one consistent style within the reading, and retain the difference between telling the current time and giving the time of an event."
+        "A morning schedule can use direct minute numbers too: `7 h 30` can be `sept heures trente`. `Sept heures et demie` is its ordinary conversational equivalent. The minute-count style is not restricted to hours above twelve. Keep one consistent style within the reading, and retain the difference between telling the current time and giving the time of an event."
       ],
       "points": [],
       "examples": [
@@ -178,7 +178,7 @@
         {
           "french": "**Il est** huit heures quinze; le guichet ouvre **à** neuf heures.",
           "english": "It is eight fifteen; the ticket office opens at nine.",
-          "note": "Direct minute counts do not remove the il est / à distinction."
+          "note": "Direct minute counts do not remove the `il est` / `à` distinction."
         }
       ],
       "mistakes": []
@@ -428,7 +428,7 @@
     "model_answer": "Le rendez-vous est à quatorze heures trente. J'arrive à quatorze heures vingt. Je suis en avance de dix minutes.",
     "translation": "The appointment is at 2:30 p.m. I arrive at 2:20 p.m. I am ten minutes early.",
     "rubric": [
-      "Use à before each event time.",
+      "Use `à` before each event time.",
       "Read 24-hour times directly.",
       "Make the timeliness expression agree with the actual times."
     ]

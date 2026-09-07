@@ -5,7 +5,7 @@
   "cefr_level": "A1",
   "topic": "word-meanings-expressions",
   "title": "Exprimer un besoin, une envie, une peur ou une douleur",
-  "summary": "Use avoir expressions without translating English be or need word for word, and choose the correct link before a noun, action or body part.",
+  "summary": "Use `avoir` expressions without translating English be or need word for word, and choose the correct link before a noun, action or body part.",
   "order": 30,
   "duration_minutes": 12,
   "prerequisites": [
@@ -14,8 +14,8 @@
     "a1-want-can-must"
   ],
   "objectives": [
-    "Use avoir besoin de, avoir envie de and avoir peur de with nouns or infinitives.",
-    "Describe pain with avoir mal à and the correct article contraction.",
+    "Use `avoir besoin de`, `avoir envie de` and `avoir peur de` with nouns or infinitives.",
+    "Describe pain with `avoir mal à` and the correct article contraction.",
     "Distinguish a need, a desire and a fear."
   ],
   "keywords": [
@@ -39,24 +39,24 @@
   "sections": [
     {
       "id": "need-desire",
-      "title": "Use besoin for a need and envie for a desire",
+      "title": "Use `besoin` for a need and `envie` for a desire",
       "paragraphs": [
-        "Avoir besoin de means need; avoir envie de means feel like or want. Conjugate avoir, keep besoin or envie unchanged, then use de + a noun or infinitive. Je dois partir presents an obligation; j'ai besoin de partir presents a need; j'ai envie de partir presents a desire. They can overlap in a situation, but they do not automatically mean the same thing.",
-        "Before an unspecified mass noun, the needed de is enough: besoin d'eau, envie de chocolat. A countable singular can have an indefinite article: besoin d'un stylo. An identified object can keep its definite article, with contractions: besoin du dictionnaire. De becomes d' before a vowel or silent h, but not before an intervening consonant-starting article."
+        "`Avoir besoin de` means need; `avoir envie de` means feel like or want. Conjugate `avoir`, keep `besoin` or `envie` unchanged, then use `de` + a noun or infinitive. `Je dois partir` presents an obligation; `j'ai besoin de partir` presents a need; `j'ai envie de partir` presents a desire. They can overlap in a situation, but they do not automatically mean the same thing.",
+        "Before an unspecified mass noun, the needed `de` is enough: `besoin d'eau`, `envie de chocolat`. A countable singular can have an indefinite article: `besoin d'un stylo`. An identified object can keep its definite article, with contractions: `besoin du dictionnaire`. `De` becomes `d'` before a vowel or silent `h`, but not before an intervening consonant-starting article."
       ],
       "points": [
-        "Un stylo (m.) = a pen; un dictionnaire (m.) = a dictionary; l'eau (f.) = water."
+        "`Un stylo` (m.) = a pen; `un dictionnaire` (m.) = a dictionary; `l'eau` (f.) = water."
       ],
       "examples": [
         {
           "french": "J'**ai besoin de** partir\nTu **as besoin de** partir\nIl/elle/on **a besoin de** partir\nNous **avons besoin de** partir\nVous **avez besoin de** partir\nIls/elles **ont besoin de** partir",
           "english": "I need to leave\nYou need to leave\nHe/she needs to leave; one/we need to leave\nWe need to leave\nYou need to leave\nThey need to leave",
-          "note": "Only avoir changes across the persons; the same forms work with envie and peur."
+          "note": "Only `avoir` changes across the persons; the same forms work with `envie` and `peur`."
         },
         {
           "french": "Nous **avons besoin d'**eau.",
           "english": "We need water.",
-          "note": "An unspecified mass noun follows de/d' without another partitive."
+          "note": "An unspecified mass noun follows `de/d'` without another partitive."
         },
         {
           "french": "J'**ai besoin d'un** stylo.",
@@ -66,71 +66,71 @@
         {
           "french": "Elle **a envie de** marcher.",
           "english": "She feels like walking.",
-          "note": "Envie expresses a desire rather than an obligation."
+          "note": "`Envie` expresses a desire rather than an obligation."
         },
         {
           "french": "Tu **as envie d'une** glace.",
           "english": "You feel like having an ice cream.",
-          "note": "A countable serving follows d'une."
+          "note": "A countable serving follows `d'une`."
         }
       ],
       "mistakes": [
         {
           "avoid": "Je suis besoin d'eau.",
           "prefer": "J'ai besoin d'eau.",
-          "why": "The fixed expression uses avoir."
+          "why": "The fixed expression uses `avoir`."
         },
         {
           "avoid": "Nous avons envie partir.",
           "prefer": "Nous avons envie de partir.",
-          "why": "Envie requires de before the infinitive."
+          "why": "`Envie` requires `de` before the infinitive."
         }
       ]
     },
     {
       "id": "fear",
-      "title": "Avoir peur de names what causes fear",
+      "title": "`Avoir peur de` names what causes fear",
       "paragraphs": [
-        "Avoir peur means be afraid. Add de before the feared noun or action: peur du bruit, peur de tomber. A general class of feared things commonly keeps its definite article: peur des chiens = de + les chiens. Do not translate English afraid as être peur. Peur remains singular in this fixed expression, regardless of the subject."
+        "`Avoir peur` means be afraid. Add `de` before the feared noun or action: `peur du bruit`, `peur de tomber`. A general class of feared things commonly keeps its definite article: `peur des chiens` = `de` + `les chiens`. Do not translate English afraid as `être peur`. `Peur` remains singular in this fixed expression, regardless of the subject."
       ],
       "points": [
-        "Le bruit (m.) = noise; un chien (m.) = a dog."
+        "`Le bruit` (m.) = noise; `un chien` (m.) = a dog."
       ],
       "examples": [
         {
           "french": "Elle **a peur des** chiens.",
           "english": "She is afraid of dogs.",
-          "note": "De + les contracts to des."
+          "note": "`De` + `les` contracts to `des`."
         },
         {
           "french": "Nous **avons peur de** tomber.",
           "english": "We are afraid of falling.",
-          "note": "A feared action follows de as an infinitive."
+          "note": "A feared action follows `de` as an infinitive."
         }
       ],
       "mistakes": [
         {
           "avoid": "Ils sont peur du bruit.",
           "prefer": "Ils ont peur du bruit.",
-          "why": "Use avoir peur, not être peur."
+          "why": "Use `avoir peur`, not `être peur`."
         }
       ]
     },
     {
       "id": "pain",
-      "title": "Avoir mal à locates a pain with a definite body-part article",
+      "title": "`Avoir mal à` locates a pain with a definite body-part article",
       "paragraphs": [
-        "Avoir mal means be in pain or hurt. To locate it, add à + the definite article + body part: au dos (back), à la tête (head), à l'épaule (shoulder), aux pieds (feet). These nouns are le dos (m.), la tête (f.), l'épaule (f.) and le pied (m.). The article normally identifies the body part because the person with the pain is already clear.",
-        "Avoir mal à la tête commonly means have a headache. Do not confuse mal (pain/badly) with malade (ill): je suis malade is a different expression. Avoir mal describes the symptom and does not establish a medical diagnosis."
+        "`Avoir mal` means be in pain or hurt. To locate it, add `à` + the definite article + body part: `au dos` (back), `à la tête` (head), `à l'épaule` (shoulder), `aux pieds` (feet). These nouns are `le dos` (m.), `la tête` (f.), `l'épaule` (f.) and `le pied` (m.). The article normally identifies the body part because the person with the pain is already clear.",
+        "`Avoir mal à la tête` commonly means have a headache. Do not confuse `mal` (pain/badly) with `malade` (ill): `je suis malade` is a different expression. `Avoir mal` describes the symptom and does not establish a medical diagnosis."
       ],
       "points": [
-        "À + le = au; à + les = aux; à la and à l' stay separate."
+        "`À` + `le` = `au`; `à` + `les` = `aux`; `à la` and `à l'` stay separate."
       ],
       "examples": [
         {
           "french": "J'**ai mal au** dos.",
           "english": "My back hurts.",
-          "note": "À + le dos contracts."
+          "note": "`À` + `le dos` contracts."
         },
         {
           "french": "Elle **a mal à la** tête.",
@@ -140,44 +140,44 @@
         {
           "french": "Tu **as mal à l'**épaule ?",
           "english": "Does your shoulder hurt?",
-          "note": "L' precedes the vowel."
+          "note": "`L'` precedes the vowel."
         },
         {
           "french": "Nous **avons mal aux** pieds.",
           "english": "Our feet hurt.",
-          "note": "Plural body parts take aux."
+          "note": "Plural body parts take `aux`."
         }
       ],
       "mistakes": [
         {
           "avoid": "J'ai mal à le dos.",
           "prefer": "J'ai mal au dos.",
-          "why": "À + le must contract."
+          "why": "`À` + `le` must contract."
         }
       ]
     },
     {
       "id": "fear-complement",
-      "title": "After de, distinguish a person from an action",
+      "title": "After `de`, distinguish a person from an action",
       "paragraphs": [
-        "After peur de, a pronoun naming the feared person is stressed: moi, toi, lui, elle, nous, vous, eux, elles. De becomes d' before eux and elles. A feared action instead uses an infinitive, and a reflexive action keeps its pronoun before that infinitive. The fear belongs to the main subject, but the feared person need not be that same person."
+        "After `peur de`, a pronoun naming the feared person is stressed: `moi`, `toi`, `lui`, `elle`, `nous`, `vous`, `eux`, `elles`. `De` becomes `d'` before `eux` and `elles`. A feared action instead uses an infinitive, and a reflexive action keeps its pronoun before that infinitive. The fear belongs to the main subject, but the feared person need not be that same person."
       ],
       "points": [],
       "examples": [
         {
           "french": "Le chien ne connaît pas les visiteurs; il **a peur d'eux**.",
           "english": "The dog does not know the visitors; it is afraid of them.",
-          "note": "Eux refers to the feared people, not the subject."
+          "note": "`Eux` refers to the feared people, not the subject."
         },
         {
           "french": "Je **n'ai pas peur de toi**.",
           "english": "I am not afraid of you.",
-          "note": "Use stressed toi after de."
+          "note": "Use stressed `toi` after `de`."
         },
         {
           "french": "Dans cette grande gare, nous **avons peur de nous perdre**.",
           "english": "In this large station, we are afraid of getting lost.",
-          "note": "Se perdre means get lost; the infinitive keeps the pronoun for nous."
+          "note": "`Se perdre` means get lost; the infinitive keeps the pronoun for `nous`."
         }
       ],
       "mistakes": []
@@ -186,15 +186,15 @@
       "id": "body-idioms",
       "title": "A bodily feeling is not always a voluntary wish",
       "paragraphs": [
-        "Avoir envie de often describes a desire, but avoir envie d'aller aux toilettes can express a bodily urge, and avoir envie de vomir means feel like throwing up. These do not mean that the speaker enjoys or chooses the sensation. Avoir mal au cœur also commonly expresses nausea; do not translate the familiar expression word for word as a diagnosis of heart disease. Actual chest pain needs to be described clearly rather than inferred from, or dismissed because of, an idiom.",
-        "For eye pain, learn the noun pair un œil (m., an eye) / les yeux (m. plural, eyes). The usual body-part pattern gives à l'œil for one eye and aux yeux for the plural. The change is both an irregular noun plural and an article contraction."
+        "`Avoir envie de` often describes a desire, but `avoir envie d'aller aux toilettes` can express a bodily urge, and `avoir envie de vomir` means feel like throwing up. These do not mean that the speaker enjoys or chooses the sensation. `Avoir mal au cœur` also commonly expresses nausea; do not translate the familiar expression word for word as a diagnosis of heart disease. Actual chest pain needs to be described clearly rather than inferred from, or dismissed because of, an idiom.",
+        "For eye pain, learn the noun pair `un œil` (m., an eye) / `les yeux` (m. plural, eyes). The usual body-part pattern gives `à l'œil` for one eye and `aux yeux` for the plural. The change is both an irregular noun plural and an article contraction."
       ],
       "points": [],
       "examples": [
         {
           "french": "Pendant la réunion, il **a envie d'aller aux toilettes**.",
           "english": "During the meeting, he needs to go to the toilet.",
-          "note": "Envie expresses a bodily urge here."
+          "note": "`Envie` expresses a bodily urge here."
         },
         {
           "french": "Sur le bateau, j'**ai envie de vomir**.",
@@ -209,7 +209,7 @@
         {
           "french": "J'**ai mal à l'œil** droit. Le soir, j'**ai mal aux yeux**.",
           "english": "My right eye hurts. In the evening, my eyes hurt.",
-          "note": "Un œil has the irregular plural yeux."
+          "note": "`Un œil` has the irregular plural `yeux`."
         }
       ],
       "mistakes": []
@@ -507,9 +507,9 @@
     "model_answer": "J'ai besoin de repos. J'ai envie de rester à la maison. J'ai mal à la tête.",
     "translation": "I need rest. I feel like staying at home. I have a headache.",
     "rubric": [
-      "Use avoir for each fixed expression.",
-      "Keep de before the needed or desired noun/action.",
-      "Use à plus the definite article for the body part."
+      "Use `avoir` for each fixed expression.",
+      "Keep `de` before the needed or desired noun/action.",
+      "Use `à` plus the definite article for the body part."
     ]
   }
 }

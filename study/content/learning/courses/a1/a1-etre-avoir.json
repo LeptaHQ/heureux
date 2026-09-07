@@ -12,7 +12,7 @@
     "a1-sentence-foundations"
   ],
   "objectives": [
-    "Recall all present forms of être and avoir.",
+    "Recall all present forms of `être` and `avoir`.",
     "Distinguish being from having, including French age expressions."
   ],
   "keywords": [
@@ -35,30 +35,30 @@
   "sections": [
     {
       "id": "etre",
-      "title": "Être connects the subject to an identity or state",
+      "title": "`Être` connects the subject to an identity or state",
       "paragraphs": [
-        "Être means to be. Its present forms are irregular: learn the whole set rather than adding regular endings. Il, elle and on share one form; ils and elles share another. With a bare profession after être, French normally omits the English a/an: elle est médecin. Un médecin (m.) is a doctor; the profession can describe a woman too.",
-        "The present can describe what is true now or generally. A describing word, called an adjective, can change with the subject: prêt for masculine singular, prête for feminine singular."
+        "`Être` means to be. Its present forms are irregular: learn the whole set rather than adding regular endings. `Il`, `elle` and `on` share one form; `ils` and `elles` share another. With a bare profession after `être`, French normally omits the English a/an: `elle est médecin`. `Un médecin` (m.) is a doctor; the profession can describe a woman too.",
+        "The present can describe what is true now or generally. A describing word, called an adjective, can change with the subject: `prêt` for masculine singular, `prête` for feminine singular."
       ],
       "points": [
-        "Être describes who someone is, how they are or where they are.",
-        "Keep the accents in êtes and the infinitive être."
+        "`Être` describes who someone is, how they are or where they are.",
+        "Keep the accents in `êtes` and the infinitive `être`."
       ],
       "examples": [
         {
           "french": "Je **suis**\nTu **es**\nIl/elle/on **est**\nNous **sommes**\nVous **êtes**\nIls/elles **sont**",
           "english": "I am\nYou are\nHe/she is; one is/we are\nWe are\nYou are\nThey are",
-          "note": "The full present paradigm; on keeps est even when it means we."
+          "note": "The full present paradigm; `on` keeps `est` even when it means we."
         },
         {
           "french": "Je **suis** médecin.",
           "english": "I am a doctor.",
-          "note": "A bare profession follows être without an indefinite article."
+          "note": "A bare profession follows `être` without an indefinite article."
         },
         {
           "french": "Tu **es** ici.",
           "english": "You are here.",
-          "note": "Être can locate someone."
+          "note": "`Être` can locate someone."
         },
         {
           "french": "Nous **sommes** prêts.",
@@ -68,27 +68,27 @@
         {
           "french": "Vous **êtes** prête, madame.",
           "english": "You are ready, madam.",
-          "note": "Polite singular vous keeps the plural verb but the adjective describes one woman."
+          "note": "Polite singular `vous` keeps the plural verb but the adjective describes one woman."
         }
       ],
       "mistakes": [
         {
           "avoid": "Nous sont ici.",
           "prefer": "Nous sommes ici.",
-          "why": "Nous requires sommes, not the ils/elles form."
+          "why": "`Nous` requires `sommes`, not the `ils/elles` form."
         }
       ]
     },
     {
       "id": "avoir",
-      "title": "Avoir expresses possession, age and several familiar feelings",
+      "title": "`Avoir` expresses possession, age and several familiar feelings",
       "paragraphs": [
-        "Avoir means to have. It also expresses age: avoir + number + ans, literally to have a number of years. Un an (m.) is a year. French uses avoir, not être, in avoir faim (be hungry), avoir soif (be thirsty), avoir chaud (feel hot) and avoir froid (feel cold). These fixed expressions need no article before faim, soif, chaud or froid.",
-        "J'ai has an apostrophe because je meets a vowel. In il a, a has no accent; à with an accent is a different word, a preposition meaning at or to."
+        "`Avoir` means to have. It also expresses age: `avoir` + number + `ans`, literally to have a number of years. `Un an` (m.) is a year. French uses `avoir`, not `être`, in `avoir faim` (be hungry), `avoir soif` (be thirsty), `avoir chaud` (feel hot) and `avoir froid` (feel cold). These fixed expressions need no article before `faim`, `soif`, `chaud` or `froid`.",
+        "`J'ai` has an apostrophe because `je` meets a vowel. In `il a`, `a` has no accent; `à` with an accent is a different word, a preposition meaning at or to."
       ],
       "points": [
-        "Avoir: j'ai, tu as, il/elle/on a, nous avons, vous avez, ils/elles ont.",
-        "Être and avoir do not translate every English use word for word."
+        "`Avoir`: `j'ai`, `tu as`, `il/elle/on a`, `nous avons`, `vous avez`, `ils/elles ont`.",
+        "`Être` and `avoir` do not translate every English use word for word."
       ],
       "examples": [
         {
@@ -99,17 +99,17 @@
         {
           "french": "Elle **a** un vélo.",
           "english": "She has a bicycle.",
-          "note": "Un vélo (m.) is a bicycle."
+          "note": "`Un vélo` (m.) is a bicycle."
         },
         {
           "french": "J'**ai** vingt ans.",
           "english": "I am twenty years old.",
-          "note": "French expresses age with avoir."
+          "note": "French expresses age with `avoir`."
         },
         {
           "french": "Les enfants **ont faim**.",
           "english": "The children are hungry.",
-          "note": "Avoir faim describes hunger."
+          "note": "`Avoir faim` describes hunger."
         },
         {
           "french": "Nous **avons froid**.",
@@ -126,12 +126,12 @@
         {
           "avoid": "Je suis vingt ans.",
           "prefer": "J'ai vingt ans.",
-          "why": "Use avoir for age."
+          "why": "Use `avoir` for age."
         },
         {
           "avoid": "Ils avons faim.",
           "prefer": "Ils ont faim.",
-          "why": "Ils takes ont; avons belongs to nous."
+          "why": "`Ils` takes `ont`; `avons` belongs to `nous`."
         }
       ]
     }
@@ -340,12 +340,12 @@
     }
   ],
   "production_task": {
-    "prompt": "Write a short introduction for a new class: give your name with Je suis, your age with avoir and something you have. You may invent the details.",
+    "prompt": "Write a short introduction for a new class: give your name with `Je suis`, your age with `avoir` and something you have. You may invent the details.",
     "model_answer": "Je suis Nora. J'ai vingt-huit ans. J'ai un vélo.",
     "translation": "I am Nora. I am twenty-eight years old. I have a bicycle.",
     "rubric": [
-      "Use suis for identity and ai for age and possession.",
-      "Keep the apostrophe in j'ai.",
+      "Use `suis` for identity and `ai` for age and possession.",
+      "Keep the apostrophe in `j'ai`.",
       "Include an article with the possessed countable object."
     ]
   }

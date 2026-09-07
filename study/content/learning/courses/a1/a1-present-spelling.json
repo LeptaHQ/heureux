@@ -5,14 +5,14 @@
   "cefr_level": "A1",
   "topic": "verbs-tenses-moods",
   "title": "Garder le son : les changements des verbes en -er",
-  "summary": "Handle nous commençons and mangeons, accent changes, and the appeler/jeter and acheter/geler families.",
+  "summary": "Handle `nous commençons` and `mangeons`, accent changes, and the `appeler/jeter` and `acheter/geler` families.",
   "order": 6,
   "duration_minutes": 15,
   "prerequisites": [
     "a1-present-families"
   ],
   "objectives": [
-    "Preserve soft c and g before -ons.",
+    "Preserve soft `c` and `g` before `-ons`.",
     "Distinguish changing stems from regular endings.",
     "Use accented and doubled-consonant patterns without rejecting accepted spelling variants."
   ],
@@ -40,101 +40,101 @@
   "sections": [
     {
       "id": "soft-sounds",
-      "title": "Only nous needs ç or an extra e in these present forms",
+      "title": "Only `nous` needs `ç` or an extra `e` in these present forms",
       "paragraphs": [
-        "The regular -er endings remain unchanged. In -cer verbs such as commencer (begin) and avancer (move forward), write ç before -ons to keep the soft s sound. In -ger verbs such as manger (eat) and partager (share), keep an e before -ons to preserve the soft g sound. The other present endings already begin with e and need no repair."
+        "The regular `-er` endings remain unchanged. In `-cer` verbs such as `commencer` (begin) and `avancer` (move forward), write `ç` before `-ons` to keep the soft `s` sound. In `-ger` verbs such as `manger` (eat) and `partager` (share), keep an `e` before `-ons` to preserve the soft `g` sound. The other present endings already begin with `e` and need no repair."
       ],
       "points": [
-        "The cedilla goes on c, not on the vowel."
+        "The cedilla goes on `c`, not on the vowel."
       ],
       "examples": [
         {
           "french": "Je **commence**\nTu **commences**\nIl/elle/on **commence**\nNous **commençons**\nVous **commencez**\nIls/elles **commencent**",
           "english": "I begin\nYou begin\nHe/she begins; one begins/we begin\nWe begin\nYou begin\nThey begin",
-          "note": "Only nous has ç."
+          "note": "Only `nous` has `ç`."
         },
         {
           "french": "Je **mange**\nTu **manges**\nIl/elle/on **mange**\nNous **mangeons**\nVous **mangez**\nIls/elles **mangent**",
           "english": "I eat\nYou eat\nHe/she eats; one eats/we eat\nWe eat\nYou eat\nThey eat",
-          "note": "Nous keeps e before o."
+          "note": "`Nous` keeps `e` before `o`."
         },
         {
           "french": "Nous **partageons** une pizza.",
           "english": "We are sharing a pizza.",
-          "note": "Partager follows manger; une pizza is feminine."
+          "note": "`Partager` follows `manger`; `une pizza` is feminine."
         }
       ],
       "mistakes": [
         {
           "avoid": "Nous mangons ici.",
           "prefer": "Nous mangeons ici.",
-          "why": "Keep e so g retains its soft sound."
+          "why": "Keep `e` so `g` retains its soft sound."
         },
         {
           "avoid": "Nous commencons demain.",
           "prefer": "Nous commençons demain.",
-          "why": "Before o, ç preserves the soft sound."
+          "why": "Before `o`, `ç` preserves the soft sound."
         }
       ]
     },
     {
       "id": "accents",
-      "title": "Some stems change to è before a silent ending",
+      "title": "Some stems change to `è` before a silent ending",
       "paragraphs": [
-        "For many verbs with e or é in the last stem syllable, that vowel becomes è before the silent endings -e, -es and -ent. It stays unchanged with nous and vous. Lever (raise), mener (lead) and peser (weigh) illustrate e → è; préférer (prefer) and répéter (repeat) illustrate é → è. Change the last relevant vowel, not every accent in the word."
+        "For many verbs with `e` or `é` in the last stem syllable, that vowel becomes `è` before the silent endings `-e`, `-es` and `-ent`. It stays unchanged with `nous` and `vous`. `Lever` (raise), `mener` (lead) and `peser` (weigh) illustrate `e` → `è`; `préférer` (prefer) and `répéter` (repeat) illustrate `é` → `è`. Change the last relevant vowel, not every accent in the word."
       ],
       "points": [
-        "The person endings are still the regular -er endings."
+        "The person endings are still the regular `-er` endings."
       ],
       "examples": [
         {
           "french": "Je **lève**\nTu **lèves**\nIl/elle/on **lève**\nNous **levons**\nVous **levez**\nIls/elles **lèvent**",
           "english": "I raise\nYou raise\nHe/she raises; one raises/we raise\nWe raise\nYou raise\nThey raise",
-          "note": "Nous and vous keep e."
+          "note": "`Nous` and `vous` keep `e`."
         },
         {
           "french": "Je **préfère**\nTu **préfères**\nIl/elle/on **préfère**\nNous **préférons**\nVous **préférez**\nIls/elles **préfèrent**",
           "english": "I prefer\nYou prefer\nHe/she prefers; one prefers/we prefer\nWe prefer\nYou prefer\nThey prefer",
-          "note": "Only the final stem é changes."
+          "note": "Only the final stem `é` changes."
         },
         {
           "french": "Tu **répètes** la phrase; nous **répétons** le dialogue.",
           "english": "You repeat the sentence; we repeat the dialogue.",
-          "note": "Une phrase (f.) is a sentence; un dialogue (m.) is a dialogue."
+          "note": "`Une phrase` (f.) is a sentence; `un dialogue` (m.) is a dialogue."
         }
       ],
       "mistakes": []
     },
     {
       "id": "eler-eter",
-      "title": "Learn appeler and jeter separately from acheter and geler",
+      "title": "Learn `appeler` and `jeter` separately from `acheter` and `geler`",
       "paragraphs": [
-        "Appeler (call) doubles l before a silent ending; jeter (throw) doubles t. Their derivatives such as rappeler (call back/remind) and rejeter (reject) keep that pattern. Acheter (buy) and geler (freeze) instead use è before silent endings. Nous and vous use the unchanged stem in all four verbs.",
-        "Traditional spelling gives several other -eler/-eter verbs doubled consonants, for example épeler → j'épelle (spell). The 1990 recommendations permit è for those verbs other than appeler, jeter and their derivatives: j'épèle, je ruissèle. Both established traditional and rectified forms are accepted. Do not apply a claim that all -eler/-eter verbs must double. In this lesson the main production models use the unambiguous appeler, jeter, acheter and geler patterns."
+        "`Appeler` (call) doubles `l` before a silent ending; `jeter` (throw) doubles `t`. Their derivatives such as `rappeler` (call back/remind) and `rejeter` (reject) keep that pattern. `Acheter` (buy) and `geler` (freeze) instead use `è` before silent endings. `Nous` and `vous` use the unchanged stem in all four verbs.",
+        "Traditional spelling gives several other `-eler/-eter` verbs doubled consonants, for example `épeler` → `j'épelle` (spell). The 1990 recommendations permit `è` for those verbs other than `appeler`, `jeter` and their derivatives: `j'épèle`, `je ruissèle`. Both established traditional and rectified forms are accepted. Do not apply a claim that all `-eler/-eter` verbs must double. In this lesson the main production models use the unambiguous `appeler`, `jeter`, `acheter` and `geler` patterns."
       ],
       "points": [
-        "Appeler/jeter keep their doubled consonants where required in both spelling systems."
+        "`Appeler/jeter` keep their doubled consonants where required in both spelling systems."
       ],
       "examples": [
         {
           "french": "J'**appelle**\nTu **appelles**\nIl/elle/on **appelle**\nNous **appelons**\nVous **appelez**\nIls/elles **appellent**",
           "english": "I call\nYou call\nHe/she calls; one calls/we call\nWe call\nYou call\nThey call",
-          "note": "Double l except with nous and vous."
+          "note": "Double `l` except with `nous` and `vous`."
         },
         {
           "french": "Je **jette**\nTu **jettes**\nIl/elle/on **jette**\nNous **jetons**\nVous **jetez**\nIls/elles **jettent**",
           "english": "I throw\nYou throw\nHe/she throws; one throws/we throw\nWe throw\nYou throw\nThey throw",
-          "note": "The doubled t does not belong in jetons or jetez."
+          "note": "The doubled `t` does not belong in `jetons` or `jetez`."
         },
         {
           "french": "J'**achète**\nTu **achètes**\nIl/elle/on **achète**\nNous **achetons**\nVous **achetez**\nIls/elles **achètent**",
           "english": "I buy\nYou buy\nHe/she buys; one buys/we buy\nWe buy\nYou buy\nThey buy",
-          "note": "Acheter uses è, not tt."
+          "note": "`Acheter` uses `è`, not `tt`."
         },
         {
           "french": "Je **gèle**\nTu **gèles**\nIl/elle/on **gèle**\nNous **gelons**\nVous **gelez**\nIls/elles **gèlent**",
           "english": "I freeze\nYou freeze\nHe/she freezes; one freezes/we freeze\nWe freeze\nYou freeze\nThey freeze",
-          "note": "Geler uses è, not ll."
+          "note": "`Geler` uses `è`, not `ll`."
         },
         {
           "french": "J'**épelle** mon nom. / J'**épèle** mon nom.",
@@ -146,7 +146,7 @@
         {
           "avoid": "Elle achette du lait.",
           "prefer": "Elle achète du lait.",
-          "why": "Acheter uses è rather than doubled t."
+          "why": "`Acheter` uses `è` rather than doubled `t`."
         }
       ]
     },
@@ -154,26 +154,26 @@
       "id": "accent-boundary",
       "title": "Identify the accent before applying the change",
       "paragraphs": [
-        "The e/é → è patterns do not instruct you to replace every accented vowel. A circumflex in rêver (dream) stays ê throughout the present. First identify the infinitive and its spelling family, then attach the ending; do not decide from the English meaning or from the presence of any accent."
+        "The `e/é` → `è` patterns do not instruct you to replace every accented vowel. A circumflex in `rêver` (dream) stays `ê` throughout the present. First identify the infinitive and its spelling family, then attach the ending; do not decide from the English meaning or from the presence of any accent."
       ],
       "points": [],
       "examples": [
         {
           "french": "Je **rêve**\nTu **rêves**\nIl/elle/on **rêve**\nNous **rêvons**\nVous **rêvez**\nIls/elles **rêvent**",
           "english": "I dream\nYou dream\nHe/she dreams; one dreams/we dream\nWe dream\nYou dream\nThey dream",
-          "note": "All six forms preserve ê."
+          "note": "All six forms preserve `ê`."
         },
         {
           "french": "Elle **rêve** d'un voyage, mais elle **préfère** attendre.",
           "english": "She dreams of a trip, but she prefers to wait.",
-          "note": "Rêver keeps ê; préférer changes its last stem é to è in this person."
+          "note": "`Rêver` keeps `ê`; `préférer` changes its last stem `é` to `è` in this person."
         }
       ],
       "mistakes": [
         {
           "avoid": "Tu rèves.",
           "prefer": "Tu rêves.",
-          "why": "Rêver has a stable circumflex, not the e/é alternation."
+          "why": "`Rêver` has a stable circumflex, not the `e/é` alternation."
         }
       ]
     }
@@ -415,12 +415,12 @@
     }
   ],
   "production_task": {
-    "prompt": "Plan a shared meal in three sentences. Say what you prefer, what you buy and what you share, using je and nous.",
+    "prompt": "Plan a shared meal in three sentences. Say what you prefer, what you buy and what you share, using `je` and `nous`.",
     "model_answer": "Je préfère la soupe. J'achète des légumes. Nous partageons le pain.",
     "translation": "I prefer soup. I buy some vegetables. We share the bread.",
     "rubric": [
-      "Use è in préfère and achète.",
-      "Keep e in partageons.",
+      "Use `è` in `préfère` and `achète`.",
+      "Keep `e` in `partageons`.",
       "Keep regular endings despite the stem spelling changes."
     ]
   }

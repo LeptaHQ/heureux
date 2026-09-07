@@ -5,7 +5,7 @@
   "cefr_level": "A1",
   "topic": "time-place-prepositions",
   "title": "Situer les personnes et les objets",
-  "summary": "Locate things precisely with simple and compound prepositions; distinguish en from dans and a person's place from a building.",
+  "summary": "Locate things precisely with simple and compound prepositions; distinguish `en` from `dans` and a person's place from a building.",
   "order": 22,
   "duration_minutes": 13,
   "prerequisites": [
@@ -14,8 +14,8 @@
   ],
   "objectives": [
     "Choose location prepositions from the intended spatial relationship.",
-    "Form compound phrases with de and its contractions.",
-    "Use chez with people and distinguish established en expressions from physical dans."
+    "Form compound phrases with `de` and its contractions.",
+    "Use `chez` with people and distinguish established `en` expressions from physical `dans`."
   ],
   "keywords": [
     "dans",
@@ -42,11 +42,11 @@
       "id": "simple",
       "title": "Name the spatial relationship, not just English 'at'",
       "paragraphs": [
-        "Dans means in or inside, sur means on a surface, sous means under, devant means in front of, derrière means behind, and entre means between. These prepositions go directly before the noun phrase; do not automatically add de. Entre usually introduces two reference points joined with et.",
-        "A preposition can describe where someone is or where they move: être dans la cuisine and entrer dans la cuisine. Un tiroir (m.) is a drawer; une étagère (f.) is a shelf; un canapé (m.) is a sofa."
+        "`Dans` means in or inside, `sur` means on a surface, `sous` means under, `devant` means in front of, `derrière` means behind, and `entre` means between. These prepositions go directly before the noun phrase; do not automatically add `de`. `Entre` usually introduces two reference points joined with `et`.",
+        "A preposition can describe where someone is or where they move: `être dans la cuisine` and `entrer dans la cuisine`. `Un tiroir` (m.) is a drawer; `une étagère` (f.) is a shelf; `un canapé` (m.) is a sofa."
       ],
       "points": [
-        "Sur describes contact with a supporting surface; devant does not mean on its surface."
+        "`Sur` describes contact with a supporting surface; `devant` does not mean on its surface."
       ],
       "examples": [
         {
@@ -72,42 +72,42 @@
         {
           "french": "La table est **entre** le canapé et la fenêtre.",
           "english": "The table is between the sofa and the window.",
-          "note": "Entre names two reference points."
+          "note": "`Entre` names two reference points."
         }
       ],
       "mistakes": [
         {
           "avoid": "Les clés sont dans de le tiroir.",
           "prefer": "Les clés sont dans le tiroir.",
-          "why": "Dans takes the noun phrase directly; it does not require de."
+          "why": "`Dans` takes the noun phrase directly; it does not require `de`."
         }
       ]
     },
     {
       "id": "compound",
-      "title": "Keep the de in multiword location phrases",
+      "title": "Keep the `de` in multiword location phrases",
       "paragraphs": [
-        "À côté de means next to; en face de means opposite/across from; près de means near; loin de means far from; à l'intérieur de means inside; à l'extérieur de means outside; au coin de means at the corner of. De is part of these expressions and contracts with a following le or les: près du parc, en face des maisons. Before a vowel use d' where no article intervenes, as in près d'ici (near here).",
-        "Devant and en face de need not describe the same position. A person can stand devant a shop, immediately in front of its entrance; a café en face du magasin is across from the shop. Context supplies the exact distance."
+        "`À côté de` means next to; `en face de` means opposite/across from; `près de` means near; `loin de` means far from; `à l'intérieur de` means inside; `à l'extérieur de` means outside; `au coin de` means at the corner of. `De` is part of these expressions and contracts with a following `le` or `les`: `près du parc`, `en face des maisons`. Before a vowel use `d'` where no article intervenes, as in `près d'ici` (near here).",
+        "`Devant` and `en face de` need not describe the same position. A person can stand `devant` a shop, immediately in front of its entrance; a café `en face du magasin` is across from the shop. Context supplies the exact distance."
       ],
       "points": [
-        "Un parc (m.) = a park; une rue (f.) = a street; un bâtiment (m.) = a building."
+        "`Un parc` (m.) = a park; `une rue` (f.) = a street; `un bâtiment` (m.) = a building."
       ],
       "examples": [
         {
           "french": "La banque est **à côté du** parc.",
           "english": "The bank is next to the park.",
-          "note": "À côté de + le becomes à côté du."
+          "note": "`À côté de` + `le` becomes `à côté du`."
         },
         {
           "french": "Le café est **en face de** la gare.",
           "english": "The café is opposite the station.",
-          "note": "De stays separate before la."
+          "note": "`De` stays separate before `la`."
         },
         {
           "french": "J'habite **près de** l'école, mais **loin du** stade.",
           "english": "I live near the school but far from the stadium.",
-          "note": "Compare de l' with du."
+          "note": "Compare `de l'` with `du`."
         },
         {
           "french": "Les élèves sont **à l'intérieur du** bâtiment; les parents attendent **à l'extérieur**.",
@@ -117,27 +117,27 @@
         {
           "french": "La pharmacie est **au coin de** la rue.",
           "english": "The pharmacy is at the corner of the street.",
-          "note": "Keep de after au coin."
+          "note": "Keep `de` after `au coin`."
         }
       ],
       "mistakes": [
         {
           "avoid": "près le parc",
           "prefer": "près du parc",
-          "why": "Près needs de, and de + le contracts."
+          "why": "`Près` needs `de`, and `de` + `le` contracts."
         }
       ]
     },
     {
       "id": "en-chez",
-      "title": "Some locations are conventional expressions; people take chez",
+      "title": "Some locations are conventional expressions; people take `chez`",
       "paragraphs": [
-        "En appears in established expressions often presenting an activity or setting: en classe (in class), en ville (in town), en prison (in prison). Dans normally presents an inside location with a noun phrase: dans la classe (inside the classroom), dans cette ville (in this town). Do not choose en simply because an English sentence has in or because a noun is feminine.",
-        "Chez means at or to someone's home, premises or professional practice. Use it with a person, profession or stressed pronoun: chez Lina, chez le médecin, chez moi. Use a place construction for the building itself: à la clinique. Chez can express destination as well as location."
+        "`En` appears in established expressions often presenting an activity or setting: `en classe` (in class), `en ville` (in town), `en prison` (in prison). `Dans` normally presents an inside location with a noun phrase: `dans la classe` (inside the classroom), `dans cette ville` (in this town). Do not choose `en` simply because an English sentence has in or because a noun is feminine.",
+        "`Chez` means at or to someone's home, premises or professional practice. Use it with a person, profession or stressed pronoun: `chez Lina`, `chez le médecin`, `chez moi`. Use a place construction for the building itself: `à la clinique`. `Chez` can express destination as well as location."
       ],
       "points": [
-        "Chez moi means at/to my place; it does not need à.",
-        "Une clinique (f.) = a clinic; un médecin (m.) = a doctor."
+        "`Chez moi` means at/to my place; it does not need `à`.",
+        "`Une clinique` (f.) = a clinic; `un médecin` (m.) = a doctor."
       ],
       "examples": [
         {
@@ -153,12 +153,12 @@
         {
           "french": "Nous allons **chez le médecin**.",
           "english": "We are going to the doctor's.",
-          "note": "Chez introduces a person's professional practice."
+          "note": "`Chez` introduces a person's professional practice."
         },
         {
           "french": "Tu viens **chez moi** ?",
           "english": "Are you coming to my place?",
-          "note": "Chez takes a stressed pronoun."
+          "note": "`Chez` takes a stressed pronoun."
         }
       ],
       "mistakes": [
@@ -173,17 +173,17 @@
       "id": "outside-home",
       "title": "A location phrase can also express a viewpoint",
       "paragraphs": [
-        "En dehors de can locate something outside a boundary, much like à l'extérieur de. It can also mean apart from when excluding an item from a statement. De still contracts with le or les. Decide whether there is a physical boundary or an exception to a group.",
-        "Chez nous presents the place as our home or premises. À la maison is the ordinary at home expression. If you describe the dwelling as a building, use an appropriate building or position phrase such as devant notre maison. Do not translate every English home or house with the same construction."
+        "`En dehors de` can locate something outside a boundary, much like `à l'extérieur de`. It can also mean apart from when excluding an item from a statement. `De` still contracts with `le` or `les`. Decide whether there is a physical boundary or an exception to a group.",
+        "`Chez nous` presents the place as our home or premises. `À la maison` is the ordinary at home expression. If you describe the dwelling as a building, use an appropriate building or position phrase such as `devant notre maison`. Do not translate every English home or house with the same construction."
       ],
       "points": [
-        "Une maison (f.) is a house; un village (m.) is a village."
+        "`Une maison` (f.) is a house; `un village` (m.) is a village."
       ],
       "examples": [
         {
           "french": "Le parking est **en dehors du village**.",
           "english": "The car park is outside the village.",
-          "note": "This is a physical boundary: de + le becomes du."
+          "note": "This is a physical boundary: `de` + `le` becomes `du`."
         },
         {
           "french": "**En dehors de Léa**, tout le groupe est présent.",
@@ -501,13 +501,13 @@
     }
   ],
   "production_task": {
-    "prompt": "Help a guest find two objects and a nearby service. Use one simple preposition, one compound preposition and chez.",
+    "prompt": "Help a guest find two objects and a nearby service. Use one simple preposition, one compound preposition and `chez`.",
     "model_answer": "Les clés sont dans le tiroir. La banque est en face du parc. Ce soir, nous mangeons chez moi.",
     "translation": "The keys are in the drawer. The bank is opposite the park. This evening, we are eating at my place.",
     "rubric": [
       "Choose the spatial relation you actually intend.",
-      "Keep de and its required contraction in compound phrases.",
-      "Use a person or stressed pronoun after chez."
+      "Keep `de` and its required contraction in compound phrases.",
+      "Use a person or stressed pronoun after `chez`."
     ]
   }
 }

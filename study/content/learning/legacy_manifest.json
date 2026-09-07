@@ -1,0 +1,1416 @@
+{
+  "baseline_commit": "a5715b158fe4104a814fd9ee931aaabe30c1f740",
+  "lessons": [
+    {
+      "id": "grammar-articles-gender",
+      "slug": "grammar-articles-gender",
+      "module_id": "grammar-foundations",
+      "sources": [
+        "Tips 2",
+        "Tips 3",
+        "Tips 11",
+        "Tips 12",
+        "Notion · Tips 1",
+        "Notion · Tips 9-16"
+      ],
+      "annotation_keys": [
+        "learn:grammar-articles-gender:core-concept"
+      ]
+    },
+    {
+      "id": "grammar-noun-plurals",
+      "slug": "grammar-noun-plurals",
+      "module_id": "grammar-foundations",
+      "sources": [
+        "Tips 12",
+        "Notion · Tips Revision"
+      ],
+      "annotation_keys": [
+        "learn:grammar-noun-plurals:core-concept"
+      ]
+    },
+    {
+      "id": "grammar-contracted-articles",
+      "slug": "grammar-contracted-articles",
+      "module_id": "grammar-foundations",
+      "sources": [
+        "Tips 2",
+        "Tips 11",
+        "Tips 24"
+      ],
+      "annotation_keys": [
+        "learn:grammar-contracted-articles:core-concept"
+      ]
+    },
+    {
+      "id": "grammar-articles-negation",
+      "slug": "grammar-articles-negation",
+      "module_id": "grammar-foundations",
+      "sources": [
+        "Tips 11",
+        "Tips 15",
+        "Notion · Tips 15"
+      ],
+      "annotation_keys": [
+        "learn:grammar-articles-negation:core-concept"
+      ]
+    },
+    {
+      "id": "grammar-possession-de",
+      "slug": "grammar-possession-de",
+      "module_id": "grammar-foundations",
+      "sources": [
+        "Tips 12",
+        "Tips 13",
+        "Tips 17"
+      ],
+      "annotation_keys": [
+        "learn:grammar-possession-de:core-concept"
+      ]
+    },
+    {
+      "id": "grammar-possessives",
+      "slug": "grammar-possessives",
+      "module_id": "grammar-foundations",
+      "sources": [
+        "Tips 2",
+        "Tips 6",
+        "Tips 12",
+        "Tips 17",
+        "Tips 21",
+        "Tips 27",
+        "Notion · Tips 27"
+      ],
+      "annotation_keys": [
+        "learn:grammar-possessives:core-concept"
+      ]
+    },
+    {
+      "id": "grammar-demonstratives-reference",
+      "slug": "grammar-demonstratives-reference",
+      "module_id": "grammar-foundations",
+      "sources": [
+        "Tips 4",
+        "Tips 30",
+        "Notion · Tips 6"
+      ],
+      "annotation_keys": [
+        "learn:grammar-demonstratives-reference:core-concept"
+      ]
+    },
+    {
+      "id": "grammar-adjective-agreement",
+      "slug": "grammar-adjective-agreement",
+      "module_id": "grammar-foundations",
+      "sources": [
+        "Tips 6",
+        "Tips 12",
+        "Tips 14",
+        "Tips 27",
+        "Notion · Tips Revision",
+        "Notion · Tips 14",
+        "Notion · Tips 27",
+        "Notion · Tips 2",
+        "Notion · Tips 5",
+        "Notion · Tips 6",
+        "Notion · Tips 8",
+        "Notion · Tips 10",
+        "Notion · Tips 11",
+        "Notion · Tips 29",
+        "Notion · Tips 30"
+      ],
+      "annotation_keys": [
+        "learn:grammar-adjective-agreement:core-concept",
+        "learn:grammar-adjective-agreement:c-feminines-and-fol"
+      ]
+    },
+    {
+      "id": "grammar-adjective-position-nuance",
+      "slug": "grammar-adjective-position-nuance",
+      "module_id": "grammar-foundations",
+      "sources": [
+        "Tips 7",
+        "Tips 13",
+        "Tips 14",
+        "Tips 15",
+        "Notion · Tips 5",
+        "Notion · Tips 9-16"
+      ],
+      "annotation_keys": [
+        "learn:grammar-adjective-position-nuance:core-concept"
+      ]
+    },
+    {
+      "id": "grammar-colours-nationalities",
+      "slug": "grammar-colours-nationalities",
+      "module_id": "grammar-foundations",
+      "sources": [
+        "Tips 2",
+        "Tips 12"
+      ],
+      "annotation_keys": [
+        "learn:grammar-colours-nationalities:core-concept"
+      ]
+    },
+    {
+      "id": "grammar-adverbs",
+      "slug": "grammar-adverbs",
+      "module_id": "grammar-foundations",
+      "sources": [
+        "Tips 6",
+        "Tips 13",
+        "Tips 14",
+        "Tips 27",
+        "Notion · Tips 2",
+        "Notion · Tips 8",
+        "Notion · Tips 21",
+        "Notion · Tips Revision",
+        "Notion · Tips 4"
+      ],
+      "annotation_keys": [
+        "learn:grammar-adverbs:core-concept",
+        "learn:grammar-adverbs:presque-near-but-not-quite"
+      ]
+    },
+    {
+      "id": "grammar-comparisons",
+      "slug": "grammar-comparisons",
+      "module_id": "grammar-foundations",
+      "sources": [
+        "Tips 8",
+        "Tips 22",
+        "Tips 27",
+        "Notion · Tips 21",
+        "Notion · Tips 17",
+        "Notion · Tips 30"
+      ],
+      "annotation_keys": [
+        "learn:grammar-comparisons:core-concept",
+        "learn:grammar-comparisons:si-intensity-and-negative-degree"
+      ]
+    },
+    {
+      "id": "grammar-numbers-ordinals",
+      "slug": "grammar-numbers-ordinals",
+      "module_id": "grammar-foundations",
+      "sources": [
+        "Tips 14",
+        "Notion · Tips 14"
+      ],
+      "annotation_keys": [
+        "learn:grammar-numbers-ordinals:core-concept"
+      ]
+    },
+    {
+      "id": "orthography-diacritics",
+      "slug": "orthography-diacritics",
+      "module_id": "spelling-punctuation",
+      "sources": [
+        "Notion · Tips 1",
+        "Notion · Tips 4",
+        "Notion · Tips 13",
+        "Notion · Tips 30"
+      ],
+      "annotation_keys": [
+        "learn:orthography-diacritics:core-concept",
+        "learn:orthography-diacritics:accented-nouns-and-their-meanings",
+        "learn:orthography-diacritics:beliefs-strong-feelings-and-heroes",
+        "learn:orthography-diacritics:sound-voice-and-high-pitch"
+      ]
+    },
+    {
+      "id": "writing-capitalisation",
+      "slug": "writing-capitalisation",
+      "module_id": "spelling-punctuation",
+      "sources": [
+        "Essentials · Majuscule"
+      ],
+      "annotation_keys": [
+        "learn:writing-capitalisation:core-concept",
+        "learn:writing-capitalisation:holidays-directions-and-deities",
+        "learn:writing-capitalisation:initialisms-units-and-correspondence"
+      ]
+    },
+    {
+      "id": "writing-punctuation-typography",
+      "slug": "writing-punctuation-typography",
+      "module_id": "spelling-punctuation",
+      "sources": [
+        "Essentials · Punctuation"
+      ],
+      "annotation_keys": [
+        "learn:writing-punctuation-typography:core-concept",
+        "learn:writing-punctuation-typography:ellipsis-nesting-and-elision",
+        "learn:writing-punctuation-typography:academic-references-and-lists"
+      ]
+    },
+    {
+      "id": "verbs-present-patterns",
+      "slug": "verbs-present-patterns",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Tips 2",
+        "Tips 3",
+        "Tips 4",
+        "Tips 5",
+        "Tips 21",
+        "Tips 22",
+        "Essentials · Tenses",
+        "Notion · Tips 21",
+        "Notion · Tips 22"
+      ],
+      "annotation_keys": [
+        "learn:verbs-present-patterns:core-concept",
+        "learn:verbs-present-patterns:seven-irregular-present-paradigms"
+      ]
+    },
+    {
+      "id": "verbs-present-spelling-families",
+      "slug": "verbs-present-spelling-families",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Notion · Tips 21",
+        "Notion · Tips 22",
+        "Notion · Tips 10"
+      ],
+      "annotation_keys": [
+        "learn:verbs-present-spelling-families:core-concept",
+        "learn:verbs-present-spelling-families:dire-family-vous",
+        "learn:verbs-present-spelling-families:uire-present-pattern"
+      ]
+    },
+    {
+      "id": "verbs-recent-past",
+      "slug": "verbs-recent-past",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Tips 25"
+      ],
+      "annotation_keys": [
+        "learn:verbs-recent-past:core-concept"
+      ]
+    },
+    {
+      "id": "aspect-progressive-en-train-de",
+      "slug": "aspect-progressive-en-train-de",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Notion · Tips 18"
+      ],
+      "annotation_keys": [
+        "learn:aspect-progressive-en-train-de:core-concept",
+        "learn:aspect-progressive-en-train-de:se-mettre-a-onset"
+      ]
+    },
+    {
+      "id": "verbs-passe-compose",
+      "slug": "verbs-passe-compose",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Tips 2",
+        "Tips 3",
+        "Tips 4",
+        "Tips 6",
+        "Tips 22",
+        "Tips 23",
+        "Tips 24"
+      ],
+      "annotation_keys": [
+        "learn:verbs-passe-compose:core-concept"
+      ]
+    },
+    {
+      "id": "verbs-irregular-past-participles",
+      "slug": "verbs-irregular-past-participles",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Tips 22",
+        "Tips 23",
+        "Tips 24",
+        "Notion · Tips 23"
+      ],
+      "annotation_keys": [
+        "learn:verbs-irregular-past-participles:core-concept"
+      ]
+    },
+    {
+      "id": "verbs-imparfait",
+      "slug": "verbs-imparfait",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Tips 3",
+        "Tips 10",
+        "Tips 13",
+        "Tips 23",
+        "Tips 27",
+        "Tips 30"
+      ],
+      "annotation_keys": [
+        "learn:verbs-imparfait:core-concept"
+      ]
+    },
+    {
+      "id": "verbs-past-contrast",
+      "slug": "verbs-past-contrast",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Tips 3",
+        "Tips 19",
+        "Tips 23",
+        "Tips 27",
+        "Notion · Tips 7",
+        "Notion · Tips 14",
+        "Notion · Tips 27"
+      ],
+      "annotation_keys": [
+        "learn:verbs-past-contrast:core-concept",
+        "learn:verbs-past-contrast:literary-anterior-and-fut"
+      ]
+    },
+    {
+      "id": "verbs-future",
+      "slug": "verbs-future",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Tips 2",
+        "Tips 3",
+        "Tips 8",
+        "Essentials · Tenses"
+      ],
+      "annotation_keys": [
+        "learn:verbs-future:core-concept"
+      ]
+    },
+    {
+      "id": "verbs-conditional-si",
+      "slug": "verbs-conditional-si",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Tips 3",
+        "Tips 10",
+        "Tips 15",
+        "Tips 27",
+        "Tips 28",
+        "Essentials · Tenses",
+        "Essentials · Connectors"
+      ],
+      "annotation_keys": [
+        "learn:verbs-conditional-si:core-concept",
+        "learn:verbs-conditional-si:conditional-time-regret-reporting",
+        "learn:verbs-conditional-si:condition-connector-alternatives"
+      ]
+    },
+    {
+      "id": "imperative",
+      "slug": "imperative",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Tips 4",
+        "Tips 7",
+        "Tips 10",
+        "Tips 20",
+        "Tips 22",
+        "Notion · Tips Revision",
+        "Essentials · Tenses"
+      ],
+      "annotation_keys": [
+        "learn:imperative:core-concept",
+        "learn:imperative:imperative-etre-avoir"
+      ]
+    },
+    {
+      "id": "verbs-subjunctive",
+      "slug": "verbs-subjunctive",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Tips 10",
+        "Tips 14",
+        "Tips 18",
+        "Tips 21",
+        "Tips 27",
+        "Tips 28",
+        "Tips 29",
+        "Tips 30",
+        "Notion · Tips 18",
+        "Notion · Tips 21",
+        "Notion · Tips Revision",
+        "Essentials · Tenses"
+      ],
+      "annotation_keys": [
+        "learn:verbs-subjunctive:core-concept",
+        "learn:verbs-subjunctive:present-subjunctive-stems",
+        "learn:verbs-subjunctive:past-subjunctive-completion"
+      ]
+    },
+    {
+      "id": "verbs-infinitive-time-purpose",
+      "slug": "verbs-infinitive-time-purpose",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Tips 7",
+        "Tips 9",
+        "Tips 10",
+        "Tips 13",
+        "Tips 16",
+        "Tips 21",
+        "Tips 27",
+        "Tips 30",
+        "Notion · Tips 9-16",
+        "Essentials · Connectors",
+        "Notion · Tips 21",
+        "Notion · Tips 28",
+        "Notion · Tips 29",
+        "Notion · Tips 30"
+      ],
+      "annotation_keys": [
+        "learn:verbs-infinitive-time-purpose:core-concept",
+        "learn:verbs-infinitive-time-purpose:purpose-alternatives-and-result",
+        "learn:verbs-infinitive-time-purpose:infinitive-subject-and-adjective",
+        "learn:verbs-infinitive-time-purpose:emotional-adjective-complements",
+        "learn:verbs-infinitive-time-purpose:skill-and-suitability"
+      ]
+    },
+    {
+      "id": "verbs-participle-gerund",
+      "slug": "verbs-participle-gerund",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Tips 6",
+        "Tips 14",
+        "Tips 18",
+        "Essentials · Tenses"
+      ],
+      "annotation_keys": [
+        "learn:verbs-participle-gerund:core-concept",
+        "learn:verbs-participle-gerund:gerund-as-condition"
+      ]
+    },
+    {
+      "id": "verbs-past-participle-agreement",
+      "slug": "verbs-past-participle-agreement",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Tips 7",
+        "Tips 8",
+        "Notion · Tips 22"
+      ],
+      "annotation_keys": [
+        "learn:verbs-past-participle-agreement:core-concept"
+      ]
+    },
+    {
+      "id": "verbs-passive-reflexive",
+      "slug": "verbs-passive-reflexive",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Tips 2",
+        "Tips 8",
+        "Tips 12",
+        "Tips 30",
+        "Notion · Tips 9-16",
+        "Notion · Tips 25",
+        "Notion · Tips 26"
+      ],
+      "annotation_keys": [
+        "learn:verbs-passive-reflexive:core-concept",
+        "learn:verbs-passive-reflexive:impersonal-pronominal-patterns"
+      ]
+    },
+    {
+      "id": "verbs-causative-faire",
+      "slug": "verbs-causative-faire",
+      "module_id": "verbs-tenses-moods",
+      "sources": [
+        "Notion · Tips 9-16"
+      ],
+      "annotation_keys": [
+        "learn:verbs-causative-faire:core-concept"
+      ]
+    },
+    {
+      "id": "pronouns-stressed-reflexive",
+      "slug": "pronouns-stressed-reflexive",
+      "module_id": "pronouns-questions-negation",
+      "sources": [
+        "Tips 5",
+        "Tips 7",
+        "Tips 19",
+        "Tips 20",
+        "Notion · Tips 19"
+      ],
+      "annotation_keys": [
+        "learn:pronouns-stressed-reflexive:core-concept"
+      ]
+    },
+    {
+      "id": "pronouns-direct-indirect",
+      "slug": "pronouns-direct-indirect",
+      "module_id": "pronouns-questions-negation",
+      "sources": [
+        "Tips 4",
+        "Tips 6",
+        "Tips 7",
+        "Tips 19",
+        "Tips 20",
+        "Notion · Tips 20",
+        "Notion · Tips Revision",
+        "Notion · Tips 30"
+      ],
+      "annotation_keys": [
+        "learn:pronouns-direct-indirect:core-concept",
+        "learn:pronouns-direct-indirect:presentative-voila"
+      ]
+    },
+    {
+      "id": "pronouns-y-en",
+      "slug": "pronouns-y-en",
+      "module_id": "pronouns-questions-negation",
+      "sources": [
+        "Tips 5",
+        "Tips 6",
+        "Tips 10",
+        "Tips 20",
+        "Tips 27",
+        "Notion · Tips 19"
+      ],
+      "annotation_keys": [
+        "learn:pronouns-y-en:core-concept"
+      ]
+    },
+    {
+      "id": "daily-on-usage",
+      "slug": "daily-on-usage",
+      "module_id": "pronouns-questions-negation",
+      "sources": [
+        "Tips 2",
+        "Tips 27",
+        "Tips 30"
+      ],
+      "annotation_keys": [
+        "learn:daily-on-usage:core-concept"
+      ]
+    },
+    {
+      "id": "pronouns-indefinites",
+      "slug": "pronouns-indefinites",
+      "module_id": "pronouns-questions-negation",
+      "sources": [
+        "Tips 13",
+        "Tips 19",
+        "Tips 20",
+        "Tips 21",
+        "Tips 27",
+        "Notion · Tips 20",
+        "Notion · Tips 9-16",
+        "Notion · Tips Revision",
+        "Notion · Tips 21",
+        "Notion · Tips 27"
+      ],
+      "annotation_keys": [
+        "learn:pronouns-indefinites:core-concept",
+        "learn:pronouns-indefinites:nimporte-scope-and-dismissal",
+        "learn:pronouns-indefinites:dautres-and-des-autres"
+      ]
+    },
+    {
+      "id": "grammar-relative-pronouns",
+      "slug": "grammar-relative-pronouns",
+      "module_id": "pronouns-questions-negation",
+      "sources": [
+        "Tips 5"
+      ],
+      "annotation_keys": [
+        "learn:grammar-relative-pronouns:core-concept"
+      ]
+    },
+    {
+      "id": "pronouns-lequel-choice",
+      "slug": "pronouns-lequel-choice",
+      "module_id": "pronouns-questions-negation",
+      "sources": [
+        "Notion · Tips 5"
+      ],
+      "annotation_keys": [
+        "learn:pronouns-lequel-choice:core-concept"
+      ]
+    },
+    {
+      "id": "questions-forms",
+      "slug": "questions-forms",
+      "module_id": "pronouns-questions-negation",
+      "sources": [
+        "Tips 5",
+        "Tips 15",
+        "Tips 30",
+        "Notion · Tips 1",
+        "Notion · Tips 5",
+        "Notion · Tips 11"
+      ],
+      "annotation_keys": [
+        "learn:questions-forms:core-concept",
+        "learn:questions-forms:quel-and-vive-exclamations"
+      ]
+    },
+    {
+      "id": "negation-core",
+      "slug": "negation-core",
+      "module_id": "pronouns-questions-negation",
+      "sources": [
+        "Tips 7",
+        "Tips 8",
+        "Tips 9",
+        "Tips 15",
+        "Tips 22",
+        "Tips 27",
+        "Notion · Tips 1",
+        "Notion · Tips Revision"
+      ],
+      "annotation_keys": [
+        "learn:negation-core:core-concept"
+      ]
+    },
+    {
+      "id": "negation-agreement",
+      "slug": "negation-agreement",
+      "module_id": "pronouns-questions-negation",
+      "sources": [
+        "Tips 5",
+        "Tips 12",
+        "Tips 15",
+        "Tips 28"
+      ],
+      "annotation_keys": [
+        "learn:negation-agreement:core-concept"
+      ]
+    },
+    {
+      "id": "prepositions-countries-cities",
+      "slug": "prepositions-countries-cities",
+      "module_id": "time-place-prepositions",
+      "sources": [
+        "Tips 7",
+        "Tips 11",
+        "Tips 16",
+        "Tips 19",
+        "Notion · Tips 16"
+      ],
+      "annotation_keys": [
+        "learn:prepositions-countries-cities:core-concept",
+        "learn:prepositions-countries-cities:city-articles-and-regional-usage"
+      ]
+    },
+    {
+      "id": "prepositions-location-chez",
+      "slug": "prepositions-location-chez",
+      "module_id": "time-place-prepositions",
+      "sources": [
+        "Tips 3",
+        "Tips 5",
+        "Tips 16",
+        "Tips 17",
+        "Tips 24",
+        "Tips 28",
+        "Tips 30",
+        "Notion · Tips 1",
+        "Notion · Tips 24",
+        "Notion · Tips Revision",
+        "Notion · Tips 12",
+        "Notion · Tips 28",
+        "Notion · Tips 6",
+        "Notion · Tips 16"
+      ],
+      "annotation_keys": [
+        "learn:prepositions-location-chez:core-concept",
+        "learn:prepositions-location-chez:contre-and-other-side",
+        "learn:prepositions-location-chez:dedans-and-a-post-office-errand"
+      ]
+    },
+    {
+      "id": "prepositions-transport-address",
+      "slug": "prepositions-transport-address",
+      "module_id": "time-place-prepositions",
+      "sources": [
+        "Tips 16",
+        "Tips 24",
+        "Tips 25"
+      ],
+      "annotation_keys": [
+        "learn:prepositions-transport-address:core-concept"
+      ]
+    },
+    {
+      "id": "prepositions-time-duration",
+      "slug": "prepositions-time-duration",
+      "module_id": "time-place-prepositions",
+      "sources": [
+        "Tips 4",
+        "Tips 5",
+        "Tips 10",
+        "Tips 13",
+        "Tips 17",
+        "Tips 24",
+        "Tips 25",
+        "Tips 27",
+        "Notion · Tips 17",
+        "Notion · Tips 23",
+        "Notion · Tips Revision"
+      ],
+      "annotation_keys": [
+        "learn:prepositions-time-duration:core-concept"
+      ]
+    },
+    {
+      "id": "time-clauses-conjunctions",
+      "slug": "time-clauses-conjunctions",
+      "module_id": "time-place-prepositions",
+      "sources": [
+        "Notion · Tips Revision",
+        "Essentials · Connectors"
+      ],
+      "annotation_keys": [
+        "learn:time-clauses-conjunctions:core-concept",
+        "learn:time-clauses-conjunctions:temporal-stages-and-recurrence"
+      ]
+    },
+    {
+      "id": "prepositions-compounds-material",
+      "slug": "prepositions-compounds-material",
+      "module_id": "time-place-prepositions",
+      "sources": [
+        "Tips 5",
+        "Tips 13",
+        "Tips 17",
+        "Tips 28"
+      ],
+      "annotation_keys": [
+        "learn:prepositions-compounds-material:core-concept"
+      ]
+    },
+    {
+      "id": "connectors-logical-organization",
+      "slug": "connectors-logical-organization",
+      "module_id": "communication-expressions",
+      "sources": [
+        "Essentials · Connectors",
+        "Notion · Tips 24",
+        "Notion · Tips Revision"
+      ],
+      "annotation_keys": [
+        "learn:connectors-logical-organization:core-concept",
+        "learn:connectors-logical-organization:cause-result-repertoire",
+        "learn:connectors-logical-organization:addition-evidence-and-frankness",
+        "learn:connectors-logical-organization:reformulation-and-qualification",
+        "learn:connectors-logical-organization:illustration-and-tel-que",
+        "learn:connectors-logical-organization:conclusions-and-viewpoint"
+      ]
+    },
+    {
+      "id": "connectors-simultaneity-contrast",
+      "slug": "connectors-simultaneity-contrast",
+      "module_id": "communication-expressions",
+      "sources": [
+        "Tips 4",
+        "Tips 5",
+        "Tips 30"
+      ],
+      "annotation_keys": [
+        "learn:connectors-simultaneity-contrast:core-concept"
+      ]
+    },
+    {
+      "id": "connectors-concession",
+      "slug": "connectors-concession",
+      "module_id": "communication-expressions",
+      "sources": [
+        "Tips 14",
+        "Tips 28",
+        "Essentials · Connectors"
+      ],
+      "annotation_keys": [
+        "learn:connectors-concession:core-concept",
+        "learn:connectors-concession:avoir-beau-and-nevertheless"
+      ]
+    },
+    {
+      "id": "expressions-opinion-preference",
+      "slug": "expressions-opinion-preference",
+      "module_id": "communication-expressions",
+      "sources": [
+        "Tips 4",
+        "Tips 11",
+        "Tips 17",
+        "Tips 24",
+        "Tips 30",
+        "Notion · Tips 24",
+        "Notion · Tips 5",
+        "Notion · Tips 11"
+      ],
+      "annotation_keys": [
+        "learn:expressions-opinion-preference:core-concept",
+        "learn:expressions-opinion-preference:finite-complement-que",
+        "learn:expressions-opinion-preference:enjoyment-constructions",
+        "learn:expressions-opinion-preference:aimer-interpersonal-nuance"
+      ]
+    },
+    {
+      "id": "expressions-hedging-possibility",
+      "slug": "expressions-hedging-possibility",
+      "module_id": "communication-expressions",
+      "sources": [
+        "Notion · Tips 7",
+        "Notion · Tips 9-16"
+      ],
+      "annotation_keys": [
+        "learn:expressions-hedging-possibility:core-concept"
+      ]
+    },
+    {
+      "id": "expressions-avoir-faire-il-faut",
+      "slug": "expressions-avoir-faire-il-faut",
+      "module_id": "word-meanings-expressions",
+      "sources": [
+        "Tips 10",
+        "Tips 17",
+        "Tips 18",
+        "Tips 21",
+        "Tips 25",
+        "Tips 26",
+        "Notion · Tips 18",
+        "Notion · Tips 21",
+        "Notion · Tips 24",
+        "Notion · Tips Revision",
+        "Notion · Tips 25",
+        "Notion · Tips 26"
+      ],
+      "annotation_keys": [
+        "learn:expressions-avoir-faire-il-faut:core-concept",
+        "learn:expressions-avoir-faire-il-faut:faire-expres-deliberately",
+        "learn:expressions-avoir-faire-il-faut:faire-peur-versus-avoir-peur"
+      ]
+    },
+    {
+      "id": "verbs-knowing-believing",
+      "slug": "verbs-knowing-believing",
+      "module_id": "word-meanings-expressions",
+      "sources": [
+        "Tips 5",
+        "Tips 8",
+        "Tips 13",
+        "Tips 20",
+        "Tips 25",
+        "Notion · Tips 8",
+        "Notion · Tips Revision",
+        "Notion · Tips 30"
+      ],
+      "annotation_keys": [
+        "learn:verbs-knowing-believing:core-concept",
+        "learn:verbs-knowing-believing:apprendre-learning-or-teaching"
+      ]
+    },
+    {
+      "id": "verbs-achievement-event",
+      "slug": "verbs-achievement-event",
+      "module_id": "word-meanings-expressions",
+      "sources": [
+        "Tips 6",
+        "Tips 7",
+        "Tips 12",
+        "Tips 13",
+        "Tips 20",
+        "Notion · Tips 13",
+        "Notion · Tips 28"
+      ],
+      "annotation_keys": [
+        "learn:verbs-achievement-event:core-concept",
+        "learn:verbs-achievement-event:parvenir-destination-and-recipient",
+        "learn:verbs-achievement-event:events-and-stage-performance"
+      ]
+    },
+    {
+      "id": "verbs-ending-versus-ending-something",
+      "slug": "verbs-ending-versus-ending-something",
+      "module_id": "word-meanings-expressions",
+      "sources": [
+        "Tips 21",
+        "Notion · Tips 9-16",
+        "Notion · Tips Revision"
+      ],
+      "annotation_keys": [
+        "learn:verbs-ending-versus-ending-something:core-concept"
+      ]
+    },
+    {
+      "id": "lexicon-rendre-family",
+      "slug": "lexicon-rendre-family",
+      "module_id": "word-meanings-expressions",
+      "sources": [
+        "Notion · Tips Revision"
+      ],
+      "annotation_keys": [
+        "learn:lexicon-rendre-family:core-concept"
+      ]
+    },
+    {
+      "id": "lexicon-cacher-rapporter",
+      "slug": "lexicon-cacher-rapporter",
+      "module_id": "word-meanings-expressions",
+      "sources": [
+        "Tips 28"
+      ],
+      "annotation_keys": [
+        "learn:lexicon-cacher-rapporter:core-concept"
+      ]
+    },
+    {
+      "id": "verbs-lexical-distinctions",
+      "slug": "verbs-lexical-distinctions",
+      "module_id": "word-meanings-expressions",
+      "sources": [
+        "Tips 8",
+        "Tips 13",
+        "Tips 19",
+        "Tips 25",
+        "Notion · Tips 17",
+        "Notion · Tips 9-16",
+        "Notion · Tips Revision",
+        "Notion · Tips 12",
+        "Notion · Tips 13",
+        "Notion · Tips 22",
+        "Notion · Tips 25",
+        "Notion · Tips 26",
+        "Notion · Tips 27",
+        "Notion · Tips 2",
+        "Notion · Tips 6",
+        "Notion · Tips 8",
+        "Notion · Tips 11",
+        "Notion · Tips 18",
+        "Notion · Tips 19",
+        "Notion · Tips 28",
+        "Notion · Tips 30"
+      ],
+      "annotation_keys": [
+        "learn:verbs-lexical-distinctions:core-concept",
+        "learn:verbs-lexical-distinctions:retenir-and-retirer",
+        "learn:verbs-lexical-distinctions:walking-constructions",
+        "learn:verbs-lexical-distinctions:manquer-and-echapper-indirect",
+        "learn:verbs-lexical-distinctions:servir-and-se-servir",
+        "learn:verbs-lexical-distinctions:engager-and-commitment",
+        "learn:verbs-lexical-distinctions:everyday-actions-and-deceptive-cognates",
+        "learn:verbs-lexical-distinctions:lending-catching-and-holding",
+        "learn:verbs-lexical-distinctions:checking-losing-and-spying",
+        "learn:verbs-lexical-distinctions:discovering-appearing-and-physical-movement",
+        "learn:verbs-lexical-distinctions:apologies-cooperation-and-agreement",
+        "learn:verbs-lexical-distinctions:growing-and-cultivating"
+      ]
+    },
+    {
+      "id": "lexicon-part-partie",
+      "slug": "lexicon-part-partie",
+      "module_id": "word-meanings-expressions",
+      "sources": [
+        "Tips 13",
+        "Tips 15"
+      ],
+      "annotation_keys": [
+        "learn:lexicon-part-partie:core-concept"
+      ]
+    },
+    {
+      "id": "daily-social-idioms",
+      "slug": "daily-social-idioms",
+      "module_id": "word-meanings-expressions",
+      "sources": [
+        "Tips 2",
+        "Tips 4",
+        "Tips 6",
+        "Tips 7",
+        "Tips 9",
+        "Tips 18",
+        "Tips 19",
+        "Tips 27",
+        "Notion · Tips 1",
+        "Notion · Tips 2",
+        "Notion · Tips 18",
+        "Notion · Tips 9-16",
+        "Notion · Tips Revision",
+        "Notion · Tips 4",
+        "Notion · Tips 5",
+        "Notion · Tips 6",
+        "Notion · Tips 7",
+        "Notion · Tips 8",
+        "Notion · Tips 9",
+        "Notion · Tips 10",
+        "Notion · Tips 11",
+        "Notion · Tips 13",
+        "Notion · Tips 17",
+        "Notion · Tips 19",
+        "Notion · Tips 27",
+        "Notion · Tips 30"
+      ],
+      "annotation_keys": [
+        "learn:daily-social-idioms:core-concept",
+        "learn:daily-social-idioms:approval-and-surprised-reactions",
+        "learn:daily-social-idioms:encouragement-forgiveness-and-gratitude",
+        "learn:daily-social-idioms:ordinary-days-and-current-circumstances",
+        "learn:daily-social-idioms:equivalence-confirmation-and-story-links",
+        "learn:daily-social-idioms:warmth-celebrations-and-delight"
+      ]
+    },
+    {
+      "id": "lexicon-abbreviations-register",
+      "slug": "lexicon-abbreviations-register",
+      "module_id": "word-meanings-expressions",
+      "sources": [
+        "Tips 2",
+        "Tips 9",
+        "Notion · Tips 9",
+        "Notion · Tips 15",
+        "Notion · Tips 30",
+        "Notion · Tips 2",
+        "Notion · Tips 7",
+        "Notion · Tips 8",
+        "Notion · Tips 12",
+        "Notion · Tips 13",
+        "Notion · Tips 19",
+        "Notion · Tips 28"
+      ],
+      "annotation_keys": [
+        "learn:lexicon-abbreviations-register:core-concept",
+        "learn:lexicon-abbreviations-register:spoken-markers-and-final-ca",
+        "learn:lexicon-abbreviations-register:repair-and-et-alors",
+        "learn:lexicon-abbreviations-register:school-clippings-in-real-conversation"
+      ]
+    },
+    {
+      "id": "daily-calendar",
+      "slug": "daily-calendar",
+      "module_id": "everyday-vocabulary",
+      "sources": [
+        "Tips 5",
+        "Tips 11"
+      ],
+      "annotation_keys": [
+        "learn:daily-calendar:core-concept"
+      ]
+    },
+    {
+      "id": "daily-weather-time",
+      "slug": "daily-weather-time",
+      "module_id": "everyday-vocabulary",
+      "sources": [
+        "Tips 8",
+        "Tips 17",
+        "Notion · Tips 1",
+        "Notion · Tips Revision",
+        "Notion · Tips 2",
+        "Notion · Tips 4",
+        "Notion · Tips 8",
+        "Notion · Tips 11",
+        "Notion · Tips 13",
+        "Notion · Tips 17",
+        "Notion · Tips 19",
+        "Notion · Tips 27"
+      ],
+      "annotation_keys": [
+        "learn:daily-weather-time:core-concept",
+        "learn:daily-weather-time:weather-fog-and-missing-person-reports",
+        "learn:daily-weather-time:weather-seasonal-outdoor-plans",
+        "learn:daily-weather-time:weather-landscapes-and-countryside",
+        "learn:daily-weather-time:weather-lawns-insects-and-garden-piles"
+      ]
+    },
+    {
+      "id": "daily-food-quantity",
+      "slug": "daily-food-quantity",
+      "module_id": "everyday-vocabulary",
+      "sources": [
+        "Tips 3",
+        "Tips 5",
+        "Tips 10",
+        "Tips 11",
+        "Tips 26",
+        "Tips 30",
+        "Notion · Tips 1",
+        "Notion · Tips 2",
+        "Notion · Tips 25",
+        "Notion · Tips 26",
+        "Notion · Tips 10",
+        "Notion · Tips 13",
+        "Notion · Tips 18",
+        "Notion · Tips 30"
+      ],
+      "annotation_keys": [
+        "learn:daily-food-quantity:core-concept",
+        "learn:daily-food-quantity:demi-and-la-moitie",
+        "learn:daily-food-quantity:food-meal-preferences-and-tableware",
+        "learn:daily-food-quantity:food-taste-sweet-savoury-and-foam",
+        "learn:daily-food-quantity:food-cooking-with-a-recipe"
+      ]
+    },
+    {
+      "id": "daily-home-travel",
+      "slug": "daily-home-travel",
+      "module_id": "everyday-vocabulary",
+      "sources": [
+        "Tips 2",
+        "Tips 3",
+        "Tips 9",
+        "Tips 16",
+        "Tips 17",
+        "Tips 30",
+        "Notion · Tips 1",
+        "Notion · Tips 2",
+        "Notion · Tips Revision",
+        "Notion · Tips 3",
+        "Notion · Tips 6",
+        "Notion · Tips 8",
+        "Notion · Tips 9",
+        "Notion · Tips 10",
+        "Notion · Tips 12",
+        "Notion · Tips 13",
+        "Notion · Tips 16",
+        "Notion · Tips 19",
+        "Notion · Tips 21",
+        "Notion · Tips 27",
+        "Notion · Tips 30"
+      ],
+      "annotation_keys": [
+        "learn:daily-home-travel:core-concept",
+        "learn:daily-home-travel:home-furniture-and-storage",
+        "learn:daily-home-travel:home-decoration-and-repairs",
+        "learn:daily-home-travel:home-appliances-screens-and-wifi",
+        "learn:daily-home-travel:home-plans-shopping-and-change",
+        "learn:daily-home-travel:home-trains-luggage-and-camping",
+        "learn:daily-home-travel:home-birthdays-and-dress-up",
+        "learn:daily-home-travel:home-pets-and-animal-behaviour"
+      ]
+    },
+    {
+      "id": "daily-health-body-senses",
+      "slug": "daily-health-body-senses",
+      "module_id": "everyday-vocabulary",
+      "sources": [
+        "Tips 2",
+        "Tips 18",
+        "Tips 24",
+        "Tips 27",
+        "Notion · Tips Revision",
+        "Notion · Tips 25",
+        "Notion · Tips 26",
+        "Notion · Tips 27",
+        "Notion · Tips 2",
+        "Notion · Tips 8",
+        "Notion · Tips 12",
+        "Notion · Tips 13",
+        "Notion · Tips 19",
+        "Notion · Tips 30"
+      ],
+      "annotation_keys": [
+        "learn:daily-health-body-senses:core-concept",
+        "learn:daily-health-body-senses:pain-and-harm",
+        "learn:daily-health-body-senses:health-neck-lips-eyebrows-and-nails",
+        "learn:daily-health-body-senses:health-injury-weight-and-mobility",
+        "learn:daily-health-body-senses:health-breathlessness-fatigue-and-stress"
+      ]
+    },
+    {
+      "id": "lexicon-aller-suit",
+      "slug": "lexicon-aller-suit",
+      "module_id": "everyday-vocabulary",
+      "sources": [
+        "Tips 25",
+        "Notion · Tips 1",
+        "Notion · Tips 5",
+        "Notion · Tips Revision",
+        "Notion · Tips 12",
+        "Notion · Tips 14",
+        "Notion · Tips 19"
+      ],
+      "annotation_keys": [
+        "learn:lexicon-aller-suit:core-concept",
+        "learn:lexicon-aller-suit:garments-dressing-and-jewellery"
+      ]
+    },
+    {
+      "id": "daily-description-personality",
+      "slug": "daily-description-personality",
+      "module_id": "everyday-vocabulary",
+      "sources": [
+        "Notion · Tips"
+      ],
+      "annotation_keys": [
+        "learn:daily-description-personality:describing-weight-shape-and-condition",
+        "learn:daily-description-personality:describing-impressions-and-coolness",
+        "learn:daily-description-personality:describing-personality-and-reputation",
+        "learn:daily-description-personality:net-and-pareil-by-context"
+      ]
+    },
+    {
+      "id": "daily-sports-music",
+      "slug": "daily-sports-music",
+      "module_id": "everyday-vocabulary",
+      "sources": [
+        "Tips 9",
+        "Tips 17",
+        "Notion · Tips 9-16",
+        "Notion · Tips Revision",
+        "Notion · Tips 2",
+        "Notion · Tips 6",
+        "Notion · Tips 8",
+        "Notion · Tips 9",
+        "Notion · Tips 10",
+        "Notion · Tips 11",
+        "Notion · Tips 18",
+        "Notion · Tips 30"
+      ],
+      "annotation_keys": [
+        "learn:daily-sports-music:core-concept",
+        "learn:daily-sports-music:sports-training-skiing-and-tanning",
+        "learn:daily-sports-music:music-choirs-symphonic-music-and-chords",
+        "learn:daily-sports-music:activities-games-cinema-and-theatre"
+      ]
+    },
+    {
+      "id": "lexicon-country-nationalities",
+      "slug": "lexicon-country-nationalities",
+      "module_id": "everyday-vocabulary",
+      "sources": [
+        "Tips 2",
+        "Tips 12",
+        "Tips 30",
+        "Notion · Tips 2",
+        "Notion · Tips 11"
+      ],
+      "annotation_keys": [
+        "learn:lexicon-country-nationalities:core-concept",
+        "learn:lexicon-country-nationalities:country-reference-a-c",
+        "learn:lexicon-country-nationalities:country-reference-d-i",
+        "learn:lexicon-country-nationalities:country-reference-k-m",
+        "learn:lexicon-country-nationalities:country-reference-n-r",
+        "learn:lexicon-country-nationalities:country-reference-s-v",
+        "learn:lexicon-country-nationalities:country-and-county"
+      ]
+    },
+    {
+      "id": "daily-school-work",
+      "slug": "daily-school-work",
+      "module_id": "everyday-vocabulary",
+      "sources": [
+        "Notion · Tips"
+      ],
+      "annotation_keys": [
+        "learn:daily-school-work:school-stages-subjects-and-activities",
+        "learn:daily-school-work:learner-interface-and-personal-information",
+        "learn:daily-school-work:occupations-and-people-in-charge"
+      ]
+    },
+    {
+      "id": "daily-news-community",
+      "slug": "daily-news-community",
+      "module_id": "everyday-vocabulary",
+      "sources": [
+        "Notion · Tips"
+      ],
+      "annotation_keys": [
+        "learn:daily-news-community:news-and-community-work"
+      ]
+    },
+    {
+      "id": "writing-cohesion-formality",
+      "slug": "writing-cohesion-formality",
+      "module_id": "exam-writing",
+      "sources": [
+        "Tips 9",
+        "Tips 28",
+        "Tips 29",
+        "Notion · Tips Revision"
+      ],
+      "annotation_keys": [
+        "learn:writing-cohesion-formality:core-concept"
+      ]
+    },
+    {
+      "id": "writing-neighborhood-personal",
+      "slug": "writing-neighborhood-personal",
+      "module_id": "exam-writing",
+      "sources": [
+        "Tips 19",
+        "Notion · Tips 7",
+        "Notion · Tips 19"
+      ],
+      "annotation_keys": [
+        "learn:writing-neighborhood-personal:core-concept"
+      ]
+    },
+    {
+      "id": "writing-job-application",
+      "slug": "writing-job-application",
+      "module_id": "exam-writing",
+      "sources": [
+        "Tips 28",
+        "Tips 29",
+        "Notion · Tips 12",
+        "Notion · Tips 18",
+        "Notion · Tips 21",
+        "Notion · Tips 29",
+        "Notion · Tips Revision"
+      ],
+      "annotation_keys": [
+        "learn:writing-job-application:core-concept",
+        "learn:writing-job-application:research-planning-and-work-communication",
+        "learn:writing-job-application:employment-stakes-support-and-approval"
+      ]
+    },
+    {
+      "id": "writing-structured-argumentation",
+      "slug": "writing-structured-argumentation",
+      "module_id": "exam-writing",
+      "sources": [
+        "Tips 20",
+        "Tips 29",
+        "Notion · Tips 19",
+        "Notion · Tips 20",
+        "Notion · Tips Revision"
+      ],
+      "annotation_keys": [
+        "learn:writing-structured-argumentation:core-concept"
+      ]
+    },
+    {
+      "id": "editorial-learning-sequence",
+      "slug": "editorial-learning-sequence",
+      "module_id": "learning-strategy",
+      "sources": [],
+      "annotation_keys": [
+        "learn:editorial-learning-sequence:core-concept"
+      ]
+    },
+    {
+      "id": "editorial-noun-card-policy",
+      "slug": "editorial-noun-card-policy",
+      "module_id": "learning-strategy",
+      "sources": [],
+      "annotation_keys": [
+        "learn:editorial-noun-card-policy:core-concept"
+      ]
+    },
+    {
+      "id": "editorial-retrieval-spacing",
+      "slug": "editorial-retrieval-spacing",
+      "module_id": "learning-strategy",
+      "sources": [],
+      "annotation_keys": [
+        "learn:editorial-retrieval-spacing:methode-de-revision"
+      ]
+    },
+    {
+      "id": "editorial-error-feedback-loop",
+      "slug": "editorial-error-feedback-loop",
+      "module_id": "learning-strategy",
+      "sources": [],
+      "annotation_keys": [
+        "learn:editorial-error-feedback-loop:boucle-de-correction"
+      ]
+    }
+  ]
+}

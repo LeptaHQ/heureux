@@ -1,0 +1,678 @@
+{
+  "level": "A1",
+  "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1",
+  "retrieved_at": "2026-09-07T07:34:50.937002+00:00",
+  "scope": "Public index titles, URLs and headings only; not lesson content.",
+  "entries": [
+    {
+      "title": "Il/elle/ils/elles = it/he/she/they (French Subject Pronouns)",
+      "url": "https://french.kwiziq.com/revision/grammar/il-elle-ils-and-elles-it-he-she-and-they",
+      "index_heading": "A1: Pronouns"
+    },
+    {
+      "title": "On can mean either we/one/people (French Subject Pronouns)",
+      "url": "https://french.kwiziq.com/revision/grammar/on-can-mean-we-one-and-people",
+      "index_heading": "A1: Pronouns"
+    },
+    {
+      "title": "Using nous/vous/ils/elles to replace compound subjects (French Subject Pronouns)",
+      "url": "https://french.kwiziq.com/revision/grammar/compound-subjects-are-replaced-with-these-subject-pronouns-nous-vous-or-ils-elles",
+      "index_heading": "A1: Pronouns"
+    },
+    {
+      "title": "Nous vs on to say \"we\" in French (French Subject Pronouns)",
+      "url": "https://french.kwiziq.com/revision/grammar/subject-pronouns-nous-versus-on",
+      "index_heading": "A1: Pronouns"
+    },
+    {
+      "title": "\"C'est\" vs \"Il/Elle est\" to say it is/she is/he is in French",
+      "url": "https://french.kwiziq.com/revision/grammar/c-est-vs-il-elle-est-saying-it-is-she-is-he-is",
+      "index_heading": "A1: Pronouns"
+    },
+    {
+      "title": "C'est, ce sont = this is, these are (French Demonstrative Pronouns)",
+      "url": "https://french.kwiziq.com/revision/grammar/cest-and-ce-sont-this-is-these-are-demonstrative-pronouns",
+      "index_heading": "A1: Pronouns"
+    },
+    {
+      "title": "Ça = that/this/it (French Demonstrative Pronouns)",
+      "url": "https://french.kwiziq.com/revision/grammar/ca-means-that-this-or-it-pronoun",
+      "index_heading": "A1: Pronouns"
+    },
+    {
+      "title": "Moi/toi/lui/elle = Me/you/him/her - simple cases (French Stress Pronouns)",
+      "url": "https://french.kwiziq.com/revision/grammar/moi-toi-lui-elle-me-you-him-her-simple-cases-that-use-stressed-pronouns",
+      "index_heading": "A1: Pronouns"
+    },
+    {
+      "title": "Nous/vous/eux/elles = Us/you/them - simple cases (French Stress Pronouns)",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-say-us-you-them-simple-cases-of-use-nous-vous-eux-elles-disjunctive-stress-pronouns",
+      "index_heading": "A1: Pronouns"
+    },
+    {
+      "title": "Penser que/Croire que = To think that/To believe that in French",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-express-what-you-think-or-believe-with-penser-que-and-croire-que",
+      "index_heading": "A1: Pronouns"
+    },
+    {
+      "title": "Me/te/nous/vous = Me/you/us/you (French Direct and Indirect Object Pronouns)",
+      "url": "https://french.kwiziq.com/revision/grammar/when-to-use-me-te-nous-and-vous-as-me-you-us-and-you-direct-and-indirect-object-pronouns",
+      "index_heading": "A1: Pronouns"
+    },
+    {
+      "title": "Tout le monde = Everybody/Everyone (French Indefinite Pronouns)",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-say-everybody-tout-le-monde-indefinite-pronouns",
+      "index_heading": "A1: Pronouns"
+    },
+    {
+      "title": "Conjugate avoir in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-irregular-avoir-in-le-present-the-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate être in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-etre-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate aller in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-aller-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate venir/tenir and derivatives in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-venir-tenir-and-derivatives-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate regular -er verbs in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-regular-er-verbs-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Expressing current actions, habits and situations (English Present Tense) with the present tense (Le Présent) in French",
+      "url": "https://french.kwiziq.com/revision/grammar/le-present-usage-where-present-tense-is-used-in-english-current-actions-habits-situations",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate faire in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-faire-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate vouloir in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-vouloir-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate pouvoir in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-pouvoir-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate devoir in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-devoir-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate regular -ir verbs in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-regular-ir-verbs-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate regular -dre verbs in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-regular-dre-verbs-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate croire in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-croire-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate semi-regular -cer verbs in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-semi-regular-cer-verbs-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate semi-regular -ger verbs in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-semi-regular-ger-verbs-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate reflexive verbs in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-reflexive-verbs-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate reflexive verb se réveiller in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-reflexive-verb-se-reveiller-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate reflexive verb se lever in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-reflexive-verb-se-lever-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate reflexive verb se coucher in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-reflexive-verb-se-coucher-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate reflexive verb s'habiller in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-reflexive-verb-s-habiller-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate reflexive verb se laver in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-reflexive-verb-se-laver-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate reflexive verb s'amuser in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-reflexive-verb-s-amuser-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate -é(-)er, -e(-)er verbs - except -eter and -eler - in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-e-er-and-e-er-verbs-in-le-present-except-for-eter-and-eler-verbs",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate partir/sortir and other irregular -TIR verbs in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-partir-sortir-and-other-irregular-tir-verbs-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate -eter and -eler verbs in the present tense in French (Le Présent) - main rule (ll / tt)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-eter-and-eler-verbs-in-le-present-main-rule-ll-tt-e",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate prendre and derivatives in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-prendre-and-derivatives-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Expressing ongoing actions (English Present Continuous) with the present tense (Le Présent) in French",
+      "url": "https://french.kwiziq.com/revision/grammar/le-present-usage-where-present-continuous-is-used-in-english-ongoing-current-actions",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate dire and derivatives in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-dire-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate dormir and other -MIR verbs in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-dormir-and-other-irregular-mir-verbs-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate écrire/inscrire in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-ecrire-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Expressing immediate and near-future actions with the present tense (Le Présent) in French",
+      "url": "https://french.kwiziq.com/revision/grammar/le-present-usage-immediate-near-future-actions",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate verbs in the near future in French using aller + infinitive (Le Futur Proche)",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-express-im-going-to-aller-infinitive-le-futur-proche",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate lire in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-lire-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate reflexive verbs in the near future in French using aller + infinitive (Le Futur Proche)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-reflexive-verbs-in-le-futur-proche-aller-infinitive",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Expressing the close past in French using \"venir de\" + [infinitive] (Le Passé Proche)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-in-le-passe-proche-by-using-venir-de-infinite",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate mettre and derivatives in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-mettre-promettre-and-derivatives-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate -eter and -eler verbs in the present tense in French (Le Présent) - with \"è\"",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-eter-and-eler-verbs-in-le-present-exceptions-in-e-only",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate reflexive verb s'asseoir in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-the-reflexive-s-asseoir-to-sit-down-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Conjugate boire in the present tense in French (Le Présent)",
+      "url": "https://french.kwiziq.com/revision/grammar/conjugate-boire-in-le-present-present-tense",
+      "index_heading": "A1: Verbs Tenses & Conjugation"
+    },
+    {
+      "title": "Du/de la/de l'/des = Some/any (French Partitive Articles)",
+      "url": "https://french.kwiziq.com/revision/grammar/du-de-la-de-l-are-used-to-express-some-or-any-partitive-articles",
+      "index_heading": "A1: Nouns & Articles"
+    },
+    {
+      "title": "Definite articles contract with à and de in French (French Contracted Articles)",
+      "url": "https://french.kwiziq.com/revision/grammar/contractions-of-articles-a-le-au-a-les-aux-de-le-du-de-les-des",
+      "index_heading": "A1: Nouns & Articles"
+    },
+    {
+      "title": "Continents/countries/counties/regions/states are masculine, feminine or plural in French (Gender)",
+      "url": "https://french.kwiziq.com/revision/grammar/continents-countries-counties-regions-and-states-are-masculine-feminine-or-plural-gender",
+      "index_heading": "A1: Nouns & Articles"
+    },
+    {
+      "title": "Using le, la, l', les with continents, countries & regions names (definite articles)",
+      "url": "https://french.kwiziq.com/revision/grammar/using-le-la-l-les-with-continents-countries-and-regions-names",
+      "index_heading": "A1: Nouns & Articles"
+    },
+    {
+      "title": "En/l'/au with seasons (French Articles and Prepositions)",
+      "url": "https://french.kwiziq.com/revision/grammar/talking-about-the-seasons-use-en-or-l-with-seasons-but-au-with-printemps",
+      "index_heading": "A1: Nouns & Articles"
+    },
+    {
+      "title": "Using le, la, l', les before nouns when generalising (definite articles)",
+      "url": "https://french.kwiziq.com/revision/grammar/use-le-la-l-or-les-before-nouns-when-generalising-definite-articles",
+      "index_heading": "A1: Nouns & Articles"
+    },
+    {
+      "title": "Identifying the gender of nouns by some specific word endings in French",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-identify-gender-by-some-word-endings",
+      "index_heading": "A1: Nouns & Articles"
+    },
+    {
+      "title": "Using \"le\" with days of the week + the weekend (French Definite Articles)",
+      "url": "https://french.kwiziq.com/revision/grammar/when-to-use-le-with-days-of-the-week-weekend",
+      "index_heading": "A1: Nouns & Articles"
+    },
+    {
+      "title": "Using le, la, les with weights and measures (definite articles)",
+      "url": "https://french.kwiziq.com/revision/grammar/using-le-la-les-with-weights-and-measures-definite-articles",
+      "index_heading": "A1: Nouns & Articles"
+    },
+    {
+      "title": "Forming the plural of French nouns ending in -au or -eau",
+      "url": "https://french.kwiziq.com/revision/grammar/nouns-ending-in-au-or-eau-take-an-x-in-the-plural",
+      "index_heading": "A1: Nouns & Articles"
+    },
+    {
+      "title": "Using le, la, les with body parts and clothing (definite articles)",
+      "url": "https://french.kwiziq.com/revision/grammar/using-le-la-les-with-body-parts-and-clothing-definite-articles",
+      "index_heading": "A1: Nouns & Articles"
+    },
+    {
+      "title": "Using le, la, les with titles, languages and academic subjects (definite articles)",
+      "url": "https://french.kwiziq.com/revision/grammar/using-le-la-les-with-titles-languages-and-academic-subjects-definite-articles",
+      "index_heading": "A1: Nouns & Articles"
+    },
+    {
+      "title": "Forming the plural of French nouns ending in -al",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-pluralise-nouns-ending-in-al-rule-and-exceptions",
+      "index_heading": "A1: Nouns & Articles"
+    },
+    {
+      "title": "Forming the plural of French nouns ending in -eu",
+      "url": "https://french.kwiziq.com/revision/grammar/nouns-ending-in-eu-take-x-or-s-in-the-plural",
+      "index_heading": "A1: Nouns & Articles"
+    },
+    {
+      "title": "Surnames don't pluralise in French",
+      "url": "https://french.kwiziq.com/revision/grammar/surnames-dont-pluralise",
+      "index_heading": "A1: Nouns & Articles"
+    },
+    {
+      "title": "Adjectives ending with mute -e don't change in the feminine in French",
+      "url": "https://french.kwiziq.com/revision/grammar/how-adjectives-ending-with-mute-e-dont-change-in-the-feminine-form-feminine-adjectives",
+      "index_heading": "A1: Adjectives & Adverbs"
+    },
+    {
+      "title": "Colour descriptions change according to gender and number (French Colour Adjectives)",
+      "url": "https://french.kwiziq.com/revision/grammar/how-colour-descriptions-adjectives-change-according-to-gender-and-number",
+      "index_heading": "A1: Adjectives & Adverbs"
+    },
+    {
+      "title": "Standalone adjectives after c'est are always masculine",
+      "url": "https://french.kwiziq.com/revision/grammar/adjectives-following-cest-are-always-masculine",
+      "index_heading": "A1: Adjectives & Adverbs"
+    },
+    {
+      "title": "Expressing possession in French with \"de\"",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-express-possession-with-de",
+      "index_heading": "A1: Adjectives & Adverbs"
+    },
+    {
+      "title": "Mon, ma, mes; ton, ta, tes; son, sa, ses = my; your; his / her in French (French possessive adjectives)",
+      "url": "https://french.kwiziq.com/revision/grammar/use-mon-ma-mes-ton-ta-tes-son-sa-ses-to-say-my-your-his-her-possessive-adjectives",
+      "index_heading": "A1: Adjectives & Adverbs"
+    },
+    {
+      "title": "Notre / nos / votre / vos / leur / leurs = our / your / their (French Possessive Adjectives)",
+      "url": "https://french.kwiziq.com/revision/grammar/use-notre-nos-votre-vos-leur-leurs-to-say-our-your-and-their-possessive-adjectives",
+      "index_heading": "A1: Adjectives & Adverbs"
+    },
+    {
+      "title": "Forming the feminine of nouns and adjectives ending in \"-ien/-ion/-on\" in French",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-form-the-feminine-of-nouns-and-adjectives-ending-in-ien-ion-and-on-adjectives-nouns",
+      "index_heading": "A1: Adjectives & Adverbs"
+    },
+    {
+      "title": "Adjectives ending in -eux become -euse in the feminine in French",
+      "url": "https://french.kwiziq.com/revision/grammar/djectives-ending-in-eux-become-euse-forming-feminine-adjectives",
+      "index_heading": "A1: Adjectives & Adverbs"
+    },
+    {
+      "title": "Adjectives ending in -s or -x change in the plural forms only when feminine in French",
+      "url": "https://french.kwiziq.com/revision/grammar/adjectives-ending-in-s-or-x-only-change-their-feminine-forms-when-plural",
+      "index_heading": "A1: Adjectives & Adverbs"
+    },
+    {
+      "title": "Beau, nouveau, vieux, fou, mou have two masculine forms and one feminine form (French Adjectives)",
+      "url": "https://french.kwiziq.com/revision/grammar/beau-nouveau-vieux-fou-mou-two-masculine-and-one-feminine-form",
+      "index_heading": "A1: Adjectives & Adverbs"
+    },
+    {
+      "title": "Neuf vs nouveau to say new in French",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-say-new-neuf-versus-nouveau",
+      "index_heading": "A1: Adjectives & Adverbs"
+    },
+    {
+      "title": "Forming regular adverbs with \"-ment\" in French (French Adverbs)",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-form-regular-adverbs-ment",
+      "index_heading": "A1: Adjectives & Adverbs"
+    },
+    {
+      "title": "Forming the feminine of adjectives ending in \"-el/-eil/-il/-ul/-et/some in -s\" in French",
+      "url": "https://french.kwiziq.com/revision/grammar/how-you-double-the-last-consonant-when-forming-the-feminine-of-adjectives-ending-in-el-eil-il-ul-et-and-s",
+      "index_heading": "A1: Adjectives & Adverbs"
+    },
+    {
+      "title": "Beau, nouveau, vieux have different plural forms for masculine and feminine (French Adjectives)",
+      "url": "https://french.kwiziq.com/revision/grammar/how-adjectives-beau-nouveau-and-vieux-have-different-plural-forms-in-the-masculine-and-the-feminine-plural-of-adjectives",
+      "index_heading": "A1: Adjectives & Adverbs"
+    },
+    {
+      "title": "Adjectives ending in -er become -ère in the feminine in French",
+      "url": "https://french.kwiziq.com/revision/grammar/how-adjectives-ending-in-er-become-ere-in-the-feminine-feminine-adjectives",
+      "index_heading": "A1: Adjectives & Adverbs"
+    },
+    {
+      "title": "Position of French Adjectives - More adjectives that go BEFORE nouns",
+      "url": "https://french.kwiziq.com/revision/grammar/other-types-of-adjectives-that-go-before-the-noun",
+      "index_heading": "A1: Adjectives & Adverbs"
+    },
+    {
+      "title": "Ne ... pas = Not - with simple tenses (French Negations)",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-use-ne-pas-not-with-simple-tenses-negation",
+      "index_heading": "A1: Negative Words & Constructions"
+    },
+    {
+      "title": "Un/une become de/d' in negative sentences in French (French Indefinite Articles)",
+      "url": "https://french.kwiziq.com/revision/grammar/un-and-une-become-de-or-d-in-negative-sentences-indefinite-article",
+      "index_heading": "A1: Negative Words & Constructions"
+    },
+    {
+      "title": "Du/de la/de l'/des all become de/d' in negative sentences (French Partitive Articles)",
+      "url": "https://french.kwiziq.com/revision/grammar/the-partitive-article-in-negative-sentences",
+      "index_heading": "A1: Negative Words & Constructions"
+    },
+    {
+      "title": "Using \"si\" instead of \"oui\" to disagree with a negative question or statement in French",
+      "url": "https://french.kwiziq.com/revision/grammar/use-si-instead-of-oui-to-disagree-with-a-negative-question-or-statement",
+      "index_heading": "A1: Negative Words & Constructions"
+    },
+    {
+      "title": "Ne ... jamais = Never (French Negations)",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-express-never-ne-jamais-negative-expressions",
+      "index_heading": "A1: Negative Words & Constructions"
+    },
+    {
+      "title": "Non plus = Neither/nor (French Negations)",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-say-neither-nor-with-non-plus",
+      "index_heading": "A1: Negative Words & Constructions"
+    },
+    {
+      "title": "Ne ... pas = Not - with reflexive verbs in simple tenses (French Negations)",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-use-ne-pas-with-reflexive-verbs-in-simple-tenses-negation",
+      "index_heading": "A1: Negative Words & Constructions"
+    },
+    {
+      "title": "Position of French Negations - with conjugated verb + infinitive",
+      "url": "https://french.kwiziq.com/revision/grammar/where-to-place-negations-in-sentences-with-two-verbs-conjugated-and-infinitive",
+      "index_heading": "A1: Negative Words & Constructions"
+    },
+    {
+      "title": "C'est quoi, Qu'est-ce que c'est ? = What's that? (French Questions)",
+      "url": "https://french.kwiziq.com/revision/grammar/use-cest-quoi-and-quest-ce-que-to-say-whats-that",
+      "index_heading": "A1: Questions & Interrogatives"
+    },
+    {
+      "title": "Asking yes/no questions in French with intonation, est-ce que, n'est-ce pas (French Questions)",
+      "url": "https://french.kwiziq.com/revision/grammar/three-simple-ways-to-ask-yes-no-questionsintonation-est-ce-que-nest-pas",
+      "index_heading": "A1: Questions & Interrogatives"
+    },
+    {
+      "title": "Asking questions in French with \"qui/que/quoi/quand/où/comment/pourquoi/combien\" (French Question Words)",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-ask-questions-with-qui-que-quoi-quand-ou-comment-pourquoi-and-combien",
+      "index_heading": "A1: Questions & Interrogatives"
+    },
+    {
+      "title": "Dans/sur/sous/devant/derrière/entre = in/on top of/under/in front of/behind/between (French Prepositions of Location)",
+      "url": "https://french.kwiziq.com/revision/grammar/use-dans-sur-sous-devant-derriere-entre-to-say-in-on-top-of-under-in-front-of-behind-prepositions",
+      "index_heading": "A1: Prepositions & Conjunctions"
+    },
+    {
+      "title": "En vs Dans with locations (French Prepositions of Location)",
+      "url": "https://french.kwiziq.com/revision/grammar/prepositions-locations-dans-versus-en",
+      "index_heading": "A1: Prepositions & Conjunctions"
+    },
+    {
+      "title": "À côté de, en face de, à l'extérieur de, à l'intérieur de, près de, loin de, au coin de (French Prepositions)",
+      "url": "https://french.kwiziq.com/revision/grammar/prepositions-relative-positions-a-cote-de-en-face-de-a-lexterieur-de-a-linterieur-de-pres-de-loin-de-au-coin-de",
+      "index_heading": "A1: Prepositions & Conjunctions"
+    },
+    {
+      "title": "Pour + [infinitive] = In order to + [do] in French",
+      "url": "https://french.kwiziq.com/revision/grammar/use-pour-plus-infinitive-to-say-in-order-to",
+      "index_heading": "A1: Prepositions & Conjunctions"
+    },
+    {
+      "title": "En/au/aux = In/to with countries and continents (French Prepositions)",
+      "url": "https://french.kwiziq.com/revision/grammar/use-en-with-feminine-countries-and-aux-with-masculine-countries-to-say-in-or-to-prepositions",
+      "index_heading": "A1: Prepositions & Conjunctions"
+    },
+    {
+      "title": "En/Dans = in/to + regions/states/counties (French Prepositions)",
+      "url": "https://french.kwiziq.com/revision/grammar/prepositions-with-regions-states-counties",
+      "index_heading": "A1: Prepositions & Conjunctions"
+    },
+    {
+      "title": "À = To/in and De = From/of with cities in French (French Prepositions of Location)",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-use-a-to-in-and-de-from-of-with-cities-prepositions",
+      "index_heading": "A1: Prepositions & Conjunctions"
+    },
+    {
+      "title": "Venir de/d'/du/des = To come/be from with countries/states/regions and continents (French Prepositions)",
+      "url": "https://french.kwiziq.com/revision/grammar/say-where-you-come-from-with-venir-de-d-du-des-country-state-region",
+      "index_heading": "A1: Prepositions & Conjunctions"
+    },
+    {
+      "title": "À/en + [means of transportation] (French Prepositions)",
+      "url": "https://french.kwiziq.com/revision/grammar/when-to-use-a-en-with-means-of-transport-prepositions",
+      "index_heading": "A1: Prepositions & Conjunctions"
+    },
+    {
+      "title": "Differences between French and English usages - Using \"dans\" with streets and means of transportation (French Prepositions of Location)",
+      "url": "https://french.kwiziq.com/revision/grammar/using-dans-not-sur-with-streets-and-transportation-prepositions",
+      "index_heading": "A1: Prepositions & Conjunctions"
+    },
+    {
+      "title": "À + [heure] = At + [time] in French",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-express-at-time-a",
+      "index_heading": "A1: Prepositions & Conjunctions"
+    },
+    {
+      "title": "Chez = at someone's place (French Prepositions)",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-say-at-someones-place-chez-prepositions",
+      "index_heading": "A1: Prepositions & Conjunctions"
+    },
+    {
+      "title": "Compound nouns formed with prepositions à/de/en in French",
+      "url": "https://french.kwiziq.com/revision/grammar/compound-nouns-are-formed-using-prepositions-a-de-en",
+      "index_heading": "A1: Prepositions & Conjunctions"
+    },
+    {
+      "title": "Compound nouns formed with [noun] + à + [infinitive] in French",
+      "url": "https://french.kwiziq.com/revision/grammar/compound-nouns-formed-using-noun-a-verb-infinitive",
+      "index_heading": "A1: Prepositions & Conjunctions"
+    },
+    {
+      "title": "Telling time in French - general 12-hour clock rules",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-tell-time-in-french-simple",
+      "index_heading": "A1: Numbers, Time & Date"
+    },
+    {
+      "title": "Expressing numbers 70 to 999 in French",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-express-numbers-from-70-to-999",
+      "index_heading": "A1: Numbers, Time & Date"
+    },
+    {
+      "title": "Expressing large numbers -thousands/millions/billions - in French",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-express-large-numbers-in-french-such-as-thousands-millions-and-billions-numbers",
+      "index_heading": "A1: Numbers, Time & Date"
+    },
+    {
+      "title": "Writing decimal numbers in French",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-write-decimal-numbers-in-french",
+      "index_heading": "A1: Numbers, Time & Date"
+    },
+    {
+      "title": "Telling time in French - 24-hour clock rules = AM vs PM",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-tell-time-in-french-am-vs-pm",
+      "index_heading": "A1: Numbers, Time & Date"
+    },
+    {
+      "title": "An vs année, matin vs matinée, jour vs journée, soir vs soirée to express a time unit or a duration in French",
+      "url": "https://french.kwiziq.com/revision/grammar/when-to-use-an-annee-matin-matinee-jour-journee-soir-soiree-time-unit-vs-duration",
+      "index_heading": "A1: Numbers, Time & Date"
+    },
+    {
+      "title": "Ordinal numbers - 1st/2nd/10th/etc - in French",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-form-ordinal-numbers-1st-2nd-10th",
+      "index_heading": "A1: Numbers, Time & Date"
+    },
+    {
+      "title": "Ordinal vs Cardinal numbers - Differences between French and English usages",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-use-ordinal-numbers-differences-between-french-and-english-use",
+      "index_heading": "A1: Numbers, Time & Date"
+    },
+    {
+      "title": "Expressing timeliness in French - late/early/on time - general",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-express-timeliness-late-early-on-time-general",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Expressing how you are with aller (Greetings in French)",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-express-how-you-are-with-the-verb-aller-greetings",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Talking about the weather in French - il fait + [adjectif]",
+      "url": "https://french.kwiziq.com/revision/grammar/talking-about-the-weather-expressions-with-il-fait",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Talking about the weather in French - il y a + [nom]",
+      "url": "https://french.kwiziq.com/revision/grammar/talking-about-the-weather-expressions-with-il-y-a",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Faire de/jouer à : talking about sports, hobbies and leisure activities in French",
+      "url": "https://french.kwiziq.com/revision/grammar/faire-de-jouer-a-how-to-talk-about-leisure-activities",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Jouer de = to play an instrument in French",
+      "url": "https://french.kwiziq.com/revision/grammar/jouer-de-to-play-an-instrument",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Ça m'est égal = I don't mind/care (French Idiomatic Expressions)",
+      "url": "https://french.kwiziq.com/revision/grammar/idiomatic-expressions-with-etre-ca-mest-egal-i-dont-mind",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Avoir besoin de = To need (French Expressions with avoir)",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-express-to-need-with-avoir-besoin-de",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Avoir envie de = To feel like, want to (French Expressions with avoir)",
+      "url": "https://french.kwiziq.com/revision/grammar/avoir-envie-de-to-express-to-feel-like-to-want",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Faire les courses vs Faire les magasins to talk about shopping (French Expressions with faire)",
+      "url": "https://french.kwiziq.com/revision/grammar/faire-les-courses-versus-faire-les-magasins",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Devoir vs Avoir besoin de to express \"to need to\" in French",
+      "url": "https://french.kwiziq.com/revision/grammar/devoir-vs-avoir-besoin-de-to-express-to-need-to",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Expressing possession in French with \"être à\"",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-express-possession-with-etre-a",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Être d'accord avec = to agree with (French Expressions with être)",
+      "url": "https://french.kwiziq.com/revision/grammar/etre-daccord-avec-to-agree-with",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Avoir mal (à) = To be in pain, to hurt somewhere (French Expressions with avoir)",
+      "url": "https://french.kwiziq.com/revision/grammar/avoir-mal-a-to-be-in-pain-to-hurt-somewhere",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Describing senses with \"sentir\" - The different meanings of the verb \"sentir\" in French",
+      "url": "https://french.kwiziq.com/revision/grammar/how-to-use-sentir-to-describe-senses",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Expressing ongoing actions in the present in French with \"être en train de\"",
+      "url": "https://french.kwiziq.com/revision/grammar/etre-en-train-de-expression-of-the-continuous-present",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Avoir peur de = To be afraid/scared of (French Expressions with avoir)",
+      "url": "https://french.kwiziq.com/revision/grammar/avoir-peur-de-to-be-afraid-or-scared-of",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Ça y est = That's it/It's done (French Idiomatic Expressions)",
+      "url": "https://french.kwiziq.com/revision/grammar/the-expression-ca-y-est-meaning-thats-it-its-done",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    },
+    {
+      "title": "Ça ne fait rien = It doesn't matter (French Idiomatic Expressions)",
+      "url": "https://french.kwiziq.com/revision/grammar/ca-ne-fait-rien-it-doesnt-matter",
+      "index_heading": "A1: Idioms, Idiomatic Usage, and Structures"
+    }
+  ]
+}

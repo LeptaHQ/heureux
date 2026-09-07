@@ -1,0 +1,371 @@
+{
+  "version": 1,
+  "id": "a1-clock",
+  "slug": "a1-clock",
+  "cefr_level": "A1",
+  "topic": "time-place-prepositions",
+  "title": "Donner l'heure et arriver à temps",
+  "summary": "Tell the time in everyday and 24-hour forms, specify an appointment time and distinguish late, early and on-time arrival.",
+  "order": 26,
+  "duration_minutes": 12,
+  "prerequisites": [
+    "a1-numbers",
+    "a1-questions"
+  ],
+  "objectives": [
+    "Give times with il est and appointment times with à.",
+    "Distinguish 12-hour conversational forms from 24-hour schedules.",
+    "Use en retard, en avance, à l'heure and à temps appropriately."
+  ],
+  "keywords": [
+    "time",
+    "heure",
+    "midi",
+    "minuit",
+    "24-hour",
+    "en retard",
+    "à l'heure"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "daily-weather-time",
+    "prepositions-time-duration"
+  ],
+  "sections": [
+    {
+      "id": "twelve",
+      "title": "Use il est to tell the time and count hours with heure",
+      "paragraphs": [
+        "Ask Quelle heure est-il ? and answer il est + time. Use une heure for one o'clock and heures with other numbered hours. Twelve noon is midi; twelve midnight is minuit. For the 12-hour clock, add du matin, de l'après-midi or du soir when the context is unclear.",
+        "For 15 minutes after the hour, use et quart; for 30, et demie after heure/heures. Midi and minuit instead take et demi without feminine e. Before the next hour, use moins + the minutes remaining: neuf heures moins dix means 8:50. For a quarter to, use moins le quart. Exact-minute forms such as huit heures cinquante are also correct."
+      ],
+      "points": [
+        "Heure is feminine, so une heure et demie has demie.",
+        "Do not put heures after midi or minuit."
+      ],
+      "examples": [
+        {
+          "french": "Il est **une heure**.",
+          "english": "It is one o'clock.",
+          "note": "Use feminine une and singular heure."
+        },
+        {
+          "french": "Il est **trois heures et quart**.",
+          "english": "It is quarter past three.",
+          "note": "Et quart means fifteen minutes past."
+        },
+        {
+          "french": "Il est **six heures et demie**.",
+          "english": "It is half past six.",
+          "note": "Demie agrees with feminine heure."
+        },
+        {
+          "french": "Il est **midi et demi**.",
+          "english": "It is half past noon.",
+          "note": "Midi takes masculine demi."
+        },
+        {
+          "french": "Il est **neuf heures moins le quart**.",
+          "english": "It is quarter to nine.",
+          "note": "This means 8:45, not 9:15."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Il est un heure.",
+          "prefer": "Il est une heure.",
+          "why": "Heure is feminine."
+        },
+        {
+          "avoid": "Il est midi et demie.",
+          "prefer": "Il est midi et demi.",
+          "why": "After midi, demi is masculine."
+        }
+      ]
+    },
+    {
+      "id": "schedule",
+      "title": "A 24-hour schedule counts forward; à introduces an appointment time",
+      "paragraphs": [
+        "Schedules often use the 24-hour clock: 14 h 20 = quatorze heures vingt, 18 h 45 = dix-huit heures quarante-cinq. Count the minutes directly after the hour; do not mix a 24-hour schedule reading with conversational et quart or moins le quart. The h symbol stays h, not hs. Midnight is commonly 0 h or 00 h; 24 h can mark the end of a stated day in schedules.",
+        "Use à before an event's time: le cours commence à neuf heures. À midi and à minuit also need à. Distinguish what time it is (il est…) from when something happens (à…). English a.m. and p.m. usually become a 24-hour time in a schedule, or du matin/du soir in conversation."
+      ],
+      "points": [
+        "14 h = two in the afternoon, not two in the morning."
+      ],
+      "examples": [
+        {
+          "french": "Le train part **à quatorze heures vingt**.",
+          "english": "The train leaves at 2:20 p.m.",
+          "note": "A 24-hour schedule names the minutes directly."
+        },
+        {
+          "french": "Le rendez-vous est **à huit heures du matin**.",
+          "english": "The appointment is at eight in the morning.",
+          "note": "À introduces the time; du matin removes ambiguity."
+        },
+        {
+          "french": "Nous mangeons **à midi**.",
+          "english": "We eat at noon.",
+          "note": "Midi takes à like a numbered time."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Le cours commence neuf heures.",
+          "prefer": "Le cours commence à neuf heures.",
+          "why": "A stated event time normally needs à."
+        }
+      ]
+    },
+    {
+      "id": "timeliness",
+      "title": "Distinguish the scheduled time from the last useful moment",
+      "paragraphs": [
+        "Être or arriver en retard means be/arrive late relative to an expected time. En avance means early, ahead of that time. À l'heure means on time, according to the schedule. À temps means in time, before it is too late to achieve something. A person can arrive later than planned but still à temps pour prendre le train. Tôt and tard mean early and late more generally, without necessarily referring to a fixed appointment."
+      ],
+      "points": [
+        "A delay amount uses de: en retard de dix minutes.",
+        "À l'heure and à temps can overlap, but their reference points differ."
+      ],
+      "examples": [
+        {
+          "french": "Le cours commence à neuf heures. J'arrive à neuf heures : je suis **à l'heure**.",
+          "english": "The class starts at nine. I arrive at nine: I am on time.",
+          "note": "Arrival matches the scheduled time."
+        },
+        {
+          "french": "Elle arrive **en avance**, à huit heures cinquante.",
+          "english": "She arrives early, at eight fifty.",
+          "note": "She arrives before the expected nine o'clock start."
+        },
+        {
+          "french": "Je suis **en retard de** dix minutes.",
+          "english": "I am ten minutes late.",
+          "note": "De introduces the size of the delay."
+        },
+        {
+          "french": "Nous arrivons **à temps pour** acheter les billets.",
+          "english": "We arrive in time to buy the tickets.",
+          "note": "The action is still possible before the deadline."
+        }
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-clock-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "twelve",
+      "prompt": "Write 1:00 after 'Il est', using French words only for the time.",
+      "choices": [],
+      "answers": [
+        "une heure"
+      ],
+      "explanation": "Heure is feminine singular."
+    },
+    {
+      "id": "a1-clock-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "twelve",
+      "prompt": "Write 4:15 using et quart; give only the time phrase.",
+      "choices": [],
+      "answers": [
+        "quatre heures et quart"
+      ],
+      "explanation": "Et quart means fifteen minutes past."
+    },
+    {
+      "id": "a1-clock-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "schedule",
+      "prompt": "Supply the time preposition: 'On part ___ midi.'",
+      "choices": [],
+      "answers": [
+        "à"
+      ],
+      "explanation": "À introduces an event time."
+    },
+    {
+      "id": "a1-clock-04",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "timeliness",
+      "prompt": "Your appointment is at 10:00 and you arrive at 10:15. Choose the appropriate phrase.",
+      "choices": [
+        "en retard",
+        "en avance"
+      ],
+      "answers": [
+        "en retard"
+      ],
+      "explanation": "You arrive after the expected time."
+    },
+    {
+      "id": "a1-clock-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "twelve",
+      "prompt": "Write 7:30 using et demie; give only the time phrase.",
+      "choices": [],
+      "answers": [
+        "sept heures et demie"
+      ],
+      "explanation": "Demie follows feminine heures."
+    },
+    {
+      "id": "a1-clock-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "twelve",
+      "prompt": "Write 12:30 at noon using midi and demi; give only the phrase.",
+      "choices": [],
+      "answers": [
+        "midi et demi"
+      ],
+      "explanation": "Midi takes demi without feminine e."
+    },
+    {
+      "id": "a1-clock-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "twelve",
+      "prompt": "Write 5:45 using the next hour and moins le quart; give only the time phrase.",
+      "choices": [],
+      "answers": [
+        "six heures moins le quart"
+      ],
+      "explanation": "Quarter to six is 5:45."
+    },
+    {
+      "id": "a1-clock-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "schedule",
+      "prompt": "Read 16 h 10 in 24-hour French words; give only the time phrase.",
+      "choices": [],
+      "answers": [
+        "seize heures dix"
+      ],
+      "explanation": "Use the 24-hour number and direct minute count."
+    },
+    {
+      "id": "a1-clock-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "schedule",
+      "prompt": "Write 8 p.m. using only digits, a space and h in the 24-hour system.",
+      "choices": [],
+      "answers": [
+        "20 h"
+      ],
+      "explanation": "Eight in the evening is 20 h."
+    },
+    {
+      "id": "a1-clock-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "timeliness",
+      "prompt": "Supply the fixed phrase meaning on schedule: 'Le train arrive ___ : exactement à l'heure annoncée.'",
+      "choices": [],
+      "answers": [
+        "à l'heure"
+      ],
+      "explanation": "À l'heure means at the expected scheduled time."
+    },
+    {
+      "id": "a1-clock-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "timeliness",
+      "prompt": "Supply the fixed phrase meaning ahead of the scheduled time: 'Nous sommes ___.'",
+      "choices": [],
+      "answers": [
+        "en avance"
+      ],
+      "explanation": "En avance means early relative to an expected time."
+    },
+    {
+      "id": "a1-clock-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "schedule",
+      "prompt": "Give the phrase 'at midnight' using à and minuit.",
+      "choices": [],
+      "answers": [
+        "à minuit"
+      ],
+      "explanation": "An event time with minuit still takes à."
+    },
+    {
+      "id": "a1-clock-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "twelve",
+      "prompt": "Write 10:50 using the next hour and moins dix; give only the time phrase.",
+      "choices": [],
+      "answers": [
+        "onze heures moins dix"
+      ],
+      "explanation": "Ten minutes before eleven is 10:50."
+    },
+    {
+      "id": "a1-clock-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "schedule",
+      "prompt": "Read 23 h 05 in 24-hour French words, naming the minute as cinq.",
+      "choices": [],
+      "answers": [
+        "vingt-trois heures cinq"
+      ],
+      "explanation": "The hour is twenty-three; the minute is five."
+    },
+    {
+      "id": "a1-clock-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "timeliness",
+      "prompt": "Supply the preposition introducing the delay amount: 'Il est en retard ___ cinq minutes.'",
+      "choices": [],
+      "answers": [
+        "de"
+      ],
+      "explanation": "De introduces the amount of lateness."
+    },
+    {
+      "id": "a1-clock-16",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "timeliness",
+      "prompt": "You arrive later than planned but before ticket sales close. Which phrase stresses that buying is still possible?",
+      "choices": [
+        "à temps",
+        "en avance"
+      ],
+      "answers": [
+        "à temps"
+      ],
+      "explanation": "À temps refers to meeting the useful deadline, not necessarily the planned arrival."
+    }
+  ],
+  "production_task": {
+    "prompt": "Send a meeting message with a 24-hour appointment time, then say when you will arrive and whether that is early, late or on time.",
+    "model_answer": "Le rendez-vous est à quatorze heures trente. J'arrive à quatorze heures vingt. Je suis en avance de dix minutes.",
+    "translation": "The appointment is at 2:30 p.m. I arrive at 2:20 p.m. I am ten minutes early.",
+    "rubric": [
+      "Use à before each event time.",
+      "Read 24-hour times directly.",
+      "Make the timeliness expression agree with the actual times."
+    ]
+  }
+}

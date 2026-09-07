@@ -1,0 +1,354 @@
+{
+  "version": 1,
+  "id": "a1-stressed-object-pronouns",
+  "slug": "a1-stressed-object-pronouns",
+  "cefr_level": "A1",
+  "topic": "pronouns-questions-negation",
+  "title": "Moi, toi, nous : choisir la place du pronom",
+  "summary": "Use stressed pronouns on their own or after prepositions, and me/te/nous/vous before verbs as objects.",
+  "order": 15,
+  "duration_minutes": 12,
+  "prerequisites": [
+    "a1-sentence-foundations",
+    "a1-say-read-write"
+  ],
+  "objectives": [
+    "Choose all eight common stressed pronouns.",
+    "Distinguish a stressed pronoun after a preposition from an object pronoun before a verb.",
+    "Use me/te/nous/vous for both direct and indirect objects."
+  ],
+  "keywords": [
+    "moi",
+    "toi",
+    "lui",
+    "eux",
+    "stressed pronouns",
+    "me",
+    "te",
+    "object pronouns"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "pronouns-stressed-reflexive",
+    "pronouns-direct-indirect"
+  ],
+  "sections": [
+    {
+      "id": "stressed",
+      "title": "Use moi, not je, when the pronoun stands alone",
+      "paragraphs": [
+        "Stressed pronouns are independent forms used in short answers, after prepositions such as avec (with), and to emphasise or combine people. The set is moi (me), toi (you familiar singular), lui (him), elle (her), nous (us), vous (you plural or polite), eux (them masculine or mixed), elles (them feminine). Here lui is a stressed pronoun after a preposition; other uses of lui are taught later.",
+        "A stressed pronoun can introduce emphasis, but the normal subject is still present: moi, je travaille. In a compound subject, toi et moi corresponds to nous; elle et toi corresponds to vous. Do not use je after avec or in an isolated answer."
+      ],
+      "points": [
+        "After avec, chez, pour or sans, use a stressed form.",
+        "Eux is stressed; ils is a subject form."
+      ],
+      "examples": [
+        {
+          "french": "Qui vient ? — **Moi**.",
+          "english": "Who is coming? — Me.",
+          "note": "An independent answer takes moi."
+        },
+        {
+          "french": "Je viens avec **toi**.",
+          "english": "I am coming with you.",
+          "note": "A preposition takes the stressed form."
+        },
+        {
+          "french": "Elle habite chez **lui**.",
+          "english": "She lives at his place.",
+          "note": "Lui follows chez."
+        },
+        {
+          "french": "Nous partons sans **elle**.",
+          "english": "We are leaving without her.",
+          "note": "Elle is also the stressed feminine singular form."
+        },
+        {
+          "french": "Ces places sont pour **nous** et pour **vous**.",
+          "english": "These seats are for us and for you.",
+          "note": "Nous and vous have the same spelling in subject and stressed uses."
+        },
+        {
+          "french": "Je travaille avec **eux**, mais je déjeune avec **elles**.",
+          "english": "I work with them, but I have lunch with them.",
+          "note": "Eux denotes a masculine/mixed group; elles an all-feminine group."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Elle vient avec je.",
+          "prefer": "Elle vient avec moi.",
+          "why": "Avec requires the stressed form."
+        },
+        {
+          "avoid": "Je parle avec ils.",
+          "prefer": "Je parle avec eux.",
+          "why": "Ils is a subject form, not the form used after avec."
+        }
+      ]
+    },
+    {
+      "id": "objects",
+      "title": "Before the verb, me and te can mean me/to me and you/to you",
+      "paragraphs": [
+        "An object receives or is affected by an action. A direct object has no linking preposition in the full noun construction: regarder quelqu'un (look at someone) is direct in French despite English at. An indirect object here corresponds to à + person: parler à quelqu'un (speak to someone). For first and second persons, both use the same short forms: me, te, nous, vous.",
+        "Put these object pronouns before the conjugated verb in ordinary statements. Me and te become m' and t' before a vowel or silent h. Nous and vous do not elide. With a following infinitive, put the object pronoun before the infinitive it belongs to: je veux te parler. These are not necessarily reflexive: elle me regarde has different people as subject and object."
+      ],
+      "points": [
+        "The main verb still agrees with its subject, not its object.",
+        "This lesson covers me/te/nous/vous, not the full third-person object system."
+      ],
+      "examples": [
+        {
+          "french": "Elle **me** regarde.",
+          "english": "She is looking at me.",
+          "note": "Regarder takes a direct object in French."
+        },
+        {
+          "french": "Elle **me** parle.",
+          "english": "She is speaking to me.",
+          "note": "Me represents the indirect object of parler à."
+        },
+        {
+          "french": "Nous **t'**écoutons.",
+          "english": "We are listening to you.",
+          "note": "Te elides before the vowel; écouter is direct in French."
+        },
+        {
+          "french": "Le professeur **nous** répond.",
+          "english": "The teacher answers us.",
+          "note": "Nous is the indirect object; the singular subject controls répond."
+        },
+        {
+          "french": "Je veux **vous** aider.",
+          "english": "I want to help you.",
+          "note": "The object of aider goes immediately before aider."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Elle parle me.",
+          "prefer": "Elle me parle.",
+          "why": "In this statement the unstressed object pronoun precedes the verb."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-pro-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "stressed",
+      "prompt": "Replace je with the correct stressed form: 'avec ___'.",
+      "choices": [],
+      "answers": [
+        "moi"
+      ],
+      "explanation": "A preposition takes moi."
+    },
+    {
+      "id": "a1-pro-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "stressed",
+      "prompt": "Use the stressed pronoun for a group of men: 'sans ___'.",
+      "choices": [],
+      "answers": [
+        "eux"
+      ],
+      "explanation": "The masculine/mixed plural stressed form is eux."
+    },
+    {
+      "id": "a1-pro-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "objects",
+      "prompt": "Supply the object pronoun meaning me: 'Elle ___ comprend.'",
+      "choices": [],
+      "answers": [
+        "me"
+      ],
+      "explanation": "The object pronoun precedes comprend."
+    },
+    {
+      "id": "a1-pro-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "objects",
+      "prompt": "Supply the object pronoun meaning familiar singular you: 'Je ___ écoute.' Include elision.",
+      "choices": [],
+      "answers": [
+        "t'"
+      ],
+      "explanation": "Te becomes t' before écoute."
+    },
+    {
+      "id": "a1-pro-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "stressed",
+      "prompt": "Use the stressed pronoun meaning him: 'chez ___'.",
+      "choices": [],
+      "answers": [
+        "lui"
+      ],
+      "explanation": "Lui is the independent form after chez."
+    },
+    {
+      "id": "a1-pro-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "stressed",
+      "prompt": "Use the stressed pronoun meaning us: 'pour ___'.",
+      "choices": [],
+      "answers": [
+        "nous"
+      ],
+      "explanation": "Nous is also the stressed form."
+    },
+    {
+      "id": "a1-pro-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "stressed",
+      "prompt": "Use the stressed pronoun meaning them, referring only to women: 'avec ___'.",
+      "choices": [],
+      "answers": [
+        "elles"
+      ],
+      "explanation": "An all-feminine group takes elles."
+    },
+    {
+      "id": "a1-pro-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "objects",
+      "prompt": "Supply the pronoun meaning to me: 'Tu ___ réponds.'",
+      "choices": [],
+      "answers": [
+        "me"
+      ],
+      "explanation": "Me also serves as an indirect object."
+    },
+    {
+      "id": "a1-pro-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "objects",
+      "prompt": "Supply the pronoun meaning us: 'Ils ___ regardent.'",
+      "choices": [],
+      "answers": [
+        "nous"
+      ],
+      "explanation": "Nous is the direct object before regardent."
+    },
+    {
+      "id": "a1-pro-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "objects",
+      "prompt": "Supply the polite object pronoun meaning to you: 'Je ___ écris, madame.'",
+      "choices": [],
+      "answers": [
+        "vous"
+      ],
+      "explanation": "Vous is also a polite singular indirect object."
+    },
+    {
+      "id": "a1-pro-11",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "objects",
+      "prompt": "Choose the correct order for 'I want to speak to you' (tu).",
+      "choices": [
+        "Je veux te parler.",
+        "Je te veux parler."
+      ],
+      "answers": [
+        "Je veux te parler."
+      ],
+      "explanation": "Te belongs to parler and goes before that infinitive."
+    },
+    {
+      "id": "a1-pro-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "stressed",
+      "prompt": "Reply with only the stressed pronoun for yourself: 'Qui prépare le café ? — ___.'",
+      "choices": [],
+      "answers": [
+        "moi"
+      ],
+      "explanation": "An isolated answer uses moi, not je."
+    },
+    {
+      "id": "a1-pro-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "stressed",
+      "prompt": "Use the stressed pronoun meaning you, familiar singular: 'sans ___'.",
+      "choices": [],
+      "answers": [
+        "toi"
+      ],
+      "explanation": "Toi follows a preposition."
+    },
+    {
+      "id": "a1-pro-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "objects",
+      "prompt": "Supply the object pronoun meaning me: 'Elle ___ aide.' Include elision.",
+      "choices": [],
+      "answers": [
+        "m'"
+      ],
+      "explanation": "Me elides before aide."
+    },
+    {
+      "id": "a1-pro-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "objects",
+      "prompt": "Rewrite the whole sentence, moving only vous to the correct place: 'Nous écoutons vous.'",
+      "choices": [],
+      "answers": [
+        "Nous vous écoutons."
+      ],
+      "explanation": "An unstressed object pronoun precedes the conjugated verb."
+    },
+    {
+      "id": "a1-pro-16",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "stressed",
+      "prompt": "Choose the correct independent emphasis.",
+      "choices": [
+        "Moi, je comprends.",
+        "Me, je comprends."
+      ],
+      "answers": [
+        "Moi, je comprends."
+      ],
+      "explanation": "Independent emphasis requires moi, not me."
+    }
+  ],
+  "production_task": {
+    "prompt": "Invite a friend to study with you, then say that you listen to the friend and the friend helps you. Use a stressed pronoun and two object pronouns.",
+    "model_answer": "Tu viens avec moi ? Je t'écoute et tu m'aides.",
+    "translation": "Are you coming with me? I listen to you and you help me.",
+    "rubric": [
+      "Use moi after avec.",
+      "Put object pronouns before their verbs.",
+      "Use t' and m' before vowels."
+    ]
+  }
+}

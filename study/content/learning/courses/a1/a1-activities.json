@@ -1,0 +1,363 @@
+{
+  "version": 1,
+  "id": "a1-activities",
+  "slug": "a1-activities",
+  "cefr_level": "A1",
+  "topic": "everyday-vocabulary",
+  "title": "Sports, instruments et sorties dans les magasins",
+  "summary": "Choose faire de, jouer à and jouer de for activities, and distinguish grocery shopping from visiting shops.",
+  "order": 31,
+  "duration_minutes": 11,
+  "prerequisites": [
+    "a1-aller-faire",
+    "a1-articles-gender",
+    "a1-present-families"
+  ],
+  "objectives": [
+    "Use faire de for activities and jouer à for games or sports.",
+    "Use jouer de for instruments with correct contractions.",
+    "Distinguish faire les courses from faire les magasins."
+  ],
+  "keywords": [
+    "faire de",
+    "jouer à",
+    "jouer de",
+    "sports",
+    "instruments",
+    "courses",
+    "magasins"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "daily-sports-music",
+    "expressions-avoir-faire-il-faut"
+  ],
+  "sections": [
+    {
+      "id": "sports",
+      "title": "The activity chooses the construction",
+      "paragraphs": [
+        "Faire de + activity is broad: faire du sport, faire de la natation, faire du vélo, faire de l'escalade. Jouer à commonly introduces a game or a sport played as a game: jouer au tennis, jouer au football, jouer aux échecs. The following article combines with de or à normally.",
+        "These patterns overlap for some sports: faire du tennis and jouer au tennis can both be correct. Do not label faire du tennis a grammar error. In a constrained exercise, the supplied verb determines the preposition being tested. Jouer is regular: je joue, tu joues, il/elle/on joue, nous jouons, vous jouez, ils/elles jouent."
+      ],
+      "points": [
+        "La natation (f.) = swimming; l'escalade (f.) = climbing; les échecs (m. plural) = chess.",
+        "Faire de is not limited to competitive sport."
+      ],
+      "examples": [
+        {
+          "french": "Je **fais de la** natation.",
+          "english": "I go swimming.",
+          "note": "Faire de introduces the activity."
+        },
+        {
+          "french": "Nous **faisons du** vélo.",
+          "english": "We cycle.",
+          "note": "De + le contracts to du."
+        },
+        {
+          "french": "Elle **joue au** tennis.",
+          "english": "She plays tennis.",
+          "note": "À + le contracts to au."
+        },
+        {
+          "french": "Vous **jouez aux** échecs.",
+          "english": "You play chess.",
+          "note": "The game is plural; à + les gives aux."
+        },
+        {
+          "french": "Ils **font de l'**escalade.",
+          "english": "They go climbing.",
+          "note": "The vowel requires de l'."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Elle joue de le tennis.",
+          "prefer": "Elle joue au tennis.",
+          "why": "For tennis with jouer, use à + le, contracted to au."
+        }
+      ]
+    },
+    {
+      "id": "music",
+      "title": "For an instrument, jouer takes de",
+      "paragraphs": [
+        "Jouer de + instrument means play that instrument: jouer du piano, jouer de la guitare, jouer de l'accordéon. The contrasting à/de constructions help distinguish playing a game from playing music. Faire du piano or faire de la guitare is also common for practising or studying the instrument; it is not the form being tested when the prompt supplies jouer.",
+        "Un piano (m.) is a piano; une guitare (f.) a guitar; un accordéon (m.) an accordion; une flûte (f.) a flute. Keep the article and its contraction in the beginner jouer de construction."
+      ],
+      "points": [
+        "Jouer au tennis, but jouer du piano."
+      ],
+      "examples": [
+        {
+          "french": "Tu **joues du** piano.",
+          "english": "You play the piano.",
+          "note": "De + le gives du."
+        },
+        {
+          "french": "Elles **jouent de la** guitare.",
+          "english": "They play the guitar.",
+          "note": "De la does not contract."
+        },
+        {
+          "french": "Il **joue de l'**accordéon.",
+          "english": "He plays the accordion.",
+          "note": "Elision occurs before the vowel."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Je joue de le piano.",
+          "prefer": "Je joue du piano.",
+          "why": "De + le must contract to du."
+        }
+      ]
+    },
+    {
+      "id": "shopping",
+      "title": "Everyday purchases and visiting shops are not quite the same activity",
+      "paragraphs": [
+        "Faire les courses commonly means buy groceries or everyday necessities; depending on context, it can include errands. Faire les magasins means go shopping or look around shops, often for clothes or leisure purchases. It does not guarantee a purchase. Faire des courses is also a natural variant for doing some shopping or errands.",
+        "Faire keeps its irregular present: je fais, tu fais, il/elle/on fait, nous faisons, vous faites, ils/elles font. Do not confuse les courses (shopping/errands) with la course (running/a race), though the same noun family has several meanings."
+      ],
+      "points": [
+        "Un magasin (m.) = a shop; les courses (f. plural) = the shopping/errands in this expression."
+      ],
+      "examples": [
+        {
+          "french": "Je **fais les courses** : il faut du pain et du lait.",
+          "english": "I am doing the grocery shopping: we need bread and milk.",
+          "note": "The context is everyday food purchases."
+        },
+        {
+          "french": "Nous **faisons les magasins** pour regarder les manteaux.",
+          "english": "We are going around the shops to look at coats.",
+          "note": "The activity can involve browsing rather than buying."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Vous faisez les courses.",
+          "prefer": "Vous faites les courses.",
+          "why": "The vous form of faire is faites."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-act-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "sports",
+      "prompt": "Supply de plus the article: 'Je fais ___ natation.'",
+      "choices": [],
+      "answers": [
+        "de la"
+      ],
+      "explanation": "Natation is feminine."
+    },
+    {
+      "id": "a1-act-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "sports",
+      "prompt": "Supply à plus the article: 'Nous jouons ___ football.'",
+      "choices": [],
+      "answers": [
+        "au"
+      ],
+      "explanation": "À + le football gives au football."
+    },
+    {
+      "id": "a1-act-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "music",
+      "prompt": "Supply de plus the article: 'Elle joue ___ guitare.'",
+      "choices": [],
+      "answers": [
+        "de la"
+      ],
+      "explanation": "An instrument after jouer uses de; guitare is feminine."
+    },
+    {
+      "id": "a1-act-04",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "shopping",
+      "prompt": "Which expression most directly describes buying bread, milk and household necessities?",
+      "choices": [
+        "faire les courses",
+        "faire les magasins"
+      ],
+      "answers": [
+        "faire les courses"
+      ],
+      "explanation": "Courses is the ordinary groceries/necessities expression."
+    },
+    {
+      "id": "a1-act-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "sports",
+      "prompt": "Supply de plus the article: 'Vous faites ___ escalade.'",
+      "choices": [],
+      "answers": [
+        "de l'"
+      ],
+      "explanation": "The vowel requires de l'."
+    },
+    {
+      "id": "a1-act-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "sports",
+      "prompt": "Supply à plus the article: 'Ils jouent ___ échecs.'",
+      "choices": [],
+      "answers": [
+        "aux"
+      ],
+      "explanation": "Échecs is plural, so à + les gives aux."
+    },
+    {
+      "id": "a1-act-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "music",
+      "prompt": "Supply de plus the article: 'Tu joues ___ violon.' (violon is masculine).",
+      "choices": [],
+      "answers": [
+        "du"
+      ],
+      "explanation": "De + le contracts to du."
+    },
+    {
+      "id": "a1-act-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "music",
+      "prompt": "Supply de plus the article: 'Nous jouons ___ accordéon.'",
+      "choices": [],
+      "answers": [
+        "de l'"
+      ],
+      "explanation": "The initial vowel takes l'."
+    },
+    {
+      "id": "a1-act-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "shopping",
+      "prompt": "Supply faire: 'Vous ___ les courses.'",
+      "choices": [],
+      "answers": [
+        "faites"
+      ],
+      "explanation": "Faire has irregular vous faites."
+    },
+    {
+      "id": "a1-act-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "shopping",
+      "prompt": "Choose courses or magasins for browsing clothing shops: 'Nous faisons les ___ pour regarder les vêtements.'",
+      "choices": [],
+      "answers": [
+        "magasins"
+      ],
+      "explanation": "Faire les magasins names visiting shops for shopping or browsing."
+    },
+    {
+      "id": "a1-act-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "sports",
+      "prompt": "Supply jouer: 'Elles ___ au tennis.'",
+      "choices": [],
+      "answers": [
+        "jouent"
+      ],
+      "explanation": "Jouer is regular and takes -ent with elles."
+    },
+    {
+      "id": "a1-act-12",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "sports",
+      "prompt": "Can faire du tennis and jouer au tennis both be correct?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "answers": [
+        "Oui"
+      ],
+      "explanation": "The two activity patterns overlap for tennis."
+    },
+    {
+      "id": "a1-act-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "sports",
+      "prompt": "Supply de plus the article: 'On fait ___ sport.'",
+      "choices": [],
+      "answers": [
+        "du"
+      ],
+      "explanation": "Sport is masculine; de + le gives du."
+    },
+    {
+      "id": "a1-act-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "music",
+      "prompt": "Supply jouer: 'Vous ___ du piano.'",
+      "choices": [],
+      "answers": [
+        "jouez"
+      ],
+      "explanation": "Vous takes the regular -ez ending."
+    },
+    {
+      "id": "a1-act-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "shopping",
+      "prompt": "Supply faire: 'Elles ___ les magasins.'",
+      "choices": [],
+      "answers": [
+        "font"
+      ],
+      "explanation": "Elles takes font."
+    },
+    {
+      "id": "a1-act-16",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "sports",
+      "prompt": "Using jouer, supply the full verb phrase after je for 'I play chess': 'Je ___.'",
+      "choices": [],
+      "answers": [
+        "joue aux échecs"
+      ],
+      "explanation": "Jouer à + les échecs becomes jouer aux échecs."
+    }
+  ],
+  "production_task": {
+    "prompt": "Describe a weekend with one sport, one musical activity and grocery shopping. Choose the constructions to match each activity.",
+    "model_answer": "Le samedi, je joue au tennis. Ma sœur joue de la guitare. Nous faisons les courses le dimanche.",
+    "translation": "On Saturdays, I play tennis. My sister plays the guitar. We do the grocery shopping on Sundays.",
+    "rubric": [
+      "Use jouer à for the game or sport.",
+      "Use jouer de for the instrument.",
+      "Conjugate faire correctly in the shopping expression."
+    ]
+  }
+}

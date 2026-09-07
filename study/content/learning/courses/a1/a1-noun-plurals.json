@@ -1,35 +1,367 @@
 {
-  "version":1,"id":"a1-noun-plurals","slug":"a1-noun-plurals","cefr_level":"A1","topic":"grammar-foundations","title":"From one to several: noun plurals","summary":"Build regular plurals, recognise common -x and -aux families, and keep ordinary family names unchanged.","order":4,"duration_minutes":10,"prerequisites":["a1-articles-gender"],
-  "objectives":["Form common noun plurals and useful exceptions.","Distinguish noun endings from ordinary family surnames."],"keywords":["plural","-eau","-au","-al","-eu","surnames"],
-  "sources":[{"label":"Public A1 topic index, reviewed 2026-09-07","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"}],"related_legacy_ids":["grammar-noun-plurals"],
-  "sections":[
-    {"id":"regular","title":"Change the article and normally add -s","paragraphs":["Plural means more than one. Un and une normally become des; le, la and l' become les. The noun usually adds -s. This final -s is often silent, so listen to the article as well as the noun. A singular noun already ending in -s, -x or -z does not change in writing."],"points":["Un sac (m.) = a bag; une clé (f.) = a key; une voix (f.) = a voice."],
-      "examples":[{"french":"un sac → des **sacs**","english":"a bag → bags","note":"Add the ordinary plural -s."},{"french":"une clé → des **clés**","english":"a key → keys","note":"Gender stays feminine; number changes."},{"french":"une voix → des **voix**","english":"a voice → voices","note":"A final x is already present."}],
-      "mistakes":[{"avoid":"des clé","prefer":"des clés","why":"The written plural requires -s even when it is not heard."}]},
-    {"id":"families","title":"Use -x or -aux when the ending belongs to that family","paragraphs":["Nouns in -eau normally add -x: un bateau (m., a boat) becomes des bateaux. Most nouns in -au and -eu also add -x: un tuyau (m., a pipe), un jeu (m., a game). Learn common exceptions taking -s: un landau (m., a pram), un sarrau (m., a smock), un pneu (m., a tyre), un bleu (m., a bruise).","Most nouns in -al replace -al with -aux: un journal (m., a newspaper) becomes des journaux. Common exceptions keep -al and add -s: un bal, un carnaval, un festival, un récital, un régal, un chacal, un aval (all masculine). These mean a dance, carnival, festival, recital, treat, jackal and approval. Do not apply -al rules to every -ail noun: un détail (m., a detail) gives des détails; un travail (m., a job or piece of work) has the irregular plural des travaux."],"points":["These families are spelling patterns, not a rule to add x to all nouns.","Learn an exception as a singular/plural pair."],
-      "examples":[{"french":"Les **bateaux** arrivent.","english":"The boats are arriving.","note":"-eau takes -x."},{"french":"Il répare deux **tuyaux**.","english":"He is repairing two pipes.","note":"The usual -au plural."},{"french":"Les **jeux** sont ici.","english":"The games are here.","note":"-eu usually takes -x."},{"french":"Nous avons des **pneus** neufs.","english":"We have brand-new tyres.","note":"Pneu is an -s exception."},{"french":"Les **journaux** parlent des **festivals**.","english":"The newspapers talk about the festivals.","note":"The regular -aux family contrasts with an -als exception."},{"french":"Les **landaus** sont dans le couloir.","english":"The prams are in the corridor.","note":"Landau takes -s, not -x."}],
-      "mistakes":[{"avoid":"des journals","prefer":"des journaux","why":"Journal replaces -al with -aux."},{"avoid":"des pneux","prefer":"des pneus","why":"Pneu is a common exception to the -eu + x pattern."}]},
-    {"id":"surnames","title":"An ordinary family name stays unchanged","paragraphs":["When naming an ordinary family, make the article plural but leave the surname unchanged: les Moreau means the Moreau family. Do not add an English family-name -s. Certain established historical or dynastic names have conventional plurals, such as les Bourbons; learn these as special names rather than applying them to your neighbours."],"points":["An ordinary surname ending in -eau does not follow the common-noun -eaux rule."],
-      "examples":[{"french":"Les **Moreau** habitent ici.","english":"The Moreaus live here.","note":"The family name is unchanged."},{"french":"Les **Diallo** arrivent demain.","english":"The Diallos arrive tomorrow.","note":"Plural reference is shown by les and the verb."}],
-      "mistakes":[]}
+  "version": 1,
+  "id": "a1-noun-plurals",
+  "slug": "a1-noun-plurals",
+  "cefr_level": "A1",
+  "topic": "grammar-foundations",
+  "title": "D'un à plusieurs : le pluriel des noms",
+  "summary": "Build regular plurals, recognise common -x and -aux families, and keep ordinary family names unchanged.",
+  "order": 4,
+  "duration_minutes": 10,
+  "prerequisites": [
+    "a1-articles-gender"
   ],
-  "practice":[
-    {"id":"a1-plur-01","kind":"text","pool":"practice","section_id":"regular","prompt":"Write the plural of 'une carte', including the indefinite article.","choices":[],"answers":["des cartes"],"explanation":"Une becomes des and carte adds -s."},
-    {"id":"a1-plur-02","kind":"text","pool":"practice","section_id":"families","prompt":"Write only the plural of bateau.","choices":[],"answers":["bateaux"],"explanation":"-eau adds -x."},
-    {"id":"a1-plur-03","kind":"choice","pool":"practice","section_id":"families","prompt":"Choose the plural of un festival.","choices":["des festivals","des festivaux"],"answers":["des festivals"],"explanation":"Festival is an -als exception."},
-    {"id":"a1-plur-04","kind":"text","pool":"practice","section_id":"surnames","prompt":"Name the entire Martin family with les plus their surname.","choices":[],"answers":["les Martin"],"explanation":"Ordinary surnames remain unchanged."},
-    {"id":"a1-plur-05","kind":"text","pool":"check","section_id":"families","prompt":"Write only the plural of cadeau (gift).","choices":[],"answers":["cadeaux"],"explanation":"The -eau ending takes -x."},
-    {"id":"a1-plur-06","kind":"text","pool":"check","section_id":"families","prompt":"Write only the plural of tuyau (pipe).","choices":[],"answers":["tuyaux"],"explanation":"This -au noun follows the usual -x pattern."},
-    {"id":"a1-plur-07","kind":"text","pool":"check","section_id":"families","prompt":"Write only the plural of journal.","choices":[],"answers":["journaux"],"explanation":"Replace -al with -aux."},
-    {"id":"a1-plur-08","kind":"text","pool":"check","section_id":"families","prompt":"Write only the plural of jeu.","choices":[],"answers":["jeux"],"explanation":"Jeu follows the -eu + x pattern."},
-    {"id":"a1-plur-09","kind":"text","pool":"check","section_id":"families","prompt":"Write only the plural of landau.","choices":[],"answers":["landaus"],"explanation":"Landau is an exception taking -s."},
-    {"id":"a1-plur-10","kind":"text","pool":"check","section_id":"surnames","prompt":"Correct only the surname: 'Les Bernards sont ici.' The family's surname is Bernard. Write the sentence.","choices":[],"answers":["Les Bernard sont ici."],"explanation":"Do not add -s to an ordinary surname."},
-    {"id":"a1-plur-11","kind":"choice","pool":"check","section_id":"regular","prompt":"Which is the plural of une voix?","choices":["des voix","des voixs"],"answers":["des voix"],"explanation":"A noun already ending in x stays unchanged."},
-    {"id":"a1-plur-12","kind":"text","pool":"check","section_id":"families","prompt":"Write only the plural of bal (dance).","choices":[],"answers":["bals"],"explanation":"Bal keeps -al and adds -s."},
-    {"id":"a1-plur-13","kind":"text","pool":"review","section_id":"families","prompt":"Write 'two tyres' using deux and the plural of pneu.","choices":[],"answers":["deux pneus"],"explanation":"Pneu takes -s, not -x."},
-    {"id":"a1-plur-14","kind":"text","pool":"review","section_id":"families","prompt":"Write only the plural of travail.","choices":[],"answers":["travaux"],"explanation":"This is a useful irregular -ail plural."},
-    {"id":"a1-plur-15","kind":"text","pool":"review","section_id":"regular","prompt":"Write the plural of 'le nez' (nose), including the article.","choices":[],"answers":["les nez"],"explanation":"Le changes to les; a final z does not change."},
-    {"id":"a1-plur-16","kind":"choice","pool":"review","section_id":"surnames","prompt":"The surname is Rousseau. Choose the ordinary family name.","choices":["les Rousseau","les Rousseaux"],"answers":["les Rousseau"],"explanation":"The common-noun -eaux pattern does not apply to ordinary surnames."}
+  "objectives": [
+    "Form common noun plurals and useful exceptions.",
+    "Distinguish noun endings from ordinary family surnames."
   ],
-  "production_task":{"prompt":"Leave a short stock note mentioning several keys, games and newspapers. Then say which family has the newspapers; use a surname without changing it.","model_answer":"Les clés et les jeux sont ici. Les Morel ont les journaux.","translation":"The keys and games are here. The Morels have the newspapers.","rubric":["Change articles to plural.","Use jeux and journaux accurately.","Leave the family surname unchanged."]}
+  "keywords": [
+    "plural",
+    "-eau",
+    "-au",
+    "-al",
+    "-eu",
+    "surnames"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    },
+    {
+      "label": "Usito, Université de Sherbrooke: current plural sarraus, consulted 2026-09-07",
+      "url": "https://usito.usherbrooke.ca/d%C3%A9finitions/sarrau"
+    }
+  ],
+  "related_legacy_ids": [
+    "grammar-noun-plurals"
+  ],
+  "sections": [
+    {
+      "id": "regular",
+      "title": "Change the article and normally add -s",
+      "paragraphs": [
+        "Plural means more than one. Un and une normally become des; le, la and l' become les. The noun usually adds -s. This final -s is often silent, so listen to the article as well as the noun. A singular noun already ending in -s, -x or -z does not change in writing."
+      ],
+      "points": [
+        "Un sac (m.) = a bag; une clé (f.) = a key; une voix (f.) = a voice."
+      ],
+      "examples": [
+        {
+          "french": "un sac → des **sacs**",
+          "english": "a bag → bags",
+          "note": "Add the ordinary plural -s."
+        },
+        {
+          "french": "une clé → des **clés**",
+          "english": "a key → keys",
+          "note": "Gender stays feminine; number changes."
+        },
+        {
+          "french": "une voix → des **voix**",
+          "english": "a voice → voices",
+          "note": "A final x is already present."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "des clé",
+          "prefer": "des clés",
+          "why": "The written plural requires -s even when it is not heard."
+        }
+      ]
+    },
+    {
+      "id": "families",
+      "title": "Use -x or -aux when the ending belongs to that family",
+      "paragraphs": [
+        "Nouns in -eau normally add -x: un bateau (m., a boat) becomes des bateaux. Most nouns in -au and -eu also add -x: un tuyau (m., a pipe), un jeu (m., a game). Learn common exceptions taking -s: un landau (m., a pram), un sarrau (m., a smock), un pneu (m., a tyre), un bleu (m., a bruise).",
+        "Most nouns in -al replace -al with -aux: un journal (m., a newspaper) becomes des journaux. Common exceptions keep -al and add -s: un bal, un carnaval, un festival, un récital, un régal, un chacal, un aval (all masculine). These mean a dance, carnival, festival, recital, treat, jackal and approval. Do not apply -al rules to every -ail noun: un détail (m., a detail) gives des détails; un travail (m., a job or piece of work) has the irregular plural des travaux."
+      ],
+      "points": [
+        "These families are spelling patterns, not a rule to add x to all nouns.",
+        "Learn an exception as a singular/plural pair."
+      ],
+      "examples": [
+        {
+          "french": "Les **bateaux** arrivent.",
+          "english": "The boats are arriving.",
+          "note": "-eau takes -x."
+        },
+        {
+          "french": "Il répare deux **tuyaux**.",
+          "english": "He is repairing two pipes.",
+          "note": "The usual -au plural."
+        },
+        {
+          "french": "Les **jeux** sont ici.",
+          "english": "The games are here.",
+          "note": "-eu usually takes -x."
+        },
+        {
+          "french": "Nous avons des **pneus** neufs.",
+          "english": "We have brand-new tyres.",
+          "note": "Pneu is an -s exception."
+        },
+        {
+          "french": "Les **journaux** parlent des **festivals**.",
+          "english": "The newspapers talk about the festivals.",
+          "note": "The regular -aux family contrasts with an -als exception."
+        },
+        {
+          "french": "Les **landaus** sont dans le couloir.",
+          "english": "The prams are in the corridor.",
+          "note": "Landau takes -s, not -x."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "des journals",
+          "prefer": "des journaux",
+          "why": "Journal replaces -al with -aux."
+        },
+        {
+          "avoid": "des pneux",
+          "prefer": "des pneus",
+          "why": "Pneu is a common exception to the -eu + x pattern."
+        }
+      ]
+    },
+    {
+      "id": "surnames",
+      "title": "An ordinary family name stays unchanged",
+      "paragraphs": [
+        "When naming an ordinary family, make the article plural but leave the surname unchanged: les Moreau means the Moreau family. Do not add an English family-name -s. Certain established historical or dynastic names have conventional plurals, such as les Bourbons; learn these as special names rather than applying them to your neighbours."
+      ],
+      "points": [
+        "An ordinary surname ending in -eau does not follow the common-noun -eaux rule."
+      ],
+      "examples": [
+        {
+          "french": "Les **Moreau** habitent ici.",
+          "english": "The Moreaus live here.",
+          "note": "The family name is unchanged."
+        },
+        {
+          "french": "Les **Diallo** arrivent demain.",
+          "english": "The Diallos arrive tomorrow.",
+          "note": "Plural reference is shown by les and the verb."
+        }
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-plur-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "regular",
+      "prompt": "Write the plural of 'une carte', including the indefinite article.",
+      "choices": [],
+      "answers": [
+        "des cartes"
+      ],
+      "explanation": "Une becomes des and carte adds -s."
+    },
+    {
+      "id": "a1-plur-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "families",
+      "prompt": "Write only the plural of bateau.",
+      "choices": [],
+      "answers": [
+        "bateaux"
+      ],
+      "explanation": "-eau adds -x."
+    },
+    {
+      "id": "a1-plur-03",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "families",
+      "prompt": "Choose the plural of un festival.",
+      "choices": [
+        "des festivals",
+        "des festivaux"
+      ],
+      "answers": [
+        "des festivals"
+      ],
+      "explanation": "Festival is an -als exception."
+    },
+    {
+      "id": "a1-plur-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "surnames",
+      "prompt": "Name the entire Martin family with les plus their surname.",
+      "choices": [],
+      "answers": [
+        "les Martin"
+      ],
+      "explanation": "Ordinary surnames remain unchanged."
+    },
+    {
+      "id": "a1-plur-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "families",
+      "prompt": "Write only the plural of cadeau (gift).",
+      "choices": [],
+      "answers": [
+        "cadeaux"
+      ],
+      "explanation": "The -eau ending takes -x."
+    },
+    {
+      "id": "a1-plur-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "families",
+      "prompt": "Write only the plural of tuyau (pipe).",
+      "choices": [],
+      "answers": [
+        "tuyaux"
+      ],
+      "explanation": "This -au noun follows the usual -x pattern."
+    },
+    {
+      "id": "a1-plur-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "families",
+      "prompt": "Write only the plural of journal.",
+      "choices": [],
+      "answers": [
+        "journaux"
+      ],
+      "explanation": "Replace -al with -aux."
+    },
+    {
+      "id": "a1-plur-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "families",
+      "prompt": "Write only the plural of jeu.",
+      "choices": [],
+      "answers": [
+        "jeux"
+      ],
+      "explanation": "Jeu follows the -eu + x pattern."
+    },
+    {
+      "id": "a1-plur-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "families",
+      "prompt": "Write only the plural of landau.",
+      "choices": [],
+      "answers": [
+        "landaus"
+      ],
+      "explanation": "Landau is an exception taking -s."
+    },
+    {
+      "id": "a1-plur-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "surnames",
+      "prompt": "The family's surname is Bernard. Rewrite the whole sentence, changing only the surname: 'Les Bernards sont ici.'",
+      "choices": [],
+      "answers": [
+        "Les Bernard sont ici."
+      ],
+      "explanation": "Do not add -s to an ordinary surname."
+    },
+    {
+      "id": "a1-plur-11",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "regular",
+      "prompt": "Which is the plural of une voix?",
+      "choices": [
+        "des voix",
+        "des voixs"
+      ],
+      "answers": [
+        "des voix"
+      ],
+      "explanation": "A noun already ending in x stays unchanged."
+    },
+    {
+      "id": "a1-plur-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "families",
+      "prompt": "Write only the plural of bal (dance).",
+      "choices": [],
+      "answers": [
+        "bals"
+      ],
+      "explanation": "Bal keeps -al and adds -s."
+    },
+    {
+      "id": "a1-plur-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "families",
+      "prompt": "Write 'two tyres' using deux and the plural of pneu.",
+      "choices": [],
+      "answers": [
+        "deux pneus"
+      ],
+      "explanation": "Pneu takes -s, not -x."
+    },
+    {
+      "id": "a1-plur-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "families",
+      "prompt": "Write only the plural of travail.",
+      "choices": [],
+      "answers": [
+        "travaux"
+      ],
+      "explanation": "This is a useful irregular -ail plural."
+    },
+    {
+      "id": "a1-plur-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "regular",
+      "prompt": "Write the plural of 'le nez' (nose), including the article.",
+      "choices": [],
+      "answers": [
+        "les nez"
+      ],
+      "explanation": "Le changes to les; a final z does not change."
+    },
+    {
+      "id": "a1-plur-16",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "surnames",
+      "prompt": "The surname is Rousseau. Choose the ordinary family name.",
+      "choices": [
+        "les Rousseau",
+        "les Rousseaux"
+      ],
+      "answers": [
+        "les Rousseau"
+      ],
+      "explanation": "The common-noun -eaux pattern does not apply to ordinary surnames."
+    }
+  ],
+  "production_task": {
+    "prompt": "Leave a short stock note mentioning several keys, games and newspapers. Then say which family has the newspapers; use a surname without changing it.",
+    "model_answer": "Les clés et les jeux sont ici. Les Morel ont les journaux.",
+    "translation": "The keys and games are here. The Morels have the newspapers.",
+    "rubric": [
+      "Change articles to plural.",
+      "Use jeux and journaux accurately.",
+      "Leave the family surname unchanged."
+    ]
+  }
 }

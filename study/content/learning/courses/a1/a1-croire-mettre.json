@@ -1,0 +1,357 @@
+{
+  "version": 1,
+  "id": "a1-croire-mettre",
+  "slug": "a1-croire-mettre",
+  "cefr_level": "A1",
+  "topic": "verbs-tenses-moods",
+  "title": "Croire et mettre : deux radicaux variables",
+  "summary": "Build crois/croyons/croient and mets/mettons/mettent, then express a belief with penser que or croire que.",
+  "order": 12,
+  "duration_minutes": 12,
+  "prerequisites": [
+    "a1-present-families",
+    "a1-say-read-write"
+  ],
+  "objectives": [
+    "Conjugate croire and mettre and common mettre derivatives.",
+    "Use que to introduce what someone thinks or believes."
+  ],
+  "keywords": [
+    "croire",
+    "penser que",
+    "mettre",
+    "permettre",
+    "promettre"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "verbs-present-patterns",
+    "verbs-knowing-believing"
+  ],
+  "sections": [
+    {
+      "id": "croire",
+      "title": "Croire uses y only with nous and vous",
+      "paragraphs": [
+        "Croire means believe or think. Its present has croi- in the singular and third-person plural, but croy- with nous and vous. Do not invent croyent for ils or elles. Croire quelqu'un means believe that person; croire que introduces a complete idea."
+      ],
+      "points": [
+        "Croire: crois, crois, croit, croyons, croyez, croient."
+      ],
+      "examples": [
+        {
+          "french": "Je **crois**\nTu **crois**\nIl/elle/on **croit**\nNous **croyons**\nVous **croyez**\nIls/elles **croient**",
+          "english": "I believe\nYou believe\nHe/she believes; one believes/we believe\nWe believe\nYou believe\nThey believe",
+          "note": "Y appears only in the nous and vous forms."
+        },
+        {
+          "french": "Nous **croyons** Léa.",
+          "english": "We believe Léa.",
+          "note": "A person follows croire directly when we believe what they say."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Ils croyent Paul.",
+          "prefer": "Ils croient Paul.",
+          "why": "The third-person plural has i, not y."
+        }
+      ]
+    },
+    {
+      "id": "thought-clause",
+      "title": "Keep que before the idea you believe",
+      "paragraphs": [
+        "Penser que and croire que can both express think that or believe that. Penser focuses on an opinion or thought; croire presents a belief, sometimes with uncertainty, but the meanings overlap. Que introduces a clause: a group with its own subject and conjugated verb. English can omit that; French keeps que in this pattern. Que becomes qu' before a vowel or silent h.",
+        "Penser is a regular -er verb: je pense, tu penses, il/elle/on pense, nous pensons, vous pensez, ils/elles pensent. In these affirmative statements, use an ordinary indicative verb after que. More complex negative and doubtful uses belong to later lessons."
+      ],
+      "points": [
+        "Je pense à Léa means I am thinking about Léa; je pense que Léa arrive means I think Léa is arriving."
+      ],
+      "examples": [
+        {
+          "french": "Je **pense que** le magasin est ouvert.",
+          "english": "I think the shop is open.",
+          "note": "Un magasin (m.) is a shop; que introduces the statement."
+        },
+        {
+          "french": "Elle **croit qu'**il arrive demain.",
+          "english": "She thinks he is arriving tomorrow.",
+          "note": "Que elides before il."
+        },
+        {
+          "french": "Je **pense à** mon frère.",
+          "english": "I am thinking about my brother.",
+          "note": "À + person differs from que + a complete idea."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Je pense il arrive.",
+          "prefer": "Je pense qu'il arrive.",
+          "why": "French requires que, elided to qu' before il."
+        }
+      ]
+    },
+    {
+      "id": "mettre",
+      "title": "Mettre has one t in the singular and two in the plural",
+      "paragraphs": [
+        "Mettre means put and can mean put on clothing. Singular forms are mets, mets, met; the plural uses mett-. Remettre (put back/hand in/postpone), permettre (allow) and promettre (promise) follow the same pattern. A prefix stays attached to each form: je permets, tu permets, il/elle/on permet, nous permettons, vous permettez, ils/elles permettent. Likewise: je promets, tu promets, il/elle/on promet, nous promettons, vous promettez, ils/elles promettent.",
+        "Mettre is the action of putting clothing on; porter can describe wearing it. A noun object follows directly: mettre un manteau. This lesson teaches the present forms, not every possible meaning or complement of each derivative."
+      ],
+      "points": [
+        "Un manteau (m.) = a coat; un dossier (m.) = a file."
+      ],
+      "examples": [
+        {
+          "french": "Je **mets**\nTu **mets**\nIl/elle/on **met**\nNous **mettons**\nVous **mettez**\nIls/elles **mettent**",
+          "english": "I put\nYou put\nHe/she puts; one puts/we put\nWe put\nYou put\nThey put",
+          "note": "The plural stem has tt."
+        },
+        {
+          "french": "Je **mets** mon manteau.",
+          "english": "I am putting on my coat.",
+          "note": "Mettre describes the action of dressing."
+        },
+        {
+          "french": "Nous **remettons** les livres sur la table.",
+          "english": "We put the books back on the table.",
+          "note": "Remettre keeps the mettre pattern."
+        },
+        {
+          "french": "Ils **permettent** une pause.",
+          "english": "They allow a break.",
+          "note": "The prefix per- precedes mettent."
+        },
+        {
+          "french": "Tu **promets** de venir.",
+          "english": "You promise to come.",
+          "note": "Promettre takes de before this infinitive; the singular has one t."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Vous metez le dossier ici.",
+          "prefer": "Vous mettez le dossier ici.",
+          "why": "Mettre has tt in every present plural form."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-cm-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "croire",
+      "prompt": "Supply croire: 'Nous ___ cette histoire.'",
+      "choices": [],
+      "answers": [
+        "croyons"
+      ],
+      "explanation": "Nous uses croy-."
+    },
+    {
+      "id": "a1-cm-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "thought-clause",
+      "prompt": "Supply que with any required elision: 'Je pense ___ elle est ici.'",
+      "choices": [],
+      "answers": [
+        "qu'"
+      ],
+      "explanation": "Que becomes qu' before elle."
+    },
+    {
+      "id": "a1-cm-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "mettre",
+      "prompt": "Supply mettre: 'Tu ___ les clés ici.'",
+      "choices": [],
+      "answers": [
+        "mets"
+      ],
+      "explanation": "Tu takes mets with one t."
+    },
+    {
+      "id": "a1-cm-04",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "thought-clause",
+      "prompt": "Choose the phrase meaning 'I am thinking about Paul'.",
+      "choices": [
+        "Je pense à Paul.",
+        "Je pense que Paul."
+      ],
+      "answers": [
+        "Je pense à Paul."
+      ],
+      "explanation": "À introduces a person; que requires a complete clause."
+    },
+    {
+      "id": "a1-cm-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "croire",
+      "prompt": "Supply croire: 'Elles ___ le témoin.'",
+      "choices": [],
+      "answers": [
+        "croient"
+      ],
+      "explanation": "Ils/elles uses croi-, not croy-."
+    },
+    {
+      "id": "a1-cm-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "croire",
+      "prompt": "Supply croire: 'Vous ___ que c'est possible.'",
+      "choices": [],
+      "answers": [
+        "croyez"
+      ],
+      "explanation": "Vous uses croy- plus -ez."
+    },
+    {
+      "id": "a1-cm-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "thought-clause",
+      "prompt": "Join with penser que, keeping je pense first: 'Je pense. Le bus arrive.'",
+      "choices": [],
+      "answers": [
+        "Je pense que le bus arrive."
+      ],
+      "explanation": "Que introduces the complete idea."
+    },
+    {
+      "id": "a1-cm-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "thought-clause",
+      "prompt": "Supply penser: 'Nous ___ que tu as raison.'",
+      "choices": [],
+      "answers": [
+        "pensons"
+      ],
+      "explanation": "Penser follows the regular -er pattern."
+    },
+    {
+      "id": "a1-cm-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "mettre",
+      "prompt": "Supply mettre: 'Vous ___ le dossier sur la table.'",
+      "choices": [],
+      "answers": [
+        "mettez"
+      ],
+      "explanation": "The plural stem has tt."
+    },
+    {
+      "id": "a1-cm-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "mettre",
+      "prompt": "Supply permettre: 'Cette carte ___ l'entrée.'",
+      "choices": [],
+      "answers": [
+        "permet"
+      ],
+      "explanation": "The singular subject takes permet."
+    },
+    {
+      "id": "a1-cm-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "mettre",
+      "prompt": "Supply promettre: 'Ils ___ de répondre.'",
+      "choices": [],
+      "answers": [
+        "promettent"
+      ],
+      "explanation": "Promettre follows mettre with tt in the plural."
+    },
+    {
+      "id": "a1-cm-12",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "mettre",
+      "prompt": "Choose the sentence describing the action of putting a coat on.",
+      "choices": [
+        "Je mets mon manteau.",
+        "Je crois mon manteau."
+      ],
+      "answers": [
+        "Je mets mon manteau."
+      ],
+      "explanation": "Mettre can mean put on clothing."
+    },
+    {
+      "id": "a1-cm-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "mettre",
+      "prompt": "Supply remettre: 'Nous ___ la chaise à sa place.'",
+      "choices": [],
+      "answers": [
+        "remettons"
+      ],
+      "explanation": "Re- plus mettons gives remettons."
+    },
+    {
+      "id": "a1-cm-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "croire",
+      "prompt": "Supply croire: 'On ___ que le train est en retard.'",
+      "choices": [],
+      "answers": [
+        "croit"
+      ],
+      "explanation": "On takes the singular croit."
+    },
+    {
+      "id": "a1-cm-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "thought-clause",
+      "prompt": "Rewrite the whole sentence, adding only the missing link: 'Elle croit il travaille ici.'",
+      "choices": [],
+      "answers": [
+        "Elle croit qu'il travaille ici."
+      ],
+      "explanation": "Croire que requires que, with elision before il."
+    },
+    {
+      "id": "a1-cm-16",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "mettre",
+      "prompt": "Supply mettre: 'Elle ___ son chapeau.'",
+      "choices": [],
+      "answers": [
+        "met"
+      ],
+      "explanation": "The third-person singular is met, not mets."
+    }
+  ],
+  "production_task": {
+    "prompt": "Explain what you think about a meeting, then say what you put on the table to prepare. Use croire or penser with que and one plural form of mettre.",
+    "model_answer": "Je pense que la réunion commence à dix heures. Nous mettons les documents sur la table.",
+    "translation": "I think the meeting starts at ten o'clock. We put the documents on the table.",
+    "rubric": [
+      "Keep que before the complete idea.",
+      "Conjugate both subjects' verbs.",
+      "Use tt in mettons."
+    ]
+  }
+}

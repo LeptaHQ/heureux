@@ -1,0 +1,377 @@
+{
+  "version": 1,
+  "id": "a1-reflexive-routines",
+  "slug": "a1-reflexive-routines",
+  "cefr_level": "A1",
+  "topic": "verbs-tenses-moods",
+  "title": "Se préparer : les verbes pronominaux au présent",
+  "summary": "Match reflexive pronouns to the subject, describe a daily routine and recognise both standard s'asseoir paradigms.",
+  "order": 13,
+  "duration_minutes": 15,
+  "prerequisites": [
+    "a1-present-spelling",
+    "a1-daily-irregulars"
+  ],
+  "objectives": [
+    "Place me, te, se, nous and vous before a present verb.",
+    "Conjugate six common daily reflexive verbs.",
+    "Use either accepted present pattern of s'asseoir."
+  ],
+  "keywords": [
+    "reflexive",
+    "se réveiller",
+    "se lever",
+    "se coucher",
+    "s'habiller",
+    "se laver",
+    "s'amuser",
+    "s'asseoir"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    },
+    {
+      "label": "OQLF: asseoir/assoir spelling, consulted 2026-09-07",
+      "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/23190/lorthographe/rectifications-de-lorthographe/recommandations-generales-liees-aux-rectifications-de-lorthographe/liste-alphabetique-de-mots-touches-par-les-rectifications-de-lorthographe"
+    }
+  ],
+  "related_legacy_ids": [
+    "pronouns-stressed-reflexive",
+    "verbs-ending-versus-ending-something"
+  ],
+  "sections": [
+    {
+      "id": "pattern",
+      "title": "The subject does the action to or for itself",
+      "paragraphs": [
+        "A reflexive verb has a small pronoun that points back to its subject. In the dictionary it appears with se: se laver (wash oneself). In a present statement put the pronoun before the conjugated verb: je me lave, tu te laves, il/elle/on se lave, nous nous lavons, vous vous lavez, ils/elles se lavent. The repeated nous or vous is not a mistake: the first word is the subject, the second is the reflexive pronoun.",
+        "Me, te and se become m', t' and s' before a vowel or silent h. Nous and vous do not elide. Some pronominal verbs have a conventional meaning rather than a literal English myself: s'amuser means have fun. Compare laver la voiture (wash the car) with se laver (wash oneself)."
+      ],
+      "points": [
+        "The verb still agrees with its subject; the reflexive pronoun does not replace the subject.",
+        "Use a definite article for an obvious body part: se laver les mains."
+      ],
+      "examples": [
+        {
+          "french": "Je **me lave**\nTu **te laves**\nIl/elle/on **se lave**\nNous **nous lavons**\nVous **vous lavez**\nIls/elles **se lavent**",
+          "english": "I wash myself\nYou wash yourself\nHe/she washes; one washes/we wash\nWe wash ourselves\nYou wash yourselves/yourself\nThey wash themselves",
+          "note": "The complete se laver paradigm."
+        },
+        {
+          "french": "Elle **se lave** les mains.",
+          "english": "She washes her hands.",
+          "note": "Les mains is the body part; se identifies the owner."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Je se lave.",
+          "prefer": "Je me lave.",
+          "why": "The reflexive pronoun must match je."
+        },
+        {
+          "avoid": "Nous lavons à huit heures.",
+          "prefer": "Nous nous lavons à huit heures.",
+          "why": "For the intended meaning 'we wash ourselves', the reflexive pronoun is needed; lavons alone does not express that explicitly."
+        }
+      ]
+    },
+    {
+      "id": "routine",
+      "title": "Keep each verb's own spelling pattern",
+      "paragraphs": [
+        "Se réveiller means wake up, se lever means get up, se coucher means go to bed, s'habiller means get dressed, and s'amuser means have fun. All take regular -er endings, but se lever also changes e to è before silent endings, just like lever. The h in habiller is silent, so the reflexive pronoun elides.",
+        "Waking and getting up are different actions; you can wake at seven and get up at seven thirty. S'habiller describes the action of dressing, not simply being in a dressed state. The full forms below make it possible to talk about any person, not just je."
+      ],
+      "points": [
+        "Keep the same person in subject, reflexive pronoun and verb."
+      ],
+      "examples": [
+        {
+          "french": "Je **me réveille**\nTu **te réveilles**\nIl/elle/on **se réveille**\nNous **nous réveillons**\nVous **vous réveillez**\nIls/elles **se réveillent**",
+          "english": "I wake up\nYou wake up\nHe/she wakes up; one wakes up/we wake up\nWe wake up\nYou wake up\nThey wake up",
+          "note": "Réveiller keeps its regular stem."
+        },
+        {
+          "french": "Je **me lève**\nTu **te lèves**\nIl/elle/on **se lève**\nNous **nous levons**\nVous **vous levez**\nIls/elles **se lèvent**",
+          "english": "I get up\nYou get up\nHe/she gets up; one gets up/we get up\nWe get up\nYou get up\nThey get up",
+          "note": "È appears except with nous and vous."
+        },
+        {
+          "french": "Je **me couche**\nTu **te couches**\nIl/elle/on **se couche**\nNous **nous couchons**\nVous **vous couchez**\nIls/elles **se couchent**",
+          "english": "I go to bed\nYou go to bed\nHe/she goes to bed; one goes to bed/we go to bed\nWe go to bed\nYou go to bed\nThey go to bed",
+          "note": "Going to bed does not necessarily mean falling asleep immediately."
+        },
+        {
+          "french": "Je **m'habille**\nTu **t'habilles**\nIl/elle/on **s'habille**\nNous **nous habillons**\nVous **vous habillez**\nIls/elles **s'habillent**",
+          "english": "I get dressed\nYou get dressed\nHe/she gets dressed; one gets dressed/we get dressed\nWe get dressed\nYou get dressed\nThey get dressed",
+          "note": "The silent h permits elision."
+        },
+        {
+          "french": "Je **m'amuse**\nTu **t'amuses**\nIl/elle/on **s'amuse**\nNous **nous amusons**\nVous **vous amusez**\nIls/elles **s'amusent**",
+          "english": "I have fun\nYou have fun\nHe/she has fun; one has fun/we have fun\nWe have fun\nYou have fun\nThey have fun",
+          "note": "A conventional pronominal meaning."
+        },
+        {
+          "french": "Je **me réveille** à sept heures et je **me lève** à sept heures et demie.",
+          "english": "I wake up at seven and get up at half past seven.",
+          "note": "The two verbs distinguish waking from leaving bed."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Elle se habille.",
+          "prefer": "Elle s'habille.",
+          "why": "Se elides before the silent h of habiller."
+        }
+      ]
+    },
+    {
+      "id": "asseoir",
+      "title": "Two accepted ways to say sit down",
+      "paragraphs": [
+        "S'asseoir means sit down. Both present series below are standard; neither is an error. The alternative infinitive spelling s'assoir is accepted under the spelling recommendations. The pronouns still follow the same reflexive system. Learn one series for active use and recognise the other. Nous forms such as nous nous asseyons contain both subject and reflexive pronoun."
+      ],
+      "points": [
+        "Do not confuse sitting down, an action, with être assis/assise, being seated."
+      ],
+      "examples": [
+        {
+          "french": "Je **m'assieds**\nTu **t'assieds**\nIl/elle/on **s'assied**\nNous **nous asseyons**\nVous **vous asseyez**\nIls/elles **s'asseyent**",
+          "english": "I sit down\nYou sit down\nHe/she sits down; one sits down/we sit down\nWe sit down\nYou sit down\nThey sit down",
+          "note": "One accepted series."
+        },
+        {
+          "french": "Je **m'assois**\nTu **t'assois**\nIl/elle/on **s'assoit**\nNous **nous assoyons**\nVous **vous assoyez**\nIls/elles **s'assoient**",
+          "english": "I sit down\nYou sit down\nHe/she sits down; one sits down/we sit down\nWe sit down\nYou sit down\nThey sit down",
+          "note": "The other accepted series."
+        },
+        {
+          "french": "Elle **s'assied** près de la fenêtre.",
+          "english": "She sits down near the window.",
+          "note": "Elle s'assoit is equally valid here; une fenêtre is feminine."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Nous s'asseyons ici.",
+          "prefer": "Nous nous asseyons ici.",
+          "why": "The reflexive pronoun must agree with nous."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-refl-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "pattern",
+      "prompt": "Supply only the reflexive pronoun: 'Tu ___ laves.'",
+      "choices": [],
+      "answers": [
+        "te"
+      ],
+      "explanation": "Tu matches te."
+    },
+    {
+      "id": "a1-refl-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "routine",
+      "prompt": "Supply the full present verb phrase for se réveiller: 'Je ___ tôt.'",
+      "choices": [],
+      "answers": [
+        "me réveille"
+      ],
+      "explanation": "Je uses me plus réveille."
+    },
+    {
+      "id": "a1-refl-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "routine",
+      "prompt": "Supply the full present verb phrase for se lever: 'Elle ___.'",
+      "choices": [],
+      "answers": [
+        "se lève"
+      ],
+      "explanation": "Elle uses se and the accent-changing form lève."
+    },
+    {
+      "id": "a1-refl-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "asseoir",
+      "prompt": "Supply the full present phrase for s'asseoir: 'Je ___ ici.' Either standard series is accepted.",
+      "choices": [],
+      "answers": [
+        "m'assieds",
+        "m'assois"
+      ],
+      "explanation": "Both present series are standard."
+    },
+    {
+      "id": "a1-refl-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "routine",
+      "prompt": "Supply the full present phrase for se coucher: 'Nous ___ à dix heures.'",
+      "choices": [],
+      "answers": [
+        "nous couchons"
+      ],
+      "explanation": "The subject nous needs reflexive nous and couchons."
+    },
+    {
+      "id": "a1-refl-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "routine",
+      "prompt": "Supply the full present phrase for s'habiller: 'Tu ___ vite.'",
+      "choices": [],
+      "answers": [
+        "t'habilles"
+      ],
+      "explanation": "Te elides before silent h; tu takes -es."
+    },
+    {
+      "id": "a1-refl-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "pattern",
+      "prompt": "Supply the full present phrase for se laver: 'Vous ___ les mains.'",
+      "choices": [],
+      "answers": [
+        "vous lavez"
+      ],
+      "explanation": "Vous needs reflexive vous and the -ez ending."
+    },
+    {
+      "id": "a1-refl-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "routine",
+      "prompt": "Supply the full present phrase for s'amuser: 'Les enfants ___.'",
+      "choices": [],
+      "answers": [
+        "s'amusent"
+      ],
+      "explanation": "Se elides; the plural verb ends in -ent."
+    },
+    {
+      "id": "a1-refl-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "routine",
+      "prompt": "Supply the full present phrase for se réveiller: 'Ils ___ à six heures.'",
+      "choices": [],
+      "answers": [
+        "se réveillent"
+      ],
+      "explanation": "Ils uses se and -ent."
+    },
+    {
+      "id": "a1-refl-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "routine",
+      "prompt": "Supply the full present phrase for se lever: 'Nous ___ tard.'",
+      "choices": [],
+      "answers": [
+        "nous levons"
+      ],
+      "explanation": "Nous uses the unchanged stem lev-."
+    },
+    {
+      "id": "a1-refl-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "asseoir",
+      "prompt": "Supply the full present phrase for s'asseoir: 'Elles ___ dehors.' Either standard series is accepted.",
+      "choices": [],
+      "answers": [
+        "s'asseyent",
+        "s'assoient"
+      ],
+      "explanation": "Both plural series are valid."
+    },
+    {
+      "id": "a1-refl-12",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "pattern",
+      "prompt": "Which sentence explicitly means 'We wash ourselves'?",
+      "choices": [
+        "Nous nous lavons.",
+        "Nous lavons la voiture."
+      ],
+      "answers": [
+        "Nous nous lavons."
+      ],
+      "explanation": "The second nous identifies the people being washed."
+    },
+    {
+      "id": "a1-refl-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "routine",
+      "prompt": "Supply the full present phrase for s'habiller: 'On ___ maintenant.'",
+      "choices": [],
+      "answers": [
+        "s'habille"
+      ],
+      "explanation": "On takes singular s'habille."
+    },
+    {
+      "id": "a1-refl-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "asseoir",
+      "prompt": "Supply the full present phrase for s'asseoir: 'Vous ___ près de moi.' Either series is accepted.",
+      "choices": [],
+      "answers": [
+        "vous asseyez",
+        "vous assoyez"
+      ],
+      "explanation": "Both vous forms are standard, with reflexive vous."
+    },
+    {
+      "id": "a1-refl-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "routine",
+      "prompt": "Supply the full present phrase for s'amuser: 'Nous ___ beaucoup.'",
+      "choices": [],
+      "answers": [
+        "nous amusons"
+      ],
+      "explanation": "Nous does not elide before a vowel."
+    },
+    {
+      "id": "a1-refl-16",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "routine",
+      "prompt": "Supply the full present phrase for se coucher: 'Elle ___ tôt.'",
+      "choices": [],
+      "answers": [
+        "se couche"
+      ],
+      "explanation": "Elle uses se and singular couche."
+    }
+  ],
+  "production_task": {
+    "prompt": "Describe a morning and evening routine in four sentences. Include waking, getting up or dressed, sitting down and going to bed. Use at least one nous or vous form.",
+    "model_answer": "Je me réveille à sept heures. Je m'habille. Nous nous asseyons dans la cuisine. Je me couche à dix heures.",
+    "translation": "I wake up at seven o'clock. I get dressed. We sit down in the kitchen. I go to bed at ten o'clock.",
+    "rubric": [
+      "Match every reflexive pronoun to its subject.",
+      "Elide me/te/se before vowels or silent h.",
+      "Use a standard s'asseoir form.",
+      "Keep nous nous where required."
+    ]
+  }
+}

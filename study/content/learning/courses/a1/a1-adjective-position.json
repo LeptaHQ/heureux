@@ -1,0 +1,374 @@
+{
+  "version": 1,
+  "id": "a1-adjective-position",
+  "slug": "a1-adjective-position",
+  "cefr_level": "A1",
+  "topic": "grammar-foundations",
+  "title": "Un bel appartement : place et formes des adjectifs",
+  "summary": "Place familiar short adjectives before nouns, distinguish neuf from nouveau, and use bel, nouvel and vieil correctly.",
+  "order": 18,
+  "duration_minutes": 13,
+  "prerequisites": [
+    "a1-adjective-forms"
+  ],
+  "objectives": [
+    "Place common adjectives before or after the noun appropriately.",
+    "Choose beau/bel/belle, nouveau/nouvel/nouvelle and vieux/vieil/vieille with their plurals.",
+    "Distinguish brand-new from newly acquired and recognise fol/mol."
+  ],
+  "keywords": [
+    "adjective position",
+    "beau",
+    "nouveau",
+    "vieux",
+    "neuf",
+    "fou",
+    "mou",
+    "ce",
+    "cet"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "grammar-adjective-position-nuance",
+    "grammar-adjective-agreement"
+  ],
+  "sections": [
+    {
+      "id": "position",
+      "title": "Most descriptions follow the noun; some frequent short adjectives precede it",
+      "paragraphs": [
+        "Colour, nationality and many descriptive adjectives normally follow the noun: une voiture rouge, un étudiant canadien. Familiar short adjectives often come before it: petit (small), grand (big/tall), jeune (young), joli (pretty), bon (good), mauvais (bad), beau (beautiful), vieux (old), nouveau (new), premier (first), dernier (last). This is a useful list, not a universal length rule. Several adjectives can change meaning with position, such as un grand homme (a great man) versus un homme grand (a tall man).",
+        "When an adjective comes before a plural noun, careful French usually uses de rather than indefinite des: de petits sacs. Fixed combinations and conversational variants exist; the exercises specify the ordinary careful construction. For pointing to a noun, use ce (masculine), cet (masculine before a vowel or silent h), cette (feminine), ces (plural). These mean this/that or these/those and replace the article."
+      ],
+      "points": [
+        "Un appartement (m.) = an apartment; une voiture (f.) = a car."
+      ],
+      "examples": [
+        {
+          "french": "une **petite** voiture **rouge**",
+          "english": "a small red car",
+          "note": "Petite precedes the noun; the colour follows it."
+        },
+        {
+          "french": "de **jolis** dessins",
+          "english": "pretty drawings",
+          "note": "The ordinary careful indefinite plural is de before a pre-noun adjective."
+        },
+        {
+          "french": "**Cet** appartement est calme.",
+          "english": "This apartment is quiet.",
+          "note": "Cet is masculine before a vowel; it is not feminine cette."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "une rouge voiture",
+          "prefer": "une voiture rouge",
+          "why": "A simple identifying colour normally follows the noun in this neutral description."
+        }
+      ]
+    },
+    {
+      "id": "special-forms",
+      "title": "A following vowel changes the masculine singular, not the noun's gender",
+      "paragraphs": [
+        "Immediately before a masculine singular noun beginning with a vowel or silent h, use bel, nouvel and vieil instead of beau, nouveau and vieux. Before a consonant use the ordinary masculine form. After the noun or after être use beau, nouveau or vieux again. Feminines are belle, nouvelle, vieille. Masculine plurals are beaux, nouveaux, vieux; feminine plurals are belles, nouvelles, vieilles.",
+        "Fou (mad/crazy) and mou (soft) have feminine folle and molle, masculine plurals fous and mous, feminine plurals folles and molles. Their pre-vowel masculine forms fol and mol are mostly literary or fixed-use recognition forms. Ordinary speech usually chooses the adjective after the noun: un espoir fou, un oreiller mou. Do not force fol or mol into every everyday description."
+      ],
+      "points": [
+        "Beau/bel/belle/beaux/belles; nouveau/nouvel/nouvelle/nouveaux/nouvelles; vieux/vieil/vieille/vieux/vieilles.",
+        "An aspirated h blocks the pre-vowel form: un vieux héros."
+      ],
+      "examples": [
+        {
+          "french": "un **bel** appartement / un appartement **beau** et lumineux",
+          "english": "a beautiful apartment / an apartment that is beautiful and bright",
+          "note": "Bel immediately precedes the vowel; beau is used after the noun."
+        },
+        {
+          "french": "un **nouvel** hôtel / une **nouvelle** maison",
+          "english": "a new hotel / a new house",
+          "note": "Silent h triggers nouvel; feminine uses nouvelle."
+        },
+        {
+          "french": "un **vieil** ami / de **vieux** amis / de **vieilles** amies",
+          "english": "an old friend / old friends / old female friends",
+          "note": "The special masculine singular is not the plural form."
+        },
+        {
+          "french": "de **beaux** jardins et de **belles** terrasses",
+          "english": "beautiful gardens and beautiful terraces",
+          "note": "Masculine plural adds x; feminine plural adds s."
+        },
+        {
+          "french": "de **nouveaux** livres et de **nouvelles** revues",
+          "english": "new books and new magazines",
+          "note": "Nouveau has the same -x/-s plural contrast."
+        },
+        {
+          "french": "Dans le poème, il garde un **fol** espoir.",
+          "english": "In the poem, he keeps a wild hope.",
+          "note": "Literary recognition: fol before masculine vowel-initial espoir."
+        },
+        {
+          "french": "Le texte décrit un **mol** oreiller.",
+          "english": "The text describes a soft pillow.",
+          "note": "Literary recognition; everyday un oreiller mou is more usual."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "un belle appartement",
+          "prefer": "un bel appartement",
+          "why": "Appartement is masculine; bel, not feminine belle, precedes the vowel."
+        },
+        {
+          "avoid": "Cet hôtel est bel.",
+          "prefer": "Cet hôtel est beau.",
+          "why": "After être use beau, not the pre-noun form bel."
+        }
+      ]
+    },
+    {
+      "id": "neuf-nouveau",
+      "title": "New to someone is not necessarily brand-new",
+      "paragraphs": [
+        "Nouveau usually comes before the noun and means new in the situation, recently obtained, different or additional. Neuf normally follows the noun and means newly made or unused. A newly purchased second-hand bicycle can be mon nouveau vélo without being neuf. Neuf changes to neuve, neufs, neuves."
+      ],
+      "points": [
+        "Choose the intended meaning before choosing the adjective."
+      ],
+      "examples": [
+        {
+          "french": "Mon **nouveau** vélo est d'occasion.",
+          "english": "My new bicycle is second-hand.",
+          "note": "It is new to me, not newly manufactured."
+        },
+        {
+          "french": "Ces chaussures sont **neuves**.",
+          "english": "These shoes are brand-new.",
+          "note": "Neuf indicates unused condition and agrees with feminine plural chaussures."
+        }
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-posadj-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "special-forms",
+      "prompt": "Supply beau before masculine hôtel: 'un ___ hôtel'.",
+      "choices": [],
+      "answers": [
+        "bel"
+      ],
+      "explanation": "Silent h triggers bel."
+    },
+    {
+      "id": "a1-posadj-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "special-forms",
+      "prompt": "Supply vieux before feminine maison: 'une ___ maison'.",
+      "choices": [],
+      "answers": [
+        "vieille"
+      ],
+      "explanation": "The feminine form is vieille."
+    },
+    {
+      "id": "a1-posadj-03",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "neuf-nouveau",
+      "prompt": "The bicycle is new to you but second-hand. Which phrase communicates this without claiming it is unused?",
+      "choices": [
+        "mon nouveau vélo",
+        "mon vélo neuf"
+      ],
+      "answers": [
+        "mon nouveau vélo"
+      ],
+      "explanation": "Nouveau can mean newly acquired."
+    },
+    {
+      "id": "a1-posadj-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "position",
+      "prompt": "Arrange these words in the neutral order: une / voiture / rouge / petite.",
+      "choices": [],
+      "answers": [
+        "une petite voiture rouge"
+      ],
+      "explanation": "Petite precedes the noun; rouge follows."
+    },
+    {
+      "id": "a1-posadj-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "special-forms",
+      "prompt": "Supply nouveau: 'un ___ emploi' (emploi is masculine).",
+      "choices": [],
+      "answers": [
+        "nouvel"
+      ],
+      "explanation": "Use nouvel before a masculine singular vowel."
+    },
+    {
+      "id": "a1-posadj-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "special-forms",
+      "prompt": "Supply beau: 'de ___ arbres'.",
+      "choices": [],
+      "answers": [
+        "beaux"
+      ],
+      "explanation": "The masculine plural is beaux even before a vowel."
+    },
+    {
+      "id": "a1-posadj-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "special-forms",
+      "prompt": "Supply nouveau: 'de ___ écoles'.",
+      "choices": [],
+      "answers": [
+        "nouvelles"
+      ],
+      "explanation": "Écoles is feminine plural."
+    },
+    {
+      "id": "a1-posadj-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "special-forms",
+      "prompt": "Supply vieux: 'un ___ immeuble'.",
+      "choices": [],
+      "answers": [
+        "vieil"
+      ],
+      "explanation": "The masculine singular vowel triggers vieil."
+    },
+    {
+      "id": "a1-posadj-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "neuf-nouveau",
+      "prompt": "Use neuf with feminine plural bottes: 'des bottes ___'.",
+      "choices": [],
+      "answers": [
+        "neuves"
+      ],
+      "explanation": "Neuf becomes neuve, then neuves."
+    },
+    {
+      "id": "a1-posadj-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "position",
+      "prompt": "In careful French, supply de or des: '___ petits jardins'.",
+      "choices": [],
+      "answers": [
+        "de"
+      ],
+      "explanation": "An ordinary adjective before a plural noun generally changes indefinite des to de."
+    },
+    {
+      "id": "a1-posadj-11",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "special-forms",
+      "prompt": "A poem uses 'un fol espoir'. Which modern adjective does fol represent?",
+      "choices": [
+        "fou",
+        "faux"
+      ],
+      "answers": [
+        "fou"
+      ],
+      "explanation": "Fol is the literary pre-vowel masculine form of fou."
+    },
+    {
+      "id": "a1-posadj-12",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "special-forms",
+      "prompt": "In 'un mol oreiller', which everyday post-noun form corresponds to mol?",
+      "choices": [
+        "mou",
+        "molle"
+      ],
+      "answers": [
+        "mou"
+      ],
+      "explanation": "Mol is masculine singular before a vowel; mou is the usual post-noun form."
+    },
+    {
+      "id": "a1-posadj-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "special-forms",
+      "prompt": "Supply beau: 'Cette place est ___.'",
+      "choices": [],
+      "answers": [
+        "belle"
+      ],
+      "explanation": "A feminine place requires belle."
+    },
+    {
+      "id": "a1-posadj-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "special-forms",
+      "prompt": "Supply vieux: 'de ___ livres'.",
+      "choices": [],
+      "answers": [
+        "vieux"
+      ],
+      "explanation": "Masculine vieux is unchanged in the plural."
+    },
+    {
+      "id": "a1-posadj-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "position",
+      "prompt": "Supply ce, cet or cette: '___ hôtel'.",
+      "choices": [],
+      "answers": [
+        "cet"
+      ],
+      "explanation": "Hôtel is masculine and begins with silent h."
+    },
+    {
+      "id": "a1-posadj-16",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "special-forms",
+      "prompt": "Supply mou: 'des couvertures ___'.",
+      "choices": [],
+      "answers": [
+        "molles"
+      ],
+      "explanation": "Mou has feminine molle, then plural molles."
+    }
+  ],
+  "production_task": {
+    "prompt": "Describe a newly acquired second-hand object and a place you like. Include nouveau, a beau-family form and a colour in its neutral position.",
+    "model_answer": "J'ai un nouveau vélo d'occasion. Il est rouge. Près de chez moi, il y a un bel hôtel.",
+    "translation": "I have a new second-hand bicycle. It is red. Near my home, there is a beautiful hotel.",
+    "rubric": [
+      "Use nouveau without implying unused condition.",
+      "Use bel before a masculine noun with silent h.",
+      "Use ordinary adjective agreement and position."
+    ]
+  }
+}

@@ -1,0 +1,367 @@
+{
+  "version": 1,
+  "id": "a1-avoir-needs",
+  "slug": "a1-avoir-needs",
+  "cefr_level": "A1",
+  "topic": "word-meanings-expressions",
+  "title": "Exprimer un besoin, une envie, une peur ou une douleur",
+  "summary": "Use avoir expressions without translating English be or need word for word, and choose the correct link before a noun, action or body part.",
+  "order": 30,
+  "duration_minutes": 12,
+  "prerequisites": [
+    "a1-etre-avoir",
+    "a1-articles-gender",
+    "a1-want-can-must"
+  ],
+  "objectives": [
+    "Use avoir besoin de, avoir envie de and avoir peur de with nouns or infinitives.",
+    "Describe pain with avoir mal à and the correct article contraction.",
+    "Distinguish a need, a desire and a fear."
+  ],
+  "keywords": [
+    "avoir besoin de",
+    "avoir envie de",
+    "avoir peur de",
+    "avoir mal à",
+    "needs",
+    "pain"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "expressions-avoir-faire-il-faut",
+    "daily-health-body-senses"
+  ],
+  "sections": [
+    {
+      "id": "need-desire",
+      "title": "Use besoin for a need and envie for a desire",
+      "paragraphs": [
+        "Avoir besoin de means need; avoir envie de means feel like or want. Conjugate avoir, keep besoin or envie unchanged, then use de + a noun or infinitive. Je dois partir presents an obligation; j'ai besoin de partir presents a need; j'ai envie de partir presents a desire. They can overlap in a situation, but they do not automatically mean the same thing.",
+        "Before an unspecified mass noun, the needed de is enough: besoin d'eau, envie de chocolat. A countable singular can have an indefinite article: besoin d'un stylo. An identified object can keep its definite article, with contractions: besoin du dictionnaire. De becomes d' before a vowel or silent h, but not before an intervening consonant-starting article."
+      ],
+      "points": [
+        "Un stylo (m.) = a pen; un dictionnaire (m.) = a dictionary; l'eau (f.) = water."
+      ],
+      "examples": [
+        {
+          "french": "J'**ai besoin de** partir\nTu **as besoin de** partir\nIl/elle/on **a besoin de** partir\nNous **avons besoin de** partir\nVous **avez besoin de** partir\nIls/elles **ont besoin de** partir",
+          "english": "I need to leave\nYou need to leave\nHe/she needs to leave; one/we need to leave\nWe need to leave\nYou need to leave\nThey need to leave",
+          "note": "Only avoir changes across the persons; the same forms work with envie and peur."
+        },
+        {
+          "french": "Nous **avons besoin d'**eau.",
+          "english": "We need water.",
+          "note": "An unspecified mass noun follows de/d' without another partitive."
+        },
+        {
+          "french": "J'**ai besoin d'un** stylo.",
+          "english": "I need a pen.",
+          "note": "One countable item keeps its indefinite article."
+        },
+        {
+          "french": "Elle **a envie de** marcher.",
+          "english": "She feels like walking.",
+          "note": "Envie expresses a desire rather than an obligation."
+        },
+        {
+          "french": "Tu **as envie d'une** glace.",
+          "english": "You feel like having an ice cream.",
+          "note": "A countable serving follows d'une."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Je suis besoin d'eau.",
+          "prefer": "J'ai besoin d'eau.",
+          "why": "The fixed expression uses avoir."
+        },
+        {
+          "avoid": "Nous avons envie partir.",
+          "prefer": "Nous avons envie de partir.",
+          "why": "Envie requires de before the infinitive."
+        }
+      ]
+    },
+    {
+      "id": "fear",
+      "title": "Avoir peur de names what causes fear",
+      "paragraphs": [
+        "Avoir peur means be afraid. Add de before the feared noun or action: peur du bruit, peur de tomber. A general class of feared things commonly keeps its definite article: peur des chiens = de + les chiens. Do not translate English afraid as être peur. Peur remains singular in this fixed expression, regardless of the subject."
+      ],
+      "points": [
+        "Le bruit (m.) = noise; un chien (m.) = a dog."
+      ],
+      "examples": [
+        {
+          "french": "Elle **a peur des** chiens.",
+          "english": "She is afraid of dogs.",
+          "note": "De + les contracts to des."
+        },
+        {
+          "french": "Nous **avons peur de** tomber.",
+          "english": "We are afraid of falling.",
+          "note": "A feared action follows de as an infinitive."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Ils sont peur du bruit.",
+          "prefer": "Ils ont peur du bruit.",
+          "why": "Use avoir peur, not être peur."
+        }
+      ]
+    },
+    {
+      "id": "pain",
+      "title": "Avoir mal à locates a pain with a definite body-part article",
+      "paragraphs": [
+        "Avoir mal means be in pain or hurt. To locate it, add à + the definite article + body part: au dos (back), à la tête (head), à l'épaule (shoulder), aux pieds (feet). These nouns are le dos (m.), la tête (f.), l'épaule (f.) and le pied (m.). The article normally identifies the body part because the person with the pain is already clear.",
+        "Avoir mal à la tête commonly means have a headache. Do not confuse mal (pain/badly) with malade (ill): je suis malade is a different expression. Avoir mal describes the symptom and does not establish a medical diagnosis."
+      ],
+      "points": [
+        "À + le = au; à + les = aux; à la and à l' stay separate."
+      ],
+      "examples": [
+        {
+          "french": "J'**ai mal au** dos.",
+          "english": "My back hurts.",
+          "note": "À + le dos contracts."
+        },
+        {
+          "french": "Elle **a mal à la** tête.",
+          "english": "She has a headache.",
+          "note": "The feminine article does not contract."
+        },
+        {
+          "french": "Tu **as mal à l'**épaule ?",
+          "english": "Does your shoulder hurt?",
+          "note": "L' precedes the vowel."
+        },
+        {
+          "french": "Nous **avons mal aux** pieds.",
+          "english": "Our feet hurt.",
+          "note": "Plural body parts take aux."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "J'ai mal à le dos.",
+          "prefer": "J'ai mal au dos.",
+          "why": "À + le must contract."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-needs-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "need-desire",
+      "prompt": "Write only je + avoir in the present, with the required elision, as in 'I need help'.",
+      "choices": [],
+      "answers": [
+        "j'ai"
+      ],
+      "explanation": "Je becomes j' before ai in j'ai besoin d'aide."
+    },
+    {
+      "id": "a1-needs-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "need-desire",
+      "prompt": "Supply the missing preposition: 'Nous avons envie ___ sortir.'",
+      "choices": [],
+      "answers": [
+        "de"
+      ],
+      "explanation": "Avoir envie de introduces an infinitive."
+    },
+    {
+      "id": "a1-needs-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "fear",
+      "prompt": "Supply avoir: 'Elle ___ peur.'",
+      "choices": [],
+      "answers": [
+        "a"
+      ],
+      "explanation": "Fear uses avoir."
+    },
+    {
+      "id": "a1-needs-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "pain",
+      "prompt": "Supply à + le: 'J'ai mal ___ dos.'",
+      "choices": [],
+      "answers": [
+        "au"
+      ],
+      "explanation": "À + le contracts to au."
+    },
+    {
+      "id": "a1-needs-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "need-desire",
+      "prompt": "Supply besoin or envie for an essential need: 'Pour écrire, j'ai ___ d'un stylo.'",
+      "choices": [],
+      "answers": [
+        "besoin"
+      ],
+      "explanation": "The sentence presents the pen as needed for the action."
+    },
+    {
+      "id": "a1-needs-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "need-desire",
+      "prompt": "Supply besoin or envie to express a desire, not a requirement: 'J'ai ___ de danser.'",
+      "choices": [],
+      "answers": [
+        "envie"
+      ],
+      "explanation": "Envie expresses feeling like doing something."
+    },
+    {
+      "id": "a1-needs-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "need-desire",
+      "prompt": "Use de with elision for an unspecified mass noun: 'Nous avons besoin ___ eau.'",
+      "choices": [],
+      "answers": [
+        "d'"
+      ],
+      "explanation": "De elides; do not add another partitive."
+    },
+    {
+      "id": "a1-needs-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "need-desire",
+      "prompt": "Use de + le for a specific dictionary: 'J'ai besoin ___ dictionnaire qui est ici.'",
+      "choices": [],
+      "answers": [
+        "du"
+      ],
+      "explanation": "The identified object keeps le, which contracts with de."
+    },
+    {
+      "id": "a1-needs-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "fear",
+      "prompt": "Supply avoir: 'Nous ___ peur de tomber.'",
+      "choices": [],
+      "answers": [
+        "avons"
+      ],
+      "explanation": "Nous takes avons in the fear expression."
+    },
+    {
+      "id": "a1-needs-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "fear",
+      "prompt": "Combine de + les: 'Tu as peur ___ araignées.'",
+      "choices": [],
+      "answers": [
+        "des"
+      ],
+      "explanation": "The feared class has a definite plural article, which contracts."
+    },
+    {
+      "id": "a1-needs-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "pain",
+      "prompt": "Supply à plus the definite article: 'Elle a mal ___ tête.'",
+      "choices": [],
+      "answers": [
+        "à la"
+      ],
+      "explanation": "Tête is feminine singular."
+    },
+    {
+      "id": "a1-needs-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "pain",
+      "prompt": "Supply à plus the definite article: 'Ils ont mal ___ yeux.'",
+      "choices": [],
+      "answers": [
+        "aux"
+      ],
+      "explanation": "Yeux is plural; à + les becomes aux."
+    },
+    {
+      "id": "a1-needs-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "pain",
+      "prompt": "Supply à plus the definite article before feminine oreille: 'J'ai mal ___ oreille.'",
+      "choices": [],
+      "answers": [
+        "à l'"
+      ],
+      "explanation": "The vowel triggers l'; à l' does not contract."
+    },
+    {
+      "id": "a1-needs-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "need-desire",
+      "prompt": "Supply avoir: 'Vous ___ envie de rester ?'",
+      "choices": [],
+      "answers": [
+        "avez"
+      ],
+      "explanation": "Vous takes avez; envie stays unchanged."
+    },
+    {
+      "id": "a1-needs-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "fear",
+      "prompt": "Rewrite the whole sentence, changing only the verb: 'Ils sont peur de partir.'",
+      "choices": [],
+      "answers": [
+        "Ils ont peur de partir."
+      ],
+      "explanation": "Fear uses avoir, not être."
+    },
+    {
+      "id": "a1-needs-16",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "pain",
+      "prompt": "Which expression explicitly locates pain rather than simply saying someone is ill?",
+      "choices": [
+        "J'ai mal au dos.",
+        "Je suis malade."
+      ],
+      "answers": [
+        "J'ai mal au dos."
+      ],
+      "explanation": "Avoir mal à + body part names where it hurts."
+    }
+  ],
+  "production_task": {
+    "prompt": "Tell a friend why you need a quiet break. State a need, a desire and one symptom without inventing a diagnosis.",
+    "model_answer": "J'ai besoin de repos. J'ai envie de rester à la maison. J'ai mal à la tête.",
+    "translation": "I need rest. I feel like staying at home. I have a headache.",
+    "rubric": [
+      "Use avoir for each fixed expression.",
+      "Keep de before the needed or desired noun/action.",
+      "Use à plus the definite article for the body part."
+    ]
+  }
+}

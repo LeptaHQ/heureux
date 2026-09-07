@@ -1,0 +1,455 @@
+{
+  "version": 1,
+  "id": "a1-adjective-forms",
+  "slug": "a1-adjective-forms",
+  "cefr_level": "A1",
+  "topic": "grammar-foundations",
+  "title": "Accorder les descriptions : féminin, pluriel et couleurs",
+  "summary": "Match adjectives to nouns and learn common feminine spelling families without turning useful clues into absolute rules.",
+  "order": 17,
+  "duration_minutes": 15,
+  "prerequisites": [
+    "a1-noun-plurals",
+    "a1-reference"
+  ],
+  "objectives": [
+    "Form regular feminine and plural adjectives.",
+    "Recognise common consonant-doubling, -eux/-euse and -er/-ère patterns and exceptions.",
+    "Apply colour agreement and recognise basic invariable colour descriptions."
+  ],
+  "keywords": [
+    "adjectives",
+    "feminine",
+    "plural",
+    "colours",
+    "-ien",
+    "-eux",
+    "-ère"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    },
+    {
+      "label": "CCDMD: feminine adjective rules, consulted 2026-09-07",
+      "url": "https://ameliofrancais.ccdmd.qc.ca/storage/amelioration-du-francais/ressources/1697739701-allo_adj_048_V2.pdf"
+    }
+  ],
+  "related_legacy_ids": [
+    "grammar-adjective-agreement",
+    "grammar-colours-nationalities"
+  ],
+  "sections": [
+    {
+      "id": "basic",
+      "title": "Find the noun before changing the adjective",
+      "paragraphs": [
+        "An adjective describes a noun. Agreement means matching that noun's gender and number, whether the adjective is next to it or follows être. Usually add -e for feminine, then -s for plural: petit, petite, petits, petites. If the masculine already ends in silent -e, the feminine has the same spelling: calme, utile, jeune.",
+        "A masculine adjective already ending in -s or -x adds nothing in the masculine plural: bas → bas, heureux → heureux. Its feminine form can still add plural -s: basses, heureuses. With a mixed-gender group, conventional standard agreement is masculine plural."
+      ],
+      "points": [
+        "Do not assume that a silent final letter is unnecessary in writing."
+      ],
+      "examples": [
+        {
+          "french": "un **petit** sac / une **petite** boîte / les **petites** boîtes",
+          "english": "a small bag / a small box / the small boxes",
+          "note": "Un sac is masculine; une boîte is feminine. Petit normally precedes the noun."
+        },
+        {
+          "french": "une rue **calme** / des rues **calmes**",
+          "english": "a quiet street / quiet streets",
+          "note": "Calme already ends in e; only the plural adds a letter."
+        },
+        {
+          "french": "des murs **bas** / des tables **basses**",
+          "english": "low walls / low tables",
+          "note": "Masculine bas stays unchanged; feminine basse adds plural s."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Les portes sont ouvert.",
+          "prefer": "Les portes sont ouvertes.",
+          "why": "The adjective must be feminine plural to describe portes."
+        }
+      ]
+    },
+    {
+      "id": "feminine-families",
+      "title": "Learn families, but keep the exceptions visible",
+      "paragraphs": [
+        "Common -ien and -on adjectives double n before feminine -e: canadien/canadienne, ancien/ancienne, bon/bonne, mignon/mignonne. Related person or animal nouns can do the same: un musicien/une musicienne, un champion/une championne, un lion/une lionne. These mean musician, champion and lion/lioness. Do not invent a feminine for every noun in -ion or -on: many name objects with fixed grammatical gender.",
+        "Adjectives in -eux commonly become -euse: heureux/heureuse (happy), sérieux/sérieuse (serious). -Er becomes -ère: léger/légère (light), cher/chère (expensive/dear), dernier/dernière (last). Some other -x adjectives need a different pair: doux/douce (soft), faux/fausse (false), roux/rousse (red-haired).",
+        "Common -el and -eil adjectives double l: naturel/naturelle, pareil/pareille. Learn gentil/gentille and nul/nulle too, but do not generalise them to all -il/-ul words: civil/civile, subtil/subtile and seul/seule simply add e. Many -et adjectives double t, such as net/nette and muet/muette; complet/complète, discret/discrète, inquiet/inquiète and secret/secrète instead use è. Some -s adjectives double s: gros/grosse, bas/basse, gras/grasse, épais/épaisse; others do not, such as gris/grise."
+      ],
+      "points": [
+        "These are grouped spelling pairs, not a claim that one suffix predicts every French word.",
+        "An accent can be part of the feminine change: léger → légère."
+      ],
+      "examples": [
+        {
+          "french": "Une musicienne **canadienne** arrive.",
+          "english": "A Canadian musician is arriving.",
+          "note": "Both the noun and adjective have -ienne."
+        },
+        {
+          "french": "La **championne** regarde la **lionne**.",
+          "english": "The champion watches the lioness.",
+          "note": "These animate nouns have established feminine pairs."
+        },
+        {
+          "french": "Les étudiantes sont **heureuses**.",
+          "english": "The students are happy.",
+          "note": "-Eux becomes -euse, then adds plural s."
+        },
+        {
+          "french": "La valise est **légère**.",
+          "english": "The suitcase is light.",
+          "note": "Une valise is feminine; -er becomes -ère."
+        },
+        {
+          "french": "Sa réponse est **naturelle**, et sa voix est **pareille** à la mienne.",
+          "english": "Her answer is natural, and her voice is like mine.",
+          "note": "-El and -eil double l."
+        },
+        {
+          "french": "Sa sœur est **gentille**. La différence est **nulle**.",
+          "english": "His sister is kind. The difference is zero.",
+          "note": "Two independent examples: gentille and nulle are learned pairs, not a universal -il/-ul rule."
+        },
+        {
+          "french": "Une tenue **civile** convient.",
+          "english": "Civilian clothing is suitable.",
+          "note": "Civil adds one e without doubling l; une tenue is an outfit."
+        },
+        {
+          "french": "La photo est **nette**, mais la liste est **incomplète**.",
+          "english": "The photo is clear, but the list is incomplete.",
+          "note": "-Et can give -ette or, in named exceptions, -ète."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "une réponse complette",
+          "prefer": "une réponse complète",
+          "why": "Complet uses -ète, not doubled t."
+        },
+        {
+          "avoid": "une robe grisse",
+          "prefer": "une robe grise",
+          "why": "Gris does not belong to the small group that doubles s."
+        }
+      ]
+    },
+    {
+      "id": "colours",
+      "title": "Simple colour adjectives normally agree",
+      "paragraphs": [
+        "Common simple colours behave like adjectives: bleu/bleue/bleus/bleues, vert/verte/verts/vertes, noir/noire/noirs/noires. Rouge and jaune already end in e and only add s for plural. Blanc has blanche; violet has violette. A colour made of multiple words, such as bleu clair (light blue), normally stays unchanged. Nouns used as colour labels, notably orange and marron, are normally invariable. Rose and mauve are established agreeing colour adjectives."
+      ],
+      "points": [
+        "A plain colour and a compound colour follow different agreement patterns."
+      ],
+      "examples": [
+        {
+          "french": "des vestes **vertes** et des chaussures **rouges**",
+          "english": "green jackets and red shoes",
+          "note": "Simple colour adjectives agree."
+        },
+        {
+          "french": "des chemises **bleu clair** et des sacs **orange**",
+          "english": "light-blue shirts and orange bags",
+          "note": "Compound bleu clair and colour-noun orange stay unchanged."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "des chemises bleues claires",
+          "prefer": "des chemises bleu clair",
+          "why": "For the intended single colour 'light blue', the compound colour remains invariable."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-adj-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "basic",
+      "prompt": "Supply the feminine singular of calme: 'une pièce ___'.",
+      "choices": [],
+      "answers": [
+        "calme"
+      ],
+      "explanation": "An adjective already ending in silent e does not add another e."
+    },
+    {
+      "id": "a1-adj-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "feminine-families",
+      "prompt": "Supply canadien for a woman: 'Elle est ___.'",
+      "choices": [],
+      "answers": [
+        "canadienne"
+      ],
+      "explanation": "-Ien becomes -ienne."
+    },
+    {
+      "id": "a1-adj-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "feminine-families",
+      "prompt": "Supply heureux: 'une enfant ___'.",
+      "choices": [],
+      "answers": [
+        "heureuse"
+      ],
+      "explanation": "-Eux becomes -euse."
+    },
+    {
+      "id": "a1-adj-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "colours",
+      "prompt": "Supply vert: 'des portes ___'.",
+      "choices": [],
+      "answers": [
+        "vertes"
+      ],
+      "explanation": "Simple vert agrees in feminine plural."
+    },
+    {
+      "id": "a1-adj-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "basic",
+      "prompt": "Supply bas: 'des plafonds ___'.",
+      "choices": [],
+      "answers": [
+        "bas"
+      ],
+      "explanation": "Masculine bas already ends in s and stays unchanged."
+    },
+    {
+      "id": "a1-adj-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "feminine-families",
+      "prompt": "Write the feminine of un champion, including the indefinite article.",
+      "choices": [],
+      "answers": [
+        "une championne"
+      ],
+      "explanation": "This person noun doubles n before feminine e."
+    },
+    {
+      "id": "a1-adj-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "feminine-families",
+      "prompt": "Supply bon: 'une ___ idée'.",
+      "choices": [],
+      "answers": [
+        "bonne"
+      ],
+      "explanation": "Bon doubles n in the feminine."
+    },
+    {
+      "id": "a1-adj-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "feminine-families",
+      "prompt": "Supply cher: 'une veste ___'.",
+      "choices": [],
+      "answers": [
+        "chère"
+      ],
+      "explanation": "-Er becomes -ère."
+    },
+    {
+      "id": "a1-adj-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "feminine-families",
+      "prompt": "Supply naturel: 'une lumière ___'.",
+      "choices": [],
+      "answers": [
+        "naturelle"
+      ],
+      "explanation": "-El doubles l before e."
+    },
+    {
+      "id": "a1-adj-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "feminine-families",
+      "prompt": "Supply pareil: 'une table ___ à celle-ci'.",
+      "choices": [],
+      "answers": [
+        "pareille"
+      ],
+      "explanation": "-Eil doubles l before e."
+    },
+    {
+      "id": "a1-adj-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "feminine-families",
+      "prompt": "Supply gentil: 'une voisine ___'.",
+      "choices": [],
+      "answers": [
+        "gentille"
+      ],
+      "explanation": "Gentil has the established feminine gentille."
+    },
+    {
+      "id": "a1-adj-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "feminine-families",
+      "prompt": "Supply nul: 'une différence ___'.",
+      "choices": [],
+      "answers": [
+        "nulle"
+      ],
+      "explanation": "Nul doubles l in its feminine."
+    },
+    {
+      "id": "a1-adj-13",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "feminine-families",
+      "prompt": "Supply gros: 'une ___ boîte'.",
+      "choices": [],
+      "answers": [
+        "grosse"
+      ],
+      "explanation": "Gros belongs to the group doubling s."
+    },
+    {
+      "id": "a1-adj-14",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "feminine-families",
+      "prompt": "Supply complet: 'une adresse ___'.",
+      "choices": [],
+      "answers": [
+        "complète"
+      ],
+      "explanation": "Complet is an -ète exception, not complette."
+    },
+    {
+      "id": "a1-adj-15",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "colours",
+      "prompt": "Supply bleu clair as one compound colour: 'des robes ___'.",
+      "choices": [],
+      "answers": [
+        "bleu clair"
+      ],
+      "explanation": "A compound colour label stays invariable."
+    },
+    {
+      "id": "a1-adj-16",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "colours",
+      "prompt": "Choose the usual colour form: 'des sacs ___'.",
+      "choices": [
+        "orange",
+        "oranges"
+      ],
+      "answers": [
+        "orange"
+      ],
+      "explanation": "Orange used as a colour is invariable."
+    },
+    {
+      "id": "a1-adj-17",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "feminine-families",
+      "prompt": "Supply civil: 'la vie ___'.",
+      "choices": [],
+      "answers": [
+        "civile"
+      ],
+      "explanation": "Civil does not double l; gentil is not a universal model."
+    },
+    {
+      "id": "a1-adj-18",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "basic",
+      "prompt": "Supply heureux: 'des femmes ___'.",
+      "choices": [],
+      "answers": [
+        "heureuses"
+      ],
+      "explanation": "Build heureuse, then add plural s."
+    },
+    {
+      "id": "a1-adj-19",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "colours",
+      "prompt": "Supply blanc: 'des fleurs ___'.",
+      "choices": [],
+      "answers": [
+        "blanches"
+      ],
+      "explanation": "Blanc becomes blanche and then blanches."
+    },
+    {
+      "id": "a1-adj-20",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "feminine-families",
+      "prompt": "Supply net: 'une image ___'.",
+      "choices": [],
+      "answers": [
+        "nette"
+      ],
+      "explanation": "Net follows the doubled-t pattern."
+    },
+    {
+      "id": "a1-adj-21",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "basic",
+      "prompt": "Supply utile for feminine plural réponses: 'des réponses ___'.",
+      "choices": [],
+      "answers": [
+        "utiles"
+      ],
+      "explanation": "Utile already has a final e, so its feminine adds no extra e; the plural adds s."
+    },
+    {
+      "id": "a1-adj-22",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "feminine-families",
+      "prompt": "Supply léger for feminine plural valises: 'des valises ___'.",
+      "choices": [],
+      "answers": [
+        "légères"
+      ],
+      "explanation": "Build the feminine légère from léger, then add plural s. Keep both accents in their correct places."
+    }
+  ],
+  "production_task": {
+    "prompt": "Describe a room and two objects in it. Include a feminine adjective, a plural adjective and a colour; make the descriptions fit the nouns.",
+    "model_answer": "La pièce est calme. Les tables sont basses. Il y a une boîte verte près de la porte.",
+    "translation": "The room is quiet. The tables are low. There is a green box near the door.",
+    "rubric": [
+      "Find the gender and number of each described noun.",
+      "Keep the same feminine form for calme.",
+      "Use feminine plural basses and feminine singular verte."
+    ]
+  }
+}

@@ -1,0 +1,380 @@
+{
+  "version": 1,
+  "id": "a1-geography",
+  "slug": "a1-geography",
+  "cefr_level": "A1",
+  "topic": "time-place-prepositions",
+  "title": "Villes, pays et régions : destination et origine",
+  "summary": "Learn place names with gender and article, then select à, en, au, aux and the corresponding origin phrases.",
+  "order": 23,
+  "duration_minutes": 15,
+  "prerequisites": [
+    "a1-articles-gender",
+    "a1-venir-tenir-prendre",
+    "a1-place"
+  ],
+  "objectives": [
+    "Distinguish country gender from a simple final-e guess.",
+    "Use articles with geographical names and choose location/destination and origin constructions.",
+    "Respect established regional and city-name exceptions."
+  ],
+  "keywords": [
+    "countries",
+    "continents",
+    "regions",
+    "states",
+    "en",
+    "au",
+    "aux",
+    "venir de"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    },
+    {
+      "label": "OQLF: en, au and dans with American states, consulted 2026-09-07",
+      "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/24891/la-syntaxe/les-prepositions/preposition-devant-un-nom/les-prepositions-devant-un-nom-detat-americain"
+    }
+  ],
+  "related_legacy_ids": [
+    "prepositions-countries-cities",
+    "lexicon-country-nationalities"
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "title": "Learn a country or region with its article and grammatical gender",
+      "paragraphs": [
+        "Most country, continent and region names have a conventional article when used as a noun: la France (f.), le Canada (m.), les États-Unis (m. plural), l'Afrique (f.), l'Europe (f.), la Bretagne (f.), le Québec (m.), le Yorkshire (m.), la Californie (f.). The gender is grammatical. A final -e often signals a feminine country, but le Mexique, le Cambodge, le Mozambique and le Zimbabwe are masculine exceptions.",
+        "A vowel does not reveal gender: l'Iran is masculine, l'Italie feminine, l'Ontario masculine. Some place names normally have no article, such as Cuba and Israël. Do not invent an article merely because other country names have one. When a country is the subject or a direct object, its usual article normally stays: la France est…, j'aime le Canada. A following location preposition can replace or combine with the article."
+      ],
+      "points": [
+        "Plural names are plural grammatical phrases, not a separate gender.",
+        "Learn both the name and an example location phrase."
+      ],
+      "examples": [
+        {
+          "french": "**Le** Canada est grand.",
+          "english": "Canada is large.",
+          "note": "The country name used as subject keeps its masculine article."
+        },
+        {
+          "french": "J'aime **la** Bretagne et **les** États-Unis.",
+          "english": "I like Brittany and the United States.",
+          "note": "Region and country names retain their usual articles as direct objects."
+        },
+        {
+          "french": "**Le** Mexique est en Amérique du Nord.",
+          "english": "Mexico is in North America.",
+          "note": "Mexique is masculine despite final -e."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "La Mexique est grand.",
+          "prefer": "Le Mexique est grand.",
+          "why": "Mexique is a masculine country-name exception."
+        }
+      ]
+    },
+    {
+      "id": "countries",
+      "title": "Use the same construction for being in and going to a country",
+      "paragraphs": [
+        "For feminine countries and continents, use en: en France, en Italie, en Afrique. Masculine countries starting with a vowel also usually take en: en Iran. Other masculine countries take au: au Canada, au Mexique. Plural countries take aux: aux États-Unis. The same phrase follows a location verb or a movement verb.",
+        "For origin with venir, feminine countries/continents and masculine vowel-initial countries normally take de/d' without an article: de France, d'Italie, d'Afrique, d'Iran. Other masculine countries take du; plural countries take des. Learn articleless exceptions together with their constructions: à Cuba/de Cuba, en Israël/d'Israël."
+      ],
+      "points": [
+        "France: en/de; Canada: au/du; États-Unis: aux/des; Iran: en/d'."
+      ],
+      "examples": [
+        {
+          "french": "Elle habite **en Italie** et vient **de France**.",
+          "english": "She lives in Italy and comes from France.",
+          "note": "Feminine country location and origin use en and de/d'."
+        },
+        {
+          "french": "Nous allons **au Canada**; nous venons **du Mexique**.",
+          "english": "We are going to Canada; we come from Mexico.",
+          "note": "Masculine consonant-initial countries use au and du."
+        },
+        {
+          "french": "Ils vivent **aux États-Unis** et viennent **des États-Unis**.",
+          "english": "They live in the United States and come from the United States.",
+          "note": "Plural location and origin use aux and des."
+        },
+        {
+          "french": "Il travaille **en Iran** et vient **d'Iran**.",
+          "english": "He works in Iran and comes from Iran.",
+          "note": "A masculine vowel-initial country takes en/d'."
+        },
+        {
+          "french": "Elle va **à Cuba**, puis **en Israël**.",
+          "english": "She is going to Cuba, then to Israel.",
+          "note": "Articleless names still have established individual constructions."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Je vais à le Canada.",
+          "prefer": "Je vais au Canada.",
+          "why": "Use the masculine country construction au."
+        },
+        {
+          "avoid": "Je viens de la France.",
+          "prefer": "Je viens de France.",
+          "why": "For ordinary geographical origin, de France omits the article; other contexts such as a qualified France can keep it."
+        }
+      ]
+    },
+    {
+      "id": "cities-regions",
+      "title": "Cities usually take à/de; regions must also be learned by usage",
+      "paragraphs": [
+        "Ordinary city names have no article: à Montréal/de Montréal, à Paris/de Paris. If an article belongs to the name, retain it and apply contractions where appropriate: à La Rochelle/de La Rochelle, au Havre/du Havre for Le Havre. À Québec is Quebec City; au Québec is the province.",
+        "Many feminine regions take en, as in en Bretagne and en Californie, and Canadian provincial usage includes au Québec and en Ontario. Dans + the usual article is also common for regions, counties and states: dans le Yorkshire, dans les Pays de la Loire. Gender alone does not predict every region's preferred phrase. American masculine states commonly allow both au and dans le, such as au Texas/dans le Texas; vowel-initial names often allow en or dans l', such as en Arizona/dans l'Arizona. Do not mark the accepted dans forms wrong.",
+        "For regional origin use the established de phrase: de Bretagne, de Californie, d'Ontario, du Québec, du Yorkshire, des Pays de la Loire. To avoid confusing a state with a city of the same name, use dans l'État de New York. These are location constructions, not rules about the political status of a place."
+      ],
+      "points": [
+        "Choose the exact place intended: a city and a province can share a name."
+      ],
+      "examples": [
+        {
+          "french": "Je vais **à Québec**, mais je viens **de Montréal**.",
+          "english": "I am going to Quebec City, but I come from Montreal.",
+          "note": "These are cities, not provinces."
+        },
+        {
+          "french": "Elle habite **au Québec** et vient **d'Ontario**.",
+          "english": "She lives in Quebec and comes from Ontario.",
+          "note": "These are Canadian provinces."
+        },
+        {
+          "french": "Ils travaillent **dans le Yorkshire** et viennent **de Bretagne**.",
+          "english": "They work in Yorkshire and come from Brittany.",
+          "note": "Learn the conventional region phrases."
+        },
+        {
+          "french": "Nous allons **au Havre**.",
+          "english": "We are going to Le Havre.",
+          "note": "The city's Le contracts with à."
+        },
+        {
+          "french": "Il vit **au Texas**, ou, avec une autre tournure, **dans le Texas**.",
+          "english": "He lives in Texas, or, with another phrasing, in Texas.",
+          "note": "Both state constructions are accepted."
+        }
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-geo-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "names",
+      "prompt": "Supply the usual definite article: '___ Canada est grand.'",
+      "choices": [],
+      "answers": [
+        "le"
+      ],
+      "explanation": "Canada is masculine and has an article as subject."
+    },
+    {
+      "id": "a1-geo-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "countries",
+      "prompt": "Supply the usual country preposition: 'Je vais ___ France.'",
+      "choices": [],
+      "answers": [
+        "en"
+      ],
+      "explanation": "A feminine country takes en."
+    },
+    {
+      "id": "a1-geo-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "countries",
+      "prompt": "Supply the origin form: 'Elle vient ___ Canada.'",
+      "choices": [],
+      "answers": [
+        "du"
+      ],
+      "explanation": "Masculine consonant-initial Canada takes du for origin."
+    },
+    {
+      "id": "a1-geo-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "cities-regions",
+      "prompt": "Supply the usual city preposition: 'Il habite ___ Lyon.'",
+      "choices": [],
+      "answers": [
+        "à"
+      ],
+      "explanation": "An ordinary city name takes à."
+    },
+    {
+      "id": "a1-geo-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "names",
+      "prompt": "Choose le or la for the country: '___ Mexique'.",
+      "choices": [],
+      "answers": [
+        "le"
+      ],
+      "explanation": "Mexique is a masculine exception despite final e."
+    },
+    {
+      "id": "a1-geo-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "names",
+      "prompt": "Supply the normal article before the continent as direct object: 'J'aime ___ Afrique.'",
+      "choices": [],
+      "answers": [
+        "l'"
+      ],
+      "explanation": "Afrique is feminine, but la elides before its vowel."
+    },
+    {
+      "id": "a1-geo-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "countries",
+      "prompt": "Supply the usual location form: 'Elle habite ___ États-Unis.'",
+      "choices": [],
+      "answers": [
+        "aux"
+      ],
+      "explanation": "The plural country name takes aux."
+    },
+    {
+      "id": "a1-geo-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "countries",
+      "prompt": "Supply the usual location preposition: 'Nous travaillons ___ Iran.'",
+      "choices": [],
+      "answers": [
+        "en"
+      ],
+      "explanation": "Masculine Iran begins with a vowel, so it takes en."
+    },
+    {
+      "id": "a1-geo-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "countries",
+      "prompt": "Supply the ordinary origin form: 'Il vient ___ Italie.'",
+      "choices": [],
+      "answers": [
+        "d'"
+      ],
+      "explanation": "Ordinary origin from feminine Italie uses d' without an article."
+    },
+    {
+      "id": "a1-geo-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "cities-regions",
+      "prompt": "Use dans and the usual article before Yorkshire: 'Nous vivons ___ Yorkshire.'",
+      "choices": [],
+      "answers": [
+        "dans le"
+      ],
+      "explanation": "This region commonly uses dans le."
+    },
+    {
+      "id": "a1-geo-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "cities-regions",
+      "prompt": "Supply en or dans for the usual articleless regional construction: 'Elle travaille ___ Californie.'",
+      "choices": [],
+      "answers": [
+        "en"
+      ],
+      "explanation": "Feminine Californie uses en in this construction."
+    },
+    {
+      "id": "a1-geo-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "cities-regions",
+      "prompt": "Supply the usual origin preposition: 'Je viens ___ Paris.'",
+      "choices": [],
+      "answers": [
+        "de"
+      ],
+      "explanation": "An ordinary city takes de for origin."
+    },
+    {
+      "id": "a1-geo-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "countries",
+      "prompt": "Supply the origin form: 'Ils viennent ___ États-Unis.'",
+      "choices": [],
+      "answers": [
+        "des"
+      ],
+      "explanation": "Plural country origin uses des."
+    },
+    {
+      "id": "a1-geo-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "cities-regions",
+      "prompt": "Use à with the city Le Havre, contracting correctly: 'Je vais ___ Havre.'",
+      "choices": [],
+      "answers": [
+        "au"
+      ],
+      "explanation": "À contracts with the Le belonging to the city name."
+    },
+    {
+      "id": "a1-geo-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "cities-regions",
+      "prompt": "Supply the ordinary origin form for the province: 'Elle vient ___ Québec.'",
+      "choices": [],
+      "answers": [
+        "du"
+      ],
+      "explanation": "Du Québec refers to the province; de Québec would refer to the city."
+    },
+    {
+      "id": "a1-geo-16",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "cities-regions",
+      "prompt": "Is 'dans le Texas' an accepted alternative to 'au Texas'?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "answers": [
+        "Oui"
+      ],
+      "explanation": "OQLF accepts both constructions; do not turn a preference into a prohibition."
+    }
+  ],
+  "production_task": {
+    "prompt": "Introduce two people's origins and current homes. Include one city, one feminine country and one masculine country; give the city/province distinction clearly if using Québec.",
+    "model_answer": "Je viens de France et j'habite à Montréal. Mon ami vient du Canada et travaille en Italie.",
+    "translation": "I come from France and live in Montreal. My friend comes from Canada and works in Italy.",
+    "rubric": [
+      "Use de/d', du or des for origin as appropriate.",
+      "Use à for the ordinary city name.",
+      "Choose en/au/aux from the country construction, not a direct English translation."
+    ]
+  }
+}

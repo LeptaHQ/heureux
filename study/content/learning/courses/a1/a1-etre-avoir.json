@@ -1,55 +1,352 @@
 {
-  "version": 1, "id": "a1-etre-avoir", "slug": "a1-etre-avoir", "cefr_level": "A1", "topic": "verbs-tenses-moods",
-  "title": "Being and having: être and avoir", "summary": "Give an identity, a state, an age and a possession using two essential present-tense verbs.",
-  "order": 2, "duration_minutes": 10, "prerequisites": ["a1-sentence-foundations"],
-  "objectives": ["Recall all present forms of être and avoir.", "Distinguish being from having, including French age expressions."],
-  "keywords": ["être", "avoir", "present", "age", "identity"],
-  "sources": [{"label": "Public A1 topic index, reviewed 2026-09-07", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"}],
-  "related_legacy_ids": ["verbs-present-patterns", "expressions-avoir-faire-il-faut"],
+  "version": 1,
+  "id": "a1-etre-avoir",
+  "slug": "a1-etre-avoir",
+  "cefr_level": "A1",
+  "topic": "verbs-tenses-moods",
+  "title": "Être et avoir : identité, état, âge et possession",
+  "summary": "Give an identity, a state, an age and a possession using two essential present-tense verbs.",
+  "order": 2,
+  "duration_minutes": 10,
+  "prerequisites": [
+    "a1-sentence-foundations"
+  ],
+  "objectives": [
+    "Recall all present forms of être and avoir.",
+    "Distinguish being from having, including French age expressions."
+  ],
+  "keywords": [
+    "être",
+    "avoir",
+    "present",
+    "age",
+    "identity"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "verbs-present-patterns",
+    "expressions-avoir-faire-il-faut"
+  ],
   "sections": [
-    {"id": "etre", "title": "Être connects the subject to an identity or state",
-      "paragraphs": ["Être means to be. Its present forms are irregular: learn the whole set rather than adding regular endings. Il, elle and on share one form; ils and elles share another. With a bare profession after être, French normally omits the English a/an: elle est médecin. Un médecin (m.) is a doctor; the profession can describe a woman too.", "The present can describe what is true now or generally. A describing word, called an adjective, can change with the subject: prêt for masculine singular, prête for feminine singular."],
-      "points": ["Être describes who someone is, how they are or where they are.", "Keep the accents in êtes and the infinitive être."],
-      "examples": [
-        {"french": "Je **suis**\nTu **es**\nIl/elle/on **est**\nNous **sommes**\nVous **êtes**\nIls/elles **sont**", "english": "I am\nYou are\nHe/she is; one is/we are\nWe are\nYou are\nThey are", "note": "The full present paradigm; on keeps est even when it means we."},
-        {"french": "Je **suis** médecin.", "english": "I am a doctor.", "note": "A bare profession follows être without an indefinite article."},
-        {"french": "Tu **es** ici.", "english": "You are here.", "note": "Être can locate someone."},
-        {"french": "Nous **sommes** prêts.", "english": "We are ready.", "note": "The adjective is masculine plural for this group."},
-        {"french": "Vous **êtes** prête, madame.", "english": "You are ready, madam.", "note": "Polite singular vous keeps the plural verb but the adjective describes one woman."}
+    {
+      "id": "etre",
+      "title": "Être connects the subject to an identity or state",
+      "paragraphs": [
+        "Être means to be. Its present forms are irregular: learn the whole set rather than adding regular endings. Il, elle and on share one form; ils and elles share another. With a bare profession after être, French normally omits the English a/an: elle est médecin. Un médecin (m.) is a doctor; the profession can describe a woman too.",
+        "The present can describe what is true now or generally. A describing word, called an adjective, can change with the subject: prêt for masculine singular, prête for feminine singular."
       ],
-      "mistakes": [{"avoid": "Nous sont ici.", "prefer": "Nous sommes ici.", "why": "Nous requires sommes, not the ils/elles form."}]
+      "points": [
+        "Être describes who someone is, how they are or where they are.",
+        "Keep the accents in êtes and the infinitive être."
+      ],
+      "examples": [
+        {
+          "french": "Je **suis**\nTu **es**\nIl/elle/on **est**\nNous **sommes**\nVous **êtes**\nIls/elles **sont**",
+          "english": "I am\nYou are\nHe/she is; one is/we are\nWe are\nYou are\nThey are",
+          "note": "The full present paradigm; on keeps est even when it means we."
+        },
+        {
+          "french": "Je **suis** médecin.",
+          "english": "I am a doctor.",
+          "note": "A bare profession follows être without an indefinite article."
+        },
+        {
+          "french": "Tu **es** ici.",
+          "english": "You are here.",
+          "note": "Être can locate someone."
+        },
+        {
+          "french": "Nous **sommes** prêts.",
+          "english": "We are ready.",
+          "note": "The adjective is masculine plural for this group."
+        },
+        {
+          "french": "Vous **êtes** prête, madame.",
+          "english": "You are ready, madam.",
+          "note": "Polite singular vous keeps the plural verb but the adjective describes one woman."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Nous sont ici.",
+          "prefer": "Nous sommes ici.",
+          "why": "Nous requires sommes, not the ils/elles form."
+        }
+      ]
     },
-    {"id": "avoir", "title": "Avoir expresses possession, age and several familiar feelings",
-      "paragraphs": ["Avoir means to have. It also expresses age: avoir + number + ans, literally to have a number of years. Un an (m.) is a year. French uses avoir, not être, in avoir faim (be hungry), avoir soif (be thirsty), avoir chaud (feel hot) and avoir froid (feel cold). These fixed expressions need no article before faim, soif, chaud or froid.", "J'ai has an apostrophe because je meets a vowel. In il a, a has no accent; à with an accent is a different word, a preposition meaning at or to."],
-      "points": ["Avoir: j'ai, tu as, il/elle/on a, nous avons, vous avez, ils/elles ont.", "Être and avoir do not translate every English use word for word."],
-      "examples": [
-        {"french": "J'**ai**\nTu **as**\nIl/elle/on **a**\nNous **avons**\nVous **avez**\nIls/elles **ont**", "english": "I have\nYou have\nHe/she/one has; we have\nWe have\nYou have\nThey have", "note": "Each subject needs its own form."},
-        {"french": "Elle **a** un vélo.", "english": "She has a bicycle.", "note": "Un vélo (m.) is a bicycle."},
-        {"french": "J'**ai** vingt ans.", "english": "I am twenty years old.", "note": "French expresses age with avoir."},
-        {"french": "Les enfants **ont faim**.", "english": "The children are hungry.", "note": "Avoir faim describes hunger."},
-        {"french": "Nous **avons froid**.", "english": "We feel cold.", "note": "This is a person's sensation, not a weather report."},
-        {"french": "Vous **avez soif** ?", "english": "Are you thirsty?", "note": "Rising intonation turns the statement order into a question."}
+    {
+      "id": "avoir",
+      "title": "Avoir expresses possession, age and several familiar feelings",
+      "paragraphs": [
+        "Avoir means to have. It also expresses age: avoir + number + ans, literally to have a number of years. Un an (m.) is a year. French uses avoir, not être, in avoir faim (be hungry), avoir soif (be thirsty), avoir chaud (feel hot) and avoir froid (feel cold). These fixed expressions need no article before faim, soif, chaud or froid.",
+        "J'ai has an apostrophe because je meets a vowel. In il a, a has no accent; à with an accent is a different word, a preposition meaning at or to."
       ],
-      "mistakes": [{"avoid": "Je suis vingt ans.", "prefer": "J'ai vingt ans.", "why": "Use avoir for age."}, {"avoid": "Ils avons faim.", "prefer": "Ils ont faim.", "why": "Ils takes ont; avons belongs to nous."}]
+      "points": [
+        "Avoir: j'ai, tu as, il/elle/on a, nous avons, vous avez, ils/elles ont.",
+        "Être and avoir do not translate every English use word for word."
+      ],
+      "examples": [
+        {
+          "french": "J'**ai**\nTu **as**\nIl/elle/on **a**\nNous **avons**\nVous **avez**\nIls/elles **ont**",
+          "english": "I have\nYou have\nHe/she/one has; we have\nWe have\nYou have\nThey have",
+          "note": "Each subject needs its own form."
+        },
+        {
+          "french": "Elle **a** un vélo.",
+          "english": "She has a bicycle.",
+          "note": "Un vélo (m.) is a bicycle."
+        },
+        {
+          "french": "J'**ai** vingt ans.",
+          "english": "I am twenty years old.",
+          "note": "French expresses age with avoir."
+        },
+        {
+          "french": "Les enfants **ont faim**.",
+          "english": "The children are hungry.",
+          "note": "Avoir faim describes hunger."
+        },
+        {
+          "french": "Nous **avons froid**.",
+          "english": "We feel cold.",
+          "note": "This is a person's sensation, not a weather report."
+        },
+        {
+          "french": "Vous **avez soif** ?",
+          "english": "Are you thirsty?",
+          "note": "Rising intonation turns the statement order into a question."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Je suis vingt ans.",
+          "prefer": "J'ai vingt ans.",
+          "why": "Use avoir for age."
+        },
+        {
+          "avoid": "Ils avons faim.",
+          "prefer": "Ils ont faim.",
+          "why": "Ils takes ont; avons belongs to nous."
+        }
+      ]
     }
   ],
   "practice": [
-    {"id":"a1-behave-01","kind":"text","pool":"practice","section_id":"etre","prompt":"Supply être in the present: 'Je ___ à Lyon.'","choices":[],"answers":["suis"],"explanation":"Je takes suis."},
-    {"id":"a1-behave-02","kind":"text","pool":"practice","section_id":"avoir","prompt":"Supply avoir: 'Tu ___ une clé.'","choices":[],"answers":["as"],"explanation":"Tu as means you have."},
-    {"id":"a1-behave-03","kind":"choice","pool":"practice","section_id":"avoir","prompt":"Which sentence gives an age?","choices":["Il a trente ans.","Il est trente ans."],"answers":["Il a trente ans."],"explanation":"French age expressions use avoir."},
-    {"id":"a1-behave-04","kind":"text","pool":"practice","section_id":"etre","prompt":"Supply être: 'Vous ___ ici.'","choices":[],"answers":["êtes"],"explanation":"Vous requires êtes, including polite singular vous."},
-    {"id":"a1-behave-05","kind":"text","pool":"check","section_id":"etre","prompt":"Supply être: 'Les portes ___ ouvertes.'","choices":[],"answers":["sont"],"explanation":"Les portes is a plural subject equivalent to elles."},
-    {"id":"a1-behave-06","kind":"text","pool":"check","section_id":"etre","prompt":"Supply être: 'On ___ en classe.'","choices":[],"answers":["est"],"explanation":"On always takes the third-person singular verb."},
-    {"id":"a1-behave-07","kind":"text","pool":"check","section_id":"avoir","prompt":"Supply avoir: 'Nous ___ deux billets.'","choices":[],"answers":["avons"],"explanation":"Nous avons is the first-person plural."},
-    {"id":"a1-behave-08","kind":"text","pool":"check","section_id":"avoir","prompt":"Supply avoir: 'Mes voisins ___ un chien.'","choices":[],"answers":["ont"],"explanation":"The plural subject takes ont."},
-    {"id":"a1-behave-09","kind":"text","pool":"check","section_id":"avoir","prompt":"Write je + avoir in the present, with the required apostrophe.","choices":[],"answers":["j'ai"],"explanation":"Je elides before ai."},
-    {"id":"a1-behave-10","kind":"choice","pool":"check","section_id":"avoir","prompt":"You want water. Choose the ordinary expression.","choices":["J'ai soif.","Je suis soif."],"answers":["J'ai soif."],"explanation":"Avoir soif means to be thirsty."},
-    {"id":"a1-behave-11","kind":"text","pool":"check","section_id":"etre","prompt":"Supply être: 'Toi et moi, nous ___ prêts.'","choices":[],"answers":["sommes"],"explanation":"The subject nous takes sommes."},
-    {"id":"a1-behave-12","kind":"text","pool":"check","section_id":"avoir","prompt":"Supply avoir: 'Vous ___ faim ?'","choices":[],"answers":["avez"],"explanation":"Avez is the vous form; hunger uses avoir."},
-    {"id":"a1-behave-13","kind":"text","pool":"review","section_id":"etre","prompt":"Supply être: 'Tu ___ médecin.'","choices":[],"answers":["es"],"explanation":"Tu takes es; the bare profession needs no article."},
-    {"id":"a1-behave-14","kind":"text","pool":"review","section_id":"avoir","prompt":"Correct only the verb phrase: 'Elle est dix-neuf ans.' Write the sentence.","choices":[],"answers":["Elle a dix-neuf ans."],"explanation":"Avoir expresses age."},
-    {"id":"a1-behave-15","kind":"text","pool":"review","section_id":"avoir","prompt":"Supply avoir: 'On ___ froid dehors.'","choices":[],"answers":["a"],"explanation":"On takes a in the sensation expression avoir froid."},
-    {"id":"a1-behave-16","kind":"choice","pool":"review","section_id":"etre","prompt":"A woman is being addressed politely. Choose the correct sentence.","choices":["Vous êtes prête.","Vous est prête."],"answers":["Vous êtes prête."],"explanation":"Polite singular vous still requires êtes."}
+    {
+      "id": "a1-behave-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "etre",
+      "prompt": "Supply être in the present: 'Je ___ à Lyon.'",
+      "choices": [],
+      "answers": [
+        "suis"
+      ],
+      "explanation": "Je takes suis."
+    },
+    {
+      "id": "a1-behave-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "avoir",
+      "prompt": "Supply avoir: 'Tu ___ une clé.'",
+      "choices": [],
+      "answers": [
+        "as"
+      ],
+      "explanation": "Tu as means you have."
+    },
+    {
+      "id": "a1-behave-03",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "avoir",
+      "prompt": "Which sentence gives an age?",
+      "choices": [
+        "Il a trente ans.",
+        "Il est trente ans."
+      ],
+      "answers": [
+        "Il a trente ans."
+      ],
+      "explanation": "French age expressions use avoir."
+    },
+    {
+      "id": "a1-behave-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "etre",
+      "prompt": "Supply être: 'Vous ___ ici.'",
+      "choices": [],
+      "answers": [
+        "êtes"
+      ],
+      "explanation": "Vous requires êtes, including polite singular vous."
+    },
+    {
+      "id": "a1-behave-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "etre",
+      "prompt": "Supply être: 'Les portes ___ ouvertes.'",
+      "choices": [],
+      "answers": [
+        "sont"
+      ],
+      "explanation": "Les portes is a plural subject equivalent to elles."
+    },
+    {
+      "id": "a1-behave-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "etre",
+      "prompt": "Supply être: 'On ___ en classe.'",
+      "choices": [],
+      "answers": [
+        "est"
+      ],
+      "explanation": "On always takes the third-person singular verb."
+    },
+    {
+      "id": "a1-behave-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "avoir",
+      "prompt": "Supply avoir: 'Nous ___ deux billets.'",
+      "choices": [],
+      "answers": [
+        "avons"
+      ],
+      "explanation": "Nous avons is the first-person plural."
+    },
+    {
+      "id": "a1-behave-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "avoir",
+      "prompt": "Supply avoir: 'Mes voisins ___ un chien.'",
+      "choices": [],
+      "answers": [
+        "ont"
+      ],
+      "explanation": "The plural subject takes ont."
+    },
+    {
+      "id": "a1-behave-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "avoir",
+      "prompt": "Write je + avoir in the present, with the required apostrophe.",
+      "choices": [],
+      "answers": [
+        "j'ai"
+      ],
+      "explanation": "Je elides before ai."
+    },
+    {
+      "id": "a1-behave-10",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "avoir",
+      "prompt": "You want water. Choose the ordinary expression.",
+      "choices": [
+        "J'ai soif.",
+        "Je suis soif."
+      ],
+      "answers": [
+        "J'ai soif."
+      ],
+      "explanation": "Avoir soif means to be thirsty."
+    },
+    {
+      "id": "a1-behave-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "etre",
+      "prompt": "Supply être: 'Toi et moi, nous ___ prêts.'",
+      "choices": [],
+      "answers": [
+        "sommes"
+      ],
+      "explanation": "The subject nous takes sommes."
+    },
+    {
+      "id": "a1-behave-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "avoir",
+      "prompt": "Supply avoir: 'Vous ___ faim ?'",
+      "choices": [],
+      "answers": [
+        "avez"
+      ],
+      "explanation": "Avez is the vous form; hunger uses avoir."
+    },
+    {
+      "id": "a1-behave-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "etre",
+      "prompt": "Supply être: 'Tu ___ médecin.'",
+      "choices": [],
+      "answers": [
+        "es"
+      ],
+      "explanation": "Tu takes es; the bare profession needs no article."
+    },
+    {
+      "id": "a1-behave-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "avoir",
+      "prompt": "Rewrite the whole sentence, changing only the verb: 'Elle est dix-neuf ans.'",
+      "choices": [],
+      "answers": [
+        "Elle a dix-neuf ans."
+      ],
+      "explanation": "Avoir expresses age."
+    },
+    {
+      "id": "a1-behave-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "avoir",
+      "prompt": "Supply avoir: 'On ___ froid dehors.'",
+      "choices": [],
+      "answers": [
+        "a"
+      ],
+      "explanation": "On takes a in the sensation expression avoir froid."
+    },
+    {
+      "id": "a1-behave-16",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "etre",
+      "prompt": "A woman is being addressed politely. Choose the correct sentence.",
+      "choices": [
+        "Vous êtes prête.",
+        "Vous est prête."
+      ],
+      "answers": [
+        "Vous êtes prête."
+      ],
+      "explanation": "Polite singular vous still requires êtes."
+    }
   ],
-  "production_task":{"prompt":"Write a short introduction for a new class: give your name with Je suis, your age with avoir and something you have. You may invent the details.","model_answer":"Je suis Nora. J'ai vingt-huit ans. J'ai un vélo.","translation":"I am Nora. I am twenty-eight years old. I have a bicycle.","rubric":["Use suis for identity and ai for age and possession.","Keep the apostrophe in j'ai.","Include an article with the possessed countable object."]}
+  "production_task": {
+    "prompt": "Write a short introduction for a new class: give your name with Je suis, your age with avoir and something you have. You may invent the details.",
+    "model_answer": "Je suis Nora. J'ai vingt-huit ans. J'ai un vélo.",
+    "translation": "I am Nora. I am twenty-eight years old. I have a bicycle.",
+    "rubric": [
+      "Use suis for identity and ai for age and possession.",
+      "Keep the apostrophe in j'ai.",
+      "Include an article with the possessed countable object."
+    ]
+  }
 }

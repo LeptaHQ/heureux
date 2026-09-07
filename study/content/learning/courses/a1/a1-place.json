@@ -1,0 +1,428 @@
+{
+  "version": 1,
+  "id": "a1-place",
+  "slug": "a1-place",
+  "cefr_level": "A1",
+  "topic": "time-place-prepositions",
+  "title": "Situer les personnes et les objets",
+  "summary": "Locate things precisely with simple and compound prepositions; distinguish en from dans and a person's place from a building.",
+  "order": 22,
+  "duration_minutes": 13,
+  "prerequisites": [
+    "a1-articles-gender",
+    "a1-stressed-object-pronouns"
+  ],
+  "objectives": [
+    "Choose location prepositions from the intended spatial relationship.",
+    "Form compound phrases with de and its contractions.",
+    "Use chez with people and distinguish established en expressions from physical dans."
+  ],
+  "keywords": [
+    "dans",
+    "sur",
+    "sous",
+    "devant",
+    "derrière",
+    "entre",
+    "près de",
+    "chez",
+    "en"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "prepositions-location-chez"
+  ],
+  "sections": [
+    {
+      "id": "simple",
+      "title": "Name the spatial relationship, not just English 'at'",
+      "paragraphs": [
+        "Dans means in or inside, sur means on a surface, sous means under, devant means in front of, derrière means behind, and entre means between. These prepositions go directly before the noun phrase; do not automatically add de. Entre usually introduces two reference points joined with et.",
+        "A preposition can describe where someone is or where they move: être dans la cuisine and entrer dans la cuisine. Un tiroir (m.) is a drawer; une étagère (f.) is a shelf; un canapé (m.) is a sofa."
+      ],
+      "points": [
+        "Sur describes contact with a supporting surface; devant does not mean on its surface."
+      ],
+      "examples": [
+        {
+          "french": "Les clés sont **dans** le tiroir.",
+          "english": "The keys are in the drawer.",
+          "note": "The keys are inside it."
+        },
+        {
+          "french": "La lampe est **sur** l'étagère.",
+          "english": "The lamp is on the shelf.",
+          "note": "The shelf supports the lamp."
+        },
+        {
+          "french": "Le sac est **sous** la chaise.",
+          "english": "The bag is under the chair.",
+          "note": "The bag is lower than the chair."
+        },
+        {
+          "french": "Le vélo est **devant** la maison; le jardin est **derrière**.",
+          "english": "The bicycle is in front of the house; the garden is behind it.",
+          "note": "The two positions contrast."
+        },
+        {
+          "french": "La table est **entre** le canapé et la fenêtre.",
+          "english": "The table is between the sofa and the window.",
+          "note": "Entre names two reference points."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Les clés sont dans de le tiroir.",
+          "prefer": "Les clés sont dans le tiroir.",
+          "why": "Dans takes the noun phrase directly; it does not require de."
+        }
+      ]
+    },
+    {
+      "id": "compound",
+      "title": "Keep the de in multiword location phrases",
+      "paragraphs": [
+        "À côté de means next to; en face de means opposite/across from; près de means near; loin de means far from; à l'intérieur de means inside; à l'extérieur de means outside; au coin de means at the corner of. De is part of these expressions and contracts with a following le or les: près du parc, en face des maisons. Before a vowel use d' where no article intervenes, as in près d'ici (near here).",
+        "Devant and en face de need not describe the same position. A person can stand devant a shop, immediately in front of its entrance; a café en face du shop is across from it. Context supplies the exact distance."
+      ],
+      "points": [
+        "Un parc (m.) = a park; une rue (f.) = a street; un bâtiment (m.) = a building."
+      ],
+      "examples": [
+        {
+          "french": "La banque est **à côté du** parc.",
+          "english": "The bank is next to the park.",
+          "note": "À côté de + le becomes à côté du."
+        },
+        {
+          "french": "Le café est **en face de** la gare.",
+          "english": "The café is opposite the station.",
+          "note": "De stays separate before la."
+        },
+        {
+          "french": "J'habite **près de** l'école, mais **loin du** stade.",
+          "english": "I live near the school but far from the stadium.",
+          "note": "Compare de l' with du."
+        },
+        {
+          "french": "Les élèves sont **à l'intérieur du** bâtiment; les parents attendent **à l'extérieur**.",
+          "english": "The students are inside the building; the parents are waiting outside.",
+          "note": "The reference noun can be omitted when already clear."
+        },
+        {
+          "french": "La pharmacie est **au coin de** la rue.",
+          "english": "The pharmacy is at the corner of the street.",
+          "note": "Keep de after au coin."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "près le parc",
+          "prefer": "près du parc",
+          "why": "Près needs de, and de + le contracts."
+        }
+      ]
+    },
+    {
+      "id": "en-chez",
+      "title": "Some locations are conventional expressions; people take chez",
+      "paragraphs": [
+        "En appears in established expressions often presenting an activity or setting: en classe (in class), en ville (in town), en prison (in prison). Dans normally presents an inside location with a noun phrase: dans la classe (inside the classroom), dans cette ville (in this town). Do not choose en simply because an English sentence has in or because a noun is feminine.",
+        "Chez means at or to someone's home, premises or professional practice. Use it with a person, profession or stressed pronoun: chez Lina, chez le médecin, chez moi. Use a place construction for the building itself: à la clinique. Chez can express destination as well as location."
+      ],
+      "points": [
+        "Chez moi means at/to my place; it does not need à.",
+        "Une clinique (f.) = a clinic; un médecin (m.) = a doctor."
+      ],
+      "examples": [
+        {
+          "french": "Elle est **en classe**.",
+          "english": "She is in class.",
+          "note": "The focus is participation in the class."
+        },
+        {
+          "french": "Il attend **dans la classe** vide.",
+          "english": "He waits in the empty classroom.",
+          "note": "The focus is the physical room."
+        },
+        {
+          "french": "Nous allons **chez le médecin**.",
+          "english": "We are going to the doctor's.",
+          "note": "Chez introduces a person's professional practice."
+        },
+        {
+          "french": "Tu viens **chez moi** ?",
+          "english": "Are you coming to my place?",
+          "note": "Chez takes a stressed pronoun."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Je vais chez la bibliothèque.",
+          "prefer": "Je vais à la bibliothèque.",
+          "why": "A library is a place, not a person or professional identified by a person noun."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-place-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "simple",
+      "prompt": "Supply the preposition meaning inside: 'Le billet est ___ la boîte.'",
+      "choices": [],
+      "answers": [
+        "dans"
+      ],
+      "explanation": "Dans locates something inside a container."
+    },
+    {
+      "id": "a1-place-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "simple",
+      "prompt": "Supply the preposition meaning under: 'Le chat est ___ la table.'",
+      "choices": [],
+      "answers": [
+        "sous"
+      ],
+      "explanation": "Sous expresses a lower position."
+    },
+    {
+      "id": "a1-place-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "compound",
+      "prompt": "Combine près de + le in '___ musée'. Write only the words before musée.",
+      "choices": [],
+      "answers": [
+        "près du"
+      ],
+      "explanation": "De + le contracts to du."
+    },
+    {
+      "id": "a1-place-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "en-chez",
+      "prompt": "Supply the preposition for a person's home: 'Je vais ___ Nadia.'",
+      "choices": [],
+      "answers": [
+        "chez"
+      ],
+      "explanation": "Chez introduces a person whose place is meant."
+    },
+    {
+      "id": "a1-place-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "simple",
+      "prompt": "Supply the preposition meaning on the surface of: 'Le livre est ___ la table.'",
+      "choices": [],
+      "answers": [
+        "sur"
+      ],
+      "explanation": "Sur describes contact with a supporting surface."
+    },
+    {
+      "id": "a1-place-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "simple",
+      "prompt": "Supply the preposition meaning between: 'La chaise est ___ la porte et la fenêtre.'",
+      "choices": [],
+      "answers": [
+        "entre"
+      ],
+      "explanation": "Entre names two reference points."
+    },
+    {
+      "id": "a1-place-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "simple",
+      "prompt": "Supply the preposition meaning behind: 'Le parking est ___ le bâtiment.'",
+      "choices": [],
+      "answers": [
+        "derrière"
+      ],
+      "explanation": "Derrière describes the back side."
+    },
+    {
+      "id": "a1-place-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "simple",
+      "prompt": "Supply the one-word preposition meaning in front of: 'Elle attend ___ la porte.'",
+      "choices": [],
+      "answers": [
+        "devant"
+      ],
+      "explanation": "Devant takes the noun phrase directly."
+    },
+    {
+      "id": "a1-place-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "compound",
+      "prompt": "Supply the full phrase meaning next to before feminine la banque: 'Le café est ___ la banque.'",
+      "choices": [],
+      "answers": [
+        "à côté de"
+      ],
+      "explanation": "Keep de; it does not contract with la."
+    },
+    {
+      "id": "a1-place-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "compound",
+      "prompt": "Supply the full phrase meaning opposite before masculine le parc, including the contraction: 'La gare est ___ parc.'",
+      "choices": [],
+      "answers": [
+        "en face du"
+      ],
+      "explanation": "En face de + le gives en face du."
+    },
+    {
+      "id": "a1-place-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "en-chez",
+      "prompt": "Supply en or dans for the conventional activity expression: 'Les enfants sont ___ classe.'",
+      "choices": [],
+      "answers": [
+        "en"
+      ],
+      "explanation": "En classe is the established expression without an article."
+    },
+    {
+      "id": "a1-place-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "en-chez",
+      "prompt": "Supply en or dans: 'Il habite ___ cette ville.'",
+      "choices": [],
+      "answers": [
+        "dans"
+      ],
+      "explanation": "The specific noun phrase cette ville takes dans here."
+    },
+    {
+      "id": "a1-place-13",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "compound",
+      "prompt": "Supply the phrase meaning far from before le centre, including contraction: 'Nous sommes ___ centre.'",
+      "choices": [],
+      "answers": [
+        "loin du"
+      ],
+      "explanation": "Loin de + le contracts to loin du."
+    },
+    {
+      "id": "a1-place-14",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "compound",
+      "prompt": "Using intérieur, supply the phrase meaning inside the before bâtiment: 'Elle est ___ bâtiment.'",
+      "choices": [],
+      "answers": [
+        "à l'intérieur du"
+      ],
+      "explanation": "À l'intérieur de + le requires du."
+    },
+    {
+      "id": "a1-place-15",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "compound",
+      "prompt": "Using extérieur, supply the phrase meaning outside the before école: 'Il attend ___ école.'",
+      "choices": [],
+      "answers": [
+        "à l'extérieur de l'"
+      ],
+      "explanation": "De l' remains before the vowel in école."
+    },
+    {
+      "id": "a1-place-16",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "compound",
+      "prompt": "Supply the phrase meaning at the corner of: 'Le magasin est ___ la rue.'",
+      "choices": [],
+      "answers": [
+        "au coin de"
+      ],
+      "explanation": "De belongs to the compound expression."
+    },
+    {
+      "id": "a1-place-17",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "en-chez",
+      "prompt": "Supply chez or à: 'Je suis ___ moi.'",
+      "choices": [],
+      "answers": [
+        "chez"
+      ],
+      "explanation": "Chez + stressed pronoun means at that person's place."
+    },
+    {
+      "id": "a1-place-18",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "compound",
+      "prompt": "Supply de + les: 'Le jardin est près ___ maisons.'",
+      "choices": [],
+      "answers": [
+        "des"
+      ],
+      "explanation": "De contracts with les."
+    },
+    {
+      "id": "a1-place-19",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "en-chez",
+      "prompt": "Supply chez or à: 'Elle va ___ la pharmacie.'",
+      "choices": [],
+      "answers": [
+        "à"
+      ],
+      "explanation": "La pharmacie names a place rather than a person."
+    },
+    {
+      "id": "a1-place-20",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "simple",
+      "prompt": "Which phrase means on the shelf, not in front of it?",
+      "choices": [
+        "sur l'étagère",
+        "devant l'étagère"
+      ],
+      "answers": [
+        "sur l'étagère"
+      ],
+      "explanation": "Sur indicates a supporting surface; devant indicates a position in front."
+    }
+  ],
+  "production_task": {
+    "prompt": "Help a guest find two objects and a nearby service. Use one simple preposition, one compound preposition and chez.",
+    "model_answer": "Les clés sont dans le tiroir. La banque est en face du parc. Ce soir, nous mangeons chez moi.",
+    "translation": "The keys are in the drawer. The bank is opposite the park. This evening, we are eating at my place.",
+    "rubric": [
+      "Choose the spatial relation you actually intend.",
+      "Keep de and its required contraction in compound phrases.",
+      "Use a person or stressed pronoun after chez."
+    ]
+  }
+}

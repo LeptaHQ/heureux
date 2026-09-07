@@ -1,0 +1,366 @@
+{
+  "version": 1,
+  "id": "a1-daily-irregulars",
+  "slug": "a1-daily-irregulars",
+  "cefr_level": "A1",
+  "topic": "verbs-tenses-moods",
+  "title": "Partir, dormir, boire et sentir",
+  "summary": "Distinguish short singular stems from fuller plural stems and use sentir for perception, smell and personal feelings.",
+  "order": 10,
+  "duration_minutes": 15,
+  "prerequisites": [
+    "a1-present-families"
+  ],
+  "objectives": [
+    "Conjugate partir, sortir, dormir, sentir and boire.",
+    "Distinguish smelling something, giving off a smell and feeling well."
+  ],
+  "keywords": [
+    "partir",
+    "sortir",
+    "dormir",
+    "sentir",
+    "boire",
+    "senses"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "verbs-present-patterns",
+    "daily-health-body-senses"
+  ],
+  "sections": [
+    {
+      "id": "short-stems",
+      "title": "A missing consonant returns in the plural",
+      "paragraphs": [
+        "Partir (leave), sortir (go out), dormir (sleep) and sentir (smell/feel) do not follow finir. In the singular they lose the last stem consonant and use -s, -s, -t. The fuller stem returns with -ons, -ez, -ent. Derivatives such as repartir (leave again), ressortir (go out again) and endormir (put to sleep) keep these patterns in these meanings. Mentir (lie) follows the same type: je mens, tu mens, il/elle/on ment, nous mentons, vous mentez, ils/elles mentent."
+      ],
+      "points": [
+        "Do not insert the regular -ir family's -iss-."
+      ],
+      "examples": [
+        {
+          "french": "Je **pars**\nTu **pars**\nIl/elle/on **part**\nNous **partons**\nVous **partez**\nIls/elles **partent**",
+          "english": "I leave\nYou leave\nHe/she leaves; one leaves/we leave\nWe leave\nYou leave\nThey leave",
+          "note": "Part- returns in the plural."
+        },
+        {
+          "french": "Je **sors**\nTu **sors**\nIl/elle/on **sort**\nNous **sortons**\nVous **sortez**\nIls/elles **sortent**",
+          "english": "I go out\nYou go out\nHe/she goes out; one goes out/we go out\nWe go out\nYou go out\nThey go out",
+          "note": "The singular stem is sor-."
+        },
+        {
+          "french": "Je **dors**\nTu **dors**\nIl/elle/on **dort**\nNous **dormons**\nVous **dormez**\nIls/elles **dorment**",
+          "english": "I sleep\nYou sleep\nHe/she sleeps; one sleeps/we sleep\nWe sleep\nYou sleep\nThey sleep",
+          "note": "M returns in the plural."
+        },
+        {
+          "french": "Les enfants **repartent** demain.",
+          "english": "The children are leaving again tomorrow.",
+          "note": "Repartir keeps partir's pattern."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Nous dormissons ici.",
+          "prefer": "Nous dormons ici.",
+          "why": "Dormir does not belong to the finir family."
+        },
+        {
+          "avoid": "Je parts à midi.",
+          "prefer": "Je pars à midi.",
+          "why": "The singular stem drops t before the je ending -s."
+        }
+      ]
+    },
+    {
+      "id": "boire",
+      "title": "Boire has boi-, buv- and boiv-",
+      "paragraphs": [
+        "Boire means drink. Its singular uses boi-, nous and vous use buv-, and ils/elles use boiv-. Un verre (m.) is a glass; du lait means some milk. A drink taken in an unspecified quantity normally has a partitive article."
+      ],
+      "points": [
+        "Je bois and il boit sound alike but have different final letters."
+      ],
+      "examples": [
+        {
+          "french": "Je **bois**\nTu **bois**\nIl/elle/on **boit**\nNous **buvons**\nVous **buvez**\nIls/elles **boivent**",
+          "english": "I drink\nYou drink\nHe/she drinks; one drinks/we drink\nWe drink\nYou drink\nThey drink",
+          "note": "Learn the three stems."
+        },
+        {
+          "french": "Nous **buvons** de l'eau.",
+          "english": "We are drinking water.",
+          "note": "The nous stem is buv-."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Ils boient du lait.",
+          "prefer": "Ils boivent du lait.",
+          "why": "Ils/elles needs the boiv- stem."
+        }
+      ]
+    },
+    {
+      "id": "sentir",
+      "title": "The construction tells you who senses what",
+      "paragraphs": [
+        "Sentir can mean perceive by smell or touch: je sens la fumée means I can smell the smoke; je sens le froid means I feel the cold. A thing can be the subject when it gives off a smell: la soupe sent bon means the soup smells good. Here bon and mauvais act as unchanging adverbs, not adjectives agreeing with the noun.",
+        "Se sentir describes how a person feels: je me sens bien, elle se sent fatiguée. The little word me or se points back to the subject; the next lesson on reflexives teaches the full system. For now contrast sensing something with describing one's own state."
+      ],
+      "points": [
+        "La fumée (f.) = smoke; une fleur (f.) = a flower; le froid (m.) = cold."
+      ],
+      "examples": [
+        {
+          "french": "Je **sens**\nTu **sens**\nIl/elle/on **sent**\nNous **sentons**\nVous **sentez**\nIls/elles **sentent**",
+          "english": "I smell/feel\nYou smell/feel\nHe/she smells/feels; one senses/we sense\nWe smell/feel\nYou smell/feel\nThey smell/feel",
+          "note": "Like partir, sentir restores its full stem in the plural."
+        },
+        {
+          "french": "Je **sens** la fumée.",
+          "english": "I can smell the smoke.",
+          "note": "The person perceives an odour."
+        },
+        {
+          "french": "Les fleurs **sentent bon**.",
+          "english": "The flowers smell good.",
+          "note": "The flowers give off the smell; bon does not become bonnes."
+        },
+        {
+          "french": "Je **me sens** bien.",
+          "english": "I feel well.",
+          "note": "Se sentir reports the subject's own state."
+        },
+        {
+          "french": "Cette pièce **sent** le café.",
+          "english": "This room smells of coffee.",
+          "note": "Sentir + a noun can identify the smell given off."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Les fleurs sentent bonnes.",
+          "prefer": "Les fleurs sentent bon.",
+          "why": "In sentir bon, bon is an invariable adverb."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-dailyv-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "short-stems",
+      "prompt": "Supply partir: 'Je ___ maintenant.'",
+      "choices": [],
+      "answers": [
+        "pars"
+      ],
+      "explanation": "The singular stem drops t."
+    },
+    {
+      "id": "a1-dailyv-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "short-stems",
+      "prompt": "Supply dormir: 'Vous ___ ici.'",
+      "choices": [],
+      "answers": [
+        "dormez"
+      ],
+      "explanation": "The plural restores m."
+    },
+    {
+      "id": "a1-dailyv-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "boire",
+      "prompt": "Supply boire: 'Elles ___ du thé.'",
+      "choices": [],
+      "answers": [
+        "boivent"
+      ],
+      "explanation": "The elles stem is boiv-."
+    },
+    {
+      "id": "a1-dailyv-04",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "sentir",
+      "prompt": "Choose the sentence meaning 'I feel well'.",
+      "choices": [
+        "Je me sens bien.",
+        "Je sens le café."
+      ],
+      "answers": [
+        "Je me sens bien."
+      ],
+      "explanation": "The reflexive form describes your state."
+    },
+    {
+      "id": "a1-dailyv-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "short-stems",
+      "prompt": "Supply sortir: 'On ___ ce soir.'",
+      "choices": [],
+      "answers": [
+        "sort"
+      ],
+      "explanation": "On takes the singular sort."
+    },
+    {
+      "id": "a1-dailyv-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "short-stems",
+      "prompt": "Supply repartir: 'Nous ___ lundi.'",
+      "choices": [],
+      "answers": [
+        "repartons"
+      ],
+      "explanation": "Repartir restores the full stem in the plural."
+    },
+    {
+      "id": "a1-dailyv-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "short-stems",
+      "prompt": "Supply dormir: 'Le bébé ___.'",
+      "choices": [],
+      "answers": [
+        "dort"
+      ],
+      "explanation": "The singular form is dort, without m."
+    },
+    {
+      "id": "a1-dailyv-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "boire",
+      "prompt": "Supply boire: 'Tu ___ de l'eau.'",
+      "choices": [],
+      "answers": [
+        "bois"
+      ],
+      "explanation": "Tu takes bois."
+    },
+    {
+      "id": "a1-dailyv-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "boire",
+      "prompt": "Supply boire: 'Nous ___ un café.'",
+      "choices": [],
+      "answers": [
+        "buvons"
+      ],
+      "explanation": "Nous uses the buv- stem."
+    },
+    {
+      "id": "a1-dailyv-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "sentir",
+      "prompt": "Supply sentir: 'Vous ___ la fumée ?'",
+      "choices": [],
+      "answers": [
+        "sentez"
+      ],
+      "explanation": "Vous uses the full sent- stem."
+    },
+    {
+      "id": "a1-dailyv-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "sentir",
+      "prompt": "Supply bon or bonnes: 'Ces roses sentent ___.'",
+      "choices": [],
+      "answers": [
+        "bon"
+      ],
+      "explanation": "Bon is invariable in sentir bon."
+    },
+    {
+      "id": "a1-dailyv-12",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "sentir",
+      "prompt": "In 'La cuisine sent le pain', is the kitchen smelling something with a nose or giving off a smell?",
+      "choices": [
+        "Elle dégage une odeur.",
+        "Elle perçoit une odeur."
+      ],
+      "answers": [
+        "Elle dégage une odeur."
+      ],
+      "explanation": "A place as subject can be described as smelling of something."
+    },
+    {
+      "id": "a1-dailyv-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "short-stems",
+      "prompt": "Supply mentir: 'Ils ___ rarement.'",
+      "choices": [],
+      "answers": [
+        "mentent"
+      ],
+      "explanation": "Mentir restores t in the plural."
+    },
+    {
+      "id": "a1-dailyv-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "boire",
+      "prompt": "Supply boire: 'Elle ___ du lait.'",
+      "choices": [],
+      "answers": [
+        "boit"
+      ],
+      "explanation": "The third-person singular ends in -t."
+    },
+    {
+      "id": "a1-dailyv-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "sentir",
+      "prompt": "Supply the missing pronoun for 'I feel tired': 'Je ___ sens fatigué.'",
+      "choices": [],
+      "answers": [
+        "me"
+      ],
+      "explanation": "Se sentir describes the subject's own state."
+    },
+    {
+      "id": "a1-dailyv-16",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "short-stems",
+      "prompt": "Supply sortir: 'Elles ___ du bâtiment.'",
+      "choices": [],
+      "answers": [
+        "sortent"
+      ],
+      "explanation": "The plural restores the sort- stem."
+    }
+  ],
+  "production_task": {
+    "prompt": "Write a morning message saying how you feel, what you are drinking and when your group leaves.",
+    "model_answer": "Je me sens bien. Je bois un café. Nous partons à neuf heures.",
+    "translation": "I feel well. I am drinking a coffee. We leave at nine o'clock.",
+    "rubric": [
+      "Use me with se sentir for a personal state.",
+      "Choose the correct boire stem.",
+      "Use partons, not a finir-style ending."
+    ]
+  }
+}

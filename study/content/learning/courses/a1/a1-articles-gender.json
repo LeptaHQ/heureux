@@ -1,71 +1,408 @@
 {
-  "version":1,"id":"a1-articles-gender","slug":"a1-articles-gender","cefr_level":"A1","topic":"grammar-foundations",
-  "title":"A thing, the thing, or some: articles and gender","summary":"Choose articles for identified things, general categories and uncounted quantities; combine them with à and de.",
-  "order":3,"duration_minutes":15,"prerequisites":["a1-etre-avoir"],
-  "objectives":["Distinguish definite, indefinite and partitive articles.","Use reliable gender clues without treating them as guarantees.","Form au, aux, du and des and recognise familiar definite-article contexts."],
-  "keywords":["le","la","les","un","une","du","de la","gender","articles","contractions"],
-  "sources":[{"label":"Public A1 topic index, reviewed 2026-09-07","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"}],
-  "related_legacy_ids":["grammar-articles-gender","grammar-contracted-articles"],
-  "sections":[
-    {"id":"identify","title":"Choose the noun's gender, then decide whether it is identified",
-      "paragraphs":["Indefinite articles introduce a countable item: un (masculine), une (feminine), des (plural). Definite articles identify something known or a whole category: le, la, les. Le and la become l' before a vowel or silent h; plural les does not elide. Un hôtel (m., a hotel) therefore gives l'hôtel. With an aspirated h, a conventional sound boundary blocks elision even though h is not pronounced: le héros (the hero). Learn such nouns with their article.","Endings are clues, not proof. -tion and -sion are usually feminine, as in une invitation and une décision; -ment and -age are often masculine, as in un document and un garage. But une page, une image and une plage (a beach) are feminine, while un million is masculine despite -ion. A final written e alone does not establish gender: un problème is masculine."],
-      "points":["A new singular countable noun normally needs an article or another determiner.","A noun's grammatical gender remains the same when its article becomes l'."],
-      "examples":[
-        {"french":"J'ai **une** invitation. **L'**invitation est ici.","english":"I have an invitation. The invitation is here.","note":"Introduce the item, then refer to the identified item."},
-        {"french":"**Le** problème est simple.","english":"The problem is simple.","note":"Un problème is masculine despite its final e."},
-        {"french":"**La** page est blanche.","english":"The page is white.","note":"Une page is an exception to the common masculine -age pattern."}
-      ],
-      "mistakes":[{"avoid":"La hôtel est ici.","prefer":"L'hôtel est ici.","why":"Hôtel has a silent h and requires elision; it is also masculine."}]
-    },
-    {"id":"quantity","title":"A portion uses a partitive; a general preference uses the definite article",
-      "paragraphs":["For an unspecified amount, use du before a masculine noun, de la before a feminine noun, de l' before a vowel or silent h, and des for plural quantities. These are called partitive articles when they present an uncounted portion; des also serves as the plural indefinite article with countable items. English often leaves some or any unspoken; French normally keeps the article.","A whole category takes le, la or les, especially after verbs expressing likes: aimer le thé means to like tea generally. Contrast drinking some tea with liking tea as a category. Un thé can instead mean one serving of tea."],
-      "points":["Du pain is some bread; le pain can mean the identified bread or bread in general.","Vocabulary: le pain (m., bread), la soupe (f., soup), l'eau (f., water), les épinards (m. plural, spinach)."],
-      "examples":[
-        {"french":"Je prends **du** pain et **de la** soupe.","english":"I am having some bread and soup.","note":"Both amounts are unspecified."},
-        {"french":"Nous avons **de l'**eau et **des** épinards.","english":"We have some water and spinach.","note":"Elision before eau; plural des with épinards."},
-        {"french":"J'aime **le** thé, mais je prends **un** café.","english":"I like tea, but I am having a coffee.","note":"The general category contrasts with one serving."}
-      ],
-      "mistakes":[{"avoid":"Je bois de la eau.","prefer":"Je bois de l'eau.","why":"De la elides to de l' before eau."}]
-    },
-    {"id":"contractions","title":"À and de combine with le and les",
-      "paragraphs":["When the preposition à meets definite le, write au; à + les gives aux. De + le gives du; de + les gives des. There is no contraction with la or l': à la, à l', de la, de l'. A preposition is a linking word such as to, at or from. Du can therefore be either a quantity article or the combination de + le; read the sentence to decide."],
-      "points":["À + le = au; à + les = aux; de + le = du; de + les = des."],
-      "examples":[
-        {"french":"Elle va **au** marché, puis **à la** banque.","english":"She goes to the market, then to the bank.","note":"Le marché (m., market) contracts; la banque (f., bank) does not."},
-        {"french":"La porte **du** garage est ouverte.","english":"The garage door is open.","note":"Here du means de + le, not some."},
-        {"french":"Il parle **aux** enfants **des** voisins.","english":"He speaks to the neighbours' children.","note":"Aux combines à + les; des combines de + les."}
-      ],
-      "mistakes":[{"avoid":"Je vais à le marché.","prefer":"Je vais au marché.","why":"À + le must contract when le is the article."}]
-    },
-    {"id":"familiar-contexts","title":"French keeps the definite article in several places English omits it",
-      "paragraphs":["Use definite articles for languages as nouns and academic subjects: le français, les mathématiques. But after parler a language is commonly bare: parler français. Titles normally take the article when speaking about someone: le professeur Martin, la docteure Roy. Direct address usually omits it: Bonjour, docteure !","For body parts whose owner is clear, French often prefers the definite article, especially with a reflexive verb: elle se lave les mains. Possessives remain possible when ownership or contrast needs emphasis. Familiar clothing expressions also use the definite article, such as enlever le manteau, especially when a reflexive form identifies the wearer. This is not a ban on mon manteau (my coat)."],
-      "points":["Vocabulary: une main (f., hand), un manteau (m., coat), le français (m., French language)."],
-      "examples":[
-        {"french":"**Le** français est utile. Je parle français.","english":"French is useful. I speak French.","note":"Language as subject has an article; after parler it is omitted here."},
-        {"french":"**La** docteure Roy arrive.","english":"Doctor Roy is arriving.","note":"Mentioning a professional by title differs from addressing her."},
-        {"french":"Elle se lave **les** mains.","english":"She washes her hands.","note":"The reflexive construction makes the owner clear."},
-        {"french":"Il s'enlève **le** manteau.","english":"He takes off his coat.","note":"The reflexive form identifies whose coat is being removed."}
-      ],
-      "mistakes":[]
+  "version": 1,
+  "id": "a1-articles-gender",
+  "slug": "a1-articles-gender",
+  "cefr_level": "A1",
+  "topic": "grammar-foundations",
+  "title": "Un, le ou du : choisir l'article et le genre",
+  "summary": "Choose articles for identified things, general categories and uncounted quantities; combine them with à and de.",
+  "order": 3,
+  "duration_minutes": 15,
+  "prerequisites": [
+    "a1-etre-avoir"
+  ],
+  "objectives": [
+    "Distinguish definite, indefinite and partitive articles.",
+    "Use reliable gender clues without treating them as guarantees.",
+    "Form au, aux, du and des and recognise familiar definite-article contexts."
+  ],
+  "keywords": [
+    "le",
+    "la",
+    "les",
+    "un",
+    "une",
+    "du",
+    "de la",
+    "gender",
+    "articles",
+    "contractions"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
     }
   ],
-  "practice":[
-    {"id":"a1-art-01","kind":"text","pool":"practice","section_id":"identify","prompt":"Supply un or une: '___ décision'.","choices":[],"answers":["une"],"explanation":"Décision is feminine; -sion is a useful clue."},
-    {"id":"a1-art-02","kind":"text","pool":"practice","section_id":"quantity","prompt":"Use a partitive article: 'Je mange ___ soupe.' (soupe is feminine).","choices":[],"answers":["de la"],"explanation":"An unspecified amount of feminine soupe takes de la."},
-    {"id":"a1-art-03","kind":"text","pool":"practice","section_id":"contractions","prompt":"Combine à + les into one word.","choices":[],"answers":["aux"],"explanation":"The contraction is compulsory with the article les."},
-    {"id":"a1-art-04","kind":"choice","pool":"practice","section_id":"quantity","prompt":"For a general preference, complete 'J'aime ___ pain.'","choices":["le","du"],"answers":["le"],"explanation":"A general category takes the definite article."},
-    {"id":"a1-art-05","kind":"text","pool":"check","section_id":"quantity","prompt":"Supply the partitive for an unspecified amount: 'Il boit ___ lait.' (lait is masculine).","choices":[],"answers":["du"],"explanation":"Du introduces an unspecified amount of masculine lait."},
-    {"id":"a1-art-06","kind":"text","pool":"check","section_id":"quantity","prompt":"Use a partitive article: 'Nous avons ___ huile.' (huile is feminine with silent h).","choices":[],"answers":["de l'"],"explanation":"The silent h allows elision."},
-    {"id":"a1-art-07","kind":"text","pool":"check","section_id":"contractions","prompt":"Supply de + le: 'C'est la clé ___ bureau.'","choices":[],"answers":["du"],"explanation":"De + le bureau becomes du bureau."},
-    {"id":"a1-art-08","kind":"text","pool":"check","section_id":"contractions","prompt":"Supply à plus the definite article: 'Je vais ___ école.' (école is feminine).","choices":[],"answers":["à l'"],"explanation":"Before école use l'; à l' does not contract."},
-    {"id":"a1-art-09","kind":"text","pool":"check","section_id":"identify","prompt":"Choose the indefinite article for one item: '___ image'.","choices":[],"answers":["une"],"explanation":"Image is a feminine exception to the common -age pattern."},
-    {"id":"a1-art-10","kind":"text","pool":"check","section_id":"familiar-contexts","prompt":"Supply the usual definite article: 'Elle se brosse ___ dents.'","choices":[],"answers":["les"],"explanation":"The reflexive construction identifies whose teeth; dents is plural."},
-    {"id":"a1-art-11","kind":"text","pool":"check","section_id":"familiar-contexts","prompt":"Supply the definite article: '___ mathématiques sont utiles.'","choices":[],"answers":["les"],"explanation":"An academic subject used as a noun takes the article."},
-    {"id":"a1-art-12","kind":"choice","pool":"check","section_id":"familiar-contexts","prompt":"You are talking about, not addressing, Professor Laurent. Choose the normal wording.","choices":["Le professeur Laurent est ici.","Professeur Laurent est ici."],"answers":["Le professeur Laurent est ici."],"explanation":"Use the article when referring to someone by this title."},
-    {"id":"a1-art-13","kind":"text","pool":"review","section_id":"quantity","prompt":"Use the article for an unspecified plural quantity: 'Je prends ___ épinards.'","choices":[],"answers":["des"],"explanation":"Épinards is plural; an unspecified quantity takes des."},
-    {"id":"a1-art-14","kind":"text","pool":"review","section_id":"contractions","prompt":"Combine de + les in 'les noms ___ élèves'.","choices":[],"answers":["des"],"explanation":"De + les becomes des."},
-    {"id":"a1-art-15","kind":"text","pool":"review","section_id":"familiar-contexts","prompt":"Supply le or les in the usual clothing expression: 'Il s'enlève ___ chapeau.'","choices":[],"answers":["le"],"explanation":"One masculine chapeau takes le; the wearer is identified by s'."},
-    {"id":"a1-art-16","kind":"choice","pool":"review","section_id":"identify","prompt":"Does every noun ending in -e have feminine gender?","choices":["Non","Oui"],"answers":["Non"],"explanation":"Un problème is masculine; learn each noun with its article."}
+  "related_legacy_ids": [
+    "grammar-articles-gender",
+    "grammar-contracted-articles"
   ],
-  "production_task":{"prompt":"Describe a simple lunch: say what you have in unspecified quantities, then name one food you like in general. Use three different article forms.","model_answer":"J'ai du pain, de la soupe et de l'eau. J'aime les légumes.","translation":"I have some bread, soup and water. I like vegetables.","rubric":["Use partitives for unspecified quantities.","Use a definite article for a general preference.","Match gender and number and elide before a vowel."]}
+  "sections": [
+    {
+      "id": "identify",
+      "title": "Choose the noun's gender, then decide whether it is identified",
+      "paragraphs": [
+        "Indefinite articles introduce a countable item: un (masculine), une (feminine), des (plural). Definite articles identify something known or a whole category: le, la, les. Le and la become l' before a vowel or silent h; plural les does not elide. Un hôtel (m., a hotel) therefore gives l'hôtel. With an aspirated h, a conventional sound boundary blocks elision even though h is not pronounced: le héros (the hero). Learn such nouns with their article.",
+        "Endings are clues, not proof. -tion and -sion are usually feminine, as in une invitation and une décision; -ment and -age are often masculine, as in un document and un garage. But une page, une image and une plage (a beach) are feminine, while un million is masculine despite -ion. A final written e alone does not establish gender: un problème is masculine."
+      ],
+      "points": [
+        "A new singular countable noun normally needs an article or another determiner.",
+        "A noun's grammatical gender remains the same when its article becomes l'."
+      ],
+      "examples": [
+        {
+          "french": "J'ai **une** invitation. **L'**invitation est ici.",
+          "english": "I have an invitation. The invitation is here.",
+          "note": "Introduce the item, then refer to the identified item."
+        },
+        {
+          "french": "**Le** problème est simple.",
+          "english": "The problem is simple.",
+          "note": "Un problème is masculine despite its final e."
+        },
+        {
+          "french": "**La** page est blanche.",
+          "english": "The page is white.",
+          "note": "Une page is an exception to the common masculine -age pattern."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "La hôtel est ici.",
+          "prefer": "L'hôtel est ici.",
+          "why": "Hôtel has a silent h and requires elision; it is also masculine."
+        }
+      ]
+    },
+    {
+      "id": "quantity",
+      "title": "A portion uses a partitive; a general preference uses the definite article",
+      "paragraphs": [
+        "For an unspecified amount, use du before a masculine noun, de la before a feminine noun, de l' before a vowel or silent h, and des for plural quantities. These are called partitive articles when they present an uncounted portion; des also serves as the plural indefinite article with countable items. English often leaves some or any unspoken; French normally keeps the article.",
+        "A whole category takes le, la or les, especially after verbs expressing likes: aimer le thé means to like tea generally. Contrast drinking some tea with liking tea as a category. Un thé can instead mean one serving of tea."
+      ],
+      "points": [
+        "Du pain is some bread; le pain can mean the identified bread or bread in general.",
+        "Vocabulary: le pain (m., bread), la soupe (f., soup), l'eau (f., water), les épinards (m. plural, spinach)."
+      ],
+      "examples": [
+        {
+          "french": "Je prends **du** pain et **de la** soupe.",
+          "english": "I am having some bread and soup.",
+          "note": "Both amounts are unspecified."
+        },
+        {
+          "french": "Nous avons **de l'**eau et **des** épinards.",
+          "english": "We have some water and spinach.",
+          "note": "Elision before eau; plural des with épinards."
+        },
+        {
+          "french": "J'aime **le** thé, mais je prends **un** café.",
+          "english": "I like tea, but I am having a coffee.",
+          "note": "The general category contrasts with one serving."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Je bois de la eau.",
+          "prefer": "Je bois de l'eau.",
+          "why": "De la elides to de l' before eau."
+        }
+      ]
+    },
+    {
+      "id": "contractions",
+      "title": "À and de combine with le and les",
+      "paragraphs": [
+        "When the preposition à meets definite le, write au; à + les gives aux. De + le gives du; de + les gives des. There is no contraction with la or l': à la, à l', de la, de l'. A preposition is a linking word such as to, at or from. Du can therefore be either a quantity article or the combination de + le; read the sentence to decide."
+      ],
+      "points": [
+        "À + le = au; à + les = aux; de + le = du; de + les = des."
+      ],
+      "examples": [
+        {
+          "french": "Elle va **au** marché, puis **à la** banque.",
+          "english": "She goes to the market, then to the bank.",
+          "note": "Le marché (m., market) contracts; la banque (f., bank) does not."
+        },
+        {
+          "french": "La porte **du** garage est ouverte.",
+          "english": "The garage door is open.",
+          "note": "Here du means de + le, not some."
+        },
+        {
+          "french": "Il parle **aux** enfants **des** voisins.",
+          "english": "He speaks to the neighbours' children.",
+          "note": "Aux combines à + les; des combines de + les."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Je vais à le marché.",
+          "prefer": "Je vais au marché.",
+          "why": "À + le must contract when le is the article."
+        }
+      ]
+    },
+    {
+      "id": "familiar-contexts",
+      "title": "French keeps the definite article in several places English omits it",
+      "paragraphs": [
+        "Use definite articles for languages as nouns and academic subjects: le français, les mathématiques. But after parler a language is commonly bare: parler français. Titles normally take the article when speaking about someone: le professeur Martin, la docteure Roy. Direct address usually omits it: Bonjour, docteure !",
+        "For body parts whose owner is clear, French often prefers the definite article, especially with a reflexive verb: elle se lave les mains. Some familiar descriptions also use definite articles for the person's clothing or parts of it: elle a les mains dans les poches. The context makes clear whose hands and pockets are meant. Do not extend this to every clothing sentence: elle enlève son manteau (she takes off her coat) normally uses a possessive. Possessives also remain possible for body parts when ownership or contrast needs emphasis."
+      ],
+      "points": [
+        "Vocabulary: une main (f., hand), une poche (f., pocket), un manteau (m., coat), le français (m., French language)."
+      ],
+      "examples": [
+        {
+          "french": "**Le** français est utile. Je parle français.",
+          "english": "French is useful. I speak French.",
+          "note": "Language as subject has an article; after parler it is omitted here."
+        },
+        {
+          "french": "**La** docteure Roy arrive.",
+          "english": "Doctor Roy is arriving.",
+          "note": "Mentioning a professional by title differs from addressing her."
+        },
+        {
+          "french": "Elle se lave **les** mains.",
+          "english": "She washes her hands.",
+          "note": "The reflexive construction makes the owner clear."
+        },
+        {
+          "french": "Elle a **les** mains dans **les** poches.",
+          "english": "She has her hands in her pockets.",
+          "note": "The subject identifies the owner in this familiar body-and-clothing description."
+        }
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-art-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "identify",
+      "prompt": "Supply un or une: '___ décision'.",
+      "choices": [],
+      "answers": [
+        "une"
+      ],
+      "explanation": "Décision is feminine; -sion is a useful clue."
+    },
+    {
+      "id": "a1-art-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "quantity",
+      "prompt": "Use a partitive article: 'Je mange ___ soupe.' (soupe is feminine).",
+      "choices": [],
+      "answers": [
+        "de la"
+      ],
+      "explanation": "An unspecified amount of feminine soupe takes de la."
+    },
+    {
+      "id": "a1-art-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "contractions",
+      "prompt": "Combine à + les into one word.",
+      "choices": [],
+      "answers": [
+        "aux"
+      ],
+      "explanation": "The contraction is compulsory with the article les."
+    },
+    {
+      "id": "a1-art-04",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "quantity",
+      "prompt": "For a general preference, complete 'J'aime ___ pain.'",
+      "choices": [
+        "le",
+        "du"
+      ],
+      "answers": [
+        "le"
+      ],
+      "explanation": "A general category takes the definite article."
+    },
+    {
+      "id": "a1-art-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "quantity",
+      "prompt": "Supply the partitive for an unspecified amount: 'Il boit ___ lait.' (lait is masculine).",
+      "choices": [],
+      "answers": [
+        "du"
+      ],
+      "explanation": "Du introduces an unspecified amount of masculine lait."
+    },
+    {
+      "id": "a1-art-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "quantity",
+      "prompt": "Use a partitive article: 'Nous avons ___ huile.' (huile is feminine with silent h).",
+      "choices": [],
+      "answers": [
+        "de l'"
+      ],
+      "explanation": "The silent h allows elision."
+    },
+    {
+      "id": "a1-art-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "contractions",
+      "prompt": "Supply de + le: 'C'est la clé ___ bureau.'",
+      "choices": [],
+      "answers": [
+        "du"
+      ],
+      "explanation": "De + le bureau becomes du bureau."
+    },
+    {
+      "id": "a1-art-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "contractions",
+      "prompt": "Supply à plus the definite article: 'Je vais ___ école.' (école is feminine).",
+      "choices": [],
+      "answers": [
+        "à l'"
+      ],
+      "explanation": "Before école use l'; à l' does not contract."
+    },
+    {
+      "id": "a1-art-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "identify",
+      "prompt": "Choose the indefinite article for one item: '___ image'.",
+      "choices": [],
+      "answers": [
+        "une"
+      ],
+      "explanation": "Image is a feminine exception to the common -age pattern."
+    },
+    {
+      "id": "a1-art-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "familiar-contexts",
+      "prompt": "Supply the usual definite article: 'Elle se brosse ___ dents.'",
+      "choices": [],
+      "answers": [
+        "les"
+      ],
+      "explanation": "The reflexive construction identifies whose teeth; dents is plural."
+    },
+    {
+      "id": "a1-art-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "familiar-contexts",
+      "prompt": "Supply the definite article: '___ mathématiques sont utiles.'",
+      "choices": [],
+      "answers": [
+        "les"
+      ],
+      "explanation": "An academic subject used as a noun takes the article."
+    },
+    {
+      "id": "a1-art-12",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "familiar-contexts",
+      "prompt": "You are talking about, not addressing, Professor Laurent. Choose the normal wording.",
+      "choices": [
+        "Le professeur Laurent est ici.",
+        "Professeur Laurent est ici."
+      ],
+      "answers": [
+        "Le professeur Laurent est ici."
+      ],
+      "explanation": "Use the article when referring to someone by this title."
+    },
+    {
+      "id": "a1-art-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "quantity",
+      "prompt": "Use the article for an unspecified plural quantity: 'Je prends ___ épinards.'",
+      "choices": [],
+      "answers": [
+        "des"
+      ],
+      "explanation": "Épinards is plural; an unspecified quantity takes des."
+    },
+    {
+      "id": "a1-art-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "contractions",
+      "prompt": "Combine de + les in 'les noms ___ élèves'.",
+      "choices": [],
+      "answers": [
+        "des"
+      ],
+      "explanation": "De + les becomes des."
+    },
+    {
+      "id": "a1-art-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "familiar-contexts",
+      "prompt": "Supply le or les in this familiar clothing description: 'Il a les mains dans ___ poches.'",
+      "choices": [],
+      "answers": [
+        "les"
+      ],
+      "explanation": "Poches is plural. The definite article is natural here because the person whose hands and pockets are meant is clear."
+    },
+    {
+      "id": "a1-art-16",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "identify",
+      "prompt": "Does every noun ending in -e have feminine gender?",
+      "choices": [
+        "Non",
+        "Oui"
+      ],
+      "answers": [
+        "Non"
+      ],
+      "explanation": "Un problème is masculine; learn each noun with its article."
+    },
+    {
+      "id": "a1-art-17",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "quantity",
+      "prompt": "Use the appropriate article for a general preference: 'J'aime ___ musique classique.' Musique is feminine.",
+      "choices": [],
+      "answers": [
+        "la"
+      ],
+      "explanation": "A general category after aimer takes a definite article, here feminine la."
+    }
+  ],
+  "production_task": {
+    "prompt": "Describe a simple lunch: say what you have in unspecified quantities, then name one food you like in general. Use three different article forms.",
+    "model_answer": "J'ai du pain, de la soupe et de l'eau. J'aime les légumes.",
+    "translation": "I have some bread, soup and water. I like vegetables.",
+    "rubric": [
+      "Use partitives for unspecified quantities.",
+      "Use a definite article for a general preference.",
+      "Match gender and number and elide before a vowel."
+    ]
+  }
 }

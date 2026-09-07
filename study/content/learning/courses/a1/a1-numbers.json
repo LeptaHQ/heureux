@@ -1,0 +1,461 @@
+{
+  "version": 1,
+  "id": "a1-numbers",
+  "slug": "a1-numbers",
+  "cefr_level": "A1",
+  "topic": "grammar-foundations",
+  "title": "Compter, mesurer et indiquer un rang",
+  "summary": "Build everyday and large numbers, read decimal commas, use prices per unit and distinguish cardinal labels from ordinal rank.",
+  "order": 25,
+  "duration_minutes": 18,
+  "prerequisites": [
+    "a1-noun-plurals",
+    "a1-adjective-forms"
+  ],
+  "objectives": [
+    "Build numbers from zero through hundreds and large units.",
+    "Apply cent/vingt/mille agreement and accepted hyphenation variants.",
+    "Read decimal notation and prices per unit.",
+    "Form ordinals and recognise contexts that use cardinal labels."
+  ],
+  "keywords": [
+    "numbers",
+    "70",
+    "80",
+    "90",
+    "mille",
+    "million",
+    "milliard",
+    "decimals",
+    "ordinals",
+    "measure"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "grammar-numbers-ordinals",
+    "daily-food-quantity"
+  ],
+  "sections": [
+    {
+      "id": "small",
+      "title": "Build a number from a small set of words",
+      "paragraphs": [
+        "Learn 0–16: zéro, un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix, onze, douze, treize, quatorze, quinze, seize. Then 17–19 are dix-sept, dix-huit, dix-neuf. Tens through 60 are vingt, trente, quarante, cinquante, soixante. Add a unit: vingt-deux, trente-trois. Use et un for 21, 31, 41, 51 and 61: vingt et un. Un changes to une when directly counting a feminine noun: vingt et une personnes.",
+        "Traditional spelling links many parts with hyphens but leaves spaces around et and between hundreds and following parts. The 1990 recommendations also allow hyphens throughout a compound numeral: vingt-et-un, deux-cent-trente. Both spelling systems are accepted in this course; exercises list legitimate variants rather than calling one wrong."
+      ],
+      "points": [
+        "A number usually replaces an indefinite article before a noun: deux livres, not des deux livres."
+      ],
+      "examples": [
+        {
+          "french": "Nous sommes **seize**.",
+          "english": "There are sixteen of us.",
+          "note": "Sixteen has its own word."
+        },
+        {
+          "french": "Il y a **vingt et une** places.",
+          "english": "There are twenty-one places.",
+          "note": "Une agrees with feminine places."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "vingt et un personnes",
+          "prefer": "vingt et une personnes",
+          "why": "Un becomes une when counting a feminine noun."
+        }
+      ]
+    },
+    {
+      "id": "tens-hundreds",
+      "title": "In the common France/Canada system, 70 and 90 build on 60 and 80",
+      "paragraphs": [
+        "70 = soixante-dix; 71 = soixante et onze; 72 = soixante-douze. Continue the teens after soixante through 79 = soixante-dix-neuf. 80 = quatre-vingts; 81 = quatre-vingt-un, without et; 90 = quatre-vingt-dix; 91 = quatre-vingt-onze; 99 = quatre-vingt-dix-neuf. Belgium and Switzerland also use septante and nonante, and parts of Switzerland use huitante. These are legitimate regional forms; a task specifying France/Canada forms is testing that named system, not their validity.",
+        "100 = cent; 200 = deux cents; 201 = deux cent un; 999 = neuf cent quatre-vingt-dix-neuf. Cent and vingt take -s when multiplied and final in a cardinal numeral: deux cents, quatre-vingts. They lose that -s before a further number: deux cent trois, quatre-vingt-deux. Do not add s to cent when it is not multiplied: cent, cent un."
+      ],
+      "points": [
+        "No et in 81 or 91 in this system.",
+        "Cent and vingt have special number agreement; most number words do not vary."
+      ],
+      "examples": [
+        {
+          "french": "Le billet coûte **soixante et onze** euros.",
+          "english": "The ticket costs seventy-one euros.",
+          "note": "71 contains et onze."
+        },
+        {
+          "french": "Il reste **quatre-vingts** places, puis **quatre-vingt-une** après une annulation.",
+          "english": "There are eighty places left, then eighty-one after a cancellation.",
+          "note": "Final vingt takes s at 80; it loses s before une."
+        },
+        {
+          "french": "La salle a **deux cents** sièges; le théâtre en a **deux cent dix**.",
+          "english": "The room has two hundred seats; the theatre has two hundred and ten.",
+          "note": "Cent loses s before dix."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "quatre-vingt et un euros",
+          "prefer": "quatre-vingt-un euros",
+          "why": "81 has no et in the France/Canada counting system."
+        }
+      ]
+    },
+    {
+      "id": "large-decimal",
+      "title": "Mille stays unchanged; million and milliard are nouns",
+      "paragraphs": [
+        "1 000 = mille, not un mille for ordinary counting; 2 000 = deux mille. Mille is invariable. 1 000 000 = un million; 1 000 000 000 = un milliard, English one billion. Million and milliard take plural s and de before a following counted noun when the amount ends there: deux millions d'euros. Contrast deux mille euros, without de. Before mille, cent and vingt lose their plural s; before million, a noun, they can keep it: deux cent mille, deux cents millions.",
+        "French uses a comma as the decimal separator and normally a space to group thousands: 1 250,5. Read a decimal with virgule, followed by the decimal digits or the decimal part as a number when clear: 3,25 can be trois virgule vingt-cinq or trois virgule deux cinq. A zero after the comma must be preserved in value: 3,05 = trois virgule zéro cinq. Prices commonly use euros and centimes rather than virgule."
+      ],
+      "points": [
+        "English billion = French milliard, not billion in ordinary contemporary usage.",
+        "Do not use a period as the French decimal separator in the written-number exercises."
+      ],
+      "examples": [
+        {
+          "french": "Le village compte **trois mille** habitants.",
+          "english": "The village has three thousand inhabitants.",
+          "note": "Mille never takes plural s."
+        },
+        {
+          "french": "Le projet coûte **deux millions d'**euros.",
+          "english": "The project costs two million euros.",
+          "note": "Million is a plural noun followed by de/d'."
+        },
+        {
+          "french": "**1,05** se lit **un virgule zéro cinq**.",
+          "english": "1.05 is read as one point zero five.",
+          "note": "The zero is part of the decimal value."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "deux milles euros",
+          "prefer": "deux mille euros",
+          "why": "Mille is invariable and does not require de before euros."
+        }
+      ]
+    },
+    {
+      "id": "rank-measure",
+      "title": "A rank uses an ordinal; a label or price unit may not",
+      "paragraphs": [
+        "Cardinal numbers count or label: trois livres, page trois, chambre douze. Ordinals give rank: premier/première (first), deuxième (second), troisième, quatrième, cinquième, sixième, septième, huitième, neuvième, dixième. Normally add -ième, dropping a final e; cinq adds u, neuf changes f to v. Vingt et unième is twenty-first; only first itself uses premier/première. Second/seconde is another valid form for second; it is not a grammatical error merely because a series continues.",
+        "French commonly uses cardinal labels where English may use an ordinal: page vingt, leçon quatre, Louis quatorze (written Louis XIV). Dates normally use cardinals except le premier; the calendar lesson develops this. A count like deux jours is different from rank le deuxième jour.",
+        "For a price per unit, French uses the definite article: trois euros le kilo, deux euros la pièce, cinq euros les cent grammes. This is a rate, not ownership. Le kilo (m.) is a kilogram, une pièce (f.) here means one item, un gramme (m.) a gram."
+      ],
+      "points": [
+        "The gendered first forms are premier and première; most -ième forms have one spelling for both genders.",
+        "Use le/la/les in familiar price-per-unit expressions."
+      ],
+      "examples": [
+        {
+          "french": "C'est la **première** porte, au **troisième** étage.",
+          "english": "It is the first door, on the third floor.",
+          "note": "These numbers express rank."
+        },
+        {
+          "french": "La réponse est à la page **vingt**.",
+          "english": "The answer is on page twenty.",
+          "note": "A page number is a label, not a vingt-ième construction."
+        },
+        {
+          "french": "Les pommes coûtent deux euros **le kilo**.",
+          "english": "The apples cost two euros per kilogram.",
+          "note": "Le expresses the price unit."
+        },
+        {
+          "french": "Le fromage coûte quatre euros **les cent grammes**.",
+          "english": "The cheese costs four euros per hundred grams.",
+          "note": "The rate applies to a specified plural quantity."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "la unième porte",
+          "prefer": "la première porte",
+          "why": "For first on its own, use première with a feminine noun."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-num-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "small",
+      "prompt": "Write 18 in French words.",
+      "choices": [],
+      "answers": [
+        "dix-huit"
+      ],
+      "explanation": "18 combines dix and huit."
+    },
+    {
+      "id": "a1-num-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "tens-hundreds",
+      "prompt": "Write 70 using the France/Canada counting system.",
+      "choices": [],
+      "answers": [
+        "soixante-dix"
+      ],
+      "explanation": "70 is sixty plus ten in this system."
+    },
+    {
+      "id": "a1-num-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "large-decimal",
+      "prompt": "Write 2,000 as a French numeral in words, not digits.",
+      "choices": [],
+      "answers": [
+        "deux mille",
+        "deux-mille"
+      ],
+      "explanation": "Mille is invariable; both hyphenation systems are accepted."
+    },
+    {
+      "id": "a1-num-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "rank-measure",
+      "prompt": "Supply the ordinal for first: 'la ___ fois'.",
+      "choices": [],
+      "answers": [
+        "première"
+      ],
+      "explanation": "Fois is feminine."
+    },
+    {
+      "id": "a1-num-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "tens-hundreds",
+      "prompt": "Write 81 in words, using the France/Canada system and masculine un.",
+      "choices": [],
+      "answers": [
+        "quatre-vingt-un"
+      ],
+      "explanation": "No et; vingt loses s before another number."
+    },
+    {
+      "id": "a1-num-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "tens-hundreds",
+      "prompt": "Write the cardinal number 200 in words.",
+      "choices": [],
+      "answers": [
+        "deux cents",
+        "deux-cents"
+      ],
+      "explanation": "Multiplied cent takes s when final."
+    },
+    {
+      "id": "a1-num-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "tens-hundreds",
+      "prompt": "Write 999 in words, using the France/Canada system.",
+      "choices": [],
+      "answers": [
+        "neuf cent quatre-vingt-dix-neuf",
+        "neuf-cent-quatre-vingt-dix-neuf"
+      ],
+      "explanation": "Cent and vingt have no s before following number words."
+    },
+    {
+      "id": "a1-num-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "large-decimal",
+      "prompt": "Write 1,000,000,000 in French words.",
+      "choices": [],
+      "answers": [
+        "un milliard"
+      ],
+      "explanation": "An English billion is un milliard."
+    },
+    {
+      "id": "a1-num-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "large-decimal",
+      "prompt": "Supply the required link: 'trois millions ___ personnes'.",
+      "choices": [],
+      "answers": [
+        "de"
+      ],
+      "explanation": "Million is a noun and takes de before the counted noun."
+    },
+    {
+      "id": "a1-num-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "large-decimal",
+      "prompt": "Write the French digit notation for English 4.07. Use the decimal comma.",
+      "choices": [],
+      "answers": [
+        "4,07"
+      ],
+      "explanation": "French uses a comma; keep the zero."
+    },
+    {
+      "id": "a1-num-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "rank-measure",
+      "prompt": "Write the ordinal meaning fifth.",
+      "choices": [],
+      "answers": [
+        "cinquième"
+      ],
+      "explanation": "Cinq adds u before -ième."
+    },
+    {
+      "id": "a1-num-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "rank-measure",
+      "prompt": "Write the ordinal meaning ninth.",
+      "choices": [],
+      "answers": [
+        "neuvième"
+      ],
+      "explanation": "Neuf changes f to v."
+    },
+    {
+      "id": "a1-num-13",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "rank-measure",
+      "prompt": "Use the normal cardinal page label, writing 14 in words: 'page ___'.",
+      "choices": [],
+      "answers": [
+        "quatorze"
+      ],
+      "explanation": "A page label uses a cardinal, not quatorzième."
+    },
+    {
+      "id": "a1-num-14",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "rank-measure",
+      "prompt": "Supply the article meaning per in this price: 'six euros ___ kilo'.",
+      "choices": [],
+      "answers": [
+        "le"
+      ],
+      "explanation": "The masculine singular unit takes le."
+    },
+    {
+      "id": "a1-num-15",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "small",
+      "prompt": "Write the number 21 before feminine personnes, in words only.",
+      "choices": [],
+      "answers": [
+        "vingt et une",
+        "vingt-et-une"
+      ],
+      "explanation": "Un becomes une before a feminine counted noun."
+    },
+    {
+      "id": "a1-num-16",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "tens-hundreds",
+      "prompt": "Are septante and nonante legitimate regional French number words?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "answers": [
+        "Oui"
+      ],
+      "explanation": "They are standard in several French-speaking regions."
+    },
+    {
+      "id": "a1-num-17",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "tens-hundreds",
+      "prompt": "Write the cardinal number 80 in words using the France/Canada system.",
+      "choices": [],
+      "answers": [
+        "quatre-vingts"
+      ],
+      "explanation": "Final multiplied vingt takes s."
+    },
+    {
+      "id": "a1-num-18",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "large-decimal",
+      "prompt": "Read 2,05 using virgule and individual decimal digits. Write the words.",
+      "choices": [],
+      "answers": [
+        "deux virgule zéro cinq"
+      ],
+      "explanation": "The zero after the comma cannot be dropped."
+    },
+    {
+      "id": "a1-num-19",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "rank-measure",
+      "prompt": "Supply the article: 'trois euros ___ cent grammes'.",
+      "choices": [],
+      "answers": [
+        "les"
+      ],
+      "explanation": "A rate per one hundred grams uses plural les."
+    },
+    {
+      "id": "a1-num-20",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "rank-measure",
+      "prompt": "Write the ordinal meaning twenty-first, masculine.",
+      "choices": [],
+      "answers": [
+        "vingt et unième",
+        "vingt-et-unième"
+      ],
+      "explanation": "Use unième inside a compound ordinal, not premier."
+    },
+    {
+      "id": "a1-num-21",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "rank-measure",
+      "prompt": "Replace the numbered label 'porte 9' with a phrase expressing ninth in a sequence. Begin with la, keep porte and write the ordinal in words.",
+      "choices": [],
+      "answers": [
+        "la neuvième porte"
+      ],
+      "explanation": "A rank places the ordinal before the noun; neuf changes f to v in neuvième."
+    }
+  ],
+  "production_task": {
+    "prompt": "Write a short market note: a quantity, a price per kilogram and which stall you will visit first. Write at least one number in words.",
+    "model_answer": "Je prends deux kilos de pommes à trois euros le kilo. Je vais au premier stand.",
+    "translation": "I am taking two kilograms of apples at three euros per kilogram. I am going to the first stall.",
+    "rubric": [
+      "Distinguish quantity from ordinal rank.",
+      "Use the definite article for a price unit.",
+      "Spell the chosen numbers accurately."
+    ]
+  }
+}

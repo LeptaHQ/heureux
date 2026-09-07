@@ -1,0 +1,376 @@
+{
+  "version": 1,
+  "id": "a1-questions",
+  "slug": "a1-questions",
+  "cefr_level": "A1",
+  "topic": "pronouns-questions-negation",
+  "title": "Poser une question simple",
+  "summary": "Ask yes/no questions, request confirmation, identify an unknown object and choose the right question word.",
+  "order": 21,
+  "duration_minutes": 13,
+  "prerequisites": [
+    "a1-reference",
+    "a1-negatives"
+  ],
+  "objectives": [
+    "Use statement order, est-ce que and n'est-ce pas for yes/no questions.",
+    "Distinguish c'est quoi and qu'est-ce que c'est.",
+    "Choose qui, que, quoi, quand, où, comment, pourquoi and combien."
+  ],
+  "keywords": [
+    "questions",
+    "est-ce que",
+    "qui",
+    "que",
+    "quoi",
+    "quand",
+    "où",
+    "comment",
+    "pourquoi",
+    "combien"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "questions-forms"
+  ],
+  "sections": [
+    {
+      "id": "yes-no",
+      "title": "Three useful ways to ask for yes or no",
+      "paragraphs": [
+        "In conversation, keep statement order and raise your voice: tu viens ? In writing, the question mark signals the question. Est-ce que before the normal subject–verb order gives an explicit neutral question: est-ce que tu viens ? Que becomes qu' before a vowel: est-ce qu'elle vient ? Do not conjugate a French equivalent of English do.",
+        "Add n'est-ce pas ? to a statement when seeking confirmation: le cours commence à neuf heures, n'est-ce pas ? It functions like isn't it?, doesn't it? or right? and does not change with the statement's subject. Inversion, such as venez-vous ?, is another more formal possibility; use a hyphen between verb and subject pronoun. This lesson practises the simplest patterns rather than all inversion rules."
+      ],
+      "points": [
+        "A real question can invite new information; n'est-ce pas often asks the listener to confirm an expectation."
+      ],
+      "examples": [
+        {
+          "french": "**Tu viens** demain ?",
+          "english": "Are you coming tomorrow?",
+          "note": "Spoken intonation can turn statement order into a question."
+        },
+        {
+          "french": "**Est-ce qu'**elle travaille ici ?",
+          "english": "Does she work here?",
+          "note": "Est-ce que elides before elle."
+        },
+        {
+          "french": "Le train arrive à midi, **n'est-ce pas** ?",
+          "english": "The train arrives at noon, doesn't it?",
+          "note": "The fixed tag seeks confirmation."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Est-ce que viens tu ?",
+          "prefer": "Est-ce que tu viens ?",
+          "why": "Keep ordinary subject–verb order after est-ce que."
+        }
+      ]
+    },
+    {
+      "id": "identify-object",
+      "title": "Ask what something is with a complete question",
+      "paragraphs": [
+        "Qu'est-ce que c'est ? is a neutral way to ask What is it/that? C'est quoi ? is a very common conversational version. Both ask for an identity and can receive c'est + noun phrase as an answer. Do not write quoi est-ce in place of either fixed pattern."
+      ],
+      "points": [
+        "The first qu' in qu'est-ce que c'est comes from que before est."
+      ],
+      "examples": [
+        {
+          "french": "**Qu'est-ce que c'est** ? — C'est une clé.",
+          "english": "What is that? — It is a key.",
+          "note": "A neutral identification question; une clé is feminine."
+        },
+        {
+          "french": "**C'est quoi** ? — C'est un ticket.",
+          "english": "What's that? — It is a ticket.",
+          "note": "An everyday conversational alternative; un ticket is masculine."
+        }
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "information",
+      "title": "Choose the missing information before choosing the word",
+      "paragraphs": [
+        "Qui asks who; quand asks when; où asks where; comment asks how; pourquoi asks why; combien asks how much or how many. Before a counted noun, use combien de or combien d': combien de billets, combien d'enfants. Où has an accent; ou without an accent means or.",
+        "For what, use que at the front of a conventional inverted question, as in que lis-tu ?, or qu'est-ce que with statement order, as in qu'est-ce que tu lis ?. Quoi is the stressed form used after a preposition (avec quoi ?) or at the end in ordinary speech (tu lis quoi ?). Qui can itself be the subject: qui arrive ? There is no need to add il after subject qui.",
+        "For most other information words, an accessible neutral pattern is word + est-ce que + subject + verb: où est-ce que tu habites ? Conversational word-final questions are also common: tu habites où ? Questions can have several correct forms; exercises specify the form or missing word they want."
+      ],
+      "points": [
+        "A question about a person is not the same as a question about an object."
+      ],
+      "examples": [
+        {
+          "french": "**Qui** arrive ?",
+          "english": "Who is arriving?",
+          "note": "Qui is the subject."
+        },
+        {
+          "french": "**Qu'est-ce que** tu lis ?",
+          "english": "What are you reading?",
+          "note": "The object is unknown; tu remains the subject."
+        },
+        {
+          "french": "Tu écris avec **quoi** ?",
+          "english": "What are you writing with?",
+          "note": "A preposition takes quoi, not que."
+        },
+        {
+          "french": "**Quand** est-ce que vous partez ?",
+          "english": "When are you leaving?",
+          "note": "Quand asks for the time."
+        },
+        {
+          "french": "Tu habites **où** ?",
+          "english": "Where do you live?",
+          "note": "Conversational question-word-final order."
+        },
+        {
+          "french": "**Comment** allez-vous ?",
+          "english": "How are you?",
+          "note": "A conventional greeting question."
+        },
+        {
+          "french": "**Pourquoi** est-ce qu'il attend ?",
+          "english": "Why is he waiting?",
+          "note": "Pourquoi asks for a reason."
+        },
+        {
+          "french": "**Combien de** billets voulez-vous ?",
+          "english": "How many tickets do you want?",
+          "note": "Combien de introduces the counted noun."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Combien des billets voulez-vous ?",
+          "prefer": "Combien de billets voulez-vous ?",
+          "why": "Use combien de directly before the counted noun."
+        },
+        {
+          "avoid": "Tu écris avec que ?",
+          "prefer": "Tu écris avec quoi ?",
+          "why": "The stressed question form after a preposition is quoi."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-q-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "yes-no",
+      "prompt": "Turn 'Tu travailles ici.' into a question beginning Est-ce que.",
+      "choices": [],
+      "answers": [
+        "Est-ce que tu travailles ici ?"
+      ],
+      "explanation": "Keep subject–verb order after est-ce que."
+    },
+    {
+      "id": "a1-q-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "identify-object",
+      "prompt": "Complete the neutral identification question: 'Qu'est-ce que ___ ?'",
+      "choices": [],
+      "answers": [
+        "c'est"
+      ],
+      "explanation": "The full pattern is qu'est-ce que c'est ?"
+    },
+    {
+      "id": "a1-q-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "information",
+      "prompt": "Ask where, using one word: 'Tu habites ___ ?'",
+      "choices": [],
+      "answers": [
+        "où"
+      ],
+      "explanation": "Où asks about location and needs its accent."
+    },
+    {
+      "id": "a1-q-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "information",
+      "prompt": "Supply the word asking who: '___ arrive ?'",
+      "choices": [],
+      "answers": [
+        "qui"
+      ],
+      "explanation": "Qui is the unknown person and the subject."
+    },
+    {
+      "id": "a1-q-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "yes-no",
+      "prompt": "Turn 'Elle vient demain.' into a question beginning Est-ce que, with required elision.",
+      "choices": [],
+      "answers": [
+        "Est-ce qu'elle vient demain ?"
+      ],
+      "explanation": "Que elides before elle."
+    },
+    {
+      "id": "a1-q-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "yes-no",
+      "prompt": "Add only the fixed confirmation tag: 'Tu comprends, ___ ?'",
+      "choices": [],
+      "answers": [
+        "n'est-ce pas"
+      ],
+      "explanation": "The tag seeks confirmation and stays the same with tu."
+    },
+    {
+      "id": "a1-q-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "identify-object",
+      "prompt": "Write the conversational identification question using only c'est and quoi.",
+      "choices": [],
+      "answers": [
+        "C'est quoi ?"
+      ],
+      "explanation": "C'est quoi ? is common in conversation."
+    },
+    {
+      "id": "a1-q-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "information",
+      "prompt": "Supply the word asking why: '___ est-ce que tu pars ?'",
+      "choices": [],
+      "answers": [
+        "pourquoi"
+      ],
+      "explanation": "Pourquoi requests a reason."
+    },
+    {
+      "id": "a1-q-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "information",
+      "prompt": "Supply the word asking when: '___ est-ce que le film commence ?'",
+      "choices": [],
+      "answers": [
+        "quand"
+      ],
+      "explanation": "Quand requests the time."
+    },
+    {
+      "id": "a1-q-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "information",
+      "prompt": "Supply the word asking how: '___ est-ce que cette machine fonctionne ?'",
+      "choices": [],
+      "answers": [
+        "comment"
+      ],
+      "explanation": "Comment asks about manner or method."
+    },
+    {
+      "id": "a1-q-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "information",
+      "prompt": "Supply the word meaning what after a preposition: 'Tu parles de ___ ?'",
+      "choices": [],
+      "answers": [
+        "quoi"
+      ],
+      "explanation": "A preposition requires quoi."
+    },
+    {
+      "id": "a1-q-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "information",
+      "prompt": "Supply the two words meaning how many: '___ personnes viennent ?'",
+      "choices": [],
+      "answers": [
+        "combien de"
+      ],
+      "explanation": "Use combien de before a counted noun."
+    },
+    {
+      "id": "a1-q-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "information",
+      "prompt": "Supply the fronted word meaning what: '___ lis-tu ?'",
+      "choices": [],
+      "answers": [
+        "que"
+      ],
+      "explanation": "Que is used before this inverted subject–verb pair."
+    },
+    {
+      "id": "a1-q-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "yes-no",
+      "terminal_punctuation_sensitive": true,
+      "prompt": "Make 'Vous partez.' a conversational question without changing word order. Write the whole question, including its question mark.",
+      "choices": [],
+      "answers": [
+        "Vous partez ?",
+        "Vous partez?"
+      ],
+      "explanation": "Statement order plus questioning intonation is ordinary in speech; the question mark signals the question in writing."
+    },
+    {
+      "id": "a1-q-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "information",
+      "prompt": "Supply combien plus the needed form of de: '___ enfants sont ici ?'",
+      "choices": [],
+      "answers": [
+        "combien d'"
+      ],
+      "explanation": "De elides before enfants."
+    },
+    {
+      "id": "a1-q-16",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "information",
+      "prompt": "Which spelling asks where?",
+      "choices": [
+        "où",
+        "ou"
+      ],
+      "answers": [
+        "où"
+      ],
+      "explanation": "Où asks where; ou means or."
+    }
+  ],
+  "production_task": {
+    "prompt": "Ask about a class before attending: whether it starts tomorrow, where it takes place and how many people are coming. Use est-ce que in at least one question.",
+    "model_answer": "Est-ce que le cours commence demain ? Où est-ce que le cours a lieu ? Combien de personnes viennent ?",
+    "translation": "Does the class start tomorrow? Where does the class take place? How many people are coming?",
+    "rubric": [
+      "Keep subject–verb order after est-ce que.",
+      "Choose a question word matching the missing information.",
+      "Use combien de, not combien des."
+    ]
+  }
+}

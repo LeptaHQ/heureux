@@ -1,0 +1,349 @@
+{
+  "version": 1,
+  "id": "a1-adverbs",
+  "slug": "a1-adverbs",
+  "cefr_level": "A1",
+  "topic": "grammar-foundations",
+  "title": "Dire comment : les adverbes en -ment",
+  "summary": "Build common manner adverbs from adjectives, keep them invariable and place them naturally with a simple present verb.",
+  "order": 19,
+  "duration_minutes": 10,
+  "prerequisites": [
+    "a1-adjective-forms",
+    "a1-present-families"
+  ],
+  "objectives": [
+    "Distinguish a description of a noun from a description of an action.",
+    "Form common -ment adverbs and recognise useful exceptions.",
+    "Keep an adverb unchanged for gender and number."
+  ],
+  "keywords": [
+    "adverbs",
+    "-ment",
+    "lentement",
+    "doucement",
+    "bien",
+    "mal"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "grammar-adverbs"
+  ],
+  "sections": [
+    {
+      "id": "formation",
+      "title": "An adjective describes a thing; a manner adverb describes how an action happens",
+      "paragraphs": [
+        "Compare a careful person with working carefully. French often builds an adverb by adding -ment to the feminine singular adjective: lent → lente → lentement; doux → douce → doucement; heureux → heureuse → heureusement. If the adjective already ends in e, add -ment directly: calme → calmement, simple → simplement. Adverbs do not agree with the subject or object.",
+        "When the masculine adjective ends in a pronounced vowel, many common adverbs add -ment directly: vrai → vraiment, poli → poliment. This is a useful pattern, not permission to invent forms for every adjective. Learn irregular bon → bien (well) and mauvais → mal (badly) separately; do not build bonnement to mean ordinary well."
+      ],
+      "points": [
+        "Lentement = slowly; doucement = gently/softly; clairement = clearly; vraiment = really.",
+        "Heureusement often means fortunately, an evaluation of the situation rather than a person's manner."
+      ],
+      "examples": [
+        {
+          "french": "La tortue est **lente**. Elle avance **lentement**.",
+          "english": "The tortoise is slow. It moves slowly.",
+          "note": "Lente describes the tortoise; lentement describes its movement."
+        },
+        {
+          "french": "Les enfants parlent **doucement**.",
+          "english": "The children speak softly.",
+          "note": "Doux becomes douce before -ment."
+        },
+        {
+          "french": "Nous répondons **poliment**.",
+          "english": "We answer politely.",
+          "note": "Poli adds -ment without a feminine e."
+        },
+        {
+          "french": "Il explique **clairement** la règle.",
+          "english": "He explains the rule clearly.",
+          "note": "Clair becomes claire, then clairement."
+        },
+        {
+          "french": "C'est **vraiment** utile.",
+          "english": "It is really useful.",
+          "note": "Vraiment can modify an adjective."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Elles parlent doucements.",
+          "prefer": "Elles parlent doucement.",
+          "why": "An adverb never takes a plural s for the speakers."
+        },
+        {
+          "avoid": "Il répond poliement.",
+          "prefer": "Il répond poliment.",
+          "why": "The common adverb is formed directly from poli."
+        }
+      ]
+    },
+    {
+      "id": "placement",
+      "title": "With a simple verb, put a short manner adverb after it",
+      "paragraphs": [
+        "In a simple present statement, short manner adverbs normally follow the conjugated verb: elle parle lentement. Before an adjective, an intensifier comes directly before that adjective: vraiment utile. Some sentence adverbs can come first, often followed by a comma: heureusement, le bus arrive. Word order is not completely rigid, but these are safe starting patterns.",
+        "The -ant and -ent families have another formation: constant → constamment, patient → patiemment. Their -amment and -emment endings are pronounced alike. They are useful recognition patterns; not every final -ent behaves this way, so lent still gives lentement. This lesson's main production focus remains the common forms already explained."
+      ],
+      "points": [
+        "Bien and mal are common adverbs without -ment.",
+        "Do not make adverbs agree after a feminine or plural subject."
+      ],
+      "examples": [
+        {
+          "french": "Elle joue **bien**.",
+          "english": "She plays well.",
+          "note": "Bien is the adverb corresponding to bon in this meaning."
+        },
+        {
+          "french": "Ils travaillent **mal**.",
+          "english": "They work badly.",
+          "note": "Mal describes the work, not the people."
+        },
+        {
+          "french": "**Heureusement**, le train arrive.",
+          "english": "Fortunately, the train is arriving.",
+          "note": "This adverb comments on the whole event."
+        },
+        {
+          "french": "Nous attendons **patiemment**.",
+          "english": "We wait patiently.",
+          "note": "Patient has the -emment form."
+        },
+        {
+          "french": "Cette porte bouge **constamment**.",
+          "english": "This door moves constantly.",
+          "note": "Constant has the -amment form."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Elle est vraimentment calme.",
+          "prefer": "Elle est vraiment calme.",
+          "why": "Vraiment already contains the adverb ending; do not add it again."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-adv-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "formation",
+      "prompt": "Form the manner adverb from lent.",
+      "choices": [],
+      "answers": [
+        "lentement"
+      ],
+      "explanation": "Use feminine lente plus -ment."
+    },
+    {
+      "id": "a1-adv-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "formation",
+      "prompt": "Form the manner adverb from doux.",
+      "choices": [],
+      "answers": [
+        "doucement"
+      ],
+      "explanation": "Doux becomes douce before -ment."
+    },
+    {
+      "id": "a1-adv-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "formation",
+      "prompt": "Form the adverb from poli.",
+      "choices": [],
+      "answers": [
+        "poliment"
+      ],
+      "explanation": "Add -ment directly to poli."
+    },
+    {
+      "id": "a1-adv-04",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "formation",
+      "prompt": "Which word describes the action in 'Elle marche lentement'?",
+      "choices": [
+        "lentement",
+        "elle"
+      ],
+      "answers": [
+        "lentement"
+      ],
+      "explanation": "The adverb tells how she walks."
+    },
+    {
+      "id": "a1-adv-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "formation",
+      "prompt": "Form the adverb from clair.",
+      "choices": [],
+      "answers": [
+        "clairement"
+      ],
+      "explanation": "Claire plus -ment gives clairement."
+    },
+    {
+      "id": "a1-adv-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "formation",
+      "prompt": "Form the adverb from simple.",
+      "choices": [],
+      "answers": [
+        "simplement"
+      ],
+      "explanation": "Simple already ends in e."
+    },
+    {
+      "id": "a1-adv-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "formation",
+      "prompt": "Form the adverb from vrai.",
+      "choices": [],
+      "answers": [
+        "vraiment"
+      ],
+      "explanation": "Vrai adds -ment directly."
+    },
+    {
+      "id": "a1-adv-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "formation",
+      "prompt": "Rewrite the whole sentence, removing only the incorrect agreement: 'Les filles parlent calmementes.'",
+      "choices": [],
+      "answers": [
+        "Les filles parlent calmement."
+      ],
+      "explanation": "The adverb does not agree with the girls."
+    },
+    {
+      "id": "a1-adv-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "placement",
+      "prompt": "Supply the ordinary adverb meaning well: 'Il chante ___.'",
+      "choices": [],
+      "answers": [
+        "bien"
+      ],
+      "explanation": "Use bien, not an invented -ment form of bon."
+    },
+    {
+      "id": "a1-adv-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "placement",
+      "prompt": "Place lentement in the ordinary short-adverb position: 'Nous parlons.' Write the sentence.",
+      "choices": [],
+      "answers": [
+        "Nous parlons lentement."
+      ],
+      "explanation": "With a simple verb, the short manner adverb follows it."
+    },
+    {
+      "id": "a1-adv-11",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "placement",
+      "prompt": "Choose the conventional adverb from patient.",
+      "choices": [
+        "patiemment",
+        "patientement"
+      ],
+      "answers": [
+        "patiemment"
+      ],
+      "explanation": "Patient follows the -ent → -emment pattern."
+    },
+    {
+      "id": "a1-adv-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "placement",
+      "prompt": "Supply the adverb meaning badly: 'Cette machine fonctionne ___.'",
+      "choices": [],
+      "answers": [
+        "mal"
+      ],
+      "explanation": "Mal describes how the machine works."
+    },
+    {
+      "id": "a1-adv-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "formation",
+      "prompt": "Form the adverb from heureux.",
+      "choices": [],
+      "answers": [
+        "heureusement"
+      ],
+      "explanation": "Heureuse plus -ment gives heureusement."
+    },
+    {
+      "id": "a1-adv-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "placement",
+      "prompt": "Form the adverb from constant.",
+      "choices": [],
+      "answers": [
+        "constamment"
+      ],
+      "explanation": "The -ant family takes -amment."
+    },
+    {
+      "id": "a1-adv-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "formation",
+      "prompt": "Supply rapidement or rapidements: 'Elles répondent ___.'",
+      "choices": [],
+      "answers": [
+        "rapidement"
+      ],
+      "explanation": "The plural subject does not change the adverb."
+    },
+    {
+      "id": "a1-adv-16",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "placement",
+      "prompt": "Choose the normal order for an adverb modifying an adjective.",
+      "choices": [
+        "C'est vraiment simple.",
+        "C'est simple vraiment."
+      ],
+      "answers": [
+        "C'est vraiment simple."
+      ],
+      "explanation": "The intensifier comes immediately before the adjective."
+    }
+  ],
+  "production_task": {
+    "prompt": "Give three observations about a calm study partner: how the person speaks, explains and listens. Use at least two -ment adverbs and bien.",
+    "model_answer": "Elle parle doucement. Elle explique clairement les règles. Elle écoute bien.",
+    "translation": "She speaks softly. She explains the rules clearly. She listens well.",
+    "rubric": [
+      "Use adverbs to describe actions.",
+      "Keep adverbs unchanged for a feminine subject.",
+      "Place short manner adverbs after the simple verb."
+    ]
+  }
+}

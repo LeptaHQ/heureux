@@ -1,0 +1,360 @@
+{
+  "version": 1,
+  "id": "a1-reference",
+  "slug": "a1-reference",
+  "cefr_level": "A1",
+  "topic": "grammar-foundations",
+  "title": "Identifier et décrire : c'est, il est et ça",
+  "summary": "Introduce someone or something, describe an already identified noun, and refer to a situation with ça.",
+  "order": 14,
+  "duration_minutes": 12,
+  "prerequisites": [
+    "a1-etre-avoir",
+    "a1-articles-gender"
+  ],
+  "objectives": [
+    "Distinguish c'est/ce sont + identification from il/elle est + description.",
+    "Use impersonal c'est + masculine singular adjective.",
+    "Refer to an idea or situation with ça."
+  ],
+  "keywords": [
+    "c'est",
+    "ce sont",
+    "il est",
+    "elle est",
+    "ça",
+    "demonstratives"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "grammar-demonstratives-reference"
+  ],
+  "sections": [
+    {
+      "id": "identify",
+      "title": "Use c'est to say who or what something is",
+      "paragraphs": [
+        "C'est introduces an identity: c'est + a name, a stressed pronoun or a noun phrase with a determiner such as un, une or mon. Ce becomes c' before est. For a plural noun phrase, careful standard usage has ce sont. You will often hear c'est + plural in conversation; recognise it, but use ce sont in the controlled written tasks here.",
+        "C'est un médecin identifies someone's role. Il est médecin states the profession without an article. Both can be correct; do not remove an article while leaving the rest of the construction unchanged."
+      ],
+      "points": [
+        "C'est = this/that is or it is, and sometimes he/she is in an identification.",
+        "Ce sont = these/those are or they are in an identification."
+      ],
+      "examples": [
+        {
+          "french": "**C'est** Amira.",
+          "english": "This is Amira.",
+          "note": "A name identifies the person."
+        },
+        {
+          "french": "**C'est** une gare.",
+          "english": "That is a train station.",
+          "note": "Une gare (f.) identifies the building."
+        },
+        {
+          "french": "**Ce sont** mes clés.",
+          "english": "These are my keys.",
+          "note": "A plural noun phrase takes ce sont in careful usage."
+        },
+        {
+          "french": "**C'est** un médecin. **Il est** médecin.",
+          "english": "He is a doctor. He is a doctor.",
+          "note": "Identification with an article contrasts with a bare profession."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Il est un vélo.",
+          "prefer": "C'est un vélo.",
+          "why": "For neutral identification of an object with un vélo, use c'est. Il est has other uses, including literary identification patterns, but this is the ordinary beginner construction."
+        }
+      ]
+    },
+    {
+      "id": "describe",
+      "title": "Use il or elle for a known noun; use c'est for an overall comment",
+      "paragraphs": [
+        "Once a noun is identified, il/elle est and ils/elles sont can describe it. Choose the pronoun from the noun's gender and number; the adjective agrees with that noun. In an impersonal comment about an activity, idea or situation, c'est + a standalone adjective uses masculine singular: c'est intéressant, even if the activity's name is feminine.",
+        "Compare la musique, elle est belle (the music itself is beautiful) with écouter de la musique, c'est agréable (listening to music is pleasant). When a noun follows c'est, adjectives inside that noun phrase agree normally: c'est une belle chanson. The masculine rule concerns the standalone impersonal adjective, not every adjective after the words c'est."
+      ],
+      "points": [
+        "Une chanson (f.) = a song; un exercice (m.) = an exercise."
+      ],
+      "examples": [
+        {
+          "french": "La chanson ? **Elle est belle**.",
+          "english": "The song? It is beautiful.",
+          "note": "Elle and belle agree with feminine chanson."
+        },
+        {
+          "french": "Les exercices ? **Ils sont difficiles**.",
+          "english": "The exercises? They are difficult.",
+          "note": "A known masculine plural noun takes ils."
+        },
+        {
+          "french": "Apprendre ensemble, **c'est amusant**.",
+          "english": "Learning together is fun.",
+          "note": "The overall activity takes masculine singular amusant."
+        },
+        {
+          "french": "**C'est** une chanson **amusante**.",
+          "english": "It is a funny song.",
+          "note": "Inside the noun phrase, amusante agrees with chanson."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Apprendre ensemble, c'est amusante.",
+          "prefer": "Apprendre ensemble, c'est amusant.",
+          "why": "The impersonal comment uses a masculine singular standalone adjective."
+        }
+      ]
+    },
+    {
+      "id": "ca",
+      "title": "Ça points to a thing, idea or situation without naming it",
+      "paragraphs": [
+        "Ça means this, that or it when referring broadly to something already shown or discussed. It is common in speech and ordinary informal writing; cela is a more formal alternative. Ça takes a singular verb: ça marche. Before être, c'est is the usual neutral identification or evaluation form, rather than ça est.",
+        "Use a gendered il or elle when tracking a particular named noun; use ça when pointing to or discussing an idea, object or situation more generally. Ça is not automatically wrong for a physical object, but using it for a person can sound dismissive depending on context."
+      ],
+      "points": [
+        "Keep the cedilla: ça, not ca."
+      ],
+      "examples": [
+        {
+          "french": "**Ça** marche.",
+          "english": "It works.",
+          "note": "Ça can refer to a device or an arrangement."
+        },
+        {
+          "french": "Je comprends **ça**.",
+          "english": "I understand that.",
+          "note": "Ça can also be an object after the verb."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Ça est utile.",
+          "prefer": "C'est utile.",
+          "why": "The normal impersonal evaluation uses c'est."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-ref-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "identify",
+      "prompt": "Supply c'est or ce sont: '___ une école.'",
+      "choices": [],
+      "answers": [
+        "c'est"
+      ],
+      "explanation": "A singular noun phrase is identified with c'est."
+    },
+    {
+      "id": "a1-ref-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "describe",
+      "prompt": "Supply il or elle: 'La porte ? ___ est ouverte.'",
+      "choices": [],
+      "answers": [
+        "elle"
+      ],
+      "explanation": "Porte is feminine."
+    },
+    {
+      "id": "a1-ref-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "describe",
+      "prompt": "Choose intéressant or intéressante: 'Lire, c'est ___.'",
+      "choices": [],
+      "answers": [
+        "intéressant"
+      ],
+      "explanation": "An impersonal standalone adjective is masculine singular."
+    },
+    {
+      "id": "a1-ref-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "ca",
+      "prompt": "Use the informal equivalent of cela: '___ marche bien.'",
+      "choices": [],
+      "answers": [
+        "ça"
+      ],
+      "explanation": "Ça refers broadly to the thing or arrangement."
+    },
+    {
+      "id": "a1-ref-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "identify",
+      "prompt": "Use careful written agreement: '___ les voisins.' Supply c'est or ce sont.",
+      "choices": [],
+      "answers": [
+        "ce sont"
+      ],
+      "explanation": "A plural identification takes ce sont in careful written usage."
+    },
+    {
+      "id": "a1-ref-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "identify",
+      "prompt": "Supply c'est or il est: '___ mon frère.'",
+      "choices": [],
+      "answers": [
+        "c'est"
+      ],
+      "explanation": "A possessive noun phrase identifies someone."
+    },
+    {
+      "id": "a1-ref-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "describe",
+      "prompt": "Supply il est or c'est for a known male person: '___ médecin.'",
+      "choices": [],
+      "answers": [
+        "il est"
+      ],
+      "explanation": "A bare profession follows il est."
+    },
+    {
+      "id": "a1-ref-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "describe",
+      "prompt": "Supply ils or elles: 'Les maisons ? ___ sont petites.'",
+      "choices": [],
+      "answers": [
+        "elles"
+      ],
+      "explanation": "Maisons is feminine plural."
+    },
+    {
+      "id": "a1-ref-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "describe",
+      "prompt": "Supply bon or bonne: 'Marcher chaque jour, c'est ___ pour la santé.'",
+      "choices": [],
+      "answers": [
+        "bon"
+      ],
+      "explanation": "The evaluation concerns an activity, so use masculine singular bon."
+    },
+    {
+      "id": "a1-ref-10",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "describe",
+      "prompt": "Choose the correct adjective inside this noun phrase: 'C'est une histoire ___.'",
+      "choices": [
+        "amusante",
+        "amusant"
+      ],
+      "answers": [
+        "amusante"
+      ],
+      "explanation": "The adjective describes feminine histoire, not an impersonal situation."
+    },
+    {
+      "id": "a1-ref-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "ca",
+      "prompt": "Replace cela with its informal equivalent: 'Je préfère cela.' Write the whole sentence.",
+      "choices": [],
+      "answers": [
+        "Je préfère ça."
+      ],
+      "explanation": "Ça can serve as the object of a verb."
+    },
+    {
+      "id": "a1-ref-12",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "identify",
+      "prompt": "For careful written identification, choose the complete sentence.",
+      "choices": [
+        "Ce sont des livres.",
+        "Ce sont un livre."
+      ],
+      "answers": [
+        "Ce sont des livres."
+      ],
+      "explanation": "Ce sont identifies a plural noun phrase."
+    },
+    {
+      "id": "a1-ref-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "describe",
+      "prompt": "Supply il or elle: 'Le musée ? ___ est fermé.'",
+      "choices": [],
+      "answers": [
+        "il"
+      ],
+      "explanation": "Musée is masculine despite its final e."
+    },
+    {
+      "id": "a1-ref-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "ca",
+      "prompt": "Rewrite the whole sentence, changing only the opening to the normal evaluation form: 'Ça est pratique.'",
+      "choices": [],
+      "answers": [
+        "C'est pratique."
+      ],
+      "explanation": "Use c'est before a neutral standalone evaluation."
+    },
+    {
+      "id": "a1-ref-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "identify",
+      "prompt": "Supply c'est or ce sont: '___ Lina et Hugo.' Use careful written agreement.",
+      "choices": [],
+      "answers": [
+        "ce sont"
+      ],
+      "explanation": "Two people form a plural identification."
+    },
+    {
+      "id": "a1-ref-16",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "describe",
+      "prompt": "Supply utile or utiles: 'Préparer les repas, c'est ___.'",
+      "choices": [],
+      "answers": [
+        "utile"
+      ],
+      "explanation": "The overall activity receives a singular impersonal adjective."
+    }
+  ],
+  "production_task": {
+    "prompt": "Show someone a place: identify it with c'est, describe the known place with il or elle, and add an overall comment about visiting it.",
+    "model_answer": "C'est une bibliothèque. Elle est calme. Lire ici, c'est agréable.",
+    "translation": "It is a library. It is quiet. Reading here is pleasant.",
+    "rubric": [
+      "Use c'est with a noun phrase for identification.",
+      "Choose the description pronoun from the noun's gender.",
+      "Keep the overall evaluation masculine singular."
+    ]
+  }
+}

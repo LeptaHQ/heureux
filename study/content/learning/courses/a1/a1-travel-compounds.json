@@ -1,0 +1,364 @@
+{
+  "version": 1,
+  "id": "a1-travel-compounds",
+  "slug": "a1-travel-compounds",
+  "cefr_level": "A1",
+  "topic": "time-place-prepositions",
+  "title": "Se déplacer et nommer les objets utiles",
+  "summary": "Describe transport, distinguish travelling by from being inside a vehicle, and interpret noun groups built with à, de or en.",
+  "order": 24,
+  "duration_minutes": 12,
+  "prerequisites": [
+    "a1-place",
+    "a1-want-can-must"
+  ],
+  "objectives": [
+    "Use ordinary transport expressions and distinguish mode from physical location.",
+    "Use dans for streets and vehicle interiors.",
+    "Distinguish purpose, contents and material in familiar compound noun groups."
+  ],
+  "keywords": [
+    "transport",
+    "à pied",
+    "en train",
+    "dans la rue",
+    "compound nouns",
+    "à",
+    "de",
+    "en"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "prepositions-transport-address",
+    "prepositions-compounds-material"
+  ],
+  "sections": [
+    {
+      "id": "transport",
+      "title": "Name the travel mode with en or à",
+      "paragraphs": [
+        "Common enclosed-vehicle travel modes use en without an article: en voiture, en train, en bus, en métro, en avion. Conventional exposed modes include à pied, à vélo, à bicyclette, à moto and à cheval. You will also hear and read en vélo and en moto; à vélo/à moto are safe reference forms, not a reason to claim all en variants are impossible.",
+        "When describing your physical position, use the relevant location preposition plus an article: dans le bus, dans la voiture, sur le vélo. En bus describes how you travel; dans le bus says where you are. English on the bus normally corresponds to dans le bus, not being on its roof."
+      ],
+      "points": [
+        "Un train (m.) = a train; une voiture (f.) = a car; un vélo (m.) = a bicycle.",
+        "À pied keeps pied singular in the ordinary expression."
+      ],
+      "examples": [
+        {
+          "french": "Nous allons au travail **en train**.",
+          "english": "We go to work by train.",
+          "note": "En + transport mode has no article."
+        },
+        {
+          "french": "Je rentre **à pied**.",
+          "english": "I am going home on foot.",
+          "note": "The established walking expression."
+        },
+        {
+          "french": "Elle vient **à vélo**.",
+          "english": "She is coming by bicycle.",
+          "note": "The reference form uses à."
+        },
+        {
+          "french": "Je lis **dans le bus**.",
+          "english": "I am reading on the bus.",
+          "note": "Physical location inside the vehicle differs from mode of transport."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Je vais en le train.",
+          "prefer": "Je vais en train.",
+          "why": "The transport-mode expression has no article."
+        }
+      ]
+    },
+    {
+      "id": "street",
+      "title": "A street is normally introduced with dans when describing activity there",
+      "paragraphs": [
+        "French usually says marcher dans la rue, jouer dans la rue or habiter dans cette rue. This does not mean underground inside the road; it is the normal way to place activity in the street area. A precise address can use au + number, followed by the street name: au 12, rue des Lilas. Usage with streets varies regionally, but dans la rue is a safe general activity expression."
+      ],
+      "points": [
+        "Une rue (f.) = a street; une avenue (f.) = an avenue."
+      ],
+      "examples": [
+        {
+          "french": "Les enfants jouent **dans la rue**.",
+          "english": "The children are playing in the street.",
+          "note": "Dans is the normal location preposition here."
+        },
+        {
+          "french": "Elle habite **dans cette rue**.",
+          "english": "She lives on this street.",
+          "note": "Do not translate English on mechanically as sur."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Je marche en la rue.",
+          "prefer": "Je marche dans la rue.",
+          "why": "Use dans with the ordinary definite street noun phrase."
+        }
+      ]
+    },
+    {
+      "id": "noun-groups",
+      "title": "A linking preposition can identify an object's purpose, contents or material",
+      "paragraphs": [
+        "French often uses noun + preposition + noun where English uses two nouns together. À can indicate a purpose or type: une tasse à café (a coffee cup), une brosse à dents (a toothbrush). De can indicate contents: une tasse de café (a cup of coffee), un verre d'eau (a glass of water). En often names material: une table en bois (a wooden table). Established expressions must be learned; do not mechanically substitute one preposition everywhere.",
+        "Noun + à + infinitive names a thing's intended function: une machine à laver (a washing machine), une salle à manger (a dining room), une machine à coudre (a sewing machine). The infinitive does not agree with the noun and is not conjugated. This identifying à differs from pour + infinitive giving the purpose of someone's action."
+      ],
+      "points": [
+        "Une tasse (f.) = a cup; une brosse (f.) = a brush; le bois (m.) = wood; une machine (f.) = a machine."
+      ],
+      "examples": [
+        {
+          "french": "La **tasse à café** est vide.",
+          "english": "The coffee cup is empty.",
+          "note": "The phrase names the cup's intended type, not its contents."
+        },
+        {
+          "french": "Il prépare une **tasse de café**.",
+          "english": "He prepares a cup of coffee.",
+          "note": "De identifies what the cup contains."
+        },
+        {
+          "french": "Nous avons une table **en bois**.",
+          "english": "We have a wooden table.",
+          "note": "En introduces the material."
+        },
+        {
+          "french": "La **machine à laver** est dans la cuisine.",
+          "english": "The washing machine is in the kitchen.",
+          "note": "À + infinitive identifies its function."
+        },
+        {
+          "french": "Ils mangent dans la **salle à manger**.",
+          "english": "They eat in the dining room.",
+          "note": "Manger remains an infinitive in the noun group."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "une machine à lave",
+          "prefer": "une machine à laver",
+          "why": "The functional noun construction uses an infinitive after à."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-trip-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "transport",
+      "prompt": "Supply the usual transport preposition: 'Je voyage ___ avion.'",
+      "choices": [],
+      "answers": [
+        "en"
+      ],
+      "explanation": "Air travel is en avion."
+    },
+    {
+      "id": "a1-trip-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "transport",
+      "prompt": "Supply the preposition: 'Nous allons ___ pied.'",
+      "choices": [],
+      "answers": [
+        "à"
+      ],
+      "explanation": "The fixed expression is à pied."
+    },
+    {
+      "id": "a1-trip-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "noun-groups",
+      "prompt": "Supply the preposition naming contents: 'une tasse ___ thé'.",
+      "choices": [],
+      "answers": [
+        "de"
+      ],
+      "explanation": "De introduces the contents."
+    },
+    {
+      "id": "a1-trip-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "noun-groups",
+      "prompt": "Supply the infinitive from laver: 'une machine à ___'.",
+      "choices": [],
+      "answers": [
+        "laver"
+      ],
+      "explanation": "A function after à uses an infinitive."
+    },
+    {
+      "id": "a1-trip-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "transport",
+      "prompt": "Supply the mode preposition: 'Elle vient ___ voiture.'",
+      "choices": [],
+      "answers": [
+        "en"
+      ],
+      "explanation": "The ordinary expression is en voiture, without an article."
+    },
+    {
+      "id": "a1-trip-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "transport",
+      "prompt": "Supply the reference preposition for horseback travel: 'Il part ___ cheval.'",
+      "choices": [],
+      "answers": [
+        "à"
+      ],
+      "explanation": "The conventional expression is à cheval."
+    },
+    {
+      "id": "a1-trip-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "transport",
+      "prompt": "You are inside a bus, not on its roof. Supply dans or sur: 'Je suis ___ le bus.'",
+      "choices": [],
+      "answers": [
+        "dans"
+      ],
+      "explanation": "French uses dans le bus for the ordinary interior location."
+    },
+    {
+      "id": "a1-trip-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "street",
+      "prompt": "Supply the usual street-activity preposition: 'Nous marchons ___ la rue.'",
+      "choices": [],
+      "answers": [
+        "dans"
+      ],
+      "explanation": "The ordinary general expression is dans la rue."
+    },
+    {
+      "id": "a1-trip-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "noun-groups",
+      "prompt": "Supply the preposition for material: 'une chaise ___ bois'.",
+      "choices": [],
+      "answers": [
+        "en"
+      ],
+      "explanation": "En introduces the material."
+    },
+    {
+      "id": "a1-trip-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "noun-groups",
+      "prompt": "Name an empty cup intended for coffee: 'une tasse ___ café'.",
+      "choices": [],
+      "answers": [
+        "à"
+      ],
+      "explanation": "À names the intended type or function."
+    },
+    {
+      "id": "a1-trip-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "noun-groups",
+      "prompt": "Supply the preposition in the established compound: 'une brosse ___ dents'.",
+      "choices": [],
+      "answers": [
+        "à"
+      ],
+      "explanation": "The toothbrush compound is une brosse à dents."
+    },
+    {
+      "id": "a1-trip-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "noun-groups",
+      "prompt": "Supply the full infinitive after à: 'une salle à ___' means a dining room. Use manger.",
+      "choices": [],
+      "answers": [
+        "manger"
+      ],
+      "explanation": "The verb naming the room's function stays infinitive."
+    },
+    {
+      "id": "a1-trip-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "transport",
+      "prompt": "Supply en or dans: 'Je voyage ___ train, mais maintenant je suis dans la gare.'",
+      "choices": [],
+      "answers": [
+        "en"
+      ],
+      "explanation": "En train names the travel mode."
+    },
+    {
+      "id": "a1-trip-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "noun-groups",
+      "prompt": "Supply de with elision for contents: 'un verre ___ eau'.",
+      "choices": [],
+      "answers": [
+        "d'"
+      ],
+      "explanation": "De elides before eau."
+    },
+    {
+      "id": "a1-trip-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "noun-groups",
+      "prompt": "Rewrite the whole phrase, changing only the verb to its required form: 'une machine à coud'.",
+      "choices": [],
+      "answers": [
+        "une machine à coudre"
+      ],
+      "explanation": "The noun's function is named with an infinitive."
+    },
+    {
+      "id": "a1-trip-16",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "transport",
+      "prompt": "Which phrase describes a travel mode rather than a physical position?",
+      "choices": [
+        "en métro",
+        "dans le métro"
+      ],
+      "answers": [
+        "en métro"
+      ],
+      "explanation": "En métro means by metro; dans le métro locates someone inside the system or vehicle."
+    }
+  ],
+  "production_task": {
+    "prompt": "Describe your trip to a shop and an object you need there. Include a travel mode, an interior or street location and a noun group with à or en.",
+    "model_answer": "Je vais au magasin en bus. Dans le bus, je lis ma liste. J'ai besoin d'une brosse à dents.",
+    "translation": "I am going to the shop by bus. On the bus, I read my list. I need a toothbrush.",
+    "rubric": [
+      "Distinguish en bus from dans le bus.",
+      "Keep the preposition in the compound noun.",
+      "Do not conjugate a functional infinitive if you use one."
+    ]
+  }
+}

@@ -1,0 +1,362 @@
+{
+  "version": 1,
+  "id": "a1-recent-past-progressive",
+  "slug": "a1-recent-past-progressive",
+  "cefr_level": "A1",
+  "topic": "verbs-tenses-moods",
+  "title": "Juste avant maintenant, ou en cours maintenant",
+  "summary": "Distinguish an action just completed with venir de from an action in progress with être en train de.",
+  "order": 29,
+  "duration_minutes": 12,
+  "prerequisites": [
+    "a1-venir-tenir-prendre",
+    "a1-reflexive-routines",
+    "a1-near-future"
+  ],
+  "objectives": [
+    "Form venir de + infinitive for the recent past.",
+    "Form être en train de + infinitive for an ongoing action.",
+    "Distinguish those meanings from the ordinary present and near future."
+  ],
+  "keywords": [
+    "recent past",
+    "venir de",
+    "passé récent",
+    "en train de",
+    "progressive"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "verbs-recent-past",
+    "aspect-progressive-en-train-de"
+  ],
+  "sections": [
+    {
+      "id": "recent",
+      "title": "Venir de looks back at something just completed",
+      "paragraphs": [
+        "Present venir + de + infinitive means have just done something. The first verb is present, but the event expressed by the infinitive has already happened. De becomes d' before a vowel or silent h. Do not put a past participle after de: je viens de finir, not je viens de fini.",
+        "With a reflexive infinitive, put the pronoun between de and that infinitive: je viens de me lever. Compare venir de Paris, movement or origin followed by a place, with venir de partir, a just-completed action followed by an infinitive. The recent-past construction does not imply actual movement."
+      ],
+      "points": [
+        "The sense of recent depends on the situation; the construction does not specify an exact number of minutes."
+      ],
+      "examples": [
+        {
+          "french": "Je **viens de finir**\nTu **viens de finir**\nIl/elle/on **vient de finir**\nNous **venons de finir**\nVous **venez de finir**\nIls/elles **viennent de finir**",
+          "english": "I have just finished\nYou have just finished\nHe/she has just finished; one/we have just finished\nWe have just finished\nYou have just finished\nThey have just finished",
+          "note": "Venir carries the person; finir stays infinitive."
+        },
+        {
+          "french": "Elle **vient d'arriver**.",
+          "english": "She has just arrived.",
+          "note": "De elides before arriver."
+        },
+        {
+          "french": "Nous **venons de lire** le message.",
+          "english": "We have just read the message.",
+          "note": "The reading is complete."
+        },
+        {
+          "french": "Je **viens de me lever**.",
+          "english": "I have just got up.",
+          "note": "The reflexive pronoun stays with lever."
+        },
+        {
+          "french": "Il **vient de Paris**.",
+          "english": "He comes from Paris.",
+          "note": "A place after de gives an origin meaning, not a recent past."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Je viens finir le travail.",
+          "prefer": "Je viens de finir le travail.",
+          "why": "For 'I have just finished', de is essential. Without de, venir + infinitive can mean come to do something."
+        },
+        {
+          "avoid": "Elle vient de arrivé.",
+          "prefer": "Elle vient d'arriver.",
+          "why": "Use an infinitive and elide de before its vowel."
+        }
+      ]
+    },
+    {
+      "id": "progressive",
+      "title": "Être en train de focuses on the action still happening",
+      "paragraphs": [
+        "Être en train de + infinitive emphasises an action currently in progress: je suis en train de cuisiner. It is not a form of travel by train: un train (m.) is a train, but en train de is a fixed grammatical expression. The ordinary present already can mean am doing; add en train de only when the ongoing process matters.",
+        "The present can describe habits or states that do not suit this progressive emphasis. Je sais (I know) or j'habite ici (I live here) normally states a situation, not an action unfolding stage by stage. With a reflexive infinitive, keep the pronoun before it: elle est en train de s'habiller."
+      ],
+      "points": [
+        "Conjugate être, keep en train de, then use the infinitive.",
+        "De elides before a vowel: en train d'écrire."
+      ],
+      "examples": [
+        {
+          "french": "Je **suis en train de lire**\nTu **es en train de lire**\nIl/elle/on **est en train de lire**\nNous **sommes en train de lire**\nVous **êtes en train de lire**\nIls/elles **sont en train de lire**",
+          "english": "I am in the middle of reading\nYou are in the middle of reading\nHe/she is in the middle of reading; one/we are reading\nWe are in the middle of reading\nYou are in the middle of reading\nThey are in the middle of reading",
+          "note": "Être carries the person and number."
+        },
+        {
+          "french": "Je **suis en train d'écrire** une lettre.",
+          "english": "I am writing a letter right now.",
+          "note": "The writing is not yet complete."
+        },
+        {
+          "french": "Elle **est en train de s'habiller**.",
+          "english": "She is in the middle of getting dressed.",
+          "note": "The reflexive pronoun stays next to habiller."
+        },
+        {
+          "french": "Je **lis** chaque soir.",
+          "english": "I read every evening.",
+          "note": "A general habit normally uses the ordinary present."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Nous sommes en train lire.",
+          "prefer": "Nous sommes en train de lire.",
+          "why": "De is a required part of the progressive expression."
+        }
+      ]
+    },
+    {
+      "id": "timeline",
+      "title": "Choose the timeline before the form",
+      "paragraphs": [
+        "Je vais lire looks ahead; je suis en train de lire focuses on the ongoing reading; je viens de lire looks back at its recent completion. All three begin with a present-tense verb, but the event has a different relation to now. The contrast is about meaning, not about which expression is longer or more advanced."
+      ],
+      "points": [
+        "Not started yet, in progress and just completed are different messages."
+      ],
+      "examples": [
+        {
+          "french": "Je **vais préparer** le repas. Puis je **suis en train de préparer** le repas. Enfin, je **viens de préparer** le repas.",
+          "english": "I am going to prepare the meal. Then I am preparing the meal. Finally, I have just prepared the meal.",
+          "note": "Three snapshots at different moments of the same process."
+        }
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-aspect-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "recent",
+      "prompt": "Supply venir: 'Nous ___ de finir.'",
+      "choices": [],
+      "answers": [
+        "venons"
+      ],
+      "explanation": "Nous takes venons."
+    },
+    {
+      "id": "a1-aspect-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "recent",
+      "prompt": "Supply de with elision: 'Elle vient ___ écrire.'",
+      "choices": [],
+      "answers": [
+        "d'"
+      ],
+      "explanation": "De elides before écrire."
+    },
+    {
+      "id": "a1-aspect-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "progressive",
+      "prompt": "Supply être: 'Vous ___ en train de lire.'",
+      "choices": [],
+      "answers": [
+        "êtes"
+      ],
+      "explanation": "Vous takes êtes."
+    },
+    {
+      "id": "a1-aspect-04",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "timeline",
+      "prompt": "The cooking has just finished. Choose the matching sentence.",
+      "choices": [
+        "Je viens de cuisiner.",
+        "Je vais cuisiner."
+      ],
+      "answers": [
+        "Je viens de cuisiner."
+      ],
+      "explanation": "Venir de looks back at a recent completion."
+    },
+    {
+      "id": "a1-aspect-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "recent",
+      "prompt": "Write 'They have just left' using ils and venir de + partir.",
+      "choices": [],
+      "answers": [
+        "Ils viennent de partir."
+      ],
+      "explanation": "Ils takes viennent; partir remains infinitive."
+    },
+    {
+      "id": "a1-aspect-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "recent",
+      "prompt": "Write 'I have just got up' using je and venir de + se lever.",
+      "choices": [],
+      "answers": [
+        "Je viens de me lever."
+      ],
+      "explanation": "Me stays before lever after de."
+    },
+    {
+      "id": "a1-aspect-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "recent",
+      "prompt": "Supply the correct infinitive from prendre: 'Tu viens de ___ le bus.'",
+      "choices": [],
+      "answers": [
+        "prendre"
+      ],
+      "explanation": "Recent-past de requires an infinitive, not a past form."
+    },
+    {
+      "id": "a1-aspect-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "progressive",
+      "prompt": "Add progressive emphasis to 'Nous lisons.' using être en train de.",
+      "choices": [],
+      "answers": [
+        "Nous sommes en train de lire."
+      ],
+      "explanation": "Sommes is conjugated; lire is infinitive."
+    },
+    {
+      "id": "a1-aspect-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "progressive",
+      "prompt": "Supply de with elision: 'Il est en train ___ attendre.'",
+      "choices": [],
+      "answers": [
+        "d'"
+      ],
+      "explanation": "De becomes d' before attendre."
+    },
+    {
+      "id": "a1-aspect-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "progressive",
+      "prompt": "Use être en train de with 'Elle s'habille.' Write the whole sentence.",
+      "choices": [],
+      "answers": [
+        "Elle est en train de s'habiller."
+      ],
+      "explanation": "The reflexive pronoun remains next to the infinitive."
+    },
+    {
+      "id": "a1-aspect-11",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "timeline",
+      "prompt": "The letter is unfinished and you are writing it now. Choose the matching opening.",
+      "choices": [
+        "Je suis en train d'écrire",
+        "Je viens d'écrire"
+      ],
+      "answers": [
+        "Je suis en train d'écrire"
+      ],
+      "explanation": "The progressive emphasises ongoing activity, not completion."
+    },
+    {
+      "id": "a1-aspect-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "recent",
+      "prompt": "Rewrite the whole sentence, using the required recent-past infinitive: 'Elle vient de fini.'",
+      "choices": [],
+      "answers": [
+        "Elle vient de finir."
+      ],
+      "explanation": "Venir de takes the infinitive finir."
+    },
+    {
+      "id": "a1-aspect-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "recent",
+      "prompt": "Supply venir: 'Vous ___ de répondre.'",
+      "choices": [],
+      "answers": [
+        "venez"
+      ],
+      "explanation": "The vous form is venez."
+    },
+    {
+      "id": "a1-aspect-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "progressive",
+      "prompt": "Supply être: 'Elles ___ en train de travailler.'",
+      "choices": [],
+      "answers": [
+        "sont"
+      ],
+      "explanation": "Elles takes sont."
+    },
+    {
+      "id": "a1-aspect-15",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "recent",
+      "prompt": "In 'Il vient de Marseille', does de introduce a recent-past infinitive?",
+      "choices": [
+        "Non",
+        "Oui"
+      ],
+      "answers": [
+        "Non"
+      ],
+      "explanation": "Marseille is a place; this is origin, not recent past."
+    },
+    {
+      "id": "a1-aspect-16",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "progressive",
+      "prompt": "Supply the missing link: 'Je suis en train ___ préparer le café.'",
+      "choices": [],
+      "answers": [
+        "de"
+      ],
+      "explanation": "De is part of être en train de."
+    }
+  ],
+  "production_task": {
+    "prompt": "Update a colleague on three different tasks: one just completed, one currently in progress and one you are going to do next.",
+    "model_answer": "Je viens de lire votre message. Je suis en train de préparer la réponse. Je vais envoyer les documents.",
+    "translation": "I have just read your message. I am preparing the reply. I am going to send the documents.",
+    "rubric": [
+      "Match each form to the intended timeline.",
+      "Keep de in the recent-past and progressive constructions.",
+      "Use an infinitive after each construction."
+    ]
+  }
+}

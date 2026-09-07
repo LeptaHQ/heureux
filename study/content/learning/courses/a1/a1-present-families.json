@@ -1,38 +1,366 @@
 {
-  "version":1,"id":"a1-present-families","slug":"a1-present-families","cefr_level":"A1","topic":"verbs-tenses-moods","title":"One present tense, three regular families","summary":"Build the present of parler, finir and vendre and use it for habits, states and actions happening now.","order":5,"duration_minutes":13,"prerequisites":["a1-etre-avoir","a1-articles-gender"],
-  "objectives":["Conjugate regular -er, -ir with -iss-, and regular -dre verbs.","Use French present forms for both English simple and continuous present meanings."],"keywords":["present","-er","-ir","-dre","habits","continuous"],
-  "sources":[{"label":"Public A1 topic index, reviewed 2026-09-07","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"}],"related_legacy_ids":["verbs-present-patterns"],
-  "sections":[
-    {"id":"meaning","title":"French does not need a separate 'am doing' form","paragraphs":["The present expresses a current state, a habit or an action happening now. Context words such as chaque jour (every day) or maintenant (now) make the intended reading clear. Je travaille can mean I work or I am working. Do not insert être before another conjugated verb to imitate English am working."],"points":["The same form can describe a routine and a current action."],
-      "examples":[{"french":"Je **travaille** ici.","english":"I work here.","note":"A current employment situation."},{"french":"Je **travaille** maintenant.","english":"I am working now.","note":"The same present form describes an ongoing action."},{"french":"Nous **regardons** un film chaque vendredi.","english":"We watch a film every Friday.","note":"A repeated habit; un film (m.) is a film."}],
-      "mistakes":[{"avoid":"Je suis travaille.","prefer":"Je travaille.","why":"The French present already expresses am working; do not add être."}]},
-    {"id":"er","title":"Remove -er, then add the subject's ending","paragraphs":["For regular -er verbs, remove -er to find the stem: parler gives parl-. Add -e, -es, -e, -ons, -ez, -ent. This works for regarder (watch), aimer (like/love), travailler (work) and habiter (live). Aller ends in -er but is irregular and is taught separately. The endings -e, -es and -ent are normally silent here; spelling still distinguishes the subjects."],"points":["Il, elle and on use the same third-person singular form."],
-      "examples":[{"french":"Je **parle**\nTu **parles**\nIl/elle/on **parle**\nNous **parlons**\nVous **parlez**\nIls/elles **parlent**","english":"I speak\nYou speak\nHe/she speaks; one speaks/we speak\nWe speak\nYou speak\nThey speak","note":"Full regular -er present."},{"french":"Vous **habitez** près du parc.","english":"You live near the park.","note":"Habiter uses the same endings."}],
-      "mistakes":[{"avoid":"Ils parles français.","prefer":"Ils parlent français.","why":"Ils needs written -ent, not the tu ending -es."}]},
-    {"id":"ir","title":"Regular -ir verbs add -iss- in the plural","paragraphs":["Finir (finish), choisir (choose) and réussir (succeed) belong to the regular -ir family. Remove -ir and use -is, -is, -it, -issons, -issez, -issent. Not every -ir verb follows it: partir and dormir belong to a different family. Learn which family a verb belongs to, not just its last two letters."],"points":["The -iss- in the plural is pronounced."],
-      "examples":[{"french":"Je **finis**\nTu **finis**\nIl/elle/on **finit**\nNous **finissons**\nVous **finissez**\nIls/elles **finissent**","english":"I finish\nYou finish\nHe/she finishes; one finishes/we finish\nWe finish\nYou finish\nThey finish","note":"Full regular -ir present."},{"french":"Les clientes **choisissent** une table.","english":"The customers choose a table.","note":"Choisir adds -iss- with elles; une cliente is a female customer."}],
-      "mistakes":[]},
-    {"id":"dre","title":"Vendre and attendre keep d but add no extra t with il","paragraphs":["For regular verbs like vendre (sell), attendre (wait for), répondre (answer) and rendre (return/give back), remove -re and add -s, -s, nothing, -ons, -ez, -ent. Thus vend- gives il vend, not il vendt. This is a limited regular family: prendre is not regular and -indre verbs have another pattern."],"points":["Attendre takes its object directly: attendre le bus, without pour."],
-      "examples":[{"french":"Je **vends**\nTu **vends**\nIl/elle/on **vend**\nNous **vendons**\nVous **vendez**\nIls/elles **vendent**","english":"I sell\nYou sell\nHe/she sells; one sells/we sell\nWe sell\nYou sell\nThey sell","note":"The third-person singular ends in the stem's d."},{"french":"Nous **attendons** le bus.","english":"We are waiting for the bus.","note":"Regular -dre pattern; no added pour."}],
-      "mistakes":[{"avoid":"Elle vendt des livres.","prefer":"Elle vend des livres.","why":"The third-person singular adds no ending after vend-."}]}
+  "version": 1,
+  "id": "a1-present-families",
+  "slug": "a1-present-families",
+  "cefr_level": "A1",
+  "topic": "verbs-tenses-moods",
+  "title": "Le présent : trois familles régulières",
+  "summary": "Build the present of parler, finir and vendre and use it for habits, states and actions happening now.",
+  "order": 5,
+  "duration_minutes": 13,
+  "prerequisites": [
+    "a1-etre-avoir",
+    "a1-articles-gender"
   ],
-  "practice":[
-    {"id":"a1-pres-01","kind":"text","pool":"practice","section_id":"er","prompt":"Supply parler: 'Tu ___ français.'","choices":[],"answers":["parles"],"explanation":"Tu uses -es."},
-    {"id":"a1-pres-02","kind":"text","pool":"practice","section_id":"ir","prompt":"Supply finir: 'Nous ___ le travail.'","choices":[],"answers":["finissons"],"explanation":"Regular -ir verbs insert -iss- in plural forms."},
-    {"id":"a1-pres-03","kind":"text","pool":"practice","section_id":"dre","prompt":"Supply vendre: 'Il ___ du pain.'","choices":[],"answers":["vend"],"explanation":"The stem vend- has no extra third-person ending."},
-    {"id":"a1-pres-04","kind":"choice","pool":"practice","section_id":"meaning","prompt":"Which French form can mean both 'I watch' and 'I am watching'?","choices":["Je regarde.","Je suis regarde."],"answers":["Je regarde."],"explanation":"One French present form expresses either reading."},
-    {"id":"a1-pres-05","kind":"text","pool":"check","section_id":"er","prompt":"Supply travailler: 'Elles ___ le samedi.'","choices":[],"answers":["travaillent"],"explanation":"Elles uses -ent for a regular -er verb."},
-    {"id":"a1-pres-06","kind":"text","pool":"check","section_id":"ir","prompt":"Supply choisir: 'Vous ___ un livre.'","choices":[],"answers":["choisissez"],"explanation":"The vous ending is -issez."},
-    {"id":"a1-pres-07","kind":"text","pool":"check","section_id":"dre","prompt":"Supply répondre: 'Tu ___ au message.'","choices":[],"answers":["réponds"],"explanation":"Répond- plus -s gives réponds."},
-    {"id":"a1-pres-08","kind":"text","pool":"check","section_id":"ir","prompt":"Supply réussir: 'Elle ___ son examen.'","choices":[],"answers":["réussit"],"explanation":"The third-person singular of regular -ir verbs ends in -it."},
-    {"id":"a1-pres-09","kind":"text","pool":"check","section_id":"er","prompt":"Supply habiter: 'Nous ___ ensemble.'","choices":[],"answers":["habitons"],"explanation":"Nous uses -ons."},
-    {"id":"a1-pres-10","kind":"choice","pool":"check","section_id":"meaning","prompt":"For an action happening now, choose the correct form.","choices":["Elle lit maintenant.","Elle est lit maintenant."],"answers":["Elle lit maintenant."],"explanation":"Lit, the present of lire, already means is reading; do not add est."},
-    {"id":"a1-pres-11","kind":"text","pool":"check","section_id":"dre","prompt":"Supply attendre: 'Les voyageurs ___ le train.'","choices":[],"answers":["attendent"],"explanation":"The plural subject uses attend- plus -ent."},
-    {"id":"a1-pres-12","kind":"text","pool":"check","section_id":"meaning","prompt":"Using travailler, fill the verb for the habit 'I work every Monday': 'Je ___ chaque lundi.'","choices":[],"answers":["travaille"],"explanation":"The present describes a repeated habit."},
-    {"id":"a1-pres-13","kind":"text","pool":"review","section_id":"ir","prompt":"Supply finir: 'Les cours ___ à midi.'","choices":[],"answers":["finissent"],"explanation":"The ils form ends in -issent."},
-    {"id":"a1-pres-14","kind":"text","pool":"review","section_id":"dre","prompt":"Supply rendre: 'Vous ___ les clés.'","choices":[],"answers":["rendez"],"explanation":"Rend- takes -ez with vous."},
-    {"id":"a1-pres-15","kind":"text","pool":"review","section_id":"er","prompt":"Correct only the verb: 'On regardons un film.' Write the sentence.","choices":[],"answers":["On regarde un film."],"explanation":"On requires the third-person singular, not the nous ending."},
-    {"id":"a1-pres-16","kind":"choice","pool":"review","section_id":"ir","prompt":"Can the regular finir pattern automatically be used for every infinitive ending in -ir?","choices":["Non","Oui"],"answers":["Non"],"explanation":"Dormir and partir, for example, belong to other families."}
+  "objectives": [
+    "Conjugate regular -er, -ir with -iss-, and regular -dre verbs.",
+    "Use French present forms for both English simple and continuous present meanings."
   ],
-  "production_task":{"prompt":"Describe your study routine and what you are doing now. Include one regular -er verb, one regular -ir verb and attendre or répondre.","model_answer":"Je travaille le matin. Nous finissons le cours à midi. Maintenant, j'attends le bus.","translation":"I work in the morning. We finish the class at noon. Now I am waiting for the bus.","rubric":["Use the present for both the routine and the current action.","Match each ending to its subject.","Do not add être before a second conjugated verb."]}
+  "keywords": [
+    "present",
+    "-er",
+    "-ir",
+    "-dre",
+    "habits",
+    "continuous"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "verbs-present-patterns"
+  ],
+  "sections": [
+    {
+      "id": "meaning",
+      "title": "French does not need a separate 'am doing' form",
+      "paragraphs": [
+        "The present expresses a current state, a habit or an action happening now. Context words such as chaque jour (every day) or maintenant (now) make the intended reading clear. Je travaille can mean I work or I am working. Do not insert être before another conjugated verb to imitate English am working."
+      ],
+      "points": [
+        "The same form can describe a routine and a current action."
+      ],
+      "examples": [
+        {
+          "french": "Je **travaille** ici.",
+          "english": "I work here.",
+          "note": "A current employment situation."
+        },
+        {
+          "french": "Je **travaille** maintenant.",
+          "english": "I am working now.",
+          "note": "The same present form describes an ongoing action."
+        },
+        {
+          "french": "Nous **regardons** un film chaque vendredi.",
+          "english": "We watch a film every Friday.",
+          "note": "A repeated habit; un film (m.) is a film."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Je suis travaille.",
+          "prefer": "Je travaille.",
+          "why": "The French present already expresses am working; do not add être."
+        }
+      ]
+    },
+    {
+      "id": "er",
+      "title": "Remove -er, then add the subject's ending",
+      "paragraphs": [
+        "For regular -er verbs, remove -er to find the stem: parler gives parl-. Add -e, -es, -e, -ons, -ez, -ent. This works for regarder (watch), aimer (like/love), travailler (work) and habiter (live). Aller ends in -er but is irregular and is taught separately. The endings -e, -es and -ent are normally silent here; spelling still distinguishes the subjects."
+      ],
+      "points": [
+        "Il, elle and on use the same third-person singular form."
+      ],
+      "examples": [
+        {
+          "french": "Je **parle**\nTu **parles**\nIl/elle/on **parle**\nNous **parlons**\nVous **parlez**\nIls/elles **parlent**",
+          "english": "I speak\nYou speak\nHe/she speaks; one speaks/we speak\nWe speak\nYou speak\nThey speak",
+          "note": "Full regular -er present."
+        },
+        {
+          "french": "Vous **habitez** près du parc.",
+          "english": "You live near the park.",
+          "note": "Habiter uses the same endings."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Ils parles français.",
+          "prefer": "Ils parlent français.",
+          "why": "Ils needs written -ent, not the tu ending -es."
+        }
+      ]
+    },
+    {
+      "id": "ir",
+      "title": "Regular -ir verbs add -iss- in the plural",
+      "paragraphs": [
+        "Finir (finish), choisir (choose) and réussir (succeed) belong to the regular -ir family. Remove -ir and use -is, -is, -it, -issons, -issez, -issent. Not every -ir verb follows it: partir and dormir belong to a different family. Learn which family a verb belongs to, not just its last two letters."
+      ],
+      "points": [
+        "The -iss- in the plural is pronounced."
+      ],
+      "examples": [
+        {
+          "french": "Je **finis**\nTu **finis**\nIl/elle/on **finit**\nNous **finissons**\nVous **finissez**\nIls/elles **finissent**",
+          "english": "I finish\nYou finish\nHe/she finishes; one finishes/we finish\nWe finish\nYou finish\nThey finish",
+          "note": "Full regular -ir present."
+        },
+        {
+          "french": "Les clientes **choisissent** une table.",
+          "english": "The customers choose a table.",
+          "note": "Choisir adds -iss- with elles; une cliente is a female customer."
+        }
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "dre",
+      "title": "Vendre and attendre keep d but add no extra t with il",
+      "paragraphs": [
+        "For regular verbs like vendre (sell), attendre (wait for), répondre (answer) and rendre (return/give back), remove -re and add -s, -s, nothing, -ons, -ez, -ent. Thus vend- gives il vend, not il vendt. This is a limited regular family: prendre is not regular and -indre verbs have another pattern."
+      ],
+      "points": [
+        "Attendre takes its object directly: attendre le bus, without pour."
+      ],
+      "examples": [
+        {
+          "french": "Je **vends**\nTu **vends**\nIl/elle/on **vend**\nNous **vendons**\nVous **vendez**\nIls/elles **vendent**",
+          "english": "I sell\nYou sell\nHe/she sells; one sells/we sell\nWe sell\nYou sell\nThey sell",
+          "note": "The third-person singular ends in the stem's d."
+        },
+        {
+          "french": "Nous **attendons** le bus.",
+          "english": "We are waiting for the bus.",
+          "note": "Regular -dre pattern; no added pour."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Elle vendt des livres.",
+          "prefer": "Elle vend des livres.",
+          "why": "The third-person singular adds no ending after vend-."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-pres-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "er",
+      "prompt": "Supply parler: 'Tu ___ français.'",
+      "choices": [],
+      "answers": [
+        "parles"
+      ],
+      "explanation": "Tu uses -es."
+    },
+    {
+      "id": "a1-pres-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "ir",
+      "prompt": "Supply finir: 'Nous ___ le travail.'",
+      "choices": [],
+      "answers": [
+        "finissons"
+      ],
+      "explanation": "Regular -ir verbs insert -iss- in plural forms."
+    },
+    {
+      "id": "a1-pres-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "dre",
+      "prompt": "Supply vendre: 'Il ___ du pain.'",
+      "choices": [],
+      "answers": [
+        "vend"
+      ],
+      "explanation": "The stem vend- has no extra third-person ending."
+    },
+    {
+      "id": "a1-pres-04",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "meaning",
+      "prompt": "Which French form can mean both 'I watch' and 'I am watching'?",
+      "choices": [
+        "Je regarde.",
+        "Je suis regarde."
+      ],
+      "answers": [
+        "Je regarde."
+      ],
+      "explanation": "One French present form expresses either reading."
+    },
+    {
+      "id": "a1-pres-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "er",
+      "prompt": "Supply travailler: 'Elles ___ le samedi.'",
+      "choices": [],
+      "answers": [
+        "travaillent"
+      ],
+      "explanation": "Elles uses -ent for a regular -er verb."
+    },
+    {
+      "id": "a1-pres-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "ir",
+      "prompt": "Supply choisir: 'Vous ___ un livre.'",
+      "choices": [],
+      "answers": [
+        "choisissez"
+      ],
+      "explanation": "The vous ending is -issez."
+    },
+    {
+      "id": "a1-pres-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "dre",
+      "prompt": "Supply répondre: 'Tu ___ au message.'",
+      "choices": [],
+      "answers": [
+        "réponds"
+      ],
+      "explanation": "Répond- plus -s gives réponds."
+    },
+    {
+      "id": "a1-pres-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "ir",
+      "prompt": "Supply réussir: 'Elle ___ son examen.'",
+      "choices": [],
+      "answers": [
+        "réussit"
+      ],
+      "explanation": "The third-person singular of regular -ir verbs ends in -it."
+    },
+    {
+      "id": "a1-pres-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "er",
+      "prompt": "Supply habiter: 'Nous ___ ensemble.'",
+      "choices": [],
+      "answers": [
+        "habitons"
+      ],
+      "explanation": "Nous uses -ons."
+    },
+    {
+      "id": "a1-pres-10",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "meaning",
+      "prompt": "For an action happening now, choose the correct form.",
+      "choices": [
+        "Elle lit maintenant.",
+        "Elle est lit maintenant."
+      ],
+      "answers": [
+        "Elle lit maintenant."
+      ],
+      "explanation": "Lit, the present of lire, already means is reading; do not add est."
+    },
+    {
+      "id": "a1-pres-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "dre",
+      "prompt": "Supply attendre: 'Les voyageurs ___ le train.'",
+      "choices": [],
+      "answers": [
+        "attendent"
+      ],
+      "explanation": "The plural subject uses attend- plus -ent."
+    },
+    {
+      "id": "a1-pres-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "meaning",
+      "prompt": "Using travailler, fill the verb for the habit 'I work every Monday': 'Je ___ chaque lundi.'",
+      "choices": [],
+      "answers": [
+        "travaille"
+      ],
+      "explanation": "The present describes a repeated habit."
+    },
+    {
+      "id": "a1-pres-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "ir",
+      "prompt": "Supply finir: 'Les cours ___ à midi.'",
+      "choices": [],
+      "answers": [
+        "finissent"
+      ],
+      "explanation": "The ils form ends in -issent."
+    },
+    {
+      "id": "a1-pres-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "dre",
+      "prompt": "Supply rendre: 'Vous ___ les clés.'",
+      "choices": [],
+      "answers": [
+        "rendez"
+      ],
+      "explanation": "Rend- takes -ez with vous."
+    },
+    {
+      "id": "a1-pres-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "er",
+      "prompt": "Rewrite the whole sentence, changing only the verb: 'On regardons un film.'",
+      "choices": [],
+      "answers": [
+        "On regarde un film."
+      ],
+      "explanation": "On requires the third-person singular, not the nous ending."
+    },
+    {
+      "id": "a1-pres-16",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "ir",
+      "prompt": "Can the regular finir pattern automatically be used for every infinitive ending in -ir?",
+      "choices": [
+        "Non",
+        "Oui"
+      ],
+      "answers": [
+        "Non"
+      ],
+      "explanation": "Dormir and partir, for example, belong to other families."
+    }
+  ],
+  "production_task": {
+    "prompt": "Describe your study routine and what you are doing now. Include one regular -er verb, one regular -ir verb and attendre or répondre.",
+    "model_answer": "Je travaille le matin. Nous finissons le cours à midi. Maintenant, j'attends le bus.",
+    "translation": "I work in the morning. We finish the class at noon. Now I am waiting for the bus.",
+    "rubric": [
+      "Use the present for both the routine and the current action.",
+      "Match each ending to its subject.",
+      "Do not add être before a second conjugated verb."
+    ]
+  }
 }

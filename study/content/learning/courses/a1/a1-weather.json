@@ -1,0 +1,373 @@
+{
+  "version": 1,
+  "id": "a1-weather",
+  "slug": "a1-weather",
+  "cefr_level": "A1",
+  "topic": "everyday-vocabulary",
+  "title": "Parler du temps qu'il fait",
+  "summary": "Choose il fait with a weather description, il y a with a weather noun and the common verbs pleuvoir and neiger.",
+  "order": 32,
+  "duration_minutes": 10,
+  "prerequisites": [
+    "a1-aller-faire",
+    "a1-articles-gender",
+    "a1-calendar"
+  ],
+  "objectives": [
+    "Distinguish adjective-based weather expressions from noun-based ones.",
+    "Keep impersonal il singular.",
+    "Contrast the weather with a person's hot/cold sensation."
+  ],
+  "keywords": [
+    "weather",
+    "il fait",
+    "il y a",
+    "pleuvoir",
+    "neiger",
+    "chaud",
+    "froid"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "daily-weather-time"
+  ],
+  "sections": [
+    {
+      "id": "faire",
+      "title": "Il fait introduces familiar descriptions of the weather",
+      "paragraphs": [
+        "Use il fait beau (the weather is nice), il fait mauvais (the weather is bad), il fait chaud (it is hot), il fait froid (it is cold), il fait frais (it is cool), il fait gris (it is grey/overcast). Il is impersonal: it does not refer to a male person or a preceding noun. It always takes singular fait.",
+        "The description remains masculine singular; do not make beau feminine because la journée is feminine. A temperature can follow faire too: il fait vingt degrés. For a person's sensation, use avoir chaud or avoir froid instead: j'ai froid means I feel cold. Le temps (m.) here means weather, not a clock time."
+      ],
+      "points": [
+        "Weather: il fait froid. Personal sensation: j'ai froid."
+      ],
+      "examples": [
+        {
+          "french": "**Il fait beau** aujourd'hui.",
+          "english": "The weather is nice today.",
+          "note": "Beau describes the impersonal weather situation."
+        },
+        {
+          "french": "**Il fait froid** en hiver.",
+          "english": "It is cold in winter.",
+          "note": "The season does not change il fait."
+        },
+        {
+          "french": "**Il fait chaud**, mais j'ai froid.",
+          "english": "It is hot, but I feel cold.",
+          "note": "Outside conditions and personal sensation can differ."
+        },
+        {
+          "french": "Le matin, **il fait frais**.",
+          "english": "In the morning, it is cool.",
+          "note": "Frais is a conventional weather adjective."
+        },
+        {
+          "french": "**Il fait vingt degrés**.",
+          "english": "It is twenty degrees.",
+          "note": "A temperature also follows faire."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Il fait belle aujourd'hui.",
+          "prefer": "Il fait beau aujourd'hui.",
+          "why": "The impersonal weather expression uses masculine singular beau."
+        },
+        {
+          "avoid": "Ils font froid en hiver.",
+          "prefer": "Il fait froid en hiver.",
+          "why": "Weather il is an impersonal singular, not a plural reference."
+        }
+      ]
+    },
+    {
+      "id": "nouns",
+      "title": "Il y a introduces what is present",
+      "paragraphs": [
+        "Il y a means there is or there are. The expression stays il y a even before a plural noun. For weather, it introduces nouns with their appropriate articles: du vent (wind), du soleil (sunshine), du brouillard (fog), de la neige (snow), de la pluie (rain), des nuages (clouds). These are le vent (m.), le soleil (m.), le brouillard (m.), la neige (f.), la pluie (f.), un nuage (m.).",
+        "Do not swap a noun and an adjective without changing the construction: il fait froid but il y a du vent. Ordinary negation is il n'y a pas, and a denied quantity normally uses de: il n'y a pas de nuages. Il y a is also useful beyond weather: il y a une pharmacie means there is a pharmacy."
+      ],
+      "points": [
+        "The singular/plural English distinction there is/there are does not change French il y a."
+      ],
+      "examples": [
+        {
+          "french": "**Il y a du vent** près du lac.",
+          "english": "It is windy near the lake.",
+          "note": "The noun vent follows il y a with du."
+        },
+        {
+          "french": "**Il y a des nuages**.",
+          "english": "There are clouds.",
+          "note": "Il y a stays singular before plural nuages."
+        },
+        {
+          "french": "**Il y a du brouillard** ce matin.",
+          "english": "There is fog this morning.",
+          "note": "Brouillard is a masculine mass noun."
+        },
+        {
+          "french": "**Il n'y a pas de neige**.",
+          "english": "There is no snow.",
+          "note": "The negative quantity takes de."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Ils y ont des nuages.",
+          "prefer": "Il y a des nuages.",
+          "why": "The fixed existential expression does not become plural."
+        }
+      ]
+    },
+    {
+      "id": "rain-snow",
+      "title": "Rain and snow also have ordinary weather verbs",
+      "paragraphs": [
+        "Il pleut means it is raining; il neige means it is snowing. The infinitives are pleuvoir and neiger. In ordinary literal weather use, these are impersonal third-person singular verbs, so a six-person weather paradigm would be misleading. Il y a de la neige can describe snow already on the ground; il neige says snow is currently falling. Similarly, pluie can name the weather phenomenon while pleut describes raining."
+      ],
+      "points": [
+        "A present form alone already expresses English is raining/is snowing."
+      ],
+      "examples": [
+        {
+          "french": "**Il pleut** maintenant.",
+          "english": "It is raining now.",
+          "note": "No extra être is needed."
+        },
+        {
+          "french": "**Il neige**, mais la route est encore visible.",
+          "english": "It is snowing, but the road is still visible.",
+          "note": "Neiger describes falling snow."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Il est pleut.",
+          "prefer": "Il pleut.",
+          "why": "The present verb already expresses the ongoing weather action."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-weather-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "faire",
+      "prompt": "Supply faire in the weather expression: 'Il ___ froid.'",
+      "choices": [],
+      "answers": [
+        "fait"
+      ],
+      "explanation": "Impersonal il takes fait."
+    },
+    {
+      "id": "a1-weather-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "nouns",
+      "prompt": "Supply the partitive: 'Il y a ___ vent.'",
+      "choices": [],
+      "answers": [
+        "du"
+      ],
+      "explanation": "Vent is masculine; an unspecified amount takes du."
+    },
+    {
+      "id": "a1-weather-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "rain-snow",
+      "prompt": "Supply pleuvoir in an ordinary present weather statement: 'Il ___.'",
+      "choices": [],
+      "answers": [
+        "pleut"
+      ],
+      "explanation": "The impersonal present is il pleut."
+    },
+    {
+      "id": "a1-weather-04",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "faire",
+      "prompt": "Which sentence describes the speaker's personal sensation rather than the weather?",
+      "choices": [
+        "J'ai froid.",
+        "Il fait froid."
+      ],
+      "answers": [
+        "J'ai froid."
+      ],
+      "explanation": "A person's sensation uses avoir."
+    },
+    {
+      "id": "a1-weather-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "faire",
+      "prompt": "Supply beau or belle: 'Il fait ___ ce matin.'",
+      "choices": [],
+      "answers": [
+        "beau"
+      ],
+      "explanation": "The impersonal weather description is masculine singular."
+    },
+    {
+      "id": "a1-weather-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "nouns",
+      "prompt": "Supply the complete fixed expression meaning there are: '___ des nuages.'",
+      "choices": [],
+      "answers": [
+        "il y a"
+      ],
+      "explanation": "Il y a does not change for a plural noun."
+    },
+    {
+      "id": "a1-weather-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "nouns",
+      "prompt": "Supply the partitive: 'Il y a ___ neige sur la route.'",
+      "choices": [],
+      "answers": [
+        "de la"
+      ],
+      "explanation": "Neige is feminine."
+    },
+    {
+      "id": "a1-weather-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "nouns",
+      "prompt": "Supply the negative quantity form: 'Il n'y a pas ___ brouillard.'",
+      "choices": [],
+      "answers": [
+        "de"
+      ],
+      "explanation": "A denied quantity takes de."
+    },
+    {
+      "id": "a1-weather-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "rain-snow",
+      "prompt": "Supply neiger in the present: 'Il ___ depuis ce matin.'",
+      "choices": [],
+      "answers": [
+        "neige"
+      ],
+      "explanation": "The ordinary weather use is third-person singular."
+    },
+    {
+      "id": "a1-weather-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "faire",
+      "prompt": "Use faire for a temperature: 'Il ___ dix degrés.'",
+      "choices": [],
+      "answers": [
+        "fait"
+      ],
+      "explanation": "Temperatures follow il fait."
+    },
+    {
+      "id": "a1-weather-11",
+      "kind": "choice",
+      "pool": "check",
+      "section_id": "nouns",
+      "prompt": "Which construction correctly introduces the weather noun soleil?",
+      "choices": [
+        "Il y a du soleil.",
+        "Il fait soleil du."
+      ],
+      "answers": [
+        "Il y a du soleil."
+      ],
+      "explanation": "The noun and its article follow il y a."
+    },
+    {
+      "id": "a1-weather-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "faire",
+      "prompt": "Supply the conventional adjective meaning cool: 'Il fait ___.' Use frais.",
+      "choices": [],
+      "answers": [
+        "frais"
+      ],
+      "explanation": "Frais stays masculine singular in the impersonal weather phrase."
+    },
+    {
+      "id": "a1-weather-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "rain-snow",
+      "prompt": "Rewrite the whole sentence, removing only the unnecessary verb: 'Il est pleut.'",
+      "choices": [],
+      "answers": [
+        "Il pleut."
+      ],
+      "explanation": "No être is needed with the present weather verb."
+    },
+    {
+      "id": "a1-weather-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "nouns",
+      "prompt": "Supply the partitive: 'Il y a ___ pluie dans cette région.'",
+      "choices": [],
+      "answers": [
+        "de la"
+      ],
+      "explanation": "Pluie is feminine."
+    },
+    {
+      "id": "a1-weather-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "faire",
+      "prompt": "Rewrite the whole sentence, correcting the impersonal subject and verb: 'Ils font chaud.'",
+      "choices": [],
+      "answers": [
+        "Il fait chaud."
+      ],
+      "explanation": "The literal weather expression is singular il fait."
+    },
+    {
+      "id": "a1-weather-16",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "rain-snow",
+      "prompt": "Which statement necessarily says snow is falling now?",
+      "choices": [
+        "Il neige.",
+        "Il y a de la neige."
+      ],
+      "answers": [
+        "Il neige."
+      ],
+      "explanation": "Il y a de la neige can describe snow already present."
+    }
+  ],
+  "production_task": {
+    "prompt": "Send a short local weather update with a temperature or adjective, a weather noun and an action verb for rain or snow. Keep the information consistent.",
+    "model_answer": "Il fait froid. Il y a des nuages. Il neige ce matin.",
+    "translation": "It is cold. There are clouds. It is snowing this morning.",
+    "rubric": [
+      "Use il fait before the weather adjective or temperature.",
+      "Use il y a before the noun and article.",
+      "Use a singular impersonal weather verb."
+    ]
+  }
+}

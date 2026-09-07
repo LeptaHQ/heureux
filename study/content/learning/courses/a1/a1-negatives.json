@@ -1,0 +1,405 @@
+{
+  "version": 1,
+  "id": "a1-negatives",
+  "slug": "a1-negatives",
+  "cefr_level": "A1",
+  "topic": "pronouns-questions-negation",
+  "title": "Dire non : pas, jamais, si et non plus",
+  "summary": "Build present-tense negatives, change quantity articles when needed, and respond clearly to negative statements.",
+  "order": 20,
+  "duration_minutes": 15,
+  "prerequisites": [
+    "a1-reflexive-routines",
+    "a1-want-can-must",
+    "a1-stressed-object-pronouns"
+  ],
+  "objectives": [
+    "Place ne/n' and pas/jamais around the conjugated verb, including reflexives.",
+    "Use de/d' after negative quantities without changing definite articles or ordinary être identifications.",
+    "Use si to contradict a negative and non plus to share it."
+  ],
+  "keywords": [
+    "negation",
+    "ne pas",
+    "ne jamais",
+    "de",
+    "si",
+    "non plus"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "negation-core",
+    "grammar-articles-negation",
+    "negation-agreement"
+  ],
+  "sections": [
+    {
+      "id": "placement",
+      "title": "The two negative words surround the conjugated verb",
+      "paragraphs": [
+        "For not, put ne before the conjugated verb and pas after it. Ne becomes n' before a vowel or silent h. Object and reflexive pronouns stay between ne and the verb: je ne me lève pas, elle ne nous regarde pas. In informal speech, ne is often omitted; recognise that usage, but keep it in these standard written tasks.",
+        "With a conjugated verb followed by an infinitive, the ordinary negative surrounds the conjugated verb: je ne peux pas venir. If only the infinitive is made negative, ne pas stays together before it: je préfère ne pas venir. These constructions need not mean the same thing."
+      ],
+      "points": [
+        "Do not copy English don't as an extra French verb.",
+        "Ne + pronoun + conjugated verb + pas is the standard reflexive order."
+      ],
+      "examples": [
+        {
+          "french": "Je **ne** travaille **pas** demain.",
+          "english": "I am not working tomorrow.",
+          "note": "The negative surrounds travaille."
+        },
+        {
+          "french": "Il **n'**habite **pas** ici.",
+          "english": "He does not live here.",
+          "note": "Ne elides before silent h."
+        },
+        {
+          "french": "Nous **ne nous** couchons **pas** tôt.",
+          "english": "We do not go to bed early.",
+          "note": "The reflexive pronoun stays before the verb."
+        },
+        {
+          "french": "Je **ne** veux **pas** partir.",
+          "english": "I do not want to leave.",
+          "note": "The negation surrounds the conjugated vouloir."
+        },
+        {
+          "french": "Je préfère **ne pas** partir.",
+          "english": "I prefer not to leave.",
+          "note": "Here the infinitive itself is negative."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Je me ne lève pas.",
+          "prefer": "Je ne me lève pas.",
+          "why": "Ne comes before the reflexive pronoun."
+        },
+        {
+          "avoid": "Je ne peux venir pas.",
+          "prefer": "Je ne peux pas venir.",
+          "why": "Pas follows the conjugated verb, not the infinitive."
+        }
+      ]
+    },
+    {
+      "id": "articles",
+      "title": "For 'none', an indefinite or partitive object normally takes de",
+      "paragraphs": [
+        "After a negative expressing absence or zero quantity, un, une, des, du, de la and de l' normally become de, or d' before a vowel or silent h: je n'ai pas de vélo; elle ne boit pas d'eau. The noun still keeps its intended number: pas de livre or pas de livres depends on the context.",
+        "Keep definite le/la/l'/les when talking about an identified thing or a general category: je n'aime pas le café. After être in an ordinary identification, keep the original article: ce n'est pas un musée, ce n'est pas du lait. An explicit contrast can also preserve an indefinite article: je n'ai pas un vélo, mais deux. The zero-quantity rule is not an instruction to replace every article after any negative."
+      ],
+      "points": [
+        "Ask whether the sentence denies a quantity, identifies something differently or names a specific/category object."
+      ],
+      "examples": [
+        {
+          "french": "J'ai une voiture. Je n'ai pas **de** voiture.",
+          "english": "I have a car. I do not have a car.",
+          "note": "Une becomes de when the quantity is zero."
+        },
+        {
+          "french": "Elle ne boit pas **d'**eau.",
+          "english": "She does not drink water.",
+          "note": "De l' becomes d' in this ordinary negative quantity."
+        },
+        {
+          "french": "Je n'aime pas **le** café.",
+          "english": "I do not like coffee.",
+          "note": "The definite article naming the category stays."
+        },
+        {
+          "french": "Ce n'est pas **un** hôtel.",
+          "english": "It is not a hotel.",
+          "note": "An identification with être keeps un."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Je n'ai pas des clés.",
+          "prefer": "Je n'ai pas de clés.",
+          "why": "For the intended ordinary meaning 'I have no keys', des becomes de."
+        }
+      ]
+    },
+    {
+      "id": "never",
+      "title": "Jamais replaces pas to say never",
+      "paragraphs": [
+        "Ne… jamais means never. Jamais occupies the usual position after the conjugated verb: elle ne vient jamais. In this basic construction, do not add pas as well. Reflexive pronouns remain in the same place before the verb. Jamais has other uses in questions and comparisons at later levels; here the target is a straightforward negative habit."
+      ],
+      "points": [
+        "For never with an infinitive after a first verb: je ne veux jamais conduire."
+      ],
+      "examples": [
+        {
+          "french": "Il **ne** mange **jamais** ici.",
+          "english": "He never eats here.",
+          "note": "Jamais denies any occasion."
+        },
+        {
+          "french": "Elle **ne se** lève **jamais** tard.",
+          "english": "She never gets up late.",
+          "note": "The reflexive pronoun remains before lève."
+        }
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "responses",
+      "title": "Si contradicts a negative; non plus shares it",
+      "paragraphs": [
+        "Use si, rather than oui, to contradict a negative question or statement: Tu ne viens pas ? — Si, je viens. A reply Non, je ne viens pas confirms that you are not coming. Non plus means not either or neither when you share a negative fact: moi non plus, or je ne viens pas non plus. For a shared positive fact, use aussi, not non plus."
+      ],
+      "points": [
+        "Listen to the negative wording before choosing oui, non or si."
+      ],
+      "examples": [
+        {
+          "french": "Tu n'as pas de billet ? — **Si**, j'ai un billet.",
+          "english": "Don't you have a ticket? — Yes, I do have a ticket.",
+          "note": "Si rejects the negative assumption."
+        },
+        {
+          "french": "Je ne bois pas de café. — **Moi non plus**.",
+          "english": "I don't drink coffee. — Neither do I.",
+          "note": "Non plus shares the negative fact."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "Je ne viens pas aussi.",
+          "prefer": "Je ne viens pas non plus.",
+          "why": "For the intended meaning 'I am not coming either', use non plus."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-neg-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "placement",
+      "prompt": "Make 'Je travaille.' negative with ne...pas. Write the whole sentence.",
+      "choices": [],
+      "answers": [
+        "Je ne travaille pas."
+      ],
+      "explanation": "Ne and pas surround the conjugated verb."
+    },
+    {
+      "id": "a1-neg-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "articles",
+      "prompt": "Supply the zero-quantity article: 'Je n'ai pas ___ chien.'",
+      "choices": [],
+      "answers": [
+        "de"
+      ],
+      "explanation": "An indefinite object becomes de in this negative."
+    },
+    {
+      "id": "a1-neg-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "never",
+      "prompt": "Make 'Elle vient.' mean 'She never comes' using ne...jamais.",
+      "choices": [],
+      "answers": [
+        "Elle ne vient jamais."
+      ],
+      "explanation": "Jamais replaces pas."
+    },
+    {
+      "id": "a1-neg-04",
+      "kind": "choice",
+      "pool": "practice",
+      "section_id": "responses",
+      "prompt": "You ARE coming. Answer 'Tu ne viens pas ?' with one word.",
+      "choices": [
+        "Si",
+        "Non"
+      ],
+      "answers": [
+        "Si"
+      ],
+      "explanation": "Si contradicts the negative question."
+    },
+    {
+      "id": "a1-neg-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "placement",
+      "prompt": "Make 'Il habite ici.' negative with ne...pas. Write the whole sentence.",
+      "choices": [],
+      "answers": [
+        "Il n'habite pas ici."
+      ],
+      "explanation": "Ne elides before the silent h."
+    },
+    {
+      "id": "a1-neg-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "placement",
+      "prompt": "Make 'Je me lève tôt.' negative with ne...pas. Write the whole sentence.",
+      "choices": [],
+      "answers": [
+        "Je ne me lève pas tôt."
+      ],
+      "explanation": "Ne precedes me; pas follows lève."
+    },
+    {
+      "id": "a1-neg-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "placement",
+      "prompt": "Negate pouvons with ne...pas in 'Nous pouvons entrer.' Write the whole sentence.",
+      "choices": [],
+      "answers": [
+        "Nous ne pouvons pas entrer."
+      ],
+      "explanation": "The conjugated verb is pouvons; the infinitive stays after pas."
+    },
+    {
+      "id": "a1-neg-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "articles",
+      "prompt": "Supply the ordinary negative quantity form: 'Elle ne prend pas ___ soupe.'",
+      "choices": [],
+      "answers": [
+        "de"
+      ],
+      "explanation": "Partitive de la becomes de."
+    },
+    {
+      "id": "a1-neg-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "articles",
+      "prompt": "Supply the ordinary negative quantity form: 'Nous n'avons pas ___ huile.'",
+      "choices": [],
+      "answers": [
+        "d'"
+      ],
+      "explanation": "Use d' before the silent h and vowel."
+    },
+    {
+      "id": "a1-neg-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "articles",
+      "prompt": "Keep the appropriate article: 'Ce n'est pas ___ vélo.' Choose un or de.",
+      "choices": [],
+      "answers": [
+        "un"
+      ],
+      "explanation": "An identification after être keeps the indefinite article."
+    },
+    {
+      "id": "a1-neg-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "never",
+      "prompt": "Make 'On se couche tard.' mean 'We never go to bed late', using ne...jamais.",
+      "choices": [],
+      "answers": [
+        "On ne se couche jamais tard."
+      ],
+      "explanation": "On takes the singular verb and se; jamais follows couche."
+    },
+    {
+      "id": "a1-neg-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "responses",
+      "prompt": "Agree with 'Je n'aime pas ce film' using moi and the two-word negative addition.",
+      "choices": [],
+      "answers": [
+        "Moi non plus."
+      ],
+      "explanation": "Moi non plus shares a negative opinion."
+    },
+    {
+      "id": "a1-neg-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "articles",
+      "prompt": "Supply le or de: 'Je n'aime pas ___ fromage.'",
+      "choices": [],
+      "answers": [
+        "le"
+      ],
+      "explanation": "A category after aimer keeps its definite article under negation."
+    },
+    {
+      "id": "a1-neg-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "responses",
+      "prompt": "You DO have a car. Supply one word: 'Tu n'as pas de voiture ? — ___, j'ai une voiture.'",
+      "choices": [],
+      "answers": [
+        "si"
+      ],
+      "explanation": "Si reverses the negative assumption."
+    },
+    {
+      "id": "a1-neg-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "placement",
+      "prompt": "Make only the infinitive partir negative with ne pas: 'Je préfère partir.' Write the sentence.",
+      "choices": [],
+      "answers": [
+        "Je préfère ne pas partir."
+      ],
+      "explanation": "When negating the infinitive itself, ne pas stays together before it."
+    },
+    {
+      "id": "a1-neg-16",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "articles",
+      "prompt": "Supply the ordinary zero-quantity form: 'Ils n'ont pas ___ billets.'",
+      "choices": [],
+      "answers": [
+        "de"
+      ],
+      "explanation": "Plural indefinite des becomes de."
+    },
+    {
+      "id": "a1-neg-17",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "responses",
+      "prompt": "Make 'Je ne prends pas de sucre.' mean 'I do not take sugar either' by adding the negative addition at the end. Keep all the original words in order.",
+      "choices": [],
+      "answers": [
+        "Je ne prends pas de sucre non plus."
+      ],
+      "explanation": "Non plus at the end shares a negative habit. Aussi would express a positive addition."
+    }
+  ],
+  "production_task": {
+    "prompt": "Explain two things you do not do in your routine, one with jamais and one reflexive negative. Then respond to someone who shares one of those habits using non plus.",
+    "model_answer": "Je ne bois jamais de café. Je ne me couche pas tard. Ma sœur ne boit pas de café non plus.",
+    "translation": "I never drink coffee. I do not go to bed late. My sister does not drink coffee either.",
+    "rubric": [
+      "Put ne before any reflexive pronoun.",
+      "Use jamais without adding pas.",
+      "Use de for a denied ordinary quantity.",
+      "Use non plus for a shared negative."
+    ]
+  }
+}

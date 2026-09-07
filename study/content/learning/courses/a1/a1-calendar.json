@@ -1,0 +1,381 @@
+{
+  "version": 1,
+  "id": "a1-calendar",
+  "slug": "a1-calendar",
+  "cefr_level": "A1",
+  "topic": "everyday-vocabulary",
+  "title": "Jours, dates, saisons et durées",
+  "summary": "Give dates, distinguish a particular day from a regular habit, and choose between time units and duration-focused words.",
+  "order": 27,
+  "duration_minutes": 14,
+  "prerequisites": [
+    "a1-numbers",
+    "a1-clock"
+  ],
+  "objectives": [
+    "Name days, months and seasons and give a date.",
+    "Use le with repeated days and the weekend.",
+    "Distinguish an/année, jour/journée, matin/matinée and soir/soirée without false absolute rules."
+  ],
+  "keywords": [
+    "days",
+    "months",
+    "dates",
+    "seasons",
+    "an",
+    "année",
+    "journée",
+    "weekend"
+  ],
+  "sources": [
+    {
+      "label": "Public A1 topic index, reviewed 2026-09-07",
+      "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+    }
+  ],
+  "related_legacy_ids": [
+    "daily-calendar",
+    "prepositions-time-duration"
+  ],
+  "sections": [
+    {
+      "id": "dates",
+      "title": "French dates normally use day + month, without an English ordinal ending",
+      "paragraphs": [
+        "The days are lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche. The months are janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre. These names normally have no capital in French except at the start of a sentence. Days and months are masculine nouns when an article is needed: un lundi, le mois de mai.",
+        "For a calendar date use le + cardinal day + month: le deux avril. The first is le premier, not le un. With digits: le 1er avril, le 2 avril. You can answer On est le… or Nous sommes le… . For a month without a specific date use en: en juillet. A year also commonly takes en: en 2026. Do not add de between the date number and the month."
+      ],
+      "points": [
+        "French numeric date order is normally day/month/year; writing the month name avoids international ambiguity."
+      ],
+      "examples": [
+        {
+          "french": "Nous sommes **le premier avril**.",
+          "english": "It is the first of April.",
+          "note": "Only the first uses premier in ordinary dates."
+        },
+        {
+          "french": "Le cours commence **le douze septembre**.",
+          "english": "The course starts on the twelfth of September.",
+          "note": "French uses the cardinal douze."
+        },
+        {
+          "french": "Je pars **en juillet**.",
+          "english": "I am leaving in July.",
+          "note": "A month alone usually takes en."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "le trois de mai",
+          "prefer": "le trois mai",
+          "why": "Ordinary French dates do not insert de before the month."
+        }
+      ]
+    },
+    {
+      "id": "recurrence-seasons",
+      "title": "A definite article can turn a day into a regular habit",
+      "paragraphs": [
+        "Without an article, lundi often refers to one particular Monday understood from context. Le lundi normally means on Mondays or every Monday. Lundi prochain means next Monday; lundi dernier means last Monday. Le week-end often means at weekends, while ce week-end means this weekend. Week-end and the rectified weekend are both accepted spellings; la fin de semaine is the common Canadian term.",
+        "The seasons are le printemps (m., spring), l'été (m., summer), l'automne (m., autumn/fall), l'hiver (m., winter). For in a season, use au printemps but en été, en automne, en hiver. In a general or recurring time phrase, the season can also have the definite article: l'été, je travaille dehors. As a subject, it takes its article: l'hiver est long."
+      ],
+      "points": [
+        "Le can mean a habitual occasion, not only a previously identified object."
+      ],
+      "examples": [
+        {
+          "french": "Je travaille **lundi**.",
+          "english": "I am working on Monday.",
+          "note": "One contextually identified Monday."
+        },
+        {
+          "french": "Je travaille **le lundi**.",
+          "english": "I work on Mondays.",
+          "note": "The article marks a routine."
+        },
+        {
+          "french": "**Le week-end**, nous restons ici.",
+          "english": "At weekends, we stay here.",
+          "note": "A recurring weekend habit."
+        },
+        {
+          "french": "Les fleurs reviennent **au printemps**.",
+          "english": "The flowers come back in spring.",
+          "note": "Printemps takes au."
+        },
+        {
+          "french": "Nous voyageons **en été**, mais **l'hiver**, nous restons chez nous.",
+          "english": "We travel in summer, but in winter we stay at home.",
+          "note": "En and a definite-article time phrase are both possible patterns."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "en printemps",
+          "prefer": "au printemps",
+          "why": "The established seasonal construction is au printemps."
+        }
+      ]
+    },
+    {
+      "id": "unit-duration",
+      "title": "A unit count and a lived period are different viewpoints",
+      "paragraphs": [
+        "Un an, un jour, un matin and un soir are masculine. Une année, une journée, une matinée and une soirée are feminine. The shorter words often count units or name a point in the calendar; the longer words often emphasise the period's duration, contents or experience. Age normally uses ans: j'ai trente ans. Bonne année ! is the conventional New Year wish.",
+        "Use demain matin or ce soir to locate an event. Use toute la matinée or toute la soirée when emphasising the whole period. Bonjour is a greeting; bonne journée is a wish for the day ahead. Bonsoir greets someone in the evening; bonne soirée wishes them a pleasant evening.",
+        "This is not a strict rule that numbers always require an and never année. Deux années difficiles is natural when describing those years' experience. L'an prochain and l'année prochaine both mean next year; dernier/prochain agree with the chosen noun. Learn the perspective and the established expressions, not a mechanical English-year substitution."
+      ],
+      "points": [
+        "Tout/toute in the examples means the whole period and agrees with its noun."
+      ],
+      "examples": [
+        {
+          "french": "J'ai trente **ans**. C'est une **année** importante.",
+          "english": "I am thirty years old. It is an important year.",
+          "note": "Age counts units; the second sentence describes a period."
+        },
+        {
+          "french": "Elle part demain **matin** et travaille toute la **matinée**.",
+          "english": "She leaves tomorrow morning and works all morning.",
+          "note": "A time point contrasts with duration."
+        },
+        {
+          "french": "Il vient ce **soir** et reste toute la **soirée**.",
+          "english": "He is coming this evening and staying all evening.",
+          "note": "The longer form focuses on the period."
+        },
+        {
+          "french": "Nous restons trois **jours**. Bonne **journée** !",
+          "english": "We are staying three days. Have a good day!",
+          "note": "A unit count contrasts with a conventional wish."
+        },
+        {
+          "french": "L'**an prochain**, ou l'**année prochaine**, je voyage.",
+          "english": "Next year, or next year, I am travelling.",
+          "note": "Both phrases are correct; agreement changes with the noun."
+        }
+      ],
+      "mistakes": [
+        {
+          "avoid": "J'ai vingt années.",
+          "prefer": "J'ai vingt ans.",
+          "why": "For ordinary age, use ans, not années."
+        },
+        {
+          "avoid": "toute le matinée",
+          "prefer": "toute la matinée",
+          "why": "Matinée is feminine, so the article is la."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "a1-cal-01",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "dates",
+      "prompt": "Write April 1 in French words, beginning with le.",
+      "choices": [],
+      "answers": [
+        "le premier avril"
+      ],
+      "explanation": "The first day uses premier."
+    },
+    {
+      "id": "a1-cal-02",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "recurrence-seasons",
+      "prompt": "Supply le or aucun for a habit: 'Je travaille ___ mardi' means I work every Tuesday.",
+      "choices": [],
+      "answers": [
+        "le"
+      ],
+      "explanation": "Le mardi marks the recurring day."
+    },
+    {
+      "id": "a1-cal-03",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "recurrence-seasons",
+      "prompt": "Supply the seasonal preposition: '___ printemps'.",
+      "choices": [],
+      "answers": [
+        "au"
+      ],
+      "explanation": "Spring takes au printemps."
+    },
+    {
+      "id": "a1-cal-04",
+      "kind": "text",
+      "pool": "practice",
+      "section_id": "unit-duration",
+      "prompt": "Supply ans or années for ordinary age: 'Elle a quarante ___.'",
+      "choices": [],
+      "answers": [
+        "ans"
+      ],
+      "explanation": "Age normally uses ans."
+    },
+    {
+      "id": "a1-cal-05",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "dates",
+      "prompt": "Write May 8 in French words, beginning with le.",
+      "choices": [],
+      "answers": [
+        "le huit mai"
+      ],
+      "explanation": "Except the first, ordinary dates use cardinals."
+    },
+    {
+      "id": "a1-cal-06",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "dates",
+      "prompt": "Supply the preposition: 'Le festival est ___ août.'",
+      "choices": [],
+      "answers": [
+        "en"
+      ],
+      "explanation": "A month alone takes en."
+    },
+    {
+      "id": "a1-cal-07",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "recurrence-seasons",
+      "prompt": "Supply the article for a recurring weekend habit: '___ week-end, elle se repose.'",
+      "choices": [],
+      "answers": [
+        "le"
+      ],
+      "explanation": "Le week-end can mean at weekends."
+    },
+    {
+      "id": "a1-cal-08",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "recurrence-seasons",
+      "prompt": "Supply the preposition: 'Il fait froid ___ hiver.'",
+      "choices": [],
+      "answers": [
+        "en"
+      ],
+      "explanation": "The fixed seasonal phrase is en hiver."
+    },
+    {
+      "id": "a1-cal-09",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "recurrence-seasons",
+      "prompt": "Supply the preposition: 'Les feuilles tombent ___ automne.'",
+      "choices": [],
+      "answers": [
+        "en"
+      ],
+      "explanation": "Autumn takes en automne."
+    },
+    {
+      "id": "a1-cal-10",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "unit-duration",
+      "prompt": "Supply matin or matinée: 'Je viens demain ___.'",
+      "choices": [],
+      "answers": [
+        "matin"
+      ],
+      "explanation": "Demain matin locates an event."
+    },
+    {
+      "id": "a1-cal-11",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "unit-duration",
+      "prompt": "Supply soir or soirée: 'Elle danse toute la ___.'",
+      "choices": [],
+      "answers": [
+        "soirée"
+      ],
+      "explanation": "Toute la soirée emphasises the full period and is feminine."
+    },
+    {
+      "id": "a1-cal-12",
+      "kind": "text",
+      "pool": "check",
+      "section_id": "unit-duration",
+      "prompt": "Supply jour or journée in the conventional farewell: 'Bonne ___ !'",
+      "choices": [],
+      "answers": [
+        "journée"
+      ],
+      "explanation": "Bonne journée wishes someone a pleasant day."
+    },
+    {
+      "id": "a1-cal-13",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "unit-duration",
+      "prompt": "Supply an or année in the conventional New Year wish: 'Bonne ___ !'",
+      "choices": [],
+      "answers": [
+        "année"
+      ],
+      "explanation": "The established wish uses feminine année."
+    },
+    {
+      "id": "a1-cal-14",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "recurrence-seasons",
+      "prompt": "Supply the definite article for a recurring summer habit: '___ été, je travaille dehors.'",
+      "choices": [],
+      "answers": [
+        "l'"
+      ],
+      "explanation": "L'été is an alternative seasonal time phrase."
+    },
+    {
+      "id": "a1-cal-15",
+      "kind": "text",
+      "pool": "review",
+      "section_id": "unit-duration",
+      "prompt": "Supply prochain or prochaine: 'l'année ___'.",
+      "choices": [],
+      "answers": [
+        "prochaine"
+      ],
+      "explanation": "Année is feminine."
+    },
+    {
+      "id": "a1-cal-16",
+      "kind": "choice",
+      "pool": "review",
+      "section_id": "unit-duration",
+      "prompt": "Can 'deux années difficiles' be grammatical even though it contains a number?",
+      "choices": [
+        "Oui",
+        "Non"
+      ],
+      "answers": [
+        "Oui"
+      ],
+      "explanation": "Années can emphasise the experience of the periods; the distinction is not an absolute numbers rule."
+    }
+  ],
+  "production_task": {
+    "prompt": "Write a short calendar note: one exact date, one weekly habit, one seasonal activity and a wish for someone's day.",
+    "model_answer": "Le cours commence le deux octobre. Je travaille le mercredi. En hiver, je lis le soir. Bonne journée !",
+    "translation": "The class starts on the second of October. I work on Wednesdays. In winter, I read in the evening. Have a good day!",
+    "rubric": [
+      "Use a cardinal date except for the first.",
+      "Use le for the recurring weekday.",
+      "Choose the established season phrase.",
+      "Use journée in the farewell wish."
+    ]
+  }
+}

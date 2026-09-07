@@ -4,18 +4,18 @@
 
 **User goal:** exceptionally clear grammar teaching, with breadth comparable to the public Kwiziq A1–B2 topic catalogue, supporting **NCLC 9+ across all four TCF Canada skills**.
 
-**Implemented release:** 120 original A1–B2 lessons resolve all 479 benchmark topics, with nine additional C1-oriented preparation lessons. The preserved 83-lesson reference library remains available with its existing routes, source material, notes and reading progress. The [implementation contract](apprendre-implementation-contract.md) records the concrete schema and bounded practice pilot that supersede earlier design alternatives below.
+**Implemented course, including the teaching-depth follow-up:** 120 original A1–B2 lessons resolve all 479 benchmark topics, with nine additional C1-oriented preparation lessons. The preserved 83-lesson reference library remains available with its existing routes, source material, notes and reading progress. The [implementation contract](apprendre-implementation-contract.md) records the concrete schema and bounded practice pilot that supersede earlier design alternatives below.
 
 | Level | Original lessons | Paired examples | Practice items | Benchmark topics |
 | --- | ---: | ---: | ---: | ---: |
-| A1 | 33 | 364 | 546 | 134 |
-| A2 | 36 | 290 | 582 | 165 |
-| B1 | 26 | 267 | 480 | 96 |
-| B2 | 25 | 294 | 417 | 84 |
+| A1 | 33 | 466 | 662 | 134 |
+| A2 | 36 | 358 | 652 | 165 |
+| B1 | 26 | 343 | 556 | 96 |
+| B2 | 25 | 360 | 499 | 84 |
 | C1-oriented preparation | 9 | 72 | 144 | Separate bridge |
-| **Total** | **129** | **1,287** | **2,169** | **479** |
+| **Total** | **129** | **1,599** | **2,513** | **479** |
 
-These lessons contain 348 teaching sections, 303 contextual corrections and 129 production tasks with models, translations and self-review rubrics. A complete multiline paradigm counts as one example object, not several separate examples. The banks contain 540 learning-practice items, 1,081 check items and 548 review items; 1,960 require constructed answers.
+These lessons contain 443 teaching sections, 325 contextual corrections and 129 production tasks with models, translations and self-review rubrics. A complete multiline paradigm counts as one example object, not several separate examples. The banks contain 644 learning-practice items, 1,207 check items and 662 review items; 2,243 require constructed answers.
 
 All four benchmark ledgers contain exact source-title/URL mappings to actual teaching sections and exercise IDs. Separate AI-assisted editorial passes covered each complete level and ledger; source checks and integration review resolved grammatical variants, ambiguous instructions and duplicate cross-level questions. This is not human-teacher accreditation, psychometric validation or proof of equivalence to another platform's proprietary mastery score.
 
@@ -61,7 +61,35 @@ The public indexes contain the following distinct linked grammar topics:
 | [B2](https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2) | 84 |
 | **Total, with no duplicate URLs across these indexes** | **479** |
 
-These are **topic-index counts**, not a claim to have read, copied or audited 479 complete lessons. Several entries teach individual verbs within a family. We should not produce 479 arbitrary pages merely to match a competitor's page count.
+The first release established **topic-index coverage**, not a full-body teaching audit. Several entries teach individual verbs within a family; matching a competitor's page count would not justify 479 arbitrary course pages.
+
+### Public teaching-depth follow-up
+
+The follow-up read all 479 exact public teaching bodies on 7 September 2026 and compared them against the published course baseline `1e94f93c723fb11361137e8bc7d23adb18ac6231`. Authors checked the complete public article, including explanations and paradigms: simplified fetches that returned only the example bank were insufficient. All benchmark bodies were accessible; subscriber questions, community discussions and separately linked audio/video or vocabulary expansions were not audited.
+
+| Level | Public bodies read | Sufficient | Enriched | Reference-qualified | Not assessed |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| A1 | 134 | 84 | 44 | 6 | 0 |
+| A2 | 165 | 110 | 48 | 6 | 1 |
+| B1 | 96 | 55 | 30 | 11 | 0 |
+| B2 | 84 | 48 | 23 | 13 | 0 |
+| **Total** | **479** | **297** | **145** | **36** | **1** |
+
+These are 478 completed public-text comparisons, not a claim of identical depth or a matched private question bank. The unresolved A2 comparison concerns the alternative compound-tense position of `en` in `s'en aller`. The source body was read, but the additional references actually accessible did not reliably settle that alternative's usage; the row remains `read` / `not-assessed`. Its standard departure forms remain taught and practised. Supplementary-reference limits are recorded separately, including the narrower evidence available for negative `savoir`; absent or inaccessible references are not cited as confirmation.
+
+The original enrichment changed 75 existing lessons, adding 95 coherent sections, 312 bilingual example blocks and 344 distinct questions:
+
+| Level | Lessons enriched | New sections | New example blocks | New questions |
+| --- | ---: | ---: | ---: | ---: |
+| A1 | 21 | 31 | 102 | 116 |
+| A2 | 24 | 24 | 68 | 70 |
+| B1 | 19 | 24 | 76 | 76 |
+| B2 | 11 | 16 | 66 | 82 |
+| **Total** | **75** | **95** | **312** | **344** |
+
+Examples include meaning-based article choices, habitual versus ongoing duration, relative-clause reconstruction despite inversion, and auxiliary decisions with hidden objects or nonliteral meanings. Primary references qualified oversimplifications rather than turning accepted variants into mistakes. Each level received one independent AI-assisted editorial review of its additions, changed keys and depth decisions, with focused follow-up to resolve findings; reviewers did not independently repeat all 479 source fetches. New material was written for our existing organisation, not copied or closely paraphrased from the benchmark.
+
+All published lesson, section and item IDs, sources and preparation links survive. The 83-lesson reference library and nine preparation lessons are byte-preserved. Targeted corrections include several existing explanations and accepting `jamais plus` alongside `plus jamais` in one B1 key; historical attempts remain frozen rather than silently regraded. The committed `depth/` reports and `course_manifest.json` support structural and preservation checks, not teacher accreditation, empirical mastery validation or an external equivalence claim.
 
 The preserved reference library contains **83 lessons, 186 teaching sections and 10 topic categories**. Its difficulty labels are `Fondamental`, `Intermédiaire` and `Avancé`, not A1/A2/B1/B2. At the planning baseline, eleven lessons were estimated at 25 minutes or longer; one lexical lesson was 52 minutes with 12 sections.
 
@@ -272,7 +300,7 @@ No reliable total lesson count, completion time or score guarantee should be inv
 
 ## Planning artifacts
 
-The original research artifacts remain in the session. Committed benchmark metadata, the legacy preservation manifest and completed coverage ledgers support reproducible release checks; none contains a copied proprietary lesson or quiz bank. Run `python manage.py validate_courses --coverage` and `python manage.py test study.tests.test_course_bundle` to check the complete bundle, mappings, question uniqueness, prerequisite ordering and preserved routes.
+The original research artifacts remain in the session. Committed benchmark metadata, preservation manifests, coverage ledgers and separate depth records support reproducible release checks; none contains a copied proprietary lesson or quiz bank. Run `python manage.py validate_courses --coverage --depth` and `python manage.py test study.tests.test_course_bundle study.tests.test_course_depth` to check the complete bundle, mappings, question uniqueness, prerequisite ordering, audit-record structure and preserved identities. Source-reading and teaching-quality claims still depend on the documented editorial work, not those structural checks.
 
 - `kwiziq-index-a1.json`, `kwiziq-index-a2.json`, `kwiziq-index-b1.json`, `kwiziq-index-b2.json`: public topic metadata snapshots.
 - `apprendre-a1-b2-coverage-register.json`: historical planning register with 479 rows and ten initial teaching-level checks.
@@ -282,5 +310,7 @@ The original research artifacts remain in the session. Committed benchmark metad
 - `study/content/learning/benchmarks/`: committed factual index snapshots.
 - `study/content/learning/coverage/`: complete per-level release mappings, supplied by the respective curriculum owners.
 - `study/content/learning/legacy_manifest.json`: committed preservation baseline for published identities, sources and annotation keys.
+- `study/content/learning/course_manifest.json`: fixed first-course-release identities and hashes, extracted from published Git objects.
+- `study/content/learning/depth/`: 479 public-text audit records, including the one explicitly unresolved comparison.
 
 This plan is intentionally more demanding than replacing paragraphs. The meaningful outcome is a coherent, original learning system with traceable coverage and observable application.

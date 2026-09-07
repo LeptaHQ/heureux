@@ -25,7 +25,7 @@ from study.course_content import (
     validate_depth_report,
 )
 
-from .course_fixtures import course_lesson
+from .course_fixtures import course_lesson, inline_teaching_fields
 
 
 def depth_fixture(benchmark):
@@ -340,18 +340,27 @@ class PublishedCourseIdentityTests(SimpleTestCase):
                     {(source["label"], source["url"]) for source in current["sources"]},
                 )
 
-    def test_reference_library_and_preparation_bridge_are_byte_preserved(self):
+    def test_reference_library_is_byte_preserved(self):
         self.assertEqual(
             hashlib.sha256((CONTENT_ROOT / "curriculum.json").read_bytes()).hexdigest(),
             self.manifest["reference_sha256"],
         )
+
+    def test_preparation_bridge_only_adds_inline_teaching_delimiters(self):
         bridge = [
             lesson for lesson in self.manifest["lessons"] if lesson["level"] == "C1-preparation"
         ]
         self.assertEqual(len(bridge), 9)
         for published in bridge:
             with self.subTest(lesson=published["id"]):
+                raw = (CONTENT_ROOT / published["file"]).read_bytes()
+                protected = json.loads(raw)
+                for container, key in inline_teaching_fields(protected):
+                    container[key] = ""
+                self.assertNotIn("`", json.dumps(protected))
+                # The fixed bridge originally had no backticks. Only teaching
+                # delimiters may differ; exercises and all other bytes stay fixed.
                 self.assertEqual(
-                    hashlib.sha256((CONTENT_ROOT / published["file"]).read_bytes()).hexdigest(),
+                    hashlib.sha256(raw.replace(b"`", b"")).hexdigest(),
                     published["baseline_sha256"],
                 )

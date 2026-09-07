@@ -21,6 +21,8 @@ Practice has its own page reached by a simple action on a course lesson. Origina
 
 The existing summary, objectives and practice action use a desktop sidebar, stacked above the teaching on smaller screens. Mark French snippets within English explanations explicitly with backticks, rather than guessing from ambiguous words such as English "on". These snippets use the existing French-language inline-code treatment; headings and practice section labels must render the same markup without exposing delimiters. Do not alter exercise keys merely to change lesson presentation.
 
+Apply this convention to the teaching in all 129 course lessons, including C1 preparation: summaries, objectives, mixed-language section titles, explanations, points, example notes, correction explanations and production instructions/rubrics. Mark whole French phrases together, leaving English connectors and translations outside the span. Already-French examples/models and immutable practice objects are not formatting targets. This presentation pass only inserts delimiters; it preserves wording, structure, IDs, source records and all exercise objects.
+
 ## Course lesson JSON: version 1
 
 Each file is one complete JSON object, not an array. Example shape (illustrative placeholders, not a publishable lesson):
@@ -176,7 +178,7 @@ The follow-up baseline is published commit `1e94f93c723fb11361137e8bc7d23adb18ac
 - Keep English explanations and faithful French/English pairs, complete relevant paradigms and noun headwords with articles/genders. Include usable decision steps and meaningful contrasts rather than simply longer paragraphs.
 - No new UI panels on reading pages. The existing teaching-section renderer and separate practice area remain the interface.
 
-`study/content/learning/course_manifest.json` records the published baseline's 129 lesson identities, 348 section IDs, 2,169 item IDs, sources and preparation links. It was extracted from the baseline Git objects, not enriched working files. It is a preservation record, not another writing target. The reference library and nine preparation lessons remain byte-preserved; A1–B2 teaching may be enriched without removing published identities.
+`study/content/learning/course_manifest.json` records the published baseline's 129 lesson identities, 348 section IDs, 2,169 item IDs, sources and preparation links. It was extracted from the baseline Git objects, not enriched working files. It is a preservation record, not another writing target. The reference library remains byte-preserved. The nine preparation lessons permit only added inline-French delimiters in explanatory fields: removing these must recover their original bytes, and delimiters are forbidden in protected fields such as exercise objects. A1–B2 teaching may be enriched without removing published identities.
 
 ### Depth audit records
 

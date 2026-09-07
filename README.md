@@ -59,6 +59,11 @@ wide screens and above the teaching on smaller screens. Use explicit backticks
 for French snippets inside English explanations; the existing inline renderer
 marks them as French and gives them a distinct style. Do not automatically style
 ambiguous words such as English "on". Plain-text searches ignore those backticks.
+Apply this convention throughout A1–B2 and C1-preparation teaching, including
+mixed-language section headings, example notes, correction explanations and
+production instructions/rubrics. Leave already-French examples and translations
+alone unless an English explanation contains a genuine French mention. The
+all-course formatting pass preserves wording, identities and every exercise object.
 
 The course contains 33 A1, 36 A2, 26 B1 and 25 B2 lessons, with exact
 coverage mappings for all 479 public benchmark topics, plus nine C1-oriented

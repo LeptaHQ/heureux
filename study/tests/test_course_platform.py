@@ -541,6 +541,29 @@ class CoursePlatformTests(TestCase):
         self.assertEqual(self.client.get(url).status_code, 404)
         self.assertEqual(self.client.post(url, {"reviewed": "1"}).status_code, 404)
 
+    def test_production_snapshot_renders_authored_french_not_learner_markup(self):
+        task = replace(
+            self.lesson.production_task,
+            prompt="Describe an `école` using `il y a`.",
+            translation="Here `école` means school.",
+            rubric=("Use `une` before `école`.",),
+        )
+        lesson = replace(self.lesson, production_task=task)
+        catalog = build_course_catalog([lesson])
+        body = "Je garde `école` tel quel."
+        with patch("study.views.course.load_course_catalog", return_value=catalog):
+            self.client.post(
+                reverse("study:course_production_create", args=[lesson.slug]),
+                {"body": body},
+            )
+        production = CourseProduction.objects.get(user=self.user)
+        response = self.client.get(reverse("study:course_production", args=[production.pk]))
+        for text in (task.prompt, task.translation, *task.rubric):
+            self.assertContains(response, render_markdown_inline(text))
+        self.assertContains(response, body)
+        self.assertEqual(production.body, body)
+        self.assertEqual(production.task_snapshot["prompt"], task.prompt)
+
     def test_export_reset_and_deletion_include_all_new_owned_data(self):
         own = self.submit(self.start())
         other = start_attempt(self.other, self.lesson, "check")

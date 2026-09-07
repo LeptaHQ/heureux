@@ -6588,6 +6588,12 @@ class BrowserTests(StaticLiveServerTestCase):
                 expect(self.page.locator("[data-annotation-root]")).to_have_count(
                     len(lesson.sections)
                 )
+                self.assertNotIn(
+                    "`", self.page.locator(".course-reading-layout").inner_text(),
+                )
+                expect(
+                    self.page.locator(".course-reading-layout code:not([lang='fr'])")
+                ).to_have_count(0)
                 examples = [
                     example
                     for section in lesson.sections
@@ -6610,6 +6616,9 @@ class BrowserTests(StaticLiveServerTestCase):
                 expect(
                     self.page.get_by_role("heading", name="Practise this lesson")
                 ).to_be_visible()
+                guidance = self.page.locator(".course-guidance")
+                guidance.locator("summary").click()
+                self.assertNotIn("`", guidance.inner_text())
                 self.page.set_viewport_size({"width": 320, "height": 844})
                 self.assert_no_horizontal_overflow()
         self.assertFalse(CourseAttempt.objects.filter(user=self.user).exists())

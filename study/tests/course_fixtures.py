@@ -5,6 +5,29 @@ from copy import deepcopy
 from study.course_content import build_course_catalog, parse_course_lesson
 
 
+def inline_teaching_fields(payload):
+    """Yield containers and keys for English teaching that can embed French."""
+    yield payload, "summary"
+    for index in range(len(payload["objectives"])):
+        yield payload["objectives"], index
+    for section in payload["sections"]:
+        yield section, "title"
+        for field in ("paragraphs", "points"):
+            for index in range(len(section[field])):
+                yield section[field], index
+        for example in section["examples"]:
+            for field in ("english", "note"):
+                if field in example:
+                    yield example, field
+        for mistake in section["mistakes"]:
+            yield mistake, "why"
+    production = payload["production_task"]
+    for field in ("prompt", "translation"):
+        yield production, field
+    for index in range(len(production["rubric"])):
+        yield production["rubric"], index
+
+
 def course_payload(level="A1", order=1, *, suffix="foundations", topic="grammar-foundations"):
     prefix = level[:2].lower()
     return {

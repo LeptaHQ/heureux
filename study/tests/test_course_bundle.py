@@ -6,16 +6,19 @@ import json
 import re
 import unicodedata
 from collections import Counter
+from html import unescape
 from pathlib import Path
 
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
-from django.utils.html import escape
+from django.utils.html import escape, strip_tags
 
 from study.course_content import load_course_catalog
 from study.models import CourseAttempt, CourseProduction, LearningLessonProgress
+from study.templatetags.study_markdown import render_markdown_inline
 
 from . import factories
+from .course_fixtures import inline_teaching_fields
 
 
 ROOT = Path(__file__).resolve().parents[1] / "content" / "learning"
@@ -232,6 +235,20 @@ class CourseBundleTests(SimpleTestCase):
                     re.compile(r"\b(?:TODO|TBD|FIXME)\b|https?://example\.(?:com|org)"),
                 )
 
+    def test_inline_french_preserves_visible_teaching_without_raw_delimiters(self):
+        for lesson in self.lessons.values():
+            for container, key in inline_teaching_fields(lesson):
+                text = container[key]
+                with self.subTest(lesson=lesson["id"], text=text):
+                    rendered = render_markdown_inline(text)
+                    self.assertNotIn("`", rendered)
+                    self.assertNotIn("<code>", rendered)
+                    unmarked = render_markdown_inline(text.replace("`", ""))
+                    self.assertEqual(
+                        " ".join(unescape(strip_tags(rendered)).split()),
+                        " ".join(unescape(strip_tags(unmarked)).split()),
+                    )
+
 
 class CourseBundleViewTests(TestCase):
     @classmethod
@@ -258,9 +275,15 @@ class CourseBundleViewTests(TestCase):
                 )
                 for section in lesson.sections:
                     self.assertContains(
+                        response, f"<h2>{render_markdown_inline(section.title)}</h2>",
+                        html=True,
+                    )
+                    self.assertContains(
                         response,
                         f'data-annotation-source-key="learn:{lesson.id}:{section.id}"',
                     )
+                    for text in (*section.paragraphs, *section.points):
+                        self.assertContains(response, render_markdown_inline(text))
         self.assertFalse(
             LearningLessonProgress.objects.filter(
                 user=self.user, completed_at__isnull=False
@@ -276,6 +299,11 @@ class CourseBundleViewTests(TestCase):
                 )
                 self.assertContains(response, "Controlled grammar practice")
                 self.assertEqual(response.context["lesson"].id, lesson.id)
+                self.assertContains(
+                    response, render_markdown_inline(lesson.production_task.prompt),
+                )
+                for section in lesson.sections:
+                    self.assertContains(response, render_markdown_inline(section.title))
                 self.assertContains(
                     response,
                     reverse("study:course_production_create", args=[lesson.slug]),

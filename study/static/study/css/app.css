@@ -17146,7 +17146,9 @@ html[data-collection-view-mode="table"]
   white-space: normal;
   text-align: center;
 }
-.course-lesson-page code {
+.course-lesson-page code,
+.course-practice-page code,
+.learn-lesson-card code {
   display: inline-block;
   max-width: 100%;
   overflow-wrap: anywhere;

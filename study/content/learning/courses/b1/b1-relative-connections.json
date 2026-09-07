@@ -1,0 +1,65 @@
+{
+  "version": 1, "id": "b1-relative-connections", "slug": "b1-relative-connections", "cefr_level": "B1", "topic": "pronouns-questions-negation",
+  "title": "Relier les idées avec qui, que et où",
+  "summary": "Choose a relative pronoun by its job inside the clause, then use ce qui and ce que for unnamed ideas.",
+  "order": 14, "duration_minutes": 14, "prerequisites": [],
+  "objectives": ["Distinguish relative subject qui from direct object que.", "Refer to a place or time with où.", "Choose ce qui/ce que when no explicit noun is supplied."],
+  "keywords": ["relative pronouns", "qui", "que", "où", "ce qui", "ce que", "antecedent"],
+  "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],
+  "related_legacy_ids": ["grammar-relative-pronouns"],
+  "sections": [
+    {
+      "id": "qui-que", "title": "Look inside the clause, not at person versus thing",
+      "paragraphs": ["A relative clause adds information to a noun, its antecedent. Qui is the subject inside that clause: le bus qui arrive, the bus that is arriving. Que is the direct object: le bus que je prends, the bus that I take. Both can refer to people or things. A direct object receives the action without a linking preposition.", "Que becomes qu' before a vowel; qui stays qui. The verb after subject qui agrees with its antecedent: les gens qui attendent, nous qui attendons. French does not normally omit object que the way English can omit that in the book I read. When que refers to a direct object placed before an avoir participle, agreement is needed: la lettre que j'ai reçue. These exercises mostly use simple tenses so the relative choice stays in focus."],
+      "points": ["Vocabulary: une annonce (feminine), an advertisement or announcement; un bénévole / une bénévole (masculine/feminine), a volunteer."],
+      "examples": [
+        {"french": "Voici la bénévole **qui** organise les visites.", "english": "Here is the volunteer who organizes the visits.", "note": "The volunteer is the subject of organise."},
+        {"french": "Voici la bénévole **que** vous cherchez.", "english": "Here is the volunteer you are looking for.", "note": "Vous is the subject; que is the object of cherchez."},
+        {"french": "Les bus **qui** passent ici sont électriques.", "english": "The buses that pass here are electric.", "note": "Qui can refer to things and takes plural passent here."},
+        {"french": "L'annonce **qu'**elle prépare sera publiée demain.", "english": "The advertisement she is preparing will be published tomorrow.", "note": "Que elides before elle."}
+      ],
+      "mistakes": [{"avoid": "La personne qui je cherche travaille ici.", "prefer": "La personne que je cherche travaille ici.", "why": "Je is already the subject of cherche; the person is its direct object, so use que."}]
+    },
+    {
+      "id": "where-when", "title": "Où can locate an event in space or time",
+      "paragraphs": ["Relative où can mean where after a place noun or when after a time noun: la ville où..., le jour où... The accent distinguishes où from ou, which means or. Do not select où just because a place noun appears: la ville que je visite is correct because visiter takes that city as its direct object.", "After a time noun such as moment, jour or année, French commonly uses où, not quand, to introduce the relative clause. Quand can independently introduce a time clause, as in quand je suis arrivé."],
+      "points": ["Vocabulary: un quartier (masculine), a neighbourhood; une année (feminine), a year."],
+      "examples": [
+        {"french": "Le quartier **où** nous vivons est calme.", "english": "The neighbourhood where we live is quiet.", "note": "Où gives the location of living."},
+        {"french": "Je me souviens du jour **où** tu as commencé.", "english": "I remember the day when you started.", "note": "Où refers to a time, not a place."}
+      ],
+      "mistakes": [{"avoid": "C'est l'année quand nous avons déménagé.", "prefer": "C'est l'année où nous avons déménagé.", "why": "After the time noun année, use relative où in this structure."}]
+    },
+    {
+      "id": "unnamed", "title": "Ce qui and ce que mean what or the thing that",
+      "paragraphs": ["When there is no named noun for the relative clause to describe, use ce as a neutral support: ce qui for the subject and ce que for the direct object. Ask what role the unknown thing plays: Ce qui m'aide, what helps me, is a subject; Ce que je comprends, what I understand, is an object.", "Ce que becomes ce qu' before a vowel. Ce qui does not elide. These combinations can also refer back to an entire earlier statement: Il a répondu, ce qui m'a rassurée, he answered, which reassured me. Do not insert ce before a relative that already directly modifies a named noun."],
+      "points": ["The distinction is grammatical role, not whether English happens to use what, which or that.", "If the verb needs de or another preposition, qui/que alone may not be enough; for example parler de leads to ce dont, beyond the contrast practiced here."],
+      "examples": [
+        {"french": "**Ce qui** compte, c'est votre disponibilité.", "english": "What matters is your availability.", "note": "Ce qui is the subject of compte."},
+        {"french": "Expliquez **ce que** vous proposez.", "english": "Explain what you are proposing.", "note": "Vous is the subject of proposez; ce que is its object."},
+        {"french": "Je comprends **ce qu'**elle veut dire.", "english": "I understand what she means.", "note": "Ce que elides before elle."},
+        {"french": "Le rendez-vous a été confirmé, **ce qui** nous rassure.", "english": "The appointment was confirmed, which reassures us.", "note": "Ce qui refers back to the whole confirmation."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "text", "pool": "practice", "section_id": "qui-que", "prompt": "Supply qui or que: Le livre ___ explique cette règle est sur la table.", "choices": [], "answers": ["qui"], "explanation": "The book is the subject of explique."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "qui-que", "prompt": "Supply qui or que: Le livre ___ tu lis est récent.", "choices": [], "answers": ["que"], "explanation": "Tu is the subject; the book is the direct object."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "where-when", "prompt": "Supply the relative pronoun: L'année ___ j'ai commencé était difficile.", "choices": [], "answers": ["où"], "explanation": "Où can refer to a time noun."},
+    {"id": "item-04", "kind": "text", "pool": "practice", "section_id": "unnamed", "prompt": "Supply ce qui or ce que: ___ me plaît, c'est la simplicité.", "choices": [], "answers": ["Ce qui"], "explanation": "The unnamed thing is the subject of plaît."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "qui-que", "prompt": "Supply qui, que or qu': La collègue ___ arrive vient de Lille.", "choices": [], "answers": ["qui"], "explanation": "Qui is the subject and does not elide before arrive."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "qui-que", "prompt": "Supply qui, que or qu': Le dossier ___ il prépare est urgent.", "choices": [], "answers": ["qu'"], "explanation": "Que is the object and elides before il."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "where-when", "prompt": "Supply qui, que or où: Le village ___ nous vivons est isolé.", "choices": [], "answers": ["où"], "explanation": "Vivre here locates the subject in the village; the relative is spatial, not a direct object."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "where-when", "prompt": "Supply qui, que or où: La ville ___ nous visitons attire beaucoup de monde.", "choices": [], "answers": ["que"], "explanation": "A place can be the direct object of visiter; that needs que."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "unnamed", "prompt": "Supply ce qui or ce que: Je note ___ vous demandez.", "choices": [], "answers": ["ce que"], "explanation": "Vous is the subject of demandez; ce que is the object."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "unnamed", "prompt": "Supply ce qui or ce que: ___ manque, c'est une date précise.", "choices": [], "answers": ["Ce qui"], "explanation": "The unknown element is the subject of manque."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "where-when", "prompt": "Supply the relative pronoun: Le moment ___ la porte s'est ouverte a été filmé.", "choices": [], "answers": ["où"], "explanation": "Moment is a time antecedent."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "qui-que", "prompt": "Supply attendre in the present: Les personnes qui ___ ont un rendez-vous.", "choices": [], "answers": ["attendent"], "explanation": "Qui refers to plural personnes, so the verb is plural."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "unnamed", "prompt": "Supply ce qui, ce que or ce qu': Dis-moi ___ elle cherche.", "choices": [], "answers": ["ce qu'"], "explanation": "The object relative elides before elle."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "unnamed", "prompt": "Supply ce qui or ce que to refer to the whole previous event: Ils ont annulé, ___ nous laisse plus de temps.", "choices": [], "answers": ["ce qui"], "explanation": "The cancellation as a whole is the subject of laisse."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "qui-que", "prompt": "Join with que, without changing the wording otherwise: Voici le film. Nous recommandons ce film.", "choices": [], "answers": ["Voici le film que nous recommandons."], "explanation": "Replace the second direct object ce film with que."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "where-when", "prompt": "Supply the accented relative pronoun: Voici l'endroit ___ nous nous retrouvons.", "choices": [], "answers": ["où"], "explanation": "Où marks the meeting location; ou without an accent means or."}
+  ],
+  "production_task": {"prompt": "Recommend a neighbourhood activity in five sentences. Identify a person with qui, something you recommend with que, a location or time with où, and explain ce qui matters and ce que participants should bring.", "model_answer": "L'atelier que je recommande se trouve près de la gare. La bénévole qui l'anime explique très bien. C'est un lieu où chacun peut apprendre. Ce qui compte, c'est la curiosité. Voici ce que vous devez apporter: un carnet et un crayon.", "translation": "The workshop I recommend is near the station. The volunteer who runs it explains things very well. It is a place where everyone can learn. What matters is curiosity. Here is what you need to bring: a notebook and a pencil.", "rubric": ["Choose qui/que by the role inside the relative clause.", "Use où for a place or time relationship.", "Use ce only where there is no explicit noun antecedent or where it refers to a whole idea.", "Keep the recommendation coherent."]}
+}

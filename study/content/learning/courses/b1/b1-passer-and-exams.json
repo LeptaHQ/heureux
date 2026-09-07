@@ -1,0 +1,66 @@
+{
+  "version": 1, "id": "b1-passer-and-exams", "slug": "b1-passer-and-exams", "cefr_level": "B1", "topic": "word-meanings-expressions",
+  "title": "Comprendre passer et parler des examens",
+  "summary": "Distinguish passing through, spending time, happening, doing without and succeeding in an exam.",
+  "order": 23, "duration_minutes": 13, "prerequisites": ["b1-past-families"],
+  "objectives": ["Select passer, se passer or se passer de by meaning.", "Choose avoir or être for the common compound-past constructions.", "Distinguish taking an exam from passing it."],
+  "keywords": ["passer", "se passer", "se passer de", "examen", "réussir", "avoir un examen"],
+  "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}, {"label": "Le Robert: réussir, including réussir à un examen (consulted during independent review)", "url": "https://dictionnaire.lerobert.com/definition/reussir"}],
+  "related_legacy_ids": ["verbs-lexical-distinctions", "verbs-achievement-event", "daily-school-work"],
+  "sections": [
+    {
+      "id": "constructions", "title": "The construction changes the meaning",
+      "paragraphs": ["Passer without a direct object often describes going past, through or briefly visiting: passer par le parc, passer chez quelqu'un. Passer plus a direct object can mean spend a period of time, hand something over, or take a test: passer une heure ici, passer le sel, passer un examen. Learn the complement as part of the meaning.", "Se passer means happen or take place: Que se passe-t-il? It is normally used with an event as subject, often ça or ce qui. Se passer de means do without: je me passe de voiture. Its de belongs to the expression and must not be dropped.", "Passer is regular in the present: je passe, tu passes, il/elle/on passe, nous passons, vous passez, ils/elles passent. Se passer de adds the matching reflexive pronouns: je me passe de, tu te passes de, il/elle/on se passe de, nous nous passons de, vous vous passez de, ils/elles se passent de."],
+      "points": ["Vocabulary: un examen (masculine), an exam; une épreuve (feminine), a test or exam paper; une heure (feminine), an hour."],
+      "examples": [
+        {"french": "Je **passe par** le parc pour rentrer.", "english": "I go through the park to get home.", "note": "Passer par describes the route."},
+        {"french": "Nous **passons** une heure à préparer la salle.", "english": "We spend an hour preparing the room.", "note": "Une heure is the direct object measuring time spent."},
+        {"french": "Qu'est-ce qui **se passe** dans le couloir?", "english": "What is happening in the corridor?", "note": "The reflexive construction describes an event."},
+        {"french": "Elle **se passe de** voiture pendant l'été.", "english": "She does without a car during the summer.", "note": "De introduces what she does without."}
+      ],
+      "mistakes": [{"avoid": "Qu'est-ce qui passe dans la réunion?", "prefer": "Qu'est-ce qui se passe pendant la réunion?", "why": "To ask what happens at the meeting, use se passer; passer alone suggests passing or movement."}]
+    },
+    {
+      "id": "auxiliaries", "title": "Ask whether there is a direct object",
+      "paragraphs": ["In common modern compound-past movement uses, passer takes être: elle est passée par le marché. With a direct object, it takes avoir: elle a passé deux heures au marché. The time period is an object even though it is not a physical thing. Some intransitive uses and older/regional usage allow avoir; the exercises specify a modern movement reading or a direct object.", "Avoir forms: j'ai passé, tu as passé, il/elle/on a passé, nous avons passé, vous avez passé, ils/elles ont passé. Être movement forms: je suis passé/passée, tu es passé/passée, il/on est passé, elle est passée, nous sommes passés/passées, vous êtes passé/passée/passés/passées, ils sont passés, elles sont passées. Choose agreement for the actual subject.", "Both se passer and se passer de are pronominal and use être: l'incident s'est passé hier; elles se sont passées de guide. In the latter, passées agrees with the feminine plural subject. An event subject likewise controls agreement: les choses se sont bien passées."],
+      "points": ["Do not choose the auxiliary just because English translates the verb with passed.", "With avoir in these examples, the following direct object does not cause subject agreement."],
+      "examples": [
+        {"french": "Nora **est passée** chez nous après le travail.", "english": "Nora stopped by our place after work.", "note": "A movement/visit use with être and feminine agreement."},
+        {"french": "Nora **a passé** la soirée chez nous.", "english": "Nora spent the evening at our place.", "note": "La soirée is a direct object; use avoir."},
+        {"french": "Les visites **se sont bien passées**.", "english": "The visits went well.", "note": "The event construction takes être and feminine plural agreement."}
+      ],
+      "mistakes": [{"avoid": "Elle est passée deux heures au musée.", "prefer": "Elle a passé deux heures au musée.", "why": "Passer takes avoir when the time period deux heures is its direct object."}]
+    },
+    {
+      "id": "exam-result", "title": "Taking is not succeeding",
+      "paragraphs": ["Passer un examen means take or sit an exam; it does not tell you the result. Réussir un examen and réussir à un examen both mean pass it successfully. Rater un examen and échouer à un examen mean fail it. Réussir permits both the direct-object construction and à; échouer in this meaning requires à.", "In everyday result talk, avoir un examen or avoir son examen can mean pass it: J'ai eu mon examen! Context must establish success. J'ai un examen demain normally means I have an exam tomorrow, not that I have passed tomorrow's exam. Avoir with a result context is natural but réussir is clearer when ambiguity matters. Exam/exam' is an informal shortening; examen is suitable in careful writing."],
+      "points": ["Réussir, present: je réussis, tu réussis, il/elle/on réussit, nous réussissons, vous réussissez, ils/elles réussissent; participle réussi.", "Avoir in the passé composé uses eu: j'ai eu, tu as eu, il/elle/on a eu, nous avons eu, vous avez eu, ils/elles ont eu."],
+      "examples": [
+        {"french": "J'ai **passé** l'examen lundi; les résultats ne sont pas encore publiés.", "english": "I took the exam on Monday; the results have not been published yet.", "note": "Passer gives no success information."},
+        {"french": "Elle **a réussi** l'épreuve écrite.", "english": "She passed the written test.", "note": "Réussir explicitly states success."},
+        {"french": "Les résultats sont arrivés: j'**ai eu** mon examen!", "english": "The results are in: I passed my exam!", "note": "The result context makes avoir mean succeed."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "text", "pool": "practice", "section_id": "constructions", "prompt": "Supply the complete two-word present group for happen: Tout ___ bien.", "choices": [], "answers": ["se passe"], "explanation": "Se passer describes how events unfold."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "constructions", "prompt": "Supply the required preposition: Nous nous passons ___ télévision.", "choices": [], "answers": ["de"], "explanation": "Se passer de means do without."},
+    {"id": "item-03", "kind": "choice", "pool": "practice", "section_id": "exam-result", "prompt": "Choose what J'ai passé l'examen establishes by itself.", "choices": ["I took the exam.", "I passed the exam successfully."], "answers": ["I took the exam."], "explanation": "Passer un examen does not tell you the result."},
+    {"id": "item-04", "kind": "text", "pool": "practice", "section_id": "auxiliaries", "prompt": "Supply avoir in the passé composé frame: Elle ___ passé trois jours ici.", "choices": [], "answers": ["a"], "explanation": "The direct object trois jours requires avoir."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "auxiliaries", "prompt": "Use passer in the passé composé with être for a modern movement reading: Les voyageuses ___ par Dijon.", "choices": [], "answers": ["sont passées"], "explanation": "Movement with être requires feminine plural agreement."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "auxiliaries", "prompt": "Supply passer in the passé composé: Nous ___ une heure au téléphone.", "choices": [], "answers": ["avons passé"], "explanation": "Une heure is the direct object, so use avoir."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "constructions", "prompt": "Supply se passer de in the present: Vous ___ café le soir. Include the preposition.", "choices": [], "answers": ["vous passez de"], "explanation": "The reflexive vous and de are both part of the construction."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "exam-result", "prompt": "Use réussir + direct object in the passé composé to state success: Elle ___ son examen.", "choices": [], "answers": ["a réussi"], "explanation": "This prompt requests the direct-object construction. Réussir à son examen would also express success in a different permitted construction."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "exam-result", "prompt": "Use avoir in the passé composé for result talk: Les résultats sont bons: nous ___ notre examen!", "choices": [], "answers": ["avons eu"], "explanation": "In this success context, avoir son examen means pass it."},
+    {"id": "item-10", "kind": "choice", "pool": "check", "section_id": "exam-result", "prompt": "Choose the meaning of J'ai un examen demain.", "choices": ["I have an exam tomorrow.", "I passed my exam tomorrow."], "answers": ["I have an exam tomorrow."], "explanation": "The future appointment context gives ordinary have, not a success result."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "auxiliaries", "prompt": "Supply se passer in the passé composé: Les réunions ___ sans problème.", "choices": [], "answers": ["se sont passées"], "explanation": "The event construction uses être with feminine plural agreement."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "exam-result", "prompt": "Supply the preposition required by échouer: Il a échoué ___ l'examen.", "choices": [], "answers": ["à"], "explanation": "Échouer in the exam-failure construction requires à. Réussir allows either a direct object or à."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "constructions", "prompt": "Choose par or chez for the route: Nous passons ___ le centre-ville.", "choices": [], "answers": ["par"], "explanation": "Of these two options, passer par gives the route through a place; chez does not fit le centre-ville."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "auxiliaries", "prompt": "Use se passer de in the passé composé: Elles ___ guide. Include de.", "choices": [], "answers": ["se sont passées de"], "explanation": "The pronominal expression takes être; passées agrees with elles."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "exam-result", "prompt": "Use passer in the passé composé without implying success: Vous ___ l'épreuve orale hier.", "choices": [], "answers": ["avez passé"], "explanation": "The exam is a direct object, so use avoir."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "exam-result", "prompt": "Supply the participle of avoir in result talk: Tu as ___ ton examen, bravo!", "choices": [], "answers": ["eu"], "explanation": "Avoir son examen can state success in this congratulatory context."},
+    {"id": "item-17", "kind": "choice", "pool": "practice", "section_id": "exam-result", "prompt": "Choose the accurate statement about succeeding in an exam.", "choices": ["Réussir un examen and réussir à un examen are both standard.", "Only réussir un examen is standard."], "answers": ["Réussir un examen and réussir à un examen are both standard."], "explanation": "Réussir permits both constructions; do not extend échouer's compulsory à rule to a ban on réussir à."}
+  ],
+  "production_task": {"prompt": "Tell a friend about exam day. Say where you stopped on the way, how long you spent revising, that you took the exam, how it went and whether you now know the result. Use constructions that keep taking and succeeding distinct.", "model_answer": "Je suis passée chez ma sœur avant l'épreuve. Nous avons passé une heure à réviser. J'ai passé l'examen à dix heures et tout s'est bien passé. Les résultats sont arrivés ce matin: j'ai réussi!", "translation": "I stopped by my sister's place before the test. We spent an hour revising. I took the exam at ten o'clock and everything went well. The results arrived this morning: I passed!", "rubric": ["Choose être for the stated movement and avoir for spending time.", "Use se passer for how the event unfolded.", "Do not use passer alone to claim exam success.", "Keep agreements consistent with the speaker you choose."]}
+}

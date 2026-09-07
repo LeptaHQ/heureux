@@ -1,6 +1,6 @@
 {
   "version": 1, "id": "b1-narrative-and-questions", "slug": "b1-narrative-and-questions", "cefr_level": "B1", "topic": "verbs-tenses-moods",
-  "title": "Controlling a past narrative and asking what happened",
+  "title": "Raconter au passé et interroger sur les événements",
   "summary": "Separate background from events, negate reflexive past forms and form careful inverted questions.",
   "order": 3, "duration_minutes": 15, "prerequisites": ["b1-past-families"],
   "objectives": ["Distinguish background, bounded events and an earlier past event.", "Place negation around a reflexive auxiliary.", "Invert compound-past questions with a noun or reflexive pronoun."],

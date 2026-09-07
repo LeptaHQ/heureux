@@ -1,6 +1,6 @@
 {
   "version": 1, "id": "b1-future-outcomes", "slug": "b1-future-outcomes", "cefr_level": "B1", "topic": "verbs-tenses-moods",
-  "title": "Future messages, perceptions and movement",
+  "title": "Voir, envoyer, recevoir et courir au futur",
   "summary": "Use voir, envoyer, recevoir and courir families with their distinct future stems.",
   "order": 8, "duration_minutes": 13, "prerequisites": ["b1-future-spelling", "b1-future-commitments"],
   "objectives": ["Use verr-, enverr-, recevr- and courr- across all persons.", "Avoid overextending irregular forms to prévoir and pourvoir."],
@@ -59,7 +59,10 @@
     {"id": "item-13", "kind": "text", "pool": "review", "section_id": "seeing-sending", "prompt": "Supply envoyer in the future: J'___ une copie à l'équipe.", "choices": [], "answers": ["enverrai"], "explanation": "Use enverr- plus -ai."},
     {"id": "item-14", "kind": "text", "pool": "review", "section_id": "receiving", "prompt": "Supply percevoir in the future: Les artistes ___ leurs droits en juin.", "choices": [], "answers": ["percevront"], "explanation": "Percevoir can mean receive money; the stem is percevr-."},
     {"id": "item-15", "kind": "text", "pool": "review", "section_id": "running", "prompt": "Supply recourir in the future: Vous ___ à un spécialiste.", "choices": [], "answers": ["recourrez"], "explanation": "Recourir keeps à and takes recourr-."},
-    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "receiving", "prompt": "Supply recevoir in the future: Les candidates ___ un courriel.", "choices": [], "answers": ["recevront"], "explanation": "The plural subject takes -ont."}
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "receiving", "prompt": "Supply recevoir in the future: Les candidates ___ un courriel.", "choices": [], "answers": ["recevront"], "explanation": "The plural subject takes -ont."},
+    {"id": "item-17", "kind": "text", "pool": "check", "section_id": "seeing-sending", "prompt": "Supply pourvoir in the future: Le service ___ les postes vacants.", "choices": [], "answers": ["pourvoira"], "explanation": "Pourvoir retains pourvoir-, unlike voir's verr-."},
+    {"id": "item-18", "kind": "text", "pool": "practice", "section_id": "running", "prompt": "Supply accourir in the future: Nous ___ dès votre appel.", "choices": [], "answers": ["accourrons"], "explanation": "Accourir keeps ac- before courir's courr- stem."},
+    {"id": "item-19", "kind": "text", "pool": "review", "section_id": "running", "prompt": "Supply secourir in the future: Vous ___ les personnes en difficulté.", "choices": [], "answers": ["secourrez"], "explanation": "Secourir uses secourr- with the future ending -ez."}
   ],
   "production_task": {"prompt": "Write an itinerary update for a walking group. Include a message you will send, information they will receive, something they will see and the route they will cover.", "model_answer": "Je vous enverrai le plan ce soir. Vous recevrez aussi les consignes de sécurité. Depuis la colline, nous verrons le fleuve. Nous parcourrons ensuite le quartier du port.", "translation": "I will send you the map this evening. You will also receive the safety instructions. From the hill, we will see the river. We will then walk through the port neighbourhood.", "rubric": ["Keep the distinct stems for sending, receiving, seeing and covering a route.", "Use courr-, not courir-, in the derivative.", "Make the update a usable sequence of information."]}
 }

@@ -1,0 +1,65 @@
+{
+  "version": 1, "id": "b1-y-en-neuter-le", "slug": "b1-y-en-neuter-le", "cefr_level": "B1", "topic": "pronouns-questions-negation",
+  "title": "Reprendre un lieu, un complément ou une idée",
+  "summary": "Choose y, en or neutral le by the construction being replaced, not by an English word.",
+  "order": 15, "duration_minutes": 14, "prerequisites": ["b1-commands-and-pronouns"],
+  "objectives": ["Replace suitable à and de phrases with y and en.", "Use neutral le for an idea or an adjective without agreement.", "Place the pronoun with the verb it belongs to."],
+  "keywords": ["y", "en", "neuter le", "adverbial pronouns", "à", "de"],
+  "sources": [{"label": "University of Texas: pronoun order and negation", "url": "https://www.laits.utexas.edu/tex/gr/pro9.html"}, {"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],
+  "related_legacy_ids": ["pronouns-y-en", "pronouns-direct-indirect"],
+  "sections": [
+    {
+      "id": "y", "title": "Y replaces a location or a suitable à + thing phrase",
+      "paragraphs": ["Y can replace a place introduced by à, dans, chez and other location expressions when the meaning is there: Je travaille dans ce bâtiment becomes J'y travaille. It also replaces à + a thing or idea after verbs that take that construction: penser à ce problème becomes y penser.", "Do not replace every à phrase with y. For people, parler à Léa becomes lui parler, while penser à Léa normally becomes penser à elle. The verb's construction determines the pronoun. Y is not the standard replacement for a named person in the contrasts taught here."],
+      "points": ["Vocabulary: une proposition (feminine), a proposal; un bâtiment (masculine), a building.", "A destination need not be physically close for y to be possible."],
+      "examples": [
+        {"french": "Je travaille dans ce bâtiment. J'**y** travaille depuis juin.", "english": "I work in this building. I have been working there since June.", "note": "Y replaces a location introduced by dans."},
+        {"french": "Tu penses à cette proposition? Tu **y** penses vraiment?", "english": "Are you thinking about this proposal? Are you really thinking about it?", "note": "Y replaces an à + idea complement."},
+        {"french": "Je pense à Nora. Je pense **à elle**.", "english": "I am thinking about Nora. I am thinking about her.", "note": "Use a stressed person pronoun with penser à."}
+      ],
+      "mistakes": [{"avoid": "Je pense ce projet. J'y pense.", "prefer": "Je pense à ce projet. J'y pense.", "why": "Y preserves an underlying à construction; it does not make penser into a direct-object verb."}]
+    },
+    {
+      "id": "en", "title": "En replaces a de phrase or a quantity noun",
+      "paragraphs": ["En replaces de + a thing or idea after a verb or adjective: parler de ce projet becomes en parler; être fier de son travail becomes en être fier. It can also replace an origin: revenir de Lyon becomes en revenir. A quantity word or number stays outside en: J'ai trois billets becomes J'en ai trois.", "For people, de lui/d'elle/d'eux/d'elles is often clearer and is the form practiced when emphasizing the person. En can refer to people in some constructions and registers, so it is not universally forbidden. Compare quantity J'ai deux sœurs, j'en ai deux, which is normal."],
+      "points": ["With a negative quantity, use Je n'en ai pas; do not keep un just because English says one unless the exact count is being contrasted.", "A de phrase that belongs to a noun or is part of a fixed expression needs its own construction analysis; do not delete every occurrence of de automatically."],
+      "examples": [
+        {"french": "Nous parlons du budget. Nous **en** parlons demain.", "english": "We are talking about the budget. We will talk about it tomorrow.", "note": "Du is de + le, and en replaces the complete phrase."},
+        {"french": "Elle est fière de son travail. Elle **en** est fière.", "english": "She is proud of her work. She is proud of it.", "note": "En can replace the complement of an adjective."},
+        {"french": "Vous avez trois billets? Oui, nous **en** avons trois.", "english": "Do you have three tickets? Yes, we have three.", "note": "Keep the number after the verb."}
+      ],
+      "mistakes": [{"avoid": "J'ai deux billets. J'en ai.", "prefer": "J'ai deux billets. J'en ai deux.", "why": "To preserve the exact stated quantity, keep deux. J'en ai alone only says I have some."}]
+    },
+    {
+      "id": "neutral", "title": "Le can stand for a whole idea or a description",
+      "paragraphs": ["Neutral le refers to a statement or idea, not a masculine noun: Il est parti, je le sais means I know that he has left. It becomes l' before a vowel. Unlike an ordinary direct-object pronoun replacing a noun, this neutral le does not change to la or les.", "After verbs such as être, le can replace a previously mentioned adjective or description: Elle est prête, je le suis aussi. Le remains neutral even if the speaker is a woman or several people are described. A following avoir participle is likewise not made feminine or plural merely because the idea concerns women."],
+      "points": ["Compare Les clés? Je les ai (a plural noun) with Elles sont parties? Je le sais (a whole statement).", "Place pronouns before the finite verb or compound auxiliary: je l'ai compris. With an infinitive, place the pronoun before the infinitive it belongs to: je vais y réfléchir; je veux en parler."],
+      "examples": [
+        {"french": "La réunion est annulée. Je **le** sais.", "english": "The meeting is cancelled. I know that.", "note": "Le replaces the whole fact, not the feminine noun réunion."},
+        {"french": "Tu savais qu'elle viendrait? Oui, je **l'**avais compris.", "english": "Did you know she would come? Yes, I had understood that.", "note": "Neutral le elides before avais."},
+        {"french": "Elles sont prêtes, et nous **le** sommes aussi.", "english": "They are ready, and so are we.", "note": "Le replaces the description prêtes without becoming les."},
+        {"french": "Cette question est importante; je vais **y** réfléchir.", "english": "This question is important; I am going to think about it.", "note": "Y belongs to réfléchir à, so it sits before réfléchir."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "text", "pool": "practice", "section_id": "y", "prompt": "Replace à cette question with y: Nous réfléchissons à cette question.", "choices": [], "answers": ["Nous y réfléchissons."], "explanation": "Réfléchir à a thing allows y."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "en", "prompt": "Replace de ce problème with en: Elle parle de ce problème.", "choices": [], "answers": ["Elle en parle."], "explanation": "En replaces the de complement."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "neutral", "prompt": "Supply le, la or les for the fact: La porte est fermée; je ___ sais.", "choices": [], "answers": ["le"], "explanation": "The pronoun replaces the statement, not porte."},
+    {"id": "item-04", "kind": "text", "pool": "practice", "section_id": "neutral", "prompt": "Supply the neutral pronoun: Elles sont patientes; vous ___ êtes aussi.", "choices": [], "answers": ["l'"], "explanation": "Neutral le replaces the adjective and elides before êtes."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "y", "prompt": "Replace dans cette salle with y: Les stagiaires travaillent dans cette salle.", "choices": [], "answers": ["Les stagiaires y travaillent."], "explanation": "Y replaces a location introduced by dans."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "en", "prompt": "Replace du résultat with en: Nous sommes satisfaits du résultat.", "choices": [], "answers": ["Nous en sommes satisfaits."], "explanation": "En replaces the adjective's de complement."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "en", "prompt": "Replace the noun billets with en while preserving the exact quantity: J'ai quatre billets.", "choices": [], "answers": ["J'en ai quatre."], "explanation": "Keep quatre after the verb."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "neutral", "prompt": "Supply le, la or les for the whole fact: Elles ont gagné; nous ___ savons.", "choices": [], "answers": ["le"], "explanation": "A whole fact takes neutral le."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "neutral", "prompt": "Supply le, la or les: Ma sœur est prête; je ___ suis aussi. The speaker is a woman.", "choices": [], "answers": ["le"], "explanation": "Neutral le does not agree with the female speaker or adjective."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "neutral", "prompt": "Replace à ce projet with y: Je vais réfléchir à ce projet.", "choices": [], "answers": ["Je vais y réfléchir."], "explanation": "Y belongs before the infinitive réfléchir."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "en", "prompt": "Replace de cette difficulté with en: Nous voulons parler de cette difficulté.", "choices": [], "answers": ["Nous voulons en parler."], "explanation": "En belongs to parler, not vouloir."},
+    {"id": "item-12", "kind": "choice", "pool": "check", "section_id": "y", "prompt": "Choose the standard replacement emphasizing the person in Je pense à Sami.", "choices": ["Je pense à lui.", "J'y pense."], "answers": ["Je pense à lui."], "explanation": "Use a stressed person pronoun with penser à in this contrast."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "en", "prompt": "Replace de Bordeaux with en: Elle revient de Bordeaux.", "choices": [], "answers": ["Elle en revient."], "explanation": "En can replace an origin introduced by de."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "y", "prompt": "Replace au rendez-vous with y: Je ne suis pas allé au rendez-vous.", "choices": [], "answers": ["Je n'y suis pas allé."], "explanation": "Y precedes the auxiliary inside the negative group."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "neutral", "prompt": "Supply the neutral pronoun before ai: C'était une erreur; je ___ ai compris trop tard.", "choices": [], "answers": ["l'"], "explanation": "Neutral le elides before ai and replaces the fact."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "neutral", "prompt": "Supply the neutral pronoun: Ils sont disponibles; nous ___ serons demain.", "choices": [], "answers": ["le"], "explanation": "Le replaces the adjective regardless of plural subjects."}
+  ],
+  "production_task": {"prompt": "Write a short exchange about a proposed workshop. Mention the location and return to it with y; mention a topic with de and return to it with en; confirm a whole fact with le; use neutral le for an adjective.", "model_answer": "L'atelier aura lieu à la mairie. Nous y irons samedi. Nous devons parler du budget; nous en parlerons après la visite. La salle est petite, je le sais. Les bénévoles sont motivés, et je le suis aussi.", "translation": "The workshop will take place at the town hall. We will go there on Saturday. We need to talk about the budget; we will discuss it after the visit. The room is small, I know that. The volunteers are motivated, and so am I.", "rubric": ["Make each pronoun's reference recoverable.", "Distinguish a de complement, a location and a whole fact.", "Do not make neutral le agree with an adjective or subject.", "Place the pronoun with the appropriate verb."]}
+}

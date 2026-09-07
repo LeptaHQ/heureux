@@ -1,0 +1,67 @@
+{
+  "version": 1, "id": "b1-adjective-position", "slug": "b1-adjective-position", "cefr_level": "B1", "topic": "grammar-foundations",
+  "title": "Changer la place pour préciser le sens",
+  "summary": "Choose adjective position for former versus old, own versus clean and other common meaning contrasts.",
+  "order": 17, "duration_minutes": 14, "prerequisites": [],
+  "objectives": ["Use six frequent adjective-position contrasts in clear contexts.", "Avoid treating figurative-before/literal-after as a universal rule."],
+  "keywords": ["ancien", "certain", "propre", "cher", "dernier", "vrai", "adjective position"],
+  "sources": [{"label": "University of Texas: adjective placement and meaning", "url": "https://www.laits.utexas.edu/tex/gr/adj5.html"}, {"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],
+  "related_legacy_ids": ["grammar-adjective-position-nuance"],
+  "sections": [
+    {
+      "id": "status-ownership", "title": "Former or old; own or clean",
+      "paragraphs": ["Ancien before a role or relationship commonly means former: une ancienne collègue is someone who used to be a colleague, not necessarily an elderly person. After an object noun, ancien often means old or antique. Context and fixed combinations still matter; position is a useful contrast, not a machine that assigns one meaning to every noun.", "Propre before a noun, usually after a possessive, emphasizes ownership: sa propre voiture, her own car. After a noun or after être, propre commonly means clean. It can also occur in other constructions such as propre à, suitable for or characteristic of, which are not the own/clean contrast."],
+      "points": ["Vocabulary: un collègue / une collègue (masculine/feminine), a colleague; une armoire (feminine), a wardrobe; un outil (masculine), a tool.", "Agreement still applies: ancien/ancienne/anciens/anciennes; propre/propre/propres/propres."],
+      "examples": [
+        {"french": "Mon **ancienne** responsable dirige maintenant une école.", "english": "My former manager now runs a school.", "note": "She no longer holds the earlier role."},
+        {"french": "Nous restaurons une armoire **ancienne**.", "english": "We are restoring an antique wardrobe.", "note": "The object's age is relevant."},
+        {"french": "Elle apporte ses **propres** outils.", "english": "She brings her own tools.", "note": "The tools belong to her."},
+        {"french": "Il nous faut des outils **propres**.", "english": "We need clean tools.", "note": "This describes their condition, not ownership."}
+      ],
+      "mistakes": [{"avoid": "Mon collègue ancien a changé d'entreprise.", "prefer": "Mon ancien collègue a changé d'entreprise.", "why": "To say former colleague, put ancien before the role noun; the original is not the ordinary way to express that meaning."}]
+    },
+    {
+      "id": "certainty-affection", "title": "A particular one or a sure one; dear or expensive",
+      "paragraphs": ["Before a noun, certain can mean a particular but not fully identified person or thing: une certaine adresse. In the plural, certains/certaines before a noun means some. After a noun or after être, certain means definite or sure: un résultat certain; elle est certaine. It does not mean a specific selected result simply because English uses certain in that way.", "Cher before a personal noun can express affection: ma chère voisine. After a thing noun it commonly means expensive: un appareil cher. The construction cher à quelqu'un means dear to someone and is not a price statement. Cher becomes chère in the feminine and chers/chères in the plural."],
+      "points": ["Vocabulary: un résultat (masculine), a result; une voisine (feminine), a female neighbour.", "A particular reading before a noun is not the same as certainty about a proposition."],
+      "examples": [
+        {"french": "Je cherche une **certaine** adresse près du canal.", "english": "I am looking for a particular address near the canal.", "note": "The speaker has one in mind but has not specified it."},
+        {"french": "Une amélioration **certaine** est déjà visible.", "english": "A definite improvement is already visible.", "note": "The improvement is not in doubt."},
+        {"french": "Ma **chère** voisine m'a prêté son vélo.", "english": "My dear neighbour lent me her bicycle.", "note": "Cher expresses affection before the personal noun."},
+        {"french": "Cette réparation est trop **chère** pour moi.", "english": "This repair is too expensive for me.", "note": "A price judgment after être."}
+      ],
+      "mistakes": [{"avoid": "Cette réparation est trop cher.", "prefer": "Cette réparation est trop chère.", "why": "Cher still agrees with the feminine noun réparation."}]
+    },
+    {
+      "id": "last-real", "title": "Last in a series; real or true",
+      "paragraphs": ["With time units, dernier after the noun commonly identifies the preceding calendar period: la semaine dernière, last week. Before the noun it often marks the final member of a defined sequence: la dernière semaine du stage, the final week of the course. This is not a universal rule that every post-noun dernier means previous; learn the time expression and the intended sequence together.", "Vrai before a noun often emphasizes genuine status or intensity: un vrai problème, a real problem. After a noun it commonly means factually true: une histoire vraie, a true story. Other combinations allow stylistic variation, and a vraie histoire can have more than one interpretation. Use clear contexts rather than claiming that position always creates a rigid opposite."],
+      "points": ["Vocabulary: une semaine (feminine), a week; une histoire (feminine), a story; un problème (masculine), a problem.", "Dernier has dernière, derniers, dernières; vrai has vraie, vrais, vraies."],
+      "examples": [
+        {"french": "Nous avons envoyé le dossier la semaine **dernière**.", "english": "We sent the file last week.", "note": "The week immediately before this one."},
+        {"french": "La **dernière** semaine du stage sera consacrée au projet.", "english": "The final week of the course will be devoted to the project.", "note": "The final week within a specified course."},
+        {"french": "L'absence de transport est un **vrai** problème.", "english": "The lack of transport is a real problem.", "note": "The speaker emphasizes its genuine importance."},
+        {"french": "Le film raconte une histoire **vraie**.", "english": "The film tells a true story.", "note": "The events are presented as factually true."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "text", "pool": "practice", "section_id": "status-ownership", "prompt": "Using ancien, form the noun phrase my former employer. Use mon and employeur.", "choices": [], "answers": ["mon ancien employeur"], "explanation": "Former status is normally expressed before the role noun."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "status-ownership", "prompt": "Using propre, form her own room with sa and chambre.", "choices": [], "answers": ["sa propre chambre"], "explanation": "Propre before the noun emphasizes ownership."},
+    {"id": "item-03", "kind": "choice", "pool": "practice", "section_id": "certainty-affection", "prompt": "Which phrase means a definite result, not a particular unspecified result?", "choices": ["un certain résultat", "un résultat certain"], "answers": ["un résultat certain"], "explanation": "Post-noun certain expresses certainty."},
+    {"id": "item-04", "kind": "text", "pool": "practice", "section_id": "last-real", "prompt": "Give last year using l'année and dernier for the preceding calendar year.", "choices": [], "answers": ["l'année dernière"], "explanation": "Dernière follows the time unit for the preceding year."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "status-ownership", "prompt": "Form an antique wardrobe using une, armoire and ancien in the ordinary object-age position.", "choices": [], "answers": ["une armoire ancienne"], "explanation": "Ancienne after the object describes its age."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "status-ownership", "prompt": "Form clean shoes using des, chaussures and propre.", "choices": [], "answers": ["des chaussures propres"], "explanation": "After the noun, propres describes cleanliness."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "certainty-affection", "prompt": "Form a particular address using une, certain and adresse.", "choices": [], "answers": ["une certaine adresse"], "explanation": "Certain before the noun identifies an unspecified particular address."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "certainty-affection", "prompt": "Form my dear friend for a woman using ma, cher and amie.", "choices": [], "answers": ["ma chère amie"], "explanation": "The adjective separates ma from amie; chère expresses affection and agrees."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "certainty-affection", "prompt": "Supply cher in the correct form: Ces machines sont trop ___.", "choices": [], "answers": ["chères"], "explanation": "Feminine plural machines requires chères."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "last-real", "prompt": "Form the final day of the course using le, dernier, jour and du stage.", "choices": [], "answers": ["le dernier jour du stage"], "explanation": "Dernier precedes the noun for the final member of the sequence."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "last-real", "prompt": "Form a factually true story using une, histoire and vrai in the taught factual position.", "choices": [], "answers": ["une histoire vraie"], "explanation": "Vraie follows histoire in this factual contrast."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "last-real", "prompt": "Emphasize a genuine problem: use un, vrai and problème in the taught emphatic position.", "choices": [], "answers": ["un vrai problème"], "explanation": "Vrai before the noun emphasizes that it is a real problem."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "status-ownership", "prompt": "Form our former neighbours using nos, ancien and voisins.", "choices": [], "answers": ["nos anciens voisins"], "explanation": "Anciens is before the role noun and masculine plural."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "last-real", "prompt": "Form last month for the preceding month using le, mois and dernier.", "choices": [], "answers": ["le mois dernier"], "explanation": "The ordinary preceding-calendar-period expression puts dernier after mois."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "status-ownership", "prompt": "Form their own ideas using leurs, propre and idées.", "choices": [], "answers": ["leurs propres idées"], "explanation": "Propres before idées emphasizes ownership."},
+    {"id": "item-16", "kind": "choice", "pool": "review", "section_id": "certainty-affection", "prompt": "Choose the meaning of Ces souvenirs me sont chers.", "choices": ["These memories are dear to me.", "These memories cost me a lot of money."], "answers": ["These memories are dear to me."], "explanation": "Cher à someone expresses emotional value, not necessarily price."}
+  ],
+  "production_task": {"prompt": "Describe a visit to a former workplace last week. Include ancien for a former role, dernier for the preceding week, propre for ownership, and either cher or vrai with a clear intended meaning.", "model_answer": "La semaine dernière, j'ai rendu visite à mon ancienne équipe. Mon ancienne responsable a maintenant son propre bureau. Elle m'a montré une armoire ancienne qu'elle a restaurée. Ces retrouvailles ont été un vrai plaisir.", "translation": "Last week, I visited my former team. My former manager now has her own office. She showed me an antique wardrobe that she restored. This reunion was a real pleasure.", "rubric": ["Make former status distinct from the age of an object.", "Use the correct time-unit placement for last week.", "Distinguish ownership from cleanliness.", "Keep adjective agreement as well as intended meaning."]}
+}

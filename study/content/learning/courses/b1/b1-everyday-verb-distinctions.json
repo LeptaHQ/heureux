@@ -1,0 +1,74 @@
+{
+  "version": 1, "id": "b1-everyday-verb-distinctions", "slug": "b1-everyday-verb-distinctions", "cefr_level": "B1", "topic": "word-meanings-expressions",
+  "title": "Partir, laisser, peiner et rappeler",
+  "summary": "Choose the right construction for leaving, having trouble, almost doing something and reminding someone.",
+  "order": 24, "duration_minutes": 15, "prerequisites": ["b1-passer-and-exams", "b1-future-spelling"],
+  "objectives": ["Distinguish partir, quitter, laisser and sortir by their complements.", "Use avoir du mal à/avec and faillir + infinitive.", "Build a reminder with rappeler something to someone or rappeler à someone de do something."],
+  "keywords": ["partir", "quitter", "laisser", "sortir", "avoir du mal", "faillir", "rappeler"],
+  "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],
+  "related_legacy_ids": ["verbs-lexical-distinctions", "expressions-avoir-faire-il-faut"],
+  "sections": [
+    {
+      "id": "leave", "title": "Leaving a place, leaving an object and going out",
+      "paragraphs": ["Partir means depart: partir de Lyon, partir pour Lille. It does not normally take the place left as a direct object. Quitter takes a direct object and means leave a place, a job or a person: quitter le bureau. Laisser takes what or whom you leave behind or in a state: laisser les clés ici. Sortir means go out of a place, sortir du bâtiment; with a direct object it can mean take something out, sortir les chaises.", "Present paradigms: partir gives je pars, tu pars, il/elle/on part, nous partons, vous partez, ils/elles partent; sortir gives je sors, tu sors, il/elle/on sort, nous sortons, vous sortez, ils/elles sortent. Quitter gives je quitte, tu quittes, il/elle/on quitte, nous quittons, vous quittez, ils/elles quittent. Laisser gives je laisse, tu laisses, il/elle/on laisse, nous laissons, vous laissez, ils/elles laissent.", "In the passé composé, partir uses être + parti with subject agreement; quitter and laisser use avoir + quitté/laissé. Sortir uses être for going out, but avoir when taking a direct object out: elle est sortie; elle a sorti la poubelle. Vocabulary: une clé (feminine), a key; une poubelle (feminine), a bin."],
+      "points": ["Partir does not always mean leave permanently; quitter can also describe leaving a room briefly.", "The choice is guided by construction and meaning, not just by the English verb leave."],
+      "examples": [
+        {"french": "Nous **partons de** Tours demain matin.", "english": "We are leaving Tours tomorrow morning.", "note": "Partir uses de for the departure point."},
+        {"french": "Elle **quitte** le bureau à dix-huit heures.", "english": "She leaves the office at six p.m.", "note": "Quitter takes le bureau directly."},
+        {"french": "Je **laisse** les clés chez le voisin.", "english": "I am leaving the keys at the neighbour's.", "note": "Laisser identifies what is left behind."},
+        {"french": "Il **est sorti** du local après avoir **sorti** les cartons.", "english": "He left the premises after taking the boxes out.", "note": "Going out uses être; taking something out uses avoir."}
+      ],
+      "mistakes": [{"avoid": "Je pars le bureau à midi.", "prefer": "Je quitte le bureau à midi.", "why": "Partir does not take this place as a direct object; alternatively say je pars du bureau."}]
+    },
+    {
+      "id": "difficulty", "title": "A difficulty with an action or a thing",
+      "paragraphs": ["Avoir du mal à + infinitive means have trouble doing something. Avoir du mal avec + noun means struggle with something or someone. Conjugate avoir for the person and time: j'ai, tu as, il/elle/on a, nous avons, vous avez, ils/elles ont du mal. Du mal remains the same phrase.", "This expression describes difficulty, not physical pain. J'ai mal au dos means my back hurts; j'ai du mal à me lever means I have difficulty getting up. Do not remove du or substitute the pain construction when you mean struggle."],
+      "points": ["Vocabulary: un logiciel (masculine), a software program; une prononciation (feminine), a pronunciation."],
+      "examples": [
+        {"french": "J'**ai du mal à** comprendre cette annonce.", "english": "I have trouble understanding this announcement.", "note": "À links the expression to an infinitive."},
+        {"french": "Vous **avez du mal avec** ce logiciel?", "english": "Are you struggling with this software?", "note": "Avec introduces a noun phrase."}
+      ],
+      "mistakes": [{"avoid": "J'ai du mal de comprendre.", "prefer": "J'ai du mal à comprendre.", "why": "The action construction requires à plus an infinitive."}]
+    },
+    {
+      "id": "almost", "title": "Faillir + infinitive: an event nearly happened",
+      "paragraphs": ["Faillir + infinitive is especially common in the passé composé to say almost did something: j'ai failli oublier, I almost forgot. The second verb remains an infinitive and takes no linking à or de. In the ordinary reading, the near event did not actually happen.", "Use j'ai failli, tu as failli, il/elle/on a failli, nous avons failli, vous avez failli, ils/elles ont failli. Other uses of faillir can mean fail in a duty, but that is a different construction. This lesson trains the common near-event use, not rare present paradigms."],
+      "points": ["Presque can express other kinds of almost, including states and amounts; faillir is not a replacement for every presque."],
+      "examples": [
+        {"french": "Nous **avons failli manquer** notre arrêt.", "english": "We almost missed our stop.", "note": "The stop was not missed in the intended reading."},
+        {"french": "Elle **a failli envoyer** le mauvais document.", "english": "She almost sent the wrong document.", "note": "Envoyer stays in the infinitive."}
+      ],
+      "mistakes": []
+    },
+    {
+      "id": "reminders", "title": "Remind someone: the person is introduced by à",
+      "paragraphs": ["Rappeler quelque chose à quelqu'un means remind someone of something: rappeler la date à Léa. Replace the recipient with lui/leur: je lui rappelle la date. Rappeler à quelqu'un de + infinitive means remind someone to do something: rappelle-moi de réserver.", "Rappeler also means call back: je te rappelle demain. Se rappeler means remember, usually with a direct object: je me rappelle cette visite. These meanings are distinguished by their construction and context, not the spelling of the verb alone.", "Present forms are je rappelle, tu rappelles, il/elle/on rappelle, nous rappelons, vous rappelez, ils/elles rappellent. The future is rappeller- plus all six endings, as taught earlier; the past participle is rappelé. Vocabulary: une date (feminine), a date; un rendez-vous (masculine), an appointment."],
+      "points": ["For an idea that reminds you of something, use rappeler with a recipient too: Cette odeur me rappelle la mer."],
+      "examples": [
+        {"french": "Je **rappelle la date à** nos partenaires.", "english": "I remind our partners of the date.", "note": "The date is the direct object; partners are introduced by à."},
+        {"french": "**Rappelle-lui de** prendre son badge.", "english": "Remind him or her to take their badge.", "note": "Lui is the recipient and de introduces the action."},
+        {"french": "Cette chanson **me rappelle** mon premier voyage.", "english": "This song reminds me of my first journey.", "note": "The remembered event is a direct object in French."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "choice", "pool": "practice", "section_id": "leave", "prompt": "Choose the verb that can directly take le bâtiment to mean leave it.", "choices": ["quitter", "partir"], "answers": ["quitter"], "explanation": "Quitter takes the place as a direct object; partir would require de."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "difficulty", "prompt": "Supply the preposition: Elle a du mal ___ entendre.", "choices": [], "answers": ["à"], "explanation": "Use à before the infinitive."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "almost", "prompt": "Supply faillir in the passé composé: Nous ___ oublier les billets.", "choices": [], "answers": ["avons failli"], "explanation": "Avoir plus failli precedes the infinitive."},
+    {"id": "item-04", "kind": "text", "pool": "practice", "section_id": "reminders", "prompt": "Supply the preposition for the person: Je rappelle l'heure ___ Nora.", "choices": [], "answers": ["à"], "explanation": "Rappeler something à someone."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "leave", "prompt": "Supply partir in the present: Nous ___ pour Brest.", "choices": [], "answers": ["partons"], "explanation": "Nous partons; pour introduces the destination."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "leave", "prompt": "Supply laisser in the present: Je ___ mon sac ici pendant la visite.", "choices": [], "answers": ["laisse"], "explanation": "Laisser identifies the object left behind."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "leave", "prompt": "Supply sortir in the passé composé: Elle ___ les chaises sur la terrasse.", "choices": [], "answers": ["a sorti"], "explanation": "Taking a direct object out requires avoir."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "leave", "prompt": "Supply sortir in the passé composé for going out: Les visiteuses ___ par cette porte.", "choices": [], "answers": ["sont sorties"], "explanation": "Going out takes être and feminine plural agreement."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "difficulty", "prompt": "Supply the complete phrase meaning have trouble, using avoir in the present: Nous ___ avec cette imprimante.", "choices": [], "answers": ["avons du mal"], "explanation": "Avoir du mal avec introduces the problem noun."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "almost", "prompt": "Complete with the appropriate form of tomber: Elle a failli ___ dans l'escalier.", "choices": [], "answers": ["tomber"], "explanation": "Faillir is followed directly by an infinitive."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "reminders", "prompt": "Replace à Paul with the recipient pronoun: Je ___ rappelle la réunion.", "choices": [], "answers": ["lui"], "explanation": "The reminder's recipient is indirect, so use lui."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "reminders", "prompt": "Supply the preposition: Rappelle-moi ___ fermer la fenêtre.", "choices": [], "answers": ["de"], "explanation": "A reminder to do something uses de + infinitive."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "leave", "prompt": "Supply the preposition after partir: Je pars ___ bureau à dix-huit heures. Use de + le.", "choices": [], "answers": ["du"], "explanation": "Partir uses de for the point of departure."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "difficulty", "prompt": "Supply à or avec: Tu as du mal ___ ce nouveau clavier.", "choices": [], "answers": ["avec"], "explanation": "Avec introduces the object causing difficulty."},
+    {"id": "item-15", "kind": "choice", "pool": "review", "section_id": "almost", "prompt": "Choose the ordinary implication of J'ai failli rater le train.", "choices": ["I narrowly avoided missing it.", "I definitely missed it."], "answers": ["I narrowly avoided missing it."], "explanation": "Faillir + infinitive presents a near event that did not happen."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "reminders", "prompt": "Supply rappeler in the present: Vous ___ la date aux participants.", "choices": [], "answers": ["rappelez"], "explanation": "Present vous uses one l in rappelez, unlike future rappellerez."}
+  ],
+  "production_task": {"prompt": "Write a message before leaving work. Say when you are leaving, what you are leaving behind, something you nearly forgot, a task you struggle with and a reminder for a colleague.", "model_answer": "Je quitte le bureau à dix-sept heures. Je laisse les clés à l'accueil. J'ai failli oublier le dossier, mais il est maintenant dans mon sac. J'ai du mal à utiliser la nouvelle imprimante. Rappelle-moi de demander une démonstration demain.", "translation": "I am leaving the office at five p.m. I am leaving the keys at reception. I almost forgot the file, but it is now in my bag. I have trouble using the new printer. Remind me to ask for a demonstration tomorrow.", "rubric": ["Choose the leaving verb according to its object.", "Keep an infinitive directly after faillir.", "Use à for the difficult action and de for the reminded action.", "Make the reminder's recipient clear."]}
+}

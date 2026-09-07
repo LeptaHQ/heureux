@@ -1,0 +1,70 @@
+{
+  "version": 1, "id": "b1-comparison-and-change", "slug": "b1-comparison-and-change", "cefr_level": "B1", "topic": "grammar-foundations",
+  "title": "Comparer, classer et décrire une évolution",
+  "summary": "Choose adjective or adverb comparisons, build superlatives and describe linked or gradual changes.",
+  "order": 19, "duration_minutes": 15, "prerequisites": ["b1-adjective-forms"],
+  "objectives": ["Choose meilleur/mieux and appropriate worse forms.", "Agree adjectival superlatives and use supérieur/inférieur à.", "Express gradual and correlated change."],
+  "keywords": ["meilleur", "mieux", "pire", "plus mauvais", "plus mal", "superlative", "supérieur", "de plus en plus", "plus plus"],
+  "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],
+  "related_legacy_ids": ["grammar-comparisons"],
+  "sections": [
+    {
+      "id": "irregular", "title": "What is better: a thing or a performance?",
+      "paragraphs": ["Bon is an adjective describing a noun; its comparative is meilleur, meilleure, meilleurs, meilleures. Bien is an adverb describing how something is done; its comparative mieux is invariable. Le meilleur gâteau is the best cake; elle cuisine le mieux means she cooks best. The adjective meilleur already contains the comparison: do not add plus.", "Mauvais can become plus mauvais or pire. Plus mauvais is a straightforward degree comparison; pire often highlights deterioration or an undesirable situation. Both can be valid, especially in negative evaluations. Mal becomes plus mal for a worse performance or condition; de pire en pire is also a fixed expression of deterioration. Do not use mieux to agree with a feminine noun or use meilleur as an adverb describing parler."],
+      "points": ["Vocabulary: un trajet (masculine), a journey; une connexion (feminine), a connection; un résultat (masculine), a result.", "Pire is not the comparative of mal in every possible context: il conduit plus mal is the ordinary action comparison."],
+      "examples": [
+        {"french": "Cette connexion est **meilleure** que l'ancienne.", "english": "This connection is better than the old one.", "note": "An adjective agrees with feminine connexion."},
+        {"french": "Avec ce micro, on vous entend **mieux**.", "english": "With this microphone, we can hear you better.", "note": "The adverb describes hearing and stays invariable."},
+        {"french": "La situation est **pire** qu'hier.", "english": "The situation is worse than yesterday.", "note": "A worsening situation naturally takes pire."},
+        {"french": "Sans ses lunettes, il lit **plus mal**.", "english": "Without his glasses, he reads less well.", "note": "The comparison concerns how he reads."}
+      ],
+      "mistakes": [{"avoid": "Elle explique meilleur maintenant.", "prefer": "Elle explique mieux maintenant.", "why": "Explique needs an adverb describing the action: mieux."}]
+    },
+    {
+      "id": "ranking", "title": "Superlatives and comparisons with à",
+      "paragraphs": ["For adjective ranking within a group, use le/la/les plus or le/la/les moins, with the adjective agreeing normally: la solution la plus simple, les trajets les moins longs. When the adjective normally precedes the noun, the superlative can precede it too: le plus beau jardin. With a possessive, use mon meilleur souvenir, not mon le meilleur souvenir.", "Bon's adjectival superlative is le meilleur/la meilleure/les meilleurs/les meilleures. Bien's adverbial superlative is le mieux and stays fixed: elles travaillent le mieux. Pire or plus mauvais can form adjectival worst: la pire solution/la plus mauvaise solution. Plus mal gives le plus mal for an action.", "Supérieur and inférieur already express higher/better and lower/lesser relative position. Use à, not que, and do not add plus in the ordinary direct comparison: supérieur à, inférieur à. They still agree: une valeur supérieure, des prix inférieurs. The comparison may concern an amount, ranking or quality; it is not always a judgment of human worth."],
+      "points": ["For a comparison of one thing with itself at different times, the article can behave differently: c'est le matin qu'elle est le plus attentive. The exercises here rank distinct things or people.", "De can introduce the comparison group: le plus calme du quartier."],
+      "examples": [
+        {"french": "C'est la salle **la moins bruyante** du bâtiment.", "english": "It is the least noisy room in the building.", "note": "La and bruyante agree with salle."},
+        {"french": "Ce sont nos **meilleurs** résultats.", "english": "These are our best results.", "note": "A possessive takes the place of the definite article."},
+        {"french": "Les frais sont **inférieurs au** budget prévu.", "english": "The costs are lower than the planned budget.", "note": "À + le contracts to au."},
+        {"french": "Cette capacité est **supérieure à** celle du modèle précédent.", "english": "This capacity is higher than that of the previous model.", "note": "No plus, and the comparison uses à."}
+      ],
+      "mistakes": [{"avoid": "Ce prix est plus inférieur que l'autre.", "prefer": "Ce prix est inférieur à l'autre.", "why": "Inférieur already expresses comparison and takes à."}]
+    },
+    {
+      "id": "change", "title": "Gradual change and linked change",
+      "paragraphs": ["De plus en plus and de moins en moins express gradual increase or decrease: de plus en plus rapide, de moins en moins cher. For improving performance use de mieux en mieux; for improving noun quality use de meilleur en meilleur with agreement where needed, such as de meilleures en meilleures. De pire en pire is a common worsening expression.", "Plus..., plus... means the more..., the more...; moins..., moins... means the less..., the less...; mixed patterns are possible. Put a complete clause after each comparative: Plus je pratique, moins j'hésite. Do not translate English the into a French article. For quantity within these clauses use plus de/moins de plus a noun."],
+      "points": ["Choose mieux for improving how an action is done, meilleur for improving quality of a noun.", "The paired clauses express a relationship, not necessarily proven scientific causation."],
+      "examples": [
+        {"french": "Elle comprend **de mieux en mieux** les annonces.", "english": "She understands the announcements better and better.", "note": "An improving action takes mieux."},
+        {"french": "Le bruit devient **de pire en pire**.", "english": "The noise is getting worse and worse.", "note": "A fixed expression of deterioration."},
+        {"french": "**Plus** nous préparons la visite, **moins** nous sommes stressés.", "english": "The more we prepare the visit, the less stressed we are.", "note": "Two complete clauses show linked change."},
+        {"french": "**Moins** il y a de voitures, **plus** le quartier est calme.", "english": "The fewer cars there are, the quieter the neighbourhood is.", "note": "A mixed less/more comparison."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "text", "pool": "practice", "section_id": "irregular", "prompt": "Supply meilleur in the correct form: Cette méthode est ___ que l'autre.", "choices": [], "answers": ["meilleure"], "explanation": "Méthode is feminine singular."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "irregular", "prompt": "Supply the comparative of bien: Depuis les cours, il écrit ___.", "choices": [], "answers": ["mieux"], "explanation": "Writing better needs the adverb mieux."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "ranking", "prompt": "Supply the preposition: un montant supérieur ___ cent euros.", "choices": [], "answers": ["à"], "explanation": "Supérieur takes à."},
+    {"id": "item-04", "kind": "text", "pool": "practice", "section_id": "change", "prompt": "Complete the fixed phrase meaning worse and worse: de ___ en ___. Give both words separated by a comma.", "choices": [], "answers": ["pire, pire"], "explanation": "De pire en pire expresses deterioration."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "ranking", "prompt": "Supply the full adjectival superlative of calme after la salle: C'est la salle ___ du centre. Meaning the calmest.", "choices": [], "answers": ["la plus calme"], "explanation": "Repeat la before plus calme when it follows the noun."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "ranking", "prompt": "Supply the full superlative meaning the least expensive: Ce sont les options ___. Use cher.", "choices": [], "answers": ["les moins chères"], "explanation": "Les and chères agree with feminine plural options."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "irregular", "prompt": "Give the comparative of mauvais for a worse situation: La situation est ___ qu'avant. Both taught forms are accepted.", "choices": [], "answers": ["pire", "plus mauvaise"], "explanation": "Pire and agreed plus mauvaise are both possible."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "irregular", "prompt": "Use the comparative of mal: Quand je suis fatigué, je conduis ___.", "choices": [], "answers": ["plus mal"], "explanation": "The comparison concerns performance of an action."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "change", "prompt": "Supply the fixed phrase better and better for an action: Elle prononce les mots ___.", "choices": [], "answers": ["de mieux en mieux"], "explanation": "An improving action uses mieux."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "change", "prompt": "Supply plus or moins to express the less I sleep, the more tired I am: Moins je dors, ___ je suis fatigué.", "choices": [], "answers": ["plus"], "explanation": "Less sleep is paired with more fatigue in this intended statement."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "ranking", "prompt": "Supply the contracted preposition/article: Les dépenses sont inférieures ___ budget. Use à + le.", "choices": [], "answers": ["au"], "explanation": "Inférieur takes à; à + le becomes au."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "ranking", "prompt": "Supply the adverbial superlative of bien: Parmi nous, c'est elle qui explique ___.", "choices": [], "answers": ["le mieux"], "explanation": "Le mieux ranks how someone explains and does not agree with elle."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "irregular", "prompt": "Supply meilleur in the correct form: Ces nouvelles sont ___ que prévu.", "choices": [], "answers": ["meilleures"], "explanation": "Feminine plural nouvelles requires meilleures."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "change", "prompt": "Supply de plus en plus or de moins en moins to mean increasingly reliable: Le service devient ___ fiable.", "choices": [], "answers": ["de plus en plus"], "explanation": "The adjective fiable increases in degree."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "change", "prompt": "Remove the two unnecessary articles: Le plus je lis, le plus je comprends.", "choices": [], "answers": ["Plus je lis, plus je comprends."], "explanation": "Paired comparative clauses do not take English-style the articles."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "ranking", "prompt": "Supply the superlative of mauvais: C'est la ___ solution. Both taught forms are accepted; do not repeat la.", "choices": [], "answers": ["pire", "plus mauvaise"], "explanation": "La pire solution and la plus mauvaise solution are both possible."},
+    {"id": "item-17", "kind": "text", "pool": "check", "section_id": "ranking", "prompt": "Supply the form of bon meaning best: Ce sont les ___ propositions du concours. Do not repeat les.", "choices": [], "answers": ["meilleures"], "explanation": "The superlative is les meilleures, with feminine plural agreement and no plus."},
+    {"id": "item-18", "kind": "text", "pool": "check", "section_id": "ranking", "prompt": "Use the full adverbial superlative of mal: Parmi ces appareils, celui-ci fonctionne ___. Meaning works worst.", "choices": [], "answers": ["le plus mal"], "explanation": "Rank the action with le plus mal, not an agreeing adjective."},
+    {"id": "item-19", "kind": "text", "pool": "review", "section_id": "change", "prompt": "Complete with the adjective pattern for better and better, agreeing with solutions: Ses solutions sont ___. Use de ... en ... and meilleur.", "choices": [], "answers": ["de meilleures en meilleures"], "explanation": "The improvement concerns feminine plural solutions, so meilleur agrees twice."}
+  ],
+  "production_task": {"prompt": "Compare two transport options for your team. Include an adjective comparison, an adverb comparison, a superlative, and a plus..., moins... relationship. Base the claims on the situation you invent, not on universal claims about transport.", "model_answer": "Pour notre trajet, le train offre une meilleure connexion que le bus. Nous y travaillons mieux parce qu'il y a des tables. C'est l'option la moins fatigante. Plus nous réservons tôt, moins nous payons.", "translation": "For our journey, the train offers a better connection than the bus. We work better on it because there are tables. It is the least tiring option. The earlier we book, the less we pay.", "rubric": ["Distinguish meilleur as an adjective from mieux as an adverb.", "Agree the adjectival superlative.", "Use complete paired clauses without adding le.", "Make the comparison meaningful in the stated situation."]}
+}

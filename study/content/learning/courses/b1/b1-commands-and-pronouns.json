@@ -1,0 +1,70 @@
+{
+  "version": 1, "id": "b1-commands-and-pronouns", "slug": "b1-commands-and-pronouns", "cefr_level": "B1", "topic": "verbs-tenses-moods",
+  "title": "Donner des consignes avec des pronoms",
+  "summary": "Move reflexive and object pronouns correctly in affirmative and negative commands.",
+  "order": 13, "duration_minutes": 15, "prerequisites": ["b1-negative-scope"],
+  "objectives": ["Use all three imperative persons with reflexive verbs.", "Attach y and en to affirmative commands with correct spelling.", "Return pronouns to their preverbal order in negative commands."],
+  "keywords": ["impératif", "lève-toi", "vas-y", "prends-en", "n'en prends pas", "pronoun order"],
+  "sources": [{"label": "University of Texas: imperative forms and pronoun placement", "url": "https://www.laits.utexas.edu/tex/gr/tai1.html"}, {"label": "University of Texas: object pronoun order", "url": "https://www.laits.utexas.edu/tex/gr/pro9.html"}],
+  "related_legacy_ids": ["imperative", "pronouns-y-en"],
+  "sections": [
+    {
+      "id": "reflexive", "title": "Three persons, no spoken subject pronoun",
+      "paragraphs": ["The imperative gives instructions, invitations or suggestions to tu, nous or vous. Normally use the corresponding present form without the subject. Drop the tu final s for -er verbs and verbs whose tu form ends in -es, such as ouvrir; aller has va. Keep it in finis and prends. Common irregular commands are être: sois, soyons, soyez; avoir: aie, ayons, ayez; savoir: sache, sachons, sachez.", "In an affirmative reflexive command, attach the pronoun after the verb with a hyphen. Te becomes toi: lève-toi. Nous and vous remain nous and vous. In a negative command, ne comes first, the reflexive pronoun moves before the verb, and pas follows it: ne te lève pas. Do not attach toi after a negative verb."],
+      "points": ["Se lever, to get up: lève-toi, levons-nous, levez-vous; ne te lève pas, ne nous levons pas, ne vous levez pas.", "Se souvenir, to remember: souviens-toi, souvenons-nous, souvenez-vous; ne te souviens pas, ne nous souvenons pas, ne vous souvenez pas. The negative forms are grammatical but only useful in an appropriate instruction context.", "Vocabulary: une consigne (feminine), an instruction; un échantillon (masculine), a sample."],
+      "examples": [
+        {"french": "**Installe-toi** près de la fenêtre.", "english": "Sit yourself down near the window.", "note": "Tu command: no s, then hyphen and toi."},
+        {"french": "**Préparons-nous** avant l'arrivée du groupe.", "english": "Let's get ready before the group arrives.", "note": "A nous command includes the speaker."},
+        {"french": "**Ne vous dépêchez pas**; nous avons le temps.", "english": "Don't hurry; we have time.", "note": "Negative reflexive vous precedes the verb."}
+      ],
+      "mistakes": [{"avoid": "Ne lève-toi pas.", "prefer": "Ne te lève pas.", "why": "The negative command uses te before the verb, not toi after it."}]
+    },
+    {
+      "id": "y-en-positive", "title": "Affirmative y and en follow the command",
+      "paragraphs": ["Y replaces a place or an appropriate à + thing phrase; en replaces an appropriate de phrase or a quantity noun. In an affirmative command, put them after the verb with a hyphen: allez-y, prenez-en. Add s to a tu command ending in a vowel when it is immediately followed by y or en: vas-y, penses-y, manges-en, aies-en.", "The s is not added when y or en belongs to a following infinitive rather than to the imperative: Va en chercher means go and fetch some. With two attached pronouns, use direct object le/la/les before moi/toi/lui/nous/vous/leur, then y, then en where that combination is meaningful. Moi and toi become m' and t' immediately before en or y: donne-m'en, va-t'en. Do not mechanically combine every pronoun slot."],
+      "points": ["Aller with y: vas-y, allons-y, allez-y. Prendre with en: prends-en, prenons-en, prenez-en.", "Se servir de + noun, to help oneself to/use: sers-t'en, servons-nous-en, servez-vous-en.", "In everyday instructions, splitting a cumbersome two-pronoun command into two sentences is often clearer."],
+      "examples": [
+        {"french": "Le bureau est ouvert: **vas-y** maintenant.", "english": "The office is open: go there now.", "note": "Va gains s directly before attached y."},
+        {"french": "Il reste du pain: **prenez-en**.", "english": "There is bread left: have some.", "note": "En replaces a quantity of bread."},
+        {"french": "Ces biscuits sont pour toi: **manges-en** un.", "english": "These biscuits are for you: eat one.", "note": "The quantity un remains; mange gains s."},
+        {"french": "J'ai besoin d'un échantillon: **donne-m'en** un.", "english": "I need a sample: give me one.", "note": "Moi becomes m' before en."},
+        {"french": "**Va en chercher** deux dans le placard.", "english": "Go and fetch two from the cupboard.", "note": "En belongs to chercher, so va has no added s or hyphen."}
+      ],
+      "mistakes": [{"avoid": "Mange-en deux.", "prefer": "Manges-en deux.", "why": "An affirmative tu command directly followed by en gains an s for the link."}]
+    },
+    {
+      "id": "negative-order", "title": "Negative commands restore the usual pronoun order",
+      "paragraphs": ["With ne ... pas, put object pronouns before the imperative as in an ordinary statement. The order is me/te/se/nous/vous, then le/la/les, then lui/leur, then y, then en, selecting only the pronouns actually needed. Ne stands before the pronoun group and pas after the verb.", "There is no affirmative-command hyphen between these preverbal pronouns. A tu -er verb has no linking s because y or en no longer follows it: n'y pense pas, n'en mange pas. Do not change the verb to an infinitive."],
+      "points": ["Y and en may elide the preceding ne to n': n'y va pas, n'en prends pas.", "A negative imperative remains a direct instruction; a conditional request may sound gentler."],
+      "examples": [
+        {"french": "**Ne le lui donnez pas** sans explication.", "english": "Don't give it to him or her without an explanation.", "note": "Le precedes lui before donnez."},
+        {"french": "**N'y va pas** seul.", "english": "Don't go there alone.", "note": "Y precedes va, so no added s."},
+        {"french": "**Ne m'en apporte pas** aujourd'hui.", "english": "Don't bring me any today.", "note": "Me elides before en, both before the verb."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "text", "pool": "practice", "section_id": "reflexive", "prompt": "Give the affirmative tu command of se préparer, with no extra words.", "choices": [], "answers": ["Prépare-toi."], "explanation": "Drop tu and final s; attach toi."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "y-en-positive", "prompt": "Replace à l'accueil with y: Va à l'accueil.", "choices": [], "answers": ["Vas-y."], "explanation": "Va gains s before attached y."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "y-en-positive", "prompt": "Replace du café with en: Prenez du café.", "choices": [], "answers": ["Prenez-en."], "explanation": "Attach en with a hyphen."},
+    {"id": "item-04", "kind": "text", "pool": "practice", "section_id": "negative-order", "prompt": "Make the command negative with ne ... pas: Donne-le.", "choices": [], "answers": ["Ne le donne pas."], "explanation": "Le moves before the verb in the negative."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "reflexive", "prompt": "Give the negative vous command of se lever using ne ... pas.", "choices": [], "answers": ["Ne vous levez pas."], "explanation": "Reflexive vous comes before levez."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "reflexive", "prompt": "Give the affirmative nous command of se reposer.", "choices": [], "answers": ["Reposons-nous."], "explanation": "Nous follows the affirmative imperative with a hyphen."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "y-en-positive", "prompt": "Replace à cette solution with y: Pense à cette solution.", "choices": [], "answers": ["Penses-y."], "explanation": "Pense gains a linking s before y."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "y-en-positive", "prompt": "Replace des poires with en: Achète des poires.", "choices": [], "answers": ["Achètes-en."], "explanation": "Achète gains s before attached en."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "negative-order", "prompt": "Make negative with ne ... pas: Vas-y.", "choices": [], "answers": ["N'y va pas."], "explanation": "Y moves before va; the linking s disappears."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "negative-order", "prompt": "Make negative with ne ... pas: Mangez-en.", "choices": [], "answers": ["N'en mangez pas."], "explanation": "En moves before the verb."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "negative-order", "prompt": "Make negative with ne ... pas: Montre-le-moi.", "choices": [], "answers": ["Ne me le montre pas."], "explanation": "Moi becomes me and moves before le, ahead of the verb."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "reflexive", "prompt": "Make negative with ne ... pas: Dépêche-toi.", "choices": [], "answers": ["Ne te dépêche pas."], "explanation": "Te returns before the verb and no hyphen remains."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "y-en-positive", "prompt": "Replace un stylo with en plus the quantity: Donne-moi un stylo.", "choices": [], "answers": ["Donne-m'en un."], "explanation": "Moi becomes m' before en; keep un."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "negative-order", "prompt": "Make negative with ne ... pas: Donnez-le-leur.", "choices": [], "answers": ["Ne le leur donnez pas."], "explanation": "Le precedes leur in normal preverbal order."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "reflexive", "prompt": "Give the affirmative vous command of se souvenir, with no complement.", "choices": [], "answers": ["Souvenez-vous."], "explanation": "Use souvenez and attach reflexive vous."},
+    {"id": "item-16", "kind": "choice", "pool": "review", "section_id": "y-en-positive", "prompt": "Choose the spelling when en belongs to chercher, not to aller.", "choices": ["Va en chercher.", "Vas-en chercher."], "answers": ["Va en chercher."], "explanation": "Do not add s or a hyphen when en belongs to a following infinitive."},
+    {"id": "item-17", "kind": "text", "pool": "check", "section_id": "y-en-positive", "prompt": "Replace de cet outil with en: Sers-toi de cet outil.", "choices": [], "answers": ["Sers-t'en."], "explanation": "Toi becomes t' before attached en; retain the s already present in sers."},
+    {"id": "item-18", "kind": "text", "pool": "review", "section_id": "y-en-positive", "prompt": "Replace du courage with en: Aie du courage.", "choices": [], "answers": ["Aies-en."], "explanation": "The irregular tu command aie gains a linking s directly before en."},
+    {"id": "item-19", "kind": "text", "pool": "practice", "section_id": "reflexive", "prompt": "Supply être as a nous command: ___ patients.", "choices": [], "answers": ["Soyons"], "explanation": "Être has the irregular imperative soyons."},
+    {"id": "item-20", "kind": "text", "pool": "check", "section_id": "reflexive", "prompt": "Supply savoir as a vous command: ___ que vous pouvez nous appeler.", "choices": [], "answers": ["Sachez"], "explanation": "The imperative is sachez, not the present savez."}
+  ],
+  "production_task": {"prompt": "Give five instructions to a new volunteer. Include an affirmative reflexive command, a command with y, a command with en and two negative commands, one with an object pronoun.", "model_answer": "Installe-toi près de l'entrée. Le vestiaire est au fond: vas-y pour poser ton sac. Il reste des badges: prends-en un. Ne te dépêche pas. Le dossier est confidentiel: ne le montre pas aux visiteurs.", "translation": "Settle in near the entrance. The cloakroom is at the back: go there to put down your bag. There are badges left: take one. Don't hurry. The file is confidential: don't show it to visitors.", "rubric": ["Use hyphens only in the affirmative attached-pronoun groups.", "Check the added s before y/en where required.", "Keep negative pronouns before the verb.", "Make the instructions practical and unambiguous."]}
+}

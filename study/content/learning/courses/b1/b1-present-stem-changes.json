@@ -1,6 +1,6 @@
 {
   "version": 1, "id": "b1-present-stem-changes", "slug": "b1-present-stem-changes", "cefr_level": "B1", "topic": "verbs-tenses-moods",
-  "title": "Recognizing three irregular present families",
+  "title": "Trois familles irrégulières au présent",
   "summary": "Use valoir, mourir and acquérir without forcing them into regular verb patterns.",
   "order": 1, "duration_minutes": 13, "prerequisites": [],
   "objectives": ["Use all present forms of valoir, mourir and acquérir.", "Transfer acquérir's pattern to conquérir and distinguish quérir."],
@@ -16,7 +16,7 @@
         {"french": "je **vaux**\ntu **vaux**\nil/elle/on **vaut**\nnous **valons**\nvous **valez**\nils/elles **valent**", "english": "I am worth\nyou are worth (singular)\nhe/she/one is worth\nwe are worth\nyou are worth (plural or polite)\nthey are worth", "note": "Keep the written x in je and tu."},
         {"french": "Ces deux appareils **valent** le même prix.", "english": "These two devices are worth the same amount.", "note": "The plural subject needs valent."},
         {"french": "Il **vaut mieux** vérifier l'adresse.", "english": "It is better to check the address.", "note": "An infinitive follows this recommendation."},
-        {"french": "Cette vue **vaut la peine** de faire un détour.", "english": "This view is worth making a detour for.", "note": "Worthwhile effort rather than a monetary cost."}
+        {"french": "Cela **vaut la peine** de faire un détour pour admirer cette vue.", "english": "It is worth making a detour to admire this view.", "note": "Worthwhile effort rather than a monetary cost."}
       ],
       "mistakes": [{"avoid": "Ces billets valont vingt euros.", "prefer": "Ces billets valent vingt euros.", "why": "The present third-person plural is valent, not valont."}]
     },
@@ -52,7 +52,7 @@
     {"id": "item-05", "kind": "text", "pool": "check", "section_id": "value", "prompt": "Supply valoir in the present: Ces objets ___ peu d'argent.", "choices": [], "answers": ["valent"], "explanation": "The plural stem is val-; ils takes -ent."},
     {"id": "item-06", "kind": "text", "pool": "check", "section_id": "life", "prompt": "Supply mourir in the present: Après le sport, nous ___ de faim.", "choices": [], "answers": ["mourons"], "explanation": "Nous keeps mour-."},
     {"id": "item-07", "kind": "text", "pool": "check", "section_id": "acquisition", "prompt": "Supply acquérir in the present: Les stagiaires ___ de l'assurance.", "choices": [], "answers": ["acquièrent"], "explanation": "Ils/elles takes acquièr- plus -ent."},
-    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "acquisition", "prompt": "Supply conquérir in the present: Cette chanteuse ___ le public.", "choices": [], "answers": ["conquiert"], "explanation": "The singular follows acquiert with the con- prefix."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "acquisition", "prompt": "Supply conquérir in the present: Cette chanteuse ___ le public.", "choices": [], "answers": ["conquiert"], "explanation": "Conquérir uses the same -quiers/-quiert pattern: elle conquiert."},
     {"id": "item-09", "kind": "text", "pool": "check", "section_id": "acquisition", "prompt": "Supply requérir in the present: Ces tâches ___ de la patience.", "choices": [], "answers": ["requièrent"], "explanation": "Third-person plural uses requièr-."},
     {"id": "item-10", "kind": "text", "pool": "check", "section_id": "value", "prompt": "Supply valoir in the present: Tu ___ mieux que cette réputation.", "choices": [], "answers": ["vaux"], "explanation": "Tu takes vaux, ending in x."},
     {"id": "item-11", "kind": "text", "pool": "check", "section_id": "life", "prompt": "Supply mourir in the present: Cette vieille tradition ___ peu à peu.", "choices": [], "answers": ["meurt"], "explanation": "The figurative singular use has the same conjugation."},

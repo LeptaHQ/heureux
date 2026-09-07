@@ -1,0 +1,56 @@
+{
+  "version": 1, "id": "b1-hypotheses-and-advice", "slug": "b1-hypotheses-and-advice", "cefr_level": "B1", "topic": "verbs-tenses-moods",
+  "title": "Donner un conseil et formuler une hypothèse",
+  "summary": "Use pourrais and devrais, then connect an imagined condition to its consequence.",
+  "order": 10, "duration_minutes": 14, "prerequisites": ["b1-conditional-building", "b1-narrative-and-questions"],
+  "objectives": ["Conjugate pouvoir and devoir in the conditional.", "Build si + imparfait followed by a conditional consequence.", "Distinguish an open future condition from an imagined one."],
+  "keywords": ["si", "imparfait", "conditionnel", "pourrais", "devrais", "could", "should"],
+  "sources": [{"label": "OQLF: conditional forms", "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/24137/la-grammaire/le-verbe/conjugaison/formes-du-conditionnel"}],
+  "related_legacy_ids": ["verbs-conditional-si"],
+  "sections": [
+    {
+      "id": "advice", "title": "Could is a possibility; should is advice",
+      "paragraphs": ["Pouvoir in the conditional offers a possibility or makes a request less direct: vous pourriez... Devoir in the conditional often gives advice: vous devriez... Neither verb needs à or de before the next infinitive. Their stems remain pourr- and devr-.", "English could also describes a past ability in I could swim at six. That meaning usually requires an appropriate past form such as je savais nager or je pouvais nager, not automatically je pourrais. English should is also not a universal translation of devoir: these forms express advice in the examples, while context can support expectation."],
+      "points": ["Vocabulary: une sauvegarde (feminine), a backup; un raccourci (masculine), a shortcut."],
+      "examples": [
+        {"french": "je **pourrais**\ntu **pourrais**\nil/elle/on **pourrait**\nnous **pourrions**\nvous **pourriez**\nils/elles **pourraient**", "english": "I could / would be able to\nyou could (singular)\nhe/she/one could\nwe could\nyou could (plural or polite)\nthey could", "note": "A hypothetical possibility or tentative request."},
+        {"french": "je **devrais**\ntu **devrais**\nil/elle/on **devrait**\nnous **devrions**\nvous **devriez**\nils/elles **devraient**", "english": "I should\nyou should (singular)\nhe/she/one should\nwe should\nyou should (plural or polite)\nthey should", "note": "These translations express advice."},
+        {"french": "Vous **pourriez** enregistrer une copie ici.", "english": "You could save a copy here.", "note": "An available option, not an instruction that it is compulsory."},
+        {"french": "Tu **devrais** faire une sauvegarde avant la mise à jour.", "english": "You should make a backup before the update.", "note": "A recommendation."}
+      ],
+      "mistakes": [{"avoid": "Vous devriez de vérifier le fichier.", "prefer": "Vous devriez vérifier le fichier.", "why": "Devoir is followed directly by an infinitive."}]
+    },
+    {
+      "id": "si-pattern", "title": "Imagine the condition with the imparfait",
+      "paragraphs": ["To imagine a different present or a tentative future situation, use si + imparfait for the condition and a conditional for the consequence. The imparfait here does not necessarily place the condition in the past. Si nous avions plus de place, nous installerions une table imagines having more space now or later.", "Either clause can come first. In this conditional use of si, do not put the conditional in the si clause. Si elides before il and ils: s'il, s'ils; it does not elide before elle. The restriction concerns conditional si meaning if, not every si in French: Je me demande si elle viendrait means I wonder whether she would come.", "Contrast an open possibility: Si le magasin est ouvert, nous achèterons du papier (present + future). The speaker treats that as an open condition. Si le magasin était ouvert, nous achèterions du papier sets up an imagined situation. This is a choice of viewpoint, not a mathematical measurement of probability."],
+      "points": ["For an imagined condition use étais/étais/était/étions/étiez/étaient or avais/avais/avait/avions/aviez/avaient as needed.", "For a polite wish, vouloir uses voudr- plus conditional endings: je voudrais, tu voudrais, il/elle/on voudrait, nous voudrions, vous voudriez, ils/elles voudraient."],
+      "examples": [
+        {"french": "**Si** j'**avais** une imprimante, je **pourrais** préparer les affiches.", "english": "If I had a printer, I could prepare the posters.", "note": "An imagined current resource leads to a possible action."},
+        {"french": "Nous **irions** à pied **si** le chemin **était** plus court.", "english": "We would walk if the path were shorter.", "note": "The result can precede the condition."},
+        {"french": "**S'ils** **venaient** demain, nous **serions** disponibles.", "english": "If they came tomorrow, we would be available.", "note": "An imparfait condition can refer to tomorrow."},
+        {"french": "**Si** tu **es** libre demain, nous **ferons** le point.", "english": "If you are free tomorrow, we will take stock.", "note": "An open future condition uses the present, not the future, after si."},
+        {"french": "Je **voudrais** déplacer notre rendez-vous.", "english": "I would like to move our appointment.", "note": "A polite desire, distinct from future voudrai."}
+      ],
+      "mistakes": [{"avoid": "Si j'aurais le temps, je viendrais.", "prefer": "Si j'avais le temps, je viendrais.", "why": "An imagined condition takes the imparfait after conditional si; the result takes the conditional."}]
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "text", "pool": "practice", "section_id": "advice", "prompt": "Supply pouvoir in the conditional: Nous ___ proposer une autre date.", "choices": [], "answers": ["pourrions"], "explanation": "Pourr- takes -ions."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "advice", "prompt": "Supply devoir in the conditional: Tu ___ relire ton message.", "choices": [], "answers": ["devrais"], "explanation": "Devrais offers advice."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "si-pattern", "prompt": "Use the imparfait of avoir: Si nous ___ un jardin, nous planterions des herbes.", "choices": [], "answers": ["avions"], "explanation": "The imagined condition takes the imparfait."},
+    {"id": "item-04", "kind": "choice", "pool": "practice", "section_id": "si-pattern", "prompt": "Choose the imagined condition.", "choices": ["Si elle serait disponible", "Si elle était disponible"], "answers": ["Si elle était disponible"], "explanation": "Use the imparfait, not the conditional, in this si clause."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "advice", "prompt": "Supply pouvoir in the conditional: Vous ___ m'expliquer ce mot?", "choices": [], "answers": ["pourriez"], "explanation": "The conditional makes a request more tentative."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "advice", "prompt": "Supply devoir in the conditional: Les responsables ___ répondre plus vite.", "choices": [], "answers": ["devraient"], "explanation": "Plural advice uses devraient."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "si-pattern", "prompt": "Supply être in the imparfait: Si le bus ___ moins cher, je le prendrais.", "choices": [], "answers": ["était"], "explanation": "Être has the imparfait stem ét-."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "si-pattern", "prompt": "Supply faire in the conditional: Si tu restais, nous ___ la cuisine ensemble.", "choices": [], "answers": ["ferions"], "explanation": "The consequence uses the conditional."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "si-pattern", "prompt": "Supply venir in the imparfait: S'ils ___ plus tôt, ils verraient le spectacle entier.", "choices": [], "answers": ["venaient"], "explanation": "The si clause uses the imparfait ven- plus -aient."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "advice", "prompt": "Supply pouvoir in the conditional: Elle ___ nous accompagner.", "choices": [], "answers": ["pourrait"], "explanation": "A singular possibility takes -ait."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "si-pattern", "prompt": "Supply vouloir in the conditional for a polite request: Je ___ un renseignement.", "choices": [], "answers": ["voudrais"], "explanation": "Voudrais expresses I would like."},
+    {"id": "item-12", "kind": "choice", "pool": "check", "section_id": "si-pattern", "prompt": "Choose the open future condition: Si nous ___ prêts, nous partirons à huit heures.", "choices": ["sommes", "serons"], "answers": ["sommes"], "explanation": "A present condition pairs with a future consequence."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "advice", "prompt": "Supply devoir in the conditional: Nous ___ garder une copie.", "choices": [], "answers": ["devrions"], "explanation": "Nous takes -ions after devr-."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "si-pattern", "prompt": "Supply pouvoir in the conditional: Si j'habitais près d'ici, je ___ venir à pied.", "choices": [], "answers": ["pourrais"], "explanation": "The result is a hypothetical possibility."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "si-pattern", "prompt": "Supply prendre in the imparfait: Vous gagneriez du temps si vous ___ le métro.", "choices": [], "answers": ["preniez"], "explanation": "The condition stays in the imparfait even when it comes second."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "si-pattern", "prompt": "Rewrite only the incorrect verb: Si elle aurait un vélo, elle irait au travail à vélo.", "choices": [], "answers": ["avait"], "explanation": "Replace conditional aurait with imparfait avait in the if condition."}
+  ],
+  "production_task": {"prompt": "A friend has a long commute. Give one gentle suggestion with pouvoir and one recommendation with devoir. Add two imagined alternatives using si + imparfait and a conditional consequence.", "model_answer": "Tu pourrais demander un horaire plus souple. Tu devrais aussi comparer les abonnements de transport. Si tu commençais plus tard, tu éviterais la foule. Si ton entreprise acceptait le télétravail, tu aurais moins de déplacements.", "translation": "You could ask for a more flexible schedule. You should also compare transport passes. If you started later, you would avoid the crowds. If your company allowed remote work, you would have fewer journeys.", "rubric": ["Make the suggestion and recommendation distinguishable.", "Use the imparfait in each conditional si clause.", "Use a conditional consequence with a matching subject ending.", "Keep the advice practical rather than treating the hypothetical options as facts."]}
+}

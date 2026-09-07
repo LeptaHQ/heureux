@@ -1,6 +1,6 @@
 {
   "version": 1, "id": "b1-future-commitments", "slug": "b1-future-commitments", "cefr_level": "B1", "topic": "verbs-tenses-moods",
-  "title": "Future commitments, wishes and constraints",
+  "title": "Les engagements, les souhaits et les contraintes au futur",
   "summary": "Coordinate who will come, what will be possible and what people will have to do.",
   "order": 7, "duration_minutes": 14, "prerequisites": ["b1-future-core-stems"],
   "objectives": ["Conjugate venir, tenir, vouloir, pouvoir and devoir in the future.", "Apply venir/tenir stems to common derivatives.", "Distinguish willingness, ability and obligation."],
@@ -50,7 +50,8 @@
     {"id": "item-13", "kind": "text", "pool": "review", "section_id": "come-hold", "prompt": "Supply revenir in the future: Vous ___ la semaine prochaine.", "choices": [], "answers": ["reviendrez"], "explanation": "Re- remains before viendr- plus -ez."},
     {"id": "item-14", "kind": "text", "pool": "review", "section_id": "modals", "prompt": "Supply devoir in the future: Nous ___ recommencer.", "choices": [], "answers": ["devrons"], "explanation": "Nous takes devr- plus -ons."},
     {"id": "item-15", "kind": "text", "pool": "review", "section_id": "modals", "prompt": "Supply pouvoir in the future: Elles ___ vous accompagner.", "choices": [], "answers": ["pourront"], "explanation": "The plural future retains rr."},
-    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "come-hold", "prompt": "Supply soutenir in the future: Tu ___ notre proposition.", "choices": [], "answers": ["soutiendras"], "explanation": "Soutenir follows tenir with sou- retained."}
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "come-hold", "prompt": "Supply soutenir in the future: Tu ___ notre proposition.", "choices": [], "answers": ["soutiendras"], "explanation": "Soutenir follows tenir with sou- retained."},
+    {"id": "item-17", "kind": "text", "pool": "check", "section_id": "come-hold", "prompt": "Supply retenir in the future: Vous ___ surtout les points essentiels.", "choices": [], "answers": ["retiendrez"], "explanation": "Retenir uses retiendr-, following tenir rather than its full infinitive."}
   ],
   "production_task": {"prompt": "Arrange a group visit. Explain who will come, one promise, one possible activity and one compulsory step. Use venir/tenir or a derivative, pouvoir and devoir.", "model_answer": "Nous viendrons samedi et nous tiendrons notre promesse d'aider. Vous pourrez visiter l'atelier après le déjeuner. Les visiteurs devront porter un badge. Je vous préviendrai si l'horaire change.", "translation": "We will come on Saturday and keep our promise to help. You will be able to visit the workshop after lunch. Visitors will have to wear a badge. I will let you know if the schedule changes.", "rubric": ["Distinguish a promise, possibility and requirement.", "Use direct infinitives after pouvoir and devoir.", "Keep each derivative's prefix and irregular stem."]}
 }

@@ -1,0 +1,65 @@
+{
+  "version": 1, "id": "b1-negative-scope", "slug": "b1-negative-scope", "cefr_level": "B1", "topic": "pronouns-questions-negation",
+  "title": "Combiner les négations et exprimer une restriction",
+  "summary": "Express not anymore, never anything and precise restrictions; recognize spoken ne omission.",
+  "order": 12, "duration_minutes": 12, "prerequisites": ["b1-negative-subjects"],
+  "objectives": ["Combine compatible negative expressions without an extra pas.", "Place que next to what is restricted in a compound tense.", "Restore ne in an informal negative sentence."],
+  "keywords": ["ne que", "plus jamais", "plus rien", "jamais personne", "informal ne omission", "restriction"],
+  "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],
+  "related_legacy_ids": ["negation-core"],
+  "sections": [
+    {
+      "id": "combinations", "title": "Two negative meanings can work together",
+      "paragraphs": ["French can combine negative expressions to deny different parts of one situation. Ne ... plus rien means not anything anymore; ne ... plus jamais means never again; ne ... jamais personne means never anybody. These do not automatically cancel into a positive statement.", "With a compound tense, plus, jamais and object rien normally come before the participle, while object personne and nulle part normally follow it. Use one ne before the finite verb or auxiliary. Do not add pas to the combinations taught here. This is not permission to stack any negative words randomly: each must contribute a clear meaning."],
+      "points": ["Vocabulary: un abonnement (masculine), a subscription; une notification (feminine), a notification.", "Plus in a negative sentence means no longer; positive plus can mean more, so context and pronunciation matter."],
+      "examples": [
+        {"french": "Je **ne reçois plus rien** depuis lundi.", "english": "I haven't been receiving anything since Monday.", "note": "No longer plus nothing: an ongoing absence."},
+        {"french": "Nous **n'avons jamais vu personne** dans ce bureau.", "english": "We have never seen anybody in this office.", "note": "Jamais precedes vu, personne follows it."},
+        {"french": "Elle **ne travaillera plus jamais** le dimanche.", "english": "She will never work on Sundays again.", "note": "Plus jamais combines no longer and ever."},
+        {"french": "**Personne ne m'a rien** demandé.", "english": "Nobody asked me anything.", "note": "A negative subject combines with a negative object."}
+      ],
+      "mistakes": [{"avoid": "Je ne reçois pas plus rien.", "prefer": "Je ne reçois plus rien.", "why": "To mean I no longer receive anything, plus rien supplies the negative meaning; do not add pas."}]
+    },
+    {
+      "id": "restriction", "title": "Ne ... que restricts; it does not deny",
+      "paragraphs": ["Ne ... que means only. It does not mean not. In a compound tense, ne goes before the auxiliary, but que goes immediately before the restricted part: Je n'ai lu que l'introduction restricts what I read; Je n'ai lu le rapport que lundi restricts when.", "Keep the article required by the positive meaning: Je n'ai acheté que des fruits, I bought only fruit. This differs from Je n'ai pas acheté de fruits, I did not buy fruit. For restricting the subject itself, seul or seulement is often clearer: Seule Lina a répondu, only Lina answered."],
+      "points": ["Que becomes qu' before a vowel.", "Ne ... pas que means not only and is a different meaning from ne ... que."],
+      "examples": [
+        {"french": "Je **n'ai envoyé que** deux messages.", "english": "I sent only two messages.", "note": "The number of messages is restricted."},
+        {"french": "Je **n'ai envoyé** les messages **qu'hier**.", "english": "I sent the messages only yesterday.", "note": "The sending time is restricted."},
+        {"french": "Nous **n'avons acheté que des** cahiers.", "english": "We bought only notebooks.", "note": "Des remains because this is a restriction, not an ordinary negative denial."},
+        {"french": "Elle **n'a pas lu que** le résumé.", "english": "She did not read only the summary.", "note": "Pas que denies the restriction: she read more than the summary."}
+      ],
+      "mistakes": [{"avoid": "Je n'ai que lu deux pages.", "prefer": "Je n'ai lu que deux pages.", "why": "To restrict the number of pages, put que directly before deux pages. The other placement would focus on the action and does not express the intended restriction naturally."}]
+    },
+    {
+      "id": "register", "title": "Recognize informal negatives without copying them everywhere",
+      "paragraphs": ["In spontaneous conversation, speakers often omit ne/n'. The remaining pas, plus, jamais, rien or personne carries the negative information: J'ai rien reçu. Keep ne in careful writing and in these controlled written exercises unless the prompt explicitly requests the informal version.", "Do not simply remove all negative words. J'ai reçu is affirmative. With plus, omission can increase ambiguity between more and no longer; context becomes important. Ne omission is a register feature, not proof that a speaker does not understand grammar."],
+      "points": ["Restore n' before a vowel: J'ai pas becomes Je n'ai pas.", "Subject negatives can omit ne orally too: Personne sait becomes Personne ne sait in careful writing."],
+      "examples": [
+        {"french": "Oral: J'ai **rien** reçu.\nCareful writing: Je **n'ai rien** reçu.", "english": "Spoken: I haven't received anything.\nCareful writing: I haven't received anything.", "note": "The meaning is preserved; the register changes."},
+        {"french": "Oral: Elle vient **plus**.\nCareful writing: Elle **ne** vient **plus**.", "english": "Spoken: She doesn't come anymore.\nCareful writing: She doesn't come anymore.", "note": "Here plus has its negative no-longer meaning."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "text", "pool": "practice", "section_id": "combinations", "prompt": "Supply the two words meaning nothing anymore: Je ne comprends ___.", "choices": [], "answers": ["plus rien"], "explanation": "Plus rien combines cessation with no object."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "combinations", "prompt": "Supply the two words meaning never again: Nous ne recommencerons ___.", "choices": [], "answers": ["plus jamais"], "explanation": "Plus jamais expresses never again."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "restriction", "prompt": "Supply que or qu': Elle n'a réservé ___ une chambre.", "choices": [], "answers": ["qu'"], "explanation": "Que elides before une."},
+    {"id": "item-04", "kind": "text", "pool": "practice", "section_id": "register", "prompt": "Restore the missing written negation in this exact sentence: J'ai pas compris.", "choices": [], "answers": ["Je n'ai pas compris."], "explanation": "Restore ne, elided as n' before ai."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "restriction", "prompt": "Rewrite using ne ... que to restrict the object: J'ai acheté seulement un billet.", "choices": [], "answers": ["Je n'ai acheté qu'un billet."], "explanation": "Que goes before un billet, not before acheté."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "restriction", "prompt": "Rewrite with ne ... que to restrict the day: Nous avons répondu seulement mardi.", "choices": [], "answers": ["Nous n'avons répondu que mardi."], "explanation": "Que directly precedes the restricted time mardi."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "combinations", "prompt": "Arrange only these three words to complete the sentence: jamais / personne / rencontré. Elle n'a ___ ici.", "choices": [], "answers": ["jamais rencontré personne"], "explanation": "Jamais precedes the participle; personne follows it."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "combinations", "prompt": "Supply the missing written negator: Personne ___ lui a rien expliqué.", "choices": [], "answers": ["ne"], "explanation": "Ne goes before the object pronoun and auxiliary group."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "register", "prompt": "Restore ne in the exact informal sentence: Elle travaille plus. The intended meaning is she no longer works.", "choices": [], "answers": ["Elle ne travaille plus."], "explanation": "Restoring ne makes the intended negative reading explicit."},
+    {"id": "item-10", "kind": "choice", "pool": "check", "section_id": "restriction", "prompt": "Choose the article for the restriction meaning we bought only flowers: Nous n'avons acheté que ___ fleurs.", "choices": ["des", "de"], "answers": ["des"], "explanation": "Ne ... que is restrictive; it does not trigger the ordinary negative de."},
+    {"id": "item-11", "kind": "choice", "pool": "check", "section_id": "restriction", "prompt": "Which sentence means she read more than just the title?", "choices": ["Elle n'a lu que le titre.", "Elle n'a pas lu que le titre."], "answers": ["Elle n'a pas lu que le titre."], "explanation": "Pas que means not only."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "combinations", "prompt": "Arrange only plus / rien / reçu: Je n'ai ___ depuis jeudi.", "choices": [], "answers": ["plus rien reçu"], "explanation": "Both plus and rien precede the participle reçu."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "register", "prompt": "Restore the missing ne in: Personne sait pourquoi.", "choices": [], "answers": ["Personne ne sait pourquoi."], "explanation": "Keep the negative subject and restore ne before sait."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "restriction", "prompt": "Rewrite with ne ... que, restricting the amount: Elle a travaillé seulement deux heures.", "choices": [], "answers": ["Elle n'a travaillé que deux heures."], "explanation": "Que restricts the duration, not the verb."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "combinations", "prompt": "Remove the single unnecessary word to mean we will never return there again: Nous n'y retournerons pas plus jamais.", "choices": [], "answers": ["Nous n'y retournerons plus jamais."], "explanation": "Plus jamais supplies the intended negative meaning."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "restriction", "prompt": "Supply que or qu' in the time restriction: Je ne l'ai appris ___ aujourd'hui.", "choices": [], "answers": ["qu'"], "explanation": "Que elides before aujourd'hui and restricts when the information was learned."}
+  ],
+  "production_task": {"prompt": "Explain a notification problem to customer support in careful written French. Say that you no longer receive anything, identify the only message received before that period, and state that nobody has explained anything.", "model_answer": "Je ne reçois plus rien depuis mercredi. Je n'ai reçu qu'un message automatique mardi. Personne ne m'a rien expliqué. Je voudrais savoir si mon abonnement est toujours actif.", "translation": "I haven't been receiving anything since Wednesday. I received only one automated message on Tuesday. Nobody has explained anything to me. I would like to know whether my subscription is still active.", "rubric": ["Use compatible negative combinations in the right order.", "Put que directly before the restricted object.", "Keep ne in the customer-service message.", "Distinguish receiving only one message from receiving none."]}
+}

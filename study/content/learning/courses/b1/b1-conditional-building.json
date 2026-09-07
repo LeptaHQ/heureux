@@ -1,0 +1,56 @@
+{
+  "version": 1, "id": "b1-conditional-building", "slug": "b1-conditional-building", "cefr_level": "B1", "topic": "verbs-tenses-moods",
+  "title": "Imaginer une situation au conditionnel",
+  "summary": "Build the present conditional with familiar future stems and a new set of endings.",
+  "order": 9, "duration_minutes": 14, "prerequisites": ["b1-future-outcomes"],
+  "objectives": ["Conjugate regular and core irregular verbs in the conditional.", "Distinguish would forms from will forms in writing."],
+  "keywords": ["conditionnel présent", "would", "serais", "aurais", "ferais", "irais"],
+  "sources": [{"label": "OQLF: conditional forms and spelling variants", "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/24137/la-grammaire/le-verbe/conjugaison/formes-du-conditionnel"}],
+  "related_legacy_ids": ["verbs-conditional-si"],
+  "sections": [
+    {
+      "id": "regular", "title": "Future stem, imparfait-style endings",
+      "paragraphs": ["The present conditional often presents an imagined result, a tentative proposal or a polite desire. Take the future stem and add -ais, -ais, -ait, -ions, -iez, -aient. The ending set resembles the imparfait, but the stem is different: je parlais is I was speaking, je parlerais is I would speak.", "Regular -er and -ir verbs keep their infinitive; ordinary -re verbs lose the final e. Finir gives je finirais, tu finirais, il/elle/on finirait, nous finirions, vous finiriez, ils/elles finiraient. Attendre gives j'attendrais, tu attendrais, il/elle/on attendrait, nous attendrions, vous attendriez, ils/elles attendraient.", "All spelling and irregular stem choices from the future carry over: j'achèterais, j'appellerais, je nettoierais; je paierais/payerais and je préférerais/préfèrerais accept both taught variants. Apply each stem to every conditional ending. Je finirai has future -ai; je finirais has conditional -ais, which some speakers pronounce alike."],
+      "points": ["Vocabulary: un budget (masculine), a budget; une proposition (feminine), a proposal."],
+      "examples": [
+        {"french": "je **travaillerais**\ntu **travaillerais**\nil/elle/on **travaillerait**\nnous **travaillerions**\nvous **travailleriez**\nils/elles **travailleraient**", "english": "I would work\nyou would work (singular)\nhe/she/one would work\nwe would work\nyou would work (plural or polite)\nthey would work", "note": "Future travailler- plus conditional endings."},
+        {"french": "Avec une équipe plus grande, nous **finirions** plus tôt.", "english": "With a larger team, we would finish earlier.", "note": "An imagined circumstance can be expressed without si."},
+        {"french": "À votre place, j'**attendrais** la confirmation.", "english": "In your position, I would wait for confirmation.", "note": "The final e of attendre disappears."},
+        {"french": "Vous **préféreriez / préfèreriez** un rendez-vous le matin?", "english": "Would you prefer a morning appointment?", "note": "Both spellings retain the conditional vous ending -iez."}
+      ],
+      "mistakes": [{"avoid": "Nous finirais plus tôt.", "prefer": "Nous finirions plus tôt.", "why": "Nous takes -ions after the future stem, not -ais."}]
+    },
+    {
+      "id": "core", "title": "Four core irregular paradigms",
+      "paragraphs": ["Être, avoir, faire and aller use the same ser-, aur-, fer- and ir- stems as the future. Only the endings change. Conditional être often describes an imagined state; avoir imagines resources or time; faire and aller describe possible actions.", "A conditional can also express the future seen from a past statement: Elle a dit qu'elle viendrait means she said she would come. This is not necessarily an unreal condition. Use the surrounding message to interpret the form rather than treating every conditional as a hidden if sentence."],
+      "points": ["Nous irions has ir- plus -ions: do not delete its second i.", "Aimer in the conditional is useful for a polite desire: j'aimerais; this does not make every conditional automatically polite."],
+      "examples": [
+        {"french": "je **serais**\ntu **serais**\nil/elle/on **serait**\nnous **serions**\nvous **seriez**\nils/elles **seraient**", "english": "I would be\nyou would be (singular)\nhe/she/one would be\nwe would be\nyou would be (plural or polite)\nthey would be", "note": "Ser- remains unchanged."},
+        {"french": "j'**aurais**\ntu **aurais**\nil/elle/on **aurait**\nnous **aurions**\nvous **auriez**\nils/elles **auraient**", "english": "I would have\nyou would have (singular)\nhe/she/one would have\nwe would have\nyou would have (plural or polite)\nthey would have", "note": "Aur- plus the six conditional endings."},
+        {"french": "je **ferais**\ntu **ferais**\nil/elle/on **ferait**\nnous **ferions**\nvous **feriez**\nils/elles **feraient**", "english": "I would do/make\nyou would do/make (singular)\nhe/she/one would do/make\nwe would do/make\nyou would do/make (plural or polite)\nthey would do/make", "note": "Faire uses fer-, not fair-."},
+        {"french": "j'**irais**\ntu **irais**\nil/elle/on **irait**\nnous **irions**\nvous **iriez**\nils/elles **iraient**", "english": "I would go\nyou would go (singular)\nhe/she/one would go\nwe would go\nyou would go (plural or polite)\nthey would go", "note": "Do not confuse irions and future irons."},
+        {"french": "Avec ce budget, nous **aurions** deux postes et nous **ferions** moins d'heures supplémentaires.", "english": "With this budget, we would have two positions and work less overtime.", "note": "The imagined result follows a proposed budget."}
+      ],
+      "mistakes": [{"avoid": "Avec plus de temps, nous irons plus souvent au musée.", "prefer": "Avec plus de temps, nous irions plus souvent au musée.", "why": "For the intended imagined result, use conditional irions. Irons would make a future statement instead."}]
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "text", "pool": "practice", "section_id": "regular", "prompt": "Supply visiter in the present conditional: Nous ___ le quartier.", "choices": [], "answers": ["visiterions"], "explanation": "Visiter- plus -ions."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "regular", "prompt": "Supply choisir in the present conditional: Tu ___ quelle option?", "choices": [], "answers": ["choisirais"], "explanation": "Choisir- takes -ais with tu."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "core", "prompt": "Supply être in the present conditional: Ce changement ___ utile.", "choices": [], "answers": ["serait"], "explanation": "Ser- takes -ait with a singular noun."},
+    {"id": "item-04", "kind": "text", "pool": "practice", "section_id": "core", "prompt": "Supply avoir in the present conditional: J'___ besoin d'un conseil.", "choices": [], "answers": ["aurais"], "explanation": "Aur- takes -ais."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "core", "prompt": "Supply faire in the present conditional: Vous ___ quoi à ma place?", "choices": [], "answers": ["feriez"], "explanation": "Fer- plus -iez asks about a hypothetical action."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "core", "prompt": "Supply aller in the present conditional: Avec un vélo, nous ___ plus loin.", "choices": [], "answers": ["irions"], "explanation": "Ir- plus -ions gives irions."},
+    {"id": "item-07", "kind": "text", "pool": "check", "section_id": "regular", "prompt": "Supply répondre in the present conditional: Elles ___ par écrit.", "choices": [], "answers": ["répondraient"], "explanation": "Drop the infinitive's final e, then add -aient."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "core", "prompt": "Supply être in the present conditional: Nous ___ moins pressés.", "choices": [], "answers": ["serions"], "explanation": "Ser- plus -ions."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "core", "prompt": "Supply avoir in the present conditional: Les élèves ___ plus de choix.", "choices": [], "answers": ["auraient"], "explanation": "Third-person plural uses -aient."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "regular", "prompt": "Supply payer in the present conditional: Vous ___ moins cher. Either taught spelling is accepted.", "choices": [], "answers": ["paieriez", "payeriez"], "explanation": "Both payer stems take -iez."},
+    {"id": "item-11", "kind": "choice", "pool": "check", "section_id": "regular", "prompt": "Choose the conditional, not the future.", "choices": ["Je terminerai.", "Je terminerais."], "answers": ["Je terminerais."], "explanation": "Conditional je ends in -ais."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "core", "prompt": "Supply aller in the present conditional: Elle ___ au marché à pied.", "choices": [], "answers": ["irait"], "explanation": "Ir- takes -ait."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "regular", "prompt": "Supply acheter in the present conditional: Nous ___ un appareil plus simple.", "choices": [], "answers": ["achèterions"], "explanation": "The future stem achèter- retains è."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "core", "prompt": "Supply faire in the present conditional: Je ___ une autre proposition.", "choices": [], "answers": ["ferais"], "explanation": "Fer- plus -ais."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "core", "prompt": "Supply être in the present conditional: Vous ___ disponible jeudi?", "choices": [], "answers": ["seriez"], "explanation": "Seriez can make an availability question more tentative."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "regular", "prompt": "Supply finir in the present conditional: On ___ avant la nuit.", "choices": [], "answers": ["finirait"], "explanation": "On takes the singular -ait ending."}
+  ],
+  "production_task": {"prompt": "Your association is considering a larger room. Write four sentences imagining what would change, using être, avoir, faire and aller in the conditional. A phrase such as Avec une salle plus grande can establish the imagined situation.", "model_answer": "Avec une salle plus grande, nous serions moins serrés. Nous aurions un coin lecture. Les enfants feraient leurs activités près des fenêtres. Les adultes iraient dans la petite salle pour discuter.", "translation": "With a larger room, we would be less cramped. We would have a reading corner. The children would do their activities near the windows. The adults would go into the small room to talk.", "rubric": ["Use a future stem with a conditional ending in every target form.", "Keep the proposal hypothetical rather than switching unintentionally to future promises.", "Explain useful, connected changes."]}
+}

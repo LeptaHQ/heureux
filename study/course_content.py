@@ -31,6 +31,14 @@ BENCHMARK_COUNTS = {"A1": 134, "A2": 165, "B1": 96, "B2": 84}
 DEPTH_BASELINE_COMMIT = "1e94f93c723fb11361137e8bc7d23adb18ac6231"
 POOL_MINIMUMS = {"practice": 4, "check": 8, "review": 4}
 
+# A1 foundations' first formatting pass shipped in c40e6fa with markup in its
+# digest. Its complete unmarked-content fingerprint also accepts that old version.
+PUBLISHED_MARKUP_VERSIONS = {
+    "1f20da5a7d898f8704865bd01cffdf765c455f7bcfe973c228fb6975170364c9": (
+        "39812a5fa3985af5150ee8d2bc787612509db9b455352cbccaffda1ef745ddfb",
+    ),
+}
+
 
 def normalize_answer(
     value: str, *, case_sensitive: bool = False, terminal_punctuation_sensitive: bool = False
@@ -50,6 +58,28 @@ def content_digest(value) -> str:
         json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
         .encode("utf-8")
     ).hexdigest()
+
+
+def _assessment_content(lesson):
+    value = asdict(lesson)
+
+    def unmark(container, fields):
+        for field in fields:
+            text = container[field]
+            container[field] = (
+                text.replace("`", "") if isinstance(text, str)
+                else tuple(part.replace("`", "") for part in text)
+            )
+
+    unmark(value, ("summary", "objectives"))
+    for section in value["sections"]:
+        unmark(section, ("title", "paragraphs", "points"))
+        for example in section["examples"]:
+            unmark(example, ("english", "note"))
+        for mistake in section["mistakes"]:
+            unmark(mistake, ("why",))
+    unmark(value["production_task"], ("prompt", "translation", "rubric"))
+    return value
 
 
 def _positive_integer(value, location: str) -> int:
@@ -155,7 +185,12 @@ class CourseLesson:
 
     @property
     def content_version(self) -> str:
-        return content_digest(asdict(self))
+        return content_digest(_assessment_content(self))
+
+    @property
+    def assessment_versions(self) -> tuple[str, ...]:
+        version = self.content_version
+        return (version, *PUBLISHED_MARKUP_VERSIONS.get(version, ()))
 
     @property
     def searchable_text(self) -> str:

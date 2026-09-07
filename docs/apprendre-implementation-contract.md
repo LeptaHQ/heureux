@@ -23,6 +23,8 @@ The existing summary, objectives and practice action use a desktop sidebar, stac
 
 Apply this convention to the teaching in all 129 course lessons, including C1 preparation: summaries, objectives, mixed-language section titles, explanations, points, example notes, correction explanations and production instructions/rubrics. Mark whole French phrases together, leaving English connectors and translations outside the span. Already-French examples/models and immutable practice objects are not formatting targets. This presentation pass only inserts delimiters; it preserves wording, structure, IDs, source records and all exercise objects.
 
+Assessment content versions ignore backtick delimiters only in those explanatory fields. Wording, examples, sources and complete exercise objects still participate in the digest. The one already-published A1 formatting version is accepted through its exact complete unmarked-content fingerprint; no generic old-version fallback is permitted. Completed checks, due dates and matching item evidence remain current after presentation-only edits, without rewriting historical attempts or regrading them.
+
 ## Course lesson JSON: version 1
 
 Each file is one complete JSON object, not an array. Example shape (illustrative placeholders, not a publishable lesson):

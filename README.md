@@ -64,6 +64,8 @@ mixed-language section headings, example notes, correction explanations and
 production instructions/rubrics. Leave already-French examples and translations
 alone unless an English explanation contains a genuine French mention. The
 all-course formatting pass preserves wording, identities and every exercise object.
+Assessment versions ignore these teaching-only delimiters, so completed checks
+and delayed reviews remain current. Previously stored attempts are not rewritten.
 
 The course contains 33 A1, 36 A2, 26 B1 and 25 B2 lessons, with exact
 coverage mappings for all 479 public benchmark topics, plus nine C1-oriented

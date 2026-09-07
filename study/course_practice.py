@@ -24,7 +24,7 @@ class PracticeError(ValueError):
 
 def successful_check(user, lesson):
     return CourseAttempt.objects.filter(
-        user=user, lesson_id=lesson.id, content_version=lesson.content_version,
+        user=user, lesson_id=lesson.id, content_version__in=lesson.assessment_versions,
         mode="check", status="completed", criterion_met=True,
     ).order_by("submitted_at").first()
 
@@ -106,7 +106,7 @@ def _item_history(user, lesson):
     ).order_by("-submitted_at", "-started_at", "-id").values_list(
         "snapshot", "events", "mode", "independent", "content_version", "submitted_at",
     )
-    content_version = lesson.content_version
+    content_versions = lesson.assessment_versions
     for snapshot, events, mode, independent, version, submitted_at in history.iterator(chunk_size=100):
         first = _first_answers(events)
         for item in snapshot["items"]:
@@ -116,7 +116,7 @@ def _item_history(user, lesson):
             record = {
                 "correct": event["correct"], "blank": not event["response"].strip(),
                 "hinted": event["hinted"], "at": submitted_at,
-                "older_content": version != content_version,
+                "older_content": version not in content_versions,
                 "independent": independent,
             }
             latest.setdefault(item["id"], record)

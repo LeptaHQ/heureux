@@ -4,11 +4,11 @@ import json
 import tempfile
 from collections import Counter
 from copy import deepcopy
-from dataclasses import replace
+from dataclasses import asdict, replace
 from datetime import timedelta
 from pathlib import Path
 from types import SimpleNamespace
-from unittest.mock import patch
+from unittest.mock import PropertyMock, patch
 
 from django.core.exceptions import ValidationError
 from django.db import connection
@@ -18,7 +18,8 @@ from django.urls import reverse
 from django.utils import timezone
 
 from study.course_content import (
-    CONTENT_ROOT, CourseLesson, _bundled_course_catalog, build_course_catalog,
+    CONTENT_ROOT, PUBLISHED_MARKUP_VERSIONS, CourseLesson, _bundled_course_catalog,
+    build_course_catalog, content_digest,
     load_course_catalog, normalize_answer, parse_course_lesson, validate_coverage_ledger,
 )
 from study.course_practice import (
@@ -30,7 +31,10 @@ from study.models import Annotation, CourseAttempt, CourseProduction, LearningLe
 from study.templatetags.study_markdown import render_markdown_inline
 
 from . import factories
-from .course_fixtures import course_catalog, course_lesson, course_payload, sectioned_course_lesson
+from .course_fixtures import (
+    course_catalog, course_lesson, course_payload, inline_teaching_fields,
+    sectioned_course_lesson,
+)
 
 
 class CourseSchemaTests(SimpleTestCase):
@@ -43,6 +47,34 @@ class CourseSchemaTests(SimpleTestCase):
         self.assertIn("<br", rendered)
         self.assertNotIn("<script>", render_markdown_inline(lesson.sections[0].paragraphs[0]))
         self.assertEqual(len(lesson.content_version), 64)
+
+    def test_only_explanatory_backticks_are_assessment_version_neutral(self):
+        payload = course_payload()
+        for container, key in inline_teaching_fields(payload):
+            container[key] = "Use être here."
+        original = parse_course_lesson(payload, directory="a1")
+        self.assertEqual(original.content_version, content_digest(asdict(original)))
+        for container, key in inline_teaching_fields(payload):
+            container[key] = "Use `être` here."
+        formatted = parse_course_lesson(payload, directory="a1")
+        self.assertEqual(formatted.content_version, original.content_version)
+        self.assertEqual(formatted.practice, original.practice)
+        for path, value in (
+            (("summary",), "Use `avoir` here."),
+            (("practice", 0, "prompt"), "Supply `école`."),
+            (("practice", 0, "answers"), ["different"]),
+            (("practice", 0, "explanation"), "New feedback."),
+            (("sections", 0, "examples", 0, "french"), "Une autre phrase."),
+            (("production_task", "model_answer"), "Une autre école."),
+        ):
+            changed = deepcopy(payload)
+            target = changed
+            for key in path[:-1]:
+                target = target[key]
+            target[path[-1]] = value
+            with self.subTest(path=path):
+                updated = parse_course_lesson(changed, directory="a1")
+                self.assertNotEqual(updated.content_version, original.content_version)
 
     def test_strict_field_types_and_completeness(self):
         cases = [
@@ -469,6 +501,58 @@ class CoursePlatformTests(TestCase):
         self.assertTrue(CourseAttempt.objects.get(pk=check.pk).criterion_met)
         response = self.client.get(reverse("study:course_attempt", args=[retry.pk]))
         self.assertContains(response, "Rehearsed: not independent evidence")
+
+    def test_formatting_retains_checks_guidance_and_review_without_rewriting_history(self):
+        check = self.submit(self.start())
+        formatted = replace(
+            self.lesson,
+            sections=(replace(
+                self.lesson.sections[0],
+                mistakes=(
+                    replace(self.lesson.sections[0].mistakes[0], why="`Maison` is feminine."),
+                    self.lesson.sections[0].mistakes[1],
+                ),
+            ),),
+        )
+        self.assertEqual(formatted.content_version, self.lesson.content_version)
+        evidence = evidence_state(self.user, formatted)
+        self.assertEqual(evidence["check"].pk, check.pk)
+        self.assertEqual(evidence["due_at"], check.submitted_at + timedelta(days=7))
+        self.assertFalse(any(row["older_content"] for row in practice_guidance(self.user, formatted)))
+        with patch("study.course_practice.timezone.now", return_value=evidence["due_at"]):
+            review = start_attempt(self.user, formatted, "review")
+        self.assertEqual(review.review_of_id, check.pk)
+        check.refresh_from_db()
+        self.assertEqual(check.content_version, self.lesson.content_version)
+        self.assertTrue(check.criterion_met)
+
+    def test_published_markup_alias_is_exact_and_keeps_historical_attempts_frozen(self):
+        self.lesson = replace(self.lesson, summary="Use `être` and `avoir`.")
+        canonical = self.lesson.content_version
+        legacy = content_digest(asdict(self.lesson))
+        self.assertNotEqual(canonical, legacy)
+        with patch.object(CourseLesson, "content_version", new_callable=PropertyMock, return_value=legacy):
+            check = self.submit(self.start())
+        original = deepcopy(check.snapshot)
+        with patch.dict(PUBLISHED_MARKUP_VERSIONS, {canonical: (legacy,)}):
+            evidence = evidence_state(self.user, self.lesson)
+            self.assertEqual(evidence["check"].pk, check.pk)
+            self.assertEqual(evidence["due_at"], check.submitted_at + timedelta(days=7))
+            self.assertFalse(any(
+                row["older_content"] for row in practice_guidance(self.user, self.lesson)
+            ))
+            with patch("study.course_practice.timezone.now", return_value=evidence["due_at"]):
+                review = start_attempt(self.user, self.lesson, "review")
+            self.assertEqual(review.review_of_id, check.pk)
+            changed = replace(self.lesson, summary="Teach a different distinction.")
+            self.assertIsNone(evidence_state(self.user, changed)["check"])
+            self.assertTrue(any(
+                row["older_content"] for row in practice_guidance(self.user, changed)
+            ))
+        check.refresh_from_db()
+        self.assertEqual(check.content_version, legacy)
+        self.assertEqual(check.snapshot, original)
+        self.assertTrue(check.criterion_met)
 
     def test_content_and_item_versions_are_immutable_across_edits(self):
         attempt = self.start()

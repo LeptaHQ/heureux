@@ -55,7 +55,7 @@
       "examples": [
         {"french": "Les deux contributions reconnaissent l'intérêt d'un accès en soirée, **mais elles diffèrent sur** le rythme de mise en place.", "english": "Both contributions recognise the value of evening access, but they differ on the pace of implementation.", "note": "One sentence captures both common ground and the real difference."},
         {"french": "A souhaite deux soirées, **tandis que** B recommande d'en tester une seule au départ.", "english": "A wants two evenings, whereas B recommends testing just one initially.", "note": "Au départ prevents a temporary limit from becoming a permanent rejection."},
-        {"french": "Le personnel **dont** B souligne la nécessité n'est pas évoqué dans A.", "english": "The staff whose necessity B highlights are not mentioned in A.", "note": "Dont represents la nécessité du personnel. Silence in A is not proof that A opposes staffing."}
+        {"french": "Le personnel **dont** B souligne la nécessité n'est pas évoqué dans A.", "english": "The staff that B says are needed are not mentioned in A.", "note": "Dont represents la nécessité du personnel. Silence in A is not proof that A opposes staffing."}
       ],
       "mistakes": [
         {"avoid": "Les deux contributions reconnaît l'intérêt d'un horaire élargi.", "prefer": "Les deux contributions reconnaissent l'intérêt d'un horaire élargi.", "why": "The plural subject les deux contributions requires the plural verb reconnaissent."}

@@ -2,7 +2,7 @@
   "version": 1, "id": "b1-present-stem-changes", "slug": "b1-present-stem-changes", "cefr_level": "B1", "topic": "verbs-tenses-moods",
   "title": "Trois familles irrégulières au présent",
   "summary": "Use valoir, mourir and acquérir without forcing them into regular verb patterns.",
-  "order": 1, "duration_minutes": 13, "prerequisites": [],
+  "order": 1, "duration_minutes": 13, "prerequisites": ["a2-present-receive-drive"],
   "objectives": ["Use all present forms of valoir, mourir and acquérir.", "Transfer acquérir's pattern to conquérir and distinguish quérir."],
   "keywords": ["valoir", "mourir", "acquérir", "conquérir", "requérir", "present stems"],
   "sources": [{"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],

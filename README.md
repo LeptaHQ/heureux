@@ -54,13 +54,19 @@ annotation anchors and links. `/apprendre/` defaults to the original course
 when installed; `?scope=reference` and all old detail URLs retain the library.
 An absent course directory falls back to reference reading, not an empty replacement.
 
+The original release contains 33 A1, 36 A2, 26 B1 and 25 B2 lessons, with exact
+coverage mappings for all 479 public benchmark topics, plus nine C1-oriented
+preparation lessons. Its 2,169 controlled items and contextual self-review tasks
+do not replace independent four-skill assessment. See the
+[implementation record](docs/apprendre-rebuild-plan.md) for scope and limitations.
+
 See [the course contract](docs/apprendre-implementation-contract.md) for the
 lesson and coverage schemas. Validate authored content before deployment:
 
 ```bash
 python manage.py validate_courses
 python manage.py validate_courses --coverage
-python manage.py test study.tests.test_course_platform study.tests.test_learning
+python manage.py test study.tests.test_course_bundle study.tests.test_course_platform study.tests.test_learning
 ```
 
 Reading completion is self-declared and separate from controlled grammar results.

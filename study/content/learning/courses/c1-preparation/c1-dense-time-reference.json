@@ -8,7 +8,7 @@
   "summary": "Reconstruct event order, distinguish a reported plan from an accomplished fact, and identify exactly what a pronoun refers to.",
   "order": 1,
   "duration_minutes": 15,
-  "prerequisites": [],
+  "prerequisites": ["b2-time-reference", "b2-mode-and-stance"],
   "objectives": [
     "Place events before, at or after a past reporting point.",
     "Resolve a reference using grammar and meaning rather than proximity alone.",

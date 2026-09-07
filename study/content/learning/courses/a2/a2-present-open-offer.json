@@ -2,7 +2,7 @@
   "version": 1, "id": "a2-present-open-offer", "slug": "a2-present-open-offer", "cefr_level": "A2", "topic": "verbs-tenses-moods",
   "title": "J'envoie, j'ouvre, j'offre",
   "summary": "Handle changing y spellings and -ir verbs with present endings like parler.",
-  "order": 1, "duration_minutes": 13, "prerequisites": [],
+  "order": 1, "duration_minutes": 13, "prerequisites": ["a1-present-spelling"],
   "objectives": ["Conjugate -oyer, -uyer and -ayer verbs with accepted spelling variants.", "Use complete ouvrir, offrir, souffrir and cueillir families."],
   "keywords": ["présent", "envoyer", "payer", "essuyer", "ouvrir", "offrir", "souffrir", "cueillir"],
   "sources": [{"label": "Public A2 index: topic-coverage reference only", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],

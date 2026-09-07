@@ -1,7 +1,7 @@
 {
   "version": 1, "id": "b2-movement-auxiliaries", "slug": "b2-movement-auxiliaries", "cefr_level": "B2", "topic": "verbs-tenses-moods",
   "title": "Déplacer quelqu'un ou se déplacer", "summary": "Choose avoir or être from the construction of seven movement verbs, not a memorized verb list alone.", "order": 7, "duration_minutes": 15,
-  "prerequisites": [], "objectives": ["Distinguish intransitive movement from transitive uses of entrer, sortir, descendre, monter, retourner, rentrer and repasser.", "Apply auxiliary choice and agreement in compound tenses."],
+  "prerequisites": ["a2-past-etre-movement"], "objectives": ["Distinguish intransitive movement from transitive uses of entrer, sortir, descendre, monter, retourner, rentrer and repasser.", "Apply auxiliary choice and agreement in compound tenses."],
   "keywords": ["auxiliary", "entrer", "sortir", "descendre", "monter", "retourner", "rentrer", "repasser", "transitive"],
   "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}, {"label": "Académie française: repasser, including the intransitive auxiliary-variation note", "url": "https://www.dictionnaire-academie.fr/article/A9R1832"}],
   "related_legacy_ids": ["verbs-passe-compose", "verbs-past-participle-agreement"],

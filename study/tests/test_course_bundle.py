@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+import unicodedata
 from collections import Counter
 from pathlib import Path
 
@@ -27,7 +28,8 @@ def read_json(path):
 
 
 def normalise_prompt(text):
-    return " ".join(text.replace("’", "'").split()).casefold()
+    text = unicodedata.normalize("NFC", text).replace("’", "'").replace("‘", "'")
+    return " ".join(text.split()).casefold()
 
 
 class CourseBundleTests(SimpleTestCase):
@@ -109,6 +111,7 @@ class CourseBundleTests(SimpleTestCase):
         self.assertEqual(len(source_urls), 479)
 
     def test_pools_have_distinct_prompts_and_constructed_answers(self):
+        seen_questions = {}
         for lesson in self.lessons.values():
             with self.subTest(lesson=lesson["id"]):
                 items = lesson["practice"]
@@ -116,7 +119,6 @@ class CourseBundleTests(SimpleTestCase):
                 counts = Counter(item["pool"] for item in items)
                 for pool, minimum in (("practice", 4), ("check", 8), ("review", 4)):
                     self.assertGreaterEqual(counts[pool], minimum)
-                seen = set()
                 sections = {section["id"] for section in lesson["sections"]}
                 for item in items:
                     with self.subTest(item=item["id"]):
@@ -124,13 +126,17 @@ class CourseBundleTests(SimpleTestCase):
                         self.assertTrue(item["answers"])
                         self.assertTrue(item["explanation"].strip())
                         key = (
+                            item["kind"],
                             normalise_prompt(item["prompt"]),
-                            tuple(sorted(normalise_prompt(a) for a in item["answers"])),
+                            tuple(sorted(normalise_prompt(c) for c in item["choices"])),
                         )
-                        self.assertNotIn(
-                            key, seen, "Repeating an item does not create a fresh holdout."
+                        previous = seen_questions.get(key)
+                        self.assertIsNone(
+                            previous,
+                            f"This repeats {previous}; changing its "
+                            "lesson, answers or choice order does not create a fresh item.",
                         )
-                        seen.add(key)
+                        seen_questions[key] = f"{lesson['id']}/{item['id']}"
                         if item["kind"] == "choice":
                             self.assertGreaterEqual(len(set(item["choices"])), 2)
                             self.assertTrue(

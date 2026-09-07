@@ -2,7 +2,7 @@
   "version": 1, "id": "b1-narrative-and-questions", "slug": "b1-narrative-and-questions", "cefr_level": "B1", "topic": "verbs-tenses-moods",
   "title": "Raconter au passé et interroger sur les événements",
   "summary": "Separate background from events, negate reflexive past forms and form careful inverted questions.",
-  "order": 3, "duration_minutes": 15, "prerequisites": ["b1-past-families"],
+  "order": 3, "duration_minutes": 15, "prerequisites": ["b1-past-families", "a2-past-contrast", "a2-question-inversion"],
   "objectives": ["Distinguish background, bounded events and an earlier past event.", "Place negation around a reflexive auxiliary.", "Invert compound-past questions with a noun or reflexive pronoun."],
   "keywords": ["imparfait", "passé composé", "plus-que-parfait", "inversion", "reflexive negation"],
   "sources": [{"label": "University of Texas: pronoun placement in compound negation", "url": "https://www.laits.utexas.edu/tex/gr/pro9.html"}, {"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],

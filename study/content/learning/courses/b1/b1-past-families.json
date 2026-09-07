@@ -2,7 +2,7 @@
   "version": 1, "id": "b1-past-families", "slug": "b1-past-families", "cefr_level": "B1", "topic": "verbs-tenses-moods",
   "title": "Les familles de participes passés et leurs auxiliaires",
   "summary": "Report discoveries, journeys and encounters with connu, paru, couru, battu and apparu.",
-  "order": 2, "duration_minutes": 15, "prerequisites": ["b1-present-stem-changes"],
+  "order": 2, "duration_minutes": 15, "prerequisites": ["b1-present-stem-changes", "a2-past-etre-movement"],
   "objectives": ["Build compound past forms across four irregular families.", "Distinguish the usual auxiliaries of paraître, apparaître and naître."],
   "keywords": ["passé composé", "connu", "paru", "couru", "battu", "apparu", "né", "auxiliary"],
   "sources": [{"label": "OQLF: auxiliary choice with apparaître", "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/23848/la-grammaire/le-verbe/auxiliaires/emploi-des-auxiliaires-avec-le-verbe-apparaitre"}, {"label": "B1 public topic index (coverage reference only)", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"}],

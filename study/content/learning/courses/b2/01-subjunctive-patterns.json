@@ -8,7 +8,7 @@
   "summary": "Build regular present-subjunctive forms and understand why a mood is not a timeline.",
   "order": 1,
   "duration_minutes": 12,
-  "prerequisites": [],
+  "prerequisites": ["b1-present-stem-changes"],
   "objectives": ["Form all six persons of regular present-subjunctive verbs.", "Distinguish a grammatical mood from tense and identify a clause introduced by que."],
   "keywords": ["subjonctif présent", "regular verbs", "mood", "finir", "attendre", "parler"],
   "sources": [{"label": "B2 public index, consulted as a topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}],

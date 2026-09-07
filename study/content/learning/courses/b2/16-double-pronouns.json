@@ -1,7 +1,7 @@
 {
   "version": 1, "id": "b2-double-pronouns", "slug": "b2-double-pronouns", "cefr_level": "B2", "topic": "pronouns-questions-negation",
   "title": "Placer deux pronoms ensemble", "summary": "Combine direct, indirect, reflexive, y and en pronouns before the verb they belong to.", "order": 16, "duration_minutes": 15,
-  "prerequisites": ["b2-participle-agreement"], "objectives": ["Order pronouns from their grammatical role.", "Place a pronoun group before a simple verb, auxiliary or relevant infinitive.", "Retain quantities and appropriate participle agreement."],
+  "prerequisites": ["b2-participle-agreement", "a2-y-en-reference"], "objectives": ["Order pronouns from their grammatical role.", "Place a pronoun group before a simple verb, auxiliary or relevant infinitive.", "Retain quantities and appropriate participle agreement."],
   "keywords": ["double pronouns", "le lui", "me le", "se les", "lui en", "les y", "y en"],
   "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}],
   "related_legacy_ids": ["pronouns-direct-indirect", "pronouns-y-en", "pronouns-stressed-reflexive"],

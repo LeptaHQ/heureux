@@ -4,7 +4,20 @@
 
 **User goal:** exceptionally clear grammar teaching, with breadth comparable to the public Kwiziq A1–B2 topic catalogue, supporting **NCLC 9+ across all four TCF Canada skills**.
 
-**Current status:** implementation and original lesson authoring are in progress on isolated branches. The course platform and prerequisite-closed lesson batches are being integrated locally; the complete 479-topic crosswalk and release review remain outstanding. The rebuild is **not yet published**. The [implementation contract](apprendre-implementation-contract.md) records the concrete schema, ownership and bounded practice pilot that supersede earlier design alternatives below.
+**Implemented release:** 120 original A1–B2 lessons resolve all 479 benchmark topics, with nine additional C1-oriented preparation lessons. The preserved 83-lesson reference library remains available with its existing routes, source material, notes and reading progress. The [implementation contract](apprendre-implementation-contract.md) records the concrete schema and bounded practice pilot that supersede earlier design alternatives below.
+
+| Level | Original lessons | Paired examples | Practice items | Benchmark topics |
+| --- | ---: | ---: | ---: | ---: |
+| A1 | 33 | 364 | 546 | 134 |
+| A2 | 36 | 290 | 582 | 165 |
+| B1 | 26 | 267 | 480 | 96 |
+| B2 | 25 | 294 | 417 | 84 |
+| C1-oriented preparation | 9 | 72 | 144 | Separate bridge |
+| **Total** | **129** | **1,287** | **2,169** | **479** |
+
+These lessons contain 348 teaching sections, 303 contextual corrections and 129 production tasks with models, translations and self-review rubrics. A complete multiline paradigm counts as one example object, not several separate examples. The banks contain 540 learning-practice items, 1,081 check items and 548 review items; 1,960 require constructed answers.
+
+All four benchmark ledgers contain exact source-title/URL mappings to actual teaching sections and exercise IDs. Separate AI-assisted editorial passes covered each complete level and ledger; source checks and integration review resolved grammatical variants, ambiguous instructions and duplicate cross-level questions. This is not human-teacher accreditation, psychometric validation or proof of equivalence to another platform's proprietary mastery score.
 
 ## 1. What success means
 
@@ -50,7 +63,7 @@ The public indexes contain the following distinct linked grammar topics:
 
 These are **topic-index counts**, not a claim to have read, copied or audited 479 complete lessons. Several entries teach individual verbs within a family. We should not produce 479 arbitrary pages merely to match a competitor's page count.
 
-The current Apprendre contains **83 lessons, 186 teaching sections and 10 topic categories**. Its difficulty labels are `Fondamental`, `Intermédiaire` and `Avancé`, not A1/A2/B1/B2. Eleven lessons are estimated at 25 minutes or longer; one lexical lesson is 52 minutes with 12 sections.
+The preserved reference library contains **83 lessons, 186 teaching sections and 10 topic categories**. Its difficulty labels are `Fondamental`, `Intermédiaire` and `Avancé`, not A1/A2/B1/B2. At the planning baseline, eleven lessons were estimated at 25 minutes or longer; one lexical lesson was 52 minutes with 12 sections.
 
 Important baseline findings:
 
@@ -74,7 +87,7 @@ Each original lesson should have a source record identifying the grammatical ref
 
 ## 4. Build a skill map before writing at scale
 
-The planning-stage session register, `apprendre-a1-b2-coverage-register.json`, contained **479 rows**, with ten initial teaching-level checks and 469 awaiting review. It is a historical baseline, not the release ledger. Each curriculum owner is now resolving the complete level into original teaching and exercise evidence in `study/content/learning/coverage/{a1,a2,b1,b2}.json`, checked against the committed public-index snapshots. Mapping a topic does not mark a learner assessed or proficient.
+The planning-stage session register, `apprendre-a1-b2-coverage-register.json`, contained **479 rows**, with ten initial teaching-level checks and 469 awaiting review. It is a historical baseline, not the release ledger. The completed `study/content/learning/coverage/{a1,a2,b1,b2}.json` ledgers now resolve all 479 topics into original teaching and exercise evidence against the committed public-index snapshots. Mapping a topic does not mark a learner assessed or proficient.
 
 For every row, record the benchmark topic, our original skill ID, current lesson/section evidence, prerequisite skills, introduction level, later consolidation level, and disposition:
 
@@ -111,6 +124,8 @@ Use a short foundations orientation for learners who still need subjects, verbs,
 | C1-oriented preparation | Apply language flexibly and reliably to the four-skill target. | Dense meaning, inference, reformulation, discourse control, spontaneous interaction, precise writing and repair under time pressure. This is not automatically a complete C1 course or a guarantee of a C1 score. |
 
 Level assignments are instructional decisions supported by the crosswalk and task demands, not official CEFR certification for individual grammar rules.
+
+Suggested earlier-reading links connect relevant foundations across levels: present spelling, compound-past formation, narrative contrast, inversion, object pronouns and advanced time/stance interpretation. These are helpful reading references, not mandatory completion locks.
 
 ## 6. Non-negotiable lesson standard
 
@@ -200,7 +215,7 @@ Retrieval and delayed transfer are supported by [Roediger and Karpicke (2006)](h
 
 ## 9. Technical implementation
 
-| Surface | Planned change and safeguard |
+| Surface | Implemented design and safeguard |
 | --- | --- |
 | Content organisation | Add independently owned lesson JSON files and exact coverage ledgers. Preserve the existing `curriculum.json` reference library unchanged. Integrate serially; do not repeat simultaneous writes to one curriculum file. |
 | Schema | Validate CEFR level, topic, stable lesson and item IDs, prerequisites, version, source records, teaching sections, practice pools and contextual production. Existing reference difficulty labels remain distinct from CEFR levels. |
@@ -249,7 +264,7 @@ No reliable total lesson count, completion time or score guarantee should be inv
 
 ## Planning artifacts
 
-The original research artifacts remain in the session. Committed benchmark metadata, the legacy preservation manifest and completed coverage ledgers support reproducible release checks; none contains a copied proprietary lesson or quiz bank.
+The original research artifacts remain in the session. Committed benchmark metadata, the legacy preservation manifest and completed coverage ledgers support reproducible release checks; none contains a copied proprietary lesson or quiz bank. Run `python manage.py validate_courses --coverage` and `python manage.py test study.tests.test_course_bundle` to check the complete bundle, mappings, question uniqueness, prerequisite ordering and preserved routes.
 
 - `kwiziq-index-a1.json`, `kwiziq-index-a2.json`, `kwiziq-index-b1.json`, `kwiziq-index-b2.json`: public topic metadata snapshots.
 - `apprendre-a1-b2-coverage-register.json`: historical planning register with 479 rows and ten initial teaching-level checks.

@@ -98,6 +98,7 @@ Each lesson has at least 16 manually authored items: at least 4 `practice`, 8 `c
 - `kind`: `text` or `choice`.
 - A `choice` item has at least two distinct choices and answers that are members of that list. A text item has `choices: []`.
 - `answers`: all explicitly accepted alternatives for this constrained task. Prompt tightly enough to avoid arbitrary rejection of equally valid sentences. Prefer asking for a particular form over pretending an unconstrained translation has one answer.
+- Optional item booleans `case_sensitive` and `terminal_punctuation_sensitive` default to false. Set them to true when the item explicitly assesses that feature. Accents, morphology and internal punctuation such as inversion hyphens remain meaningful in all modes; do not guess normalization rules from prompt keywords.
 - `pool`: `practice`, `check`, `review`.
 - At least half of check/review items are `text` (unaided constructed answers), not only recognition.
 - `section_id` must resolve within the lesson.

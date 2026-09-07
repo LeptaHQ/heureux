@@ -7,6 +7,7 @@ import json
 import unicodedata
 from collections import Counter
 from dataclasses import asdict, dataclass
+from datetime import date
 from functools import lru_cache
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -27,6 +28,7 @@ COURSE_ROOT = CONTENT_ROOT / "courses"
 CEFR_LEVELS = ("A1", "A2", "B1", "B2", "C1-preparation")
 LEVEL_DIRECTORIES = dict(zip(CEFR_LEVELS, ("a1", "a2", "b1", "b2", "c1-preparation")))
 BENCHMARK_COUNTS = {"A1": 134, "A2": 165, "B1": 96, "B2": 84}
+DEPTH_BASELINE_COMMIT = "1e94f93c723fb11361137e8bc7d23adb18ac6231"
 POOL_MINIMUMS = {"practice": 4, "check": 8, "review": 4}
 
 
@@ -360,6 +362,31 @@ class CoverageEntry:
     evidence: str
 
 
+@dataclass(frozen=True)
+class TeachingEvidence:
+    lesson_id: str
+    section_ids: tuple[str, ...]
+    practice_ids: tuple[str, ...]
+
+
+def _teaching_evidence(value, lessons, level: str, location: str) -> TeachingEvidence:
+    lesson_id = _slug(value["lesson_id"], f"{location}.lesson_id")
+    lesson = lessons.get(lesson_id)
+    if lesson is None or lesson.cefr_level != level:
+        raise ValueError(f"{location} lesson must exist at the mapped level")
+    sections = _identifiers(value["section_ids"], f"{location}.section_ids")
+    items = _identifiers(value["practice_ids"], f"{location}.practice_ids")
+    section_map = {section.id: section for section in lesson.sections}
+    item_map = {item.id: item for item in lesson.practice}
+    if not set(sections) <= section_map.keys() or not set(items) <= item_map.keys():
+        raise ValueError(f"{location} sections and practice items must resolve")
+    if not any(section_map[key].examples for key in sections):
+        raise ValueError(f"{location} requires visible examples in mapped sections")
+    if any(item_map[key].section_id not in sections for key in items):
+        raise ValueError(f"{location} practice must exercise a mapped section")
+    return TeachingEvidence(lesson_id, sections, items)
+
+
 def validate_coverage_ledger(value, benchmark, catalog: CourseCatalog) -> tuple[CoverageEntry, ...]:
     value = _object(value, "coverage")
     _exact_fields(value, {"version", "level", "source_index_url", "entries"}, "coverage")
@@ -380,20 +407,7 @@ def validate_coverage_ledger(value, benchmark, catalog: CourseCatalog) -> tuple[
         url = _url(raw["source_url"], "coverage.source_url")
         if url not in sources or raw["source_title"] != sources[url]:
             raise ValueError("Coverage source URL/title must exactly match the benchmark")
-        lesson_id = _slug(raw["lesson_id"], "coverage.lesson_id")
-        lesson = lessons.get(lesson_id)
-        if lesson is None or lesson.cefr_level != level:
-            raise ValueError("Coverage lesson must exist at the mapped level")
-        sections = _identifiers(raw["section_ids"], "coverage.section_ids")
-        items = _identifiers(raw["practice_ids"], "coverage.practice_ids")
-        section_map = {section.id: section for section in lesson.sections}
-        item_map = {item.id: item for item in lesson.practice}
-        if not set(sections) <= section_map.keys() or not set(items) <= item_map.keys():
-            raise ValueError("Coverage sections and practice items must resolve")
-        if not any(section_map[key].examples for key in sections):
-            raise ValueError("Coverage requires visible examples in mapped sections")
-        if any(item_map[key].section_id not in sections for key in items):
-            raise ValueError("Coverage practice must exercise a mapped section")
+        teaching = _teaching_evidence(raw, lessons, level, "coverage")
         disposition = _text(raw["disposition"], "coverage.disposition")
         if disposition not in {"original-lesson", "consolidated", "recognition-track"}:
             raise ValueError("Coverage disposition is not a finished mapping")
@@ -401,9 +415,106 @@ def validate_coverage_ledger(value, benchmark, catalog: CourseCatalog) -> tuple[
         if len(evidence.split()) < 6 or normalize_answer(evidence) in {"covered", "fully covered"}:
             raise ValueError("Coverage requires specific teaching and exercise evidence")
         entries.append(CoverageEntry(
-            url, sources[url], lesson_id, sections, items, disposition, evidence
+            url, sources[url], teaching.lesson_id, teaching.section_ids,
+            teaching.practice_ids, disposition, evidence
         ))
     counts = Counter(entry.source_url for entry in entries)
     if set(counts) != set(sources) or any(count != 1 for count in counts.values()):
         raise ValueError("Coverage must map every benchmark URL exactly once")
+    return tuple(entries)
+
+
+@dataclass(frozen=True)
+class DepthReference:
+    url: str
+    purpose: str
+
+
+@dataclass(frozen=True)
+class DepthEntry:
+    source_url: str
+    source_title: str
+    checked_on: str
+    access: str
+    finding: str
+    note: str
+    evidence: tuple[TeachingEvidence, ...]
+    references: tuple[DepthReference, ...]
+
+    @property
+    def compared(self) -> bool:
+        return self.access == "read" and self.finding != "not-assessed"
+
+
+def validate_depth_report(
+    value, benchmark, catalog: CourseCatalog, *, today: date | None = None
+) -> tuple[DepthEntry, ...]:
+    """Validate audit records, not the truth of a source-reading or quality claim."""
+    value = _object(value, "depth")
+    _exact_fields(value, {"version", "level", "baseline_commit", "scope", "entries"}, "depth")
+    _version(value["version"], "depth.version")
+    level = _text(value["level"], "depth.level")
+    if level not in BENCHMARK_COUNTS or benchmark["level"] != level:
+        raise ValueError("depth.level does not match the benchmark")
+    if value["baseline_commit"] != DEPTH_BASELINE_COMMIT:
+        raise ValueError("depth.baseline_commit must identify the published follow-up baseline")
+    if value["scope"] != "public-lesson-text":
+        raise ValueError("depth.scope must be public-lesson-text, not the private question bank")
+    sources = {entry["url"]: entry["title"] for entry in benchmark["entries"]}
+    if len(sources) != BENCHMARK_COUNTS[level] or len(sources) != len(benchmark["entries"]):
+        raise ValueError("Benchmark count or uniqueness is invalid")
+    lessons = {lesson.id: lesson for lesson in catalog.lessons}
+    today = today or date.today()
+    entries = []
+    for index, raw in enumerate(_array(value["entries"], "depth.entries")):
+        location = f"depth {level}.entries[{index}]"
+        raw = _object(raw, location)
+        _exact_fields(raw, set(DepthEntry.__dataclass_fields__), location)
+        url = _url(raw["source_url"], f"{location}.source_url")
+        if (
+            raw["source_url"] != url or url not in sources
+            or raw["source_title"] != sources[url]
+        ):
+            raise ValueError(f"{location} source URL/title must exactly match the benchmark")
+        location += f" ({url})"
+        checked_on = _text(raw["checked_on"], f"{location}.checked_on")
+        try:
+            checked_date = date.fromisoformat(checked_on)
+        except ValueError as exc:
+            raise ValueError(f"{location}.checked_on must be a YYYY-MM-DD date") from exc
+        if checked_date.isoformat() != checked_on or checked_date > today:
+            raise ValueError(f"{location}.checked_on must be YYYY-MM-DD and not in the future")
+        access = _text(raw["access"], f"{location}.access")
+        finding = _text(raw["finding"], f"{location}.finding")
+        if access not in {"read", "partial", "unavailable"}:
+            raise ValueError(f"{location}.access is invalid")
+        if finding not in {"sufficient", "enriched", "reference-qualified", "not-assessed"}:
+            raise ValueError(f"{location}.finding is invalid")
+        if access != "read" and finding != "not-assessed":
+            raise ValueError(f"{location} partial/unavailable text must remain not-assessed")
+        note = _text(raw["note"], f"{location}.note")
+        evidence = []
+        for evidence_index, item in enumerate(_array(raw["evidence"], f"{location}.evidence")):
+            evidence_location = f"{location}.evidence[{evidence_index}]"
+            item = _object(item, evidence_location)
+            _exact_fields(item, set(TeachingEvidence.__dataclass_fields__), evidence_location)
+            evidence.append(_teaching_evidence(item, lessons, level, evidence_location))
+        if finding != "not-assessed" and not evidence:
+            raise ValueError(f"{location} assessed comparisons require teaching and exercise evidence")
+        references = []
+        for reference_index, item in enumerate(_array(raw["references"], f"{location}.references")):
+            reference_location = f"{location}.references[{reference_index}]"
+            item = _object(item, reference_location)
+            _exact_fields(item, set(DepthReference.__dataclass_fields__), reference_location)
+            references.append(DepthReference(
+                _url(item["url"], f"{reference_location}.url"),
+                _text(item["purpose"], f"{reference_location}.purpose"),
+            ))
+        entries.append(DepthEntry(
+            url, sources[url], checked_on, access, finding, note,
+            tuple(evidence), tuple(references),
+        ))
+    counts = Counter(entry.source_url for entry in entries)
+    if set(counts) != set(sources) or any(count != 1 for count in counts.values()):
+        raise ValueError("Depth audit must account for every benchmark URL exactly once")
     return tuple(entries)

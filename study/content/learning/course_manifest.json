@@ -1,0 +1,5289 @@
+{
+  "version": 1,
+  "baseline_commit": "1e94f93c723fb11361137e8bc7d23adb18ac6231",
+  "reference_sha256": "54b2e636c0c613a57032b49a74db546fd536d823a861f38fc5edc373cf508aa4",
+  "lessons": [
+    {
+      "file": "courses/a1/a1-activities.json",
+      "id": "a1-activities",
+      "slug": "a1-activities",
+      "level": "A1",
+      "baseline_sha256": "9f029255c00eab459b93b16c036d50c82cc3373784379b4540352de18d6350f0",
+      "section_ids": [
+        "sports",
+        "music",
+        "shopping"
+      ],
+      "item_ids": [
+        "a1-act-01",
+        "a1-act-02",
+        "a1-act-03",
+        "a1-act-04",
+        "a1-act-05",
+        "a1-act-06",
+        "a1-act-07",
+        "a1-act-08",
+        "a1-act-09",
+        "a1-act-10",
+        "a1-act-11",
+        "a1-act-12",
+        "a1-act-13",
+        "a1-act-14",
+        "a1-act-15",
+        "a1-act-16"
+      ],
+      "prerequisites": [
+        "a1-aller-faire",
+        "a1-articles-gender",
+        "a1-present-families"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-adjective-forms.json",
+      "id": "a1-adjective-forms",
+      "slug": "a1-adjective-forms",
+      "level": "A1",
+      "baseline_sha256": "70fcb77512820067d555972dc87db02772059af39f29fc976a69cfe179f92eed",
+      "section_ids": [
+        "basic",
+        "feminine-families",
+        "colours"
+      ],
+      "item_ids": [
+        "a1-adj-01",
+        "a1-adj-02",
+        "a1-adj-03",
+        "a1-adj-04",
+        "a1-adj-05",
+        "a1-adj-06",
+        "a1-adj-07",
+        "a1-adj-08",
+        "a1-adj-09",
+        "a1-adj-10",
+        "a1-adj-11",
+        "a1-adj-12",
+        "a1-adj-13",
+        "a1-adj-14",
+        "a1-adj-15",
+        "a1-adj-16",
+        "a1-adj-17",
+        "a1-adj-18",
+        "a1-adj-19",
+        "a1-adj-20",
+        "a1-adj-21",
+        "a1-adj-22"
+      ],
+      "prerequisites": [
+        "a1-noun-plurals",
+        "a1-reference"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        },
+        {
+          "label": "CCDMD: feminine adjective rules, consulted 2026-09-07",
+          "url": "https://ameliofrancais.ccdmd.qc.ca/storage/amelioration-du-francais/ressources/1697739701-allo_adj_048_V2.pdf"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-adjective-position.json",
+      "id": "a1-adjective-position",
+      "slug": "a1-adjective-position",
+      "level": "A1",
+      "baseline_sha256": "facbe6795f1e01534aafd3edc5c1bd4e65336511b4f970728b7df5a57c22f838",
+      "section_ids": [
+        "position",
+        "special-forms",
+        "neuf-nouveau"
+      ],
+      "item_ids": [
+        "a1-posadj-01",
+        "a1-posadj-02",
+        "a1-posadj-03",
+        "a1-posadj-04",
+        "a1-posadj-05",
+        "a1-posadj-06",
+        "a1-posadj-07",
+        "a1-posadj-08",
+        "a1-posadj-09",
+        "a1-posadj-10",
+        "a1-posadj-11",
+        "a1-posadj-12",
+        "a1-posadj-13",
+        "a1-posadj-14",
+        "a1-posadj-15",
+        "a1-posadj-16"
+      ],
+      "prerequisites": [
+        "a1-adjective-forms"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-adverbs.json",
+      "id": "a1-adverbs",
+      "slug": "a1-adverbs",
+      "level": "A1",
+      "baseline_sha256": "aff952de28a7553c4fc7e6fa42891290051de8b4dae477333cc47a01ecc5bab8",
+      "section_ids": [
+        "formation",
+        "placement"
+      ],
+      "item_ids": [
+        "a1-adv-01",
+        "a1-adv-02",
+        "a1-adv-03",
+        "a1-adv-04",
+        "a1-adv-05",
+        "a1-adv-06",
+        "a1-adv-07",
+        "a1-adv-08",
+        "a1-adv-09",
+        "a1-adv-10",
+        "a1-adv-11",
+        "a1-adv-12",
+        "a1-adv-13",
+        "a1-adv-14",
+        "a1-adv-15",
+        "a1-adv-16"
+      ],
+      "prerequisites": [
+        "a1-adjective-forms",
+        "a1-present-families"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-aller-faire.json",
+      "id": "a1-aller-faire",
+      "slug": "a1-aller-faire",
+      "level": "A1",
+      "baseline_sha256": "072665313fa9a4feea82b74dd38d33941df0a1493008f1450758f12a3334d818",
+      "section_ids": [
+        "aller",
+        "greetings",
+        "faire"
+      ],
+      "item_ids": [
+        "a1-godo-01",
+        "a1-godo-02",
+        "a1-godo-03",
+        "a1-godo-04",
+        "a1-godo-05",
+        "a1-godo-06",
+        "a1-godo-07",
+        "a1-godo-08",
+        "a1-godo-09",
+        "a1-godo-10",
+        "a1-godo-11",
+        "a1-godo-12",
+        "a1-godo-13",
+        "a1-godo-14",
+        "a1-godo-15",
+        "a1-godo-16"
+      ],
+      "prerequisites": [
+        "a1-present-families"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-articles-gender.json",
+      "id": "a1-articles-gender",
+      "slug": "a1-articles-gender",
+      "level": "A1",
+      "baseline_sha256": "d6a99c4d6b8776f6f976ffa6c8ae651a6f4b9e150b508c6d4434e8ccf1c2cad3",
+      "section_ids": [
+        "identify",
+        "quantity",
+        "contractions",
+        "familiar-contexts"
+      ],
+      "item_ids": [
+        "a1-art-01",
+        "a1-art-02",
+        "a1-art-03",
+        "a1-art-04",
+        "a1-art-05",
+        "a1-art-06",
+        "a1-art-07",
+        "a1-art-08",
+        "a1-art-09",
+        "a1-art-10",
+        "a1-art-11",
+        "a1-art-12",
+        "a1-art-13",
+        "a1-art-14",
+        "a1-art-15",
+        "a1-art-16",
+        "a1-art-17"
+      ],
+      "prerequisites": [
+        "a1-etre-avoir"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-avoir-needs.json",
+      "id": "a1-avoir-needs",
+      "slug": "a1-avoir-needs",
+      "level": "A1",
+      "baseline_sha256": "190e3e5e97f34d0ff22f2fee624fcb03ea100727882dee7bb343cdffe794e7df",
+      "section_ids": [
+        "need-desire",
+        "fear",
+        "pain"
+      ],
+      "item_ids": [
+        "a1-needs-01",
+        "a1-needs-02",
+        "a1-needs-03",
+        "a1-needs-04",
+        "a1-needs-05",
+        "a1-needs-06",
+        "a1-needs-07",
+        "a1-needs-08",
+        "a1-needs-09",
+        "a1-needs-10",
+        "a1-needs-11",
+        "a1-needs-12",
+        "a1-needs-13",
+        "a1-needs-14",
+        "a1-needs-15",
+        "a1-needs-16"
+      ],
+      "prerequisites": [
+        "a1-etre-avoir",
+        "a1-articles-gender",
+        "a1-want-can-must"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-calendar.json",
+      "id": "a1-calendar",
+      "slug": "a1-calendar",
+      "level": "A1",
+      "baseline_sha256": "a67d46c243a8bcf07b83f0c8da30ffef66618234c0e0f294c5c5b27ef243a333",
+      "section_ids": [
+        "dates",
+        "recurrence-seasons",
+        "unit-duration"
+      ],
+      "item_ids": [
+        "a1-cal-01",
+        "a1-cal-02",
+        "a1-cal-03",
+        "a1-cal-04",
+        "a1-cal-05",
+        "a1-cal-06",
+        "a1-cal-07",
+        "a1-cal-08",
+        "a1-cal-09",
+        "a1-cal-10",
+        "a1-cal-11",
+        "a1-cal-12",
+        "a1-cal-13",
+        "a1-cal-14",
+        "a1-cal-15",
+        "a1-cal-16"
+      ],
+      "prerequisites": [
+        "a1-numbers",
+        "a1-clock"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-clock.json",
+      "id": "a1-clock",
+      "slug": "a1-clock",
+      "level": "A1",
+      "baseline_sha256": "37497567e63f6a98f05ff111e0b549bbf722fc4c7b1ae967dfa9e06411c79899",
+      "section_ids": [
+        "twelve",
+        "schedule",
+        "timeliness"
+      ],
+      "item_ids": [
+        "a1-clock-01",
+        "a1-clock-02",
+        "a1-clock-03",
+        "a1-clock-04",
+        "a1-clock-05",
+        "a1-clock-06",
+        "a1-clock-07",
+        "a1-clock-08",
+        "a1-clock-09",
+        "a1-clock-10",
+        "a1-clock-11",
+        "a1-clock-12",
+        "a1-clock-13",
+        "a1-clock-14",
+        "a1-clock-15",
+        "a1-clock-16"
+      ],
+      "prerequisites": [
+        "a1-numbers",
+        "a1-questions"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-croire-mettre.json",
+      "id": "a1-croire-mettre",
+      "slug": "a1-croire-mettre",
+      "level": "A1",
+      "baseline_sha256": "8688dc2c4a2e02da60fc621a481377dfa3e110df9e7650e439e1d7abe8f72b1b",
+      "section_ids": [
+        "croire",
+        "thought-clause",
+        "mettre"
+      ],
+      "item_ids": [
+        "a1-cm-01",
+        "a1-cm-02",
+        "a1-cm-03",
+        "a1-cm-04",
+        "a1-cm-05",
+        "a1-cm-06",
+        "a1-cm-07",
+        "a1-cm-08",
+        "a1-cm-09",
+        "a1-cm-10",
+        "a1-cm-11",
+        "a1-cm-12",
+        "a1-cm-13",
+        "a1-cm-14",
+        "a1-cm-15",
+        "a1-cm-16"
+      ],
+      "prerequisites": [
+        "a1-present-families",
+        "a1-say-read-write"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-daily-irregulars.json",
+      "id": "a1-daily-irregulars",
+      "slug": "a1-daily-irregulars",
+      "level": "A1",
+      "baseline_sha256": "b66dfb81f1aa3121eb3141526cc50c73cf93b9f0104c5dc437871424e21fbf7f",
+      "section_ids": [
+        "short-stems",
+        "boire",
+        "sentir"
+      ],
+      "item_ids": [
+        "a1-dailyv-01",
+        "a1-dailyv-02",
+        "a1-dailyv-03",
+        "a1-dailyv-04",
+        "a1-dailyv-05",
+        "a1-dailyv-06",
+        "a1-dailyv-07",
+        "a1-dailyv-08",
+        "a1-dailyv-09",
+        "a1-dailyv-10",
+        "a1-dailyv-11",
+        "a1-dailyv-12",
+        "a1-dailyv-13",
+        "a1-dailyv-14",
+        "a1-dailyv-15",
+        "a1-dailyv-16"
+      ],
+      "prerequisites": [
+        "a1-present-families"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-etre-avoir.json",
+      "id": "a1-etre-avoir",
+      "slug": "a1-etre-avoir",
+      "level": "A1",
+      "baseline_sha256": "1c8ae7bcaf4538600b44447a63a5cbb9eea26a7cadc532ec60893a208a28a794",
+      "section_ids": [
+        "etre",
+        "avoir"
+      ],
+      "item_ids": [
+        "a1-behave-01",
+        "a1-behave-02",
+        "a1-behave-03",
+        "a1-behave-04",
+        "a1-behave-05",
+        "a1-behave-06",
+        "a1-behave-07",
+        "a1-behave-08",
+        "a1-behave-09",
+        "a1-behave-10",
+        "a1-behave-11",
+        "a1-behave-12",
+        "a1-behave-13",
+        "a1-behave-14",
+        "a1-behave-15",
+        "a1-behave-16"
+      ],
+      "prerequisites": [
+        "a1-sentence-foundations"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-everyday-responses.json",
+      "id": "a1-everyday-responses",
+      "slug": "a1-everyday-responses",
+      "level": "A1",
+      "baseline_sha256": "e32ff4881c3a761cc3bd96f65f489ecd1de02c69040182d9c5c81d96acbab9de",
+      "section_ids": [
+        "agreement",
+        "preference",
+        "completion",
+        "reassure"
+      ],
+      "item_ids": [
+        "a1-react-01",
+        "a1-react-02",
+        "a1-react-03",
+        "a1-react-04",
+        "a1-react-05",
+        "a1-react-06",
+        "a1-react-07",
+        "a1-react-08",
+        "a1-react-09",
+        "a1-react-10",
+        "a1-react-11",
+        "a1-react-12",
+        "a1-react-13",
+        "a1-react-14",
+        "a1-react-15",
+        "a1-react-16"
+      ],
+      "prerequisites": [
+        "a1-reference",
+        "a1-stressed-object-pronouns",
+        "a1-negatives"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-geography.json",
+      "id": "a1-geography",
+      "slug": "a1-geography",
+      "level": "A1",
+      "baseline_sha256": "01b5af8897705e8abbf7ed7f679a27abc4e436a63b066ffa510cd4154804da71",
+      "section_ids": [
+        "names",
+        "countries",
+        "cities-regions"
+      ],
+      "item_ids": [
+        "a1-geo-01",
+        "a1-geo-02",
+        "a1-geo-03",
+        "a1-geo-04",
+        "a1-geo-05",
+        "a1-geo-06",
+        "a1-geo-07",
+        "a1-geo-08",
+        "a1-geo-09",
+        "a1-geo-10",
+        "a1-geo-11",
+        "a1-geo-12",
+        "a1-geo-13",
+        "a1-geo-14",
+        "a1-geo-15",
+        "a1-geo-16"
+      ],
+      "prerequisites": [
+        "a1-articles-gender",
+        "a1-venir-tenir-prendre",
+        "a1-place"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        },
+        {
+          "label": "OQLF: en, au and dans with American states, consulted 2026-09-07",
+          "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/24891/la-syntaxe/les-prepositions/preposition-devant-un-nom/les-prepositions-devant-un-nom-detat-americain"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-near-future.json",
+      "id": "a1-near-future",
+      "slug": "a1-near-future",
+      "level": "A1",
+      "baseline_sha256": "1e5f2944ca623a899733f8c1b38960d04eb8731c63710d38571ceeeca476f6a2",
+      "section_ids": [
+        "formation",
+        "reflexive",
+        "present-future"
+      ],
+      "item_ids": [
+        "a1-fut-01",
+        "a1-fut-02",
+        "a1-fut-03",
+        "a1-fut-04",
+        "a1-fut-05",
+        "a1-fut-06",
+        "a1-fut-07",
+        "a1-fut-08",
+        "a1-fut-09",
+        "a1-fut-10",
+        "a1-fut-11",
+        "a1-fut-12",
+        "a1-fut-13",
+        "a1-fut-14",
+        "a1-fut-15",
+        "a1-fut-16"
+      ],
+      "prerequisites": [
+        "a1-aller-faire",
+        "a1-reflexive-routines",
+        "a1-negatives",
+        "a1-calendar"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-negatives.json",
+      "id": "a1-negatives",
+      "slug": "a1-negatives",
+      "level": "A1",
+      "baseline_sha256": "9df043f2fb932132b53b48f2803d9297200bc3fac8ff734d786d11bc6ccf5979",
+      "section_ids": [
+        "placement",
+        "articles",
+        "never",
+        "responses"
+      ],
+      "item_ids": [
+        "a1-neg-01",
+        "a1-neg-02",
+        "a1-neg-03",
+        "a1-neg-04",
+        "a1-neg-05",
+        "a1-neg-06",
+        "a1-neg-07",
+        "a1-neg-08",
+        "a1-neg-09",
+        "a1-neg-10",
+        "a1-neg-11",
+        "a1-neg-12",
+        "a1-neg-13",
+        "a1-neg-14",
+        "a1-neg-15",
+        "a1-neg-16",
+        "a1-neg-17"
+      ],
+      "prerequisites": [
+        "a1-reflexive-routines",
+        "a1-want-can-must",
+        "a1-stressed-object-pronouns"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-noun-plurals.json",
+      "id": "a1-noun-plurals",
+      "slug": "a1-noun-plurals",
+      "level": "A1",
+      "baseline_sha256": "2fc054ab2dc51bcd3bab448d241b8a409caee0318f95672d53e06bafc7b4797a",
+      "section_ids": [
+        "regular",
+        "families",
+        "surnames"
+      ],
+      "item_ids": [
+        "a1-plur-01",
+        "a1-plur-02",
+        "a1-plur-03",
+        "a1-plur-04",
+        "a1-plur-05",
+        "a1-plur-06",
+        "a1-plur-07",
+        "a1-plur-08",
+        "a1-plur-09",
+        "a1-plur-10",
+        "a1-plur-11",
+        "a1-plur-12",
+        "a1-plur-13",
+        "a1-plur-14",
+        "a1-plur-15",
+        "a1-plur-16"
+      ],
+      "prerequisites": [
+        "a1-articles-gender"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        },
+        {
+          "label": "Usito, Universit\u00e9 de Sherbrooke: current plural sarraus, consulted 2026-09-07",
+          "url": "https://usito.usherbrooke.ca/d%C3%A9finitions/sarrau"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-numbers.json",
+      "id": "a1-numbers",
+      "slug": "a1-numbers",
+      "level": "A1",
+      "baseline_sha256": "0d66b14e9c2d49f470d02751975c660398572ef91d25723a5340a4ec27e4b4f0",
+      "section_ids": [
+        "small",
+        "tens-hundreds",
+        "large-decimal",
+        "rank-measure"
+      ],
+      "item_ids": [
+        "a1-num-01",
+        "a1-num-02",
+        "a1-num-03",
+        "a1-num-04",
+        "a1-num-05",
+        "a1-num-06",
+        "a1-num-07",
+        "a1-num-08",
+        "a1-num-09",
+        "a1-num-10",
+        "a1-num-11",
+        "a1-num-12",
+        "a1-num-13",
+        "a1-num-14",
+        "a1-num-15",
+        "a1-num-16",
+        "a1-num-17",
+        "a1-num-18",
+        "a1-num-19",
+        "a1-num-20",
+        "a1-num-21"
+      ],
+      "prerequisites": [
+        "a1-noun-plurals",
+        "a1-adjective-forms"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-place.json",
+      "id": "a1-place",
+      "slug": "a1-place",
+      "level": "A1",
+      "baseline_sha256": "e69170b592699ed11d88c0a14dfa20e9a6946567195e6821f33396eee427b3b5",
+      "section_ids": [
+        "simple",
+        "compound",
+        "en-chez"
+      ],
+      "item_ids": [
+        "a1-place-01",
+        "a1-place-02",
+        "a1-place-03",
+        "a1-place-04",
+        "a1-place-05",
+        "a1-place-06",
+        "a1-place-07",
+        "a1-place-08",
+        "a1-place-09",
+        "a1-place-10",
+        "a1-place-11",
+        "a1-place-12",
+        "a1-place-13",
+        "a1-place-14",
+        "a1-place-15",
+        "a1-place-16",
+        "a1-place-17",
+        "a1-place-18",
+        "a1-place-19",
+        "a1-place-20"
+      ],
+      "prerequisites": [
+        "a1-articles-gender",
+        "a1-stressed-object-pronouns"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-possession.json",
+      "id": "a1-possession",
+      "slug": "a1-possession",
+      "level": "A1",
+      "baseline_sha256": "ad94b6aa4ea38d6d4418b7a9bdae54a0088d15b200db4f567ba63bc6520fd3e1",
+      "section_ids": [
+        "determiners",
+        "de-owner",
+        "etre-a"
+      ],
+      "item_ids": [
+        "a1-own-01",
+        "a1-own-02",
+        "a1-own-03",
+        "a1-own-04",
+        "a1-own-05",
+        "a1-own-06",
+        "a1-own-07",
+        "a1-own-08",
+        "a1-own-09",
+        "a1-own-10",
+        "a1-own-11",
+        "a1-own-12",
+        "a1-own-13",
+        "a1-own-14",
+        "a1-own-15",
+        "a1-own-16"
+      ],
+      "prerequisites": [
+        "a1-articles-gender",
+        "a1-stressed-object-pronouns"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-present-families.json",
+      "id": "a1-present-families",
+      "slug": "a1-present-families",
+      "level": "A1",
+      "baseline_sha256": "df356f75755b475370d865d1d76057d30535ad859f9e790f99535f4099cb7ef9",
+      "section_ids": [
+        "meaning",
+        "er",
+        "ir",
+        "dre"
+      ],
+      "item_ids": [
+        "a1-pres-01",
+        "a1-pres-02",
+        "a1-pres-03",
+        "a1-pres-04",
+        "a1-pres-05",
+        "a1-pres-06",
+        "a1-pres-07",
+        "a1-pres-08",
+        "a1-pres-09",
+        "a1-pres-10",
+        "a1-pres-11",
+        "a1-pres-12",
+        "a1-pres-13",
+        "a1-pres-14",
+        "a1-pres-15",
+        "a1-pres-16"
+      ],
+      "prerequisites": [
+        "a1-etre-avoir",
+        "a1-articles-gender"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-present-spelling.json",
+      "id": "a1-present-spelling",
+      "slug": "a1-present-spelling",
+      "level": "A1",
+      "baseline_sha256": "f45cc4c616f49322ee713af1e4305d95f8ff0e99573376f4fd173ccd191147e3",
+      "section_ids": [
+        "soft-sounds",
+        "accents",
+        "eler-eter"
+      ],
+      "item_ids": [
+        "a1-spell-01",
+        "a1-spell-02",
+        "a1-spell-03",
+        "a1-spell-04",
+        "a1-spell-05",
+        "a1-spell-06",
+        "a1-spell-07",
+        "a1-spell-08",
+        "a1-spell-09",
+        "a1-spell-10",
+        "a1-spell-11",
+        "a1-spell-12",
+        "a1-spell-13",
+        "a1-spell-14",
+        "a1-spell-15",
+        "a1-spell-16"
+      ],
+      "prerequisites": [
+        "a1-present-families"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        },
+        {
+          "label": "OQLF: rectified forms including morc\u00e8le and ruiss\u00e8le, consulted 2026-09-07",
+          "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/23190/lorthographe/rectifications-de-lorthographe/recommandations-generales-liees-aux-rectifications-de-lorthographe/liste-alphabetique-de-mots-touches-par-les-rectifications-de-lorthographe"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-questions.json",
+      "id": "a1-questions",
+      "slug": "a1-questions",
+      "level": "A1",
+      "baseline_sha256": "f86a217c486f22fe6cc2c564b000180b20999f4e5fa207a13783c329fd661642",
+      "section_ids": [
+        "yes-no",
+        "identify-object",
+        "information"
+      ],
+      "item_ids": [
+        "a1-q-01",
+        "a1-q-02",
+        "a1-q-03",
+        "a1-q-04",
+        "a1-q-05",
+        "a1-q-06",
+        "a1-q-07",
+        "a1-q-08",
+        "a1-q-09",
+        "a1-q-10",
+        "a1-q-11",
+        "a1-q-12",
+        "a1-q-13",
+        "a1-q-14",
+        "a1-q-15",
+        "a1-q-16"
+      ],
+      "prerequisites": [
+        "a1-reference",
+        "a1-negatives"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-recent-past-progressive.json",
+      "id": "a1-recent-past-progressive",
+      "slug": "a1-recent-past-progressive",
+      "level": "A1",
+      "baseline_sha256": "4774d5b22ceffc12401c923c8a155583983973fef6c9fec1c4bba36169e1e9fb",
+      "section_ids": [
+        "recent",
+        "progressive",
+        "timeline"
+      ],
+      "item_ids": [
+        "a1-aspect-01",
+        "a1-aspect-02",
+        "a1-aspect-03",
+        "a1-aspect-04",
+        "a1-aspect-05",
+        "a1-aspect-06",
+        "a1-aspect-07",
+        "a1-aspect-08",
+        "a1-aspect-09",
+        "a1-aspect-10",
+        "a1-aspect-11",
+        "a1-aspect-12",
+        "a1-aspect-13",
+        "a1-aspect-14",
+        "a1-aspect-15",
+        "a1-aspect-16"
+      ],
+      "prerequisites": [
+        "a1-venir-tenir-prendre",
+        "a1-reflexive-routines",
+        "a1-near-future"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-reference.json",
+      "id": "a1-reference",
+      "slug": "a1-reference",
+      "level": "A1",
+      "baseline_sha256": "34369001e1555f89b6a8cc2960f1180d7c5b134c00c06a092c96fe3ac8338c9b",
+      "section_ids": [
+        "identify",
+        "describe",
+        "ca"
+      ],
+      "item_ids": [
+        "a1-ref-01",
+        "a1-ref-02",
+        "a1-ref-03",
+        "a1-ref-04",
+        "a1-ref-05",
+        "a1-ref-06",
+        "a1-ref-07",
+        "a1-ref-08",
+        "a1-ref-09",
+        "a1-ref-10",
+        "a1-ref-11",
+        "a1-ref-12",
+        "a1-ref-13",
+        "a1-ref-14",
+        "a1-ref-15",
+        "a1-ref-16"
+      ],
+      "prerequisites": [
+        "a1-etre-avoir",
+        "a1-articles-gender"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-reflexive-routines.json",
+      "id": "a1-reflexive-routines",
+      "slug": "a1-reflexive-routines",
+      "level": "A1",
+      "baseline_sha256": "6dca8f2e8608e434e188fdc088637f08ac14d84d6e0909329e3a7698b2263e1c",
+      "section_ids": [
+        "pattern",
+        "routine",
+        "asseoir"
+      ],
+      "item_ids": [
+        "a1-refl-01",
+        "a1-refl-02",
+        "a1-refl-03",
+        "a1-refl-04",
+        "a1-refl-05",
+        "a1-refl-06",
+        "a1-refl-07",
+        "a1-refl-08",
+        "a1-refl-09",
+        "a1-refl-10",
+        "a1-refl-11",
+        "a1-refl-12",
+        "a1-refl-13",
+        "a1-refl-14",
+        "a1-refl-15",
+        "a1-refl-16"
+      ],
+      "prerequisites": [
+        "a1-present-spelling",
+        "a1-daily-irregulars"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        },
+        {
+          "label": "OQLF: asseoir/assoir spelling, consulted 2026-09-07",
+          "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/23190/lorthographe/rectifications-de-lorthographe/recommandations-generales-liees-aux-rectifications-de-lorthographe/liste-alphabetique-de-mots-touches-par-les-rectifications-de-lorthographe"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-say-read-write.json",
+      "id": "a1-say-read-write",
+      "slug": "a1-say-read-write",
+      "level": "A1",
+      "baseline_sha256": "03ccbd0b64de9eaebc2e1c6ec15fe874030664f120af67116506be51e5b17a50",
+      "section_ids": [
+        "dire",
+        "lire-ecrire"
+      ],
+      "item_ids": [
+        "a1-msg-01",
+        "a1-msg-02",
+        "a1-msg-03",
+        "a1-msg-04",
+        "a1-msg-05",
+        "a1-msg-06",
+        "a1-msg-07",
+        "a1-msg-08",
+        "a1-msg-09",
+        "a1-msg-10",
+        "a1-msg-11",
+        "a1-msg-12",
+        "a1-msg-13",
+        "a1-msg-14",
+        "a1-msg-15",
+        "a1-msg-16"
+      ],
+      "prerequisites": [
+        "a1-present-families"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-sentence-foundations.json",
+      "id": "a1-sentence-foundations",
+      "slug": "a1-sentence-foundations",
+      "level": "A1",
+      "baseline_sha256": "24f7058ae9ca5fdb87d7725a08ab8d00bd45da9d709998a73910c9edb73afe47",
+      "section_ids": [
+        "building-blocks",
+        "subject-pronouns",
+        "on-everyone"
+      ],
+      "item_ids": [
+        "a1-found-01",
+        "a1-found-02",
+        "a1-found-03",
+        "a1-found-04",
+        "a1-found-05",
+        "a1-found-06",
+        "a1-found-07",
+        "a1-found-08",
+        "a1-found-09",
+        "a1-found-10",
+        "a1-found-11",
+        "a1-found-12",
+        "a1-found-13",
+        "a1-found-14",
+        "a1-found-15",
+        "a1-found-16",
+        "a1-found-17"
+      ],
+      "prerequisites": [],
+      "sources": [
+        {
+          "label": "Public A1 index: topic-coverage reference, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-stressed-object-pronouns.json",
+      "id": "a1-stressed-object-pronouns",
+      "slug": "a1-stressed-object-pronouns",
+      "level": "A1",
+      "baseline_sha256": "1149c1ab3834228dab1993e30c78555f261c0c8a582a20086f2acf0e8c48fd2d",
+      "section_ids": [
+        "stressed",
+        "objects"
+      ],
+      "item_ids": [
+        "a1-pro-01",
+        "a1-pro-02",
+        "a1-pro-03",
+        "a1-pro-04",
+        "a1-pro-05",
+        "a1-pro-06",
+        "a1-pro-07",
+        "a1-pro-08",
+        "a1-pro-09",
+        "a1-pro-10",
+        "a1-pro-11",
+        "a1-pro-12",
+        "a1-pro-13",
+        "a1-pro-14",
+        "a1-pro-15",
+        "a1-pro-16"
+      ],
+      "prerequisites": [
+        "a1-sentence-foundations",
+        "a1-say-read-write"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-travel-compounds.json",
+      "id": "a1-travel-compounds",
+      "slug": "a1-travel-compounds",
+      "level": "A1",
+      "baseline_sha256": "662312dfe14f3d9c49f1861e64f2a1d77df7024a816fab0bb0fe2b9d5b34fe32",
+      "section_ids": [
+        "transport",
+        "street",
+        "noun-groups"
+      ],
+      "item_ids": [
+        "a1-trip-01",
+        "a1-trip-02",
+        "a1-trip-03",
+        "a1-trip-04",
+        "a1-trip-05",
+        "a1-trip-06",
+        "a1-trip-07",
+        "a1-trip-08",
+        "a1-trip-09",
+        "a1-trip-10",
+        "a1-trip-11",
+        "a1-trip-12",
+        "a1-trip-13",
+        "a1-trip-14",
+        "a1-trip-15",
+        "a1-trip-16"
+      ],
+      "prerequisites": [
+        "a1-place",
+        "a1-want-can-must"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-venir-tenir-prendre.json",
+      "id": "a1-venir-tenir-prendre",
+      "slug": "a1-venir-tenir-prendre",
+      "level": "A1",
+      "baseline_sha256": "5e8d21105d869d779b38f417f43315b1871c70552254e85414215ee2c0fafc8a",
+      "section_ids": [
+        "venir-tenir",
+        "prendre"
+      ],
+      "item_ids": [
+        "a1-vtp-01",
+        "a1-vtp-02",
+        "a1-vtp-03",
+        "a1-vtp-04",
+        "a1-vtp-05",
+        "a1-vtp-06",
+        "a1-vtp-07",
+        "a1-vtp-08",
+        "a1-vtp-09",
+        "a1-vtp-10",
+        "a1-vtp-11",
+        "a1-vtp-12",
+        "a1-vtp-13",
+        "a1-vtp-14",
+        "a1-vtp-15",
+        "a1-vtp-16"
+      ],
+      "prerequisites": [
+        "a1-present-families"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-want-can-must.json",
+      "id": "a1-want-can-must",
+      "slug": "a1-want-can-must",
+      "level": "A1",
+      "baseline_sha256": "c743d3216aff672f2f5bcd1b0610a65a33060aa9292b2b5a2ef4230ac6621ded",
+      "section_ids": [
+        "forms",
+        "need",
+        "purpose"
+      ],
+      "item_ids": [
+        "a1-modal-01",
+        "a1-modal-02",
+        "a1-modal-03",
+        "a1-modal-04",
+        "a1-modal-05",
+        "a1-modal-06",
+        "a1-modal-07",
+        "a1-modal-08",
+        "a1-modal-09",
+        "a1-modal-10",
+        "a1-modal-11",
+        "a1-modal-12",
+        "a1-modal-13",
+        "a1-modal-14",
+        "a1-modal-15",
+        "a1-modal-16"
+      ],
+      "prerequisites": [
+        "a1-present-families",
+        "a1-aller-faire"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a1/a1-weather.json",
+      "id": "a1-weather",
+      "slug": "a1-weather",
+      "level": "A1",
+      "baseline_sha256": "fa83770ecbfa95b5bf1fb9621b0bbd6b19c19f8db80a671a97c02dc4aa357b8b",
+      "section_ids": [
+        "faire",
+        "nouns",
+        "rain-snow"
+      ],
+      "item_ids": [
+        "a1-weather-01",
+        "a1-weather-02",
+        "a1-weather-03",
+        "a1-weather-04",
+        "a1-weather-05",
+        "a1-weather-06",
+        "a1-weather-07",
+        "a1-weather-08",
+        "a1-weather-09",
+        "a1-weather-10",
+        "a1-weather-11",
+        "a1-weather-12",
+        "a1-weather-13",
+        "a1-weather-14",
+        "a1-weather-15",
+        "a1-weather-16"
+      ],
+      "prerequisites": [
+        "a1-aller-faire",
+        "a1-articles-gender",
+        "a1-calendar"
+      ],
+      "sources": [
+        {
+          "label": "Public A1 topic index, reviewed 2026-09-07",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-adjective-feminine-families.json",
+      "id": "a2-adjective-feminine-families",
+      "slug": "a2-adjective-feminine-families",
+      "level": "A2",
+      "baseline_sha256": "5f2da3d0216e59d9ddfeee76702703a024c996effc134f82c611885a33597398",
+      "section_ids": [
+        "f-c",
+        "oux-irregular"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16",
+        "item-17",
+        "item-18"
+      ],
+      "prerequisites": [
+        "a2-possessive-demonstrative-determiners"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-adverbs-formation-position.json",
+      "id": "a2-adverbs-formation-position",
+      "slug": "a2-adverbs-formation-position",
+      "level": "A2",
+      "baseline_sha256": "7682adcf42ccf4537e74a12298febf08be475e2da0ad7b2645cd5733643c4d95",
+      "section_ids": [
+        "formation",
+        "position-irregulars"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-adjective-feminine-families",
+        "a2-past-avoir-foundations"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-avoir-faire-expressions.json",
+      "id": "a2-avoir-faire-expressions",
+      "slug": "a2-avoir-faire-expressions",
+      "level": "A2",
+      "baseline_sha256": "4363e31832f29608b58d14eeded8bdbbf5bb333b6184e6e30b7938600a3162dd",
+      "section_ids": [
+        "avoir-intention",
+        "effects-relations"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-knowing-visiting-routines"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-comparison-change.json",
+      "id": "a2-comparison-change",
+      "slug": "a2-comparison-change",
+      "level": "A2",
+      "baseline_sha256": "950c777230d6dd7aa302932952f9198778de723e04ebd8103a923c4f54a9577b",
+      "section_ids": [
+        "comparative",
+        "ranking-change"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-adverbs-formation-position"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-duration-timelines.json",
+      "id": "a2-duration-timelines",
+      "slug": "a2-duration-timelines",
+      "level": "A2",
+      "baseline_sha256": "96298b889144635f1bf52ac1d8e0509576fc4224c315dd6fae58d378159db398",
+      "section_ids": [
+        "continuing",
+        "bounded",
+        "delay-completion",
+        "events-since"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-past-contrast"
+      ],
+      "sources": [
+        {
+          "label": "Acad\u00e9mie fran\u00e7aise: depuis, consulted 7 September 2026",
+          "url": "https://www.dictionnaire-academie.fr/article/A9D1606"
+        },
+        {
+          "label": "Public A2 topic index: coverage reference, not lesson prose",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-feelings-opinions-fit.json",
+      "id": "a2-feelings-opinions-fit",
+      "slug": "a2-feelings-opinions-fit",
+      "level": "A2",
+      "baseline_sha256": "69651072f7f25ff44387e576911c5d51124d320ee115e0c7ae79edb301685910",
+      "section_ids": [
+        "like-find",
+        "senses-pleasing-fit"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-comparison-change",
+        "a2-object-pronoun-positions"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-imperative-pronouns.json",
+      "id": "a2-imperative-pronouns",
+      "slug": "a2-imperative-pronouns",
+      "level": "A2",
+      "baseline_sha256": "22a2625e5595fbdc12e6ee815a9b83c675234818900d9f45ed988e9ee55fa34b",
+      "section_ids": [
+        "forms",
+        "pronoun-order"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-possessive-pronouns"
+      ],
+      "sources": [
+        {
+          "label": "OQLF: pronouns with imperative verbs; consulted 7 September 2026",
+          "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/24206/la-grammaire/les-pronoms/pronoms-personnels/pronoms-personnels-employes-avec-un-verbe-a-limperatif"
+        },
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-imperfect-formation.json",
+      "id": "a2-imperfect-formation",
+      "slug": "a2-imperfect-formation",
+      "level": "A2",
+      "baseline_sha256": "ca5b139560fc0b3c26ce87a7243b020933e797d50291f1d7ee0708b5786403cc",
+      "section_ids": [
+        "stem-endings",
+        "spelling-reflexive"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-past-reflexive-leaving"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-indefinite-groups.json",
+      "id": "a2-indefinite-groups",
+      "slug": "a2-indefinite-groups",
+      "level": "A2",
+      "baseline_sha256": "70227dbed462e3e749d2d85ec4993fd260c46546ab06afee2b3e0263291ee0de",
+      "section_ids": [
+        "whole-each",
+        "others-same"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-indefinite-people-things"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-indefinite-people-things.json",
+      "id": "a2-indefinite-people-things",
+      "slug": "a2-indefinite-people-things",
+      "level": "A2",
+      "baseline_sha256": "521dc0caae42e365d6fa5df2b8346625f0974ff110e00ab862b8608bc4e216e6",
+      "section_ids": [
+        "someone-something",
+        "free-choice"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-y-en-reference"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-infinitives-necessity.json",
+      "id": "a2-infinitives-necessity",
+      "slug": "a2-infinitives-necessity",
+      "level": "A2",
+      "baseline_sha256": "3e079d8d5545ce84cd40fc1f776927c3f4444bb099c7e869b79d979dfd7e796c",
+      "section_ids": [
+        "activity",
+        "necessity"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-present-know-see"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-knowing-visiting-routines.json",
+      "id": "a2-knowing-visiting-routines",
+      "slug": "a2-knowing-visiting-routines",
+      "level": "A2",
+      "baseline_sha256": "52859b242fb8e5ff28677538797f99332d6587a40e7187a1c2a6ad018062a800",
+      "section_ids": [
+        "know-visit-walk",
+        "memory-habit"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-feelings-opinions-fit"
+      ],
+      "sources": [
+        {
+          "label": "OQLF: se rappeler and se souvenir constructions, including permitted de variants; consulted 7 September 2026",
+          "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/22881/la-syntaxe/les-prepositions/preposition-apres-un-verbe/preposition-a-employer-apres-les-verbes-se-rappeler-et-se-souvenir"
+        },
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-manquer-perspectives.json",
+      "id": "a2-manquer-perspectives",
+      "slug": "a2-manquer-perspectives",
+      "level": "A2",
+      "baseline_sha256": "21dbf6910af8428119be6fea85e4b66141d407ac5b9f334f958e86d78d61f8bc",
+      "section_ids": [
+        "emotional",
+        "miss-lack"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-avoir-faire-expressions"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-negation-none-only.json",
+      "id": "a2-negation-none-only",
+      "slug": "a2-negation-none-only",
+      "level": "A2",
+      "baseline_sha256": "3a0551690015255c9a13fc7911bd22067faaab8023c80b1da559f96382c1d9f0",
+      "section_ids": [
+        "nobody-nothing",
+        "none-neither-only"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-negation-time-degree"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-negation-time-degree.json",
+      "id": "a2-negation-time-degree",
+      "slug": "a2-negation-time-degree",
+      "level": "A2",
+      "baseline_sha256": "c7a60cc1192a53ab5ff0fb1c813129618e38202da3e1b40b08a7fd76bd5b7479",
+      "section_ids": [
+        "time-position",
+        "quantity-degree"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-imperative-pronouns"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-noun-number-meaning.json",
+      "id": "a2-noun-number-meaning",
+      "slug": "a2-noun-number-meaning",
+      "level": "A2",
+      "baseline_sha256": "e9f17381d18eb738888070134ba25481a77e19f28c38a8710d8662bdeff0d35c",
+      "section_ids": [
+        "number",
+        "gender-meaning"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16",
+        "item-17",
+        "item-18"
+      ],
+      "prerequisites": [
+        "a2-numbers-halves-calculations",
+        "a2-adjective-feminine-families"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-numbers-halves-calculations.json",
+      "id": "a2-numbers-halves-calculations",
+      "slug": "a2-numbers-halves-calculations",
+      "level": "A2",
+      "baseline_sha256": "b0e32034e32ce17387e8f79185ca90f5cf10f2ebcd3b08bb8fe0855e81a70ae3",
+      "section_ids": [
+        "approximate-halves",
+        "arithmetic"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-comparison-change",
+        "a2-time-place-schedules"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-object-pronoun-positions.json",
+      "id": "a2-object-pronoun-positions",
+      "slug": "a2-object-pronoun-positions",
+      "level": "A2",
+      "baseline_sha256": "f6b75a4c91c1254b107aeb150f049bfabd8a0ae8c2b257e72e10b648507a0f30",
+      "section_ids": [
+        "roles",
+        "placement"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-past-contrast"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-past-avoir-foundations.json",
+      "id": "a2-past-avoir-foundations",
+      "slug": "a2-past-avoir-foundations",
+      "level": "A2",
+      "baseline_sha256": "606ebd068875e236f867431462235a18d64c48eef633fabddc46d8a302a4706c",
+      "section_ids": [
+        "build",
+        "essential-irregulars"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-infinitives-necessity"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-past-consonant-families.json",
+      "id": "a2-past-consonant-families",
+      "slug": "a2-past-consonant-families",
+      "level": "A2",
+      "baseline_sha256": "2bc5dbc0a193f87d0cf86ccb3501ec564171c014c68e60936f201c2c39e3185f",
+      "section_ids": [
+        "indre-uire",
+        "follow-write"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-past-u-families"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-past-contrast.json",
+      "id": "a2-past-contrast",
+      "slug": "a2-past-contrast",
+      "level": "A2",
+      "baseline_sha256": "b256f61964f926112c8b659d05e9ef14e2722675eebd2574d01b45a639a4a806",
+      "section_ids": [
+        "viewpoint",
+        "progress-obligation"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-imperfect-formation"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-past-etre-movement.json",
+      "id": "a2-past-etre-movement",
+      "slug": "a2-past-etre-movement",
+      "level": "A2",
+      "baseline_sha256": "15d2835c0b634332ed59e18c920ed553ecdfcad816bc7bd94412006ce6506fc0",
+      "section_ids": [
+        "movement-agreement",
+        "life-change"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-past-consonant-families"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-past-reflexive-leaving.json",
+      "id": "a2-past-reflexive-leaving",
+      "slug": "a2-past-reflexive-leaving",
+      "level": "A2",
+      "baseline_sha256": "93374b07e8f637d0d192fba88d2c992379cfe834bae6de269bd8c0db3a6af6e6",
+      "section_ids": [
+        "reflexive-past",
+        "leaving"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-past-etre-movement"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-past-take-put-open.json",
+      "id": "a2-past-take-put-open",
+      "slug": "a2-past-take-put-open",
+      "level": "A2",
+      "baseline_sha256": "780d7573265f65e5267cc2057823b8aebee3c6f47a47a105eec55ab1e4c929f5",
+      "section_ids": [
+        "take-put",
+        "open-offer-want"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-past-avoir-foundations"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-past-u-families.json",
+      "id": "a2-past-u-families",
+      "slug": "a2-past-u-families",
+      "level": "A2",
+      "baseline_sha256": "e4df3ad6d3f4799210e8fbe42b64d9ee053e2af395594331365697f0d10a7d89",
+      "section_ids": [
+        "short-u",
+        "receive-hold-live"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16",
+        "item-17",
+        "item-18"
+      ],
+      "prerequisites": [
+        "a2-past-take-put-open"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-possessive-demonstrative-determiners.json",
+      "id": "a2-possessive-demonstrative-determiners",
+      "slug": "a2-possessive-demonstrative-determiners",
+      "level": "A2",
+      "baseline_sha256": "47480c98918d1c485481765ef11d8b13903d8085bdc2a3d3aacc3802a6b1b33f",
+      "section_ids": [
+        "possessive-choice",
+        "generic-pointing"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-indefinite-groups"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-possessive-pronouns.json",
+      "id": "a2-possessive-pronouns",
+      "slug": "a2-possessive-pronouns",
+      "level": "A2",
+      "baseline_sha256": "34621fdef9febbbc7a033a4919fb24dabce5b515b170718376c3f61c246219c0",
+      "section_ids": [
+        "one-owner",
+        "group-owners"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-possessive-demonstrative-determiners"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-present-know-see.json",
+      "id": "a2-present-know-see",
+      "slug": "a2-present-know-see",
+      "level": "A2",
+      "baseline_sha256": "033e1bfcd2481f7de4a9f7806a571fbf7c47aece3572deab64b6c07afdba6ceb",
+      "section_ids": [
+        "knowledge",
+        "appearance-sight"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-present-open-offer"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-present-live-follow.json",
+      "id": "a2-present-live-follow",
+      "slug": "a2-present-live-follow",
+      "level": "A2",
+      "baseline_sha256": "6c345a8f62329d4d69ec6f32b22a95a1400ef4a92319ea06d05f8db2c6abbc02",
+      "section_ids": [
+        "live-follow",
+        "serve-laugh-run"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-present-know-see"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-present-open-offer.json",
+      "id": "a2-present-open-offer",
+      "slug": "a2-present-open-offer",
+      "level": "A2",
+      "baseline_sha256": "42f5c3aa3a8ac4c557485141fcebf452af8a9954f9d20637fad82e2b52cd3867",
+      "section_ids": [
+        "y-spelling",
+        "ir-e-endings"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a1-present-spelling"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-present-receive-drive.json",
+      "id": "a2-present-receive-drive",
+      "slug": "a2-present-receive-drive",
+      "level": "A2",
+      "baseline_sha256": "e0ca943083426963fae82ca69aba5d99edf896afa7439339c1b6d1a8415563ec",
+      "section_ids": [
+        "cevoir",
+        "indre-uire"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-present-live-follow"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-question-inversion.json",
+      "id": "a2-question-inversion",
+      "slug": "a2-question-inversion",
+      "level": "A2",
+      "baseline_sha256": "83cb4333a2b9157c6058e567d9d65b21c3bece9938faebd66b8c6ec330956cc0",
+      "section_ids": [
+        "pronoun-inversion",
+        "nouns-je"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-negation-none-only"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-question-words-exclamations.json",
+      "id": "a2-question-words-exclamations",
+      "slug": "a2-question-words-exclamations",
+      "level": "A2",
+      "baseline_sha256": "3fec41b66272164bb66d33b58662a8a415d60437fcc4bae23c2899570c2244a2",
+      "section_ids": [
+        "person-thing-role",
+        "quel"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-question-inversion"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-stressed-compound-subjects.json",
+      "id": "a2-stressed-compound-subjects",
+      "slug": "a2-stressed-compound-subjects",
+      "level": "A2",
+      "baseline_sha256": "ac113c1385fcc813c0db603cb5dad7d2603bdb19e6932a47639b738aa29d1eff",
+      "section_ids": [
+        "stressed",
+        "joined-subjects"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-object-pronoun-positions"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-time-place-schedules.json",
+      "id": "a2-time-place-schedules",
+      "slug": "a2-time-place-schedules",
+      "level": "A2",
+      "baseline_sha256": "ff1f034130ff72f8e305cba48d98a4f8096f33d191f4f8a61e1c767f002b96af",
+      "section_ids": [
+        "position-transport",
+        "schedule"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-duration-timelines",
+        "a2-question-words-exclamations"
+      ],
+      "sources": [
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/a2/a2-y-en-reference.json",
+      "id": "a2-y-en-reference",
+      "slug": "a2-y-en-reference",
+      "level": "A2",
+      "baseline_sha256": "1ee1f6ad56141ad74675394f543d796c5992a128abebb18e7a2d612377886aa7",
+      "section_ids": [
+        "place-y",
+        "quantity-en"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-stressed-compound-subjects"
+      ],
+      "sources": [
+        {
+          "label": "Le Robert: en, including personal reference; consulted 7 September 2026",
+          "url": "https://dictionnaire.lerobert.com/definition/en"
+        },
+        {
+          "label": "Public A2 index: topic-coverage reference only",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-adjective-forms.json",
+      "id": "b1-adjective-forms",
+      "slug": "b1-adjective-forms",
+      "level": "B1",
+      "baseline_sha256": "8608459072cc9e1dceab90625e79f264dd2c89e6009c07a2c6f6e39746a0cb23",
+      "section_ids": [
+        "endings",
+        "colours",
+        "articles-adverbs"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16",
+        "item-17",
+        "item-18",
+        "item-19",
+        "item-20",
+        "item-21",
+        "item-22",
+        "item-23",
+        "item-24",
+        "item-25",
+        "item-26",
+        "item-27",
+        "item-28",
+        "item-29",
+        "item-30",
+        "item-31",
+        "item-32",
+        "item-33",
+        "item-34",
+        "item-35",
+        "item-36",
+        "item-37",
+        "item-38"
+      ],
+      "prerequisites": [
+        "b1-adjective-position"
+      ],
+      "sources": [
+        {
+          "label": "University of Texas: irregular adjective agreement",
+          "url": "https://www.laits.utexas.edu/tex/gr/adj4.html"
+        },
+        {
+          "label": "Wiktionary: final, including both plural forms",
+          "url": "https://fr.wiktionary.org/wiki/final"
+        },
+        {
+          "label": "Wiktionary: banal, ordinary and historical meanings",
+          "url": "https://fr.wiktionary.org/wiki/banal"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-adjective-position.json",
+      "id": "b1-adjective-position",
+      "slug": "b1-adjective-position",
+      "level": "B1",
+      "baseline_sha256": "d8cee91d89aaac3fcda089bc66caf2717605e3a65c89db5b9ece9036d1f4735e",
+      "section_ids": [
+        "status-ownership",
+        "certainty-affection",
+        "last-real"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [],
+      "sources": [
+        {
+          "label": "University of Texas: adjective placement and meaning",
+          "url": "https://www.laits.utexas.edu/tex/gr/adj5.html"
+        },
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-animal-names-and-gender.json",
+      "id": "b1-animal-names-and-gender",
+      "slug": "b1-animal-names-and-gender",
+      "level": "B1",
+      "baseline_sha256": "ad1da9e9f58ea03f46fc7b8031c9b2b2231efdc622cbbeb4ce02778495748df5",
+      "section_ids": [
+        "pets",
+        "farm",
+        "birds"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16",
+        "item-17",
+        "item-18",
+        "item-19",
+        "item-20",
+        "item-21",
+        "item-22",
+        "item-23",
+        "item-24",
+        "item-25",
+        "item-26",
+        "item-27",
+        "item-28",
+        "item-29",
+        "item-30",
+        "item-31",
+        "item-32",
+        "item-33",
+        "item-34",
+        "item-35"
+      ],
+      "prerequisites": [
+        "b1-adjective-forms"
+      ],
+      "sources": [
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-commands-and-pronouns.json",
+      "id": "b1-commands-and-pronouns",
+      "slug": "b1-commands-and-pronouns",
+      "level": "B1",
+      "baseline_sha256": "b863fefd42e6f8acb818da84a5c1d3fd5d729c08ee3da5d59b22781ba583a090",
+      "section_ids": [
+        "reflexive",
+        "y-en-positive",
+        "negative-order"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16",
+        "item-17",
+        "item-18",
+        "item-19",
+        "item-20"
+      ],
+      "prerequisites": [
+        "b1-negative-scope"
+      ],
+      "sources": [
+        {
+          "label": "University of Texas: imperative forms and pronoun placement",
+          "url": "https://www.laits.utexas.edu/tex/gr/tai1.html"
+        },
+        {
+          "label": "University of Texas: object pronoun order",
+          "url": "https://www.laits.utexas.edu/tex/gr/pro9.html"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-comparison-and-change.json",
+      "id": "b1-comparison-and-change",
+      "slug": "b1-comparison-and-change",
+      "level": "B1",
+      "baseline_sha256": "1326dcddaf872a7206b55876d447a84c68632fe5534fd2aa1c53862a00d0b396",
+      "section_ids": [
+        "irregular",
+        "ranking",
+        "change"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16",
+        "item-17",
+        "item-18",
+        "item-19"
+      ],
+      "prerequisites": [
+        "b1-adjective-forms"
+      ],
+      "sources": [
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-conditional-building.json",
+      "id": "b1-conditional-building",
+      "slug": "b1-conditional-building",
+      "level": "B1",
+      "baseline_sha256": "fb1477f908af037a45220e01883e60f2e2b06c0c2ef6fa2aea09dab548f43dce",
+      "section_ids": [
+        "regular",
+        "core"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "b1-future-outcomes"
+      ],
+      "sources": [
+        {
+          "label": "OQLF: conditional forms and spelling variants",
+          "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/24137/la-grammaire/le-verbe/conjugaison/formes-du-conditionnel"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-everyday-verb-distinctions.json",
+      "id": "b1-everyday-verb-distinctions",
+      "slug": "b1-everyday-verb-distinctions",
+      "level": "B1",
+      "baseline_sha256": "24b40970e7a5b119509c6d0e0ca5181449af3a7eff22a64c1cb6b50768728513",
+      "section_ids": [
+        "leave",
+        "difficulty",
+        "almost",
+        "reminders"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "b1-passer-and-exams",
+        "b1-future-spelling"
+      ],
+      "sources": [
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-future-building.json",
+      "id": "b1-future-building",
+      "slug": "b1-future-building",
+      "level": "B1",
+      "baseline_sha256": "38fe1511e4c66503384434a2253060878b6c98da93cd613fc54bef65fdb9e5bf",
+      "section_ids": [
+        "build",
+        "sequence"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [],
+      "sources": [
+        {
+          "label": "University of Texas: simple future formation",
+          "url": "https://www.laits.utexas.edu/tex/gr/taf2.html"
+        },
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-future-commitments.json",
+      "id": "b1-future-commitments",
+      "slug": "b1-future-commitments",
+      "level": "B1",
+      "baseline_sha256": "872c7ccb53ab6f49d5ce4c0a8ee5dfbf9ef98348ed744c6d7164e708ad7ad5e6",
+      "section_ids": [
+        "come-hold",
+        "modals"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16",
+        "item-17"
+      ],
+      "prerequisites": [
+        "b1-future-core-stems"
+      ],
+      "sources": [
+        {
+          "label": "University of Texas: irregular future stems",
+          "url": "https://www.laits.utexas.edu/tex/gr/taf3.html"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-future-core-stems.json",
+      "id": "b1-future-core-stems",
+      "slug": "b1-future-core-stems",
+      "level": "B1",
+      "baseline_sha256": "feaea0a23fdc64a553ae5322dc69bdafeda9e6cda6c6cbc631c53a3f49e371a9",
+      "section_ids": [
+        "core-forms",
+        "use"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "b1-future-building"
+      ],
+      "sources": [
+        {
+          "label": "University of Texas: irregular future stems",
+          "url": "https://www.laits.utexas.edu/tex/gr/taf3.html"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-future-outcomes.json",
+      "id": "b1-future-outcomes",
+      "slug": "b1-future-outcomes",
+      "level": "B1",
+      "baseline_sha256": "e86b53af0194de67f022e57d0b2d10bd330ae26e43b01ec93084075531e92af6",
+      "section_ids": [
+        "seeing-sending",
+        "receiving",
+        "running"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16",
+        "item-17",
+        "item-18",
+        "item-19"
+      ],
+      "prerequisites": [
+        "b1-future-spelling",
+        "b1-future-commitments"
+      ],
+      "sources": [
+        {
+          "label": "University of Texas: irregular future stems",
+          "url": "https://www.laits.utexas.edu/tex/gr/taf3.html"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-future-spelling.json",
+      "id": "b1-future-spelling",
+      "slug": "b1-future-spelling",
+      "level": "B1",
+      "baseline_sha256": "3f22bde943dc5185670eb1175056f59799ff3484ce7379ecd64ee8cc1d91815d",
+      "section_ids": [
+        "accent-double",
+        "variants",
+        "y-i"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16",
+        "item-17",
+        "item-18",
+        "item-19",
+        "item-20",
+        "item-21"
+      ],
+      "prerequisites": [
+        "b1-future-building"
+      ],
+      "sources": [
+        {
+          "label": "OQLF: -eler/-eter spelling rectifications",
+          "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/23169/lorthographe/rectifications-de-lorthographe/rectifications-liees-aux-consonnes-doubles/rectifications-liees-a-la-conjugaison-des-verbes-en-eler-et-en-eter"
+        },
+        {
+          "label": "OQLF: conditional stems and future/conditional spelling variants",
+          "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/24137/la-grammaire/le-verbe/conjugaison/formes-du-conditionnel"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-gerund-actions.json",
+      "id": "b1-gerund-actions",
+      "slug": "b1-gerund-actions",
+      "level": "B1",
+      "baseline_sha256": "6dd603a0306d420fa9ecaa2bc55c6ddb4d67910500f1924c1e59baa9ed9183a2",
+      "section_ids": [
+        "formation",
+        "meaning",
+        "shared-subject"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "b1-everyday-verb-distinctions"
+      ],
+      "sources": [
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-hypotheses-and-advice.json",
+      "id": "b1-hypotheses-and-advice",
+      "slug": "b1-hypotheses-and-advice",
+      "level": "B1",
+      "baseline_sha256": "dc256e816428844b32858f7d087c66328033265cefbcfa14de66e691d3ca6c1a",
+      "section_ids": [
+        "advice",
+        "si-pattern"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "b1-conditional-building",
+        "b1-narrative-and-questions"
+      ],
+      "sources": [
+        {
+          "label": "OQLF: conditional forms",
+          "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/24137/la-grammaire/le-verbe/conjugaison/formes-du-conditionnel"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-indefinite-quantity-and-emphasis.json",
+      "id": "b1-indefinite-quantity-and-emphasis",
+      "slug": "b1-indefinite-quantity-and-emphasis",
+      "level": "B1",
+      "baseline_sha256": "9cd1db4d28e8891fd325d070768f63162892aa78a8856f87db542d4f659f5329",
+      "section_ids": [
+        "intervals",
+        "amounts",
+        "meme"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "b1-selecting-and-grouping"
+      ],
+      "sources": [
+        {
+          "label": "University of Texas: m\u00eame and adjective position",
+          "url": "https://www.laits.utexas.edu/tex/gr/adj5.html"
+        },
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-measurements-and-fractions.json",
+      "id": "b1-measurements-and-fractions",
+      "slug": "b1-measurements-and-fractions",
+      "level": "B1",
+      "baseline_sha256": "25faea741cb45c107183cd9c81704da4be110cfe2d0576af711f7628216458c0",
+      "section_ids": [
+        "distance",
+        "dimensions",
+        "fractions"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "b1-indefinite-quantity-and-emphasis"
+      ],
+      "sources": [
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        },
+        {
+          "label": "Wiktionary: demi as a fractional noun",
+          "url": "https://fr.wiktionary.org/wiki/demi"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-narrative-and-questions.json",
+      "id": "b1-narrative-and-questions",
+      "slug": "b1-narrative-and-questions",
+      "level": "B1",
+      "baseline_sha256": "528add61f6d912b23e4ac261f2323d57363b40514f84e4e5ad882d131f0a67bc",
+      "section_ids": [
+        "viewpoint",
+        "reflexive-negative",
+        "inversion"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "b1-past-families",
+        "a2-past-contrast",
+        "a2-question-inversion"
+      ],
+      "sources": [
+        {
+          "label": "University of Texas: pronoun placement in compound negation",
+          "url": "https://www.laits.utexas.edu/tex/gr/pro9.html"
+        },
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-negative-scope.json",
+      "id": "b1-negative-scope",
+      "slug": "b1-negative-scope",
+      "level": "B1",
+      "baseline_sha256": "391149b47563b8a93cfb629ae6c22e9aaa7f6664a61c427918f9b32ee6253906",
+      "section_ids": [
+        "combinations",
+        "restriction",
+        "register"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "b1-negative-subjects"
+      ],
+      "sources": [
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-negative-subjects.json",
+      "id": "b1-negative-subjects",
+      "slug": "b1-negative-subjects",
+      "level": "B1",
+      "baseline_sha256": "241e88aa61ab8e47c94a4a6722a40809b21c133de26c18acaf1124216814253d",
+      "section_ids": [
+        "subject",
+        "none-neither",
+        "place"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "b1-narrative-and-questions"
+      ],
+      "sources": [
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-passer-and-exams.json",
+      "id": "b1-passer-and-exams",
+      "slug": "b1-passer-and-exams",
+      "level": "B1",
+      "baseline_sha256": "e72e5b2d8ebd53f59379f8f3242ec6c3bd350bd153697d1a1d48234bee94f1a0",
+      "section_ids": [
+        "constructions",
+        "auxiliaries",
+        "exam-result"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16",
+        "item-17"
+      ],
+      "prerequisites": [
+        "b1-past-families"
+      ],
+      "sources": [
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        },
+        {
+          "label": "Le Robert: r\u00e9ussir, including r\u00e9ussir \u00e0 un examen (consulted during independent review)",
+          "url": "https://dictionnaire.lerobert.com/definition/reussir"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-past-families.json",
+      "id": "b1-past-families",
+      "slug": "b1-past-families",
+      "level": "B1",
+      "baseline_sha256": "9645d4cecb560d747418e0ca3bb5e76a2eef771476a076a13cfc25aac33db8d0",
+      "section_ids": [
+        "avoir-families",
+        "appear-born"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16",
+        "item-17",
+        "item-18",
+        "item-19",
+        "item-20",
+        "item-21",
+        "item-22"
+      ],
+      "prerequisites": [
+        "b1-present-stem-changes",
+        "a2-past-etre-movement"
+      ],
+      "sources": [
+        {
+          "label": "OQLF: auxiliary choice with appara\u00eetre",
+          "url": "https://vitrinelinguistique.oqlf.gouv.qc.ca/23848/la-grammaire/le-verbe/auxiliaires/emploi-des-auxiliaires-avec-le-verbe-apparaitre"
+        },
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-present-stem-changes.json",
+      "id": "b1-present-stem-changes",
+      "slug": "b1-present-stem-changes",
+      "level": "B1",
+      "baseline_sha256": "9c5e83f285117ff010188baff88864586ee90d3f337ea83f1245892bc672e773",
+      "section_ids": [
+        "value",
+        "life",
+        "acquisition"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "a2-present-receive-drive"
+      ],
+      "sources": [
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-relative-connections.json",
+      "id": "b1-relative-connections",
+      "slug": "b1-relative-connections",
+      "level": "B1",
+      "baseline_sha256": "f17c83ff400dc6d70e00df0d347aaa0a6855dcd448a30ca54e74319a33dbd617",
+      "section_ids": [
+        "qui-que",
+        "where-when",
+        "unnamed"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [],
+      "sources": [
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-selecting-and-grouping.json",
+      "id": "b1-selecting-and-grouping",
+      "slug": "b1-selecting-and-grouping",
+      "level": "B1",
+      "baseline_sha256": "ad9443d778b01aba49b47a517a6d244c1d51cc3585bcc5bde62122361a80911d",
+      "section_ids": [
+        "demonstratives",
+        "group-parts",
+        "something"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "b1-relative-connections"
+      ],
+      "sources": [
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-time-and-celebrations.json",
+      "id": "b1-time-and-celebrations",
+      "slug": "b1-time-and-celebrations",
+      "level": "B1",
+      "baseline_sha256": "5b50c972b7ae30f15706e497d6adbfa6ed4a485685079cf7161e400b6c95a8dc",
+      "section_ids": [
+        "depuis",
+        "duration-contrast",
+        "festival",
+        "saints-days"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "b1-negative-scope",
+        "b1-indefinite-quantity-and-emphasis"
+      ],
+      "sources": [
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        }
+      ]
+    },
+    {
+      "file": "courses/b1/b1-y-en-neuter-le.json",
+      "id": "b1-y-en-neuter-le",
+      "slug": "b1-y-en-neuter-le",
+      "level": "B1",
+      "baseline_sha256": "d689e3c0277b36f0d41b23377902d11c3cf07251f61863aa86c4779c9b0d652e",
+      "section_ids": [
+        "y",
+        "en",
+        "neutral"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "b1-commands-and-pronouns"
+      ],
+      "sources": [
+        {
+          "label": "University of Texas: pronoun order and negation",
+          "url": "https://www.laits.utexas.edu/tex/gr/pro9.html"
+        },
+        {
+          "label": "B1 public topic index (coverage reference only)",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b1"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/01-subjunctive-patterns.json",
+      "id": "b2-subjunctive-patterns",
+      "slug": "b2-subjunctive-patterns",
+      "level": "B2",
+      "baseline_sha256": "7147770a48ef24725db7108112f977844a080feda524d6331aaade64e48c5379",
+      "section_ids": [
+        "build",
+        "spelling"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b1-present-stem-changes"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, consulted as a topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/02-subjunctive-irregular.json",
+      "id": "b2-subjunctive-irregular",
+      "slug": "b2-subjunctive-irregular",
+      "level": "B2",
+      "baseline_sha256": "968528b828d9044397449f9391dd24d7d2db37eebbab51dd6b8f2c3bba021b42",
+      "section_ids": [
+        "auxiliaries",
+        "actions",
+        "ability-knowledge"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "p05",
+        "p06",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-subjunctive-patterns"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/03-subjunctive-two-stems.json",
+      "id": "b2-subjunctive-two-stems",
+      "slug": "b2-subjunctive-two-stems",
+      "level": "B2",
+      "baseline_sha256": "1ffe53efe33329c739b0140b65bde701fe9fa83ed93f47bac505f2b75fa04ffd",
+      "section_ids": [
+        "prendre",
+        "venir-tenir",
+        "vouloir"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-subjunctive-irregular"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/04-needs-wishes-feelings.json",
+      "id": "b2-needs-wishes-feelings",
+      "slug": "b2-needs-wishes-feelings",
+      "level": "B2",
+      "baseline_sha256": "934750ac8bfb43a42f33d793bb1511b593fe891b89dff929d675cddfa5ece700",
+      "section_ids": [
+        "requirements",
+        "desire-emotion",
+        "evaluations"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-subjunctive-two-stems"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/05-mode-and-stance.json",
+      "id": "b2-mode-and-stance",
+      "slug": "b2-mode-and-stance",
+      "level": "B2",
+      "baseline_sha256": "e79c70c152a0248c7505977b6c60879c34fcb0710dcd0f82c7407179221f028a",
+      "section_ids": [
+        "opinions",
+        "surprise"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-needs-wishes-feelings"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        },
+        {
+          "label": "Public opinion-mood lesson consulted for benchmark scope; its categorical negative rule is qualified here",
+          "url": "https://french.kwiziq.com/revision/grammar/when-expressing-opinions-with-penser-trouver-savoir-croire-pretendre-que-use-the-subjonctif-with-negative-opinions"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/06-subjunctive-past.json",
+      "id": "b2-subjunctive-past",
+      "slug": "b2-subjunctive-past",
+      "level": "B2",
+      "baseline_sha256": "7ee62c8fee051bb2bce0eb081bf08060e89f9a314d5a551777034ed469fd74af",
+      "section_ids": [
+        "forms",
+        "completion"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-needs-wishes-feelings"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/07-movement-auxiliaries.json",
+      "id": "b2-movement-auxiliaries",
+      "slug": "b2-movement-auxiliaries",
+      "level": "B2",
+      "baseline_sha256": "4dfe7cb819f1b2e57da44e36963a08767fcc5ef067008bf7a2a7cc9e73d7c8d2",
+      "section_ids": [
+        "principle",
+        "enter-exit",
+        "up-down",
+        "return-repeat"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "p05",
+        "p06",
+        "p07",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "a2-past-etre-movement"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        },
+        {
+          "label": "Acad\u00e9mie fran\u00e7aise: repasser, including the intransitive auxiliary-variation note",
+          "url": "https://www.dictionnaire-academie.fr/article/A9R1832"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/08-participle-agreement.json",
+      "id": "b2-participle-agreement",
+      "slug": "b2-participle-agreement",
+      "level": "B2",
+      "baseline_sha256": "add36220cccc063537145d26f6fb29d5ddc1645c1c5304635c648c192bba8e04",
+      "section_ids": [
+        "avoir",
+        "reflexive",
+        "limits"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-movement-auxiliaries"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        },
+        {
+          "label": "Public lesson consulted to identify benchmark scope for preceding-object agreement",
+          "url": "https://french.kwiziq.com/revision/grammar/special-cases-when-the-past-participle-agrees-in-number-and-gender-when-used-with-avoir-in-le-passe-compose-conversational-past"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/09-pluperfect.json",
+      "id": "b2-pluperfect",
+      "slug": "b2-pluperfect",
+      "level": "B2",
+      "baseline_sha256": "578f39761ac2d60e84526cd3cef29dfbb49ea59c38f174ba5f980517dd08cb46",
+      "section_ids": [
+        "avoir",
+        "etre-reflexive",
+        "modals"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "p05",
+        "p06",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-participle-agreement"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/10-conditional-past.json",
+      "id": "b2-conditional-past",
+      "slug": "b2-conditional-past",
+      "level": "B2",
+      "baseline_sha256": "8ee7535cd821333963aa477279e532ab40eabc9647acfe5207da3068fbbae418",
+      "section_ids": [
+        "forms",
+        "conditions",
+        "modals"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "p05",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "c09",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-pluperfect"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/11-future-perfect.json",
+      "id": "b2-future-perfect",
+      "slug": "b2-future-perfect",
+      "level": "B2",
+      "baseline_sha256": "904255ff96bf6471e4006727817ccb9faf1ac240bdeb1bd34509c0c1a374bbf9",
+      "section_ids": [
+        "avoir",
+        "etre",
+        "modals-conjecture"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "c09",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-pluperfect"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/12-future-stem-choices.json",
+      "id": "b2-future-stem-choices",
+      "slug": "b2-future-stem-choices",
+      "level": "B2",
+      "baseline_sha256": "422d86e327d494874bc3e89e0f4deda16db9a8b551724b7778499c4a486c3f4d",
+      "section_ids": [
+        "cueillir",
+        "asseoir"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/13-time-reference.json",
+      "id": "b2-time-reference",
+      "slug": "b2-time-reference",
+      "level": "B2",
+      "baseline_sha256": "7007d07e6fdb103b2220b0f12537967609abff88ecd1e0e2f18000ec9ac6f748",
+      "section_ids": [
+        "past-projection",
+        "since",
+        "relative-dates",
+        "demonstratives"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "c09",
+        "c10",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-pluperfect"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/14-literary-regular.json",
+      "id": "b2-literary-regular",
+      "slug": "b2-literary-regular",
+      "level": "B2",
+      "baseline_sha256": "8f096b44e248698db7a3c2eb33e36e99f3a20a8a378b6f510cfa8cbcb98891d5",
+      "section_ids": [
+        "er",
+        "ir-dre",
+        "reading"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-pluperfect"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/15-literary-irregular.json",
+      "id": "b2-literary-irregular",
+      "slug": "b2-literary-irregular",
+      "level": "B2",
+      "baseline_sha256": "bdce4d0b4957f0f5d9a4a5f5828ccfc85fa1b40ab90547fedf732ac94ae8ed28",
+      "section_ids": [
+        "etre-avoir",
+        "faire-voir-vivre",
+        "venir-tenir"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "p05",
+        "p06",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-literary-regular"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/16-double-pronouns.json",
+      "id": "b2-double-pronouns",
+      "slug": "b2-double-pronouns",
+      "level": "B2",
+      "baseline_sha256": "0f641f4419fcfa9a30efaad79d19608cddd88ecfad110b11ee93b540d411d5c0",
+      "section_ids": [
+        "direct-indirect",
+        "reflexive",
+        "en-y",
+        "verb-placement"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-participle-agreement",
+        "a2-y-en-reference"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/17-commands-register.json",
+      "id": "b2-commands-register",
+      "slug": "b2-commands-register",
+      "level": "B2",
+      "baseline_sha256": "68b9b401143685c7fa970967e8a41f3343ec287c51abf2eb9b72de358391d6e2",
+      "section_ids": [
+        "irregular",
+        "vouloir",
+        "affirmative-pronouns"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-double-pronouns",
+        "b2-subjunctive-irregular"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        },
+        {
+          "label": "Larousse: vouloir, two imperative series and usage notes",
+          "url": "https://www.larousse.fr/dictionnaires/francais/vouloir/82561"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/18-relative-prepositions.json",
+      "id": "b2-relative-prepositions",
+      "slug": "b2-relative-prepositions",
+      "level": "B2",
+      "baseline_sha256": "91fce7bf408048d9aee840b88d64660cb58b4be2975a1389ef62b8d95b211cfe",
+      "section_ids": [
+        "tout-ce",
+        "places",
+        "prepositions"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/19-dont-and-de-relatives.json",
+      "id": "b2-dont-and-de-relatives",
+      "slug": "b2-dont-and-de-relatives",
+      "level": "B2",
+      "baseline_sha256": "23f5f4c597755ae48ea906dad0db8b31d49c01fd68ee1bb583b992d61a67a09f",
+      "section_ids": [
+        "simple-de",
+        "possession",
+        "subset",
+        "compound-de"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "c09",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-relative-prepositions"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/20-reciprocal-actions.json",
+      "id": "b2-reciprocal-actions",
+      "slug": "b2-reciprocal-actions",
+      "level": "B2",
+      "baseline_sha256": "cb2e45bf4c607808fb15b55da683a2139e4a13d3ad674be965eb460a02e654ea",
+      "section_ids": [
+        "meaning",
+        "clarity",
+        "agreement"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-double-pronouns"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/21-causative-faire.json",
+      "id": "b2-causative-faire",
+      "slug": "b2-causative-faire",
+      "level": "B2",
+      "baseline_sha256": "2274fadc947c9fcc29fdf65a43e63fe943166c1cf3ab07024e38e8b906b4545e",
+      "section_ids": [
+        "roles",
+        "pronouns",
+        "agreement"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-double-pronouns"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/22-purpose-and-infinitive-negation.json",
+      "id": "b2-purpose-and-infinitive-negation",
+      "slug": "b2-purpose-and-infinitive-negation",
+      "level": "B2",
+      "baseline_sha256": "c1efe50d79c69b4bd10212e69aae677cfa68a703ff0e570b151d991c7c6a2a13",
+      "section_ids": [
+        "purpose",
+        "before",
+        "negative-infinitives"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-needs-wishes-feelings",
+        "b2-subjunctive-past"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/23-concession-and-links.json",
+      "id": "b2-concession-and-links",
+      "slug": "b2-concession-and-links",
+      "level": "B2",
+      "baseline_sha256": "37c0e32e3eb419f54c43513a480ecbeb46a46967926dca0548a702ba245142f0",
+      "section_ids": [
+        "concession",
+        "alternatives",
+        "ainsi"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-needs-wishes-feelings"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/24-wait-expect-thank.json",
+      "id": "b2-wait-expect-thank",
+      "slug": "b2-wait-expect-thank",
+      "level": "B2",
+      "baseline_sha256": "91b119868d39803de2ff9903cebbf8e8131921066d9110847cf1f4dbc4174c19",
+      "section_ids": [
+        "wait-expect",
+        "thanks"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-needs-wishes-feelings",
+        "b2-purpose-and-infinitive-negation"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        }
+      ]
+    },
+    {
+      "file": "courses/b2/25-nuanced-comparisons.json",
+      "id": "b2-nuanced-comparisons",
+      "slug": "b2-nuanced-comparisons",
+      "level": "B2",
+      "baseline_sha256": "c9e0a564c1aab35e71590109e5a43322df8235a76d09f6bfd05d0d66c5e3d848",
+      "section_ids": [
+        "noun-quantities",
+        "complex-superlatives",
+        "superlative-mood"
+      ],
+      "item_ids": [
+        "p01",
+        "p02",
+        "p03",
+        "p04",
+        "c01",
+        "c02",
+        "c03",
+        "c04",
+        "c05",
+        "c06",
+        "c07",
+        "c08",
+        "c09",
+        "c10",
+        "r01",
+        "r02",
+        "r03",
+        "r04"
+      ],
+      "prerequisites": [
+        "b2-subjunctive-past",
+        "b2-mode-and-stance",
+        "b2-relative-prepositions"
+      ],
+      "sources": [
+        {
+          "label": "B2 public index, topic-coverage reference",
+          "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"
+        },
+        {
+          "label": "Public complex-superlative lesson consulted for benchmark scope",
+          "url": "https://french.kwiziq.com/revision/grammar/how-to-form-the-superlative-of-adjectives-in-complex-cases"
+        }
+      ]
+    },
+    {
+      "file": "courses/c1-preparation/c1-audience-requests.json",
+      "id": "c1-audience-requests",
+      "slug": "c1-audience-requests",
+      "level": "C1-preparation",
+      "baseline_sha256": "8ae458285c9473bbed99b9b65c3af0a4090cade63588e991287580881bf917b8",
+      "section_ids": [
+        "audience",
+        "embedded",
+        "precision"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "c1-implicit-stance"
+      ],
+      "sources": [
+        {
+          "label": "FEI TCF Canada: addressed message task, consulted 2026-09-07",
+          "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"
+        },
+        {
+          "label": "FEI evaluation: appropriateness to the communication situation, consulted 2026-09-07",
+          "url": "https://www.france-education-international.fr/article/evaluation-epreuves-tcf"
+        }
+      ]
+    },
+    {
+      "file": "courses/c1-preparation/c1-compare-reformulate.json",
+      "id": "c1-compare-reformulate",
+      "slug": "c1-compare-reformulate",
+      "level": "C1-preparation",
+      "baseline_sha256": "8ee81d476734d7d2f93247318023b838d0425e3f5d8a3e5263ce85eb8160190a",
+      "section_ids": [
+        "sources",
+        "compare",
+        "position"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "c1-dense-time-reference",
+        "c1-implicit-stance"
+      ],
+      "sources": [
+        {
+          "label": "FEI TCF Canada: writing task 3 comparison and personal position, consulted 2026-09-07",
+          "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"
+        },
+        {
+          "label": "FEI evaluation: linguistic, pragmatic and sociolinguistic criteria, consulted 2026-09-07",
+          "url": "https://www.france-education-international.fr/article/evaluation-epreuves-tcf"
+        }
+      ]
+    },
+    {
+      "file": "courses/c1-preparation/c1-dense-time-reference.json",
+      "id": "c1-dense-time-reference",
+      "slug": "c1-dense-time-reference",
+      "level": "C1-preparation",
+      "baseline_sha256": "cde6244f2e9dc8fb62c3aec78099de17bdfc00ed3b0c47821503785ec34149f6",
+      "section_ids": [
+        "time",
+        "reference",
+        "limits"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "b2-time-reference",
+        "b2-mode-and-stance"
+      ],
+      "sources": [
+        {
+          "label": "FEI TCF Canada: reading and production task demands, consulted 2026-09-07; not a grammar syllabus",
+          "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"
+        }
+      ]
+    },
+    {
+      "file": "courses/c1-preparation/c1-four-skill-readiness.json",
+      "id": "c1-four-skill-readiness",
+      "slug": "c1-four-skill-readiness",
+      "level": "C1-preparation",
+      "baseline_sha256": "affc45b50b91474b357603b1adcfd6e26aac54c97bcfd3190e67f33061832bcb",
+      "section_ids": [
+        "target",
+        "transfer",
+        "evidence"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "c1-compare-reformulate",
+        "c1-audience-requests",
+        "c1-narrative-commentary",
+        "c1-information-follow-up",
+        "c1-sustained-opinion",
+        "c1-spoken-repair"
+      ],
+      "sources": [
+        {
+          "label": "IRCC language-test equivalence table: separate TCF Canada NCLC 9+ minimums, consulted 2026-09-07",
+          "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html"
+        },
+        {
+          "label": "FEI TCF level grid: C1 reception 500\u2013599 and production 14\u201317/20, PDF consulted 2026-09-07",
+          "url": "https://www.france-education-international.fr/document/grilleniveauxtcf"
+        },
+        {
+          "label": "FEI TCF Canada: four components, task formats and one-play listening, consulted 2026-09-07",
+          "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"
+        },
+        {
+          "label": "FEI evaluation: language, discourse and situation-appropriate production, consulted 2026-09-07",
+          "url": "https://www.france-education-international.fr/article/evaluation-epreuves-tcf"
+        }
+      ]
+    },
+    {
+      "file": "courses/c1-preparation/c1-implicit-stance.json",
+      "id": "c1-implicit-stance",
+      "slug": "c1-implicit-stance",
+      "level": "C1-preparation",
+      "baseline_sha256": "d9b2013c28786284c9539ac641f6133a1de2418ef8fbaa5e85297aeaa51e878a",
+      "section_ids": [
+        "concession",
+        "scope",
+        "inference"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "c1-dense-time-reference"
+      ],
+      "sources": [
+        {
+          "label": "FEI TCF Canada: understanding positions and arguing a viewpoint, consulted 2026-09-07",
+          "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"
+        }
+      ]
+    },
+    {
+      "file": "courses/c1-preparation/c1-information-follow-up.json",
+      "id": "c1-information-follow-up",
+      "slug": "c1-information-follow-up",
+      "level": "C1-preparation",
+      "baseline_sha256": "acce508a6fbaaa73a6012b5a9489a510d98a6a3ae2fe54fbab0218a6da6b34f9",
+      "section_ids": [
+        "purpose",
+        "follow-up",
+        "clarify"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "c1-audience-requests"
+      ],
+      "sources": [
+        {
+          "label": "FEI TCF Canada: oral task 2 information-seeking interaction, consulted 2026-09-07",
+          "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"
+        },
+        {
+          "label": "FEI evaluation: interaction, fluency and situation-appropriate language, consulted 2026-09-07",
+          "url": "https://www.france-education-international.fr/article/evaluation-epreuves-tcf"
+        }
+      ]
+    },
+    {
+      "file": "courses/c1-preparation/c1-narrative-commentary.json",
+      "id": "c1-narrative-commentary",
+      "slug": "c1-narrative-commentary",
+      "level": "C1-preparation",
+      "baseline_sha256": "67bc77485b81ba09e02677985ca5ad938dae8ab090d504f52c1b4f6c8a63d3c7",
+      "section_ids": [
+        "narrative",
+        "links",
+        "commentary"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "c1-dense-time-reference",
+        "c1-implicit-stance"
+      ],
+      "sources": [
+        {
+          "label": "FEI TCF Canada: writing task 2 account with commentary, consulted 2026-09-07",
+          "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"
+        }
+      ]
+    },
+    {
+      "file": "courses/c1-preparation/c1-spoken-repair.json",
+      "id": "c1-spoken-repair",
+      "slug": "c1-spoken-repair",
+      "level": "C1-preparation",
+      "baseline_sha256": "8c0b4253de0f7109a5a5c0de54101ec922e0dd89abc915e2e82c9d9839ec3350",
+      "section_ids": [
+        "repair",
+        "reformulate",
+        "spoken"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "c1-information-follow-up",
+        "c1-sustained-opinion"
+      ],
+      "sources": [
+        {
+          "label": "FEI evaluation: pronunciation, fluency, interaction and linguistic control, consulted 2026-09-07",
+          "url": "https://www.france-education-international.fr/article/evaluation-epreuves-tcf"
+        },
+        {
+          "label": "FEI TCF Canada: unfamiliar spoken discourse and one-play listening, consulted 2026-09-07",
+          "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"
+        }
+      ]
+    },
+    {
+      "file": "courses/c1-preparation/c1-sustained-opinion.json",
+      "id": "c1-sustained-opinion",
+      "slug": "c1-sustained-opinion",
+      "level": "C1-preparation",
+      "baseline_sha256": "d28f963279d3cdb75eb98b1aecce405c09342037c0a1e18d6e20cbee377f5a06",
+      "section_ids": [
+        "develop",
+        "objection",
+        "sustain"
+      ],
+      "item_ids": [
+        "item-01",
+        "item-02",
+        "item-03",
+        "item-04",
+        "item-05",
+        "item-06",
+        "item-07",
+        "item-08",
+        "item-09",
+        "item-10",
+        "item-11",
+        "item-12",
+        "item-13",
+        "item-14",
+        "item-15",
+        "item-16"
+      ],
+      "prerequisites": [
+        "c1-implicit-stance",
+        "c1-compare-reformulate",
+        "c1-narrative-commentary"
+      ],
+      "sources": [
+        {
+          "label": "FEI TCF Canada: oral task 3 spontaneous viewpoint development, consulted 2026-09-07",
+          "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"
+        },
+        {
+          "label": "FEI evaluation: thematic development, coherence and fluency, consulted 2026-09-07",
+          "url": "https://www.france-education-international.fr/article/evaluation-epreuves-tcf"
+        }
+      ]
+    }
+  ]
+}

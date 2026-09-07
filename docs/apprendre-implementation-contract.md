@@ -174,6 +174,8 @@ The follow-up baseline is published commit `1e94f93c723fb11361137e8bc7d23adb18ac
 - Keep English explanations and faithful French/English pairs, complete relevant paradigms and noun headwords with articles/genders. Include usable decision steps and meaningful contrasts rather than simply longer paragraphs.
 - No new UI panels on reading pages. The existing teaching-section renderer and separate practice area remain the interface.
 
+`study/content/learning/course_manifest.json` records the published baseline's 129 lesson identities, 348 section IDs, 2,169 item IDs, sources and preparation links. It was extracted from the baseline Git objects, not enriched working files. It is a preservation record, not another writing target. The reference library and nine preparation lessons remain byte-preserved; A1–B2 teaching may be enriched without removing published identities.
+
 ### Depth audit records
 
 Each level owns `study/content/learning/depth/<level>.json`, with this separate report schema. It is not an extra field in course lessons or a claim of external certification.
@@ -204,6 +206,8 @@ Each level owns `study/content/learning/depth/<level>.json`, with this separate 
 ```
 
 `access` is `read`, `partial` or `unavailable`; `finding` is `sufficient`, `enriched`, `reference-qualified` or `not-assessed`. A partial/unavailable entry must use `not-assessed`, explain its limitation and must not be counted as a completed depth comparison. `references` may be empty when no additional source was needed. Evidence must resolve to real teaching and exercise IDs in the same level. All 134/165/96/84 benchmark rows must be accounted for exactly once, with actual access and review status, not fabricated completion.
+
+`validate_courses --coverage --depth` validates all four reports when explicitly requested. The normal course loader does not depend on research reports. Like coverage evidence, each evidence group links visible examples and questions exercising its mapped sections. Assessed comparisons need evidence; `not-assessed` entries may have none. A fully read page whose comparison remains incomplete may also be `not-assessed`. The command reports reading access and completed comparisons separately. Dates must be real `YYYY-MM-DD` values, never future dates. Structural validation cannot certify actual reading, teaching quality or external equivalence.
 
 ### Assessment workstream
 

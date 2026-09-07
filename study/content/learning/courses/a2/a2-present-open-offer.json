@@ -1,39 +1,39 @@
 {
   "version": 1, "id": "a2-present-open-offer", "slug": "a2-present-open-offer", "cefr_level": "A2", "topic": "verbs-tenses-moods",
   "title": "J'envoie, j'ouvre, j'offre",
-  "summary": "Handle changing y spellings and -ir verbs with present endings like parler.",
+  "summary": "Handle changing `y` spellings and `-ir` verbs with present endings like `parler`.",
   "order": 1, "duration_minutes": 13, "prerequisites": ["a1-present-spelling"],
-  "objectives": ["Conjugate -oyer, -uyer and -ayer verbs with accepted spelling variants.", "Use complete ouvrir, offrir, souffrir and cueillir families."],
+  "objectives": ["Conjugate `-oyer`, `-uyer` and `-ayer` verbs with accepted spelling variants.", "Use complete `ouvrir`, `offrir`, `souffrir` and `cueillir` families."],
   "keywords": ["présent", "envoyer", "payer", "essuyer", "ouvrir", "offrir", "souffrir", "cueillir"],
   "sources": [{"label": "Public A2 index: topic-coverage reference only", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
   "related_legacy_ids": ["verbs-present-spelling-families", "verbs-present-patterns"],
   "sections": [
     {"id": "y-spelling", "title": "A changing stem, not a new tense",
-      "paragraphs": ["The stem is the part before a verb's ending. In the present, -oyer and -uyer change y to i before a silent e, but keep y in nous and vous. -Ayer permits either y or i in those same singular and third-person plural forms. The meaning does not change. Envoyer means send; essuyer means wipe or dry; payer means pay; nettoyer means clean; appuyer means press or support."],
-      "points": ["Envoyer: j'envoie, tu envoies, il/elle/on envoie, nous envoyons, vous envoyez, ils/elles envoient.", "Essuyer: j'essuie, tu essuies, il/elle/on essuie, nous essuyons, vous essuyez, ils/elles essuient.", "Payer: je paie/paye, tu paies/payes, il/elle/on paie/paye, nous payons, vous payez, ils/elles paient/payent. Nettoyer follows envoyer; appuyer follows essuyer."],
+      "paragraphs": ["The stem is the part before a verb's ending. In the present, `-oyer` and `-uyer` change `y` to `i` before a silent `e`, but keep `y` in `nous` and `vous`. `-Ayer` permits either `y` or `i` in those same singular and third-person plural forms. The meaning does not change. `Envoyer` means send; `essuyer` means wipe or dry; `payer` means pay; `nettoyer` means clean; `appuyer` means press or support."],
+      "points": ["`Envoyer`: `j'envoie, tu envoies, il/elle/on envoie, nous envoyons, vous envoyez, ils/elles envoient`.", "`Essuyer`: `j'essuie, tu essuies, il/elle/on essuie, nous essuyons, vous essuyez, ils/elles essuient`.", "`Payer`: `je paie/paye, tu paies/payes, il/elle/on paie/paye, nous payons, vous payez, ils/elles paient/payent`. `Nettoyer` follows `envoyer`; `appuyer` follows `essuyer`."],
       "examples": [
-        {"french": "J'**envoie** le devis ce matin.", "english": "I am sending the estimate this morning.", "note": "The singular stem contains i."},
-        {"french": "Nous **nettoyons** la cuisine.", "english": "We are cleaning the kitchen.", "note": "Nous keeps y."},
-        {"french": "Vous **essuyez** les verres.", "english": "You are drying the glasses.", "note": "Vous keeps y."},
-        {"french": "Ils **paient** par carte.", "english": "They pay by card.", "note": "Payent is equally correct."}
+        {"french": "J'**envoie** le devis ce matin.", "english": "I am sending the estimate this morning.", "note": "The singular stem contains `i`."},
+        {"french": "Nous **nettoyons** la cuisine.", "english": "We are cleaning the kitchen.", "note": "`Nous` keeps `y`."},
+        {"french": "Vous **essuyez** les verres.", "english": "You are drying the glasses.", "note": "`Vous` keeps `y`."},
+        {"french": "Ils **paient** par carte.", "english": "They pay by card.", "note": "`Payent` is equally correct."}
       ],
-      "mistakes": [{"avoid": "Nous envoions le dossier.", "prefer": "Nous envoyons le dossier.", "why": "Keep y before -ons."}]
+      "mistakes": [{"avoid": "Nous envoions le dossier.", "prefer": "Nous envoyons le dossier.", "why": "Keep `y` before `-ons`."}]
     },
-    {"id": "ir-e-endings", "title": "Some -ir verbs use -e, not -is",
-      "paragraphs": ["An infinitive is the dictionary form, such as ouvrir, 'to open'. Offrir means offer; souffrir means suffer; cueillir means pick; accueillir means welcome. These -ir verbs do not follow finir. Their present endings are -e, -es, -e, -ons, -ez, -ent. Keep the family stem shown below. Découvrir (discover) and recouvrir (cover) follow ouvrir; recueillir (collect or take in) and accueillir follow cueillir."],
-      "points": ["Ouvrir: j'ouvre, tu ouvres, il/elle/on ouvre, nous ouvrons, vous ouvrez, ils/elles ouvrent.", "Offrir: j'offre, tu offres, il/elle/on offre, nous offrons, vous offrez, ils/elles offrent.", "Souffrir: je souffre, tu souffres, il/elle/on souffre, nous souffrons, vous souffrez, ils/elles souffrent.", "Cueillir: je cueille, tu cueilles, il/elle/on cueille, nous cueillons, vous cueillez, ils/elles cueillent. Accueillir: j'accueille, tu accueilles, il/elle/on accueille, nous accueillons, vous accueillez, ils/elles accueillent."],
+    {"id": "ir-e-endings", "title": "Some `-ir` verbs use `-e`, not `-is`",
+      "paragraphs": ["An infinitive is the dictionary form, such as `ouvrir`, 'to open'. `Offrir` means offer; `souffrir` means suffer; `cueillir` means pick; `accueillir` means welcome. These `-ir` verbs do not follow `finir`. Their present endings are `-e, -es, -e, -ons, -ez, -ent`. Keep the family stem shown below. `Découvrir` (discover) and `recouvrir` (cover) follow `ouvrir`; `recueillir` (collect or take in) and `accueillir` follow `cueillir`."],
+      "points": ["`Ouvrir`: `j'ouvre, tu ouvres, il/elle/on ouvre, nous ouvrons, vous ouvrez, ils/elles ouvrent`.", "`Offrir`: `j'offre, tu offres, il/elle/on offre, nous offrons, vous offrez, ils/elles offrent`.", "`Souffrir`: `je souffre, tu souffres, il/elle/on souffre, nous souffrons, vous souffrez, ils/elles souffrent`.", "`Cueillir`: `je cueille, tu cueilles, il/elle/on cueille, nous cueillons, vous cueillez, ils/elles cueillent`. `Accueillir`: `j'accueille, tu accueilles, il/elle/on accueille, nous accueillons, vous accueillez, ils/elles accueillent`."],
       "examples": [
-        {"french": "Elle **ouvre** les fenêtres.", "english": "She opens the windows.", "note": "Not an -is form."},
-        {"french": "Nous **offrons** un repas aux bénévoles.", "english": "We offer the volunteers a meal.", "note": "The stem is offr-."},
+        {"french": "Elle **ouvre** les fenêtres.", "english": "She opens the windows.", "note": "Not an `-is` form."},
+        {"french": "Nous **offrons** un repas aux bénévoles.", "english": "We offer the volunteers a meal.", "note": "The stem is `offr-`."},
         {"french": "Vous **souffrez** du dos ?", "english": "Does your back hurt?", "note": "Literally, are you suffering from back trouble?"},
-        {"french": "Ils **cueillent** des pommes et nous **accueillons** les visiteurs.", "english": "They pick apples and we welcome the visitors.", "note": "Both verbs keep the cueill spelling."}
+        {"french": "Ils **cueillent** des pommes et nous **accueillons** les visiteurs.", "english": "They pick apples and we welcome the visitors.", "note": "Both verbs keep the `cueill` spelling."}
       ],
-      "mistakes": [{"avoid": "Nous ouvrissons les portes.", "prefer": "Nous ouvrons les portes.", "why": "Ouvrir does not take the finir pattern."}]
+      "mistakes": [{"avoid": "Nous ouvrissons les portes.", "prefer": "Nous ouvrons les portes.", "why": "`Ouvrir` does not take the `finir` pattern."}]
     },
     {"id":"family-transfer","title":"Keep the family endings, check the complete verb",
-      "paragraphs":["Couvrir (cover) uses couvr- with the same six endings as ouvrir; rouvrir or réouvrir (reopen) adds the reopening prefix to the ouvrir forms. Redécouvrir (rediscover) adds re- to découvrir. The prefix changes the meaning, not the present endings.", "Recueillir can mean collect or take in; se recueillir means to reflect quietly or pay one's respects. Keep the reflexive pronoun before the verb rather than treating the two expressions as interchangeable."],
-      "points":["Se recueillir: je me recueille, tu te recueilles, il/elle/on se recueille, nous nous recueillons, vous vous recueillez, ils/elles se recueillent."],
-      "examples":[{"french":"Vous **couvrez** les meubles avant les travaux.","english":"You cover the furniture before the work starts.","note":"Couvr- takes -ez, not -issez."},{"french":"La piscine **rouvre** après les travaux.","english":"The swimming pool reopens after the work.","note":"Réouvre is another accepted form."},{"french":"Nous **recueillons** les témoignages, puis nous **nous recueillons** en silence.","english":"We collect the accounts, then we reflect quietly in silence.","note":"The reflexive expression describes a different activity."}],
+      "paragraphs":["`Couvrir` (cover) uses `couvr-` with the same six endings as `ouvrir`; `rouvrir` or `réouvrir` (reopen) adds the reopening prefix to the `ouvrir` forms. `Redécouvrir` (rediscover) adds `re-` to `découvrir`. The prefix changes the meaning, not the present endings.", "`Recueillir` can mean collect or take in; `se recueillir` means to reflect quietly or pay one's respects. Keep the reflexive pronoun before the verb rather than treating the two expressions as interchangeable."],
+      "points":["`Se recueillir`: `je me recueille, tu te recueilles, il/elle/on se recueille, nous nous recueillons, vous vous recueillez, ils/elles se recueillent`."],
+      "examples":[{"french":"Vous **couvrez** les meubles avant les travaux.","english":"You cover the furniture before the work starts.","note":"`Couvr-` takes `-ez`, not `-issez`."},{"french":"La piscine **rouvre** après les travaux.","english":"The swimming pool reopens after the work.","note":"`Réouvre` is another accepted form."},{"french":"Nous **recueillons** les témoignages, puis nous **nous recueillons** en silence.","english":"We collect the accounts, then we reflect quietly in silence.","note":"The reflexive expression describes a different activity."}],
       "mistakes":[]
     }
   ],
@@ -58,5 +58,5 @@
     {"id":"depth-reopen-prefix","kind":"text","pool":"review","section_id":"family-transfer","prompt":"Replace ouvre with the present-tense form meaning 'reopens'; supply the verb only: Le musée ouvre après sa rénovation.","choices":[],"answers":["rouvre","réouvre"],"explanation":"Both rouvrir and réouvrir retain the present ending of ouvrir.","case_sensitive":false,"terminal_punctuation_sensitive":false},
     {"id":"depth-reflect-reflexive","kind":"text","pool":"practice","section_id":"family-transfer","prompt":"Supply se recueillir in the present, including its reflexive pronoun: Devant le monument, les visiteurs ___ un instant.","choices":[],"answers":["se recueillent"],"explanation":"Se recueillir describes quiet reflection; recueillir alone would have a different construction and meaning.","case_sensitive":false,"terminal_punctuation_sensitive":false}
   ],
-  "production_task": {"prompt":"Write a short update about welcoming visitors at a community event. Mention an invitation, an opening and something offered.","model_answer":"Nous envoyons les invitations aujourd'hui. Demain, nous ouvrons la salle à dix heures. J'accueille les familles et nous offrons du café.","translation":"We are sending the invitations today. Tomorrow, we open the room at ten. I welcome the families and we offer coffee.","rubric":["Keep y in nous envoyons.","Use ouvrir and offrir without -iss-.","Make the responsibilities and time clear."]}
+  "production_task": {"prompt":"Write a short update about welcoming visitors at a community event. Mention an invitation, an opening and something offered.","model_answer":"Nous envoyons les invitations aujourd'hui. Demain, nous ouvrons la salle à dix heures. J'accueille les familles et nous offrons du café.","translation":"We are sending the invitations today. Tomorrow, we open the room at ten. I welcome the families and we offer coffee.","rubric":["Keep `y` in `nous envoyons`.","Use `ouvrir` and `offrir` without `-iss-`.","Make the responsibilities and time clear."]}
 }

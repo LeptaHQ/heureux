@@ -1,31 +1,31 @@
 {
- "version":1,"id":"a2-past-u-families","slug":"a2-past-u-families","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Vu, lu, reçu, tenu et vécu","summary":"Learn high-frequency irregular past participles ending in u without inventing a universal rule.","order":8,"duration_minutes":15,"prerequisites":["a2-past-take-put-open"],
- "objectives":["Retrieve the individual participles of common -u verbs.","Use recevoir and tenir derivatives and distinguish vécu from vu."],
+ "version":1,"id":"a2-past-u-families","slug":"a2-past-u-families","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Vu, lu, reçu, tenu et vécu","summary":"Learn high-frequency irregular past participles ending in `u` without inventing a universal rule.","order":8,"duration_minutes":15,"prerequisites":["a2-past-take-put-open"],
+ "objectives":["Retrieve the individual participles of common `-u` verbs.","Use `recevoir` and `tenir` derivatives and distinguish `vécu` from `vu`."],
  "keywords":["vu","dû","pu","bu","cru","su","lu","plu","tu","reçu","tenu","vécu"],
  "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
  "related_legacy_ids":["verbs-irregular-past-participles"],
  "sections":[
   {"id":"short-u","title":"Learn the base verb and its participle together",
-   "paragraphs":["These participles are irregular: their final u is a memory link, not a method for guessing the whole word. Voir → vu (seen), devoir → dû (had to), pouvoir → pu (been able to), boire → bu (drunk), croire → cru (believed), savoir → su (known/found out), lire → lu (read), plaire → plu (pleased), taire → tu (kept quiet about). Taire is not the same construction as se taire, 'to be silent'.", "Use avoir in every person: j'ai lu, tu as lu, il/elle/on a lu, nous avons lu, vous avez lu, ils/elles ont lu. Replace lu with each participle. Keep the circumflex in dû, including under the 1990 spelling recommendations. In these examples, no preceding direct object requires agreement."],
-   "points":["J'ai pu often reports a realised opportunity; je n'ai pas pu reports inability in a specific situation. J'ai su can mean 'I found out'. Context decides the English translation.","Plaire reverses the English 'like' perspective: ce film m'a plu means I liked this film; the film is the subject."],
+   "paragraphs":["These participles are irregular: their final `u` is a memory link, not a method for guessing the whole word. `Voir` → `vu` (seen), `devoir` → `dû` (had to), `pouvoir` → `pu` (been able to), `boire` → `bu` (drunk), `croire` → `cru` (believed), `savoir` → `su` (known/found out), `lire` → `lu` (read), `plaire` → `plu` (pleased), `taire` → `tu` (kept quiet about). `Taire` is not the same construction as `se taire`, 'to be silent'.", "Use `avoir` in every person: `j'ai lu, tu as lu, il/elle/on a lu, nous avons lu, vous avez lu, ils/elles ont lu`. Replace `lu` with each participle. Keep the circumflex in `dû`, including under the 1990 spelling recommendations. In these examples, no preceding direct object requires agreement."],
+   "points":["`J'ai pu` often reports a realised opportunity; `je n'ai pas pu` reports inability in a specific situation. `J'ai su` can mean 'I found out'. Context decides the English translation.","`Plaire` reverses the English 'like' perspective: `ce film m'a plu` means I liked this film; the film is the subject."],
    "examples":[
-    {"french":"J'**ai vu** l'annonce et j'**ai lu** les conditions.","english":"I saw the advertisement and read the conditions.","note":"Vu and lu have different base verbs."},
-    {"french":"Nous **avons dû** attendre, mais nous **avons pu** entrer.","english":"We had to wait, but we were able to enter.","note":"Dû expresses necessity; pu expresses ability."},
-    {"french":"Elle **a bu** de l'eau et **a cru** mon explication.","english":"She drank water and believed my explanation.","note":"Boire and croire have bu and cru."},
-    {"french":"J'**ai su** la vérité ; il **a tu** un détail.","english":"I found out the truth; he kept one detail quiet.","note":"Su comes from savoir; tu from taire."},
+    {"french":"J'**ai vu** l'annonce et j'**ai lu** les conditions.","english":"I saw the advertisement and read the conditions.","note":"`Vu` and `lu` have different base verbs."},
+    {"french":"Nous **avons dû** attendre, mais nous **avons pu** entrer.","english":"We had to wait, but we were able to enter.","note":"`Dû` expresses necessity; `pu` expresses ability."},
+    {"french":"Elle **a bu** de l'eau et **a cru** mon explication.","english":"She drank water and believed my explanation.","note":"`Boire` and `croire` have `bu` and `cru`."},
+    {"french":"J'**ai su** la vérité ; il **a tu** un détail.","english":"I found out the truth; he kept one detail quiet.","note":"`Su` comes from `savoir`; `tu` from `taire`."},
     {"french":"Cette visite nous **a plu**.","english":"We enjoyed this visit.","note":"The visit pleased us."}
    ],
-   "mistakes":[{"avoid":"Nous avons devoir partir.","prefer":"Nous avons dû partir.","why":"The auxiliary needs a past participle, not devoir."}]
+   "mistakes":[{"avoid":"Nous avons devoir partir.","prefer":"Nous avons dû partir.","why":"The auxiliary needs a past participle, not `devoir`."}]
   },
-  {"id":"receive-hold-live","title":"Longer -u families",
-   "paragraphs":["Recevoir → reçu; apercevoir → aperçu; concevoir → conçu; décevoir → déçu; percevoir → perçu. The cedilla keeps the soft c sound before u. Tenir → tenu, with retenir → retenu, obtenir → obtenu, maintenir → maintenu and soutenir → soutenu. Vivre → vécu; survivre → survécu. These are all avoir verbs in the constructions here, unlike venir → venu with être."],
-   "points":["All persons: j'ai reçu, tu as reçu, il/elle/on a reçu, nous avons reçu, vous avez reçu, ils/elles ont reçu. Substitute tenu, obtenu, vécu and the other family members."],
+  {"id":"receive-hold-live","title":"Longer `-u` families",
+   "paragraphs":["`Recevoir` → `reçu`; `apercevoir` → `aperçu`; `concevoir` → `conçu`; `décevoir` → `déçu`; `percevoir` → `perçu`. The cedilla keeps the soft `c` sound before `u`. `Tenir` → `tenu`, with `retenir` → `retenu`, `obtenir` → `obtenu`, `maintenir` → `maintenu` and `soutenir` → `soutenu`. `Vivre` → `vécu`; `survivre` → `survécu`. These are all `avoir` verbs in the constructions here, unlike `venir` → `venu` with `être`."],
+   "points":["All persons: `j'ai reçu, tu as reçu, il/elle/on a reçu, nous avons reçu, vous avez reçu, ils/elles ont reçu`. Substitute `tenu`, `obtenu`, `vécu` and the other family members."],
    "examples":[
-    {"french":"Vous **avez reçu** le remboursement.","english":"You received the refund.","note":"Keep ç in reçu."},
-    {"french":"Elle **a obtenu** un permis et **a tenu** sa promesse.","english":"She obtained a permit and kept her promise.","note":"Obtenir and tenir share -tenu."},
-    {"french":"Ils **ont vécu** à la campagne.","english":"They lived in the countryside.","note":"Vécu means lived; vu means seen."}
+    {"french":"Vous **avez reçu** le remboursement.","english":"You received the refund.","note":"Keep `ç` in `reçu`."},
+    {"french":"Elle **a obtenu** un permis et **a tenu** sa promesse.","english":"She obtained a permit and kept her promise.","note":"`Obtenir` and `tenir` share `-tenu`."},
+    {"french":"Ils **ont vécu** à la campagne.","english":"They lived in the countryside.","note":"`Vécu` means lived; `vu` means seen."}
    ],
-   "mistakes":[{"avoid":"J'ai recevu le message.","prefer":"J'ai reçu le message.","why":"Recevoir has reçu, not a present-stem construction."}]
+   "mistakes":[{"avoid":"J'ai recevu le message.","prefer":"J'ai reçu le message.","why":"`Recevoir` has `reçu`, not a present-stem construction."}]
   }
  ],
  "practice":[
@@ -48,5 +48,5 @@
   {"id":"item-17","kind":"text","pool":"check","section_id":"receive-hold-live","prompt":"Give the participle of concevoir: L'équipe a ___ un nouveau plan.","choices":[],"answers":["conçu"],"explanation":"Concevoir gives conçu."},
   {"id":"item-18","kind":"text","pool":"review","section_id":"receive-hold-live","prompt":"Give the participle of maintenir: Ils ont ___ leur décision.","choices":[],"answers":["maintenu"],"explanation":"Maintenir follows tenir."}
  ],
- "production_task":{"prompt":"Describe an application you completed: the information you read, a requirement, something you received and the result.","model_answer":"J'ai lu les conditions. J'ai dû fournir une photo, mais j'ai pu envoyer le dossier en ligne. J'ai reçu une confirmation et j'ai obtenu mon permis.","translation":"I read the conditions. I had to provide a photo, but I was able to send the application online. I received a confirmation and obtained my permit.","rubric":["Distinguish lu, dû, pu and reçu.","Choose avoir for these verbs.","State a clear outcome without assuming voulu or pu always guarantees every result."]}
+ "production_task":{"prompt":"Describe an application you completed: the information you read, a requirement, something you received and the result.","model_answer":"J'ai lu les conditions. J'ai dû fournir une photo, mais j'ai pu envoyer le dossier en ligne. J'ai reçu une confirmation et j'ai obtenu mon permis.","translation":"I read the conditions. I had to provide a photo, but I was able to send the application online. I received a confirmation and obtained my permit.","rubric":["Distinguish `lu`, `dû`, `pu` and `reçu`.","Choose `avoir` for these verbs.","State a clear outcome without assuming `voulu` or `pu` always guarantees every result."]}
 }

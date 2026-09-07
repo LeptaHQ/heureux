@@ -1,37 +1,37 @@
 {
  "version":1,"id":"a2-infinitives-necessity","slug":"a2-infinitives-necessity","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Lire, apprendre, il faut partir","summary":"Use an infinitive for an activity or a necessary action instead of copying English -ing.","order":5,"duration_minutes":10,"prerequisites":["a2-present-know-see"],
- "objectives":["Use an infinitive as an activity name or after another verb.","Express general necessity with il faut and distinguish a necessary object from an action."],
+ "objectives":["Use an infinitive as an activity name or after another verb.","Express general necessity with `il faut` and distinguish a necessary object from an action."],
  "keywords":["infinitif","-ing","il faut","falloir","nécessité"],
  "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
  "related_legacy_ids":["verbs-infinitive-time-purpose","expressions-avoir-faire-il-faut"],
  "sections":[
   {"id":"activity","title":"Name an action with the dictionary form",
-   "paragraphs":["An infinitive does not identify a person or time: lire means 'to read' or, when naming an activity, 'reading'. English -ing has several jobs, so it does not have one French equivalent. An activity used as the subject can be an infinitive. After aimer, préférer, savoir, vouloir and pouvoir, use an infinitive directly. Other verbs require a preposition: apprendre à conduire, essayer de comprendre."],
-   "points":["A present action normally needs a conjugated present: je lis can mean 'I am reading'. Do not substitute an infinitive for the main verb.","With a reflexive activity, match the reflexive pronoun to the understood subject: je veux me reposer, tu veux te reposer, il/elle veut se reposer, nous voulons nous reposer, vous voulez vous reposer, ils/elles veulent se reposer."],
+   "paragraphs":["An infinitive does not identify a person or time: `lire` means 'to read' or, when naming an activity, 'reading'. English -ing has several jobs, so it does not have one French equivalent. An activity used as the subject can be an infinitive. After `aimer`, `préférer`, `savoir`, `vouloir` and `pouvoir`, use an infinitive directly. Other verbs require a preposition: `apprendre à conduire`, `essayer de comprendre`."],
+   "points":["A present action normally needs a conjugated present: `je lis` can mean 'I am reading'. Do not substitute an infinitive for the main verb.","With a reflexive activity, match the reflexive pronoun to the understood subject: `je veux me reposer, tu veux te reposer, il/elle veut se reposer, nous voulons nous reposer, vous voulez vous reposer, ils/elles veulent se reposer`."],
    "examples":[
     {"french":"**Marcher** me détend.","english":"Walking relaxes me.","note":"The activity is the subject."},
-    {"french":"J'aime **lire** dans le train.","english":"I like reading on the train.","note":"Aimer takes an infinitive directly."},
-    {"french":"Nous apprenons **à conduire**.","english":"We are learning to drive.","note":"Apprendre requires à before this infinitive."},
-    {"french":"Elle veut **se reposer**.","english":"She wants to rest.","note":"Se refers back to elle."}
+    {"french":"J'aime **lire** dans le train.","english":"I like reading on the train.","note":"`Aimer` takes an infinitive directly."},
+    {"french":"Nous apprenons **à conduire**.","english":"We are learning to drive.","note":"`Apprendre` requires `à` before this infinitive."},
+    {"french":"Elle veut **se reposer**.","english":"She wants to rest.","note":"`Se` refers back to `elle`."}
    ],
-   "mistakes":[{"avoid":"J'aime lisant le soir.","prefer":"J'aime lire le soir.","why":"After aimer, name the activity with the infinitive."}]
+   "mistakes":[{"avoid":"J'aime lisant le soir.","prefer":"J'aime lire le soir.","why":"After `aimer`, name the activity with the infinitive."}]
   },
-  {"id":"necessity","title":"Il faut: what is necessary",
-   "paragraphs":["Il faut means 'it is necessary', 'one must' or, in context, 'we/you need to'. Falloir is impersonal: il does not name a man, and the present form is always il faut. Put an infinitive after it for a necessary action, or a noun phrase for a required thing. To state a particular person's obligation directly, use devoir with that subject: nous devons partir.", "Il ne faut pas + infinitive normally tells someone not to do something. It does not mean that doing it is optional. For 'it is not necessary', use ce n'est pas nécessaire de + infinitive or il n'est pas nécessaire de + infinitive."],
-   "points":["For a general reflexive instruction use il faut se préparer, not il faut me préparer unless the intended object really is 'me'.","Il faut que introduces a different construction requiring the subjunctive; use the infinitive pattern here rather than inventing il faut que partir."],
+  {"id":"necessity","title":"`Il faut`: what is necessary",
+   "paragraphs":["`Il faut` means 'it is necessary', 'one must' or, in context, 'we/you need to'. `Falloir` is impersonal: `il` does not name a man, and the present form is always `il faut`. Put an infinitive after it for a necessary action, or a noun phrase for a required thing. To state a particular person's obligation directly, use `devoir` with that subject: `nous devons partir`.", "`Il ne faut pas` + infinitive normally tells someone not to do something. It does not mean that doing it is optional. For 'it is not necessary', use `ce n'est pas nécessaire de` + infinitive or `il n'est pas nécessaire de` + infinitive."],
+   "points":["For a general reflexive instruction use `il faut se préparer`, not `il faut me préparer` unless the intended object really is 'me'.","`Il faut que` introduces a different construction requiring the subjunctive; use the infinitive pattern here rather than inventing `il faut que partir`."],
    "examples":[
-    {"french":"Il **faut apporter** une pièce d'identité.","english":"You need to bring identification.","note":"A necessary action; une pièce d'identité (f.) is an identity document."},
+    {"french":"Il **faut apporter** une pièce d'identité.","english":"You need to bring identification.","note":"A necessary action; `une pièce d'identité` (f.) is an identity document."},
     {"french":"Il **faut deux signatures**.","english":"Two signatures are needed.","note":"The required thing is a noun phrase."},
     {"french":"Il **ne faut pas bloquer** la sortie.","english":"You must not block the exit.","note":"A prohibition, not an optional action."},
     {"french":"Il **n'est pas nécessaire de réserver**.","english":"It is not necessary to book.","note":"Booking is not required."}
    ],
-   "mistakes":[{"avoid":"Nous faut partir.","prefer":"Il faut partir.","why":"Falloir keeps impersonal il. Nous devons partir is another grammatical formulation."}]
+   "mistakes":[{"avoid":"Nous faut partir.","prefer":"Il faut partir.","why":"`Falloir` keeps impersonal `il`. `Nous devons partir` is another grammatical formulation."}]
   },
-  {"id":"personal-need","title":"Name who needs something without changing faut",
-   "paragraphs":["Il me faut identifies a need as mine. The person is an indirect object, not the subject of falloir: il me/te/lui/nous/vous/leur faut. The required thing can be singular or plural; faut stays singular. This is a useful everyday pattern with a noun.", "With an infinitive, il me faut partir is grammatical but more formal than je dois partir. General il faut often leaves the person understood from the situation. A possessive can make a specific addressee clear: il faut prendre ton badge addresses tu; il faut prendre son badge can describe a general requirement."],
-   "points":["Separate the person needing something from the thing needed. Neither replaces the impersonal subject il."],
-   "examples":[{"french":"Il **nous faut** deux rallonges pour les lampes.","english":"We need two extension leads for the lamps.","note":"Une rallonge (feminine) is an extension lead; plural equipment does not change faut."},{"french":"Il **lui faut** une autorisation, mais il **nous faut** seulement une signature.","english":"He or she needs permission, but we only need a signature.","note":"The pronoun changes the person with the need."},{"french":"Il **me faut renoncer** à ce voyage.","english":"I have to give up this trip.","note":"This infinitive construction has a more formal tone than je dois renoncer."}],
-   "mistakes":[{"avoid":"Il nous fallent deux copies.","prefer":"Il nous faut deux copies.","why":"Copies is the required object, not the subject; impersonal faut does not become plural."}]
+  {"id":"personal-need","title":"Name who needs something without changing `faut`",
+   "paragraphs":["`Il me faut` identifies a need as mine. The person is an indirect object, not the subject of `falloir`: `il me/te/lui/nous/vous/leur faut`. The required thing can be singular or plural; `faut` stays singular. This is a useful everyday pattern with a noun.", "With an infinitive, `il me faut partir` is grammatical but more formal than `je dois partir`. General `il faut` often leaves the person understood from the situation. A possessive can make a specific addressee clear: `il faut prendre ton badge` addresses `tu`; `il faut prendre son badge` can describe a general requirement."],
+   "points":["Separate the person needing something from the thing needed. Neither replaces the impersonal subject `il`."],
+   "examples":[{"french":"Il **nous faut** deux rallonges pour les lampes.","english":"We need two extension leads for the lamps.","note":"`Une rallonge` (feminine) is an extension lead; plural equipment does not change `faut`."},{"french":"Il **lui faut** une autorisation, mais il **nous faut** seulement une signature.","english":"He or she needs permission, but we only need a signature.","note":"The pronoun changes the person with the need."},{"french":"Il **me faut renoncer** à ce voyage.","english":"I have to give up this trip.","note":"This infinitive construction has a more formal tone than `je dois renoncer`."}],
+   "mistakes":[{"avoid":"Il nous fallent deux copies.","prefer":"Il nous faut deux copies.","why":"`Copies` is the required object, not the subject; impersonal `faut` does not become plural."}]
   }
  ],
  "practice":[

@@ -1,36 +1,36 @@
 {
  "version":1,"id":"a2-question-inversion","slug":"a2-question-inversion","cefr_level":"A2","topic":"pronouns-questions-negation","title":"Pouvez-vous venir ? Est-elle arrivée ?","summary":"Recognise and form careful inverted questions while retaining ordinary spoken alternatives.","order":24,"duration_minutes":15,"prerequisites":["a2-negation-none-only"],
- "objectives":["Form present and passé composé inversion with subject pronouns.","Handle linking -t-, reflexive pronouns and repeated noun subjects.","Recognise puis-je, ai-je and suis-je without overgeneralising inversion with je."],
+ "objectives":["Form present and `passé composé` inversion with subject pronouns.","Handle linking `-t-`, reflexive pronouns and repeated noun subjects.","Recognise `puis-je`, `ai-je` and `suis-je` without overgeneralising inversion with `je`."],
  "keywords":["inversion","questions","a-t-il","puis-je","ai-je","suis-je","registre"],
  "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
  "related_legacy_ids":["questions-forms"],
  "sections":[
   {"id":"pronoun-inversion","title":"Verb, hyphen, subject pronoun",
-   "paragraphs":["Inversion places a subject pronoun after the conjugated verb, joined by a hyphen: vous venez → venez-vous ? It is common in careful questions and writing. Est-ce que vous venez ? and rising-intonation vous venez ? are also standard ways to ask, with the last especially conversational. A more formal form is not automatically a more helpful question.", "With il, elle or on, add -t- between a vowel-ending verb and the pronoun: parle-t-elle, va-t-on, a-t-il. Do not add an extra t after an existing t or d: vient-il, prend-elle. The spelling remains d in prend-elle even though a t sound is heard.", "In the passé composé invert the auxiliary, not the participle: avez-vous compris, est-elle partie. With reflexive verbs the reflexive pronoun remains before the verb: vous vous levez → vous levez-vous. Negative inversion puts ne before the pronoun/verb group and pas after the inverted subject: ne vous levez-vous pas ?"],
-   "points":["Tu viens → viens-tu; nous partons → partons-nous; vous savez → savez-vous; ils arrivent → arrivent-ils; elles choisissent → choisissent-elles.","The t is a sound-linking spelling, not an apostrophe: a-t-elle, never a-t'elle."],
+   "paragraphs":["Inversion places a subject pronoun after the conjugated verb, joined by a hyphen: `vous venez` → `venez-vous ?` It is common in careful questions and writing. `Est-ce que vous venez ?` and rising-intonation `vous venez ?` are also standard ways to ask, with the last especially conversational. A more formal form is not automatically a more helpful question.", "With `il`, `elle` or `on`, add `-t-` between a vowel-ending verb and the pronoun: `parle-t-elle`, `va-t-on`, `a-t-il`. Do not add an extra `t` after an existing `t` or `d`: `vient-il`, `prend-elle`. The spelling remains `d` in `prend-elle` even though a `t` sound is heard.", "In the `passé composé` invert the auxiliary, not the participle: `avez-vous compris`, `est-elle partie`. With reflexive verbs the reflexive pronoun remains before the verb: `vous vous levez` → `vous levez-vous`. Negative inversion puts `ne` before the pronoun/verb group and `pas` after the inverted subject: `ne vous levez-vous pas ?`"],
+   "points":["`Tu viens` → `viens-tu`; `nous partons` → `partons-nous`; `vous savez` → `savez-vous`; `ils arrivent` → `arrivent-ils`; `elles choisissent` → `choisissent-elles`.","The `t` is a sound-linking spelling, not an apostrophe: `a-t-elle`, never `a-t'elle`."],
    "examples":[
     {"french":"**Pouvez-vous** attendre ici ?","english":"Can you wait here?","note":"Conjugated verb plus subject pronoun."},
-    {"french":"À quelle heure **arrive-t-elle** ?","english":"What time does she arrive?","note":"Add -t- after the vowel-ending verb."},
-    {"french":"**Prend-il** le même bus ?","english":"Does he take the same bus?","note":"Keep the existing d; do not add -t-."},
-    {"french":"**Vous souvenez-vous** de l'adresse ?","english":"Do you remember the address?","note":"The first vous is reflexive; the second is the subject."},
+    {"french":"À quelle heure **arrive-t-elle** ?","english":"What time does she arrive?","note":"Add `-t-` after the vowel-ending verb."},
+    {"french":"**Prend-il** le même bus ?","english":"Does he take the same bus?","note":"Keep the existing `d`; do not add `-t-`."},
+    {"french":"**Vous souvenez-vous** de l'adresse ?","english":"Do you remember the address?","note":"The first `vous` is reflexive; the second is the subject."},
     {"french":"**Avez-vous reçu** le message ?","english":"Have you received the message?","note":"Invert the auxiliary only."}
    ],
-   "mistakes":[{"avoid":"A-elle reçu le colis ?","prefer":"A-t-elle reçu le colis ?","why":"Add linking -t- after a."}]
+   "mistakes":[{"avoid":"A-elle reçu le colis ?","prefer":"A-t-elle reçu le colis ?","why":"Add linking `-t-` after `a`."}]
   },
-  {"id":"nouns-je","title":"Noun subjects stay; je has restricted everyday forms",
-   "paragraphs":["With a noun or name as subject, careful yes/no inversion normally keeps it before the verb and repeats it with the appropriate subject pronoun: Léa arrive-t-elle ? Les dossiers sont-ils prêts ? This is often called complex inversion; the name is not moved behind the verb.", "With je, inversion is limited and often formal. Learn puis-je from pouvoir, ai-je from avoir and suis-je from être as useful whole forms. Do not invent peux-je. Questions such as est-ce que je peux entrer ? are natural alternatives. Many other je inversions sound literary or require special spelling, so use est-ce que rather than mechanically inverting every je verb."],
-   "points":["In a compound tense with a name: Léa a-t-elle répondu ? The repeated pronoun agrees with the noun, and the auxiliary is what inverts."],
+  {"id":"nouns-je","title":"Noun subjects stay; `je` has restricted everyday forms",
+   "paragraphs":["With a noun or name as subject, careful yes/no inversion normally keeps it before the verb and repeats it with the appropriate subject pronoun: `Léa arrive-t-elle ?` `Les dossiers sont-ils prêts ?` This is often called complex inversion; the name is not moved behind the verb.", "With `je`, inversion is limited and often formal. Learn `puis-je` from `pouvoir`, `ai-je` from `avoir` and `suis-je` from `être` as useful whole forms. Do not invent `peux-je`. Questions such as `est-ce que je peux entrer ?` are natural alternatives. Many other `je` inversions sound literary or require special spelling, so use `est-ce que` rather than mechanically inverting every `je` verb."],
+   "points":["In a compound tense with a name: `Léa a-t-elle répondu ?` The repeated pronoun agrees with the noun, and the auxiliary is what inverts."],
    "examples":[
-    {"french":"**Le centre ouvre-t-il** le dimanche ?","english":"Does the centre open on Sundays?","note":"The noun stays and il repeats it."},
-    {"french":"**Puis-je** laisser mon vélo ici ?","english":"May I leave my bicycle here?","note":"A careful request; est-ce que je peux is less formal."},
-    {"french":"**Ai-je** le bon numéro ? **Suis-je** au bon endroit ?","english":"Do I have the right number? Am I in the right place?","note":"Two useful je inversion forms."}
+    {"french":"**Le centre ouvre-t-il** le dimanche ?","english":"Does the centre open on Sundays?","note":"The noun stays and `il` repeats it."},
+    {"french":"**Puis-je** laisser mon vélo ici ?","english":"May I leave my bicycle here?","note":"A careful request; `est-ce que je peux` is less formal."},
+    {"french":"**Ai-je** le bon numéro ? **Suis-je** au bon endroit ?","english":"Do I have the right number? Am I in the right place?","note":"Two useful `je` inversion forms."}
    ],
-   "mistakes":[{"avoid":"Peux-je entrer ?","prefer":"Puis-je entrer ?","why":"The established inverted form of pouvoir with je is puis-je."}]
+   "mistakes":[{"avoid":"Peux-je entrer ?","prefer":"Puis-je entrer ?","why":"The established inverted form of `pouvoir` with `je` is `puis-je`."}]
   },
-  {"id":"vais-je","title":"Recognise vais-je without changing the following infinitive",
-   "paragraphs":["Vais-je is another established je inversion. It can ask about movement or introduce a near-future action. In vais-je devoir attendre ?, vais is the conjugated word, and devoir and attendre remain infinitives. Est-ce que je vais devoir attendre ? gives the same question with ordinary subject order."],
+  {"id":"vais-je","title":"Recognise `vais-je` without changing the following infinitive",
+   "paragraphs":["`Vais-je` is another established `je` inversion. It can ask about movement or introduce a near-future action. In `vais-je devoir attendre ?`, `vais` is the conjugated word, and `devoir` and `attendre` remain infinitives. `Est-ce que je vais devoir attendre ?` gives the same question with ordinary subject order."],
    "points":["Invert the finite verb, not every verb in the chain."],
-   "examples":[{"french":"**Vais-je** vers la bonne sortie ?","english":"Am I heading towards the right exit?","note":"Aller describes movement."},{"french":"**Vais-je devoir** imprimer le formulaire ?","english":"Am I going to have to print the form?","note":"Aller introduces a future requirement."}],
+   "examples":[{"french":"**Vais-je** vers la bonne sortie ?","english":"Am I heading towards the right exit?","note":"`Aller` describes movement."},{"french":"**Vais-je devoir** imprimer le formulaire ?","english":"Am I going to have to print the form?","note":"`Aller` introduces a future requirement."}],
    "mistakes":[]
   }
  ],
@@ -53,5 +53,5 @@
   {"id":"item-16","kind":"text","pool":"review","section_id":"pronoun-inversion","prompt":"Rewrite Vous venez ? with est-ce que instead of inversion.","choices":[],"answers":["Est-ce que vous venez ?"],"explanation":"Est-ce que allows ordinary subject-verb order."},
   {"id":"depth-near-future-je","kind":"text","pool":"check","section_id":"vais-je","prompt":"Replace est-ce que with inversion: Est-ce que je vais pouvoir récupérer mes bagages ?","choices":[],"answers":["Vais-je pouvoir récupérer mes bagages ?"],"explanation":"Invert vais-je; pouvoir and récupérer remain infinitives.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
- "production_task":{"prompt":"Write three clear questions to a service desk: a polite request, a question about the centre and a question about a completed action.","model_answer":"Puis-je déposer mon dossier ici ? Le centre ouvre-t-il samedi ? Avez-vous reçu ma demande en ligne ?","translation":"May I submit my application here? Does the centre open on Saturday? Have you received my online request?","rubric":["Use linking t only where needed.","Repeat a noun subject in complex inversion.","Invert the auxiliary in a compound tense."]}
+ "production_task":{"prompt":"Write three clear questions to a service desk: a polite request, a question about the centre and a question about a completed action.","model_answer":"Puis-je déposer mon dossier ici ? Le centre ouvre-t-il samedi ? Avez-vous reçu ma demande en ligne ?","translation":"May I submit my application here? Does the centre open on Saturday? Have you received my online request?","rubric":["Use linking `t` only where needed.","Repeat a noun subject in complex inversion.","Invert the auxiliary in a compound tense."]}
 }

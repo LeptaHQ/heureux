@@ -9,7 +9,7 @@
   "order": 29,
   "duration_minutes": 13,
   "prerequisites": ["a2-past-contrast"],
-  "objectives": ["Describe an ongoing situation with depuis.", "Distinguish elapsed duration, completed duration, completion time and a future delay.", "Report completed events within a period without treating depuis as a tense command."],
+  "objectives": ["Describe an ongoing situation with `depuis`.", "Distinguish elapsed duration, completed duration, completion time and a future delay.", "Report completed events within a period without treating `depuis` as a tense command."],
   "keywords": ["depuis", "pendant", "durant", "pour", "en", "dans", "il y a", "duration", "since", "ago"],
   "sources": [
     {"label": "Académie française: depuis, consulted 7 September 2026", "url": "https://www.dictionnaire-academie.fr/article/A9D1606"},
@@ -21,25 +21,25 @@
     {
       "id": "continuing",
       "title": "A situation that still holds",
-      "paragraphs": ["A duration says how long; a starting point says when it began. For one situation that began earlier and continues now, use a present-tense verb with depuis, followed directly by either kind of time expression. English often uses 'have been', but French describes the current situation with the present.", "Depuis combien de temps asks for a duration; depuis quand asks for a starting point. Depuis que introduces a clause, a group containing a subject and a verb, not a bare number of days."],
-      "points": ["Present + depuis is the useful continuing-situation pattern, not a rule that every verb near depuis must be present."],
+      "paragraphs": ["A duration says how long; a starting point says when it began. For one situation that began earlier and continues now, use a present-tense verb with `depuis`, followed directly by either kind of time expression. English often uses 'have been', but French describes the current situation with the present.", "`Depuis combien de temps` asks for a duration; `depuis quand` asks for a starting point. `Depuis que` introduces a clause, a group containing a subject and a verb, not a bare number of days."],
+      "points": ["Present + `depuis` is the useful continuing-situation pattern, not a rule that every verb near `depuis` must be present."],
       "examples": [
         {"french": "Nous **partageons** ce bureau **depuis janvier**.", "english": "We have been sharing this office since January.", "note": "The arrangement continues now."},
         {"french": "Le technicien **attend depuis une heure**.", "english": "The technician has been waiting for an hour.", "note": "The wait has not ended."},
         {"french": "**Depuis quand** prenez-vous ce médicament ?", "english": "Since when have you been taking this medicine?", "note": "Ask for the starting point."}
       ],
       "mistakes": [
-        {"avoid": "Nous partageons ce bureau depuis de janvier.", "prefer": "Nous partageons ce bureau depuis janvier.", "why": "Depuis introduces the starting point directly."},
-        {"avoid": "Il attend depuis que une heure.", "prefer": "Il attend depuis une heure.", "why": "Une heure is a duration, not a clause."}
+        {"avoid": "Nous partageons ce bureau depuis de janvier.", "prefer": "Nous partageons ce bureau depuis janvier.", "why": "`Depuis` introduces the starting point directly."},
+        {"avoid": "Il attend depuis que une heure.", "prefer": "Il attend depuis une heure.", "why": "`Une heure` is a duration, not a clause."}
       ]
     },
     {
       "id": "bounded",
       "title": "An interval, a planned stay, or an event ago",
-      "paragraphs": ["Pendant and durant describe the length of an interval. With a completed past action they say how long it lasted; they also work for future intervals. Durant is often more written in tone. Pour can give the intended duration of a stay, reservation or arrangement; it is not a general replacement for English 'for' with every past action.", "Il y a + duration locates an event that far before now: it means 'ago'. Do not confuse this use with il y a + noun, 'there is/are'."],
+      "paragraphs": ["`Pendant` and `durant` describe the length of an interval. With a completed past action they say how long it lasted; they also work for future intervals. `Durant` is often more written in tone. `Pour` can give the intended duration of a stay, reservation or arrangement; it is not a general replacement for English 'for' with every past action.", "`Il y a` + duration locates an event that far before now: it means 'ago'. Do not confuse this use with `il y a` + noun, 'there is/are'."],
       "points": ["A completed interval need not continue now. A planned duration does not guarantee that the plan was fulfilled."],
       "examples": [
-        {"french": "J'ai gardé le chien **pendant trois jours**, puis sa famille est rentrée.", "english": "I looked after the dog for three days, then its family came home.", "note": "The period is complete; durant is also possible."},
+        {"french": "J'ai gardé le chien **pendant trois jours**, puis sa famille est rentrée.", "english": "I looked after the dog for three days, then its family came home.", "note": "The period is complete; `durant` is also possible."},
         {"french": "Nous louons la salle **pour deux soirées**.", "english": "We are renting the room for two evenings.", "note": "This is the agreed rental period."},
         {"french": "L'atelier a fermé **il y a six mois**.", "english": "The workshop closed six months ago.", "note": "This dates the closure, not its duration."}
       ],
@@ -48,7 +48,7 @@
     {
       "id": "delay-completion",
       "title": "Time needed versus time before the start",
-      "paragraphs": ["En + duration measures the time needed to complete something. Dans + duration places a future event after that much time has passed. En dix minutes answers 'How long did it take?'; dans dix minutes answers 'How long from now?'."],
+      "paragraphs": ["`En` + duration measures the time needed to complete something. `Dans` + duration places a future event after that much time has passed. `En dix minutes` answers 'How long did it take?'; `dans dix minutes` answers 'How long from now?'."],
       "points": ["Select the timeline before selecting the preposition."],
       "examples": [
         {"french": "Elle a réparé la lampe **en vingt minutes**.", "english": "She repaired the lamp in twenty minutes.", "note": "Twenty minutes were needed to finish."},
@@ -59,8 +59,8 @@
     {
       "id": "events-since",
       "title": "Completed events inside a period",
-      "paragraphs": ["Depuis can frame a period in which completed events have occurred. Use the passé composé to count those events, or to say that an expected event has not occurred. The period reaches now, but each event can be complete. A past reference point can also take the imparfait: elle attendait depuis une heure describes a wait already lasting an hour at that past moment."],
-      "points": ["Do not 'correct' a grammatical passé composé simply because you see depuis."],
+      "paragraphs": ["`Depuis` can frame a period in which completed events have occurred. Use the `passé composé` to count those events, or to say that an expected event has not occurred. The period reaches now, but each event can be complete. A past reference point can also take the `imparfait`: `elle attendait depuis une heure` describes a wait already lasting an hour at that past moment."],
+      "points": ["Do not 'correct' a grammatical `passé composé` simply because you see `depuis`."],
       "examples": [
         {"french": "J'**ai réparé** trois vélos **depuis samedi**.", "english": "I have repaired three bicycles since Saturday.", "note": "Three completed repairs within the period."},
         {"french": "Nous **n'avons pas reçu** de facture **depuis juin**.", "english": "We have not received a bill since June.", "note": "No receipt of a bill has occurred in that period."}
@@ -70,13 +70,13 @@
     {
       "id": "timeline-decisions",
       "title": "Check the meaning before looking at the tense",
-      "paragraphs": ["A present-tense verb may describe a habit, not one action continuing until now. Ask whether the duration measures each separate session or the time already elapsed in the current session. Use pendant/durant for each bounded session; use depuis for the current session that is still in progress. You can also omit pendant before a measured duration when the sentence still clearly describes the length of a bounded activity.", "Pour describes a period that was intended or agreed. The agreement itself may be in the past: a past booking can still specify its planned duration with pour. Do not choose the preposition from the verb ending alone.", "Check whether the words after en name a calendar period or measure time spent. En février and en 2030 locate something on the calendar; they do not tell you how long it takes. Dans deux mois counts forward from now. A month name and a number of months do different jobs."],
-      "points": ["To omit pendant, remove just that word: keep the duration and the rest of the sentence. This does not turn the duration into a starting point.", "A duration can be bounded even when the activity happens regularly."],
+      "paragraphs": ["A present-tense verb may describe a habit, not one action continuing until now. Ask whether the duration measures each separate session or the time already elapsed in the current session. Use `pendant/durant` for each bounded session; use `depuis` for the current session that is still in progress. You can also omit `pendant` before a measured duration when the sentence still clearly describes the length of a bounded activity.", "`Pour` describes a period that was intended or agreed. The agreement itself may be in the past: a past booking can still specify its planned duration with `pour`. Do not choose the preposition from the verb ending alone.", "Check whether the words after `en` name a calendar period or measure time spent. `En février` and `en 2030` locate something on the calendar; they do not tell you how long it takes. `Dans deux mois` counts forward from now. A month name and a number of months do different jobs."],
+      "points": ["To omit `pendant`, remove just that word: keep the duration and the rest of the sentence. This does not turn the duration into a starting point.", "A duration can be bounded even when the activity happens regularly."],
       "examples": [
         {"french": "À chaque séance, nous dessinons **pendant cinquante minutes**. Aujourd'hui, nous dessinons **depuis dix minutes**.", "english": "In each session, we draw for fifty minutes. Today, we have been drawing for ten minutes.", "note": "The usual session length contrasts with the elapsed part of today's session."},
-        {"french": "Le gardien a surveillé l'entrée **deux heures**, puis sa collègue l'a remplacé.", "english": "The caretaker watched the entrance for two hours, then his colleague took over.", "note": "Pendant deux heures is also possible; the replacement gives the interval an endpoint."},
-        {"french": "J'ai réservé le studio **pour une semaine**, mais j'ai dû annuler.", "english": "I booked the studio for a week, but I had to cancel.", "note": "Pour gives the planned rental period, not a week actually spent there."},
-        {"french": "La rénovation commence **en février**. L'équipe pense la terminer **en six semaines**.", "english": "The renovation starts in February. The team thinks it can finish it in six weeks.", "note": "The first en locates the start; the second measures the time needed for completion."}
+        {"french": "Le gardien a surveillé l'entrée **deux heures**, puis sa collègue l'a remplacé.", "english": "The caretaker watched the entrance for two hours, then his colleague took over.", "note": "`Pendant deux heures` is also possible; the replacement gives the interval an endpoint."},
+        {"french": "J'ai réservé le studio **pour une semaine**, mais j'ai dû annuler.", "english": "I booked the studio for a week, but I had to cancel.", "note": "`Pour` gives the planned rental period, not a week actually spent there."},
+        {"french": "La rénovation commence **en février**. L'équipe pense la terminer **en six semaines**.", "english": "The renovation starts in February. The team thinks it can finish it in six weeks.", "note": "The first `en` locates the start; the second measures the time needed for completion."}
       ],
       "mistakes": []
     }
@@ -109,6 +109,6 @@
     "prompt": "Write a short message to a colleague about a room booking. Say how long you have been organising the event, when you booked, how long the room is reserved for, and when the event starts. Keep the timeline consistent.",
     "model_answer": "Je prépare cette rencontre depuis deux semaines. J'ai réservé la salle il y a trois jours, pour une soirée. La rencontre commence dans une heure. Nous avons installé les tables en vingt minutes.",
     "translation": "I have been preparing this gathering for two weeks. I booked the room three days ago, for one evening. The gathering starts in an hour. We set up the tables in twenty minutes.",
-    "rubric": ["Use present + depuis for the preparation that continues.", "Distinguish the booking date from the booking duration.", "Use dans for a future delay and en only for time needed.", "Make the message useful without adding unsupported details."]
+    "rubric": ["Use present + `depuis` for the preparation that continues.", "Distinguish the booking date from the booking duration.", "Use `dans` for a future delay and `en` only for time needed.", "Make the message useful without adding unsupported details."]
   }
 }

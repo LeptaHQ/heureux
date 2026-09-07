@@ -1,36 +1,36 @@
 {
- "version":1,"id":"a2-past-avoir-foundations","slug":"a2-past-avoir-foundations","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Raconter une action terminée","summary":"Build the passé composé with avoir, regular participles and four essential irregulars.","order":6,"duration_minutes":14,"prerequisites":["a2-infinitives-necessity"],
- "objectives":["Form completed past actions with a present auxiliary and past participle.","Use -é, -i, -u, dit, fait, eu and été accurately."],
+ "version":1,"id":"a2-past-avoir-foundations","slug":"a2-past-avoir-foundations","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Raconter une action terminée","summary":"Build the `passé composé` with `avoir`, regular participles and four essential irregulars.","order":6,"duration_minutes":14,"prerequisites":["a2-infinitives-necessity"],
+ "objectives":["Form completed past actions with a present auxiliary and past participle.","Use `-é`, `-i`, `-u`, `dit`, `fait`, `eu` and `été` accurately."],
  "keywords":["passé composé","avoir","participe passé","dire","faire","être","past"],
  "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
  "related_legacy_ids":["verbs-passe-compose","verbs-irregular-past-participles"],
  "sections":[
   {"id":"build","title":"Two verb parts, one completed event",
-   "paragraphs":["The passé composé presents an event as a completed whole, often to say what happened next. English may use a simple past ('I called') or a present perfect ('I have called'). French needs two parts: an auxiliary, a helping verb conjugated for the subject, and a past participle, the form naming the completed action. Here the auxiliary is avoir in the present.", "For regular -er verbs remove -er and add -é. For regular -ir verbs of the finir family, replace -ir with -i. For regular -dre verbs such as vendre, attendre and répondre, replace -re with -u. These are families, not rules for every verb with a similar ending: prendre has pris."],
-   "points":["All persons: j'ai parlé, tu as parlé, il/elle/on a parlé, nous avons parlé, vous avez parlé, ils/elles ont parlé. Substitute fini, vendu, dit, fait, eu or été without changing the auxiliary pattern.","In these examples the direct object comes after the verb or is absent, so an avoir participle does not agree with the subject. Preceding direct objects are a separate agreement case."],
+   "paragraphs":["The `passé composé` presents an event as a completed whole, often to say what happened next. English may use a simple past ('I called') or a present perfect ('I have called'). French needs two parts: an auxiliary, a helping verb conjugated for the subject, and a past participle, the form naming the completed action. Here the auxiliary is `avoir` in the present.", "For regular `-er` verbs remove `-er` and add `-é`. For regular `-ir` verbs of the `finir` family, replace `-ir` with `-i`. For regular `-dre` verbs such as `vendre`, `attendre` and `répondre`, replace `-re` with `-u`. These are families, not rules for every verb with a similar ending: `prendre` has `pris`."],
+   "points":["All persons: `j'ai parlé, tu as parlé, il/elle/on a parlé, nous avons parlé, vous avez parlé, ils/elles ont parlé`. Substitute `fini`, `vendu`, `dit`, `fait`, `eu` or `été` without changing the auxiliary pattern.","In these examples the direct object comes after the verb or is absent, so an `avoir` participle does not agree with the subject. Preceding direct objects are a separate agreement case."],
    "examples":[
-    {"french":"J'**ai réservé** une table.","english":"I booked a table.","note":"Réserver becomes réservé."},
-    {"french":"Vous **avez fini** le rapport.","english":"You have finished the report.","note":"Finir becomes fini."},
-    {"french":"Nous **avons attendu** dehors.","english":"We waited outside.","note":"Attendre becomes attendu."},
-    {"french":"Elles **ont vendu** leur voiture.","english":"They sold their car.","note":"No subject agreement with avoir."}
+    {"french":"J'**ai réservé** une table.","english":"I booked a table.","note":"`Réserver` becomes `réservé`."},
+    {"french":"Vous **avez fini** le rapport.","english":"You have finished the report.","note":"`Finir` becomes `fini`."},
+    {"french":"Nous **avons attendu** dehors.","english":"We waited outside.","note":"`Attendre` becomes `attendu`."},
+    {"french":"Elles **ont vendu** leur voiture.","english":"They sold their car.","note":"No subject agreement with `avoir`."}
    ],
    "mistakes":[{"avoid":"J'ai réserver une table.","prefer":"J'ai réservé une table.","why":"After the auxiliary, use a participle, not an infinitive."}]
   },
   {"id":"essential-irregulars","title":"Four small forms with many uses",
-   "paragraphs":["Learn dire → dit, faire → fait, avoir → eu and être → été as whole participles. Avoir and être themselves both use avoir as their auxiliary here: j'ai eu, j'ai été. Having été does not turn the auxiliary into être. Use this tense for bounded experiences as well as actions: j'ai été malade trois jours presents a completed period of illness."],
-   "points":["Negation surrounds the conjugated auxiliary: je n'ai pas appelé. The participle remains after pas.","A past account can consist entirely of completed events; it does not need an imparfait in every sentence."],
+   "paragraphs":["Learn `dire` → `dit`, `faire` → `fait`, `avoir` → `eu` and `être` → `été` as whole participles. `Avoir` and `être` themselves both use `avoir` as their auxiliary here: `j'ai eu`, `j'ai été`. Having `été` does not turn the auxiliary into `être`. Use this tense for bounded experiences as well as actions: `j'ai été malade trois jours` presents a completed period of illness."],
+   "points":["Negation surrounds the conjugated auxiliary: `je n'ai pas appelé`. The participle remains after `pas`.","A past account can consist entirely of completed events; it does not need an `imparfait` in every sentence."],
    "examples":[
-    {"french":"Elle **a dit** son nom.","english":"She said her name.","note":"Dire has dit."},
-    {"french":"Tu **as fait** la réservation.","english":"You made the reservation.","note":"Faire has fait."},
-    {"french":"Nous **avons eu** un problème.","english":"We had a problem.","note":"The first form is the auxiliary; eu is the participle of avoir."},
-    {"french":"Ils **ont été** patients.","english":"They were patient.","note":"Être uses avoir here; patients agrees as an adjective."}
+    {"french":"Elle **a dit** son nom.","english":"She said her name.","note":"`Dire` has `dit`."},
+    {"french":"Tu **as fait** la réservation.","english":"You made the reservation.","note":"`Faire` has `fait`."},
+    {"french":"Nous **avons eu** un problème.","english":"We had a problem.","note":"The first form is the auxiliary; `eu` is the participle of `avoir`."},
+    {"french":"Ils **ont été** patients.","english":"They were patient.","note":"`Être` uses `avoir` here; `patients` agrees as an adjective."}
    ],
-   "mistakes":[{"avoid":"Elle est été malade.","prefer":"Elle a été malade.","why":"The passé composé of être uses avoir."}]
+   "mistakes":[{"avoid":"Elle est été malade.","prefer":"Elle a été malade.","why":"The `passé composé` of `être` uses `avoir`."}]
   },
   {"id":"participle-transfer","title":"Transfer the participle, not the present irregularity",
-   "paragraphs":["A verb can be irregular in the present yet have a short -i participle: dormir gives dormi and servir gives servi. Conversely, coudre (sew) has cousu, not a mechanically formed -u after coud-. Learn the present family and participle separately.", "Dire derivatives retain dit: interdire (forbid) gives interdit; contredire (contradict) gives contredit; prédire (predict) gives prédit; redire (say again) gives redit; médire (speak ill) gives médit. Add the usual present avoir auxiliary. The final t belongs to the participle even for a singular subject."],
+   "paragraphs":["A verb can be irregular in the present yet have a short `-i` participle: `dormir` gives `dormi` and `servir` gives `servi`. Conversely, `coudre` (sew) has `cousu`, not a mechanically formed `-u` after `coud-`. Learn the present family and participle separately.", "`Dire` derivatives retain `dit`: `interdire` (forbid) gives `interdit`; `contredire` (contradict) gives `contredit`; `prédire` (predict) gives `prédit`; `redire` (say again) gives `redit`; `médire` (speak ill) gives `médit`. Add the usual present `avoir` auxiliary. The final `t` belongs to the participle even for a singular subject."],
    "points":["Check the complete infinitive before applying a regular ending rule."],
-   "examples":[{"french":"Le traiteur **a servi** le repas après le discours.","english":"The caterer served the meal after the speech.","note":"Servi, despite the irregular present je sers."},{"french":"J'**ai cousu** un bouton sur la manche.","english":"I sewed a button onto the sleeve.","note":"Cousu is the participle of coudre."},{"french":"Les relevés **ont contredit** notre première estimation.","english":"The readings contradicted our first estimate.","note":"Contredit keeps dire's participle, without plural subject agreement."}],
+   "examples":[{"french":"Le traiteur **a servi** le repas après le discours.","english":"The caterer served the meal after the speech.","note":"`Servi`, despite the irregular present `je sers`."},{"french":"J'**ai cousu** un bouton sur la manche.","english":"I sewed a button onto the sleeve.","note":"`Cousu` is the participle of `coudre`."},{"french":"Les relevés **ont contredit** notre première estimation.","english":"The readings contradicted our first estimate.","note":"`Contredit` keeps `dire`'s participle, without plural subject agreement."}],
    "mistakes":[]
   }
  ],
@@ -55,5 +55,5 @@
   {"id":"depth-coudre-exception","kind":"text","pool":"check","section_id":"participle-transfer","prompt":"Supply the participle of coudre: La costumière a ___ une poche intérieure.","choices":[],"answers":["cousu"],"explanation":"Coudre has cousu; its spelling cannot be obtained from the regular vendre pattern.","case_sensitive":false,"terminal_punctuation_sensitive":false},
   {"id":"depth-dire-derivative","kind":"text","pool":"review","section_id":"participle-transfer","prompt":"Replace the present verb with the passé composé, retaining the rest: La mairie interdit le stationnement.","choices":[],"answers":["La mairie a interdit le stationnement."],"explanation":"Interdire keeps dit in its participle interdit; a is the present auxiliary.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
- "production_task":{"prompt":"Tell a friend what you did to arrange an appointment yesterday. Use three completed actions and mention the result.","model_answer":"J'ai appelé le centre et j'ai expliqué mon problème. Nous avons choisi une date. J'ai eu une confirmation par courriel et le personnel a été très aimable.","translation":"I called the centre and explained my problem. We chose a date. I received a confirmation by email and the staff were very kind.","rubric":["Use an auxiliary in every passé composé.","Distinguish infinitives from participles.","Report a clear sequence and outcome."]}
+ "production_task":{"prompt":"Tell a friend what you did to arrange an appointment yesterday. Use three completed actions and mention the result.","model_answer":"J'ai appelé le centre et j'ai expliqué mon problème. Nous avons choisi une date. J'ai eu une confirmation par courriel et le personnel a été très aimable.","translation":"I called the centre and explained my problem. We chose a date. I received a confirmation by email and the staff were very kind.","rubric":["Use an auxiliary in every `passé composé`.","Distinguish infinitives from participles.","Report a clear sequence and outcome."]}
 }

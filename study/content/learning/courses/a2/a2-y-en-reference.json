@@ -1,36 +1,36 @@
 {
  "version":1,"id":"a2-y-en-reference","slug":"a2-y-en-reference","cefr_level":"A2","topic":"pronouns-questions-negation","title":"J'y vais, j'en prends deux","summary":"Avoid repetition of a place or a quantity while preserving what the pronoun refers to.","order":16,"duration_minutes":13,"prerequisites":["a2-stressed-compound-subjects"],
- "objectives":["Replace a previously mentioned location with y.","Use en for quantities, retaining the amount.","Distinguish quantities of people from stressed-pronoun personal reference."],
+ "objectives":["Replace a previously mentioned location with `y`.","Use `en` for quantities, retaining the amount.","Distinguish quantities of people from stressed-pronoun personal reference."],
  "keywords":["y","en","there","some","quantité","personnes"],
  "sources":[{"label":"Le Robert: en, including personal reference; consulted 7 September 2026","url":"https://dictionnaire.lerobert.com/definition/en"},{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
  "related_legacy_ids":["pronouns-y-en"],
  "sections":[
-  {"id":"place-y","title":"Y points back to a place",
-   "paragraphs":["Y can replace a previously mentioned location introduced by à, dans, chez, sur and similar expressions. It means 'there' in this use, and normally stands before its verb or auxiliary. It can replace the location chez ma sœur even though that phrase contains a person: y refers to her home. For movement away from a place introduced by de, en is the relevant pronoun instead.", "Y also replaces many à + thing complements: penser au problème → y penser. For thinking about a particular person, the normal choice is penser à lui/elle. Do not turn every à phrase into y, especially when the verb calls for lui/leur."],
-   "points":["Simple: j'y travaille. Compound: j'y ai travaillé. Infinitive object: je veux y travailler. Negative: je n'y travaille pas."],
+  {"id":"place-y","title":"`Y` points back to a place",
+   "paragraphs":["`Y` can replace a previously mentioned location introduced by `à`, `dans`, `chez`, `sur` and similar expressions. It means 'there' in this use, and normally stands before its verb or auxiliary. It can replace the location `chez ma sœur` even though that phrase contains a person: `y` refers to her home. For movement away from a place introduced by `de`, `en` is the relevant pronoun instead.", "`Y` also replaces many `à` + thing complements: `penser au problème` → `y penser`. For thinking about a particular person, the normal choice is `penser à lui/elle`. Do not turn every `à` phrase into `y`, especially when the verb calls for `lui/leur`."],
+   "points":["Simple: `j'y travaille`. Compound: `j'y ai travaillé`. Infinitive object: `je veux y travailler`. Negative: `je n'y travaille pas`."],
    "examples":[
-    {"french":"La bibliothèque ? J'**y vais** après le travail.","english":"The library? I am going there after work.","note":"Y replaces à la bibliothèque."},
-    {"french":"Nous sommes chez ma tante ; nous **y restons** ce soir.","english":"We are at my aunt's; we are staying there tonight.","note":"Y refers to the place, not to the aunt as an object."},
-    {"french":"Ce quartier ? Elle veut **y habiter**.","english":"That neighbourhood? She wants to live there.","note":"Y belongs to the infinitive."},
-    {"french":"La solution ? Nous **y pensons**.","english":"The solution? We are thinking about it.","note":"Penser à a thing can use y."}
+    {"french":"La bibliothèque ? J'**y vais** après le travail.","english":"The library? I am going there after work.","note":"`Y` replaces `à la bibliothèque`."},
+    {"french":"Nous sommes chez ma tante ; nous **y restons** ce soir.","english":"We are at my aunt's; we are staying there tonight.","note":"`Y` refers to the place, not to the aunt as an object."},
+    {"french":"Ce quartier ? Elle veut **y habiter**.","english":"That neighbourhood? She wants to live there.","note":"`Y` belongs to the infinitive."},
+    {"french":"La solution ? Nous **y pensons**.","english":"The solution? We are thinking about it.","note":"`Penser à` a thing can use `y`."}
    ],
    "mistakes":[{"avoid":"Je veux habiter y.","prefer":"Je veux y habiter.","why":"The pronoun precedes its infinitive."}]
   },
-  {"id":"quantity-en","title":"En replaces the noun, not the amount",
-   "paragraphs":["En stands for a noun introduced by a partitive or indefinite quantity: du café → j'en veux; des pommes → j'en achète. With a number or amount word, keep the amount after the verb: j'en prends deux, nous en avons beaucoup. With un/une meaning one, retain it, including its gender. With ordinary negative quantity, j'en ai becomes je n'en ai pas.", "En can refer to people in quantified phrases: des collègues, j'en connais plusieurs. It is false that en never represents a person. For a particular person introduced by de, a stressed form is often clearer: je parle d'elle. En can also have personal reference in suitable contexts; do not mark it universally ungrammatical. The exercises specify quantities or a requested stressed form to avoid rejecting legitimate variants."],
-   "points":["Placement: j'en achète; j'en ai acheté; je vais en acheter; je n'en ai pas acheté.","For returning from a place: je reviens de la banque → j'en reviens. En is not a replacement for a specific definite object: les billets → je les ai, but des billets → j'en ai."],
+  {"id":"quantity-en","title":"`En` replaces the noun, not the amount",
+   "paragraphs":["`En` stands for a noun introduced by a partitive or indefinite quantity: `du café` → `j'en veux`; `des pommes` → `j'en achète`. With a number or amount word, keep the amount after the verb: `j'en prends deux`, `nous en avons beaucoup`. With `un/une` meaning one, retain it, including its gender. With ordinary negative quantity, `j'en ai` becomes `je n'en ai pas`.", "`En` can refer to people in quantified phrases: `des collègues, j'en connais plusieurs`. It is false that `en` never represents a person. For a particular person introduced by `de`, a stressed form is often clearer: `je parle d'elle`. `En` can also have personal reference in suitable contexts; do not mark it universally ungrammatical. The exercises specify quantities or a requested stressed form to avoid rejecting legitimate variants."],
+   "points":["Placement: `j'en achète`; `j'en ai acheté`; `je vais en acheter`; `je n'en ai pas acheté`.","For returning from a place: `je reviens de la banque` → `j'en reviens`. `En` is not a replacement for a specific definite object: `les billets` → `je les ai`, but `des billets` → `j'en ai`."],
    "examples":[
     {"french":"Du riz ? J'**en ai** dans le placard.","english":"Rice? I have some in the cupboard.","note":"No explicit count."},
     {"french":"Des chaises ? Nous **en prenons quatre**.","english":"Chairs? We are taking four.","note":"Keep the number."},
-    {"french":"Une sœur ? Oui, j'**en ai une**.","english":"A sister? Yes, I have one.","note":"En can represent a person in a quantity."},
+    {"french":"Une sœur ? Oui, j'**en ai une**.","english":"A sister? Yes, I have one.","note":"`En` can represent a person in a quantity."},
     {"french":"Des collègues ici ? J'**en connais plusieurs**.","english":"Colleagues here? I know several.","note":"The quantified personal reference is ordinary French."}
    ],
-   "mistakes":[{"avoid":"J'en ai de trois.","prefer":"J'en ai trois.","why":"Keep the number without an extra de."}]
+   "mistakes":[{"avoid":"J'en ai de trois.","prefer":"J'en ai trois.","why":"Keep the number without an extra `de`."}]
   },
-  {"id":"another-quantity","title":"Keep another one after en",
-   "paragraphs":["When asking for a replacement or an additional item, keep un autre or une autre after the verb. En removes the repeated noun, not the information that you want another one. Choose un/une from that noun, not from the person speaking."],
-   "points":["An explicitly named headword helps: un exemplaire (masculine, copy); une pile (feminine, battery)."],
-   "examples":[{"french":"Cette pile est usée ; j'**en prends une autre**.","english":"This battery is worn out; I am taking another one.","note":"Une autre retains the feminine singular reference."},{"french":"L'exemplaire est illisible ; nous allons **en demander un autre**.","english":"The copy is illegible; we are going to request another one.","note":"En belongs to demander; un autre remains after it."}],
+  {"id":"another-quantity","title":"Keep another one after `en`",
+   "paragraphs":["When asking for a replacement or an additional item, keep `un autre` or `une autre` after the verb. `En` removes the repeated noun, not the information that you want another one. Choose `un/une` from that noun, not from the person speaking."],
+   "points":["An explicitly named headword helps: `un exemplaire` (masculine, copy); `une pile` (feminine, battery)."],
+   "examples":[{"french":"Cette pile est usée ; j'**en prends une autre**.","english":"This battery is worn out; I am taking another one.","note":"`Une autre` retains the feminine singular reference."},{"french":"L'exemplaire est illisible ; nous allons **en demander un autre**.","english":"The copy is illegible; we are going to request another one.","note":"`En` belongs to `demander`; `un autre` remains after it."}],
    "mistakes":[]
   }
  ],
@@ -55,5 +55,5 @@
   {"id":"depth-another-infinitive","kind":"text","pool":"check","section_id":"another-quantity","prompt":"Rewrite with en, keeping the meaning 'another one': Vous devez choisir un autre siège.","choices":[],"answers":["Vous devez en choisir un autre."],"explanation":"En is the object of choisir, and un autre preserves the new selection.","case_sensitive":false,"terminal_punctuation_sensitive":false},
   {"id":"depth-another-gender","kind":"text","pool":"review","section_id":"another-quantity","prompt":"A second copy is needed. Complete with un autre or une autre: Une copie ne suffit pas ; il faut en imprimer ___.","choices":[],"answers":["une autre"],"explanation":"Une copie is feminine, so the retained amount phrase is une autre.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
- "production_task":{"prompt":"Plan supplies for a meeting at a known location. Say who is going there, what supplies you have and how many more you need.","model_answer":"La rencontre est au centre communautaire. J'y vais à dix heures. Des chaises, nous en avons douze, mais il faut en apporter deux de plus. Du café, j'en ai déjà.","translation":"The meeting is at the community centre. I am going there at ten. We have twelve chairs, but we need to bring two more. I already have some coffee.","rubric":["Give a clear place before using y.","Retain numbers with en.","Do not confuse a definite object with an unspecified quantity."]}
+ "production_task":{"prompt":"Plan supplies for a meeting at a known location. Say who is going there, what supplies you have and how many more you need.","model_answer":"La rencontre est au centre communautaire. J'y vais à dix heures. Des chaises, nous en avons douze, mais il faut en apporter deux de plus. Du café, j'en ai déjà.","translation":"The meeting is at the community centre. I am going there at ten. We have twelve chairs, but we need to bring two more. I already have some coffee.","rubric":["Give a clear place before using `y`.","Retain numbers with `en`.","Do not confuse a definite object with an unspecified quantity."]}
 }

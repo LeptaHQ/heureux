@@ -1,31 +1,31 @@
 {
- "version":1,"id":"a2-negation-none-only","slug":"a2-negation-none-only","cefr_level":"A2","topic":"pronouns-questions-negation","title":"Personne, rien, aucun et seulement","summary":"Say nobody, nothing, neither and only without adding an unwanted pas or changing scope.","order":23,"duration_minutes":14,"prerequisites":["a2-negation-time-degree"],
- "objectives":["Place personne and rien as subjects and objects.","Use aucun(e) and ni ... ni with the right noun pattern.","Restrict one part of a statement with ne ... que."],
+ "version":1,"id":"a2-negation-none-only","slug":"a2-negation-none-only","cefr_level":"A2","topic":"pronouns-questions-negation","title":"Personne, rien, aucun et seulement","summary":"Say nobody, nothing, neither and only without adding an unwanted `pas` or changing scope.","order":23,"duration_minutes":14,"prerequisites":["a2-negation-time-degree"],
+ "objectives":["Place `personne` and `rien` as subjects and objects.","Use `aucun(e)` and `ni ... ni` with the right noun pattern.","Restrict one part of a statement with `ne ... que`."],
  "keywords":["personne","rien","aucun","aucune","ni ni","ne que","only"],
  "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
  "related_legacy_ids":["negation-core","negation-agreement"],
  "sections":[
   {"id":"nobody-nothing","title":"Negative words replace the missing person or thing",
-   "paragraphs":["Personne means nobody and rien means nothing in these negative constructions. As objects in a simple tense, they follow the verb: je ne vois personne, je ne comprends rien. As subjects, put them first and retain ne: personne ne vient, rien ne change. Do not add pas to these ordinary patterns.", "In the passé composé, rien usually follows the auxiliary before the participle: je n'ai rien vu. Personne normally follows the participle: je n'ai vu personne. A preposition belonging to the verb remains: je ne parle à personne. The noun une personne still means a person; it is not inherently negative."],
-   "points":["A short answer can be Personne or Rien without a verb. The full careful written sentence includes ne."],
+   "paragraphs":["`Personne` means nobody and `rien` means nothing in these negative constructions. As objects in a simple tense, they follow the verb: `je ne vois personne`, `je ne comprends rien`. As subjects, put them first and retain `ne`: `personne ne vient`, `rien ne change`. Do not add `pas` to these ordinary patterns.", "In the `passé composé`, `rien` usually follows the auxiliary before the participle: `je n'ai rien vu`. `Personne` normally follows the participle: `je n'ai vu personne`. A preposition belonging to the verb remains: `je ne parle à personne`. The noun `une personne` still means a person; it is not inherently negative."],
+   "points":["A short answer can be `Personne` or `Rien` without a verb. The full careful written sentence includes `ne`."],
    "examples":[
-    {"french":"**Personne ne répond**.","english":"Nobody answers.","note":"Personne is the subject."},
-    {"french":"**Rien n'a changé**.","english":"Nothing has changed.","note":"Rien is the subject; n' precedes the auxiliary."},
-    {"french":"Je **n'ai rien oublié**.","english":"I have not forgotten anything.","note":"Rien before the participle."},
-    {"french":"Nous **n'avons parlé à personne**.","english":"We did not speak to anyone.","note":"Personne follows the participle and keeps à."}
+    {"french":"**Personne ne répond**.","english":"Nobody answers.","note":"`Personne` is the subject."},
+    {"french":"**Rien n'a changé**.","english":"Nothing has changed.","note":"`Rien` is the subject; `n'` precedes the auxiliary."},
+    {"french":"Je **n'ai rien oublié**.","english":"I have not forgotten anything.","note":"`Rien` before the participle."},
+    {"french":"Nous **n'avons parlé à personne**.","english":"We did not speak to anyone.","note":"`Personne` follows the participle and keeps `à`."}
    ],
-   "mistakes":[{"avoid":"Je ne vois pas personne.","prefer":"Je ne vois personne.","why":"For the ordinary intended meaning 'I see nobody', personne replaces pas; marked double negatives can change the meaning."}]
+   "mistakes":[{"avoid":"Je ne vois pas personne.","prefer":"Je ne vois personne.","why":"For the ordinary intended meaning 'I see nobody', `personne` replaces `pas`; marked double negatives can change the meaning."}]
   },
   {"id":"none-neither-only","title":"Absence, two exclusions, or a restriction",
-   "paragraphs":["Aucun/aucune before a noun means no/not a single. Use masculine aucun or feminine aucune, normally with a singular noun and verb where it is the subject. Nouns used only or mainly in the plural can exceptionally have aucuns/aucunes; the tasks here use ordinary count nouns.", "Ne ... ni ... ni excludes two alternatives. Unspecified noun quantities can omit articles: ni café ni thé. Keep definite articles when they belong to the meaning or verb: je n'aime ni le café ni le thé. With a negative subject group, ni Paul ni Léa ne viennent is an ordinary plural choice.", "Ne ... que means only, not not. Put que immediately before what is restricted: je ne travaille que le lundi restricts the day; je ne fais que travailler restricts the activity. Do not add pas unless you intend 'not only'."],
-   "points":["Que becomes qu' before a vowel: je n'ai qu'une clé. Ne ... que preserves the positive quantity article; it does not trigger the negative de rule."],
+   "paragraphs":["`Aucun/aucune` before a noun means no/not a single. Use masculine `aucun` or feminine `aucune`, normally with a singular noun and verb where it is the subject. Nouns used only or mainly in the plural can exceptionally have `aucuns/aucunes`; the tasks here use ordinary count nouns.", "`Ne ... ni ... ni` excludes two alternatives. Unspecified noun quantities can omit articles: `ni café ni thé`. Keep definite articles when they belong to the meaning or verb: `je n'aime ni le café ni le thé`. With a negative subject group, `ni Paul ni Léa ne viennent` is an ordinary plural choice.", "`Ne ... que` means only, not not. Put `que` immediately before what is restricted: `je ne travaille que le lundi` restricts the day; `je ne fais que travailler` restricts the activity. Do not add `pas` unless you intend 'not only'."],
+   "points":["`Que` becomes `qu'` before a vowel: `je n'ai qu'une clé`. `Ne ... que` preserves the positive quantity article; it does not trigger the negative `de` rule."],
    "examples":[
-    {"french":"Je **n'ai aucune question**.","english":"I have no questions.","note":"Aucune agrees with singular feminine question."},
+    {"french":"Je **n'ai aucune question**.","english":"I have no questions.","note":"`Aucune` agrees with singular feminine `question`."},
     {"french":"Nous **ne buvons ni café ni thé**.","english":"We drink neither coffee nor tea.","note":"Unspecified quantities lose their partitive articles."},
-    {"french":"Je **n'aime ni le café ni le thé**.","english":"I like neither coffee nor tea.","note":"Aimer retains definite articles."},
-    {"french":"Elle **ne travaille que le lundi**.","english":"She works only on Mondays.","note":"Que restricts the day, not whether she works."}
+    {"french":"Je **n'aime ni le café ni le thé**.","english":"I like neither coffee nor tea.","note":"`Aimer` retains definite articles."},
+    {"french":"Elle **ne travaille que le lundi**.","english":"She works only on Mondays.","note":"`Que` restricts the day, not whether she works."}
    ],
-   "mistakes":[{"avoid":"Je n'ai aucun de billet.","prefer":"Je n'ai aucun billet.","why":"Aucun directly introduces this noun; no de is added."}]
+   "mistakes":[{"avoid":"Je n'ai aucun de billet.","prefer":"Je n'ai aucun billet.","why":"`Aucun` directly introduces this noun; no `de` is added."}]
   }
  ],
  "practice":[
@@ -46,5 +46,5 @@
   {"id":"item-15","kind":"text","pool":"review","section_id":"none-neither-only","prompt":"Replace seulement with ne ... que: Elle a seulement une sœur.","choices":[],"answers":["Elle n'a qu'une sœur."],"explanation":"Que elides; une remains because the meaning is positive restriction."},
   {"id":"item-16","kind":"choice","pool":"review","section_id":"none-neither-only","prompt":"Je ne fais que travailler restricts:","choices":["The activity: working is all I do.","The day on which I work."],"answers":["The activity: working is all I do."],"explanation":"Que immediately precedes the restricted activity."}
  ],
- "production_task":{"prompt":"Explain why a room booking will not work and propose one limited alternative. Use no one, no available item and only.","model_answer":"Personne ne peut ouvrir la salle samedi. Aucune autre salle n'est libre ce jour-là. Nous ne pouvons organiser la rencontre que dimanche. Je n'ai rien réservé pour le moment.","translation":"Nobody can open the room on Saturday. No other room is available that day. We can organise the meeting only on Sunday. I have not booked anything for now.","rubric":["Do not add pas to ordinary personne/rien/aucun patterns.","Use que before the actual restriction.","Keep the proposed solution clear."]}
+ "production_task":{"prompt":"Explain why a room booking will not work and propose one limited alternative. Use no one, no available item and only.","model_answer":"Personne ne peut ouvrir la salle samedi. Aucune autre salle n'est libre ce jour-là. Nous ne pouvons organiser la rencontre que dimanche. Je n'ai rien réservé pour le moment.","translation":"Nobody can open the room on Saturday. No other room is available that day. We can organise the meeting only on Sunday. I have not booked anything for now.","rubric":["Do not add `pas` to ordinary `personne/rien/aucun` patterns.","Use `que` before the actual restriction.","Keep the proposed solution clear."]}
 }

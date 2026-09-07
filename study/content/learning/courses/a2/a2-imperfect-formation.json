@@ -1,31 +1,31 @@
 {
- "version":1,"id":"a2-imperfect-formation","slug":"a2-imperfect-formation","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Je travaillais, nous étions","summary":"Build the imparfait from the present nous stem and preserve the sounds of -cer and -ger verbs.","order":12,"duration_minutes":14,"prerequisites":["a2-past-reflexive-leaving"],
- "objectives":["Form every person of the imparfait, including être.","Keep the correct -cer/-ger spelling and reflexive pronoun."],
+ "version":1,"id":"a2-imperfect-formation","slug":"a2-imperfect-formation","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Je travaillais, nous étions","summary":"Build the `imparfait` from the present `nous` stem and preserve the sounds of `-cer` and `-ger` verbs.","order":12,"duration_minutes":14,"prerequisites":["a2-past-reflexive-leaving"],
+ "objectives":["Form every person of the `imparfait`, including `être`.","Keep the correct `-cer/-ger` spelling and reflexive pronoun."],
  "keywords":["imparfait","étais","commençais","mangeais","reflexive","imperfect"],
  "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
  "related_legacy_ids":["verbs-imparfait"],
  "sections":[
   {"id":"stem-endings","title":"One stem and six endings",
-   "paragraphs":["The imparfait describes a past situation from inside it: what was happening, what things were like, or what happened regularly. For most verbs, take the present nous form, remove -ons, and add -ais, -ais, -ait, -ions, -iez, -aient. This works with regular and many irregular verbs: nous finissons → finiss-, nous prenons → pren-, nous avons → av-. Être is the essential exception: use ét-.", "Unlike the passé composé, the imparfait is one conjugated verb, not an auxiliary plus participle. Its ending marks the subject; it does not change for masculine versus feminine."],
-   "points":["Parler: je parlais, tu parlais, il/elle/on parlait, nous parlions, vous parliez, ils/elles parlaient.","Être: j'étais, tu étais, il/elle/on était, nous étions, vous étiez, ils/elles étaient.","Finir: je finissais, tu finissais, il/elle/on finissait, nous finissions, vous finissiez, ils/elles finissaient. Avoir: j'avais, tu avais, il/elle/on avait, nous avions, vous aviez, ils/elles avaient.","Keep the i of -ions/-iez even after i or y: nous étudiions, vous étudiiez; nous voyions, vous voyiez."],
+   "paragraphs":["The `imparfait` describes a past situation from inside it: what was happening, what things were like, or what happened regularly. For most verbs, take the present `nous` form, remove `-ons`, and add `-ais, -ais, -ait, -ions, -iez, -aient`. This works with regular and many irregular verbs: `nous finissons` → `finiss-`, `nous prenons` → `pren-`, `nous avons` → `av-`. `Être` is the essential exception: use `ét-`.", "Unlike the `passé composé`, the `imparfait` is one conjugated verb, not an auxiliary plus participle. Its ending marks the subject; it does not change for masculine versus feminine."],
+   "points":["`Parler`: `je parlais, tu parlais, il/elle/on parlait, nous parlions, vous parliez, ils/elles parlaient`.","`Être`: `j'étais, tu étais, il/elle/on était, nous étions, vous étiez, ils/elles étaient`.","`Finir`: `je finissais, tu finissais, il/elle/on finissait, nous finissions, vous finissiez, ils/elles finissaient`. `Avoir`: `j'avais, tu avais, il/elle/on avait, nous avions, vous aviez, ils/elles avaient`.","Keep the `i` of `-ions/-iez` even after `i` or `y`: `nous étudiions, vous étudiiez`; `nous voyions, vous voyiez`."],
    "examples":[
     {"french":"Je **travaillais** près de la gare.","english":"I used to work near the station.","note":"A past situation, not a completed event sequence."},
-    {"french":"Vous **finissiez** à dix-sept heures.","english":"You used to finish at five p.m.","note":"Finiss- comes from nous finissons."},
-    {"french":"Nous **étions** voisins.","english":"We were neighbours.","note":"Être uses ét-."},
-    {"french":"Ils **avaient** un petit jardin.","english":"They had a small garden.","note":"Av- comes from nous avons."}
+    {"french":"Vous **finissiez** à dix-sept heures.","english":"You used to finish at five p.m.","note":"`Finiss-` comes from `nous finissons`."},
+    {"french":"Nous **étions** voisins.","english":"We were neighbours.","note":"`Être` uses `ét-`."},
+    {"french":"Ils **avaient** un petit jardin.","english":"They had a small garden.","note":"`Av-` comes from `nous avons`."}
    ],
-   "mistakes":[{"avoid":"Nous étons fatigués.","prefer":"Nous étions fatigués.","why":"Add the full ending -ions to ét-."}]
+   "mistakes":[{"avoid":"Nous étons fatigués.","prefer":"Nous étions fatigués.","why":"Add the full ending `-ions` to `ét-`."}]
   },
   {"id":"spelling-reflexive","title":"Protect the sound; keep the pronoun",
-   "paragraphs":["For -cer verbs, use ç before the a of -ais/-ait/-aient, but ordinary c before -ions/-iez. For -ger verbs, retain e before those a endings, but remove it before -ions/-iez. The purpose is to preserve the soft c or g sound.", "Reflexive verbs keep me, te, se, nous, vous, se before the one conjugated verb. No être auxiliary is added in the imparfait. Se lever uses lev-, from nous nous levons, without the present singular è."],
-   "points":["Commencer: je commençais, tu commençais, il/elle/on commençait, nous commencions, vous commenciez, ils/elles commençaient.","Manger: je mangeais, tu mangeais, il/elle/on mangeait, nous mangions, vous mangiez, ils/elles mangeaient.","Se lever: je me levais, tu te levais, il/elle/on se levait, nous nous levions, vous vous leviez, ils/elles se levaient."],
+   "paragraphs":["For `-cer` verbs, use `ç` before the `a` of `-ais/-ait/-aient`, but ordinary `c` before `-ions/-iez`. For `-ger` verbs, retain `e` before those `a` endings, but remove it before `-ions/-iez`. The purpose is to preserve the soft `c` or `g` sound.", "Reflexive verbs keep `me, te, se, nous, vous, se` before the one conjugated verb. No `être` auxiliary is added in the `imparfait`. `Se lever` uses `lev-`, from `nous nous levons`, without the present singular `è`."],
+   "points":["`Commencer`: `je commençais, tu commençais, il/elle/on commençait, nous commencions, vous commenciez, ils/elles commençaient`.","`Manger`: `je mangeais, tu mangeais, il/elle/on mangeait, nous mangions, vous mangiez, ils/elles mangeaient`.","`Se lever`: `je me levais, tu te levais, il/elle/on se levait, nous nous levions, vous vous leviez, ils/elles se levaient`."],
    "examples":[
-    {"french":"Elle **commençait** avant nous.","english":"She used to start before us.","note":"Ç before a."},
-    {"french":"Nous **commencions** ensemble.","english":"We used to start together.","note":"No cedilla before i."},
-    {"french":"Je **mangeais** au bureau ; vous **mangiez** chez vous.","english":"I used to eat at the office; you used to eat at home.","note":"Keep e before a but not before i."},
-    {"french":"Elles **se levaient** à l'aube.","english":"They used to get up at dawn.","note":"Se precedes the imparfait; no auxiliary."}
+    {"french":"Elle **commençait** avant nous.","english":"She used to start before us.","note":"`Ç` before `a`."},
+    {"french":"Nous **commencions** ensemble.","english":"We used to start together.","note":"No cedilla before `i`."},
+    {"french":"Je **mangeais** au bureau ; vous **mangiez** chez vous.","english":"I used to eat at the office; you used to eat at home.","note":"Keep `e` before `a` but not before `i`."},
+    {"french":"Elles **se levaient** à l'aube.","english":"They used to get up at dawn.","note":"`Se` precedes the `imparfait`; no auxiliary."}
    ],
-   "mistakes":[{"avoid":"Nous mangeions dehors.","prefer":"Nous mangions dehors.","why":"Remove the sound-preserving e before i."}]
+   "mistakes":[{"avoid":"Nous mangeions dehors.","prefer":"Nous mangions dehors.","why":"Remove the sound-preserving `e` before `i`."}]
   }
  ],
  "practice":[
@@ -46,5 +46,5 @@
   {"id":"item-15","kind":"text","pool":"review","section_id":"spelling-reflexive","prompt":"Imparfait of commencer: Vous ___ le lundi.","choices":[],"answers":["commenciez"],"explanation":"No cedilla before i."},
   {"id":"item-16","kind":"text","pool":"review","section_id":"stem-endings","prompt":"Imparfait of voir: Nous ___ la mer.","choices":[],"answers":["voyions"],"explanation":"Voy- from voyons plus -ions."}
  ],
- "production_task":{"prompt":"Describe the routine at a former school or workplace in four sentences. Include a description, a regular action and a reflexive routine.","model_answer":"Mon ancien bureau était petit. Nous commencions à neuf heures et nous mangions dans une salle commune. Je me levais tôt parce que le trajet était long.","translation":"My former office was small. We used to start at nine and eat in a shared room. I used to get up early because the journey was long.","rubric":["Use the nous present stem except for être.","Check -cer/-ger before a and i.","Keep reflexive pronouns without adding an auxiliary."]}
+ "production_task":{"prompt":"Describe the routine at a former school or workplace in four sentences. Include a description, a regular action and a reflexive routine.","model_answer":"Mon ancien bureau était petit. Nous commencions à neuf heures et nous mangions dans une salle commune. Je me levais tôt parce que le trajet était long.","translation":"My former office was small. We used to start at nine and eat in a shared room. I used to get up early because the journey was long.","rubric":["Use the `nous` present stem except for `être`.","Check `-cer/-ger` before `a` and `i`.","Keep reflexive pronouns without adding an auxiliary."]}
 }

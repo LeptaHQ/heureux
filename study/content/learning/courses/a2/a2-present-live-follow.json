@@ -1,36 +1,36 @@
 {
  "version":1,"id":"a2-present-live-follow","slug":"a2-present-live-follow","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Vivre, suivre, servir, rire et courir","summary":"Use five short irregular present families without forcing them into one pattern.","order":3,"duration_minutes":14,"prerequisites":["a2-present-know-see"],
- "objectives":["Form all persons of vivre, suivre, rire, servir and courir.","Transfer each pattern to common derivatives without confusing singular stems."],
+ "objectives":["Form all persons of `vivre`, `suivre`, `rire`, `servir` and `courir`.","Transfer each pattern to common derivatives without confusing singular stems."],
  "keywords":["vivre","suivre","rire","sourire","servir","courir","présent"],
  "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
  "related_legacy_ids":["verbs-present-patterns"],
  "sections":[
   {"id":"live-follow","title":"Similar sounds, different stems",
-   "paragraphs":["A verb family groups a base verb and words built from it. Vivre means to live; suivre means to follow or take a course. Their singular forms end in -s, -s, -t, but their stems differ. Je suis can therefore mean 'I am' with être or 'I follow' with suivre; the rest of the sentence identifies the meaning."],
-   "points":["Vivre: je vis, tu vis, il/elle/on vit, nous vivons, vous vivez, ils/elles vivent. Survivre follows the same pattern with sur-.","Suivre: je suis, tu suis, il/elle/on suit, nous suivons, vous suivez, ils/elles suivent. Poursuivre adds pour-."],
+   "paragraphs":["A verb family groups a base verb and words built from it. `Vivre` means to live; `suivre` means to follow or take a course. Their singular forms end in `-s, -s, -t`, but their stems differ. `Je suis` can therefore mean 'I am' with `être` or 'I follow' with `suivre`; the rest of the sentence identifies the meaning."],
+   "points":["`Vivre`: `je vis, tu vis, il/elle/on vit, nous vivons, vous vivez, ils/elles vivent`. `Survivre` follows the same pattern with `sur-`.","`Suivre`: `je suis, tu suis, il/elle/on suit, nous suivons, vous suivez, ils/elles suivent`. `Poursuivre` adds `pour-`."],
    "examples":[
-    {"french":"Je **vis** près du marché.","english":"I live near the market.","note":"Vivre, not voir."},
-    {"french":"Nous **vivons** avec deux amis.","english":"We live with two friends.","note":"Plural stem viv-."},
-    {"french":"Je **suis** une formation.","english":"I am taking a training course.","note":"Une formation is the object of suivre."},
-    {"french":"Vous **poursuivez** votre recherche.","english":"You are continuing your search.","note":"Poursuivre keeps the suivre pattern."}
+    {"french":"Je **vis** près du marché.","english":"I live near the market.","note":"`Vivre`, not `voir`."},
+    {"french":"Nous **vivons** avec deux amis.","english":"We live with two friends.","note":"Plural stem `viv-`."},
+    {"french":"Je **suis** une formation.","english":"I am taking a training course.","note":"`Une formation` is the object of `suivre`."},
+    {"french":"Vous **poursuivez** votre recherche.","english":"You are continuing your search.","note":"`Poursuivre` keeps the `suivre` pattern."}
    ],
-   "mistakes":[{"avoid":"Ils suit le guide.","prefer":"Ils suivent le guide.","why":"The plural subject requires suivent, not singular suit."}]
+   "mistakes":[{"avoid":"Ils suit le guide.","prefer":"Ils suivent le guide.","why":"The plural subject requires `suivent`, not singular `suit`."}]
   },
   {"id":"serve-laugh-run","title":"Keep each family's full pattern",
-   "paragraphs":["Servir drops the stem's final v in the singular but keeps it in the plural; desservir follows it. Compare je sers with nous servons. Rire keeps ri- even in nous rions; sourire adds sou-. Courir keeps cour- throughout its present forms; parcourir follows it."],
-   "points":["Servir: je sers, tu sers, il/elle/on sert, nous servons, vous servez, ils/elles servent.","Rire: je ris, tu ris, il/elle/on rit, nous rions, vous riez, ils/elles rient. Sourire: je souris, tu souris, il/elle/on sourit, nous sourions, vous souriez, ils/elles sourient.","Courir: je cours, tu cours, il/elle/on court, nous courons, vous courez, ils/elles courent."],
+   "paragraphs":["`Servir` drops the stem's final `v` in the singular but keeps it in the plural; `desservir` follows it. Compare `je sers` with `nous servons`. `Rire` keeps `ri-` even in `nous rions`; `sourire` adds `sou-`. `Courir` keeps `cour-` throughout its present forms; `parcourir` follows it."],
+   "points":["`Servir`: `je sers, tu sers, il/elle/on sert, nous servons, vous servez, ils/elles servent`.","`Rire`: `je ris, tu ris, il/elle/on rit, nous rions, vous riez, ils/elles rient`. `Sourire`: `je souris, tu souris, il/elle/on sourit, nous sourions, vous souriez, ils/elles sourient`.","`Courir`: `je cours, tu cours, il/elle/on court, nous courons, vous courez, ils/elles courent`."],
    "examples":[
-    {"french":"Ce bus **dessert** l'hôpital.","english":"This bus serves the hospital.","note":"Singular desservir drops v."},
-    {"french":"Nous **servons** le déjeuner à midi.","english":"We serve lunch at noon.","note":"The plural restores v."},
+    {"french":"Ce bus **dessert** l'hôpital.","english":"This bus serves the hospital.","note":"Singular `desservir` drops `v`."},
+    {"french":"Nous **servons** le déjeuner à midi.","english":"We serve lunch at noon.","note":"The plural restores `v`."},
     {"french":"Elle **rit** et les enfants **sourient**.","english":"She laughs and the children smile.","note":"Related patterns, different meanings."},
-    {"french":"Ils **courent** au parc ; nous **parcourons** le quartier à pied.","english":"They run in the park; we walk through the neighbourhood.","note":"Parcourir means to cover or travel through; it does not require running."}
+    {"french":"Ils **courent** au parc ; nous **parcourons** le quartier à pied.","english":"They run in the park; we walk through the neighbourhood.","note":"`Parcourir` means to cover or travel through; it does not require running."}
    ],
-   "mistakes":[{"avoid":"Vous courissez vite.","prefer":"Vous courez vite.","why":"Courir does not add -iss-."}]
+   "mistakes":[{"avoid":"Vous courissez vite.","prefer":"Vous courez vite.","why":"`Courir` does not add `-iss-`."}]
   },
   {"id":"serve-or-use","title":"Serving something is not the same as using it",
-   "paragraphs":["Servir + direct object means serve that thing; se servir de + thing means use it. Se servir without de can mean help oneself. Resservir means serve again; se resservir means help oneself again. All retain the servir present stem changes, with a reflexive pronoun where required.", "Revivre follows vivre and can mean live again or relive an experience; the prefix does not add a new present ending."],
-   "points":["Se servir: je me sers, tu te sers, il/elle/on se sert, nous nous servons, vous vous servez, ils/elles se servent."],
-   "examples":[{"french":"Je **sers** la soupe et je **me sers de** cette louche.","english":"I serve the soup and I use this ladle.","note":"Une louche (feminine) is a ladle; de belongs to the use construction."},{"french":"Les convives **se resservent**, mais je ne **ressers** pas de dessert.","english":"The guests help themselves again, but I do not serve dessert again.","note":"The reflexive form changes who receives the extra helping."}],
+   "paragraphs":["`Servir` + direct object means serve that thing; `se servir de` + thing means use it. `Se servir` without `de` can mean help oneself. `Resservir` means serve again; `se resservir` means help oneself again. All retain the `servir` present stem changes, with a reflexive pronoun where required.", "`Revivre` follows `vivre` and can mean live again or relive an experience; the prefix does not add a new present ending."],
+   "points":["`Se servir`: `je me sers, tu te sers, il/elle/on se sert, nous nous servons, vous vous servez, ils/elles se servent`."],
+   "examples":[{"french":"Je **sers** la soupe et je **me sers de** cette louche.","english":"I serve the soup and I use this ladle.","note":"`Une louche` (feminine) is a ladle; `de` belongs to the use construction."},{"french":"Les convives **se resservent**, mais je ne **ressers** pas de dessert.","english":"The guests help themselves again, but I do not serve dessert again.","note":"The reflexive form changes who receives the extra helping."}],
    "mistakes":[]
   }
  ],
@@ -54,5 +54,5 @@
   {"id":"depth-use-construction","kind":"text","pool":"practice","section_id":"serve-or-use","prompt":"Complete the expression meaning 'we use', with se servir in the present: Pour mesurer le tissu, nous ___ de cette règle.","choices":[],"answers":["nous servons"],"explanation":"Se servir de requires both the reflexive nous and de.","case_sensitive":false,"terminal_punctuation_sensitive":false},
   {"id":"depth-second-helping","kind":"text","pool":"check","section_id":"serve-or-use","prompt":"Supply se resservir in the present, including the reflexive pronoun: Comme le plat lui plaît, il ___.","choices":[],"answers":["se ressert"],"explanation":"The diner helps himself again; singular ressert has no v.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
- "production_task":{"prompt":"Describe a normal morning in your neighbourhood, including where you live, transport or a course, and an activity.","model_answer":"Je vis près d'un parc et je cours le matin. Le bus dessert mon centre de formation. Nous suivons un cours de cuisine et nous servons ensuite le repas.","translation":"I live near a park and I run in the morning. The bus serves my training centre. We take a cooking class and then serve the meal.","rubric":["Distinguish vivre from suivre.","Keep the correct singular/plural stem.","Describe a coherent routine."]}
+ "production_task":{"prompt":"Describe a normal morning in your neighbourhood, including where you live, transport or a course, and an activity.","model_answer":"Je vis près d'un parc et je cours le matin. Le bus dessert mon centre de formation. Nous suivons un cours de cuisine et nous servons ensuite le repas.","translation":"I live near a park and I run in the morning. The bus serves my training centre. We take a cooking class and then serve the meal.","rubric":["Distinguish `vivre` from `suivre`.","Keep the correct singular/plural stem.","Describe a coherent routine."]}
 }

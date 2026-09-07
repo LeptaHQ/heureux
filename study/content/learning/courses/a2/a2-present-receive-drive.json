@@ -1,36 +1,36 @@
 {
- "version":1,"id":"a2-present-receive-drive","slug":"a2-present-receive-drive","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Recevoir, craindre et conduire","summary":"Recognise the changing stems of -cevoir, -indre and -uire families.","order":4,"duration_minutes":14,"prerequisites":["a2-present-live-follow"],
- "objectives":["Use all present forms of recevoir, craindre, peindre, joindre and conduire.","Apply the patterns to useful derivatives and recognise relevant exceptions."],
+ "version":1,"id":"a2-present-receive-drive","slug":"a2-present-receive-drive","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Recevoir, craindre et conduire","summary":"Recognise the changing stems of `-cevoir`, `-indre` and `-uire` families.","order":4,"duration_minutes":14,"prerequisites":["a2-present-live-follow"],
+ "objectives":["Use all present forms of `recevoir`, `craindre`, `peindre`, `joindre` and `conduire`.","Apply the patterns to useful derivatives and recognise relevant exceptions."],
  "keywords":["recevoir","apercevoir","concevoir","décevoir","craindre","peindre","joindre","conduire","construire"],
  "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
  "related_legacy_ids":["verbs-present-spelling-families"],
  "sections":[
   {"id":"cevoir","title":"Three stems in one present tense",
-   "paragraphs":["Recevoir means 'to receive'. Its present uses reçoi- in the singular, recev- for nous/vous, and reçoiv- for ils/elles. The cedilla in ç preserves an s sound before o. Apercevoir (notice), concevoir (design or conceive), décevoir (disappoint) and percevoir (perceive or collect) use the same endings and stem changes."],
-   "points":["Recevoir: je reçois, tu reçois, il/elle/on reçoit, nous recevons, vous recevez, ils/elles reçoivent.","Apercevoir: j'aperçois, tu aperçois, il/elle/on aperçoit, nous apercevons, vous apercevez, ils/elles aperçoivent. Replace aper- with con-, dé- or per- for the other family members."],
+   "paragraphs":["`Recevoir` means 'to receive'. Its present uses `reçoi-` in the singular, `recev-` for `nous/vous`, and `reçoiv-` for `ils/elles`. The cedilla in `ç` preserves an `s` sound before `o`. `Apercevoir` (notice), `concevoir` (design or conceive), `décevoir` (disappoint) and `percevoir` (perceive or collect) use the same endings and stem changes."],
+   "points":["`Recevoir`: `je reçois, tu reçois, il/elle/on reçoit, nous recevons, vous recevez, ils/elles reçoivent`.","`Apercevoir`: `j'aperçois, tu aperçois, il/elle/on aperçoit, nous apercevons, vous apercevez, ils/elles aperçoivent`. Replace `aper-` with `con-`, `dé-` or `per-` for the other family members."],
    "examples":[
-    {"french":"Je **reçois** la confirmation par courriel.","english":"I receive the confirmation by email.","note":"Ç keeps the soft sound."},
-    {"french":"Nous **recevons** des visiteurs.","english":"We receive visitors.","note":"No cedilla before e."},
-    {"french":"Ils **aperçoivent** une sortie.","english":"They notice an exit.","note":"The ils stem has both ç and v."},
-    {"french":"Ce retard nous **déçoit**.","english":"This delay disappoints us.","note":"Décevoir uses the same singular pattern."}
+    {"french":"Je **reçois** la confirmation par courriel.","english":"I receive the confirmation by email.","note":"`Ç` keeps the soft sound."},
+    {"french":"Nous **recevons** des visiteurs.","english":"We receive visitors.","note":"No cedilla before `e`."},
+    {"french":"Ils **aperçoivent** une sortie.","english":"They notice an exit.","note":"The `ils` stem has both `ç` and `v`."},
+    {"french":"Ce retard nous **déçoit**.","english":"This delay disappoints us.","note":"`Décevoir` uses the same singular pattern."}
    ],
-   "mistakes":[{"avoid":"Ils recevont le colis.","prefer":"Ils reçoivent le colis.","why":"The present third-person plural uses reçoiv-."}]
+   "mistakes":[{"avoid":"Ils recevont le colis.","prefer":"Ils reçoivent le colis.","why":"The present third-person plural uses `reçoiv-`."}]
   },
-  {"id":"indre-uire","title":"A singular without d, a plural with gn or s",
-   "paragraphs":["For -aindre, -eindre and -oindre, the present singular drops d. In the plural, the stem ends in -gn-. Conduire and common verbs like construire, produire, traduire and réduire add s before the plural endings. Cuire also has plural s: cuis/cuis/cuit/cuisons/cuisez/cuisent. Distinguish fuir, ending in -uir rather than -uire: fuis/fuis/fuit/fuyons/fuyez/fuient."],
-   "points":["Craindre: je crains, tu crains, il/elle/on craint, nous craignons, vous craignez, ils/elles craignent. Plaindre follows it.","Peindre: je peins, tu peins, il/elle/on peint, nous peignons, vous peignez, ils/elles peignent. Éteindre: j'éteins, tu éteins, il/elle/on éteint, nous éteignons, vous éteignez, ils/elles éteignent.","Joindre: je joins, tu joins, il/elle/on joint, nous joignons, vous joignez, ils/elles joignent. Rejoindre adds re-.","Conduire: je conduis, tu conduis, il/elle/on conduit, nous conduisons, vous conduisez, ils/elles conduisent. Traduire replaces condu- with tradu-; construire uses constru-, produire produ-, réduire rédu-."],
+  {"id":"indre-uire","title":"A singular without `d`, a plural with `gn` or `s`",
+   "paragraphs":["For `-aindre`, `-eindre` and `-oindre`, the present singular drops `d`. In the plural, the stem ends in `-gn-`. `Conduire` and common verbs like `construire`, `produire`, `traduire` and `réduire` add `s` before the plural endings. `Cuire` also has plural `s`: `cuis/cuis/cuit/cuisons/cuisez/cuisent`. Distinguish `fuir`, ending in `-uir` rather than `-uire`: `fuis/fuis/fuit/fuyons/fuyez/fuient`."],
+   "points":["`Craindre`: `je crains, tu crains, il/elle/on craint, nous craignons, vous craignez, ils/elles craignent`. `Plaindre` follows it.","`Peindre`: `je peins, tu peins, il/elle/on peint, nous peignons, vous peignez, ils/elles peignent`. `Éteindre`: `j'éteins, tu éteins, il/elle/on éteint, nous éteignons, vous éteignez, ils/elles éteignent`.","`Joindre`: `je joins, tu joins, il/elle/on joint, nous joignons, vous joignez, ils/elles joignent`. `Rejoindre` adds `re-`.","`Conduire`: `je conduis, tu conduis, il/elle/on conduit, nous conduisons, vous conduisez, ils/elles conduisent`. `Traduire` replaces `condu-` with `tradu-`; `construire` uses `constru-`, `produire` `produ-`, `réduire` `rédu-`."],
    "examples":[
-    {"french":"Elle **craint** le verglas.","english":"She is afraid of black ice.","note":"The singular has no d."},
-    {"french":"Nous **peignons** les murs.","english":"We are painting the walls.","note":"Plural -gn-."},
-    {"french":"Vous **joignez** le reçu au formulaire.","english":"You attach the receipt to the form.","note":"Joindre also means attach."},
-    {"french":"Ils **conduisent** et nous **traduisons** les consignes.","english":"They drive and we translate the instructions.","note":"Both plural stems add s."}
+    {"french":"Elle **craint** le verglas.","english":"She is afraid of black ice.","note":"The singular has no `d`."},
+    {"french":"Nous **peignons** les murs.","english":"We are painting the walls.","note":"Plural `-gn-`."},
+    {"french":"Vous **joignez** le reçu au formulaire.","english":"You attach the receipt to the form.","note":"`Joindre` also means attach."},
+    {"french":"Ils **conduisent** et nous **traduisons** les consignes.","english":"They drive and we translate the instructions.","note":"Both plural stems add `s`."}
    ],
-   "mistakes":[{"avoid":"Nous peindons le plafond.","prefer":"Nous peignons le plafond.","why":"The plural stem is peign-, not peind-."}]
+   "mistakes":[{"avoid":"Nous peindons le plafond.","prefer":"Nous peignons le plafond.","why":"The plural stem is `peign-`, not `peind-`."}]
   },
   {"id":"reflexive-recognition","title":"Recognise the complete expression",
-   "paragraphs":["Apercevoir is used for catching sight of something; s'apercevoir de/que is used for becoming aware of something. Se plaindre de means complain about; plaindre quelqu'un means feel sorry for someone. Their pronouns belong to the expression and do not alter the family endings."],
-   "points":["S'apercevoir: je m'aperçois, tu t'aperçois, il/elle/on s'aperçoit, nous nous apercevons, vous vous apercevez, ils/elles s'aperçoivent.","Se plaindre: je me plains, tu te plains, il/elle/on se plaint, nous nous plaignons, vous vous plaignez, ils/elles se plaignent.","The same -indre endings also give feindre (pretend): je feins, nous feignons; geindre (whine): il geint, ils geignent; contraindre (force): il contraint, ils contraignent; dépeindre (portray): elle dépeint, elles dépeignent."],
-   "examples":[{"french":"Je **m'aperçois** que la date est incorrecte.","english":"I realise that the date is incorrect.","note":"Me becomes m' before the vowel."},{"french":"Nous **nous plaignons** du retard, mais nous ne **plaignons** pas le responsable.","english":"We complain about the delay, but we do not feel sorry for the person responsible.","note":"Se plaindre de and plaindre someone are different constructions."}],
+   "paragraphs":["`Apercevoir` is used for catching sight of something; `s'apercevoir de/que` is used for becoming aware of something. `Se plaindre de` means complain about; `plaindre quelqu'un` means feel sorry for someone. Their pronouns belong to the expression and do not alter the family endings."],
+   "points":["`S'apercevoir`: `je m'aperçois, tu t'aperçois, il/elle/on s'aperçoit, nous nous apercevons, vous vous apercevez, ils/elles s'aperçoivent`.","`Se plaindre`: `je me plains, tu te plains, il/elle/on se plaint, nous nous plaignons, vous vous plaignez, ils/elles se plaignent`.","The same `-indre` endings also give `feindre` (pretend): `je feins, nous feignons`; `geindre` (whine): `il geint, ils geignent`; `contraindre` (force): `il contraint, ils contraignent`; `dépeindre` (portray): `elle dépeint, elles dépeignent`."],
+   "examples":[{"french":"Je **m'aperçois** que la date est incorrecte.","english":"I realise that the date is incorrect.","note":"`Me` becomes `m'` before the vowel."},{"french":"Nous **nous plaignons** du retard, mais nous ne **plaignons** pas le responsable.","english":"We complain about the delay, but we do not feel sorry for the person responsible.","note":"`Se plaindre de` and `plaindre` someone are different constructions."}],
    "mistakes":[]
   }
  ],
@@ -54,5 +54,5 @@
   {"id":"depth-notice-error","kind":"text","pool":"check","section_id":"reflexive-recognition","prompt":"Supply s'apercevoir in the present, including its pronoun: Vous ___ que la page manque.","choices":[],"answers":["vous apercevez"],"explanation":"The first vous is the subject; the second is the reflexive pronoun. The plural stem is apercev-.","case_sensitive":false,"terminal_punctuation_sensitive":false},
   {"id":"depth-complain-person-change","kind":"text","pool":"review","section_id":"reflexive-recognition","prompt":"Change the subject and verb from Il to Ils, keeping the rest: Il se plaint de l'odeur.","choices":[],"answers":["Ils se plaignent de l'odeur."],"explanation":"The plural restores the -gn- stem and retains se.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
- "production_task":{"prompt":"Describe preparations for a building renovation: receiving documents, painting or building, and attaching information.","model_answer":"Nous recevons les plans aujourd'hui. L'équipe peint les portes et construit une rampe. Je joins une photo à mon message et vous traduis les consignes.","translation":"We receive the plans today. The team paints the doors and builds a ramp. I attach a photo to my message and translate the instructions for you.","rubric":["Keep recevoir's three stems distinct.","Use -gn- only in plural -indre forms.","Check who performs each action."]}
+ "production_task":{"prompt":"Describe preparations for a building renovation: receiving documents, painting or building, and attaching information.","model_answer":"Nous recevons les plans aujourd'hui. L'équipe peint les portes et construit une rampe. Je joins une photo à mon message et vous traduis les consignes.","translation":"We receive the plans today. The team paints the doors and builds a ramp. I attach a photo to my message and translate the instructions for you.","rubric":["Keep `recevoir`'s three stems distinct.","Use `-gn-` only in plural `-indre` forms.","Check who performs each action."]}
 }

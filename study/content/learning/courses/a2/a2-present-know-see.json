@@ -1,36 +1,36 @@
 {
  "version":1,"id":"a2-present-know-see","slug":"a2-present-know-see","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Savoir, connaître et voir au présent","summary":"Recognise facts, familiarity and perception while forming three common irregular families.","order":2,"duration_minutes":12,"prerequisites":["a2-present-open-offer"],
- "objectives":["Conjugate savoir, connaître, paraître and voir in every person.","Retain family patterns in reconnaître, apparaître and revoir."],
+ "objectives":["Conjugate `savoir`, `connaître`, `paraître` and `voir` in every person.","Retain family patterns in `reconnaître`, `apparaître` and `revoir`."],
  "keywords":["savoir","connaître","connaitre","paraître","voir","présent"],
  "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
  "related_legacy_ids":["verbs-present-patterns","verbs-knowing-believing"],
  "sections":[
   {"id":"knowledge","title":"Knowing a fact or being familiar",
-   "paragraphs":["Conjugation means changing a verb to match its subject and tense. Savoir introduces a fact or a skill with an infinitive, the dictionary form of a verb. Connaître introduces familiarity with a person, place or thing. Their present forms must be learned separately; the nous stem helps with other plural forms."],
-   "points":["Savoir: je sais, tu sais, il/elle/on sait, nous savons, vous savez, ils/elles savent.","Connaître: je connais, tu connais, il/elle/on connaît, nous connaissons, vous connaissez, ils/elles connaissent. Reconnaître adds re- to each form.","The traditional circumflex in connaît/paraît/disparaît is retained here; 1990 spellings connait/parait/disparait are also accepted."],
+   "paragraphs":["Conjugation means changing a verb to match its subject and tense. `Savoir` introduces a fact or a skill with an infinitive, the dictionary form of a verb. `Connaître` introduces familiarity with a person, place or thing. Their present forms must be learned separately; the `nous` stem helps with other plural forms."],
+   "points":["`Savoir`: `je sais, tu sais, il/elle/on sait, nous savons, vous savez, ils/elles savent`.","`Connaître`: `je connais, tu connais, il/elle/on connaît, nous connaissons, vous connaissez, ils/elles connaissent`. `Reconnaître` adds `re-` to each form.","The traditional circumflex in `connaît/paraît/disparaît` is retained here; 1990 spellings `connait/parait/disparait` are also accepted."],
    "examples":[
-    {"french":"Je **sais** où se trouve l'accueil.","english":"I know where reception is.","note":"Savoir introduces information."},
-    {"french":"Vous **savez** conduire ?","english":"Do you know how to drive?","note":"No comment is needed before conduire."},
+    {"french":"Je **sais** où se trouve l'accueil.","english":"I know where reception is.","note":"`Savoir` introduces information."},
+    {"french":"Vous **savez** conduire ?","english":"Do you know how to drive?","note":"No `comment` is needed before `conduire`."},
     {"french":"Nous **connaissons** cette association.","english":"We know this association.","note":"Familiarity with an organisation."},
-    {"french":"Elle **reconnaît** votre voix.","english":"She recognises your voice.","note":"Reconnaître keeps the same endings."}
+    {"french":"Elle **reconnaît** votre voix.","english":"She recognises your voice.","note":"`Reconnaître` keeps the same endings."}
    ],
-   "mistakes":[{"avoid":"Nous connaisons le quartier.","prefer":"Nous connaissons le quartier.","why":"The plural stem has double s."}]
+   "mistakes":[{"avoid":"Nous connaisons le quartier.","prefer":"Nous connaissons le quartier.","why":"The plural stem has double `s`."}]
   },
   {"id":"appearance-sight","title":"Appearing and seeing",
-   "paragraphs":["Paraître means 'to seem' or 'to appear/be published'. It shares the -aître pattern with connaître. Apparaître and disparaître follow paraître in the present. Voir changes to voy- for nous and vous, but uses voi- elsewhere. Revoir follows it. Prévoir also follows these present endings, though its other tenses need separate attention."],
-   "points":["Paraître: je parais, tu parais, il/elle/on paraît, nous paraissons, vous paraissez, ils/elles paraissent.","Voir: je vois, tu vois, il/elle/on voit, nous voyons, vous voyez, ils/elles voient."],
+   "paragraphs":["`Paraître` means 'to seem' or 'to appear/be published'. It shares the `-aître` pattern with `connaître`. `Apparaître` and `disparaître` follow `paraître` in the present. `Voir` changes to `voy-` for `nous` and `vous`, but uses `voi-` elsewhere. `Revoir` follows it. `Prévoir` also follows these present endings, though its other tenses need separate attention."],
+   "points":["`Paraître`: `je parais, tu parais, il/elle/on paraît, nous paraissons, vous paraissez, ils/elles paraissent`.","`Voir`: `je vois, tu vois, il/elle/on voit, nous voyons, vous voyez, ils/elles voient`."],
    "examples":[
-    {"french":"Ce délai **paraît** raisonnable.","english":"This time frame seems reasonable.","note":"Paraître describes an impression."},
-    {"french":"Les résultats **apparaissent** sur l'écran.","english":"The results appear on the screen.","note":"Double s in the plural stem."},
-    {"french":"Nous **voyons** le pont d'ici.","english":"We can see the bridge from here.","note":"English can is natural in perception; French uses voyons."},
-    {"french":"Ils **revoient** leurs collègues lundi.","english":"They are seeing their colleagues again on Monday.","note":"No y in this third-person plural form."}
+    {"french":"Ce délai **paraît** raisonnable.","english":"This time frame seems reasonable.","note":"`Paraître` describes an impression."},
+    {"french":"Les résultats **apparaissent** sur l'écran.","english":"The results appear on the screen.","note":"Double `s` in the plural stem."},
+    {"french":"Nous **voyons** le pont d'ici.","english":"We can see the bridge from here.","note":"English can is natural in perception; French uses `voyons`."},
+    {"french":"Ils **revoient** leurs collègues lundi.","english":"They are seeing their colleagues again on Monday.","note":"No `y` in this third-person plural form."}
    ],
-   "mistakes":[{"avoid":"Vous voiez la sortie.","prefer":"Vous voyez la sortie.","why":"The vous form uses voy-."}]
+   "mistakes":[{"avoid":"Vous voiez la sortie.","prefer":"Vous voyez la sortie.","why":"The `vous` form uses `voy-`."}]
   },
   {"id":"related-stems","title":"Transfer a pattern without guessing from the last letters",
-   "paragraphs":["The present pattern of voir extends to entrevoir (glimpse) and pourvoir (provide for): nous entrevoyons, ils entrevoient; nous pourvoyons, ils pourvoient. Recevoir belongs to a different family despite its final letters.", "Fuir (flee or avoid) has the same i/y distribution as voir but its own fu- base. Naître (be born) uses nais-/naiss-; renaître (be reborn) keeps those forms with re-. Méconnaître (fail to recognise or know adequately) and comparaître (appear in court) preserve the connaître/paraître endings."],
-   "points":["Fuir: je fuis, tu fuis, il/elle/on fuit, nous fuyons, vous fuyez, ils/elles fuient.","Naître: je nais, tu nais, il/elle/on naît, nous naissons, vous naissez, ils/elles naissent. Nait is also accepted under the 1990 spelling recommendations."],
-   "examples":[{"french":"Vous **fuyez** les endroits bruyants.","english":"You avoid noisy places.","note":"Fuir need not describe physically running away."},{"french":"Les premières idées **naissent** pendant la discussion.","english":"The first ideas emerge during the discussion.","note":"Naître can be used figuratively; the plural has double s."},{"french":"Nous **entrevoyons** une solution, mais nous ne la connaissons pas encore en détail.","english":"We can glimpse a solution, but we do not yet know it in detail.","note":"Nous keeps the voir-family y."}],
+   "paragraphs":["The present pattern of `voir` extends to `entrevoir` (glimpse) and `pourvoir` (provide for): `nous entrevoyons, ils entrevoient`; `nous pourvoyons, ils pourvoient`. `Recevoir` belongs to a different family despite its final letters.", "`Fuir` (flee or avoid) has the same `i/y` distribution as `voir` but its own `fu-` base. `Naître` (be born) uses `nais-/naiss-`; `renaître` (be reborn) keeps those forms with `re-`. `Méconnaître` (fail to recognise or know adequately) and `comparaître` (appear in court) preserve the `connaître/paraître` endings."],
+   "points":["`Fuir`: `je fuis, tu fuis, il/elle/on fuit, nous fuyons, vous fuyez, ils/elles fuient`.","`Naître`: `je nais, tu nais, il/elle/on naît, nous naissons, vous naissez, ils/elles naissent`. `Nait` is also accepted under the 1990 spelling recommendations."],
+   "examples":[{"french":"Vous **fuyez** les endroits bruyants.","english":"You avoid noisy places.","note":"`Fuir` need not describe physically running away."},{"french":"Les premières idées **naissent** pendant la discussion.","english":"The first ideas emerge during the discussion.","note":"`Naître` can be used figuratively; the plural has double `s`."},{"french":"Nous **entrevoyons** une solution, mais nous ne la connaissons pas encore en détail.","english":"We can glimpse a solution, but we do not yet know it in detail.","note":"`Nous` keeps the `voir`-family `y`."}],
    "mistakes":[]
   }
  ],
@@ -55,5 +55,5 @@
   {"id":"depth-naissance-metaphor","kind":"text","pool":"practice","section_id":"related-stems","prompt":"Use naître in the present for an emerging idea: Une nouvelle question ___ de cette découverte.","choices":[],"answers":["naît","nait"],"explanation":"The singular form is naît, also written nait under the 1990 recommendations.","case_sensitive":false,"terminal_punctuation_sensitive":false},
   {"id":"depth-court-appearance","kind":"text","pool":"review","section_id":"related-stems","prompt":"Supply comparaître in the present: Demain, vous ___ devant le juge.","choices":[],"answers":["comparaissez"],"explanation":"The present can refer to a scheduled future event; comparaître keeps the paraître-family -aiss- plural stem.","case_sensitive":false,"terminal_punctuation_sensitive":false}
  ],
- "production_task":{"prompt":"A new colleague asks for help finding a room. Explain what you know, what you can see and whether you know the building.","model_answer":"Je connais bien le bâtiment. Je sais où se trouve la salle, mais je ne vois pas son numéro d'ici. Nous voyons l'escalier à gauche : la salle est juste derrière.","translation":"I know the building well. I know where the room is, but I cannot see its number from here. We can see the stairs on the left: the room is just behind them.","rubric":["Use connaître for familiarity.","Use savoir before information.","Check singular and plural voir spellings."]}
+ "production_task":{"prompt":"A new colleague asks for help finding a room. Explain what you know, what you can see and whether you know the building.","model_answer":"Je connais bien le bâtiment. Je sais où se trouve la salle, mais je ne vois pas son numéro d'ici. Nous voyons l'escalier à gauche : la salle est juste derrière.","translation":"I know the building well. I know where the room is, but I cannot see its number from here. We can see the stairs on the left: the room is just behind them.","rubric":["Use `connaître` for familiarity.","Use `savoir` before information.","Check singular and plural `voir` spellings."]}
 }

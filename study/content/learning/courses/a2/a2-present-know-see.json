@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-present-know-see","slug":"a2-present-know-see","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Savoir, connaître et voir au présent","summary":"Recognise facts, familiarity and perception while forming three common irregular families.","order":2,"duration_minutes":12,"prerequisites":["a2-present-open-offer"],
+ "objectives":["Conjugate savoir, connaître, paraître and voir in every person.","Retain family patterns in reconnaître, apparaître and revoir."],
+ "keywords":["savoir","connaître","connaitre","paraître","voir","présent"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["verbs-present-patterns","verbs-knowing-believing"],
+ "sections":[
+  {"id":"knowledge","title":"Knowing a fact or being familiar",
+   "paragraphs":["Conjugation means changing a verb to match its subject and tense. Savoir introduces a fact or a skill with an infinitive, the dictionary form of a verb. Connaître introduces familiarity with a person, place or thing. Their present forms must be learned separately; the nous stem helps with other plural forms."],
+   "points":["Savoir: je sais, tu sais, il/elle/on sait, nous savons, vous savez, ils/elles savent.","Connaître: je connais, tu connais, il/elle/on connaît, nous connaissons, vous connaissez, ils/elles connaissent. Reconnaître adds re- to each form.","The traditional circumflex in connaît/paraît/disparaît is retained here; 1990 spellings connait/parait/disparait are also accepted."],
+   "examples":[
+    {"french":"Je **sais** où se trouve l'accueil.","english":"I know where reception is.","note":"Savoir introduces information."},
+    {"french":"Vous **savez** conduire ?","english":"Do you know how to drive?","note":"No comment is needed before conduire."},
+    {"french":"Nous **connaissons** cette association.","english":"We know this association.","note":"Familiarity with an organisation."},
+    {"french":"Elle **reconnaît** votre voix.","english":"She recognises your voice.","note":"Reconnaître keeps the same endings."}
+   ],
+   "mistakes":[{"avoid":"Nous connaisons le quartier.","prefer":"Nous connaissons le quartier.","why":"The plural stem has double s."}]
+  },
+  {"id":"appearance-sight","title":"Appearing and seeing",
+   "paragraphs":["Paraître means 'to seem' or 'to appear/be published'. It shares the -aître pattern with connaître. Apparaître and disparaître follow paraître in the present. Voir changes to voy- for nous and vous, but uses voi- elsewhere. Revoir follows it. Prévoir also follows these present endings, though its other tenses need separate attention."],
+   "points":["Paraître: je parais, tu parais, il/elle/on paraît, nous paraissons, vous paraissez, ils/elles paraissent.","Voir: je vois, tu vois, il/elle/on voit, nous voyons, vous voyez, ils/elles voient."],
+   "examples":[
+    {"french":"Ce délai **paraît** raisonnable.","english":"This time frame seems reasonable.","note":"Paraître describes an impression."},
+    {"french":"Les résultats **apparaissent** sur l'écran.","english":"The results appear on the screen.","note":"Double s in the plural stem."},
+    {"french":"Nous **voyons** le pont d'ici.","english":"We can see the bridge from here.","note":"English can is natural in perception; French uses voyons."},
+    {"french":"Ils **revoient** leurs collègues lundi.","english":"They are seeing their colleagues again on Monday.","note":"No y in this third-person plural form."}
+   ],
+   "mistakes":[{"avoid":"Vous voiez la sortie.","prefer":"Vous voyez la sortie.","why":"The vous form uses voy-."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"knowledge","prompt":"Present of savoir: Tu ___ nager.","choices":[],"answers":["sais"],"explanation":"Tu takes sais."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"knowledge","prompt":"Present of connaître: Elle ___ le directeur.","choices":[],"answers":["connaît","connait"],"explanation":"Both orthographies are accepted."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"appearance-sight","prompt":"Present of voir: Vous ___ la différence.","choices":[],"answers":["voyez"],"explanation":"Use voy- with vous."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"appearance-sight","prompt":"Present of paraître: Ces chaussures ___ solides.","choices":[],"answers":["paraissent"],"explanation":"The plural has -aiss-."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"knowledge","prompt":"Present of savoir: Nous ___ réparer ce modèle.","choices":[],"answers":["savons"],"explanation":"The nous stem is sav-."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"knowledge","prompt":"Present of connaître: Tu ___ ce chemin.","choices":[],"answers":["connais"],"explanation":"Tu ends in -s."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"knowledge","prompt":"Present of reconnaître: Les enfants ___ la chanson.","choices":[],"answers":["reconnaissent"],"explanation":"Reconnaître follows connaître."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"appearance-sight","prompt":"Present of disparaître: Le message ___ après dix secondes.","choices":[],"answers":["disparaît","disparait"],"explanation":"Both spellings represent the singular form."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"appearance-sight","prompt":"Present of voir: Nous ___ un autre problème.","choices":[],"answers":["voyons"],"explanation":"Nous uses voy-."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"appearance-sight","prompt":"Present of revoir: Elle ___ sa famille ce soir.","choices":[],"answers":["revoit"],"explanation":"Add re- to voit."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"knowledge","prompt":"Present of savoir: Les agents ___ où aller.","choices":[],"answers":["savent"],"explanation":"The third-person plural is savent."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"appearance-sight","prompt":"Present of prévoir: Je ___ une pause.","choices":[],"answers":["prévois"],"explanation":"The present follows voir."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"knowledge","prompt":"Present of connaître: Vous ___ nos tarifs.","choices":[],"answers":["connaissez"],"explanation":"Keep double s."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"appearance-sight","prompt":"Correct the verb only: Ils voyent la mer.","choices":[],"answers":["voient"],"explanation":"Ils uses voi-, not voy-."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"appearance-sight","prompt":"Present of apparaître: Une icône ___ ici.","choices":[],"answers":["apparaît","apparait"],"explanation":"Third-person singular follows paraît."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"knowledge","prompt":"Present of savoir: On ___ déjà la réponse.","choices":[],"answers":["sait"],"explanation":"On takes the same form as il."}
+ ],
+ "production_task":{"prompt":"A new colleague asks for help finding a room. Explain what you know, what you can see and whether you know the building.","model_answer":"Je connais bien le bâtiment. Je sais où se trouve la salle, mais je ne vois pas son numéro d'ici. Nous voyons l'escalier à gauche : la salle est juste derrière.","translation":"I know the building well. I know where the room is, but I cannot see its number from here. We can see the stairs on the left: the room is just behind them.","rubric":["Use connaître for familiarity.","Use savoir before information.","Check singular and plural voir spellings."]}
+}

@@ -1,0 +1,50 @@
+{
+ "version":1,"id":"a2-present-live-follow","slug":"a2-present-live-follow","cefr_level":"A2","topic":"verbs-tenses-moods","title":"Vivre, suivre, servir, rire et courir","summary":"Use five short irregular present families without forcing them into one pattern.","order":3,"duration_minutes":14,"prerequisites":["a2-present-know-see"],
+ "objectives":["Form all persons of vivre, suivre, rire, servir and courir.","Transfer each pattern to common derivatives without confusing singular stems."],
+ "keywords":["vivre","suivre","rire","sourire","servir","courir","présent"],
+ "sources":[{"label":"Public A2 index: topic-coverage reference only","url":"https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+ "related_legacy_ids":["verbs-present-patterns"],
+ "sections":[
+  {"id":"live-follow","title":"Similar sounds, different stems",
+   "paragraphs":["A verb family groups a base verb and words built from it. Vivre means to live; suivre means to follow or take a course. Their singular forms end in -s, -s, -t, but their stems differ. Je suis can therefore mean 'I am' with être or 'I follow' with suivre; the rest of the sentence identifies the meaning."],
+   "points":["Vivre: je vis, tu vis, il/elle/on vit, nous vivons, vous vivez, ils/elles vivent. Survivre follows the same pattern with sur-.","Suivre: je suis, tu suis, il/elle/on suit, nous suivons, vous suivez, ils/elles suivent. Poursuivre adds pour-."],
+   "examples":[
+    {"french":"Je **vis** près du marché.","english":"I live near the market.","note":"Vivre, not voir."},
+    {"french":"Nous **vivons** avec deux amis.","english":"We live with two friends.","note":"Plural stem viv-."},
+    {"french":"Je **suis** une formation.","english":"I am taking a training course.","note":"Une formation is the object of suivre."},
+    {"french":"Vous **poursuivez** votre recherche.","english":"You are continuing your search.","note":"Poursuivre keeps the suivre pattern."}
+   ],
+   "mistakes":[{"avoid":"Nous suivrons le guide maintenant.","prefer":"Nous suivons le guide maintenant.","why":"For the intended present action, use suivons; suivrons is future, not a present spelling."}]
+  },
+  {"id":"serve-laugh-run","title":"Keep each family's full pattern",
+   "paragraphs":["Servir drops v in the singular but keeps it in the plural; desservir follows it. Do not apply that rule to every verb ending in -vir: vivre above keeps v in vit. Rire keeps ri- even in nous rions; sourire adds sou-. Courir keeps cour- throughout its present forms; parcourir follows it."],
+   "points":["Servir: je sers, tu sers, il/elle/on sert, nous servons, vous servez, ils/elles servent.","Rire: je ris, tu ris, il/elle/on rit, nous rions, vous riez, ils/elles rient. Sourire: je souris, tu souris, il/elle/on sourit, nous sourions, vous souriez, ils/elles sourient.","Courir: je cours, tu cours, il/elle/on court, nous courons, vous courez, ils/elles courent."],
+   "examples":[
+    {"french":"Ce bus **dessert** l'hôpital.","english":"This bus serves the hospital.","note":"Singular desservir drops v."},
+    {"french":"Nous **servons** le déjeuner à midi.","english":"We serve lunch at noon.","note":"The plural restores v."},
+    {"french":"Elle **rit** et les enfants **sourient**.","english":"She laughs and the children smile.","note":"Related patterns, different meanings."},
+    {"french":"Ils **courent** au parc ; nous **parcourons** le quartier à pied.","english":"They run in the park; we walk through the neighbourhood.","note":"Parcourir means to cover or travel through; it does not require running."}
+   ],
+   "mistakes":[{"avoid":"Vous courissez vite.","prefer":"Vous courez vite.","why":"Courir does not add -iss-."}]
+  }
+ ],
+ "practice":[
+  {"id":"item-01","kind":"text","pool":"practice","section_id":"live-follow","prompt":"Present of vivre: Elle ___ seule.","choices":[],"answers":["vit"],"explanation":"The singular stem is vi- before -t."},
+  {"id":"item-02","kind":"text","pool":"practice","section_id":"live-follow","prompt":"Present of suivre: Nous ___ les panneaux.","choices":[],"answers":["suivons"],"explanation":"Plural stem suiv-."},
+  {"id":"item-03","kind":"text","pool":"practice","section_id":"serve-laugh-run","prompt":"Present of servir: Tu ___ le thé.","choices":[],"answers":["sers"],"explanation":"Drop v in the singular."},
+  {"id":"item-04","kind":"text","pool":"practice","section_id":"serve-laugh-run","prompt":"Present of courir: Vous ___ souvent ?","choices":[],"answers":["courez"],"explanation":"Cour- takes -ez."},
+  {"id":"item-05","kind":"text","pool":"check","section_id":"live-follow","prompt":"Present of survivre: Ces plantes ___ au froid.","choices":[],"answers":["survivent"],"explanation":"Survivre follows vivre."},
+  {"id":"item-06","kind":"text","pool":"check","section_id":"live-follow","prompt":"Present of poursuivre: Il ___ ses études.","choices":[],"answers":["poursuit"],"explanation":"Add pour- to suit."},
+  {"id":"item-07","kind":"text","pool":"check","section_id":"serve-laugh-run","prompt":"Present of rire: Nous ___ de cette histoire.","choices":[],"answers":["rions"],"explanation":"Ri- takes -ons."},
+  {"id":"item-08","kind":"text","pool":"check","section_id":"serve-laugh-run","prompt":"Present of sourire: Vous ___ sur la photo.","choices":[],"answers":["souriez"],"explanation":"Sourire follows rire."},
+  {"id":"item-09","kind":"text","pool":"check","section_id":"serve-laugh-run","prompt":"Present of desservir: Ces trains ___ trois villages.","choices":[],"answers":["desservent"],"explanation":"Plural forms keep v."},
+  {"id":"item-10","kind":"text","pool":"check","section_id":"serve-laugh-run","prompt":"Present of parcourir: Je ___ dix kilomètres à vélo.","choices":[],"answers":["parcours"],"explanation":"Parcourir follows courir."},
+  {"id":"item-11","kind":"text","pool":"check","section_id":"live-follow","prompt":"Present of suivre: Elle ___ un traitement.","choices":[],"answers":["suit"],"explanation":"The treatment is what she follows."},
+  {"id":"item-12","kind":"text","pool":"check","section_id":"serve-laugh-run","prompt":"Present of rire: Les spectateurs ___ beaucoup.","choices":[],"answers":["rient"],"explanation":"Ri- takes -ent."},
+  {"id":"item-13","kind":"text","pool":"review","section_id":"live-follow","prompt":"Present of vivre: Vous ___ loin de votre travail.","choices":[],"answers":["vivez"],"explanation":"The plural uses viv-."},
+  {"id":"item-14","kind":"text","pool":"review","section_id":"serve-laugh-run","prompt":"Present of servir: Ce code ___ à ouvrir la porte.","choices":[],"answers":["sert"],"explanation":"The singular drops v."},
+  {"id":"item-15","kind":"text","pool":"review","section_id":"serve-laugh-run","prompt":"Present of sourire: Le bébé ___ à sa sœur.","choices":[],"answers":["sourit"],"explanation":"Third-person singular ends in t."},
+  {"id":"item-16","kind":"text","pool":"review","section_id":"serve-laugh-run","prompt":"Correct the verb only: Nous courrons chaque matin. Use the present, not the future.","choices":[],"answers":["courons"],"explanation":"Present courons has one r; future courrons has two."}
+ ],
+ "production_task":{"prompt":"Describe a normal morning in your neighbourhood, including where you live, transport or a course, and an activity.","model_answer":"Je vis près d'un parc et je cours le matin. Le bus dessert mon centre de formation. Nous suivons un cours de cuisine et nous servons ensuite le repas.","translation":"I live near a park and I run in the morning. The bus serves my training centre. We take a cooking class and then serve the meal.","rubric":["Distinguish vivre from suivre.","Keep the correct singular/plural stem.","Describe a coherent routine."]}
+}

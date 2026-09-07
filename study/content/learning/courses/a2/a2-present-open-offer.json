@@ -1,0 +1,53 @@
+{
+  "version": 1, "id": "a2-present-open-offer", "slug": "a2-present-open-offer", "cefr_level": "A2", "topic": "verbs-tenses-moods",
+  "title": "J'envoie, j'ouvre, j'offre",
+  "summary": "Handle changing y spellings and -ir verbs with present endings like parler.",
+  "order": 1, "duration_minutes": 13, "prerequisites": [],
+  "objectives": ["Conjugate -oyer, -uyer and -ayer verbs with accepted spelling variants.", "Use complete ouvrir, offrir, souffrir and cueillir families."],
+  "keywords": ["présent", "envoyer", "payer", "essuyer", "ouvrir", "offrir", "souffrir", "cueillir"],
+  "sources": [{"label": "Public A2 index: topic-coverage reference only", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a2"}],
+  "related_legacy_ids": ["verbs-present-spelling-families", "verbs-present-patterns"],
+  "sections": [
+    {"id": "y-spelling", "title": "A changing stem, not a new tense",
+      "paragraphs": ["The stem is the part before a verb's ending. In the present, -oyer and -uyer change y to i before a silent e, but keep y in nous and vous. -Ayer permits either y or i in those same singular and third-person plural forms. The meaning does not change."],
+      "points": ["Envoyer: j'envoie, tu envoies, il/elle/on envoie, nous envoyons, vous envoyez, ils/elles envoient.", "Essuyer: j'essuie, tu essuies, il/elle/on essuie, nous essuyons, vous essuyez, ils/elles essuient.", "Payer: je paie/paye, tu paies/payes, il/elle/on paie/paye, nous payons, vous payez, ils/elles paient/payent. Nettoyer follows envoyer; appuyer follows essuyer."],
+      "examples": [
+        {"french": "J'**envoie** le devis ce matin.", "english": "I am sending the estimate this morning.", "note": "The singular stem contains i."},
+        {"french": "Nous **nettoyons** la cuisine.", "english": "We are cleaning the kitchen.", "note": "Nous keeps y."},
+        {"french": "Vous **essuyez** les verres.", "english": "You are drying the glasses.", "note": "Vous keeps y."},
+        {"french": "Ils **paient** par carte.", "english": "They pay by card.", "note": "Payent is equally correct."}
+      ],
+      "mistakes": [{"avoid": "Nous envoions le dossier.", "prefer": "Nous envoyons le dossier.", "why": "Keep y before -ons."}]
+    },
+    {"id": "ir-e-endings", "title": "Some -ir verbs use -e, not -is",
+      "paragraphs": ["An infinitive is the dictionary form, such as ouvrir, 'to open'. These -ir verbs do not follow finir. Their present endings are -e, -es, -e, -ons, -ez, -ent. Keep the family stem shown below. Découvrir and recouvrir follow ouvrir; recueillir and accueillir follow cueillir."],
+      "points": ["Ouvrir: j'ouvre, tu ouvres, il/elle/on ouvre, nous ouvrons, vous ouvrez, ils/elles ouvrent.", "Offrir: j'offre, tu offres, il/elle/on offre, nous offrons, vous offrez, ils/elles offrent.", "Souffrir: je souffre, tu souffres, il/elle/on souffre, nous souffrons, vous souffrez, ils/elles souffrent.", "Cueillir: je cueille, tu cueilles, il/elle/on cueille, nous cueillons, vous cueillez, ils/elles cueillent. Accueillir: j'accueille, tu accueilles, il/elle/on accueille, nous accueillons, vous accueillez, ils/elles accueillent."],
+      "examples": [
+        {"french": "Elle **ouvre** les fenêtres.", "english": "She opens the windows.", "note": "Not an -is form."},
+        {"french": "Nous **offrons** un repas aux bénévoles.", "english": "We offer the volunteers a meal.", "note": "The stem is offr-."},
+        {"french": "Vous **souffrez** du dos ?", "english": "Does your back hurt?", "note": "Literally, are you suffering from back trouble?"},
+        {"french": "Ils **cueillent** des pommes et nous **accueillons** les visiteurs.", "english": "They pick apples and we welcome the visitors.", "note": "Both verbs keep the cueill spelling."}
+      ],
+      "mistakes": [{"avoid": "Elle ouvrisse la porte.", "prefer": "Elle ouvre la porte.", "why": "Ouvrir does not take the finir pattern."}]
+    }
+  ],
+  "practice": [
+    {"id":"item-01","kind":"text","pool":"practice","section_id":"y-spelling","prompt":"Supply envoyer in the present: Tu ___ une photo.","choices":[],"answers":["envoies"],"explanation":"Y becomes i before silent e."},
+    {"id":"item-02","kind":"text","pool":"practice","section_id":"y-spelling","prompt":"Supply payer in the present: Elle ___ le loyer.","choices":[],"answers":["paie","paye"],"explanation":"Both spellings are standard."},
+    {"id":"item-03","kind":"text","pool":"practice","section_id":"ir-e-endings","prompt":"Supply ouvrir in the present: Nous ___ à neuf heures.","choices":[],"answers":["ouvrons"],"explanation":"Ouvr- takes -ons."},
+    {"id":"item-04","kind":"text","pool":"practice","section_id":"ir-e-endings","prompt":"Supply offrir in the present: Vous ___ un service utile.","choices":[],"answers":["offrez"],"explanation":"Offr- takes -ez."},
+    {"id":"item-05","kind":"text","pool":"check","section_id":"y-spelling","prompt":"Supply nettoyer in the present: Les enfants ___ la table.","choices":[],"answers":["nettoient"],"explanation":"Third-person plural changes y to i."},
+    {"id":"item-06","kind":"text","pool":"check","section_id":"y-spelling","prompt":"Supply essuyer in the present: Nous ___ le comptoir.","choices":[],"answers":["essuyons"],"explanation":"Nous keeps y."},
+    {"id":"item-07","kind":"text","pool":"check","section_id":"y-spelling","prompt":"Supply appuyer in the present: J'___ sur ce bouton.","choices":[],"answers":["appuie"],"explanation":"The singular uses i."},
+    {"id":"item-08","kind":"text","pool":"check","section_id":"ir-e-endings","prompt":"Supply découvrir in the present: Je ___ ce quartier.","choices":[],"answers":["découvre"],"explanation":"Découvrir follows ouvrir."},
+    {"id":"item-09","kind":"text","pool":"check","section_id":"ir-e-endings","prompt":"Supply souffrir in the present: Ils ___ de la chaleur.","choices":[],"answers":["souffrent"],"explanation":"Souffr- takes -ent."},
+    {"id":"item-10","kind":"text","pool":"check","section_id":"ir-e-endings","prompt":"Supply cueillir in the present: Vous ___ des fraises.","choices":[],"answers":["cueillez"],"explanation":"Keep cueill- before -ez."},
+    {"id":"item-11","kind":"text","pool":"check","section_id":"ir-e-endings","prompt":"Supply accueillir in the present: Tu ___ la nouvelle équipe.","choices":[],"answers":["accueilles"],"explanation":"Accueillir follows cueillir."},
+    {"id":"item-12","kind":"text","pool":"check","section_id":"y-spelling","prompt":"Supply payer in the present: Les clients ___ en ligne.","choices":[],"answers":["paient","payent"],"explanation":"Both third-person plural variants are accepted."},
+    {"id":"item-13","kind":"text","pool":"review","section_id":"y-spelling","prompt":"Correct the verb only: Vous envoiez une confirmation.","choices":[],"answers":["envoyez"],"explanation":"Vous keeps y."},
+    {"id":"item-14","kind":"text","pool":"review","section_id":"ir-e-endings","prompt":"Supply recouvrir in the present: La neige ___ le toit.","choices":[],"answers":["recouvre"],"explanation":"Recouvrir uses the ouvrir pattern."},
+    {"id":"item-15","kind":"text","pool":"review","section_id":"ir-e-endings","prompt":"Supply recueillir in the present: Nous ___ les avis.","choices":[],"answers":["recueillons"],"explanation":"The family stem ends in cueill-."},
+    {"id":"item-16","kind":"text","pool":"review","section_id":"ir-e-endings","prompt":"Supply offrir in the present: J'___ mon aide.","choices":[],"answers":["offre"],"explanation":"The je ending is -e."}
+  ],
+  "production_task": {"prompt":"Write a short update about welcoming visitors at a community event. Mention an invitation, an opening and something offered.","model_answer":"Nous envoyons les invitations aujourd'hui. Demain, nous ouvrons la salle à dix heures. J'accueille les familles et nous offrons du café.","translation":"We are sending the invitations today. Tomorrow, we open the room at ten. I welcome the families and we offer coffee.","rubric":["Keep y in nous envoyons.","Use ouvrir and offrir without -iss-.","Make the responsibilities and time clear."]}
+}

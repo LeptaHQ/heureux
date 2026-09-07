@@ -6418,6 +6418,22 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator("html")).to_have_attribute("data-collection-view-mode", "table")
         self.page.get_by_role("button", name="Tableau").click()
         expect(self.page.locator("[data-learning-module-details][open]")).to_have_count(0)
+        expect(self.page.locator(".area-hero__metrics dt").first).to_have_text("Catégories")
+        expect(self.page.locator("[data-learning-module-filter='all']")).to_have_text("Toutes les catégories")
+        expect(self.page.locator(".learn-toolbar .learn-reading-note")).to_have_count(1)
+        expect(self.page.locator(".learn-page > p")).to_have_count(0)
+        level_filter = self.page.get_by_role("combobox", name="Niveau CEFR", exact=True)
+        expect(level_filter).to_have_css("border-radius", "12px")
+        self.assertEqual(level_filter.evaluate("element => element.tagName"), "SELECT")
+        level_filter.focus()
+        expect(level_filter).to_be_focused()
+        for width in (320, 390):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            search_top = self.page.locator("[data-learning-search]").evaluate(
+                "element => element.getBoundingClientRect().top + window.scrollY"
+            )
+            self.assertLess(search_top, 650)
+            self.assert_no_horizontal_overflow()
         self.page.locator("[data-learning-level-filter]").select_option("A2")
         self.page.locator("[data-learning-search]").fill("ecole")
         expect(self.page.locator("[data-learning-lesson]:visible")).to_have_count(1)
@@ -6453,6 +6469,11 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.get_by_role("link", name="Bibliothèque de référence", exact=True).click()
         self.page.wait_for_url("**/apprendre/?scope=reference&q=subjonctif")
         expect(self.page.locator("[data-learning-level-filter]")).to_have_count(0)
+        expect(self.page.locator(".area-hero__metrics dt").first).to_have_text("Parcours")
+        expect(self.page.locator("[data-learning-module-filter='all']")).to_have_text("Tous les parcours")
+        expect(self.page.locator(".learn-page > p")).to_have_text(
+            "The small check marks reading completion only, not assessed grammar control or an official level."
+        )
         self.assertGreater(self.page.locator("[data-learning-lesson]:visible").count(), 0)
 
     def test_bundled_course_search_and_examples_render_across_levels(self):

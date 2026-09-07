@@ -175,10 +175,7 @@ class CourseCatalog:
     lessons: tuple[CourseLesson, ...]
     modules: tuple[CourseModule, ...]
     title: str = "Apprendre le français"
-    description: str = (
-        "An original A1–B2 course and C1-preparation bridge. Reading completion "
-        "and controlled grammar practice are separate, not CEFR/TCF certification."
-    )
+    description: str = "Original A1–B2 lessons and a C1-preparation bridge."
 
     def lesson_by_slug(self, slug: str) -> tuple[CourseModule, CourseLesson] | None:
         for module in self.modules:

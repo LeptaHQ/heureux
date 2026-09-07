@@ -1,0 +1,62 @@
+{
+  "version": 1, "id": "b2-purpose-and-infinitive-negation", "slug": "b2-purpose-and-infinitive-negation", "cefr_level": "B2", "topic": "time-place-prepositions",
+  "title": "Pour que, avant de, ne pas faire", "summary": "Express purpose and before-actions with controlled subjects, then negate infinitives without copying finite-verb word order.", "order": 22, "duration_minutes": 14,
+  "prerequisites": ["b2-needs-wishes-feelings", "b2-subjunctive-past"], "objectives": ["Choose pour + infinitive or pour que + subjunctive from who acts.", "Use avant de with a shared subject and distinguish avant que.", "Negate simple and past infinitives in reported instructions and intentions."],
+  "keywords": ["pour que", "avant de", "avant que", "ne pas", "ne rien", "negative infinitive", "reported instructions"],
+  "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}],
+  "related_legacy_ids": ["verbs-infinitive-time-purpose", "negation-core", "time-clauses-conjunctions"],
+  "sections": [
+    {"id": "purpose", "title": "Who performs the intended action?",
+      "paragraphs": ["Purpose states an intended goal, not a guaranteed result. Use pour + infinitive when its understood subject is the same as the main action's subject: je ralentis pour lire. Use pour que + subject + subjunctive when you explicitly name another subject: je ralentis pour que tu puisses lire. Afin de / afin que are more formal alternatives with the same distinction.", "The present subjunctive can express a future goal. The past subjunctive is possible if the goal is completion before a deadline: pour que vous ayez terminé avant midi. A negative goal puts ne...pas around the finite subjunctive, or together before an infinitive."],
+      "points": [],
+      "examples": [
+        {"french": "Je ferme la fenêtre **pour entendre** le téléphone.", "english": "I close the window so I can hear the telephone.", "note": "I perform both actions."},
+        {"french": "Je ferme la fenêtre **pour que tu entendes** le téléphone.", "english": "I close the window so that you can hear the telephone.", "note": "Separate subject tu; subjunctive entendes."},
+        {"french": "Nous envoyons les consignes tôt **pour que vous ayez fini** avant vendredi.", "english": "We send the instructions early so that you will have finished before Friday.", "note": "The goal is completion by a deadline."}
+      ],
+      "mistakes": [{"avoid": "Je parle lentement pour que vous comprenez.", "prefer": "Je parle lentement pour que vous compreniez.", "why": "Pour que selects the subjunctive."}]
+    },
+    {"id": "before", "title": "Avant de shares a subject; avant que supplies one",
+      "paragraphs": ["Avant de + infinitive means before doing something. The understood subject of the infinitive is normally the main clause's subject. With a different subject, use avant que + subjunctive. De becomes d' before a vowel: avant d'entrer.", "Avant que may contain an optional formal ne called expletive ne: avant qu'il ne parte. This ne alone does not negate the action. Do not translate it as not; genuine negation needs a negative expression such as ne...pas. Avant de uses an infinitive because of its construction, not because English has an -ing form."],
+      "points": [],
+      "examples": [
+        {"french": "**Avant de signer**, lisez les conditions.", "english": "Before signing, read the terms.", "note": "The person addressed will both read and sign."},
+        {"french": "Je vérifie le nom **avant d'envoyer** le message.", "english": "I check the name before sending the message.", "note": "Same subject and elided de."},
+        {"french": "Rangeons les outils **avant que les enfants arrivent**.", "english": "Let's put away the tools before the children arrive.", "note": "We put away; the children arrive."},
+        {"french": "Je vous appellerai **avant qu'il ne parte**.", "english": "I will call you before he leaves.", "note": "Optional ne does not mean he will not leave."}
+      ],
+      "mistakes": [{"avoid": "Avant de tu pars, ferme la porte.", "prefer": "Avant de partir, ferme la porte.", "why": "Avant de takes an infinitive, not a subject plus a conjugated verb."}]
+    },
+    {"id": "negative-infinitives", "title": "Negative words do not all occupy the same place",
+      "paragraphs": ["For a simple infinitive, put ne pas, ne plus and ne jamais together before the verb: de ne pas venir, de ne plus attendre, de ne jamais mentir. Ne rien also precedes the infinitive: de ne rien oublier. Object pronouns go after these negative words and before the infinitive: de ne pas le lui dire.", "Personne as an object follows the infinitive: ne voir personne, ne parler à personne. Keep the verb's preposition. A restrictive ne...que ('only') is not ordinary negation: ne lire que le résumé means read only the summary.", "A past infinitive expresses completion using avoir/être + participle. The usual compact negative order is ne pas avoir compris or ne pas être venu(e). With an auxiliary infinitive, n'avoir pas compris is also grammatical, particularly in more formal usage. In reported instructions, a common structure is demander/conseiller à quelqu'un de + infinitive: elle m'a demandé de ne pas répondre. Do not move the original imperative's subject into the infinitive."],
+      "points": [],
+      "examples": [
+        {"french": "Elle m'a conseillé **de ne pas répondre** tout de suite.", "english": "She advised me not to reply immediately.", "note": "Ne pas precedes the infinitive."},
+        {"french": "Je promets **de ne rien oublier**.", "english": "I promise not to forget anything.", "note": "Rien also comes before the infinitive."},
+        {"french": "Il préfère **ne voir personne** ce soir.", "english": "He prefers not to see anyone tonight.", "note": "Personne follows voir."},
+        {"french": "Je regrette **de ne pas avoir prévenu** l'équipe.", "english": "I regret not having warned the team.", "note": "A negated completed action, same subject."},
+        {"french": "Merci **de ne pas le lui transmettre**.", "english": "Please do not pass it on to him/her.", "note": "A polite written request; the pronouns follow ne pas."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "p01", "kind": "text", "pool": "practice", "section_id": "purpose", "prompt": "Supply pouvoir in the present tense, choosing the appropriate mood: Je répète pour que vous ___ noter l'adresse.", "choices": [], "answers": ["puissiez"], "explanation": "Pour que selects present subjunctive."},
+    {"id": "p02", "kind": "text", "pool": "practice", "section_id": "before", "prompt": "Supply the phrase 'before leaving' with avant de and partir.", "choices": [], "answers": ["avant de partir"], "explanation": "Avant de takes an infinitive."},
+    {"id": "p03", "kind": "text", "pool": "practice", "section_id": "negative-infinitives", "prompt": "Report Ne réponds pas using Elle m'a demandé de ___. Supply only the negative infinitive phrase.", "choices": [], "answers": ["ne pas répondre"], "explanation": "Ne pas goes before the infinitive."},
+    {"id": "p04", "kind": "text", "pool": "practice", "section_id": "negative-infinitives", "prompt": "Use ne...rien to negate oublier. Supply only the infinitive phrase meaning 'not forget anything'.", "choices": [], "answers": ["ne rien oublier"], "explanation": "Ne rien comes before oublier."},
+    {"id": "c01", "kind": "text", "pool": "check", "section_id": "purpose", "prompt": "Same subject: Je viens ___ vous aider. Supply pour or pour que.", "choices": [], "answers": ["pour"], "explanation": "The speaker comes and helps."},
+    {"id": "c02", "kind": "text", "pool": "check", "section_id": "purpose", "prompt": "Supply avoir in the present tense, choosing the appropriate mood: Je réserve deux places pour que nous ___ le choix.", "choices": [], "answers": ["ayons"], "explanation": "A separately expressed subject follows pour que."},
+    {"id": "c03", "kind": "text", "pool": "check", "section_id": "before", "prompt": "Supply the full phrase 'before entering' with avant and entrer, same subject.", "choices": [], "answers": ["avant d'entrer"], "explanation": "De elides before entrer."},
+    {"id": "c04", "kind": "text", "pool": "check", "section_id": "before", "prompt": "Supply partir in the present subjunctive: Ferme la fenêtre avant que nous ___.", "choices": [], "answers": ["partions"], "explanation": "Avant que introduces its own subject and subjunctive."},
+    {"id": "c05", "kind": "text", "pool": "check", "section_id": "negative-infinitives", "prompt": "Arrange ne, plus, attendre into the infinitive phrase meaning 'not wait any longer'.", "choices": [], "answers": ["ne plus attendre"], "explanation": "Ne plus precedes the infinitive."},
+    {"id": "c06", "kind": "text", "pool": "check", "section_id": "negative-infinitives", "prompt": "Arrange ne, jamais, mentir into the infinitive phrase meaning 'never lie'.", "choices": [], "answers": ["ne jamais mentir"], "explanation": "Ne jamais precedes mentir."},
+    {"id": "c07", "kind": "text", "pool": "check", "section_id": "negative-infinitives", "prompt": "Form the infinitive phrase 'not speak to anyone' using parler, ne and personne.", "choices": [], "answers": ["ne parler à personne"], "explanation": "Personne follows the infinitive and required à."},
+    {"id": "c08", "kind": "text", "pool": "check", "section_id": "negative-infinitives", "prompt": "Report Ne le lui dis pas: Il m'a demandé de ___. Supply the full negative infinitive group using dire.", "choices": [], "answers": ["ne pas le lui dire"], "explanation": "Ne pas, then pronouns, then infinitive."},
+    {"id": "r01", "kind": "text", "pool": "review", "section_id": "purpose", "prompt": "Supply être in the present tense, choosing the appropriate mood: J'éteins la radio pour que la pièce ___ calme.", "choices": [], "answers": ["soit"], "explanation": "The goal clause takes subjunctive."},
+    {"id": "r02", "kind": "text", "pool": "review", "section_id": "negative-infinitives", "prompt": "Supply a negated past infinitive of comprendre: Je regrette de ___. Use ne...pas; both standard auxiliary placements are accepted.", "choices": [], "answers": ["ne pas avoir compris", "n'avoir pas compris"], "explanation": "Both orders are grammatical with an auxiliary infinitive; the first is the usual compact teaching pattern."},
+    {"id": "r03", "kind": "text", "pool": "review", "section_id": "negative-infinitives", "prompt": "Supply the phrase 'read only the summary' using ne...que and lire.", "choices": [], "answers": ["ne lire que le résumé"], "explanation": "Restrictive que precedes the limited object."},
+    {"id": "r04", "kind": "choice", "pool": "review", "section_id": "before", "prompt": "In avant qu'elle ne parte, does ne by itself mean she does not leave?", "choices": ["No; it can be optional expletive ne.", "Yes; ne always negates the clause."], "answers": ["No; it can be optional expletive ne."], "explanation": "The translation remains before she leaves."}
+  ],
+  "production_task": {"prompt": "Write instructions for sending a sensitive community newsletter. Include a same-subject before-action, a purpose involving the readers, and a reported instruction with a negative infinitive.", "model_answer": "Avant d'envoyer le message, vérifiez les liens. Utilisez des phrases courtes pour que les lecteurs puissent comprendre rapidement. La responsable nous a demandé de ne pas publier les adresses personnelles.", "translation": "Before sending the message, check the links. Use short sentences so that readers can understand quickly. The manager asked us not to publish personal addresses.", "rubric": ["Avant de has a coherent understood subject.", "Pour que is followed by a subjunctive.", "The reported instruction uses de ne pas + infinitive.", "The instructions address a realistic communication need."]}
+}

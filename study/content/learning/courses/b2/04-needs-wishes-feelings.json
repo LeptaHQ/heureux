@@ -1,0 +1,61 @@
+{
+  "version": 1, "id": "b2-needs-wishes-feelings", "slug": "b2-needs-wishes-feelings", "cefr_level": "B2", "topic": "verbs-tenses-moods",
+  "title": "Exprimer une exigence, un souhait, une réaction", "summary": "Choose subjunctive clauses or infinitives for needs, wishes and emotional evaluations.", "order": 4, "duration_minutes": 12,
+  "prerequisites": ["b2-subjunctive-two-stems"], "objectives": ["Select the subjunctive after requirements, wishes and emotional reactions.", "Use an infinitive when there is no separate subordinate subject.", "Distinguish evaluative adjectives from assertions of certainty."],
+  "keywords": ["il faut que", "vouloir que", "aimer que", "détester que", "avoir besoin que", "il est important que"],
+  "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}],
+  "related_legacy_ids": ["verbs-subjunctive", "expressions-avoir-faire-il-faut"],
+  "sections": [
+    {"id": "requirements", "title": "A requirement is not an assertion",
+      "paragraphs": ["Il faut que + subject + subjunctive names an action as necessary. Il faut + infinitive gives a general requirement without naming a separate subject. Il faut is impersonal: il does not refer to a man or an object.", "Avoir besoin que + subjunctive specifies what you need someone or something to do. Avoir besoin de + noun or infinitive instead names the needed thing or your own needed action. A noun is introduced with de, but a finite clause is introduced directly with que, not de que."],
+      "points": [],
+      "examples": [
+        {"french": "Il faut que le technicien **vienne** aujourd'hui.", "english": "The technician needs to come today.", "note": "A named subject follows que."},
+        {"french": "Il faut **vérifier** les freins.", "english": "The brakes need to be checked.", "note": "The infinitive gives a general requirement."},
+        {"french": "J'ai besoin que tu **tiennes** la lampe.", "english": "I need you to hold the lamp.", "note": "My need concerns your action."},
+        {"french": "J'ai besoin **de me reposer**.", "english": "I need to rest.", "note": "The person needing and resting is the same."}
+      ],
+      "mistakes": [{"avoid": "J'ai besoin de que tu m'aides.", "prefer": "J'ai besoin que tu m'aides.", "why": "Use que directly before the finite clause; de belongs before a noun or infinitive."}]
+    },
+    {"id": "desire-emotion", "title": "A wish or reaction can concern something real",
+      "paragraphs": ["Vouloir que selects the subjunctive when a separate subject performs the desired action. With the same subject, use vouloir + infinitive: je veux partir. In je veux que tu partes, veux is indicative and partes is subjunctive.", "Aimer que and détester que introduce an emotional attitude toward a clause and select the subjunctive. This does not claim the event is doubtful: you can dislike a noise that really occurs every day. With your own activity, aimer/détester + infinitive is the normal compact construction."],
+      "points": ["Je voudrais que is a more courteous wish than je veux que; both select a subjunctive.", "Do not treat any occurrence of que as a subjunctive trigger: je constate que asserts an observation and normally takes the indicative."],
+      "examples": [
+        {"french": "Je veux que vous **preniez** le temps de lire.", "english": "I want you to take the time to read.", "note": "Different subjects: je and vous."},
+        {"french": "Je voudrais **comprendre** votre décision.", "english": "I would like to understand your decision.", "note": "Same subject, so no que-clause is needed."},
+        {"french": "J'aime que mes voisins **me disent** bonjour.", "english": "I like my neighbours saying hello to me.", "note": "A welcome habit, not an uncertain event."},
+        {"french": "Je déteste qu'on **laisse** la porte ouverte.", "english": "I hate people leaving the door open.", "note": "The clause is evaluated emotionally."}
+      ],
+      "mistakes": [{"avoid": "Je veux que je pars.", "prefer": "Je veux partir.", "why": "For a straightforward same-subject wish, use the infinitive; pars is also not subjunctive."}]
+    },
+    {"id": "evaluations", "title": "The adjective's meaning determines the construction",
+      "paragraphs": ["Impersonal evaluations such as il est important/nécessaire/utile/regrettable/possible que normally select the subjunctive. With a general action, use il est + adjective + de + infinitive. In contrast, il est certain/évident/vrai que normally asserts the clause and takes the indicative when affirmative. 'Il est + adjective' is therefore not one universal mood rule."],
+      "points": [],
+      "examples": [
+        {"french": "Il est important que chaque voix **soit** entendue.", "english": "It is important for every voice to be heard.", "note": "An evaluation of what matters."},
+        {"french": "Il est certain que cette méthode **fonctionne**.", "english": "It is certain that this method works.", "note": "An assertion of certainty; fonctionne is indicative here."},
+        {"french": "Il est utile **de garder** une copie.", "english": "It is useful to keep a copy.", "note": "No separate subject is expressed after the adjective."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "p01", "kind": "text", "pool": "practice", "section_id": "requirements", "prompt": "Supply venir in the present subjunctive: Il faut qu'elle ___ avant huit heures.", "choices": [], "answers": ["vienne"], "explanation": "Il faut que requires the subjunctive of venir."},
+    {"id": "p02", "kind": "text", "pool": "practice", "section_id": "requirements", "prompt": "Complete with avoir: J'ai besoin que vous ___ une pièce d'identité. Present subjunctive only.", "choices": [], "answers": ["ayez"], "explanation": "Avoir besoin que selects a subjunctive clause."},
+    {"id": "p03", "kind": "text", "pool": "practice", "section_id": "desire-emotion", "prompt": "Supply faire in the present tense, choosing the appropriate mood: Je voudrais que tu ___ un essai.", "choices": [], "answers": ["fasses"], "explanation": "A courteous wish with a different subject requires fasse + s."},
+    {"id": "p04", "kind": "text", "pool": "practice", "section_id": "desire-emotion", "prompt": "Supply être in the present tense, choosing the appropriate mood: J'aime que les consignes ___ claires.", "choices": [], "answers": ["soient"], "explanation": "Aimer que selects the subjunctive, even for an actual quality."},
+    {"id": "c01", "kind": "text", "pool": "check", "section_id": "evaluations", "prompt": "Supply savoir in the present tense, choosing the appropriate mood: Il est nécessaire que nous ___ la vérité.", "choices": [], "answers": ["sachions"], "explanation": "Necessity selects the subjunctive."},
+    {"id": "c02", "kind": "text", "pool": "check", "section_id": "desire-emotion", "prompt": "Supply prendre in the present tense, choosing the appropriate mood: Je déteste que tu ___ des risques inutiles.", "choices": [], "answers": ["prennes"], "explanation": "The emotional evaluation selects prennes."},
+    {"id": "c03", "kind": "text", "pool": "check", "section_id": "requirements", "prompt": "Supply only the missing preposition: J'ai besoin ___ dormir.", "choices": [], "answers": ["de"], "explanation": "Avoir besoin de + infinitive."},
+    {"id": "c04", "kind": "text", "pool": "check", "section_id": "evaluations", "prompt": "Supply only the missing preposition: Il est préférable ___ attendre.", "choices": [], "answers": ["d'"], "explanation": "De elides before attendre."},
+    {"id": "c05", "kind": "text", "pool": "check", "section_id": "desire-emotion", "prompt": "Complete with partir for the speaker's own wish: Je veux ___ demain. Infinitive only.", "choices": [], "answers": ["partir"], "explanation": "Same-subject vouloir takes an infinitive."},
+    {"id": "c06", "kind": "text", "pool": "check", "section_id": "requirements", "prompt": "Supply pouvoir in the present tense, choosing the appropriate mood: Il faut que chacun ___ poser une question.", "choices": [], "answers": ["puisse"], "explanation": "Chacun is singular; the requirement takes the subjunctive."},
+    {"id": "c07", "kind": "choice", "pool": "check", "section_id": "evaluations", "prompt": "Choose the neutral affirmative assertion: Il est évident qu'elle ___ raison.", "choices": ["a", "ait"], "answers": ["a"], "explanation": "Affirmative il est évident que normally asserts the proposition."},
+    {"id": "c08", "kind": "choice", "pool": "check", "section_id": "desire-emotion", "prompt": "In Je déteste qu'il soit toujours en retard, is the lateness necessarily uncertain?", "choices": ["No; it may be an established habit.", "Yes; subjunctive always signals uncertainty."], "answers": ["No; it may be an established habit."], "explanation": "Emotional evaluation, not probability, selects the mood."},
+    {"id": "r01", "kind": "text", "pool": "review", "section_id": "requirements", "prompt": "Supply tenir in the present tense, choosing the appropriate mood: Nous avons besoin qu'ils ___ leurs engagements.", "choices": [], "answers": ["tiennent"], "explanation": "The requested action is a subjunctive clause."},
+    {"id": "r02", "kind": "text", "pool": "review", "section_id": "desire-emotion", "prompt": "Supply revenir in the present tense, choosing the appropriate mood: Elle veut que nous ___ la semaine prochaine.", "choices": [], "answers": ["revenions"], "explanation": "Vouloir que selects the subjunctive; nous uses reven-."},
+    {"id": "r03", "kind": "text", "pool": "review", "section_id": "evaluations", "prompt": "Supply être in the present tense, choosing the appropriate mood: Il est regrettable que le jardin ___ fermé.", "choices": [], "answers": ["soit"], "explanation": "Regret evaluates the closure without denying its reality."},
+    {"id": "r04", "kind": "text", "pool": "review", "section_id": "evaluations", "prompt": "Supply être in the present tense for the normal indicative assertion: Il est vrai que nous ___ en retard.", "choices": [], "answers": ["sommes"], "explanation": "Il est vrai que presents the clause as true."}
+  ],
+  "production_task": {"prompt": "Write a courteous message to a shared-office group: one need, one preference, one complaint about a real habit and one general recommendation. Use both finite clauses and an infinitive.", "model_answer": "J'ai besoin que la salle soit libre à dix heures. Je voudrais que nous commencions à l'heure. Je déteste qu'on interrompe les autres. Il est utile de préparer ses questions à l'avance.", "translation": "I need the room to be free at ten. I would like us to start on time. I hate people interrupting others. It is useful to prepare your questions in advance.", "rubric": ["Each selected construction has the appropriate mood or infinitive.", "Subjects are clear.", "The complaint does not imply that the habit is imaginary.", "The tone remains suitable for colleagues."]}
+}

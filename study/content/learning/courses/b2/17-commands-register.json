@@ -1,0 +1,64 @@
+{
+  "version": 1, "id": "b2-commands-register", "slug": "b2-commands-register", "cefr_level": "B2", "topic": "verbs-tenses-moods",
+  "title": "Donner une consigne avec justesse", "summary": "Use irregular imperatives, formal veuillez and affirmative versus negative double-pronoun order.", "order": 17, "duration_minutes": 15,
+  "prerequisites": ["b2-double-pronouns", "b2-subjunctive-irregular"], "objectives": ["Use all three imperative persons of être, avoir and savoir.", "Recognize rare vouloir imperatives while using veuillez appropriately.", "Reorder double pronouns when changing an affirmative command to a negative one."],
+  "keywords": ["imperative", "sois", "aie", "sache", "veuillez", "donne-le-moi", "donne-m'en"],
+  "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}, {"label": "Larousse: vouloir, two imperative series and usage notes", "url": "https://www.larousse.fr/dictionnaires/francais/vouloir/82561"}],
+  "related_legacy_ids": ["imperative", "writing-cohesion-formality", "pronouns-direct-indirect"],
+  "sections": [
+    {"id": "irregular", "title": "Three persons, with no expressed subject pronoun",
+      "paragraphs": ["The imperative addresses tu or vous, or includes the speaker with nous ('let's'). The subject pronoun is omitted. Être, avoir and savoir use special forms related to their subjunctives: sois/soyons/soyez, aie/ayons/ayez, sache/sachons/sachez.", "Use être to ask for a state or attitude, avoir in expressions such as avoir confiance, and savoir to urge awareness ('know/be aware that'). Savoir's imperative is not normally an order to instantly acquire a learned skill. Tone depends on context, not just the verb form."],
+      "points": [],
+      "examples": [
+        {"french": "**Sois** attentif.\n**Soyons** attentifs.\n**Soyez** attentifs.", "english": "Be attentive. (tu, male)\nLet's be attentive. (masculine/mixed group)\nBe attentive. (vous, masculine/mixed plural)", "note": "The adjective changes for a woman or women; the imperative verb does not change for gender."},
+        {"french": "**Aie** confiance.\n**Ayons** confiance.\n**Ayez** confiance.", "english": "Have confidence. (tu)\nLet's have confidence.\nHave confidence. (vous)", "note": "Aie has no s in this imperative."},
+        {"french": "**Sache** que je t'écoute.\n**Sachons** reconnaître nos erreurs.\n**Sachez** que le service est gratuit.", "english": "Know that I am listening to you.\nLet's know how to acknowledge our mistakes.\nBe aware that the service is free.", "note": "Sachons can introduce a formal collective exhortation."},
+        {"french": "**Ne soyez pas** trop sévère avec vous-même.", "english": "Don't be too hard on yourself.", "note": "Polite singular vous; negation surrounds the verb."}
+      ],
+      "mistakes": [{"avoid": "Aies confiance en toi.", "prefer": "Aie confiance en toi.", "why": "The tu imperative is aie without s; que tu aies is a different construction."}]
+    },
+    {"id": "vouloir", "title": "Veuillez is a formal request, not a neutral conversational default",
+      "paragraphs": ["Vouloir has two imperative series: veuille/veuillons/veuillez and veux/voulons/voulez, in tu/nous/vous order. The first series is associated especially with courteous formal requests. Veuillons is rare and elevated; recognize it rather than forcing it into everyday conversation. The second series is particularly useful with en vouloir à quelqu'un (hold something against someone): ne m'en veux pas and ne m'en veuille pas are both valid, with veux very common in conversation.", "Veuillez + infinitive is common in notices, instructions and formal correspondence: veuillez patienter. It politely formulates a direction, but can sound firm or bureaucratic. In conversation, vous pouvez... or pourriez-vous... may sound warmer. Do not mistake veuillez for second-person plural future voudrez."],
+      "points": ["Vouloir has an exceptional imperative use; do not translate every English 'please' as veuillez."],
+      "examples": [
+        {"french": "**Veuillez** joindre une copie du reçu.", "english": "Please attach a copy of the receipt.", "note": "Formal written instruction."},
+        {"french": "**Ne m'en veuille pas**, j'ai oublié de te rappeler.", "english": "Don't hold it against me; I forgot to call you back.", "note": "Ne m'en veux pas is also valid and very common in conversation."},
+        {"french": "**Veuillons** bien examiner les faits avant de conclure.", "english": "Let us be willing to examine the facts before drawing a conclusion.", "note": "Deliberately elevated collective exhortation; recognition rather than routine production."},
+        {"french": "**Ne m'en voulez pas**, je dois partir.", "english": "Don't hold it against me; I have to leave.", "note": "The vous form voulez is natural with en vouloir."},
+        {"french": "**N'en voulons pas** aux débutants : ils apprennent.", "english": "Let's not hold it against the beginners: they are learning.", "note": "The nous form voulons includes the speaker in the exhortation."}
+      ],
+      "mistakes": []
+    },
+    {"id": "affirmative-pronouns", "title": "After an affirmative imperative, the order changes",
+      "paragraphs": ["In affirmative commands, attach pronouns after the verb with hyphens. The order is le/la/les → moi/toi/lui/nous/vous/leur → y → en. Me and te become moi and toi unless immediately before y or en, where m' and t' are used: donne-le-moi, donne-m'en, conduis-m'y. Se becomes toi for tu or nous/vous for the addressed group in reflexive commands.", "Negative commands return to the ordinary pre-verbal order: ne me le donne pas, ne m'en donne pas. No hyphens join pre-verbal pronouns. For -er imperatives and va, a linking s appears before immediately following y or en only when that pronoun belongs to the imperative verb: vas-y, donnes-en. There is no added s when another pronoun intervenes (donne-m'en), or when en belongs to a following infinitive: va en chercher."],
+      "points": ["An imperative plus a following infinitive may put a pronoun before the infinitive it belongs to: viens le voir. Do not attach that le to viens."],
+      "examples": [
+        {"french": "Le formulaire ? **Donnez-le-lui**.", "english": "The form? Give it to him/her.", "note": "Direct le, then indirect lui, all after the verb."},
+        {"french": "Ces notes sont pour moi. **Envoie-les-moi**.", "english": "Those notes are for me. Send them to me.", "note": "Moi replaces pre-verbal me."},
+        {"french": "Tu as du papier ? **Donne-m'en** une feuille.", "english": "Do you have any paper? Give me one sheet.", "note": "Moi becomes m' immediately before en; quantity remains."},
+        {"french": "Ces notes sont privées. **Ne me les envoie pas**.", "english": "Those notes are private. Don't send them to me.", "note": "Negative command restores me before les."},
+        {"french": "Le hangar est ouvert. **Conduis-m'y**.", "english": "The hangar is open. Take me there.", "note": "Moi becomes m' directly before y."}
+      ],
+      "mistakes": [{"avoid": "Ne donne-le-moi pas.", "prefer": "Ne me le donne pas.", "why": "Negative commands use pre-verbal pronouns and ordinary me-before-le order."}]
+    }
+  ],
+  "practice": [
+    {"id": "p01", "kind": "text", "pool": "practice", "section_id": "irregular", "prompt": "Supply the vous imperative of être only: ___ prudents.", "choices": [], "answers": ["soyez"], "explanation": "Être has soyez for vous."},
+    {"id": "p02", "kind": "text", "pool": "practice", "section_id": "irregular", "prompt": "Supply the tu imperative of avoir only: ___ un peu de patience.", "choices": [], "answers": ["aie"], "explanation": "Aie has no final s."},
+    {"id": "p03", "kind": "text", "pool": "practice", "section_id": "vouloir", "prompt": "Supply vouloir's formal vous imperative: ___ patienter quelques instants.", "choices": [], "answers": ["veuillez"], "explanation": "Veuillez + infinitive is a formal request."},
+    {"id": "p04", "kind": "text", "pool": "practice", "section_id": "affirmative-pronouns", "prompt": "Replace le livre and à moi in Donne le livre à moi. Supply only the complete affirmative command, without punctuation.", "choices": [], "answers": ["donne-le-moi"], "explanation": "Affirmative order is verb-le-moi with hyphens."},
+    {"id": "c01", "kind": "text", "pool": "check", "section_id": "irregular", "prompt": "Supply the nous imperative of être only: ___ réalistes.", "choices": [], "answers": ["soyons"], "explanation": "Soyons means let's be."},
+    {"id": "c02", "kind": "text", "pool": "check", "section_id": "irregular", "prompt": "Supply the nous imperative of avoir only: ___ confiance dans l'équipe.", "choices": [], "answers": ["ayons"], "explanation": "Ayons means let's have."},
+    {"id": "c03", "kind": "text", "pool": "check", "section_id": "irregular", "prompt": "Supply the vous imperative of savoir only: ___ que les places sont limitées.", "choices": [], "answers": ["sachez"], "explanation": "Sachez urges awareness."},
+    {"id": "c04", "kind": "text", "pool": "check", "section_id": "affirmative-pronouns", "prompt": "Replace les clés and à Léa in Donnez les clés à Léa. Supply the complete affirmative command without punctuation.", "choices": [], "answers": ["donnez-les-lui"], "explanation": "Direct les precedes indirect lui after the verb."},
+    {"id": "c05", "kind": "text", "pool": "check", "section_id": "affirmative-pronouns", "prompt": "Make Donne-le-moi negative with ne...pas. Supply the complete sentence without punctuation.", "choices": [], "answers": ["ne me le donne pas"], "explanation": "Return to pre-verbal me-le order."},
+    {"id": "c06", "kind": "text", "pool": "check", "section_id": "affirmative-pronouns", "prompt": "Give the affirmative tu command 'give me some', using donner, me and en. No quantity or punctuation.", "choices": [], "answers": ["donne-m'en"], "explanation": "Moi becomes m' before en; no extra s when m' intervenes."},
+    {"id": "c07", "kind": "text", "pool": "check", "section_id": "irregular", "prompt": "Supply the tu imperative of savoir only: ___ que tu peux refuser.", "choices": [], "answers": ["sache"], "explanation": "Sache is the special imperative."},
+    {"id": "c08", "kind": "choice", "pool": "check", "section_id": "vouloir", "prompt": "Which is the best description of veuillons?", "choices": ["A valid but rare formal nous imperative.", "An ordinary future form used in casual invitations."], "answers": ["A valid but rare formal nous imperative."], "explanation": "Teach its existence without encouraging unnatural routine use."},
+    {"id": "r01", "kind": "text", "pool": "review", "section_id": "affirmative-pronouns", "prompt": "Make Donne-m'en deux negative with ne...pas. Keep the number; no punctuation.", "choices": [], "answers": ["ne m'en donne pas deux"], "explanation": "The pronouns move before donne and lose the imperative hyphen."},
+    {"id": "r02", "kind": "text", "pool": "review", "section_id": "irregular", "prompt": "Supply the vous imperative of avoir only: ___ vos documents avec vous.", "choices": [], "answers": ["ayez"], "explanation": "Ayez is the vous form."},
+    {"id": "r03", "kind": "text", "pool": "review", "section_id": "vouloir", "prompt": "Complete the familiar expression with vouloir: Ne m'en ___ pas. One verb only.", "choices": [], "answers": ["veux", "veuille"], "explanation": "Both imperative series are valid here; ne m'en veux pas is especially common in conversation."},
+    {"id": "r04", "kind": "text", "pool": "review", "section_id": "affirmative-pronouns", "prompt": "Start from Conduis-moi au garage. Replace au garage with y and adjust moi before y. Supply only the hyphenated verb-pronoun group.", "choices": [], "answers": ["conduis-m'y"], "explanation": "Direct moi becomes m' before location y."}
+  ],
+  "production_task": {"prompt": "Write a formal reception-desk instruction and then two spoken directions to a colleague about a document: one affirmative double-pronoun command and one negative command.", "model_answer": "Veuillez présenter votre pièce d'identité. Le reçu est pour la cliente : donne-le-lui. La copie contient une erreur : ne la lui donne pas. Sois attentif au numéro du dossier.", "translation": "Please present your identity document. The receipt is for the customer: give it to her. The copy contains an error: don't give it to her. Pay attention to the file number.", "rubric": ["Veuillez fits the formal public instruction.", "Affirmative commands use post-verbal hyphens.", "Negative commands restore pre-verbal order.", "Pronouns refer to the correct document and person."]}
+}

@@ -1,0 +1,79 @@
+{
+  "version": 1, "id": "b2-movement-auxiliaries", "slug": "b2-movement-auxiliaries", "cefr_level": "B2", "topic": "verbs-tenses-moods",
+  "title": "Déplacer quelqu'un ou se déplacer", "summary": "Choose avoir or être from the construction of seven movement verbs, not a memorized verb list alone.", "order": 7, "duration_minutes": 15,
+  "prerequisites": [], "objectives": ["Distinguish intransitive movement from transitive uses of entrer, sortir, descendre, monter, retourner, rentrer and repasser.", "Apply auxiliary choice and agreement in compound tenses."],
+  "keywords": ["auxiliary", "entrer", "sortir", "descendre", "monter", "retourner", "rentrer", "repasser", "transitive"],
+  "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}, {"label": "Académie française: repasser, including the intransitive auxiliary-variation note", "url": "https://www.dictionnaire-academie.fr/article/A9R1832"}],
+  "related_legacy_ids": ["verbs-passe-compose", "verbs-past-participle-agreement"],
+  "sections": [
+    {"id": "principle", "title": "Find the object before choosing the auxiliary",
+      "paragraphs": ["A direct object completes a verb without a linking preposition: in elle a sorti les chaises, les chaises is what she brought out. An intransitive construction has no direct object: elle est sortie describes her own movement. A destination introduced by à, dans, de or chez is not a direct object.", "For the seven verbs here, the usual intransitive movement construction uses être; a transitive use takes avoir. Intransitive repasser also permits avoir, especially when emphasizing the action rather than its result; its section explains this variation. The change of construction may express moving something else, traversing something, turning something over or ironing. Do not infer 'any moving verb takes être': marcher and courir normally take avoir.", "Use the auxiliary in the required tense. In the passé composé, avoir is ai, as, a, avons, avez, ont; être is suis, es, est, sommes, êtes, sont. The participles are entré, sorti, descendu, monté, retourné, rentré, repassé. With intransitive être, agree with the subject: -e, -s, -es as needed. With avoir, do not agree with a following object; a preceding direct object can trigger agreement."],
+      "points": ["An auxiliary is a helping verb; compound tenses combine it with a past participle.", "The same construction-based choice applies in the pluperfect, conditional past and future perfect."],
+      "examples": [
+        {"french": "je **suis entré(e)**\ntu **es entré(e)**\nil **est entré** / elle **est entrée**\nnous **sommes entré(e)s**\nvous **êtes entré(e)(s)**\nils **sont entrés** / elles **sont entrées**", "english": "I entered\nyou entered\nhe entered / she entered\nwe entered\nyou entered\nthey entered", "note": "On takes est with agreement according to its referent. Parentheses show possible agreement, not spelling to copy into prose."},
+        {"french": "Elle **a marché** jusqu'au port.", "english": "She walked to the harbour.", "note": "Movement itself does not force être."}
+      ],
+      "mistakes": [{"avoid": "Elle a sortie les cartons.", "prefer": "Elle a sorti les cartons.", "why": "The direct object follows avoir + participle, so sorti does not agree with elle or the following cartons."}]
+    },
+    {"id": "enter-exit", "title": "Entrer, sortir and rentrer",
+      "paragraphs": ["Entrer describes entering with être; entrer quelque chose describes entering or bringing something in with avoir. Sortir is leaving/going out with être, but taking something out with avoir. Rentrer is returning home/coming back inside with être; rentrer quelque chose is bringing or putting something inside with avoir.", "The meanings are related, but the object changes the structure. Elle est rentrée dans le garage has a prepositional destination; elle a rentré le vélo has a direct object."],
+      "points": [],
+      "examples": [
+        {"french": "Les visiteurs **sont entrés** par la cour.", "english": "The visitors entered through the courtyard.", "note": "The visitors themselves move."},
+        {"french": "La secrétaire **a entré** les coordonnées dans le système.", "english": "The secretary entered the contact details into the system.", "note": "The details are a direct object."},
+        {"french": "Ma sœur **est sortie** après le dîner.", "english": "My sister went out after dinner.", "note": "No direct object; feminine agreement."},
+        {"french": "Ma sœur **a sorti** les couvertures du placard.", "english": "My sister took the blankets out of the cupboard.", "note": "She moves the blankets."},
+        {"french": "Nous **sommes rentrées** avant la pluie.", "english": "We came home before the rain.", "note": "The speakers are women."},
+        {"french": "Nous **avons rentré** les vélos.", "english": "We brought the bicycles inside.", "note": "The bicycles are the direct object."}
+      ],
+      "mistakes": []
+    },
+    {"id": "up-down", "title": "Monter and descendre: cargo or a route can be the object",
+      "paragraphs": ["Monter/descendre use être for going up/down without a direct object. With avoir they can mean taking something up/down, or going up/down a directly named route such as an entire staircase. Thus traversing les escaliers directly is transitive even though you do not move the stairs. Une marche (f.) is a stair or step; un escalier (m.) is a staircase."],
+      "points": [],
+      "examples": [
+        {"french": "Les enfants **sont montés** au grenier.", "english": "The children went up to the attic.", "note": "Au grenier is a destination."},
+        {"french": "Le livreur **a monté** le meuble au troisième étage.", "english": "The delivery driver took the piece of furniture up to the third floor.", "note": "Le meuble is moved."},
+        {"french": "Elle **a monté** les marches sans s'arrêter.", "english": "She climbed the steps without stopping.", "note": "The route itself is a direct object."},
+        {"french": "Ils **sont descendus** au sous-sol.", "english": "They went down to the basement.", "note": "Intransitive movement."},
+        {"french": "Ils **ont descendu** les outils.", "english": "They took the tools downstairs.", "note": "The tools are the direct object."},
+        {"french": "Elle **a descendu** l'escalier en silence.", "english": "She went down the staircase quietly.", "note": "A directly named route takes avoir."}
+      ],
+      "mistakes": [{"avoid": "Elle est descendu au rez-de-chaussée.", "prefer": "Elle est descendue au rez-de-chaussée.", "why": "Intransitive descendre takes être and agrees with the feminine subject."}]
+    },
+    {"id": "return-repeat", "title": "Retourner and repasser have distinct transitive meanings",
+      "paragraphs": ["Retourner with être means going back; with avoir it can mean turning an object over or sending something back. Repasser with être means passing or calling by again; with avoir + direct object it can mean ironing or taking an examination again. Intransitive repasser can also use avoir, particularly to emphasize the action's course or repetition. Être is much more usual in ordinary accounts of a return visit, but an avoir form is not automatically an error. Do not infer the English meaning from the auxiliary alone: read the object and context."],
+      "points": [],
+      "examples": [
+        {"french": "Elle **est retournée** au guichet.", "english": "She went back to the counter.", "note": "Return movement."},
+        {"french": "Elle **a retourné** la carte pour lire l'adresse.", "english": "She turned the card over to read the address.", "note": "Turning an object, not going back."},
+        {"french": "Le voisin **est repassé** ce matin.", "english": "The neighbour called by again this morning.", "note": "A repeated visit."},
+        {"french": "Il **a repassé** sa chemise avant l'entretien.", "english": "He ironed his shirt before the interview.", "note": "Transitive ironing."},
+        {"french": "Le voisin **a repassé** deux fois sans nous trouver.", "english": "The neighbour called by again twice without finding us.", "note": "Less usual but valid intransitive avoir, focusing on the repeated action; est repassé is also natural."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "p01", "kind": "text", "pool": "practice", "section_id": "enter-exit", "prompt": "Supply entrer in the passé composé: Elle ___ dans la salle.", "choices": [], "answers": ["est entrée"], "explanation": "Dans introduces a destination, not an object."},
+    {"id": "p02", "kind": "text", "pool": "practice", "section_id": "enter-exit", "prompt": "Supply sortir in the passé composé: Il ___ les poubelles.", "choices": [], "answers": ["a sorti"], "explanation": "Taking the bins out is transitive."},
+    {"id": "p03", "kind": "text", "pool": "practice", "section_id": "up-down", "prompt": "Supply descendre in the passé composé: Elles ___ à la cave.", "choices": [], "answers": ["sont descendues"], "explanation": "Intransitive movement agrees with elles."},
+    {"id": "p04", "kind": "text", "pool": "practice", "section_id": "up-down", "prompt": "Supply monter in the passé composé: Il ___ les valises au premier étage.", "choices": [], "answers": ["a monté"], "explanation": "He moves the suitcases, the direct object."},
+    {"id": "p05", "kind": "text", "pool": "practice", "section_id": "return-repeat", "prompt": "Supply retourner in the passé composé: Elle ___ la crêpe avec une spatule.", "choices": [], "answers": ["a retourné"], "explanation": "Turning an object over takes avoir."},
+    {"id": "p06", "kind": "text", "pool": "practice", "section_id": "enter-exit", "prompt": "Supply rentrer in the passé composé: Les deux sœurs ___ chez elles.", "choices": [], "answers": ["sont rentrées"], "explanation": "Returning home, feminine plural."},
+    {"id": "p07", "kind": "text", "pool": "practice", "section_id": "return-repeat", "prompt": "Supply repasser in the passé composé: Il ___ son pantalon.", "choices": [], "answers": ["a repassé"], "explanation": "Ironing a direct object takes avoir."},
+    {"id": "c01", "kind": "text", "pool": "check", "section_id": "enter-exit", "prompt": "Supply entrer in the passé composé: Nous ___ le nouveau mot de passe.", "choices": [], "answers": ["avons entré"], "explanation": "The password is the direct object."},
+    {"id": "c02", "kind": "text", "pool": "check", "section_id": "enter-exit", "prompt": "Supply sortir in the passé composé: Les infirmières ___ du bâtiment.", "choices": [], "answers": ["sont sorties"], "explanation": "Du bâtiment marks origin; the women move."},
+    {"id": "c03", "kind": "text", "pool": "check", "section_id": "up-down", "prompt": "Supply descendre in the passé composé: Vous ___ l'escalier central.", "choices": [], "answers": ["avez descendu"], "explanation": "The route is named as a direct object."},
+    {"id": "c04", "kind": "text", "pool": "check", "section_id": "up-down", "prompt": "Supply monter in the passé composé: Ma tante ___ sur le toit.", "choices": [], "answers": ["est montée"], "explanation": "Sur marks location; être agrees with ma tante."},
+    {"id": "c05", "kind": "text", "pool": "check", "section_id": "return-repeat", "prompt": "Supply retourner in the passé composé: Les étudiantes ___ à la bibliothèque.", "choices": [], "answers": ["sont retournées"], "explanation": "Return movement with feminine plural subject."},
+    {"id": "c06", "kind": "text", "pool": "check", "section_id": "enter-exit", "prompt": "Supply rentrer in the passé composé: Vous ___ les plantes avant le gel.", "choices": [], "answers": ["avez rentré"], "explanation": "The plants are brought inside."},
+    {"id": "c07", "kind": "text", "pool": "check", "section_id": "return-repeat", "prompt": "Supply repasser in the passé composé: Ma collègue ___ chez moi pour récupérer son livre.", "choices": [], "answers": ["est repassée", "a repassé"], "explanation": "Être is the usual choice for a return visit, with feminine agreement; intransitive avoir is also valid when emphasizing the action."},
+    {"id": "c08", "kind": "choice", "pool": "check", "section_id": "principle", "prompt": "What determines the contrast between est sortie and a sorti les tables?", "choices": ["Whether sortir has a direct object in this construction.", "Whether the action happened yesterday."], "answers": ["Whether sortir has a direct object in this construction."], "explanation": "The time is compatible with both; the construction differs."},
+    {"id": "r01", "kind": "text", "pool": "review", "section_id": "up-down", "prompt": "Supply monter in the passé composé: Elles ___ les quatre étages à pied.", "choices": [], "answers": ["ont monté"], "explanation": "The traversed route is a direct object."},
+    {"id": "r02", "kind": "text", "pool": "review", "section_id": "return-repeat", "prompt": "Supply retourner in the passé composé: J'___ le colis au vendeur.", "choices": [], "answers": ["ai retourné"], "explanation": "Returning an object uses avoir."},
+    {"id": "r03", "kind": "text", "pool": "review", "section_id": "enter-exit", "prompt": "Supply rentrer in the passé composé: Ma fille ___ par la porte arrière.", "choices": [], "answers": ["est rentrée"], "explanation": "Her own return, with feminine agreement."},
+    {"id": "r04", "kind": "text", "pool": "review", "section_id": "up-down", "prompt": "Supply descendre in the passé composé: Nous ___ le canapé dans la cour.", "choices": [], "answers": ["avons descendu"], "explanation": "The sofa is what we moved down."}
+  ],
+  "production_task": {"prompt": "Describe preparations for bad weather. Include two people's own movements and two actions moving objects, with at least three different target verbs.", "model_answer": "Ma sœur est rentrée avant l'orage. Elle a rentré les chaises du jardin. Je suis monté au grenier et j'ai descendu les couvertures. Nous étions prêts quand la pluie a commencé.", "translation": "My sister came home before the storm. She brought the garden chairs inside. I went up to the attic and brought the blankets down. We were ready when the rain started.", "rubric": ["Each auxiliary reflects the actual construction.", "Être participles agree with the relevant subject.", "Following objects do not trigger avoir agreement.", "The sequence is physically and temporally coherent."]}
+}

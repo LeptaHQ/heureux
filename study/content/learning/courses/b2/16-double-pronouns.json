@@ -1,0 +1,69 @@
+{
+  "version": 1, "id": "b2-double-pronouns", "slug": "b2-double-pronouns", "cefr_level": "B2", "topic": "pronouns-questions-negation",
+  "title": "Placer deux pronoms ensemble", "summary": "Combine direct, indirect, reflexive, y and en pronouns before the verb they belong to.", "order": 16, "duration_minutes": 15,
+  "prerequisites": ["b2-participle-agreement"], "objectives": ["Order pronouns from their grammatical role.", "Place a pronoun group before a simple verb, auxiliary or relevant infinitive.", "Retain quantities and appropriate participle agreement."],
+  "keywords": ["double pronouns", "le lui", "me le", "se les", "lui en", "les y", "y en"],
+  "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}],
+  "related_legacy_ids": ["pronouns-direct-indirect", "pronouns-y-en", "pronouns-stressed-reflexive"],
+  "sections": [
+    {"id": "direct-indirect", "title": "Use the order slots, not English word order",
+      "paragraphs": ["A direct object answers whom/what without a preposition in the French construction. An indirect object depends on a preposition, often à. Pronouns replace these complements: le/la/les for direct objects; lui/leur for many à-person objects; me/te/nous/vous can be direct or indirect depending on the verb.", "Before a verb, the ordering slots are: me/te/se/nous/vous → le/la/les → lui/leur → y → en. These are ordering options, not an instruction to fill every slot or combine incompatible complements. With first/second-person indirect objects, put me/te/nous/vous before le/la/les; with third-person indirect objects, put le/la/les before lui/leur.", "Lui can mean to him or to her; leur means to them and never adds s as a pronoun. Me, te, se, le and la elide before a vowel: m', t', s', l'. Indirect pronouns are selected by the actual French verb, not by an English translation."],
+      "points": [],
+      "examples": [
+        {"french": "Je donne le plan à Nora. Je **le lui** donne.", "english": "I give the map to Nora. I give it to her.", "note": "Direct le precedes third-person indirect lui."},
+        {"french": "Tu prêtes les outils à ton voisin. Tu **les lui** prêtes.", "english": "You lend the tools to your neighbour. You lend them to him.", "note": "The direct object's number does not change lui."},
+        {"french": "Elle explique la règle à nous deux. Elle **nous l'**explique.", "english": "She explains the rule to the two of us. She explains it to us.", "note": "First-person indirect nous comes before direct l'."},
+        {"french": "Ces photos ? Je **les leur ai envoyées**.", "english": "Those photos? I sent them to them.", "note": "The group precedes the auxiliary; envoyées agrees with preceding photos."}
+      ],
+      "mistakes": [{"avoid": "Je lui le donne.", "prefer": "Je le lui donne.", "why": "Direct le precedes third-person indirect lui."}]
+    },
+    {"id": "reflexive", "title": "Reflexive pronouns occupy the first slot",
+      "paragraphs": ["A reflexive pronoun points back to the subject: me, te, se, nous, vous, se. It comes before a direct-object pronoun. In se laver les mains, se means to/for oneself and les mains is direct; replacing les mains by les yields se les laver.", "In compound tenses, both pronouns precede the auxiliary. A preceding direct les can trigger participle agreement even when se is indirect. Compare elles se sont lavé les mains and elles se les sont lavées."],
+      "points": [],
+      "examples": [
+        {"french": "Je **me les** rappelle très bien, ces vacances.", "english": "I remember those holidays very well.", "note": "Se rappeler quelque chose has a direct object."},
+        {"french": "Les mains ? Elles **se les sont lavées** avant le repas.", "english": "Their hands? They washed them before the meal.", "note": "Les is now a preceding feminine plural direct object."}
+      ],
+      "mistakes": []
+    },
+    {"id": "en-y", "title": "En follows indirect pronouns; y follows direct pronouns",
+      "paragraphs": ["En replaces a de-complement or an indefinite/partitive quantity. Keep an expressed number or quantity: je lui en donne trois. An indirect person pronoun comes before en: m'en, t'en, lui en, nous en, vous en, leur en.", "Y replaces a location or some à-thing complements. A direct pronoun precedes y: je l'y mets. Do not use y as a general replacement for à + person; verbs may require lui/leur or a stressed form such as à elle. If both y and en are justified, y precedes en: il y en a trois. Do not manufacture two pronouns when only one complement exists."],
+      "points": [],
+      "examples": [
+        {"french": "J'offre des places aux bénévoles. Je **leur en** offre quatre.", "english": "I offer places to the volunteers. I offer them four.", "note": "Recipient leur, quantity en, retained number."},
+        {"french": "Elle **m'en** a parlé hier.", "english": "She told me about it yesterday.", "note": "Me = to me; en = about it."},
+        {"french": "Je mets la boîte dans le coffre. Je **l'y** mets.", "english": "I put the box in the boot. I put it there.", "note": "Direct l' comes before location y."},
+        {"french": "Des chaises dans la réserve ? Il **y en** a six.", "english": "Chairs in the storeroom? There are six there.", "note": "Y precedes en; the number remains."}
+      ],
+      "mistakes": [{"avoid": "Je en lui donne trois.", "prefer": "Je lui en donne trois.", "why": "The indirect person pronoun precedes en."}]
+    },
+    {"id": "verb-placement", "title": "Attach the group to the verb it completes",
+      "paragraphs": ["With a simple tense, pronouns stand before that verb. With a compound tense, they stand before the auxiliary. With an ordinary modal plus infinitive, they stand before the infinitive they complete: je vais le lui expliquer. Do not move them before vais if their roles belong to expliquer.", "In a negative finite clause, ne precedes the pronoun group and pas follows the conjugated verb or auxiliary. Negative commands keep this pre-verbal pattern; affirmative commands have a different order taught next."],
+      "points": [],
+      "examples": [
+        {"french": "Je vais **le leur expliquer** demain.", "english": "I am going to explain it to them tomorrow.", "note": "The pronouns belong to expliquer."},
+        {"french": "Nous **ne les lui avons pas prêtés**.", "english": "We did not lend them to him/her.", "note": "Les refers to masculine plural objects; negation surrounds the auxiliary group."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "p01", "kind": "text", "pool": "practice", "section_id": "direct-indirect", "prompt": "Replace le dossier and à ma collègue with pronouns. Supply only the group: Je ___ donne.", "choices": [], "answers": ["le lui"], "explanation": "Direct le before indirect lui."},
+    {"id": "p02", "kind": "text", "pool": "practice", "section_id": "reflexive", "prompt": "Replace les mains with les: Elle se lave les mains. Supply only the two pronouns before lave.", "choices": [], "answers": ["se les"], "explanation": "Reflexive se occupies the first slot."},
+    {"id": "p03", "kind": "text", "pool": "practice", "section_id": "en-y", "prompt": "Replace des conseils and à ses enfants: Elle donne des conseils à ses enfants. Supply only the pronouns before donne.", "choices": [], "answers": ["leur en"], "explanation": "Indirect recipient before en."},
+    {"id": "p04", "kind": "text", "pool": "practice", "section_id": "en-y", "prompt": "Replace les sacs and dans le couloir: Je mets les sacs dans le couloir. Supply only the pronouns before mets.", "choices": [], "answers": ["les y"], "explanation": "Direct les before location y."},
+    {"id": "c01", "kind": "text", "pool": "check", "section_id": "direct-indirect", "prompt": "Replace la réponse by la, keeping me: Tu me donnes la réponse. Supply only the two pronouns before donnes.", "choices": [], "answers": ["me la"], "explanation": "Me precedes a direct third-person pronoun."},
+    {"id": "c02", "kind": "text", "pool": "check", "section_id": "direct-indirect", "prompt": "Replace les clés and aux voisins with pronouns. Supply only the group: Nous ___ rendons.", "choices": [], "answers": ["les leur"], "explanation": "Direct les before third-person indirect leur."},
+    {"id": "c03", "kind": "text", "pool": "check", "section_id": "reflexive", "prompt": "Complete the pronoun group replacing les pieds: Nous nous lavons les pieds. Nous ___ lavons.", "choices": [], "answers": ["nous les"], "explanation": "The subject is already supplied; reflexive nous remains."},
+    {"id": "c04", "kind": "text", "pool": "check", "section_id": "en-y", "prompt": "Replace trois billets with en plus retained number: Je donne trois billets à Léa. Fill only the pronoun group: Je ___ donne trois.", "choices": [], "answers": ["lui en"], "explanation": "Lui replaces à Léa; en replaces billets while three remains."},
+    {"id": "c05", "kind": "text", "pool": "check", "section_id": "en-y", "prompt": "Replace le colis and au bureau: Elle apporte le colis au bureau. Supply only the pronoun group before apporte.", "choices": [], "answers": ["l'y"], "explanation": "Le elides before y."},
+    {"id": "c06", "kind": "text", "pool": "check", "section_id": "verb-placement", "prompt": "Replace le règlement and aux élèves. Complete only the missing infinitive group: Je vais ___. Use expliquer.", "choices": [], "answers": ["le leur expliquer"], "explanation": "Pronouns belong before the infinitive expliquer."},
+    {"id": "c07", "kind": "text", "pool": "check", "section_id": "direct-indirect", "prompt": "Supply only envoyer's participle: Ces cartes, je les lui ai ___.", "choices": [], "answers": ["envoyées"], "explanation": "Les refers to preceding feminine plural cartes."},
+    {"id": "c08", "kind": "choice", "pool": "check", "section_id": "verb-placement", "prompt": "Choose the standard negative sentence.", "choices": ["Je ne le lui ai pas dit.", "Je le ne lui ai pas dit."], "answers": ["Je ne le lui ai pas dit."], "explanation": "Ne precedes the whole pronoun group."},
+    {"id": "r01", "kind": "text", "pool": "review", "section_id": "en-y", "prompt": "Replace de cette affaire while retaining nous: Elle nous parle de cette affaire. Supply only the pronouns before parle.", "choices": [], "answers": ["nous en"], "explanation": "Nous precedes en."},
+    {"id": "r02", "kind": "text", "pool": "review", "section_id": "reflexive", "prompt": "Supply laver's participle: Les mains, elles se les sont ___.", "choices": [], "answers": ["lavées"], "explanation": "Preceding les is the feminine plural direct object."},
+    {"id": "r03", "kind": "text", "pool": "review", "section_id": "en-y", "prompt": "Put y and en in order: Des livres ici ? Il ___ a beaucoup.", "choices": [], "answers": ["y en"], "explanation": "Y precedes en."},
+    {"id": "r04", "kind": "text", "pool": "review", "section_id": "direct-indirect", "prompt": "Replace les horaires but retain vous: Je vous envoie les horaires. Supply only the two pronouns before envoie.", "choices": [], "answers": ["vous les"], "explanation": "First/second-person pronouns precede le/la/les."}
+  ],
+  "production_task": {"prompt": "Write a handover note about keys, a storage place and tickets for volunteers. Introduce each referent before replacing it with a two-pronoun group.", "model_answer": "Les clés sont pour la responsable : je les lui donnerai demain. Les boîtes vont dans la réserve : je les y déposerai ce soir. Les bénévoles demandent des billets ; nous leur en réserverons dix.", "translation": "The keys are for the manager: I will give them to her tomorrow. The boxes go in the storeroom: I will put them there this evening. The volunteers are asking for tickets; we will reserve ten for them.", "rubric": ["Every pronoun has a clear referent.", "Direct/indirect, direct/y and indirect/en orders are correct.", "The quantity with en remains expressed.", "The note is understandable without reconstructing missing context."]}
+}

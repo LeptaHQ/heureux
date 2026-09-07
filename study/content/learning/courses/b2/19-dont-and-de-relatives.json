@@ -1,0 +1,70 @@
+{
+  "version": 1, "id": "b2-dont-and-de-relatives", "slug": "b2-dont-and-de-relatives", "cefr_level": "B2", "topic": "pronouns-questions-negation",
+  "title": "Dont, de qui et duquel", "summary": "Express de-complements, possession and subsets without losing a compound preposition or duplicating possession.", "order": 19, "duration_minutes": 15,
+  "prerequisites": ["b2-relative-prepositions"], "objectives": ["Use dont for a simple de relationship, possession and an included subset.", "Choose de qui for people and duquel forms where an entire compound preposition must remain.", "Avoid redundant de, en or possessive determiners."],
+  "keywords": ["dont", "whose", "including", "de qui", "duquel", "près duquel", "relative pronouns"],
+  "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}],
+  "related_legacy_ids": ["grammar-relative-pronouns", "grammar-possession-de", "pronouns-lequel-choice"],
+  "sections": [
+    {"id": "simple-de", "title": "Dont incorporates a simple de relationship",
+      "paragraphs": ["Dont is a relative pronoun that normally replaces a complement introduced by simple de: parler de, avoir besoin de, être fier de. It can refer to people or things and does not change for gender or number. Do not repeat de or en for the same role.", "For a person, de qui is a legitimate alternative in appropriate de-complement clauses: la personne de qui je parle. Duquel/de laquelle/desquels/desquelles may also occur, especially in formal style or for clarity; with a plain verb + de, dont is generally lighter and more idiomatic. This does not mean duquel can replace every dont: possessive and subset constructions have their own structure."],
+      "points": ["Duquel = de + lequel; de laquelle does not contract; desquels/desquelles are plural contractions."],
+      "examples": [
+        {"french": "Le document **dont** j'ai besoin est signé.", "english": "The document I need is signed.", "note": "Avoir besoin de: dont replaces de + document."},
+        {"french": "La personne **de qui** je parle habite ici.", "english": "The person I am talking about lives here.", "note": "Dont is also natural for this person."},
+        {"french": "Les résultats **dont** elle est fière sont publics.", "english": "The results she is proud of are public.", "note": "The adjective fier takes de."},
+        {"french": "Le financement **duquel** dépend la rénovation n'est pas garanti.", "english": "The funding on which the renovation depends is not guaranteed.", "note": "A formal inflected de-relative with a thing; dont would be a lighter alternative."}
+      ],
+      "mistakes": [{"avoid": "Le dossier dont j'en ai besoin est ici.", "prefer": "Le dossier dont j'ai besoin est ici.", "why": "Dont already represents the de-complement; en duplicates the same role."}]
+    },
+    {"id": "possession", "title": "Whose uses dont plus an ordinary article",
+      "paragraphs": ["For possession, dont links a possessor to a noun inside the relative clause: une artiste dont le frère est musicien. The possessive relationship is already expressed by dont, so use le/la/les or another appropriate nonredundant determiner, not son/sa/ses for that same possessor.", "The owned noun can be the subject or object of the relative clause: dont le livre a paru / dont j'ai lu le livre. Keep normal subject-verb order; dont is not itself the subject of a verb whose subject is le livre. Possession can be a broad relationship, not literal ownership."],
+      "points": [],
+      "examples": [
+        {"french": "J'ai rencontré une traductrice **dont la sœur** vit à Dakar.", "english": "I met a translator whose sister lives in Dakar.", "note": "La sœur, not sa sœur."},
+        {"french": "Voici le chercheur **dont j'ai lu les articles**.", "english": "Here is the researcher whose articles I have read.", "note": "Les articles is the object after lu; do not force a whose + noun word order."},
+        {"french": "La maison **dont le toit** a été réparé est à vendre.", "english": "The house whose roof has been repaired is for sale.", "note": "Dont can express a part-whole relationship with a thing."}
+      ],
+      "mistakes": [{"avoid": "L'autrice dont son roman a reçu un prix est ici.", "prefer": "L'autrice dont le roman a reçu un prix est ici.", "why": "Dont already identifies the possessor; son redundantly repeats that relationship."}]
+    },
+    {"id": "subset", "title": "Including and a quantity of which",
+      "paragraphs": ["Dont can introduce a subset of a previously mentioned group, often in a shortened clause: dix participants, dont trois débutants = ten participants, including three beginners. It can also introduce a full clause with a quantity: trois de ces livres sont traduits → des livres dont trois sont traduits.", "The number after dont belongs inside the total, not in addition to it. If six people attend, dont deux médecins means six in total, including two doctors. A full clause's verb agrees with its own subject, such as deux, not with the whole antecedent."],
+      "points": [],
+      "examples": [
+        {"french": "Nous avons reçu douze demandes, **dont quatre** urgentes.", "english": "We received twelve requests, including four urgent ones.", "note": "Twelve total, not sixteen."},
+        {"french": "Il apporte cinq livres, **dont deux sont** illustrés.", "english": "He is bringing five books, two of which are illustrated.", "note": "Deux is the subject of sont."}
+      ],
+      "mistakes": []
+    },
+    {"id": "compound-de", "title": "Do not cut a compound preposition in half",
+      "paragraphs": ["A compound preposition is a multiword relation, such as près de (near), à côté de (beside), au sujet de (about), à cause de (because of), au bord de (at the edge of). Keep the whole expression when adding a relative: près duquel, près de laquelle, près desquels, près desquelles. Dont cannot simply replace the final de while leaving a stranded près or à côté.", "With people, preposition + de qui is also possible: à côté de qui. For things, use agreeing duquel forms. This is the crucial contrast with simple parler de: le sujet dont nous parlons but le sujet au sujet duquel nous échangeons des messages. Prefer a simpler expression if it communicates the same relationship clearly."],
+      "points": [],
+      "examples": [
+        {"french": "Le canal **au bord duquel** nous marchons est calme.", "english": "The canal along which we are walking is quiet.", "note": "Keep au bord de and contract de + lequel."},
+        {"french": "Les écoles **près desquelles** nous habitons sont petites.", "english": "The schools near which we live are small.", "note": "Feminine plural after près de."},
+        {"french": "La collègue **à côté de qui** je suis assis prend des notes.", "english": "The colleague beside whom I am sitting is taking notes.", "note": "For a woman, à côté de laquelle is also grammatical."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "p01", "kind": "text", "pool": "practice", "section_id": "simple-de", "prompt": "Supply the single uninflected relative: Les outils ___ nous avons besoin sont chers.", "choices": [], "answers": ["dont"], "explanation": "Avoir besoin de takes a de-complement."},
+    {"id": "p02", "kind": "text", "pool": "practice", "section_id": "possession", "prompt": "Supply only the relative meaning whose: La femme ___ le fils travaille ici arrive demain.", "choices": [], "answers": ["dont"], "explanation": "Dont links the woman to her son; le is already provided."},
+    {"id": "p03", "kind": "text", "pool": "practice", "section_id": "subset", "prompt": "Supply the relative meaning including: Huit invités, ___ deux journalistes, sont présents.", "choices": [], "answers": ["dont"], "explanation": "The journalists form a subset of the eight guests."},
+    {"id": "p04", "kind": "text", "pool": "practice", "section_id": "compound-de", "prompt": "Supply the full phrase 'near which' with près and a masculine singular antecedent: Le lac ___ nous campons.", "choices": [], "answers": ["près duquel"], "explanation": "Keep près de and contract de + lequel."},
+    {"id": "c01", "kind": "text", "pool": "check", "section_id": "simple-de", "prompt": "Supply the single uninflected relative: La décision ___ elle est fière a changé sa vie.", "choices": [], "answers": ["dont"], "explanation": "Fier de supplies the relationship."},
+    {"id": "c02", "kind": "text", "pool": "check", "section_id": "simple-de", "prompt": "Use de + qui to refer to the person: Le témoin ___ nous parlons est absent. Supply both words.", "choices": [], "answers": ["de qui"], "explanation": "De qui is legitimate for a person; the prompt specifies this alternative."},
+    {"id": "c03", "kind": "text", "pool": "check", "section_id": "possession", "prompt": "Supply the definite article, not a possessive: Les voisins dont ___ fille est médecin déménagent.", "choices": [], "answers": ["la"], "explanation": "Dont already supplies the parental relationship."},
+    {"id": "c04", "kind": "text", "pool": "check", "section_id": "compound-de", "prompt": "Complete with the de-relative after à côté: La maison à côté ___ nous attendons est bleue.", "choices": [], "answers": ["de laquelle"], "explanation": "Feminine singular de laquelle does not contract."},
+    {"id": "c05", "kind": "text", "pool": "check", "section_id": "compound-de", "prompt": "Complete with the de-relative: Les bâtiments près ___ vous travaillez sont récents.", "choices": [], "answers": ["desquels"], "explanation": "Masculine plural: de + lesquels."},
+    {"id": "c06", "kind": "text", "pool": "check", "section_id": "compound-de", "prompt": "Complete with the de-relative: Les routes au bord ___ poussent ces arbres sont étroites.", "choices": [], "answers": ["desquelles"], "explanation": "Feminine plural after the complete phrase au bord de."},
+    {"id": "c07", "kind": "text", "pool": "check", "section_id": "subset", "prompt": "Supply être in the present: Elle propose quatre dates, dont deux ___ possibles.", "choices": [], "answers": ["sont"], "explanation": "Deux is the plural subject of the relative clause."},
+    {"id": "c08", "kind": "choice", "pool": "check", "section_id": "subset", "prompt": "Dix bénévoles, dont trois étudiants: how many volunteers in total?", "choices": ["10", "13"], "answers": ["10"], "explanation": "Dont includes a subset within the total."},
+    {"id": "c09", "kind": "text", "pool": "check", "section_id": "simple-de", "prompt": "Use an inflected de + lequel form, not dont: Le budget ___ dépend ce projet reste incertain.", "choices": [], "answers": ["duquel"], "explanation": "Dépendre de with masculine singular budget permits formal duquel; dont is normally lighter but the prompt explicitly requests the inflected form."},
+    {"id": "r01", "kind": "text", "pool": "review", "section_id": "possession", "prompt": "Supply the single relative: Voici l'écrivaine ___ j'ai acheté le dernier roman.", "choices": [], "answers": ["dont"], "explanation": "The novel belongs to the writer; its object position after acheté is normal."},
+    {"id": "r02", "kind": "text", "pool": "review", "section_id": "simple-de", "prompt": "Remove only the redundant pronoun: Le problème dont j'en parle est sérieux. Supply the corrected full sentence.", "choices": [], "answers": ["Le problème dont je parle est sérieux."], "explanation": "Dont and en cannot duplicate this de-complement."},
+    {"id": "r03", "kind": "text", "pool": "review", "section_id": "compound-de", "prompt": "Complete for a female colleague: La collègue à côté ___ je travaille est patiente.", "choices": [], "answers": ["de qui", "de laquelle"], "explanation": "Both forms work for a person after the full compound preposition."},
+    {"id": "r04", "kind": "text", "pool": "review", "section_id": "subset", "prompt": "Supply the relative for a subset: Six dossiers sont complets, ___ un très détaillé.", "choices": [], "answers": ["dont"], "explanation": "One detailed file is included among the six."}
+  ],
+  "production_task": {"prompt": "Describe a small association: a person whose work matters, a resource it needs, the building near which it meets, and a numerical subset of members.", "model_answer": "Notre présidente, dont les conseils sont précieux, connaît bien le quartier. Le matériel dont nous avons besoin est simple. Nous nous réunissons près d'une école, à côté de laquelle se trouve un jardin. Nous sommes quinze membres, dont quatre retraités.", "translation": "Our chair, whose advice is valuable, knows the neighbourhood well. The equipment we need is simple. We meet near a school, beside which there is a garden. We are fifteen members, including four retirees.", "rubric": ["Dont expresses possession without a redundant possessive.", "The simple de-complement is not repeated with en.", "The compound preposition remains intact.", "The subset belongs within the stated total."]}
+}

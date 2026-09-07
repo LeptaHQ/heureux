@@ -1,0 +1,63 @@
+{
+  "version": 1, "id": "b2-relative-prepositions", "slug": "b2-relative-prepositions", "cefr_level": "B2", "topic": "pronouns-questions-negation",
+  "title": "Relier une idée sans perdre la préposition", "summary": "Choose relative pronouns for subjects, objects, places, things and people, retaining the verb's required preposition.", "order": 18, "duration_minutes": 15,
+  "prerequisites": [], "objectives": ["Distinguish tout ce qui from tout ce que by clause function.", "Choose où or dans lequel for a place, not mechanically for time.", "Use preposition + qui/lequel and correctly contract à + lequel forms."],
+  "keywords": ["tout ce qui", "tout ce que", "dans lequel", "auquel", "relative pronouns", "preposition choice"],
+  "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}],
+  "related_legacy_ids": ["grammar-relative-pronouns", "pronouns-lequel-choice"],
+  "sections": [
+    {"id": "tout-ce", "title": "Everything that: identify the missing role",
+      "paragraphs": ["A relative clause describes or identifies a referent. An antecedent is the noun or expression it points back to. In tout ce qui/que, there is no specific noun antecedent: tout ce means everything/all that. Tout ce qui supplies the subject of the following verb; tout ce que supplies its direct object.", "Find the missing function rather than looking only at the next word. In tout ce qui me plaît, qui is the subject even though me appears before plaît. In tout ce que tu proposes, tu is the subject and que is what you propose. Que elides to qu' before a vowel. Tout ce is neutral singular and uses singular agreement when it is a subject."],
+      "points": [],
+      "examples": [
+        {"french": "**Tout ce qui** manque est indiqué en rouge.", "english": "Everything that is missing is marked in red.", "note": "Qui is the subject of manque."},
+        {"french": "Je noterai **tout ce que** vous proposerez.", "english": "I will write down everything you propose.", "note": "Vous is subject; que is object."},
+        {"french": "**Tout ce qui** me semble utile sera conservé.", "english": "Everything that seems useful to me will be kept.", "note": "Me does not turn qui into an object."}
+      ],
+      "mistakes": [{"avoid": "Tout ce que manque est ici.", "prefer": "Tout ce qui manque est ici.", "why": "The relative expression supplies the subject of manque."}]
+    },
+    {"id": "places", "title": "Où is broader than dans lequel",
+      "paragraphs": ["Où can refer to a place or a time. For a place meaning 'in which', dans lequel/laquelle/lesquels/lesquelles can make the relationship explicit. Lequel forms agree with the antecedent: masculine singular lequel, feminine singular laquelle, masculine/mixed plural lesquels, feminine plural lesquelles.", "Do not replace a time-relative où mechanically with dans lequel: le jour où nous sommes partis is the normal construction. For places, choose the actual relationship too: the bridge on which you stand requires sur lequel, not dans lequel."],
+      "points": [],
+      "examples": [
+        {"french": "L'atelier **où** nous travaillons est lumineux.", "english": "The workshop where we work is bright.", "note": "A place-relative clause."},
+        {"french": "L'atelier **dans lequel** nous travaillons est lumineux.", "english": "The workshop in which we work is bright.", "note": "An explicit in-which alternative; un atelier is masculine."},
+        {"french": "Les salles **dans lesquelles** nous répétons sont petites.", "english": "The rooms in which we rehearse are small.", "note": "Une salle is feminine; plural agreement."},
+        {"french": "Le jour **où** nous avons signé, il neigeait.", "english": "On the day we signed, it was snowing.", "note": "Time où does not license a mechanical dans lequel replacement."}
+      ],
+      "mistakes": [{"avoid": "La salle dans lequel nous attendons est vide.", "prefer": "La salle dans laquelle nous attendons est vide.", "why": "Laquelle agrees with feminine singular salle."}]
+    },
+    {"id": "prepositions", "title": "Choose the relationship before choosing the pronoun",
+      "paragraphs": ["After a preposition such as avec, pour, sans, sur or derrière, use lequel and its agreeing forms for things. For people, qui is usually natural; lequel forms are also possible, particularly to clarify the antecedent. Do not use qui after a preposition for a thing merely because English uses which/that similarly.", "The preposition belongs to the verb or relation: compter sur (rely on), travailler avec (work with), voter pour (vote for). Keep it in the relative clause. À + lequel contracts to auquel; à + lesquels/lesquelles gives auxquels/auxquelles; à laquelle stays two words. With people, à qui is also available. Participer à, répondre à and s'intéresser à do not become direct-object verbs in a relative clause."],
+      "points": ["The full à series is auquel, à laquelle, auxquels, auxquelles.", "No contraction with other prepositions here: avec lequel, pour laquelle, sur lesquels, derrière lesquelles."],
+      "examples": [
+        {"french": "La collègue **avec qui** je travaille connaît le quartier.", "english": "The colleague I work with knows the area.", "note": "A person: avec laquelle would also be grammatical."},
+        {"french": "Le mur **derrière lequel** le jardin se trouve est ancien.", "english": "The wall behind which the garden lies is old.", "note": "A thing needs the agreeing lequel form."},
+        {"french": "Les outils **sur lesquels** nous comptons sont fiables.", "english": "The tools we rely on are reliable.", "note": "Compter sur retains sur."},
+        {"french": "La question **à laquelle** je réponds est précise.", "english": "The question I am answering is precise.", "note": "Répondre à plus feminine singular."},
+        {"french": "Le groupe **auquel** j'appartiens se réunit ici.", "english": "The group I belong to meets here.", "note": "Appartenir à plus masculine singular contracts."},
+        {"french": "Les personnes **à qui** j'ai parlé attendent dehors.", "english": "The people I spoke to are waiting outside.", "note": "Auxquelles is also legitimate; à qui is natural for people."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "p01", "kind": "text", "pool": "practice", "section_id": "tout-ce", "prompt": "Supply qui or que: Je garde tout ce ___ peut servir.", "choices": [], "answers": ["qui"], "explanation": "The relative is the subject of peut."},
+    {"id": "p02", "kind": "text", "pool": "practice", "section_id": "places", "prompt": "Replace où by an explicit 'in which' phrase: La maison où elle habite. Supply only the replacement.", "choices": [], "answers": ["dans laquelle"], "explanation": "Maison is feminine singular."},
+    {"id": "p03", "kind": "text", "pool": "practice", "section_id": "prepositions", "prompt": "Supply the relative after avec for a feminine person: La bénévole avec ___ je travaille.", "choices": [], "answers": ["qui", "laquelle"], "explanation": "Both qui and feminine laquelle are legitimate for a person."},
+    {"id": "p04", "kind": "text", "pool": "practice", "section_id": "prepositions", "prompt": "Supply the complete à-relative: Le projet ___ nous participons avance.", "choices": [], "answers": ["auquel"], "explanation": "Participer à + masculine singular lequel contracts."},
+    {"id": "c01", "kind": "text", "pool": "check", "section_id": "tout-ce", "prompt": "Supply qui or que: Tout ce ___ nous avons préparé est prêt.", "choices": [], "answers": ["que"], "explanation": "Nous is subject; que is the direct object of préparer."},
+    {"id": "c02", "kind": "text", "pool": "check", "section_id": "tout-ce", "prompt": "Supply qui or que: Tout ce ___ vous inquiète mérite une réponse.", "choices": [], "answers": ["qui"], "explanation": "Vous is object here; qui is the subject that causes worry."},
+    {"id": "c03", "kind": "text", "pool": "check", "section_id": "places", "prompt": "Supply the explicit 'in which' phrase: Les bureaux ___ nous travaillons sont fermés.", "choices": [], "answers": ["dans lesquels"], "explanation": "Bureaux is masculine plural."},
+    {"id": "c04", "kind": "text", "pool": "check", "section_id": "prepositions", "prompt": "Supply the complete sur-relative: La table ___ le dossier est posé est ronde.", "choices": [], "answers": ["sur laquelle"], "explanation": "The dossier is on, not inside, the table."},
+    {"id": "c05", "kind": "text", "pool": "check", "section_id": "prepositions", "prompt": "Supply the complete à-relative: Les demandes ___ nous répondons sont urgentes.", "choices": [], "answers": ["auxquelles"], "explanation": "À + feminine plural lesquelles contracts."},
+    {"id": "c06", "kind": "text", "pool": "check", "section_id": "prepositions", "prompt": "Supply the complete à-relative: Les clubs ___ il appartient recrutent.", "choices": [], "answers": ["auxquels"], "explanation": "À + masculine plural lesquels contracts."},
+    {"id": "c07", "kind": "text", "pool": "check", "section_id": "prepositions", "prompt": "Supply the complete à-relative referring to a woman: La chercheuse ___ tu écris est en congé.", "choices": [], "answers": ["à qui", "à laquelle"], "explanation": "Both forms work for a person."},
+    {"id": "c08", "kind": "choice", "pool": "check", "section_id": "places", "prompt": "Choose the ordinary time-relative construction.", "choices": ["L'année où nous avons déménagé.", "L'année dans laquelle nous avons déménagé."], "answers": ["L'année où nous avons déménagé."], "explanation": "The benchmark's dans lequel alternative concerns spatial in-which relationships, not routine substitution for time où."},
+    {"id": "r01", "kind": "text", "pool": "review", "section_id": "tout-ce", "prompt": "Supply the elided relative: Voici tout ce ___ elle recommande.", "choices": [], "answers": ["qu'"], "explanation": "Que is the object and elides before elle."},
+    {"id": "r02", "kind": "text", "pool": "review", "section_id": "prepositions", "prompt": "Supply the complete sans-relative: Le logiciel ___ nous ne pouvons pas travailler est en panne.", "choices": [], "answers": ["sans lequel"], "explanation": "Masculine singular thing after sans."},
+    {"id": "r03", "kind": "text", "pool": "review", "section_id": "prepositions", "prompt": "Supply the complete à-relative: La formation ___ elle s'intéresse commence en mai.", "choices": [], "answers": ["à laquelle"], "explanation": "S'intéresser à keeps à; feminine singular does not contract."},
+    {"id": "r04", "kind": "text", "pool": "review", "section_id": "places", "prompt": "Supply the explicit 'in which' phrase: Les boîtes ___ les livres sont rangés sont lourdes.", "choices": [], "answers": ["dans lesquelles"], "explanation": "Boîtes is feminine plural."}
+  ],
+  "production_task": {"prompt": "Introduce a local project to a new volunteer. Mention everything that matters, a person you work with, a place you use and a project you participate in. Use four relative clauses.", "model_answer": "Tout ce qui concerne la sécurité est affiché ici. La personne avec qui je travaille vous accueillera. La salle dans laquelle nous préparons les repas est au fond. Le projet auquel nous participons aide les familles du quartier.", "translation": "Everything concerning safety is displayed here. The person I work with will welcome you. The room in which we prepare meals is at the back. The project we participate in helps families in the neighbourhood.", "rubric": ["Qui and que reflect the missing grammatical role.", "Each preposition matches the relationship or verb.", "Lequel forms agree with their antecedents.", "People may use qui without being incorrectly forced into lequel."]}
+}

@@ -1,0 +1,60 @@
+{
+  "version": 1, "id": "b2-literary-regular", "slug": "b2-literary-regular", "cefr_level": "B2", "topic": "verbs-tenses-moods",
+  "title": "Lire un récit au passé simple", "summary": "Recognition track: decode regular literary past forms and retell events in everyday compound past.", "order": 14, "duration_minutes": 14,
+  "prerequisites": ["b2-pluperfect"], "objectives": ["Recognize all persons of regular -er, regular -ir and regular -dre past-simple families.", "Recognize aller in the -er literary pattern.", "Distinguish foreground events from imperfect background without requiring routine literary production."],
+  "keywords": ["passé simple", "historic past", "literary recognition", "alla", "finit", "vendit"],
+  "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}],
+  "related_legacy_ids": ["verbs-past-contrast", "verbs-passe-compose"],
+  "sections": [
+    {"id": "er", "title": "Recognition, not the default spoken narrative tense",
+      "paragraphs": ["The passé simple is a literary narrative tense for bounded past events, common in fiction, historical narration and some formal written accounts. It is not simply 'a very old event': a novelist can use it for yesterday. In everyday conversation, the passé composé usually does the corresponding narrative work.", "For regular -er verbs, remove -er and recognize -ai, -as, -a, -âmes, -âtes, -èrent. Aller exceptionally belongs to this -er past-simple family: j'allai, tu allas, il/elle/on alla, nous allâmes, vous allâtes, ils/elles allèrent. Their meanings are I went, you went, he/she/we went, we went, you went, they went.", "Keep familiar spelling adjustments: manger gives je mangeai, tu mangeas, il mangea, nous mangeâmes, vous mangeâtes, ils mangèrent; commencer gives je commençai, tu commenças, il commença, nous commençâmes, vous commençâtes, ils commencèrent. This course asks you to recognize these, not to adopt literary endings in routine emails."],
+      "points": ["The je ending -ai is not imperfect -ais; the whole context also helps identify the tense."],
+      "examples": [
+        {"french": "je **frappai**\ntu **frappas**\nil/elle/on **frappa**\nnous **frappâmes**\nvous **frappâtes**\nils/elles **frappèrent**", "english": "I knocked\nyou knocked\nhe/she/one knocked\nwe knocked\nyou knocked\nthey knocked", "note": "All six endings for a regular -er verb."},
+        {"french": "La gardienne **alluma** une lampe et **alla** chercher la clé.", "english": "The caretaker lit a lamp and went to get the key.", "note": "Two foreground events, including aller."},
+        {"french": "Nous **traversâmes** la cour en silence.", "english": "We crossed the courtyard silently.", "note": "-âmes signals nous."},
+        {"french": "Les enfants **commencèrent** à rire.", "english": "The children began to laugh.", "note": "C before e is already soft."}
+      ],
+      "mistakes": [{"avoid": "Nous traversames la cour.", "prefer": "Nous traversâmes la cour.", "why": "In a literary quotation or written passé-simple form, the circumflex belongs to the nous ending."}]
+    },
+    {"id": "ir-dre", "title": "The -i- family is shared by different infinitives",
+      "paragraphs": ["Regular -ir verbs such as finir, choisir and réussir use -is, -is, -it, -îmes, -îtes, -irent. Some common non-finir -ir verbs, including partir, sortir and dormir, also have this i-family: je partis, tu partis, il partit, nous partîmes, vous partîtes, ils partirent. Do not generalize to all -ir verbs: venir is different and belongs to the next lesson.", "Regular -dre verbs such as vendre, attendre and répondre use the same endings after their stem: vend-, attend-, répond-. Prendre is not a regular -dre verb: it uses pr- plus the i-family endings, giving pris, pris, prit, prîmes, prîtes, prirent. Finis and finit can also be present forms, so person and narrative context matter; vendis, by contrast, is not present vendre (je/tu vends, il vend)."],
+      "points": [],
+      "examples": [
+        {"french": "je **finis**\ntu **finis**\nil/elle/on **finit**\nnous **finîmes**\nvous **finîtes**\nils/elles **finirent**", "english": "I finished\nyou finished\nhe/she/one finished\nwe finished\nyou finished\nthey finished", "note": "The plural forms clearly distinguish the literary past from the present."},
+        {"french": "je **vendis**\ntu **vendis**\nil/elle/on **vendit**\nnous **vendîmes**\nvous **vendîtes**\nils/elles **vendirent**", "english": "I sold\nyou sold\nhe/she/one sold\nwe sold\nyou sold\nthey sold", "note": "Regular -dre uses the same i-endings."},
+        {"french": "Elle **choisit** un siège et **attendit** sans parler.", "english": "She chose a seat and waited without speaking.", "note": "The narrative sequence supports a past reading of choisit."},
+        {"french": "Ils **dormirent** quelques heures puis **repartirent**.", "english": "They slept for a few hours, then left again.", "note": "Dormir and partir derivatives also use the i-family."}
+      ],
+      "mistakes": [{"avoid": "Les voisins vendèrent leur maison.", "prefer": "Les voisins vendirent leur maison.", "why": "Vendre belongs to the i-family, not the -er family."}]
+    },
+    {"id": "reading", "title": "Follow the event sequence, then retell it naturally",
+      "paragraphs": ["The imperfect normally supplies ongoing setting, habit or an action viewed from inside; the passé simple advances a sequence of bounded events. A pluperfect can look further back. These are viewpoint choices, not a rule that long events must be imperfect and short ones must be passé simple.", "For everyday retelling, change the event verbs to passé composé while keeping appropriate imperfect background and pluperfect earlier events. Auxiliary and agreement rules return when you form the compound past."],
+      "points": [],
+      "examples": [
+        {"french": "La pluie tombait. Mina **entra** dans l'abri, **posa** son sac et **attendit**. Elle avait oublié son parapluie.", "english": "Rain was falling. Mina entered the shelter, put down her bag and waited. She had forgotten her umbrella.", "note": "Setting, three events, then an earlier cause."},
+        {"french": "Mina **est entrée**, **a posé** son sac et **a attendu**.", "english": "Mina came in, put down her bag and waited.", "note": "Natural conversational retelling; entering uses être."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "p01", "kind": "text", "pool": "practice", "section_id": "er", "prompt": "Recognition only: give the infinitive of allèrent.", "choices": [], "answers": ["aller"], "explanation": "Aller uses the -er past-simple family."},
+    {"id": "p02", "kind": "text", "pool": "practice", "section_id": "ir-dre", "prompt": "Recognition only: give the infinitive of finirent.", "choices": [], "answers": ["finir"], "explanation": "-irent is third-person plural literary past."},
+    {"id": "p03", "kind": "text", "pool": "practice", "section_id": "ir-dre", "prompt": "Recognition only: give the infinitive of répondîmes.", "choices": [], "answers": ["répondre"], "explanation": "Répond- plus the nous i-family ending."},
+    {"id": "p04", "kind": "choice", "pool": "practice", "section_id": "reading", "prompt": "In Il faisait froid. Elle ferma la fenêtre, which form advances the event sequence?", "choices": ["ferma", "faisait"], "answers": ["ferma"], "explanation": "The imperfect gives the setting; the literary past gives the bounded action."},
+    {"id": "c01", "kind": "text", "pool": "check", "section_id": "er", "prompt": "Retell Elle alla au marché in ordinary passé composé. Supply only the replacement for alla.", "choices": [], "answers": ["est allée"], "explanation": "Recognition transfers to everyday compound past with feminine agreement."},
+    {"id": "c02", "kind": "text", "pool": "check", "section_id": "er", "prompt": "Give the infinitive of mangeâtes.", "choices": [], "answers": ["manger"], "explanation": "Recognize the spelling e before â and the vous ending."},
+    {"id": "c03", "kind": "text", "pool": "check", "section_id": "ir-dre", "prompt": "Retell Ils choisirent un guide in passé composé. Replace only choisirent.", "choices": [], "answers": ["ont choisi"], "explanation": "The event corresponds to a compound-past choice."},
+    {"id": "c04", "kind": "text", "pool": "check", "section_id": "ir-dre", "prompt": "Give the infinitive of attendit.", "choices": [], "answers": ["attendre"], "explanation": "Attend- plus third-person -it."},
+    {"id": "c05", "kind": "text", "pool": "check", "section_id": "er", "prompt": "Give the infinitive of commençai.", "choices": [], "answers": ["commencer"], "explanation": "The cedilla preserves soft c before a."},
+    {"id": "c06", "kind": "text", "pool": "check", "section_id": "ir-dre", "prompt": "Retell Nous vendîmes le terrain in passé composé. Replace only vendîmes.", "choices": [], "answers": ["avons vendu"], "explanation": "Vendre is a regular -dre verb with participle vendu."},
+    {"id": "c07", "kind": "choice", "pool": "check", "section_id": "er", "prompt": "Recognize the person of parlâmes.", "choices": ["nous", "vous", "ils"], "answers": ["nous"], "explanation": "-âmes is first-person plural."},
+    {"id": "c08", "kind": "choice", "pool": "check", "section_id": "reading", "prompt": "Is passé simple the default tense for telling a friend what you did yesterday?", "choices": ["No; passé composé is normally used in conversation.", "Yes; yesterday is already historic."], "answers": ["No; passé composé is normally used in conversation."], "explanation": "Register and narrative genre matter more than remoteness."},
+    {"id": "r01", "kind": "text", "pool": "review", "section_id": "ir-dre", "prompt": "Give the infinitive of dormirent.", "choices": [], "answers": ["dormir"], "explanation": "Dormir also belongs to the literary i-family."},
+    {"id": "r02", "kind": "text", "pool": "review", "section_id": "er", "prompt": "Retell Elles entrèrent in passé composé. Supply only the two-word verb phrase.", "choices": [], "answers": ["sont entrées"], "explanation": "Intransitive entrer uses être and feminine plural agreement."},
+    {"id": "r03", "kind": "text", "pool": "review", "section_id": "ir-dre", "prompt": "Give the infinitive of repartîmes.", "choices": [], "answers": ["repartir"], "explanation": "Recognize the re- prefix and partir family."},
+    {"id": "r04", "kind": "text", "pool": "review", "section_id": "ir-dre", "prompt": "Retell Elle répondit in passé composé. Supply only the verb phrase.", "choices": [], "answers": ["a répondu"], "explanation": "Répondre uses avoir and répondu."}
+  ],
+  "production_task": {"prompt": "Read this original literary mini-scene: La salle était vide. Nora entra, choisit une table et commença à écrire. Retell it to a friend in ordinary conversational French, preserving the background and the three events. You are not asked to produce passé simple.", "model_answer": "La salle était vide. Nora est entrée, a choisi une table et a commencé à écrire.", "translation": "The room was empty. Nora came in, chose a table and began to write.", "rubric": ["The imperfect background remains background.", "Each literary event is understood and retold in passé composé.", "Entrée agrees with Nora.", "Recognition is distinguished from a requirement to speak in literary forms."]}
+}

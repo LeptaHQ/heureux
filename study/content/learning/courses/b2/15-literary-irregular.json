@@ -1,0 +1,64 @@
+{
+  "version": 1, "id": "b2-literary-irregular", "slug": "b2-literary-irregular", "cefr_level": "B2", "topic": "verbs-tenses-moods",
+  "title": "Reconnaître les verbes du récit littéraire", "summary": "Recognition track: identify être, avoir, faire, voir, vivre, venir, tenir and derivatives in literary narration.", "order": 15, "duration_minutes": 15,
+  "prerequisites": ["b2-literary-regular"], "objectives": ["Decode all six persons of the main irregular literary-past families.", "Distinguish vis as voir or vivre through person and context.", "Retell a literary passage without importing its register into ordinary speech."],
+  "keywords": ["fut", "eut", "fit", "vit", "vécut", "vint", "tint", "passé simple recognition"],
+  "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}],
+  "related_legacy_ids": ["verbs-past-contrast"],
+  "sections": [
+    {"id": "etre-avoir", "title": "Être and avoir: a -u- family",
+      "paragraphs": ["Recognize être's fu- and avoir's eu- literary stems. These are complete verbs in the passé simple, not shortened participles. Fut has no circumflex; fût belongs to a different, literary imperfect-subjunctive form. Eut and eût have the same distinction. This course assesses reading the past simple, not producing those literary subjunctives.", "Passé-simple être can mark a bounded state or reaction: elle fut surprise. A state is not automatically imperfect; the writer's viewpoint matters."],
+      "points": [],
+      "examples": [
+        {"french": "je **fus**\ntu **fus**\nil/elle/on **fut**\nnous **fûmes**\nvous **fûtes**\nils/elles **furent**", "english": "I was\nyou were\nhe/she/one was\nwe were\nyou were\nthey were", "note": "Read all six forms as être in literary past."},
+        {"french": "j'**eus**\ntu **eus**\nil/elle/on **eut**\nnous **eûmes**\nvous **eûtes**\nils/elles **eurent**", "english": "I had\nyou had\nhe/she/one had\nwe had\nyou had\nthey had", "note": "The e is part of the stem; do not confuse eurent with furent."},
+        {"french": "Elle **fut** soulagée lorsqu'elle **eut** la réponse.", "english": "She was relieved when she got the answer.", "note": "Two literary past events/reactions; not subjunctives."}
+      ],
+      "mistakes": [{"avoid": "Il fût surpris en lisant la lettre.", "prefer": "Il fut surpris en lisant la lettre.", "why": "For the independent literary-past assertion intended here, fut has no circumflex."}]
+    },
+    {"id": "faire-voir-vivre", "title": "Three verbs, two ending families",
+      "paragraphs": ["Faire's literary forms are fis, fis, fit, fîmes, fîtes, firent. Voir's are vis, vis, vit, vîmes, vîtes, virent. Vivre uses the vécu- family: vécus, vécus, vécut, vécûmes, vécûtes, vécurent.", "Je vis can mean I live (present vivre) or I saw (past-simple voir). Present voir is je vois, meaning I see. Je vis does not mean I lived in passé simple: that is je vécus. Decode a whole sentence rather than assigning one tense to an isolated spelling."],
+      "points": [],
+      "examples": [
+        {"french": "je **fis**\ntu **fis**\nil/elle/on **fit**\nnous **fîmes**\nvous **fîtes**\nils/elles **firent**", "english": "I did/made\nyou did/made\nhe/she/one did/made\nwe did/made\nyou did/made\nthey did/made", "note": "Faire's literary paradigm."},
+        {"french": "je **vis**\ntu **vis**\nil/elle/on **vit**\nnous **vîmes**\nvous **vîtes**\nils/elles **virent**", "english": "I saw\nyou saw\nhe/she/one saw\nwe saw\nyou saw\nthey saw", "note": "Voir in a literary-past context."},
+        {"french": "je **vécus**\ntu **vécus**\nil/elle/on **vécut**\nnous **vécûmes**\nvous **vécûtes**\nils/elles **vécurent**", "english": "I lived\nyou lived\nhe/she/one lived\nwe lived\nyou lived\nthey lived", "note": "Vivre does not use vis for its literary past."},
+        {"french": "Il **fit** un signe quand il **vit** le bateau.", "english": "He waved when he saw the boat.", "note": "Faire and voir have distinct stems despite shared endings."},
+        {"french": "Elle **vécut** trois ans dans cette maison.", "english": "She lived in that house for three years.", "note": "A long but bounded period can be passé simple."}
+      ],
+      "mistakes": [{"avoid": "Elle vit dix ans dans ce village avant de partir en 1890.", "prefer": "Elle vécut dix ans dans ce village avant de partir en 1890.", "why": "For the intended completed literary-past residence, vivre is vécut; vit would be present vivre or literary-past voir."}]
+    },
+    {"id": "venir-tenir", "title": "The -in- family and its prefixes",
+      "paragraphs": ["Venir and tenir use the endings -ins, -ins, -int, -înmes, -întes, -inrent attached to v- and t-. Their derivatives keep the prefix. Revenir gives revins, revins, revint, revînmes, revîntes, revinrent; obtenir gives obtins, obtins, obtint, obtînmes, obtîntes, obtinrent. Devenir, intervenir, retenir and maintenir follow their respective family.", "Read the surrounding complements for meaning: tenir une corde means hold a rope; tenir une promesse means keep a promise. The conjugation does not change with these related senses."],
+      "points": [],
+      "examples": [
+        {"french": "je **vins**\ntu **vins**\nil/elle/on **vint**\nnous **vînmes**\nvous **vîntes**\nils/elles **vinrent**", "english": "I came\nyou came\nhe/she/one came\nwe came\nyou came\nthey came", "note": "Do not read vint as the number vingt."},
+        {"french": "je **tins**\ntu **tins**\nil/elle/on **tint**\nnous **tînmes**\nvous **tîntes**\nils/elles **tinrent**", "english": "I held/kept\nyou held/kept\nhe/she/one held/kept\nwe held/kept\nyou held/kept\nthey held/kept", "note": "Same endings as venir."},
+        {"french": "Les secours **revinrent** au lever du jour.", "english": "The rescue team came back at daybreak.", "note": "Revenir retains re-."},
+        {"french": "La chercheuse **obtint** enfin l'autorisation.", "english": "The researcher finally obtained permission.", "note": "Obtenir follows tenir."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "p01", "kind": "text", "pool": "practice", "section_id": "etre-avoir", "prompt": "Recognition only: give the infinitive of furent.", "choices": [], "answers": ["être"], "explanation": "Furent is third-person plural literary être."},
+    {"id": "p02", "kind": "text", "pool": "practice", "section_id": "etre-avoir", "prompt": "Recognition only: give the infinitive of eûtes.", "choices": [], "answers": ["avoir"], "explanation": "Eûtes is the vous literary form."},
+    {"id": "p03", "kind": "text", "pool": "practice", "section_id": "faire-voir-vivre", "prompt": "Recognition only: give the infinitive of firent.", "choices": [], "answers": ["faire"], "explanation": "Fi- identifies faire."},
+    {"id": "p04", "kind": "text", "pool": "practice", "section_id": "faire-voir-vivre", "prompt": "Recognition only: give the infinitive of vécurent.", "choices": [], "answers": ["vivre"], "explanation": "Vécu- belongs to vivre."},
+    {"id": "p05", "kind": "text", "pool": "practice", "section_id": "faire-voir-vivre", "prompt": "Recognition only: give the infinitive of vîmes.", "choices": [], "answers": ["voir"], "explanation": "Nous vîmes means we saw."},
+    {"id": "p06", "kind": "text", "pool": "practice", "section_id": "venir-tenir", "prompt": "Recognition only: give the infinitive of obtinrent.", "choices": [], "answers": ["obtenir"], "explanation": "Obtenir retains the tenir family's literary pattern."},
+    {"id": "c01", "kind": "text", "pool": "check", "section_id": "etre-avoir", "prompt": "Retell Elle fut surprise in passé composé. Replace only fut.", "choices": [], "answers": ["a été"], "explanation": "Literary être transfers to compound avoir + été."},
+    {"id": "c02", "kind": "text", "pool": "check", "section_id": "etre-avoir", "prompt": "Retell Ils eurent peur in passé composé. Replace only eurent.", "choices": [], "answers": ["ont eu"], "explanation": "Avoir's compound past uses eu."},
+    {"id": "c03", "kind": "text", "pool": "check", "section_id": "faire-voir-vivre", "prompt": "Retell Nous fîmes une pause in passé composé. Replace only fîmes.", "choices": [], "answers": ["avons fait"], "explanation": "Faire has participle fait."},
+    {"id": "c04", "kind": "text", "pool": "check", "section_id": "faire-voir-vivre", "prompt": "Retell Vous vîtes le phare in passé composé. Replace only vîtes.", "choices": [], "answers": ["avez vu"], "explanation": "Voir has participle vu."},
+    {"id": "c05", "kind": "text", "pool": "check", "section_id": "faire-voir-vivre", "prompt": "Retell Elle vécut ici deux ans in passé composé. Replace only vécut.", "choices": [], "answers": ["a vécu"], "explanation": "Vivre uses avoir and vécu."},
+    {"id": "c06", "kind": "text", "pool": "check", "section_id": "venir-tenir", "prompt": "Retell Elles revinrent in passé composé. Supply only the verb phrase.", "choices": [], "answers": ["sont revenues"], "explanation": "Revenir takes être with feminine plural agreement."},
+    {"id": "c07", "kind": "text", "pool": "check", "section_id": "venir-tenir", "prompt": "Give the infinitive of maintint.", "choices": [], "answers": ["maintenir"], "explanation": "Main- + tenir family."},
+    {"id": "c08", "kind": "choice", "pool": "check", "section_id": "faire-voir-vivre", "prompt": "In the literary sentence Je vis une lumière et je courus vers elle, what does vis mean?", "choices": ["saw", "lived"], "answers": ["saw"], "explanation": "The direct object une lumière and the event sequence identify voir."},
+    {"id": "r01", "kind": "text", "pool": "review", "section_id": "venir-tenir", "prompt": "Retell Il tint sa promesse in passé composé. Replace only tint.", "choices": [], "answers": ["a tenu"], "explanation": "Tenir has participle tenu and avoir."},
+    {"id": "r02", "kind": "text", "pool": "review", "section_id": "etre-avoir", "prompt": "Give the infinitive of fûmes.", "choices": [], "answers": ["être"], "explanation": "First-person plural literary être."},
+    {"id": "r03", "kind": "text", "pool": "review", "section_id": "venir-tenir", "prompt": "Give the infinitive of devinrent.", "choices": [], "answers": ["devenir"], "explanation": "Devenir shares venir's pattern."},
+    {"id": "r04", "kind": "text", "pool": "review", "section_id": "faire-voir-vivre", "prompt": "Give the infinitive of vécûtes.", "choices": [], "answers": ["vivre"], "explanation": "Vous lived; recognize vécu- and -ûtes."}
+  ],
+  "production_task": {"prompt": "Read this original passage and retell it in conversational passé composé: Le médecin vint au village. Il vit la source et fit analyser l'eau. Les habitants furent rassurés. Do not produce new literary conjugations.", "model_answer": "Le médecin est venu au village. Il a vu la source et a fait analyser l'eau. Les habitants ont été rassurés.", "translation": "The doctor came to the village. He saw the spring and had the water analysed. The residents were reassured.", "rubric": ["Vint, vit, fit and furent are correctly understood.", "The retelling uses natural compound past forms.", "Venir uses être while voir and faire use avoir.", "The causative meaning 'had analysed' is preserved."]}
+}

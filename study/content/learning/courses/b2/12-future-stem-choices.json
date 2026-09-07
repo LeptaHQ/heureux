@@ -1,0 +1,52 @@
+{
+  "version": 1, "id": "b2-future-stem-choices", "slug": "b2-future-stem-choices", "cefr_level": "B2", "topic": "verbs-tenses-moods",
+  "title": "Cueillir et s'asseoir au futur", "summary": "Use cueiller- family stems and both legitimate future paradigms of s'asseoir.", "order": 12, "duration_minutes": 10,
+  "prerequisites": [], "objectives": ["Conjugate cueillir, accueillir and recueillir in the future.", "Use either assiér- or assoir- consistently with reflexive pronouns."],
+  "keywords": ["cueillerai", "accueillerai", "recueillerai", "assiérai", "assoirai", "future variants"],
+  "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}],
+  "related_legacy_ids": ["verbs-future", "pronouns-stressed-reflexive"],
+  "sections": [
+    {"id": "cueillir", "title": "An -ir infinitive with a future stem in -er-",
+      "paragraphs": ["The simple future uses a future stem plus -ai, -as, -a, -ons, -ez, -ont. Cueillir (to pick flowers or fruit) uses cueiller-, not cueillir-. Its derivatives preserve this stem: accueillir means welcome/receive; recueillir can mean gather/collect or take someone in. These meanings depend on the object, not on a new conjugation pattern.", "Accueillir: j'accueillerai, tu accueilleras, il/elle/on accueillera, nous accueillerons, vous accueillerez, ils/elles accueilleront. Recueillir: je recueillerai, tu recueilleras, il/elle/on recueillera, nous recueillerons, vous recueillerez, ils/elles recueilleront. Keep the full prefixes and the sequence ueill."],
+      "points": [],
+      "examples": [
+        {"french": "je **cueillerai**\ntu **cueilleras**\nil/elle/on **cueillera**\nnous **cueillerons**\nvous **cueillerez**\nils/elles **cueilleront**", "english": "I will pick\nyou will pick\nhe/she/one will pick\nwe will pick\nyou will pick\nthey will pick", "note": "The stem changes the infinitive's i to e before r."},
+        {"french": "Nous **cueillerons** les poires quand elles seront mûres.", "english": "We will pick the pears when they are ripe.", "note": "Future cueillerons and future seront."},
+        {"french": "La responsable **accueillera** les nouveaux locataires.", "english": "The manager will welcome the new tenants.", "note": "Accueillir has the same future pattern."},
+        {"french": "Vous **recueillerez** les avis à la fin de l'atelier.", "english": "You will collect opinions at the end of the workshop.", "note": "Recueillir can collect information, not just physical objects."}
+      ],
+      "mistakes": [{"avoid": "Nous cueillirons les pommes demain.", "prefer": "Nous cueillerons les pommes demain.", "why": "Cueillir's future stem is cueiller-."}]
+    },
+    {"id": "asseoir", "title": "Two standard futures, not one correct and one error",
+      "paragraphs": ["S'asseoir means sit down, an action; être assis means be seated, a state. Two standard future stems are accepted: assiér- and assoir-. Choose either series. The traditional infinitive asseoir and the rectified spelling assoir also coexist; the future forms below remain valid.", "A reflexive pronoun points back to the subject. Use me, te, se, nous, vous, se before the verb, eliding me/te/se before its vowel: je m'assiérai or je m'assoirai. In a negative sentence, ne precedes that pronoun and pas follows the verb. Questions do not remove the reflexive pronoun."],
+      "points": ["This lesson's constrained answers accept both standard future series.", "Do not confuse je m'assiérai with je serai assis(e): I will sit down versus I will be seated."],
+      "examples": [
+        {"french": "je **m'assiérai**\ntu **t'assiéras**\nil/elle/on **s'assiéra**\nnous **nous assiérons**\nvous **vous assiérez**\nils/elles **s'assiéront**", "english": "I will sit down\nyou will sit down\nhe/she/one will sit down\nwe will sit down\nyou will sit down\nthey will sit down", "note": "The accent is part of the assiér- stem."},
+        {"french": "je **m'assoirai**\ntu **t'assoiras**\nil/elle/on **s'assoira**\nnous **nous assoirons**\nvous **vous assoirez**\nils/elles **s'assoiront**", "english": "I will sit down\nyou will sit down\nhe/she/one will sit down\nwe will sit down\nyou will sit down\nthey will sit down", "note": "This complete alternative series is also standard."},
+        {"french": "Nous **nous assiérons** près de la sortie.", "english": "We will sit near the exit.", "note": "Both subject nous and reflexive nous are needed."},
+        {"french": "Tu ne **t'assoiras** pas sur cette chaise cassée.", "english": "You will not sit on that broken chair.", "note": "Negative future used as a firm instruction."},
+        {"french": "Vous **vous assiérez** après votre présentation.", "english": "You will sit down after your presentation.", "note": "The form refers to the action of sitting down."}
+      ],
+      "mistakes": [{"avoid": "Nous assiérons au premier rang.", "prefer": "Nous nous assiérons au premier rang.", "why": "To sit ourselves down, the reflexive verb needs nous before the conjugated form."}]
+    }
+  ],
+  "practice": [
+    {"id": "p01", "kind": "text", "pool": "practice", "section_id": "cueillir", "prompt": "Supply cueillir in the simple future: Je ___ quelques herbes.", "choices": [], "answers": ["cueillerai"], "explanation": "Cueiller- + -ai."},
+    {"id": "p02", "kind": "text", "pool": "practice", "section_id": "cueillir", "prompt": "Supply accueillir in the simple future: Nous ___ deux stagiaires.", "choices": [], "answers": ["accueillerons"], "explanation": "Keep the prefix and cueiller- pattern."},
+    {"id": "p03", "kind": "text", "pool": "practice", "section_id": "asseoir", "prompt": "Supply s'asseoir in the simple future, including reflexive pronoun: Elle ___ ici. Either standard series.", "choices": [], "answers": ["s'assiéra", "s'assoira"], "explanation": "Both assiér- and assoir- are standard."},
+    {"id": "p04", "kind": "choice", "pool": "practice", "section_id": "asseoir", "prompt": "Which statement about s'asseoir futures is accurate?", "choices": ["Nous nous assoirons and nous nous assiérons are both standard.", "Only nous nous assiérons is standard."], "answers": ["Nous nous assoirons and nous nous assiérons are both standard."], "explanation": "Do not reject a legitimate variant."},
+    {"id": "c01", "kind": "text", "pool": "check", "section_id": "cueillir", "prompt": "Supply recueillir in the simple future: Vous ___ les témoignages.", "choices": [], "answers": ["recueillerez"], "explanation": "Recueiller- + -ez."},
+    {"id": "c02", "kind": "text", "pool": "check", "section_id": "cueillir", "prompt": "Supply cueillir in the simple future: Ils ___ les cerises.", "choices": [], "answers": ["cueilleront"], "explanation": "Third-person plural future ending -ont."},
+    {"id": "c03", "kind": "text", "pool": "check", "section_id": "cueillir", "prompt": "Supply accueillir in the simple future: Tu ___ les visiteurs à midi.", "choices": [], "answers": ["accueilleras"], "explanation": "Tu takes -as."},
+    {"id": "c04", "kind": "text", "pool": "check", "section_id": "asseoir", "prompt": "Supply s'asseoir in the simple future, including pronoun: Nous ___ au fond.", "choices": [], "answers": ["nous assiérons", "nous assoirons"], "explanation": "The subject nous is already supplied; add reflexive nous."},
+    {"id": "c05", "kind": "text", "pool": "check", "section_id": "asseoir", "prompt": "Supply s'asseoir in the simple future, including pronoun: Je ___ près de toi.", "choices": [], "answers": ["m'assiérai", "m'assoirai"], "explanation": "Me elides before the vowel."},
+    {"id": "c06", "kind": "text", "pool": "check", "section_id": "asseoir", "prompt": "Supply s'asseoir in the simple future, including pronoun: Elles ___ ensemble.", "choices": [], "answers": ["s'assiéront", "s'assoiront"], "explanation": "Both stems take -ont."},
+    {"id": "c07", "kind": "choice", "pool": "check", "section_id": "asseoir", "prompt": "Which expresses the action of sitting down, not a seated state?", "choices": ["Je m'assoirai.", "Je serai assis."], "answers": ["Je m'assoirai."], "explanation": "S'asseoir is the action; être assis is a state."},
+    {"id": "c08", "kind": "choice", "pool": "check", "section_id": "cueillir", "prompt": "Choose the correctly spelled future.", "choices": ["Elle recueillera les données.", "Elle recueillira les données."], "answers": ["Elle recueillera les données."], "explanation": "The future stem contains e before r."},
+    {"id": "r01", "kind": "text", "pool": "review", "section_id": "cueillir", "prompt": "Supply recueillir in the simple future: Nous ___ l'eau de pluie.", "choices": [], "answers": ["recueillerons"], "explanation": "Recueillir can mean collect a substance."},
+    {"id": "r02", "kind": "text", "pool": "review", "section_id": "asseoir", "prompt": "Supply s'asseoir in the simple future, including pronoun: Vous ___ à ma gauche.", "choices": [], "answers": ["vous assiérez", "vous assoirez"], "explanation": "Both complete vous forms are legitimate."},
+    {"id": "r03", "kind": "text", "pool": "review", "section_id": "cueillir", "prompt": "Supply cueillir in the simple future: Tu ___ les fleurs demain matin.", "choices": [], "answers": ["cueilleras"], "explanation": "Cueiller- + -as."},
+    {"id": "r04", "kind": "text", "pool": "review", "section_id": "asseoir", "prompt": "Supply s'asseoir in the simple future, including pronoun: Tu ___ à côté du guide.", "choices": [], "answers": ["t'assiéras", "t'assoiras"], "explanation": "Te elides and both future stems are accepted."}
+  ],
+  "production_task": {"prompt": "Describe a planned visit to a community orchard. Use accueillir, cueillir and recueillir in the future, plus one s'asseoir future in either standard series.", "model_answer": "Une bénévole nous accueillera à neuf heures. Nous cueillerons les pommes mûres et nous recueillerons les questions des enfants. Ensuite, nous nous assoirons à l'ombre pour discuter.", "translation": "A volunteer will welcome us at nine. We will pick the ripe apples and collect the children's questions. Then we will sit in the shade to talk.", "rubric": ["The cueillir family uses -e- before r.", "S'asseoir retains its reflexive pronoun.", "Either standard future series is acceptable.", "The verbs fit their objects and the visit's sequence."]}
+}

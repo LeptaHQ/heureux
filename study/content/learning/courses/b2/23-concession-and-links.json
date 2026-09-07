@@ -1,0 +1,60 @@
+{
+  "version": 1, "id": "b2-concession-and-links", "slug": "b2-concession-and-links", "cefr_level": "B2", "topic": "communication-expressions",
+  "title": "Concéder, proposer une alternative, ajouter", "summary": "Choose noun-based or clause-based concession, coordinate alternatives, and distinguish the two main senses of ainsi que.", "order": 23, "duration_minutes": 14,
+  "prerequisites": ["b2-needs-wishes-feelings"], "objectives": ["Use malgré/en dépit de with nouns and bien que/quoique with subjunctive clauses.", "Keep alternatives after soit...soit parallel.", "Distinguish additive ainsi que from a comparison of manner, including agreement."],
+  "keywords": ["malgré", "en dépit de", "bien que", "quoique", "soit soit", "ainsi que", "concession"],
+  "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}],
+  "related_legacy_ids": ["connectors-concession", "connectors-logical-organization", "connectors-simultaneity-contrast"],
+  "sections": [
+    {"id": "concession", "title": "A concession is an obstacle that does not prevent the result",
+      "paragraphs": ["A concession acknowledges a fact that might lead you to expect the opposite result: despite the rain, the event continued. Malgré + noun phrase and en dépit de + noun phrase express this relation. En dépit de is somewhat more formal. Contract de with le/les: en dépit du vent, en dépit des critiques. Malgré takes the noun phrase directly, without de.", "For a complete clause with its own subject and verb, use bien que or quoique + subjunctive. This construction can acknowledge an entirely real fact; the subjunctive is selected by the concessive link, not because the speaker doubts the rain or the cost. Quoique is one word meaning although; quoi que is two words meaning whatever, a different construction.", "Some uses of malgré que exist, but usage and register are disputed. For broadly accepted edited prose, prefer malgré + noun or bien que + clause. Do not claim every real-world occurrence of malgré que is impossible."],
+      "points": [],
+      "examples": [
+        {"french": "**Malgré la fatigue**, nous avons terminé.", "english": "Despite the tiredness, we finished.", "note": "A noun phrase follows malgré directly."},
+        {"french": "**En dépit des retards**, le projet reste utile.", "english": "Despite the delays, the project remains useful.", "note": "De + les contracts to des."},
+        {"french": "**Bien que la salle soit** petite, elle accueille vingt personnes.", "english": "Although the room is small, it accommodates twenty people.", "note": "A real size is acknowledged in a subjunctive clause."},
+        {"french": "**Quoique le trajet ait été** long, les enfants sont restés calmes.", "english": "Although the journey was long, the children remained calm.", "note": "Past subjunctive for the completed journey."}
+      ],
+      "mistakes": [{"avoid": "Malgré de la pluie, nous sortons.", "prefer": "Malgré la pluie, nous sortons.", "why": "Malgré does not add de before its noun phrase."}]
+    },
+    {"id": "alternatives", "title": "Soit...soit presents balanced alternatives",
+      "paragraphs": ["Soit...soit means either...or when coordinating alternatives. It is a fixed linking word in this use, not a subjunctive verb agreeing with what follows. Pair comparable structures: two nouns, two prepositional phrases, two infinitives or two clauses. Do not put a noun after the first soit and an unrelated full clause after the second unless the larger sentence clearly supports that structure.", "Soit...soit marks alternatives but does not by itself settle every logical question about exclusivity. State 'pas les deux' if both are genuinely forbidden. Repeating soit makes the alternatives clear; ou can express the same basic choice more simply."],
+      "points": [],
+      "examples": [
+        {"french": "Nous pouvons **soit** reporter la visite, **soit** changer de lieu.", "english": "We can either postpone the visit or change venue.", "note": "Two parallel infinitive groups."},
+        {"french": "Le rendez-vous aura lieu **soit** mardi, **soit** jeudi.", "english": "The appointment will take place either on Tuesday or on Thursday.", "note": "Two parallel time expressions."}
+      ],
+      "mistakes": []
+    },
+    {"id": "ainsi", "title": "As well as versus just as",
+      "paragraphs": ["Ainsi que can add an element, like as well as: le guide ainsi que la carte. When it truly coordinates two subjects, a plural verb is natural: la guide ainsi que son assistant arriveront. When the second element is set off as a comparison or parenthetical addition, the main subject can control singular agreement: la guide, ainsi que son assistant, connaît ce quartier. Punctuation helps show the intended reading; do not impose one agreement on every structure.", "Ainsi que can also mean just as/in the way that before a clause: ainsi que vous l'avez expliqué. Comme is often simpler in everyday speech. Comme and ainsi que overlap for manner comparisons, but ainsi que also has an additive use: read the whole relation rather than translating it invariably as 'as well as'."],
+      "points": [],
+      "examples": [
+        {"french": "Apportez une pièce d'identité **ainsi que** votre confirmation.", "english": "Bring an identity document as well as your confirmation.", "note": "Two things to bring."},
+        {"french": "La présidente **ainsi que** son adjoint **participeront** au débat.", "english": "The chair and her deputy will take part in the debate.", "note": "An additive pair of subjects."},
+        {"french": "La présidente, **ainsi que** son adjoint, **connaît** le dossier.", "english": "The chair, like her deputy, knows the case.", "note": "The comparative parenthesis leaves the main subject singular."},
+        {"french": "Nous avons procédé **ainsi que** vous l'aviez demandé.", "english": "We proceeded just as you had requested.", "note": "Manner, not an additional object."}
+      ],
+      "mistakes": [{"avoid": "Bien qu'elle est fatiguée, elle participe.", "prefer": "Bien qu'elle soit fatiguée, elle participe.", "why": "The concessive clause after bien que conventionally takes the subjunctive in edited standard French."}]
+    }
+  ],
+  "practice": [
+    {"id": "p01", "kind": "text", "pool": "practice", "section_id": "concession", "prompt": "Supply only the article: Malgré ___ froid, ils sont venus. Froid is masculine singular.", "choices": [], "answers": ["le"], "explanation": "Malgré directly introduces the noun phrase."},
+    {"id": "p02", "kind": "text", "pool": "practice", "section_id": "concession", "prompt": "Supply être in the present tense, choosing the appropriate mood: Bien que nous ___ peu nombreux, nous pouvons commencer.", "choices": [], "answers": ["soyons"], "explanation": "Concession selects subjunctive, not uncertainty."},
+    {"id": "p03", "kind": "text", "pool": "practice", "section_id": "alternatives", "prompt": "Supply the second repeated connector: Tu peux soit écrire, ___ téléphoner.", "choices": [], "answers": ["soit"], "explanation": "Two parallel infinitives after soit...soit."},
+    {"id": "p04", "kind": "choice", "pool": "practice", "section_id": "ainsi", "prompt": "In Apportez le contrat ainsi que ses annexes, what does ainsi que mean?", "choices": ["as well as", "despite"], "answers": ["as well as"], "explanation": "It adds another object to bring."},
+    {"id": "c01", "kind": "text", "pool": "check", "section_id": "concession", "prompt": "Contract de + le: En dépit ___ bruit, elle dort.", "choices": [], "answers": ["du"], "explanation": "En dépit de retains and contracts de."},
+    {"id": "c02", "kind": "text", "pool": "check", "section_id": "concession", "prompt": "Supply avoir in the present tense, choosing the appropriate mood: Quoique vous ___ raison, le ton est trop dur.", "choices": [], "answers": ["ayez"], "explanation": "Quoique means although and selects subjunctive."},
+    {"id": "c03", "kind": "text", "pool": "check", "section_id": "concession", "prompt": "Supply réussir in the past subjunctive: Bien qu'elle ___, elle reste modeste.", "choices": [], "answers": ["ait réussi"], "explanation": "Completed achievement under a concessive construction."},
+    {"id": "c04", "kind": "text", "pool": "check", "section_id": "alternatives", "prompt": "Supply the first repeated connector: Nous irons ___ à pied, soit en bus.", "choices": [], "answers": ["soit"], "explanation": "Two prepositional alternatives are balanced."},
+    {"id": "c05", "kind": "text", "pool": "check", "section_id": "ainsi", "prompt": "Treat ainsi que as coordination of two subjects. Supply participer in the future: La directrice ainsi que son adjoint ___ à la réunion.", "choices": [], "answers": ["participeront"], "explanation": "The prompt specifies an additive pair."},
+    {"id": "c06", "kind": "text", "pool": "check", "section_id": "ainsi", "prompt": "Treat the comma-delimited phrase as a comparison. Supply être in the present: La directrice, ainsi que son adjoint, ___ disponible.", "choices": [], "answers": ["est"], "explanation": "The singular main subject controls agreement under the specified reading."},
+    {"id": "c07", "kind": "choice", "pool": "check", "section_id": "ainsi", "prompt": "In Faites ainsi que nous l'avons montré, choose the meaning.", "choices": ["Do it just as we showed.", "Do it despite what we showed."], "answers": ["Do it just as we showed."], "explanation": "Ainsi que introduces a manner comparison."},
+    {"id": "c08", "kind": "choice", "pool": "check", "section_id": "concession", "prompt": "Does Bien qu'il soit malade necessarily cast doubt on the illness?", "choices": ["No; it can acknowledge an established fact.", "Yes; the subjunctive proves the illness is uncertain."], "answers": ["No; it can acknowledge an established fact."], "explanation": "Concession selects the grammatical mood."},
+    {"id": "r01", "kind": "text", "pool": "review", "section_id": "concession", "prompt": "Use en dépit de with les critiques. Supply the whole phrase.", "choices": [], "answers": ["en dépit des critiques"], "explanation": "De + les gives des."},
+    {"id": "r02", "kind": "text", "pool": "review", "section_id": "concession", "prompt": "Supply vouloir in the present tense, choosing the appropriate mood: Quoique je ___ aider, je ne suis pas disponible.", "choices": [], "answers": ["veuille"], "explanation": "Quoique selects the subjunctive of vouloir."},
+    {"id": "r03", "kind": "text", "pool": "review", "section_id": "alternatives", "prompt": "Supply the same connector in both blanks, writing it only once: ___ nous attendons, ___ nous partons maintenant.", "choices": [], "answers": ["soit"], "explanation": "Two full clauses can form parallel alternatives."},
+    {"id": "r04", "kind": "text", "pool": "review", "section_id": "ainsi", "prompt": "Replace comme with the two-word manner connector: Nous agirons ___ vous le souhaitez.", "choices": [], "answers": ["ainsi que"], "explanation": "Ainsi que can mean just as/in the way that."}
+  ],
+  "production_task": {"prompt": "Suggest a practical change to a community event. Acknowledge an obstacle with a noun phrase, another with a subjunctive clause, give two alternatives and add a required resource.", "model_answer": "Malgré le manque de temps, nous pouvons organiser la rencontre. Bien que la salle soit petite, elle convient à un groupe réduit. Nous pouvons soit limiter les inscriptions, soit prévoir deux séances. Il nous faut un micro ainsi que quelques chaises supplémentaires.", "translation": "Despite the lack of time, we can organize the meeting. Although the room is small, it suits a small group. We can either limit registrations or schedule two sessions. We need a microphone as well as a few extra chairs.", "rubric": ["Noun-based and clause-based concessions use different structures.", "The subjunctive is correctly formed.", "The two alternatives are structurally parallel.", "Ainsi que clearly adds a resource rather than introducing a manner comparison."]}
+}

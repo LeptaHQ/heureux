@@ -1,0 +1,72 @@
+{
+  "version": 1, "id": "b2-time-reference", "slug": "b2-time-reference", "cefr_level": "B2", "topic": "time-place-prepositions",
+  "title": "Choisir son point de repère", "summary": "Track plans seen from the past, since-clauses and dates relative to now or a narrative reference point.", "order": 13, "duration_minutes": 14,
+  "prerequisites": ["b2-pluperfect"], "objectives": ["Use imperfect aller + infinitive for a projected action in the past.", "Select tense meaningfully with depuis que.", "Distinguish speaker-relative time from narrative-relative dates and demonstratives."],
+  "keywords": ["allais", "depuis que", "lendemain", "veille", "ce jour-là", "ces jours-ci"],
+  "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}],
+  "related_legacy_ids": ["verbs-future", "prepositions-time-duration", "daily-calendar", "grammar-demonstratives-reference"],
+  "sections": [
+    {"id": "past-projection", "title": "Was going to does not tell us the outcome",
+      "paragraphs": ["Imperfect aller + infinitive presents an intention or imminent event viewed from a past moment. The forms are j'allais partir, tu allais partir, il/elle/on allait partir, nous allions partir, vous alliez partir, ils/elles allaient partir: I/you/he etc. was/were going to leave. Only aller is conjugated; the next verb stays infinitive.", "Context tells us whether the projected action happened. J'allais sortir quand le téléphone a sonné often describes an interruption, but allait does not inherently mean the plan failed. Negation can negate the projected action: je n'allais pas accepter means I was not going to accept."],
+      "points": [],
+      "examples": [
+        {"french": "J'**allais fermer** quand un client est entré.", "english": "I was about to close when a customer came in.", "note": "A projected action is interrupted."},
+        {"french": "Nous **allions visiter** le musée le lendemain ; la visite a été excellente.", "english": "We were going to visit the museum the next day; the visit was excellent.", "note": "The later context confirms the plan was fulfilled."}
+      ],
+      "mistakes": [{"avoid": "Nous allions avons terminé.", "prefer": "Nous allions terminer.", "why": "Imperfect aller is followed by an infinitive, not a conjugated perfect form."}]
+    },
+    {"id": "since", "title": "Depuis que introduces a clause, not a duration noun",
+      "paragraphs": ["Depuis que means since/ever since and introduces a subject plus conjugated verb. The indicative is normal because the starting situation is presented as actual. Depuis without que introduces a date or duration: depuis lundi, depuis deux mois.", "For a current continuing situation, French often uses present in the main clause: je dors mieux depuis que j'ai changé de chambre. A completed starting event can be passé composé; a continuing starting situation can be present. For a past viewpoint, use imperfect for the continuing background and often pluperfect for the earlier starting event. Completed counts or negated events may use compound past forms; depuis que does not impose one tense on every verb."],
+      "points": [],
+      "examples": [
+        {"french": "Je dors mieux **depuis que j'ai changé** de chambre.", "english": "I have been sleeping better since I changed rooms.", "note": "Current continuing effect, completed starting event."},
+        {"french": "**Depuis qu'elle travaille** ici, elle vient à vélo.", "english": "Ever since she has been working here, she has been coming by bicycle.", "note": "Both habits continue."},
+        {"french": "Il dormait mieux **depuis qu'il avait réduit** le café.", "english": "He had been sleeping better since he had cut down on coffee.", "note": "Past continuing effect and earlier completed change."},
+        {"french": "Nous avons reçu trois lettres **depuis que nous avons publié** l'annonce.", "english": "We have received three letters since we published the notice.", "note": "A count of completed events, not one continuing action."}
+      ],
+      "mistakes": [{"avoid": "Je travaille ici depuis que deux mois.", "prefer": "Je travaille ici depuis deux mois.", "why": "A duration noun phrase takes depuis without que."}]
+    },
+    {"id": "relative-dates", "title": "Today versus the day you are talking about",
+      "paragraphs": ["Hier and demain normally refer to the day before and after the speaker's today. La veille (f.) and le lendemain (m.) refer to the day before and after an established event or narrative date. Le jour précédent and le jour suivant are explicit alternatives. In reported narration, shifting the reference point often changes hier/demain to la veille/le lendemain.", "Keep hier or demain when you genuinely mean yesterday or tomorrow from the present speaker's viewpoint. Do not replace them mechanically in every sentence with a past verb."],
+      "points": [],
+      "examples": [
+        {"french": "Nous sommes mardi : je partirai **demain**.", "english": "It is Tuesday: I will leave tomorrow.", "note": "Tomorrow is relative to now."},
+        {"french": "Elle est arrivée le 4 mai et est repartie **le lendemain**.", "english": "She arrived on 4 May and left the next day.", "note": "The reference point makes this 5 May."},
+        {"french": "La réunion était le vendredi ; j'avais confirmé **la veille**.", "english": "The meeting was on Friday; I had confirmed the day before.", "note": "The day before Friday, not necessarily yesterday."}
+      ],
+      "mistakes": []
+    },
+    {"id": "demonstratives", "title": "This period and that period",
+      "paragraphs": ["A demonstrative determiner points to an identifiable noun: ce with masculine singular, cet before a masculine vowel or mute h, cette with feminine singular, ces with either plural. Add -ci or -là to the end of the time noun with a hyphen to distinguish the current/near period from another identified period.", "Useful nouns: un jour (m.), une semaine (f.), un été (m.), une année (f.). Ce jour-là means on that day; ces jours-ci often means these days/around now, not a mathematically fixed duration. -Là can refer backward in a narrative or to another specified period; it does not inherently mean past."],
+      "points": [],
+      "examples": [
+        {"french": "**Cette semaine-ci**, nous travaillons à distance.", "english": "This week, we are working remotely.", "note": "Explicitly identifies the current week."},
+        {"french": "Nous nous sommes rencontrés en 2018. **Cet été-là**, il faisait très chaud.", "english": "We met in 2018. That summer, it was very hot.", "note": "Cet before été; -là identifies the narrated summer."},
+        {"french": "Je suis très occupé **ces jours-ci**.", "english": "I am very busy these days.", "note": "A current period, not a named date."},
+        {"french": "La fête aura lieu en juillet. **Ce jour-là**, le parc sera fermé aux voitures.", "english": "The festival will take place in July. On that day, the park will be closed to cars.", "note": "-Là can identify a future day."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "p01", "kind": "text", "pool": "practice", "section_id": "past-projection", "prompt": "Supply aller + partir for 'we were going to leave', without subject: Nous ___ quand elle est arrivée.", "choices": [], "answers": ["allions partir"], "explanation": "Imperfect aller + infinitive."},
+    {"id": "p02", "kind": "text", "pool": "practice", "section_id": "since", "prompt": "Supply only the connector meaning 'since': Je lis plus ___ j'ai arrêté la télévision. A clause follows.", "choices": [], "answers": ["depuis que"], "explanation": "A finite clause needs depuis que."},
+    {"id": "p03", "kind": "text", "pool": "practice", "section_id": "relative-dates", "prompt": "The story is about last year. Replace 'the next day' with the conventional two-word expression beginning le: Elle est arrivée le 8 juin et est partie ___.", "choices": [], "answers": ["le lendemain"], "explanation": "The reference is 8 June, not today; the two-word constraint identifies le lendemain rather than le jour suivant."},
+    {"id": "p04", "kind": "text", "pool": "practice", "section_id": "demonstratives", "prompt": "Supply the complete phrase 'that summer' using été and -là.", "choices": [], "answers": ["cet été-là"], "explanation": "Été is masculine and begins with a vowel."},
+    {"id": "c01", "kind": "text", "pool": "check", "section_id": "past-projection", "prompt": "Supply aller + répondre for 'you were going to reply', with vous already given: Vous ___ quand la connexion a coupé.", "choices": [], "answers": ["alliez répondre"], "explanation": "Alliez plus an infinitive."},
+    {"id": "c02", "kind": "text", "pool": "check", "section_id": "since", "prompt": "Supply travailler in the present for a continuing situation: Je ___ ici depuis que j'ai quitté Lyon.", "choices": [], "answers": ["travaille"], "explanation": "French present expresses a situation continuing now."},
+    {"id": "c03", "kind": "text", "pool": "check", "section_id": "since", "prompt": "Supply déménager in the pluperfect: Elle marchait plus depuis qu'elle ___ près du parc.", "choices": [], "answers": ["avait déménagé"], "explanation": "Earlier move, past continuing consequence."},
+    {"id": "c04", "kind": "text", "pool": "check", "section_id": "relative-dates", "prompt": "Use the noun expression beginning la for 'the day before': Le concert était le 12 ; nous avions répété ___.", "choices": [], "answers": ["la veille"], "explanation": "The day before the stated concert."},
+    {"id": "c05", "kind": "text", "pool": "check", "section_id": "demonstratives", "prompt": "Build 'this week' with semaine and explicit -ci.", "choices": [], "answers": ["cette semaine-ci"], "explanation": "Semaine is feminine; -ci follows the noun."},
+    {"id": "c06", "kind": "text", "pool": "check", "section_id": "demonstratives", "prompt": "Build the usual phrase 'these days' with jours and -ci.", "choices": [], "answers": ["ces jours-ci"], "explanation": "Plural ces and hyphenated -ci."},
+    {"id": "c07", "kind": "choice", "pool": "check", "section_id": "past-projection", "prompt": "Does Elle allait téléphoner prove that she never called?", "choices": ["No; context supplies the eventual outcome.", "Yes; allait always means the plan failed."], "answers": ["No; context supplies the eventual outcome."], "explanation": "The form projects from the past without fixing the outcome."},
+    {"id": "c08", "kind": "choice", "pool": "check", "section_id": "demonstratives", "prompt": "Can ce jour-là refer to a future festival day?", "choices": ["Yes, if that future day is identified.", "No, -là always means past."], "answers": ["Yes, if that future day is identified."], "explanation": "Reference and tense are distinct."},
+    {"id": "c09", "kind": "text", "pool": "check", "section_id": "relative-dates", "prompt": "Today is Thursday. Supply one word for the speaker's yesterday: J'ai envoyé le dossier ___, mercredi.", "choices": [], "answers": ["hier"], "explanation": "Hier refers to the day before the speaker's today."},
+    {"id": "c10", "kind": "text", "pool": "check", "section_id": "relative-dates", "prompt": "Replace la veille with the equivalent expression using jour + précédent. Supply the whole phrase.", "choices": [], "answers": ["le jour précédent"], "explanation": "The day preceding an established reference date, not necessarily yesterday."},
+    {"id": "r01", "kind": "text", "pool": "review", "section_id": "past-projection", "prompt": "Supply aller + commencer for 'they were about to begin': Ils ___ quand l'alarme a sonné.", "choices": [], "answers": ["allaient commencer"], "explanation": "Imperfect aller with an infinitive."},
+    {"id": "r02", "kind": "text", "pool": "review", "section_id": "relative-dates", "prompt": "Today is Monday. Supply one word meaning tomorrow: Je viendrai ___, mardi.", "choices": [], "answers": ["demain"], "explanation": "The reference is the speaker's today."},
+    {"id": "r03", "kind": "text", "pool": "review", "section_id": "relative-dates", "prompt": "Replace le lendemain with the equivalent expression using jour + suivant. Supply the whole expression.", "choices": [], "answers": ["le jour suivant"], "explanation": "Both refer to the day following an established date."},
+    {"id": "r04", "kind": "text", "pool": "review", "section_id": "since", "prompt": "Supply only depuis or depuis que: Il habite ici ___ trois ans.", "choices": [], "answers": ["depuis"], "explanation": "A duration is not a clause."}
+  ],
+  "production_task": {"prompt": "Tell a short story about a planned visit last year. Identify the day, a projected action, an earlier change introduced with depuis que, and what happened the following day.", "model_answer": "Nous sommes arrivés le 10 avril. Ce jour-là, nous allions visiter le port, mais il pleuvait. Depuis que ma sœur avait vendu sa voiture, nous voyagions en train. Le lendemain, le ciel était clair et nous avons fait une longue promenade.", "translation": "We arrived on 10 April. That day, we were going to visit the harbour, but it was raining. Since my sister had sold her car, we had been travelling by train. The next day, the sky was clear and we went for a long walk.", "rubric": ["The narrative reference point is explicit.", "Aller remains imperfect before an infinitive.", "Depuis que links actual situations on a coherent timeline.", "Le lendemain and ce jour-là refer back clearly."]}
+}

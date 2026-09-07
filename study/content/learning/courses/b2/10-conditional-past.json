@@ -1,0 +1,63 @@
+{
+  "version": 1, "id": "b2-conditional-past", "slug": "b2-conditional-past", "cefr_level": "B2", "topic": "verbs-tenses-moods",
+  "title": "Imaginer un autre passé", "summary": "Express unreal past results, missed opportunities and retrospective advice with the conditional past.", "order": 10, "duration_minutes": 14,
+  "prerequisites": ["b2-pluperfect"], "objectives": ["Form conditional pasts with regular, irregular and être verbs.", "Combine si + pluperfect with a conditional-past result.", "Distinguish aurait dû, aurait pu and factual past modals."],
+  "keywords": ["conditionnel passé", "should have", "could have", "aurait dû", "aurait pu", "counterfactual"],
+  "sources": [{"label": "B2 public index, topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}],
+  "related_legacy_ids": ["verbs-conditional-si", "verbs-irregular-past-participles"],
+  "sections": [
+    {"id": "forms", "title": "Conditional auxiliary plus past participle",
+      "paragraphs": ["The conditional past combines conditional avoir or être with a past participle. It can present a result in an imagined alternative past. A counterfactual condition describes something contrary to what happened: si j'avais su, j'aurais appelé.", "Avoir forms: j'aurais parlé, tu aurais parlé, il/elle/on aurait parlé, nous aurions parlé, vous auriez parlé, ils/elles auraient parlé. Substitute regular fini, vendu, attendu or irregular eu (avoir), été (être), fait, pris, compris, vu, reçu, voulu, pu, dû. The auxiliary changes by person; the participle follows the ordinary agreement rules.", "Être forms: je serais parti(e), tu serais parti(e), il serait parti/elle serait partie/on serait parti(e)(s), nous serions parti(e)s, vous seriez parti(e)(s), ils seraient partis/elles seraient parties. Reflexive verbs place me/te/se/nous/vous/se before être: nous nous serions inscrits. Movement verbs with a direct object retain avoir: elle aurait sorti les sacs."],
+      "points": ["A preceding direct object can cause agreement with avoir: les lettres que j'aurais écrites.", "A conditional past can also report unconfirmed past information in journalism. That is attribution/uncertainty, not necessarily an unreal event."],
+      "examples": [
+        {"french": "Avec une journée de plus, nous **aurions terminé**.", "english": "With one more day, we would have finished.", "note": "Imagined alternative result."},
+        {"french": "Vous **auriez vendu** plus de billets avec une meilleure affiche.", "english": "You would have sold more tickets with a better poster.", "note": "Regular -re participle vendu."},
+        {"french": "J'**aurais fait** un autre choix.", "english": "I would have made a different choice.", "note": "Irregular participle fait."},
+        {"french": "Sans cette invitation, elle **serait restée** chez elle.", "english": "Without that invitation, she would have stayed home.", "note": "Être and feminine agreement."}
+      ],
+      "mistakes": [{"avoid": "Si j'aurais su, je serais venu.", "prefer": "Si j'avais su, je serais venu.", "why": "In an unreal past condition, si takes the pluperfect, not the conditional past."}]
+    },
+    {"id": "conditions", "title": "Separate the condition from the result",
+      "paragraphs": ["Use si + pluperfect for the unreal past condition, and conditional past for the unreal past result. Either clause can come first. Do not put the conditional after conditional si. However, si meaning 'whether' in an indirect question is a different construction: je me demande s'il aurait accepté is legitimate.", "An unreal past condition can have a present result: si j'avais accepté ce poste, j'habiterais maintenant à Lyon. Choose the result tense from its time, not from a rigid rule that both clauses must be past."],
+      "points": [],
+      "examples": [
+        {"french": "Si tu m'avais prévenu, j'**aurais pris** le dernier bus.", "english": "If you had warned me, I would have taken the last bus.", "note": "Unreal earlier condition and unreal past result."},
+        {"french": "Elles **seraient venues** si elles avaient reçu l'adresse.", "english": "They would have come if they had received the address.", "note": "The result may precede the condition."},
+        {"french": "Si nous avions acheté ce terrain, nous **serions** propriétaires aujourd'hui.", "english": "If we had bought that land, we would be owners today.", "note": "The result is present, so use conditional present."}
+      ],
+      "mistakes": []
+    },
+    {"id": "modals", "title": "Should have versus could have",
+      "paragraphs": ["Devoir in the conditional past often gives retrospective advice or criticism: aurait dû + infinitive = should have. Its six forms are j'aurais dû, tu aurais dû, il/elle/on aurait dû, nous aurions dû, vous auriez dû, ils/elles auraient dû. Put ne...pas around the auxiliary: n'aurait pas dû + infinitive means should not have.", "Pouvoir uses j'aurais pu, tu aurais pu, il/elle/on aurait pu, nous aurions pu, vous auriez pu, ils/elles auraient pu + infinitive. It often names an unrealized opportunity, but can also present a possible past explanation. Context decides whether the action did not occur. Contrast il a pu entrer, which can mean he managed to get in, and il avait dû partir, an earlier necessity."],
+      "points": ["Keep dû's circumflex.", "Do not translate every English 'could' with a conditional: actual past ability can require pouvait, a pu or avait pu."],
+      "examples": [
+        {"french": "Tu **aurais dû** sauvegarder le fichier.", "english": "You should have saved the file.", "note": "Retrospective advice."},
+        {"french": "Nous **n'aurions pas dû** promettre une réponse si rapide.", "english": "We should not have promised such a quick answer.", "note": "Negative advice about the past."},
+        {"french": "J'**aurais pu** te prêter mon vélo, mais tu ne m'as rien demandé.", "english": "I could have lent you my bicycle, but you didn't ask me.", "note": "The context makes the opportunity unrealized."},
+        {"french": "Le message **aurait pu** arriver pendant la panne.", "english": "The message could have arrived during the outage.", "note": "A possible explanation, not proof it failed to arrive."}
+      ],
+      "mistakes": [{"avoid": "Tu aurais du vérifier.", "prefer": "Tu aurais dû vérifier.", "why": "The participle dû keeps the circumflex; du is also a contracted article, not this verb form."}]
+    }
+  ],
+  "practice": [
+    {"id": "p01", "kind": "text", "pool": "practice", "section_id": "forms", "prompt": "Supply finir in the conditional past: Avec de l'aide, nous ___ plus tôt.", "choices": [], "answers": ["aurions fini"], "explanation": "Conditional avoir + fini."},
+    {"id": "p02", "kind": "text", "pool": "practice", "section_id": "forms", "prompt": "Supply avoir in the conditional past: Sans toi, j'___ peur.", "choices": [], "answers": ["aurais eu"], "explanation": "Avoir's participle is eu."},
+    {"id": "p03", "kind": "text", "pool": "practice", "section_id": "forms", "prompt": "Supply partir in the conditional past: Sans la grève, elles ___ à midi.", "choices": [], "answers": ["seraient parties"], "explanation": "Être and feminine plural agreement."},
+    {"id": "p04", "kind": "text", "pool": "practice", "section_id": "modals", "prompt": "Supply devoir in the conditional past for 'should have': Vous ___ demander un reçu.", "choices": [], "answers": ["auriez dû"], "explanation": "Retrospective advice."},
+    {"id": "p05", "kind": "text", "pool": "practice", "section_id": "modals", "prompt": "Supply pouvoir in the conditional past for a missed opportunity: Tu ___ venir, mais tu as refusé.", "choices": [], "answers": ["aurais pu"], "explanation": "The context identifies an unrealized possibility."},
+    {"id": "c01", "kind": "text", "pool": "check", "section_id": "forms", "prompt": "Supply attendre in the conditional past: Sans ton appel, j'___ dehors.", "choices": [], "answers": ["aurais attendu"], "explanation": "Regular participle attendu."},
+    {"id": "c02", "kind": "text", "pool": "check", "section_id": "forms", "prompt": "Supply être in the conditional past: Il ___ ravi de vous voir.", "choices": [], "answers": ["aurait été"], "explanation": "Être itself uses avoir + été."},
+    {"id": "c03", "kind": "text", "pool": "check", "section_id": "forms", "prompt": "Supply vouloir in the conditional past: Nous ___ vous remercier en personne.", "choices": [], "answers": ["aurions voulu"], "explanation": "Vouloir uses voulu."},
+    {"id": "c04", "kind": "text", "pool": "check", "section_id": "conditions", "prompt": "Supply savoir in the correct unreal-past si clause: Si elle ___, elle aurait protesté.", "choices": [], "answers": ["avait su"], "explanation": "Si takes pluperfect here."},
+    {"id": "c05", "kind": "text", "pool": "check", "section_id": "conditions", "prompt": "Supply venir for the unreal past result: S'ils avaient été libres, ils ___ hier.", "choices": [], "answers": ["seraient venus"], "explanation": "Conditional past and masculine plural agreement."},
+    {"id": "c06", "kind": "text", "pool": "check", "section_id": "modals", "prompt": "Supply the full negative conditional past of devoir: Nous ___ attendre. Use ne...pas, meaning 'should not have'.", "choices": [], "answers": ["n'aurions pas dû"], "explanation": "Negation surrounds the conditional auxiliary."},
+    {"id": "c07", "kind": "text", "pool": "check", "section_id": "modals", "prompt": "Supply pouvoir in the conditional past: Elles ___ nous prévenir, mais elles ont oublié.", "choices": [], "answers": ["auraient pu"], "explanation": "A missed opportunity, not past realized ability."},
+    {"id": "c08", "kind": "choice", "pool": "check", "section_id": "conditions", "prompt": "Which correctly gives a present result of a past condition?", "choices": ["Si j'avais accepté, je travaillerais ici aujourd'hui.", "Si j'aurais accepté, je travaillerais ici aujourd'hui."], "answers": ["Si j'avais accepté, je travaillerais ici aujourd'hui."], "explanation": "The condition is past; the result is present."},
+    {"id": "c09", "kind": "text", "pool": "check", "section_id": "forms", "prompt": "Supply terminer in the conditional past: Avec un jour de plus, elles ___ la fresque.", "choices": [], "answers": ["auraient terminé"], "explanation": "Conditional avoir plus regular -er participle; the object follows, so no agreement."},
+    {"id": "r01", "kind": "text", "pool": "review", "section_id": "forms", "prompt": "Supply prendre in the conditional past: Vous ___ le train si vous aviez eu le choix.", "choices": [], "answers": ["auriez pris"], "explanation": "Auriez + pris."},
+    {"id": "r02", "kind": "text", "pool": "review", "section_id": "forms", "prompt": "Supply sortir in the conditional past: Elle ___ les poubelles si elle avait eu le temps.", "choices": [], "answers": ["aurait sorti"], "explanation": "A transitive movement verb uses avoir."},
+    {"id": "r03", "kind": "text", "pool": "review", "section_id": "modals", "prompt": "Supply devoir in the conditional past: J'___ lire les conditions avant de signer.", "choices": [], "answers": ["aurais dû"], "explanation": "Retrospective self-criticism."},
+    {"id": "r04", "kind": "text", "pool": "review", "section_id": "forms", "prompt": "Supply se préparer in the conditional past for an all-female nous, including pronouns: Nous ___ autrement.", "choices": [], "answers": ["nous serions préparées"], "explanation": "The subject nous is already supplied; add reflexive nous and être."}
+  ],
+  "production_task": {"prompt": "Write a constructive review of a project that missed its deadline. Include an unreal past condition/result, one should-have recommendation and one missed opportunity, without blaming a named person.", "model_answer": "Si nous avions limité le nombre de tâches, nous aurions terminé à temps. Nous aurions dû prévoir une marge. Nous aurions pu demander de l'aide plus tôt, mais nous avons attendu le dernier jour.", "translation": "If we had limited the number of tasks, we would have finished on time. We should have allowed a margin. We could have asked for help earlier, but we waited until the last day.", "rubric": ["Si uses pluperfect rather than conditional.", "The past result uses a conditional auxiliary.", "Dû and pu express different lessons.", "The feedback offers a constructive explanation."]}
+}

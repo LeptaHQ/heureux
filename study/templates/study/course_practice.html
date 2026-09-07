@@ -42,13 +42,13 @@
             <dt><a href="{% url 'study:course_lesson' lesson.slug %}#{{ row.id }}">{{ row.title }}</a></dt>
             <dd>
               {% if row.assessed %}
-                <p>{{ row.correct }}/{{ row.assessed }} latest first answers correct · {{ row.blank }} blank · {{ row.untested }} bank items untested.<br>
+                <p>{{ row.correct }}/{{ row.assessed }} latest first answers correct · {{ row.blank }} blank · {{ row.untested }} bank item{{ row.untested|pluralize }} untested.<br>
                   From fresh sessions: {{ row.fresh }} / rehearsed sessions: {{ row.rehearsed }} · latest {{ row.last_assessed|date:"j M Y" }}.
                   {% if row.older_content %}{{ row.older_content }} from earlier teaching versions; unchanged items only, not evidence for new material.{% endif %}</p>
               {% else %}
-                <p>No completed check / review item evidence. {{ row.untested }} bank items untested.</p>
+                <p>No completed check / review item evidence. {{ row.untested }} bank item{{ row.untested|pluralize }} untested.</p>
               {% endif %}
-              <p>{{ row.reason }}{% if not row.practice_count %} No learning-practice items in this section.{% endif %}</p>
+              <p>Learning focus: {{ row.reason }}{% if not row.practice_count %} No learning-practice items in this section.{% endif %}</p>
               {% if not row.check_count or not row.review_count %}<p class="course-bank-limit">{% if not row.check_count %}No check items.{% endif %} {% if not row.review_count %}No review items.{% endif %} This bank cannot assess all teaching here.</p>{% endif %}
             </dd>
           </div>

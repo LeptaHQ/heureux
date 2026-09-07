@@ -6610,6 +6610,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.keyboard.press("Enter")
         expect(guidance.locator("details")).to_have_attribute("open", "")
         expect(guidance.get_by_text("Recent incorrect or blank first answers", exact=False)).to_have_count(1)
+        expect(guidance.get_by_text("Learning focus:", exact=False)).to_have_count(4)
         expect(guidance.get_by_text("No completed check / review item evidence.", exact=False)).to_have_count(4)
         expect(guidance.get_by_text("No check items.", exact=False)).to_be_visible()
         for width in (320, 390, 768, 1200):

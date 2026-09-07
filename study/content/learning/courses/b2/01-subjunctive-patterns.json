@@ -41,6 +41,20 @@
         {"french": "Il faut que tu ne **touches** pas ce câble.", "english": "You must not touch this cable.", "note": "The negative surrounds the conjugated subjunctive, not que."}
       ],
       "mistakes": [{"avoid": "Il faut que nous parlons.", "prefer": "Il faut que nous parlions.", "why": "Il faut que requires the subjunctive; parlons is present indicative."}]
+    },
+    {
+      "id": "transfer-stems",
+      "title": "Réutiliser un radical connu",
+      "paragraphs": ["An irregular indicative does not automatically mean an exceptional subjunctive. A stem is the part before the personal ending. Partir, écrire and lire have irregular present-indicative forms, but their present subjunctives follow the stem-and-ending method here: ils partent gives part-, ils écrivent gives écriv-, and ils lisent gives lis-.", "Start from the plural form you actually know, not from the infinitive or the je form. Je pars does not supply a pars- subjunctive stem. This transfer works for these verbs; it does not replace learning the two-stem and exceptional verbs in the next lessons."],
+      "points": ["Use the same six subjunctive endings as before. Irregularity in one tense or mood does not predict every other form."],
+      "examples": [
+        {"french": "que je **parte**, que tu **partes**, qu'il/elle/on **parte**, que nous **partions**, que vous **partiez**, qu'ils/elles **partent**", "english": "that I leave, that you leave, that he/she/one leaves, that we leave, that you leave, that they leave", "note": "Partent supplies part-, including the t."},
+        {"french": "que j'**écrive**, que tu **écrives**, qu'il/elle/on **écrive**, que nous **écrivions**, que vous **écriviez**, qu'ils/elles **écrivent**", "english": "that I write, that you write, that he/she/one writes, that we write, that you write, that they write", "note": "The v of écrivent remains throughout."},
+        {"french": "que je **lise**, que tu **lises**, qu'il/elle/on **lise**, que nous **lisions**, que vous **lisiez**, qu'ils/elles **lisent**", "english": "that I read, that you read, that he/she/one reads, that we read, that you read, that they read", "note": "Lis- is the stem, not lir-."},
+        {"french": "Il faut que le dernier groupe **parte** avant la fermeture du parc.", "english": "The last group needs to leave before the park closes.", "note": "The singular subject takes parte, not the indicative part."},
+        {"french": "Il faut que nous **écrivions** les mesures sur le dessin et que vous **lisiez** la légende.", "english": "We need to write the measurements on the drawing, and you need to read the key.", "note": "The familiar -ions and -iez endings attach to écriv- and lis-."}
+      ],
+      "mistakes": [{"avoid": "Il faut que je lire la consigne.", "prefer": "Il faut que je lise la consigne.", "why": "Use lisent minus -ent, then add -e; the infinitive is not the stem."}]
     }
   ],
   "practice": [
@@ -59,7 +73,13 @@
     {"id": "r01", "kind": "text", "pool": "review", "section_id": "build", "prompt": "Supply only vendre in the present subjunctive: Il faut qu'ils ___ leur voiture.", "choices": [], "answers": ["vendent"], "explanation": "Vend- + -ent."},
     {"id": "r02", "kind": "text", "pool": "review", "section_id": "build", "prompt": "Supply only remplir in the present subjunctive: Il faut que tu ___ cette fiche.", "choices": [], "answers": ["remplisses"], "explanation": "Remplir follows the finiss- pattern: rempliss- + -es."},
     {"id": "r03", "kind": "text", "pool": "review", "section_id": "spelling", "prompt": "Supply only vérifier in the present subjunctive: Il faut que nous ___ les dates.", "choices": [], "answers": ["vérifiions"], "explanation": "Vérifi- + -ions has two i's."},
-    {"id": "r04", "kind": "text", "pool": "review", "section_id": "build", "prompt": "Supply only chercher in the present subjunctive: Il faut que je ___ une autre entrée.", "choices": [], "answers": ["cherche"], "explanation": "First-person singular ends in -e."}
+    {"id": "r04", "kind": "text", "pool": "review", "section_id": "build", "prompt": "Supply only chercher in the present subjunctive: Il faut que je ___ une autre entrée.", "choices": [], "answers": ["cherche"], "explanation": "First-person singular ends in -e."},
+    {"id": "p-depth-stem", "kind": "text", "pool": "practice", "section_id": "transfer-stems", "prompt": "Ils écrivent supplies the stem. Complete with present-subjunctive écrire: Il faut que tu ___ lisiblement sur l'étiquette.", "choices": [], "answers": ["écrives"], "explanation": "Remove -ent from écrivent and add the tu ending -es."},
+    {"id": "p-depth-transfer", "kind": "text", "pool": "practice", "section_id": "transfer-stems", "prompt": "Use ils partent to form partir in the present subjunctive: Il faut que nous ___ avant le passage du convoi.", "choices": [], "answers": ["partions"], "explanation": "Part- + -ions, not pars- or partir-."},
+    {"id": "c-depth-reading", "kind": "text", "pool": "check", "section_id": "transfer-stems", "prompt": "Supply lire in the present subjunctive: Il est essentiel que chacun ___ le protocole de sécurité.", "choices": [], "answers": ["lise"], "explanation": "Chacun is singular; lisent supplies lis-."},
+    {"id": "c-depth-writing", "kind": "text", "pool": "check", "section_id": "transfer-stems", "prompt": "Supply écrire in the present subjunctive: Je préfère que vous ___ au service technique plutôt que de téléphoner.", "choices": [], "answers": ["écriviez"], "explanation": "The subjunctive stem écriv- takes -iez."},
+    {"id": "r-depth-departure", "kind": "text", "pool": "review", "section_id": "transfer-stems", "prompt": "Supply partir in the present subjunctive: Il vaut mieux que l'ambulance ___ immédiatement.", "choices": [], "answers": ["parte"], "explanation": "Part- + -e; the indicative part is not the requested mood."},
+    {"id": "r-depth-instructions", "kind": "text", "pool": "review", "section_id": "transfer-stems", "prompt": "Supply lire in the present subjunctive: Le fabricant demande que nous ___ les instructions avant le montage.", "choices": [], "answers": ["lisions"], "explanation": "Lis- + -ions transfers the familiar subjunctive pattern to lire."}
   ],
   "production_task": {
     "prompt": "You coordinate a small community event. Write three short instructions with il faut que, using vous, nous and on and three different regular verbs.",

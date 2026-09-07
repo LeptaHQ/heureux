@@ -17,12 +17,33 @@
       ],
       "mistakes": [{"avoid": "Malgré de la pluie, nous sortons.", "prefer": "Malgré la pluie, nous sortons.", "why": "Malgré does not add de before its noun phrase."}]
     },
+    {"id": "concession-pronouns", "title": "Malgré moi n'est pas malgré tout",
+      "paragraphs": ["Malgré can be followed by a stressed pronoun, the independent form moi, toi, lui, elle, nous, vous, eux or elles. In malgré moi/toi/lui..., the person often acts against their will or cannot help a reaction. Malgré tout instead means despite everything or nevertheless. Read what is being resisted: a person's will, or the circumstances as a whole.", "Quoique and quoi que are not spelling variants. Quoique introduces an obstacle accepted for the argument: although. Quoi que means whatever or no matter what and leaves the content open. Both normally introduce subjunctive clauses in the constructions here, so changing the mood alone will not distinguish them. Before a vowel, write quoi qu' as two words, but quoiqu' as one."],
+      "points": [],
+      "examples": [
+        {"french": "En entendant cette imitation, j'ai souri **malgré moi**.", "english": "Hearing that imitation, I smiled despite myself.", "note": "An involuntary reaction, not a general statement about difficult circumstances."},
+        {"french": "Le budget a diminué. Nous poursuivrons **malgré tout** les ateliers.", "english": "The budget has decreased. We will nevertheless continue the workshops.", "note": "The adverse circumstances do not stop the plan."},
+        {"french": "**Quoique** la procédure **soit** lente, elle protège les usagers.", "english": "Although the procedure is slow, it protects users.", "note": "One conceded fact."},
+        {"french": "**Quoi que** la commission **décide**, nous expliquerons la suite aux usagers.", "english": "Whatever the committee decides, we will explain the next steps to users.", "note": "The commitment holds across possible decisions."}
+      ],
+      "mistakes": [{"avoid": "Quoique tu choisisses, garde le reçu.", "prefer": "Quoi que tu choisisses, garde le reçu.", "why": "For the intended meaning whatever you choose, use two-word quoi que: no matter what, not although."}]
+    },
     {"id": "alternatives", "title": "Soit...soit presents balanced alternatives",
       "paragraphs": ["Soit...soit means either...or when coordinating alternatives. It is a fixed linking word in this use, not a subjunctive verb agreeing with what follows. Pair comparable structures: two nouns, two prepositional phrases, two infinitives or two clauses. Do not put a noun after the first soit and an unrelated full clause after the second unless the larger sentence clearly supports that structure.", "Soit...soit marks alternatives but does not by itself settle every logical question about exclusivity. State 'pas les deux' if both are genuinely forbidden. Repeating soit makes the alternatives clear; ou can express the same basic choice more simply."],
       "points": [],
       "examples": [
         {"french": "Nous pouvons **soit** reporter la visite, **soit** changer de lieu.", "english": "We can either postpone the visit or change venue.", "note": "Two parallel infinitive groups."},
         {"french": "Le rendez-vous aura lieu **soit** mardi, **soit** jeudi.", "english": "The appointment will take place either on Tuesday or on Thursday.", "note": "Two parallel time expressions."}
+      ],
+      "mistakes": []
+    },
+    {"id": "addition-degree-method", "title": "Ajouter, comparer une qualité ou expliquer comment",
+      "paragraphs": ["English 'as well as' can add something or compare quality. French distinguishes these uses. Ainsi que can add a person or thing; aussi bien que can compare how well an action is performed. Decide whether you mean 'and also' or 'equally well' before choosing the phrase.", "In c'est ainsi que, ainsi points to a way of doing something or to how a result came about: that is how. The surrounding frame matters. It is not the additive ainsi que simply inserted after c'est. A preceding explanation should make the method or chain of events identifiable."],
+      "points": [],
+      "examples": [
+        {"french": "Le dossier comprend le plan **ainsi que** les photographies.", "english": "The file contains the plan as well as the photographs.", "note": "An addition of material."},
+        {"french": "L'apprentie explique le procédé **aussi bien que** son tuteur.", "english": "The apprentice explains the process as well as her mentor does.", "note": "Equal quality of explanation, not an additional thing explained."},
+        {"french": "Nous avons numéroté chaque pièce. **C'est ainsi que** nous avons évité les confusions.", "english": "We numbered each part. That is how we avoided confusion.", "note": "The first sentence provides the method referred to by ainsi."}
       ],
       "mistakes": []
     },
@@ -39,6 +60,15 @@
     }
   ],
   "practice": [
+    {"id": "p-depth-despite-self", "kind": "text", "pool": "practice", "section_id": "concession-pronouns", "prompt": "The speaker could not help laughing. Complete despite myself with the stressed pronoun: J'ai ri malgré ___.", "choices": [], "answers": ["moi"], "explanation": "Malgré moi marks a reaction against or beyond the speaker's intention."},
+    {"id": "p-depth-whatever", "kind": "choice", "pool": "practice", "section_id": "concession-pronouns", "prompt": "Choose the connector meaning no matter what: ___ vous proposiez, le comité l'examinera.", "choices": ["Quoi que", "Quoique"], "answers": ["Quoi que"], "explanation": "The offer applies to any proposal; it does not concede a particular obstacle."},
+    {"id": "c-depth-nevertheless", "kind": "text", "pool": "check", "section_id": "concession-pronouns", "prompt": "Complete the expression nevertheless with one word: Les délais sont courts; nous essaierons malgré ___ de vous aider.", "choices": [], "answers": ["tout"], "explanation": "Malgré tout refers to the adverse circumstances as a whole."},
+    {"id": "c-depth-although", "kind": "text", "pool": "check", "section_id": "concession-pronouns", "prompt": "Use the one-word connector quoique, eliding as needed: ___ il soit tard, nous terminerons ce chapitre.", "choices": [], "answers": ["quoiqu'"], "explanation": "Quoique means although; its final e elides before il."},
+    {"id": "r-depth-involuntary", "kind": "text", "pool": "review", "section_id": "concession-pronouns", "prompt": "Complete despite herself: Elle a révélé son inquiétude malgré ___. Use the stressed pronoun.", "choices": [], "answers": ["elle"], "explanation": "Malgré elle identifies the woman's will or control, not all circumstances."},
+    {"id": "r-depth-any-outcome", "kind": "text", "pool": "review", "section_id": "concession-pronouns", "prompt": "Use quoi que, with necessary elision, for whatever: ___ il arrive pendant la mission, appelle ce numéro.", "choices": [], "answers": ["quoi qu'"], "explanation": "Whatever happens uses two-word quoi que, with que elided before il."},
+    {"id": "p-depth-equal-skill", "kind": "choice", "pool": "practice", "section_id": "addition-degree-method", "prompt": "A trainee translates just as well as the instructor. Choose the expression of equal skill: Elle traduit ___ sa formatrice.", "choices": ["aussi bien que", "ainsi que"], "answers": ["aussi bien que"], "explanation": "Aussi bien que measures equal quality; ainsi que does not by itself express equal skill."},
+    {"id": "c-depth-method", "kind": "text", "pool": "check", "section_id": "addition-degree-method", "prompt": "Use the fixed frame 'that is how', c'est + ainsi + que: ___ nous avons réduit les erreurs. Supply the opening words.", "choices": [], "answers": ["c'est ainsi que"], "explanation": "The frame points to a method or result just described, rather than adding another item."},
+    {"id": "r-depth-degree", "kind": "text", "pool": "review", "section_id": "addition-degree-method", "prompt": "Express equal quality using aussi + bien + que: Le logiciel gratuit fonctionne ___ la version payante.", "choices": [], "answers": ["aussi bien que"], "explanation": "This compares how well the two versions work."},
     {"id": "p01", "kind": "text", "pool": "practice", "section_id": "concession", "prompt": "Supply only the article: Malgré ___ froid, ils sont venus. Froid is masculine singular.", "choices": [], "answers": ["le"], "explanation": "Malgré directly introduces the noun phrase."},
     {"id": "p02", "kind": "text", "pool": "practice", "section_id": "concession", "prompt": "Supply être in the present tense, choosing the appropriate mood: Bien que nous ___ peu nombreux, nous pouvons commencer.", "choices": [], "answers": ["soyons"], "explanation": "Concession selects subjunctive, not uncertainty."},
     {"id": "p03", "kind": "text", "pool": "practice", "section_id": "alternatives", "prompt": "Supply the second repeated connector: Tu peux soit écrire, ___ téléphoner.", "choices": [], "answers": ["soit"], "explanation": "Two parallel infinitives after soit...soit."},

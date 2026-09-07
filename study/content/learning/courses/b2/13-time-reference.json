@@ -15,6 +15,16 @@
       ],
       "mistakes": [{"avoid": "Nous allions avons terminé.", "prefer": "Nous allions terminer.", "why": "Imperfect aller is followed by an infinitive, not a conjugated perfect form."}]
     },
+    {"id": "plan-or-journey", "title": "Une intention ou un déplacement réel",
+      "paragraphs": ["Aller + infinitive can describe literal travel undertaken to do something as well as a projected action. Je suis allé chercher un document reports a completed trip to fetch a document; j'allais chercher un document can mean I was going to fetch it, or describe being on my way. A destination or a scene of movement helps identify the literal reading.", "Do not convert every English 'was going to' into a past trip. If you need to make intention unmistakable, j'avais l'intention de is explicit. If you describe a completed trip, the passé composé of aller is appropriate. Neither a past intention nor travelling for a purpose alone guarantees that the purpose was achieved."],
+      "points": [],
+      "examples": [
+        {"french": "J'**allais demander** une attestation, mais j'ai changé d'avis.", "english": "I was going to request a certificate, but I changed my mind.", "note": "The context presents an abandoned intention."},
+        {"french": "Je **suis allée demander** une attestation à l'accueil, mais le guichet était fermé.", "english": "I went to reception to request a certificate, but the counter was closed.", "note": "A woman made the trip; she did not necessarily obtain the document."},
+        {"french": "J'**allais chercher** mon fils à pied quand j'ai croisé la directrice.", "english": "I was on my way to collect my son on foot when I met the headteacher.", "note": "The imperfect can also describe actual movement in progress."}
+      ],
+      "mistakes": []
+    },
     {"id": "since", "title": "Depuis que introduces a clause, not a duration noun",
       "paragraphs": ["Depuis que means since/ever since and introduces a subject plus conjugated verb. The indicative is normal because the starting situation is presented as actual. Depuis without que introduces a date or duration: depuis lundi, depuis deux mois.", "For a current continuing situation, French often uses present in the main clause: je dors mieux depuis que j'ai changé de chambre. A completed starting event can be passé composé; a continuing starting situation can be present. For a past viewpoint, use imperfect for the continuing background and often pluperfect for the earlier starting event. Completed counts or negated events may use compound past forms; depuis que does not impose one tense on every verb."],
       "points": [],
@@ -36,6 +46,30 @@
       ],
       "mistakes": []
     },
+    {"id": "date-complements", "title": "Nommer l'événement qui sert de repère",
+      "paragraphs": ["La veille and le lendemain can take de + an event noun, so the reference point need not be a date in a previous sentence. Use the normal contractions: du with le, des with les, but de la and de l'. La veille au soir singles out the previous evening. In conversation, le jour d'avant and le jour d'après can refer to the previous and following day when the reference is clear.", "Distinguish précédent, an adjective meaning previous, from précédant, a present participle meaning preceding. The adjective agrees with a noun; the participle keeps -ant and can take a direct object. Ask whether the form simply labels a previous period or introduces what that period precedes. This is a difference in construction, not just an accent to memorize."],
+      "points": ["Useful headwords: le départ (m.), l'ouverture (f.), une élection (f.), une période (f.)."],
+      "examples": [
+        {"french": "La salle sera inspectée **la veille du salon**.", "english": "The room will be inspected the day before the trade fair.", "note": "De + le salon becomes du salon; the reference is an event."},
+        {"french": "Le bilan sera publié **le lendemain de la clôture**.", "english": "The results will be published the day after the closing.", "note": "La clôture is feminine; de la stays separate."},
+        {"french": "Le départ était prévu jeudi; nous avions préparé le repas **la veille au soir**.", "english": "Departure was planned for Thursday; we had prepared the meal the evening before.", "note": "Wednesday evening is identified without using the speaker-relative hier soir."},
+        {"french": "Elle a appelé mardi. **Le jour d'après**, elle est passée nous voir.", "english": "She called on Tuesday. The next day, she came to see us.", "note": "A conversational alternative with a clear anchor."},
+        {"french": "Les journées **précédentes** avaient été fraîches.", "english": "The previous days had been cool.", "note": "The adjective agrees with journées."},
+        {"french": "Les journées **précédant l'ouverture** ont été consacrées aux essais.", "english": "The days preceding the opening were devoted to testing.", "note": "The invariable participle takes l'ouverture as its direct object."}
+      ],
+      "mistakes": [{"avoid": "le lendemain le concert", "prefer": "le lendemain du concert", "why": "The event is introduced by de, which contracts with le."}]
+    },
+    {"id": "period-scale", "title": "Quelques jours ou toute une époque",
+      "paragraphs": ["The noun determines the size of the period you point to. Ces jours-là usually identifies particular days; à cette époque-là and en ce temps-là can describe a broader era. They are not interchangeable merely because English uses 'in those days'. Establish what period your listener should picture.", "For the ordinary demonstrative expression 'that year', use cette année-là, not cet an-là. An occurs in counting expressions such as deux ans, but the pointing expression here selects année. Neither -là nor époque makes the verb past automatically; a clearly identified future period is possible too."],
+      "points": ["Une époque (f.) is a period or era; le temps (m.) can refer to a broader time; une année (f.) is a year."],
+      "examples": [
+        {"french": "Pendant mon enfance, **à cette époque-là**, le village n'avait pas de bibliothèque.", "english": "During my childhood, in that period, the village had no library.", "note": "A broad era rather than a few dates."},
+        {"french": "Les ateliers auront lieu du 2 au 4 juillet. **Ces jours-là**, les portes resteront ouvertes.", "english": "The workshops will run from 2 to 4 July. On those days, the doors will stay open.", "note": "A short identified future period."},
+        {"french": "La résidence ouvrira en 2028. **Cette année-là**, nous recruterons vingt personnes.", "english": "The residence will open in 2028. That year, we will recruit twenty people.", "note": "Année is feminine, and -là points to the specified future year."},
+        {"french": "Les premières réunions se tenaient chez les habitants. **En ce temps-là**, nous n'avions pas de local.", "english": "The first meetings took place in residents' homes. In those days, we had no premises.", "note": "A broader earlier period; not a count of individual days."}
+      ],
+      "mistakes": []
+    },
     {"id": "demonstratives", "title": "This period and that period",
       "paragraphs": ["A demonstrative determiner points to an identifiable noun: ce with masculine singular, cet before a masculine vowel or mute h, cette with feminine singular, ces with either plural. Add -ci or -là to the end of the time noun with a hyphen to distinguish the current/near period from another identified period.", "Useful nouns: un jour (m.), une semaine (f.), un été (m.), une année (f.). Ce jour-là means on that day; ces jours-ci often means these days/around now, not a mathematically fixed duration. -Là can refer backward in a narrative or to another specified period; it does not inherently mean past."],
       "points": [],
@@ -49,6 +83,18 @@
     }
   ],
   "practice": [
+    {"id": "p-depth-journey", "kind": "choice", "pool": "practice", "section_id": "plan-or-journey", "prompt": "What is established by Je suis allé acheter des piles, mais le magasin était fermé?", "choices": ["The trip happened; the purchase is not established.", "The speaker only thought about leaving home."], "answers": ["The trip happened; the purchase is not established."], "explanation": "Passé composé aller reports the trip; acheter gives its purpose, not guaranteed success."},
+    {"id": "c-depth-intention", "kind": "text", "pool": "check", "section_id": "plan-or-journey", "prompt": "Express a past intention, not a completed trip, using imperfect aller + proposer: Nous ___ un échange, puis nous avons abandonné cette idée.", "choices": [], "answers": ["allions proposer"], "explanation": "The prompt selects the projected-action reading and the imperfect."},
+    {"id": "r-depth-trip", "kind": "text", "pool": "review", "section_id": "plan-or-journey", "prompt": "A woman reports her completed trip, not just a plan. Supply aller in the passé composé: Je ___ déposer le dossier à la mairie.", "choices": [], "answers": ["suis allée"], "explanation": "A completed trip uses suis allée; the infinitive describes its purpose."},
+    {"id": "p-depth-event-date", "kind": "text", "pool": "practice", "section_id": "date-complements", "prompt": "Complete with the needed contracted de + article: La veille ___ départ, nous avons pesé les bagages.", "choices": [], "answers": ["du"], "explanation": "Le départ is masculine; de + le contracts to du."},
+    {"id": "p-depth-adjective", "kind": "text", "pool": "practice", "section_id": "date-complements", "prompt": "Use the adjective précédent, agreeing with semaines: Les deux semaines ___ avaient été calmes.", "choices": [], "answers": ["précédentes"], "explanation": "An adjective agrees with its feminine plural noun."},
+    {"id": "c-depth-day-after", "kind": "text", "pool": "check", "section_id": "date-complements", "prompt": "Translate only 'the day after the opening' using lendemain. L'ouverture is feminine.", "choices": [], "answers": ["le lendemain de l'ouverture"], "explanation": "The event follows de; l' does not contract with de."},
+    {"id": "c-depth-participle", "kind": "text", "pool": "check", "section_id": "date-complements", "prompt": "Use the present participle of précéder, not the adjective: Les jours ___ la fermeture ont été très chargés.", "choices": [], "answers": ["précédant"], "explanation": "Précédant takes la fermeture as its object and stays invariable."},
+    {"id": "r-depth-previous-evening", "kind": "text", "pool": "review", "section_id": "date-complements", "prompt": "Supply 'the evening before' using la veille + au soir: L'examen était mardi matin; elle avait relu ses notes ___.", "choices": [], "answers": ["la veille au soir"], "explanation": "The phrase identifies Monday evening relative to the exam."},
+    {"id": "r-depth-noun-reference", "kind": "text", "pool": "review", "section_id": "date-complements", "prompt": "Use lendemain + de to say 'the day after the elections'. Supply the whole noun phrase.", "choices": [], "answers": ["le lendemain des élections"], "explanation": "De + plural les contracts to des."},
+    {"id": "p-depth-year", "kind": "text", "pool": "practice", "section_id": "period-scale", "prompt": "Use année and -là to refer back to 2021: Nous avons ouvert en 2021. ___, les commandes arrivaient par courrier. Supply 'that year'.", "choices": [], "answers": ["cette année-là"], "explanation": "The ordinary demonstrative time phrase uses feminine année, not an."},
+    {"id": "c-depth-era", "kind": "choice", "pool": "check", "section_id": "period-scale", "prompt": "Which expression naturally introduces a broad period of childhood rather than a few specific days?", "choices": ["À cette époque-là", "Ces jours-là"], "answers": ["À cette époque-là"], "explanation": "Une époque is a broader period; ces jours-là identifies particular days."},
+    {"id": "r-depth-days", "kind": "text", "pool": "review", "section_id": "period-scale", "prompt": "Refer specifically to three identified days using jours and -là: Les 6, 7 et 8 août sont réservés. ___, le centre accueillera les équipes. Supply 'on those days'.", "choices": [], "answers": ["ces jours-là"], "explanation": "Ces jours-là points to the three stated days; no additional preposition is needed."},
     {"id": "p01", "kind": "text", "pool": "practice", "section_id": "past-projection", "prompt": "Supply aller + partir for 'we were going to leave', without subject: Nous ___ quand elle est arrivée.", "choices": [], "answers": ["allions partir"], "explanation": "Imperfect aller + infinitive."},
     {"id": "p02", "kind": "text", "pool": "practice", "section_id": "since", "prompt": "Supply only the connector meaning 'since': Je lis plus ___ j'ai arrêté la télévision. A clause follows.", "choices": [], "answers": ["depuis que"], "explanation": "A finite clause needs depuis que."},
     {"id": "p03", "kind": "text", "pool": "practice", "section_id": "relative-dates", "prompt": "The story is about last year. Replace 'the next day' with the conventional two-word expression beginning le: Elle est arrivée le 8 juin et est partie ___.", "choices": [], "answers": ["le lendemain"], "explanation": "The reference is 8 June, not today; the two-word constraint identifies le lendemain rather than le jour suivant."},

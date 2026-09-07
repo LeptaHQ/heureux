@@ -19,17 +19,17 @@
       <form method="post">{% csrf_token %}<button class="btn" name="mode" value="check">Start / resume check</button></form>
       {% if evidence.due_at %}
         {% if evidence.review_due or evidence.review %}
-          <form method="post">{% csrf_token %}<button class="btn" name="mode" value="review">Start / resume review</button></form>
+          <form method="post">{% csrf_token %}<button class="btn" name="mode" value="review">{% if not evidence.fresh_review_available %}Rehearse review{% else %}Start / resume review{% endif %}</button></form>
         {% endif %}
       {% endif %}
     </div>
     {% if evidence.check %}
       <p>Check criterion met ({% if evidence.check.independent %}fresh{% else %}rehearsed, not independent{% endif %}): <a href="{% url 'study:course_attempt' evidence.check.pk %}">{{ evidence.check.submitted_at|date:"j M Y, H:i" }}</a>.</p>
-      <p>Delayed review opens {{ evidence.due_at|date:"j M Y, H:i" }} (at least seven days later). {% if evidence.review_due %}<strong>Review due.</strong>{% endif %}</p>
+      <p>Delayed review opens {{ evidence.due_at|date:"j M Y, H:i" }} (at least seven days later). {% if evidence.review_exhausted %}<strong>Fresh review unavailable: bank exhausted.</strong>{% elif evidence.review_due %}<strong>Fresh review due.</strong>{% endif %}</p>
     {% else %}<p>No successful check for this content version yet. Earlier results remain in your history.</p>{% endif %}
     {% if evidence.review %}<p>Fresh delayed-review criterion met: <a href="{% url 'study:course_attempt' evidence.review.pk %}">{{ evidence.review.submitted_at|date:"j M Y, H:i" }}</a>. This is dated practice evidence, not permanent mastery.</p>{% endif %}
     {% if evidence.rehearsed_review %}<p>Rehearsed review criterion met: <a href="{% url 'study:course_attempt' evidence.rehearsed_review.pk %}">{{ evidence.rehearsed_review.submitted_at|date:"j M Y, H:i" }}</a>. Useful practice, but not fresh independent evidence.</p>{% endif %}
-    {% if evidence.review_due and not evidence.fresh_review_available %}<p>The fresh-review requirement is still outstanding. This bank has insufficient unseen review items; you can keep rehearsing, but another fresh review needs new items.</p>{% endif %}
+    {% if evidence.review_exhausted %}<p>The fresh-review requirement is still outstanding. This bank has insufficient unseen review items; you can keep rehearsing, but another fresh review needs new items. Repeating these questions cannot complete the fresh-review requirement.</p>{% endif %}
   </section>
   <section class="card course-practice-section">
     <h2>Apply it yourself · unscored</h2>

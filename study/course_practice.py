@@ -47,11 +47,14 @@ def evidence_state(user, lesson):
         item for item in lesson.practice
         if item.pool == "review" and _is_fresh(lesson, item, seen_prompts, seen_ids)
     ]
+    fresh_available = active_fresh_review or _sufficient(fresh_review, "review")
+    review_due = bool(due_at and timezone.now() >= due_at and not review)
     return {
         "check": check, "review": review, "due_at": due_at,
         "rehearsed_review": rehearsed_review,
-        "fresh_review_available": active_fresh_review or _sufficient(fresh_review, "review"),
-        "review_due": bool(due_at and timezone.now() >= due_at and not review),
+        "fresh_review_available": fresh_available,
+        "review_due": review_due,
+        "review_exhausted": review_due and not fresh_available,
     }
 
 

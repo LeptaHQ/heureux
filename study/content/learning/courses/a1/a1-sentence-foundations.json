@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "id": "a1-sentence-foundations",
+  "slug": "a1-sentence-foundations",
+  "cefr_level": "A1",
+  "topic": "grammar-foundations",
+  "title": "Who does what? Building a first sentence",
+  "summary": "Find the subject and verb, replace names with pronouns, and distinguish conversational on from nous.",
+  "order": 1,
+  "duration_minutes": 12,
+  "prerequisites": [],
+  "objectives": ["Identify the subject and verb of a simple statement.", "Choose a subject pronoun for a person, thing or group.", "Use a singular verb after on and tout le monde."],
+  "keywords": ["subject", "verb", "infinitive", "gender", "pronouns", "on", "tout le monde"],
+  "sources": [{"label": "Public A1 index: topic-coverage reference, reviewed 2026-09-07", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-a1"}],
+  "related_legacy_ids": ["daily-on-usage", "grammar-articles-gender"],
+  "sections": [
+    {
+      "id": "building-blocks",
+      "title": "Start with the person or thing, then say what happens",
+      "paragraphs": ["The subject tells us who or what the sentence is about. The verb expresses an action or state. In a simple statement, put the subject before the verb. An infinitive is a verb's dictionary form, such as parler (to speak). A conjugated form is the form chosen for a subject and time: parle in Léa parle. English 'speaks' and 'is speaking' can both correspond to French parle.", "A noun names someone or something. Learn it with an article, the small word before it: un livre (m., a book), une table (f., a table). Masculine and feminine are grammatical categories, not claims about an object's sex. Singular means one; plural means more than one. Later lessons explain how articles and endings change."],
+      "points": ["The dictionary form is not normally the only verb in a complete statement: use a conjugated form.", "Accents belong to spelling. Keep them when reading and writing."],
+      "examples": [
+        {"french": "**Léa** parle.", "english": "Léa speaks.", "note": "Léa is the subject."},
+        {"french": "Le train **arrive**.", "english": "The train is arriving.", "note": "Arrive is the verb; un train (m.) is a train."}
+      ],
+      "mistakes": [{"avoid": "Léa parler.", "prefer": "Léa parle.", "why": "A statement about what Léa does needs a conjugated verb, not the infinitive."}]
+    },
+    {
+      "id": "subject-pronouns",
+      "title": "Replace a repeated name with a subject pronoun",
+      "paragraphs": ["A pronoun stands in for a noun or group. Je = I; tu = you to one familiar person; il = he or a masculine it; elle = she or a feminine it; nous = we; vous = you to several people or politely to one; ils = they for masculine or mixed-gender groups; elles = they for feminine groups only. Je becomes j' before a vowel or silent h: j'arrive. Tu does not become t' in standard written subject forms.", "For objects, choose il or elle from the noun's grammatical gender, not from the English word 'it'. Combine subjects by including the speaker first: Léa et moi becomes nous. A group including the listener but not the speaker becomes vous. Otherwise use ils or elles."],
+      "points": ["Tu and vous express the relationship with the listener as well as number.", "An all-feminine group takes elles; the conventional form for a mixed group is ils."],
+      "examples": [
+        {"french": "Le livre est ici. **Il** est bleu.", "english": "The book is here. It is blue.", "note": "Livre is masculine."},
+        {"french": "La table est ici. **Elle** est ronde.", "english": "The table is here. It is round.", "note": "Table is feminine."},
+        {"french": "Mina et Zoé arrivent. **Elles** arrivent ensemble.", "english": "Mina and Zoé are arriving. They are arriving together.", "note": "Both people are women."},
+        {"french": "Mina et Paul arrivent. **Ils** arrivent ensemble.", "english": "Mina and Paul are arriving. They are arriving together.", "note": "A mixed group takes ils."},
+        {"french": "Toi et moi, **nous** parlons français.", "english": "You and I speak French.", "note": "A group including the speaker takes nous."},
+        {"french": "Lina et toi, **vous** arrivez ensemble.", "english": "Lina and you are arriving together.", "note": "The group includes the listener, but not the speaker."}
+      ],
+      "mistakes": [{"avoid": "Mina et moi, ils arrivent.", "prefer": "Mina et moi, nous arrivons.", "why": "When the speaker is part of the subject, use nous and its verb form."}]
+    },
+    {
+      "id": "on-everyone",
+      "title": "On can include us; everyone still takes a singular verb",
+      "paragraphs": ["In everyday conversation, on often means we. Nous is also correct and is useful in more formal writing. On always uses the third-person singular verb form, the same form as il or elle, even when it means several people. On can also mean people in general, English 'one', or an unspecified person; context decides.", "Tout le monde means everyone. Although it refers to a group, its verb is singular. Do not translate the English idea of many people into a plural verb here."],
+      "points": ["Nous parlons and on parle can describe the same group.", "Do not assume that on always includes the speaker."],
+      "examples": [
+        {"french": "**On parle** français à la maison.", "english": "We speak French at home.", "note": "In a conversation about our household, on means we."},
+        {"french": "Ici, **on parle** doucement.", "english": "Here, people speak quietly.", "note": "On describes a general practice."},
+        {"french": "**On frappe** à la porte.", "english": "Someone is knocking at the door.", "note": "The person's identity is unspecified."},
+        {"french": "**Tout le monde arrive** à midi.", "english": "Everyone arrives at noon.", "note": "Arrive is singular, despite the collective meaning."}
+      ],
+      "mistakes": [{"avoid": "On parlons français.", "prefer": "On parle français.", "why": "On uses a singular verb, including when it means we."}]
+    }
+  ],
+  "practice": [
+    {"id": "a1-found-01", "kind": "text", "pool": "practice", "section_id": "building-blocks", "prompt": "Copy only the subject of 'La voisine arrive.'", "choices": [], "answers": ["La voisine"], "explanation": "La voisine, the female neighbour, is the person arriving."},
+    {"id": "a1-found-02", "kind": "text", "pool": "practice", "section_id": "building-blocks", "prompt": "Copy only the conjugated verb in 'Karim parle français.'", "choices": [], "answers": ["parle"], "explanation": "Parle tells us what Karim does."},
+    {"id": "a1-found-03", "kind": "choice", "pool": "practice", "section_id": "subject-pronouns", "prompt": "Une chaise is feminine. Replace 'la chaise' with a subject pronoun.", "choices": ["il", "elle"], "answers": ["elle"], "explanation": "A feminine thing is referred to with elle, not an English-style neutral pronoun."},
+    {"id": "a1-found-04", "kind": "text", "pool": "practice", "section_id": "on-everyone", "prompt": "Keep on and supply parle or parlons: 'On ___ anglais ici.'", "choices": [], "answers": ["parle"], "explanation": "On takes the third-person singular."},
+    {"id": "a1-found-05", "kind": "text", "pool": "check", "section_id": "subject-pronouns", "prompt": "Replace 'Hugo et moi' with one subject pronoun.", "choices": [], "answers": ["nous"], "explanation": "The group includes the speaker."},
+    {"id": "a1-found-06", "kind": "text", "pool": "check", "section_id": "subject-pronouns", "prompt": "Replace 'ta sœur et toi' with one subject pronoun.", "choices": [], "answers": ["vous"], "explanation": "This group includes the listener, but not the speaker."},
+    {"id": "a1-found-07", "kind": "text", "pool": "check", "section_id": "subject-pronouns", "prompt": "Replace 'les deux étudiantes' (two female students) with one subject pronoun.", "choices": [], "answers": ["elles"], "explanation": "An all-feminine group takes elles."},
+    {"id": "a1-found-08", "kind": "text", "pool": "check", "section_id": "subject-pronouns", "prompt": "Replace 'le vélo' (a masculine bicycle) with one subject pronoun.", "choices": [], "answers": ["il"], "explanation": "Grammatical gender determines the pronoun for a thing."},
+    {"id": "a1-found-09", "kind": "choice", "pool": "check", "section_id": "on-everyone", "prompt": "Friends say 'On arrive !' about themselves. Which equivalent uses nous?", "choices": ["Nous arrivons !", "Nous arrive !"], "answers": ["Nous arrivons !"], "explanation": "Conversational on can mean nous, but the verb must change."},
+    {"id": "a1-found-10", "kind": "text", "pool": "check", "section_id": "on-everyone", "prompt": "Supply arrive or arrivent: 'Tout le monde ___ demain.'", "choices": [], "answers": ["arrive"], "explanation": "Tout le monde requires a singular verb."},
+    {"id": "a1-found-11", "kind": "choice", "pool": "check", "section_id": "building-blocks", "prompt": "Which word is an infinitive, the dictionary form?", "choices": ["parler", "parlons"], "answers": ["parler"], "explanation": "Parlons is conjugated for nous; parler is the infinitive."},
+    {"id": "a1-found-12", "kind": "text", "pool": "check", "section_id": "subject-pronouns", "prompt": "Write je + arrive with standard elision.", "choices": [], "answers": ["j'arrive"], "explanation": "Je becomes j' before the vowel in arrive."},
+    {"id": "a1-found-13", "kind": "text", "pool": "review", "section_id": "subject-pronouns", "prompt": "Replace 'Amel et son frère' with one subject pronoun.", "choices": [], "answers": ["ils"], "explanation": "The conventional pronoun for a mixed group is ils."},
+    {"id": "a1-found-14", "kind": "text", "pool": "review", "section_id": "on-everyone", "prompt": "Correct only the verb: 'Tout le monde parlent.' Write the complete corrected sentence.", "choices": [], "answers": ["Tout le monde parle."], "explanation": "Everyone is a singular grammatical subject in French."},
+    {"id": "a1-found-15", "kind": "choice", "pool": "review", "section_id": "on-everyone", "prompt": "In a general rule 'Ici, on travaille en silence', must on mean a particular group called 'we'?", "choices": ["Non", "Oui"], "answers": ["Non"], "explanation": "On can refer to people generally, not just a specific we."},
+    {"id": "a1-found-16", "kind": "text", "pool": "review", "section_id": "subject-pronouns", "prompt": "Which subject pronoun addresses one unfamiliar adult politely?", "choices": [], "answers": ["vous"], "explanation": "Vous is also the polite singular you."}
+  ],
+  "production_task": {
+    "prompt": "Introduce a study group in three short sentences: name two people, refer back to them with a pronoun, then include yourself with nous or on. Use parler (speak) or arriver (arrive).",
+    "model_answer": "Aya et Luc arrivent. Ils parlent français. On parle ensemble.",
+    "translation": "Aya and Luc are arriving. They speak French. We speak together.",
+    "rubric": ["Every statement has a subject and conjugated verb.", "The pronoun matches the group it replaces.", "On has a singular verb, or nous has its own plural form."]
+  }
+}

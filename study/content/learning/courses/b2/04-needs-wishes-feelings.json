@@ -7,40 +7,40 @@
   "related_legacy_ids": ["verbs-subjunctive", "expressions-avoir-faire-il-faut"],
   "sections": [
     {"id": "requirements", "title": "A requirement is not an assertion",
-      "paragraphs": ["Il faut que + subject + subjunctive names an action as necessary. Il faut + infinitive gives a general requirement without naming a separate subject. Il faut is impersonal: il does not refer to a man or an object.", "Avoir besoin que + subjunctive specifies what you need someone or something to do. Avoir besoin de + noun or infinitive instead names the needed thing or your own needed action. A noun is introduced with de, but a finite clause is introduced directly with que, not de que."],
+      "paragraphs": ["`Il faut que` + subject + subjunctive names an action as necessary. `Il faut` + infinitive gives a general requirement without naming a separate subject. `Il faut` is impersonal: `il` does not refer to a man or an object.", "`Avoir besoin que` + subjunctive specifies what you need someone or something to do. `Avoir besoin de` + noun or infinitive instead names the needed thing or your own needed action. A noun is introduced with `de`, but a finite clause is introduced directly with `que`, not `de que`."],
       "points": [],
       "examples": [
-        {"french": "Il faut que le technicien **vienne** aujourd'hui.", "english": "The technician needs to come today.", "note": "A named subject follows que."},
+        {"french": "Il faut que le technicien **vienne** aujourd'hui.", "english": "The technician needs to come today.", "note": "A named subject follows `que`."},
         {"french": "Il faut **vérifier** les freins.", "english": "The brakes need to be checked.", "note": "The infinitive gives a general requirement."},
         {"french": "J'ai besoin que tu **tiennes** la lampe.", "english": "I need you to hold the lamp.", "note": "My need concerns your action."},
         {"french": "J'ai besoin **de me reposer**.", "english": "I need to rest.", "note": "The person needing and resting is the same."}
       ],
-      "mistakes": [{"avoid": "J'ai besoin de que tu m'aides.", "prefer": "J'ai besoin que tu m'aides.", "why": "Use que directly before the finite clause; de belongs before a noun or infinitive."}]
+      "mistakes": [{"avoid": "J'ai besoin de que tu m'aides.", "prefer": "J'ai besoin que tu m'aides.", "why": "Use `que` directly before the finite clause; `de` belongs before a noun or infinitive."}]
     },
     {"id": "desire-emotion", "title": "A wish or reaction can concern something real",
-      "paragraphs": ["Vouloir que selects the subjunctive when a separate subject performs the desired action. With the same subject, use vouloir + infinitive: je veux partir. In je veux que tu partes, veux is indicative and partes is subjunctive.", "Aimer que and détester que introduce an emotional attitude toward a clause and select the subjunctive. This does not claim the event is doubtful: you can dislike a noise that really occurs every day. With your own activity, aimer/détester + infinitive is the normal compact construction."],
-      "points": ["Je voudrais que is a more courteous wish than je veux que; both select a subjunctive.", "Do not treat any occurrence of que as a subjunctive trigger: je constate que asserts an observation and normally takes the indicative."],
+      "paragraphs": ["`Vouloir que` selects the subjunctive when a separate subject performs the desired action. With the same subject, use `vouloir` + infinitive: `je veux partir`. In `je veux que tu partes`, `veux` is indicative and `partes` is subjunctive.", "`Aimer que` and `détester que` introduce an emotional attitude toward a clause and select the subjunctive. This does not claim the event is doubtful: you can dislike a noise that really occurs every day. With your own activity, `aimer/détester` + infinitive is the normal compact construction."],
+      "points": ["`Je voudrais que` is a more courteous wish than `je veux que`; both select a subjunctive.", "Do not treat any occurrence of `que` as a subjunctive trigger: `je constate que` asserts an observation and normally takes the indicative."],
       "examples": [
-        {"french": "Je veux que vous **preniez** le temps de lire.", "english": "I want you to take the time to read.", "note": "Different subjects: je and vous."},
-        {"french": "Je voudrais **comprendre** votre décision.", "english": "I would like to understand your decision.", "note": "Same subject, so no que-clause is needed."},
+        {"french": "Je veux que vous **preniez** le temps de lire.", "english": "I want you to take the time to read.", "note": "Different subjects: `je` and `vous`."},
+        {"french": "Je voudrais **comprendre** votre décision.", "english": "I would like to understand your decision.", "note": "Same subject, so no `que`-clause is needed."},
         {"french": "J'aime que mes voisins **me disent** bonjour.", "english": "I like my neighbours saying hello to me.", "note": "A welcome habit, not an uncertain event."},
         {"french": "Je déteste qu'on **laisse** la porte ouverte.", "english": "I hate people leaving the door open.", "note": "The clause is evaluated emotionally."}
       ],
-      "mistakes": [{"avoid": "Je veux que je pars.", "prefer": "Je veux partir.", "why": "For a straightforward same-subject wish, use the infinitive; pars is also not subjunctive."}]
+      "mistakes": [{"avoid": "Je veux que je pars.", "prefer": "Je veux partir.", "why": "For a straightforward same-subject wish, use the infinitive; `pars` is also not subjunctive."}]
     },
     {"id": "evaluations", "title": "The adjective's meaning determines the construction",
-      "paragraphs": ["Impersonal evaluations such as il est important/nécessaire/utile/regrettable/possible que normally select the subjunctive. With a general action, use il est + adjective + de + infinitive. In contrast, il est certain/évident/vrai que normally asserts the clause and takes the indicative when affirmative. 'Il est + adjective' is therefore not one universal mood rule."],
+      "paragraphs": ["Impersonal evaluations such as `il est important/nécessaire/utile/regrettable/possible que` normally select the subjunctive. With a general action, use `il est` + adjective + `de` + infinitive. In contrast, `il est certain/évident/vrai que` normally asserts the clause and takes the indicative when affirmative. '`Il est` + adjective' is therefore not one universal mood rule."],
       "points": [],
       "examples": [
         {"french": "Il est important que chaque voix **soit** entendue.", "english": "It is important for every voice to be heard.", "note": "An evaluation of what matters."},
-        {"french": "Il est certain que cette méthode **fonctionne**.", "english": "It is certain that this method works.", "note": "An assertion of certainty; fonctionne is indicative here."},
+        {"french": "Il est certain que cette méthode **fonctionne**.", "english": "It is certain that this method works.", "note": "An assertion of certainty; `fonctionne` is indicative here."},
         {"french": "Il est utile **de garder** une copie.", "english": "It is useful to keep a copy.", "note": "No separate subject is expressed after the adjective."}
       ],
       "mistakes": []
     },
     {"id": "negative-scope", "title": "Interdire ou laisser le choix",
-      "paragraphs": ["The scope of a negative is what it actually denies. Il ne faut pas que tu viennes normally means you must not come: it prohibits the action, rather than merely making attendance optional. To remove a requirement, say il n'est pas nécessaire que tu viennes or tu n'as pas besoin de venir. Choose the message before choosing the verb form.", "Negating an emotional preference does not turn it into an assertion: je n'aime pas que still takes the subjunctive. Keep track of which clause is negative. Je ne veux pas que tu partes rejects your leaving; je veux que tu ne partes pas asks you not to leave. These can lead to the same practical request, but their grammatical negatives sit in different clauses. A negative need such as je n'ai pas besoin que tu viennes still permits the normal subjunctive construction."],
-      "points": ["Do not translate English 'do not have to' mechanically as il ne faut pas que.", "A negation is not a universal mood switch: the negative opinions and knowledge statements in the next lesson require their own analysis."],
+      "paragraphs": ["The scope of a negative is what it actually denies. `Il ne faut pas que tu viennes` normally means you must not come: it prohibits the action, rather than merely making attendance optional. To remove a requirement, say `il n'est pas nécessaire que tu viennes` or `tu n'as pas besoin de venir`. Choose the message before choosing the verb form.", "Negating an emotional preference does not turn it into an assertion: `je n'aime pas que` still takes the subjunctive. Keep track of which clause is negative. `Je ne veux pas que tu partes` rejects your leaving; `je veux que tu ne partes pas` asks you not to leave. These can lead to the same practical request, but their grammatical negatives sit in different clauses. A negative need such as `je n'ai pas besoin que tu viennes` still permits the normal subjunctive construction."],
+      "points": ["Do not translate English 'do not have to' mechanically as `il ne faut pas que`.", "A negation is not a universal mood switch: the negative opinions and knowledge statements in the next lesson require their own analysis."],
       "examples": [
         {"french": "Il **ne faut pas que** les visiteurs **touchent** les maquettes.", "english": "Visitors must not touch the models.", "note": "A prohibition protecting the exhibits."},
         {"french": "Il **n'est pas nécessaire que** les visiteurs **réservent** en semaine.", "english": "Visitors do not need to book on weekdays.", "note": "Booking is optional, not forbidden."},

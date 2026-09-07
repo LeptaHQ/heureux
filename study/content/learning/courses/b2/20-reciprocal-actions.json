@@ -7,35 +7,35 @@
   "related_legacy_ids": ["pronouns-stressed-reflexive", "verbs-past-participle-agreement"],
   "sections": [
     {"id": "meaning", "title": "The same pronoun form can express two relationships",
-      "paragraphs": ["A reflexive action returns to the same person: she looks at herself. A reciprocal action passes between participants: they look at each other. French uses the same reflexive-pronoun series, so context supplies the distinction. A plural subject alone does not prove reciprocity: elles se lavent may mean each woman washes herself.", "Reciprocal forms normally need at least two participants. Use nous nous parlons, vous vous parlez, ils/elles se parlent; on se parle can mean we talk to each other when on stands for a group. Nous and vous repeat because one is the subject and one is the object pronoun. Je me parle normally means I talk to myself, not 'I talk to each other'."],
+      "paragraphs": ["A reflexive action returns to the same person: she looks at herself. A reciprocal action passes between participants: they look at each other. French uses the same reflexive-pronoun series, so context supplies the distinction. A plural subject alone does not prove reciprocity: `elles se lavent` may mean each woman washes herself.", "Reciprocal forms normally need at least two participants. Use `nous nous parlons, vous vous parlez, ils/elles se parlent`; `on se parle` can mean we talk to each other when `on` stands for a group. `Nous` and `vous` repeat because one is the subject and one is the object pronoun. `Je me parle` normally means I talk to myself, not 'I talk to each other'."],
       "points": [],
       "examples": [
         {"french": "Nous **nous aidons** pendant les travaux.", "english": "We help each other during the building work.", "note": "The context supports a reciprocal reading."},
-        {"french": "Vous **vous connaissez** déjà ?", "english": "Do you already know each other?", "note": "Vous addresses more than one person here."},
+        {"french": "Vous **vous connaissez** déjà ?", "english": "Do you already know each other?", "note": "`Vous` addresses more than one person here."},
         {"french": "Les deux cousines **se regardent** l'une l'autre.", "english": "The two cousins look at each other.", "note": "The added phrase removes ambiguity."},
         {"french": "Avant le spectacle, elles **se maquillent chacune** devant leur miroir.", "english": "Before the show, they each put on their own makeup in front of their mirror.", "note": "Plural reflexive action, not mutual makeup application."}
       ],
-      "mistakes": [{"avoid": "Nous se connaissons depuis longtemps.", "prefer": "Nous nous connaissons depuis longtemps.", "why": "The reflexive pronoun must match nous, even when the meaning is reciprocal."}]
+      "mistakes": [{"avoid": "Nous se connaissons depuis longtemps.", "prefer": "Nous nous connaissons depuis longtemps.", "why": "The reflexive pronoun must match `nous`, even when the meaning is reciprocal."}]
     },
     {"id": "clarity", "title": "Keep the preposition in explicit each-other phrases",
-      "paragraphs": ["For a direct relationship between two people, use l'un l'autre for masculine or mixed pairs and l'une l'autre for a feminine pair. With larger groups, les uns les autres or les unes les autres is possible. Mutuellement (mutually) and réciproquement (reciprocally) also make the intended relationship explicit.", "If the underlying verb requires a preposition, keep it: parler à → l'un à l'autre / l'une à l'autre / les uns aux autres / les unes aux autres. Dépendre de gives l'un de l'autre or l'une de l'autre; penser à gives penser l'un à l'autre, not a newly invented se penser. Not every reciprocal meaning can be expressed by adding se to any verb."],
+      "paragraphs": ["For a direct relationship between two people, use `l'un l'autre` for masculine or mixed pairs and `l'une l'autre` for a feminine pair. With larger groups, `les uns les autres` or `les unes les autres` is possible. `Mutuellement` (mutually) and `réciproquement` (reciprocally) also make the intended relationship explicit.", "If the underlying verb requires a preposition, keep it: `parler à` → `l'un à l'autre` / `l'une à l'autre` / `les uns aux autres` / `les unes aux autres`. `Dépendre de` gives `l'un de l'autre` or `l'une de l'autre`; `penser à` gives `penser l'un à l'autre`, not a newly invented `se penser`. Not every reciprocal meaning can be expressed by adding `se` to any verb."],
       "points": [],
       "examples": [
-        {"french": "Les deux équipes dépendent **l'une de l'autre**.", "english": "The two teams depend on each other.", "note": "Une équipe is feminine; dépendre requires de."},
-        {"french": "Les participantes se transmettent les informations **les unes aux autres**.", "english": "The participants pass the information to one another.", "note": "Feminine group, with à from transmettre à."},
-        {"french": "Nous pensons souvent **l'un à l'autre**.", "english": "We often think of each other.", "note": "Keep penser à; do not form se penser for this meaning."}
+        {"french": "Les deux équipes dépendent **l'une de l'autre**.", "english": "The two teams depend on each other.", "note": "`Une équipe` is feminine; `dépendre` requires `de`."},
+        {"french": "Les participantes se transmettent les informations **les unes aux autres**.", "english": "The participants pass the information to one another.", "note": "Feminine group, with `à` from `transmettre à`."},
+        {"french": "Nous pensons souvent **l'un à l'autre**.", "english": "We often think of each other.", "note": "Keep `penser à`; do not form `se penser` for this meaning."}
       ],
       "mistakes": []
     },
     {"id": "agreement", "title": "Reciprocity does not erase object function",
-      "paragraphs": ["In a compound tense, pronominal reciprocal verbs (those using a reflexive pronoun) take être, but the participle agrees with a preceding direct object, not automatically with every plural subject. Se voir and se rencontrer have direct se: elles se sont vues, rencontrées. Se parler, se téléphoner and se sourire have indirect se: elles se sont parlé, téléphoné, souri. A nonpronominal reciprocal construction keeps its normal auxiliary: elles ont pensé l'une à l'autre.", "In elles se sont envoyé des messages, messages is the following direct object and se is indirect. If that direct object comes first, it controls agreement: les lettres qu'elles se sont envoyées. This is the same grammatical analysis used with other reflexive verbs."],
+      "paragraphs": ["In a compound tense, pronominal reciprocal verbs (those using a reflexive pronoun) take `être`, but the participle agrees with a preceding direct object, not automatically with every plural subject. `Se voir` and `se rencontrer` have direct `se`: `elles se sont vues, rencontrées`. `Se parler`, `se téléphoner` and `se sourire` have indirect `se`: `elles se sont parlé, téléphoné, souri`. A nonpronominal reciprocal construction keeps its normal auxiliary: `elles ont pensé l'une à l'autre`.", "In `elles se sont envoyé des messages`, `messages` is the following direct object and `se` is indirect. If that direct object comes first, it controls agreement: `les lettres qu'elles se sont envoyées`. This is the same grammatical analysis used with other reflexive verbs."],
       "points": [],
       "examples": [
-        {"french": "Les deux sœurs **se sont retrouvées** à la gare.", "english": "The two sisters met up at the station.", "note": "Se is a preceding direct object."},
-        {"french": "Elles **se sont souri** avant de commencer.", "english": "They smiled at each other before starting.", "note": "Sourire à: indirect se."},
-        {"french": "Les lettres qu'elles **se sont envoyées** sont conservées ici.", "english": "The letters they sent each other are kept here.", "note": "Que represents the preceding feminine plural direct object."}
+        {"french": "Les deux sœurs **se sont retrouvées** à la gare.", "english": "The two sisters met up at the station.", "note": "`Se` is a preceding direct object."},
+        {"french": "Elles **se sont souri** avant de commencer.", "english": "They smiled at each other before starting.", "note": "`Sourire à`: indirect `se`."},
+        {"french": "Les lettres qu'elles **se sont envoyées** sont conservées ici.", "english": "The letters they sent each other are kept here.", "note": "`Que` represents the preceding feminine plural direct object."}
       ],
-      "mistakes": [{"avoid": "Elles se sont téléphonées hier.", "prefer": "Elles se sont téléphoné hier.", "why": "Téléphoner à takes an indirect reciprocal pronoun, so no agreement with se."}]
+      "mistakes": [{"avoid": "Elles se sont téléphonées hier.", "prefer": "Elles se sont téléphoné hier.", "why": "`Téléphoner à` takes an indirect reciprocal pronoun, so no agreement with `se`."}]
     }
   ],
   "practice": [

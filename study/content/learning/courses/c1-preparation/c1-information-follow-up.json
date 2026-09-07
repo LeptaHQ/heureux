@@ -25,12 +25,12 @@
       "id": "purpose",
       "title": "Ask for information you actually need",
       "paragraphs": [
-        "An information-seeking exchange is a joint activity, not a list of unrelated questions. Start with your purpose and the missing detail, then let the answer change your next move. A yes/no question checks a proposition; a question with quel, comment or à quelle heure requests a particular detail.",
-        "Est-ce que questions and subject–verb questions with rising intonation are ordinary spoken forms. Inversion can also be appropriate, especially in a polite request. Avoid treating the most formal form as the only correct spoken French. Keep vous when the fictional relationship is an unfamiliar organiser."
+        "An information-seeking exchange is a joint activity, not a list of unrelated questions. Start with your purpose and the missing detail, then let the answer change your next move. A yes/no question checks a proposition; a question with `quel`, `comment` or `à quelle heure` requests a particular detail.",
+        "`Est-ce que` questions and subject–verb questions with rising intonation are ordinary spoken forms. Inversion can also be appropriate, especially in a polite request. Avoid treating the most formal form as the only correct spoken French. Keep `vous` when the fictional relationship is an unfamiliar organiser."
       ],
       "points": [
         "A follow-up should not ask for a detail that was already given unless you are deliberately confirming it.",
-        "Une séance (f.) is a session; le matériel (m.) is equipment."
+        "`Une séance` (f.) is a session; `le matériel` (m.) is equipment."
       ],
       "examples": [
         {"french": "— Bonjour, je voudrais participer à votre atelier photo. **Quel matériel faut-il apporter** ?\n— Un téléphone suffit, mais il doit être chargé.\n— D'accord. **Et si la batterie se vide**, est-ce qu'on peut la recharger sur place ?\n— Oui, dans la salle d'accueil, pas pendant la sortie.\n— Donc, il vaut mieux arriver avec une batterie pleine. **Combien de temps dure la sortie** ?", "english": "— Hello, I would like to take part in your photography workshop. What equipment do we need to bring?\n— A phone is enough, but it must be charged.\n— All right. And if the battery runs down, can we recharge it there?\n— Yes, in the reception room, not during the outing.\n— So it is better to arrive with a full battery. How long does the outing last?", "note": "Each new question grows out of the previous answer. This is a written demonstration, not listening evidence."},
@@ -38,15 +38,15 @@
         {"french": "Vous proposez aussi une séance en soirée ?", "english": "Do you also offer an evening session?", "note": "Subject–verb order with question intonation is normal speech, not defective grammar."}
       ],
       "mistakes": [
-        {"avoid": "Est-ce que peut-on emprunter un appareil ?", "prefer": "Est-ce qu'on peut emprunter un appareil ?", "why": "Do not combine est-ce que with subject-pronoun inversion. Peut-on emprunter un appareil ? is also correct without est-ce que."}
+        {"avoid": "Est-ce que peut-on emprunter un appareil ?", "prefer": "Est-ce qu'on peut emprunter un appareil ?", "why": "Do not combine `est-ce que` with subject-pronoun inversion. `Peut-on emprunter un appareil ?` is also correct without `est-ce que`."}
       ]
     },
     {
       "id": "follow-up",
       "title": "Follow the answer, especially when it changes the plan",
       "paragraphs": [
-        "A useful follow-up can narrow a vague answer, ask about an alternative, or explore a condition. Dans ce cas explicitly links your response to new information. If a session is full, asking about another date is more responsive than restarting with a question about its location.",
-        "En and y can avoid unnecessary repetition when their references are clear: Il reste des places ? Il en reste combien ? Y covers a place or an à complement referring to a thing: Peut-on y participer à distance ? If several possible references compete, name the session or service instead."
+        "A useful follow-up can narrow a vague answer, ask about an alternative, or explore a condition. `Dans ce cas` explicitly links your response to new information. If a session is full, asking about another date is more responsive than restarting with a question about its location.",
+        "`En` and `y` can avoid unnecessary repetition when their references are clear: `Il reste des places ? Il en reste combien ?` `Y` covers a place or an `à` complement referring to a thing: `Peut-on y participer à distance ?` If several possible references compete, name the session or service instead."
       ],
       "points": [
         "Do not turn an unsuccessful request into a demand for an entitlement the scenario never established.",
@@ -54,18 +54,18 @@
       ],
       "examples": [
         {"french": "— La séance de samedi est complète.\n— **Dans ce cas**, quelle autre date pourriez-vous me proposer ?", "english": "— Saturday's session is full.\n— In that case, what other date could you offer me?", "note": "The speaker adapts instead of continuing a memorised Saturday script."},
-        {"french": "— Il reste quelques places dimanche.\n— Il **en** reste assez pour deux personnes ?", "english": "— There are a few places left on Sunday.\n— Are there enough left for two people?", "note": "En refers back to places; the quantity question now serves a concrete need."},
+        {"french": "— Il reste quelques places dimanche.\n— Il **en** reste assez pour deux personnes ?", "english": "— There are a few places left on Sunday.\n— Are there enough left for two people?", "note": "`En` refers back to `places`; the quantity question now serves a concrete need."},
         {"french": "— L'activité se déroule dehors, sauf en cas de forte pluie.\n— Et dans ce cas, **est-elle reportée ou organisée à l'intérieur** ?", "english": "— The activity takes place outdoors, except in heavy rain.\n— And in that case, is it postponed or held indoors?", "note": "The follow-up asks about the stated exception, not a new unrelated topic."}
       ],
       "mistakes": [
-        {"avoid": "Vous avez des places ? Combien vous restez ?", "prefer": "Vous avez des places ? Combien vous en reste-t-il ?", "why": "In il vous reste des places, il is the impersonal subject, vous is the person for whom places remain, and en represents places. Vous restez asks about you staying, not remaining places."}
+        {"avoid": "Vous avez des places ? Combien vous restez ?", "prefer": "Vous avez des places ? Combien vous en reste-t-il ?", "why": "In `il vous reste des places`, `il` is the impersonal subject, `vous` is the person for whom places remain, and `en` represents `places`. `Vous restez` asks about you staying, not remaining places."}
       ]
     },
     {
       "id": "clarify",
       "title": "Check the precise boundary before closing",
       "paragraphs": [
-        "Reformulate with si j'ai bien compris, then check the detail that matters. Avant mardi, jusqu'à mardi and à partir de mardi set different boundaries. Inclus means included; en supplément means extra. If a boundary remains vague, ask explicitly whether the day or item counts.",
+        "Reformulate with `si j'ai bien compris`, then check the detail that matters. `Avant mardi`, `jusqu'à mardi` and `à partir de mardi` set different boundaries. `Inclus` means included; `en supplément` means extra. If a boundary remains vague, ask explicitly whether the day or item counts.",
         "For FEI oral task 2, the total is 5 minutes 30 seconds, including 2 minutes of preparation, leaving about 3 minutes 30 seconds of interaction. Use preparation to identify information gaps and possible branches, not to write and read a complete speech. The short model below illustrates moves; it is not a full-length timed performance."
       ],
       "points": [

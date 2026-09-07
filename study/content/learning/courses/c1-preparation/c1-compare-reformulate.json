@@ -29,16 +29,16 @@
         "Source A favours late opening on two evenings, with quiet protected. Source B does not reject evening access: it proposes testing one evening first because staffing must be considered. Their common aim and their difference both matter."
       ],
       "points": [
-        "Une permanence (f.) here is a staffed service period; un créneau (m.) is a time slot.",
+        "`Une permanence` (f.) here is a staffed service period; `un créneau` (m.) is a time slot.",
         "Do not add measured savings, demand levels or outcomes that neither source supplies."
       ],
       "examples": [
         {"french": "Source A — « La bibliothèque devrait ouvrir plus tard deux soirs par semaine. Quand on travaille jusqu'à dix-sept heures, on peut difficilement y passer avant la fermeture. Il ne s'agit pas d'y organiser davantage d'animations, mais de permettre d'emprunter un livre ou de travailler au calme. Un espace silencieux devrait donc rester disponible pendant ces soirées. »", "english": "Source A — \"The library should stay open later two evenings a week. When you work until five, it is hard to get there before closing. The point is not to organise more events there, but to allow people to borrow a book or work quietly. A silent area should therefore remain available on those evenings.\"", "note": "The proposal concerns access and quiet, not an expanded events programme."},
         {"french": "Source B — « Un horaire élargi peut rendre service, mais il suppose du personnel disponible. Avant de prévoir deux soirées, essayons un seul créneau tardif pendant quelques semaines. Demandons aussi aux usagers quels services ils recherchent à cette heure-là. Si ce créneau répond à un besoin réel sans fragiliser l'accueil en journée, nous pourrons envisager de l'étendre. »", "english": "Source B — \"Longer hours can be helpful, but they require available staff. Before planning two evenings, let us try one late slot for a few weeks. Let us also ask users which services they want at that time. If this slot meets a real need without weakening daytime service, we can consider extending it.\"", "note": "An initial trial and conditions are proposed; a permanent refusal is not."},
-        {"french": "La première contribution **préconise** deux ouvertures tardives afin de faciliter l'accès après le travail.", "english": "The first contribution advocates two late openings to make access easier after work.", "note": "Préconiser means to advocate a course of action; it does not mean that the action has already happened."}
+        {"french": "La première contribution **préconise** deux ouvertures tardives afin de faciliter l'accès après le travail.", "english": "The first contribution advocates two late openings to make access easier after work.", "note": "`Préconiser` means to advocate a course of action; it does not mean that the action has already happened."}
       ],
       "mistakes": [
-        {"avoid": "La première contribution propose de la bibliothèque ouvre plus tard.", "prefer": "La première contribution propose que la bibliothèque ouvre plus tard.", "why": "Use proposer que + subject + subjunctive for this finite clause, or proposer d'ouvrir when using an infinitive. Do not combine de with a finite subject and verb."}
+        {"avoid": "La première contribution propose de la bibliothèque ouvre plus tard.", "prefer": "La première contribution propose que la bibliothèque ouvre plus tard.", "why": "Use `proposer que` + subject + subjunctive for this finite clause, or `proposer d'ouvrir` when using an infinitive. Do not combine `de` with a finite subject and verb."}
       ]
     },
     {
@@ -46,26 +46,26 @@
       "title": "Organise the comparison around a question",
       "paragraphs": [
         "Instead of repeating A then B without a link, ask one shared question: how should evening access be expanded? Both see potential value; they differ on the scale and the timing of implementation. Comparison can reveal partial agreement, not just opposition.",
-        "Tandis que and alors que can express contrast here; in other contexts they express simultaneous time. Tous deux or toutes deux refers to two entities with the appropriate gender. Dont replaces a de relationship, including parler de or avoir besoin de. Preserve the relation, not just the noun."
+        "`Tandis que` and `alors que` can express contrast here; in other contexts they express simultaneous time. `Tous deux` or `toutes deux` refers to two entities with the appropriate gender. `Dont` replaces a `de` relationship, including `parler de` or `avoir besoin de`. Preserve the relation, not just the noun."
       ],
       "points": [
         "A reporting verb is a meaning choice: propose is not proves, fears is not demonstrates.",
-        "Use source labels or explicit noun phrases when le premier or celui-ci could be unclear."
+        "Use source labels or explicit noun phrases when `le premier` or `celui-ci` could be unclear."
       ],
       "examples": [
         {"french": "Les deux contributions reconnaissent l'intérêt d'un accès en soirée, **mais elles diffèrent sur** le rythme de mise en place.", "english": "Both contributions recognise the value of evening access, but they differ on the pace of implementation.", "note": "One sentence captures both common ground and the real difference."},
-        {"french": "A souhaite deux soirées, **tandis que** B recommande d'en tester une seule au départ.", "english": "A wants two evenings, whereas B recommends testing just one initially.", "note": "Au départ prevents a temporary limit from becoming a permanent rejection."},
-        {"french": "Le personnel **dont** B souligne la nécessité n'est pas évoqué dans A.", "english": "The staff that B says are needed are not mentioned in A.", "note": "Dont represents la nécessité du personnel. Silence in A is not proof that A opposes staffing."}
+        {"french": "A souhaite deux soirées, **tandis que** B recommande d'en tester une seule au départ.", "english": "A wants two evenings, whereas B recommends testing just one initially.", "note": "`Au départ` prevents a temporary limit from becoming a permanent rejection."},
+        {"french": "Le personnel **dont** B souligne la nécessité n'est pas évoqué dans A.", "english": "The staff that B says are needed are not mentioned in A.", "note": "`Dont` represents `la nécessité du personnel`. Silence in A is not proof that A opposes staffing."}
       ],
       "mistakes": [
-        {"avoid": "Les deux contributions reconnaît l'intérêt d'un horaire élargi.", "prefer": "Les deux contributions reconnaissent l'intérêt d'un horaire élargi.", "why": "The plural subject les deux contributions requires the plural verb reconnaissent."}
+        {"avoid": "Les deux contributions reconnaît l'intérêt d'un horaire élargi.", "prefer": "Les deux contributions reconnaissent l'intérêt d'un horaire élargi.", "why": "The plural subject `les deux contributions` requires the plural verb `reconnaissent`."}
       ]
     },
     {
       "id": "position",
       "title": "Make the boundary between summary and opinion visible",
       "paragraphs": [
-        "After a faithful comparison, signal your own judgement with pour ma part or à mon avis. Support it with a reason and a concrete implementation detail. You can combine parts of both proposals without claiming that either author made your combined proposal.",
+        "After a faithful comparison, signal your own judgement with `pour ma part` or `à mon avis`. Support it with a reason and a concrete implementation detail. You can combine parts of both proposals without claiming that either author made your combined proposal.",
         "FEI writing task 3 asks for a comparison of two supplied viewpoints and a personal position in 120–180 words. The original task here practises that combination, not an official response template. All three official writing tasks share 60 minutes. Follow the specific instructions on the real task, including any requested organisation; this lesson does not replace them."
       ],
       "points": [

@@ -9,7 +9,7 @@
   "order": 1,
   "duration_minutes": 12,
   "prerequisites": ["b1-present-stem-changes"],
-  "objectives": ["Form all six persons of regular present-subjunctive verbs.", "Distinguish a grammatical mood from tense and identify a clause introduced by que."],
+  "objectives": ["Form all six persons of regular present-subjunctive verbs.", "Distinguish a grammatical mood from tense and identify a clause introduced by `que`."],
   "keywords": ["subjonctif présent", "regular verbs", "mood", "finir", "attendre", "parler"],
   "sources": [{"label": "B2 public index, consulted as a topic-coverage reference", "url": "https://french.kwiziq.com/revision/grammar/by-cefr-level/cefr-b2"}],
   "related_legacy_ids": ["verbs-subjunctive", "verbs-present-patterns"],
@@ -17,44 +17,44 @@
     {
       "id": "build",
       "title": "A mood expresses how a clause is presented",
-      "paragraphs": ["A clause is a group built around a subject and a conjugated verb. A mood is a grammatical way of presenting that clause: an assertion, a wish, a requirement, and so on. Tense locates a situation in time. The present subjunctive can refer to now or the future; it is not a special future tense.", "In il faut que tu partes, the first clause presents a requirement and the que-clause names what is required. The construction il faut que selects the subjunctive. Learn constructions and their meaning, not the false shortcut 'subjunctive means uncertain'. A known fact can appear in the subjunctive after an expression of emotion.", "For regular verbs, take the present-indicative ils/elles form, remove -ent, and add -e, -es, -e, -ions, -iez, -ent. Thus parlent gives parl-, finissent gives finiss-, and attendent gives attend-. The ending -ent is silent. Que becomes qu' before a vowel; this does not change the verb."],
-      "points": ["Person order in each paradigm is je, tu, il/elle/on, nous, vous, ils/elles.", "These are regular patterns, not a promise that every verb in -ir or -re follows them. Later lessons teach exceptional stems."],
+      "paragraphs": ["A clause is a group built around a subject and a conjugated verb. A mood is a grammatical way of presenting that clause: an assertion, a wish, a requirement, and so on. Tense locates a situation in time. The present subjunctive can refer to now or the future; it is not a special future tense.", "In `il faut que tu partes`, the first clause presents a requirement and the `que`-clause names what is required. The construction `il faut que` selects the subjunctive. Learn constructions and their meaning, not the false shortcut 'subjunctive means uncertain'. A known fact can appear in the subjunctive after an expression of emotion.", "For regular verbs, take the present-indicative `ils/elles` form, remove `-ent`, and add `-e`, `-es`, `-e`, `-ions`, `-iez`, `-ent`. Thus `parlent` gives `parl-`, `finissent` gives `finiss-`, and `attendent` gives `attend-`. The ending `-ent` is silent. `Que` becomes `qu'` before a vowel; this does not change the verb."],
+      "points": ["Person order in each paradigm is `je`, `tu`, `il/elle/on`, `nous`, `vous`, `ils/elles`.", "These are regular patterns, not a promise that every verb in `-ir` or `-re` follows them. Later lessons teach exceptional stems."],
       "examples": [
         {"french": "que je **parle**\nque tu **parles**\nqu'il/elle/on **parle**\nque nous **parlions**\nque vous **parliez**\nqu'ils/elles **parlent**", "english": "that I speak\nthat you speak\nthat he/she/one speaks\nthat we speak\nthat you speak\nthat they speak", "note": "English 'that' clauses do not reproduce every French mood distinction."},
-        {"french": "que je **finisse**\nque tu **finisses**\nqu'il/elle/on **finisse**\nque nous **finissions**\nque vous **finissiez**\nqu'ils/elles **finissent**", "english": "that I finish\nthat you finish\nthat he/she/one finishes\nthat we finish\nthat you finish\nthat they finish", "note": "Keep -iss- throughout this regular -ir pattern."},
-        {"french": "que j'**attende**\nque tu **attendes**\nqu'il/elle/on **attende**\nque nous **attendions**\nque vous **attendiez**\nqu'ils/elles **attendent**", "english": "that I wait\nthat you wait\nthat he/she/one waits\nthat we wait\nthat you wait\nthat they wait", "note": "The stem includes d, even where the indicative singular does not pronounce it."},
+        {"french": "que je **finisse**\nque tu **finisses**\nqu'il/elle/on **finisse**\nque nous **finissions**\nque vous **finissiez**\nqu'ils/elles **finissent**", "english": "that I finish\nthat you finish\nthat he/she/one finishes\nthat we finish\nthat you finish\nthat they finish", "note": "Keep `-iss-` throughout this regular `-ir` pattern."},
+        {"french": "que j'**attende**\nque tu **attendes**\nqu'il/elle/on **attende**\nque nous **attendions**\nque vous **attendiez**\nqu'ils/elles **attendent**", "english": "that I wait\nthat you wait\nthat he/she/one waits\nthat we wait\nthat you wait\nthat they wait", "note": "The stem includes `d`, even where the indicative singular does not pronounce it."},
         {"french": "Il faut que vous **finissiez** avant midi.", "english": "You need to finish before noon.", "note": "The required action is future, but the form is present subjunctive."},
-        {"french": "Il faut qu'on **attende** le résultat.", "english": "We need to wait for the result.", "note": "On uses the third-person singular ending."}
+        {"french": "Il faut qu'on **attende** le résultat.", "english": "We need to wait for the result.", "note": "`On` uses the third-person singular ending."}
       ],
-      "mistakes": [{"avoid": "Il faut que nous finons.", "prefer": "Il faut que nous finissions.", "why": "Use the finiss- stem and the -ions ending, not the infinitive minus -ir."}]
+      "mistakes": [{"avoid": "Il faut que nous finons.", "prefer": "Il faut que nous finissions.", "why": "Use the `finiss-` stem and the `-ions` ending, not the infinitive minus `-ir`."}]
     },
     {
       "id": "spelling",
       "title": "Hear identical forms, but retain the spelling",
-      "paragraphs": ["With many -er verbs, the singular subjunctive sounds and looks like the present indicative. The surrounding construction identifies the mood. Nous and vous normally expose the difference: nous parlons versus que nous parlions.", "For étudier, the stem ends in i, so adding -ions or -iez produces two consecutive i's: étudiions, étudiiez. In the regular -ger and -cer patterns, no extra e or ç is needed before i: que nous mangions, que vous commenciez. These spellings preserve the normal soft sound."],
-      "points": ["Do not add a subjunctive ending to an already complete indicative form.", "In writing, keep ne when a standard negative clause is requested: il faut que tu ne fumes pas ici."],
+      "paragraphs": ["With many `-er` verbs, the singular subjunctive sounds and looks like the present indicative. The surrounding construction identifies the mood. `Nous` and `vous` normally expose the difference: `nous parlons` versus `que nous parlions`.", "For `étudier`, the stem ends in `i`, so adding `-ions` or `-iez` produces two consecutive `i`'s: `étudiions`, `étudiiez`. In the regular `-ger` and `-cer` patterns, no extra `e` or `ç` is needed before `i`: `que nous mangions`, `que vous commenciez`. These spellings preserve the normal soft sound."],
+      "points": ["Do not add a subjunctive ending to an already complete indicative form.", "In writing, keep `ne` when a standard negative clause is requested: `il faut que tu ne fumes pas ici`."],
       "examples": [
         {"french": "Tu **fermes** à six heures. Il faut que tu **fermes** à cinq heures aujourd'hui.", "english": "You close at six. You need to close at five today.", "note": "Same written form, different grammatical setting."},
-        {"french": "Il faut que nous **étudiions** les deux solutions.", "english": "We need to study both solutions.", "note": "The stem étudi- and ending -ions both contain i."},
-        {"french": "Il faut que nous **mangions** maintenant.", "english": "We need to eat now.", "note": "G is already soft before i."},
-        {"french": "Il faut que vous **commenciez** par la conclusion.", "english": "You need to start with the conclusion.", "note": "C is already soft before i."},
-        {"french": "Il faut que tu ne **touches** pas ce câble.", "english": "You must not touch this cable.", "note": "The negative surrounds the conjugated subjunctive, not que."}
+        {"french": "Il faut que nous **étudiions** les deux solutions.", "english": "We need to study both solutions.", "note": "The stem `étudi-` and ending `-ions` both contain `i`."},
+        {"french": "Il faut que nous **mangions** maintenant.", "english": "We need to eat now.", "note": "`G` is already soft before `i`."},
+        {"french": "Il faut que vous **commenciez** par la conclusion.", "english": "You need to start with the conclusion.", "note": "`C` is already soft before `i`."},
+        {"french": "Il faut que tu ne **touches** pas ce câble.", "english": "You must not touch this cable.", "note": "The negative surrounds the conjugated subjunctive, not `que`."}
       ],
-      "mistakes": [{"avoid": "Il faut que nous parlons.", "prefer": "Il faut que nous parlions.", "why": "Il faut que requires the subjunctive; parlons is present indicative."}]
+      "mistakes": [{"avoid": "Il faut que nous parlons.", "prefer": "Il faut que nous parlions.", "why": "`Il faut que` requires the subjunctive; `parlons` is present indicative."}]
     },
     {
       "id": "transfer-stems",
       "title": "Réutiliser un radical connu",
-      "paragraphs": ["An irregular indicative does not automatically mean an exceptional subjunctive. A stem is the part before the personal ending. Partir, écrire and lire have irregular present-indicative forms, but their present subjunctives follow the stem-and-ending method here: ils partent gives part-, ils écrivent gives écriv-, and ils lisent gives lis-.", "Start from the plural form you actually know, not from the infinitive or the je form. Je pars does not supply a pars- subjunctive stem. This transfer works for these verbs; it does not replace learning the two-stem and exceptional verbs in the next lessons."],
+      "paragraphs": ["An irregular indicative does not automatically mean an exceptional subjunctive. A stem is the part before the personal ending. `Partir`, `écrire` and `lire` have irregular present-indicative forms, but their present subjunctives follow the stem-and-ending method here: `ils partent` gives `part-`, `ils écrivent` gives `écriv-`, and `ils lisent` gives `lis-`.", "Start from the plural form you actually know, not from the infinitive or the `je` form. `Je pars` does not supply a `pars-` subjunctive stem. This transfer works for these verbs; it does not replace learning the two-stem and exceptional verbs in the next lessons."],
       "points": ["Use the same six subjunctive endings as before. Irregularity in one tense or mood does not predict every other form."],
       "examples": [
-        {"french": "que je **parte**, que tu **partes**, qu'il/elle/on **parte**, que nous **partions**, que vous **partiez**, qu'ils/elles **partent**", "english": "that I leave, that you leave, that he/she/one leaves, that we leave, that you leave, that they leave", "note": "Partent supplies part-, including the t."},
-        {"french": "que j'**écrive**, que tu **écrives**, qu'il/elle/on **écrive**, que nous **écrivions**, que vous **écriviez**, qu'ils/elles **écrivent**", "english": "that I write, that you write, that he/she/one writes, that we write, that you write, that they write", "note": "The v of écrivent remains throughout."},
-        {"french": "que je **lise**, que tu **lises**, qu'il/elle/on **lise**, que nous **lisions**, que vous **lisiez**, qu'ils/elles **lisent**", "english": "that I read, that you read, that he/she/one reads, that we read, that you read, that they read", "note": "Lis- is the stem, not lir-."},
-        {"french": "Il faut que le dernier groupe **parte** avant la fermeture du parc.", "english": "The last group needs to leave before the park closes.", "note": "The singular subject takes parte, not the indicative part."},
-        {"french": "Il faut que nous **écrivions** les mesures sur le dessin et que vous **lisiez** la légende.", "english": "We need to write the measurements on the drawing, and you need to read the key.", "note": "The familiar -ions and -iez endings attach to écriv- and lis-."}
+        {"french": "que je **parte**, que tu **partes**, qu'il/elle/on **parte**, que nous **partions**, que vous **partiez**, qu'ils/elles **partent**", "english": "that I leave, that you leave, that he/she/one leaves, that we leave, that you leave, that they leave", "note": "`Partent` supplies `part-`, including the `t`."},
+        {"french": "que j'**écrive**, que tu **écrives**, qu'il/elle/on **écrive**, que nous **écrivions**, que vous **écriviez**, qu'ils/elles **écrivent**", "english": "that I write, that you write, that he/she/one writes, that we write, that you write, that they write", "note": "The `v` of `écrivent` remains throughout."},
+        {"french": "que je **lise**, que tu **lises**, qu'il/elle/on **lise**, que nous **lisions**, que vous **lisiez**, qu'ils/elles **lisent**", "english": "that I read, that you read, that he/she/one reads, that we read, that you read, that they read", "note": "`Lis-` is the stem, not `lir-`."},
+        {"french": "Il faut que le dernier groupe **parte** avant la fermeture du parc.", "english": "The last group needs to leave before the park closes.", "note": "The singular subject takes `parte`, not the indicative `part`."},
+        {"french": "Il faut que nous **écrivions** les mesures sur le dessin et que vous **lisiez** la légende.", "english": "We need to write the measurements on the drawing, and you need to read the key.", "note": "The familiar `-ions` and `-iez` endings attach to `écriv-` and `lis-`."}
       ],
-      "mistakes": [{"avoid": "Il faut que je lire la consigne.", "prefer": "Il faut que je lise la consigne.", "why": "Use lisent minus -ent, then add -e; the infinitive is not the stem."}]
+      "mistakes": [{"avoid": "Il faut que je lire la consigne.", "prefer": "Il faut que je lise la consigne.", "why": "Use `lisent` minus `-ent`, then add `-e`; the infinitive is not the stem."}]
     }
   ],
   "practice": [
@@ -82,9 +82,9 @@
     {"id": "r-depth-instructions", "kind": "text", "pool": "review", "section_id": "transfer-stems", "prompt": "Supply lire in the present subjunctive: Le fabricant demande que nous ___ les instructions avant le montage.", "choices": [], "answers": ["lisions"], "explanation": "Lis- + -ions transfers the familiar subjunctive pattern to lire."}
   ],
   "production_task": {
-    "prompt": "You coordinate a small community event. Write three short instructions with il faut que, using vous, nous and on and three different regular verbs.",
+    "prompt": "You coordinate a small community event. Write three short instructions with `il faut que`, using `vous`, `nous` and `on` and three different regular verbs.",
     "model_answer": "Il faut que vous prépariez les tables. Il faut que nous choisissions une musique calme. Il faut qu'on attende les derniers invités avant de commencer.",
     "translation": "You need to prepare the tables. We need to choose some calm music. We need to wait for the last guests before starting.",
-    "rubric": ["Each que-clause has its own subject and a present subjunctive.", "Nous and vous retain -ions and -iez.", "On has a singular verb.", "The instructions form a useful, coherent plan rather than a list of isolated conjugations."]
+    "rubric": ["Each `que`-clause has its own subject and a present subjunctive.", "`Nous` and `vous` retain `-ions` and `-iez`.", "`On` has a singular verb.", "The instructions form a useful, coherent plan rather than a list of isolated conjugations."]
   }
 }

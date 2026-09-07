@@ -24,31 +24,31 @@
       "id": "concession",
       "title": "Acknowledging a benefit is not unconditional approval",
       "paragraphs": [
-        "A concession accepts a point that might support the other side, then limits what follows from it. In certes... mais..., the first part is acknowledged; the second often carries the writer's deciding reservation. Ne... pas pour autant means that one fact does not, on that basis alone, justify the next conclusion.",
-        "Bien que introduces a conceded fact with the subjunctive, a verb mood selected by this construction; that does not make the fact imaginary. Même si normally takes the indicative and can mean even if or even though depending on context. Read the whole argument rather than assigning a fixed attitude to one connector."
+        "A concession accepts a point that might support the other side, then limits what follows from it. In `certes... mais...`, the first part is acknowledged; the second often carries the writer's deciding reservation. `Ne... pas pour autant` means that one fact does not, on that basis alone, justify the next conclusion.",
+        "`Bien que` introduces a conceded fact with the subjunctive, a verb mood selected by this construction; that does not make the fact imaginary. `Même si` normally takes the indicative and can mean even if or even though depending on context. Read the whole argument rather than assigning a fixed attitude to one connector."
       ],
       "points": [
         "In the original passage, the writer favours wider access but challenges an online-only method.",
-        "L'accès (m.) means access; une démarche (f.) here is a practical procedure, not necessarily a legal process."
+        "`L'accès` (m.) means access; `une démarche` (f.) here is a practical procedure, not necessarily a legal process."
       ],
       "examples": [
         {"french": "**Certes**, réserver une activité en ligne évite parfois un déplacement. Il serait pourtant regrettable que cette possibilité devienne le seul moyen de s'inscrire. Une permanence téléphonique ne résoudrait pas toutes les difficultés, mais elle offrirait un recours aux personnes mal à l'aise avec le formulaire. Le problème n'est donc pas l'outil lui-même : c'est l'absence d'autre choix.", "english": "Admittedly, booking an activity online sometimes avoids a trip. Yet it would be regrettable if that option became the only way to register. A telephone help service would not solve every difficulty, but it would offer an alternative to people uncomfortable with the form. So the problem is not the tool itself: it is the absence of another choice.", "note": "The final contrast locates the objection precisely; this is not a rejection of all digital tools."},
         {"french": "Le formulaire est plus court ; il n'est **pas pour autant** facile à comprendre.", "english": "The form is shorter; that does not make it easy to understand.", "note": "Shortness is accepted; the inference from short to easy is rejected."},
-        {"french": "**Bien que** le service soit utile, son horaire exclut certains usagers.", "english": "Although the service is useful, its schedule excludes some users.", "note": "Soit follows bien que. The usefulness is conceded, not denied."}
+        {"french": "**Bien que** le service soit utile, son horaire exclut certains usagers.", "english": "Although the service is useful, its schedule excludes some users.", "note": "`Soit` follows `bien que`. The usefulness is conceded, not denied."}
       ],
       "mistakes": [
-        {"avoid": "Bien que le service est utile, son horaire pose problème.", "prefer": "Bien que le service soit utile, son horaire pose problème.", "why": "Use the subjunctive after bien que in this careful standard sentence; the concession can concern a real fact."}
+        {"avoid": "Bien que le service est utile, son horaire pose problème.", "prefer": "Bien que le service soit utile, son horaire pose problème.", "why": "Use the subjunctive after `bien que` in this careful standard sentence; the concession can concern a real fact."}
       ]
     },
     {
       "id": "scope",
       "title": "Preserve how much the claim actually says",
       "paragraphs": [
-        "Scope is the part of a statement affected by a word such as not, only or some. Tous ne... pas means not all, not none. Ne... que restricts to only; it is not the same as ne... pas. Pas nécessairement rejects inevitability, without asserting that the opposite is always true.",
-        "Peut, semble and selon mark possibility, appearance or attribution. Removing them can turn a cautious or attributed claim into a stronger assertion. A qualifier is useful when it identifies the real limit: who, under which conditions, or with what degree of certainty."
+        "Scope is the part of a statement affected by a word such as not, only or some. `Tous ne... pas` means not all, not none. `Ne... que` restricts to only; it is not the same as `ne... pas`. `Pas nécessairement` rejects inevitability, without asserting that the opposite is always true.",
+        "`Peut`, `semble` and `selon` mark possibility, appearance or attribution. Removing them can turn a cautious or attributed claim into a stronger assertion. A qualifier is useful when it identifies the real limit: who, under which conditions, or with what degree of certainty."
       ],
       "points": [
-        "Aucun usager n'a répondu means no user replied; tous les usagers n'ont pas répondu leaves open that some did.",
+        "`Aucun usager n'a répondu` means no user replied; `tous les usagers n'ont pas répondu` leaves open that some did.",
         "Do not treat a cautious statement as worthless merely because it is not absolute."
       ],
       "examples": [
@@ -57,7 +57,7 @@
         {"french": "**Selon** l'équipe, cet horaire **pourrait** faciliter l'accueil.", "english": "According to the team, this schedule could make it easier to serve users.", "note": "Both the source and the tentative modal must survive a faithful summary."}
       ],
       "mistakes": [
-        {"avoid": "Aucun des bénévoles ont refusé de participer.", "prefer": "Aucun des bénévoles n'a refusé de participer.", "why": "Aucun is the singular subject despite the plural de complement. In careful writing, include ne with aucun in this negative construction."}
+        {"avoid": "Aucun des bénévoles ont refusé de participer.", "prefer": "Aucun des bénévoles n'a refusé de participer.", "why": "`Aucun` is the singular subject despite the plural `de` complement. In careful writing, include `ne` with `aucun` in this negative construction."}
       ]
     },
     {

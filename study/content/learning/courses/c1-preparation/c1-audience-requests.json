@@ -25,47 +25,47 @@
       "id": "audience",
       "title": "Choose the relationship before choosing the formula",
       "paragraphs": [
-        "Register is the degree and style of formality suited to a situation. A message to a close friend can be brief and familiar; an initial request to an unfamiliar service normally benefits from vous, a greeting and an explicit purpose. Actual workplace relationships vary in Canada and elsewhere: follow an established tu relationship rather than assuming one national rule.",
-        "The conditional in pourriez-vous or je souhaiterais softens a request. It does not require an imaginary si clause. Formality does not mean adding long ceremonial phrases: polite wording should leave the requested action clear. A direct imperative may fit an instruction between colleagues but sound abrupt in a first request."
+        "Register is the degree and style of formality suited to a situation. A message to a close friend can be brief and familiar; an initial request to an unfamiliar service normally benefits from `vous`, a greeting and an explicit purpose. Actual workplace relationships vary in Canada and elsewhere: follow an established `tu` relationship rather than assuming one national rule.",
+        "The conditional in `pourriez-vous` or `je souhaiterais` softens a request. It does not require an imaginary `si` clause. Formality does not mean adding long ceremonial phrases: polite wording should leave the requested action clear. A direct imperative may fit an instruction between colleagues but sound abrupt in a first request."
       ],
       "points": [
         "The following two requests are both grammatical; the difference is relationship and tone, not correctness.",
-        "Un justificatif (m.) is a supporting document; une confirmation (f.) is a confirmation."
+        "`Un justificatif` (m.) is a supporting document; `une confirmation` (f.) is a confirmation."
       ],
       "examples": [
-        {"french": "Salut Zoé, tu peux me renvoyer l'adresse quand tu as un moment ?", "english": "Hi Zoé, can you send me the address again when you have a moment?", "note": "An ordinary familiar request between people who already use tu."},
-        {"french": "Bonjour, **pourriez-vous** me confirmer l'adresse de l'atelier ?", "english": "Hello, could you confirm the workshop address for me?", "note": "An initial request to an unfamiliar organiser uses vous and a softened question."},
+        {"french": "Salut Zoé, tu peux me renvoyer l'adresse quand tu as un moment ?", "english": "Hi Zoé, can you send me the address again when you have a moment?", "note": "An ordinary familiar request between people who already use `tu`."},
+        {"french": "Bonjour, **pourriez-vous** me confirmer l'adresse de l'atelier ?", "english": "Hello, could you confirm the workshop address for me?", "note": "An initial request to an unfamiliar organiser uses `vous` and a softened question."},
         {"french": "Bonjour Madame,\nJe vous écris au sujet de mon inscription à l'atelier de samedi. J'ai reçu la confirmation, mais elle ne précise pas la salle. **Pourriez-vous m'indiquer** où je dois me présenter ?\nMerci pour votre aide.\nCordialement,\nSamira", "english": "Dear Madam,\nI am writing about my registration for Saturday's workshop. I received the confirmation, but it does not specify the room. Could you tell me where I should go?\nThank you for your help.\nKind regards,\nSamira", "note": "Context, missing information and desired action are visible without a long introduction."}
       ],
       "mistakes": [
-        {"avoid": "Pourriez-vous me confirmé l'adresse ?", "prefer": "Pourriez-vous me confirmer l'adresse ?", "why": "Pouvoir is followed by an infinitive, confirmer, not the past participle confirmé."}
+        {"avoid": "Pourriez-vous me confirmé l'adresse ?", "prefer": "Pourriez-vous me confirmer l'adresse ?", "why": "`Pouvoir` is followed by an infinitive, `confirmer`, not the past participle `confirmé`."}
       ]
     },
     {
       "id": "embedded",
       "title": "Put an embedded question in statement order",
       "paragraphs": [
-        "An indirect or embedded question sits inside a larger request: Pourriez-vous me dire où la réunion aura lieu ? The outer question may use inversion, but the embedded question normally keeps subject before verb. Do not retain subject-pronoun inversion such as partira-t-il. Inversion with a full noun subject is possible in some embedded questions: où se trouve l'entrée is also correct. Use si for a yes/no question, without est-ce que; use a question word such as où or quand for the missing detail.",
-        "Compare Où aura lieu la réunion ? with Je voudrais savoir où la réunion aura lieu. The second is a statement of what you want to know. When the whole sentence begins Pourriez-vous..., it remains a question and takes a question mark."
+        "An indirect or embedded question sits inside a larger request: `Pourriez-vous me dire où la réunion aura lieu ?` The outer question may use inversion, but the embedded question normally keeps subject before verb. Do not retain subject-pronoun inversion such as `partira-t-il`. Inversion with a full noun subject is possible in some embedded questions: `où se trouve l'entrée` is also correct. Use `si` for a yes/no question, without `est-ce que`; use a question word such as `où` or `quand` for the missing detail.",
+        "Compare `Où aura lieu la réunion ?` with `Je voudrais savoir où la réunion aura lieu`. The second is a statement of what you want to know. When the whole sentence begins `Pourriez-vous...`, it remains a question and takes a question mark."
       ],
       "points": [
-        "In these examples, si means whether, not a hypothetical if. Je voudrais savoir si vous pourriez... is possible; the rule banning a conditional in a hypothetical si clause does not apply to every si.",
+        "In these examples, `si` means whether, not a hypothetical if. `Je voudrais savoir si vous pourriez...` is possible; the rule banning a conditional in a hypothetical `si` clause does not apply to every `si`.",
         "Do not remove useful details merely to make a message sound elegant."
       ],
       "examples": [
-        {"french": "Je voudrais savoir **si le matériel est fourni**.", "english": "I would like to know whether the equipment is provided.", "note": "A yes/no question is embedded with si and ordinary subject–verb order."},
+        {"french": "Je voudrais savoir **si le matériel est fourni**.", "english": "I would like to know whether the equipment is provided.", "note": "A yes/no question is embedded with `si` and ordinary subject–verb order."},
         {"french": "Pouvez-vous préciser **quand les inscriptions se terminent** ?", "english": "Can you specify when registration closes?", "note": "The outer question is inverted; the embedded clause is not."},
-        {"french": "Je souhaiterais savoir **si vous pourriez** déplacer notre rendez-vous.", "english": "I would like to know whether you could move our appointment.", "note": "Si introduces an indirect question here. The conditional is legitimate."}
+        {"french": "Je souhaiterais savoir **si vous pourriez** déplacer notre rendez-vous.", "english": "I would like to know whether you could move our appointment.", "note": "`Si` introduces an indirect question here. The conditional is legitimate."}
       ],
       "mistakes": [
-        {"avoid": "Je voudrais savoir où est-ce que la séance aura lieu.", "prefer": "Je voudrais savoir où la séance aura lieu.", "why": "Do not carry the direct-question marker est-ce que into this careful written embedded question."}
+        {"avoid": "Je voudrais savoir où est-ce que la séance aura lieu.", "prefer": "Je voudrais savoir où la séance aura lieu.", "why": "Do not carry the direct-question marker `est-ce que` into this careful written embedded question."}
       ]
     },
     {
       "id": "precision",
       "title": "Be explicit about facts, deadlines and next steps",
       "paragraphs": [
-        "Distinguish the fact you observed from the cause you suspect. Je n'ai pas reçu la confirmation does not establish vous avez oublié. State what response you need and why a date matters. D'ici vendredi sets a deadline by Friday; avant vendredi asks for an earlier response. Avoid inventing legal obligations or refund entitlements in a language exercise.",
+        "Distinguish the fact you observed from the cause you suspect. `Je n'ai pas reçu la confirmation` does not establish `vous avez oublié`. State what response you need and why a date matters. `D'ici vendredi` sets a deadline by Friday; `avant vendredi` asks for an earlier response. Avoid inventing legal obligations or refund entitlements in a language exercise.",
         "TCF Canada writing task 1 is an addressed message of 60–120 words, but not every task is a formal complaint. The audience and purpose in the prompt decide the register. The three writing tasks together last 60 minutes; this lesson's message is a short original preparation task."
       ],
       "points": [
@@ -102,7 +102,7 @@
     "model_answer": "Bonjour,\nJe suis inscrite à l'atelier de samedi et j'ai bien reçu votre confirmation. Pour préparer ma venue, pourriez-vous m'indiquer dans quelle salle la séance aura lieu et si le matériel sera fourni ? Si je dois apporter certains objets, une courte liste me serait très utile. Une réponse d'ici jeudi me permettrait d'organiser mon déplacement et de me procurer ce qui manque. Je vous remercie pour ces précisions et reste disponible si vous avez besoin de mon numéro d'inscription.\nCordialement,\nNadia",
     "translation": "Hello,\nI am registered for Saturday's workshop and have received your confirmation. To prepare for my visit, could you tell me which room the session will take place in and whether materials will be provided? If I need to bring any items, a short list would be very helpful. A reply by Thursday would allow me to organise my trip and obtain anything missing. Thank you for these details, and I remain available if you need my registration number.\nKind regards,\nNadia",
     "rubric": [
-      "My greeting, vous forms and closing fit an unfamiliar coordinator.",
+      "My greeting, `vous` forms and closing fit an unfamiliar coordinator.",
       "I ask both required questions and preserve statement order in embedded clauses.",
       "The requested deadline and its reason are explicit; I do not blame the organiser without evidence.",
       "I check the 60–120-word range and review this original message myself. A model comparison is not independent writing assessment."

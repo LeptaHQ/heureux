@@ -25,8 +25,8 @@
       "id": "repair",
       "title": "Correct the smallest unit that changes the meaning",
       "paragraphs": [
-        "A repair is a speaker's adjustment after noticing that an earlier word was wrong, vague or misleading. Je veux dire corrects or specifies; plutôt can replace a detail; plus précisément narrows a broad claim. Correct the important unit, then continue. Repeating the entire answer after every small slip can make the message harder to follow.",
-        "Prioritise an incorrect date, polarity, quantity or person because it changes the listener's action. A brief pardon can mark a correction, but repeated apologies are not required. Recheck that your repair actually replaces the wrong detail instead of adding a second competing version."
+        "A repair is a speaker's adjustment after noticing that an earlier word was wrong, vague or misleading. `Je veux dire` corrects or specifies; `plutôt` can replace a detail; `plus précisément` narrows a broad claim. Correct the important unit, then continue. Repeating the entire answer after every small slip can make the message harder to follow.",
+        "Prioritise an incorrect date, polarity, quantity or person because it changes the listener's action. A brief `pardon` can mark a correction, but repeated apologies are not required. Recheck that your repair actually replaces the wrong detail instead of adding a second competing version."
       ],
       "points": [
         "Smooth speech is not the absence of every pause or self-correction.",
@@ -38,43 +38,43 @@
         {"french": "Le service est fermé... **je veux dire, le comptoir est fermé** ; on peut encore téléphoner.", "english": "The service is closed... I mean, the desk is closed; you can still phone.", "note": "The narrower noun prevents the listener from assuming that every contact channel is unavailable."}
       ],
       "mistakes": [
-        {"avoid": "Il faut que je peux préciser l'heure.", "prefer": "Il faut que je puisse préciser l'heure.", "why": "Il faut que selects the subjunctive. Puisse is the required form of pouvoir; a speaker can repair peux to puisse and continue."}
+        {"avoid": "Il faut que je peux préciser l'heure.", "prefer": "Il faut que je puisse préciser l'heure.", "why": "`Il faut que` selects the subjunctive. `Puisse` is the required form of `pouvoir`; a speaker can repair `peux` to `puisse` and continue."}
       ]
     },
     {
       "id": "reformulate",
       "title": "Replace vague language with function and reference",
       "paragraphs": [
-        "If a word is temporarily unavailable, describe what the object does or where it is used: l'appareil qui imprime les billets. A relative clause, a clause beginning with qui, que or dont, can supply the useful relation. Qui is the subject of its clause; que can be a direct object; dont represents a de relationship.",
-        "An initially broad claim can also be repaired. Replace tout le monde with les personnes que j'ai interrogées if that is the evidence you actually have. Precision comes from a defensible boundary, not from a rarer synonym."
+        "If a word is temporarily unavailable, describe what the object does or where it is used: `l'appareil qui imprime les billets`. A relative clause, a clause beginning with `qui`, `que` or `dont`, can supply the useful relation. `Qui` is the subject of its clause; `que` can be a direct object; `dont` represents a `de` relationship.",
+        "An initially broad claim can also be repaired. Replace `tout le monde` with `les personnes que j'ai interrogées` if that is the evidence you actually have. Precision comes from a defensible boundary, not from a rarer synonym."
       ],
       "points": [
-        "Un casier (m.) is a locker or compartment; une borne (f.) can be a self-service terminal.",
+        "`Un casier` (m.) is a locker or compartment; `une borne` (f.) can be a self-service terminal.",
         "A paraphrase may keep communication moving even when it is not the shortest possible wording."
       ],
       "examples": [
-        {"french": "Je cherche la borne, **l'appareil qui permet de retirer un billet**.", "english": "I am looking for the terminal, the machine that lets you collect a ticket.", "note": "The function identifies the object and qui is the subject of permet."},
-        {"french": "C'est la pièce **dont j'ai besoin** pour terminer le montage.", "english": "It is the part I need to finish the assembly.", "note": "Dont preserves avoir besoin de; the description remains informative without the part's technical name."},
+        {"french": "Je cherche la borne, **l'appareil qui permet de retirer un billet**.", "english": "I am looking for the terminal, the machine that lets you collect a ticket.", "note": "The function identifies the object and `qui` is the subject of `permet`."},
+        {"french": "C'est la pièce **dont j'ai besoin** pour terminer le montage.", "english": "It is the part I need to finish the assembly.", "note": "`Dont` preserves `avoir besoin de`; the description remains informative without the part's technical name."},
         {"french": "Tout le monde trouve l'horaire compliqué... **enfin, les deux personnes à qui j'en ai parlé**.", "english": "Everyone finds the schedule complicated... well, the two people I spoke to about it.", "note": "The repair reduces an unsupported generalisation to the actual evidence."}
       ],
       "mistakes": [
-        {"avoid": "Je cherche le document que j'ai besoin.", "prefer": "Je cherche le document dont j'ai besoin.", "why": "Avoir besoin de requires dont, not direct-object que, in this relative clause."}
+        {"avoid": "Je cherche le document que j'ai besoin.", "prefer": "Je cherche le document dont j'ai besoin.", "why": "`Avoir besoin de` requires `dont`, not direct-object `que`, in this relative clause."}
       ]
     },
     {
       "id": "spoken",
       "title": "Recognise spoken forms without treating spelling as sound",
       "paragraphs": [
-        "Ordinary speech may omit ne, reduce il y a, join sounds across word boundaries, or interrupt a phrase before replacing it. A transcript spelling such as y a records a reduction; it is not a recommendation for a formal email. These forms occur in multiple French-speaking regions and are not a reason to stereotype one accent.",
+        "Ordinary speech may omit `ne`, reduce `il y a`, join sounds across word boundaries, or interrupt a phrase before replacing it. A transcript spelling such as `y a` records a reduction; it is not a recommendation for a formal email. These forms occur in multiple French-speaking regions and are not a reason to stereotype one accent.",
         "Understanding a printed sentence lets you see word boundaries and reread a correction. Listening requires segmenting a continuous signal, recognising reduced forms, tracking stress and holding earlier information while hearing a replacement. Familiarity with a transcript or synthetic read-aloud does not establish readiness for unfamiliar voices and natural delivery.",
         "Use a real unfamiliar recording for listening practice: answer before revealing a transcript, record what you understood on the first play, then use replay and the transcript diagnostically. For exam-format practice, FEI TCF Canada recordings are played once. Do not count later recognition after transcript study as first-play comprehension."
       ],
       "points": [
-        "A missing written ne is not proof of affirmative meaning in conversational speech: pas, jamais or plus and context matter.",
-        "For ambiguous written plus, do not infer a single spoken meaning without context and pronunciation."
+        "A missing written `ne` is not proof of affirmative meaning in conversational speech: `pas`, `jamais` or `plus` and context matter.",
+        "For ambiguous written `plus`, do not infer a single spoken meaning without context and pronunciation."
       ],
       "examples": [
-        {"french": "À l'oral familier : « **On peut pas** venir demain. »\nÀ l'écrit soigné : « **On ne peut pas** venir demain. »", "english": "In informal speech: \"We cannot come tomorrow.\"\nIn careful writing: \"We cannot come tomorrow.\"", "note": "Omission of ne in common speech does not remove the negation carried by pas."},
+        {"french": "À l'oral familier : « **On peut pas** venir demain. »\nÀ l'écrit soigné : « **On ne peut pas** venir demain. »", "english": "In informal speech: \"We cannot come tomorrow.\"\nIn careful writing: \"We cannot come tomorrow.\"", "note": "Omission of `ne` in common speech does not remove the negation carried by `pas`."},
         {"french": "Transcription familière : « **Y a** une autre entrée, à gauche. »\nForme développée : « **Il y a** une autre entrée, à gauche. »", "english": "Informal transcription: \"There is another entrance, on the left.\"\nFull form: \"There is another entrance, on the left.\"", "note": "The transcript explains a reduced form; only actual audio can assess whether the learner recognises it in a continuous signal."}
       ],
       "mistakes": []

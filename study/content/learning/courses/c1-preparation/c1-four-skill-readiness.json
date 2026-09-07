@@ -44,19 +44,19 @@
         {"french": "Bien que ma lecture soit plus rapide, **je n'en déduis pas** que mon expression orale a progressé autant.", "english": "Although my reading is faster, I do not infer from that that my speaking has improved as much.", "note": "A concession and a carefully bounded inference keep the four skills distinct."}
       ],
       "mistakes": [
-        {"avoid": "Bien que j'ai compris le texte, je dois encore travailler l'écoute.", "prefer": "Bien que j'aie compris le texte, je dois encore travailler l'écoute.", "why": "Bien que selects the subjunctive. J'aie compris concedes a completed act of understanding without making it listening evidence."}
+        {"avoid": "Bien que j'ai compris le texte, je dois encore travailler l'écoute.", "prefer": "Bien que j'aie compris le texte, je dois encore travailler l'écoute.", "why": "`Bien que` selects the subjunctive. `J'aie compris` concedes a completed act of understanding without making it listening evidence."}
       ]
     },
     {
       "id": "transfer",
       "title": "Check what changes, what stays and what remains unknown",
       "paragraphs": [
-        "Read the original notice below as a new practical problem. Identify its purpose, updated location, unchanged deadline and uncertain later outcome. Puisque gives a stated reason; en revanche marks a contrast; sans décider excludes a conclusion that might otherwise be assumed.",
-        "For writing or speaking, identify the requested action before selecting grammar. Expliquer pourquoi calls for reasons; expliquer comment calls for a method; comparer requires a relationship between viewpoints, not just personal opinion. Keep the audience visible. You may know the vocabulary and still fail to answer the requested question."
+        "Read the original notice below as a new practical problem. Identify its purpose, updated location, unchanged deadline and uncertain later outcome. `Puisque` gives a stated reason; `en revanche` marks a contrast; `sans décider` excludes a conclusion that might otherwise be assumed.",
+        "For writing or speaking, identify the requested action before selecting grammar. `Expliquer pourquoi` calls for reasons; `expliquer comment` calls for a method; `comparer` requires a relationship between viewpoints, not just personal opinion. Keep the audience visible. You may know the vocabulary and still fail to answer the requested question."
       ],
       "points": [
         "The notice is fictional and its questions assess reading of printed text, not listening.",
-        "Une échéance (f.) is a deadline; un bilan (m.) is a review or assessment of what happened."
+        "`Une échéance` (f.) is a deadline; `un bilan` (m.) is a review or assessment of what happened."
       ],
       "examples": [
         {"french": "Avis aux participants — La rencontre de samedi se tiendra dans la salle du jardin, puisque la salle habituelle sera utilisée pour une autre activité. L'horaire reste fixé à quinze heures. En revanche, les personnes souhaitant présenter une idée devront toujours l'envoyer avant jeudi, comme prévu. La rencontre permettra de comparer les propositions, **sans décider immédiatement** lesquelles seront retenues. Un compte rendu sera transmis la semaine suivante.", "english": "Notice to participants — Saturday's meeting will take place in the garden room, since the usual room will be used for another activity. The time remains set at three in the afternoon. However, anyone wishing to present an idea must still send it before Thursday, as planned. The meeting will allow the proposals to be compared, without immediately deciding which will be selected. Minutes will be sent the following week.", "note": "The location changes; the time and submission deadline do not. Selection is not promised during the meeting."},
@@ -64,7 +64,7 @@
         {"french": "On me demande **de comparer les propositions**, pas seulement de dire laquelle je préfère.", "english": "I am being asked to compare the proposals, not merely to say which one I prefer.", "note": "Identifying the task verb prevents a relevant-sounding but incomplete response."}
       ],
       "mistakes": [
-        {"avoid": "La salle dont nous utiliserons samedi se trouve au fond du jardin.", "prefer": "La salle que nous utiliserons samedi se trouve au fond du jardin.", "why": "Utiliser takes a direct object, so que is needed. Dont would require a de relationship."}
+        {"avoid": "La salle dont nous utiliserons samedi se trouve au fond du jardin.", "prefer": "La salle que nous utiliserons samedi se trouve au fond du jardin.", "why": "`Utiliser` takes a direct object, so `que` is needed. `Dont` would require a `de` relationship."}
       ]
     },
     {

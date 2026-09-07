@@ -26,11 +26,11 @@
       "title": "Turn a reason into an explanation",
       "paragraphs": [
         "A position answers the actual question. A reason explains why you hold it. An illustration makes that explanation concrete, but a single example does not prove a universal rule. Ask after each reason: how would this work, for whom, and under what conditions?",
-        "You do not need rare vocabulary or a ceremonial introduction to sound precise. A clear position followed by developed reasons is more useful than d'abord, ensuite, enfin with no explanation. A hypothetical example must remain hypothetical: imagine a neighbour, rather than inventing a survey or claiming that a whole city has already succeeded."
+        "You do not need rare vocabulary or a ceremonial introduction to sound precise. A clear position followed by developed reasons is more useful than `d'abord, ensuite, enfin` with no explanation. A hypothetical example must remain hypothetical: imagine a neighbour, rather than inventing a survey or claiming that a whole city has already succeeded."
       ],
       "points": [
         "A material-sharing service is one original discussion topic, not a required exam theme.",
-        "Un emprunt (m.) here means borrowing an item; un achat (m.) is a purchase."
+        "`Un emprunt` (m.) here means borrowing an item; `un achat` (m.) is a purchase."
       ],
       "examples": [
         {"french": "Faut-il développer le prêt d'objets dans les quartiers ? **J'y suis favorable pour les objets utilisés rarement**, à condition que le service reste simple. Une personne qui a besoin d'une perceuse pour un seul projet pourrait l'emprunter plutôt que l'acheter. L'intérêt ne se limite donc pas au prix : elle éviterait aussi de stocker un objet dont elle se sert peu. Cela ne signifie pas que tous les biens doivent être partagés.", "english": "Should neighbourhood item-lending services be expanded? I support them for items that are rarely used, provided the service remains simple. Someone who needs a drill for just one project could borrow it rather than buy it. So the benefit is not limited to price: they would also avoid storing an item they seldom use. That does not mean that all goods must be shared.", "note": "Position, condition, mechanism and illustration are linked; no measured result is invented."},
@@ -38,15 +38,15 @@
         {"french": "**Par exemple**, une personne qui prépare une fête pourrait emprunter de la vaisselle.", "english": "For example, someone organising a party could borrow tableware.", "note": "The conditional makes this an illustration of a possibility, not a claim about observed users."}
       ],
       "mistakes": [
-        {"avoid": "Si chacun emprunterait les objets peu utilisés, on pourrait limiter certains achats.", "prefer": "Si chacun empruntait les objets peu utilisés, on pourrait limiter certains achats.", "why": "A hypothetical condition uses si + imperfect; the conditional belongs in the result."}
+        {"avoid": "Si chacun emprunterait les objets peu utilisés, on pourrait limiter certains achats.", "prefer": "Si chacun empruntait les objets peu utilisés, on pourrait limiter certains achats.", "why": "A hypothetical condition uses `si` + imperfect; the conditional belongs in the result."}
       ]
     },
     {
       "id": "objection",
       "title": "Give the objection its strongest reasonable form",
       "paragraphs": [
-        "A fair objection identifies a real difficulty, such as maintenance or unequal access. Certes accepts a point; toutefois or cependant introduces a limit or response. You may concede the problem while proposing a way to reduce it. Do not call the opposing view absurd simply to make your own position easier.",
-        "À condition que takes the subjunctive; à condition de takes an infinitive with an understood subject. Même si takes the indicative in the ordinary concession used here. These choices connect actual reasoning; adding a subjunctive merely to display an advanced form does not improve an argument."
+        "A fair objection identifies a real difficulty, such as maintenance or unequal access. `Certes` accepts a point; `toutefois` or `cependant` introduces a limit or response. You may concede the problem while proposing a way to reduce it. Do not call the opposing view absurd simply to make your own position easier.",
+        "`À condition que` takes the subjunctive; `à condition de` takes an infinitive with an understood subject. `Même si` takes the indicative in the ordinary concession used here. These choices connect actual reasoning; adding a subjunctive merely to display an advanced form does not improve an argument."
       ],
       "points": [
         "An answer to an objection should address that objection, not switch to a different benefit.",
@@ -54,18 +54,18 @@
       ],
       "examples": [
         {"french": "**Certes**, l'entretien demande du temps. **Toutefois**, un service limité à quelques objets serait plus facile à suivre.", "english": "Admittedly, maintenance takes time. However, a service limited to a few items would be easier to manage.", "note": "The response reduces the identified burden rather than denying it."},
-        {"french": "Le projet serait utile **à condition que** les horaires soient compatibles avec la vie des usagers.", "english": "The project would be useful provided the hours were compatible with users' lives.", "note": "Soient follows à condition que; the condition concerns practical access."},
+        {"french": "Le projet serait utile **à condition que** les horaires soient compatibles avec la vie des usagers.", "english": "The project would be useful provided the hours were compatible with users' lives.", "note": "`Soient` follows `à condition que`; the condition concerns practical access."},
         {"french": "**Même si** certains préfèrent acheter, cela n'empêche pas de proposer le prêt à ceux qui le souhaitent.", "english": "Even if some people prefer to buy, that does not prevent lending from being offered to those who want it.", "note": "The response supports a choice, not compulsory sharing."}
       ],
       "mistakes": [
-        {"avoid": "Le service fonctionnerait à condition que les objets sont vérifiés.", "prefer": "Le service fonctionnerait à condition que les objets soient vérifiés.", "why": "À condition que selects the subjunctive. Soient vérifiés is a present subjunctive passive."}
+        {"avoid": "Le service fonctionnerait à condition que les objets sont vérifiés.", "prefer": "Le service fonctionnerait à condition que les objets soient vérifiés.", "why": "`À condition que` selects the subjunctive. `Soient vérifiés` is a present subjunctive passive."}
       ]
     },
     {
       "id": "sustain",
       "title": "Keep developing instead of repeating or filling time",
       "paragraphs": [
-        "If you have stated a benefit, develop a consequence, compare a realistic alternative, or explain a limit. Repeating c'est important in different words does not develop the theme. Use a brief transition to orient the listener, then supply new substance.",
+        "If you have stated a benefit, develop a consequence, compare a realistic alternative, or explain a limit. Repeating `c'est important` in different words does not develop the theme. Use a brief transition to orient the listener, then supply new substance.",
         "FEI oral task 3 asks for spontaneous, continuous viewpoint development for 4 minutes 30 seconds without preparation. In learning mode you can plan and rehearse; a separate attempt should use a fresh question without reading a prepared text. The model is a shortened illustration of reasoning, not a timed script or an official exam answer."
       ],
       "points": [

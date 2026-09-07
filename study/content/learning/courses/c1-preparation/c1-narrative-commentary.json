@@ -24,12 +24,12 @@
       "id": "narrative",
       "title": "Choose a viewpoint, not a stopwatch rule",
       "paragraphs": [
-        "The imperfect presents a background, habit or situation viewed as ongoing. The passé composé presents an event as a completed whole or a turning point in the account. A long event can use the passé composé; a brief situation can use the imperfect. Duration alone does not choose the tense.",
-        "The pluperfect steps back before a past reference point. Return to the main sequence when that explanation is complete. Dates and connectors such as au début, ensuite and finalement help, but tense and logic must do the real work."
+        "The imperfect presents a background, habit or situation viewed as ongoing. The `passé composé` presents an event as a completed whole or a turning point in the account. A long event can use the `passé composé`; a brief situation can use the imperfect. Duration alone does not choose the tense.",
+        "The pluperfect steps back before a past reference point. Return to the main sequence when that explanation is complete. Dates and connectors such as `au début`, `ensuite` and `finalement` help, but tense and logic must do the real work."
       ],
       "points": [
         "An account needs selected details that explain what changed, not a list of everything that happened.",
-        "Un établi (m.) is a workbench; une consigne (f.) is an instruction."
+        "`Un établi` (m.) is a workbench; `une consigne` (f.) is an instruction."
       ],
       "examples": [
         {"french": "Samedi, j'ai participé à un atelier de réparation de vélos. Il **pleuvait**, et plusieurs personnes attendaient près de l'entrée. J'**avais apporté** une vieille lampe, sans savoir si elle fonctionnait encore. Une bénévole m'a montré comment vérifier le contact, puis nous avons trouvé un fil desserré. Au début, je pensais qu'il fallait tout remplacer. Cette petite réparation m'a fait revoir mon jugement, sans me rendre capable de réparer n'importe quel appareil.", "english": "On Saturday, I took part in a bicycle repair workshop. It was raining, and several people were waiting near the entrance. I had brought an old light, without knowing whether it still worked. A volunteer showed me how to check the contact, then we found a loose wire. At first, I thought everything needed replacing. This small repair made me reconsider my judgement without making me capable of repairing just any device.", "note": "Background, prior preparation, main events and a limited conclusion work together. The technical detail is narrative context, not repair instructions."},
@@ -37,34 +37,34 @@
         {"french": "Quand la porte s'est ouverte, je **cherchais** encore mon message de confirmation.", "english": "When the door opened, I was still looking for my confirmation message.", "note": "The search is viewed in progress at the moment of opening."}
       ],
       "mistakes": [
-        {"avoid": "Quand je suis arrivé, l'atelier avait déjà commencer.", "prefer": "Quand je suis arrivé, l'atelier avait déjà commencé.", "why": "The pluperfect requires the past participle commencé after avait. It places the start before the arrival."}
+        {"avoid": "Quand je suis arrivé, l'atelier avait déjà commencer.", "prefer": "Quand je suis arrivé, l'atelier avait déjà commencé.", "why": "The pluperfect requires the past participle `commencé` after `avait`. It places the start before the arrival."}
       ]
     },
     {
       "id": "links",
       "title": "Make causes and participants explicit",
       "paragraphs": [
-        "Après avoir + past participle presents an action completed before the main action. Its understood subject normally matches the main clause's subject. En + present participle, called the gerund, can express simultaneous action, means or cause; its subject should likewise be clear and ordinarily the same as that of the main verb.",
-        "Parce que states a cause. Donc presents a conclusion or consequence. Pourtant marks a result contrary to an expectation. Do not substitute them as decorative synonyms: the relationship between the facts decides. Use a full clause when a shortened one would make the wrong person act."
+        "`Après avoir` + past participle presents an action completed before the main action. Its understood subject normally matches the main clause's subject. `En` + present participle, called the gerund, can express simultaneous action, means or cause; its subject should likewise be clear and ordinarily the same as that of the main verb.",
+        "`Parce que` states a cause. `Donc` presents a conclusion or consequence. `Pourtant` marks a result contrary to an expectation. Do not substitute them as decorative synonyms: the relationship between the facts decides. Use a full clause when a shortened one would make the wrong person act."
       ],
       "points": [
-        "After an initial en arrivant, the subject that follows should be the person arriving.",
+        "After an initial `en arrivant`, the subject that follows should be the person arriving.",
         "An event occurring after another does not by itself prove that the earlier event caused it."
       ],
       "examples": [
-        {"french": "**Après avoir observé** la démonstration, j'ai posé une question.", "english": "After observing the demonstration, I asked a question.", "note": "The observer and the questioner are both je."},
-        {"french": "**En comparant** les deux pièces, nous avons repéré la différence.", "english": "By comparing the two parts, we spotted the difference.", "note": "The comparison is the means of discovering the difference; nous performs both actions."},
+        {"french": "**Après avoir observé** la démonstration, j'ai posé une question.", "english": "After observing the demonstration, I asked a question.", "note": "The observer and the questioner are both `je`."},
+        {"french": "**En comparant** les deux pièces, nous avons repéré la différence.", "english": "By comparing the two parts, we spotted the difference.", "note": "The comparison is the means of discovering the difference; `nous` performs both actions."},
         {"french": "L'explication était courte ; **pourtant**, j'ai compris ce qu'il fallait faire.", "english": "The explanation was short; nevertheless, I understood what needed to be done.", "note": "The contrast implies that shortness might have made understanding harder in this context."}
       ],
       "mistakes": [
-        {"avoid": "En arrivant au centre, la porte était fermée.", "prefer": "Quand je suis arrivé au centre, la porte était fermée.", "why": "The shortened clause wrongly attaches arriving to la porte. A full clause explicitly names the person who arrived."}
+        {"avoid": "En arrivant au centre, la porte était fermée.", "prefer": "Quand je suis arrivé au centre, la porte était fermée.", "why": "The shortened clause wrongly attaches arriving to `la porte`. A full clause explicitly names the person who arrived."}
       ]
     },
     {
       "id": "commentary",
       "title": "Move from what happened to why readers should care",
       "paragraphs": [
-        "Commentary interprets an experience in relation to a purpose: recommending an event, explaining a difficulty or suggesting a change. One successful visit supports a personal observation, not proof that everyone will have the same experience. Signal the move with cette expérience m'a montré or j'en retiens que, then keep the conclusion proportionate.",
+        "Commentary interprets an experience in relation to a purpose: recommending an event, explaining a difficulty or suggesting a change. One successful visit supports a personal observation, not proof that everyone will have the same experience. Signal the move with `cette expérience m'a montré` or `j'en retiens que`, then keep the conclusion proportionate.",
         "A TCF Canada task 2 text is an account or narrative with relevant commentary, opinion or argument, in 120–150 words. The genre and audience may vary. The model below is an original community article for self-review, not an official exam response."
       ],
       "points": [
@@ -72,7 +72,7 @@
         "A limitation can make a recommendation more useful, rather than cancelling it."
       ],
       "examples": [
-        {"french": "**J'en retiens que** demander une explication peut être plus utile que deviner.", "english": "What I take from it is that asking for an explanation can be more useful than guessing.", "note": "En refers back to the experience; peut avoids a universal guarantee."},
+        {"french": "**J'en retiens que** demander une explication peut être plus utile que deviner.", "english": "What I take from it is that asking for an explanation can be more useful than guessing.", "note": "`En` refers back to the experience; `peut` avoids a universal guarantee."},
         {"french": "Je recommanderais cet atelier aux débutants, **à condition de prévoir** assez de temps pour attendre son tour.", "english": "I would recommend this workshop to beginners, provided they allow enough time to wait their turn.", "note": "The account produces practical advice with a relevant condition."}
       ],
       "mistakes": []
@@ -102,7 +102,7 @@
     "translation": "Last Saturday, I discovered the neighbourhood tool-lending workshop. It was busy, and I did not know whom to approach. I had prepared a list of small jobs, but I had forgotten to note the necessary dimensions. A volunteer then explained how to choose equipment according to the project, without pushing me to borrow immediately. After talking with her, I decided to go home and measure my shelf before returning. So this visit did not allow me to start work immediately, but it saved me from a hasty choice. I recommend this workshop to people who want to ask questions before borrowing. However, allow time for the conversation and arrive with a precise description of your project: the assistance will be more useful both for you and for the volunteers.",
     "rubric": [
       "I distinguish background, earlier preparation and the events that advance the account.",
-      "The subject of après avoir or en + participle is clear; connectors express the intended relationship.",
+      "The subject of `après avoir` or `en` + participle is clear; connectors express the intended relationship.",
       "My commentary follows from the experience and gives readers a useful, proportionate recommendation.",
       "I check 120–150 words, audience and readability. This free-writing task remains self-review rather than an automatically assessed language level."
     ]

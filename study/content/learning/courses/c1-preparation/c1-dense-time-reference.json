@@ -25,40 +25,40 @@
       "title": "Build a timeline before interpreting the outcome",
       "paragraphs": [
         "This original bridge supports a user-selected NCLC 9+ goal across four TCF Canada skills. It is preparation, not an official complete C1 curriculum or a score guarantee. Its controlled questions measure the distinctions they actually ask about, not your overall reading or listening level.",
-        "The reporting point is the moment someone spoke or wrote. The pluperfect, a past form such as avait envoyé, places an event before another past point. The imperfect can describe the situation at that point. A conditional such as ouvrirait can report a future viewed from the past; it does not by itself mean that the opening was doubtful, nor prove that it happened.",
-        "First find dated anchors, then ask what was already done, what was ongoing, and what was still planned. A sentence introduced by si can make the plan conditional. The notice below is fictional: it gives no evidence about what actually happened in September."
+        "The reporting point is the moment someone spoke or wrote. The pluperfect, a past form such as `avait envoyé`, places an event before another past point. The imperfect can describe the situation at that point. A conditional such as `ouvrirait` can report a future viewed from the past; it does not by itself mean that the opening was doubtful, nor prove that it happened.",
+        "First find dated anchors, then ask what was already done, what was ongoing, and what was still planned. A sentence introduced by `si` can make the plan conditional. The notice below is fictional: it gives no evidence about what actually happened in September."
       ],
       "points": [
         "An earlier completed event and a later announced event must not collapse into one past event.",
-        "In a past report, le lendemain means the day after that reporting point, not necessarily tomorrow today."
+        "In a past report, `le lendemain` means the day after that reporting point, not necessarily tomorrow today."
       ],
       "examples": [
-        {"french": "Le 4 juin, la bibliothèque a annoncé qu'elle **ouvrirait** une salle d'étude en septembre. L'équipe **avait consulté** les usagers en mai, mais elle attendait encore la livraison du mobilier. Si celle-ci arrivait à temps, la salle accueillerait aussi des ateliers. La consultation avait révélé un besoin d'espaces calmes ; ce besoin ne justifiait toutefois pas, selon l'équipe, de supprimer les activités collectives.", "english": "On June 4, the library announced that it would open a study room in September. The team had consulted users in May, but it was still waiting for the furniture delivery. If that delivery arrived in time, the room would also host workshops. The consultation had revealed a need for quiet spaces; according to the team, however, that need did not justify ending group activities.", "note": "Consultation precedes the announcement; opening and workshops remain projected. Celle-ci refers to the delivery."},
+        {"french": "Le 4 juin, la bibliothèque a annoncé qu'elle **ouvrirait** une salle d'étude en septembre. L'équipe **avait consulté** les usagers en mai, mais elle attendait encore la livraison du mobilier. Si celle-ci arrivait à temps, la salle accueillerait aussi des ateliers. La consultation avait révélé un besoin d'espaces calmes ; ce besoin ne justifiait toutefois pas, selon l'équipe, de supprimer les activités collectives.", "english": "On June 4, the library announced that it would open a study room in September. The team had consulted users in May, but it was still waiting for the furniture delivery. If that delivery arrived in time, the room would also host workshops. The consultation had revealed a need for quiet spaces; according to the team, however, that need did not justify ending group activities.", "note": "Consultation precedes the announcement; opening and workshops remain projected. `Celle-ci` refers to the delivery."},
         {"french": "Quand le courriel est arrivé, nous **avions déjà réservé** la salle.", "english": "When the email arrived, we had already booked the room.", "note": "The booking predates the email; the order of clauses is not the event order."},
         {"french": "Lundi, elle a expliqué qu'elle rappellerait **le lendemain**.", "english": "On Monday, she explained that she would call back the next day.", "note": "The promised callback is on Tuesday. The report does not confirm that she called."}
       ],
       "mistakes": [
-        {"avoid": "Si le mobilier arriverait à temps, la salle accueillerait des ateliers.", "prefer": "Si le mobilier arrivait à temps, la salle accueillerait des ateliers.", "why": "In this hypothetical condition, use si + imperfect, then conditional in the result. This does not ban every conditional after si: an indirect question is a different construction."}
+        {"avoid": "Si le mobilier arriverait à temps, la salle accueillerait des ateliers.", "prefer": "Si le mobilier arrivait à temps, la salle accueillerait des ateliers.", "why": "In this hypothetical condition, use `si` + imperfect, then conditional in the result. This does not ban every conditional after `si`: an indirect question is a different construction."}
       ]
     },
     {
       "id": "reference",
       "title": "Find the antecedent, not merely the nearest noun",
       "paragraphs": [
-        "An antecedent is the word or idea a later expression refers back to. Gender and number help: celui-ci is masculine singular, celle-ci feminine singular, ceux-ci masculine plural, celles-ci feminine plural. But agreement alone may leave several candidates; use the action and the surrounding argument.",
-        "Cela can refer to a whole event or claim. En may replace a de phrase; y may replace a place or an à phrase referring to a thing. Reconstruct the underlying expression before deciding what has been replaced. If two people could both be elle, repeat a name rather than pretending the pronoun is unambiguous."
+        "An antecedent is the word or idea a later expression refers back to. Gender and number help: `celui-ci` is masculine singular, `celle-ci` feminine singular, `ceux-ci` masculine plural, `celles-ci` feminine plural. But agreement alone may leave several candidates; use the action and the surrounding argument.",
+        "`Cela` can refer to a whole event or claim. `En` may replace a `de` phrase; `y` may replace a place or an `à` phrase referring to a thing. Reconstruct the underlying expression before deciding what has been replaced. If two people could both be `elle`, repeat a name rather than pretending the pronoun is unambiguous."
       ],
       "points": [
-        "Keep a source's attribution: selon l'équipe marks the team's judgement, not an independently established conclusion.",
-        "Do not substitute dont for every relative pronoun. Dont represents a de relationship; que can be the direct object."
+        "Keep a source's attribution: `selon l'équipe` marks the team's judgement, not an independently established conclusion.",
+        "Do not substitute `dont` for every relative pronoun. `Dont` represents a `de` relationship; `que` can be the direct object."
       ],
       "examples": [
-        {"french": "Le comité a étudié la proposition. Il **en** a retenu deux éléments.", "english": "The committee examined the proposal. It retained two elements from it.", "note": "En reconstructs de la proposition, not du comité."},
-        {"french": "La salle fermera plus tôt. **Cela** obligera le club à changer d'horaire.", "english": "The room will close earlier. That will force the club to change its schedule.", "note": "Cela refers to the earlier closing, not just to the room."},
-        {"french": "Nora a appelé Salomé après sa réunion. **Salomé** a proposé un autre horaire.", "english": "Nora called Salomé after her meeting. Salomé suggested another time.", "note": "The repeated name fixes who made the suggestion. Sa réunion remains ambiguous without more context; good reading can identify what is not specified."}
+        {"french": "Le comité a étudié la proposition. Il **en** a retenu deux éléments.", "english": "The committee examined the proposal. It retained two elements from it.", "note": "`En` reconstructs `de la proposition`, not `du comité`."},
+        {"french": "La salle fermera plus tôt. **Cela** obligera le club à changer d'horaire.", "english": "The room will close earlier. That will force the club to change its schedule.", "note": "`Cela` refers to the earlier closing, not just to the room."},
+        {"french": "Nora a appelé Salomé après sa réunion. **Salomé** a proposé un autre horaire.", "english": "Nora called Salomé after her meeting. Salomé suggested another time.", "note": "The repeated name fixes who made the suggestion. `Sa réunion` remains ambiguous without more context; good reading can identify what is not specified."}
       ],
       "mistakes": [
-        {"avoid": "La décision dont le comité a annoncée concerne les ateliers.", "prefer": "La décision que le comité a annoncée concerne les ateliers.", "why": "The verb is annoncer une décision, with a direct object, not annoncer de. Que is that object; annoncée agrees with the preceding feminine object."}
+        {"avoid": "La décision dont le comité a annoncée concerne les ateliers.", "prefer": "La décision que le comité a annoncée concerne les ateliers.", "why": "The verb is `annoncer une décision`, with a direct object, not `annoncer de`. `Que` is that object; `annoncée` agrees with the preceding feminine object."}
       ]
     },
     {

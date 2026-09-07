@@ -4,7 +4,7 @@
 
 **User goal:** exceptionally clear grammar teaching, with breadth comparable to the public Kwiziq A1–B2 topic catalogue, supporting **NCLC 9+ across all four TCF Canada skills**.
 
-**Current status:** public topic inventory and application baseline inspected; rebuild design drafted. The replacement curriculum is **not yet written or published**. The 479 benchmark topics have not yet received a complete teaching-level crosswalk.
+**Current status:** implementation and original lesson authoring are in progress on isolated branches. The course platform and prerequisite-closed lesson batches are being integrated locally; the complete 479-topic crosswalk and release review remain outstanding. The rebuild is **not yet published**. The [implementation contract](apprendre-implementation-contract.md) records the concrete schema, ownership and bounded practice pilot that supersede earlier design alternatives below.
 
 ## 1. What success means
 
@@ -74,7 +74,7 @@ Each original lesson should have a source record identifying the grammatical ref
 
 ## 4. Build a skill map before writing at scale
 
-The session's `apprendre-a1-b2-coverage-register.json` has **479 rows**. An initial sample of ten has been checked against actual visible teaching: three reuse/refine, four additions, two split/strengthen and one recognition-track decision. **469 remain unreviewed.** None is marked assessed or mastered.
+The planning-stage session register, `apprendre-a1-b2-coverage-register.json`, contained **479 rows**, with ten initial teaching-level checks and 469 awaiting review. It is a historical baseline, not the release ledger. Each curriculum owner is now resolving the complete level into original teaching and exercise evidence in `study/content/learning/coverage/{a1,a2,b1,b2}.json`, checked against the committed public-index snapshots. Mapping a topic does not mark a learner assessed or proficient.
 
 For every row, record the benchmark topic, our original skill ID, current lesson/section evidence, prerequisite skills, introduction level, later consolidation level, and disposition:
 
@@ -171,29 +171,30 @@ Sources: [FEI TCF Canada format](https://www.france-education-international.fr/t
 
 ## 8. Completion and mastery must remain different
 
-**Planning assumption:** add a separate practice-and-mastery area. The user was unavailable when asked to confirm this scope, so this is a proposed additive design, not a recorded approval of a redesigned lesson page.
+**Implementation decision:** add a separate controlled-practice area, following the user's subsequent instruction to carry out the complete rebuild. Do not redesign the clean lesson page or restore removed standalone practice, takeaway or vocabulary panels. Use the bounded pilot in the implementation contract, not an unvalidated proprietary-style mastery score.
 
 Keep the existing manual completion check and its history. Store assessed evidence separately. Reading a lesson or importing an old completion must never silently award mastery.
 
-Proposed practice sequence:
+The initial practice sequence is:
 
-1. Brief diagnostic to identify likely starting points, without pretending a few items measure every skill.
-2. Untimed learning practice with immediate, specific explanations.
-3. A fresh check requiring both recognition and unaided production.
-4. Delayed retrieval with new items, interleaving confusable skills.
-5. A transfer task in a new communicative context.
+1. Untimed learning practice with specific explanations and explicitly recorded hints.
+2. A separate check with feedback withheld until submission.
+3. A distinct review pool, available at least seven days after the first successful check.
+4. A contextual production task with a model, translation and self-review rubric, kept separate from independently assessed evidence.
 
 Item types should include meaning discrimination, short production, transformations, error repair and contextual application. Multiple-choice recognition alone is insufficient. Changing only the names in a repeated sentence does not make it a strong independent holdout.
 
-Initial prototype banks can start small, but must expand before making mastery decisions. The bank must support genuinely unseen checks, accepted alternatives, relevant exceptions and delayed review. Item reuse for learning is useful; repeatedly answering an already-seen item cannot serve as independent mastery evidence.
+Each lesson has at least four learning items, eight check items and four distinct review items. At least half of each check and review pool requires constructed answers. Add more items wherever the mapped distinctions need them. These deliberately bounded banks provide limited grammar-practice evidence, not comprehensive or permanent mastery. Item reuse is useful for learning but must be labelled rehearsed, not independent evidence.
 
-Proposed pilot gates are **product rules to evaluate**, not CEFR or Kwiziq scoring rules. One candidate requires at least 20 distinct first-attempt opportunities over three sessions, at least 85% overall and 80% on ten or more constructed responses, followed by 80% on ten new mixed prompts 7–14 days later, including at least five constructed responses and contextual application. Pilot these numbers against independent teacher judgement and later transfer; do not call them validated or universally optimal.
+The implemented pilot gates are **80% overall and 75% on constructed responses**, followed by the separate delayed review. These are transparent product rules, not validated CEFR, NCLC or Kwiziq scoring rules. The earlier candidate involving twenty opportunities, three sessions and larger holdouts is not part of this release. Larger banks and teacher-calibrated transfer would be needed before stronger claims could be justified.
+
+A failed first check must not permanently strand the learner. A successful, clearly labelled rehearsed check can unlock the delayed review, while the first failure and check freshness remain recorded. Review retries also remain available, but rehearsed success cannot substitute for successful fresh review. Track stable item identities and prompt exposure across content versions; a cosmetic rewrite does not create an unseen question.
 
 Provide corrective feedback during learning, distinguish unaided first attempts from hints/retries, and never let a high recognition average conceal weak production or an untested strand. A single contextual response also cannot establish spontaneous speaking ability.
 
-Model evidence states such as `not assessed`, `developing`, `secure`, and `review due`; do not imply permanent mastery or lower a recorded achievement without showing why review is recommended.
+Show learning, check and review outcomes separately, with freshness, assistance and exhausted-bank limits visible. Do not imply permanent mastery or erase an earlier result when recommending further review.
 
-Use deterministic grading only where accepted answers can be specified reliably. Handle apostrophe styles and spacing safely, but do not erase accents, agreement or semantic differences that the item is testing. Accept legitimate spelling and grammatical alternatives. Open production needs a visible rubric and cautious feedback, not keyword matching or silent AI certainty.
+Use deterministic grading only where accepted answers can be specified reliably. Normalize apostrophe styles and whitespace; ignore case and terminal sentence punctuation unless the item explicitly enables the corresponding sensitivity flag. Preserve accents, agreement and internal punctuation such as inversion hyphens. Accept legitimate spelling and grammatical alternatives. Open production needs a visible rubric and cautious self-review, not keyword matching or silent AI certainty.
 
 Retrieval and delayed transfer are supported by [Roediger and Karpicke (2006)](https://doi.org/10.1111/j.1467-9280.2006.01693.x) and [Butler (2010)](https://pubmed.ncbi.nlm.nih.gov/20804289/). These studies support design principles; they do not validate French proficiency cutoffs. Use explicit criteria and reviewer calibration for open responses, consistent with the Council's [classroom assessment guidance](https://www.coe.int/en/web/common-european-framework-reference-languages/classroom-assessment).
 
@@ -201,17 +202,17 @@ Retrieval and delayed transfer are supported by [Roediger and Karpicke (2006)](h
 
 | Surface | Planned change and safeguard |
 | --- | --- |
-| Content organisation | Move from one giant mutable JSON to a validated manifest with independently owned lesson files and skill records. Integrate serially; do not repeat simultaneous writes to one curriculum file. |
-| Schema | Add CEFR introduction/consolidation levels, original skill IDs, prerequisites, version and application metadata. Keep difficulty separate from CEFR level if both remain. |
-| Loading | Preserve typed validation and caching. Use a lightweight index for the hub and load detailed lesson content on demand; avoid embedding the entire expanded course in every page. |
+| Content organisation | Add independently owned lesson JSON files and exact coverage ledgers. Preserve the existing `curriculum.json` reference library unchanged. Integrate serially; do not repeat simultaneous writes to one curriculum file. |
+| Schema | Validate CEFR level, topic, stable lesson and item IDs, prerequisites, version, source records, teaching sections, practice pools and contextual production. Existing reference difficulty labels remain distinct from CEFR levels. |
+| Loading | Preserve typed validation and caching. Emit only the information needed for the hub; do not embed the detailed teaching or answer banks of the expanded course in every page. |
 | Lesson rendering | Reuse current sections, examples and corrections. Add safe structured emphasis/table support only where needed; do not inject raw HTML or break read-aloud and annotation text. |
 | Search/navigation | Index French and English concept names and aliases, filter by level/topic, preserve progressive enhancement and remembered table/card preference. |
 | Existing progress | Keep stable IDs/slugs where the lesson remains the same. Do not translate old `completed_at` into assessed competence. |
-| Split lessons | Preserve old routes and annotation source keys through a compatibility view or explicit mapping; never delete or silently reattach old notes. |
+| Routes and references | Keep existing `/apprendre/<slug>/` reference routes and annotation keys. Add `/apprendre/cours/<slug>/` course routes and their separate practice pages; retain an explicit reference-library scope on the hub. Never silently reattach old notes. |
 | Assessment data | Store immutable item/version attempts and derived skill evidence separately from manual completion, with per-user access control. |
 | Account features | Include any new learner records in account export and reset/deletion paths, as existing Learn progress is today. |
 | Other pages | Keep home summaries, notes, previous/next links and expression/comprehension integration consistent. |
-| Release control | Stage the new catalogue behind a flag until the relevant acceptance gates pass; do not replace production with an unfinished draft. |
+| Release control | Keep integration private until the complete curriculum and acceptance gates are ready. The course catalogue becomes the default hub when its files are deployed; do not deploy partial authoring batches. |
 
 Before migration, make a manifest of all 83 published lesson IDs/slugs, section annotation keys and source coverage. Test compatibility against that manifest. Content moved to a different route needs an explicit policy, not accidental orphaning.
 
@@ -248,12 +249,15 @@ No reliable total lesson count, completion time or score guarantee should be inv
 
 ## Planning artifacts
 
-Source inventories, the working coverage register and the preservation manifest are session artifacts, not copies of lesson text to publish in the application.
+The original research artifacts remain in the session. Committed benchmark metadata, the legacy preservation manifest and completed coverage ledgers support reproducible release checks; none contains a copied proprietary lesson or quiz bank.
 
 - `kwiziq-index-a1.json`, `kwiziq-index-a2.json`, `kwiziq-index-b1.json`, `kwiziq-index-b2.json`: public topic metadata snapshots.
-- `apprendre-a1-b2-coverage-register.json`: 479 crosswalk rows; ten initial teaching-level checks and 469 still awaiting individual mapping review.
+- `apprendre-a1-b2-coverage-register.json`: historical planning register with 479 rows and ten initial teaching-level checks.
 - `apprendre-coverage-spot-checks.json`: evidence and planned disposition for the ten inspected topics.
 - `apprendre-published-preservation-manifest.json`: all 83 published lesson identities and 186 annotation keys.
 - `apprendre-teaching-prototype.md`: original example of the proposed teaching standard.
+- `study/content/learning/benchmarks/`: committed factual index snapshots.
+- `study/content/learning/coverage/`: complete per-level release mappings, supplied by the respective curriculum owners.
+- `study/content/learning/legacy_manifest.json`: committed preservation baseline for published identities, sources and annotation keys.
 
 This plan is intentionally more demanding than replacing paragraphs. The meaningful outcome is a coherent, original learning system with traceable coverage and observable application.
